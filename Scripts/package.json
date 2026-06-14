@@ -1,0 +1,9 @@
+{
+  "name": "madhyasth-darshan-scripts",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Helper scripts for the Madhyasth Darshan workspace",
+  "dependencies": {
+    "puppeteer": "^24.43.1"
+  }
+}
