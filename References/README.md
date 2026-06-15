@@ -6,8 +6,8 @@ Local copies of source texts cited across `Studies/`. See [MANIFEST.md](MANIFEST
 
 - **Madhyasth Darshan** primary texts (MVD, SB, JV, AVD, JVD) and the MD mapping spreadsheet.
 - **Advaita Vedanta** translations under `Advaita-Vedanta/`.
-- **Comparative philosophy** (AV, SV) under `Comparative-Philosophy/`.
-- **Three author-hosted open-access papers** (Chalmers 1995, Nagel 1974, Strawson 2006) under `Science/`.
+- **Comparative philosophy and religious ethics** (AV, SV, SEP snapshots) under `Comparative-Philosophy/`.
+- **Open-access science papers** (Chalmers 1995, Nagel 1974, Strawson 2006, Crockett 2013) under `Science/`.
 - **Open-access modern philosophy / cognitive science papers** under `Modern-Philosophy/`.
 
 **What we do not store**
@@ -41,6 +41,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File Scripts\_download_references
 <!-- studies-catalog -->
 | Paper | Primary tags |
 |-------|----------------|
+| [Ethics-And-Morals-In-Human-Beings.pdf](../Studies/Ethics-And-Morals-In-Human-Beings.pdf) | MVD, SB, JV; traditional religious ethics (SEP Theological Voluntarism, SEP Natural Law Ethics local; Matthew 22, Quran 16 external); Advaita (BG, BJM, VC); modern moral science/philosophy (Crockett 2013, SEP Moral Psychology local; Curry et al. 2019, Graham et al. 2013, Greene et al. 2001, Haidt 2001, Tomasello and Vaish 2013 external) |
 | [How-To-Form-Self-Sustaining-Organizations.pdf](../Studies/How-To-Form-Self-Sustaining-Organizations.pdf) | MVD, SB, JV; AV, SV; ATR (external) |
 | [Human-Behavior-And-Society-In-Madhyasth-Darshan.pdf](../Studies/Human-Behavior-And-Society-In-Madhyasth-Darshan.pdf) | MVD, SB, JV |
 | [Knowledge-Knower-And-Known-In-Madhyasth-Darshan.pdf](../Studies/Knowledge-Knower-And-Known-In-Madhyasth-Darshan.pdf) | MVD, SB, JV; Advaita (CU, BSB, DDV, BJM); modern science/philosophy (20 works, 10 local / 10 external) |
@@ -76,11 +77,12 @@ powershell -NoProfile -ExecutionPolicy Bypass -File Scripts\_download_references
 | **DDV** | [DDV-Drig-Drishya-Viveka-Nikhilananda.pdf](Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf) | Swami Nikhilananda translation |
 | **BJM** | [BJM-Brahma-Jnanavali-Mala.md](Advaita-Vedanta/BJM-Brahma-Jnanavali-Mala.md) | Verbatim text from Vedanta Spiritual Library (no separate PDF available) |
 
-## Science (author-hosted papers only)
+## Science (open-access papers)
 
 | Tag | File | Notes |
 |-----|------|-------|
 | **Chalmers 1995** | [Chalmers-1995-Facing-Up-to-the-Problem-of-Consciousness.pdf](Science/Chalmers-1995-Facing-Up-to-the-Problem-of-Consciousness.pdf) | Author-hosted PDF |
+| **Crockett 2013** | [Crockett-2013-Models-of-Morality.pdf](Science/Crockett-2013-Models-of-Morality.pdf) | Open access, CC BY |
 | **Nagel 1974** | [Nagel-1974-What-Is-It-Like-to-Be-a-Bat.pdf](Science/Nagel-1974-What-Is-It-Like-to-Be-a-Bat.pdf) | University-hosted PDF |
 | **Strawson 2006** | [Strawson-2006-Realistic-Monism-Panpsychism.pdf](Science/Strawson-2006-Realistic-Monism-Panpsychism.pdf) | Author-hosted PDF |
 
@@ -93,6 +95,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File Scripts\_download_references
 | **Limanowski and Blankenburg 2013** | [Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf](Modern-Philosophy/Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf) | Open access |
 | **Melloni et al. 2025** | [Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf](Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf) | Open access |
 | **Piredda 2024** | [Piredda-2024-Tacitly-Situated-Self.pdf](Modern-Philosophy/Piredda-2024-Tacitly-Situated-Self.pdf) | Open access |
+| **SEP Moral Psychology** | [SEP-2025-Moral-Psychology-Empirical-Approaches.html](Modern-Philosophy/SEP-2025-Moral-Psychology-Empirical-Approaches.html) | Stanford Encyclopedia of Philosophy archived snapshot |
 | **Tufft et al. 2024** | [Tufft-et-al-2024-Flow-Active-Inference.pdf](Modern-Philosophy/Tufft-et-al-2024-Flow-Active-Inference.pdf) | Open access |
 | **Wiese 2024** | [Wiese-2024-Artificial-Consciousness-Free-Energy-Principle.pdf](Modern-Philosophy/Wiese-2024-Artificial-Consciousness-Free-Energy-Principle.pdf) | Open access |
 
@@ -101,4 +104,6 @@ powershell -NoProfile -ExecutionPolicy Bypass -File Scripts\_download_references
 | Tag | File | Notes |
 |-----|------|-------|
 | **AV** | [AV-Shankara-Stanford-Encyclopedia.html](Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.html) | *Śaṅkara*, Stanford Encyclopedia of Philosophy (snapshot) |
+| **SEP Natural Law Ethics** | [SEP-Natural-Law-Ethics.html](Comparative-Philosophy/SEP-Natural-Law-Ethics.html) | *The Natural Law Tradition in Ethics*, Stanford Encyclopedia of Philosophy (snapshot) |
+| **SEP Theological Voluntarism** | [SEP-Theological-Voluntarism.html](Comparative-Philosophy/SEP-Theological-Voluntarism.html) | *Theological Voluntarism*, Stanford Encyclopedia of Philosophy (snapshot) |
 | **SV** | [SV-Vivekananda-Practical-Vedanta.pdf](Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf) | *Practical Vedanta* lectures (Complete Works material) |

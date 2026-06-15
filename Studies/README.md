@@ -23,6 +23,7 @@ Each document's **References** section links to local copies under [`References/
 <!-- studies-catalog -->
 | Document | Description |
 |----------|-------------|
+| [Ethics-And-Morals-In-Human-Beings](Ethics-And-Morals-In-Human-Beings.pdf) | Ethics, morals, humane conduct, Advaita Vedanta, and modern moral science |
 | [How-To-Form-Self-Sustaining-Organizations](How-To-Form-Self-Sustaining-Organizations.pdf) | Organisations that sustain without instrumentalising their members |
 | [Human-Behavior-And-Society-In-Madhyasth-Darshan](Human-Behavior-And-Society-In-Madhyasth-Darshan.pdf) | Behaviour, ethics, and social organisation in the darshan |
 | [Knowledge-Knower-And-Known-In-Madhyasth-Darshan](Knowledge-Knower-And-Known-In-Madhyasth-Darshan.pdf) | Comparative study of knowledge, knower, and known in Madhyasth Darshan, Advaita Vedanta, and Modern Philosophy |
