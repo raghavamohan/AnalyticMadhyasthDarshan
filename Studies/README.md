@@ -21,17 +21,17 @@ Each document's **References** section links to local copies under [`References/
 ## Documents
 
 <!-- studies-catalog -->
-| Document | Description |
-|----------|-------------|
-| [Aesthetics-In-Madhyasth-Darshan](Aesthetics-In-Madhyasth-Darshan.pdf) | Aesthetics, beauty, art, Advaita Vedanta, and modern philosophy from a Madhyasth Darshan standpoint |
-| [Ethics-And-Morals-In-Human-Beings](Ethics-And-Morals-In-Human-Beings.pdf) | Ethics, morals, humane conduct, Advaita Vedanta, and modern moral science |
-| [How-To-Form-Self-Sustaining-Organizations](How-To-Form-Self-Sustaining-Organizations.pdf) | Organisations that sustain without instrumentalising their members |
-| [Human-Behavior-And-Society-In-Madhyasth-Darshan](Human-Behavior-And-Society-In-Madhyasth-Darshan.pdf) | Behaviour, ethics, and social organisation in the darshan |
-| [Knowledge-Knower-And-Known-In-Madhyasth-Darshan](Knowledge-Knower-And-Known-In-Madhyasth-Darshan.pdf) | Comparative study of knowledge, knower, and known in Madhyasth Darshan, Advaita Vedanta, and Modern Philosophy |
-| [Madhyasth-Darshan-Category-Theory-Explained](Madhyasth-Darshan-Category-Theory-Explained.pdf) | Category-theory lens on the darshan's structure |
-| [The-Coexistence-Template](The-Coexistence-Template.pdf) | Formal template of units, relationships, values, and assembly |
-| [What-Is-Existence-In-Madhyasth-Darshan](What-Is-Existence-In-Madhyasth-Darshan.pdf) | Madhyasth Darshan, Advaita Vedanta, and modern philosophy on existence, what exists, and whether existence begins |
-| [Why-Humans-Are-Not-Just-Material](Why-Humans-Are-Not-Just-Material.pdf) | Madhyasth Darshan, science, and Advaita Vedanta on whether humans are more than matter |
+| Document | Category | Description |
+|----------|----------|-------------|
+| [Aesthetics-In-Madhyasth-Darshan](Aesthetics-In-Madhyasth-Darshan.pdf) | Aesthetics | Aesthetics, beauty, art, Advaita Vedanta, and modern philosophy from a Madhyasth Darshan standpoint |
+| [Ethics-And-Morals-In-Human-Beings](Ethics-And-Morals-In-Human-Beings.pdf) | Ethics | Ethics, morals, humane conduct, Advaita Vedanta, and modern moral science |
+| [How-To-Form-Self-Sustaining-Organizations](How-To-Form-Self-Sustaining-Organizations.pdf) | Social Philosophy | Organisations that sustain without instrumentalising their members |
+| [Human-Behavior-And-Society-In-Madhyasth-Darshan](Human-Behavior-And-Society-In-Madhyasth-Darshan.pdf) | Social Philosophy | Behaviour, ethics, and social organisation in the darshan |
+| [Knowledge-Knower-And-Known-In-Madhyasth-Darshan](Knowledge-Knower-And-Known-In-Madhyasth-Darshan.pdf) | Epistemology | Comparative study of knowledge, knower, and known in Madhyasth Darshan, Advaita Vedanta, and Modern Philosophy |
+| [Madhyasth-Darshan-Category-Theory-Explained](Madhyasth-Darshan-Category-Theory-Explained.pdf) | Formalisation | Category-theory lens on the darshan's structure |
+| [The-Coexistence-Template](The-Coexistence-Template.pdf) | Formalisation | Formal template of units, relationships, values, and assembly |
+| [What-Is-Existence-In-Madhyasth-Darshan](What-Is-Existence-In-Madhyasth-Darshan.pdf) | Ontology | Madhyasth Darshan, Advaita Vedanta, and modern philosophy on existence, what exists, and whether existence begins |
+| [Why-Humans-Are-Not-Just-Material](Why-Humans-Are-Not-Just-Material.pdf) | Philosophical Anthropology | Madhyasth Darshan, science, and Advaita Vedanta on whether humans are more than matter |
 <!-- /studies-catalog -->
 
 ## License
