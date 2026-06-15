@@ -225,6 +225,19 @@ The knowable is the objective, physical universe of matter, energy, space, and t
 
 However, this third-person objective method leaves open the **Hard Problem of Consciousness**: why and how should physical brain processes give rise to subjective, first-person experiences (Chalmers 1995; Nagel 1974)? Some modern philosophers take seriously the idea of *panpsychism* (consciousness is a fundamental property of matter) or *realistic monism* (Strawson 2006; Goff 2019), but these remain speculative interpretations rather than mainstream scientific findings.
 
+### Recent Developments: Beyond Simple Physicalism
+
+Recent modern philosophy and cognitive science are more diverse than simple brain-reduction. The following developments are especially relevant for future comparison with Madhyasth Darshan:
+
+1. **Illusionism and phenomenal realism.** Illusionists argue that phenomenal consciousness, as usually conceived, is a powerful introspective illusion that must be explained rather than accepted as a basic datum (Frankish 2016). Recent Russellian and panpsychist accounts move in the opposite direction: they accept phenomenal consciousness as fundamental or intrinsic to reality, often as a dual-aspect monism rather than a substance dualism (Strawson 2006; Goff 2019; Hashemi 2025).
+2. **Predictive processing and the free energy principle.** Here the knower is not a passive spectator but a self-organising system that models the causes of sensory input, acts to reduce uncertainty, and maintains itself through active inference. This gives a modern naturalistic account of agency, selfhood, and "self-evidencing" without positing an eternal *jeevan* (Limanowski and Blankenburg 2013; Wiese 2024; Tufft et al. 2024).
+3. **Embodied, enactive, and situated selfhood.** 4E and enactive approaches treat cognition as embodied, embedded, enacted, and extended. The self is not merely an inner representation in the brain; it is shaped through body, environment, habit, and social practice (IEP Enactivism; Piredda 2024). This comes closer to Madhyasth Darshan's insistence that knowing must become participation, although it still does not accept a constitutionally complete *jeevan*.
+4. **Social virtue epistemology.** Recent epistemology questions the individualistic picture of knowledge and stresses trust, testimony, epistemic environments, intellectual virtues, and collective maintenance of knowledge (Jarczewski and Riggs 2025). This is a useful modern comparison point for Madhyasth Darshan's claim that knowledge must become awakened tradition and humane conduct.
+5. **Perspectival realism.** Recent philosophy of science argues that science is always a "view from somewhere": historically situated, instrument-mediated, and community-based, yet still capable of realist knowledge (Massimi 2022). This is worth comparing with Madhyasth Darshan's *darshan-drishya-drishti*: both reject a view-from-nowhere, but Madhyasth Darshan claims that right perspective can culminate in realization of coexistence.
+6. **Theory pluralism in consciousness science.** Contemporary consciousness research contains many competing theories, including global neuronal workspace, integrated information, higher-order, recurrent processing, illusionist, and panpsychist accounts. A large adversarial test of IIT and GNWT found results that partly supported and partly challenged both (Melloni et al. 2025), confirming that modern science has no settled account of subjective experience.
+
+These developments do not remove the major modern objection to Madhyasth Darshan — the lack of publicly measurable evidence for *jeevan*. But they do make the comparison more subtle. The live modern debate is not only "matter versus soul"; it also asks whether cognition is brain-bound or embodied, individual or social, representational or enactive, reductive or panpsychist, and whether scientific knowledge is perspective-free or perspectival.
+
 ---
 
 ## 4. Comparing the Three Views
@@ -239,6 +252,7 @@ However, this third-person objective method leaves open the **Hard Problem of Co
 | **Basic Structure** | *Darshan-drishya-drishti*: right perspective sees the real scene and becomes holistic view | *Drig-drishya-viveka*: seer-seen discrimination negates the seen to reveal the witness | Subject-object modelling: observer builds public, testable models of objects/events |
 | **Is the World Real?** | Yes. "Brahma is truth, the world is perpetual." | Provisionally (*vyavaharika*), yes; absolutely (*paramarthika*), no. | Yes, for scientific realism and physicalism; methodologically, it is treated as publicly observable and law-governed. |
 | **Method of Knowing** | Study, self-verification, realization-behavior-experiment, and evidence in conduct | Scripture (*shravana*), reasoning (*manana*), and meditation (*nididhyasana*) | Observation, experiment, mathematical modeling, prediction, and replication |
+| **Recent Modern Alternatives** | Can be compared with MD's active *jeevan*, conduct-evidence, and awakened tradition | Can be compared with Advaita's witness and no-self tendencies | Predictive processing, enactivism, social epistemology, perspectival realism, illusionism, IIT/GNWT, and panpsychism |
 | **Status of Ethics** | Humane conduct is part of complete knowledge and its evidence | Ethics purifies the mind and operates within provisional reality | Ethics is explained through evolution, psychology, social contract, or human values |
 | **Life's Purpose** | Awakening: resolution, prosperity, harmony, and coexistence in society | Liberation (*moksha*): freedom from birth and death by realizing identity with Brahman | Biological survival, adaptation, and human-constructed meaning |
 
@@ -251,6 +265,7 @@ However, this third-person objective method leaves open the **Hard Problem of Co
 3. **Active vs. Passive Knower:** In Advaita, the true Self is an actionless witness (*sakshi* / *akriya*). In Madhyasth Darshan, the knower (*jeevan*) is active, possessing structure, hope, thought, desire, evaluation, and the capacity for realization. In modern science, the knower is a dynamic, evolving biological system.
 4. **Knowledge Must Become Conduct:** In Madhyasth Darshan, *gyan* must unfold as *vivek* and *vigyan*, and then become evident through realization, behavior, and experiment. Advaita's highest knowledge culminates in liberation from mistaken identification. Modern science's knowledge culminates in predictive control, explanation, and replicable models.
 5. **The Status of Space:** In modern physics, space-time is a physical structure described mathematically. In Advaita, space (*akasha*) belongs to the order of appearance and is therefore *mithya*. In Madhyasth Darshan, Space (*shunya* / *vyapak*) is eternal, omnipresent, all-pervasive knowledge and energy itself, but not an individual conscious unit.
+6. **Where Recent Modern Views Come Closer to MD:** Predictive processing and enactivism make the knower active and embodied; social virtue epistemology makes knowledge socially maintained; perspectival realism makes knowledge perspective-dependent but not merely subjective. These partially resemble Madhyasth Darshan's active seer, conduct-evidence, and perspective structure. The decisive difference remains ontological: these modern views generally do not accept *jeevan* as a real, eternal sentient unit.
 
 ---
 
@@ -273,7 +288,8 @@ However, this third-person objective method leaves open the **Hard Problem of Co
 *   **Strengths:** It has delivered unmatched predictive power, medicine, and technology. Its self-correcting methodology of replication and peer review is the most successful system for eliminating subjective bias.
 *   **Weaknesses:**
     *   **The Hard Problem:** Science has failed to explain how objective, physical brain processes (like neurons firing) can produce subjective, qualitative experience (like seeing red or feeling love).
-    *   **First-Person Blindness:** By ruling out first-person subjective experience as valid evidence, science ignores the very medium through which all scientific observations are made.
+    *   **First-Person Blindness:** By treating first-person subjective experience as something to be explained from the outside, science can understate the evidential importance of the very medium through which all observations are made.
+    *   **Fragmentation:** Recent philosophy of mind and consciousness science have many live but competing accounts — illusionism, panpsychism, predictive processing, enactivism, IIT, GNWT, higher-order theories, and others. This pluralism is intellectually healthy, but it also means modern philosophy has no unified answer to the knower-known-knowledge triad.
 
 ---
 
@@ -299,9 +315,20 @@ All sources cited in this document, grouped by tradition. Each entry begins with
 - **Chalmers 1995** — Chalmers, D. ["Facing Up to the Problem of Consciousness."](../References/Science/Chalmers-1995-Facing-Up-to-the-Problem-of-Consciousness.pdf) *Journal of Consciousness Studies*, 2(3), 200–219.
 - **Churchland 1986** — Churchland, P. S. [*Neurophilosophy: Toward a Unified Science of the Mind-Brain*](https://mitpress.mit.edu/9780262530853/neurophilosophy/). MIT Press.
 - **Dennett 1991** — Dennett, D. [*Consciousness Explained*](https://www.penguinrandomhouse.com/books/311069/consciousness-explained-by-daniel-c-dennett/). Little, Brown.
+- **Frankish 2016** — Frankish, K. ["Illusionism as a Theory of Consciousness."](../References/Modern-Philosophy/Frankish-2016-Illusionism-Theory-Consciousness.pdf) *Journal of Consciousness Studies*, 23(11–12), 11–39.
 - **Goff 2019** — Goff, P. [*Galileo's Error: Foundations for a New Science of Consciousness*](https://philipgoff.com/galileos-error/). Pantheon.
+- **Hashemi 2025** — Hashemi, A. ["How to Understand Russellian Panpsychism."](https://doi.org/10.1007/s10670-024-00877-6) *Erkenntnis*, 90, 3747–3766.
+- **IEP Enactivism** — ["Enactivism."](https://iep.utm.edu/enactivism/) *Internet Encyclopedia of Philosophy*.
+- **Jarczewski and Riggs 2025** — Jarczewski, D., and Riggs, W. D. ["Socializing Virtue Epistemology."](../References/Modern-Philosophy/Jarczewski-Riggs-2025-Socializing-Virtue-Epistemology.pdf) *Episteme*, First View, 1–19. https://doi.org/10.1017/epi.2025.10
 - **Kandel et al. 2021** — Kandel, E. R., et al. [*Principles of Neural Science*](https://www.mheducation.com/highered/product/principles-neural-science-kandel/9781259642234.html), 6th ed. McGraw-Hill.
 - **Kim 2005** — Kim, J. [*Physicalism, or Something Near Enough*](https://press.princeton.edu/books/paperback/9780691117532/physicalism-or-something-near-enough). Princeton University Press.
+- **Kuhn 2024** — Kuhn, R. L. ["A Landscape of Consciousness: Toward a Taxonomy of Explanations and Implications."](https://doi.org/10.1016/j.pbiomolbio.2023.12.003) *Progress in Biophysics and Molecular Biology*, 190, 28–169.
+- **Limanowski and Blankenburg 2013** — Limanowski, J., and Blankenburg, F. ["Minimal self-models and the free energy principle."](../References/Modern-Philosophy/Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf) *Frontiers in Human Neuroscience*, 7. https://doi.org/10.3389/fnhum.2013.00547
+- **Massimi 2022** — Massimi, M. [*Perspectival Realism*.](https://global.oup.com/academic/product/perspectival-realism-9780197555620) Oxford University Press.
+- **Melloni et al. 2025** — Melloni, L., et al. ["Adversarial testing of global neuronal workspace and integrated information theories of consciousness."](../References/Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf) *Nature*. https://doi.org/10.1038/s41586-025-08888-1
 - **Nagel 1974** — Nagel, T. ["What Is It Like to Be a Bat?"](../References/Science/Nagel-1974-What-Is-It-Like-to-Be-a-Bat.pdf) *The Philosophical Review*, 83(4), 435–450.
+- **Piredda 2024** — Piredda, G. ["The Tacitly Situated Self: From Narration to Sedimentation and Projection."](../References/Modern-Philosophy/Piredda-2024-Tacitly-Situated-Self.pdf) *Topoi*, 43, 607–615.
 - **Popper 1959** — Popper, K. [*The Logic of Scientific Discovery*](https://www.routledge.com/The-Logic-of-Scientific-Discovery/Popper/p/book/9780415278447). Hutchinson / Routledge.
 - **Strawson 2006** — Strawson, G. ["Realistic Monism: Why Physicalism Entails Panpsychism."](../References/Science/Strawson-2006-Realistic-Monism-Panpsychism.pdf) *Journal of Consciousness Studies*, 13(10–11), 3–31.
+- **Tufft et al. 2024** — Tufft, M. R. A., et al. ["Forgetting ourselves in flow: an active inference account of flow states and how we experience ourselves within them."](../References/Modern-Philosophy/Tufft-et-al-2024-Flow-Active-Inference.pdf) *Frontiers in Psychology*, 15. https://doi.org/10.3389/fpsyg.2024.1354719
+- **Wiese 2024** — Wiese, W. ["Artificial consciousness: a perspective from the free energy principle."](../References/Modern-Philosophy/Wiese-2024-Artificial-Consciousness-Free-Energy-Principle.pdf) *Philosophical Studies*, 181, 1947–1970.

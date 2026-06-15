@@ -8,6 +8,7 @@ Local copies of source texts cited across `Studies/`. See [MANIFEST.md](MANIFEST
 - **Advaita Vedanta** translations under `Advaita-Vedanta/`.
 - **Comparative philosophy** (AV, SV) under `Comparative-Philosophy/`.
 - **Three author-hosted open-access papers** (Chalmers 1995, Nagel 1974, Strawson 2006) under `Science/`.
+- **Open-access modern philosophy / cognitive science papers** under `Modern-Philosophy/`.
 
 **What we do not store**
 
@@ -25,7 +26,8 @@ References/
 ├── Madhyasth-Darshan/          MVD, SB, JV, AVD, JVD + MD-Mapping.xlsx
 ├── Advaita-Vedanta/            Upanishads, Gita, BSB, prakarana texts
 ├── Comparative-Philosophy/     AV (SEP), SV (Vivekananda)
-└── Science/                    Chalmers, Nagel, Strawson (author-hosted papers)
+├── Science/                    Chalmers, Nagel, Strawson (author-hosted papers)
+└── Modern-Philosophy/          Open-access papers on consciousness, self, and epistemology
 ```
 
 To refresh externally downloaded files (Advaita Vedanta, comparative philosophy, open-access science papers):
@@ -41,7 +43,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File Scripts\_download_references
 |-------|----------------|
 | [How-To-Form-Self-Sustaining-Organizations.pdf](../Studies/How-To-Form-Self-Sustaining-Organizations.pdf) | MVD, SB, JV; AV, SV; ATR (external) |
 | [Human-Behavior-And-Society-In-Madhyasth-Darshan.pdf](../Studies/Human-Behavior-And-Society-In-Madhyasth-Darshan.pdf) | MVD, SB, JV |
-| [Knowledge-Knower-And-Known-In-Madhyasth-Darshan.pdf](../Studies/Knowledge-Knower-And-Known-In-Madhyasth-Darshan.pdf) | MVD, SB, JV; Advaita (CU, BSB, DDV, BJM); Science (9 works, 3 local / 6 external) |
+| [Knowledge-Knower-And-Known-In-Madhyasth-Darshan.pdf](../Studies/Knowledge-Knower-And-Known-In-Madhyasth-Darshan.pdf) | MVD, SB, JV; Advaita (CU, BSB, DDV, BJM); modern science/philosophy (20 works, 10 local / 10 external) |
 | [Madhyasth-Darshan-Category-Theory-Explained.pdf](../Studies/Madhyasth-Darshan-Category-Theory-Explained.pdf) | MVD, SB, JV |
 | [The-Coexistence-Template.pdf](../Studies/The-Coexistence-Template.pdf) | MVD, SB, JV |
 | [Why-Humans-Are-Not-Just-Material.pdf](../Studies/Why-Humans-Are-Not-Just-Material.pdf) | MVD, SB, JV; Advaita (BU–BJM); Science (12 works, 3 local / 9 external) |
@@ -80,6 +82,18 @@ powershell -NoProfile -ExecutionPolicy Bypass -File Scripts\_download_references
 | **Chalmers 1995** | [Chalmers-1995-Facing-Up-to-the-Problem-of-Consciousness.pdf](Science/Chalmers-1995-Facing-Up-to-the-Problem-of-Consciousness.pdf) | Author-hosted PDF |
 | **Nagel 1974** | [Nagel-1974-What-Is-It-Like-to-Be-a-Bat.pdf](Science/Nagel-1974-What-Is-It-Like-to-Be-a-Bat.pdf) | University-hosted PDF |
 | **Strawson 2006** | [Strawson-2006-Realistic-Monism-Panpsychism.pdf](Science/Strawson-2006-Realistic-Monism-Panpsychism.pdf) | Author-hosted PDF |
+
+## Modern-Philosophy/
+
+| Tag | File | Notes |
+|-----|------|-------|
+| **Frankish 2016** | [Frankish-2016-Illusionism-Theory-Consciousness.pdf](Modern-Philosophy/Frankish-2016-Illusionism-Theory-Consciousness.pdf) | Author eprint |
+| **Jarczewski and Riggs 2025** | [Jarczewski-Riggs-2025-Socializing-Virtue-Epistemology.pdf](Modern-Philosophy/Jarczewski-Riggs-2025-Socializing-Virtue-Epistemology.pdf) | Open access, CC BY |
+| **Limanowski and Blankenburg 2013** | [Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf](Modern-Philosophy/Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf) | Open access |
+| **Melloni et al. 2025** | [Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf](Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf) | Open access |
+| **Piredda 2024** | [Piredda-2024-Tacitly-Situated-Self.pdf](Modern-Philosophy/Piredda-2024-Tacitly-Situated-Self.pdf) | Open access |
+| **Tufft et al. 2024** | [Tufft-et-al-2024-Flow-Active-Inference.pdf](Modern-Philosophy/Tufft-et-al-2024-Flow-Active-Inference.pdf) | Open access |
+| **Wiese 2024** | [Wiese-2024-Artificial-Consciousness-Free-Energy-Principle.pdf](Modern-Philosophy/Wiese-2024-Artificial-Consciousness-Free-Energy-Principle.pdf) | Open access |
 
 ## Comparative-Philosophy/
 
