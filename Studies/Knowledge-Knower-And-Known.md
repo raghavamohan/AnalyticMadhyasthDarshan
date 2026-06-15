@@ -16,6 +16,9 @@ This study explores these questions from three paradigms: **Madhyasth Darshan** 
 | ***Drishta-pad* (Seer status)** | The unique capacity of the human being in existence to observe, understand, and evaluate all orders of nature. |
 | ***Darshan-drishya-drishti*** | Madhyasth Darshan's structure of worldview, scene, and perspective: the perceiver uses perspective to see the real scene and arrive at holistic understanding. |
 | ***Gyan-vivek-vigyan*** | Knowledge, wisdom/discrimination, and science/systematic know-how — the way understanding becomes evaluation and practical participation. |
+| ***Sanvedansheelta* / *sangyansheelta*** | Sensitivity (body- and sense-based responsiveness) and comprehension/cognisance (the understanding proper to *jeevan*) — the two modes of engaging the world. |
+| ***Pramana*** | Means or proof of valid knowledge; in Madhyasth Darshan, realization (*anubhav*) evidenced in conduct is the ultimate proof. |
+| ***Bhram*** | Delusion — living by inherited belief rather than understanding, rooted in identifying *jeevan* with the body. |
 | **Coexistence (*sah-astitva*)** | Existence seen as all units inseparably present together in Space. |
 | ***Atman* / *Brahman*** | In Advaita Vedanta: the innermost Self / the one ultimate, non-dual reality. |
 | ***Mithya*** | Advaita's term for the world: dependent, provisional appearance, not absolutely real. |
@@ -110,6 +113,50 @@ This is why humane conduct is not an ethical appendix to knowledge. It is part o
 > **“delusion-less knowledge (nirbhram gyan): - Knowing, understanding and imparting the understanding of the realities the way they are.”**
 > — MVD, p. 317
 
+**8. The means of knowing: study, realization, and the proof of conveying.** Madhyasth Darshan does not organize knowing around a list of independent instruments of cognition (perception, inference, testimony) the way classical Indian epistemology does. All means converge on one outcome: direct realization in coexistence, which is then validated in living and in the ability to impart understanding to another.
+
+> **“The proof of our comprehension lies in our ability to convey it to others; this is the litmus test of our wisdom.”**
+> — JV, p. 26
+
+Perception and reasoning are necessary but preliminary; the decisive proof (*pramana*) is realization (*anubhav*) evidenced as authentic conduct (*pramanikta*). This is why the evidence chain above begins with realization rather than with sense data.
+
+**9. Sensitivity (*sanvedansheelta*) and comprehension (*sangyansheelta*).** Madhyasth Darshan distinguishes two modes by which a human engages the world. *Sensitivity* is body- and sense-based responsiveness — the mode humans share with animals, oriented to pleasure, health, and profit. *Comprehension* (cognisance) is the understanding proper to *jeevan*, oriented to relationship, value, and orderliness. Knowing in the full sense requires both, held in balance:
+
+> **“…the recognising and fulfilling of the insentient and the sentient world is through the balance of cognisance and sensitivity.”**
+> — SB, p. 64
+
+The human predicament, in this view, is that we have so far lived almost entirely in sensitivity:
+
+> **“Thus far, humans have only lived within the purview of sensitivity; hence the issues of accumulation, comfort, revolt-rebellion and exploitation have kept coming up.”**
+> — JV, p. 166
+
+To know existence as coexistence is precisely to rise from sense-bound sensitivity to *jeevan*'s comprehension.
+
+**10. Error and its correction: the theory of delusion (*bhram*).** Any account of knowledge needs an account of error. In Madhyasth Darshan, error is not the presence of a false object but a specific misidentification: taking *jeevan* to be the body, which forces life to run on inherited belief rather than understanding.
+
+> **“This adherence to 'belief' rather than 'knowledge' forms the basis of delusion.”**
+> — JV, p. 93
+
+> **“The root of delusion lies in identifying jeevan with the body.”**
+> — JV, p. 93
+
+The correction is not negation of the world but accurate recognition — "*jeevan* should be recognised as *jeevan*, and the body as the body" (JV, p. 93). Error is therefore removable in principle, through study and realization, rather than an irreducible feature of the knowing situation.
+
+**11. Truth and the removability of mystery.** Madhyasth Darshan recognizes truth in three registers — absolute, relative, and objective — and treats their transmission as the very source of reality in human tradition:
+
+> **“The tradition of imparting the understanding of absolute truth, relative truth, and objective truth is itself the source of reality.”**
+> — MVD, p. 37
+
+From this follows one of the darshan's sharpest epistemological commitments: existence is *fully knowable*, and "mystery" is not a permanent horizon but a removable deficit of understanding.
+
+> **“The incompleteness in understanding the absolute state and the activity, is mystery.”**
+> — MVD, p. 209
+
+> **“Eradication of mystery is only through the holistic view of reality.”**
+> — MVD, p. 209
+
+Where Advaita finally calls ignorance "indescribable" (*anirvacaniya*) and modern science leaves the Hard Problem open, Madhyasth Darshan asserts that right understanding culminates in certitude, not residual mystery: "The holistic view of reality leads to 'certitude'; otherwise, doubt persists" (MVD, p. 209).
+
 ---
 
 ### Who is the Knower?
@@ -129,7 +176,7 @@ Material things (like stones) and biological organisms (like plants) do not have
 
 This distinction is important: every human has the possibility of seer-status because every human has imagination, freedom of action, and the capacity for understanding; only the awakened human evidences that status in living.
 
-The knower in Madhyasth Darshan is therefore not an actionless, passive witness. *Jeevan* is an active, structured, sentient unit. Its activities include hope in *mun*, thought in *vritti*, desire in *chitta*, resoluteness in *buddhi*, and realization in *atma*. The body is the instrument through which this *jeevan* acts; the brain (*medhas*) receives and processes signals related to *jeevan*'s aspirations, desires, and evidence (MVD, p. 83). This makes Madhyasth Darshan sharply different from Advaita: the inner self is not finally negated into an actionless witness, but understood as a real, active, constitutionally complete unit capable of awakening.
+The knower in Madhyasth Darshan is therefore not an actionless, passive witness. *Jeevan* is an active, structured, sentient unit. Its activities include hope in *mun*, thought in *vritti*, desire in *chitta*, resoluteness in *buddhi*, and realization in *atma*. (*Jeevan Vidya* presents the same structure as ten coordinated activities across the atom's nucleus and orbits — taste and selection in *mun*, deliberation and analysis in *vritti*, contemplation and visualization in *chitta*, enlightenment and resolve in *buddhi*, and realization and authenticity in *atma* — JV, p. 92.) The body is the instrument through which this *jeevan* acts; the brain (*medhas*) receives and processes signals related to *jeevan*'s aspirations, desires, and evidence (MVD, p. 83). This makes Madhyasth Darshan sharply different from Advaita: the inner self is not finally negated into an actionless witness, but understood as a real, active, constitutionally complete unit capable of awakening.
 
 It also differs from modern physicalism. Modern neuroscience treats mind as brain activity. Madhyasth Darshan treats the brain as a bodily organ through which *jeevan* operates, and treats values and evaluation as activities of *jeevan*, not mechanical outputs of the body.
 
@@ -199,6 +246,14 @@ The world appears real only as long as ignorance persists; once Brahman is reali
 
 ---
 
+### Means of Knowledge and the Theory of Error
+
+Advaita inherits the classical Indian analysis of valid knowledge (*pramana*) and accepts six means: perception (*pratyaksha*), inference (*anumana*), comparison (*upamana*), postulation (*arthapatti*), non-apprehension (*anupalabdhi*), and verbal testimony (*shabda*). Crucially, for the supreme truth of non-duality, only *shabda* — the revealed word of the Upanishads, processed through reasoning and meditation — is finally competent; perception and inference operate within the very subject-object duality that is to be transcended.
+
+Advaita also offers a developed theory of error (*khyativada*). The stock example is mistaking a rope for a snake: the snake is neither real (it vanishes on knowledge) nor utterly unreal (it was genuinely experienced), but *anirvacaniya* — "indescribable" — a projection on a real substrate. Cosmic ignorance (*avidya* / *maya*) has the same structure writ large: the world is a real-seeming projection on Brahman, sublated the moment Brahman is known. This is the exact point at which Madhyasth Darshan diverges — it treats error as a removable misidentification within a fully real world, not as an indescribable appearance over a sole reality.
+
+---
+
 ## 3. The Modern Scientific and Philosophical View
 
 **The claim in one sentence:** The knower is a biological organism (human) whose brain processes generate the mind; the known is the physical universe of matter and energy; and knowledge is structured information validated by empirical testing, falsification, and intersubjective consensus.
@@ -208,6 +263,8 @@ The world appears real only as long as ignorance persists; once Brahman is reali
 In modern science and analytical philosophy, knowledge is typically defined as **justified true belief** (in classical epistemology) or as **predictive modeling** (in cognitive science and naturalism).
 1. **Methodological Naturalism:** Knowledge is obtained by formulating hypotheses about the physical world and testing them against empirical evidence (Popper 1959). It requires intersubjective verification: anyone must be able to replicate the results using the same instruments.
 2. **Information Processing:** The brain builds neural networks that model the properties and behaviors of the environment (Kandel et al. 2021). These models are updated based on sensory feedback to optimize survival and action.
+
+The classical "justified true belief" analysis is itself contested from within. Gettier (1963) showed that one can hold a justified true belief that is intuitively *not* knowledge, launching a long debate over what further condition — reliability, safety, or sensitivity to truth — knowledge requires. This unresolved difficulty over the very definition of "knowledge" sits alongside the more familiar metaphysical disputes about the knower and the known.
 
 ---
 
@@ -234,7 +291,7 @@ Recent modern philosophy and cognitive science are more diverse than simple brai
 3. **Embodied, enactive, and situated selfhood.** 4E and enactive approaches treat cognition as embodied, embedded, enacted, and extended. The self is not merely an inner representation in the brain; it is shaped through body, environment, habit, and social practice (IEP Enactivism; Piredda 2024). This comes closer to Madhyasth Darshan's insistence that knowing must become participation, although it still does not accept a constitutionally complete *jeevan*.
 4. **Social virtue epistemology.** Recent epistemology questions the individualistic picture of knowledge and stresses trust, testimony, epistemic environments, intellectual virtues, and collective maintenance of knowledge (Jarczewski and Riggs 2025). This is a useful modern comparison point for Madhyasth Darshan's claim that knowledge must become awakened tradition and humane conduct.
 5. **Perspectival realism.** Recent philosophy of science argues that science is always a "view from somewhere": historically situated, instrument-mediated, and community-based, yet still capable of realist knowledge (Massimi 2022). This is worth comparing with Madhyasth Darshan's *darshan-drishya-drishti*: both reject a view-from-nowhere, but Madhyasth Darshan claims that right perspective can culminate in realization of coexistence.
-6. **Theory pluralism in consciousness science.** Contemporary consciousness research contains many competing theories, including global neuronal workspace, integrated information, higher-order, recurrent processing, illusionist, and panpsychist accounts. A large adversarial test of IIT and GNWT found results that partly supported and partly challenged both (Melloni et al. 2025), confirming that modern science has no settled account of subjective experience.
+6. **Theory pluralism in consciousness science.** Contemporary consciousness research contains many competing theories, including global neuronal workspace, integrated information, higher-order, recurrent processing, illusionist, and panpsychist accounts. A large adversarial test of IIT and GNWT found results that partly supported and partly challenged both (Melloni et al. 2025), and broad surveys now catalogue dozens of competing explanations of consciousness (Kuhn 2024), confirming that modern science has no settled account of subjective experience.
 
 These developments do not remove the major modern objection to Madhyasth Darshan — the lack of publicly measurable evidence for *jeevan*. But they do make the comparison more subtle. The live modern debate is not only "matter versus soul"; it also asks whether cognition is brain-bound or embodied, individual or social, representational or enactive, reductive or panpsychist, and whether scientific knowledge is perspective-free or perspectival.
 
@@ -252,6 +309,8 @@ These developments do not remove the major modern objection to Madhyasth Darshan
 | **Basic Structure** | *Darshan-drishya-drishti*: right perspective sees the real scene and becomes holistic view | *Drig-drishya-viveka*: seer-seen discrimination negates the seen to reveal the witness | Subject-object modelling: observer builds public, testable models of objects/events |
 | **Is the World Real?** | Yes. "Brahma is truth, the world is perpetual." | Provisionally (*vyavaharika*), yes; absolutely (*paramarthika*), no. | Yes, for scientific realism and physicalism; methodologically, it is treated as publicly observable and law-governed. |
 | **Method of Knowing** | Study, self-verification, realization-behavior-experiment, and evidence in conduct | Scripture (*shravana*), reasoning (*manana*), and meditation (*nididhyasana*) | Observation, experiment, mathematical modeling, prediction, and replication |
+| **Means of Valid Knowing** | Study and realization (*anubhav*) as the ultimate *pramana*, proven by conduct and by the ability to impart it | Six *pramanas*, but *shabda* (revelation) alone reaches non-duality | Perception, inference, instrument-aided measurement; JTB analysis (contested since Gettier) |
+| **Account of Error** | Delusion (*bhram*): identifying *jeevan* with the body; removable through understanding | *Khyativada*: *anirvacaniya* projection on Brahman, sublated by knowledge | Perceptual/cognitive bias and false belief, corrected by replication and peer review |
 | **Recent Modern Alternatives** | Can be compared with MD's active *jeevan*, conduct-evidence, and awakened tradition | Can be compared with Advaita's witness and no-self tendencies | Predictive processing, enactivism, social epistemology, perspectival realism, illusionism, IIT/GNWT, and panpsychism |
 | **Status of Ethics** | Humane conduct is part of complete knowledge and its evidence | Ethics purifies the mind and operates within provisional reality | Ethics is explained through evolution, psychology, social contract, or human values |
 | **Life's Purpose** | Awakening: resolution, prosperity, harmony, and coexistence in society | Liberation (*moksha*): freedom from birth and death by realizing identity with Brahman | Biological survival, adaptation, and human-constructed meaning |
@@ -266,6 +325,7 @@ These developments do not remove the major modern objection to Madhyasth Darshan
 4. **Knowledge Must Become Conduct:** In Madhyasth Darshan, *gyan* must unfold as *vivek* and *vigyan*, and then become evident through realization, behavior, and experiment. Advaita's highest knowledge culminates in liberation from mistaken identification. Modern science's knowledge culminates in predictive control, explanation, and replicable models.
 5. **The Status of Space:** In modern physics, space-time is a physical structure described mathematically. In Advaita, space (*akasha*) belongs to the order of appearance and is therefore *mithya*. In Madhyasth Darshan, Space (*shunya* / *vyapak*) is eternal, omnipresent, all-pervasive knowledge and energy itself, but not an individual conscious unit.
 6. **Where Recent Modern Views Come Closer to MD:** Predictive processing and enactivism make the knower active and embodied; social virtue epistemology makes knowledge socially maintained; perspectival realism makes knowledge perspective-dependent but not merely subjective. These partially resemble Madhyasth Darshan's active seer, conduct-evidence, and perspective structure. The decisive difference remains ontological: these modern views generally do not accept *jeevan* as a real, eternal sentient unit.
+7. **How Each Explains Valid Knowing and Error:** Madhyasth Darshan makes realization the ultimate proof and treats error as a *removable* misidentification of *jeevan* with the body. Advaita reserves ultimate competence for revelation (*shabda*) and treats error — and the world itself — as *anirvacaniya* appearance sublated by knowledge. Modern science trusts measurement and replication and treats error as bias or false belief, while conceding (since Gettier) that even "justified true belief" may not capture knowledge. The contrast is sharpest on mystery: MD claims it is fully eliminable, Advaita relocates it beyond the sayable, and science leaves it open.
 
 ---
 
@@ -277,12 +337,13 @@ These developments do not remove the major modern objection to Madhyasth Darshan
     *   **Axiomatic Foundations:** The claim that "Space is Knowledge" is a metaphysical assertion that cannot be verified by physical measurement.
     *   **The Interaction Problem:** If the *jeevan* is a sentient atom operating through the body, the account needs a clearer bridge between *jeevan*'s signals and the brain's measurable neural processes. Madhyasth Darshan names the brain (*medhas*) as the receiver of *jeevan*'s signals, but this remains hard to reconcile with physical causal closure.
     *   **Falsifiability:** The system risks being unfalsifiable because any disagreement or failure to verify its claims is attributed to a "lack of awakening" rather than a possible error in the theory.
+    *   **The Full-Knowability Thesis:** The claim that existence contains no permanent mystery and that right understanding yields *certitude* is unusually strong. A critic can ask how one could ever know that *all* of existence has been understood, and whether "certitude" is being guaranteed by definition rather than earned by inquiry.
 
 ### 5.2 Advaita Vedanta
-*   **Strengths:** It is highly rigorous and start from the most undeniable fact of human existence: first-person consciousness itself. Its method of negating the observed to find the observer (*neti neti*) is a powerful introspective practice.
+*   **Strengths:** It is highly rigorous and starts from the most undeniable fact of human existence: first-person consciousness itself. Its method of negating the observed to find the observer (*neti neti*) is a powerful introspective practice.
 *   **Weaknesses:**
     *   **The Status of Ethics:** If the world and individuality are ultimately unreal (*mithya*), then ethical action and human suffering also have only provisional value. This makes it difficult to build a robust foundation for social and ecological responsibility.
-    *   **The Ignorance Paradox:** If only Brahman exists and is pure knowledge, where does the ignorance (*avidya*) that creates the illusion of the world come from? Advaita's explanation that ignorance is "indescribable" (*anirvacaniya*) is often criticized as a logical evasion.
+    *   **The Ignorance Paradox:** If only Brahman exists and is pure knowledge, where does the ignorance (*avidya*) that creates the illusion of the world come from? Advaita's explanation that ignorance is "indescribable" (*anirvacaniya*) is often criticized as a logical evasion — the same move used to explain a single perceptual error (rope-snake) is stretched to cover all of cosmic ignorance, which critics see as naming a mystery rather than resolving it.
 
 ### 5.3 Modern Science & Philosophy
 *   **Strengths:** It has delivered unmatched predictive power, medicine, and technology. Its self-correcting methodology of replication and peer review is the most successful system for eliminating subjective bias.
@@ -299,9 +360,9 @@ All sources cited in this document, grouped by tradition. Each entry begins with
 
 ### Madhyasth Darshan (primary sources)
 
-- **MVD** — Nagraj, A. [*Madhyasth Darshan – Co-existentialism*, Part 1: *Holistic View of Human Behaviour*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: all units in Omnipresence (p. 11); evidence chain and "Believe what is known" (p. 12); "Only awakened humans" (p. 33); Space as knowledge and *gyan-vivek-vigyan* (p. 35, 143, 155); *medhas* and activities of *jeevan* (p. 83); *darshan-drishya-drishti* (p. 84); "Realisation in coexistence" (p. 116); "Realisation in knowledge" (p. 316); "delusion-less knowledge" (p. 317); "Brahma is truth, the world is perpetual" (*The Alternative*, point 8).
-- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: Threefold knowledge (p. 116); Human as seer (p. 188); Seer-status in existence (p. 239).
-- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: Definition of knowledge (p. 165).
+- **MVD** — Nagraj, A. [*Madhyasth Darshan – Co-existentialism*, Part 1: *Holistic View of Human Behaviour*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: all units in Omnipresence (p. 11); evidence chain and "Believe what is known" (p. 12); "Only awakened humans" (p. 33); Space as knowledge and *gyan-vivek-vigyan* (p. 35, 143, 155); threefold truth (p. 37); *medhas* and activities of *jeevan* (p. 83); *darshan-drishya-drishti* (p. 84); "Realisation in coexistence" (p. 116); mystery and certitude (p. 209); "Realisation in knowledge" (p. 316); "delusion-less knowledge" (p. 317); "Brahma is truth, the world is perpetual" (*The Alternative*, point 8).
+- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: Balance of cognisance and sensitivity (p. 64); Threefold knowledge (p. 116); Human as seer (p. 188); Seer-status in existence (p. 239).
+- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: Proof by conveying understanding (p. 26); ten activities of *jeevan* (p. 92); root of delusion and belief-vs-knowledge (p. 93); definition of knowledge (p. 165); purview of sensitivity (p. 166).
 
 ### Advaita Vedanta (primary texts)
 
@@ -316,6 +377,7 @@ All sources cited in this document, grouped by tradition. Each entry begins with
 - **Churchland 1986** — Churchland, P. S. [*Neurophilosophy: Toward a Unified Science of the Mind-Brain*](https://mitpress.mit.edu/9780262530853/neurophilosophy/). MIT Press.
 - **Dennett 1991** — Dennett, D. [*Consciousness Explained*](https://www.penguinrandomhouse.com/books/311069/consciousness-explained-by-daniel-c-dennett/). Little, Brown.
 - **Frankish 2016** — Frankish, K. ["Illusionism as a Theory of Consciousness."](../References/Modern-Philosophy/Frankish-2016-Illusionism-Theory-Consciousness.pdf) *Journal of Consciousness Studies*, 23(11–12), 11–39.
+- **Gettier 1963** — Gettier, E. L. ["Is Justified True Belief Knowledge?"](https://doi.org/10.1093/analys/23.6.121) *Analysis*, 23(6), 121–123.
 - **Goff 2019** — Goff, P. [*Galileo's Error: Foundations for a New Science of Consciousness*](https://philipgoff.com/galileos-error/). Pantheon.
 - **Hashemi 2025** — Hashemi, A. ["How to Understand Russellian Panpsychism."](https://doi.org/10.1007/s10670-024-00877-6) *Erkenntnis*, 90, 3747–3766.
 - **IEP Enactivism** — ["Enactivism."](https://iep.utm.edu/enactivism/) *Internet Encyclopedia of Philosophy*.
