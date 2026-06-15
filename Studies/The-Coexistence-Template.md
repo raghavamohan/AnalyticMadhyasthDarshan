@@ -1,6 +1,6 @@
 # The Coexistence Template
 
-## A formal definition of units, relationships, values, assembly, and transmission in Madhyasth Darshan
+## A formal definition of units, relationships, values, assembly, and transmission
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
@@ -311,7 +311,7 @@ All sources cited in this document, grouped by type. Each entry begins with the 
 
 ### Companion papers in this collection
 
-- [*Madhyasth Darshan Through Category Theory*](Madhyasth-Darshan-Category-Theory-Explained.pdf)
+- [*Category Theory Explained*](Category-Theory-Explained.pdf)
 - [*How To Form Self-Sustaining Organizations*](How-To-Form-Self-Sustaining-Organizations.pdf)
 - [*Why Humans Are Not Just Material*](Why-Humans-Are-Not-Just-Material.pdf)
-- [*Human Behavior and Society in Madhyasth Darshan*](Human-Behavior-And-Society-In-Madhyasth-Darshan.pdf)
+- [*Human Behavior and Society*](Human-Behavior-And-Society.pdf)

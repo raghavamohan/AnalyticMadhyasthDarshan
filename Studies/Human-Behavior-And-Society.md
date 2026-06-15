@@ -1,4 +1,4 @@
-# Human Behaviour and Social Organisation in Madhyasth Darshan
+# Human Behaviour and Social Organisation
 ## A critical writeup based on Shri. A. Nagraj's literature
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).

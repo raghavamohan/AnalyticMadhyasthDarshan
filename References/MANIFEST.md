@@ -8,7 +8,7 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-15.
 
 | Paper | Tags cited | Status |
 |-------|------------|--------|
-| [Aesthetics-In-Madhyasth-Darshan.pdf](../Studies/Aesthetics-In-Madhyasth-Darshan.pdf) | MVD, JV, SB | present |
+| [Aesthetics.pdf](../Studies/Aesthetics.pdf) | MVD, JV, SB | present |
 | | BJM, BU, BG | present |
 | | SEP Concept of the Aesthetic, SEP Kant Aesthetics, SEP Definition of Art, SEP Environmental Aesthetics, SEP Aesthetics of the Everyday | present |
 | | Poorvam Rasa | present |
@@ -27,18 +27,18 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-15.
 | [How-To-Form-Self-Sustaining-Organizations.pdf](../Studies/How-To-Form-Self-Sustaining-Organizations.pdf) | MVD, SB, JV | present |
 | | AV, SV | present |
 | | ATR | external |
-| [Human-Behavior-And-Society-In-Madhyasth-Darshan.pdf](../Studies/Human-Behavior-And-Society-In-Madhyasth-Darshan.pdf) | MVD, SB, JV | present |
-| [Madhyasth-Darshan-Category-Theory-Explained.pdf](../Studies/Madhyasth-Darshan-Category-Theory-Explained.pdf) | MVD, SB, JV (via companion papers) | present |
+| [Human-Behavior-And-Society.pdf](../Studies/Human-Behavior-And-Society.pdf) | MVD, SB, JV | present |
+| [Category-Theory-Explained.pdf](../Studies/Category-Theory-Explained.pdf) | MVD, SB, JV (via companion papers) | present |
 | [The-Coexistence-Template.pdf](../Studies/The-Coexistence-Template.pdf) | MVD, SB, JV | present |
 
-| [Knowledge-Knower-And-Known-In-Madhyasth-Darshan.pdf](../Studies/Knowledge-Knower-And-Known-In-Madhyasth-Darshan.pdf) | MVD, SB, JV | present |
+| [Knowledge-Knower-And-Known.pdf](../Studies/Knowledge-Knower-And-Known.pdf) | MVD, SB, JV | present |
 | | CU, BSB, DDV, BJM | present |
 | | Chalmers 1995, Nagel 1974, Strawson 2006 | present |
 | | Frankish 2016, Jarczewski and Riggs 2025, Limanowski and Blankenburg 2013, Melloni et al. 2025 | present |
 | | Piredda 2024, Tufft et al. 2024, Wiese 2024 | present |
 | | Churchland 1986, Dennett 1991, Goff 2019, Kandel et al. 2021, Kim 2005, Popper 1959 | external |
 | | Hashemi 2025, IEP Enactivism, Kuhn 2024, Massimi 2022 | external |
-| [What-Is-Existence-In-Madhyasth-Darshan.pdf](../Studies/What-Is-Existence-In-Madhyasth-Darshan.pdf) | MVD, SB, JV | present |
+| [What-Is-Existence.pdf](../Studies/What-Is-Existence.pdf) | MVD, SB, JV | present |
 | | CU, BJM | present |
 | | Chalmers 1995, Nagel 1974, Strawson 2006 | present |
 | | Frankish 2016, Limanowski and Blankenburg 2013 | present |
