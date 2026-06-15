@@ -4,3 +4,4 @@ Scripts/_pdf_cache/
 *.html
 !References/**/*.html
 !Studies/index.html
+!/index.html
