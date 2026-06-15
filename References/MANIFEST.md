@@ -27,12 +27,16 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-15.
 | | Piredda 2024, Tufft et al. 2024, Wiese 2024 | present |
 | | Churchland 1986, Dennett 1991, Goff 2019, Kandel et al. 2021, Kim 2005, Popper 1959 | external |
 | | Hashemi 2025, IEP Enactivism, Kuhn 2024, Massimi 2022 | external |
+| [What-Is-Existence-In-Madhyasth-Darshan.pdf](../Studies/What-Is-Existence-In-Madhyasth-Darshan.pdf) | MVD, SB, JV | present |
+| | CU, BJM | present |
+| | Chalmers 1995, Nagel 1974, Strawson 2006 | present |
+| | Frankish 2016, Limanowski and Blankenburg 2013 | present |
 
 ## By tag
 
 | Tag | Location | Cited in |
 |-----|----------|----------|
-| **MVD** | [Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf](Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf) | Why-Humans, How-To-Form, Human-Behavior, Coexistence-Template, Category-Theory, Knowledge-Knower |
+| **MVD** | [Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf](Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf) | Why-Humans, How-To-Form, Human-Behavior, Coexistence-Template, Category-Theory, Knowledge-Knower, What-Is-Existence |
 | **SB** | [Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf](Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf) | all Studies papers above |
 | **JV** | [Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf](Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf) | all Studies papers above |
 | **AVD** | [Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf](Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf) | not yet cited in Studies |
@@ -42,23 +46,23 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-15.
 | **TU** | [Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf](Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf) | Why-Humans |
 | **KU** | same as TU | Why-Humans |
 | **MU** | [Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf](Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf) | Why-Humans |
-| **CU** | [Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf](Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf) | Why-Humans, Knowledge-Knower |
+| **CU** | [Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf](Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf) | Why-Humans, Knowledge-Knower, What-Is-Existence |
 | **BG** | [Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf](Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf) | Why-Humans |
 | **BSB** | [Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf](Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf) | Why-Humans, Knowledge-Knower |
 | **VC** | [Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf](Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) | Why-Humans |
 | **DDV** | [Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf](Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf) | Why-Humans, Knowledge-Knower |
-| **BJM** | [Advaita-Vedanta/BJM-Brahma-Jnanavali-Mala.md](Advaita-Vedanta/BJM-Brahma-Jnanavali-Mala.md) | Why-Humans, Knowledge-Knower |
+| **BJM** | [Advaita-Vedanta/BJM-Brahma-Jnanavali-Mala.md](Advaita-Vedanta/BJM-Brahma-Jnanavali-Mala.md) | Why-Humans, Knowledge-Knower, What-Is-Existence |
 | **AV** | [Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.html](Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.html) | How-To-Form |
 | **SV** | [Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf](Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf) | How-To-Form |
 | **ATR** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | How-To-Form |
-| **Chalmers 1995** | [Science/Chalmers-1995-Facing-Up-to-the-Problem-of-Consciousness.pdf](Science/Chalmers-1995-Facing-Up-to-the-Problem-of-Consciousness.pdf) | Why-Humans, Knowledge-Knower |
-| **Nagel 1974** | [Science/Nagel-1974-What-Is-It-Like-to-Be-a-Bat.pdf](Science/Nagel-1974-What-Is-It-Like-to-Be-a-Bat.pdf) | Why-Humans, Knowledge-Knower |
-| **Strawson 2006** | [Science/Strawson-2006-Realistic-Monism-Panpsychism.pdf](Science/Strawson-2006-Realistic-Monism-Panpsychism.pdf) | Why-Humans, Knowledge-Knower |
+| **Chalmers 1995** | [Science/Chalmers-1995-Facing-Up-to-the-Problem-of-Consciousness.pdf](Science/Chalmers-1995-Facing-Up-to-the-Problem-of-Consciousness.pdf) | Why-Humans, Knowledge-Knower, What-Is-Existence |
+| **Nagel 1974** | [Science/Nagel-1974-What-Is-It-Like-to-Be-a-Bat.pdf](Science/Nagel-1974-What-Is-It-Like-to-Be-a-Bat.pdf) | Why-Humans, Knowledge-Knower, What-Is-Existence |
+| **Strawson 2006** | [Science/Strawson-2006-Realistic-Monism-Panpsychism.pdf](Science/Strawson-2006-Realistic-Monism-Panpsychism.pdf) | Why-Humans, Knowledge-Knower, What-Is-Existence |
 | **Bloom 2013**, **Tomasello 2014** (except Chalmers/Nagel/Strawson) | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Why-Humans |
 | **Churchland 1986**, **Dennett 1991**, **Goff 2019**, **Kandel et al. 2021**, **Kim 2005**, **Popper 1959** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Why-Humans, Knowledge-Knower |
-| **Frankish 2016** | [Modern-Philosophy/Frankish-2016-Illusionism-Theory-Consciousness.pdf](Modern-Philosophy/Frankish-2016-Illusionism-Theory-Consciousness.pdf) | Knowledge-Knower |
+| **Frankish 2016** | [Modern-Philosophy/Frankish-2016-Illusionism-Theory-Consciousness.pdf](Modern-Philosophy/Frankish-2016-Illusionism-Theory-Consciousness.pdf) | Knowledge-Knower, What-Is-Existence |
 | **Jarczewski and Riggs 2025** | [Modern-Philosophy/Jarczewski-Riggs-2025-Socializing-Virtue-Epistemology.pdf](Modern-Philosophy/Jarczewski-Riggs-2025-Socializing-Virtue-Epistemology.pdf) | Knowledge-Knower |
-| **Limanowski and Blankenburg 2013** | [Modern-Philosophy/Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf](Modern-Philosophy/Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf) | Knowledge-Knower |
+| **Limanowski and Blankenburg 2013** | [Modern-Philosophy/Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf](Modern-Philosophy/Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf) | Knowledge-Knower, What-Is-Existence |
 | **Melloni et al. 2025** | [Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf](Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf) | Knowledge-Knower |
 | **Piredda 2024** | [Modern-Philosophy/Piredda-2024-Tacitly-Situated-Self.pdf](Modern-Philosophy/Piredda-2024-Tacitly-Situated-Self.pdf) | Knowledge-Knower |
 | **Tufft et al. 2024** | [Modern-Philosophy/Tufft-et-al-2024-Flow-Active-Inference.pdf](Modern-Philosophy/Tufft-et-al-2024-Flow-Active-Inference.pdf) | Knowledge-Knower |

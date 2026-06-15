@@ -28,6 +28,7 @@ Each document's **References** section links to local copies under [`References/
 | [Knowledge-Knower-And-Known-In-Madhyasth-Darshan](Knowledge-Knower-And-Known-In-Madhyasth-Darshan.pdf) | Comparative study of knowledge, knower, and known in Madhyasth Darshan, Advaita Vedanta, and Modern Philosophy |
 | [Madhyasth-Darshan-Category-Theory-Explained](Madhyasth-Darshan-Category-Theory-Explained.pdf) | Category-theory lens on the darshan's structure |
 | [The-Coexistence-Template](The-Coexistence-Template.pdf) | Formal template of units, relationships, values, and assembly |
+| [What-Is-Existence-In-Madhyasth-Darshan](What-Is-Existence-In-Madhyasth-Darshan.pdf) | Madhyasth Darshan, Advaita Vedanta, and modern philosophy on existence, what exists, and whether existence begins |
 | [Why-Humans-Are-Not-Just-Material](Why-Humans-Are-Not-Just-Material.pdf) | Madhyasth Darshan, science, and Advaita Vedanta on whether humans are more than matter |
 <!-- /studies-catalog -->
 

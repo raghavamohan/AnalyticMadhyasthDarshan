@@ -34,6 +34,20 @@ AUTHOR_YEAR_PREFIXES = (
     "Kim",
     "Shapiro",
     "Tomasello",
+    "Frankish",
+    "Jarczewski",
+    "Jarczewski and Riggs",
+    "Limanowski",
+    "Limanowski and Blankenburg",
+    "Melloni",
+    "Melloni et al.",
+    "Piredda",
+    "Tufft",
+    "Tufft et al.",
+    "Wiese",
+    "Hashemi",
+    "Kuhn",
+    "Massimi",
 )
 
 
