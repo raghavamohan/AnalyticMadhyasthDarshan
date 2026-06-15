@@ -46,6 +46,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File Scripts\_download_references
 | [Knowledge-Knower-And-Known-In-Madhyasth-Darshan.pdf](../Studies/Knowledge-Knower-And-Known-In-Madhyasth-Darshan.pdf) | MVD, SB, JV; Advaita (CU, BSB, DDV, BJM); modern science/philosophy (20 works, 10 local / 10 external) |
 | [Madhyasth-Darshan-Category-Theory-Explained.pdf](../Studies/Madhyasth-Darshan-Category-Theory-Explained.pdf) | MVD, SB, JV |
 | [The-Coexistence-Template.pdf](../Studies/The-Coexistence-Template.pdf) | MVD, SB, JV |
+| [What-Is-Existence-In-Madhyasth-Darshan.pdf](../Studies/What-Is-Existence-In-Madhyasth-Darshan.pdf) | MVD, SB, JV; Advaita (CU, BJM); modern science/philosophy (Chalmers 1995, Nagel 1974, Strawson 2006, Frankish 2016, Limanowski and Blankenburg 2013) |
 | [Why-Humans-Are-Not-Just-Material.pdf](../Studies/Why-Humans-Are-Not-Just-Material.pdf) | MVD, SB, JV; Advaita (BU–BJM); Science (12 works, 3 local / 9 external) |
 <!-- /studies-catalog -->
 
