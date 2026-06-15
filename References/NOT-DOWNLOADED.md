@@ -28,6 +28,15 @@ Author-hosted copies kept for quote verification.
 | **Shapiro 2007** | Shapiro, L., ed. *The Correspondence between Princess Elisabeth of Bohemia and René Descartes*. University of Chicago Press, 2007. | https://press.uchicago.edu/ucp/books/book/chicago/C/bo3647771.html |
 | **Tomasello 2014** | Tomasello, M. *A Natural History of Human Thinking*. Harvard University Press, 2014. | https://www.hup.harvard.edu/catalog.php?isbn=9780674724779 |
 
+## Modern philosophy and cognitive science — external only
+
+| Tag | Full reference | Original location |
+|-----|----------------|-------------------|
+| **Hashemi 2025** | Hashemi, A. "How to Understand Russellian Panpsychism." *Erkenntnis*, 90, 3747–3766, 2025. | https://doi.org/10.1007/s10670-024-00877-6 |
+| **IEP Enactivism** | "Enactivism." *Internet Encyclopedia of Philosophy*. | https://iep.utm.edu/enactivism/ |
+| **Kuhn 2024** | Kuhn, R. L. "A Landscape of Consciousness: Toward a Taxonomy of Explanations and Implications." *Progress in Biophysics and Molecular Biology*, 190, 28–169, 2024. | https://doi.org/10.1016/j.pbiomolbio.2023.12.003 |
+| **Massimi 2022** | Massimi, M. *Perspectival Realism*. Oxford University Press, 2022. | https://global.oup.com/academic/product/perspectival-realism-9780197555620 |
+
 ## Comparative philosophy (external only)
 
 | Tag | Full reference | Original location |

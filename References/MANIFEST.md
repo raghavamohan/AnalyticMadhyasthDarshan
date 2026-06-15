@@ -1,6 +1,6 @@
 # Studies citation verification
 
-Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-14.
+Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-15.
 
 **Legend:** present = file in `References/`; external = linked from original publisher or author URL (see [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md)); internal = another paper in `Studies/`, not a bibliographic source.
 
@@ -23,7 +23,10 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-14.
 | [Knowledge-Knower-And-Known-In-Madhyasth-Darshan.pdf](../Studies/Knowledge-Knower-And-Known-In-Madhyasth-Darshan.pdf) | MVD, SB, JV | present |
 | | CU, BSB, DDV, BJM | present |
 | | Chalmers 1995, Nagel 1974, Strawson 2006 | present |
+| | Frankish 2016, Jarczewski and Riggs 2025, Limanowski and Blankenburg 2013, Melloni et al. 2025 | present |
+| | Piredda 2024, Tufft et al. 2024, Wiese 2024 | present |
 | | Churchland 1986, Dennett 1991, Goff 2019, Kandel et al. 2021, Kim 2005, Popper 1959 | external |
+| | Hashemi 2025, IEP Enactivism, Kuhn 2024, Massimi 2022 | external |
 
 ## By tag
 
@@ -53,6 +56,14 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-14.
 | **Strawson 2006** | [Science/Strawson-2006-Realistic-Monism-Panpsychism.pdf](Science/Strawson-2006-Realistic-Monism-Panpsychism.pdf) | Why-Humans, Knowledge-Knower |
 | **Bloom 2013**, **Tomasello 2014** (except Chalmers/Nagel/Strawson) | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Why-Humans |
 | **Churchland 1986**, **Dennett 1991**, **Goff 2019**, **Kandel et al. 2021**, **Kim 2005**, **Popper 1959** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Why-Humans, Knowledge-Knower |
+| **Frankish 2016** | [Modern-Philosophy/Frankish-2016-Illusionism-Theory-Consciousness.pdf](Modern-Philosophy/Frankish-2016-Illusionism-Theory-Consciousness.pdf) | Knowledge-Knower |
+| **Jarczewski and Riggs 2025** | [Modern-Philosophy/Jarczewski-Riggs-2025-Socializing-Virtue-Epistemology.pdf](Modern-Philosophy/Jarczewski-Riggs-2025-Socializing-Virtue-Epistemology.pdf) | Knowledge-Knower |
+| **Limanowski and Blankenburg 2013** | [Modern-Philosophy/Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf](Modern-Philosophy/Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf) | Knowledge-Knower |
+| **Melloni et al. 2025** | [Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf](Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf) | Knowledge-Knower |
+| **Piredda 2024** | [Modern-Philosophy/Piredda-2024-Tacitly-Situated-Self.pdf](Modern-Philosophy/Piredda-2024-Tacitly-Situated-Self.pdf) | Knowledge-Knower |
+| **Tufft et al. 2024** | [Modern-Philosophy/Tufft-et-al-2024-Flow-Active-Inference.pdf](Modern-Philosophy/Tufft-et-al-2024-Flow-Active-Inference.pdf) | Knowledge-Knower |
+| **Wiese 2024** | [Modern-Philosophy/Wiese-2024-Artificial-Consciousness-Free-Energy-Principle.pdf](Modern-Philosophy/Wiese-2024-Artificial-Consciousness-Free-Energy-Principle.pdf) | Knowledge-Knower |
+| **Hashemi 2025**, **IEP Enactivism**, **Kuhn 2024**, **Massimi 2022** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Knowledge-Knower |
 
 ## Summary
 
@@ -62,6 +73,7 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-14.
 | Advaita Vedanta (10 tags) | 9 files (BJM as `.md`) | 0 |
 | Comparative philosophy (AV, SV, ATR) | 2 | 1 |
 | Science (12 author year tags) | 3 (open-access papers) | 9 |
-| **Total distinct tags** | **19 local files + MD** | **10 external** |
+| Modern philosophy and cognitive science | 7 | 4 |
+| **Total distinct tags** | **26 local files + MD** | **14 external** |
 
 Works not stored locally are linked from each paper's References section. See [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) for original URLs.

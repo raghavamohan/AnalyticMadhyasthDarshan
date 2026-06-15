@@ -8,7 +8,8 @@ $dirs = @(
     (Join-Path $RefRoot 'Madhyasth-Darshan'),
     (Join-Path $RefRoot 'Advaita-Vedanta'),
     (Join-Path $RefRoot 'Comparative-Philosophy'),
-    (Join-Path $RefRoot 'Science')
+    (Join-Path $RefRoot 'Science'),
+    (Join-Path $RefRoot 'Modern-Philosophy')
 )
 foreach ($d in $dirs) {
     New-Item -ItemType Directory -Force -Path $d | Out-Null
@@ -84,6 +85,34 @@ $downloads = @(
     @{
         Dest = 'Science\Strawson-2006-Realistic-Monism-Panpsychism.pdf'
         Urls = @('https://consc.net/event/reef/strawsonmonism.pdf')
+    },
+    @{
+        Dest = 'Modern-Philosophy\Frankish-2016-Illusionism-Theory-Consciousness.pdf'
+        Urls = @('https://raw.githubusercontent.com/k0711/kf_articles/master/Frankish_Illusionism%20as%20a%20theory%20of%20consciousness_eprint.pdf')
+    },
+    @{
+        Dest = 'Modern-Philosophy\Jarczewski-Riggs-2025-Socializing-Virtue-Epistemology.pdf'
+        Urls = @('https://ruj.uj.edu.pl/bitstreams/5b802d21-6dd8-4450-8767-a715e4175d9b/download')
+    },
+    @{
+        Dest = 'Modern-Philosophy\Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf'
+        Urls = @('https://www.frontiersin.org/articles/10.3389/fnhum.2013.00547/pdf')
+    },
+    @{
+        Dest = 'Modern-Philosophy\Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf'
+        Urls = @('https://www.nature.com/articles/s41586-025-08888-1.pdf')
+    },
+    @{
+        Dest = 'Modern-Philosophy\Piredda-2024-Tacitly-Situated-Self.pdf'
+        Urls = @('https://link.springer.com/content/pdf/10.1007/s11245-024-10044-9.pdf')
+    },
+    @{
+        Dest = 'Modern-Philosophy\Tufft-et-al-2024-Flow-Active-Inference.pdf'
+        Urls = @('https://www.frontiersin.org/articles/10.3389/fpsyg.2024.1354719/pdf')
+    },
+    @{
+        Dest = 'Modern-Philosophy\Wiese-2024-Artificial-Consciousness-Free-Energy-Principle.pdf'
+        Urls = @('https://link.springer.com/content/pdf/10.1007/s11098-024-02182-y.pdf')
     }
 )
 
