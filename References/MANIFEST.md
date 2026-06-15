@@ -8,6 +8,12 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-15.
 
 | Paper | Tags cited | Status |
 |-------|------------|--------|
+| [Ethics-And-Morals-In-Human-Beings.pdf](../Studies/Ethics-And-Morals-In-Human-Beings.pdf) | MVD, SB, JV | present |
+| | SEP Theological Voluntarism, SEP Natural Law Ethics | present |
+| | Matthew 22:37-40, Quran 16:90 | external |
+| | BG, BJM, VC | present |
+| | Crockett 2013, SEP Moral Psychology | present |
+| | Curry, Mullins, and Whitehouse 2019, Graham et al. 2013, Greene et al. 2001, Haidt 2001, Tomasello and Vaish 2013 | external |
 | [Why-Humans-Are-Not-Just-Material.pdf](../Studies/Why-Humans-Are-Not-Just-Material.pdf) | MVD, SB, JV | present |
 | | BU, TU, MU, CU, KU, BG, BSB, VC, DDV, BJM | present |
 | | Chalmers 1995, Nagel 1974, Strawson 2006 | present |
@@ -36,7 +42,7 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-15.
 
 | Tag | Location | Cited in |
 |-----|----------|----------|
-| **MVD** | [Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf](Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf) | Why-Humans, How-To-Form, Human-Behavior, Coexistence-Template, Category-Theory, Knowledge-Knower, What-Is-Existence |
+| **MVD** | [Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf](Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf) | all Studies papers above |
 | **SB** | [Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf](Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf) | all Studies papers above |
 | **JV** | [Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf](Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf) | all Studies papers above |
 | **AVD** | [Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf](Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf) | not yet cited in Studies |
@@ -47,15 +53,19 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-15.
 | **KU** | same as TU | Why-Humans |
 | **MU** | [Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf](Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf) | Why-Humans |
 | **CU** | [Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf](Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf) | Why-Humans, Knowledge-Knower, What-Is-Existence |
-| **BG** | [Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf](Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf) | Why-Humans |
+| **BG** | [Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf](Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf) | Why-Humans, Ethics-And-Morals |
 | **BSB** | [Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf](Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf) | Why-Humans, Knowledge-Knower |
-| **VC** | [Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf](Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) | Why-Humans |
+| **VC** | [Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf](Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) | Why-Humans, Ethics-And-Morals |
 | **DDV** | [Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf](Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf) | Why-Humans, Knowledge-Knower |
-| **BJM** | [Advaita-Vedanta/BJM-Brahma-Jnanavali-Mala.md](Advaita-Vedanta/BJM-Brahma-Jnanavali-Mala.md) | Why-Humans, Knowledge-Knower, What-Is-Existence |
+| **BJM** | [Advaita-Vedanta/BJM-Brahma-Jnanavali-Mala.md](Advaita-Vedanta/BJM-Brahma-Jnanavali-Mala.md) | Why-Humans, Knowledge-Knower, What-Is-Existence, Ethics-And-Morals |
 | **AV** | [Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.html](Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.html) | How-To-Form |
 | **SV** | [Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf](Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf) | How-To-Form |
 | **ATR** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | How-To-Form |
+| **SEP Natural Law Ethics** | [Comparative-Philosophy/SEP-Natural-Law-Ethics.html](Comparative-Philosophy/SEP-Natural-Law-Ethics.html) | Ethics-And-Morals |
+| **SEP Theological Voluntarism** | [Comparative-Philosophy/SEP-Theological-Voluntarism.html](Comparative-Philosophy/SEP-Theological-Voluntarism.html) | Ethics-And-Morals |
+| **Matthew 22:37-40**, **Quran 16:90** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Ethics-And-Morals |
 | **Chalmers 1995** | [Science/Chalmers-1995-Facing-Up-to-the-Problem-of-Consciousness.pdf](Science/Chalmers-1995-Facing-Up-to-the-Problem-of-Consciousness.pdf) | Why-Humans, Knowledge-Knower, What-Is-Existence |
+| **Crockett 2013** | [Science/Crockett-2013-Models-of-Morality.pdf](Science/Crockett-2013-Models-of-Morality.pdf) | Ethics-And-Morals |
 | **Nagel 1974** | [Science/Nagel-1974-What-Is-It-Like-to-Be-a-Bat.pdf](Science/Nagel-1974-What-Is-It-Like-to-Be-a-Bat.pdf) | Why-Humans, Knowledge-Knower, What-Is-Existence |
 | **Strawson 2006** | [Science/Strawson-2006-Realistic-Monism-Panpsychism.pdf](Science/Strawson-2006-Realistic-Monism-Panpsychism.pdf) | Why-Humans, Knowledge-Knower, What-Is-Existence |
 | **Bloom 2013**, **Tomasello 2014** (except Chalmers/Nagel/Strawson) | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Why-Humans |
@@ -65,9 +75,11 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-15.
 | **Limanowski and Blankenburg 2013** | [Modern-Philosophy/Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf](Modern-Philosophy/Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf) | Knowledge-Knower, What-Is-Existence |
 | **Melloni et al. 2025** | [Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf](Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf) | Knowledge-Knower |
 | **Piredda 2024** | [Modern-Philosophy/Piredda-2024-Tacitly-Situated-Self.pdf](Modern-Philosophy/Piredda-2024-Tacitly-Situated-Self.pdf) | Knowledge-Knower |
+| **SEP Moral Psychology** | [Modern-Philosophy/SEP-2025-Moral-Psychology-Empirical-Approaches.html](Modern-Philosophy/SEP-2025-Moral-Psychology-Empirical-Approaches.html) | Ethics-And-Morals |
 | **Tufft et al. 2024** | [Modern-Philosophy/Tufft-et-al-2024-Flow-Active-Inference.pdf](Modern-Philosophy/Tufft-et-al-2024-Flow-Active-Inference.pdf) | Knowledge-Knower |
 | **Wiese 2024** | [Modern-Philosophy/Wiese-2024-Artificial-Consciousness-Free-Energy-Principle.pdf](Modern-Philosophy/Wiese-2024-Artificial-Consciousness-Free-Energy-Principle.pdf) | Knowledge-Knower |
 | **Hashemi 2025**, **IEP Enactivism**, **Kuhn 2024**, **Massimi 2022** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Knowledge-Knower |
+| **Curry, Mullins, and Whitehouse 2019**, **Graham et al. 2013**, **Greene et al. 2001**, **Haidt 2001**, **Tomasello and Vaish 2013** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Ethics-And-Morals |
 
 ## Summary
 
@@ -75,9 +87,9 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-15.
 |----------|----------------|---------------|
 | Madhyasth Darshan (MVD, SB, JV, AVD, JVD) | 5 PDFs + 1 spreadsheet | 0 |
 | Advaita Vedanta (10 tags) | 9 files (BJM as `.md`) | 0 |
-| Comparative philosophy (AV, SV, ATR) | 2 | 1 |
-| Science (12 author year tags) | 3 (open-access papers) | 9 |
-| Modern philosophy and cognitive science | 7 | 4 |
-| **Total distinct tags** | **26 local files + MD** | **14 external** |
+| Comparative philosophy and religious ethics | 4 | 3 |
+| Science and moral science | 4 (open-access papers) | 14 |
+| Modern philosophy and cognitive science | 8 | 4 |
+| **Total distinct tags** | **30 local files + MD** | **21 external** |
 
 Works not stored locally are linked from each paper's References section. See [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) for original URLs.
