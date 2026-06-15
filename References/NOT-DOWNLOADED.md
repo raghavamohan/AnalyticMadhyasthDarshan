@@ -54,6 +54,15 @@ Author-hosted copies kept for quote verification.
 |-----|----------------|-------------------|
 | **ATR** | Rambachan, A. *A Hindu Theology of Liberation: Not-Two Is Not One*. SUNY Press, 2015. | https://sunypress.edu/Books/A/A-Hindu-theology-of-liberation2 |
 
+## Indian aesthetics and Advaita (external only)
+
+These are linked for analysis but not copied locally because redistribution rights are unclear or publisher access may vary.
+
+| Tag | Full reference | Original location |
+|-----|----------------|-------------------|
+| **Keating 2008** | Keating, R. "Connecting Art with Spirituality within the Indian Aesthetics of Advaita Vedanta." *Studies in Spirituality*, 18, 25-37, 2008. | https://poj.peeters-leuven.be/content.php?id=2033281&url=article |
+| **Mind and Creativity Rasa** | "Mind and creativity: Insights from rasa theory with special focus on sahrdaya." | https://indigenouspsych.org/Discussion/forum/Rasa%20theory.pdf |
+
 ## Traditional religious texts — external only
 
 Scriptural passages cited for comparative examples are linked externally rather than copied locally because translation rights and canonical editions vary by tradition.

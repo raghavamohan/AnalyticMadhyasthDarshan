@@ -113,6 +113,30 @@ $downloads = @(
     @{
         Dest = 'Modern-Philosophy\Wiese-2024-Artificial-Consciousness-Free-Energy-Principle.pdf'
         Urls = @('https://link.springer.com/content/pdf/10.1007/s11098-024-02182-y.pdf')
+    },
+    @{
+        Dest = 'Modern-Philosophy\SEP-Concept-of-the-Aesthetic.html'
+        Urls = @('https://plato.stanford.edu/entries/aesthetic-concept/')
+    },
+    @{
+        Dest = 'Modern-Philosophy\SEP-Kant-Aesthetics-Teleology.html'
+        Urls = @('https://plato.stanford.edu/entries/kant-aesthetics/')
+    },
+    @{
+        Dest = 'Modern-Philosophy\SEP-Definition-of-Art.html'
+        Urls = @('https://plato.stanford.edu/entries/art-definition/')
+    },
+    @{
+        Dest = 'Modern-Philosophy\SEP-Environmental-Aesthetics.html'
+        Urls = @('https://plato.stanford.edu/entries/environmental-aesthetics/')
+    },
+    @{
+        Dest = 'Modern-Philosophy\SEP-Aesthetics-of-Everyday.html'
+        Urls = @('https://plato.stanford.edu/entries/aesthetics-of-everyday/')
+    },
+    @{
+        Dest = 'Comparative-Philosophy\Poorvam-Sadharanikarana-Rasa.html'
+        Urls = @('https://poorvam.com/article.php?slug=s-dh-ra-kara-a-underlying-process-for-experiencing-rasa')
     }
 )
 

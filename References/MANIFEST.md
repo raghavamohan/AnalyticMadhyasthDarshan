@@ -8,6 +8,11 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-15.
 
 | Paper | Tags cited | Status |
 |-------|------------|--------|
+| [Aesthetics-In-Madhyasth-Darshan.pdf](../Studies/Aesthetics-In-Madhyasth-Darshan.pdf) | MVD, JV, SB | present |
+| | BJM, BU, BG | present |
+| | SEP Concept of the Aesthetic, SEP Kant Aesthetics, SEP Definition of Art, SEP Environmental Aesthetics, SEP Aesthetics of the Everyday | present |
+| | Poorvam Rasa | present |
+| | Keating 2008, Mind and Creativity Rasa | external |
 | [Ethics-And-Morals-In-Human-Beings.pdf](../Studies/Ethics-And-Morals-In-Human-Beings.pdf) | MVD, SB, JV | present |
 | | SEP Theological Voluntarism, SEP Natural Law Ethics | present |
 | | Matthew 22:37-40, Quran 16:90 | external |
@@ -48,19 +53,20 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-15.
 | **AVD** | [Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf](Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf) | not yet cited in Studies |
 | **JVD** | [Madhyasth-Darshan/JVD-Janvad.pdf](Madhyasth-Darshan/JVD-Janvad.pdf) | not yet cited in Studies |
 | **MD** | [Madhyasth-Darshan/MD-Mapping.xlsx](Madhyasth-Darshan/MD-Mapping.xlsx) | supporting spreadsheet (not cited inline) |
-| **BU** | [Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf](Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf) | Why-Humans |
+| **BU** | [Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf](Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf) | Why-Humans, Aesthetics |
 | **TU** | [Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf](Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf) | Why-Humans |
 | **KU** | same as TU | Why-Humans |
 | **MU** | [Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf](Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf) | Why-Humans |
 | **CU** | [Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf](Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf) | Why-Humans, Knowledge-Knower, What-Is-Existence |
-| **BG** | [Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf](Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf) | Why-Humans, Ethics-And-Morals |
+| **BG** | [Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf](Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf) | Why-Humans, Ethics-And-Morals, Aesthetics |
 | **BSB** | [Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf](Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf) | Why-Humans, Knowledge-Knower |
 | **VC** | [Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf](Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) | Why-Humans, Ethics-And-Morals |
 | **DDV** | [Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf](Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf) | Why-Humans, Knowledge-Knower |
-| **BJM** | [Advaita-Vedanta/BJM-Brahma-Jnanavali-Mala.md](Advaita-Vedanta/BJM-Brahma-Jnanavali-Mala.md) | Why-Humans, Knowledge-Knower, What-Is-Existence, Ethics-And-Morals |
+| **BJM** | [Advaita-Vedanta/BJM-Brahma-Jnanavali-Mala.md](Advaita-Vedanta/BJM-Brahma-Jnanavali-Mala.md) | Why-Humans, Knowledge-Knower, What-Is-Existence, Ethics-And-Morals, Aesthetics |
 | **AV** | [Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.html](Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.html) | How-To-Form |
 | **SV** | [Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf](Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf) | How-To-Form |
 | **ATR** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | How-To-Form |
+| **Poorvam Rasa** | [Comparative-Philosophy/Poorvam-Sadharanikarana-Rasa.html](Comparative-Philosophy/Poorvam-Sadharanikarana-Rasa.html) | Aesthetics |
 | **SEP Natural Law Ethics** | [Comparative-Philosophy/SEP-Natural-Law-Ethics.html](Comparative-Philosophy/SEP-Natural-Law-Ethics.html) | Ethics-And-Morals |
 | **SEP Theological Voluntarism** | [Comparative-Philosophy/SEP-Theological-Voluntarism.html](Comparative-Philosophy/SEP-Theological-Voluntarism.html) | Ethics-And-Morals |
 | **Matthew 22:37-40**, **Quran 16:90** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Ethics-And-Morals |
@@ -75,10 +81,16 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-15.
 | **Limanowski and Blankenburg 2013** | [Modern-Philosophy/Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf](Modern-Philosophy/Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf) | Knowledge-Knower, What-Is-Existence |
 | **Melloni et al. 2025** | [Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf](Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf) | Knowledge-Knower |
 | **Piredda 2024** | [Modern-Philosophy/Piredda-2024-Tacitly-Situated-Self.pdf](Modern-Philosophy/Piredda-2024-Tacitly-Situated-Self.pdf) | Knowledge-Knower |
+| **SEP Aesthetics of the Everyday** | [Modern-Philosophy/SEP-Aesthetics-of-Everyday.html](Modern-Philosophy/SEP-Aesthetics-of-Everyday.html) | Aesthetics |
+| **SEP Concept of the Aesthetic** | [Modern-Philosophy/SEP-Concept-of-the-Aesthetic.html](Modern-Philosophy/SEP-Concept-of-the-Aesthetic.html) | Aesthetics |
+| **SEP Definition of Art** | [Modern-Philosophy/SEP-Definition-of-Art.html](Modern-Philosophy/SEP-Definition-of-Art.html) | Aesthetics |
+| **SEP Environmental Aesthetics** | [Modern-Philosophy/SEP-Environmental-Aesthetics.html](Modern-Philosophy/SEP-Environmental-Aesthetics.html) | Aesthetics |
+| **SEP Kant Aesthetics** | [Modern-Philosophy/SEP-Kant-Aesthetics-Teleology.html](Modern-Philosophy/SEP-Kant-Aesthetics-Teleology.html) | Aesthetics |
 | **SEP Moral Psychology** | [Modern-Philosophy/SEP-2025-Moral-Psychology-Empirical-Approaches.html](Modern-Philosophy/SEP-2025-Moral-Psychology-Empirical-Approaches.html) | Ethics-And-Morals |
 | **Tufft et al. 2024** | [Modern-Philosophy/Tufft-et-al-2024-Flow-Active-Inference.pdf](Modern-Philosophy/Tufft-et-al-2024-Flow-Active-Inference.pdf) | Knowledge-Knower |
 | **Wiese 2024** | [Modern-Philosophy/Wiese-2024-Artificial-Consciousness-Free-Energy-Principle.pdf](Modern-Philosophy/Wiese-2024-Artificial-Consciousness-Free-Energy-Principle.pdf) | Knowledge-Knower |
 | **Hashemi 2025**, **IEP Enactivism**, **Kuhn 2024**, **Massimi 2022** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Knowledge-Knower |
+| **Keating 2008**, **Mind and Creativity Rasa** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Aesthetics |
 | **Curry, Mullins, and Whitehouse 2019**, **Graham et al. 2013**, **Greene et al. 2001**, **Haidt 2001**, **Tomasello and Vaish 2013** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Ethics-And-Morals |
 
 ## Summary
@@ -87,9 +99,9 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-15.
 |----------|----------------|---------------|
 | Madhyasth Darshan (MVD, SB, JV, AVD, JVD) | 5 PDFs + 1 spreadsheet | 0 |
 | Advaita Vedanta (10 tags) | 9 files (BJM as `.md`) | 0 |
-| Comparative philosophy and religious ethics | 4 | 3 |
+| Comparative philosophy, Indian aesthetics, and religious ethics | 5 | 5 |
 | Science and moral science | 4 (open-access papers) | 14 |
-| Modern philosophy and cognitive science | 8 | 4 |
-| **Total distinct tags** | **30 local files + MD** | **21 external** |
+| Modern philosophy and cognitive science | 13 | 4 |
+| **Total distinct tags** | **36 local files + MD** | **23 external** |
 
 Works not stored locally are linked from each paper's References section. See [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) for original URLs.
