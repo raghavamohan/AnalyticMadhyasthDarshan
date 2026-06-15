@@ -23,25 +23,25 @@ Each document's **References** section links to local copies under [`References/
 <!-- studies-catalog -->
 | Document | Category | Description |
 |----------|----------|-------------|
-| [What-Is-Existence-In-Madhyasth-Darshan](What-Is-Existence-In-Madhyasth-Darshan.pdf) | Ontology | Madhyasth Darshan, Advaita Vedanta, and modern philosophy on existence, what exists, and whether existence begins |
+| [What-Is-Existence](What-Is-Existence.pdf) | Ontology | Madhyasth Darshan, Advaita Vedanta, and modern philosophy on existence, what exists, and whether existence begins |
 | [Why-Humans-Are-Not-Just-Material](Why-Humans-Are-Not-Just-Material.pdf) | Philosophical Anthropology | Madhyasth Darshan, science, and Advaita Vedanta on whether humans are more than matter |
-| *Philosophy-Of-Mind-And-Jeevan-In-Madhyasth-Darshan* | Philosophy of Mind | Ongoing.. Jeevan, mun, vritti, chitta, buddhi, atma, desire, imagination, selection, delusion, and awakening |
-| [Knowledge-Knower-And-Known-In-Madhyasth-Darshan](Knowledge-Knower-And-Known-In-Madhyasth-Darshan.pdf) | Epistemology | Comparative study of knowledge, knower, and known in Madhyasth Darshan, Advaita Vedanta, and Modern Philosophy |
-| *Methodology-And-Hermeneutics-In-Madhyasth-Darshan* | Methodology | Ongoing.. Primary-text method, translation issues, citation discipline, interpretation, comparison, and rigorous study practice |
-| [Madhyasth-Darshan-Category-Theory-Explained](Madhyasth-Darshan-Category-Theory-Explained.pdf) | Formalisation | Category-theory lens on the darshan's structure |
+| *Philosophy-Of-Mind-And-Jeevan* | Philosophy of Mind | Ongoing.. Jeevan, mun, vritti, chitta, buddhi, atma, desire, imagination, selection, delusion, and awakening |
+| [Knowledge-Knower-And-Known](Knowledge-Knower-And-Known.pdf) | Epistemology | Comparative study of knowledge, knower, and known in Madhyasth Darshan, Advaita Vedanta, and Modern Philosophy |
+| *Methodology-And-Hermeneutics* | Methodology | Ongoing.. Primary-text method, translation issues, citation discipline, interpretation, comparison, and rigorous study practice |
+| [Category-Theory-Explained](Category-Theory-Explained.pdf) | Formalisation | Category-theory lens on the darshan's structure |
 | [The-Coexistence-Template](The-Coexistence-Template.pdf) | Formalisation | Formal template of units, relationships, values, and assembly |
-| *Axiology-Value-Theory-In-Madhyasth-Darshan* | Axiology | Ongoing.. Values, value-recognition, value-fulfilment, mutual satisfaction, and the structure of humane value theory |
+| *Axiology-Value-Theory* | Axiology | Ongoing.. Values, value-recognition, value-fulfilment, mutual satisfaction, and the structure of humane value theory |
 | [Ethics-And-Morals-In-Human-Beings](Ethics-And-Morals-In-Human-Beings.pdf) | Ethics | Ethics, morals, humane conduct, Advaita Vedanta, and modern moral science |
-| *Family-Relationships-And-Values-In-Madhyasth-Darshan* | Relationships | Ongoing.. Family, relationship-recognition, values, trust, affection, gratitude, and mutual satisfaction |
-| *Education-And-Sanskar-In-Madhyasth-Darshan* | Education | Ongoing.. Education, sanskar, study, awakening, and how understanding is transmitted across generations |
-| [Aesthetics-In-Madhyasth-Darshan](Aesthetics-In-Madhyasth-Darshan.pdf) | Aesthetics | Aesthetics, beauty, art, Advaita Vedanta, and modern philosophy from a Madhyasth Darshan standpoint |
-| [Human-Behavior-And-Society-In-Madhyasth-Darshan](Human-Behavior-And-Society-In-Madhyasth-Darshan.pdf) | Social Philosophy | Behaviour, ethics, and social organisation in the darshan |
+| *Family-Relationships-And-Values* | Relationships | Ongoing.. Family, relationship-recognition, values, trust, affection, gratitude, and mutual satisfaction |
+| *Education-And-Sanskar* | Education | Ongoing.. Education, sanskar, study, awakening, and how understanding is transmitted across generations |
+| [Aesthetics](Aesthetics.pdf) | Aesthetics | Aesthetics, beauty, art, Advaita Vedanta, and modern philosophy from a Madhyasth Darshan standpoint |
+| [Human-Behavior-And-Society](Human-Behavior-And-Society.pdf) | Social Philosophy | Behaviour, ethics, and social organisation in the darshan |
 | [How-To-Form-Self-Sustaining-Organizations](How-To-Form-Self-Sustaining-Organizations.pdf) | Social Philosophy | Organisations that sustain without instrumentalising their members |
-| *Governance-Justice-And-Undivided-Society-In-Madhyasth-Darshan* | Political Philosophy | Ongoing.. Justice, governance, law, fearlessness, public order, and undivided society |
-| *Prosperity-Economics-And-Right-Use-In-Madhyasth-Darshan* | Economics | Ongoing.. Prosperity, production, cyclical economics, right-use of wealth, and limits to accumulation |
-| *Nature-Ecology-And-Right-Use-In-Madhyasth-Darshan* | Ecology | Ongoing.. Nature, Earth, right-use, regeneration, ecological balance, and coexistence with the other orders |
-| *Spiritual-Practice-And-Realization-In-Madhyasth-Darshan* | Spiritual Practice | Ongoing.. Anubhav, realization, awakening, yoga, liberation from mystery, liberation from suffering, and comparison with moksha traditions |
-| *Science-Technology-And-Human-Purpose-In-Madhyasth-Darshan* | Philosophy of Science | Ongoing.. Science, technology, production, convenience, human purpose, and the limits of instrumental knowledge |
+| *Governance-Justice-And-Undivided-Society* | Political Philosophy | Ongoing.. Justice, governance, law, fearlessness, public order, and undivided society |
+| *Prosperity-Economics-And-Right-Use* | Economics | Ongoing.. Prosperity, production, cyclical economics, right-use of wealth, and limits to accumulation |
+| *Nature-Ecology-And-Right-Use* | Ecology | Ongoing.. Nature, Earth, right-use, regeneration, ecological balance, and coexistence with the other orders |
+| *Spiritual-Practice-And-Realization* | Spiritual Practice | Ongoing.. Anubhav, realization, awakening, yoga, liberation from mystery, liberation from suffering, and comparison with moksha traditions |
+| *Science-Technology-And-Human-Purpose* | Philosophy of Science | Ongoing.. Science, technology, production, convenience, human purpose, and the limits of instrumental knowledge |
 <!-- /studies-catalog -->
 
 ## License

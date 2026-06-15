@@ -30,9 +30,9 @@ from _common import REFERENCES, STUDIES
 MANIFEST_LABELS: dict[str, str] = {
     "Why-Humans-Are-Not-Just-Material": "Why-Humans",
     "How-To-Form-Self-Sustaining-Organizations": "How-To-Form",
-    "Human-Behavior-And-Society-In-Madhyasth-Darshan": "Human-Behavior",
+    "Human-Behavior-And-Society": "Human-Behavior",
     "The-Coexistence-Template": "Coexistence-Template",
-    "Madhyasth-Darshan-Category-Theory-Explained": "Category-Theory",
+    "Category-Theory-Explained": "Category-Theory",
 }
 
 

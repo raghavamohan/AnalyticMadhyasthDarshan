@@ -41,14 +41,14 @@ powershell -NoProfile -ExecutionPolicy Bypass -File Scripts\_download_references
 <!-- studies-catalog -->
 | Paper | Primary tags |
 |-------|----------------|
-| [Aesthetics-In-Madhyasth-Darshan.pdf](../Studies/Aesthetics-In-Madhyasth-Darshan.pdf) | MVD, JV, SB; Advaita (BJM, BU, BG); modern aesthetics (SEP Concept of the Aesthetic, SEP Kant Aesthetics, SEP Definition of Art, SEP Environmental Aesthetics, SEP Aesthetics of the Everyday local); Indian aesthetics (Poorvam Rasa local; Keating 2008, Mind and Creativity Rasa external) |
+| [Aesthetics.pdf](../Studies/Aesthetics.pdf) | MVD, JV, SB; Advaita (BJM, BU, BG); modern aesthetics (SEP Concept of the Aesthetic, SEP Kant Aesthetics, SEP Definition of Art, SEP Environmental Aesthetics, SEP Aesthetics of the Everyday local); Indian aesthetics (Poorvam Rasa local; Keating 2008, Mind and Creativity Rasa external) |
 | [Ethics-And-Morals-In-Human-Beings.pdf](../Studies/Ethics-And-Morals-In-Human-Beings.pdf) | MVD, SB, JV; traditional religious ethics (SEP Theological Voluntarism, SEP Natural Law Ethics local; Matthew 22, Quran 16 external); Advaita (BG, BJM, VC); modern moral science/philosophy (Crockett 2013, SEP Moral Psychology local; Curry et al. 2019, Graham et al. 2013, Greene et al. 2001, Haidt 2001, Tomasello and Vaish 2013 external) |
 | [How-To-Form-Self-Sustaining-Organizations.pdf](../Studies/How-To-Form-Self-Sustaining-Organizations.pdf) | MVD, SB, JV; AV, SV; ATR (external) |
-| [Human-Behavior-And-Society-In-Madhyasth-Darshan.pdf](../Studies/Human-Behavior-And-Society-In-Madhyasth-Darshan.pdf) | MVD, SB, JV |
-| [Knowledge-Knower-And-Known-In-Madhyasth-Darshan.pdf](../Studies/Knowledge-Knower-And-Known-In-Madhyasth-Darshan.pdf) | MVD, SB, JV; Advaita (CU, BSB, DDV, BJM); modern science/philosophy (20 works, 10 local / 10 external) |
-| [Madhyasth-Darshan-Category-Theory-Explained.pdf](../Studies/Madhyasth-Darshan-Category-Theory-Explained.pdf) | MVD, SB, JV |
+| [Human-Behavior-And-Society.pdf](../Studies/Human-Behavior-And-Society.pdf) | MVD, SB, JV |
+| [Knowledge-Knower-And-Known.pdf](../Studies/Knowledge-Knower-And-Known.pdf) | MVD, SB, JV; Advaita (CU, BSB, DDV, BJM); modern science/philosophy (20 works, 10 local / 10 external) |
+| [Category-Theory-Explained.pdf](../Studies/Category-Theory-Explained.pdf) | MVD, SB, JV |
 | [The-Coexistence-Template.pdf](../Studies/The-Coexistence-Template.pdf) | MVD, SB, JV |
-| [What-Is-Existence-In-Madhyasth-Darshan.pdf](../Studies/What-Is-Existence-In-Madhyasth-Darshan.pdf) | MVD, SB, JV; Advaita (CU, BJM); modern science/philosophy (Chalmers 1995, Nagel 1974, Strawson 2006, Frankish 2016, Limanowski and Blankenburg 2013) |
+| [What-Is-Existence.pdf](../Studies/What-Is-Existence.pdf) | MVD, SB, JV; Advaita (CU, BJM); modern science/philosophy (Chalmers 1995, Nagel 1974, Strawson 2006, Frankish 2016, Limanowski and Blankenburg 2013) |
 | [Why-Humans-Are-Not-Just-Material.pdf](../Studies/Why-Humans-Are-Not-Just-Material.pdf) | MVD, SB, JV; Advaita (BU–BJM); Science (12 works, 3 local / 9 external) |
 <!-- /studies-catalog -->
 

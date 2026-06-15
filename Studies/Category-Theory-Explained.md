@@ -1,4 +1,4 @@
-# Madhyasth Darshan Through Category Theory — A Complete Guide
+# Category Theory Explained — A Complete Guide
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
@@ -6,7 +6,7 @@
 
 This is a single, self-contained guide to describing Shri A. Nagraj's Madhyasth Darshan using a branch of mathematics called **category theory**. It is written so that a reader with **no mathematical background** can follow Parts 1 to 5, while Part 6 gives the **complete, rigorous formal theory** for readers who want the precise version. Nothing is assumed: every technical idea is introduced in plain language first.
 
-The source ideas come from the workspace summaries [*Why Humans Are Not Just Material*](Why-Humans-Are-Not-Just-Material.pdf) and [*Human Behaviour and Society in Madhyasth Darshan*](Human-Behavior-And-Society-In-Madhyasth-Darshan.pdf), which in turn draw on [*Madhyasth Darshan - Co-existentialism* (MVD)](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf), [*Samadhanatmak Bhautikvad / Resolution Centred Materialism* (SB)](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf), and [*Jeevan Vidya: An Introduction* (JV)](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf).
+The source ideas come from the workspace summaries [*Why Humans Are Not Just Material*](Why-Humans-Are-Not-Just-Material.pdf) and [*Human Behaviour and Society*](Human-Behavior-And-Society.pdf), which in turn draw on [*Madhyasth Darshan - Co-existentialism* (MVD)](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf), [*Samadhanatmak Bhautikvad / Resolution Centred Materialism* (SB)](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf), and [*Jeevan Vidya: An Introduction* (JV)](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf).
 
 A note on honesty, stated once and meant throughout: category theory here is a **lens for clarity**, not a proof machine. It makes the philosophy's logic visible and shows exactly what each conclusion depends on. It does not prove the metaphysics, and it cannot supply empirical evidence.
 
@@ -537,4 +537,4 @@ All sources cited in this document. Each entry begins with the bold tag used in 
 ### Companion papers in this collection
 
 - [*Why Humans Are Not Just Material*](Why-Humans-Are-Not-Just-Material.pdf)
-- [*Human Behaviour and Society in Madhyasth Darshan*](Human-Behavior-And-Society-In-Madhyasth-Darshan.pdf)
+- [*Human Behaviour and Society*](Human-Behavior-And-Society.pdf)
