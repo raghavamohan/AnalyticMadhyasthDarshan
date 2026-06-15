@@ -1,26 +1,28 @@
-# Studies
+# Studies of Madhyasth Darshan
 
-## Intent
+Clear, carefully argued studies of **Madhyasth Darshan** (Co-existentialism) — the philosophy founded by **Shri A. Nagraj** — examined on its own terms and compared with other traditions of thought.
 
-This collection exists to **deeply analyse** philosophical topics from the standpoint of **Madhyasth Darshan** (Co-existentialism), founded by **Shri A. Nagraj**. Each study undertakes **critical analysis** and **comparison with other philosophies** — including Advaita Vedanta, modern science, and contemporary thought — so that claims can be tested, contrasted, and understood in context.
+Browse the published collection at **[analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org)** (or open [index.html](index.html) locally).
 
-Our aim is to build a **rigorous framework** that presents Shri Nagraj's philosophy **as he gave it to us**: grounded in the primary texts, faithful to his definitions and logic, and explicit about what follows from the darshan itself versus what is interpretation, comparison, or open question. Where formal structure helps clarity — as in templates, category-theoretic exposition, or page-referenced excerpts — we use it to make the philosophy's logic visible rather than to replace it.
+## What these studies are
 
-Each topic is maintained as a markdown source with a matching PDF kept in sync. Browse the collection in [index.html](index.html).
+Each study takes a single, well-defined question and works through it step by step. We first present Shri Nagraj's philosophy **as he gave it to us**, grounded in his own writings, and then compare it openly and critically with other ways of thinking — including Advaita Vedanta, modern science, and contemporary philosophy.
+
+Throughout, we keep three things clearly separate: **what the philosophy itself says**, **what is our own interpretation or comparison**, and **what remains an open question**. The aim is understanding you can examine and test for yourself — not persuasion.
+
+## Who writes them
+
+These studies are written and maintained by **[AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan)**, a group of people studying Madhyasth Darshan together. The work is collaborative and fully open — anyone is welcome to read it, check our sources, and contribute through our [GitHub repository](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
+
+Every study ends with a list of its sources, linking to the original texts wherever they are freely available.
+
+## Contributing a study
 
 To register a new study from a PDF, run `Scripts/_add_study.py` (or `Scripts/_add_study.ps1` on Windows) — see the root [README.md](../README.md#adding-a-study). To remove one, use `Scripts/_remove_study.py` — see [Removing a study](../README.md#removing-a-study).
 
-## Author
+## The studies
 
-**[AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan)** — a group of people studying Madhyasth Darshan philosophy.
-
-Source repository: [github.com/raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan)
-
-Each document's **References** section links to local copies under [`References/`](../References/) where available, or to the original publisher or author page otherwise.
-
-## Documents
-
-Papers may list multiple categories, separated by commas.
+Select any linked title to open the full study. Titles shown in italics are still in progress; papers may list multiple categories, separated by commas.
 
 <!-- studies-catalog -->
 | Document | Category | Description |
