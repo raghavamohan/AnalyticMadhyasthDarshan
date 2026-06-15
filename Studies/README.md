@@ -20,6 +20,8 @@ Each document's **References** section links to local copies under [`References/
 
 ## Documents
 
+Papers may list multiple categories, separated by commas.
+
 <!-- studies-catalog -->
 | Document | Category | Description |
 |----------|----------|-------------|
@@ -29,17 +31,17 @@ Each document's **References** section links to local copies under [`References/
 | [Knowledge-Knower-And-Known](Knowledge-Knower-And-Known.pdf) | Epistemology | Comparative study of knowledge, knower, and known in Madhyasth Darshan, Advaita Vedanta, and Modern Philosophy |
 | *Methodology-And-Hermeneutics* | Methodology | Ongoing.. Primary-text method, translation issues, citation discipline, interpretation, comparison, and rigorous study practice |
 | [Category-Theory-Explained](Category-Theory-Explained.pdf) | Formalisation | Category-theory lens on the darshan's structure |
-| [The-Coexistence-Template](The-Coexistence-Template.pdf) | Formalisation | Formal template of units, relationships, values, and assembly |
+| [The-Coexistence-Template](The-Coexistence-Template.pdf) | Formalisation, Axiology | Formal template of units, relationships, values, and assembly |
 | *Axiology-Value-Theory* | Axiology | Ongoing.. Values, value-recognition, value-fulfilment, mutual satisfaction, and the structure of humane value theory |
-| [Ethics-And-Morals-In-Human-Beings](Ethics-And-Morals-In-Human-Beings.pdf) | Ethics | Ethics, morals, humane conduct, Advaita Vedanta, and modern moral science |
-| *Family-Relationships-And-Values* | Relationships | Ongoing.. Family, relationship-recognition, values, trust, affection, gratitude, and mutual satisfaction |
+| [Ethics-And-Morals-In-Human-Beings](Ethics-And-Morals-In-Human-Beings.pdf) | Ethics, Axiology | Ethics, morals, humane conduct, Advaita Vedanta, and modern moral science |
+| *Family-Relationships-And-Values* | Relationships, Axiology | Ongoing.. Family, relationship-recognition, values, trust, affection, gratitude, and mutual satisfaction |
 | *Education-And-Sanskar* | Education | Ongoing.. Education, sanskar, study, awakening, and how understanding is transmitted across generations |
-| [Aesthetics](Aesthetics.pdf) | Aesthetics | Aesthetics, beauty, art, Advaita Vedanta, and modern philosophy from a Madhyasth Darshan standpoint |
-| [Human-Behavior-And-Society](Human-Behavior-And-Society.pdf) | Social Philosophy | Behaviour, ethics, and social organisation in the darshan |
-| [How-To-Form-Self-Sustaining-Organizations](How-To-Form-Self-Sustaining-Organizations.pdf) | Social Philosophy | Organisations that sustain without instrumentalising their members |
-| *Governance-Justice-And-Undivided-Society* | Political Philosophy | Ongoing.. Justice, governance, law, fearlessness, public order, and undivided society |
-| *Prosperity-Economics-And-Right-Use* | Economics | Ongoing.. Prosperity, production, cyclical economics, right-use of wealth, and limits to accumulation |
-| *Nature-Ecology-And-Right-Use* | Ecology | Ongoing.. Nature, Earth, right-use, regeneration, ecological balance, and coexistence with the other orders |
+| [Aesthetics](Aesthetics.pdf) | Aesthetics, Axiology | Aesthetics, beauty, art, Advaita Vedanta, and modern philosophy from a Madhyasth Darshan standpoint |
+| [Human-Behavior-And-Society](Human-Behavior-And-Society.pdf) | Social Philosophy, Ethics, Axiology | Behaviour, ethics, and social organisation in the darshan |
+| [How-To-Form-Self-Sustaining-Organizations](How-To-Form-Self-Sustaining-Organizations.pdf) | Social Philosophy, Axiology | Organisations that sustain without instrumentalising their members |
+| *Governance-Justice-And-Undivided-Society* | Political Philosophy, Axiology | Ongoing.. Justice, governance, law, fearlessness, public order, and undivided society |
+| *Prosperity-Economics-And-Right-Use* | Economics, Axiology | Ongoing.. Prosperity, production, cyclical economics, right-use of wealth, and limits to accumulation |
+| *Nature-Ecology-And-Right-Use* | Ecology, Axiology | Ongoing.. Nature, Earth, right-use, regeneration, ecological balance, and coexistence with the other orders |
 | *Spiritual-Practice-And-Realization* | Spiritual Practice | Ongoing.. Anubhav, realization, awakening, yoga, liberation from mystery, liberation from suffering, and comparison with moksha traditions |
 | *Science-Technology-And-Human-Purpose* | Philosophy of Science | Ongoing.. Science, technology, production, convenience, human purpose, and the limits of instrumental knowledge |
 <!-- /studies-catalog -->
