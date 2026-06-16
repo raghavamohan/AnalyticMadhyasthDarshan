@@ -4,6 +4,8 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
+**Edited on:** June 16, 2026, 11:16 AM IST
+
 **The thesis:** Madhyasth Darshan (Shri A. Nagraj's Co-existentialism) contains, beneath its human-centred exposition, a single recurring structural template: *bounded units, immersed in an indivisible medium, recognise and fulfil definite relationships with one another; the content exchanged in those relationships is value; complementary units compose into larger units; an assembly persists exactly as long as its relationships are fulfilled; and each assembly transmits its method of composition across generations of its members.* This paper states that template formally, grounds every clause in the primary texts, shows that Shri Nagraj himself asserts it for **all four orders of nature** (not only for humans), and identifies the one place where the template genuinely changes character — the knowledge order, where participation must be achieved through understanding rather than delivered by constitution. Beyond exposition, the paper has an applied aim: to make the template precise enough to be **carried to systems Shri Nagraj did not himself treat** — used forward, to design organisations, economies, and other assemblies that are stable by construction, and in reverse, to diagnose a failing system by the exact clause of the template it violates (see §1.1).
 
 ---

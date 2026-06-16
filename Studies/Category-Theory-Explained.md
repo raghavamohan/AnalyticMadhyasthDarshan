@@ -2,6 +2,8 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
+**Edited on:** June 16, 2026, 11:16 AM IST
+
 ## Who this is for
 
 This is a single, self-contained guide to describing Shri A. Nagraj's Madhyasth Darshan using a branch of mathematics called **category theory**. It is written so that a reader with **no mathematical background** can follow Parts 1 to 5, while Part 6 gives the **complete, rigorous formal theory** for readers who want the precise version. Nothing is assumed: every technical idea is introduced in plain language first.

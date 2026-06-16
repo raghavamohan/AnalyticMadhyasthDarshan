@@ -1,0 +1,35 @@
+---
+description: Keep Studies/index.html and Studies/README.md in sync
+globs: Studies/index.html,Studies/README.md
+alwaysApply: false
+---
+
+# Keep Studies/index.html and Studies/README.md in sync
+
+`Studies/index.html` (the published site page) and `Studies/README.md` (the
+GitHub-rendered page) present the same catalog to two audiences. Whenever you
+change one, make the matching change in the other in the same edit so they never
+drift apart.
+
+## What must always match
+
+- **Topical Studies catalog** — the rows between the `<!-- studies-catalog -->`
+  and `<!-- /studies-catalog -->` markers (present in both files): same studies,
+  same order, same titles, categories, and descriptions.
+- **In-progress studies** — shown in italics (`<em>...</em>` in HTML,
+  `*...*` in markdown) with no link; published studies link to `<Name>.pdf`.
+- **Formal Studies table** — same documents, focus, and descriptions.
+- **Shared prose** — the lead intro, Study Objectives, "Who writes them", and
+  License sections should carry the same wording.
+
+## Intentional differences (do NOT force these to match)
+
+- `Studies/README.md` has a **"Contributing a study"** section (repo-only).
+- `Studies/index.html` has a **"From Study to Understanding"** section (site-only).
+
+## How to verify
+
+After editing, re-read both catalogs and confirm the study list is identical
+(count, order, titles, categories, descriptions, and which entries are linked vs.
+italicised). If you add or remove a study, update both files plus
+`References/README.md` and `References/MANIFEST.md`.
