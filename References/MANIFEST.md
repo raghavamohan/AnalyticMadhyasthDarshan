@@ -9,18 +9,18 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-15.
 | Paper | Tags cited | Status |
 |-------|------------|--------|
 | [Aesthetics.pdf](../Studies/Aesthetics.pdf) | MVD, JV, SB | present |
-| | BJM, BU, BG | present |
+| | TU, BU, BG, VC | present |
 | | SEP Concept of the Aesthetic, SEP Kant Aesthetics, SEP Definition of Art, SEP Environmental Aesthetics, SEP Aesthetics of the Everyday | present |
 | | Poorvam Rasa | present |
 | | Keating 2008, Mind and Creativity Rasa | external |
 | [Ethics-And-Morals-In-Human-Beings.pdf](../Studies/Ethics-And-Morals-In-Human-Beings.pdf) | MVD, SB, JV | present |
 | | SEP Theological Voluntarism, SEP Natural Law Ethics | present |
 | | Matthew 22:37-40, Quran 16:90 | external |
-| | BG, BJM, VC | present |
+| | BG, VC | present |
 | | Crockett 2013, SEP Moral Psychology | present |
 | | Curry, Mullins, and Whitehouse 2019, Graham et al. 2013, Greene et al. 2001, Haidt 2001, Tomasello and Vaish 2013 | external |
 | [Why-Humans-Are-Not-Just-Material.pdf](../Studies/Why-Humans-Are-Not-Just-Material.pdf) | MVD, SB, JV | present |
-| | BU, TU, MU, CU, KU, BG, BSB, VC, DDV, BJM | present |
+| | BU, TU, MU, CU, KU, BG, BSB, VC, DDV | present |
 | | Chalmers 1995, Nagel 1974, Strawson 2006 | present |
 | | Bloom 2013, Churchland 1986, Dennett 1991, Popper 1959, Shapiro 2007, Kandel et al. 2021 | external |
 | | Goff 2019, Kim 2005, Tomasello 2014 | external |
@@ -32,7 +32,7 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-15.
 | [The-Coexistence-Template.pdf](../Studies/The-Coexistence-Template.pdf) | MVD, SB, JV | present |
 
 | [Knowledge-Knower-And-Known.pdf](../Studies/Knowledge-Knower-And-Known.pdf) | MVD, SB, JV | present |
-| | CU, BSB, DDV, BJM | present |
+| | CU, BG, BSB, DDV, VC | present |
 | | Chalmers 1995, Nagel 1974, Strawson 2006 | present |
 | | Frankish 2016, Jarczewski and Riggs 2025, Limanowski and Blankenburg 2013, Melloni et al. 2025 | present |
 | | Piredda 2024, Tufft et al. 2024, Wiese 2024 | present |
@@ -54,15 +54,14 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-15.
 | **JVD** | [Madhyasth-Darshan/JVD-Janvad.pdf](Madhyasth-Darshan/JVD-Janvad.pdf) | not yet cited in Studies |
 | **MD** | [Madhyasth-Darshan/MD-Mapping.xlsx](Madhyasth-Darshan/MD-Mapping.xlsx) | supporting spreadsheet (not cited inline) |
 | **BU** | [Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf](Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf) | Why-Humans, Aesthetics |
-| **TU** | [Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf](Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf) | Why-Humans, What-Is-Existence |
+| **TU** | [Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf](Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf) | Why-Humans, What-Is-Existence, Aesthetics |
 | **KU** | same as TU | Why-Humans |
 | **MU** | [Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf](Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf) | Why-Humans |
 | **CU** | [Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf](Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf) | Why-Humans, Knowledge-Knower, What-Is-Existence |
-| **BG** | [Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf](Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf) | Why-Humans, Ethics-And-Morals, Aesthetics |
+| **BG** | [Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf](Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf) | Why-Humans, Ethics-And-Morals, Aesthetics, Knowledge-Knower |
 | **BSB** | [Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf](Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf) | Why-Humans, Knowledge-Knower |
-| **VC** | [Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf](Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) | Why-Humans, Ethics-And-Morals, What-Is-Existence |
+| **VC** | [Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf](Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) | Why-Humans, Ethics-And-Morals, What-Is-Existence, Aesthetics, Knowledge-Knower |
 | **DDV** | [Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf](Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf) | Why-Humans, Knowledge-Knower |
-| **BJM** | [Advaita-Vedanta/BJM-Brahma-Jnanavali-Mala.md](Advaita-Vedanta/BJM-Brahma-Jnanavali-Mala.md) | Why-Humans, Knowledge-Knower, Ethics-And-Morals, Aesthetics |
 | **AV** | [Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.html](Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.html) | How-To-Form |
 | **SV** | [Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf](Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf) | How-To-Form |
 | **ATR** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | How-To-Form |
@@ -98,7 +97,7 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-15.
 | Category | Stored locally | External only |
 |----------|----------------|---------------|
 | Madhyasth Darshan (MVD, SB, JV, AVD, JVD) | 5 PDFs + 1 spreadsheet | 0 |
-| Advaita Vedanta (10 tags) | 9 files (BJM as `.md`) | 0 |
+| Advaita Vedanta (9 tags) | 9 PDFs | 0 |
 | Comparative philosophy, Indian aesthetics, and religious ethics | 5 | 5 |
 | Science and moral science | 4 (open-access papers) | 14 |
 | Modern philosophy and cognitive science | 13 | 4 |

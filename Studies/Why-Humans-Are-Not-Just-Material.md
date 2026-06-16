@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 16, 2026, 11:16 AM IST
+**Edited on:** June 16, 2026, 4:51 PM IST
 
 **The question:** Is a human being nothing more than a physical–chemical body, or is there something real about us that matter-centric science cannot capture?
 
@@ -117,7 +117,7 @@ Science explains the *functions* of mind increasingly well, but the **hard probl
 
 ### How Advaita answers the question
 
-1. **The famous formula.** *Brahma satyam, jagat mithya* — Brahman alone is real; the world is appearance (BJM, v. 20). MVD itself summarises the position:
+1. **The famous formula.** *Brahma satyam, jagat mithya* — Brahman alone is real; the world is appearance (VC, v. 20). MVD itself summarises the position:
 
 > **“According to Vedanta knowledge, only Brahma is the truth, and this world is an illusion (‘Brahma satya, jagat mithya’). However, jeeva and jagat are said to have originated from Brahma.”**
 > — MVD, *The Alternative*
@@ -243,9 +243,8 @@ Verse and section numbers follow the standard numbering and apply to any faithfu
 - **KU** — [*Katha Upanishad*](../References/Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf). Cited: the unborn, undying Self (1.2.18).
 - **BG** — [*Bhagavad Gita*](../References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf). Cited: the indestructible self (2.20).
 - **BSB** — Shankara, Adi. [*Brahma Sutra Bhashya*](../References/Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf). Cited: the *Adhyasa Bhashya* (preamble) on superimposition of self and not-self.
-- **VC** — [*Vivekachudamani*](../References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) (attributed to Shankara). Cited: sheath analysis (vv. 154–212); the deep-sleep witness (v. 120).
+- **VC** — [*Vivekachudamani*](../References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) (attributed to Shankara). Cited: discrimination between real and unreal (v. 20); sheath analysis (vv. 154–212); the deep-sleep witness (v. 120).
 - **DDV** — [*Drig-Drishya-Viveka*](../References/Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf) (attributed to Shankara or Bharati Tirtha). Cited: seer/seen discrimination (vv. 1–5).
-- **BJM** — [*Brahma Jnanavali Mala*](../References/Advaita-Vedanta/BJM-Brahma-Jnanavali-Mala.md) (attributed to Shankara). Cited: *brahma satyam jagan mithya* (v. 20).
 
 ### Scientific point of view (modern works)
 

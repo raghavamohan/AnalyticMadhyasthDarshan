@@ -19,7 +19,7 @@ CACHE = SCRIPTS / "_pdf_cache"
 SOURCE = REFERENCES / "Madhyasth-Darshan"
 
 TAG_ABBREVS = frozenset(
-    {"MVD", "SB", "JV", "AVD", "JVD", "BU", "TU", "KU", "MU", "CU", "BG", "BSB", "VC", "DDV", "BJM", "AV", "SV", "ATR"}
+    {"MVD", "SB", "JV", "AVD", "JVD", "BU", "TU", "KU", "MU", "CU", "BG", "BSB", "VC", "DDV", "AV", "SV", "ATR"}
 )
 AUTHOR_YEAR_PREFIXES = (
     "Chalmers",

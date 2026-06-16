@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 16, 2026, 11:16 AM IST
+**Edited on:** June 16, 2026, 4:51 PM IST
 
 **The question:** What is knowledge, who is the knower, and what is it that one can know? How do we ground these concepts in experience, and how does the Co-existentialism of Shri A. Nagraj compare with the non-dualism of Advaita Vedanta and the physicalism of modern science and philosophy?
 
@@ -221,8 +221,11 @@ Advaita Vedanta begins its inquiry by separating the Seer (*drig*) from the Seen
 
 Following this logic, the physical body is seen (observed), so it is not the Seer. Senses, emotions, and thoughts are also witnessed by the mind, so they are not the ultimate Seer. The ultimate Seer is the **Witness Consciousness** (*sakshi-caitanya* / *Atman*). This witness is never an object of perception; it is the ultimate subject:
 
-> **“There are two things which are different from each other. They are the seer and the seen. The seer is Brahman and the seen is mAyA.”**
-> — BJM, v. 17
+> **"This body, O son of Kunti, is called the field; he who knows it is called the knower of the field."**
+> — BG, 13.1
+
+> **"Know also that I am the Knower of the field in all fields, and the knowledge of the field also am I."**
+> — BG, 13.2
 
 ---
 
@@ -238,11 +241,14 @@ This happens through **superimposition** (*adhyasa*): we superimpose the qualiti
 
 The known universe of diversity (objects, space, time, individuals) is **not absolutely real**. It is categorized as ***mithya*** — meaning it has dependent reality (like a clay pot which is nothing but clay, or a wave which is nothing but water):
 
-> **“The pot, wall, etc., are all nothing but clay. Likewise, the entire universe is nothing but Brahman.”**
-> — BJM, v. 19
+> **"My dear, as by the knowledge of one lump of clay alone all things made of clay are known — for all transformation has speech as its basis, it being name, while clay alone is real — so, my dear, is this knowledge."**
+> — CU 6.1.4
 
-> **“Brahman is real, the universe is mithya, and the jiva is Brahman itself and not different.”**
-> — BJM, v. 20
+> **"A firm conviction of the mind to the effect that Brahman is real and the universe unreal, is designated as discrimination (Viveka) between the Real and the unreal."**
+> — VC, v. 20
+
+> **"The individual soul is itself and directly the Supreme Brahman, and nothing else."**
+> — VC, v. 216
 
 The world appears real only as long as ignorance persists; once Brahman is realized, the world is sublated (*badhita*), and only Brahman remains.
 
@@ -368,10 +374,11 @@ All sources cited in this document, grouped by tradition. Each entry begins with
 
 ### Advaita Vedanta (primary texts)
 
-- **BJM** — [*Brahma Jnanavali Mala*](../References/Advaita-Vedanta/BJM-Brahma-Jnanavali-Mala.md) (attributed to Shankara). Cited: Seer and seen (v. 17); Universe as clay (v. 19); *Brahma satyam jagan mithya* (v. 20).
+- **BG** — [*Bhagavad Gita*](../References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf). Cited: field and knower of the field (13.1–13.2).
 - **DDV** — [*Drig-Drishya-Viveka*](../References/Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf) (attributed to Shankara or Bharati Tirtha). Cited: Seer and seen discrimination (p. 15).
 - **BSB** — Shankara, Adi. [*Brahma Sutra Bhashya*](../References/Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf). Cited: the *Adhyasa Bhashya* (preamble) on superimposition of self and not-self.
-- **CU** — [*Chandogya Upanishad*](../References/Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf). Cited: "one only, without a second" (6.2.1).
+- **CU** — [*Chandogya Upanishad*](../References/Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf). Cited: clay analogy (6.1.4); "one only, without a second" (6.2.1).
+- **VC** — [*Vivekachudamani*](../References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) (attributed to Shankara). Cited: discrimination between real and unreal (v. 20); *jiva* as Brahman (v. 216).
 
 ### Modern Science & Philosophy
 

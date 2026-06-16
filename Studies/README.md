@@ -38,15 +38,15 @@ Select any linked title to open the full study. Titles shown in italics are stil
 | Document | Category | Description | Status |
 |----------|----------|-------------|--------|
 | [What-Is-Existence](What-Is-Existence.pdf) | Ontology | Madhyasth Darshan, Advaita Vedanta, and modern philosophy on existence, what exists, and whether existence begins | Draft<br>Last updated on: Jun 16, 2026, 4:27 PM IST |
-| [Why-Humans-Are-Not-Just-Material](Why-Humans-Are-Not-Just-Material.pdf) | Philosophical Anthropology | Madhyasth Darshan, science, and Advaita Vedanta on whether humans are more than matter | Draft<br>Last updated on: Jun 16, 2026, 11:16 AM IST |
+| [Why-Humans-Are-Not-Just-Material](Why-Humans-Are-Not-Just-Material.pdf) | Philosophical Anthropology | Madhyasth Darshan, science, and Advaita Vedanta on whether humans are more than matter | Draft<br>Last updated on: Jun 16, 2026, 4:51 PM IST |
 | *Philosophy-Of-Mind-And-Jeevan* | Philosophy of Mind | Ongoing.. Jeevan, mun, vritti, chitta, buddhi, atma, desire, imagination, selection, delusion, and awakening | Ongoing |
-| [Knowledge-Knower-And-Known](Knowledge-Knower-And-Known.pdf) | Epistemology | Comparative study of knowledge, knower, and known in Madhyasth Darshan, Advaita Vedanta, and Modern Philosophy | Draft<br>Last updated on: Jun 16, 2026, 11:16 AM IST |
+| [Knowledge-Knower-And-Known](Knowledge-Knower-And-Known.pdf) | Epistemology | Comparative study of knowledge, knower, and known in Madhyasth Darshan, Advaita Vedanta, and Modern Philosophy | Draft<br>Last updated on: Jun 16, 2026, 4:51 PM IST |
 | *Methodology-And-Hermeneutics* | Methodology | Ongoing.. Primary-text method, translation issues, citation discipline, interpretation, comparison, and rigorous study practice | Ongoing |
 | *Axiology-Value-Theory* | Axiology | Ongoing.. Values, value-recognition, value-fulfilment, mutual satisfaction, and the structure of humane value theory | Ongoing |
-| [Ethics-And-Morals-In-Human-Beings](Ethics-And-Morals-In-Human-Beings.pdf) | Ethics, Axiology | Ethics, morals, humane conduct, Advaita Vedanta, and modern moral science | Draft<br>Last updated on: Jun 16, 2026, 11:16 AM IST |
+| [Ethics-And-Morals-In-Human-Beings](Ethics-And-Morals-In-Human-Beings.pdf) | Ethics, Axiology | Ethics, morals, humane conduct, Advaita Vedanta, and modern moral science | Draft<br>Last updated on: Jun 16, 2026, 4:51 PM IST |
 | *Family-Relationships-And-Values* | Relationships, Axiology | Ongoing.. Family, relationship-recognition, values, trust, affection, gratitude, and mutual satisfaction | Ongoing |
 | *Education-And-Sanskar* | Education | Ongoing.. Education, sanskar, study, awakening, and how understanding is transmitted across generations | Ongoing |
-| [Aesthetics](Aesthetics.pdf) | Aesthetics, Axiology | Aesthetics, beauty, art, Advaita Vedanta, and modern philosophy from a Madhyasth Darshan standpoint | Draft<br>Last updated on: Jun 16, 2026, 11:16 AM IST |
+| [Aesthetics](Aesthetics.pdf) | Aesthetics, Axiology | Aesthetics, beauty, art, Advaita Vedanta, and modern philosophy from a Madhyasth Darshan standpoint | Draft<br>Last updated on: Jun 16, 2026, 4:51 PM IST |
 | [Human-Behavior-And-Society](Human-Behavior-And-Society.pdf) | Social Philosophy, Ethics, Axiology | Behaviour, ethics, and social organisation in the darshan | Draft<br>Last updated on: Jun 16, 2026, 11:16 AM IST |
 | [How-To-Form-Self-Sustaining-Organizations](How-To-Form-Self-Sustaining-Organizations.pdf) | Social Philosophy, Axiology | Organisations that sustain without instrumentalising their members | Draft<br>Last updated on: Jun 16, 2026, 11:16 AM IST |
 | *Governance-Justice-And-Undivided-Society* | Political Philosophy, Axiology | Ongoing.. Justice, governance, law, fearlessness, public order, and undivided society | Ongoing |

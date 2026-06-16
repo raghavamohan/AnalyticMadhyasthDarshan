@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) - a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 16, 2026, 11:16 AM IST
+**Edited on:** June 16, 2026, 4:51 PM IST
 
 **The question:** What is aesthetics? Is beauty a property of objects, a state of the subject, a social convention, a kind of taste, an experience of art, an environmental relation, or a sign of deeper harmony? How do **modern philosophies** approach aesthetics, how does **Madhyasth Darshan** understand it, and does **Advaita Vedanta** have anything direct to say on the subject?
 
@@ -200,15 +200,25 @@ but not a full independent aesthetics of art, design, or environment.
 
 ### 3.2 Advaita's relevant claims: Self, bliss, and the status of the world
 
-Advaita's main claim is not "the world is beautiful." It is that the Self is Brahman and that liberation is knowledge of this non-dual reality. The short text *Brahma Jnanavali Mala* states:
+Advaita's main claim is not "the world is beautiful." It is that the Self is Brahman and that liberation is knowledge of this non-dual reality. The *Taittiriya Upanishad* names Brahman's nature:
 
-> **"Unattached am I, unattached am I, ever free from attachment of any kind; I am of the nature of Existence-Consciousness-Bliss. I am the very Self, indestructible and ever unchanging."**  
-> - BJM, v. 2
+> **"Truth, knowledge, infinite."**  
+> - TU 2.1
 
-It also gives the famous Advaita formula:
+The *Brihadaranyaka Upanishad* adds that the Self is unattached:
 
-> **"Brahman is real, the universe is mithya (it cannot be categorized as either real or unreal). The jiva is Brahman itself and not different."**  
-> - BJM, v. 20
+> **"This person is unattached, for it is not attached to anything. That is the Self; that is immortal; that is fearless; that is Brahman."**  
+> - BU 3.9.28
+
+Shankara, in the *Vivekachudamani*, summarises the Advaita discrimination:
+
+> **"A firm conviction of the mind to the effect that Brahman is real and the universe unreal, is designated as discrimination (Viveka) between the Real and the unreal."**  
+> - VC, v. 20
+
+On the identity of *jiva* and Brahman he teaches:
+
+> **"The individual soul is itself and directly the Supreme Brahman, and nothing else."**  
+> - VC, v. 216
 
 This has consequences for aesthetics:
 
@@ -598,9 +608,10 @@ Its challenge to modern aesthetics is serious: beauty that does not support coex
 
 ### Advaita Vedanta and Indian aesthetics
 
-- **BJM** - [*Brahma Jnanavali Mala*](../References/Advaita-Vedanta/BJM-Brahma-Jnanavali-Mala.md), attributed to Adi Shankaracharya. English translation by S. N. Sastri.
-- **BU** - [*Brihadaranyaka Upanishad with Shankara Bhashya*](../References/Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf). Swami Madhavananda translation.
-- **BG** - [*Bhagavad Gita with Shankara Bhashya*](../References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf). Swami Gambhirananda translation.
+- **TU** - [*Taittiriya Upanishad*](../References/Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf). Swami Gambhirananda translation. Cited: Brahman as truth, knowledge, infinite (2.1).
+- **BU** - [*Brihadaranyaka Upanishad with Shankara Bhashya*](../References/Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf). Swami Madhavananda translation. Cited: the unattached Self (3.9.28); Maitreyi passage on dearness and Self-realization (2.4 / 4.5).
+- **BG** - [*Bhagavad Gita with Shankara Bhashya*](../References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf). Swami Gambhirananda translation. Cited: Self-bliss apart from external objects (5.21).
+- **VC** - [*Vivekachudamani*](../References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf), attributed to Shankara; English translation by Swami Madhavananda. Cited: discrimination between real and unreal (v. 20); *jiva* as Brahman (v. 216).
 - **Poorvam Rasa** - ["Sadharanikarana: An Underlying Process for Experiencing Rasa"](../References/Comparative-Philosophy/Poorvam-Sadharanikarana-Rasa.html), *Poorvam International Journal*. Local HTML snapshot.
 - **Keating 2008** - Ross Keating, "Connecting Art with Spirituality within the Indian Aesthetics of Advaita Vedanta," *Studies in Spirituality* 18 (2008): 25-37. Linked externally in [NOT-DOWNLOADED.md](../References/NOT-DOWNLOADED.md).
 - **Mind and Creativity Rasa** - "Mind and creativity: Insights from rasa theory with special focus on sahrdaya." Linked externally in [NOT-DOWNLOADED.md](../References/NOT-DOWNLOADED.md).
