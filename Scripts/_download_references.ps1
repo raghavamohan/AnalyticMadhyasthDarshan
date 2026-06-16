@@ -137,6 +137,22 @@ $downloads = @(
     @{
         Dest = 'Comparative-Philosophy\Poorvam-Sadharanikarana-Rasa.html'
         Urls = @('https://poorvam.com/article.php?slug=s-dh-ra-kara-a-underlying-process-for-experiencing-rasa')
+    },
+    @{
+        Dest = 'Modern-Philosophy\Whitehead-1929-Process-and-Reality.pdf'
+        Urls = @('https://archive.org/download/processrealityes0000unse/processrealityes0000unse.pdf')
+    },
+    @{
+        Dest = 'Modern-Philosophy\Russell-1921-The-Analysis-of-Mind.pdf'
+        Urls = @('https://archive.org/download/analysisofmind00russ/analysisofmind00russ.pdf')
+    },
+    @{
+        Dest = 'Modern-Philosophy\Mach-1914-The-Analysis-of-Sensations.pdf'
+        Urls = @('https://archive.org/download/analysisofsensat00machuoft/analysisofsensat00machuoft.pdf')
+    },
+    @{
+        Dest = 'Science\Ashtekar-Singh-2011-Loop-Quantum-Cosmology-Status-Report.pdf'
+        Urls = @('https://arxiv.org/pdf/1108.0893.pdf')
     }
 )
 
