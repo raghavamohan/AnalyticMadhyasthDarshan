@@ -15,8 +15,11 @@ drift apart.
 
 - **Topical Studies catalog** — the rows between the `<!-- studies-catalog -->`
   and `<!-- /studies-catalog -->` markers (present in both files): same studies,
-  same order, same titles, categories, descriptions, and `Updated` dates
-  (`—` for in-progress studies that have no PDF yet).
+  same order, same titles, categories, descriptions, and `Status` values.
+  Status is `Ongoing` when no document is uploaded yet (no PDF),
+  `Draft<br>Last updated on: <date>, <time> IST` once a PDF exists but is not
+  finalized, and `Released<br>Last updated on: <date>, <time> IST` only when a
+  study is explicitly released.
 - **In-progress studies** — shown in italics (`<em>...</em>` in HTML,
   `*...*` in markdown) with no link; published studies link to `<Name>.pdf`.
 - **Formal Studies table** — same documents, focus, and descriptions.
