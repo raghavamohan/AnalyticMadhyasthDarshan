@@ -35,35 +35,35 @@ These studies focus on specific topics that help define different aspects of Mad
 Select any linked title to open the full study. Titles shown in italics are still in progress.
 
 <!-- studies-catalog -->
-| Document | Category | Description | Updated |
-|----------|----------|-------------|---------|
-| [What-Is-Existence](What-Is-Existence.pdf) | Ontology | Madhyasth Darshan, Advaita Vedanta, and modern philosophy on existence, what exists, and whether existence begins | Jun 16, 2026 |
-| [Why-Humans-Are-Not-Just-Material](Why-Humans-Are-Not-Just-Material.pdf) | Philosophical Anthropology | Madhyasth Darshan, science, and Advaita Vedanta on whether humans are more than matter | Jun 16, 2026 |
-| *Philosophy-Of-Mind-And-Jeevan* | Philosophy of Mind | Ongoing.. Jeevan, mun, vritti, chitta, buddhi, atma, desire, imagination, selection, delusion, and awakening | — |
-| [Knowledge-Knower-And-Known](Knowledge-Knower-And-Known.pdf) | Epistemology | Comparative study of knowledge, knower, and known in Madhyasth Darshan, Advaita Vedanta, and Modern Philosophy | Jun 16, 2026 |
-| *Methodology-And-Hermeneutics* | Methodology | Ongoing.. Primary-text method, translation issues, citation discipline, interpretation, comparison, and rigorous study practice | — |
-| *Axiology-Value-Theory* | Axiology | Ongoing.. Values, value-recognition, value-fulfilment, mutual satisfaction, and the structure of humane value theory | — |
-| [Ethics-And-Morals-In-Human-Beings](Ethics-And-Morals-In-Human-Beings.pdf) | Ethics, Axiology | Ethics, morals, humane conduct, Advaita Vedanta, and modern moral science | Jun 16, 2026 |
-| *Family-Relationships-And-Values* | Relationships, Axiology | Ongoing.. Family, relationship-recognition, values, trust, affection, gratitude, and mutual satisfaction | — |
-| *Education-And-Sanskar* | Education | Ongoing.. Education, sanskar, study, awakening, and how understanding is transmitted across generations | — |
-| [Aesthetics](Aesthetics.pdf) | Aesthetics, Axiology | Aesthetics, beauty, art, Advaita Vedanta, and modern philosophy from a Madhyasth Darshan standpoint | Jun 16, 2026 |
-| [Human-Behavior-And-Society](Human-Behavior-And-Society.pdf) | Social Philosophy, Ethics, Axiology | Behaviour, ethics, and social organisation in the darshan | Jun 16, 2026 |
-| [How-To-Form-Self-Sustaining-Organizations](How-To-Form-Self-Sustaining-Organizations.pdf) | Social Philosophy, Axiology | Organisations that sustain without instrumentalising their members | Jun 16, 2026 |
-| *Governance-Justice-And-Undivided-Society* | Political Philosophy, Axiology | Ongoing.. Justice, governance, law, fearlessness, public order, and undivided society | — |
-| *Prosperity-Economics-And-Right-Use* | Economics, Axiology | Ongoing.. Prosperity, production, cyclical economics, right-use of wealth, and limits to accumulation | — |
-| *Nature-Ecology-And-Right-Use* | Ecology, Axiology | Ongoing.. Nature, Earth, right-use, regeneration, ecological balance, and coexistence with the other orders | — |
-| *Spiritual-Practice-And-Realization* | Spiritual Practice | Ongoing.. Anubhav, realization, awakening, yoga, liberation from mystery, liberation from suffering, and comparison with moksha traditions | — |
-| *Science-Technology-And-Human-Purpose* | Philosophy of Science | Ongoing.. Science, technology, production, convenience, human purpose, and the limits of instrumental knowledge | — |
+| Document | Category | Description | Status |
+|----------|----------|-------------|--------|
+| [What-Is-Existence](What-Is-Existence.pdf) | Ontology | Madhyasth Darshan, Advaita Vedanta, and modern philosophy on existence, what exists, and whether existence begins | Draft<br>Last updated on: Jun 16, 2026, 11:16 AM IST |
+| [Why-Humans-Are-Not-Just-Material](Why-Humans-Are-Not-Just-Material.pdf) | Philosophical Anthropology | Madhyasth Darshan, science, and Advaita Vedanta on whether humans are more than matter | Draft<br>Last updated on: Jun 16, 2026, 11:16 AM IST |
+| *Philosophy-Of-Mind-And-Jeevan* | Philosophy of Mind | Ongoing.. Jeevan, mun, vritti, chitta, buddhi, atma, desire, imagination, selection, delusion, and awakening | Ongoing |
+| [Knowledge-Knower-And-Known](Knowledge-Knower-And-Known.pdf) | Epistemology | Comparative study of knowledge, knower, and known in Madhyasth Darshan, Advaita Vedanta, and Modern Philosophy | Draft<br>Last updated on: Jun 16, 2026, 11:16 AM IST |
+| *Methodology-And-Hermeneutics* | Methodology | Ongoing.. Primary-text method, translation issues, citation discipline, interpretation, comparison, and rigorous study practice | Ongoing |
+| *Axiology-Value-Theory* | Axiology | Ongoing.. Values, value-recognition, value-fulfilment, mutual satisfaction, and the structure of humane value theory | Ongoing |
+| [Ethics-And-Morals-In-Human-Beings](Ethics-And-Morals-In-Human-Beings.pdf) | Ethics, Axiology | Ethics, morals, humane conduct, Advaita Vedanta, and modern moral science | Draft<br>Last updated on: Jun 16, 2026, 11:16 AM IST |
+| *Family-Relationships-And-Values* | Relationships, Axiology | Ongoing.. Family, relationship-recognition, values, trust, affection, gratitude, and mutual satisfaction | Ongoing |
+| *Education-And-Sanskar* | Education | Ongoing.. Education, sanskar, study, awakening, and how understanding is transmitted across generations | Ongoing |
+| [Aesthetics](Aesthetics.pdf) | Aesthetics, Axiology | Aesthetics, beauty, art, Advaita Vedanta, and modern philosophy from a Madhyasth Darshan standpoint | Draft<br>Last updated on: Jun 16, 2026, 11:16 AM IST |
+| [Human-Behavior-And-Society](Human-Behavior-And-Society.pdf) | Social Philosophy, Ethics, Axiology | Behaviour, ethics, and social organisation in the darshan | Draft<br>Last updated on: Jun 16, 2026, 11:16 AM IST |
+| [How-To-Form-Self-Sustaining-Organizations](How-To-Form-Self-Sustaining-Organizations.pdf) | Social Philosophy, Axiology | Organisations that sustain without instrumentalising their members | Draft<br>Last updated on: Jun 16, 2026, 11:16 AM IST |
+| *Governance-Justice-And-Undivided-Society* | Political Philosophy, Axiology | Ongoing.. Justice, governance, law, fearlessness, public order, and undivided society | Ongoing |
+| *Prosperity-Economics-And-Right-Use* | Economics, Axiology | Ongoing.. Prosperity, production, cyclical economics, right-use of wealth, and limits to accumulation | Ongoing |
+| *Nature-Ecology-And-Right-Use* | Ecology, Axiology | Ongoing.. Nature, Earth, right-use, regeneration, ecological balance, and coexistence with the other orders | Ongoing |
+| *Spiritual-Practice-And-Realization* | Spiritual Practice | Ongoing.. Anubhav, realization, awakening, yoga, liberation from mystery, liberation from suffering, and comparison with moksha traditions | Ongoing |
+| *Science-Technology-And-Human-Purpose* | Philosophy of Science | Ongoing.. Science, technology, production, convenience, human purpose, and the limits of instrumental knowledge | Ongoing |
 <!-- /studies-catalog -->
 
 ## Formal Studies
 
 These studies are more mathematical in nature. They represent the structure discovered across the topical studies through formal definitions, relations, templates, and comparative frameworks.
 
-| Document | Formal Focus | Description | Updated |
-|----------|--------------|-------------|---------|
-| [Category-Theory-Explained](Category-Theory-Explained.pdf) | Category theory | Category-theory lens on the darshan's structure | Jun 16, 2026 |
-| [The-Coexistence-Template](The-Coexistence-Template.pdf) | Formal template | Formal template of units, relationships, values, and assembly | Jun 16, 2026 |
+| Document | Formal Focus | Description | Status |
+|----------|--------------|-------------|--------|
+| [Category-Theory-Explained](Category-Theory-Explained.pdf) | Category theory | Category-theory lens on the darshan's structure | Draft<br>Last updated on: Jun 16, 2026, 11:16 AM IST |
+| [The-Coexistence-Template](The-Coexistence-Template.pdf) | Formal template | Formal template of units, relationships, values, and assembly | Draft<br>Last updated on: Jun 16, 2026, 11:16 AM IST |
 
 ## License
 
