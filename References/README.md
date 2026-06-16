@@ -41,15 +41,15 @@ powershell -NoProfile -ExecutionPolicy Bypass -File Scripts\_download_references
 <!-- studies-catalog -->
 | Paper | Primary tags |
 |-------|----------------|
-| [Aesthetics.pdf](../Studies/Aesthetics.pdf) | MVD, JV, SB; Advaita (BJM, BU, BG); modern aesthetics (SEP Concept of the Aesthetic, SEP Kant Aesthetics, SEP Definition of Art, SEP Environmental Aesthetics, SEP Aesthetics of the Everyday local); Indian aesthetics (Poorvam Rasa local; Keating 2008, Mind and Creativity Rasa external) |
-| [Ethics-And-Morals-In-Human-Beings.pdf](../Studies/Ethics-And-Morals-In-Human-Beings.pdf) | MVD, SB, JV; traditional religious ethics (SEP Theological Voluntarism, SEP Natural Law Ethics local; Matthew 22, Quran 16 external); Advaita (BG, BJM, VC); modern moral science/philosophy (Crockett 2013, SEP Moral Psychology local; Curry et al. 2019, Graham et al. 2013, Greene et al. 2001, Haidt 2001, Tomasello and Vaish 2013 external) |
+| [Aesthetics.pdf](../Studies/Aesthetics.pdf) | MVD, JV, SB; Advaita (TU, BU, BG, VC); modern aesthetics (SEP Concept of the Aesthetic, SEP Kant Aesthetics, SEP Definition of Art, SEP Environmental Aesthetics, SEP Aesthetics of the Everyday local); Indian aesthetics (Poorvam Rasa local; Keating 2008, Mind and Creativity Rasa external) |
+| [Ethics-And-Morals-In-Human-Beings.pdf](../Studies/Ethics-And-Morals-In-Human-Beings.pdf) | MVD, SB, JV; traditional religious ethics (SEP Theological Voluntarism, SEP Natural Law Ethics local; Matthew 22, Quran 16 external); Advaita (BG, VC); modern moral science/philosophy (Crockett 2013, SEP Moral Psychology local; Curry et al. 2019, Graham et al. 2013, Greene et al. 2001, Haidt 2001, Tomasello and Vaish 2013 external) |
 | [How-To-Form-Self-Sustaining-Organizations.pdf](../Studies/How-To-Form-Self-Sustaining-Organizations.pdf) | MVD, SB, JV; AV, SV; ATR (external) |
 | [Human-Behavior-And-Society.pdf](../Studies/Human-Behavior-And-Society.pdf) | MVD, SB, JV |
-| [Knowledge-Knower-And-Known.pdf](../Studies/Knowledge-Knower-And-Known.pdf) | MVD, SB, JV; Advaita (CU, BSB, DDV, BJM); modern science/philosophy (20 works, 10 local / 10 external) |
+| [Knowledge-Knower-And-Known.pdf](../Studies/Knowledge-Knower-And-Known.pdf) | MVD, SB, JV; Advaita (CU, BG, BSB, DDV, VC); modern science/philosophy (20 works, 10 local / 10 external) |
 | [Category-Theory-Explained.pdf](../Studies/Category-Theory-Explained.pdf) | MVD, SB, JV |
 | [The-Coexistence-Template.pdf](../Studies/The-Coexistence-Template.pdf) | MVD, SB, JV |
 | [What-Is-Existence.pdf](../Studies/What-Is-Existence.pdf) | MVD, SB, JV; Advaita (CU, TU, VC); modern science/philosophy (Chalmers 1995, Nagel 1974, Strawson 2006, Frankish 2016, Limanowski and Blankenburg 2013) |
-| [Why-Humans-Are-Not-Just-Material.pdf](../Studies/Why-Humans-Are-Not-Just-Material.pdf) | MVD, SB, JV; Advaita (BU–BJM); Science (12 works, 3 local / 9 external) |
+| [Why-Humans-Are-Not-Just-Material.pdf](../Studies/Why-Humans-Are-Not-Just-Material.pdf) | MVD, SB, JV; Advaita (BU, TU, MU, CU, KU, BG, BSB, VC, DDV); Science (12 works, 3 local / 9 external) |
 <!-- /studies-catalog -->
 
 ## Madhyasth-Darshan/
@@ -76,7 +76,6 @@ powershell -NoProfile -ExecutionPolicy Bypass -File Scripts\_download_references
 | **BSB** | [BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf](Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf) | *Adhyasa Bhashya* is the preamble |
 | **VC** | [VC-Vivekachudamani-Madhavananda.pdf](Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) | Swami Madhavananda translation |
 | **DDV** | [DDV-Drig-Drishya-Viveka-Nikhilananda.pdf](Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf) | Swami Nikhilananda translation |
-| **BJM** | [BJM-Brahma-Jnanavali-Mala.md](Advaita-Vedanta/BJM-Brahma-Jnanavali-Mala.md) | Verbatim text from Vedanta Spiritual Library (no separate PDF available) |
 
 ## Science (open-access papers)
 

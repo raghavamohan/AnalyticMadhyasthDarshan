@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) - a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 16, 2026, 11:16 AM IST
+**Edited on:** June 16, 2026, 4:51 PM IST
 
 **The question:** What are ethics and morals in human beings? Are they divine commands, social conventions, evolutionary adaptations, rational principles, neural/emotional mechanisms, or evidence of correct understanding? How does **Madhyasth Darshan** answer these questions, and how does its answer compare with **Advaita Vedanta** and **modern scientific approaches**?
 
@@ -269,15 +269,20 @@ Thus, Madhyasth Darshan does not merely reject religion. It relocates the source
 
 Advaita Vedanta gives a very different foundation. Its final claim is not coexistence of real units, but non-duality of Atman and Brahman.
 
-Brahma Jnanavali Mala states:
+The *Bhagavad Gita*, read through Shankara, teaches detached witness-consciousness:
 
-> **"Brahman is real, the universe is mithya (it cannot be categorized as either real or unreal). The jiva is Brahman itself and not different."**  
-> - BJM, v. 20
+> **"Though seeing, hearing, touching, smelling, eating, walking, sleeping, breathing... he knows that in reality he does nothing at all."**  
+> - BG, 5.8–9
 
-It also says:
+Shankara's *Vivekachudamani* states the discrimination between real and unreal:
 
-> **"He who realizes after repeated contemplation that he is a mere witness, he alone is liberated. He is the enlightened one."**  
-> - BJM, v. 18
+> **"A firm conviction of the mind to the effect that Brahman is real and the universe unreal, is designated as discrimination (Viveka) between the Real and the unreal."**  
+> - VC, v. 20
+
+On the identity of *jiva* and Brahman:
+
+> **"The individual soul is itself and directly the Supreme Brahman, and nothing else."**  
+> - VC, v. 216
 
 In this framework, the deepest ethical problem is ignorance of one's true Self. Attachment, desire, fear, and ego arise because the Self is confused with body, mind, senses, and action.
 
@@ -503,9 +508,8 @@ All sources cited in this document. Each entry begins with the bold tag used in 
 
 ### Advaita Vedanta
 
-- **BG** - [*Bhagavad Gita with the Commentary of Shankaracharya*](../References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf). English translation by Swami Gambhirananda. Cited: divine qualities, non-injury, truthfulness, absence of anger, renunciation, kindness, and purity (16.2-16.3, pp. 640-642).
-- **BJM** - [*Brahma Jnanavali Mala*](../References/Advaita-Vedanta/BJM-Brahma-Jnanavali-Mala.md), attributed to Adi Shankaracharya; English translation by S. N. Sastri. Cited: witness realization (v. 18); *Brahma satyam jagan mithya* (v. 20).
-- **VC** - Shankaracharya, [*Vivekachudamani*](../References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf). English translation by Swami Madhavananda. Cited: liberation disciplines and virtues (vv. 69, 82).
+- **BG** - [*Bhagavad Gita with the Commentary of Shankaracharya*](../References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf). English translation by Swami Gambhirananda. Cited: detached witness-consciousness (5.8–9); divine qualities, non-injury, truthfulness, absence of anger, renunciation, kindness, and purity (16.2-16.3, pp. 640-642).
+- **VC** - Shankaracharya, [*Vivekachudamani*](../References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf). English translation by Swami Madhavananda. Cited: discrimination between real and unreal (v. 20); *jiva* as Brahman (v. 216); liberation disciplines and virtues (vv. 69, 82).
 
 ### Traditional Religious Ethics
 
