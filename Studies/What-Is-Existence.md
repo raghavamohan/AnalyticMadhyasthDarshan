@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) - a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 16, 2026, 11:16 AM IST
+**Edited on:** June 16, 2026, 12:54 PM IST
 
 **The question:** What is Existence? What exists? Does the thing that exists begin at some time?
 
@@ -14,7 +14,7 @@ This study reviews these questions from the standpoint of **Madhyasth Darshan** 
 |------|---------------|
 | **Existence** | In Madhyasth Darshan: beingness and indestructibility, always present as coexistence. |
 | **Coexistence (*sah-astitva*)** | Reality as Omnipresence and all units inseparably present together. |
-| **Omnipresence / Space / Brahma / Satta** | The all-pervasive, formless, non-transforming reality in which all units are saturated. Madhyasth texts use several names for it. |
+| **Omnipresence / Omnipotence / Space / Brahma / Satta** | The all-pervasive, formless, non-transforming reality in which all units are saturated. The published translation's primary term is *Omnipotence* (used interchangeably here with *Omnipresence*); the source also names it Uniform/Equilibrium Energy, Space, Knowledge, Consciousness, God, and Absolute Energy. "Consciousness" here is one name for this pervasive reality and should not be read as a knowing subject — sentience (*chaitanya*) proper belongs to *jeevan*. |
 | **Unit** | A countable, bounded entity in nature, whether insentient or sentient. |
 | ***Jeevan*** | The sentient self: a real, immortal, constitutionally complete unit that works through the body. |
 | ***Jada* / *Chaitanya*** | Insentient and sentient nature. |
@@ -36,6 +36,8 @@ SB gives the most compressed formulation:
 
 > **"What is evident is that consciousness and matter are inseparably present. Upon examining their fundamental nature, we learn that all of existence is essentially nature (matter) saturated in Omnipotence (consciousness). Here, 'seeing' is intended in the sense of understanding. Since nature saturated in Omnipotence is inseparably present, existence itself is eternally manifest in the form of coexistence."**
 > - SB, p. 48
+
+A note on the word "consciousness" here. The published translation lists several names for this pervasive reality (Satta): Uniform Energy, Space, Knowledge, Consciousness, Omnipresence, Eternity, God, and Absolute Energy. The parenthetical "(consciousness)" therefore labels the all-pervasive reality, not a personal knowing mind. Sentience as the activity of a knower (*chaitanya*) is, in Madhyasth Darshan, the status of *jeevan*, not of Omnipresence itself. Keeping these distinct is essential; otherwise the position is easily misread as the Advaita identification of world with a single cosmic consciousness, which (as Section 1.5 shows) it explicitly rejects.
 
 The same passage immediately rejects two familiar origin stories:
 
@@ -296,10 +298,10 @@ He adds:
 > **"It is widely agreed that experience arises from a physical basis, but we have no good explanation of why and how it so arises. Why should physical processing give rise to a rich inner life at all?"**
 > - Chalmers 1995, p. 3
 
-Nagel makes the same difficulty vivid through the bat example:
+Nagel makes the same difficulty vivid through the bat example, grounding it in his canonical formulation of what consciousness is:
 
-> **"We believe that these experiences also have in each case a specific subjective character, which it is beyond our ability to conceive."**
-> - Nagel 1974, p. 3
+> **"the fact that an organism has conscious experience at all means, basically, that there is something it is like to be that organism."**
+> - Nagel 1974, p. 1
 
 For Madhyasth Darshan, this is not merely a gap in explanation. It is evidence that the ontology of body alone is incomplete. The modern physicalist may reply that an explanatory gap is not proof of *jeevan*. This is the central disagreement.
 
@@ -349,6 +351,8 @@ The modern references used here do not supply a single answer. A cautious compar
 
 Compared with all of these, Madhyasth Darshan makes a stronger metaphysical claim: existence as coexistence is eternal, units are not annihilated, and *jeevan* is immortal.
 
+It must be stated plainly that this section sidesteps the sharpest modern challenge to the claim that existence is beginningless. The third question - "does the thing that exists begin at some time?" - is most directly contested not in philosophy of mind but in physical cosmology, where standard Big Bang cosmology and debates over whether time and spacetime themselves had a beginning bear directly on it. The sources used here are philosophy of mind, which says little about origins, so the comparison should not be taken to show that Madhyasth Darshan's eternalism has met the strongest modern objection. A fuller treatment would have to engage cosmology directly, where the live disagreement actually lies.
+
 ## 4. Comparison
 
 | Question | Madhyasth Darshan | Advaita Vedanta | Modern physicalist approaches |
@@ -356,7 +360,7 @@ Compared with all of these, Madhyasth Darshan makes a stronger metaphysical clai
 | What is existence? | Eternally present coexistence: Omnipresence plus all units saturated in it. | Brahman / Existence alone, one without a second. | Concrete physical reality, usually treated through empirical inquiry and theory. |
 | What exists absolutely? | Omnipresence and real units of nature, sentient and insentient. | Brahman alone. | Usually the physical; disputed whether experience is reducible, fundamental, or illusory. |
 | Is the world real? | Yes. "Brahma is truth, the world is perpetual." | Empirically valid but ultimately *mithya*. | Yes, as physical reality. |
-| Does existence begin? | No. That which exists continues to be; what was not does not come into existence. | Brahman does not begin; creation is not production from absolute non-being. | No single answer in philosophy of mind; particular physical systems begin and end. |
+| Does existence begin? | No. That which exists continues to be; what was not does not come into existence. | Brahman does not begin; creation is not production from absolute non-being. | Philosophy of mind gives no single answer; particular physical systems begin and end. The strongest modern challenge to "existence is beginningless" is cosmological (Big Bang, whether spacetime began), not addressed by the sources used here. |
 | Does the individual self begin? | *Jeevan* does not begin at birth and does not die with the body. | The individual *jiva* is ultimately Brahman; individuality is due to ignorance. | The self is typically a biological, cognitive, or social process that develops and ends. |
 | What changes? | Forms, bodies, configurations, states, development, awakening. | Names and forms appear and are sublated; Brahman is changeless. | Physical configurations, organisms, representational states, social practices. |
 | Method of knowing | Study, realization, behavior, experiment. | Scripture, reasoning, contemplative discrimination. | Observation, modelling, argument, experiment, public evidence. |
@@ -364,7 +368,7 @@ Compared with all of these, Madhyasth Darshan makes a stronger metaphysical clai
 
 ### The deepest agreement
 
-All three traditions resist crude nihilism. Madhyasth Darshan says "that which was not, does not come into existence." Advaita asks how existence could come from non-existence. Modern physicalism generally avoids creation from nothing in philosophy of mind by treating mental and self phenomena as arising within physical processes, not from absolute non-being.
+Madhyasth Darshan and Advaita share an explicit metaphysical commitment against creation from non-being: Madhyasth Darshan says "that which was not, does not come into existence," and Advaita asks how existence could come from non-existence. Modern physicalism is a weaker and more qualified third party here. It takes no position on whether the totality of being arose from absolute nothing - that is a question for cosmology, not philosophy of mind. What the philosophy-of-mind sources share is only the narrower point that mind and self are not derived from absolute non-being but arise within already-existing physical processes. So the agreement is genuine but uneven: it is a deep ontological principle for Madhyasth Darshan and Advaita, and merely a local methodological habit for the physicalist sources used here.
 
 ### The deepest disagreement
 
@@ -402,6 +406,8 @@ This is why Madhyasth Darshan is not simply "another non-dualism." It affirms a 
 
 **5. The evidence standard differs from modern science.** Madhyasth Darshan cites realization, behavior, and experiment. Modern science will accept public behavioral evidence but will not accept private realization as establishing ontology without independent testability.
 
+**6. The "nothing is annihilated" principle must be reconciled with physics.** The conservation ontology is illustrated with burning charcoal, where mass-energy is rearranged rather than destroyed, and at that level it aligns with the conservation laws of physics. But modern physics also describes processes that look, on their face, like annihilation and origination: particle-antiparticle annihilation, pair creation, and the creation and annihilation of particles in quantum field theory. Madhyasth Darshan can answer that these are transformations of conserved quantities (energy, charge, and other invariants) rather than passages into and out of absolute non-being - which is exactly its claim. But the paper does not yet make that argument explicit, and "a reality never gets annihilated" needs to be stated at the level of conserved being, not of particular particles, if it is to engage physics rather than be refuted by it.
+
 ### 5.3 Strengths and Limits of Advaita
 
 Advaita has a powerful answer to non-being: existence cannot arise from non-existence. It also gives a rigorous first-person method of discriminating the seer from the seen. Its weakness, from the Madhyasth perspective, is that it makes the world dependent appearance. That makes it harder to ground the ultimate reality of relationships, nature, society, and humane conduct.
@@ -413,6 +419,8 @@ Advaita may reply that ethics and compassion remain valid at the empirical level
 Modern approaches are strongest where Madhyasth Darshan is weakest: public evidence, empirical correction, cognitive modelling, and precise mechanisms. Self-model theory can explain many features of embodied selfhood without positing an eternal *jeevan*. Illusionism shows how a naturalist can reinterpret even the seeming obviousness of phenomenal consciousness.
 
 But modern philosophy is not unified. Chalmers and Nagel show that subjective experience remains difficult to reduce. Strawson shows that some physicalists move toward panpsychism rather than eliminativism. These debates make it inaccurate to say "modern philosophy has proved the self is only the brain." It has not. It has, however, set a high evidential burden for any claim of an immortal sentient unit.
+
+Two Western positions not engaged here would sharpen the comparison further. Whitehead's process philosophy is arguably the closest Western analogue to Madhyasth Darshan: it treats plurality as real, relations as ontologically fundamental, and reality as perpetual becoming rather than static substance. Neutral monism (Russell, Mach) resembles the account of Omnipresence as a reality that is neither mind nor matter but the common ground of both. Engaging these would let Madhyasth Darshan be compared with traditions that share its refusal of both world-negation and matter-only reductionism, rather than only with philosophy of mind that mostly does not.
 
 ## 6. Conclusion
 
@@ -449,7 +457,7 @@ All sources cited in this document are local files under `References/`.
 ### Modern Philosophy and Cognitive Science
 
 - **Chalmers 1995** - [David J. Chalmers, "Facing Up to the Problem of Consciousness"](../References/Science/Chalmers-1995-Facing-Up-to-the-Problem-of-Consciousness.pdf). Cited: the hard problem and the question of why physical processing gives rise to experience.
-- **Nagel 1974** - [Thomas Nagel, "What Is It Like to Be a Bat?"](../References/Science/Nagel-1974-What-Is-It-Like-to-Be-a-Bat.pdf). Cited: subjective character of experience.
+- **Nagel 1974** - [Thomas Nagel, "What Is It Like to Be a Bat?"](../References/Science/Nagel-1974-What-Is-It-Like-to-Be-a-Bat.pdf). Cited: the criterion that an organism is conscious if there is something it is like to be that organism.
 - **Strawson 2006** - [Galen Strawson, "Realistic Monism: Why Physicalism Entails Panpsychism"](../References/Science/Strawson-2006-Realistic-Monism-Panpsychism.pdf). Cited: definition of physicalism, reality of experience, and panpsychist physicalism.
 - **Frankish 2016** - [Keith Frankish, "Illusionism as a Theory of Consciousness"](../References/Modern-Philosophy/Frankish-2016-Illusionism-Theory-Consciousness.pdf). Cited: illusionism and denial of phenomenal consciousness properly so-called.
 - **Limanowski and Blankenburg 2013** - [Jakub Limanowski and Felix Blankenburg, "Minimal Self-Models and the Free Energy Principle"](../References/Modern-Philosophy/Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf). Cited: minimal selfhood as embodied self-modeling.
