@@ -23,5 +23,9 @@ node Scripts/_html_to_pdf.js Studies/<Name>.html
 Remove-Item Studies/<Name>.html
 ```
 
+- Also update the study's `Updated` column (date only, e.g. `Jun 16, 2026`) in the
+  catalog tables of **both** `Studies/README.md` and `Studies/index.html` so the
+  listed version history matches the `**Edited on:**` field.
+
 Skip the update only for trivial, non-content edits (e.g. fixing a typo in this
 rule's own example).
