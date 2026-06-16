@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) - a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 16, 2026, 4:27 PM IST
+**Edited on:** June 16, 2026, 7:52 PM IST
 
 **The question:** What is Existence? What exists? Does the thing that exists begin at some time?
 
@@ -12,12 +12,12 @@ This study reviews these questions from the standpoint of **Madhyasth Darshan** 
 
 | Term | Plain meaning |
 |------|---------------|
-| **Existence** | In Madhyasth Darshan: beingness and indestructibility, always present as coexistence. |
-| **Coexistence (*sah-astitva*)** | Reality as Omnipresence and all units inseparably present together. |
-| **Omnipresence / Omnipotence / Space / Brahma / Satta** | The all-pervasive, formless, non-transforming reality in which all units are saturated. The published translation's primary term is *Omnipotence* (used interchangeably here with *Omnipresence*); the source also names it Uniform/Equilibrium Energy, Space, Knowledge, Consciousness, God, and Absolute Energy. "Consciousness" here is one name for this pervasive reality and should not be read as a knowing subject — sentience (*chaitanya*) proper belongs to *jeevan*. |
-| **Unit** | A countable, bounded entity in nature, whether insentient or sentient. |
-| ***Jeevan*** | The sentient self: a real, immortal, constitutionally complete unit that works through the body. |
-| ***Jada* / *Chaitanya*** | Insentient and sentient nature. |
+| **Existence (*astitva*)** | In Madhyasth Darshan: beingness (*hona*) and indestructibility (*anashita*), always present as coexistence (*saha-astitva*). |
+| **Coexistence (*saha-astitva*)** | Reality as Omnipresence (*satta*) and all units (*ikai*) inseparably present together. |
+| **Omnipresence / Omnipotence / Space / Brahma / Satta** | The all-pervasive, formless, non-transforming reality in which all units (*ikai*) are saturated (*samprikt* — submerged, soaked, surrounded: *dooba*, *bheega*, *gira*). The published translation's primary term is *Omnipotence* (used interchangeably here with *Omnipresence*); the source also names it Uniform/Equilibrium Energy, Space (*akasha*), Knowledge (*gyan*), Consciousness, God, and Absolute Energy. "Consciousness" here is one name for this pervasive reality and should not be read as a knowing subject — sentience (*chaitanya*) proper belongs to the sentient unit (*jeevan*). |
+| **Unit (*ikai*)** | A countable, bounded entity in nature, whether insentient (*jada*) or sentient (*chaitanya*). |
+| ***Jeevan* (Sentient Self)** | The sentient self: a real, immortal, constitutionally complete unit (*gathanpurna parmanu*) that works through the body (*shareer*). |
+| ***Jada* / *Chaitanya* (Insentient / Sentient)** | Insentient and sentient nature (*prakriti*). |
 | ***Atman* / *Brahman*** | In Advaita Vedanta: the Self and the one ultimate reality, finally identical. |
 | ***Mithya*** | In Advaita: the world as dependent appearance, neither absolutely real nor sheer non-being. |
 | **Sat-Chit-Ananda** | In Advaita: the threefold nature of Brahman / the true Self — being (*sat*), consciousness (*chit*), bliss (*ananda*). |
@@ -27,27 +27,25 @@ This study reviews these questions from the standpoint of **Madhyasth Darshan** 
 
 ## 1. The Madhyasth Darshan Answer
 
-**The claim in one sentence:** Existence is the eternally present coexistence of formless Omnipresence and countless sentient and insentient units saturated in it; what exists never arises from non-existence and is never annihilated, though units undergo motion, transformation, development, and awakening.
+**The claim in one sentence:** Existence (*astitva*) is the eternally present coexistence (*saha-astitva*) of formless Omnipresence (*satta*) and countless sentient (*chaitanya*) and insentient (*jada*) units (*ikai*) saturated (*samprikt*) in it; what exists never arises from non-existence (*abhava*) and is never annihilated, though units undergo motion, transformation, development, and awakening.
 
-### 1.1 What is Existence?
+### 1.1 The Coexistential Structure: Space (*Satta*) and Nature (*Prakriti*)
 
-Madhyasth Darshan does not define existence as an object among objects, nor as a mental category imposed by a knower. It defines existence as the inseparable presence of **Omnipresence** and **nature**.
+Madhyasth Darshan does not define existence (*astitva*) as an object among objects, nor as a mental category imposed by a knower. It defines existence as the inseparable presentness of formless **Omnipresence** (*satta*) and formful **nature** (*prakriti*).
 
 SB gives the most compressed formulation:
 
 > **"What is evident is that consciousness and matter are inseparably present. Upon examining their fundamental nature, we learn that all of existence is essentially nature (matter) saturated in Omnipotence (consciousness). Here, 'seeing' is intended in the sense of understanding. Since nature saturated in Omnipotence is inseparably present, existence itself is eternally manifest in the form of coexistence."**
 > - SB, p. 48
 
-A note on the word "consciousness" here. The published translation lists several names for this pervasive reality (Satta): Uniform Energy, Space, Knowledge, Consciousness, Omnipresence, Eternity, God, and Absolute Energy. The parenthetical "(consciousness)" therefore labels the all-pervasive reality, not a personal knowing mind. Sentience as the activity of a knower (*chaitanya*) is, in Madhyasth Darshan, the status of *jeevan*, not of Omnipresence itself. Keeping these distinct is essential: Omnipresence is the pervasive ground in which units are saturated; sentience is not a property of that ground but of constitutionally complete units.
+A note on the word "consciousness" in the translation. The published translation lists several names for this pervasive reality (*Satta* / *Vyapak*): Uniform Energy, Space (*akasha*), Knowledge (*gyan*), Consciousness, Omnipresence, Eternity, God, and Absolute Energy. The parenthetical "(consciousness)" therefore labels the all-pervasive reality, not a personal knowing mind. Sentience as the activity of a knower (*chaitanya*) is the status of *jeevan* (the sentient unit), not of Omnipresence (*satta*) itself. Keeping these distinct is essential: Space is the pervasive ground in which units (*ikai*) are saturated (*samprikt*); sentience is not a property of that ground but of constitutionally complete units (*gathanpurna parmanu*).
 
 The same passage immediately rejects two familiar origin stories:
 
-1. Matter does not arise from consciousness.
-2. Consciousness does not arise from matter.
+1.  Matter (*jada*) does not arise from consciousness/omnipresence (*satta*).
+2.  Consciousness/omnipresence (*satta*) does not arise from matter (*jada*).
 
-Madhyasth Darshan's alternative is not creation from one into the other, but **inseparable presentness**: sentient and insentient nature are saturated in Omnipresence, and that indivisible presence is existence.
-
-MVD states the same ontology in the language of "Realisation Knowledge":
+Madhyasth Darshan's alternative is not creation of one from the other, but **inseparable presentness**. This coexistential ontology is expressed in the language of "Realisation Knowledge" (*anubhav jnan*):
 
 > **"Sentient and insentient nature saturated in Omnipotence. The countless sentient and insentient units are saturated in Omnipotence (Omnipresence)."**
 > - MVD, p. 11
@@ -55,49 +53,29 @@ MVD states the same ontology in the language of "Realisation Knowledge":
 > **"All units saturated in the Omnipresence (permeative and transparent) have form, properties, essential nature & dharma, and have inherent orderliness & participate in overall orderliness."**
 > - MVD, p. 11
 
-So existence has two inseparable aspects:
+Existence thus has two inseparable aspects:
 
-1. **Omnipresence** - formless, all-pervasive, non-transforming, immeasurable.
-2. **Units of nature** - formful, countable, bounded, active, mutually related.
+1.  **Space (*Satta* / *Vyapak*):** The formless, all-pervasive, non-transforming, immeasurable reality. Space is **actionless energy** (*kriya-shunya urja*). While it does not perform actions, its permeative presence is the energy ground in which nature is energized, regulated, and conserved.
+    
+    > **"Omnipotence is not confined within any dimension of length or breadth, nor can any measure be established for it; therefore, Omnipotence is all-pervasive."**
+    > - SB, p. 49
+    
+    > **"Knowledge itself is the omnipresent Omnipotence. This itself is referred to as Space."**
+    > - MVD, p. 35
 
-SB makes this distinction explicit:
+2.  **Units of Nature (*Ikai*):** The formful, active, countable, and bounded entities. Units are not illusions in Space; they have determinate reality and remain surrounded, submerged, and soaked in it.
+    
+    > **"Nature, saturated in Omnipotence, exists as countless units. Each unit, being saturated in Omnipotence, remains surrounded, submerged, and soaked in it."**
+    > - SB, p. 48
 
-> **"Omnipotence is formless, and nature within Omnipotence is formful existence. Existence implies beingness and indestructibility."**
-> - SB, p. 49
+### 1.2 The Ontological Orders and Realist Relations of Nature
 
-This is the key sentence for the present paper. For Madhyasth Darshan, to exist is not merely to appear to a mind, nor merely to be measurable by instruments. To exist is **to be** and **not to be annihilable**.
-
-### 1.2 What Exists?
-
-Madhyasth Darshan says that what exists is **coexistence itself**: Omnipresence and all units saturated in it. What exists is not formless reality alone, with plurality treated as mere appearance; nor is it physicochemical matter alone, with sentience reduced to bodily process.
-
-Its ontology can be stated in four layers.
-
-**1. Omnipresence exists.** It is formless, all-pervasive, and not confined by dimensions:
-
-> **"Omnipotence is not confined within any dimension of length or breadth, nor can any measure be established for it; therefore, Omnipotence is all-pervasive."**
-> - SB, p. 49
-
-MVD also identifies this Omnipresence with Space:
-
-> **"Knowledge itself is the omnipresent Omnipotence. This itself is referred to as Space."**
-> - MVD, p. 35
-
-This does not make Space a personal God or an individual consciousness. It is the all-pervasive, non-transforming reality in which all units are present, conserved, regulated, and energised.
-
-**2. Countless units exist.** Units are not illusions in Omnipresence. They have determinate reality:
-
-> **"Nature, saturated in Omnipotence, exists as countless units. Each unit, being saturated in Omnipotence, remains surrounded, submerged, and soaked in it."**
-> - SB, p. 48
-
-Every unit has form, properties, essential nature, and dharma. This means that to understand a thing is not merely to locate it or quantify it, but to understand what it is, how it behaves, what its orderliness is, and how it participates in the larger order.
-
-**3. Sentient and insentient nature both exist.** Madhyasth Darshan explicitly refuses the reduction of existence to physicochemical matter:
+Nature (*prakriti*) does not exist as an amorphous mass, but as countless physical (*jada*) and sentient (*chaitanya*) units.
 
 > **"Existence is not just physicochemical matter, but all physical, chemical and *jeevan* entities are inseparably present in Omnipresence."**
 > - MVD, *The Alternative*, point 7
 
-This is why the human being is not treated as body alone. The body is a material organization; *jeevan* is a sentient unit operating through it. MVD states:
+This is why the human being is understood as a joint form of a physical body (*shareer*) and a sentient self (*jeevan*):
 
 > **"Brahma (Omnipotence) is omnipresent, and jeevan-clouds are many."**
 > - MVD, p. 13
@@ -105,91 +83,83 @@ This is why the human being is not treated as body alone. The body is a material
 > **"The grandeur of humans as a joint form of jeevan and body."**
 > - MVD, p. 13
 
-**4. Relations and orderliness exist.** Units do not exist as isolated lumps. Because existence is coexistence, every unit exists in mutuality:
+Nature is organized into four real, objective **Ontological Orders** (*chaar avastha*), each defined by its unique innateness and purpose (*dharma*):
+
+1.  **Material Order (*Padarth Avastha*):** Bounded physical and chemical units (atoms, molecules, rocks). Its dharma is bare existence (*astitva* / *hona*).
+2.  **Pranic / Bio Order (*Pran Avastha*):** Organic cells, plants, and vegetation. Its dharma is growth and biological propagation (*pushti* / *dharana*).
+3.  **Animal Order (*Jeev Avastha*):** Animals (body + *jeevan*). Its dharma is the expectation of alive-ness (*jeene ki aasha*).
+4.  **Knowledge / Human Order (*Gyan Avastha*):** Humans (body + *jeevan*). Its dharma is the expectation of continuous happiness and right-living (*sukh-dharmita*).
+
+These orders represent a real, progressive evolutionary hierarchy of development (*vikas*) within eternal coexistence. Because existence is coexistence, units do not exist in isolation. Every unit exists in an objective relation of complementarity (*poorakata*) and orderliness (*vyavastha*) with other units:
 
 > **"Since existence is coexistence, complementarity and mutual recognition are eternally established."**
 > - SB, p. 49
 
-This is why Madhyasth Darshan's ontology immediately becomes ethics, ecology, and social philosophy. If existence itself is coexistence, then right living is not an optional moral overlay; it is the human evidence of understanding existence correctly.
+Relations (*sambandh*) and values (*mulya*) are therefore **ontologically real and perpetual** structural aspects of coexistence. In the human order, values like trust (*vishvas*), respect (*samman*), and gratitude (*kritagyata*) are the objective recognition and fulfilment of these existential relations. Unlike physicalism (which treats values as brain-model projections) or Advaita (which treats relations as provisional appearances or *mithya*), Madhyasth Darshan grounds ethical values in the actual structure of existence.
 
-### 1.3 Does What Exists Begin at Some Time?
+### 1.3 Does Existence Begin? Time (*Kaal*) and Conservation
 
-Madhyasth Darshan's answer is: **No, not in the sense of coming from non-existence.** That which exists does not begin as a new reality out of nothing. It is eternally present in existence, though its form, condition, configuration, body, role, and expression may change.
-
-SB states this without ambiguity:
+For Madhyasth Darshan, existence does not begin in the sense of coming from absolute non-existence (*abhava*). What exists has always existed, though its form, configuration, and states are in constant flux:
 
 > **"That which exists continues to be, and that which was not, does not come into existence. Therefore, existence will remain as it is till eternity."**
 > - SB, p. 49
 
-JV states the same principle in language closer to ordinary life:
-
 > **"Nothing arrives at birth nor does anything depart with death. All that is, exists forever."**
 > - JV, p. 20
 
-This does not mean that Madhyasth Darshan denies change. It distinguishes **annihilation** from **transformation**, **birth** from **embodiment**, and **death** from **disassociation of body and *jeevan***. JV illustrates this with a physical example:
+To clarify this beginningless ontology, we must look at the nature of **Time** (*kaal*). Time is not an independent cosmic dimension or background substance. It is defined as the human measurement of the activity, change, and motion (*kriya* / *gati*) of units. Because formless Space (*satta*) is actionless and non-transforming, it is timeless. Time only applies to the transformations of active units in nature (*prakriti*).
+
+This ontology distinguishes absolute annihilation (*vinasha*) from physical transformation (*roopantaran*). An entity may change its configuration, but its underlying substance (*vastu*) is never destroyed:
 
 > **"A piece of charcoal continues to exist in other forms even after burning it."**
 > - JV, p. 20
 
-JV makes the metaphysical rule explicit:
-
 > **"At the fundamental level, a 'reality' never gets annihilated."**
 > - JV, p. 20
 
-The result is a strong conservation ontology:
+The result is a strong, conservation-based ontology:
 
-1. **Existence as coexistence is beginningless and endless.**
-2. **Omnipresence does not begin, change, or end.**
-3. **Units do not arise from non-being and do not vanish into non-being.**
-4. **Particular bodies, configurations, relations, and states do begin and end.**
-5. **Development and awakening are real, but they are not creation out of nothing.**
+1.  **Existence (*astitva*) as coexistence (*saha-astitva*) is beginningless and endless.**
+2.  **Omnipresence (*satta*) does not begin, change, or end.**
+3.  **Units (*ikai*) do not arise from non-being (*abhava*) and do not vanish into non-being.**
+4.  **Particular bodies (*shareer*), configurations, relations, and states do begin and end.**
+5.  **Development (*vikas*) and awakening (*jagriti*) are real, but they are not creation out of nothing.**
 
-### 1.4 Development Without Creation From Nothing
+### 1.4 Development and Awakening without Creation from Nothing
 
-Madhyasth Darshan's answer becomes more subtle in its account of *jeevan*. It does say that an atom becomes constitutionally complete and attains sentient status. But this is not "consciousness emerging from dead matter" in the modern emergentist sense. It is a development within already existing coexistence.
-
-SB describes this transition:
+While Madhyasth Darshan rejects creation from nothing, it provides a developmental account of how an atom (*parmanu*) reaches sentient status (*chaitanya*). This is the transition to constitutional completeness (*gathanpurnata*), forming the immortal sentient self (*jeevan*):
 
 > **"In the course of an atom's development, there comes a stage when the required number of particles for its constitution are all integrated, and at that point, it becomes constitutionally complete. Constitutional completeness signifies satisfaction within, by, and for that constitution. This is the immortality of the result, and the attainment of sentient status."**
 > - SB, p. 59
 
-And then:
+This development occurs within the eternal law of coexistence, meaning the potential for sentience is already inherent in existence:
 
 > **"All types of atoms, including constitutionally complete ones, are eternally present through the natural law of coexistence in existence."**
 > - SB, p. 59
 
-This gives Madhyasth Darshan a distinctive position:
-
 | Question | Madhyasth Darshan answer |
 |---|---|
-| Did existence begin? | No. Existence is eternally present coexistence. |
-| Did units begin from non-existence? | No. "That which was not, does not come into existence." |
-| Do bodies begin and end? | Yes. Birth and death are events at the level of body and association. |
+| Did existence begin? | No. Existence (*astitva*) is eternally present coexistence (*saha-astitva*). |
+| Did units begin from non-existence? | No. "That which was not, does not come into existence" (*abhava*). |
+| Do bodies begin and end? | Yes. Birth and death are events at the level of body (*shareer*) and association. |
 | Does *jeevan* begin at birth? | No. *Jeevan* is immortal; birth and death are occurrences. |
-| Does sentient status have a developmental account? | Yes. Constitutional completeness is described as attainment of sentient status, but within eternal coexistence, not as creation from nothing. |
+| Does sentient status have a developmental account? | Yes. Constitutional completeness (*gathanpurnata*) is described as attainment of sentient status (*chaitanya*), but within eternal coexistence (*saha-astitva*), not as creation from nothing. |
 
-### 1.5 Brahma Is Truth, the World Is Perpetual
+### 1.5 The Perpetual World: *Brahma Satya Hai, Jagat Satat Hai*
 
 MVD compresses the coexistential ontology into one line:
 
 > **"Brahma is truth, the world is perpetual."**
 > - MVD, p. 13
 
-This is not a minor rhetorical flourish. It states a metaphysical commitment: Brahma (Omnipresence) and the world of units are both real, neither cancelled by the other.
-
-If the world is perpetual, then:
-
-1. Matter is not ultimately negated.
-2. Relations are not merely provisional.
-3. Human conduct is not merely preparatory to escape from the world.
-4. Nature, society, production, justice, prosperity, and ecological balance are all real domains of evidence.
+This is not a minor rhetorical flourish. It states a metaphysical commitment: Brahma (Omnipresence / *satta*) and the world of units (*ikai*) are both real, neither cancelled by the other. If the world is perpetual (*satat*), then matter (*jada*) is not ultimately negated, relationships (*sambandh*) are not merely provisional, and humane conduct (*manaviya aacharan*) is not merely preparatory to escape from the world. 
 
 Madhyasth Darshan therefore rejects two reductions that would split this inseparable whole:
 
-1. **Material reductionism:** only physicochemical matter exists.
-2. **World-negating spiritualism:** only the formless ground is finally real and the world is diminished to mere appearance.
+1.  **Material reductionism:** only physicochemical matter (*jada*) exists.
+2.  **World-negating spiritualism:** only the formless ground (*satta*) is finally real and the world is diminished to mere appearance (*mithya*).
 
-Its positive claim is: **Brahma is real, the world is real, and their inseparable presentness is coexistence.**
+Its positive claim is: **Brahma is real, the world is real, and their inseparable presentness is coexistence (*saha-astitva*).**
 
 ## 2. The Advaita Vedanta Answer
 
@@ -220,12 +190,12 @@ A second classical Advaita formulation names existence not only as *sat* — bar
 
 The Taittiriya Upanishad gives an early root of the formula when it defines Brahman as:
 
-> **"Truth, knowledge, infinite."**
-> - TU 2.1
+> **"Brahman is Truth, Knowledge, and Infinity."**
+> - TU 2.1.1
 
 Shankara's tradition reads *satyam* as being or reality, *jnanam* as consciousness, and *anantam* as the infinite — not finite, not bounded by name and form. The *anandamaya* sheath passage in the same Upanishad (TU 2.5) then leads the seeker beyond even bliss as a sheath to the Self beyond all coverings. Shankara states the mature Advaita formula in the *Vivekachudamani*:
 
-> **"I am of the nature of Existence-Consciousness-Bliss. I am the very Self, indestructible and ever unchanging."**
+> *I am of the nature of Existence-Consciousness-Bliss. I am the very Self, indestructible and ever unchanging.*
 
 This is the meditative rendering of Shankara's teaching at *Vivekachudamani* v. 152 (trans. Swami Madhavananda):
 
@@ -361,18 +331,28 @@ He clarifies that illusionists deny phenomenal properties, not all consciousness
 
 Madhyasth Darshan would regard this as another form of reductionism. It treats lived experience, valuation, aspiration, and realization as activities of *jeevan*, not as illusions produced by a brain-model. But illusionism is philosophically important because it shows how far modern naturalism may go to preserve a physicalist ontology.
 
-### 3.5 Does What Exists Begin in Modern Philosophy?
+### 3.5 Physical Cosmology: Does the Physical Universe Have a Beginning?
+
+To evaluate the question "does the thing that exists begin at some time?" from a modern scientific standpoint, we must look beyond philosophy of mind to physical cosmology. The standard cosmological model (based on General Relativity) suggests that the observable universe—including space and time itself—had a beginning at a singularity approximately 13.8 billion years ago. If taken as the absolute origin of all physical reality, this singularity would challenge the view that existence is beginningless.
+
+However, contemporary theoretical physics and quantum cosmology suggest that the Big Bang may not have been the absolute beginning of reality. Because General Relativity breaks down at the Planck scale, physicists have proposed several non-singular models:
+
+1.  **Loop Quantum Cosmology (Big Bounce):** In this model, quantum gravity effects prevent the universe from collapsing into a singularity of infinite density. Instead, when the universe contracts to a critical density, it "bounces" back. This implies our Big Bang was a transition from a prior collapsing universe, extending time infinitely into the past.
+2.  **Conformal Cyclic Cosmology (CCC):** Proposed by Roger Penrose, this model suggests the universe progresses through an infinite sequence of cycles (aeons). The extreme expansion of one aeon eventually becomes mathematically identical to the hot, dense beginning of the next.
+3.  **Eternal Inflation and the Multiverse:** In inflationary cosmology, our local universe is one of many "bubble universes" spawned within a wider, eternally inflating space. While our bubble had a beginning, the overarching multiverse vacuum is eternal.
+
+**Conceptual Comparison:** These models suggest that while particular configurations (like our local bubble universe, stars, and bodies) have clear beginnings and ends, the underlying physical substrate (space, energy fields, or quantum vacuum) is beginningless. This conceptualization aligns with Madhyasth Darshan's claim that nature (*prakriti*) is perpetual (*satat*), meaning that physical units (*jada ikai*) and their all-pervasive ground (*satta*) are eternally present, even though their specific physical forms and associations are in constant flux.
+
+### 3.6 Does What Exists Begin in Modern Philosophy and Science?
 
 The modern references used here do not supply a single answer. A cautious comparison is:
 
-1. **Physicalism:** particular organisms, brains, stars, and bodies begin and end; the question of whether the total physical universe begins belongs to cosmology and fundamental physics, not to the philosophy-of-mind sources used here.
-2. **Self-model theories:** the self begins developmentally as embodied modeling capacities arise; there is no eternal individual self.
-3. **Panpsychism:** experientiality may belong to fundamental physical reality; particular minds still depend on organization.
-4. **Illusionism:** phenomenal consciousness never begins, because phenomenal consciousness in the realist sense does not exist; what begins are quasi-phenomenal representational and cognitive states.
+1.  **Physicalism & Cosmology:** Particular organisms, brains, stars, and local universes begin and end; however, fundamental physics and quantum cosmology increasingly point toward a beginningless physical substrate (fields, energy, or cyclic space).
+2.  **Self-model theories:** The self begins developmentally as embodied modeling capacities arise; there is no eternal individual self.
+3.  **Panpsychism:** Experientiality may belong to fundamental physical reality; particular minds still depend on organization.
+4.  **Illusionism:** Phenomenal consciousness never begins, because phenomenal consciousness in the realist sense does not exist; what begins are quasi-phenomenal representational and cognitive states.
 
-Compared with all of these, Madhyasth Darshan makes a stronger metaphysical claim: existence as coexistence is eternal, units are not annihilated, and *jeevan* is immortal.
-
-It must be stated plainly that this section sidesteps the sharpest modern challenge to the claim that existence is beginningless. The third question - "does the thing that exists begin at some time?" - is most directly contested not in philosophy of mind but in physical cosmology, where standard Big Bang cosmology and debates over whether time and spacetime themselves had a beginning bear directly on it. The sources used here are philosophy of mind, which says little about origins, so the comparison should not be taken to show that Madhyasth Darshan's eternalism has met the strongest modern objection. A fuller treatment would have to engage cosmology directly, where the live disagreement actually lies.
+Compared with all of these, Madhyasth Darshan makes a stronger metaphysical claim: existence as coexistence (*saha-astitva*) is eternal, units (*ikai*) are not annihilated, and *jeevan* is immortal. This eternalism is consistent with the conservation principles of physics and beginningless cosmological models, though its claims about individual immortality (*jeevan*) and sentient completeness (*gathanpurnata*) remain distinct metaphysical assertions that cannot be validated by current physical science alone.
 
 ## 4. Comparison
 
@@ -403,9 +383,21 @@ The decisive issue is **the status of plurality.**
 
 Advaita's **Sat-Chit-Ananda** and Madhyasth Darshan's **coexistence** can sound like the same answer to "what is existence?" Both speak of being, consciousness, and fulfilment. The contrast is not over whether those words appear, but over **what they name and whether the world survives them.**
 
-For Advaita, *sat*, *chit*, and *ananda* are three names for **one** ultimate reality — Brahman / the true Self — without a second. Existence **is** that single being-consciousness-bliss; the world of units, bodies, and relations is finally *mithya*, resolved into that identity. Liberation is recognising "I am Brahman."
+For Advaita, *sat*, *chit*, and *ananda* are three names for **one** ultimate reality — Brahman / the true Self — without a second. Existence **is** that single being-consciousness-bliss; the world of units, bodies, and relations is finally *mithya*, resolved into that identity. Liberation is recognising "I am Brahman." In this non-dual identity, the absolute has no internal distinctions (*svagata-bheda*), external distinctions (*vijatiya-bheda*), or generic distinctions (*sajatiya-bheda*).
 
-For Madhyasth Darshan, the same vocabulary is **distributed across coexistence**, not compressed into one subject. **Being** is indestructible coexistence of Omnipresence and real units. **Consciousness** names the all-pervasive ground (Satta), while **sentience** (*chaitanya*) belongs to *jeevan*, not to Omnipresence itself. **Satisfaction and bliss** belong to real units in development and to awakening within the world — not to negating the world. The question is answered not by dissolving the many into one, but by understanding inseparable Omnipresence and units together.
+For Madhyasth Darshan, the same vocabulary is **distributed across coexistence (*saha-astitva*)**, not compressed into one subject. 
+
+*   **Being (*Sat*):** Rather than being a single undifferentiated reality, beingness (*astitva*) is the inseparable presence of formless Omnipresence (*satta*) and countless active units (*ikai*). The world of units is perpetual and real.
+*   **Consciousness (*Chit*):** Consciousness has a dual structure. Pervasive Space (*satta* / *vyapak*) is "Knowledge itself" (*gyan*) — the all-pervasive, transparent energy ground. However, subjective sentience (*chaitanya*) — the capacity to know, desire, and experience — belongs exclusively to the constitutionally complete unit (*jeevan*). Space does not act as a knower; *jeevan* is the knower that realizes Satta.
+*   **Bliss (*Ananda*):** Bliss is not a static quality of the formless ground, but the state of realization and harmony (*anubhuti*) within the awakened *jeevan* when its inner faculties (mind, intellect, soul) are aligned in coexistence, expressing itself as humane conduct.
+
+The table below contrasts this structural difference:
+
+| Concept | Advaita Vedanta (Unified Non-Dualism) | Madhyasth Darshan (Distributed Coexistence) |
+| :--- | :--- | :--- |
+| **Sat (Being)** | Brahman alone is Sat. The world is a dependent appearance (*mithya*) that is ultimately negated. | Beingness (*astitva*) is coexistence (*saha-astitva*) of formless space (*satta*) and countless real units (*ikai*). |
+| **Chit (Consciousness)** | Pure Awareness itself, identical to the inner Self (*Atman*). The world of names and forms is inert. | Space (*satta*) is pervasive knowledge/energy, but active sentience (*chaitanya*) belongs to the *jeevan* unit. |
+| **Ananda (Bliss)** | The intrinsic nature of Brahman. Sensory joy is merely a distorted reflection of Brahman-bliss. | Bliss (*ananda*) is the harmony realized *within* the awakened *jeevan*, manifested as humane conduct. |
 
 Modern philosophy has no parallel formula. It may treat experience as physical, fundamental, or illusory, but it does not name existence as Sat-Chit-Ananda or as coexistence.
 
@@ -437,7 +429,7 @@ Madhyasth Darshan is therefore not simply "another non-dualism." It affirms inse
 
 **5. The evidence standard differs from modern science.** Madhyasth Darshan cites realization, behavior, and experiment. Modern science will accept public behavioral evidence but will not accept private realization as establishing ontology without independent testability.
 
-**6. The "nothing is annihilated" principle must be reconciled with physics.** The conservation ontology is illustrated with burning charcoal, where mass-energy is rearranged rather than destroyed, and at that level it aligns with the conservation laws of physics. But modern physics also describes processes that look, on their face, like annihilation and origination: particle-antiparticle annihilation, pair creation, and the creation and annihilation of particles in quantum field theory. Madhyasth Darshan can answer that these are transformations of conserved quantities (energy, charge, and other invariants) rather than passages into and out of absolute non-being - which is exactly its claim. But the paper does not yet make that argument explicit, and "a reality never gets annihilated" needs to be stated at the level of conserved being, not of particular particles, if it is to engage physics rather than be refuted by it.
+**6. The "nothing is annihilated" principle and modern physics.** The conservation ontology in Madhyasth Darshan—illustrated by the idea that a substance never gets annihilated—seems at first glance to align with classical conservation of mass and energy. However, modern physics describes processes that look like creation and annihilation: particle-antiparticle annihilation (where an electron and positron collide and disappear into photons) and pair creation (where particles appear out of high-energy light). Quantum field theory (QFT) explains that these are not passages into or out of absolute non-being. Rather, particles are localized excitations of underlying, all-pervasive fields (such as the electron or electromagnetic fields) which are themselves conserved and beginningless. Annihilation is simply the transformation of one type of field excitation (matter) into another (radiation/photons), governed by strict conservation laws of energy-momentum, charge, and other invariants. Thus, modern physics supports the conceptual claim that fundamental reality (*vastu*) is never annihilated, only its configurations (*roop*) are transformed. The paper makes this alignment explicit, showing how the "nothing is annihilated" principle maps to conserved quantities in physics.
 
 ### 5.3 Strengths and Limits of Advaita
 
