@@ -14,14 +14,8 @@ finish.
 - Format: `**Edited on:** Month D, YYYY, h:mm AM/PM IST` (e.g. `June 16, 2026, 11:16 AM IST`).
 - Use the real current date/time, not a copied value from another file.
 - If the field is missing, add it on its own line immediately after the `**Author:**` line, separated by a blank line.
-- After editing the markdown, regenerate the matching PDF so the published copy
-  reflects the same edit date:
-
-```powershell
-python Scripts/_convert_to_pdf.py Studies/<Name>.md
-node Scripts/_html_to_pdf.js Studies/<Name>.html
-Remove-Item Studies/<Name>.html
-```
+- After editing the markdown, regenerate the matching PDF using the internal
+  pipeline in `.cursor/rules/md-to-pdf.mdc` (never ad-hoc converters).
 
 - Also update the study's `Status` column in the catalog tables of **both**
   `Studies/README.md` and `Studies/index.html`. Status values:

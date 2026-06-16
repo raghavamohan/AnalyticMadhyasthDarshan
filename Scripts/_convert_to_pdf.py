@@ -1,5 +1,5 @@
+import argparse
 import re
-import sys
 from pathlib import Path
 from urllib.parse import unquote, urlparse
 
@@ -7,8 +7,17 @@ import markdown
 
 from _common import STUDIES
 
-if len(sys.argv) > 1:
-    INPUT = Path(sys.argv[1]).resolve()
+parser = argparse.ArgumentParser(description="Convert a study markdown file to styled HTML.")
+parser.add_argument("input", nargs="?", default=None, help="Path to the study .md file")
+parser.add_argument(
+    "--watermark",
+    default=None,
+    help='Optional repeating page watermark text (e.g. "Draft"). Omit for released studies.',
+)
+args = parser.parse_args()
+
+if args.input:
+    INPUT = Path(args.input).resolve()
 else:
     INPUT = STUDIES / "How-To-Form-Self-Sustaining-Organizations.md"
 
@@ -42,6 +51,10 @@ html_body = markdown.markdown(
     extensions=["tables", "fenced_code", "smarty"],
 )
 html_body = absolutize_local_links(html_body, OUTPUT)
+
+watermark_html = (
+    f'<div class="page-watermark">{args.watermark}</div>' if args.watermark else ""
+)
 
 full_html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -161,9 +174,27 @@ full_html = f"""<!DOCTYPE html>
   em {{
     color: #444;
   }}
+  .page-watermark {{
+    position: fixed;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    transform: translateY(-50%) rotate(-45deg);
+    transform-origin: center;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 120pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(190, 30, 30, 0.10);
+    z-index: 9999;
+    pointer-events: none;
+  }}
 </style>
 </head>
 <body>
+{watermark_html}
 {html_body}
 </body>
 </html>"""
