@@ -67,10 +67,34 @@ full_html = f"""<!DOCTYPE html>
     margin: 2.2cm 2cm 2.2cm 2cm;
   }}
   @media print {{
-    body {{ font-size: 11pt; }}
-    h2 {{ page-break-after: avoid; }}
+    body {{
+      font-size: 11pt;
+      margin: 0;
+      padding: 0;
+      max-width: none;
+    }}
+    h1 ~ p {{
+      margin: 3pt 0;
+    }}
+    h2 {{
+      page-break-after: auto;
+      break-after: auto;
+    }}
+    h2:first-of-type {{
+      margin-top: 10pt;
+    }}
     h3 {{ page-break-after: avoid; }}
-    table {{ page-break-inside: avoid; }}
+    table {{
+      page-break-inside: auto;
+      break-inside: auto;
+    }}
+    thead {{
+      display: table-header-group;
+    }}
+    tr {{
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }}
     pre {{ page-break-inside: avoid; }}
     blockquote {{ page-break-inside: avoid; }}
   }}
@@ -91,9 +115,12 @@ full_html = f"""<!DOCTYPE html>
     border-bottom: 2px solid #333;
     padding-bottom: 6pt;
   }}
+  h1 + p {{
+    margin-top: 4pt;
+  }}
   h2 {{
     font-size: 15pt;
-    margin-top: 22pt;
+    margin-top: 18pt;
     margin-bottom: 6pt;
     color: #222;
     border-bottom: 1px solid #bbb;
@@ -129,6 +156,15 @@ full_html = f"""<!DOCTYPE html>
     border-collapse: collapse;
     margin: 12pt 0;
     font-size: 10pt;
+    page-break-inside: auto;
+    break-inside: auto;
+  }}
+  thead {{
+    display: table-header-group;
+  }}
+  tr {{
+    page-break-inside: avoid;
+    break-inside: avoid;
   }}
   th {{
     background: #e8e8e4;

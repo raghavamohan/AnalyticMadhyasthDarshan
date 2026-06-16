@@ -1,29 +1,62 @@
 ---
 description: Keep the "Edited on" field current whenever a study is changed
 globs: Studies/*.md
-alwaysApply: false
+alwaysApply: true
 ---
 
 # Keep "Edited on" current in Studies
 
 Every study under `Studies/` carries an `**Edited on:**` field directly below
-the `**Author:**` line. Whenever you make a substantive content change to a
-study's markdown, update that field to the current date and time before you
-finish.
+the `**Author:**` line. **Any change to study content** — including edits made
+during review, restructuring, typo fixes in body text, citation updates, or PDF
+regeneration after content changes — **must** refresh that timestamp before you
+finish the task.
 
-- Format: `**Edited on:** Month D, YYYY, h:mm AM/PM IST` (e.g. `June 16, 2026, 11:16 AM IST`).
-- Use the real current date/time, not a copied value from another file.
-- If the field is missing, add it on its own line immediately after the `**Author:**` line, separated by a blank line.
-- After editing the markdown, regenerate the matching PDF using the internal
-  pipeline in `.cursor/rules/md-to-pdf.mdc` (never ad-hoc converters).
+## Mandatory workflow (do not skip steps)
 
-- Also update the study's `Status` column in the catalog tables of **both**
-  `Studies/README.md` and `Studies/index.html`. Status values:
-  - `Ongoing` — no document uploaded yet (italic title, no PDF).
-  - `Draft<br>Last updated on: <date>, <time> IST` — a document/PDF exists but is
-    not finalized (date/time matching the study's `**Edited on:**` field).
-  - `Released<br>Last updated on: <date>, <time> IST` — only once a study is
-    explicitly finalized/released.
+When you edit a study markdown file (`Studies/<Name>.md`):
 
-Skip the update only for trivial, non-content edits (e.g. fixing a typo in this
-rule's own example).
+1. **Get the real current time** — run in PowerShell from the repo root:
+   `Get-Date -Format "MMMM d, yyyy, h:mm tt"`
+   Append ` IST` to the result. **Never** guess, round, or copy a timestamp from
+   another file or an earlier message.
+2. **Update `**Edited on:**`** in the study `.md` — format:
+   `**Edited on:** Month D, YYYY, h:mm AM/PM IST`
+   (e.g. `June 16, 2026, 3:45 PM IST`).
+3. **Update the catalog `Status` date** in **both** `Studies/README.md` and
+   `Studies/index.html` for that study's row. Use the same date and time as step
+   2, with abbreviated month in the catalog (`Jun` not `June`):
+   `Draft<br>Last updated on: Jun 16, 2026, 3:45 PM IST`
+4. **Regenerate the PDF** using the pipeline in `.cursor/rules/md-to-pdf.mdc`
+   (never ad-hoc converters). The PDF embeds the `**Edited on:**` line from
+   the markdown — an old timestamp in the `.md` means an old timestamp in the PDF.
+
+If the field is missing, add it on its own line immediately after the
+`**Author:**` line, separated by a blank line.
+
+## Status values in catalogs
+
+- `Ongoing` — no document uploaded yet (italic title, no PDF).
+- `Draft<br>Last updated on: <date>, <time> IST` — a document/PDF exists but is
+  not finalized (date/time **must match** the study's `**Edited on:**` field).
+- `Released<br>Last updated on: <date>, <time> IST` — only once a study is
+  explicitly finalized/released.
+
+## When to update
+
+Update the timestamp whenever **any** of these change in the study `.md`:
+
+- Body text, headings, tables, blockquotes, or references
+- Structure (sections added, removed, or reordered)
+- Metadata other than `**Edited on:**` itself
+
+The **only** exception: editing this rule file's own example timestamps.
+
+## Completion check
+
+Before marking a study edit done, confirm all three are in sync:
+
+- [ ] `Studies/<Name>.md` → `**Edited on:**`
+- [ ] `Studies/README.md` → that study's `Last updated on`
+- [ ] `Studies/index.html` → that study's `Last updated on`
+- [ ] `Studies/<Name>.pdf` regenerated after the timestamp change

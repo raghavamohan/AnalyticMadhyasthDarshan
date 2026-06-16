@@ -20,6 +20,10 @@ drift apart.
   `Draft<br>Last updated on: <date>, <time> IST` once a PDF exists but is not
   finalized, and `Released<br>Last updated on: <date>, <time> IST` only when a
   study is explicitly released.
+  **When a study is edited**, the `Last updated on` date/time in both catalogs
+  must match that study's `**Edited on:**` field in its `.md` file exactly
+  (abbreviated month in catalogs: `Jun`; full month in `.md`: `June`). See
+  `.cursor/rules/study-edited-on.mdc` for the mandatory workflow.
 - **In-progress studies** — shown in italics (`<em>...</em>` in HTML,
   `*...*` in markdown) with no link; published studies link to `<Name>.pdf`.
 - **Formal Studies table** — same documents, focus, and descriptions.
