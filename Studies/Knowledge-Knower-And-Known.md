@@ -45,7 +45,7 @@ According to Shri A. Nagraj, knowledge (*gyan*) is not a subjective construct, a
 > **“Space itself is knowledge, knowledge itself is Omnipresence,”**
 > — MVD, p. 155
 
-This should not be confused with Advaita's Brahman or with modern panpsychism. In Madhyasth Darshan, Space is not an individual conscious subject and not a unit among other units. It is the omnipresent, non-transforming medium in which all material (*jada*) and sentient (*chaitanya*) units are submerged, energised, regulated, and conserved. The sentient knower is still *jeevan*, not Space itself.
+Importantly, Space here is not an individual conscious subject and not a unit among other units. It is the omnipresent, non-transforming medium in which all material (*jada*) and sentient (*chaitanya*) units are submerged, energised, regulated, and conserved. The sentient knower is still *jeevan*, not Space itself.
 
 **2. Knowledge unfolds as *gyan-vivek-vigyan*.** When realized by the human being, knowledge becomes evident as wisdom and science, not as belief alone:
 
@@ -78,7 +78,7 @@ Here:
 2. ***Drishti* (perspective)** is the act of seeing, understanding, recognizing, and evaluating realities.
 3. ***Darshan* (worldview / holistic view)** is the accomplished understanding obtained through right perspective.
 
-This is a key difference from both comparison partners. Advaita's *drig-drishya* analysis uses seer-seen discrimination to negate the seen and arrive at the actionless witness. Madhyasth Darshan instead asks whether the human's perspective can become aligned with coexistence so that the scene is understood as it is and then evidenced in conduct. Modern science, by contrast, privileges third-person observation and public modelling; Madhyasth Darshan also demands evidence, but includes first-person realization and value-fulfilment in relationships as part of that evidence.
+The aim of this structure is alignment. When the human's perspective becomes aligned with coexistence, the scene is understood as it is, and that understanding is then evidenced in conduct. Knowing here is therefore not detached observation but the disciplined use of perspective until reality is seen correctly, realized first-hand, and fulfilled in relationships.
 
 **5. Knowing, Believing, Recognizing, and Fulfilling.** Knowledge is expressed dynamically in human behavior through four interconnected activities: *janna* (knowing), *manna* (believing), *pahchanna* (recognizing), and *nirvaha karna* (fulfilling):
 
@@ -113,7 +113,7 @@ This is why humane conduct is not an ethical appendix to knowledge. It is part o
 > **“delusion-less knowledge (nirbhram gyan): - Knowing, understanding and imparting the understanding of the realities the way they are.”**
 > — MVD, p. 317
 
-**8. The means of knowing: study, realization, and the proof of conveying.** Madhyasth Darshan does not organize knowing around a list of independent instruments of cognition (perception, inference, testimony) the way classical Indian epistemology does. All means converge on one outcome: direct realization in coexistence, which is then validated in living and in the ability to impart understanding to another.
+**8. The means of knowing: study, realization, and the proof of conveying.** In Madhyasth Darshan all means of knowing converge on one outcome: direct realization in coexistence, which is then validated in living and in the ability to impart understanding to another.
 
 > **“The proof of our comprehension lies in our ability to convey it to others; this is the litmus test of our wisdom.”**
 > — JV, p. 26
@@ -155,7 +155,7 @@ From this follows one of the darshan's sharpest epistemological commitments: exi
 > **“Eradication of mystery is only through the holistic view of reality.”**
 > — MVD, p. 209
 
-Where Advaita finally calls ignorance "indescribable" (*anirvacaniya*) and modern science leaves the Hard Problem open, Madhyasth Darshan asserts that right understanding culminates in certitude, not residual mystery: "The holistic view of reality leads to 'certitude'; otherwise, doubt persists" (MVD, p. 209).
+Madhyasth Darshan asserts that right understanding culminates in certitude, not residual mystery: "The holistic view of reality leads to 'certitude'; otherwise, doubt persists" (MVD, p. 209).
 
 ---
 
@@ -176,9 +176,9 @@ Material things (like stones) and biological organisms (like plants) do not have
 
 This distinction is important: every human has the possibility of seer-status because every human has imagination, freedom of action, and the capacity for understanding; only the awakened human evidences that status in living.
 
-The knower in Madhyasth Darshan is therefore not an actionless, passive witness. *Jeevan* is an active, structured, sentient unit. Its activities include hope in *mun*, thought in *vritti*, desire in *chitta*, resoluteness in *buddhi*, and realization in *atma*. (*Jeevan Vidya* presents the same structure as ten coordinated activities across the atom's nucleus and orbits — taste and selection in *mun*, deliberation and analysis in *vritti*, contemplation and visualization in *chitta*, enlightenment and resolve in *buddhi*, and realization and authenticity in *atma* — JV, p. 92.) The body is the instrument through which this *jeevan* acts; the brain (*medhas*) receives and processes signals related to *jeevan*'s aspirations, desires, and evidence (MVD, p. 83). This makes Madhyasth Darshan sharply different from Advaita: the inner self is not finally negated into an actionless witness, but understood as a real, active, constitutionally complete unit capable of awakening.
+The knower in Madhyasth Darshan is therefore not an actionless, passive witness. *Jeevan* is an active, structured, sentient unit. Its activities include hope in *mun*, thought in *vritti*, desire in *chitta*, resoluteness in *buddhi*, and realization in *atma*. (*Jeevan Vidya* presents the same structure as ten coordinated activities across the atom's nucleus and orbits — taste and selection in *mun*, deliberation and analysis in *vritti*, contemplation and visualization in *chitta*, enlightenment and resolve in *buddhi*, and realization and authenticity in *atma* — JV, p. 92.) The body is the instrument through which this *jeevan* acts; the brain (*medhas*) receives and processes signals related to *jeevan*'s aspirations, desires, and evidence (MVD, p. 83). The inner self is thus understood as a real, active, constitutionally complete unit capable of awakening — not a passive or actionless witness.
 
-It also differs from modern physicalism. Modern neuroscience treats mind as brain activity. Madhyasth Darshan treats the brain as a bodily organ through which *jeevan* operates, and treats values and evaluation as activities of *jeevan*, not mechanical outputs of the body.
+In this account the brain is a bodily organ through which *jeevan* operates, and values and evaluation are activities of *jeevan* rather than mechanical outputs of the body.
 
 ---
 
@@ -202,7 +202,7 @@ Crucially, in Madhyasth Darshan, the known world is **absolutely real and perpet
 > **“Brahma is truth, the world is perpetual.”**
 > — MVD, *The Alternative*, point 8
 
-This is the most direct contrast with Advaita Vedanta. Advaita resolves the knower-known distinction by sublating the known world into Brahman. Madhyasth Darshan resolves it by awakening the knower to the real coexistence of Omnipresence and world. The world is not negated; it is understood, recognized, and fulfilled in conduct.
+Madhyasth Darshan therefore resolves the knower-known distinction by awakening the knower to the real coexistence of Omnipresence and world. The world is not negated; it is understood, recognized, and fulfilled in conduct.
 
 ---
 
