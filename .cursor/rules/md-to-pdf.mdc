@@ -54,8 +54,12 @@ foreach ($s in $studies) {
 ## After conversion
 
 - Confirm the output PDF path is `Studies/<Name>.pdf` (same stem as the `.md`).
-- If the study's `**Edited on:**` or catalog **Status** changed, follow
-  `.cursor/rules/study-edited-on.mdc` and
+- **Before** running the pipeline, ensure `**Edited on:**` in the `.md` reflects
+  the current time (see `.cursor/rules/study-edited-on.mdc` — run `Get-Date`,
+  never guess). Regenerating a PDF without updating the timestamp leaves a stale
+  date on every page of the document header.
+- After conversion, if the study's `**Edited on:**` or catalog **Status**
+  changed, confirm both catalogs match per
   `.cursor/rules/studies-index-readme-sync.mdc`.
 
 ## Do not

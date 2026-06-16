@@ -39,7 +39,7 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-15.
 | | Churchland 1986, Dennett 1991, Goff 2019, Kandel et al. 2021, Kim 2005, Popper 1959 | external |
 | | Hashemi 2025, IEP Enactivism, Kuhn 2024, Massimi 2022 | external |
 | [What-Is-Existence.pdf](../Studies/What-Is-Existence.pdf) | MVD, SB, JV | present |
-| | CU, BJM | present |
+| | CU, TU, VC | present |
 | | Chalmers 1995, Nagel 1974, Strawson 2006 | present |
 | | Frankish 2016, Limanowski and Blankenburg 2013 | present |
 
@@ -54,15 +54,15 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-15.
 | **JVD** | [Madhyasth-Darshan/JVD-Janvad.pdf](Madhyasth-Darshan/JVD-Janvad.pdf) | not yet cited in Studies |
 | **MD** | [Madhyasth-Darshan/MD-Mapping.xlsx](Madhyasth-Darshan/MD-Mapping.xlsx) | supporting spreadsheet (not cited inline) |
 | **BU** | [Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf](Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf) | Why-Humans, Aesthetics |
-| **TU** | [Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf](Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf) | Why-Humans |
+| **TU** | [Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf](Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf) | Why-Humans, What-Is-Existence |
 | **KU** | same as TU | Why-Humans |
 | **MU** | [Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf](Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf) | Why-Humans |
 | **CU** | [Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf](Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf) | Why-Humans, Knowledge-Knower, What-Is-Existence |
 | **BG** | [Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf](Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf) | Why-Humans, Ethics-And-Morals, Aesthetics |
 | **BSB** | [Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf](Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf) | Why-Humans, Knowledge-Knower |
-| **VC** | [Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf](Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) | Why-Humans, Ethics-And-Morals |
+| **VC** | [Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf](Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) | Why-Humans, Ethics-And-Morals, What-Is-Existence |
 | **DDV** | [Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf](Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf) | Why-Humans, Knowledge-Knower |
-| **BJM** | [Advaita-Vedanta/BJM-Brahma-Jnanavali-Mala.md](Advaita-Vedanta/BJM-Brahma-Jnanavali-Mala.md) | Why-Humans, Knowledge-Knower, What-Is-Existence, Ethics-And-Morals, Aesthetics |
+| **BJM** | [Advaita-Vedanta/BJM-Brahma-Jnanavali-Mala.md](Advaita-Vedanta/BJM-Brahma-Jnanavali-Mala.md) | Why-Humans, Knowledge-Knower, Ethics-And-Morals, Aesthetics |
 | **AV** | [Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.html](Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.html) | How-To-Form |
 | **SV** | [Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf](Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf) | How-To-Form |
 | **ATR** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | How-To-Form |

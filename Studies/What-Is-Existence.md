@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) - a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 16, 2026, 12:54 PM IST
+**Edited on:** June 16, 2026, 4:27 PM IST
 
 **The question:** What is Existence? What exists? Does the thing that exists begin at some time?
 
@@ -20,6 +20,7 @@ This study reviews these questions from the standpoint of **Madhyasth Darshan** 
 | ***Jada* / *Chaitanya*** | Insentient and sentient nature. |
 | ***Atman* / *Brahman*** | In Advaita Vedanta: the Self and the one ultimate reality, finally identical. |
 | ***Mithya*** | In Advaita: the world as dependent appearance, neither absolutely real nor sheer non-being. |
+| **Sat-Chit-Ananda** | In Advaita: the threefold nature of Brahman / the true Self — being (*sat*), consciousness (*chit*), bliss (*ananda*). |
 | **Physicalism** | The modern view that every real concrete phenomenon is physical. |
 | **Panpsychism** | The view that experientiality belongs, at least in primitive form, to fundamental physical reality. |
 | **Illusionism** | The view that phenomenal consciousness, as philosophers usually conceive it, is an illusion or misdescription. |
@@ -37,7 +38,7 @@ SB gives the most compressed formulation:
 > **"What is evident is that consciousness and matter are inseparably present. Upon examining their fundamental nature, we learn that all of existence is essentially nature (matter) saturated in Omnipotence (consciousness). Here, 'seeing' is intended in the sense of understanding. Since nature saturated in Omnipotence is inseparably present, existence itself is eternally manifest in the form of coexistence."**
 > - SB, p. 48
 
-A note on the word "consciousness" here. The published translation lists several names for this pervasive reality (Satta): Uniform Energy, Space, Knowledge, Consciousness, Omnipresence, Eternity, God, and Absolute Energy. The parenthetical "(consciousness)" therefore labels the all-pervasive reality, not a personal knowing mind. Sentience as the activity of a knower (*chaitanya*) is, in Madhyasth Darshan, the status of *jeevan*, not of Omnipresence itself. Keeping these distinct is essential; otherwise the position is easily misread as the Advaita identification of world with a single cosmic consciousness, which (as Section 1.5 shows) it explicitly rejects.
+A note on the word "consciousness" here. The published translation lists several names for this pervasive reality (Satta): Uniform Energy, Space, Knowledge, Consciousness, Omnipresence, Eternity, God, and Absolute Energy. The parenthetical "(consciousness)" therefore labels the all-pervasive reality, not a personal knowing mind. Sentience as the activity of a knower (*chaitanya*) is, in Madhyasth Darshan, the status of *jeevan*, not of Omnipresence itself. Keeping these distinct is essential: Omnipresence is the pervasive ground in which units are saturated; sentience is not a property of that ground but of constitutionally complete units.
 
 The same passage immediately rejects two familiar origin stories:
 
@@ -68,7 +69,7 @@ This is the key sentence for the present paper. For Madhyasth Darshan, to exist 
 
 ### 1.2 What Exists?
 
-Madhyasth Darshan says that what exists is **coexistence itself**: Omnipresence and all units saturated in it. It is neither a pure monism that dissolves the world, nor a materialism that reduces sentience to physicochemical matter.
+Madhyasth Darshan says that what exists is **coexistence itself**: Omnipresence and all units saturated in it. What exists is not formless reality alone, with plurality treated as mere appearance; nor is it physicochemical matter alone, with sentience reduced to bodily process.
 
 Its ontology can be stated in four layers.
 
@@ -167,14 +168,14 @@ This gives Madhyasth Darshan a distinctive position:
 | Does *jeevan* begin at birth? | No. *Jeevan* is immortal; birth and death are occurrences. |
 | Does sentient status have a developmental account? | Yes. Constitutional completeness is described as attainment of sentient status, but within eternal coexistence, not as creation from nothing. |
 
-### 1.5 The Counter-Slogan to Advaita
+### 1.5 Brahma Is Truth, the World Is Perpetual
 
-Madhyasth Darshan sharply differs from Advaita Vedanta on the status of the world. MVD gives the counter-slogan:
+MVD compresses the coexistential ontology into one line:
 
 > **"Brahma is truth, the world is perpetual."**
 > - MVD, p. 13
 
-This is not a minor difference in wording. It changes the whole direction of philosophy.
+This is not a minor rhetorical flourish. It states a metaphysical commitment: Brahma (Omnipresence) and the world of units are both real, neither cancelled by the other.
 
 If the world is perpetual, then:
 
@@ -183,12 +184,12 @@ If the world is perpetual, then:
 3. Human conduct is not merely preparatory to escape from the world.
 4. Nature, society, production, justice, prosperity, and ecological balance are all real domains of evidence.
 
-Madhyasth Darshan therefore rejects both:
+Madhyasth Darshan therefore rejects two reductions that would split this inseparable whole:
 
 1. **Material reductionism:** only physicochemical matter exists.
-2. **World-negating spiritualism:** only Brahman is real and the world is *mithya*.
+2. **World-negating spiritualism:** only the formless ground is finally real and the world is diminished to mere appearance.
 
-Its middle claim is: **Brahma is real, the world is real, and their inseparable presentness is coexistence.**
+Its positive claim is: **Brahma is real, the world is real, and their inseparable presentness is coexistence.**
 
 ## 2. The Advaita Vedanta Answer
 
@@ -211,23 +212,54 @@ The text also rejects the idea that existence comes from non-existence:
 > **"By what logic can existence verily come out of non-existence? But surely, o good looking one, in the beginning all this was Existence, One only, without a second."**
 > - CU 6.2.2
 
-So Advaita and Madhyasth Darshan agree on one major point: **existence does not arise out of non-existence.**
+Advaita thus denies that absolute existence could arise from non-existence. The further Advaita question is what the many things of the world amount to within that one Existence.
 
-But they diverge immediately on what the many things of the world amount to.
+### 2.2 Sat-Chit-Ananda: Being, Consciousness, Bliss
 
-### 2.2 What Exists in Advaita?
+A second classical Advaita formulation names existence not only as *sat* — bare being — but as **Sat-Chit-Ananda**: being-consciousness-bliss. This is not three separate realities added together. In Advaita, Brahman / the true Self is one partless reality whose nature is expressed in these three inseparable names.
+
+The Taittiriya Upanishad gives an early root of the formula when it defines Brahman as:
+
+> **"Truth, knowledge, infinite."**
+> - TU 2.1
+
+Shankara's tradition reads *satyam* as being or reality, *jnanam* as consciousness, and *anantam* as the infinite — not finite, not bounded by name and form. The *anandamaya* sheath passage in the same Upanishad (TU 2.5) then leads the seeker beyond even bliss as a sheath to the Self beyond all coverings. Shankara states the mature Advaita formula in the *Vivekachudamani*:
+
+> **"I am of the nature of Existence-Consciousness-Bliss. I am the very Self, indestructible and ever unchanging."**
+
+This is the meditative rendering of Shankara's teaching at *Vivekachudamani* v. 152 (trans. Swami Madhavananda):
+
+> **"By that alone he comes to know his own Self as Existence-Knowledge-Bliss Absolute and becomes happy."**
+> - VC, v. 152
+
+The same triad appears again at v. 217, where the Self "makes Itself felt as the Existence-Knowledge-Bliss Absolute" within the heart. Shankara's Sanskrit idiom is *sat-cit-ananda*; the published translation uses "Existence-Knowledge-Bliss" for the same formula.
+
+In this scheme:
+
+1. ***Sat*** — Existence is not a property Brahman happens to have; Brahman *is* existence. To exist in the absolute sense is to be Brahman.
+2. ***Chit*** — Consciousness is not a function of mind or brain; it is the very nature of reality and Self. The seer, seeing, and light of awareness are finally one.
+3. ***Ananda*** — Bliss is not mere pleasure or emotion; it is the intrinsic fullness of the Self free from lack, fear, and dependence on objects.
+
+So for Advaita, the question "what is existence?" receives a concentrated answer: **existence is the one reality that is being, consciousness, and bliss without a second.** The world of bodies, minds, and relations does not add a second kind of existence; it appears within, and is finally sublated by, that one.
+
+### 2.3 What Exists in Advaita?
 
 Advaita's strict answer is: **Brahman alone exists absolutely.** The world is not sheer nothing, but it is not absolutely real either. It is *mithya*: dependent appearance.
 
-Brahma Jnanavali Mala states the famous formula:
+Shankara, in the *Vivekachudamani*, states the discrimination between real and unreal:
 
-> **"Brahman is real, the universe is mithya (it cannot be categorized as either real or unreal). The jiva is Brahman itself and not different."**
-> - BJM, v. 20
+> **"A firm conviction of the mind to the effect that Brahman is real and the universe unreal, is designated as discrimination (Viveka) between the Real and the unreal."**
+> - VC, v. 20 (trans. Swami Madhavananda)
+
+On the identity of *jiva* and Brahman he teaches:
+
+> **"The individual soul is itself and directly the Supreme Brahman, and nothing else."**
+> - VC, v. 216
 
 It also gives the clay-pot analogy:
 
-> **"The pot, wall, etc., are all nothing but clay. Likewise, the entire universe is nothing but Brahman."**
-> - BJM, v. 19
+> **"All modifications of clay, such as the jar, which are always accepted by the mind as real, are (in reality) nothing but clay. Similarly, this entire universe which is produced from the real Brahman, is Brahman Itself and nothing but That."**
+> - VC, v. 251
 
 For Advaita, then, the question "what exists?" has two levels:
 
@@ -236,28 +268,17 @@ For Advaita, then, the question "what exists?" has two levels:
 | Empirical (*vyavahara*) | Bodies, minds, causes, effects, duties, scriptures, practices | Operationally valid |
 | Absolute (*paramartha*) | Brahman alone | World is *mithya*, dependent appearance |
 
-Madhyasth Darshan considers this insufficient because it demotes the world. It accepts Brahma/Omnipresence, but insists that the world is **perpetual**, not *mithya*.
-
-### 2.3 Does What Exists Begin?
+### 2.4 Does What Exists Begin?
 
 For Advaita, Brahman does not begin. It is beginningless, partless, actionless, and non-dual. The universe as name-form appearance has origination at the empirical level, but its material and ultimate truth is Brahman. Creation is therefore not absolute production out of nothing; it is manifestation or appearance of names and forms on the basis of Brahman.
 
-BJM expresses the Self's changelessness repeatedly:
+Shankara expresses the Self's changelessness repeatedly in the *Vivekachudamani*:
 
-> **"I am eternal, I am pure (free from the control of mAyA). I am ever liberated. I am formless, indestructible and changeless."**
-> - BJM, v. 3
+> **"Brahman is Existence, Knowledge, Infinity, pure, supreme, self-existent, eternal and indivisible Bliss, not different (in reality) from the individual soul, and devoid of interior or exterior."**
+> - VC, v. 225
 
-> **"I am devoid of parts. I am actionless. I am the self of all. I am the primordial one. I am the ancient, eternal one."**
-> - BJM, v. 12
-
-The contrast with Madhyasth Darshan is precise:
-
-1. Advaita: Brahman alone is absolutely real; the world is *mithya*.
-2. Madhyasth Darshan: Brahma is real and the world is perpetual.
-3. Advaita: the individual *jiva* is finally Brahman, not different.
-4. Madhyasth Darshan: many *jeevan* units are real and immortal.
-5. Advaita: liberation is recognition of non-duality.
-6. Madhyasth Darshan: awakening is realization of coexistence and evidence in humane conduct.
+> **"The Supreme Brahman is, like the sky, pure, absolute, infinite, motionless and changeless, devoid of interior or exterior, the One Existence, without a second, and one's own Self."**
+> - VC, v. 393
 
 ## 3. Modern Philosophical Approaches
 
@@ -355,30 +376,40 @@ It must be stated plainly that this section sidesteps the sharpest modern challe
 
 ## 4. Comparison
 
+Sections 1–3 state each position on its own terms. This section gathers the contrasts in one place.
+
 | Question | Madhyasth Darshan | Advaita Vedanta | Modern physicalist approaches |
 |---|---|---|---|
-| What is existence? | Eternally present coexistence: Omnipresence plus all units saturated in it. | Brahman / Existence alone, one without a second. | Concrete physical reality, usually treated through empirical inquiry and theory. |
-| What exists absolutely? | Omnipresence and real units of nature, sentient and insentient. | Brahman alone. | Usually the physical; disputed whether experience is reducible, fundamental, or illusory. |
+| What is existence? | Eternally present coexistence: Omnipresence plus all units saturated in it. | Brahman / Existence alone, one without a second. | Concrete physical reality, studied empirically. |
+| What exists absolutely? | Omnipresence and real units, sentient and insentient. | Brahman alone. | Usually the physical; experience disputed. |
 | Is the world real? | Yes. "Brahma is truth, the world is perpetual." | Empirically valid but ultimately *mithya*. | Yes, as physical reality. |
-| Does existence begin? | No. That which exists continues to be; what was not does not come into existence. | Brahman does not begin; creation is not production from absolute non-being. | Philosophy of mind gives no single answer; particular physical systems begin and end. The strongest modern challenge to "existence is beginningless" is cosmological (Big Bang, whether spacetime began), not addressed by the sources used here. |
-| Does the individual self begin? | *Jeevan* does not begin at birth and does not die with the body. | The individual *jiva* is ultimately Brahman; individuality is due to ignorance. | The self is typically a biological, cognitive, or social process that develops and ends. |
-| What changes? | Forms, bodies, configurations, states, development, awakening. | Names and forms appear and are sublated; Brahman is changeless. | Physical configurations, organisms, representational states, social practices. |
-| Method of knowing | Study, realization, behavior, experiment. | Scripture, reasoning, contemplative discrimination. | Observation, modelling, argument, experiment, public evidence. |
-| Ethical consequence | Since existence is coexistence, humane conduct is evidence of understanding. | Ethics prepares the mind for knowledge and liberation. | Ethics is usually developed separately through naturalism, social theory, or normative philosophy. |
+| Does existence begin? | No. What exists does not come from non-existence. | Brahman does not begin. | Particular systems begin and end; cosmology unsettled. |
+| Does the individual self begin? | *Jeevan* does not begin at birth or die with the body. | *Jiva* is ultimately Brahman; individuality is ignorance. | Self develops as biological/cognitive process. |
+| What changes? | Forms, bodies, configurations, awakening. | Names and forms appear and are sublated; Brahman is changeless. | Physical and mental configurations change. |
+| Method of knowing | Study, realization, behavior, experiment. | Scripture, reasoning, contemplative discrimination. | Observation, modelling, public evidence. |
+| Ethical consequence | Humane conduct evidences understanding of coexistence. | Ethics prepares the mind for liberation. | Ethics via naturalism, social theory, or normative philosophy. |
 
-### The deepest agreement
+### Agreement
 
-Madhyasth Darshan and Advaita share an explicit metaphysical commitment against creation from non-being: Madhyasth Darshan says "that which was not, does not come into existence," and Advaita asks how existence could come from non-existence. Modern physicalism is a weaker and more qualified third party here. It takes no position on whether the totality of being arose from absolute nothing - that is a question for cosmology, not philosophy of mind. What the philosophy-of-mind sources share is only the narrower point that mind and self are not derived from absolute non-being but arise within already-existing physical processes. So the agreement is genuine but uneven: it is a deep ontological principle for Madhyasth Darshan and Advaita, and merely a local methodological habit for the physicalist sources used here.
+Madhyasth Darshan and Advaita share one deep commitment: **existence does not arise from non-existence.** Modern physicalism is a weaker third party. It does not settle whether the totality of being had a beginning—that belongs to cosmology—and the philosophy-of-mind sources used here only say that minds arise within already-existing physical processes.
 
-### The deepest disagreement
+### Disagreement
 
-The disagreement is over the status of plurality.
+The decisive issue is **the status of plurality.**
 
-1. **Advaita** gives final reality to the One and demotes plurality to *mithya*.
-2. **Physicalism** gives final reality to the physical domain and typically demotes self and consciousness to functions, models, or illusions.
-3. **Madhyasth Darshan** gives reality to both Omnipresence and plurality: the world is perpetual, units are real, and relationships are ontologically significant.
+- **Advaita** gives final reality to the One; the world is *mithya*, and liberation is recognising "I am Brahman."
+- **Physicalism** gives final reality to the physical; self and consciousness are usually process, model, or illusion.
+- **Madhyasth Darshan** gives reality to both Omnipresence and the many: the world is perpetual, units are real, and coexistence is evidenced in conduct.
 
-This is why Madhyasth Darshan is not simply "another non-dualism." It affirms a kind of indivisibility, but not by dissolving the world into Brahman. It affirms coexistence: inseparable togetherness without erasing the many.
+Advaita's **Sat-Chit-Ananda** and Madhyasth Darshan's **coexistence** can sound like the same answer to "what is existence?" Both speak of being, consciousness, and fulfilment. The contrast is not over whether those words appear, but over **what they name and whether the world survives them.**
+
+For Advaita, *sat*, *chit*, and *ananda* are three names for **one** ultimate reality — Brahman / the true Self — without a second. Existence **is** that single being-consciousness-bliss; the world of units, bodies, and relations is finally *mithya*, resolved into that identity. Liberation is recognising "I am Brahman."
+
+For Madhyasth Darshan, the same vocabulary is **distributed across coexistence**, not compressed into one subject. **Being** is indestructible coexistence of Omnipresence and real units. **Consciousness** names the all-pervasive ground (Satta), while **sentience** (*chaitanya*) belongs to *jeevan*, not to Omnipresence itself. **Satisfaction and bliss** belong to real units in development and to awakening within the world — not to negating the world. The question is answered not by dissolving the many into one, but by understanding inseparable Omnipresence and units together.
+
+Modern philosophy has no parallel formula. It may treat experience as physical, fundamental, or illusory, but it does not name existence as Sat-Chit-Ananda or as coexistence.
+
+Madhyasth Darshan is therefore not simply "another non-dualism." It affirms inseparable togetherness without erasing the many.
 
 ## 5. Critical Review
 
@@ -451,8 +482,9 @@ All sources cited in this document are local files under `References/`.
 
 ### Advaita Vedanta
 
+- **TU** - [*Taittiriya Upanishad*](../References/Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf), translated by Swami Gambhirananda (Vol. 1). Cited: 2.1 on Brahman as truth, knowledge, infinite.
 - **CU** - [*Chandogya Upanishad*](../References/Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf), translated with Shankara's commentary by Swami Gambhirananda. Cited: 6.2.1 and 6.2.2 on Existence alone, one without a second, and existence not arising from non-existence.
-- **BJM** - [*Brahma Jnanavali Mala*](../References/Advaita-Vedanta/BJM-Brahma-Jnanavali-Mala.md), attributed to Adi Shankaracharya, translated by S. N. Sastri. Cited: Brahman as real, world as *mithya*, jiva as Brahman, and the eternal changeless Self.
+- **VC** - [*Vivekachudamani*](../References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf), attributed to Shankara; English translation by Swami Madhavananda. Cited: Sat-Chit-Ananda (vv. 152, 217); Brahman real and universe unreal (v. 20); *jiva* as Brahman (v. 216); clay-jar analogy (v. 251); eternal changeless Self (vv. 225, 393).
 
 ### Modern Philosophy and Cognitive Science
 
