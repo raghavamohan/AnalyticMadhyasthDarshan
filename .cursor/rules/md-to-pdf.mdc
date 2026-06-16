@@ -1,0 +1,65 @@
+---
+description: Convert study markdown to PDF using the repo's internal scripts only
+globs: Studies/*.md,Scripts/_convert_to_pdf.py,Scripts/_html_to_pdf.js
+alwaysApply: false
+---
+
+# Markdown to PDF — use internal scripts only
+
+When a study markdown file under `Studies/` needs a PDF, **always** use the
+repository pipeline. Do not substitute pandoc, `markdown-pdf`, VS Code export,
+hand-written Puppeteer scripts, or other one-off converters.
+
+## Required two-step pipeline
+
+1. **`Scripts/_convert_to_pdf.py`** — markdown → styled HTML (same basename, `.html`).
+2. **`Scripts/_html_to_pdf.js`** — HTML → PDF via Puppeteer (footer, A4 margins).
+
+Run from the repository root in PowerShell:
+
+```powershell
+python Scripts/_convert_to_pdf.py Studies/<Name>.md --watermark Draft
+node Scripts/_html_to_pdf.js Studies/<Name>.html
+Remove-Item Studies/<Name>.html
+```
+
+- **`--watermark Draft`** — required for studies in **Draft** status (diagonal
+  watermark on every page). Omit only when regenerating a **Released** study.
+- **Delete the intermediate `.html`** after PDF generation; it is a build
+  artifact, not a published file.
+
+## What the scripts provide (do not reimplement)
+
+- Study typography, tables, blockquotes, and print CSS — `_convert_to_pdf.py`
+- Footer on every page: `AnalyticMadhyasthDarshan.org` and `Page X of Y` —
+  `_html_to_pdf.js`
+- Optional page watermark — `--watermark` on `_convert_to_pdf.py`
+
+## Regenerate one or all studies
+
+Single study — replace `<Name>` with the file stem (e.g. `Aesthetics`).
+
+All studies (exclude `README.md`):
+
+```powershell
+$studies = Get-ChildItem Studies/*.md | Where-Object { $_.Name -ne 'README.md' }
+foreach ($s in $studies) {
+  python Scripts/_convert_to_pdf.py $s.FullName --watermark Draft
+  $html = $s.FullName -replace '\.md$', '.html'
+  node Scripts/_html_to_pdf.js $html
+  Remove-Item $html
+}
+```
+
+## After conversion
+
+- Confirm the output PDF path is `Studies/<Name>.pdf` (same stem as the `.md`).
+- If the study's `**Edited on:**` or catalog **Status** changed, follow
+  `.cursor/rules/study-edited-on.mdc` and
+  `.cursor/rules/studies-index-readme-sync.mdc`.
+
+## Do not
+
+- Edit PDFs directly or commit hand-built HTML as the source of truth.
+- Change conversion behavior inline in chat without updating these scripts when
+  the change should apply to all future PDFs (footer, watermark, styling).

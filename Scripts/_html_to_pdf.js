@@ -24,7 +24,11 @@ const outputPath = inputPath.replace(/\.html$/, '.pdf');
     printBackground: true,
     displayHeaderFooter: true,
     headerTemplate: '<span></span>',
-    footerTemplate: '<div style="width:100%;text-align:center;font-size:9pt;font-family:Georgia,serif;color:#666;"><span class="pageNumber"></span></div>',
+    footerTemplate:
+      '<div style="width:100%;font-size:9pt;font-family:Georgia,serif;color:#666;padding:0 2cm;display:flex;justify-content:space-between;align-items:center;">' +
+      '<span>AnalyticMadhyasthDarshan.org</span>' +
+      '<span>Page <span class="pageNumber"></span> of <span class="totalPages"></span></span>' +
+      '</div>',
   });
 
   await browser.close();
