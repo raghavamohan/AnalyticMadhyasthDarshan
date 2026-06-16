@@ -4,9 +4,17 @@ Clear, carefully argued studies of **Madhyasth Darshan** (Co-existentialism) —
 
 Browse the published collection at **[analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org)** (or open [index.html](index.html) locally).
 
-## What these studies are
+## Study Objectives
 
-Each study takes a single, well-defined question and works through it step by step. We first present Shri Nagraj's philosophy **as he gave it to us**, grounded in his own writings, and then compare it openly and critically with other ways of thinking — including Advaita Vedanta, modern science, and contemporary philosophy.
+These studies are written to help readers develop a clear and rigorous understanding of **Madhyasth Darshan** (Co-existentialism), founded by **Shri A. Nagraj**.
+
+1. Study each topic deeply and analytically so that the principles, definitions, and arguments of Madhyasth Darshan can be understood clearly.
+2. Provide objective comparative analysis with other philosophies and knowledge traditions, including Advaita Vedanta, other religions, modern philosophy, and current scientific perspectives.
+3. Develop a formal mathematical framework for Madhyasth Darshan so that its unique principles, arguments, and structure can be expressed with rigor and used as a basis for understanding and comparison.
+
+The work remains grounded in the primary texts and aims to present Shri Nagraj's philosophy **as he gave it to us**: faithful to his definitions and logic, and explicit about what follows from the darshan itself versus what is interpretation, comparison, or open question.
+
+The **Topical Studies** examine particular domains of the darshan, such as existence, human nature, knowledge, ethics, relationships, society, ecology, and science. The **Formal Studies** then gather this structure into more mathematical representations so the definitions, relations, and arguments can be seen clearly and compared rigorously.
 
 Throughout, we keep three things clearly separate: **what the philosophy itself says**, **what is our own interpretation or comparison**, and **what remains an open question**. The aim is understanding you can examine and test for yourself — not persuasion.
 
@@ -20,9 +28,11 @@ Every study ends with a list of its sources, linking to the original texts where
 
 To register a new study from a PDF, run `Scripts/_add_study.py` (or `Scripts/_add_study.ps1` on Windows) — see the root [README.md](../README.md#adding-a-study). To remove one, use `Scripts/_remove_study.py` — see [Removing a study](../README.md#removing-a-study).
 
-## The studies
+## Topical Studies
 
-Select any linked title to open the full study. Titles shown in italics are still in progress; papers may list multiple categories, separated by commas.
+These studies focus on specific topics that help define different aspects of Madhyasth Darshan. Papers may list multiple categories, separated by commas.
+
+Select any linked title to open the full study. Titles shown in italics are still in progress.
 
 <!-- studies-catalog -->
 | Document | Category | Description |
@@ -32,7 +42,6 @@ Select any linked title to open the full study. Titles shown in italics are stil
 | *Philosophy-Of-Mind-And-Jeevan* | Philosophy of Mind | Ongoing.. Jeevan, mun, vritti, chitta, buddhi, atma, desire, imagination, selection, delusion, and awakening |
 | [Knowledge-Knower-And-Known](Knowledge-Knower-And-Known.pdf) | Epistemology | Comparative study of knowledge, knower, and known in Madhyasth Darshan, Advaita Vedanta, and Modern Philosophy |
 | *Methodology-And-Hermeneutics* | Methodology | Ongoing.. Primary-text method, translation issues, citation discipline, interpretation, comparison, and rigorous study practice |
-| [The-Coexistence-Template](The-Coexistence-Template.pdf) | Formalisation, Axiology | Formal template of units, relationships, values, and assembly |
 | *Axiology-Value-Theory* | Axiology | Ongoing.. Values, value-recognition, value-fulfilment, mutual satisfaction, and the structure of humane value theory |
 | [Ethics-And-Morals-In-Human-Beings](Ethics-And-Morals-In-Human-Beings.pdf) | Ethics, Axiology | Ethics, morals, humane conduct, Advaita Vedanta, and modern moral science |
 | *Family-Relationships-And-Values* | Relationships, Axiology | Ongoing.. Family, relationship-recognition, values, trust, affection, gratitude, and mutual satisfaction |
@@ -46,6 +55,15 @@ Select any linked title to open the full study. Titles shown in italics are stil
 | *Spiritual-Practice-And-Realization* | Spiritual Practice | Ongoing.. Anubhav, realization, awakening, yoga, liberation from mystery, liberation from suffering, and comparison with moksha traditions |
 | *Science-Technology-And-Human-Purpose* | Philosophy of Science | Ongoing.. Science, technology, production, convenience, human purpose, and the limits of instrumental knowledge |
 <!-- /studies-catalog -->
+
+## Formal Studies
+
+These studies are more mathematical in nature. They represent the structure discovered across the topical studies through formal definitions, relations, templates, and comparative frameworks.
+
+| Document | Formal Focus | Description |
+|----------|--------------|-------------|
+| [Category-Theory-Explained](Category-Theory-Explained.pdf) | Category theory | Category-theory lens on the darshan's structure |
+| [The-Coexistence-Template](The-Coexistence-Template.pdf) | Formal template | Formal template of units, relationships, values, and assembly |
 
 ## License
 
