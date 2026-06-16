@@ -2,6 +2,8 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) - a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
+**Edited on:** June 16, 2026, 11:16 AM IST
+
 **The question:** What is Existence? What exists? Does the thing that exists begin at some time?
 
 This study reviews these questions from the standpoint of **Madhyasth Darshan** (Co-existentialism), then compares its answer with **Advaita Vedanta** and selected **modern philosophical approaches** to physical reality, consciousness, and selfhood.

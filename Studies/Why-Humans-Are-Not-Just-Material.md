@@ -2,6 +2,8 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
+**Edited on:** June 16, 2026, 11:16 AM IST
+
 **The question:** Is a human being nothing more than a physical–chemical body, or is there something real about us that matter-centric science cannot capture?
 
 This document gives three answers to that question — from **Madhyasth Darshan** (Shri A. Nagraj's Co-existentialism), from **mainstream science**, and from **Advaita Vedanta** — then compares them and critically reviews all three.

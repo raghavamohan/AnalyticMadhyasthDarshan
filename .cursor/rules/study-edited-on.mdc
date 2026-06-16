@@ -1,0 +1,27 @@
+---
+description: Keep the "Edited on" field current whenever a study is changed
+globs: Studies/*.md
+alwaysApply: false
+---
+
+# Keep "Edited on" current in Studies
+
+Every study under `Studies/` carries an `**Edited on:**` field directly below
+the `**Author:**` line. Whenever you make a substantive content change to a
+study's markdown, update that field to the current date and time before you
+finish.
+
+- Format: `**Edited on:** Month D, YYYY, h:mm AM/PM IST` (e.g. `June 16, 2026, 11:16 AM IST`).
+- Use the real current date/time, not a copied value from another file.
+- If the field is missing, add it on its own line immediately after the `**Author:**` line, separated by a blank line.
+- After editing the markdown, regenerate the matching PDF so the published copy
+  reflects the same edit date:
+
+```powershell
+python Scripts/_convert_to_pdf.py Studies/<Name>.md
+node Scripts/_html_to_pdf.js Studies/<Name>.html
+Remove-Item Studies/<Name>.html
+```
+
+Skip the update only for trivial, non-content edits (e.g. fixing a typo in this
+rule's own example).
