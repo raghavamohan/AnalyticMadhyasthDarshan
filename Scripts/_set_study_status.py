@@ -16,6 +16,7 @@ import argparse
 from _common import STUDIES
 from _study_catalog import (
     StudyStatus,
+    format_edited_on_md,
     get_study_row,
     load_catalog_rows,
     now_ist,
@@ -79,14 +80,10 @@ def set_study_status(
             target_status = StudyStatus.DRAFT
 
     if target_status == row.status:
-        print(f"{slug} is already {target_status.value} in the catalog.")
-        md_path = STUDIES / f"{slug}.md"
-        if md_path.exists() and not skip_pdf:
-            print("Regenerating PDF to ensure watermark matches status...")
-            if not dry_run:
-                regenerate_pdf(md_path, target_status)
-                print(f"Regenerated {STUDIES / f'{slug}.pdf'}")
-        return
+        print(
+            f"Note: {slug} is already {target_status.value} in the catalog; "
+            "refreshing **Edited on:** and catalogs."
+        )
 
     md_path = STUDIES / f"{slug}.md"
     if not md_path.exists():
@@ -96,8 +93,11 @@ def set_study_status(
 
     print(f"Slug:          {slug}")
     print(f"Catalog table: {table.value}")
-    print(f"Status:        {row.status.value} -> {target_status.value}")
-    print(f"Edited on:     {edited_at.strftime('%B %d, %Y, %I:%M %p').lstrip('0')} IST")
+    if target_status != row.status:
+        print(f"Status:        {row.status.value} -> {target_status.value}")
+    else:
+        print(f"Status:        {target_status.value} (unchanged)")
+    print(f"Edited on:     {format_edited_on_md(edited_at).removeprefix('**Edited on:** ')}")
     print(f"Markdown:      {md_path}")
     print(f"PDF:           {STUDIES / f'{slug}.pdf'}")
 

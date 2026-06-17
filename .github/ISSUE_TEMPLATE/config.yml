@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Contribution guide
+    url: https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/main/CONTRIBUTING.md
+    about: Full proposal and pull request workflow for studies

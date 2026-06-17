@@ -1,0 +1,71 @@
+name: Study PR
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - labeled
+      - edited
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: read
+
+concurrency:
+  group: study-pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  study-pr:
+    if: |
+      contains(github.event.pull_request.labels.*.name, 'new-study') ||
+      contains(github.event.pull_request.labels.*.name, 'study-update') ||
+      contains(github.event.pull_request.labels.*.name, 'status-change')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          fetch-depth: 0
+
+      - name: Fetch base branch
+        run: git fetch origin ${{ github.event.pull_request.base.ref }}:refs/remotes/origin/${{ github.event.pull_request.base.ref }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Install Node dependencies
+        working-directory: Scripts
+        run: npm ci
+
+      - name: Run study PR pipeline
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python Scripts/_ci_study_pr.py --base-ref origin/${{ github.event.pull_request.base.ref }}
+
+      - name: Commit regenerated artifacts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Studies References
+          if git diff --staged --quiet; then
+            echo "No generated file changes to commit."
+          else
+            git commit -m "ci: regenerate study artifacts"
+            git push
+          fi
