@@ -1,22 +1,36 @@
 # Studies of Madhyasth Darshan
 
-Clear, carefully argued studies of **Madhyasth Darshan** (Co-existentialism) — the philosophy founded by **Shri A. Nagraj** — examined on its own terms and compared with other traditions of thought.
+Clear, carefully argued studies of **Madhyasth Darshan** (Co-existentialism) — the philosophy founded by **Shri A. Nagraj** — examined on its own terms and compared with physics, Advaita Vedanta, and modern philosophy.
 
 Browse the published collection at **[analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org)** (or open [index.html](index.html) locally).
 
+## Point of view
+
+These studies are written from the standpoint of a **scientist and technologist** — someone trained to graduate-level **physics and mathematics**, at home with contemporary cosmology, quantum theory, conservation laws, and the logic of formal models.
+
+From that background, a familiar picture of nature is hard to avoid: **consciousness appears as something the brain does** — an epiphenomenon, functional outcome, or emergent property of particular configurations of very large numbers of physical particles. Modern physics and cognitive science are powerful on mechanism, prediction, and public evidence; yet the hard problem of consciousness, the status of the self, and the reality of value remain fiercely contested. The standpoint taken here does not treat those gaps as settled in favour of matter-only reductionism.
+
+The work begins where that scientific picture leaves open questions — and asks whether **Madhyasth Darshan** offers a coherent alternative worth examining seriously. Each study reads the primary texts carefully, states what follows from the darshan itself, and then compares it in parallel with:
+
+- what we already know from **physics, mathematics, and the natural sciences**;
+- **Advaita Vedanta** and related Indian philosophical traditions; and
+- selected **modern Western philosophy**, especially philosophy of mind and moral science.
+
+The aim is rigorous comparative understanding — testing definitions, internal consistency, and fit with public knowledge — not persuasion or devotional endorsement.
+
 ## Study Objectives
 
-These studies are written to help readers develop a clear and rigorous understanding of **Madhyasth Darshan** (Co-existentialism), founded by **Shri A. Nagraj**.
+On that basis, these studies aim to help readers develop a clear and rigorous understanding of **Madhyasth Darshan** (Co-existentialism), founded by **Shri A. Nagraj**.
 
 1. Study each topic deeply and analytically so that the principles, definitions, and arguments of Madhyasth Darshan can be understood clearly.
-2. Provide objective comparative analysis with other philosophies and knowledge traditions, including Advaita Vedanta, other religions, modern philosophy, and current scientific perspectives.
+2. Provide objective comparative analysis with other philosophies and knowledge traditions — including Advaita Vedanta, other religions, modern philosophy, and current scientific perspectives — using the physics-and-mathematics standpoint described above as one leg of the comparison.
 3. Develop a formal mathematical framework for Madhyasth Darshan so that its unique principles, arguments, and structure can be expressed with rigor and used as a basis for understanding and comparison.
 
 The work remains grounded in the primary texts and aims to present Shri Nagraj's philosophy **as he gave it to us**: faithful to his definitions and logic, and explicit about what follows from the darshan itself versus what is interpretation, comparison, or open question.
 
-The **Topical Studies** examine particular domains of the darshan, such as existence, human nature, knowledge, ethics, relationships, society, ecology, and science. The **Formal Studies** then gather this structure into more mathematical representations so the definitions, relations, and arguments can be seen clearly and compared rigorously.
+The **Topical Studies** examine particular domains — existence, human nature, knowledge, ethics, relationships, society, ecology, and science. The **Formal Studies** gather this structure into mathematical representations so definitions, relations, and arguments can be seen clearly and compared rigorously.
 
-Throughout, we keep three things clearly separate: **what the philosophy itself says**, **what is our own interpretation or comparison**, and **what remains an open question**. The aim is understanding you can examine and test for yourself — not persuasion.
+Throughout, we keep three things clearly separate: **what the philosophy itself says**, **what is our own interpretation or comparison**, and **what remains an open question**.
 
 ## Who writes them
 
