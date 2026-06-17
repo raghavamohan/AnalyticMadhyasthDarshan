@@ -6,7 +6,7 @@ Clear, carefully argued studies of **Madhyasth Darshan** (Co-existentialism) —
 
 Browse the published collection at **[analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org)** (or open [index.html](index.html) locally).
 
-## Point of view
+## Our approach
 
 These studies are written from the standpoint of a **scientist and technologist** — someone trained to graduate-level **physics and mathematics**, at home with contemporary cosmology, quantum theory, conservation laws, and the logic of formal models.
 
@@ -42,7 +42,14 @@ Every study ends with a list of its sources, linking to the original texts where
 
 ## Contributing a study
 
-To register a new study from a PDF, run `Scripts/_add_study.py` (or `Scripts/_add_study.ps1` on Windows) — see the root [README.md](../README.md#adding-a-study). To remove one, use `Scripts/_remove_study.py` — see [Removing a study](../README.md#removing-a-study).
+To register a new study, run `Scripts/_add_study.py` (or `Scripts/_add_study.ps1` on Windows) — see the root [README.md](../README.md#adding-a-study).
+
+- **Preferred:** pass a `.md` file — the script sets `**Edited on:**`, updates catalogs with matching `Last updated on` timestamps, and regenerates the PDF (Draft watermark when status is draft).
+- **PDF import:** pass an external `.pdf` to create a stub `.md` and catalog entry; re-run on the `.md` after expanding content to apply the Draft watermark.
+- **Ongoing placeholder:** `--status ongoing` adds an italic catalog row with no PDF.
+- **Formal study:** `--formal` registers in the Formal Studies table.
+
+To remove one, use `Scripts/_remove_study.py` — see [Removing a study](../README.md#removing-a-study).
 
 ## Topical Studies
 
@@ -78,8 +85,10 @@ These studies are more mathematical in nature. They represent the structure disc
 
 | Document | Formal Focus | Description | Status |
 |----------|--------------|-------------|--------|
+<!-- formal-studies-catalog -->
 | [Category-Theory-Explained](Category-Theory-Explained.pdf) | Category theory | Category-theory lens on the darshan's structure | Draft<br>Last updated on: Jun 16, 2026, 11:16 AM IST |
 | [The-Coexistence-Template](The-Coexistence-Template.pdf) | Formal template | Formal template of units, relationships, values, and assembly | Draft<br>Last updated on: Jun 16, 2026, 11:16 AM IST |
+<!-- /formal-studies-catalog -->
 
 ## License
 

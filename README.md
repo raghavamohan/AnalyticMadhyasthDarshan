@@ -21,46 +21,68 @@ Maintained by **[AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/A
 
 Read the [Studies intent statement](Studies/README.md) and browse [existing papers](Studies/index.html) for tone and depth.
 
-### Register your paper
+### Register your study
 
-If you have a finished PDF, one command copies it into `Studies/` and updates all catalog files:
+**Recommended:** pass the markdown source (`.md`). The script sets `**Edited on:**`, updates all catalog files with matching timestamps, and regenerates the PDF. Draft studies get a **Draft** watermark automatically.
 
 ```powershell
-python Scripts\_add_study.py "path\to\Your-Study.pdf" `
-  --title "Your Study Title" `
+python Scripts\_add_study.py "Studies\Your-Study-Title.md" `
+  --category "Ontology" `
   --description "One-line summary for the catalog" `
-  --tags "MVD, SB, JV"
+  --tags "MVD, SB, JV" `
+  --status draft
 ```
 
 Or on Windows:
 
 ```powershell
-.\Scripts\_add_study.ps1 "path\to\Your-Study.pdf" -Title "Your Study Title"
+.\Scripts\_add_study.ps1 "Studies\Your-Study-Title.md" `
+  -Category "Ontology" `
+  -Description "One-line summary for the catalog"
 ```
 
-Omit `--title`, `--description`, and `--tags` to be prompted interactively.
+**Alternative:** import an external PDF (creates a stub `.md` and catalogs the study as draft). The imported PDF is kept as-is — expand the markdown and re-run on the `.md` file to apply the Draft watermark.
+
+```powershell
+python Scripts\_add_study.py "path\to\Your-Study.pdf" --title "Your Study Title"
+```
+
+**Ongoing placeholder** (no PDF yet, italic title in the catalog):
+
+```powershell
+python Scripts\_add_study.py "Studies\Future-Study.md" --status ongoing --category "Epistemology"
+```
+
+**Formal study** (separate Formal Studies table):
+
+```powershell
+python Scripts\_add_study.py "Studies\Your-Formal-Study.md" --formal --category "Category theory"
+```
+
+Omit `--category`, `--description`, and `--tags` to be prompted interactively.
 
 The script will:
 
-1. Copy the PDF to `Studies/Your-Study-Title.pdf`
-2. Create a stub `Studies/Your-Study-Title.md` (author block + placeholder References)
-3. Update `Studies/index.html`, `Studies/README.md`, `References/README.md`, and `References/MANIFEST.md`
+1. Ensure `Studies/Your-Study-Title.md` has the standard author block and current `**Edited on:**` timestamp
+2. Regenerate `Studies/Your-Study-Title.pdf` from markdown (Draft watermark when `--status draft`; omit watermark when `--status released`)
+3. Update `Studies/index.html`, `Studies/README.md`, `References/README.md`, and `References/MANIFEST.md` with synced status timestamps
 
-Use `--dry-run` to preview. Use `--force` to replace an existing study with the same slug.
+Use `--dry-run` to preview. Use `--force` to refresh an existing study. Use `--skip-pdf` to update catalogs only. Use `--no-check-timestamps` to skip the post-add sync check.
 
 ### Finish before opening a pull request
 
 1. **Expand the markdown source** — the `.md` file is the canonical source; flesh out sections and add a proper References section
 2. **Link references** — point to files under `References/` where a local copy exists; otherwise link to the original publisher or author URL. **Do not upload restricted material** (copyrighted commercial books, publisher PDFs you are not allowed to redistribute, and similar) to `References/` — add an entry to [References/NOT-DOWNLOADED.md](References/NOT-DOWNLOADED.md) and link externally instead.
 3. **Update citation records** — refine tag details in `References/MANIFEST.md` (change `TBD` to present/external as needed); add new source files to `References/` only when you have permission to store them
-4. **Regenerate the PDF** from markdown when the source is ready:
+4. **Regenerate the PDF** from markdown when the source changes (or let `_add_study.py` do this when registering):
 
 ```powershell
-python Scripts\_convert_to_pdf.py "Studies\Your-Study-Title.md"
+python Scripts\_convert_to_pdf.py "Studies\Your-Study-Title.md" --watermark Draft
 node Scripts\_html_to_pdf.js "Studies\Your-Study-Title.html"
+Remove-Item "Studies\Your-Study-Title.html"
 ```
 
-Run `npm install` once inside `Scripts/` before using Puppeteer.
+Omit `--watermark Draft` only for **Released** studies. Run `npm install` once inside `Scripts/` before using Puppeteer.
 
 5. **Verify quotations** (recommended) — checks that blockquotes in your study appear in the local copy under `References/`:
 
@@ -103,8 +125,8 @@ Use the filename slug without worrying about the extension — for example `Why-
 The script will:
 
 1. Delete `Studies/Study-Slug.md`, `.pdf`, and local `.html` (if present)
-2. Remove the row from `Studies/index.html`, `Studies/README.md`, and `References/README.md`
-3. Remove the paper block and update **Cited in** entries in `References/MANIFEST.md`
+2. Remove the row from the correct table in `Studies/index.html` and `Studies/README.md` (Topical or Formal; Ongoing placeholders supported)
+3. Remove the paper from `References/README.md` and `References/MANIFEST.md` when the study was published (not Ongoing)
 
 Use `--dry-run` to preview. Use `--yes` to skip the confirmation prompt.
 
