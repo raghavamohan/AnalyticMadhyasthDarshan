@@ -11,21 +11,19 @@ Studies/README.md, References/README.md, and References/MANIFEST.md.
 from __future__ import annotations
 
 import argparse
-import re
 from pathlib import Path
 
-from _add_study import (
-    REFERENCES_README_TABLE_HEADER,
-    STUDIES_README_TABLE_HEADER,
-    html_row,
-    parse_html_rows,
-    parse_md_rows,
-    parse_references_readme_rows,
-    readme_row,
-    references_readme_row,
-    replace_catalog_block,
-)
 from _common import REFERENCES, STUDIES
+from _study_catalog import (
+    StudyTable,
+    find_study_table,
+    parse_html_rows,
+    parse_references_readme_rows,
+    remove_manifest_paper_block,
+    remove_study_row,
+    write_references_readme_row,
+    write_studies_catalog,
+)
 
 MANIFEST_LABELS: dict[str, str] = {
     "Why-Humans-Are-Not-Just-Material": "Why-Humans",
@@ -68,32 +66,10 @@ def study_files(slug: str) -> list[Path]:
     ]
 
 
-def remove_manifest_paper_block(content: str, slug: str) -> str:
-    pdf_link = f"[{slug}.pdf](../Studies/{slug}.pdf)"
-    lines = content.splitlines()
-    kept: list[str] = []
-    index = 0
-    while index < len(lines):
-        line = lines[index]
-        if pdf_link in line and line.lstrip().startswith("|"):
-            index += 1
-            while index < len(lines) and re.match(r"\|\s*\|", lines[index]):
-                index += 1
-            continue
-        kept.append(line)
-        index += 1
-    trailing = "\n" if content.endswith("\n") else ""
-    return "\n".join(kept) + trailing
-
-
 def strip_cited_in(value: str, removed_label: str, remaining_labels: list[str]) -> str:
     text = value.strip()
     if text == "all Studies papers above":
-        if not remaining_labels:
-            return "(none — review MANIFEST.md)"
-        if len(remaining_labels) == 1:
-            return remaining_labels[0]
-        return ", ".join(remaining_labels)
+        return text
     if text.startswith(removed_label):
         return "(none — review MANIFEST.md)"
     parts = [part.strip() for part in text.split(",")]
@@ -147,10 +123,15 @@ def confirm_removal(slug: str, paths: list[Path]) -> bool:
     print("Catalog updates:")
     print("  - Studies/index.html")
     print("  - Studies/README.md")
-    print("  - References/README.md")
-    print("  - References/MANIFEST.md")
+    print("  - References/README.md (if published study)")
+    print("  - References/MANIFEST.md (if published study)")
     answer = input("\nRemove this study? [y/N]: ").strip().lower()
     return answer in {"y", "yes"}
+
+
+def load_catalog_rows(table: StudyTable) -> list:
+    index_path = STUDIES / "index.html"
+    return parse_html_rows(index_path.read_text(encoding="utf-8"), table)
 
 
 def remove_study(
@@ -160,20 +141,25 @@ def remove_study(
     assume_yes: bool,
 ) -> None:
     slug = normalize_slug(slug)
+    table = find_study_table(slug)
     paths = study_files(slug)
-    pdf_path = STUDIES / f"{slug}.pdf"
+    existing_paths = [path for path in paths if path.exists()]
 
-    if not pdf_path.exists() and not (STUDIES / f"{slug}.md").exists():
+    if table is None and not existing_paths:
         known = sorted(p.stem for p in STUDIES.glob("*.md"))
         hint = f"\nKnown studies: {', '.join(known)}" if known else ""
         raise SystemExit(f"Study not found: {slug}{hint}")
 
     removed_label = manifest_label(slug)
-    existing_paths = [path for path in paths if path.exists()]
+    is_ongoing = table is not None and any(
+        row.slug == slug and row.status.value == "ongoing"
+        for row in load_catalog_rows(table)
+    )
 
     if dry_run:
-        print(f"Study slug:        {slug}")
-        print(f"MANIFEST label:    {removed_label}")
+        print(f"Study slug:     {slug}")
+        print(f"Catalog table:  {table.value if table else '(files only)'}")
+        print(f"MANIFEST label: {removed_label}")
         print("Would delete:")
         for path in existing_paths or paths:
             print(f"  - {path}")
@@ -188,45 +174,38 @@ def remove_study(
         path.unlink()
         print(f"Deleted {path}")
 
-    index_path = STUDIES / "index.html"
-    readme_path = STUDIES / "README.md"
-    ref_readme_path = REFERENCES / "README.md"
-    manifest_path = REFERENCES / "MANIFEST.md"
+    if table is not None:
+        rows = load_catalog_rows(table)
+        before_count = len(rows)
+        rows = remove_study_row(rows, slug)
+        if len(rows) == before_count:
+            print(f"Warning: {slug} not found in {table.value} catalog.")
+        else:
+            write_studies_catalog(rows, table)
+            print(f"Updated Studies/index.html and Studies/README.md ({table.value} catalog)")
 
-    index_text = index_path.read_text(encoding="utf-8")
-    html_rows = [row for row in parse_html_rows(index_text) if row[0] != slug]
-    if len(html_rows) == len(parse_html_rows(index_text)):
-        print(f"Warning: {slug} not found in {index_path} catalog.")
-    index_html_block = "\n".join(html_row(s, desc) for s, desc in html_rows)
-    index_path.write_text(replace_catalog_block(index_text, index_html_block), encoding="utf-8")
-    print(f"Updated {index_path}")
+    if not is_ongoing:
+        write_references_readme_row(slug, "", remove=True)
+        print(f"Updated {REFERENCES / 'README.md'}")
 
-    readme_text = readme_path.read_text(encoding="utf-8")
-    md_rows = [row for row in parse_md_rows(readme_text) if row[0] != slug]
-    readme_md_block = STUDIES_README_TABLE_HEADER + "\n" + "\n".join(
-        readme_row(s, desc) for s, desc in md_rows
-    )
-    readme_path.write_text(replace_catalog_block(readme_text, readme_md_block), encoding="utf-8")
-    print(f"Updated {readme_path}")
+        ref_text = (REFERENCES / "README.md").read_text(encoding="utf-8")
+        ref_rows = parse_references_readme_rows(ref_text)
+        remaining_labels = sorted(manifest_label(s) for s, _ in ref_rows)
 
-    ref_text = ref_readme_path.read_text(encoding="utf-8")
-    ref_rows = [row for row in parse_references_readme_rows(ref_text) if row[0] != slug]
-    ref_block = REFERENCES_README_TABLE_HEADER + "\n" + "\n".join(
-        references_readme_row(s, tags) for s, tags in ref_rows
-    )
-    ref_readme_path.write_text(replace_catalog_block(ref_text, ref_block), encoding="utf-8")
-    print(f"Updated {ref_readme_path}")
-
-    remaining_labels = sorted(manifest_label(s) for s, _ in ref_rows)
-    manifest_text = manifest_path.read_text(encoding="utf-8")
-    manifest_text = remove_manifest_paper_block(manifest_text, slug)
-    manifest_text = update_manifest_tag_section(manifest_text, removed_label, remaining_labels)
-    manifest_path.write_text(manifest_text, encoding="utf-8")
-    print(f"Updated {manifest_path}")
+        manifest_path = REFERENCES / "MANIFEST.md"
+        manifest_text = manifest_path.read_text(encoding="utf-8")
+        manifest_text = remove_manifest_paper_block(manifest_text, slug)
+        manifest_text = update_manifest_tag_section(
+            manifest_text,
+            removed_label,
+            remaining_labels,
+        )
+        manifest_path.write_text(manifest_text, encoding="utf-8")
+        print(f"Updated {manifest_path}")
 
     print("\nDone. Next steps:")
     print("  1. Search other Studies for cross-links to this paper and remove them.")
-    print(f"  2. Review {manifest_path} summary counts if needed.")
+    print(f"  2. Review {REFERENCES / 'MANIFEST.md'} summary counts if needed.")
     print("  3. Commit the deletions and catalog updates.")
 
 

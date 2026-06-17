@@ -1,23 +1,41 @@
-"""Add a new study PDF to Studies/ and update catalog files.
+"""Add a study to Studies/ and update catalog files.
 
 Usage:
-  python Scripts\\_add_study.py path\\to\\paper.pdf
-  python Scripts\\_add_study.py paper.pdf --title "My Study" --description "Summary" --tags "MVD, SB, JV"
-  python Scripts\\_add_study.py paper.pdf --dry-run
+  python Scripts\\_add_study.py path\\to\\Study.md
+  python Scripts\\_add_study.py path\\to\\external.pdf
+  python Scripts\\_add_study.py Study.md --category Ontology --description "..." --tags "MVD, SB, JV"
+  python Scripts\\_add_study.py Study.md --status ongoing --dry-run
 
-Copies the PDF into Studies/, creates a stub markdown source if missing, and updates
-index.html, Studies/README.md, References/README.md, and References/MANIFEST.md.
+Registers the study in Studies/index.html, Studies/README.md, References/README.md,
+and References/MANIFEST.md. Markdown input is preferred; sets **Edited on:** and
+regenerates the PDF (Draft watermark when status is draft).
 """
 from __future__ import annotations
 
 import argparse
-import html
 import re
 import shutil
 import sys
 from pathlib import Path
 
 from _common import REFERENCES, STUDIES
+from _study_catalog import (
+    StudyRow,
+    StudyStatus,
+    StudyTable,
+    append_manifest_row,
+    format_edited_on_md,
+    now_ist,
+    parse_html_rows,
+    regenerate_pdf,
+    set_edited_on,
+    slug_to_title,
+    title_to_slug,
+    upsert_study_row,
+    verify_timestamp_sync,
+    write_references_readme_row,
+    write_studies_catalog,
+)
 
 GITHUB_REPO = "https://github.com/raghavamohan/AnalyticMadhyasthDarshan"
 AUTHOR_BLOCK = (
@@ -25,149 +43,6 @@ AUTHOR_BLOCK = (
     f"studying Madhyasth Darshan philosophy. Source repository: "
     f"[raghavamohan/AnalyticMadhyasthDarshan]({GITHUB_REPO})."
 )
-
-CATALOG_START = "<!-- studies-catalog -->"
-CATALOG_END = "<!-- /studies-catalog -->"
-
-STUDIES_README_TABLE_HEADER = "| Document | Description |\n|----------|-------------|"
-REFERENCES_README_TABLE_HEADER = "| Paper | Primary tags |\n|-------|----------------|"
-
-
-def title_to_slug(title: str) -> str:
-    """Convert a title to kebab-case slug (Why-Humans-Are-Not-Just-Material style)."""
-    words = re.findall(r"[\w']+", title.strip())
-    if not words:
-        raise ValueError("Title must contain at least one word.")
-    return "-".join(word[:1].upper() + word[1:] for word in words)
-
-
-def slug_to_title(slug: str) -> str:
-    """Convert slug to display title."""
-    return " ".join(part.capitalize() for part in slug.split("-"))
-
-
-def escape_md_cell(text: str) -> str:
-    return text.replace("|", "\\|")
-
-
-def build_stub_markdown(title: str, description: str) -> str:
-    return f"""# {title}
-
-{AUTHOR_BLOCK}
-
-{description}
-
-> This study was added from a PDF. Expand this markdown source (sections, citations, references) and regenerate the PDF with `Scripts/_convert_to_pdf.py` when ready.
-
-## References
-
-- *(Add references here — link to files under `../References/` where available, or to the original publisher URL.)*
-"""
-
-
-def html_row(slug: str, description: str) -> str:
-    safe_desc = html.escape(description, quote=False)
-    return (
-        f"    <tr>\n"
-        f'      <td><a href="{slug}.pdf">{slug}</a></td>\n'
-        f"      <td>{safe_desc}</td>\n"
-        f"    </tr>"
-    )
-
-
-def readme_row(slug: str, description: str) -> str:
-    return f"| [{slug}]({slug}.pdf) | {escape_md_cell(description)} |"
-
-
-def references_readme_row(slug: str, tags: str) -> str:
-    return (
-        f"| [{slug}.pdf](../Studies/{slug}.pdf) | {escape_md_cell(tags)} |"
-    )
-
-
-def manifest_row(slug: str, tags: str, status: str = "TBD") -> str:
-    return f"| [{slug}.pdf](../Studies/{slug}.pdf) | {escape_md_cell(tags)} | {status} |"
-
-
-def replace_catalog_block(content: str, new_block: str) -> str:
-    pattern = re.compile(
-        re.escape(CATALOG_START) + r".*?" + re.escape(CATALOG_END),
-        re.DOTALL,
-    )
-    if not pattern.search(content):
-        raise ValueError(
-            f"Catalog markers {CATALOG_START!r} / {CATALOG_END!r} not found in file."
-        )
-    return pattern.sub(f"{CATALOG_START}\n{new_block}\n{CATALOG_END}", content, count=1)
-
-
-def parse_html_rows(content: str) -> list[tuple[str, str]]:
-    block = re.search(
-        re.escape(CATALOG_START) + r"(.*?)" + re.escape(CATALOG_END),
-        content,
-        re.DOTALL,
-    )
-    if not block:
-        return []
-    rows: list[tuple[str, str]] = []
-    for match in re.finditer(
-        r'<a href="([^"]+\.pdf)">([^<]+)</a></td>\s*<td>([^<]*)</td>',
-        block.group(1),
-    ):
-        rows.append((Path(match.group(1)).stem, html.unescape(match.group(3))))
-    return rows
-
-
-def parse_md_rows(content: str) -> list[tuple[str, str]]:
-    block = re.search(
-        re.escape(CATALOG_START) + r"(.*?)" + re.escape(CATALOG_END),
-        content,
-        re.DOTALL,
-    )
-    if not block:
-        return []
-    rows: list[tuple[str, str]] = []
-    for line in block.group(1).splitlines():
-        match = re.match(r"\|\s*\[([^\]]+)\]\(([^)]+\.pdf)\)\s*\|\s*(.+?)\s*\|", line)
-        if match:
-            rows.append((Path(match.group(2)).stem, match.group(3).strip()))
-    return rows
-
-
-def parse_references_readme_rows(content: str) -> list[tuple[str, str]]:
-    block = re.search(
-        re.escape(CATALOG_START) + r"(.*?)" + re.escape(CATALOG_END),
-        content,
-        re.DOTALL,
-    )
-    if not block:
-        return []
-    rows: list[tuple[str, str]] = []
-    for line in block.group(1).splitlines():
-        match = re.match(
-            r"\|\s*\[([^\]]+\.pdf)\]\(../Studies/([^)]+)\)\s*\|\s*(.+?)\s*\|",
-            line,
-        )
-        if match:
-            rows.append((Path(match.group(1)).stem, match.group(3).strip()))
-    return rows
-
-
-def append_manifest_row(content: str, slug: str, tags: str) -> str:
-    pdf_name = f"{slug}.pdf"
-    if pdf_name in content:
-        return content
-    row = manifest_row(slug, tags)
-    marker = "\n## By tag"
-    if marker not in content:
-        raise ValueError("Could not find '## By tag' section in MANIFEST.md")
-    return content.replace(marker, f"\n{row}\n{marker}", 1)
-
-
-def upsert_row(rows: list[tuple], key: str, new_row: tuple) -> list[tuple]:
-    filtered = [row for row in rows if row[0] != key]
-    filtered.append(new_row)
-    return sorted(filtered, key=lambda row: row[0].lower())
 
 
 def prompt_if_missing(value: str | None, label: str, default: str | None = None) -> str:
@@ -183,34 +58,113 @@ def prompt_if_missing(value: str | None, label: str, default: str | None = None)
         print("  (required)")
 
 
+def build_stub_markdown(title: str, description: str, edited_at) -> str:
+    return f"""# {title}
+
+{AUTHOR_BLOCK}
+
+{format_edited_on_md(edited_at)}
+
+{description}
+
+> Expand this markdown source (sections, citations, references) and regenerate the PDF with `Scripts/_convert_to_pdf.py` when ready.
+
+## References
+
+- *(Add references here — link to files under `../References/` where available, or to the original publisher URL.)*
+"""
+
+
+def ensure_author_block(md_text: str) -> str:
+    if "**Author:**" in md_text:
+        return md_text
+    h1_match = re.search(r"^# .+\n+", md_text, re.MULTILINE)
+    if not h1_match:
+        raise ValueError("Markdown must start with an H1 heading.")
+    insert_at = h1_match.end()
+    return md_text[:insert_at] + f"\n{AUTHOR_BLOCK}\n\n" + md_text[insert_at:]
+
+
+def parse_status_arg(value: str) -> StudyStatus:
+    normalized = value.strip().lower()
+    try:
+        return StudyStatus(normalized)
+    except ValueError as exc:
+        raise SystemExit(
+            f"Invalid --status {value!r}; use draft, released, or ongoing."
+        ) from exc
+
+
+def load_catalog_rows(table: StudyTable) -> list[StudyRow]:
+    index_path = STUDIES / "index.html"
+    return parse_html_rows(index_path.read_text(encoding="utf-8"), table)
+
+
+def update_manifest(slug: str, tags: str, *, force: bool) -> None:
+    manifest_path = REFERENCES / "MANIFEST.md"
+    manifest_text = manifest_path.read_text(encoding="utf-8")
+    if f"{slug}.pdf" in manifest_text and force:
+        manifest_text = re.sub(
+            rf"\| \[{re.escape(slug)}\.pdf\]\(../Studies/{re.escape(slug)}\.pdf\) \|[^\n]+\n",
+            "",
+            manifest_text,
+        )
+    manifest_path.write_text(
+        append_manifest_row(manifest_text, slug, tags),
+        encoding="utf-8",
+    )
+    print(f"Updated {manifest_path}")
+
+
 def add_study(
-    pdf_path: Path,
+    input_path: Path,
     *,
     title: str | None,
     slug: str | None,
+    category: str | None,
     description: str | None,
     tags: str | None,
+    status: StudyStatus,
+    formal: bool,
     dry_run: bool,
     force: bool,
+    skip_pdf: bool,
+    check_timestamps: bool,
 ) -> None:
-    if not pdf_path.is_file():
-        raise SystemExit(f"PDF not found: {pdf_path}")
-    if pdf_path.suffix.lower() != ".pdf":
-        raise SystemExit(f"Expected a .pdf file, got: {pdf_path}")
+    if not input_path.is_file():
+        raise SystemExit(f"Input file not found: {input_path}")
 
-    derived_slug = slug or title_to_slug(title or pdf_path.stem.replace("_", " "))
+    suffix = input_path.suffix.lower()
+    if suffix not in {".md", ".pdf"}:
+        raise SystemExit(f"Expected a .md or .pdf file, got: {input_path}")
+
+    table = StudyTable.FORMAL if formal else StudyTable.TOPICAL
+    is_pdf_import = suffix == ".pdf"
+    derived_slug = slug or title_to_slug(title or input_path.stem.replace("_", " "))
     study_title = title or slug_to_title(derived_slug)
+    dest_md = STUDIES / f"{derived_slug}.md"
+    dest_pdf = STUDIES / f"{derived_slug}.pdf"
+    edited_at = now_ist()
+
     study_description = description or ""
     study_tags = tags or ""
+    study_category = category or ""
 
-    if not dry_run and sys.stdin.isatty():
-        if not description:
+    interactive = not dry_run and sys.stdin.isatty()
+    if interactive:
+        if not study_category and status != StudyStatus.ONGOING:
+            study_category = prompt_if_missing(
+                None,
+                "Category (catalog column)",
+                default="General",
+            )
+        if not study_description:
             study_description = prompt_if_missing(
                 None,
                 "Description (one line, shown in the catalog)",
                 default=f"Study on {study_title}",
             )
-        if not tags:
+        if not study_tags and status != StudyStatus.ONGOING:
             study_tags = prompt_if_missing(
                 None,
                 "Primary tags (e.g. MVD, SB, JV)",
@@ -219,108 +173,165 @@ def add_study(
     else:
         study_description = study_description or f"Study on {study_title}"
         study_tags = study_tags or "MVD, SB, JV"
+        if not study_category and status != StudyStatus.ONGOING:
+            study_category = "General"
 
-    dest_pdf = STUDIES / f"{derived_slug}.pdf"
-    dest_md = STUDIES / f"{derived_slug}.md"
+    if status == StudyStatus.ONGOING and formal:
+        raise SystemExit("Ongoing placeholders are only supported in the Topical Studies catalog.")
 
-    if dest_pdf.exists() and not force:
+    if dest_md.exists() and not force and not is_pdf_import and input_path.resolve() != dest_md.resolve():
         raise SystemExit(
-            f"Study already exists: {dest_pdf}\nUse --force to overwrite the PDF and refresh catalog entries."
+            f"Study already exists: {dest_md}\nUse --force to refresh catalog entries."
         )
+    if dest_pdf.exists() and not force and is_pdf_import:
+        raise SystemExit(
+            f"Study already exists: {dest_pdf}\nUse --force to overwrite."
+        )
+
+    catalog_row = StudyRow(
+        slug=derived_slug,
+        category=study_category,
+        description=study_description,
+        status=status,
+        edited_at=None if status == StudyStatus.ONGOING else edited_at,
+        table=table,
+    )
 
     print(f"Slug:        {derived_slug}")
     print(f"Title:       {study_title}")
+    print(f"Table:       {table.value}")
+    print(f"Status:      {status.value}")
+    print(f"Category:    {study_category}")
     print(f"Description: {study_description}")
     print(f"Tags:        {study_tags}")
-    print(f"PDF dest:    {dest_pdf}")
+    print(f"Input:       {input_path}")
+    print(f"Markdown:    {dest_md}")
+    if status != StudyStatus.ONGOING:
+        print(f"PDF:         {dest_pdf}")
 
     if dry_run:
         print("\nDry run — no files changed.")
         return
 
     STUDIES.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(pdf_path, dest_pdf)
-    print(f"Copied PDF to {dest_pdf}")
 
-    if not dest_md.exists() or force:
-        dest_md.write_text(build_stub_markdown(study_title, study_description), encoding="utf-8")
-        print(f"Wrote stub markdown to {dest_md}")
-
-    index_path = STUDIES / "index.html"
-    readme_path = STUDIES / "README.md"
-    ref_readme_path = REFERENCES / "README.md"
-    manifest_path = REFERENCES / "MANIFEST.md"
-
-    index_text = index_path.read_text(encoding="utf-8")
-    html_rows = parse_html_rows(index_text)
-    html_rows = upsert_row(html_rows, derived_slug, (derived_slug, study_description))
-    index_html_block = "\n".join(html_row(slug, desc) for slug, desc in html_rows)
-    index_path.write_text(replace_catalog_block(index_text, index_html_block), encoding="utf-8")
-    print(f"Updated {index_path}")
-
-    readme_text = readme_path.read_text(encoding="utf-8")
-    md_rows = parse_md_rows(readme_text)
-    md_rows = upsert_row(md_rows, derived_slug, (derived_slug, study_description))
-    readme_md_block = STUDIES_README_TABLE_HEADER + "\n" + "\n".join(
-        readme_row(slug, desc) for slug, desc in md_rows
-    )
-    readme_path.write_text(replace_catalog_block(readme_text, readme_md_block), encoding="utf-8")
-    print(f"Updated {readme_path}")
-
-    ref_text = ref_readme_path.read_text(encoding="utf-8")
-    ref_rows = parse_references_readme_rows(ref_text)
-    ref_rows = upsert_row(ref_rows, derived_slug, (derived_slug, study_tags))
-    ref_block = REFERENCES_README_TABLE_HEADER + "\n" + "\n".join(
-        references_readme_row(slug, t) for slug, t in ref_rows
-    )
-    ref_readme_path.write_text(replace_catalog_block(ref_text, ref_block), encoding="utf-8")
-    print(f"Updated {ref_readme_path}")
-
-    manifest_text = manifest_path.read_text(encoding="utf-8")
-    if f"{derived_slug}.pdf" in manifest_text and force:
-        manifest_text = re.sub(
-            rf"\| \[{re.escape(derived_slug)}\.pdf\]\(../Studies/{re.escape(derived_slug)}\.pdf\) \|[^\n]+\n",
-            "",
-            manifest_text,
+    if is_pdf_import:
+        shutil.copy2(input_path, dest_pdf)
+        print(f"Copied PDF to {dest_pdf}")
+        if not dest_md.exists() or force:
+            dest_md.write_text(
+                build_stub_markdown(study_title, study_description, edited_at),
+                encoding="utf-8",
+            )
+            print(f"Wrote stub markdown to {dest_md}")
+        else:
+            md_text = dest_md.read_text(encoding="utf-8")
+            dest_md.write_text(set_edited_on(md_text, edited_at), encoding="utf-8")
+            print(f"Updated **Edited on:** in {dest_md}")
+        print(
+            "\nNote: imported PDFs keep their original content. "
+            "A Draft watermark is applied only after you expand the markdown and "
+            "regenerate the PDF (re-run this script on the .md file, or use "
+            "Scripts/_convert_to_pdf.py)."
         )
-    manifest_path.write_text(
-        append_manifest_row(manifest_text, derived_slug, study_tags),
-        encoding="utf-8",
-    )
-    print(f"Updated {manifest_path}")
+    else:
+        if input_path.resolve() != dest_md.resolve():
+            shutil.copy2(input_path, dest_md)
+            print(f"Copied markdown to {dest_md}")
+        md_text = dest_md.read_text(encoding="utf-8")
+        md_text = ensure_author_block(md_text)
+        md_text = set_edited_on(md_text, edited_at)
+        dest_md.write_text(md_text, encoding="utf-8")
+        print(f"Updated {dest_md}")
+
+        if not skip_pdf and status != StudyStatus.ONGOING:
+            regenerate_pdf(dest_md, status)
+            print(f"Regenerated PDF at {dest_pdf}")
+
+    rows = load_catalog_rows(table)
+    rows = upsert_study_row(rows, catalog_row)
+    write_studies_catalog(rows, table)
+    print(f"Updated Studies/index.html and Studies/README.md ({table.value} catalog)")
+
+    if status != StudyStatus.ONGOING:
+        write_references_readme_row(derived_slug, study_tags)
+        print(f"Updated {REFERENCES / 'README.md'}")
+        update_manifest(derived_slug, study_tags, force=force)
+
+    if check_timestamps:
+        errors = verify_timestamp_sync(derived_slug)
+        if errors:
+            print("\nTimestamp verification FAILED:")
+            for error in errors:
+                print(f"  - {error}")
+            raise SystemExit(1)
+        print("\nTimestamp verification passed.")
 
     print("\nDone. Next steps:")
-    print(f"  1. Edit {dest_md} — expand content and add a References section.")
-    print(f"  2. Update tag details in {manifest_path} (change TBD to present/external rows as needed).")
-    print(f"  3. Open {index_path} in a browser to verify the catalog.")
-    print("  4. Commit the new .pdf, .md, and updated catalog files.")
+    if is_pdf_import:
+        print(f"  1. Edit {dest_md} — expand content and add a References section.")
+        print("  2. Re-run on the .md file to regenerate a Draft-watermarked PDF.")
+    else:
+        print(f"  1. Continue editing {dest_md} as the canonical source.")
+    print(f"  2. Update tag details in {REFERENCES / 'MANIFEST.md'} (change TBD rows as needed).")
+    print("  3. Commit the study files and catalog updates.")
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Add a study PDF to Studies/ and update catalog files.",
+        description="Add or register a study and update catalog files.",
     )
-    parser.add_argument("pdf", type=Path, help="Path to the study PDF")
+    parser.add_argument(
+        "input",
+        type=Path,
+        help="Path to study .md (preferred) or external .pdf",
+    )
     parser.add_argument("--title", help="Study title (default: derived from filename)")
     parser.add_argument("--slug", help="Filename slug without extension (default: from title)")
+    parser.add_argument("--category", help="Catalog category (or Formal Focus when --formal)")
     parser.add_argument("--description", help="One-line catalog description")
     parser.add_argument(
         "--tags",
         help='Primary citation tags for References/README (e.g. "MVD, SB, JV")',
     )
+    parser.add_argument(
+        "--status",
+        default="draft",
+        help="Catalog status: draft (default), released, or ongoing",
+    )
+    parser.add_argument(
+        "--formal",
+        action="store_true",
+        help="Register in Formal Studies table instead of Topical Studies",
+    )
     parser.add_argument("--dry-run", action="store_true", help="Print plan without writing files")
-    parser.add_argument("--force", action="store_true", help="Overwrite existing PDF and catalog entry")
+    parser.add_argument("--force", action="store_true", help="Overwrite existing study files")
+    parser.add_argument(
+        "--skip-pdf",
+        action="store_true",
+        help="Update catalogs only; do not regenerate PDF from markdown",
+    )
+    parser.add_argument(
+        "--check-timestamps",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="Verify **Edited on:** matches catalog timestamps after add (default: on)",
+    )
     args = parser.parse_args()
 
-    pdf_path = args.pdf.resolve()
     add_study(
-        pdf_path,
+        args.input.resolve(),
         title=args.title,
         slug=args.slug,
+        category=args.category,
         description=args.description,
         tags=args.tags,
+        status=parse_status_arg(args.status),
+        formal=args.formal,
         dry_run=args.dry_run,
         force=args.force,
+        skip_pdf=args.skip_pdf,
+        check_timestamps=args.check_timestamps,
     )
 
 
