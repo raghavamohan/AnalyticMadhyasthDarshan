@@ -27,13 +27,14 @@ drift apart.
 - **In-progress studies** — shown in italics (`<em>...</em>` in HTML,
   `*...*` in markdown) with no link; published studies link to `<Name>.pdf`.
 - **Formal Studies table** — same documents, focus, and descriptions.
-- **Shared prose** — the lead intro, Study Objectives, "Who writes them", and
+- **Shared prose** — the lead intro, Study Objectives, **About us**, and
   License sections should carry the same wording.
 
 ## Intentional differences (do NOT force these to match)
 
-- `Studies/README.md` has a **"Contributing a study"** section (repo-only).
 - `Studies/index.html` has a **"From Study to Understanding"** section (site-only).
+- `Studies/index.html` and `Studies/README.md` both end with **How to contribute**
+  and **About us** after the study catalogs; wording should stay aligned.
 
 ## How to verify
 

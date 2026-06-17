@@ -34,16 +34,6 @@ The **Topical Studies** examine particular domains — existence, human nature, 
 
 Throughout, we keep three things clearly separate: **what the philosophy itself says**, **what is our own interpretation or comparison**, and **what remains an open question**.
 
-## Who writes them
-
-These studies are written and maintained by **[AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan)**, a group of people studying Madhyasth Darshan together. The work is collaborative and fully open — anyone is welcome to read it, check our sources, and contribute through our [GitHub repository](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
-
-Every study ends with a list of its sources, linking to the original texts wherever they are freely available.
-
-## Contributing a study
-
-Contributor setup and scripts are documented in the root [README.md](../README.md#for-contributors).
-
 ## Topical Studies
 
 These studies focus on specific topics that help define different aspects of Madhyasth Darshan. Papers may list multiple categories, separated by commas.
@@ -76,12 +66,28 @@ Select any linked title to open the full study. Titles shown in italics are stil
 
 These studies are more mathematical in nature. They represent the structure discovered across the topical studies through formal definitions, relations, templates, and comparative frameworks.
 
+<!-- formal-studies-catalog -->
 | Document | Formal Focus | Description | Status |
 |----------|--------------|-------------|--------|
-<!-- formal-studies-catalog -->
 | [Category-Theory-Explained](Category-Theory-Explained.pdf) | Category theory | Category-theory lens on the darshan's structure | Draft<br>Last updated on: Jun 16, 2026, 11:16 AM IST |
 | [The-Coexistence-Template](The-Coexistence-Template.pdf) | Formal template | Formal template of units, relationships, values, and assembly | Draft<br>Last updated on: Jun 16, 2026, 11:16 AM IST |
 <!-- /formal-studies-catalog -->
+
+## How to contribute
+
+We welcome new studies and revisions from anyone studying Madhyasth Darshan. Before you write, read the study format and intent in this document and in [CONTRIBUTING.md](../CONTRIBUTING.md).
+
+1. **Propose.** Open a [study proposal](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-proposal.yml) on GitHub with your proposed title, category, and a short summary of the question you want to examine.
+2. **Wait for approval.** Maintainers review proposals and label approved ones `proposal-approved`. You will receive a comment with next steps.
+3. **Submit.** Fork the repository, add or edit your study markdown, and open a pull request using the appropriate template (`new-study`, `study-update`, or `status-change`). Continuous integration regenerates the PDF and keeps the catalog in sync.
+
+Full instructions, labels, and maintainer duties are in [CONTRIBUTING.md](../CONTRIBUTING.md).
+
+## About us
+
+We are a group of people studying **Madhyasth Darshan** and writing these studies together. Our work is published as **[AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan)** — collaborative, fully open, and independent analytic and comparative work on the darshan.
+
+Anyone is welcome to read the studies, check our sources, and contribute through our [GitHub repository](https://github.com/raghavamohan/AnalyticMadhyasthDarshan). Every study ends with a list of its sources, linking to the original texts wherever they are freely available.
 
 ## License
 
