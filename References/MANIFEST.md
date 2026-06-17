@@ -20,6 +20,7 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-15.
 | | Crockett 2013, SEP Moral Psychology | present |
 | | Curry, Mullins, and Whitehouse 2019, Graham et al. 2013, Greene et al. 2001, Haidt 2001, Tomasello and Vaish 2013 | external |
 | [Why-Humans-Are-Not-Just-Material.pdf](../Studies/Why-Humans-Are-Not-Just-Material.pdf) | MVD, SB, JV | present |
+| | Bhattacharya | present |
 | | BU, TU, MU, CU, KU, BG, BSB, VC, DDV | present |
 | | Chalmers 1995, Nagel 1974, Strawson 2006 | present |
 | | Bloom 2013, Churchland 1986, Dennett 1991, Popper 1959, Shapiro 2007, Kandel et al. 2021 | external |
@@ -68,7 +69,7 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-15.
 | **DDV** | [Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf](Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf) | Why-Humans, Knowledge-Knower |
 | **AV** | [Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.html](Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.html) | How-To-Form |
 | **SV** | [Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf](Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf) | How-To-Form |
-| **Bhattacharya** | [Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf](Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf) | What-Is-Existence |
+| **Bhattacharya** | [Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf](Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf) | What-Is-Existence, Why-Humans |
 | **ATR** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | How-To-Form |
 | **Poorvam Rasa** | [Comparative-Philosophy/Poorvam-Sadharanikarana-Rasa.html](Comparative-Philosophy/Poorvam-Sadharanikarana-Rasa.html) | Aesthetics |
 | **SEP Natural Law Ethics** | [Comparative-Philosophy/SEP-Natural-Law-Ethics.html](Comparative-Philosophy/SEP-Natural-Law-Ethics.html) | Ethics-And-Morals |
