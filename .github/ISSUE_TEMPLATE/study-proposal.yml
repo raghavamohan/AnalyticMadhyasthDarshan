@@ -1,0 +1,90 @@
+name: Study proposal
+description: Propose a new study for the Analytic Madhyasth Darshan collection
+title: "Study proposal: "
+labels:
+  - study-proposal
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Propose a new analytic study before writing the full paper.
+        Maintainers will review and label approved proposals `proposal-approved`.
+        See [CONTRIBUTING.md](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/main/CONTRIBUTING.md).
+
+  - type: input
+    id: proposed_title
+    attributes:
+      label: Proposed title
+      description: Human-readable title. The file slug is derived from this (e.g. "What Is Existence" → What-Is-Existence).
+      placeholder: What Is Existence
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      description: Primary topical or formal category for the catalog.
+      options:
+        - Ontology
+        - Philosophical Anthropology
+        - Philosophy of Mind
+        - Epistemology
+        - Methodology
+        - Axiology
+        - Ethics, Axiology
+        - Relationships, Axiology
+        - Education
+        - Aesthetics, Axiology
+        - Social Philosophy, Ethics, Axiology
+        - Political Philosophy, Axiology
+        - Economics, Axiology
+        - Ecology, Axiology
+        - Spiritual Practice
+        - Philosophy of Science
+        - Category theory
+        - Formal template
+        - Other (describe in study summary)
+    validations:
+      required: true
+
+  - type: textarea
+    id: one_line_description
+    attributes:
+      label: One-line description
+      description: Catalog summary shown on the studies page (one sentence).
+      placeholder: Madhyasth Darshan and modern philosophy on whether existence begins
+    validations:
+      required: true
+
+  - type: textarea
+    id: study_summary
+    attributes:
+      label: Study summary
+      description: The analytic question, primary Madhyasth Darshan texts, scope, and any planned comparisons.
+      placeholder: |
+        Question: ...
+        Primary texts: MVD, SB, ...
+        Scope: ...
+    validations:
+      required: true
+
+  - type: checkbox
+    id: formal_study
+    attributes:
+      label: Catalog table
+      options:
+        - label: Register in the Formal Studies table (instead of Topical Studies)
+          required: false
+
+  - type: dropdown
+    id: prior_familiarity
+    attributes:
+      label: Prior familiarity with Madhyasth Darshan
+      options:
+        - New to the texts
+        - Some reading of primary texts
+        - Regular study of primary texts
+        - Long-term student of the darshan
+    validations:
+      required: false

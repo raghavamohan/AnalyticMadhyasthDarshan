@@ -35,14 +35,14 @@ The **markdown** file for each paper is the source of truth. PDFs and catalog pa
 
 ## For contributors
 
-Read **[Studies/README.md](Studies/README.md)** for what a study should cover, tone, and structure before you start writing.
+Read **[CONTRIBUTING.md](CONTRIBUTING.md)** for the full proposal → approval → pull request workflow, and **[Studies/README.md](Studies/README.md)** for what a study should cover, tone, and structure before you start writing.
 
 ### One-time setup
 
 From the repository root in PowerShell:
 
 ```powershell
-pip install pypdf markdown
+pip install -r requirements.txt
 cd Scripts
 npm install
 cd ..

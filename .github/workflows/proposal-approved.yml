@@ -1,0 +1,66 @@
+name: Proposal approved
+
+on:
+  issues:
+    types:
+      - labeled
+
+permissions:
+  issues: write
+
+jobs:
+  comment:
+    if: github.event.label.name == 'proposal-approved'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post approval instructions
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const repo = context.repo.owner + '/' + context.repo.repo;
+            const issueNumber = issue.number;
+            const prUrl =
+              `https://github.com/${repo}/compare/main...main?` +
+              `quick_pull=1&labels=new-study&` +
+              `title=Add+study&` +
+              `body=${encodeURIComponent(
+                '## New study\n\n' +
+                `Proposal issue: #${issueNumber}\n` +
+                'Slug: <!-- e.g. My-New-Study -->\n' +
+                'Tags: MVD, SB, JV\n\n' +
+                '### Summary\n\n' +
+                '<!-- Briefly describe the study question and primary texts -->\n\n' +
+                '### Checklist\n\n' +
+                '- [ ] Linked proposal issue is labeled `proposal-approved`\n' +
+                '- [ ] `Studies/<Slug>.md` follows format in Studies/README.md\n' +
+                '- [ ] References link to `References/` where permitted; no restricted uploads\n' +
+                '- [ ] Applied label **`new-study`** to this pull request\n'
+              )}`;
+
+            const body = [
+              '### Proposal approved',
+              '',
+              'Thank you — this study proposal is approved. You may now submit the full study:',
+              '',
+              '1. **Fork** the repository and create a branch.',
+              '2. Add `Studies/<Slug>.md` following the format in [Studies/README.md](https://github.com/' + repo + '/blob/main/Studies/README.md).',
+              '3. Open a pull request with the [**new-study** template](https://github.com/' + repo + '/compare/main...main?expand=1&template=new-study.md).',
+              '4. Set `Proposal issue: #' + issueNumber + '` in the PR body.',
+              '5. Apply the **`new-study`** label to the PR.',
+              '',
+              'CI will verify this issue is approved, register the study in the catalog, and regenerate the PDF on your branch.',
+              '',
+              '[Open a new-study pull request](' + prUrl + ')',
+              '',
+              'To **update** an existing study later, use the `study-update` template and label. To **release** or **revert to draft**, use `status-change`.',
+              '',
+              'Full guide: [CONTRIBUTING.md](https://github.com/' + repo + '/blob/main/CONTRIBUTING.md).'
+            ].join('\n');
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              body
+            });
