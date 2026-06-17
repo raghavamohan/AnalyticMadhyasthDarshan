@@ -43,7 +43,8 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-15.
 | | Chalmers 1995, Nagel 1974, Strawson 2006 | present |
 | | Frankish 2016, Limanowski and Blankenburg 2013 | present |
 | | Whitehead 1929, Russell 1921, Mach 1914 | present |
-| | Ashtekar and Singh 2011 | present |
+| | Ashtekar and Singh 2011, Carroll 2010, Friston 2010, Guth 2007 | present |
+| | Metzinger 2003, Penrose 2010, Ishvarakrishna, Nagarjuna, Weinberg 1995 | external |
 
 ## By tag
 
@@ -94,6 +95,10 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-15.
 | **Russell 1921** | [Modern-Philosophy/Russell-1921-The-Analysis-of-Mind.pdf](Modern-Philosophy/Russell-1921-The-Analysis-of-Mind.pdf) | What-Is-Existence |
 | **Mach 1914** | [Modern-Philosophy/Mach-1914-The-Analysis-of-Sensations.pdf](Modern-Philosophy/Mach-1914-The-Analysis-of-Sensations.pdf) | What-Is-Existence |
 | **Ashtekar and Singh 2011** | [Science/Ashtekar-Singh-2011-Loop-Quantum-Cosmology-Status-Report.pdf](Science/Ashtekar-Singh-2011-Loop-Quantum-Cosmology-Status-Report.pdf) | What-Is-Existence |
+| **Carroll 2010** | [Science/Carroll-2010-Energy-Is-Not-Conserved.html](Science/Carroll-2010-Energy-Is-Not-Conserved.html) | What-Is-Existence |
+| **Friston 2010** | [Science/Friston-2010-Free-Energy-Principle.pdf](Science/Friston-2010-Free-Energy-Principle.pdf) | What-Is-Existence |
+| **Guth 2007** | [Science/Guth-2007-Eternal-Inflation.pdf](Science/Guth-2007-Eternal-Inflation.pdf) | What-Is-Existence |
+| **Metzinger 2003**, **Penrose 2010**, **Ishvarakrishna**, **Nagarjuna**, **Weinberg 1995** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | What-Is-Existence |
 | **Hashemi 2025**, **IEP Enactivism**, **Kuhn 2024**, **Massimi 2022** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Knowledge-Knower |
 | **Keating 2008**, **Mind and Creativity Rasa** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Aesthetics |
 | **Curry, Mullins, and Whitehouse 2019**, **Graham et al. 2013**, **Greene et al. 2001**, **Haidt 2001**, **Tomasello and Vaish 2013** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Ethics-And-Morals |
@@ -105,8 +110,8 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-15.
 | Madhyasth Darshan (MVD, SB, JV, AVD, JVD) | 5 PDFs + 1 spreadsheet | 0 |
 | Advaita Vedanta (9 tags) | 9 PDFs | 0 |
 | Comparative philosophy, Indian aesthetics, and religious ethics | 5 | 5 |
-| Science and moral science | 5 (open-access papers) | 14 |
+| Science and moral science | 9 (open-access papers) | 15 |
 | Modern philosophy and cognitive science | 16 | 4 |
-| **Total distinct tags** | **40 local files + MD** | **23 external** |
+| **Total distinct tags** | **44 local files + MD** | **28 external** |
 
 Works not stored locally are linked from each paper's References section. See [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) for original URLs.
