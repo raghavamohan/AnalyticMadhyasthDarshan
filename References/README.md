@@ -48,7 +48,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File Scripts\_download_references
 | [Knowledge-Knower-And-Known.pdf](../Studies/Knowledge-Knower-And-Known.pdf) | MVD, SB, JV; Advaita (CU, BG, BSB, DDV, VC); modern science/philosophy (20 works, 10 local / 10 external) |
 | [Category-Theory-Explained.pdf](../Studies/Category-Theory-Explained.pdf) | MVD, SB, JV |
 | [The-Coexistence-Template.pdf](../Studies/The-Coexistence-Template.pdf) | MVD, SB, JV |
-| [What-Is-Existence.pdf](../Studies/What-Is-Existence.pdf) | MVD, SB, JV; Advaita (CU, TU, VC); modern science/philosophy (Chalmers 1995, Nagel 1974, Strawson 2006, Frankish 2016, Limanowski and Blankenburg 2013, Whitehead 1929, Russell 1921, Mach 1914, Friston 2010, Carroll 2010, Guth 2007, Ashtekar and Singh 2011); external (Metzinger 2003, Penrose 2010, Ishvarakrishna, Nagarjuna, Weinberg 1995) |
+| [What-Is-Existence.pdf](../Studies/What-Is-Existence.pdf) | MVD, SB, JV; Bhattacharya; Advaita (CU, TU, VC); modern science/philosophy (Chalmers 1995, Nagel 1974, Strawson 2006, Frankish 2016, Limanowski and Blankenburg 2013, Whitehead 1929, Russell 1921, Mach 1914, Friston 2010, Carroll 2010, Guth 2007, Ashtekar and Singh 2011); external (Metzinger 2003, Penrose 2010, Ishvarakrishna, Nagarjuna, Weinberg 1995) |
 | [Why-Humans-Are-Not-Just-Material.pdf](../Studies/Why-Humans-Are-Not-Just-Material.pdf) | MVD, SB, JV; Advaita (BU, TU, MU, CU, KU, BG, BSB, VC, DDV); Science (12 works, 3 local / 9 external) |
 <!-- /studies-catalog -->
 
@@ -120,3 +120,4 @@ powershell -NoProfile -ExecutionPolicy Bypass -File Scripts\_download_references
 | **SEP Natural Law Ethics** | [SEP-Natural-Law-Ethics.html](Comparative-Philosophy/SEP-Natural-Law-Ethics.html) | *The Natural Law Tradition in Ethics*, Stanford Encyclopedia of Philosophy (snapshot) |
 | **SEP Theological Voluntarism** | [SEP-Theological-Voluntarism.html](Comparative-Philosophy/SEP-Theological-Voluntarism.html) | *Theological Voluntarism*, Stanford Encyclopedia of Philosophy (snapshot) |
 | **SV** | [SV-Vivekananda-Practical-Vedanta.pdf](Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf) | *Practical Vedanta* lectures (Complete Works material) |
+| **Bhattacharya** | [Bhattacharya-Jeevan-And-Brain-Relationship.pdf](Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf) | *The Relationship of Jeevan and Brain*; secondary exposition of Nagraj's works |
