@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 17, 2026, 9:40 AM IST
+**Edited on:** June 17, 2026, 1:13 PM IST
 
 **The question:** What is Existence? What exists? Does the thing that exists begin at some time?
 
@@ -146,6 +146,8 @@ Nature is organized into four real, objective **Ontological Orders** (*chaar ava
 
 These are **objective categories in nature**, not human typologies: material atoms, living cells, animal organisms, and knowledge-order humans each occupy a real plateau whose *dharma* is fixed by the order itself.
 
+*[Interpretation]* For readers approaching from neuroscience, Bhattacharya offers a compact secondary map of these orders: material and biological entities have no brain; some brain-endowed organisms (for example, insects) are said to function through nervous control **without** *jeevan*; animals with *jeevan* remain body-driven in the unawakened animal order; and in the knowledge order a fully developed brain becomes the instrument through which *jeevan* expresses thought and realization. Sentience is therefore not a property of the brain, but *jeevan*'s activity mediated through it — **Bhattacharya**, *The Relationship of Jeevan and Brain*.
+
 **Why the orders matter for the argument.** These orders are not decoration: they are where "development without creation from nothing" (§1.5) becomes concrete. Each order is a real, stable plateau of organization that the next order presupposes and builds upon, so the upward movement from matter to human is development within coexistence, not the appearance of new substance. The same structure extends to **ecological complementarity** across orders — units in one order depend on and participate in the orderliness of others. The orders also carry the paper's ethical claim: because existence is coexistence, units exist in objective relations of complementarity (*poorakata*) and orderliness (*vyavastha*):
 
 > **"Since existence is coexistence, complementarity and mutual recognition are eternally established."**
@@ -183,7 +185,7 @@ The glossary insists that "Consciousness," as a name for Omnipresence, must not 
 
 *[Open]* Two questions the source leaves open, both logically prior to the *jeevan*–body interaction problem.
 
-**Is *jeevan* simple or composite?** *[Interpretation]* *Jeevan* is called a "constitutionally complete atom" (*gathanpurna parmanu*), which suggests a structured composite (it is complete because the right number of particles integrated). But it is also called indivisible and immortal. A composite is, in principle, decomposable; so its claimed indestructibility needs a ground. The most consistent reading is that *jeevan*'s "indivisibility" is functional (the constitution is self-maintaining and does not spontaneously lose completeness) rather than mereological (having no parts). If so, "immortal" means "does not lose constitutional completeness," which is a weaker and more defensible claim than "has no parts and therefore cannot perish."
+**Is *jeevan* simple or composite?** *[Interpretation]* *Jeevan* is called a "constitutionally complete atom" (*gathanpurna parmanu*), which suggests a structured composite (it is complete because the right number of particles integrated). Bhattacharya, synthesizing SB, lists five inseparable aspects — *mun*, *vritti*, *chitta*, *buddhi*, and *atma* — which supports this reading. But it is also called indivisible and immortal. A composite is, in principle, decomposable; so its claimed indestructibility needs a ground. The most consistent reading is that *jeevan*'s "indivisibility" is functional (the constitution is self-maintaining and does not spontaneously lose completeness) rather than mereological (having no parts). If so, "immortal" means "does not lose constitutional completeness," which is a weaker and more defensible claim than "has no parts and therefore cannot perish."
 
 **What makes this *jeevan* the same *jeevan* over time?** Advaita dissolves individuation (individuality is ignorance); physicalism grounds identity in bodily/psychological continuity. Madhyasth Darshan asserts that *jeevan* persists across bodily death and re-association but offers no explicit criterion of identity. An eternalist individual-self ontology needs one. The candidate implied by the texts is continuity of constitution — the same constitutionally complete configuration persists — but this needs to be stated and defended, because constitution-identity over a gap of embodiment (death to re-association) is exactly where the criterion is hardest.
 
@@ -619,6 +621,10 @@ All sources cited in this document, grouped by tradition. Each entry begins with
 - **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: Realisation Knowledge (p. 11); Omnipresence/Space (pp. 11, 13, 35); "Brahma is truth, the world is perpetual" (p. 13); "Existence is not just physicochemical matter" (*The Alternative*, point 7); "Knowledge itself is the omnipresent Omnipotence" (p. 35).
 - **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: existence as nature saturated in Omnipotence (p. 48); Omnipresence all-pervasive (p. 49); beingness, indestructibility, and eternal coexistence (p. 49); constitutional completeness (p. 59).
 - **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: birth, death, and conservation (p. 20).
+
+### Madhyasth Darshan (secondary exposition)
+
+- **Bhattacharya** — Bhattacharya, S. [*The Relationship of Jeevan and Brain*](../References/Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf). Cited: brain versus *jeevan* and finer order map (§1.4); composite structure of *jeevan* (§1.7).
 
 ### Advaita Vedanta (primary texts)
 
