@@ -4,6 +4,8 @@
 
 **Edited on:** June 16, 2026, 4:51 PM IST
 
+**Status:** Draft
+
 **The question:** What are ethics and morals in human beings? Are they divine commands, social conventions, evolutionary adaptations, rational principles, neural/emotional mechanisms, or evidence of correct understanding? How does **Madhyasth Darshan** answer these questions, and how does its answer compare with **Advaita Vedanta** and **modern scientific approaches**?
 
 This study argues that Madhyasth Darshan gives a distinctive answer: human ethics is not merely obedience to rules, calculation of consequences, inherited custom, or emotional intuition. It is the lived evidence of a human being who understands existence as coexistence, understands the self as `jeevan` in association with the body, and fulfils values in relationships through justice, dharma, truth, character, right-use, and purposeful participation in orderliness.

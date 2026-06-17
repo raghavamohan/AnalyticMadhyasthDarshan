@@ -4,6 +4,8 @@
 
 **Edited on:** June 16, 2026, 4:51 PM IST
 
+**Status:** Draft
+
 **The question:** What is aesthetics? Is beauty a property of objects, a state of the subject, a social convention, a kind of taste, an experience of art, an environmental relation, or a sign of deeper harmony? How do **modern philosophies** approach aesthetics, how does **Madhyasth Darshan** understand it, and does **Advaita Vedanta** have anything direct to say on the subject?
 
 This study argues that Madhyasth Darshan gives a sparse but distinctive aesthetics: aesthetic value is not an autonomous domain of taste detached from life, nor merely a social artworld status. It is meaningful when it enhances usefulness, convenience, relationship, harmony, and the fulfilment of human purpose within coexistence. This makes Madhyasth Darshan closer to everyday, environmental, and functional aesthetics than to art-centred formalism, but it also leaves unresolved questions about autonomous art, tragic art, the sublime, negative aesthetics, and avant-garde disruption.

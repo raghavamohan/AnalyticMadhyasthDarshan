@@ -4,6 +4,8 @@
 
 **Edited on:** June 17, 2026, 3:44 PM IST
 
+**Status:** Draft
+
 **The question:** Is a human being nothing more than a physical–chemical body, or is there something real about us that matter-centric science cannot capture?
 
 This document gives three answers to that question — from **Madhyasth Darshan** (Shri A. Nagraj's Co-existentialism), from **mainstream science**, and from **Advaita Vedanta** — then compares them and critically reviews all three.

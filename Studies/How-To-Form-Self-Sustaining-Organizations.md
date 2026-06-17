@@ -5,6 +5,8 @@
 
 **Edited on:** June 16, 2026, 11:16 AM IST
 
+**Status:** Draft
+
 ## At a glance
 
 - **The question:** must organisations be built on fear or accumulation, or is there a basis on which they sustain *and* their members are not used as instruments?

@@ -4,6 +4,8 @@
 
 **Edited on:** June 17, 2026, 1:13 PM IST
 
+**Status:** Draft
+
 **The question:** What is Existence? What exists? Does the thing that exists begin at some time?
 
 This study examines these questions in **Madhyasth Darshan** (Co-existentialism), as presented by **Shri A. Nagraj**, and compares its answers with **Advaita Vedanta** and selected **modern philosophical and scientific approaches** to physical reality, consciousness, and selfhood.

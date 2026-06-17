@@ -5,6 +5,8 @@
 
 **Edited on:** June 16, 2026, 11:16 AM IST
 
+**Status:** Draft
+
 ---
 
 ## 1. The central question
