@@ -2,6 +2,8 @@
 
 Clear, carefully argued studies of **Madhyasth Darshan** (Co-existentialism) — the philosophy founded by **Shri A. Nagraj** — examined on its own terms and compared with physics, Advaita Vedanta, and modern philosophy.
 
+**Official source materials.** [madhyasth.org](https://www.madhyasth.org/), maintained by **Divya Path Sansthan**, is the official website for primary texts and source materials on Madhyasth Darshan. The studies catalogued here are independent analytic and comparative work; for Shri Nagraj's original books, lectures, and institutional resources, start there.
+
 Browse the published collection at **[analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org)** (or open [index.html](index.html) locally).
 
 ## Point of view
