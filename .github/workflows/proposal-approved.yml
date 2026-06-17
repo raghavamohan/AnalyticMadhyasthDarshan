@@ -21,7 +21,7 @@ jobs:
             const repo = context.repo.owner + '/' + context.repo.repo;
             const issueNumber = issue.number;
             const prUrl =
-              `https://github.com/${repo}/compare/main...main?` +
+              `https://github.com/${repo}/compare/master...master?` +
               `quick_pull=1&labels=new-study&` +
               `title=Add+study&` +
               `body=${encodeURIComponent(
@@ -44,8 +44,8 @@ jobs:
               'Thank you — this study proposal is approved. You may now submit the full study:',
               '',
               '1. **Fork** the repository and create a branch.',
-              '2. Add `Studies/<Slug>.md` following the format in [Studies/README.md](https://github.com/' + repo + '/blob/main/Studies/README.md).',
-              '3. Open a pull request with the [**new-study** template](https://github.com/' + repo + '/compare/main...main?expand=1&template=new-study.md).',
+              '2. Add `Studies/<Slug>.md` following the format in [Studies/README.md](https://github.com/' + repo + '/blob/master/Studies/README.md).',
+              '3. Open a pull request with the [**new-study** template](https://github.com/' + repo + '/compare/master...master?expand=1&template=new-study.md).',
               '4. Set `Proposal issue: #' + issueNumber + '` in the PR body.',
               '5. Apply the **`new-study`** label to the PR.',
               '',
@@ -55,7 +55,7 @@ jobs:
               '',
               'To **update** an existing study later, use the `study-update` template and label. To **release** or **revert to draft**, use `status-change`.',
               '',
-              'Full guide: [CONTRIBUTING.md](https://github.com/' + repo + '/blob/main/CONTRIBUTING.md).'
+              'Full guide: [CONTRIBUTING.md](https://github.com/' + repo + '/blob/master/CONTRIBUTING.md).'
             ].join('\n');
 
             await github.rest.issues.createComment({

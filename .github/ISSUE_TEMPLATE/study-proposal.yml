@@ -9,7 +9,7 @@ body:
       value: |
         Propose a new analytic study before writing the full paper.
         Maintainers will review and label approved proposals `proposal-approved`.
-        See [CONTRIBUTING.md](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/main/CONTRIBUTING.md).
+        See [CONTRIBUTING.md](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/CONTRIBUTING.md).
 
   - type: input
     id: proposed_title
