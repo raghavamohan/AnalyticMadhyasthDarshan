@@ -286,8 +286,8 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Run study PR CI pipeline.")
     parser.add_argument(
         "--base-ref",
-        default="origin/main",
-        help="Git ref to diff against (default: origin/main)",
+        default="origin/master",
+        help="Git ref to diff against (default: origin/master)",
     )
     args = parser.parse_args()
 
