@@ -42,14 +42,7 @@ Every study ends with a list of its sources, linking to the original texts where
 
 ## Contributing a study
 
-To register a new study, run `Scripts/_add_study.py` (or `Scripts/_add_study.ps1` on Windows) — see the root [README.md](../README.md#adding-a-study).
-
-- **Preferred:** pass a `.md` file — the script sets `**Edited on:**`, updates catalogs with matching `Last updated on` timestamps, and regenerates the PDF (Draft watermark when status is draft).
-- **PDF import:** pass an external `.pdf` to create a stub `.md` and catalog entry; re-run on the `.md` after expanding content to apply the Draft watermark.
-- **Ongoing placeholder:** `--status ongoing` adds an italic catalog row with no PDF.
-- **Formal study:** `--formal` registers in the Formal Studies table.
-
-To remove one, use `Scripts/_remove_study.py` — see [Removing a study](../README.md#removing-a-study).
+Contributor setup and scripts are documented in the root [README.md](../README.md#for-contributors).
 
 ## Topical Studies
 

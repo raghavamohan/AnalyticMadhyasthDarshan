@@ -6,6 +6,7 @@ from urllib.parse import unquote, urlparse
 import markdown
 
 from _common import STUDIES
+from _study_catalog import strip_status_for_pdf
 
 parser = argparse.ArgumentParser(description="Convert a study markdown file to styled HTML.")
 parser.add_argument("input", nargs="?", default=None, help="Path to the study .md file")
@@ -41,6 +42,7 @@ def absolutize_local_links(html_body: str, html_path: Path) -> str:
 
 
 md_text = INPUT.read_text(encoding="utf-8")
+md_text = strip_status_for_pdf(md_text)
 
 # Use the document's first H1 as the HTML title, falling back to the filename.
 h1 = next((line[2:].strip() for line in md_text.splitlines() if line.startswith("# ")), None)

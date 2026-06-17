@@ -31,6 +31,8 @@ Remove-Item Studies/<Name>.html
 ## What the scripts provide (do not reimplement)
 
 - Study typography, tables, blockquotes, and print CSS — `_convert_to_pdf.py`
+- **`**Status:**` omitted from the PDF body** — draft/released is shown via watermark
+  (Draft) or its absence (Released); the flag remains in the `.md` source only
 - Footer on every page: `AnalyticMadhyasthDarshan.org` and `Page X of Y` —
   `_html_to_pdf.js`
 - Optional page watermark — `--watermark` on `_convert_to_pdf.py`

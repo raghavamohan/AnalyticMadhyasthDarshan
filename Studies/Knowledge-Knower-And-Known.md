@@ -4,6 +4,8 @@
 
 **Edited on:** June 16, 2026, 4:51 PM IST
 
+**Status:** Draft
+
 **The question:** What is knowledge, who is the knower, and what is it that one can know? How do we ground these concepts in experience, and how does the Co-existentialism of Shri A. Nagraj compare with the non-dualism of Advaita Vedanta and the physicalism of modern science and philosophy?
 
 This study explores these questions from three paradigms: **Madhyasth Darshan** (Co-existentialism), **Advaita Vedanta**, and **Modern Science / Philosophy** — then compares and critically reviews all three.

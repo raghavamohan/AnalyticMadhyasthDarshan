@@ -25,10 +25,12 @@ from _study_catalog import (
     StudyTable,
     append_manifest_row,
     format_edited_on_md,
+    format_status_md,
     now_ist,
     parse_html_rows,
     regenerate_pdf,
     set_edited_on,
+    set_status_md,
     slug_to_title,
     title_to_slug,
     upsert_study_row,
@@ -58,13 +60,15 @@ def prompt_if_missing(value: str | None, label: str, default: str | None = None)
         print("  (required)")
 
 
-def build_stub_markdown(title: str, description: str, edited_at) -> str:
+def build_stub_markdown(title: str, description: str, edited_at, status: StudyStatus) -> str:
+    status_line = format_status_md(status) if status != StudyStatus.ONGOING else ""
+    status_block = f"\n{status_line}\n" if status_line else "\n"
     return f"""# {title}
 
 {AUTHOR_BLOCK}
 
 {format_edited_on_md(edited_at)}
-
+{status_block}
 {description}
 
 > Expand this markdown source (sections, citations, references) and regenerate the PDF with `Scripts/_convert_to_pdf.py` when ready.
@@ -220,13 +224,16 @@ def add_study(
         print(f"Copied PDF to {dest_pdf}")
         if not dest_md.exists() or force:
             dest_md.write_text(
-                build_stub_markdown(study_title, study_description, edited_at),
+                build_stub_markdown(study_title, study_description, edited_at, status),
                 encoding="utf-8",
             )
             print(f"Wrote stub markdown to {dest_md}")
         else:
             md_text = dest_md.read_text(encoding="utf-8")
-            dest_md.write_text(set_edited_on(md_text, edited_at), encoding="utf-8")
+            md_text = set_edited_on(md_text, edited_at)
+            if status != StudyStatus.ONGOING:
+                md_text = set_status_md(md_text, status)
+            dest_md.write_text(md_text, encoding="utf-8")
             print(f"Updated **Edited on:** in {dest_md}")
         print(
             "\nNote: imported PDFs keep their original content. "
@@ -241,6 +248,8 @@ def add_study(
         md_text = dest_md.read_text(encoding="utf-8")
         md_text = ensure_author_block(md_text)
         md_text = set_edited_on(md_text, edited_at)
+        if status != StudyStatus.ONGOING:
+            md_text = set_status_md(md_text, status)
         dest_md.write_text(md_text, encoding="utf-8")
         print(f"Updated {dest_md}")
 

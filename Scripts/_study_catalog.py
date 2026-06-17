@@ -52,6 +52,10 @@ EDITED_ON_RE = re.compile(
     r"^\*\*Edited on:\*\*\s+(.+?)\s+IST\s*$",
     re.MULTILINE,
 )
+STATUS_MD_RE = re.compile(
+    r"^\*\*Status:\*\*\s+(Draft|Released)\s*$",
+    re.MULTILINE,
+)
 CATALOG_TIMESTAMP_RE = re.compile(
     r"Last updated on:\s+(\w+)\s+(\d+),\s+(\d{4}),\s+(\d+:\d+\s+[AP]M)\s+IST"
 )
@@ -178,6 +182,49 @@ def set_edited_on(md_text: str, dt: datetime) -> str:
         raise ValueError("Could not find **Author:** line in markdown.")
     insert_at = author_match.end()
     return md_text[:insert_at] + "\n" + line + "\n" + md_text[insert_at:]
+
+
+def format_status_md(status: StudyStatus) -> str:
+    if status == StudyStatus.ONGOING:
+        raise ValueError("Ongoing studies do not carry a **Status:** field.")
+    label = "Draft" if status == StudyStatus.DRAFT else "Released"
+    return f"**Status:** {label}"
+
+
+def parse_status_md(md_text: str) -> StudyStatus | None:
+    match = STATUS_MD_RE.search(md_text)
+    if not match:
+        return None
+    return StudyStatus.DRAFT if match.group(1) == "Draft" else StudyStatus.RELEASED
+
+
+def strip_status_for_pdf(md_text: str) -> str:
+    """Remove **Status:** from markdown before PDF rendering (watermark/catalog carry status)."""
+    return re.sub(
+        r"^\*\*Status:\*\*\s+(?:Draft|Released)\s*\n+",
+        "",
+        md_text,
+        count=1,
+        flags=re.MULTILINE,
+    )
+
+
+def set_status_md(md_text: str, status: StudyStatus) -> str:
+    line = format_status_md(status)
+    if STATUS_MD_RE.search(md_text):
+        return STATUS_MD_RE.sub(line, md_text, count=1)
+    edited_match = EDITED_ON_RE.search(md_text)
+    if edited_match:
+        insert_at = edited_match.end()
+        suffix = md_text[insert_at:]
+        if suffix.startswith("\n"):
+            suffix = suffix[1:]
+        return md_text[:insert_at] + "\n\n" + line + "\n\n" + suffix
+    author_match = re.search(r"^(\*\*Author:\*\*[^\n]*\n)", md_text, re.MULTILINE)
+    if not author_match:
+        raise ValueError("Could not find **Author:** or **Edited on:** in markdown.")
+    insert_at = author_match.end()
+    return md_text[:insert_at] + "\n\n" + line + "\n\n" + md_text[insert_at:]
 
 
 def escape_md_cell(text: str) -> str:
@@ -335,6 +382,19 @@ def find_study_table(slug: str) -> StudyTable | None:
     return None
 
 
+def load_catalog_rows(table: StudyTable) -> list[StudyRow]:
+    index_path = STUDIES / "index.html"
+    return parse_html_rows(index_path.read_text(encoding="utf-8"), table)
+
+
+def get_study_row(slug: str) -> tuple[StudyRow, StudyTable] | None:
+    for table in (StudyTable.TOPICAL, StudyTable.FORMAL):
+        for row in load_catalog_rows(table):
+            if row.slug == slug:
+                return row, table
+    return None
+
+
 def write_studies_catalog(rows: list[StudyRow], table: StudyTable) -> None:
     start, end = catalog_markers(table)
     index_path = STUDIES / "index.html"
@@ -440,6 +500,7 @@ def verify_timestamp_sync(slug: str) -> list[str]:
 
     md_text = md_path.read_text(encoding="utf-8")
     md_ts = parse_edited_on(md_text)
+    md_status = parse_status_md(md_text)
     if md_ts is None:
         errors.append(f"{slug}: missing **Edited on:** in {md_path.name}.")
 
@@ -472,6 +533,11 @@ def verify_timestamp_sync(slug: str) -> list[str]:
             if md_ts is not None and html_row.edited_at != md_ts:
                 errors.append(
                     f"{slug}: catalog timestamp does not match **Edited on:** in markdown."
+                )
+            if md_status is not None and md_status != html_row.status:
+                errors.append(
+                    f"{slug}: **Status:** in markdown ({md_status.value}) does not match "
+                    f"catalog ({html_row.status.value})."
                 )
 
     return errors
