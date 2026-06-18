@@ -1,0 +1,62 @@
+---
+description: Standpoint and scope section for topical Studies
+globs: Studies/*.md
+alwaysApply: false
+---
+
+# Standpoint and scope (topical studies)
+
+Every **topical** study under `Studies/` (not `README.md`, not Formal Studies)
+includes a `## Standpoint and scope` section immediately after the opening
+intro paragraph and **before** the glossary or first major section.
+
+Canonical text: [What-Is-Existence.md](../Studies/What-Is-Existence.md) §
+Standpoint and scope. [Why-Humans-Are-Not-Just-Material.md](../Studies/Why-Humans-Are-Not-Just-Material.md)
+uses the same core paragraphs.
+
+## What it must establish
+
+1. **Who writes** — scientist and technologist trained in graduate-level physics
+   and mathematics; at home with cosmology, quantum theory, conservation laws,
+   and formal models.
+2. **Honest starting point** — the familiar matter-first picture (consciousness as
+   brain activity) is acknowledged, not dismissed; the hard problem, self, and
+   value are **not** treated as settled for materialism.
+3. **Method** — read Shri A. Nagraj's primary texts; state what follows from the
+   darshan; compare **in parallel** with physics and natural sciences, Advaita
+   Vedanta, and modern Western philosophy (tailor the parenthetical, e.g.
+   philosophy of mind, moral science, to the topic).
+4. **Balance** — physics and mathematics are **one leg** of comparison, not the
+   only one.
+5. **Aim** — rigorous comparative understanding (definitions, internal
+   consistency, fit with public knowledge); **not** persuasion or devotional
+   endorsement.
+6. **Series placement** — topical studies use clear, checkable prose first; a
+   formal mathematical treatment may follow once definitions are stable; this
+   study does not assume or require it.
+
+## Structure
+
+- **Four short paragraphs** (essay prose — see `study-prose-style.mdc`).
+- The **intro paragraph above** (after `**The question:**`) names the study's
+  specific comparison partners; Standpoint and scope states the **shared**
+  epistemic frame.
+- Do **not** repeat the study's main question here; do **not** preview the
+  section outline.
+
+## When editing
+
+- **New topical study:** add Standpoint and scope; adapt only the philosophy
+  sub-field parenthetical and comparison list in paragraph 3 if the topic demands
+  it (keep the four-legged frame unless the study explicitly narrows scope).
+- **Existing study:** if the section is missing, add the canonical paragraphs;
+  if present, preserve meaning when revising — do not drop the non-reductionist
+  stance or the "not persuasion" line.
+- Changing shared series wording (paragraph 6) should be coordinated across all
+  topical studies that carry it.
+
+## Check before finishing
+
+- [ ] `## Standpoint and scope` exists in the right place
+- [ ] All six points above are covered
+- [ ] No devotional or missionary tone; no treating materialism as proven

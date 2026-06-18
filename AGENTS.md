@@ -4,8 +4,8 @@ This file carries the standing instructions for AI agents working in this repo.
 It replaces the earlier `.cursor/rules/*.mdc` files; those still exist for
 Cursor, but this is the source of truth for ZCode/opencode.
 
-There are four rule sections below. The first and fourth apply to **every** study
-edit; the other two apply when their stated condition is met.
+There are five rule sections below. The first, fourth, and fifth apply to **every**
+topical study edit; the other two apply when their stated condition is met.
 
 ---
 
@@ -237,3 +237,40 @@ numbered lists (typically §6).
 - [ ] No `**Not …**` rejection headers in exposition
 - [ ] No navigation-only meta-sentences
 - [ ] Comparison recaps not duplicated outside the comparison section
+
+---
+
+## 5. Standpoint and scope — topical studies *(always applies)*
+
+Every **topical** study (`Studies/<Name>.md`, not `README.md`, not Formal
+Studies) includes `## Standpoint and scope` after the opening intro and before
+the glossary or first major section.
+
+Canonical text: [What-Is-Existence.md](Studies/What-Is-Existence.md). Cursor
+mirror: `.cursor/rules/study-standpoint-scope.mdc`.
+
+### Must establish
+
+1. Author standpoint: scientist/technologist with graduate physics and mathematics.
+2. Honest starting point: matter-first science acknowledged; hard problem, self,
+   and value not treated as settled for materialism.
+3. Method: read primary MD texts; state the darshan; compare in parallel with
+   **physics and natural sciences**, **Advaita Vedanta**, and **modern Western
+   philosophy** (tailor parenthetical to topic).
+4. Physics/math are **one leg** of comparison, not the only one.
+5. Aim: rigorous comparative understanding — not persuasion or devotional
+   endorsement.
+6. Series note: clear checkable prose first; formal math may follow later; this
+   study does not require it.
+
+### Form
+
+Four short essay paragraphs (see §4). The intro above names this study's
+particular questions and partners; Standpoint and scope states the **shared**
+epistemic frame. Do not repeat the main question or preview the outline.
+
+### Check before finishing
+
+- [ ] Section present in the correct place
+- [ ] All six points covered
+- [ ] No missionary tone; materialism not treated as proven
