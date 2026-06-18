@@ -59,8 +59,8 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-15.
 | **JVD** | [Madhyasth-Darshan/JVD-Janvad.pdf](Madhyasth-Darshan/JVD-Janvad.pdf) | not yet cited in Studies |
 | **MD** | [Madhyasth-Darshan/MD-Mapping.xlsx](Madhyasth-Darshan/MD-Mapping.xlsx) | supporting spreadsheet (not cited inline) |
 | **BU** | [Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf](Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf) | Why-Humans, Aesthetics |
-| **TU** | [Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf](Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf) | Why-Humans, What-Is-Existence, Aesthetics |
-| **KU** | same as TU | Why-Humans |
+| **TU** | [Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf](Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf) | Why-Humans, What-Is-Existence, Aesthetics (Gambhirananda 2-vol. set; TU at p. 237) |
+| **KU** | same as TU | Why-Humans (Katha at p. 97) |
 | **MU** | [Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf](Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf) | Why-Humans |
 | **CU** | [Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf](Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf) | Why-Humans, Knowledge-Knower, What-Is-Existence |
 | **BG** | [Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf](Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf) | Why-Humans, Ethics-And-Morals, Aesthetics, Knowledge-Knower |

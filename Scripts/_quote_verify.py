@@ -10,6 +10,7 @@ from _common import (
     REFERENCES,
     STUDIES,
     TAG_ABBREVS,
+    cache_key_for,
     find_phrase,
     load_reference_pages,
     parse_reference_registry,
@@ -75,10 +76,6 @@ def extract_quotes_from_markdown(path: Path) -> list[ExtractedQuote]:
             )
         index += 1
     return quotes
-
-
-def cache_key_for(path: Path) -> str:
-    return path.stem.replace(" ", "_")
 
 
 def load_corpora(

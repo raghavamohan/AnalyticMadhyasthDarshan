@@ -20,8 +20,9 @@ cd ..
 | Draft ↔ Released | `python Scripts/_set_study_status.py <Slug> --status released` |
 | Regenerate PDF | `python Scripts/_regenerate_pdf.py <Slug>` |
 | Verify blockquotes | `python Scripts/_quote_tool.py verify [--study <Slug>]` |
-| Search a reference PDF | `python Scripts/_quote_tool.py search <pdf> "<regex>"` |
-| Read one PDF page (cleaned) | `python Scripts/_quote_tool.py page <pdf> <n> [--keyword kw]` |
+| Sync PDF text cache | `python Scripts/_quote_tool.py cache sync [--study <Slug>] [--tags MVD,SB] [--force]` |
+| Search a reference PDF | `python Scripts/_quote_tool.py search <tag-or-path> "<regex>"` |
+| Read one PDF page (cleaned) | `python Scripts/_quote_tool.py page <tag-or-path> <n> [--keyword kw]` |
 | Locate phrase in tagged source | `python Scripts/_quote_tool.py snippet <tag> "<phrase>"` |
 | Download reference PDFs | `.\Scripts\_download_references.ps1` |
 
@@ -38,7 +39,7 @@ Windows wrappers: `.\Scripts\_add_study.ps1`, `.\Scripts\_remove_study.ps1`, `.\
 | `_html_to_pdf.js` | HTML → PDF via Puppeteer (called by `regenerate_pdf`) |
 | `_ci_study_pr.py` | GitHub Actions study PR pipeline |
 
-PDF reference text is cached under `Scripts/_pdf_cache/` (gitignored, format `v2`).
+PDF reference text is cached under `Scripts/_pdf_cache/` (gitignored, format `v2`). The cache rebuilds automatically when a PDF is newer than its cache file; empty extractions (e.g. scanned PDFs) are not cached. Run `cache sync` after downloading references or adding new PDFs under `References/`.
 
 ## CI
 

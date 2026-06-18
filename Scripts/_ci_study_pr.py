@@ -22,6 +22,7 @@ STUDIES = BASE / "Studies"
 
 sys.path.insert(0, str(SCRIPTS))
 
+from _pdf_cache_sync import pdfs_for_study, sync_pdf_cache  # noqa: E402
 from _study_catalog import (  # noqa: E402
     StudyStatus,
     get_study_row,
@@ -172,6 +173,15 @@ def sync_catalog_timestamp_from_md(slug: str) -> None:
     write_studies_catalog(rows, table)
 
 
+def sync_study_reference_cache(slug: str) -> None:
+    paths = pdfs_for_study(slug)
+    if not paths:
+        print(f"No local PDF references to cache for {slug}.")
+        return
+    print(f"Syncing PDF cache for {slug} ({len(paths)} file(s))...")
+    sync_pdf_cache(paths, prune=False)
+
+
 def handle_new_study(body: str, base_ref: str) -> None:
     issue_text = parse_body_field(
         body,
@@ -221,6 +231,7 @@ def handle_new_study(body: str, base_ref: str) -> None:
 
     print("Running:", " ".join(command))
     subprocess.run(command, check=True, cwd=BASE)
+    sync_study_reference_cache(slug)
 
 
 def handle_study_update(body: str, base_ref: str) -> None:
@@ -251,6 +262,7 @@ def handle_study_update(body: str, base_ref: str) -> None:
 
     md_path = STUDIES / f"{slug}.md"
     print(f"Regenerating PDF for {slug} ({row.status.value})")
+    sync_study_reference_cache(slug)
     regenerate_pdf(md_path, row.status)
 
     errors = verify_timestamp_sync(slug)

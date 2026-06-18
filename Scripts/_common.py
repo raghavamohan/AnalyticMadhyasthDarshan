@@ -23,6 +23,7 @@ TAG_ABBREVS = frozenset(
 )
 PDF_CACHE_VERSION = "v2"
 PAGE_HEADER_RE = re.compile(rf"---PAGE (\d+) {PDF_CACHE_VERSION}---\n")
+MIN_CACHE_CHARS = 100
 
 AUTHOR_YEAR_PREFIXES = (
     "Chalmers",
@@ -177,26 +178,73 @@ def _page_header(page_num: int) -> str:
     return f"---PAGE {page_num} {PDF_CACHE_VERSION}---\n"
 
 
-def load_reference_pages(path: Path, cache_key: str) -> list[tuple[int, str]]:
+def cache_key_for(path: Path) -> str:
+    return path.stem.replace(" ", "_")
+
+
+def cache_path_for(path: Path) -> Path:
+    return CACHE / f"{cache_key_for(path)}.txt"
+
+
+def pages_have_content(pages: list[tuple[int, str]], min_chars: int = MIN_CACHE_CHARS) -> bool:
+    return sum(len(text) for _, text in pages) >= min_chars
+
+
+def _write_pdf_cache(cache_file: Path, pages: list[tuple[int, str]]) -> None:
+    parts = [f"{_page_header(page_num)}{text}" for page_num, text in pages]
+    cache_file.write_text("\f".join(parts), encoding="utf-8")
+
+
+def _read_pdf_cache(cache_file: Path, source: Path) -> list[tuple[int, str]] | None:
+    if not cache_file.exists():
+        return None
+    try:
+        if cache_file.stat().st_mtime < source.stat().st_mtime:
+            return None
+    except OSError:
+        return None
+    pages = _parse_pdf_cache(cache_file.read_text(encoding="utf-8", errors="replace"))
+    if pages_have_content(pages):
+        return pages
+    return None
+
+
+def _extract_pdf_pages(path: Path) -> list[tuple[int, str]]:
+    try:
+        reader = PdfReader(str(path))
+    except Exception as exc:
+        raise ValueError(f"Could not read PDF: {exc}") from exc
+    pages: list[tuple[int, str]] = []
+    for index, page in enumerate(reader.pages, start=1):
+        text = extract_pdf_page_text(page.extract_text() or "")
+        pages.append((index, text))
+    return pages
+
+
+def load_reference_pages(
+    path: Path,
+    cache_key: str | None = None,
+    *,
+    force: bool = False,
+) -> list[tuple[int, str]]:
     """Load a reference file as (page_number, text) pairs. PDFs are cached under Scripts/_pdf_cache/."""
+    path = path.resolve()
+    cache_key = cache_key or cache_key_for(path)
     cache_file = CACHE / f"{cache_key}.txt"
     CACHE.mkdir(exist_ok=True)
 
-    if cache_file.exists() and path.suffix.lower() == ".pdf":
-        pages = _parse_pdf_cache(cache_file.read_text(encoding="utf-8", errors="replace"))
-        if pages:
-            return pages
-
     suffix = path.suffix.lower()
     if suffix == ".pdf":
-        reader = PdfReader(str(path))
-        pages = []
-        parts = []
-        for index, page in enumerate(reader.pages, start=1):
-            text = extract_pdf_page_text(page.extract_text() or "")
-            pages.append((index, text))
-            parts.append(f"{_page_header(index)}{text}")
-        cache_file.write_text("\f".join(parts), encoding="utf-8")
+        if not force:
+            cached = _read_pdf_cache(cache_file, path)
+            if cached is not None:
+                return cached
+
+        pages = _extract_pdf_pages(path)
+        if pages_have_content(pages):
+            _write_pdf_cache(cache_file, pages)
+        else:
+            cache_file.unlink(missing_ok=True)
         return pages
 
     if suffix == ".html":
@@ -209,27 +257,33 @@ def load_reference_pages(path: Path, cache_key: str) -> list[tuple[int, str]]:
     raise ValueError(f"Unsupported reference format: {path}")
 
 
-def load_pages(key: str) -> list[tuple[int, str]]:
-    """Load cached PDF pages by citation tag (MVD) or legacy cache stem."""
-    registry = parse_reference_registry()
-    if key in registry:
-        path = registry[key]
-        stem_key = path.stem.replace(" ", "_")
-        return load_reference_pages(path, stem_key)
+def iter_reference_pdfs(root: Path | None = None) -> list[Path]:
+    """All PDF files under References/ (sorted, resolved)."""
+    root = root or REFERENCES
+    return sorted(path.resolve() for path in root.rglob("*.pdf"))
 
-    cache_file = CACHE / f"{key}.txt"
-    if not cache_file.exists():
-        raise FileNotFoundError(
-            f"Cache missing for {key!r}. Run Scripts/_quote_tool.py verify to build "
-            f"Scripts/_pdf_cache/, or use a known citation tag (MVD, SB, JV)."
-        )
-    pages = _parse_pdf_cache(cache_file.read_text(encoding="utf-8", errors="replace"))
-    if not pages:
-        raise FileNotFoundError(
-            f"Cache for {key!r} is missing or uses an old format. "
-            f"Run Scripts/_quote_tool.py verify to rebuild Scripts/_pdf_cache/."
-        )
-    return pages
+
+def resolve_reference_path(pdf_arg: str) -> Path:
+    """Resolve a filesystem path or citation tag to a file under References/."""
+    candidate = Path(pdf_arg)
+    if candidate.exists():
+        return candidate.resolve()
+
+    registry = parse_reference_registry()
+    if pdf_arg in registry:
+        path = registry[pdf_arg]
+        if path.exists():
+            return path.resolve()
+        raise FileNotFoundError(f"Reference file missing for tag {pdf_arg!r}: {path}")
+
+    from_base = (BASE / pdf_arg).resolve()
+    if from_base.exists():
+        return from_base
+
+    raise FileNotFoundError(
+        f"Could not resolve {pdf_arg!r} as a path or citation tag. "
+        f"Use a file path or a tag from References/README.md (e.g. MVD, SB)."
+    )
 
 
 def parse_reference_registry(readme_path: Path | None = None) -> dict[str, Path]:
