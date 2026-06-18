@@ -220,40 +220,57 @@ foreach ($s in $studies) {
 Applies to every topical study under `Studies/` except `Studies/README.md`.
 References: [What-Is-Existence.md](Studies/What-Is-Existence.md) (ontology
 exposition, open problems); [Why-Humans-Are-Not-Just-Material.md](Studies/Why-Humans-Are-Not-Just-Material.md)
-(comparative anthropology, critique closings). Cursor mirror:
+(comparative anthropology, critique closings);
+[Knowledge-Knower-And-Known.md](Studies/Knowledge-Knower-And-Known.md) (epistemology,
+tradition comparison); [Human-Behavior-And-Society.md](Studies/Human-Behavior-And-Society.md)
+(social philosophy, critique closings). Cursor mirror:
 `.cursor/rules/study-prose-style.mdc`.
 
 ### Voice
 
 Write exposition (typically §1–§4) as **continuous scholarly essay**. Tradition
 sections open with multi-sentence prose that states the position (*Madhyasth
-Darshan holds…*, *Mainstream science answers…*). Use `### N.M Descriptive
-title` subsections for argument steps — not `**Step N —**` roadmaps. Comparison
-may use tables in a dedicated section (typically §5). Critical review may use
-numbered lists (typically §5–§6); end each tradition's review with a plain
-closing sentence naming the tradition, not `**Verdict:**`. Cross-reference with
-`§2.3`, not `Section 2`.
+Darshan holds…*, *Advaita Vedanta holds…*, *Mainstream science answers…*) —
+not `**The claim in one sentence:**`. Use `### N.M Descriptive title`
+subsections for argument steps — not `**Step N —**`, `**N. Bold title.**`, or
+`#### Argument N:` roadmaps. Comparison may use tables in a dedicated section
+(typically §4–§5); do not label the table `### Comparative Matrix`. Critical
+review (typically §5–§6) uses `### N.1 Tradition — descriptive subtitle` with
+`**Strengths.**` and `**Weaknesses.**` bullet lists; end each tradition's
+review with a plain closing sentence naming the tradition, not `**Verdict:**`
+or `### Critical assessment`. Cross-reference with `§2.3`, not `Section 2`. Do
+not use `---` horizontal rules between sections within the study body.
 
 ### Avoid
 
 - Reader guides: `## How to read this study` and tag-legend blocks
 - Bracket meta-tags: `[Open]`, `[Interpretation]`, `[Text]`
-- Outline scaffolding: `**The claim in one sentence:**`, `**Step N —**` roadmaps,
-  repeated end-of-section Q&A recap tables
-- Conclusion labels: `**Verdict:**` — state the conclusion as a plain sentence
-- Epistemic qualifiers: `honestly`, `honest caveat`, `The honest bottom line`
-  — state the point directly (*What science leaves open*)
+- Outline scaffolding: `**The claim in one sentence:**`, `**Step N —**` or
+  `**N. Bold title.**` numbered roadmaps, `#### Argument N:` labels, logical-
+  structure / step-recap tables in exposition, `In short:` recap labels
+- Conclusion labels: `**Verdict:**`, `## Critical conclusion`, `###
+  Critical assessment` — state the conclusion as plain prose
+- Epistemic qualifiers and hedges: `honestly`, `honest caveat`, `The honest
+  bottom line`, `On a charitable reading`, `A charitable reading` — state the
+  point directly (*What science leaves open*; *Gyan here names…*)
+- Distancing fillers: `According to this darshan` (when stating the darshan's
+  own position), `Therefore, the most balanced reading is:` before a closing
+  blockquote — name the tradition or state the conclusion directly
 - Elimination filters: bold `**Not constitution.**` / `**Proposed reading:**`
   headers — weave rejections into prose
 - Document signposting: `primary reference`, `prepares its rows`, `not
-  decoration`, `keep in view`, `one-sentence preview`
+  decoration`, `keep in view`, `one-sentence preview`, subtitle lines under
+  the `#` title (e.g. `## A critical writeup based on…`)
 - References boilerplate: section preamble explaining how citations work;
-  per-entry `Linked externally; not stored locally` (the link shows this)
+  numbered `## N. References` — use `## References`; per-entry `Linked
+  externally; not stored locally` (the link shows this)
 - Formulaic bridges: `Having examined…`, `To map these divergent models…`
 
 ### Use instead
 
-- Plain commitments: *This paper adopts…*, *On our reading…*
+- Plain commitments: *Madhyasth Darshan holds…*, *This paper adopts…*,
+  *Advaita Vedanta holds…* — for a contested interpretive fork only, *One
+  reading is…* / *The texts take…* (not `On a charitable reading`)
 - Unsettled points in prose where they arise, collected in an **Open problems**
   section without bracket labels
 - Caveats stated directly, without labeling them `honest` or `frank`
@@ -262,20 +279,26 @@ closing sentence naming the tradition, not `**Verdict:**`. Cross-reference with
 - One running English term per source concept in analytical prose (glossary +
   Editorial Notes); block quotes keep translation wording
 - **References:** `## References` then tradition subsections — no preamble;
-  `**TAG** —` author, linked title, `Cited:`; local `../References/...` or
-  external URL in the link; no `Linked externally; not stored locally`
+  optional `### Related studies in this collection`; `**TAG** —` author, linked
+  title, `Cited:`; local `../References/...` or external URL in the link; no
+  `Linked externally; not stored locally`
 
 ### Check before finishing
 
 - [ ] No `## How to read this study` or tag legend
 - [ ] No `[Open]` / `[Interpretation]` / `[Text]` in the study `.md`
-- [ ] No `**The claim in one sentence:**`, `**Step N —**`, or `**Verdict:**`
-- [ ] No `honestly` / `honest caveat` / `The honest bottom line` qualifiers
+- [ ] No `**The claim in one sentence:**`, `**Step N —**`, `**N. Bold title.**`,
+  `#### Argument N:`, or `**Verdict:**`
+- [ ] No `honestly` / `honest caveat` / `The honest bottom line` / `On a
+  charitable reading` / `A charitable reading` qualifiers
 - [ ] No `**Not …**` rejection headers in exposition
-- [ ] No navigation-only meta-sentences
+- [ ] No `### Critical assessment`, `## Critical conclusion`, or `---` section
+  dividers in the body
+- [ ] No navigation-only meta-sentences or `### Comparative Matrix` labels
 - [ ] Comparison recaps not duplicated outside the comparison section
 - [ ] Cross-refs use `§`, not `Section`
-- [ ] References: no section preamble; no external-storage notes on entries
+- [ ] References: `## References` (unnumbered), no section preamble, no
+  external-storage notes on entries
 
 ---
 

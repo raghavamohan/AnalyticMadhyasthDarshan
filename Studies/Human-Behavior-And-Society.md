@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 18, 2026, 9:20 PM IST
+**Edited on:** June 18, 2026, 9:40 PM IST
 
 **Status:** Draft
 
@@ -302,7 +302,7 @@ A modern scientific or technocratic view may say:
 
 > Humans and organisations are systems that optimise. We only need to find the right parameters - survival, health, pleasure, happiness, productivity, cooperation, social stability - and then organise behaviour to maximise them.
 
-Madhyasth Darshan would treat this as **insufficient**, not because parameters are useless, but because **the choice of parameter already depends on a view of the human being**. If the human is treated as only body, animal, consumer, or machine, the parameters will be chosen from that level: survival, comfort, pleasure, security, efficiency, profit, or measurable happiness. On this reading, those parameters do not reach the full human purpose.
+Madhyasth Darshan would treat this as **insufficient**, not because parameters are useless, but because **the choice of parameter already depends on a view of the human being**. If the human is treated as only body, animal, consumer, or machine, the parameters will be chosen from that level: survival, comfort, pleasure, security, efficiency, profit, or measurable happiness. Those parameters do not reach the full human purpose.
 
 MVD gives a direct framework for this critique through the six perspectives of behaviour:
 
@@ -379,7 +379,7 @@ It then says:
 > **"War and business, in particular, have now been reduced to ideals for all nations. However, tendencies such as war, exploitation, profit-obsession, indulgence-obsession, and sex-obsession... have not contributed to preserving the social structure or its grandeur."**  
 > - SB
 
-On this reading, an optimisation approach without a correct human criterion tends to optimise the measurable and controllable: wealth, power, production, consumption, military capacity, efficiency. These may increase system capability while degrading humaneness.
+An optimisation approach without a correct human criterion tends to optimise the measurable and controllable: wealth, power, production, consumption, military capacity, efficiency. These may increase system capability while degrading humaneness.
 
 ### 2.1.5 Human fulfilment is not a scalar variable
 

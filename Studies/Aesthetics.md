@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) - a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 16, 2026, 4:51 PM IST
+**Edited on:** June 18, 2026, 9:40 PM IST
 
 **Status:** Draft
 
@@ -10,7 +10,6 @@
 
 This study argues that Madhyasth Darshan gives a sparse but distinctive aesthetics: aesthetic value is not an autonomous domain of taste detached from life, nor merely a social artworld status. It is meaningful when it enhances usefulness, convenience, relationship, harmony, and the fulfilment of human purpose within coexistence. This makes Madhyasth Darshan closer to everyday, environmental, and functional aesthetics than to art-centred formalism, but it also leaves unresolved questions about autonomous art, tragic art, the sublime, negative aesthetics, and avant-garde disruption.
 
----
 
 ## Quick Glossary
 
@@ -31,7 +30,6 @@ This study argues that Madhyasth Darshan gives a sparse but distinctive aestheti
 | ***Atman* / *Brahman*** | In Advaita Vedanta: the innermost Self and ultimate non-dual reality. |
 | ***Mithya*** | In Advaita: the world as dependent appearance, neither absolutely real nor sheer non-being. |
 
----
 
 ## 1. The Central Thesis
 
@@ -60,7 +58,6 @@ The contrast is sharp:
 | Usefulness | Often bracketed by Kantian disinterest; restored by design, functional beauty, and everyday aesthetics | Foundational: aesthetics is meaningful when it adds convenience to usefulness |
 | Failure mode | Bad taste, kitsch, ideological art, shallow formalism, exclusionary institutions, aesthetic violence | Sensory obsession, decorative excess, useless luxury, disorder, delusion, and disconnection from justice, dharma, truth |
 
----
 
 ## 2. How Modern Philosophy Deals with Aesthetics
 
@@ -179,7 +176,6 @@ Madhyasth Darshan is especially strong here. Its framework asks whether aestheti
 
 If an aesthetic object increases desire, waste, exploitation, status competition, or ecological harm, Madhyasth Darshan would not treat its attractiveness as sufficient evidence of value.
 
----
 
 ## 3. Does Advaita Vedanta Have Anything to Say About Aesthetics?
 
@@ -269,7 +265,6 @@ However, rigorous comparison needs restraint:
 
 Thus Advaita can say something important about aesthetics: the deepest delight is not in objects as objects, but in the Self. Yet Advaita does not by itself supply a detailed social, ecological, or functional aesthetics.
 
----
 
 ## 4. The Madhyasth Darshan View
 
@@ -432,7 +427,6 @@ What orderliness is being strengthened or weakened?
 
 This aligns strongly with environmental and everyday aesthetics but grounds them in coexistence rather than in taste, ecological science alone, or lifestyle refinement.
 
----
 
 ## 5. Comparative Analysis
 
@@ -519,49 +513,28 @@ But they differ sharply:
 
 Advaita can interpret aesthetic delight as a shadow or reflection of Self-bliss. Madhyasth Darshan interprets meaningful aesthetics as a refinement of usefulness and value-fulfilment in coexistence.
 
----
 
-## 6. Critical Assessment of Madhyasth Darshan's Aesthetics
+## 6. Critical review
 
-### 6.1 Strengths
+### 6.1 Madhyasth Darshan
 
-**1. It avoids aesthetic consumerism.**  
-Madhyasth Darshan does not let attractiveness justify waste, luxury, addiction, or exploitation. Aesthetic value must answer to usefulness and right-use.
+**Strengths.**
 
-**2. It integrates aesthetics with life.**  
-The darshan is naturally close to everyday aesthetics because it evaluates houses, tools, wealth, conduct, production, relationship, and orderliness rather than only art objects.
+- It avoids aesthetic consumerism. Madhyasth Darshan does not let attractiveness justify waste, luxury, addiction, or exploitation. Aesthetic value must answer to usefulness and right-use.
+- It integrates aesthetics with life. The darshan is naturally close to everyday aesthetics because it evaluates houses, tools, wealth, conduct, production, relationship, and orderliness rather than only art objects.
+- It gives a strong ecological criterion. Nature is not scenery. It is coexistence. Aesthetic appreciation that damages ecological relationship is false or incomplete.
+- It connects beauty with harmony rather than surface. By grounding units in form, properties, essential nature, and dharma, it avoids shallow formalism.
+- It gives an account of aesthetic failure. Aesthetic life fails when it remains trapped in pleasant/unpleasant, status, indulgence, profit, sensory agitation, or decorative excess.
+- It recovers value-taste. The deepest "taste" is not mere liking but the tasting of values in relationships: love, trust, affection, gratitude, guidance, and mutual satisfaction.
 
-**3. It gives a strong ecological criterion.**  
-Nature is not scenery. It is coexistence. Aesthetic appreciation that damages ecological relationship is false or incomplete.
+**Weaknesses.**
 
-**4. It connects beauty with harmony rather than surface.**  
-By grounding units in form, properties, essential nature, and dharma, it avoids shallow formalism.
-
-**5. It gives an account of aesthetic failure.**  
-Aesthetic life fails when it remains trapped in pleasant/unpleasant, status, indulgence, profit, sensory agitation, or decorative excess.
-
-**6. It recovers value-taste.**  
-The deepest "taste" is not mere liking but the tasting of values in relationships: love, trust, affection, gratitude, guidance, and mutual satisfaction.
-
-### 6.2 Weaknesses and open problems
-
-**1. It underdevelops fine art.**  
-The primary texts consulted do not give a detailed theory of painting, music, poetry, sculpture, theatre, cinema, literature, or artistic imagination. A Madhyasth aesthetics of art must therefore be developed interpretively.
-
-**2. It risks reducing aesthetics to usefulness.**  
-The statement "aesthetics is meaningful when it adds convenience to usefulness" is powerful for design, tools, and daily life. But art often matters precisely when it is not convenient: tragedy, satire, lament, ritual, abstraction, silence, difficulty, or shock. Madhyasth Darshan needs a broader account of how such works can serve resolution, self-understanding, social critique, or value-recognition without being merely convenient.
-
-**3. It needs an account of negative aesthetics.**  
-Modern everyday aesthetics studies ugliness, disgust, clutter, noise, and aesthetic harm. Madhyasth Darshan can handle this through disorder, agitation, and misuse, but a full analysis remains to be written.
-
-**4. It needs an account of the sublime.**  
-A mountain, storm, night sky, death scene, or vast silence may not simply be useful or convenient. Such experiences can break egoic scale and evoke wonder. Madhyasth Darshan could interpret them through coexistence and Omnipresence, but the texts reviewed do not provide a systematic account.
-
-**5. It must distinguish simplicity from impoverishment.**  
-If aesthetics is subordinated to usefulness, one might mistakenly reject ornament, celebration, festival, play, and artistic abundance. Madhyasth Darshan should not be read as anti-beauty or anti-art. The right distinction is between meaningful aesthetic enrichment and delusive excess.
-
-**6. It needs cultural pluralism.**  
-Different communities have different aesthetic languages: dress, music, food, architecture, ritual, colour, silence, gesture. Madhyasth Darshan's universal criterion must not flatten legitimate cultural diversity. It should ask whether a form fulfils relationship and coexistence, not whether it conforms to one style.
+- It underdevelops fine art. The primary texts consulted do not give a detailed theory of painting, music, poetry, sculpture, theatre, cinema, literature, or artistic imagination. A Madhyasth aesthetics of art must therefore be developed interpretively.
+- It risks reducing aesthetics to usefulness. The statement "aesthetics is meaningful when it adds convenience to usefulness" is powerful for design, tools, and daily life. But art often matters precisely when it is not convenient: tragedy, satire, lament, ritual, abstraction, silence, difficulty, or shock. Madhyasth Darshan needs a broader account of how such works can serve resolution, self-understanding, social critique, or value-recognition without being merely convenient.
+- It needs an account of negative aesthetics. Modern everyday aesthetics studies ugliness, disgust, clutter, noise, and aesthetic harm. Madhyasth Darshan can handle this through disorder, agitation, and misuse, but a full analysis remains to be written.
+- It needs an account of the sublime. A mountain, storm, night sky, death scene, or vast silence may not simply be useful or convenient. Such experiences can break egoic scale and evoke wonder. Madhyasth Darshan could interpret them through coexistence and Omnipresence, but the texts reviewed do not provide a systematic account.
+- It must distinguish simplicity from impoverishment. If aesthetics is subordinated to usefulness, one might mistakenly reject ornament, celebration, festival, play, and artistic abundance. Madhyasth Darshan should not be read as anti-beauty or anti-art. The right distinction is between meaningful aesthetic enrichment and delusive excess.
+- It needs cultural pluralism. Different communities have different aesthetic languages: dress, music, food, architecture, ritual, colour, silence, gesture. Madhyasth Darshan's universal criterion must not flatten legitimate cultural diversity. It should ask whether a form fulfils relationship and coexistence, not whether it conforms to one style.
 
 ### 6.3 A proposed Madhyasth framework for future aesthetics
 
@@ -579,7 +552,6 @@ A fuller Madhyasth aesthetics could use seven tests:
 
 This framework can evaluate a song, school, farm, website, road, festival, poem, kitchen, public square, clothing practice, or social ritual. It does not answer every art-philosophical question, but it gives a rigorous human criterion.
 
----
 
 ## 7. Conclusion
 
@@ -589,16 +561,8 @@ Advaita Vedanta has no central independent aesthetics, but it has relevant metap
 
 Madhyasth Darshan gives the most practical and normative answer: aesthetics is meaningful when it adds convenience to usefulness and supports harmony, values, relationship, right-use, and coexistence. Its strength is that it can judge the aesthetics of life, not merely the aesthetics of art. Its weakness is that it still needs a more developed theory of autonomous art, tragedy, sublimity, negative aesthetics, and cultural plurality.
 
-The critical conclusion is therefore:
+Madhyasth Darshan does not yet give a complete aesthetics of art, but it gives a powerful aesthetics of meaningful living. Its challenge to modern aesthetics is serious: beauty that does not support coexistence is incomplete; taste that does not mature into value is shallow; design that adds desire but not usefulness is delusive; and art that does not finally deepen human understanding remains only partial, however impressive its form.
 
-```text
-Madhyasth Darshan does not yet give a complete aesthetics of art,
-but it gives a powerful aesthetics of meaningful living.
-```
-
-Its challenge to modern aesthetics is serious: beauty that does not support coexistence is incomplete; taste that does not mature into value is shallow; design that adds desire but not usefulness is delusive; and art that does not finally deepen human understanding remains only partial, however impressive its form.
-
----
 
 ## References
 

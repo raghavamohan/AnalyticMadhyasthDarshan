@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 18, 2026, 9:02 PM IST
+**Edited on:** June 18, 2026, 9:40 PM IST
 
 **Status:** Draft
 
@@ -77,28 +77,36 @@ Development is built into existence (effort → motion → result). An atom that
 
 The ontology above argues from what exists. Shri. Nagraj also argues **phenomenologically**: from how being human actually *feels from the inside*. If you attend to your own lived experience, you will find things in it that a purely material being should not have. Four observations carry this argument.
 
-**1. Two kinds of fulfilment are experienced, not inferred.** Everyone knows from the inside the difference between satisfying the body and satisfying *oneself*. A full stomach and a good night's sleep complete the body's needs — yet a person can be fed, rested, and healthy and still feel entirely unfulfilled. Conversely, a person can be tired and hungry yet deeply content because they acted justly or were trusted by someone. The two satisfactions do not substitute for each other, and we never confuse them in experience. Shri. Nagraj reads this directly off lived life:
+### Two kinds of fulfilment are experienced, not inferred
+
+Everyone knows from the inside the difference between satisfying the body and satisfying *oneself*. A full stomach and a good night's sleep complete the body's needs — yet a person can be fed, rested, and healthy and still feel entirely unfulfilled. Conversely, a person can be tired and hungry yet deeply content because they acted justly or were trusted by someone. The two satisfactions do not substitute for each other, and we never confuse them in experience. Shri. Nagraj reads this directly off lived life:
 
 > **“Activities such as eating and sleeping serve the body’s needs, while values and evaluation serve *jeevan*’s purpose. Mere sustenance of the body does not equate to *jeevan*'s fulfilment.”**
 > — SB, Ch. 7
 
 If the human were body alone, bodily completion should be human completion. Experience says it is not.
 
-**2. The wanting never stops at the body's limit.** A material system needs only what maintains it. But human desire is experienced as *unlimited* in a specific direction: we do not want pleasure occasionally, we want happiness **continuously** — and no quantity of consumption, comfort, or sensation ever delivers continuity. Sensory pleasure is episodic by its nature (it fades as the sensation fades), yet the demand it fails to meet does not fade. Shri. Nagraj takes this mismatch — a body-sized supply chasing a more-than-body-sized demand — as the felt signature of *jeevan* in everyday life. The same mismatch shows up in what we *produce*:
+### The wanting never stops at the body's limit
+
+A material system needs only what maintains it. But human desire is experienced as *unlimited* in a specific direction: we do not want pleasure occasionally, we want happiness **continuously** — and no quantity of consumption, comfort, or sensation ever delivers continuity. Sensory pleasure is episodic by its nature (it fades as the sensation fades), yet the demand it fails to meet does not fade. Shri. Nagraj takes this mismatch — a body-sized supply chasing a more-than-body-sized demand — as the felt signature of *jeevan* in everyday life. The same mismatch shows up in what we *produce*:
 
 > **“It is clear that whatever *jeevan* does through the body, the result of it always turns out to be more than the needs of the body. It is a natural process. I have seen *jeevan*, and I have seen humans as a combined form of *jeevan* and body.”**
 > — JV, Ch. 1
 
 Humans grow more food than they can eat, build more than they can inhabit, and create art, mathematics, and philosophy that feed no cell. Animals do none of this. Something in us aims past the body's needs — and we *experience* that aiming.
 
-**3. Experience presents a self that the body's states do not exhaust.** When the body sleeps, something still dreams, and something registers rest on waking. When the body ages, the sense of "I" does not feel older in the same way the knees do. We say "my body" the way we say "my house" — experience spontaneously presents the body as *had*, not as *been*:
+### Experience presents a self that the body's states do not exhaust
+
+When the body sleeps, something still dreams, and something registers rest on waking. When the body ages, the sense of "I" does not feel older in the same way the knees do. We say "my body" the way we say "my house" — experience spontaneously presents the body as *had*, not as *been*:
 
 > **“We end up believing that *jeevan* sleeps, whereas, in reality, sleep is merely an activity of the body.”**
 > — SB, Ch. 7
 
 Shri. Nagraj's point is not that this grammar proves dualism, but that the *deluded* position is the learned one: identifying with the body has to be argued into us, while the felt distinction between self and body is the default datum of experience.
 
-**4. The moral demand is felt from the start, before any teaching.** Justice, truth, and right conduct are not experienced as preferences we acquired but as demands we *recognise* — and children recognise them before anyone trains them (for comparative moral psychology, see [Ethics-And-Morals-In-Human-Beings](Ethics-And-Morals-In-Human-Beings.pdf)):
+### The moral demand is felt from the start, before any teaching
+
+Justice, truth, and right conduct are not experienced as preferences we acquired but as demands we *recognise* — and children recognise them before anyone trains them (for comparative moral psychology, see [Ethics-And-Morals-In-Human-Beings](Ethics-And-Morals-In-Human-Beings.pdf)):
 
 > **“From the time of birth, a human being inherently seeks justice, desires to act correctly, and speaks the truth. This is the natural state of a child.”**
 > — SB, Ch. 1
@@ -163,11 +171,17 @@ Advaita Vedanta answers that you are not material because, at the deepest level,
 
 Like Madhyasth Darshan, Advaita does not rest its case on scripture alone — it too has a first-person, phenomenological route to "you are not the body," and it is older and more systematic. The method is **neti neti** ("not this, not this," BU 2.3.6): turn attention inward and *negate* everything that presents itself as an object, because whatever you can observe cannot be you, the observer. The practice unfolds in three classic exercises.
 
-**1. The seer is never the seen (*drig-drishya-viveka*).** You see the body — its hands, its ageing, its pain — so the body is an object *to* you, and an object cannot be its own subject (DDV, vv. 1–5). The same negation then cuts deeper than Shri. Nagraj's body/self line: you also *observe* your sensations, your emotions, your thoughts, even the feeling of being "me." Each is witnessed, so each is "not this." What can never be negated is the witnessing itself — for even the act of doubting it is witnessed.
+### The seer is never the seen (*drig-drishya-viveka*)
 
-**2. The five sheaths (*pancha-kosha-viveka*).** The Taittiriya Upanishad walks attention through five layers — the food-body (*annamaya*), vitality (*pranamaya*), mind (*manomaya*), intellect (*vijnanamaya*), and bliss (*anandamaya*) — discovering each to be a *sheath* the Self wears, not the Self (TU 2.1–2.5; elaborated in VC, vv. 154–212). Notably, these are the very *koshas* Shri. Nagraj reuses — but to opposite effect: in Advaita the layers are progressively *negated* to reveal the Self beyond all of them; in Madhyasth Darshan they are progressively *affirmed* as the human's real functional equipment.
+You see the body — its hands, its ageing, its pain — so the body is an object *to* you, and an object cannot be its own subject (DDV, vv. 1–5). The same negation then cuts deeper than Shri. Nagraj's body/self line: you also *observe* your sensations, your emotions, your thoughts, even the feeling of being "me." Each is witnessed, so each is "not this." What can never be negated is the witnessing itself — for even the act of doubting it is witnessed.
 
-**3. The three states (*avastha-traya*).** Waking, dreaming, and deep sleep — the analysis of the Mandukya Upanishad (MU, vv. 3–7). In dreams, consciousness is vividly present while the physical body lies inert — so consciousness does not need the waking body. In deep sleep even the mind subsides, yet something persists: on waking you say "I slept well," reporting an experience of peaceful absence (VC, v. 120). That which witnessed even the mind's absence cannot *be* the mind. (Compare Shri. Nagraj's sleep observation in §1 — the same datum, pushed one step further: where Shri. Nagraj concludes "*jeevan* does not sleep," Advaita concludes the witness is beyond even the sleeping mind.)
+### The five sheaths (*pancha-kosha-viveka*)
+
+The Taittiriya Upanishad walks attention through five layers — the food-body (*annamaya*), vitality (*pranamaya*), mind (*manomaya*), intellect (*vijnanamaya*), and bliss (*anandamaya*) — discovering each to be a *sheath* the Self wears, not the Self (TU 2.1–2.5; elaborated in VC, vv. 154–212). Notably, these are the very *koshas* Shri. Nagraj reuses — but to opposite effect: in Advaita the layers are progressively *negated* to reveal the Self beyond all of them; in Madhyasth Darshan they are progressively *affirmed* as the human's real functional equipment.
+
+### The three states (*avastha-traya*)
+
+Waking, dreaming, and deep sleep — the analysis of the Mandukya Upanishad (MU, vv. 3–7). In dreams, consciousness is vividly present while the physical body lies inert — so consciousness does not need the waking body. In deep sleep even the mind subsides, yet something persists: on waking you say "I slept well," reporting an experience of peaceful absence (VC, v. 120). That which witnessed even the mind's absence cannot *be* the mind. (Compare Shri. Nagraj's sleep observation in §1 — the same datum, pushed one step further: where Shri. Nagraj concludes "*jeevan* does not sleep," Advaita concludes the witness is beyond even the sleeping mind.)
 
 **The phenomenological inference.** What survives all three negations is not nothing — it is the constant, self-evident awareness in which body, mind, and world appear. Advaita's claim is that this awareness is not a *property* of you; it *is* you (*Atman*), and analysis shows it cannot be material: it is never an object, has no parts, and is presupposed by every observation, including every scientific one.
 
