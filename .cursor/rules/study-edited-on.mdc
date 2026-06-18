@@ -6,6 +6,8 @@ alwaysApply: true
 
 # Keep "Edited on" current in Studies
 
+> **Source of truth:** [AGENTS.md](../AGENTS.md) §1. Keep this file in sync when editing.
+
 Every study under `Studies/` carries an `**Edited on:**` field directly below
 the `**Author:**` line. **Any change to study content** — including edits made
 during review, restructuring, typo fixes in body text, citation updates, or PDF
@@ -27,8 +29,8 @@ When you edit a study markdown file (`Studies/<Name>.md`):
    `Studies/index.html` for that study's row. Use the same date and time as step
    2, with abbreviated month in the catalog (`Jun` not `June`):
    `Draft<br>Last updated on: Jun 16, 2026, 3:45 PM IST`
-4. **Regenerate the PDF** using the pipeline in `.cursor/rules/md-to-pdf.mdc`
-   (never ad-hoc converters). The PDF embeds the `**Edited on:**` line from
+4. **Regenerate the PDF** using the pipeline in [AGENTS.md](../AGENTS.md) §3
+   (Cursor mirror: `md-to-pdf.mdc`; never ad-hoc converters). The PDF embeds the `**Edited on:**` line from
    the markdown — an old timestamp in the `.md` means an old timestamp in the PDF.
 
 If the field is missing, add it on its own line immediately after the

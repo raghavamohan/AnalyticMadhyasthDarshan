@@ -6,6 +6,8 @@ alwaysApply: false
 
 # Keep Studies/index.html and Studies/README.md in sync
 
+> **Source of truth:** [AGENTS.md](../AGENTS.md) §2. Keep this file in sync when editing.
+
 `Studies/index.html` (the published site page) and `Studies/README.md` (the
 GitHub-rendered page) present the same catalog to two audiences. Whenever you
 change one, make the matching change in the other in the same edit so they never
@@ -23,7 +25,7 @@ drift apart.
   **When a study is edited**, the `Last updated on` date/time in both catalogs
   must match that study's `**Edited on:**` field in its `.md` file exactly
   (abbreviated month in catalogs: `Jun`; full month in `.md`: `June`). See
-  `.cursor/rules/study-edited-on.mdc` for the mandatory workflow.
+  [AGENTS.md](../AGENTS.md) §1 for the mandatory workflow.
 - **In-progress studies** — shown in italics (`<em>...</em>` in HTML,
   `*...*` in markdown) with no link; published studies link to `<Name>.pdf`.
 - **Formal Studies table** — same documents, focus, and descriptions.

@@ -32,7 +32,7 @@ The work remains grounded in the primary texts and aims to present Shri Nagraj's
 
 The **Topical Studies** examine particular domains — existence, human nature, knowledge, ethics, relationships, society, ecology, and science. The **Formal Studies** gather this structure into mathematical representations so definitions, relations, and arguments can be seen clearly and compared rigorously.
 
-Throughout, we keep three things clearly separate: **what the philosophy itself says**, **what is our own interpretation or comparison**, and **what remains an open question**.
+Throughout, we keep **what the philosophy itself says**, **what is our own interpretation or comparison**, and **what remains an open question** clearly separate in the prose — without bracket tags or reader-guide legends. See [AGENTS.md](../AGENTS.md) §4 for writing standards.
 
 ## Topical Studies
 
