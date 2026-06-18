@@ -40,13 +40,6 @@ Windows wrappers: `.\Scripts\_add_study.ps1`, `.\Scripts\_remove_study.ps1`, `.\
 
 PDF reference text is cached under `Scripts/_pdf_cache/` (gitignored, format `v2`).
 
-## Archived / research (not part of contributor workflow)
-
-| Location | Contents |
-|----------|----------|
-| [`archive/`](archive/) | One-off study editors (`_fix_symbols.py`, `_add_goal.py`, `_refine_d4_d7.py`) |
-| [`research/`](research/) | Phrase-list extraction scripts used during paper drafting; `.txt` outputs are gitignored |
-
 ## CI
 
 Labeled study PRs run [`_ci_study_pr.py`](_ci_study_pr.py) via [`.github/workflows/study-pr.yml`](../.github/workflows/study-pr.yml).
