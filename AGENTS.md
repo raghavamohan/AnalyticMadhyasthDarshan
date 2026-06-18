@@ -1,8 +1,25 @@
 # AGENTS.md
 
 This file carries the standing instructions for AI agents working in this repo.
-It replaces the earlier `.cursor/rules/*.mdc` files; those still exist for
-Cursor, but this is the source of truth for ZCode/opencode.
+It is the **source of truth** for ZCode, OpenCode, and other agents that read
+`AGENTS.md` at the repository root.
+
+**Cursor** loads the same content through `.cursor/rules/*.mdc` mirrors (one file
+per section below). **OpenCode** loads `AGENTS.md` automatically and also reads
+`.cursor/rules/*.mdc` via `opencode.json` → `instructions`. When you change a
+rule here, update the matching `.mdc` file in the same commit.
+
+**Skills** (study lifecycle scripts) live in `.agents/skills/` (Cursor) and
+`.opencode/skills/` (OpenCode — junction to `.agents/skills/`). Skills orchestrate
+`Scripts/_*.py`; they defer content and style rules to the sections below.
+
+| Section | Topic | Cursor mirror |
+|---------|--------|---------------|
+| §1 | Edited on, catalogs, PDF timestamps | `study-edited-on.mdc` |
+| §2 | `Studies/index.html` ↔ `README.md` sync | `studies-index-readme-sync.mdc` |
+| §3 | Markdown → PDF pipeline | `md-to-pdf.mdc` |
+| §4 | Study prose style | `study-prose-style.mdc` |
+| §5 | Standpoint and scope | `study-standpoint-scope.mdc` |
 
 There are five rule sections below. The first, fourth, and fifth apply to **every**
 topical study edit; the other two apply when their stated condition is met.

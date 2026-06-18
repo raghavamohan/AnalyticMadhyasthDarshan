@@ -6,6 +6,8 @@ alwaysApply: false
 
 # Markdown to PDF — use internal scripts only
 
+> **Source of truth:** [AGENTS.md](../AGENTS.md) §3. Keep this file in sync when editing.
+
 When a study markdown file under `Studies/` needs a PDF, **always** use the
 repository pipeline. Do not substitute pandoc, `markdown-pdf`, VS Code export,
 hand-written Puppeteer scripts, or other one-off converters.
@@ -58,12 +60,11 @@ foreach ($s in $studies) {
 
 - Confirm the output PDF path is `Studies/<Name>.pdf` (same stem as the `.md`).
 - **Before** running the pipeline, ensure `**Edited on:**` in the `.md` reflects
-  the current time (see `.cursor/rules/study-edited-on.mdc` — run `Get-Date`,
+  the current time (see [AGENTS.md](../AGENTS.md) §1 — run `Get-Date`,
   never guess). Regenerating a PDF without updating the timestamp leaves a stale
   date on every page of the document header.
 - After conversion, if the study's `**Edited on:**` or catalog **Status**
-  changed, confirm both catalogs match per
-  `.cursor/rules/studies-index-readme-sync.mdc`.
+  changed, confirm both catalogs match per [AGENTS.md](../AGENTS.md) §2.
 
 ## Do not
 

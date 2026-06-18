@@ -2,7 +2,7 @@
 
 Thank you for helping expand rigorous analytic work on Madhyasth Darshan. This repository uses a **two-stage flow**: propose a study on GitHub, wait for maintainer approval, then submit a pull request. Continuous integration regenerates PDFs and keeps catalogs in sync — you only need to edit markdown.
 
-Read [Studies/README.md](Studies/README.md) for study format, tone, and structure before you start.
+Read [Studies/README.md](Studies/README.md) for study format, tone, and structure before you start. Agents and automation should follow **[AGENTS.md](AGENTS.md)** for Edited on, PDF pipeline, prose style, and Standpoint and scope.
 
 ---
 

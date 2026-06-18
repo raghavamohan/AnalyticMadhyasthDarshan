@@ -35,7 +35,7 @@ The **markdown** file for each paper is the source of truth. PDFs and catalog pa
 
 ## For contributors
 
-Read **[CONTRIBUTING.md](CONTRIBUTING.md)** for the full proposal → approval → pull request workflow, and **[Studies/README.md](Studies/README.md)** for what a study should cover, tone, and structure before you start writing.
+Read **[CONTRIBUTING.md](CONTRIBUTING.md)** for the full proposal → approval → pull request workflow, **[Studies/README.md](Studies/README.md)** for what a study should cover, and **[AGENTS.md](AGENTS.md)** for agent rules on prose style, timestamps, and PDF generation.
 
 ### One-time setup
 

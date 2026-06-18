@@ -6,6 +6,8 @@ alwaysApply: false
 
 # Standpoint and scope (topical studies)
 
+> **Source of truth:** [AGENTS.md](../AGENTS.md) §5. Keep this file in sync when editing.
+
 Every **topical** study under `Studies/` (not `README.md`, not Formal Studies)
 includes a `## Standpoint and scope` section immediately after the opening
 intro paragraph and **before** the glossary or first major section.
@@ -37,7 +39,7 @@ uses the same core paragraphs.
 
 ## Structure
 
-- **Four short paragraphs** (essay prose — see `study-prose-style.mdc`).
+- **Four short paragraphs** (essay prose — see [AGENTS.md](../AGENTS.md) §4).
 - The **intro paragraph above** (after `**The question:**`) names the study's
   specific comparison partners; Standpoint and scope states the **shared**
   epistemic frame.
