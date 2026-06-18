@@ -7,30 +7,41 @@ alwaysApply: false
 # Study prose style
 
 Applies to every topical study under `Studies/` except `Studies/README.md`.
-Reference implementation: [What-Is-Existence.md](../Studies/What-Is-Existence.md).
+Reference implementations: [What-Is-Existence.md](../Studies/What-Is-Existence.md)
+(ontology exposition, open problems); [Why-Humans-Are-Not-Just-Material.md](../Studies/Why-Humans-Are-Not-Just-Material.md)
+(comparative anthropology, critique closings).
 
 Write exposition as **continuous scholarly essay**, not as an LLM outline with
 visible scaffolding.
 
 ## Voice and structure
 
-- **Section openings:** multi-sentence prose that states the position or contrast.
-  Do not use `**The claim in one sentence:**`, step tables, or per-section Q&A
-  recap tables in exposition (§1–§4).
+- **Section openings:** multi-sentence prose that states the position or contrast
+  (*Madhyasth Darshan holds…*, *Mainstream science answers…*). Do not use
+  `**The claim in one sentence:**`, step tables, or per-section Q&A recap tables
+  in exposition (§1–§4).
+- **Subsections:** use `### N.M Descriptive title` for argument steps — not
+  `### The logic, step by step` with `**Step N —**` bold headers.
 - **Between subsections:** one short, content-first bridge when needed (e.g. name
   the next problem). Avoid formulaic tours (`Having examined…`, `To map these…`,
   `the next step is…`).
 - **Comparison:** use tables in the dedicated comparison section (typically §5).
   One at-a-glance summary table is enough; do not duplicate recap tables after
   each tradition.
-- **Critique:** numbered open problems and strengths/limits (typically §6) may
-  stay structured. Conclusions may use term-by-term recap.
+- **Critique:** numbered strengths/limits lists (typically §5–§6) may stay
+  structured. End each tradition's review with a **plain closing sentence** that
+  names the tradition — not a `**Verdict:**` label.
+- **Cross-refs:** `§2.3`, not `Section 2`.
 
 ## Do not use
 
 | Pattern | Instead |
 |---------|---------|
-| `[Open]`, `[Interpretation]`, `[Text]` bracket tags | Plain prose; unsettled points in a **Open problems** section |
+| `## How to read this study` / tag-legend reader guides | Omit; exposition carries epistemic status without a legend |
+| `[Open]`, `[Interpretation]`, `[Text]` bracket tags | Plain prose; unsettled points in an **Open problems** section |
+| `**Step N —**` roadmaps | `### N.M Descriptive title` subsections |
+| `**Verdict:**` conclusion labels | Plain sentence: *Madhyasth Darshan is best read as…* |
+| `honestly`, `honest caveat`, `The honest bottom line` | State the point directly (*What science leaves open*) |
 | `**Not constitution.**` elimination headers | Woven prose: *Saturation is not constitution: … Nor is it inherence…* |
 | `**Proposed reading:**` / `**Primary reference.**` | *On this reading,…* / *The relation that fits the texts is…* |
 | Meta-signposting (`not decoration`, `prepares its rows`, `keep in view`) | State the substance directly |
@@ -38,11 +49,13 @@ visible scaffolding.
 | `Linked externally; not stored locally` on entries | External URL in the link; no storage note |
 | `one-sentence preview`, `canonical exposition` | Cross-ref the section (`§6.6`) without narrating the document |
 
-## Epistemic honesty without tags
+## Epistemic honesty without tags or qualifiers
 
 - **Committed readings:** state plainly (*This paper adopts…*, *On our reading…*).
 - **Unsettled points:** name in prose where they arise; collect and argue them in
   an open-problems section (do not label items `[Open]`).
+- **Caveats:** state the limitation directly — do not prefix it `honest` or
+  `frank`; the reader does not need reminded that you mean it sincerely.
 - **Cross-refs:** use when they carry argumentative weight (`§3.3`, `§6.2`), not
   to describe document navigation.
 
@@ -67,8 +80,12 @@ visible scaffolding.
 
 ## Quick check before finishing a study edit
 
-- [ ] No `[Open]` / `[Interpretation]` in the file
+- [ ] No `## How to read this study` or tag legend
+- [ ] No `[Open]` / `[Interpretation]` / `[Text]` in the file
+- [ ] No `**The claim in one sentence:**`, `**Step N —**`, or `**Verdict:**`
+- [ ] No `honestly` / `honest caveat` / `The honest bottom line` qualifiers
 - [ ] No `**Not …**` rejection headers in exposition
 - [ ] No sentences whose only job is to describe section/table layout
 - [ ] Comparison tables live in the comparison section, not scattered as recaps
+- [ ] Cross-refs use `§`, not `Section`
 - [ ] References: no section preamble; no `Linked externally; not stored locally`
