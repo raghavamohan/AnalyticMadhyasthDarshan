@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 16, 2026, 11:16 AM IST
+**Edited on:** June 18, 2026, 9:40 PM IST
 
 **Status:** Draft
 
@@ -14,7 +14,6 @@ The source ideas come from the workspace summaries [*Why Humans Are Not Just Mat
 
 A note on honesty, stated once and meant throughout: category theory here is a **lens for clarity**, not a proof machine. It makes the philosophy's logic visible and shows exactly what each conclusion depends on. It does not prove the metaphysics, and it cannot supply empirical evidence.
 
----
 
 ## The one big idea (read this even if you read nothing else)
 
@@ -32,7 +31,6 @@ flowchart LR
     C["New question: how does it relate?"] --> D["Study the relationships"]
 ```
 
----
 
 ## Part 1: The four basic words
 
@@ -72,7 +70,6 @@ Every object has a trivial "do nothing" arrow to itself, called the **identity**
 
 That is the entire foundation. Boxes, arrows, chaining arrows, and a do-nothing arrow. Everything else is built from these.
 
----
 
 ## Part 2: A few more tools, each in one breath
 
@@ -87,7 +84,6 @@ These are the slightly fancier tools the formal theory uses. Each is given here 
 | **Colimit (gluing)** | Joining many small pieces into one big consistent whole, along what they share | Gluing map tiles into one map where the edges match | Families joining into one undivided society |
 | **Enrichment** | Recording not just "is there a relationship" but "of what quality/grade" | A road map that also marks each road's quality | Distinguishing momentary, lasting, and permanent satisfaction |
 
----
 
 ## Part 3: The philosophy, redrawn as a map
 
@@ -172,7 +168,6 @@ flowchart TD
 
 This is the one place where the mathematics actually adds something the prose did not state clearly: **universal order is possible precisely to the degree that local relationships are mutually consistent.** Conflict over shared values is not a minor friction; it is the exact thing that prevents the glue from setting.
 
----
 
 ## Part 4: How this formalism helps
 
@@ -200,7 +195,6 @@ flowchart TD
     Cat --> Bridge["Bridge to science"]
 ```
 
----
 
 ## Part 5: How it can actually be used
 
@@ -228,7 +222,6 @@ Because the formalism states what each worldview *keeps and forgets*, it lets ve
 ### As a research programme
 It suggests genuine open questions: Can "coexistence" be modelled as the background that makes all the arrows compose? Can grades of satisfaction be derived rather than assumed? These are real, workable problems for anyone wanting to take the darshan seriously and rigorously.
 
----
 
 ## Part 6: The complete formal theory
 
@@ -491,7 +484,6 @@ The honest pattern: **P6 is the only place the mathematics does substantive inde
 6. **Enrichment base underdetermined.** The quality preorder `W` is chosen, not derived.
 7. **Coexistence as ground resists internalization** (6.12.5).
 
----
 
 ## Part 7: Being honest about the limits (in plain language)
 
@@ -506,7 +498,6 @@ So the honest summary is:
 
 > Category theory is a **lens for clarity**, not a proof machine and not a new physics. It makes Madhyasth Darshan's logic visible, shows exactly what each conclusion depends on, and even contributes one real insight about social cohesion � while leaving the deepest metaphysical claims open.
 
----
 
 ## One-page takeaway
 
@@ -529,8 +520,6 @@ flowchart LR
 ```
 
 ## References
-
-All sources cited in this document. Each entry begins with the bold tag used in the text. Companion papers in this collection are internal studies, not bibliographic sources.
 
 ### Madhyasth Darshan (primary sources)
 

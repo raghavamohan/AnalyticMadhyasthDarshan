@@ -4,13 +4,12 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 16, 2026, 11:16 AM IST
+**Edited on:** June 18, 2026, 9:40 PM IST
 
 **Status:** Draft
 
 **The thesis:** Madhyasth Darshan (Shri A. Nagraj's Co-existentialism) contains, beneath its human-centred exposition, a single recurring structural template: *bounded units, immersed in an indivisible medium, recognise and fulfil definite relationships with one another; the content exchanged in those relationships is value; complementary units compose into larger units; an assembly persists exactly as long as its relationships are fulfilled; and each assembly transmits its method of composition across generations of its members.* This paper states that template formally, grounds every clause in the primary texts, shows that Shri Nagraj himself asserts it for **all four orders of nature** (not only for humans), and identifies the one place where the template genuinely changes character — the knowledge order, where participation must be achieved through understanding rather than delivered by constitution. Beyond exposition, the paper has an applied aim: to make the template precise enough to be **carried to systems Shri Nagraj did not himself treat** — used forward, to design organisations, economies, and other assemblies that are stable by construction, and in reverse, to diagnose a failing system by the exact clause of the template it violates (see §1.1).
 
----
 
 ## 1. Why a template, and why it is legitimate to generalise
 
@@ -51,7 +50,6 @@ Stating the template formally is not an end in itself. Shri Nagraj elaborated it
 
 This forward/reverse use is what motivates the tier-neutral formalisation of Sections 2–3: it must be stated independently of its original human framing before it can be applied elsewhere. The applications in Section 8 are first instances; the broader claim is that **any** system describable as units-in-relationship is a candidate for both uses. Two cautions travel with this ambition. First, the template's metaphysical axioms (the medium O, *jeevan*, A1–A2, D6) are not established by the formalism, so any analysis that leans on them inherits their status as commitments, not results. Second, importing the template into a domain Shri Nagraj did not treat is itself an interpretive act: the mapping from that domain's parts onto units, relationships, and values must be argued, not assumed.
 
----
 
 ## 2. The template, informally
 
@@ -68,7 +66,6 @@ Ten clauses. Everything in Section 3 is a formalisation of these.
 9. Every persisting assembly **transmits its method of composition** across generations of its members — by constitution in the material order, by seed in the biological order, by lineage/species in the animal order, and by education-*sanskar* in the knowledge order.
 10. In the first three orders, clauses 5–9 operate **definitely** (automatically, without choice). In the knowledge order they must pass through **understanding, evaluation, and choice** — which is why human assembly above the individual is the only level of the template that can fail, and the only one that is still incomplete.
 
----
 
 ## 3. The formal template
 
@@ -207,7 +204,6 @@ The texts explicitly mark this as one principle with order-specific realisations
 
 **P5 (Boundedness of extraction).** A unit's relationships with lower-order units are also governed by E(r): right-use and purposeful-use, bounded by regeneration — "expenditure of natural abundance like minerals and forests in proportion to their regeneration" (MVD p. 264). Extraction beyond regeneration is an unfulfilled relationship and, by L4, destabilises the containing assembly (the Earth-tier): "we overlooked the purpose of our relationship with the Earth… This lack of understanding led to the catastrophic collapse of our planet['s environment]" (JV p. 77).
 
----
 
 ## 4. The template instantiated, tier by tier
 
@@ -228,7 +224,6 @@ Two structural observations the table makes visible:
 1. **The same column-shape repeats four times.** That is the precise sense in which the template is universal — it is not a metaphor carried from human life down to atoms; the texts assert each row for each order.
 2. **Each row's content is richer in the knowledge order but never absent below it.** Value, for instance, does not first appear with humans; it is "the essentiality of units in every plane and order" (SB p. 50). What first appears with humans is *evaluation* of value — and with it the possibility of error.
 
----
 
 ## 5. What the template is *not*
 
@@ -242,23 +237,29 @@ These contrasts matter because the most natural modern glosses of the template q
 
 **Not value-as-epiphenomenon.** Value in the template is the *content of fulfilment* — what flows in a relationship — present at every tier (SB p. 50). The human innovation is a second-order operation on it (evaluation, D6), located in *jeevan*, "not bodily or mechanical" (JV p. 39). Any restatement that makes value a human projection onto a value-free substrate inverts the doctrine.
 
----
 
 ## 6. Critical review of the informal reading
 
 This paper began from a compact informal reading of the darshan — stability of the whole, units inseparable from environment, a fundamental set of relationships, value assessed on a non-material plane, units organising into ever larger assemblies, knowledge succeeding across generations. Checked against the texts, that reading is substantially faithful; four points need correction or sharpening.
 
-**1. "A unit cannot exist independent of its environment" conflates two distinct dependencies.** The texts distinguish (a) the constitutive immersion of every unit in the *medium* (A1 — "no provision in existence to separate units of nature from Omnipresence", JV p. 18), and (b) the relational complementarity of every unit with *other units* (A4, L2). The first is absolute and non-contingent; the second is the domain of relationships and value. SB p. 13 holds them together — "Each unit is a whole along with its environment" — but the template needs both levels kept apart, because regulation and energisation come from (a), while value flows in (b).
+### Medium immersion versus relational environment
 
-**2. "Independent value assessment of relationships by the units" is true only of the knowledge order.** All units *recognise and fulfil* (L1), and value is real at every tier (D4) — but **evaluation** is an activity of *jeevan* alone (D6). An atom does not assess its bond; it fulfils it definitely. The graded statement — universal recognition-fulfilment, knowledge-order-only evaluation — is both what the texts say and what makes the human tier's fragility intelligible.
+The texts distinguish (a) the constitutive immersion of every unit in the *medium* (A1 — "no provision in existence to separate units of nature from Omnipresence", JV p. 18), and (b) the relational complementarity of every unit with *other units* (A4, L2). The first is absolute and non-contingent; the second is the domain of relationships and value. SB p. 13 holds them together — "Each unit is a whole along with its environment" — but the template needs both levels kept apart, because regulation and energisation come from (a), while value flows in (b).
 
-**3. "Units organise so that value is maximised" should be "units move definitely toward fulfilment/completeness."** See Section 5. The difference is not cosmetic: a maximisation reading reintroduces precisely the unbounded "more" that the darshan identifies as delusion, and it predicts competition for a scarce maximum where the texts predict complementarity of need and surplus.
+### Evaluation belongs to the knowledge order
 
-**4. "Shri Nagraj described this in the human context" undersells the texts.** The general template is asserted in fully general language in SB Chapter 1 and MVD's opening chapters, with the atomic, cellular, and planetary instances worked out (Section 1). What is true is that the *elaboration* is densest for the human case — because that is the one tier where the template's execution is not guaranteed and therefore needs teaching. The correct framing: **the universal template is textual; the human chapters are its boundary-case analysis.**
+All units *recognise and fulfil* (L1), and value is real at every tier (D4) — but **evaluation** is an activity of *jeevan* alone (D6). An atom does not assess its bond; it fulfils it definitely. The graded statement — universal recognition-fulfilment, knowledge-order-only evaluation — is both what the texts say and what makes the human tier's fragility intelligible.
+
+### Fulfilment, not maximisation
+
+See Section 5. The difference is not cosmetic: a maximisation reading reintroduces precisely the unbounded "more" that the darshan identifies as delusion, and it predicts competition for a scarce maximum where the texts predict complementarity of need and surplus.
+
+### Universal template, human elaboration
+
+The general template is asserted in fully general language in SB Chapter 1 and MVD's opening chapters, with the atomic, cellular, and planetary instances worked out (Section 1). What is true is that the *elaboration* is densest for the human case — because that is the one tier where the template's execution is not guaranteed and therefore needs teaching. The correct framing: **the universal template is textual; the human chapters are its boundary-case analysis.**
 
 One further sharpening on transmission: in the knowledge order, τ carries *understanding* — and only understanding. "Ignorance cannot flow in tradition" (JV p. 49) because wrongs are never accepted as sanskar (JV p. 50); yet "tradition is the source of understanding or delusion" (JV p. 54), since an unawakened tradition transmits delusion by default until understanding enters it. So human-tier transmission is not a neutral copying channel like the seed or the lineage: it is *asymmetric*, favouring whatever is genuinely acceptable to jeevan. This asymmetry is the textual basis for the darshan's optimism that an awakened tradition, once established, is self-strengthening ("with each successive generation, it becomes more robust and refined", JV p. 49).
 
----
 
 ## 7. Relation to other formal frameworks
 
@@ -274,7 +275,6 @@ Stated at this level of generality, the template invites comparison with several
 
 The two genuinely distinctive commitments, visible only when the template is laid out formally, are: **(i)** the medium O as a constitutive, energising, regulating presence at every tier simultaneously (A1–A2) — not an aether *within* physics but a precondition *of* it; and **(ii)** value as the universal content of relations, with evaluation appearing only at the top tier (D4/D6). Frameworks that drop (i) must find energy and regulation inside the units; frameworks that drop (ii) must reconstruct value as preference or fitness. The darshan does neither.
 
----
 
 ## 8. Implications and uses of the template
 
@@ -286,7 +286,6 @@ The two genuinely distinctive commitments, visible only when the template is lai
 
 **As a falsifiable-in-parts structure.** The metaphysical clauses (O; jeevan) are not empirically testable, but several template-level claims are confronted by evidence and argument: that assembly is everywhere complementarity-driven rather than selection-driven; that human collectives sustained by understanding-transmission outlast those sustained by incentive; that definite, non-maximising development better describes lower-order dynamics than optimisation models. Holding the template explicit makes it possible to say exactly which clause any given criticism touches.
 
----
 
 ## 9. Limitations
 
@@ -295,17 +294,13 @@ The two genuinely distinctive commitments, visible only when the template is lai
 3. **The texts are realisation-reports, not arguments from premises.** Shri Nagraj presents these claims as seen in samadhi-samyama (MVD p. 7). The template organises the claims; it cannot supply independent evidence for them.
 4. **Translation risk.** Quotations follow the published English translations of Hindi originals; several key terms (*vyavastha* as "orderliness", *nirvah* as "fulfilment", *samprikt* as "saturated") carry interpretive choices made by the translators.
 
----
 
 ## 10. Conclusion
 
 The reading that Madhyasth Darshan is "centered on the stability of the whole structure of existence", with inseparable units, valued relationships, ever-larger assemblies, and inter-generational transmission, is confirmed by the texts — and is *more* than an interpretation: it is a structure the texts themselves assert at every order of nature. Stated formally, it is one template: **immersed units, definite relationships, value as the content of fulfilment, composition by complementarity, persistence by fulfilment, transmission by order-specific carriers, iterated into a tiered hierarchy** — with a single discontinuity at the knowledge order, where every clause must pass through understanding, making the human tier at once the most capable and the only unfinished level of the structure. The corrections required to the informal reading are few but consequential: separate the medium from the environment, restrict evaluation (not value) to jeevan, and replace maximisation with definite movement toward completeness. With those corrections, the template stands as a precise, general, and textually grounded statement of what Shri Nagraj called coexistence.
 
----
 
 ## References
-
-All sources cited in this document, grouped by type. Each entry begins with the bold tag used in the text.
 
 ### Madhyasth Darshan (primary sources)
 

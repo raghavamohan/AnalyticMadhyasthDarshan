@@ -3,7 +3,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 16, 2026, 11:16 AM IST
+**Edited on:** June 18, 2026, 9:40 PM IST
 
 **Status:** Draft
 
@@ -285,7 +285,7 @@ The darshan describes an end-state, not a reform programme for existing institut
 
 The implied sequence — understand, live it small, teach it, federate — also explains why the darshan is unimpressed by reforms that begin at the top: they change who holds the structure, not what the structure is organised around.
 
-## 10. Critical assessment
+## 10. Limits and open questions
 
 The diagnosis explains a real, recurring pattern — fear- or accumulation-founded organisations do treat members as instruments and do fracture when the founding fear recedes or accumulation stalls. The definition of exploitation as *disregarding values in a relationship* gives a usable test for whether people are being instrumentalised, and the resolution-plus-coexistence thesis dissolves the apparent trade-off between member welfare and durability.
 
@@ -340,7 +340,7 @@ The deepest divergence is metaphysical and has direct organisational consequence
 | Transmission | Guru-shishya, monastic, qualified few | Education-sanskar for all, through families |
 | Social record | Equality at absolute level; hierarchy tolerated empirically | Undivided society as explicit programme |
 
-### 11.4 Verdict
+### 11.4 Advaita and organisation — closing contrast
 
 Advaita supplies the strongest possible **premise** for human unity — there is finally no Other — but not the **programme** for human organisation. Its centre of gravity is the individual's exit from the world, not the world's orderliness; its strongest social readings (SV, ATR) are modern efforts to extract from non-duality precisely what Madhyasth Darshan builds in from the start: a real world, real relationships, real values, a defined economy, and a transmission mechanism for all. One may fairly say the darshan keeps Advaita's insistence on human dignity and the unity of existence while replacing "one without a second" with "coexistence" — exactly so that the unity can bind conduct, production, and organisation rather than dissolve them.
 
@@ -356,8 +356,6 @@ Humans do not *have* to organise around fear, food, protection, belief, or accum
 The contribution of this view is to collapse two problems usually treated separately — *keeping people happy* and *keeping the institution alive* — into a single design choice about what an organisation is organised *around*. Choose fear or accumulation, and the two goals fight each other. Choose understood coexistence, and the same principle that fulfils the member also sustains the whole.
 
 ## References
-
-All sources cited in this document, grouped by tradition. Each entry begins with the bold tag used in the text.
 
 ### Madhyasth Darshan (primary sources)
 

@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) - a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 16, 2026, 4:51 PM IST
+**Edited on:** June 18, 2026, 9:40 PM IST
 
 **Status:** Draft
 
@@ -10,7 +10,6 @@
 
 This study argues that Madhyasth Darshan gives a distinctive answer: human ethics is not merely obedience to rules, calculation of consequences, inherited custom, or emotional intuition. It is the lived evidence of a human being who understands existence as coexistence, understands the self as `jeevan` in association with the body, and fulfils values in relationships through justice, dharma, truth, character, right-use, and purposeful participation in orderliness.
 
----
 
 ## Quick Glossary
 
@@ -30,7 +29,6 @@ This study argues that Madhyasth Darshan gives a distinctive answer: human ethic
 | ***Mithya*** | In Advaita: the world as dependent appearance, neither absolute reality nor sheer non-being. |
 | **Moral psychology** | The empirical study of human thought, emotion, judgment, motivation, and behaviour in moral contexts. |
 
----
 
 ## 1. The Central Thesis
 
@@ -50,7 +48,6 @@ Madhyasth Darshan answers by joining ontology, anthropology, and conduct:
 
 This makes Madhyasth Darshan neither a conventional moral code nor a secular moral psychology. It is a proposed science of humane living grounded in a metaphysics of coexistence.
 
----
 
 ## 2. Ethics and Morals: A Working Distinction
 
@@ -70,11 +67,8 @@ This distinction matters because many societies have strong morals and weak ethi
 
 Madhyasth Darshan tries to bridge this split. It does not want ethics to remain theory, nor morals to remain inherited rule. It wants **understood conduct**.
 
----
 
 ## 3. The Madhyasth Darshan Answer
-
-**The claim in one sentence:** Ethics and morals in human beings are fulfilled as humane conduct: values, character, and right-use grounded in the understanding of `jeevan`, coexistence, justice, dharma, truth, and relationships.
 
 ### 3.1 Ethics is part of humane conduct
 
@@ -232,7 +226,6 @@ Thus the test of ethics is not only sincerity, scripture, emotion, or intention.
 
 This gives Madhyasth Darshan a practical criterion for judging moral systems. A system that produces obedience but not resolution, wealth but not prosperity, law but not trust, or spirituality but not humane conduct remains incomplete.
 
----
 
 ## 4. Traditional Religions: Ethics as Divine Command, Sacred Law, and Virtue
 
@@ -265,7 +258,6 @@ The contrast can be stated simply:
 
 Thus, Madhyasth Darshan does not merely reject religion. It relocates the source of ethics from **commanded morality** to **understood orderliness**. If religious virtues become understood as relationship-values and coexistence, they can converge with humane conduct. If they remain only obedience to authority, they remain incomplete.
 
----
 
 ## 5. Advaita Vedanta: Ethics as Preparation and Expression of Self-Knowledge
 
@@ -328,7 +320,6 @@ Advaita's strength is its profound critique of ego, desire, and identification w
 
 Its vulnerability, from Madhyasth Darshan's standpoint, is that it does not by itself give a complete programme for family, economy, production, right-use, education, justice, undivided society, and coexistence with nature. If the final truth is the witness Self and the world is `mithya`, worldly order may become ethically secondary. Madhyasth Darshan refuses this move. It says the world is real, relationships are real, units are real, and conduct is the evidence of understanding.
 
----
 
 ## 6. Modern Scientific Approaches
 
@@ -394,9 +385,8 @@ Madhyasth Darshan would likely accept the observation that humans moralize sever
 
 For Madhyasth Darshan, the criterion is not "what humans commonly moralize." The criterion is whether the moral response aligns with justice, dharma, truth, relationship-values, and coexistence.
 
----
 
-## 7. Comparative Matrix
+## 7. Comparison
 
 | Question | Madhyasth Darshan | Traditional religion | Advaita Vedanta | Modern science |
 |---|---|---|---|---|
@@ -408,37 +398,24 @@ For Madhyasth Darshan, the criterion is not "what humans commonly moralize." The
 | Evidence | Resolution, prosperity, fearlessness, coexistence in living | Obedience, repentance, virtue, charity, communal order, salvation/liberation claims | Self-knowledge, detachment, freedom from bondage | Behavioural data, cross-cultural evidence, experiments, neuroscience |
 | Failure mode | Can become metaphysical assertion if not evidenced in conduct | Can become dogmatic, guilt-based, sectarian, or authority-dependent | Can become inward or world-negating if social conduct is underspecified | Can become descriptive, reductionist, or unable to justify ultimate ought |
 
----
 
-## 8. Critical Assessment
+## 8. Critical review
 
-### 8.1 Strengths of Madhyasth Darshan
+### 8.1 Madhyasth Darshan
 
-**1. It refuses to separate knowledge and conduct.**  
-A person who claims realization but cannot evidence justice, right-use, relationship-values, and social responsibility is not ethically complete.
+**Strengths.**
 
-**2. It integrates body, mind, wealth, sexuality, relationship, society, and nature.**  
-Many ethical theories focus on one domain: rights, consequences, virtue, duty, liberation, emotion, or cooperation. Madhyasth Darshan links all of them through humane conduct.
+- It refuses to separate knowledge and conduct. A person who claims realization but cannot evidence justice, right-use, relationship-values, and social responsibility is not ethically complete.
+- It integrates body, mind, wealth, sexuality, relationship, society, and nature. Many ethical theories focus on one domain: rights, consequences, virtue, duty, liberation, emotion, or cooperation. Madhyasth Darshan links all of them through humane conduct.
+- It gives a concrete test of moral maturity. The move from pleasant/healthy/profitable to just/dharmic/true is a powerful diagnostic tool for individuals, families, markets, politics, education, and technology.
+- It avoids both moral relativism and command morality. Moral rules are not merely local customs, but neither are they arbitrary commands. They are to be understood and evidenced.
+- It treats wealth and production ethically without rejecting them. The sequence from need to production to right-use is more socially complete than renunciation-only spirituality and more humane than growth-only economics.
 
-**3. It gives a concrete test of moral maturity.**  
-The move from pleasant/healthy/profitable to just/dharmic/true is a powerful diagnostic tool for individuals, families, markets, politics, education, and technology.
+**Weaknesses.**
 
-**4. It avoids both moral relativism and command morality.**  
-Moral rules are not merely local customs, but neither are they arbitrary commands. They are to be understood and evidenced.
-
-**5. It treats wealth and production ethically without rejecting them.**  
-The sequence from need to production to right-use is more socially complete than renunciation-only spirituality and more humane than growth-only economics.
-
-### 8.2 Vulnerabilities of Madhyasth Darshan
-
-**1. It depends on its ontology.**  
-The full argument relies on `jeevan`, coexistence, Omnipresence, awakening, and the human as knowledge-order. A secular scientist may accept the practical ethics while rejecting the metaphysics.
-
-**2. Its universality requires public demonstration.**  
-The claim that humane conduct is universally consistent across all times and places is strong. It needs continued comparative work across cultures, institutions, and moral conflicts.
-
-**3. It must clarify hard cases.**  
-Madhyasth Darshan gives strong principles, but applied ethics must still clarify cases where relationship-values appear to conflict: family duty versus public justice, compassion toward a wrongdoer versus truth, immediate bodily need versus ecological right-use, or local loyalty versus universal humaneness.
+- It depends on its ontology. The full argument relies on `jeevan`, coexistence, Omnipresence, awakening, and the human as knowledge-order. A secular scientist may accept the practical ethics while rejecting the metaphysics.
+- Its universality requires public demonstration. The claim that humane conduct is universally consistent across all times and places is strong. It needs continued comparative work across cultures, institutions, and moral conflicts.
+- It must clarify hard cases. Madhyasth Darshan gives strong principles, but applied ethics must still clarify cases where relationship-values appear to conflict: family duty versus public justice, compassion toward a wrongdoer versus truth, immediate bodily need versus ecological right-use, or local loyalty versus universal humaneness.
 
 The key test is:
 
@@ -451,8 +428,7 @@ This means family duty cannot justify hiding injustice; one should stand with th
 
 So the applied principle is crisp: **justice requires relationship-aware truthfulness**. It is neither cold legalism nor blind affection; neither ecological absolutism nor human convenience. It protects humaneness across person, family, society, and nature.
 
-**4. It risks moral idealism if social mechanisms are underdeveloped.**  
-Understanding is central, but institutions, incentives, trauma, inequality, and power also shape conduct. Madhyasth Darshan needs a robust account of how awakened education and social design handle these realities.
+- It risks moral idealism if social mechanisms are underdeveloped. Understanding is central, but institutions, incentives, trauma, inequality, and power also shape conduct. Madhyasth Darshan needs a robust account of how awakened education and social design handle these realities.
 
 ### 8.3 Strengths and limits of traditional religion
 
@@ -478,7 +454,6 @@ Modern science is strongest in explaining:
 
 Its limitation is normativity. Science can show that humans value cooperation, punish cheaters, feel empathy, respond to harm, and form group norms. It cannot by itself prove that one ought to live for justice, truth, right-use, or universal coexistence. It can inform ethics, constrain ethics, and expose self-deception, but it does not replace the need for an account of human purpose.
 
----
 
 ## 9. Final Answer
 
@@ -492,15 +467,9 @@ Compared with traditional religions, Madhyasth Darshan is less command-centred a
 
 Compared with science, Madhyasth Darshan is more normative and ontological. Science explains moral judgment through evolution, cooperation, emotion, cognition, culture, and neural systems. Madhyasth Darshan asks what human beings are for, what fulfils them, and what conduct evidences correct understanding.
 
-The most balanced critical conclusion is:
-
-> Madhyasth Darshan offers a rigorous ethical anthropology in which morality is neither divine command, nor social convention, nor evolutionary strategy, nor private emotion. It is the evidence of understanding coexistence. Its practical strength lies in integrating values, character, ethics, wealth, family, society, and nature. Its philosophical vulnerability lies in the need to make its ontology of `jeevan`, awakening, and coexistence publicly examinable for those outside the darshan.
-
----
+Madhyasth Darshan offers a rigorous ethical anthropology in which morality is neither divine command, nor social convention, nor evolutionary strategy, nor private emotion. It is the evidence of understanding coexistence. Its practical strength lies in integrating values, character, ethics, wealth, family, society, and nature. Its philosophical vulnerability lies in the need to make its ontology of `jeevan`, awakening, and coexistence publicly examinable for those outside the darshan.
 
 ## References
-
-All sources cited in this document. Each entry begins with the bold tag used in the text.
 
 ### Madhyasth Darshan (primary sources)
 
