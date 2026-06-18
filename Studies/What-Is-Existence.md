@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 18, 2026, 2:59 PM IST
+**Edited on:** June 18, 2026, 3:36 PM IST
 
 **Status:** Draft
 
@@ -26,6 +26,7 @@ These topical studies state the philosophy in clear, checkable prose first. A se
 |------|---------------|
 | **Existence (*astitva*)** | In Madhyasth Darshan: beingness (*hona*) and indestructibility (*anashita*), always present as coexistence (*saha-astitva*). |
 | **Coexistence (*saha-astitva*)** | Reality as the pervasive ground (*satta*) and all units (*ikai*) inseparably present together. |
+| **Time (*kaal*)** | In Madhyasth Darshan: the duration of unit-activity (*kriya*), not an independent cosmic container; numerical reckoning of duration is a human convention within existence (§1.8). Full treatment: *Nature-Of-Time*. |
 | **Satta (Omnipresence)** | The all-pervasive, formless, non-transforming ground in which all units (*ikai*) are saturated (*samprikt*). Translation and naming conventions: Editorial Notes. |
 | **Saturation-Reflector Model** | **[Interpretation]** Sentience is not generated from dead matter; the ever-present *gyan* of *satta* is expressed as active sentience (*chaitanya*) only when a constitutionally complete atom (*gathanpurna parmanu*) acts as a stable "reflector." Canonical exposition: §6.6. |
 | **Unit (*ikai*)** | A countable, bounded entity in nature, whether insentient (*jada*) or sentient (*chaitanya*). |
@@ -288,7 +289,36 @@ For Madhyasth Darshan, existence does not begin in the sense of coming from abso
 
 **[Open]** The source explicitly infers *jeevan*'s post-death survival from the conservation principle — the most contentious step in the chain from "nothing is annihilated" to "an immortal sentient unit persists." From the standpoint of modern science, this inference rests on a category error between the **conservation of quantity** and the **conservation of structure (or entity)**. Physics conserves fundamental quantities (mass-energy, spin, electric charge), but does *not* conserve specific structures, configurations, or functional identities. A computer or a biological cell can be destroyed, and while all constituent energy and matter are conserved, the functional identity of the structure is annihilated. Thus, thermodynamic conservation alone does not guarantee the immortality of a structured unit like *jeevan* unless its *gathanpurnata* (absolute physical indivisibility) is already assumed as a separate metaphysical axiom.
 
-Time (*kaal*) is not an independent cosmic dimension or background substance. It is the human measurement of the activity, change, and motion (*kriya* / *gati*) of units. Because formless Omnipresence is actionless and non-transforming, it is timeless; time applies only to the transformations of active units in nature.
+#### The nature of *kaal* (preview)
+
+The third paper question — does what exists begin **at some time**? — presupposes an account of time. Madhyasth Darshan does not treat time (*kaal*) as an independent cosmic dimension, substance, or container in which existence sits. The primary texts define it through **activity**:
+
+> **"Time (*kaal*): Duration of an activity is referred to as time."**
+> - MVD, p. 34 (also p. 196; p. 338: "Duration of activity")
+
+Time is therefore inseparable from the motion, change, and effort–motion–result cycles of active units (§1.3). Where there is no transforming activity — in formless, actionless Omnipresence (*satta*) — there is no *kaal* in this sense. *Satta* is non-transforming (*kriya-shunya*); coexistence as a whole is beginningless and endless (below), and SB names one of *satta*'s English equivalents **Eternity** (SB, p. 48).
+
+This is not a denial that units undergo real change. Insentient and sentient units are eternally active; development (*vikas*), cyclical restoration, and awakening are temporal processes **within** coexistence, not passages into or out of existence itself. The circular causality of §1.3 is also a temporal structure: effort, motion, and result are inseparable aspects of ongoing activity, not a static snapshot.
+
+**Timeless truth and the three times.** SB states that the harmony of consciousness and matter is:
+
+> **"…a timeless truth valid across all three times."**
+> - SB, p. 48
+
+The Sanskrit *trikaalabadh* (binding across past, present, and future) applies to coexistence as a whole — not to prove that *kaal* is illusory, but that what is understood about coexistence does not come and go with a moment. MVD also describes Omnipresence (*vyapak*) as existing **"at all places and times, and … eternally present"** (MVD, p. 34). The contrast to keep in view: *satta* is atemporal as ground (formless, non-transforming), yet coexistence is valid across the three times; *kaal* as duration belongs to the activity of units, not to *satta* as efficient cause.
+
+**Measurement and numerical reckoning.** Duration is real as an aspect of activity, but the **reckoning** of time is conventional within existence:
+
+> **"Time is measured by the duration of an activity."**
+> - SB, p. 65
+
+> **"The duration of activity, as time, is a humanly devised numerical reckoning within existence."**
+> - SB, p. 251
+
+> **"The measurement of time, expanse and different compositions is through mathematics."**
+> - MVD, p. 195
+
+So *kaal* is not a freestanding entity alongside *satta* and *ikai*; it is the duration of unit-activity, made explicit for human purposes through number and mathematics. **[Open]** How past, present, and future relate to "activity eternally present" — a theme developed in JVD (p. 85) — needs a full comparative treatment; see the ongoing study [*Nature-Of-Time*](Nature-Of-Time.md).
 
 This ontology distinguishes absolute annihilation (*vinasha*) from physical transformation (*roopantaran*). An entity changes configuration, but its underlying substance (*vastu*) is never destroyed:
 
@@ -313,6 +343,7 @@ The result is a conservation-based ontology:
 | Do bodies begin and end? | Yes. Birth and death are events at the level of body (*shareer*) and association. |
 | Does *jeevan* begin at birth? | No. *Jeevan* is immortal; birth and death are occurrences. |
 | Does sentient status have a developmental account? | Yes. Constitutional completeness (*gathanpurnata*) is attainment of sentient status — within eternal coexistence, not as creation from nothing (see the emergence tension, §1.5). |
+| What is time (*kaal*)? | Duration of unit-activity; not an independent cosmic container. Numerical reckoning of duration is a human convention within existence (SB, pp. 65, 251; MVD, pp. 34, 195). *Satta* is timeless as non-transforming ground. Preview only — see *Nature-Of-Time*. |
 
 The Madhyasth answer to all three paper questions is now stated; §1.9 names what distinguishes this ontology from its main rivals.
 
@@ -449,6 +480,12 @@ Liberation (*moksha*) is not dissolution or merger of a real individual into Bra
 | What exists? | Absolutely: Brahman alone. Empirically: bodies, minds, Ishvara, duties — all *mithya* at *paramartha*. |
 | Does it begin? | Brahman does not begin. Name-form manifests at *vyavahara*; liberation is recognition of pre-existing identity. |
 
+### 2.6 Time and temporality
+
+Advaita does not devote a separate chapter to *kaal*, but its framework implies a sharp division. **Brahman** is beginningless, changeless, motionless — outside temporal becoming (VC, v. 393). At ***paramartha***, only Brahman is absolutely real; temporality belongs to the empirical order. At ***vyavahara***, past, present, and future, birth and death, and causal succession are operationally valid — the world is law-governed and shared (§2.3) — yet finally sublated when Brahman alone is known.
+
+The *Mandukya* analysis of waking, dream, and deep sleep (§2.2) is a first-person route into how temporal **states** appear and are witnessed; the witness (*turiya*) is not another state among them. Madhyasth Darshan accepts the reality of cyclical development and unit-activity across orders (§1.3–1.4) and refuses to sublate the world at the highest realization; its account of *kaal* as duration of activity (§1.8) is therefore closer to a **realist** temporal ontology at every order, while still denying that time is a substance independent of activity. A full comparison with Advaita's *trikaal* language and with Madhyasth Darshan's *trikaalabadh* coexistence claim (SB, p. 48) belongs in [*Nature-Of-Time*](Nature-Of-Time.md).
+
 ## 3. Modern Philosophical Approaches
 
 Having examined Advaita Vedanta's world-subordinating non-dualism, we now turn to modern Western philosophy of mind. The contrast is stark: where Advaita asks how the empirical world arises from pure consciousness, modern philosophy asks how consciousness could possibly arise from a purely physical world.
@@ -551,7 +588,7 @@ The standard cosmological model suggests the observable universe had a beginning
 
 **Fields vs. *vastu*.** In quantum field theory, what persists are field configurations and conserved quantities; a "particle" is a localized excitation, not a tiny enduring substance. Madhyasth Darshan's *vastu* names an underlying reality that survives every *roop*-change. The parallel is structural (configuration changes, something is conserved), not identity of category: fields are mathematical-physical entities governed by equations, not countable units with *dharma* saturated in Omnipresence.
 
-**Time (*kaal*) vs. spacetime.** Modern physics treats spacetime as a dynamical entity — it can expand, curve, and in some models begin locally. Madhyasth Darshan treats time as the measurement of unit activity, not an independent cosmic container; Omnipresence is timeless. The contrast is over whether temporality belongs to the ground of reality or only to transforming units.
+**Time (*kaal*) vs. spacetime.** Modern physics treats spacetime as a dynamical entity — it can expand, curve, and in some models begin locally. Madhyasth Darshan treats *kaal* as the **duration of unit-activity**, numerically reckoned by humans within existence (§1.8; SB, pp. 65, 251; MVD, pp. 34, 195) — not an independent cosmic container. Omnipresence is timeless as non-transforming ground. The contrast is over whether temporality belongs to the ground of reality or only to transforming units, and over whether spacetime is fundamental physics or derivative of measurement conventions on activity. Relational and process philosophies of time (§3.4) share some structural affinity with activity-based *kaal*; block-universe eternalism does not. Comparative detail: [*Nature-Of-Time*](Nature-Of-Time.md).
 
 **Entropy vs. orderliness (*vyavastha*).** Thermodynamics describes a statistical arrow toward disorder in closed systems. Madhyasth Darshan asserts inherent orderliness at every order, with development toward greater organization when units are in their natural state. These are not straightforward opposites — biological and ecological systems can increase local order at the cost of entropy elsewhere — but they use different notions of "order," and the paper should not treat the second law as evidence for or against coexistence.
 
@@ -613,6 +650,7 @@ Use §5.4 for the full entity matrix; this table compares the three traditions o
 | What exists? | Omnipresence and real units, sentient and insentient. | Brahman alone (absolutely); world *mithya* at *paramartha*. | Usually the physical; experience disputed. |
 | Does it begin? | No — what exists does not come from non-existence; bodies and configurations do. | Brahman does not begin; name-form at *vyavahara*. | Particular systems begin and end; cosmology unsettled. |
 | Does the individual self begin? | *Jeevan* does not begin at birth or die with the body. | *Jiva* is ultimately Brahman; separate individuality dispelled at realization (VC, vv. 244, 574). | Self develops as biological/cognitive process. |
+| What is time? | Duration of unit-activity; human numerical reckoning within existence; *satta* timeless as ground (§1.8). | Brahman beyond temporal becoming; time valid at *vyavahara*, sublated at *paramartha*. | Spacetime as dynamical physical structure; philosophy of time contested. |
 | Is the world finally real? | Yes. "Brahma is truth, the world is perpetual." | Empirically valid but ultimately *mithya*. | Yes, as physical reality. |
 | Method of knowing | Study, realization, behavior, experiment. | Scripture, reasoning, contemplative discrimination. | Observation, modelling, public evidence. |
 | Ethical consequence | Humane conduct evidences understanding of coexistence. | Ethics prepares the mind for liberation. | Ethics via naturalism, social/normative theory. |
@@ -745,6 +783,8 @@ The items below mark what any later rigorous treatment must settle. Each is stat
 
 **4. "Knowledge but not knower" (§1.6).** Comparative work must not collapse Omnipresence-as-*gyan* into Advaita's *chit*. Naming tensions in the English translation: Editorial Notes. The full epistemic account belongs in [Knowledge, Knower, and Known](Knowledge-Knower-And-Known.md).
 
+**9. The nature of time (§1.8).** This paper states Madhyasth Darshan's core claim — *kaal* as duration of activity, not independent substance; timeless *satta*; numerical reckoning within existence — but does not yet treat past/present/future structure, the relation of "activity eternally present" to human temporal experience (JVD, p. 85), or systematic comparison with Advaita *trikaal* language, McTaggart, eternalism/presentism, and spacetime physics. That work is reserved for [*Nature-Of-Time*](Nature-Of-Time.md).
+
 ### 6.3 Strengths and Limits of Advaita
 
 Advaita has a powerful answer to non-being (existence cannot arise from non-existence, CU 6.2.2) and a rigorous first-person method — DDV's seer-seen discrimination and MU's three-state analysis (§2.2, §2.4). Its limit, from the Madhyasth perspective, is that making the world *mithya* at *paramartha* makes it harder to ground the **final** ontological weight of relationships, nature, society, and conduct — even though *vyavahara* is robust, shared, and law-governed (§2.3).
@@ -842,8 +882,8 @@ All sources cited in this document, grouped by tradition. Each entry begins with
 
 ### Madhyasth Darshan (primary sources)
 
-- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: Realisation Knowledge (p. 11); Omnipresence/Space (pp. 11, 13, 35); eight Reality propositions (pp. 12–13); "Brahma is truth, the world is perpetual" (p. 13); gist of coexistence (p. 5); knowledge unfolding by awakened humans (p. 115); *sanskar* definition (p. 90); four-level causal hierarchy (p. 288); order-specific cyclical manifestation and knowledge unfolding through *jeevan*/thoughts (p. 289); reflection–projection cycle (pp. 290–291).
-- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: existence as nature saturated in Omnipotence (p. 48); Omnipotence all-pervasive and countless units (p. 49); complementarity from coexistence (p. 49); give–take reciprocity (pp. 52–53); regulation, activeness, forcefulness from saturation in Omnipotence (p. 57); effort–motion–result triad (p. 58); constitutional completeness and quantitative stability (pp. 55, 59); identity-chain and basic impulsion (p. 62); unit energy from saturation (p. 69); state–motion inseparability (pp. 248–249).
+- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: Realisation Knowledge (p. 11); Omnipresence/Space (pp. 11, 13, 35); eight Reality propositions (pp. 12–13); "Brahma is truth, the world is perpetual" (p. 13); gist of coexistence (p. 5); *vyapak* at all places and times (p. 34); time (*kaal*) as duration of activity (pp. 34, 196, 338); measurement of time through mathematics (p. 195); knowledge unfolding by awakened humans (p. 115); *sanskar* definition (p. 90); four-level causal hierarchy (p. 288); order-specific cyclical manifestation and knowledge unfolding through *jeevan*/thoughts (p. 289); reflection–projection cycle (pp. 290–291).
+- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: existence as nature saturated in Omnipotence (p. 48); timeless truth across three times (p. 48); Omnipotence all-pervasive and countless units (p. 49); complementarity from coexistence (p. 49); give–take reciprocity (pp. 52–53); regulation, activeness, forcefulness from saturation in Omnipotence (p. 57); effort–motion–result triad (p. 58); constitutional completeness and quantitative stability (pp. 55, 59); identity-chain and basic impulsion (p. 62); unit energy from saturation (p. 69); time measured by duration of activity (p. 65); humanly devised numerical reckoning of time (p. 251); state–motion inseparability (pp. 248–249).
 - **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: birth, death, conservation, and *jeevan* post-death continuity (p. 20).
 
 ### Madhyasth Darshan (secondary exposition)
