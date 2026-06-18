@@ -1,7 +1,12 @@
-"""Extract context windows for unit-assembly template research from JV and MVD caches."""
+"""Extract context windows for unit-assembly template research from JV and MVD caches.
+
+Archived research script — outputs under Scripts/research/.
+"""
 import re
 
-from _common import SCRIPTS, chapter_map, load_pages
+import _bootstrap
+from _bootstrap import RESEARCH
+from _common import chapter_map, load_pages
 
 TERMS = [
     "coexistence",
@@ -62,5 +67,5 @@ for key in ["JV", "MVD"]:
         if hits == 0:
             out_lines.append("(no hits)")
 
-(SCRIPTS / "_template_search.txt").write_text("\n".join(out_lines), encoding="utf-8")
-print(f"Wrote {SCRIPTS / '_template_search.txt'}")
+(RESEARCH / "_template_search.txt").write_text("\n".join(out_lines), encoding="utf-8")
+print(f"Wrote {RESEARCH / '_template_search.txt'}")

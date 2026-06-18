@@ -1,15 +1,6 @@
-"""Verify block-quoted passages in Studies/ against local files in References/.
-
-Scans every Studies/*.md for blockquotes with a source tag (e.g. MVD, SB, Chalmers 1995),
-loads the matching file from References/ (PDF, HTML, or markdown), and checks that the
-quoted text appears there — reporting page hits, partial matches, wrong-source hits, and misses.
-
-Works with any document stored under References/, not only MVD/SB/JV. Quotes without a
-source tag and sources not stored locally are skipped.
-"""
+"""Blockquote verification against local References/ files."""
 from __future__ import annotations
 
-import argparse
 import re
 from dataclasses import dataclass
 from pathlib import Path
@@ -21,7 +12,6 @@ from _common import (
     TAG_ABBREVS,
     find_phrase,
     load_reference_pages,
-    norm,
     parse_reference_registry,
 )
 
@@ -154,26 +144,12 @@ def collect_quotes(study_filter: str | None) -> list[ExtractedQuote]:
     return quotes
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser(
-        description="Verify Studies blockquotes against local References/ files.",
-    )
-    parser.add_argument(
-        "--study",
-        help="Verify one study only (markdown stem, e.g. Why-Humans-Are-Not-Just-Material)",
-    )
-    parser.add_argument(
-        "--tags",
-        help="Comma-separated tags to verify (default: all tags with local files)",
-    )
-    args = parser.parse_args()
-
+def run_verify(study_filter: str | None = None, tag_filter: set[str] | None = None) -> int:
     registry = parse_reference_registry()
-    tag_filter = {tag.strip() for tag in args.tags.split(",")} if args.tags else None
     if tag_filter:
         registry = {tag: path for tag, path in registry.items() if tag in tag_filter}
 
-    quotes = collect_quotes(args.study)
+    quotes = collect_quotes(study_filter)
     if tag_filter:
         quotes = [quote for quote in quotes if quote.tags and quote.tags[0] in tag_filter]
 
@@ -226,7 +202,4 @@ def main() -> None:
         f"skipped_no_tag={counts['SKIP_NO_TAG']} "
         f"skipped_no_local_file={counts['SKIP_NO_LOCAL_FILE']}"
     )
-
-
-if __name__ == "__main__":
-    main()
+    return 0

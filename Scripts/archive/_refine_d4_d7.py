@@ -1,10 +1,8 @@
 """Refine D7 (justice as operator) + D7a (trust), and repair all mangled symbols.
 
-The workspace editors save this file as cp1252, which turns every non-cp1252
-glyph (Greek letters, arrows, set symbols, subscripts) into '?'. This script
-reads the file as cp1252, restores those glyphs by context, swaps the old D7
-paragraph for the new D7 + D7a, and writes the result back as UTF-8.
+Archived one-off editor for The-Coexistence-Template.md.
 """
+import _bootstrap  # noqa: F401
 from _common import BASE
 
 KAPPA, TAU, MU, RHO, PHI = "\u03ba", "\u03c4", "\u03bc", "\u03c1", "\u03c6"

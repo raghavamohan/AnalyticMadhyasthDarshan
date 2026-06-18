@@ -1,4 +1,8 @@
-"""Repair mangled Unicode math symbols in The-Coexistence-Template.md (one-off)."""
+"""Repair mangled Unicode math symbols in The-Coexistence-Template.md (one-off).
+
+Archived — kept for history; do not run on current studies without review.
+"""
+import _bootstrap  # noqa: F401
 from pathlib import Path
 
 from _common import BASE

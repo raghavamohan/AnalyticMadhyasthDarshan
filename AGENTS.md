@@ -117,12 +117,31 @@ When a study markdown file under `Studies/` needs a PDF, **always** use the
 repository pipeline. Do not substitute pandoc, `markdown-pdf`, VS Code export,
 hand-written Puppeteer scripts, or other one-off converters.
 
-### Required two-step pipeline
+### Regenerate one study
+
+```powershell
+python Scripts/_regenerate_pdf.py <Name>
+```
+
+Reads **Status:** from the markdown and applies the Draft watermark when appropriate.
+
+### Internal pipeline (batch or debugging)
+
+`_regenerate_pdf.py` calls these two steps:
 
 1. **`Scripts/_convert_to_pdf.py`** — markdown → styled HTML (same basename, `.html`).
 2. **`Scripts/_html_to_pdf.js`** — HTML → PDF via Puppeteer (footer, A4 margins).
 
-Run from the repository root in PowerShell:
+Regenerate all studies (exclude `README.md`):
+
+```powershell
+$studies = Get-ChildItem Studies/*.md | Where-Object { $_.Name -ne 'README.md' }
+foreach ($s in $studies) {
+  python Scripts/_regenerate_pdf.py $s.BaseName
+}
+```
+
+Manual single-study steps (only if needed):
 
 ```powershell
 python Scripts/_convert_to_pdf.py Studies/<Name>.md --watermark Draft
@@ -130,10 +149,8 @@ node Scripts/_html_to_pdf.js Studies/<Name>.html
 Remove-Item Studies/<Name>.html
 ```
 
-- **`--watermark Draft`** — required for studies in **Draft** status (diagonal
-  watermark on every page). Omit only when regenerating a **Released** study.
-- **Delete the intermediate `.html`** after PDF generation; it is a build
-  artifact, not a published file.
+- **`--watermark Draft`** — required for studies in **Draft** status. Omit for **Released**.
+- **Delete the intermediate `.html`** after PDF generation; it is a build artifact.
 
 ### What the scripts provide (do not reimplement)
 
@@ -146,17 +163,18 @@ Remove-Item Studies/<Name>.html
 
 ### Regenerate one or all studies
 
-Single study — replace `<Name>` with the file stem (e.g. `Aesthetics`).
+Single study — replace `<Name>` with the file stem (e.g. `Aesthetics`):
+
+```powershell
+python Scripts/_regenerate_pdf.py <Name>
+```
 
 All studies (exclude `README.md`):
 
 ```powershell
 $studies = Get-ChildItem Studies/*.md | Where-Object { $_.Name -ne 'README.md' }
 foreach ($s in $studies) {
-  python Scripts/_convert_to_pdf.py $s.FullName --watermark Draft
-  $html = $s.FullName -replace '\.md$', '.html'
-  node Scripts/_html_to_pdf.js $html
-  Remove-Item $html
+  python Scripts/_regenerate_pdf.py $s.BaseName
 }
 ```
 

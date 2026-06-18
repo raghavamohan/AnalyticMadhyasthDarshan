@@ -1,7 +1,12 @@
-"""Extract the value taxonomy (established/expressed values, justice, trust chain)."""
+"""Extract the value taxonomy (established/expressed values, justice, trust chain).
+
+Archived research script — outputs under Scripts/research/.
+"""
 import re
 
-from _common import SCRIPTS, chapter_map, load_pages
+import _bootstrap
+from _bootstrap import RESEARCH
+from _common import chapter_map, load_pages
 
 TERMS = [
     "established value",
@@ -53,5 +58,5 @@ for key in ["MVD", "JV"]:
         if hits == 0:
             out_lines.append("(none)")
 
-(SCRIPTS / "_values_search.txt").write_text("\n".join(out_lines), encoding="utf-8")
+(RESEARCH / "_values_search.txt").write_text("\n".join(out_lines), encoding="utf-8")
 print("wrote Scripts/_values_search.txt")

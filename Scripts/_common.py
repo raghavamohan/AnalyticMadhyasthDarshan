@@ -21,6 +21,9 @@ SOURCE = REFERENCES / "Madhyasth-Darshan"
 TAG_ABBREVS = frozenset(
     {"MVD", "SB", "JV", "AVD", "JVD", "BU", "TU", "KU", "MU", "CU", "BG", "BSB", "VC", "DDV", "Bhattacharya", "AV", "SV", "ATR"}
 )
+PDF_CACHE_VERSION = "v2"
+PAGE_HEADER_RE = re.compile(rf"---PAGE (\d+) {PDF_CACHE_VERSION}---\n")
+
 AUTHOR_YEAR_PREFIXES = (
     "Chalmers",
     "Nagel",
@@ -54,6 +57,32 @@ AUTHOR_YEAR_PREFIXES = (
     "Kuhn",
     "Massimi",
 )
+
+
+def ligature_norm(text: str) -> str:
+    """Normalize PDF ligatures and non-breaking spaces before whitespace collapse."""
+    return (
+        text.replace("\u00a0", " ")
+        .replace("\ufb01", "fi")
+        .replace("\ufb02", "fl")
+        .replace("\ufb00", "ff")
+        .replace("\ufb03", "ffi")
+        .replace("\ufb04", "ffl")
+    )
+
+
+def clean_pdf_text(text: str) -> str:
+    """Collapse word-per-line PDF extraction artifacts into contiguous prose."""
+    text = ligature_norm(text)
+    text = re.sub(r"[ \t]{2,}", " ", text)
+    text = re.sub(r"\s*\n\s*", " ", text)
+    text = re.sub(r" {2,}", " ", text)
+    return text.strip()
+
+
+def extract_pdf_page_text(raw: str) -> str:
+    """Full PDF page text prep: ligatures then whitespace collapse."""
+    return clean_pdf_text(raw)
 
 
 def norm(text: str) -> str:
@@ -133,20 +162,28 @@ def html_to_text(raw: str) -> str:
     return html.unescape(raw)
 
 
+def _parse_pdf_cache(raw: str) -> list[tuple[int, str]]:
+    pages: list[tuple[int, str]] = []
+    for chunk in raw.split("\f"):
+        if not chunk.strip():
+            continue
+        match = PAGE_HEADER_RE.match(chunk)
+        if match:
+            pages.append((int(match.group(1)), chunk[match.end() :]))
+    return pages
+
+
+def _page_header(page_num: int) -> str:
+    return f"---PAGE {page_num} {PDF_CACHE_VERSION}---\n"
+
+
 def load_reference_pages(path: Path, cache_key: str) -> list[tuple[int, str]]:
     """Load a reference file as (page_number, text) pairs. PDFs are cached under Scripts/_pdf_cache/."""
     cache_file = CACHE / f"{cache_key}.txt"
     CACHE.mkdir(exist_ok=True)
 
     if cache_file.exists() and path.suffix.lower() == ".pdf":
-        raw = cache_file.read_text(encoding="utf-8", errors="replace")
-        pages: list[tuple[int, str]] = []
-        for chunk in raw.split("\f"):
-            if not chunk.strip():
-                continue
-            match = re.match(r"---PAGE (\d+)---\n", chunk)
-            if match:
-                pages.append((int(match.group(1)), chunk[match.end() :]))
+        pages = _parse_pdf_cache(cache_file.read_text(encoding="utf-8", errors="replace"))
         if pages:
             return pages
 
@@ -156,9 +193,9 @@ def load_reference_pages(path: Path, cache_key: str) -> list[tuple[int, str]]:
         pages = []
         parts = []
         for index, page in enumerate(reader.pages, start=1):
-            text = page.extract_text() or ""
+            text = extract_pdf_page_text(page.extract_text() or "")
             pages.append((index, text))
-            parts.append(f"---PAGE {index}---\n{text}")
+            parts.append(f"{_page_header(index)}{text}")
         cache_file.write_text("\f".join(parts), encoding="utf-8")
         return pages
 
@@ -173,18 +210,25 @@ def load_reference_pages(path: Path, cache_key: str) -> list[tuple[int, str]]:
 
 
 def load_pages(key: str) -> list[tuple[int, str]]:
-    """Load a cached PDF text file (e.g. 'MVD') as (page_number, text) pairs."""
+    """Load cached PDF pages by citation tag (MVD) or legacy cache stem."""
+    registry = parse_reference_registry()
+    if key in registry:
+        path = registry[key]
+        stem_key = path.stem.replace(" ", "_")
+        return load_reference_pages(path, stem_key)
+
     cache_file = CACHE / f"{key}.txt"
     if not cache_file.exists():
         raise FileNotFoundError(
-            f"Cache missing for {key!r}. Run Scripts/_verify_quotes.py first to build Scripts/_pdf_cache/."
+            f"Cache missing for {key!r}. Run Scripts/_quote_tool.py verify to build "
+            f"Scripts/_pdf_cache/, or use a known citation tag (MVD, SB, JV)."
         )
-    raw = cache_file.read_text(encoding="utf-8", errors="replace")
-    pages: list[tuple[int, str]] = []
-    for chunk in raw.split("\f"):
-        match = re.match(r"---PAGE (\d+)---\n", chunk)
-        if match:
-            pages.append((int(match.group(1)), chunk[match.end() :]))
+    pages = _parse_pdf_cache(cache_file.read_text(encoding="utf-8", errors="replace"))
+    if not pages:
+        raise FileNotFoundError(
+            f"Cache for {key!r} is missing or uses an old format. "
+            f"Run Scripts/_quote_tool.py verify to rebuild Scripts/_pdf_cache/."
+        )
     return pages
 
 

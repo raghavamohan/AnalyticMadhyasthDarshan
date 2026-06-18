@@ -14,7 +14,7 @@ Local copies of source texts cited across `Studies/`. See [MANIFEST.md](MANIFEST
 
 Commercial science books, **ATR**, and other restricted material are **not** copied here. Link to the original publisher or author URL instead — see [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md). **Contributors: do not upload restricted material** to this folder; only add files you may redistribute.
 
-Run `Scripts/_verify_quotes.py` to check blockquotes in Studies against local files. Quotes tagged to external-only works are skipped.
+Run `Scripts/_quote_tool.py verify` to check blockquotes in Studies against local files. Quotes tagged to external-only works are skipped.
 
 ## Directory layout
 

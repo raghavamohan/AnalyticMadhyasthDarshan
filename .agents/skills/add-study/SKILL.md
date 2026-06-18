@@ -73,7 +73,7 @@ Imported PDFs are copied as-is. The stub `.md` is created without overwriting co
 If you edit body text later:
 
 1. Refresh `**Edited on:**` per `AGENTS.md` §1
-2. Regenerate PDF per `AGENTS.md` §3
+2. Regenerate PDF: `python Scripts/_regenerate_pdf.py <Slug>`
 
 Or use `_set_study_status.py` / `_add_study.py --force --skip-pdf` only for metadata sync — not for body edits without timestamp update.
 

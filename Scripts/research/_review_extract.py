@@ -1,7 +1,12 @@
-"""Extract review snippets around quoted phrases from the cached sources."""
+"""Extract review snippets around quoted phrases from the cached sources.
+
+Deprecated: prefer `python Scripts/_quote_tool.py snippet <tag> "<phrase>"`.
+"""
 import re
 
-from _common import SCRIPTS, chapter_map, load_pages, norm
+import _bootstrap
+from _bootstrap import RESEARCH
+from _common import chapter_map, load_pages, norm
 
 
 def find_snippet(pages: list[tuple[int, str]], phrase: str, width: int = 260) -> str:
@@ -56,5 +61,5 @@ for src, pages, phrase in checks:
         result += f" | {mvd_ch.get(page_num, '?')}"
     lines.append(f"[{src}] {phrase}\n  -> {result}\n")
 
-(SCRIPTS / "_review_quotes.txt").write_text("\n".join(lines), encoding="utf-8")
-print(f"Wrote {SCRIPTS / '_review_quotes.txt'}")
+(RESEARCH / "_review_quotes.txt").write_text("\n".join(lines), encoding="utf-8")
+print(f"Wrote {RESEARCH / '_review_quotes.txt'}")

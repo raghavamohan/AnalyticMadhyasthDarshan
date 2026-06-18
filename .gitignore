@@ -1,6 +1,7 @@
 node_modules/
 __pycache__/
 Scripts/_pdf_cache/
+Scripts/research/*.txt
 *.html
 !References/**/*.html
 !Studies/index.html

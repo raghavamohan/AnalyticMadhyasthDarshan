@@ -67,8 +67,8 @@ Run from the repository root. Append `--dry-run` to any command to preview witho
 | Add or register a study | `python Scripts\_add_study.py Studies\<Slug>.md --category "..." --description "..." --tags "MVD, SB, JV" --status draft` |
 | Remove a study | `python Scripts\_remove_study.py <Slug> --yes` |
 | Draft ↔ Released | `python Scripts\_set_study_status.py <Slug> --status released` |
-| Regenerate PDF after editing `.md` | See [PDF regeneration](#pdf-regeneration) below |
-| Verify blockquotes (optional) | `python Scripts\_verify_quotes.py --study <Slug>` |
+| Regenerate PDF after editing `.md` | `python Scripts\_regenerate_pdf.py <Slug>` |
+| Verify blockquotes (optional) | `python Scripts\_quote_tool.py verify --study <Slug>` |
 
 Windows wrappers: `.\Scripts\_add_study.ps1`, `.\Scripts\_remove_study.ps1`, `.\Scripts\_set_study_status.ps1`.
 
@@ -112,19 +112,23 @@ Confirm when prompted, or pass `--yes`. Then check other papers for cross-links 
 ### PDF regeneration
 
 ```powershell
+python Scripts\_regenerate_pdf.py <Slug>
+```
+
+This reads **Status:** from the markdown and applies the Draft watermark when appropriate. Manual steps if needed:
+
+```powershell
 python Scripts\_convert_to_pdf.py "Studies\<Slug>.md" --watermark Draft
 node Scripts\_html_to_pdf.js "Studies\<Slug>.html"
 Remove-Item "Studies\<Slug>.html"
 ```
-
-Use `--watermark Draft` for draft studies; omit it for released studies.
 
 ### Before opening a pull request
 
 1. Follow the study format and intent in [Studies/README.md](Studies/README.md).
 2. Link references to files under `References/` where permitted; otherwise link externally — see [References/NOT-DOWNLOADED.md](References/NOT-DOWNLOADED.md). Do not upload restricted material.
 3. Update [References/MANIFEST.md](References/MANIFEST.md) for new citations.
-4. Run `python Scripts\_verify_quotes.py` on your study if it quotes local sources.
+4. Run `python Scripts\_quote_tool.py verify --study <Slug>` on your study if it quotes local sources.
 5. Describe the question, primary texts, and any new references in the PR.
 
 ---
