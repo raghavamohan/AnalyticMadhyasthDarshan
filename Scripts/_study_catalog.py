@@ -549,11 +549,12 @@ def regenerate_pdf(md_path: Path, status: StudyStatus) -> None:
     convert_script = SCRIPTS / "_convert_to_pdf.py"
     html_path = md_path.with_suffix(".html")
     convert_cmd = [sys.executable, str(convert_script), str(md_path)]
-    if status == StudyStatus.DRAFT:
-        convert_cmd.extend(["--watermark", "Draft"])
     subprocess.run(convert_cmd, check=True, cwd=SCRIPTS.parent)
+    html_to_pdf_cmd = ["node", str(SCRIPTS / "_html_to_pdf.js"), str(html_path)]
+    if status == StudyStatus.DRAFT:
+        html_to_pdf_cmd.append("Draft")
     subprocess.run(
-        ["node", str(SCRIPTS / "_html_to_pdf.js"), str(html_path)],
+        html_to_pdf_cmd,
         check=True,
         cwd=SCRIPTS.parent,
     )

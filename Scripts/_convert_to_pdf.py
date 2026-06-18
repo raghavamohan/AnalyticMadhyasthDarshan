@@ -25,7 +25,7 @@ def absolutize_local_links(html_body: str, html_path: Path) -> str:
     return re.sub(r'href="([^"]+)"', replace, html_body)
 
 
-def convert_to_html(input_path: Path, watermark: str | None = None) -> Path:
+def convert_to_html(input_path: Path) -> Path:
     output_path = input_path.with_suffix(".html")
     md_text = input_path.read_text(encoding="utf-8")
     md_text = strip_status_for_pdf(md_text)
@@ -38,8 +38,6 @@ def convert_to_html(input_path: Path, watermark: str | None = None) -> Path:
         extensions=["tables", "fenced_code", "smarty"],
     )
     html_body = absolutize_local_links(html_body, output_path)
-
-    watermark_html = f'<div class="page-watermark">{watermark}</div>' if watermark else ""
 
     full_html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -68,7 +66,9 @@ def convert_to_html(input_path: Path, watermark: str | None = None) -> Path:
     h2:first-of-type {{
       margin-top: 10pt;
     }}
-    h3 {{ page-break-after: avoid; }}
+    h2, h3, h4 {{ page-break-after: avoid; break-after: avoid; }}
+    h3, h4 {{ page-break-inside: avoid; break-inside: avoid; }}
+    p, li {{ text-align: left; }}
     table {{
       page-break-inside: auto;
       break-inside: auto;
@@ -84,6 +84,8 @@ def convert_to_html(input_path: Path, watermark: str | None = None) -> Path:
     blockquote {{ page-break-inside: avoid; }}
   }}
   body {{
+    position: relative;
+    z-index: 1;
     font-family: 'Georgia', 'Times New Roman', serif;
     font-size: 11pt;
     line-height: 1.55;
@@ -117,9 +119,16 @@ def convert_to_html(input_path: Path, watermark: str | None = None) -> Path:
     margin-bottom: 4pt;
     color: #333;
   }}
+  h4 {{
+    font-size: 11.5pt;
+    margin-top: 14pt;
+    margin-bottom: 4pt;
+    color: #333;
+    font-weight: bold;
+  }}
   p {{
     margin: 6pt 0;
-    text-align: justify;
+    text-align: left;
   }}
   a {{
     color: #1a5276;
@@ -133,8 +142,21 @@ def convert_to_html(input_path: Path, watermark: str | None = None) -> Path:
     font-style: italic;
     color: #333;
   }}
+  blockquote p {{
+    margin: 0;
+    white-space: pre-line;
+  }}
+  blockquote p + p {{
+    margin-top: 6pt;
+  }}
   blockquote strong {{
     font-style: normal;
+  }}
+  .quote-source {{
+    font-style: normal;
+    font-size: 10pt;
+    color: #555;
+    margin-top: 4pt;
   }}
   table {{
     width: 100%;
@@ -195,27 +217,9 @@ def convert_to_html(input_path: Path, watermark: str | None = None) -> Path:
   em {{
     color: #444;
   }}
-  .page-watermark {{
-    position: fixed;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    transform: translateY(-50%) rotate(-45deg);
-    transform-origin: center;
-    font-family: 'Georgia', 'Times New Roman', serif;
-    font-size: 120pt;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: rgba(190, 30, 30, 0.10);
-    z-index: 9999;
-    pointer-events: none;
-  }}
 </style>
 </head>
 <body>
-{watermark_html}
 {html_body}
 </body>
 </html>"""
@@ -230,7 +234,7 @@ def main() -> None:
     parser.add_argument(
         "--watermark",
         default=None,
-        help='Optional repeating page watermark text (e.g. "Draft"). Omit for released studies.',
+        help='Deprecated: watermark is applied in _html_to_pdf.js after PDF generation.',
     )
     args = parser.parse_args()
 
@@ -239,7 +243,10 @@ def main() -> None:
     else:
         input_path = STUDIES / "How-To-Form-Self-Sustaining-Organizations.md"
 
-    output_path = convert_to_html(input_path, args.watermark)
+    if args.watermark:
+        print("Note: --watermark on _convert_to_pdf.py is ignored; use _html_to_pdf.js instead.")
+
+    output_path = convert_to_html(input_path)
     print(f"HTML written to: {output_path}")
 
 

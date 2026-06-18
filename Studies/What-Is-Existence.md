@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 18, 2026, 4:34 PM IST
+**Edited on:** June 18, 2026, 7:49 PM IST
 
 **Status:** Draft
 
@@ -28,14 +28,14 @@ These topical studies state the philosophy in clear, checkable prose first. A se
 | **Coexistence (*saha-astitva*)** | Reality as the pervasive ground (*satta*) and all units (*ikai*) inseparably present together. |
 | **Time (*kaal*)** | In Madhyasth Darshan: the duration of unit-activity (*kriya*), not an independent cosmic container; numerical reckoning of duration is a human convention within existence (§1.8). Full treatment: *Nature-Of-Time*. |
 | **Satta (Omnipresence)** | The all-pervasive, formless, non-transforming ground in which all units (*ikai*) are saturated (*samprikt*). Translation and naming conventions: Editorial Notes. |
-| **Saturation-Reflector Model** | **[Interpretation]** Sentience is not generated from dead matter; the ever-present *gyan* of *satta* is expressed as active sentience (*chaitanya*) only when a constitutionally complete atom (*gathanpurna parmanu*) acts as a stable "reflector." Canonical exposition: §6.6. |
+| **Saturation-Reflector Model** | On this reading, sentience is not generated from dead matter; the ever-present *gyan* of *satta* is expressed as active sentience (*chaitanya*) only when a constitutionally complete atom (*gathanpurna parmanu*) acts as a stable "reflector." Full argument: §6.6. |
 | **Unit (*ikai*)** | A countable, bounded entity in nature, whether insentient (*jada*) or sentient (*chaitanya*). |
 | ***Jeevan* (Sentient Self)** | The sentient self: a real, immortal, constitutionally complete unit (*gathanpurna parmanu*) that works through the body (*shareer*). |
 | **Constitutional Completeness (*gathanpurnata*)** | The state achieved when an atom integrates the required number of particles to become indivisible, immortal, and sentient (a *jeevan*). Crucial to the emergence of sentience in §1.5. |
-| ***Jada* / *Chaitanya*** | Insentient and sentient nature (*prakriti*). |
+| ***Jada*** / ***Chaitanya*** | Insentient and sentient nature (*prakriti*). |
 | **The Four Orders (*chaar avastha*)** | The real, stable developmental plateaus of nature in Madhyasth Darshan: Material (*padarth*), Pranic/Bio (*pran*), Animal (*jeev*), and Knowledge/Human (*gyan*). |
 | **Saturation (*samprikt*)** | The source's term for how units are held in Omnipresence. Treated in this paper as a metaphor requiring ontological specification (see §1.2). |
-| ***Atman* / *Brahman*** | Advaita: the Self and the one ultimate reality, finally identical (§2). |
+| ***Atman*** / ***Brahman*** | Advaita: the Self and the one ultimate reality, finally identical (§2). |
 | ***Mithya*** | Advaita: dependent appearance of the empirical world (§2.3). |
 | **Sat-Chit-Ananda** | Advaita: being, consciousness, bliss as three names of Brahman (§2.2; contrast §5.3). |
 | **Physicalism** | Modern view: every real concrete phenomenon is physical (§3.1). |
@@ -44,19 +44,9 @@ These topical studies state the philosophy in clear, checkable prose first. A se
 
 ## 1. The Madhyasth Darshan Answer
 
-**The claim in one sentence:** Existence (*astitva*) is the eternally present coexistence (*saha-astitva*) of formless Omnipresence (*satta*) and countless sentient (*chaitanya*) and insentient (*jada*) units (*ikai*) held within it; what exists never arises from non-existence (*abhava*) and is never annihilated, though units undergo motion, transformation, development, and awakening.
+To understand existence (*astitva*) in Madhyasth Darshan (Co-existentialism), we must look past two common reductionist tendencies: that matter emerges from consciousness, or that consciousness is merely a byproduct of matter. Instead, the darshan asserts that existence is the eternally present coexistence (*saha-astitva*) of formless Omnipresence (*satta*) and the countless physical (*jada*) and sentient (*chaitanya*) units (*ikai*) held within it. In this view, nothing that exists ever arises from absolute non-existence (*abhava*), nor is it ever annihilated, though units undergo ceaseless motion, transformation, development, and awakening.
 
-**Logic in seven steps.** The subsections below follow this chain; each heading notes where you are in it.
-
-| Step | Question answered | Section |
-|------|-------------------|---------|
-| 1 | What is existence? (coexistence) | §1.1–1.2 |
-| 2 | How do units change? | §1.3 |
-| 3 | What kinds of units exist? | §1.4 |
-| 4 | How does sentience arise? | §1.5 |
-| 5 | What is *jeevan*? (knowledge, mereology) | §1.6–1.7 |
-| 6 | Does existence begin? | §1.8 |
-| 7 | How is this unlike Advaita/physicalism? | §1.9 |
+To examine this claim, we trace how these units are situated, how they change, how sentience emerges, what *jeevan* is, whether existence begins, and how this ontology contrasts with its rivals. Cross-tradition answers to the paper's three questions are summarized in §5.2.
 
 ### 1.1 The Coexistential Structure: Space (*Satta*) and Nature (*Prakriti*)
 
@@ -95,19 +85,15 @@ Existence thus has two inseparable aspects:
     > **"Nature, saturated in Omnipotence, exists as countless units. Each unit, being saturated in Omnipotence, remains surrounded, submerged, and soaked in it."**
     > - SB, p. 48
 
-With these two aspects named, the next question is what "saturation" means ontologically — not merely as an image.
+Naming these two aspects, however, does not yet resolve their ontological relationship. What does it mean, in concrete terms, for a unit to be "saturated" in Omnipresence (*satta*)?
 
 ### 1.2 What Kind of Relation Is "Saturation"? (*Satta* and *Ikai*)
 
-The source describes units as *samprikt* — soaked, submerged, surrounded — in Omnipresence. This is a vivid image, but an image is not yet an ontological relation, and the paper's central claim ("coexistence") stands or falls on what this relation actually is. Three candidate readings can be set aside, and a fourth proposed.
+The source describes units as *samprikt* — soaked, submerged, surrounded — in Omnipresence. This is a vivid image, but an image is not yet an ontological relation, and the paper's central claim ("coexistence") stands or falls on what this relation actually is.
 
-**Not constitution.** Omnipresence is not the stuff units are made of. Units have their own form, properties, and *dharma* (MVD, p. 11); Omnipresence is formless and non-transforming. If units were made of Omnipresence, their transformation would be transformation of it, which the texts deny.
+Saturation is not constitution: Omnipresence is not the stuff units are made of. Units have their own form, properties, and *dharma* (MVD, p. 11); Omnipresence is formless and non-transforming. If units were made of Omnipresence, their transformation would be transformation of it, which the texts deny. Nor is the relation inherence (*samavaya*) in the Nyaya-Vaisheshika sense, where inherence binds a property to its substance. Omnipresence is not a property the units possess, nor are units properties of Omnipresence; the relation is mutual and symmetric in a way inherence is not. And it cannot be superimposition (*adhyasa*) — the decisive contrast with Advaita. For Advaita, the world's apparent location "in" Brahman is *adhyasa*, a false attribution later sublated. Madhyasth Darshan explicitly refuses this: units are real and perpetual, never sublated.
 
-**Not inherence (*samavaya*).** In the Nyaya-Vaisheshika sense, inherence binds a property to its substance. But Omnipresence is not a property the units possess, nor are units properties of Omnipresence. The relation is mutual and symmetric in a way inherence is not.
-
-**Not superimposition (*adhyasa*).** This is the decisive contrast with Advaita. For Advaita, the world's apparent location "in" Brahman is *adhyasa* — a false attribution later sublated. Madhyasth Darshan explicitly refuses this: units are real and perpetual, never sublated. So saturation cannot be *adhyasa*.
-
-**Proposed reading: pervasive co-location with mutual energetic dependence.** The most defensible reading is that Omnipresence is the omnipresent medium in which every unit is necessarily situated (co-location), and from which every unit draws the regulatory and conserving energy that keeps it in orderly existence — without Omnipresence acting, transforming, or being consumed. SB states this dependence plainly:
+The relation that fits the texts is pervasive co-location with mutual energetic dependence. Omnipresence is the omnipresent medium in which every unit is necessarily situated (co-location), and from which every unit draws the regulatory and conserving energy that keeps it in orderly existence — without Omnipresence acting, transforming, or being consumed. SB states this dependence plainly:
 
 > **"Every unit in its atomic state is active as orderliness, because it has inherent energy due to being saturated in Omnipotence."**
 > - SB, p. 69
@@ -115,7 +101,7 @@ The source describes units as *samprikt* — soaked, submerged, surrounded — i
 > **"Unit + Energy fullness = Activeness."**
 > - SB, p. 69
 
-The relation is not one-directional. Units depend on *satta* for energy; *satta* depends on units for manifestation as activity. *Satta* remains formless, motionless, and free from pressure, while the whole of nature saturated in it is present with motion and pressure (SB, p. 49). Regulation, activeness, and forcefulness in a unit are seen respectively from its being surrounded, submerged, and soaked in Omnipresence (SB, p. 57). Without unit activity — the source's term is **basic impulsion** — the energy remains unmanifest; without the energy, there is no basic impulsion (SB, p. 62). This is mutual dependence for manifestation, not mutual constitution: neither is made from the other, neither is cancelled by the other, and *satta* is never an efficient cause — yet its uniform energy does not appear as energisation, regulation, or activity except through the ceaseless activity of saturated units. **[Open]** Madhyamaka critics (Nagarjuna's *svabhava* challenge) may ask whether such mutual dependence undermines independent reality; §6.2 develops the reply.
+The relation is not one-directional. Units depend on *satta* for energy; *satta* depends on units for manifestation as activity. *Satta* remains formless, motionless, and free from pressure, while the whole of nature saturated in it is present with motion and pressure (SB, p. 49). Regulation, activeness, and forcefulness in a unit are seen respectively from its being surrounded, submerged, and soaked in Omnipresence (SB, p. 57). Without unit activity — the source's term is **basic impulsion** — the energy remains unmanifest; without the energy, there is no basic impulsion (SB, p. 62). This is mutual dependence for manifestation, not mutual constitution: neither is made from the other, neither is cancelled by the other, and *satta* is never an efficient cause — yet its uniform energy does not appear as energisation, regulation, or activity except through the ceaseless activity of saturated units. Madhyamaka critics (Nagarjuna's *svabhava* challenge) may ask whether such mutual dependence undermines independent reality; §6.2 develops the reply.
 
 SB presents this dependence not as a single assertion but as a continuous identity-chain, a characteristic Madhyasth Darshan reasoning pattern (A = B = C = ...). The chain in plain terms:
 
@@ -134,11 +120,11 @@ So the mutual dependence runs the whole length from saturation to development: *
 
 **The "actionless energy" paradox.** Omnipresence is called energy and credited with energizing, regulating, and conserving nature, yet is also called actionless (*kriya-shunya*) and non-transforming. The texts resolve this by distributing the terms: *satta* is actionless in itself, but its energy is manifest as the activity of units. "Actionless energy" therefore means latent, uniform energy at the root of activity — present everywhere, never acting on its own, yet inseparable from the activity through which alone it is revealed. 
 
-**[Interpretation]** In standard physics, a physical field is highly dynamical (*kriya-shil*) and active—it carries energy-momentum, exerts force, and propagates waves. Comparing the actionless (*kriya-shunya*) and non-transforming *satta* to a physical field is therefore conceptually misleading. A better physical analogue is a **non-dynamical background geometry** or the **quantum vacuum state** (a uniform, non-acting ground state). The physics analogy of such a background that "permits" motion without moving captures only the first half (units depend on *satta*); the second half — that energy without unit activity stays unmanifest — is specific to this darshan and must not be dropped.
+Physically speaking, a dynamical field carries energy-momentum, exerts force, and propagates waves — nothing like the actionless (*kriya-shunya*), non-transforming *satta*. Comparing *satta* to a physical field is therefore misleading. A closer analogue is a **non-dynamical background geometry** or the **quantum vacuum state** (a uniform, non-acting ground state). Such a background that "permits" motion without moving captures only the first half (units depend on *satta*); the second half — that energy without unit activity stays unmanifest — is specific to this darshan and must not be dropped.
 
-**Consolidated definition of coexistence.** On the reading above, coexistence (*saha-astitva*) is: the eternally present inseparability of formless Omnipresence (*satta*) and countless formful units (*ikai*), where every unit is necessarily co-located in the medium, energised and regulated through saturation in it, and where *satta*'s energy is manifest as activity only through those units — ontologically non-identical, neither made from the other, nor projected onto the other, nor finally cancelled by the other.
+Taken together, coexistence (*saha-astitva*) is the eternally present inseparability of formless Omnipresence (*satta*) and countless formful units (*ikai*), where every unit is necessarily co-located in the medium, energised and regulated through saturation in it, and where *satta*'s energy is manifest as activity only through those units — ontologically non-identical, neither made from the other, nor projected onto the other, nor finally cancelled by the other.
 
-With coexistence defined, the next question is how change happens within it.
+Coexistence described this way is static; change belongs to the causal framework below.
 
 ### 1.3 Causation Within Coexistence
 
@@ -174,7 +160,7 @@ Change in the insentient orders is therefore always circular and conserved, neve
 
 **In the human order, this cycle is additionally *sanskar*-mediated.** Insentient units do not unfold knowledge (*gyan udghatan*); only *jeevan* does, through thoughts (MVD, p. 289; §1.6; [Knowledge, Knower, and Known](Knowledge-Knower-And-Known.md)). In humans the *shram–gati–pratishtha* cycle is shaped by *sanskar* — **acceptances towards completeness**, and **knowledge, wisdom and science which gets carried forward towards resolution for evidencing** (MVD, p. 90) — and by the reflection–projection cycle, which can lead either toward awakening or toward decline (MVD, pp. 289–291). Awakening, *sanskar*, environment, study, and humaneness form an explicit circular dependency (MVD, p. 290).
 
-Causation within coexistence is now in place; the next step names the kinds of units that undergo it.
+Change within coexistence runs through a highly ordered, realist structure of nature — not an amorphous mass.
 
 ### 1.4 The Ontological Orders and Realist Relations of Nature
 
@@ -211,7 +197,7 @@ Cyclicality is real at every order, but not by one identical mechanism — the g
 
 For readers approaching from neuroscience, Bhattacharya maps how *jeevan* relates to brain and order (material and biological entities without brain; brain-endowed organisms sometimes without *jeevan*; *jeevan*'s activity mediated through the brain in the knowledge order) — **Bhattacharya**, *The Relationship of Jeevan and Brain*; see also [Why-Humans-Are-Not-Just-Material](Why-Humans-Are-Not-Just-Material.pdf).
 
-**Why the orders matter for the argument.** These orders are not decoration: they are where development without creation from nothing becomes concrete (§1.5). Each order is a real, stable plateau that the next presupposes, so the upward movement from matter to human is development within coexistence, not the appearance of new substance.
+These four orders are where development without creation from nothing becomes concrete (§1.5). Each order is a real, stable plateau that the next presupposes, so the upward movement from matter to human is development within coexistence, not the appearance of new substance.
 
 SB p. 49 pairs two infinities in characteristic Madhyasth Darshan parallelism: *satta* is immeasurable by pervasion; *prakriti* is countless by count:
 
@@ -225,7 +211,7 @@ The orders also carry the paper's ethical claim: because existence is coexistenc
 
 Relations (*sambandh*) and values (*mulya*) are therefore ontologically real, perpetual structural aspects of coexistence. In the human order, values like trust (*vishvas*), respect (*samman*), and gratitude (*kritagyata*) are the objective recognition and fulfilment of these existential relations. Unlike physicalism (which tends to treat values as brain-model projections) or Advaita (which treats relations as provisional appearances), Madhyasth Darshan grounds ethical value in the actual structure of existence.
 
-The structure of nature is now in place; the next step is how sentience arises within it.
+Sentience is the next threshold: how an atom reaches constitutional completeness.
 
 ### 1.5 Development and Awakening — and the Emergence Problem
 
@@ -242,15 +228,17 @@ SB adds a **quantitative-stability criterion** for constitutional completeness �
 > **"In this state of completeness, there is neither an increase nor a decrease in the number of particles in the atom. Due to this stability, the constitutionally complete atom possesses inexhaustible power and force. A constitutionally complete atom undergoes qualitative change without any quantitative change."**
 > - SB, p. 55
 
-**The emergence tension (stated, not hidden).** This is the most exposed point in the whole system, and honesty requires naming it. The account says a quantitative change — the right number of particles integrating — produces a qualitative change of kind: insentient becomes sentient. That is a strong-emergence claim. Yet in §3.3 the paper leans on Strawson's argument that experience cannot emerge from the wholly non-experiential. Madhyasth Darshan therefore appears to use against reductive physicalism the very move it relies on for the origin of *jeevan*.
+**The emergence tension.** The account says a quantitative change — the right number of particles integrating — produces a qualitative change of kind: insentient becomes sentient. That is a strong-emergence claim. Yet in §3.3 the paper leans on Strawson's argument that experience cannot emerge from the wholly non-experiential. Madhyasth Darshan therefore appears to use against reductive physicalism the very move it relies on for the origin of *jeevan*.
 
 There are three possible replies, and the paper commits to one (see §6.6):
 
-1. **Latency reply.** Sentience does not emerge from nothing; the potential for sentience is "eternally present through the natural law of coexistence" (SB, p. 59). Constitutional completeness is the actualization of a standing potential, not strong emergence. **[Interpretation]** This paper adopts this reply, refined through the **Saturation-Reflector Model** (one-sentence preview: the ever-present *gyan* of *satta* is expressed as active sentience only when a stable, constitutionally complete atom acts as a "reflector"; full argument in §6.6).
+1. **Latency reply.** Sentience does not emerge from nothing; the potential for sentience is "eternally present through the natural law of coexistence" (SB, p. 59). Constitutional completeness is the actualization of a standing potential, not strong emergence. This paper adopts this reply, refined through the **Saturation-Reflector Model** (the ever-present *gyan* of *satta* is expressed as active sentience only when a stable, constitutionally complete atom acts as a "reflector"; full argument in §6.6).
 2. **Threshold-as-form reply.** What changes at completeness is not the addition of a new ingredient but the achievement of a form (a stable self-maintaining constitution). Sentience is identified with that form's "satisfaction within, by, and for that constitution." This makes sentience a structural achievement, closer to weak emergence — but then it concedes ground to the self-model theorists of §4.1.
 3. **Bite-the-bullet reply.** Accept that this is genuine strong emergence and that the Strawson borrowing in §3.3 must be qualified: Madhyasth Darshan agrees experience cannot emerge from the wholly non-experiential, and so must hold that the pre-complete atom is not wholly non-experiential — which pushes back toward the latency reply.
 
-The latency reply is the only one that keeps the system internally consistent with its use of Strawson. What remains **[Open]** is the physical mechanism of reflection, not the interpretive commitment itself (§6.6).
+The latency reply is the only one that keeps the system internally consistent with its use of Strawson. What remains unsettled is the physical mechanism of reflection, not the reading itself (§6.6).
+
+Once sentience is located in constitutionally complete atoms, a further tension appears in how the ground itself is named: Omnipresence is called Knowledge, yet denied the activity of knowing.
 
 ### 1.6 The "Knowledge but not Knower" Tension
 
@@ -260,7 +248,7 @@ A charitable reading: *gyan* here names a condition of intelligibility — reali
 
 The texts sharpen this distinction further. MVD p. 289 states explicitly that **the unfolding of knowledge** (*gyan udghatan*) occurs **only** through the sentient aspect (*jeevan*) or thoughts — not through insentient units and not through Omnipresence acting as a knower. MVD p. 115 adds a narrower formulation: knowledge is inherent everywhere, but **its unfolding happens by awakened humans** — a sleeping, deluded *jeevan* cannot unfold it. The same passage describes a sensory/cognitive pathway: vibrational motion on the brain from the cognitive organs leads to the unfolding of knowledge. So *gyan* as a name of *satta* is the intelligibility-ground; *gyan udghatan* is an activity exclusive to awakened *jeevan*. That is why Omnipresence can be called Knowledge without being a knowing subject — and why a careless reading of MVD p. 35 collapses straight into Advaita's *chit* (Brahman as awareness itself), exactly the identification this paper otherwise resists.
 
-**[Open]** How the several English names of *satta* cohere as one reality is not fully resolved in the source; see Editorial Notes.
+The unit that carries active knowing and persists across embodiment is *jeevan* itself; its structure and identity therefore need separate treatment.
 
 ### 1.7 The Mereology and Identity of *Jeevan*
 
@@ -268,11 +256,11 @@ Two questions the source leaves open, both logically prior to the *jeevan*–bod
 
 **Is *jeevan* simple or composite?** *Jeevan* is called a "constitutionally complete atom" (*gathanpurna parmanu*), which suggests a structured composite (it is complete because the right number of particles integrated). Bhattacharya, synthesizing SB, lists five inseparable aspects — *mun*, *vritti*, *chitta*, *buddhi*, and *atma* — which supports this reading. But it is also called indivisible and immortal. A composite is, in principle, decomposable; so its claimed indestructibility needs a ground. The most consistent reading is that *jeevan*'s "indivisibility" is functional (the constitution is self-maintaining and does not spontaneously lose completeness) rather than mereological (having no parts). If so, "immortal" means "does not lose constitutional completeness," which is a weaker and more defensible claim than "has no parts and therefore cannot perish."
 
-**[Open] The Particle Physics Contradiction.** From the perspective of modern particle physics, the claim of physical indivisibility for a composite "atom" (*parmanu*) faces severe friction. Modern science shows that all atoms are divisible, and even fundamental particles can be annihilated. Protons are hypothesized in Grand Unified Theories to decay over immense timescales (greater than 10³⁴ years). If *jeevan* is composed of physical sub-particles (*ansha*), its physical indivisibility is scientifically implausible. For *jeevan* to be immortal, it must either: (a) possess binding energy so massive that no cosmic process can disrupt it, or (b) its status as a *parmanu* must operate in a non-physical domain that does not interact via standard gauge bosons—which would then make the mechanism of *jeevan*-body interaction even more mysterious.
+From the standpoint of particle physics, the claim of physical indivisibility for a composite "atom" (*parmanu*) faces severe friction. Modern science shows that all atoms are divisible, and even fundamental particles can be annihilated. Protons are hypothesized in Grand Unified Theories to decay over immense timescales (greater than 10³⁴ years). If *jeevan* is composed of physical sub-particles (*ansha*), its physical indivisibility is scientifically implausible. For *jeevan* to be immortal, it must either: (a) possess binding energy so massive that no cosmic process can disrupt it, or (b) its status as a *parmanu* must operate in a non-physical domain that does not interact via standard gauge bosons—which would then make the mechanism of *jeevan*-body interaction even more mysterious.
 
 **What makes this *jeevan* the same *jeevan* over time?** Advaita holds that separate individuality was never ultimately real — the appearance of separation is dispelled at liberation (VC, vv. 244, 574); physicalism grounds identity in bodily/psychological continuity. Madhyasth Darshan asserts that *jeevan* persists across bodily death and re-association but offers no explicit criterion of identity. An eternalist individual-self ontology needs one. The candidate implied by the texts is continuity of constitution — the same constitutionally complete configuration persists — but this needs to be stated and defended, because constitution-identity over a gap of embodiment (death to re-association) is exactly where the criterion is hardest.
 
-With *jeevan* characterized, the third paper question — does what exists begin? — can be answered directly.
+*Jeevan*'s constitution settled, the question of temporal beginning follows directly.
 
 ### 1.8 Does Existence Begin? Time (*Kaal*) and Conservation
 
@@ -287,11 +275,11 @@ For Madhyasth Darshan, existence does not begin in the sense of coming from abso
 > **"Jeevan continues to exist even after death as it does while driving a body."**
 > - JV, p. 20
 
-**[Open]** The source explicitly infers *jeevan*'s post-death survival from the conservation principle — the most contentious step in the chain from "nothing is annihilated" to "an immortal sentient unit persists." From the standpoint of modern science, this inference rests on a category error between the **conservation of quantity** and the **conservation of structure (or entity)**. Physics conserves fundamental quantities (mass-energy, spin, electric charge), but does *not* conserve specific structures, configurations, or functional identities. A computer or a biological cell can be destroyed, and while all constituent energy and matter are conserved, the functional identity of the structure is annihilated. Thus, thermodynamic conservation alone does not guarantee the immortality of a structured unit like *jeevan* unless its *gathanpurnata* (absolute physical indivisibility) is already assumed as a separate metaphysical axiom.
+The source explicitly infers *jeevan*'s post-death survival from the conservation principle — the most contentious step in the chain from "nothing is annihilated" to "an immortal sentient unit persists." From the standpoint of modern science, this inference rests on a category error between the **conservation of quantity** and the **conservation of structure (or entity)**. Physics conserves fundamental quantities (mass-energy, spin, electric charge), but does *not* conserve specific structures, configurations, or functional identities. A computer or a biological cell can be destroyed, and while all constituent energy and matter are conserved, the functional identity of the structure is annihilated. Thus, thermodynamic conservation alone does not guarantee the immortality of a structured unit like *jeevan* unless its *gathanpurnata* (absolute physical indivisibility) is already assumed as a separate metaphysical axiom.
 
 #### The nature of *kaal* (preview)
 
-The third paper question — does what exists begin **at some time**? — presupposes an account of time. Madhyasth Darshan does not treat time (*kaal*) as an independent cosmic dimension, substance, or container in which existence sits. The primary texts define it through **activity**:
+Whether what exists begins **at some time** presupposes an account of time. Madhyasth Darshan does not treat time (*kaal*) as an independent cosmic dimension, substance, or container in which existence sits. The primary texts define it through **activity**:
 
 > **"Time (*kaal*): Duration of an activity is referred to as time."**
 > - MVD, p. 34 (also p. 196; p. 338: "Duration of activity")
@@ -305,7 +293,7 @@ This is not a denial that units undergo real change. Insentient and sentient uni
 > **"…a timeless truth valid across all three times."**
 > - SB, p. 48
 
-The Sanskrit *trikaalabadh* (binding across past, present, and future) applies to coexistence as a whole — not to prove that *kaal* is illusory, but that what is understood about coexistence does not come and go with a moment. MVD also describes Omnipresence (*vyapak*) as existing **"at all places and times, and … eternally present"** (MVD, p. 34). The contrast to keep in view: *satta* is atemporal as ground (formless, non-transforming), yet coexistence is valid across the three times; *kaal* as duration belongs to the activity of units, not to *satta* as efficient cause.
+The Sanskrit *trikaalabadh* (binding across past, present, and future) applies to coexistence as a whole — not to prove that *kaal* is illusory, but that what is understood about coexistence does not come and go with a moment. MVD also describes Omnipresence (*vyapak*) as existing **"at all places and times, and … eternally present"** (MVD, p. 34). *Satta* is atemporal as ground (formless, non-transforming), yet coexistence is valid across the three times; *kaal* as duration belongs to the activity of units, not to *satta* as efficient cause.
 
 **Measurement and numerical reckoning.** Duration is real as an aspect of activity, but the **reckoning** of time is conventional within existence:
 
@@ -318,7 +306,7 @@ The Sanskrit *trikaalabadh* (binding across past, present, and future) applies t
 > **"The measurement of time, expanse and different compositions is through mathematics."**
 > - MVD, p. 195
 
-So *kaal* is not a freestanding entity alongside *satta* and *ikai*; it is the duration of unit-activity, made explicit for human purposes through number and mathematics. **[Open]** How past, present, and future relate to "activity eternally present" — a theme developed in JVD (p. 85) — needs a full comparative treatment; see the ongoing study [*Nature-Of-Time*](Nature-Of-Time.md).
+So *kaal* is not a freestanding entity alongside *satta* and *ikai*; it is the duration of unit-activity, made explicit for human purposes through number and mathematics. How past, present, and future relate to "activity eternally present" — a theme developed in JVD (p. 85) — awaits full comparative treatment in [*Nature-Of-Time*](Nature-Of-Time.md).
 
 This ontology distinguishes absolute annihilation (*vinasha*) from physical transformation (*roopantaran*). An entity changes configuration, but its underlying substance (*vastu*) is never destroyed:
 
@@ -336,16 +324,7 @@ The result is a conservation-based ontology:
 4. Particular bodies (*shareer*), configurations, relations, and states do begin and end.
 5. Development (*vikas*) and awakening (*jagriti*) are real, but are not creation out of nothing.
 
-| Question | Madhyasth Darshan answer |
-|---|---|
-| Did existence begin? | No. Existence (*astitva*) is eternally present coexistence (*saha-astitva*). |
-| Did units begin from non-existence? | No. "That which was not, does not come into existence" (*abhava*). |
-| Do bodies begin and end? | Yes. Birth and death are events at the level of body (*shareer*) and association. |
-| Does *jeevan* begin at birth? | No. *Jeevan* is immortal; birth and death are occurrences. |
-| Does sentient status have a developmental account? | Yes. Constitutional completeness (*gathanpurnata*) is attainment of sentient status — within eternal coexistence, not as creation from nothing (see the emergence tension, §1.5). |
-| What is time (*kaal*)? | Duration of unit-activity; not an independent cosmic container. Numerical reckoning of duration is a human convention within existence (SB, pp. 65, 251; MVD, pp. 34, 195). *Satta* is timeless as non-transforming ground. Preview only — see *Nature-Of-Time*. |
-
-The Madhyasth answer to all three paper questions is now stated; §1.9 names what distinguishes this ontology from its main rivals.
+Against Advaita and physicalism, Madhyasth Darshan stakes its own ground in the eight Reality propositions and the slogan *jagat satat* (perpetual world).
 
 ### 1.9 The Perpetual World: *Brahma Satya Hai, Jagat Satat Hai*
 
@@ -376,9 +355,9 @@ Its positive claim: Brahma is real, the world is real, and their inseparable pre
 
 ## 2. The Advaita Vedanta Answer
 
-**The claim in one sentence:** Existence in the strictest sense is Brahman alone, one without a second; the world of names, forms, bodies, and relations is *mithya*, a dependent appearance, and the true Self is neither born nor destroyed because it is identical with Brahman.
+Advaita Vedanta provides a contrasting framework to Madhyasth Darshan: it asserts that existence in the strictest, absolute sense is Brahman alone, one without a second. In this view, the world of names, forms, bodies, and relations is *mithya*—a dependent appearance that is operationally valid at the empirical level (*vyavahara*) but ultimately sublated at the level of absolute reality (*paramartha*). The true Self (*Atman*) is neither born nor destroyed, because it is ultimately identical with this non-dual Brahman.
 
-Advaita does not deny the empirical world; it subordinates it. The world at *vyavahara* is *mithya* — dependent appearance, not sheer nothing. Advaita's standard framework is **three-tiered**: *pratibhasika* (private apparent error, e.g. rope-snake), *vyavahara* (shared empirical reality — bodies, science, ethics, Ishvara), and *paramartha* (Brahman alone).
+Advaita's standard framework is three-tiered, separating private apparent errors (*pratibhasika*, such as a rope mistaken for a snake) from shared empirical reality (*vyavahara*, which governs bodies, physical laws, ethics, and scripture) and the absolute truth of Brahman (*paramartha*).
 
 ### 2.1 Existence Alone, One Without a Second
 
@@ -458,7 +437,7 @@ Because Advaita utilizes a three-tier framework of reality, it posits several "e
 5. **Jivatman (Jiva):** The individual embodied soul — the true Self (*Atman*) conditioned by *upadhis* (e.g. *Pancha Kosha*), appearing as separate until realization.
 6. **Jagat (Nama-Roopa):** The physical universe of names and forms. Operationally valid at *vyavahara*; ultimately *mithya* at *paramartha*.
 
-**First-person method.** The *Drig-Drishya-Viveka* (DDV) offers a rigorous seer-seen (*drig-drishya*) discrimination: whatever can be observed — body, sensations, thoughts — is "seen" and therefore not the seer (DDV, vv. 1–5). What remains is *Sakshin*, witness-consciousness — irreducible to matter and closer to Advaita's first-person route against physicalism than devotional VC passages alone (see §3.2, §6.3).
+The *Drig-Drishya-Viveka* (DDV) offers a rigorous seer-seen (*drig-drishya*) discrimination: whatever can be observed — body, sensations, thoughts — is "seen" and therefore not the seer (DDV, vv. 1–5). What remains is *Sakshin*, witness-consciousness — irreducible to matter and closer to Advaita's first-person route against physicalism than devotional VC passages alone (see §3.2, §6.3).
 
 ### 2.5 Does What Exists Begin?
 
@@ -472,13 +451,6 @@ Liberation (*moksha*) is not dissolution or merger of a real individual into Bra
 > **"The Supreme Brahman is, like the sky, pure, absolute, infinite, motionless and changeless, devoid of interior or exterior, the One Existence, without a second, and one's own Self."**
 > - VC, v. 393
 
-**Advaita answers to the three questions:**
-
-| Question | Advaita Vedanta answer |
-|---|---|
-| What is existence? | Brahman alone — being, consciousness, bliss (*Sat-Chit-Ananda*), one without a second. |
-| What exists? | Absolutely: Brahman alone. Empirically: bodies, minds, Ishvara, duties — all *mithya* at *paramartha*. |
-| Does it begin? | Brahman does not begin. Name-form manifests at *vyavahara*; liberation is recognition of pre-existing identity. |
 
 ### 2.6 Time and temporality
 
@@ -488,9 +460,7 @@ The *Mandukya* analysis of waking, dream, and deep sleep (§2.2) is a first-pers
 
 ## 3. Modern Philosophical Approaches
 
-Having examined Advaita Vedanta's world-subordinating non-dualism, we now turn to modern Western philosophy of mind. The contrast is stark: where Advaita asks how the empirical world arises from pure consciousness, modern philosophy asks how consciousness could possibly arise from a purely physical world.
-
-**The claim in one sentence:** Modern philosophy of mind imposes a consistent pressure—a high burden of proof on any posit beyond the physical—and its debates on consciousness show that "what exists" remains fiercely contested.
+If Advaita Vedanta represents a radical anti-materialism that subordinates the physical world to pure consciousness, modern Western philosophy of mind represents the opposite starting point. It takes the physical world as its baseline and struggles to locate subjective experience within it. The resulting debates on consciousness impose a severe explanatory burden of proof on any entity—such as *jeevan*—that claims to transcend physical mechanics, showing that the definition of what exists remains fiercely contested.
 
 ### 3.1 Standard Physicalism: Concrete Reality Is Physical
 
@@ -527,7 +497,7 @@ This is closer to Madhyasth Darshan than reductive physicalism, since both refus
 
 ### 3.4 Alternative Ontologies: Process & Neutral Monism
 
-The philosophy-of-mind sources are not the closest Western kin to Madhyasth Darshan; two others are, and this section engages them directly.
+Process philosophy and neutral monism are closer Western analogues than the mainstream philosophy-of-mind sources above.
 
 **Whitehead's process philosophy** is arguably the closest analogue: plurality is real, relations are ontologically fundamental, and reality is perpetual becoming rather than static substance. His basic units are "actual entities" — "drops of experience, complex and interdependent" (Whitehead 1929, p. 28) — which resemble units-in-relation, and his refusal to bifurcate nature parallels the refusal of both world-negation and matter-only reductionism. The key contrast: Whitehead's occasions are momentary and "perpetually perish" subjectively, gaining "objective immortality" only as data for successors (Whitehead 1929, p. 44), whereas Madhyasth Darshan's *jeevan* is a persisting immortal individual — so the two agree on relational realism but disagree sharply on individual persistence.
 
@@ -552,19 +522,10 @@ The philosophy-of-mind sources are not the closest Western kin to Madhyasth Dars
 
 Madhyasth Darshan regards this as another reductionism: it treats experience, valuation, aspiration, and realization as activities of *jeevan*, not brain-model illusions. Illusionism matters because it shows how far naturalism will go to preserve a physicalist ontology.
 
-**Modern philosophy answers to the three questions:**
-
-| Question | Modern philosophy answer (contested) |
-|---|---|
-| What is existence? | No unified formula; physicalists name concrete physical reality; panpsychists add primitive experience; process/neutral monism name becoming or neutral ground. |
-| What exists? | Usually the physical; experience, self, and value are disputed (reduced, fundamental, or illusory). |
-| Does it begin? | Particular minds and organisms develop; whether experience or substrate is beginningless varies by school. |
 
 ## 4. Modern Scientific Approaches
 
-Science does not speak with one voice, but its default ontology aligns with §3.1 physicalism unless the hard problem forces a revision (§3.2–3.3).
-
-**The claim in one sentence:** Modern science, across cognitive science and cosmology, seeks to explain the self as an emergent natural process and the universe as a physical evolution, occasionally finding resonance with conservation principles but resisting claims of eternal sentience.
+While modern science does not put forward a single metaphysical dogma, its default working ontology aligns with §3.1 physicalism unless the hard problem forces a revision (§3.2–3.3). It seeks to explain the self as an emergent product of evolutionary and neurobiological processes, and the universe as a dynamic physical system. Although cosmology and quantum field theory occasionally offer structural resonance with the beginningless, conserved nature of units in Madhyasth Darshan, science generally resists any posits of eternal, non-physical sentience.
 
 ### 4.1 Cognitive Science & Neuroscience: The Brain as Generator of Self
 
@@ -592,23 +553,16 @@ The standard cosmological model suggests the observable universe had a beginning
 
 **Entropy vs. orderliness (*vyavastha*).** Thermodynamics describes a statistical arrow toward disorder in closed systems. Madhyasth Darshan asserts inherent orderliness at every order, with development toward greater organization when units are in their natural state. These are not straightforward opposites — biological and ecological systems can increase local order at the cost of entropy elsewhere — but they use different notions of "order," and the paper should not treat the second law as evidence for or against coexistence.
 
-### 4.4 Summary: Does What Exists Begin, in Modern Thought?
-
-| Question | Modern science answer |
-|---|---|
-| What is existence? | Physical reality: spacetime, quantum fields, and their excitations — no inherent consciousness or teleology. |
-| What exists? | Matter, energy, organisms, brains, and their processes; the self as brain-generated, not an immortal essence. |
-| Does it begin? | Local systems (organisms, stars, observable universe) begin and end; a beginningless substrate is unsettled; individual consciousness ceases at brain death. |
 
 Against all of these, Madhyasth Darshan makes a stronger claim: coexistence is eternal, units are not annihilated, and *jeevan* is immortal. This eternalism is consistent with conservation principles and beginningless cosmological models, but its claims about individual immortality and constitutional completeness remain distinct metaphysical assertions not validated by current science.
 
 ## 5. Comparison
 
-This section compares the three traditions systematically; critical evaluation follows in §6.
+The sections below compare entities and causal doctrines across traditions; §6 evaluates each position.
 
 ### 5.0 Entity categories compared
 
-The matrix in §5.4 is the **primary reference** for cross-tradition comparison. The summaries below prepare its four entity rows; §5.2 gives an at-a-glance summary across traditions.
+§5.4 tabulates entities; what follows groups them by tradition.
 
 **Modern philosophy (§3):**
 
@@ -642,7 +596,7 @@ Causal doctrine is the deepest structural difference between the three systems �
 
 ### 5.2 At-a-glance comparative summary
 
-Use §5.4 for the full entity matrix; this table compares the three traditions on the paper's main ontological questions and related themes. Causal doctrine in detail: §5.1.
+This table compares the three traditions on the paper's main ontological questions and related themes. Causal doctrine in detail: §5.1.
 
 | Question | Madhyasth Darshan | Advaita Vedanta | Modern physicalist approaches |
 |---|---|---|---|
@@ -671,8 +625,6 @@ Modern philosophy has no parallel formula: it may treat experience as physical, 
 
 ### 5.4 Comparative Matrix of Entities
 
-**Primary reference.** The table below is the compact cross-tradition map; §5.2 summarizes key questions side by side; §5.5–5.6 walk the Advaita mapping in narrative form.
-
 The table compares primary entities across the four traditions this paper develops in the body. Abrahamic, Buddhist, and Dvaita ontologies are outside scope; they are not included here.
 
 | Entity Category / Attribute | Madhyasth Darshan (Co-existentialism) | Advaita Vedanta (Non-Dualism) | Contemporary Philosophy (Process, Physicalist, Panpsychist) | Modern Science (Physics, CogSci, Cosmology) |
@@ -686,7 +638,7 @@ The table compares primary entities across the four traditions this paper develo
 
 ### 5.5 Is It Possible to Map Madhyasth Darshan to Advaita?
 
-For a compact entity comparison, see §5.4; this section walks the mapping argument in detail.
+§5.5–5.6 develop the Advaita mapping in detail.
 
 While the two systems arise from different core commitments (Advaita: non-dualism; Madhyasth Darshan: co-existentialism), several key entities in Advaita find close analogues or functional equivalents in Madhyasth Darshan:
 
@@ -729,7 +681,7 @@ Certain central entities and categories in Advaita Vedanta cannot be mapped to M
 5. **Kaivalya / Recognition of identity (as Ultimate Liberation)**
     * Advaita seeks **recognition of pre-existing identity with Brahman**, in which the illusion of separate individuality is dispelled (*jiva-brahma-aikya* — unity/identity, not merger; VC, vv. 244, 574). Madhyasth Darshan holds that individual *jeevan* units remain eternally distinct; the ultimate goal is **awakened coexistence (*jagriti*)**, where *jeevan* units remain active in harmonious relationships (*sambandh*) with other humans and the ecological orders.
 
-**Conclusion on Mapping:** The attempt to map Madhyasth Darshan to Advaita Vedanta reveals fundamental difficulties. While surface-level analogues exist, the core ontological commitments are ultimately irreconcilable. Advaita is a world-subordinating non-dualism that views individuality and the universe as dependent appearances (*mithya*) to be transcended. In stark contrast, Madhyasth Darshan is a relational realism that affirms the eternal distinctness of sentient units and the perpetual reality of the world. Because of these profound differences, a true one-to-one mapping is impossible without distorting the foundational claims of either system.
+The mapping attempt reveals fundamental difficulties. While surface-level analogues exist, the core ontological commitments are ultimately irreconcilable. Advaita is a world-subordinating non-dualism that views individuality and the universe as dependent appearances (*mithya*) to be transcended. In stark contrast, Madhyasth Darshan is a relational realism that affirms the eternal distinctness of sentient units and the perpetual reality of the world. Because of these profound differences, a true one-to-one mapping is impossible without distorting the foundational claims of either system.
 
 ### 5.7 Where the alliances fall
 
@@ -759,17 +711,15 @@ These are strengths **within** the system's premises. They do not by themselves 
 
 ### 6.2 Open problems for Madhyasth Darshan — argued
 
-The items below mark what any later rigorous treatment must settle. Each is stated with why it matters, not merely listed. **[Interpretation]** committed in §6.6 is distinguished from **[Open]** mechanism and evidence gaps.
-
 **Internal coherence**
 
-**1. The emergence of sentience (§1.5).** Constitutional completeness appears to require a quantitative threshold producing a qualitative change — strong emergence. Yet the paper borrows Strawson's anti-emergence principle against physicalism. The latency reply is **[Interpretation]** committed in §6.6; **[Open]** the physical mechanism of the Saturation-Reflector Model remains unspecified.
+**1. The emergence of sentience (§1.5).** Constitutional completeness appears to require a quantitative threshold producing a qualitative change — strong emergence. Yet the paper borrows Strawson's anti-emergence principle against physicalism. The latency reply is committed in §6.6; the physical mechanism of the Saturation-Reflector Model remains unspecified.
 
 **2. Mutual dependence and the Nagarjuna challenge (§1.2).** The paper states that units depend on *satta* for energy and *satta* depends on units for manifestation as activity. Nagarjuna's critique of *svabhava* (intrinsic existence) asks whether such mutual dependence makes neither independently real — precisely the challenge Madhyasth Darshan must answer if coexistence is not to collapse into dependent co-arising without enduring units. The texts' answer, implicit in the eternity of both *satta* and *ikai*, is that coexistence is beginningless: neither pole is ontologically posterior to the other. That reply needs explicit defense against Madhyamaka-style reduction.
 
 **3. Satta–Ikai relation and circular causality.** §1.2–1.3 state mutual dependence and dual activity triads in prose; what remains is formalization — not discovery of whether the texts assert them.
 
-**5. Mereology and identity of *jeevan* (§1.7).** Functional vs. mereological indivisibility, and identity across the death-to-re-association gap, need explicit criteria. JV p. 20 infers post-death survival from conservation. **[Open]** This inference commits a category error by conflating quantity conservation (standard thermodynamics) with structural/entity conservation. Furthermore, the claim of physical indivisibility of *jeevan* as a *parmanu* directly contradicts modern particle physics, where no physical bound state of particles is absolutely indivisible or immune to decay/annihilation.
+**5. Mereology and identity of *jeevan* (§1.7).** Functional vs. mereological indivisibility, and identity across the death-to-re-association gap, need explicit criteria. JV p. 20 infers post-death survival from conservation. This inference commits a category error by conflating quantity conservation (standard thermodynamics) with structural/entity conservation. Furthermore, the claim of physical indivisibility of *jeevan* as a *parmanu* directly contradicts modern particle physics, where no physical bound state of particles is absolutely indivisible or immune to decay/annihilation.
 
 **7. *Jeevan*–body interaction.** If *jeevan* drives the body, the mechanism from intention to neural and muscular activity is unspecified.
 
@@ -822,7 +772,7 @@ If Madhyasth Darshan is to borrow Strawson's anti-emergence principle against ph
 3. **Where potential resides.** Rather than locating latency in an abstract "law of coexistence," the Saturation-Reflector Model holds that the potential for sentience is eternally present in the all-pervasive ground of *satta* (which is defined as *gyan*, the ground of all knowledge/consciousness). Insentient (*gathan-shil*) atoms lack the stable configuration required to express/reflect this ground. Once an atom achieves constitutional completeness (*gathanpurnata*), its stable configuration acts as a "reflector," allowing the ever-present *gyan* of *satta* to manifest as active sentience (*chaitanya*). This resolves the Strawson anti-emergence challenge by showing that experience is never generated from dead matter, but is mediated by structured matter from an ever-present conscious ground.
 4. **What remains open.** This model is still a metaphysical framework, not a detailed physical mechanism. It keeps the system consistent with Strawson but does not answer physicalism's demand for third-person public evidence (§6.4), nor does it reconcile the physical indivisibility of the *parmanu* with modern particle physics.
 
-**[Open]** Formalizing "latency within the law of coexistence" — and defending it against Nagarjuna's *svabhava* critique (§6.2) — is the most promising route for later rigorous work.
+Formalizing latency within the law of coexistence — and defending it against Nagarjuna's *svabhava* critique (§6.2) — is the most promising route for later rigorous work.
 
 ## 7. Conclusion
 
@@ -857,7 +807,7 @@ The source gives *satta* multiple English names. Several generate internal tensi
 | **Absolute Energy** | Dynamism vs. *kriya-shunya* (actionless). |
 | **Uniform Energy, Eternity** | Listed alongside the names above; no single English label captures all aspects. |
 
-**[Open]** How these names cohere as one reality is not fully resolved in the source.
+The source does not fully settle how these names cohere as one reality.
 
 ### Advaita: *mithya* and *sad-asad-anirvacaniya*
 

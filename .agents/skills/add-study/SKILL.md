@@ -12,8 +12,9 @@ description: >-
 ## Before you start
 
 1. Read [Studies/README.md](../../Studies/README.md) for study format and intent.
-2. Write `Studies/<Slug>.md` with author block, or prepare an external PDF to import.
-3. Choose catalog table: **topical** (default) or **formal** (`--formal`).
+2. Follow prose style in [AGENTS.md §4](../../AGENTS.md#4-study-prose-style--scholarly-essay-not-ai-scaffold-always-applies) (reference: `Studies/What-Is-Existence.md`).
+3. Write `Studies/<Slug>.md` with author block, or prepare an external PDF to import.
+4. Choose catalog table: **topical** (default) or **formal** (`--formal`).
 
 ## Recommended: register from markdown
 
