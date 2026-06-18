@@ -54,7 +54,7 @@ Select any linked title to open the full study. Titles shown in italics are stil
 | *Family-Relationships-And-Values* | Relationships, Axiology | Ongoing.. Family, relationship-recognition, values, trust, affection, gratitude, and mutual satisfaction | Ongoing |
 | *Education-And-Sanskar* | Education | Ongoing.. Education, sanskar, study, awakening, and how understanding is transmitted across generations | Ongoing |
 | [Aesthetics](Aesthetics.pdf) | Aesthetics, Axiology | Aesthetics, beauty, art, Advaita Vedanta, and modern philosophy from a Madhyasth Darshan standpoint | Draft<br>Last updated on: Jun 16, 2026, 4:51 PM IST |
-| [Human-Behavior-And-Society](Human-Behavior-And-Society.pdf) | Social Philosophy, Ethics, Axiology | Behaviour, ethics, and social organisation in the darshan | Draft<br>Last updated on: Jun 16, 2026, 11:16 AM IST |
+| [Human-Behavior-And-Society](Human-Behavior-And-Society.pdf) | Social Philosophy, Ethics, Axiology | Behaviour, ethics, and social organisation in the darshan | Draft<br>Last updated on: Jun 18, 2026, 9:20 PM IST |
 | [How-To-Form-Self-Sustaining-Organizations](How-To-Form-Self-Sustaining-Organizations.pdf) | Social Philosophy, Axiology | Organisations that sustain without instrumentalising their members | Draft<br>Last updated on: Jun 16, 2026, 11:16 AM IST |
 | *Governance-Justice-And-Undivided-Society* | Political Philosophy, Axiology | Ongoing.. Justice, governance, law, fearlessness, public order, and undivided society | Ongoing |
 | *Prosperity-Economics-And-Right-Use* | Economics, Axiology | Ongoing.. Prosperity, production, cyclical economics, right-use of wealth, and limits to accumulation | Ongoing |
