@@ -12,7 +12,7 @@ description: >-
 ## Before you start
 
 1. Read [Studies/README.md](../../Studies/README.md) for study format and intent.
-2. Follow prose style in [AGENTS.md §4](../../AGENTS.md#4-study-prose-style--scholarly-essay-not-ai-scaffold-always-applies) (reference: `Studies/What-Is-Existence.md`).
+2. Follow [AGENTS.md §4](../../AGENTS.md#4-study-prose-style--scholarly-essay-not-ai-scaffold-always-applies) prose style and [§5](../../AGENTS.md#5-standpoint-and-scope--topical-studies-always-applies) Standpoint and scope (reference: `Studies/What-Is-Existence.md`).
 3. Write `Studies/<Slug>.md` with author block, or prepare an external PDF to import.
 4. Choose catalog table: **topical** (default) or **formal** (`--formal`).
 
