@@ -8,22 +8,6 @@ import markdown
 from _common import STUDIES
 from _study_catalog import strip_status_for_pdf
 
-parser = argparse.ArgumentParser(description="Convert a study markdown file to styled HTML.")
-parser.add_argument("input", nargs="?", default=None, help="Path to the study .md file")
-parser.add_argument(
-    "--watermark",
-    default=None,
-    help='Optional repeating page watermark text (e.g. "Draft"). Omit for released studies.',
-)
-args = parser.parse_args()
-
-if args.input:
-    INPUT = Path(args.input).resolve()
-else:
-    INPUT = STUDIES / "How-To-Form-Self-Sustaining-Organizations.md"
-
-OUTPUT = INPUT.with_suffix(".html")
-
 
 def absolutize_local_links(html_body: str, html_path: Path) -> str:
     """Rewrite relative local hrefs to file:// URLs so PDF renderers can open them."""
@@ -41,28 +25,27 @@ def absolutize_local_links(html_body: str, html_path: Path) -> str:
     return re.sub(r'href="([^"]+)"', replace, html_body)
 
 
-md_text = INPUT.read_text(encoding="utf-8")
-md_text = strip_status_for_pdf(md_text)
+def convert_to_html(input_path: Path, watermark: str | None = None) -> Path:
+    output_path = input_path.with_suffix(".html")
+    md_text = input_path.read_text(encoding="utf-8")
+    md_text = strip_status_for_pdf(md_text)
 
-# Use the document's first H1 as the HTML title, falling back to the filename.
-h1 = next((line[2:].strip() for line in md_text.splitlines() if line.startswith("# ")), None)
-TITLE = h1 or INPUT.stem
+    h1 = next((line[2:].strip() for line in md_text.splitlines() if line.startswith("# ")), None)
+    title = h1 or input_path.stem
 
-html_body = markdown.markdown(
-    md_text,
-    extensions=["tables", "fenced_code", "smarty"],
-)
-html_body = absolutize_local_links(html_body, OUTPUT)
+    html_body = markdown.markdown(
+        md_text,
+        extensions=["tables", "fenced_code", "smarty"],
+    )
+    html_body = absolutize_local_links(html_body, output_path)
 
-watermark_html = (
-    f'<div class="page-watermark">{args.watermark}</div>' if args.watermark else ""
-)
+    watermark_html = f'<div class="page-watermark">{watermark}</div>' if watermark else ""
 
-full_html = f"""<!DOCTYPE html>
+    full_html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<title>{TITLE}</title>
+<title>{title}</title>
 <style>
   @page {{
     size: A4;
@@ -237,6 +220,28 @@ full_html = f"""<!DOCTYPE html>
 </body>
 </html>"""
 
-OUTPUT.write_text(full_html, encoding="utf-8")
+    output_path.write_text(full_html, encoding="utf-8")
+    return output_path
 
-print(f"HTML written to: {OUTPUT}")
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Convert a study markdown file to styled HTML.")
+    parser.add_argument("input", nargs="?", default=None, help="Path to the study .md file")
+    parser.add_argument(
+        "--watermark",
+        default=None,
+        help='Optional repeating page watermark text (e.g. "Draft"). Omit for released studies.',
+    )
+    args = parser.parse_args()
+
+    if args.input:
+        input_path = Path(args.input).resolve()
+    else:
+        input_path = STUDIES / "How-To-Form-Self-Sustaining-Organizations.md"
+
+    output_path = convert_to_html(input_path, args.watermark)
+    print(f"HTML written to: {output_path}")
+
+
+if __name__ == "__main__":
+    main()

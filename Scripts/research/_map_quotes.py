@@ -1,7 +1,12 @@
-"""Map quoted phrases to their page (and MVD chapter) in the cached sources."""
+"""Map quoted phrases to their page (and MVD chapter) in the cached sources.
+
+Deprecated: prefer `python Scripts/_quote_tool.py snippet <tag> "<phrase>"`.
+"""
 import re
 
-from _common import SCRIPTS, load_pages, norm
+import _bootstrap
+from _bootstrap import RESEARCH
+from _common import load_pages, norm
 
 
 def find_page(pages: list[tuple[int, str]], phrase: str) -> tuple[str, str]:
@@ -53,5 +58,5 @@ for src, pages, phrase in checks:
     page, chapter = find_page(pages, phrase)
     lines.append(f"{src} | p={page} | {chapter} | {phrase}")
 
-(SCRIPTS / "_map_results.txt").write_text("\n".join(lines), encoding="utf-8")
+(RESEARCH / "_map_results.txt").write_text("\n".join(lines), encoding="utf-8")
 print("\n".join(lines))

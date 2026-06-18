@@ -48,7 +48,8 @@ Set-Location Scripts; npm install; Set-Location ..
 New study or catalog entry?     → _add_study.py
 Delete study entirely?          → _remove_study.py
 Finalize or revert draft?       → _set_study_status.py
-Edit body text only?            → edit .md + md-to-pdf pipeline (see AGENTS.md §1, §3)
+Edit body text only?            → edit .md, then `python Scripts/_regenerate_pdf.py <Slug>`
+Quote check before PR?          → `python Scripts/_quote_tool.py verify --study <Slug>`
 ```
 
 Always run scripts from the **repository root**. Append `--dry-run` to preview.

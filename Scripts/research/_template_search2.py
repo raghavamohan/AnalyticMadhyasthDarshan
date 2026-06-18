@@ -1,7 +1,12 @@
-"""Second pass: targeted passages for the unit-assembly template paper."""
+"""Second pass: targeted passages for the unit-assembly template paper.
+
+Archived research script — outputs under Scripts/research/.
+"""
 import re
 
-from _common import SCRIPTS, chapter_map, load_pages
+import _bootstrap
+from _bootstrap import RESEARCH
+from _common import chapter_map, load_pages
 
 QUERIES = {
     "MVD": [
@@ -67,5 +72,5 @@ for key, terms in QUERIES.items():
         if hits == 0:
             out_lines.append("(no hits)")
 
-(SCRIPTS / "_template_search2.txt").write_text("\n".join(out_lines), encoding="utf-8")
-print(f"Wrote {SCRIPTS / '_template_search2.txt'}")
+(RESEARCH / "_template_search2.txt").write_text("\n".join(out_lines), encoding="utf-8")
+print(f"Wrote {RESEARCH / '_template_search2.txt'}")

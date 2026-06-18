@@ -89,7 +89,7 @@ CI runs `_set_study_status.py`, updates metadata and catalogs, and regenerates t
 - Follow study format and intent in [Studies/README.md](Studies/README.md).
 - Link references to files under `References/` where permitted; otherwise link externally — see [References/NOT-DOWNLOADED.md](References/NOT-DOWNLOADED.md). Do not upload restricted material.
 - Update [References/MANIFEST.md](References/MANIFEST.md) for new citations (CI may prompt you if tags are missing).
-- Run `python Scripts\_verify_quotes.py --study <Slug>` locally if you quote local sources (optional but recommended).
+- Run `python Scripts\_quote_tool.py verify --study <Slug>` locally if you quote local sources (optional but recommended).
 - Describe the question, primary texts, and any new references in the PR description.
 
 ---
@@ -130,9 +130,7 @@ cd Scripts
 npm install
 cd ..
 
-python Scripts\_convert_to_pdf.py "Studies\<Slug>.md" --watermark Draft
-node Scripts\_html_to_pdf.js "Studies\<Slug>.html"
-Remove-Item "Studies\<Slug>.html"
+python Scripts\_regenerate_pdf.py <Slug>
 ```
 
 Study management scripts: see [README.md](README.md#for-contributors).

@@ -1,7 +1,12 @@
-"""Extract exact-quote snippets (with page) from the JV cache."""
+"""Extract exact-quote snippets (with page) from the JV cache.
+
+Deprecated: prefer `python Scripts/_quote_tool.py snippet JV "<phrase>"`.
+"""
 import re
 
-from _common import SCRIPTS, load_pages
+import _bootstrap
+from _bootstrap import RESEARCH
+from _common import load_pages
 
 pages = load_pages("JV")
 
@@ -33,5 +38,5 @@ for pattern in patterns:
     if not found:
         lines.append(f"--- {pattern}: NOT FOUND ---\n")
 
-(SCRIPTS / "_jv_exact_quotes.txt").write_text("\n".join(lines), encoding="utf-8")
-print(f"Wrote {SCRIPTS / '_jv_exact_quotes.txt'}")
+(RESEARCH / "_jv_exact_quotes.txt").write_text("\n".join(lines), encoding="utf-8")
+print(f"Wrote {RESEARCH / '_jv_exact_quotes.txt'}")

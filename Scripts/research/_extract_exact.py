@@ -1,7 +1,12 @@
-"""Extract exact-quote snippets (with page and chapter) from the MVD cache."""
+"""Extract exact-quote snippets (with page and chapter) from the MVD cache.
+
+Deprecated: prefer `python Scripts/_quote_tool.py snippet MVD "<phrase>"`.
+"""
 import re
 
-from _common import SCRIPTS, chapter_map, load_pages
+import _bootstrap
+from _bootstrap import RESEARCH
+from _common import chapter_map, load_pages
 
 pages = load_pages("MVD")
 chapters = chapter_map(pages)
@@ -34,5 +39,5 @@ for pattern in patterns:
     if not found:
         lines.append(f"--- {pattern}: NOT FOUND ---\n")
 
-(SCRIPTS / "_exact_quotes.txt").write_text("\n".join(lines), encoding="utf-8")
-print(f"Wrote {SCRIPTS / '_exact_quotes.txt'}")
+(RESEARCH / "_exact_quotes.txt").write_text("\n".join(lines), encoding="utf-8")
+print(f"Wrote {RESEARCH / '_exact_quotes.txt'}")

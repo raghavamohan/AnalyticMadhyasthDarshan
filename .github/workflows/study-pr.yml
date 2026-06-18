@@ -53,6 +53,10 @@ jobs:
         working-directory: Scripts
         run: npm ci
 
+      - name: Install Puppeteer Chrome
+        working-directory: Scripts
+        run: npx puppeteer browsers install chrome
+
       - name: Run study PR pipeline
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

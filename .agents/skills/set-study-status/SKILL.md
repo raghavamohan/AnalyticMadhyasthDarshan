@@ -57,12 +57,8 @@ Skip sync check: `--no-check-timestamps`
 ## Manual PDF regen (if `--skip-pdf` was used)
 
 ```powershell
-python Scripts/_convert_to_pdf.py "Studies/<Slug>.md" --watermark Draft
-node Scripts/_html_to_pdf.js "Studies/<Slug>.html"
-Remove-Item "Studies/<Slug>.html"
+python Scripts/_regenerate_pdf.py <Slug>
 ```
-
-Omit `--watermark Draft` for released studies.
 
 ## Completion checklist
 

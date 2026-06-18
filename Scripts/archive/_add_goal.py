@@ -1,9 +1,8 @@
 """Insert subsection 1.1 (the applied goal of the paper) at the end of Section 1.
 
-Written via script because the workspace editors re-save as cp1252 and destroy
-the Greek/arrow glyphs; this reads and writes UTF-8 and uses \\u escapes for any
-non-ASCII glyph so the script source itself stays cp1252-safe.
+Archived one-off editor for The-Coexistence-Template.md.
 """
+import _bootstrap  # noqa: F401
 from _common import BASE
 
 RHO, PHI, MU, TAU = "\u03c1", "\u03c6", "\u03bc", "\u03c4"
