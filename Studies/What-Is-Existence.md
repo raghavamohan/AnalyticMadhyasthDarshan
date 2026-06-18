@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 17, 2026, 9:11 PM IST
+**Edited on:** June 18, 2026, 6:54 AM IST
 
 **Status:** Draft
 
@@ -35,8 +35,8 @@ Where a label is omitted on a quoted passage, the content is **[Text]**. Unmarke
 | Term | Plain meaning |
 |------|---------------|
 | **Existence (*astitva*)** | In Madhyasth Darshan: beingness (*hona*) and indestructibility (*anashita*), always present as coexistence (*saha-astitva*). |
-| **Coexistence (*saha-astitva*)** | Reality as Omnipresence (*satta*) and all units (*ikai*) inseparably present together. |
-| **Omnipresence / Space / Brahma / Satta** | The all-pervasive, formless, non-transforming reality in which all units (*ikai*) are saturated (*samprikt* — submerged, soaked, surrounded: *dooba*, *bheega*, *gira*). The published translation also uses Omnipotence, Uniform/Equilibrium Energy, Space (*akasha*), Knowledge (*gyan*), Consciousness, God, and Absolute Energy for this same reality. This paper standardizes on "Omnipresence" as the primary English term and treats the other names as quotations from the source. "Consciousness" here is one name for this pervasive reality and must not be read as a knowing subject — sentience (*chaitanya*) proper belongs to the sentient unit (*jeevan*). See §1.6 for the tension this naming creates. |
+| **Coexistence (*saha-astitva*)** | Reality as the pervasive ground (*satta*) and all units (*ikai*) inseparably present together. |
+| **Satta (Omnipotence / "Omnipresence")** | The all-pervasive, formless, non-transforming reality in which all units (*ikai*) are saturated (*samprikt* — submerged, soaked, surrounded: *dooba*, *bheega*, *gira*). The source texts' own primary English term for *satta* is **Omnipotence**; they also give it the names Uniform/Equilibrium Energy, Space (*akasha* / *shunya*), Knowledge (*gyan*), Consciousness, Omnipresence (*vyapak*), Eternity, God, and Absolute Energy. **Editorial convention:** to avoid the theistic connotations of "Omnipotence," this paper uses **"Omnipresence"** as its running English term, but where the source's word is quoted it is preserved (see §1.1). "Consciousness" here is one name for this pervasive reality and must not be read as a knowing subject — sentience (*chaitanya*) proper belongs to the sentient unit (*jeevan*). See §1.6 for the tension this naming creates. |
 | **Unit (*ikai*)** | A countable, bounded entity in nature, whether insentient (*jada*) or sentient (*chaitanya*). |
 | ***Jeevan* (Sentient Self)** | The sentient self: a real, immortal, constitutionally complete unit (*gathanpurna parmanu*) that works through the body (*shareer*). |
 | **Constitutional Completeness (*gathanpurnata*)** | The state achieved when an atom integrates the required number of particles to become indivisible, immortal, and sentient (a *jeevan*). Crucial to the emergence of sentience in §1.5. |
@@ -60,7 +60,9 @@ Where a label is omitted on a quoted passage, the content is **[Text]**. Unmarke
 
 ### 1.1 The Coexistential Structure: Space (*Satta*) and Nature (*Prakriti*)
 
-Madhyasth Darshan does not define existence (*astitva*) as an object among objects, nor as a mental category imposed by a knower. It defines existence as the inseparable presentness of formless Omnipresence (*satta*) and formful nature (*prakriti*).
+**A note on naming (*satta*).** The source texts' own primary English term for the all-pervasive, formless reality (*satta*) is **Omnipotence**; *vyapak* ("all-pervasive") is one of its names, rendered "Omnipresence" in the translation. To avoid the theistic connotations of "Omnipotence," this paper uses **"Omnipresence"** as its running English term for *satta*. Where the source is quoted directly, its own word — usually **Omnipotence** — is preserved verbatim; the prose substitute is an editorial choice, not the source's usage, and the *Hindi* term (*satta*) is the constant behind both.
+
+Madhyasth Darshan does not define existence (*astitva*) as an object among objects, nor as a mental category imposed by a knower. It defines existence as the inseparable presentness of formless *satta* and formful nature (*prakriti*).
 
 SB gives the most compressed formulation:
 
@@ -71,8 +73,8 @@ A note on the word "consciousness" in the translation. The published translation
 
 The same passage rejects two familiar origin stories:
 
-1. Matter (*jada*) does not arise from Omnipresence (*satta*).
-2. Omnipresence (*satta*) does not arise from matter (*jada*).
+1. Matter (*jada*) does not arise from *satta*.
+2. *Satta* does not arise from matter (*jada*).
 
 The alternative is not creation of one from the other, but inseparable presentness, expressed in the language of "Realisation Knowledge" (*anubhav jnan*):
 
@@ -115,7 +117,14 @@ The source describes units as *samprikt* — soaked, submerged, surrounded — i
 > **"Unit + Energy fullness = Activeness."**
 > - SB, p. 69
 
-The relation is not one-directional. Units depend on *satta* for energy; *satta* depends on units for manifestation as activity. Omnipresence remains formless, motionless, and free from pressure, while the whole of nature saturated in it is present with motion and pressure (SB, p. 49). Regulation, activeness, and forcefulness in a unit are seen respectively from its being surrounded, submerged, and soaked in Omnipresence (SB, p. 57). Without unit activity (*mool cheshta*, basic impulsion), the energy remains unmanifest; without the energy, there is no basic impulsion (SB, p. 62). This is mutual dependence for manifestation, not mutual constitution: neither is made from the other, neither is cancelled by the other, and *satta* is never an efficient cause — yet its uniform energy does not appear as energisation, regulation, or activity except through the ceaseless activity of saturated units.
+The relation is not one-directional. Units depend on *satta* for energy; *satta* depends on units for manifestation as activity. *Satta* remains formless, motionless, and free from pressure, while the whole of nature saturated in it is present with motion and pressure (SB, p. 49). Regulation, activeness, and forcefulness in a unit are seen respectively from its being surrounded, submerged, and soaked in *satta* (SB, p. 57). Without unit activity — the source's term is **basic impulsion** — the energy remains unmanifest; without the energy, there is no basic impulsion (SB, p. 62). This is mutual dependence for manifestation, not mutual constitution: neither is made from the other, neither is cancelled by the other, and *satta* is never an efficient cause — yet its uniform energy does not appear as energisation, regulation, or activity except through the ceaseless activity of saturated units.
+
+SB presents this dependence not as a single assertion but as a continuous identity-chain, a characteristic Madhyasth Darshan reasoning pattern (A = B = C = ...). It is worth quoting at length, because the chain carries the argument's cumulative force that any one link on its own obscures:
+
+> **"Saturation in uniform energy itself is forcefulness, forcefulness itself is basic impulsion, basic impulsion itself is activity, activity itself is effort-motion-result, effort-motion-result itself is development and its continuity."**
+> - SB, p. 62
+
+So the mutual dependence runs the whole length from saturation to development: *satta*'s uniform energy becomes forcefulness only through the unit, becomes activity only through basic impulsion, becomes development only through effort-motion-result — the same triad named in §1.3 as Effort–Motion–Result (*shram–gati–parinam*). Each transition is an identity ("itself is"), not an external push. (The source's Hindi term behind "basic impulsion" is not used in the English translation; the parenthetical Sanskritic glosses sometimes added in discussion — e.g. *cheshta* — are not the source's own vocabulary and are avoided here.)
 
 **The "actionless energy" paradox.** Omnipresence is called energy and credited with energizing, regulating, and conserving nature, yet is also called actionless (*kriya-shunya*) and non-transforming. The texts resolve this by distributing the terms: *satta* is actionless in itself, but its energy is manifest as the activity of units. "Actionless energy" therefore means latent, uniform energy at the root of activity — present everywhere, never acting on its own, yet inseparable from the activity through which alone it is revealed. The physics analogy of a field that "permits" motion without moving captures only the first half (units depend on *satta*); the second half — that energy without unit activity stays unmanifest — is specific to this darshan and must not be dropped.
 

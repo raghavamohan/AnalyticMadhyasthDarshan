@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "pdf-mcp": {
+      "command": "E:\\Anaconda\\python.exe",
+      "args": ["-m", "pdf_mcp.server"]
+    }
+  }
+}
