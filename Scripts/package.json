@@ -4,6 +4,7 @@
   "private": true,
   "description": "Helper scripts for the Madhyasth Darshan workspace",
   "dependencies": {
+    "pdf-lib": "^1.17.1",
     "puppeteer": "^24.43.1"
   }
 }

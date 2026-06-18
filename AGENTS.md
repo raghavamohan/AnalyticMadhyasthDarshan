@@ -4,8 +4,8 @@ This file carries the standing instructions for AI agents working in this repo.
 It replaces the earlier `.cursor/rules/*.mdc` files; those still exist for
 Cursor, but this is the source of truth for ZCode/opencode.
 
-There are three rule sections below. The first applies to **every** study edit;
-the other two apply when their stated condition is met.
+There are four rule sections below. The first and fourth apply to **every** study
+edit; the other two apply when their stated condition is met.
 
 ---
 
@@ -195,3 +195,45 @@ foreach ($s in $studies) {
 - Edit PDFs directly or commit hand-built HTML as the source of truth.
 - Change conversion behavior inline in chat without updating these scripts when
   the change should apply to all future PDFs (footer, watermark, styling).
+
+---
+
+## 4. Study prose style — scholarly essay, not AI scaffold *(always applies)*
+
+Applies to every topical study under `Studies/` except `Studies/README.md`.
+Reference: [What-Is-Existence.md](Studies/What-Is-Existence.md). Cursor mirror:
+`.cursor/rules/study-prose-style.mdc`.
+
+### Voice
+
+Write exposition (typically §1–§4) as **continuous scholarly essay**. Comparison
+may use tables in a dedicated section (typically §5). Critical review may use
+numbered lists (typically §6).
+
+### Avoid
+
+- Bracket meta-tags: `[Open]`, `[Interpretation]`, `[Text]`
+- Outline scaffolding: `**The claim in one sentence:**`, step roadmaps, repeated
+  end-of-section Q&A recap tables
+- Elimination filters: bold `**Not constitution.**` / `**Proposed reading:**`
+  headers — weave rejections into prose
+- Document signposting: `primary reference`, `prepares its rows`, `not
+  decoration`, `keep in view`, `one-sentence preview`
+- Formulaic bridges: `Having examined…`, `To map these divergent models…`
+
+### Use instead
+
+- Plain commitments: *This paper adopts…*, *On our reading…*
+- Unsettled points in prose where they arise, collected in an **Open problems**
+  section without bracket labels
+- Content-first transitions: *Sentience is the next threshold…*
+- Cross-refs only for argument (`§6.2`, `§3.3`), not for cataloguing the outline
+- One running English term per source concept in analytical prose (glossary +
+  Editorial Notes); block quotes keep translation wording
+
+### Check before finishing
+
+- [ ] No `[Open]` / `[Interpretation]` in the study `.md`
+- [ ] No `**Not …**` rejection headers in exposition
+- [ ] No navigation-only meta-sentences
+- [ ] Comparison recaps not duplicated outside the comparison section

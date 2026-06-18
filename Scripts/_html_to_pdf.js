@@ -2,6 +2,8 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 
+const { PDFDocument, StandardFonts, degrees, rgb } = require('pdf-lib');
+
 // Cursor's agent sandbox sets PUPPETEER_CACHE_DIR to a temp folder that is wiped
 // between sessions, which makes Chrome look "missing" on every agent run. Use the
 // normal per-user cache unless the caller set an explicit executable path.
@@ -51,12 +53,38 @@ function resolveChromeExecutable() {
   return '';
 }
 
+async function addPageWatermark(pdfPath, label) {
+  const pdfBytes = fs.readFileSync(pdfPath);
+  const pdfDoc = await PDFDocument.load(pdfBytes);
+  const font = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
+  const text = label.toUpperCase();
+  const fontSize = 108;
+
+  for (const page of pdfDoc.getPages()) {
+    const { width, height } = page.getSize();
+    const textWidth = font.widthOfTextAtSize(text, fontSize);
+    const textHeight = font.heightAtSize(fontSize);
+    page.drawText(text, {
+      x: width / 2 - textWidth / 2,
+      y: height / 2 - textHeight / 2,
+      size: fontSize,
+      font,
+      color: rgb(0.75, 0.12, 0.12),
+      opacity: 0.1,
+      rotate: degrees(-45),
+    });
+  }
+
+  fs.writeFileSync(pdfPath, await pdfDoc.save());
+}
+
 const args = process.argv.slice(2);
 // Relative input paths resolve against the current working directory; the
 // default points at the workspace's Studies folder.
 const inputPath = args[0]
   ? path.resolve(process.cwd(), args[0])
   : path.join(workspaceRoot, 'Studies', 'How-To-Form-Self-Sustaining-Organizations.html');
+const watermarkLabel = args[1] ?? '';
 const outputPath = inputPath.replace(/\.html$/, '.pdf');
 
 (async () => {
@@ -94,5 +122,10 @@ const outputPath = inputPath.replace(/\.html$/, '.pdf');
   });
 
   await browser.close();
+
+  if (watermarkLabel) {
+    await addPageWatermark(outputPath, watermarkLabel);
+  }
+
   console.log('PDF written to:', outputPath);
 })();
