@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 18, 2026, 3:36 PM IST
+**Edited on:** June 18, 2026, 4:29 PM IST
 
 **Status:** Draft
 
@@ -826,27 +826,14 @@ If Madhyasth Darshan is to borrow Strawson's anti-emergence principle against ph
 
 ## 7. Conclusion
 
-Madhyasth Darshan's answer to the paper's three questions is exact:
+Madhyasth Darshan answers the paper's three questions through a single ontological picture. **Existence** (*astitva*) is eternally present **coexistence** (*saha-astitva*): formless Omnipresence (*satta*) and countless sentient and insentient **units** (*ikai*) inseparably present together — neither made from the other, neither finally cancelled. **What exists** is that whole: the all-pervasive, actionless ground in which every unit is saturated (*samprikt*), energised, and regulated, together with the units themselves in their real form, properties, *dharma*, complementarity, and orderliness across the four ontological orders. **What exists does not begin** from non-existence (*abhava*): coexistence is beginningless; *satta* does not transform; units are not annihilated, though bodies, configurations, and associations do begin and end. Time (*kaal*) is the duration of unit-activity, not an independent cosmic container (§1.8).
 
-1. **What is Existence?** Eternally present coexistence: formless Omnipresence and formful units inseparably present.
-2. **What exists?** Omnipresence exists; countless sentient and insentient units exist; their form, properties, nature, dharma, mutuality, and orderliness exist.
-3. **Does what exists begin?** No. What exists does not come from non-existence and is not annihilated. Bodies and configurations begin and end; existence and existent realities persist through transformation.
-
-Its most distinctive formulation —
+Within this frame, **causation** is circular and order-specific, not creation from nothing. Omnipresence is *mahakaran* — the sustaining ground — not the efficient cause of particular change; the work of transformation belongs to units. Insentient nature moves through effort–motion–result (*shram–gati–parinam*); the sentient self (*jeevan*) through effort–motion–resolution (*shram–gati–pratishtha*). Sentience is the status of a constitutionally complete atom (*gathanpurna parmanu*), eternally present in coexistence and actualised at completeness rather than produced from dead matter (§§1.3–1.5, §6.6). Nature develops through real plateaus — material, bio, animal, and knowledge orders — each with its own *dharma*. In the human order, development continues as **awakening** (*jagriti*): knowledge unfolds through the active *jeevan*, shaped by *sanskar*, study, and environment, until realization becomes evident as resolved humane conduct (*manaviya aacharan*) in relationship with other humans and the ecological orders.
 
 > **"Brahma is truth, the world is perpetual."**
 > - MVD, p. 13
 
-— marks the difference from Advaita and physicalism at once: against Advaita, the world is not *mithya*; against physicalism, existence is not merely physicochemical matter; against both, reality is neither world-negation nor matter-only, but coexistence.
-
-The philosophical strength of this view is that it makes the world, relationships, conduct, and ecological responsibility fully real. Its unresolved challenges are two, and they are different in kind:
-
-- **Evidential challenge** (§6.2, items 6 and 8; §6.4): clarifying how *jeevan*, constitutional completeness, and post-death continuity can be studied or responsibly distinguished from metaphysical assertion.
-- **Internal-coherence challenge** (§6.2, items 1–3, 5, 7; §6.6): formalizing saturation and circular causality beyond the prose account of §§1.2–1.3, and specifying the physical mechanism of the Saturation-Reflector Model.
-
-Comparative clarity is achieved when the reader can state, for each of the three questions, where Madhyasth Darshan, Advaita, and physicalism agree — and where §5.7's three pairwise alliances divide them: MD and Advaita against physicalism on matter-only reduction; MD and science against Advaita on final world-reality; Advaita and science against MD on individual immortality.
-
-In Madhyasth Darshan itself, careful study of existence is only the starting point. Understanding is fulfilled when coexistence becomes clear in one's own seeing and evident in conduct — in recognition of relationships, fulfilment of values, resolution in thought, responsible work and experiment, and the ability to convey the understanding to others. The open problems listed in §6.2 are therefore not reasons to dismiss the comparative project; they mark where study, responsible experiment, and later rigorous work must continue.
+That formulation marks what is distinctive in comparative terms. Against **physicalism**, Madhyasth Darshan refuses matter-only reduction: consciousness, value, selfhood, and ethical relation are not exhaustively explained as brain-generated epiphenomena, yet the world of units remains fully real for study and responsibility — not a second-class appearance. Against **Advaita**, it refuses world-negation at the highest level: the perpetual world (*jagat satat*), distinct immortal *jeevan* units, and ontologically real relationships and values (*mulya*) retain final weight; coexistence is not compressed into a single subject whose empirical multiplicity is finally *mithya*. Against both, it holds a **relational realism**: Brahma is real, the world is real, and their inseparable presentness is coexistence — with ontology tied to conduct, so that understanding is fulfilled when coexistence becomes clear in one's own seeing and evident in humane living, responsible work, and experiment. The pairwise patterns in §5.7 show where each tradition agrees and diverges on these stakes; the critical review in §6 examines what remains open within and against that position.
 
 ## Editorial Notes
 
