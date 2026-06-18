@@ -201,20 +201,31 @@ foreach ($s in $studies) {
 ## 4. Study prose style — scholarly essay, not AI scaffold *(always applies)*
 
 Applies to every topical study under `Studies/` except `Studies/README.md`.
-Reference: [What-Is-Existence.md](Studies/What-Is-Existence.md). Cursor mirror:
+References: [What-Is-Existence.md](Studies/What-Is-Existence.md) (ontology
+exposition, open problems); [Why-Humans-Are-Not-Just-Material.md](Studies/Why-Humans-Are-Not-Just-Material.md)
+(comparative anthropology, critique closings). Cursor mirror:
 `.cursor/rules/study-prose-style.mdc`.
 
 ### Voice
 
-Write exposition (typically §1–§4) as **continuous scholarly essay**. Comparison
+Write exposition (typically §1–§4) as **continuous scholarly essay**. Tradition
+sections open with multi-sentence prose that states the position (*Madhyasth
+Darshan holds…*, *Mainstream science answers…*). Use `### N.M Descriptive
+title` subsections for argument steps — not `**Step N —**` roadmaps. Comparison
 may use tables in a dedicated section (typically §5). Critical review may use
-numbered lists (typically §6).
+numbered lists (typically §5–§6); end each tradition's review with a plain
+closing sentence naming the tradition, not `**Verdict:**`. Cross-reference with
+`§2.3`, not `Section 2`.
 
 ### Avoid
 
+- Reader guides: `## How to read this study` and tag-legend blocks
 - Bracket meta-tags: `[Open]`, `[Interpretation]`, `[Text]`
-- Outline scaffolding: `**The claim in one sentence:**`, step roadmaps, repeated
-  end-of-section Q&A recap tables
+- Outline scaffolding: `**The claim in one sentence:**`, `**Step N —**` roadmaps,
+  repeated end-of-section Q&A recap tables
+- Conclusion labels: `**Verdict:**` — state the conclusion as a plain sentence
+- Epistemic qualifiers: `honestly`, `honest caveat`, `The honest bottom line`
+  — state the point directly (*What science leaves open*)
 - Elimination filters: bold `**Not constitution.**` / `**Proposed reading:**`
   headers — weave rejections into prose
 - Document signposting: `primary reference`, `prepares its rows`, `not
@@ -228,6 +239,7 @@ numbered lists (typically §6).
 - Plain commitments: *This paper adopts…*, *On our reading…*
 - Unsettled points in prose where they arise, collected in an **Open problems**
   section without bracket labels
+- Caveats stated directly, without labeling them `honest` or `frank`
 - Content-first transitions: *Sentience is the next threshold…*
 - Cross-refs only for argument (`§6.2`, `§3.3`), not for cataloguing the outline
 - One running English term per source concept in analytical prose (glossary +
@@ -238,10 +250,14 @@ numbered lists (typically §6).
 
 ### Check before finishing
 
-- [ ] No `[Open]` / `[Interpretation]` in the study `.md`
+- [ ] No `## How to read this study` or tag legend
+- [ ] No `[Open]` / `[Interpretation]` / `[Text]` in the study `.md`
+- [ ] No `**The claim in one sentence:**`, `**Step N —**`, or `**Verdict:**`
+- [ ] No `honestly` / `honest caveat` / `The honest bottom line` qualifiers
 - [ ] No `**Not …**` rejection headers in exposition
 - [ ] No navigation-only meta-sentences
 - [ ] Comparison recaps not duplicated outside the comparison section
+- [ ] Cross-refs use `§`, not `Section`
 - [ ] References: no section preamble; no external-storage notes on entries
 
 ---
