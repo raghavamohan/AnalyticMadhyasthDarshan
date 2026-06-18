@@ -43,7 +43,7 @@ Select any linked title to open the full study. Titles shown in italics are stil
 <!-- studies-catalog -->
 | Document | Category | Description | Status |
 |----------|----------|-------------|--------|
-| [What-Is-Existence](What-Is-Existence.pdf) | Ontology | Madhyasth Darshan, Advaita Vedanta, and modern philosophy on existence, what exists, and whether existence begins | Draft<br>Last updated on: Jun 18, 2026, 8:59 AM IST |
+| [What-Is-Existence](What-Is-Existence.pdf) | Ontology | Madhyasth Darshan, Advaita Vedanta, and modern philosophy on existence, what exists, and whether existence begins | Draft<br>Last updated on: Jun 18, 2026, 9:53 AM IST |
 | [Why-Humans-Are-Not-Just-Material](Why-Humans-Are-Not-Just-Material.pdf) | Philosophical Anthropology | Madhyasth Darshan, science, and Advaita Vedanta on whether humans are more than matter | Draft<br>Last updated on: Jun 17, 2026, 3:44 PM IST |
 | *Philosophy-Of-Mind-And-Jeevan* | Philosophy of Mind | Ongoing.. Jeevan, mun, vritti, chitta, buddhi, atma, desire, imagination, selection, delusion, and awakening | Ongoing |
 | [Knowledge-Knower-And-Known](Knowledge-Knower-And-Known.pdf) | Epistemology | Comparative study of knowledge, knower, and known in Madhyasth Darshan, Advaita Vedanta, and Modern Philosophy | Draft<br>Last updated on: Jun 16, 2026, 4:51 PM IST |
