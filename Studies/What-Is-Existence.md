@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 18, 2026, 8:11 PM IST
+**Edited on:** June 18, 2026, 8:16 PM IST
 
 **Status:** Draft
 
@@ -709,31 +709,31 @@ Judged on its own definitions — not as proof against rivals — the ontology h
 
 These are strengths **within** the system's premises. They do not by themselves establish those premises against Advaita or physicalism (see §6.2–§6.6).
 
-### 6.2 Open problems for Madhyasth Darshan — argued
+### 6.2 Open problems for Madhyasth Darshan
 
-**Internal coherence**
+#### Internal coherence
 
-**1. The emergence of sentience (§1.5).** Constitutional completeness appears to require a quantitative threshold producing a qualitative change — strong emergence. Yet the paper borrows Strawson's anti-emergence principle against physicalism. The latency reply is committed in §6.6; the physical mechanism of the Saturation-Reflector Model remains unspecified.
+1. **The emergence of sentience (§1.5).** Constitutional completeness appears to require a quantitative threshold producing a qualitative change — strong emergence. Yet the paper borrows Strawson's anti-emergence principle against physicalism. The latency reply is committed in §6.6; the physical mechanism of the Saturation-Reflector Model remains unspecified.
 
-**2. Mutual dependence and the Nagarjuna challenge (§1.2).** The paper states that units depend on *satta* for energy and *satta* depends on units for manifestation as activity. Nagarjuna's critique of *svabhava* (intrinsic existence) asks whether such mutual dependence makes neither independently real — precisely the challenge Madhyasth Darshan must answer if coexistence is not to collapse into dependent co-arising without enduring units. The texts' answer, implicit in the eternity of both *satta* and *ikai*, is that coexistence is beginningless: neither pole is ontologically posterior to the other. That reply needs explicit defense against Madhyamaka-style reduction.
+2. **Mutual dependence and the Nagarjuna challenge (§1.2).** The paper states that units depend on *satta* for energy and *satta* depends on units for manifestation as activity. Nagarjuna's critique of *svabhava* (intrinsic existence) asks whether such mutual dependence makes neither independently real — precisely the challenge Madhyasth Darshan must answer if coexistence is not to collapse into dependent co-arising without enduring units. The texts' answer, implicit in the eternity of both *satta* and *ikai*, is that coexistence is beginningless: neither pole is ontologically posterior to the other. That reply needs explicit defense against Madhyamaka-style reduction.
 
-**3. Satta–Ikai relation and circular causality.** §1.2–1.3 state mutual dependence and dual activity triads in prose; what remains is formalization — not discovery of whether the texts assert them.
+3. **Satta–Ikai relation and circular causality.** §1.2–1.3 state mutual dependence and dual activity triads in prose; what remains is formalization — not discovery of whether the texts assert them.
 
-**5. Mereology and identity of *jeevan* (§1.7).** Functional vs. mereological indivisibility, and identity across the death-to-re-association gap, need explicit criteria. JV p. 20 infers post-death survival from conservation. This inference commits a category error by conflating quantity conservation (standard thermodynamics) with structural/entity conservation. Furthermore, the claim of physical indivisibility of *jeevan* as a *parmanu* directly contradicts modern particle physics, where no physical bound state of particles is absolutely indivisible or immune to decay/annihilation.
+4. **Mereology and identity of *jeevan* (§1.7).** Functional vs. mereological indivisibility, and identity across the death-to-re-association gap, need explicit criteria. JV p. 20 infers post-death survival from conservation. This inference commits a category error by conflating quantity conservation (standard thermodynamics) with structural/entity conservation. Furthermore, the claim of physical indivisibility of *jeevan* as a *parmanu* directly contradicts modern particle physics, where no physical bound state of particles is absolutely indivisible or immune to decay/annihilation.
 
-**7. *Jeevan*–body interaction.** If *jeevan* drives the body, the mechanism from intention to neural and muscular activity is unspecified.
+5. ***Jeevan*–body interaction.** If *jeevan* drives the body, the mechanism from intention to neural and muscular activity is unspecified.
 
-**Evidence and science**
+#### Evidence and science
 
-**6. Constitutional completeness is not operational.** Central to the ontology but not presently measurable in physics or chemistry.
+6. **Constitutional completeness is not operational.** Central to the ontology but not presently measurable in physics or chemistry.
 
-**8. Evidence standard vs. science.** Realization and behavior are cited; science requires public testability. What would count as evidence for *jeevan* beyond the hard-problem explanatory gap? §6.4 addresses this.
+7. **Evidence standard vs. science.** Realization and behavior are cited; science requires public testability. What would count as evidence for *jeevan* beyond the hard-problem explanatory gap? §6.4 addresses this.
 
-**Comparative (deferred)**
+#### Comparative (deferred)
 
-**4. "Knowledge but not knower" (§1.6).** Comparative work must not collapse Omnipresence-as-*gyan* into Advaita's *chit*. Naming tensions in the English translation: Editorial Notes. The full epistemic account belongs in [Knowledge, Knower, and Known](Knowledge-Knower-And-Known.md).
+8. **"Knowledge but not knower" (§1.6).** Comparative work must not collapse Omnipresence-as-*gyan* into Advaita's *chit*. Naming tensions in the English translation: Editorial Notes. The full epistemic account belongs in [Knowledge, Knower, and Known](Knowledge-Knower-And-Known.md).
 
-**9. The nature of time (§1.8).** This paper states Madhyasth Darshan's core claim — *kaal* as duration of activity, not independent substance; timeless *satta*; numerical reckoning within existence — but does not yet treat past/present/future structure, the relation of "activity eternally present" to human temporal experience (JVD, p. 85), or systematic comparison with Advaita *trikaal* language, McTaggart, eternalism/presentism, and spacetime physics. That work is reserved for [*Nature-Of-Time*](Nature-Of-Time.md).
+9. **The nature of time (§1.8).** This paper states Madhyasth Darshan's core claim — *kaal* as duration of activity, not independent substance; timeless *satta*; numerical reckoning within existence — but does not yet treat past/present/future structure, the relation of "activity eternally present" to human temporal experience (JVD, p. 85), or systematic comparison with Advaita *trikaal* language, McTaggart, eternalism/presentism, and spacetime physics. That work is reserved for [*Nature-Of-Time*](Nature-Of-Time.md).
 
 ### 6.3 Strengths and Limits of Advaita
 
