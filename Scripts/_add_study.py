@@ -19,6 +19,7 @@ import sys
 from pathlib import Path
 
 from _common import REFERENCES, STUDIES
+from _pdf_cache_sync import pdfs_for_tags, sync_pdf_cache
 from _study_catalog import (
     StudyRow,
     StudyStatus,
@@ -266,6 +267,11 @@ def add_study(
         write_references_readme_row(derived_slug, study_tags)
         print(f"Updated {REFERENCES / 'README.md'}")
         update_manifest(derived_slug, study_tags, force=force)
+        tag_names = {tag.strip() for tag in study_tags.split(",") if tag.strip()}
+        pdf_paths = pdfs_for_tags(tag_names)
+        if pdf_paths:
+            print(f"Syncing PDF cache for {len(pdf_paths)} reference(s)...")
+            sync_pdf_cache(pdf_paths, prune=False)
 
     if check_timestamps:
         errors = verify_timestamp_sync(derived_slug)

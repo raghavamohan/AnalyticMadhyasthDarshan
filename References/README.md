@@ -14,7 +14,7 @@ Local copies of source texts cited across `Studies/`. See [MANIFEST.md](MANIFEST
 
 Commercial science books, **ATR**, and other restricted material are **not** copied here. Link to the original publisher or author URL instead — see [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md). **Contributors: do not upload restricted material** to this folder; only add files you may redistribute.
 
-Run `Scripts/_quote_tool.py verify` to check blockquotes in Studies against local files. Quotes tagged to external-only works are skipped.
+Run `Scripts/_quote_tool.py verify` to check blockquotes in Studies against local files. Run `Scripts/_quote_tool.py cache sync` after adding or updating PDFs under `References/`. Quotes tagged to external-only works are skipped.
 
 ## Directory layout
 
@@ -68,8 +68,8 @@ powershell -NoProfile -ExecutionPolicy Bypass -File Scripts\_download_references
 | Tag | File | Notes |
 |-----|------|-------|
 | **BU** | [BU-Brihadaranyaka-Upanishad-Madhavananda.pdf](Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf) | Swami Madhavananda translation |
-| **TU** | [Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf](Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf) | Taittiriya Upanishad begins at p. 237 |
-| **KU** | [Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf](Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf) | Katha Upanishad begins at p. 97 |
+| **TU** | [Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf](Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf) | Gambhirananda, *Eight Upanishads* (Advaita Ashrama; [2-vol. text PDF on Archive.org](https://archive.org/details/eight-upanishads-with-the-commentary-of-s-swami-gambhirananda)). Vol. I: Isa, Kena, Katha, Taittiriya; Vol. II: Aitareya, Mundaka, Mandukya, Prasna — both volumes in one file (719 pp.). **KU** begins at p. 97; **TU** at p. 237 |
+| **KU** | [Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf](Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf) | same as TU |
 | **MU** | [MU-Mandukya-Upanishad-Gambhirananda.pdf](Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf) | With Gaudapada Karika; Swami Gambhirananda |
 | **CU** | [CU-Chandogya-Upanishad-Gambhirananda.pdf](Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf) | Swami Gambhirananda translation |
 | **BG** | [BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf](Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf) | Shankara commentary; Swami Gambhirananda |

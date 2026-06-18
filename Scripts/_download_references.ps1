@@ -60,7 +60,10 @@ $downloads = @(
     },
     @{
         Dest = 'Advaita-Vedanta\Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf'
-        Urls = @('https://archive.org/download/dli.bengal.10689.13276/10689.13276.pdf')
+        Urls = @(
+            'https://dn790002.ca.archive.org/0/items/eight-upanishads-with-the-commentary-of-s-swami-gambhirananda/Eight%20Upanishads%2C%20With%20the%20Commentary%20of%20S%20-%20Swami%20Gambhirananda.pdf',
+            'https://archive.org/download/eight-upanishads-with-the-commentary-of-s-swami-gambhirananda/Eight%20Upanishads%2C%20With%20the%20Commentary%20of%20S%20-%20Swami%20Gambhirananda.pdf'
+        )
     },
     @{
         Dest = 'Advaita-Vedanta\BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf'
@@ -174,3 +177,8 @@ foreach ($item in $downloads) {
 }
 
 Write-Host 'Reference download complete. See References\README.md and References\NOT-DOWNLOADED.md.'
+
+$repoRoot = Split-Path $PSScriptRoot -Parent
+Write-Host 'Syncing PDF text cache...'
+python (Join-Path $repoRoot 'Scripts\_quote_tool.py') cache sync
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
