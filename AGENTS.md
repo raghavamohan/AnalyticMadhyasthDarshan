@@ -219,6 +219,8 @@ numbered lists (typically §6).
   headers — weave rejections into prose
 - Document signposting: `primary reference`, `prepares its rows`, `not
   decoration`, `keep in view`, `one-sentence preview`
+- References boilerplate: section preamble explaining how citations work;
+  per-entry `Linked externally; not stored locally` (the link shows this)
 - Formulaic bridges: `Having examined…`, `To map these divergent models…`
 
 ### Use instead
@@ -230,6 +232,9 @@ numbered lists (typically §6).
 - Cross-refs only for argument (`§6.2`, `§3.3`), not for cataloguing the outline
 - One running English term per source concept in analytical prose (glossary +
   Editorial Notes); block quotes keep translation wording
+- **References:** `## References` then tradition subsections — no preamble;
+  `**TAG** —` author, linked title, `Cited:`; local `../References/...` or
+  external URL in the link; no `Linked externally; not stored locally`
 
 ### Check before finishing
 
@@ -237,6 +242,7 @@ numbered lists (typically §6).
 - [ ] No `**Not …**` rejection headers in exposition
 - [ ] No navigation-only meta-sentences
 - [ ] Comparison recaps not duplicated outside the comparison section
+- [ ] References: no section preamble; no external-storage notes on entries
 
 ---
 

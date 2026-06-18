@@ -34,6 +34,8 @@ visible scaffolding.
 | `**Not constitution.**` elimination headers | Woven prose: *Saturation is not constitution: … Nor is it inherence…* |
 | `**Proposed reading:**` / `**Primary reference.**` | *On this reading,…* / *The relation that fits the texts is…* |
 | Meta-signposting (`not decoration`, `prepares its rows`, `keep in view`) | State the substance directly |
+| References preamble (`All sources cited in this document…`) | `## References` then tradition subsections |
+| `Linked externally; not stored locally` on entries | External URL in the link; no storage note |
 | `one-sentence preview`, `canonical exposition` | Cross-ref the section (`§6.6`) without narrating the document |
 
 ## Epistemic honesty without tags
@@ -50,9 +52,23 @@ visible scaffolding.
   **Omnipresence** for *satta*), aligned with the glossary and Editorial Notes.
 - Block quotes keep the translation’s wording.
 
+## References
+
+- No preamble under `## References`; begin with tradition subsections
+  (`### Madhyasth Darshan (primary sources)`, etc.).
+- Each entry: `**TAG** —` author, linked title, optional translator/edition,
+  `Cited:` passages. Use `../References/...` for local copies; external URL in
+  the link when no local file. Do not append `Linked externally; not stored
+  locally` or point readers to `NOT-DOWNLOADED.md` in the study body.
+- `Also at <url>` is fine when a local PDF exists and an alternate public URL
+  helps; omit when the entry is already an external link only.
+- Subsection notes are allowed only when they carry substance (e.g. edition
+  numbering for Upanishads), not to explain how the bibliography works.
+
 ## Quick check before finishing a study edit
 
 - [ ] No `[Open]` / `[Interpretation]` in the file
 - [ ] No `**Not …**` rejection headers in exposition
 - [ ] No sentences whose only job is to describe section/table layout
 - [ ] Comparison tables live in the comparison section, not scattered as recaps
+- [ ] References: no section preamble; no `Linked externally; not stored locally`
