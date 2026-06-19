@@ -6,6 +6,16 @@ Clear, carefully argued studies of **Madhyasth Darshan** (Co-existentialism) —
 
 Browse the published collection at **[analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org)** (or open [index.html](index.html) locally).
 
+**On this page**
+
+- [Our approach](#our-approach)
+- [Study Objectives](#study-objectives)
+- [Topical Studies](#topical-studies)
+- [Formal Studies](#formal-studies)
+- [How to contribute](#how-to-contribute)
+- [About us](#about-us)
+- [License](#license)
+
 ## Our approach
 
 These studies are written from the standpoint of a **scientist and technologist** — someone trained to graduate-level **physics and mathematics**, at home with contemporary cosmology, quantum theory, conservation laws, and the logic of formal models.
