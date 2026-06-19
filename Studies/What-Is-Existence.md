@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 18, 2026, 9:40 PM IST
+**Edited on:** June 19, 2026, 6:30 AM IST
 
 **Status:** Draft
 
@@ -306,7 +306,7 @@ The Sanskrit *trikaalabadh* (binding across past, present, and future) applies t
 > **"The measurement of time, expanse and different compositions is through mathematics."**
 > - MVD, p. 195
 
-So *kaal* is not a freestanding entity alongside *satta* and *ikai*; it is the duration of unit-activity, made explicit for human purposes through number and mathematics. How past, present, and future relate to "activity eternally present" — a theme developed in JVD (p. 85) — awaits full comparative treatment in [*Nature-Of-Time*](Nature-Of-Time.md).
+So *kaal* is not a freestanding entity alongside *satta* and *ikai*; it is the duration of unit-activity, made explicit for human purposes through number and mathematics. How past, present, and future relate to "activity eternally present" — a theme developed in JVD (p. 85) — is treated comparatively in [*Nature-Of-Time*](Nature-Of-Time.pdf) (§1.5); residual questions remain in that study's §6.
 
 This ontology distinguishes absolute annihilation (*vinasha*) from physical transformation (*roopantaran*). An entity changes configuration, but its underlying substance (*vastu*) is never destroyed:
 
@@ -456,7 +456,7 @@ Liberation (*moksha*) is not dissolution or merger of a real individual into Bra
 
 Advaita does not devote a separate chapter to *kaal*, but its framework implies a sharp division. **Brahman** is beginningless, changeless, motionless — outside temporal becoming (VC, v. 393). At ***paramartha***, only Brahman is absolutely real; temporality belongs to the empirical order. At ***vyavahara***, past, present, and future, birth and death, and causal succession are operationally valid — the world is law-governed and shared (§2.3) — yet finally sublated when Brahman alone is known.
 
-The *Mandukya* analysis of waking, dream, and deep sleep (§2.2) is a first-person route into how temporal **states** appear and are witnessed; the witness (*turiya*) is not another state among them. Madhyasth Darshan accepts the reality of cyclical development and unit-activity across orders (§1.3–1.4) and refuses to sublate the world at the highest realization; its account of *kaal* as duration of activity (§1.8) is therefore closer to a **realist** temporal ontology at every order, while still denying that time is a substance independent of activity. A full comparison with Advaita's *trikaal* language and with Madhyasth Darshan's *trikaalabadh* coexistence claim (SB, p. 48) belongs in [*Nature-Of-Time*](Nature-Of-Time.md).
+The *Mandukya* analysis of waking, dream, and deep sleep (§2.2) is a first-person route into how temporal **states** appear and are witnessed; the witness (*turiya*) is not another state among them. Madhyasth Darshan accepts the reality of cyclical development and unit-activity across orders (§1.3–1.4) and refuses to sublate the world at the highest realization; its account of *kaal* as duration of activity (§1.8) is therefore closer to a **realist** temporal ontology at every order, while still denying that time is a substance independent of activity. Comparison with Advaita's *trikaal* language and with Madhyasth Darshan's *trikaalabadh* coexistence claim (SB, p. 48) is developed in [*Nature-Of-Time*](Nature-Of-Time.pdf) (§2.2, §4).
 
 ## 3. Modern Philosophical Approaches
 
@@ -733,7 +733,7 @@ These are strengths **within** the system's premises. They do not by themselves 
 
 8. **"Knowledge but not knower" (§1.6).** Comparative work must not collapse Omnipresence-as-*gyan* into Advaita's *chit*. Naming tensions in the English translation: Editorial Notes. The full epistemic account belongs in [Knowledge, Knower, and Known](Knowledge-Knower-And-Known.md).
 
-9. **The nature of time (§1.8).** This paper states Madhyasth Darshan's core claim — *kaal* as duration of activity, not independent substance; timeless *satta*; numerical reckoning within existence — but does not yet treat past/present/future structure, the relation of "activity eternally present" to human temporal experience (JVD, p. 85), or systematic comparison with Advaita *trikaal* language, McTaggart, eternalism/presentism, and spacetime physics. That work is reserved for [*Nature-Of-Time*](Nature-Of-Time.md).
+9. **The nature of time (§1.8).** This paper states Madhyasth Darshan's core claim — *kaal* as duration of activity, not independent substance; timeless *satta*; numerical reckoning within existence. Past/present/future structure, JVD on "activity eternally present," and comparison with Advaita *trikaal* language, McTaggart, eternalism/presentism, and spacetime physics are developed in [*Nature-Of-Time*](Nature-Of-Time.pdf); residual open problems remain in that study's §6.
 
 ### 6.3 Strengths and Limits of Advaita
 
