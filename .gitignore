@@ -1,6 +1,8 @@
 node_modules/
 __pycache__/
 Scripts/_pdf_cache/
+.tmp.driveupload/
+.tmp.drivedownload/
 *.html
 !References/**/*.html
 !Studies/index.html
