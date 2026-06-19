@@ -287,13 +287,67 @@
   }
 
   /* Tables */
+  .table-scroll-hint {
+    display: none;
+    margin: 0 0 6px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 8pt;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+  }
+
   .table-wrap {
+    position: relative;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     max-width: 100%;
     margin: 12pt 0 4pt;
     border-radius: 8px;
     border: 1px solid var(--border);
+    scrollbar-width: thin;
+    scrollbar-color: #cdb89e transparent;
+  }
+
+  .table-wrap::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .table-wrap::-webkit-scrollbar-thumb {
+    background: #cdb89e;
+    border-radius: 999px;
+  }
+
+  .table-wrap::before,
+  .table-wrap::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 28px;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .table-wrap::before {
+    left: 0;
+    border-radius: 8px 0 0 8px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0));
+  }
+
+  .table-wrap::after {
+    right: 0;
+    border-radius: 0 8px 8px 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0));
+  }
+
+  .table-wrap.can-scroll-left::before {
+    opacity: 1;
+  }
+
+  .table-wrap.can-scroll-right::after {
+    opacity: 1;
   }
 
   table {
@@ -486,6 +540,25 @@
     .table-wrap table {
       min-width: 560px;
     }
+
+    .table-scroll-hint {
+      display: block;
+    }
+
+    .table-scroll-hint.is-hidden {
+      display: none;
+    }
+
+    .table-wrap.show-scroll-hint.can-scroll-right::after {
+      animation: scroll-hint-pulse 1.4s ease-in-out 3;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .table-wrap.show-scroll-hint.can-scroll-right::after {
+        animation: none;
+        opacity: 1;
+      }
+    }
   }
 
   @media (max-width: 600px) {
@@ -594,6 +667,7 @@
 
 <p class="note">Select any linked title to open the full study. Titles shown in italics are still in progress.</p>
 
+<p class="table-scroll-hint">Swipe table to see all columns</p>
 <div class="table-wrap">
 <table>
   <thead>
@@ -725,6 +799,7 @@
 
 <p>These studies are more mathematical in nature. They represent the structure discovered across the topical studies through formal definitions, relations, templates, and comparative frameworks.</p>
 
+<p class="table-scroll-hint">Swipe table to see all columns</p>
 <div class="table-wrap">
 <table>
   <thead>
@@ -803,6 +878,7 @@
   var jumpNav = document.getElementById("jump-nav");
   var jumpNavWrap = document.getElementById("jump-nav-wrap");
   var jumpNavScrollHint = document.getElementById("jump-nav-scroll-hint");
+  var tableWraps = Array.prototype.slice.call(document.querySelectorAll(".table-wrap"));
   var mobileNavQuery = window.matchMedia("(max-width: 820px)");
   var lastActiveId = null;
   var scrollHintDismissed = false;
@@ -916,6 +992,47 @@
     });
   }
 
+  function getTableScrollHint(wrap) {
+    var previous = wrap.previousElementSibling;
+    if (previous && previous.classList.contains("table-scroll-hint")) {
+      return previous;
+    }
+    return null;
+  }
+
+  function dismissTableScrollHint(wrap) {
+    wrap.dataset.hintDismissed = "1";
+    wrap.classList.remove("show-scroll-hint");
+    var hint = getTableScrollHint(wrap);
+    if (hint) {
+      hint.classList.add("is-hidden");
+    }
+  }
+
+  function updateTableScrollFades() {
+    tableWraps.forEach(function (wrap) {
+      var maxScroll = wrap.scrollWidth - wrap.clientWidth;
+      var hasOverflow = maxScroll > 4;
+      var hint = getTableScrollHint(wrap);
+
+      wrap.classList.toggle("can-scroll-left", hasOverflow && wrap.scrollLeft > 4);
+      wrap.classList.toggle("can-scroll-right", hasOverflow && wrap.scrollLeft < maxScroll - 4);
+      wrap.classList.toggle("has-overflow", hasOverflow);
+
+      if (hasOverflow && !wrap.dataset.hintDismissed && mobileNavQuery.matches) {
+        wrap.classList.add("show-scroll-hint");
+        if (hint) {
+          hint.classList.remove("is-hidden");
+        }
+      } else {
+        wrap.classList.remove("show-scroll-hint");
+        if (hint && (!hasOverflow || wrap.dataset.hintDismissed || !mobileNavQuery.matches)) {
+          hint.classList.add("is-hidden");
+        }
+      }
+    });
+  }
+
   function updateMobileNavPin() {
     if (!mobileNavQuery.matches || !hero || !sidebar) {
       sidebar.classList.remove("is-pinned");
@@ -1019,6 +1136,7 @@
     updateMobileNavPin();
     updateActiveSection();
     updateScrollFades();
+    updateTableScrollFades();
   }
 
   window.addEventListener("scroll", onScrollOrResize, { passive: true });
@@ -1037,6 +1155,17 @@
   }
 
   window.setTimeout(dismissScrollHint, 6000);
+
+  tableWraps.forEach(function (wrap) {
+    wrap.addEventListener("scroll", function () {
+      dismissTableScrollHint(wrap);
+      updateTableScrollFades();
+    }, { passive: true });
+  });
+
+  window.setTimeout(function () {
+    tableWraps.forEach(dismissTableScrollHint);
+  }, 8000);
 
   navLinks.forEach(function (link) {
     link.addEventListener("click", function () {
