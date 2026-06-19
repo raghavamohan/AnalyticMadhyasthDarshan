@@ -1,6 +1,6 @@
 # Studies citation verification
 
-Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-15.
+Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-19.
 
 **Legend:** present = file in `References/`; external = linked from original publisher or author URL (see [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md)); internal = another paper in `Studies/`, not a bibliographic source.
 
@@ -35,11 +35,14 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-15.
 | [Knowledge-Knower-And-Known.pdf](../Studies/Knowledge-Knower-And-Known.pdf) | MVD, SB, JV | present |
 | | CU, BG, BSB, DDV, VC | present |
 | | Chalmers 1995, Nagel 1974, Strawson 2006 | present |
-| | Frankish 2016, Jarczewski and Riggs 2025, Limanowski and Blankenburg 2013, Melloni et al. 2025 | present |
+| | Frankish 2016, Hashemi 2025, Jarczewski and Riggs 2025, Limanowski and Blankenburg 2013, Melloni et al. 2025 | present |
 | | Piredda 2024, Tufft et al. 2024, Wiese 2024 | present |
 | | Churchland 1986, Dennett 1991, Goff 2019, Kandel et al. 2021, Kim 2005, Popper 1959 | external |
-| | Hashemi 2025, IEP Enactivism, Kuhn 2024, Massimi 2022 | external |
-| [Nature-Of-Time.pdf](../Studies/Nature-Of-Time.pdf) | MVD, SB, JVD; Advaita (MU, BG, VC); Carroll 2010, Ashtekar-Singh 2011; external (McTaggart 1908, Rovelli 2018) | present |
+| | Gettier 1963, IEP Enactivism, Kuhn 2024, Massimi 2022 | external |
+| [Nature-Of-Time.pdf](../Studies/Nature-Of-Time.pdf) | MVD, SB, JVD | present |
+| | MU, BG, VC | present |
+| | Carroll 2010, Ashtekar and Singh 2011, McTaggart 1908 | present |
+| | Rovelli 2018 | external |
 | [What-Is-Existence.pdf](../Studies/What-Is-Existence.pdf) | MVD, SB, JV | present |
 | | Bhattacharya | present |
 | | CU, TU, VC | present |
@@ -103,7 +106,10 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-15.
 | **Friston 2010** | [Science/Friston-2010-Free-Energy-Principle.pdf](Science/Friston-2010-Free-Energy-Principle.pdf) | What-Is-Existence |
 | **Guth 2007** | [Science/Guth-2007-Eternal-Inflation.pdf](Science/Guth-2007-Eternal-Inflation.pdf) | What-Is-Existence |
 | **Metzinger 2003**, **Penrose 2010**, **Ishvarakrishna**, **Nagarjuna**, **Weinberg 1995** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | What-Is-Existence |
-| **Hashemi 2025**, **IEP Enactivism**, **Kuhn 2024**, **Massimi 2022** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Knowledge-Knower |
+| **Hashemi 2025** | [Modern-Philosophy/Hashemi-2025-How-to-Understand-Russellian-Panpsychism.pdf](Modern-Philosophy/Hashemi-2025-How-to-Understand-Russellian-Panpsychism.pdf) | Knowledge-Knower |
+| **McTaggart 1908** | [Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.html](Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.html) | Nature-Of-Time |
+| **Gettier 1963**, **IEP Enactivism**, **Kuhn 2024**, **Massimi 2022** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Knowledge-Knower |
+| **Rovelli 2018** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Nature-Of-Time |
 | **Keating 2008**, **Mind and Creativity Rasa** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Aesthetics |
 | **Curry, Mullins, and Whitehouse 2019**, **Graham et al. 2013**, **Greene et al. 2001**, **Haidt 2001**, **Tomasello and Vaish 2013** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Ethics-And-Morals |
 
@@ -115,7 +121,7 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-15.
 | Advaita Vedanta (9 tags) | 9 PDFs | 0 |
 | Comparative philosophy, Indian aesthetics, and religious ethics | 5 | 5 |
 | Science and moral science | 9 (open-access papers) | 15 |
-| Modern philosophy and cognitive science | 16 | 4 |
-| **Total distinct tags** | **44 local files + MD** | **28 external** |
+| Modern philosophy and cognitive science | 18 | 4 |
+| **Total distinct tags** | **46 local files + MD** | **29 external** |
 
 Works not stored locally are linked from each paper's References section. See [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) for original URLs.

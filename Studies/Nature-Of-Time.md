@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 19, 2026, 6:30 AM IST
+**Edited on:** June 19, 2026, 7:48 AM IST
 
 **Status:** Draft
 
@@ -242,7 +242,7 @@ Verse and section numbers follow standard numbering and apply to any faithful ed
 
 ### Modern philosophy and physics
 
-- **McTaggart 1908** — McTaggart, J. M. E. ["The Unreality of Time."](https://www.jstor.org/stable/2248261) *Mind*, 17(68), 457–474. Cited: A-series and B-series (§3.2).
+- **McTaggart 1908** — McTaggart, J. M. E. ["The Unreality of Time."](../References/Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.html) *Mind*, 17(68), 457–474. Wikisource snapshot (public domain). Also at https://en.wikisource.org/wiki/The_Unreality_of_Time. Cited: A-series and B-series (§3.2).
 - **Rovelli 2018** — Rovelli, C. [*The Order of Time*](https://www.penguinrandomhouse.com/books/563895/the-order-of-time-by-carlo-rovelli/). Riverhead Books. Cited: relational time (§3.3).
 - **Carroll 2010** — Carroll, S. ["Energy Is Not Conserved."](../References/Science/Carroll-2010-Energy-Is-Not-Conserved.html) *Preposterous Universe* (blog), 2010. Cited: energy conservation and time-symmetry in General Relativity (§3.4).
 - **Ashtekar and Singh 2011** — Ashtekar, A., and Singh, P. ["Loop Quantum Cosmology: A Status Report."](../References/Science/Ashtekar-Singh-2011-Loop-Quantum-Cosmology-Status-Report.pdf) arXiv:1108.0893. Cited: beginningless-substrate research programs (§3.4).

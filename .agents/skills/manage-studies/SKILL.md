@@ -17,6 +17,7 @@ Orchestration skill for the study lifecycle. Read the focused skill for your tas
 | Register or add a study | [add-study](../add-study/SKILL.md) |
 | Remove a study | [remove-study](../remove-study/SKILL.md) |
 | Draft ↔ Released | [set-study-status](../set-study-status/SKILL.md) |
+| Audit / download references | [download-references](../download-references/SKILL.md) |
 
 ## Repository model
 

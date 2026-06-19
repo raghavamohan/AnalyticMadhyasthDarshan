@@ -13,6 +13,9 @@ rule here, update the matching `.mdc` file in the same commit.
 `.opencode/skills/` (OpenCode — junction to `.agents/skills/`). Skills orchestrate
 `Scripts/_*.py`; they defer content and style rules to the sections below.
 
+Available skills: `manage-studies`, `add-study`, `remove-study`, `set-study-status`,
+`download-references`.
+
 | Section | Topic | Cursor mirror |
 |---------|--------|---------------|
 | §1 | Edited on, catalogs, PDF timestamps | `study-edited-on.mdc` |
