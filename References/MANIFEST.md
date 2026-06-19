@@ -39,6 +39,7 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-15.
 | | Piredda 2024, Tufft et al. 2024, Wiese 2024 | present |
 | | Churchland 1986, Dennett 1991, Goff 2019, Kandel et al. 2021, Kim 2005, Popper 1959 | external |
 | | Hashemi 2025, IEP Enactivism, Kuhn 2024, Massimi 2022 | external |
+| [Nature-Of-Time.pdf](../Studies/Nature-Of-Time.pdf) | MVD, SB, JVD; Advaita (MU, BG, VC); Carroll 2010, Ashtekar-Singh 2011; external (McTaggart 1908, Rovelli 2018) | present |
 | [What-Is-Existence.pdf](../Studies/What-Is-Existence.pdf) | MVD, SB, JV | present |
 | | Bhattacharya | present |
 | | CU, TU, VC | present |
@@ -56,16 +57,16 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-15.
 | **SB** | [Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf](Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf) | all Studies papers above |
 | **JV** | [Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf](Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf) | all Studies papers above |
 | **AVD** | [Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf](Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf) | not yet cited in Studies |
-| **JVD** | [Madhyasth-Darshan/JVD-Janvad.pdf](Madhyasth-Darshan/JVD-Janvad.pdf) | not yet cited in Studies |
+| **JVD** | [Madhyasth-Darshan/JVD-Janvad.pdf](Madhyasth-Darshan/JVD-Janvad.pdf) | Nature-Of-Time |
 | **MD** | [Madhyasth-Darshan/MD-Mapping.xlsx](Madhyasth-Darshan/MD-Mapping.xlsx) | supporting spreadsheet (not cited inline) |
 | **BU** | [Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf](Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf) | Why-Humans, Aesthetics |
 | **TU** | [Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf](Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf) | Why-Humans, What-Is-Existence, Aesthetics (Gambhirananda 2-vol. set; TU at p. 237) |
 | **KU** | same as TU | Why-Humans (Katha at p. 97) |
-| **MU** | [Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf](Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf) | Why-Humans |
+| **MU** | [Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf](Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf) | Why-Humans, Nature-Of-Time |
 | **CU** | [Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf](Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf) | Why-Humans, Knowledge-Knower, What-Is-Existence |
-| **BG** | [Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf](Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf) | Why-Humans, Ethics-And-Morals, Aesthetics, Knowledge-Knower |
+| **BG** | [Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf](Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf) | Why-Humans, Ethics-And-Morals, Aesthetics, Knowledge-Knower, Nature-Of-Time |
 | **BSB** | [Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf](Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf) | Why-Humans, Knowledge-Knower |
-| **VC** | [Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf](Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) | Why-Humans, Ethics-And-Morals, What-Is-Existence, Aesthetics, Knowledge-Knower |
+| **VC** | [Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf](Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) | Why-Humans, Ethics-And-Morals, What-Is-Existence, Aesthetics, Knowledge-Knower, Nature-Of-Time |
 | **DDV** | [Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf](Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf) | Why-Humans, Knowledge-Knower |
 | **AV** | [Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.html](Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.html) | How-To-Form |
 | **SV** | [Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf](Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf) | How-To-Form |
@@ -97,8 +98,8 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-15.
 | **Whitehead 1929** | [Modern-Philosophy/Whitehead-1929-Process-and-Reality.pdf](Modern-Philosophy/Whitehead-1929-Process-and-Reality.pdf) | What-Is-Existence |
 | **Russell 1921** | [Modern-Philosophy/Russell-1921-The-Analysis-of-Mind.pdf](Modern-Philosophy/Russell-1921-The-Analysis-of-Mind.pdf) | What-Is-Existence |
 | **Mach 1914** | [Modern-Philosophy/Mach-1914-The-Analysis-of-Sensations.pdf](Modern-Philosophy/Mach-1914-The-Analysis-of-Sensations.pdf) | What-Is-Existence |
-| **Ashtekar and Singh 2011** | [Science/Ashtekar-Singh-2011-Loop-Quantum-Cosmology-Status-Report.pdf](Science/Ashtekar-Singh-2011-Loop-Quantum-Cosmology-Status-Report.pdf) | What-Is-Existence |
-| **Carroll 2010** | [Science/Carroll-2010-Energy-Is-Not-Conserved.html](Science/Carroll-2010-Energy-Is-Not-Conserved.html) | What-Is-Existence |
+| **Ashtekar and Singh 2011** | [Science/Ashtekar-Singh-2011-Loop-Quantum-Cosmology-Status-Report.pdf](Science/Ashtekar-Singh-2011-Loop-Quantum-Cosmology-Status-Report.pdf) | What-Is-Existence, Nature-Of-Time |
+| **Carroll 2010** | [Science/Carroll-2010-Energy-Is-Not-Conserved.html](Science/Carroll-2010-Energy-Is-Not-Conserved.html) | What-Is-Existence, Nature-Of-Time |
 | **Friston 2010** | [Science/Friston-2010-Free-Energy-Principle.pdf](Science/Friston-2010-Free-Energy-Principle.pdf) | What-Is-Existence |
 | **Guth 2007** | [Science/Guth-2007-Eternal-Inflation.pdf](Science/Guth-2007-Eternal-Inflation.pdf) | What-Is-Existence |
 | **Metzinger 2003**, **Penrose 2010**, **Ishvarakrishna**, **Nagarjuna**, **Weinberg 1995** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | What-Is-Existence |
