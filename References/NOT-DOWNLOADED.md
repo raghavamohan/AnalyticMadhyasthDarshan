@@ -48,12 +48,18 @@ Author-hosted copies kept for quote verification.
 
 | Tag | Full reference | Original location |
 |-----|----------------|-------------------|
-| **Hashemi 2025** | Hashemi, A. "How to Understand Russellian Panpsychism." *Erkenntnis*, 90, 3747?3766, 2025. | https://doi.org/10.1007/s10670-024-00877-6 |
 | **IEP Enactivism** | "Enactivism." *Internet Encyclopedia of Philosophy*. | https://iep.utm.edu/enactivism/ |
-| **Kuhn 2024** | Kuhn, R. L. "A Landscape of Consciousness: Toward a Taxonomy of Explanations and Implications." *Progress in Biophysics and Molecular Biology*, 190, 28?169, 2024. | https://doi.org/10.1016/j.pbiomolbio.2023.12.003 |
+| **Gettier 1963** | Gettier, E. L. "Is Justified True Belief Knowledge?" *Analysis*, 23(6), 121?123, 1963. | https://doi.org/10.1093/analys/23.6.121 |
+| **Kuhn 2024** | Kuhn, R. L. "A Landscape of Consciousness: Toward a Taxonomy of Explanations and Implications." *Progress in Biophysics and Molecular Biology*, 190, 28?169, 2024. CC BY-NC-ND open access at publisher; not mirrored here because ScienceDirect blocks automated download from this environment. | https://doi.org/10.1016/j.pbiomolbio.2023.12.003 |
 | **Massimi 2022** | Massimi, M. *Perspectival Realism*. Oxford University Press, 2022. | https://global.oup.com/academic/product/perspectival-realism-9780197555620 |
 | **Metzinger 2003** | Metzinger, T. *Being No One: The Self-Model Theory of Subjectivity*. MIT Press, 2003. | https://mitpress.mit.edu/9780262632870/being-no-one/ |
 | **Penrose 2010** | Penrose, R. *Cycles of Time: An Extraordinary New View of the Universe*. Bodley Head, 2010. | https://www.penguinrandomhouse.com/books/311068/cycles-of-time-by-roger-penrose/ |
+
+## Philosophy of time (external only)
+
+| Tag | Full reference | Original location |
+|-----|----------------|-------------------|
+| **Rovelli 2018** | Rovelli, C. *The Order of Time*. Riverhead Books, 2018. | https://www.penguinrandomhouse.com/books/563895/the-order-of-time-by-carlo-rovelli/ |
 
 ## Comparative philosophy (external only)
 

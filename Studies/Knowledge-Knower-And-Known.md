@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 18, 2026, 9:33 PM IST
+**Edited on:** June 19, 2026, 7:48 AM IST
 
 **Status:** Draft
 
@@ -478,7 +478,7 @@ Scientific materialism offers the strongest method and the best-supported accoun
 - **Frankish 2016** — Frankish, K. ["Illusionism as a Theory of Consciousness."](../References/Modern-Philosophy/Frankish-2016-Illusionism-Theory-Consciousness.pdf) *Journal of Consciousness Studies*, 23(11–12), 11–39.
 - **Gettier 1963** — Gettier, E. L. ["Is Justified True Belief Knowledge?"](https://doi.org/10.1093/analys/23.6.121) *Analysis*, 23(6), 121–123.
 - **Goff 2019** — Goff, P. [*Galileo's Error: Foundations for a New Science of Consciousness*](https://philipgoff.com/galileos-error/). Pantheon.
-- **Hashemi 2025** — Hashemi, A. ["How to Understand Russellian Panpsychism."](https://doi.org/10.1007/s10670-024-00877-6) *Erkenntnis*, 90, 3747–3766.
+- **Hashemi 2025** — Hashemi, A. ["How to Understand Russellian Panpsychism."](../References/Modern-Philosophy/Hashemi-2025-How-to-Understand-Russellian-Panpsychism.pdf) *Erkenntnis*, 90, 3747–3766. Author preprint; also at https://doi.org/10.1007/s10670-024-00877-6.
 - **IEP Enactivism** — ["Enactivism."](https://iep.utm.edu/enactivism/) *Internet Encyclopedia of Philosophy*.
 - **Jarczewski and Riggs 2025** — Jarczewski, D., and Riggs, W. D. ["Socializing Virtue Epistemology."](../References/Modern-Philosophy/Jarczewski-Riggs-2025-Socializing-Virtue-Epistemology.pdf) *Episteme*, First View, 1–19. https://doi.org/10.1017/epi.2025.10
 - **Kandel et al. 2021** — Kandel, E. R., et al. [*Principles of Neural Science*](https://www.mheducation.com/highered/product/principles-neural-science-kandel/9781259642234.html), 6th ed. McGraw-Hill.

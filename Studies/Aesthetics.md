@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) - a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 18, 2026, 9:40 PM IST
+**Edited on:** June 19, 2026, 7:48 AM IST
 
 **Status:** Draft
 
@@ -579,8 +579,8 @@ Madhyasth Darshan does not yet give a complete aesthetics of art, but it gives a
 - **BG** - [*Bhagavad Gita with Shankara Bhashya*](../References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf). Swami Gambhirananda translation. Cited: Self-bliss apart from external objects (5.21).
 - **VC** - [*Vivekachudamani*](../References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf), attributed to Shankara; English translation by Swami Madhavananda. Cited: discrimination between real and unreal (v. 20); *jiva* as Brahman (v. 216).
 - **Poorvam Rasa** - ["Sadharanikarana: An Underlying Process for Experiencing Rasa"](../References/Comparative-Philosophy/Poorvam-Sadharanikarana-Rasa.html), *Poorvam International Journal*. Local HTML snapshot.
-- **Keating 2008** - Ross Keating, "Connecting Art with Spirituality within the Indian Aesthetics of Advaita Vedanta," *Studies in Spirituality* 18 (2008): 25-37. Linked externally in [NOT-DOWNLOADED.md](../References/NOT-DOWNLOADED.md).
-- **Mind and Creativity Rasa** - "Mind and creativity: Insights from rasa theory with special focus on sahrdaya." Linked externally in [NOT-DOWNLOADED.md](../References/NOT-DOWNLOADED.md).
+- **Keating 2008** - Ross Keating, ["Connecting Art with Spirituality within the Indian Aesthetics of Advaita Vedanta."](https://poj.peeters-leuven.be/content.php?id=2033281&url=article) *Studies in Spirituality* 18 (2008): 25-37.
+- **Mind and Creativity Rasa** - ["Mind and creativity: Insights from rasa theory with special focus on sahrdaya."](https://indigenouspsych.org/Discussion/forum/Rasa%20theory.pdf)
 
 ### Modern aesthetics
 
