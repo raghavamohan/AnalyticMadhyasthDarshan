@@ -806,9 +806,51 @@
   var mobileNavQuery = window.matchMedia("(max-width: 820px)");
   var lastActiveId = null;
   var scrollHintDismissed = false;
+  var pendingNavId = null;
+  var navScrollTimer = null;
 
   if (!sections.length || !navLinks.length) {
     return;
+  }
+
+  function isAtPageBottom() {
+    return window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 12;
+  }
+
+  function resolveActiveSection(marker) {
+    var lastSection = sections[sections.length - 1];
+
+    if (isAtPageBottom()) {
+      var lastRect = lastSection.getBoundingClientRect();
+      if (lastRect.bottom > 0) {
+        return lastSection.id;
+      }
+    }
+
+    var currentId = sections[0].id;
+    sections.forEach(function (section) {
+      if (section.getBoundingClientRect().top <= marker) {
+        currentId = section.id;
+      }
+    });
+
+    return currentId;
+  }
+
+  function clearPendingNav() {
+    pendingNavId = null;
+    if (navScrollTimer) {
+      window.clearTimeout(navScrollTimer);
+      navScrollTimer = null;
+    }
+  }
+
+  function lockPendingNav(id) {
+    pendingNavId = id;
+    if (navScrollTimer) {
+      window.clearTimeout(navScrollTimer);
+    }
+    navScrollTimer = window.setTimeout(clearPendingNav, 1200);
   }
 
   function dismissScrollHint() {
@@ -948,14 +990,26 @@
 
   function updateActiveSection() {
     var marker = getScrollMarker();
-    var currentId = sections[0].id;
 
-    sections.forEach(function (section) {
-      if (section.getBoundingClientRect().top <= marker) {
-        currentId = section.id;
+    if (pendingNavId) {
+      var pendingSection = document.getElementById(pendingNavId);
+      if (pendingSection) {
+        var pendingRect = pendingSection.getBoundingClientRect();
+        var pendingSettled =
+          pendingRect.top <= marker + 24 ||
+          (pendingNavId === sections[sections.length - 1].id && isAtPageBottom());
+
+        if (!pendingSettled) {
+          var shouldScrollChip = pendingNavId !== lastActiveId && mobileNavQuery.matches;
+          setActive(pendingNavId, shouldScrollChip);
+          lastActiveId = pendingNavId;
+          return;
+        }
       }
-    });
+      clearPendingNav();
+    }
 
+    var currentId = resolveActiveSection(marker);
     var shouldScrollChip = currentId !== lastActiveId && mobileNavQuery.matches;
     setActive(currentId, shouldScrollChip);
     lastActiveId = currentId;
@@ -969,6 +1023,10 @@
 
   window.addEventListener("scroll", onScrollOrResize, { passive: true });
   window.addEventListener("resize", onScrollOrResize, { passive: true });
+  window.addEventListener("scrollend", function () {
+    clearPendingNav();
+    updateActiveSection();
+  }, { passive: true });
   onScrollOrResize();
 
   if (jumpNav) {
@@ -989,6 +1047,7 @@
 
       var id = href.slice(1);
       lastActiveId = id;
+      lockPendingNav(id);
       setActive(id, mobileNavQuery.matches);
       highlightSection(id);
       dismissScrollHint();
