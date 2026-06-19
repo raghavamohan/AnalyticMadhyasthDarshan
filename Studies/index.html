@@ -188,6 +188,34 @@
     padding: 22px 28px 20px;
     margin-bottom: 20px;
     scroll-margin-top: 24px;
+    transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  @keyframes section-target-flash {
+    0% {
+      background: #e8f4fa;
+      border-color: #7eb3d4;
+      box-shadow: 0 0 0 3px rgba(26, 82, 118, 0.22), var(--shadow);
+    }
+
+    100% {
+      background: var(--surface);
+      border-color: var(--border);
+      box-shadow: var(--shadow);
+    }
+  }
+
+  .content-section.is-targeted {
+    animation: section-target-flash 1.6s ease-out forwards;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .content-section.is-targeted {
+      animation: none;
+      background: var(--accent-soft);
+      border-color: #7eb3d4;
+      box-shadow: 0 0 0 2px rgba(26, 82, 118, 0.18), var(--shadow);
+    }
   }
 
   h2 {
@@ -643,6 +671,31 @@
     });
   }
 
+  var highlightTimer = null;
+
+  function highlightSection(id) {
+    var target = document.getElementById(id);
+    if (!target) {
+      return;
+    }
+
+    sections.forEach(function (section) {
+      section.classList.remove("is-targeted");
+    });
+
+    void target.offsetWidth;
+    target.classList.add("is-targeted");
+
+    if (highlightTimer) {
+      window.clearTimeout(highlightTimer);
+    }
+
+    highlightTimer = window.setTimeout(function () {
+      target.classList.remove("is-targeted");
+      highlightTimer = null;
+    }, 1600);
+  }
+
   function updateActiveSection() {
     var marker = 96;
     var currentId = sections[0].id;
@@ -659,6 +712,19 @@
   window.addEventListener("scroll", updateActiveSection, { passive: true });
   window.addEventListener("resize", updateActiveSection, { passive: true });
   updateActiveSection();
+
+  navLinks.forEach(function (link) {
+    link.addEventListener("click", function () {
+      var href = link.getAttribute("href");
+      if (!href || href.charAt(0) !== "#") {
+        return;
+      }
+
+      var id = href.slice(1);
+      setActive(id);
+      highlightSection(id);
+    });
+  });
 })();
 </script>
 
