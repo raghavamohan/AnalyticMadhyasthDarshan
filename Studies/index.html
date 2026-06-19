@@ -296,29 +296,17 @@
     letter-spacing: 0.02em;
   }
 
-  .table-wrap {
+  .table-scroll-shell {
     position: relative;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
     max-width: 100%;
     margin: 12pt 0 4pt;
     border-radius: 8px;
     border: 1px solid var(--border);
-    scrollbar-width: thin;
-    scrollbar-color: #cdb89e transparent;
+    background: var(--surface);
   }
 
-  .table-wrap::-webkit-scrollbar {
-    height: 6px;
-  }
-
-  .table-wrap::-webkit-scrollbar-thumb {
-    background: #cdb89e;
-    border-radius: 999px;
-  }
-
-  .table-wrap::before,
-  .table-wrap::after {
+  .table-scroll-shell::before,
+  .table-scroll-shell::after {
     content: "";
     position: absolute;
     top: 0;
@@ -330,24 +318,42 @@
     transition: opacity 0.2s ease;
   }
 
-  .table-wrap::before {
+  .table-scroll-shell::before {
     left: 0;
     border-radius: 8px 0 0 8px;
     background: linear-gradient(to right, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0));
   }
 
-  .table-wrap::after {
+  .table-scroll-shell::after {
     right: 0;
     border-radius: 0 8px 8px 0;
     background: linear-gradient(to left, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0));
   }
 
-  .table-wrap.can-scroll-left::before {
+  .table-scroll-shell.can-scroll-left::before {
     opacity: 1;
   }
 
-  .table-wrap.can-scroll-right::after {
+  .table-scroll-shell.can-scroll-right::after {
     opacity: 1;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+    border-radius: 8px;
+    scrollbar-width: thin;
+    scrollbar-color: #cdb89e transparent;
+  }
+
+  .table-wrap::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .table-wrap::-webkit-scrollbar-thumb {
+    background: #cdb89e;
+    border-radius: 999px;
   }
 
   table {
@@ -549,12 +555,12 @@
       display: none;
     }
 
-    .table-wrap.show-scroll-hint.can-scroll-right::after {
+    .table-scroll-shell.show-scroll-hint.can-scroll-right::after {
       animation: scroll-hint-pulse 1.4s ease-in-out 3;
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .table-wrap.show-scroll-hint.can-scroll-right::after {
+      .table-scroll-shell.show-scroll-hint.can-scroll-right::after {
         animation: none;
         opacity: 1;
       }
@@ -668,6 +674,7 @@
 <p class="note">Select any linked title to open the full study. Titles shown in italics are still in progress.</p>
 
 <p class="table-scroll-hint">Swipe table to see all columns</p>
+<div class="table-scroll-shell">
 <div class="table-wrap">
 <table>
   <thead>
@@ -792,6 +799,7 @@
   </tbody>
 </table>
 </div>
+</div>
 </section>
 
 <section class="content-section" id="formal-studies">
@@ -800,6 +808,7 @@
 <p>These studies are more mathematical in nature. They represent the structure discovered across the topical studies through formal definitions, relations, templates, and comparative frameworks.</p>
 
 <p class="table-scroll-hint">Swipe table to see all columns</p>
+<div class="table-scroll-shell">
 <div class="table-wrap">
 <table>
   <thead>
@@ -827,6 +836,7 @@
 <!-- /formal-studies-catalog -->
   </tbody>
 </table>
+</div>
 </div>
 </section>
 
@@ -878,7 +888,7 @@
   var jumpNav = document.getElementById("jump-nav");
   var jumpNavWrap = document.getElementById("jump-nav-wrap");
   var jumpNavScrollHint = document.getElementById("jump-nav-scroll-hint");
-  var tableWraps = Array.prototype.slice.call(document.querySelectorAll(".table-wrap"));
+  var tableShells = Array.prototype.slice.call(document.querySelectorAll(".table-scroll-shell"));
   var mobileNavQuery = window.matchMedia("(max-width: 820px)");
   var lastActiveId = null;
   var scrollHintDismissed = false;
@@ -992,41 +1002,46 @@
     });
   }
 
-  function getTableScrollHint(wrap) {
-    var previous = wrap.previousElementSibling;
+  function getTableScrollHint(shell) {
+    var previous = shell.previousElementSibling;
     if (previous && previous.classList.contains("table-scroll-hint")) {
       return previous;
     }
     return null;
   }
 
-  function dismissTableScrollHint(wrap) {
-    wrap.dataset.hintDismissed = "1";
-    wrap.classList.remove("show-scroll-hint");
-    var hint = getTableScrollHint(wrap);
+  function dismissTableScrollHint(shell) {
+    shell.dataset.hintDismissed = "1";
+    shell.classList.remove("show-scroll-hint");
+    var hint = getTableScrollHint(shell);
     if (hint) {
       hint.classList.add("is-hidden");
     }
   }
 
   function updateTableScrollFades() {
-    tableWraps.forEach(function (wrap) {
+    tableShells.forEach(function (shell) {
+      var wrap = shell.querySelector(".table-wrap");
+      if (!wrap) {
+        return;
+      }
+
       var maxScroll = wrap.scrollWidth - wrap.clientWidth;
       var hasOverflow = maxScroll > 4;
-      var hint = getTableScrollHint(wrap);
+      var hint = getTableScrollHint(shell);
 
-      wrap.classList.toggle("can-scroll-left", hasOverflow && wrap.scrollLeft > 4);
-      wrap.classList.toggle("can-scroll-right", hasOverflow && wrap.scrollLeft < maxScroll - 4);
-      wrap.classList.toggle("has-overflow", hasOverflow);
+      shell.classList.toggle("can-scroll-left", hasOverflow && wrap.scrollLeft > 4);
+      shell.classList.toggle("can-scroll-right", hasOverflow && wrap.scrollLeft < maxScroll - 4);
+      shell.classList.toggle("has-overflow", hasOverflow);
 
-      if (hasOverflow && !wrap.dataset.hintDismissed && mobileNavQuery.matches) {
-        wrap.classList.add("show-scroll-hint");
+      if (hasOverflow && !shell.dataset.hintDismissed && mobileNavQuery.matches) {
+        shell.classList.add("show-scroll-hint");
         if (hint) {
           hint.classList.remove("is-hidden");
         }
       } else {
-        wrap.classList.remove("show-scroll-hint");
-        if (hint && (!hasOverflow || wrap.dataset.hintDismissed || !mobileNavQuery.matches)) {
+        shell.classList.remove("show-scroll-hint");
+        if (hint && (!hasOverflow || shell.dataset.hintDismissed || !mobileNavQuery.matches)) {
           hint.classList.add("is-hidden");
         }
       }
@@ -1156,15 +1171,20 @@
 
   window.setTimeout(dismissScrollHint, 6000);
 
-  tableWraps.forEach(function (wrap) {
+  tableShells.forEach(function (shell) {
+    var wrap = shell.querySelector(".table-wrap");
+    if (!wrap) {
+      return;
+    }
+
     wrap.addEventListener("scroll", function () {
-      dismissTableScrollHint(wrap);
+      dismissTableScrollHint(shell);
       updateTableScrollFades();
     }, { passive: true });
   });
 
   window.setTimeout(function () {
-    tableWraps.forEach(dismissTableScrollHint);
+    tableShells.forEach(dismissTableScrollHint);
   }, 8000);
 
   navLinks.forEach(function (link) {
