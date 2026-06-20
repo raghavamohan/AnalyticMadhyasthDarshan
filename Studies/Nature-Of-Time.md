@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 20, 2026, 5:36 PM IST
+**Edited on:** June 20, 2026, 6:20 PM IST
 
 **Status:** Draft
 
@@ -46,7 +46,7 @@ Madhyasth Darshan does not posit time as an independent dimension, substance, or
 > **"Time (*kaal*): Duration of an activity is referred to as time."**
 > - MVD, p. 34
 
-Because every physical (*jada*) and sentient (*chaitanya*) unit in existence is eternally active — insentient units through *shram–gati–parinam* (effort–motion–result) and sentient *jeevan* through *shram–gati–pratishtha* (effort–motion–resolution) ([What-Is-Existence](What-Is-Existence.pdf) §1.3) — activity is perpetual. Time is the inseparable duration of this activity. It is not something units "move through"; it is a property of their motion and state.
+Because every physical (*jada*) and sentient (*chaitanya*) unit in existence is eternally active through the single triad *shram–gati–parinam* (effort–motion–result) — in sentient *jeevan* read toward completeness through projection, reflection, and *samadhan* ([What-Is-Existence](What-Is-Existence.pdf) §1.3) — activity is perpetual. Time is the inseparable duration of this activity. It is not something units "move through"; it is a property of their motion and state.
 
 > **"Time is measured by the duration of an activity."**
 > - SB, p. 65
@@ -59,7 +59,7 @@ Existence (*astitva*) is the inseparable coexistence of units and Omnipresence. 
 
 Because *satta* performs no actions and undergoes no change, duration does not apply to it. MVD describes Omnipresence as existing "at all places and times, and … eternally present" (MVD, p. 34), but this "eternal presence" is atemporal: the static ground that enables the dynamic activity of units.
 
-At the level of insentient units (*ikai*), time is real as the duration of *shram–gati–parinam*; at the level of sentient *jeevan*, as the duration of *shram–gati–pratishtha*. At the level of the ground (*satta*), there is absolute timelessness. The two levels are not contradictory because *kaal* is defined only through *kriya*, not as a freestanding dimension in which *satta* sits.
+At the level of units (*ikai*), time is real as the duration of *shram–gati–parinam* — the same triad in insentient and sentient nature, with sentient activity additionally structured by projection, reflection, and *samadhan*. At the level of the ground (*satta*), there is absolute timelessness. The two levels are not contradictory because *kaal* is defined only through *kriya*, not as a freestanding dimension in which *satta* sits.
 
 ### 1.3 *Trikaalabadh* and timeless coexistence
 
@@ -91,7 +91,7 @@ Madhyasth Darshan emphasises the present as the locus of causal reality. JVD sta
 > **"Every numerical moment of time, which is taken to be past or future, is found to be present in the form of activity. Thus, it becomes studiable that activity is eternally present."**
 > - JVD, p. 85
 
-Read carefully, this is not a denial that humans **experience** past and future. We remember, anticipate, and plan; numerical reckoning distinguishes earlier and later durations. The claim is ontological and pedagogical: whatever moment we label past or future, **studiable** reality appears as **present activity**. In insentient nature, anticipated change appears as the projected **result (*parinam*)** of current *shram–gati–parinam* activity; in the sentient *jeevan*, the parallel triad is *shram–gati–pratishtha* (effort–motion–resolution), which does not produce material *parinam* ([What-Is-Existence](What-Is-Existence.pdf) §1.3). Only present activity possesses causal efficacy in the darshan's order of nature.
+Read carefully, this is not a denial that humans **experience** past and future. We remember, anticipate, and plan; numerical reckoning distinguishes earlier and later durations. The claim is ontological and pedagogical: whatever moment we label past or future, **studiable** reality appears as **present activity**. In insentient nature, anticipated change appears as the projected **result (*parinam*)** of current *shram–gati–parinam* activity; in sentient *jeevan*, the same triad continues but toward *samadhan* (resolution) through projection and reflection rather than physicochemical *parinam* ([What-Is-Existence](What-Is-Existence.pdf) §1.3). Only present activity possesses causal efficacy in the darshan's order of nature.
 
 Where does the "past" survive if it is not an independent temporal place? In Madhyasth Darshan it persists in present forms at two levels. **Physically**, as inherited structural traces and configurations within material units (*jada ikai*) — consistent with conservation through transformation, not annihilation ([What-Is-Existence](What-Is-Existence.pdf) §1.8). **In the human order**, through the faculties of ***jeevan***: *chitta* (*sahaj chitran* — natural visualisation) includes **time (*kaal*)** among its eight reckoning activities — form, property, count, time, expanse, effort, motion, and result (MVD, p. 327); *sanskar* carries acceptances and knowledge forward across cycles (MVD, p. 90; [What-Is-Existence](What-Is-Existence.pdf) §1.3). Through *chitta*, past and future become **numerically distinguishable** categories for humans — not because duration ceases for insentient units, which have *kaal* as activity-duration without *chitta*, but because human study compares visualised durations against present activity (JVD, p. 85). The full map of *mun*, *vritti*, *chitta*, *buddhi*, and *atma* belongs in the ongoing study *Philosophy-Of-Mind-And-Jeevan*; this paper notes only what time requires from that structure.
 
@@ -99,7 +99,7 @@ Where does the "past" survive if it is not an independent temporal place? In Mad
 
 ### 1.6 The primacy of the present
 
-Because units are always in *shram–gati–parinam* or *shram–gati–pratishtha* **now**, the present is the actualised state of existence. Madhyasth Darshan refuses both the Advaitic sublation of temporal becoming at the highest truth and the block-universe picture on which all moments are equally real and static. Change is ontologically real; the present is where transformation occurs. Numerical time is how humans coordinate that reality across scales — from atomic cycles to cosmic epochs — without reifying time as a container independent of activity.
+Because units are always in *shram–gati–parinam* **now**, the present is the actualised state of existence. Madhyasth Darshan refuses both the Advaitic sublation of temporal becoming at the highest truth and the block-universe picture on which all moments are equally real and static. Change is ontologically real; the present is where transformation occurs. Numerical time is how humans coordinate that reality across scales — from atomic cycles to cosmic epochs — without reifying time as a container independent of activity.
 
 ## 2. The Advaita Vedanta Answer
 
@@ -142,13 +142,13 @@ A common philosophical interpretation is the **block universe**: past, present, 
 
 J.M.E. McTaggart's 1908 analysis distinguishes an **A-series** (events as past, present, or future) from a **B-series** (events as earlier or later than one another). **A-theories** — including presentism and some growing-block models — treat the present (or the present's passage) as ontologically special. **B-theories** — including eternalism and many block-universe readings — treat temporal order as relations among equally real events without a moving "now."
 
-Madhyasth Darshan's present-centred activity ontology is **A-theoretic in spirit**: the present is where *kriya* actualises. It is not, however, a standard presentism, because past activity leaves real traces (configuration, record, and — in humans — *chitta*/*sanskar* reckoning) and future states are real anticipations rooted in present *shram–gati–parinam* or *shram–gati–pratishtha* activity rather than empty non-entities. Eternalism and the block universe are the clearest rivals: they treat temporal passage as derivative or illusory, whereas Madhyasth Darshan treats ongoing activity as the bedrock of *kaal*.
+Madhyasth Darshan's present-centred activity ontology is **A-theoretic in spirit**: the present is where *kriya* actualises. It is not, however, a standard presentism, because past activity leaves real traces (configuration, record, and — in humans — *chitta*/*sanskar* reckoning) and future states are real anticipations rooted in present *shram–gati–parinam* activity rather than empty non-entities. Eternalism and the block universe are the clearest rivals: they treat temporal passage as derivative or illusory, whereas Madhyasth Darshan treats ongoing activity as the bedrock of *kaal*.
 
 ### 3.3 Relational time
 
 Relational theories (Leibniz, Mach, and contemporary physicists such as Carlo Rovelli) deny that time exists as an independent container. Time is the network of changes and relations among physical systems; we measure it by comparing one variable's change to another (clock hands relative to the sun, atomic transitions relative to laboratory standards).
 
-Madhyasth Darshan's definition of *kaal* as duration of activity is **structurally close** to relational time: no freestanding temporal substance, only durations of transforming units. The difference is ontological scope — Madhyasth Darshan includes sentient unit-activity and ties duration to *shram–gati–parinam* and *shram–gati–pratishtha* across orders of nature, not only to physical observables in spacetime.
+Madhyasth Darshan's definition of *kaal* as duration of activity is **structurally close** to relational time: no freestanding temporal substance, only durations of transforming units. The difference is ontological scope — Madhyasth Darshan includes sentient unit-activity and ties duration to *shram–gati–parinam* across orders of nature, not only to physical observables in spacetime.
 
 ### 3.4 Cosmological time and beginningless existence
 
@@ -160,9 +160,9 @@ Madhyasth Darshan holds that **existence** (*astitva*) is beginningless and endl
 
 Thermodynamics explains the macroscopic **arrow of time** — why eggs break but un-break, and why we remember the past rather than the future — through increasing entropy in closed systems (Second Law). Memory and causation align with the entropy gradient in the human branch of physical history.
 
-Madhyasth Darshan does not derive the arrow of time from entropy; its present-centrism is **compatible** with thermodynamic asymmetry rather than competing with it. Within the darshan, temporal direction comes from the ontology of activity itself — but in modes that must not be conflated. **Insentient** units change through *shram–gati–parinam* (effort–motion–**result**): the three are inseparable joint forms of the same activity, and insentient exchange also exhibits **cyclical restoration** and give–take complementarity (SB, pp. 52–53, 58; [What-Is-Existence](What-Is-Existence.pdf) §1.3). **Sentient** *jeevan* changes through *shram–gati–pratishtha* (effort–motion–**resolution**), not through material *parinam*. **Development (*vikas*)** across the four orders — material, bio, animal, and knowledge — adds a further directional structure: a seed developing into a tree illustrates real order-specific transformation, not mere statistical fluctuation.
+Madhyasth Darshan does not derive the arrow of time from entropy; its present-centrism is **compatible** with thermodynamic asymmetry rather than competing with it. Within the darshan, temporal direction comes from the ontology of activity itself — but in modes that must not be conflated. **Insentient** units change through *shram–gati–parinam* (effort–motion–**result**): the three are inseparable joint forms of the same activity, and insentient exchange also exhibits **cyclical restoration** and give–take complementarity (SB, pp. 52–53, 58; [What-Is-Existence](What-Is-Existence.pdf) §1.3). **Sentient** *jeevan* uses the **same** triad, read toward constitutional, activity, and conduct completeness through projection, reflection, and *samadhan* — qualitative change without physicochemical *parinam* (SB, p. 55). **Development (*vikas*)** across the four orders — material, bio, animal, and knowledge — adds a further directional structure: a seed developing into a tree illustrates real order-specific transformation, not mere statistical fluctuation.
 
-The darshan therefore offers a **partial** ontological orientation toward temporal asymmetry — present-centred *kriya*, directional *vikas*, and (in humans) *sanskar*-mediated carry-forward — without replacing thermodynamics. Whether *shram–gati–parinam*, order-specific *vikas*, or *pratishtha* could formally ground or constrain entropy asymmetry remains an open question (§6.4). What Madhyasth Darshan adds in any case is an account of **what time is** (duration of activity) and **where becoming is real** (unit *kriya* now).
+The darshan therefore offers a **partial** ontological orientation toward temporal asymmetry — present-centred *kriya*, directional *vikas*, and (in humans) *sanskar*-mediated carry-forward — without replacing thermodynamics. Whether *shram–gati–parinam*, order-specific *vikas*, or sentient *samadhan* could formally ground or constrain entropy asymmetry remains an open question (§6.4). What Madhyasth Darshan adds in any case is an account of **what time is** (duration of activity) and **where becoming is real** (unit *kriya* now).
 
 ## 4. Comparative Summary
 
@@ -211,13 +211,13 @@ Modern science is indispensable for measurement and dynamical law; it does not b
 
 3. **Relativity and activity-based *kaal*.** If *kaal* is duration of unit-activity and numerical reckoning is conventional, how should one read coordinate time in General Relativity, horizon effects, and the block-universe interpretation? Is spacetime a useful human reckoning on large-scale activity, or a rival ontology?
 
-4. **Entropy and the activity triads.** While directional *vikas* across orders and the insentient *shram–gati–parinam* / sentient *shram–gati–pratishtha* structure offer partial orientation toward temporal asymmetry compatible with thermodynamics, it remains unsettled whether these triads could formally **ground** or mathematically **constrain** entropy asymmetry in physical systems, or whether mapping them directly is a category mistake.
+4. **Entropy and the activity triad.** While directional *vikas* across orders and the single *shram–gati–parinam* triad with its sentient unfolding offer partial orientation toward temporal asymmetry compatible with thermodynamics, it remains unsettled whether this structure could formally **ground** or mathematically **constrain** entropy asymmetry in physical systems, or whether mapping it directly is a category mistake.
 
 5. **Cosmological beginning and beginningless existence.** Resonance between beginningless coexistence and some cosmological models is conceptual, not evidential. What would distinguish Madhyasth Darshan's claim from eternal inflation or cyclic cosmology on public grounds?
 
 6. **Evidence and operational criteria.** Duration of activity is objective within the darshan, but constitutional completeness and *jeevan*-mediated activity are not presently measurable in physics. Until operational criteria exist, the temporal ontology stands as metaphysics compatible with conservation principles, not as established science.
 
-7. **Immortal *jeevan* and the experience of *kaal*.** Because *jeevan* undergoes *pratishtha* (resolution) rather than material *parinam*, it is constitutionally complete (*gathanpurna*) and immortal ([What-Is-Existence](What-Is-Existence.pdf) §1.3, §1.5). *Kaal* still applies to *jeevan* as duration of activity — the question is not whether an immortal unit has time, but how the **qualitative** experience of duration for *jeevan* differs from insentient units undergoing *shram–gati–parinam* and from the decaying body (*shareer*) whose configurations transform through *roopantaran* rather than annihilation. Exploring that difference remains a future area of inquiry alongside *Philosophy-Of-Mind-And-Jeevan*.
+7. **Immortal *jeevan* and the experience of *kaal*.** Because *jeevan* undergoes qualitative change through *samadhan* (resolution) rather than physicochemical *parinam*, it is constitutionally complete (*gathanpurna*) and immortal ([What-Is-Existence](What-Is-Existence.pdf) §1.3, §1.5). *Kaal* still applies to *jeevan* as duration of activity — the question is not whether an immortal unit has time, but how the **qualitative** experience of duration for *jeevan* differs from insentient units undergoing *shram–gati–parinam* and from the decaying body (*shareer*) whose configurations transform through *roopantaran* rather than annihilation. Exploring that difference remains a future area of inquiry alongside *Philosophy-Of-Mind-And-Jeevan*.
 
 ## References
 
@@ -237,7 +237,7 @@ Verse and section numbers follow standard numbering and apply to any faithful ed
 
 ### Related studies in this collection
 
-- [What-Is-Existence](What-Is-Existence.pdf) — preview of *kaal* as duration of activity (§1.8); *shram–gati–parinam* / *pratishtha* (§1.3); Advaita temporality (§2.6); spacetime and conservation (§4.3); deferred comparative work on time (§6.2 item 9).
+- [What-Is-Existence](What-Is-Existence.pdf) — preview of *kaal* as duration of activity (§1.8); *shram–gati–parinam* and sentient *samadhan* (§1.3); Advaita temporality (§2.6); spacetime and conservation (§4.3); deferred comparative work on time (§6.2 item 9).
 - *Philosophy-Of-Mind-And-Jeevan* (Ongoing) — full faculty map of *mun*, *vritti*, *chitta*, *buddhi*, and *atma* (MVD, pp. 323–327).
 
 ### Modern philosophy and physics
