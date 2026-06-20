@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 20, 2026, 9:06 PM IST
+**Edited on:** June 20, 2026, 9:36 PM IST
 
 **Status:** Draft
 
@@ -31,7 +31,7 @@ These topical studies state the philosophy in clear, checkable prose first. A se
 | **Saturation-Reflector Model** | Sentience is not generated from dead matter; the ever-present *gyan* of *satta* is expressed as active sentience (*chaitanya*) only when a constitutionally complete atom (*gathanpurna parmanu*) acts as a stable "reflector." Full argument: §6.6. |
 | **Unit (*ikai*)** | A countable, bounded entity in nature, whether insentient (*jada*) or sentient (*chaitanya*). |
 | ***Jeevan* (Sentient Self)** | The sentient self: a real, immortal, constitutionally complete unit (*gathanpurna parmanu*) that works through the body (*shareer*). |
-| **Constitutional Completeness (*gathanpurnata*)** | The first completeness stage: when an atom integrates the required number of particles to become indivisible, immortal, and sentient (*jeevan*). Threshold of Development Progression, not the final telos of existence (§1.2, §1.6). |
+| **Constitutional Completeness (*gathanpurnata*)** | The first completeness stage: when a composite atom integrates the required number of nucleus and orbiting particles to become functionally indivisible, immortal, and sentient (*jeevan*). Threshold of Development Progression, not the final telos of existence (§1.2, §1.6). |
 | **Activity Completeness (*kriyapurnata*)** | Restfulness of effort in the sentient atom; the knowledge-order stage of completeness (SB p. 58; MVD pp. 13–14, 27). |
 | **Conduct Completeness (*vyavaharpurnata*)** | Destination of motion / authenticity of conduct in the sentient atom (SB p. 58; MVD pp. 13–14, 27). |
 | **Six Perspectives (*shaad-drishti*)** | Six evaluative *drishti* provisioned in *jeevan*'s design: lower *priya*/*hita*/*labh* and humane *nyaya*/*dharma*/*satya* (MVD pp. 58, 60, 66–67; §1.5). Full ethics treatment: [Ethics-And-Morals-In-Human-Beings](Ethics-And-Morals-In-Human-Beings.pdf). |
@@ -226,7 +226,7 @@ The completeness drive (§1.2) does not add a second cause beside units: it name
 
 MVD also summarises three ontological *dharma*s at this level (p. 288): the insentient is mortal (*maran-dharma*), the sentient is immortal, and Omnipresence is eternal. Mortality here does not mean annihilation — coexistence conserves *vastu* through transformation (§1.8) — but marks that insentient units lack *jeevan*'s constitutional immortality.
 
-MVD lists one fundamental **Principle** alongside Realisation Knowledge (p. 11): Effort–Motion–Result. All activity in nature — insentient and sentient — carries this single irreducible triad:
+Among the **Fundamental Concepts** on MVD p. 11, Realisation Knowledge (*anubhav jnan*) and the Principle **Effort–Motion–Result** (*shram–gati–parinam*) appear as the third and fourth entries. All activity in nature — insentient and sentient — carries this single irreducible triad, formulated as:
 
 > **"Every physical-chemical activity is an inseparable presence of effort, motion and result. Each of these is a joint form of the other two."**
 > - SB, p. 58
@@ -378,7 +378,7 @@ How an insentient atom reaches constitutional completeness and becomes *jeevan* 
 
 ### 1.6 Constitutional Completeness and *Jeevan*
 
-While Madhyasth Darshan rejects creation from nothing, it gives a developmental account of how an insentient atom (*parmanu*) reaches *gathanpurnata* — the first completeness stage in Development Progression (§1.2). Constitutional completeness forms the immortal sentient self whose structure and awakening progression are stated in §1.5.
+While Madhyasth Darshan rejects creation from nothing, it gives a developmental account of how an insentient atom (*parmanu*) — always a **composite** of nucleus and orbiting particles, not an elementary particle of physics (MVD, p. 42) — reaches *gathanpurnata*, the first completeness stage in Development Progression (§1.2). Constitutional completeness forms the immortal sentient self whose structure and awakening progression are stated in §1.5.
 
 > **"In the course of an atom's development, there comes a stage when the required number of particles for its constitution are all integrated, and at that point, it becomes constitutionally complete. Constitutional completeness signifies satisfaction within, by, and for that constitution. This is the immortality of the result, and the attainment of sentient status."**
 > - SB, p. 59
@@ -616,6 +616,8 @@ The *Mandukya* analysis of waking, dream, and deep sleep (§2.2) is a first-pers
 ## 3. Modern Philosophical Approaches
 
 If Advaita Vedanta represents a radical anti-materialism that subordinates the physical world to pure consciousness, modern Western philosophy of mind represents the opposite starting point. It takes the physical world as its baseline and struggles to locate subjective experience within it. The resulting debates on consciousness impose a severe explanatory burden of proof on any entity—such as *jeevan*—that claims to transcend physical mechanics, showing that the definition of what exists remains fiercely contested.
+
+![Physicalism: one level of reality built upward by composition; causation under conservation laws; observation and public evidence; unsettled hard problem and cosmological beginning](What-Is-Existence-physicalism-composition.png)
 
 ### 3.1 Standard Physicalism: Concrete Reality Is Physical
 
@@ -876,7 +878,7 @@ These are strengths **within** the system's premises. They do not by themselves 
 
 3. **Satta–Ikai relation and circular causality.** §1.2–1.3 state mutual dependence and the single *shram–gati–parinam* triad with its sentient unfolding in prose; what remains is formalization — not discovery of whether the texts assert them.
 
-4. **Mereology, identity, and conservation inference (§§1.5, 1.8).** Madhyasth Darshan reads *jeevan*'s indivisibility as functional (self-maintaining constitution) and identity as continuity of constitution across death and re-association (§1.5). What remains unsettled is whether functional indivisibility and constitution-identity over a gap of embodiment need fuller explicit criteria. JV p. 20 infers post-death survival from conservation. From the standpoint of modern science, this inference may commit a category error by conflating **conservation of quantity** with **conservation of structure (or entity)**: physics conserves mass-energy and charge, but not specific configurations or functional identities. Thermodynamic conservation alone does not guarantee the immortality of a structured unit like *jeevan* unless *gathanpurnata* is already assumed as a separate metaphysical axiom. Furthermore, the claim of physical indivisibility for *jeevan* as a *parmanu* faces friction with particle physics, where no bound state is absolutely immune to decay or annihilation.
+4. **Mereology, identity, and conservation inference (§§1.5, 1.6, 1.8).** The *gathanpurna parmanu* at issue is **not** an elementary particle in the sense of modern physics. MVD treats every atom as a **composite**: its kind, state, and measure are fixed by the number of particles in its nucleus (*madhyansh*) and its orbiting dependent particles (MVD, p. 42); constitutional completeness (*gathanpurnata*) is reached when the required number of such particles is integrated into a stable compound configuration (SB, pp. 55, 59; §1.6). Madhyasth Darshan reads *jeevan*'s "indivisibility" as **functional** — a self-maintaining constitution that does not spontaneously lose completeness — not as the claim that *jeevan* has no parts (§1.5). Identity is continuity of that constitution across death and re-association (§1.5). What remains unsettled is whether functional indivisibility and constitution-identity over a gap of embodiment need fuller explicit criteria. JV p. 20 infers post-death survival from conservation. From the standpoint of modern science, this inference may commit a category error by conflating **conservation of quantity** with **conservation of structure (or entity)**: physics conserves mass-energy and charge, but not specific configurations or functional identities. Thermodynamic conservation alone does not guarantee the immortality of a structured unit like *jeevan* unless *gathanpurnata* is already assumed as a separate metaphysical axiom. The relevant friction with particle physics is therefore **narrower and more interesting** than "Nagraj posits an indestructible elementary particle that QFT forbids": it is whether a **particular composite configuration** — once constitutionally complete — is immune to decay or decomposition, when composite bound states in physics are not absolutely indestructible.
 
 5. ***Jeevan*–body interaction.** If *jeevan* drives the body, the mechanism from intention to neural and muscular activity is unspecified.
 
@@ -929,7 +931,7 @@ If Madhyasth Darshan is to borrow Strawson's anti-emergence principle against ph
 1. **Textual basis.** SB p. 59: all atom types, including constitutionally complete ones, are "eternally present through the natural law of coexistence." Sentience is not created at completeness; it is actualized.
 2. **Quantitative-stability support.** SB p. 55: at completeness, particle count is fixed; change is qualitative without quantitative addition — not the arrival of a new experiential ingredient from non-experience.
 3. **Where potential resides.** Rather than locating latency in an abstract "law of coexistence," the Saturation-Reflector Model holds that the potential for sentience is eternally present in the all-pervasive ground of *satta* (which is defined as *gyan*, the ground of all knowledge/consciousness). Insentient (*gathan-shil*) atoms lack the stable configuration required to express/reflect this ground. Once an atom achieves constitutional completeness (*gathanpurnata*), its stable configuration acts as a "reflector," allowing the ever-present *gyan* of *satta* to manifest as active sentience (*chaitanya*). This resolves the Strawson anti-emergence challenge by showing that experience is never generated from dead matter, but is mediated by structured matter from an ever-present conscious ground.
-4. **What remains open.** This model is still a metaphysical framework, not a detailed physical mechanism. It keeps the system consistent with Strawson but does not answer physicalism's demand for third-person public evidence (§6.4), nor does it reconcile the physical indivisibility of the *parmanu* with modern particle physics.
+4. **What remains open.** This model is still a metaphysical framework, not a detailed physical mechanism. It keeps the system consistent with Strawson but does not answer physicalism's demand for third-person public evidence (§6.4), nor does it reconcile the claimed constitutional immunity of the composite *gathanpurna parmanu* with modern particle physics — where composite bound states decay rather than elementary particles being indestructible (§6.2 item 4).
 
 Formalizing latency within the law of coexistence — and defending it against Nagarjuna's *svabhava* critique (§6.2) — is the most promising route for later rigorous work.
 
