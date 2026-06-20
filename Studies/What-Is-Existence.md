@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 20, 2026, 7:26 PM IST
+**Edited on:** June 20, 2026, 9:06 PM IST
 
 **Status:** Draft
 
@@ -511,6 +511,8 @@ Its positive claim: Brahma is real, the world is real, and their inseparable pre
 Advaita Vedanta provides a contrasting framework to Madhyasth Darshan: it asserts that existence in the strictest, absolute sense is Brahman alone, one without a second. In this view, the world of names, forms, bodies, and relations is *mithya*—a dependent appearance that is operationally valid at the empirical level (*vyavahara*) but ultimately sublated at the level of absolute reality (*paramartha*). The true Self (*Atman*) is neither born nor destroyed, because it is ultimately identical with this non-dual Brahman.
 
 Advaita's standard framework is three-tiered, separating private apparent errors (*pratibhasika*, such as a rope mistaken for a snake) from shared empirical reality (*vyavahara*, which governs bodies, physical laws, ethics, and scripture) and the absolute truth of Brahman (*paramartha*).
+
+![Advaita Vedanta: three tiers of reality (paramartha, vyavahara, pratibhasika), sublation relations, and Maya and moksha](What-Is-Existence-advaita-tiers.png)
 
 ### 2.1 Existence Alone, One Without a Second
 
