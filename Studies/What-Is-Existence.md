@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 20, 2026, 6:55 PM IST
+**Edited on:** June 20, 2026, 7:26 PM IST
 
 **Status:** Draft
 
@@ -53,13 +53,28 @@ These topical studies state the philosophy in clear, checkable prose first. A se
 
 ## 1. The Madhyasth Darshan Answer
 
-To understand existence (*astitva*) in Madhyasth Darshan (Co-existentialism), we must look past two common reductionist tendencies: that matter emerges from consciousness, or that consciousness is merely a byproduct of matter. Instead, the darshan asserts that existence is the eternally present coexistence (*saha-astitva*) of formless Omnipresence (*satta*) and the countless physical (*jada*) and sentient (*chaitanya*) units (*ikai*) held within it — units that stand in definite relationships with one another and with the ground that saturates them. In this view, nothing that exists ever arises from absolute non-existence (*abhava*), nor is it ever annihilated, though units undergo ceaseless motion, transformation, development, and awakening as they recognise and fulfil those relationships toward completeness.
+Reality is not made of matter, and it is not made of mind. It is the permanent togetherness of two things that never come apart: a formless, all-pervading ground, and the countless real things held within it. Neither one was made from the other, and neither can be cancelled by the other. This togetherness is what the darshan calls **coexistence**.
 
-To examine this claim, we trace how units are situated in Omnipresence, how ontological relationships bind units to one another, how they change, how sentience emerges, what *jeevan* is, whether existence begins, and how this ontology contrasts with its rivals. Cross-tradition answers to the paper's three questions are summarized in §5.2.
+Nothing in this picture ever began out of nothing, and nothing is ever destroyed. Things change form endlessly — they move, combine, develop — but the underlying reality is only ever transformed, never created or annihilated. A burnt piece of charcoal does not vanish; it becomes other things.
+
+Through this ceaseless change, nature climbs through real, stable stages: from matter, to living cells, to animals, to human beings. At a certain stage of development, a particle reaches a complete and stable form and becomes a living self — sentient, and not destroyed when its body dies. In a human being, that self can awaken: it can come to recognise the relationships it actually stands in, and live them out. Living well, on this view, is not a rule imposed from outside. It is recognising and fulfilling your real relationships — with other people and with the natural world — so that the coexistence that was always the structure of reality becomes clear in how you see and evident in how you live.
+
+So the answer to the paper's three questions is compact. **What is existence?** The ever-present coexistence of the formless ground and all real units. **What exists?** That whole — the ground, and the units in their own right, sentient and insentient, bound to one another by definite relationships. **Does it begin?** No. Coexistence is beginningless; only particular bodies and arrangements begin and end.
+
+This is what sets the darshan apart from its two great rivals. Against the view that only physical matter is real, it refuses to reduce consciousness, value, and selfhood to by-products of brain chemistry — yet it keeps the physical world fully real and worth studying, not a second-class illusion. Against the view that only the formless ground is finally real and the world is mere appearance, it insists the world is permanent and that distinct living selves and real relationships carry final weight. Its one-line statement of both refusals is:
+
+> **"Brahma is truth, the world is perpetual."**
+> - MVD, p. 13
+
+(For how this differs from Advaita's view that the world is appearance, see §5.6.)
+
+The rest of this section states that picture precisely, in the darshan's own terms. To examine this claim, we trace how units are situated in Omnipresence, how ontological relationships bind units to one another, how they change, how sentience emerges, what *jeevan* is, whether existence begins, and how this ontology contrasts with its rivals. Cross-tradition answers to the paper's three questions are summarized in §5.2.
+
+![Overview of Madhyasth Darshan ontology: Omnipresence (*satta*) and units with saturation and *sambandh*; four stable orders of nature; Development Progression and Awakening Progression](What-Is-Existence-ontology-overview.png)
 
 ### 1.1 The Coexistential Structure: Space (*Satta*) and Nature (*Prakriti*)
 
-Madhyasth Darshan does not define existence (*astitva*) as an object among objects, nor as a mental category imposed by a knower. It defines existence as the inseparable presentness of formless *satta* and formful nature (*prakriti*) — not matter arising from consciousness, nor consciousness from matter, but the two inseparably present together as coexistence.
+Madhyasth Darshan does not define existence (*astitva*) as an object among objects, nor as a mental category imposed by a knower. Existence is the eternally present coexistence (*saha-astitva*) of formless Omnipresence (*satta*) and the countless physical (*jada*) and sentient (*chaitanya*) units (*ikai*) held within it — units that stand in definite relationships with one another and with the ground that saturates them. It defines that coexistence as the inseparable presentness of formless *satta* and formful nature (*prakriti*) — not matter arising from consciousness, nor consciousness from matter, but the two inseparably present together. Nothing that exists ever arises from absolute non-existence (*abhava*), nor is it ever annihilated, though units undergo ceaseless motion, transformation, development, and awakening as they recognise and fulfil those relationships toward completeness.
 
 SB gives the most compressed formulation:
 

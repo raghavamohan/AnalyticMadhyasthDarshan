@@ -68,7 +68,8 @@ def convert_to_html(input_path: Path) -> Path:
     }}
     h2, h3, h4 {{ page-break-after: avoid; break-after: avoid; }}
     h3, h4 {{ page-break-inside: avoid; break-inside: avoid; }}
-    p, li {{ text-align: left; }}
+    p {{ text-align: justify; text-justify: inter-word; hyphens: auto; }}
+    li {{ text-align: left; }}
     table {{
       page-break-inside: auto;
       break-inside: auto;
@@ -128,7 +129,9 @@ def convert_to_html(input_path: Path) -> Path:
   }}
   p {{
     margin: 6pt 0;
-    text-align: left;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
   }}
   a {{
     color: #1a5276;
@@ -214,8 +217,17 @@ def convert_to_html(input_path: Path) -> Path:
   li {{
     margin: 3pt 0;
   }}
-  em {{
-    color: #444;
+  img {{
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 12pt auto;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }}
+  p:has(> img:only-child) {{
+    text-align: center;
+    margin: 12pt 0;
   }}
 </style>
 </head>

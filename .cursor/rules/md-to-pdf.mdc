@@ -41,6 +41,11 @@ Remove-Item Studies/<Name>.html
 ## What the scripts provide (do not reimplement)
 
 - Study typography, tables, blockquotes, and print CSS — `_convert_to_pdf.py`
+- **Fully justified body paragraphs** — all `<p>` elements use `text-align: justify`
+  (with `text-justify: inter-word` and `hyphens: auto`) in screen and print CSS;
+  list items and table cells remain left-aligned — `_convert_to_pdf.py`
+- **Embedded study figures** — PNG (or other raster) images referenced from the
+  study `.md` (same directory) render in HTML/PDF with responsive width — `_convert_to_pdf.py`
 - **`**Status:**` omitted from the PDF body** — draft/released is shown via watermark
   (Draft) or its absence (Released); the flag remains in the `.md` source only
 - Footer on every page: `AnalyticMadhyasthDarshan.org` and `Page X of Y` —
