@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 19, 2026, 7:48 AM IST
+**Edited on:** June 20, 2026, 5:36 PM IST
 
 **Status:** Draft
 
@@ -217,7 +217,7 @@ Modern science is indispensable for measurement and dynamical law; it does not b
 
 6. **Evidence and operational criteria.** Duration of activity is objective within the darshan, but constitutional completeness and *jeevan*-mediated activity are not presently measurable in physics. Until operational criteria exist, the temporal ontology stands as metaphysics compatible with conservation principles, not as established science.
 
-7. **Immortal *jeevan* and the experience of *kaal*.** Because *jeevan* undergoes *pratishtha* (resolution) rather than material *parinam*, it is constitutionally complete (*gathanpurna*) and immortal ([What-Is-Existence](What-Is-Existence.pdf) §1.3, §1.7). *Kaal* still applies to *jeevan* as duration of activity — the question is not whether an immortal unit has time, but how the **qualitative** experience of duration for *jeevan* differs from insentient units undergoing *shram–gati–parinam* and from the decaying body (*shareer*) whose configurations transform through *roopantaran* rather than annihilation. Exploring that difference remains a future area of inquiry alongside *Philosophy-Of-Mind-And-Jeevan*.
+7. **Immortal *jeevan* and the experience of *kaal*.** Because *jeevan* undergoes *pratishtha* (resolution) rather than material *parinam*, it is constitutionally complete (*gathanpurna*) and immortal ([What-Is-Existence](What-Is-Existence.pdf) §1.3, §1.5). *Kaal* still applies to *jeevan* as duration of activity — the question is not whether an immortal unit has time, but how the **qualitative** experience of duration for *jeevan* differs from insentient units undergoing *shram–gati–parinam* and from the decaying body (*shareer*) whose configurations transform through *roopantaran* rather than annihilation. Exploring that difference remains a future area of inquiry alongside *Philosophy-Of-Mind-And-Jeevan*.
 
 ## References
 
