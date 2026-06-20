@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 19, 2026, 7:48 AM IST
+**Edited on:** June 20, 2026, 5:36 PM IST
 
 **Status:** Draft
 
@@ -62,7 +62,7 @@ Importantly, Space here is not an individual conscious subject and not a unit am
 
 MVD p. 289 states explicitly that **the unfolding of knowledge** (*gyan udghatan*) occurs **only** through the sentient aspect (*jeevan*) or thoughts — not through insentient units and not through Omnipresence acting as a knower. MVD p. 115 adds a narrower formulation: knowledge is inherent everywhere, but **its unfolding happens by awakened humans** — a sleeping, deluded *jeevan* cannot unfold it. The same passage describes a sensory/cognitive pathway: vibrational motion on the brain from the cognitive organs leads to the unfolding of knowledge. So *gyan* as a name of *satta* is the intelligibility-ground; *gyan udghatan* is an activity exclusive to awakened *jeevan*.
 
-That is why Omnipresence can be called Knowledge without being a knowing subject — and why a careless reading of MVD p. 35 collapses straight into Advaita's *chit* (Brahman as awareness itself), exactly the identification Madhyasth Darshan otherwise resists. The ontology paper develops this through the **Saturation-Reflector Model**: the ever-present *gyan* of *satta* is expressed as active sentience only when a constitutionally complete atom acts as a stable reflector ([What-Is-Existence](What-Is-Existence.pdf) §1.6, §6.6).
+That is why Omnipresence can be called Knowledge without being a knowing subject — and why a careless reading of MVD p. 35 collapses straight into Advaita's *chit* (Brahman as awareness itself), exactly the identification Madhyasth Darshan otherwise resists. The ontology paper develops this through the **Saturation-Reflector Model**: the ever-present *gyan* of *satta* is expressed as active sentience only when a constitutionally complete atom acts as a stable reflector ([What-Is-Existence](What-Is-Existence.pdf) §1.7, §6.6).
 
 ### 1.2 Knowledge as *gyan-vivek-vigyan*
 
@@ -211,7 +211,7 @@ Material things (like stones) and biological organisms (like plants) do not have
 
 This distinction is important: every human has the possibility of seer-status because every human has imagination, freedom of action, and the capacity for understanding; only the awakened human evidences that status in living.
 
-In the human order, knowledge-unfolding is additionally ***sanskar*-mediated**: acceptances toward completeness, and knowledge, wisdom, and science carried forward toward resolution for evidencing (MVD, p. 90). Awakening, *sanskar*, environment, study, and humaneness form an explicit circular dependency (MVD, p. 290). Insentient units do not unfold knowledge; only *jeevan* does, through thought — a point developed in the ontology study at [What-Is-Existence](What-Is-Existence.pdf) §1.6.
+In the human order, knowledge-unfolding is additionally ***sanskar*-mediated**: acceptances toward completeness, and knowledge, wisdom, and science carried forward toward resolution for evidencing (MVD, p. 90). Awakening, *sanskar*, environment, study, and humaneness form an explicit circular dependency (MVD, p. 290). Insentient units do not unfold knowledge; only *jeevan* does, through thought — a point developed in the ontology study at [What-Is-Existence](What-Is-Existence.pdf) §1.7.
 
 The knower in Madhyasth Darshan is therefore not an actionless, passive witness. *Jeevan* is an active, structured, sentient unit. Its activities include hope in *mun*, thought in *vritti*, desire in *chitta*, resoluteness in *buddhi*, and realization in *atma*. (*Jeevan Vidya* presents the same structure as ten coordinated activities across the atom's nucleus and orbits — taste and selection in *mun*, deliberation and analysis in *vritti*, contemplation and visualization in *chitta*, enlightenment and resolve in *buddhi*, and realization and authenticity in *atma* — JV, p. 92.) The body is the instrument through which this *jeevan* acts; the brain (*medhas*) receives and processes signals related to *jeevan*'s aspirations, desires, and evidence (MVD, p. 83). The inner self is thus understood as a real, active, constitutionally complete unit capable of awakening — not a passive or actionless witness.
 
@@ -468,7 +468,7 @@ Scientific materialism offers the strongest method and the best-supported accoun
 
 ### Related studies in this collection
 
-- [What-Is-Existence](What-Is-Existence.pdf) — "Knowledge but not knower" (§1.6), Sat-Chit-Ananda contrast (§5.3), epistemic incommensurability (§6.5), Saturation-Reflector Model (§6.6), evidence standards (§6.4).
+- [What-Is-Existence](What-Is-Existence.pdf) — "Knowledge but not knower" (§1.7), Sat-Chit-Ananda contrast (§5.3), epistemic incommensurability (§6.5), Saturation-Reflector Model (§6.6), evidence standards (§6.4).
 
 ### Modern Science & Philosophy
 

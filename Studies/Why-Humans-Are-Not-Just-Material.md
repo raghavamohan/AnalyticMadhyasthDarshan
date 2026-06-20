@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 18, 2026, 9:40 PM IST
+**Edited on:** June 20, 2026, 5:36 PM IST
 
 **Status:** Draft
 
@@ -25,7 +25,7 @@ These topical studies state the philosophy in clear, checkable prose first. A se
 | Term | Plain meaning |
 |------|---------------|
 | ***Jeevan*** | The sentient self — in Shri. Nagraj's view a real, eternal, atom-scale entity that works *through* the body. Not brain activity, and not "soul" in the usual religious sense. For ontology of *jeevan*, constitutional completeness, and conservation, see [What-Is-Existence](What-Is-Existence.pdf). |
-| **Constitutional completeness (*gathanpurnata*)** | The state when an atom integrates the required particles and crosses irreversibly into sentient status as *jeevan*. Developed in [What-Is-Existence](What-Is-Existence.pdf) §1.5. |
+| **Constitutional completeness (*gathanpurnata*)** | The state when an atom integrates the required particles and crosses irreversibly into sentient status as *jeevan*. Developed in [What-Is-Existence](What-Is-Existence.pdf) §1.6. |
 | **Coexistence (*sah-astitva*)** | Existence seen as all units inseparably present together. |
 | **Knowledge order (*gyan avastha*)** | The human level of nature — able to know and evaluate every other level. |
 | ***Atman* / *Brahman*** | In Advaita Vedanta: the innermost Self / the one ultimate reality. Advaita says they are identical. |
@@ -68,7 +68,7 @@ The central argument is that the body and *jeevan* have different jobs: eating a
 
 ### 1.6 Sentience as developed matter
 
-Development is built into existence (effort → motion → result). An atom that becomes constitutionally complete (*gathanpurnata*) crosses irreversibly into sentient status — and that sentient atom *is* the *jeevan*. It is never annihilated, so death is an event of the body only. For the emergence tension, conservation ontology, mereology of *jeevan*, and identity across death, see [What-Is-Existence](What-Is-Existence.pdf) §1.5, §1.7–1.8, and §6.2.
+Development is built into existence (effort → motion → result). An atom that becomes constitutionally complete (*gathanpurnata*) crosses irreversibly into sentient status — and that sentient atom *is* the *jeevan*. It is never annihilated, so death is an event of the body only. For the emergence tension, conservation ontology, mereology of *jeevan*, and identity across death, see [What-Is-Existence](What-Is-Existence.pdf) §§1.5–1.8 and §6.2.
 
 > **“Nothing arrives at birth nor does anything depart with death. All that is, exists forever. Jeevan continues to exist even after death as it does while driving a body.”**
 > — JV, Ch. 1
@@ -232,7 +232,7 @@ No view escapes serious objections. Here is where each is strong and where each 
 
 - **The conclusion is built into the premises.** The foundational axiom already declares existence "not just physicochemical matter" — so the system is anti-materialist *by assumption*, not by proof.
 - **Different jobs do not prove two things.** The central argument — body serves food and sleep, *jeevan* serves values, therefore they are distinct entities — is a leap. One system can serve many purposes. And even granting distinctness, nothing in the phenomenological argument alone establishes that *jeevan* is *eternal*; that claim rests on the ontological steps and conservation-based reading developed in [What-Is-Existence](What-Is-Existence.pdf).
-- **Constitutional completeness is unexplained, not merely unmeasured.** No observation in particle physics or chemistry presently operationalizes *gathanpurnata*. The deeper tension — whether sentience at completeness is latent potential actualized or a form of emergence the system elsewhere resists — is analyzed in [What-Is-Existence](What-Is-Existence.pdf) §1.5 and §6.2. Until that is settled internally, "sentient atoms are not physics" remains a fair objection from the scientific leg.
+- **Constitutional completeness is unexplained, not merely unmeasured.** No observation in particle physics or chemistry presently operationalizes *gathanpurnata*. The deeper tension — whether sentience at completeness is latent potential actualized or a form of emergence the system elsewhere resists — is analyzed in [What-Is-Existence](What-Is-Existence.pdf) §1.6 and §6.2. Until that is settled internally, "sentient atoms are not physics" remains a fair objection from the scientific leg.
 - **The interaction problem is unanswered.** If an atom-sized *jeevan* steers neurons and muscles, that steering must either violate local energy conservation or produce a detectable causal anomaly in the brain's physical budget. None has been found, and the literature gives no mechanism. See §2.3 above and [What-Is-Existence](What-Is-Existence.pdf) §6.2 item 7.
 - **It risks being unfalsifiable.** Disagreement is attributed to "lack of awakening," so no observation can count against the system. A claim that cannot be wrong cannot be tested. To be taken seriously empirically, the framework would have to state *in advance* what observation would disconfirm it.
 
@@ -284,7 +284,7 @@ What would actually move the debate: a measurable anomaly where neural dynamics 
 
 ### Related studies in this collection
 
-- [What-Is-Existence](What-Is-Existence.pdf) — constitutional completeness (*gathanpurnata*), conservation ontology, emergence tension, *jeevan* mereology and identity, *jeevan*–body interaction (§1.5–1.8, §6.2).
+- [What-Is-Existence](What-Is-Existence.pdf) — constitutional completeness (*gathanpurnata*), conservation ontology, emergence tension, *jeevan* structure and identity, *jeevan*–body interaction (§§1.5–1.8, §6.2).
 - [Ethics-And-Morals-In-Human-Beings](Ethics-And-Morals-In-Human-Beings.pdf) — comparative moral psychology and innate justice claims (§1, §2).
 
 ### Advaita Vedanta (primary texts)
