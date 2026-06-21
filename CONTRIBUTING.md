@@ -39,7 +39,7 @@ Maintainers review proposals for overlap, scope, and alignment with [Studies/REA
 
 - Confirmation of approval
 - A link to open a pull request with the **new-study** template
-- Reminders to fork the repo and add `Studies/<Slug>.md`
+- Reminders to fork the repo and add `Studies/<Slug>/<Slug>.md`
 
 If changes are needed, maintainers will comment on the issue before approving.
 
@@ -53,7 +53,7 @@ Fork [AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyast
 
 Use after your proposal is **`proposal-approved`**.
 
-1. Create `Studies/<Slug>.md` following the author block and structure in existing studies.
+1. Create `Studies/<Slug>/<Slug>.md` following the author block and structure in existing studies.
 2. Open a PR with the [**new-study** template](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/compare?expand=1&template=new-study.md).
 3. Fill in:
    - `Proposal issue: #123` (your approved issue number)
@@ -65,7 +65,7 @@ CI verifies the linked issue has `proposal-approved`, reads category and descrip
 
 ### Update an existing study (`study-update`)
 
-1. Edit `Studies/<Slug>.md`.
+1. Edit `Studies/<Slug>/<Slug>.md`.
 2. Update **`**Edited on:**`** to the current time (IST). CI syncs the catalog date from this field.
 3. Open a PR with the [**study-update** template](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/compare?expand=1&template=study-update.md).
 4. Apply the **`study-update`** label.

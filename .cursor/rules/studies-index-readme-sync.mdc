@@ -27,7 +27,7 @@ drift apart.
   (abbreviated month in catalogs: `Jun`; full month in `.md`: `June`). See
   [AGENTS.md](../AGENTS.md) §1 for the mandatory workflow.
 - **In-progress studies** — shown in italics (`<em>...</em>` in HTML,
-  `*...*` in markdown) with no link; published studies link to `<Name>.pdf`.
+  `*...*` in markdown) with no link; published studies link to `<Slug>/<Slug>.pdf`.
 - **Formal Studies table** — same documents, focus, and descriptions.
 - **Shared prose** — the lead intro, Study Objectives, **About us**, and
   License sections should carry the same wording.

@@ -74,10 +74,10 @@ Windows wrappers: `.\Scripts\_add_study.ps1`, `.\Scripts\_remove_study.ps1`, `.\
 
 ### Managing studies
 
-**Add** — write `Studies/<Slug>.md`, then register:
+**Add** — write `Studies/<Slug>/<Slug>.md`, then register:
 
 ```powershell
-python Scripts\_add_study.py "Studies\<Slug>.md" `
+python Scripts\_add_study.py "Studies\<Slug>\<Slug>.md" `
   --category "Ontology" `
   --description "One-line catalog summary" `
   --tags "MVD, SB, JV" `
@@ -90,7 +90,7 @@ Other modes: `--status ongoing` (catalog placeholder, no PDF), `--formal` (Forma
 
 Flags: `--force` (refresh existing), `--skip-pdf` (catalog only), `--no-check-timestamps`.
 
-**Edit** — change `Studies/<Slug>.md`, refresh `**Edited on:**` (and the catalog date to match), then regenerate the PDF.
+**Edit** — change `Studies/<Slug>/<Slug>.md`, refresh `**Edited on:**` (and the catalog date to match), then regenerate the PDF.
 
 **Release or revert to draft:**
 
@@ -118,9 +118,9 @@ python Scripts\_regenerate_pdf.py <Slug>
 This reads **Status:** from the markdown and applies the Draft watermark when appropriate. Manual steps if needed:
 
 ```powershell
-python Scripts\_convert_to_pdf.py "Studies\<Slug>.md" --watermark Draft
-node Scripts\_html_to_pdf.js "Studies\<Slug>.html"
-Remove-Item "Studies\<Slug>.html"
+python Scripts\_convert_to_pdf.py "Studies\<Slug>\<Slug>.md" --watermark Draft
+node Scripts\_html_to_pdf.js "Studies\<Slug>\<Slug>.html"
+Remove-Item "Studies\<Slug>\<Slug>.html"
 ```
 
 ### Before opening a pull request

@@ -20,7 +20,7 @@ Orchestration skill for the study lifecycle. Read the focused skill for your tas
 
 ## Repository model
 
-- **Source of truth:** `Studies/<Slug>.md`
+- **Source of truth:** `Studies/<Slug>/<Slug>.md`
 - **Published output:** `Studies/<Slug>.pdf` (generated; never edit by hand)
 - **Catalogs:** `Studies/index.html`, `Studies/README.md` (updated by scripts)
 - **Citations:** `References/README.md`, `References/MANIFEST.md` (add/remove only)

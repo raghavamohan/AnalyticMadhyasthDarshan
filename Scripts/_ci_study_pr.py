@@ -16,11 +16,7 @@ import urllib.request
 from dataclasses import replace
 from pathlib import Path
 
-SCRIPTS = Path(__file__).resolve().parent
-BASE = SCRIPTS.parent
-STUDIES = BASE / "Studies"
-
-sys.path.insert(0, str(SCRIPTS))
+from _common import BASE, STUDIES, slug_from_study_relative_path, study_md
 
 from _pdf_cache_sync import pdfs_for_study, sync_pdf_cache  # noqa: E402
 from _study_catalog import (  # noqa: E402
@@ -129,10 +125,16 @@ def changed_study_slugs(base_ref: str) -> list[str]:
         cwd=BASE,
     )
     slugs: list[str] = []
+    seen: set[str] = set()
     for line in result.stdout.splitlines():
         path = Path(line.strip())
-        if path.parts[:1] == ("Studies",) and path.suffix == ".md" and path.name != "README.md":
-            slugs.append(path.stem)
+        if path.parts[:1] != ("Studies",):
+            continue
+        rel = Path(*path.parts[1:])
+        slug = slug_from_study_relative_path(rel)
+        if slug and slug not in seen:
+            seen.add(slug)
+            slugs.append(slug)
     return slugs
 
 
@@ -153,7 +155,7 @@ def sync_catalog_timestamp_from_md(slug: str) -> None:
         raise SystemExit(f"Study not found in catalog: {slug}")
 
     row, table = located
-    md_path = STUDIES / f"{slug}.md"
+    md_path = study_md(slug)
     if not md_path.exists():
         raise SystemExit(f"Missing markdown file: {md_path}")
 
@@ -202,10 +204,10 @@ def handle_new_study(body: str, base_ref: str) -> None:
         slug = changed[0]
     else:
         raise SystemExit(
-            "Set `Slug:` in the PR body or change exactly one Studies/<Slug>.md file."
+            "Set `Slug:` in the PR body or change exactly one Studies/<Slug>/<Slug>.md file."
         )
 
-    md_path = STUDIES / f"{slug}.md"
+    md_path = study_md(slug)
     if not md_path.exists():
         raise SystemExit(f"Expected study markdown at {md_path}")
 
@@ -243,7 +245,7 @@ def handle_study_update(body: str, base_ref: str) -> None:
         slug = changed[0]
     else:
         raise SystemExit(
-            "Set `Study slug:` in the PR body or change exactly one Studies/<Slug>.md file."
+            "Set `Study slug:` in the PR body or change exactly one Studies/<Slug>/<Slug>.md file."
         )
 
     located = get_study_row(slug)
@@ -260,7 +262,7 @@ def handle_study_update(body: str, base_ref: str) -> None:
         raise SystemExit(f"Study not found after catalog sync: {slug}")
     row, _table = located
 
-    md_path = STUDIES / f"{slug}.md"
+    md_path = study_md(slug)
     print(f"Regenerating PDF for {slug} ({row.status.value})")
     sync_study_reference_cache(slug)
     regenerate_pdf(md_path, row.status)

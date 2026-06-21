@@ -33,7 +33,7 @@ jobs:
                 '<!-- Briefly describe the study question and primary texts -->\n\n' +
                 '### Checklist\n\n' +
                 '- [ ] Linked proposal issue is labeled `proposal-approved`\n' +
-                '- [ ] `Studies/<Slug>.md` follows format in Studies/README.md\n' +
+                '- [ ] `Studies/<Slug>/<Slug>.md` follows format in Studies/README.md\n' +
                 '- [ ] References link to `References/` where permitted; no restricted uploads\n' +
                 '- [ ] Applied label **`new-study`** to this pull request\n'
               )}`;
@@ -44,7 +44,7 @@ jobs:
               'Thank you — this study proposal is approved. You may now submit the full study:',
               '',
               '1. **Fork** the repository and create a branch.',
-              '2. Add `Studies/<Slug>.md` following the format in [Studies/README.md](https://github.com/' + repo + '/blob/master/Studies/README.md).',
+              '2. Add `Studies/<Slug>/<Slug>.md` following the format in [Studies/README.md](https://github.com/' + repo + '/blob/master/Studies/README.md).',
               '3. Open a pull request with the [**new-study** template](https://github.com/' + repo + '/compare/master...master?expand=1&template=new-study.md).',
               '4. Set `Proposal issue: #' + issueNumber + '` in the PR body.',
               '5. Apply the **`new-study`** label to the PR.',

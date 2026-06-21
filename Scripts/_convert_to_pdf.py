@@ -5,7 +5,7 @@ from urllib.parse import unquote, urlparse
 
 import markdown
 
-from _common import STUDIES
+from _common import STUDIES, study_md
 from _study_catalog import strip_status_for_pdf
 
 
@@ -253,7 +253,7 @@ def main() -> None:
     if args.input:
         input_path = Path(args.input).resolve()
     else:
-        input_path = STUDIES / "How-To-Form-Self-Sustaining-Organizations.md"
+        input_path = study_md("How-To-Form-Self-Sustaining-Organizations")
 
     if args.watermark:
         print("Note: --watermark on _convert_to_pdf.py is ignored; use _html_to_pdf.js instead.")

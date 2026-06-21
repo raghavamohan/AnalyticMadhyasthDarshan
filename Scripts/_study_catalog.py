@@ -11,7 +11,16 @@ from enum import Enum
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from _common import REFERENCES, SCRIPTS, STUDIES
+from _common import (
+    REFERENCES,
+    SCRIPTS,
+    STUDIES,
+    iter_study_md_paths,
+    known_study_slugs,
+    study_md,
+    study_pdf_href,
+    study_pdf_ref_path,
+)
 
 IST = ZoneInfo("Asia/Kolkata")
 
@@ -322,7 +331,7 @@ def serialize_html_row(row: StudyRow) -> str:
     safe_category = html.escape(row.category, quote=False)
     safe_desc = html.escape(row.description, quote=False)
     if row.has_pdf:
-        doc_cell = f'<a href="{row.slug}.pdf">{row.slug}</a>'
+        doc_cell = f'<a href="{study_pdf_href(row.slug)}">{row.slug}</a>'
     else:
         doc_cell = f"<em>{html.escape(row.slug, quote=False)}</em>"
     return (
@@ -338,7 +347,7 @@ def serialize_html_row(row: StudyRow) -> str:
 def serialize_md_row(row: StudyRow) -> str:
     status_cell = format_status_catalog(row.edited_at, row.status)
     if row.has_pdf:
-        doc_cell = f"[{row.slug}]({row.slug}.pdf)"
+        doc_cell = f"[{row.slug}]({study_pdf_href(row.slug)})"
     else:
         doc_cell = f"*{row.slug}*"
     return (
@@ -431,7 +440,7 @@ def parse_references_readme_rows(content: str) -> list[tuple[str, str]]:
 
 
 def references_readme_row(slug: str, tags: str) -> str:
-    return f"| [{slug}.pdf](../Studies/{slug}.pdf) | {escape_md_cell(tags)} |"
+    return f"| [{slug}.pdf]({study_pdf_ref_path(slug)}) | {escape_md_cell(tags)} |"
 
 
 def write_references_readme_row(slug: str, tags: str, *, remove: bool = False) -> None:
@@ -458,7 +467,7 @@ def write_references_readme_row(slug: str, tags: str, *, remove: bool = False) -
 
 
 def manifest_row(slug: str, tags: str, status: str = "TBD") -> str:
-    return f"| [{slug}.pdf](../Studies/{slug}.pdf) | {escape_md_cell(tags)} | {status} |"
+    return f"| [{slug}.pdf]({study_pdf_ref_path(slug)}) | {escape_md_cell(tags)} | {status} |"
 
 
 def append_manifest_row(content: str, slug: str, tags: str) -> str:
@@ -473,7 +482,7 @@ def append_manifest_row(content: str, slug: str, tags: str) -> str:
 
 
 def remove_manifest_paper_block(content: str, slug: str) -> str:
-    pdf_link = f"[{slug}.pdf](../Studies/{slug}.pdf)"
+    pdf_link = f"[{slug}.pdf]({study_pdf_ref_path(slug)})"
     lines = content.splitlines()
     kept: list[str] = []
     index = 0
@@ -492,7 +501,7 @@ def remove_manifest_paper_block(content: str, slug: str) -> str:
 
 def verify_timestamp_sync(slug: str) -> list[str]:
     errors: list[str] = []
-    md_path = STUDIES / f"{slug}.md"
+    md_path = study_md(slug)
     if not md_path.exists():
         if find_study_table(slug) is not None:
             errors.append(f"{slug}: catalog entry exists but {md_path.name} is missing.")

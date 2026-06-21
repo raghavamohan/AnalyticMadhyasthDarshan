@@ -12,7 +12,7 @@ description: >-
 ## Before you start
 
 1. Read [Studies/README.md](../../Studies/README.md) for study format and intent.
-2. Write `Studies/<Slug>.md` with author block, or prepare an external PDF to import.
+2. Write `Studies/<Slug>/<Slug>.md` with author block, or prepare an external PDF to import.
 3. Choose catalog table: **topical** (default) or **formal** (`--formal`).
 
 ## Recommended: register from markdown
@@ -20,7 +20,7 @@ description: >-
 From repo root:
 
 ```powershell
-python Scripts/_add_study.py "Studies/<Slug>.md" `
+python Scripts/_add_study.py "Studies/<Slug>/<Slug>.md" `
   --category "Ontology" `
   --description "One-line catalog summary" `
   --tags "MVD, SB, JV" `

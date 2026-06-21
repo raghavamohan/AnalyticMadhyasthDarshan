@@ -18,7 +18,7 @@ import shutil
 import sys
 from pathlib import Path
 
-from _common import REFERENCES, STUDIES
+from _common import REFERENCES, STUDIES, study_dir, study_md, study_pdf, study_pdf_ref_path
 from _pdf_cache_sync import pdfs_for_tags, sync_pdf_cache
 from _study_catalog import (
     StudyRow,
@@ -110,7 +110,7 @@ def update_manifest(slug: str, tags: str, *, force: bool) -> None:
     manifest_text = manifest_path.read_text(encoding="utf-8")
     if f"{slug}.pdf" in manifest_text and force:
         manifest_text = re.sub(
-            rf"\| \[{re.escape(slug)}\.pdf\]\(../Studies/{re.escape(slug)}\.pdf\) \|[^\n]+\n",
+            rf"\| \[{re.escape(slug)}\.pdf\]\({re.escape(study_pdf_ref_path(slug))}\) \|[^\n]+\n",
             "",
             manifest_text,
         )
@@ -147,8 +147,9 @@ def add_study(
     is_pdf_import = suffix == ".pdf"
     derived_slug = slug or title_to_slug(title or input_path.stem.replace("_", " "))
     study_title = title or slug_to_title(derived_slug)
-    dest_md = STUDIES / f"{derived_slug}.md"
-    dest_pdf = STUDIES / f"{derived_slug}.pdf"
+    dest_dir = study_dir(derived_slug)
+    dest_md = study_md(derived_slug)
+    dest_pdf = study_pdf(derived_slug)
     edited_at = now_ist()
 
     study_description = description or ""
@@ -219,6 +220,7 @@ def add_study(
         return
 
     STUDIES.mkdir(parents=True, exist_ok=True)
+    dest_dir.mkdir(parents=True, exist_ok=True)
 
     if is_pdf_import:
         shutil.copy2(input_path, dest_pdf)

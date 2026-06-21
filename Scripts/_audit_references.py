@@ -12,7 +12,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from urllib.parse import urlparse
 
-from _common import REFERENCES, STUDIES, parse_reference_registry
+from _common import REFERENCES, STUDIES, iter_study_md_paths, parse_reference_registry
 
 REF_SECTION_RE = re.compile(r"^## References\s*$", re.MULTILINE)
 REF_ENTRY_RE = re.compile(r"^- \*\*([^*]+)\*\*\s*[—\-]")
@@ -55,11 +55,9 @@ class AuditReport:
 
 
 def _study_paths(study: str | None) -> list[Path]:
-    paths = sorted(
-        p
-        for p in STUDIES.glob("*.md")
-        if p.name != "README.md" and (study is None or p.stem == study)
-    )
+    paths = iter_study_md_paths()
+    if study:
+        paths = [path for path in paths if path.parent.name == study]
     if study and not paths:
         raise SystemExit(f"No study markdown found for slug {study!r}.")
     return paths
@@ -111,7 +109,7 @@ def audit_references(*, study: str | None = None) -> AuditReport:
             if not link_match:
                 report.rows.append(
                     ReferenceRow(
-                        study=md_path.stem,
+                        study=md_path.parent.name,
                         tag=tag,
                         link="",
                         kind="other",

@@ -8,42 +8,42 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-19.
 
 | Paper | Tags cited | Status |
 |-------|------------|--------|
-| [Aesthetics.pdf](../Studies/Aesthetics.pdf) | MVD, JV, SB | present |
+| [Aesthetics.pdf](../Studies/Aesthetics/Aesthetics.pdf) | MVD, JV, SB | present |
 | | TU, BU, BG, VC | present |
 | | SEP Concept of the Aesthetic, SEP Kant Aesthetics, SEP Definition of Art, SEP Environmental Aesthetics, SEP Aesthetics of the Everyday | present |
 | | Poorvam Rasa | present |
 | | Keating 2008, Mind and Creativity Rasa | external |
-| [Ethics-And-Morals-In-Human-Beings.pdf](../Studies/Ethics-And-Morals-In-Human-Beings.pdf) | MVD, SB, JV | present |
+| [Ethics-And-Morals-In-Human-Beings.pdf](../Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf) | MVD, SB, JV | present |
 | | SEP Theological Voluntarism, SEP Natural Law Ethics | present |
 | | Matthew 22:37-40, Quran 16:90 | external |
 | | BG, VC | present |
 | | Crockett 2013, SEP Moral Psychology | present |
 | | Curry, Mullins, and Whitehouse 2019, Graham et al. 2013, Greene et al. 2001, Haidt 2001, Tomasello and Vaish 2013 | external |
-| [Why-Humans-Are-Not-Just-Material.pdf](../Studies/Why-Humans-Are-Not-Just-Material.pdf) | MVD, SB, JV | present |
+| [Why-Humans-Are-Not-Just-Material.pdf](../Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.pdf) | MVD, SB, JV | present |
 | | Bhattacharya | present |
 | | BU, TU, MU, CU, KU, BG, BSB, VC, DDV | present |
 | | Chalmers 1995, Nagel 1974, Strawson 2006 | present |
 | | Bloom 2013, Churchland 1986, Dennett 1991, Popper 1959, Shapiro 2007, Kandel et al. 2021 | external |
 | | Goff 2019, Kim 2005, Tomasello 2014 | external |
-| [How-To-Form-Self-Sustaining-Organizations.pdf](../Studies/How-To-Form-Self-Sustaining-Organizations.pdf) | MVD, SB, JV | present |
+| [How-To-Form-Self-Sustaining-Organizations.pdf](../Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.pdf) | MVD, SB, JV | present |
 | | AV, SV | present |
 | | ATR | external |
-| [Human-Behavior-And-Society.pdf](../Studies/Human-Behavior-And-Society.pdf) | MVD, SB, JV | present |
-| [Category-Theory-Explained.pdf](../Studies/Category-Theory-Explained.pdf) | MVD, SB, JV (via companion papers) | present |
-| [The-Coexistence-Template.pdf](../Studies/The-Coexistence-Template.pdf) | MVD, SB, JV | present |
+| [Human-Behavior-And-Society.pdf](../Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.pdf) | MVD, SB, JV | present |
+| [Category-Theory-Explained.pdf](../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf) | MVD, SB, JV (via companion papers) | present |
+| [The-Coexistence-Template.pdf](../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf) | MVD, SB, JV | present |
 
-| [Knowledge-Knower-And-Known.pdf](../Studies/Knowledge-Knower-And-Known.pdf) | MVD, SB, JV | present |
+| [Knowledge-Knower-And-Known.pdf](../Studies/Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) | MVD, SB, JV | present |
 | | CU, BG, BSB, DDV, VC | present |
 | | Chalmers 1995, Nagel 1974, Strawson 2006 | present |
 | | Frankish 2016, Hashemi 2025, Jarczewski and Riggs 2025, Limanowski and Blankenburg 2013, Melloni et al. 2025 | present |
 | | Piredda 2024, Tufft et al. 2024, Wiese 2024 | present |
 | | Churchland 1986, Dennett 1991, Goff 2019, Kandel et al. 2021, Kim 2005, Popper 1959 | external |
 | | Gettier 1963, IEP Enactivism, Kuhn 2024, Massimi 2022 | external |
-| [Nature-Of-Time.pdf](../Studies/Nature-Of-Time.pdf) | MVD, SB, JVD | present |
+| [Nature-Of-Time.pdf](../Studies/Nature-Of-Time/Nature-Of-Time.pdf) | MVD, SB, JVD | present |
 | | MU, BG, VC | present |
 | | Carroll 2010, Ashtekar and Singh 2011, McTaggart 1908 | present |
 | | Rovelli 2018 | external |
-| [What-Is-Existence.pdf](../Studies/What-Is-Existence.pdf) | MVD, SB, JV | present |
+| [What-Is-Existence.pdf](../Studies/What-Is-Existence/What-Is-Existence.pdf) | MVD, SB, JV | present |
 | | Bhattacharya | present |
 | | CU, TU, VC | present |
 | | Chalmers 1995, Nagel 1974, Strawson 2006 | present |

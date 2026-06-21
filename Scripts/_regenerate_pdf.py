@@ -7,7 +7,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from _common import STUDIES
+from _common import STUDIES, iter_study_md_paths, known_study_slugs, study_md, study_pdf
 from _study_catalog import StudyStatus, parse_status_md, regenerate_pdf
 
 
@@ -17,7 +17,7 @@ def normalize_slug(value: str) -> str:
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Regenerate Studies/<Slug>.pdf from Studies/<Slug>.md.",
+        description="Regenerate Studies/<Slug>/<Slug>.pdf from Studies/<Slug>/<Slug>.md.",
     )
     parser.add_argument(
         "slug",
@@ -26,7 +26,7 @@ def main() -> None:
     args = parser.parse_args()
 
     slug = normalize_slug(args.slug)
-    md_path = STUDIES / f"{slug}.md"
+    md_path = study_md(slug)
     if not md_path.exists():
         raise SystemExit(f"Study markdown not found: {md_path}")
 
@@ -38,7 +38,7 @@ def main() -> None:
         raise SystemExit(f"{slug} is Ongoing — no PDF to regenerate.")
 
     regenerate_pdf(md_path, status)
-    print(f"Regenerated PDF at {STUDIES / f'{slug}.pdf'}")
+    print(f"Regenerated PDF at {study_pdf(slug)}")
 
 
 if __name__ == "__main__":
