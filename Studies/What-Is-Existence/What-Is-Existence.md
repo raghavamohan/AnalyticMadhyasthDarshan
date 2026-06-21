@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 21, 2026, 5:53 AM IST
+**Edited on:** June 21, 2026, 11:13 AM IST
 
 **Status:** Draft
 
@@ -50,6 +50,10 @@ These topical studies state the philosophy in clear, checkable prose first. A se
 | **Physicalism** | Modern view: every real concrete phenomenon is physical (§3.1). |
 | **Panpsychism** | Experientiality belongs, at least primitively, to fundamental reality (§3.3). |
 | **Strong / weak emergence** | Strong emergence: a higher-level property that is not deducible from, and adds something to, its lower-level base. Weak emergence: a higher-level pattern fully fixed by its base. Relevant to §6.2 and §3.3. |
+| **Essentiality (*maulikta*)** | How a unit's signature matters in mutuality — participation-as-value in relationships, measured by contribution to orderliness among the four orders (SB p. 50; MVD p. 125; §1.2.1). |
+| **Unit signature** | Inseparable four-tuple of form, properties, essential nature, and *dharma* carried by every saturated unit (MVD pp. 50–51; §1.2.3). |
+| **Four planes** | Physicochemical, delusional, deific, and divine (complete) planes — developmental stages spanning orders, mapped to three completeness transitions (SB pp. 51–52, 92; §1.4.1). |
+| **Generative / degenerative / mediative** | Property triad: effects that assist creation, dissolution, and sustainment in mutuality (MVD pp. 50–51; §1.2.3). |
 
 ## 1. The Madhyasth Darshan Answer
 
@@ -70,7 +74,7 @@ This is what sets the darshan apart from its two great rivals. Against the view 
 
 The rest of this section states that picture precisely, in the darshan's own terms. To examine this claim, we trace how units are situated in Omnipresence, how ontological relationships bind units to one another, how they change, how sentience emerges, what *jeevan* is, whether existence begins, and how this ontology contrasts with its rivals. Cross-tradition answers to the paper's three questions are summarized in §5.2.
 
-![Overview of Madhyasth Darshan ontology: Omnipresence (*satta*) and units with saturation and *sambandh*; four stable orders of nature; Development Progression and Awakening Progression](1-madhyasth-darshan-ontology.svg)
+![Overview of Madhyasth Darshan ontology: Omnipresence (*satta*), units with four-aspect signature and *sambandh*, four planes with three completeness transitions, and Development and Awakening Progressions](1-madhyasth-darshan-ontology.svg)
 
 ### 1.1 The Coexistential Structure: Space (*Satta*) and Nature (*Prakriti*)
 
@@ -148,7 +152,7 @@ Development within saturation is not directionless. SB states that nature satura
 > **"Each unit, embedded in the complete, is active and developing solely for completeness."**
 > - SB, p. 51
 
-Madhyasth Darshan names three completeness stages — constitutional (*gathanpurnata*), activity (*kriyapurnata*), and conduct (*vyavaharpurnata*) — with their continuity (SB, pp. 45, 51–52). In the sentient atom, constitutional completeness is immortality of result; activity completeness is restfulness of effort; conduct completeness is destination of motion (SB, p. 58). Constitutional completeness marks the *jeevan* threshold and animal-order hope of living; activity completeness appears in the knowledge order as orderliness with *ness*; conduct completeness as the highest benevolence (SB, pp. 51–52).
+Madhyasth Darshan names three completeness stages — constitutional (*gathanpurnata*), activity (*kriyapurnata*), and conduct (*vyavaharpurnata*) — with their continuity (SB, pp. 45, 51–52). In the sentient atom, constitutional completeness is immortality of result; activity completeness is restfulness of effort; conduct completeness is destination of motion (SB, p. 58). Constitutional completeness marks the *jeevan* threshold and animal-order hope of living; activity completeness appears in the knowledge order as orderliness with *ness*; conduct completeness as the highest benevolence (SB, pp. 51–52). These three stages are also **plane transitions** in nature's developmental progression (§1.4.1).
 
 Two paths carry this drive and must not be collapsed. **Development Progression** (*vikas-kram*) runs within the atom: an insentient *parmanu* integrates particles until it reaches constitutional completeness and becomes *jeevan* (SB, pp. 58, 80; MVD, p. 76) — traced in §1.6. **Awakening Progression** (*jagriti-kram*) runs in the *jeevan* already constitutionally complete: in humans the milestone of awakening is activity completeness and conduct completeness (MVD, pp. 13–14, 27), with provisioned *drishti* developed in §1.5.
 
@@ -156,12 +160,14 @@ Two paths carry this drive and must not be collapsed. **Development Progression*
 
 Saturation names the ontological relation between Omnipresence and every unit. Existence also contains a second layer of **ontological relations between units** (*sambandh*). Nothing in nature is isolated — "nothing is isolated – that is the principle" (JV, p. 43). Each unit stands in definite relationships with other units. MVD defines a **relationship** as "the mutuality where expectations are predetermined in the sense of completeness" (MVD, p. 61), and contrasts it with **association** (*sampark*), "the mutuality where expectations are voluntary" (MVD, p. 61). Both are real; the structural template of coexistence runs through predetermined relationships whose expectations are fixed by order and signature, not chosen ad hoc.
 
-Because existence is coexistence, SB states that entire beingness exhibits "complementarity, mutual recognition, and impression in their mutuality, manifesting in the form of reciprocity" (SB, p. 50). **Essentiality** in every plane and order is **value** (*mulya*):
+Because existence is coexistence, SB states that entire beingness exhibits "complementarity, mutual recognition, and impression in their mutuality, manifesting in the form of reciprocity" (SB, p. 50). **Essentiality** (*maulikta*) in every plane and order is **value** (*mulya*):
 
 > **"Entire beingness implies the essentiality of units in every plane and order. Essentiality refers to value… It is values that are reciprocated and mutually recognised, as complementarity, mutual recognition, and impression occur only in mutuality."**
 > - SB, p. 50
 
-Values are not human inventions layered onto a value-free nature; they are the content exchanged when relationships are recognised and fulfilled. Complementarity (*poorakata*) and orderliness (*vyavastha*) are the structural forms this mutuality takes (SB, p. 49).
+MVD states the same chain in another register: sentiment is essentiality — the meaning of a unit's essential nature and *dharma* in its order or plane — and essentiality is value, responsibility and participation, outcome, and evaluation (MVD, p. 125). Essentiality is therefore how a unit's signature (§1.2.3) **matters in mutuality**: the degree to which it participates in maintaining orderliness and harmony among the four orders, not a moral invention layered onto a value-free nature. MVD p. 11 already names this participation as inherent in every unit saturated in Omnipresence; SB p. 50 adds that essentiality is regulated and protected because it is eternally present.
+
+Values are the content exchanged when relationships are recognised and fulfilled. Complementarity (*poorakata*) and orderliness (*vyavastha*) are the structural forms this mutuality takes (SB, p. 49).
 
 Every unit **recognises** its relationships and **fulfils** them through **capacity** (*kshamata*), **ability** (*yogyata*), and **receptivity** (*patrata*) at the level of its order (§1.2.2). JV states this universally:
 
@@ -201,6 +207,27 @@ MVD distinguishes two modes of composition (MVD, p. 42). In a **mixture** (*mish
 Because the output of composition is itself a unit, the same relational template iterates. In the **material line**, particles compose into atoms, atoms into molecules, molecules into molecular structures — "this Earth and every other planet are compositions of atoms and molecules" (MVD, p. 8). In the **biological line**, "The coexistence of one cell (*pran kosha*) with another cell leads to multicellular forms, resulting in the formation of definite organisms" (JV, p. 82). In the **animal line**, bodies are composed of biological cells and lineage carries species-conformance across generations (MVD, p. 79; JV, p. 48). In the **knowledge line**, "More than one human coming together or becoming organised is referred to as a family, community, or undivided society" (MVD, p. 55) — extending toward universal orderliness. Each tier is both a completed assembly and a participant in the next.
 
 An assembly **persists** while its internal and external relationships are fulfilled within conducive conditions — its natural state — and **declines or decomposes** when they are not — its excited state (SB, p. 14). Every persisting assembly transmits its method of composition (*rachna vidhi*) across generations of its members: by constitution in the material order, by seed in the biological order, by lineage and species in the animal order, and by education-*sanskar* in the knowledge order (JV, pp. 48, 82; MVD, pp. 92–93). In the first three orders, composition, persistence, and transmission operate definitely; in the knowledge order they must pass through understanding, evaluation, and choice — which is why human assembly above the individual is the only tier that can fail and the only one still incomplete (JV, p. 47). Formal articulation across all orders: [The Coexistence Template](../The-Coexistence-Template/The-Coexistence-Template.pdf).
+
+### 1.2.3 The four inseparable aspects of every unit
+
+Every unit saturated in Omnipresence carries the same four inseparable aspects named in §1.1 — form, properties, essential nature, and *dharma* — regardless of order. MVD states that all four orders have differentiating features related to these four (MVD, pp. 50–51). They are not optional descriptors added by a knower; they are what each unit **is** as a participant in coexistence.
+
+**Form** (*roop*) is shared across all four orders. MVD defines it through shape, volume, and density — the physical attributes by which a bounded unit is individuated (MVD, pp. 50, 112).
+
+**Properties** (*gun*) name the effects units have on one another in mutuality. In every order, properties are differentiated as **generative**, **degenerative**, and **mediative** — assisting creation, dissolution, and sustainment respectively (MVD, pp. 50–51). The relative powers that produce an effect when more than one entity come together are designated as properties; they are shared structural features of nature, not human classifications.
+
+**Essential nature** (*svabhav*) is how the usefulness of a unit's properties participates in its order — the specific way a unit maintains balance among the four orders (MVD, pp. 50–51, 112). It differs by order; the cumulative pattern is summarised below.
+
+**Dharma** names what a unit cannot be separated from — its innateness and fulfilment (SB, p. 50). Since existence is coexistence, indestructibility itself is the ultimate *dharma*; each order also carries a specific, cumulative *dharma* layered on the orders below it (MVD, p. 51).
+
+| Order | Essential nature (*svabhav*) | *Dharma* (cumulative) |
+|---|---|---|
+| Material (*padarth*) | integration–disintegration (*sangathan–vighatan*) | existence (*astitva*) |
+| Bio (*pran*) | vitalising–devitalising (*sarak–marak*) | + growth (*pushti*) |
+| Animal (*jeev*) | cruel–uncruel | + hope to live (*jeene ki aasha*) |
+| Knowledge / human (*gyan*) | fortitude, courage, generosity, kindness, grace, compassion | + happiness (*sukh*) |
+
+Harmony among form, properties, essential nature, and *dharma* is what MVD calls the essence of coexistence itself (MVD, p. 21). A compound assembly inherits a new signature at each tier (§1.2.2); the four-aspect template therefore iterates with every genuine new unit.
 
 How that activity is causally formed — and how *satta* relates to change without being the efficient cause — is §1.3.
 
@@ -257,7 +284,7 @@ In the human order, activity is additionally *sanskar*-mediated. Insentient unit
 
 Circular causation is how completeness-directed activity appears across orders: not maximisation, but definite movement through the single triad and its sentient unfolding — projection, reflection, and *samadhan* where *jeevan* is active. Change within coexistence runs through this highly ordered, realist structure of nature — not an amorphous mass.
 
-### 1.4 The Ontological Orders and Realist Relations of Nature
+### 1.4 The four ontological orders
 
 Nature (*prakriti*) does not exist as an amorphous mass, but as countless physical (*jada*) and sentient (*chaitanya*) units.
 
@@ -272,12 +299,7 @@ This is why the human being is understood as a joint form of a physical body (*s
 > **"The grandeur of humans as a joint form of jeevan and body."**
 > - MVD, p. 13
 
-Nature is organized into four real, objective **Ontological Orders** (*chaar avastha*), each defined by its innateness and purpose (*dharma*). Higher orders **include** the *dharma*s of lower orders cumulatively (SB, p. 179; MVD, p. 115):
-
-1. **Material Order (*Padarth Avastha*):** Bounded physical and chemical units (atoms, molecules, rocks). Its *dharma* is existence (*astitva*); its essential nature is integration and disintegration (*sangathan–vighatan*).
-2. **Pranic / Bio Order (*Pran Avastha*):** Organic cells, plants, vegetation. Its *dharma* includes existence and growth (*pushti*); its essential nature is vitalising–devitalising (*sarak–marak*).
-3. **Animal Order (*Jeev Avastha*):** Animals (body + *jeevan*). Its *dharma* includes existence, growth, and the hope to live (*jeene ki aasha*). Existence and growth appear in the body; hope appears in *jeevan*. Its essential nature includes cruel and non-cruel forms.
-4. **Knowledge / Human Order (*Gyan Avastha*):** Humans (body + *jeevan*). Its *dharma* includes existence, growth, hope, and happiness (*sukh*). Existence and growth are evident in the human body; *sanskar* and happiness must become meaningful in *jeevan* (SB, p. 179).
+Nature is organized into four real, objective **Ontological Orders** (*chaar avastha*) — material (*padarth*), pranic/bio (*pran*), animal (*jeev*), and knowledge/human (*gyan*). Each is a stable plateau in development; its form, properties, essential nature, and cumulative *dharma* are tabulated in §1.2.3. Higher orders **include** the *dharma*s of lower orders cumulatively (SB, p. 179; MVD, p. 115). In the knowledge order, existence and growth are evident in the human body; *sanskar* and happiness must become meaningful in *jeevan* (SB, p. 179).
 
 These are **objective categories in nature**, not human typologies: material atoms, living cells, animal organisms, and knowledge-order humans each occupy a real plateau whose layered *dharma* is fixed by the order itself. In the animal order, *jeevan* is influenced by **inertial-impression** (*adhyasa*) — species-traditional activity patterns accepted from gestation and emulated after birth — whereas humans in the knowledge order recognize through *sanskar*-conformity (SB, pp. 62–63; JV, p. 48). This *adhyasa* names species-traditional conduct, not Advaita's ontological superimposition of the world on Brahman (§5.6). Each order also cyclically manifests through saturation in *satta*, but in a different mode (MVD, p. 289):
 
@@ -299,20 +321,35 @@ SB p. 49 pairs two infinities in characteristic Madhyasth Darshan parallelism: *
 > **"Omnipotence is not confined within any dimension of length or breadth, nor can any measure be established for it; therefore, Omnipotence is all-pervasive. All the units that exist in the form of nature cannot be counted; therefore, they are countless. In this way, existence itself is omnipresent and countless."**
 > - SB, p. 49
 
-Units do not float as unrelated particulars. Alongside saturation in Omnipresence (§1.2), every unit stands in definite **relationships** (*sambandh*) with other units — with predetermined expectations of completeness (MVD, p. 61) and with **values** (*mulya*) as the content exchanged in mutuality (SB, p. 50). This relational structure is ontological throughout the four orders, not an ethical overlay added only in the human case (§1.2.1). SB draws the conservation principle from coexistence itself:
+### 1.4.1 Planes of nature and irreversible transitions
 
-> **"Since existence is coexistence, complementarity and mutual recognition are eternally established."**
-> - SB, p. 49
+Alongside the four **orders** — objective plateaus fixed by the kind of unit — SB names four **planes** (*pad*): developmental stages in nature's progression toward completeness (SB, p. 52). An order names what a unit **is**; a plane names where development has reached in the history of nature saturated in Omnipresence. Some planes span more than one order; in the knowledge order, plane membership tracks **human state** (deluded, awakened, evidenced) rather than a new insentient plateau.
 
-Relations and values are therefore perpetual structural aspects of existence. In the human order, trust (*vishvas*), respect (*samman*), and gratitude (*kritagyata*) name established values that flow when relationships are recognised and fulfilled — not projections invented by the brain. Unlike physicalism (which tends to treat values as brain-model projections) or Advaita (which treats relations as provisional appearances), Madhyasth Darshan grounds value in the actual structure of coexistence.
+SB lists the four planes as the physicochemical plane, delusional plane, deific plane, and liberation from planes — also called the divine or complete plane (SB, p. 52). In oral exposition these are sometimes called the Pranic, delusion, deific, and divine planes; the Pranic label maps to SB's **physicochemical plane**, which comprises the material and biological orders.
 
-The four orders differ in **how** recognition–fulfilment is regulated — structural, seed, and species conformity in the first three; *sanskar*-conformity through knowing and evaluation in the knowledge order (JV, p. 48; SB, pp. 62–63) — but the relational template is universal (JV, p. 69). Complementary units compose into tiered assemblies when relationships are fulfilled (§1.2.2). Formal articulation of units-in-relationship across all orders: [The Coexistence Template](../The-Coexistence-Template/The-Coexistence-Template.pdf).
+> **"Nature is manifest in two classes and four orders in the progression of development… There are four distinct planes and liberation from planes in nature, namely, the physicochemical plane, delusional plane, deific plane, and liberation from planes (also called the divine plane or complete plane)."**
+> - SB, p. 52
+
+The three completeness stages of §1.2 are also **transitions between planes** (SB, pp. 51–52):
+
+| Transition | Completeness stage | From → to | What becomes evident |
+|---|---|---|---|
+| **T1** | Constitutional (*gathanpurnata*) | Physicochemical → delusional | Sentient *jeevan*; animal order and deluded knowledge-order humans; hope to live |
+| **T2** | Activity (*kriyapurnata*) | Delusional → deific | Awakened humans; orderliness with *ness* |
+| **T3** | Conduct (*vyavaharpurnata*) | Deific → divine (complete) | Awakened humans with evidence (*pramanikta*); highest benevolence |
+
+T1 is **irreversible** at the atomic level: the insentient atom develops into sentient status and does not revert to insentience for any reason (SB, p. 92). That threshold exits the physicochemical plane — the first stage of development in nature's progression toward completeness (§1.6). T2 and T3 are completeness milestones within constitutionally complete *jeevan* in the knowledge order; they mark awakening progression, not a second atomic transformation.
+
+MVD distinguishes **delusional** and **awakened** knowledge-order humans by kosha exposition: the animal order and delusional knowledge order share four koshas; awakened humans express all five, including *vigyanmaya* (MVD, pp. 49–50). Deluded humans remain in the delusional plane; awakening moves a human into the deific plane; conduct completeness with authentic evidence moves toward the divine plane (§1.5). SB p. 55 notes that qualitative change in the constitutionally complete atom "persists from delusion till awakening" — plane membership for **humans** can therefore change with study and realization, even though the sentience threshold itself does not lapse.
+
+> **"All the stages observed in the progression of emergence—such as the physicochemical plane, delusional plane, deific plane, and divine plane—are marked by the activity of both insentient and sentient nature."**
+> - SB, p. 92
 
 The animal and knowledge orders presuppose a sentient self (*jeevan*) distinct from the body. Its constitution, provisioned perspectives, and awakening progression are the subject of §1.5; how an insentient atom reaches that status through constitutional completeness is §1.6.
 
 ### 1.5 *Jeevan*: Structure, Perspectives, and Awakening
 
-*Jeevan* is the sentient self that works through the body (*shareer*) in the animal and knowledge orders (§1.4). MVD calls it a "constitutionally complete atom" (*gathanpurna parmanu*): a structured composite whose completeness consists in the right number of particles integrated into a self-maintaining constitution. MVD lists five inseparable aspects — *mun*, *vritti*, *chitta*, *buddhi*, and *atma* — within the *jeevan*-cloud (MVD, p. 13). MVD holds that *atma*, *buddhi*, *chitta*, *vritti*, and *mun* are indivisible in a *jeevan*-cloud; energies channel toward development and awakening through them — curiosity, enthusiasm, delight, immersion, and finally realization (MVD, p. 77). The five faculties belong to the same *jeevan*-cloud (MVD, p. 83); every sentient unit is endowed with perspective (MVD, p. 84).
+*Jeevan* is the sentient self that works through the body (*shareer*) in the animal and knowledge orders (§1.4). In plane terms (§1.4.1), animal-order *jeevan* and deluded knowledge-order humans occupy the delusional plane; awakening progression moves a human through the deific plane toward conduct completeness and evidence in the divine plane. MVD calls *jeevan* a "constitutionally complete atom" (*gathanpurna parmanu*): a structured composite whose completeness consists in the right number of particles integrated into a self-maintaining constitution. MVD lists five inseparable aspects — *mun*, *vritti*, *chitta*, *buddhi*, and *atma* — within the *jeevan*-cloud (MVD, p. 13). MVD holds that *atma*, *buddhi*, *chitta*, *vritti*, and *mun* are indivisible in a *jeevan*-cloud; energies channel toward development and awakening through them — curiosity, enthusiasm, delight, immersion, and finally realization (MVD, p. 77). The five faculties belong to the same *jeevan*-cloud (MVD, p. 83); every sentient unit is endowed with perspective (MVD, p. 84).
 
 The texts also call *jeevan* indivisible and immortal. Madhyasth Darshan reads "indivisibility" as functional: the constitution is self-maintaining and does not spontaneously lose completeness. "Immortal" means the sentient unit does not lose constitutional completeness — not that it has no parts in a mereological sense.
 
@@ -378,7 +415,7 @@ How an insentient atom reaches constitutional completeness and becomes *jeevan* 
 
 ### 1.6 Constitutional Completeness and *Jeevan*
 
-While Madhyasth Darshan rejects creation from nothing, it gives a developmental account of how an insentient atom (*parmanu*) — always a **composite** of nucleus and orbiting particles, not an elementary particle of physics (MVD, p. 42) — reaches *gathanpurnata*, the first completeness stage in Development Progression (§1.2). Constitutional completeness forms the immortal sentient self whose structure and awakening progression are stated in §1.5.
+While Madhyasth Darshan rejects creation from nothing, it gives a developmental account of how an insentient atom (*parmanu*) — always a **composite** of nucleus and orbiting particles, not an elementary particle of physics (MVD, p. 42) — reaches *gathanpurnata*, the first completeness stage in Development Progression (§1.2). Constitutional completeness is the irreversible transition (T1) from the physicochemical plane to the delusional plane (§1.4.1). It forms the immortal sentient self whose structure and awakening progression are stated in §1.5.
 
 > **"In the course of an atom's development, there comes a stage when the required number of particles for its constitution are all integrated, and at that point, it becomes constitutionally complete. Constitutional completeness signifies satisfaction within, by, and for that constitution. This is the immortality of the result, and the attainment of sentient status."**
 > - SB, p. 59
