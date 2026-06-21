@@ -1,107 +1,82 @@
 ---
 description: Scholarly essay prose for Studies — no AI scaffold tags or signposting
 globs: Studies/*/*.md
-alwaysApply: false
+alwaysApply: true
 ---
 
-# Study prose style
+# Study prose style — scholarly essay, not AI scaffold
 
 > **Source of truth:** [AGENTS.md](../AGENTS.md) §4. Keep this file in sync when editing.
 
 Applies to every topical study under `Studies/` except `Studies/README.md`.
-Reference implementations: [What-Is-Existence.md](../Studies/What-Is-Existence/What-Is-Existence.md)
-(ontology exposition, open problems); [Why-Humans-Are-Not-Just-Material.md](../Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.md)
+References: [What-Is-Existence.md](../Studies/What-Is-Existence/What-Is-Existence.md) (ontology
+exposition, open problems); [Why-Humans-Are-Not-Just-Material.md](../Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.md)
 (comparative anthropology, critique closings);
 [Knowledge-Knower-And-Known.md](../Studies/Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.md) (epistemology,
 tradition comparison); [Human-Behavior-And-Society.md](../Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.md)
 (social philosophy, critique closings).
 
-Write exposition as **continuous scholarly essay**, not as an LLM outline with
-visible scaffolding.
+## Voice
 
-## Voice and structure
+Write exposition (typically §1–§4) as **continuous scholarly essay**. Tradition
+sections open with multi-sentence prose that states the position (*Madhyasth
+Darshan holds…*, *Advaita Vedanta holds…*, *Mainstream science answers…*) —
+not `**The claim in one sentence:**`. Use `### N.M Descriptive title`
+subsections for argument steps — not `**Step N —**`, `**N. Bold title.**`, or
+`#### Argument N:` roadmaps. Comparison may use tables in a dedicated section
+(typically §4–§5); do not label the table `### Comparative Matrix`. Critical
+review (typically §5–§6) uses `### N.1 Tradition — descriptive subtitle` with
+`**Strengths.**` and `**Weaknesses.**` bullet lists; end each tradition's
+review with a plain closing sentence naming the tradition, not `**Verdict:**`
+or `### Critical assessment`. Cross-reference with `§2.3`, not `Section 2`. Do
+not use `---` horizontal rules between sections within the study body.
 
-- **Section openings:** multi-sentence prose that states the position or contrast
-  (*Madhyasth Darshan holds…*, *Advaita Vedanta holds…*, *Mainstream science
-  answers…*). Do not use `**The claim in one sentence:**`, step tables, or
-  per-section Q&A recap tables in exposition (§1–§4).
-- **Subsections:** use `### N.M Descriptive title` for argument steps — not
-  `### The logic, step by step` with `**Step N —**` bold headers, not
-  `**N. Bold title.**` numbered items, and not `#### Argument N:` labels.
-- **Between subsections:** one short, content-first bridge when needed (e.g. name
-  the next problem). Avoid formulaic tours (`Having examined…`, `To map these…`,
-  `the next step is…`, `In short:`).
-- **Comparison:** use tables in the dedicated comparison section (typically §4–§5).
-  One at-a-glance summary table is enough; do not duplicate recap tables after
-  each tradition or label the table `### Comparative Matrix`.
-- **Critique:** `### N.1 Tradition — descriptive subtitle` with `**Strengths.**`
-  and `**Weaknesses.**` bullet lists (typically §5–§6). End each tradition's
-  review with a **plain closing sentence** that names the tradition — not
-  `**Verdict:**`, `### Critical assessment`, or `## Critical conclusion`.
-- **Section dividers:** do not use `---` horizontal rules between sections
-  within the study body.
-- **Cross-refs:** `§2.3`, not `Section 2`.
+## Avoid
 
-## Do not use
+- Reader guides: `## How to read this study` and tag-legend blocks
+- Bracket meta-tags: `[Open]`, `[Interpretation]`, `[Text]`
+- Outline scaffolding: `**The claim in one sentence:**`, `**Step N —**` or
+  `**N. Bold title.**` numbered roadmaps, `#### Argument N:` labels, logical-
+  structure / step-recap tables in exposition, `In short:` recap labels
+- Conclusion labels: `**Verdict:**`, `## Critical conclusion`, `###
+  Critical assessment` — state the conclusion as plain prose
+- Epistemic qualifiers and hedges: `honestly`, `honest caveat`, `The honest
+  bottom line`, `On a charitable reading`, `A charitable reading` — state the
+  point directly (*What science leaves open*; *Gyan here names…*)
+- Distancing fillers: `According to this darshan` (when stating the darshan's
+  own position), `Therefore, the most balanced reading is:` before a closing
+  blockquote — name the tradition or state the conclusion directly
+- Elimination filters: bold `**Not constitution.**` / `**Proposed reading:**`
+  headers — weave rejections into prose
+- Document signposting: `primary reference`, `prepares its rows`, `not
+  decoration`, `keep in view`, `one-sentence preview`, subtitle lines under
+  the `#` title (e.g. `## A critical writeup based on…`)
+- References boilerplate: section preamble explaining how citations work;
+  numbered `## N. References` — use `## References`; per-entry `Linked
+  externally; not stored locally` (the link shows this)
+- Formulaic bridges: `Having examined…`, `To map these divergent models…`
 
-| Pattern | Instead |
-|---------|---------|
-| `## How to read this study` / tag-legend reader guides | Omit; exposition carries epistemic status without a legend |
-| `[Open]`, `[Interpretation]`, `[Text]` bracket tags | Plain prose; unsettled points in an **Open problems** section |
-| `**Step N —**` or `**N. Bold title.**` roadmaps | `### N.M Descriptive title` subsections |
-| `#### Argument N:` labels | `### N.M Descriptive title` subsections |
-| Logical-structure / step-recap tables in exposition | Prose in the comparison or conclusion section only |
-| `**Verdict:**` / `### Critical assessment` / `## Critical conclusion` | Plain sentence: *Madhyasth Darshan is best read as…* |
-| `honestly`, `honest caveat`, `The honest bottom line` | State the point directly (*What science leaves open*) |
-| `On a charitable reading`, `A charitable reading` | State the commitment directly (*Gyan here names…*) |
-| `According to this darshan` (for the darshan's own claims) | *Madhyasth Darshan holds…* or state the point in prose |
-| `Therefore, the most balanced reading is:` before a closing quote | Plain concluding sentence naming the tradition |
-| `**Not constitution.**` elimination headers | Woven prose: *Saturation is not constitution: … Nor is it inherence…* |
-| `**Proposed reading:**` / `**Primary reference.**` | *This paper adopts…* / *The relation that fits the texts is…* |
-| Subtitle under `#` title (`## A critical writeup…`) | Lead with `**The question:**` and intro paragraph only |
-| Meta-signposting (`not decoration`, `prepares its rows`, `keep in view`) | State the substance directly |
-| References preamble (`All sources cited in this document…`) | `## References` then tradition subsections |
-| `## N. References` (numbered References heading) | `## References` |
-| `Linked externally; not stored locally` on entries | External URL in the link; no storage note |
-| `one-sentence preview`, `canonical exposition` | Cross-ref the section (`§6.6`) without narrating the document |
+## Use instead
 
-## Epistemic honesty without tags or qualifiers
+- Plain commitments: *Madhyasth Darshan holds…*, *This paper adopts…*,
+  *Advaita Vedanta holds…* — for a contested interpretive fork only, *One
+  reading is…* / *The texts take…* (not `On a charitable reading`)
+- Unsettled points in prose where they arise, collected in an **Open problems**
+  section without bracket labels
+- Caveats stated directly, without labeling them `honest` or `frank`
+- Content-first transitions: *Sentience is the next threshold…*
+- Cross-refs only for argument (`§6.2`, `§3.3`), not for cataloguing the outline
+- One running English term per source concept in analytical prose (glossary +
+  Editorial Notes); block quotes keep translation wording
+- **References:** `## References` then tradition subsections — no preamble;
+  optional `### Related studies in this collection`; `**TAG** —` author, linked
+  title, `Cited:`; local `../References/...` or external URL in the link; no
+  `Linked externally; not stored locally`
 
-- **Committed readings:** state plainly (*Madhyasth Darshan holds…*, *This paper
-  adopts…*, *Advaita Vedanta holds…*). For a genuinely contested fork only,
-  use *One reading is…* or *The texts take…* — not `On a charitable reading`.
-- **Unsettled points:** name in prose where they arise; collect and argue them in
-  an open-problems section (do not label items `[Open]`).
-- **Caveats:** state the limitation directly — do not prefix it `honest` or
-  `frank`; the reader does not need reminded that you mean it sincerely.
-- **Cross-refs:** use when they carry argumentative weight (`§3.3`, `§6.2`), not
-  to describe document navigation.
-
-## Terminology
-
-- Pick one running English term per source concept in analytical prose (e.g.
-  **Omnipresence** for *satta*), aligned with the glossary and Editorial Notes.
-- Block quotes keep the translation’s wording.
-
-## References
-
-- No preamble under `## References`; begin with tradition subsections
-  (`### Madhyasth Darshan (primary sources)`, etc.).
-- Optional `### Related studies in this collection` for cross-links to other
-  studies in the series.
-- Each entry: `**TAG** —` author, linked title, optional translator/edition,
-  `Cited:` passages. Use `../References/...` for local copies; external URL in
-  the link when no local file. Do not append `Linked externally; not stored
-  locally` or point readers to `NOT-DOWNLOADED.md` in the study body.
-- `Also at <url>` is fine when a local PDF exists and an alternate public URL
-  helps; omit when the entry is already an external link only.
-- Subsection notes are allowed only when they carry substance (e.g. edition
-  numbering for Upanishads), not to explain how the bibliography works.
-
-## Quick check before finishing a study edit
+## Check before finishing
 
 - [ ] No `## How to read this study` or tag legend
-- [ ] No `[Open]` / `[Interpretation]` / `[Text]` in the file
+- [ ] No `[Open]` / `[Interpretation]` / `[Text]` in the study `.md`
 - [ ] No `**The claim in one sentence:**`, `**Step N —**`, `**N. Bold title.**`,
   `#### Argument N:`, or `**Verdict:**`
 - [ ] No `honestly` / `honest caveat` / `The honest bottom line` / `On a
@@ -109,8 +84,10 @@ visible scaffolding.
 - [ ] No `**Not …**` rejection headers in exposition
 - [ ] No `### Critical assessment`, `## Critical conclusion`, or `---` section
   dividers in the body
-- [ ] No sentences whose only job is to describe section/table layout
-- [ ] Comparison tables live in the comparison section, not scattered as recaps
+- [ ] No navigation-only meta-sentences or `### Comparative Matrix` labels
+- [ ] Comparison recaps not duplicated outside the comparison section
 - [ ] Cross-refs use `§`, not `Section`
 - [ ] References: `## References` (unnumbered), no section preamble, no
-  `Linked externally; not stored locally`
+  external-storage notes on entries
+
+---

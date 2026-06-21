@@ -5,19 +5,32 @@ It is the **source of truth** for ZCode, OpenCode, and other agents that read
 `AGENTS.md` at the repository root.
 
 **Cursor** loads the same content through `.cursor/rules/*.mdc` mirrors (one file
-per section below). **OpenCode** loads `AGENTS.md` automatically and also reads
-`.cursor/rules/*.mdc` via `opencode.json` → `instructions`. When you change a
-rule here, update the matching `.mdc` file in the same commit.
+per section below). **OpenCode / ZCode** loads `AGENTS.md` automatically and also reads
+`.cursor/rules/*.mdc` via `opencode.json` → `instructions`.
 
-**Skills** (study lifecycle scripts) live in `.agents/skills/` (Cursor) and
-`.opencode/skills/` (OpenCode — junction to `.agents/skills/`). Skills orchestrate
-`Scripts/_*.py`; they defer content and style rules to the sections below.
+**After editing `AGENTS.md` (§1–§5) or any `.agents/skills/**/SKILL.md`**, run sync before
+you finish the task or commit:
+
+```powershell
+python Scripts/_sync_agent_rules.py
+python Scripts/_sync_agent_rules.py --check
+```
+
+This updates `.cursor/rules/*.mdc` and `.cursor/skills/` from the canonical sources.
+Commit sync output in the **same commit** as the canonical edit. Full workflow:
+`.cursor/rules/agent-rules-sync.mdc` (always applies).
+
+**Skills** (study lifecycle scripts) live in `.agents/skills/` (canonical). **OpenCode /
+ZCode** loads them through `.opencode/skills/`, a junction to `.agents/skills/`.
+**Cursor** also reads `.agents/skills/`; an identical copy is kept in `.cursor/skills/`.
+Skills orchestrate `Scripts/_*.py`; they defer content and style rules to the sections below.
 
 Available skills: `manage-studies`, `add-study`, `remove-study`, `set-study-status`,
 `download-references`, `regenerate-study-pdf`.
 
 | Section | Topic | Cursor mirror |
 |---------|--------|---------------|
+| *(meta)* | Agent rules & skills sync | `agent-rules-sync.mdc` |
 | §1 | Edited on, catalogs, PDF timestamps | `study-edited-on.mdc` |
 | §2 | `Studies/index.html` ↔ `README.md` sync | `studies-index-readme-sync.mdc` |
 | §3 | Markdown → PDF pipeline | `md-to-pdf.mdc` |
@@ -163,7 +176,7 @@ Reads **Status:** from the markdown and applies the Draft watermark when appropr
 
 ### Internal pipeline (batch or debugging)
 
-`_regenerate_pdf.py` calls these two steps:
+`_regenerate_pdf.py` runs this pipeline:
 
 1. **`Scripts/_convert_to_pdf.py`** — markdown → styled HTML (same basename, `.html`).
    Converts ` ```mermaid ` fenced blocks to `<div class="mermaid">` for rendering.
@@ -186,12 +199,14 @@ foreach ($s in $studies) {
 Manual single-study steps (only if needed):
 
 ```powershell
-python Scripts/_convert_to_pdf.py Studies/<Slug>/<Slug>.md --watermark Draft
-node Scripts/_html_to_pdf.js Studies/<Slug>/<Slug>.html
+python Scripts/_convert_to_pdf.py Studies/<Slug>/<Slug>.md
+node Scripts/_html_to_pdf.js Studies/<Slug>/<Slug>.html Draft
+python Scripts/_verify_pdf_diagrams.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf
+python Scripts/_verify_pdf_fenced_code.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf
 Remove-Item Studies/<Slug>/<Slug>.html
 ```
 
-- **`--watermark Draft`** — required for studies in **Draft** status. Omit for **Released**.
+- **`Draft`** argument to `_html_to_pdf.js` — required for **Draft** studies. Omit for **Released**.
 - **Delete the intermediate `.html`** after PDF generation; it is a build artifact.
 
 ### What the scripts provide (do not reimplement)

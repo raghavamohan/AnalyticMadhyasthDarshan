@@ -30,12 +30,13 @@ When you edit a study markdown file (`Studies/<Slug>/<Slug>.md`):
    `**Edited on:** Month D, YYYY, h:mm AM/PM IST`
    (e.g. `June 16, 2026, 3:45 PM IST`).
 3. **Update the catalog `Status` date** in **both** `Studies/README.md` and
-   `Studies/index.html` for that study's row. Use the same date and time as step
-   2, with abbreviated month in the catalog (`Jun` not `June`):
+   `Studies/index.html` for that study's row. Use the same date and time as
+   step 2, with abbreviated month in the catalog (`Jun` not `June`):
    `Draft<br>Last updated on: Jun 16, 2026, 3:45 PM IST`
-4. **Regenerate the PDF** using the pipeline in [AGENTS.md](../AGENTS.md) §3
-   (Cursor mirror: `md-to-pdf.mdc`; never ad-hoc converters). The PDF embeds the `**Edited on:**` line from
-   the markdown — an old timestamp in the `.md` means an old timestamp in the PDF.
+4. **Regenerate the PDF** using the pipeline in
+   [AGENTS.md](../AGENTS.md) §3
+   (never ad-hoc converters). The PDF embeds the `**Edited on:**` line from the
+   markdown — an old timestamp in the `.md` means an old timestamp in the PDF.
 
 If the field is missing, add it on its own line immediately after the
 `**Author:**` line, separated by a blank line.
@@ -66,3 +67,5 @@ Before marking a study edit done, confirm all three are in sync:
 - [ ] `Studies/README.md` → that study's `Last updated on`
 - [ ] `Studies/index.html` → that study's `Last updated on`
 - [ ] `Studies/<Slug>/<Slug>.pdf` regenerated after the timestamp change
+
+---

@@ -27,6 +27,7 @@ cd ..
 | Read one PDF page (cleaned) | `python Scripts/_quote_tool.py page <tag-or-path> <n> [--keyword kw]` |
 | Locate phrase in tagged source | `python Scripts/_quote_tool.py snippet <tag> "<phrase>"` |
 | Download / audit references | `python Scripts/_audit_references.py` then `python Scripts/_download_references.py` |
+| Sync agent rules and skills | `python Scripts/_sync_agent_rules.py` then `python Scripts/_sync_agent_rules.py --check` |
 
 Windows wrappers: `.\Scripts\_add_study.ps1`, `.\Scripts\_remove_study.ps1`, `.\Scripts\_set_study_status.ps1`, `.\Scripts\_download_references.ps1`.
 
@@ -45,6 +46,7 @@ Windows wrappers: `.\Scripts\_add_study.ps1`, `.\Scripts\_remove_study.ps1`, `.\
 | `_reference_downloads.py` | Manifest of mirrorable reference files |
 | `_audit_references.py` | Audit Studies/ bibliography links vs local files |
 | `_ci_study_pr.py` | GitHub Actions study PR pipeline |
+| `_sync_agent_rules.py` | Sync AGENTS.md → `.cursor/rules/*.mdc`; `.agents/skills/` → `.cursor/skills/` |
 
 PDF reference text is cached under `Scripts/_pdf_cache/` (gitignored, format `v2`). The cache rebuilds automatically when a PDF is newer than its cache file; empty extractions (e.g. scanned PDFs) are not cached. Run `cache sync` after downloading references or adding new PDFs under `References/`.
 
