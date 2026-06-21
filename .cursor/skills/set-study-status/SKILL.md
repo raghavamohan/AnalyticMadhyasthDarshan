@@ -38,7 +38,7 @@ Skip sync check: `--no-check-timestamps`
 
 ## What the script does
 
-1. Updates `**Status:**` and `**Edited on:**` in `Studies/<Slug>.md` — always set to the current IST time, even when status is unchanged
+1. Updates `**Status:**` and `**Edited on:**` in `Studies/<Slug>/<Slug>.md` — always set to the current IST time, even when status is unchanged
 2. Updates matching row in `Studies/index.html` and `Studies/README.md`
 3. Regenerates `Studies/<Slug>.pdf`:
    - **Draft** → `--watermark Draft` via conversion pipeline

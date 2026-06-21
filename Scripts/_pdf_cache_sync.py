@@ -15,6 +15,7 @@ from _common import (
     iter_reference_pdfs,
     load_reference_pages,
     parse_reference_registry,
+    study_md,
 )
 from _quote_verify import extract_quotes_from_markdown
 
@@ -31,7 +32,7 @@ class CacheSyncResult:
 
 def _study_tag_names(slug: str) -> set[str]:
     tags: set[str] = set()
-    md_path = STUDIES / f"{slug}.md"
+    md_path = study_md(slug)
     if md_path.exists():
         for quote in extract_quotes_from_markdown(md_path):
             tags.update(quote.tags)

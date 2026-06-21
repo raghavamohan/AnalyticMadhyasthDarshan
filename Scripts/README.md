@@ -15,7 +15,7 @@ cd ..
 
 | Task | Command |
 |------|---------|
-| Add / register a study | `python Scripts/_add_study.py Studies/<Slug>.md --category "..." --description "..." --tags "MVD, SB" --status draft` |
+| Add / register a study | `python Scripts/_add_study.py Studies/<Slug>/<Slug>.md --category "..." --description "..." --tags "MVD, SB" --status draft` |
 | Remove a study | `python Scripts/_remove_study.py <Slug> --yes` |
 | Draft ↔ Released | `python Scripts/_set_study_status.py <Slug> --status released` |
 | Regenerate PDF | `python Scripts/_regenerate_pdf.py <Slug>` |

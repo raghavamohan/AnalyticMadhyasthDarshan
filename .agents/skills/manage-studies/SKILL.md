@@ -21,7 +21,7 @@ Orchestration skill for the study lifecycle. Read the focused skill for your tas
 
 ## Repository model
 
-- **Source of truth:** `Studies/<Slug>.md`
+- **Source of truth:** `Studies/<Slug>/<Slug>.md`
 - **Published output:** `Studies/<Slug>.pdf` (generated; never edit by hand)
 - **Catalogs:** `Studies/index.html`, `Studies/README.md` (updated by scripts)
 - **Citations:** `References/README.md`, `References/MANIFEST.md` (add/remove only)
@@ -73,6 +73,6 @@ When editing study **body text**, follow [AGENTS.md](../../AGENTS.md):
 - §4 — prose style (no `[Text]` tags, `**Step N —**`, `**Verdict:**`, or honesty qualifiers)
 - §5 — `## Standpoint and scope` on every topical study
 
-Reference implementations: `Studies/What-Is-Existence.md`, `Studies/Why-Humans-Are-Not-Just-Material.md`.
+Reference implementations: `Studies/What-Is-Existence/What-Is-Existence.md`, `Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.md`.
 
 Contributor overview: [Studies/README.md](../../Studies/README.md), [CONTRIBUTING.md](../../CONTRIBUTING.md)

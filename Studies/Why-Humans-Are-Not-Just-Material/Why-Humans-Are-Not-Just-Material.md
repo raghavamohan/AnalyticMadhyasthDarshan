@@ -24,8 +24,8 @@ These topical studies state the philosophy in clear, checkable prose first. A se
 
 | Term | Plain meaning |
 |------|---------------|
-| ***Jeevan*** | The sentient self — in Shri. Nagraj's view a real, eternal, atom-scale entity that works *through* the body. Not brain activity, and not "soul" in the usual religious sense. For ontology of *jeevan*, constitutional completeness, and conservation, see [What-Is-Existence](What-Is-Existence.pdf). |
-| **Constitutional completeness (*gathanpurnata*)** | The state when an atom integrates the required particles and crosses irreversibly into sentient status as *jeevan*. Developed in [What-Is-Existence](What-Is-Existence.pdf) §1.6. |
+| ***Jeevan*** | The sentient self — in Shri. Nagraj's view a real, eternal, atom-scale entity that works *through* the body. Not brain activity, and not "soul" in the usual religious sense. For ontology of *jeevan*, constitutional completeness, and conservation, see [What-Is-Existence](../What-Is-Existence/What-Is-Existence.pdf). |
+| **Constitutional completeness (*gathanpurnata*)** | The state when an atom integrates the required particles and crosses irreversibly into sentient status as *jeevan*. Developed in [What-Is-Existence](../What-Is-Existence/What-Is-Existence.pdf) §1.6. |
 | **Coexistence (*sah-astitva*)** | Existence seen as all units inseparably present together. |
 | **Knowledge order (*gyan avastha*)** | The human level of nature — able to know and evaluate every other level. |
 | ***Atman* / *Brahman*** | In Advaita Vedanta: the innermost Self / the one ultimate reality. Advaita says they are identical. |
@@ -68,7 +68,7 @@ The central argument is that the body and *jeevan* have different jobs: eating a
 
 ### 1.6 Sentience as developed matter
 
-Development is built into existence (effort → motion → result). An atom that becomes constitutionally complete (*gathanpurnata*) crosses irreversibly into sentient status — and that sentient atom *is* the *jeevan*. It is never annihilated, so death is an event of the body only. For the emergence tension, conservation ontology, mereology of *jeevan*, and identity across death, see [What-Is-Existence](What-Is-Existence.pdf) §§1.5–1.8 and §6.2.
+Development is built into existence (effort → motion → result). An atom that becomes constitutionally complete (*gathanpurnata*) crosses irreversibly into sentient status — and that sentient atom *is* the *jeevan*. It is never annihilated, so death is an event of the body only. For the emergence tension, conservation ontology, mereology of *jeevan*, and identity across death, see [What-Is-Existence](../What-Is-Existence/What-Is-Existence.pdf) §§1.5–1.8 and §6.2.
 
 > **“Nothing arrives at birth nor does anything depart with death. All that is, exists forever. Jeevan continues to exist even after death as it does while driving a body.”**
 > — JV, Ch. 1
@@ -106,7 +106,7 @@ Shri. Nagraj's point is not that this grammar proves dualism, but that the *delu
 
 ### The moral demand is felt from the start, before any teaching
 
-Justice, truth, and right conduct are not experienced as preferences we acquired but as demands we *recognise* — and children recognise them before anyone trains them (for comparative moral psychology, see [Ethics-And-Morals-In-Human-Beings](Ethics-And-Morals-In-Human-Beings.pdf)):
+Justice, truth, and right conduct are not experienced as preferences we acquired but as demands we *recognise* — and children recognise them before anyone trains them (for comparative moral psychology, see [Ethics-And-Morals-In-Human-Beings](../Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf)):
 
 > **“From the time of birth, a human being inherently seeks justice, desires to act correctly, and speaks the truth. This is the natural state of a child.”**
 > — SB, Ch. 1
@@ -142,9 +142,9 @@ Mainstream science answers that a human is an organism — a body with an extrao
 2. **No second entity is detected.** Every capacity attributed to *jeevan* — values, evaluation, the feeling of being a self — correlates with neural and social processes that neuroscience and psychology already study (Kandel et al. 2021). No instrument detects a sentient unit separate from brain activity. Occam's razor says: do not posit a new substance when structured matter plus culture explains the data.
 3. **The interaction problem.** If a separate self "drives" the body, there must be a junction where its intention becomes muscle motion. Physiology finds no such junction: every movement traces back through neurons obeying ordinary physics, with no detected inflow of energy or information from a second entity. This has been the standard objection to every body/soul dualism since Princess Elisabeth posed it to Descartes in 1643 (Shapiro 2007); its modern form is the causal-closure argument (Kim 2005).
 
-   From a physics standpoint, the objection is sharper than a philosophical puzzle about "where mind meets body." If *jeevan* steers the nervous system, that steering must either inject energy into a closed physical system — violating conservation in any locally closed region where neural dynamics are well modeled — or rearrange existing energy and information without leaving a detectable surplus or deficit in the causal budget. Brain–machine interfaces and motor neuroscience already track intention-linked neural activity down to synaptic and ionic scales (Kandel et al. 2021); no reproducible anomaly has been found where muscle motion requires physics beyond the brain's own energy budget. That does not prove *jeevan* is absent, but it sets a high bar: any interacting *jeevan* must be either causally inert (and then it does not "drive" the body) or physically efficacious in a way that should, in principle, show up as a measurable departure from closed physical prediction. For how Madhyasth Darshan frames conservation, constitutional completeness, and the *jeevan*–body interaction as open problems, see [What-Is-Existence](What-Is-Existence.pdf) §1.8 and §6.2.
+   From a physics standpoint, the objection is sharper than a philosophical puzzle about "where mind meets body." If *jeevan* steers the nervous system, that steering must either inject energy into a closed physical system — violating conservation in any locally closed region where neural dynamics are well modeled — or rearrange existing energy and information without leaving a detectable surplus or deficit in the causal budget. Brain–machine interfaces and motor neuroscience already track intention-linked neural activity down to synaptic and ionic scales (Kandel et al. 2021); no reproducible anomaly has been found where muscle motion requires physics beyond the brain's own energy budget. That does not prove *jeevan* is absent, but it sets a high bar: any interacting *jeevan* must be either causally inert (and then it does not "drive" the body) or physically efficacious in a way that should, in principle, show up as a measurable departure from closed physical prediction. For how Madhyasth Darshan frames conservation, constitutional completeness, and the *jeevan*–body interaction as open problems, see [What-Is-Existence](../What-Is-Existence/What-Is-Existence.pdf) §1.8 and §6.2.
 
-4. **Human uniqueness is real but material.** Humans genuinely differ from animals — in symbol use, language, cumulative culture, moral reasoning (Tomasello 2014). But "unique" is not "non-physical." Children's fairness-seeking, for example, is well explained by evolved cooperation and social development (Bloom 2013); see also [Ethics-And-Morals-In-Human-Beings](Ethics-And-Morals-In-Human-Beings.pdf) for a fuller comparative treatment of moral psychology.
+4. **Human uniqueness is real but material.** Humans genuinely differ from animals — in symbol use, language, cumulative culture, moral reasoning (Tomasello 2014). But "unique" is not "non-physical." Children's fairness-seeking, for example, is well explained by evolved cooperation and social development (Bloom 2013); see also [Ethics-And-Morals-In-Human-Beings](../Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf) for a fuller comparative treatment of moral psychology.
 5. **Private realisation is not public evidence.** Shri. Nagraj's warrant is his own *samadhi* realisation. Science requires inter-subjective verification: claims anyone can check, predictions that could fail (Popper 1959).
 
 ### What science leaves open
@@ -218,7 +218,7 @@ Where Shri. Nagraj defends the reality of *both* matter and self, Advaita is the
 
 **Where the alliances fall.** Against the materialist, Shri. Nagraj and Advaita stand together: the human is not just the body. Against Advaita, Shri. Nagraj and the scientist stand together: the world is real and worth studying. Against both, the scientist insists nothing survives death. Each pair agrees on something the third denies.
 
-Other anthropologies — Buddhist *anatta* (no permanent self), Abrahamic soul doctrines, and Dvaita-style eternal individual souls — offer further comparisons; see the wider table in [What-Is-Existence](What-Is-Existence.pdf) §5.
+Other anthropologies — Buddhist *anatta* (no permanent self), Abrahamic soul doctrines, and Dvaita-style eternal individual souls — offer further comparisons; see the wider table in [What-Is-Existence](../What-Is-Existence/What-Is-Existence.pdf) §5.
 
 ## 5. Critical Review
 
@@ -231,9 +231,9 @@ No view escapes serious objections. Here is where each is strong and where each 
 **Weaknesses.**
 
 - **The conclusion is built into the premises.** The foundational axiom already declares existence "not just physicochemical matter" — so the system is anti-materialist *by assumption*, not by proof.
-- **Different jobs do not prove two things.** The central argument — body serves food and sleep, *jeevan* serves values, therefore they are distinct entities — is a leap. One system can serve many purposes. And even granting distinctness, nothing in the phenomenological argument alone establishes that *jeevan* is *eternal*; that claim rests on the ontological steps and conservation-based reading developed in [What-Is-Existence](What-Is-Existence.pdf).
-- **Constitutional completeness is unexplained, not merely unmeasured.** No observation in particle physics or chemistry presently operationalizes *gathanpurnata*. The deeper tension — whether sentience at completeness is latent potential actualized or a form of emergence the system elsewhere resists — is analyzed in [What-Is-Existence](What-Is-Existence.pdf) §1.6 and §6.2. Until that is settled internally, "sentient atoms are not physics" remains a fair objection from the scientific leg.
-- **The interaction problem is unanswered.** If an atom-sized *jeevan* steers neurons and muscles, that steering must either violate local energy conservation or produce a detectable causal anomaly in the brain's physical budget. None has been found, and the literature gives no mechanism. See §2.3 above and [What-Is-Existence](What-Is-Existence.pdf) §6.2 item 7.
+- **Different jobs do not prove two things.** The central argument — body serves food and sleep, *jeevan* serves values, therefore they are distinct entities — is a leap. One system can serve many purposes. And even granting distinctness, nothing in the phenomenological argument alone establishes that *jeevan* is *eternal*; that claim rests on the ontological steps and conservation-based reading developed in [What-Is-Existence](../What-Is-Existence/What-Is-Existence.pdf).
+- **Constitutional completeness is unexplained, not merely unmeasured.** No observation in particle physics or chemistry presently operationalizes *gathanpurnata*. The deeper tension — whether sentience at completeness is latent potential actualized or a form of emergence the system elsewhere resists — is analyzed in [What-Is-Existence](../What-Is-Existence/What-Is-Existence.pdf) §1.6 and §6.2. Until that is settled internally, "sentient atoms are not physics" remains a fair objection from the scientific leg.
+- **The interaction problem is unanswered.** If an atom-sized *jeevan* steers neurons and muscles, that steering must either violate local energy conservation or produce a detectable causal anomaly in the brain's physical budget. None has been found, and the literature gives no mechanism. See §2.3 above and [What-Is-Existence](../What-Is-Existence/What-Is-Existence.pdf) §6.2 item 7.
 - **It risks being unfalsifiable.** Disagreement is attributed to "lack of awakening," so no observation can count against the system. A claim that cannot be wrong cannot be tested. To be taken seriously empirically, the framework would have to state *in advance* what observation would disconfirm it.
 
 Madhyasth Darshan is best read as an internally coherent, ethically rich *proposal*, not a demonstrated ontology.
@@ -284,8 +284,8 @@ What would actually move the debate: a measurable anomaly where neural dynamics 
 
 ### Related studies in this collection
 
-- [What-Is-Existence](What-Is-Existence.pdf) — constitutional completeness (*gathanpurnata*), conservation ontology, emergence tension, *jeevan* structure and identity, *jeevan*–body interaction (§§1.5–1.8, §6.2).
-- [Ethics-And-Morals-In-Human-Beings](Ethics-And-Morals-In-Human-Beings.pdf) — comparative moral psychology and innate justice claims (§1, §2).
+- [What-Is-Existence](../What-Is-Existence/What-Is-Existence.pdf) — constitutional completeness (*gathanpurnata*), conservation ontology, emergence tension, *jeevan* structure and identity, *jeevan*–body interaction (§§1.5–1.8, §6.2).
+- [Ethics-And-Morals-In-Human-Beings](../Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf) — comparative moral psychology and innate justice claims (§1, §2).
 
 ### Advaita Vedanta (primary texts)
 

@@ -13,7 +13,7 @@ from __future__ import annotations
 
 import argparse
 
-from _common import STUDIES
+from _common import STUDIES, known_study_slugs, study_dir, study_md, study_pdf, study_html
 from _study_catalog import (
     StudyStatus,
     format_edited_on_md,
@@ -59,7 +59,7 @@ def set_study_status(
     slug = normalize_slug(slug)
     located = get_study_row(slug)
     if located is None:
-        known = sorted(p.stem for p in STUDIES.glob("*.md") if p.name != "README.md")
+        known = known_study_slugs()
         hint = f"\nKnown studies: {', '.join(known)}" if known else ""
         raise SystemExit(f"Study not found in catalog: {slug}{hint}")
 
@@ -85,7 +85,7 @@ def set_study_status(
             "refreshing **Edited on:** and catalogs."
         )
 
-    md_path = STUDIES / f"{slug}.md"
+    md_path = study_md(slug)
     if not md_path.exists():
         raise SystemExit(f"Markdown source not found: {md_path}")
 
@@ -99,7 +99,7 @@ def set_study_status(
         print(f"Status:        {target_status.value} (unchanged)")
     print(f"Edited on:     {format_edited_on_md(edited_at).removeprefix('**Edited on:** ')}")
     print(f"Markdown:      {md_path}")
-    print(f"PDF:           {STUDIES / f'{slug}.pdf'}")
+    print(f"PDF:           {study_pdf(slug)}")
 
     if dry_run:
         print("\nDry run — no files changed.")
@@ -120,7 +120,7 @@ def set_study_status(
 
     if not skip_pdf:
         regenerate_pdf(md_path, target_status)
-        print(f"Regenerated PDF at {STUDIES / f'{slug}.pdf'}")
+        print(f"Regenerated PDF at {study_pdf(slug)}")
 
     if check_timestamps:
         errors = verify_timestamp_sync(slug)

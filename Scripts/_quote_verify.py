@@ -12,6 +12,7 @@ from _common import (
     TAG_ABBREVS,
     cache_key_for,
     find_phrase,
+    iter_study_md_paths,
     load_reference_pages,
     parse_reference_registry,
 )
@@ -129,10 +130,10 @@ def verify_quote(
 
 
 def collect_quotes(study_filter: str | None) -> list[ExtractedQuote]:
-    paths = sorted(STUDIES.glob("*.md"))
+    paths = iter_study_md_paths()
     if study_filter:
         slug = study_filter.removesuffix(".md")
-        paths = [path for path in paths if path.stem == slug]
+        paths = [path for path in paths if path.parent.name == slug]
         if not paths:
             raise SystemExit(f"No study markdown found for: {study_filter}")
     quotes: list[ExtractedQuote] = []

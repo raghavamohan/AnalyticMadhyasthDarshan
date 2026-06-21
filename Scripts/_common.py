@@ -18,6 +18,72 @@ REFERENCES = BASE / "References"
 CACHE = SCRIPTS / "_pdf_cache"
 SOURCE = REFERENCES / "Madhyasth-Darshan"
 
+
+def study_dir(slug: str) -> Path:
+    return STUDIES / slug
+
+
+def study_md(slug: str) -> Path:
+    return study_dir(slug) / f"{slug}.md"
+
+
+def study_pdf(slug: str) -> Path:
+    return study_dir(slug) / f"{slug}.pdf"
+
+
+def study_html(slug: str) -> Path:
+    return study_dir(slug) / f"{slug}.html"
+
+
+def study_pdf_href(slug: str) -> str:
+    """Relative href from Studies/index.html or Studies/README.md."""
+    return f"{slug}/{slug}.pdf"
+
+
+def study_pdf_ref_path(slug: str) -> str:
+    """Relative path from References/ to the study PDF."""
+    return f"../Studies/{slug}/{slug}.pdf"
+
+
+def normalize_study_slug(value: str) -> str:
+    slug = value.strip().removesuffix(".md").removesuffix(".pdf").removesuffix(".html")
+    if not slug:
+        raise ValueError("Study slug must not be empty.")
+    return slug
+
+
+def iter_study_md_paths() -> list[Path]:
+    paths: list[Path] = []
+    if not STUDIES.is_dir():
+        return paths
+    for child in sorted(STUDIES.iterdir()):
+        if not child.is_dir():
+            continue
+        md_path = child / f"{child.name}.md"
+        if md_path.is_file():
+            paths.append(md_path)
+    return paths
+
+
+def slug_from_study_relative_path(rel: Path) -> str | None:
+    parts = rel.parts
+    if not parts or parts[0] in {"README.md", "index.html"}:
+        return None
+    slug = parts[0]
+    if not (STUDIES / slug).is_dir():
+        return None
+    if len(parts) == 1:
+        return slug
+    if len(parts) == 2 and parts[1] == f"{slug}.md":
+        return slug
+    if (STUDIES / slug / f"{slug}.md").is_file():
+        return slug
+    return None
+
+
+def known_study_slugs() -> list[str]:
+    return sorted(path.parent.name for path in iter_study_md_paths())
+
 TAG_ABBREVS = frozenset(
     {"MVD", "SB", "JV", "AVD", "JVD", "BU", "TU", "KU", "MU", "CU", "BG", "BSB", "VC", "DDV", "Bhattacharya", "AV", "SV", "ATR"}
 )

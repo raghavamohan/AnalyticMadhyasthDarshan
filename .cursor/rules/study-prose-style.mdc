@@ -1,6 +1,6 @@
 ---
 description: Scholarly essay prose for Studies — no AI scaffold tags or signposting
-globs: Studies/*.md
+globs: Studies/*/*.md
 alwaysApply: false
 ---
 
@@ -9,11 +9,11 @@ alwaysApply: false
 > **Source of truth:** [AGENTS.md](../AGENTS.md) §4. Keep this file in sync when editing.
 
 Applies to every topical study under `Studies/` except `Studies/README.md`.
-Reference implementations: [What-Is-Existence.md](../Studies/What-Is-Existence.md)
-(ontology exposition, open problems); [Why-Humans-Are-Not-Just-Material.md](../Studies/Why-Humans-Are-Not-Just-Material.md)
+Reference implementations: [What-Is-Existence.md](../Studies/What-Is-Existence/What-Is-Existence.md)
+(ontology exposition, open problems); [Why-Humans-Are-Not-Just-Material.md](../Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.md)
 (comparative anthropology, critique closings);
-[Knowledge-Knower-And-Known.md](../Studies/Knowledge-Knower-And-Known.md) (epistemology,
-tradition comparison); [Human-Behavior-And-Society.md](../Studies/Human-Behavior-And-Society.md)
+[Knowledge-Knower-And-Known.md](../Studies/Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.md) (epistemology,
+tradition comparison); [Human-Behavior-And-Society.md](../Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.md)
 (social philosophy, critique closings).
 
 Write exposition as **continuous scholarly essay**, not as an LLM outline with

@@ -24,7 +24,7 @@ These topical studies state the philosophy in clear, checkable prose first. A se
 
 | Term | Plain meaning |
 |------|---------------|
-| ***Jeevan*** | The sentient self — a real unit that works through the body; for ontology see [What-Is-Existence](What-Is-Existence.pdf). |
+| ***Jeevan*** | The sentient self — a real unit that works through the body; for ontology see [What-Is-Existence](../What-Is-Existence/What-Is-Existence.pdf). |
 | **Knowledge order (*gyan avastha*)** | The human level of nature — able to know and evaluate every other level. |
 | ***Dharma*** | Orderliness; in conduct, living in line with resolved understanding of existence. |
 | **Right-use (*sadupyog*)** | Use of body, mind, and resources that serves humane purpose, not mere appetite or profit. |

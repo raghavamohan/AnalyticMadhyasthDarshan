@@ -31,7 +31,11 @@ topical study edit; the other two apply when their stated condition is met.
 
 ## 1. Keep "Edited on" current in Studies *(always applies)*
 
-Every study under `Studies/` carries an `**Edited on:**` field directly below
+Every study under `Studies/` lives in its own directory: `Studies/<Slug>/<Slug>.md`,
+companion PDF, and any figures. Catalog files `Studies/README.md` and
+`Studies/index.html` stay at the `Studies/` root.
+
+Every study carries an `**Edited on:**` field directly below
 the `**Author:**` line. **Any change to study content** — including edits made
 during review, restructuring, typo fixes in body text, citation updates, or PDF
 regeneration after content changes — **must** refresh that timestamp before you
@@ -39,7 +43,7 @@ finish the task.
 
 ### Mandatory workflow (do not skip steps)
 
-When you edit a study markdown file (`Studies/<Name>.md`):
+When you edit a study markdown file (`Studies/<Slug>/<Slug>.md`):
 
 1. **Get the real current time** — run in PowerShell from the repo root:
    `Get-Date -Format "MMMM d, yyyy, h:mm tt"`
@@ -82,10 +86,10 @@ The **only** exception: editing this rule file's own example timestamps.
 
 Before marking a study edit done, confirm all three are in sync:
 
-- [ ] `Studies/<Name>.md` → `**Edited on:**`
+- [ ] `Studies/<Slug>/<Slug>.md` → `**Edited on:**`
 - [ ] `Studies/README.md` → that study's `Last updated on`
 - [ ] `Studies/index.html` → that study's `Last updated on`
-- [ ] `Studies/<Name>.pdf` regenerated after the timestamp change
+- [ ] `Studies/<Slug>/<Slug>.pdf` regenerated after the timestamp change
 
 ---
 
@@ -111,7 +115,7 @@ drift apart.
   [§1 Keep "Edited on" current](#1-keep-edited-on-current-in-studies-always-applies)
   for the mandatory workflow.
 - **In-progress studies** — shown in italics (`<em>...</em>` in HTML,
-  `*...*` in markdown) with no link; published studies link to `<Name>.pdf`.
+  `*...*` in markdown) with no link; published studies link to `<Slug>/<Slug>.pdf`.
 - **Formal Studies table** — same documents, focus, and descriptions.
 - **Shared prose** — the lead intro, Study Objectives, **About us**, and
   License sections should carry the same wording.
@@ -152,21 +156,21 @@ Reads **Status:** from the markdown and applies the Draft watermark when appropr
 1. **`Scripts/_convert_to_pdf.py`** — markdown → styled HTML (same basename, `.html`).
 2. **`Scripts/_html_to_pdf.js`** — HTML → PDF via Puppeteer (footer, A4 margins).
 
-Regenerate all studies (exclude `README.md`):
+Regenerate all studies:
 
 ```powershell
-$studies = Get-ChildItem Studies/*.md | Where-Object { $_.Name -ne 'README.md' }
+$studies = Get-ChildItem Studies -Directory
 foreach ($s in $studies) {
-  python Scripts/_regenerate_pdf.py $s.BaseName
+  python Scripts/_regenerate_pdf.py $s.Name
 }
 ```
 
 Manual single-study steps (only if needed):
 
 ```powershell
-python Scripts/_convert_to_pdf.py Studies/<Name>.md --watermark Draft
-node Scripts/_html_to_pdf.js Studies/<Name>.html
-Remove-Item Studies/<Name>.html
+python Scripts/_convert_to_pdf.py Studies/<Slug>/<Slug>.md --watermark Draft
+node Scripts/_html_to_pdf.js Studies/<Slug>/<Slug>.html
+Remove-Item Studies/<Slug>/<Slug>.html
 ```
 
 - **`--watermark Draft`** — required for studies in **Draft** status. Omit for **Released**.
@@ -194,18 +198,18 @@ Single study — replace `<Name>` with the file stem (e.g. `Aesthetics`):
 python Scripts/_regenerate_pdf.py <Name>
 ```
 
-All studies (exclude `README.md`):
+All studies:
 
 ```powershell
-$studies = Get-ChildItem Studies/*.md | Where-Object { $_.Name -ne 'README.md' }
+$studies = Get-ChildItem Studies -Directory
 foreach ($s in $studies) {
-  python Scripts/_regenerate_pdf.py $s.BaseName
+  python Scripts/_regenerate_pdf.py $s.Name
 }
 ```
 
 ### After conversion
 
-- Confirm the output PDF path is `Studies/<Name>.pdf` (same stem as the `.md`).
+- Confirm the output PDF path is `Studies/<Slug>/<Slug>.pdf` (same stem as the `.md`).
 - **Before** running the pipeline, ensure `**Edited on:**` in the `.md` reflects
   the current time (see
   [§1 Keep "Edited on" current](#1-keep-edited-on-current-in-studies-always-applies)
@@ -226,11 +230,11 @@ foreach ($s in $studies) {
 ## 4. Study prose style — scholarly essay, not AI scaffold *(always applies)*
 
 Applies to every topical study under `Studies/` except `Studies/README.md`.
-References: [What-Is-Existence.md](Studies/What-Is-Existence.md) (ontology
-exposition, open problems); [Why-Humans-Are-Not-Just-Material.md](Studies/Why-Humans-Are-Not-Just-Material.md)
+References: [What-Is-Existence.md](Studies/What-Is-Existence/What-Is-Existence.md) (ontology
+exposition, open problems); [Why-Humans-Are-Not-Just-Material.md](Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.md)
 (comparative anthropology, critique closings);
-[Knowledge-Knower-And-Known.md](Studies/Knowledge-Knower-And-Known.md) (epistemology,
-tradition comparison); [Human-Behavior-And-Society.md](Studies/Human-Behavior-And-Society.md)
+[Knowledge-Knower-And-Known.md](Studies/Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.md) (epistemology,
+tradition comparison); [Human-Behavior-And-Society.md](Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.md)
 (social philosophy, critique closings). Cursor mirror:
 `.cursor/rules/study-prose-style.mdc`.
 
@@ -312,11 +316,11 @@ not use `---` horizontal rules between sections within the study body.
 
 ## 5. Standpoint and scope — topical studies *(always applies)*
 
-Every **topical** study (`Studies/<Name>.md`, not `README.md`, not Formal
+Every **topical** study (`Studies/<Slug>/<Slug>.md`, not `README.md`, not Formal
 Studies) includes `## Standpoint and scope` after the opening intro and before
 the glossary or first major section.
 
-Canonical text: [What-Is-Existence.md](Studies/What-Is-Existence.md). Cursor
+Canonical text: [What-Is-Existence.md](Studies/What-Is-Existence/What-Is-Existence.md). Cursor
 mirror: `.cursor/rules/study-standpoint-scope.mdc`.
 
 ### Must establish

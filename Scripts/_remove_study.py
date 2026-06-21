@@ -11,9 +11,10 @@ Studies/README.md, References/README.md, and References/MANIFEST.md.
 from __future__ import annotations
 
 import argparse
+import shutil
 from pathlib import Path
 
-from _common import REFERENCES, STUDIES
+from _common import REFERENCES, STUDIES, known_study_slugs, study_dir, study_html, study_md, study_pdf, study_pdf_ref_path
 from _study_catalog import (
     StudyTable,
     find_study_table,
@@ -59,11 +60,10 @@ def manifest_label(slug: str) -> str:
 
 
 def study_files(slug: str) -> list[Path]:
-    return [
-        STUDIES / f"{slug}.md",
-        STUDIES / f"{slug}.pdf",
-        STUDIES / f"{slug}.html",
-    ]
+    directory = study_dir(slug)
+    if directory.is_dir():
+        return sorted(directory.iterdir())
+    return [study_md(slug), study_pdf(slug), study_html(slug)]
 
 
 def strip_cited_in(value: str, removed_label: str, remaining_labels: list[str]) -> str:
@@ -146,7 +146,7 @@ def remove_study(
     existing_paths = [path for path in paths if path.exists()]
 
     if table is None and not existing_paths:
-        known = sorted(p.stem for p in STUDIES.glob("*.md"))
+        known = known_study_slugs()
         hint = f"\nKnown studies: {', '.join(known)}" if known else ""
         raise SystemExit(f"Study not found: {slug}{hint}")
 
@@ -171,8 +171,12 @@ def remove_study(
         return
 
     for path in existing_paths:
-        path.unlink()
-        print(f"Deleted {path}")
+        if path.is_dir():
+            shutil.rmtree(path)
+            print(f"Deleted {path}")
+        else:
+            path.unlink()
+            print(f"Deleted {path}")
 
     if table is not None:
         rows = load_catalog_rows(table)
