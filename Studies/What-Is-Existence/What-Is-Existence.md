@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 21, 2026, 11:13 AM IST
+**Edited on:** June 21, 2026, 11:23 AM IST
 
 **Status:** Draft
 
@@ -57,42 +57,32 @@ These topical studies state the philosophy in clear, checkable prose first. A se
 
 ## 1. The Madhyasth Darshan Answer
 
-Reality is not made of matter, and it is not made of mind. It is the permanent togetherness of two things that never come apart: a formless, all-pervading ground, and the countless real things held within it. Neither one was made from the other, and neither can be cancelled by the other. This togetherness is what the darshan calls **coexistence**.
+Reality is **coexistence** (*saha-astitva*): the permanent togetherness of a formless, all-pervading ground and the countless real units held within it — co-eternally present, each pole real in its own right, bound in saturation (*samprikt*).
 
-Nothing in this picture ever began out of nothing, and nothing is ever destroyed. Things change form endlessly — they move, combine, develop — but the underlying reality is only ever transformed, never created or annihilated. A burnt piece of charcoal does not vanish; it becomes other things.
+What exists is only ever transformed, never created from nothing or annihilated. Things change form endlessly — they move, combine, develop — while underlying *vastu* is conserved. A burnt piece of charcoal becomes other things; it does not cease to exist.
 
-Through this ceaseless change, nature climbs through real, stable stages: from matter, to living cells, to animals, to human beings. At a certain stage of development, a particle reaches a complete and stable form and becomes a living self — sentient, and not destroyed when its body dies. In a human being, that self can awaken: it can come to recognise the relationships it actually stands in, and live them out. Living well, on this view, is not a rule imposed from outside. It is recognising and fulfilling your real relationships — with other people and with the natural world — so that the coexistence that was always the structure of reality becomes clear in how you see and evident in how you live.
+Through this ceaseless change, nature climbs through real, stable stages: from matter, to living cells, to animals, to human beings. At a certain stage of development, a particle reaches a complete and stable form and becomes a living self — sentient, and persisting when its body dies. In a human being, that self can awaken: it can come to recognise the relationships it actually stands in, and live them out. Living well is recognising and fulfilling those relationships — with other people and with the natural world — so that the coexistence that was always the structure of reality becomes clear in how you see and evident in how you live.
 
 So the answer to the paper's three questions is compact. **What is existence?** The ever-present coexistence of the formless ground and all real units. **What exists?** That whole — the ground, and the units in their own right, sentient and insentient, bound to one another by definite relationships. **Does it begin?** No. Coexistence is beginningless; only particular bodies and arrangements begin and end.
 
-This is what sets the darshan apart from its two great rivals. Against the view that only physical matter is real, it refuses to reduce consciousness, value, and selfhood to by-products of brain chemistry — yet it keeps the physical world fully real and worth studying, not a second-class illusion. Against the view that only the formless ground is finally real and the world is mere appearance, it insists the world is permanent and that distinct living selves and real relationships carry final weight. Its one-line statement of both refusals is:
+MVD compresses this ontology in the slogan *Brahma satya hai, jagat satat hai* — Brahma is truth, the world is perpetual — developed in §1.9. Cross-tradition contrasts with rival views appear in §5.
 
-> **"Brahma is truth, the world is perpetual."**
-> - MVD, p. 13
-
-(For how this differs from Advaita's view that the world is appearance, see §5.6.)
-
-The rest of this section states that picture precisely, in the darshan's own terms. To examine this claim, we trace how units are situated in Omnipresence, how ontological relationships bind units to one another, how they change, how sentience emerges, what *jeevan* is, whether existence begins, and how this ontology contrasts with its rivals. Cross-tradition answers to the paper's three questions are summarized in §5.2.
+The rest of this section states that picture precisely, in the darshan's own terms. To examine this claim, we trace how units are situated in Omnipresence, how ontological relationships bind units to one another, how they change, how sentience emerges, what *jeevan* is, whether existence begins, and how this ontology holds the ground it claims. Cross-tradition answers to the paper's three questions are summarized in §5.2.
 
 ![Overview of Madhyasth Darshan ontology: Omnipresence (*satta*), units with four-aspect signature and *sambandh*, four planes with three completeness transitions, and Development and Awakening Progressions](1-madhyasth-darshan-ontology.svg)
 
 ### 1.1 The Coexistential Structure: Space (*Satta*) and Nature (*Prakriti*)
 
-Madhyasth Darshan does not define existence (*astitva*) as an object among objects, nor as a mental category imposed by a knower. Existence is the eternally present coexistence (*saha-astitva*) of formless Omnipresence (*satta*) and the countless physical (*jada*) and sentient (*chaitanya*) units (*ikai*) held within it — units that stand in definite relationships with one another and with the ground that saturates them. It defines that coexistence as the inseparable presentness of formless *satta* and formful nature (*prakriti*) — not matter arising from consciousness, nor consciousness from matter, but the two inseparably present together. Nothing that exists ever arises from absolute non-existence (*abhava*), nor is it ever annihilated, though units undergo ceaseless motion, transformation, development, and awakening as they recognise and fulfil those relationships toward completeness.
+Madhyasth Darshan defines existence (*astitva*) as the eternally present coexistence (*saha-astitva*) of formless Omnipresence (*satta*) and the countless physical (*jada*) and sentient (*chaitanya*) units (*ikai*) held within it. Existence is beingness (*hona*) and indestructibility (*anashita*): the inseparable presentness of formless *satta* and formful nature (*prakriti*), with units standing in definite relationships with one another and with the ground that saturates them. Units undergo ceaseless motion, transformation, development, and awakening as they recognise and fulfil those relationships toward completeness; what exists never arises from absolute non-existence (*abhava*) and is never annihilated.
 
 SB gives the most compressed formulation:
 
 > **"What is evident is that consciousness and matter are inseparably present. Upon examining their fundamental nature, we learn that all of existence is essentially nature (matter) saturated in Omnipotence (consciousness). Here, 'seeing' is intended in the sense of understanding. Since nature saturated in Omnipotence is inseparably present, existence itself is eternally manifest in the form of coexistence."**
 > - SB, p. 48
 
-The same passage rejects two familiar origin stories:
+From this passage, *satta* and units are **co-eternally present** — matter and Omnipresence arise together, neither from the other, neither ontologically prior nor posterior. Saturation is the ever-present relation in which formless Omnipresence and formful units have always been inseparably together. What changes is the activity, development, and awakening of units within coexistence (§1.2).
 
-1. Matter (*jada*) does not arise from *satta*.
-2. *Satta* does not arise from matter (*jada*).
-
-Madhyasth Darshan therefore holds that *satta* and units are **co-eternally present** — neither ontologically prior nor posterior to the other. Saturation is not a historical event in which one pole came first and the other followed; it is the ever-present relation in which formless Omnipresence and formful units have always been inseparably together. What changes is not the fact of coexistence but the activity, development, and awakening of units within it (§1.2).
-
-The alternative is not creation of one from the other, but inseparable presentness, expressed in the language of "Realisation Knowledge" (*anubhav jnan*):
+Realisation Knowledge (*anubhav jnan*) expresses this inseparable presentness:
 
 > **"Sentient and insentient nature saturated in Omnipotence. The countless sentient and insentient units are saturated in Omnipotence (Omnipresence)."**
 > - MVD, p. 11
@@ -110,22 +100,18 @@ Existence thus has two inseparable aspects:
     > **"Knowledge itself is the omnipresent Omnipotence. This itself is referred to as Space."**
     > - MVD, p. 35
 
-2. **Units of Nature (*Ikai*):** The formful, active, countable, bounded entities. Units are not illusions in Omnipresence; they have determinate reality and remain surrounded, submerged, and soaked in it.
+2. **Units of Nature (*Ikai*):** The formful, active, countable, bounded entities — each with determinate reality, surrounded, submerged, and soaked in Omnipresence.
 
     > **"Nature, saturated in Omnipotence, exists as countless units. Each unit, being saturated in Omnipotence, remains surrounded, submerged, and soaked in it."**
     > - SB, p. 48
 
 Nature (*prakriti*) names the saturated whole of formful existence; **units** (*ikai*) are the countable, bounded entities within it — each bounded from six directions yet inseparably present in coexistence (MVD, pp. 11, 34).
 
-Naming these two aspects, however, does not yet resolve their ontological relationship. What does it mean, in concrete terms, for a unit to be "saturated" in Omnipresence (*satta*)? The answer is that **saturation is that relationship** — not a metaphor for something else ontologically prior to it (§1.2).
+Naming these two aspects opens the question of their ontological relationship. What does it mean, in concrete terms, for a unit to be "saturated" in Omnipresence (*satta*)? **Saturation is that relationship** — pervasive co-location with mutual energetic dependence, developed in §1.2.
 
 ### 1.2 Saturation: Relation, Development, and Completeness
 
-The source describes units as *samprikt* — soaked, submerged, surrounded — in Omnipresence. Madhyasth Darshan treats this as naming an **ontological relationship**, not merely a vivid image. Saturation is the ever-present relation between formless Omnipresence and formful units — the first layer of relational structure in coexistence. Before stating what it is, the texts exclude several misreadings.
-
-Saturation is not constitution: Omnipresence is not the stuff units are made of. Units have their own form, properties, and *dharma* (MVD, p. 11); Omnipresence is formless and non-transforming. If units were made of Omnipresence, their transformation would be transformation of it, which the texts deny. Nor is the relation inherence (*samavaya*) in the Nyaya-Vaisheshika sense, where inherence binds a property to its substance. Omnipresence is not a property the units possess, nor are units properties of Omnipresence; the relation is mutual and symmetric in a way inherence is not. And it cannot be superimposition (*adhyasa*) — the decisive contrast with Advaita. For Advaita, the world's apparent location "in" Brahman is *adhyasa*, a false attribution later sublated. Madhyasth Darshan explicitly refuses this: units are real and perpetual, never sublated.
-
-The relation that fits the texts is pervasive co-location with mutual energetic dependence — and **this is what saturation names**. Omnipresence is the omnipresent medium in which every unit is necessarily situated (co-location), and from which every unit draws the regulatory and conserving energy that keeps it in orderly existence — without Omnipresence acting, transforming, or being consumed. SB states this dependence plainly:
+The source describes units as *samprikt* — soaked, submerged, surrounded — in Omnipresence. Madhyasth Darshan treats saturation as an **ontological relationship**: pervasive co-location with mutual energetic dependence — the ever-present bond between formless Omnipresence and formful units, and the first layer of relational structure in coexistence. Omnipresence is the omnipresent medium in which every unit is necessarily situated, and from which every unit draws the regulatory and conserving energy that keeps it in orderly existence — without Omnipresence acting, transforming, or being consumed. SB states this dependence plainly:
 
 > **"Every unit in its atomic state is active as orderliness, because it has inherent energy due to being saturated in Omnipotence."**
 > - SB, p. 69
@@ -133,7 +119,7 @@ The relation that fits the texts is pervasive co-location with mutual energetic 
 > **"Unit + Energy fullness = Activeness."**
 > - SB, p. 69
 
-The relation is not one-directional. Units depend on *satta* for energy; *satta* depends on units for manifestation as activity. *Satta* remains formless, motionless, and free from pressure, while the whole of nature saturated in it is present with motion and pressure (SB, p. 49). Regulation, activeness, and forcefulness in a unit are seen respectively from its being surrounded, submerged, and soaked in Omnipresence (SB, p. 57). Without unit activity — the source's term is **basic impulsion** — the energy remains unmanifest; without the energy, there is no basic impulsion (SB, p. 62). This is mutual dependence for manifestation, not mutual constitution: neither is made from the other, neither is cancelled by the other, and *satta* is never an efficient cause — yet its uniform energy does not appear as energisation, regulation, or activity except through the ceaseless activity of saturated units. Saturation is therefore the ontological bond between the two poles of coexistence: Omnipresence as ground and every unit of nature as participant.
+The relation is mutual. Units depend on *satta* for energy; *satta* depends on units for manifestation as activity. *Satta* remains formless, motionless, and free from pressure, while the whole of nature saturated in it is present with motion and pressure (SB, p. 49). Regulation, activeness, and forcefulness in a unit are seen respectively from its being surrounded, submerged, and soaked in Omnipresence (SB, p. 57). Without unit activity — the source's term is **basic impulsion** — the energy remains unmanifest; without the energy, there is no basic impulsion (SB, p. 62). Saturation is therefore mutual dependence for manifestation: Omnipresence as ground and every unit of nature as participant — co-eternally present, each real in its own right, with *satta* as supreme cause in the sustaining sense rather than as the trigger of particular change (§1.3).
 
 Omnipresence is called energy and credited with energizing, regulating, and conserving nature, yet is also called actionless (*kriya-shunya*) and non-transforming. The texts resolve this by distributing the terms: *satta* is actionless in itself, but its energy is manifest as the activity of units through basic impulsion — latent, uniform energy at the root of activity, never acting on its own, yet inseparable from the activity through which alone it is revealed.
 
@@ -144,7 +130,7 @@ SB presents mutual dependence as a continuous identity-chain, a characteristic M
 
 Each link is an identity ("itself is"), not an external push. *Satta*'s uniform energy becomes forcefulness only through the unit, becomes activity only through basic impulsion, becomes development only through effort–motion–result (*shram–gati–parinam*) — the triad developed in §1.3.
 
-Development within saturation is not directionless. SB states that nature saturated in state-complete Omnipresence is oriented for development and awakening until realization in Omnipresence, and that each unit embedded in the complete is active and developing **solely for completeness**:
+Development within saturation is oriented toward completeness. SB states that nature saturated in state-complete Omnipresence is oriented for development and awakening until realization in Omnipresence, and that each unit embedded in the complete is active and developing **solely for completeness**:
 
 > **"The nature saturated in the state-complete Omnipotence is oriented for development and awakening until realisation in Omnipotence. Development refers to constitutional completeness, activity completeness, and conduct completeness, along with their continuity."**
 > - SB, p. 51
@@ -233,11 +219,9 @@ How that activity is causally formed — and how *satta* relates to change witho
 
 ### 1.3 Causation Within Coexistence
 
-Madhyasth Darshan draws a clear line between **origination** (no unit comes from non-being, §1.1) and **causation** (what produces change when units that already exist transform). These are separate questions; this section answers the second.
+Madhyasth Darshan distinguishes **origination** (units co-eternally present in coexistence, §1.1) from **causation** (what produces change when units transform). The completeness drive (§1.2) names the **direction** in which unit-activity — already structured as the single principle effort–motion–result (*shram–gati–parinam*) — runs. This section states **how** that activity is causally formed.
 
-The completeness drive (§1.2) does not add a second cause beside units: it names the **direction** in which unit-activity — already structured as the single principle effort–motion–result (*shram–gati–parinam*) — runs. This section states **how** that activity is causally formed.
-
-**Space (*Satta*) is not the efficient cause.** Omnipresence grounds and conserves all units through saturation (§1.2), but it does not push, act, or initiate change. MVD presents a four-level causal hierarchy before naming *satta* as *mahakaran* (supreme cause):
+Change within coexistence is worked by units themselves. Omnipresence grounds and conserves all units through saturation (§1.2) as **supreme cause** (*mahakaran*) in the sustaining sense — the ground of activity, not its trigger. MVD presents a four-level causal hierarchy before naming *satta* as *mahakaran*:
 
 **Gross (*sthool*) → Subtle (*sukshm*) → Causal (*atma* in *jeevan*) → Supreme cause (*vyapak* / *satta*)**
 
@@ -286,7 +270,7 @@ Circular causation is how completeness-directed activity appears across orders: 
 
 ### 1.4 The four ontological orders
 
-Nature (*prakriti*) does not exist as an amorphous mass, but as countless physical (*jada*) and sentient (*chaitanya*) units.
+Nature (*prakriti*) exists as countless physical (*jada*) and sentient (*chaitanya*) units — organised, bounded, and active within Omnipresence.
 
 > **"Existence is not just physicochemical matter, but all physical, chemical and jeevan entities are inseparably present in Omnipresence."**
 > - MVD, p. 5
@@ -371,7 +355,7 @@ Awakening Progression (§1.2) is explicit in the knowledge order:
 > **"It is natural for humans to have behaviour with other humans, be responsible for glory towards those who are more awakened, and to practise, study & contemplate for their further awakening."**
 > - MVD, p. 27
 
-The human body is not a neutral vehicle. JV states that human bodies are **provisioned to evidence understanding** — a feature absent in animal bodies — so that *jeevan* can manifest awakening through the union of sentient self and body (JV, p. 59). Capacity is built into existence before any individual achievement.
+JV states that human bodies are **provisioned to evidence understanding** — a feature absent in animal bodies — so that *jeevan* can manifest awakening through the union of sentient self and body (JV, p. 59). Capacity is built into existence before any individual achievement.
 
 The six *drishti* form a fixed catalog with domain mapping. MVD classifies the lower three as *amanveeya drishti* (inhumane perspectives):
 
@@ -415,7 +399,7 @@ How an insentient atom reaches constitutional completeness and becomes *jeevan* 
 
 ### 1.6 Constitutional Completeness and *Jeevan*
 
-While Madhyasth Darshan rejects creation from nothing, it gives a developmental account of how an insentient atom (*parmanu*) — always a **composite** of nucleus and orbiting particles, not an elementary particle of physics (MVD, p. 42) — reaches *gathanpurnata*, the first completeness stage in Development Progression (§1.2). Constitutional completeness is the irreversible transition (T1) from the physicochemical plane to the delusional plane (§1.4.1). It forms the immortal sentient self whose structure and awakening progression are stated in §1.5.
+Madhyasth Darshan gives a developmental account of how an insentient atom (*parmanu*) — always a **composite** of nucleus and orbiting particles, not an elementary particle of physics (MVD, p. 42) — reaches *gathanpurnata*, the first completeness stage in Development Progression (§1.2). Constitutional completeness is the irreversible transition (T1) from the physicochemical plane to the delusional plane (§1.4.1). It forms the immortal sentient self whose structure and awakening progression are stated in §1.5.
 
 > **"In the course of an atom's development, there comes a stage when the required number of particles for its constitution are all integrated, and at that point, it becomes constitutionally complete. Constitutional completeness signifies satisfaction within, by, and for that constitution. This is the immortality of the result, and the attainment of sentient status."**
 > - SB, p. 59
@@ -436,13 +420,13 @@ Omnipresence is called Knowledge (*gyan*) while active knowing belongs to *jeeva
 
 ### 1.7 Omnipresence as *Gyan* and *Jeevan* as Knower
 
-The source calls Omnipresence Knowledge (*gyan*) while denying it the activity of knowing (MVD, p. 35; quoted in §1.1).
+The source calls Omnipresence **Knowledge** (*gyan*): intelligibility and orderliness as ground — reality such that it can be known, is orderly, transparent, and lawful — rather than an act of cognition (MVD, p. 35; quoted in §1.1).
 
-*Gyan* here names a condition of intelligibility — reality is such that it can be known, is orderly, transparent, lawful — rather than an act of cognition. Omnipresence is "Knowledge" the way a perfectly legible text is "meaning" even when no one is reading it. The knowing act (*chaitanya*) belongs only to *jeevan* (§1.5).
+The knowing act (*chaitanya*) belongs only to *jeevan* (§1.5).
 
 The texts sharpen this distinction further. MVD p. 289 states explicitly that **the unfolding of knowledge** (*gyan udghatan*) occurs **only** through the sentient aspect (*jeevan*) or thoughts — not through insentient units and not through Omnipresence acting as a knower. MVD p. 115 adds a narrower formulation: knowledge is inherent everywhere, but **its unfolding happens by awakened humans** — a sleeping, deluded *jeevan* cannot unfold it. The same passage describes a sensory/cognitive pathway: vibrational motion on the brain from the cognitive organs leads to the unfolding of knowledge. *Gyan* as a name of *satta* is the intelligibility-ground; *gyan udghatan* is an activity exclusive to awakened *jeevan*.
 
-*Jeevan* does not invent the structure of development and awakening. MVD postulates that development and awakening are **definite**, and that all laws are **natural and inherent to being and abiding**:
+*Jeevan* participates in a structure of development and awakening that is **definite** and provisioned in coexistence:
 
 > **"The alternative human-centric contemplation, based on the knowledge of existence in the form of coexistence, postulates that existence is stable, the development and awakening are definite, and all the laws are natural and inherent to being and abiding."**
 > - MVD, p. 5
@@ -453,7 +437,7 @@ Whether existence itself begins presupposes an account of time and conservation.
 
 ### 1.8 Does Existence Begin? Time (*Kaal*) and Conservation
 
-For Madhyasth Darshan, existence does not begin in the sense of coming from absolute non-existence (*abhava*). What exists has always existed, though its form, configuration, and states are in constant flux:
+Existence is **beginless**: what exists has always existed, though its form, configuration, and states are in constant flux.
 
 > **"That which exists continues to be, and that which was not, does not come into existence. Therefore, existence will remain as it is till eternity."**
 > - SB, p. 49
@@ -468,7 +452,7 @@ The texts infer *jeevan*'s post-death survival from the conservation principle: 
 
 #### The nature of *kaal* (preview)
 
-Whether what exists begins **at some time** presupposes an account of time. Madhyasth Darshan does not treat time (*kaal*) as an independent cosmic dimension, substance, or container in which existence sits. The primary texts define it through **activity**:
+Time (*kaal*) in Madhyasth Darshan is the **duration of unit-activity** — inseparable from the motion, change, and effort–motion–result cycles of active units (§1.3). The primary texts define it through activity:
 
 > **"Time (*kaal*): Duration of an activity is referred to as time."**
 > - MVD, p. 34 (also p. 196; p. 338: "Duration of activity")
@@ -495,7 +479,7 @@ The Sanskrit *trikaalabadh* (binding across past, present, and future) applies t
 > **"The measurement of time, expanse and different compositions is through mathematics."**
 > - MVD, p. 195
 
-So *kaal* is not a freestanding entity alongside *satta* and *ikai*; it is the duration of unit-activity, made explicit for human purposes through number and mathematics. How past, present, and future relate to "activity eternally present" — a theme developed in JVD (p. 85) — is treated comparatively in [*Nature-Of-Time*](../Nature-Of-Time/Nature-Of-Time.pdf) (§1.5); residual questions remain in that study's §6.
+So *kaal* is duration of unit-activity — made explicit for human purposes through number and mathematics — not a freestanding entity alongside *satta* and *ikai*. How past, present, and future relate to "activity eternally present" — a theme developed in JVD (p. 85) — is treated comparatively in [*Nature-Of-Time*](../Nature-Of-Time/Nature-Of-Time.pdf) (§1.5); residual questions remain in that study's §6.
 
 This ontology distinguishes absolute annihilation (*vinasha*) from physical transformation (*roopantaran*). An entity changes configuration, but its underlying substance (*vastu*) is never destroyed:
 
@@ -511,9 +495,9 @@ The result is a conservation-based ontology:
 2. Omnipresence (*satta*) does not begin, change, or end.
 3. Units (*ikai*) do not arise from non-being (*abhava*) and do not vanish into it.
 4. Particular bodies (*shareer*), configurations, relations, and states do begin and end.
-5. Development (*vikas*) and awakening (*jagriti*) are real, but are not creation out of nothing.
+5. Development (*vikas*) and awakening (*jagriti*) are real processes within beginningless coexistence.
 
-Against Advaita and physicalism, Madhyasth Darshan stakes its own ground in the nine Reality propositions and the slogan *jagat satat* (perpetual world).
+§1.9 states the positive ontology in MVD's nine Reality propositions; §5 compares this conservation-based picture with rival views.
 
 ### 1.9 The Perpetual World: *Brahma Satya Hai, Jagat Satat Hai*
 
@@ -534,14 +518,9 @@ The full set gives systematic context — the slogan is not isolated:
 8. Human dharma is one, resolutions are many.
 9. *Jeevan* is immortal; birth and death are occurrences.
 
-Nagraj's autobiographical account describes the Vedanta formula *Brahma satya, jagat mithya* as part of his intellectual background; Madhyasth Darshan's *jagat satat* (perpetual world) stands in **structural contrast** with that background within the nine Reality propositions.
+Nagraj's autobiographical account describes the Vedanta formula *Brahma satya, jagat mithya* as part of his intellectual background; Madhyasth Darshan's *jagat satat* (perpetual world) stands in **structural contrast** with that background within the nine Reality propositions (§5.6).
 
-Madhyasth Darshan thus rejects two reductions that would split this inseparable whole:
-
-1. **Material reductionism:** only physicochemical matter (*jada*) exists.
-2. **World-negating spiritualism:** only the formless ground (*satta*) is finally real, and the world is diminished to mere appearance.
-
-Its positive claim: Brahma is real, the world is real, and their inseparable presentness is coexistence (*saha-astitva*).
+Madhyasth Darshan holds that Brahma is real, the world is real, and their inseparable presentness is coexistence (*saha-astitva*).
 
 ## 2. The Advaita Vedanta Answer
 
@@ -1016,7 +995,7 @@ The *mithya* doctrine and Advaita's three-tier framework (*pratibhasika*, *vyava
 ### Madhyasth Darshan (primary sources)
 
 - **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: Realisation Knowledge and Effort–Motion–Result principle (p. 11); Omnipresence/Space (pp. 11, 13, 35); nine Reality propositions (pp. 12–13); definite development and awakening, laws inherent to being (p. 5); hungry/overfull atoms and planetary composition (p. 8); Verity chain, orderliness as development and awakening (pp. 14–15); Development and Awakening Progression (pp. 13–14, 27, 87); "Brahma is truth, the world is perpetual" (p. 13); gist of coexistence (p. 5); *vyapak* at all places and times (p. 34); time (*kaal*) as duration of activity (pp. 34, 196, 338); measurement of time through mathematics (p. 195); *jeevan*-cloud and faculties (pp. 83–84); six *drishti*, inhumane propensities, and higher-humane societal orderliness (pp. 58, 60–61, 66–67); relationship vs association, grace, *sadhan*, and *kshamata*–*yogyata*–*patrata* (pp. 61–62); mixture vs compound composition (p. 42); insentient vs sentient definition and constitution as recognition–fulfilment (p. 77); ascending/frustration and order-specific orbit activity (p. 79); action-dependence of animals (p. 69); family/community assembly (p. 55); seed and *rachna vidhi* (pp. 92–93); *patrata*–*drishti*–*darshan* and capacity–ability–receptivity for worldview (pp. 134, 142, 302); moral development tiers (p. 160); knowledge unfolding by awakened humans (p. 115); *sanskar* definition (p. 90); four-level causal hierarchy and mortal/immortal/eternal *dharma*s (p. 288); order-specific cyclical manifestation and knowledge unfolding through *jeevan*/thoughts (p. 289); reflection–projection cycle (pp. 290–291); effort–motion–result in *jeevan* (p. 78).
-- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: existence as nature saturated in Omnipotence (p. 48); timeless truth across three times (p. 48); Omnipotence all-pervasive and countless units (p. 49); complementarity from coexistence (p. 49); essentiality as value, reciprocity in mutuality (p. 50); give–take reciprocity (pp. 52–53); regulation, activeness, forcefulness from saturation in Omnipotence (p. 57); effort–motion–result triad and sentient completeness mapping (pp. 58, 71); projection and reflection; *samadhan* (pp. 60, 64–65); three completeness types and developing solely for completeness (pp. 45, 51–52, 58, 80); constitutional completeness and quantitative stability (pp. 55, 59); identity-chain and basic impulsion (p. 62); inertial-impression (*adhyasa*) and *sanskar*-conformity (pp. 62–63); natural and excited state, assembly persistence (p. 14); layered order *dharma*s (p. 179); unit energy from saturation (p. 69); time measured by duration of activity (p. 65); humanly devised numerical reckoning of time (p. 251); state–motion inseparability and order-specific mutual activity (pp. 248–249).
+- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Also at https://www.youtube.com/playlist?list=PL69PCoz1OQW0dhshZ0Xv3KtZ7ajJOIpgv (bilingual Hindi and English). Cited: existence as nature saturated in Omnipotence (p. 48); timeless truth across three times (p. 48); Omnipotence all-pervasive and countless units (p. 49); complementarity from coexistence (p. 49); essentiality as value, reciprocity in mutuality (p. 50); give–take reciprocity (pp. 52–53); regulation, activeness, forcefulness from saturation in Omnipotence (p. 57); effort–motion–result triad and sentient completeness mapping (pp. 58, 71); projection and reflection; *samadhan* (pp. 60, 64–65); three completeness types and developing solely for completeness (pp. 45, 51–52, 58, 80); constitutional completeness and quantitative stability (pp. 55, 59); identity-chain and basic impulsion (p. 62); inertial-impression (*adhyasa*) and *sanskar*-conformity (pp. 62–63); natural and excited state, assembly persistence (p. 14); layered order *dharma*s (p. 179); unit energy from saturation (p. 69); time measured by duration of activity (p. 65); humanly devised numerical reckoning of time (p. 251); state–motion inseparability and order-specific mutual activity (pp. 248–249).
 - **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: birth, death, conservation, and *jeevan* post-death continuity (p. 20); nothing isolated (p. 43); order conformity and definite conduct (pp. 48, 113); universal recognition–fulfilment (p. 69); atomic assembly and coexistence inclination (p. 67); cells to organisms (p. 82); incomplete knowledge order (p. 47); human body provisioned to evidence understanding (p. 59); knowing and believing (p. 70).
 
 ### Madhyasth Darshan (secondary exposition)
