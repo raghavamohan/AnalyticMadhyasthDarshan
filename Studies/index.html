@@ -695,7 +695,7 @@
       <td><a href="What-Is-Existence/What-Is-Existence.pdf">What-Is-Existence</a></td>
       <td>Ontology</td>
       <td>Madhyasth Darshan, Advaita Vedanta, and modern philosophy on existence, what exists, and whether existence begins</td>
-      <td>Draft<br>Last updated on: Jun 21, 2026, 5:53 AM IST</td>
+      <td>Draft<br>Last updated on: Jun 21, 2026, 11:13 AM IST</td>
     </tr>
     <tr>
       <td><a href="Nature-Of-Time/Nature-Of-Time.pdf">Nature-Of-Time</a></td>
@@ -908,21 +908,27 @@
   }
 
   function resolveActiveSection(marker) {
-    var lastSection = sections[sections.length - 1];
-
-    if (isAtPageBottom()) {
-      var lastRect = lastSection.getBoundingClientRect();
-      if (lastRect.bottom > 0) {
-        return lastSection.id;
-      }
-    }
-
     var currentId = sections[0].id;
     sections.forEach(function (section) {
       if (section.getBoundingClientRect().top <= marker) {
         currentId = section.id;
       }
     });
+
+    if (isAtPageBottom()) {
+      var lastSection = sections[sections.length - 1];
+      var lastRect = lastSection.getBoundingClientRect();
+      var currentSection = document.getElementById(currentId);
+
+      if (
+        lastRect.bottom > 0 &&
+        lastRect.top > marker &&
+        currentSection &&
+        currentSection.getBoundingClientRect().top < 0
+      ) {
+        return lastSection.id;
+      }
+    }
 
     return currentId;
   }
@@ -1000,7 +1006,7 @@
     }
 
     activeLink.scrollIntoView({
-      behavior: "smooth",
+      behavior: "instant",
       block: "nearest",
       inline: "center"
     });
@@ -1161,7 +1167,6 @@
   window.addEventListener("scroll", onScrollOrResize, { passive: true });
   window.addEventListener("resize", onScrollOrResize, { passive: true });
   window.addEventListener("scrollend", function () {
-    clearPendingNav();
     updateActiveSection();
   }, { passive: true });
   onScrollOrResize();
