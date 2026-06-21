@@ -32,8 +32,8 @@ Windows wrapper:
 .\Scripts\_set_study_status.ps1 <Slug> -Status released
 ```
 
-Preview: `--dry-run`  
-Catalog/metadata only (no PDF): `--skip-pdf`  
+Preview: `--dry-run`
+Catalog/metadata only (no PDF): `--skip-pdf`
 Skip sync check: `--no-check-timestamps`
 
 ## What the script does
@@ -70,4 +70,4 @@ See [regenerate-study-pdf](../regenerate-study-pdf/SKILL.md) (`python Scripts/_r
 - Overview: [manage-studies](../manage-studies/SKILL.md)
 - Add new study: [add-study](../add-study/SKILL.md)
 - Regenerate PDF: [regenerate-study-pdf](../regenerate-study-pdf/SKILL.md)
-- Rules: `.cursor/rules/study-edited-on.mdc`, `.cursor/rules/md-to-pdf.mdc`
+- Rules: [AGENTS.md](../../AGENTS.md) §1 (Edited on), §2 (catalog sync), §3 (PDF pipeline)

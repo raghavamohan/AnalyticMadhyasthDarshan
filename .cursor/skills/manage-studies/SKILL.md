@@ -18,6 +18,7 @@ Orchestration skill for the study lifecycle. Read the focused skill for your tas
 | Remove a study | [remove-study](../remove-study/SKILL.md) |
 | Draft ↔ Released | [set-study-status](../set-study-status/SKILL.md) |
 | Regenerate PDF / fix diagrams | [regenerate-study-pdf](../regenerate-study-pdf/SKILL.md) |
+| Audit / download references | [download-references](../download-references/SKILL.md) |
 
 ## Repository model
 
@@ -64,10 +65,15 @@ Confirm before finishing:
 - [ ] PDF regenerated when content or status changed (Mermaid studies: `npm install` in `Scripts/`)
 - [ ] `Studies/index.html` and `Studies/README.md` catalog rows stay in sync
 
-See `.cursor/rules/study-edited-on.mdc` and `.cursor/rules/md-to-pdf.mdc`.
+**Agent rules:** [AGENTS.md](../../AGENTS.md) — §1 (Edited on), §2 (catalog sync), §3 (PDF pipeline).
 
 ## Study writing standards
 
-Content, tone, and structure: [Studies/README.md](../../Studies/README.md)
+When editing study **body text**, follow [AGENTS.md](../../AGENTS.md):
 
-Contributor overview: [README.md](../../README.md)
+- §4 — prose style (no `[Text]` tags, `**Step N —**`, `**Verdict:**`, or honesty qualifiers)
+- §5 — `## Standpoint and scope` on every topical study
+
+Reference implementations: `Studies/What-Is-Existence/What-Is-Existence.md`, `Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.md`.
+
+Contributor overview: [Studies/README.md](../../Studies/README.md), [CONTRIBUTING.md](../../CONTRIBUTING.md)

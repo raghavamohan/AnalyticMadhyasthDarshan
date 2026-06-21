@@ -12,7 +12,7 @@ When a study markdown file under `Studies/<Slug>/` needs a PDF, **always** use t
 repository pipeline. Do not substitute pandoc, `markdown-pdf`, VS Code export,
 hand-written Puppeteer scripts, or other one-off converters.
 
-## One-time setup
+## One-time setup (required for PDF generation)
 
 ```powershell
 pip install -r requirements.txt
@@ -21,69 +21,39 @@ npm install
 cd ..
 ```
 
-Required for all PDFs (Puppeteer). **Mermaid diagrams** additionally need the `mermaid`
-npm package installed in `Scripts/`.
+`npm install` in `Scripts/` installs **Puppeteer**, **pdf-lib**, and **mermaid** (for
+` ```mermaid ` diagrams in studies). CI runs `npm ci` in `Scripts/` automatically.
 
-## Regenerate one study (preferred)
-
-```powershell
-python Scripts/_regenerate_pdf.py <Slug>
-```
-
-Reads **Status:** from the markdown, applies the Draft watermark when appropriate,
-and runs verification after PDF export.
-
-## Internal pipeline
-
-`_regenerate_pdf.py` calls:
-
-1. **`Scripts/_convert_to_pdf.py`** — markdown → styled HTML; ` ```mermaid ` → `<div class="mermaid">`; fenced code uses `pre-wrap`.
-2. **`Scripts/_html_to_pdf.js`** — render Mermaid to SVG, then HTML → PDF via Puppeteer.
-3. **`Scripts/_verify_pdf_diagrams.py`** — fail if raw Mermaid syntax (e.g. `flowchart TD`) appears in the PDF.
-4. **`Scripts/_verify_pdf_fenced_code.py`** — fail if fenced code/spec lines are clipped (e.g. `[compound]` → `[c`).
-
-Manual single-study steps (only if needed):
+## Regenerate one study
 
 ```powershell
-python Scripts/_convert_to_pdf.py Studies/<Slug>/<Slug>.md
-node Scripts/_html_to_pdf.js Studies/<Slug>/<Slug>.html Draft
-python Scripts/_verify_pdf_diagrams.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf
-python Scripts/_verify_pdf_fenced_code.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf
-Remove-Item Studies/<Slug>/<Slug>.html
+python Scripts/_regenerate_pdf.py <Name>
 ```
 
-- **`Draft`** watermark argument — required for **Draft** studies. Omit for **Released**.
-- **Delete the intermediate `.html`** after PDF generation.
+Reads **Status:** from the markdown and applies the Draft watermark when appropriate.
 
-## What the scripts provide (do not reimplement)
+## Internal pipeline (batch or debugging)
 
-- Study typography, tables, blockquotes, and print CSS — `_convert_to_pdf.py`
-- **Fully justified body paragraphs** — `_convert_to_pdf.py`
-- **Embedded raster figures** — PNG images in the study directory — `_convert_to_pdf.py`
-- **Mermaid diagrams** — fenced ` ```mermaid ` blocks rendered as SVG — `_convert_to_pdf.py` + `_html_to_pdf.js`
-- **Fenced code/spec blocks** — `white-space: pre-wrap` on `<pre>` so long lines wrap; verified by `_verify_pdf_fenced_code.py`. Prefer **tables** for wide multi-column specs.
-- **`**Status:**` omitted from PDF body** — watermark shows Draft/Released
-- Footer: `AnalyticMadhyasthDarshan.org` and page numbers — `_html_to_pdf.js`
+`_regenerate_pdf.py` runs this pipeline:
 
-## Regenerate all studies
-
-```powershell
-$studies = Get-ChildItem Studies -Directory
-foreach ($s in $studies) {
-  python Scripts/_regenerate_pdf.py $s.Name
-}
-```
-
-## After conversion
-
-- Confirm `Studies/<Slug>/<Slug>.pdf` exists.
-- If the study uses Mermaid, confirm diagrams rendered (verify runs automatically).
-- If the study uses long ` ```text ` blocks, confirm lines are not clipped (verify runs automatically).
-- Refresh `**Edited on:**` and catalogs per [AGENTS.md](../AGENTS.md) §1–§2 when content changed.
+1. **`Scripts/_convert_to_pdf.py`** — markdown → styled HTML (same basename, `.html`).
+   Converts ` ```mermaid ` fenced blocks to `<div class="mermaid">` for rendering.
+2. **`Scripts/_html_to_pdf.js`** — loads Mermaid from `Scripts/node_modules`, renders
+   `.mermaid` divs to SVG, then HTML → PDF via Puppeteer (footer, A4 margins).
+3. **`Scripts/_verify_pdf_diagrams.py`** — after PDF generation, fails if markdown
+   contains Mermaid but raw diagram syntax (e.g. `flowchart TD`) still appears in the PDF.
+4. **`Scripts/_verify_pdf_fenced_code.py`** — fails if fenced ` ```text ` / code-block
+   content is clipped in the PDF (e.g. `[compound]` truncated to `[AGENTS.md](../AGENTS.md) §1
+  — run `Get-Date`, never guess). Regenerating a PDF without updating the
+  timestamp leaves a stale date on every page of the document header.
+- After conversion, if the study's `**Edited on:**` or catalog **Status**
+  changed, confirm both catalogs match per
+  [AGENTS.md](../AGENTS.md) §2.
 
 ## Do not
 
-- Edit PDFs directly or commit hand-built HTML as source of truth.
-- Add Mermaid without ensuring `Scripts/npm install` has been run.
-- Put wide formal specs in ` ```text ` when a table would fit — monospace lines clip without `pre-wrap`.
-- Change conversion behavior inline in chat without updating these scripts when the change should apply to all future PDFs.
+- Edit PDFs directly or commit hand-built HTML as the source of truth.
+- Change conversion behavior inline in chat without updating these scripts when
+  the change should apply to all future PDFs (footer, watermark, styling).
+
+---

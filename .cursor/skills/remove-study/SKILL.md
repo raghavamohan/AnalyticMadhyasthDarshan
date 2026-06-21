@@ -56,3 +56,4 @@ Ongoing placeholders (italic, no PDF) are supported — only the catalog row is 
 
 - Overview: [manage-studies](../manage-studies/SKILL.md)
 - Add: [add-study](../add-study/SKILL.md)
+- Rules: [AGENTS.md](../../AGENTS.md) §2 (catalog sync when removing published studies)
