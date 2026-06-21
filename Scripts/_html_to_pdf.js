@@ -78,6 +78,49 @@ async function addPageWatermark(pdfPath, label) {
   fs.writeFileSync(pdfPath, await pdfDoc.save());
 }
 
+async function renderMermaidDiagrams(page) {
+  const hasMermaid = await page.evaluate(
+    () => document.querySelectorAll('.mermaid').length > 0
+  );
+  if (!hasMermaid) {
+    return;
+  }
+
+  const mermaidPath = path.join(__dirname, 'node_modules', 'mermaid', 'dist', 'mermaid.min.js');
+  if (!fs.existsSync(mermaidPath)) {
+    console.error(
+      'Mermaid diagrams found in HTML but mermaid is not installed.\n' +
+        'Run once from the repo root:\n' +
+        '  cd Scripts; npm install'
+    );
+    process.exit(1);
+  }
+
+  const mermaidScript = fs.readFileSync(mermaidPath, 'utf8');
+  await page.addScriptTag({ content: mermaidScript });
+
+  await page.evaluate(async () => {
+    window.mermaid.initialize({
+      startOnLoad: false,
+      theme: 'neutral',
+      securityLevel: 'loose',
+      flowchart: { htmlLabels: true, useMaxWidth: true },
+    });
+    await window.mermaid.run({ querySelector: '.mermaid' });
+  });
+
+  await page.waitForFunction(
+    () => {
+      const blocks = document.querySelectorAll('.mermaid');
+      if (blocks.length === 0) {
+        return true;
+      }
+      return Array.from(blocks).every((el) => el.querySelector('svg'));
+    },
+    { timeout: 30000 }
+  );
+}
+
 const args = process.argv.slice(2);
 // Relative input paths resolve against the current working directory; the
 // default points at the workspace's Studies folder.
@@ -106,6 +149,8 @@ const outputPath = inputPath.replace(/\.html$/, '.pdf');
   const page = await browser.newPage();
 
   await page.goto('file:///' + inputPath.replace(/\\/g, '/'), { waitUntil: 'networkidle0' });
+
+  await renderMermaidDiagrams(page);
 
   await page.pdf({
     path: outputPath,

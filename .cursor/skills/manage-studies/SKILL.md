@@ -17,6 +17,7 @@ Orchestration skill for the study lifecycle. Read the focused skill for your tas
 | Register or add a study | [add-study](../add-study/SKILL.md) |
 | Remove a study | [remove-study](../remove-study/SKILL.md) |
 | Draft ↔ Released | [set-study-status](../set-study-status/SKILL.md) |
+| Regenerate PDF / fix diagrams | [regenerate-study-pdf](../regenerate-study-pdf/SKILL.md) |
 
 ## Repository model
 
@@ -48,7 +49,7 @@ Set-Location Scripts; npm install; Set-Location ..
 New study or catalog entry?     → _add_study.py
 Delete study entirely?          → _remove_study.py
 Finalize or revert draft?       → _set_study_status.py
-Edit body text only?            → edit .md, then `python Scripts/_regenerate_pdf.py <Slug>`
+Edit body text only?            → edit .md, then [regenerate-study-pdf](../regenerate-study-pdf/SKILL.md)
 Quote check before PR?          → `python Scripts/_quote_tool.py verify --study <Slug>`
 ```
 
@@ -60,7 +61,7 @@ Confirm before finishing:
 
 - [ ] `**Edited on:**` in `.md` matches catalog **Last updated on** (abbreviated month in catalog)
 - [ ] `**Status:**` in `.md` matches catalog Draft/Released (if published)
-- [ ] PDF regenerated when content or status changed
+- [ ] PDF regenerated when content or status changed (Mermaid studies: `npm install` in `Scripts/`)
 - [ ] `Studies/index.html` and `Studies/README.md` catalog rows stay in sync
 
 See `.cursor/rules/study-edited-on.mdc` and `.cursor/rules/md-to-pdf.mdc`.

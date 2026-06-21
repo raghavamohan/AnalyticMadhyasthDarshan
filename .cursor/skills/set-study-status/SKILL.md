@@ -56,9 +56,7 @@ Skip sync check: `--no-check-timestamps`
 
 ## Manual PDF regen (if `--skip-pdf` was used)
 
-```powershell
-python Scripts/_regenerate_pdf.py <Slug>
-```
+See [regenerate-study-pdf](../regenerate-study-pdf/SKILL.md) (`python Scripts/_regenerate_pdf.py <Slug>`).
 
 ## Completion checklist
 
@@ -71,4 +69,5 @@ python Scripts/_regenerate_pdf.py <Slug>
 
 - Overview: [manage-studies](../manage-studies/SKILL.md)
 - Add new study: [add-study](../add-study/SKILL.md)
+- Regenerate PDF: [regenerate-study-pdf](../regenerate-study-pdf/SKILL.md)
 - Rules: `.cursor/rules/study-edited-on.mdc`, `.cursor/rules/md-to-pdf.mdc`

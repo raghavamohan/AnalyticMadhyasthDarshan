@@ -1,4 +1,5 @@
 import argparse
+import html as html_module
 import re
 from pathlib import Path
 from urllib.parse import unquote, urlparse
@@ -7,6 +8,21 @@ import markdown
 
 from _common import STUDIES, study_md
 from _study_catalog import strip_status_for_pdf
+
+
+def convert_mermaid_blocks(html_body: str) -> str:
+    """Turn fenced ```mermaid code blocks into div.mermaid for browser rendering."""
+
+    pattern = re.compile(
+        r'<pre><code class="language-mermaid">(.*?)</code></pre>',
+        re.DOTALL | re.IGNORECASE,
+    )
+
+    def replace(match: re.Match[str]) -> str:
+        content = html_module.unescape(match.group(1).strip())
+        return f'<div class="mermaid">\n{content}\n</div>'
+
+    return pattern.sub(replace, html_body)
 
 
 def absolutize_local_links(html_body: str, html_path: Path) -> str:
@@ -37,6 +53,7 @@ def convert_to_html(input_path: Path) -> Path:
         md_text,
         extensions=["tables", "fenced_code", "smarty"],
     )
+    html_body = convert_mermaid_blocks(html_body)
     html_body = absolutize_local_links(html_body, output_path)
 
     full_html = f"""<!DOCTYPE html>
@@ -81,7 +98,7 @@ def convert_to_html(input_path: Path) -> Path:
       page-break-inside: avoid;
       break-inside: avoid;
     }}
-    pre {{ page-break-inside: avoid; }}
+    pre {{ page-break-inside: avoid; white-space: pre-wrap; overflow-wrap: anywhere; word-break: break-word; }}
     blockquote {{ page-break-inside: avoid; }}
   }}
   body {{
@@ -203,12 +220,19 @@ def convert_to_html(input_path: Path) -> Path:
     padding: 10pt 14pt;
     border-radius: 4pt;
     overflow-x: auto;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    white-space: pre-wrap;
+    max-width: 100%;
     font-size: 10pt;
     line-height: 1.4;
   }}
   pre code {{
     background: none;
     padding: 0;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }}
   ul, ol {{
     margin: 6pt 0;
@@ -228,6 +252,17 @@ def convert_to_html(input_path: Path) -> Path:
   p:has(> img:only-child) {{
     text-align: center;
     margin: 12pt 0;
+  }}
+  .mermaid {{
+    display: flex;
+    justify-content: center;
+    margin: 12pt auto;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }}
+  .mermaid svg {{
+    max-width: 100%;
+    height: auto;
   }}
 </style>
 </head>

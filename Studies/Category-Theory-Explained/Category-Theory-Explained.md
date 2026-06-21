@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 21, 2026, 6:19 AM IST
+**Edited on:** June 21, 2026, 11:48 AM IST
 
 **Status:** Draft
 
@@ -21,7 +21,7 @@ Category theory is built on a single shift in attention:
 
 Most of modern science explains things by **breaking them into parts** (cells, molecules, atoms, particles). Category theory instead studies the **arrows between things** — the relationships, the flows, the transformations — and treats those relationships as the real subject matter.
 
-Madhyasth Darshan holds that **existence is coexistence**: nothing is fully understood in isolation; a thing's meaning comes from how it lives in relationship with everything else — first through **saturation** in Omnipresence (*satta*), then through definite **relationships** (*sambandh*) with other units ([What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §1.2). That two-layer picture is close to category theory's attention to structure, though saturation is not itself a morphism between units (§6.13).
+Madhyasth Darshan defines **existence as coexistence** (*saha-astitva*): the co-eternally present togetherness of formless Omnipresence (*satta*) and countless real units (*ikai*), bound in **saturation** — pervasive co-location with mutual energetic dependence — and then in definite **relationships** (*sambandh*) with other units ([What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §§1.1–1.2.1). That two-layer picture is close to category theory's attention to structure, though saturation is not itself a morphism between units (§6.13).
 
 ```mermaid
 flowchart LR
@@ -82,7 +82,8 @@ These are the slightly fancier tools the formal theory uses. Each is given here 
 | **Colimit (gluing)** | Joining many small pieces into one big consistent whole, along what they share | Gluing map tiles into one map where the edges match | Families joining into one undivided society |
 | **Enrichment** | Recording not just "is there a relationship" but "of what quality/grade" | A road map that also marks each road's quality | Graded values — object, established, civic — and kinds of satisfaction |
 | **Indexed enrichment / fibration** | Structure that varies with who is acting — not one fixed grade for everyone | Same recipe, but what you can actually cook depends on your kitchen | Fulfilment modulated by capacity, ability, and receptivity (§6.6.1) |
-| **Mixture vs compound** | Two ways of joining units: side-by-side aggregation, or fusion into a new whole | Fruit salad vs baking a cake | *Mishran* keeps each conduct; *yaugik* creates a new tier (§6.9) |
+| **Mixture vs compound** | Two ways of joining units: side-by-side aggregation, or fusion into a new whole | Fruit salad vs baking a cake | *Mishran* keeps each conduct; *yaugik* creates a new tier with new **sig(*u*)** (§6.9) |
+| **Unit signature** | Every unit carries form, properties, essential nature, and *dharma* | Each recipe tile lists ingredients *and* the dish's role in the menu | **sig(*u*) = ⟨roop, gun, svabhav, dharma⟩**; properties generative/degenerative/mediative (template D1, D1a) |
 
 
 ## Part 3: The philosophy, redrawn as a map
@@ -103,6 +104,8 @@ The arrows point one way for a reason. A human contains and depends on the mater
 > Higher includes lower, but higher is not reducible to lower.
 
 The formalism does not *prove* this; it *records* it cleanly, so the claim is explicit and cannot be smuggled in or out unnoticed.
+
+**Orders vs planes.** The four **orders** name what a unit *is* (material through knowledge). SB also names four **planes** — physicochemical, delusional, deific, divine — as developmental stages toward completeness, mapped to transitions T1–T3 (constitutional, activity, and conduct completeness). Deluded and awakened humans share the knowledge order but occupy different planes ([What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §1.4.1; [The Coexistence Template](../The-Coexistence-Template/The-Coexistence-Template.pdf) D11). Category theory models orders as the poset `Ord` (§6.2); planes need a second layered typing (§6.2.1).
 
 ### 3.2 A human being: an actor and an instrument
 
@@ -218,7 +221,7 @@ Modern AI struggles with exactly the darshan's complaint: optimising a single nu
 Because the formalism states what each worldview *keeps and forgets*, it lets very different traditions compare notes without insult or conversion.
 
 ### As a research programme
-Open questions include: how saturation in *O* relates to the categories of unit-to-unit structure; whether transmission τ admits a clean coalgebra or indexed-category model; and whether complementarity of need (template L3) can be fully internalised or must remain an external guard on admissible diagrams (§6.9.2).
+Open questions include: how saturation in *O* (mutual energetic dependence, not a morphism) relates to the categories of unit-to-unit structure; whether plane transitions T1–T3 admit a clean layered-type or fibration model alongside `Ord`; whether transmission τ admits a clean coalgebra or indexed-category model; and whether complementarity of need (template L3) can be fully internalised or must remain an external guard on admissible diagrams (§6.9.2).
 
 
 ## Part 6: The complete formal theory
@@ -270,7 +273,7 @@ flowchart TD
     Soc -->|"tau"| Trans
 ```
 
-**Sat (saturation).** Omnipresence **O** is not a unit and not an object of `Rel` ([The Coexistence Template](../The-Coexistence-Template/The-Coexistence-Template.pdf) §3.1). Saturation is the constitutive immersion of every unit in *O* (template A1–A2; [What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §1.2). Categorically it is best treated as an **ambient** or **enrichment base** — a family of regulators indexed by units — not as a morphism *u₁ → u₂*. Terminal-object and topos-as-space readings of *vyapak* remain stretches (§6.13.4).
+**Sat (saturation).** Omnipresence **O** is not a unit and not an object of `Rel` ([The Coexistence Template](../The-Coexistence-Template/The-Coexistence-Template.pdf) §3.1). Saturation is pervasive co-location with **mutual energetic dependence** — the ever-present bond between *O* and every unit (template A1–A2; [What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §§1.2, 1.2.1). Categorically it is best treated as an **ambient** or **enrichment base** — a family of regulators indexed by units — not as a morphism *u₁ → u₂*. Terminal-object and topos-as-space readings of *vyapak* remain stretches (§6.13.4).
 
 **Eval and μ.** Evaluation is defined **only for knowledge-order units** (template D6): *jeevan* assesses value delivered in a relationship. Model it as an endofunctor or process `μ : Liv → Liv` (or a functor into a category of assessments) that does not factor through `Phys`. Justice is the composite **ρ → φ → μ → mutual satisfaction** — an **operator over** *V*, not a member of *V* (template D7).
 
@@ -286,13 +289,14 @@ flowchart TD
 
 | Template | Symbol / law | Categorical analogue in this paper | Fit / gap |
 |---|---|---|---|
-| Medium, immersion | **O**, A1–A2 | Ambient `Sat`; not in `Rel` | Medium is constitutive; CT has no default for non-morphismic ground |
-| Units | **U**, D1 | Objects across categories | Strong |
+| Coexistence, saturation | **O**, A1–A2 | Ambient `Sat`; mutual energetic dependence; not in `Rel` | Medium is constitutive; CT has no default for non-morphismic ground |
+| Units, signature | **U**, D1, D1a | Objects across categories; **sig(*u*)** typed data (roop, gun, svabhav, dharma) | Strong for orders; property triad generative/degenerative/mediative is typed, not derived |
 | Relationships | **R**, D3 | Category `Rel`; expectation profiles **E(r)** on arrows | Strong; association vs relationship is typing, not composition |
-| Values | **V**, D4 | Preorder `Val`; enrichment base **W** | Moderate — graded taxonomy (object / established / civic) compresses in §6.6 |
+| Values / essentiality | **V**, D4 | Preorder `Val`; enrichment base **W**; essentiality (*maulikta*) as participation-as-value | Moderate — graded taxonomy (object / established / civic) compresses in §6.6 |
 | Recognition, fulfilment | **ρ**, **φ**, D5 | Morphisms/processes on `Rel` / `Conduct`; fibred over `Cap` | Moderate — cap(*u*) = ⟨ksh, yog, pat⟩ in §6.6.1 |
 | Evaluation | **μ**, D6 | `Eval` on `Liv` only | Moderate — order-restriction is essential (P10) |
 | Composition | **κ**, D8 | `Comp`: mixture = coproduct; compound = tier-changing colimit | Moderate — modes distinguished in §6.9 |
+| Planes, completeness | **D11**, P6 | Layered typing on units; T1 irreversible vs T2–T3 in `Liv` (§6.2.1) | Partial — plane membership for humans is state, not order |
 | Complementarity | **L3** | — | **Gap:** selection rule for which diagrams are admissible; CT is silent (Template §7) |
 | Persistence | **L4**, D9 | Colimit compatibility + natural/excited typing | Partial |
 | Transmission | **τ**, L5 | `Trans` coalgebra / indexed maps | Weak — not derivable from κ alone |
@@ -318,6 +322,20 @@ Reading of x <= y:  "order y contains and depends upon order x"
 The claim "the higher-order universe contains the lower-order universe" (MVD Ch. 3) is **mereological** (part/whole), not transformational. Posets are the natural home of part/whole structure.
 
 The non-existence of `K <= M` is exactly the anti-reductionist content; here it is a flat structural fact, not an argument. The poset *encodes* the claim, it does not *prove* it.
+
+### 6.2.1 Planes, completeness stages, and two progressions
+
+[*What Is Existence?*](../What-Is-Existence/What-Is-Existence.pdf) §1.4.1 and the template (D11, P6) distinguish **orders** (what a unit *is*) from **planes** (where development has reached in nature's progression toward completeness). The three completeness stages map to plane transitions:
+
+| Transition | Completeness stage | Plane move |
+|---|---|---|
+| **T1** | Constitutional (*gathanpurnata*) | Physicochemical → delusional |
+| **T2** | Activity (*kriyapurnata*) | Delusional → deific |
+| **T3** | Conduct (*vyavaharpurnata*) | Deific → divine (complete) |
+
+**Development Progression** (*vikas-kram*) reaches T1 through compound-mode κ_comp — irreversible at the atomic level (SB p. 92). **Awakening Progression** (*jagriti-kram*) runs in *jeevan* already constitutionally complete toward T2 and T3; it is not a second atomic transformation.
+
+Categorically: **`Ord`** models mereological containment among orders (§6.2). **Planes** need a second labelling — a fibration, indexed type, or layered poset **`Pln`** — because knowledge-order humans can change plane (deluded → awakened → evidenced) without changing order. T1 is an **irreversible transition** in the Petri/monoidal layer (§6.10); T2 and T3 are **endomorphisms or lifts within `Liv`**, guarded by cap(*u*) and μ, not by κ_comp at the material tier.
 
 ### 6.3 Reduction as a forgetful functor
 
@@ -523,7 +541,7 @@ At the knowledge tier, a successful **compound** κ (§6.9) — not merely mixtu
 Template D8 distinguishes two modes of composition κ (MVD p. 42; [What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §1.2.2):
 
 - **Mixture** (*mishran*): components **all maintain their respective conducts** — aggregation without a new joint conduct.
-- **Compound** (*yaugik*): components combine **in definite proportion**, **discard their own conducts**, and **present another kind of conduct** — a genuinely new unit with its own **sig(*u*) = ⟨roop, gun, svabhav, dharma⟩**.
+- **Compound** (*yaugik*): components combine **in definite proportion**, **discard their own conducts**, and **present another kind of conduct** — a genuinely new unit with its own **sig(*u*) = ⟨roop, gun, svabhav, dharma⟩**, where **gun** is generative, degenerative, or mediative in mutuality (MVD pp. 50–51; template D1, D1a).
 
 **Only compound-mode κ creates a new tier** of the hierarchy (template L6). Development Progression (*vikas-kram*) toward *gathanpurnata* is the canonical **compound** path (MVD p. 8; SB pp. 55, 59). Awakening Progression (*jagriti-kram*) runs in already constitutionally complete *jeevan* and must not be conflated with material-tier κ ([What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §1.5).
 
@@ -604,16 +622,17 @@ Only admissible spans define κ_comp transitions. This is proposition **P9** res
 
 ### 6.10 Development as a monoidal/Petri process
 
-**Development Progression** (*vikas-kram*) — distinct from **Awakening Progression** (*jagriti-kram*) in already constitutionally complete *jeevan* ([What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §1.2, §1.5) — runs through effort–motion–result (*shram–gati–parinam*). *Kaal* is the duration of that activity, not an independent container ([Nature of Time](../Nature-Of-Time/Nature-Of-Time.pdf) §1.1).
+**Development Progression** (*vikas-kram*) — distinct from **Awakening Progression** (*jagriti-kram*) in already constitutionally complete *jeevan* ([What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §§1.2, 1.4.1, 1.5) — runs through effort–motion–result (*shram–gati–parinam*), read toward completeness at each stage: result → constitutional completeness; effort → activity completeness; motion → conduct completeness (SB p. 58). *Kaal* is the duration of that activity, not an independent container ([Nature of Time](../Nature-Of-Time/Nature-Of-Time.pdf) §1.1).
 
 Hungry/overfull atomic bonding is **compound-mode** κ_comp guarded by L3 (§6.9.1). The progression is **resource-sensitive**, best modelled by a **symmetric monoidal category** (equivalently the free such category on a Petri net), where the tensor is co-presence of resources and **transitions consume inputs to produce outputs**.
 
-```text
-Places (resources):   matter, effort, partial composites, gathanpurna threshold
-Transitions (kappa_comp only; each guarded by AdmissibleComp):
-   bond        : hungry-atom (x) overfull-atom  -> molecular composite   [compound]
-   complete    : composite (x) effort            -> gathanpurna parmanu   [compound, irreversible]
-```
+| Layer | Transition | Input | Output | Note |
+|-------|------------|-------|--------|------|
+| **Places (resources)** | — | — | matter, effort, partial composites, *gathanpurna* threshold | Petri places |
+| κ_comp (*vikas-kram*; AdmissibleComp) | bond | hungry-atom ⊗ overfull-atom | molecular composite | compound |
+| κ_comp (*vikas-kram*; AdmissibleComp) | complete | composite ⊗ effort | *gathanpurna parmanu* | compound; T1 irreversible |
+| *jagriti-kram* (in `Liv`; not κ_comp) | awaken | deluded K-order unit | deific plane | T2: activity completeness |
+| *jagriti-kram* (in `Liv`; not κ_comp) | evidence | awakened K-order unit | divine plane | T3: conduct completeness |
 
 **Mixture transitions** (if included) are **identity-preserving** on each factor — token duplication without fusion — and do **not** advance Development Progression toward a new tier.
 
@@ -637,6 +656,7 @@ These are stated as: **structural claim, given premise P**. None is a theorem ab
 | P10 | Evaluation μ does not factor through `U` or lower-order categories | μ is jeevan-only (D6) | Valid; encodes knowledge-order discontinuity |
 | P11 | Effective φ is fibred over cap(*u*); justice is a partial composite | D5a: fulfilment modulated by ksh, yog, pat | Valid given premise; preorders not derived |
 | P12 | κ_mix (coproduct) ≠ κ_comp (fusion colimit); only κ_comp iterates L6 | D8: mishran vs yaugik | Valid; distinguishes §6.8 readings |
+| P13 | T1 is irreversible in the Petri layer; T2–T3 are lifts in `Liv` | D11: planes vs orders; *vikas-kram* vs *jagriti-kram* | Valid; separates atomic and awakening progressions |
 
 **P6** is the only place ordinary category theory does substantive independent work on gluing. Elsewhere the notation sharpens and exposes the argument, but the load is carried by a Madhyasth premise or by structure outside CT (P8–P9, L3 guard in §6.9.1).
 
@@ -644,7 +664,9 @@ These are stated as: **structural claim, given premise P**. None is a theorem ab
 
 | Madhyasth concept | Categorical representation | Fit | Comment |
 |---|---|---|---|
-| Saturation in *O* (A1–A2) | Ambient `Sat`; not `Rel` morphism | Weak–moderate | Two-layer ontology; CT has no native ground |
+| Saturation in *O* (A1–A2) | Ambient `Sat`; mutual dependence; not `Rel` morphism | Weak–moderate | Two-layer ontology; CT has no native ground |
+| Unit signature (D1, D1a) | Typed **sig(*u*)** on objects; compound assigns new signature | Moderate | Property triad and order *svabhav*/*dharma* are data, not derived |
+| Planes, T1–T3 (D11) | Layered typing `Pln`; T1 in Petri; T2–T3 in `Liv` | Partial | Orders in `Ord`; planes cross-cut knowledge order |
 | Four orders contain lower orders | Poset `Ord` | Strong | Mereology is what posets are for |
 | Anti-reductionism | No `K <= M`; non-faithful `U` | Strong structurally | Encodes, does not prove |
 | *Gathanpurna parmanu* | Irreversible transition in Petri/monoidal layer | Moderate | Bookkeeping only |
@@ -671,7 +693,7 @@ These are stated as: **structural claim, given premise P**. None is a theorem ab
 
 3. **Constitutional completeness as content.** Encodable as an irreversible transition, but the Petri structure is content-agnostic; the specific metaphysical claim is invisible to it.
 
-4. **Saturation vs unit relationships.** Omnipresence energises and regulates every unit (A1–A2) but is **not** a member of **U** and not an arrow in `Rel`. Saturation is the first ontological layer; *sambandh* is the second ([What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §1.2.1). Terminal object, monoidal unit, or topos-as-space are inadequate substitutes.
+4. **Saturation vs unit relationships.** Omnipresence energises and regulates every unit through pervasive co-location and mutual energetic dependence (A1–A2) but is **not** a member of **U** and not an arrow in `Rel`. Saturation is the first ontological layer; *sambandh* is the second ([What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §1.2.1). Terminal object, monoidal unit, or topos-as-space are inadequate substitutes.
 
 5. **Coexistence: ground and constraint.** It functions as the background that makes composition possible and as a constraint (colimit compatibility). That dual role signals a **first principle** not fully internalisable as a single categorical object.
 
@@ -715,7 +737,7 @@ A clear guide must also say what this does **not** do.
 - **It cannot capture realisation.** The darshan's foundation is a first-person, meditative realisation (`samadhi`). That is the *source* of the assumptions, and it sits outside any diagram.
 - **It adds no evidence.** No measurement of `jeevan`, constitutional completeness, or coexistence comes out of this. For that, science would still need testable definitions and observations.
 
-Category theory is a **lens for clarity**, not a proof machine and not a new physics. It makes Madhyasth Darshan's logic visible, shows exactly what each conclusion depends on, maps naturally onto much of [*The Coexistence Template*](../The-Coexistence-Template/The-Coexistence-Template.pdf) — including fibred **cap(*u*)** (§6.6.1) and **mixture/compound** κ (§6.9) — and contributes one real insight about social gluing, while leaving saturation, the L3 guard, transmission, and substantial *jeevan* as explicit boundaries.
+Category theory is a **lens for clarity**, not a proof machine and not a new physics. It makes Madhyasth Darshan's logic visible, shows exactly what each conclusion depends on, maps naturally onto much of [*The Coexistence Template*](../The-Coexistence-Template/The-Coexistence-Template.pdf) — including **sig(*u*)** and planes (D1a, D11), fibred **cap(*u*)** (§6.6.1), and **mixture/compound** κ (§6.9) — and contributes one real insight about social gluing, while leaving saturation, the L3 guard, transmission, plane typing for humans, and substantial *jeevan* as explicit boundaries.
 
 ```mermaid
 flowchart LR
@@ -731,14 +753,14 @@ flowchart LR
 
 ### Madhyasth Darshan (primary sources)
 
-- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: four orders; relationships and values; capacity–ability–receptivity (pp. 62, 79, 134, 142); mixture and compound (p. 42); hungry/overfull atoms (p. 8); three satisfactions (Ch. 4); organisation sustainment (p. 55).
-- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad / Resolution Centred Materialism*](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: effort–motion–result; constitutional completeness (p. 55); value-distinct acts (Ch. 7).
+- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: four orders; unit signature (pp. 50–51); relationships and values; capacity–ability–receptivity (pp. 62, 79, 134, 142); mixture and compound (p. 42); hungry/overfull atoms (p. 8); three satisfactions (Ch. 4); organisation sustainment (p. 55).
+- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad / Resolution Centred Materialism*](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Also at https://www.youtube.com/playlist?list=PL69PCoz1OQW0dhshZ0Xv3KtZ7ajJOIpgv (bilingual Hindi and English). Cited: effort–motion–result (p. 58); planes and completeness transitions (pp. 51–52, 92); constitutional completeness (p. 55); essentiality as value (p. 50); value-distinct acts (Ch. 7).
 - **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: body as instrument (Ch. 1); complementarity (p. 157); commerce and "more" (p. 41).
 
 ### Related studies in this collection
 
-- [*What Is Existence?*](../What-Is-Existence/What-Is-Existence.pdf) — ontological exposition: saturation, *sambandh*, *gathanpurnata*, Development and Awakening Progression, activity triad
-- [*The Coexistence Template*](../The-Coexistence-Template/The-Coexistence-Template.pdf) — formal template (κ, τ, ρ, φ, μ, L1–L6); reciprocal link at §7
+- [*What Is Existence?*](../What-Is-Existence/What-Is-Existence.pdf) — ontological exposition: coexistence, saturation, unit signature, *sambandh*, four orders and planes, *gathanpurnata*, Development and Awakening Progression, activity triad
+- [*The Coexistence Template*](../The-Coexistence-Template/The-Coexistence-Template.pdf) — formal template (κ, τ, ρ, φ, μ, L1–L6, D11, P6); reciprocal link at §7
 - [*Nature of Time*](../Nature-Of-Time/Nature-Of-Time.pdf) — *kaal* as duration of unit-activity; *shram–gati–parinam* and directional *vikas*
 - [*Why Humans Are Not Just Material*](../Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.pdf) — human-tier anthropology
 - [*Human Behavior and Society*](../Human-Behavior-And-Society/Human-Behavior-And-Society.pdf) — conduct and social order
