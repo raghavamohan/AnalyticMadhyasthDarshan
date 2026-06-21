@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 20, 2026, 9:36 PM IST
+**Edited on:** June 21, 2026, 5:53 AM IST
 
 **Status:** Draft
 
@@ -70,7 +70,7 @@ This is what sets the darshan apart from its two great rivals. Against the view 
 
 The rest of this section states that picture precisely, in the darshan's own terms. To examine this claim, we trace how units are situated in Omnipresence, how ontological relationships bind units to one another, how they change, how sentience emerges, what *jeevan* is, whether existence begins, and how this ontology contrasts with its rivals. Cross-tradition answers to the paper's three questions are summarized in §5.2.
 
-![Overview of Madhyasth Darshan ontology: Omnipresence (*satta*) and units with saturation and *sambandh*; four stable orders of nature; Development Progression and Awakening Progression](What-Is-Existence-ontology-overview.png)
+![Overview of Madhyasth Darshan ontology: Omnipresence (*satta*) and units with saturation and *sambandh*; four stable orders of nature; Development Progression and Awakening Progression](1-madhyasth-darshan-ontology.svg)
 
 ### 1.1 The Coexistential Structure: Space (*Satta*) and Nature (*Prakriti*)
 
@@ -512,7 +512,7 @@ Advaita Vedanta provides a contrasting framework to Madhyasth Darshan: it assert
 
 Advaita's standard framework is three-tiered, separating private apparent errors (*pratibhasika*, such as a rope mistaken for a snake) from shared empirical reality (*vyavahara*, which governs bodies, physical laws, ethics, and scripture) and the absolute truth of Brahman (*paramartha*).
 
-![Advaita Vedanta: three tiers of reality (paramartha, vyavahara, pratibhasika), sublation relations, and Maya and moksha](What-Is-Existence-advaita-tiers.png)
+![Advaita Vedanta: three tiers of reality (paramartha, vyavahara, pratibhasika), sublation relations, and Maya and moksha](2-advaita-vedanta-ontology.svg)
 
 ### 2.1 Existence Alone, One Without a Second
 
@@ -617,7 +617,7 @@ The *Mandukya* analysis of waking, dream, and deep sleep (§2.2) is a first-pers
 
 If Advaita Vedanta represents a radical anti-materialism that subordinates the physical world to pure consciousness, modern Western philosophy of mind represents the opposite starting point. It takes the physical world as its baseline and struggles to locate subjective experience within it. The resulting debates on consciousness impose a severe explanatory burden of proof on any entity—such as *jeevan*—that claims to transcend physical mechanics, showing that the definition of what exists remains fiercely contested.
 
-![Physicalism: one level of reality built upward by composition; causation under conservation laws; observation and public evidence; unsettled hard problem and cosmological beginning](What-Is-Existence-physicalism-composition.png)
+![Physicalism: one level of reality built upward by composition; causation under conservation laws; observation and public evidence; unsettled hard problem and cosmological beginning](3-modern-physicalism-ontology.svg)
 
 ### 3.1 Standard Physicalism: Concrete Reality Is Physical
 
