@@ -14,7 +14,7 @@ rule here, update the matching `.mdc` file in the same commit.
 `Scripts/_*.py`; they defer content and style rules to the sections below.
 
 Available skills: `manage-studies`, `add-study`, `remove-study`, `set-study-status`,
-`download-references`.
+`download-references`, `regenerate-study-pdf`.
 
 | Section | Topic | Cursor mirror |
 |---------|--------|---------------|
@@ -141,6 +141,18 @@ When a study markdown file under `Studies/` needs a PDF, **always** use the
 repository pipeline. Do not substitute pandoc, `markdown-pdf`, VS Code export,
 hand-written Puppeteer scripts, or other one-off converters.
 
+### One-time setup (required for PDF generation)
+
+```powershell
+pip install -r requirements.txt
+cd Scripts
+npm install
+cd ..
+```
+
+`npm install` in `Scripts/` installs **Puppeteer**, **pdf-lib**, and **mermaid** (for
+` ```mermaid ` diagrams in studies). CI runs `npm ci` in `Scripts/` automatically.
+
 ### Regenerate one study
 
 ```powershell
@@ -154,7 +166,13 @@ Reads **Status:** from the markdown and applies the Draft watermark when appropr
 `_regenerate_pdf.py` calls these two steps:
 
 1. **`Scripts/_convert_to_pdf.py`** — markdown → styled HTML (same basename, `.html`).
-2. **`Scripts/_html_to_pdf.js`** — HTML → PDF via Puppeteer (footer, A4 margins).
+   Converts ` ```mermaid ` fenced blocks to `<div class="mermaid">` for rendering.
+2. **`Scripts/_html_to_pdf.js`** — loads Mermaid from `Scripts/node_modules`, renders
+   `.mermaid` divs to SVG, then HTML → PDF via Puppeteer (footer, A4 margins).
+3. **`Scripts/_verify_pdf_diagrams.py`** — after PDF generation, fails if markdown
+   contains Mermaid but raw diagram syntax (e.g. `flowchart TD`) still appears in the PDF.
+4. **`Scripts/_verify_pdf_fenced_code.py`** — fails if fenced ` ```text ` / code-block
+   content is clipped in the PDF (e.g. `[compound]` truncated to `[c`).
 
 Regenerate all studies:
 
@@ -184,6 +202,13 @@ Remove-Item Studies/<Slug>/<Slug>.html
   list items and table cells remain left-aligned — `_convert_to_pdf.py`
 - **Embedded study figures** — PNG (or other raster) images referenced from the
   study `.md` (same directory) render in HTML/PDF with responsive width — `_convert_to_pdf.py`
+- **Mermaid flowcharts and diagrams** — fenced ` ```mermaid ` blocks become rendered SVG
+  in the PDF via `_convert_to_pdf.py` + `_html_to_pdf.js`; verified by
+  `_verify_pdf_diagrams.py` after each regeneration
+- **Fenced code and spec blocks** — ` ```text ` and other fenced code use `white-space:
+  pre-wrap` so long lines wrap inside the page; verified by `_verify_pdf_fenced_code.py`.
+  Prefer a **table** for multi-column formal specs (Petri transitions, type signatures)
+  when lines would exceed ~80 characters — tables do not clip in PDF.
 - **`**Status:**` omitted from the PDF body** — draft/released is shown via watermark
   (Draft) or its absence (Released); the flag remains in the `.md` source only
 - Footer on every page: `AnalyticMadhyasthDarshan.org` and `Page X of Y` —
@@ -210,6 +235,12 @@ foreach ($s in $studies) {
 ### After conversion
 
 - Confirm the output PDF path is `Studies/<Slug>/<Slug>.pdf` (same stem as the `.md`).
+- If the study uses ` ```mermaid ` blocks, confirm the PDF shows diagrams (not raw
+  `flowchart TD` source). Regeneration runs `_verify_pdf_diagrams.py` automatically;
+  manual check: `python Scripts/_verify_pdf_diagrams.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf`
+- If the study uses long ` ```text ` spec blocks, confirm bracket tags and line tails
+  are intact. Regeneration runs `_verify_pdf_fenced_code.py` automatically;
+  manual check: `python Scripts/_verify_pdf_fenced_code.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf`
 - **Before** running the pipeline, ensure `**Edited on:**` in the `.md` reflects
   the current time (see
   [§1 Keep "Edited on" current](#1-keep-edited-on-current-in-studies-always-applies)

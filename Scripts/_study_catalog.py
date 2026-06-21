@@ -555,8 +555,12 @@ def verify_timestamp_sync(slug: str) -> list[str]:
 def regenerate_pdf(md_path: Path, status: StudyStatus) -> None:
     if status == StudyStatus.ONGOING:
         return
+    from _verify_pdf_diagrams import verify_study_pdf_diagrams
+    from _verify_pdf_fenced_code import verify_study_pdf_fenced_code
+
     convert_script = SCRIPTS / "_convert_to_pdf.py"
     html_path = md_path.with_suffix(".html")
+    pdf_path = md_path.with_suffix(".pdf")
     convert_cmd = [sys.executable, str(convert_script), str(md_path)]
     subprocess.run(convert_cmd, check=True, cwd=SCRIPTS.parent)
     html_to_pdf_cmd = ["node", str(SCRIPTS / "_html_to_pdf.js"), str(html_path)]
@@ -569,6 +573,8 @@ def regenerate_pdf(md_path: Path, status: StudyStatus) -> None:
     )
     if html_path.exists():
         html_path.unlink()
+    verify_study_pdf_diagrams(md_path, pdf_path)
+    verify_study_pdf_fenced_code(md_path, pdf_path)
 
 
 def title_to_slug(title: str) -> str:

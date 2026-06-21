@@ -4,18 +4,18 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 20, 2026, 9:41 PM IST
+**Edited on:** June 21, 2026, 11:29 AM IST
 
 **Status:** Draft
 
-**The thesis:** Madhyasth Darshan (Shri A. Nagraj's Co-existentialism) contains, beneath its human-centred exposition, a single recurring structural template: *bounded units, immersed in an indivisible medium, recognise and fulfil definite relationships with one another through capacity, ability, and receptivity; the content exchanged in those relationships is value; complementary units compose into larger units; an assembly persists exactly as long as its relationships are fulfilled; and each assembly transmits its method of composition across generations of its members.* This paper states that template formally, grounds every clause in the primary texts, shows that Shri Nagraj himself asserts it for **all four orders of nature** (not only for humans), and identifies the one place where the template genuinely changes character — the knowledge order, where participation must be achieved through understanding rather than delivered by constitution. The ontological exposition that motivates this formalisation — coexistence, saturation, unit relationships, development and awakening progressions — is developed in [What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §§1.1–1.2.2. Beyond exposition, this paper has an applied aim: to make the template precise enough to be **carried to systems Shri Nagraj did not himself treat** — used forward, to design organisations, economies, and other assemblies that are stable by construction, and in reverse, to diagnose a failing system by the exact clause of the template it violates (see §1.1).
+**The thesis:** Madhyasth Darshan (Shri A. Nagraj's Co-existentialism) contains, beneath its human-centred exposition, a single recurring structural template: *bounded units, saturated in an indivisible medium through pervasive co-location and mutual energetic dependence, recognise and fulfil definite relationships with one another through capacity, ability, and receptivity; the content exchanged in those relationships is value (essentiality); complementary units compose into larger units; an assembly persists exactly as long as its relationships are fulfilled; and each assembly transmits its method of composition across generations of its members.* This paper states that template formally, grounds every clause in the primary texts, shows that Shri Nagraj himself asserts it for **all four orders of nature** (not only for humans), and identifies the one place where the template genuinely changes character — the knowledge order, where participation must be achieved through understanding rather than delivered by constitution. The ontological exposition that motivates this formalisation — coexistence, saturation, unit signature, unit relationships, four orders and planes, development and awakening progressions — is developed in [What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §§1.1–1.4.1. Beyond exposition, this paper has an applied aim: to make the template precise enough to be **carried to systems Shri Nagraj did not himself treat** — used forward, to design organisations, economies, and other assemblies that are stable by construction, and in reverse, to diagnose a failing system by the exact clause of the template it violates (see §1.1).
 
 
 ## 1. Why a template, and why it is legitimate to generalise
 
 A natural reading of Madhyasth Darshan focuses on its human programme: justice in relationships, family-based order, humane education. On that reading, the recurring pattern — units forming larger wholes through valued relationships — looks like a human story that one might *extrapolate* to atoms and cells.
 
-The texts support a stronger position: the general template is asserted first, and the human case is derived as its hardest instance. The opening analysis of *Samadhanatmak Bhautikvad* states the template in fully general terms, as a direct rebuttal of struggle-based materialism:
+The texts support a stronger position: the general template is asserted first, and the human case is derived as its hardest instance. The opening analysis of *Samadhanatmak Bhautikvad* states the template in fully general terms — each unit a whole with its environment, orderliness with *ness*, development in natural state and decline in excited state:
 
 > **"Each unit is a whole along with its environment."**
 > — SB p. 13–14
@@ -38,7 +38,7 @@ The same universality appears in *Manav Vyavahar Darshan*:
 
 So the task of this paper is not extrapolation but **articulation**: making explicit, in one formal structure, what the texts assert piecewise about atoms (MVD p. 8; JV p. 67), cells (JV p. 82), organisms (SB p. 16), and human collectives (MVD p. 55, p. 161).
 
-A note on honesty, stated once and meant throughout: the formalism below is a **lens for clarity**, not a proof machine. It makes the structure of the claims visible and checkable against the texts. It does not prove the metaphysics, and several of its axioms (notably the reality of the medium and of *jeevan*) are exactly the points where Madhyasth Darshan differs from mainstream science.
+The formalism below is a **lens for clarity**, not a proof machine. It makes the structure of the claims visible and checkable against the texts. It does not prove the metaphysics, and several of its axioms (notably the reality of the medium and of *jeevan*) are exactly the points where Madhyasth Darshan differs from mainstream science.
 
 ### 1.1 Why precision: a template meant to travel
 
@@ -53,18 +53,19 @@ This forward/reverse use is what motivates the tier-neutral formalisation of Sec
 
 ## 2. The template, informally
 
-Ten clauses. Everything in Section 3 is a formalisation of these.
+Eleven clauses. Everything in Section 3 is a formalisation of these.
 
-1. There is one indivisible, omnipresent medium (Space / Omnipotence). It is not a unit.
-2. Everything else is a countable **unit**: a bounded cluster of activity.
-3. Every unit is **immersed** in the medium — soaked, surrounded, energised, and regulated by it. No unit exists, or can be separated out, independently.
-4. Existence as a whole is **stable**: nothing is created or destroyed; units only compose, decompose, and develop.
+1. Existence is **coexistence** (*saha-astitva*): one indivisible, omnipresent medium (Space / Omnipotence) and countless real units co-eternally present in saturation. The medium is not a unit.
+2. Everything else is a countable **unit**: a bounded cluster of activity carrying form, properties, essential nature, and *dharma*.
+3. Every unit is **saturated** in the medium — pervasive co-location with mutual energetic dependence: soaked, surrounded, energised, and regulated by it. No unit exists, or can be separated out, independently.
+4. Existence as a whole is **stable**: what exists is only transformed; units compose, decompose, and develop toward completeness.
 5. Every unit stands in definite **relationships** with other units. A relationship carries pre-determined mutual **expectations**.
-6. Every unit **recognises** its relationships and **fulfils** them through **capacity** (*kshamata*), **ability** (*yogyata*), and **receptivity** (*patrata*) at the level of its order. The content delivered in fulfilment is **value** — the unit's usefulness-complementarity to the other, its participation.
+6. Every unit **recognises** its relationships and **fulfils** them through **capacity** (*kshamata*), **ability** (*yogyata*), and **receptivity** (*patrata*) at the level of its order. The content delivered in fulfilment is **value** (*mulya*) — essentiality (*maulikta*): the unit's participation-as-usefulness in mutuality.
 7. Units whose needs and surpluses are complementary **compose** into a larger unit. The larger unit is itself a unit (clause 2 applies to it), so composition iterates: particles → atoms → molecules → structures; cells → organs → organisms; individuals → families → communities → universal order.
 8. An assembly **persists** while its internal and external relationships are fulfilled (natural state) and **declines or decomposes** when they are not (excited state).
 9. Every persisting assembly **transmits its method of composition** across generations of its members — by constitution in the material order, by seed in the biological order, by lineage/species in the animal order, and by education-*sanskar* in the knowledge order.
 10. In the first three orders, clauses 5–9 operate **definitely** (automatically, without choice). In the knowledge order they must pass through **understanding, evaluation, and choice** — which is why human assembly above the individual is the only level of the template that can fail, and the only one that is still incomplete.
+11. Development runs through **three completeness stages** — constitutional (*gathanpurnata*), activity (*kriyapurnata*), conduct (*vyavaharpurnata*) — mapped to **plane transitions** in nature's progression (physicochemical → delusional → deific → divine); T1 at the sentient threshold is irreversible at the atomic level (SB pp. 51–52, 92).
 
 
 ## 3. The formal template
@@ -84,7 +85,18 @@ Ten clauses. Everything in Section 3 is a formalisation of these.
 
 ### 3.2 Definitions
 
-**D1 (Unit).** A unit is a bounded cluster of activity. Insentient units are "active within the bounds of their length, width and height"; sentient units are "active in [the medium] beyond the bounds of their length, width and height" (MVD p. 33). Each unit u ∈ U possesses an intrinsic four-tuple — form, properties, essential nature, dharma — written **sig(u) = ⟨roop, gun, svabhav, dharma⟩** (MVD p. 11). An **atom** (*parmanu*) is not an elementary particle of physics: its kind, state, and measure are fixed by the number of particles in its nucleus (*madhyansh*) and its orbiting dependent particles (MVD p. 42). **Constitutional completeness** (*gathanpurnata*) is reached when a composite atom integrates the required number of such particles into a stable **compound** configuration (D8; SB pp. 55, 59) — functionally indivisible and sentient as *jeevan*, not a point-like substrate ([What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §§1.6, 6.2 item 4).
+**D1 (Unit).** A unit is a bounded cluster of activity. Insentient units are "active within the bounds of their length, width and height"; sentient units are "active in [the medium] beyond the bounds of their length, width and height" (MVD p. 33). Each unit u ∈ U carries an intrinsic four-tuple — form (*roop*), properties (*gun*), essential nature (*svabhav*), *dharma* — written **sig(u) = ⟨roop, gun, svabhav, dharma⟩** (MVD p. 11). Properties in every order are generative, degenerative, and mediative — assisting creation, dissolution, and sustainment in mutuality (MVD pp. 50–51). An **atom** (*parmanu*) is not an elementary particle of physics: its kind, state, and measure are fixed by the number of particles in its nucleus (*madhyansh*) and its orbiting dependent particles (MVD p. 42). **Constitutional completeness** (*gathanpurnata*) is reached when a composite atom integrates the required number of such particles into a stable **compound** configuration (D8; SB pp. 55, 59) — functionally indivisible and sentient as *jeevan*, not a point-like substrate ([What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §§1.6, 6.2 item 4).
+
+**D1a (Order signature).** Each order fixes characteristic *svabhav* and cumulative *dharma* on sig(u) (MVD pp. 50–51; SB p. 50):
+
+| Order | Essential nature (*svabhav*) | *Dharma* (cumulative) |
+|---|---|---|
+| Material (*padarth*) | integration–disintegration | existence (*astitva*) |
+| Bio (*pran*) | vitalising–devitalising | + growth (*pushti*) |
+| Animal (*jeev*) | cruel–uncruel | + hope to live |
+| Knowledge / human (*gyan*) | fortitude, courage, generosity, kindness, grace, compassion | + happiness (*sukh*) |
+
+Compound assemblies inherit a new sig(·) at each tier (D8); the four-aspect template iterates with every genuine new unit ([What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §1.2.3).
 
 **D2 (Order).** U is partitioned into four orders (*avastha*): material, biological, animal, knowledge (JV p. 47; MVD p. 9). The order of a unit fixes its **capability set**:
 
@@ -99,7 +111,7 @@ Grounding: "The material order is regulated by structural conformity, while the 
 
 **D3 (Relationship and association).** A **relationship** is "the mutuality where expectations are predetermined in the sense of completeness"; an **association** is "the mutuality where expectations are voluntary" (MVD p. 61–62). Formally, each r = (u₁, u₂) ∈ R carries an expectation profile **E(r)**; r is a relationship if E(r) is fixed by the orders and signatures of u₁, u₂, and an association if E(r) is adopted.
 
-**D4 (Value).** The value of a unit *in* a relationship is its essentiality to the other — its usefulness and complementarity, i.e. its participation. This is general, not human-specific:
+**D4 (Value).** The value of a unit *in* a relationship is its **essentiality** (*maulikta*) — its usefulness and complementarity, i.e. its participation-as-value in mutuality. This is general, not human-specific:
 
 > **"Entire beingness implies the essentiality of units in every plane and order. Essentiality refers to value… It is values that are reciprocated and mutually recognised, as complementarity, mutual recognition, and impression occur only in mutuality."**
 > — SB p. 50
@@ -146,13 +158,23 @@ Only compound-mode composition creates a new tier of the hierarchy. **Developmen
 
 **D10 (Transmission).** τ re-instantiates an assembly's method of composition (*rachna vidhi*) in new member-units, so the assembly persists across member turnover. The carrier of τ differs by order (see L5).
 
+**D11 (Planes and completeness transitions).** SB names four **planes** (*pad*) — physicochemical, delusional, deific, and divine (complete) — as developmental stages in nature's progression toward completeness, alongside the four **orders** (D2) that name what a unit *is* ([What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §1.4.1). The three completeness stages map to plane transitions:
+
+| Transition | Completeness | From → to |
+|---|---|---|
+| **T1** | Constitutional (*gathanpurnata*) | Physicochemical → delusional |
+| **T2** | Activity (*kriyapurnata*) | Delusional → deific |
+| **T3** | Conduct (*vyavaharpurnata*) | Deific → divine (complete) |
+
+T1 is irreversible at the atomic level (SB p. 92); T2 and T3 are awakening milestones within constitutionally complete *jeevan* in the knowledge order. Plane membership for humans can change with study and realization; the sentience threshold itself does not lapse (SB p. 55).
+
 ### 3.3 Axioms
 
-**A1 (Saturation).** Every unit is immersed in O: "all of nature is submerged, soaked, and surrounded by Omnipotence" (JV p. 3; MVD p. 32). Moreover this immersion is constitutive and non-detachable: **"There is no provision in existence to separate units of nature from Omnipresence"** (JV p. 18). Saturation names the **first ontological relation** — between the medium O and every unit — distinct from unit-to-unit relationships in R (D3; [What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §§1.2, 1.2.1).
+**A1 (Saturation).** Every unit is saturated in O — pervasive co-location with mutual energetic dependence: "all of nature is submerged, soaked, and surrounded by Omnipotence" (JV p. 3; MVD p. 32). Moreover this relation is constitutive and non-detachable: **"There is no provision in existence to separate units of nature from Omnipresence"** (JV p. 18). Saturation names the **first ontological relation** — between the medium O and every unit — distinct from unit-to-unit relationships in R (D3; [What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §§1.2, 1.2.1). Units depend on O for energy; O depends on units for manifestation as activity (SB pp. 49, 62).
 
-**A2 (Energisation and regulation).** Immersion in O is what energises and regulates every unit: "At the fundamental level, every entity is protected, regulated, and energised by Omnipotence" (JV p. 82); "Omnipotence is mediative, therefore the nature saturated in it is regulated and conserved. The nucleus within every atom is the mediative activity, whereby the atom's generative-degenerative activities and relative powers are regulated and conserved" (MVD p. 26).
+**A2 (Energisation and regulation).** Saturation is what energises and regulates every unit: "At the fundamental level, every entity is protected, regulated, and energised by Omnipotence" (JV p. 82); "Omnipotence is mediative, therefore the nature saturated in it is regulated and conserved. The nucleus within every atom is the mediative activity, whereby the atom's generative-degenerative activities and relative powers are regulated and conserved" (MVD p. 26).
 
-**A3 (Conservation / stability of existence).** "Existence neither increases nor decreases" (JV p. 127); "existence is stable, the development and awakening are definite, and all the laws are natural and inherent to being and abiding" (MVD p. 5). Units are never created from nothing or annihilated; all change is composition, decomposition, or development.
+**A3 (Conservation / stability of existence).** Existence is **beginless** and stable: "Existence neither increases nor decreases" (JV p. 127); "existence is stable, the development and awakening are definite, and all the laws are natural and inherent to being and abiding" (MVD p. 5). What exists is only transformed; units compose, decompose, and develop — never created from absolute non-existence (*abhava*) or annihilated ([What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §1.8).
 
 **A4 (No isolation).** "Nothing is isolated – that is the principle" (JV p. 43). Every u ∈ U participates in at least one relationship; the relation R is total on U.
 
@@ -206,13 +228,15 @@ The texts explicitly mark this as one principle with order-specific realisations
 
 **P5 (Boundedness of extraction).** A unit's relationships with lower-order units are also governed by E(r): right-use and purposeful-use, bounded by regeneration — "expenditure of natural abundance like minerals and forests in proportion to their regeneration" (MVD p. 264). Extraction beyond regeneration is an unfulfilled relationship and, by L4, destabilises the containing assembly (the Earth-tier): "we overlooked the purpose of our relationship with the Earth… This lack of understanding led to the catastrophic collapse of our planet['s environment]" (JV p. 77).
 
+**P6 (Completeness-directed development).** Every unit is active and developing solely for completeness (SB p. 51). Development Progression (*vikas-kram*) runs through constitutional completeness in the atom; Awakening Progression (*jagriti-kram*) runs in *jeevan* already constitutionally complete toward activity and conduct completeness (MVD pp. 13–14, 27). The same drive appears as plane transitions T1–T3 (D11) — a definite terminal orientation, not unbounded maximisation (Section 5).
+
 
 ## 4. The template instantiated, tier by tier
 
 | Template element | Material order | Biological order | Animal order | Knowledge order |
 |---|---|---|---|---|
 | Unit | particle, atom, molecule | cell, plant | animal (body + jeevan) | human (body + jeevan) |
-| Immersion (A1) | in O; energised, nucleus-regulated | same | same | same |
+| Immersion (A1) | saturated in O; co-location + mutual energetic dependence | same | same | same |
 | Relationship (D3) | bonding mutuality | nutrient/season relations | herd, lineage relations | the definite human relations (mother, father, teacher…) with purposes: nurturing, protection, usefulness-complementarity, right-use, purposeful-use (JV p. 109) |
 | Value (D4) | usefulness-complementarity (constant) | usefulness in food-chains ("food for food", JV p. 77) | usefulness + sensitivity | established values: trust, respect, affection… evaluated by jeevan |
 | Recognition-fulfilment (L1) | definite; cap(u) automatic | definite | definite | must be achieved (justice); cap(u) through study, environment, *sanskar* |
@@ -246,7 +270,15 @@ This paper began from a compact informal reading of the darshan — stability of
 
 ### Medium immersion versus relational environment
 
-The texts distinguish (a) the constitutive immersion of every unit in the *medium* (A1 — "no provision in existence to separate units of nature from Omnipresence", JV p. 18) — **saturation**, the ontological relation between O and every unit — and (b) the relational complementarity of every unit with *other units* (A4, L2; D3) — **sambandh**, with values flowing when relationships are recognised and fulfilled (SB p. 50; JV p. 69). The first is absolute and non-contingent; the second is the domain of relationships and value. SB p. 13 holds them together — "Each unit is a whole along with its environment" — but the template needs both levels kept apart, because regulation and energisation come from (a), while value flows in (b). [What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §1.2.1 states this as two layers of ontological relation.
+The texts distinguish (a) the constitutive saturation of every unit in the *medium* (A1 — pervasive co-location with mutual energetic dependence; "no provision in existence to separate units of nature from Omnipresence", JV p. 18) — the ontological relation between O and every unit — and (b) the relational complementarity of every unit with *other units* (A4, L2; D3) — **sambandh**, with values flowing when relationships are recognised and fulfilled (SB p. 50; JV p. 69). The first is absolute and non-contingent; the second is the domain of relationships and value. SB p. 13 holds them together — "Each unit is a whole along with its environment" — but the template needs both levels kept apart, because regulation and energisation come from (a), while value flows in (b). [What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §1.2.1 states this as two layers of ontological relation.
+
+### Unit signature (form, properties, svabhav, dharma)
+
+Every unit carries sig(u) = ⟨roop, gun, svabhav, dharma⟩ (D1), with properties generative, degenerative, and mediative in every order (MVD pp. 50–51). Order-specific *svabhav* and cumulative *dharma* (D1a) supply the tier-neutral content that E(r) and v(r) presuppose: the template's relationships and values are not human inventions layered onto a blank substrate. Compound-mode κ assigns a new sig(·) at each tier ([What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §1.2.3).
+
+### Planes, orders, and completeness transitions
+
+The four **orders** (D2) and four **planes** (D11) must be kept distinct: an order names what a unit *is*; a plane names where development has reached in nature's progression. T1–T3 map constitutional, activity, and conduct completeness to plane transitions; only T1 is irreversible at the atomic level. The template's tier table (Section 4) tracks orders; plane membership — especially for deluded, awakened, and evidenced humans — tracks awakening progression within the knowledge order ([What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §§1.4.1, 1.5–1.6).
 
 ### Fulfilment capacity (kshamata, yogyata, patrata)
 
@@ -307,7 +339,7 @@ The two genuinely distinctive commitments, visible only when the template is lai
 
 ## 10. Conclusion
 
-The reading that Madhyasth Darshan is "centered on the stability of the whole structure of existence", with inseparable units, valued relationships, ever-larger assemblies, and inter-generational transmission, is confirmed by the texts — and is *more* than an interpretation: it is a structure the texts themselves assert at every order of nature. Stated formally, it is one template: **immersed units; saturation and sambandh as two relational layers; definite relationships; value as the content of fulfilment modulated by capacity, ability, and receptivity; composition by complementarity; persistence by fulfilment; transmission by order-specific carriers; iterated into a tiered hierarchy** — with a single discontinuity at the knowledge order, where every clause must pass through understanding, making the human tier at once the most capable and the only unfinished level of the structure. The corrections required to the informal reading are few but consequential: separate saturation from sambandh, restrict evaluation (not value) to jeevan, treat atoms as composites whose constitutional completeness is compound-mode κ, and replace maximisation with definite movement toward completeness. With those corrections, the template stands as a precise, general, and textually grounded statement of what Shri Nagraj called coexistence.
+The reading that Madhyasth Darshan is "centered on the stability of the whole structure of existence", with saturated units, valued relationships, ever-larger assemblies, and inter-generational transmission, is confirmed by the texts — and is *more* than an interpretation: it is a structure the texts themselves assert at every order of nature. Stated formally, it is one template: **coexistence as co-eternally present medium and units; saturation and sambandh as two relational layers; sig(u) with order-specific svabhav and dharma; definite relationships; value as essentiality modulated by capacity, ability, and receptivity; composition by complementarity; persistence by fulfilment; transmission by order-specific carriers; iterated into a tiered hierarchy; development through three completeness stages and plane transitions T1–T3** — with a single discontinuity at the knowledge order, where every clause must pass through understanding, making the human tier at once the most capable and the only unfinished level of the structure. The corrections required to the informal reading are few but consequential: separate saturation from sambandh, treat sig(u) as iterating at each compound tier, restrict evaluation (not value) to jeevan, treat atoms as composites whose constitutional completeness is compound-mode κ, and replace maximisation with definite movement toward completeness. With those corrections, the template stands as a precise, general, and textually grounded statement of what Shri Nagraj called coexistence.
 
 
 ## References
@@ -316,11 +348,11 @@ The reading that Madhyasth Darshan is "centered on the stability of the whole st
 
 - **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf) (*jv-parichaya*). English translation, version 3.0. Page numbers refer to this edition.
 - **MVD** — Nagraj, A. [*Madhyasth Darshan (Manav Vyavahar Darshan)*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English version 4.0. Cited: Realisation Knowledge and Effort–Motion–Result (p. 11); composite atoms, mixture and compound (p. 42); hungry/overfull atoms (p. 8); relationship vs association, *sadhan*, capacity–ability–receptivity (pp. 61–62); ascending/frustration (p. 79); Development and Awakening Progression (pp. 13–14, 27); *patrata*–*drishti*–*darshan* and cap(u) for worldview (pp. 134, 142, 302). Page numbers refer to this edition; chapter numbers given where the edition marks them.
-- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (Resolution Centred Materialism)](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). Bilingual edition. Page numbers refer to this edition.
+- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (Resolution Centred Materialism)](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Also at https://www.youtube.com/playlist?list=PL69PCoz1OQW0dhshZ0Xv3KtZ7ajJOIpgv (bilingual Hindi and English). Cited: natural and excited state (p. 14); essentiality as value (p. 50); planes and completeness transitions (pp. 51–52, 92); constitutional completeness (pp. 55, 59). Page numbers refer to this edition.
 
 ### Companion papers in this collection
 
-- [*What Is Existence?*](../What-Is-Existence/What-Is-Existence.pdf) — ontological exposition: coexistence, saturation, unit relationships, capacity triad, composition ladder, development and awakening progressions
+- [*What Is Existence?*](../What-Is-Existence/What-Is-Existence.pdf) — ontological exposition: coexistence, saturation, unit signature, unit relationships, four orders and planes, capacity triad, composition ladder, development and awakening progressions
 - [*Category Theory Explained*](../Category-Theory-Explained/Category-Theory-Explained.pdf)
 - [*How To Form Self-Sustaining Organizations*](../How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.pdf)
 - [*Why Humans Are Not Just Material*](../Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.pdf)

@@ -80,8 +80,8 @@ These studies are more mathematical in nature. They represent the structure disc
 <!-- formal-studies-catalog -->
 | Document | Formal Focus | Description | Status |
 |----------|--------------|-------------|--------|
-| [Category-Theory-Explained](Category-Theory-Explained/Category-Theory-Explained.pdf) | Category theory | Category-theory lens on the darshan's structure | Draft<br>Last updated on: Jun 21, 2026, 6:19 AM IST |
-| [The-Coexistence-Template](The-Coexistence-Template/The-Coexistence-Template.pdf) | Formal template | Formal template of units, relationships, values, and assembly | Draft<br>Last updated on: Jun 20, 2026, 9:41 PM IST |
+| [Category-Theory-Explained](Category-Theory-Explained/Category-Theory-Explained.pdf) | Category theory | Category-theory lens on the darshan's structure | Draft<br>Last updated on: Jun 21, 2026, 11:48 AM IST |
+| [The-Coexistence-Template](The-Coexistence-Template/The-Coexistence-Template.pdf) | Formal template | Formal template of units, relationships, values, and assembly | Draft<br>Last updated on: Jun 21, 2026, 11:29 AM IST |
 <!-- /formal-studies-catalog -->
 
 ## How to contribute
