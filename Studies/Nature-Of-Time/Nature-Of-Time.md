@@ -8,7 +8,7 @@
 
 **The question:** What is the nature of time (*kaal*)? How does Madhyasth Darshan relate timeless Omnipresence (*satta*) to the duration of unit-activity, numerical reckoning, and the past–present–future structure — and how does that compare with Advaita Vedanta, philosophy of time, and modern physics (spacetime, cosmology, entropy)?
 
-This study develops the comparative treatment begun in [What-Is-Existence](../What-Is-Existence/What-Is-Existence.pdf) (§1.8, §2.6, §4.3). That paper states Madhyasth Darshan's core claim — *kaal* as duration of activity, timeless *satta*, numerical reckoning within existence — and defers past/present/future structure, JVD on "activity eternally present," Advaita *trikaal* language, and systematic comparison with McTaggart, eternalism/presentism, and spacetime physics to this study.
+This study develops the comparative treatment begun in [What-Is-Existence](../What-Is-Existence/What-Is-Existence.pdf) (§1.10, §2.6, §4.3). That paper states Madhyasth Darshan's core claim — *kaal* as duration of activity, timeless *satta*, numerical reckoning within existence — and defers past/present/future structure, JVD on "activity eternally present," Advaita *trikaal* language, and systematic comparison with McTaggart, eternalism/presentism, and spacetime physics to this study.
 
 ## Standpoint and scope
 
