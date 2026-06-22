@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="740" height="820" viewBox="0 0 740 820" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="830" viewBox="0 0 740 830" role="img">
 <title>The structure of existence in Madhyasth Darshan</title>
-<desc>Existence is coexistence: formless Omnipresence (satta) as ground; real units with inseparable form, properties, essential nature, and dharma; sambandh between units; essentiality as participation in orderliness; four planes (physicochemical, delusional, deific, divine) with svabhav and dharma in brackets per unit type; three completeness transitions; Development and Awakening Progressions.</desc>
+<desc>Existence is coexistence (saha-astitva): formless Omnipresence (satta) as ground; countless real units (ikai) in saturation (samprikt), each with roop, gun, svabhav, and dharma; sambandh between units; four planes with three completeness transitions; Development and Awakening Progressions.</desc>
 
 <!-- ============================================================
      EDIT COLORS, FONTS AND TEXT SIZES HERE
@@ -14,6 +14,10 @@
   .th { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 15px; fill: #1A1A18; }
   .ts { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 400; font-size: 12px; fill: #56554F; }
   .txs { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 400; font-size: 10px; fill: #6B6A63; }
+  .txs-dim { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 400; font-size: 9px; fill: #8A8980; }
+  .unit-title { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 10px; fill: #1A1A18; }
+  .unit-line { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 400; font-size: 8px; fill: #6B6A63; }
+  .unit-tag { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 500; font-size: 8px; fill: #0F6E56; }
 
   /* diagram title (top) and caption (bottom) */
   .title   { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 20px; fill: #1A1A18; }
@@ -25,6 +29,7 @@
   /* box fills + strokes, grouped by colour role */
   .c-gray   rect { fill: #F2F1EC; stroke: #B7B5AC; }
   .c-teal   rect { fill: #E3F0EC; stroke: #0F6E56; }
+  .c-teal-dim rect { fill: #EEF6F3; stroke: #9BC4B6; stroke-dasharray: 3 2; }
   .c-blue   rect { fill: #E7F0F9; stroke: #185FA5; }
   .c-purple rect { fill: #ECE7F6; stroke: #5B3FA0; }
   .c-coral  rect { fill: #F9E9E2; stroke: #993C1D; }
@@ -35,6 +40,7 @@
   .arr { stroke: #56554F; stroke-width: 1.5; fill: none; }
   .arr-teal { stroke: #0F6E56; stroke-width: 1.5; fill: none; }
   .arr-purple { stroke: #5B3FA0; stroke-width: 1.5; fill: none; }
+  .saturation { stroke: #B7B5AC; stroke-width: 1; fill: none; stroke-dasharray: 4 3; }
 </style>
 
 <defs>
@@ -44,122 +50,142 @@
 </defs>
 
 <!-- ===== OUTER BACKGROUND FRAME ===== -->
-<rect class="frame" x="8" y="8" width="724" height="804" rx="24"/>
+<rect class="frame" x="8" y="8" width="724" height="814" rx="24"/>
 
-<!-- ===== GROUND: Omnipresence (satta) ===== -->
+<!-- ===== COEXISTENCE: satta + countless units ===== -->
 <g class="c-gray">
-  <rect x="40" y="40" width="660" height="210" rx="20" stroke-width="0.5"/>
-  <text class="th" x="60" y="66">Omnipresence (satta) — the pervasive ground</text>
-  <text class="ts" x="60" y="84">Formless, actionless, non-transforming. Energises and conserves all units.</text>
+  <rect x="40" y="40" width="660" height="248" rx="20" stroke-width="0.5"/>
+  <text class="th" x="60" y="64">Coexistence (saha-astitva)</text>
+  <text class="ts" x="60" y="82">Omnipresence (satta) — formless, actionless, immeasurable ground</text>
+  <text class="txs" x="60" y="96">Energises, regulates, and conserves all units. Not countable.</text>
 </g>
 
-<!-- ===== UNITS saturated in the ground ===== -->
+<!-- saturation envelope around unit field -->
+<rect class="saturation" x="52" y="108" width="636" height="162" rx="14"/>
+
+<text class="ts" x="370" y="124" text-anchor="middle">Nature (prakriti): countless units (ikai) — each bounded and countable, not finite in number</text>
+<text class="txs" x="370" y="138" text-anchor="middle">Every unit saturated in satta (samprikt) — soaked, submerged, surrounded</text>
+
+<!-- ===== three sample units, sambandh arrows, single ellipsis ===== -->
+<!-- boxes 88×58; 64px gaps for visible bidirectional arrows -->
 <g class="c-teal">
-  <rect x="70" y="105" width="150" height="130" rx="12" stroke-width="0.5"/>
-  <text class="th" x="145" y="132" text-anchor="middle">Unit</text>
-  <text class="txs" x="145" y="152" text-anchor="middle">form · properties</text>
-  <text class="txs" x="145" y="166" text-anchor="middle">svabhav · dharma</text>
+  <rect x="124" y="154" width="88" height="58" rx="10" stroke-width="0.5"/>
+  <text text-anchor="middle">
+    <tspan class="unit-title" x="168" y="178">Unit</tspan>
+    <tspan class="unit-tag" x="168" dy="14">jada</tspan>
+  </text>
 </g>
 <g class="c-teal">
-  <rect x="265" y="105" width="150" height="130" rx="12" stroke-width="0.5"/>
-  <text class="th" x="340" y="132" text-anchor="middle">Unit</text>
-  <text class="txs" x="340" y="152" text-anchor="middle">form · properties</text>
-  <text class="txs" x="340" y="166" text-anchor="middle">svabhav · dharma</text>
+  <rect x="276" y="154" width="88" height="58" rx="10" stroke-width="0.5"/>
+  <text text-anchor="middle">
+    <tspan class="unit-title" x="320" y="176">Unit</tspan>
+    <tspan class="unit-line" x="320" dy="12">(ikai)</tspan>
+  </text>
 </g>
 <g class="c-teal">
-  <rect x="460" y="105" width="150" height="130" rx="12" stroke-width="0.5"/>
-  <text class="th" x="535" y="132" text-anchor="middle">Unit</text>
-  <text class="txs" x="535" y="152" text-anchor="middle">form · properties</text>
-  <text class="txs" x="535" y="166" text-anchor="middle">svabhav · dharma</text>
+  <rect x="428" y="154" width="88" height="58" rx="10" stroke-width="0.5"/>
+  <text text-anchor="middle">
+    <tspan class="unit-title" x="472" y="178">Unit</tspan>
+    <tspan class="unit-tag" x="472" dy="14">jeevan</tspan>
+  </text>
 </g>
 
-<!-- horizontal relation between units: sambandh -->
-<text class="ts" x="242" y="200" text-anchor="middle">sambandh</text>
-<line x1="222" y1="207" x2="263" y2="207" class="arr-teal" marker-end="url(#arrow)"/>
-<line x1="263" y1="217" x2="222" y2="217" class="arr-teal" marker-end="url(#arrow)"/>
-<text class="ts" x="437" y="200" text-anchor="middle">sambandh</text>
-<line x1="417" y1="207" x2="458" y2="207" class="arr-teal" marker-end="url(#arrow)"/>
-<line x1="458" y1="217" x2="417" y2="217" class="arr-teal" marker-end="url(#arrow)"/>
+<!-- single ellipsis — countless units continue -->
+<text class="th" x="562" y="178" text-anchor="middle" fill="#6B6A63">· · ·</text>
+<text class="txs" x="562" y="194" text-anchor="middle">countless more</text>
 
-<foreignObject x="50" y="232" width="640" height="28">
-  <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:10px;font-weight:400;color:#6B6A63;line-height:1.35;margin:0;text-align:center;">essentiality (maulikta) = participation in orderliness through value in mutuality</div>
+<!-- sambandh: bidirectional arrows in gaps between units (at box mid-height) -->
+<line x1="215" y1="179" x2="273" y2="179" class="arr-teal" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="273" y1="187" x2="215" y2="187" class="arr-teal" stroke-width="2" marker-end="url(#arrow)"/>
+<text class="txs" x="244" y="206" text-anchor="middle">sambandh</text>
+<line x1="367" y1="179" x2="425" y2="179" class="arr-teal" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="425" y1="187" x2="367" y2="187" class="arr-teal" stroke-width="2" marker-end="url(#arrow)"/>
+<text class="txs" x="396" y="206" text-anchor="middle">sambandh</text>
+
+<!-- four-aspect participation statement -->
+<foreignObject x="72" y="238" width="596" height="36">
+  <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;font-weight:400;color:#56554F;line-height:1.4;margin:0;text-align:center;">Each unit has <em>roop</em>, <em>gun</em>, <em>svabhav</em>, and <em>dharma</em> — on this basis it participates in coexistence.</div>
+</foreignObject>
+
+<foreignObject x="50" y="272" width="640" height="24">
+  <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:10px;font-weight:400;color:#6B6A63;line-height:1.35;margin:0;text-align:center;">essentiality (maulikta) = participation in orderliness through value (mulya) in mutuality — sambandh throughout</div>
 </foreignObject>
 
 <!-- ===== FOUR PLANES ===== -->
-<text class="th" x="40" y="278">Four planes and three completeness transitions</text>
-<text class="txs" x="40" y="292">Bracketed: svabhav · dharma</text>
+<text class="th" x="40" y="308">Four planes and three completeness transitions</text>
+<text class="txs" x="40" y="322">Bracketed: svabhav · dharma</text>
 
 <!-- Physicochemical plane -->
 <g class="c-blue">
-  <rect x="40" y="302" width="660" height="68" rx="8" stroke-width="0.5"/>
-  <text class="th" x="56" y="322">Physicochemical plane</text>
-  <text class="ts" x="56" y="340">Material order</text>
-  <text class="txs" x="148" y="340">(integration–disintegration · existence)</text>
-  <text class="ts" x="56" y="358">Bio / pranic order</text>
-  <text class="txs" x="168" y="358">(vitalising–devitalising · growth)</text>
+  <rect x="40" y="332" width="660" height="68" rx="8" stroke-width="0.5"/>
+  <text class="th" x="56" y="352">Physicochemical plane</text>
+  <text class="ts" x="56" y="370">Material order</text>
+  <text class="txs" x="148" y="370">(integration–disintegration · existence)</text>
+  <text class="ts" x="56" y="388">Bio / pranic order</text>
+  <text class="txs" x="168" y="388">(vitalising–devitalising · growth)</text>
 </g>
 
 <!-- T1 arrow -->
-<line x1="370" y1="370" x2="370" y2="388" class="arr-purple" marker-end="url(#arrow)"/>
-<text class="txs" x="378" y="382">T1 gathanpurnata (irreversible)</text>
+<line x1="370" y1="400" x2="370" y2="418" class="arr-purple" marker-end="url(#arrow)"/>
+<text class="txs" x="378" y="412">T1 gathanpurnata (irreversible)</text>
 
 <!-- Delusional plane -->
 <g class="c-purple">
-  <rect x="40" y="392" width="660" height="68" rx="8" stroke-width="0.5"/>
-  <text class="th" x="56" y="412">Delusional plane</text>
-  <text class="ts" x="56" y="430">Animal order</text>
-  <text class="txs" x="148" y="430">(cruel–uncruel · hope to live)</text>
-  <text class="ts" x="56" y="448">Deluded humans</text>
-  <text class="txs" x="168" y="448">(servility, perfidy, cruelty · attachment)</text>
+  <rect x="40" y="422" width="660" height="68" rx="8" stroke-width="0.5"/>
+  <text class="th" x="56" y="442">Delusional plane</text>
+  <text class="ts" x="56" y="460">Animal order</text>
+  <text class="txs" x="148" y="460">(cruel–uncruel · hope to live)</text>
+  <text class="ts" x="56" y="478">Deluded humans</text>
+  <text class="txs" x="168" y="478">(servility, perfidy, cruelty · attachment)</text>
 </g>
 
 <!-- T2 arrow -->
-<line x1="370" y1="460" x2="370" y2="478" class="arr-purple" marker-end="url(#arrow)"/>
-<text class="txs" x="378" y="472">T2 kriyapurnata</text>
+<line x1="370" y1="490" x2="370" y2="508" class="arr-purple" marker-end="url(#arrow)"/>
+<text class="txs" x="378" y="502">T2 kriyapurnata</text>
 
 <!-- Deific plane -->
 <g class="c-gold">
-  <rect x="40" y="482" width="660" height="56" rx="8" stroke-width="0.5"/>
-  <text class="th" x="56" y="502">Deific plane — awakened humans</text>
-  <foreignObject x="52" y="508" width="636" height="26">
+  <rect x="40" y="512" width="660" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th" x="56" y="532">Deific plane — awakened humans</text>
+  <foreignObject x="52" y="538" width="636" height="26">
     <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:10px;font-weight:400;color:#6B6A63;line-height:1.35;margin:0;">(fortitude, courage, generosity, kindness, grace, compassion · happiness)</div>
   </foreignObject>
 </g>
 
 <!-- T3 arrow -->
-<line x1="370" y1="538" x2="370" y2="556" class="arr-purple" marker-end="url(#arrow)"/>
-<text class="txs" x="378" y="550">T3 vyavaharpurnata</text>
+<line x1="370" y1="568" x2="370" y2="586" class="arr-purple" marker-end="url(#arrow)"/>
+<text class="txs" x="378" y="580">T3 vyavaharpurnata</text>
 
 <!-- Divine plane -->
 <g class="c-sage">
-  <rect x="40" y="560" width="660" height="56" rx="8" stroke-width="0.5"/>
-  <text class="th" x="56" y="580">Divine (complete) plane — awakened with evidence</text>
-  <foreignObject x="52" y="586" width="636" height="26">
+  <rect x="40" y="590" width="660" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th" x="56" y="610">Divine (complete) plane — awakened with evidence</text>
+  <foreignObject x="52" y="616" width="636" height="26">
     <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:10px;font-weight:400;color:#6B6A63;line-height:1.35;margin:0;">(same svabhav · happiness — conduct evidenced as pramanikta)</div>
   </foreignObject>
 </g>
 
 <!-- footnote below planes -->
-<foreignObject x="40" y="624" width="660" height="44">
+<foreignObject x="40" y="654" width="660" height="44">
   <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;font-weight:400;color:#56554F;line-height:1.35;margin:0;text-align:justify;text-justify:inter-word;">Orders name what a unit is; planes name where development has reached. T1 is irreversible at the atom; T2–T3 are awakening milestones in humans.</div>
 </foreignObject>
 
 <!-- ===== TWO PROGRESSIONS ===== -->
-<text class="th" x="40" y="682">Two progressions</text>
+<text class="th" x="40" y="712">Two progressions</text>
 <g class="c-purple">
-  <rect x="40" y="694" width="320" height="96" rx="12" stroke-width="0.5"/>
-  <text class="th" x="60" y="718">Development Progression</text>
-  <foreignObject x="52" y="726" width="296" height="58">
+  <rect x="40" y="724" width="320" height="96" rx="12" stroke-width="0.5"/>
+  <text class="th" x="60" y="748">Development Progression</text>
+  <foreignObject x="52" y="756" width="296" height="58">
     <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;font-weight:400;color:#56554F;line-height:1.35;margin:0;text-align:justify;text-justify:inter-word;">Through the physicochemical plane to T1: the atom reaches constitutional completeness and becomes sentient (jeevan).</div>
   </foreignObject>
 </g>
 <g class="c-coral">
-  <rect x="380" y="694" width="320" height="96" rx="12" stroke-width="0.5"/>
-  <text class="th" x="400" y="718">Awakening Progression</text>
-  <foreignObject x="392" y="726" width="296" height="58">
+  <rect x="380" y="724" width="320" height="96" rx="12" stroke-width="0.5"/>
+  <text class="th" x="400" y="748">Awakening Progression</text>
+  <foreignObject x="392" y="756" width="296" height="58">
     <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;font-weight:400;color:#56554F;line-height:1.35;margin:0;text-align:justify;text-justify:inter-word;">Inside constitutionally complete jeevan: T2 activity and T3 conduct completeness through higher perspectives.</div>
   </foreignObject>
 </g>
-<line x1="360" y1="742" x2="379" y2="742" class="arr" stroke="#993C1D" marker-end="url(#arrow)"/>
+<line x1="360" y1="772" x2="379" y2="772" class="arr" stroke="#993C1D" marker-end="url(#arrow)"/>
 
 </svg>
