@@ -38,7 +38,7 @@ Skip sync check: `--no-check-timestamps`
 
 ## What the script does
 
-1. Updates `**Status:**` and `**Edited on:**` in `Studies/<Slug>.md` — always set to the current IST time, even when status is unchanged
+1. Updates `**Status:**` and `**Edited on:**` in `Studies/<Slug>/<Slug>.md` — always set to the current IST time, even when status is unchanged
 2. Updates matching row in `Studies/index.html` and `Studies/README.md`
 3. Regenerates `Studies/<Slug>.pdf`:
    - **Draft** → `--watermark Draft` via conversion pipeline
@@ -56,9 +56,7 @@ Skip sync check: `--no-check-timestamps`
 
 ## Manual PDF regen (if `--skip-pdf` was used)
 
-```powershell
-python Scripts/_regenerate_pdf.py <Slug>
-```
+See [regenerate-study-pdf](../regenerate-study-pdf/SKILL.md) (`python Scripts/_regenerate_pdf.py <Slug>`).
 
 ## Completion checklist
 
@@ -71,4 +69,5 @@ python Scripts/_regenerate_pdf.py <Slug>
 
 - Overview: [manage-studies](../manage-studies/SKILL.md)
 - Add new study: [add-study](../add-study/SKILL.md)
+- Regenerate PDF: [regenerate-study-pdf](../regenerate-study-pdf/SKILL.md)
 - Rules: [AGENTS.md](../../AGENTS.md) §1 (Edited on), §2 (catalog sync), §3 (PDF pipeline)
