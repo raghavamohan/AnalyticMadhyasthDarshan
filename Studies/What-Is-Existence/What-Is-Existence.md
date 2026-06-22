@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 22, 2026, 7:16 AM IST
+**Edited on:** June 22, 2026, 7:30 AM IST
 
 **Status:** Draft
 
@@ -35,6 +35,7 @@ These topical studies state the philosophy in clear, checkable prose first. A se
 | **Activity Completeness (*kriyapurnata*)** | Restfulness of effort in the sentient atom; the knowledge-order stage of completeness (SB p. 58; MVD pp. 13–14, 27). |
 | **Conduct Completeness (*vyavaharpurnata*)** | Destination of motion / authenticity of conduct in the sentient atom (SB p. 58; MVD pp. 13–14, 27). |
 | **Six Perspectives (*shaad-drishti*)** | Six evaluative *drishti* provisioned in *jeevan*'s design: lower *priya*/*hita*/*labh* and humane *nyaya*/*dharma*/*satya* (MVD pp. 58, 60, 66–67; §1.9). Full ethics treatment: [Ethics-And-Morals-In-Human-Beings](../Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf). |
+| ***Sapëkshata* (Relativity)** | In the knowledge order: relativity arising from *drishti*, *drishya*, and *darshan* — not unreality, and not a property of underlying coexistence. Full treatment: [Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §1.4.1. |
 | **Awakening Progression (*jagriti-kram*)** | Activation of higher provisioned *drishti* toward activity and conduct completeness in the knowledge order; distinct from Development Progression (*vikas-kram*) in the atom (MVD pp. 13–14, 27, 87; §1.8, §1.9). |
 | ***Jada*** / ***Chaitanya*** | Insentient and sentient nature (*prakriti*). |
 | **The Four Orders (*chaar avastha*)** | The real, stable developmental plateaus of nature in Madhyasth Darshan: Material (*padarth*), Pranic/Bio (*pran*), Animal (*jeev*), and Knowledge/Human (*gyan*). |
@@ -408,7 +409,7 @@ Awakening is not binary. MVD describes tiers of development on the knowledge ord
 
 In the human order, activity is additionally *sanskar*-mediated. *Sanskar* — **acceptances towards completeness**, and **knowledge, wisdom and science which gets carried forward towards resolution for evidencing** (MVD, p. 90) — and the reflection–projection cycle can lead either toward awakening or toward decline (MVD, pp. 289–291). Awakening, *sanskar*, environment, study, and humaneness form an explicit circular dependency (MVD, p. 290). Insentient units do not unfold knowledge (*gyan udghatan*); only *jeevan* does, through thoughts (MVD, p. 289; [Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf)).
 
-Activation is not automatic. Completeness drive meets **means** — environment, study, and contemplation (MVD, p. 27) — and the *darshan-drishya-drishti* structure developed in [Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §1.4 and §1.9 (sensitivity vs comprehension). Behavioural and social expression of the six perspectives belongs in [Human Behavior and Society](../Human-Behavior-And-Society/Human-Behavior-And-Society.pdf); this section states the ontological design of *jeevan* in the knowledge order.
+Activation is not automatic. Completeness drive meets **means** — environment, study, and contemplation (MVD, p. 27) — and the *darshan-drishya-drishti* structure developed in [Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §1.4 and §1.9 (sensitivity vs comprehension). In that structure, *sapëkshata* (relativity) arises from the distinctions among perspective, scene, and worldview — from how *jeevan* views and understands — not from the underlying reality of coexistence (§1.1, §1.10). Madhyasth Darshan does not treat relativity as unreality: units, relationships, and the perpetual world remain ontologically real; what varies with perspective is evaluative seeing and the understanding a *jeevan* has yet to evidence in conduct. Einstein's frame-dependent physics is a separate comparative topic (§4.3; [*Nature-Of-Time*](../Nature-Of-Time/Nature-Of-Time.pdf)). Behavioural and social expression of the six perspectives belongs in [Human Behavior and Society](../Human-Behavior-And-Society/Human-Behavior-And-Society.pdf); this section states the ontological design of *jeevan* in the knowledge order.
 
 ### 1.9.4 Omnipresence as *Gyan*; *Jeevan* as knower
 

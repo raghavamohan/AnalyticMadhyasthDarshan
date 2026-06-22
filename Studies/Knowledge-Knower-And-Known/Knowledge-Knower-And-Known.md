@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 22, 2026, 6:34 AM IST
+**Edited on:** June 22, 2026, 7:30 AM IST
 
 **Status:** Draft
 
@@ -30,6 +30,7 @@ These topical studies state the philosophy in clear, checkable prose first. A se
 | ***Jeevan*** | The sentient self — in Shri Nagraj's view a real, eternal, atom-scale entity that works *through* the body. Ontology: [What-Is-Existence](../What-Is-Existence/What-Is-Existence.pdf). |
 | ***Drishta-pad* (Seer status)** | The unique capacity of the human being in existence to observe, understand, and evaluate all orders of nature. |
 | ***Darshan-drishya-drishti*** | Madhyasth Darshan's structure of worldview, scene, and perspective: the perceiver uses perspective to see the real scene and arrive at holistic understanding. |
+| ***Sapëkshata* (Relativity)** | Epistemological relativity arising from distinctions among perspective, scene, and worldview — real within units and understanding, not a feature of underlying coexistence (§1.4.1). |
 | ***Gyan-vivek-vigyan*** | Knowledge, wisdom/discrimination, and science/systematic know-how — the way understanding becomes evaluation and practical participation. |
 | ***Sanvedansheelta* / *sangyansheelta*** | Sensitivity (body- and sense-based responsiveness) and comprehension/cognisance (the understanding proper to *jeevan*) — the two modes of engaging the world. |
 | ***Pramana*** | Means or proof of valid knowledge; in Madhyasth Darshan, realization (*anubhav*) evidenced in conduct is the ultimate proof. |
@@ -102,6 +103,12 @@ Here:
 3. ***Darshan* (worldview / holistic view)** is the accomplished understanding obtained through right perspective.
 
 The aim of this structure is alignment. When the human's perspective becomes aligned with coexistence, the scene is understood as it is, and that understanding is then evidenced in conduct. Knowing here is therefore not detached observation but the disciplined use of perspective until reality is seen correctly, realized first-hand, and fulfilled in relationships.
+
+### 1.4.1 Relativity (*sapëkshata*)
+
+Madhyasth Darshan uses *sapëkshata* (relativity) in an epistemological sense, not as a synonym for Einstein's physics. Relativity arises from the distinctions among perspective (*drishti*), scene (*drishya*), and holistic view (*darshan*): qualification yields perspective, perspective organises how the scene is seen and evaluated, and the worldview accomplished through that process is never a view from nowhere. Different *drishti* — lower or humane, deluded or awakened — therefore yield different relative understandings of the same real activities in existence.
+
+This is not a claim that relativity is unreal or that the scene is finally *mithya*. The distinctions belong to units, viewing, and understanding in the knowledge order — to how *jeevan* participates in *gyan udghatan* through study, evaluation, and conduct — not to the underlying reality of coexistence itself. Omnipresence, unit beingness, and structural relationships remain real whether or not any particular human has yet aligned perspective with coexistence. What is relative is the evaluative seeing and the understanding a *jeevan* has yet to evidence; what is absolute is coexistence as such (§1.11).
 
 ### 1.5 Knowing, believing, recognizing, and fulfilling
 
@@ -183,6 +190,8 @@ Madhyasth Darshan recognizes truth in three registers — absolute, relative, an
 
 > **“The tradition of imparting the understanding of absolute truth, relative truth, and objective truth is itself the source of reality.”**
 > — MVD, p. 37
+
+The **relative** register names truths that hold within the *darshan-drishya-drishti* structure (§1.4.1) — perspective-dependent understanding of units, relationships, and conduct. The **absolute** register names coexistence as such. The **objective** register names what can be evidenced and shared in activity, experiment, and tradition. Neither the relative nor the objective register cancels the reality of units or the world; *sapëkshata* marks the epistemic domain of viewing and understanding, not an intermediate ontological status like Advaita's *mithya* (§4.2).
 
 From this follows one of the darshan's sharpest epistemological commitments: existence is *fully knowable*, and "mystery" is not a permanent horizon but a removable deficit of understanding.
 
