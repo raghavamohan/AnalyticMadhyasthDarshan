@@ -53,11 +53,11 @@ Select any linked title to open the full study. Titles shown in italics are stil
 <!-- studies-catalog -->
 | Document | Category | Description | Status |
 |----------|----------|-------------|--------|
-| [What-Is-Existence](What-Is-Existence/What-Is-Existence.pdf) | Ontology | Madhyasth Darshan, Advaita Vedanta, and modern philosophy on existence, what exists, and whether existence begins | Draft<br>Last updated on: Jun 22, 2026, 7:30 AM IST |
+| [What-Is-Existence](What-Is-Existence/What-Is-Existence.pdf) | Ontology | Madhyasth Darshan, Advaita Vedanta, and modern philosophy on existence, what exists, and whether existence begins | Draft<br>Last updated on: Jun 22, 2026, 4:21 PM IST |
 | [Nature-Of-Time](Nature-Of-Time/Nature-Of-Time.pdf) | Ontology | The nature of time (kaal), timeless satta, activity and duration, and comparison with Advaita, philosophy of time, and physics | Draft<br>Last updated on: Jun 22, 2026, 6:34 AM IST |
 | [Why-Humans-Are-Not-Just-Material](Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.pdf) | Philosophical Anthropology | Madhyasth Darshan, science, and Advaita Vedanta on whether humans are more than matter | Draft<br>Last updated on: Jun 20, 2026, 5:36 PM IST |
 | *Philosophy-Of-Mind-And-Jeevan* | Philosophy of Mind | Ongoing.. Jeevan, mun, vritti, chitta, buddhi, atma, desire, imagination, selection, delusion, and awakening | Ongoing |
-| [Knowledge-Knower-And-Known](Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) | Epistemology | Comparative study of knowledge, knower, and known in Madhyasth Darshan, Advaita Vedanta, and Modern Philosophy | Draft<br>Last updated on: Jun 22, 2026, 7:30 AM IST |
+| [Knowledge-Knower-And-Known](Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) | Epistemology | Comparative study of knowledge, knower, and known in Madhyasth Darshan, Advaita Vedanta, and Modern Philosophy | Draft<br>Last updated on: Jun 22, 2026, 4:19 PM IST |
 | *Methodology-And-Hermeneutics* | Methodology | Ongoing.. Primary-text method, translation issues, citation discipline, interpretation, comparison, and rigorous study practice | Ongoing |
 | *Axiology-Value-Theory* | Axiology | Ongoing.. Values, value-recognition, value-fulfilment, mutual satisfaction, and the structure of humane value theory | Ongoing |
 | [Ethics-And-Morals-In-Human-Beings](Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf) | Ethics, Axiology | Ethics, morals, humane conduct, Advaita Vedanta, and modern moral science | Draft<br>Last updated on: Jun 18, 2026, 9:40 PM IST |
@@ -80,8 +80,8 @@ These studies are more mathematical in nature. They represent the structure disc
 <!-- formal-studies-catalog -->
 | Document | Formal Focus | Description | Status |
 |----------|--------------|-------------|--------|
-| [Category-Theory-Explained](Category-Theory-Explained/Category-Theory-Explained.pdf) | Category theory | Category-theory lens on the darshan's structure | Draft<br>Last updated on: Jun 22, 2026, 7:07 AM IST |
-| [The-Coexistence-Template](The-Coexistence-Template/The-Coexistence-Template.pdf) | Formal template | Formal template of units, relationships, values, and assembly | Draft<br>Last updated on: Jun 22, 2026, 7:07 AM IST |
+| [Category-Theory-Explained](Category-Theory-Explained/Category-Theory-Explained.pdf) | Category theory | Category-theory lens on the darshan's structure | Draft<br>Last updated on: Jun 22, 2026, 4:24 PM IST |
+| [The-Coexistence-Template](The-Coexistence-Template/The-Coexistence-Template.pdf) | Formal template | Formal template of units, relationships, values, and assembly | Draft<br>Last updated on: Jun 22, 2026, 4:24 PM IST |
 <!-- /formal-studies-catalog -->
 
 ## How to contribute

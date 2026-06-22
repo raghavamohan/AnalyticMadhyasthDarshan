@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 22, 2026, 7:30 AM IST
+**Edited on:** June 22, 2026, 4:19 PM IST
 
 **Status:** Draft
 
@@ -63,7 +63,7 @@ Importantly, Space here is not an individual conscious subject and not a unit am
 
 MVD p. 289 states explicitly that **the unfolding of knowledge** (*gyan udghatan*) occurs **only** through the sentient aspect (*jeevan*) or thoughts — not through insentient units and not through Omnipresence acting as a knower. MVD p. 115 adds a narrower formulation: knowledge is inherent everywhere, but **its unfolding happens by awakened humans** — a sleeping, deluded *jeevan* cannot unfold it. The same passage describes a sensory/cognitive pathway: vibrational motion on the brain from the cognitive organs leads to the unfolding of knowledge. So *gyan* as a name of *satta* is the intelligibility-ground; *gyan udghatan* is an activity exclusive to awakened *jeevan*.
 
-That is why Omnipresence can be called Knowledge without being a knowing subject — and why a careless reading of MVD p. 35 collapses straight into Advaita's *chit* (Brahman as awareness itself), exactly the identification Madhyasth Darshan otherwise resists. The ontology paper develops this through the **Saturation-Reflector Model**: the ever-present *gyan* of *satta* is expressed as active sentience only when a constitutionally complete atom acts as a stable reflector ([What-Is-Existence](../What-Is-Existence/What-Is-Existence.pdf) §1.9, §6.6).
+That is why Omnipresence can be called Knowledge without being a knowing subject — and why a careless reading of MVD p. 35 collapses straight into Advaita's *chit* (Brahman as awareness itself), exactly the identification Madhyasth Darshan otherwise resists. All units saturated in permeative *gyan* participate in inherent orderliness (MVD, p. 11; [What-Is-Existence](../What-Is-Existence/What-Is-Existence.pdf) §1.3); the ontology paper develops how ever-present *gyan* is expressed as active sentience only when a constitutionally complete atom acts as a stable reflector — the **Saturation-Reflector Model** ([What-Is-Existence](../What-Is-Existence/What-Is-Existence.pdf) §1.9, §6.6).
 
 ### 1.2 Knowledge as *gyan-vivek-vigyan*
 
