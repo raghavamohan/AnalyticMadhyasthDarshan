@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 22, 2026, 4:19 PM IST
+**Edited on:** June 22, 2026, 7:09 PM IST
 
 **Status:** Draft
 
@@ -35,10 +35,12 @@ These topical studies state the philosophy in clear, checkable prose first. A se
 | ***Sanvedansheelta* / *sangyansheelta*** | Sensitivity (body- and sense-based responsiveness) and comprehension/cognisance (the understanding proper to *jeevan*) — the two modes of engaging the world. |
 | ***Pramana*** | Means or proof of valid knowledge; in Madhyasth Darshan, realization (*anubhav*) evidenced in conduct is the ultimate proof. |
 | ***Bhram*** | Delusion — living by inherited belief rather than understanding, rooted in identifying *jeevan* with the body. |
+| ***Rahasyata* (Mysteriousness)** | Incapacity to reveal or attain complete understanding — not an ontological opacity in coexistence (§1.11). |
+| ***Bauddhik rahasya* (Intellectual mystery)** | Misalignment among *mun*, *vritti*, *chitta*, and *buddhi* when lower faculties do not take refuge in the one above (§1.11.1). |
 | **Coexistence (*sah-astitva*)** | Existence seen as all units inseparably present together in Space. |
 | ***Atman* / *Brahman*** | In Advaita Vedanta: the innermost Self / the one ultimate, non-dual reality. |
 | ***Mithya*** | Advaita's term for the world: dependent, provisional appearance, not absolutely real. |
-| **Hard Problem** | The mystery of why physical brain processes are accompanied by subjective, felt experience at all. |
+| **Hard Problem** | Why physical brain processes are accompanied by subjective experience — a modern open question, not the same as Madhyasth Darshan's *rahasyata* (§1.11). |
 
 ## 1. The Madhyasth Darshan Answer
 
@@ -203,6 +205,46 @@ From this follows one of the darshan's sharpest epistemological commitments: exi
 
 Madhyasth Darshan asserts that right understanding culminates in certitude, not residual mystery: "The holistic view of reality leads to 'certitude'; otherwise, doubt persists" (MVD, p. 209).
 
+MVD Ch. 17 (*Rahasy-mukti*, Liberation from Mystery) sharpens the same doctrine at the level of the knower. Mystery is not revealing understanding, not being able to reveal it, or not attaining complete understanding; the incapacity for this is *rahasyata* (mysteriousness):
+
+> **“Not revealing understanding or not being able to do so, or not being able to attain it, is a mystery. The incapacity for this is 'mysteriousness'.”**
+> — MVD, Ch. 17, p. 273
+
+Page 209 states the epistemic commitment; Ch. 17 states the **mechanism and path** by which incomplete understanding persists in the knowledge order and is removed. Only humans attain complete understanding through the realization-based method in coexistence (MVD, Ch. 17, p. 273); the *dharma* of a unit is realized, not grasped by description alone, through study and stepwise guidance from one who has realization (MVD, Ch. 17, p. 273). This is not the Hard Problem of consciousness (glossary): Madhyasth Darshan locates *rahasyata* in the knower's incomplete reflection, not in an irreducible opacity of coexistence itself ([What-Is-Existence](../What-Is-Existence/What-Is-Existence.pdf) §1.9.1, §1.9.4).
+
+### 1.11.1 Intellectual mystery and the knower's misalignment
+
+The root misidentification named in §1.10 — *jeevan* taken for the body — propagates through the knower's inner structure. In delusion, hope in *mun* follows sensation upward from the body; in awakening, realization in coexistence at *atma* regulates *buddhi*, *chitta*, *vritti*, and *mun* through the same projection–reflection cycle (*paravartan* and *pratyavartan*). When lower faculties do not take refuge in the one above, the texts call this *bauddhik rahasya* (intellectual mystery) — misalignment within *jeevan*, not an ontological limit on what exists (MVD, Ch. 17, pp. 274–277, 279). The ontology study develops the cycle in full ([What-Is-Existence](../What-Is-Existence/What-Is-Existence.pdf) §1.9.1); here the epistemic point is that **error in knowing** takes the form of discord among the faculties that should carry reflection upward.
+
+Until *atma-bodh*, ego (*ahankar*) underlies knowing: buddhi without *atma-bodh* is ego, which appears as conceit in *chitta*, stubbornness in *vritti*, and attachment and agitation in *mun* (MVD, Ch. 17, p. 279). At the root of agitation lies stubbornness, at the root of stubbornness delusion, at the root of delusion ego (MVD, Ch. 17, p. 292). Delusion is therefore not only inherited belief about the body; it is a **structured failure of reflection** in the active knower described in §1.12.
+
+Why another person's awakening can look equally "mysterious" while one's own decline feels inevitable uses the same structure: the means (*sadhan*) are shared; only the direction of the cycle differs (MVD, Ch. 17, pp. 295–296). The appearance of mystery here is failure to understand reflection-direction, not evidence of hidden forces in existence.
+
+### 1.11.2 Uprooting mystery: paths and conditions of valid knowing
+
+MVD Ch. 17 names a definite process for ending intellectual mystery. Only through practising and behaving according to this process can *bauddhik rahasya* be eliminated (MVD, Ch. 17, p. 280). The process is of two kinds:
+
+**Exploration** (*anushandhan*) is inventive realisation: comprehensive study from the initial state of activity or extreme decline through development and awakening to omnipresence, until the seeker sees the entire decline-and-development chain, the self, and the goal of all humankind as capacity for realisation in omnipresence (MVD, Ch. 17, pp. 280–281).
+
+**Following, emulation, and study** in awakened tradition summarises as: (1) emulating just behaviour, and (2) abiding in resolved, dharma-based thoughts. Firmness in both yields authority for realisation of verity and immersion of *buddhi* in truth (MVD, Ch. 17, pp. 282–283).
+
+Successful **reflection** (*pratyavartan*) — the upward regulation by which behaviour becomes thought, thought desire, desire resolve, and resolve realization — requires four supports working together (MVD, Ch. 17, pp. 284–285, 291–292):
+
+1. **Universal orderliness** — for behaviour without crime.
+2. **Social conduct** — for thoughts without injustice.
+3. **Study and *sanskar*** — for desire without attachment.
+4. **Inward regulation** (*dhyan*) — for *buddhi* without ignorance.
+
+Concentration (*dhyan*) here means focusing *mun*, *vritti*, *chitta*, and *buddhi* to understand, then to evidence after understanding and realization (MVD, Ch. 17, p. 284). These are epistemic conditions for valid knowing, not optional moral extras: they are what makes the evidence chain of §1.6 and the proof-by-conveying of §1.8 possible rather than merely asserted. The detailed practice of *dhyan*, the six flaws of delusion, and yoga as union belong in the planned study *Spiritual-Practice-And-Realization*; this section states only the epistemic architecture Ch. 17 presupposes.
+
+Internal regulation together with humane orderliness, social conduct, study, and *sanskar* is what makes accomplishment of highest development (awakening) possible (MVD, Ch. 17, p. 285). Becoming established in just behaviour, dharma-based thoughts, and truth-realisation-based desires is complete awakening in the epistemic sense (MVD, Ch. 17, pp. 283–285).
+
+### 1.11.3 Certitude, delusion-less knowledge, and liberation from mystery
+
+The arc closes where §1.11 opened: holistic view yields certitude (MVD, p. 209); delusion-less knowledge (*nirbhram gyan*) is knowing, understanding, and imparting realities as they are (MVD, p. 317; §1.7). MVD Ch. 17 adds the outcome in the knower's own terms: the accomplishment of mental wellbeing or bliss itself is liberation from mystery (MVD, Ch. 17, p. 301). Mystery removed is not a blank positivism but realized harmony — *gyan* unfolded as *vivek* and *vigyan* (§1.2) and evidenced in conduct.
+
+Madhyasth Darshan contrasts this with mystery-based traditions that treat ultimate knowledge as unmanifest and ineffable ([Human Behavior and Society](../Human-Behavior-And-Society/Human-Behavior-And-Society.pdf) §3): here knowledge is manifest, effable, studyable, and verifiable through behaviour. The contrast is epistemic — what counts as adequate knowing — not a dismissal of other traditions' ethical or contemplative achievements.
+
 ### 1.12 Who is the knower?
 
 The knower (*gyata* or *drishta*) is the sentient self — ***jeevan*** — operating through the human body. Specifically, the human being is the locus where seer-status can be evidenced:
@@ -222,7 +264,7 @@ This distinction is important: every human has the possibility of seer-status be
 
 In the human order, knowledge-unfolding is additionally ***sanskar*-mediated**: acceptances toward completeness, and knowledge, wisdom, and science carried forward toward resolution for evidencing (MVD, p. 90). Awakening, *sanskar*, environment, study, and humaneness form an explicit circular dependency (MVD, p. 290). Insentient units do not unfold knowledge; only *jeevan* does, through thought — a point developed in the ontology study at [What-Is-Existence](../What-Is-Existence/What-Is-Existence.pdf) §1.9.
 
-The knower in Madhyasth Darshan is therefore not an actionless, passive witness. *Jeevan* is an active, structured, sentient unit. Its activities include hope in *mun*, thought in *vritti*, desire in *chitta*, resoluteness in *buddhi*, and realization in *atma*. (*Jeevan Vidya* presents the same structure as ten coordinated activities across the atom's nucleus and orbits — taste and selection in *mun*, deliberation and analysis in *vritti*, contemplation and visualization in *chitta*, enlightenment and resolve in *buddhi*, and realization and authenticity in *atma* — JV, p. 92.) The body is the instrument through which this *jeevan* acts; the brain (*medhas*) receives and processes signals related to *jeevan*'s aspirations, desires, and evidence (MVD, p. 83). The inner self is thus understood as a real, active, constitutionally complete unit capable of awakening — not a passive or actionless witness.
+The knower in Madhyasth Darshan is therefore not an actionless, passive witness. *Jeevan* is an active, structured, sentient unit. Its activities include hope in *mun*, thought in *vritti*, desire in *chitta*, resoluteness in *buddhi*, and realization in *atma*. When these faculties are misaligned — lower layers not taking refuge in higher — the knower-side form of mystery named in §1.11.1 blocks complete knowing even though seer-status remains provisionally possible. (*Jeevan Vidya* presents the same structure as ten coordinated activities across the atom's nucleus and orbits — taste and selection in *mun*, deliberation and analysis in *vritti*, contemplation and visualization in *chitta*, enlightenment and resolve in *buddhi*, and realization and authenticity in *atma* — JV, p. 92.) The body is the instrument through which this *jeevan* acts; the brain (*medhas*) receives and processes signals related to *jeevan*'s aspirations, desires, and evidence (MVD, p. 83). The inner self is thus understood as a real, active, constitutionally complete unit capable of awakening — not a passive or actionless witness.
 
 In this account the brain is a bodily organ through which *jeevan* operates, and values and evaluation are activities of *jeevan* rather than mechanical outputs of the body.
 
@@ -389,7 +431,7 @@ These developments do not remove the major modern objection to Madhyasth Darshan
 4. **Knowledge must become conduct.** In Madhyasth Darshan, *gyan* must unfold as *vivek* and *vigyan*, and then become evident through realization, behaviour, and experiment. Advaita's highest knowledge culminates in liberation from mistaken identification. Modern science's knowledge culminates in predictive control, explanation, and replicable models.
 5. **The Status of Space:** In modern physics, space-time is a physical structure described mathematically. In Advaita, space (*akasha*) belongs to the order of appearance and is therefore *mithya*. In Madhyasth Darshan, Space (*shunya* / *vyapak*) is eternal, omnipresent, all-pervasive knowledge and energy itself, but not an individual conscious unit.
 6. **Where Recent Modern Views Come Closer to MD:** Predictive processing and enactivism make the knower active and embodied; social virtue epistemology makes knowledge socially maintained; perspectival realism makes knowledge perspective-dependent but not merely subjective. These partially resemble Madhyasth Darshan's active seer, conduct-evidence, and perspective structure. The decisive difference remains ontological: these modern views generally do not accept *jeevan* as a real, eternal sentient unit.
-7. **How each explains valid knowing and error.** Madhyasth Darshan makes realization the ultimate proof and treats error as a *removable* misidentification of *jeevan* with the body. Advaita reserves ultimate competence for revelation (*shabda*) and treats error — and the world itself — as *anirvacaniya* appearance sublated by knowledge. Modern science trusts measurement and replication and treats error as bias or false belief, while conceding (since Gettier) that even "justified true belief" may not capture knowledge. The contrast is sharpest on mystery: Madhyasth Darshan claims it is fully eliminable, Advaita relocates it beyond the sayable, and science leaves it open.
+7. **How each explains valid knowing and error.** Madhyasth Darshan makes realization the ultimate proof and treats error as a *removable* misidentification of *jeevan* with the body, propagating as intellectual mystery — misaligned reflection among the knower's faculties (§1.11.1) — rather than an irreducible opacity in existence. Advaita reserves ultimate competence for revelation (*shabda*) and treats error — and the world itself — as *anirvacaniya* appearance sublated by knowledge. Modern science trusts measurement and replication and treats error as bias or false belief, while conceding (since Gettier) that even "justified true belief" may not capture knowledge. The contrast is sharpest on mystery: Madhyasth Darshan claims it is fully eliminable through holistic view and aligned knowing; Advaita relocates it beyond the sayable; science leaves the Hard Problem open.
 
 ### 4.2 Sat-Chit-Ananda versus distributed coexistence
 
@@ -428,7 +470,7 @@ No view escapes serious objections. Here is where each is strong and where each 
 - **Axiomatic foundations.** The claim that "Space is Knowledge" is a metaphysical assertion that cannot be verified by physical measurement.
 - **The interaction problem.** If *jeevan* is a sentient atom operating through the body, the account needs a clearer bridge between *jeevan*'s signals and the brain's measurable neural processes. Madhyasth Darshan names the brain (*medhas*) as the receiver of *jeevan*'s signals, but this remains hard to reconcile with physical causal closure.
 - **Falsifiability.** The system risks being unfalsifiable because any disagreement or failure to verify its claims is attributed to a "lack of awakening" rather than a possible error in the theory.
-- **The full-knowability thesis.** The claim that existence contains no permanent mystery and that right understanding yields *certitude* is unusually strong. A critic can ask how one could ever know that *all* of existence has been understood, and whether "certitude" is being guaranteed by definition rather than earned by inquiry.
+- **The full-knowability thesis.** The claim that existence contains no permanent mystery and that right understanding yields *certitude* is unusually strong. MVD Ch. 17 supplies an internal account — intellectual mystery as faculty misalignment, two paths of study, and four supports for valid reflection (§1.11) — so the thesis is not a bare slogan. A critic can still ask how one could ever know that *all* of existence has been understood, and whether "certitude" is being guaranteed by definition rather than earned by inquiry.
 - **Evidence standard vs. science.** Realization and behaviour are cited as proof; science requires public testability. What would count as evidence for *jeevan* beyond the hard-problem explanatory gap remains unsettled (§4.3; [What-Is-Existence](../What-Is-Existence/What-Is-Existence.pdf) §6.4).
 
 Madhyasth Darshan is best read as an internally integrated epistemology whose decisive tests remain conduct-based and publicly contestable, not as a demonstrated ontology.
@@ -460,7 +502,7 @@ Scientific materialism offers the strongest method and the best-supported accoun
 
 ### Madhyasth Darshan (primary sources)
 
-- **MVD** — Nagraj, A. [*Madhyasth Darshan – Co-existentialism*, Part 1: *Holistic View of Human Behaviour*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: all units in Omnipresence (p. 11); evidence chain and "Believe what is known" (p. 12); "Only awakened humans" (p. 33); Space as knowledge and *gyan-vivek-vigyan* (p. 35, 143, 155); threefold truth (p. 37); *sanskar* definition (p. 90); *medhas* and activities of *jeevan* (p. 83); *darshan-drishya-drishti* (p. 84); knowledge unfolding by awakened humans (p. 115); "Realisation in coexistence" (p. 116); mystery and certitude (p. 209); knowledge unfolding through *jeevan*/thoughts (p. 289); awakening–*sanskar* cycle (p. 290); "Realisation in knowledge" (p. 316); "delusion-less knowledge" (p. 317); "Brahma is truth, the world is perpetual" (*The Alternative*, point 8).
+- **MVD** — Nagraj, A. [*Madhyasth Darshan – Co-existentialism*, Part 1: *Holistic View of Human Behaviour*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: all units in Omnipresence (p. 11); evidence chain and "Believe what is known" (p. 12); "Only awakened humans" (p. 33); Space as knowledge and *gyan-vivek-vigyan* (p. 35, 143, 155); threefold truth (p. 37); *sanskar* definition (p. 90); *medhas* and activities of *jeevan* (p. 83); *darshan-drishya-drishti* (p. 84); knowledge unfolding by awakened humans (p. 115); "Realisation in coexistence" (p. 116); mystery and certitude (p. 209); Ch. 17 *Rahasy-mukti* — mystery, intellectual mystery, paths, four supports, liberation as bliss (pp. 273–301); knowledge unfolding through *jeevan*/thoughts (p. 289); awakening–*sanskar* cycle (p. 290); "Realisation in knowledge" (p. 316); "delusion-less knowledge" (p. 317); "Brahma is truth, the world is perpetual" (*The Alternative*, point 8).
 - **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: Balance of cognisance and sensitivity (p. 64); Threefold knowledge (p. 116); Human as seer (p. 188); Seer-status in existence (p. 239).
 - **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: Proof by conveying understanding (p. 26); ten activities of *jeevan* (p. 92); root of delusion and belief-vs-knowledge (p. 93); definition of knowledge (p. 165); purview of sensitivity (p. 166).
 
@@ -477,7 +519,9 @@ Scientific materialism offers the strongest method and the best-supported accoun
 
 ### Related studies in this collection
 
-- [What-Is-Existence](../What-Is-Existence/What-Is-Existence.pdf) — "Knowledge but not knower" (§1.9), Sat-Chit-Ananda contrast (§5.3), epistemic incommensurability (§6.5), Saturation-Reflector Model (§6.6), evidence standards (§6.4).
+- [What-Is-Existence](../What-Is-Existence/What-Is-Existence.pdf) — "Knowledge but not knower" (§1.9), projection–reflection cycle and intellectual mystery (§1.9.1), Sat-Chit-Ananda contrast (§5.3), epistemic incommensurability (§6.5), Saturation-Reflector Model (§6.6), evidence standards (§6.4).
+- [Human Behavior and Society](../Human-Behavior-And-Society/Human-Behavior-And-Society.pdf) — manifest, effable knowledge versus mystery-based ineffability (§3).
+- *Spiritual-Practice-And-Realization* (Ongoing) — *dhyan*, yoga, six flaws, and the practice path deferred from §1.11.2.
 
 ### Modern Science & Philosophy
 
