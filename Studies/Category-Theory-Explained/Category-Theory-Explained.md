@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 22, 2026, 7:07 AM IST
+**Edited on:** June 22, 2026, 4:24 PM IST
 
 **Status:** Draft
 
@@ -21,7 +21,7 @@ Category theory is built on a single shift in attention:
 
 Most of modern science explains things by **breaking them into parts** (cells, molecules, atoms, particles). Category theory instead studies the **arrows between things** — the relationships, the flows, the transformations — and treats those relationships as the real subject matter.
 
-Madhyasth Darshan defines **existence as coexistence** (*saha-astitva*): the co-eternally present togetherness of formless Omnipresence (*satta*) and countless real units (*ikai*), bound in **saturation** — pervasive co-location with mutual energetic dependence — and then in definite **relationships** (*sambandh*) with other units ([What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §§1.1–1.4). That two-layer picture is close to category theory's attention to structure, though saturation is not itself a morphism between units (§6.13).
+Madhyasth Darshan defines **existence as coexistence** (*saha-astitva*): the co-eternally present togetherness of formless Omnipresence (*satta*) and countless real units (*ikai*), bound in **saturation** — pervasive co-location in which inherent energy and regulation belong to each unit through that relationship, not physical extraction from *satta* — and then in definite **relationships** (*sambandh*) with other units ([What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §§1.1–1.4). That two-layer picture is close to category theory's attention to structure, though saturation is not itself a morphism between units (§6.13).
 
 ```mermaid
 flowchart LR
@@ -221,7 +221,7 @@ Modern AI struggles with exactly the darshan's complaint: optimising a single nu
 Because the formalism states what each worldview *keeps and forgets*, it lets very different traditions compare notes without insult or conversion.
 
 ### As a research programme
-Open questions include: how saturation in *O* (mutual energetic dependence, not a morphism) relates to the categories of unit-to-unit structure; whether plane transitions T1–T3 admit a clean layered-type or fibration model alongside `Ord`; whether transmission τ admits a clean coalgebra or indexed-category model; and whether complementarity of need (template L3) can be fully internalised or must remain an external guard on admissible diagrams (§6.9.2).
+Open questions include: how saturation in *O* (inherent energy and regulation in units through co-location — not a morphism, not physical transfer from *O*) relates to the categories of unit-to-unit structure; whether plane transitions T1–T3 admit a clean layered-type or fibration model alongside `Ord`; whether transmission τ admits a clean coalgebra or indexed-category model; and whether complementarity of need (template L3) can be fully internalised or must remain an external guard on admissible diagrams (§6.9.2).
 
 
 ## Part 6: The complete formal theory
@@ -273,7 +273,7 @@ flowchart TD
     Soc -->|"tau"| Trans
 ```
 
-**Sat (saturation).** Omnipresence **O** is not a unit and not an object of `Rel` ([The Coexistence Template](../The-Coexistence-Template/The-Coexistence-Template.pdf) §3.1). Saturation is pervasive co-location with **mutual energetic dependence** — the ever-present bond between *O* and every unit (template A1–A2; [What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §§1.2–1.3). Categorically it is best treated as an **ambient** or **enrichment base** — a family of regulators indexed by units — not as a morphism *u₁ → u₂*. Terminal-object and topos-as-space readings of *vyapak* remain stretches (§6.13.4).
+**Sat (saturation).** Omnipresence **O** is not a unit and not an object of `Rel` ([The Coexistence Template](../The-Coexistence-Template/The-Coexistence-Template.pdf) §3.1). Saturation is pervasive co-location in which **inherent energy and regulation belong to each unit** through the O–unit bond — mutual dependence for manifestation, not physical extraction from *O* (template A1–A2; [What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §§1.2–1.3). Categorically it is best treated as an **ambient** or **enrichment base** — a family of regulators indexed by units — not as a morphism *u₁ → u₂*. Terminal-object and topos-as-space readings of *vyapak* remain stretches (§6.13.4).
 
 **Eval and μ.** Evaluation is defined **only for knowledge-order units** (template D6): *jeevan* assesses value delivered in a relationship. Model it as an endofunctor or process `μ : Liv → Liv` (or a functor into a category of assessments) that does not factor through `Phys`. Justice is the composite **ρ → φ → μ → mutual satisfaction** — an **operator over** *V*, not a member of *V* (template D7).
 
@@ -289,7 +289,7 @@ flowchart TD
 
 | Template | Symbol / law | Categorical analogue in this paper | Fit / gap |
 |---|---|---|---|
-| Coexistence, saturation | **O**, A1–A2 | Ambient `Sat`; mutual energetic dependence; not in `Rel` | Medium is constitutive; CT has no default for non-morphismic ground |
+| Coexistence, saturation | **O**, A1–A2 | Ambient `Sat`; inherent energy in units through co-location; not in `Rel`; not transfer from *O* | Medium is constitutive; CT has no default for non-morphismic ground |
 | Units, signature | **U**, D1, D1a | Objects across categories; **sig(*u*)** typed data (roop, gun, svabhav, dharma) | Strong for orders; property triad generative/degenerative/mediative is typed, not derived |
 | Relationships | **R**, D3 | Category `Rel`; expectation profiles **E(r)** on arrows | Strong; association vs relationship is typing, not composition |
 | Values / essentiality | **V**, D4 | Preorder `Val`; enrichment base **W**; essentiality (*maulikta*) as participation-as-value | Moderate — graded taxonomy (object / established / civic) compresses in §6.6 |
@@ -664,7 +664,7 @@ These are stated as: **structural claim, given premise P**. None is a theorem ab
 
 | Madhyasth concept | Categorical representation | Fit | Comment |
 |---|---|---|---|
-| Saturation in *O* (A1–A2) | Ambient `Sat`; mutual dependence; not `Rel` morphism | Weak–moderate | Two-layer ontology; CT has no native ground |
+| Saturation in *O* (A1–A2) | Ambient `Sat`; inherent energy in unit through co-location; not `Rel` morphism; not transfer from *O* | Weak–moderate | Two-layer ontology; CT has no native ground |
 | Unit signature (D1, D1a) | Typed **sig(*u*)** on objects; compound assigns new signature | Moderate | Property triad and order *svabhav*/*dharma* are data, not derived |
 | Planes, T1–T3 (D11) | Layered typing `Pln`; T1 in Petri; T2–T3 in `Liv` | Partial | Orders in `Ord`; planes cross-cut knowledge order |
 | Four orders contain lower orders | Poset `Ord` | Strong | Mereology is what posets are for |
@@ -693,7 +693,7 @@ These are stated as: **structural claim, given premise P**. None is a theorem ab
 
 3. **Constitutional completeness as content.** Encodable as an irreversible transition, but the Petri structure is content-agnostic; the specific metaphysical claim is invisible to it.
 
-4. **Saturation vs unit relationships.** Omnipresence energises and regulates every unit through pervasive co-location and mutual energetic dependence (A1–A2) but is **not** a member of **U** and not an arrow in `Rel`. Saturation is the first ontological layer; *sambandh* is the second ([What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §§1.3–1.4). Terminal object, monoidal unit, or topos-as-space are inadequate substitutes.
+4. **Saturation vs unit relationships.** Omnipresence provisions inherent energy and regulation in every unit through pervasive co-location (A1–A2) — mutual dependence for manifestation, not physical extraction from *O* — but **O** is **not** a member of **U** and not an arrow in `Rel`. Saturation is the first ontological layer; *sambandh* is the second ([What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §§1.3–1.4). Terminal object, monoidal unit, or topos-as-space are inadequate substitutes.
 
 5. **Coexistence: ground and constraint.** It functions as the background that makes composition possible and as a constraint (colimit compatibility). That dual role signals a **first principle** not fully internalisable as a single categorical object.
 
