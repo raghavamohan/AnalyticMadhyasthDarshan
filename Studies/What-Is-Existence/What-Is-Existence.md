@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 22, 2026, 6:56 AM IST
+**Edited on:** June 22, 2026, 7:16 AM IST
 
 **Status:** Draft
 
@@ -365,6 +365,8 @@ MVD lists five inseparable aspects — *mun*, *vritti*, *chitta*, *buddhi*, and 
 | *Buddhi* | resolve (*sankalp*) | enlightenment (*bodh*) |
 | *Atma* | authenticity (*pramanikta*) | realisation (*anubhav*) |
 
+In delusion, hope follows sensation upward from the body; in awakening, realisation in coexistence at *atma* regulates *buddhi*, *chitta*, *vritti*, and *mun* through the same projection–reflection cycle (MVD, Ch. 17, pp. 274–277). When lower faculties do not take refuge in the one above, the texts call this *bauddhik rahasya* (intellectual mystery) — not an ontological opacity in coexistence, but misalignment within *jeevan* (MVD, Ch. 17, p. 279). Why development and decline can look equally mysterious uses the same structure: the means are shared; only the direction of the cycle differs (MVD, Ch. 17, pp. 295–296). For the full-knowability thesis, see [Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §1.11; the practice path belongs in the planned study *Spiritual-Practice-And-Realization*.
+
 The texts also call *jeevan* indivisible and immortal. Madhyasth Darshan reads "indivisibility" as functional: the constitution is self-maintaining and does not spontaneously lose completeness. "Immortal" means the sentient unit does not lose constitutional completeness — not that it has no parts in a mereological sense.
 
 > **"Jeevan continues to exist even after death as it does while driving a body."**
@@ -416,7 +418,7 @@ The knowing act (*chaitanya*) belongs only to *jeevan*. MVD p. 289 states explic
 
 *Jeevan* participates in a structure of development and awakening that is **definite** and provisioned in coexistence — existence is stable, development and awakening are definite, and all the laws are natural and inherent to being and abiding (MVD, p. 5). In the Verity chain, orderliness (*vyavastha*) **is** development and awakening (MVD, p. 15). MVD also provides for the study of development progression and awakening progression as distinct provisions in coexistence (MVD, p. 87; JV, p. 59). Units manifest what is provisioned and inherent through growing capacity, ability, and receptivity, study, and environment (MVD, pp. 27, 134, 142) — not by creating the frame from nothing.
 
-For epistemic structure (*gyan-vivek-vigyan*, realization, and evidence), see [Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf). The Saturation-Reflector Model — how *satta*'s *gyan* becomes active sentience through a constitutionally complete atom — is developed in §6.6. Whether existence itself begins is §1.10.
+For epistemic structure (*gyan-vivek-vigyan*, realization, and evidence), including why "mystery" names incomplete understanding rather than an irreducible limit of existence, see [Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §1.11 (MVD, Ch. 17, pp. 273, 301). The Saturation-Reflector Model — how *satta*'s *gyan* becomes active sentience through a constitutionally complete atom — is developed in §6.6. Whether existence itself begins is §1.10.
 
 ### 1.10 Does Existence Begin? The Conservation of Reality
 
