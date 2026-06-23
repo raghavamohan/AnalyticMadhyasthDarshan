@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 22, 2026, 4:24 PM IST
+**Edited on:** June 23, 2026, 8:59 PM IST
 
 **Status:** Draft
 
@@ -105,7 +105,7 @@ The arrows point one way for a reason. A human contains and depends on the mater
 
 The formalism does not *prove* this; it *records* it cleanly, so the claim is explicit and cannot be smuggled in or out unnoticed.
 
-**Orders vs planes.** The four **orders** name what a unit *is* (material through knowledge). SB also names four **planes** — physicochemical, delusional, deific, divine — as developmental stages toward completeness, mapped to transitions T1–T3 (constitutional, activity, and conduct completeness). Deluded and awakened humans share the knowledge order but occupy different planes ([What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §§1.7–1.8; [The Coexistence Template](../The-Coexistence-Template/The-Coexistence-Template.pdf) D11). Category theory models orders as the poset `Ord` (§6.2); planes need a second layered typing (§6.2.1).
+**Orders vs planes.** The four **orders** name what a unit *is* (material through knowledge). SB also names four **planes** — physicochemical, delusional, deific, divine — as developmental stages toward completeness, mapped to transitions T1–T3 (constitutional, activity, and conduct completeness). Deluded and awakened humans share the knowledge order but occupy different planes ([What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §§1.7–1.9; [The Coexistence Template](../The-Coexistence-Template/The-Coexistence-Template.pdf) D11). Category theory models orders as the poset `Ord` (§6.2); planes need a second layered typing (§6.2.1).
 
 ### 3.2 A human being: an actor and an instrument
 
@@ -325,7 +325,7 @@ The non-existence of `K <= M` is exactly the anti-reductionist content; here it 
 
 ### 6.2.1 Planes, completeness stages, and two progressions
 
-[*What Is Existence?*](../What-Is-Existence/What-Is-Existence.pdf) §§1.7–1.8 and the template (D11, P6) distinguish **orders** (what a unit *is*) from **planes** (where development has reached in nature's progression toward completeness). The three completeness stages map to plane transitions:
+[*What Is Existence?*](../What-Is-Existence/What-Is-Existence.pdf) §§1.7–1.9 and the template (D11, P6) distinguish **orders** (what a unit *is*) from **planes** (where development has reached in nature's progression toward completeness). The three completeness stages map to plane transitions:
 
 | Transition | Completeness stage | Plane move |
 |---|---|---|
@@ -414,7 +414,7 @@ The base `W` and the choice of `min` are modeling decisions. The enrichment capt
 
 ### 6.6.1 Fulfilment modulated by capacity (cap(u))
 
-Template D5a writes **cap(*u*) = ⟨ksh, yog, pat⟩** for capacity (*kshamata*), ability (*yogyata*), and receptivity (*patrata*) (MVD p. 62). Recognition ρ and fulfilment φ are universal across orders (template L1), but **φ is realised only at the level cap(*u*) permits** — not by receptivity alone. In the material order, **ascending** (*agreshan*) is balance and receptivity gained while converting capacity and ability into effort (*shram*); **frustration** (*kshobh*) is the shortcoming in that conversion — "incompleteness of receptivity" (MVD p. 79). In the knowledge order, cap(*u*) for worldview arises from environment, study, and prior *sanskar* (MVD p. 134); extent of receptivity is qualification (*arhta*), yielding perspective (*drishti*) and worldview (*darshan*) (MVD p. 142) ([What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §§1.4, 1.9).
+Template D5a writes **cap(*u*) = ⟨ksh, yog, pat⟩** for capacity (*kshamata*), ability (*yogyata*), and receptivity (*patrata*) (MVD p. 62). Recognition ρ and fulfilment φ are universal across orders (template L1), but **φ is realised only at the level cap(*u*) permits** — not by receptivity alone. In the material order, **ascending** (*agreshan*) is balance and receptivity gained while converting capacity and ability into effort (*shram*); **frustration** (*kshobh*) is the shortcoming in that conversion — "incompleteness of receptivity" (MVD p. 79). In the knowledge order, cap(*u*) for worldview arises from environment, study, and prior *sanskar* (MVD p. 134); extent of receptivity is qualification (*arhta*), yielding perspective (*drishti*) and worldview (*darshan*) (MVD p. 142) ([What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §§1.4, 1.9). Evaluative *sapëkshata* (relativity) arises from how *jeevan* views and understands — *drishti*, *drishya*, and *darshan* — not from unreality of the underlying *Rel* structure ([Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §1.4.1; [What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §1.9); μ therefore operates on perspective-dependent seeing, unlike the forgetful functor `U`, which drops value from physical description.
 
 #### The capability category `Cap`
 
@@ -543,7 +543,7 @@ Template D8 distinguishes two modes of composition κ (MVD p. 42; [What Is Exist
 - **Mixture** (*mishran*): components **all maintain their respective conducts** — aggregation without a new joint conduct.
 - **Compound** (*yaugik*): components combine **in definite proportion**, **discard their own conducts**, and **present another kind of conduct** — a genuinely new unit with its own **sig(*u*) = ⟨roop, gun, svabhav, dharma⟩**, where **gun** is generative, degenerative, or mediative in mutuality (MVD pp. 50–51; template D1, D1a).
 
-**Only compound-mode κ creates a new tier** of the hierarchy (template L6). Development Progression (*vikas-kram*) toward *gathanpurnata* is the canonical **compound** path (MVD p. 8; SB pp. 55, 59). Awakening Progression (*jagriti-kram*) runs in already constitutionally complete *jeevan* and must not be conflated with material-tier κ ([What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §1.5).
+**Only compound-mode κ creates a new tier** of the hierarchy (template L6). **Composition is not development** ([What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §1.5): arbitrary coproducts and colimits do not model ontological order ascent; only admissible compound-mode κ_comp along *vikas-kram* reaches T1. Development Progression (*vikas-kram*) toward *gathanpurnata* is the canonical **compound** path (MVD p. 8; SB pp. 55, 59). Awakening Progression (*jagriti-kram*) runs in already constitutionally complete *jeevan* and must not be conflated with material-tier κ ([What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §1.5).
 
 #### Categorical semantics: two colimit-like constructors
 
@@ -634,7 +634,7 @@ Hungry/overfull atomic bonding is **compound-mode** κ_comp guarded by L3 (§6.9
 | *jagriti-kram* (in `Liv`; not κ_comp) | awaken | deluded K-order unit | deific plane | T2: activity completeness |
 | *jagriti-kram* (in `Liv`; not κ_comp) | evidence | awakened K-order unit | divine plane | T3: conduct completeness |
 
-**Mixture transitions** (if included) are **identity-preserving** on each factor — token duplication without fusion — and do **not** advance Development Progression toward a new tier.
+**Mixture transitions** (if included) are **identity-preserving** on each factor — token duplication without fusion — and do **not** advance Development Progression toward a new tier. Likewise, social colimits (§6.8) and large assemblies do **not** substitute for order transition: composition is not development ([What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §1.5).
 
 Transitions toward *gathanpurnata* are generally **not invertible** — the constitutionally complete atom does not revert to insentient configuration (SB p. 55). Insentient cycles may still exhibit **cyclical restoration** in exchange (SB pp. 52–53; [Nature of Time](../Nature-Of-Time/Nature-Of-Time.pdf) §3.5). The Petri model captures **bookkeeping** of compound κ along *vikas-kram*, not metaphysical content, and would equally model "matter + effort → magic." Structure cannot certify content.
 
@@ -687,7 +687,7 @@ These are stated as: **structural claim, given premise P**. None is a theorem ab
 
 ### 6.13 What does NOT fit well (and why)
 
-1. **`Jeevan` as a substance.** Category theory is structuralist: by Yoneda, an object just *is* its web of morphisms. A faithful categorical reading inevitably re-describes `jeevan` as a **functional role** — precisely the reductionist/functionalist position the darshan rejects. The formalism cannot represent "substantial existence over and above relational role" without leaving category theory ([What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §6.6 Saturation-Reflector).
+1. **`Jeevan` as a substance.** Category theory is structuralist: by Yoneda, an object just *is* its web of morphisms. A faithful categorical reading inevitably re-describes `jeevan` as a **functional role** — precisely the reductionist/functionalist position the darshan rejects. The formalism cannot represent "substantial existence over and above relational role" without leaving category theory. [What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) commits to the **Saturation-Reflector Model** (§6.6) — ever-present *gyan* actualised through a constitutionally complete reflector, not generated from dead matter — as the latency reply to this structuralism-vs-substance tension for *jeevan*.
 
 2. **Samadhi / samyama as the warrant.** Nagraj's epistemic foundation is realisation through `sadhana-samadhi-samyama` (MVD, point 4): private, first-person, non-relational. It is the *source of the axioms* and necessarily sits **outside** the category.
 
@@ -715,17 +715,19 @@ These are stated as: **structural claim, given premise P**. None is a theorem ab
 
 3. **Structuralism vs substantialism** (§6.13.1) is unresolved and possibly unresolvable within category theory — a boundary of the tool, not a bug.
 
-4. **No empirical contact.** Nothing yields a measurement or prediction of `jeevan`, coexistence, or constitutional completeness.
+4. **"Mystery" in delusion.** MVD Ch. 17 names *bauddhik rahasya* when lower *jeevan* faculties fail to take refuge in the one above — misaligned projection–reflection, not an irreducible ontological opacity ([What Is Existence?](../What-Is-Existence/What-Is-Existence.pdf) §1.9.1; [Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §1.11).
 
-5. **Risk of mathematical theater.** Elegant diagrams can create an illusion of proof. The conditional framing and this list are the safeguard.
+5. **No empirical contact.** Nothing yields a measurement or prediction of `jeevan`, coexistence, or constitutional completeness.
 
-6. **Enrichment base underdetermined.** The quality preorder `W`, D4 taxonomy, and cap preorders are chosen, not derived.
+6. **Risk of mathematical theater.** Elegant diagrams can create an illusion of proof. The conditional framing and this list are the safeguard.
 
-7. **Saturation and τ resist full internalization** (§6.13.4–5, P8).
+7. **Enrichment base underdetermined.** The quality preorder `W`, D4 taxonomy, and cap preorders are chosen, not derived.
 
-8. **L3 guard underdetermined.** `AdmissibleComp` is named and typed (§6.9.1) but not uniquely specified — the same span may be admissible under complementarity yet fail other textual constraints (proportion, order).
+8. **Saturation and τ resist full internalization** (§6.13.4–5, P8).
 
-9. **Mixture/compound boundary cases.** Real assemblies may exhibit intermediate behaviour (partial fusion). The binary κ_mix / κ_comp split is a modelling convenience; finer quotients may be needed for some tiers.
+9. **L3 guard underdetermined.** `AdmissibleComp` is named and typed (§6.9.1) but not uniquely specified — the same span may be admissible under complementarity yet fail other textual constraints (proportion, order).
+
+10. **Mixture/compound boundary cases.** Real assemblies may exhibit intermediate behaviour (partial fusion). The binary κ_mix / κ_comp split is a modelling convenience; finer quotients may be needed for some tiers.
 
 
 ## 7. Limits and conclusion
