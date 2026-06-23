@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 23, 2026, 7:25 AM IST
+**Edited on:** June 23, 2026, 9:16 PM IST
 
 **Status:** Draft
 
@@ -37,7 +37,7 @@ These topical studies state the philosophy in clear, checkable prose first. A se
 | ***Bhram*** | Delusion — living by inherited belief rather than understanding, rooted in identifying *jeevan* with the body. |
 | ***Rahasyata* (Mysteriousness)** | Incapacity to reveal or attain complete understanding — not an ontological opacity in coexistence (§1.11). |
 | ***Bauddhik rahasya* (Intellectual mystery)** | Misalignment among *mun*, *vritti*, *chitta*, and *buddhi* when lower faculties do not take refuge in the one above (§1.11.1). |
-| **Coexistence (*sah-astitva*)** | Existence seen as all units inseparably present together in Space. |
+| **Coexistence (*saha-astitva*)** | Reality as the pervasive ground (*satta*) and all units (*ikai*) inseparably present together. |
 | ***Atman* / *Brahman*** | In Advaita Vedanta: the innermost Self / the one ultimate, non-dual reality. |
 | ***Mithya*** | Advaita's term for the world: dependent, provisional appearance, not absolutely real. |
 | **Hard Problem** | Why physical brain processes are accompanied by subjective experience — a modern open question, not the same as Madhyasth Darshan's *rahasyata* (§1.11). |
@@ -65,7 +65,7 @@ Importantly, Space here is not an individual conscious subject and not a unit am
 
 MVD p. 289 states explicitly that **the unfolding of knowledge** (*gyan udghatan*) occurs **only** through the sentient aspect (*jeevan*) or thoughts — not through insentient units and not through Omnipresence acting as a knower. MVD p. 115 adds a narrower formulation: knowledge is inherent everywhere, but **its unfolding happens by awakened humans** — a sleeping, deluded *jeevan* cannot unfold it. The same passage describes a sensory/cognitive pathway: vibrational motion on the brain from the cognitive organs leads to the unfolding of knowledge. So *gyan* as a name of *satta* is the intelligibility-ground; *gyan udghatan* is an activity exclusive to awakened *jeevan*.
 
-That is why Omnipresence can be called Knowledge without being a knowing subject — and why a careless reading of MVD p. 35 collapses straight into Advaita's *chit* (Brahman as awareness itself), exactly the identification Madhyasth Darshan otherwise resists. All units saturated in permeative *gyan* participate in inherent orderliness (MVD, p. 11; [What-Is-Existence](../What-Is-Existence/What-Is-Existence.pdf) §1.3); the ontology paper develops how ever-present *gyan* is expressed as active sentience only when a constitutionally complete atom acts as a stable reflector — the **Saturation-Reflector Model** ([What-Is-Existence](../What-Is-Existence/What-Is-Existence.pdf) §1.9, §6.6).
+That is why Omnipresence can be called Knowledge without being a knowing subject — and why a careless reading of MVD p. 35 collapses straight into Advaita's *chit* (Brahman as awareness itself), exactly the identification Madhyasth Darshan otherwise resists. All units saturated in permeative *gyan* participate in inherent orderliness (MVD, p. 11; [What-Is-Existence](../What-Is-Existence/What-Is-Existence.pdf) §1.3); the ontology paper develops how ever-present *gyan* is expressed as active sentience only when a constitutionally complete atom acts as a stable reflector — the **Saturation-Reflector Model** ([What-Is-Existence](../What-Is-Existence/What-Is-Existence.pdf) §1.3, §6.6).
 
 ### 1.2 Knowledge as *gyan-vivek-vigyan*
 
@@ -89,7 +89,7 @@ In human life, knowledge has three inseparable areas:
 > **“1. Knowledge of jeevan 2. Knowledge of holistic view of existence 3. Knowledge of humane conduct”**
 > — SB, p. 116
 
-To have complete knowledge (*paripoorna gyan*) means to understand the nature of the self (*jeevan*), the structure of existence as coexistence (*sah-astitva*), and how to live in harmony with other humans and nature (humane conduct).
+To have complete knowledge (*paripoorna gyan*) means to understand the nature of the self (*jeevan*), the structure of existence as coexistence (*saha-astitva*), and how to live in harmony with other humans and nature (humane conduct).
 
 ### 1.4 Worldview, scene, and perspective (*darshan-drishya-drishti*)
 
@@ -108,7 +108,7 @@ The aim of this structure is alignment. When the human's perspective becomes ali
 
 ### 1.4.1 Relativity (*sapëkshata*)
 
-Madhyasth Darshan uses *sapëkshata* (relativity) in an epistemological sense, not as a synonym for Einstein's physics. Relativity arises from the distinctions among perspective (*drishti*), scene (*drishya*), and holistic view (*darshan*): qualification yields perspective, perspective organises how the scene is seen and evaluated, and the worldview accomplished through that process is never a view from nowhere. Different *drishti* — lower or humane, deluded or awakened — therefore yield different relative understandings of the same real activities in existence.
+Madhyasth Darshan uses *sapëkshata* (relativity) in an epistemological sense, not as a synonym for Einstein's physics. Relativity arises from the distinctions among perspective (*drishti*), scene (*drishya*), and holistic view (*darshan*): qualification yields perspective, perspective organises how the scene is seen and evaluated, and the worldview accomplished through that process is never a view from nowhere. Different *drishti* — lower or humane, deluded or awakened — therefore yield different relative understandings of the same real activities in existence. The six evaluative perspectives provisioned in *jeevan*'s design — lower *priya*/*hita*/*labh* and humane *nyaya*/*dharma*/*satya* — are the ontological basis for which *drishti* is active ([What-Is-Existence](../What-Is-Existence/What-Is-Existence.pdf) §1.9.3).
 
 This is not a claim that relativity is unreal or that the scene is finally *mithya*. The distinctions belong to units, viewing, and understanding in the knowledge order — to how *jeevan* participates in *gyan udghatan* through study, evaluation, and conduct — not to the underlying reality of coexistence itself. Omnipresence, unit beingness, and structural relationships remain real whether or not any particular human has yet aligned perspective with coexistence. What is relative is the evaluative seeing and the understanding a *jeevan* has yet to evidence; what is absolute is coexistence as such (§1.11).
 
@@ -124,7 +124,7 @@ In a deluded human, believing is separated from knowing (believing without knowi
 > **“Believe what is known Know what is believed”**
 > — MVD, p. 12
 
-When we *know* existence as coexistence and *believe* in this reality, we spontaneously *recognize* our relationships with all units in nature and *fulfill* our values (justice, trust, cooperation) in behaviour.
+When we *know* existence as coexistence and *believe* in this reality, we spontaneously *recognize* our relationships with all units in nature and *fulfill* our values (justice, trust, cooperation) in behaviour. In the knowledge order, recognition and fulfilment pass through **capacity**, **ability**, and **receptivity** (*kshamata*, *yogyata*, *patrata*) — the mechanism by which relationship-expectations become lived conduct ([What-Is-Existence](../What-Is-Existence/What-Is-Existence.pdf) §1.4).
 
 ### 1.6 The evidence chain: realization, behaviour, experiment
 
@@ -283,7 +283,7 @@ To know something in Madhyasth Darshan is not merely to measure its external pro
 4. **Relationships and Values:** The mutual expectations through which units participate in one another.
 5. **Humane Conduct:** Justice, values, evaluation, mutual satisfaction, resolution, prosperity, fearlessness, and coexistence in human life.
 
-Crucially, in Madhyasth Darshan, the known world is **absolutely real and perpetual** (*nitya*). It is not an illusion or a temporary mistake:
+Crucially, in Madhyasth Darshan, the known world is **absolutely real and perpetual** (*satat*). It is not an illusion or a temporary mistake:
 
 > **“Brahma is truth, the world is perpetual.”**
 > — MVD, *The Alternative*, point 8
@@ -425,7 +425,7 @@ These developments do not remove the major modern objection to Madhyasth Darshan
 
 ### 4.1 Key contrasts
 
-1. **Reality of the World:** Advaita Vedanta treats the world as *mithya* — provisionally valid but not absolutely real — to safeguard the absolute non-duality of Brahman. Madhyasth Darshan rejects this, asserting that both Brahma (Space) and the world (material and sentient units) are real: *Brahma satya, jagat nitya*. Modern science also affirms the reality of the physical world, but does not accept Space as omnipresent knowledge.
+1. **Reality of the World:** Advaita Vedanta treats the world as *mithya* — provisionally valid but not absolutely real — to safeguard the absolute non-duality of Brahman. Madhyasth Darshan rejects this, asserting that both Brahma (Space) and the world (material and sentient units) are real: *Brahma satya hai, jagat satat hai*. Modern science also affirms the reality of the physical world, but does not accept Space as omnipresent knowledge.
 2. **Two Different Seer-Scene Structures:** Advaita's *drig-drishya* method separates the seer from the seen and keeps negating the seen until only the actionless witness remains. Madhyasth Darshan's *darshan-drishya-drishti* structure asks whether the human perspective can see the scene as coexistence and then evidence that understanding in conduct. Modern science treats the observer as a biological system that constructs public models of observable events.
 3. **Active vs. Passive Knower:** In Advaita, the true Self is an actionless witness (*sakshi* / *akriya*). In Madhyasth Darshan, the knower (*jeevan*) is active, possessing structure, hope, thought, desire, evaluation, and the capacity for realization. In modern science, the knower is a dynamic, evolving biological system.
 4. **Knowledge must become conduct.** In Madhyasth Darshan, *gyan* must unfold as *vivek* and *vigyan*, and then become evident through realization, behaviour, and experiment. Advaita's highest knowledge culminates in liberation from mistaken identification. Modern science's knowledge culminates in predictive control, explanation, and replicable models.
