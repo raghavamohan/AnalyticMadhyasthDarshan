@@ -37,15 +37,34 @@ The **markdown** file for each paper is the source of truth. PDFs and catalog pa
 
 Read **[CONTRIBUTING.md](CONTRIBUTING.md)** for the full proposal → approval → pull request workflow, **[Studies/README.md](Studies/README.md)** for what a study should cover, and **[AGENTS.md](AGENTS.md)** for agent rules on prose style, timestamps, and PDF generation.
 
-### One-time setup
+### Clone and one-time setup
 
-From the repository root in PowerShell:
+Clone the repository, then install Python and Node dependencies from the repo root in PowerShell:
 
 ```powershell
+git clone https://github.com/raghavamohan/AnalyticMadhyasthDarshan.git
+cd AnalyticMadhyasthDarshan
 pip install -r requirements.txt
 cd Scripts
 npm install
 cd ..
+```
+
+**Agent rules and skills.** A fresh clone already includes [AGENTS.md](AGENTS.md), [`.agents/skills/`](.agents/skills/), [`.cursor/rules/`](.cursor/rules/), and [`.cursor/skills/`](.cursor/skills/) — enough for **Cursor** with no extra steps. Nothing is generated automatically on clone; mirrors are refreshed only when you run `python Scripts/_sync_agent_rules.py` after editing `AGENTS.md` or a skill under `.agents/skills/`.
+
+If you use **OpenCode** or **ZCode**, skills are read from [`.opencode/skills/`](.opencode/skills/), which should be a **junction** (Windows) or symlink to `.agents/skills/`. Git cannot store that link, so create it once after clone if `.opencode/skills` is a normal folder or missing the latest skills:
+
+```powershell
+# From repo root — skip if .opencode\skills already junctions to .agents\skills
+Remove-Item -Recurse -Force .opencode\skills
+cmd /c mklink /J ".opencode\skills" ".agents\skills"
+```
+
+Optional verify:
+
+```powershell
+python Scripts/_sync_agent_rules.py --check
+python Scripts/_check_references.py
 ```
 
 ### Study lifecycle
