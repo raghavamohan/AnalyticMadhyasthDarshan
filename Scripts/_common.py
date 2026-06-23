@@ -17,6 +17,17 @@ STUDIES = BASE / "Studies"
 REFERENCES = BASE / "References"
 CACHE = SCRIPTS / "_pdf_cache"
 SOURCE = REFERENCES / "Madhyasth-Darshan"
+DEFAULT_SITE_BASE_URL = "https://analyticmadhyasthdarshan.org"
+
+
+def site_base_url() -> str:
+    """Published site origin (GitHub Pages custom domain from CNAME)."""
+    cname = BASE / "CNAME"
+    if cname.is_file():
+        host = cname.read_text(encoding="utf-8").strip()
+        if host:
+            return f"https://{host}"
+    return DEFAULT_SITE_BASE_URL
 
 
 def study_dir(slug: str) -> Path:

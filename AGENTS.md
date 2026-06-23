@@ -226,6 +226,11 @@ Remove-Item Studies/<Slug>/<Slug>.html
   when lines would exceed ~80 characters — tables do not clip in PDF.
 - **`**Status:**` omitted from the PDF body** — draft/released is shown via watermark
   (Draft) or its absence (Released); the flag remains in the `.md` source only
+- **Clickable local bibliography and cross-study links** — relative `../References/…`
+  and cross-study `.pdf` hrefs in the HTML intermediate are rewritten to
+  `https://<CNAME>/References/…` and `https://<CNAME>/Studies/…` (from `CNAME`
+  at repo root) so PDF links opened from the published site download repository
+  files; external `http(s)` links are unchanged — `_convert_to_pdf.py`
 - Footer on every page: `AnalyticMadhyasthDarshan.org` and `Page X of Y` —
   `_html_to_pdf.js`
 - Optional page watermark — `--watermark` on `_convert_to_pdf.py`
