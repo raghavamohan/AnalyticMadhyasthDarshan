@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 23, 2026, 12:21 PM IST
+**Edited on:** June 23, 2026, 12:43 PM IST
 
 **Status:** Draft
 
@@ -857,9 +857,44 @@ Madhyasth Darshan holds that an insentient atom, through development, reaches co
 
 #### 6.2.2 Mutual dependence and the Nagarjuna challenge
 
-Madhyasth Darshan holds that inherent energy in units and manifestation of uniform energy as activity are inseparable through saturation — mutual dependence for manifestation, not one-way physical supply (§1.3). Nagarjuna's critique of *svabhava* (intrinsic existence) is potentially the **most serious philosophical threat** to this system. If ground and units are mutually dependent for manifestation, Madhyamaka asks whether either has intrinsic existence — and whether "beginningless coexistence" is enough to answer that challenge. Eternal co-dependence can still be co-dependence: beginninglessness does not by itself rescue intrinsic existence if dependence is the criterion of unreality.
+Madhyasth Darshan holds that inherent energy in units and manifestation of uniform energy as activity are inseparable through saturation — **mutual dependence for manifestation**, not one-way physical supply (§1.3). Without unit activity (*basic impulsion*), uniform energy at the ground remains unmanifest; without saturation, there is no basic impulsion (SB, p. 62). SB's identity-chain treats each link as "itself is," not as external push — yet the chain still binds ground and unit: forcefulness, impulsion, activity, and development are readable only through saturated units. Nagarjuna's critique of *svabhava* (intrinsic existence) is potentially the **most serious philosophical threat** to this system, because Madhyamaka asks whether anything that exists only through mutual dependence can exist **from its own side** at all.
 
-The texts' reply, implicit in the eternity of both *satta* and *ikai*, is that coexistence is beginningless: neither pole is ontologically posterior to the other; both are real in their own right through saturation and unit-signature respectively. That reply is **not yet discharged** in explicit Madhyamaka terms. A full defense would need to show how mutual dependence for manifestation differs from dependent origination that empties enduring units — or to accept a revised ontology closer to Buddhist process views. Until then, this challenge belongs at the **center** of the open-problems list, not as a footnote to saturation prose. Formalizing latency within the law of coexistence — and defending it against Nagarjuna's *svabhava* critique — is the most promising route for later rigorous work (§6.6).
+**What Madhyamaka presses.** In the *Mulamadhyamakakarika*, Nagarjuna argues that what possesses *svabhava* would exist independently — not produced by causes, not dependent on conditions, not conceptually constructed. Dependent origination (*pratityasamutpada*) is the obverse: whatever arises dependently lacks such intrinsic nature and is **empty** (*shunya*) of *svabhava*. The critique is not merely that things have causes; it is that **dependence and intrinsic existence are incompatible**. Applied to Madhyasth Darshan: if *satta*'s uniform energy is manifest only through unit-activity, and unit activeness is readable only through saturation in *satta*, a Madhyamaka reader may conclude that neither pole is independently real — precisely the reduction to dependent co-arising without enduring units that coexistential realism must resist. Beginninglessness does not automatically block that inference. Eternal co-dependence can still be co-dependence: what never began can still lack *svabhava* if its being is wholly relational.
+
+**Where the pressure lands in Madhyasth Darshan.** The vulnerability is structural, not a single misquoted sentence. Saturation is the first relational layer of coexistence; *sambandh* among units is the second (§1.4). Every unit carries form, properties, **essential nature** (*svabhav*), and *dharma* (§1.2) — a definite signature that participates in orderliness. Conservation holds that *vastu* is not annihilated (§1.10). Immortal *jeevan* units are functionally indivisible individuals (§1.8–1.9). All of this speaks the language of **enduring particulars with natures**. Madhyamaka's *svabhava* and Madhyasth Darshan's *svabhav* are not the same technical term — the latter names order-specific essential nature, not Buddhist intrinsic existence — but the English collision is not harmless: a reader trained in Garfield's or Westerhoff's Madhyamaka will hear "inherent energy," "essential nature," and "indestructible unit" as claims of the very intrinsic status Nagarjuna targets.
+
+**The implicit Madhyasth reply — and its limits.** The texts' answer, never framed as a reply to Buddhism, rests on several commitments that must be distinguished:
+
+1. **Co-eternal co-presence, not derivation.** *Satta* and units are "inseparably present" from the outset (SB, p. 48; MVD, p. 11). Neither is produced from the other; neither is ontologically posterior. Mutual dependence for **manifestation** is not temporal emergence from non-being — the pattern §1.10 denies for existence as a whole.
+
+2. **Asymmetric roles within inseparability.** Omnipresence is *sthitipurn* (state-complete): non-transforming, actionless, without motion or pressure (SB, pp. 50, 68–69). Nature saturated in it is *sthitishil* (state-dynamic): units whose activity constitutes all change. *Satta* is *mahakaran* — supreme cause in the **sustaining** sense, not the efficient trigger of particular change (§1.6). The poles are mutually dependent for how energy appears, but not interchangeable: one is formless ground, the other is formful activity.
+
+3. **Countably many reals, not mode-monism.** MVD's second Reality proposition pairs omnipresent Brahma with **many** *jeevan*-clouds (MVD, p. 13). Units are bounded, countable, and saturated — not modes of a single substance expressing one nature (contrast Spinoza, §3.4). Madhyasth Darshan's plural *ikai* are ontological partners of *satta*, not appearances on a one-sided ground.
+
+4. **Definite relationships and value.** Units stand in *sambandh* with predetermined expectations toward completeness (MVD, p. 61). Recognition, fulfilment, and essentiality-as-value (§1.4) treat nature as a structured moral-ontological order, not a flux of dependently arisen events with no final weight.
+
+Taken together, these commitments sketch a **coexistential realism**: ground and units are eternally co-present, asymmetrically related, plural, and law-governed. That is not Advaita's world-negating non-dualism and not Buddhist process reduction — but whether it survives Madhyamaka is a separate question. A Madhyamaka philosopher can accept co-eternality and asymmetry yet still ask: if each pole lacks manifestation without the other, what **positive ontological status** remains beyond relational role? Madhyasth Darshan answers "real coexistence" — *saha-astitva* as beingness and indestructibility — but has not yet shown that this answer meets the *svabhava* argument on its own terms.
+
+**Anatta as the sharper flank.** Saturation mutual dependence threatens the **ground–unit structure**. Buddhist **anatta** threatens the **individual self** more directly (§5.4). If what we call *jeevan* is a dependently assembled, impermanent aggregate, constitutional completeness and post-death continuity (§§1.9–1.10, §6.2.4) fail regardless of how saturation is parsed. Madhyasth Darshan holds that *jeevan* is a real, immortal, constitutionally complete atom — not a conventional designation for changing aggregates. The Madhyamaka challenge and the anatta challenge converge on immortal individuality but diverge in mechanism: one attacks intrinsic existence through dependence, the other through diachronic decomposition. A full response to §6.2.2 must address **both**.
+
+| Pressure | Madhyamaka question | Madhyasth Darshan implicit answer | Still open |
+|---|---|---|---|
+| Saturation | Can ground and unit be real if each manifests only through the other? | Co-eternal co-presence; asymmetric sustaining vs active roles | Whether co-eternal mutual dependence avoids emptiness of *svabhava* |
+| Unit signature | Are form, *svabhav*, and *dharma* intrinsic natures? | Order-specific essential nature in mutuality, not isolated substance | Terminological and philosophical bridge to Buddhist *svabhava* |
+| *Jeevan* | Is there an enduring self? | Functionally indivisible, constitutionally immortal sentient atom | Anatta tradition denies what MD asserts without shared proof |
+| Conservation | Does persistence entail intrinsic identity? | *Vastu* conserved through *roop*-change; *jeevan* continuity across bodies | Category error risk (§6.2.4) if conservation is read as entity-proof |
+
+**Lines a future defense would need to develop.** None of the following is established in the primary texts as an explicit anti-Madhyamaka argument; they are the most promising directions for rigorous work:
+
+- **Dependence type.** Distinguish dependence for **manifestation** (how uniform energy and activity appear together) from dependence for **existence** (whether a pole could be absent). Madhyasth Darshan appears to deny the second while asserting the first. A formal account must show that distinction is principled, not verbal.
+
+- **Two-level realism without world-negation.** Advaita uses *vyavahara* robustness while sublating at *paramartha* (§2.3). Madhyasth Darshan refuses that sublation — *jagat satat* (MVD, p. 13). A Madhyamaka-informed defense cannot simply borrow Advaita's two truths; it must explain how units retain **final** weight while lacking Buddhist *svabhava*, or else revise the ontology.
+
+- **Law of coexistence vs bare co-arising.** The texts treat development, awakening, and relationship-recognition as **provisioned and definite** (MVD, pp. 5, 61, 77) — not arbitrary reconfiguration. If emptiness is compatible with conventional order, Madhyasth Darshan needs to show its laws are the conventional structure Madhyamaka can accept **without** demoting units to mere designation — or argue that Madhyamaka's conventional level is too thin for MD's relational realism.
+
+- **Individual immortality.** Functional indivisibility of *gathanpurna parmanu* (§1.8) is the load-bearing reply to aggregate reduction. That case must be made independently of saturation prose and tested against Buddhist analyses of personhood.
+
+Until those lines are developed, Nagarjuna's challenge belongs at the **center** of the open-problems list. Mutual dependence in §1.3 is not a decorative metaphor; it is the hinge on which coexistential realism meets Madhyamaka emptiness. Formal work on latency and the law of coexistence (§6.6) cannot be complete without this engagement.
 
 #### 6.2.3 *Satta*–*ikai* relation and circular causality
 
@@ -1033,7 +1068,7 @@ Verse and section numbers follow standard numbering and apply to any faithful ed
 ### Other Indian philosophies (external only)
 
 - **Ishvarakrishna** — Ishvarakrishna. [*Samkhyakarika*](https://archive.org/details/SamkhyaKarikaWithCommentaryOfGaudapada). Translated by Swami Virupakshananda. Cited: Prakriti and *parinamavada* (§5.1).
-- **Nagarjuna** — Nagarjuna. [*Mulamadhyamakakarika* (*Fundamental Verses on the Middle Way*)](https://plato.stanford.edu/entries/nagarjuna/). Translated by Jay L. Garfield. Cited: *svabhava* critique and mutual dependence challenge (§6.2.2).
+- **Nagarjuna** — Nagarjuna. [*Mulamadhyamakakarika* (*Fundamental Verses on the Middle Way*)](https://plato.stanford.edu/entries/nagarjuna/). Translated by Jay L. Garfield. Cited: *svabhava* critique, dependent origination, mutual dependence challenge (§6.2.2).
 - **Anatta** — Stanford Encyclopedia of Philosophy. [*Anatta* (*No Self*)](https://plato.stanford.edu/entries/anatta/). Cited: challenge to immortal distinct *jeevan* (§5.4, §6.2.2).
 
 ### Modern philosophy and cognitive science
