@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 23, 2026, 2:32 PM IST
+**Edited on:** June 23, 2026, 3:46 PM IST
 
 **Status:** Draft
 
@@ -18,9 +18,7 @@ From that background, a familiar picture of nature is hard to avoid: **conscious
 
 The work begins where that scientific picture leaves open questions — and asks whether Madhyasth Darshan offers a coherent alternative worth examining seriously. This paper reads the primary texts carefully, states what follows from the darshan itself, and compares it in parallel with what we know from **physics and the natural sciences**, **Advaita Vedanta**, and **modern Western philosophy** (especially philosophy of mind). Physics and mathematics are **one leg** of that comparison, not the only one. The aim is rigorous comparative understanding — testing definitions, internal consistency, and fit with public knowledge — not persuasion or devotional endorsement.
 
-This paper's ambition is **coherence and comparative fit**, not proof. Distinctive Madhyasth Darshan claims — immortal *jeevan*, constitutional completeness, continuity across bodily death — are evaluated as internally consistent metaphysical posits that may coexist with conservation-style reasoning but are **not established** by physics, neuroscience, or comparative argument alone. The verdict anticipated in §6.5 is that the traditions are partially incommensurable and that Madhyasth Darshan's exposed points remain open; stating that stance here lowers a common misreading — that dense exposition is trying to **establish** *jeevan* when the workable claim is that the system is not refuted and hangs together on its own terms.
-
-These topical studies state the philosophy in clear, checkable prose first. A separate formal mathematical treatment may follow once the definitions and relations are stable across the studies; **this informal exposition is provisional in that sense** — checkable and comparative, not offered as a conclusive demonstration. This paper does not assume or require the formal treatment.
+This paper presents Madhyasth Darshan's answers to what existence is, what exists, and whether what exists begins — then subjects that ontology to parallel comparison with Advaita Vedanta and selected modern scientific and philosophical views. Its standard of success is **coherence and comparative fit**: definitions that hang together, claims traceable to the primary texts, and responsible mapping against public knowledge. It does not claim that physics, neuroscience, or comparative argument alone establish immortal *jeevan*, constitutional completeness, or continuity across bodily death. Where traditions use different criteria of knowing, the dispute is treated as partially incommensurable (§6.5); exposed points are collected in §6.2. These topical studies state the philosophy in clear, checkable prose first. A separate formal mathematical treatment may follow once the definitions and relations are stable across the studies; this paper does not assume or require that treatment.
 
 ## Quick Glossary
 
@@ -64,9 +62,9 @@ Madhyasth Darshan defines **existence** as the ever-present **coexistence** of f
 
 **What is existence?** The ever-present coexistence of the formless ground and all real units. **What exists?** That whole — Omnipresence, insentient and sentient units, bound in definite relationships. **Does it begin?** No. Coexistence is beginningless; only particular bodies and arrangements begin and end.
 
-MVD compresses this ontology in *Brahma satya hai, jagat satat hai* — Brahma is truth, the world is perpetual. What follows states the picture in the darshan's own terms. The ontology diagram below is the canonical map for the four-aspect signature, four orders, four planes, three completeness transitions, and the two progressions developed in the exposition that follows.
+MVD compresses this ontology in *Brahma satya hai, jagat satat hai* — Brahma is truth, the world is perpetual. What follows states the picture in the darshan's own terms. The ontology diagram below is the canonical map for coexistence, the four-aspect unit signature, the two progressions, and a summary of orders and planes; the detailed orders–planes map with completeness transitions T1–T3 appears in §1.8.
 
-![Overview of Madhyasth Darshan ontology: Omnipresence (*satta*), units with four-aspect signature and *sambandh*, four planes with three completeness transitions, and Development and Awakening Progressions](1-madhyasth-darshan-ontology.svg)
+![Overview of Madhyasth Darshan ontology: Omnipresence (satta), units with four-aspect signature and sambandh, orders and planes summary, and Development and Awakening Progressions](1-madhyasth-darshan-ontology.svg)
 
 Picture two inseparable poles always together: a formless, actionless ground and countless bounded units whose activity constitutes all change. The ground does not transform; units do. Nothing in nature is isolated; every unit is saturated in Omnipresence and stands in definite relationships with others.
 
@@ -301,7 +299,7 @@ Circular causation is how completeness-directed activity appears across orders: 
 
 ### 1.7 The Four Ontological Orders
 
-Nature exists as countless physical and sentient units — organised, bounded, and active within Omnipresence. The ontology diagram above maps these units to four **ontological orders** — material, pranic/bio, animal, and knowledge/human — each a stable plateau in development. The order table in the section on unit signature gives each order's essential nature and cumulative *dharma*; what follows states how the orders relate.
+Nature exists as countless physical and sentient units — organised, bounded, and active within Omnipresence. The ontology diagram at the opening of §1 summarises four **ontological orders** — material, pranic/bio, animal, and knowledge/human — each a stable plateau in development. The order table in the section on unit signature gives each order's essential nature and cumulative *dharma*; what follows states how the orders relate.
 
 > **"Existence is not just physicochemical matter, but all physical, chemical and jeevan entities are inseparably present in Omnipresence."**
 > - MVD, p. 5
@@ -335,16 +333,16 @@ For readers approaching from neuroscience, Bhattacharya maps how *jeevan* relate
 
 These four orders are where development without creation from nothing becomes concrete. Planes, constitutional completeness, and the emergence of *jeevan* are traced in the next section. Each order is a real, stable plateau that the next presupposes, so the upward movement from matter to human is development within coexistence, not the appearance of new substance.
 
-SB p. 49 pairs two infinities in characteristic Madhyasth Darshan parallelism: *satta* is immeasurable by pervasion; *prakriti* is countless by count:
+SB p. 49 pairs immeasurable pervasion with practical uncountability in characteristic Madhyasth Darshan parallelism: *satta* is immeasurable by pervasion; *prakriti* is countless because no finite count can complete:
 
 > **"Omnipotence is not confined within any dimension of length or breadth, nor can any measure be established for it; therefore, Omnipotence is all-pervasive. All the units that exist in the form of nature cannot be counted; therefore, they are countless. In this way, existence itself is omnipresent and countless."**
 > - SB, p. 49
 
-SB's "cannot be counted; therefore countless" does not disambiguate whether units are uncountably infinite, potentially infinite, or merely practically uncountable. For readers trained in physics and mathematics, that cardinality remains **pending formalization** — relevant to conservation claims and to any later formal treatment of the ontology (§6.2.3).
+*Countless* here means **practical uncountability**: nature's units are too numerous for any finite count to complete, not a claim that the plurality is mathematically infinite. That reading fits the treatise's **countable, bounded units** and definite relationships — real particulars, indefinitely many from any finite standpoint. Conservation is therefore asserted of **each** existing *vastu* through configuration change, not as a global total over all units (§1.10, §6.2.3).
 
 ### 1.8 Planes and the Emergence of *Jeevan*
 
-Development within saturation is oriented toward completeness. MVD's Postulations state that **physicochemical nature itself** is in development progression and that the atom in developed form is the sentient unit (MVD, p. 14). That progression is manifest as the ceaseless diversity of the **physicochemical plane** (SB, pp. 52–53): hungry and overfull atoms, molecules, and biological cells in mutual composition; on Earth, chemical reactions and biological processes advancing through unit-and-environment (MVD, pp. 8, 13; SB, p. 13). The ontology diagram shows three completeness stages — constitutional, activity, and conduct — mapped to plane transitions T1–T3. This section traces **Development Progression** through the complex to T1; awakening milestones within constitutionally complete *jeevan* belong to the account of *jeevan* that follows.
+Development within saturation is oriented toward completeness. MVD's Postulations state that **physicochemical nature itself** is in development progression and that the atom in developed form is the sentient unit (MVD, p. 14). That progression is manifest as the ceaseless diversity of the **physicochemical plane** (SB, pp. 52–53): hungry and overfull atoms, molecules, and biological cells in mutual composition; on Earth, chemical reactions and biological processes advancing through unit-and-environment (MVD, pp. 8, 13; SB, p. 13). This section traces **Development Progression** through the complex to T1; awakening milestones within constitutionally complete *jeevan* belong to the account of *jeevan* that follows.
 
 Madhyasth Darshan names three completeness stages — constitutional, activity, and conduct. In the sentient atom, constitutional completeness is immortality of result; activity completeness is restfulness of effort; conduct completeness is destination of motion (SB, p. 58). Constitutional completeness marks the *jeevan* threshold and animal-order hope of living; activity and conduct completeness are milestones within constitutionally complete *jeevan* in the knowledge order.
 
@@ -353,6 +351,8 @@ Progress never isolates a unit from its field. SB states the continuity of law w
 As stated at the opening of §1, two paths carry this drive and must not be collapsed: **Development Progression** through constitutional completeness (traced below) and **Awakening Progression** within constitutionally complete *jeevan* (§1.9). SB presents the orientation of the whole as an identity-chain: existence itself is development, development itself is progression, progression itself is orderliness, and orderliness itself is destiny (SB, p. 56). **Destiny** (*niyati*) here is not fatalism imposed from outside: it is the definite orientation of every unit toward completeness already provisioned in coexistence. Orderliness is what mutuality is when units recognise and fulfil.
 
 Alongside the four **orders** named above — objective plateaus fixed by the kind of unit — SB names four **planes** (*pad*): developmental stages in nature's progression toward completeness (SB, p. 52). An order names what a unit **is**; a plane names where development has reached in the history of nature saturated in Omnipresence. Some planes span more than one order; in the knowledge order, plane membership tracks **human state** (deluded, awakened, evidenced) rather than a new insentient plateau.
+
+![Four ontological orders mapped to four planes with completeness transitions T1 through T3](1-orders-planes.svg)
 
 SB lists the four planes as the physicochemical plane, delusional plane, deific plane, and liberation from planes — also called the divine or complete plane (SB, p. 52). In oral exposition these are sometimes called the Pranic, delusion, deific, and divine planes; the Pranic label maps to SB's **physicochemical plane**, which comprises the material and biological orders.
 
@@ -436,9 +436,9 @@ For epistemic structure (*gyan-vivek-vigyan*, realization, and evidence), includ
 
 Madhyasth Darshan advances **two conservation claims** that must be kept apart from the outset.
 
-**Coexistence conservation** holds that what exists does not arise from non-being (*abhava*) and does not vanish into it — only configurations, bodies, and associations begin and end. That ontology is **consonant with** careful readings of conservation in physics when configuration changes while quantities persist (§4.3) — consonant with, not established by.
+**Coexistence conservation** holds that what exists does not arise from non-being (*abhava*) and does not vanish into it — only configurations, bodies, and associations begin and end. That reading is **consonant with** careful physics accounts of configuration change while quantities persist (§4.3). Conservation is asserted of **each** existing particular — underlying *vastu* persists through configuration change — not as a conserved aggregate summed over all units; under the practical-uncountability reading (§1.7), that particularist form is the correct way to read "nothing is annihilated."
 
-***Jeevan* persistence, rebirth, and transmigration** is a separate commitment. The texts infer that an immortal sentient unit continues after bodily death and may re-associate with a new body (JV, p. 20; MVD Reality proposition 9). That inference **does not follow** from physics-style quantity conservation alone: science conserves mass-energy and charge, not particular composite configurations or functional identities. JV's charcoal analogy illustrates that underlying *vastu* survives transformation; it does not by itself prove that **this** constitutionally complete sentient configuration persists as the same *jeevan* across a gap of embodiment. Post-death continuity rests on *gathanpurnata*, functional indivisibility, and text-based philosophical inference — the weakest inferential link in the conservation argument (§6.2.4).
+***Jeevan* persistence, rebirth, and transmigration** is a separate commitment. The texts infer that an immortal sentient unit continues after bodily death and may re-associate with a new body (JV, p. 20; MVD Reality proposition 9). That inference **does not follow** from physics-style quantity conservation alone: science conserves mass-energy and charge, not particular composite configurations or functional identities. JV's charcoal analogy illustrates that underlying *vastu* survives transformation; it does not by itself prove that **this** constitutionally complete sentient configuration persists as the same *jeevan* across a gap of embodiment. Post-death continuity rests on *gathanpurnata*, functional indivisibility, and text-based philosophical inference (§6.2.4).
 
 Existence is **beginless**: what exists has always existed, though its form, configuration, and states are in constant flux.
 
@@ -614,7 +614,7 @@ On this view, what exists are physical things, events, fields, organisms, brains
 > **"the fact that an organism has conscious experience at all means, basically, that there is something it is like to be that organism."**
 > - Nagel 1974, p. 1
 
-For Madhyasth Darshan this is evidence that body-only ontology is incomplete. Advaita's DDV offers a complementary first-person route: the seer cannot be the seen (DDV, vv. 1–5), so consciousness resists reduction to observed brain-states — though Advaita and Madhyasth Darshan draw different ontological conclusions from that datum. The physicalist reply — that an explanatory gap is not proof of *jeevan* — is the central disagreement, and the paper should grant that an explanatory gap is, indeed, not by itself an existence proof (see §6.2, §6.4).
+For Madhyasth Darshan this is evidence that body-only ontology is incomplete. Advaita's DDV offers a complementary first-person route: the seer cannot be the seen (DDV, vv. 1–5), so consciousness resists reduction to observed brain-states — though Advaita and Madhyasth Darshan draw different ontological conclusions from that datum. Physicalists treat that explanatory gap as philosophically non-decisive; Madhyasth Darshan treats it as evidence of ontological incompleteness in matter-only accounts (§6.2.1, §6.4).
 
 ### 3.3 Panpsychist Physicalism: Experience as Fundamental
 
@@ -667,7 +667,7 @@ Madhyasth Darshan regards this as another reductionism: it treats experience, va
 
 ## 4. Modern Scientific Approaches
 
-While modern science does not put forward a single metaphysical dogma, its default working ontology aligns with §3.1 physicalism unless the hard problem forces a revision (§3.2–3.3). It seeks to explain the self as an emergent product of evolutionary and neurobiological processes, and the universe as a dynamic physical system. Comparisons in this section follow a deliberate restraint: claims are **consonant with**, **parallel to**, or **in tension with** Madhyasth Darshan — not "supported by" physics unless the evidence genuinely warrants it. §4.3 exemplifies that verb discipline throughout.
+While modern science does not put forward a single metaphysical dogma, its default working ontology aligns with §3.1 physicalism unless the hard problem forces a revision (§3.2–3.3). It seeks to explain the self as an emergent product of evolutionary and neurobiological processes, and the universe as a dynamic physical system.
 
 ### 4.1 Cognitive Science & Neuroscience: The Brain as Generator of Self
 
@@ -687,11 +687,11 @@ This is nearly the opposite of the *jeevan* ontology. For Madhyasth Darshan the 
 
 ### 4.2 Physical Cosmology: Does the Physical Universe Begin?
 
-The standard cosmological model suggests the observable universe had a beginning ~13.8 billion years ago. Several non-singular research programs (loop quantum cosmology's "bounce," Penrose's conformal cyclic cosmology, eternal inflation) are comfortable with a beginningless physical substrate even when local configurations begin and end. These are competing speculative programs, not consensus — the most this paper claims is **conceptual resonance** with Madhyasth Darshan's claim that nature (*prakriti*) is perpetual (*satat*), not proof of it (Ashtekar and Singh 2011; Penrose 2010; Guth 2007).
+The standard cosmological model suggests the observable universe had a beginning ~13.8 billion years ago. Several non-singular research programs (loop quantum cosmology's "bounce," Penrose's conformal cyclic cosmology, eternal inflation) are comfortable with a beginningless physical substrate even when local configurations begin and end. These are competing speculative programs, not consensus — the most this comparison claims is **conceptual resonance** with Madhyasth Darshan's claim that nature (*prakriti*) is perpetual (*satat*) (Ashtekar and Singh 2011; Penrose 2010; Guth 2007).
 
 ### 4.3 Physics & Conservation Laws
 
-**The "nothing is annihilated" principle and modern physics — handle with care.** Particle–antiparticle annihilation and pair creation are not passages into or out of absolute non-being: in quantum field theory (see standard treatments, e.g., Weinberg 1995), particles are localized excitations of conserved, all-pervasive fields, and annihilation transforms one excitation (matter) into another (radiation) under strict conservation laws. This is broadly consonant with the claim that fundamental reality (*vastu*) is conserved while configurations (*roop*) transform. But the alignment should not be overstated: fields are not "substances that persist" in quite the sense *vastu* intends, and energy conservation itself is subtle in General Relativity (it is tied, via Noether's theorem, to time-symmetry that need not hold globally in an expanding spacetime; see Carroll 2010). The right verb is "is consonant with," not "is supported by."
+**The "nothing is annihilated" principle and modern physics — handle with care.** Particle–antiparticle annihilation and pair creation are not passages into or out of absolute non-being: in quantum field theory (see standard treatments, e.g., Weinberg 1995), particles are localized excitations of conserved, all-pervasive fields, and annihilation transforms one excitation (matter) into another (radiation) under strict conservation laws. This is broadly consonant with the claim that fundamental reality (*vastu*) is conserved while configurations (*roop*) transform. The alignment should not be overstated: fields are not "substances that persist" in quite the sense *vastu* intends, and energy conservation itself is subtle in General Relativity (it is tied, via Noether's theorem, to time-symmetry that need not hold globally in an expanding spacetime; see Carroll 2010).
 
 **Fields vs. *vastu*.** In quantum field theory, what persists are field configurations and conserved quantities; a "particle" is a localized excitation, not a tiny enduring substance. Madhyasth Darshan's *vastu* names an underlying reality that survives every *roop*-change. The parallel is structural (configuration changes, something is conserved), not identity of category: fields are mathematical-physical entities governed by equations, not countable units with *dharma* saturated in Omnipresence.
 
@@ -699,10 +699,10 @@ The standard cosmological model suggests the observable universe had a beginning
 
 **Time (*kaal*) vs. spacetime.** Modern physics treats spacetime as a dynamical entity — it can expand, curve, and in some models begin locally. Madhyasth Darshan treats *kaal* as the **duration of unit-activity**, numerically reckoned by humans within existence (§1.6; SB, pp. 65, 251; MVD, pp. 34, 195) — not an independent cosmic container. Omnipresence is timeless as non-transforming ground. The contrast is over whether temporality belongs to the ground of reality or only to transforming units, and over whether spacetime is fundamental physics or derivative of measurement conventions on activity. Relational and process philosophies of time (§3.4) share some structural affinity with activity-based *kaal*; block-universe eternalism does not. Comparative detail: [*Nature-Of-Time*](../Nature-Of-Time/Nature-Of-Time.pdf).
 
-**Entropy vs. orderliness (*vyavastha*).** Thermodynamics describes a statistical arrow toward disorder in closed systems. Madhyasth Darshan asserts inherent orderliness at every order, with development toward greater organization when units are in their natural state. These are not straightforward opposites — biological and ecological systems can increase local order at the cost of entropy elsewhere — but they use different notions of "order," and the paper should not treat the second law as evidence for or against coexistence.
+**Entropy vs. orderliness (*vyavastha*).** Thermodynamics describes a statistical arrow toward disorder in closed systems. Madhyasth Darshan asserts inherent orderliness at every order, with development toward greater organization when units are in their natural state. These are not straightforward opposites — biological and ecological systems can increase local order at the cost of entropy elsewhere — but they use different notions of "order." The second law neither supports nor refutes coexistence orderliness.
 
 
-Against all of these, Madhyasth Darshan makes a stronger claim: coexistence is eternal, units are not annihilated, and *jeevan* is immortal. This eternalism is consistent with conservation principles and beginningless cosmological models, but its claims about individual immortality and constitutional completeness remain distinct metaphysical assertions not validated by current science.
+Against all of these, Madhyasth Darshan makes a stronger claim: coexistence is eternal, units are not annihilated, and *jeevan* is immortal. This eternalism is consistent with conservation principles and beginningless cosmological models; individual immortality and constitutional completeness are distinct metaphysical commitments examined in §6.2.
 
 ## 5. Comparison
 
@@ -912,7 +912,7 @@ Until those lines are developed, Nagarjuna's challenge belongs at the **center**
 
 #### 6.2.3 *Satta*–*ikai* relation and circular causality
 
-§1.3–1.6 state mutual dependence and the single effort–motion–result triad with its sentient unfolding in prose; what remains is formalization — not discovery of whether the texts assert them. The cardinality of "countless" units (§1.7) is likewise pending formalization: SB does not settle whether units are uncountably infinite, potentially infinite, or merely practically uncountable.
+§1.3–1.6 state mutual dependence and the single effort–motion–result triad with its sentient unfolding in prose; what remains is formalization — not discovery of whether the texts assert them. Unit cardinality is read as practical uncountability throughout (§1.7). What remains to formalize here is mutual dependence, the effort–motion–result triad, and circular causality in prose — not a plurality whose scale is mathematically infinite.
 
 #### 6.2.4 Mereology, identity, conservation inference, and rebirth
 
@@ -940,7 +940,7 @@ Central to the ontology but not presently measurable in physics or chemistry.
 
 #### 6.2.8 Evidence standard vs. science
 
-Realization and behavior are cited; science requires public testability. What would count as evidence for *jeevan* beyond the hard-problem explanatory gap? §6.4 addresses this.
+Realization and behavior are cited; science requires public testability. What would count as evidence for *jeevan* beyond the hard-problem explanatory gap? §6.4 addresses this. An explanatory gap in the hard problem is not by itself an existence proof for *jeevan*; physicalists treat it as philosophically non-decisive while Madhyasth Darshan reads it as ontological incompleteness in matter-only accounts (§3.2, §6.2.1). Comparisons with physics use **consonant with**, **parallel to**, or **in tension with** — not "supported by" unless the evidence warrants it; conceptual resonance with beginningless cosmological models is not proof of perpetual nature (*satat*) (§4.2). Claims about individual immortality and constitutional completeness remain distinct metaphysical assertions beyond what current science validates.
 
 #### 6.2.9 "Knowledge but not knower"
 
@@ -988,7 +988,7 @@ The Madhyasth counter-reply is narrower. Predictive models explain **how** a bod
 
 ### 6.5 Epistemology: partially incommensurable criteria
 
-The three systems do not merely give different answers; they use different criteria for what counts as knowing:
+Given the standard of success set in Standpoint and scope, the three systems do not merely give different answers; they use different criteria for what counts as knowing:
 
 | Tradition | Method | Adequate for |
 |---|---|---|
@@ -996,7 +996,7 @@ The three systems do not merely give different answers; they use different crite
 | Advaita | Scripture, reasoning, contemplative discrimination (DDV, VC) | Self as Brahman; sublation of *mithya* |
 | Physicalism | Observation, modelling, public evidence | Mechanism, prediction, third-person confirmation |
 
-To that extent they are **partially incommensurable** — no single neutral tribunal settles them. What this paper attempts is narrower: test each for internal consistency, fit with public knowledge, and responsible distinction of posits from bare assertion. The epistemic standards of realization as proof are examined in [Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf).
+To that extent they are **partially incommensurable** — no single neutral tribunal settles them. Against that background, this paper tests each tradition for internal consistency, fit with public knowledge, and responsible distinction of posits from bare assertion. The epistemic standards of realization as proof are examined in [Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf).
 
 ### 6.6 Latency and the Saturation-Reflector Model
 
