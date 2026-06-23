@@ -30,6 +30,23 @@ def site_base_url() -> str:
     return DEFAULT_SITE_BASE_URL
 
 
+def is_linkable_reference_file(path: Path, *, min_html_bytes: int = 500) -> bool:
+    """True when a References/ file has usable content for PDF or web links."""
+    if not path.is_file():
+        return False
+    if path.stat().st_size < min_html_bytes:
+        return False
+    suffix = path.suffix.lower()
+    if suffix == ".pdf":
+        with path.open("rb") as handle:
+            return handle.read(5) == b"%PDF-"
+    if suffix == ".html":
+        with path.open("rb") as handle:
+            head = handle.read(200).lstrip()
+        return head.startswith(b"<!") or head.startswith(b"<html")
+    return False
+
+
 def study_dir(slug: str) -> Path:
     return STUDIES / slug
 

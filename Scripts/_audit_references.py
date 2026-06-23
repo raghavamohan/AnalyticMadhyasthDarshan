@@ -12,7 +12,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from urllib.parse import urlparse
 
-from _common import REFERENCES, STUDIES, iter_study_md_paths, parse_reference_registry
+from _common import REFERENCES, STUDIES, iter_study_md_paths, is_linkable_reference_file, parse_reference_registry
 
 REF_SECTION_RE = re.compile(r"^## References\s*$", re.MULTILINE)
 REF_ENTRY_RE = re.compile(r"^- \*\*([^*]+)\*\*\s*[—\-]")
@@ -77,9 +77,11 @@ def _classify_link(raw_link: str, registry: dict[str, Path]) -> tuple[str, bool,
     if link.startswith("../References/"):
         rel = link.removeprefix("../References/").split("#", 1)[0]
         path = (REFERENCES / rel).resolve()
-        if path.exists():
-            return "local", True, str(path.relative_to(REFERENCES.parent))
-        return "local", False, f"missing file References/{rel}"
+        if not path.exists():
+            return "local", False, f"missing file References/{rel}"
+        if not is_linkable_reference_file(path):
+            return "local", False, f"unusable file References/{rel} (empty or not a valid PDF/HTML)"
+        return "local", True, str(path.relative_to(REFERENCES.parent))
     if link.startswith("http://") or link.startswith("https://"):
         host = urlparse(link).netloc.casefold()
         if host.endswith("github.com"):
@@ -138,12 +140,12 @@ def _print_report(report: AuditReport) -> int:
     missing = report.local_missing
 
     print(f"Studies reference entries: {len(report.rows)}")
-    print(f"  local links: {len(local)} ({len(missing)} missing files)")
+    print(f"  local links: {len(local)} ({len(missing)} broken)")
     print(f"  external links: {len(external)}")
     print(f"  download manifest entries: see Scripts/_reference_downloads.py")
 
     if missing:
-        print("\nMissing local files:")
+        print("\nBroken local bibliography links:")
         for row in missing:
             print(f"  [{row.study}] {row.tag}: {row.detail}")
 

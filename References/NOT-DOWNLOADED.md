@@ -15,7 +15,6 @@ Author-hosted copies kept for quote verification.
 | **Nagel 1974** | Nagel, T. "What Is It Like to Be a Bat?" *The Philosophical Review*, 83(4), 435?450. | https://www.cs.ox.ac.uk/activities/ieg/e-library/sources/nagel_bat.pdf |
 | **Strawson 2006** | Strawson, G. "Realistic Monism: Why Physicalism Entails Panpsychism." *Journal of Consciousness Studies*, 13(10?11), 3?31. | https://consc.net/event/reef/strawsonmonism.pdf |
 | **Ashtekar and Singh 2011** | Ashtekar, A., and Singh, P. "Loop Quantum Cosmology: A Status Report." arXiv:1108.0893. | https://arxiv.org/abs/1108.0893 |
-| **Carroll 2010** | Carroll, S. "Energy Is Not Conserved." *Preposterous Universe* (blog), 2010. | https://www.preposterousuniverse.com/blog/2010/02/22/energy-is-not-conserved/ |
 | **Friston 2010** | Friston, K. "The free-energy principle: a unified brain theory?" *Nature Reviews Neuroscience*, 11(2), 127?138. | https://doi.org/10.1038/nrn2787 |
 | **Guth 2007** | Guth, A. H. "Eternal inflation and its implications." *Journal of Physics A: Mathematical and Theoretical*, 40(25), 6811. | https://doi.org/10.1088/1751-8113/40/25/S09 |
 
@@ -50,10 +49,13 @@ Author-hosted copies kept for quote verification.
 |-----|----------------|-------------------|
 | **IEP Enactivism** | "Enactivism." *Internet Encyclopedia of Philosophy*. | https://iep.utm.edu/enactivism/ |
 | **Gettier 1963** | Gettier, E. L. "Is Justified True Belief Knowledge?" *Analysis*, 23(6), 121?123, 1963. | https://doi.org/10.1093/analys/23.6.121 |
+| **Jarczewski and Riggs 2025** | Jarczewski, D., and Riggs, W. D. "Socializing Virtue Epistemology." *Episteme*, First View, 1?19, 2025. Open access at Cambridge University Press; not mirrored here because automated fetch returns an HTML page instead of the PDF. | https://doi.org/10.1017/epi.2025.10 |
 | **Kuhn 2024** | Kuhn, R. L. "A Landscape of Consciousness: Toward a Taxonomy of Explanations and Implications." *Progress in Biophysics and Molecular Biology*, 190, 28?169, 2024. CC BY-NC-ND open access at publisher; not mirrored here because ScienceDirect blocks automated download from this environment. | https://doi.org/10.1016/j.pbiomolbio.2023.12.003 |
 | **Massimi 2022** | Massimi, M. *Perspectival Realism*. Oxford University Press, 2022. | https://global.oup.com/academic/product/perspectival-realism-9780197555620 |
 | **Metzinger 2003** | Metzinger, T. *Being No One: The Self-Model Theory of Subjectivity*. MIT Press, 2003. | https://mitpress.mit.edu/9780262632870/being-no-one/ |
 | **Penrose 2010** | Penrose, R. *Cycles of Time: An Extraordinary New View of the Universe*. Bodley Head, 2010. | https://www.penguinrandomhouse.com/books/311068/cycles-of-time-by-roger-penrose/ |
+| **Piredda 2024** | Piredda, G. "The Tacitly Situated Self: From Narration to Sedimentation and Projection." *Topoi*, 43, 607?615, 2024. CC BY open access at Springer; not mirrored here because automated fetch returns an HTML page instead of the PDF. | https://doi.org/10.1007/s11245-024-10044-9 |
+| **Wiese 2024** | Wiese, W. "Artificial consciousness: a perspective from the free energy principle." *Philosophical Studies*, 181, 1947?1970, 2024. CC BY open access at Springer; not mirrored here because automated fetch returns an HTML page instead of the PDF. | https://doi.org/10.1007/s11098-024-02182-y |
 
 ## Philosophy of time (external only)
 

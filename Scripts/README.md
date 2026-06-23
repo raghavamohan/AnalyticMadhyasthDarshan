@@ -26,7 +26,7 @@ cd ..
 | Search a reference PDF | `python Scripts/_quote_tool.py search <tag-or-path> "<regex>"` |
 | Read one PDF page (cleaned) | `python Scripts/_quote_tool.py page <tag-or-path> <n> [--keyword kw]` |
 | Locate phrase in tagged source | `python Scripts/_quote_tool.py snippet <tag> "<phrase>"` |
-| Download / audit references | `python Scripts/_audit_references.py` then `python Scripts/_download_references.py` |
+| Download / audit references | `python Scripts/_check_references.py` (full); `_audit_references.py` (bibliography only); `_download_references.py` (mirrors) |
 | Sync agent rules and skills | `python Scripts/_sync_agent_rules.py` then `python Scripts/_sync_agent_rules.py --check` |
 
 Windows wrappers: `.\Scripts\_add_study.ps1`, `.\Scripts\_remove_study.ps1`, `.\Scripts\_set_study_status.ps1`, `.\Scripts\_download_references.ps1`.
@@ -44,7 +44,8 @@ Windows wrappers: `.\Scripts\_add_study.ps1`, `.\Scripts\_remove_study.ps1`, `.\
 | `_verify_pdf_fenced_code.py` | Fail if fenced code/spec content clipped in PDF (called by `regenerate_pdf`) |
 | `_download_references.py` | Download manifest entries into `References/` (called by `.ps1`) |
 | `_reference_downloads.py` | Manifest of mirrorable reference files |
-| `_audit_references.py` | Audit Studies/ bibliography links vs local files |
+| `_audit_references.py` | Bibliography-only audit of Studies/ `## References` links |
+| `_check_references.py` | Full reference check suite (bibliography, markdown links, mirror files, PDF links) |
 | `_ci_study_pr.py` | GitHub Actions study PR pipeline |
 | `_sync_agent_rules.py` | Sync AGENTS.md → `.cursor/rules/*.mdc`; `.agents/skills/` → `.cursor/skills/` |
 

@@ -91,7 +91,7 @@ Audit Studies bibliographies first: `python Scripts/_audit_references.py`. Agent
 | **Nagel 1974** | [Nagel-1974-What-Is-It-Like-to-Be-a-Bat.pdf](Science/Nagel-1974-What-Is-It-Like-to-Be-a-Bat.pdf) | University-hosted PDF |
 | **Strawson 2006** | [Strawson-2006-Realistic-Monism-Panpsychism.pdf](Science/Strawson-2006-Realistic-Monism-Panpsychism.pdf) | Author-hosted PDF |
 | **Ashtekar and Singh 2011** | [Ashtekar-Singh-2011-Loop-Quantum-Cosmology-Status-Report.pdf](Science/Ashtekar-Singh-2011-Loop-Quantum-Cosmology-Status-Report.pdf) | arXiv open access (gr-qc/1108.0893) |
-| **Carroll 2010** | [Carroll-2010-Energy-Is-Not-Conserved.html](Science/Carroll-2010-Energy-Is-Not-Conserved.html) | Author blog snapshot |
+| **Carroll 2010** | [Carroll-2010-Energy-Is-Not-Conserved.html](Science/Carroll-2010-Energy-Is-Not-Conserved.html) | Internet Archive snapshot of author blog |
 | **Friston 2010** | [Friston-2010-Free-Energy-Principle.pdf](Science/Friston-2010-Free-Energy-Principle.pdf) | Author-hosted / open-access PDF |
 | **Guth 2007** | [Guth-2007-Eternal-Inflation.pdf](Science/Guth-2007-Eternal-Inflation.pdf) | IOP open access |
 
@@ -100,10 +100,8 @@ Audit Studies bibliographies first: `python Scripts/_audit_references.py`. Agent
 | Tag | File | Notes |
 |-----|------|-------|
 | **Frankish 2016** | [Frankish-2016-Illusionism-Theory-Consciousness.pdf](Modern-Philosophy/Frankish-2016-Illusionism-Theory-Consciousness.pdf) | Author eprint |
-| **Jarczewski and Riggs 2025** | [Jarczewski-Riggs-2025-Socializing-Virtue-Epistemology.pdf](Modern-Philosophy/Jarczewski-Riggs-2025-Socializing-Virtue-Epistemology.pdf) | Open access, CC BY |
 | **Limanowski and Blankenburg 2013** | [Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf](Modern-Philosophy/Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf) | Open access |
-| **Melloni et al. 2025** | [Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf](Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf) | Open access |
-| **Piredda 2024** | [Piredda-2024-Tacitly-Situated-Self.pdf](Modern-Philosophy/Piredda-2024-Tacitly-Situated-Self.pdf) | Open access |
+| **Melloni et al. 2025** | [Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf](Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf) | CC BY 4.0; Europe PMC mirror |
 | **SEP Aesthetics of the Everyday** | [SEP-Aesthetics-of-Everyday.html](Modern-Philosophy/SEP-Aesthetics-of-Everyday.html) | Stanford Encyclopedia of Philosophy snapshot |
 | **SEP Concept of the Aesthetic** | [SEP-Concept-of-the-Aesthetic.html](Modern-Philosophy/SEP-Concept-of-the-Aesthetic.html) | Stanford Encyclopedia of Philosophy snapshot |
 | **SEP Definition of Art** | [SEP-Definition-of-Art.html](Modern-Philosophy/SEP-Definition-of-Art.html) | Stanford Encyclopedia of Philosophy snapshot |
@@ -111,7 +109,6 @@ Audit Studies bibliographies first: `python Scripts/_audit_references.py`. Agent
 | **SEP Kant Aesthetics** | [SEP-Kant-Aesthetics-Teleology.html](Modern-Philosophy/SEP-Kant-Aesthetics-Teleology.html) | Stanford Encyclopedia of Philosophy snapshot |
 | **SEP Moral Psychology** | [SEP-2025-Moral-Psychology-Empirical-Approaches.html](Modern-Philosophy/SEP-2025-Moral-Psychology-Empirical-Approaches.html) | Stanford Encyclopedia of Philosophy archived snapshot |
 | **Tufft et al. 2024** | [Tufft-et-al-2024-Flow-Active-Inference.pdf](Modern-Philosophy/Tufft-et-al-2024-Flow-Active-Inference.pdf) | Open access |
-| **Wiese 2024** | [Wiese-2024-Artificial-Consciousness-Free-Energy-Principle.pdf](Modern-Philosophy/Wiese-2024-Artificial-Consciousness-Free-Energy-Principle.pdf) | Open access |
 | **McTaggart 1908** | [McTaggart-1908-The-Unreality-of-Time.html](Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.html) | Wikisource snapshot (public domain) |
 | **Hashemi 2025** | [Hashemi-2025-How-to-Understand-Russellian-Panpsychism.pdf](Modern-Philosophy/Hashemi-2025-How-to-Understand-Russellian-Panpsychism.pdf) | Author preprint (PhilSci-Archive) |
 | **Whitehead 1929** | [Whitehead-1929-Process-and-Reality.pdf](Modern-Philosophy/Whitehead-1929-Process-and-Reality.pdf) | 1929 Macmillan edition (public domain) |

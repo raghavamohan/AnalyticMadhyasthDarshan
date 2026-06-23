@@ -561,16 +561,21 @@ def regenerate_pdf(md_path: Path, status: StudyStatus) -> None:
     convert_script = SCRIPTS / "_convert_to_pdf.py"
     html_path = md_path.with_suffix(".html")
     pdf_path = md_path.with_suffix(".pdf")
+    build_pdf_path = md_path.with_name(f"{md_path.stem}.build.pdf")
     convert_cmd = [sys.executable, str(convert_script), str(md_path)]
     subprocess.run(convert_cmd, check=True, cwd=SCRIPTS.parent)
     html_to_pdf_cmd = ["node", str(SCRIPTS / "_html_to_pdf.js"), str(html_path)]
     if status == StudyStatus.DRAFT:
         html_to_pdf_cmd.append("Draft")
+    html_to_pdf_cmd.append(str(build_pdf_path))
     subprocess.run(
         html_to_pdf_cmd,
         check=True,
         cwd=SCRIPTS.parent,
     )
+    build_pdf_path.replace(pdf_path)
+    if build_pdf_path.exists():
+        build_pdf_path.unlink()
     if html_path.exists():
         html_path.unlink()
     verify_study_pdf_diagrams(md_path, pdf_path)

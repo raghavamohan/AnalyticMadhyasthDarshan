@@ -35,10 +35,9 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-19.
 | [Knowledge-Knower-And-Known.pdf](../Studies/Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) | MVD, SB, JV | present |
 | | CU, BG, BSB, DDV, VC | present |
 | | Chalmers 1995, Nagel 1974, Strawson 2006 | present |
-| | Frankish 2016, Hashemi 2025, Jarczewski and Riggs 2025, Limanowski and Blankenburg 2013, Melloni et al. 2025 | present |
-| | Piredda 2024, Tufft et al. 2024, Wiese 2024 | present |
+| | Frankish 2016, Hashemi 2025, Limanowski and Blankenburg 2013, Melloni et al. 2025, Tufft et al. 2024 | present |
 | | Churchland 1986, Dennett 1991, Goff 2019, Kandel et al. 2021, Kim 2005, Popper 1959 | external |
-| | Gettier 1963, IEP Enactivism, Kuhn 2024, Massimi 2022 | external |
+| | Gettier 1963, IEP Enactivism, Jarczewski and Riggs 2025, Kuhn 2024, Massimi 2022, Piredda 2024, Wiese 2024 | external |
 | [Nature-Of-Time.pdf](../Studies/Nature-Of-Time/Nature-Of-Time.pdf) | MVD, SB, JVD | present |
 | | MU, BG, VC | present |
 | | Carroll 2010, Ashtekar and Singh 2011, McTaggart 1908 | present |
@@ -86,10 +85,8 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-19.
 | **Bloom 2013**, **Tomasello 2014** (except Chalmers/Nagel/Strawson) | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Why-Humans |
 | **Churchland 1986**, **Dennett 1991**, **Goff 2019**, **Kandel et al. 2021**, **Kim 2005**, **Popper 1959** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Why-Humans, Knowledge-Knower |
 | **Frankish 2016** | [Modern-Philosophy/Frankish-2016-Illusionism-Theory-Consciousness.pdf](Modern-Philosophy/Frankish-2016-Illusionism-Theory-Consciousness.pdf) | Knowledge-Knower, What-Is-Existence |
-| **Jarczewski and Riggs 2025** | [Modern-Philosophy/Jarczewski-Riggs-2025-Socializing-Virtue-Epistemology.pdf](Modern-Philosophy/Jarczewski-Riggs-2025-Socializing-Virtue-Epistemology.pdf) | Knowledge-Knower |
 | **Limanowski and Blankenburg 2013** | [Modern-Philosophy/Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf](Modern-Philosophy/Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf) | Knowledge-Knower, What-Is-Existence |
 | **Melloni et al. 2025** | [Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf](Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf) | Knowledge-Knower |
-| **Piredda 2024** | [Modern-Philosophy/Piredda-2024-Tacitly-Situated-Self.pdf](Modern-Philosophy/Piredda-2024-Tacitly-Situated-Self.pdf) | Knowledge-Knower |
 | **SEP Aesthetics of the Everyday** | [Modern-Philosophy/SEP-Aesthetics-of-Everyday.html](Modern-Philosophy/SEP-Aesthetics-of-Everyday.html) | Aesthetics |
 | **SEP Concept of the Aesthetic** | [Modern-Philosophy/SEP-Concept-of-the-Aesthetic.html](Modern-Philosophy/SEP-Concept-of-the-Aesthetic.html) | Aesthetics |
 | **SEP Definition of Art** | [Modern-Philosophy/SEP-Definition-of-Art.html](Modern-Philosophy/SEP-Definition-of-Art.html) | Aesthetics |
@@ -97,7 +94,6 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-19.
 | **SEP Kant Aesthetics** | [Modern-Philosophy/SEP-Kant-Aesthetics-Teleology.html](Modern-Philosophy/SEP-Kant-Aesthetics-Teleology.html) | Aesthetics |
 | **SEP Moral Psychology** | [Modern-Philosophy/SEP-2025-Moral-Psychology-Empirical-Approaches.html](Modern-Philosophy/SEP-2025-Moral-Psychology-Empirical-Approaches.html) | Ethics-And-Morals |
 | **Tufft et al. 2024** | [Modern-Philosophy/Tufft-et-al-2024-Flow-Active-Inference.pdf](Modern-Philosophy/Tufft-et-al-2024-Flow-Active-Inference.pdf) | Knowledge-Knower |
-| **Wiese 2024** | [Modern-Philosophy/Wiese-2024-Artificial-Consciousness-Free-Energy-Principle.pdf](Modern-Philosophy/Wiese-2024-Artificial-Consciousness-Free-Energy-Principle.pdf) | Knowledge-Knower |
 | **Whitehead 1929** | [Modern-Philosophy/Whitehead-1929-Process-and-Reality.pdf](Modern-Philosophy/Whitehead-1929-Process-and-Reality.pdf) | What-Is-Existence |
 | **Russell 1921** | [Modern-Philosophy/Russell-1921-The-Analysis-of-Mind.pdf](Modern-Philosophy/Russell-1921-The-Analysis-of-Mind.pdf) | What-Is-Existence |
 | **Mach 1914** | [Modern-Philosophy/Mach-1914-The-Analysis-of-Sensations.pdf](Modern-Philosophy/Mach-1914-The-Analysis-of-Sensations.pdf) | What-Is-Existence |
@@ -108,7 +104,7 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-19.
 | **Metzinger 2003**, **Penrose 2010**, **Ishvarakrishna**, **Nagarjuna**, **Weinberg 1995** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | What-Is-Existence |
 | **Hashemi 2025** | [Modern-Philosophy/Hashemi-2025-How-to-Understand-Russellian-Panpsychism.pdf](Modern-Philosophy/Hashemi-2025-How-to-Understand-Russellian-Panpsychism.pdf) | Knowledge-Knower |
 | **McTaggart 1908** | [Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.html](Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.html) | Nature-Of-Time |
-| **Gettier 1963**, **IEP Enactivism**, **Kuhn 2024**, **Massimi 2022** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Knowledge-Knower |
+| **Gettier 1963**, **IEP Enactivism**, **Jarczewski and Riggs 2025**, **Kuhn 2024**, **Massimi 2022**, **Piredda 2024**, **Wiese 2024** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Knowledge-Knower |
 | **Rovelli 2018** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Nature-Of-Time |
 | **Keating 2008**, **Mind and Creativity Rasa** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Aesthetics |
 | **Curry, Mullins, and Whitehouse 2019**, **Graham et al. 2013**, **Greene et al. 2001**, **Haidt 2001**, **Tomasello and Vaish 2013** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Ethics-And-Morals |

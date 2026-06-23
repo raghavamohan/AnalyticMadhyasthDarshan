@@ -63,6 +63,9 @@ def _save_url(url: str, dest_path: Path, min_bytes: int) -> None:
     if len(data) < min_bytes:
         dest_path.unlink(missing_ok=True)
         raise ValueError(f"Download too small ({len(data)} bytes), likely failed")
+    if dest_path.suffix.lower() == ".pdf" and not data.startswith(b"%PDF-"):
+        dest_path.unlink(missing_ok=True)
+        raise ValueError("Download is not a PDF (likely a publisher HTML page)")
 
 
 def download_references(

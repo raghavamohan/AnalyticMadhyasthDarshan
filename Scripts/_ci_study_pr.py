@@ -18,6 +18,7 @@ from pathlib import Path
 
 from _common import BASE, STUDIES, slug_from_study_relative_path, study_md
 
+from _check_references import run_checks, print_report  # noqa: E402
 from _pdf_cache_sync import pdfs_for_study, sync_pdf_cache  # noqa: E402
 from _study_catalog import (  # noqa: E402
     StudyStatus,
@@ -82,6 +83,47 @@ def parse_issue_form_section(body: str, heading: str) -> str | None:
     if not match:
         return None
     return match.group(1).strip()
+
+
+SCRIPTS = Path(__file__).resolve().parent
+
+
+def run_reference_checks(*, study: str | None = None, full_repo: bool = False) -> None:
+    """Run Scripts/_check_references.py; fail CI when references are broken."""
+    if full_repo or study is None:
+        report = run_checks(study=None, skip_pdf=False)
+        code = print_report(report, study=None)
+    else:
+        report = run_checks(study=study, skip_pdf=False)
+        code = print_report(report, study=study)
+    if code != 0:
+        raise SystemExit("Reference checks failed. Run: python Scripts/_check_references.py")
+
+
+def references_changed(base_ref: str) -> bool:
+    result = subprocess.run(
+        ["git", "diff", "--name-only", base_ref, "HEAD", "--", "References/"],
+        capture_output=True,
+        text=True,
+        cwd=BASE,
+        check=False,
+    )
+    return bool(result.stdout.strip())
+
+
+def study_references_changed(base_ref: str, slug: str) -> bool:
+    md_path = f"Studies/{slug}/{slug}.md"
+    result = subprocess.run(
+        ["git", "diff", base_ref, "HEAD", "--", md_path],
+        capture_output=True,
+        text=True,
+        cwd=BASE,
+        check=False,
+    )
+    diff = result.stdout
+    if not diff:
+        return False
+    return "../References/" in diff or "## References" in diff
 
 
 def issue_is_approved(issue_number: int) -> bool:
@@ -234,6 +276,10 @@ def handle_new_study(body: str, base_ref: str) -> None:
     print("Running:", " ".join(command))
     subprocess.run(command, check=True, cwd=BASE)
     sync_study_reference_cache(slug)
+    if references_changed(base_ref):
+        run_reference_checks(full_repo=True)
+    else:
+        run_reference_checks(study=slug)
 
 
 def handle_study_update(body: str, base_ref: str) -> None:
@@ -266,6 +312,12 @@ def handle_study_update(body: str, base_ref: str) -> None:
     print(f"Regenerating PDF for {slug} ({row.status.value})")
     sync_study_reference_cache(slug)
     regenerate_pdf(md_path, row.status)
+
+    if references_changed(base_ref) or study_references_changed(base_ref, slug):
+        if references_changed(base_ref):
+            run_reference_checks(full_repo=True)
+        else:
+            run_reference_checks(study=slug)
 
     errors = verify_timestamp_sync(slug)
     if errors:

@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 22, 2026, 4:21 PM IST
+**Edited on:** June 23, 2026, 7:32 AM IST
 
 **Status:** Draft
 
@@ -682,7 +682,7 @@ The standard cosmological model suggests the observable universe had a beginning
 
 ***Satta* and physical fields (misleading analogies).** A dynamical field carries energy-momentum, exerts force, and propagates waves — nothing like the actionless (*kriya-shunya*), non-transforming *satta* (§1.3). Comparing *satta* to a physical field is therefore misleading. The nearest physical analogue — non-dynamical background geometry or the quantum vacuum ground state — captures only that units depend on a uniform ground; it drops the darshan's second half: uniform energy stays unmanifest without unit activity (§1.3). The parallel is illustrative, not identity.
 
-**Time (*kaal*) vs. spacetime.** Modern physics treats spacetime as a dynamical entity — it can expand, curve, and in some models begin locally. Madhyasth Darshan treats *kaal* as the **duration of unit-activity**, numerically reckoned by humans within existence (§1.6; SB, pp. 65, 251; MVD, pp. 34, 195) — not an independent cosmic container. Omnipresence is timeless as non-transforming ground. The contrast is over whether temporality belongs to the ground of reality or only to transforming units, and over whether spacetime is fundamental physics or derivative of measurement conventions on activity. Relational and process philosophies of time (§3.4) share some structural affinity with activity-based *kaal*; block-universe eternalism does not. Comparative detail: [*Nature-Of-Time*](Nature-Of-Time.md).
+**Time (*kaal*) vs. spacetime.** Modern physics treats spacetime as a dynamical entity — it can expand, curve, and in some models begin locally. Madhyasth Darshan treats *kaal* as the **duration of unit-activity**, numerically reckoned by humans within existence (§1.6; SB, pp. 65, 251; MVD, pp. 34, 195) — not an independent cosmic container. Omnipresence is timeless as non-transforming ground. The contrast is over whether temporality belongs to the ground of reality or only to transforming units, and over whether spacetime is fundamental physics or derivative of measurement conventions on activity. Relational and process philosophies of time (§3.4) share some structural affinity with activity-based *kaal*; block-universe eternalism does not. Comparative detail: [*Nature-Of-Time*](../Nature-Of-Time/Nature-Of-Time.pdf).
 
 **Entropy vs. orderliness (*vyavastha*).** Thermodynamics describes a statistical arrow toward disorder in closed systems. Madhyasth Darshan asserts inherent orderliness at every order, with development toward greater organization when units are in their natural state. These are not straightforward opposites — biological and ecological systems can increase local order at the cost of entropy elsewhere — but they use different notions of "order," and the paper should not treat the second law as evidence for or against coexistence.
 
@@ -866,7 +866,7 @@ These are strengths **within** the system's premises. They do not by themselves 
 
 #### Comparative (deferred)
 
-9. **"Knowledge but not knower" (§1.9).** Madhyasth Darshan calls Omnipresence *gyan* while denying it the activity of knowing; active *gyan udghatan* belongs only to awakened *jeevan* (§1.9). Comparative work must not collapse Omnipresence-as-*gyan* into Advaita's *chit* (Brahman as awareness itself) — a misreading the English translation's "Consciousness" label encourages (Editorial Notes). The full epistemic account belongs in [Knowledge, Knower, and Known](Knowledge-Knower-And-Known.md).
+9. **"Knowledge but not knower" (§1.9).** Madhyasth Darshan calls Omnipresence *gyan* while denying it the activity of knowing; active *gyan udghatan* belongs only to awakened *jeevan* (§1.9). Comparative work must not collapse Omnipresence-as-*gyan* into Advaita's *chit* (Brahman as awareness itself) — a misreading the English translation's "Consciousness" label encourages (Editorial Notes). The full epistemic account belongs in [Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf).
 
 10. **The nature of time (§1.6).** This paper states Madhyasth Darshan's core claim — *kaal* as duration of activity, not independent substance; timeless *satta*; numerical reckoning within existence. Past/present/future structure, JVD on "activity eternally present," and comparison with Advaita *trikaal* language, McTaggart, eternalism/presentism, and spacetime physics are developed in [*Nature-Of-Time*](../Nature-Of-Time/Nature-Of-Time.pdf); residual open problems remain in that study's §6.
 
@@ -896,7 +896,7 @@ The three systems do not merely give different answers; they use different crite
 | Advaita | Scripture, reasoning, contemplative discrimination (DDV, VC) | Self as Brahman; sublation of *mithya* |
 | Physicalism | Observation, modelling, public evidence | Mechanism, prediction, third-person confirmation |
 
-To that extent they are **partially incommensurable** — no single neutral tribunal settles them. What this paper attempts is narrower: test each for internal consistency, fit with public knowledge, and responsible distinction of posits from bare assertion. The epistemic standards of realization as proof are examined in [Knowledge, Knower, and Known](Knowledge-Knower-And-Known.md).
+To that extent they are **partially incommensurable** — no single neutral tribunal settles them. What this paper attempts is narrower: test each for internal consistency, fit with public knowledge, and responsible distinction of posits from bare assertion. The epistemic standards of realization as proof are examined in [Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf).
 
 ### 6.6 Committed interpretation: latency and the Saturation-Reflector Model
 
