@@ -6,7 +6,7 @@ from urllib.parse import unquote, urlparse
 
 import markdown
 
-from _common import STUDIES, study_md
+from _common import BASE, REFERENCES, STUDIES, site_base_url, study_md
 from _study_catalog import strip_status_for_pdf
 
 
@@ -25,18 +25,58 @@ def convert_mermaid_blocks(html_body: str) -> str:
     return pattern.sub(replace, html_body)
 
 
-def absolutize_local_links(html_body: str, html_path: Path) -> str:
-    """Rewrite relative local hrefs to file:// URLs so PDF renderers can open them."""
+def _resolve_repo_link(href: str, source_dir: Path) -> Path | None:
+    """Resolve a relative href to a downloadable file under References/ or Studies/."""
+    if not href or href.startswith("#"):
+        return None
+    parsed = urlparse(href)
+    if parsed.scheme in {"http", "https", "mailto", "file"}:
+        return None
+
+    path_part = unquote(parsed.path or href.split("#", 1)[0].split("?", 1)[0])
+    if not path_part:
+        return None
+
+    candidates = [(source_dir / path_part).resolve()]
+    normalized = path_part.replace("\\", "/")
+    if normalized.startswith("../References/"):
+        fixed = normalized.replace("../References/", "../../References/", 1)
+        candidates.append((source_dir / fixed).resolve())
+
+    studies = BASE / "Studies"
+    for candidate in candidates:
+        try:
+            if not candidate.is_file() or not candidate.is_relative_to(BASE):
+                continue
+            if candidate.is_relative_to(REFERENCES):
+                return candidate
+            if candidate.suffix.lower() == ".pdf" and candidate.is_relative_to(studies):
+                return candidate
+        except ValueError:
+            continue
+    return None
+
+
+def rewrite_local_links_for_site(html_body: str, html_path: Path) -> str:
+    """Rewrite local bibliography and cross-study hrefs to the published site URL."""
+
+    site_root = site_base_url().rstrip("/")
 
     def replace(match: re.Match[str]) -> str:
         href = unquote(match.group(1))
         parsed = urlparse(href)
-        if parsed.scheme in {"http", "https", "mailto", "file"} or href.startswith("#"):
+        fragment = parsed.fragment
+        if parsed.scheme in {"http", "https", "mailto"} or href.startswith("#"):
             return match.group(0)
-        target = (html_path.parent / href).resolve()
-        if target.exists():
-            return f'href="{target.as_uri()}"'
-        return match.group(0)
+
+        target = _resolve_repo_link(href, html_path.parent)
+        if target is None:
+            return match.group(0)
+
+        url = f"{site_root}/{target.relative_to(BASE).as_posix()}"
+        if fragment:
+            url = f"{url}#{fragment}"
+        return f'href="{url}"'
 
     return re.sub(r'href="([^"]+)"', replace, html_body)
 
@@ -54,7 +94,7 @@ def convert_to_html(input_path: Path) -> Path:
         extensions=["tables", "fenced_code", "smarty"],
     )
     html_body = convert_mermaid_blocks(html_body)
-    html_body = absolutize_local_links(html_body, output_path)
+    html_body = rewrite_local_links_for_site(html_body, output_path)
 
     full_html = f"""<!DOCTYPE html>
 <html lang="en">
