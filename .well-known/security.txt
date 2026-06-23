@@ -1,0 +1,6 @@
+Contact: https://github.com/raghavamohan/AnalyticMadhyasthDarshan/security/advisories/new
+Contact: https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new
+Expires: 2027-06-23T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://analyticmadhyasthdarshan.org/.well-known/security.txt
+Policy: https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/CONTRIBUTING.md
