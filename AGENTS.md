@@ -8,7 +8,7 @@ It is the **source of truth** for ZCode, OpenCode, and other agents that read
 per section below). **OpenCode / ZCode** loads `AGENTS.md` automatically and also reads
 `.cursor/rules/*.mdc` via `opencode.json` → `instructions`.
 
-**After editing `AGENTS.md` (§1–§5) or any `.agents/skills/**/SKILL.md`**, run sync before
+**After editing `AGENTS.md` (§1–§6) or any `.agents/skills/**/SKILL.md`**, run sync before
 you finish the task or commit:
 
 ```powershell
@@ -26,7 +26,7 @@ ZCode** loads them through `.opencode/skills/`, a junction to `.agents/skills/`.
 Skills orchestrate `Scripts/_*.py`; they defer content and style rules to the sections below.
 
 Available skills: `manage-studies`, `add-study`, `remove-study`, `set-study-status`,
-`download-references`, `regenerate-study-pdf`.
+`download-references`, `check-references`, `regenerate-study-pdf`.
 
 | Section | Topic | Cursor mirror |
 |---------|--------|---------------|
@@ -36,9 +36,10 @@ Available skills: `manage-studies`, `add-study`, `remove-study`, `set-study-stat
 | §3 | Markdown → PDF pipeline | `md-to-pdf.mdc` |
 | §4 | Study prose style | `study-prose-style.mdc` |
 | §5 | Standpoint and scope | `study-standpoint-scope.mdc` |
+| §6 | Reference checks when citations change | `study-references-check.mdc` |
 
-There are five rule sections below. The first, fourth, and fifth apply to **every**
-topical study edit; the other two apply when their stated condition is met.
+There are six rule sections below. The first, fourth, fifth, and sixth apply when
+their stated conditions are met; §1 also applies to every topical study edit.
 
 ---
 
@@ -399,3 +400,66 @@ epistemic frame. Do not repeat the main question or preview the outline.
 - [ ] Section present in the correct place
 - [ ] All six points covered
 - [ ] No missionary tone; materialism not treated as proven
+
+---
+
+## 6. Reference checks when citations change *(applies when adding or editing study references or References/ files)*
+
+Whenever a study **bibliography** or any **`../References/...` link** changes, or any
+file under `References/` is added, replaced, or removed, run the full reference check
+suite before you finish the task or open a PR.
+
+### Mandatory workflow
+
+From repo root:
+
+```powershell
+python Scripts/_check_references.py
+```
+
+While editing a single study, you may scope checks until the full repo is ready:
+
+```powershell
+python Scripts/_check_references.py --study <Slug>
+```
+
+Use `--skip-pdf` only while drafting before PDF regeneration; **remove `--skip-pdf`
+before finishing** if bibliography links changed.
+
+The check suite (`Scripts/_check_references.py`) verifies:
+
+1. **`## References` entries** — local paths exist and are usable PDF/HTML (not empty,
+   not HTML saved as `.pdf`)
+2. **All `../References/` links** in the study markdown (body and bibliography)
+3. **All mirror files under `References/`** — valid on a full-repo run
+4. **Study PDF embedded links** — no `file://` links; published-site links target
+   usable local files
+
+Supporting scripts: `_audit_references.py` (bibliography-only), `_download_references.py`
+(mirrors), `_quote_tool.py verify` (blockquotes against local PDFs).
+
+Agent skill: [check-references](.agents/skills/check-references/SKILL.md). Download
+workflow: [download-references](.agents/skills/download-references/SKILL.md).
+
+### When adding a new local mirror
+
+1. Confirm redistribution rights; add entry to `Scripts/_reference_downloads.py`
+2. `python Scripts/_download_references.py --tag "<Tag>"`
+3. Point the study entry at `../References/...`; update `References/README.md`,
+   `MANIFEST.md`, and `NOT-DOWNLOADED.md` as appropriate
+4. Run `python Scripts/_check_references.py` (must exit 0)
+5. Regenerate affected study PDFs; re-run checks **without** `--skip-pdf`
+6. Refresh `**Edited on:**` and catalogs if study `.md` references changed (§1)
+
+### When a local mirror cannot be stored
+
+Link the external DOI or publisher URL in the study; add or keep a row in
+`References/NOT-DOWNLOADED.md`. **Do not** commit empty files or HTML-as-PDF placeholders
+under `References/`.
+
+### Completion check
+
+- [ ] `python Scripts/_check_references.py` exits 0
+- [ ] No `file://` reference links in regenerated study PDFs
+- [ ] `References/README.md`, `MANIFEST.md`, and `NOT-DOWNLOADED.md` agree on local vs external
+- [ ] Study PDFs regenerated when bibliography links changed

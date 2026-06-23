@@ -111,18 +111,21 @@ DOWNLOADS: tuple[DownloadEntry, ...] = (
         tag="Ashtekar and Singh 2011",
     ),
     DownloadEntry(
+        dest="Science/Carroll-2010-Energy-Is-Not-Conserved.html",
+        urls=(
+            "https://web.archive.org/web/2020/https://www.preposterousuniverse.com/blog/2010/02/22/energy-is-not-conserved/",
+            "https://www.preposterousuniverse.com/blog/2010/02/22/energy-is-not-conserved/",
+        ),
+        tag="Carroll 2010",
+        min_bytes=10_000,
+        notes="Internet Archive snapshot; live blog returns empty to automated fetch.",
+    ),
+    DownloadEntry(
         dest="Modern-Philosophy/Frankish-2016-Illusionism-Theory-Consciousness.pdf",
         urls=(
             "https://raw.githubusercontent.com/k0711/kf_articles/master/Frankish_Illusionism%20as%20a%20theory%20of%20consciousness_eprint.pdf",
         ),
         tag="Frankish 2016",
-    ),
-    DownloadEntry(
-        dest="Modern-Philosophy/Jarczewski-Riggs-2025-Socializing-Virtue-Epistemology.pdf",
-        urls=(
-            "https://ruj.uj.edu.pl/bitstreams/5b802d21-6dd8-4450-8767-a715e4175d9b/download",
-        ),
-        tag="Jarczewski and Riggs 2025",
     ),
     DownloadEntry(
         dest="Modern-Philosophy/Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf",
@@ -131,23 +134,18 @@ DOWNLOADS: tuple[DownloadEntry, ...] = (
     ),
     DownloadEntry(
         dest="Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf",
-        urls=("https://www.nature.com/articles/s41586-025-08888-1.pdf",),
+        urls=(
+            "https://europepmc.org/articles/pmc12137136?pdf=render",
+            "https://www.nature.com/articles/s41586-025-08888-1.pdf",
+        ),
         tag="Melloni et al. 2025",
-    ),
-    DownloadEntry(
-        dest="Modern-Philosophy/Piredda-2024-Tacitly-Situated-Self.pdf",
-        urls=("https://link.springer.com/content/pdf/10.1007/s11245-024-10044-9.pdf",),
-        tag="Piredda 2024",
+        min_bytes=100_000,
+        notes="CC BY 4.0; Europe PMC mirror when Nature blocks bots.",
     ),
     DownloadEntry(
         dest="Modern-Philosophy/Tufft-et-al-2024-Flow-Active-Inference.pdf",
         urls=("https://www.frontiersin.org/articles/10.3389/fpsyg.2024.1354719/pdf",),
         tag="Tufft et al. 2024",
-    ),
-    DownloadEntry(
-        dest="Modern-Philosophy/Wiese-2024-Artificial-Consciousness-Free-Energy-Principle.pdf",
-        urls=("https://link.springer.com/content/pdf/10.1007/s11098-024-02182-y.pdf",),
-        tag="Wiese 2024",
     ),
     DownloadEntry(
         dest="Modern-Philosophy/SEP-Concept-of-the-Aesthetic.html",

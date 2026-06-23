@@ -128,7 +128,9 @@ const inputPath = args[0]
   ? path.resolve(process.cwd(), args[0])
   : path.join(workspaceRoot, 'Studies', 'How-To-Form-Self-Sustaining-Organizations.html');
 const watermarkLabel = args[1] ?? '';
-const outputPath = inputPath.replace(/\.html$/, '.pdf');
+const outputPath = args[2]
+  ? path.resolve(process.cwd(), args[2])
+  : inputPath.replace(/\.html$/, '.pdf');
 
 (async () => {
   const executablePath = resolveChromeExecutable();

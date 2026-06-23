@@ -38,11 +38,19 @@ Works with **Cursor**, **OpenCode**, and **ZCode** (skills live in
 From repo root:
 
 ```powershell
+python Scripts/_check_references.py
+python Scripts/_check_references.py --study Nature-Of-Time
+```
+
+Bibliography-only (faster):
+
+```powershell
 python Scripts/_audit_references.py
 python Scripts/_audit_references.py --study Nature-Of-Time
 ```
 
 Reports local vs external links and flags broken `../References/` paths.
+See [check-references](../check-references/SKILL.md) for the full check suite.
 
 ### 2. Check redistribution rights
 
@@ -120,6 +128,7 @@ External-only tags are skipped during verify. HTML snapshots are not PDF-cached.
 | `Scripts/_reference_downloads.py` | Manifest of mirrorable files (edit to add entries) |
 | `Scripts/_download_references.py` | Downloader (Python; cross-platform) |
 | `Scripts/_download_references.ps1` | PowerShell wrapper |
+| `Scripts/_check_references.py` | Full reference integrity checks |
 | `Scripts/_audit_references.py` | Studies bibliography audit |
 | `References/README.md` | Local file registry for quote tool |
 | `References/MANIFEST.md` | Citation audit by study |
@@ -127,6 +136,7 @@ External-only tags are skipped during verify. HTML snapshots are not PDF-cached.
 
 ## Completion checklist
 
+- [ ] `python Scripts/_check_references.py` exits 0
 - [ ] Audit run; no broken `../References/` links
 - [ ] New mirrors have clear redistribution basis documented in README notes
 - [ ] `NOT-DOWNLOADED.md`, `MANIFEST.md`, and `README.md` agree on local vs external
@@ -136,6 +146,7 @@ External-only tags are skipped during verify. HTML snapshots are not PDF-cached.
 
 ## Related
 
+- Full checks: [check-references](../check-references/SKILL.md)
 - Quote verification: `python Scripts/_quote_tool.py verify`
 - Study lifecycle: [manage-studies](../manage-studies/SKILL.md)
 - Agent rules: [AGENTS.md](../../AGENTS.md); contributor overview [References/README.md](../../References/README.md)

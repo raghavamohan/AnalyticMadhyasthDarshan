@@ -77,6 +77,15 @@ MDC_CONFIG: dict[int, dict[str, str]] = {
         "section_ref": "§5",
         "extra_globs": "",
     },
+    6: {
+        "file": "study-references-check.mdc",
+        "description": "Run reference integrity checks when study bibliographies or References/ files change",
+        "globs": "Studies/*/*.md,References/**,Scripts/_check_references.py,Scripts/_audit_references.py,Scripts/_download_references.py,Scripts/_reference_downloads.py",
+        "alwaysApply": "false",
+        "title": "Reference checks when citations change",
+        "section_ref": "§6",
+        "extra_globs": "",
+    },
 }
 
 

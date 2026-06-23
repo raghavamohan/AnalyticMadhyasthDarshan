@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 22, 2026, 7:09 PM IST
+**Edited on:** June 23, 2026, 7:25 AM IST
 
 **Status:** Draft
 
@@ -533,7 +533,7 @@ Scientific materialism offers the strongest method and the best-supported accoun
 - **Goff 2019** — Goff, P. [*Galileo's Error: Foundations for a New Science of Consciousness*](https://philipgoff.com/galileos-error/). Pantheon.
 - **Hashemi 2025** — Hashemi, A. ["How to Understand Russellian Panpsychism."](../References/Modern-Philosophy/Hashemi-2025-How-to-Understand-Russellian-Panpsychism.pdf) *Erkenntnis*, 90, 3747–3766. Author preprint; also at https://doi.org/10.1007/s10670-024-00877-6.
 - **IEP Enactivism** — ["Enactivism."](https://iep.utm.edu/enactivism/) *Internet Encyclopedia of Philosophy*.
-- **Jarczewski and Riggs 2025** — Jarczewski, D., and Riggs, W. D. ["Socializing Virtue Epistemology."](../References/Modern-Philosophy/Jarczewski-Riggs-2025-Socializing-Virtue-Epistemology.pdf) *Episteme*, First View, 1–19. https://doi.org/10.1017/epi.2025.10
+- **Jarczewski and Riggs 2025** — Jarczewski, D., and Riggs, W. D. ["Socializing Virtue Epistemology."](https://doi.org/10.1017/epi.2025.10) *Episteme*, First View, 1–19.
 - **Kandel et al. 2021** — Kandel, E. R., et al. [*Principles of Neural Science*](https://www.mheducation.com/highered/product/principles-neural-science-kandel/9781259642234.html), 6th ed. McGraw-Hill.
 - **Kim 2005** — Kim, J. [*Physicalism, or Something Near Enough*](https://press.princeton.edu/books/paperback/9780691117532/physicalism-or-something-near-enough). Princeton University Press.
 - **Kuhn 2024** — Kuhn, R. L. ["A Landscape of Consciousness: Toward a Taxonomy of Explanations and Implications."](https://doi.org/10.1016/j.pbiomolbio.2023.12.003) *Progress in Biophysics and Molecular Biology*, 190, 28–169.
@@ -541,8 +541,8 @@ Scientific materialism offers the strongest method and the best-supported accoun
 - **Massimi 2022** — Massimi, M. [*Perspectival Realism*.](https://global.oup.com/academic/product/perspectival-realism-9780197555620) Oxford University Press.
 - **Melloni et al. 2025** — Melloni, L., et al. ["Adversarial testing of global neuronal workspace and integrated information theories of consciousness."](../References/Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf) *Nature*. https://doi.org/10.1038/s41586-025-08888-1
 - **Nagel 1974** — Nagel, T. ["What Is It Like to Be a Bat?"](../References/Science/Nagel-1974-What-Is-It-Like-to-Be-a-Bat.pdf) *The Philosophical Review*, 83(4), 435–450.
-- **Piredda 2024** — Piredda, G. ["The Tacitly Situated Self: From Narration to Sedimentation and Projection."](../References/Modern-Philosophy/Piredda-2024-Tacitly-Situated-Self.pdf) *Topoi*, 43, 607–615.
+- **Piredda 2024** — Piredda, G. ["The Tacitly Situated Self: From Narration to Sedimentation and Projection."](https://doi.org/10.1007/s11245-024-10044-9) *Topoi*, 43, 607–615.
 - **Popper 1959** — Popper, K. [*The Logic of Scientific Discovery*](https://www.routledge.com/The-Logic-of-Scientific-Discovery/Popper/p/book/9780415278447). Hutchinson / Routledge.
 - **Strawson 2006** — Strawson, G. ["Realistic Monism: Why Physicalism Entails Panpsychism."](../References/Science/Strawson-2006-Realistic-Monism-Panpsychism.pdf) *Journal of Consciousness Studies*, 13(10–11), 3–31.
 - **Tufft et al. 2024** — Tufft, M. R. A., et al. ["Forgetting ourselves in flow: an active inference account of flow states and how we experience ourselves within them."](../References/Modern-Philosophy/Tufft-et-al-2024-Flow-Active-Inference.pdf) *Frontiers in Psychology*, 15. https://doi.org/10.3389/fpsyg.2024.1354719
-- **Wiese 2024** — Wiese, W. ["Artificial consciousness: a perspective from the free energy principle."](../References/Modern-Philosophy/Wiese-2024-Artificial-Consciousness-Free-Energy-Principle.pdf) *Philosophical Studies*, 181, 1947–1970.
+- **Wiese 2024** — Wiese, W. ["Artificial consciousness: a perspective from the free energy principle."](https://doi.org/10.1007/s11098-024-02182-y) *Philosophical Studies*, 181, 1947–1970.

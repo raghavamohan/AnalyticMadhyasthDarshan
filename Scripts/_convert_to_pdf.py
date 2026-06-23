@@ -6,7 +6,7 @@ from urllib.parse import unquote, urlparse
 
 import markdown
 
-from _common import BASE, REFERENCES, STUDIES, site_base_url, study_md
+from _common import BASE, REFERENCES, STUDIES, is_linkable_reference_file, site_base_url, study_md
 from _study_catalog import strip_status_for_pdf
 
 
@@ -47,6 +47,8 @@ def _resolve_repo_link(href: str, source_dir: Path) -> Path | None:
     for candidate in candidates:
         try:
             if not candidate.is_file() or not candidate.is_relative_to(BASE):
+                continue
+            if not is_linkable_reference_file(candidate):
                 continue
             if candidate.is_relative_to(REFERENCES):
                 return candidate
