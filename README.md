@@ -2,7 +2,7 @@
 
 A collaborative, open project for **rigorous analytic work** on **Madhyasth Darshan** (Co-existentialism), the philosophy founded by **Shri A. Nagraj**.
 
-We examine defined questions from the darshan, ground claims in the **primary texts**, and compare them critically with other traditions and modern thought where relevant. The aim is to present Shri Nagraj's philosophy **as he gave it to us** — with a clear line between what the texts say, what is interpretation or comparison, and what remains open.
+We examine defined questions from the darshan, ground claims in the **primary texts**, and compare them critically with other traditions and modern thought where relevant. The aim is to present Shri Nagraj's philosophy **as he gave it to us** — with a clear line between what the texts say, what is interpretation or comparison, and what remains open. A further goal is **formal representation** of the darshan's structure — definitions, relations, and arguments stated with enough precision to compare traditions rigorously and to support the Formal Studies in this collection.
 
 Maintained by **[AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan)**. All original writing is under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
 
