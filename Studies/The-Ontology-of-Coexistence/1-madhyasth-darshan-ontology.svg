@@ -1,101 +1,125 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="780" height="600" viewBox="0 0 780 600" role="img">
-<title>The structure of existence in Madhyasth Darshan</title>
-<desc>Existence is coexistence (saha-astitva): formless Omnipresence (satta) is the all-pervasive ground in which countless real units (ikai) are saturated (samprikt), each carrying roop, gun, svabhav, and dharma, and standing in sambandh with other units. Two distinct progressions: Development (to T1) runs through the biochemical complex, not a single atom alone; Awakening (T2-T3) matures constitutionally complete jeevan. Orders and planes are mapped in detail in the companion orders-planes diagram.</desc>
-<style>
-  .th       { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 15px; fill: #1A1A18; }
-  .ts       { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 400; font-size: 12px; fill: #56554F; }
-  .txs      { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 400; font-size: 10px; fill: #6B6A63; }
-  .txs-dim  { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 400; font-size: 9px;  fill: #8A8980; }
-  .unit-title { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 11px; fill: #1A1A18; }
-  .unit-tag   { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 500; font-size: 9px;  fill: #0F6E56; }
-  .unit-line  { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 400; font-size: 9px;  fill: #6B6A63; }
-  .band     { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 10px; }
-  .stagenum { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 11px; fill: #FCFBF8; }
-  .frame { fill: #FCFBF8; stroke: #D8D6CD; stroke-width: 1.5; }
-  .satta-field { fill: #EDEBE3; stroke: #C9C6BB; stroke-width: 1; }
-  .c-teal   rect { fill: #E3F0EC; stroke: #0F6E56; }
-  .c-blue   rect { fill: #E7F0F9; stroke: #185FA5; }
-  .c-purple rect { fill: #ECE7F6; stroke: #5B3FA0; }
-  .c-gold   rect { fill: #F5F0E3; stroke: #8A6D1A; }
-  .c-sage   rect { fill: #E8F0E4; stroke: #4A7A3A; }
-  .arr-teal   { stroke: #0F6E56; stroke-width: 2;   fill: none; }
-  .arr-purple { stroke: #5B3FA0; stroke-width: 1.5; fill: none; }
-  .arr-coral  { stroke: #993C1D; stroke-width: 1.5; fill: none; }
-  .sat-link   { stroke: #B7B5AC; stroke-width: 1;   fill: none; stroke-dasharray: 4 3; }
-  .bracket    { stroke: #56554F; stroke-width: 1.25; fill: none; }
-</style>
-<defs>
-  <marker id="ar-teal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-    <path d="M2 1L8 5L2 9" fill="none" stroke="#0F6E56" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-  </marker>
-  <marker id="ar-purple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-    <path d="M2 1L8 5L2 9" fill="none" stroke="#5B3FA0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-  </marker>
-  <marker id="ar-coral" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-    <path d="M2 1L8 5L2 9" fill="none" stroke="#993C1D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-  </marker>
-</defs>
-<rect class="frame" x="8" y="8" width="764" height="584" rx="24"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="700" viewBox="0 0 820 700" role="img" font-family="Helvetica, Arial, sans-serif">
+  <title>Madhyasth Darshan — the architecture of coexistence</title>
+  <desc>Overview of Section 1: two co-eternal poles (Omnipresence/satta and units/ikai) bound by saturation; four developmental orders (material, bio, animal, knowledge); Development and Awakening progressions through transitions T1, T2, T3; with conservation and causation framing notes.</desc>
+  <defs>
+    <marker id="ahSteel" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#5E7686"/>
+    </marker>
+    <marker id="ahIndigo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6F63A8"/>
+    </marker>
+  </defs>
 
-<!-- PART A: coexistence -->
-<text class="th" x="40" y="44">Coexistence (saha-astitva) — the two inseparable aspects</text>
-<rect class="satta-field" x="40" y="56" width="700" height="252" rx="18"/>
-<text class="th"  x="60" y="80">Omnipresence (satta) — state-complete (sthitipurn)</text>
-<text class="txs" x="60" y="96">Formless, actionless (kriya-shunya), immeasurable, all-pervasive. Energises, regulates, conserves all units. Not countable.</text>
-<text class="txs-dim" x="60" y="110">The tinted field IS satta: it surrounds, submerges and soaks every unit. Satta does not act; it is the ground through which units are active.</text>
-<text class="ts"  x="390" y="140" text-anchor="middle">Nature (prakriti) — state-dynamic (sthitishil): countless units (ikai), bounded and countable, not finite in number</text>
-<g class="c-teal">
-  <rect x="120" y="158" width="96" height="60" rx="10" stroke-width="0.75"/>
-  <text class="unit-title" x="168" y="184" text-anchor="middle">Unit</text>
-  <text class="unit-tag"   x="168" y="200" text-anchor="middle">jada (insentient)</text>
-</g>
-<g class="c-teal">
-  <rect x="292" y="158" width="96" height="60" rx="10" stroke-width="0.75"/>
-  <text class="unit-title" x="340" y="182" text-anchor="middle">Unit</text>
-  <text class="unit-line"  x="340" y="198" text-anchor="middle">(ikai) — any</text>
-</g>
-<g class="c-teal">
-  <rect x="464" y="158" width="96" height="60" rx="10" stroke-width="0.75"/>
-  <text class="unit-title" x="512" y="184" text-anchor="middle">Unit</text>
-  <text class="unit-tag"   x="512" y="200" text-anchor="middle">jeevan (sentient)</text>
-</g>
-<text class="th"  x="624" y="188" text-anchor="middle" fill="#6B6A63">. . .</text>
-<text class="txs" x="624" y="204" text-anchor="middle">countless more</text>
-<line x1="219" y1="184" x2="289" y2="184" class="arr-teal" marker-end="url(#ar-teal)"/>
-<line x1="289" y1="192" x2="219" y2="192" class="arr-teal" marker-end="url(#ar-teal)"/>
-<text class="txs" x="254" y="152" text-anchor="middle">sambandh</text>
-<line x1="391" y1="184" x2="461" y2="184" class="arr-teal" marker-end="url(#ar-teal)"/>
-<line x1="461" y1="192" x2="391" y2="192" class="arr-teal" marker-end="url(#ar-teal)"/>
-<text class="txs" x="426" y="152" text-anchor="middle">sambandh</text>
-<line x1="340" y1="218" x2="340" y2="240" class="sat-link"/>
-<text class="txs" x="340" y="256" text-anchor="middle">saturation (samprikt): unit and ground — the more fundamental relation</text>
-<text class="ts" x="390" y="282" text-anchor="middle">Each unit carries an inseparable signature — <tspan font-style="italic">roop, gun, svabhav, dharma</tspan></text>
-<text class="txs" x="390" y="299" text-anchor="middle">essentiality (maulikta) = participation in orderliness (vyavastha) through value (mulya) in mutuality</text>
+  <!-- Title -->
+  <text x="410" y="30" text-anchor="middle" font-size="21" font-weight="700" fill="#1F2D3A">Madhyasth Darshan — the architecture of coexistence</text>
+  <text x="410" y="53" text-anchor="middle" font-size="12.5" fill="#5A6B78">Beginningless coexistence: two co-eternal poles, neither made from the other — the world fully real.</text>
 
-<!-- PART B: orders / planes summary -->
-<text class="th"  x="40" y="330">Four orders, four planes, three transitions</text>
-<text class="txs" x="40" y="348">An order names what a unit is (cumulative dharma); a plane names where development has reached.</text>
-<text class="txs" x="40" y="364">Material and bio span the physicochemical plane; animal maps to the delusional plane; the knowledge order spans deluded, deific, and divine plane-states.</text>
-<text class="txs-dim" x="40" y="382">Detailed orders–planes map with T1–T3 transitions: §1.8.</text>
+  <!-- Satta ground (pole 1): the wash that contains everything = saturation -->
+  <rect x="22" y="74" width="776" height="512" rx="14" fill="#E9F0F4" stroke="#9DB4C2" stroke-width="1.5"/>
+  <text x="40" y="98" font-size="12.5" font-weight="700" fill="#2F5168">OMNIPRESENCE · satta  (pole 1 — the pervasive ground)</text>
+  <text x="40" y="115" font-size="10.6" fill="#46627A">formless · all-pervasive · actionless (kriya-shunya) · non-transforming · does not begin or end</text>
+  <text x="40" y="130" font-size="10.6" fill="#46627A">Every unit is soaked, submerged &amp; surrounded in this ground — saturation (samprikt) is the bond, not extraction.</text>
 
-<!-- PART C: two progressions -->
-<text class="th" x="40" y="418">Two progressions — never to be confused</text>
-<g class="c-purple"><rect x="40" y="430" width="345" height="150" rx="12" stroke-width="0.75"/></g>
-<text class="th"  x="60" y="454" fill="#5B3FA0">Development Progression</text>
-<text class="txs" x="60" y="472">Matter completing itself INTO a self.</text>
-<text class="ts"  x="60" y="490">Runs through the entire physicochemical /</text>
-<text class="ts"  x="60" y="506">biochemical complex — not in one atom alone.</text>
-<text class="ts"  x="60" y="522">Atoms integrate within that assembly until</text>
-<text class="ts"  x="60" y="538">T1 (gathanpurnata): sentient, immortal jeevan.</text>
-<text class="txs" x="60" y="556">Once crossed, it does not reverse.</text>
-<g class="c-coral"><rect x="403" y="430" width="337" height="150" rx="12" fill="#F9E9E2" stroke="#993C1D" stroke-width="0.75"/></g>
-<text class="th"  x="423" y="454" fill="#993C1D">Awakening Progression</text>
-<text class="txs" x="423" y="472">A self that already exists maturing.</text>
-<text class="ts"  x="423" y="494">Inside a constitutionally complete jeevan,</text>
-<text class="ts"  x="423" y="510">higher perspectives come online: T2 activity</text>
-<text class="ts"  x="423" y="526">and T3 conduct completeness.</text>
-<text class="txs" x="423" y="548">Happens only in humans, through study</text>
-<text class="txs" x="423" y="562">and conduct. It can move either way.</text>
-<line x1="385" y1="505" x2="402" y2="505" class="arr-coral" marker-end="url(#ar-coral)"/>
+  <!-- Units (pole 2): glyph cluster sitting in the ground, joined by relationships -->
+  <text x="150" y="156" text-anchor="middle" font-size="9.6" fill="#7E97A6">saturated in satta (samprikt)</text>
+  <line x1="110" y1="178" x2="150" y2="166" stroke="#8AA0AE" stroke-width="0.9"/>
+  <line x1="150" y1="166" x2="192" y2="182" stroke="#8AA0AE" stroke-width="0.9"/>
+  <line x1="110" y1="178" x2="134" y2="202" stroke="#8AA0AE" stroke-width="0.9"/>
+  <line x1="134" y1="202" x2="174" y2="204" stroke="#8AA0AE" stroke-width="0.9"/>
+  <line x1="192" y1="182" x2="174" y2="204" stroke="#8AA0AE" stroke-width="0.9"/>
+  <line x1="150" y1="166" x2="210" y2="170" stroke="#8AA0AE" stroke-width="0.9"/>
+  <circle cx="110" cy="178" r="7.5" fill="#FDFCF7" stroke="#5E7686" stroke-width="1"/>
+  <circle cx="150" cy="166" r="7.5" fill="#FDFCF7" stroke="#5E7686" stroke-width="1"/>
+  <circle cx="192" cy="182" r="7.5" fill="#FDFCF7" stroke="#5E7686" stroke-width="1"/>
+  <circle cx="134" cy="202" r="7.5" fill="#FDFCF7" stroke="#5E7686" stroke-width="1"/>
+  <circle cx="174" cy="204" r="7.5" fill="#FDFCF7" stroke="#5E7686" stroke-width="1"/>
+  <circle cx="210" cy="170" r="7.5" fill="#FDFCF7" stroke="#5E7686" stroke-width="1"/>
+  <text x="150" y="230" text-anchor="middle" font-size="9.6" font-style="italic" fill="#5A6B78">units in definite relationships (sambandh)</text>
+
+  <!-- Units card -->
+  <rect x="300" y="146" width="478" height="80" rx="8" fill="#FFFFFF" stroke="#C2CED6" stroke-width="1"/>
+  <text x="316" y="168" font-size="12.5" font-weight="700" fill="#2F5168">UNITS · ikai  (pole 2 — formful nature)</text>
+  <text x="316" y="187" font-size="10.6" fill="#3F4D57">Bounded, plural, real. Each carries form, properties, essential nature &amp; dharma.</text>
+  <text x="316" y="203" font-size="10.6" fill="#3F4D57">Active and developing; complementary units compose into tiered assemblies</text>
+  <text x="316" y="218" font-size="10.6" fill="#3F4D57">(composition is not development).</text>
+
+  <!-- Transition callouts -->
+  <text x="409" y="244" text-anchor="middle" font-size="11" font-weight="700" fill="#9C7B1F">T1 · gathanpurnata — atom becomes sentient jeevan</text>
+  <text x="409" y="258" text-anchor="middle" font-size="9.6" fill="#7A6420">insentient → sentient · irreversible</text>
+  <text x="691" y="244" text-anchor="middle" font-size="10.4" font-weight="700" fill="#564B94">T2 activity · T3 conduct completeness</text>
+  <text x="691" y="258" text-anchor="middle" font-size="9.2" fill="#6F63A8">awakening milestones, within jeevan</text>
+
+  <!-- T1 line (sits in the gap between bio and animal) -->
+  <line x1="409" y1="266" x2="409" y2="416" stroke="#C9A227" stroke-width="2" stroke-dasharray="5 4"/>
+  <circle cx="409" cy="266" r="4.5" fill="#C9A227"/>
+  <!-- T2 / T3 ticks on the human panel -->
+  <line x1="648" y1="280" x2="648" y2="290" stroke="#6F63A8" stroke-width="2"/>
+  <line x1="726" y1="280" x2="726" y2="290" stroke="#6F63A8" stroke-width="2"/>
+
+  <!-- The four orders -->
+  <rect x="40" y="290" width="174" height="115" rx="8" fill="#DDE4E9" stroke="#9AAAB5" stroke-width="1"/>
+  <text x="127" y="316" text-anchor="middle" font-size="12" font-weight="700" fill="#2B3A45">MATERIAL</text>
+  <text x="127" y="332" text-anchor="middle" font-size="9.8" font-style="italic" fill="#41525D">padarth</text>
+  <text x="127" y="352" text-anchor="middle" font-size="9.6" fill="#41525D">integration–disintegration</text>
+  <text x="127" y="368" text-anchor="middle" font-size="9.6" fill="#41525D">dharma: existence</text>
+  <text x="127" y="394" text-anchor="middle" font-size="9" font-style="italic" fill="#7A8893">insentient (jada)</text>
+
+  <rect x="228" y="290" width="174" height="115" rx="8" fill="#D9E8DD" stroke="#93B79E" stroke-width="1"/>
+  <text x="315" y="316" text-anchor="middle" font-size="12" font-weight="700" fill="#28402F">BIO / PRANIC</text>
+  <text x="315" y="332" text-anchor="middle" font-size="9.8" font-style="italic" fill="#3C5443">pran</text>
+  <text x="315" y="352" text-anchor="middle" font-size="9.6" fill="#3C5443">vitalising–devitalising</text>
+  <text x="315" y="368" text-anchor="middle" font-size="9.6" fill="#3C5443">+ growth</text>
+  <text x="315" y="394" text-anchor="middle" font-size="9" font-style="italic" fill="#7A8893">insentient (jada)</text>
+
+  <rect x="416" y="290" width="174" height="115" rx="8" fill="#F2E7CF" stroke="#CBAE78" stroke-width="1"/>
+  <text x="503" y="316" text-anchor="middle" font-size="12" font-weight="700" fill="#5C4A1E">ANIMAL</text>
+  <text x="503" y="332" text-anchor="middle" font-size="9.8" font-style="italic" fill="#6A5520">jeev</text>
+  <text x="503" y="352" text-anchor="middle" font-size="9.6" fill="#6A5520">cruel–uncruel</text>
+  <text x="503" y="368" text-anchor="middle" font-size="9.6" fill="#6A5520">+ hope to live</text>
+  <text x="503" y="394" text-anchor="middle" font-size="9" font-style="italic" fill="#9C7B1F">sentient — jeevan</text>
+
+  <rect x="604" y="290" width="174" height="115" rx="8" fill="#E0DDF0" stroke="#A39BCB" stroke-width="1"/>
+  <text x="691" y="314" text-anchor="middle" font-size="12" font-weight="700" fill="#3A3470">KNOWLEDGE /</text>
+  <text x="691" y="328" text-anchor="middle" font-size="12" font-weight="700" fill="#3A3470">HUMAN</text>
+  <text x="691" y="344" text-anchor="middle" font-size="9.8" font-style="italic" fill="#4A4380">gyan</text>
+  <text x="691" y="360" text-anchor="middle" font-size="9.6" fill="#4A4380">fortitude, kindness, compassion …</text>
+  <text x="691" y="376" text-anchor="middle" font-size="9.6" fill="#4A4380">+ happiness</text>
+  <text x="691" y="394" text-anchor="middle" font-size="9" font-style="italic" fill="#564B94">sentient — jeevan</text>
+
+  <!-- Progressions -->
+  <line x1="48" y1="430" x2="404" y2="430" stroke="#5E7686" stroke-width="2.5" marker-end="url(#ahSteel)"/>
+  <text x="226" y="449" text-anchor="middle" font-size="10.4" font-weight="700" fill="#3F5566">DEVELOPMENT PROGRESSION · vikas-kram</text>
+  <text x="226" y="463" text-anchor="middle" font-size="9.4" fill="#52677A">physicochemical &amp; biochemical complex → constitutional completeness (T1)</text>
+
+  <text x="503" y="449" text-anchor="middle" font-size="9" font-style="italic" fill="#8A7A4E">animal jeevan:</text>
+  <text x="503" y="461" text-anchor="middle" font-size="9" font-style="italic" fill="#8A7A4E">sentient, definite conduct</text>
+
+  <line x1="606" y1="430" x2="776" y2="430" stroke="#6F63A8" stroke-width="2.5" marker-end="url(#ahIndigo)"/>
+  <text x="691" y="449" text-anchor="middle" font-size="10.4" font-weight="700" fill="#564B94">AWAKENING · jagriti-kram</text>
+  <text x="691" y="463" text-anchor="middle" font-size="9.4" fill="#6A5FA0">T2 → T3 → realisation · reversible</text>
+
+  <!-- Central caution -->
+  <text x="410" y="486" text-anchor="middle" font-size="10" font-style="italic" fill="#465A6B">Development ≠ awakening   ·   composition ≠ development   ·   realisation in Omnipresence = telos of both</text>
+
+  <!-- In-ground reading notes -->
+  <line x1="40" y1="502" x2="780" y2="502" stroke="#C2CED6" stroke-width="1"/>
+  <text x="40" y="524" font-size="9.6" fill="#46627A">Four real, stable plateaus of nature; dharma is cumulative (each order carries those below it).</text>
+  <text x="40" y="540" font-size="9.6" fill="#46627A">Change = unit-activity — effort–motion–result (shram–gati–parinam) — oriented toward completeness.</text>
+  <text x="40" y="556" font-size="9.6" fill="#46627A">Telos = coexistence evident in fulfilled relationships: fulfilment within the ground, not exit from it.</text>
+
+  <!-- Framing boxes -->
+  <rect x="22" y="600" width="379" height="86" rx="8" fill="#F4F1EA" stroke="#CBBE9B" stroke-width="1"/>
+  <text x="38" y="620" font-size="11" font-weight="700" fill="#6F5A22">Beginningless &amp; conserved</text>
+  <text x="38" y="638" font-size="9.6" fill="#4A4334">Nothing arises from, or vanishes into, non-being (abhava).</text>
+  <text x="38" y="652" font-size="9.6" fill="#4A4334">Bodies, configurations &amp; associations begin and end;</text>
+  <text x="38" y="666" font-size="9.6" fill="#4A4334">underlying vastu persists through transformation.</text>
+  <text x="38" y="681" font-size="9.6" font-style="italic" fill="#4A4334">“Brahma is truth, the world is perpetual” (jagat satat).</text>
+
+  <rect x="419" y="600" width="379" height="86" rx="8" fill="#EEF0F4" stroke="#AEBCC6" stroke-width="1"/>
+  <text x="435" y="620" font-size="11" font-weight="700" fill="#33536A">Causation &amp; time</text>
+  <text x="435" y="638" font-size="9.6" fill="#3F4D57">Satta is mahakaran — the sustaining ground, not the</text>
+  <text x="435" y="652" font-size="9.6" fill="#3F4D57">efficient cause; units do the work of change.</text>
+  <text x="435" y="666" font-size="9.6" fill="#3F4D57">Time (kaal) = duration of unit-activity,</text>
+  <text x="435" y="680" font-size="9.6" fill="#3F4D57">not an independent cosmic container.</text>
 </svg>
