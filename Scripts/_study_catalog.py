@@ -274,10 +274,13 @@ def parse_html_rows(content: str, table: StudyTable) -> list[StudyRow]:
         if link_match:
             slug = Path(link_match.group(1)).stem
         else:
-            em_match = re.search(r"<em>([^<]+)</em>", first)
+            em_match = re.search(
+                r'<em(?:\s+data-slug="([^"]+)")?>([^<]+)</em>',
+                first,
+            )
             if not em_match:
                 continue
-            slug = em_match.group(1).strip()
+            slug = html.unescape((em_match.group(1) or em_match.group(2)).strip())
         status, edited_at = parse_status_cell(status_raw)
         rows.append(
             StudyRow(
@@ -308,8 +311,12 @@ def parse_md_rows(content: str, table: StudyTable) -> list[StudyRow]:
         link_match = re.match(r"\[([^\]]+)\]\(([^)]+\.pdf)\)", doc_cell)
         if link_match:
             slug = Path(link_match.group(2)).stem
-        elif doc_cell.startswith("*") and doc_cell.endswith("*"):
-            slug = doc_cell.strip("*")
+        elif doc_cell.startswith("*"):
+            comment_match = re.search(r"<!--\s*slug:\s*(.+?)\s*-->", doc_cell)
+            if comment_match:
+                slug = comment_match.group(1).strip()
+            else:
+                slug = doc_cell.strip().strip("*").strip()
         else:
             continue
         status, edited_at = parse_status_cell(status_raw)
@@ -326,14 +333,63 @@ def parse_md_rows(content: str, table: StudyTable) -> list[StudyRow]:
     return rows
 
 
+# Words kept lowercase in a title unless they are the first or last word.
+_TITLE_SMALL_WORDS = {
+    "a", "an", "and", "as", "at", "but", "by", "for", "from", "in",
+    "into", "nor", "of", "on", "onto", "or", "over", "per", "the",
+    "to", "vs", "via", "with",
+}
+
+# Explicit display-title overrides for slugs whose automatic derivation is
+# not ideal — e.g. internal compounds like "self-sustaining" whose hyphen is
+# indistinguishable from a word separator once the slug is split. Keyed by
+# slug; anything not listed falls back to slug_to_title().
+SLUG_TITLE_OVERRIDES: dict[str, str] = {
+    "How-To-Form-Self-Sustaining-Organizations":
+        "How to Form Self-Sustaining Organizations",
+}
+
+
+def slug_to_title(slug: str) -> str:
+    """Convert a hyphenated directory slug into a human-readable title.
+
+    Splits the slug on hyphens and applies title case, keeping common
+    connective words lowercase unless they are the first or last word.
+    Tokens that are already deliberately cased (acronyms like "AI",
+    mixed-case names like "McKinsey") are preserved as-is.
+    """
+    words = [w for w in slug.split("-") if w]
+    if not words:
+        return slug
+    last = len(words) - 1
+    titled: list[str] = []
+    for i, word in enumerate(words):
+        lower = word.lower()
+        already_cased = word != lower and word != word.capitalize()
+        if already_cased:
+            titled.append(word)
+        elif i not in (0, last) and lower in _TITLE_SMALL_WORDS:
+            titled.append(lower)
+        else:
+            titled.append(word[:1].upper() + word[1:].lower())
+    return " ".join(titled)
+
+
+def display_title(row: StudyRow) -> str:
+    """Human-readable title for a row: explicit override, else derived."""
+    return SLUG_TITLE_OVERRIDES.get(row.slug) or slug_to_title(row.slug)
+
+
 def serialize_html_row(row: StudyRow) -> str:
     status_cell = format_status_catalog(row.edited_at, row.status)
     safe_category = html.escape(row.category, quote=False)
     safe_desc = html.escape(row.description, quote=False)
+    safe_title = html.escape(display_title(row), quote=False)
     if row.has_pdf:
-        doc_cell = f'<a href="{study_pdf_href(row.slug)}">{row.slug}</a>'
+        doc_cell = f'<a href="{study_pdf_href(row.slug)}">{safe_title}</a>'
     else:
-        doc_cell = f"<em>{html.escape(row.slug, quote=False)}</em>"
+        safe_slug = html.escape(row.slug, quote=True)
+        doc_cell = f'<em data-slug="{safe_slug}">{safe_title}</em>'
     return (
         f"    <tr>\n"
         f"      <td>{doc_cell}</td>\n"
@@ -346,10 +402,11 @@ def serialize_html_row(row: StudyRow) -> str:
 
 def serialize_md_row(row: StudyRow) -> str:
     status_cell = format_status_catalog(row.edited_at, row.status)
+    title = display_title(row)
     if row.has_pdf:
-        doc_cell = f"[{row.slug}]({study_pdf_href(row.slug)})"
+        doc_cell = f"[{title}]({study_pdf_href(row.slug)})"
     else:
-        doc_cell = f"*{row.slug}*"
+        doc_cell = f"*{title}* <!-- slug: {row.slug} -->"
     return (
         f"| {doc_cell} | {escape_md_cell(row.category)} | "
         f"{escape_md_cell(row.description)} | {status_cell} |"
@@ -587,7 +644,3 @@ def title_to_slug(title: str) -> str:
     if not words:
         raise ValueError("Title must contain at least one word.")
     return "-".join(word[:1].upper() + word[1:] for word in words)
-
-
-def slug_to_title(slug: str) -> str:
-    return " ".join(part.capitalize() for part in slug.split("-"))
