@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 24, 2026, 7:27 AM IST
+**Edited on:** June 24, 2026, 3:40 PM IST
 
 **Status:** Draft
 
@@ -169,6 +169,16 @@ flowchart TD
 
 Gluing alone is not enough at the knowledge order. An assembly **persists** while its relationships are fulfilled (natural state) and **declines** when they are not (excited state); and every persisting assembly **transmits its method of composition** across generations — by education-*sanskar* at the human tier ([The Coexistence Template](../The-Coexistence-Template/The-Coexistence-Template.pdf) L4–L5). A society that coheres locally but fails to transmit understanding decays on member turnover.
 
+### 3.6 *Jeevan*: evaluation and self-evidencing
+
+Lower orders already **show** orderliness: a peepal tree exhibits definite conduct (JV p. 113) — that is *anubhav jnan* as ontological given (MVD p. 11), not knowledge-order evaluation. At the human tier something further is required: only *jeevan* **evaluates** value (template D6), **unfolds** knowledge (*gyan udghatan*, MVD pp. 115–116, 289), and must **evidence** what it understands in conduct.
+
+MVD p. 12 gives a reflexive chain — each link *is* the next:
+
+> Realisation itself is the ultimate evidence; evidence itself is understanding; understanding itself is manifest as resolution, work, and behaviour; work and behaviour itself is evidence; evidence itself is awakened tradition; awakened tradition itself is coexistence.
+
+Private conviction without conduct is incomplete knowledge ([Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §1.6). The musician/instrument picture from §3.2 extends here: the body can display effects; only *jeevan* evaluates and makes understanding **evident** to others — *pramanikta* at conduct completeness (T3; [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.9.1–1.9.2). Four knowledge registers must be kept apart (template D12; formal sketch §6.15).
+
 
 ## Part 4: How this formalism helps
 
@@ -254,6 +264,7 @@ flowchart TD
     Rel["Rel: unit relationships (sambandh)"]
     Val["Val: values (graded preorder)"]
     Eval["Eval: evaluation (knowledge order)"]
+    Ev["Ev: evidence / pramanikta"]
     Conduct["Conduct: enriched over fulfilment"]
     Comp["Comp: composition (mixture / compound)"]
     Soc["Soc: social gluings (colimits)"]
@@ -267,7 +278,9 @@ flowchart TD
     Rel -->|"assemble"| Soc
     Comp -->|"kappa"| Soc
     Liv -->|"mu (evaluate)"| Eval
+    Liv -->|"Xi (gyan udghatan)"| Liv
     Eval --> Val
+    Conduct -->|"ev"| Ev
     Conduct -->|"grades"| Val
     Liv -->|"inhabits"| Ord
     Soc -->|"tau"| Trans
@@ -275,9 +288,13 @@ flowchart TD
 
 **Sat (saturation).** Omnipresence **O** is not a unit and not an object of `Rel` ([The Coexistence Template](../The-Coexistence-Template/The-Coexistence-Template.pdf) §3.1). Saturation is pervasive co-location in which **inherent energy and regulation belong to each unit** through the O–unit bond — mutual dependence for manifestation, not physical extraction from *O* (template A1–A2; [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §§1.2–1.3). Categorically it is best treated as an **ambient** or **enrichment base** — a family of regulators indexed by units — not as a morphism *u₁ → u₂*. Terminal-object and topos-as-space readings of *vyapak* remain stretches (§6.13.4).
 
-**Eval and μ.** Evaluation is defined **only for knowledge-order units** (template D6): *jeevan* assesses value delivered in a relationship. Model it as an endofunctor or process `μ : Liv → Liv` (or a functor into a category of assessments) that does not factor through `Phys`. Justice is the composite **ρ → φ → μ → mutual satisfaction** — an **operator over** *V*, not a member of *V* (template D7).
+**Eval and μ.** Evaluation is defined **only for knowledge-order units** (template D6): *jeevan* assesses value delivered in a relationship — bodily mechanisms implement conduct but do not evaluate. Model `μ : Liv → Eval` (or an endofunctor on `Liv`) that does not factor through `Phys`. Justice is the composite **ρ → φ → μ → mutual satisfaction** — an **operator over** *V*, not a member of *V* (template D7). Complete knowledge requires the evidence cycle (template D13, L7; §6.15).
 
-**Trans and τ.** Transmission re-instantiates an assembly's composition method across member turnover (template L5). A clean categorical home is an **indexed category** or **coalgebra**: generations as objects, τ as structure-preserving maps carrying *rachna vidhi* / education-*sanskar* forward. Colimits alone do not generate τ (proposition P8).
+**Ξ and *gyan udghatan*.** Knowledge unfolding is a **partial** endofunctor `Ξ : Liv ⇀ Liv`, defined only for awakened knowledge-order units (template D12; MVD pp. 115–116, 289). It does not drive material-tier κ_comp.
+
+**Ev and *pramanikta*.** Model conduct readable as evidence by `ev : Conduct → Ev`. T3 (conduct completeness) corresponds to a lift in `Pln` when `ev ∘ conduct` reaches *pramanikta* — authenticity others can recognize ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.9.1).
+
+**Trans and τ.** Transmission re-instantiates an assembly's composition method across member turnover (template L5). At the knowledge order, τ carries **evidenced** understanding (template D10), not rules without φ. A clean categorical home is an **indexed category** or **coalgebra**: generations as objects, τ as structure-preserving maps carrying education-*sanskar* forward. Colimits alone do not generate τ (proposition P8).
 
 **Cap and cap(*u*).** Fulfilment is not automatic from recognising a relationship: it is modulated by **capacity** (*kshamata*), **ability** (*yogyata*), and **receptivity** (*patrata*) (template D5a). Model cap as a functor `cap : Liv → Cap` into a category of capability profiles; `Rel` and `Conduct` are then **fibred** or **indexed** over unit capability (§6.6.1).
 
@@ -290,6 +307,8 @@ flowchart TD
 | Template | Symbol / law | Categorical analogue in this paper | Fit / gap |
 |---|---|---|---|
 | Coexistence, saturation | **O**, A1–A2 | Ambient `Sat`; inherent energy in units through co-location; not in `Rel`; not transfer from *O* | Medium is constitutive; CT has no default for non-morphismic ground |
+| Knowledge registers | **D12**: AJ, O_gyan, Ξ, TEL | Ambient typing on all objects; `Sat` as O_gyan base; `Ξ : Liv ⇀ Liv`; TEL as progression target (not object in `Sat`) | See §6.15; TEL ≠ terminal object in `Sat` |
+| Self-evidencing | **D13**, **L7** | Partial cycle `ev ∘ φ ∘ μ`; evidenced `Trans`; quiver not single endomorphism | §6.15 |
 | Units, signature | **U**, D1, D1a | Objects across categories; **sig(*u*)** typed data (roop, gun, svabhav, dharma) | Strong for orders; property triad generative/degenerative/mediative is typed, not derived |
 | Relationships | **R**, D3 | Category `Rel`; expectation profiles **E(r)** on arrows | Strong; association vs relationship is typing, not composition |
 | Values / essentiality | **V**, D4 | Preorder `Val`; enrichment base **W**; essentiality (*maulikta*) as participation-as-value | Moderate — graded taxonomy (object / established / civic) compresses in §6.6 |
@@ -410,7 +429,7 @@ the hom-object Conduct(f, g) is an element of W recording the quality of fulfilm
 
 Enriched composition requires `Conduct(g,h) (x) Conduct(f,g) <= Conduct(f,h)` — "a chain is only as high-grade as its weakest link." This refuses the collapse of fulfilment into one additive scalar — the Madhyasth objection to utility/happiness maximisation — and aligns with definite completeness rather than open-ended optimisation.
 
-The base `W` and the choice of `min` are modeling decisions. The enrichment captures *ordering of qualities* well; it does not capture *what existential realisation is*, nor the full D4 class hierarchy without a finer indexed enrichment. **Fulfilment capacity** (template D5a) supplies that finer index — §6.6.1.
+The base `W` and the choice of `min` are modeling decisions. The enrichment captures *ordering of qualities* well; it does not capture TEL (*satta mein anubhav* as telos), nor the full D4 class hierarchy without a finer indexed enrichment. **Fulfilment capacity** (template D5a) supplies that finer index — §6.6.1.
 
 ### 6.6.1 Fulfilment modulated by capacity (cap(u))
 
@@ -632,7 +651,7 @@ Hungry/overfull atomic bonding is **compound-mode** κ_comp guarded by L3 (§6.9
 | κ_comp (*vikas-kram*; AdmissibleComp) | bond | hungry-atom ⊗ overfull-atom | molecular composite | compound |
 | κ_comp (*vikas-kram*; AdmissibleComp) | complete | composite ⊗ effort | *gathanpurna parmanu* | compound; T1 irreversible |
 | *jagriti-kram* (in `Liv`; not κ_comp) | awaken | deluded K-order unit | deific plane | T2: activity completeness |
-| *jagriti-kram* (in `Liv`; not κ_comp) | evidence | awakened K-order unit | divine plane | T3: conduct completeness |
+| *jagriti-kram* (in `Liv`; not κ_comp) | evidence | awakened K-order unit | divine plane | T3: conduct completeness; *pramanikta* via `ev` |
 
 **Mixture transitions** (if included) are **identity-preserving** on each factor — token duplication without fusion — and do **not** advance Development Progression toward a new tier. Likewise, social colimits (§6.8) and large assemblies do **not** substitute for order transition: composition is not development ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.5).
 
@@ -657,8 +676,11 @@ These are stated as: **structural claim, given premise P**. None is a theorem ab
 | P11 | Effective φ is fibred over cap(*u*); justice is a partial composite | D5a: fulfilment modulated by ksh, yog, pat | Valid given premise; preorders not derived |
 | P12 | κ_mix (coproduct) ≠ κ_comp (fusion colimit); only κ_comp iterates L6 | D8: mishran vs yaugik | Valid; distinguishes §6.8 readings |
 | P13 | T1 is irreversible in the Petri layer; T2–T3 are lifts in `Liv` | D11: planes vs orders; *vikas-kram* vs *jagriti-kram* | Valid; separates atomic and awakening progressions |
+| P14 | μ is not definable on `Phys` or `Rel` alone | D6: evaluation is *jeevan*-only | Valid; restates P10 with ontology citation |
+| P15 | Complete knowledge requires composable `ev ∘ φ ∘ μ` (and conduct via `act`) | D13, L7: self-evidencing closure | Valid given premise; cycle blocked by cap(u) or deluded plane |
+| P16 | τ at knowledge order preserves evidenced understanding | D10: τ_ev not rules without φ | Valid; links §6.8 to MVD p. 12 tradition step |
 
-**P6** is the only place ordinary category theory does substantive independent work on gluing. Elsewhere the notation sharpens and exposes the argument, but the load is carried by a Madhyasth premise or by structure outside CT (P8–P9, L3 guard in §6.9.1).
+**P6** (undivided society colimit) is the only place ordinary category theory does substantive independent work on gluing. Elsewhere the notation sharpens and exposes the argument, but the load is carried by a Madhyasth premise or by structure outside CT (P8–P9, L3 guard in §6.9.1).
 
 ### 6.12 Coverage map: what is represented, and how well
 
@@ -682,14 +704,19 @@ These are stated as: **structural claim, given premise P**. None is a theorem ab
 | Transmission τ (L5) | `Trans` coalgebra (sketch) | Weak | Not derivable from κ |
 | Complementarity (L3) | `AdmissibleComp` guard on spans | Partial | Predicate on diagrams, not CT-derived (§6.9.1) |
 | Development / effort | Monoidal/Petri; κ_comp transitions | Moderate | *vikas-kram* bookkeeping only |
-| Education / sanskar | τ + faithfulness of Info→Conduct | Moderate | Tied to transmission |
+| Education / sanskar | τ + faithfulness of Info→Conduct | Moderate | Tied to transmission; evidenced τ (P16) |
+| *Anubhav jnan* (AJ, D12) | Ambient typing: sig(*u*) + orderliness from `Sat` | Moderate | Given data, not derived |
+| *Gyan udghatan* (Ξ, D12) | Partial endofunctor `Ξ : Liv ⇀ Liv` | Partial | "Awakened" guard external |
+| *Satta mein anubhav* (TEL, D12) | Target of progression functors / fulfilled `Rel` diagrams | Partial | Not a new object in `Sat` |
+| Evidence loop (D13, L7) | Quiver across `Eval`, `Conduct`, `Ev`, `Trans` | Weak–moderate | Not one composable endomorphism |
+| *Pramanikta* (T3) | `ev : Conduct → Ev`; lift in `Pln` | Partial | Faculty link in ontology §1.9.1 |
 | Means cannot fix ends | No generating functor (Hume) | Weak as novelty | True; philosophy supplies it |
 
 ### 6.13 What does NOT fit well (and why)
 
 1. **`Jeevan` as a substance.** Category theory is structuralist: by Yoneda, an object just *is* its web of morphisms. A faithful categorical reading inevitably re-describes `jeevan` as a **functional role** — precisely the reductionist/functionalist position the darshan rejects. The formalism cannot represent "substantial existence over and above relational role" without leaving category theory. [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) commits to the **Saturation-Reflector Model** (§6.6) — ever-present *gyan* actualised through a constitutionally complete reflector, not generated from dead matter — as the latency reply to this structuralism-vs-substance tension for *jeevan*.
 
-2. **Samadhi / samyama as the warrant.** Nagraj's epistemic foundation is realisation through `sadhana-samadhi-samyama` (MVD, point 4): private, first-person, non-relational. It is the *source of the axioms* and necessarily sits **outside** the category.
+2. **Samadhi / samyama as the warrant.** Nagraj's epistemic foundation is *sadhana-samadhi-samyama* (MVD p. 7): private, first-person, non-relational. It is the *source of the axioms* and necessarily sits **outside** the categories — distinct from *anubhav jnan* (ontological given, template D12 AJ) and from *satta mein anubhav* (telos TEL).
 
 3. **Constitutional completeness as content.** Encodable as an irreversible transition, but the Petri structure is content-agnostic; the specific metaphysical claim is invisible to it.
 
@@ -697,7 +724,7 @@ These are stated as: **structural claim, given premise P**. None is a theorem ab
 
 5. **Coexistence: ground and constraint.** It functions as the background that makes composition possible and as a constraint (colimit compatibility). That dual role signals a **first principle** not fully internalisable as a single categorical object.
 
-6. **Truth/realisation-in-existence (`satya`).** Temptingly a terminal object (unique target), but realisation is experiential and self-involving, which the terminal-object analogy loses.
+6. **Four knowledge registers and TEL.** *Anubhav jnan*, *gyan* as *satta*, *gyan udghatan*, and *satta mein anubhav* (template D12; [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.9.4) must not be collapsed. TEL (*satta mein anubhav*) is temptingly a terminal object, but it names relationships fulfilled and coexistence evident — not a new state of *O* in `Sat`. The terminal-object analogy loses the experiential, self-involving closure of D13/L7.
 
 7. **The self-knowing of the knowledge order.** Knower and known coincide — reflexive. This gestures at fixed points or Yoneda self-reference but risks paradox and is not obviously well-founded.
 
@@ -729,6 +756,41 @@ These are stated as: **structural claim, given premise P**. None is a theorem ab
 
 10. **Mixture/compound boundary cases.** Real assemblies may exhibit intermediate behaviour (partial fusion). The binary κ_mix / κ_comp split is a modelling convenience; finer quotients may be needed for some tiers.
 
+### 6.15 Knowledge registers and self-evidencing (template D12–D13, L7)
+
+[The Coexistence Template](../The-Coexistence-Template/The-Coexistence-Template.pdf) D12 names four registers the texts must not conflate; D13 and L7 formalise the MVD p. 12 evidence chain for the knowledge order only. This section maps them categorically — conditional sketches, not theorems.
+
+| Register | Template | Categorical role | Fit / gap |
+|---|---|---|---|
+| *anubhav jnan* | **AJ** | **Ambient typing** on all objects: every unit carries `sig(u)` + inherent orderliness from `Sat` — initial data, not a morphism | Strong as given structure; not derived |
+| *gyan* as *satta* | **O_gyan** | **Enrichment base / regulator** for `Sat`; not an object in `Rel` | Already §6.1; name explicitly |
+| *gyan udghatan* | **Ξ** | **Partial endofunctor** `Ξ : Liv ⇀ Liv` — unfolding only on awakened knowledge-order units | Partial — awakened guard is extra data |
+| *satta mein anubhav* | **TEL** | **Target** of progression functors (limit/colimit of fulfilled `Rel` diagrams), **not** a new object in `Sat` | Do not read as terminal object in `Sat` |
+| Samadhi warrant | MVD p. 7 | **Meta**: source of axioms, outside all categories | §6.13.2; not AJ |
+
+**Self-evidencing subsystem.** Lower orders run ρ and φ definitely; the knowledge order adds μ, Ξ, and closure of D13:
+
+```text
+mu  : Liv -> Eval
+Xi  : Liv -> Liv           (partial; awakened guard)
+act : J x Bdy -> Bdy       (§6.4)
+ev  : Conduct -> Ev        (pramanikta)
+```
+
+At the knowledge order, φ **evidences** use, right-use, and purposeful-use (template D5; MVD p. 62). Justice remains the partial composite **ρ → φ → μ → mutual satisfaction** (§6.6.1), defined only when cap(*u*) permits. Complete knowledge requires a **composable cycle** through conduct and `ev` — blocked when μ misfires or cap(*u*) is insufficient (P15).
+
+MVD p. 12 is modelled as a **directed quiver** (§6.0 rule 2 — not all edges compose in one category):
+
+```text
+Realisation --evidence--> Understanding --manifest--> Conduct
+     ^                                              |
+     +---------------- evidence / tradition ----------+
+```
+
+Categorical honesty: this is a **family** of functors and partial composites across `Eval`, `Conduct`, `Ev`, and `Trans` — not `id_Liv`. Transmission τ at the knowledge order must carry **evidenced** understanding (P16), linking the tradition step to education-*sanskar* (§6.8).
+
+Epistemic detail: [Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §§1.6–1.8. Ontological exposition: [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.9.4.
+
 
 ## 7. Limits and conclusion
 
@@ -736,10 +798,10 @@ A clear guide must also say what this does **not** do.
 
 - **It does not prove the philosophy.** Drawing `jeevan` as a box does not show `jeevan` exists. The diagrams organise the claims; they do not verify them.
 - **It can quietly shrink `jeevan`.** Category theory describes things purely by their relationships. But the darshan insists `jeevan` is a real *entity*, not just a role it plays. The more faithfully you use the mathematics, the more it risks turning `jeevan` into "the thing that does these jobs" — closer to the materialist view the darshan rejects. This tension is real and unresolved.
-- **It cannot capture realisation.** The darshan's foundation is a first-person, meditative realisation (`samadhi`). That is the *source* of the assumptions, and it sits outside any diagram.
-- **It adds no evidence.** No measurement of `jeevan`, constitutional completeness, or coexistence comes out of this. For that, science would still need testable definitions and observations.
+- **Samadhi is not the same as ontological *anubhav*.** The darshan's meditative warrant (*sadhana-samadhi-samyama*, MVD p. 7) is the *source* of the axioms and sits outside any diagram — distinct from *anubhav jnan* (given structure) and from *satta mein anubhav* (telos evidenced in fulfilment).
+- **It adds no third-person evidence.** No measurement of `jeevan`, constitutional completeness, or coexistence comes out of this notation alone. Madhyasth's own test is conduct-evidence and tradition (MVD p. 12; template D13). Science would still need operational definitions and public observations.
 
-Category theory is a **lens for clarity**, not a proof machine and not a new physics. It makes Madhyasth Darshan's logic visible, shows exactly what each conclusion depends on, maps naturally onto much of [*The Coexistence Template*](../The-Coexistence-Template/The-Coexistence-Template.pdf) — including **sig(*u*)** and planes (D1a, D11), fibred **cap(*u*)** (§6.6.1), and **mixture/compound** κ (§6.9) — and contributes one real insight about social gluing, while leaving saturation, the L3 guard, transmission, plane typing for humans, and substantial *jeevan* as explicit boundaries.
+Category theory is a **lens for clarity**, not a proof machine and not a new physics. It makes Madhyasth Darshan's logic visible, shows exactly what each conclusion depends on, maps naturally onto [*The Coexistence Template*](../The-Coexistence-Template/The-Coexistence-Template.pdf) — including **sig(*u*)** and planes (D1a, D11), fibred **cap(*u*)** (§6.6.1), **mixture/compound** κ (§6.9), **knowledge registers** D12, and **self-evidencing** D13/L7 (§6.15) — and contributes one real insight about social gluing. Ontology–epistemology **closure** at the human tier requires `Liv` (μ, Ξ, ev), not `Rel` alone. Saturation, the L3 guard, evidenced transmission, plane typing, and substantial *jeevan* remain explicit boundaries.
 
 ```mermaid
 flowchart LR
@@ -755,14 +817,15 @@ flowchart LR
 
 ### Madhyasth Darshan (primary sources)
 
-- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: four orders; unit signature (pp. 50–51); relationships and values; capacity–ability–receptivity (pp. 62, 79, 134, 142); mixture and compound (p. 42); hungry/overfull atoms (p. 8); three satisfactions (Ch. 4); organisation sustainment (p. 55).
+- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: Realisation Knowledge (p. 11); evidence chain and "Believe what is known" (p. 12); four orders; unit signature (pp. 50–51); relationships and values; capacity–ability–receptivity (pp. 62, 79, 134, 142); mixture and compound (p. 42); hungry/overfull atoms (p. 8); knowledge unfolding (pp. 115–116, 289); realisation in coexistence (p. 116); three satisfactions (Ch. 4); organisation sustainment (p. 55); samadhi-samyama warrant (p. 7).
 - **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad / Resolution Centred Materialism*](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Also at https://www.youtube.com/playlist?list=PL69PCoz1OQW0dhshZ0Xv3KtZ7ajJOIpgv (bilingual Hindi and English). Cited: effort–motion–result (p. 58); planes and completeness transitions (pp. 51–52, 92); constitutional completeness (p. 55); essentiality as value (p. 50); value-distinct acts (Ch. 7).
 - **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: body as instrument (Ch. 1); complementarity (p. 157); commerce and "more" (p. 41).
 
 ### Related studies in this collection
 
 - [*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — ontological exposition: coexistence, saturation, unit signature, *sambandh*, four orders and planes, *jeevan* and awakening, *gathanpurnata*, Development and Awakening Progression, activity triad, conservation
-- [*The Coexistence Template*](../The-Coexistence-Template/The-Coexistence-Template.pdf) — formal template (κ, τ, ρ, φ, μ, L1–L6, D11, P6); reciprocal link at §7
+- [*The Coexistence Template*](../The-Coexistence-Template/The-Coexistence-Template.pdf) — formal template (κ, τ, ρ, φ, μ, D12–D13, L7, L1–L6, D11, P6); reciprocal link at §7 and §6.1.1
+- [*Knowledge, Knower, and Known*](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) — evidence chain, *gyan udghatan*, *pramana* (§§1.2, 1.6–1.8)
 - [*Nature of Time*](../Nature-Of-Time/Nature-Of-Time.pdf) — *kaal* as duration of unit-activity; *shram–gati–parinam* and directional *vikas*
 - [*Why Humans Are Not Just Material*](../Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.pdf) — human-tier anthropology
 - [*Human Behavior and Society*](../Human-Behavior-And-Society/Human-Behavior-And-Society.pdf) — conduct and social order

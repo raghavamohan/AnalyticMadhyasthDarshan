@@ -12,8 +12,10 @@ from pathlib import Path
 
 from pypdf import PdfReader
 
+# Require a language tag (e.g. ```text) so closing ``` after ```mermaid is not
+# parsed as the start of a fenced block.
 FENCED_BLOCK = re.compile(
-    r"```(?!mermaid)(\w*)\s*\n(.*?)```",
+    r"```(?!mermaid)(\w+)\s*\n(.*?)```",
     re.DOTALL | re.IGNORECASE,
 )
 
@@ -52,10 +54,14 @@ def extract_spec_bracket_tags(block: str) -> list[str]:
     for line in block.splitlines():
         if "->" not in line and " admissible" not in line.lower():
             continue
-        for tag in BRACKET_TAG.findall(line):
+        for match in BRACKET_TAG.finditer(line):
+            tag = match.group(0)
             if "?" in tag or "http" in tag.lower():
                 continue
             if re.match(r"\[\*?.+\*\?\]", tag):
+                continue
+            # Markdown links [title](url) are not Petri/spec annotations.
+            if match.end() < len(line) and line[match.end()] == "(":
                 continue
             tags.append(tag)
     return tags
