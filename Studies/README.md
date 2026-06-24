@@ -53,9 +53,19 @@ These studies are more mathematical in nature. They represent the structure disc
 <!-- formal-studies-catalog -->
 | Document | Formal Focus | Description | Status |
 |----------|--------------|-------------|--------|
-| [Category Theory Explained](Category-Theory-Explained/Category-Theory-Explained.pdf) | Category theory | Category-theory lens on the darshan's structure | Draft<br>Last updated on: Jun 24, 2026, 3:40 PM IST |
-| [The Coexistence Template](The-Coexistence-Template/The-Coexistence-Template.pdf) | Formal template | Formal template of units, relationships, values, and assembly | Draft<br>Last updated on: Jun 24, 2026, 3:40 PM IST |
+| [Category Theory Explained](Category-Theory-Explained/Category-Theory-Explained.pdf) | Formal structure | Category-theory lens on the darshan's structure | Draft<br>Last updated on: Jun 24, 2026, 3:40 PM IST |
+| [The Coexistence Template](The-Coexistence-Template/The-Coexistence-Template.pdf) | Formal structure | Formal template of units, relationships, values, and assembly | Draft<br>Last updated on: Jun 24, 2026, 3:40 PM IST |
 <!-- /formal-studies-catalog -->
+
+### Applied studies
+
+These papers apply the formal template and categorical architecture to concrete domains — organisations, institutions, and other deliberate assemblies.
+
+<!-- applied-studies-catalog -->
+| Document | Applied Focus | Description | Status |
+|----------|---------------|-------------|--------|
+| [Coexistence Company — Concrete Organizational Structure](../Applications/Coexistence-Company-Org-Structure/Coexistence-Company-Org-Structure.pdf) | Organizational design | Organisational blueprint instantiating the coexistence template for a deliberate knowledge-work company | Draft<br>Last updated on: Jun 24, 2026, 8:55 PM IST |
+<!-- /applied-studies-catalog -->
 
 ## How we work
 

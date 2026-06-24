@@ -42,8 +42,7 @@ body:
         - Ecology, Axiology
         - Spiritual Practice
         - Philosophy of Science
-        - Category theory
-        - Formal template
+        - Formal structure
         - Other (describe in study summary)
     validations:
       required: true
