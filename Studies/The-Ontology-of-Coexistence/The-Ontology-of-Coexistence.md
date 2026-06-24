@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 24, 2026, 7:58 AM IST
+**Edited on:** June 24, 2026, 8:25 AM IST
 
 **Status:** Draft
 
@@ -189,6 +189,10 @@ This paper uses **mutual dependence for manifestation** as shorthand for that re
 Before SB compresses this structure into an identity-chain, three activity terms need plain anchors. **Basic impulsion** is the unit's inherent drive to be active given saturation — not an external push from the ground. **Forcefulness** and **activeness** name how uniform ground-energy reads as activity **in** the saturated unit (SB, pp. 57, 62, 69). **Effort–motion–result** is the single activity triad in which all change appears — effort, motion, and result as inseparable aspects of one activity, developed fully in §1.6.
 
 **Tiered intelligibility.** All saturated units participate in inherent orderliness — the intelligibility-ground of *gyan* as *satta*, not an act of cognition by Omnipresence. Insentient units exhibit radiance and projection (SB, p. 69); at constitutional completeness, when a stable atom-configuration is reached, that configuration acts as a **mediating configuration** through which ever-present *gyan* manifests as active sentience — the Saturation-Reflector Model (§6.6). That ontological register is distinct from the projection–reflection cycle in *jeevan*.
+
+![Saturation contrasted with physicalist emergence: left, consciousness stacked above biological assembly across an explanatory gap; right, units saturated in satta compose through particles and atoms to body, constitutional completeness actualizes sentient jeevan reflecting gyan, and jeevan works through the body as joint form](1-saturation-samprikt.svg)
+
+The figure contrasts two pictures at a glance — **illustrative, not identity** for either side. Physicalist emergence stacks consciousness above complex biological assembly and leaves the explanatory gap open (§3.2). Madhyasth Darshan reads the same composition chain — particles, atoms, body (*shareer*) — within ever-present saturation: constitutional completeness actualizes sentient *jeevan* as a constitutionally complete atom that reflects ever-present *gyan* into active sentience, then works through the body as **joint form**, not as consciousness generated from dead matter alone. The left panel previews a rival the paper engages in §§3–4; the right panel summarises the saturation-and-latency reading developed in §§1.8 and 6.6.
 
 Omnipresence is called energy and credited with energizing, regulating, and conserving nature, yet is also called actionless (*kriya-shunya*) and non-transforming. The texts resolve this by distributing the terms: *satta* is actionless in itself, but its energy is manifest as the activity of units through basic impulsion — latent, uniform energy at the root of activity, never acting on its own, yet inseparable from the activity through which alone it is revealed.
 
