@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 24, 2026, 2:46 PM IST
+**Edited on:** June 24, 2026, 2:55 PM IST
 
 **Status:** Draft
 
@@ -830,8 +830,6 @@ The *chit* row and the DDV route sharpen a further fork. Both traditions refuse 
 Modern philosophy has no parallel formula: it may treat experience as physical, fundamental, or illusory, but it does not name existence as Sat-Chit-Ananda or as coexistence.
 
 ### 5.6 Is It Possible to Map Madhyasth Darshan to Advaita?
-
-§5.6–5.7 develop the Advaita mapping in detail.
 
 While the two systems arise from different core commitments (Advaita: non-dualism; Madhyasth Darshan: co-existentialism), four key entities in Advaita find close analogues or functional equivalents in Madhyasth Darshan. A fifth — *Pancha Kosha* — shares Upanishadic vocabulary only; it is not a structural entity map (item 5 below).
 
