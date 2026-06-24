@@ -35,5 +35,8 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
       - name: Verify catalog JSON and index shell
         run: python Scripts/_verify_studies_index.py
