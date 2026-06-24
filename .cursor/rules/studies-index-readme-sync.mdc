@@ -35,6 +35,10 @@ drift apart.
   with `<!-- slug: ... -->` in README; no PDF link.
 - **Formal Studies catalog** — same documents, focus, and descriptions; JSON in
   `id="catalog-formal"` in `index.html`, markdown table in README.
+- **Applied Studies catalog** — papers under `Applications/` that instantiate the
+  formal template in concrete domains; JSON in `id="catalog-applied"` in
+  `index.html`, markdown table in README. PDF links use
+  `../Applications/<Slug>/<Slug>.pdf` from the studies page.
 - **Shared prose** — the lead intro, **How we work**, **Contribute**,
   and **About us** (including license) should carry the same wording.
 

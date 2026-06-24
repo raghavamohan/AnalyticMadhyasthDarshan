@@ -90,7 +90,7 @@
     align-items: center;
     gap: 0;
     font-family: var(--sans);
-    font-size: 13px;
+    font-size: 16px;
   }
   .dialogue li { display: flex; align-items: center; }
   .dialogue li:not(:last-child)::after {
@@ -106,7 +106,7 @@
 
   .scope {
     font-family: var(--sans);
-    font-size: 13px;
+    font-size: 16px;
     color: var(--text-muted);
     margin: 0 0 20px;
   }
@@ -118,7 +118,7 @@
     border-radius: 8px;
     padding: 12px 16px;
     margin: 0;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.5;
   }
   .official strong { color: #111; }
@@ -276,9 +276,14 @@
   .field {
     font-family: var(--sans); font-size: 13px; color: var(--text);
     padding: 8px 30px 8px 11px; border: 1px solid var(--border); border-radius: 8px;
-    background: #fdfcfa url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235c5348' stroke-width='2'><path d='M6 9l6 6 6-6'/></svg>") no-repeat right 10px center;
+    background-color: #fdfcfa;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235c5348' stroke-width='2'><path d='M6 9l6 6 6-6'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px 12px;
     -webkit-appearance: none; appearance: none; cursor: pointer;
   }
+  .field::-ms-expand { display: none; }
 
   .btn-reset-filters {
     font-family: var(--sans); font-size: 13px; font-weight: 600;
@@ -423,6 +428,38 @@
 
   a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, .chip:focus-visible, .cat-filter:focus-visible, .btn-reset-filters:focus-visible {
     outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1a1815;
+      --surface: #26231e;
+      --text: #e6dfd6;
+      --text-muted: #aca194;
+      --accent: #5ba3d3;
+      --accent-soft: #233e52;
+      --accent-hover: #7ebbed;
+      --warm: #d5a477;
+      --warm-soft: #423020;
+      --border: #423b33;
+      --shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    }
+    h1, h2, h3, .official strong { color: #f5f1ec; }
+    .page-nav { background: rgba(26, 24, 21, 0.92); }
+    .search input, .seg, .triad-item { background: #1e1b18; }
+    .search input::placeholder { color: #6f655a; }
+    .seg button:hover { background: #2f2a24; }
+    .btn-reset-filters { background: #1e1b18; }
+    .btn-reset-filters:disabled { color: #6f655a; }
+    .card.is-available:hover { box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5); }
+    .triad-item.t3 { border-top: 3px solid #6f655a; } .triad-item.t3 .k { color: #aca194; }
+    .field {
+      background-color: #1e1b18;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23aca194' stroke-width='2'><path d='M6 9l6 6 6-6'/></svg>");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      background-size: 12px 12px;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -741,9 +778,9 @@
   {
     "slug": "Category-Theory-Explained",
     "title": "Category Theory Explained",
-    "category": "Category theory",
+    "category": "Formal structure",
     "categories": [
-      "Category theory"
+      "Formal structure"
     ],
     "description": "Category-theory lens on the darshan's structure",
     "status": "draft",
@@ -752,9 +789,9 @@
   {
     "slug": "The-Coexistence-Template",
     "title": "The Coexistence Template",
-    "category": "Formal template",
+    "category": "Formal structure",
     "categories": [
-      "Formal template"
+      "Formal structure"
     ],
     "description": "Formal template of units, relationships, values, and assembly",
     "status": "draft",
@@ -766,6 +803,30 @@
   </div>
   <ul class="grid" id="grid-formal"></ul>
   <p class="empty is-hidden" id="empty-formal">No formal studies match these filters. <button type="button" class="clear-all">Clear filters</button></p>
+
+  <p class="cat-group-label">Applied studies <span class="count" data-count-for="applied"></span></p>
+  <div class="catalog-json">
+<!-- applied-studies-catalog -->
+<script type="application/json" id="catalog-applied">
+[
+  {
+    "slug": "Coexistence-Company-Org-Structure",
+    "title": "Coexistence Company — Concrete Organizational Structure",
+    "category": "Organizational design",
+    "categories": [
+      "Organizational design"
+    ],
+    "description": "Organisational blueprint instantiating the coexistence template for a deliberate knowledge-work company",
+    "status": "draft",
+    "updated": "Jun 24, 2026, 8:55 PM IST",
+    "pdf": "../Applications/Coexistence-Company-Org-Structure/Coexistence-Company-Org-Structure.pdf"
+  }
+]
+</script>
+<!-- /applied-studies-catalog -->
+  </div>
+  <ul class="grid" id="grid-applied"></ul>
+  <p class="empty is-hidden" id="empty-applied">No applied studies match these filters. <button type="button" class="clear-all">Clear filters</button></p>
 </section>
 
 <section class="section" id="approach">
@@ -830,121 +891,112 @@
 </div>
 
 <script>
-(function () {
-  function parseCatalog(id, coll) {
-    var el = document.getElementById(id);
+(() => {
+  const parseCatalog = (id, coll) => {
+    const el = document.getElementById(id);
     if (!el) return [];
     try {
-      return JSON.parse(el.textContent).map(function (entry) {
-        return {
-          t: entry.title,
-          slug: entry.slug,
-          coll: coll,
-          status: entry.status === "ongoing" ? "planned" : entry.status,
-          updated: entry.updated || null,
-          cats: entry.categories || [],
-          d: entry.description || ""
-        };
-      });
+      return JSON.parse(el.textContent).map(entry => ({
+        t: entry.title,
+        slug: entry.slug,
+        coll,
+        status: entry.status === "ongoing" ? "planned" : entry.status,
+        updated: entry.updated || null,
+        cats: entry.categories || [],
+        d: entry.description || "",
+        pdf: entry.pdf || null
+      }));
     } catch (e) {
       return [];
     }
-  }
+  };
 
-  var STUDIES = parseCatalog("catalog-topical", "topical").concat(
-    parseCatalog("catalog-formal", "formal")
+  const STUDIES = parseCatalog("catalog-topical", "topical").concat(
+    parseCatalog("catalog-formal", "formal"),
+    parseCatalog("catalog-applied", "applied")
   );
 
-  var isAvail = function (s) { return s.status === "draft" || s.status === "released"; };
-  var ts = function (s) { return s.updated ? Date.parse(s.updated) : -Infinity; };
-  var state = { q: "", status: "all", cat: "all", sort: "recent" };
+  const isAvail = s => s.status === "draft" || s.status === "released";
+  const ts = s => s.updated ? Date.parse(s.updated) : -Infinity;
+  const state = { q: "", status: "all", cat: "all", sort: "recent" };
 
-  function updateHeroScope() {
-    var scope = document.getElementById("hero-scope");
+  const updateHeroScope = () => {
+    const scope = document.getElementById("hero-scope");
     if (!scope) return;
-    var total = STUDIES.length;
-    var available = STUDIES.filter(isAvail).length;
-    var cats = {};
-    STUDIES.forEach(function (s) { s.cats.forEach(function (c) { cats[c] = true; }); });
-    var topicCount = Object.keys(cats).length;
-    scope.innerHTML = "<strong>" + available + " of " + total + "</strong> studies available &middot; <strong>" + topicCount + "</strong> topics &middot; open &amp; independent";
-  }
+    const total = STUDIES.length;
+    const available = STUDIES.filter(isAvail).length;
+    const cats = {};
+    STUDIES.forEach(s => s.cats.forEach(c => { cats[c] = true; }));
+    const topicCount = Object.keys(cats).length;
+    scope.innerHTML = `<strong>${available} of ${total}</strong> studies available &middot; <strong>${topicCount}</strong> topics &middot; open &amp; independent`;
+  };
 
-  function escAttr(value) {
-    return String(value).replace(/"/g, "&quot;").replace(/</g, "&lt;");
-  }
+  const escAttr = value => String(value).replace(/"/g, "&quot;").replace(/</g, "&lt;");
 
-  function matchesStatus(s) {
+  const matchesStatus = s => {
     if (state.status === "available" && !isAvail(s)) return false;
     if (state.status === "planned" && isAvail(s)) return false;
     return true;
-  }
+  };
 
-  function matchesSearch(s) {
+  const matchesSearch = s => {
     if (!state.q) return true;
-    var hay = (s.t + " " + s.d + " " + s.cats.join(" ")).toLowerCase();
-    return hay.indexOf(state.q.toLowerCase()) !== -1;
-  }
+    const hay = `${s.t} ${s.d} ${s.cats.join(" ")}`.toLowerCase();
+    return hay.includes(state.q.toLowerCase());
+  };
 
-  function matchesBase(s) {
-    return matchesStatus(s) && matchesSearch(s);
-  }
+  const matchesBase = s => matchesStatus(s) && matchesSearch(s);
 
-  function matches(s) {
+  const matches = s => {
     if (!matchesBase(s)) return false;
-    if (state.cat !== "all" && s.cats.indexOf(state.cat) === -1) return false;
+    if (state.cat !== "all" && !s.cats.includes(state.cat)) return false;
     return true;
-  }
+  };
 
-  function filtersActive() {
-    return !!(state.q || state.status !== "all" || state.cat !== "all" || state.sort !== "recent");
-  }
+  const filtersActive = () => !!(state.q || state.status !== "all" || state.cat !== "all" || state.sort !== "recent");
 
-  function categoryCounts() {
-    var counts = {};
-    STUDIES.forEach(function (s) {
+  const categoryCounts = () => {
+    const counts = {};
+    STUDIES.forEach(s => {
       if (!matchesBase(s)) return;
-      s.cats.forEach(function (c) {
+      s.cats.forEach(c => {
         counts[c] = (counts[c] || 0) + 1;
       });
     });
     return counts;
-  }
+  };
 
-  function buildCategoryList() {
-    var list = document.getElementById("cat-list");
+  const buildCategoryList = () => {
+    const list = document.getElementById("cat-list");
     if (!list) return;
 
-    var counts = categoryCounts();
-    var cats = Object.keys(counts).sort();
+    const counts = categoryCounts();
+    const cats = Object.keys(counts).sort();
 
     if (state.cat !== "all" && !counts[state.cat]) {
       state.cat = "all";
     }
 
-    var parts = [
-      '<button type="button" class="cat-filter' + (state.cat === "all" ? " is-active" : "") +
-        '" data-cat="all" aria-pressed="' + (state.cat === "all" ? "true" : "false") + '">All</button>'
+    const parts = [
+      `<button type="button" class="cat-filter${state.cat === "all" ? " is-active" : ""}" data-cat="all" aria-pressed="${state.cat === "all" ? "true" : "false"}">All</button>`
     ];
 
-    cats.forEach(function (c) {
-      var active = state.cat === c;
+    cats.forEach(c => {
+      const active = state.cat === c;
       parts.push(
-        '<button type="button" class="cat-filter' + (active ? " is-active" : "") +
-          '" data-cat="' + escAttr(c) + '" aria-pressed="' + (active ? "true" : "false") + '">' +
-          c + ' <span class="cat-count">(' + counts[c] + ")</span></button>"
+        `<button type="button" class="cat-filter${active ? " is-active" : ""}" data-cat="${escAttr(c)}" aria-pressed="${active ? "true" : "false"}">${c} <span class="cat-count">(${counts[c]})</span></button>`
       );
     });
 
     list.innerHTML = parts.join("");
-  }
+  };
 
-  function updateResetButton() {
-    var btn = document.getElementById("reset-filters");
+  const updateResetButton = () => {
+    const btn = document.getElementById("reset-filters");
     if (btn) btn.disabled = !filtersActive();
-  }
+  };
 
-  function resetFilters() {
+  const resetFilters = () => {
     state.q = "";
     state.status = "all";
     state.cat = "all";
@@ -952,100 +1004,92 @@
     if (qInput) qInput.value = "";
     if (sortSelect) sortSelect.value = "recent";
     if (statusSeg) {
-      Array.prototype.forEach.call(statusSeg.querySelectorAll("button"), function (x) {
+      Array.from(statusSeg.querySelectorAll("button")).forEach(x => {
         x.setAttribute("aria-pressed", x.dataset.status === "all" ? "true" : "false");
       });
     }
     renderCatalog();
-  }
+  };
 
-  function cardHTML(s) {
-    var avail = isAvail(s);
-    var chips = s.cats.map(function (c) {
-      return '<button type="button" class="chip" data-cat="' + c.replace(/"/g, "&quot;") + '">' + c + "</button>";
-    }).join("");
-    var pdfHref = s.slug + "/" + s.slug + ".pdf";
-    var titleInner = avail
-      ? '<a href="' + pdfHref + '">' + s.t + "</a>"
-      : s.t;
-    var foot = avail
-      ? '<span class="badge available"><span class="badge-dot"></span>' +
-          (s.status === "released" ? "Released" : "Draft") + "</span>" +
-        '<a class="read-link" href="' + pdfHref + '">Read PDF &rarr;</a>'
-      : '<span class="badge planned"><span class="badge-dot"></span>Planned</span><span>Not yet published</span>';
-    var dateLine = avail && s.updated
-      ? '<div class="card-foot" style="border:none;padding:6px 0 0;color:#9a8f80;">Updated ' + s.updated + "</div>"
+  const cardHTML = s => {
+    const avail = isAvail(s);
+    const chips = s.cats.map(c => `<button type="button" class="chip" data-cat="${c.replace(/"/g, "&quot;")}">${c}</button>`).join("");
+    const pdfHref = s.pdf || `${s.slug}/${s.slug}.pdf`;
+    const titleInner = avail ? `<a href="${pdfHref}">${s.t}</a>` : s.t;
+    const foot = avail
+      ? `<span class="badge available"><span class="badge-dot"></span>${s.status === "released" ? "Released" : "Draft"}</span><a class="read-link" href="${pdfHref}">Read PDF &rarr;</a>`
+      : `<span class="badge planned"><span class="badge-dot"></span>Planned</span><span>Not yet published</span>`;
+    const dateLine = avail && s.updated
+      ? `<div class="card-foot" style="border:none;padding:6px 0 0;color:#9a8f80;">Updated ${s.updated}</div>`
       : "";
-    return '<li class="card ' + (avail ? "is-available" : "is-planned") + '">' +
-      '<h3 class="card-title">' + titleInner + "</h3>" +
-      '<div class="chips">' + chips + "</div>" +
-      '<p class="card-desc">' + s.d + "</p>" +
-      '<div class="card-foot">' + foot + "</div>" + dateLine + "</li>";
-  }
+    return `<li class="card ${avail ? "is-available" : "is-planned"}">
+      <h3 class="card-title">${titleInner}</h3>
+      <div class="chips">${chips}</div>
+      <p class="card-desc">${s.d}</p>
+      <div class="card-foot">${foot}</div>${dateLine}</li>`;
+  };
 
-  function renderCatalog() {
+  const renderCatalog = () => {
     buildCategoryList();
     updateResetButton();
 
-    var shown = 0;
-    ["topical", "formal"].forEach(function (coll) {
-      var items = STUDIES.filter(function (s) { return s.coll === coll && matches(s); });
-      items.sort(function (a, b) {
-        return state.sort === "az" ? a.t.localeCompare(b.t) : ts(b) - ts(a);
-      });
+    let shown = 0;
+    ["topical", "formal", "applied"].forEach(coll => {
+      const items = STUDIES.filter(s => s.coll === coll && matches(s));
+      items.sort((a, b) => state.sort === "az" ? a.t.localeCompare(b.t) : ts(b) - ts(a));
       shown += items.length;
-      var grid = document.getElementById("grid-" + coll);
+      const grid = document.getElementById(`grid-${coll}`);
       if (grid) grid.innerHTML = items.map(cardHTML).join("");
-      var empty = document.getElementById("empty-" + coll);
+      const empty = document.getElementById(`empty-${coll}`);
       if (empty) empty.classList.toggle("is-hidden", items.length > 0);
-      var total = STUDIES.filter(function (s) { return s.coll === coll; }).length;
-      var countEl = document.querySelector('[data-count-for="' + coll + '"]');
-      if (countEl) countEl.textContent = items.length + " of " + total + " shown";
+      const total = STUDIES.filter(s => s.coll === coll).length;
+      const countEl = document.querySelector(`[data-count-for="${coll}"]`);
+      if (countEl) countEl.textContent = `${items.length} of ${total} shown`;
     });
-    var count = document.getElementById("count");
-    if (count) count.textContent = shown + " studies shown";
-  }
+    const count = document.getElementById("count");
+    if (count) count.textContent = `${shown} studies shown`;
+  };
 
-  var qInput = document.getElementById("q");
-  if (qInput) qInput.addEventListener("input", function (e) { state.q = e.target.value; renderCatalog(); });
+  const qInput = document.getElementById("q");
+  if (qInput) qInput.addEventListener("input", e => { state.q = e.target.value; renderCatalog(); });
 
-  var statusSeg = document.getElementById("status-seg");
-  if (statusSeg) statusSeg.addEventListener("click", function (e) {
-    var btn = e.target.closest("button");
+  const statusSeg = document.getElementById("status-seg");
+  if (statusSeg) statusSeg.addEventListener("click", e => {
+    const btn = e.target.closest("button");
     if (!btn) return;
     state.status = btn.dataset.status;
-    Array.prototype.forEach.call(this.querySelectorAll("button"), function (b) {
+    Array.from(statusSeg.querySelectorAll("button")).forEach(b => {
       b.setAttribute("aria-pressed", b === btn ? "true" : "false");
     });
     renderCatalog();
   });
 
-  var sortSelect = document.getElementById("sort");
-  if (sortSelect) sortSelect.addEventListener("change", function (e) { state.sort = e.target.value; renderCatalog(); });
+  const sortSelect = document.getElementById("sort");
+  if (sortSelect) sortSelect.addEventListener("change", e => { state.sort = e.target.value; renderCatalog(); });
 
-  var catList = document.getElementById("cat-list");
+  const catList = document.getElementById("cat-list");
   if (catList) {
-    catList.addEventListener("click", function (e) {
-      var btn = e.target.closest(".cat-filter");
+    catList.addEventListener("click", e => {
+      const btn = e.target.closest(".cat-filter");
       if (!btn) return;
       state.cat = btn.dataset.cat || "all";
       renderCatalog();
     });
   }
 
-  var resetBtn = document.getElementById("reset-filters");
+  const resetBtn = document.getElementById("reset-filters");
   if (resetBtn) resetBtn.addEventListener("click", resetFilters);
 
-  document.addEventListener("click", function (e) {
-    var chip = e.target.closest(".chip");
+  document.addEventListener("click", e => {
+    const chip = e.target.closest(".chip");
     if (!chip || chip.closest("#cat-list")) return;
     state.cat = chip.dataset.cat || "all";
     renderCatalog();
-    var studies = document.getElementById("studies");
+    const studies = document.getElementById("studies");
     if (studies) studies.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 
-  Array.prototype.forEach.call(document.querySelectorAll(".clear-all"), function (b) {
+  Array.from(document.querySelectorAll(".clear-all")).forEach(b => {
     b.addEventListener("click", resetFilters);
   });
 
@@ -1053,20 +1097,20 @@
   renderCatalog();
 })();
 
-(function () {
-  var tocLinks = Array.prototype.slice.call(document.querySelectorAll("#toc a"));
-  var mainSpyIds = ["studies", "approach", "site-footer"];
-  var lockActiveUntil = 0;
-  var lockedId = null;
+(() => {
+  const tocLinks = Array.from(document.querySelectorAll("#toc a"));
+  const mainSpyIds = ["studies", "approach", "site-footer"];
+  let lockActiveUntil = 0;
+  let lockedId = null;
 
-  function scrollMarker() {
-    var nav = document.querySelector(".page-nav");
+  const scrollMarker = () => {
+    const nav = document.querySelector(".page-nav");
     return (nav ? nav.offsetHeight : 0) + 20;
-  }
+  };
 
-  function setActive(id) {
-    tocLinks.forEach(function (a) {
-      var match = a.getAttribute("href") === "#" + id;
+  const setActive = id => {
+    tocLinks.forEach(a => {
+      const match = a.getAttribute("href") === `#${id}`;
       a.classList.toggle("active", match);
       if (match) {
         a.setAttribute("aria-current", "true");
@@ -1074,38 +1118,38 @@
         a.removeAttribute("aria-current");
       }
     });
-  }
+  };
 
-  function pickFooterCard(marker) {
-    var contrib = document.getElementById("contribute");
-    var about = document.getElementById("about");
+  const pickFooterCard = marker => {
+    const contrib = document.getElementById("contribute");
+    const about = document.getElementById("about");
     if (!contrib) return "contribute";
     if (!about) return "contribute";
 
-    var cRect = contrib.getBoundingClientRect();
-    var aRect = about.getBoundingClientRect();
+    const cRect = contrib.getBoundingClientRect();
+    const aRect = about.getBoundingClientRect();
 
     if (Math.abs(cRect.top - aRect.top) > 40) {
       return aRect.top <= marker ? "about" : "contribute";
     }
 
-    var cx = window.innerWidth / 2;
-    var cMid = (cRect.left + cRect.right) / 2;
-    var aMid = (aRect.left + aRect.right) / 2;
+    const cx = window.innerWidth / 2;
+    const cMid = (cRect.left + cRect.right) / 2;
+    const aMid = (aRect.left + aRect.right) / 2;
     return Math.abs(cMid - cx) <= Math.abs(aMid - cx) ? "contribute" : "about";
-  }
+  };
 
-  function updateActiveFromScroll() {
+  const updateActiveFromScroll = () => {
     if (lockedId && Date.now() < lockActiveUntil) {
       setActive(lockedId);
       return;
     }
 
-    var marker = scrollMarker();
-    var currentId = "studies";
+    const marker = scrollMarker();
+    let currentId = "studies";
 
-    mainSpyIds.forEach(function (id) {
-      var el = document.getElementById(id);
+    mainSpyIds.forEach(id => {
+      const el = document.getElementById(id);
       if (el && el.getBoundingClientRect().top <= marker) {
         currentId = id;
       }
@@ -1116,30 +1160,30 @@
     }
 
     setActive(currentId);
-  }
+  };
 
-  var scrollTick = false;
-  function onScroll() {
+  let scrollTick = false;
+  const onScroll = () => {
     if (scrollTick) return;
     scrollTick = true;
-    window.requestAnimationFrame(function () {
+    window.requestAnimationFrame(() => {
       scrollTick = false;
       updateActiveFromScroll();
     });
-  }
+  };
 
-  tocLinks.forEach(function (link) {
-    link.addEventListener("click", function () {
-      var href = link.getAttribute("href");
+  tocLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      const href = link.getAttribute("href");
       if (!href || href.charAt(0) !== "#") return;
-      var id = href.slice(1);
+      const id = href.slice(1);
       lockedId = id;
       lockActiveUntil = Date.now() + 1500;
       setActive(id);
-      var target = document.getElementById(id);
+      const target = document.getElementById(id);
       if (target) {
         target.classList.add("is-targeted");
-        window.setTimeout(function () { target.classList.remove("is-targeted"); }, 1600);
+        window.setTimeout(() => { target.classList.remove("is-targeted"); }, 1600);
       }
     });
   });

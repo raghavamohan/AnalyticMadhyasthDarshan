@@ -14,6 +14,7 @@ from pypdf import PdfReader
 SCRIPTS = Path(__file__).resolve().parent
 BASE = SCRIPTS.parent
 STUDIES = BASE / "Studies"
+APPLICATIONS = BASE / "Applications"
 REFERENCES = BASE / "References"
 CACHE = SCRIPTS / "_pdf_cache"
 SOURCE = REFERENCES / "Madhyasth-Darshan"
@@ -66,6 +67,11 @@ def study_html(slug: str) -> Path:
 def study_pdf_href(slug: str) -> str:
     """Relative href from Studies/index.html or Studies/README.md."""
     return f"{slug}/{slug}.pdf"
+
+
+def application_pdf_href(slug: str) -> str:
+    """Relative href from Studies/index.html or Studies/README.md to Applications/."""
+    return f"../Applications/{slug}/{slug}.pdf"
 
 
 def study_pdf_ref_path(slug: str) -> str:

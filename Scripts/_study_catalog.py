@@ -16,6 +16,7 @@ from _common import (
     REFERENCES,
     SCRIPTS,
     STUDIES,
+    application_pdf_href,
     iter_study_md_paths,
     known_study_slugs,
     study_md,
@@ -29,6 +30,8 @@ TOPICAL_CATALOG_START = "<!-- studies-catalog -->"
 TOPICAL_CATALOG_END = "<!-- /studies-catalog -->"
 FORMAL_CATALOG_START = "<!-- formal-studies-catalog -->"
 FORMAL_CATALOG_END = "<!-- /formal-studies-catalog -->"
+APPLIED_CATALOG_START = "<!-- applied-studies-catalog -->"
+APPLIED_CATALOG_END = "<!-- /applied-studies-catalog -->"
 REFERENCES_CATALOG_START = "<!-- studies-catalog -->"
 REFERENCES_CATALOG_END = "<!-- /studies-catalog -->"
 
@@ -39,6 +42,10 @@ STUDIES_README_TOPICAL_HEADER = (
 STUDIES_README_FORMAL_HEADER = (
     "| Document | Formal Focus | Description | Status |\n"
     "|----------|--------------|-------------|--------|"
+)
+STUDIES_README_APPLIED_HEADER = (
+    "| Document | Applied Focus | Description | Status |\n"
+    "|----------|---------------|-------------|--------|"
 )
 REFERENCES_README_TABLE_HEADER = "| Paper | Primary tags |\n|-------|----------------|"
 
@@ -85,6 +92,14 @@ class StudyStatus(str, Enum):
 class StudyTable(str, Enum):
     TOPICAL = "topical"
     FORMAL = "formal"
+    APPLIED = "applied"
+
+
+CATALOG_TABLES = (
+    StudyTable.TOPICAL,
+    StudyTable.FORMAL,
+    StudyTable.APPLIED,
+)
 
 
 @dataclass
@@ -95,6 +110,7 @@ class StudyRow:
     status: StudyStatus
     edited_at: datetime | None = None
     table: StudyTable = StudyTable.TOPICAL
+    pdf_href: str | None = None
 
     @property
     def has_pdf(self) -> bool:
@@ -104,6 +120,8 @@ class StudyRow:
 def catalog_markers(table: StudyTable) -> tuple[str, str]:
     if table == StudyTable.FORMAL:
         return FORMAL_CATALOG_START, FORMAL_CATALOG_END
+    if table == StudyTable.APPLIED:
+        return APPLIED_CATALOG_START, APPLIED_CATALOG_END
     return TOPICAL_CATALOG_START, TOPICAL_CATALOG_END
 
 
@@ -267,6 +285,8 @@ def extract_catalog_block(content: str, start: str, end: str) -> str:
 def catalog_script_id(table: StudyTable) -> str:
     if table == StudyTable.FORMAL:
         return "catalog-formal"
+    if table == StudyTable.APPLIED:
+        return "catalog-applied"
     return "catalog-topical"
 
 
@@ -300,6 +320,8 @@ def row_to_catalog_entry(row: StudyRow) -> dict:
     }
     if row.status != StudyStatus.ONGOING and row.edited_at is not None:
         entry["updated"] = format_catalog_updated(row.edited_at)
+    if row.pdf_href:
+        entry["pdf"] = row.pdf_href
     return entry
 
 
@@ -326,6 +348,7 @@ def catalog_entry_to_row(entry: dict, table: StudyTable) -> StudyRow:
         status=status,
         edited_at=edited_at,
         table=table,
+        pdf_href=entry.get("pdf"),
     )
 
 
@@ -406,8 +429,10 @@ def parse_md_rows(content: str, table: StudyTable) -> list[StudyRow]:
             continue
         doc_cell, category, description, status_raw = parts
         link_match = re.match(r"\[([^\]]+)\]\(([^)]+\.pdf)\)", doc_cell)
+        pdf_href: str | None = None
         if link_match:
-            slug = Path(link_match.group(2)).stem
+            pdf_href = link_match.group(2)
+            slug = Path(pdf_href).stem
         elif doc_cell.startswith("*"):
             comment_match = re.search(r"<!--\s*slug:\s*(.+?)\s*-->", doc_cell)
             if comment_match:
@@ -425,6 +450,7 @@ def parse_md_rows(content: str, table: StudyTable) -> list[StudyRow]:
                 status=status,
                 edited_at=edited_at,
                 table=table,
+                pdf_href=pdf_href,
             )
         )
     return rows
@@ -444,6 +470,8 @@ _TITLE_SMALL_WORDS = {
 SLUG_TITLE_OVERRIDES: dict[str, str] = {
     "How-To-Form-Self-Sustaining-Organizations":
         "How to Form Self-Sustaining Organizations",
+    "Coexistence-Company-Org-Structure":
+        "Coexistence Company — Concrete Organizational Structure",
 }
 
 
@@ -477,12 +505,23 @@ def display_title(row: StudyRow) -> str:
     return SLUG_TITLE_OVERRIDES.get(row.slug) or slug_to_title(row.slug)
 
 
+def row_pdf_href(row: StudyRow) -> str | None:
+    if row.pdf_href:
+        return row.pdf_href
+    if row.has_pdf:
+        if row.table == StudyTable.APPLIED:
+            return application_pdf_href(row.slug)
+        return study_pdf_href(row.slug)
+    return None
+
+
 def serialize_md_row(row: StudyRow) -> str:
     status_cell = format_status_catalog(row.edited_at, row.status)
     title = display_title(row)
     description = normalize_description(row.description, row.status)
-    if row.has_pdf:
-        doc_cell = f"[{title}]({study_pdf_href(row.slug)})"
+    href = row_pdf_href(row)
+    if href:
+        doc_cell = f"[{title}]({href})"
     else:
         doc_cell = f"*{title}* <!-- slug: {row.slug} -->"
     return (
@@ -492,11 +531,12 @@ def serialize_md_row(row: StudyRow) -> str:
 
 
 def serialize_md_rows(rows: list[StudyRow], table: StudyTable) -> str:
-    header = (
-        STUDIES_README_FORMAL_HEADER
-        if table == StudyTable.FORMAL
-        else STUDIES_README_TOPICAL_HEADER
-    )
+    if table == StudyTable.FORMAL:
+        header = STUDIES_README_FORMAL_HEADER
+    elif table == StudyTable.APPLIED:
+        header = STUDIES_README_APPLIED_HEADER
+    else:
+        header = STUDIES_README_TOPICAL_HEADER
     return header + "\n" + "\n".join(serialize_md_row(row) for row in rows)
 
 
@@ -516,7 +556,7 @@ def remove_study_row(rows: list[StudyRow], slug: str) -> list[StudyRow]:
 def find_study_table(slug: str) -> StudyTable | None:
     index_path = STUDIES / "index.html"
     index_text = index_path.read_text(encoding="utf-8")
-    for table in (StudyTable.TOPICAL, StudyTable.FORMAL):
+    for table in CATALOG_TABLES:
         if any(row.slug == slug for row in parse_html_rows(index_text, table)):
             return table
     return None
@@ -528,7 +568,7 @@ def load_catalog_rows(table: StudyTable) -> list[StudyRow]:
 
 
 def get_study_row(slug: str) -> tuple[StudyRow, StudyTable] | None:
-    for table in (StudyTable.TOPICAL, StudyTable.FORMAL):
+    for table in CATALOG_TABLES:
         for row in load_catalog_rows(table):
             if row.slug == slug:
                 return row, table
@@ -679,7 +719,7 @@ def verify_catalog_json_sync(table: StudyTable) -> list[str]:
 
 def verify_all_catalog_sync() -> list[str]:
     errors: list[str] = []
-    for table in (StudyTable.TOPICAL, StudyTable.FORMAL):
+    for table in CATALOG_TABLES:
         errors.extend(verify_catalog_json_sync(table))
     return errors
 

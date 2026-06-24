@@ -11,6 +11,7 @@ if str(SCRIPTS) not in sys.path:
 
 from _common import STUDIES  # noqa: E402
 from _study_catalog import (  # noqa: E402
+    CATALOG_TABLES,
     StudyTable,
     parse_catalog_json,
     parse_md_rows,
@@ -25,7 +26,7 @@ def main() -> int:
     index_text = index_path.read_text(encoding="utf-8")
     readme_text = readme_path.read_text(encoding="utf-8")
 
-    for table in (StudyTable.TOPICAL, StudyTable.FORMAL):
+    for table in CATALOG_TABLES:
         rows = parse_catalog_json(index_text, table)
         if not rows:
             print(f"No rows found for {table.value} catalog.", file=sys.stderr)
@@ -36,7 +37,7 @@ def main() -> int:
     index_text = index_path.read_text(encoding="utf-8")
     readme_text = readme_path.read_text(encoding="utf-8")
 
-    for table in (StudyTable.TOPICAL, StudyTable.FORMAL):
+    for table in CATALOG_TABLES:
         json_rows = parse_catalog_json(index_text, table)
         md_rows = parse_md_rows(readme_text, table)
         if [r.slug for r in json_rows] != [r.slug for r in md_rows]:

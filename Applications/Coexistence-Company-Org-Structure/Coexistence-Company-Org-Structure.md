@@ -2,7 +2,9 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 24, 2026, 4:28 PM IST
+**Edited on:** June 24, 2026, 8:55 PM IST
+
+**Status:** Draft
 
 **Basis:** This application instantiates the coexistence template and categorical architecture for a deliberate human assembly ([*The Coexistence Template*](../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf); [*Category Theory Explained*](../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf) §§3.5, 5, 6.1, 6.6–6.9, 6.8). It is a design blueprint, not legal advice.
 
