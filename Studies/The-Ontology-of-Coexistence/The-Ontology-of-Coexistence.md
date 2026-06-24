@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 24, 2026, 8:25 AM IST
+**Edited on:** June 24, 2026, 8:43 AM IST
 
 **Status:** Draft
 
@@ -523,7 +523,15 @@ Nagraj's autobiographical account describes the Vedanta formula *Brahma satya, j
 
 Madhyasth Darshan holds that Brahma is real, the world is real, and their inseparable presentness is coexistence (*saha-astitva*).
 
-Coexistence as an **organic whole** does not dissolve plurality into the ground. Brahman (*satta*) remains state-complete — Knowledge and Omnipresence — while countless units remain state-dynamic, each saturated in the ground, each carrying its four-aspect signature, each progressing as unit-and-environment toward completeness. The whole is mutual complementarity, recognition, and value reciprocity across orders; give–take restoration and definite destiny as orderliness structure all change. **Realisation in Omnipresence** — the terminus of both Development and Awakening Progressions named at SB p. 51 — is coexistence evident in fulfilment: *jagat satat* names a perpetual structured world, not a world sublated at the highest truth (§5.7). SB concludes that manifesting this coexistence is the natural foundation of resolution-centred inquiry across material, behavioural, and realisation-centred life (SB, p. 66); social and pedagogical expression belongs in the companion studies on behaviour and ethics.
+Coexistence as an **organic whole** does not dissolve plurality into the ground. Brahman (*satta*) remains state-complete — Knowledge and Omnipresence — while countless units remain state-dynamic, each saturated in the ground, each carrying its four-aspect signature, each progressing as unit-and-environment toward completeness. The whole is mutual complementarity, recognition, and value reciprocity across orders; give–take restoration and definite destiny as orderliness structure all change. **Realisation in Omnipresence** — the terminus of both Development and Awakening Progressions named at SB p. 51 — is coexistence evident in fulfilment: *jagat satat* names a perpetual structured world, not a world sublated at the highest truth (§5.7). SB concludes that manifesting this coexistence is the natural foundation of resolution-centred inquiry across material, behavioural, and realisation-centred life (SB, p. 66).
+
+### 1.12 Ontology and the demand for resolved conduct
+
+The preceding account is highly detailed because the architecture of coexistence is exact — encompassing the pervasive ground, saturated units, evolutionary orders, developmental planes, and the sentient *jeevan* that navigates them. If this framework holds, it serves as far more than an idle metaphysical diagram. Relationship-recognition and value-fulfilment are constitutionally built into what units are. In the knowledge order, these mechanisms become explicit through provisioned perspectives (*drishti*) and the inseparable triad of effort, motion, and result (*shram–gati–parinam*), oriented ultimately toward resolution (*samadhan*).
+
+The universe, under this ontology, does not allow human beings to treat ethics as an optional decoration layered over an indifferent material base. Instead, the ultimate demand on a constitutionally complete *jeevan* is continuous with nature's own structure: to recognise the sentient self as distinct from the physical body, to elevate lower *drishti* toward humane *nyaya*, *dharma*, and *satya*, and to fulfil the relationships provisioned in coexistence toward activity and conduct completeness — the primary telos established in §1.
+
+This demand does not exist in a vacuum; it materializes in the crucible of ordinary life. On the delusional plane, family decisions and social bonds are frequently organised around dominance and bodily advantage. Awakening reorganizes those exact same relationships through justice and resolution, as illustrated by the plane transitions in §1.9.2. Resolved human conduct (*manaviya aacharan*) is the necessary terminus of this ontology. It is not a separate moral domain superimposed upon physical structure, but the fulfilment of coexistence made evident in daily living. This schematic provides the foundation for *samadhan*; the detailed treatment of the six perspectives, social formation, and pedagogical expression belongs in [Ethics-And-Morals-In-Human-Beings](../Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf) and [Human Behavior and Society](../Human-Behavior-And-Society/Human-Behavior-And-Society.pdf).
 
 ## 2. The Advaita Vedanta Answer
 
