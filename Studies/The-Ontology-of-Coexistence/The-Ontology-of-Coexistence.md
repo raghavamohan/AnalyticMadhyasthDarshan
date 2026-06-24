@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 24, 2026, 7:27 AM IST
+**Edited on:** June 24, 2026, 7:58 AM IST
 
 **Status:** Draft
 
@@ -60,15 +60,15 @@ This paper presents Madhyasth Darshan's answers to what existence is, what exist
 
 ## 1. The Madhyasth Darshan Answer
 
-Madhyasth Darshan defines **existence** as the ever-present **coexistence** of formless **Omnipresence** and countless bounded **units** of **Nature** — beingness and indestructibility, beginningless and without creation from nothing. Omnipresence is all-pervasive and non-transforming; nature saturated in it is active. Every unit is bound to the ground through **saturation** and to other units through definite **relationships**. Units carry inseparable form, properties, essential nature, and *dharma*, and participate in overall orderliness through recognition and fulfilment. All change is unit-activity — effort–motion–result — oriented toward completeness provisioned in coexistence. SB states that nature saturated in state-complete Omnipresence is oriented for **development and awakening until realisation in Omnipresence** (SB, p. 51; §§1.4, 1.8). Complementary units compose into larger assemblies, yet composition is not development: the real developmental plateaus are the **four ontological orders**.
+Madhyasth Darshan defines **existence** as the ever-present **coexistence** of formless **Omnipresence** and countless bounded **units** of **Nature** — beingness and indestructibility, beginningless and without creation from nothing.
 
-MVD compresses this ontology in *Brahma satya hai, jagat satat hai* — Brahma is truth, the world is perpetual. What follows states the picture in the darshan's own terms. The ontology diagram below is the canonical map for coexistence, the four-aspect unit signature, the two progressions, and a summary of orders and planes; the detailed orders–planes map with completeness transitions T1–T3 appears in §1.8.
+Picture a beginningless universe with no first moment when ground or units arose from nothing. A formless, all-pervasive ground — Omnipresence — and countless bounded units of nature have always been inseparably present together. The ground does not act, transform, or wear out; every unit is soaked in it, surrounded and sustained through **saturation** (*samprikt*). Units are not isolated: each stands in definite **relationships** with others, recognizes those relationships, and fulfils them toward ever fuller completeness. Each unit carries inseparable form, properties, essential nature, and *dharma*, and participates in overall orderliness through that recognition and fulfilment.
 
-![Overview of Madhyasth Darshan ontology: Omnipresence (satta), units with four-aspect signature and sambandh, orders and planes summary, Development and Awakening Progressions both toward realisation in Omnipresence](1-madhyasth-darshan-ontology.svg)
+All change is unit-activity — the single inseparable triad of effort, motion, and result (*shram–gati–parinam*) — oriented toward completeness provisioned in coexistence. Insentient nature develops through the physicochemical and biochemical complex — unit-and-environment together, not one atom in isolation — until an atom reaches **constitutional completeness** and becomes sentient **jeevan**, an immortal sentient self. That sentience threshold is irreversible; it is not yet humane awakening. Constitutionally complete *jeevan* in the human order can still mistake the body for the self and live from lower evaluative perspectives alone; **Awakening Progression** reorganizes conduct through higher perspectives toward activity and conduct completeness, until coexistence is evident in fulfilled relationships — **realisation in Omnipresence**, the telos of both progressions (SB, p. 51; §§1.4, 1.8).
 
-Picture two inseparable poles always together: a formless, actionless ground and countless bounded units whose activity constitutes all change. The ground does not transform; units do. Nothing in nature is isolated; every unit is saturated in Omnipresence and stands in definite relationships with others.
+Complementary units compose into larger assemblies, yet composition is not development: the real developmental plateaus are the **four ontological orders**. Nothing that exists is annihilated into absolute non-being; bodies and configurations begin and end while underlying reality persists through transformation. MVD compresses this ontology in *Brahma satya hai, jagat satat hai* — Brahma is truth, the world is perpetual. What follows states the picture in the darshan's own terms, with textual support; comparative examination with Advaita, modern philosophy, and science belongs in later sections. The detailed orders–planes map with completeness transitions T1–T3 appears in §1.8.
 
-Two progressions structure all change within this beginningless whole and must never be collapsed. **Development Progression** (*vikas-kram*) runs through the physicochemical and biochemical complex — unit-and-environment together on the physicochemical plane, not one insentient atom in isolation — and culminates irreversibly in **constitutional completeness** (*gathanpurnata*), when the developed atom becomes sentient *jeevan* (MVD, pp. 8, 14, 230; SB, pp. 13, 52; §1.5). **Awakening Progression** (*jagriti-kram*) matures constitutionally complete *jeevan* toward activity and conduct completeness in humans (MVD, pp. 13–14, 27). Development is not awakening; composition is not development (§1.5).
+Two progressions structure all change within this beginningless whole and must never be collapsed. **Development Progression** (*vikas-kram*) runs through the physicochemical and biochemical complex and culminates irreversibly when a developed atom reaches constitutional completeness (*gathanpurnata*) and becomes sentient *jeevan* (MVD, pp. 8, 14, 230; SB, pp. 13, 52; §1.5). **Awakening Progression** (*jagriti-kram*) matures that constitutionally complete *jeevan* toward activity and conduct completeness in humans (MVD, pp. 13–14, 27). Development is not awakening; composition is not development (§1.5).
 
 The exposition below follows that arc from the ground inward: coexistential structure and unit signature, saturation, relationships and value, composition, change and time, the four orders and planes, *jeevan* and awakening, and conservation.
 
@@ -120,7 +120,7 @@ Causation, constitutional completeness, awakening, and conservation of reality b
 
 ### 1.2 Every Unit's Four Inseparable Aspects
 
-Every unit saturated in Omnipresence carries the same four inseparable aspects — form, properties, essential nature, and *dharma* — regardless of order (see the ontology diagram above). MVD states that all four orders have differentiating features related to these four (MVD, pp. 50–51). They are not optional descriptors added by a knower; they are what each unit **is** as a participant in coexistence.
+Every unit saturated in Omnipresence carries the same four inseparable aspects — form, properties, essential nature, and *dharma* — regardless of order. MVD states that all four orders have differentiating features related to these four (MVD, pp. 50–51). They are not optional descriptors added by a knower; they are what each unit **is** as a participant in coexistence.
 
 **Form** (*roop*) is shared across all four orders. MVD defines it through shape, volume, and density — the physical attributes by which a bounded unit is individuated (MVD, pp. 50, 112).
 
@@ -166,6 +166,8 @@ Change within coexistence — how *satta* relates to unit-activity without being
 
 The source describes units as soaked, submerged, and surrounded — *samprikt* — in Omnipresence. Madhyasth Darshan treats saturation as an **ontological relationship**: pervasive co-location — the ever-present bond between formless Omnipresence and formful units, and the first layer of relational structure in coexistence. It is not a physical drawing, extraction, or depletion of energy from *satta*; Omnipresence does not act, transform, or be consumed in saturating a unit.
 
+One way to picture the bond — **illustrative, not identity** — is a living cell in nutrient medium, or a sponge fully soaked in water: the unit remains surrounded, permeated, and sustained **through** the medium, not drained from a finite store that depletes as saturation proceeds. The parallel captures co-location and mutual presence, not the darshan's full claim: *satta* is actionless (*kriya-shunya*), non-transforming, and not a physical substance that acts on units (§4.3).
+
 Through this relationship, every unit has **inherent energy** and regulatory order **in** it — energy fullness is of the saturated unit because of saturation, not a separate quantity transferred from a store. SB states this plainly:
 
 > **"Every unit in its atomic state is active as orderliness, because it has inherent energy due to being saturated in Omnipotence."**
@@ -186,7 +188,7 @@ This paper uses **mutual dependence for manifestation** as shorthand for that re
 
 Before SB compresses this structure into an identity-chain, three activity terms need plain anchors. **Basic impulsion** is the unit's inherent drive to be active given saturation — not an external push from the ground. **Forcefulness** and **activeness** name how uniform ground-energy reads as activity **in** the saturated unit (SB, pp. 57, 62, 69). **Effort–motion–result** is the single activity triad in which all change appears — effort, motion, and result as inseparable aspects of one activity, developed fully in §1.6.
 
-**Tiered intelligibility.** All saturated units participate in inherent orderliness — the intelligibility-ground of *gyan* as *satta*, not an act of cognition by Omnipresence. Insentient units exhibit radiance and projection (SB, p. 69); at constitutional completeness, the stable atom-configuration acts as a **mediating configuration** through which ever-present *gyan* manifests as active sentience — the Saturation-Reflector Model (§6.6). That ontological register is distinct from the projection–reflection cycle in *jeevan*.
+**Tiered intelligibility.** All saturated units participate in inherent orderliness — the intelligibility-ground of *gyan* as *satta*, not an act of cognition by Omnipresence. Insentient units exhibit radiance and projection (SB, p. 69); at constitutional completeness, when a stable atom-configuration is reached, that configuration acts as a **mediating configuration** through which ever-present *gyan* manifests as active sentience — the Saturation-Reflector Model (§6.6). That ontological register is distinct from the projection–reflection cycle in *jeevan*.
 
 Omnipresence is called energy and credited with energizing, regulating, and conserving nature, yet is also called actionless (*kriya-shunya*) and non-transforming. The texts resolve this by distributing the terms: *satta* is actionless in itself, but its energy is manifest as the activity of units through basic impulsion — latent, uniform energy at the root of activity, never acting on its own, yet inseparable from the activity through which alone it is revealed.
 
@@ -195,12 +197,12 @@ SB summarises the reciprocal structure as a continuous identity-chain — a char
 > **"Saturation in uniform energy itself is forcefulness, forcefulness itself is basic impulsion, basic impulsion itself is activity, activity itself is effort-motion-result, effort-motion-result itself is development and its continuity."**
 > - SB, p. 62
 
-Read as a single logical structure:
+Read as a single logical structure — each step names the English idea first, then the term the texts compress:
 
-1. Saturation in uniform energy **=** forcefulness.
-2. Forcefulness **=** basic impulsion.
-3. Basic impulsion **=** activity.
-4. Activity **=** effort–motion–result.
+1. Saturation in uniform energy **=** forcefulness (how ground-energy reads as activity **in** the unit).
+2. Forcefulness **=** basic impulsion (the unit's inherent drive to be active given saturation).
+3. Basic impulsion **=** activity (unit-activity as such).
+4. Activity **=** effort–motion–result (*shram–gati–parinam*) — the single activity triad developed in §1.6.
 5. Effort–motion–result **=** development and its continuity.
 
 Each link is identity, not efficient causation from *satta*. Uniform energy becomes forcefulness only through the unit, activity only through basic impulsion, development only through effort–motion–result — the single activity triad that structures all change in coexistence.
@@ -263,7 +265,7 @@ An assembly **persists** while its internal and external relationships are fulfi
 
 ### 1.6 Change Within Coexistence: Causation, Motion, and Time
 
-Madhyasth Darshan distinguishes **origination** (units co-eternally present in coexistence) from **causation** (what produces change when units transform). Unit-activity runs toward constitutional, activity, and conduct completeness; this section states **how** that activity — already structured as the single principle effort–motion–result (*shram–gati–parinam*) — is causally formed.
+Madhyasth Darshan distinguishes **origination** (units co-eternally present in coexistence) from **causation** (what produces change when units transform). Unit-activity runs toward constitutional, activity, and conduct completeness; this section states **how** that activity — already structured as the single principle of effort, motion, and result (*shram–gati–parinam*) — is causally formed.
 
 Change within coexistence is worked by units themselves. Omnipresence grounds and conserves all units through saturation as **supreme cause** (*mahakaran*) in the sustaining sense — the ground of activity, not its trigger. MVD presents a four-level causal hierarchy before naming *satta* as *mahakaran*:
 
@@ -281,12 +283,14 @@ Change within coexistence is worked by units themselves. Omnipresence grounds an
 
 MVD also summarises three ontological *dharma*s at this level (p. 288): the insentient is mortal (*maran-dharma*), the sentient is immortal, and Omnipresence is eternal. Mortality here does not mean annihilation — coexistence conserves *vastu* through transformation — but marks that insentient units lack *jeevan*'s constitutional immortality.
 
-Among the **Fundamental Concepts** on MVD p. 11, Realisation Knowledge (*anubhav jnan*) and the Principle **Effort–Motion–Result** (*shram–gati–parinam*) appear as the third and fourth entries. All activity in nature — insentient and sentient — carries this single irreducible triad, formulated as:
+Among the **Fundamental Concepts** on MVD p. 11, Realisation Knowledge (*anubhav jnan*) and the principle of **effort, motion, and result** (*shram–gati–parinam*) appear as the third and fourth entries. All activity in nature — insentient and sentient — carries this single irreducible triad, formulated as:
 
 > **"Every physical-chemical activity is an inseparable presence of effort, motion and result. Each of these is a joint form of the other two."**
 > - SB, p. 58
 
-Effort, motion, and result are not three sequential steps but three inseparable aspects of the same activity, each implying the other two. Because nature is eternally active, every interaction carries this triad. Two structural patterns follow in the insentient orders — both expressions of **inter-unit relationships**:
+Effort, motion, and result are not three sequential steps but three inseparable aspects of the same activity, each implying the other two. Consider sodium and chlorine ions approaching one another: the approach is effort and motion together; the stable salt crystal is result — yet none of the three occurs without the others, and after reciprocal exchange both parties attain satisfaction or natural motion (*svabhav gati*), cyclical restoration to natural state rather than one-way extraction (SB, pp. 52–53). The same triad read differently in a human facing unresolved conflict: effort toward understanding, motion through deliberation, result as resolution (*samadhan*) oriented toward activity and conduct completeness — not a second principle, but the sentient register of the same inseparable activity.
+
+Because nature is eternally active, every interaction carries this triad. Two structural patterns follow in the insentient orders — both expressions of **inter-unit relationships**:
 
 - **State and motion are inseparable**: there is force in state, power in motion (SB, pp. 248–249).
 - **Give–take complementarity**: after reciprocal exchange, both parties attain satisfaction or **natural motion** (*svabhav gati*) — cyclical restoration to natural state, not one-way extraction (SB, pp. 52–53).
@@ -305,11 +309,11 @@ In the sentient atom, the **same** triad continues:
 
 What differs is not a second triad but how the three legs are read toward completeness. In the sentient atom (SB, p. 58):
 
-- *parinam* (result) → constitutional completeness — immortality of result;
-- *shram* (effort) → activity completeness — restfulness of effort;
-- *gati* (motion) → conduct completeness — destination of motion.
+- result (*parinam*) → constitutional completeness — immortality of result;
+- effort (*shram*) → activity completeness — restfulness of effort;
+- motion (*gati*) → conduct completeness — destination of motion.
 
-SB p. 71 states this teleology for every developing atom: result oriented toward immortality, effort toward restfulness, motion toward destination. After *gathanpurnata*, the constitutionally complete atom undergoes **qualitative change without quantitative change** in particle count (SB, p. 55) — not physicochemical transformation in the material sense, but the triad remains.
+SB p. 71 states this teleology for every developing atom: result oriented toward immortality, effort toward restfulness, motion toward destination. After constitutional completeness (*gathanpurnata*), the constitutionally complete atom undergoes **qualitative change without quantitative change** in particle count (SB, p. 55) — not physicochemical transformation in the material sense, but the triad remains.
 
 Sentient nature adds projection and reflection: insentient units are radiance and projection only; sentient nature adds reflection toward **resolution** (*samadhan*) in the knowledge order (SB, pp. 60, 64–65, 69). The five-faculty table and full projection–reflection cycle are developed in §1.9.1.
 
@@ -321,7 +325,7 @@ Circular causation is how completeness-directed activity appears across orders: 
 
 ### 1.7 The Four Ontological Orders
 
-Nature exists as countless physical and sentient units — organised, bounded, and active within Omnipresence. The ontology diagram at the opening of §1 summarises four **ontological orders** — material, pranic/bio, animal, and knowledge/human — each a stable plateau in development. The order table in the section on unit signature gives each order's essential nature and cumulative *dharma*; what follows states how the orders relate.
+Nature exists as countless physical and sentient units — organised, bounded, and active within Omnipresence. Madhyasth Darshan names four **ontological orders** — material, pranic/bio, animal, and knowledge/human — each a stable plateau in development. The order table in the section on unit signature gives each order's essential nature and cumulative *dharma*; what follows states how the orders relate.
 
 > **"Existence is not just physicochemical matter, but all physical, chemical and jeevan entities are inseparably present in Omnipresence."**
 > - MVD, p. 5
@@ -382,9 +386,9 @@ The first completeness stage is also the first **plane transition** (SB, pp. 51�
 
 | Transition | Completeness stage | From → to | What becomes evident |
 |---|---|---|---|
-| **T1** | Constitutional (*gathanpurnata*) | Physicochemical → delusional | Sentient *jeevan*; animal order and deluded knowledge-order humans; hope to live |
+| **T1** | Constitutional completeness (*gathanpurnata*) | Physicochemical → delusional | Sentient *jeevan*; animal order and deluded knowledge-order humans; hope to live |
 
-T1 is **irreversible** at the atomic level: the insentient atom develops into sentient status and does not revert to insentience for any reason (SB, p. 92). That threshold exits the physicochemical plane — the first stage of development in nature's progression toward completeness. T2 and T3 — activity and conduct completeness as transitions to the deific and divine planes — are awakening milestones within constitutionally complete *jeevan* in the knowledge order.
+T1 is **irreversible** at the atomic level: the insentient atom develops into sentient status and does not revert to insentience for any reason (SB, p. 92). That threshold exits the physicochemical plane — the first stage of development in nature's progression toward completeness. T2 and T3 — activity and conduct completeness as transitions to the deific and divine planes — are awakening milestones within constitutionally complete *jeevan* in the knowledge order; in humans they appear as reorganized conduct (*aacharan*) and resolution (*samadhan*), the lived face of completeness rather than a separate domain from ontology.
 
 SB notes that all stages observed in the progression of emergence — physicochemical, delusional, deific, and divine planes — are marked by the activity of both insentient and sentient nature (SB, p. 92).
 
@@ -395,6 +399,8 @@ In this state of completeness, there is neither an increase nor a decrease in th
 MVD states that the fundamental unit is the insentient atom, which through development attains sentience as evidence of constitutional completeness; upon achieving it, its endeavour is toward activity completeness (MVD, p. 76). A constitutionally complete atom does not revert to insentience in constitution (SB, pp. 55, 59, 92). Constitutional completeness is therefore the ontological threshold at which an atom becomes *jeevan* — sentient, immortal in constitution, and oriented toward further completeness through activity and conduct, and ultimately toward **realisation in Omnipresence** as the third completeness stage and telos of both progressions (SB, p. 51). The structure of *jeevan*, its provisioned perspectives, and awakening progression are developed below.
 
 ### 1.9 *Jeevan*: Structure, Perspectives, and Awakening
+
+The sections above traced Development Progression to constitutional completeness and named the four planes. What follows concentrates on *jeevan* — the sentient self that works through the body (*shareer*) — its projection–reflection cycle, the six evaluative perspectives (*shaad-drishti*), and Awakening Progression through activity and conduct completeness. Quick Glossary rows on *jeevan*, the four planes, and the six perspectives supply compressed definitions; here the aim is structure and ontological placement, not the full behavioural treatment in [Ethics-And-Morals-In-Human-Beings](../Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf) and [Human Behavior and Society](../Human-Behavior-And-Society/Human-Behavior-And-Society.pdf).
 
 As the constitutionally complete unit whose threshold was traced above, *jeevan* is the sentient self that works through the body (*shareer*) in the animal and knowledge orders. In plane terms, animal-order *jeevan* and deluded knowledge-order humans occupy the delusional plane; awakening progression moves a human through the deific plane toward conduct completeness and evidence in the divine plane.
 
@@ -432,6 +438,8 @@ Activity and conduct completeness mark the second and third plane transitions wi
 
 MVD distinguishes **delusional** and **awakened** knowledge-order humans by kosha exposition: the animal order and delusional knowledge order share four koshas; awakened humans express all five, including *vigyanmaya* (MVD, pp. 49–50). Deluded humans remain in the delusional plane; awakening moves a human into the deific plane; conduct completeness with authentic evidence moves toward the divine plane. Plane membership for **humans** can change with study and realization, even though the sentience threshold itself does not lapse (SB, p. 55).
 
+On the delusional plane, conduct often treats bodily comfort or family advantage (*priya*, *labh*) as final self-interest — for example, a parent who secures resources for their household while treating conflict as a contest to be won rather than a relationship to be resolved, because the body and its extensions are mistaken for *jeevan*. Awakening on the deific plane reorganizes the same relationships through humane perspectives: family decisions weighed for justice and resolution (*nyaya*, *samadhan*), not dominance; the ecological orders treated as complementary participants in orderliness, not mere resources to extract. Conduct completeness toward the divine plane adds authentic evidence (*pramanikta*) — benevolence that others can recognize, not private conviction alone ([Human Behavior and Society](../Human-Behavior-And-Society/Human-Behavior-And-Society.pdf); [Ethics-And-Morals-In-Human-Beings](../Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf) §3.2).
+
 ### 1.9.3 Six perspectives and Awakening Progression
 
 In the knowledge order, *jeevan*'s design includes six evaluative **perspectives** provisioned in coexistence — lower *priya*, *hita*, *labh* and humane *nyaya*, *dharma*, *satya* (MVD, pp. 58, 60). Unawakened humans operate through the lower three; humane perspectives are present in the design but become the organizing refuge only as **Awakening Progression** advances toward activity and conduct completeness (MVD, p. 27). Qualification, perspective, and worldview arise through capacity, ability, and receptivity together with study and environment (MVD, pp. 134, 142) — the mechanism defined in the section on relationships.
@@ -454,7 +462,7 @@ The knowing act (*chaitanya*) belongs only to *jeevan*. MVD p. 289 states explic
 
 *Jeevan* participates in a structure of development and awakening that is **definite** and provisioned in coexistence — existence is stable, development and awakening are definite, and all the laws are natural and inherent to being and abiding (MVD, p. 5). In the Verity chain, orderliness **is** development and awakening (MVD, p. 15). MVD also provides for the study of development progression and awakening progression as distinct provisions in coexistence (MVD, p. 87; JV, p. 59). Units manifest what is provisioned and inherent through growing capacity, ability, and receptivity, study, and environment (MVD, pp. 27, 134, 142) — not by creating the frame from nothing.
 
-For epistemic structure (*gyan-vivek-vigyan*, realization, and evidence), including why "mystery" names incomplete understanding rather than an irreducible limit of existence, see [Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §1.11 (MVD, Ch. 17, pp. 273, 301). Conservation and beginninglessness follow from the same ontology.
+For epistemic structure (*gyan-vivek-vigyan*, realization, and evidence), including why "mystery" names incomplete understanding rather than an irreducible limit of existence, see [Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §1.11 (MVD, Ch. 17, pp. 273, 301). *Jeevan* is therefore a constitutionally complete sentient unit working through the body, not identical with it; awakening reorganizes projection and reflection toward humane *drishti* within that same ontology — it does not introduce a second kind of self. Conservation and beginninglessness follow from the same picture.
 
 ### 1.10 Conservation of reality and beginninglessness
 
@@ -472,7 +480,9 @@ Existence is **beginless**: what exists has always existed, though its form, con
 > **"Nothing arrives at birth nor does anything depart with death. All that is, exists forever."**
 > - JV, p. 20
 
-**Coexistence conservation** in detail. Madhyasth Darshan holds that what exists does not arise from non-being and does not vanish into it. This ontology distinguishes absolute annihilation (*vinasha*) from physical transformation (*roopantaran*). An entity changes configuration, but its underlying substance (*vastu*) is never destroyed:
+**Coexistence conservation** in detail. Madhyasth Darshan holds that what exists does not arise from non-being and does not vanish into it. This ontology distinguishes absolute annihilation (*vinasha*) from physical transformation (*roopantaran*). An entity changes configuration (*roop*), but its underlying substance (*vastu*) is never destroyed.
+
+Ice melting to water and boiling to steam is the same *vastu* in successive configurations; wood reduced to ash and smoke persists as transformed products, not as passage into absolute nothing. The texts use charcoal to make the same point in their own idiom:
 
 > **"A piece of charcoal continues to exist in other forms even after burning it."**
 > - JV, p. 20
@@ -923,7 +933,7 @@ Taken together, these commitments sketch a **coexistential realism**: ground and
 
 - **Individual immortality.** Functional indivisibility of *gathanpurna parmanu* (§1.8) is the load-bearing reply to aggregate reduction. That case must be made independently of saturation prose and tested against Buddhist analyses of personhood.
 
-Until those lines are developed, Nagarjuna's challenge belongs at the **center** of the open-problems list. Mutual dependence in §1.3 is not a decorative metaphor; it is the hinge on which coexistential realism meets Madhyamaka emptiness. Formal work on latency and the law of coexistence (§6.6) cannot be complete without this engagement.
+Until those lines are developed, Nagarjuna's challenge belongs at the **center** of the open-problems list. Mutual dependence in §1.3 is not a decorative metaphor; it is the hinge on which coexistential realism meets Madhyamaka emptiness. Formal work on latency and the law of coexistence (§6.6) cannot be complete without this engagement. Madhyasth Darshan's implicit reply rests on co-eternal asymmetric co-presence and plural enduring units — not on denying mutual dependence outright — yet that reply remains an open defense, not a settled answer to Madhyamaka on its own terms.
 
 #### 6.2.3 *Satta*–*ikai* relation and circular causality
 
@@ -1015,9 +1025,11 @@ To that extent they are **partially incommensurable** — no single neutral trib
 
 ### 6.6 Latency and the Saturation-Reflector Model
 
-Madhyasth Darshan does **not** solve the hard problem of consciousness in the physicalist's sense. The Saturation-Reflector Model is the darshan's load-bearing answer to how sentience arises without strong emergence from dead matter — but it **relocates** the problem rather than discharging it. Instead of asking why experience arises from wholly non-experiential matter, the system now owes two further questions: **(a)** why a constitutionally stable atom-configuration channels ever-present *gyan* into active *chaitanya* rather than remaining at the orderliness tier only (**selection**), and **(b)** what makes *satta* as *gyan* the experiential ground at all (**grounding**). Latency converts an emergence problem into a selection problem and a grounding problem; neither is settled in this paper.
+§1.3 established saturation — units surrounded, soaked, and sustained in Omnipresence. §1.9.4 distinguished *gyan* as intelligibility-ground from active knowing in *jeevan*. §1.8 traced constitutional completeness — when a composite atom becomes sentient *jeevan* (*gathanpurnata*) — and named the stable atom-configuration at that threshold a **mediating configuration** (the source texts call it a reflector). The Saturation-Reflector Model states how ever-present *gyan* in *satta* reaches active sentience (*chaitanya*) at that threshold without strong emergence from dead matter.
 
-Madhyasth Darshan reads constitutional completeness through **latency**: sentience is eternally present in coexistence and **actualized** at *gathanpurnata*, not produced from non-experience. Building on §1.3's saturation and §1.9.4's account of *gyan* as intelligibility-ground, the **Saturation-Reflector Model** is the darshan's canonical statement of that reading (constitutional completeness in §1.8). In analytical prose this paper uses **mediating configuration** for the stable atom-structure at *gathanpurnata*; the source texts call it a **reflector** (*pratibimba* register in SB's saturation language). The English word is retained where the texts use it; it should not be read as optical bounce.
+Madhyasth Darshan does **not** solve the hard problem of consciousness in the physicalist's sense. Sentience is eternally present in coexistence and **actualized** at constitutional completeness rather than produced from non-experience; the **Saturation-Reflector Model** is the darshan's load-bearing statement of that reading — but it **relocates** the problem rather than discharging it. Instead of asking why experience arises from wholly non-experiential matter, the system now owes two further questions: **(a)** why a constitutionally stable atom-configuration channels ever-present *gyan* into active *chaitanya* rather than remaining at the orderliness tier only (**selection**), and **(b)** what makes *satta* as *gyan* the experiential ground at all (**grounding**). Latency converts an emergence problem into a selection problem and a grounding problem; neither is settled in this paper.
+
+Madhyasth Darshan reads constitutional completeness through **latency**: sentience is eternally present in coexistence and **actualized** at *gathanpurnata*, not produced from non-experience. Building on §1.3's saturation and §1.9.4's account of *gyan* as intelligibility-ground, the Saturation-Reflector Model is the darshan's canonical statement of that reading (constitutional completeness in §1.8). In analytical prose this paper uses **mediating configuration** for the stable atom-structure at constitutional completeness; the source texts call it a **reflector** (*pratibimba* register in SB's saturation language). The English word is retained where the texts use it; it should not be read as optical bounce.
 
 #### Textual basis for latency
 
@@ -1050,7 +1062,7 @@ Self-model and predictive-processing theories explain hierarchical regulation; t
 
 The model is a metaphysical framework, not a detailed physical mechanism. It does not answer physicalism's demand for third-person public evidence (§6.4), nor does it reconcile the claimed constitutional immunity of the composite *gathanpurna parmanu* with modern particle physics — where composite bound states decay rather than elementary particles being indestructible (§6.2.4). The hard problem is **asserted away** only in the weak sense that latency denies experience-from-nothing; it is **not solved** in the strong sense until selection and grounding are independently motivated and the Nagarjuna challenge (§6.2.2) is answered.
 
-Formalizing latency within the law of coexistence — and defending it against Nagarjuna's *svabhava* critique — is the most promising route for later rigorous work.
+Latency therefore relocates emergence into selection and grounding problems; rival accounts share threshold grammar with constitutional completeness, but only the Saturation-Reflector Model actualizes coexistential *gyan* rather than chemistry, information, or neural dynamics alone. Formalizing that reading within the law of coexistence — and defending it against Nagarjuna's *svabhava* critique — is the most promising route for later rigorous work.
 
 ## 7. Conclusion
 
