@@ -4,7 +4,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 24, 2026, 7:27 AM IST
+**Edited on:** June 24, 2026, 3:40 PM IST
 
 **Status:** Draft
 
@@ -53,7 +53,7 @@ This forward/reverse use is what motivates the tier-neutral formalisation of Sec
 
 ## 2. The template, informally
 
-Eleven clauses. Everything in Section 3 is a formalisation of these.
+Twelve clauses. Everything in Section 3 is a formalisation of these.
 
 1. Existence is **coexistence** (*saha-astitva*): one indivisible, omnipresent medium (Space / Omnipotence) and countless real units co-eternally present in saturation. The medium is not a unit.
 2. Everything else is a countable **unit**: a bounded cluster of activity carrying form, properties, essential nature, and *dharma*.
@@ -66,6 +66,7 @@ Eleven clauses. Everything in Section 3 is a formalisation of these.
 9. Every persisting assembly **transmits its method of composition** across generations of its members — by constitution in the material order, by seed in the biological order, by lineage/species in the animal order, and by education-*sanskar* in the knowledge order.
 10. In the first three orders, clauses 5–9 operate **definitely** (automatically, without choice). In the knowledge order they must pass through **understanding, evaluation, and choice** — which is why human assembly above the individual is the only level of the template that can fail, and the only one that is still incomplete.
 11. Development runs through **three completeness stages** — constitutional (*gathanpurnata*), activity (*kriyapurnata*), conduct (*vyavaharpurnata*) — mapped to **plane transitions** in nature's progression (physicochemical → delusional → deific → divine); T1 at the sentient threshold is irreversible at the atomic level (SB pp. 51–52, 92).
+12. In the knowledge order, understanding must **evidence** itself: realisation is ultimate proof only when conduct, work, and tradition make coexistence manifest — not private conviction alone (MVD p. 12; [Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §1.6).
 
 
 ## 3. The formal template
@@ -131,7 +132,7 @@ The established values are not produced deliberately; they *flow* from jeevan th
 
 **D5a (Fulfilment capacity).** Fulfilment is modulated by the **intellectual means** (*bauddhik sadhan*): **capacity** (*kshamata*), **ability** (*yogyata*), and **receptivity** (*patrata*) (MVD p. 62). Write **cap(u) = ⟨ksh, yog, pat⟩**. φ is realised at the level cap(u) permits — not by receptivity alone. In the material order, **ascending** (*agreshan*) is balance and receptivity gained while converting capacity and ability into effort (*shram*); **frustration** (*kshobh*) is the shortcoming in that conversion — "incompleteness of receptivity" (MVD p. 79). In the knowledge order, cap(u) for worldview arises from environment, study, and prior *sanskar* (MVD p. 134); extent of receptivity constitutes qualification (*arhta*), which yields perspective (*drishti*) and worldview (*darshan*) (MVD p. 142). Attaining suitable cap(u) for realisation of pre-existing coexistence is the pinnacle of awakening (MVD p. 302). See [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §§1.4, 1.9.
 
-**D6 (Evaluation).** Evaluation **μ** is a second-order operation: assessing the value delivered in a relationship against the value inherent in it. μ is defined **only for knowledge-order units**, and it is performed by *jeevan*, not by any bodily mechanism: "Jeevan evaluates the values that emanate from itself… No external instrument is needed for this evaluation" (JV p. 139); "Values and evaluation are processes of understanding; they are not bodily or mechanical processes" (JV p. 39). Evaluation has exactly three failure modes — over-evaluation, under-evaluation, mis-evaluation (MVD p. 38). In the knowledge order, evaluative *sapëkshata* (relativity) arises from *drishti*, *drishya*, and *darshan* — not from unreality of coexistence ([Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §1.4.1; [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.9).
+**D6 (Evaluation).** Evaluation **μ** is a second-order operation: assessing the value delivered in a relationship against the value inherent in it. μ is defined **only for knowledge-order units**, and it is performed by *jeevan*, not by any bodily mechanism: "Jeevan evaluates the values that emanate from itself… No external instrument is needed for this evaluation" (JV p. 139); "Values and evaluation are processes of understanding; they are not bodily or mechanical processes" (JV p. 39). Bodily mechanisms implement conduct but do not evaluate; over-, under-, and mis-evaluation (MVD p. 38) block closure of the evidence cycle (D13, L7). In the knowledge order, evaluative *sapëkshata* (relativity) arises from *drishti*, *drishya*, and *darshan* — not from unreality of coexistence ([Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §1.4.1; [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.9).
 
 **D7 (Justice).** Justice (*nyaya*) is **not a member of V** — it is the *name the texts give to the complete operation* on a relationship at the knowledge order: the composite **ρ → φ → μ → mutual satisfaction**. This is a definition, not a gloss:
 
@@ -156,7 +157,7 @@ Only compound-mode composition creates a new tier of the hierarchy; mixture and 
 
 **D9 (Natural and excited state).** A unit (or assembly) is in its **natural state** when its relationships are being fulfilled within conducive conditions, and in an **excited state** otherwise. "Each unit moves towards development in its natural state and decline in its excited state" (SB p. 14).
 
-**D10 (Transmission).** τ re-instantiates an assembly's method of composition (*rachna vidhi*) in new member-units, so the assembly persists across member turnover. The carrier of τ differs by order (see L5).
+**D10 (Transmission).** τ re-instantiates an assembly's method of composition (*rachna vidhi*) in new member-units, so the assembly persists across member turnover. The carrier of τ differs by order (see L5). At the knowledge order, τ carries **evidenced** understanding (education-*sanskar*), not rules without φ — aligned with §6: ignorance cannot flow in tradition (JV p. 49).
 
 **D11 (Planes and completeness transitions).** SB names four **planes** (*pad*) — physicochemical, delusional, deific, and divine (complete) — as developmental stages in nature's progression toward completeness, alongside the four **orders** (D2) that name what a unit *is* ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §§1.7–1.9). The three completeness stages map to plane transitions:
 
@@ -166,7 +167,31 @@ Only compound-mode composition creates a new tier of the hierarchy; mixture and 
 | **T2** | Activity (*kriyapurnata*) | Delusional → deific |
 | **T3** | Conduct (*vyavaharpurnata*) | Deific → divine (complete) |
 
-T1 is irreversible at the atomic level (SB p. 92); T2 and T3 are awakening milestones within constitutionally complete *jeevan* in the knowledge order. Plane membership for humans can change with study and realization; the sentience threshold itself does not lapse (SB p. 55).
+T1 is irreversible at the atomic level (SB p. 92); T2 and T3 are awakening milestones within constitutionally complete *jeevan* in the knowledge order. Plane membership for humans can change with study and realization; the sentience threshold itself does not lapse (SB p. 55). At T3, conduct completeness carries **evidence** (*pramanikta*) — benevolence others can recognize, not private conviction alone ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.9.2).
+
+**D12 (Knowledge registers — keep distinct).** Four registers the texts must not conflate ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.9.4):
+
+| Symbol | Name | Template reading |
+|---|---|---|
+| **AJ** | *anubhav jnan* | **Given structure** on every u ∈ U: sig(u) + inherent orderliness from saturation (A1–A2); not the engine of κ_comp |
+| **O_gyan** | *gyan* as name of O | Intelligibility-ground: state-complete regulator (already O; named explicitly) |
+| **Ξ** | *gyan udghatan* | Partial operator on knowledge-order *jeevan*: unfolding of knowledge; defined only for awakened humans (MVD pp. 115–116, 289) |
+| **TEL** | *satta mein anubhav* | **Telos** of P6 / D11 progressions: relationships fulfilled, coexistence evident; not a new state of O |
+
+Samadhi-samyama (MVD p. 7) is **epistemic warrant** for the axioms — meta to the template, not identical to AJ.
+
+**D13 (Evidence and self-evidencing — knowledge order only).** MVD p. 12 gives a reflexive evidence chain:
+
+> **"Realisation itself is the ultimate evidence, Evidence itself is the understanding or knowledge, Understanding itself is manifest, The manifest itself is resolution, work and behaviour, Work and behaviour itself is evidence, Evidence itself is awakened tradition, Awakened tradition itself is coexistence."**
+> — MVD, p. 12
+
+Formally, the knowledge-order cycle is:
+
+```text
+ρ → φ → μ → conduct manifest → pram(ev) → τ_ev → coexistence
+```
+
+where **pram(ev)** = *pramanikta* (authenticity in conduct others can recognize; T3; [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.9.1 *atma* projection) and **τ_ev** = transmission of evidenced understanding (extends D10). φ already evidences use, right-use, and purposeful-use (D5; MVD p. 62).
 
 ### 3.3 Axioms
 
@@ -216,6 +241,8 @@ The texts explicitly mark this as one principle with order-specific realisations
 
 **L6 (Closure / iteration).** The output of κ is a unit, so the template applies to it in turn. This is what generates the tiered hierarchy: "The coexistence of one cell (pran kosha) with another cell leads to multicellular forms, resulting in the formation of definite organisms" (JV p. 82); "this Earth and every other planet are compositions of atoms and molecules" (MVD p. 8); "More than one human coming together or becoming organised is referred to as a family, community, or undivided society" (MVD p. 55).
 
+**L7 (Self-evidencing closure).** In the knowledge order, complete knowledge (*paripoorna gyan*, SB p. 116) requires the D13 cycle to close: realisation is ultimate *pramana* only when evidenced in conduct and transmissible in τ — private conviction without φ, μ, or pram(ev) is incomplete (MVD p. 12; [Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §1.6).
+
 ### 3.5 Propositions (consequences the texts also assert)
 
 **P1 (Tiered hierarchy).** Iterating κ under L3–L6 yields the observed ladder: particles → atoms → molecules → molecular structures → planets (insentient line); cells → organisms (biological line); individual → family → community → undivided society → universal orderliness (knowledge line, MVD p. 161: the "ten-tier family-based orderliness, wherein family is the first tier"). Each tier is a unit *and* a participant in the next (A5).
@@ -228,7 +255,7 @@ The texts explicitly mark this as one principle with order-specific realisations
 
 **P5 (Boundedness of extraction).** A unit's relationships with lower-order units are also governed by E(r): right-use and purposeful-use, bounded by regeneration — "expenditure of natural abundance like minerals and forests in proportion to their regeneration" (MVD p. 264). Extraction beyond regeneration is an unfulfilled relationship and, by L4, destabilises the containing assembly (the Earth-tier): "we overlooked the purpose of our relationship with the Earth… This lack of understanding led to the catastrophic collapse of our planet['s environment]" (JV p. 77).
 
-**P6 (Completeness-directed development).** Every unit is active and developing solely for completeness (SB p. 51). Development Progression (*vikas-kram*) runs through constitutional completeness in the atom; Awakening Progression (*jagriti-kram*) runs in *jeevan* already constitutionally complete toward activity and conduct completeness (MVD pp. 13–14, 27). The same drive appears as plane transitions T1–T3 (D11) — a definite terminal orientation, not unbounded maximisation (Section 5).
+**P6 (Completeness-directed development).** Every unit is active and developing solely for completeness (SB p. 51). Development Progression (*vikas-kram*) runs through constitutional completeness in the atom; Awakening Progression (*jagriti-kram*) runs in *jeevan* already constitutionally complete toward activity and conduct completeness (MVD pp. 13–14, 27). The same drive appears as plane transitions T1–T3 (D11) — oriented **until realisation in coexistence** (TEL; *satta mein anubhav*, SB p. 51; MVD p. 116) — a definite terminal orientation, not unbounded maximisation (Section 5).
 
 
 ## 4. The template instantiated, tier by tier
@@ -243,6 +270,7 @@ The texts explicitly mark this as one principle with order-specific realisations
 | Assembly (L3) | hungry/overfull bonding → molecules → structures | cells → multicellular organisms | bodies via lineage; herds | family → ten-tier self-governance → world-family order |
 | Persistence (L4) | natural state | climatic balance | species conditions | fulfilment of values; mutual satisfaction |
 | Transmission (L5) | constitution | seed (*rachna vidhi*) | lineage/species | education-*sanskar* |
+| Evidence / unfolding (D12–D13) | orderliness evident in definite conduct (structural φ) | same | same | μ, Ξ (*gyan udghatan*), D13 loop, pram(ev) at T3 |
 | Failure mode | (excitation still complementary) | death/decomposition | species stress | delusion → exploitation, war, ecological overdraw |
 
 Two structural observations the table makes visible:
@@ -313,7 +341,7 @@ Stated at this level of generality, the template invites comparison with several
 | **Autopoiesis** (Maturana & Varela) | Persistence through continuous re-production of organisation (τ at the organism tier) | Autopoiesis is defined for living systems only; the template runs from atoms to societies, and grounds persistence in relationship-fulfilment, not self-production alone |
 | **Multilevel / group selection** | Nested units whose higher tiers persist or fail as wholes | Selectionist engines are competitive and stochastic; the template's engine is complementarity and is definite (L2, L3) |
 | **Thermodynamic self-organisation** (dissipative structures) | Larger structures arising from flows between non-equilibrium units | Dissipative structures require throughput of free energy and are maintenance-costly; the template's units are energised constitutively by immersion (A2), a claim with no thermodynamic analogue |
-| **Category-theoretic composition** (see the companion paper in this collection) | Relationships as morphisms; assemblies as colimits; tiers as a partial order | Category theory is the natural notation for κ and L6, but is silent on which compositions occur; L3 (complementary need) is the selection rule the notation lacks |
+| **Category-theoretic composition** ([*Category Theory Explained*](../Category-Theory-Explained/Category-Theory-Explained.pdf) §6.1.1, §6.15) | Relationships as morphisms; assemblies as colimits; tiers as a partial order; D12 registers (AJ as ambient typing, Ξ as partial endofunctor on `Liv`, TEL as progression target); D13/L7 as partial evidence cycle across Eval/Conduct/Trans | Category theory is the natural notation for κ and L6, but is silent on which compositions occur; L3 (complementary need) is the selection rule the notation lacks; self-evidencing is not a single endomorphism |
 
 The two genuinely distinctive commitments, visible only when the template is laid out formally, are: **(i)** the medium O as a constitutive, energising, regulating presence at every tier simultaneously (A1–A2) — not an aether *within* physics but a precondition *of* it; and **(ii)** value as the universal content of relations, with evaluation appearing only at the top tier (D4/D6). Frameworks that drop (i) must find energy and regulation inside the units; frameworks that drop (ii) must reconstruct value as preference or fitness. The darshan does neither.
 
@@ -335,11 +363,12 @@ The two genuinely distinctive commitments, visible only when the template is lai
 2. **The medium and jeevan are axioms, not results.** A1–A2 and D6 carry the darshan's full metaphysical weight. The template's *structure* survives bracketing them, but its explanation of energisation, regulation, and evaluation does not.
 3. **The texts are realisation-reports, not arguments from premises.** Shri Nagraj presents these claims as seen in samadhi-samyama (MVD p. 7). The template organises the claims; it cannot supply independent evidence for them.
 4. **Translation risk.** Quotations follow the published English translations of Hindi originals; several key terms (*vyavastha* as "orderliness", *nirvah* as "fulfilment", *samprikt* as "saturated") carry interpretive choices made by the translators.
+5. **D13 is an identity-chain, not a guarantee.** The MVD p. 12 loop models each link as "X itself is Y"; it does not deductively prove that the cycle always closes in practice — only what complete knowledge requires when it does.
 
 
 ## 10. Conclusion
 
-The reading that Madhyasth Darshan is "centered on the stability of the whole structure of existence", with saturated units, valued relationships, ever-larger assemblies, and inter-generational transmission, is confirmed by the texts — and is *more* than an interpretation: it is a structure the texts themselves assert at every order of nature. Stated formally, it is one template: **coexistence as co-eternally present medium and units; saturation and sambandh as two relational layers; sig(u) with order-specific svabhav and dharma; definite relationships; value as essentiality modulated by capacity, ability, and receptivity; composition by complementarity; persistence by fulfilment; transmission by order-specific carriers; iterated into a tiered hierarchy; development through three completeness stages and plane transitions T1–T3** — with a single discontinuity at the knowledge order, where every clause must pass through understanding, making the human tier at once the most capable and the only unfinished level of the structure. The corrections required to the informal reading are few but consequential: separate saturation from sambandh, treat sig(u) as iterating at each compound tier, restrict evaluation (not value) to jeevan, treat atoms as composites whose constitutional completeness is compound-mode κ, and replace maximisation with definite movement toward completeness. With those corrections, the template stands as a precise, general, and textually grounded statement of what Shri Nagraj called coexistence.
+The reading that Madhyasth Darshan is "centered on the stability of the whole structure of existence", with saturated units, valued relationships, ever-larger assemblies, and inter-generational transmission, is confirmed by the texts — and is *more* than an interpretation: it is a structure the texts themselves assert at every order of nature. Stated formally, it is one template: **coexistence as co-eternally present medium and units; saturation and sambandh as two relational layers; sig(u) with order-specific svabhav and dharma; definite relationships; value as essentiality modulated by capacity, ability, and receptivity; composition by complementarity; persistence by fulfilment; transmission by order-specific carriers; iterated into a tiered hierarchy; development through three completeness stages and plane transitions T1–T3 toward TEL (realisation in coexistence); knowledge registers D12 and self-evidencing closure D13/L7 at the human tier** — with a single discontinuity at the knowledge order, where every clause must pass through understanding and evidence itself in conduct, making the human tier at once the most capable and the only unfinished level of the structure. The corrections required to the informal reading are few but consequential: separate saturation from sambandh, treat sig(u) as iterating at each compound tier, restrict evaluation (not value) to jeevan, treat atoms as composites whose constitutional completeness is compound-mode κ, and replace maximisation with definite movement toward completeness. With those corrections, the template stands as a precise, general, and textually grounded statement of what Shri Nagraj called coexistence.
 
 
 ## References
@@ -347,13 +376,14 @@ The reading that Madhyasth Darshan is "centered on the stability of the whole st
 ### Madhyasth Darshan (primary sources)
 
 - **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf) (*jv-parichaya*). English translation, version 3.0. Page numbers refer to this edition.
-- **MVD** — Nagraj, A. [*Madhyasth Darshan (Manav Vyavahar Darshan)*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English version 4.0. Cited: Realisation Knowledge and Effort–Motion–Result (p. 11); composite atoms, mixture and compound (p. 42); hungry/overfull atoms (p. 8); relationship vs association, *sadhan*, capacity–ability–receptivity (pp. 61–62); ascending/frustration (p. 79); Development and Awakening Progression (pp. 13–14, 27); *patrata*–*drishti*–*darshan* and cap(u) for worldview (pp. 134, 142, 302). Page numbers refer to this edition; chapter numbers given where the edition marks them.
+- **MVD** — Nagraj, A. [*Madhyasth Darshan (Manav Vyavahar Darshan)*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English version 4.0. Cited: Realisation Knowledge and Effort–Motion–Result (p. 11); evidence chain and "Believe what is known" (p. 12); composite atoms, mixture and compound (p. 42); hungry/overfull atoms (p. 8); relationship vs association, *sadhan*, capacity–ability–receptivity (pp. 61–62); ascending/frustration (p. 79); Development and Awakening Progression (pp. 13–14, 27); knowledge unfolding by awakened humans (pp. 115–116, 289); realisation in coexistence (p. 116); *patrata*–*drishti*–*darshan* and cap(u) for worldview (pp. 134, 142, 302); samadhi-samyama warrant (p. 7). Page numbers refer to this edition; chapter numbers given where the edition marks them.
 - **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (Resolution Centred Materialism)](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Also at https://www.youtube.com/playlist?list=PL69PCoz1OQW0dhshZ0Xv3KtZ7ajJOIpgv (bilingual Hindi and English). Cited: natural and excited state (p. 14); essentiality as value (p. 50); planes and completeness transitions (pp. 51–52, 92); constitutional completeness (pp. 55, 59). Page numbers refer to this edition.
 
 ### Companion papers in this collection
 
 - [*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — ontological exposition: coexistence, saturation, unit signature, unit relationships, four orders and planes, capacity triad, composition ladder, development and awakening progressions, Saturation-Reflector Model (§§1.3, 6.6); *sapëkshata* deferred to [Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §1.4.1
-- [*Category Theory Explained*](../Category-Theory-Explained/Category-Theory-Explained.pdf)
+- [*Category Theory Explained*](../Category-Theory-Explained/Category-Theory-Explained.pdf) — categorical notation for κ, L6, D12–D13, L7 (§6.1.1, §6.15)
+- [*Knowledge, Knower, and Known*](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) — evidence chain, *gyan udghatan*, *pramana* (§§1.2, 1.6–1.8)
 - [*How To Form Self-Sustaining Organizations*](../How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.pdf)
 - [*Why Humans Are Not Just Material*](../Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.pdf)
 - [*Human Behavior and Society*](../Human-Behavior-And-Society/Human-Behavior-And-Society.pdf)
