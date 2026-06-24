@@ -1,0 +1,39 @@
+name: Studies index
+
+on:
+  pull_request:
+    paths:
+      - "Studies/index.html"
+      - "Studies/README.md"
+      - "Scripts/_build_studies_index.py"
+      - "Scripts/_study_catalog.py"
+      - "Scripts/_verify_studies_index.py"
+      - "Scripts/_ci_study_pr.py"
+      - ".github/workflows/studies-index-check.yml"
+  push:
+    branches:
+      - master
+      - main
+    paths:
+      - "Studies/index.html"
+      - "Studies/README.md"
+      - "Scripts/_build_studies_index.py"
+      - "Scripts/_study_catalog.py"
+      - "Scripts/_verify_studies_index.py"
+      - "Scripts/_ci_study_pr.py"
+      - ".github/workflows/studies-index-check.yml"
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify catalog JSON and index shell
+        run: python Scripts/_verify_studies_index.py

@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import html
+import json
 import re
 import subprocess
 import sys
@@ -67,6 +68,11 @@ STATUS_MD_RE = re.compile(
 )
 CATALOG_TIMESTAMP_RE = re.compile(
     r"Last updated on:\s+(\w+)\s+(\d+),\s+(\d{4}),\s+(\d+:\d+\s+[AP]M)\s+IST"
+)
+ONGOING_DESC_PREFIX_RE = re.compile(r"^Ongoing\.+\s*", re.IGNORECASE)
+CATALOG_JSON_SCRIPT_RE = re.compile(
+    r'<script\s+type="application/json"\s+id="([^"]+)"\s*>\s*(.*?)\s*</script>',
+    re.DOTALL,
 )
 
 
@@ -258,8 +264,79 @@ def extract_catalog_block(content: str, start: str, end: str) -> str:
     return match.group(1)
 
 
-def parse_html_rows(content: str, table: StudyTable) -> list[StudyRow]:
-    block = extract_catalog_block(content, *catalog_markers(table))
+def catalog_script_id(table: StudyTable) -> str:
+    if table == StudyTable.FORMAL:
+        return "catalog-formal"
+    return "catalog-topical"
+
+
+def split_categories(category: str) -> list[str]:
+    return [part.strip() for part in category.split(",") if part.strip()]
+
+
+def normalize_description(description: str, status: StudyStatus) -> str:
+    text = description.strip()
+    if status == StudyStatus.ONGOING:
+        return ONGOING_DESC_PREFIX_RE.sub("", text).strip()
+    return text
+
+
+def format_catalog_updated(dt: datetime) -> str:
+    month = MONTH_FULL_TO_ABBR[dt.strftime("%B")]
+    day = dt.day
+    year = dt.year
+    time_part = dt.strftime("%I:%M %p").lstrip("0")
+    return f"{month} {day}, {year}, {time_part} IST"
+
+
+def row_to_catalog_entry(row: StudyRow) -> dict:
+    entry: dict = {
+        "slug": row.slug,
+        "title": display_title(row),
+        "category": row.category,
+        "categories": split_categories(row.category),
+        "description": normalize_description(row.description, row.status),
+        "status": row.status.value,
+    }
+    if row.status != StudyStatus.ONGOING and row.edited_at is not None:
+        entry["updated"] = format_catalog_updated(row.edited_at)
+    return entry
+
+
+def catalog_entry_to_row(entry: dict, table: StudyTable) -> StudyRow:
+    status_raw = entry.get("status", "")
+    try:
+        status = StudyStatus(status_raw)
+    except ValueError as exc:
+        raise ValueError(f"Invalid catalog status {status_raw!r}") from exc
+
+    category = entry.get("category", "")
+    if not category and entry.get("categories"):
+        category = ", ".join(entry["categories"])
+
+    edited_at: datetime | None = None
+    updated = entry.get("updated")
+    if updated:
+        edited_at = parse_timestamp_text(str(updated).replace(" IST", ""))
+
+    return StudyRow(
+        slug=str(entry["slug"]),
+        category=str(category),
+        description=str(entry.get("description", "")),
+        status=status,
+        edited_at=edited_at,
+        table=table,
+    )
+
+
+def serialize_catalog_json_block(rows: list[StudyRow], table: StudyTable) -> str:
+    script_id = catalog_script_id(table)
+    payload = [row_to_catalog_entry(row) for row in rows]
+    json_text = json.dumps(payload, indent=2, ensure_ascii=False)
+    return f'<script type="application/json" id="{script_id}">\n{json_text}\n</script>'
+
+
+def _parse_legacy_html_tr_rows(block: str, table: StudyTable) -> list[StudyRow]:
     rows: list[StudyRow] = []
     for tr_match in re.finditer(r"<tr>\s*(.*?)\s*</tr>", block, re.DOTALL):
         cells = re.findall(r"<td>(.*?)</td>", tr_match.group(1), re.DOTALL)
@@ -295,6 +372,26 @@ def parse_html_rows(content: str, table: StudyTable) -> list[StudyRow]:
             )
         )
     return rows
+
+
+def parse_catalog_json(content: str, table: StudyTable) -> list[StudyRow]:
+    block = extract_catalog_block(content, *catalog_markers(table))
+    script_match = CATALOG_JSON_SCRIPT_RE.search(block)
+    if script_match:
+        raw_json = script_match.group(2).strip()
+    elif block.strip().startswith("["):
+        raw_json = block.strip()
+    else:
+        return _parse_legacy_html_tr_rows(block, table)
+
+    entries = json.loads(raw_json)
+    if not isinstance(entries, list):
+        raise ValueError(f"Catalog JSON for {table.value} must be a list.")
+    return [catalog_entry_to_row(entry, table) for entry in entries]
+
+
+def parse_html_rows(content: str, table: StudyTable) -> list[StudyRow]:
+    return parse_catalog_json(content, table)
 
 
 def parse_md_rows(content: str, table: StudyTable) -> list[StudyRow]:
@@ -380,41 +477,18 @@ def display_title(row: StudyRow) -> str:
     return SLUG_TITLE_OVERRIDES.get(row.slug) or slug_to_title(row.slug)
 
 
-def serialize_html_row(row: StudyRow) -> str:
-    status_cell = format_status_catalog(row.edited_at, row.status)
-    safe_category = html.escape(row.category, quote=False)
-    safe_desc = html.escape(row.description, quote=False)
-    safe_title = html.escape(display_title(row), quote=False)
-    if row.has_pdf:
-        doc_cell = f'<a href="{study_pdf_href(row.slug)}">{safe_title}</a>'
-    else:
-        safe_slug = html.escape(row.slug, quote=True)
-        doc_cell = f'<em data-slug="{safe_slug}">{safe_title}</em>'
-    return (
-        f"    <tr>\n"
-        f"      <td>{doc_cell}</td>\n"
-        f"      <td>{safe_category}</td>\n"
-        f"      <td>{safe_desc}</td>\n"
-        f"      <td>{status_cell}</td>\n"
-        f"    </tr>"
-    )
-
-
 def serialize_md_row(row: StudyRow) -> str:
     status_cell = format_status_catalog(row.edited_at, row.status)
     title = display_title(row)
+    description = normalize_description(row.description, row.status)
     if row.has_pdf:
         doc_cell = f"[{title}]({study_pdf_href(row.slug)})"
     else:
         doc_cell = f"*{title}* <!-- slug: {row.slug} -->"
     return (
         f"| {doc_cell} | {escape_md_cell(row.category)} | "
-        f"{escape_md_cell(row.description)} | {status_cell} |"
+        f"{escape_md_cell(description)} | {status_cell} |"
     )
-
-
-def serialize_html_rows(rows: list[StudyRow]) -> str:
-    return "\n".join(serialize_html_row(row) for row in rows)
 
 
 def serialize_md_rows(rows: list[StudyRow], table: StudyTable) -> str:
@@ -468,7 +542,12 @@ def write_studies_catalog(rows: list[StudyRow], table: StudyTable) -> None:
 
     index_text = index_path.read_text(encoding="utf-8")
     index_path.write_text(
-        replace_catalog_block(index_text, start, end, serialize_html_rows(rows)),
+        replace_catalog_block(
+            index_text,
+            start,
+            end,
+            serialize_catalog_json_block(rows, table),
+        ),
         encoding="utf-8",
     )
 
@@ -554,6 +633,55 @@ def remove_manifest_paper_block(content: str, slug: str) -> str:
         index += 1
     trailing = "\n" if content.endswith("\n") else ""
     return "\n".join(kept) + trailing
+
+
+def verify_catalog_json_sync(table: StudyTable) -> list[str]:
+    """Ensure index.html JSON catalog matches README.md markdown rows."""
+    errors: list[str] = []
+    index_path = STUDIES / "index.html"
+    readme_path = STUDIES / "README.md"
+    html_rows = {
+        row.slug: row
+        for row in parse_catalog_json(index_path.read_text(encoding="utf-8"), table)
+    }
+    md_rows = {
+        row.slug: row
+        for row in parse_md_rows(readme_path.read_text(encoding="utf-8"), table)
+    }
+
+    html_slugs = set(html_rows)
+    md_slugs = set(md_rows)
+    for slug in sorted(html_slugs - md_slugs):
+        errors.append(f"{slug}: in index.html {table.value} JSON but missing from README.md.")
+    for slug in sorted(md_slugs - html_slugs):
+        errors.append(f"{slug}: in README.md {table.value} table but missing from index.html JSON.")
+
+    for slug in sorted(html_slugs & md_slugs):
+        html_row = html_rows[slug]
+        md_row = md_rows[slug]
+        if html_row.status != md_row.status:
+            errors.append(
+                f"{slug}: status mismatch between index.html ({html_row.status.value}) "
+                f"and README.md ({md_row.status.value})."
+            )
+        if html_row.category != md_row.category:
+            errors.append(f"{slug}: category mismatch between index.html and README.md.")
+        html_desc = normalize_description(html_row.description, html_row.status)
+        md_desc = normalize_description(md_row.description, md_row.status)
+        if html_desc != md_desc:
+            errors.append(f"{slug}: description mismatch between index.html and README.md.")
+        if html_row.status in {StudyStatus.DRAFT, StudyStatus.RELEASED}:
+            if html_row.edited_at != md_row.edited_at:
+                errors.append(f"{slug}: timestamp mismatch between index.html and README.md.")
+
+    return errors
+
+
+def verify_all_catalog_sync() -> list[str]:
+    errors: list[str] = []
+    for table in (StudyTable.TOPICAL, StudyTable.FORMAL):
+        errors.extend(verify_catalog_json_sync(table))
+    return errors
 
 
 def verify_timestamp_sync(slug: str) -> list[str]:

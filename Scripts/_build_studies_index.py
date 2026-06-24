@@ -1,0 +1,1008 @@
+#!/usr/bin/env python3
+"""Write Studies/index.html landing page shell and inject catalog JSON."""
+from __future__ import annotations
+
+import sys
+from pathlib import Path
+
+SCRIPTS = Path(__file__).resolve().parent
+if str(SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS))
+
+from _common import STUDIES  # noqa: E402
+from _study_catalog import (  # noqa: E402
+    StudyTable,
+    catalog_markers,
+    parse_catalog_json,
+    replace_catalog_block,
+    serialize_catalog_json_block,
+    write_studies_catalog,
+)
+
+CATALOG_SHELL_PLACEHOLDER = "<!-- @catalog-data@ -->"
+
+INDEX_TEMPLATE = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Studies of Madhyasth Darshan</title>
+<meta name="description" content="Studies of Madhyasth Darshan (Co-existentialism) from a scientist's point of view — graduate-level physics and mathematics brought to comparative analysis with Shri A. Nagraj's philosophy, Advaita Vedanta, and modern philosophy of mind."/>
+<style>
+  :root {
+    --bg: #f7f4ef;
+    --surface: #ffffff;
+    --text: #2a241c;
+    --text-muted: #5c5348;
+    --accent: #1a5276;
+    --accent-soft: #e8f1f6;
+    --accent-hover: #13405c;
+    --warm: #8b5e34;
+    --warm-soft: #f5ebe0;
+    --border: #e3dcd2;
+    --shadow: 0 2px 12px rgba(42, 36, 28, 0.06);
+    --radius: 10px;
+    --sans: 'Segoe UI', system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--bg);
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    transition: color 0.15s ease;
+  }
+  a:hover { color: var(--accent-hover); }
+
+  .page { max-width: 1060px; margin: 0 auto; padding: 28px 20px 56px; }
+
+  .hero {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0 0 26px;
+    margin-bottom: 0;
+  }
+
+  .eyebrow {
+    margin: 0 0 12px;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--warm);
+  }
+
+  h1 {
+    font-size: 38px;
+    font-weight: normal;
+    line-height: 1.15;
+    margin: 0 0 14px;
+    color: #1a1612;
+    border: none;
+    padding: 0;
+  }
+
+  .lead {
+    font-size: 19px;
+    line-height: 1.5;
+    color: var(--text-muted);
+    margin: 0 0 20px;
+    max-width: 64ch;
+  }
+
+  .dialogue {
+    margin: 0 0 20px;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0;
+    font-family: var(--sans);
+    font-size: 13px;
+  }
+  .dialogue li { display: flex; align-items: center; }
+  .dialogue li:not(:last-child)::after {
+    content: "";
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--warm);
+    opacity: 0.5;
+    margin: 0 12px;
+  }
+  .dialogue span { color: var(--text); font-weight: 600; }
+  .dialogue li:first-child span { color: var(--accent); }
+
+  .scope {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0 0 20px;
+  }
+  .scope strong { color: var(--text); font-weight: 600; }
+
+  .official {
+    background: var(--accent-soft);
+    border: 1px solid #c5d9e6;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .official strong { color: #111; }
+
+  .page-nav {
+    border: none;
+    border-bottom: 1px solid var(--border);
+    border-radius: 0;
+    box-shadow: none;
+    padding: 10px 0 12px;
+    margin-bottom: 22px;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    background: rgba(247, 244, 239, 0.92);
+  }
+
+  .page-nav-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 14px;
+  }
+
+  .page-nav-label {
+    margin: 0;
+    flex: 0 0 auto;
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .toc {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    flex: 1 1 auto;
+  }
+
+  .toc li { flex: 0 0 auto; }
+
+  .toc a {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 13px;
+    padding: 6px 13px;
+    background: var(--warm-soft);
+    border: 1px solid #e0d0be;
+    border-radius: 999px;
+    color: var(--warm);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+  .toc a:hover { background: #ede0d0; border-color: #cdb89e; color: #6b4520; }
+  .toc a.active {
+    background: var(--accent-soft);
+    border-color: #a5c4d9;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  main { width: 100%; min-width: 0; }
+
+  .section { scroll-margin-top: 64px; margin-bottom: 22px; }
+  .section.is-targeted {
+    animation: section-target-flash 1.6s ease-out forwards;
+  }
+
+  @keyframes section-target-flash {
+    0% {
+      background: #e8f4fa;
+      border-radius: var(--radius);
+      box-shadow: 0 0 0 3px rgba(26, 82, 118, 0.22);
+    }
+    100% { background: transparent; box-shadow: none; }
+  }
+
+  h2 {
+    font-size: 26px;
+    font-weight: 600;
+    margin: 0 0 6px;
+    color: #1a1612;
+  }
+  .section > h2 {
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 14px;
+  }
+
+  h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a1612;
+    margin: 20px 0 8px;
+  }
+  .section-card h3:first-child { margin-top: 0; }
+
+  p { margin: 9px 0; text-align: left; }
+  .section-intro { color: var(--text-muted); font-size: 16px; margin: 0 0 14px; }
+
+  .section-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px 28px 22px;
+  }
+  .section-card ul, .section-card ol { margin: 9px 0 12px 20px; padding: 0; }
+  .section-card li { margin: 5px 0; }
+  .section-card li::marker { color: var(--warm); }
+
+  .toolbar {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); box-shadow: var(--shadow);
+    padding: 12px 14px; margin: 0 0 4px;
+  }
+  .search { position: relative; flex: 1 1 240px; min-width: 180px; }
+  .search svg {
+    position: absolute; left: 11px; top: 50%; transform: translateY(-50%);
+    width: 15px; height: 15px; color: var(--text-muted); pointer-events: none;
+  }
+  .search input {
+    width: 100%; font-family: var(--sans); font-size: 14px; color: var(--text);
+    padding: 9px 12px 9px 32px; border: 1px solid var(--border);
+    border-radius: 8px; background: #fdfcfa;
+  }
+  .search input::placeholder { color: #9a8f80; }
+  .seg {
+    display: inline-flex; border: 1px solid var(--border); border-radius: 8px;
+    overflow: hidden; background: #fdfcfa;
+  }
+  .seg button {
+    font-family: var(--sans); font-size: 13px; color: var(--text-muted);
+    background: transparent; border: none; padding: 8px 13px; cursor: pointer;
+    border-right: 1px solid var(--border);
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .seg button:last-child { border-right: none; }
+  .seg button:hover { background: #f4efe8; }
+  .seg button[aria-pressed="true"] {
+    background: var(--accent-soft); color: var(--accent); font-weight: 600;
+  }
+  .field {
+    font-family: var(--sans); font-size: 13px; color: var(--text);
+    padding: 8px 30px 8px 11px; border: 1px solid var(--border); border-radius: 8px;
+    background: #fdfcfa url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235c5348' stroke-width='2'><path d='M6 9l6 6 6-6'/></svg>") no-repeat right 10px center;
+    -webkit-appearance: none; appearance: none; cursor: pointer;
+  }
+
+  .btn-reset-filters {
+    font-family: var(--sans); font-size: 13px; font-weight: 600;
+    color: var(--accent); background: #fdfcfa; border: 1px solid #c5d9e6;
+    border-radius: 8px; padding: 8px 14px; cursor: pointer; white-space: nowrap;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+  .btn-reset-filters:hover:not(:disabled) { background: var(--accent-soft); border-color: #a5c4d9; }
+  .btn-reset-filters:disabled {
+    color: #9a8f80; border-color: var(--border); cursor: default; opacity: 0.65;
+  }
+
+  .cat-list-panel {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); box-shadow: var(--shadow);
+    padding: 10px 14px 12px; margin: 0 0 8px;
+  }
+  .cat-list-label {
+    display: block; font-family: var(--sans); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-muted);
+    margin: 0 0 8px;
+  }
+  .cat-list {
+    display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none;
+  }
+  .cat-filter {
+    font-family: var(--sans); font-size: 12px; color: var(--warm);
+    background: var(--warm-soft); border: 1px solid #e7d8c6; border-radius: 999px;
+    padding: 4px 11px; cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+  .cat-filter:hover { background: #ede0d0; border-color: #cdb89e; }
+  .cat-filter.is-active {
+    color: var(--accent); background: var(--accent-soft);
+    border-color: #a5c4d9; font-weight: 600;
+  }
+  .cat-filter .cat-count {
+    font-size: 10px; font-weight: 600; opacity: 0.75; margin-left: 2px;
+  }
+
+  .cat-group-label {
+    font-family: var(--sans);
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+    color: var(--text-muted); margin: 20px 0 0;
+    display: flex; align-items: baseline; justify-content: space-between; gap: 10px;
+  }
+  .cat-group-label .count { font-weight: 400; text-transform: none; letter-spacing: 0; }
+
+  .grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 16px; margin: 12px 0 4px; padding: 0; list-style: none;
+  }
+
+  .card {
+    position: relative; display: flex; flex-direction: column;
+    background: var(--surface); border: 1px solid var(--border);
+    border-left: 4px solid var(--warm); border-radius: var(--radius);
+    box-shadow: var(--shadow); padding: 16px 18px 14px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .card.is-available { border-left-color: var(--accent); }
+  .card.is-available:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(42, 36, 28, 0.10);
+  }
+  .card-title { font-size: 17px; line-height: 1.3; margin: 0 0 9px; }
+  .card-title a {
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid rgba(26, 82, 118, 0.32);
+  }
+  .card-title a:hover { color: var(--accent-hover); border-bottom-color: var(--accent); }
+  .card.is-planned .card-title { color: var(--text-muted); font-style: italic; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 10px; }
+  .chip {
+    font-family: var(--sans); font-size: 11px; color: var(--warm);
+    background: var(--warm-soft); border: 1px solid #e7d8c6; border-radius: 999px;
+    padding: 2px 9px; cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+  .chip:hover { background: #ede0d0; border-color: #cdb89e; }
+  .card-desc { font-size: 14px; line-height: 1.5; color: var(--text); margin: 0 0 14px; flex: 1 1 auto; }
+  .card.is-planned .card-desc { color: var(--text-muted); }
+  .card-foot {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    font-family: var(--sans); font-size: 12px; color: var(--text-muted);
+    border-top: 1px solid #efe9e1; padding-top: 11px;
+  }
+  .badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-family: var(--sans); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.02em; border-radius: 999px; padding: 3px 10px;
+  }
+  .badge-dot { width: 6px; height: 6px; border-radius: 50%; }
+  .badge.available { color: var(--accent); background: var(--accent-soft); border: 1px solid #c5d9e6; }
+  .badge.available .badge-dot { background: var(--accent); }
+  .badge.planned { color: var(--warm); background: var(--warm-soft); border: 1px solid #e0d0be; }
+  .badge.planned .badge-dot { background: var(--warm); }
+  .read-link { color: var(--accent); text-decoration: none; font-weight: 600; white-space: nowrap; }
+  .read-link:hover { color: var(--accent-hover); }
+  .empty {
+    font-family: var(--sans); font-size: 13px; color: var(--text-muted);
+    background: var(--surface); border: 1px dashed var(--border);
+    border-radius: var(--radius); padding: 22px; text-align: center; margin: 12px 0 4px;
+  }
+  .empty button {
+    font-family: var(--sans); font-size: 13px; color: var(--accent);
+    background: none; border: none; text-decoration: underline; cursor: pointer; padding: 0;
+  }
+
+  .triad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 14px 0 4px; }
+  .triad-item { border: 1px solid var(--border); border-radius: 8px; padding: 13px 15px; background: #fdfcfa; }
+  .triad-item .k {
+    font-family: var(--sans); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.03em; text-transform: uppercase; margin: 0 0 5px;
+  }
+  .triad-item .v { font-size: 13.5px; color: var(--text-muted); margin: 0; line-height: 1.45; }
+  .triad-item.t1 { border-top: 3px solid var(--accent); } .triad-item.t1 .k { color: var(--accent); }
+  .triad-item.t2 { border-top: 3px solid var(--warm); } .triad-item.t2 .k { color: var(--warm); }
+  .triad-item.t3 { border-top: 3px solid #9a8f80; } .triad-item.t3 .k { color: #6f655a; }
+
+  .footer-band { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 6px; }
+  .footer-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px 22px;
+  }
+  .footer-card h2 { font-size: 21px; font-weight: 600; margin-bottom: 8px; border: none; padding: 0; }
+  .footer-card p, .footer-card li { font-size: 14px; }
+  .footer-card ol { margin: 8px 0 0 18px; }
+  #contribute, #about { scroll-margin-top: 64px; }
+  .license-line {
+    font-family: var(--sans); font-size: 13px; color: var(--text-muted);
+    margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border);
+  }
+
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); border: 0;
+  }
+  .is-hidden { display: none !important; }
+
+  .catalog-json { display: none; }
+
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, .chip:focus-visible, .cat-filter:focus-visible, .btn-reset-filters:focus-visible {
+    outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; animation: none !important; }
+    .card.is-available:hover { transform: none; }
+  }
+
+  @media (max-width: 820px) {
+    .page-nav { padding: 8px 0 10px; }
+    .page-nav-inner { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    .page-nav-inner::-webkit-scrollbar { display: none; }
+    .page-nav-label { flex: 0 0 auto; }
+    .toc { flex-wrap: nowrap; }
+    .section { scroll-margin-top: 56px; }
+    h1 { font-size: 30px; }
+    .triad { grid-template-columns: 1fr; }
+    .footer-band { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .page { padding: 18px 14px 44px; }
+    .hero { padding: 0 0 20px; }
+    .section-card, .footer-card { padding: 18px 16px; }
+    h1 { font-size: 26px; }
+    .lead { font-size: 17px; }
+    .search { flex-basis: 100%; }
+    .seg, .field { flex: 1 1 auto; }
+    .seg { display: flex; }
+    .seg button { flex: 1; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="hero">
+  <h1>Studies of Madhyasth Darshan</h1>
+  <p class="lead">Clear, carefully argued studies of <strong>Madhyasth Darshan</strong> (Co-existentialism) &mdash; the philosophy founded by <strong>Shri A. Nagraj</strong> &mdash; examined on its own terms and set in dialogue with the sciences and other traditions.</p>
+
+  <ul class="dialogue" aria-label="Each study is read in dialogue with">
+    <li><span>Madhyasth Darshan</span></li>
+    <li><span>Physics &amp; mathematics</span></li>
+    <li><span>Advaita Vedanta</span></li>
+    <li><span>Modern philosophy of mind</span></li>
+  </ul>
+
+  <p class="scope" id="hero-scope"><strong>&mdash;</strong> studies available &middot; open &amp; independent</p>
+
+  <p class="official"><strong>Official source materials.</strong> <a href="https://www.madhyasth.org/">madhyasth.org</a>, maintained by <strong>Divya Path Sansthan</strong>, is the official home for primary texts. The studies here are independent analytic and comparative work &mdash; for Shri Nagraj&rsquo;s original books and lectures, start there.</p>
+</header>
+
+<nav class="page-nav" aria-label="On this page">
+  <div class="page-nav-inner">
+    <p class="page-nav-label">On this page</p>
+    <ul class="toc" id="toc">
+      <li><a href="#studies">The studies</a></li>
+      <li><a href="#approach">How we work</a></li>
+      <li><a href="#contribute">Contribute</a></li>
+      <li><a href="#about">About us</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+<section class="section" id="studies">
+  <h2>The studies</h2>
+  <p class="section-intro">Each study reads the primary texts closely, then compares them with the sciences, Advaita Vedanta, and modern philosophy. Available studies open as PDFs; planned ones are in progress.</p>
+
+  <noscript>
+    <p class="section-intro">JavaScript is required for search and filters on this page. Browse the full catalog in <a href="README.md">Studies/README.md</a>.</p>
+  </noscript>
+
+  <div class="toolbar" role="search">
+    <label class="search">
+      <span class="sr-only">Search studies</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" id="q" placeholder="Search title, topic, or category&hellip;" autocomplete="off"/>
+    </label>
+    <div class="seg" id="status-seg" role="group" aria-label="Filter by status">
+      <button type="button" data-status="all" aria-pressed="true">All</button>
+      <button type="button" data-status="available" aria-pressed="false">Available</button>
+      <button type="button" data-status="planned" aria-pressed="false">Planned</button>
+    </div>
+    <label class="sr-only" for="sort">Sort</label>
+    <select class="field" id="sort" aria-label="Sort studies">
+      <option value="recent">Recently updated</option>
+      <option value="az">Title A&ndash;Z</option>
+    </select>
+    <button type="button" class="btn-reset-filters" id="reset-filters" disabled>Reset filters</button>
+  </div>
+
+  <div class="cat-list-panel">
+    <span class="cat-list-label" id="cat-list-label">Categories</span>
+    <div class="cat-list" id="cat-list" role="group" aria-labelledby="cat-list-label"></div>
+  </div>
+
+  <p class="sr-only" id="count" aria-live="polite"></p>
+
+  <div class="catalog-json">
+<!-- studies-catalog -->
+<!-- /studies-catalog -->
+  </div>
+
+  <p class="cat-group-label">Topical studies <span class="count" data-count-for="topical"></span></p>
+  <ul class="grid" id="grid-topical"></ul>
+  <p class="empty is-hidden" id="empty-topical">No topical studies match these filters. <button type="button" class="clear-all">Clear filters</button></p>
+
+  <p class="cat-group-label">Formal studies <span class="count" data-count-for="formal"></span></p>
+  <div class="catalog-json">
+<!-- formal-studies-catalog -->
+<!-- /formal-studies-catalog -->
+  </div>
+  <ul class="grid" id="grid-formal"></ul>
+  <p class="empty is-hidden" id="empty-formal">No formal studies match these filters. <button type="button" class="clear-all">Clear filters</button></p>
+</section>
+
+<section class="section" id="approach">
+  <h2>How we work</h2>
+  <div class="section-card">
+    <h3>Our approach</h3>
+    <p>These studies are written from the standpoint of a <strong>scientist and technologist</strong> &mdash; at home with contemporary cosmology, quantum theory, conservation laws, and formal models. From that background, consciousness easily looks like something the brain does. Yet the hard problem of consciousness, the status of the self, and the reality of value remain fiercely contested, and we do not treat those gaps as settled in favour of matter-only reductionism.</p>
+    <p>The work begins where that picture leaves open questions, and asks whether <strong>Madhyasth Darshan</strong> offers a coherent alternative worth examining seriously &mdash; testing its definitions, internal consistency, and fit with public knowledge, not persuading or endorsing.</p>
+
+    <h3>What we keep separate</h3>
+    <p class="section-intro" style="margin-bottom:4px;">Throughout, three things are held clearly apart:</p>
+    <div class="triad">
+      <div class="triad-item t1">
+        <p class="k">The philosophy</p>
+        <p class="v">Shri Nagraj&rsquo;s definitions and logic, presented faithfully as he gave them.</p>
+      </div>
+      <div class="triad-item t2">
+        <p class="k">Our comparison</p>
+        <p class="v">Our own readings and parallels with physics, Advaita Vedanta, and modern philosophy.</p>
+      </div>
+      <div class="triad-item t3">
+        <p class="k">Open questions</p>
+        <p class="v">What remains genuinely unsettled and is flagged as such.</p>
+      </div>
+    </div>
+
+    <h3>Objectives</h3>
+    <ol>
+      <li>Study each topic deeply so its principles, definitions, and arguments are understood clearly.</li>
+      <li>Compare it objectively with other traditions &mdash; Advaita Vedanta, modern philosophy, and current science.</li>
+      <li>Develop a formal mathematical framework so its structure can be expressed and compared with rigor.</li>
+    </ol>
+
+    <h3>From study to understanding</h3>
+    <p>Reading the books and following the logic is necessary, but only the starting point. Understanding is fulfilled when what is studied becomes clear in one&rsquo;s own seeing, stable in conviction, and evident in conduct &mdash; in recognised relationships, fulfilled values, resolution in thought, and the ability to convey it to others.</p>
+  </div>
+</section>
+
+<section class="section" id="site-footer">
+  <div class="footer-band">
+    <div class="footer-card" id="contribute">
+      <h2>Contribute</h2>
+      <p>We welcome new studies and revisions from anyone studying Madhyasth Darshan. Before you write, read the study format and intent in the repository <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/Studies/README.md">Studies/README.md</a>.</p>
+      <ol>
+        <li><strong>Propose.</strong> Open a <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-proposal.yml">study proposal</a> on GitHub with your proposed title, category, and a short summary of the question you want to examine.</li>
+        <li><strong>Wait for approval.</strong> Maintainers review proposals and label approved ones <code>proposal-approved</code>. You will receive a comment with next steps.</li>
+        <li><strong>Submit.</strong> Fork the repository, add or edit your study markdown, and open a pull request using the appropriate template (<code>new-study</code>, <code>study-update</code>, or <code>status-change</code>). Continuous integration regenerates the PDF and keeps the catalog in sync.</li>
+      </ol>
+      <p>Full instructions, labels, and maintainer duties are in <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a> on GitHub.</p>
+    </div>
+    <div class="footer-card" id="about">
+      <h2>About us</h2>
+      <p>We are a group of people studying <strong>Madhyasth Darshan</strong> and writing these studies together, published as <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> &mdash; collaborative, fully open, and independent.</p>
+      <p>Anyone is welcome to read the studies, check our sources, and contribute through our <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">GitHub repository</a>. Every study ends with a list of its sources, linking to the original texts wherever they are freely available.</p>
+      <p class="license-line"><strong>License:</strong> <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a> &mdash; attribution required. Cite <strong>AnalyticMadhyasthDarshan.org</strong> and link to the repository.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+</div>
+
+<script>
+(function () {
+  function parseCatalog(id, coll) {
+    var el = document.getElementById(id);
+    if (!el) return [];
+    try {
+      return JSON.parse(el.textContent).map(function (entry) {
+        return {
+          t: entry.title,
+          slug: entry.slug,
+          coll: coll,
+          status: entry.status === "ongoing" ? "planned" : entry.status,
+          updated: entry.updated || null,
+          cats: entry.categories || [],
+          d: entry.description || ""
+        };
+      });
+    } catch (e) {
+      return [];
+    }
+  }
+
+  var STUDIES = parseCatalog("catalog-topical", "topical").concat(
+    parseCatalog("catalog-formal", "formal")
+  );
+
+  var isAvail = function (s) { return s.status === "draft" || s.status === "released"; };
+  var ts = function (s) { return s.updated ? Date.parse(s.updated) : -Infinity; };
+  var state = { q: "", status: "all", cat: "all", sort: "recent" };
+
+  function updateHeroScope() {
+    var scope = document.getElementById("hero-scope");
+    if (!scope) return;
+    var total = STUDIES.length;
+    var available = STUDIES.filter(isAvail).length;
+    var cats = {};
+    STUDIES.forEach(function (s) { s.cats.forEach(function (c) { cats[c] = true; }); });
+    var topicCount = Object.keys(cats).length;
+    scope.innerHTML = "<strong>" + available + " of " + total + "</strong> studies available &middot; <strong>" + topicCount + "</strong> topics &middot; open &amp; independent";
+  }
+
+  function escAttr(value) {
+    return String(value).replace(/"/g, "&quot;").replace(/</g, "&lt;");
+  }
+
+  function matchesStatus(s) {
+    if (state.status === "available" && !isAvail(s)) return false;
+    if (state.status === "planned" && isAvail(s)) return false;
+    return true;
+  }
+
+  function matchesSearch(s) {
+    if (!state.q) return true;
+    var hay = (s.t + " " + s.d + " " + s.cats.join(" ")).toLowerCase();
+    return hay.indexOf(state.q.toLowerCase()) !== -1;
+  }
+
+  function matchesBase(s) {
+    return matchesStatus(s) && matchesSearch(s);
+  }
+
+  function matches(s) {
+    if (!matchesBase(s)) return false;
+    if (state.cat !== "all" && s.cats.indexOf(state.cat) === -1) return false;
+    return true;
+  }
+
+  function filtersActive() {
+    return !!(state.q || state.status !== "all" || state.cat !== "all" || state.sort !== "recent");
+  }
+
+  function categoryCounts() {
+    var counts = {};
+    STUDIES.forEach(function (s) {
+      if (!matchesBase(s)) return;
+      s.cats.forEach(function (c) {
+        counts[c] = (counts[c] || 0) + 1;
+      });
+    });
+    return counts;
+  }
+
+  function buildCategoryList() {
+    var list = document.getElementById("cat-list");
+    if (!list) return;
+
+    var counts = categoryCounts();
+    var cats = Object.keys(counts).sort();
+
+    if (state.cat !== "all" && !counts[state.cat]) {
+      state.cat = "all";
+    }
+
+    var parts = [
+      '<button type="button" class="cat-filter' + (state.cat === "all" ? " is-active" : "") +
+        '" data-cat="all" aria-pressed="' + (state.cat === "all" ? "true" : "false") + '">All</button>'
+    ];
+
+    cats.forEach(function (c) {
+      var active = state.cat === c;
+      parts.push(
+        '<button type="button" class="cat-filter' + (active ? " is-active" : "") +
+          '" data-cat="' + escAttr(c) + '" aria-pressed="' + (active ? "true" : "false") + '">' +
+          c + ' <span class="cat-count">(' + counts[c] + ")</span></button>"
+      );
+    });
+
+    list.innerHTML = parts.join("");
+  }
+
+  function updateResetButton() {
+    var btn = document.getElementById("reset-filters");
+    if (btn) btn.disabled = !filtersActive();
+  }
+
+  function resetFilters() {
+    state.q = "";
+    state.status = "all";
+    state.cat = "all";
+    state.sort = "recent";
+    if (qInput) qInput.value = "";
+    if (sortSelect) sortSelect.value = "recent";
+    if (statusSeg) {
+      Array.prototype.forEach.call(statusSeg.querySelectorAll("button"), function (x) {
+        x.setAttribute("aria-pressed", x.dataset.status === "all" ? "true" : "false");
+      });
+    }
+    renderCatalog();
+  }
+
+  function cardHTML(s) {
+    var avail = isAvail(s);
+    var chips = s.cats.map(function (c) {
+      return '<button type="button" class="chip" data-cat="' + c.replace(/"/g, "&quot;") + '">' + c + "</button>";
+    }).join("");
+    var pdfHref = s.slug + "/" + s.slug + ".pdf";
+    var titleInner = avail
+      ? '<a href="' + pdfHref + '">' + s.t + "</a>"
+      : s.t;
+    var foot = avail
+      ? '<span class="badge available"><span class="badge-dot"></span>' +
+          (s.status === "released" ? "Released" : "Draft") + "</span>" +
+        '<a class="read-link" href="' + pdfHref + '">Read PDF &rarr;</a>'
+      : '<span class="badge planned"><span class="badge-dot"></span>Planned</span><span>Not yet published</span>';
+    var dateLine = avail && s.updated
+      ? '<div class="card-foot" style="border:none;padding:6px 0 0;color:#9a8f80;">Updated ' + s.updated + "</div>"
+      : "";
+    return '<li class="card ' + (avail ? "is-available" : "is-planned") + '">' +
+      '<h3 class="card-title">' + titleInner + "</h3>" +
+      '<div class="chips">' + chips + "</div>" +
+      '<p class="card-desc">' + s.d + "</p>" +
+      '<div class="card-foot">' + foot + "</div>" + dateLine + "</li>";
+  }
+
+  function renderCatalog() {
+    buildCategoryList();
+    updateResetButton();
+
+    var shown = 0;
+    ["topical", "formal"].forEach(function (coll) {
+      var items = STUDIES.filter(function (s) { return s.coll === coll && matches(s); });
+      items.sort(function (a, b) {
+        return state.sort === "az" ? a.t.localeCompare(b.t) : ts(b) - ts(a);
+      });
+      shown += items.length;
+      var grid = document.getElementById("grid-" + coll);
+      if (grid) grid.innerHTML = items.map(cardHTML).join("");
+      var empty = document.getElementById("empty-" + coll);
+      if (empty) empty.classList.toggle("is-hidden", items.length > 0);
+      var total = STUDIES.filter(function (s) { return s.coll === coll; }).length;
+      var countEl = document.querySelector('[data-count-for="' + coll + '"]');
+      if (countEl) countEl.textContent = items.length + " of " + total + " shown";
+    });
+    var count = document.getElementById("count");
+    if (count) count.textContent = shown + " studies shown";
+  }
+
+  var qInput = document.getElementById("q");
+  if (qInput) qInput.addEventListener("input", function (e) { state.q = e.target.value; renderCatalog(); });
+
+  var statusSeg = document.getElementById("status-seg");
+  if (statusSeg) statusSeg.addEventListener("click", function (e) {
+    var btn = e.target.closest("button");
+    if (!btn) return;
+    state.status = btn.dataset.status;
+    Array.prototype.forEach.call(this.querySelectorAll("button"), function (b) {
+      b.setAttribute("aria-pressed", b === btn ? "true" : "false");
+    });
+    renderCatalog();
+  });
+
+  var sortSelect = document.getElementById("sort");
+  if (sortSelect) sortSelect.addEventListener("change", function (e) { state.sort = e.target.value; renderCatalog(); });
+
+  var catList = document.getElementById("cat-list");
+  if (catList) {
+    catList.addEventListener("click", function (e) {
+      var btn = e.target.closest(".cat-filter");
+      if (!btn) return;
+      state.cat = btn.dataset.cat || "all";
+      renderCatalog();
+    });
+  }
+
+  var resetBtn = document.getElementById("reset-filters");
+  if (resetBtn) resetBtn.addEventListener("click", resetFilters);
+
+  document.addEventListener("click", function (e) {
+    var chip = e.target.closest(".chip");
+    if (!chip || chip.closest("#cat-list")) return;
+    state.cat = chip.dataset.cat || "all";
+    renderCatalog();
+    var studies = document.getElementById("studies");
+    if (studies) studies.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  Array.prototype.forEach.call(document.querySelectorAll(".clear-all"), function (b) {
+    b.addEventListener("click", resetFilters);
+  });
+
+  updateHeroScope();
+  renderCatalog();
+})();
+
+(function () {
+  var tocLinks = Array.prototype.slice.call(document.querySelectorAll("#toc a"));
+  var mainSpyIds = ["studies", "approach", "site-footer"];
+  var lockActiveUntil = 0;
+  var lockedId = null;
+
+  function scrollMarker() {
+    var nav = document.querySelector(".page-nav");
+    return (nav ? nav.offsetHeight : 0) + 20;
+  }
+
+  function setActive(id) {
+    tocLinks.forEach(function (a) {
+      var match = a.getAttribute("href") === "#" + id;
+      a.classList.toggle("active", match);
+      if (match) {
+        a.setAttribute("aria-current", "true");
+      } else {
+        a.removeAttribute("aria-current");
+      }
+    });
+  }
+
+  function pickFooterCard(marker) {
+    var contrib = document.getElementById("contribute");
+    var about = document.getElementById("about");
+    if (!contrib) return "contribute";
+    if (!about) return "contribute";
+
+    var cRect = contrib.getBoundingClientRect();
+    var aRect = about.getBoundingClientRect();
+
+    if (Math.abs(cRect.top - aRect.top) > 40) {
+      return aRect.top <= marker ? "about" : "contribute";
+    }
+
+    var cx = window.innerWidth / 2;
+    var cMid = (cRect.left + cRect.right) / 2;
+    var aMid = (aRect.left + aRect.right) / 2;
+    return Math.abs(cMid - cx) <= Math.abs(aMid - cx) ? "contribute" : "about";
+  }
+
+  function updateActiveFromScroll() {
+    if (lockedId && Date.now() < lockActiveUntil) {
+      setActive(lockedId);
+      return;
+    }
+
+    var marker = scrollMarker();
+    var currentId = "studies";
+
+    mainSpyIds.forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top <= marker) {
+        currentId = id;
+      }
+    });
+
+    if (currentId === "site-footer") {
+      currentId = pickFooterCard(marker);
+    }
+
+    setActive(currentId);
+  }
+
+  var scrollTick = false;
+  function onScroll() {
+    if (scrollTick) return;
+    scrollTick = true;
+    window.requestAnimationFrame(function () {
+      scrollTick = false;
+      updateActiveFromScroll();
+    });
+  }
+
+  tocLinks.forEach(function (link) {
+    link.addEventListener("click", function () {
+      var href = link.getAttribute("href");
+      if (!href || href.charAt(0) !== "#") return;
+      var id = href.slice(1);
+      lockedId = id;
+      lockActiveUntil = Date.now() + 1500;
+      setActive(id);
+      var target = document.getElementById(id);
+      if (target) {
+        target.classList.add("is-targeted");
+        window.setTimeout(function () { target.classList.remove("is-targeted"); }, 1600);
+      }
+    });
+  });
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", updateActiveFromScroll);
+  updateActiveFromScroll();
+})();
+</script>
+</body>
+</html>
+"""
+
+
+def normalize_shell_text(text: str) -> str:
+    normalized = text.replace("\r\n", "\n").replace("\r", "\n")
+    return "\n".join(line.rstrip() for line in normalized.splitlines()).strip() + "\n"
+
+
+def strip_catalog_blocks(content: str) -> str:
+    result = content
+    for table in StudyTable:
+        start, end = catalog_markers(table)
+        result = replace_catalog_block(result, start, end, CATALOG_SHELL_PLACEHOLDER)
+    return result
+
+
+def verify_index_shell_sync() -> list[str]:
+    """Ensure Studies/index.html shell matches INDEX_TEMPLATE (catalog JSON excluded)."""
+    index_path = STUDIES / "index.html"
+    if not index_path.exists():
+        return ["Studies/index.html is missing."]
+
+    actual = normalize_shell_text(strip_catalog_blocks(index_path.read_text(encoding="utf-8")))
+    expected = normalize_shell_text(strip_catalog_blocks(INDEX_TEMPLATE))
+
+    if actual != expected:
+        return [
+            "Studies/index.html landing-page shell differs from "
+            "Scripts/_build_studies_index.py INDEX_TEMPLATE. "
+            "Edit INDEX_TEMPLATE, then run: python Scripts/_build_studies_index.py"
+        ]
+    return []
+
+
+def main() -> int:
+    index_path = STUDIES / "index.html"
+    legacy_text = index_path.read_text(encoding="utf-8") if index_path.exists() else ""
+    topical_rows = parse_catalog_json(legacy_text, StudyTable.TOPICAL) if legacy_text else []
+    formal_rows = parse_catalog_json(legacy_text, StudyTable.FORMAL) if legacy_text else []
+
+    if not topical_rows and not formal_rows:
+        print("No catalog rows found in existing index.html", file=sys.stderr)
+        return 1
+
+    index_path.write_text(INDEX_TEMPLATE, encoding="utf-8")
+    print("Wrote Studies/index.html shell.")
+
+    if topical_rows:
+        write_studies_catalog(topical_rows, StudyTable.TOPICAL)
+        print(f"Injected {len(topical_rows)} topical catalog entries.")
+    if formal_rows:
+        write_studies_catalog(formal_rows, StudyTable.FORMAL)
+        print(f"Injected {len(formal_rows)} formal catalog entries.")
+
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -1,6 +1,6 @@
 ---
 description: Keep Studies/index.html and Studies/README.md in sync
-globs: Studies/index.html,Studies/README.md
+globs: Studies/index.html,Studies/README.md,Scripts/_build_studies_index.py,Scripts/_verify_studies_index.py,Scripts/_study_catalog.py
 alwaysApply: false
 ---
 
@@ -15,35 +15,79 @@ drift apart.
 
 ## What must always match
 
-- **Topical Studies catalog** — the rows between the `<!-- studies-catalog -->`
-  and `<!-- /studies-catalog -->` markers (present in both files): same studies,
-  same order, same titles, categories, descriptions, and `Status` values.
-  Status is `Ongoing` when no document is uploaded yet (no PDF),
-  `Draft<br>Last updated on: <date>, <time> IST` once a PDF exists but is not
-  finalized, and `Released<br>Last updated on: <date>, <time> IST` only when a
-  study is explicitly released.
+- **Topical Studies catalog** — the data between the `<!-- studies-catalog -->`
+  and `<!-- /studies-catalog -->` markers in both files: same studies, same order,
+  same titles, categories, descriptions, and status values.
+  - **`Studies/index.html`** — JSON array inside
+    `<script type="application/json" id="catalog-topical">` (written by
+    `Scripts/_study_catalog.py`; do not hand-edit).
+  - **`Studies/README.md`** — markdown table rows (same marker names).
+  Status is `ongoing` / `Ongoing` when no document is uploaded yet (no PDF),
+  `draft` / `Draft<br>Last updated on: <date>, <time> IST` once a PDF exists but is
+  not finalized, and `released` / `Released<br>Last updated on: <date>, <time> IST`
+  only when a study is explicitly released.
   **When a study is edited**, the `Last updated on` date/time in both catalogs
   must match that study's `**Edited on:**` field in its `.md` file exactly
   (abbreviated month in catalogs: `Jun`; full month in `.md`: `June`). See
   [AGENTS.md](../AGENTS.md) §1
   for the mandatory workflow.
-- **In-progress studies** — shown in italics (`<em>...</em>` in HTML,
-  `*...*` in markdown) with no link; published studies link to `<Slug>/<Slug>.pdf`.
-- **Formal Studies table** — same documents, focus, and descriptions.
-- **Shared prose** — the lead intro, Study Objectives, **About us**, and
-  License sections should carry the same wording.
+- **In-progress studies** — `status: "ongoing"` in index JSON; italic `*title*`
+  with `<!-- slug: ... -->` in README; no PDF link.
+- **Formal Studies catalog** — same documents, focus, and descriptions; JSON in
+  `id="catalog-formal"` in `index.html`, markdown table in README.
+- **Shared prose** — the lead intro, **How we work**, **Contribute**,
+  and **About us** (including license) should carry the same wording.
 
 ## Intentional differences (do NOT force these to match)
 
-- `Studies/index.html` has a **"From Study to Understanding"** section (site-only).
-- `Studies/index.html` and `Studies/README.md` both end with **How to contribute**
-  and **About us** after the study catalogs; wording should stay aligned.
+- **`Studies/index.html`** — card-grid catalog with search, filters, and sort
+  (client-side JavaScript); hero stats and layout are site-only.
+- **`Studies/README.md`** — markdown tables for GitHub rendering; no card UI or
+  filters.
+
+Both files end with **Contribute** and **About us** after the study catalogs;
+wording should stay aligned.
+
+## Building the index.html landing page shell
+
+Catalog **data** (JSON + README tables) is updated by `Scripts/_study_catalog.py`
+via `write_studies_catalog` and study lifecycle scripts (`_add_study.py`,
+`_remove_study.py`, `_set_study_status.py`).
+
+The **HTML/CSS/JS shell** — hero, card catalog UI, filters, sections, scroll-spy —
+lives in `Scripts/_build_studies_index.py` as `INDEX_TEMPLATE`. Do not edit
+`Studies/index.html` layout or styles in isolation.
+
+When changing the landing page UI:
+
+1. Edit `INDEX_TEMPLATE` in `Scripts/_build_studies_index.py`.
+2. Regenerate (preserves existing catalog JSON):
+
+   ```powershell
+   python Scripts/_build_studies_index.py
+   ```
+
+3. Verify catalog data and shell match:
+
+   ```powershell
+   python Scripts/_verify_studies_index.py
+   ```
+
+CI runs `_verify_studies_index.py` on pull requests that touch the catalog or
+index build scripts (`.github/workflows/studies-index-check.yml`). Labeled study
+PRs also verify after regenerating artifacts (`Scripts/_ci_study_pr.py`).
 
 ## How to verify
 
-After editing, re-read both catalogs and confirm the study list is identical
-(count, order, titles, categories, descriptions, and which entries are linked vs.
-italicised). If you add or remove a study, update both files plus
-`References/README.md` and `References/MANIFEST.md`.
+After editing catalog **data** or the index **shell**, from repo root:
+
+```powershell
+python Scripts/_verify_studies_index.py
+```
+
+This checks JSON ↔ README sync and that `Studies/index.html` matches
+`INDEX_TEMPLATE` (catalog blocks excluded). Study lifecycle scripts call
+`write_studies_catalog`, which updates both catalog files together. If you add or
+remove a study, also update `References/README.md` and `References/MANIFEST.md`.
 
 ---

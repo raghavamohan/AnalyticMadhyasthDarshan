@@ -40,7 +40,11 @@ MDC_CONFIG: dict[int, dict[str, str]] = {
     2: {
         "file": "studies-index-readme-sync.mdc",
         "description": "Keep Studies/index.html and Studies/README.md in sync",
-        "globs": "Studies/index.html,Studies/README.md",
+        "globs": (
+            "Studies/index.html,Studies/README.md,"
+            "Scripts/_build_studies_index.py,Scripts/_verify_studies_index.py,"
+            "Scripts/_study_catalog.py"
+        ),
         "alwaysApply": "false",
         "title": "Keep Studies/index.html and Studies/README.md in sync",
         "section_ref": "§2",

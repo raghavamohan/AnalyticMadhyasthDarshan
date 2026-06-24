@@ -27,6 +27,8 @@ cd ..
 | Read one PDF page (cleaned) | `python Scripts/_quote_tool.py page <tag-or-path> <n> [--keyword kw]` |
 | Locate phrase in tagged source | `python Scripts/_quote_tool.py snippet <tag> "<phrase>"` |
 | Download / audit references | `python Scripts/_check_references.py` (full); `_audit_references.py` (bibliography only); `_download_references.py` (mirrors) |
+| Verify studies index | `python Scripts/_verify_studies_index.py` |
+| Rebuild index.html shell | `python Scripts/_build_studies_index.py` |
 | Sync agent rules and skills | `python Scripts/_sync_agent_rules.py` then `python Scripts/_sync_agent_rules.py --check` |
 
 Windows wrappers: `.\Scripts\_add_study.ps1`, `.\Scripts\_remove_study.ps1`, `.\Scripts\_set_study_status.ps1`, `.\Scripts\_download_references.ps1`.
@@ -36,7 +38,9 @@ Windows wrappers: `.\Scripts\_add_study.ps1`, `.\Scripts\_remove_study.ps1`, `.\
 | Module | Role |
 |--------|------|
 | `_common.py` | Paths, PDF text extraction, phrase matching, reference registry |
-| `_study_catalog.py` | Catalog CRUD, IST timestamps, `regenerate_pdf` |
+| `_study_catalog.py` | Catalog CRUD, IST timestamps, `regenerate_pdf`, catalog sync checks |
+| `_build_studies_index.py` | `INDEX_TEMPLATE` for `Studies/index.html`; rebuild shell + re-inject JSON |
+| `_verify_studies_index.py` | Verify catalog JSON ↔ README and index shell ↔ template |
 | `_quote_verify.py` | Blockquote extraction and verification logic |
 | `_convert_to_pdf.py` | MD → HTML; Mermaid fences → `<div class="mermaid">`; `pre-wrap` on fenced code (called by `regenerate_pdf`) |
 | `_html_to_pdf.js` | Render Mermaid, then HTML → PDF via Puppeteer (called by `regenerate_pdf`) |
@@ -54,3 +58,7 @@ PDF reference text is cached under `Scripts/_pdf_cache/` (gitignored, format `v2
 ## CI
 
 Labeled study PRs run [`_ci_study_pr.py`](_ci_study_pr.py) via [`.github/workflows/study-pr.yml`](../.github/workflows/study-pr.yml).
+
+Pull requests that touch the studies catalog or index build also run
+[`_verify_studies_index.py`](_verify_studies_index.py) via
+[`.github/workflows/studies-index-check.yml`](../.github/workflows/studies-index-check.yml).
