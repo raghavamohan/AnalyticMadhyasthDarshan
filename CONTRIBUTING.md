@@ -22,7 +22,7 @@ The public catalog at [analyticmadhyasthdarshan.org](https://analyticmadhyasthda
 
 Open a [**Study proposal**](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-proposal.yml) issue. Include:
 
-- **Proposed title** — becomes the study name; the file slug is derived from it (e.g. `What Is Existence` → `What-Is-Existence`).
+- **Proposed title** — becomes the study name; the file slug is derived from it (e.g. `The Ontology of Coexistence` → `The-Ontology-of-Coexistence`).
 - **Category** — topical area (Ontology, Epistemology, Ethics, etc.) or formal focus.
 - **One-line description** — catalog summary shown on the studies page.
 - **Study summary** — the question, primary texts, and scope you plan to cover.

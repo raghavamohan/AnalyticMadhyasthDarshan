@@ -53,7 +53,7 @@ Audit Studies bibliographies first: `python Scripts/_audit_references.py`. Agent
 | [Category-Theory-Explained.pdf](../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf) | MVD, SB, JV |
 | [The-Coexistence-Template.pdf](../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf) | MVD, SB, JV |
 | [Nature-Of-Time.pdf](../Studies/Nature-Of-Time/Nature-Of-Time.pdf) | MVD, SB, JVD; Advaita (MU, BG, VC); Carroll 2010, Ashtekar-Singh 2011, McTaggart 1908; external (Rovelli 2018) |
-| [What-Is-Existence.pdf](../Studies/What-Is-Existence/What-Is-Existence.pdf) | MVD, SB, JV; Bhattacharya; Advaita (CU, TU, VC); modern science/philosophy (Chalmers 1995, Nagel 1974, Strawson 2006, Frankish 2016, Limanowski and Blankenburg 2013, Whitehead 1929, Russell 1921, Mach 1914, Friston 2010, Carroll 2010, Guth 2007, Ashtekar and Singh 2011); external (Metzinger 2003, Penrose 2010, Ishvarakrishna, Nagarjuna, Weinberg 1995) |
+| [The-Ontology-of-Coexistence.pdf](../Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) | MVD, SB, JV; Bhattacharya; Advaita (CU, TU, VC); modern science/philosophy (Chalmers 1995, Nagel 1974, Strawson 2006, Frankish 2016, Limanowski and Blankenburg 2013, Whitehead 1929, Russell 1921, Mach 1914, Friston 2010, Carroll 2010, Guth 2007, Ashtekar and Singh 2011); external (Metzinger 2003, Penrose 2010, Ishvarakrishna, Nagarjuna, Weinberg 1995) |
 | [Why-Humans-Are-Not-Just-Material.pdf](../Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.pdf) | MVD, SB, JV; Bhattacharya; Advaita (BU, TU, MU, CU, KU, BG, BSB, VC, DDV); Science (12 works, 3 local / 9 external) |
 <!-- /studies-catalog -->
 

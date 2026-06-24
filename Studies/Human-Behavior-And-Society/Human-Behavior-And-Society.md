@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 18, 2026, 9:40 PM IST
+**Edited on:** June 24, 2026, 7:27 AM IST
 
 **Status:** Draft
 
@@ -24,7 +24,7 @@ These topical studies state the philosophy in clear, checkable prose first. A se
 
 | Term | Plain meaning |
 |------|---------------|
-| ***Jeevan*** | The sentient self — a real unit that works through the body; for ontology see [What-Is-Existence](../What-Is-Existence/What-Is-Existence.pdf). |
+| ***Jeevan*** | The sentient self — a real unit that works through the body; for ontology see [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf). |
 | **Knowledge order (*gyan avastha*)** | The human level of nature — able to know and evaluate every other level. |
 | ***Dharma*** | Orderliness; in conduct, living in line with resolved understanding of existence. |
 | **Right-use (*sadupyog*)** | Use of body, mind, and resources that serves humane purpose, not mere appetite or profit. |

@@ -47,7 +47,7 @@ python Scripts/_check_references.py --study Nature-Of-Time
 Skip PDF link checks when PDFs are not regenerated yet:
 
 ```powershell
-python Scripts/_check_references.py --study What-Is-Existence --skip-pdf
+python Scripts/_check_references.py --study The-Ontology-of-Coexistence --skip-pdf
 ```
 
 ## What it checks

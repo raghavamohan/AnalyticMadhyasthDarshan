@@ -1,8 +1,8 @@
-# What Is Existence?
+# The Ontology of Coexistence
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 24, 2026, 7:21 AM IST
+**Edited on:** June 24, 2026, 7:27 AM IST
 
 **Status:** Draft
 

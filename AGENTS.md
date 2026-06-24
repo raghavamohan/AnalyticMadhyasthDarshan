@@ -282,7 +282,7 @@ foreach ($s in $studies) {
 ## 4. Study prose style — scholarly essay, not AI scaffold *(always applies)*
 
 Applies to every topical study under `Studies/` except `Studies/README.md`.
-References: [What-Is-Existence.md](Studies/What-Is-Existence/What-Is-Existence.md) (ontology
+References: [The-Ontology-of-Coexistence.md](Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.md) (ontology
 exposition, open problems); [Why-Humans-Are-Not-Just-Material.md](Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.md)
 (comparative anthropology, critique closings);
 [Knowledge-Knower-And-Known.md](Studies/Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.md) (epistemology,
@@ -372,7 +372,7 @@ Every **topical** study (`Studies/<Slug>/<Slug>.md`, not `README.md`, not Formal
 Studies) includes `## Standpoint and scope` after the opening intro and before
 the glossary or first major section.
 
-Canonical text: [What-Is-Existence.md](Studies/What-Is-Existence/What-Is-Existence.md). Cursor
+Canonical text: [The-Ontology-of-Coexistence.md](Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.md). Cursor
 mirror: `.cursor/rules/study-standpoint-scope.mdc`.
 
 ### Must establish

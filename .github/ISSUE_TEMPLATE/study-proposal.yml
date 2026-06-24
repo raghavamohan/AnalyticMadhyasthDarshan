@@ -15,8 +15,8 @@ body:
     id: proposed_title
     attributes:
       label: Proposed title
-      description: Human-readable title. The file slug is derived from this (e.g. "What Is Existence" → What-Is-Existence).
-      placeholder: What Is Existence
+      description: Human-readable title. The file slug is derived from this (e.g. "The Ontology of Coexistence" → The-Ontology-of-Coexistence).
+      placeholder: The Ontology of Coexistence
     validations:
       required: true
 

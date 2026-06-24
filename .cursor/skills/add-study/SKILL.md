@@ -13,7 +13,7 @@ description: >-
 
 1. Read [Studies/README.md](../../Studies/README.md) for study format and intent.
 2. Follow [AGENTS.md](../../AGENTS.md) §4 (prose style) and §5 (Standpoint and scope).
-   Reference implementations: `Studies/What-Is-Existence/What-Is-Existence.md` (ontology, open problems);
+   Reference implementations: `Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.md` (ontology, open problems);
    `Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.md` (comparative anthropology, critique closings).
 3. Write `Studies/<Slug>/<Slug>.md` with author block, or prepare an external PDF to import.
 4. Choose catalog table: **topical** (default) or **formal** (`--formal`).

@@ -74,6 +74,6 @@ When editing study **body text**, follow [AGENTS.md](../../AGENTS.md):
 - §4 — prose style (no `[Text]` tags, `**Step N —**`, `**Verdict:**`, or honesty qualifiers)
 - §5 — `## Standpoint and scope` on every topical study
 
-Reference implementations: `Studies/What-Is-Existence/What-Is-Existence.md`, `Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.md`.
+Reference implementations: `Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.md`, `Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.md`.
 
 Contributor overview: [Studies/README.md](../../Studies/README.md), [CONTRIBUTING.md](../../CONTRIBUTING.md)
