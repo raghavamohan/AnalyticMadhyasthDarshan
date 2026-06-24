@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 24, 2026, 6:31 AM IST
+**Edited on:** June 24, 2026, 7:08 AM IST
 
 **Status:** Draft
 
@@ -48,8 +48,8 @@ This paper presents Madhyasth Darshan's answers to what existence is, what exist
 | **Ability (*yogyata*)** | Competence to convert capacity into actual effort, conduct, or bonding (MVD, pp. 62, 79). |
 | **Receptivity (*patrata*)** | Readiness for a relationship's expectations and values to register and flow; in humans, extent of receptivity is qualification (*arhta*) (MVD, pp. 62, 142). |
 | ***Atman*** / ***Brahman*** | Advaita: the Self and the one ultimate reality, finally identical (§2). |
-| ***Mithya*** | Advaita: dependent appearance of the empirical world (§2.3). |
-| **Sat-Chit-Ananda** | Advaita: being, consciousness, bliss as three names of Brahman (§2.2; contrast §5.3). |
+| ***Mithya*** | Advaita: dependent appearance of the empirical world (§2.1). |
+| **Sat-Chit-Ananda** | Advaita: being, consciousness, bliss as three names of Brahman (§2.1; contrast §5.5). |
 | **Physicalism** | Modern view: every real concrete phenomenon is physical (§3.1). |
 | **Panpsychism** | Experientiality belongs, at least primitively, to fundamental reality (§3.3). |
 | **Strong / weak emergence** | Strong emergence: a higher-level property that is not deducible from, and adds something to, its lower-level base. Weak emergence: a higher-level pattern fully fixed by its base. Relevant to §6.2 and §3.3. |
@@ -61,8 +61,6 @@ This paper presents Madhyasth Darshan's answers to what existence is, what exist
 ## 1. The Madhyasth Darshan Answer
 
 Madhyasth Darshan defines **existence** as the ever-present **coexistence** of formless **Omnipresence** and countless bounded **units** of **Nature** — beingness and indestructibility, beginningless and without creation from nothing. Omnipresence is all-pervasive and non-transforming; nature saturated in it is active. Every unit is bound to the ground through **saturation** and to other units through definite **relationships**. Units carry inseparable form, properties, essential nature, and *dharma*, and participate in overall orderliness through recognition and fulfilment. All change is unit-activity — effort–motion–result — oriented toward completeness provisioned in coexistence. SB states that nature saturated in state-complete Omnipresence is oriented for **development and awakening until realisation in Omnipresence** (SB, p. 51; §§1.4, 1.8). Complementary units compose into larger assemblies, yet composition is not development: the real developmental plateaus are the **four ontological orders**.
-
-**What is existence?** The ever-present coexistence of the formless ground and all real units. **What exists?** That whole — Omnipresence, insentient and sentient units, bound in definite relationships. **Does it begin?** No. Coexistence is beginningless; only particular bodies and arrangements begin and end.
 
 MVD compresses this ontology in *Brahma satya hai, jagat satat hai* — Brahma is truth, the world is perpetual. What follows states the picture in the darshan's own terms. The ontology diagram below is the canonical map for coexistence, the four-aspect unit signature, the two progressions, and a summary of orders and planes; the detailed orders–planes map with completeness transitions T1–T3 appears in §1.8.
 
@@ -340,9 +338,9 @@ Nature is organized into four real, objective **Ontological Orders** (*chaar ava
 
 The four orders are cumulative in *dharma* but not equally stable as compositions. SB notes that the biological order appears more developed than the material yet is **less stable and less diverse** — it can revert to the material order after manifesting its essentiality — whereas irreversible atomic development crosses only at constitutional completeness (SB, pp. 76–78). SB p. 77 reads the emergence of biological and animal orders on Earth as serving the **knowledge order** — non-human nature provisioned as a ladder toward humans who can realise coexistence in behaviour through awakening. That is Madhyasth Darshan's **teleological reading** of order-progression within completeness, not a neutral claim of evolutionary biology: modern ecology does not require cosmic anthropocentrism, and the texts' ladder language should be read as order-specific developmental narrative within the darshan rather than as an independent scientific theorem.
 
-Teleology in Madhyasth Darshan operates at two levels that should not be conflated. **Metaphysical teleology** is built into the ontology: units are oriented toward completeness provisioned in coexistence; effort–motion–result is read toward constitutional, activity, and conduct completeness (§1.6); destiny as orderliness (*niyati*) names definite orientation toward that completeness, not fatalism imposed from outside (§1.8). That completeness-drive is a structural commitment of the system — what it means for nature to be active within saturation. **Expository teleology** is order-specific narrative: SB's ladder from bio and animal orders toward knowledge-order realization on Earth (SB p. 77) is developmental framing within the darshan, not a theorem of evolutionary biology. Physicalism carries no teleology at either level; the comparison stake for §5.1 and §5.7 is whether Madhyasth Darshan's metaphysical orientation toward completeness is an ontological posit or merely pedagogical language — this paper treats it as the former in §1.6–1.8 while isolating the ladder passage as the latter.
+Teleology in Madhyasth Darshan operates at two levels that should not be conflated. **Metaphysical teleology** is built into the ontology: units are oriented toward completeness provisioned in coexistence; effort–motion–result is read toward constitutional, activity, and conduct completeness (§1.6); destiny as orderliness (*niyati*) names definite orientation toward that completeness, not fatalism imposed from outside (§1.8). That completeness-drive is a structural commitment of the system — what it means for nature to be active within saturation. **Expository teleology** is order-specific narrative: SB's ladder from bio and animal orders toward knowledge-order realization on Earth (SB p. 77) is developmental framing within the darshan, not a theorem of evolutionary biology. Physicalism carries no teleology at either level; the comparison stake for §5.2 and §5.8 is whether Madhyasth Darshan's metaphysical orientation toward completeness is an ontological posit or merely pedagogical language — this paper treats it as the former in §1.6–1.8 while isolating the ladder passage as the latter.
 
-These are **objective categories in nature**, not human typologies: material atoms, living cells, animal organisms, and knowledge-order humans each occupy a real plateau whose layered *dharma* is fixed by the order itself. In the animal order, *jeevan* is influenced by **inertial-impression** (*adhyasa*) — species-traditional activity patterns accepted from gestation and emulated after birth — whereas humans in the knowledge order recognize through *sanskar*-conformity (SB, pp. 62–63; JV, p. 48). This *adhyasa* names species-traditional conduct, not Advaita's ontological superimposition of the world on Brahman (§5.6). Each order also cyclically manifests through saturation in *satta*, but in a different mode (MVD, p. 289):
+These are **objective categories in nature**, not human typologies: material atoms, living cells, animal organisms, and knowledge-order humans each occupy a real plateau whose layered *dharma* is fixed by the order itself. In the animal order, *jeevan* is influenced by **inertial-impression** (*adhyasa*) — species-traditional activity patterns accepted from gestation and emulated after birth — whereas humans in the knowledge order recognize through *sanskar*-conformity (SB, pp. 62–63; JV, p. 48). This *adhyasa* names species-traditional conduct, not Advaita's ontological superimposition of the world on Brahman (§5.7). Each order also cyclically manifests through saturation in *satta*, but in a different mode (MVD, p. 289):
 
 | Order | Cyclical manifestation through saturation |
 |---|---|
@@ -456,9 +454,9 @@ The knowing act (*chaitanya*) belongs only to *jeevan*. MVD p. 289 states explic
 
 *Jeevan* participates in a structure of development and awakening that is **definite** and provisioned in coexistence — existence is stable, development and awakening are definite, and all the laws are natural and inherent to being and abiding (MVD, p. 5). In the Verity chain, orderliness **is** development and awakening (MVD, p. 15). MVD also provides for the study of development progression and awakening progression as distinct provisions in coexistence (MVD, p. 87; JV, p. 59). Units manifest what is provisioned and inherent through growing capacity, ability, and receptivity, study, and environment (MVD, pp. 27, 134, 142) — not by creating the frame from nothing.
 
-For epistemic structure (*gyan-vivek-vigyan*, realization, and evidence), including why "mystery" names incomplete understanding rather than an irreducible limit of existence, see [Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §1.11 (MVD, Ch. 17, pp. 273, 301). Whether existence itself begins is the subject of the next section.
+For epistemic structure (*gyan-vivek-vigyan*, realization, and evidence), including why "mystery" names incomplete understanding rather than an irreducible limit of existence, see [Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §1.11 (MVD, Ch. 17, pp. 273, 301). Conservation and beginninglessness follow from the same ontology.
 
-### 1.10 Does Existence Begin? The Conservation of Reality
+### 1.10 Conservation of reality and beginninglessness
 
 Madhyasth Darshan advances **two conservation claims** that must be kept apart from the outset.
 
@@ -507,11 +505,11 @@ The full set gives systematic context — the slogan is not isolated:
 8. Human dharma is one, resolutions are many.
 9. *Jeevan* is immortal; birth and death are occurrences.
 
-Nagraj's autobiographical account describes the Vedanta formula *Brahma satya, jagat mithya* as part of his intellectual background; Madhyasth Darshan's *jagat satat* (perpetual world) stands in **structural contrast** with that background within the nine Reality propositions (§5.6).
+Nagraj's autobiographical account describes the Vedanta formula *Brahma satya, jagat mithya* as part of his intellectual background; Madhyasth Darshan's *jagat satat* (perpetual world) stands in **structural contrast** with that background within the nine Reality propositions (§5.7).
 
 Madhyasth Darshan holds that Brahma is real, the world is real, and their inseparable presentness is coexistence (*saha-astitva*).
 
-Coexistence as an **organic whole** does not dissolve plurality into the ground. Brahman (*satta*) remains state-complete — Knowledge and Omnipresence — while countless units remain state-dynamic, each saturated in the ground, each carrying its four-aspect signature, each progressing as unit-and-environment toward completeness. The whole is mutual complementarity, recognition, and value reciprocity across orders; give–take restoration and definite destiny as orderliness structure all change. **Realisation in Omnipresence** — the terminus of both Development and Awakening Progressions named at SB p. 51 — is coexistence evident in fulfilment: *jagat satat* names a perpetual structured world, not a world sublated at the highest truth (§5.6). SB concludes that manifesting this coexistence is the natural foundation of resolution-centred inquiry across material, behavioural, and realisation-centred life (SB, p. 66); social and pedagogical expression belongs in the companion studies on behaviour and ethics.
+Coexistence as an **organic whole** does not dissolve plurality into the ground. Brahman (*satta*) remains state-complete — Knowledge and Omnipresence — while countless units remain state-dynamic, each saturated in the ground, each carrying its four-aspect signature, each progressing as unit-and-environment toward completeness. The whole is mutual complementarity, recognition, and value reciprocity across orders; give–take restoration and definite destiny as orderliness structure all change. **Realisation in Omnipresence** — the terminus of both Development and Awakening Progressions named at SB p. 51 — is coexistence evident in fulfilment: *jagat satat* names a perpetual structured world, not a world sublated at the highest truth (§5.7). SB concludes that manifesting this coexistence is the natural foundation of resolution-centred inquiry across material, behavioural, and realisation-centred life (SB, p. 66); social and pedagogical expression belongs in the companion studies on behaviour and ethics.
 
 ## 2. The Advaita Vedanta Answer
 
@@ -521,7 +519,7 @@ Advaita's standard framework is three-tiered, separating private apparent errors
 
 ![Advaita Vedanta: three tiers of reality (paramartha, vyavahara, pratibhasika), sublation relations, and Maya and moksha](2-advaita-vedanta-ontology.svg)
 
-### 2.1 Existence Alone, One Without a Second
+### 2.1 Brahman, Sat-Chit-Ananda, and the tiers of reality
 
 > **"In the beginning this was Existence alone, One only, without a second."**
 > - CU 6.2.1
@@ -535,8 +533,6 @@ The text rejects existence arising from non-existence:
 
 > **"By what logic can existence verily come out of non-existence? But surely, o good looking one, in the beginning all this was Existence, One only, without a second."**
 > - CU 6.2.2
-
-### 2.2 Sat-Chit-Ananda: Being, Consciousness, Bliss
 
 A second classical formulation names existence not only as *sat* — bare being — but as **Sat-Chit-Ananda**: being-consciousness-bliss. These are not three realities added together; Brahman is one partless reality whose nature is expressed in three inseparable names.
 
@@ -559,11 +555,7 @@ The Mandukya Upanishad (MU, vv. 3–7) grounds this analysis in the three states
 2. ***Chit*** — consciousness is the very nature of reality and Self, not a function of brain or mind.
 3. ***Ananda*** — bliss is the intrinsic fullness of the Self, free from lack and dependence on objects.
 
-So for Advaita the answer to "what is existence?" is concentrated: existence is the one reality that is being, consciousness, and bliss without a second.
-
-### 2.3 What Exists in Advaita?
-
-Strict answer: Brahman alone exists absolutely. The world is not sheer nothing, nor absolutely real; it is *mithya*.
+Advaita concentrates existence in one partless reality that is being, consciousness, and bliss without a second. Brahman alone exists absolutely. The world is not sheer nothing, nor absolutely real; it is *mithya*.
 
 > **"A firm conviction of the mind to the effect that Brahman is real and the universe unreal, is designated as discrimination (Viveka) between the Real and the unreal."**
 > - VC, v. 20
@@ -584,7 +576,7 @@ The clay-pot analogy (a *satkaryavada* illustration; see §5):
 
 At *vyavahara*, the world is not unreal in the way a hallucination is; it is unreal **relative to Brahman** — like a dream relative to waking. This distinction matters for comparing Advaita's ethics and science with Madhyasth Darshan's perpetual world (§6.3).
 
-### 2.4 The Structural Entities of Advaita
+### 2.2 Structural entities and witness-consciousness
 
 Because Advaita utilizes a three-tier framework of reality, it posits several "entities" that are structurally necessary to explain the empirical world, even if they are ultimately sublated at the absolute level. These are the specific concepts compared against Madhyasth Darshan in §5:
 
@@ -595,11 +587,11 @@ Because Advaita utilizes a three-tier framework of reality, it posits several "e
 5. **Jivatman (Jiva):** The individual embodied soul — the true Self (*Atman*) conditioned by *upadhis* (e.g. *Pancha Kosha*), appearing as separate until realization.
 6. **Jagat (Nama-Roopa):** The physical universe of names and forms. Operationally valid at *vyavahara*; ultimately *mithya* at *paramartha*.
 
-The *Drig-Drishya-Viveka* (DDV) offers a rigorous seer-seen (*drig-drishya*) discrimination: whatever can be observed — body, sensations, thoughts — is "seen" and therefore not the seer (DDV, vv. 1–5). What remains is *Sakshin*, witness-consciousness — irreducible to matter and closer to Advaita's first-person route against physicalism than devotional VC passages alone (see §3.2, §5.3, §6.3). In the *Mandukya* analysis, *turiya* — the fourth, witness beyond waking, dream, and deep sleep — plays the same structural role: not another state among states, but the awareness in which states appear (MU, vv. 3–7; §2.2). At liberation, that witness is discovered as **non-personal Brahman** — one partless awareness without a second. Madhyasth Darshan agrees that the seer is not the seen body or brain-state, but locates the irreducible knower in **immortal *jeevan*** with active *gyan udghatan* (§1.9.5), not in a universal Self that finally absorbs all individuality.
+The *Drig-Drishya-Viveka* (DDV) offers a rigorous seer-seen (*drig-drishya*) discrimination: whatever can be observed — body, sensations, thoughts — is "seen" and therefore not the seer (DDV, vv. 1–5). What remains is *Sakshin*, witness-consciousness — irreducible to matter and closer to Advaita's first-person route against physicalism than devotional VC passages alone (see §3.2, §5.5, §6.3). In the *Mandukya* analysis, *turiya* — the fourth, witness beyond waking, dream, and deep sleep — plays the same structural role: not another state among states, but the awareness in which states appear (MU, vv. 3–7; §2.1). At liberation, that witness is discovered as **non-personal Brahman** — one partless awareness without a second. Madhyasth Darshan agrees that the seer is not the seen body or brain-state, but locates the irreducible knower in **immortal *jeevan*** with active *gyan udghatan* (§1.9.5), not in a universal Self that finally absorbs all individuality.
 
-### 2.5 Does What Exists Begin?
+### 2.3 Origination, liberation, and temporality
 
-Brahman does not begin: it is beginningless, partless, actionless, non-dual. The universe as name-form has origination at the empirical level, but its ultimate truth is Brahman. Creation is therefore not production from nothing; it is manifestation of names and forms on the basis of Brahman (*vivartavada* — apparent transformation, contrasted with Madhyasth Darshan's circular causality in §5.1).
+Brahman does not begin: it is beginningless, partless, actionless, non-dual. The universe as name-form has origination at the empirical level, but its ultimate truth is Brahman. Creation is therefore not production from nothing; it is manifestation of names and forms on the basis of Brahman (*vivartavada* — apparent transformation, contrasted with Madhyasth Darshan's circular causality in §5.2).
 
 Liberation (*moksha*) is not dissolution or merger of a real individual into Brahman. The jiva was never a separate entity; realization is **recognition of pre-existing identity** with Brahman, in which the illusion of separate individuality is dispelled:
 
@@ -609,12 +601,9 @@ Liberation (*moksha*) is not dissolution or merger of a real individual into Bra
 > **"The Supreme Brahman is, like the sky, pure, absolute, infinite, motionless and changeless, devoid of interior or exterior, the One Existence, without a second, and one's own Self."**
 > - VC, v. 393
 
+Advaita does not devote a separate chapter to *kaal*, but its framework implies a sharp division. **Brahman** is beginningless, changeless, motionless — outside temporal becoming (VC, v. 393). At ***paramartha***, only Brahman is absolutely real; temporality belongs to the empirical order. At ***vyavahara***, past, present, and future, birth and death, and causal succession are operationally valid — the world is law-governed and shared (§2.1) — yet finally sublated when Brahman alone is known.
 
-### 2.6 Time and temporality
-
-Advaita does not devote a separate chapter to *kaal*, but its framework implies a sharp division. **Brahman** is beginningless, changeless, motionless — outside temporal becoming (VC, v. 393). At ***paramartha***, only Brahman is absolutely real; temporality belongs to the empirical order. At ***vyavahara***, past, present, and future, birth and death, and causal succession are operationally valid — the world is law-governed and shared (§2.3) — yet finally sublated when Brahman alone is known.
-
-The *Mandukya* analysis of waking, dream, and deep sleep (§2.2) is a first-person route into how temporal **states** appear and are witnessed; the witness (*turiya*) is not another state among them. Madhyasth Darshan accepts the reality of cyclical development and unit-activity across orders (§1.3–1.4) and refuses to sublate the world at the highest realization; its account of *kaal* as duration of activity (§1.6) is therefore closer to a **realist** temporal ontology at every order, while still denying that time is a substance independent of activity. Comparison with Advaita's *trikaal* language and with Madhyasth Darshan's *trikaalabadh* coexistence claim (SB, p. 48) is developed in [*Nature-Of-Time*](../Nature-Of-Time/Nature-Of-Time.pdf) (§2.2, §4).
+The *Mandukya* analysis of waking, dream, and deep sleep (§2.1) is a first-person route into how temporal **states** appear and are witnessed; the witness (*turiya*) is not another state among them. Madhyasth Darshan accepts the reality of cyclical development and unit-activity across orders (§1.3–1.4) and refuses to sublate the world at the highest realization; its account of *kaal* as duration of activity (§1.6) is therefore closer to a **realist** temporal ontology at every order, while still denying that time is a substance independent of activity. Comparison with Advaita's *trikaal* language and with Madhyasth Darshan's *trikaalabadh* coexistence claim (SB, p. 48) is developed in [*Nature-Of-Time*](../Nature-Of-Time/Nature-Of-Time.pdf) (§2.2, §4).
 
 ## 3. Modern Philosophical Approaches
 
@@ -711,7 +700,7 @@ This is nearly the opposite of the *jeevan* ontology. For Madhyasth Darshan the 
 
 **Integrated Information Theory (IIT)** proposes that consciousness corresponds to integrated information (Φ) in a system, with a quantitative threshold producing a qualitative difference — "an experience is a maximally irreducible conceptual structure" (Tononi 2012). IIT is a useful **physicalist mirror** of threshold grammar: like *gathanpurnata*, it ties consciousness to a structural condition. The contrasts are decisive: IIT is pan-experiential at the fundamental level in many formulations, operational and measurement-oriented, and silent on immortal individual units or coexistential ground; Madhyasth Darshan restricts **active** sentience to constitutionally complete reflector atoms and locates latency in *satta* as *gyan* (§§1.9.4, 6.6).
 
-### 4.2 Physical Cosmology: Does the Physical Universe Begin?
+### 4.2 Physical cosmology and cosmic beginnings
 
 The standard cosmological model suggests the observable universe had a beginning ~13.8 billion years ago. Several non-singular research programs (loop quantum cosmology's "bounce," Penrose's conformal cyclic cosmology, eternal inflation) are comfortable with a beginningless physical substrate even when local configurations begin and end. These are competing speculative programs, not consensus — the most this comparison claims is **conceptual resonance** with Madhyasth Darshan's claim that nature (*prakriti*) is perpetual (*satat*) (Ashtekar and Singh 2011; Penrose 2010; Guth 2007).
 
@@ -732,9 +721,38 @@ Against all of these, Madhyasth Darshan makes a stronger claim: coexistence is e
 
 ## 5. Comparison
 
-The sections below compare entities and causal doctrines across traditions; §6 evaluates each position.
+The sections below compare entities and causal doctrines across traditions; §6 evaluates each position. The table in §5.1 maps each tradition on the paper's three framing questions and related themes; §§5.2–5.8 develop those rows in detail.
 
-### 5.0 Entity categories compared
+### 5.1 At-a-glance comparative summary
+
+| Question | Madhyasth Darshan | Advaita Vedanta | Modern physicalist approaches |
+|---|---|---|---|
+| What is existence? | Eternally present coexistence: Omnipresence plus all units held in it. | Brahman / Existence alone, one without a second. | Concrete physical reality, studied empirically. |
+| What exists? | Omnipresence and real units, sentient and insentient. | Brahman alone (absolutely); world *mithya* at *paramartha*. | Usually the physical; experience disputed. |
+| Does it begin? | No — what exists does not come from non-existence; bodies and configurations do. | Brahman does not begin; name-form at *vyavahara*. | Particular systems begin and end; cosmology unsettled. |
+| Does the individual self begin? | *Jeevan* does not begin at birth or die with the body. | *Jiva* is ultimately Brahman; separate individuality dispelled at realization (VC, vv. 244, 574). | Self develops as biological/cognitive process. |
+| What is time? | Duration of unit-activity; human numerical reckoning within existence; *satta* timeless as ground (§1.6). | Brahman beyond temporal becoming; time valid at *vyavahara*, sublated at *paramartha*. | Spacetime as dynamical physical structure; philosophy of time contested. |
+| Is the world finally real? | Yes. "Brahma is truth, the world is perpetual." | Empirically valid but ultimately *mithya*. | Yes, as physical reality. |
+| Method of knowing | Study, realization, behavior, experiment. | Scripture, reasoning, contemplative discrimination. | Observation, modelling, public evidence. |
+| Ethical consequence | Humane conduct evidences understanding of coexistence. | Ethics prepares the mind for liberation. | Ethics via naturalism, social/normative theory. |
+
+### 5.2 Causal doctrine: *Satkaryavada*, *Vivartavada*, and Madhyasth Darshan
+
+Causal doctrine is the deepest structural difference between the three systems — it determines how each tradition treats origination and beginninglessness (§5.1, "Does it begin?").
+
+**Advaita (Sankhya inheritance):** *Satkaryavada* — the effect pre-exists in the cause (clay-pot, VC v. 251). At the empirical level, creation is *vivartavada*: apparent transformation of name-form on changeless Brahman — the effect is not a real transformation of the cause. Brahman does not change; multiplicity is projected through *Maya*.
+
+**Madhyasth Darshan:** Denies single-material-cause reduction and linear efficient-cause chains. *Satta* is *mahakaran* (supreme sustaining cause), not efficient cause (§1.3). Units change through the single activity triad *shram–gati–parinam*, read toward completeness in sentient nature through projection, reflection, and *samadhan*, with circular activity, order-specific cyclicality, and *sanskar*-mediated human cycles. Conservation of *vastu* through *roop*-change resembles *parinamavada* at the unit level, but the full picture is not reducible to "*parinamavada*-like" alone.
+
+**Modern physicalism:** Strict efficient causation — mechanism, fields, conservation laws. Origination of particular systems is compatible with a beginningless substrate (§4.2); no teleology or supreme ground.
+
+| Aspect | Advaita | Madhyasth Darshan | Modern physicalism |
+|---|---|---|---|
+| Effect in cause? | Yes (*satkaryavada*) | Units eternal; change is transformation within coexistence | Conservation laws; particles as field excitations |
+| Cause transforms? | No (Brahman changeless; *vivarta*) | *Satta* non-transforming; units transform | Fields/spacetime dynamical |
+| Origination vs change | Name-form originates at *vyavahara*; Brahman does not begin | No origination from *abhava*; development and awakening | Local systems begin/end; substrate unsettled |
+
+### 5.3 Entity categories compared
 
 §5.4 tabulates entities; what follows groups them by tradition.
 
@@ -754,38 +772,20 @@ The entity matrix in §5.4 compares traditions that share a **grammar of endurin
 3. **Material Reality:** Localized field excitations; conserved under physical law.
 4. **Causation & Order:** Physical causation, entropy, evolved ecological cooperation.
 
-### 5.1 Causal doctrine: *Satkaryavada*, *Vivartavada*, and Madhyasth Darshan
+### 5.4 Entity comparison
 
-Causal doctrine is the deepest structural difference between the three systems — it determines how each answers "does what exists begin?"
+The table compares primary entities across the four traditions this paper develops in the body. Abrahamic and Dvaita ontologies are outside scope. **Buddhist** traditions are excluded from the matrix for the methodological reasons stated in §5.3: Madhyamaka and *anatta* challenge the enduring-entity grammar the table presupposes rather than answering it in parallel columns. **Anatta** and Nagarjuna's *svabhava* critique are central to the ontology and are engaged at length in §6.2.2 — the proper venue for the tradition this paper treats as its gravest philosophical threat.
 
-**Advaita (Sankhya inheritance):** *Satkaryavada* — the effect pre-exists in the cause (clay-pot, VC v. 251). At the empirical level, creation is *vivartavada*: apparent transformation of name-form on changeless Brahman — the effect is not a real transformation of the cause. Brahman does not change; multiplicity is projected through *Maya*.
+| Entity Category / Attribute | Madhyasth Darshan (Co-existentialism) | Advaita Vedanta (Non-Dualism) | Contemporary Philosophy (Process, Physicalist, Panpsychist) | Modern Science (Physics, CogSci, Cosmology) |
+| :--- | :--- | :--- | :--- | :--- |
+| **Cosmic Ground** | **Omnipresence (*Satta / Space*)**: Pervasive, formless, actionless energy (*kriya-shunya*). Inherent energy and regulation in units through saturation (*samprikt*); uniform energy manifests as activity only through units (§1.3). | **Brahman**: The single, non-dual absolute reality (*Sat-Chit-Ananda*). The world is *mithya* (dependent appearance) at *paramartha*. | **Form + Matter** (Hylomorphism): Substantial form actualizing matter. **Substance + modes** (Spinoza): One *Deus sive Natura*, finite modes. **Monad field** (Leibniz): Simple substances in harmony. **Creativity / God** (Process): Dynamic process. **Neutral Stuff** (Neutral Monism): Common element. | **Spacetime & Quantum Fields**: Dynamic, physical substrate. No inherent consciousness or teleology. |
+| **Individual Self / Sentience** | **Jeevan**: A constitutionally complete, immortal atom (*gathanpurna parmanu*). Many distinct, eternal *jeevan* exist. | **Jivatman / Atman**: Individuality (*jivatman*) is a *vyavahara* superimposition (VC, v. 244). The true Self (*Atman*) is identical to Brahman. | **Rational Soul as Form** (Hylomorphism): Form of the living body. **Monad** (Leibniz): Simple, mirroring, immortal substance. **Self-Model** (Physicalist): Evolved cognitive model. **Φ-threshold system** (IIT): Integrated information. | **Predictive Self / Cognitive Agent**: Brain-generated hierarchical model (§6.4.3). No survival post-death. |
+| **Material Reality / Body** | **Jada Units / Shareer**: Real, perpetual, transforming matter. Composes the body, which acts as the vehicle for *jeevan*. | **Nama-Roopa / Mithya**: Form and name; robust at *vyavahara*; sublated at *paramartha*. | **Physical Matter**: The primary concrete reality (Physicalism); or the outer aspect of experiential units (Panpsychism). | **Matter & Energy**: Consolidated excitations of quantum fields. Governed by conservation laws. Perpetual in base fields. |
+| **Relationships & Moral Order** | **Coexistence / Complementarity**: Inherent, ontologically real values (*mulya*) and orderliness (*vyavastha*). | **Ethics at *vyavahara***: Valid to purify the mind; *loka-sangraha* (BG); sublated at *paramartha*. | **Social / Internal Relations**: Relationality constitutes the self (Process); or evolutionary strategies for survival (Physicalism). | **Ecology & Cooperation**: Interdependent biological networks. Cooperation is an evolved behavioral strategy. |
+| **Primary Causation** | **Circular mutual causality (§§1.3–1.6)**: *Satta* as *mahakaran*; single *shram–gati–parinam* triad with sentient unfolding; circular activity; *sanskar*-mediated human cycles. | **Vivartavada**: Apparent transformation on changeless Brahman (*satkaryavada* background). | **Efficient / Creative Causation**: Physical mechanisms (Physicalism); or "concrescence" (Process). | **Physical Causation**: Mathematical laws, conservation, entropy. |
+| **Ultimate Purpose / Realization** | **Awakening (*Jagriti*)**: Realization of coexistence, leading to resolved humane conduct (*manaviya aacharan*) in society. | **Liberation (*Moksha*)**: Recognition of identity with Brahman; illusion of separate self dispelled (VC, v. 574). | **Flourishing / Adaptation**: Cognitive adaptability (Physicalism); aesthetic intensity of experience (Process). | **Survival & Adaptation**: Natural selection; active inference / free-energy minimization (Friston 2010; §6.4.3); homeostasis. |
 
-**Madhyasth Darshan:** Denies single-material-cause reduction and linear efficient-cause chains. *Satta* is *mahakaran* (supreme sustaining cause), not efficient cause (§1.3). Units change through the single activity triad *shram–gati–parinam*, read toward completeness in sentient nature through projection, reflection, and *samadhan*, with circular activity, order-specific cyclicality, and *sanskar*-mediated human cycles. Conservation of *vastu* through *roop*-change resembles *parinamavada* at the unit level, but the full picture is not reducible to "*parinamavada*-like" alone.
-
-**Modern physicalism:** Strict efficient causation — mechanism, fields, conservation laws. Origination of particular systems is compatible with a beginningless substrate (§4.2); no teleology or supreme ground.
-
-| Aspect | Advaita | Madhyasth Darshan | Modern physicalism |
-|---|---|---|---|
-| Effect in cause? | Yes (*satkaryavada*) | Units eternal; change is transformation within coexistence | Conservation laws; particles as field excitations |
-| Cause transforms? | No (Brahman changeless; *vivarta*) | *Satta* non-transforming; units transform | Fields/spacetime dynamical |
-| Origination vs change | Name-form originates at *vyavahara*; Brahman does not begin | No origination from *abhava*; development and awakening | Local systems begin/end; substrate unsettled |
-
-### 5.2 At-a-glance comparative summary
-
-This table compares the three traditions on the paper's main ontological questions and related themes. Causal doctrine in detail: §5.1.
-
-| Question | Madhyasth Darshan | Advaita Vedanta | Modern physicalist approaches |
-|---|---|---|---|
-| What is existence? | Eternally present coexistence: Omnipresence plus all units held in it. | Brahman / Existence alone, one without a second. | Concrete physical reality, studied empirically. |
-| What exists? | Omnipresence and real units, sentient and insentient. | Brahman alone (absolutely); world *mithya* at *paramartha*. | Usually the physical; experience disputed. |
-| Does it begin? | No — what exists does not come from non-existence; bodies and configurations do. | Brahman does not begin; name-form at *vyavahara*. | Particular systems begin and end; cosmology unsettled. |
-| Does the individual self begin? | *Jeevan* does not begin at birth or die with the body. | *Jiva* is ultimately Brahman; separate individuality dispelled at realization (VC, vv. 244, 574). | Self develops as biological/cognitive process. |
-| What is time? | Duration of unit-activity; human numerical reckoning within existence; *satta* timeless as ground (§1.6). | Brahman beyond temporal becoming; time valid at *vyavahara*, sublated at *paramartha*. | Spacetime as dynamical physical structure; philosophy of time contested. |
-| Is the world finally real? | Yes. "Brahma is truth, the world is perpetual." | Empirically valid but ultimately *mithya*. | Yes, as physical reality. |
-| Method of knowing | Study, realization, behavior, experiment. | Scripture, reasoning, contemplative discrimination. | Observation, modelling, public evidence. |
-| Ethical consequence | Humane conduct evidences understanding of coexistence. | Ethics prepares the mind for liberation. | Ethics via naturalism, social/normative theory. |
-
-### 5.3 The Sat-Chit-Ananda contrast, distributed
+### 5.5 The Sat-Chit-Ananda contrast, distributed
 
 Advaita's Sat-Chit-Ananda and Madhyasth Darshan's coexistence can sound alike — both speak of being, consciousness, and fulfilment. The contrast is over what those words name and whether the world survives them.
 
@@ -801,22 +801,9 @@ The *chit* row and the DDV route sharpen a further fork. Both traditions refuse 
 
 Modern philosophy has no parallel formula: it may treat experience as physical, fundamental, or illusory, but it does not name existence as Sat-Chit-Ananda or as coexistence.
 
-### 5.4 Entity comparison
+### 5.6 Is It Possible to Map Madhyasth Darshan to Advaita?
 
-The table compares primary entities across the four traditions this paper develops in the body. Abrahamic and Dvaita ontologies are outside scope. **Buddhist** traditions are excluded from the matrix for the methodological reasons stated in §5.0: Madhyamaka and *anatta* challenge the enduring-entity grammar the table presupposes rather than answering it in parallel columns. **Anatta** and Nagarjuna's *svabhava* critique are central to the ontology and are engaged at length in §6.2.2 — the proper venue for the tradition this paper treats as its gravest philosophical threat.
-
-| Entity Category / Attribute | Madhyasth Darshan (Co-existentialism) | Advaita Vedanta (Non-Dualism) | Contemporary Philosophy (Process, Physicalist, Panpsychist) | Modern Science (Physics, CogSci, Cosmology) |
-| :--- | :--- | :--- | :--- | :--- |
-| **Cosmic Ground** | **Omnipresence (*Satta / Space*)**: Pervasive, formless, actionless energy (*kriya-shunya*). Inherent energy and regulation in units through saturation (*samprikt*); uniform energy manifests as activity only through units (§1.3). | **Brahman**: The single, non-dual absolute reality (*Sat-Chit-Ananda*). The world is *mithya* (dependent appearance) at *paramartha*. | **Form + Matter** (Hylomorphism): Substantial form actualizing matter. **Substance + modes** (Spinoza): One *Deus sive Natura*, finite modes. **Monad field** (Leibniz): Simple substances in harmony. **Creativity / God** (Process): Dynamic process. **Neutral Stuff** (Neutral Monism): Common element. | **Spacetime & Quantum Fields**: Dynamic, physical substrate. No inherent consciousness or teleology. |
-| **Individual Self / Sentience** | **Jeevan**: A constitutionally complete, immortal atom (*gathanpurna parmanu*). Many distinct, eternal *jeevan* exist. | **Jivatman / Atman**: Individuality (*jivatman*) is a *vyavahara* superimposition (VC, v. 244). The true Self (*Atman*) is identical to Brahman. | **Rational Soul as Form** (Hylomorphism): Form of the living body. **Monad** (Leibniz): Simple, mirroring, immortal substance. **Self-Model** (Physicalist): Evolved cognitive model. **Φ-threshold system** (IIT): Integrated information. | **Predictive Self / Cognitive Agent**: Brain-generated hierarchical model (§6.4.3). No survival post-death. |
-| **Material Reality / Body** | **Jada Units / Shareer**: Real, perpetual, transforming matter. Composes the body, which acts as the vehicle for *jeevan*. | **Nama-Roopa / Mithya**: Form and name; robust at *vyavahara*; sublated at *paramartha*. | **Physical Matter**: The primary concrete reality (Physicalism); or the outer aspect of experiential units (Panpsychism). | **Matter & Energy**: Consolidated excitations of quantum fields. Governed by conservation laws. Perpetual in base fields. |
-| **Relationships & Moral Order** | **Coexistence / Complementarity**: Inherent, ontologically real values (*mulya*) and orderliness (*vyavastha*). | **Ethics at *vyavahara***: Valid to purify the mind; *loka-sangraha* (BG); sublated at *paramartha*. | **Social / Internal Relations**: Relationality constitutes the self (Process); or evolutionary strategies for survival (Physicalism). | **Ecology & Cooperation**: Interdependent biological networks. Cooperation is an evolved behavioral strategy. |
-| **Primary Causation** | **Circular mutual causality (§§1.3–1.6)**: *Satta* as *mahakaran*; single *shram–gati–parinam* triad with sentient unfolding; circular activity; *sanskar*-mediated human cycles. | **Vivartavada**: Apparent transformation on changeless Brahman (*satkaryavada* background). | **Efficient / Creative Causation**: Physical mechanisms (Physicalism); or "concrescence" (Process). | **Physical Causation**: Mathematical laws, conservation, entropy. |
-| **Ultimate Purpose / Realization** | **Awakening (*Jagriti*)**: Realization of coexistence, leading to resolved humane conduct (*manaviya aacharan*) in society. | **Liberation (*Moksha*)**: Recognition of identity with Brahman; illusion of separate self dispelled (VC, v. 574). | **Flourishing / Adaptation**: Cognitive adaptability (Physicalism); aesthetic intensity of experience (Process). | **Survival & Adaptation**: Natural selection; active inference / free-energy minimization (Friston 2010; §6.4.3); homeostasis. |
-
-### 5.5 Is It Possible to Map Madhyasth Darshan to Advaita?
-
-§5.5–5.6 develop the Advaita mapping in detail.
+§5.6–5.7 develop the Advaita mapping in detail.
 
 While the two systems arise from different core commitments (Advaita: non-dualism; Madhyasth Darshan: co-existentialism), four key entities in Advaita find close analogues or functional equivalents in Madhyasth Darshan. A fifth — *Pancha Kosha* — shares Upanishadic vocabulary only; it is not a structural entity map (item 5 below).
 
@@ -840,7 +827,7 @@ While the two systems arise from different core commitments (Advaita: non-dualis
     * **Shared vocabulary:** Both traditions use five-layer (*kosha*) language drawn from the Upanishads — Advaita's Taittiriya stack (*annamaya* through *anandamaya*), Madhyasth Darshan's order-and-plane exposition (*pran kosha*, *vigyanmaya*, etc.; MVD, pp. 49–50; §1.9.2).
     * **Why this is not an entity analogue:** Madhyasth Darshan carries **two** five-fold structures that do not match Advaita's sheaths one-to-one. §1.9.1 names five inseparable **faculties within *jeevan*** — *mun*, *vritti*, *chitta*, *buddhi*, *atma* — as the inner sentient structure. §1.9.2 applies kosha terms to **developmental planes** (animal and deluded humans at four koshas; awakened humans at five including *vigyanmaya*), not to an anatomical stack parallel to *annamaya*…*anandamaya*. Advaita peels sheaths away to reveal the Self beneath (VC, vv. 210, 639) — not primarily through *neti-neti* (Brihadaranyaka Upanishad). Madhyasth Darshan affirms layered human equipment to be harmonized in awakened living. The overlap is **terminological**, not ontological; listing koshas among the four structural analogues would overstate the parallel.
 
-### 5.6 Unmappable Entities
+### 5.7 Unmappable Entities
 
 Certain central entities and categories in Advaita Vedanta cannot be mapped to Madhyasth Darshan because they represent concepts that co-existentialism explicitly rejects:
 
@@ -861,7 +848,7 @@ Certain central entities and categories in Advaita Vedanta cannot be mapped to M
 
 The mapping attempt reveals fundamental difficulties. While surface-level analogues exist, the core ontological commitments are ultimately irreconcilable. Advaita is a world-subordinating non-dualism that views individuality and the universe as dependent appearances (*mithya*) to be transcended. In stark contrast, Madhyasth Darshan is a relational realism that affirms the eternal distinctness of sentient units and the perpetual reality of the world. Because of these profound differences, a true one-to-one mapping is impossible without distorting the foundational claims of either system.
 
-### 5.7 Where the alliances fall
+### 5.8 Where the alliances fall
 
 No single tradition wins every dispute. Three pairwise patterns clarify what each view shares with and denies to the others:
 
@@ -879,7 +866,7 @@ Each pair agrees on something the third denies. Comparative clarity depends on n
 
 Judged on its own definitions — not as proof against rivals — the ontology hangs together in several ways:
 
-1. **It answers the three questions directly.** Existence is beingness and indestructibility as coexistence; what exists is Omnipresence and all units; what exists does not begin from non-being.
+1. **The ontology is internally unified.** Coexistence, real units, and beginninglessness hang together without separate doctrines for each question (§5.1 maps the cross-tradition contrast).
 2. **It avoids world-negation.** "Brahma is truth, the world is perpetual" preserves the reality of nature, society, relationship, and ethical responsibility.
 3. **It avoids simple material reductionism.** It refuses to treat consciousness, value, and selfhood as mere byproducts of body-chemistry.
 4. **It links ontology and conduct.** If existence is coexistence, human fulfilment must be evidenced as coexistence in behavior, not merely believed.
@@ -930,7 +917,7 @@ Taken together, these commitments sketch a **coexistential realism**: ground and
 
 - **Dependence type.** Distinguish dependence for **manifestation** (how uniform energy and activity appear together) from dependence for **existence** (whether a pole could be absent). Madhyasth Darshan appears to deny the second while asserting the first — with MVD p. 40's bracketing clause, JV p. 18 on non-separability, and MVD p. 13 on world-perpetuity and plural *jeevan* as the primary textual hooks. A formal account must still show that distinction is principled, not verbal, to Madhyamaka standards.
 
-- **Two-level realism without world-negation.** Advaita uses *vyavahara* robustness while sublating at *paramartha* (§2.3). Madhyasth Darshan refuses that sublation — *jagat satat* (MVD, p. 13). A Madhyamaka-informed defense cannot simply borrow Advaita's two truths; it must explain how units retain **final** weight while lacking Buddhist *svabhava*, or else revise the ontology.
+- **Two-level realism without world-negation.** Advaita uses *vyavahara* robustness while sublating at *paramartha* (§2.1). Madhyasth Darshan refuses that sublation — *jagat satat* (MVD, p. 13). A Madhyamaka-informed defense cannot simply borrow Advaita's two truths; it must explain how units retain **final** weight while lacking Buddhist *svabhava*, or else revise the ontology.
 
 - **Law of coexistence vs bare co-arising.** The texts treat development, awakening, and relationship-recognition as **provisioned and definite** (MVD, pp. 5, 61, 77) — not arbitrary reconfiguration. If emptiness is compatible with conventional order, Madhyasth Darshan needs to show its laws are the conventional structure Madhyamaka can accept **without** demoting units to mere designation — or argue that Madhyamaka's conventional level is too thin for MD's relational realism.
 
@@ -980,9 +967,9 @@ This paper states Madhyasth Darshan's core claim — *kaal* as duration of activ
 
 ### 6.3 Strengths and Limits of Advaita
 
-Advaita has a powerful answer to non-being (existence cannot arise from non-existence, CU 6.2.2) and a rigorous first-person method — DDV's seer-seen discrimination and MU's three-state analysis (§2.2, §2.4). Its ontology is also **parsimonious**: one partless Brahman, without a second ground, without plural immortal substances, without a separate cosmic power of illusion standing alongside the absolute. Against Madhyasth Darshan's coexistence of *satta*, countless *ikai*, definite *sambandh*, and latency at *gathanpurnata*, Advaita compresses existence into a single subject whose empirical multiplicity is finally sublated.
+Advaita has a powerful answer to non-being (existence cannot arise from non-existence, CU 6.2.2) and a rigorous first-person method — DDV's seer-seen discrimination and MU's three-state analysis (§2.1–2.2). Its ontology is also **parsimonious**: one partless Brahman, without a second ground, without plural immortal substances, without a separate cosmic power of illusion standing alongside the absolute. Against Madhyasth Darshan's coexistence of *satta*, countless *ikai*, definite *sambandh*, and latency at *gathanpurnata*, Advaita compresses existence into a single subject whose empirical multiplicity is finally sublated.
 
-Its limit, from the Madhyasth perspective, is that making the world *mithya* at *paramartha* makes it harder to ground the **final** ontological weight of relationships, nature, society, and conduct — even though *vyavahara* is robust, shared, and law-governed (§2.3). Nagraj's native objection, framed against the Vedanta he inherited, presses this point from origination:
+Its limit, from the Madhyasth perspective, is that making the world *mithya* at *paramartha* makes it harder to ground the **final** ontological weight of relationships, nature, society, and conduct — even though *vyavahara* is robust, shared, and law-governed (§2.1). Nagraj's native objection, framed against the Vedanta he inherited, presses this point from origination:
 
 > **"According to Vedanta knowledge, only Brahma is the truth, and this world is an illusion ('Brahma satya, jagat mithya'). However, jeeva and jagat are said to have originated from Brahma."**
 > - MVD, *The Alternative*
@@ -990,11 +977,11 @@ Its limit, from the Madhyasth perspective, is that making the world *mithya* at 
 > **"How can the jeeva and jagat, which originated from the Truth, Knowledge, and Infinite Brahma, be an illusion?"**
 > - MVD, *The Alternative*
 
-Madhyasth Darshan's counter-slogan — *Brahma is truth, the world is perpetual* (MVD, p. 13; §1.11) — is not mere rhetoric. If *jeeva* and *jagat* arise from Sat-Chit-Ananda Brahman through *satkaryavada*, treating them as finally *mithya* looks internally unstable: the effect would be less real than a cause whose nature is being, consciousness, and bliss. Advaita's reply is the three-tier distinction and *vivartavada*: name-form is dependently real at *vyavahara* and sublated only at *paramartha*; the clay-pot is not nothing, but its separateness from clay is (VC, v. 251; §2.3). That reply is coherent **within** Advaita; Madhyasth Darshan denies that sublation is the last word on the world.
+Madhyasth Darshan's counter-slogan — *Brahma is truth, the world is perpetual* (MVD, p. 13; §1.11) — is not mere rhetoric. If *jeeva* and *jagat* arise from Sat-Chit-Ananda Brahman through *satkaryavada*, treating them as finally *mithya* looks internally unstable: the effect would be less real than a cause whose nature is being, consciousness, and bliss. Advaita's reply is the three-tier distinction and *vivartavada*: name-form is dependently real at *vyavahara* and sublated only at *paramartha*; the clay-pot is not nothing, but its separateness from clay is (VC, v. 251; §2.1). That reply is coherent **within** Advaita; Madhyasth Darshan denies that sublation is the last word on the world.
 
 Advaita's fair reply to world-negation is substantial and should not be dismissed in a sentence. At *vyavahara*, ethics and compassion remain fully valid; realization of non-duality deepens rather than weakens them. Shankara's *Vivekachudamani* insists on ethical discipline as prerequisite to knowledge (VC, vv. 17–19). The Bhagavad Gita, in Shankara's commentary, grounds social responsibility in *loka-sangraha* — holding the world together — and ordained duty (*niyatam kuru karma*, BG 3.8): the enlightened still act for the welfare of the world. Advaita can therefore reply that *mithya* does not make ethics untenable: ethics is binding at the level where life is actually lived. *Vyavahara* is also **beginningless** in the classical cosmology — creation and dissolution cycle without a first moment — so the empirical world is not a fleeting illusion in the manner of a private error (*pratibhasika*).
 
-The Madhyasth counter-reply is narrower but precise. Beginningless *vyavahara* and robust ethics do not settle **final** ontological status. *Satat* (*perpetual*) names a world that retains full weight at the highest realization — relationships, nature, and *mulya* are not ultimately sublated (§5.6). An ontology that makes the world *mithya* at *paramartha* cannot give the world the same final weight coexistence gives it. This is a genuine disagreement about whether *vyavahara*'s robustness suffices for Madhyasth Darshan's standard of world-realness, not a defeat of Advaita on its own terms.
+The Madhyasth counter-reply is narrower but precise. Beginningless *vyavahara* and robust ethics do not settle **final** ontological status. *Satat* (*perpetual*) names a world that retains full weight at the highest realization — relationships, nature, and *mulya* are not ultimately sublated (§5.7). An ontology that makes the world *mithya* at *paramartha* cannot give the world the same final weight coexistence gives it. This is a genuine disagreement about whether *vyavahara*'s robustness suffices for Madhyasth Darshan's standard of world-realness, not a defeat of Advaita on its own terms.
 
 Madhyasth Darshan's exposed point against Advaita's parsimony is the **cost of plurality**: many immortal *jeevan* units, saturation mutual dependence, and tiered *gyan*/*chaitanya* buy relational realism at the price of ontological complexity Advaita refuses. Whether that cost is justified is part of what §6.2.2 and §6.5 leave open; Advaita's cost is world-subordination at the highest truth. Neither system is free of trade-offs.
 
@@ -1074,7 +1061,7 @@ Within this frame, **causation** is circular and order-specific, not creation fr
 > **"Brahma is truth, the world is perpetual."**
 > - MVD, p. 13
 
-That formulation marks what is distinctive in comparative terms. Against **physicalism**, Madhyasth Darshan refuses matter-only reduction: consciousness, value, selfhood, and ethical relation are not exhaustively explained as brain-generated epiphenomena, yet the world of units remains fully real for study and responsibility — not a second-class appearance. Against **Advaita**, it refuses world-negation at the highest level: the perpetual world (*jagat satat*), distinct immortal *jeevan* units, and ontologically real relationships and values (*mulya*) retain final weight; coexistence is not compressed into a single subject whose empirical multiplicity is finally *mithya*. Against both, it holds a **relational realism**: Brahma is real, the world is real, and their inseparable presentness is coexistence — with ontology tied to conduct, so that understanding is fulfilled when coexistence becomes clear in one's own seeing and evident in humane living, responsible work, and experiment. The pairwise patterns in §5.7 show where each tradition agrees and diverges on these stakes; the critical review in §6 examines what remains open within and against that position.
+That formulation marks what is distinctive in comparative terms. Against **physicalism**, Madhyasth Darshan refuses matter-only reduction: consciousness, value, selfhood, and ethical relation are not exhaustively explained as brain-generated epiphenomena, yet the world of units remains fully real for study and responsibility — not a second-class appearance. Against **Advaita**, it refuses world-negation at the highest level: the perpetual world (*jagat satat*), distinct immortal *jeevan* units, and ontologically real relationships and values (*mulya*) retain final weight; coexistence is not compressed into a single subject whose empirical multiplicity is finally *mithya*. Against both, it holds a **relational realism**: Brahma is real, the world is real, and their inseparable presentness is coexistence — with ontology tied to conduct, so that understanding is fulfilled when coexistence becomes clear in one's own seeing and evident in humane living, responsible work, and experiment. The pairwise patterns in §5.8 show where each tradition agrees and diverges on these stakes; the critical review in §6 examines what remains open within and against that position.
 
 ## Editorial Notes
 
@@ -1132,14 +1119,14 @@ Verse and section numbers follow standard numbering and apply to any faithful ed
 
 - **TU** — [*Taittiriya Upanishad*](../References/Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf). Cited: Brahman as Truth, Knowledge, and Infinity (2.1.1); *anandamaya* passage (2.5).
 - **CU** — [*Chandogya Upanishad*](../References/Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf). Cited: Existence alone, one without a second (6.2.1–6.2.2), with Shankara's commentary.
-- **MU** — [*Mandukya Upanishad*](../References/Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf). Cited: three states of consciousness (*avastha-traya*), vv. 3–7 (§2.2).
+- **MU** — [*Mandukya Upanishad*](../References/Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf). Cited: three states of consciousness (*avastha-traya*), vv. 3–7 (§2.1).
 - **BG** — [*Bhagavad Gita*](../References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf), Shankara's commentary (Swami Gambhirananda). Cited: *loka-sangraha* and ordained duty (3.8) (§6.3).
 - **VC** — [*Vivekachudamani*](../References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) (attributed to Shankara). English translation by Swami Madhavananda. Cited: Sat-Chit-Ananda (vv. 152, 217); ethical prerequisites (vv. 17–19); Brahman real / universe unreal (v. 20); *jiva* as Brahman (v. 216); Ishvara/Jiva superimpositions (v. 244); clay-jar analogy (v. 251); liberation without seeker/liberated (v. 574); changeless Self (v. 393); Pancha Kosha method (vv. 210, 639).
-- **DDV** — [*Drig-Drishya-Viveka*](../References/Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf) (attributed to Shankara or Bharati Tirtha). Cited: seer/seen discrimination (vv. 1–5) (§2.4, §3.2, §6.3).
+- **DDV** — [*Drig-Drishya-Viveka*](../References/Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf) (attributed to Shankara or Bharati Tirtha). Cited: seer/seen discrimination (vv. 1–5) (§2.2, §3.2, §6.3).
 
 ### Other Indian philosophies (external only)
 
-- **Ishvarakrishna** — Ishvarakrishna. [*Samkhyakarika*](https://archive.org/details/SamkhyaKarikaWithCommentaryOfGaudapada). Translated by Swami Virupakshananda. Cited: Prakriti and *parinamavada* (§5.1).
+- **Ishvarakrishna** — Ishvarakrishna. [*Samkhyakarika*](https://archive.org/details/SamkhyaKarikaWithCommentaryOfGaudapada). Translated by Swami Virupakshananda. Cited: Prakriti and *parinamavada* (§5.2).
 - **Nagarjuna** — Nagarjuna. [*Mulamadhyamakakarika* (*Fundamental Verses on the Middle Way*)](https://plato.stanford.edu/entries/nagarjuna/). Translated by Jay L. Garfield. Cited: *svabhava* critique, dependent origination, mutual dependence challenge (§6.2.2).
 - **Anatta** — Stanford Encyclopedia of Philosophy. [*Anatta* (*No Self*)](https://plato.stanford.edu/entries/anatta/). Cited: challenge to immortal distinct *jeevan* (§5.4, §6.2.2).
 
