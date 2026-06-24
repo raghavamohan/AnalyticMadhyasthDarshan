@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 23, 2026, 5:12 PM IST
+**Edited on:** June 24, 2026, 5:55 AM IST
 
 **Status:** Draft
 
@@ -107,7 +107,7 @@ Nature names the saturated whole of formful existence; **units** are the countab
 
 SB names this distinction explicitly: Omnipotence is *sthitipurn* (**state-complete**) — eternally present without motion, wave, or pressure — while nature saturated in it is *sthitishil* (**state-dynamic**): the countless units whose activity, development, and awakening constitute all change in existence (SB, pp. 50, 68–69). There is no place or time without formless existence; therefore Brahman does not progress. What progresses is unit-activity within saturation — completeness within saturation — until **realisation in Omnipresence**: not a new state of *satta*, but nature's relationships fulfilled and evident in coexistence.
 
-Naming these two aspects opens the question of their ontological relationship. What does it mean, in concrete terms, for a unit to be "saturated" in Omnipresence (*satta*)? **Saturation is that relationship** — pervasive co-location in which inherent energy and regulation belong to the saturated unit; the next subsection develops saturation in full.
+Naming these two aspects opens the question of their ontological relationship. What does it mean, in concrete terms, for a unit to be "saturated" in Omnipresence (*satta*)? Saturation is the ever-present bond of pervasive co-location between formless *satta* and each formful unit: the unit remains surrounded, submerged, and soaked in Omnipresence, and through that bond its inherent energy and regulatory order belong to the unit itself.
 
 Causation, constitutional completeness, awakening, and conservation of reality belong to the arc that follows — from relationships and composition through change, orders, and *jeevan*.
 
@@ -157,7 +157,7 @@ Change within coexistence — how *satta* relates to unit-activity without being
 
 ### 1.3 Saturation: The Ground–Unit Bond
 
-The source describes units as soaked, submerged, and surrounded — *samprikt* on first use — in Omnipresence. Madhyasth Darshan treats saturation as an **ontological relationship**: pervasive co-location — the ever-present bond between formless Omnipresence and formful units, and the first layer of relational structure in coexistence. It is not a physical drawing, extraction, or depletion of energy from *satta*; Omnipresence does not act, transform, or be consumed in saturating a unit.
+The source describes units as soaked, submerged, and surrounded — *samprikt* — in Omnipresence. Madhyasth Darshan treats saturation as an **ontological relationship**: pervasive co-location — the ever-present bond between formless Omnipresence and formful units, and the first layer of relational structure in coexistence. It is not a physical drawing, extraction, or depletion of energy from *satta*; Omnipresence does not act, transform, or be consumed in saturating a unit.
 
 Through this relationship, every unit has **inherent energy** and regulatory order **in** it — energy fullness is of the saturated unit because of saturation, not a separate quantity transferred from a store. SB states this plainly:
 
