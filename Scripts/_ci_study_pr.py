@@ -18,15 +18,18 @@ from pathlib import Path
 
 from _common import BASE, STUDIES, slug_from_study_relative_path, study_md
 
+from _build_studies_index import verify_index_shell_sync  # noqa: E402
 from _check_references import run_checks, print_report  # noqa: E402
 from _pdf_cache_sync import pdfs_for_study, sync_pdf_cache  # noqa: E402
 from _study_catalog import (  # noqa: E402
     StudyStatus,
     get_study_row,
+    load_catalog_rows,
     parse_edited_on,
     parse_status_md,
     regenerate_pdf,
     upsert_study_row,
+    verify_all_catalog_sync,
     verify_timestamp_sync,
     write_studies_catalog,
 )
@@ -348,6 +351,14 @@ def handle_status_change(body: str) -> None:
     subprocess.run(command, check=True, cwd=BASE)
 
 
+def verify_studies_index() -> None:
+    errors = verify_all_catalog_sync() + verify_index_shell_sync()
+    if errors:
+        raise SystemExit(
+            "Studies index verification failed:\n  - " + "\n  - ".join(errors)
+        )
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Run study PR CI pipeline.")
     parser.add_argument(
@@ -380,6 +391,7 @@ def main() -> None:
     else:
         raise SystemExit(f"Unsupported label: {label}")
 
+    verify_studies_index()
     print("Study PR pipeline completed successfully.")
 
 

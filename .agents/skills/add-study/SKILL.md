@@ -44,7 +44,7 @@ Omit `--category`, `--description`, `--tags` in an interactive terminal to be pr
 
 1. Sets `**Author:**`, `**Edited on:**`, `**Status:**` in the `.md`
 2. Regenerates `Studies/<Slug>.pdf` (Draft watermark when `--status draft`)
-3. Upserts row in `Studies/index.html` and `Studies/README.md`
+3. Upserts catalog entry in `Studies/index.html` (JSON) and `Studies/README.md` (markdown table)
 4. Updates `References/README.md` and `References/MANIFEST.md` (skipped for Ongoing)
 
 ## Registration modes

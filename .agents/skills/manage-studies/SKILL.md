@@ -24,7 +24,8 @@ Orchestration skill for the study lifecycle. Read the focused skill for your tas
 
 - **Source of truth:** `Studies/<Slug>/<Slug>.md`
 - **Published output:** `Studies/<Slug>.pdf` (generated; never edit by hand)
-- **Catalogs:** `Studies/index.html`, `Studies/README.md` (updated by scripts)
+- **Catalogs:** `Studies/index.html` (JSON + card UI shell), `Studies/README.md` (markdown tables; updated by scripts)
+- **Index shell source:** `Scripts/_build_studies_index.py` (`INDEX_TEMPLATE`) — edit template, run `python Scripts/_build_studies_index.py`, verify with `python Scripts/_verify_studies_index.py`
 - **Citations:** `References/README.md`, `References/MANIFEST.md` (add/remove only)
 
 ## Study states
@@ -63,7 +64,8 @@ Confirm before finishing:
 - [ ] `**Edited on:**` in `.md` matches catalog **Last updated on** (abbreviated month in catalog)
 - [ ] `**Status:**` in `.md` matches catalog Draft/Released (if published)
 - [ ] PDF regenerated when content or status changed (Mermaid studies: `npm install` in `Scripts/`)
-- [ ] `Studies/index.html` and `Studies/README.md` catalog rows stay in sync
+- [ ] `Studies/index.html` JSON catalog and `Studies/README.md` table rows stay in sync (use `write_studies_catalog` via scripts — never hand-edit JSON)
+- [ ] After landing-page UI changes: `INDEX_TEMPLATE` updated in `_build_studies_index.py`, shell rebuilt, `python Scripts/_verify_studies_index.py` passes
 
 **Agent rules:** [AGENTS.md](../../AGENTS.md) — §1 (Edited on), §2 (catalog sync), §3 (PDF pipeline).
 

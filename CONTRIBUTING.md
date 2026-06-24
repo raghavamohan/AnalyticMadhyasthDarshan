@@ -70,7 +70,7 @@ CI verifies the linked issue has `proposal-approved`, reads category and descrip
 3. Open a PR with the [**study-update** template](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/compare?expand=1&template=study-update.md).
 4. Apply the **`study-update`** label.
 
-CI regenerates the PDF and verifies timestamps match across `.md`, `index.html`, and `README.md`.
+CI regenerates the PDF and verifies timestamps match across `.md`, `index.html`, and `README.md`. It also runs `Scripts/_verify_studies_index.py` to confirm catalog JSON and the index landing-page shell stay in sync.
 
 ### Change draft ↔ released (`status-change`)
 
