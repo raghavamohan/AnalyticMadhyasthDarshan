@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 24, 2026, 8:43 AM IST
+**Edited on:** June 24, 2026, 8:50 AM IST
 
 **Status:** Draft
 
@@ -22,13 +22,14 @@ This paper presents Madhyasth Darshan's answers to what existence is, what exist
 
 ## Quick Glossary
 
+### Core Madhyasth Darshan Terminology
+
 | Term | Plain meaning |
 |------|---------------|
 | **Existence (*astitva*)** | In Madhyasth Darshan: beingness (*hona*) and indestructibility (*anashita*), always present as coexistence (*saha-astitva*). |
 | **Coexistence (*saha-astitva*)** | Reality as the pervasive ground (*satta*) and all units (*ikai*) inseparably present together. |
 | **Time (*kaal*)** | In Madhyasth Darshan: the duration of unit-activity (*kriya*), not an independent cosmic container; numerical reckoning of duration is a human convention within existence. Full treatment: [*Nature-Of-Time*](../Nature-Of-Time/Nature-Of-Time.pdf). |
 | **Satta (Omnipresence)** | The all-pervasive, formless, non-transforming ground in which all units (*ikai*) are saturated (*samprikt*). Translation and naming conventions: Editorial Notes. |
-| **Saturation-Reflector Model** | Sentience is not generated from dead matter; ever-present *gyan* of *satta* is expressed as active sentience (*chaitanya*) only when a constitutionally complete atom reaches a stable **mediating configuration** at *gathanpurnata* (the source texts call this a "reflector"). Full argument: §6.6. |
 | **Unit (*ikai*)** | A countable, bounded entity in nature, whether insentient (*jada*) or sentient (*chaitanya*). |
 | ***Jeevan* (Sentient Self)** | The sentient self: a real, immortal, constitutionally complete unit (*gathanpurna parmanu*) that works through the body (*shareer*). |
 | **Constitutional Completeness (*gathanpurnata*)** | The first completeness stage: when a composite atom integrates the required number of nucleus and orbiting particles to become functionally indivisible, immortal, and sentient (*jeevan*). Threshold of Development Progression, not the final telos of existence. |
@@ -47,16 +48,29 @@ This paper presents Madhyasth Darshan's answers to what existence is, what exist
 | **Capacity (*kshamata*)** | Order-specific scope for participating in relationships and bearing what coexistence provisionally makes available (MVD, p. 62). |
 | **Ability (*yogyata*)** | Competence to convert capacity into actual effort, conduct, or bonding (MVD, pp. 62, 79). |
 | **Receptivity (*patrata*)** | Readiness for a relationship's expectations and values to register and flow; in humans, extent of receptivity is qualification (*arhta*) (MVD, pp. 62, 142). |
+| **Essentiality (*maulikta*)** | How a unit's signature matters in mutuality — participation-as-value in relationships, measured by contribution to orderliness among the four orders (SB p. 50; MVD p. 125). |
+| **Unit signature** | Inseparable four-tuple of form, properties, essential nature, and *dharma* carried by every saturated unit (MVD pp. 50–51). |
+| **Four planes** | Physicochemical, delusional, deific, and divine (complete) planes — developmental stages spanning orders, mapped to three completeness transitions (SB pp. 51–52, 92). |
+| **Generative / degenerative / mediative** | Property triad: effects that assist creation, dissolution, and sustainment in mutuality (MVD pp. 50–51). |
+
+### Analytical Constructs
+
+Terms coined or stabilized in this paper to state Madhyasth Darshan claims in comparative prose — not source-text vocabulary.
+
+| Term | Plain meaning |
+|------|---------------|
+| **Saturation-Reflector Model** | Sentience is not generated from dead matter; ever-present *gyan* of *satta* is expressed as active sentience (*chaitanya*) only when a constitutionally complete atom reaches a stable **mediating configuration** at *gathanpurnata* (the source texts call this a "reflector"). Full argument: §6.6. |
+
+### Comparative Philosophical Terms
+
+| Term | Plain meaning |
+|------|---------------|
 | ***Atman*** / ***Brahman*** | Advaita: the Self and the one ultimate reality, finally identical (§2). |
 | ***Mithya*** | Advaita: dependent appearance of the empirical world (§2.1). |
 | **Sat-Chit-Ananda** | Advaita: being, consciousness, bliss as three names of Brahman (§2.1; contrast §5.5). |
 | **Physicalism** | Modern view: every real concrete phenomenon is physical (§3.1). |
 | **Panpsychism** | Experientiality belongs, at least primitively, to fundamental reality (§3.3). |
 | **Strong / weak emergence** | Strong emergence: a higher-level property that is not deducible from, and adds something to, its lower-level base. Weak emergence: a higher-level pattern fully fixed by its base. Relevant to §6.2 and §3.3. |
-| **Essentiality (*maulikta*)** | How a unit's signature matters in mutuality — participation-as-value in relationships, measured by contribution to orderliness among the four orders (SB p. 50; MVD p. 125). |
-| **Unit signature** | Inseparable four-tuple of form, properties, essential nature, and *dharma* carried by every saturated unit (MVD pp. 50–51). |
-| **Four planes** | Physicochemical, delusional, deific, and divine (complete) planes — developmental stages spanning orders, mapped to three completeness transitions (SB pp. 51–52, 92). |
-| **Generative / degenerative / mediative** | Property triad: effects that assist creation, dissolution, and sustainment in mutuality (MVD pp. 50–51). |
 
 ## 1. The Madhyasth Darshan Answer
 
