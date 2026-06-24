@@ -140,7 +140,7 @@ def main() -> None:
     )
     parser.add_argument(
         "slug",
-        help="Study slug (e.g. What-Is-Existence), with or without .pdf/.md",
+        help="Study slug (e.g. The-Ontology-of-Coexistence), with or without .pdf/.md",
     )
     parser.add_argument(
         "--status",

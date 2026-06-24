@@ -31,7 +31,7 @@ python Scripts/_remove_study.py <Slug> --dry-run
 
 Windows wrapper: `.\Scripts\_remove_study.ps1 <Slug> [-Yes] [-DryRun]`
 
-Use the slug without extension (e.g. `What-Is-Existence`).
+Use the slug without extension (e.g. `The-Ontology-of-Coexistence`).
 
 ## What the script does
 

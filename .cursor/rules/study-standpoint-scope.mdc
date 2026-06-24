@@ -12,7 +12,7 @@ Every **topical** study (`Studies/<Slug>/<Slug>.md`, not `README.md`, not Formal
 Studies) includes `## Standpoint and scope` after the opening intro and before
 the glossary or first major section.
 
-Canonical text: [What-Is-Existence.md](../Studies/What-Is-Existence/What-Is-Existence.md). Cursor
+Canonical text: [The-Ontology-of-Coexistence.md](../Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.md). Cursor
 mirror: `.cursor/rules/study-standpoint-scope.mdc`.
 
 ## Must establish

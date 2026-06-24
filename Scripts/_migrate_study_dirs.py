@@ -55,7 +55,7 @@ def move_study_files(slug: str) -> None:
 
 
 def move_orphan_svgs_to_wie() -> None:
-    wie_dir = study_dir("What-Is-Existence")
+    wie_dir = study_dir("The-Ontology-of-Coexistence")
     if not wie_dir.is_dir():
         return
     for src in sorted(STUDIES.glob("*.svg")):

@@ -21,7 +21,7 @@ def main() -> None:
     )
     parser.add_argument(
         "slug",
-        help="Study slug (e.g. What-Is-Existence), with or without .md/.pdf",
+        help="Study slug (e.g. The-Ontology-of-Coexistence), with or without .md/.pdf",
     )
     args = parser.parse_args()
 
