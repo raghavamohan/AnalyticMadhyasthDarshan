@@ -6,11 +6,9 @@
 <title>My Submissions - Analytic Madhyasth Darshan</title>
 <meta name="description" content="Track study proposals, submit drafts, and manage your contributions to the Analytic Madhyasth Darshan collection."/>
 <style>
-:root{--bg:#f7f4ef;--surface:#ffffff;--text:#2a241c;--text-muted:#5c5348;--accent:#1a5276;--accent-soft:#e8f1f6;--accent-hover:#13405c;--warm:#8b5e34;--warm-soft:#f5ebe0;--border:#e3dcd2;--shadow:0 2px 12px rgba(42,36,28,0.06);--radius:10px;--sans:'Segoe UI',system-ui,sans-serif;}*{box-sizing:border-box;}html{scroll-behavior:smooth;}body{font-family:'Georgia','Times New Roman',serif;font-size:16px;line-height:1.6;color:var(--text);background:var(--bg);margin:0;padding:0;}a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px;transition:color 0.15s ease;}a:hover{color:var(--accent-hover);}.page{max-width:960px;margin:0 auto;padding:28px 20px 56px;}.hero{background:transparent;border:none;box-shadow:none;padding:0 0 20px;margin-bottom:0;}h1{font-size:38px;font-weight:normal;line-height:1.15;margin:0 0 14px;color:#1a1612;border:none;padding:0;}.lead{font-size:19px;line-height:1.5;color:var(--text-muted);margin:0 0 20px;}
+:root{--bg:#f7f4ef;--surface:#ffffff;--text:#2a241c;--text-muted:#5c5348;--accent:#1a5276;--accent-soft:#e8f1f6;--accent-hover:#13405c;--warm:#8b5e34;--warm-soft:#f5ebe0;--border:#e3dcd2;--shadow:0 2px 12px rgba(42,36,28,0.06);--radius:10px;--sans:'Segoe UI',system-ui,sans-serif;}*{box-sizing:border-box;}html{scroll-behavior:smooth;}body{font-family:'Georgia','Times New Roman',serif;font-size:16px;line-height:1.6;color:var(--text);background:var(--bg);margin:0;padding:0;}a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px;transition:color 0.15s ease;}a:hover{color:var(--accent-hover);}.page{max-width:960px;margin:0 auto;padding:28px 20px 56px;}.hero{background:transparent;border:none;box-shadow:none;padding:0;margin-bottom:0;}h1{font-size:38px;font-weight:normal;line-height:1.15;margin:0 0 14px;color:#1a1612;border:none;padding:0;}.lead{font-size:19px;line-height:1.5;color:var(--text-muted);margin:0 0 22px;}
 .back-link{margin:0 0 16px;font-family:var(--sans);font-size:14px;}
 .subview-back{margin:0 0 16px;font-family:var(--sans);font-size:14px;}
-.before-start{background:var(--accent-soft);border:1px solid #c5d9e6;border-radius:8px;padding:14px 16px;margin-bottom:20px;font-family:var(--sans);font-size:14px;line-height:1.5;}
-.before-start strong{color:#1a1612;}
 .step-strip{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin-bottom:20px;font-family:var(--sans);font-size:13px;}
 .step-strip.hidden{display:none;}
 .step-strip .step{padding:6px 12px;border-radius:999px;background:var(--warm-soft);color:var(--text-muted);}
@@ -80,7 +78,7 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
 .dashboard-truncated{font-family:var(--sans);font-size:13px;color:var(--text-muted);margin:12px 0 0;}
 .skeleton-row td{color:var(--text-muted);}
 @media (max-width:720px){.dashboard-table{font-size:12px;}.dashboard-table th:nth-child(4),.dashboard-table td:nth-child(4){display:none;}}
-@media (prefers-color-scheme:dark){:root{--bg:#1a1815;--surface:#26231e;--text:#e6dfd6;--text-muted:#aca194;--accent:#5ba3d3;--accent-soft:#233e52;--accent-hover:#7ebbed;--warm:#d5a477;--warm-soft:#423020;--border:#423b33;}h1,h2,label,.before-start strong{color:#f5f1ec;}input[type="text"],select,textarea,input[type="number"]{background:#1e1b18;color:var(--text);}button.submit-btn,.action-btn.primary{color:#1a1815;}.alert.success,.proposal-status.approved,.stage-merged,.catalog-released,.ci-success{background:#133a20;color:#81c995;border-color:#1b5e33;}.alert.error,.proposal-status.error,.ci-failure{background:#471815;color:#f28b82;border-color:#712b26;}.step-strip .step.done{background:#133a20;color:#81c995;}}
+@media (prefers-color-scheme:dark){:root{--bg:#1a1815;--surface:#26231e;--text:#e6dfd6;--text-muted:#aca194;--accent:#5ba3d3;--accent-soft:#233e52;--accent-hover:#7ebbed;--warm:#d5a477;--warm-soft:#423020;--border:#423b33;}h1,h2,label{color:#f5f1ec;}input[type="text"],select,textarea,input[type="number"]{background:#1e1b18;color:var(--text);}button.submit-btn,.action-btn.primary{color:#1a1815;}.alert.success,.proposal-status.approved,.stage-merged,.catalog-released,.ci-success{background:#133a20;color:#81c995;border-color:#1b5e33;}.alert.error,.proposal-status.error,.ci-failure{background:#471815;color:#f28b82;border-color:#712b26;}.step-strip .step.done{background:#133a20;color:#81c995;}}
 </style>
 </head>
 <body>
@@ -91,13 +89,6 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
     <h1>My Submissions</h1>
     <p class="lead">Propose studies, submit drafts, update content, and change release status — all in one place. Sign in with GitHub to track proposals, pull requests, and CI checks.</p>
   </header>
-
-  <div class="before-start" id="hub-before-start">
-    <strong>Before you start:</strong> Read the study format in
-    <a href="README.md">Studies/README.md</a> and the workflow in
-    <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a>.
-    New studies require an approved proposal before you can submit a draft.
-  </div>
 
   <div class="step-strip hidden" id="step-strip" aria-label="Submission workflow">
     <span class="step" id="step-propose">1. Propose</span>
@@ -544,7 +535,6 @@ function titleToSlug(title) {
 function updateHubChrome(tabId) {
   const isDashboard = tabId === 'dashboard';
   document.getElementById('hub-hero').hidden = !isDashboard;
-  document.getElementById('hub-before-start').hidden = !isDashboard;
   document.getElementById('step-strip').classList.toggle('hidden', isDashboard || tabId === 'status');
   if (tabId === 'propose') {
     document.getElementById('step-propose').classList.add('active');

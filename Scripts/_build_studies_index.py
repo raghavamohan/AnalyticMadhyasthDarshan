@@ -559,8 +559,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   </ul>
 
   <p class="scope" id="hero-scope"><strong>&mdash;</strong> studies available &middot; open &amp; independent</p>
-
-  <p class="scope">For official texts and lectures visit <a href="https://www.madhyasth.org/">madhyasth.org</a> (Divya Path Sansthan). The studies here are independent analytic work.</p>
 </header>
 
 <nav class="page-nav" aria-label="On this page">
@@ -675,7 +673,8 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     </div>
     <div class="footer-card" id="about">
       <h2>About us</h2>
-      <p>We are a group of people studying <strong>Madhyasth Darshan</strong> and writing these studies together, published as <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> &mdash; collaborative, fully open, and independent.</p>
+      <p>We are a group of people studying <strong>Madhyasth Darshan</strong> and writing these studies together, published as <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> &mdash; collaborative, fully open, and independent analytic work, separate from the official institution.</p>
+      <p>For official texts and lectures visit <a href="https://www.madhyasth.org/">madhyasth.org</a> (Divya Path Sansthan). The studies on this site are our own comparative and analytic work, not institutional publications.</p>
       <p>Anyone is welcome to read the studies, check our sources, and contribute through our <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">GitHub repository</a>. Every study ends with a list of its sources, linking to the original texts wherever they are freely available.</p>
       <p class="license-line"><strong>License:</strong> <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a> &mdash; attribution required. Cite <strong>AnalyticMadhyasthDarshan.org</strong> and link to the repository.</p>
     </div>
