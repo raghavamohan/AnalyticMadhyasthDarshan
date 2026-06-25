@@ -46,7 +46,7 @@ Select any linked title to open the full study. Titles shown in italics are stil
 | *Nature Ecology and Right Use* <!-- slug: Nature-Ecology-And-Right-Use --> | Ecology, Axiology | Nature, Earth, right-use, regeneration, ecological balance, and coexistence with the other orders | Ongoing |
 | *Spiritual Practice and Realization* <!-- slug: Spiritual-Practice-And-Realization --> | Spiritual Practice | Anubhav, realization, awakening, yoga, liberation from mystery, liberation from suffering, and comparison with moksha traditions | Ongoing |
 | *Science Technology and Human Purpose* <!-- slug: Science-Technology-And-Human-Purpose --> | Philosophy of Science | Science, technology, production, convenience, human purpose, and the limits of instrumental knowledge | Ongoing |
-| [Physics of Madhyasth Darshan](Physics-Of-Madhyasth-Darshan/Physics-Of-Madhyasth-Darshan.pdf) | Philosophy of Science | Deal with how madhyasth darshan extends physics | Draft<br>Last updated on: Jun 25, 2026, 6:15 PM IST |
+| [Physics of Madhyasth Darshan](Physics-Of-Madhyasth-Darshan/Physics-Of-Madhyasth-Darshan.pdf) | Philosophy of Science | Deal with how madhyasth darshan extends physics | Draft<br>Last updated on: Jun 25, 2026, 6:17 PM IST |
 <!-- /studies-catalog -->
 
 ### Formal studies
