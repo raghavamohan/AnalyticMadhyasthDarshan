@@ -585,6 +585,12 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
       <input type="text" id="q" placeholder="Search title, topic, or category&hellip;" autocomplete="off"/>
     </label>
+    <div class="seg" id="coll-seg" role="group" aria-label="Filter by collection">
+      <button type="button" data-coll="all" aria-pressed="true">All</button>
+      <button type="button" data-coll="topical" aria-pressed="false">Topical</button>
+      <button type="button" data-coll="formal" aria-pressed="false">Formal</button>
+      <button type="button" data-coll="applied" aria-pressed="false">Applied</button>
+    </div>
     <div class="seg" id="status-seg" role="group" aria-label="Filter by status">
       <button type="button" data-status="all" aria-pressed="true">All</button>
       <button type="button" data-status="available" aria-pressed="false">Available</button>
@@ -730,7 +736,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
   const isAvail = s => s.status === "draft" || s.status === "released";
   const ts = s => s.updated ? Date.parse(s.updated) : -Infinity;
-  const state = { q: "", status: "all", cat: "all", sort: "recent" };
+  const state = { q: "", coll: "all", status: "all", cat: "all", sort: "recent" };
 
   const updateHeroScope = () => {
     const scope = document.getElementById("hero-scope");
@@ -757,7 +763,9 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     return hay.includes(state.q.toLowerCase());
   };
 
-  const matchesBase = s => matchesStatus(s) && matchesSearch(s);
+  const matchesColl = s => state.coll === "all" || s.coll === state.coll;
+
+  const matchesBase = s => matchesStatus(s) && matchesSearch(s) && matchesColl(s);
 
   const matches = s => {
     if (!matchesBase(s)) return false;
@@ -765,7 +773,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     return true;
   };
 
-  const filtersActive = () => !!(state.q || state.status !== "all" || state.cat !== "all" || state.sort !== "recent");
+  const filtersActive = () => !!(state.q || state.coll !== "all" || state.status !== "all" || state.cat !== "all" || state.sort !== "recent");
 
   const categoryCounts = () => {
     const counts = {};
@@ -810,11 +818,17 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
   const resetFilters = () => {
     state.q = "";
+    state.coll = "all";
     state.status = "all";
     state.cat = "all";
     state.sort = "recent";
     if (qInput) qInput.value = "";
     if (sortSelect) sortSelect.value = "recent";
+    if (collSeg) {
+      Array.from(collSeg.querySelectorAll("button")).forEach(x => {
+        x.setAttribute("aria-pressed", x.dataset.coll === "all" ? "true" : "false");
+      });
+    }
     if (statusSeg) {
       Array.from(statusSeg.querySelectorAll("button")).forEach(x => {
         x.setAttribute("aria-pressed", x.dataset.status === "all" ? "true" : "false");
@@ -847,6 +861,11 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
     let shown = 0;
     ["topical", "formal", "applied"].forEach(coll => {
+      const group = document.getElementById(`${coll}-studies`);
+      const groupHidden = state.coll !== "all" && state.coll !== coll;
+      if (group) group.classList.toggle("is-hidden", groupHidden);
+      if (groupHidden) return;
+
       const items = STUDIES.filter(s => s.coll === coll && matches(s));
       items.sort((a, b) => state.sort === "az" ? a.t.localeCompare(b.t) : ts(b) - ts(a));
       shown += items.length;
@@ -864,6 +883,17 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
   const qInput = document.getElementById("q");
   if (qInput) qInput.addEventListener("input", e => { state.q = e.target.value; renderCatalog(); });
+
+  const collSeg = document.getElementById("coll-seg");
+  if (collSeg) collSeg.addEventListener("click", e => {
+    const btn = e.target.closest("button");
+    if (!btn) return;
+    state.coll = btn.dataset.coll || "all";
+    Array.from(collSeg.querySelectorAll("button")).forEach(b => {
+      b.setAttribute("aria-pressed", b === btn ? "true" : "false");
+    });
+    renderCatalog();
+  });
 
   const statusSeg = document.getElementById("status-seg");
   if (statusSeg) statusSeg.addEventListener("click", e => {
