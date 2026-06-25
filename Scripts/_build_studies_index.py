@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-"""Write Studies/index.html landing page shell and inject catalog JSON."""
+"""Write Studies/index.html landing page shell and external catalog JSON files."""
 from __future__ import annotations
 
+import re
 import sys
 from pathlib import Path
 
@@ -13,9 +14,9 @@ from _common import STUDIES  # noqa: E402
 from _study_catalog import (  # noqa: E402
     StudyTable,
     catalog_markers,
+    load_catalog_rows,
     parse_catalog_json,
-    replace_catalog_block,
-    serialize_catalog_json_block,
+    parse_catalog_json_file,
     write_studies_catalog,
 )
 
@@ -447,8 +448,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   }
   .is-hidden { display: none !important; }
 
-  .catalog-json { display: none; }
-
   a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, .chip:focus-visible, .cat-filter:focus-visible, .btn-reset-filters:focus-visible {
     outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px;
   }
@@ -583,28 +582,15 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
   <p class="sr-only" id="count" aria-live="polite"></p>
 
-  <div class="catalog-json">
-<!-- studies-catalog -->
-<!-- /studies-catalog -->
-  </div>
-
   <p class="cat-group-label">Topical studies <span class="count" data-count-for="topical"></span></p>
   <ul class="grid" id="grid-topical"></ul>
   <p class="empty is-hidden" id="empty-topical">No topical studies match these filters. <button type="button" class="clear-all">Clear filters</button></p>
 
   <p class="cat-group-label">Formal studies <span class="count" data-count-for="formal"></span></p>
-  <div class="catalog-json">
-<!-- formal-studies-catalog -->
-<!-- /formal-studies-catalog -->
-  </div>
   <ul class="grid" id="grid-formal"></ul>
   <p class="empty is-hidden" id="empty-formal">No formal studies match these filters. <button type="button" class="clear-all">Clear filters</button></p>
 
   <p class="cat-group-label">Applied studies <span class="count" data-count-for="applied"></span></p>
-  <div class="catalog-json">
-<!-- applied-studies-catalog -->
-<!-- /applied-studies-catalog -->
-  </div>
   <ul class="grid" id="grid-applied"></ul>
   <p class="empty is-hidden" id="empty-applied">No applied studies match these filters. <button type="button" class="clear-all">Clear filters</button></p>
 </section>
@@ -672,29 +658,42 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
 <script>
 (() => {
-  const parseCatalog = (id, coll) => {
-    const el = document.getElementById(id);
-    if (!el) return [];
-    try {
-      return JSON.parse(el.textContent).map(entry => ({
-        t: entry.title,
-        slug: entry.slug,
-        coll,
-        status: entry.status === "ongoing" ? "planned" : entry.status,
-        updated: entry.updated || null,
-        cats: entry.categories || [],
-        d: entry.description || "",
-        pdf: entry.pdf || null
-      }));
-    } catch (e) {
-      return [];
-    }
+  const catalogSources = [
+    { url: "catalog-topical.json", coll: "topical" },
+    { url: "catalog-formal.json", coll: "formal" },
+    { url: "catalog-applied.json", coll: "applied" },
+  ];
+
+  const mapEntries = (entries, coll) => {
+    if (!Array.isArray(entries)) return [];
+    return entries.map(entry => ({
+      t: entry.title,
+      slug: entry.slug,
+      coll,
+      status: entry.status === "ongoing" ? "planned" : entry.status,
+      updated: entry.updated || null,
+      cats: entry.categories || [],
+      d: entry.description || "",
+      pdf: entry.pdf || null
+    }));
   };
 
-  const STUDIES = parseCatalog("catalog-topical", "topical").concat(
-    parseCatalog("catalog-formal", "formal"),
-    parseCatalog("catalog-applied", "applied")
-  );
+  let STUDIES = [];
+
+  const loadCatalogs = async () => {
+    const parts = await Promise.all(
+      catalogSources.map(async ({ url, coll }) => {
+        try {
+          const res = await fetch(url);
+          if (!res.ok) return [];
+          return mapEntries(await res.json(), coll);
+        } catch {
+          return [];
+        }
+      })
+    );
+    STUDIES = parts.flat();
+  };
 
   const isAvail = s => s.status === "draft" || s.status === "released";
   const ts = s => s.updated ? Date.parse(s.updated) : -Infinity;
@@ -873,8 +872,21 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     b.addEventListener("click", resetFilters);
   });
 
-  updateHeroScope();
-  renderCatalog();
+  const bootCatalog = () => {
+    updateHeroScope();
+    renderCatalog();
+  };
+
+  const scheduleCatalogBoot = () => {
+    const run = () => loadCatalogs().then(bootCatalog);
+    if ("requestIdleCallback" in window) {
+      requestIdleCallback(() => { run(); }, { timeout: 2000 });
+    } else {
+      setTimeout(run, 0);
+    }
+  };
+
+  scheduleCatalogBoot();
 })();
 
 (() => {
@@ -978,6 +990,28 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 """
 
 
+def minify_inline_css(html: str) -> str:
+    """Collapse whitespace in the first inline <style> block for a smaller catalog page."""
+
+    def _minify(match: re.Match[str]) -> str:
+        css = match.group(1)
+        css = re.sub(r"/\*.*?\*/", "", css, flags=re.DOTALL)
+        css = re.sub(r"\s+", " ", css)
+        css = re.sub(r"\s*([{}:;,>+~])\s*", r"\1", css)
+        return f"<style>\n{css.strip()}\n</style>"
+
+    return re.sub(r"<style>(.*?)</style>", _minify, html, count=1, flags=re.DOTALL)
+
+
+def load_rows_for_build(legacy_index_text: str, table: StudyTable) -> list:
+    rows = parse_catalog_json_file(table)
+    if rows:
+        return rows
+    if legacy_index_text:
+        return parse_catalog_json(legacy_index_text, table)
+    return []
+
+
 def normalize_shell_text(text: str) -> str:
     normalized = text.replace("\r\n", "\n").replace("\r", "\n")
     return "\n".join(line.rstrip() for line in normalized.splitlines()).strip() + "\n"
@@ -987,7 +1021,9 @@ def strip_catalog_blocks(content: str) -> str:
     result = content
     for table in StudyTable:
         start, end = catalog_markers(table)
-        result = replace_catalog_block(result, start, end, CATALOG_SHELL_PLACEHOLDER)
+        pattern = re.compile(re.escape(start) + r".*?" + re.escape(end), re.DOTALL)
+        if pattern.search(result):
+            result = pattern.sub(f"{start}\n{CATALOG_SHELL_PLACEHOLDER}\n{end}", result, count=1)
     return result
 
 
@@ -998,7 +1034,9 @@ def verify_index_shell_sync() -> list[str]:
         return ["Studies/index.html is missing."]
 
     actual = normalize_shell_text(strip_catalog_blocks(index_path.read_text(encoding="utf-8")))
-    expected = normalize_shell_text(strip_catalog_blocks(INDEX_TEMPLATE))
+    expected = normalize_shell_text(
+        strip_catalog_blocks(minify_inline_css(INDEX_TEMPLATE))
+    )
 
     if actual != expected:
         return [
@@ -1012,27 +1050,26 @@ def verify_index_shell_sync() -> list[str]:
 def main() -> int:
     index_path = STUDIES / "index.html"
     legacy_text = index_path.read_text(encoding="utf-8") if index_path.exists() else ""
-    topical_rows = parse_catalog_json(legacy_text, StudyTable.TOPICAL) if legacy_text else []
-    formal_rows = parse_catalog_json(legacy_text, StudyTable.FORMAL) if legacy_text else []
-
-    applied_rows = parse_catalog_json(legacy_text, StudyTable.APPLIED) if legacy_text else []
+    topical_rows = load_rows_for_build(legacy_text, StudyTable.TOPICAL)
+    formal_rows = load_rows_for_build(legacy_text, StudyTable.FORMAL)
+    applied_rows = load_rows_for_build(legacy_text, StudyTable.APPLIED)
 
     if not topical_rows and not formal_rows and not applied_rows:
-        print("No catalog rows found in existing index.html", file=sys.stderr)
+        print("No catalog rows found in index.html or catalog JSON files", file=sys.stderr)
         return 1
 
-    index_path.write_text(INDEX_TEMPLATE, encoding="utf-8")
+    index_path.write_text(minify_inline_css(INDEX_TEMPLATE), encoding="utf-8")
     print("Wrote Studies/index.html shell.")
 
     if topical_rows:
         write_studies_catalog(topical_rows, StudyTable.TOPICAL)
-        print(f"Injected {len(topical_rows)} topical catalog entries.")
+        print(f"Wrote {len(topical_rows)} topical catalog entries to catalog-topical.json.")
     if formal_rows:
         write_studies_catalog(formal_rows, StudyTable.FORMAL)
-        print(f"Injected {len(formal_rows)} formal catalog entries.")
+        print(f"Wrote {len(formal_rows)} formal catalog entries to catalog-formal.json.")
     if applied_rows:
         write_studies_catalog(applied_rows, StudyTable.APPLIED)
-        print(f"Injected {len(applied_rows)} applied catalog entries.")
+        print(f"Wrote {len(applied_rows)} applied catalog entries to catalog-applied.json.")
 
     return 0
 

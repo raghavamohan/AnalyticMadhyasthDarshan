@@ -116,7 +116,7 @@ def set_study_status(
     updated_row.edited_at = edited_at
     rows = upsert_study_row(load_catalog_rows(table), updated_row)
     write_studies_catalog(rows, table)
-    print(f"Updated Studies/index.html and Studies/README.md ({table.value} catalog)")
+    print(f"Updated Studies/catalog JSON and Studies/README.md ({table.value} catalog)")
 
     if not skip_pdf:
         regenerate_pdf(md_path, target_status)

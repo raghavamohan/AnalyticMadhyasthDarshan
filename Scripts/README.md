@@ -29,6 +29,7 @@ cd ..
 | Download / audit references | `python Scripts/_check_references.py` (full); `_audit_references.py` (bibliography only); `_download_references.py` (mirrors) |
 | Verify studies index | `python Scripts/_verify_studies_index.py` |
 | Rebuild index.html shell | `python Scripts/_build_studies_index.py` |
+| Cloudflare performance setup | `python Scripts/_cloudflare_performance.py` (`--apply-api` with `CLOUDFLARE_API_TOKEN`) |
 | Sync agent rules and skills | `python Scripts/_sync_agent_rules.py` then `python Scripts/_sync_agent_rules.py --check` |
 
 Windows wrappers: `.\Scripts\_add_study.ps1`, `.\Scripts\_remove_study.ps1`, `.\Scripts\_set_study_status.ps1`, `.\Scripts\_download_references.ps1`.
@@ -39,7 +40,7 @@ Windows wrappers: `.\Scripts\_add_study.ps1`, `.\Scripts\_remove_study.ps1`, `.\
 |--------|------|
 | `_common.py` | Paths, PDF text extraction, phrase matching, reference registry |
 | `_study_catalog.py` | Catalog CRUD, IST timestamps, `regenerate_pdf`, catalog sync checks |
-| `_build_studies_index.py` | `INDEX_TEMPLATE` for `Studies/index.html`; rebuild shell + re-inject JSON |
+| `_build_studies_index.py` | `INDEX_TEMPLATE` for `Studies/index.html`; writes `Studies/catalog-*.json`; rebuild shell |
 | `_verify_studies_index.py` | Verify catalog JSON ↔ README and index shell ↔ template |
 | `_quote_verify.py` | Blockquote extraction and verification logic |
 | `_convert_to_pdf.py` | MD → HTML; Mermaid fences → `<div class="mermaid">`; `pre-wrap` on fenced code (called by `regenerate_pdf`) |
