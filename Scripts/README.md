@@ -29,7 +29,7 @@ cd ..
 | Download / audit references | `python Scripts/_check_references.py` (full); `_audit_references.py` (bibliography only); `_download_references.py` (mirrors) |
 | Verify studies index | `python Scripts/_verify_studies_index.py` |
 | Rebuild index.html shell | `python Scripts/_build_studies_index.py` |
-| Cloudflare performance setup | `python Scripts/_cloudflare_performance.py` (`--apply-api` with `CLOUDFLARE_API_TOKEN`) |
+| Cloudflare performance setup | `python Scripts/_cloudflare_performance.py` (`--apply-redirect`, `--apply-api`; token in `.env`) |
 | Sync agent rules and skills | `python Scripts/_sync_agent_rules.py` then `python Scripts/_sync_agent_rules.py --check` |
 
 Windows wrappers: `.\Scripts\_add_study.ps1`, `.\Scripts\_remove_study.ps1`, `.\Scripts\_set_study_status.ps1`, `.\Scripts\_download_references.ps1`.
