@@ -26,6 +26,20 @@ npx wrangler secret put DEFAULT_BRANCH
 
 When prompted, enter `master` (the repository default today).
 
+## Turnstile (bot protection)
+
+Both portal forms require Cloudflare Turnstile. The public site key is in [`wrangler.toml`](wrangler.toml) (`TURNSTILE_SITE_KEY`) and [`Studies/submit.html`](../../Studies/submit.html).
+
+Store the widget secret on the Worker:
+
+```powershell
+python _fetch_turnstile_secret.py
+Get-Content .turnstile-secret.tmp -Raw | npx wrangler secret put TURNSTILE_SECRET_KEY
+Remove-Item .turnstile-secret.tmp
+```
+
+The worker verifies `turnstileToken` on every `/api/propose` and `/api/submit` request before calling GitHub. To add hostnames (for example `localhost`), update the widget domains in the Cloudflare dashboard or run `_update_turnstile_domains.py` when the API token has `Account.Turnstile:Edit`.
+
 ## Deploy
 
 ```powershell
@@ -38,8 +52,8 @@ The worker URL is shown after deploy (currently `https://amd-submissions.raghava
 
 | Route | Purpose |
 |-------|---------|
-| `POST /api/propose` | Create a `study-proposal` GitHub issue |
-| `POST /api/submit` | Create branch, commit `Studies/<Slug>/<Slug>.md`, open PR with `new-study` or `study-update` label |
+| `POST /api/propose` | Create a `study-proposal` GitHub issue (requires valid Turnstile token) |
+| `POST /api/submit` | Create branch, commit `Studies/<Slug>/<Slug>.md`, open PR with `new-study` or `study-update` label (requires valid Turnstile token) |
 
 For new studies, `/api/submit` requires `proposalIssue` and verifies the issue has the `proposal-approved` label before opening a PR. The PR body includes `Proposal issue: #N` and `Slug:` so [`Scripts/_ci_study_pr.py`](../../Scripts/_ci_study_pr.py) can run `_add_study.py`.
 

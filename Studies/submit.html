@@ -30,6 +30,7 @@ button.submit-btn:disabled {opacity: 0.6; cursor: not-allowed;}
 .alert {padding: 12px 16px; border-radius: 8px; font-family: var(--sans); font-size: 14px; margin-bottom: 20px; display: none;}
 .alert.success {background: #e6f4ea; color: #1e8e3e; border: 1px solid #ceead6;}
 .alert.error {background: #fce8e6; color: #d93025; border: 1px solid #fad2cf;}
+.turnstile-wrap {margin-bottom: 20px;}
 @media (prefers-color-scheme:dark){:root{--bg:#1a1815;--surface:#26231e;--text:#e6dfd6;--text-muted:#aca194;--accent:#5ba3d3;--accent-soft:#233e52;--accent-hover:#7ebbed;--warm:#d5a477;--warm-soft:#423020;--border:#423b33;} h1, h2, label {color: #f5f1ec;} input[type="text"], select, textarea, input[type="number"] {background: #1e1b18; color: var(--text);} button.submit-btn {color: #1a1815;} .alert.success{background: #133a20; color: #81c995; border-color: #1b5e33;} .alert.error{background: #471815; color: #f28b82; border-color: #712b26;}}
 </style>
 </head>
@@ -113,6 +114,10 @@ button.submit-btn:disabled {opacity: 0.6; cursor: not-allowed;}
           <label for="p-formal">Register in the Formal Studies table (instead of Topical Studies)</label>
         </div>
 
+        <div class="form-group turnstile-wrap">
+          <div id="propose-turnstile" class="cf-turnstile" data-sitekey="0x4AAAAAADoBfrNV5lPeJQWO" data-action="turnstile-spin-v1"></div>
+        </div>
+
         <button type="submit" class="submit-btn" id="p-submit-btn">Submit Proposal</button>
       </form>
     </div>
@@ -156,6 +161,10 @@ button.submit-btn:disabled {opacity: 0.6; cursor: not-allowed;}
           <textarea id="s-content" rows="15" required placeholder="# Title&#10;&#10;Your content here..."></textarea>
         </div>
 
+        <div class="form-group turnstile-wrap">
+          <div id="submit-turnstile" class="cf-turnstile" data-sitekey="0x4AAAAAADoBfrNV5lPeJQWO" data-action="turnstile-spin-v1"></div>
+        </div>
+
         <button type="submit" class="submit-btn" id="s-submit-btn">Submit Draft</button>
       </form>
     </div>
@@ -163,8 +172,8 @@ button.submit-btn:disabled {opacity: 0.6; cursor: not-allowed;}
 
 </div>
 
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script>
-// IMPORTANT: Update this URL to match your deployed Cloudflare worker
 const API_BASE = 'https://amd-submissions.raghavamohan.workers.dev';
 
 function switchTab(tabId) {
@@ -179,6 +188,18 @@ function showAlert(formId, type, message) {
   alertEl.className = 'alert ' + type;
   alertEl.innerHTML = message;
   alertEl.style.display = 'block';
+}
+
+function getTurnstileToken(form) {
+  return form.querySelector('input[name="cf-turnstile-response"]')?.value || '';
+}
+
+function resetTurnstile(form) {
+  if (!window.turnstile) return;
+  const widget = form.querySelector('.cf-turnstile');
+  if (widget && widget.dataset.widgetId) {
+    turnstile.reset(widget.dataset.widgetId);
+  }
 }
 
 function toggleProposalField() {
@@ -197,7 +218,13 @@ toggleProposalField();
 
 document.getElementById('propose-form').addEventListener('submit', async (e) => {
   e.preventDefault();
+  const form = e.target;
   const btn = document.getElementById('p-submit-btn');
+  const turnstileToken = getTurnstileToken(form);
+  if (!turnstileToken) {
+    showAlert('propose', 'error', 'Complete the Turnstile check before submitting.');
+    return;
+  }
   btn.disabled = true;
   btn.textContent = 'Submitting...';
   
@@ -207,7 +234,8 @@ document.getElementById('propose-form').addEventListener('submit', async (e) => 
     description: document.getElementById('p-desc').value,
     summary: document.getElementById('p-summary').value,
     familiarity: document.getElementById('p-fam').value,
-    formal: document.getElementById('p-formal').checked
+    formal: document.getElementById('p-formal').checked,
+    turnstileToken
   };
 
   try {
@@ -219,12 +247,14 @@ document.getElementById('propose-form').addEventListener('submit', async (e) => 
     const data = await res.json();
     if (res.ok) {
       showAlert('propose', 'success', `Proposal submitted successfully! <a href="${data.url}" target="_blank">View on GitHub</a>`);
-      document.getElementById('propose-form').reset();
+      form.reset();
+      resetTurnstile(form);
     } else {
       throw new Error(data.error || 'Unknown error');
     }
   } catch (err) {
     showAlert('propose', 'error', 'Error submitting proposal: ' + err.message);
+    resetTurnstile(form);
   } finally {
     btn.disabled = false;
     btn.textContent = 'Submit Proposal';
@@ -233,7 +263,13 @@ document.getElementById('propose-form').addEventListener('submit', async (e) => 
 
 document.getElementById('submit-form').addEventListener('submit', async (e) => {
   e.preventDefault();
+  const form = e.target;
   const btn = document.getElementById('s-submit-btn');
+  const turnstileToken = getTurnstileToken(form);
+  if (!turnstileToken) {
+    showAlert('submit', 'error', 'Complete the Turnstile check before submitting.');
+    return;
+  }
   btn.disabled = true;
   btn.textContent = 'Submitting...';
   
@@ -242,7 +278,8 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
     slug: document.getElementById('s-slug').value.trim(),
     author: document.getElementById('s-author').value.trim(),
     isNew,
-    content: document.getElementById('s-content').value
+    content: document.getElementById('s-content').value,
+    turnstileToken
   };
   if (isNew) {
     payload.proposalIssue = Number(document.getElementById('s-proposal').value);
@@ -257,12 +294,15 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
     const data = await res.json();
     if (res.ok) {
       showAlert('submit', 'success', `Draft submitted successfully! <a href="${data.url}" target="_blank">View Pull Request on GitHub</a>`);
-      document.getElementById('submit-form').reset();
+      form.reset();
+      toggleProposalField();
+      resetTurnstile(form);
     } else {
       throw new Error(data.error || 'Unknown error');
     }
   } catch (err) {
     showAlert('submit', 'error', 'Error submitting draft: ' + err.message);
+    resetTurnstile(form);
   } finally {
     btn.disabled = false;
     btn.textContent = 'Submit Draft';

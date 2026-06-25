@@ -14,3 +14,4 @@ Scripts/_pdf_cache/
 !/index.html
 
 infra/worker/.wrangler/
+infra/worker/.turnstile-secret.tmp
