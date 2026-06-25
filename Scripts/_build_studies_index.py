@@ -250,6 +250,9 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   .section.is-targeted {
     animation: section-target-flash 1.6s ease-out forwards;
   }
+  .catalog-group.is-targeted {
+    animation: section-target-flash 1.6s ease-out forwards;
+  }
 
   @keyframes section-target-flash {
     0% {
@@ -457,15 +460,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   .triad-item.t2 { border-top: 3px solid var(--warm); } .triad-item.t2 .k { color: var(--warm); }
   .triad-item.t3 { border-top: 3px solid #9a8f80; } .triad-item.t3 .k { color: #6f655a; }
 
-  .footer-band { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 6px; }
-  .footer-card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px 22px;
-  }
-  .footer-card h2 { font-size: 21px; font-weight: 600; margin-bottom: 8px; border: none; padding: 0; }
-  .footer-card p, .footer-card li { font-size: 14px; }
-  .footer-card ol { margin: 8px 0 0 18px; }
-  #contribute, #about { scroll-margin-top: 64px; }
+  .catalog-group { scroll-margin-top: 64px; }
   .license-line {
     font-family: var(--sans); font-size: 13px; color: var(--text-muted);
     margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border);
@@ -526,15 +521,15 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     .page-nav-label { flex: 0 0 auto; }
     .toc { flex-wrap: nowrap; }
     .section { scroll-margin-top: 56px; }
+    .catalog-group { scroll-margin-top: 56px; }
     h1 { font-size: 30px; }
     .triad { grid-template-columns: 1fr; }
-    .footer-band { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 600px) {
     .page { padding: 18px 14px 44px; }
     .hero { padding: 0; }
-    .section-card, .footer-card { padding: 18px 16px; }
+    .section-card { padding: 18px 16px; }
     h1 { font-size: 26px; }
     .lead { font-size: 17px; }
     .search { flex-basis: 100%; }
@@ -565,7 +560,9 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   <div class="page-nav-inner">
     <p class="page-nav-label">On this page</p>
     <ul class="toc" id="toc">
-      <li><a href="#studies">The studies</a></li>
+      <li><a href="#topical-studies">Topical Studies</a></li>
+      <li><a href="#formal-studies">Formal Studies</a></li>
+      <li><a href="#applied-studies">Applied Studies</a></li>
       <li><a href="#approach">How we work</a></li>
       <li><a href="#contribute">How to contribute</a></li>
       <li><a href="#about">About us</a></li>
@@ -608,17 +605,23 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
   <p class="sr-only" id="count" aria-live="polite"></p>
 
+  <div class="catalog-group" id="topical-studies">
   <p class="cat-group-label">Topical studies <span class="count" data-count-for="topical"></span></p>
   <ul class="grid" id="grid-topical"></ul>
   <p class="empty is-hidden" id="empty-topical">No topical studies match these filters. <button type="button" class="clear-all">Clear filters</button></p>
+  </div>
 
+  <div class="catalog-group" id="formal-studies">
   <p class="cat-group-label">Formal studies <span class="count" data-count-for="formal"></span></p>
   <ul class="grid" id="grid-formal"></ul>
   <p class="empty is-hidden" id="empty-formal">No formal studies match these filters. <button type="button" class="clear-all">Clear filters</button></p>
+  </div>
 
+  <div class="catalog-group" id="applied-studies">
   <p class="cat-group-label">Applied studies <span class="count" data-count-for="applied"></span></p>
   <ul class="grid" id="grid-applied"></ul>
   <p class="empty is-hidden" id="empty-applied">No applied studies match these filters. <button type="button" class="clear-all">Clear filters</button></p>
+  </div>
 </section>
 
 <section class="section" id="approach">
@@ -657,27 +660,28 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   </div>
 </section>
 
-<section class="section" id="site-footer">
-  <div class="footer-band">
-    <div class="footer-card" id="contribute">
-      <h2>How to contribute</h2>
-      <p>We welcome new studies and revisions from anyone studying Madhyasth Darshan. Before you write, read the study format and intent in the repository <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/Studies/README.md">Studies/README.md</a>.</p>
-      <p>To add or update a study, the steps are:</p>
-      <ol>
-        <li><strong>Sign in</strong> on <a href="submit.html">My Submissions</a> (required to propose or submit; not required to read studies).</li>
-        <li><strong>Propose</strong> a new study, <strong>update</strong> an existing one, or <strong>change release status</strong> (Draft &harr; Released) from the same page.</li>
-        <li><strong>Track</strong> approval status, pull requests, and CI checks on that page.</li>
-        <li>When a proposal is approved, click <strong>Submit draft</strong> on your row.</li>
-        <li>After merge, use <strong>Update study</strong> or <strong>Release study</strong> / <strong>Revert to draft</strong> as needed.</li>
-      </ol>
-    </div>
-    <div class="footer-card" id="about">
-      <h2>About us</h2>
-      <p>We are a group of people studying <strong>Madhyasth Darshan</strong> and writing these studies together, published as <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> &mdash; collaborative, fully open, and independent analytic work, separate from the official institution.</p>
-      <p>For official texts and lectures visit <a href="https://www.madhyasth.org/">madhyasth.org</a> (Divya Path Sansthan). The studies on this site are our own comparative and analytic work, not institutional publications.</p>
-      <p>Anyone is welcome to read the studies, check our sources, and contribute through our <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">GitHub repository</a>. Every study ends with a list of its sources, linking to the original texts wherever they are freely available.</p>
-      <p class="license-line"><strong>License:</strong> <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a> &mdash; attribution required. Cite <strong>AnalyticMadhyasthDarshan.org</strong> and link to the repository.</p>
-    </div>
+<section class="section" id="contribute">
+  <h2>How to contribute</h2>
+  <div class="section-card">
+    <p>We welcome new studies and revisions from anyone studying Madhyasth Darshan. Before you write, read the study format and intent in the repository <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/Studies/README.md">Studies/README.md</a>.</p>
+    <p>To add or update a study, the steps are:</p>
+    <ol>
+      <li><strong>Sign in</strong> on <a href="submit.html">My Submissions</a> (required to propose or submit; not required to read studies).</li>
+      <li><strong>Propose</strong> a new study, <strong>update</strong> an existing one, or <strong>change release status</strong> (Draft &harr; Released) from the same page.</li>
+      <li><strong>Track</strong> approval status, pull requests, and CI checks on that page.</li>
+      <li>When a proposal is approved, click <strong>Submit draft</strong> on your row.</li>
+      <li>After merge, use <strong>Update study</strong> or <strong>Release study</strong> / <strong>Revert to draft</strong> as needed.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <h2>About us</h2>
+  <div class="section-card">
+    <p>We are a group of people studying <strong>Madhyasth Darshan</strong> and writing these studies together, published as <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> &mdash; collaborative, fully open, and independent analytic work, separate from the official institution.</p>
+    <p>For official texts and lectures visit <a href="https://www.madhyasth.org/">madhyasth.org</a> (Divya Path Sansthan). The studies on this site are our own comparative and analytic work, not institutional publications.</p>
+    <p>Anyone is welcome to read the studies, check our sources, and contribute through our <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">GitHub repository</a>. Every study ends with a list of its sources, linking to the original texts wherever they are freely available.</p>
+    <p class="license-line"><strong>License:</strong> <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a> &mdash; attribution required. Cite <strong>AnalyticMadhyasthDarshan.org</strong> and link to the repository.</p>
   </div>
 </section>
 
@@ -920,7 +924,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
 (() => {
   const tocLinks = Array.from(document.querySelectorAll("#toc a"));
-  const mainSpyIds = ["studies", "approach", "site-footer"];
+  const mainSpyIds = ["topical-studies", "formal-studies", "applied-studies", "approach", "contribute", "about"];
   let lockActiveUntil = 0;
   let lockedId = null;
 
@@ -941,25 +945,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     });
   };
 
-  const pickFooterCard = marker => {
-    const contrib = document.getElementById("contribute");
-    const about = document.getElementById("about");
-    if (!contrib) return "contribute";
-    if (!about) return "contribute";
-
-    const cRect = contrib.getBoundingClientRect();
-    const aRect = about.getBoundingClientRect();
-
-    if (Math.abs(cRect.top - aRect.top) > 40) {
-      return aRect.top <= marker ? "about" : "contribute";
-    }
-
-    const cx = window.innerWidth / 2;
-    const cMid = (cRect.left + cRect.right) / 2;
-    const aMid = (aRect.left + aRect.right) / 2;
-    return Math.abs(cMid - cx) <= Math.abs(aMid - cx) ? "contribute" : "about";
-  };
-
   const updateActiveFromScroll = () => {
     if (lockedId && Date.now() < lockActiveUntil) {
       setActive(lockedId);
@@ -967,7 +952,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     }
 
     const marker = scrollMarker();
-    let currentId = "studies";
+    let currentId = "topical-studies";
 
     mainSpyIds.forEach(id => {
       const el = document.getElementById(id);
@@ -975,10 +960,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
         currentId = id;
       }
     });
-
-    if (currentId === "site-footer") {
-      currentId = pickFooterCard(marker);
-    }
 
     setActive(currentId);
   };
