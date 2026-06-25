@@ -52,6 +52,7 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-19.
 | | Metzinger 2003, Penrose 2010, Ishvarakrishna, Nagarjuna, Weinberg 1995 | external |
 
 
+
 | [Economics-In-Madhyasth.pdf](../Studies/Economics-In-Madhyasth/Economics-In-Madhyasth.pdf) | MVD, SB, JV | TBD |
 
 ## By tag
