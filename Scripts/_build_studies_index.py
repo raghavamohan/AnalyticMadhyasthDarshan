@@ -73,7 +73,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     background: transparent;
     border: none;
     box-shadow: none;
-    padding: 0 0 26px;
+    padding: 0;
     margin-bottom: 0;
   }
 
@@ -101,12 +101,11 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     font-size: 19px;
     line-height: 1.5;
     color: var(--text-muted);
-    margin: 0 0 20px;
-    max-width: 64ch;
+    margin: 0 0 6px;
   }
 
   .dialogue {
-    margin: 0 0 20px;
+    margin: 0 0 6px;
     padding: 0;
     list-style: none;
     display: flex;
@@ -135,6 +134,8 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     margin: 0 0 20px;
   }
   .scope strong { color: var(--text); font-weight: 600; }
+  #hero-scope { margin-bottom: 6px; }
+  .hero .scope:last-child { margin-bottom: 0; }
 
   .hero-actions {
     display: flex;
@@ -175,23 +176,12 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   }
   .btn-secondary:hover { background: #d4e6f2; color: var(--accent-hover); }
 
-  .official {
-    background: var(--accent-soft);
-    border: 1px solid #c5d9e6;
-    border-radius: 8px;
-    padding: 12px 16px;
-    margin: 0;
-    font-size: 16px;
-    line-height: 1.5;
-  }
-  .official strong { color: #111; }
-
   .page-nav {
     border: none;
-    border-bottom: 1px solid var(--border);
     border-radius: 0;
     box-shadow: none;
-    padding: 10px 0 12px;
+    padding: 0;
+    margin-top: 22px;
     margin-bottom: 22px;
     position: sticky;
     top: 0;
@@ -505,7 +495,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       --border: #423b33;
       --shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
     }
-    h1, h2, h3, .official strong { color: #f5f1ec; }
+    h1, h2, h3 { color: #f5f1ec; }
     .page-nav { background: rgba(26, 24, 21, 0.92); }
     .search input, .seg, .triad-item { background: #1e1b18; }
     .search input::placeholder { color: #6f655a; }
@@ -530,7 +520,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   }
 
   @media (max-width: 820px) {
-    .page-nav { padding: 8px 0 10px; }
+    .page-nav { margin-top: 18px; margin-bottom: 18px; padding: 0; }
     .page-nav-inner { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
     .page-nav-inner::-webkit-scrollbar { display: none; }
     .page-nav-label { flex: 0 0 auto; }
@@ -543,7 +533,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
   @media (max-width: 600px) {
     .page { padding: 18px 14px 44px; }
-    .hero { padding: 0 0 20px; }
+    .hero { padding: 0; }
     .section-card, .footer-card { padding: 18px 16px; }
     h1 { font-size: 26px; }
     .lead { font-size: 17px; }
@@ -570,11 +560,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
   <p class="scope" id="hero-scope"><strong>&mdash;</strong> studies available &middot; open &amp; independent</p>
 
-  <p class="hero-actions">
-    <a class="btn-primary" href="submit.html">My Submissions</a>
-  </p>
-
-  <p class="official"><strong>Official texts:</strong> <a href="https://www.madhyasth.org/">madhyasth.org</a> (<strong>Divya Path Sansthan</strong>). These studies are independent analytic work &mdash; for Shri Nagraj&rsquo;s original books and lectures, start there.</p>
+  <p class="scope">For official texts and lectures visit <a href="https://www.madhyasth.org/">madhyasth.org</a> (Divya Path Sansthan). The studies here are independent analytic work.</p>
 </header>
 
 <nav class="page-nav" aria-label="On this page">
@@ -585,6 +571,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       <li><a href="#approach">How we work</a></li>
       <li><a href="#contribute">How to contribute</a></li>
       <li><a href="#about">About us</a></li>
+      <li><a href="submit.html">My Submissions</a></li>
     </ul>
   </div>
 </nav>
@@ -592,8 +579,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 <main>
 
 <section class="section" id="studies">
-  <h2>The studies</h2>
-  <p class="section-intro">Each study reads the primary texts closely, then compares them with the sciences, Advaita Vedanta, and modern philosophy. Available studies open as PDFs; planned ones are in progress.</p>
 
   <noscript>
     <p class="section-intro">JavaScript is required for search and filters on this page. Browse the full catalog in <a href="README.md">Studies/README.md</a>.</p>
@@ -679,7 +664,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     <div class="footer-card" id="contribute">
       <h2>How to contribute</h2>
       <p>We welcome new studies and revisions from anyone studying Madhyasth Darshan. Before you write, read the study format and intent in the repository <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/Studies/README.md">Studies/README.md</a>.</p>
-      <p>To add or update a study, open <a href="submit.html">My Submissions</a> and sign in with GitHub:</p>
+      <p>To add or update a study, the steps are:</p>
       <ol>
         <li><strong>Sign in</strong> on <a href="submit.html">My Submissions</a> (required to propose or submit; not required to read studies).</li>
         <li><strong>Propose</strong> a new study, <strong>update</strong> an existing one, or <strong>change release status</strong> (Draft &harr; Released) from the same page.</li>
