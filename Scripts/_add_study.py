@@ -80,9 +80,26 @@ def build_stub_markdown(title: str, description: str, edited_at, status: StudySt
 """
 
 
-def ensure_author_block(md_text: str) -> str:
+def ensure_h1_heading(md_text: str, fallback_title: str | None = None) -> str:
+    if re.search(r"^# .+", md_text, re.MULTILINE):
+        return md_text
+    stripped = md_text.strip()
+    if not stripped:
+        if not fallback_title:
+            raise ValueError("Markdown must start with an H1 heading.")
+        return f"# {fallback_title}\n\n"
+    first_line, _, rest = stripped.partition("\n")
+    heading = first_line.lstrip("#").strip() or (fallback_title or "").strip()
+    if not heading:
+        raise ValueError("Markdown must start with an H1 heading.")
+    body = rest.strip()
+    return f"# {heading}\n\n{body}\n" if body else f"# {heading}\n\n"
+
+
+def ensure_author_block(md_text: str, *, fallback_title: str | None = None) -> str:
     if "**Author:**" in md_text:
         return md_text
+    md_text = ensure_h1_heading(md_text, fallback_title=fallback_title)
     h1_match = re.search(r"^# .+\n+", md_text, re.MULTILINE)
     if not h1_match:
         raise ValueError("Markdown must start with an H1 heading.")
@@ -244,7 +261,7 @@ def add_study(
             shutil.copy2(input_path, dest_md)
             print(f"Copied markdown to {dest_md}")
         md_text = dest_md.read_text(encoding="utf-8")
-        md_text = ensure_author_block(md_text)
+        md_text = ensure_author_block(md_text, fallback_title=study_title)
         md_text = set_edited_on(md_text, edited_at)
         if status != StudyStatus.ONGOING:
             md_text = set_status_md(md_text, status)

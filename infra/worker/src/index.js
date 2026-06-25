@@ -116,6 +116,43 @@ function getISTDateString() {
   return str + ' IST';
 }
 
+function slugToTitle(slug) {
+  return slug.split('-').join(' ');
+}
+
+function ensureH1Heading(content, slug) {
+  if (/^# .+/m.test(content)) {
+    return content;
+  }
+  const trimmed = content.trim();
+  const fallbackTitle = slugToTitle(slug);
+  if (!trimmed) {
+    return `# ${fallbackTitle}\n\n`;
+  }
+  const newline = trimmed.indexOf('\n');
+  const firstLine = (newline === -1 ? trimmed : trimmed.slice(0, newline)).replace(/^#+\s*/, '').trim();
+  const heading = firstLine || fallbackTitle;
+  const rest = newline === -1 ? '' : trimmed.slice(newline + 1).trimStart();
+  return rest ? `# ${heading}\n\n${rest}` : `# ${heading}\n\n`;
+}
+
+function applyStudyMetadata(content, author, istTime, slug) {
+  content = ensureH1Heading(content, slug);
+  if (content.includes('**Author:**')) {
+    if (!content.includes('**Edited on:**')) {
+      content = content.replace(/(\*\*Author:\*\*.*)(\r?\n)/, `$1$2\n**Edited on:** ${istTime}\n`);
+    } else {
+      content = content.replace(/\*\*Edited on:\*\*.*(\r?\n|$)/, `**Edited on:** ${istTime}$1`);
+    }
+  } else if (content.includes('**Edited on:**')) {
+    content = content.replace(/\*\*Edited on:\*\*.*(\r?\n|$)/, `**Edited on:** ${istTime}$1`);
+    content = content.replace(/^(# .*?)(\r?\n)/, `$1$2\n**Author:** ${author}\n\n`);
+  } else {
+    content = content.replace(/^(# .*?)(\r?\n)/, `$1$2\n**Author:** ${author}\n\n**Edited on:** ${istTime}\n\n`);
+  }
+  return content;
+}
+
 router.options('*', () => new Response(null, { headers: corsHeaders }));
 
 router.post('/api/propose', async (request, env) => {
@@ -215,20 +252,8 @@ router.post('/api/submit', async (request, env) => {
       await assertProposalApproved(Number(proposalIssue), env);
     }
 
-    // Ensure Author and Edited on metadata
     const istTime = getISTDateString();
-    if (content.includes('**Author:**')) {
-      if (!content.includes('**Edited on:**')) {
-        content = content.replace(/(\*\*Author:\*\*.*)(\r?\n)/, `$1$2\n**Edited on:** ${istTime}\n`);
-      } else {
-        content = content.replace(/\*\*Edited on:\*\*.*(\r?\n|$)/, `**Edited on:** ${istTime}$1`);
-      }
-    } else if (content.includes('**Edited on:**')) {
-      content = content.replace(/\*\*Edited on:\*\*.*(\r?\n|$)/, `**Edited on:** ${istTime}$1`);
-      content = content.replace(/^(# .*?)(\r?\n)/, `$1$2\n**Author:** ${author}\n\n`);
-    } else {
-      content = content.replace(/^(# .*?)(\r?\n)/, `$1$2\n**Author:** ${author}\n\n**Edited on:** ${istTime}\n\n`);
-    }
+    content = applyStudyMetadata(content, author, istTime, slug);
 
     const branchName = `submission-${slug}-${Date.now()}`;
     const filePath = `Studies/${slug}/${slug}.md`;
