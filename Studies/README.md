@@ -6,13 +6,13 @@ Clear, carefully argued studies of **Madhyasth Darshan** (Co-existentialism) —
 
 Browse the published collection at **[analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org)** (or open [index.html](index.html) locally for search, filters, and card layout).
 
-**Want to contribute?** Use the **[Web Submission Portal](submit.html)** to [propose a study](submit.html) or [submit a draft](submit.html?tab=submit). See [Contribute](#contribute) below for the full workflow.
+**Want to contribute?** Use the **[Web Submission Portal](submit.html)** to [propose a study](submit.html) or [submit a draft](submit.html?tab=submit). See [How to contribute](#contribute) below for the full workflow.
 
 **On this page**
 
 - [The studies](#the-studies)
 - [How we work](#how-we-work)
-- [Contribute](#contribute)
+- [How to contribute](#contribute)
 - [About us](#about-us)
 
 ## The studies
