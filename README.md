@@ -43,9 +43,10 @@ For the full script list, see **[Scripts/README.md](Scripts/README.md)**.
 ## For contributors
 
 1. **Read** [Studies/README.md](Studies/README.md) for what a study should cover and how we write.
-2. **Propose** a title, category, and summary via the **[Web Submission Portal](Studies/submit.html)**.
-3. **Wait** for maintainer approval on the GitHub issue the portal creates.
-4. **Submit** your markdown draft through the same portal ([Submit a Draft](Studies/submit.html?tab=submit)) — it opens a pull request automatically.
+2. **Sign in** on the **[Web Submission Portal](Studies/submit.html)** with GitHub (required to propose or submit).
+3. **Propose** a title, category, and summary via the portal.
+4. **Wait** for maintainer approval on the GitHub issue filed under your account.
+5. **Submit** your markdown draft through the same portal ([Submit a Draft](Studies/submit.html?tab=submit)) — it opens a pull request automatically. Track status under [My Submissions](Studies/submit.html?tab=dashboard).
 
 The portal handles GitHub issues and pull requests for you. Full details: [CONTRIBUTING.md](CONTRIBUTING.md).
 

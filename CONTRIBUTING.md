@@ -1,10 +1,10 @@
 # Contributing studies
 
-Thank you for helping expand rigorous analytic work on Madhyasth Darshan. This repository uses a **two-stage flow** managed through our **[Web Submission Portal](Studies/submit.html)**: propose a study, wait for maintainer approval, then submit your draft. The web portal automatically handles all GitHub issues and pull requests behind the scenes.
+Thank you for helping expand rigorous analytic work on Madhyasth Darshan. This repository uses a **two-stage flow** managed through our **[Web Submission Portal](Studies/submit.html)**: propose a study, wait for maintainer approval, then submit your draft. The portal uses **GitHub sign-in** so you can track proposals and pull requests under **My Submissions**. Reading studies on the site does not require an account.
 
 Read [Studies/README.md](Studies/README.md) for study format, tone, and structure before you start. Agents and automation should follow **[AGENTS.md](AGENTS.md)** for Edited on, PDF pipeline, prose style, and Standpoint and scope.
 
-**Quick start:** [Propose a study](Studies/submit.html) → wait for approval → [Submit your draft](Studies/submit.html?tab=submit).
+**Quick start:** [Sign in](Studies/submit.html) → [Propose a study](Studies/submit.html) → wait for approval → [Submit your draft](Studies/submit.html?tab=submit) → track progress under [My Submissions](Studies/submit.html?tab=dashboard).
 
 ---
 
@@ -20,8 +20,8 @@ The public catalog at [analyticmadhyasthdarshan.org](https://analyticmadhyasthda
 
 ### Ways to contribute (ranked)
 
-1. **Web Submission Portal (recommended)** — [Studies/submit.html](Studies/submit.html). No GitHub account or local clone required for proposal and draft submission.
-2. **GitHub issue template** — [Study proposal](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-proposal.yml) if you prefer filing directly on GitHub. Still wait for `proposal-approved`, then use the portal to submit your draft.
+1. **Web Submission Portal (recommended)** — [Studies/submit.html](Studies/submit.html). Sign in with GitHub to propose, submit drafts, and track status under **My Submissions**. No local clone required.
+2. **GitHub issue template** — [Study proposal](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-proposal.yml) if you prefer filing directly on GitHub. Still wait for `proposal-approved`, then sign in on the portal to submit your draft.
 3. **Fork and pull request (advanced)** — for contributors comfortable with Git. See the collapsible **Advanced** section in the maintainer approval comment, or [README.md](README.md#for-maintainers).
 
 
@@ -29,7 +29,7 @@ The public catalog at [analyticmadhyasthdarshan.org](https://analyticmadhyasthda
 
 ## Step 1 — Propose a study
 
-Open the [**Web Submission Portal**](Studies/submit.html) and fill out the **Propose a Study** form. Include:
+Open the [**Web Submission Portal**](Studies/submit.html), **sign in with GitHub**, and fill out the **Propose a Study** form. Include:
 
 - **Proposed title** — becomes the study name; the file slug is derived from it (e.g. `The Ontology of Coexistence` → `The-Ontology-of-Coexistence`).
 - **Category** — topical area (Ontology, Epistemology, Ethics, etc.) or formal focus.
@@ -48,7 +48,7 @@ Maintainers review proposals for overlap, scope, and alignment with [Studies/REA
 
 ## Step 3 — Submit a draft
 
-Once approved, return to the [**Web Submission Portal**](Studies/submit.html) and use the **Submit a Draft** form.
+Once approved, return to the [**Web Submission Portal**](Studies/submit.html) (same GitHub account), open **Submit a Draft**, and track progress anytime under **My Submissions**.
 
 1. Enter your study slug and author name.
 2. Enter the approved **proposal issue number** from GitHub.

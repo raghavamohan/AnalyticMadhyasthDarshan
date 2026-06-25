@@ -175,15 +175,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   }
   .btn-secondary:hover { background: #d4e6f2; color: var(--accent-hover); }
 
-  .contribute-bridge {
-    margin-top: 16px;
-    padding-top: 16px;
-    border-top: 1px solid var(--border);
-    font-family: var(--sans);
-    font-size: 15px;
-  }
-  .contribute-bridge p { margin: 0 0 10px; }
-
   .official {
     background: var(--accent-soft);
     border: 1px solid #c5d9e6;
@@ -681,26 +672,22 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
     <h3>From study to understanding</h3>
     <p>Reading the books and following the logic is necessary, but only the starting point. Understanding is fulfilled when what is studied becomes clear in one&rsquo;s own seeing, stable in conviction, and evident in conduct &mdash; in recognised relationships, fulfilled values, resolution in thought, and the ability to convey it to others.</p>
-
-    <div class="contribute-bridge">
-      <p>Ready to contribute? Start with a proposal &mdash; no GitHub account required.</p>
-      <a class="btn-primary" href="submit.html">Propose a study</a>
-    </div>
   </div>
 </section>
 
 <section class="section" id="site-footer">
   <div class="footer-band">
     <div class="footer-card" id="contribute">
-      <h2>Contribute</h2>
+      <h2>How to contribute</h2>
       <p>We welcome new studies and revisions from anyone studying Madhyasth Darshan. Before you write, read the study format and intent in the repository <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/Studies/README.md">Studies/README.md</a>.</p>
-      <p><strong>No GitHub account required.</strong> Propose and submit studies from your browser using our <a href="submit.html">Web Submission Portal</a>.</p>
+      <p>To add or update a study through the <a href="submit.html">Web Submission Portal</a>:</p>
       <ol>
-        <li><strong>Propose.</strong> Use the portal to propose a title, category, and a short summary of the question you want to examine.</li>
-        <li><strong>Wait for approval.</strong> Maintainers will review your proposal and reply to the created issue.</li>
-        <li><strong>Submit.</strong> Once approved, use the portal to paste your markdown draft. It will automatically submit for review.</li>
+        <li><strong>Sign in</strong> with GitHub on the portal (required to propose or submit; not required to read studies).</li>
+        <li><strong>Propose.</strong> Submit a proposed title, category, and a short summary of the question you want to examine.</li>
+        <li><strong>Wait for approval.</strong> Maintainers review your proposal on the GitHub issue filed under your account.</li>
+        <li><strong>Submit.</strong> Once approved, paste your markdown draft in the portal; a pull request opens for review.</li>
+        <li><strong>Track.</strong> Use <strong>My Submissions</strong> on the portal to follow approval status and pull request progress.</li>
       </ol>
-      <p>Full instructions and maintainer duties are in <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a> on GitHub.</p>
     </div>
     <div class="footer-card" id="about">
       <h2>About us</h2>

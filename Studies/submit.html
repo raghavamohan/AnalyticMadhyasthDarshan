@@ -47,6 +47,25 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
 .proposal-status.error{background:#fce8e6;color:#d93025;border:1px solid #fad2cf;}
 .proposal-status.loading{background:var(--accent-soft);color:var(--text-muted);border:1px solid #c5d9e6;}
 .turnstile-wrap{margin-bottom:20px;}
+.auth-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;margin-bottom:20px;font-family:var(--sans);font-size:14px;}
+.auth-bar .auth-user{color:var(--text-muted);}
+.auth-bar .auth-user strong{color:var(--text);}
+.auth-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
+.auth-btn{font-family:var(--sans);font-size:14px;font-weight:600;border-radius:8px;padding:8px 14px;cursor:pointer;border:1px solid var(--border);background:var(--surface);color:var(--text);}
+.auth-btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;}
+.auth-btn:hover{opacity:0.92;}
+.login-gate{background:var(--warm-soft);border:1px solid #e0d0be;border-radius:8px;padding:14px 16px;margin-bottom:20px;font-family:var(--sans);font-size:14px;display:none;}
+.login-gate.visible{display:block;}
+.dashboard-table{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:14px;margin-top:8px;}
+.dashboard-table th,.dashboard-table td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+.dashboard-table th{font-size:12px;text-transform:uppercase;letter-spacing:0.04em;color:var(--text-muted);}
+.stage-badge{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:600;}
+.stage-pending{background:var(--warm-soft);color:var(--warm);}
+.stage-approved{background:var(--accent-soft);color:var(--accent);}
+.stage-pr-open{background:#e8f0fe;color:#1967d2;}
+.stage-merged{background:#e6f4ea;color:#1e8e3e;}
+.stage-closed,.stage-pr-closed{background:#f1f3f4;color:#5f6368;}
+.dashboard-empty{color:var(--text-muted);font-family:var(--sans);font-size:14px;margin:8px 0 0;}
 @media (prefers-color-scheme:dark){:root{--bg:#1a1815;--surface:#26231e;--text:#e6dfd6;--text-muted:#aca194;--accent:#5ba3d3;--accent-soft:#233e52;--accent-hover:#7ebbed;--warm:#d5a477;--warm-soft:#423020;--border:#423b33;}h1,h2,label,.before-start strong{color:#f5f1ec;}input[type="text"],select,textarea,input[type="number"]{background:#1e1b18;color:var(--text);}button.submit-btn{color:#1a1815;}.alert.success,.proposal-status.approved{background:#133a20;color:#81c995;border-color:#1b5e33;}.alert.error,.proposal-status.error{background:#471815;color:#f28b82;border-color:#712b26;}.step-strip .step.done{background:#133a20;color:#81c995;}}
 </style>
 </head>
@@ -74,9 +93,18 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
     <span class="step" id="step-submit">3. Submit draft</span>
   </div>
 
+  <div class="auth-bar" id="auth-bar">
+    <div class="auth-user" id="auth-user">Sign in with GitHub to propose or submit a study.</div>
+    <div class="auth-actions">
+      <button type="button" class="auth-btn primary" id="auth-login-btn">Sign in with GitHub</button>
+      <button type="button" class="auth-btn" id="auth-logout-btn" hidden>Sign out</button>
+    </div>
+  </div>
+
   <div class="nav-tabs">
     <button class="active" id="tab-btn-propose" type="button" onclick="switchTab('propose')">Propose a Study</button>
     <button id="tab-btn-submit" type="button" onclick="switchTab('submit')">Submit a Draft</button>
+    <button id="tab-btn-dashboard" type="button" onclick="switchTab('dashboard')">My Submissions</button>
   </div>
 
   <!-- Proposal Form -->
@@ -84,6 +112,11 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
     <div class="section-card">
       <h2>Study Proposal</h2>
       <p class="help-text" style="margin-bottom:20px;">Propose a new analytic study before writing the full paper. Maintainers will review and label approved proposals.</p>
+
+      <div id="propose-login-gate" class="login-gate">
+        <strong>GitHub sign-in required.</strong> Proposals are filed as GitHub issues on your account so you can track them under <strong>My Submissions</strong>.
+        <button type="button" class="auth-btn primary" style="margin-top:10px;" onclick="startGitHubLogin()">Sign in with GitHub</button>
+      </div>
 
       <div id="propose-alert" class="alert"></div>
 
@@ -163,6 +196,11 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
       <h2>Submit a Draft</h2>
       <p class="help-text" style="margin-bottom:20px;">Submit your study markdown content directly here. This will automatically open a Pull Request for review.</p>
 
+      <div id="submit-login-gate" class="login-gate">
+        <strong>GitHub sign-in required.</strong> Sign in with the same GitHub account that filed the approved proposal.
+        <button type="button" class="auth-btn primary" style="margin-top:10px;" onclick="startGitHubLogin()">Sign in with GitHub</button>
+      </div>
+
       <div id="submit-alert" class="alert"></div>
       <div id="proposal-status" class="proposal-status" role="status" aria-live="polite"></div>
 
@@ -205,12 +243,163 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
     </div>
   </section>
 
+  <section id="dashboard-tab" class="tab-content">
+    <div class="section-card">
+      <h2>My Submissions</h2>
+      <p class="help-text" style="margin-bottom:20px;">Track your study proposals, approval status, and pull requests. Reading the catalog does not require a GitHub account.</p>
+
+      <div id="dashboard-login-gate" class="login-gate visible">
+        <strong>Sign in with GitHub</strong> to see proposals you filed through this portal.
+        <button type="button" class="auth-btn primary" style="margin-top:10px;" onclick="startGitHubLogin()">Sign in with GitHub</button>
+      </div>
+
+      <div id="dashboard-alert" class="alert"></div>
+      <div id="dashboard-content" hidden>
+        <table class="dashboard-table">
+          <thead>
+            <tr>
+              <th>Proposal</th>
+              <th>Status</th>
+              <th>Pull request</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="dashboard-rows"></tbody>
+        </table>
+        <p class="dashboard-empty" id="dashboard-empty" hidden>No proposals yet. Use <strong>Propose a Study</strong> to start.</p>
+      </div>
+    </div>
+  </section>
+
 </div>
 
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script>
 const API_BASE = 'https://amd-submissions.raghavamohan.workers.dev';
 const PROPOSAL_STORAGE_KEY = 'amd-last-proposal-issue';
+
+let currentUser = null;
+
+const STAGE_LABELS = {
+  pending: 'Awaiting review',
+  approved: 'Approved — submit draft',
+  'pr-open': 'PR open',
+  merged: 'Merged',
+  closed: 'Proposal closed',
+  'pr-closed': 'PR closed',
+};
+
+function apiFetch(path, options = {}) {
+  return fetch(API_BASE + path, {
+    credentials: 'include',
+    ...options,
+    headers: {
+      ...(options.headers || {}),
+    },
+  });
+}
+
+function startGitHubLogin() {
+  const returnTo = window.location.href;
+  window.location.href = API_BASE + '/api/auth/github?return_to=' + encodeURIComponent(returnTo);
+}
+
+function stageClass(stage) {
+  if (stage === 'approved') return 'stage-approved';
+  if (stage === 'pr-open') return 'stage-pr-open';
+  if (stage === 'merged') return 'stage-merged';
+  if (stage === 'pending') return 'stage-pending';
+  return 'stage-closed';
+}
+
+function updateAuthUi(loggedIn) {
+  ['propose-form', 'submit-form'].forEach((id) => {
+    const form = document.getElementById(id);
+    if (!form) return;
+    form.querySelectorAll('input, select, textarea, button').forEach((el) => {
+      el.disabled = !loggedIn;
+    });
+  });
+  document.getElementById('propose-login-gate').classList.toggle('visible', !loggedIn);
+  document.getElementById('submit-login-gate').classList.toggle('visible', !loggedIn);
+  document.getElementById('dashboard-login-gate').classList.toggle('visible', !loggedIn);
+  document.getElementById('dashboard-content').hidden = !loggedIn;
+  document.getElementById('auth-login-btn').hidden = loggedIn;
+  document.getElementById('auth-logout-btn').hidden = !loggedIn;
+}
+
+async function refreshAuthState() {
+  try {
+    const res = await apiFetch('/api/auth/me');
+    const data = await res.json();
+    currentUser = data.loggedIn ? data : null;
+    const userEl = document.getElementById('auth-user');
+    if (currentUser) {
+      userEl.innerHTML = 'Signed in as <strong>@' + currentUser.login + '</strong>';
+      if (!document.getElementById('s-author').value) {
+        document.getElementById('s-author').value = currentUser.login;
+      }
+    } else {
+      userEl.textContent = 'Sign in with GitHub to propose or submit a study.';
+    }
+    updateAuthUi(Boolean(currentUser));
+    if (currentUser && document.getElementById('dashboard-tab').classList.contains('active')) {
+      loadDashboard();
+    }
+  } catch (err) {
+    updateAuthUi(false);
+  }
+}
+
+async function logout() {
+  await apiFetch('/api/auth/logout', { method: 'POST' });
+  currentUser = null;
+  await refreshAuthState();
+  showAlert('dashboard', 'info', 'Signed out.');
+}
+
+function renderDashboardRows(submissions) {
+  const tbody = document.getElementById('dashboard-rows');
+  const emptyEl = document.getElementById('dashboard-empty');
+  tbody.innerHTML = '';
+  if (!submissions.length) {
+    emptyEl.hidden = false;
+    return;
+  }
+  emptyEl.hidden = true;
+  submissions.forEach((item) => {
+    const tr = document.createElement('tr');
+    const titleCell = '<a href="' + item.issueUrl + '" target="_blank">#' + item.issueNumber + '</a> ' + (item.title || '');
+    const stageCell = '<span class="stage-badge ' + stageClass(item.stage) + '">' + (STAGE_LABELS[item.stage] || item.stage) + '</span>';
+    let prCell = '—';
+    if (item.pullRequest) {
+      prCell = '<a href="' + item.pullRequest.url + '" target="_blank">#' + item.pullRequest.number + '</a> (' + item.pullRequest.state + ')';
+    }
+    let actionCell = '<a href="' + item.submitUrl + '">Open submit form</a>';
+    if (item.stage === 'merged') {
+      actionCell = '—';
+    }
+    tr.innerHTML = '<td>' + titleCell + '</td><td>' + stageCell + '</td><td>' + prCell + '</td><td>' + actionCell + '</td>';
+    tbody.appendChild(tr);
+  });
+}
+
+async function loadDashboard() {
+  if (!currentUser) return;
+  showAlert('dashboard', 'info', 'Loading your submissions…');
+  document.getElementById('dashboard-alert').style.display = 'block';
+  try {
+    const res = await apiFetch('/api/me/submissions');
+    const data = await res.json();
+    if (!res.ok || !data.success) {
+      throw new Error(data.error || 'Could not load submissions');
+    }
+    document.getElementById('dashboard-alert').style.display = 'none';
+    renderDashboardRows(data.submissions || []);
+  } catch (err) {
+    showAlert('dashboard', 'error', err.message);
+  }
+}
 
 function titleToSlug(title) {
   const words = title.trim().match(/[\w']+/g);
@@ -225,10 +414,14 @@ function updateStepStrip(activeTab) {
   [propose, wait, submit].forEach((el) => el.classList.remove('active', 'done'));
   if (activeTab === 'propose') {
     propose.classList.add('active');
-  } else {
+  } else if (activeTab === 'submit') {
     propose.classList.add('done');
     submit.classList.add('active');
     wait.classList.add('done');
+  } else if (activeTab === 'dashboard') {
+    propose.classList.add('done');
+    wait.classList.add('done');
+    submit.classList.add('done');
   }
 }
 
@@ -238,12 +431,15 @@ function switchTab(tabId, updateUrl) {
   document.getElementById(tabId + '-tab').classList.add('active');
   document.getElementById('tab-btn-' + tabId).classList.add('active');
   updateStepStrip(tabId);
+  if (tabId === 'dashboard' && currentUser) {
+    loadDashboard();
+  }
   if (updateUrl !== false) {
     const url = new URL(window.location.href);
-    if (tabId === 'submit') {
-      url.searchParams.set('tab', 'submit');
-    } else {
+    if (tabId === 'propose') {
       url.searchParams.delete('tab');
+    } else {
+      url.searchParams.set('tab', tabId);
     }
     history.replaceState(null, '', url.pathname + url.search + url.hash);
   }
@@ -323,7 +519,7 @@ async function checkProposalStatus() {
   showProposalStatus('loading', 'Checking proposal approval status…');
 
   try {
-    const res = await fetch(API_BASE + '/api/proposal-status?issue=' + issueNumber);
+    const res = await apiFetch('/api/proposal-status?issue=' + issueNumber);
     const data = await res.json();
     if (!res.ok || !data.success) {
       throw new Error(data.error || 'Could not check proposal status');
@@ -358,8 +554,16 @@ function applyQueryParams() {
   const params = new URLSearchParams(window.location.search);
   const tab = params.get('tab');
   const proposal = params.get('proposal');
-  if (tab === 'submit') {
-    switchTab('submit', false);
+  const authError = params.get('auth_error');
+  if (authError) {
+    const msg = 'Sign-in failed: ' + decodeURIComponent(authError);
+    document.getElementById('auth-user').innerHTML = '<span style="color:#d93025;">' + msg + '</span>';
+    const url = new URL(window.location.href);
+    url.searchParams.delete('auth_error');
+    history.replaceState(null, '', url.pathname + url.search + url.hash);
+  }
+  if (tab === 'submit' || tab === 'dashboard') {
+    switchTab(tab, false);
   }
   if (proposal) {
     document.getElementById('s-proposal').value = proposal;
@@ -372,6 +576,9 @@ function applyQueryParams() {
   }
 }
 
+document.getElementById('auth-login-btn').addEventListener('click', startGitHubLogin);
+document.getElementById('auth-logout-btn').addEventListener('click', logout);
+
 document.getElementById('p-title').addEventListener('input', updateSlugPreview);
 document.getElementById('s-new').addEventListener('change', toggleProposalField);
 document.getElementById('s-proposal').addEventListener('input', scheduleProposalStatusCheck);
@@ -379,9 +586,14 @@ document.getElementById('s-proposal').addEventListener('change', scheduleProposa
 toggleProposalField();
 applyQueryParams();
 updateSlugPreview();
+refreshAuthState();
 
 document.getElementById('propose-form').addEventListener('submit', async (e) => {
   e.preventDefault();
+  if (!currentUser) {
+    showAlert('propose', 'error', 'Sign in with GitHub before submitting a proposal.');
+    return;
+  }
   const form = e.target;
   const btn = document.getElementById('p-submit-btn');
   const turnstileToken = getTurnstileToken(form);
@@ -403,7 +615,7 @@ document.getElementById('propose-form').addEventListener('submit', async (e) => 
   };
 
   try {
-    const res = await fetch(API_BASE + '/api/propose', {
+    const res = await apiFetch('/api/propose', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
@@ -419,10 +631,11 @@ document.getElementById('propose-form').addEventListener('submit', async (e) => 
       if (issueNum) {
         msg += '<br><br>Save proposal issue <strong>#' + issueNum + '</strong> — you will need it when submitting your draft.';
       }
-      msg += '<br><br>Maintainers will review your proposal and comment on the GitHub issue. Once approved, return here and use <strong>Submit a Draft</strong>.';
+      msg += '<br><br>Track this proposal under <strong>My Submissions</strong>.';
       if (data.url) {
         msg += ' <a href="' + data.url + '" target="_blank">View issue on GitHub</a>';
       }
+      msg += '<br><br>Maintainers will review your proposal. Once approved, use <strong>Submit a Draft</strong>.';
       if (slug) {
         msg += '<br><br>Your study slug will be <code>' + slug + '</code>.';
       }
@@ -444,6 +657,10 @@ document.getElementById('propose-form').addEventListener('submit', async (e) => 
 
 document.getElementById('submit-form').addEventListener('submit', async (e) => {
   e.preventDefault();
+  if (!currentUser) {
+    showAlert('submit', 'error', 'Sign in with GitHub before submitting a draft.');
+    return;
+  }
   const form = e.target;
   const btn = document.getElementById('s-submit-btn');
   const turnstileToken = getTurnstileToken(form);
@@ -467,7 +684,7 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
   }
 
   try {
-    const res = await fetch(API_BASE + '/api/submit', {
+    const res = await apiFetch('/api/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
