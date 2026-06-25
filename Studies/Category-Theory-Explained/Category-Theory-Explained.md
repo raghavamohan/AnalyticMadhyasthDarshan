@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 24, 2026, 3:40 PM IST
+**Edited on:** June 26, 2026, 5:13 AM IST
 
 **Status:** Draft
 
@@ -21,7 +21,7 @@ Category theory is built on a single shift in attention:
 
 Most of modern science explains things by **breaking them into parts** (cells, molecules, atoms, particles). Category theory instead studies the **arrows between things** — the relationships, the flows, the transformations — and treats those relationships as the real subject matter.
 
-Madhyasth Darshan defines **existence as coexistence** (*saha-astitva*): the co-eternally present togetherness of formless Omnipresence (*satta*) and countless real units (*ikai*), bound in **saturation** — pervasive co-location in which inherent energy and regulation belong to each unit through that relationship, not physical extraction from *satta* — and then in definite **relationships** (*sambandh*) with other units ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §§1.1–1.4). That two-layer picture is close to category theory's attention to structure, though saturation is not itself a morphism between units (§6.13).
+Madhyasth Darshan defines **existence as coexistence** (*saha-astitva*): the co-eternally present togetherness of formless Omnipresence (*satta*) and countless real units (*ikai*), bound in **saturation** — pervasive co-location in which inherent energy and regulation belong to each unit through that relationship, not physical extraction from *satta* — and then in definite **relationships** (*sambandh*) with other units ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §§1.1–1.4). Between those two layers, the texts name a **regulation ladder**: regulation read from saturation becomes evident as **law**, executes through **order-specific conformance regimes**, and within constitutionally complete *jeevan* as **inward regulation** under mediative *atma* — not efficient causation from *satta*, and not institutional self-governance ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §§1.3.1–1.4.1, 1.9.1; [The Coexistence Template](../The-Coexistence-Template/The-Coexistence-Template.pdf) D2a–D2b). That three-layer picture is close to category theory's attention to structure, though saturation is not itself a morphism between units (§6.13).
 
 ```mermaid
 flowchart LR
@@ -84,6 +84,7 @@ These are the slightly fancier tools the formal theory uses. Each is given here 
 | **Indexed enrichment / fibration** | Structure that varies with who is acting — not one fixed grade for everyone | Same recipe, but what you can actually cook depends on your kitchen | Fulfilment modulated by capacity, ability, and receptivity (§6.6.1) |
 | **Mixture vs compound** | Two ways of joining units: side-by-side aggregation, or fusion into a new whole | Fruit salad vs baking a cake | *Mishran* keeps each conduct; *yaugik* creates a new tier with new **sig(*u*)** (§6.9) |
 | **Unit signature** | Every unit carries form, properties, essential nature, and *dharma* | Each recipe tile lists ingredients *and* the dish's role in the menu | **sig(*u*) = ⟨roop, gun, svabhav, dharma⟩**; properties generative/degenerative/mediative (template D1, D1a) |
+| **Regulation ladder** | How ground-level order reaches each tier without the ground acting | Same recipe rules at every kitchen station, but pastry vs grill follow different checks | **Sat** → law-as-regulation → order conformance (D2) → inward **AtmaReg** on `Liv` (D2b); not a morphism in `Rel` (§6.1.1) |
 
 
 ## Part 3: The philosophy, redrawn as a map
@@ -231,7 +232,7 @@ Modern AI struggles with exactly the darshan's complaint: optimising a single nu
 Because the formalism states what each worldview *keeps and forgets*, it lets very different traditions compare notes without insult or conversion.
 
 ### As a research programme
-Open questions include: how saturation in *O* (inherent energy and regulation in units through co-location — not a morphism, not physical transfer from *O*) relates to the categories of unit-to-unit structure; whether plane transitions T1–T3 admit a clean layered-type or fibration model alongside `Ord`; whether transmission τ admits a clean coalgebra or indexed-category model; and whether complementarity of need (template L3) can be fully internalised or must remain an external guard on admissible diagrams (§6.9.2).
+Open questions include: how saturation in *O* (inherent energy and regulation in units through co-location — not a morphism, not physical transfer from *O*) relates to the categories of unit-to-unit structure; how the **regulation ladder** (template D2a: law-as-regulation, order conformance, inward *atma* regulation) is best indexed alongside `Sat` and `Ord` without misrepresenting *O* as an arrow; whether plane transitions T1–T3 admit a clean layered-type or fibration model alongside `Ord`; whether transmission τ admits a clean coalgebra or indexed-category model; and whether complementarity of need (template L3) can be fully internalised or must remain an external guard on admissible diagrams (§6.9.2).
 
 
 ## Part 6: The complete formal theory
@@ -286,7 +287,7 @@ flowchart TD
     Soc -->|"tau"| Trans
 ```
 
-**Sat (saturation).** Omnipresence **O** is not a unit and not an object of `Rel` ([The Coexistence Template](../The-Coexistence-Template/The-Coexistence-Template.pdf) §3.1). Saturation is pervasive co-location in which **inherent energy and regulation belong to each unit** through the O–unit bond — mutual dependence for manifestation, not physical extraction from *O* (template A1–A2; [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §§1.2–1.3). Categorically it is best treated as an **ambient** or **enrichment base** — a family of regulators indexed by units — not as a morphism *u₁ → u₂*. Terminal-object and topos-as-space readings of *vyapak* remain stretches (§6.13.4).
+**Sat (saturation).** Omnipresence **O** is not a unit and not an object of `Rel` ([The Coexistence Template](../The-Coexistence-Template/The-Coexistence-Template.pdf) §3.1). Saturation is pervasive co-location in which **inherent energy and regulation belong to each unit** through the O–unit bond — mutual dependence for manifestation, not physical extraction from *O* (template A1–A2; [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §§1.2–1.3.1). Categorically it is best treated as an **ambient** or **enrichment base** — a family of regulators indexed by units — not as a morphism *u₁ → u₂*. The **regulation ladder** (template D2a) adds a typed overlay on that family: for each u ∈ U, regulation from `Sat` is read as **law-as-regulation**, then as an **order conformance regime** (structural / seed / species / *sanskar* — definite below the knowledge order, achieved within it), and for constitutionally complete *jeevan* as **inward regulation** under mediative *atma* (D2b; ontology §1.9.1). Model inward regulation as a partial endomorphism **AtmaReg : Liv ⇀ Liv** on the faculty stack — parallel to mediative regulation at the atomic nucleus, not an arrow in `Rel`. Terminal-object and topos-as-space readings of *vyapak* remain stretches (§6.13.4).
 
 **Eval and μ.** Evaluation is defined **only for knowledge-order units** (template D6): *jeevan* assesses value delivered in a relationship — bodily mechanisms implement conduct but do not evaluate. Model `μ : Liv → Eval` (or an endofunctor on `Liv`) that does not factor through `Phys`. Justice is the composite **ρ → φ → μ → mutual satisfaction** — an **operator over** *V*, not a member of *V* (template D7). Complete knowledge requires the evidence cycle (template D13, L7; §6.15).
 
@@ -307,6 +308,9 @@ flowchart TD
 | Template | Symbol / law | Categorical analogue in this paper | Fit / gap |
 |---|---|---|---|
 | Coexistence, saturation | **O**, A1–A2 | Ambient `Sat`; inherent energy in units through co-location; not in `Rel`; not transfer from *O* | Medium is constitutive; CT has no default for non-morphismic ground |
+| Regulation ladder | **D2a**, **D2b** | Typed overlay on `Sat`: **law** (all orders) → order conformance by `Ord`; **AtmaReg : Liv ⇀ Liv** for inward regulation | Not one functor; *O* must not appear as efficient-cause arrow |
+| Law vs justice | **D2** vs **D7** | **Law**: universal orderliness overlay on `Sat`/`Ord`. **Justice**: partial composite ρ → φ → μ on `Liv` only — operator over *V*, not in *V* ([Ontology](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.4.2) | Statutory law is third register — outside this formalism |
+| Order conformance | **D2** | Index regulation regime by order in `Ord`; definite vs achieved typing on `Liv` | Strong for four orders; knowledge-order achievement is guard, not automatic |
 | Knowledge registers | **D12**: AJ, O_gyan, Ξ, TEL | Ambient typing on all objects; `Sat` as O_gyan base; `Ξ : Liv ⇀ Liv`; TEL as progression target (not object in `Sat`) | See §6.15; TEL ≠ terminal object in `Sat` |
 | Self-evidencing | **D13**, **L7** | Partial cycle `ev ∘ φ ∘ μ`; evidenced `Trans`; quiver not single endomorphism | §6.15 |
 | Units, signature | **U**, D1, D1a | Objects across categories; **sig(*u*)** typed data (roop, gun, svabhav, dharma) | Strong for orders; property triad generative/degenerative/mediative is typed, not derived |
@@ -482,7 +486,7 @@ when yog(*u*) and pat(*u*) permit φ at all. At the knowledge order, **μ** comp
 
 #### Justice as a cap-sensitive composite
 
-Justice (template D7) is **ρ → φ → μ → mutual satisfaction**, not a member of *V*. Categorically it is a **partial composite** on the fibred conduct category:
+Justice (template D7) is **ρ → φ → μ → mutual satisfaction**, not a member of *V*. Ontological prose (law universal, justice knowledge-order only): [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.4.2. Categorically it is a **partial composite** on the fibred conduct category:
 
 ```text
 Justice_u(r) = mu_u o phi_u o rho_u(r)
@@ -686,7 +690,8 @@ These are stated as: **structural claim, given premise P**. None is a theorem ab
 
 | Madhyasth concept | Categorical representation | Fit | Comment |
 |---|---|---|---|
-| Saturation in *O* (A1–A2) | Ambient `Sat`; inherent energy in unit through co-location; not `Rel` morphism; not transfer from *O* | Weak–moderate | Two-layer ontology; CT has no native ground |
+| Saturation in *O* (A1–A2) | Ambient `Sat`; inherent energy in unit through co-location; regulation ladder overlay (D2a); not `Rel` morphism; not transfer from *O* | Weak–moderate | Two-layer ontology plus typed regulation; CT has no native ground |
+| Inward regulation (D2b) | Partial **AtmaReg : Liv ⇀ Liv** on faculty stack | Weak | Mediative pattern at sentient scale; not derivable from `Phys` |
 | Unit signature (D1, D1a) | Typed **sig(*u*)** on objects; compound assigns new signature | Moderate | Property triad and order *svabhav*/*dharma* are data, not derived |
 | Planes, T1–T3 (D11) | Layered typing `Pln`; T1 in Petri; T2–T3 in `Liv` | Partial | Orders in `Ord`; planes cross-cut knowledge order |
 | Four orders contain lower orders | Poset `Ord` | Strong | Mereology is what posets are for |
@@ -720,7 +725,7 @@ These are stated as: **structural claim, given premise P**. None is a theorem ab
 
 3. **Constitutional completeness as content.** Encodable as an irreversible transition, but the Petri structure is content-agnostic; the specific metaphysical claim is invisible to it.
 
-4. **Saturation vs unit relationships.** Omnipresence provisions inherent energy and regulation in every unit through pervasive co-location (A1–A2) — mutual dependence for manifestation, not physical extraction from *O* — but **O** is **not** a member of **U** and not an arrow in `Rel`. Saturation is the first ontological layer; *sambandh* is the second ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §§1.3–1.4). Terminal object, monoidal unit, or topos-as-space are inadequate substitutes.
+4. **Saturation vs unit relationships.** Omnipresence provisions inherent energy and regulation in every unit through pervasive co-location (A1–A2) — mutual dependence for manifestation, not physical extraction from *O* — but **O** is **not** a member of **U** and not an arrow in `Rel`. Saturation is the first ontological layer; the **regulation ladder** (D2a–D2b) is how that layer reaches order-specific conduct and inward *jeevan* regulation without *O* acting as governor; **justice** (D7) is the knowledge-order closure — distinct from universal **law** (Ontology §1.4.2); *sambandh* is the second layer of unit-to-unit structure ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §§1.3.1–1.4.2). Terminal object, monoidal unit, or topos-as-space are inadequate substitutes.
 
 5. **Coexistence: ground and constraint.** It functions as the background that makes composition possible and as a constraint (colimit compatibility). That dual role signals a **first principle** not fully internalisable as a single categorical object.
 
@@ -823,8 +828,8 @@ flowchart LR
 
 ### Related studies in this collection
 
-- [*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — ontological exposition: coexistence, saturation, unit signature, *sambandh*, four orders and planes, *jeevan* and awakening, *gathanpurnata*, Development and Awakening Progression, activity triad, conservation
-- [*The Coexistence Template*](../The-Coexistence-Template/The-Coexistence-Template.pdf) — formal template (κ, τ, ρ, φ, μ, D12–D13, L7, L1–L6, D11, P6); reciprocal link at §7 and §6.1.1
+- [*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — ontological exposition: coexistence, saturation, **regulation ladder** (§§1.3.1–1.4.2), **law vs justice** (§1.4.2), inward regulation (§1.9.1), unit signature, *sambandh*, four orders and planes, *jeevan* and awakening, *gathanpurnata*, Development and Awakening Progression, activity triad, conservation
+- [*The Coexistence Template*](../The-Coexistence-Template/The-Coexistence-Template.pdf) — formal template (κ, τ, ρ, φ, μ, D2a–D2b regulation ladder, D12–D13, L7, L1–L6, D11, P6); reciprocal link at §7 and §6.1.1
 - [*Knowledge, Knower, and Known*](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) — evidence chain, *gyan udghatan*, *pramana* (§§1.2, 1.6–1.8)
 - [*Nature of Time*](../Nature-Of-Time/Nature-Of-Time.pdf) — *kaal* as duration of unit-activity; *shram–gati–parinam* and directional *vikas*
 - [*Why Humans Are Not Just Material*](../Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.pdf) — human-tier anthropology
