@@ -57,6 +57,7 @@ These studies are more mathematical in nature. They represent the structure disc
 |----------|--------------|-------------|--------|
 | [Category Theory Explained](Category-Theory-Explained/Category-Theory-Explained.pdf) | Formal structure | Category-theory lens on the darshan's structure | Draft<br>Last updated on: Jun 24, 2026, 3:40 PM IST |
 | [The Coexistence Template](The-Coexistence-Template/The-Coexistence-Template.pdf) | Formal structure | Formal template of units, relationships, values, and assembly | Draft<br>Last updated on: Jun 24, 2026, 3:40 PM IST |
+| [Economics in Madhyasth](Economics-In-Madhyasth/Economics-In-Madhyasth.pdf) | Economics, Axiology | I plan to develop a study that describes how economics works and create a formal architecture | Draft<br>Last updated on: Jun 25, 2026, 4:07 PM IST |
 <!-- /formal-studies-catalog -->
 
 ### Applied studies
