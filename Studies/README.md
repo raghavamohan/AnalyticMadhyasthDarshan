@@ -8,7 +8,9 @@ Browse the published collection at **[analyticmadhyasthdarshan.org](https://anal
 
 **On this page**
 
-- [The studies](#the-studies)
+- [Topical studies](#topical-studies)
+- [Formal studies](#formal-studies)
+- [Applied studies](#applied-studies)
 - [How we work](#how-we-work)
 - [How to contribute](#contribute)
 - [About us](#about-us)
