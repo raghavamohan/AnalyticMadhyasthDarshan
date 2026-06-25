@@ -64,7 +64,7 @@ Confirm before finishing:
 - [ ] `**Edited on:**` in `.md` matches catalog **Last updated on** (abbreviated month in catalog)
 - [ ] `**Status:**` in `.md` matches catalog Draft/Released (if published)
 - [ ] PDF regenerated when content or status changed (Mermaid studies: `npm install` in `Scripts/`)
-- [ ] `Studies/index.html` JSON catalog and `Studies/README.md` table rows stay in sync (use `write_studies_catalog` via scripts — never hand-edit JSON)
+- [ ] `Studies/catalog-*.json` and `Studies/README.md` table rows stay in sync (use `write_studies_catalog` via scripts — never hand-edit JSON)
 - [ ] After landing-page UI changes: `INDEX_TEMPLATE` updated in `_build_studies_index.py`, shell rebuilt, `python Scripts/_verify_studies_index.py` passes
 
 **Agent rules:** [AGENTS.md](../../AGENTS.md) — §1 (Edited on), §2 (catalog sync), §3 (PDF pipeline).

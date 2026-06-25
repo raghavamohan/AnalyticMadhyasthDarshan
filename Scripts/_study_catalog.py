@@ -290,6 +290,14 @@ def catalog_script_id(table: StudyTable) -> str:
     return "catalog-topical"
 
 
+def catalog_json_filename(table: StudyTable) -> str:
+    return f"{catalog_script_id(table)}.json"
+
+
+def catalog_json_path(table: StudyTable) -> Path:
+    return STUDIES / catalog_json_filename(table)
+
+
 def split_categories(category: str) -> list[str]:
     return [part.strip() for part in category.split(",") if part.strip()]
 
@@ -352,11 +360,38 @@ def catalog_entry_to_row(entry: dict, table: StudyTable) -> StudyRow:
     )
 
 
+def catalog_json_payload(rows: list[StudyRow]) -> list[dict]:
+    return [row_to_catalog_entry(row) for row in rows]
+
+
+def serialize_catalog_json_text(rows: list[StudyRow], *, pretty: bool = False) -> str:
+    payload = catalog_json_payload(rows)
+    if pretty:
+        return json.dumps(payload, indent=2, ensure_ascii=False) + "\n"
+    return json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n"
+
+
 def serialize_catalog_json_block(rows: list[StudyRow], table: StudyTable) -> str:
     script_id = catalog_script_id(table)
-    payload = [row_to_catalog_entry(row) for row in rows]
-    json_text = json.dumps(payload, indent=2, ensure_ascii=False)
+    json_text = serialize_catalog_json_text(rows, pretty=True).strip()
     return f'<script type="application/json" id="{script_id}">\n{json_text}\n</script>'
+
+
+def parse_catalog_json_file(table: StudyTable) -> list[StudyRow]:
+    path = catalog_json_path(table)
+    if not path.is_file():
+        return []
+    entries = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(entries, list):
+        raise ValueError(f"Catalog JSON for {table.value} must be a list.")
+    return [catalog_entry_to_row(entry, table) for entry in entries]
+
+
+def write_catalog_json_file(rows: list[StudyRow], table: StudyTable) -> None:
+    catalog_json_path(table).write_text(
+        serialize_catalog_json_text(rows),
+        encoding="utf-8",
+    )
 
 
 def _parse_legacy_html_tr_rows(block: str, table: StudyTable) -> list[StudyRow]:
@@ -554,17 +589,20 @@ def remove_study_row(rows: list[StudyRow], slug: str) -> list[StudyRow]:
 
 
 def find_study_table(slug: str) -> StudyTable | None:
-    index_path = STUDIES / "index.html"
-    index_text = index_path.read_text(encoding="utf-8")
     for table in CATALOG_TABLES:
-        if any(row.slug == slug for row in parse_html_rows(index_text, table)):
+        if any(row.slug == slug for row in load_catalog_rows(table)):
             return table
     return None
 
 
 def load_catalog_rows(table: StudyTable) -> list[StudyRow]:
+    rows = parse_catalog_json_file(table)
+    if rows:
+        return rows
     index_path = STUDIES / "index.html"
-    return parse_html_rows(index_path.read_text(encoding="utf-8"), table)
+    if index_path.is_file():
+        return parse_html_rows(index_path.read_text(encoding="utf-8"), table)
+    return []
 
 
 def get_study_row(slug: str) -> tuple[StudyRow, StudyTable] | None:
@@ -576,22 +614,11 @@ def get_study_row(slug: str) -> tuple[StudyRow, StudyTable] | None:
 
 
 def write_studies_catalog(rows: list[StudyRow], table: StudyTable) -> None:
-    start, end = catalog_markers(table)
-    index_path = STUDIES / "index.html"
+    write_catalog_json_file(rows, table)
+
     readme_path = STUDIES / "README.md"
-
-    index_text = index_path.read_text(encoding="utf-8")
-    index_path.write_text(
-        replace_catalog_block(
-            index_text,
-            start,
-            end,
-            serialize_catalog_json_block(rows, table),
-        ),
-        encoding="utf-8",
-    )
-
     readme_text = readme_path.read_text(encoding="utf-8")
+    start, end = catalog_markers(table)
     readme_path.write_text(
         replace_catalog_block(readme_text, start, end, serialize_md_rows(rows, table)),
         encoding="utf-8",
@@ -676,43 +703,48 @@ def remove_manifest_paper_block(content: str, slug: str) -> str:
 
 
 def verify_catalog_json_sync(table: StudyTable) -> list[str]:
-    """Ensure index.html JSON catalog matches README.md markdown rows."""
+    """Ensure Studies/catalog-*.json matches README.md markdown rows."""
     errors: list[str] = []
-    index_path = STUDIES / "index.html"
+    json_path = catalog_json_path(table)
     readme_path = STUDIES / "README.md"
-    html_rows = {
-        row.slug: row
-        for row in parse_catalog_json(index_path.read_text(encoding="utf-8"), table)
-    }
+    if not json_path.is_file():
+        errors.append(f"Missing catalog file {json_path.name}.")
+        return errors
+
+    json_rows = {row.slug: row for row in parse_catalog_json_file(table)}
     md_rows = {
         row.slug: row
         for row in parse_md_rows(readme_path.read_text(encoding="utf-8"), table)
     }
 
-    html_slugs = set(html_rows)
+    json_slugs = set(json_rows)
     md_slugs = set(md_rows)
-    for slug in sorted(html_slugs - md_slugs):
-        errors.append(f"{slug}: in index.html {table.value} JSON but missing from README.md.")
-    for slug in sorted(md_slugs - html_slugs):
-        errors.append(f"{slug}: in README.md {table.value} table but missing from index.html JSON.")
+    for slug in sorted(json_slugs - md_slugs):
+        errors.append(f"{slug}: in {json_path.name} but missing from README.md.")
+    for slug in sorted(md_slugs - json_slugs):
+        errors.append(
+            f"{slug}: in README.md {table.value} table but missing from {json_path.name}."
+        )
 
-    for slug in sorted(html_slugs & md_slugs):
-        html_row = html_rows[slug]
+    for slug in sorted(json_slugs & md_slugs):
+        json_row = json_rows[slug]
         md_row = md_rows[slug]
-        if html_row.status != md_row.status:
+        if json_row.status != md_row.status:
             errors.append(
-                f"{slug}: status mismatch between index.html ({html_row.status.value}) "
+                f"{slug}: status mismatch between {json_path.name} ({json_row.status.value}) "
                 f"and README.md ({md_row.status.value})."
             )
-        if html_row.category != md_row.category:
-            errors.append(f"{slug}: category mismatch between index.html and README.md.")
-        html_desc = normalize_description(html_row.description, html_row.status)
+        if json_row.category != md_row.category:
+            errors.append(f"{slug}: category mismatch between {json_path.name} and README.md.")
+        json_desc = normalize_description(json_row.description, json_row.status)
         md_desc = normalize_description(md_row.description, md_row.status)
-        if html_desc != md_desc:
-            errors.append(f"{slug}: description mismatch between index.html and README.md.")
-        if html_row.status in {StudyStatus.DRAFT, StudyStatus.RELEASED}:
-            if html_row.edited_at != md_row.edited_at:
-                errors.append(f"{slug}: timestamp mismatch between index.html and README.md.")
+        if json_desc != md_desc:
+            errors.append(f"{slug}: description mismatch between {json_path.name} and README.md.")
+        if json_row.status in {StudyStatus.DRAFT, StudyStatus.RELEASED}:
+            if json_row.edited_at != md_row.edited_at:
+                errors.append(
+                    f"{slug}: timestamp mismatch between {json_path.name} and README.md."
+                )
 
     return errors
 
@@ -740,38 +772,42 @@ def verify_timestamp_sync(slug: str) -> list[str]:
 
     table = find_study_table(slug)
     if table is None:
-        errors.append(f"{slug}: not found in Studies/index.html catalogs.")
+        errors.append(f"{slug}: not found in Studies catalog JSON files.")
         return errors
 
-    index_path = STUDIES / "index.html"
     readme_path = STUDIES / "README.md"
-    html_rows = {row.slug: row for row in parse_html_rows(index_path.read_text(encoding="utf-8"), table)}
+    json_rows = {row.slug: row for row in load_catalog_rows(table)}
     md_rows = {row.slug: row for row in parse_md_rows(readme_path.read_text(encoding="utf-8"), table)}
 
-    html_row = html_rows.get(slug)
+    json_row = json_rows.get(slug)
     md_row = md_rows.get(slug)
-    if html_row is None:
-        errors.append(f"{slug}: missing from Studies/index.html {table.value} catalog.")
+    if json_row is None:
+        errors.append(
+            f"{slug}: missing from Studies/{catalog_json_filename(table)} catalog."
+        )
     if md_row is None:
         errors.append(f"{slug}: missing from Studies/README.md {table.value} catalog.")
 
-    if html_row and md_row:
-        if html_row.status != md_row.status:
+    if json_row and md_row:
+        if json_row.status != md_row.status:
             errors.append(
-                f"{slug}: status mismatch between index.html ({html_row.status.value}) "
-                f"and README.md ({md_row.status.value})."
+                f"{slug}: status mismatch between {catalog_json_filename(table)} "
+                f"({json_row.status.value}) and README.md ({md_row.status.value})."
             )
-        if html_row.status in {StudyStatus.DRAFT, StudyStatus.RELEASED}:
-            if html_row.edited_at != md_row.edited_at:
-                errors.append(f"{slug}: timestamp mismatch between index.html and README.md.")
-            if md_ts is not None and html_row.edited_at != md_ts:
+        if json_row.status in {StudyStatus.DRAFT, StudyStatus.RELEASED}:
+            if json_row.edited_at != md_row.edited_at:
+                errors.append(
+                    f"{slug}: timestamp mismatch between {catalog_json_filename(table)} "
+                    "and README.md."
+                )
+            if md_ts is not None and json_row.edited_at != md_ts:
                 errors.append(
                     f"{slug}: catalog timestamp does not match **Edited on:** in markdown."
                 )
-            if md_status is not None and md_status != html_row.status:
+            if md_status is not None and md_status != json_row.status:
                 errors.append(
                     f"{slug}: **Status:** in markdown ({md_status.value}) does not match "
-                    f"catalog ({html_row.status.value})."
+                    f"catalog ({json_row.status.value})."
                 )
 
     return errors

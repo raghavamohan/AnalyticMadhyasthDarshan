@@ -1,0 +1,40 @@
+{
+  "site": "analyticmadhyasthdarshan.org",
+  "captured_from": "Cloudflare Web Analytics export",
+  "period": {
+    "start": "2026-06-24T05:20:00+05:30",
+    "end": "2026-06-25T05:20:00+05:30"
+  },
+  "filters": {
+    "exclude_bots": true
+  },
+  "core_web_vitals": {
+    "lcp": {
+      "good_pct": 98,
+      "needs_improvement_pct": 0,
+      "poor_pct": 2,
+      "p50_ms": 132,
+      "p75_ms": 304,
+      "p90_ms": 496,
+      "p99_ms": 5116
+    },
+    "inp": {
+      "good_pct": 100,
+      "needs_improvement_pct": 0,
+      "poor_pct": 0
+    },
+    "cls": {
+      "good_pct": 100,
+      "needs_improvement_pct": 0,
+      "poor_pct": 0
+    }
+  },
+  "verification": {
+    "recheck_after_days": 7,
+    "targets": {
+      "lcp_p99_ms_max": 2500,
+      "lcp_poor_pct_max": 0
+    },
+    "notes": "Re-export Cloudflare Web Analytics with the same filters and compare LCP P75/P90/P99 and poor %."
+  }
+}

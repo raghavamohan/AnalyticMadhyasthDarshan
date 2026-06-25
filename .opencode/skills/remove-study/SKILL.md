@@ -31,12 +31,12 @@ python Scripts/_remove_study.py <Slug> --dry-run
 
 Windows wrapper: `.\Scripts\_remove_study.ps1 <Slug> [-Yes] [-DryRun]`
 
-Use the slug without extension (e.g. `What-Is-Existence`).
+Use the slug without extension (e.g. `The-Ontology-of-Coexistence`).
 
 ## What the script does
 
 1. Deletes `Studies/<Slug>/<Slug>.md`, `.pdf`, and `.html` (if present)
-2. Removes catalog row from **Topical** or **Formal** table in `Studies/index.html` and `Studies/README.md`
+2. Removes catalog entry from **Topical** or **Formal** catalog in `Studies/index.html` (JSON) and `Studies/README.md` (markdown table)
 3. For published studies (not Ongoing): removes row from `References/README.md` and paper block from `References/MANIFEST.md`
 
 Ongoing placeholders (italic, no PDF) are supported — only the catalog row is removed.
@@ -49,7 +49,7 @@ Ongoing placeholders (italic, no PDF) are supported — only the catalog row is 
 
 ## Do not
 
-- Delete catalog rows by hand — use this script to preserve Ongoing rows and row order
+- Delete catalog entries by hand — use this script (`write_studies_catalog` updates JSON and README together)
 - Remove files without updating catalogs — leaves broken links on the site
 
 ## Related

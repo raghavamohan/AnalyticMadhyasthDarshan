@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify Studies/index.html catalog JSON and landing-page shell."""
+"""Verify Studies catalog JSON files and landing-page shell."""
 from __future__ import annotations
 
 import argparse
@@ -16,7 +16,7 @@ from _study_catalog import verify_all_catalog_sync  # noqa: E402
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Verify Studies/index.html catalog data and landing-page shell.",
+        description="Verify Studies catalog JSON files and index.html landing-page shell.",
     )
     parser.add_argument(
         "--shell-only",

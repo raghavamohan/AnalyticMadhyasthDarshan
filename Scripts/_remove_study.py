@@ -186,7 +186,7 @@ def remove_study(
             print(f"Warning: {slug} not found in {table.value} catalog.")
         else:
             write_studies_catalog(rows, table)
-            print(f"Updated Studies/index.html and Studies/README.md ({table.value} catalog)")
+            print(f"Updated Studies/catalog JSON and Studies/README.md ({table.value} catalog)")
 
     if not is_ongoing:
         write_references_readme_row(slug, "", remove=True)

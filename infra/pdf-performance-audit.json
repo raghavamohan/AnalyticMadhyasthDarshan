@@ -1,0 +1,27 @@
+{
+  "audited_on": "2026-06-25",
+  "largest_study_pdfs_kb": [
+    { "slug": "The-Ontology-of-Coexistence", "size_kb": 925, "pages": 71 },
+    { "slug": "Category-Theory-Explained", "size_kb": 581, "pages": null },
+    { "slug": "The-Coexistence-Template", "size_kb": 336, "pages": null },
+    { "slug": "Knowledge-Knower-And-Known", "size_kb": 336, "pages": null }
+  ],
+  "ontology_study_detail": {
+    "file_size_bytes": 947406,
+    "page_count": 71,
+    "bytes_per_page": 13344,
+    "text_chars": 183279,
+    "raster_image_pages": 0,
+    "svg_figures_kb": {
+      "1-madhyasth-darshan-ontology.svg": 10.7,
+      "1-saturation-samprikt.svg": 8.5,
+      "1-orders-planes.svg": 6.2,
+      "2-advaita-vedanta-ontology.svg": 6.2,
+      "3-modern-physicalism-ontology.svg": 5.6
+    },
+    "conclusion": "Size is proportional to document length (71 pages, heavy text). SVG sources are small; no raster image bloat. Primary lever is edge caching for PDFs (Cloudflare), not PDF pipeline compression."
+  },
+  "actions_taken": [
+    "Documented baseline; no PDF pipeline change required at current sizes."
+  ]
+}

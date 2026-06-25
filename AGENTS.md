@@ -117,11 +117,12 @@ drift apart.
 ### What must always match
 
 - **Topical Studies catalog** — the data between the `<!-- studies-catalog -->`
-  and `<!-- /studies-catalog -->` markers in both files: same studies, same order,
-  same titles, categories, descriptions, and status values.
-  - **`Studies/index.html`** — JSON array inside
-    `<script type="application/json" id="catalog-topical">` (written by
-    `Scripts/_study_catalog.py`; do not hand-edit).
+  and `<!-- /studies-catalog -->` markers in `Studies/README.md`, and the matching
+  `Studies/catalog-topical.json` file: same studies, same order, same titles,
+  categories, descriptions, and status values.
+  - **`Studies/catalog-topical.json`** (and `catalog-formal.json`, `catalog-applied.json`)
+    — minified JSON arrays written by `Scripts/_study_catalog.py`; do not hand-edit.
+    The studies landing page fetches these files at runtime.
   - **`Studies/README.md`** — markdown table rows (same marker names).
   Status is `ongoing` / `Ongoing` when no document is uploaded yet (no PDF),
   `draft` / `Draft<br>Last updated on: <date>, <time> IST` once a PDF exists but is
@@ -132,13 +133,13 @@ drift apart.
   (abbreviated month in catalogs: `Jun`; full month in `.md`: `June`). See
   [§1 Keep "Edited on" current](#1-keep-edited-on-current-in-studies-always-applies)
   for the mandatory workflow.
-- **In-progress studies** — `status: "ongoing"` in index JSON; italic `*title*`
+- **In-progress studies** — `status: "ongoing"` in catalog JSON; italic `*title*`
   with `<!-- slug: ... -->` in README; no PDF link.
 - **Formal Studies catalog** — same documents, focus, and descriptions; JSON in
-  `id="catalog-formal"` in `index.html`, markdown table in README.
+  `Studies/catalog-formal.json`, markdown table in README.
 - **Applied Studies catalog** — papers under `Applications/` that instantiate the
-  formal template in concrete domains; JSON in `id="catalog-applied"` in
-  `index.html`, markdown table in README. PDF links use
+  formal template in concrete domains; JSON in `Studies/catalog-applied.json`,
+  markdown table in README. PDF links use
   `../Applications/<Slug>/<Slug>.pdf` from the studies page.
 - **Shared prose** — the lead intro, **How we work**, **Contribute**,
   and **About us** (including license) should carry the same wording.
