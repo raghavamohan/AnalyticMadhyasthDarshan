@@ -99,11 +99,13 @@ Reading the books and following the logic is necessary, but only the starting po
 
 We welcome new studies and revisions from anyone studying Madhyasth Darshan. Before you write, read the study format and intent in this document and in [CONTRIBUTING.md](../CONTRIBUTING.md).
 
-1. **Propose.** Open a [study proposal](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-proposal.yml) on GitHub with your proposed title, category, and a short summary of the question you want to examine.
-2. **Wait for approval.** Maintainers review proposals and label approved ones `proposal-approved`. You will receive a comment with next steps.
-3. **Submit.** Fork the repository, add or edit your study markdown, and open a pull request using the appropriate template (`new-study`, `study-update`, or `status-change`). Continuous integration regenerates the PDF and keeps the catalog in sync.
+Use the **[Web Submission Portal](submit.html)** to propose and submit studies from your browser.
 
-Full instructions, labels, and maintainer duties are in [CONTRIBUTING.md](../CONTRIBUTING.md).
+1. **Propose.** Use the portal to propose a title, category, and a short summary of the question you want to examine.
+2. **Wait for approval.** Maintainers review your proposal and reply on the GitHub issue they create for you.
+3. **Submit.** Once approved, use the portal to paste your markdown draft. It opens a pull request for review automatically.
+
+Full instructions and maintainer duties are in [CONTRIBUTING.md](../CONTRIBUTING.md).
 
 ## About us
 

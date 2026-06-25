@@ -10,4 +10,7 @@ Scripts/_pdf_cache/
 *.html
 !References/**/*.html
 !Studies/index.html
+!Studies/submit.html
 !/index.html
+
+infra/worker/.wrangler/
