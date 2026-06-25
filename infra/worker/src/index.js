@@ -2,6 +2,7 @@ import { Router } from 'itty-router';
 
 const router = Router();
 const DEFAULT_BRANCH = 'master';
+const SITEVERIFY_URL = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
 
 // CORS Headers
 const corsHeaders = {
@@ -9,6 +10,38 @@ const corsHeaders = {
   'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type',
 };
+
+function jsonResponse(payload, status = 200) {
+  return new Response(JSON.stringify(payload), {
+    status,
+    headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+  });
+}
+
+async function verifyTurnstile(token, env, request) {
+  if (!env.TURNSTILE_SECRET_KEY) {
+    throw new Error('Turnstile is not configured on the server.');
+  }
+  if (!token) {
+    throw new Error('Turnstile verification is required.');
+  }
+
+  const body = new FormData();
+  body.append('secret', env.TURNSTILE_SECRET_KEY);
+  body.append('response', token);
+  const clientIp = request.headers.get('CF-Connecting-IP');
+  if (clientIp) {
+    body.append('remoteip', clientIp);
+  }
+
+  const response = await fetch(SITEVERIFY_URL, { method: 'POST', body });
+  const result = await response.json();
+  if (!result.success) {
+    const codes = (result['error-codes'] || []).join(', ') || 'verification failed';
+    throw new Error(`Turnstile verification failed: ${codes}`);
+  }
+  return result;
+}
 
 // Helper for sending GitHub API requests
 async function githubRequest(path, method, body, env) {
@@ -73,6 +106,8 @@ router.options('*', () => new Response(null, { headers: corsHeaders }));
 router.post('/api/propose', async (request, env) => {
   try {
     const data = await request.json();
+    await verifyTurnstile(data.turnstileToken, env, request);
+
     const { title, category, description, summary, formal, familiarity } = data;
 
     const body = `Propose a new analytic study before writing the full paper.
@@ -109,15 +144,17 @@ ${familiarity}
       labels: ['study-proposal']
     }, env);
 
-    return new Response(JSON.stringify({ success: true, url: issue.html_url }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
+    return jsonResponse({ success: true, url: issue.html_url });
   } catch (err) {
-    return new Response(JSON.stringify({ success: false, error: err.message }), { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
+    return jsonResponse({ success: false, error: err.message }, 500);
   }
 });
 
 router.post('/api/submit', async (request, env) => {
   try {
     const data = await request.json();
+    await verifyTurnstile(data.turnstileToken, env, request);
+
     const { slug, author, isNew, proposalIssue } = data;
     let { content } = data;
 
@@ -195,9 +232,9 @@ router.post('/api/submit', async (request, env) => {
       labels: [label]
     }, env);
 
-    return new Response(JSON.stringify({ success: true, url: pr.html_url }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
+    return jsonResponse({ success: true, url: pr.html_url });
   } catch (err) {
-    return new Response(JSON.stringify({ success: false, error: err.message }), { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
+    return jsonResponse({ success: false, error: err.message }, 500);
   }
 });
 

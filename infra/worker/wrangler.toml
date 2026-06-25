@@ -2,8 +2,15 @@ name = "amd-submissions"
 main = "src/index.js"
 compatibility_date = "2024-03-01"
 
+[vars]
+TURNSTILE_SITE_KEY = "0x4AAAAAADoBfrNV5lPeJQWO"
+
 # The GITHUB_TOKEN should be set as a secret, not in plain text here:
 # npx wrangler secret put GITHUB_TOKEN
+#
+# Turnstile secret (from existing widget):
+# python _fetch_turnstile_secret.py
+# Get-Content .turnstile-secret.tmp -Raw | npx wrangler secret put TURNSTILE_SECRET_KEY
 #
 # Optional DEFAULT_BRANCH secret (defaults to master in code):
 # npx wrangler secret put DEFAULT_BRANCH
