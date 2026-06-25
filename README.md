@@ -13,7 +13,7 @@ Maintained by **[AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/A
 | Resource | What you will find |
 |----------|-------------------|
 | **[Studies catalog](Studies/index.html)** | Published papers (PDF): topical, formal, and applied studies, plus topics in progress |
-| **[Submit a study](Studies/submit.html)** | Web Submission Portal — propose a new study or submit a draft (no GitHub account required) |
+| **[My Submissions](Studies/submit.html)** | Web Submission Portal — sign in with GitHub to propose, submit, update, and track studies (reading the catalog needs no account) |
 | **[About the studies](Studies/README.md)** | Our approach, objectives, and how to read the collection |
 | **[Official source materials](https://www.madhyasth.org/)** | Primary texts and institutional resources from **Divya Path Sansthan** — the authoritative source for Madhyasth Darshan |
 | **[References](References/README.md)** | Source texts and papers cited across the studies |
@@ -43,10 +43,10 @@ For the full script list, see **[Scripts/README.md](Scripts/README.md)**.
 ## For contributors
 
 1. **Read** [Studies/README.md](Studies/README.md) for what a study should cover and how we write.
-2. **Sign in** on the **[Web Submission Portal](Studies/submit.html)** with GitHub (required to propose or submit).
-3. **Propose** a title, category, and summary via the portal.
-4. **Wait** for maintainer approval on the GitHub issue filed under your account.
-5. **Submit** your markdown draft through the same portal ([Submit a Draft](Studies/submit.html?tab=submit)) — it opens a pull request automatically. Track status under [My Submissions](Studies/submit.html?tab=dashboard).
+2. Open **[My Submissions](Studies/submit.html)** and **sign in** with GitHub (required to propose or submit).
+3. **Propose** a title, category, and summary from that page.
+4. **Wait** for maintainer approval; track status and CI on the same page.
+5. When approved, click **Submit draft** on your row to open a pull request automatically.
 
 The portal handles GitHub issues and pull requests for you. Full details: [CONTRIBUTING.md](CONTRIBUTING.md).
 

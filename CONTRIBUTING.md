@@ -1,10 +1,10 @@
 # Contributing studies
 
-Thank you for helping expand rigorous analytic work on Madhyasth Darshan. This repository uses a **two-stage flow** managed through our **[Web Submission Portal](Studies/submit.html)**: propose a study, wait for maintainer approval, then submit your draft. The portal uses **GitHub sign-in** so you can track proposals and pull requests under **My Submissions**. Reading studies on the site does not require an account.
+Thank you for helping expand rigorous analytic work on Madhyasth Darshan. This repository uses a **two-stage flow** managed through **[My Submissions](Studies/submit.html)** on the Web Submission Portal: propose a study, wait for maintainer approval, then submit your draft. **GitHub sign-in** is required to propose, submit, update, or change release status. Reading studies on the site does not require an account.
 
 Read [Studies/README.md](Studies/README.md) for study format, tone, and structure before you start. Agents and automation should follow **[AGENTS.md](AGENTS.md)** for Edited on, PDF pipeline, prose style, and Standpoint and scope.
 
-**Quick start:** [Sign in](Studies/submit.html) → [Propose a study](Studies/submit.html) → wait for approval → [Submit your draft](Studies/submit.html?tab=submit) → track progress under [My Submissions](Studies/submit.html?tab=dashboard).
+**Quick start:** Open [My Submissions](Studies/submit.html) → sign in with GitHub → propose or update a study → track approval, CI, and pull requests on the same page.
 
 ---
 
@@ -48,19 +48,20 @@ Maintainers review proposals for overlap, scope, and alignment with [Studies/REA
 
 ## Step 3 — Submit a draft
 
-Once approved, return to the [**Web Submission Portal**](Studies/submit.html) (same GitHub account), open **Submit a Draft**, and track progress anytime under **My Submissions**.
+Once approved, return to [**My Submissions**](Studies/submit.html) and click **Submit draft** on your proposal row (or use the pre-filled link from the approval comment).
 
 1. Enter your study slug and author name.
-2. Enter the approved **proposal issue number** from GitHub.
-3. Check the "new study" box.
-4. Paste your full markdown content.
-5. Submit the form.
+2. Enter the approved **proposal issue number** (pre-filled when opened from your row).
+3. Paste your full markdown content.
+4. Submit the form.
 
 The portal will automatically create a Pull Request on your behalf. CI verifies the format, runs `_add_study.py`, and commits the PDF and catalog updates.
 
 ### Update an existing study or change status
 
-To update an existing study, use the same **Submit a Draft** form on the portal but uncheck the "new study" box. The portal will automatically open a pull request updating your existing file.
+From **My Submissions**, use **Update a study** to open a study-update pull request (paste revised markdown for an existing slug).
+
+To change **Draft** ↔ **Released**, use **Change release status** on the same page, or click **Release study** / **Revert to draft** on a merged row. The portal opens a `status-change` pull request; CI runs `_set_study_status.py` on the branch.
 
 ---
 

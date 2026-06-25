@@ -3,19 +3,20 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Submit - Analytic Madhyasth Darshan</title>
-<meta name="description" content="Submit a study proposal or draft to the Analytic Madhyasth Darshan collection."/>
+<title>My Submissions - Analytic Madhyasth Darshan</title>
+<meta name="description" content="Track study proposals, submit drafts, and manage your contributions to the Analytic Madhyasth Darshan collection."/>
 <style>
-:root{--bg:#f7f4ef;--surface:#ffffff;--text:#2a241c;--text-muted:#5c5348;--accent:#1a5276;--accent-soft:#e8f1f6;--accent-hover:#13405c;--warm:#8b5e34;--warm-soft:#f5ebe0;--border:#e3dcd2;--shadow:0 2px 12px rgba(42,36,28,0.06);--radius:10px;--sans:'Segoe UI',system-ui,sans-serif;}*{box-sizing:border-box;}html{scroll-behavior:smooth;}body{font-family:'Georgia','Times New Roman',serif;font-size:16px;line-height:1.6;color:var(--text);background:var(--bg);margin:0;padding:0;}a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px;transition:color 0.15s ease;}a:hover{color:var(--accent-hover);}.page{max-width:800px;margin:0 auto;padding:28px 20px 56px;}.hero{background:transparent;border:none;box-shadow:none;padding:0 0 26px;margin-bottom:0;}h1{font-size:38px;font-weight:normal;line-height:1.15;margin:0 0 14px;color:#1a1612;border:none;padding:0;}.lead{font-size:19px;line-height:1.5;color:var(--text-muted);margin:0 0 20px;}
+:root{--bg:#f7f4ef;--surface:#ffffff;--text:#2a241c;--text-muted:#5c5348;--accent:#1a5276;--accent-soft:#e8f1f6;--accent-hover:#13405c;--warm:#8b5e34;--warm-soft:#f5ebe0;--border:#e3dcd2;--shadow:0 2px 12px rgba(42,36,28,0.06);--radius:10px;--sans:'Segoe UI',system-ui,sans-serif;}*{box-sizing:border-box;}html{scroll-behavior:smooth;}body{font-family:'Georgia','Times New Roman',serif;font-size:16px;line-height:1.6;color:var(--text);background:var(--bg);margin:0;padding:0;}a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px;transition:color 0.15s ease;}a:hover{color:var(--accent-hover);}.page{max-width:960px;margin:0 auto;padding:28px 20px 56px;}.hero{background:transparent;border:none;box-shadow:none;padding:0 0 20px;margin-bottom:0;}h1{font-size:38px;font-weight:normal;line-height:1.15;margin:0 0 14px;color:#1a1612;border:none;padding:0;}.lead{font-size:19px;line-height:1.5;color:var(--text-muted);margin:0 0 20px;}
 .back-link{margin:0 0 16px;font-family:var(--sans);font-size:14px;}
+.subview-back{margin:0 0 16px;font-family:var(--sans);font-size:14px;}
 .before-start{background:var(--accent-soft);border:1px solid #c5d9e6;border-radius:8px;padding:14px 16px;margin-bottom:20px;font-family:var(--sans);font-size:14px;line-height:1.5;}
 .before-start strong{color:#1a1612;}
 .step-strip{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin-bottom:20px;font-family:var(--sans);font-size:13px;}
+.step-strip.hidden{display:none;}
 .step-strip .step{padding:6px 12px;border-radius:999px;background:var(--warm-soft);color:var(--text-muted);}
 .step-strip .step.active{background:var(--accent-soft);color:var(--accent);font-weight:600;}
 .step-strip .step.done{background:#e6f4ea;color:#1e8e3e;}
 .step-strip .step-arrow{color:var(--text-muted);font-size:12px;}
-.section{scroll-margin-top:64px;margin-bottom:22px;}
 .section-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px 28px 22px;}
 h2{font-size:26px;font-weight:600;margin:0 0 16px;color:#1a1612;}
 .form-group{margin-bottom:20px;}
@@ -25,16 +26,14 @@ label{display:block;font-family:var(--sans);font-size:14px;font-weight:600;margi
 .slug-preview code{font-family:Consolas,'Courier New',monospace;font-size:12px;background:var(--accent-soft);padding:2px 6px;border-radius:4px;}
 input[type="text"],select,textarea,input[type="number"]{width:100%;font-family:var(--sans);font-size:14px;color:var(--text);padding:10px 12px;border:1px solid var(--border);border-radius:8px;background:#fdfcfa;resize:vertical;}
 input[type="text"]:focus,select:focus,textarea:focus,input[type="number"]:focus{outline:2px solid var(--accent);outline-offset:2px;border-color:var(--accent);}
+.radio-group{display:flex;flex-wrap:wrap;gap:16px;font-family:var(--sans);font-size:14px;}
+.radio-group label{display:flex;align-items:center;gap:8px;font-weight:normal;margin:0;}
 .checkbox-group{display:flex;align-items:center;gap:8px;}
 .checkbox-group input{width:16px;height:16px;}
 .checkbox-group label{margin-bottom:0;font-weight:normal;font-family:var(--sans);font-size:14px;}
 button.submit-btn{display:inline-block;font-family:var(--sans);font-size:15px;font-weight:600;color:#fff;background:var(--accent);border:none;border-radius:8px;padding:12px 24px;cursor:pointer;transition:background 0.15s ease;}
 button.submit-btn:hover{background:var(--accent-hover);}
 button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
-.nav-tabs{display:flex;gap:10px;margin-bottom:20px;border-bottom:1px solid var(--border);padding-bottom:10px;}
-.nav-tabs button{font-family:var(--sans);font-size:15px;font-weight:600;color:var(--text-muted);background:transparent;border:none;padding:8px 16px;cursor:pointer;border-radius:8px;transition:all 0.15s ease;}
-.nav-tabs button:hover{background:var(--warm-soft);color:var(--warm);}
-.nav-tabs button.active{background:var(--accent-soft);color:var(--accent);}
 .tab-content{display:none;}
 .tab-content.active{display:block;}
 .alert{padding:12px 16px;border-radius:8px;font-family:var(--sans);font-size:14px;margin-bottom:20px;display:none;line-height:1.5;}
@@ -51,41 +50,56 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
 .auth-bar .auth-user{color:var(--text-muted);}
 .auth-bar .auth-user strong{color:var(--text);}
 .auth-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
-.auth-btn{font-family:var(--sans);font-size:14px;font-weight:600;border-radius:8px;padding:8px 14px;cursor:pointer;border:1px solid var(--border);background:var(--surface);color:var(--text);}
+.auth-btn{font-family:var(--sans);font-size:14px;font-weight:600;border-radius:8px;padding:8px 14px;cursor:pointer;border:1px solid var(--border);background:var(--surface);color:var(--text);text-decoration:none;display:inline-block;}
 .auth-btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;}
 .auth-btn:hover{opacity:0.92;}
 .login-gate{background:var(--warm-soft);border:1px solid #e0d0be;border-radius:8px;padding:14px 16px;margin-bottom:20px;font-family:var(--sans);font-size:14px;display:none;}
 .login-gate.visible{display:block;}
-.dashboard-table{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:14px;margin-top:8px;}
-.dashboard-table th,.dashboard-table td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
-.dashboard-table th{font-size:12px;text-transform:uppercase;letter-spacing:0.04em;color:var(--text-muted);}
-.stage-badge{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:600;}
+.hub-toolbar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px;align-items:center;}
+.hub-toolbar .auth-btn.primary{padding:10px 16px;}
+.hub-toolbar-spacer{flex:1;min-width:12px;}
+.dashboard-table{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:13px;margin-top:8px;}
+.dashboard-table th,.dashboard-table td{text-align:left;padding:10px 10px;border-bottom:1px solid var(--border);vertical-align:top;}
+.dashboard-table th{font-size:11px;text-transform:uppercase;letter-spacing:0.04em;color:var(--text-muted);}
+.stage-badge,.type-badge,.catalog-badge,.ci-badge{display:inline-block;padding:3px 10px;border-radius:999px;font-size:11px;font-weight:600;white-space:nowrap;}
+.type-badge{background:#f1f3f4;color:#5f6368;}
 .stage-pending{background:var(--warm-soft);color:var(--warm);}
 .stage-approved{background:var(--accent-soft);color:var(--accent);}
 .stage-pr-open{background:#e8f0fe;color:#1967d2;}
 .stage-merged{background:#e6f4ea;color:#1e8e3e;}
 .stage-closed,.stage-pr-closed{background:#f1f3f4;color:#5f6368;}
+.catalog-draft{background:var(--warm-soft);color:var(--warm);}
+.catalog-released{background:#e6f4ea;color:#1e8e3e;}
+.ci-pending{background:var(--accent-soft);color:var(--accent);}
+.ci-success{background:#e6f4ea;color:#1e8e3e;}
+.ci-failure{background:#fce8e6;color:#d93025;}
+.action-btn{font-family:var(--sans);font-size:12px;font-weight:600;padding:5px 10px;border-radius:6px;border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;text-decoration:none;display:inline-block;margin:2px 4px 2px 0;}
+.action-btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;}
+.action-btn:disabled{opacity:0.5;cursor:not-allowed;}
 .dashboard-empty{color:var(--text-muted);font-family:var(--sans);font-size:14px;margin:8px 0 0;}
-@media (prefers-color-scheme:dark){:root{--bg:#1a1815;--surface:#26231e;--text:#e6dfd6;--text-muted:#aca194;--accent:#5ba3d3;--accent-soft:#233e52;--accent-hover:#7ebbed;--warm:#d5a477;--warm-soft:#423020;--border:#423b33;}h1,h2,label,.before-start strong{color:#f5f1ec;}input[type="text"],select,textarea,input[type="number"]{background:#1e1b18;color:var(--text);}button.submit-btn{color:#1a1815;}.alert.success,.proposal-status.approved{background:#133a20;color:#81c995;border-color:#1b5e33;}.alert.error,.proposal-status.error{background:#471815;color:#f28b82;border-color:#712b26;}.step-strip .step.done{background:#133a20;color:#81c995;}}
+.dashboard-truncated{font-family:var(--sans);font-size:13px;color:var(--text-muted);margin:12px 0 0;}
+.skeleton-row td{color:var(--text-muted);}
+@media (max-width:720px){.dashboard-table{font-size:12px;}.dashboard-table th:nth-child(4),.dashboard-table td:nth-child(4){display:none;}}
+@media (prefers-color-scheme:dark){:root{--bg:#1a1815;--surface:#26231e;--text:#e6dfd6;--text-muted:#aca194;--accent:#5ba3d3;--accent-soft:#233e52;--accent-hover:#7ebbed;--warm:#d5a477;--warm-soft:#423020;--border:#423b33;}h1,h2,label,.before-start strong{color:#f5f1ec;}input[type="text"],select,textarea,input[type="number"]{background:#1e1b18;color:var(--text);}button.submit-btn,.action-btn.primary{color:#1a1815;}.alert.success,.proposal-status.approved,.stage-merged,.catalog-released,.ci-success{background:#133a20;color:#81c995;border-color:#1b5e33;}.alert.error,.proposal-status.error,.ci-failure{background:#471815;color:#f28b82;border-color:#712b26;}.step-strip .step.done{background:#133a20;color:#81c995;}}
 </style>
 </head>
 <body>
 <div class="page">
   <p class="back-link"><a href="index.html">&larr; Back to studies</a></p>
 
-  <header class="hero">
-    <h1>Submit a Study</h1>
-    <p class="lead">Propose a new study or submit a draft for the Analytic Madhyasth Darshan collection.</p>
+  <header class="hero" id="hub-hero">
+    <h1>My Submissions</h1>
+    <p class="lead">Propose studies, submit drafts, update content, and change release status — all in one place. Sign in with GitHub to track proposals, pull requests, and CI checks.</p>
   </header>
 
-  <div class="before-start">
-    <strong>Before you start:</strong> Read the study format and intent in
-    <a href="README.md">Studies/README.md</a> and the full workflow in
+  <div class="before-start" id="hub-before-start">
+    <strong>Before you start:</strong> Read the study format in
+    <a href="README.md">Studies/README.md</a> and the workflow in
     <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a>.
     New studies require an approved proposal before you can submit a draft.
   </div>
 
-  <div class="step-strip" aria-label="Submission workflow">
+  <div class="step-strip hidden" id="step-strip" aria-label="Submission workflow">
     <span class="step" id="step-propose">1. Propose</span>
     <span class="step-arrow" aria-hidden="true">&rarr;</span>
     <span class="step" id="step-wait">2. Wait for approval</span>
@@ -94,27 +108,59 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
   </div>
 
   <div class="auth-bar" id="auth-bar">
-    <div class="auth-user" id="auth-user">Sign in with GitHub to propose or submit a study.</div>
+    <div class="auth-user" id="auth-user">Sign in with GitHub to manage your submissions.</div>
     <div class="auth-actions">
       <button type="button" class="auth-btn primary" id="auth-login-btn">Sign in with GitHub</button>
       <button type="button" class="auth-btn" id="auth-logout-btn" hidden>Sign out</button>
     </div>
   </div>
 
-  <div class="nav-tabs">
-    <button class="active" id="tab-btn-propose" type="button" onclick="switchTab('propose')">Propose a Study</button>
-    <button id="tab-btn-submit" type="button" onclick="switchTab('submit')">Submit a Draft</button>
-    <button id="tab-btn-dashboard" type="button" onclick="switchTab('dashboard')">My Submissions</button>
-  </div>
+  <!-- Dashboard (default) -->
+  <section id="dashboard-tab" class="tab-content active">
+    <div class="section-card">
+      <div class="hub-toolbar" id="hub-toolbar">
+        <a class="auth-btn primary" href="?tab=propose">Propose a new study</a>
+        <a class="auth-btn" href="?tab=submit&amp;mode=update">Update a study</a>
+        <a class="auth-btn" href="?tab=status">Change release status</a>
+        <span class="hub-toolbar-spacer"></span>
+        <button type="button" class="auth-btn" id="dashboard-refresh-btn" hidden>Refresh</button>
+      </div>
+
+      <div id="dashboard-login-gate" class="login-gate visible">
+        <strong>Sign in with GitHub</strong> to see your proposals and pull requests.
+        <button type="button" class="auth-btn primary" style="margin-top:10px;" onclick="startGitHubLogin()">Sign in with GitHub</button>
+      </div>
+
+      <div id="dashboard-alert" class="alert"></div>
+      <div id="dashboard-content" hidden>
+        <table class="dashboard-table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Workflow</th>
+              <th>Catalog</th>
+              <th>CI</th>
+              <th>Pull request</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="dashboard-rows"></tbody>
+        </table>
+        <p class="dashboard-empty" id="dashboard-empty" hidden>No submissions yet. <a href="?tab=propose">Propose a new study</a> to get started.</p>
+        <p class="dashboard-truncated" id="dashboard-truncated" hidden>Showing your 20 most recent items. View all activity on <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pulls" target="_blank" rel="noopener">GitHub</a>.</p>
+      </div>
+    </div>
+  </section>
 
   <!-- Proposal Form -->
-  <section id="propose-tab" class="tab-content active">
+  <section id="propose-tab" class="tab-content">
+    <p class="subview-back"><a href="submit.html">&larr; Back to My Submissions</a></p>
     <div class="section-card">
-      <h2>Study Proposal</h2>
+      <h2>Propose a new study</h2>
       <p class="help-text" style="margin-bottom:20px;">Propose a new analytic study before writing the full paper. Maintainers will review and label approved proposals.</p>
 
       <div id="propose-login-gate" class="login-gate">
-        <strong>GitHub sign-in required.</strong> Proposals are filed as GitHub issues on your account so you can track them under <strong>My Submissions</strong>.
+        <strong>GitHub sign-in required.</strong>
         <button type="button" class="auth-btn primary" style="margin-top:10px;" onclick="startGitHubLogin()">Sign in with GitHub</button>
       </div>
 
@@ -130,7 +176,6 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
 
         <div class="form-group">
           <label for="p-category">Category *</label>
-          <div class="help-text">Primary topical or formal category for the catalog.</div>
           <select id="p-category" required>
             <option value="" disabled selected>Select a category...</option>
             <option value="Ontology">Ontology</option>
@@ -156,13 +201,11 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
 
         <div class="form-group">
           <label for="p-desc">One-line description *</label>
-          <div class="help-text">Catalog summary shown on the studies page (one sentence).</div>
           <textarea id="p-desc" rows="2" required placeholder="Madhyasth Darshan and modern philosophy on whether existence begins"></textarea>
         </div>
 
         <div class="form-group">
           <label for="p-summary">Study summary *</label>
-          <div class="help-text">The analytic question, primary texts, scope, and any planned comparisons.</div>
           <textarea id="p-summary" rows="5" required placeholder="Question: ...&#10;Primary texts: MVD, SB, ...&#10;Scope: ..."></textarea>
         </div>
 
@@ -190,14 +233,15 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
     </div>
   </section>
 
-  <!-- Draft Submission Form -->
+  <!-- Draft / Update Form -->
   <section id="submit-tab" class="tab-content">
+    <p class="subview-back"><a href="submit.html">&larr; Back to My Submissions</a></p>
     <div class="section-card">
-      <h2>Submit a Draft</h2>
-      <p class="help-text" style="margin-bottom:20px;">Submit your study markdown content directly here. This will automatically open a Pull Request for review.</p>
+      <h2 id="submit-heading">Submit a draft</h2>
+      <p class="help-text" id="submit-lead" style="margin-bottom:20px;">Paste your study markdown. A pull request will open for maintainer review.</p>
 
       <div id="submit-login-gate" class="login-gate">
-        <strong>GitHub sign-in required.</strong> Sign in with the same GitHub account that filed the approved proposal.
+        <strong>GitHub sign-in required.</strong>
         <button type="button" class="auth-btn primary" style="margin-top:10px;" onclick="startGitHubLogin()">Sign in with GitHub</button>
       </div>
 
@@ -206,31 +250,27 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
 
       <form id="submit-form">
         <div class="form-group">
-          <label for="s-slug">Study Slug *</label>
-          <div class="help-text">The exact slug of your study (e.g. The-Ontology-of-Coexistence). For new studies, this must match your approved proposal title.</div>
+          <label for="s-slug">Study slug *</label>
           <input type="text" id="s-slug" required pattern="[A-Za-z0-9-]+" title="Only alphanumeric characters and hyphens allowed">
         </div>
 
         <div class="form-group">
-          <label for="s-author">Author Name *</label>
-          <div class="help-text">Your name as it should appear in the study metadata.</div>
+          <label for="s-author">Author name *</label>
           <input type="text" id="s-author" required>
         </div>
 
-        <div class="form-group checkbox-group" style="margin-bottom:20px;">
+        <div class="form-group checkbox-group" id="s-new-group" style="margin-bottom:20px;">
           <input type="checkbox" id="s-new" checked>
-          <label for="s-new">This is a new study (uncheck if updating an existing study)</label>
+          <label for="s-new">This is a new study (uncheck to update an existing study)</label>
         </div>
 
         <div class="form-group" id="s-proposal-group">
           <label for="s-proposal">Approved proposal issue # *</label>
-          <div class="help-text">The GitHub issue number from your approved study proposal (e.g. 42). Find it in the issue URL or in the approval comment from maintainers.</div>
           <input type="number" id="s-proposal" min="1" step="1" required placeholder="42">
         </div>
 
         <div class="form-group">
-          <label for="s-content">Study Content (Markdown) *</label>
-          <div class="help-text">Paste your full Markdown content here. Start with an <code># Title</code> heading (required). Timestamps are added automatically.</div>
+          <label for="s-content">Study content (Markdown) *</label>
           <textarea id="s-content" rows="15" required placeholder="# Title&#10;&#10;Your content here..."></textarea>
         </div>
 
@@ -238,36 +278,50 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
           <div id="submit-turnstile" class="cf-turnstile" data-sitekey="0x4AAAAAADoBfrNV5lPeJQWO" data-action="turnstile-spin-v1"></div>
         </div>
 
-        <button type="submit" class="submit-btn" id="s-submit-btn">Submit Draft</button>
+        <button type="submit" class="submit-btn" id="s-submit-btn">Submit draft</button>
       </form>
     </div>
   </section>
 
-  <section id="dashboard-tab" class="tab-content">
+  <!-- Status change -->
+  <section id="status-tab" class="tab-content">
+    <p class="subview-back"><a href="submit.html">&larr; Back to My Submissions</a></p>
     <div class="section-card">
-      <h2>My Submissions</h2>
-      <p class="help-text" style="margin-bottom:20px;">Track your study proposals, approval status, and pull requests. Reading the catalog does not require a GitHub account.</p>
+      <h2>Change release status</h2>
+      <p class="help-text" style="margin-bottom:20px;">Request a change between <strong>Draft</strong> and <strong>Released</strong>. CI updates the study metadata, catalog, and PDF watermark on your pull request branch. Maintainers review before merge.</p>
 
-      <div id="dashboard-login-gate" class="login-gate visible">
-        <strong>Sign in with GitHub</strong> to see proposals you filed through this portal.
+      <div id="status-login-gate" class="login-gate">
+        <strong>GitHub sign-in required.</strong>
         <button type="button" class="auth-btn primary" style="margin-top:10px;" onclick="startGitHubLogin()">Sign in with GitHub</button>
       </div>
 
-      <div id="dashboard-alert" class="alert"></div>
-      <div id="dashboard-content" hidden>
-        <table class="dashboard-table">
-          <thead>
-            <tr>
-              <th>Proposal</th>
-              <th>Status</th>
-              <th>Pull request</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody id="dashboard-rows"></tbody>
-        </table>
-        <p class="dashboard-empty" id="dashboard-empty" hidden>No proposals yet. Use <strong>Propose a Study</strong> to start.</p>
-      </div>
+      <div id="status-alert" class="alert"></div>
+
+      <form id="status-form">
+        <div class="form-group">
+          <label for="st-slug">Study slug *</label>
+          <input type="text" id="st-slug" required pattern="[A-Za-z0-9-]+">
+        </div>
+
+        <div class="form-group">
+          <span class="help-text" style="display:block;margin-bottom:8px;">Target status *</span>
+          <div class="radio-group">
+            <label><input type="radio" name="st-target" value="released" required> Released (remove Draft watermark)</label>
+            <label><input type="radio" name="st-target" value="draft"> Draft (add Draft watermark)</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="st-reason">Reason (optional)</label>
+          <textarea id="st-reason" rows="3" placeholder="Brief reason for releasing or reverting to draft"></textarea>
+        </div>
+
+        <div class="form-group turnstile-wrap">
+          <div id="status-turnstile" class="cf-turnstile" data-sitekey="0x4AAAAAADoBfrNV5lPeJQWO" data-action="turnstile-spin-v1"></div>
+        </div>
+
+        <button type="submit" class="submit-btn" id="st-submit-btn">Open status-change pull request</button>
+      </form>
     </div>
   </section>
 
@@ -277,15 +331,18 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
 <script>
 const API_BASE = 'https://amd-submissions.raghavamohan.workers.dev';
 const PROPOSAL_STORAGE_KEY = 'amd-last-proposal-issue';
+const DASHBOARD_CACHE_MS = 30000;
 
 let currentUser = null;
+let dashboardCache = null;
+let dashboardCacheAt = 0;
 
 const STAGE_LABELS = {
   pending: 'Awaiting review',
-  approved: 'Approved — submit draft',
+  approved: 'Approved',
   'pr-open': 'PR open',
   merged: 'Merged',
-  closed: 'Proposal closed',
+  closed: 'Closed',
   'pr-closed': 'PR closed',
 };
 
@@ -293,15 +350,12 @@ function apiFetch(path, options = {}) {
   return fetch(API_BASE + path, {
     credentials: 'include',
     ...options,
-    headers: {
-      ...(options.headers || {}),
-    },
+    headers: { ...(options.headers || {}) },
   });
 }
 
 function startGitHubLogin() {
-  const returnTo = window.location.href;
-  window.location.href = API_BASE + '/api/auth/github?return_to=' + encodeURIComponent(returnTo);
+  window.location.href = API_BASE + '/api/auth/github?return_to=' + encodeURIComponent(window.location.href);
 }
 
 function stageClass(stage) {
@@ -312,8 +366,19 @@ function stageClass(stage) {
   return 'stage-closed';
 }
 
+function ciClass(state) {
+  if (state === 'success') return 'ci-success';
+  if (state === 'failure') return 'ci-failure';
+  if (state === 'pending') return 'ci-pending';
+  return '';
+}
+
+function escapeHtml(text) {
+  return String(text || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
 function updateAuthUi(loggedIn) {
-  ['propose-form', 'submit-form'].forEach((id) => {
+  ['propose-form', 'submit-form', 'status-form'].forEach((id) => {
     const form = document.getElementById(id);
     if (!form) return;
     form.querySelectorAll('input, select, textarea, button').forEach((el) => {
@@ -322,10 +387,12 @@ function updateAuthUi(loggedIn) {
   });
   document.getElementById('propose-login-gate').classList.toggle('visible', !loggedIn);
   document.getElementById('submit-login-gate').classList.toggle('visible', !loggedIn);
+  document.getElementById('status-login-gate').classList.toggle('visible', !loggedIn);
   document.getElementById('dashboard-login-gate').classList.toggle('visible', !loggedIn);
   document.getElementById('dashboard-content').hidden = !loggedIn;
   document.getElementById('auth-login-btn').hidden = loggedIn;
   document.getElementById('auth-logout-btn').hidden = !loggedIn;
+  document.getElementById('dashboard-refresh-btn').hidden = !loggedIn;
 }
 
 async function refreshAuthState() {
@@ -335,12 +402,13 @@ async function refreshAuthState() {
     currentUser = data.loggedIn ? data : null;
     const userEl = document.getElementById('auth-user');
     if (currentUser) {
-      userEl.innerHTML = 'Signed in as <strong>@' + currentUser.login + '</strong>';
+      userEl.innerHTML = 'Signed in as <strong>@' + escapeHtml(currentUser.login) + '</strong>';
       if (!document.getElementById('s-author').value) {
         document.getElementById('s-author').value = currentUser.login;
       }
     } else {
-      userEl.textContent = 'Sign in with GitHub to propose or submit a study.';
+      userEl.textContent = 'Sign in with GitHub to manage your submissions.';
+      dashboardCache = null;
     }
     updateAuthUi(Boolean(currentUser));
     if (currentUser && document.getElementById('dashboard-tab').classList.contains('active')) {
@@ -354,14 +422,39 @@ async function refreshAuthState() {
 async function logout() {
   await apiFetch('/api/auth/logout', { method: 'POST' });
   currentUser = null;
+  dashboardCache = null;
   await refreshAuthState();
   showAlert('dashboard', 'info', 'Signed out.');
 }
 
-function renderDashboardRows(submissions) {
+function renderActionButtons(item) {
+  const parts = [];
+  const primary = item.primaryAction;
+  if (primary) {
+    let href = primary.href;
+    if (primary.issueOnly && item.issueUrl) href = item.issueUrl;
+    if (primary.prOnly && item.pullRequest) href = item.pullRequest.url;
+    if (href) {
+      const cls = primary.variant === 'primary' ? 'action-btn primary' : 'action-btn';
+      parts.push('<a class="' + cls + '" href="' + escapeHtml(href) + '">' + escapeHtml(primary.label) + '</a>');
+    }
+  }
+  (item.secondaryActions || []).forEach((action) => {
+    if (item.statusChangeBlocked && /release|revert/i.test(action.label)) return;
+    parts.push('<a class="action-btn" href="' + escapeHtml(action.href) + '">' + escapeHtml(action.label) + '</a>');
+  });
+  if (item.statusChangeBlocked && item.statusChangePr) {
+    parts.push('<a class="action-btn" href="' + escapeHtml(item.statusChangePr.url) + '">Status change in progress</a>');
+  }
+  return parts.length ? parts.join('') : '—';
+}
+
+function renderDashboardRows(submissions, truncated) {
   const tbody = document.getElementById('dashboard-rows');
   const emptyEl = document.getElementById('dashboard-empty');
+  const truncEl = document.getElementById('dashboard-truncated');
   tbody.innerHTML = '';
+  truncEl.hidden = !truncated;
   if (!submissions.length) {
     emptyEl.hidden = false;
     return;
@@ -369,33 +462,74 @@ function renderDashboardRows(submissions) {
   emptyEl.hidden = true;
   submissions.forEach((item) => {
     const tr = document.createElement('tr');
-    const titleCell = '<a href="' + item.issueUrl + '" target="_blank">#' + item.issueNumber + '</a> ' + (item.title || '');
-    const stageCell = '<span class="stage-badge ' + stageClass(item.stage) + '">' + (STAGE_LABELS[item.stage] || item.stage) + '</span>';
+    let titleHtml = escapeHtml(item.title || '');
+    if (item.issueNumber) {
+      titleHtml = '<a href="' + escapeHtml(item.issueUrl) + '" target="_blank" rel="noopener">#' + item.issueNumber + '</a> ' + titleHtml;
+    } else if (item.issueUrl) {
+      titleHtml = '<a href="' + escapeHtml(item.issueUrl) + '" target="_blank" rel="noopener">' + titleHtml + '</a>';
+    }
+    titleHtml = '<span class="type-badge">' + escapeHtml(item.kindLabel || 'Item') + '</span> ' + titleHtml;
+    if (item.slug) titleHtml += '<br><code style="font-size:11px;">' + escapeHtml(item.slug) + '</code>';
+
+    const stageCell = '<span class="stage-badge ' + stageClass(item.stage) + '">' + escapeHtml(STAGE_LABELS[item.stage] || item.stage) + '</span>';
+
+    let catalogCell = '—';
+    if (item.catalogStatus === 'draft') catalogCell = '<span class="catalog-badge catalog-draft">Draft</span>';
+    if (item.catalogStatus === 'released') catalogCell = '<span class="catalog-badge catalog-released">Released</span>';
+
+    let ciCell = '—';
+    if (item.checks && item.checks.state) {
+      const label = item.checks.state === 'success' ? 'Passed' : item.checks.state === 'failure' ? 'Failed' : 'Pending';
+      ciCell = '<a href="' + escapeHtml(item.checks.url || '#') + '" target="_blank" rel="noopener"><span class="ci-badge ' + ciClass(item.checks.state) + '">' + label + '</span></a>';
+    }
+
     let prCell = '—';
     if (item.pullRequest) {
-      prCell = '<a href="' + item.pullRequest.url + '" target="_blank">#' + item.pullRequest.number + '</a> (' + item.pullRequest.state + ')';
+      prCell = '<a href="' + escapeHtml(item.pullRequest.url) + '" target="_blank" rel="noopener">#' + item.pullRequest.number + '</a>';
     }
-    let actionCell = '<a href="' + item.submitUrl + '">Open submit form</a>';
-    if (item.stage === 'merged') {
-      actionCell = '—';
-    }
-    tr.innerHTML = '<td>' + titleCell + '</td><td>' + stageCell + '</td><td>' + prCell + '</td><td>' + actionCell + '</td>';
+
+    tr.innerHTML =
+      '<td>' + titleHtml + '</td>' +
+      '<td>' + stageCell + '</td>' +
+      '<td>' + catalogCell + '</td>' +
+      '<td>' + ciCell + '</td>' +
+      '<td>' + prCell + '</td>' +
+      '<td>' + renderActionButtons(item) + '</td>';
     tbody.appendChild(tr);
   });
 }
 
-async function loadDashboard() {
+function showDashboardSkeleton() {
+  const tbody = document.getElementById('dashboard-rows');
+  tbody.innerHTML = '';
+  for (let i = 0; i < 3; i++) {
+    const tr = document.createElement('tr');
+    tr.className = 'skeleton-row';
+    tr.innerHTML = '<td colspan="6">Loading…</td>';
+    tbody.appendChild(tr);
+  }
+}
+
+async function loadDashboard(options = {}) {
   if (!currentUser) return;
-  showAlert('dashboard', 'info', 'Loading your submissions…');
-  document.getElementById('dashboard-alert').style.display = 'block';
+  const force = Boolean(options.force);
+  const now = Date.now();
+  if (!force && dashboardCache && now - dashboardCacheAt < DASHBOARD_CACHE_MS) {
+    renderDashboardRows(dashboardCache.submissions, dashboardCache.truncated);
+    document.getElementById('dashboard-alert').style.display = 'none';
+    return;
+  }
+
+  showDashboardSkeleton();
+  document.getElementById('dashboard-empty').hidden = true;
   try {
     const res = await apiFetch('/api/me/submissions');
     const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.error || 'Could not load submissions');
-    }
+    if (!res.ok || !data.success) throw new Error(data.error || 'Could not load submissions');
+    dashboardCache = { submissions: data.submissions || [], truncated: Boolean(data.meta && data.meta.truncated) };
+    dashboardCacheAt = Date.now();
     document.getElementById('dashboard-alert').style.display = 'none';
-    renderDashboardRows(data.submissions || []);
+    renderDashboardRows(dashboardCache.submissions, dashboardCache.truncated);
   } catch (err) {
     showAlert('dashboard', 'error', err.message);
   }
@@ -407,40 +541,51 @@ function titleToSlug(title) {
   return words.map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join('-');
 }
 
-function updateStepStrip(activeTab) {
-  const propose = document.getElementById('step-propose');
-  const wait = document.getElementById('step-wait');
-  const submit = document.getElementById('step-submit');
-  [propose, wait, submit].forEach((el) => el.classList.remove('active', 'done'));
-  if (activeTab === 'propose') {
-    propose.classList.add('active');
-  } else if (activeTab === 'submit') {
-    propose.classList.add('done');
-    submit.classList.add('active');
-    wait.classList.add('done');
-  } else if (activeTab === 'dashboard') {
-    propose.classList.add('done');
-    wait.classList.add('done');
-    submit.classList.add('done');
+function updateHubChrome(tabId) {
+  const isDashboard = tabId === 'dashboard';
+  document.getElementById('hub-hero').hidden = !isDashboard;
+  document.getElementById('hub-before-start').hidden = !isDashboard;
+  document.getElementById('step-strip').classList.toggle('hidden', isDashboard || tabId === 'status');
+  if (tabId === 'propose') {
+    document.getElementById('step-propose').classList.add('active');
+  } else if (tabId === 'submit' && document.getElementById('s-new').checked) {
+    document.getElementById('step-propose').classList.add('done');
+    document.getElementById('step-wait').classList.add('done');
+    document.getElementById('step-submit').classList.add('active');
+  }
+}
+
+function configureSubmitView(mode) {
+  const isUpdate = mode === 'update';
+  document.getElementById('s-new').checked = !isUpdate;
+  document.getElementById('s-new-group').hidden = isUpdate;
+  document.getElementById('submit-heading').textContent = isUpdate ? 'Update a study' : 'Submit a draft';
+  document.getElementById('submit-lead').textContent = isUpdate
+    ? 'Paste revised markdown for an existing study. A study-update pull request will open.'
+    : 'Paste your study markdown for a new approved proposal. A pull request will open for review.';
+  document.getElementById('s-submit-btn').textContent = isUpdate ? 'Submit update' : 'Submit draft';
+  toggleProposalField();
+}
+
+function configureStatusView(params) {
+  const slug = params.get('slug');
+  const target = params.get('target');
+  if (slug) document.getElementById('st-slug').value = slug;
+  if (target === 'draft' || target === 'released') {
+    const radio = document.querySelector('input[name="st-target"][value="' + target + '"]');
+    if (radio) radio.checked = true;
   }
 }
 
 function switchTab(tabId, updateUrl) {
   document.querySelectorAll('.tab-content').forEach((el) => el.classList.remove('active'));
-  document.querySelectorAll('.nav-tabs button').forEach((el) => el.classList.remove('active'));
   document.getElementById(tabId + '-tab').classList.add('active');
-  document.getElementById('tab-btn-' + tabId).classList.add('active');
-  updateStepStrip(tabId);
-  if (tabId === 'dashboard' && currentUser) {
-    loadDashboard();
-  }
+  updateHubChrome(tabId);
+  if (tabId === 'dashboard' && currentUser) loadDashboard();
   if (updateUrl !== false) {
     const url = new URL(window.location.href);
-    if (tabId === 'propose') {
-      url.searchParams.delete('tab');
-    } else {
-      url.searchParams.set('tab', tabId);
-    }
+    url.search = '';
+    if (tabId !== 'dashboard') url.searchParams.set('tab', tabId);
     history.replaceState(null, '', url.pathname + url.search + url.hash);
   }
 }
@@ -459,21 +604,16 @@ function getTurnstileToken(form) {
 function resetTurnstile(form) {
   if (!window.turnstile) return;
   const widget = form.querySelector('.cf-turnstile');
-  if (widget && widget.dataset.widgetId) {
-    turnstile.reset(widget.dataset.widgetId);
-  }
+  if (widget && widget.dataset.widgetId) turnstile.reset(widget.dataset.widgetId);
 }
 
 function updateSlugPreview() {
   const title = document.getElementById('p-title').value;
   const slug = titleToSlug(title);
   const preview = document.getElementById('p-slug-preview');
-  const slugSpans = [document.getElementById('p-slug-value'), document.getElementById('p-slug-value2')];
-  if (!slug) {
-    preview.hidden = true;
-    return;
-  }
-  slugSpans.forEach((el) => { el.textContent = slug; });
+  if (!slug) { preview.hidden = true; return; }
+  document.getElementById('p-slug-value').textContent = slug;
+  document.getElementById('p-slug-value2').textContent = slug;
   preview.hidden = false;
 }
 
@@ -483,12 +623,8 @@ function toggleProposalField() {
   const input = document.getElementById('s-proposal');
   group.style.display = isNew ? 'block' : 'none';
   input.required = isNew;
-  if (!isNew) {
-    input.value = '';
-    hideProposalStatus();
-  } else if (input.value) {
-    checkProposalStatus();
-  }
+  if (!isNew) { input.value = ''; hideProposalStatus(); }
+  else if (input.value) checkProposalStatus();
 }
 
 function hideProposalStatus() {
@@ -509,39 +645,25 @@ let proposalStatusTimer = null;
 
 async function checkProposalStatus() {
   const isNew = document.getElementById('s-new').checked;
-  const issueInput = document.getElementById('s-proposal');
-  const issueNumber = Number(issueInput.value);
-  if (!isNew || !issueNumber || issueNumber < 1) {
-    hideProposalStatus();
-    return;
-  }
-
+  const issueNumber = Number(document.getElementById('s-proposal').value);
+  if (!isNew || !issueNumber || issueNumber < 1) { hideProposalStatus(); return; }
   showProposalStatus('loading', 'Checking proposal approval status…');
-
   try {
     const res = await apiFetch('/api/proposal-status?issue=' + issueNumber);
     const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.error || 'Could not check proposal status');
-    }
+    if (!res.ok || !data.success) throw new Error(data.error || 'Could not check proposal status');
     if (data.approved) {
-      let msg = 'Proposal <strong>#' + issueNumber + '</strong> is approved. You can submit your draft.';
+      let msg = 'Proposal <strong>#' + issueNumber + '</strong> is approved.';
       if (data.slug) {
-        msg += ' Expected slug: <code>' + data.slug + '</code>.';
-        if (!document.getElementById('s-slug').value) {
-          document.getElementById('s-slug').value = data.slug;
-        }
+        msg += ' Expected slug: <code>' + escapeHtml(data.slug) + '</code>.';
+        if (!document.getElementById('s-slug').value) document.getElementById('s-slug').value = data.slug;
       }
       showProposalStatus('approved', msg);
     } else {
-      showProposalStatus(
-        'pending',
-        'Proposal <strong>#' + issueNumber + '</strong> is not approved yet. Wait for maintainers to add the <code>proposal-approved</code> label before submitting a new study.'
-        + (data.url ? ' <a href="' + data.url + '" target="_blank">View issue</a>' : '')
-      );
+      showProposalStatus('pending', 'Proposal <strong>#' + issueNumber + '</strong> is not approved yet.' + (data.url ? ' <a href="' + data.url + '" target="_blank">View issue</a>' : ''));
     }
   } catch (err) {
-    showProposalStatus('error', 'Could not verify proposal status: ' + err.message);
+    showProposalStatus('error', escapeHtml(err.message));
   }
 }
 
@@ -550,26 +672,42 @@ function scheduleProposalStatusCheck() {
   proposalStatusTimer = setTimeout(checkProposalStatus, 400);
 }
 
+function goToDashboard(forceRefresh) {
+  switchTab('dashboard', false);
+  const url = new URL(window.location.href);
+  url.search = '';
+  history.replaceState(null, '', url.pathname);
+  if (forceRefresh) return loadDashboard({ force: true });
+  return Promise.resolve();
+}
+
 function applyQueryParams() {
   const params = new URLSearchParams(window.location.search);
-  const tab = params.get('tab');
-  const proposal = params.get('proposal');
+  const tab = params.get('tab') || 'dashboard';
   const authError = params.get('auth_error');
   if (authError) {
-    const msg = 'Sign-in failed: ' + decodeURIComponent(authError);
-    document.getElementById('auth-user').innerHTML = '<span style="color:#d93025;">' + msg + '</span>';
+    document.getElementById('auth-user').innerHTML = '<span style="color:#d93025;">Sign-in failed: ' + escapeHtml(decodeURIComponent(authError)) + '</span>';
     const url = new URL(window.location.href);
     url.searchParams.delete('auth_error');
-    history.replaceState(null, '', url.pathname + url.search + url.hash);
+    history.replaceState(null, '', url.pathname + url.search);
   }
-  if (tab === 'submit' || tab === 'dashboard') {
-    switchTab(tab, false);
-  }
-  if (proposal) {
-    document.getElementById('s-proposal').value = proposal;
+
+  if (tab === 'propose') switchTab('propose', false);
+  else if (tab === 'submit') {
     switchTab('submit', false);
-    scheduleProposalStatusCheck();
+    configureSubmitView(params.get('mode') === 'update' ? 'update' : 'new');
+    if (params.get('slug')) document.getElementById('s-slug').value = params.get('slug');
+    if (params.get('proposal')) {
+      document.getElementById('s-proposal').value = params.get('proposal');
+      scheduleProposalStatusCheck();
+    }
+  } else if (tab === 'status') {
+    switchTab('status', false);
+    configureStatusView(params);
+  } else {
+    switchTab('dashboard', false);
   }
+
   const stored = sessionStorage.getItem(PROPOSAL_STORAGE_KEY);
   if (stored && !document.getElementById('s-proposal').value) {
     document.getElementById('s-proposal').value = stored;
@@ -578,11 +716,12 @@ function applyQueryParams() {
 
 document.getElementById('auth-login-btn').addEventListener('click', startGitHubLogin);
 document.getElementById('auth-logout-btn').addEventListener('click', logout);
-
+document.getElementById('dashboard-refresh-btn').addEventListener('click', () => loadDashboard({ force: true }));
 document.getElementById('p-title').addEventListener('input', updateSlugPreview);
-document.getElementById('s-new').addEventListener('change', toggleProposalField);
+document.getElementById('s-new').addEventListener('change', () => { toggleProposalField(); configureSubmitView(document.getElementById('s-new').checked ? 'new' : 'update'); });
 document.getElementById('s-proposal').addEventListener('input', scheduleProposalStatusCheck);
 document.getElementById('s-proposal').addEventListener('change', scheduleProposalStatusCheck);
+
 toggleProposalField();
 applyQueryParams();
 updateSlugPreview();
@@ -590,64 +729,38 @@ refreshAuthState();
 
 document.getElementById('propose-form').addEventListener('submit', async (e) => {
   e.preventDefault();
-  if (!currentUser) {
-    showAlert('propose', 'error', 'Sign in with GitHub before submitting a proposal.');
-    return;
-  }
+  if (!currentUser) { showAlert('propose', 'error', 'Sign in with GitHub first.'); return; }
   const form = e.target;
   const btn = document.getElementById('p-submit-btn');
   const turnstileToken = getTurnstileToken(form);
-  if (!turnstileToken) {
-    showAlert('propose', 'error', 'Complete the Turnstile check before submitting.');
-    return;
-  }
+  if (!turnstileToken) { showAlert('propose', 'error', 'Complete the Turnstile check.'); return; }
   btn.disabled = true;
-  btn.textContent = 'Submitting...';
-
-  const payload = {
-    title: document.getElementById('p-title').value,
-    category: document.getElementById('p-category').value,
-    description: document.getElementById('p-desc').value,
-    summary: document.getElementById('p-summary').value,
-    familiarity: document.getElementById('p-fam').value,
-    formal: document.getElementById('p-formal').checked,
-    turnstileToken
-  };
-
+  btn.textContent = 'Submitting…';
   try {
     const res = await apiFetch('/api/propose', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
+      body: JSON.stringify({
+        title: document.getElementById('p-title').value,
+        category: document.getElementById('p-category').value,
+        description: document.getElementById('p-desc').value,
+        summary: document.getElementById('p-summary').value,
+        familiarity: document.getElementById('p-fam').value,
+        formal: document.getElementById('p-formal').checked,
+        turnstileToken,
+      }),
     });
     const data = await res.json();
-    if (res.ok) {
-      const issueNum = data.issueNumber;
-      if (issueNum) {
-        sessionStorage.setItem(PROPOSAL_STORAGE_KEY, String(issueNum));
-      }
-      const slug = titleToSlug(payload.title);
-      let msg = '<strong>Proposal submitted successfully!</strong>';
-      if (issueNum) {
-        msg += '<br><br>Save proposal issue <strong>#' + issueNum + '</strong> — you will need it when submitting your draft.';
-      }
-      msg += '<br><br>Track this proposal under <strong>My Submissions</strong>.';
-      if (data.url) {
-        msg += ' <a href="' + data.url + '" target="_blank">View issue on GitHub</a>';
-      }
-      msg += '<br><br>Maintainers will review your proposal. Once approved, use <strong>Submit a Draft</strong>.';
-      if (slug) {
-        msg += '<br><br>Your study slug will be <code>' + slug + '</code>.';
-      }
-      showAlert('propose', 'success', msg);
-      form.reset();
-      updateSlugPreview();
-      resetTurnstile(form);
-    } else {
-      throw new Error(data.error || 'Unknown error');
-    }
+    if (!res.ok) throw new Error(data.error || 'Unknown error');
+    if (data.issueNumber) sessionStorage.setItem(PROPOSAL_STORAGE_KEY, String(data.issueNumber));
+    dashboardCache = null;
+    await goToDashboard(true);
+    showAlert('dashboard', 'success', 'Proposal submitted.' + (data.url ? ' <a href="' + data.url + '" target="_blank">View on GitHub</a>' : ''));
+    form.reset();
+    updateSlugPreview();
+    resetTurnstile(form);
   } catch (err) {
-    showAlert('propose', 'error', 'Error submitting proposal: ' + err.message);
+    showAlert('propose', 'error', escapeHtml(err.message));
     resetTurnstile(form);
   } finally {
     btn.disabled = false;
@@ -657,59 +770,81 @@ document.getElementById('propose-form').addEventListener('submit', async (e) => 
 
 document.getElementById('submit-form').addEventListener('submit', async (e) => {
   e.preventDefault();
-  if (!currentUser) {
-    showAlert('submit', 'error', 'Sign in with GitHub before submitting a draft.');
-    return;
-  }
+  if (!currentUser) { showAlert('submit', 'error', 'Sign in with GitHub first.'); return; }
   const form = e.target;
   const btn = document.getElementById('s-submit-btn');
   const turnstileToken = getTurnstileToken(form);
-  if (!turnstileToken) {
-    showAlert('submit', 'error', 'Complete the Turnstile check before submitting.');
-    return;
-  }
+  if (!turnstileToken) { showAlert('submit', 'error', 'Complete the Turnstile check.'); return; }
   btn.disabled = true;
-  btn.textContent = 'Submitting...';
-
+  btn.textContent = 'Submitting…';
   const isNew = document.getElementById('s-new').checked;
   const payload = {
     slug: document.getElementById('s-slug').value.trim(),
     author: document.getElementById('s-author').value.trim(),
     isNew,
     content: document.getElementById('s-content').value,
-    turnstileToken
+    turnstileToken,
   };
-  if (isNew) {
-    payload.proposalIssue = Number(document.getElementById('s-proposal').value);
-  }
-
+  if (isNew) payload.proposalIssue = Number(document.getElementById('s-proposal').value);
   try {
     const res = await apiFetch('/api/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
+      body: JSON.stringify(payload),
     });
     const data = await res.json();
-    if (res.ok) {
-      let msg = '<strong>Draft submitted successfully!</strong>';
-      if (data.url) {
-        msg += ' <a href="' + data.url + '" target="_blank">View pull request on GitHub</a>';
-      }
-      msg += '<br><br>CI will verify your markdown, generate the PDF, and update the catalog on your PR branch. Maintainers will review before merge.';
-      showAlert('submit', 'success', msg);
-      form.reset();
-      toggleProposalField();
-      hideProposalStatus();
-      resetTurnstile(form);
-    } else {
-      throw new Error(data.error || 'Unknown error');
-    }
+    if (!res.ok) throw new Error(data.error || 'Unknown error');
+    dashboardCache = null;
+    await goToDashboard(true);
+    showAlert('dashboard', 'success', 'Pull request opened.' + (data.url ? ' <a href="' + data.url + '" target="_blank">View on GitHub</a>' : ''));
+    form.reset();
+    toggleProposalField();
+    hideProposalStatus();
+    resetTurnstile(form);
   } catch (err) {
-    showAlert('submit', 'error', 'Error submitting draft: ' + err.message);
+    showAlert('submit', 'error', escapeHtml(err.message));
     resetTurnstile(form);
   } finally {
     btn.disabled = false;
-    btn.textContent = 'Submit Draft';
+    btn.textContent = isNew ? 'Submit draft' : 'Submit update';
+  }
+});
+
+document.getElementById('status-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  if (!currentUser) { showAlert('status', 'error', 'Sign in with GitHub first.'); return; }
+  const form = e.target;
+  const btn = document.getElementById('st-submit-btn');
+  const turnstileToken = getTurnstileToken(form);
+  if (!turnstileToken) { showAlert('status', 'error', 'Complete the Turnstile check.'); return; }
+  const target = form.querySelector('input[name="st-target"]:checked');
+  if (!target) { showAlert('status', 'error', 'Select a target status.'); return; }
+  btn.disabled = true;
+  btn.textContent = 'Opening PR…';
+  try {
+    const res = await apiFetch('/api/status-change', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        slug: document.getElementById('st-slug').value.trim(),
+        targetStatus: target.value,
+        reason: document.getElementById('st-reason').value.trim(),
+        turnstileToken,
+      }),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Unknown error');
+    dashboardCache = null;
+    await goToDashboard(true);
+    showAlert('dashboard', 'success', 'Status-change pull request opened.' + (data.url ? ' <a href="' + data.url + '" target="_blank">View on GitHub</a>' : ''));
+    form.reset();
+    resetTurnstile(form);
+  } catch (err) {
+    showAlert('status', 'error', escapeHtml(err.message));
+    resetTurnstile(form);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Open status-change pull request';
   }
 });
 </script>

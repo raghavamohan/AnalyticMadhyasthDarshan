@@ -37,6 +37,7 @@ jobs:
             const repo = context.repo.owner + '/' + context.repo.repo;
             const issueNumber = issue.number;
             const portalBase = 'https://analyticmadhyasthdarshan.org/Studies/submit.html';
+            const portalHubUrl = portalBase;
             const portalSubmitUrl = portalBase + '?tab=submit&proposal=' + issueNumber;
             const prUrl =
               `https://github.com/${repo}/compare/master...master?` +
@@ -63,10 +64,11 @@ jobs:
               '',
               '#### Recommended: Web Submission Portal',
               '',
-              '1. Open the [**Web Submission Portal**](' + portalSubmitUrl + ').',
-              '2. Confirm the **proposal issue #** is pre-filled (`#' + issueNumber + '`).',
-              '3. Enter your study slug, author name, and paste your markdown draft.',
-              '4. Submit the form — a pull request will be opened automatically.',
+              '1. Open [**My Submissions**](' + portalHubUrl + ') and sign in with GitHub.',
+              '2. Find proposal **#' + issueNumber + '** in your list — when the row shows **Approved**, click **Submit draft**.',
+              '3. Or open the [**submit form**](' + portalSubmitUrl + ') directly (proposal issue # pre-filled).',
+              '4. Enter your study slug, author name, and paste your markdown draft.',
+              '5. Submit the form — a pull request will be opened automatically. Track CI on the same page.',
               '',
               'CI will verify this issue is approved, register the study in the catalog, and regenerate the PDF on your PR branch.',
               '',
@@ -83,7 +85,7 @@ jobs:
               '',
               '</details>',
               '',
-              'To **update** an existing study later, use the portal **Submit a Draft** form (uncheck "new study") or the `study-update` template and label. To **release** or **revert to draft**, use `status-change`.',
+              'To **update** an existing study later, use **Update a study** on My Submissions. To **release** or **revert to draft**, use **Change release status** or the row actions on a merged study.',
               '',
               'Full guide: [CONTRIBUTING.md](https://github.com/' + repo + '/blob/master/CONTRIBUTING.md).'
             ].join('\n');

@@ -13,7 +13,7 @@ cd ..
 
 ## Maintainer / local development
 
-To submit a study without cloning this repository, use the **[Web Submission Portal](../Studies/submit.html)**.
+To submit a study without cloning this repository, use **[My Submissions](../Studies/submit.html)** on the Web Submission Portal.
 
 | Task | Command |
 |------|---------|

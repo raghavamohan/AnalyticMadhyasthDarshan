@@ -6,7 +6,7 @@ Clear, carefully argued studies of **Madhyasth Darshan** (Co-existentialism) —
 
 Browse the published collection at **[analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org)** (or open [index.html](index.html) locally for search, filters, and card layout).
 
-**Want to contribute?** Use the **[Web Submission Portal](submit.html)** to [propose a study](submit.html) or [submit a draft](submit.html?tab=submit). See [How to contribute](#contribute) below for the full workflow.
+**Want to contribute?** Open **[My Submissions](submit.html)** on the Web Submission Portal. See [How to contribute](#contribute) below for the full workflow.
 
 **On this page**
 
@@ -101,13 +101,13 @@ Reading the books and following the logic is necessary, but only the starting po
 
 We welcome new studies and revisions from anyone studying Madhyasth Darshan. Before you write, read the study format and intent in this document and in [CONTRIBUTING.md](../CONTRIBUTING.md).
 
-To add or update a study through the **[Web Submission Portal](submit.html)**:
+To add or update a study, open **[My Submissions](submit.html)** and sign in with GitHub:
 
-1. **Sign in** with GitHub on the portal (required to propose or submit; not required to read studies).
-2. **Propose.** Submit a proposed title, category, and a short summary of the question you want to examine.
-3. **Wait for approval.** Maintainers review your proposal on the GitHub issue filed under your account.
-4. **Submit.** Once approved, paste your markdown draft in the portal; a pull request opens for review.
-5. **Track.** Use **My Submissions** on the portal to follow approval status and pull request progress.
+1. **Sign in** on [My Submissions](submit.html) (required to propose or submit; not required to read studies).
+2. **Propose** a new study, **update** an existing one, or **change release status** (Draft ↔ Released) from the same page.
+3. **Track** approval status, pull requests, and CI checks on that page.
+4. When a proposal is approved, click **Submit draft** on your row.
+5. After merge, use **Update study** or **Release study** / **Revert to draft** as needed.
 
 ## About us
 
