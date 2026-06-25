@@ -28,6 +28,7 @@ from _study_catalog import (
     format_edited_on_md,
     format_status_md,
     now_ist,
+    parse_edited_on,
     regenerate_pdf,
     set_edited_on,
     set_status_md,
@@ -163,6 +164,10 @@ def add_study(
     dest_md = study_md(derived_slug)
     dest_pdf = study_pdf(derived_slug)
     edited_at = now_ist()
+    if dest_md.exists() and force:
+        existing_edited_at = parse_edited_on(dest_md.read_text(encoding="utf-8"))
+        if existing_edited_at is not None:
+            edited_at = existing_edited_at
 
     study_description = description or ""
     study_tags = tags or ""
