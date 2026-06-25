@@ -226,17 +226,31 @@ async function findLinkedPullRequest(issueNumber, env, userToken) {
   return items[0] || null;
 }
 
+function isStudyProposalIssue(issue) {
+  const title = issue.title || '';
+  if (title.startsWith('Study proposal:')) {
+    return true;
+  }
+  const labels = issueLabels(issue);
+  if (labels.includes('study-proposal') || labels.includes('proposal-approved')) {
+    return true;
+  }
+  return (issue.body || '').includes('### Portal submitter');
+}
+
 async function buildDashboard(session, env) {
   const login = session.login;
   const userToken = session.accessToken;
+  // Comma-separated labels are OR in GitHub search. Approved issues sometimes
+  // retain only proposal-approved if maintainers relabeled in the UI.
   const proposals = await githubSearch(
-    `repo:${REPO} is:issue author:${login} label:study-proposal`,
+    `repo:${REPO} is:issue author:${login} label:study-proposal,proposal-approved`,
     env,
     userToken
   );
 
   const submissions = [];
-  for (const issue of proposals) {
+  for (const issue of proposals.filter(isStudyProposalIssue)) {
     const title = proposedTitleFromIssue(issue);
     const slug = title ? titleToSlug(title) : null;
     const linkedPr = await findLinkedPullRequest(issue.number, env, userToken);
