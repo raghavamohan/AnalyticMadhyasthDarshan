@@ -52,6 +52,11 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-19.
 | | Metzinger 2003, Penrose 2010, Ishvarakrishna, Nagarjuna, Weinberg 1995 | external |
 
 
+
+
+
+| [Physics-Of-Madhyasth-Darshan.pdf](../Studies/Physics-Of-Madhyasth-Darshan/Physics-Of-Madhyasth-Darshan.pdf) | MVD, SB, JV | TBD |
+
 ## By tag
 
 | Tag | Location | Cited in |
