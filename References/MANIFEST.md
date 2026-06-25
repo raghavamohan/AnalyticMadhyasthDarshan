@@ -51,6 +51,8 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-19.
 | | Ashtekar and Singh 2011, Carroll 2010, Friston 2010, Guth 2007 | present |
 | | Metzinger 2003, Penrose 2010, Ishvarakrishna, Nagarjuna, Weinberg 1995 | external |
 
+| [Ethics-In-Madhyasth-Darshan.pdf](../Studies/Ethics-In-Madhyasth-Darshan/Ethics-In-Madhyasth-Darshan.pdf) | MVD, SB, JV | TBD |
+
 ## By tag
 
 | Tag | Location | Cited in |
