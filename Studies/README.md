@@ -55,6 +55,7 @@ These studies are more mathematical in nature. They represent the structure disc
 |----------|--------------|-------------|--------|
 | [Category Theory Explained](Category-Theory-Explained/Category-Theory-Explained.pdf) | Formal structure | Category-theory lens on the darshan's structure | Draft<br>Last updated on: Jun 24, 2026, 3:40 PM IST |
 | [The Coexistence Template](The-Coexistence-Template/The-Coexistence-Template.pdf) | Formal structure | Formal template of units, relationships, values, and assembly | Draft<br>Last updated on: Jun 24, 2026, 3:40 PM IST |
+| [Ethics in Madhyasth Darshan](Ethics-In-Madhyasth-Darshan/Ethics-In-Madhyasth-Darshan.pdf) | Ethics, Axiology | Test | Draft<br>Last updated on: Jun 25, 2026, 3:24 PM IST |
 <!-- /formal-studies-catalog -->
 
 ### Applied studies

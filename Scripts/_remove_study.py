@@ -18,7 +18,7 @@ from _common import REFERENCES, STUDIES, known_study_slugs, study_dir, study_htm
 from _study_catalog import (
     StudyTable,
     find_study_table,
-    parse_html_rows,
+    load_catalog_rows,
     parse_references_readme_rows,
     remove_manifest_paper_block,
     remove_study_row,
@@ -127,11 +127,6 @@ def confirm_removal(slug: str, paths: list[Path]) -> bool:
     print("  - References/MANIFEST.md (if published study)")
     answer = input("\nRemove this study? [y/N]: ").strip().lower()
     return answer in {"y", "yes"}
-
-
-def load_catalog_rows(table: StudyTable) -> list:
-    index_path = STUDIES / "index.html"
-    return parse_html_rows(index_path.read_text(encoding="utf-8"), table)
 
 
 def remove_study(

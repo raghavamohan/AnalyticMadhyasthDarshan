@@ -28,12 +28,12 @@ from _study_catalog import (
     format_edited_on_md,
     format_status_md,
     now_ist,
-    parse_html_rows,
     regenerate_pdf,
     set_edited_on,
     set_status_md,
     slug_to_title,
     title_to_slug,
+    load_catalog_rows,
     upsert_study_row,
     verify_timestamp_sync,
     write_references_readme_row,
@@ -98,11 +98,6 @@ def parse_status_arg(value: str) -> StudyStatus:
         raise SystemExit(
             f"Invalid --status {value!r}; use draft, released, or ongoing."
         ) from exc
-
-
-def load_catalog_rows(table: StudyTable) -> list[StudyRow]:
-    index_path = STUDIES / "index.html"
-    return parse_html_rows(index_path.read_text(encoding="utf-8"), table)
 
 
 def update_manifest(slug: str, tags: str, *, force: bool) -> None:
