@@ -1,6 +1,6 @@
 # Contributing studies
 
-Thank you for helping expand rigorous analytic work on Madhyasth Darshan. This repository uses a **two-stage flow**: propose a study on GitHub, wait for maintainer approval, then submit a pull request. Continuous integration regenerates PDFs and keeps catalogs in sync — you only need to edit markdown.
+Thank you for helping expand rigorous analytic work on Madhyasth Darshan. This repository uses a **two-stage flow** managed through our **[Web Submission Portal](Studies/submit.html)**: propose a study, wait for maintainer approval, then submit your draft. The web portal automatically handles all GitHub issues and pull requests behind the scenes.
 
 Read [Studies/README.md](Studies/README.md) for study format, tone, and structure before you start. Agents and automation should follow **[AGENTS.md](AGENTS.md)** for Edited on, PDF pipeline, prose style, and Standpoint and scope.
 
@@ -10,17 +10,18 @@ Read [Studies/README.md](Studies/README.md) for study format, tone, and structur
 
 | Stage | What you do | What maintainers do |
 |-------|-------------|---------------------|
-| 1. Proposal | Open a [study proposal issue](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-proposal.yml) | Review scope and fit |
-| 2. Approval | Wait for the `proposal-approved` label and follow-up comment | Label approved proposals |
-| 3. Pull request | Fork, branch, submit PR with the right label | Review content and merge |
+| 1. Proposal | Propose a study via the **[Web Submission Portal](Studies/submit.html)** | Review scope and fit |
+| 2. Approval | Wait for a GitHub issue comment from maintainers | Label approved proposals |
+| 3. Submit | Paste your markdown draft into the Web Portal | Review content and merge |
 
 The public catalog at [analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org) links to this workflow from **How to contribute**.
+
 
 ---
 
 ## Step 1 — Propose a study
 
-Open a [**Study proposal**](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-proposal.yml) issue. Include:
+Open the [**Web Submission Portal**](Studies/submit.html) and fill out the **Propose a Study** form. Include:
 
 - **Proposed title** — becomes the study name; the file slug is derived from it (e.g. `The Ontology of Coexistence` → `The-Ontology-of-Coexistence`).
 - **Category** — topical area (Ontology, Epistemology, Ethics, etc.) or formal focus.
@@ -29,58 +30,29 @@ Open a [**Study proposal**](https://github.com/raghavamohan/AnalyticMadhyasthDar
 
 A good proposal states a clear analytic question, names the Madhyasth Darshan texts you will use, and explains why the topic fits the collection. Comparison with Advaita Vedanta, modern philosophy, or science is welcome when relevant.
 
-Issues are labeled `study-proposal` automatically. Blank issues are disabled so every proposal uses the form.
-
 ---
 
 ## Step 2 — Wait for approval
 
-Maintainers review proposals for overlap, scope, and alignment with [Studies/README.md](Studies/README.md). When approved, they add the **`proposal-approved`** label. A bot comment on the issue will include:
-
-- Confirmation of approval
-- A link to open a pull request with the **new-study** template
-- Reminders to fork the repo and add `Studies/<Slug>/<Slug>.md`
-
-If changes are needed, maintainers will comment on the issue before approving.
+Maintainers review proposals for overlap, scope, and alignment with [Studies/README.md](Studies/README.md). You will be notified once it is approved. If changes are needed, maintainers will reach out.
 
 ---
 
-## Step 3 — Submit a pull request
+## Step 3 — Submit a draft
 
-Fork [AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan), create a branch, and open a PR using one of the templates below. **Apply the matching label** so CI runs the correct checks.
+Once approved, return to the [**Web Submission Portal**](Studies/submit.html) and use the **Submit a Draft** form.
 
-### New study (`new-study`)
+1. Enter your study slug and author name.
+2. Enter the approved **proposal issue number** from GitHub.
+3. Check the "new study" box.
+4. Paste your full markdown content.
+5. Submit the form.
 
-Use after your proposal is **`proposal-approved`**.
+The portal will automatically create a Pull Request on your behalf. CI verifies the format, runs `_add_study.py`, and commits the PDF and catalog updates.
 
-1. Create `Studies/<Slug>/<Slug>.md` following the author block and structure in existing studies.
-2. Open a PR with the [**new-study** template](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/compare?expand=1&template=new-study.md).
-3. Fill in:
-   - `Proposal issue: #123` (your approved issue number)
-   - `Slug: Your-Study-Slug` (must match the `.md` filename)
-   - `Tags: MVD, SB, JV` (primary citation tags)
-4. Apply the **`new-study`** label.
+### Update an existing study or change status
 
-CI verifies the linked issue has `proposal-approved`, reads category and description from the issue, runs `_add_study.py`, and commits the PDF and catalog updates to your branch.
-
-### Update an existing study (`study-update`)
-
-1. Edit `Studies/<Slug>/<Slug>.md`.
-2. Update **`**Edited on:**`** to the current time (IST). CI syncs the catalog date from this field.
-3. Open a PR with the [**study-update** template](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/compare?expand=1&template=study-update.md).
-4. Apply the **`study-update`** label.
-
-CI regenerates the PDF and verifies timestamps match across `.md`, `index.html`, and `README.md`. It also runs `Scripts/_verify_studies_index.py` to confirm catalog JSON and the index landing-page shell stay in sync.
-
-### Change draft ↔ released (`status-change`)
-
-Do **not** hand-edit catalog status rows or watermarks.
-
-1. Open a PR with the [**status-change** template](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/compare?expand=1&template=status-change.md).
-2. Fill in study slug, target status (`draft` or `released`), and a brief reason.
-3. Apply the **`status-change`** label.
-
-CI runs `_set_study_status.py`, updates metadata and catalogs, and regenerates the PDF with or without the Draft watermark.
+To update an existing study, use the same **Submit a Draft** form on the portal but uncheck the "new study" box. The portal will automatically open a pull request updating your existing file.
 
 ---
 
@@ -133,7 +105,7 @@ cd ..
 python Scripts\_regenerate_pdf.py <Slug>
 ```
 
-Study management scripts: see [README.md](README.md#for-contributors).
+Study management scripts: see [README.md](README.md#for-maintainers) and [Scripts/README.md](Scripts/README.md).
 
 ---
 

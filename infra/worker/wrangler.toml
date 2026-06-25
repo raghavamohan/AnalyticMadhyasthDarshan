@@ -1,0 +1,9 @@
+name = "amd-submissions"
+main = "src/index.js"
+compatibility_date = "2024-03-01"
+
+# The GITHUB_TOKEN should be set as a secret, not in plain text here:
+# npx wrangler secret put GITHUB_TOKEN
+#
+# Optional DEFAULT_BRANCH secret (defaults to master in code):
+# npx wrangler secret put DEFAULT_BRANCH

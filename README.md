@@ -30,7 +30,7 @@ Studies/          Papers (.md source, .pdf output), catalog page (index.html),
 Applications/     Applied studies — concrete instantiations of formal templates
 References/       Local copies of cited sources; citation audit (MANIFEST.md)
 Scripts/          Tools to add, remove, convert, verify, and publish studies
-infra/            Site performance baselines (Cloudflare RUM) and audit notes
+infra/            Site performance baselines (Cloudflare RUM), submissions worker, audit notes
 ```
 
 The **markdown** file for each paper is the source of truth. PDFs, the studies landing page, and catalog JSON are generated from it and should not be edited by hand. The catalog page loads study metadata from `Studies/catalog-*.json`; `Studies/README.md` tables stay in sync via the study lifecycle scripts.
@@ -41,7 +41,9 @@ For the full script list, see **[Scripts/README.md](Scripts/README.md)**.
 
 ## For contributors
 
-Read **[CONTRIBUTING.md](CONTRIBUTING.md)** for the full proposal → approval → pull request workflow, **[Studies/README.md](Studies/README.md)** for what a study should cover, and **[AGENTS.md](AGENTS.md)** for agent rules on prose style, timestamps, and PDF generation.
+Read **[Studies/README.md](Studies/README.md)** for what a study should cover, and use the **[Web Submission Portal](Studies/submit.html)** to propose and submit your studies directly from your browser. The web portal handles all backend GitHub automation for you.
+
+## For maintainers
 
 ### Clone and one-time setup
 
