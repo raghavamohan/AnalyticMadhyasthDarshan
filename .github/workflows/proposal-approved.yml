@@ -20,6 +20,8 @@ jobs:
             const issue = context.payload.issue;
             const repo = context.repo.owner + '/' + context.repo.repo;
             const issueNumber = issue.number;
+            const portalBase = 'https://analyticmadhyasthdarshan.org/Studies/submit.html';
+            const portalSubmitUrl = portalBase + '?tab=submit&proposal=' + issueNumber;
             const prUrl =
               `https://github.com/${repo}/compare/master...master?` +
               `quick_pull=1&labels=new-study&` +
@@ -41,7 +43,19 @@ jobs:
             const body = [
               '### Proposal approved',
               '',
-              'Thank you — this study proposal is approved. You may now submit the full study:',
+              'Thank you — this study proposal is approved. You may now submit the full study.',
+              '',
+              '#### Recommended: Web Submission Portal',
+              '',
+              '1. Open the [**Web Submission Portal**](' + portalSubmitUrl + ').',
+              '2. Confirm the **proposal issue #** is pre-filled (`#' + issueNumber + '`).',
+              '3. Enter your study slug, author name, and paste your markdown draft.',
+              '4. Submit the form — a pull request will be opened automatically.',
+              '',
+              'CI will verify this issue is approved, register the study in the catalog, and regenerate the PDF on your PR branch.',
+              '',
+              '<details>',
+              '<summary><strong>Advanced: submit via GitHub (fork and pull request)</strong></summary>',
               '',
               '1. **Fork** the repository and create a branch.',
               '2. Add `Studies/<Slug>/<Slug>.md` following the format in [Studies/README.md](https://github.com/' + repo + '/blob/master/Studies/README.md).',
@@ -49,11 +63,11 @@ jobs:
               '4. Set `Proposal issue: #' + issueNumber + '` in the PR body.',
               '5. Apply the **`new-study`** label to the PR.',
               '',
-              'CI will verify this issue is approved, register the study in the catalog, and regenerate the PDF on your branch.',
-              '',
               '[Open a new-study pull request](' + prUrl + ')',
               '',
-              'To **update** an existing study later, use the `study-update` template and label. To **release** or **revert to draft**, use `status-change`.',
+              '</details>',
+              '',
+              'To **update** an existing study later, use the portal **Submit a Draft** form (uncheck "new study") or the `study-update` template and label. To **release** or **revert to draft**, use `status-change`.',
               '',
               'Full guide: [CONTRIBUTING.md](https://github.com/' + repo + '/blob/master/CONTRIBUTING.md).'
             ].join('\n');

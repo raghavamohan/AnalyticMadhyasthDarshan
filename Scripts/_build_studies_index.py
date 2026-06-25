@@ -136,6 +136,54 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   }
   .scope strong { color: var(--text); font-weight: 600; }
 
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 14px;
+    margin: 0 0 20px;
+    font-family: var(--sans);
+  }
+
+  .btn-primary {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    background: var(--accent);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: background 0.15s ease;
+  }
+  .btn-primary:hover { background: var(--accent-hover); color: #fff; }
+
+  .btn-secondary {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid #a5c4d9;
+    border-radius: 8px;
+    padding: 9px 18px;
+    text-decoration: none;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+  .btn-secondary:hover { background: #d4e6f2; color: var(--accent-hover); }
+
+  .contribute-bridge {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-family: var(--sans);
+    font-size: 15px;
+  }
+  .contribute-bridge p { margin: 0 0 10px; }
+
   .official {
     background: var(--accent-soft);
     border: 1px solid #c5d9e6;
@@ -531,6 +579,11 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
   <p class="scope" id="hero-scope"><strong>&mdash;</strong> studies available &middot; open &amp; independent</p>
 
+  <p class="hero-actions">
+    <a class="btn-primary" href="submit.html">Propose a study</a>
+    <a class="btn-secondary" href="submit.html?tab=submit">Submit a draft</a>
+  </p>
+
   <p class="official"><strong>Official texts:</strong> <a href="https://www.madhyasth.org/">madhyasth.org</a> (<strong>Divya Path Sansthan</strong>). These studies are independent analytic work &mdash; for Shri Nagraj&rsquo;s original books and lectures, start there.</p>
 </header>
 
@@ -541,6 +594,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       <li><a href="#studies">The studies</a></li>
       <li><a href="#approach">How we work</a></li>
       <li><a href="#contribute">Contribute</a></li>
+      <li><a href="submit.html">Submit</a></li>
       <li><a href="#about">About us</a></li>
     </ul>
   </div>
@@ -628,6 +682,11 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
     <h3>From study to understanding</h3>
     <p>Reading the books and following the logic is necessary, but only the starting point. Understanding is fulfilled when what is studied becomes clear in one&rsquo;s own seeing, stable in conviction, and evident in conduct &mdash; in recognised relationships, fulfilled values, resolution in thought, and the ability to convey it to others.</p>
+
+    <div class="contribute-bridge">
+      <p>Ready to contribute? Start with a proposal &mdash; no GitHub account required.</p>
+      <a class="btn-primary" href="submit.html">Propose a study</a>
+    </div>
   </div>
 </section>
 
@@ -636,7 +695,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     <div class="footer-card" id="contribute">
       <h2>Contribute</h2>
       <p>We welcome new studies and revisions from anyone studying Madhyasth Darshan. Before you write, read the study format and intent in the repository <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/Studies/README.md">Studies/README.md</a>.</p>
-      <p><strong>New to GitHub?</strong> You can propose and submit studies directly from your browser using our <a href="submit.html">Web Submission Portal</a>.</p>
+      <p><strong>No GitHub account required.</strong> Propose and submit studies from your browser using our <a href="submit.html">Web Submission Portal</a>.</p>
       <ol>
         <li><strong>Propose.</strong> Use the portal to propose a title, category, and a short summary of the question you want to examine.</li>
         <li><strong>Wait for approval.</strong> Maintainers will review your proposal and reply to the created issue.</li>

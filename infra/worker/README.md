@@ -52,7 +52,8 @@ The worker URL is shown after deploy (currently `https://amd-submissions.raghava
 
 | Route | Purpose |
 |-------|---------|
-| `POST /api/propose` | Create a `study-proposal` GitHub issue (requires valid Turnstile token) |
+| `POST /api/propose` | Create a `study-proposal` GitHub issue (requires valid Turnstile token). Returns `issueNumber` and `url`. |
+| `GET /api/proposal-status?issue=N` | Return whether issue `N` has the `proposal-approved` label, plus `title`, `slug`, and `url` when available |
 | `POST /api/submit` | Create branch, commit `Studies/<Slug>/<Slug>.md`, open PR with `new-study` or `study-update` label (requires valid Turnstile token) |
 
 For new studies, `/api/submit` requires `proposalIssue` and verifies the issue has the `proposal-approved` label before opening a PR. The PR body includes `Proposal issue: #N` and `Slug:` so [`Scripts/_ci_study_pr.py`](../../Scripts/_ci_study_pr.py) can run `_add_study.py`.

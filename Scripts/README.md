@@ -11,7 +11,9 @@ npm install
 cd ..
 ```
 
-## Contributor commands
+## Maintainer / local development
+
+To submit a study without cloning this repository, use the **[Web Submission Portal](../Studies/submit.html)**.
 
 | Task | Command |
 |------|---------|
