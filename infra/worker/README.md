@@ -95,7 +95,7 @@ After deploy, confirm the OAuth app callback URL matches `{worker-origin}/api/au
 | `GET /api/auth/callback` | — | OAuth callback; sets session cookie |
 | `GET /api/auth/me` | cookie | `{ loggedIn, login }` |
 | `POST /api/auth/logout` | cookie | Clear session |
-| `GET /api/me/submissions` | cookie | List contributor's `study-proposal` issues and linked PRs |
+| `GET /api/me/submissions` | cookie | List contributor's study proposals (`study-proposal` or `proposal-approved` label) and linked PRs |
 | `POST /api/propose` | cookie + Turnstile | Create a `study-proposal` issue **as the signed-in user** |
 | `GET /api/proposal-status?issue=N` | optional | Approval status, slug, `ownedByYou` when signed in |
 | `POST /api/submit` | cookie + Turnstile | Branch, commit `Studies/<Slug>/<Slug>.md`, open PR (`Portal-GitHub: @user` in body) |
