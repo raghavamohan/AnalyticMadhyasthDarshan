@@ -55,7 +55,6 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-19.
 
 
 
-| [Physics-Of-Madhyasth-Darshan.pdf](../Studies/Physics-Of-Madhyasth-Darshan/Physics-Of-Madhyasth-Darshan.pdf) | MVD, SB, JV | TBD |
 
 ## By tag
 
