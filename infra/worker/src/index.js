@@ -69,11 +69,26 @@ function defaultBranch(env) {
   return env.DEFAULT_BRANCH || DEFAULT_BRANCH;
 }
 
-async function assertProposalApproved(issueNumber, env) {
-  const issue = await githubRequest(`/issues/${issueNumber}`, 'GET', null, env);
-  const labels = (issue.labels || []).map((label) =>
+function titleToSlug(title) {
+  const words = title.trim().match(/[\w']+/g);
+  if (!words || words.length === 0) return null;
+  return words.map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join('-');
+}
+
+function issueLabels(issue) {
+  return (issue.labels || []).map((label) =>
     typeof label === 'string' ? label : label.name
   );
+}
+
+function proposedTitleFromIssue(issue) {
+  const match = (issue.title || '').match(/^Study proposal:\s*(.+)$/);
+  return match ? match[1].trim() : null;
+}
+
+async function assertProposalApproved(issueNumber, env) {
+  const issue = await githubRequest(`/issues/${issueNumber}`, 'GET', null, env);
+  const labels = issueLabels(issue);
   if (!labels.includes('proposal-approved')) {
     throw new Error(
       `Issue #${issueNumber} is not approved. Wait for maintainers to add the proposal-approved label.`
@@ -144,7 +159,42 @@ ${familiarity}
       labels: ['study-proposal']
     }, env);
 
-    return jsonResponse({ success: true, url: issue.html_url });
+    return jsonResponse({
+      success: true,
+      url: issue.html_url,
+      issueNumber: issue.number,
+    });
+  } catch (err) {
+    return jsonResponse({ success: false, error: err.message }, 500);
+  }
+});
+
+router.get('/api/proposal-status', async (request, env) => {
+  try {
+    const url = new URL(request.url);
+    const issueParam = url.searchParams.get('issue');
+    if (!issueParam) {
+      return jsonResponse({ success: false, error: 'issue parameter is required' }, 400);
+    }
+    const issueNumber = Number(issueParam);
+    if (!Number.isInteger(issueNumber) || issueNumber < 1) {
+      return jsonResponse({ success: false, error: 'issue must be a positive integer' }, 400);
+    }
+
+    const issue = await githubRequest(`/issues/${issueNumber}`, 'GET', null, env);
+    const labels = issueLabels(issue);
+    const approved = labels.includes('proposal-approved');
+    const title = proposedTitleFromIssue(issue);
+    const slug = title ? titleToSlug(title) : null;
+
+    return jsonResponse({
+      success: true,
+      approved,
+      issueNumber,
+      title,
+      slug,
+      url: issue.html_url,
+    });
   } catch (err) {
     return jsonResponse({ success: false, error: err.message }, 500);
   }

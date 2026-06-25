@@ -7,43 +7,76 @@
 <meta name="description" content="Submit a study proposal or draft to the Analytic Madhyasth Darshan collection."/>
 <style>
 :root{--bg:#f7f4ef;--surface:#ffffff;--text:#2a241c;--text-muted:#5c5348;--accent:#1a5276;--accent-soft:#e8f1f6;--accent-hover:#13405c;--warm:#8b5e34;--warm-soft:#f5ebe0;--border:#e3dcd2;--shadow:0 2px 12px rgba(42,36,28,0.06);--radius:10px;--sans:'Segoe UI',system-ui,sans-serif;}*{box-sizing:border-box;}html{scroll-behavior:smooth;}body{font-family:'Georgia','Times New Roman',serif;font-size:16px;line-height:1.6;color:var(--text);background:var(--bg);margin:0;padding:0;}a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px;transition:color 0.15s ease;}a:hover{color:var(--accent-hover);}.page{max-width:800px;margin:0 auto;padding:28px 20px 56px;}.hero{background:transparent;border:none;box-shadow:none;padding:0 0 26px;margin-bottom:0;}h1{font-size:38px;font-weight:normal;line-height:1.15;margin:0 0 14px;color:#1a1612;border:none;padding:0;}.lead{font-size:19px;line-height:1.5;color:var(--text-muted);margin:0 0 20px;}
+.back-link{margin:0 0 16px;font-family:var(--sans);font-size:14px;}
+.before-start{background:var(--accent-soft);border:1px solid #c5d9e6;border-radius:8px;padding:14px 16px;margin-bottom:20px;font-family:var(--sans);font-size:14px;line-height:1.5;}
+.before-start strong{color:#1a1612;}
+.step-strip{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin-bottom:20px;font-family:var(--sans);font-size:13px;}
+.step-strip .step{padding:6px 12px;border-radius:999px;background:var(--warm-soft);color:var(--text-muted);}
+.step-strip .step.active{background:var(--accent-soft);color:var(--accent);font-weight:600;}
+.step-strip .step.done{background:#e6f4ea;color:#1e8e3e;}
+.step-strip .step-arrow{color:var(--text-muted);font-size:12px;}
 .section{scroll-margin-top:64px;margin-bottom:22px;}
 .section-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px 28px 22px;}
 h2{font-size:26px;font-weight:600;margin:0 0 16px;color:#1a1612;}
-.form-group{margin-bottom: 20px;}
-label {display: block; font-family: var(--sans); font-size: 14px; font-weight: 600; margin-bottom: 6px; color: var(--text);}
-.help-text {font-family: var(--sans); font-size: 13px; color: var(--text-muted); margin-bottom: 8px;}
-input[type="text"], select, textarea, input[type="number"] {width: 100%; font-family: var(--sans); font-size: 14px; color: var(--text); padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; background: #fdfcfa; resize: vertical;}
-input[type="text"]:focus, select:focus, textarea:focus, input[type="number"]:focus {outline: 2px solid var(--accent); outline-offset: 2px; border-color: var(--accent);}
-.checkbox-group {display: flex; align-items: center; gap: 8px;}
-.checkbox-group input {width: 16px; height: 16px;}
-.checkbox-group label {margin-bottom: 0; font-weight: normal; font-family: var(--sans); font-size: 14px;}
-button.submit-btn {display: inline-block; font-family: var(--sans); font-size: 15px; font-weight: 600; color: #fff; background: var(--accent); border: none; border-radius: 8px; padding: 12px 24px; cursor: pointer; transition: background 0.15s ease;}
-button.submit-btn:hover {background: var(--accent-hover);}
-button.submit-btn:disabled {opacity: 0.6; cursor: not-allowed;}
-.nav-tabs {display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px;}
-.nav-tabs button {font-family: var(--sans); font-size: 15px; font-weight: 600; color: var(--text-muted); background: transparent; border: none; padding: 8px 16px; cursor: pointer; border-radius: 8px; transition: all 0.15s ease;}
-.nav-tabs button:hover {background: var(--warm-soft); color: var(--warm);}
-.nav-tabs button.active {background: var(--accent-soft); color: var(--accent);}
-.tab-content {display: none;}
-.tab-content.active {display: block;}
-.alert {padding: 12px 16px; border-radius: 8px; font-family: var(--sans); font-size: 14px; margin-bottom: 20px; display: none;}
-.alert.success {background: #e6f4ea; color: #1e8e3e; border: 1px solid #ceead6;}
-.alert.error {background: #fce8e6; color: #d93025; border: 1px solid #fad2cf;}
-.turnstile-wrap {margin-bottom: 20px;}
-@media (prefers-color-scheme:dark){:root{--bg:#1a1815;--surface:#26231e;--text:#e6dfd6;--text-muted:#aca194;--accent:#5ba3d3;--accent-soft:#233e52;--accent-hover:#7ebbed;--warm:#d5a477;--warm-soft:#423020;--border:#423b33;} h1, h2, label {color: #f5f1ec;} input[type="text"], select, textarea, input[type="number"] {background: #1e1b18; color: var(--text);} button.submit-btn {color: #1a1815;} .alert.success{background: #133a20; color: #81c995; border-color: #1b5e33;} .alert.error{background: #471815; color: #f28b82; border-color: #712b26;}}
+.form-group{margin-bottom:20px;}
+label{display:block;font-family:var(--sans);font-size:14px;font-weight:600;margin-bottom:6px;color:var(--text);}
+.help-text{font-family:var(--sans);font-size:13px;color:var(--text-muted);margin-bottom:8px;}
+.slug-preview{font-family:var(--sans);font-size:13px;color:var(--accent);margin-top:6px;}
+.slug-preview code{font-family:Consolas,'Courier New',monospace;font-size:12px;background:var(--accent-soft);padding:2px 6px;border-radius:4px;}
+input[type="text"],select,textarea,input[type="number"]{width:100%;font-family:var(--sans);font-size:14px;color:var(--text);padding:10px 12px;border:1px solid var(--border);border-radius:8px;background:#fdfcfa;resize:vertical;}
+input[type="text"]:focus,select:focus,textarea:focus,input[type="number"]:focus{outline:2px solid var(--accent);outline-offset:2px;border-color:var(--accent);}
+.checkbox-group{display:flex;align-items:center;gap:8px;}
+.checkbox-group input{width:16px;height:16px;}
+.checkbox-group label{margin-bottom:0;font-weight:normal;font-family:var(--sans);font-size:14px;}
+button.submit-btn{display:inline-block;font-family:var(--sans);font-size:15px;font-weight:600;color:#fff;background:var(--accent);border:none;border-radius:8px;padding:12px 24px;cursor:pointer;transition:background 0.15s ease;}
+button.submit-btn:hover{background:var(--accent-hover);}
+button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
+.nav-tabs{display:flex;gap:10px;margin-bottom:20px;border-bottom:1px solid var(--border);padding-bottom:10px;}
+.nav-tabs button{font-family:var(--sans);font-size:15px;font-weight:600;color:var(--text-muted);background:transparent;border:none;padding:8px 16px;cursor:pointer;border-radius:8px;transition:all 0.15s ease;}
+.nav-tabs button:hover{background:var(--warm-soft);color:var(--warm);}
+.nav-tabs button.active{background:var(--accent-soft);color:var(--accent);}
+.tab-content{display:none;}
+.tab-content.active{display:block;}
+.alert{padding:12px 16px;border-radius:8px;font-family:var(--sans);font-size:14px;margin-bottom:20px;display:none;line-height:1.5;}
+.alert.success{background:#e6f4ea;color:#1e8e3e;border:1px solid #ceead6;}
+.alert.error{background:#fce8e6;color:#d93025;border:1px solid #fad2cf;}
+.alert.info{background:var(--accent-soft);color:var(--accent);border:1px solid #c5d9e6;}
+.proposal-status{font-family:var(--sans);font-size:13px;padding:10px 12px;border-radius:8px;margin-bottom:16px;display:none;}
+.proposal-status.approved{background:#e6f4ea;color:#1e8e3e;border:1px solid #ceead6;}
+.proposal-status.pending{background:var(--warm-soft);color:var(--warm);border:1px solid #e0d0be;}
+.proposal-status.error{background:#fce8e6;color:#d93025;border:1px solid #fad2cf;}
+.proposal-status.loading{background:var(--accent-soft);color:var(--text-muted);border:1px solid #c5d9e6;}
+.turnstile-wrap{margin-bottom:20px;}
+@media (prefers-color-scheme:dark){:root{--bg:#1a1815;--surface:#26231e;--text:#e6dfd6;--text-muted:#aca194;--accent:#5ba3d3;--accent-soft:#233e52;--accent-hover:#7ebbed;--warm:#d5a477;--warm-soft:#423020;--border:#423b33;}h1,h2,label,.before-start strong{color:#f5f1ec;}input[type="text"],select,textarea,input[type="number"]{background:#1e1b18;color:var(--text);}button.submit-btn{color:#1a1815;}.alert.success,.proposal-status.approved{background:#133a20;color:#81c995;border-color:#1b5e33;}.alert.error,.proposal-status.error{background:#471815;color:#f28b82;border-color:#712b26;}.step-strip .step.done{background:#133a20;color:#81c995;}}
 </style>
 </head>
 <body>
 <div class="page">
+  <p class="back-link"><a href="index.html">&larr; Back to studies</a></p>
+
   <header class="hero">
     <h1>Submit a Study</h1>
     <p class="lead">Propose a new study or submit a draft for the Analytic Madhyasth Darshan collection.</p>
   </header>
 
+  <div class="before-start">
+    <strong>Before you start:</strong> Read the study format and intent in
+    <a href="README.md">Studies/README.md</a> and the full workflow in
+    <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a>.
+    New studies require an approved proposal before you can submit a draft.
+  </div>
+
+  <div class="step-strip" aria-label="Submission workflow">
+    <span class="step" id="step-propose">1. Propose</span>
+    <span class="step-arrow" aria-hidden="true">&rarr;</span>
+    <span class="step" id="step-wait">2. Wait for approval</span>
+    <span class="step-arrow" aria-hidden="true">&rarr;</span>
+    <span class="step" id="step-submit">3. Submit draft</span>
+  </div>
+
   <div class="nav-tabs">
-    <button class="active" onclick="switchTab('propose')">Propose a Study</button>
-    <button onclick="switchTab('submit')">Submit a Draft</button>
+    <button class="active" id="tab-btn-propose" type="button" onclick="switchTab('propose')">Propose a Study</button>
+    <button id="tab-btn-submit" type="button" onclick="switchTab('submit')">Submit a Draft</button>
   </div>
 
   <!-- Proposal Form -->
@@ -51,7 +84,7 @@ button.submit-btn:disabled {opacity: 0.6; cursor: not-allowed;}
     <div class="section-card">
       <h2>Study Proposal</h2>
       <p class="help-text" style="margin-bottom:20px;">Propose a new analytic study before writing the full paper. Maintainers will review and label approved proposals.</p>
-      
+
       <div id="propose-alert" class="alert"></div>
 
       <form id="propose-form">
@@ -59,6 +92,7 @@ button.submit-btn:disabled {opacity: 0.6; cursor: not-allowed;}
           <label for="p-title">Proposed title *</label>
           <div class="help-text">Human-readable title. The file slug is derived from this.</div>
           <input type="text" id="p-title" required placeholder="The Ontology of Coexistence">
+          <div class="slug-preview" id="p-slug-preview" hidden>File will be <code>Studies/<span id="p-slug-value"></span>/<span id="p-slug-value2"></span>.md</code></div>
         </div>
 
         <div class="form-group">
@@ -128,13 +162,14 @@ button.submit-btn:disabled {opacity: 0.6; cursor: not-allowed;}
     <div class="section-card">
       <h2>Submit a Draft</h2>
       <p class="help-text" style="margin-bottom:20px;">Submit your study markdown content directly here. This will automatically open a Pull Request for review.</p>
-      
+
       <div id="submit-alert" class="alert"></div>
+      <div id="proposal-status" class="proposal-status" role="status" aria-live="polite"></div>
 
       <form id="submit-form">
         <div class="form-group">
           <label for="s-slug">Study Slug *</label>
-          <div class="help-text">The exact slug of your study (e.g. The-Ontology-of-Coexistence)</div>
+          <div class="help-text">The exact slug of your study (e.g. The-Ontology-of-Coexistence). For new studies, this must match your approved proposal title.</div>
           <input type="text" id="s-slug" required pattern="[A-Za-z0-9-]+" title="Only alphanumeric characters and hyphens allowed">
         </div>
 
@@ -143,15 +178,15 @@ button.submit-btn:disabled {opacity: 0.6; cursor: not-allowed;}
           <div class="help-text">Your name as it should appear in the study metadata.</div>
           <input type="text" id="s-author" required>
         </div>
-        
-        <div class="form-group checkbox-group" style="margin-bottom: 20px;">
+
+        <div class="form-group checkbox-group" style="margin-bottom:20px;">
           <input type="checkbox" id="s-new" checked>
           <label for="s-new">This is a new study (uncheck if updating an existing study)</label>
         </div>
 
         <div class="form-group" id="s-proposal-group">
           <label for="s-proposal">Approved proposal issue # *</label>
-          <div class="help-text">The GitHub issue number from your approved study proposal (e.g. 42).</div>
+          <div class="help-text">The GitHub issue number from your approved study proposal (e.g. 42). Find it in the issue URL or in the approval comment from maintainers.</div>
           <input type="number" id="s-proposal" min="1" step="1" required placeholder="42">
         </div>
 
@@ -175,12 +210,43 @@ button.submit-btn:disabled {opacity: 0.6; cursor: not-allowed;}
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script>
 const API_BASE = 'https://amd-submissions.raghavamohan.workers.dev';
+const PROPOSAL_STORAGE_KEY = 'amd-last-proposal-issue';
 
-function switchTab(tabId) {
-  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-  document.querySelectorAll('.nav-tabs button').forEach(el => el.classList.remove('active'));
+function titleToSlug(title) {
+  const words = title.trim().match(/[\w']+/g);
+  if (!words || words.length === 0) return '';
+  return words.map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join('-');
+}
+
+function updateStepStrip(activeTab) {
+  const propose = document.getElementById('step-propose');
+  const wait = document.getElementById('step-wait');
+  const submit = document.getElementById('step-submit');
+  [propose, wait, submit].forEach((el) => el.classList.remove('active', 'done'));
+  if (activeTab === 'propose') {
+    propose.classList.add('active');
+  } else {
+    propose.classList.add('done');
+    submit.classList.add('active');
+    wait.classList.add('done');
+  }
+}
+
+function switchTab(tabId, updateUrl) {
+  document.querySelectorAll('.tab-content').forEach((el) => el.classList.remove('active'));
+  document.querySelectorAll('.nav-tabs button').forEach((el) => el.classList.remove('active'));
   document.getElementById(tabId + '-tab').classList.add('active');
-  document.querySelector(`button[onclick="switchTab('${tabId}')"]`).classList.add('active');
+  document.getElementById('tab-btn-' + tabId).classList.add('active');
+  updateStepStrip(tabId);
+  if (updateUrl !== false) {
+    const url = new URL(window.location.href);
+    if (tabId === 'submit') {
+      url.searchParams.set('tab', 'submit');
+    } else {
+      url.searchParams.delete('tab');
+    }
+    history.replaceState(null, '', url.pathname + url.search + url.hash);
+  }
 }
 
 function showAlert(formId, type, message) {
@@ -202,6 +268,19 @@ function resetTurnstile(form) {
   }
 }
 
+function updateSlugPreview() {
+  const title = document.getElementById('p-title').value;
+  const slug = titleToSlug(title);
+  const preview = document.getElementById('p-slug-preview');
+  const slugSpans = [document.getElementById('p-slug-value'), document.getElementById('p-slug-value2')];
+  if (!slug) {
+    preview.hidden = true;
+    return;
+  }
+  slugSpans.forEach((el) => { el.textContent = slug; });
+  preview.hidden = false;
+}
+
 function toggleProposalField() {
   const isNew = document.getElementById('s-new').checked;
   const group = document.getElementById('s-proposal-group');
@@ -210,11 +289,96 @@ function toggleProposalField() {
   input.required = isNew;
   if (!isNew) {
     input.value = '';
+    hideProposalStatus();
+  } else if (input.value) {
+    checkProposalStatus();
   }
 }
 
+function hideProposalStatus() {
+  const el = document.getElementById('proposal-status');
+  el.style.display = 'none';
+  el.className = 'proposal-status';
+  el.textContent = '';
+}
+
+function showProposalStatus(className, message) {
+  const el = document.getElementById('proposal-status');
+  el.className = 'proposal-status ' + className;
+  el.innerHTML = message;
+  el.style.display = 'block';
+}
+
+let proposalStatusTimer = null;
+
+async function checkProposalStatus() {
+  const isNew = document.getElementById('s-new').checked;
+  const issueInput = document.getElementById('s-proposal');
+  const issueNumber = Number(issueInput.value);
+  if (!isNew || !issueNumber || issueNumber < 1) {
+    hideProposalStatus();
+    return;
+  }
+
+  showProposalStatus('loading', 'Checking proposal approval status…');
+
+  try {
+    const res = await fetch(API_BASE + '/api/proposal-status?issue=' + issueNumber);
+    const data = await res.json();
+    if (!res.ok || !data.success) {
+      throw new Error(data.error || 'Could not check proposal status');
+    }
+    if (data.approved) {
+      let msg = 'Proposal <strong>#' + issueNumber + '</strong> is approved. You can submit your draft.';
+      if (data.slug) {
+        msg += ' Expected slug: <code>' + data.slug + '</code>.';
+        if (!document.getElementById('s-slug').value) {
+          document.getElementById('s-slug').value = data.slug;
+        }
+      }
+      showProposalStatus('approved', msg);
+    } else {
+      showProposalStatus(
+        'pending',
+        'Proposal <strong>#' + issueNumber + '</strong> is not approved yet. Wait for maintainers to add the <code>proposal-approved</code> label before submitting a new study.'
+        + (data.url ? ' <a href="' + data.url + '" target="_blank">View issue</a>' : '')
+      );
+    }
+  } catch (err) {
+    showProposalStatus('error', 'Could not verify proposal status: ' + err.message);
+  }
+}
+
+function scheduleProposalStatusCheck() {
+  clearTimeout(proposalStatusTimer);
+  proposalStatusTimer = setTimeout(checkProposalStatus, 400);
+}
+
+function applyQueryParams() {
+  const params = new URLSearchParams(window.location.search);
+  const tab = params.get('tab');
+  const proposal = params.get('proposal');
+  if (tab === 'submit') {
+    switchTab('submit', false);
+  }
+  if (proposal) {
+    document.getElementById('s-proposal').value = proposal;
+    switchTab('submit', false);
+    scheduleProposalStatusCheck();
+  }
+  const stored = sessionStorage.getItem(PROPOSAL_STORAGE_KEY);
+  if (stored && !document.getElementById('s-proposal').value) {
+    document.getElementById('s-proposal').value = stored;
+  }
+}
+
+document.getElementById('p-title').addEventListener('input', updateSlugPreview);
 document.getElementById('s-new').addEventListener('change', toggleProposalField);
+document.getElementById('s-proposal').addEventListener('input', scheduleProposalStatusCheck);
+document.getElementById('s-proposal').addEventListener('change', scheduleProposalStatusCheck);
 toggleProposalField();
+applyQueryParams();
+updateSlugPreview();
 
 document.getElementById('propose-form').addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -227,7 +391,7 @@ document.getElementById('propose-form').addEventListener('submit', async (e) => 
   }
   btn.disabled = true;
   btn.textContent = 'Submitting...';
-  
+
   const payload = {
     title: document.getElementById('p-title').value,
     category: document.getElementById('p-category').value,
@@ -246,8 +410,25 @@ document.getElementById('propose-form').addEventListener('submit', async (e) => 
     });
     const data = await res.json();
     if (res.ok) {
-      showAlert('propose', 'success', `Proposal submitted successfully! <a href="${data.url}" target="_blank">View on GitHub</a>`);
+      const issueNum = data.issueNumber;
+      if (issueNum) {
+        sessionStorage.setItem(PROPOSAL_STORAGE_KEY, String(issueNum));
+      }
+      const slug = titleToSlug(payload.title);
+      let msg = '<strong>Proposal submitted successfully!</strong>';
+      if (issueNum) {
+        msg += '<br><br>Save proposal issue <strong>#' + issueNum + '</strong> — you will need it when submitting your draft.';
+      }
+      msg += '<br><br>Maintainers will review your proposal and comment on the GitHub issue. Once approved, return here and use <strong>Submit a Draft</strong>.';
+      if (data.url) {
+        msg += ' <a href="' + data.url + '" target="_blank">View issue on GitHub</a>';
+      }
+      if (slug) {
+        msg += '<br><br>Your study slug will be <code>' + slug + '</code>.';
+      }
+      showAlert('propose', 'success', msg);
       form.reset();
+      updateSlugPreview();
       resetTurnstile(form);
     } else {
       throw new Error(data.error || 'Unknown error');
@@ -272,7 +453,7 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
   }
   btn.disabled = true;
   btn.textContent = 'Submitting...';
-  
+
   const isNew = document.getElementById('s-new').checked;
   const payload = {
     slug: document.getElementById('s-slug').value.trim(),
@@ -293,9 +474,15 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
     });
     const data = await res.json();
     if (res.ok) {
-      showAlert('submit', 'success', `Draft submitted successfully! <a href="${data.url}" target="_blank">View Pull Request on GitHub</a>`);
+      let msg = '<strong>Draft submitted successfully!</strong>';
+      if (data.url) {
+        msg += ' <a href="' + data.url + '" target="_blank">View pull request on GitHub</a>';
+      }
+      msg += '<br><br>CI will verify your markdown, generate the PDF, and update the catalog on your PR branch. Maintainers will review before merge.';
+      showAlert('submit', 'success', msg);
       form.reset();
       toggleProposalField();
+      hideProposalStatus();
       resetTurnstile(form);
     } else {
       throw new Error(data.error || 'Unknown error');

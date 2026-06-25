@@ -4,6 +4,8 @@ Thank you for helping expand rigorous analytic work on Madhyasth Darshan. This r
 
 Read [Studies/README.md](Studies/README.md) for study format, tone, and structure before you start. Agents and automation should follow **[AGENTS.md](AGENTS.md)** for Edited on, PDF pipeline, prose style, and Standpoint and scope.
 
+**Quick start:** [Propose a study](Studies/submit.html) → wait for approval → [Submit your draft](Studies/submit.html?tab=submit).
+
 ---
 
 ## Overview
@@ -14,7 +16,13 @@ Read [Studies/README.md](Studies/README.md) for study format, tone, and structur
 | 2. Approval | Wait for a GitHub issue comment from maintainers | Label approved proposals |
 | 3. Submit | Paste your markdown draft into the Web Portal | Review content and merge |
 
-The public catalog at [analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org) links to this workflow from **How to contribute**.
+The public catalog at [analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org) links to this workflow from **Contribute** (hero buttons and footer on the studies page).
+
+### Ways to contribute (ranked)
+
+1. **Web Submission Portal (recommended)** — [Studies/submit.html](Studies/submit.html). No GitHub account or local clone required for proposal and draft submission.
+2. **GitHub issue template** — [Study proposal](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-proposal.yml) if you prefer filing directly on GitHub. Still wait for `proposal-approved`, then use the portal to submit your draft.
+3. **Fork and pull request (advanced)** — for contributors comfortable with Git. See the collapsible **Advanced** section in the maintainer approval comment, or [README.md](README.md#for-maintainers).
 
 
 ---
@@ -83,7 +91,7 @@ Create these labels in **GitHub → Issues → Labels** (one-time setup):
 ## Maintainer duties
 
 1. **Review proposals** — scope, overlap, fit with collection standards.
-2. **Approve** — add `proposal-approved` when ready (bot posts PR instructions).
+2. **Approve** — add `proposal-approved` when ready (bot posts portal instructions with a direct submit link).
 3. **Review PRs** — content quality, citations, quote accuracy.
 4. **Merge** when the `study-pr` CI check passes.
 5. **Release policy** — only merge `status-change` → `released` when the study is ready for public release without a Draft watermark.
@@ -94,7 +102,7 @@ Enable branch protection on `main` with the **`study-pr`** check required before
 
 ## Local development (optional)
 
-Contributors can preview PDFs locally without waiting for CI:
+Contributors who clone the repository can preview PDFs locally without waiting for CI:
 
 ```powershell
 pip install -r requirements.txt
@@ -105,7 +113,7 @@ cd ..
 python Scripts\_regenerate_pdf.py <Slug>
 ```
 
-Study management scripts: see [README.md](README.md#for-maintainers) and [Scripts/README.md](Scripts/README.md).
+Study management scripts are for **maintainers and local development** — see [README.md](README.md#for-maintainers) and [Scripts/README.md](Scripts/README.md). To submit a study without a clone, use the [Web Submission Portal](Studies/submit.html).
 
 ---
 

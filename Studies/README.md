@@ -6,6 +6,8 @@ Clear, carefully argued studies of **Madhyasth Darshan** (Co-existentialism) —
 
 Browse the published collection at **[analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org)** (or open [index.html](index.html) locally for search, filters, and card layout).
 
+**Want to contribute?** Use the **[Web Submission Portal](submit.html)** to [propose a study](submit.html) or [submit a draft](submit.html?tab=submit). See [Contribute](#contribute) below for the full workflow.
+
 **On this page**
 
 - [The studies](#the-studies)
@@ -95,11 +97,13 @@ See [AGENTS.md](../AGENTS.md) §4 for writing standards.
 
 Reading the books and following the logic is necessary, but only the starting point. Understanding is fulfilled when what is studied becomes clear in one's own seeing, stable in conviction, and evident in conduct — in recognised relationships, fulfilled values, resolution in thought, and the ability to convey it to others.
 
+Ready to contribute? **[Propose a study](submit.html)** through the Web Submission Portal — no GitHub account required.
+
 ## Contribute
 
 We welcome new studies and revisions from anyone studying Madhyasth Darshan. Before you write, read the study format and intent in this document and in [CONTRIBUTING.md](../CONTRIBUTING.md).
 
-Use the **[Web Submission Portal](submit.html)** to propose and submit studies from your browser.
+Use the **[Web Submission Portal](submit.html)** to propose and submit studies from your browser — no GitHub account required.
 
 1. **Propose.** Use the portal to propose a title, category, and a short summary of the question you want to examine.
 2. **Wait for approval.** Maintainers review your proposal and reply on the GitHub issue they create for you.

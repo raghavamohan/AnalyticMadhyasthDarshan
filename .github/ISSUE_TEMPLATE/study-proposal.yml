@@ -7,6 +7,8 @@ body:
   - type: markdown
     attributes:
       value: |
+        **Prefer the [Web Submission Portal](https://analyticmadhyasthdarshan.org/Studies/submit.html)?** Most contributors use that instead of filing here — no GitHub account required for the full propose → submit flow.
+
         Propose a new analytic study before writing the full paper.
         Maintainers will review and label approved proposals `proposal-approved`.
         See [CONTRIBUTING.md](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/CONTRIBUTING.md).
