@@ -2,8 +2,6 @@
 
 Clear, carefully argued studies of **Madhyasth Darshan** (Co-existentialism) — the philosophy founded by **Shri A. Nagraj** — examined on its own terms and set in dialogue with the sciences and other traditions.
 
-For official texts and lectures visit [madhyasth.org](https://www.madhyasth.org/) (Divya Path Sansthan). The studies here are independent analytic work.
-
 Browse the published collection at **[analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org)** (or open [index.html](index.html) locally for search, filters, and card layout).
 
 **Want to contribute?** Open **[My Submissions](submit.html)** on the Web Submission Portal. See [How to contribute](#contribute) below for the full workflow.
@@ -111,7 +109,9 @@ To add or update a study, the steps are:
 
 ## About us
 
-We are a group of people studying **Madhyasth Darshan** and writing these studies together, published as **[AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan)** — collaborative, fully open, and independent.
+We are a group of people studying **Madhyasth Darshan** and writing these studies together, published as **[AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan)** — collaborative, fully open, and independent analytic work, separate from the official institution.
+
+For official texts and lectures visit [madhyasth.org](https://www.madhyasth.org/) (Divya Path Sansthan). The studies on this site are our own comparative and analytic work, not institutional publications.
 
 Anyone is welcome to read the studies, check our sources, and contribute through our [GitHub repository](https://github.com/raghavamohan/AnalyticMadhyasthDarshan). Every study ends with a list of its sources, linking to the original texts wherever they are freely available.
 
