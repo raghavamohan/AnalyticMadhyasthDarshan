@@ -97,19 +97,17 @@ See [AGENTS.md](../AGENTS.md) §4 for writing standards.
 
 Reading the books and following the logic is necessary, but only the starting point. Understanding is fulfilled when what is studied becomes clear in one's own seeing, stable in conviction, and evident in conduct — in recognised relationships, fulfilled values, resolution in thought, and the ability to convey it to others.
 
-Ready to contribute? **[Propose a study](submit.html)** through the Web Submission Portal — no GitHub account required.
-
-## Contribute
+## How to contribute
 
 We welcome new studies and revisions from anyone studying Madhyasth Darshan. Before you write, read the study format and intent in this document and in [CONTRIBUTING.md](../CONTRIBUTING.md).
 
-Use the **[Web Submission Portal](submit.html)** to propose and submit studies from your browser — no GitHub account required.
+To add or update a study through the **[Web Submission Portal](submit.html)**:
 
-1. **Propose.** Use the portal to propose a title, category, and a short summary of the question you want to examine.
-2. **Wait for approval.** Maintainers review your proposal and reply on the GitHub issue they create for you.
-3. **Submit.** Once approved, use the portal to paste your markdown draft. It opens a pull request for review automatically.
-
-Full instructions and maintainer duties are in [CONTRIBUTING.md](../CONTRIBUTING.md).
+1. **Sign in** with GitHub on the portal (required to propose or submit; not required to read studies).
+2. **Propose.** Submit a proposed title, category, and a short summary of the question you want to examine.
+3. **Wait for approval.** Maintainers review your proposal on the GitHub issue filed under your account.
+4. **Submit.** Once approved, paste your markdown draft in the portal; a pull request opens for review.
+5. **Track.** Use **My Submissions** on the portal to follow approval status and pull request progress.
 
 ## About us
 

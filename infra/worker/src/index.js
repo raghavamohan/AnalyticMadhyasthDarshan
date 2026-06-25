@@ -1,21 +1,35 @@
 import { Router } from 'itty-router';
+import {
+  buildOAuthState,
+  clearOAuthStateCookie,
+  clearSessionCookie,
+  corsHeaders,
+  createSession,
+  exchangeGitHubCode,
+  fetchGitHubUser,
+  getSession,
+  githubAuthorizeUrl,
+  parseOAuthState,
+  requireSession,
+  sanitizeReturnTo,
+  setOAuthStateCookie,
+  setSessionCookie,
+} from './auth.js';
 
 const router = Router();
 const DEFAULT_BRANCH = 'master';
 const SITEVERIFY_URL = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+const REPO = 'raghavamohan/AnalyticMadhyasthDarshan';
 
-// CORS Headers
-const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type',
-};
-
-function jsonResponse(payload, status = 200) {
+function jsonResponse(request, env, payload, status = 200, extraHeaders = {}) {
   return new Response(JSON.stringify(payload), {
     status,
-    headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+    headers: { ...corsHeaders(request, env), 'Content-Type': 'application/json', ...extraHeaders },
   });
+}
+
+function redirectResponse(url, extraHeaders = {}) {
+  return new Response(null, { status: 302, headers: { Location: url, ...extraHeaders } });
 }
 
 async function verifyTurnstile(token, env, request) {
@@ -43,16 +57,16 @@ async function verifyTurnstile(token, env, request) {
   return result;
 }
 
-// Helper for sending GitHub API requests
-async function githubRequest(path, method, body, env) {
-  const url = `https://api.github.com/repos/raghavamohan/AnalyticMadhyasthDarshan${path}`;
+async function githubRequest(path, method, body, env, userToken = null) {
+  const url = `https://api.github.com/repos/${REPO}${path}`;
+  const token = userToken || env.GITHUB_TOKEN;
   const options = {
     method,
     headers: {
-      'Authorization': `Bearer ${env.GITHUB_TOKEN}`,
-      'Accept': 'application/vnd.github.v3+json',
-      'User-Agent': 'Cloudflare-Worker-Submission-Portal'
-    }
+      Authorization: `Bearer ${token}`,
+      Accept: 'application/vnd.github.v3+json',
+      'User-Agent': 'Cloudflare-Worker-Submission-Portal',
+    },
   };
   if (body) {
     options.body = JSON.stringify(body);
@@ -62,7 +76,28 @@ async function githubRequest(path, method, body, env) {
     const text = await response.text();
     throw new Error(`GitHub API Error (${response.status}): ${text}`);
   }
+  if (response.status === 204) {
+    return null;
+  }
   return response.json();
+}
+
+async function githubSearch(query, env, userToken = null) {
+  const token = userToken || env.GITHUB_TOKEN;
+  const url = `https://api.github.com/search/issues?q=${encodeURIComponent(query)}&per_page=20`;
+  const response = await fetch(url, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      Accept: 'application/vnd.github.v3+json',
+      'User-Agent': 'Cloudflare-Worker-Submission-Portal',
+    },
+  });
+  if (!response.ok) {
+    const text = await response.text();
+    throw new Error(`GitHub search error (${response.status}): ${text}`);
+  }
+  const data = await response.json();
+  return data.items || [];
 }
 
 function defaultBranch(env) {
@@ -86,8 +121,8 @@ function proposedTitleFromIssue(issue) {
   return match ? match[1].trim() : null;
 }
 
-async function assertProposalApproved(issueNumber, env) {
-  const issue = await githubRequest(`/issues/${issueNumber}`, 'GET', null, env);
+async function assertProposalApproved(issueNumber, env, userToken = null) {
+  const issue = await githubRequest(`/issues/${issueNumber}`, 'GET', null, env, userToken);
   const labels = issueLabels(issue);
   if (!labels.includes('proposal-approved')) {
     throw new Error(
@@ -97,7 +132,18 @@ async function assertProposalApproved(issueNumber, env) {
   return issue;
 }
 
-// Format IST Date
+function assertProposalOwner(issue, login) {
+  const owner = issue.user?.login;
+  const body = issue.body || '';
+  const taggedInPortal = body.includes('### Portal submitter') && body.includes(`@${login}`);
+  if (owner === login || taggedInPortal) {
+    return;
+  }
+  if (owner) {
+    throw new Error(`Issue #${issue.number} belongs to @${owner}. Sign in as that GitHub user to submit.`);
+  }
+}
+
 function getISTDateString() {
   const now = new Date();
   const options = {
@@ -107,11 +153,9 @@ function getISTDateString() {
     year: 'numeric',
     hour: 'numeric',
     minute: '2-digit',
-    hour12: true
+    hour12: true,
   };
-  // Example output: "June 16, 2026, 3:45 PM"
   let str = new Intl.DateTimeFormat('en-US', options).format(now);
-  // Remove " at " if present, depending on JS engine
   str = str.replace(' at ', ', ');
   return str + ' IST';
 }
@@ -153,10 +197,159 @@ function applyStudyMetadata(content, author, istTime, slug) {
   return content;
 }
 
-router.options('*', () => new Response(null, { headers: corsHeaders }));
+function submissionStage(issue, pullRequest) {
+  const labels = issueLabels(issue);
+  if (pullRequest) {
+    if (pullRequest.state === 'open') {
+      return 'pr-open';
+    }
+    if (pullRequest.merged_at) {
+      return 'merged';
+    }
+    return 'pr-closed';
+  }
+  if (labels.includes('proposal-approved')) {
+    return 'approved';
+  }
+  if (issue.state === 'closed') {
+    return 'closed';
+  }
+  return 'pending';
+}
+
+async function findLinkedPullRequest(issueNumber, env, userToken) {
+  const items = await githubSearch(
+    `repo:${REPO} is:pr "Proposal issue: #${issueNumber}"`,
+    env,
+    userToken
+  );
+  return items[0] || null;
+}
+
+async function buildDashboard(session, env) {
+  const login = session.login;
+  const userToken = session.accessToken;
+  const proposals = await githubSearch(
+    `repo:${REPO} is:issue author:${login} label:study-proposal`,
+    env,
+    userToken
+  );
+
+  const submissions = [];
+  for (const issue of proposals) {
+    const title = proposedTitleFromIssue(issue);
+    const slug = title ? titleToSlug(title) : null;
+    const linkedPr = await findLinkedPullRequest(issue.number, env, userToken);
+    let prDetails = null;
+    if (linkedPr) {
+      prDetails = await githubRequest(`/pulls/${linkedPr.number}`, 'GET', null, env, userToken);
+    }
+    submissions.push({
+      issueNumber: issue.number,
+      title: title || issue.title,
+      slug,
+      issueUrl: issue.html_url,
+      issueState: issue.state,
+      approved: issueLabels(issue).includes('proposal-approved'),
+      stage: submissionStage(issue, prDetails),
+      pullRequest: prDetails
+        ? {
+            number: prDetails.number,
+            url: prDetails.html_url,
+            state: prDetails.state,
+            merged: Boolean(prDetails.merged_at),
+            draft: Boolean(prDetails.draft),
+          }
+        : null,
+      submitUrl: slug
+        ? `https://analyticmadhyasthdarshan.org/Studies/submit.html?tab=submit&proposal=${issue.number}`
+        : `https://analyticmadhyasthdarshan.org/Studies/submit.html?tab=submit&proposal=${issue.number}`,
+    });
+  }
+
+  submissions.sort((a, b) => b.issueNumber - a.issueNumber);
+  return { login, submissions };
+}
+
+router.options('*', (request, env) => new Response(null, { headers: corsHeaders(request, env) }));
+
+router.get('/api/auth/github', (request, env) => {
+  if (!env.GITHUB_CLIENT_ID || !env.GITHUB_CLIENT_SECRET || !env.SESSION_SECRET) {
+    return jsonResponse(request, env, { success: false, error: 'GitHub sign-in is not configured.' }, 503);
+  }
+  const url = new URL(request.url);
+  const returnTo = sanitizeReturnTo(url.searchParams.get('return_to'), env);
+  const stateValue = buildOAuthState(returnTo);
+  const headers = {
+    Location: githubAuthorizeUrl(env, request, returnTo),
+    'Set-Cookie': setOAuthStateCookie(stateValue),
+  };
+  return redirectResponse(headers.Location, headers);
+});
+
+router.get('/api/auth/callback', async (request, env) => {
+  try {
+    if (!env.GITHUB_CLIENT_ID || !env.GITHUB_CLIENT_SECRET || !env.SESSION_SECRET) {
+      throw new Error('GitHub sign-in is not configured.');
+    }
+    const url = new URL(request.url);
+    const code = url.searchParams.get('code');
+    const oauthState = parseOAuthState(request);
+    if (!code || !oauthState) {
+      throw new Error('Invalid OAuth callback.');
+    }
+    const accessToken = await exchangeGitHubCode(code, env, request);
+    const user = await fetchGitHubUser(accessToken);
+    const sessionToken = await createSession(env, {
+      login: user.login,
+      userId: user.id,
+      accessToken,
+    });
+    const returnTo = sanitizeReturnTo(oauthState.returnTo, env);
+    const headers = new Headers({ Location: returnTo });
+    headers.append('Set-Cookie', setSessionCookie(sessionToken));
+    headers.append('Set-Cookie', clearOAuthStateCookie());
+    return new Response(null, { status: 302, headers });
+  } catch (err) {
+    const fallback = sanitizeReturnTo(null, env);
+    const message = encodeURIComponent(err.message || 'Sign-in failed');
+    return redirectResponse(`${fallback}?auth_error=${message}`, {
+      'Set-Cookie': clearOAuthStateCookie(),
+    });
+  }
+});
+
+router.get('/api/auth/me', async (request, env) => {
+  const session = await getSession(request, env);
+  if (!session) {
+    return jsonResponse(request, env, { loggedIn: false });
+  }
+  return jsonResponse(request, env, {
+    loggedIn: true,
+    login: session.login,
+    userId: session.userId,
+  });
+});
+
+router.post('/api/auth/logout', (request, env) => {
+  return jsonResponse(request, env, { success: true }, 200, {
+    'Set-Cookie': clearSessionCookie(),
+  });
+});
+
+router.get('/api/me/submissions', async (request, env) => {
+  try {
+    const session = requireSession(await getSession(request, env));
+    const dashboard = await buildDashboard(session, env);
+    return jsonResponse(request, env, { success: true, ...dashboard });
+  } catch (err) {
+    return jsonResponse(request, env, { success: false, error: err.message }, err.status || 500);
+  }
+});
 
 router.post('/api/propose', async (request, env) => {
   try {
+    const session = requireSession(await getSession(request, env));
     const data = await request.json();
     await verifyTurnstile(data.turnstileToken, env, request);
 
@@ -188,21 +381,25 @@ ${summary}
 ### Prior familiarity with Madhyasth Darshan
 
 ${familiarity}
+
+### Portal submitter
+
+@${session.login}
 `;
 
     const issue = await githubRequest('/issues', 'POST', {
       title: `Study proposal: ${title}`,
-      body: body,
-      labels: ['study-proposal']
-    }, env);
+      body,
+      labels: ['study-proposal'],
+    }, env, session.accessToken);
 
-    return jsonResponse({
+    return jsonResponse(request, env, {
       success: true,
       url: issue.html_url,
       issueNumber: issue.number,
     });
   } catch (err) {
-    return jsonResponse({ success: false, error: err.message }, 500);
+    return jsonResponse(request, env, { success: false, error: err.message }, err.status || 500);
   }
 });
 
@@ -211,45 +408,51 @@ router.get('/api/proposal-status', async (request, env) => {
     const url = new URL(request.url);
     const issueParam = url.searchParams.get('issue');
     if (!issueParam) {
-      return jsonResponse({ success: false, error: 'issue parameter is required' }, 400);
+      return jsonResponse(request, env, { success: false, error: 'issue parameter is required' }, 400);
     }
     const issueNumber = Number(issueParam);
     if (!Number.isInteger(issueNumber) || issueNumber < 1) {
-      return jsonResponse({ success: false, error: 'issue must be a positive integer' }, 400);
+      return jsonResponse(request, env, { success: false, error: 'issue must be a positive integer' }, 400);
     }
 
-    const issue = await githubRequest(`/issues/${issueNumber}`, 'GET', null, env);
+    const session = await getSession(request, env);
+    const issue = await githubRequest(`/issues/${issueNumber}`, 'GET', null, env, session?.accessToken);
     const labels = issueLabels(issue);
     const approved = labels.includes('proposal-approved');
     const title = proposedTitleFromIssue(issue);
     const slug = title ? titleToSlug(title) : null;
+    const ownedByYou = session ? issue.user?.login === session.login : null;
 
-    return jsonResponse({
+    return jsonResponse(request, env, {
       success: true,
       approved,
       issueNumber,
       title,
       slug,
       url: issue.html_url,
+      ownedByYou,
     });
   } catch (err) {
-    return jsonResponse({ success: false, error: err.message }, 500);
+    return jsonResponse(request, env, { success: false, error: err.message }, 500);
   }
 });
 
 router.post('/api/submit', async (request, env) => {
   try {
+    const session = requireSession(await getSession(request, env));
     const data = await request.json();
     await verifyTurnstile(data.turnstileToken, env, request);
 
     const { slug, author, isNew, proposalIssue } = data;
     let { content } = data;
 
+    let proposal = null;
     if (isNew) {
       if (!proposalIssue) {
         throw new Error('Proposal issue number is required for new studies.');
       }
-      await assertProposalApproved(Number(proposalIssue), env);
+      proposal = await assertProposalApproved(Number(proposalIssue), env, session.accessToken);
+      await assertProposalOwner(proposal, session.login);
     }
 
     const istTime = getISTDateString();
@@ -259,17 +462,14 @@ router.post('/api/submit', async (request, env) => {
     const filePath = `Studies/${slug}/${slug}.md`;
     const base = defaultBranch(env);
 
-    // 1. Get base branch SHA
     const baseRef = await githubRequest(`/git/refs/heads/${base}`, 'GET', null, env);
     const baseSha = baseRef.object.sha;
 
-    // 2. Create Branch
     await githubRequest('/git/refs', 'POST', {
       ref: `refs/heads/${branchName}`,
-      sha: baseSha
+      sha: baseSha,
     }, env);
 
-    // 3. Create or Update File
     let fileSha;
     try {
       const fileData = await githubRequest(`/contents/${filePath}?ref=${branchName}`, 'GET', null, env);
@@ -284,38 +484,37 @@ router.post('/api/submit', async (request, env) => {
       message: `Update ${slug} via Web Portal`,
       content: contentEncoded,
       branch: branchName,
-      sha: fileSha
+      sha: fileSha,
     }, env);
 
-    // 4. Create PR
     const prTitle = isNew ? `Add study: ${slug}` : `Update study: ${slug}`;
-    let prBody = `Submitted via Web Portal by ${author}.\n\nSlug: ${slug}`;
+    let prBody = `Submitted via Web Portal by ${author}.\nPortal-GitHub: @${session.login}\n\nSlug: ${slug}`;
     if (isNew) {
-      prBody = `Proposal issue: #${proposalIssue}\nSlug: ${slug}\nTags: MVD, SB, JV\n\nSubmitted via Web Portal by ${author}.`;
+      prBody = `Proposal issue: #${proposalIssue}\nSlug: ${slug}\nTags: MVD, SB, JV\nPortal-GitHub: @${session.login}\n\nSubmitted via Web Portal by ${author}.`;
     }
 
     const pr = await githubRequest('/pulls', 'POST', {
       title: prTitle,
       head: branchName,
       base,
-      body: prBody
+      body: prBody,
     }, env);
 
-    // 5. Add Label
     const label = isNew ? 'new-study' : 'study-update';
     await githubRequest(`/issues/${pr.number}/labels`, 'POST', {
-      labels: [label]
+      labels: [label],
     }, env);
 
-    return jsonResponse({ success: true, url: pr.html_url });
+    return jsonResponse(request, env, { success: true, url: pr.html_url, number: pr.number });
   } catch (err) {
-    return jsonResponse({ success: false, error: err.message }, 500);
+    return jsonResponse(request, env, { success: false, error: err.message }, err.status || 500);
   }
 });
 
-// Fallback for all other routes
-router.all('*', () => new Response('Not Found', { status: 404, headers: corsHeaders }));
+router.all('*', (request, env) => new Response('Not Found', { status: 404, headers: corsHeaders(request, env) }));
 
 export default {
-  fetch: (request, env, ctx) => router.fetch(request, env, ctx).catch(err => new Response(err.message, { status: 500 }))
+  fetch: (request, env, ctx) => router.fetch(request, env, ctx).catch((err) =>
+    new Response(err.message, { status: 500, headers: corsHeaders(request, env) })
+  ),
 };
