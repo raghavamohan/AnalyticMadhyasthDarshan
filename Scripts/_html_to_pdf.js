@@ -53,6 +53,25 @@ function resolveChromeExecutable() {
   return '';
 }
 
+// GitHub Actions and other Linux CI images often block Chrome's setuid sandbox
+// (AppArmor / user namespaces). These flags are standard for headless CI.
+const LINUX_CI_CHROME_ARGS = [
+  '--no-sandbox',
+  '--disable-setuid-sandbox',
+  '--disable-dev-shm-usage',
+];
+
+function puppeteerLaunchOptions(executablePath) {
+  const options = {
+    headless: 'new',
+    executablePath,
+  };
+  if (process.platform === 'linux') {
+    options.args = LINUX_CI_CHROME_ARGS;
+  }
+  return options;
+}
+
 async function addPageWatermark(pdfPath, label) {
   const pdfBytes = fs.readFileSync(pdfPath);
   const pdfDoc = await PDFDocument.load(pdfBytes);
@@ -144,10 +163,7 @@ const outputPath = args[2]
     process.exit(1);
   }
 
-  const browser = await puppeteer.launch({
-    headless: 'new',
-    executablePath,
-  });
+  const browser = await puppeteer.launch(puppeteerLaunchOptions(executablePath));
   const page = await browser.newPage();
 
   await page.goto('file:///' + inputPath.replace(/\\/g, '/'), { waitUntil: 'networkidle0' });
