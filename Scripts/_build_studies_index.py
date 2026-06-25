@@ -571,8 +571,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   <p class="scope" id="hero-scope"><strong>&mdash;</strong> studies available &middot; open &amp; independent</p>
 
   <p class="hero-actions">
-    <a class="btn-primary" href="submit.html">Propose a study</a>
-    <a class="btn-secondary" href="submit.html?tab=submit">Submit a draft</a>
+    <a class="btn-primary" href="submit.html">My Submissions</a>
   </p>
 
   <p class="official"><strong>Official texts:</strong> <a href="https://www.madhyasth.org/">madhyasth.org</a> (<strong>Divya Path Sansthan</strong>). These studies are independent analytic work &mdash; for Shri Nagraj&rsquo;s original books and lectures, start there.</p>
@@ -680,13 +679,13 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     <div class="footer-card" id="contribute">
       <h2>How to contribute</h2>
       <p>We welcome new studies and revisions from anyone studying Madhyasth Darshan. Before you write, read the study format and intent in the repository <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/Studies/README.md">Studies/README.md</a>.</p>
-      <p>To add or update a study through the <a href="submit.html">Web Submission Portal</a>:</p>
+      <p>To add or update a study, open <a href="submit.html">My Submissions</a> and sign in with GitHub:</p>
       <ol>
-        <li><strong>Sign in</strong> with GitHub on the portal (required to propose or submit; not required to read studies).</li>
-        <li><strong>Propose.</strong> Submit a proposed title, category, and a short summary of the question you want to examine.</li>
-        <li><strong>Wait for approval.</strong> Maintainers review your proposal on the GitHub issue filed under your account.</li>
-        <li><strong>Submit.</strong> Once approved, paste your markdown draft in the portal; a pull request opens for review.</li>
-        <li><strong>Track.</strong> Use <strong>My Submissions</strong> on the portal to follow approval status and pull request progress.</li>
+        <li><strong>Sign in</strong> on <a href="submit.html">My Submissions</a> (required to propose or submit; not required to read studies).</li>
+        <li><strong>Propose</strong> a new study, <strong>update</strong> an existing one, or <strong>change release status</strong> (Draft &harr; Released) from the same page.</li>
+        <li><strong>Track</strong> approval status, pull requests, and CI checks on that page.</li>
+        <li>When a proposal is approved, click <strong>Submit draft</strong> on your row.</li>
+        <li>After merge, use <strong>Update study</strong> or <strong>Release study</strong> / <strong>Revert to draft</strong> as needed.</li>
       </ol>
     </div>
     <div class="footer-card" id="about">
