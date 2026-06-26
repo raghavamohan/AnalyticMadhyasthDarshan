@@ -2,8 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) - a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 19, 2026, 7:48 AM IST
-
+**Edited on:** June 26, 2026, 10:28 AM IST
 **Status:** Draft
 
 **The question:** What is aesthetics? Is beauty a property of objects, a state of the subject, a social convention, a kind of taste, an experience of art, an environmental relation, or a sign of deeper harmony? How do **modern philosophies** approach aesthetics, how does **Madhyasth Darshan** understand it, and does **Advaita Vedanta** have anything direct to say on the subject?

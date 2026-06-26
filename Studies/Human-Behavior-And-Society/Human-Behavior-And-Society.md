@@ -2,8 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 24, 2026, 7:27 AM IST
-
+**Edited on:** June 26, 2026, 10:28 AM IST
 **Status:** Draft
 
 **The question:** How should humans behave and organise themselves? Can science alone, or religion alone, define correct ethical behaviour and the right form of society?

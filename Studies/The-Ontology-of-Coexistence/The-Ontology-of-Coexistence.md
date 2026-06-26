@@ -2,8 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 26, 2026, 7:23 AM IST
-
+**Edited on:** June 26, 2026, 10:28 AM IST
 **Status:** Draft
 
 **The question:** What is Existence? What exists? Does what exists begin at some time? Does the individual self (*jeevan*) begin or end with the body? Is the world finally real?

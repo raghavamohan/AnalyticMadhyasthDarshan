@@ -3,8 +3,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 18, 2026, 9:40 PM IST
-
+**Edited on:** June 26, 2026, 10:28 AM IST
 **Status:** Draft
 
 ## At a glance
