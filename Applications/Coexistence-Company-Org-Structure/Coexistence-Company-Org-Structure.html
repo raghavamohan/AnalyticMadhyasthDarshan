@@ -208,11 +208,14 @@
     height: auto;
   }
 
+  html { scroll-behavior: smooth; }
+  h2[id] {
+    scroll-margin-top: calc(var(--study-toolbar-height, 88px) + 10px);
+  }
   .study-toolbar {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    gap: 10px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     font-family: 'Segoe UI', system-ui, sans-serif;
     font-size: 13px;
     position: sticky;
@@ -226,6 +229,17 @@
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
   }
+  .study-toolbar-row {
+    display: grid;
+    align-items: center;
+    gap: 8px 14px;
+  }
+  .study-toolbar-row--primary {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+  }
+  .study-toolbar-row--sections {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
   .study-toolbar-back {
     justify-self: start;
     min-width: 0;
@@ -235,34 +249,59 @@
     min-width: 0;
     text-align: right;
   }
+  .study-toolbar-title {
+    justify-self: center;
+    text-align: center;
+    margin: 0;
+    min-width: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: #2c241c;
+    line-height: 1.35;
+  }
+  .study-toolbar-draft {
+    font-weight: 600;
+    color: #5c5348;
+  }
   .study-toolbar-link {
     color: #1a5276;
     text-decoration: none;
     font-weight: 600;
   }
   .study-toolbar-link:hover { color: #13405c; }
-  .study-toolbar-status {
-    justify-self: center;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: #1a5276;
-    background: #e8f1f6;
-    border: 1px solid #c5d9e6;
-    border-radius: 999px;
-    padding: 4px 10px;
+  .study-toolbar-section {
+    display: block;
+    min-width: 0;
+    font-size: 12px;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
-  .study-toolbar-status--empty {
-    visibility: hidden;
-    padding: 4px 10px;
-    border-color: transparent;
-    background: transparent;
+  .study-toolbar-section--prev { justify-self: start; }
+  .study-toolbar-section--next {
+    justify-self: end;
+    text-align: right;
+  }
+  .study-toolbar-section.is-disabled {
+    opacity: 0.45;
+    pointer-events: none;
+    color: #6f655a;
   }
   .study-toolbar-download::after {
     content: " \2193";
     font-weight: 700;
+  }
+  @media (max-width: 640px) {
+    .study-toolbar-row--primary {
+      grid-template-columns: 1fr 1fr;
+    }
+    .study-toolbar-title {
+      grid-column: 1 / -1;
+      white-space: normal;
+    }
+    .study-toolbar-section {
+      white-space: normal;
+    }
   }
   @media print {
     .study-toolbar { display: none !important; }
@@ -310,34 +349,38 @@
     }
     .study-toolbar-link { color: #7ebbed; }
     .study-toolbar-link:hover { color: #b8daf3; }
-    .study-toolbar-status {
-      color: #7ebbed;
-      background: #233e52;
-      border: 1px solid #3d6278;
-    }
+    .study-toolbar-title { color: #f5f1ec; }
+    .study-toolbar-draft { color: #aca194; }
+    .study-toolbar-section.is-disabled { color: #6f655a; }
   }
 
 </style>
 </head>
 <body>
 <nav class="study-toolbar" aria-label="Study navigation">
-  <a class="study-toolbar-link study-toolbar-back" href="../../Studies/index.html">&larr; All studies</a>
-  <span class="study-toolbar-status" role="status">Draft</span>
-  <a class="study-toolbar-link study-toolbar-download" href="Coexistence-Company-Org-Structure.pdf" download>Download PDF</a>
+  <div class="study-toolbar-row study-toolbar-row--primary">
+    <a class="study-toolbar-link study-toolbar-back" href="../../Studies/index.html">&larr; All studies</a>
+    <p class="study-toolbar-title">Coexistence Company — Concrete Organizational Structure <span class="study-toolbar-draft">(Draft)</span></p>
+    <a class="study-toolbar-link study-toolbar-download" href="Coexistence-Company-Org-Structure.pdf" download>Download PDF</a>
+  </div>
+  <div class="study-toolbar-row study-toolbar-row--sections">
+    <a class="study-toolbar-link study-toolbar-section study-toolbar-section--prev" id="study-section-prev" href="#" aria-disabled="true">&larr; Previous section</a>
+    <a class="study-toolbar-link study-toolbar-section study-toolbar-section--next" id="study-section-next" href="#" aria-disabled="true">Next section &rarr;</a>
+  </div>
 </nav>
 <h1>Coexistence Company — Concrete Organizational Structure</h1>
 <p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> — a group of people studying Madhyasth Darshan philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
 <p><strong>Edited on:</strong> June 26, 2026, 10:28 AM IST
 <strong>Basis:</strong> This application instantiates the coexistence template and categorical architecture for a deliberate human assembly (<a href="../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a>; <a href="../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf"><em>Category Theory Explained</em></a> §§3.5, 5, 6.1, 6.6–6.9, 6.8). It is a design blueprint, not legal advice.</p>
 <p><strong>Example company:</strong> <strong>Saha Coexistence Works</strong> (SCW) — a knowledge-work company (research, education, and technology services) whose product is understood coexistence made useful in the world. Scale assumed: <strong>60 members</strong> at steady state, expandable by <strong>compound</strong> team formation, not mere headcount.</p>
-<h2>1. Design objectives</h2>
+<h2 id="1-design-objectives">1. Design objectives</h2>
 <p>SCW is organised to meet two objectives together (<a href="../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> §8; P3–P4):</p>
 <ol>
 <li><strong>Members are not instrumentalised</strong> — nurturing (<em>poshan</em>), not net extraction; values fulfilled in relationships, not fear or temptation as the basis of order.</li>
 <li><strong>The company sustains across generations of members</strong> — relationships fulfilled (L4), understanding transmitted by education-<em>sanskar</em> (L5, τ), common cause, goal, and programme (P4).</li>
 </ol>
 <p>Orientation is <strong>completeness of relationships</strong>, not unbounded maximisation of profit, comfort, or scale (<a href="../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> §5).</p>
-<h2>2. Assembly tiers (who is a “unit”)</h2>
+<h2 id="2-assembly-tiers-who-is-a-unit">2. Assembly tiers (who is a “unit”)</h2>
 <table>
 <thead>
 <tr>
@@ -387,7 +430,7 @@
 </tbody>
 </table>
 <p><strong>Rule:</strong> Adding people in the same building without fused conduct is <strong>mixture</strong> (<em>mishran</em>) — weaker cohesion. Scale hiring only after <strong>L3</strong> complementarity (need/surplus) and overlap compatibility are verified (<a href="../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf"><em>Category Theory Explained</em></a> §6.9; <a href="../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> L3).</p>
-<h2>3. Top-level org chart</h2>
+<h2 id="3-top-level-org-chart">3. Top-level org chart</h2>
 <div class="mermaid">
 flowchart TD
     SC["Steward Council — ambient ground, not extraction"]
@@ -406,7 +449,7 @@ flowchart TD
     COND --> RUR["Right-Use & Regeneration"]
     FT --> CL["Clusters × 2"]
 </div>
-<h2>4. Functional units (departments)</h2>
+<h2 id="4-functional-units-departments">4. Functional units (departments)</h2>
 <p>Each row is a <strong>mandatory subsystem</strong> — the categorical analogue in <a href="../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf"><em>Category Theory Explained</em></a> §6.1.</p>
 <table>
 <thead>
@@ -540,7 +583,7 @@ flowchart TD
 </tr>
 </tbody>
 </table>
-<h2>5. Family Team structure (compound unit)</h2>
+<h2 id="5-family-team-structure-compound-unit">5. Family Team structure (compound unit)</h2>
 <p>Each <strong>Family Team</strong> is a compound assembly: members discard separate outward conducts and present <strong>one team conduct</strong> with a written <strong>sig(team)</strong> = ⟨form, properties, essential nature, <em>dharma</em>⟩ (<a href="../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> D1, D8).</p>
 <div class="mermaid">
 flowchart LR
@@ -587,7 +630,7 @@ flowchart LR
 </tbody>
 </table>
 <p><strong>Team size:</strong> 7–12. Below 7, insufficient complementarity; above 12, prefer <strong>compound</strong> split into two teams with L3 need/surplus between them.</p>
-<h2>6. Definite relationships (company-wide registry)</h2>
+<h2 id="6-definite-relationships-company-wide-registry">6. Definite relationships (company-wide registry)</h2>
 <p>The Relationship Registry maintains these <strong>knowledge-order</strong> relationships (<a href="../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> §4; JV p. 109 cited in template §4):</p>
 <table>
 <thead>
@@ -644,7 +687,7 @@ flowchart LR
 </tbody>
 </table>
 <p>Associations (voluntary projects, hobbies) are logged separately and <strong>do not</strong> inherit fixed E(r) until adopted as relationships.</p>
-<h2>7. Graded values in practice</h2>
+<h2 id="7-graded-values-in-practice">7. Graded values in practice</h2>
 <table>
 <thead>
 <tr>
@@ -677,7 +720,7 @@ flowchart LR
 </tbody>
 </table>
 <p><strong>Trust</strong> is the value deposited when fulfilment φ succeeds in a relationship (<a href="../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> D7a). Justice is the <strong>operation</strong> on values, not a poster slogan.</p>
-<h2>8. Three completeness stages (milestones)</h2>
+<h2 id="8-three-completeness-stages-milestones">8. Three completeness stages (milestones)</h2>
 <table>
 <thead>
 <tr>
@@ -705,7 +748,7 @@ flowchart LR
 </tbody>
 </table>
 <p>T2–T3 are <strong>awakening progression</strong> inside an already-constituted company — not the same as hiring more people (<a href="../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf"><em>Category Theory Explained</em></a> §6.2.1, §6.10).</p>
-<h2>9. Governance and decision rights</h2>
+<h2 id="9-governance-and-decision-rights">9. Governance and decision rights</h2>
 <table>
 <thead>
 <tr>
@@ -758,7 +801,7 @@ flowchart LR
 </tbody>
 </table>
 <p><strong>Chief Steward</strong> coordinates stewards; <strong>does not</strong> own surplus extraction from members. Profit, where it arises, is <strong>circularity for family needs and reinvestment in transmission</strong>, not unbounded accumulation (<a href="../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> §8; MVD p. 265 cited there).</p>
-<h2>10. Operating rhythms</h2>
+<h2 id="10-operating-rhythms">10. Operating rhythms</h2>
 <table>
 <thead>
 <tr>
@@ -800,7 +843,7 @@ flowchart LR
 </tr>
 </tbody>
 </table>
-<h2>11. Onboarding pipeline (τ)</h2>
+<h2 id="11-onboarding-pipeline-τ">11. Onboarding pipeline (τ)</h2>
 <p>Every new member passes through Transmission Institute — <strong>ignorance cannot flow in tradition</strong> (<a href="../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> §6; JV p. 49 cited there).</p>
 <div class="mermaid">
 flowchart LR
@@ -812,7 +855,7 @@ flowchart LR
     F --> G["Full member — compound team"]
 </div>
 <p>Minimum duration: <strong>90 days</strong> before full membership in a compound Family Team.</p>
-<h2>12. Growth and merger rules</h2>
+<h2 id="12-growth-and-merger-rules">12. Growth and merger rules</h2>
 <p><strong>Admissible growth (L3):</strong> New team or hire when a documented <strong>need</strong> in one unit complements <strong>surplus</strong> in another (<a href="../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf"><em>Category Theory Explained</em></a> §6.9.1).</p>
 <p><strong>Admissible merger:</strong> Only when Integration Office certifies:</p>
 <ol>
@@ -821,7 +864,7 @@ flowchart LR
 <li><strong>Transmission</strong> plan for combined culture — τ_ev, not policy deck alone (P16).</li>
 </ol>
 <p><strong>Reject</strong> when: contradictory expectations on the same person; mixture presented as merger; selective right-use (η fails naturality).</p>
-<h2>13. Failure diagnostic (reverse use)</h2>
+<h2 id="13-failure-diagnostic-reverse-use">13. Failure diagnostic (reverse use)</h2>
 <table>
 <thead>
 <tr>
@@ -868,14 +911,14 @@ flowchart LR
 </tr>
 </tbody>
 </table>
-<h2>14. What this structure is not</h2>
+<h2 id="14-what-this-structure-is-not">14. What this structure is not</h2>
 <ul>
 <li><strong>Not</strong> a conventional command hierarchy optimised for shareholder extraction.</li>
 <li><strong>Not</strong> self-sufficient proof of coexistence — metaphysical premises remain commitments (<a href="../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> §9).</li>
 <li><strong>Not</strong> derivable from category theory alone — L3 complementarity, τ, and saturation are <strong>designed in</strong> (<a href="../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf"><em>Category Theory Explained</em></a> §6.11 P8–P9, P16).</li>
 </ul>
 <p>SCW is a <strong>template instance</strong>: bounded units, definite valued relationships, compound assembly by complementarity, persistence by fulfilment, transmission by education-<em>sanskar</em>, evaluation and evidence at the knowledge tier — structured so longevity and balance are <strong>construction requirements</strong>, not afterthoughts.</p>
-<h2>References</h2>
+<h2 id="references">References</h2>
 <h3>Application basis (this repository)</h3>
 <ul>
 <li><a href="../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> — formal template: units, relationships, values, κ, τ, L1–L7, P3–P5, §8 human organisations</li>
@@ -890,6 +933,83 @@ mermaid.initialize({
   securityLevel: "loose",
   flowchart: { htmlLabels: true, useMaxWidth: true },
 });
+</script>
+<script>
+(() => {
+  const toolbar = document.querySelector(".study-toolbar");
+  const prev = document.getElementById("study-section-prev");
+  const next = document.getElementById("study-section-next");
+  if (!toolbar || !prev || !next) return;
+
+  const sections = Array.from(document.querySelectorAll("h2[id]"));
+  const syncToolbarHeight = () => {
+    document.documentElement.style.setProperty(
+      "--study-toolbar-height",
+      `${toolbar.offsetHeight}px`
+    );
+  };
+
+  const sectionLabel = el => el.textContent.replace(/\s+/g, " ").trim();
+
+  const marker = () => (toolbar.offsetHeight || 0) + 16;
+
+  const currentIndex = () => {
+    const y = window.scrollY + marker();
+    let idx = -1;
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop <= y) idx = i;
+      else break;
+    }
+    return idx;
+  };
+
+  const setDisabled = (link, disabled, fallback) => {
+    link.classList.toggle("is-disabled", disabled);
+    if (disabled) {
+      link.removeAttribute("href");
+      link.setAttribute("aria-disabled", "true");
+      link.textContent = fallback;
+    } else {
+      link.setAttribute("aria-disabled", "false");
+    }
+  };
+
+  const update = () => {
+    if (!sections.length) {
+      setDisabled(prev, true, "\u2190 Previous section");
+      setDisabled(next, true, "Next section \u2192");
+      return;
+    }
+
+    const idx = currentIndex();
+
+    if (idx <= 0) {
+      setDisabled(prev, true, "\u2190 Previous section");
+    } else {
+      prev.classList.remove("is-disabled");
+      prev.href = `#${sections[idx - 1].id}`;
+      prev.setAttribute("aria-disabled", "false");
+      prev.textContent = `\u2190 ${sectionLabel(sections[idx - 1])}`;
+    }
+
+    if (idx < 0 || idx >= sections.length - 1) {
+      setDisabled(next, true, "Next section \u2192");
+    } else {
+      next.classList.remove("is-disabled");
+      next.href = `#${sections[idx + 1].id}`;
+      next.setAttribute("aria-disabled", "false");
+      next.textContent = `${sectionLabel(sections[idx + 1])} \u2192`;
+    }
+  };
+
+  syncToolbarHeight();
+  update();
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", () => {
+    syncToolbarHeight();
+    update();
+  });
+})();
 </script>
 
 </body>

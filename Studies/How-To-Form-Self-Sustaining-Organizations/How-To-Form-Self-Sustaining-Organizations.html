@@ -208,11 +208,14 @@
     height: auto;
   }
 
+  html { scroll-behavior: smooth; }
+  h2[id] {
+    scroll-margin-top: calc(var(--study-toolbar-height, 88px) + 10px);
+  }
   .study-toolbar {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    gap: 10px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     font-family: 'Segoe UI', system-ui, sans-serif;
     font-size: 13px;
     position: sticky;
@@ -226,6 +229,17 @@
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
   }
+  .study-toolbar-row {
+    display: grid;
+    align-items: center;
+    gap: 8px 14px;
+  }
+  .study-toolbar-row--primary {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+  }
+  .study-toolbar-row--sections {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
   .study-toolbar-back {
     justify-self: start;
     min-width: 0;
@@ -235,34 +249,59 @@
     min-width: 0;
     text-align: right;
   }
+  .study-toolbar-title {
+    justify-self: center;
+    text-align: center;
+    margin: 0;
+    min-width: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: #2c241c;
+    line-height: 1.35;
+  }
+  .study-toolbar-draft {
+    font-weight: 600;
+    color: #5c5348;
+  }
   .study-toolbar-link {
     color: #1a5276;
     text-decoration: none;
     font-weight: 600;
   }
   .study-toolbar-link:hover { color: #13405c; }
-  .study-toolbar-status {
-    justify-self: center;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: #1a5276;
-    background: #e8f1f6;
-    border: 1px solid #c5d9e6;
-    border-radius: 999px;
-    padding: 4px 10px;
+  .study-toolbar-section {
+    display: block;
+    min-width: 0;
+    font-size: 12px;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
-  .study-toolbar-status--empty {
-    visibility: hidden;
-    padding: 4px 10px;
-    border-color: transparent;
-    background: transparent;
+  .study-toolbar-section--prev { justify-self: start; }
+  .study-toolbar-section--next {
+    justify-self: end;
+    text-align: right;
+  }
+  .study-toolbar-section.is-disabled {
+    opacity: 0.45;
+    pointer-events: none;
+    color: #6f655a;
   }
   .study-toolbar-download::after {
     content: " \2193";
     font-weight: 700;
+  }
+  @media (max-width: 640px) {
+    .study-toolbar-row--primary {
+      grid-template-columns: 1fr 1fr;
+    }
+    .study-toolbar-title {
+      grid-column: 1 / -1;
+      white-space: normal;
+    }
+    .study-toolbar-section {
+      white-space: normal;
+    }
   }
   @media print {
     .study-toolbar { display: none !important; }
@@ -310,33 +349,37 @@
     }
     .study-toolbar-link { color: #7ebbed; }
     .study-toolbar-link:hover { color: #b8daf3; }
-    .study-toolbar-status {
-      color: #7ebbed;
-      background: #233e52;
-      border: 1px solid #3d6278;
-    }
+    .study-toolbar-title { color: #f5f1ec; }
+    .study-toolbar-draft { color: #aca194; }
+    .study-toolbar-section.is-disabled { color: #6f655a; }
   }
 
 </style>
 </head>
 <body>
 <nav class="study-toolbar" aria-label="Study navigation">
-  <a class="study-toolbar-link study-toolbar-back" href="../index.html">&larr; All studies</a>
-  <span class="study-toolbar-status" role="status">Draft</span>
-  <a class="study-toolbar-link study-toolbar-download" href="How-To-Form-Self-Sustaining-Organizations.pdf" download>Download PDF</a>
+  <div class="study-toolbar-row study-toolbar-row--primary">
+    <a class="study-toolbar-link study-toolbar-back" href="../index.html">&larr; All studies</a>
+    <p class="study-toolbar-title">How to form Self-Sustaining Organizations ? <span class="study-toolbar-draft">(Draft)</span></p>
+    <a class="study-toolbar-link study-toolbar-download" href="How-To-Form-Self-Sustaining-Organizations.pdf" download>Download PDF</a>
+  </div>
+  <div class="study-toolbar-row study-toolbar-row--sections">
+    <a class="study-toolbar-link study-toolbar-section study-toolbar-section--prev" id="study-section-prev" href="#" aria-disabled="true">&larr; Previous section</a>
+    <a class="study-toolbar-link study-toolbar-section study-toolbar-section--next" id="study-section-next" href="#" aria-disabled="true">Next section &rarr;</a>
+  </div>
 </nav>
 <h1>How to form Self-Sustaining Organizations ?</h1>
-<h2>Based on Madhyasth Darshan — so that organisations sustain and members are not instrumentalised</h2>
+<h2 id="based-on-madhyasth-darshan-so-that-organisations-sustain-and-members-are-not-instrumentalised">Based on Madhyasth Darshan — so that organisations sustain and members are not instrumentalised</h2>
 <p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> — a group of people studying Madhyasth Darshan philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
 <p><strong>Edited on:</strong> June 26, 2026, 10:28 AM IST</p>
-<h2>At a glance</h2>
+<h2 id="at-a-glance">At a glance</h2>
 <ul>
 <li><strong>The question:</strong> must organisations be built on fear or accumulation, or is there a basis on which they sustain <em>and</em> their members are not used as instruments?</li>
 <li><strong>The diagnosis:</strong> every historical basis — safety, sustenance, protection, belief, wealth — reduces to fear or accumulation; such organisations must extract from their members, and they dissolve when the fear passes or the accumulation stalls.</li>
 <li><strong>The alternative:</strong> organisation around <strong>understood coexistence</strong> — shared cause, goal, and programme; values fulfilled in relationships; prosperity through right-use; understanding transmitted to every member through education-sanskar.</li>
 <li><strong>The caveat:</strong> the design is coherent but untested at civilisational scale, and its deepest premises are asserted rather than demonstrated (§10).</li>
 </ul>
-<h2>Glossary of key terms</h2>
+<h2 id="glossary-of-key-terms">Glossary of key terms</h2>
 <table>
 <thead>
 <tr>
@@ -387,7 +430,7 @@
 </tr>
 </tbody>
 </table>
-<h2>1. The central question</h2>
+<h2 id="1-the-central-question">1. The central question</h2>
 <p>Reviewing history, humans have organised in a near-universal sequence — around <strong>safety</strong>, <strong>sustenance</strong>, <strong>protection</strong>, <strong>shared belief</strong>, and finally <strong>wealth and power</strong>. Section 2 traces this sequence in the sources.</p>
 <p>The question of this paper: is this the only way to form human organisations? Any better answer must meet two design objectives together:</p>
 <ol>
@@ -406,7 +449,7 @@ flowchart TD
     E --> G["Organisation sustains: resolution + tradition of coexistence"]
     E --> I["Transmitted to all members via education-sanskar"]
 </div>
-<h2>2. The historic pattern and its common root</h2>
+<h2 id="2-the-historic-pattern-and-its-common-root">2. The historic pattern and its common root</h2>
 <p>SB&rsquo;s <em>History of Humans</em> as well as JV, tell the story of how humans organized themselves as a sequence of ages — each stage formed to answer a felt lack, each stage leaving that lack unresolved.</p>
 <p>In the jungle and stone ages, fear of nature and wild animals drove the first groupings. Forest, food, and shelter became the first wealth. Humans then submitted to monarchs. SB records that &ldquo;The submission age was accepted based on assurances of &hellip; comfort by the monarch&rdquo; (SB, Ch. 2); JV adds that the promise was never kept:</p>
 <blockquote>
@@ -423,7 +466,7 @@ flowchart TD
 </blockquote>
 <p>The mapping is direct. Organising for safety and under monarchs is organising around <strong>fear</strong> — of nature, of animals, of other humans and groups. Organising for food, shelter, and wealth is organising around <strong>accumulation</strong>. Organising around shared belief trades on both: fear of sin, death, or damnation on one side, and accumulation of merit or salvation on the other. The power-centric economy, finally, is accumulation guarded by force — that is, by fear.</p>
 <p>Every stage is reactive. Humans organise <em>against</em> something feared or <em>for</em> something accumulated. The organising principle is never the human relationship itself; it is always an external threat or an external object.</p>
-<h2>3. Why such organisations instrumentalise their members</h2>
+<h2 id="3-why-such-organisations-instrumentalise-their-members">3. Why such organisations instrumentalise their members</h2>
 <p>If an organisation is held together by fear and accumulation, its members are inevitably treated as <strong>means</strong> — instruments for producing safety or wealth for someone else. The darshan defines this with unusual precision:</p>
 <blockquote>
 <p><strong>&ldquo;Nurturing (poshan): Unit + Conducive unit.&rdquo;</strong>
@@ -444,7 +487,7 @@ flowchart TD
 - MVD, Ch. 15</p>
 </blockquote>
 <p>The sense of being instrumentalised is not a complaint about a particular boss or regime. It is the <strong>predictable signature of any organisation whose organising principle is fear or accumulation</strong>, because such a principle requires some members to be net-extracted-from so that others (or the system) can be net-secured. This is the failure of Objective 1.</p>
-<h2>4. Why such organisations do not sustain</h2>
+<h2 id="4-why-such-organisations-do-not-sustain">4. Why such organisations do not sustain</h2>
 <p>Fear-and-accumulation is not merely unkind; it is <em>structurally fragile</em>. This is the failure of Objective 2.</p>
 <p><strong>Fear-based collectivity is animal-order, and dissolves when the fear passes:</strong></p>
 <blockquote>
@@ -462,7 +505,7 @@ flowchart TD
 - MVD, Ch. 4</p>
 </blockquote>
 <p>An organisation does not last because it accumulates the most resources or commands the most force. It lasts because it produces <strong>resolution</strong> (members understand why and how they live and work together) and lives a <strong>tradition of coexistence</strong> (members complement rather than extract from each other). Resources and security are outputs of such an order, not its foundation.</p>
-<h2>5. The alternative basis: coexistence</h2>
+<h2 id="5-the-alternative-basis-coexistence">5. The alternative basis: coexistence</h2>
 <h3>5.1 Coexistence as the binding principle</h3>
 <blockquote>
 <p><strong>&ldquo;Resolution Centred Materialism is coexistence only.&rdquo;</strong>
@@ -557,7 +600,7 @@ flowchart TD
 </tr>
 </tbody>
 </table>
-<h2>6. What it takes to understand coexistence</h2>
+<h2 id="6-what-it-takes-to-understand-coexistence">6. What it takes to understand coexistence</h2>
 <p>Everything above rests on the load-bearing phrase introduced in §5.1: organisations founded on <strong>understood coexistence</strong>. This is not a figure of speech. In the darshan, &ldquo;understanding coexistence&rdquo; names a definite cognitive achievement with definite content, a definite method, and definite tests — and it is deliberately contrasted with belief, sentiment, agreement, and mystical experience.</p>
 <h3>6.1 What is to be understood</h3>
 <p>Coexistence here is not tolerance, compromise, or &ldquo;getting along.&rdquo; It is a claim about the structure of reality: existence is units <strong>submerged in</strong> all-pervading space — distinct, energised, and related — and the four natural orders (material, bio, animal, and knowledge order) are mutually complementary. To understand coexistence is to know three things together:</p>
@@ -591,7 +634,7 @@ flowchart TD
 <li><strong>The family is the first site of verification.</strong> Relationships in the family are where values are first recognised, fulfilled, and evaluated — which is why the darshan&rsquo;s self-organising orderliness is <em>family-based</em> rather than individual-based or state-based.</li>
 </ul>
 <p>This also explains the failure modes catalogued earlier. Organisations decay precisely at the point where understanding stops being transmitted and is replaced by its cheaper substitutes — belief in the founder, fear of the rule, or incentive of the pay-off. The darshan&rsquo;s claim is that no organisational structure can compensate for that substitution, and no structure is needed where it has not occurred.</p>
-<h2>7. Modern organisational forms in brief</h2>
+<h2 id="7-modern-organisational-forms-in-brief">7. Modern organisational forms in brief</h2>
 <p>The darshan predates these modern forms and does not name them; this section applies its criteria to them. Modern forms line up on a spectrum by what binds members, from extraction toward coexistence:</p>
 <table>
 <thead>
@@ -630,7 +673,7 @@ flowchart TD
 </tbody>
 </table>
 <p>The best modern forms independently arrive at several darshan principles. What even they stop short of supplying together: <strong>a universal (non-sectarian) goal</strong> oriented to undivided society; <strong>resolution as understood coexistence</strong> rather than shared interest or belief; <strong>the four-fold goal</strong> (resolution, prosperity, fearlessness, coexistence) as a set; <strong>a transmission mechanism</strong> (education-sanskar) independent of founder or funding; and <strong>an integrated cyclical economy of right-use</strong> rather than accumulation merely constrained by rules.</p>
-<h2>8. Practical principles</h2>
+<h2 id="8-practical-principles">8. Practical principles</h2>
 <p>An organisation that wants to sustain and not instrumentalise its people should:</p>
 <ol>
 <li><strong>Organise around an understood common cause and goal, not around a threat</strong> (§2, §5.1).</li>
@@ -644,7 +687,7 @@ flowchart TD
 <li><strong>Transmit understanding through education-sanskar</strong> across generations (§6.4).</li>
 <li><strong>Orient the small unit toward the larger whole</strong> — family/team toward society and undivided society, not sectarian self-interest (§5.2).</li>
 </ol>
-<h2>9. From here to there: the transition path</h2>
+<h2 id="9-from-here-to-there-the-transition-path">9. From here to there: the transition path</h2>
 <p>The darshan describes an end-state, not a reform programme for existing institutions. The texts do not prescribe how a fear- or accumulation-based organisation converts itself. But the darshan&rsquo;s own logic implies a definite ordering, and it is worth making explicit. <em>(This section is inference from the texts&rsquo; method, not quotation.)</em></p>
 <ol>
 <li><strong>Understanding precedes structure.</strong> Since no organisational structure can compensate for the absence of understanding (§6.4), transition cannot begin with restructuring — new charters, new incentives, new org-charts on the old basis reproduce the old basis. It begins with members studying and verifying the proposal.</li>
@@ -653,7 +696,7 @@ flowchart TD
 <li><strong>Evidence attracts; command does not.</strong> The method is study → mastery → evidence in living (JV, §6.2). An organisation demonstrating resolution, prosperity, and fearlessness recruits by being visibly worth joining — the darshan&rsquo;s answer to &ldquo;how does this spread?&rdquo; is demonstration, not conquest or decree.</li>
 </ol>
 <p>The implied sequence — understand, live it small, teach it, federate — also explains why the darshan is unimpressed by reforms that begin at the top: they change who holds the structure, not what the structure is organised around.</p>
-<h2>10. Limits and open questions</h2>
+<h2 id="10-limits-and-open-questions">10. Limits and open questions</h2>
 <p>The diagnosis explains a real, recurring pattern — fear- or accumulation-founded organisations do treat members as instruments and do fracture when the founding fear recedes or accumulation stalls. The definition of exploitation as <em>disregarding values in a relationship</em> gives a usable test for whether people are being instrumentalised, and the resolution-plus-coexistence thesis dissolves the apparent trade-off between member welfare and durability.</p>
 <p>There are however following questionable points in the claims made by the Madhyasth Darshan:</p>
 <ul>
@@ -662,7 +705,7 @@ flowchart TD
 <li><em>No theory of bad-faith actors.</em> The design assumes members who understand or are willing to study. The texts name a Justice-Security committee (SB, Ch. 8) but give no procedure for the member who persistently exploits, dissents, or refuses to participate — no account of adjudication, sanction, exit, or expulsion. For an organisational design, this is the largest practical gap: every real organisation eventually meets the person its theory says should not exist.</li>
 <li><em>Dependence on the ontology.</em> The deepest premises — jeevan, awakening, existence-as-coexistence — are asserted, not empirically demonstrated. A secular designer can adopt nearly the whole practical programme on organisational grounds alone while remaining agnostic about the metaphysics; a strength for adoption, a weakness for anyone seeking a proven first principle.</li>
 </ul>
-<h2>11. Comparison with Advaita Vedanta</h2>
+<h2 id="11-comparison-with-advaita-vedanta">11. Comparison with Advaita Vedanta</h2>
 <p>A natural question for an Indian reader: does <strong>Advaita Vedanta</strong> — the oldest and most influential non-dual tradition — already offer a basis for humans to come together and build a prosperous society? The two traditions are close relatives: Shri A. Nagraj came through the Vedic/Vedantic stream, and Madhyasth Darshan defines itself partly against Advaita&rsquo;s central formula, which MVD quotes directly:</p>
 <blockquote>
 <p><strong>&ldquo;According to Vedanta knowledge, only Brahma is the truth, and this world is an illusion (&lsquo;Brahma satya, jagat mithya&rsquo;). However, jeeva and jagat are said to have originated from Brahma.&rdquo;</strong>
@@ -742,14 +785,14 @@ flowchart TD
 <h3>11.4 Advaita and organisation — closing contrast</h3>
 <p>Advaita supplies the strongest possible <strong>premise</strong> for human unity — there is finally no Other — but not the <strong>programme</strong> for human organisation. Its centre of gravity is the individual&rsquo;s exit from the world, not the world&rsquo;s orderliness; its strongest social readings (SV, ATR) are modern efforts to extract from non-duality precisely what Madhyasth Darshan builds in from the start: a real world, real relationships, real values, a defined economy, and a transmission mechanism for all. One may fairly say the darshan keeps Advaita&rsquo;s insistence on human dignity and the unity of existence while replacing &ldquo;one without a second&rdquo; with &ldquo;coexistence&rdquo; — exactly so that the unity can bind conduct, production, and organisation rather than dissolve them.</p>
 <p>A caveat is in order: this comparison is between Advaita&rsquo;s <em>historical record</em> and the darshan&rsquo;s <em>design principles</em>. The darshan&rsquo;s organisational programme — the ten-tier family-based orderliness, the cyclical economy, the universal education-sanskar — has not yet been tested at civilisational scale. The claim here is therefore about the <em>coherence and completeness</em> of the design, not about a proven track record outperforming another. Whether the darshan&rsquo;s programme can deliver in practice what it promises in theory remains an open question — one that only sustained attempts at implementation can answer.</p>
-<h2>12. Conclusion</h2>
+<h2 id="12-conclusion">12. Conclusion</h2>
 <p>Humans do not <em>have</em> to organise around fear, food, protection, belief, or accumulation. Those are the bases history happened to use, and they are precisely why organisations exploit their members and eventually decay. The durable, non-exploitative basis is organisation around understood coexistence — shared cause, goal, and programme; fulfilment of values in relationships; right-use rather than accumulation; and a tradition that transmits this understanding across generations.</p>
 <blockquote>
 <p><strong>Fear + accumulation</strong> → members instrumentalised → organisation decays
 <strong>Coexistence + resolution</strong> → members fulfilled → organisation sustains</p>
 </blockquote>
 <p>The contribution of this view is to collapse two problems usually treated separately — <em>keeping people happy</em> and <em>keeping the institution alive</em> — into a single design choice about what an organisation is organised <em>around</em>. Choose fear or accumulation, and the two goals fight each other. Choose understood coexistence, and the same principle that fulfils the member also sustains the whole.</p>
-<h2>References</h2>
+<h2 id="references">References</h2>
 <h3>Madhyasth Darshan (primary sources)</h3>
 <ul>
 <li><strong>MVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan – Co-existentialism, Part 1: Holistic View of Human Behaviour</em></a>. English translation by Rakesh Gupta. Cited by chapter.</li>
@@ -771,6 +814,83 @@ mermaid.initialize({
   securityLevel: "loose",
   flowchart: { htmlLabels: true, useMaxWidth: true },
 });
+</script>
+<script>
+(() => {
+  const toolbar = document.querySelector(".study-toolbar");
+  const prev = document.getElementById("study-section-prev");
+  const next = document.getElementById("study-section-next");
+  if (!toolbar || !prev || !next) return;
+
+  const sections = Array.from(document.querySelectorAll("h2[id]"));
+  const syncToolbarHeight = () => {
+    document.documentElement.style.setProperty(
+      "--study-toolbar-height",
+      `${toolbar.offsetHeight}px`
+    );
+  };
+
+  const sectionLabel = el => el.textContent.replace(/\s+/g, " ").trim();
+
+  const marker = () => (toolbar.offsetHeight || 0) + 16;
+
+  const currentIndex = () => {
+    const y = window.scrollY + marker();
+    let idx = -1;
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop <= y) idx = i;
+      else break;
+    }
+    return idx;
+  };
+
+  const setDisabled = (link, disabled, fallback) => {
+    link.classList.toggle("is-disabled", disabled);
+    if (disabled) {
+      link.removeAttribute("href");
+      link.setAttribute("aria-disabled", "true");
+      link.textContent = fallback;
+    } else {
+      link.setAttribute("aria-disabled", "false");
+    }
+  };
+
+  const update = () => {
+    if (!sections.length) {
+      setDisabled(prev, true, "\u2190 Previous section");
+      setDisabled(next, true, "Next section \u2192");
+      return;
+    }
+
+    const idx = currentIndex();
+
+    if (idx <= 0) {
+      setDisabled(prev, true, "\u2190 Previous section");
+    } else {
+      prev.classList.remove("is-disabled");
+      prev.href = `#${sections[idx - 1].id}`;
+      prev.setAttribute("aria-disabled", "false");
+      prev.textContent = `\u2190 ${sectionLabel(sections[idx - 1])}`;
+    }
+
+    if (idx < 0 || idx >= sections.length - 1) {
+      setDisabled(next, true, "Next section \u2192");
+    } else {
+      next.classList.remove("is-disabled");
+      next.href = `#${sections[idx + 1].id}`;
+      next.setAttribute("aria-disabled", "false");
+      next.textContent = `${sectionLabel(sections[idx + 1])} \u2192`;
+    }
+  };
+
+  syncToolbarHeight();
+  update();
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", () => {
+    syncToolbarHeight();
+    update();
+  });
+})();
 </script>
 
 </body>

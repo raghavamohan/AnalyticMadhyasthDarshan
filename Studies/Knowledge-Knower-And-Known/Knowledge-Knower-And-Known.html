@@ -208,11 +208,14 @@
     height: auto;
   }
 
+  html { scroll-behavior: smooth; }
+  h2[id] {
+    scroll-margin-top: calc(var(--study-toolbar-height, 88px) + 10px);
+  }
   .study-toolbar {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    gap: 10px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     font-family: 'Segoe UI', system-ui, sans-serif;
     font-size: 13px;
     position: sticky;
@@ -226,6 +229,17 @@
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
   }
+  .study-toolbar-row {
+    display: grid;
+    align-items: center;
+    gap: 8px 14px;
+  }
+  .study-toolbar-row--primary {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+  }
+  .study-toolbar-row--sections {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
   .study-toolbar-back {
     justify-self: start;
     min-width: 0;
@@ -235,34 +249,59 @@
     min-width: 0;
     text-align: right;
   }
+  .study-toolbar-title {
+    justify-self: center;
+    text-align: center;
+    margin: 0;
+    min-width: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: #2c241c;
+    line-height: 1.35;
+  }
+  .study-toolbar-draft {
+    font-weight: 600;
+    color: #5c5348;
+  }
   .study-toolbar-link {
     color: #1a5276;
     text-decoration: none;
     font-weight: 600;
   }
   .study-toolbar-link:hover { color: #13405c; }
-  .study-toolbar-status {
-    justify-self: center;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: #1a5276;
-    background: #e8f1f6;
-    border: 1px solid #c5d9e6;
-    border-radius: 999px;
-    padding: 4px 10px;
+  .study-toolbar-section {
+    display: block;
+    min-width: 0;
+    font-size: 12px;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
-  .study-toolbar-status--empty {
-    visibility: hidden;
-    padding: 4px 10px;
-    border-color: transparent;
-    background: transparent;
+  .study-toolbar-section--prev { justify-self: start; }
+  .study-toolbar-section--next {
+    justify-self: end;
+    text-align: right;
+  }
+  .study-toolbar-section.is-disabled {
+    opacity: 0.45;
+    pointer-events: none;
+    color: #6f655a;
   }
   .study-toolbar-download::after {
     content: " \2193";
     font-weight: 700;
+  }
+  @media (max-width: 640px) {
+    .study-toolbar-row--primary {
+      grid-template-columns: 1fr 1fr;
+    }
+    .study-toolbar-title {
+      grid-column: 1 / -1;
+      white-space: normal;
+    }
+    .study-toolbar-section {
+      white-space: normal;
+    }
   }
   @media print {
     .study-toolbar { display: none !important; }
@@ -310,32 +349,36 @@
     }
     .study-toolbar-link { color: #7ebbed; }
     .study-toolbar-link:hover { color: #b8daf3; }
-    .study-toolbar-status {
-      color: #7ebbed;
-      background: #233e52;
-      border: 1px solid #3d6278;
-    }
+    .study-toolbar-title { color: #f5f1ec; }
+    .study-toolbar-draft { color: #aca194; }
+    .study-toolbar-section.is-disabled { color: #6f655a; }
   }
 
 </style>
 </head>
 <body>
 <nav class="study-toolbar" aria-label="Study navigation">
-  <a class="study-toolbar-link study-toolbar-back" href="../index.html">&larr; All studies</a>
-  <span class="study-toolbar-status" role="status">Draft</span>
-  <a class="study-toolbar-link study-toolbar-download" href="Knowledge-Knower-And-Known.pdf" download>Download PDF</a>
+  <div class="study-toolbar-row study-toolbar-row--primary">
+    <a class="study-toolbar-link study-toolbar-back" href="../index.html">&larr; All studies</a>
+    <p class="study-toolbar-title">Knowledge, Knower, and Known <span class="study-toolbar-draft">(Draft)</span></p>
+    <a class="study-toolbar-link study-toolbar-download" href="Knowledge-Knower-And-Known.pdf" download>Download PDF</a>
+  </div>
+  <div class="study-toolbar-row study-toolbar-row--sections">
+    <a class="study-toolbar-link study-toolbar-section study-toolbar-section--prev" id="study-section-prev" href="#" aria-disabled="true">&larr; Previous section</a>
+    <a class="study-toolbar-link study-toolbar-section study-toolbar-section--next" id="study-section-next" href="#" aria-disabled="true">Next section &rarr;</a>
+  </div>
 </nav>
 <h1>Knowledge, Knower, and Known</h1>
 <p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> — a group of people studying Madhyasth Darshan philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
 <p><strong>Edited on:</strong> June 26, 2026, 10:28 AM IST
 <strong>The question:</strong> What is knowledge, who is the knower, and what is it that one can know? How do we ground these concepts in experience, and how does the Co-existentialism of Shri A. Nagraj compare with the non-dualism of Advaita Vedanta and the physicalism of modern science and philosophy?</p>
 <p>This study examines knowledge, the knower, and the knowable in <strong>Madhyasth Darshan</strong> (Co-existentialism), as presented by <strong>Shri A. Nagraj</strong>, and compares its answers with <strong>Advaita Vedanta</strong> and <strong>modern science and philosophy</strong>.</p>
-<h2>Standpoint and scope</h2>
+<h2 id="standpoint-and-scope">Standpoint and scope</h2>
 <p>These studies are written from the standpoint of a <strong>scientist and technologist</strong> — someone trained to graduate-level <strong>physics and mathematics</strong>, at home with contemporary cosmology, quantum theory, conservation laws, and the logic of formal models.</p>
 <p>From that background, a familiar picture of nature is hard to avoid: <strong>consciousness appears as something the brain does</strong> — an epiphenomenon, functional outcome, or emergent property of particular configurations of very large numbers of physical particles. Modern physics and cognitive science are powerful on mechanism, prediction, and public evidence; yet the hard problem of consciousness, the status of the self, and the reality of value remain fiercely contested. The standpoint taken here does not treat those gaps as settled in favour of matter-only reductionism.</p>
 <p>The work begins where that scientific picture leaves open questions — and asks whether Madhyasth Darshan offers a coherent alternative worth examining seriously. This paper reads the primary texts carefully, states what follows from the darshan itself, and compares it in parallel with what we know from <strong>physics and the natural sciences</strong>, <strong>Advaita Vedanta</strong>, and <strong>modern Western philosophy</strong> (especially epistemology and philosophy of mind). Physics and mathematics are <strong>one leg</strong> of that comparison, not the only one. The aim is rigorous comparative understanding — testing definitions, internal consistency, and fit with public knowledge — not persuasion or devotional endorsement.</p>
 <p>These topical studies state the philosophy in clear, checkable prose first. A separate formal mathematical treatment may follow once the definitions and relations are stable across the studies; this paper does not assume or require that treatment.</p>
-<h2>Quick Glossary</h2>
+<h2 id="quick-glossary">Quick Glossary</h2>
 <table>
 <thead>
 <tr>
@@ -414,7 +457,7 @@
 </tr>
 </tbody>
 </table>
-<h2>1. The Madhyasth Darshan Answer</h2>
+<h2 id="1-the-madhyasth-darshan-answer">1. The Madhyasth Darshan Answer</h2>
 <p>Madhyasth Darshan holds that knowledge is the realization of coexistence evidenced as wisdom, science, and humane conduct; the knower is the active sentient self (<em>jeevan</em>) operating through the human body in seer-status (<em>drishta-pad</em>); and the knowable is existence itself — Omnipresence and all real units in their relationships, orderliness, and conduct. For Shri A. Nagraj, knowledge (<em>gyan</em>) is not a subjective construct, a private mental state, or a mere collection of information. It has an ontological base, an epistemic structure, and a practical test.</p>
 <h3>1.1 Space as knowledge</h3>
 <p>In its ultimate sense, Space (<em>shunya</em> / <em>vyapak</em>) is not empty nothingness. It is omnipresent, transparent, all-pervasive, and the uniform energy in which all units are saturated. This omnipresent Space is itself Knowledge:</p>
@@ -603,7 +646,7 @@
 — MVD, <em>The Alternative</em>, point 8</p>
 </blockquote>
 <p>Madhyasth Darshan therefore resolves the knower-known distinction by awakening the knower to the real coexistence of Omnipresence and world. The world is not negated; it is understood, recognized, and fulfilled in conduct.</p>
-<h2>2. The Advaita Vedanta Answer</h2>
+<h2 id="2-the-advaita-vedanta-answer">2. The Advaita Vedanta Answer</h2>
 <p>Advaita Vedanta holds that the true knower is the actionless witness Self (<em>Atman</em> / <em>sakshi</em>), identical to ultimate reality (<em>Brahman</em>); the known world of diversity is a dependent appearance (<em>mithya</em>); and knowledge is the direct realization of this non-duality, dissolving the distinction between knower, known, and knowing.</p>
 <h3>2.1 Seer and seen (<em>drig-drishya</em>)</h3>
 <p>Advaita Vedanta begins its inquiry by separating the Seer (<em>drig</em>) from the Seen (<em>drishya</em>). The fundamental rule of this discrimination (<em>viveka</em>) is that whatever is observed cannot be the observer:</p>
@@ -680,7 +723,7 @@
 <h3>2.7 Ethics and the empirical order</h3>
 <p>Advaita&rsquo;s fair reply to the charge that <em>mithya</em> undermines ethics is substantial. At <em>vyavahara</em>, ethics and compassion remain fully valid; realization of non-duality deepens rather than weakens them. Shankara&rsquo;s <em>Vivekachudamani</em> insists on ethical discipline as prerequisite to knowledge (VC, vv. 17–19). The Bhagavad Gita, in Shankara&rsquo;s commentary, grounds social responsibility in <em>loka-sangraha</em> — holding the world together — and ordained duty (<em>niyatam kuru karma</em>, BG, 3.8): the enlightened still act for the welfare of the world.</p>
 <p>Madhyasth Darshan&rsquo;s counter-reply is narrower but precise: an ontology that makes the world <em>mithya</em> at <em>paramartha</em> cannot give the world the <strong>same final weight</strong> coexistence gives it — relationships and nature are ultimately sublated, not perpetual. The dispute is over final ontological status, not whether Advaitins can live ethically at the empirical level.</p>
-<h2>3. The Modern Scientific and Philosophical View</h2>
+<h2 id="3-the-modern-scientific-and-philosophical-view">3. The Modern Scientific and Philosophical View</h2>
 <p>Mainstream science and analytical philosophy answer that the knower is a biological organism whose brain processes generate the mind; the known is the physical universe of matter and energy; and knowledge is structured information validated by empirical testing, falsification, and intersubjective consensus.</p>
 <h3>3.1 What is knowledge?</h3>
 <p>In modern science and analytical philosophy, knowledge is typically defined as <strong>justified true belief</strong> (in classical epistemology) or as <strong>predictive modeling</strong> (in cognitive science and naturalism).
@@ -705,7 +748,7 @@
 <li><strong>Theory pluralism in consciousness science.</strong> Contemporary consciousness research contains many competing theories, including global neuronal workspace, integrated information, higher-order, recurrent processing, illusionist, and panpsychist accounts. A large adversarial test of IIT and GNWT found results that partly supported and partly challenged both (Melloni et al. 2025), and broad surveys now catalogue dozens of competing explanations of consciousness (Kuhn 2024), confirming that modern science has no settled account of subjective experience.</li>
 </ol>
 <p>These developments do not remove the major modern objection to Madhyasth Darshan — the lack of publicly measurable evidence for <em>jeevan</em>. But they do make the comparison more subtle. The live modern debate is not only &ldquo;matter versus soul&rdquo;; it also asks whether cognition is brain-bound or embodied, individual or social, representational or enactive, reductive or panpsychist, and whether scientific knowledge is perspective-free or perspectival.</p>
-<h2>4. Comparing the Three Views</h2>
+<h2 id="4-comparing-the-three-views">4. Comparing the Three Views</h2>
 <table>
 <thead>
 <tr>
@@ -852,7 +895,7 @@
 </tbody>
 </table>
 <p>To that extent they are <strong>partially incommensurable</strong> — no single neutral tribunal settles them. What comparative work can still do is test each for internal consistency, fit with public knowledge, and responsible distinction of posits from bare assertion. For Madhyasth Darshan, the decisive question is what would count as public evidence for realization beyond the hard-problem explanatory gap — operational criteria for constitutional completeness, reproducible markers of <em>jeevan</em>-mediated activity, or independent evidence for post-death continuity (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §6.4).</p>
-<h2>5. Critical Review</h2>
+<h2 id="5-critical-review">5. Critical Review</h2>
 <p>No view escapes serious objections. Here is where each is strong and where each is vulnerable.</p>
 <h3>5.1 Madhyasth Darshan — integrated inside, unproven outside</h3>
 <p><strong>Strengths.</strong> It offers a realistic, positive framework that validates human relationships, ethics, and ecological balance as absolutely real. Its structure is unusually integrated: ontology (Space and units), epistemology (<em>darshan-drishya-drishti</em>), self-knowledge (<em>jeevan</em>), practical wisdom (<em>gyan-vivek-vigyan</em>), and conduct are all tied to one evidence chain. It avoids Advaita&rsquo;s difficult task of explaining how a dependent world feels so real, and it avoids the &ldquo;combination problem&rdquo; of panpsychism by defining the self as a single, indivisible, constitutionally complete atom.</p>
@@ -882,7 +925,7 @@
 <li><strong>Fragmentation.</strong> Recent philosophy of mind and consciousness science have many live but competing accounts — illusionism, panpsychism, predictive processing, enactivism, IIT, GNWT, higher-order theories, and others. This pluralism is intellectually healthy, but it also means modern philosophy has no unified answer to the knower-known-knowledge triad.</li>
 </ul>
 <p>Scientific materialism offers the strongest method and the best-supported account of public evidence — but its claim to be the <em>complete</em> account of knowledge and the knower is a philosophical position, not a scientific finding.</p>
-<h2>References</h2>
+<h2 id="references">References</h2>
 <h3>Madhyasth Darshan (primary sources)</h3>
 <ul>
 <li><strong>MVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan – Co-existentialism</em>, Part 1: <em>Holistic View of Human Behaviour</em></a>. English translation by Rakesh Gupta. Cited: all units in Omnipresence (p. 11); evidence chain and &ldquo;Believe what is known&rdquo; (p. 12); &ldquo;Only awakened humans&rdquo; (p. 33); Space as knowledge and <em>gyan-vivek-vigyan</em> (p. 35, 143, 155); threefold truth (p. 37); <em>sanskar</em> definition (p. 90); <em>medhas</em> and activities of <em>jeevan</em> (p. 83); <em>darshan-drishya-drishti</em> (p. 84); knowledge unfolding by awakened humans (p. 115); &ldquo;Realisation in coexistence&rdquo; (p. 116); mystery and certitude (p. 209); Ch. 17 <em>Rahasy-mukti</em> — mystery, intellectual mystery, paths, four supports, liberation as bliss (pp. 273–301); knowledge unfolding through <em>jeevan</em>/thoughts (p. 289); awakening–<em>sanskar</em> cycle (p. 290); &ldquo;Realisation in knowledge&rdquo; (p. 316); &ldquo;delusion-less knowledge&rdquo; (p. 317); &ldquo;Brahma is truth, the world is perpetual&rdquo; (<em>The Alternative</em>, point 8).</li>
@@ -930,6 +973,83 @@
 <li><strong>Tufft et al. 2024</strong> — Tufft, M. R. A., et al. <a href="https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Tufft-et-al-2024-Flow-Active-Inference.pdf">&ldquo;Forgetting ourselves in flow: an active inference account of flow states and how we experience ourselves within them.&rdquo;</a> <em>Frontiers in Psychology</em>, 15. https://doi.org/10.3389/fpsyg.2024.1354719</li>
 <li><strong>Wiese 2024</strong> — Wiese, W. <a href="https://doi.org/10.1007/s11098-024-02182-y">&ldquo;Artificial consciousness: a perspective from the free energy principle.&rdquo;</a> <em>Philosophical Studies</em>, 181, 1947–1970.</li>
 </ul>
+<script>
+(() => {
+  const toolbar = document.querySelector(".study-toolbar");
+  const prev = document.getElementById("study-section-prev");
+  const next = document.getElementById("study-section-next");
+  if (!toolbar || !prev || !next) return;
+
+  const sections = Array.from(document.querySelectorAll("h2[id]"));
+  const syncToolbarHeight = () => {
+    document.documentElement.style.setProperty(
+      "--study-toolbar-height",
+      `${toolbar.offsetHeight}px`
+    );
+  };
+
+  const sectionLabel = el => el.textContent.replace(/\s+/g, " ").trim();
+
+  const marker = () => (toolbar.offsetHeight || 0) + 16;
+
+  const currentIndex = () => {
+    const y = window.scrollY + marker();
+    let idx = -1;
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop <= y) idx = i;
+      else break;
+    }
+    return idx;
+  };
+
+  const setDisabled = (link, disabled, fallback) => {
+    link.classList.toggle("is-disabled", disabled);
+    if (disabled) {
+      link.removeAttribute("href");
+      link.setAttribute("aria-disabled", "true");
+      link.textContent = fallback;
+    } else {
+      link.setAttribute("aria-disabled", "false");
+    }
+  };
+
+  const update = () => {
+    if (!sections.length) {
+      setDisabled(prev, true, "\u2190 Previous section");
+      setDisabled(next, true, "Next section \u2192");
+      return;
+    }
+
+    const idx = currentIndex();
+
+    if (idx <= 0) {
+      setDisabled(prev, true, "\u2190 Previous section");
+    } else {
+      prev.classList.remove("is-disabled");
+      prev.href = `#${sections[idx - 1].id}`;
+      prev.setAttribute("aria-disabled", "false");
+      prev.textContent = `\u2190 ${sectionLabel(sections[idx - 1])}`;
+    }
+
+    if (idx < 0 || idx >= sections.length - 1) {
+      setDisabled(next, true, "Next section \u2192");
+    } else {
+      next.classList.remove("is-disabled");
+      next.href = `#${sections[idx + 1].id}`;
+      next.setAttribute("aria-disabled", "false");
+      next.textContent = `${sectionLabel(sections[idx + 1])} \u2192`;
+    }
+  };
+
+  syncToolbarHeight();
+  update();
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", () => {
+    syncToolbarHeight();
+    update();
+  });
+})();
+</script>
 
 </body>
 </html>

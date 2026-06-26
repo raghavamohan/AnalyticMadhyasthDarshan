@@ -208,11 +208,14 @@
     height: auto;
   }
 
+  html { scroll-behavior: smooth; }
+  h2[id] {
+    scroll-margin-top: calc(var(--study-toolbar-height, 88px) + 10px);
+  }
   .study-toolbar {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    gap: 10px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     font-family: 'Segoe UI', system-ui, sans-serif;
     font-size: 13px;
     position: sticky;
@@ -226,6 +229,17 @@
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
   }
+  .study-toolbar-row {
+    display: grid;
+    align-items: center;
+    gap: 8px 14px;
+  }
+  .study-toolbar-row--primary {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+  }
+  .study-toolbar-row--sections {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
   .study-toolbar-back {
     justify-self: start;
     min-width: 0;
@@ -235,34 +249,59 @@
     min-width: 0;
     text-align: right;
   }
+  .study-toolbar-title {
+    justify-self: center;
+    text-align: center;
+    margin: 0;
+    min-width: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: #2c241c;
+    line-height: 1.35;
+  }
+  .study-toolbar-draft {
+    font-weight: 600;
+    color: #5c5348;
+  }
   .study-toolbar-link {
     color: #1a5276;
     text-decoration: none;
     font-weight: 600;
   }
   .study-toolbar-link:hover { color: #13405c; }
-  .study-toolbar-status {
-    justify-self: center;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: #1a5276;
-    background: #e8f1f6;
-    border: 1px solid #c5d9e6;
-    border-radius: 999px;
-    padding: 4px 10px;
+  .study-toolbar-section {
+    display: block;
+    min-width: 0;
+    font-size: 12px;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
-  .study-toolbar-status--empty {
-    visibility: hidden;
-    padding: 4px 10px;
-    border-color: transparent;
-    background: transparent;
+  .study-toolbar-section--prev { justify-self: start; }
+  .study-toolbar-section--next {
+    justify-self: end;
+    text-align: right;
+  }
+  .study-toolbar-section.is-disabled {
+    opacity: 0.45;
+    pointer-events: none;
+    color: #6f655a;
   }
   .study-toolbar-download::after {
     content: " \2193";
     font-weight: 700;
+  }
+  @media (max-width: 640px) {
+    .study-toolbar-row--primary {
+      grid-template-columns: 1fr 1fr;
+    }
+    .study-toolbar-title {
+      grid-column: 1 / -1;
+      white-space: normal;
+    }
+    .study-toolbar-section {
+      white-space: normal;
+    }
   }
   @media print {
     .study-toolbar { display: none !important; }
@@ -310,32 +349,36 @@
     }
     .study-toolbar-link { color: #7ebbed; }
     .study-toolbar-link:hover { color: #b8daf3; }
-    .study-toolbar-status {
-      color: #7ebbed;
-      background: #233e52;
-      border: 1px solid #3d6278;
-    }
+    .study-toolbar-title { color: #f5f1ec; }
+    .study-toolbar-draft { color: #aca194; }
+    .study-toolbar-section.is-disabled { color: #6f655a; }
   }
 
 </style>
 </head>
 <body>
 <nav class="study-toolbar" aria-label="Study navigation">
-  <a class="study-toolbar-link study-toolbar-back" href="../index.html">&larr; All studies</a>
-  <span class="study-toolbar-status" role="status">Draft</span>
-  <a class="study-toolbar-link study-toolbar-download" href="Human-Behavior-And-Society.pdf" download>Download PDF</a>
+  <div class="study-toolbar-row study-toolbar-row--primary">
+    <a class="study-toolbar-link study-toolbar-back" href="../index.html">&larr; All studies</a>
+    <p class="study-toolbar-title">Human Behaviour and Social Organisation <span class="study-toolbar-draft">(Draft)</span></p>
+    <a class="study-toolbar-link study-toolbar-download" href="Human-Behavior-And-Society.pdf" download>Download PDF</a>
+  </div>
+  <div class="study-toolbar-row study-toolbar-row--sections">
+    <a class="study-toolbar-link study-toolbar-section study-toolbar-section--prev" id="study-section-prev" href="#" aria-disabled="true">&larr; Previous section</a>
+    <a class="study-toolbar-link study-toolbar-section study-toolbar-section--next" id="study-section-next" href="#" aria-disabled="true">Next section &rarr;</a>
+  </div>
 </nav>
 <h1>Human Behaviour and Social Organisation</h1>
 <p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> — a group of people studying Madhyasth Darshan philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
 <p><strong>Edited on:</strong> June 26, 2026, 10:28 AM IST
 <strong>The question:</strong> How should humans behave and organise themselves? Can science alone, or religion alone, define correct ethical behaviour and the right form of society?</p>
 <p>This study examines behaviour, ethics, and social organisation in <strong>Madhyasth Darshan</strong> (Co-existentialism), as presented by <strong>Shri A. Nagraj</strong>, and compares its answers with <strong>physics and the natural sciences</strong>, <strong>Advaita Vedanta</strong>, and selected <strong>religious and technocratic</strong> approaches to human conduct and social order.</p>
-<h2>Standpoint and scope</h2>
+<h2 id="standpoint-and-scope">Standpoint and scope</h2>
 <p>These studies are written from the standpoint of a <strong>scientist and technologist</strong> — someone trained to graduate-level <strong>physics and mathematics</strong>, at home with contemporary cosmology, quantum theory, conservation laws, and the logic of formal models.</p>
 <p>From that background, a familiar picture of nature is hard to avoid: <strong>consciousness appears as something the brain does</strong> — an epiphenomenon, functional outcome, or emergent property of particular configurations of very large numbers of physical particles. Modern physics and cognitive science are powerful on mechanism, prediction, and public evidence; yet the hard problem of consciousness, the status of the self, and the reality of value remain fiercely contested. The standpoint taken here does not treat those gaps as settled in favour of matter-only reductionism.</p>
 <p>The work begins where that scientific picture leaves open questions — and asks whether Madhyasth Darshan offers a coherent alternative worth examining seriously. This paper reads the primary texts carefully, states what follows from the darshan itself, and compares it in parallel with what we know from <strong>physics and the natural sciences</strong>, <strong>Advaita Vedanta</strong>, and <strong>modern Western philosophy</strong> (especially moral science and social philosophy). Physics and mathematics are <strong>one leg</strong> of that comparison, not the only one. The aim is rigorous comparative understanding — testing definitions, internal consistency, and fit with public knowledge — not persuasion or devotional endorsement.</p>
 <p>These topical studies state the philosophy in clear, checkable prose first. A separate formal mathematical treatment may follow once the definitions and relations are stable across the studies; this paper does not assume or require that treatment.</p>
-<h2>Quick Glossary</h2>
+<h2 id="quick-glossary">Quick Glossary</h2>
 <table>
 <thead>
 <tr>
@@ -370,7 +413,7 @@
 </tr>
 </tbody>
 </table>
-<h2>1. The Madhyasth Darshan answer</h2>
+<h2 id="1-the-madhyasth-darshan-answer">1. The Madhyasth Darshan answer</h2>
 <p>Madhyasth Darshan holds that humans should behave as awakened knowledge-order beings, not merely as instinct-driven animals, profit-seeking consumers, or rule-following religious subjects. They should organise themselves through families, communities, undivided society, and universal orderliness, grounded in coexistence, justice, resolution, prosperity, fearlessness, and humane conduct. The darshan does not treat ethics as arbitrary moral instruction; it derives behaviour from a larger ontology in which <strong>existence is coexistence</strong>, all orders of nature are complementary, and humans are the order capable of knowing this and living accordingly.</p>
 <h3>1.1 Core assumptions</h3>
 <p>The behavioural argument rests on a chain of premises, from coexistence to practical conduct:</p>
@@ -616,7 +659,7 @@
 - MVD, Ch. 4</p>
 </blockquote>
 <p>Selfish use confines resources to one person or family; altruistic use extends comfort to others; benevolent use aims at universal wellbeing through resolution, problem-solving, affectionate relationships, and shared access to resources. The highest organisation is not merely welfare or charity, but making resolution and humane living <strong>available to all</strong>.</p>
-<h2>2. Can science alone define correct behaviour and society?</h2>
+<h2 id="2-can-science-alone-define-correct-behaviour-and-society">2. Can science alone define correct behaviour and society?</h2>
 <p>Mainstream science and technocracy are powerful on observation, production, and modelling means, but <strong>science alone cannot define correct human behaviour</strong> in Madhyasth Darshan&rsquo;s reading, because science as commonly practised is seen as:</p>
 <ul>
 <li>matter-centric</li>
@@ -739,7 +782,7 @@
 <p>That is why the proposed method is study leading to understanding, resolution, humane conduct, and social order — not parameter-tuning alone. This also explains the critique of power-centric governance: externally controlling behaviour cannot remove delusion.</p>
 <p>Madhyasth Darshan&rsquo;s critique is strong against <strong>naive optimization</strong> — the idea that measurable survival, pleasure, productivity, or happiness can fully define human good. Metrics presuppose values; local optimisation can harm the whole; pleasure and health do not equal justice; profit and power can grow while society decays; emotional happiness can be temporary or misleading. A sophisticated scientist could respond that modern optimisation need not be crude — it can include multi-objective functions, constraints, rights, long-term ecological stability, cooperation, fairness, and preference revision. Madhyasth Darshan&rsquo;s reply would be that once justice, dharma, truth, relationship-values, and coexistence enter the objective function, one is no longer doing value-neutral science alone; the real issue is <strong>what understanding of the human being supplies that function</strong>.</p>
 <p>Science as an empirical method is useful and necessary for observation, production, and understanding physical processes. Scientism as a total worldview — the claim that measurable outcomes alone can settle humane ends — is insufficient. Modern science can tell us about climate damage, health, cooperation, child development, and social trust, but it does not by itself settle ultimate values. It can inform ethics; it cannot fully replace ethics. Madhyasth Darshan sometimes treats &ldquo;science&rdquo; as equivalent to reductionist materialism or mechanistic modernity; that is too broad. Contemporary sciences include ecology, systems theory, behavioural science, developmental psychology, and complexity studies, many of which already critique reductionism.</p>
-<h2>3. Can religion alone define correct behaviour and society?</h2>
+<h2 id="3-can-religion-alone-define-correct-behaviour-and-society">3. Can religion alone define correct behaviour and society?</h2>
 <p>Religious systems often begin with the assumption that humans are sinners, ignorant, or selfish, and then prescribe rules, rituals, duties, and ideals. In Madhyasth Darshan&rsquo;s reading, <strong>religion alone also cannot define correct human behaviour</strong> for that reason.</p>
 <p>JV states:</p>
 <blockquote>
@@ -808,7 +851,7 @@
 </blockquote>
 <p>Unless one can answer how divine humans should behave in family, produce and use wealth, relate to nature, establish justice, organise society without domination or renunciation, and teach and verify this knowledge in conduct, the claim &ldquo;human is divine&rdquo; remains too abstract to define humane conduct.</p>
 <p>Religion often provides values, community, restraint, and discipline, but it can become dogmatic, sectarian, ritualistic, or guilt-based. Madhyasth Darshan wants ethics to be <strong>understood and evidenced</strong>, not merely obeyed. The critique may overgeneralise: many religious traditions also contain deep ethical reflection, compassion, self-discipline, service, and community care, and Advaita in particular offers a high view of human identity rather than a low view of human sinfulness. The real distinction is not religion versus Madhyasth Darshan, but that command-based or ritual-based morality is insufficient, abstract non-dual realisation is insufficient if it does not specify conduct, and understood, lived, universally verifiable humane conduct is required.</p>
-<h2>4. Comparing Madhyasth Darshan, science, religion, and Advaita</h2>
+<h2 id="4-comparing-madhyasth-darshan-science-religion-and-advaita">4. Comparing Madhyasth Darshan, science, religion, and Advaita</h2>
 <table>
 <thead>
 <tr>
@@ -878,21 +921,98 @@
 </tr>
 </tbody>
 </table>
-<h2>5. Practical principles for behaviour</h2>
+<h2 id="5-practical-principles-for-behaviour">5. Practical principles for behaviour</h2>
 <p>Ethical conduct must be based on understanding rather than blind rule-following. One should live by justice, dharma, and truth — not remain limited to pleasant-unpleasant, health-unhealth, and profit-loss. Sociality is value-fulfilment in relationships, not mere association. Body, mind, and wealth should move from selfish use toward benevolent use. Prosperity is necessary, but hoarding and profit-obsession are disorder. Betrayal, exploitation, violence, and retaliation cannot establish orderliness. Social order requires shared cause, goal, and programme; the family is the first site of education, production, conduct, and responsibility; sectarian identity must mature into undivided society; human use of nature must become right-use rather than domination. The test of knowledge is not belief but lived proof.</p>
-<h2>6. Conclusion</h2>
+<h2 id="6-conclusion">6. Conclusion</h2>
 <p>Madhyasth Darshan offers a coherent ethical-social framework in which understanding leads to resolution, right-use, humane conduct, and undivided society. Its strength is that it refuses to separate individual conduct from social order, economy from ethics, ecology from human happiness, family from civilisation, or knowledge from behaviour.</p>
 <p>It also offers a useful critique of both dominant alternatives. Science alone can describe and optimise means, but cannot by itself define ultimate human ends. Religion alone can inspire morality, but often relies on authority, sin, ritual, and sectarian identity rather than universally studyable understanding.</p>
 <p>The most distinctive claim is that correct behaviour is neither a command from outside nor an invention by society, but the natural expression of a human who understands existence-as-coexistence, recognises <em>jeevan</em>, and fulfils values in relationships.</p>
 <p>Many premises depend on Shri. Nagraj&rsquo;s ontology of <em>jeevan</em>, awakening, and coexistence. A scientist or secular ethicist may accept the practical ideals — justice, non-exploitation, ecological balance, family responsibility, and social trust — while rejecting the metaphysical foundation. A religious thinker may accept compassion and duty while questioning the rejection of scriptural authority.</p>
 <p>Madhyasth Darshan is best read not merely as a moral code but as a proposed science of humane living grounded in a metaphysics of coexistence. Its social teaching asks humans to organise around understanding, relationship-values, right-use of resources, and universal orderliness. Its ethical claims are strongest as a practical critique of reductionist materialism and command-based religion; they are most debatable where they depend on the unverified ontology of <em>jeevan</em> and awakened realisation.</p>
-<h2>References</h2>
+<h2 id="references">References</h2>
 <h3>Madhyasth Darshan (primary sources)</h3>
 <ul>
 <li><strong>MVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan – Co-existentialism, Part 1: Holistic View of Human Behaviour</em></a>. English translation by Rakesh Gupta. Cited by chapter.</li>
 <li><strong>SB</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf"><em>Samadhanatmak Bhautikvad / Resolution Centred Materialism</em></a>. English translation by Rakesh Gupta. Cited by chapter.</li>
 <li><strong>JV</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf"><em>Jeevan Vidya: An Introduction</em></a>. English translation by Rakesh Gupta. Cited by chapter.</li>
 </ul>
+<script>
+(() => {
+  const toolbar = document.querySelector(".study-toolbar");
+  const prev = document.getElementById("study-section-prev");
+  const next = document.getElementById("study-section-next");
+  if (!toolbar || !prev || !next) return;
+
+  const sections = Array.from(document.querySelectorAll("h2[id]"));
+  const syncToolbarHeight = () => {
+    document.documentElement.style.setProperty(
+      "--study-toolbar-height",
+      `${toolbar.offsetHeight}px`
+    );
+  };
+
+  const sectionLabel = el => el.textContent.replace(/\s+/g, " ").trim();
+
+  const marker = () => (toolbar.offsetHeight || 0) + 16;
+
+  const currentIndex = () => {
+    const y = window.scrollY + marker();
+    let idx = -1;
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop <= y) idx = i;
+      else break;
+    }
+    return idx;
+  };
+
+  const setDisabled = (link, disabled, fallback) => {
+    link.classList.toggle("is-disabled", disabled);
+    if (disabled) {
+      link.removeAttribute("href");
+      link.setAttribute("aria-disabled", "true");
+      link.textContent = fallback;
+    } else {
+      link.setAttribute("aria-disabled", "false");
+    }
+  };
+
+  const update = () => {
+    if (!sections.length) {
+      setDisabled(prev, true, "\u2190 Previous section");
+      setDisabled(next, true, "Next section \u2192");
+      return;
+    }
+
+    const idx = currentIndex();
+
+    if (idx <= 0) {
+      setDisabled(prev, true, "\u2190 Previous section");
+    } else {
+      prev.classList.remove("is-disabled");
+      prev.href = `#${sections[idx - 1].id}`;
+      prev.setAttribute("aria-disabled", "false");
+      prev.textContent = `\u2190 ${sectionLabel(sections[idx - 1])}`;
+    }
+
+    if (idx < 0 || idx >= sections.length - 1) {
+      setDisabled(next, true, "Next section \u2192");
+    } else {
+      next.classList.remove("is-disabled");
+      next.href = `#${sections[idx + 1].id}`;
+      next.setAttribute("aria-disabled", "false");
+      next.textContent = `${sectionLabel(sections[idx + 1])} \u2192`;
+    }
+  };
+
+  syncToolbarHeight();
+  update();
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", () => {
+    syncToolbarHeight();
+    update();
+  });
+})();
+</script>
 
 </body>
 </html>

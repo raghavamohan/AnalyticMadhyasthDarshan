@@ -208,11 +208,14 @@
     height: auto;
   }
 
+  html { scroll-behavior: smooth; }
+  h2[id] {
+    scroll-margin-top: calc(var(--study-toolbar-height, 88px) + 10px);
+  }
   .study-toolbar {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    gap: 10px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     font-family: 'Segoe UI', system-ui, sans-serif;
     font-size: 13px;
     position: sticky;
@@ -226,6 +229,17 @@
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
   }
+  .study-toolbar-row {
+    display: grid;
+    align-items: center;
+    gap: 8px 14px;
+  }
+  .study-toolbar-row--primary {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+  }
+  .study-toolbar-row--sections {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
   .study-toolbar-back {
     justify-self: start;
     min-width: 0;
@@ -235,34 +249,59 @@
     min-width: 0;
     text-align: right;
   }
+  .study-toolbar-title {
+    justify-self: center;
+    text-align: center;
+    margin: 0;
+    min-width: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: #2c241c;
+    line-height: 1.35;
+  }
+  .study-toolbar-draft {
+    font-weight: 600;
+    color: #5c5348;
+  }
   .study-toolbar-link {
     color: #1a5276;
     text-decoration: none;
     font-weight: 600;
   }
   .study-toolbar-link:hover { color: #13405c; }
-  .study-toolbar-status {
-    justify-self: center;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: #1a5276;
-    background: #e8f1f6;
-    border: 1px solid #c5d9e6;
-    border-radius: 999px;
-    padding: 4px 10px;
+  .study-toolbar-section {
+    display: block;
+    min-width: 0;
+    font-size: 12px;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
-  .study-toolbar-status--empty {
-    visibility: hidden;
-    padding: 4px 10px;
-    border-color: transparent;
-    background: transparent;
+  .study-toolbar-section--prev { justify-self: start; }
+  .study-toolbar-section--next {
+    justify-self: end;
+    text-align: right;
+  }
+  .study-toolbar-section.is-disabled {
+    opacity: 0.45;
+    pointer-events: none;
+    color: #6f655a;
   }
   .study-toolbar-download::after {
     content: " \2193";
     font-weight: 700;
+  }
+  @media (max-width: 640px) {
+    .study-toolbar-row--primary {
+      grid-template-columns: 1fr 1fr;
+    }
+    .study-toolbar-title {
+      grid-column: 1 / -1;
+      white-space: normal;
+    }
+    .study-toolbar-section {
+      white-space: normal;
+    }
   }
   @media print {
     .study-toolbar { display: none !important; }
@@ -310,27 +349,31 @@
     }
     .study-toolbar-link { color: #7ebbed; }
     .study-toolbar-link:hover { color: #b8daf3; }
-    .study-toolbar-status {
-      color: #7ebbed;
-      background: #233e52;
-      border: 1px solid #3d6278;
-    }
+    .study-toolbar-title { color: #f5f1ec; }
+    .study-toolbar-draft { color: #aca194; }
+    .study-toolbar-section.is-disabled { color: #6f655a; }
   }
 
 </style>
 </head>
 <body>
 <nav class="study-toolbar" aria-label="Study navigation">
-  <a class="study-toolbar-link study-toolbar-back" href="../index.html">&larr; All studies</a>
-  <span class="study-toolbar-status" role="status">Draft</span>
-  <a class="study-toolbar-link study-toolbar-download" href="Aesthetics.pdf" download>Download PDF</a>
+  <div class="study-toolbar-row study-toolbar-row--primary">
+    <a class="study-toolbar-link study-toolbar-back" href="../index.html">&larr; All studies</a>
+    <p class="study-toolbar-title">Aesthetics <span class="study-toolbar-draft">(Draft)</span></p>
+    <a class="study-toolbar-link study-toolbar-download" href="Aesthetics.pdf" download>Download PDF</a>
+  </div>
+  <div class="study-toolbar-row study-toolbar-row--sections">
+    <a class="study-toolbar-link study-toolbar-section study-toolbar-section--prev" id="study-section-prev" href="#" aria-disabled="true">&larr; Previous section</a>
+    <a class="study-toolbar-link study-toolbar-section study-toolbar-section--next" id="study-section-next" href="#" aria-disabled="true">Next section &rarr;</a>
+  </div>
 </nav>
 <h1>Aesthetics</h1>
 <p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> - a group of people studying Madhyasth Darshan philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
 <p><strong>Edited on:</strong> June 26, 2026, 10:28 AM IST
 <strong>The question:</strong> What is aesthetics? Is beauty a property of objects, a state of the subject, a social convention, a kind of taste, an experience of art, an environmental relation, or a sign of deeper harmony? How do <strong>modern philosophies</strong> approach aesthetics, how does <strong>Madhyasth Darshan</strong> understand it, and does <strong>Advaita Vedanta</strong> have anything direct to say on the subject?</p>
 <p>This study argues that Madhyasth Darshan gives a sparse but distinctive aesthetics: aesthetic value is not an autonomous domain of taste detached from life, nor merely a social artworld status. It is meaningful when it enhances usefulness, convenience, relationship, harmony, and the fulfilment of human purpose within coexistence. This makes Madhyasth Darshan closer to everyday, environmental, and functional aesthetics than to art-centred formalism, but it also leaves unresolved questions about autonomous art, tragic art, the sublime, negative aesthetics, and avant-garde disruption.</p>
-<h2>Quick Glossary</h2>
+<h2 id="quick-glossary">Quick Glossary</h2>
 <table>
 <thead>
 <tr>
@@ -397,7 +440,7 @@
 </tr>
 </tbody>
 </table>
-<h2>1. The Central Thesis</h2>
+<h2 id="1-the-central-thesis">1. The Central Thesis</h2>
 <p>Aesthetics can be studied through five questions:</p>
 <pre><code class="language-text">What is aesthetically valued?
 Who or what apprehends it?
@@ -449,7 +492,7 @@ What goes wrong when aesthetic life is distorted?
 </tr>
 </tbody>
 </table>
-<h2>2. How Modern Philosophy Deals with Aesthetics</h2>
+<h2 id="2-how-modern-philosophy-deals-with-aesthetics">2. How Modern Philosophy Deals with Aesthetics</h2>
 <h3>2.1 The modern field is not one doctrine</h3>
 <p>The Stanford Encyclopedia entry on the concept of the aesthetic summarizes the field&rsquo;s breadth:</p>
 <blockquote>
@@ -579,7 +622,7 @@ What goes wrong when aesthetic life is distorted?
 <li>coexistence.</li>
 </ol>
 <p>If an aesthetic object increases desire, waste, exploitation, status competition, or ecological harm, Madhyasth Darshan would not treat its attractiveness as sufficient evidence of value.</p>
-<h2>3. Does Advaita Vedanta Have Anything to Say About Aesthetics?</h2>
+<h2 id="3-does-advaita-vedanta-have-anything-to-say-about-aesthetics">3. Does Advaita Vedanta Have Anything to Say About Aesthetics?</h2>
 <h3>3.1 The short answer</h3>
 <p>Advaita Vedanta does have resources relevant to aesthetics, but it does not have a central, systematic aesthetics in the same way that classical Indian rasa theory or modern philosophy of art does.</p>
 <p>Three distinctions are necessary:</p>
@@ -653,7 +696,7 @@ but not a full independent aesthetics of art, design, or environment.
 <li>Abhinavagupta&rsquo;s influential rasa metaphysics is not classical Shankara Advaita.</li>
 </ol>
 <p>Thus Advaita can say something important about aesthetics: the deepest delight is not in objects as objects, but in the Self. Yet Advaita does not by itself supply a detailed social, ecological, or functional aesthetics.</p>
-<h2>4. The Madhyasth Darshan View</h2>
+<h2 id="4-the-madhyasth-darshan-view">4. The Madhyasth Darshan View</h2>
 <h3>4.1 The explicit statement on aesthetic value</h3>
 <p>The most direct passage found in the Madhyasth Darshan primary texts reviewed for this paper is in <em>Jeevan Vidya: An Introduction</em>:</p>
 <blockquote>
@@ -829,7 +872,7 @@ What is being protected?
 What orderliness is being strengthened or weakened?
 </code></pre>
 <p>This aligns strongly with environmental and everyday aesthetics but grounds them in coexistence rather than in taste, ecological science alone, or lifestyle refinement.</p>
-<h2>5. Comparative Analysis</h2>
+<h2 id="5-comparative-analysis">5. Comparative Analysis</h2>
 <h3>5.1 Madhyasth Darshan and Kant</h3>
 <p>Kant separates the beautiful from desire and utility. Madhyasth Darshan does almost the opposite: it refuses to detach aesthetics from usefulness. But the contrast is subtler than it first appears.</p>
 <p>Kant is right that beauty is corrupted when reduced to appetite, possession, or profit. Madhyasth Darshan would agree. Aesthetic obsession with consumption is a sign of inhumane perspective.</p>
@@ -933,7 +976,7 @@ But: What does this aesthetic act do in human living and coexistence?
 </tbody>
 </table>
 <p>Advaita can interpret aesthetic delight as a shadow or reflection of Self-bliss. Madhyasth Darshan interprets meaningful aesthetics as a refinement of usefulness and value-fulfilment in coexistence.</p>
-<h2>6. Critical review</h2>
+<h2 id="6-critical-review">6. Critical review</h2>
 <h3>6.1 Madhyasth Darshan</h3>
 <p><strong>Strengths.</strong></p>
 <ul>
@@ -994,12 +1037,12 @@ But: What does this aesthetic act do in human living and coexistence?
 </tbody>
 </table>
 <p>This framework can evaluate a song, school, farm, website, road, festival, poem, kitchen, public square, clothing practice, or social ritual. It does not answer every art-philosophical question, but it gives a rigorous human criterion.</p>
-<h2>7. Conclusion</h2>
+<h2 id="7-conclusion">7. Conclusion</h2>
 <p>Modern philosophy treats aesthetics as a plural field: taste, disinterest, beauty, art, form, expression, institution, environment, everyday life, and social critique. Its great achievement is analytical breadth. Its danger is fragmentation and a lingering tendency to isolate aesthetics either in subjective pleasure or in specialized artworlds.</p>
 <p>Advaita Vedanta has no central independent aesthetics, but it has relevant metaphysical resources: the Self as bliss, the dearness of all things for the sake of the Self, detachment from external-object pleasure, and the possibility that aesthetic self-forgetfulness may point toward non-dual bliss. Classical rasa theory and later Vedantic interpretations deepen this connection, but they should not be collapsed into Advaita proper.</p>
 <p>Madhyasth Darshan gives the most practical and normative answer: aesthetics is meaningful when it adds convenience to usefulness and supports harmony, values, relationship, right-use, and coexistence. Its strength is that it can judge the aesthetics of life, not merely the aesthetics of art. Its weakness is that it still needs a more developed theory of autonomous art, tragedy, sublimity, negative aesthetics, and cultural plurality.</p>
 <p>Madhyasth Darshan does not yet give a complete aesthetics of art, but it gives a powerful aesthetics of meaningful living. Its challenge to modern aesthetics is serious: beauty that does not support coexistence is incomplete; taste that does not mature into value is shallow; design that adds desire but not usefulness is delusive; and art that does not finally deepen human understanding remains only partial, however impressive its form.</p>
-<h2>References</h2>
+<h2 id="references">References</h2>
 <h3>Madhyasth Darshan primary texts</h3>
 <ul>
 <li><strong>MVD</strong> - Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan - Coexistentialism, Part 1: Holistic View of Human Behaviour</em></a>. English translation by Rakesh Gupta.</li>
@@ -1024,6 +1067,83 @@ But: What does this aesthetic act do in human living and coexistence?
 <li><strong>SEP Environmental Aesthetics</strong> - <a href="https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/SEP-Environmental-Aesthetics.html"><em>Environmental Aesthetics</em></a>, Stanford Encyclopedia of Philosophy. Local HTML snapshot.</li>
 <li><strong>SEP Aesthetics of the Everyday</strong> - <a href="https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/SEP-Aesthetics-of-Everyday.html"><em>Aesthetics of the Everyday</em></a>, Stanford Encyclopedia of Philosophy. Local HTML snapshot.</li>
 </ul>
+<script>
+(() => {
+  const toolbar = document.querySelector(".study-toolbar");
+  const prev = document.getElementById("study-section-prev");
+  const next = document.getElementById("study-section-next");
+  if (!toolbar || !prev || !next) return;
+
+  const sections = Array.from(document.querySelectorAll("h2[id]"));
+  const syncToolbarHeight = () => {
+    document.documentElement.style.setProperty(
+      "--study-toolbar-height",
+      `${toolbar.offsetHeight}px`
+    );
+  };
+
+  const sectionLabel = el => el.textContent.replace(/\s+/g, " ").trim();
+
+  const marker = () => (toolbar.offsetHeight || 0) + 16;
+
+  const currentIndex = () => {
+    const y = window.scrollY + marker();
+    let idx = -1;
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop <= y) idx = i;
+      else break;
+    }
+    return idx;
+  };
+
+  const setDisabled = (link, disabled, fallback) => {
+    link.classList.toggle("is-disabled", disabled);
+    if (disabled) {
+      link.removeAttribute("href");
+      link.setAttribute("aria-disabled", "true");
+      link.textContent = fallback;
+    } else {
+      link.setAttribute("aria-disabled", "false");
+    }
+  };
+
+  const update = () => {
+    if (!sections.length) {
+      setDisabled(prev, true, "\u2190 Previous section");
+      setDisabled(next, true, "Next section \u2192");
+      return;
+    }
+
+    const idx = currentIndex();
+
+    if (idx <= 0) {
+      setDisabled(prev, true, "\u2190 Previous section");
+    } else {
+      prev.classList.remove("is-disabled");
+      prev.href = `#${sections[idx - 1].id}`;
+      prev.setAttribute("aria-disabled", "false");
+      prev.textContent = `\u2190 ${sectionLabel(sections[idx - 1])}`;
+    }
+
+    if (idx < 0 || idx >= sections.length - 1) {
+      setDisabled(next, true, "Next section \u2192");
+    } else {
+      next.classList.remove("is-disabled");
+      next.href = `#${sections[idx + 1].id}`;
+      next.setAttribute("aria-disabled", "false");
+      next.textContent = `${sectionLabel(sections[idx + 1])} \u2192`;
+    }
+  };
+
+  syncToolbarHeight();
+  update();
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", () => {
+    syncToolbarHeight();
+    update();
+  });
+})();
+</script>
 
 </body>
 </html>
