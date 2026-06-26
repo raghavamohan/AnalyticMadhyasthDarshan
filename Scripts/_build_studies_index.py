@@ -183,12 +183,18 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     padding: 0;
     margin-top: 22px;
     margin-bottom: 22px;
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 20;
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
     background: rgba(247, 244, 239, 0.92);
+  }
+
+  .page-nav-anchor {
+    display: none;
+    height: 0;
   }
 
   .page-nav-inner {
@@ -547,12 +553,35 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   }
 
   @media (max-width: 820px) {
-    .page-nav { margin-top: 18px; margin-bottom: 18px; padding: 0; }
-    .page-nav-inner { flex-wrap: wrap; row-gap: 8px; }
+    .page-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      margin: 0;
+      padding: 8px 14px;
+      padding-top: max(8px, env(safe-area-inset-top));
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+    .page-nav-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      row-gap: 8px;
+    }
     .page-nav-label { flex: 0 0 100%; }
+    .page-nav-anchor {
+      display: block;
+      height: var(--page-nav-offset, 56px);
+    }
     .toc { flex-wrap: wrap; flex: 1 1 100%; min-width: 0; }
-    .section { scroll-margin-top: 56px; }
-    .catalog-group { scroll-margin-top: 56px; }
+    .section { scroll-margin-top: calc(var(--page-nav-offset, 56px) + 12px); }
+    .catalog-group { scroll-margin-top: calc(var(--page-nav-offset, 56px) + 12px); }
     h1 { font-size: 30px; }
     .triad { grid-template-columns: 1fr; }
   }
@@ -601,6 +630,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     </ul>
   </div>
 </nav>
+<div class="page-nav-anchor" aria-hidden="true"></div>
 
 <main>
 
@@ -1015,6 +1045,27 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     const nav = document.querySelector(".page-nav");
     return (nav ? nav.offsetHeight : 0) + 20;
   };
+
+  const syncMobileNavOffset = () => {
+    const nav = document.querySelector(".page-nav");
+    const anchor = document.querySelector(".page-nav-anchor");
+    if (!nav || !anchor) return;
+    const mobileNav = window.matchMedia("(max-width: 820px)").matches;
+    if (mobileNav) {
+      const height = nav.getBoundingClientRect().height;
+      document.documentElement.style.setProperty("--page-nav-offset", `${height}px`);
+      anchor.style.height = `${height}px`;
+    } else {
+      document.documentElement.style.removeProperty("--page-nav-offset");
+      anchor.style.height = "0";
+    }
+  };
+
+  syncMobileNavOffset();
+  window.addEventListener("resize", syncMobileNavOffset);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(syncMobileNavOffset);
+  }
 
   const setActive = id => {
     tocLinks.forEach(a => {
