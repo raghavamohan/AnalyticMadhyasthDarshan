@@ -28,7 +28,7 @@ Select any linked title to open the full study. Titles shown in italics are stil
 <!-- studies-catalog -->
 | Document | Category | Description | Status |
 |----------|----------|-------------|--------|
-| [The Ontology of Coexistence](The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) | Ontology | Existence, what exists, beginninglessness, self persistence, world reality, saturation, causation, orders, sentience, and conservation — Madhyasth Darshan compared with Advaita Vedanta and modern philosophy | Draft<br>Last updated on: Jun 26, 2026, 6:32 AM IST |
+| [The Ontology of Coexistence](The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) | Ontology | Existence, what exists, beginninglessness, self persistence, world reality, saturation, causation, orders, sentience, and conservation — Madhyasth Darshan compared with Advaita Vedanta and modern philosophy | Draft<br>Last updated on: Jun 26, 2026, 6:56 AM IST |
 | [Nature of Time](Nature-Of-Time/Nature-Of-Time.pdf) | Ontology | The nature of time (kaal), timeless satta, activity and duration, and comparison with Advaita, philosophy of time, and physics | Draft<br>Last updated on: Jun 24, 2026, 7:27 AM IST |
 | [Why Humans Are Not Just Material](Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.pdf) | Philosophical Anthropology | Madhyasth Darshan, science, and Advaita Vedanta on whether humans are more than matter | Draft<br>Last updated on: Jun 24, 2026, 7:27 AM IST |
 | *Philosophy of Mind and Jeevan* <!-- slug: Philosophy-Of-Mind-And-Jeevan --> | Philosophy of Mind | Jeevan, mun, vritti, chitta, buddhi, atma, desire, imagination, selection, delusion, and awakening | Ongoing |

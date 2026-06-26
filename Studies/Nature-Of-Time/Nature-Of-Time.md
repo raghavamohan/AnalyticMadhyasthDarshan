@@ -8,7 +8,7 @@
 
 **The question:** What is the nature of time (*kaal*)? How does Madhyasth Darshan relate timeless Omnipresence (*satta*) to the duration of unit-activity, numerical reckoning, and the past–present–future structure — and how does that compare with Advaita Vedanta, philosophy of time, and modern physics (spacetime, cosmology, entropy)?
 
-This study develops the comparative treatment begun in [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) (§1.6, §2.3, §4.3). That paper states Madhyasth Darshan's core claim — *kaal* as duration of activity, timeless *satta*, numerical reckoning within existence — and defers past/present/future structure, JVD on "activity eternally present," Advaita *trikaal* language, and systematic comparison with McTaggart, eternalism/presentism, and spacetime physics to this study.
+This study develops the comparative treatment begun in [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) (§1.6, §2.7, §4.3). That paper states Madhyasth Darshan's core claim — *kaal* as duration of activity, timeless *satta*, numerical reckoning within existence — and defers past/present/future structure, JVD on "activity eternally present," Advaita *trikaal* language, and systematic comparison with McTaggart, eternalism/presentism, and spacetime physics to this study.
 
 ## Standpoint and scope
 
@@ -124,7 +124,7 @@ At ***paramartha***, however, the entire universe of names and forms (*nama-roop
 
 ### 2.2 *Trikaal* language and the contrast with *trikaalabadh*
 
-Advaita's *trikaal* formulas (as in MU, v. 1) serve a non-dual purpose: Brahman is not confined to one temporal phase because Brahman is the truth of all phases and also beyond them. Temporal succession belongs to *vyavahara*; at liberation, the Self is discovered as never truly bound by birth, death, or succession ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §2.3).
+Advaita's *trikaal* formulas (as in MU, v. 1) serve a non-dual purpose: Brahman is not confined to one temporal phase because Brahman is the truth of all phases and also beyond them. Temporal succession belongs to *vyavahara*; at liberation, the Self is discovered as never truly bound by birth, death, or succession ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §2.7).
 
 Madhyasth Darshan uses parallel *trikaal* vocabulary with a different ontological commitment. SB's *trikaalabadh* binds **coexistence** across the three times while **affirming** perpetual unit-activity and world-realness (*jagat satat*). Advaita validates time operationally but finally sublates it; Madhyasth Darshan validates time as real duration of real activity and denies that realization cancels the world. The dispute is not over whether humans live in past–present–future structure, but over whether temporal becoming has **final** ontological weight.
 
@@ -183,7 +183,7 @@ The three frameworks agree that humans live with past–present–future structu
 
 **Strengths.** The definition of *kaal* through *kriya* is internally consistent with the darshan's coexistential ontology: timeless *satta*, active *ikai*, no freestanding temporal container. *Trikaalabadh* on coexistence answers part of the Advaita challenge without sublating the world. JVD's "activity eternally present" gives a distinctive present-centred account that resists both block eternalism and world-denying non-dualism. Numerical reckoning as convention aligns measurement with human epistemology while preserving real duration.
 
-**Weaknesses.** The relation between "every numerical moment is present as activity" and ordinary memory, anticipation, and historical record needs tighter formalisation — especially versus eternalism and versus Advaita's *turiya* witness of temporal states ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §2.1). The darshan suggests directional structure through *vikas* and the activity triads but does not derive thermodynamic asymmetry from them or fully reconcile activity-based *kaal* with relativistic spacetime and cosmological horizons. Public evidence standards remain those of metaphysics, not laboratory physics.
+**Weaknesses.** The relation between "every numerical moment is present as activity" and ordinary memory, anticipation, and historical record needs tighter formalisation — especially versus eternalism and versus Advaita's *turiya* witness of temporal states ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §2.2). The darshan suggests directional structure through *vikas* and the activity triads but does not derive thermodynamic asymmetry from them or fully reconcile activity-based *kaal* with relativistic spacetime and cosmological horizons. Public evidence standards remain those of metaphysics, not laboratory physics.
 
 Madhyasth Darshan offers a coherent activity-based temporal ontology grounded in its texts, but its strongest claims about present-centred causation and beginningless coexistence remain to be tested against rival philosophies of time and against physical theory in detail.
 
@@ -237,7 +237,7 @@ Verse and section numbers follow standard numbering and apply to any faithful ed
 
 ### Related studies in this collection
 
-- [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — preview of *kaal* as duration of activity (§1.6); *shram–gati–parinam* and sentient *samadhan* (§1.6); Advaita temporality (§2.3); spacetime and conservation (§4.3); deferred comparative work on time (§6.2 item 10).
+- [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — preview of *kaal* as duration of activity (§1.6); *shram–gati–parinam* and sentient *samadhan* (§1.6); Advaita temporality (§2.7); spacetime and conservation (§4.3); deferred comparative work on time (§6.2 item 10).
 - *Philosophy-Of-Mind-And-Jeevan* (Ongoing) — full faculty map of *mun*, *vritti*, *chitta*, *buddhi*, and *atma* (MVD, pp. 323–327).
 
 ### Modern philosophy and physics
