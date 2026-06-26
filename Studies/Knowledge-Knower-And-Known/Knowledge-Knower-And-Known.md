@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 24, 2026, 7:27 AM IST
+**Edited on:** June 26, 2026, 5:50 AM IST
 
 **Status:** Draft
 
@@ -108,7 +108,7 @@ The aim of this structure is alignment. When the human's perspective becomes ali
 
 ### 1.4.1 Relativity (*sapëkshata*)
 
-Madhyasth Darshan uses *sapëkshata* (relativity) in an epistemological sense, not as a synonym for Einstein's physics. Relativity arises from the distinctions among perspective (*drishti*), scene (*drishya*), and holistic view (*darshan*): qualification yields perspective, perspective organises how the scene is seen and evaluated, and the worldview accomplished through that process is never a view from nowhere. Different *drishti* — lower or humane, deluded or awakened — therefore yield different relative understandings of the same real activities in existence. The six evaluative perspectives provisioned in *jeevan*'s design — lower *priya*/*hita*/*labh* and humane *nyaya*/*dharma*/*satya* — are the ontological basis for which *drishti* is active ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.9.3).
+Madhyasth Darshan uses *sapëkshata* (relativity) in an epistemological sense, not as a synonym for Einstein's physics. Relativity arises from the distinctions among perspective (*drishti*), scene (*drishya*), and holistic view (*darshan*): qualification yields perspective, perspective organises how the scene is seen and evaluated, and the worldview accomplished through that process is never a view from nowhere. Different *drishti* — lower or humane, deluded or awakened — therefore yield different relative understandings of the same real activities in existence. The six evaluative perspectives provisioned in *jeevan*'s design — lower *priya*/*hita*/*labh* and humane *nyaya*/*dharma*/*satya* — are the ontological basis for which *drishti* is active ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.10.1).
 
 This is not a claim that relativity is unreal or that the scene is finally *mithya*. The distinctions belong to units, viewing, and understanding in the knowledge order — to how *jeevan* participates in *gyan udghatan* through study, evaluation, and conduct — not to the underlying reality of coexistence itself. Omnipresence, unit beingness, and structural relationships remain real whether or not any particular human has yet aligned perspective with coexistence. What is relative is the evaluative seeing and the understanding a *jeevan* has yet to evidence; what is absolute is coexistence as such (§1.11).
 
@@ -210,11 +210,11 @@ MVD Ch. 17 (*Rahasy-mukti*, Liberation from Mystery) sharpens the same doctrine 
 > **“Not revealing understanding or not being able to do so, or not being able to attain it, is a mystery. The incapacity for this is 'mysteriousness'.”**
 > — MVD, Ch. 17, p. 273
 
-Page 209 states the epistemic commitment; Ch. 17 states the **mechanism and path** by which incomplete understanding persists in the knowledge order and is removed. Only humans attain complete understanding through the realization-based method in coexistence (MVD, Ch. 17, p. 273); the *dharma* of a unit is realized, not grasped by description alone, through study and stepwise guidance from one who has realization (MVD, Ch. 17, p. 273). This is not the Hard Problem of consciousness (glossary): Madhyasth Darshan locates *rahasyata* in the knower's incomplete reflection, not in an irreducible opacity of coexistence itself ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.9.1, §1.9.4).
+Page 209 states the epistemic commitment; Ch. 17 states the **mechanism and path** by which incomplete understanding persists in the knowledge order and is removed. Only humans attain complete understanding through the realization-based method in coexistence (MVD, Ch. 17, p. 273); the *dharma* of a unit is realized, not grasped by description alone, through study and stepwise guidance from one who has realization (MVD, Ch. 17, p. 273). This is not the Hard Problem of consciousness (glossary): Madhyasth Darshan locates *rahasyata* in the knower's incomplete reflection, not in an irreducible opacity of coexistence itself ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.10, §1.11).
 
 ### 1.11.1 Intellectual mystery and the knower's misalignment
 
-The root misidentification named in §1.10 — *jeevan* taken for the body — propagates through the knower's inner structure. In delusion, hope in *mun* follows sensation upward from the body; in awakening, realization in coexistence at *atma* regulates *buddhi*, *chitta*, *vritti*, and *mun* through the same projection–reflection cycle (*paravartan* and *pratyavartan*). When lower faculties do not take refuge in the one above, the texts call this *bauddhik rahasya* (intellectual mystery) — misalignment within *jeevan*, not an ontological limit on what exists (MVD, Ch. 17, pp. 274–277, 279). The ontology study develops the cycle in full ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.9.1); here the epistemic point is that **error in knowing** takes the form of discord among the faculties that should carry reflection upward.
+The root misidentification named in §1.10 — *jeevan* taken for the body — propagates through the knower's inner structure. In delusion, hope in *mun* follows sensation upward from the body; in awakening, realization in coexistence at *atma* regulates *buddhi*, *chitta*, *vritti*, and *mun* through the same projection–reflection cycle (*paravartan* and *pratyavartan*). When lower faculties do not take refuge in the one above, the texts call this *bauddhik rahasya* (intellectual mystery) — misalignment within *jeevan*, not an ontological limit on what exists (MVD, Ch. 17, pp. 274–277, 279). The ontology study develops the cycle in full ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.10); here the epistemic point is that **error in knowing** takes the form of discord among the faculties that should carry reflection upward.
 
 Until *atma-bodh*, ego (*ahankar*) underlies knowing: buddhi without *atma-bodh* is ego, which appears as conceit in *chitta*, stubbornness in *vritti*, and attachment and agitation in *mun* (MVD, Ch. 17, p. 279). At the root of agitation lies stubbornness, at the root of stubbornness delusion, at the root of delusion ego (MVD, Ch. 17, p. 292). Delusion is therefore not only inherited belief about the body; it is a **structured failure of reflection** in the active knower described in §1.12.
 
@@ -519,7 +519,7 @@ Scientific materialism offers the strongest method and the best-supported accoun
 
 ### Related studies in this collection
 
-- [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — "Knowledge but not knower" (§1.9), projection–reflection cycle and intellectual mystery (§1.9.1), Sat-Chit-Ananda contrast (§5.3), epistemic incommensurability (§6.5), Saturation-Reflector Model (§6.6), evidence standards (§6.4).
+- [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — "Knowledge but not knower" (§1.11), projection–reflection cycle and intellectual mystery (§1.10), Sat-Chit-Ananda contrast (§5.3), epistemic incommensurability (§6.5), Saturation-Reflector Model (§6.6), evidence standards (§6.4).
 - [Human Behavior and Society](../Human-Behavior-And-Society/Human-Behavior-And-Society.pdf) — manifest, effable knowledge versus mystery-based ineffability (§3).
 - *Spiritual-Practice-And-Realization* (Ongoing) — *dhyan*, yoga, six flaws, and the practice path deferred from §1.11.2.
 

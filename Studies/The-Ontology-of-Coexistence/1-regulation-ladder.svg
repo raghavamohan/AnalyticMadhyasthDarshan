@@ -1,68 +1,135 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="420" viewBox="0 0 960 420" role="img" font-family="Helvetica, Arial, sans-serif">
+
   <title>Regulation ladder from Omnipotence to higher orders</title>
+
   <desc>How regulation by Omnipotence translates upward through law, order conformance, inward regulation, justice, and self-governance.</desc>
+
   <defs>
+
     <marker id="ahLadder" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+
       <path d="M0,0 L10,5 L0,10 z" fill="#5E7686"/>
+
     </marker>
+
     <linearGradient id="groundGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+
       <stop offset="0%" stop-color="#E9F0F4"/>
+
       <stop offset="100%" stop-color="#D4E4EC"/>
+
     </linearGradient>
+
   </defs>
 
+
+
   <text x="480" y="28" text-anchor="middle" font-size="18" font-weight="700" fill="#1F2D3A">Regulation ladder &#8212; Omnipotence to higher orders</text>
+
   <text x="480" y="48" text-anchor="middle" font-size="11" fill="#5A6B78">Law is universal; justice closes the bond evaluatively in the knowledge order</text>
 
+
+
   <rect x="74" y="72" width="104" height="72" rx="8" fill="url(#groundGrad)" stroke="#9DB4C2" stroke-width="1.2"/>
+
   <text x="126" y="98" text-anchor="middle" font-size="10.5" font-weight="700" fill="#2F5168">OMNIPOTENCE</text>
+
   <text x="126" y="114" text-anchor="middle" font-size="9" fill="#46627A">satta &#8212; actionless</text>
+
   <text x="126" y="128" text-anchor="middle" font-size="9" fill="#46627A">mediative ground</text>
+
   <rect x="192" y="72" width="104" height="72" rx="8" fill="#FFFFFF" stroke="#C2CED6" stroke-width="1.2"/>
+
   <text x="244" y="98" text-anchor="middle" font-size="10.5" font-weight="700" fill="#2F5168">SATURATION</text>
+
   <text x="244" y="114" text-anchor="middle" font-size="9" fill="#3F4D57">regulation + energy</text>
+
   <text x="244" y="128" text-anchor="middle" font-size="9" fill="#3F4D57">IN each unit</text>
+
   <rect x="310" y="72" width="104" height="72" rx="8" fill="#FFFFFF" stroke="#C2CED6" stroke-width="1.2"/>
+
   <text x="362" y="98" text-anchor="middle" font-size="10.5" font-weight="700" fill="#2F5168">LAW</text>
+
   <text x="362" y="114" text-anchor="middle" font-size="9" fill="#3F4D57">all orders</text>
+
   <text x="362" y="128" text-anchor="middle" font-size="9" fill="#3F4D57">orderliness with -ness</text>
+
   <rect x="428" y="72" width="104" height="72" rx="8" fill="#FFFFFF" stroke="#C2CED6" stroke-width="1.2"/>
+
   <text x="480" y="98" text-anchor="middle" font-size="10.5" font-weight="700" fill="#2F5168">ORDERS</text>
+
   <text x="480" y="114" text-anchor="middle" font-size="9" fill="#3F4D57">swatah-saspurt</text>
+
   <text x="480" y="128" text-anchor="middle" font-size="9" fill="#3F4D57">conformance regimes</text>
+
   <rect x="546" y="72" width="104" height="72" rx="8" fill="#FFF8E7" stroke="#D4A843" stroke-width="1.2"/>
+
   <text x="598" y="98" text-anchor="middle" font-size="10.5" font-weight="700" fill="#7A6420">JEEVAN</text>
+
   <text x="598" y="114" text-anchor="middle" font-size="9" fill="#5C4E1A">inward regulation</text>
+
   <text x="598" y="128" text-anchor="middle" font-size="9" fill="#5C4E1A">atma &#8594; faculties</text>
+
   <rect x="664" y="72" width="104" height="72" rx="8" fill="#ECE7F6" stroke="#5B3FA0" stroke-width="1.2"/>
+
   <text x="716" y="98" text-anchor="middle" font-size="10" font-weight="700" fill="#4A2F8C">JUSTICE</text>
+
   <text x="716" y="114" text-anchor="middle" font-size="9" fill="#5B3FA0">recognise &#183; fulfil &#183; evaluate</text>
+
   <text x="716" y="128" text-anchor="middle" font-size="8.8" fill="#5B3FA0">mutual satisfaction</text>
+
   <rect x="782" y="72" width="104" height="72" rx="8" fill="#E8F0E4" stroke="#4A7A3A" stroke-width="1.2"/>
+
   <text x="834" y="98" text-anchor="middle" font-size="10" font-weight="700" fill="#3D6230">SELF-GOVERNANCE</text>
+
   <text x="834" y="114" text-anchor="middle" font-size="9" fill="#4A7A3A">assembly order</text>
+
   <text x="834" y="128" text-anchor="middle" font-size="8.8" fill="#4A7A3A">family &#183; tiers &#183; world</text>
 
+
+
   <line x1="178" y1="108" x2="192" y2="108" stroke="#8AA0AE" stroke-width="1.5" marker-end="url(#ahLadder)"/>
+
   <line x1="296" y1="108" x2="310" y2="108" stroke="#8AA0AE" stroke-width="1.5" marker-end="url(#ahLadder)"/>
+
   <line x1="414" y1="108" x2="428" y2="108" stroke="#8AA0AE" stroke-width="1.5" marker-end="url(#ahLadder)"/>
+
   <line x1="532" y1="108" x2="546" y2="108" stroke="#8AA0AE" stroke-width="1.5" marker-end="url(#ahLadder)"/>
+
   <line x1="650" y1="108" x2="664" y2="108" stroke="#8AA0AE" stroke-width="1.5" marker-end="url(#ahLadder)"/>
+
   <line x1="768" y1="108" x2="782" y2="108" stroke="#8AA0AE" stroke-width="1.5" marker-end="url(#ahLadder)"/>
 
+
+
   <rect x="74" y="168" width="812" height="56" rx="8" fill="#E8F5E9" stroke="#A5D6A7" stroke-width="1"/>
+
   <text x="480" y="192" text-anchor="middle" font-size="10.5" font-weight="700" fill="#2E7D32">Mediative activity at two scales</text>
+
   <text x="480" y="210" text-anchor="middle" font-size="9.5" fill="#388E3C">atomic nucleus regulates generative/degenerative charge &#8212; atma regulates buddhi, chitta, vritti, mun</text>
 
+
+
   <rect x="74" y="248" width="812" height="148" rx="10" fill="#FAFBFC" stroke="#CFD8DC" stroke-width="1"/>
+
   <text x="480" y="272" text-anchor="middle" font-size="11" font-weight="700" fill="#37474F">Order conformance regimes (same law of orderliness with -ness)</text>
+
   <text x="98" y="298" font-size="10" fill="#546E7A">Material &#8212; result-/structural-conformance (definite)</text>
+
   <text x="98" y="318" font-size="10" fill="#546E7A">Bio &#8212; seed-conformance (definite)</text>
+
   <text x="98" y="338" font-size="10" fill="#546E7A">Animal &#8212; species-conformance (definite)</text>
+
   <text x="98" y="358" font-size="9.5" fill="#546E7A">Knowledge &#8212; sanskar-conformance (achieved)</text>
+
   <text x="504" y="298" font-size="10" fill="#546E7A">Law: all orders &#183; justice: knowledge order</text>
+
   <text x="504" y="318" font-size="10" fill="#546E7A">Justice: recognise, fulfil, evaluate, satisfy</text>
+
   <text x="504" y="338" font-size="10" fill="#546E7A">Statutory law: institutional (deferred)</text>
-  <text x="504" y="358" font-size="10" fill="#546E7A">&#167;1.3.1 &#183; &#167;1.4.1 &#183; &#167;1.4.2</text>
+
+  <text x="504" y="358" font-size="10" fill="#546E7A">&#167;1.7 &#183; &#167;1.10.1</text>
+
 </svg>

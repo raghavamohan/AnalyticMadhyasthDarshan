@@ -36,6 +36,7 @@ watermark when appropriate, and **verifies Mermaid diagrams** in the output PDF.
 
 ## Internal pipeline (do not substitute pandoc or VS Code export)
 
+0. `_verify_study_svgs.py` — fail if referenced SVG figures are missing, not UTF-8, or malformed XML
 1. `_convert_to_pdf.py` — markdown → HTML; ` ```mermaid ` → `<div class="mermaid">`
 2. `_html_to_pdf.js` — render Mermaid to SVG, then Puppeteer → PDF
 3. `_verify_pdf_diagrams.py` — fail if raw Mermaid syntax remains in the PDF
@@ -44,12 +45,20 @@ watermark when appropriate, and **verifies Mermaid diagrams** in the output PDF.
 Manual steps (debugging only):
 
 ```powershell
+python Scripts/_verify_study_svgs.py Studies/<Slug>/<Slug>.md
 python Scripts/_convert_to_pdf.py Studies/<Slug>/<Slug>.md
 node Scripts/_html_to_pdf.js Studies/<Slug>/<Slug>.html Draft
 python Scripts/_verify_pdf_diagrams.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf
 python Scripts/_verify_pdf_fenced_code.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf
 Remove-Item Studies/<Slug>/<Slug>.html
 ```
+
+## Study SVG figures
+
+- Save as **UTF-8**; use numeric XML entities in `<text>` for § (`&#167;`), · (`&#183;`), — (`&#8212;`), → (`&#8594;`).
+- Never paste section refs with raw Windows-1252 bytes — breaks the PDF figure.
+- Verify after editing: `python Scripts/_verify_study_svgs.py Studies/<Slug>/<Slug>.md`
+- Full rules: [AGENTS.md](../../AGENTS.md) §3 — Study SVG figures
 
 ## Mermaid in studies
 
@@ -69,6 +78,7 @@ flowchart TD
 
 ## Completion check
 
+- [ ] Referenced SVG figures pass `python Scripts/_verify_study_svgs.py Studies/<Slug>/<Slug>.md`
 - [ ] `Studies/<Slug>/<Slug>.pdf` updated
 - [ ] No raw `flowchart TD` / `graph LR` visible in PDF when Mermaid blocks exist
 - [ ] `**Edited on:**` and catalog **Last updated on** match (if content changed)

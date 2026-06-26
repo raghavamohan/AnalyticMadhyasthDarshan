@@ -818,6 +818,9 @@ def regenerate_pdf(md_path: Path, status: StudyStatus) -> None:
         return
     from _verify_pdf_diagrams import verify_study_pdf_diagrams
     from _verify_pdf_fenced_code import verify_study_pdf_fenced_code
+    from _verify_study_svgs import verify_study_svgs
+
+    verify_study_svgs(md_path)
 
     convert_script = SCRIPTS / "_convert_to_pdf.py"
     html_path = md_path.with_suffix(".html")
