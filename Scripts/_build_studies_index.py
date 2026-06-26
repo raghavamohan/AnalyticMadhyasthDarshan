@@ -576,8 +576,8 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     }
     .page-nav-label { flex: 0 0 100%; }
     .page-nav-anchor {
-      display: block;
-      height: var(--page-nav-offset, 56px);
+      display: none;
+      height: 0;
     }
     .toc { flex-wrap: wrap; flex: 1 1 100%; min-width: 0; }
     .section { scroll-margin-top: calc(var(--page-nav-offset, 56px) + 12px); }
@@ -1048,16 +1048,13 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
   const syncMobileNavOffset = () => {
     const nav = document.querySelector(".page-nav");
-    const anchor = document.querySelector(".page-nav-anchor");
-    if (!nav || !anchor) return;
+    if (!nav) return;
     const mobileNav = window.matchMedia("(max-width: 820px)").matches;
     if (mobileNav) {
       const height = nav.getBoundingClientRect().height;
       document.documentElement.style.setProperty("--page-nav-offset", `${height}px`);
-      anchor.style.height = `${height}px`;
     } else {
       document.documentElement.style.removeProperty("--page-nav-offset");
-      anchor.style.height = "0";
     }
   };
 
