@@ -553,6 +553,9 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   }
 
   @media (max-width: 820px) {
+    .page {
+      padding-top: calc(var(--page-nav-offset, 56px) + 28px);
+    }
     .page-nav {
       position: fixed;
       top: 0;
@@ -587,7 +590,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   }
 
   @media (max-width: 600px) {
-    .page { padding: 18px 14px 44px; }
+    .page { padding: calc(var(--page-nav-offset, 56px) + 18px) 14px 44px; }
     .hero { padding: 0; }
     .section-card { padding: 18px 16px; }
     h1 { font-size: 26px; }
