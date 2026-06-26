@@ -49,9 +49,9 @@
 
   <!-- Transition callouts -->
   <text x="409" y="244" text-anchor="middle" font-size="11" font-weight="700" fill="#9C7B1F">T1 · gathanpurnata — atom becomes sentient jeevan</text>
-  <text x="409" y="258" text-anchor="middle" font-size="9.6" fill="#7A6420">insentient → sentient · irreversible</text>
+  <text x="409" y="258" text-anchor="middle" font-size="10" fill="#5C4A12">insentient → sentient · irreversible</text>
   <text x="691" y="244" text-anchor="middle" font-size="10.4" font-weight="700" fill="#564B94">T2 activity · T3 conduct completeness</text>
-  <text x="691" y="258" text-anchor="middle" font-size="9.2" fill="#6F63A8">awakening milestones, within jeevan</text>
+  <text x="691" y="258" text-anchor="middle" font-size="10" fill="#6F63A8">awakening milestones, within jeevan</text>
 
   <!-- T1 line (sits in the gap between bio and animal) -->
   <line x1="409" y1="266" x2="409" y2="416" stroke="#C9A227" stroke-width="2" stroke-dasharray="5 4"/>
@@ -70,21 +70,21 @@
   <text x="127" y="332" text-anchor="middle" font-size="9.8" font-style="italic" fill="#41525D">padarth</text>
   <text x="127" y="352" text-anchor="middle" font-size="9.6" fill="#41525D">integration–disintegration</text>
   <text x="127" y="368" text-anchor="middle" font-size="9.6" fill="#41525D">dharma: existence</text>
-  <text x="127" y="394" text-anchor="middle" font-size="9" font-style="italic" fill="#7A8893">insentient (jada)</text>
+  <text x="127" y="394" text-anchor="middle" font-size="10" font-style="italic" fill="#4F5F6A">insentient (jada)</text>
 
   <rect x="228" y="290" width="174" height="115" rx="8" fill="#D9E8DD" stroke="#93B79E" stroke-width="1"/>
   <text x="315" y="316" text-anchor="middle" font-size="12" font-weight="700" fill="#28402F">BIO / PRANIC</text>
   <text x="315" y="332" text-anchor="middle" font-size="9.8" font-style="italic" fill="#3C5443">pran</text>
   <text x="315" y="352" text-anchor="middle" font-size="9.6" fill="#3C5443">vitalising–devitalising</text>
   <text x="315" y="368" text-anchor="middle" font-size="9.6" fill="#3C5443">+ growth</text>
-  <text x="315" y="394" text-anchor="middle" font-size="9" font-style="italic" fill="#7A8893">insentient (jada)</text>
+  <text x="315" y="394" text-anchor="middle" font-size="10" font-style="italic" fill="#4F5F6A">insentient (jada)</text>
 
   <rect x="416" y="290" width="174" height="115" rx="8" fill="#F2E7CF" stroke="#CBAE78" stroke-width="1"/>
   <text x="503" y="316" text-anchor="middle" font-size="12" font-weight="700" fill="#5C4A1E">ANIMAL</text>
   <text x="503" y="332" text-anchor="middle" font-size="9.8" font-style="italic" fill="#6A5520">jeev</text>
   <text x="503" y="352" text-anchor="middle" font-size="9.6" fill="#6A5520">cruel–uncruel</text>
   <text x="503" y="368" text-anchor="middle" font-size="9.6" fill="#6A5520">+ hope to live</text>
-  <text x="503" y="394" text-anchor="middle" font-size="9" font-style="italic" fill="#9C7B1F">sentient — jeevan</text>
+  <text x="503" y="394" text-anchor="middle" font-size="10" font-style="italic" fill="#6A5518">sentient — jeevan</text>
 
   <rect x="604" y="290" width="174" height="115" rx="8" fill="#E0DDF0" stroke="#A39BCB" stroke-width="1"/>
   <text x="691" y="314" text-anchor="middle" font-size="12" font-weight="700" fill="#3A3470">KNOWLEDGE /</text>
@@ -92,42 +92,42 @@
   <text x="691" y="344" text-anchor="middle" font-size="9.8" font-style="italic" fill="#4A4380">gyan</text>
   <text x="691" y="360" text-anchor="middle" font-size="9.6" fill="#4A4380">fortitude, kindness, compassion …</text>
   <text x="691" y="376" text-anchor="middle" font-size="9.6" fill="#4A4380">+ happiness</text>
-  <text x="691" y="394" text-anchor="middle" font-size="9" font-style="italic" fill="#564B94">sentient — jeevan</text>
+  <text x="691" y="394" text-anchor="middle" font-size="10" font-style="italic" fill="#433A78">sentient — jeevan</text>
 
   <!-- Progressions -->
   <line x1="48" y1="430" x2="404" y2="430" stroke="#5E7686" stroke-width="2.5" marker-end="url(#ahSteel)"/>
   <text x="226" y="449" text-anchor="middle" font-size="10.4" font-weight="700" fill="#3F5566">DEVELOPMENT PROGRESSION · vikas-kram</text>
-  <text x="226" y="463" text-anchor="middle" font-size="9.4" fill="#52677A">physicochemical &amp; biochemical complex → constitutional completeness (T1)</text>
+  <text x="226" y="463" text-anchor="middle" font-size="10.4" fill="#52677A">physicochemical &amp; biochemical complex → constitutional completeness (T1)</text>
 
-  <text x="503" y="449" text-anchor="middle" font-size="9" font-style="italic" fill="#8A7A4E">animal jeevan:</text>
-  <text x="503" y="461" text-anchor="middle" font-size="9" font-style="italic" fill="#8A7A4E">sentient, definite conduct</text>
+  <text x="503" y="449" text-anchor="middle" font-size="10" font-style="italic" fill="#5C4E28">animal jeevan:</text>
+  <text x="503" y="461" text-anchor="middle" font-size="10" font-style="italic" fill="#5C4E28">sentient, definite conduct</text>
 
   <line x1="606" y1="430" x2="776" y2="430" stroke="#6F63A8" stroke-width="2.5" marker-end="url(#ahIndigo)"/>
   <text x="691" y="449" text-anchor="middle" font-size="10.4" font-weight="700" fill="#564B94">AWAKENING · jagriti-kram</text>
-  <text x="691" y="463" text-anchor="middle" font-size="9.4" fill="#6A5FA0">T2 → T3 → realisation · reversible</text>
+  <text x="691" y="463" text-anchor="middle" font-size="10.4" fill="#6A5FA0">T2 → T3 → realisation · reversible</text>
 
   <!-- Central caution -->
-  <text x="410" y="486" text-anchor="middle" font-size="10" font-style="italic" fill="#465A6B">Development ≠ awakening   ·   composition ≠ development   ·   realisation in Omnipresence = telos of both</text>
+  <text x="410" y="486" text-anchor="middle" font-size="10" font-style="italic" fill="#34495E">Development ≠ awakening   ·   composition ≠ development   ·   realisation in Omnipresence = telos of both</text>
 
   <!-- In-ground reading notes -->
   <line x1="40" y1="502" x2="780" y2="502" stroke="#C2CED6" stroke-width="1"/>
-  <text x="40" y="524" font-size="9.6" fill="#46627A">Four real, stable plateaus of nature; dharma is cumulative (each order carries those below it).</text>
-  <text x="40" y="540" font-size="9.6" fill="#46627A">niyati-vidhi = definite conduct per order (&#167;1.7); niyati-kram = fixed order emergence (&#167;1.5.1).</text>
-  <text x="40" y="556" font-size="9.6" fill="#46627A">Change = unit-activity — effort–motion–result (shram–gati–parinam) — oriented toward completeness.</text>
-  <text x="40" y="572" font-size="9.6" fill="#46627A">Telos = coexistence evident in fulfilled relationships: fulfilment within the ground, not exit from it.</text>
+  <text x="40" y="524" font-size="10" fill="#34495E">Four real, stable plateaus of nature; dharma is cumulative (each order carries those below it).</text>
+  <text x="40" y="540" font-size="10" fill="#34495E">niyati-vidhi = definite conduct per order (&#167;1.7); niyati-kram = fixed order emergence (&#167;1.5.1).</text>
+  <text x="40" y="556" font-size="10" fill="#34495E">Change = unit-activity — effort–motion–result (shram–gati–parinam) — oriented toward completeness.</text>
+  <text x="40" y="572" font-size="10" fill="#34495E">Telos = coexistence evident in fulfilled relationships: fulfilment within the ground, not exit from it.</text>
 
   <!-- Framing boxes -->
   <rect x="22" y="600" width="379" height="86" rx="8" fill="#F4F1EA" stroke="#CBBE9B" stroke-width="1"/>
   <text x="38" y="620" font-size="11" font-weight="700" fill="#6F5A22">Beginningless &amp; conserved</text>
-  <text x="38" y="638" font-size="9.6" fill="#4A4334">Nothing arises from, or vanishes into, non-being (abhava).</text>
-  <text x="38" y="652" font-size="9.6" fill="#4A4334">Bodies, configurations &amp; associations begin and end;</text>
-  <text x="38" y="666" font-size="9.6" fill="#4A4334">underlying vastu persists through transformation.</text>
-  <text x="38" y="681" font-size="9.6" font-style="italic" fill="#4A4334">“Brahma is truth, the world is perpetual” (jagat satat).</text>
+  <text x="38" y="638" font-size="10" fill="#3A3428">Nothing arises from, or vanishes into, non-being (abhava).</text>
+  <text x="38" y="652" font-size="10" fill="#3A3428">Bodies, configurations &amp; associations begin and end;</text>
+  <text x="38" y="666" font-size="10" fill="#3A3428">underlying vastu persists through transformation.</text>
+  <text x="38" y="681" font-size="10" font-style="italic" fill="#3A3428">“Brahma is truth, the world is perpetual” (jagat satat).</text>
 
   <rect x="419" y="600" width="379" height="86" rx="8" fill="#EEF0F4" stroke="#AEBCC6" stroke-width="1"/>
   <text x="435" y="620" font-size="11" font-weight="700" fill="#33536A">Causation &amp; time</text>
-  <text x="435" y="638" font-size="9.6" fill="#3F4D57">Satta is mahakaran — the sustaining ground, not the</text>
-  <text x="435" y="652" font-size="9.6" fill="#3F4D57">efficient cause; units do the work of change.</text>
-  <text x="435" y="666" font-size="9.6" fill="#3F4D57">Time (kaal) = duration of unit-activity,</text>
-  <text x="435" y="680" font-size="9.6" fill="#3F4D57">not an independent cosmic container.</text>
+  <text x="435" y="638" font-size="10" fill="#2F3D47">Satta is mahakaran — the sustaining ground, not the</text>
+  <text x="435" y="652" font-size="10" fill="#2F3D47">efficient cause; units do the work of change.</text>
+  <text x="435" y="666" font-size="10" fill="#2F3D47">Time (kaal) = duration of unit-activity,</text>
+  <text x="435" y="680" font-size="10" fill="#2F3D47">not an independent cosmic container.</text>
 </svg>
