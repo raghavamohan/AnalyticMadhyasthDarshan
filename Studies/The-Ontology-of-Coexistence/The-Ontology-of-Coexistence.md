@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 26, 2026, 6:56 AM IST
+**Edited on:** June 26, 2026, 7:16 AM IST
 
 **Status:** Draft
 
@@ -24,7 +24,7 @@ Several claims the ontology depends on are argued fully elsewhere: the **full-kn
 
 ## Quick Glossary
 
-### Terms in this section
+### Terms in §1
 
 | Term | Plain meaning |
 |------|---------------|
@@ -41,7 +41,55 @@ Several claims the ontology depends on are argued fully elsewhere: the **full-kn
 | **Development progression (*vikas-kram*)** | Movement through the physicochemical complex until an atom reaches constitutional completeness and sentient *jeevan* appears. |
 | **Awakening progression (*jagriti-kram*)** | Movement within constitutionally complete *jeevan* toward fuller activity and conduct. |
 
-Further terms — planes, justice, prosperity, *gyan* registers — are defined where they first appear in §1. Advaita terms used in §2 are collected in the table below that section's opening.
+Further terms — planes, justice, prosperity, *gyan* registers — are defined where they first appear in §1.
+
+### Terms in §2
+
+| Term | Plain meaning |
+|------|---------------|
+| **Brahman** | The sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second. |
+| **Paramartha** | Absolute level of truth; Brahman alone is absolutely real. |
+| **Vyavahara** | Shared empirical order — bodies, law, ethics, scripture; robust but sublated at highest realization. |
+| **Pratibhasika** | Private apparent error (rope-snake, dream objects); sublated by correction. |
+| **Mithya** | Dependent appearance — neither absolutely real nor sheer nothing; valid at *vyavahara*, sublated at *paramartha*. |
+| **Maya** | Cosmic power of concealment (*avarana*) and projection (*vikshepa*); Ishvara's superimposition on Brahman. |
+| **Avidya** | Individual ignorance — the jiva's superimposition of body-mind on the Self. |
+| **Adhyasa** | Superimposition — attributing what belongs to one level to another (snake on rope). |
+| **Satkaryavada** | The effect pre-exists in the cause (clay already in the pot). |
+| **Vivartavada** | Apparent transformation — Brahman does not change; name-form is projected. |
+| **Upadhi** | Limiting adjunct conditioning the Self (body, mind, sheaths). |
+| **Turiya** | The "fourth" — witness-consciousness beyond waking, dream, and deep sleep. |
+| **Sakshin** | Witness — the seer that is never itself an object of perception. |
+| **Moksha** | Liberation — recognition of pre-existing identity with Brahman, not merger of a real individual. |
+
+### Terms in §3
+
+| Term | Plain meaning |
+|------|---------------|
+| **Physicalism** | The view that every real, concrete phenomenon is physical — minds and selves are processes or organizations of physical systems. |
+| **Causal closure** | Every physical event has a sufficient physical cause; no non-physical entity injects energy or intention into the physical order (Kim 2005). |
+| **Hard problem** | Why and how physical processes give rise to subjective experience — the "something it is like" (Chalmers 1995; Nagel 1974). |
+| **Panpsychism** | Experience is fundamental or ubiquitous in nature; wholly non-experiential matter cannot produce experience (Strawson 2006). |
+| **Combination problem** | If micro-experientiality is primitive, how do micro-subjects combine into one unified macro-subject? |
+| **Illusionism** | Phenomenal consciousness as usually conceived is a misdescription; only access-consciousness and functional states exist (Frankish 2016). |
+| **Personal identity** | What makes a person the same individual over time — psychological continuity (Locke), reductionism (Parfit), or substance (soul, monad). |
+| **Scientific realism** | The physical world exists mind-independently and is the proper object of public inquiry. |
+| **Neutral monism** | Mind and matter are composed of a common neutral stuff, neither mental nor material in isolation (Russell 1921; Mach 1914). |
+| ***Samadhanatmak bhautikvad*** | Resolution Centred Materialism — MD's reframing of materialism: real matter saturated in Omnipresence, not consciousness-from-matter or matter-only reduction (SB). |
+
+### Terms in §4
+
+| Term | Plain meaning |
+|------|---------------|
+| **Self-model** | The brain's internal representation of the organism as a unified subject — not an immortal unit but a regulative construct (Metzinger 2003). |
+| **Predictive processing / active inference** | The brain as a hierarchical generative model minimizing prediction error; selfhood as functionally real control structure (Friston 2010; Clark 2016). |
+| **Integrated information (Φ)** | IIT's measure of how much a system's cause–effect structure is irreducible; consciousness tied to a structural threshold (Tononi 2012). |
+| **Autopoiesis** | Living organization as a self-producing network maintaining its boundary through metabolism (Maturana and Varela 1980). |
+| **ΛCDM** | Standard cosmological model: cold dark matter plus dark energy; hot big bang ~13.8 billion years ago. |
+| **Quantum field** | In QFT, what persists are fields; particles are localized excitations, not tiny enduring substances (Weinberg 1995). |
+| **Brain death** | Operational criterion for end of personhood in medicine — irreversible loss of whole-brain function. |
+| **Entropy** | Thermodynamic tendency toward disorder in closed systems; distinct from MD's orderliness (*vyavastha*) at every order. |
+| **Natural selection** | Differential reproduction of heritable traits; mainstream mechanism for biological adaptation and cooperation. |
 
 ## 1. The Madhyasth Darshan Answer
 
@@ -401,7 +449,7 @@ Four registers must be kept apart when reading the texts on knowledge:
 
 Madhyasth Darshan advances **two conservation claims** that must be kept apart.
 
-**Coexistence conservation** holds that what exists does not arise from non-being (*abhava*) and does not vanish into it — only configurations, bodies, and associations begin and end (§4.3). Conservation is asserted of **each** existing particular through configuration change.
+**Coexistence conservation** holds that what exists does not arise from non-being (*abhava*) and does not vanish into it — only configurations, bodies, and associations begin and end (§4.4). Conservation is asserted of **each** existing particular through configuration change.
 
 ***Jeevan* persistence** is a separate commitment — inferred from constitutional immortality together with conservation (JV, p. 20; MVD Reality proposition 9; §6.2.4, §6.4).
 
@@ -459,26 +507,7 @@ Understanding without adequate living remains incomplete, and material plenty wi
 
 Advaita Vedanta holds that existence in the strictest, absolute sense is **Brahman** alone — one without a second (*ekamevaditiyam*). The world of names, forms, bodies, and relations is ***mithya*** — a dependent appearance operationally valid at the empirical level (*vyavahara*) but ultimately sublated at absolute reality (*paramartha*). The true Self (*Atman*) is neither born nor destroyed, because it is ultimately identical with this non-dual Brahman.
 
-The account proceeds in layers. It begins with **Brahman** as absolute existence and **Sat-Chit-Ananda**, then separates the **three tiers of reality** (*pratibhasika*, *vyavahara*, *paramartha*). **Maya**, **adhyasa**, and causal doctrine (*satkaryavada*, *vivartavada*) explain how multiplicity appears on changeless Brahman. The **empirical entities** — Ishvara, jiva, and jagat — structure the shared world. **Witness-consciousness** (*sakshin*, *turiya*) names the irreducible seer discriminated from body and mind. **Conservation**, origination, and temporality divide timeless Brahman from law-governed *vyavahara*. **Liberation** (*moksha*) and the knowledge path state how the illusion of separateness is dispelled. The section closes with **ethics**, *loka-sangraha*, and what realization **evidences** at the empirical order. The full architecture is summarised in the figure at §2.5.
-
-### Terms in §2
-
-| Term | Plain meaning |
-|------|---------------|
-| **Brahman** | The sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second. |
-| **Paramartha** | Absolute level of truth; Brahman alone is absolutely real. |
-| **Vyavahara** | Shared empirical order — bodies, law, ethics, scripture; robust but sublated at highest realization. |
-| **Pratibhasika** | Private apparent error (rope-snake, dream objects); sublated by correction. |
-| **Mithya** | Dependent appearance — neither absolutely real nor sheer nothing; valid at *vyavahara*, sublated at *paramartha*. |
-| **Maya** | Cosmic power of concealment (*avarana*) and projection (*vikshepa*); Ishvara's superimposition on Brahman. |
-| **Avidya** | Individual ignorance — the jiva's superimposition of body-mind on the Self. |
-| **Adhyasa** | Superimposition — attributing what belongs to one level to another (snake on rope). |
-| **Satkaryavada** | The effect pre-exists in the cause (clay already in the pot). |
-| **Vivartavada** | Apparent transformation — Brahman does not change; name-form is projected. |
-| **Upadhi** | Limiting adjunct conditioning the Self (body, mind, sheaths). |
-| **Turiya** | The "fourth" — witness-consciousness beyond waking, dream, and deep sleep. |
-| **Sakshin** | Witness — the seer that is never itself an object of perception. |
-| **Moksha** | Liberation — recognition of pre-existing identity with Brahman, not merger of a real individual. |
+The account proceeds in layers. It begins with **Brahman** as absolute existence and **Sat-Chit-Ananda**, then separates the **three tiers of reality** (*pratibhasika*, *vyavahara*, *paramartha*). **Maya**, **adhyasa**, and causal doctrine (*satkaryavada*, *vivartavada*) explain how multiplicity appears on changeless Brahman. The **empirical entities** — Ishvara, jiva, and jagat — structure the shared world. **Witness-consciousness** (*sakshin*, *turiya*) names the irreducible seer discriminated from body and mind. **Conservation**, origination, and temporality divide timeless Brahman from law-governed *vyavahara*. **Liberation** (*moksha*) and the knowledge path state how the illusion of separateness is dispelled. The section closes with **ethics**, *loka-sangraha*, and what realization **evidences** at the empirical order. The full architecture is summarised in the figure at §2.5. Advaita terms are defined in Quick Glossary, **Terms in §2**.
 
 ### 2.1 Brahman and absolute existence
 
@@ -624,18 +653,29 @@ Realization **evidences** identity with Brahman — the dispelled illusion of se
 
 ## 3. Modern Philosophical Approaches
 
-Modern Western philosophy of mind takes the physical world as its baseline and struggles to locate subjective experience within it. The debates on consciousness show that what counts as real — including whether an entity such as *jeevan* can transcend physical mechanics — remains fiercely contested.
+Modern Western philosophy takes **physical nature as baseline** and disputes how mind, self, value, and the world's final status fit within it. The dominant materialist line holds that consciousness emerges from matter; metaphysical idealism has held the reverse. SB records that neither one-way emergence has been observed — what is evident is **coexistence**:
+
+> **"In this course, metaphysical thought has held that matter arises from consciousness, whereas materialist thought has maintained that consciousness emerges from matter. Both ideologies have proposed numerous arguments, practices, and experiments in support of their claims. Yet, neither has matter been seen emerging from consciousness, nor consciousness emerging from matter. What is evident is that consciousness and matter are inseparably present."**
+> - SB, p. 48
+
+Madhyasth Darshan's own title — *Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*) — reframes rather than abandons materialism. Against **dialectical materialism**, which treats struggle as the engine of history and science, SB proposes an orderliness-centred materialism in which nature remains real, saturated in Omnipresence, and oriented toward resolution rather than perpetual conflict (SB, pp. 8, 44). The Western debates below are the philosophical context that framing answers.
+
+The account proceeds in layers. It begins with **physicalist ontology** — what exists on a matter-first picture — then states the **hard problem** and the **responses** physicalists offer (panpsychism, emergentism, illusionism, eliminativism). **Personal identity** and **persistence of the self** follow. **Origination, conservation, and world realism** treat whether what exists begins and whether the world retains final weight. **Alternative Western ontologies** supply historical analogues to ground-and-units coexistence. The section closes with **method and evidential stakes**. The physicalist architecture is summarised in the figure below; comparative detail on time and cosmology is in [*Nature of Time*](../Nature-Of-Time/Nature-Of-Time.pdf) and §4.
 
 ![Physicalism: one level of reality built upward by composition; causation under conservation laws; observation and public evidence; unsettled hard problem and cosmological beginning](3-modern-physicalism-ontology.svg)
 
-### 3.1 Standard Physicalism: Concrete Reality Is Physical
+### 3.1 Physicalist ontology: what exists
 
 > **"I take physicalism to be the view that every real, concrete phenomenon in the universe is…physical."**
 > - Strawson 2006, p. 2
 
-On this view, what exists are physical things, events, fields, organisms, brains, and processes. Minds and selves are functions, organizations, models, or processes of physical systems.
+On this view, what exists are physical things, events, fields, organisms, brains, and processes. Minds and selves are not separate substances but **functions, organizations, models, or processes** of physical systems. Reductive physicalism holds that mental descriptions reduce without remainder to physical descriptions; non-reductive physicalism allows autonomous mental or functional levels while insisting that every concrete instance is still physical.
 
-### 3.2 The Hard Problem: Experience Resists Reduction
+**Methodological naturalism** extends the picture into inquiry: the methods of the natural sciences — observation, experiment, modelling, public replication — are the standard for settling factual claims about the world. **Scientific realism** treats the physical world as **mind-independent** and law-governed: electrons, fields, and brains are not mere useful fictions but the furniture reality is made of, even when descriptions revise with theory change. Constructivist and instrumentalist variants soften that claim; they remain minority positions within mainstream analytic philosophy.
+
+Physicalism also asserts **causal closure**: every physical event has a sufficient physical cause, so no non-physical entity injects energy or intention into the nervous system (Kim 2005). That closure is what makes immortal *jeevan* working through the body a live dispute: if the brain is a closed physical system, a distinct sentient unit cannot be an independent causal partner without violating conservation or epiphenomenalism. Madhyasth Darshan locates *jeevan* as the sentient unit that works through the body, not as a ghost in the machine — but the physicalist still demands a third-person account of how that partnership is possible (§3.4, §6.4).
+
+### 3.2 The hard problem and the first-person datum
 
 > **"The really hard problem of consciousness is the problem of experience. When we think and perceive, there is a whir of information-processing, but there is also a subjective aspect."**
 > - Chalmers 1995, p. 3
@@ -646,9 +686,13 @@ On this view, what exists are physical things, events, fields, organisms, brains
 > **"the fact that an organism has conscious experience at all means, basically, that there is something it is like to be that organism."**
 > - Nagel 1974, p. 1
 
-For Madhyasth Darshan this is evidence that body-only ontology is incomplete. Advaita's DDV offers a complementary first-person route: the seer cannot be the seen (DDV, vv. 1–5), so consciousness resists reduction to observed brain-states — though Advaita and Madhyasth Darshan draw different ontological conclusions from that datum. Physicalists treat that explanatory gap as philosophically non-decisive; Madhyasth Darshan treats it as evidence of ontological incompleteness in matter-only accounts (§6.2.1, §6.4).
+The hard problem is not whether brains correlate with experience — they do — but why any physical process should have an **inside** at all. Advaita's DDV offers a complementary first-person route: whatever can be observed — body, sensations, thoughts — is "seen" and therefore not the seer (DDV, vv. 1–5; §2.6). Madhyasth Darshan reads the explanatory gap as evidence that matter-only ontology is **incomplete**; physicalists often treat it as philosophically non-decisive — a gap in current theory, not proof of extra-physical being (§6.2.1, §6.4).
 
-### 3.3 Panpsychist Physicalism: Experience as Fundamental
+Some philosophers split the difference through **property dualism**: experience may be an irreducible property of certain physical systems while the laws governing matter remain intact. That fork preserves law-governed physics but adds a primitive experiential aspect Chalmers-style accounts find unavoidable. Madhyasth Darshan does not map cleanly onto property dualism: active *chaitanya* belongs to constitutionally complete *jeevan*, not to every complex physical system, and *satta* as *gyan* is not a property of particles (§1.11).
+
+### 3.3 Physicalist responses: panpsychism, emergentism, illusionism
+
+Physicalists who take the hard problem seriously divide into several families. **Panpsychist physicalism** (Strawson 2006) insists that experience cannot emerge from wholly non-experiential matter:
 
 > **"Full recognition of the reality of experience, then, is the obligatory starting point for any remotely realistic version of physicalism."**
 > - Strawson 2006, p. 2
@@ -659,24 +703,62 @@ For Madhyasth Darshan this is evidence that body-only ontology is incomplete. Ad
 > **"Real physicalism, realistic physicalism, entails panpsychism."**
 > - Strawson 2006, p. 12
 
-This is closer to Madhyasth Darshan than reductive physicalism, since both refuse experience-from-dead-matter. Strawson's anti-emergence principle presses on the *gathanpurnata* account: if experience cannot emerge from the wholly non-experiential, sentience at completeness must be **actualized from an ever-present ground**, not produced from nothing — the latency reading developed in §6.6. Madhyasth Darshan also differs from Strawson in scope: it does not say every particle is a subject; active sentience is the status of constitutionally complete atoms only.
+This is closer to Madhyasth Darshan than reductive physicalism, since both refuse experience-from-dead-matter. Strawson's anti-emergence principle presses on the *gathanpurnata* account: if experience cannot emerge from the wholly non-experiential, sentience at completeness must be **actualized from an ever-present ground**, not produced from nothing — the latency reading developed in §6.6. Madhyasth Darshan differs in scope: it does not say every particle is a subject; active sentience is the status of constitutionally complete atoms only.
 
-Panpsychism's **combination problem** bears directly on that restriction. If micro-experientiality is primitive, how do micro-subjects combine into a unified macro-subject? Strawson and other panpsychists leave this wound open; IIT addresses it through integrated information structures, at the cost of pan-experiential commitments Madhyasth Darshan rejects. Madhyasth Darshan's answer is different in kind: **one constitutionally complete atom is already the sentient unit** — *jeevan* is not assembled from many micro-minds but is a self-maintaining composite whose completeness is functional indivisibility (§1.9–1.10). Whether that avoids the combination problem or relocates it to the threshold itself is examined in §6.6. The two views share an enemy (dead-matter reductionism) but not a metaphysic.
+Panpsychism's **combination problem** bears directly on that restriction. If micro-experientiality is primitive, how do micro-subjects combine into a unified macro-subject? Strawson and other panpsychists leave this wound open; integrated information theory addresses it through structural integration, at the cost of pan-experiential commitments Madhyasth Darshan rejects (§4.2). Madhyasth Darshan's answer is different in kind: **one constitutionally complete atom is already the sentient unit** — *jeevan* is not assembled from many micro-minds but is a self-maintaining composite whose completeness is functional indivisibility (§1.9–1.10). Whether that avoids the combination problem or relocates it to the threshold itself is examined in §6.6.
 
-### 3.4 Alternative Western ontologies
+**Emergentism** offers a middle path: new properties appear at organisational thresholds — digestion from chemistry, life from biochemistry, mind from neural complexity. **Weak emergence** treats higher-level patterns as real but dependent on lower-level physics; **strong emergence** would add causally novel properties irreducible to microphysics. Threshold grammar — a structural condition producing a qualitative register — is shared by emergentism, integrated information theory, and *gathanpurnata* (§6.6). Madhyasth Darshan denies **strong** emergence from dead matter while accepting qualitative change at constitutional completeness; latency names ever-present *gyan* in *satta* actualized at the threshold, not a new experiential ingredient from nothing.
 
-Hylomorphism, Leibnizian monadology, process philosophy, and neutral monism offer closer Western analogues than mainstream philosophy-of-mind sources alone.
+At the opposite pole, **illusionism** (Frankish 2016) and **eliminative materialism** (Dennett 1991; Churchland 1986) preserve physicalism by denying or re-describing the datum the hard problem presses:
 
-**Aristotelian–Thomistic hylomorphism** maps form (*forma*) onto matter (*materia*) so that a substance is the compound of both — not mere aggregation. Aquinas treats the rational soul as the **form of the living body** (*anima forma corporis*), giving a joint ontology of soul-and-body that parallels Madhyasth Darshan's *jeevan*–*shareer* joint form and the four-aspect unit signature (form, properties, essential nature, *dharma*) as what a unit **is** (§1.3). *Gathanpurnata* resembles substantial completion: a definite constitution at which a unit's essential nature is fully actualized. The divergences are sharp: MD's plural, immortal *jeevan* units, beginningless coexistence with *satta*, and saturation are not Aristotelian prime matter plus a single rational soul per body; yet the soul-as-form debate is a nearer cousin than process philosophy on individual persistence (SEP Form and Matter; Aquinas ST I, q. 75–76).
+> **"Another approach, which holds that phenomenal consciousness is an illusion and aims to explain why it seems to exist."**
+> - Frankish 2016, p. 1
 
-**Spinoza's substance monism** offers a closer analogue to *satta*-with-units than neutral monism. For Spinoza, one infinite substance (*Deus sive Natura*) has infinitely many **modes** — finite particulars expressing the one substance under different attributes (thought and extension). Madhyasth Darshan likewise keeps a pervasive ground and countless real units, but the contrast is decisive: Spinoza has **one** substance whose modes are not ontologically on a par with the whole; Madhyasth Darshan has **co-eternal** *satta* and *ikai*, each real in its own right, bound by saturation rather than modal expression of a single substance (Spinoza, *Ethics*, Part I, Props. 14–15; Part II, Def. 3). Spinoza's parallelism of thought and extension also differs from Madhyasth Darshan's tiered intelligibility: active *chaitanya* belongs only to *jeevan*, not to every mode of extension.
+> **"illusionists deny the existence of phenomenal consciousness properly so-called, but do not deny the existence of a form of consciousness"**
+> - Frankish 2016, p. 8
 
-**Leibnizian monads** offer a tighter analogue to plural immortal *jeevan* than Whitehead's occasions. Monads are simple, individual substances that mirror the whole from their perspective, do not interact by efficient causation but harmonize, and do not naturally perish. That plurality-with-harmony and individual immortality align structurally with many distinct *jeevan*-clouds saturated in Omnipresence (MVD, p. 13). The contrast: monads are windowless and perception-based; *jeevan* works through bodies in definite *sambandh* and fulfils relationships in nature's orders (Leibniz, *Monadology*, §§1–14, 78–81).
+Illusionists retain access-consciousness, self-report, and functional control while treating "what it is like" as a misdescription of introspective models. Eliminativists go further: folk-psychological categories such as belief and desire may fail to refer, to be replaced by neuroscience. Madhyasth Darshan treats experience, valuation, aspiration, and realization as activities of *jeevan*, not brain-model illusions. These views matter because they show how far naturalism will go to preserve a physicalist ontology — and because predictive-processing accounts (§4.1) offer a more sophisticated functionalist reply than bare elimination.
 
-**Whitehead's process philosophy** shares relational realism and refusal of nature bifurcation. His basic units are "actual entities" — "drops of experience, complex and interdependent" (Whitehead 1929, p. 28). The key contrast remains persistence: Whitehead's occasions are momentary and "perpetually perish" subjectively, gaining "objective immortality" only as data for successors (Whitehead 1929, p. 44), whereas Madhyasth Darshan's *jeevan* is a persisting immortal individual.
+### 3.4 The self: personal identity and persistence
+
+Physicalism's answer to "does the individual self begin or end with the body?" is typically **yes**, in some version. The self is a biological and cognitive achievement — developing through embodiment, memory, and social recognition — and ceasing when brain function ends. **Personal identity** theory asks what, if anything, makes a person the same individual over time.
+
+Locke's classical account ties identity to **psychological continuity** — memory and connectedness of consciousness — rather than to sameness of material particles. Parfit's later work argues that what matters in survival is psychological connectedness and continuity, not a further fact of identity: there is no deep entity beyond the stream of mental states that must persist (Parfit 1984; SEP Personal Identity). On reductionist readings, the question "is this the same *jeevan* after death?" has no fact of the matter beyond causal and psychological links — which bodily death breaks.
+
+Substance views — rational soul as form of the body (§3.6.1), simple monads (§3.6.3) — preserve an enduring individual bearer. Madhyasth Darshan's *jeevan* aligns with substance pluralism: a constitutionally complete, immortal unit that works through the body and persists across bodily death (§§1.10–1.12). Against physicalism, the dispute is not only metaphysical but **causal**: if the physical domain is closed, a non-physical *jeevan* is either epiphenomenal or a violation of closure. Self-model, predictive-processing, and integrated-information accounts in cognitive science (§§4.1–4.2) explain the **sense** of self without positing an immortal unit; Madhyasth Darshan's counter is that regulation and representation do not settle what **works through** the brain (§6.4, §6.6).
+
+### 3.5 Origination, conservation, and world realism
+
+Western philosophy asks whether **what exists** had a beginning and whether **particulars** endure through change. Mainstream physicalism holds that local systems — organisms, stars, civilisations — begin and end, while fundamental physics may or may not require a cosmic beginning (§4.3). **Conservation** principles in physics treat certain quantities as preserved through transformation — a structural parallel to Madhyasth Darshan's claim that *vastu* persists through *roop*-change (§1.12, §4.4), though the categories differ.
+
+**Scientific realism** answers "is the world finally real?" with **yes** for the physical universe: tables, fields, and brains are real mind-independent items suitable for public study. **Idealism** (Berkeley and successors) makes reality depend on perception or mind; **nihilism** denies that anything ultimately exists or matters. Both are outliers in contemporary analytic ontology but sharpen the stakes: Madhyasth Darshan's perpetual world (*jagat satat*) is neither mind-dependent appearance nor physical reduction alone — units and Omnipresence are co-eternally real (§1.12).
+
+Philosophy of **time** adds a further fork. Block-universe **eternalism** treats past, present, and future as equally real coordinates; **presentism** privileges the present. Relational theories deny time as an independent container — time is the order of change among things. Madhyasth Darshan's *kaal* as duration of unit-activity is structurally closer to relational and process views than to block eternalism ([*Nature of Time*](../Nature-Of-Time/Nature-Of-Time.pdf) §3). Cosmological questions about a beginningless substrate are developed in §4.3; the philosophical point here is that Western ontology has **no consensus** on whether existence as a whole begins, even when particular configurations do.
+
+### 3.6 Alternative Western ontologies
+
+Before the twentieth-century focus on mind and brain, Western metaphysics developed several **ground-plus-particulars** schemes that map partially onto Madhyasth Darshan's coexistence. They are ordered here from form-matter compounds through monism and pluralism to neutral ground — not as a historical timeline but as a ladder of analogues for §5.3–5.4.
+
+### 3.6.1 Hylomorphism and soul-as-form
+
+Aristotelian–Thomistic **hylomorphism** maps form (*forma*) onto matter (*materia*) so that a substance is the compound of both — not mere aggregation. Aquinas treats the rational soul as the **form of the living body** (*anima forma corporis*), giving a joint ontology of soul-and-body that parallels Madhyasth Darshan's *jeevan*–*shareer* joint form and the four-aspect unit signature (form, properties, essential nature, *dharma*) as what a unit **is** (§1.3). *Gathanpurnata* resembles substantial completion: a definite constitution at which a unit's essential nature is fully actualized. The divergences are sharp: Madhyasth Darshan's plural, immortal *jeevan* units, beginningless coexistence with *satta*, and saturation are not Aristotelian prime matter plus a single rational soul per body; yet the soul-as-form debate is a nearer cousin than process philosophy on individual persistence (SEP Form and Matter; Aquinas ST I, q. 75–76).
+
+### 3.6.2 Spinoza: substance and modes
+
+Spinoza's **substance monism** offers a closer analogue to *satta*-with-units than neutral monism. For Spinoza, one infinite substance (*Deus sive Natura*) has infinitely many **modes** — finite particulars expressing the one substance under different attributes (thought and extension). Madhyasth Darshan likewise keeps a pervasive ground and countless real units, but the contrast is decisive: Spinoza has **one** substance whose modes are not ontologically on a par with the whole; Madhyasth Darshan has **co-eternal** *satta* and *ikai*, each real in its own right, bound by saturation rather than modal expression of a single substance (Spinoza, *Ethics*, Part I, Props. 14–15; Part II, Def. 3). Spinoza's parallelism of thought and extension also differs from Madhyasth Darshan's tiered intelligibility: active *chaitanya* belongs only to *jeevan*, not to every mode of extension.
+
+### 3.6.3 Leibniz: monads and harmony
+
+Leibnizian **monads** offer a tighter analogue to plural immortal *jeevan* than Whitehead's occasions. Monads are simple, individual substances that mirror the whole from their perspective, do not interact by efficient causation but harmonize, and do not naturally perish. That plurality-with-harmony and individual immortality align structurally with many distinct *jeevan*-clouds saturated in Omnipresence (MVD, p. 13). The contrast: monads are windowless and perception-based; *jeevan* works through bodies in definite *sambandh* and fulfils relationships in nature's orders (Leibniz, *Monadology*, §§1–14, 78–81).
+
+### 3.6.4 Process philosophy: occasions and becoming
+
+Whitehead's **process philosophy** shares relational realism and refusal of nature bifurcation. His basic units are "actual entities" — "drops of experience, complex and interdependent" (Whitehead 1929, p. 28). The key contrast remains persistence: Whitehead's occasions are momentary and "perpetually perish" subjectively, gaining "objective immortality" only as data for successors (Whitehead 1929, p. 44), whereas Madhyasth Darshan's *jeevan* is a persisting immortal individual. Process metaphysics also treats time as internal to becoming — a partial affinity with activity-based *kaal* (§3.5; [*Nature of Time*](../Nature-Of-Time/Nature-Of-Time.pdf) §3.3).
 
 > **"Actual entities 'perpetually perish' subjectively, but are immortal objectively."**
 > - Whitehead 1929, p. 44
+
+### 3.6.5 Neutral monism: common ground
 
 **Neutral monism** (Russell, Mach) resembles Omnipresence as a reality that is neither mind nor matter but common ground. Russell holds that mind and matter are "composed of a neutral-stuff which, in isolation, is neither mental nor material" (Russell 1921, Lecture I). Mach likewise denies any "rift between the psychical and the physical": "There is but one kind of elements, out of which this supposed inside and outside are formed" (Mach 1914, Ch. XIV). The contrast: neutral monism typically builds mind and matter out of the neutral stuff, whereas Madhyasth Darshan keeps Omnipresence non-transforming and lets units be real in their own right rather than constructed from the ground.
 
@@ -686,24 +768,37 @@ Hylomorphism, Leibnizian monadology, process philosophy, and neutral monism offe
 > **"There is no rift between the psychical and the physical, no inside and outside… There is but one kind of elements, out of which this supposed inside and outside are formed."**
 > - Mach 1914, Ch. XIV
 
-### 3.5 Illusionism: Phenomenal Consciousness as Misdescription
+### 3.7 Method, evidence, and what philosophy establishes
 
-> **"Another approach, which holds that phenomenal consciousness is an illusion and aims to explain why it seems to exist."**
-> - Frankish 2016, p. 1
+Modern Western philosophy does not speak with one voice, but a typical physicalist constellation answers the study's framing questions as follows:
 
-> **"illusionists deny the existence of phenomenal consciousness properly so-called, but do not deny the existence of a form of consciousness"**
-> - Frankish 2016, p. 8
+| Question | Typical Western philosophical answer |
+|---|---|
+| **What is existence?** | Concrete physical reality — fields, spacetime, organisms — studied empirically; some add experience as fundamental (panpsychism) or neutral ground (neutral monism). |
+| **What exists?** | Physical entities and their organisations; minds as processes; disputed whether experience is reducible, fundamental, or illusory. |
+| **Does what exists begin?** | Particular systems begin and end; whether fundamentals had a first moment is unsettled (§3.5, §4.3). |
+| **Does the individual self begin?** | The self develops with body and brain; psychological continuity does not survive bodily death on standard physicalist accounts (§3.4). |
+| **Is the world finally real?** | Yes, for scientific realism — the physical world is mind-independent; idealism and world-as-illusion are minority views. |
+| **Method of knowing** | Observation, argument, public evidence; first-person datum acknowledged but not treated as existence-proof for immortal units. |
 
-Madhyasth Darshan regards this as another reductionism: it treats experience, valuation, aspiration, and realization as activities of *jeevan*, not brain-model illusions. Illusionism matters because it shows how far naturalism will go to preserve a physicalist ontology.
+What philosophy **has** established, on Madhyasth Darshan's reading, is a high **evidential bar** and a persistent **exposed point**: the hard problem shows that reductive matter-only accounts leave experience unexplained. What it has **not** established is immortal *jeevan*, constitutional completeness, or post-death continuity — an explanatory gap is not an existence proof (§6.4). Predictive processing and self-model theories (§4.1) deepen the physicalist reply without settling the ontological dispute.
 
+Mainstream **science** inherits this physicalist baseline and adds measurement, formal models, and institutional replication — the subject of §4.
 
 ## 4. Modern Scientific Approaches
 
-Mainstream science works from a physicalist ontology (§3.1) unless the hard problem forces revision (§3.2–3.3). It explains the self as an emergent product of evolutionary and neurobiological processes, and the universe as a dynamic physical system.
+Mainstream science inherits the physicalist baseline of §3 and adds **measurement, formal models, and institutional replication**. Where philosophy disputes mind, self, and world-realness in argument, science operationalises those disputes through instruments, datasets, and peer review. SB records that humans seek to live with evidence through experimentation, behaviour, and experience — not through argument alone:
 
-### 4.1 Cognitive Science & Neuroscience: The Brain as Generator of Self
+> **"Humans inherently seek to live with evidence through experimentation, behaviour, and experience. They desire to achieve comprehensive resolution — across various aspects, perspectives, directions, dimensions, and contexts of time and place."**
+> - SB, p. 44
 
-Self-model theories in cognitive science (pioneered philosophically by Metzinger 2003) build upon the physicalist premise. They argue that the self is not an immortal unit, but a predictive model generated by the brain to regulate the organism:
+Madhyasth Darshan treats public science as one powerful leg of that evidence-seeking: powerful on mechanism, prediction, and correction. It adds **realization and conduct** as further evidence of understanding — the epistemic frame developed in [Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf). JV notes that the human body is provisioned to **evidence** understanding, not merely to house brain activity (JV, p. 59).
+
+The account proceeds in layers. It begins with **mind, self, and predictive processing** in neuroscience, then states **consciousness-science** threshold rivals (IIT, autopoiesis, competing programs). **Cosmology** treats whether the universe began. **Quantum fields and conservation** address what persists through transformation. **Spacetime and entropy** contrast physical time and disorder with *kaal* and *vyavastha*. **Evolution and ecology** treat adaptation and cooperation as biological mechanisms. The section closes with **method and what science establishes**. Detailed time physics is in [*Nature of Time*](../Nature-Of-Time/Nature-Of-Time.pdf); critique of scientific limits is in §6.4.
+
+### 4.1 Mind, self, and predictive processing
+
+Self-model theories in cognitive science (Metzinger 2003) build on the physicalist premise that the self is not an immortal unit but a **predictive model** the brain generates to regulate the organism:
 
 > **"minimal selfhood emerges as the result"**
 > - Limanowski and Blankenburg 2013, p. 1
@@ -711,30 +806,60 @@ Self-model theories in cognitive science (pioneered philosophically by Metzinger
 > **"these accounts propose to 'understand the elusive sense of minimal self in terms of having internal models that successfully predict or match the sensory consequences of our own movement, our intentions in action, and our sensory input'."**
 > - Limanowski and Blankenburg 2013, p. 3
 
-This is nearly the opposite of the *jeevan* ontology. For Madhyasth Darshan the self is a real sentient unit using the body; for self-model theory the self is a model generated by embodied prediction. Madhyasth Darshan answers that rival through **latency**: sentience is actualized from the ever-present ground at constitutional completeness, not generated as a new ingredient from dead matter (§6.6). Self-model theory explains regulation and representation; it does not settle whether the regulator is only neural or a distinct *jeevan* working through the brain.
+The most developed recent form is **predictive processing** and **active inference**: the brain as a hierarchically deep generative model that minimizes prediction error (surprise) by updating beliefs and guiding action (Friston 2010; Clark 2016). On this view, valuation, aspiration, the sense of being a continuous self, and the felt reality of the world are not dismissed as mere illusion; they are **functionally real control structures** — layered expectations that keep the organism viable. Seth (2021) extends the picture: conscious selfhood is the brain's "best guess" about its own embodiment, a controlled hallucination tuned by interoceptive and sensorimotor evidence.
+
+For Madhyasth Darshan this is nearly the opposite of the *jeevan* ontology: the self is a real sentient unit using the body, not a model generated by embodied prediction. Science's operational criterion for when that regulative process **ends** is **brain death** — irreversible loss of whole-brain function. On that standard, the person ceases when neural integration fails; there is no post-death survival of the self for medicine to measure. Madhyasth Darshan answers the self-model rival through **latency**: sentience is actualized from the ever-present ground at constitutional completeness, not generated as a new ingredient from dead matter (§6.6). Predictive models explain **how** a body self-regulates; they do not settle **whether** the regulator is only neural tissue or a distinct *jeevan* working through the brain (§6.4.3, §6.5).
+
+### 4.2 Consciousness science: IIT, autopoiesis, and rival programs
+
+**Integrated Information Theory (IIT)** proposes that consciousness corresponds to integrated information (Φ) in a system, with a quantitative threshold producing a qualitative difference — "an experience is a maximally irreducible conceptual structure" (Tononi 2012). IIT is a useful physicalist mirror of threshold grammar: like *gathanpurnata*, it ties consciousness to a structural condition. The contrasts are decisive: IIT is pan-experiential at the fundamental level in many formulations, operational and measurement-oriented, and silent on immortal individual units or coexistential ground; Madhyasth Darshan restricts **active** sentience to constitutionally complete reflector atoms and locates latency in *satta* as *gyan* (§§1.11, 6.6).
 
 **Autopoiesis** (Maturana and Varela) treats living organization as a self-producing network that maintains its boundary and identity through continuous metabolism — "a machine organized as a network of processes of production of components" that "continuously regenerate and realize the network that produces them" (Maturana and Varela 1980, p. 78). This parallels Madhyasth Darshan's emphasis on self-maintaining constitutional completeness and bio-order cyclicality, but autopoiesis describes organizational closure in biology, not the ontological saturation of units in *satta* or the latency of sentience at *gathanpurnata*.
 
-**Integrated Information Theory (IIT)** proposes that consciousness corresponds to integrated information (Φ) in a system, with a quantitative threshold producing a qualitative difference — "an experience is a maximally irreducible conceptual structure" (Tononi 2012). IIT is a useful **physicalist mirror** of threshold grammar: like *gathanpurnata*, it ties consciousness to a structural condition. The contrasts are decisive: IIT is pan-experiential at the fundamental level in many formulations, operational and measurement-oriented, and silent on immortal individual units or coexistential ground; Madhyasth Darshan restricts **active** sentience to constitutionally complete reflector atoms and locates latency in *satta* as *gyan* (§§1.11, 6.6).
+Contemporary **consciousness science** has no settled account. Competing programs — integrated information, global neuronal workspace, higher-order theory, recurrent processing, and others — offer different structural criteria for when experience is present. Adversarial tests have partly supported and partly challenged leading theories without producing consensus. For this study, the point is structural: science shares **threshold grammar** with *gathanpurnata* but offers no third-person metric for latency in *satta* or for immortal *jeevan* (§6.6).
 
-### 4.2 Physical cosmology and cosmic beginnings
+### 4.3 Cosmology and cosmic beginnings
 
-The standard cosmological model suggests the observable universe had a beginning ~13.8 billion years ago. Several non-singular research programs (loop quantum cosmology's "bounce," Penrose's conformal cyclic cosmology, eternal inflation) are comfortable with a beginningless physical substrate even when local configurations begin and end. These are competing speculative programs, not consensus — the most this comparison claims is **conceptual resonance** with Madhyasth Darshan's claim that nature (*prakriti*) is perpetual (*satat*) (Ashtekar and Singh 2011; Penrose 2010; Guth 2007).
+The **ΛCDM** standard model treats the observable universe as expanding from a hot dense state roughly **13.8 billion years ago** — a cosmic beginning for the universe we can observe. That model is extraordinarily successful on large-scale structure, nucleosynthesis, and the cosmic microwave background. It does not by itself answer whether **existence as a whole** began, or only this cosmic epoch.
 
-### 4.3 Physics & Conservation Laws
+Several **non-singular** research programs explore a beginningless physical substrate from which local universes or phases arise. **Loop quantum cosmology** replaces the initial singularity with a "bounce" from a prior contracting phase (Ashtekar and Singh 2011). **Penrose's conformal cyclic cosmology** posits successive aeons, each with its own big bang (Penrose 2010). **Eternal inflation** treats our observable patch as one bubble in a potentially infinite multiverse (Guth 2007). These are competing speculative programs, not consensus — the most this comparison claims is **conceptual resonance** with Madhyasth Darshan's claim that nature (*prakriti*) is perpetual (*satat*), not proof that *jagat satat* is established by cosmology (§1.12, §6.2.8).
 
-**The "nothing is annihilated" principle and modern physics — handle with care.** Particle–antiparticle annihilation and pair creation are not passages into or out of absolute non-being: in quantum field theory (see standard treatments, e.g., Weinberg 1995), particles are localized excitations of conserved, all-pervasive fields, and annihilation transforms one excitation (matter) into another (radiation) under strict conservation laws. This is broadly consonant with the claim that fundamental reality (*vastu*) is conserved while configurations (*roop*) transform. The alignment should not be overstated: fields are not "substances that persist" in quite the sense *vastu* intends, and energy conservation itself is subtle in General Relativity (it is tied, via Noether's theorem, to time-symmetry that need not hold globally in an expanding spacetime; see Carroll 2010).
+### 4.4 Quantum fields, particles, and conservation
 
-**Fields vs. *vastu*.** In quantum field theory, what persists are field configurations and conserved quantities; a "particle" is a localized excitation, not a tiny enduring substance. Madhyasth Darshan's *vastu* names an underlying reality that survives every *roop*-change. The parallel is structural (configuration changes, something is conserved), not identity of category: fields are mathematical-physical entities governed by equations, not countable units with *dharma* saturated in Omnipresence.
+Particle–antiparticle annihilation and pair creation are not passages into or out of absolute non-being. In quantum field theory, particles are localized excitations of conserved, all-pervasive fields, and annihilation transforms one excitation (matter) into another (radiation) under strict conservation laws (Weinberg 1995). This is broadly consonant with Madhyasth Darshan's claim that fundamental reality (*vastu*) is conserved while configurations (*roop*) transform (§1.12) — though the alignment must be handled with care.
 
-***Satta* and physical fields (misleading analogies).** A dynamical field carries energy-momentum, exerts force, and propagates waves — nothing like the actionless (*kriya-shunya*), non-transforming *satta* (§1.2). Comparing *satta* to a physical field is therefore misleading. The nearest physical analogue — non-dynamical background geometry or the quantum vacuum ground state — captures only that units depend on a uniform ground; it drops the darshan's second half: uniform energy stays unmanifest without unit activity (§1.2).
+What persists in QFT are **field configurations** and conserved quantities; a "particle" is a localized excitation, not a tiny enduring substance. Madhyasth Darshan's *vastu* names an underlying reality that survives every *roop*-change in countable units with *dharma* saturated in Omnipresence. The parallel is structural, not identity of category: fields are mathematical-physical entities governed by equations, not bounded *ikai* in coexistence.
 
-**Time (*kaal*) vs. spacetime.** Modern physics treats spacetime as a dynamical entity — it can expand, curve, and in some models begin locally. Madhyasth Darshan treats *kaal* as the **duration of unit-activity**, numerically reckoned by humans within existence (§1.4; SB, pp. 65, 251; MVD, pp. 34, 195) — not an independent cosmic container. Omnipresence is timeless as non-transforming ground. The contrast is over whether temporality belongs to the ground of reality or only to transforming units, and over whether spacetime is fundamental physics or derivative of measurement conventions on activity. Relational and process philosophies of time (§3.4) share some structural affinity with activity-based *kaal*; block-universe eternalism does not. Comparative detail: [*Nature-Of-Time*](../Nature-Of-Time/Nature-Of-Time.pdf).
+Comparing *satta* to a physical field is misleading for the same reason. A dynamical field carries energy-momentum, exerts force, and propagates waves — nothing like the actionless (*kriya-shunya*), non-transforming *satta* (§1.2). The nearest physical analogue — non-dynamical background geometry or the quantum vacuum ground state — captures only that units depend on a uniform ground; it drops the darshan's second half: uniform energy stays unmanifest without unit activity (§1.2). Energy conservation itself is subtle in General Relativity: it is tied, via Noether's theorem, to time-symmetry that need not hold globally in an expanding spacetime (Carroll 2010).
 
-**Entropy vs. orderliness (*vyavastha*).** Thermodynamics describes a statistical arrow toward disorder in closed systems. Madhyasth Darshan asserts inherent orderliness at every order, with development toward greater organization when units are in their natural state. These are not straightforward opposites — biological and ecological systems can increase local order at the cost of entropy elsewhere — but they use different notions of "order." The second law neither supports nor refutes coexistence orderliness.
+### 4.5 Spacetime, entropy, and order
 
+Modern physics treats **spacetime** as a dynamical entity — it can expand, curve, and in some models exhibit local beginnings. Madhyasth Darshan treats *kaal* as the **duration of unit-activity**, numerically reckoned by humans within existence (§1.4; SB, pp. 65, 251; MVD, pp. 34, 195) — not an independent cosmic container. Omnipresence is timeless as non-transforming ground. The contrast is over whether temporality belongs to the ground of reality or only to transforming units, and over whether spacetime is fundamental physics or derivative of measurement conventions on activity. Relational and process philosophies of time (§3.6.4; §3.5) share some structural affinity with activity-based *kaal*; block-universe eternalism does not. Comparative detail: [*Nature-Of-Time*](../Nature-Of-Time/Nature-Of-Time.pdf).
 
-Against all of these, Madhyasth Darshan makes a stronger claim: coexistence is eternal, units are not annihilated, and *jeevan* is immortal. This eternalism is consistent with conservation principles and beginningless cosmological models; individual immortality and constitutional completeness are distinct metaphysical commitments examined in §6.2.
+**Thermodynamic entropy** describes a statistical arrow toward disorder in closed systems. Madhyasth Darshan asserts inherent **orderliness** (*vyavastha*) at every order, with development toward greater organization when units are in their natural state. These are not straightforward opposites — biological and ecological systems can increase local order at the cost of entropy elsewhere — but they use different notions of "order." The second law neither supports nor refutes coexistence orderliness.
+
+### 4.6 Evolution, ecology, and cooperation
+
+**Natural selection** is mainstream biology's mechanism for adaptation: heritable variation plus differential reproduction produces organisms fitted to their environments. On this picture, bodies, brains, and behavioural strategies — including cooperation — are **products of evolutionary history**, not eternal units with ontologically fixed *dharma*.
+
+**Ecology** treats organisms as nodes in interdependent networks: energy flows, nutrient cycles, symbiosis, and competition. **Cooperation** among conspecifics and across species is widely studied as an evolved strategy — kin selection, reciprocity, mutualism — not as ontologically real *mulya* (*value*) fulfilled in definite *sambandh* (§1.6). Madhyasth Darshan does not deny biological interdependence; it denies that ecological cooperation **replaces** inherent value-recognition and fulfilment at the knowledge order. Science explains how cooperative behaviour arises; MD claims complementarity and essentiality-as-value are **already structurally real** in coexistence.
+
+Against all of these, Madhyasth Darshan makes stronger metaphysical claims: coexistence is eternal, units are not annihilated, and *jeevan* is immortal. That eternalism is **consistent with** conservation principles and beginningless cosmological models; individual immortality and constitutional completeness are **distinct commitments** examined in §6.2.
+
+### 4.7 Method, evidence, and what science establishes
+
+Modern science does not speak with one voice across every specialty, but a typical physical-science constellation answers the study's framing questions as follows:
+
+| Question | Typical scientific answer |
+|---|---|
+| **What is existence?** | Dynamical spacetime, quantum fields, and their excitations — studied through observation, experiment, and mathematical models. |
+| **What exists?** | Matter, energy, fields, organisms, brains; minds as functional/processual features of neural systems. |
+| **Does what exists begin?** | The observable universe ~13.8 Ga on ΛCDM; whether any substrate is beginningless is unsettled (§4.3). |
+| **Does the individual self begin?** | Self develops with brain and body; **brain death** ends the person operationally; no measured post-death continuity (§4.1). |
+| **Is the world finally real?** | Yes — the physical world is mind-independent and law-governed, publicly testable. |
+| **Method of knowing** | Observation, instrumentation, modelling, replication, peer review; third-person confirmation. |
+
+What science **has** established is precise mechanism, prediction, and correction across domains from particle physics to neuroscience. What it **has not** established — on Madhyasth Darshan's reading — is immortal *jeevan*, constitutional completeness at *gathanpurnata*, or post-death continuity of a sentient unit. An explanatory gap in the hard problem (§3.2) is not an existence proof for *jeevan*; predictive accuracy alone does not settle whether the regulator is only neural or a distinct unit working through the brain (§6.4, §6.5). The comparative synthesis begins in §5.
 
 ## 5. Comparison
 
@@ -759,7 +884,7 @@ Causal doctrine is the deepest structural difference between the three systems �
 
 **Madhyasth Darshan:** Denies single-material-cause reduction and linear efficient-cause chains. *Satta* is *mahakaran* (supreme sustaining cause), not efficient cause (§1.2). Units change through the single activity triad *shram–gati–parinam*, read toward completeness in sentient nature through projection, reflection, and *samadhan*, with circular activity, order-specific cyclicality, and *sanskar*-mediated human cycles. Conservation of *vastu* through *roop*-change resembles *parinamavada* at the unit level, but the full picture is not reducible to "*parinamavada*-like" alone.
 
-**Modern physicalism:** Strict efficient causation — mechanism, fields, conservation laws. Origination of particular systems is compatible with a beginningless substrate (§4.2); no teleology or supreme ground.
+**Modern physicalism:** Strict efficient causation — mechanism, fields, conservation laws. Origination of particular systems is compatible with a beginningless substrate (§4.3); no teleology or supreme ground.
 
 | Aspect | Advaita | Madhyasth Darshan | Modern physicalism |
 |---|---|---|---|
@@ -792,11 +917,11 @@ The table compares primary entities across the four traditions developed in the 
 | Entity Category / Attribute | Madhyasth Darshan (Co-existentialism) | Advaita Vedanta (Non-Dualism) | Contemporary Philosophy (Process, Physicalist, Panpsychist) | Modern Science (Physics, CogSci, Cosmology) |
 | :--- | :--- | :--- | :--- | :--- |
 | **Cosmic Ground** | **Omnipresence (*Satta / Space*)**: Pervasive, formless, actionless energy (*kriya-shunya*). Inherent energy and regulation in units through saturation (*samprikt*); uniform energy manifests as activity only through units (§1.2). | **Brahman**: The single, non-dual absolute reality (*Sat-Chit-Ananda*). The world is *mithya* (dependent appearance) at *paramartha*. | **Form + Matter** (Hylomorphism): Substantial form actualizing matter. **Substance + modes** (Spinoza): One *Deus sive Natura*, finite modes. **Monad field** (Leibniz): Simple substances in harmony. **Creativity / God** (Process): Dynamic process. **Neutral Stuff** (Neutral Monism): Common element. | **Spacetime & Quantum Fields**: Dynamic, physical substrate. No inherent consciousness or teleology. |
-| **Individual Self / Sentience** | **Jeevan**: A constitutionally complete, immortal atom (*gathanpurna parmanu*). Many distinct, eternal *jeevan* exist. | **Jivatman / Atman**: Individuality (*jivatman*) is a *vyavahara* superimposition (VC, v. 244). The true Self (*Atman*) is identical to Brahman. | **Rational Soul as Form** (Hylomorphism): Form of the living body. **Monad** (Leibniz): Simple, mirroring, immortal substance. **Self-Model** (Physicalist): Evolved cognitive model. **Φ-threshold system** (IIT): Integrated information. | **Predictive Self / Cognitive Agent**: Brain-generated hierarchical model (§6.4.3). No survival post-death. |
+| **Individual Self / Sentience** | **Jeevan**: A constitutionally complete, immortal atom (*gathanpurna parmanu*). Many distinct, eternal *jeevan* exist. | **Jivatman / Atman**: Individuality (*jivatman*) is a *vyavahara* superimposition (VC, v. 244). The true Self (*Atman*) is identical to Brahman. | **Rational Soul as Form** (Hylomorphism): Form of the living body. **Monad** (Leibniz): Simple, mirroring, immortal substance. **Self-Model** (Physicalist): Evolved cognitive model. **Φ-threshold system** (IIT): Integrated information. | **Predictive Self / Cognitive Agent**: Brain-generated hierarchical model (§4.1). No survival post-death. |
 | **Material Reality / Body** | **Jada Units / Shareer**: Real, perpetual, transforming matter. Composes the body, which acts as the vehicle for *jeevan*. | **Nama-Roopa / Mithya**: Form and name; robust at *vyavahara*; sublated at *paramartha*. | **Physical Matter**: The primary concrete reality (Physicalism); or the outer aspect of experiential units (Panpsychism). | **Matter & Energy**: Consolidated excitations of quantum fields. Governed by conservation laws. Perpetual in base fields. |
 | **Relationships & Moral Order** | **Coexistence / Complementarity**: Inherent, ontologically real values (*mulya*) and orderliness (*vyavastha*) through the regulation ladder (§1.7). | **Ethics at *vyavahara***: Valid to purify the mind; *loka-sangraha* (BG); sublated at *paramartha*. | **Social / Internal Relations**: Relationality constitutes the self (Process); or evolutionary strategies for survival (Physicalism). | **Ecology & Cooperation**: Interdependent biological networks. Cooperation is an evolved behavioral strategy. |
 | **Primary Causation** | **Circular mutual causality (§§1.2–1.4)**: *Satta* as *mahakaran*; single *shram–gati–parinam* triad with sentient unfolding; circular activity; *sanskar*-mediated human cycles. | **Vivartavada**: Apparent transformation on changeless Brahman (*satkaryavada* background). | **Efficient / Creative Causation**: Physical mechanisms (Physicalism); or "concrescence" (Process). | **Physical Causation**: Mathematical laws, conservation, entropy. |
-| **Ultimate Purpose / Realization** | **Awakening (*Jagriti*)**: Realization of coexistence, leading to resolved humane conduct (*manaviya aacharan*) in society. | **Liberation (*Moksha*)**: Recognition of identity with Brahman; illusion of separate self dispelled (VC, v. 574). | **Flourishing / Adaptation**: Cognitive adaptability (Physicalism); aesthetic intensity of experience (Process). | **Survival & Adaptation**: Natural selection; active inference / free-energy minimization (Friston 2010; §6.4.3); homeostasis. |
+| **Ultimate Purpose / Realization** | **Awakening (*Jagriti*)**: Realization of coexistence, leading to resolved humane conduct (*manaviya aacharan*) in society. | **Liberation (*Moksha*)**: Recognition of identity with Brahman; illusion of separate self dispelled (VC, v. 574). | **Flourishing / Adaptation**: Cognitive adaptability (Physicalism); aesthetic intensity of experience (Process). | **Survival & Adaptation**: Natural selection; active inference / free-energy minimization (Friston 2010; §4.1); homeostasis. |
 
 ### 5.5 The Sat-Chit-Ananda contrast, distributed
 
@@ -867,7 +992,7 @@ No single tradition wins every dispute. Three pairwise patterns clarify what eac
 
 **Madhyasth Darshan and science against Advaita.** Both treat the world as real and worth studying. Matter, bodies, relationships, and ecological order are not finally *mithya* or preparatory illusion. Against world-negating non-dualism, both insist that nature and society have final weight — though science does not affirm Omnipresence or immortal *jeevan*.
 
-**Advaita and science against Madhyasth Darshan.** Both set a high bar for claims that exceed public evidence. Advaita holds that separate individuality was never ultimately real (VC, v. 574); science treats the self as a biological process that ceases at brain death. Against Madhyasth Darshan's eternal distinct sentient units, both deny — on different grounds — that an immortal individual self is established.
+**Advaita and science against Madhyasth Darshan.** Both set a high bar for claims that exceed public evidence. Advaita holds that separate individuality was never ultimately real (VC, v. 574); science treats the self as a biological process that ceases at **brain death** (§4.1). Against Madhyasth Darshan's eternal distinct sentient units, both deny — on different grounds — that an immortal individual self is established.
 
 Each pair agrees on something the third denies. Comparative clarity depends on naming which question is at stake: matter-only reduction, world-reality, or individual immortality.
 
@@ -903,7 +1028,7 @@ Madhyasth Darshan holds that inherent energy in units and manifestation of unifo
 
 2. **Asymmetric roles within inseparability.** Omnipresence is *sthitipurn* (state-complete): non-transforming, actionless, without motion or pressure (SB, pp. 50, 68–69). Nature saturated in it is *sthitishil* (state-dynamic): units whose activity constitutes all change. *Satta* is *mahakaran* — supreme cause in the **sustaining** sense, not the efficient trigger of particular change (§1.4). The poles are mutually dependent for how energy appears, but not interchangeable: one is formless ground, the other is formful activity.
 
-3. **Countably many reals, not mode-monism.** MVD's second Reality proposition pairs omnipresent Brahma with **many** *jeevan*-clouds (MVD, p. 13). Units are bounded, countable, and saturated — not modes of a single substance expressing one nature (contrast Spinoza, §3.4). Madhyasth Darshan's plural *ikai* are ontological partners of *satta*, not appearances on a one-sided ground.
+3. **Countably many reals, not mode-monism.** MVD's second Reality proposition pairs omnipresent Brahma with **many** *jeevan*-clouds (MVD, p. 13). Units are bounded, countable, and saturated — not modes of a single substance expressing one nature (contrast Spinoza, §3.6.2). Madhyasth Darshan's plural *ikai* are ontological partners of *satta*, not appearances on a one-sided ground.
 
 4. **Definite relationships and value.** Units stand in *sambandh* with predetermined expectations toward completeness (MVD, p. 62). Recognition, fulfilment, and essentiality-as-value (§1.6) treat nature as a structured moral-ontological order, not a flux of dependently arisen events with no final weight.
 
@@ -960,7 +1085,7 @@ Central to the ontology but not presently measurable in physics or chemistry.
 
 #### 6.2.8 Evidence standard vs. science
 
-Realization and behavior are cited; science requires public testability. What would count as evidence for *jeevan* beyond the hard-problem explanatory gap? §6.4 addresses this. An explanatory gap in the hard problem is not by itself an existence proof for *jeevan*; physicalists treat it as philosophically non-decisive while Madhyasth Darshan reads it as ontological incompleteness in matter-only accounts (§3.2, §6.2.1). Comparisons with physics use **consonant with**, **parallel to**, or **in tension with** — not "supported by" unless the evidence warrants it; conceptual resonance with beginningless cosmological models is not proof of perpetual nature (*satat*) (§4.2). Claims about individual immortality and constitutional completeness remain distinct metaphysical assertions beyond what current science validates.
+Realization and behavior are cited; science requires public testability. What would count as evidence for *jeevan* beyond the hard-problem explanatory gap? §6.4 addresses this. An explanatory gap in the hard problem is not by itself an existence proof for *jeevan*; physicalists treat it as philosophically non-decisive while Madhyasth Darshan reads it as ontological incompleteness in matter-only accounts (§3.2, §6.2.1). Comparisons with physics use **consonant with**, **parallel to**, or **in tension with** — not "supported by" unless the evidence warrants it; conceptual resonance with beginningless cosmological models is not proof of perpetual nature (*satat*) (§4.3). Claims about individual immortality and constitutional completeness remain distinct metaphysical assertions beyond what current science validates.
 
 #### 6.2.9 "Knowledge but not knower"
 
@@ -998,9 +1123,7 @@ But modern philosophy is not unified. Chalmers and Nagel show experience resists
 
 ### 6.4.3 Physicalism's strongest reply: predictive processing
 
-Physicalism's most developed recent reply to ontology-of-self challenges is not illusionism alone but **predictive processing** and **active inference**: the brain as a hierarchically deep generative model that minimizes prediction error (surprise) by updating beliefs and guiding action (Friston 2010; Clark 2016). On this view, valuation, aspiration, the sense of being a continuous self, and the felt reality of the world are not dismissed as mere illusion; they are **functionally real control structures** — layered expectations that keep the organism viable. Seth (2021) extends the picture: conscious selfhood is the brain's "best guess" about its own embodiment, a controlled hallucination tuned by interoceptive and sensorimotor evidence.
-
-That reply deserves the same seriousness as Advaita's *loka-sangraha* defense in §6.3. It meets Madhyasth Darshan partway on embodiment, circular causation, and the reality of regulation in lived experience. It is a harder opponent than bare eliminativism because it does not treat first-person structure as a mistake to explain away.
+Physicalism's most developed recent reply to ontology-of-self challenges is **predictive processing** and **active inference** — exposited in §4.1 with the scientific evidence standard in §4.7. That reply deserves the same seriousness as Advaita's *loka-sangraha* defense in §6.3: it meets Madhyasth Darshan partway on embodiment, circular causation, and the reality of regulation in lived experience, and it is a harder opponent than bare eliminativism because it does not treat first-person structure as a mistake to explain away.
 
 The Madhyasth counter-reply is narrower. Predictive models explain **how** a body self-regulates and represents its situation; they do not settle **whether** the regulator is only neural tissue or a distinct constitutionally complete unit working through the brain. Latency holds that sentience is actualized from coexistential ground at *gathanpurnata*, not generated as a new experiential ingredient from dead matter (§6.6). Until public criteria distinguish those ontologies, the dispute remains at the incommensurability boundary (§6.5) — not settled by predictive accuracy alone.
 
@@ -1107,8 +1230,8 @@ This study cites the *Vivekachudamani* (VC) heavily for accessible verse formula
 ### Madhyasth Darshan (primary sources)
 
 - **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: Realisation Knowledge and Effort–Motion–Result principle (p. 11); reciprocal revelation and eternal co-presence of nature in absolute energy (p. 40); mediative Omnipotence, regulated conserved nature, mediative nucleus (p. 26); Omnipresence/Space (pp. 11, 13, 35); nine Reality propositions (pp. 12–13); definite development and awakening, laws inherent to being (p. 5); hungry/overfull atoms, planetary composition, and Earth biological emergence (pp. 8, 13); Postulations: physicochemical nature in development progression; atom as sentient unit (p. 14); Verity chain, orderliness as development and awakening (pp. 14–15); Development and Awakening Progression (pp. 13–14, 27, 87); "Brahma is truth, the world is perpetual" (p. 13); Vedanta origination objection and *jagat satat* counter (*The Alternative*; §6.3); gist of coexistence (p. 5); *vyapak* at all places and times (p. 34); time (*kaal*) as duration of activity (pp. 34, 196, 338); measurement of time through mathematics (p. 195); *jeevan*-cloud and faculties (pp. 83–84); six *drishti*, perspective domain mapping, balanced and unbalanced *vritti*, yathartha visualization (pp. 58, 60–61, 66–67, 71, 126–127); relationship vs association, grace, *sadhan*, and *kshamata*–*yogyata*–*patrata* (pp. 61–62); mixture vs compound composition (p. 42); insentient vs sentient definition, constitution as recognition–fulfilment, inward regulation of *jeevan* energies (p. 77); *atma* as mediative regulator of faculties (p. 277); ascending/frustration and order-specific orbit activity (p. 79); action-dependence of animals (p. 69); family/community assembly (p. 55); seed and *rachna vidhi* (pp. 92–93); *patrata*–*drishti*–*darshan* and capacity–ability–receptivity for worldview (pp. 134, 142, 302); moral development tiers (p. 160); knowledge unfolding by awakened humans (p. 115); *sanskar* definition (p. 90); unit signature, *svabhav*, and innateness (*dharma*) in mutuality (p. 112); four-level causal hierarchy and mortal/immortal/eternal *dharma*s (p. 288); order-specific cyclical manifestation and knowledge unfolding through *jeevan*/thoughts (p. 289); reflection–projection cycle (pp. 290–291); effort–motion–result in *jeevan* (p. 78); no isolated unit; development from environment (p. 230); humane behaviour as justice (p. 35); regulation through justice, *dharma*, and truth (p. 137); justice as recognition, fulfilment, evaluation, mutual satisfaction (pp. 311, 336); four-fold human goal and awakened sociality — resolution, prosperity, fearlessness, coexistence (Ch. 4); fulfilment evidencing resolution and prosperity (p. 62).
-- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Also at https://www.youtube.com/playlist?list=PL69PCoz1OQW0dhshZ0Xv3KtZ7ajJOIpgv (bilingual Hindi and English). Cited: unit wholeness with environment and orderliness with *ness* (p. 13); natural and excited state, development and decline (pp. 14–15); existence as nature saturated in Omnipotence (p. 48); timeless truth across three times (p. 48); Omnipotence all-pervasive and countless units (p. 49); complementarity from coexistence (p. 49); essentiality as value, reciprocity in mutuality (p. 50); nature embedded in complete, compulsory completeness, orientation toward development (pp. 50–51); telos: development and awakening until realisation in Omnipotence (p. 51); *ness* and exuberance under naturalness (p. 54); give–take reciprocity and *svabhav gati* (pp. 52–53); participation as recognising and fulfilling (p. 123); regulation as law, mutual recognition provision, regulation/activeness/forcefulness from saturation (p. 57); law of orderliness with *ness* and order conformance regimes (p. 236); effort–motion–result triad and sentient completeness mapping (pp. 58, 71); projection and reflection; *samadhan* (pp. 60, 64–65); three completeness types and developing solely for completeness (pp. 45, 51–52, 58, 80); physicochemical plane; atom vs molecule development (p. 52); constitutional completeness and quantitative stability (pp. 55, 59); identity-chain and basic impulsion (p. 62); inertial-impression (*adhyasa*) and *sanskar*-conformity (pp. 62–63); natural and excited state, assembly persistence (p. 14); layered order *dharma*s (p. 179); unit energy from saturation; embedded inclination and mediative activity toward completeness (p. 70); time measured by duration of activity (p. 65); humanly devised numerical reckoning of time (p. 251); state–motion inseparability and order-specific mutual activity (pp. 248–249).
-- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: no provision to separate units from Omnipresence (p. 18); birth, death, conservation, and *jeevan* post-death continuity (p. 20); nothing isolated (p. 43); order conformity and definite conduct (pp. 48, 113); universal recognition–fulfilment (p. 69); protected, regulated, energised at fundamental level (p. 82); atomic assembly and coexistence inclination (p. 67); cells to organisms (p. 82); incomplete knowledge order (p. 47); human body provisioned to evidence understanding (p. 59); knowing and believing (p. 70); justice through relationships, values, evaluation, mutual satisfaction (p. 55); human goal — resolution, prosperity, fearlessness, coexistence (p. 165); prosperity through right-use production (p. 41).
+- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Also at https://www.youtube.com/playlist?list=PL69PCoz1OQW0dhshZ0Xv3KtZ7ajJOIpgv (bilingual Hindi and English). Cited: unit wholeness with environment and orderliness with *ness* (p. 13); natural and excited state, development and decline (pp. 14–15); dialectical materialism vs Resolution Centred Materialism (pp. 8, 44); evidence through experimentation, behaviour, and experience (p. 44); existence as nature saturated in Omnipotence; matter/consciousness inseparability and coexistence (p. 48); timeless truth across three times (p. 48); Omnipotence all-pervasive and countless units (p. 49); complementarity from coexistence (p. 49); essentiality as value, reciprocity in mutuality (p. 50); nature embedded in complete, compulsory completeness, orientation toward development (pp. 50–51); telos: development and awakening until realisation in Omnipotence (p. 51); *ness* and exuberance under naturalness (p. 54); give–take reciprocity and *svabhav gati* (pp. 52–53); participation as recognising and fulfilling (p. 123); regulation as law, mutual recognition provision, regulation/activeness/forcefulness from saturation (p. 57); law of orderliness with *ness* and order conformance regimes (p. 236); effort–motion–result triad and sentient completeness mapping (pp. 58, 71); projection and reflection; *samadhan* (pp. 60, 64–65); three completeness types and developing solely for completeness (pp. 45, 51–52, 58, 80); physicochemical plane; atom vs molecule development (p. 52); constitutional completeness and quantitative stability (pp. 55, 59); identity-chain and basic impulsion (p. 62); inertial-impression (*adhyasa*) and *sanskar*-conformity (pp. 62–63); natural and excited state, assembly persistence (p. 14); layered order *dharma*s (p. 179); unit energy from saturation; embedded inclination and mediative activity toward completeness (p. 70); time measured by duration of activity (p. 65); humanly devised numerical reckoning of time (p. 251); state–motion inseparability and order-specific mutual activity (pp. 248–249).
+- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: no provision to separate units from Omnipresence (p. 18); birth, death, conservation, and *jeevan* post-death continuity (p. 20); nothing isolated (p. 43); order conformity and definite conduct (pp. 48, 113); universal recognition–fulfilment (p. 69); protected, regulated, energised at fundamental level (p. 82); atomic assembly and coexistence inclination (p. 67); cells to organisms (p. 82); incomplete knowledge order (p. 47); human body provisioned to evidence understanding (p. 59; §4); knowing and believing (p. 70); justice through relationships, values, evaluation, mutual satisfaction (p. 55); human goal — resolution, prosperity, fearlessness, coexistence (p. 165); prosperity through right-use production (p. 41).
 
 ### Madhyasth Darshan (secondary exposition)
 
@@ -1135,27 +1258,32 @@ Verse and section numbers follow standard numbering and apply to any faithful ed
 
 - **Chalmers 1995** — Chalmers, D. ["Facing Up to the Problem of Consciousness."](../References/Science/Chalmers-1995-Facing-Up-to-the-Problem-of-Consciousness.pdf) *Journal of Consciousness Studies*, 2(3), 200–219. Also at https://consc.net/papers/facing.pdf. Cited: the hard problem (§3.2).
 - **Nagel 1974** — Nagel, T. ["What Is It Like to Be a Bat?"](../References/Science/Nagel-1974-What-Is-It-Like-to-Be-a-Bat.pdf) *The Philosophical Review*, 83(4), 435–450. Also at https://www.cs.ox.ac.uk/activities/ieg/e-library/sources/nagel_bat.pdf. Cited: the "something it is like" criterion (§3.2).
-- **Strawson 2006** — Strawson, G. ["Realistic Monism: Why Physicalism Entails Panpsychism."](../References/Science/Strawson-2006-Realistic-Monism-Panpsychism.pdf) *Journal of Consciousness Studies*, 13(10–11), 3–31. Also at https://consc.net/event/reef/strawsonmonism.pdf. Cited: definition of physicalism (§3.1); reality of experience and anti-emergence (§3.3).
-- **Frankish 2016** — Frankish, K. ["Illusionism as a Theory of Consciousness."](../References/Modern-Philosophy/Frankish-2016-Illusionism-Theory-Consciousness.pdf) *Journal of Consciousness Studies*, 23(11–12), 11–39. Cited: illusionism (§3.5).
+- **Strawson 2006** — Strawson, G. ["Realistic Monism: Why Physicalism Entails Panpsychism."](../References/Science/Strawson-2006-Realistic-Monism-Panpsychism.pdf) *Journal of Consciousness Studies*, 13(10–11), 3–31. Also at https://consc.net/event/reef/strawsonmonism.pdf. Cited: definition of physicalism (§3.1); reality of experience, anti-emergence, and panpsychism (§3.3).
+- **Frankish 2016** — Frankish, K. ["Illusionism as a Theory of Consciousness."](../References/Modern-Philosophy/Frankish-2016-Illusionism-Theory-Consciousness.pdf) *Journal of Consciousness Studies*, 23(11–12), 11–39. Cited: illusionism (§3.3).
+- **Kim 2005** — Kim, J. [*Physicalism, or Something Near Enough*](https://press.princeton.edu/books/paperback/9780691117532/physicalism-or-something-near-enough). Princeton University Press. Cited: causal closure (§3.1, §3.4).
+- **Dennett 1991** — Dennett, D. C. [*Consciousness Explained*](https://www.penguinrandomhouse.com/books/311069/consciousness-explained-by-daniel-c-dennett/). Little, Brown. Cited: eliminativist/functionalist reply to the hard problem (§3.3).
+- **Churchland 1986** — Churchland, P. S. [*Neurophilosophy: Toward a Unified Science of the Mind-Brain*](https://mitpress.mit.edu/9780262530853/neurophilosophy/). MIT Press. Cited: eliminative materialism (§3.3).
+- **Parfit 1984** — Parfit, D. [*Reasons and Persons*](https://global.oup.com/academic/product/reasons-and-persons-9780198249085). Oxford University Press. Cited: personal identity reductionism (§3.4).
+- **SEP Personal Identity** — Olson, E. ["Personal Identity."](https://plato.stanford.edu/entries/identity-personal/) *Stanford Encyclopedia of Philosophy*. Cited: Locke, Parfit, and substance views (§3.4).
 - **Limanowski and Blankenburg 2013** — Limanowski, J., and Blankenburg, F. ["Minimal self-models and the free energy principle."](../References/Modern-Philosophy/Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf) *Frontiers in Human Neuroscience*, 7. Cited: minimal selfhood as embodied self-modeling (§4.1).
 - **Metzinger 2003** — Metzinger, T. [*Being No One: The Self-Model Theory of Subjectivity*](https://mitpress.mit.edu/9780262632870/being-no-one/). MIT Press. Cited: self-model theory (§4.1).
-- **Whitehead 1929** — Whitehead, A. N. [*Process and Reality*](../References/Modern-Philosophy/Whitehead-1929-Process-and-Reality.pdf) (1929 ed.). Cited: actual entities as drops of experience (p. 28); perpetual perishing and objective immortality (p. 44) (§3.4).
-- **Russell 1921** — Russell, B. [*The Analysis of Mind*](../References/Modern-Philosophy/Russell-1921-The-Analysis-of-Mind.pdf). Cited: neutral monism and neutral-stuff (Lecture I) (§3.4).
-- **Mach 1914** — Mach, E. [*The Analysis of Sensations*](../References/Modern-Philosophy/Mach-1914-The-Analysis-of-Sensations.pdf), trans. C. M. Williams and S. Waterlow. Cited: unity of physical and psychical; elements as common ground (Ch. XIV) (§3.4).
-- **SEP Form and Matter** — Robinson, H. ["Hylomorphism."](https://plato.stanford.edu/entries/form-matter/) *Stanford Encyclopedia of Philosophy*. Cited: Aristotelian–Thomistic form–matter and soul-as-form (§3.4).
-- **Aquinas ST** — Aquinas, T. [*Summa Theologiae* I, qq. 75–76](https://www.newadvent.org/summa/1075.htm). Cited: soul as form of the body (§3.4).
-- **Leibniz Monadology** — Leibniz, G. W. [*Monadology*](https://www.gutenberg.org/ebooks/43758), trans. R. Latta. Cited: simple substances, mirroring, immortality (§3.4).
-- **Spinoza Ethics** — Spinoza, B. [*Ethics*](https://www.gutenberg.org/ebooks/3800), trans. R. H. M. Elwes. Cited: substance monism, modes, attributes (§3.4).
-- **Maturana and Varela 1980** — Maturana, H. R., and Varela, F. J. [*Autopoiesis and Cognition*](https://archive.org/details/autopoiesisandco0000matu). Reidel. Cited: self-producing living organization (p. 78) (§4.1).
-- **Tononi 2012** — Tononi, G. ["Integrated Information Theory of Consciousness: an updated account."](https://arxiv.org/abs/1210.4919) *Archives* (2012). Cited: Φ and conceptual structure of experience (§4.1, §6.6).
-- **Clark 2016** — Clark, A. [*Surfing Uncertainty: Prediction, Action, and the Embodied Mind*](https://global.oup.com/academic/product/surfing-uncertainty-9780190217013). Oxford University Press. Cited: predictive processing (§6.4.3).
-- **Seth 2021** — Seth, A. [*Being You: A New Science of Consciousness*](https://www.penguinrandomhouse.com/books/652452/being-you-by-anil-seth/). Faber & Faber. Cited: controlled hallucination model of self (§6.4.3).
+- **Whitehead 1929** — Whitehead, A. N. [*Process and Reality*](../References/Modern-Philosophy/Whitehead-1929-Process-and-Reality.pdf) (1929 ed.). Cited: actual entities as drops of experience (p. 28); perpetual perishing and objective immortality (p. 44) (§3.6.4).
+- **Russell 1921** — Russell, B. [*The Analysis of Mind*](../References/Modern-Philosophy/Russell-1921-The-Analysis-of-Mind.pdf). Cited: neutral monism and neutral-stuff (Lecture I) (§3.6.5).
+- **Mach 1914** — Mach, E. [*The Analysis of Sensations*](../References/Modern-Philosophy/Mach-1914-The-Analysis-of-Sensations.pdf), trans. C. M. Williams and S. Waterlow. Cited: unity of physical and psychical; elements as common ground (Ch. XIV) (§3.6.5).
+- **SEP Form and Matter** — Robinson, H. ["Hylomorphism."](https://plato.stanford.edu/entries/form-matter/) *Stanford Encyclopedia of Philosophy*. Cited: Aristotelian–Thomistic form–matter and soul-as-form (§3.6.1).
+- **Aquinas ST** — Aquinas, T. [*Summa Theologiae* I, qq. 75–76](https://www.newadvent.org/summa/1075.htm). Cited: soul as form of the body (§3.6.1).
+- **Leibniz Monadology** — Leibniz, G. W. [*Monadology*](https://www.gutenberg.org/ebooks/43758), trans. R. Latta. Cited: simple substances, mirroring, immortality (§3.6.3).
+- **Spinoza Ethics** — Spinoza, B. [*Ethics*](https://www.gutenberg.org/ebooks/3800), trans. R. H. M. Elwes. Cited: substance monism, modes, attributes (§3.6.2).
+- **Maturana and Varela 1980** — Maturana, H. R., and Varela, F. J. [*Autopoiesis and Cognition*](https://archive.org/details/autopoiesisandco0000matu). Reidel. Cited: self-producing living organization (p. 78) (§4.2).
+- **Tononi 2012** — Tononi, G. ["Integrated Information Theory of Consciousness: an updated account."](https://arxiv.org/abs/1210.4919) *Archives* (2012). Cited: Φ and conceptual structure of experience (§4.2, §6.6).
+- **Clark 2016** — Clark, A. [*Surfing Uncertainty: Prediction, Action, and the Embodied Mind*](https://global.oup.com/academic/product/surfing-uncertainty-9780190217013). Oxford University Press. Cited: predictive processing (§4.1).
+- **Seth 2021** — Seth, A. [*Being You: A New Science of Consciousness*](https://www.penguinrandomhouse.com/books/652452/being-you-by-anil-seth/). Faber & Faber. Cited: controlled hallucination model of self (§4.1).
 
 ### Cosmology and physics
 
-- **Ashtekar and Singh 2011** — Ashtekar, A., and Singh, P. ["Loop Quantum Cosmology: A Status Report."](../References/Science/Ashtekar-Singh-2011-Loop-Quantum-Cosmology-Status-Report.pdf) arXiv:1108.0893. Cited: beginningless-substrate research programs (§4.2).
-- **Penrose 2010** — Penrose, R. [*Cycles of Time: An Extraordinary New View of the Universe*](https://www.penguinrandomhouse.com/books/311068/cycles-of-time-by-roger-penrose/). Bodley Head. Cited: Conformal Cyclic Cosmology (§4.2).
-- **Guth 2007** — Guth, A. H. ["Eternal inflation and its implications."](../References/Science/Guth-2007-Eternal-Inflation.pdf) *Journal of Physics A: Mathematical and Theoretical*, 40(25), 6811. Cited: eternal inflation (§4.2).
-- **Carroll 2010** — Carroll, S. ["Energy Is Not Conserved."](../References/Science/Carroll-2010-Energy-Is-Not-Conserved.html) *Preposterous Universe* (blog), 2010. Cited: energy conservation in General Relativity (§4.3).
-- **Friston 2010** — Friston, K. ["The free-energy principle: a unified brain theory?"](../References/Science/Friston-2010-Free-Energy-Principle.pdf) *Nature Reviews Neuroscience*, 11(2), 127–138. Cited: Free Energy Principle (§5.4).
-- **Weinberg 1995** — Weinberg, S. [*The Quantum Theory of Fields*, Vol. 1: *Foundations*](https://www.cambridge.org/core/books/quantum-theory-of-fields/7A7637CB756DAC56A978B5E4EBD9788F). Cambridge University Press. Cited: quantum field theory and particle excitations (§4.3).
+- **Ashtekar and Singh 2011** — Ashtekar, A., and Singh, P. ["Loop Quantum Cosmology: A Status Report."](../References/Science/Ashtekar-Singh-2011-Loop-Quantum-Cosmology-Status-Report.pdf) arXiv:1108.0893. Cited: beginningless-substrate research programs (§4.3).
+- **Penrose 2010** — Penrose, R. [*Cycles of Time: An Extraordinary New View of the Universe*](https://www.penguinrandomhouse.com/books/311068/cycles-of-time-by-roger-penrose/). Bodley Head. Cited: Conformal Cyclic Cosmology (§4.3).
+- **Guth 2007** — Guth, A. H. ["Eternal inflation and its implications."](../References/Science/Guth-2007-Eternal-Inflation.pdf) *Journal of Physics A: Mathematical and Theoretical*, 40(25), 6811. Cited: eternal inflation (§4.3).
+- **Carroll 2010** — Carroll, S. ["Energy Is Not Conserved."](../References/Science/Carroll-2010-Energy-Is-Not-Conserved.html) *Preposterous Universe* (blog), 2010. Cited: energy conservation in General Relativity (§4.4, §4.5).
+- **Friston 2010** — Friston, K. ["The free-energy principle: a unified brain theory?"](../References/Science/Friston-2010-Free-Energy-Principle.pdf) *Nature Reviews Neuroscience*, 11(2), 127–138. Cited: Free Energy Principle (§4.1, §5.4).
+- **Weinberg 1995** — Weinberg, S. [*The Quantum Theory of Fields*, Vol. 1: *Foundations*](https://www.cambridge.org/core/books/quantum-theory-of-fields/7A7637CB756DAC56A978B5E4EBD9788F). Cambridge University Press. Cited: quantum field theory and particle excitations (§4.4).
