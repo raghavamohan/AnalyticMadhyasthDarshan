@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 26, 2026, 6:12 AM IST
+**Edited on:** June 26, 2026, 6:32 AM IST
 
 **Status:** Draft
 
@@ -47,7 +47,7 @@ Further terms — planes, justice, prosperity, *gyan* registers — are defined 
 
 Madhyasth Darshan defines **existence** as the ever-present **coexistence** of formless **Omnipresence** (*satta*) and countless bounded **units** of nature — beginningless, without creation from nothing, and indestructible at the level of being.
 
-The account proceeds in layers. It begins with the two co-eternal poles and the bond of **saturation** between ground and units, then states what every unit is and how all change appears as **unit-activity**. It names the **four orders** of nature and the **relationships** in which units recognise and fulfil one another. From there it treats **regulation and law**, **composition** of larger units, and **development** toward sentience. The sentient self (*jeevan*), evaluative life, and knowledge in coexistence follow. The section closes with **conservation**, the **perpetual world**, and what fulfilled human living evidences at the knowledge order.
+The account proceeds in layers. It begins with the two co-eternal poles and the bond of **saturation** between ground and units, then states what every unit is and how all change appears as **unit-activity**. It names the **four orders** of nature and the **relationships** in which units recognise and fulfil one another. From there it treats **regulation and law**, **composition** of larger units, and **development** toward sentience. The sentient self (*jeevan*), evaluative life, and knowledge in coexistence follow. The section closes with **conservation**, the **perpetual world**, and what fulfilled human living evidences at the knowledge order. The full architecture is summarised in the figure at §1.9.
 
 ### 1.1 Coexistence: Omnipresence and units
 
@@ -205,6 +205,8 @@ MVD defines a **relationship** as "the mutuality where expectations are predeter
 > **"Entire beingness implies the essentiality of units in every plane and order. Essentiality refers to value… It is values that are reciprocated and mutually recognised, as complementarity, mutual recognition, and impression occur only in mutuality."**
 > - SB, p. 50
 
+**Impression** names the describable event in which one unit's activity registers on another in mutuality — alongside complementarity and mutual recognition.
+
 Every unit **recognises** its relationships and **fulfils** them through **capacity** (*kshamata*), **ability** (*yogyata*), and **receptivity** (*patrata*) at the level of its order (MVD, p. 62):
 
 > **"Every entity of nature recognises another; that is why it fulfils. An atomic particle too recognises another, and as a result, these particles abide in orderliness."**
@@ -313,7 +315,7 @@ MVD lists five inseparable aspects — *mun*, *vritti*, *chitta*, *buddhi*, and 
 
 **Inward regulation** is ontological self-regulation within the sentient unit — *atma* as mediative activity disciplines the lower faculties and body (MVD, p. 277), parallel to mediative regulation at the atomic nucleus (§1.7).
 
-Mistaking the body for the self is the root of delusion (SB, pp. 91–92). *Jeevan* does not sleep when the body sleeps; values and evaluation are *jeevan*'s practical purpose.
+Mistaking the body for the self is the root of delusion (SB, pp. 91–92). *Jeevan* does not sleep when the body sleeps; values and evaluation are *jeevan*'s practical purpose. At the knowledge order, **perceiver status** (*drishta pad*) — enlightenment and realisation within the truth of coexistence — is what awakened humans attain; activity completeness (T2) and conduct completeness (T3) evidence it in orderliness with *ness* and living proof (SB, pp. 137–138, 159).
 
 > **"Jeevan continues to exist even after death as it does while driving a body."**
 > - JV, p. 20
@@ -424,22 +426,26 @@ Madhyasth Darshan's *jagat satat* (perpetual world) stands in structural contras
 
 Relationship-recognition and value-fulfilment are built into what units are. At the knowledge order these mechanisms become explicit through the six *drishti*, the justice cycle, and effort–motion–result oriented toward resolution (*samadhan*). Ethics is not an optional layer on an indifferent material base. A constitutionally complete *jeevan* is asked to recognise the sentient self as distinct from the body, to elevate lower *drishti* toward humane *nyaya*, *dharma*, and *satya*, and to fulfil relationships toward activity and conduct completeness.
 
-What coexistence **provisions** must be distinguished from what humans **achieve**. Relationships carry expectations toward completeness; regulation and law are inherent in saturated units; the six perspectives and the justice cycle structure evaluation. None of this guarantees prosperity, trust, or order regardless of conduct. Delusion, legality without justice, hoarding, and fear-based organisation remain live failures at the knowledge order. What the ontology **commits** to is the **structure of what successful human living evidences** when the relational cycle closes — not automatic outcomes under coercion or survival-optimisation alone.
+What coexistence **provisions** must be distinguished from what humans **achieve**. Relationships carry expectations toward completeness; regulation and law are inherent in saturated units; the six perspectives and the justice cycle structure evaluation. None of this guarantees prosperity, trust, or order regardless of conduct. Delusion, legality without justice, **accumulation** detached from right-use expenditure, **false learning** stuck in doubt and mis-evaluation, and **fear** as lack of wisdom remain live failures at the knowledge order — the deluded-side counterparts to prosperity, coexistence-understanding, and fearlessness (MVD, pp. 263–264). What the ontology **commits** to is the **structure of what successful human living evidences** when the relational cycle closes — not automatic outcomes under coercion or survival-optimisation alone.
 
 JV names the human goal in four terms:
 
 > **"The goal of jeevan is happiness, and the human goal is resolution, prosperity, fearlessness, and coexistence. Ethics are essential for achieving these goals and give them purpose."**
 > - JV, p. 165
 
+The quote names two goal-levels: *jeevan*'s own goal is happiness (*sukh*), while **human** living at the knowledge order evidences resolution, prosperity, fearlessness, and coexistence together. JV ties all of these to **ethics** — right-use of body, mind, and wealth — to **character** — rightfully owned wealth, marital faithfulness, kindness in conduct — and to **values** — evaluation and mutual satisfaction in relationships. Those three strands are the conduct structure the justice cycle presupposes, not optional decoration on an indifferent base.
+
 MVD states what awakened sociality rests on — study, production, and orderliness, not fear-bound herd behaviour:
 
 > **"The semblance of collectivity among animals is generally observed only in situations of fear. Under no circumstances is such collectivity observed in activities of study, production, or the maintenance of orderliness. In contrast, the foundational basis of sociality in awakened humans is living in resolution, prosperity, fearlessness, and coexistence."**
 > - MVD, Ch. 4
 
+MVD adds a sharper contrast in the same chapter: animals are widely known for eating, sleeping, fear, and mating alone, whereas awakened humans commonly live with the **desire-trio** — progeny-motive, wealth-motive, reputation-motive — **and** evidence the four outcomes with **restfulness** (*vishram*). In that register, **resolution itself is restfulness**, which the texts also name *abhyudaya* — comprehensive resolution, not merely private calm.
+
 | Outcome | Plain meaning | Tied to |
 |---|---|---|
-| **Resolution** (*samadhan*) | Understanding and relational closure without residue; living with justice | *Dharma*–*adharma* perspective on thought |
-| **Prosperity** | Material adequacy through production and right-use — not hoarding or profit-maximisation | Justice cycle in conduct; use triad at knowledge order |
+| **Resolution** (*samadhan*) | Understanding and relational closure without residue; intellectual resolution and material prosperity as joint evidence of complete happiness (MVD, p. 106) | *Dharma*–*adharma* perspective on thought |
+| **Prosperity** | Material adequacy through production beyond need and right-use — not hoarding or profit-maximisation (MVD, pp. 106, 263) | Justice cycle in conduct; use triad at knowledge order |
 | **Fearlessness** | Trust in the present; sociality not founded on fear | Contrast with animal collectivity under threat (MVD, Ch. 4); mutual satisfaction in relationships |
 | **Coexistence** | Living with complementarity — among humans and with nature | *Satya*–*asatya* perspective; right-use toward undivided humankind |
 
