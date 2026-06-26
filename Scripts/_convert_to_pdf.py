@@ -111,13 +111,67 @@ def _mermaid_loader_html(html_body: str) -> str:
         return ""
     return """<script type="module">
 import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 mermaid.initialize({
   startOnLoad: true,
-  theme: "neutral",
+  theme: prefersDark ? "dark" : "neutral",
   securityLevel: "loose",
   flowchart: { htmlLabels: true, useMaxWidth: true },
 });
 </script>
+"""
+
+
+def _study_screen_dark_css() -> str:
+    return """
+  @media screen and (prefers-color-scheme: dark) {
+    body {
+      color: #e6dfd6;
+      background: #1a1815;
+    }
+    h1, h2, h3, h4 {
+      color: #f5f1ec;
+    }
+    h1 { border-bottom-color: #6f655a; }
+    h2 { border-bottom-color: #423b33; }
+    a { color: #7ebbed; }
+    a:visited { color: #9ec8e8; }
+    blockquote {
+      background: #26231e;
+      border-left-color: #6f655a;
+      color: #e6dfd6;
+    }
+    .quote-source { color: #aca194; }
+    th {
+      background: #2f2a24;
+      border-color: #423b33;
+      color: #f5f1ec;
+    }
+    td {
+      border-color: #423b33;
+      color: #e6dfd6;
+    }
+    tr:nth-child(even) { background: #1e1b18; }
+    code {
+      background: #2f2a24;
+      color: #f0e8dc;
+    }
+    pre {
+      background: #1e1b18;
+      color: #e6dfd6;
+    }
+    .study-toolbar {
+      background: #26231e;
+      border-color: #423b33;
+    }
+    .study-toolbar-link { color: #7ebbed; }
+    .study-toolbar-link:hover { color: #b8daf3; }
+    .draft-banner {
+      color: #d5a477;
+      background: #423020;
+      border-color: #6f655a;
+    }
+  }
 """
 
 
@@ -144,6 +198,7 @@ def convert_to_html(
     toolbar = _study_toolbar_html(input_path) if include_web_chrome else ""
     draft_banner = _draft_banner_html(is_draft) if include_web_chrome else ""
     mermaid_loader = _mermaid_loader_html(html_body) if include_web_chrome else ""
+    screen_dark_css = _study_screen_dark_css() if include_web_chrome else ""
 
     web_chrome_css = ""
     if include_web_chrome:
@@ -196,6 +251,7 @@ def convert_to_html(
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
+<meta name="color-scheme" content="light dark"/>
 <title>{title}</title>
 <style>
   @page {{
@@ -400,7 +456,7 @@ def convert_to_html(
     max-width: 100%;
     height: auto;
   }}
-{web_chrome_css}
+{screen_dark_css}{web_chrome_css}
 </style>
 </head>
 <body>
