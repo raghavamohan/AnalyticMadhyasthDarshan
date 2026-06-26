@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="820" height="700" viewBox="0 0 820 700" role="img" font-family="Helvetica, Arial, sans-serif">
   <title>Madhyasth Darshan — the architecture of coexistence</title>
-  <desc>Overview of Section 1: two co-eternal poles (Omnipresence/satta and units/ikai) bound by saturation; four developmental orders (material, bio, animal, knowledge); Development and Awakening progressions through transitions T1, T2, T3; with conservation and causation framing notes.</desc>
+  <desc>Overview of Section 1: two co-eternal poles (Omnipresence/satta and units/ikai) bound by saturation; four developmental orders (material, bio, animal, knowledge) with niyati-kram existential progression; niyati-vidhi order conduct; Development and Awakening progressions (vikas-kram, jagriti-kram) through transitions T1, T2, T3; with conservation and causation framing notes.</desc>
   <defs>
     <marker id="ahSteel" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M0,0 L10,5 L0,10 z" fill="#5E7686"/>
     </marker>
     <marker id="ahIndigo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M0,0 L10,5 L0,10 z" fill="#6F63A8"/>
+    </marker>
+    <marker id="ahGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3F6B52"/>
     </marker>
   </defs>
 
@@ -57,6 +60,10 @@
   <line x1="648" y1="280" x2="648" y2="290" stroke="#6F63A8" stroke-width="2"/>
   <line x1="726" y1="280" x2="726" y2="290" stroke="#6F63A8" stroke-width="2"/>
 
+  <!-- Niyati-kram: order-to-order progression -->
+  <line x1="55" y1="282" x2="765" y2="282" stroke="#3F6B52" stroke-width="2.5" marker-end="url(#ahGreen)"/>
+  <text x="410" y="274" text-anchor="middle" font-size="10.2" font-weight="700" fill="#2F5A40">NIYATI-KRAM &#183; existential progression (order emergence)</text>
+
   <!-- The four orders -->
   <rect x="40" y="290" width="174" height="115" rx="8" fill="#DDE4E9" stroke="#9AAAB5" stroke-width="1"/>
   <text x="127" y="316" text-anchor="middle" font-size="12" font-weight="700" fill="#2B3A45">MATERIAL</text>
@@ -105,8 +112,9 @@
   <!-- In-ground reading notes -->
   <line x1="40" y1="502" x2="780" y2="502" stroke="#C2CED6" stroke-width="1"/>
   <text x="40" y="524" font-size="9.6" fill="#46627A">Four real, stable plateaus of nature; dharma is cumulative (each order carries those below it).</text>
-  <text x="40" y="540" font-size="9.6" fill="#46627A">Change = unit-activity — effort–motion–result (shram–gati–parinam) — oriented toward completeness.</text>
-  <text x="40" y="556" font-size="9.6" fill="#46627A">Telos = coexistence evident in fulfilled relationships: fulfilment within the ground, not exit from it.</text>
+  <text x="40" y="540" font-size="9.6" fill="#46627A">niyati-vidhi = definite conduct per order (&#167;1.7); niyati-kram = fixed order emergence (&#167;1.5.1).</text>
+  <text x="40" y="556" font-size="9.6" fill="#46627A">Change = unit-activity — effort–motion–result (shram–gati–parinam) — oriented toward completeness.</text>
+  <text x="40" y="572" font-size="9.6" fill="#46627A">Telos = coexistence evident in fulfilled relationships: fulfilment within the ground, not exit from it.</text>
 
   <!-- Framing boxes -->
   <rect x="22" y="600" width="379" height="86" rx="8" fill="#F4F1EA" stroke="#CBBE9B" stroke-width="1"/>

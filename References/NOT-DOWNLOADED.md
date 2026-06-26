@@ -4,6 +4,12 @@ Works cited in `Studies/` that are **not** copied into `References/`. Each paper
 
 **Stored locally:** Madhyasth Darshan primary texts, Advaita Vedanta texts, Comparative-Philosophy (AV, SV), open-access science papers listed below, and selected open-access modern philosophy sources ? see [README.md](README.md).
 
+## Madhyasth Darshan ? definitions (external only)
+
+| Tag | Full reference | Original location |
+|-----|----------------|-------------------|
+| **Paribhasha** | Nagraj, A. *Paribhasha Samhita* (Hindi, ed. 2008). English selection of definitions. | https://www.madhyasth.org/browse-texts/browse-topics/definitions |
+
 ## Science ? open-access papers (stored locally)
 
 Author-hosted copies kept for quote verification.
