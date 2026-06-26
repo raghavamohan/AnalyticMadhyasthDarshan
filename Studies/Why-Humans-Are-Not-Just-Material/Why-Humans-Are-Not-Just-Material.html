@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Why Humans Are Not Just Material</title>
+<style>
+  @page {
+    size: A4;
+    margin: 2.2cm 2cm 2.2cm 2cm;
+  }
+  @media print {
+    body {
+      font-size: 11pt;
+      margin: 0;
+      padding: 0;
+      max-width: none;
+    }
+    h1 ~ p {
+      margin: 3pt 0;
+    }
+    h2 {
+      page-break-after: auto;
+      break-after: auto;
+    }
+    h2:first-of-type {
+      margin-top: 10pt;
+    }
+    h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+    h3, h4 { page-break-inside: avoid; break-inside: avoid; }
+    p { text-align: justify; text-justify: inter-word; hyphens: auto; }
+    li { text-align: left; }
+    table {
+      page-break-inside: auto;
+      break-inside: auto;
+    }
+    thead {
+      display: table-header-group;
+    }
+    tr {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    pre { page-break-inside: avoid; white-space: pre-wrap; overflow-wrap: anywhere; word-break: break-word; }
+    blockquote { page-break-inside: avoid; }
+  }
+  body {
+    position: relative;
+    z-index: 1;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 11pt;
+    line-height: 1.55;
+    color: #1a1a1a;
+    max-width: 750px;
+    margin: 30px auto;
+    padding: 0 20px;
+  }
+  h1 {
+    font-size: 20pt;
+    margin-top: 0;
+    margin-bottom: 4pt;
+    color: #111;
+    border-bottom: 2px solid #333;
+    padding-bottom: 6pt;
+  }
+  h1 + p {
+    margin-top: 4pt;
+  }
+  h2 {
+    font-size: 15pt;
+    margin-top: 18pt;
+    margin-bottom: 6pt;
+    color: #222;
+    border-bottom: 1px solid #bbb;
+    padding-bottom: 4pt;
+  }
+  h3 {
+    font-size: 12.5pt;
+    margin-top: 16pt;
+    margin-bottom: 4pt;
+    color: #333;
+  }
+  h4 {
+    font-size: 11.5pt;
+    margin-top: 14pt;
+    margin-bottom: 4pt;
+    color: #333;
+    font-weight: bold;
+  }
+  p {
+    margin: 6pt 0;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+  }
+  a {
+    color: #1a5276;
+    text-decoration: underline;
+  }
+  blockquote {
+    margin: 10pt 0 10pt 16pt;
+    padding: 6pt 12pt;
+    border-left: 3pt solid #888;
+    background: #f7f7f5;
+    font-style: italic;
+    color: #333;
+  }
+  blockquote p {
+    margin: 0;
+    white-space: pre-line;
+  }
+  blockquote p + p {
+    margin-top: 6pt;
+  }
+  blockquote strong {
+    font-style: normal;
+  }
+  .quote-source {
+    font-style: normal;
+    font-size: 10pt;
+    color: #555;
+    margin-top: 4pt;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12pt 0;
+    font-size: 10pt;
+    page-break-inside: auto;
+    break-inside: auto;
+  }
+  thead {
+    display: table-header-group;
+  }
+  tr {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  th {
+    background: #e8e8e4;
+    border: 1px solid #aaa;
+    padding: 5pt 7pt;
+    text-align: left;
+    font-weight: bold;
+  }
+  td {
+    border: 1px solid #ccc;
+    padding: 5pt 7pt;
+    vertical-align: top;
+  }
+  tr:nth-child(even) {
+    background: #fafaf8;
+  }
+  code {
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 10pt;
+    background: #f0f0ec;
+    padding: 1pt 3pt;
+    border-radius: 2pt;
+  }
+  pre {
+    background: #f5f5f1;
+    padding: 10pt 14pt;
+    border-radius: 4pt;
+    overflow-x: auto;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    white-space: pre-wrap;
+    max-width: 100%;
+    font-size: 10pt;
+    line-height: 1.4;
+  }
+  pre code {
+    background: none;
+    padding: 0;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  ul, ol {
+    margin: 6pt 0;
+    padding-left: 24pt;
+  }
+  li {
+    margin: 3pt 0;
+  }
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 12pt auto;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  p:has(> img:only-child) {
+    text-align: center;
+    margin: 12pt 0;
+  }
+  .mermaid {
+    display: flex;
+    justify-content: center;
+    margin: 12pt auto;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .mermaid svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .study-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px 16px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 13px;
+    margin: 0 0 22px;
+    padding: 10px 14px;
+    border: 1px solid #d8d2c8;
+    border-radius: 8px;
+    background: #f7f4ef;
+  }
+  .study-toolbar-link {
+    color: #1a5276;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .study-toolbar-link:hover { color: #13405c; }
+  .study-toolbar-download::after {
+    content: " \2193";
+    font-weight: 700;
+  }
+  .draft-banner {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #8b5e34;
+    background: #f5ebe0;
+    border: 1px solid #e0d0be;
+    border-radius: 6px;
+    padding: 6px 12px;
+    margin: 0 0 18px;
+    text-align: center;
+  }
+  @media print {
+    .study-toolbar,
+    .draft-banner { display: none !important; }
+  }
+
+</style>
+</head>
+<body>
+<nav class="study-toolbar" aria-label="Study navigation">
+  <a class="study-toolbar-link" href="../index.html">&larr; All studies</a>
+  <a class="study-toolbar-link study-toolbar-download" href="Why-Humans-Are-Not-Just-Material.pdf" download>Download PDF</a>
+</nav>
+<p class="draft-banner" role="status">Draft</p>
+<h1>Why Humans Are Not Just Material</h1>
+<p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> — a group of people studying Madhyasth Darshan philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
+<p><strong>Edited on:</strong> June 26, 2026, 10:28 AM IST
+<strong>The question:</strong> Is a human being nothing more than a physical–chemical body, or is there something real about us that matter-centric science cannot capture?</p>
+<p>This document gives three answers to that question — from <strong>Madhyasth Darshan</strong> (Shri A. Nagraj&rsquo;s Co-existentialism), from <strong>mainstream science</strong>, and from <strong>Advaita Vedanta</strong> — then compares them and critically reviews all three.</p>
+<h2>Standpoint and scope</h2>
+<p>These studies are written from the standpoint of a <strong>scientist and technologist</strong> — someone trained to graduate-level <strong>physics and mathematics</strong>, at home with contemporary cosmology, quantum theory, conservation laws, and the logic of formal models.</p>
+<p>From that background, a familiar picture of nature is hard to avoid: <strong>consciousness appears as something the brain does</strong> — an epiphenomenon, functional outcome, or emergent property of particular configurations of very large numbers of physical particles. Modern physics and cognitive science are powerful on mechanism, prediction, and public evidence; yet the hard problem of consciousness, the status of the self, and the reality of value remain fiercely contested. The standpoint taken here does not treat those gaps as settled in favour of matter-only reductionism.</p>
+<p>The work begins where that scientific picture leaves open questions — and asks whether Madhyasth Darshan offers a coherent alternative worth examining seriously. This paper reads the primary texts carefully, states what follows from the darshan itself, and compares it in parallel with what we know from <strong>physics and the natural sciences</strong>, <strong>Advaita Vedanta</strong>, and <strong>modern Western philosophy</strong> (especially philosophy of mind and moral science). Physics and mathematics are <strong>one leg</strong> of that comparison, not the only one. The aim is rigorous comparative understanding — testing definitions, internal consistency, and fit with public knowledge — not persuasion or devotional endorsement.</p>
+<p>These topical studies state the philosophy in clear, checkable prose first. A separate formal mathematical treatment may follow once the definitions and relations are stable across the studies; this paper does not assume or require that treatment.</p>
+<h2>Quick Glossary</h2>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Plain meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><em>Jeevan</em></strong></td>
+<td>The sentient self — in Shri. Nagraj&rsquo;s view a real, eternal, atom-scale entity that works <em>through</em> the body. Not brain activity, and not &ldquo;soul&rdquo; in the usual religious sense. For ontology of <em>jeevan</em>, constitutional completeness, and conservation, see <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a>.</td>
+</tr>
+<tr>
+<td><strong>Constitutional completeness (<em>gathanpurnata</em>)</strong></td>
+<td>The state when an atom integrates the required particles and crosses irreversibly into sentient status as <em>jeevan</em>. Developed in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §1.9.</td>
+</tr>
+<tr>
+<td><strong>Coexistence (<em>sah-astitva</em>)</strong></td>
+<td>Existence seen as all units inseparably present together.</td>
+</tr>
+<tr>
+<td><strong>Knowledge order (<em>gyan avastha</em>)</strong></td>
+<td>The human level of nature — able to know and evaluate every other level.</td>
+</tr>
+<tr>
+<td><strong><em>Atman</em> / *Brahman</strong>*</td>
+<td>In Advaita Vedanta: the innermost Self / the one ultimate reality. Advaita says they are identical.</td>
+</tr>
+<tr>
+<td><strong><em>Mithya</em></strong></td>
+<td>Advaita&rsquo;s term for the world: not absolutely real, a dependent appearance.</td>
+</tr>
+</tbody>
+</table>
+<h2>1. The Madhyasth Darshan Answer</h2>
+<p>Madhyasth Darshan holds that a human is not only a body but <strong>body + <em>jeevan</em></strong> — a real, sentient self that works through the body — so humans cannot be fully explained by matter-centric science alone.</p>
+<blockquote>
+<p><strong>“Existence is not just physicochemical matter, but all physical, chemical and <em>jeevan</em> entities are inseparably present in Omnipresence.”</strong>
+— MVD, <em>The Alternative</em>, point 7</p>
+</blockquote>
+<h3>1.1 A fresh starting point</h3>
+<p>Shri. Nagraj begins by rejecting two inherited pictures. Science studied the human as a clever animal; mysticism declared the truth an unknowable mystery. Neither actually studied the human being, so a fresh starting point is needed.</p>
+<blockquote>
+<p><strong>“Both of these ideologies have considered the human being as an animal.”</strong>
+— MVD, <em>The Alternative</em>, point 1</p>
+</blockquote>
+<h3>1.2 The four orders of nature</h3>
+<p>Nature has four levels — material, biological, animal, and knowledge. Each higher order contains the lower ones. Humans belong to the fourth, the <strong>knowledge order</strong>, whose essential nature is &ldquo;fortitude, courage, generosity, kindness, grace, and compassion&rdquo; and whose purpose (<em>dharma</em>) is happiness (MVD, Ch. 3).</p>
+<h3>1.3 The wisdom layer</h3>
+<p>Awakened humans express five functional layers (<em>koshas</em>); the fifth — <em>vigyanmaya</em>, the wisdom layer — enables knowledge, wisdom, and science. Animals have four; matter has two (MVD, Ch. 3). The finer structure of <em>mun</em>, <em>vritti</em>, <em>chitta</em>, <em>buddhi</em>, and <em>atma</em> within <em>jeevan</em> is reserved for the ongoing study <em>Philosophy-Of-Mind-And-Jeevan</em>.</p>
+<h3>1.4 Knowledge in the human order</h3>
+<p>Humans alone understand, evaluate, and responsibly use all of nature. Nothing else on Earth knows the properties, nature, and purpose of everything else (MVD, Ch. 4).</p>
+<p>For readers approaching from neuroscience, Bhattacharya offers a compact secondary map: material and biological entities have no brain; some brain-endowed organisms (for example, insects) are said to function through nervous control <strong>without</strong> <em>jeevan</em>; animals with <em>jeevan</em> remain body-driven in the unawakened animal order; and in the knowledge order a fully developed brain becomes the instrument through which <em>jeevan</em> expresses thought and realization. Sentience is therefore not a property of the brain, but <em>jeevan</em>&rsquo;s activity mediated through it — <strong>Bhattacharya</strong>, <em>The Relationship of Jeevan and Brain</em>.</p>
+<h3>1.5 Body and self are not the same</h3>
+<p>The central argument is that the body and <em>jeevan</em> have different jobs: eating and sleeping serve the body; values and evaluation serve <em>jeevan</em>. When the body sleeps, <em>jeevan</em> does not. Different jobs mean they are not the same thing.</p>
+<blockquote>
+<p><strong>“The body is not <em>jeevan</em>, and <em>jeevan</em> is not the body. <em>Jeevan</em> is eternal, and the body is merely a vehicle and medium for <em>jeevan</em>.”</strong>
+— SB, Ch. 7</p>
+</blockquote>
+<h3>1.6 Sentience as developed matter</h3>
+<p>Development is built into existence (effort → motion → result). An atom that becomes constitutionally complete (<em>gathanpurnata</em>) crosses irreversibly into sentient status — and that sentient atom <em>is</em> the <em>jeevan</em>. It is never annihilated, so death is an event of the body only. For the emergence tension, conservation ontology, mereology of <em>jeevan</em>, and identity across death, see <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §§1.8–1.12 and §6.2.</p>
+<blockquote>
+<p><strong>“Nothing arrives at birth nor does anything depart with death. All that is, exists forever. Jeevan continues to exist even after death as it does while driving a body.”</strong>
+— JV, Ch. 1</p>
+</blockquote>
+<h3>The phenomenological argument: the evidence from inside</h3>
+<p>The ontology above argues from what exists. Shri. Nagraj also argues <strong>phenomenologically</strong>: from how being human actually <em>feels from the inside</em>. If you attend to your own lived experience, you will find things in it that a purely material being should not have. Four observations carry this argument.</p>
+<h3>Two kinds of fulfilment are experienced, not inferred</h3>
+<p>Everyone knows from the inside the difference between satisfying the body and satisfying <em>oneself</em>. A full stomach and a good night&rsquo;s sleep complete the body&rsquo;s needs — yet a person can be fed, rested, and healthy and still feel entirely unfulfilled. Conversely, a person can be tired and hungry yet deeply content because they acted justly or were trusted by someone. The two satisfactions do not substitute for each other, and we never confuse them in experience. Shri. Nagraj reads this directly off lived life:</p>
+<blockquote>
+<p><strong>“Activities such as eating and sleeping serve the body’s needs, while values and evaluation serve <em>jeevan</em>’s purpose. Mere sustenance of the body does not equate to <em>jeevan</em>&rsquo;s fulfilment.”</strong>
+— SB, Ch. 7</p>
+</blockquote>
+<p>If the human were body alone, bodily completion should be human completion. Experience says it is not.</p>
+<h3>The wanting never stops at the body&rsquo;s limit</h3>
+<p>A material system needs only what maintains it. But human desire is experienced as <em>unlimited</em> in a specific direction: we do not want pleasure occasionally, we want happiness <strong>continuously</strong> — and no quantity of consumption, comfort, or sensation ever delivers continuity. Sensory pleasure is episodic by its nature (it fades as the sensation fades), yet the demand it fails to meet does not fade. Shri. Nagraj takes this mismatch — a body-sized supply chasing a more-than-body-sized demand — as the felt signature of <em>jeevan</em> in everyday life. The same mismatch shows up in what we <em>produce</em>:</p>
+<blockquote>
+<p><strong>“It is clear that whatever <em>jeevan</em> does through the body, the result of it always turns out to be more than the needs of the body. It is a natural process. I have seen <em>jeevan</em>, and I have seen humans as a combined form of <em>jeevan</em> and body.”</strong>
+— JV, Ch. 1</p>
+</blockquote>
+<p>Humans grow more food than they can eat, build more than they can inhabit, and create art, mathematics, and philosophy that feed no cell. Animals do none of this. Something in us aims past the body&rsquo;s needs — and we <em>experience</em> that aiming.</p>
+<h3>Experience presents a self that the body&rsquo;s states do not exhaust</h3>
+<p>When the body sleeps, something still dreams, and something registers rest on waking. When the body ages, the sense of &ldquo;I&rdquo; does not feel older in the same way the knees do. We say &ldquo;my body&rdquo; the way we say &ldquo;my house&rdquo; — experience spontaneously presents the body as <em>had</em>, not as <em>been</em>:</p>
+<blockquote>
+<p><strong>“We end up believing that <em>jeevan</em> sleeps, whereas, in reality, sleep is merely an activity of the body.”</strong>
+— SB, Ch. 7</p>
+</blockquote>
+<p>Shri. Nagraj&rsquo;s point is not that this grammar proves dualism, but that the <em>deluded</em> position is the learned one: identifying with the body has to be argued into us, while the felt distinction between self and body is the default datum of experience.</p>
+<h3>The moral demand is felt from the start, before any teaching</h3>
+<p>Justice, truth, and right conduct are not experienced as preferences we acquired but as demands we <em>recognise</em> — and children recognise them before anyone trains them (for comparative moral psychology, see <a href="https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf">Ethics-And-Morals-In-Human-Beings</a>):</p>
+<blockquote>
+<p><strong>“From the time of birth, a human being inherently seeks justice, desires to act correctly, and speaks the truth. This is the natural state of a child.”</strong>
+— SB, Ch. 1</p>
+</blockquote>
+<p>A child protests unfairness long before it can defend the concept. For Shri. Nagraj this is the knowledge order showing itself: the orientation toward justice is part of what a human <em>is</em>, not part of what a human is taught.</p>
+<p>Put together, lived experience contains a second kind of fulfilment, a more-than-bodily wanting, a self presented as distinct from its body, and an unlearned moral demand. None of these is detected by instruments; all of them are available to anyone who looks inward. Shri. Nagraj&rsquo;s conclusion is that the materialist account does not merely fail in the laboratory — it fails <em>in the first person</em>, every day, in everyone. Even its defenders feel the failure:</p>
+<blockquote>
+<p><strong>“Scientists have unsuccessfully attempted to describe humans as machines. The scientists who describe humans as machines themselves remain dissatisfied with that description.”</strong>
+— JV, Ch. 1</p>
+</blockquote>
+<p>Phenomenology shows how things <em>seem</em>, and seeming can mislead — the materialist will reply that every one of these experiences is itself produced by the brain (§2), and §5.1 weighs whether felt distinctions can carry ontological weight. But within Madhyasth Darshan, this argument has a special status: it is the one line of evidence every reader can check without instruments, scriptures, or laboratories — which is exactly why Shri. Nagraj&rsquo;s proposed test (next) begins with self-verification.</p>
+<h3>The proposed test</h3>
+<p>Shri. Nagraj does not ask for belief on authority. He proposes: <strong>study</strong> existence, <em>jeevan</em>, and humane conduct; <strong>verify in yourself</strong>; and <strong>evidence it in behaviour</strong> — the ability to live and impart understanding is the criterion of wisdom (MVD, <em>The Alternative</em>, point 5).</p>
+<p>In Madhyasth Darshan, study is only the starting point. True understanding is fulfilled when what is studied becomes clear in one&rsquo;s own seeing, stable in conviction, and evident in conduct — recognition of relationships, fulfilment of values, resolution in thought, responsible work and experiment, and the ability to convey the understanding to others.</p>
+<p>Whether conduct-based criteria can discriminate awakened practitioners from controls in a pre-registered, inter-subjective test remains unsettled; §5.4 flags what would count as evidence either way.</p>
+<h3>What makes this answer distinctive</h3>
+<p>Matter is not denied or demoted; it is <em>promoted</em>. Sentience is what matter itself becomes when fully developed. So the human is two real things in one real world: a material body and a developed-material <em>jeevan</em>, coexisting.</p>
+<h2>2. The Scientific Point of View</h2>
+<p>Mainstream science answers that a human is an organism — a body with an extraordinarily complex nervous system shaped by evolution and culture — and that mind is what the brain <em>does</em>, not a second entity.</p>
+<h3>How science answers the question</h3>
+<ol>
+<li><strong>Mind emerges from organisation.</strong> Consciousness, valuation, and justice-seeking are properties of how matter is <em>organised</em> (brains, bodies, societies), not properties of any particle (Dennett 1991; Churchland 1986). Destroy the organisation — brain death — and the phenomena cease, while the atoms remain exactly what they were.</li>
+<li><strong>No second entity is detected.</strong> Every capacity attributed to <em>jeevan</em> — values, evaluation, the feeling of being a self — correlates with neural and social processes that neuroscience and psychology already study (Kandel et al. 2021). No instrument detects a sentient unit separate from brain activity. Occam&rsquo;s razor says: do not posit a new substance when structured matter plus culture explains the data.</li>
+<li><strong>The interaction problem.</strong> If a separate self &ldquo;drives&rdquo; the body, there must be a junction where its intention becomes muscle motion. Physiology finds no such junction: every movement traces back through neurons obeying ordinary physics, with no detected inflow of energy or information from a second entity. This has been the standard objection to every body/soul dualism since Princess Elisabeth posed it to Descartes in 1643 (Shapiro 2007); its modern form is the causal-closure argument (Kim 2005).</li>
+</ol>
+<p>From a physics standpoint, the objection is sharper than a philosophical puzzle about &ldquo;where mind meets body.&rdquo; If <em>jeevan</em> steers the nervous system, that steering must either inject energy into a closed physical system — violating conservation in any locally closed region where neural dynamics are well modeled — or rearrange existing energy and information without leaving a detectable surplus or deficit in the causal budget. Brain–machine interfaces and motor neuroscience already track intention-linked neural activity down to synaptic and ionic scales (Kandel et al. 2021); no reproducible anomaly has been found where muscle motion requires physics beyond the brain&rsquo;s own energy budget. That does not prove <em>jeevan</em> is absent, but it sets a high bar: any interacting <em>jeevan</em> must be either causally inert (and then it does not &ldquo;drive&rdquo; the body) or physically efficacious in a way that should, in principle, show up as a measurable departure from closed physical prediction. For how Madhyasth Darshan frames conservation, constitutional completeness, and the <em>jeevan</em>–body interaction as open problems, see <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §1.8 and §6.2.</p>
+<ol>
+<li><strong>Human uniqueness is real but material.</strong> Humans genuinely differ from animals — in symbol use, language, cumulative culture, moral reasoning (Tomasello 2014). But &ldquo;unique&rdquo; is not &ldquo;non-physical.&rdquo; Children&rsquo;s fairness-seeking, for example, is well explained by evolved cooperation and social development (Bloom 2013); see also <a href="https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf">Ethics-And-Morals-In-Human-Beings</a> for a fuller comparative treatment of moral psychology.</li>
+<li><strong>Private realisation is not public evidence.</strong> Shri. Nagraj&rsquo;s warrant is his own <em>samadhi</em> realisation. Science requires inter-subjective verification: claims anyone can check, predictions that could fail (Popper 1959).</li>
+</ol>
+<h3>What science leaves open</h3>
+<p>Science explains the <em>functions</em> of mind increasingly well, but the <strong>hard problem of consciousness</strong> — why physical processing is accompanied by felt experience at all — remains unsolved (Chalmers 1995; Nagel 1974). Some respected philosophers take seriously the idea that consciousness belongs to matter&rsquo;s fundamental nature — panpsychism (Strawson 2006; Goff 2019). So &ldquo;sentience in matter&rdquo; is not a lone mystic&rsquo;s idea — but no version of it is established science, and none claims the conscious unit survives death intact.</p>
+<h2>3. The Advaita Vedanta Answer</h2>
+<p>Advaita Vedanta answers that you are not material because, at the deepest level, you are not even an individual — the true Self (<em>Atman</em>) is identical with the one ultimate reality (<em>Brahman</em>), and the material world itself is a dependent appearance (<em>mithya</em>).</p>
+<h3>How Advaita answers the question</h3>
+<ol>
+<li><strong>The famous formula.</strong> <em>Brahma satyam, jagat mithya</em> — Brahman alone is real; the world is appearance (VC, v. 20). MVD itself summarises the position:</li>
+</ol>
+<blockquote>
+<p><strong>“According to Vedanta knowledge, only Brahma is the truth, and this world is an illusion (‘Brahma satya, jagat mithya’). However, jeeva and jagat are said to have originated from Brahma.”</strong>
+— MVD, <em>The Alternative</em></p>
+</blockquote>
+<ol>
+<li><strong>You are not the body — or the mind.</strong> Advaita peels away every layer that can be observed: the body, the senses, the mind, even the sense of &ldquo;I&rdquo;. Whatever you can observe cannot be the observer (DDV, v. 1). What remains is pure witness-consciousness — <em>Atman</em> — which was never born, never changes, and never dies (KU 1.2.18; BG 2.20).</li>
+<li><strong>The self is not even individual.</strong> The apparent separate person (<em>jiva</em>) is a provisional appearance caused by ignorance (<em>avidya</em>) — the superimposition (<em>adhyasa</em>) of self on not-self analysed in the preamble to Shankara&rsquo;s <em>Brahma Sutra Bhashya</em> (BSB, <em>Adhyasa Bhashya</em>). Liberation (<em>moksha</em>) is not gaining anything new — it is recognising that the Self was always already Brahman: one, complete, without a second (CU 6.2.1, <em>tat tvam asi</em> at 6.8.7).</li>
+<li><strong>So the question dissolves.</strong> &ldquo;Is the human just material?&rdquo; assumes the human is a thing in a material world. Advaita answers: ultimately there is no separate human and no independent material world; there is only Brahman, appearing as both.</li>
+<li><strong>The method.</strong> Hearing the scriptures (<em>shravana</em>), reasoning over them (<em>manana</em>), and sustained meditation (<em>nididhyasana</em>), under a qualified teacher (BU 2.4.5). The final truth outruns language — pointed to by negation: <em>neti neti</em>, &ldquo;not this, not this&rdquo; (BU 2.3.6).</li>
+</ol>
+<h3>The phenomenological method: <em>neti neti</em></h3>
+<p>Like Madhyasth Darshan, Advaita does not rest its case on scripture alone — it too has a first-person, phenomenological route to &ldquo;you are not the body,&rdquo; and it is older and more systematic. The method is <strong>neti neti</strong> (&ldquo;not this, not this,&rdquo; BU 2.3.6): turn attention inward and <em>negate</em> everything that presents itself as an object, because whatever you can observe cannot be you, the observer. The practice unfolds in three classic exercises.</p>
+<h3>The seer is never the seen (<em>drig-drishya-viveka</em>)</h3>
+<p>You see the body — its hands, its ageing, its pain — so the body is an object <em>to</em> you, and an object cannot be its own subject (DDV, vv. 1–5). The same negation then cuts deeper than Shri. Nagraj&rsquo;s body/self line: you also <em>observe</em> your sensations, your emotions, your thoughts, even the feeling of being &ldquo;me.&rdquo; Each is witnessed, so each is &ldquo;not this.&rdquo; What can never be negated is the witnessing itself — for even the act of doubting it is witnessed.</p>
+<h3>The five sheaths (<em>pancha-kosha-viveka</em>)</h3>
+<p>The Taittiriya Upanishad walks attention through five layers — the food-body (<em>annamaya</em>), vitality (<em>pranamaya</em>), mind (<em>manomaya</em>), intellect (<em>vijnanamaya</em>), and bliss (<em>anandamaya</em>) — discovering each to be a <em>sheath</em> the Self wears, not the Self (TU 2.1–2.5; elaborated in VC, vv. 154–212). Notably, these are the very <em>koshas</em> Shri. Nagraj reuses — but to opposite effect: in Advaita the layers are progressively <em>negated</em> to reveal the Self beyond all of them; in Madhyasth Darshan they are progressively <em>affirmed</em> as the human&rsquo;s real functional equipment.</p>
+<h3>The three states (<em>avastha-traya</em>)</h3>
+<p>Waking, dreaming, and deep sleep — the analysis of the Mandukya Upanishad (MU, vv. 3–7). In dreams, consciousness is vividly present while the physical body lies inert — so consciousness does not need the waking body. In deep sleep even the mind subsides, yet something persists: on waking you say &ldquo;I slept well,&rdquo; reporting an experience of peaceful absence (VC, v. 120). That which witnessed even the mind&rsquo;s absence cannot <em>be</em> the mind. (Compare Shri. Nagraj&rsquo;s sleep observation in §1 — the same datum, pushed one step further: where Shri. Nagraj concludes &ldquo;<em>jeevan</em> does not sleep,&rdquo; Advaita concludes the witness is beyond even the sleeping mind.)</p>
+<p><strong>The phenomenological inference.</strong> What survives all three negations is not nothing — it is the constant, self-evident awareness in which body, mind, and world appear. Advaita&rsquo;s claim is that this awareness is not a <em>property</em> of you; it <em>is</em> you (<em>Atman</em>), and analysis shows it cannot be material: it is never an object, has no parts, and is presupposed by every observation, including every scientific one.</p>
+<p>The contrast with Shri. Nagraj&rsquo;s phenomenology is instructive. Both begin from the same first-person data — the felt distinction between self and body, the sleep observation. But they stop at different stations: Shri. Nagraj negates only the body and <em>affirms</em> the inner functionary he finds (<em>jeevan</em> — a desiring, deciding, developing unit); Advaita keeps negating <em>through</em> the inner functionary too, until only the actionless witness remains. To Advaita, Shri. Nagraj stopped too early — <em>jeevan</em>&rsquo;s desires and decisions are still observable, hence still &ldquo;not this.&rdquo; To Shri. Nagraj, Advaita negated too far — dissolving the real, working self into a featureless witness and the real world along with it.</p>
+<h3>What makes this answer distinctive</h3>
+<p>Where Shri. Nagraj defends the reality of <em>both</em> matter and self, Advaita is the most radical anti-materialism possible: matter is not part of the answer because matter is not finally real. The human is &ldquo;not just material&rdquo; because nothing is.</p>
+<h2>4. Comparing the Three Views</h2>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Scientific materialism</th>
+<th>Madhyasth Darshan</th>
+<th>Advaita Vedanta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What is a human?</td>
+<td>An organism: body + brain + culture</td>
+<td>Body + <em>jeevan</em> (a real sentient unit)</td>
+<td>Ultimately <em>Atman</em> = <em>Brahman</em>; the person is an appearance</td>
+</tr>
+<tr>
+<td>Is the world real?</td>
+<td>Yes — and it is all there is</td>
+<td>Yes — real and perpetual</td>
+<td>Only provisionally; finally <em>mithya</em></td>
+</tr>
+<tr>
+<td>What is consciousness?</td>
+<td>Emergent brain process</td>
+<td>The nature of a fully developed atom (<em>jeevan</em>)</td>
+<td>The only reality there is</td>
+</tr>
+<tr>
+<td>How many selves?</td>
+<td>As many as there are brains; none survive</td>
+<td>Many <em>jeevan</em> units, forever distinct</td>
+<td>Ultimately one Self, without a second</td>
+</tr>
+<tr>
+<td>What survives death?</td>
+<td>Nothing (the atoms scatter)</td>
+<td><em>Jeevan</em>, intact, as a unit</td>
+<td>The question is misposed: <em>Atman</em> was never born</td>
+</tr>
+<tr>
+<td>Method of knowing</td>
+<td>Measurement, experiment, replication</td>
+<td>Study + self-verification + evidence in conduct</td>
+<td>Scripture, reasoning, meditation under a teacher</td>
+</tr>
+<tr>
+<td>Goal of life</td>
+<td>(Not science&rsquo;s question)</td>
+<td>Awakening: resolved, humane living in society</td>
+<td>Liberation: recognising the Self as Brahman</td>
+</tr>
+</tbody>
+</table>
+<h3>The key contrasts in plain words</h3>
+<p><strong>On the body.</strong> Science says the body is the whole human. Advaita says the body is finally unreal. Shri. Nagraj takes the middle: the body is real but is not the whole human — it is the <em>jeevan</em>&rsquo;s vehicle. This middle position is exactly why the philosophy is called <em>madhyasth</em> (middle). His counter-slogan to Vedanta keeps Brahman and saves the world:</p>
+<blockquote>
+<p><strong>“Brahma is truth, the world is perpetual.”</strong>
+— MVD, <em>The Alternative</em>, point 8</p>
+</blockquote>
+<p><strong>On the self.</strong> Science: no self over and above brain processes. Advaita: one universal Self, with individuality as illusion. Shri. Nagraj: many individual selves, permanently individual — which is why relationships and values are fully real in his system and only provisionally real in Advaita.</p>
+<p><strong>On matter and mind.</strong> Science: mind comes <em>from</em> matter&rsquo;s organisation. Advaita: matter comes <em>from</em> mind (consciousness). Shri. Nagraj: mind <em>is</em> matter at its highest development — an insentient atom that crossed a one-way threshold into sentience.</p>
+<p><strong>On method.</strong> Science trusts public instruments; Advaita trusts scripture and contemplative insight; Shri. Nagraj trusts study plus living conduct as evidence. Each side considers the others&rsquo; method insufficient: science finds both Indian methods unfalsifiable; both Indian views find science blind to the knower doing the science.</p>
+<p><strong>Where the alliances fall.</strong> Against the materialist, Shri. Nagraj and Advaita stand together: the human is not just the body. Against Advaita, Shri. Nagraj and the scientist stand together: the world is real and worth studying. Against both, the scientist insists nothing survives death. Each pair agrees on something the third denies.</p>
+<p>Other anthropologies — Buddhist <em>anatta</em> (no permanent self), Abrahamic soul doctrines, and Dvaita-style eternal individual souls — offer further comparisons; see the wider table in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §5.</p>
+<h2>5. Critical Review</h2>
+<p>No view escapes serious objections. Here is where each is strong and where each is vulnerable.</p>
+<h3>5.1 Madhyasth Darshan — coherent inside, unproven outside</h3>
+<p><strong>Strengths.</strong> It is internally consistent and ethically serious. It cleverly avoids two famous problems: unlike Advaita, it does not have to explain why an illusory world feels so real; unlike panpsychism, it never faces the &ldquo;combination problem&rdquo; (how billions of micro-minds combine into one), because the self is <em>one</em> complete atom, not a chorus of particles. And unlike most spiritual systems, it proposes a test: awakened conduct, observable by anyone.</p>
+<p><strong>Weaknesses.</strong></p>
+<ul>
+<li><strong>The conclusion is built into the premises.</strong> The foundational axiom already declares existence &ldquo;not just physicochemical matter&rdquo; — so the system is anti-materialist <em>by assumption</em>, not by proof.</li>
+<li><strong>Different jobs do not prove two things.</strong> The central argument — body serves food and sleep, <em>jeevan</em> serves values, therefore they are distinct entities — is a leap. One system can serve many purposes. And even granting distinctness, nothing in the phenomenological argument alone establishes that <em>jeevan</em> is <em>eternal</em>; that claim rests on the ontological steps and conservation-based reading developed in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a>.</li>
+<li><strong>Constitutional completeness is unexplained, not merely unmeasured.</strong> No observation in particle physics or chemistry presently operationalizes <em>gathanpurnata</em>. The deeper tension — whether sentience at completeness is latent potential actualized or a form of emergence the system elsewhere resists — is analyzed in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §1.9 and §6.2. Until that is settled internally, &ldquo;sentient atoms are not physics&rdquo; remains a fair objection from the scientific leg.</li>
+<li><strong>The interaction problem is unanswered.</strong> If an atom-sized <em>jeevan</em> steers neurons and muscles, that steering must either violate local energy conservation or produce a detectable causal anomaly in the brain&rsquo;s physical budget. None has been found, and the literature gives no mechanism. See §2.3 above and <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §6.2 item 7.</li>
+<li><strong>It risks being unfalsifiable.</strong> Disagreement is attributed to &ldquo;lack of awakening,&rdquo; so no observation can count against the system. A claim that cannot be wrong cannot be tested. To be taken seriously empirically, the framework would have to state <em>in advance</em> what observation would disconfirm it.</li>
+</ul>
+<p>Madhyasth Darshan is best read as an internally coherent, ethically rich <em>proposal</em>, not a demonstrated ontology.</p>
+<h3>5.2 Scientific materialism — powerful method, unfinished story</h3>
+<p><strong>Strengths.</strong> Unmatched explanatory and predictive success. Medicine, neuroscience, and psychology genuinely explain much of what older systems attributed to souls. Its method — public evidence, falsifiable claims, replication — is the only one of the three that systematically catches its own errors.</p>
+<p><strong>Weaknesses.</strong></p>
+<ul>
+<li><strong>The hard problem stands.</strong> Correlating experience with brain activity is not explaining why there is experience at all. &ldquo;Emergence&rdquo; names the mystery; it does not solve it.</li>
+<li><strong>It explains the known, not the knower.</strong> Science is performed <em>by</em> conscious subjects whose first-person reality is the one datum it cannot reach with third-person instruments. Dismissing that datum because instruments miss it may be circular in its own way.</li>
+<li><strong>Method is quietly promoted to metaphysics.</strong> &ldquo;Science detects only matter&rdquo; is a fact about the method; &ldquo;therefore only matter exists&rdquo; is a philosophical leap. Many working scientists are methodological naturalists, not metaphysical materialists — the distinction is often blurred in debate.</li>
+<li><strong>It has little to say about meaning.</strong> Values, purpose, and the question &ldquo;how should we live?&rdquo; are outside its scope. That is not a refutation, but it explains why purely materialist accounts of the human feel incomplete to many — the dissatisfaction Shri. Nagraj built his case on.</li>
+</ul>
+<p>Scientific materialism offers the strongest method and the best-supported account of the body — but its claim to be the <em>complete</em> account of the human is a philosophical position, not a scientific finding.</p>
+<h3>5.3 Advaita Vedanta — profound, but at a steep price</h3>
+<p><strong>Strengths.</strong> It takes the one undeniable datum — consciousness — as the starting point rather than an afterthought, which is philosophically defensible: experience is the only thing we know directly. It is supported by a sophisticated 1,200-year commentarial tradition, and its core insight (the observer cannot be any observed object) is a serious argument, not mere assertion.</p>
+<p><strong>Weaknesses.</strong></p>
+<ul>
+<li><strong>The world-as-appearance claim is uncheckable.</strong> Nothing within experience could ever confirm or refute that experience as a whole is <em>mithya</em>. Like Shri. Nagraj&rsquo;s system, Advaita is unfalsifiable — but more radically, since it demotes the very arena in which evidence exists.</li>
+<li><strong>It must explain the appearance it denies.</strong> If only Brahman is real, why does ignorance (<em>avidya</em>) exist, whose is it, and how does the One appear as many? Advaita&rsquo;s sub-schools disagree among themselves on this — a sign the problem is real.</li>
+<li><strong>Ethics sits awkwardly.</strong> If individuality and the world are provisional, the ultimate significance of relationships, justice, and suffering is also provisional. Advaita does teach ethics — but as preparation for liberation, not as the point. This is precisely Shri. Nagraj&rsquo;s complaint: a philosophy that demotes the world struggles to ground responsibility <em>in</em> it.</li>
+<li><strong>The authority is scriptural.</strong> The final warrant is the Upanishads as interpreted by the tradition. For anyone who does not grant scripture that status, the system&rsquo;s deepest claims rest on testimony.</li>
+</ul>
+<p>Advaita is the most radical and in one way the most rigorous answer — but its rigor is purchased by declaring unanswerable every question about the world we actually live in.</p>
+<h3>5.4 The bottom line</h3>
+<p>All three views are partly armoured against refutation: science by ruling first-person evidence out of bounds, Shri. Nagraj by attributing dissent to lack of awakening, Advaita by demoting the empirical world entirely. The genuine disagreement is about <strong>what counts as evidence</strong> — instruments, conduct, or contemplative insight — and that is a philosophical choice no experiment settles.</p>
+<p>What would actually move the debate: a measurable anomaly where neural dynamics deviate from physical prediction (which would support a real, interacting <em>jeevan</em>); a complete mechanistic account of valuation and felt experience (which would remove the work <em>jeevan</em> and <em>Atman</em> are posited to do); or a rigorous, pre-registered demonstration that the conduct-based test Shri. Nagraj proposes reliably distinguishes practitioners from controls. Until something of that kind exists, the three answers remain what they are now: parallel accounts, each coherent from inside, each unproven from outside.</p>
+<h2>References</h2>
+<h3>Madhyasth Darshan (primary sources)</h3>
+<ul>
+<li><strong>MVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan – Co-existentialism</em>, Part 1: <em>Holistic View of Human Behaviour</em></a>. English translation by Rakesh Gupta. Cited by chapter and by the numbered points of <em>The Alternative</em>.</li>
+<li><strong>SB</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf"><em>Samadhanatmak Bhautikvad</em> (<em>Resolution Centred Materialism</em>)</a>. English translation by Rakesh Gupta. Cited by chapter.</li>
+<li><strong>JV</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf"><em>Jeevan Vidya: An Introduction</em></a>. English translation by Rakesh Gupta. Cited by chapter.</li>
+</ul>
+<h3>Comparative philosophy (secondary exposition)</h3>
+<ul>
+<li><strong>Bhattacharya</strong> — Bhattacharya, S. <a href="https://analyticmadhyasthdarshan.org/References/Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf"><em>The Relationship of Jeevan and Brain</em></a>. Cited: brain versus <em>jeevan</em> and order map (§1).</li>
+</ul>
+<h3>Related studies in this collection</h3>
+<ul>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> — constitutional completeness (<em>gathanpurnata</em>), conservation ontology, emergence tension, <em>jeevan</em> structure and identity, <em>jeevan</em>–body interaction (§§1.8–1.12, §6.2).</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf">Ethics-And-Morals-In-Human-Beings</a> — comparative moral psychology and innate justice claims (§1, §2).</li>
+</ul>
+<h3>Advaita Vedanta (primary texts)</h3>
+<p>Verse and section numbers follow the standard numbering and apply to any faithful edition or translation (e.g. Swami Gambhirananda&rsquo;s or Swami Madhavananda&rsquo;s translations, Advaita Ashrama).</p>
+<ul>
+<li><strong>BU</strong> — <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf"><em>Brihadaranyaka Upanishad</em></a>. Cited: <em>neti neti</em> (2.3.6, 4.4.22); <em>shravana–manana–nididhyasana</em> (2.4.5).</li>
+<li><strong>TU</strong> — <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf"><em>Taittiriya Upanishad</em></a>. Cited: the five sheaths (<em>pancha-kosha</em>), 2.1–2.5.</li>
+<li><strong>MU</strong> — <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf"><em>Mandukya Upanishad</em></a>. Cited: the three states of consciousness (<em>avastha-traya</em>), vv. 3–7.</li>
+<li><strong>CU</strong> — <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf"><em>Chandogya Upanishad</em></a>. Cited: &ldquo;one only, without a second&rdquo; (6.2.1); <em>tat tvam asi</em> (6.8.7).</li>
+<li><strong>KU</strong> — <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf"><em>Katha Upanishad</em></a>. Cited: the unborn, undying Self (1.2.18).</li>
+<li><strong>BG</strong> — <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf"><em>Bhagavad Gita</em></a>. Cited: the indestructible self (2.20).</li>
+<li><strong>BSB</strong> — Shankara, Adi. <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf"><em>Brahma Sutra Bhashya</em></a>. Cited: the <em>Adhyasa Bhashya</em> (preamble) on superimposition of self and not-self.</li>
+<li><strong>VC</strong> — <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf"><em>Vivekachudamani</em></a> (attributed to Shankara). Cited: discrimination between real and unreal (v. 20); sheath analysis (vv. 154–212); the deep-sleep witness (v. 120).</li>
+<li><strong>DDV</strong> — <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf"><em>Drig-Drishya-Viveka</em></a> (attributed to Shankara or Bharati Tirtha). Cited: seer/seen discrimination (vv. 1–5).</li>
+</ul>
+<h3>Scientific point of view (modern works)</h3>
+<ul>
+<li><strong>Bloom 2013</strong> — Bloom, P. <a href="https://www.penguinrandomhouse.com/books/311067/just-babies-by-paul-bloom/"><em>Just Babies: The Origins of Good and Evil</em></a>. Crown.</li>
+<li><strong>Chalmers 1995</strong> — Chalmers, D. <a href="https://analyticmadhyasthdarshan.org/References/Science/Chalmers-1995-Facing-Up-to-the-Problem-of-Consciousness.pdf">&ldquo;Facing Up to the Problem of Consciousness.&rdquo;</a> <em>Journal of Consciousness Studies</em>, 2(3), 200–219. Also at https://consc.net/papers/facing.pdf</li>
+<li><strong>Churchland 1986</strong> — Churchland, P. S. <a href="https://mitpress.mit.edu/9780262530853/neurophilosophy/"><em>Neurophilosophy: Toward a Unified Science of the Mind-Brain</em></a>. MIT Press.</li>
+<li><strong>Dennett 1991</strong> — Dennett, D. <a href="https://www.penguinrandomhouse.com/books/311069/consciousness-explained-by-daniel-c-dennett/"><em>Consciousness Explained</em></a>. Little, Brown.</li>
+<li><strong>Goff 2019</strong> — Goff, P. <a href="https://philipgoff.com/galileos-error/"><em>Galileo&rsquo;s Error: Foundations for a New Science of Consciousness</em></a>. Pantheon.</li>
+<li><strong>Kandel et al. 2021</strong> — Kandel, E. R., et al. <a href="https://www.mheducation.com/highered/product/principles-neural-science-kandel/9781259642234.html"><em>Principles of Neural Science</em></a>, 6th ed. McGraw-Hill. Cited for Ch. 39 (brain–machine interfaces).</li>
+<li><strong>Kim 2005</strong> — Kim, J. <a href="https://press.princeton.edu/books/paperback/9780691117532/physicalism-or-something-near-enough"><em>Physicalism, or Something Near Enough</em></a>. Princeton University Press.</li>
+<li><strong>Nagel 1974</strong> — Nagel, T. <a href="https://analyticmadhyasthdarshan.org/References/Science/Nagel-1974-What-Is-It-Like-to-Be-a-Bat.pdf">&ldquo;What Is It Like to Be a Bat?&rdquo;</a> <em>The Philosophical Review</em>, 83(4), 435–450. Also at https://www.cs.ox.ac.uk/activities/ieg/e-library/sources/nagel_bat.pdf</li>
+<li><strong>Popper 1959</strong> — Popper, K. <a href="https://www.routledge.com/The-Logic-of-Scientific-Discovery/Popper/p/book/9780415278447"><em>The Logic of Scientific Discovery</em></a>. Hutchinson / Routledge.</li>
+<li><strong>Shapiro 2007</strong> — Shapiro, L., ed. <a href="https://press.uchicago.edu/ucp/books/book/chicago/C/bo3647771.html"><em>The Correspondence between Princess Elisabeth of Bohemia and René Descartes</em></a>. University of Chicago Press.</li>
+<li><strong>Strawson 2006</strong> — Strawson, G. <a href="https://analyticmadhyasthdarshan.org/References/Science/Strawson-2006-Realistic-Monism-Panpsychism.pdf">&ldquo;Realistic Monism: Why Physicalism Entails Panpsychism.&rdquo;</a> <em>Journal of Consciousness Studies</em>, 13(10–11), 3–31. Also at https://consc.net/event/reef/strawsonmonism.pdf</li>
+<li><strong>Tomasello 2014</strong> — Tomasello, M. <a href="https://www.hup.harvard.edu/catalog.php?isbn=9780674724779"><em>A Natural History of Human Thinking</em></a>. Harvard University Press.</li>
+</ul>
+
+</body>
+</html>

@@ -6,7 +6,7 @@ from urllib.parse import unquote, urlparse
 
 import markdown
 
-from _common import BASE, REFERENCES, STUDIES, is_linkable_reference_file, site_base_url, study_md
+from _common import APPLICATIONS, BASE, REFERENCES, STUDIES, is_linkable_reference_file, site_base_url, study_md
 from _study_catalog import strip_status_for_pdf
 
 
@@ -83,7 +83,50 @@ def rewrite_local_links_for_site(html_body: str, html_path: Path) -> str:
     return re.sub(r'href="([^"]+)"', replace, html_body)
 
 
-def convert_to_html(input_path: Path) -> Path:
+def _study_toolbar_html(md_path: Path) -> str:
+    stem = md_path.stem
+    try:
+        if md_path.parent.is_relative_to(APPLICATIONS):
+            catalog_href = "../../Studies/index.html"
+        else:
+            catalog_href = "../index.html"
+    except ValueError:
+        catalog_href = "../index.html"
+    pdf_href = f"{stem}.pdf"
+    return f"""<nav class="study-toolbar" aria-label="Study navigation">
+  <a class="study-toolbar-link" href="{catalog_href}">&larr; All studies</a>
+  <a class="study-toolbar-link study-toolbar-download" href="{pdf_href}" download>Download PDF</a>
+</nav>
+"""
+
+
+def _draft_banner_html(is_draft: bool) -> str:
+    if not is_draft:
+        return ""
+    return '<p class="draft-banner" role="status">Draft</p>\n'
+
+
+def _mermaid_loader_html(html_body: str) -> str:
+    if 'class="mermaid"' not in html_body:
+        return ""
+    return """<script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+mermaid.initialize({
+  startOnLoad: true,
+  theme: "neutral",
+  securityLevel: "loose",
+  flowchart: { htmlLabels: true, useMaxWidth: true },
+});
+</script>
+"""
+
+
+def convert_to_html(
+    input_path: Path,
+    *,
+    is_draft: bool = False,
+    include_web_chrome: bool = False,
+) -> Path:
     output_path = input_path.with_suffix(".html")
     md_text = input_path.read_text(encoding="utf-8")
     md_text = strip_status_for_pdf(md_text)
@@ -97,6 +140,57 @@ def convert_to_html(input_path: Path) -> Path:
     )
     html_body = convert_mermaid_blocks(html_body)
     html_body = rewrite_local_links_for_site(html_body, output_path)
+
+    toolbar = _study_toolbar_html(input_path) if include_web_chrome else ""
+    draft_banner = _draft_banner_html(is_draft) if include_web_chrome else ""
+    mermaid_loader = _mermaid_loader_html(html_body) if include_web_chrome else ""
+
+    web_chrome_css = ""
+    if include_web_chrome:
+        web_chrome_css = """
+  .study-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px 16px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 13px;
+    margin: 0 0 22px;
+    padding: 10px 14px;
+    border: 1px solid #d8d2c8;
+    border-radius: 8px;
+    background: #f7f4ef;
+  }
+  .study-toolbar-link {
+    color: #1a5276;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .study-toolbar-link:hover { color: #13405c; }
+  .study-toolbar-download::after {
+    content: " \\2193";
+    font-weight: 700;
+  }
+  .draft-banner {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #8b5e34;
+    background: #f5ebe0;
+    border: 1px solid #e0d0be;
+    border-radius: 6px;
+    padding: 6px 12px;
+    margin: 0 0 18px;
+    text-align: center;
+  }
+  @media print {
+    .study-toolbar,
+    .draft-banner { display: none !important; }
+  }
+"""
 
     full_html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -306,10 +400,12 @@ def convert_to_html(input_path: Path) -> Path:
     max-width: 100%;
     height: auto;
   }}
+{web_chrome_css}
 </style>
 </head>
 <body>
-{html_body}
+{toolbar}{draft_banner}{html_body}
+{mermaid_loader}
 </body>
 </html>"""
 

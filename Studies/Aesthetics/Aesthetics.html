@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Aesthetics</title>
+<style>
+  @page {
+    size: A4;
+    margin: 2.2cm 2cm 2.2cm 2cm;
+  }
+  @media print {
+    body {
+      font-size: 11pt;
+      margin: 0;
+      padding: 0;
+      max-width: none;
+    }
+    h1 ~ p {
+      margin: 3pt 0;
+    }
+    h2 {
+      page-break-after: auto;
+      break-after: auto;
+    }
+    h2:first-of-type {
+      margin-top: 10pt;
+    }
+    h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+    h3, h4 { page-break-inside: avoid; break-inside: avoid; }
+    p { text-align: justify; text-justify: inter-word; hyphens: auto; }
+    li { text-align: left; }
+    table {
+      page-break-inside: auto;
+      break-inside: auto;
+    }
+    thead {
+      display: table-header-group;
+    }
+    tr {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    pre { page-break-inside: avoid; white-space: pre-wrap; overflow-wrap: anywhere; word-break: break-word; }
+    blockquote { page-break-inside: avoid; }
+  }
+  body {
+    position: relative;
+    z-index: 1;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 11pt;
+    line-height: 1.55;
+    color: #1a1a1a;
+    max-width: 750px;
+    margin: 30px auto;
+    padding: 0 20px;
+  }
+  h1 {
+    font-size: 20pt;
+    margin-top: 0;
+    margin-bottom: 4pt;
+    color: #111;
+    border-bottom: 2px solid #333;
+    padding-bottom: 6pt;
+  }
+  h1 + p {
+    margin-top: 4pt;
+  }
+  h2 {
+    font-size: 15pt;
+    margin-top: 18pt;
+    margin-bottom: 6pt;
+    color: #222;
+    border-bottom: 1px solid #bbb;
+    padding-bottom: 4pt;
+  }
+  h3 {
+    font-size: 12.5pt;
+    margin-top: 16pt;
+    margin-bottom: 4pt;
+    color: #333;
+  }
+  h4 {
+    font-size: 11.5pt;
+    margin-top: 14pt;
+    margin-bottom: 4pt;
+    color: #333;
+    font-weight: bold;
+  }
+  p {
+    margin: 6pt 0;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+  }
+  a {
+    color: #1a5276;
+    text-decoration: underline;
+  }
+  blockquote {
+    margin: 10pt 0 10pt 16pt;
+    padding: 6pt 12pt;
+    border-left: 3pt solid #888;
+    background: #f7f7f5;
+    font-style: italic;
+    color: #333;
+  }
+  blockquote p {
+    margin: 0;
+    white-space: pre-line;
+  }
+  blockquote p + p {
+    margin-top: 6pt;
+  }
+  blockquote strong {
+    font-style: normal;
+  }
+  .quote-source {
+    font-style: normal;
+    font-size: 10pt;
+    color: #555;
+    margin-top: 4pt;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12pt 0;
+    font-size: 10pt;
+    page-break-inside: auto;
+    break-inside: auto;
+  }
+  thead {
+    display: table-header-group;
+  }
+  tr {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  th {
+    background: #e8e8e4;
+    border: 1px solid #aaa;
+    padding: 5pt 7pt;
+    text-align: left;
+    font-weight: bold;
+  }
+  td {
+    border: 1px solid #ccc;
+    padding: 5pt 7pt;
+    vertical-align: top;
+  }
+  tr:nth-child(even) {
+    background: #fafaf8;
+  }
+  code {
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 10pt;
+    background: #f0f0ec;
+    padding: 1pt 3pt;
+    border-radius: 2pt;
+  }
+  pre {
+    background: #f5f5f1;
+    padding: 10pt 14pt;
+    border-radius: 4pt;
+    overflow-x: auto;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    white-space: pre-wrap;
+    max-width: 100%;
+    font-size: 10pt;
+    line-height: 1.4;
+  }
+  pre code {
+    background: none;
+    padding: 0;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  ul, ol {
+    margin: 6pt 0;
+    padding-left: 24pt;
+  }
+  li {
+    margin: 3pt 0;
+  }
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 12pt auto;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  p:has(> img:only-child) {
+    text-align: center;
+    margin: 12pt 0;
+  }
+  .mermaid {
+    display: flex;
+    justify-content: center;
+    margin: 12pt auto;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .mermaid svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .study-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px 16px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 13px;
+    margin: 0 0 22px;
+    padding: 10px 14px;
+    border: 1px solid #d8d2c8;
+    border-radius: 8px;
+    background: #f7f4ef;
+  }
+  .study-toolbar-link {
+    color: #1a5276;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .study-toolbar-link:hover { color: #13405c; }
+  .study-toolbar-download::after {
+    content: " \2193";
+    font-weight: 700;
+  }
+  .draft-banner {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #8b5e34;
+    background: #f5ebe0;
+    border: 1px solid #e0d0be;
+    border-radius: 6px;
+    padding: 6px 12px;
+    margin: 0 0 18px;
+    text-align: center;
+  }
+  @media print {
+    .study-toolbar,
+    .draft-banner { display: none !important; }
+  }
+
+</style>
+</head>
+<body>
+<nav class="study-toolbar" aria-label="Study navigation">
+  <a class="study-toolbar-link" href="../index.html">&larr; All studies</a>
+  <a class="study-toolbar-link study-toolbar-download" href="Aesthetics.pdf" download>Download PDF</a>
+</nav>
+<p class="draft-banner" role="status">Draft</p>
+<h1>Aesthetics</h1>
+<p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> - a group of people studying Madhyasth Darshan philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
+<p><strong>Edited on:</strong> June 26, 2026, 10:28 AM IST
+<strong>The question:</strong> What is aesthetics? Is beauty a property of objects, a state of the subject, a social convention, a kind of taste, an experience of art, an environmental relation, or a sign of deeper harmony? How do <strong>modern philosophies</strong> approach aesthetics, how does <strong>Madhyasth Darshan</strong> understand it, and does <strong>Advaita Vedanta</strong> have anything direct to say on the subject?</p>
+<p>This study argues that Madhyasth Darshan gives a sparse but distinctive aesthetics: aesthetic value is not an autonomous domain of taste detached from life, nor merely a social artworld status. It is meaningful when it enhances usefulness, convenience, relationship, harmony, and the fulfilment of human purpose within coexistence. This makes Madhyasth Darshan closer to everyday, environmental, and functional aesthetics than to art-centred formalism, but it also leaves unresolved questions about autonomous art, tragic art, the sublime, negative aesthetics, and avant-garde disruption.</p>
+<h2>Quick Glossary</h2>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Plain meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Aesthetics</strong></td>
+<td>The philosophical study of beauty, taste, aesthetic experience, aesthetic value, art, nature, design, and the sensory-affective texture of life.</td>
+</tr>
+<tr>
+<td><strong>Aesthetic value</strong></td>
+<td>In modern philosophy, a contested value connected with beauty, form, expression, experience, taste, or appreciation. In Madhyasth Darshan, aesthetic value is meaningful when it adds convenience to usefulness.</td>
+</tr>
+<tr>
+<td><strong>Taste</strong></td>
+<td>The capacity to judge beauty or aesthetic merit. Modern aesthetics often begins with debates over whether taste is subjective, rational, disinterested, educable, or socially formed.</td>
+</tr>
+<tr>
+<td><strong>Disinterestedness</strong></td>
+<td>A major modern idea, especially in Kant: appreciation of beauty is not based on desire, possession, utility, or moral command.</td>
+</tr>
+<tr>
+<td><strong>Formalism</strong></td>
+<td>The view that aesthetic or artistic value depends primarily on perceptible form: line, colour, shape, rhythm, sound, pattern, composition.</td>
+</tr>
+<tr>
+<td><strong>Institutional theory of art</strong></td>
+<td>The view that something becomes art through its place in artworld practices, histories, and institutions.</td>
+</tr>
+<tr>
+<td><strong>Everyday aesthetics</strong></td>
+<td>The study of aesthetic qualities in ordinary life: food, clothing, tools, rooms, habits, gestures, cleanliness, noise, clutter, comfort, and atmosphere.</td>
+</tr>
+<tr>
+<td><strong>Environmental aesthetics</strong></td>
+<td>The study of aesthetic appreciation of natural, built, and human-influenced environments.</td>
+</tr>
+<tr>
+<td><strong>Rasa</strong></td>
+<td>In classical Indian aesthetics, aesthetic relish or savoured emotional experience. It belongs primarily to Sanskrit poetics and performance theory, not to Advaita Vedanta as such.</td>
+</tr>
+<tr>
+<td><strong>Coexistence</strong></td>
+<td>In Madhyasth Darshan: reality as the inseparable presentness of Omnipresence and all sentient and insentient units.</td>
+</tr>
+<tr>
+<td><strong><em>Jeevan</em></strong></td>
+<td>The sentient self in Madhyasth Darshan, whose activities include taste, selection, thought, desire, visualisation, understanding, and realization.</td>
+</tr>
+<tr>
+<td><strong>Harmony</strong></td>
+<td>In Madhyasth Darshan, the consonance of form, properties, essential nature, dharma, relationship, conduct, and realization in coexistence.</td>
+</tr>
+<tr>
+<td><strong><em>Atman</em> / *Brahman</strong>*</td>
+<td>In Advaita Vedanta: the innermost Self and ultimate non-dual reality.</td>
+</tr>
+<tr>
+<td><strong><em>Mithya</em></strong></td>
+<td>In Advaita: the world as dependent appearance, neither absolutely real nor sheer non-being.</td>
+</tr>
+</tbody>
+</table>
+<h2>1. The Central Thesis</h2>
+<p>Aesthetics can be studied through five questions:</p>
+<pre><code class="language-text">What is aesthetically valued?
+Who or what apprehends it?
+By what criterion is it judged?
+What is its relation to usefulness, morality, truth, and liberation?
+What goes wrong when aesthetic life is distorted?
+</code></pre>
+<p>Modern philosophy gives several competing answers. It treats aesthetics as taste, judgment, experience, art-status, form, expression, institutional history, nature appreciation, everyday sensibility, and sometimes politics or social critique. Its strength is plural analysis. Its weakness is that the field can fragment: art, beauty, taste, use, ecology, and ordinary living often become separate debates.</p>
+<p>Madhyasth Darshan gives a different answer. It does not begin with fine art, genius, art institutions, or subjective taste. It begins with existence as coexistence and with units that have form, properties, essential nature, dharma, usefulness, relationship, and orderliness. From that standpoint, aesthetics is not a free-floating luxury. It is a refinement of life when it supports usefulness, convenience, right-use, relationship, value-fulfilment, and harmony.</p>
+<p>The contrast is sharp:</p>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Modern aesthetics</th>
+<th>Madhyasth Darshan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Basic locus</td>
+<td>Taste, judgment, experience, art, nature, everyday perception</td>
+<td>Coexistence, unit, usefulness, relationship, harmony, humane living</td>
+</tr>
+<tr>
+<td>Main problem</td>
+<td>How can aesthetic judgment be meaningful if it is subjective, sensory, social, or historically variable?</td>
+<td>How can sensory and material arrangement support usefulness, values, and continuous happiness rather than indulgence or waste?</td>
+</tr>
+<tr>
+<td>Art</td>
+<td>Central in many modern debates, though increasingly challenged by environmental and everyday aesthetics</td>
+<td>Not central in the primary texts consulted for this paper</td>
+</tr>
+<tr>
+<td>Beauty</td>
+<td>Often treated as disinterested, formal, expressive, relational, or culturally mediated</td>
+<td>Not a central technical category; harmony and meaningfulness do more work</td>
+</tr>
+<tr>
+<td>Usefulness</td>
+<td>Often bracketed by Kantian disinterest; restored by design, functional beauty, and everyday aesthetics</td>
+<td>Foundational: aesthetics is meaningful when it adds convenience to usefulness</td>
+</tr>
+<tr>
+<td>Failure mode</td>
+<td>Bad taste, kitsch, ideological art, shallow formalism, exclusionary institutions, aesthetic violence</td>
+<td>Sensory obsession, decorative excess, useless luxury, disorder, delusion, and disconnection from justice, dharma, truth</td>
+</tr>
+</tbody>
+</table>
+<h2>2. How Modern Philosophy Deals with Aesthetics</h2>
+<h3>2.1 The modern field is not one doctrine</h3>
+<p>The Stanford Encyclopedia entry on the concept of the aesthetic summarizes the field&rsquo;s breadth:</p>
+<blockquote>
+<p><strong>&ldquo;Introduced into the philosophical lexicon during the Eighteenth Century, the term &lsquo;aesthetic&rsquo; has come to designate, among other things, a kind of object, a kind of judgment, a kind of attitude, a kind of experience, and a kind of value.&rdquo;</strong><br />
+- SEP Concept of the Aesthetic</p>
+</blockquote>
+<p>This is the right starting point. Modern aesthetics is not simply &ldquo;the philosophy of beauty.&rdquo; It asks whether aesthetic value belongs to:</p>
+<ol>
+<li>objects, such as paintings, bodies, landscapes, houses, tools, poems, clothes, or cities;</li>
+<li>subjects, as feelings of pleasure, attention, absorption, delight, horror, disgust, or wonder;</li>
+<li>judgments, such as &ldquo;this is beautiful,&rdquo; &ldquo;this is graceful,&rdquo; &ldquo;this is vulgar,&rdquo; or &ldquo;this is moving&rdquo;;</li>
+<li>practices, such as artworlds, criticism, ritual, museums, performance, design, craft, fashion, and conservation;</li>
+<li>forms of life, such as domestic order, ecological belonging, care, hospitality, cleanliness, silence, noise, or public space.</li>
+</ol>
+<p>This plurality is intellectually honest. It recognizes that a temple, a road, a poem, a kitchen utensil, a ruined forest, and a noisy street may all be aesthetically relevant, but not in the same way.</p>
+<h3>2.2 Taste, immediacy, and disinterestedness</h3>
+<p>Modern aesthetics begins in large part with the eighteenth-century problem of taste. The basic puzzle is this:</p>
+<pre><code class="language-text">Aesthetic judgment feels personal, but we often argue about it as if it can be right or wrong.
+</code></pre>
+<p>If I say &ldquo;this song is beautiful,&rdquo; I am not merely reporting a private bodily state like &ldquo;I am itchy.&rdquo; I seem to invite agreement. Yet I cannot prove the judgment the way I can prove a geometrical theorem.</p>
+<p>The SEP account identifies two important modern theses: immediacy and disinterest. The immediacy thesis says beauty is not normally inferred from rules; it is sensed or directly appreciated after the object is grasped. The disinterest thesis says aesthetic pleasure is not simply the pleasure of possession, bodily appetite, moral duty, or economic gain.</p>
+<p>Kant gives the most influential version. In his aesthetics, judgments of beauty are based on feeling rather than determinate concepts, yet they claim a kind of universal validity. Beauty is not the merely agreeable. It is not &ldquo;I like this because I want it.&rdquo; It is closer to &ldquo;this deserves appreciation.&rdquo;</p>
+<p>This remains powerful. It explains why we can admire a flower without wanting to pluck it, a melody without owning it, or a landscape without using it. But it also creates a problem. If aesthetic appreciation is detached from utility, morality, and possession, then how should aesthetics relate to ordinary life, ecological responsibility, labour, technology, design, and social justice?</p>
+<h3>2.3 Art-centred aesthetics and its crisis</h3>
+<p>Modern aesthetics became strongly art-centred. Philosophy of art asked:</p>
+<ol>
+<li>What is art?</li>
+<li>Is art imitation, expression, significant form, experience, communication, critique, or institution?</li>
+<li>Can bad art still be art?</li>
+<li>Can ordinary objects become art?</li>
+<li>Who decides: artist, audience, critic, market, museum, tradition, or history?</li>
+</ol>
+<p>The SEP entry on the definition of art states the contemporary situation clearly:</p>
+<blockquote>
+<p><strong>&ldquo;The definition of art is controversial in contemporary philosophy. Whether art can be defined has also been a matter of controversy.&rdquo;</strong><br />
+- SEP Definition of Art</p>
+</blockquote>
+<p>It classifies contemporary definitions by what they emphasize:</p>
+<table>
+<thead>
+<tr>
+<th>Theory family</th>
+<th>Core claim</th>
+<th>Strength</th>
+<th>Difficulty</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Representational / mimetic</td>
+<td>Art represents or imitates reality</td>
+<td>Explains much painting, drama, narrative</td>
+<td>Excludes non-representational art; includes non-art representations</td>
+</tr>
+<tr>
+<td>Expressive</td>
+<td>Art expresses emotion, inner life, or meaning</td>
+<td>Explains music, poetry, performance, modern art</td>
+<td>Not all art is expressive in the same way</td>
+</tr>
+<tr>
+<td>Formalist</td>
+<td>Art&rsquo;s value lies in form</td>
+<td>Explains visual and musical structure</td>
+<td>Struggles with conceptual art, context, history, politics</td>
+</tr>
+<tr>
+<td>Functionalist</td>
+<td>Art is defined by what it does: aesthetic experience, expression, communication, insight</td>
+<td>Preserves art&rsquo;s human purpose</td>
+<td>Risks excluding failed, difficult, anti-aesthetic, or disturbing art</td>
+</tr>
+<tr>
+<td>Institutional / historical</td>
+<td>Art is what stands in the right relation to artworld practices and histories</td>
+<td>Explains Duchamp, conceptual art, museums, avant-garde</td>
+<td>Can make art-status depend too much on social authority</td>
+</tr>
+<tr>
+<td>Cluster / family resemblance</td>
+<td>Art has overlapping features, no single essence</td>
+<td>Flexible and historically sensitive</td>
+<td>Can become a list without deep explanation</td>
+</tr>
+</tbody>
+</table>
+<p>The most important lesson for this paper is that modern art theory increasingly doubts whether aesthetic value alone defines art. A urinal in a gallery, a silent performance, a ready-made object, or a conceptual work may have art-status through context and history rather than ordinary beauty.</p>
+<p>Madhyasth Darshan does not appear, in the primary passages reviewed here, to offer a philosophy of art-status. It is therefore not competing directly with institutional theories of art. Its critique is aimed elsewhere: at whether human making, arranging, producing, consuming, and appreciating are aligned with usefulness, values, and orderliness.</p>
+<h3>2.4 Environmental aesthetics: the return of nature</h3>
+<p>Modern aesthetics later reacted against the narrow identification of aesthetics with fine art. Environmental aesthetics emerged because nature, landscapes, built environments, ecological processes, and human-influenced places could not be adequately understood through gallery-centred art categories.</p>
+<p>The SEP entry says:</p>
+<blockquote>
+<p><strong>&ldquo;Environmental aesthetics is a relatively new sub-field of philosophical aesthetics that took shape around the end of the twentieth century. Prior to its emergence, aesthetics within the analytic tradition was largely concerned with the philosophy of art.&rdquo;</strong><br />
+- SEP Environmental Aesthetics</p>
+</blockquote>
+<p>This is highly relevant to Madhyasth Darshan. Environmental aesthetics asks whether a forest, river, animal, city, agricultural field, polluted stream, or climate-altered landscape can be aesthetically appreciated in a way that is informed by ecological knowledge and ethical concern.</p>
+<p>Two major approaches matter here:</p>
+<ol>
+<li><strong>Cognitive/scientific appreciation:</strong> To appreciate nature properly, one must understand what it is: ecology, geology, species, processes, interdependence.</li>
+<li><strong>Engaged/multisensory appreciation:</strong> To appreciate environment properly, one must not stand apart like a spectator before a picture; one must participate bodily and contextually.</li>
+</ol>
+<p>Madhyasth Darshan can learn from both but also goes beyond both. It does not merely say that nature should be seen scientifically or immersed in aesthetically. It says the human being must understand nature as coexistence and live in right-use, protection, complementarity, and orderliness with it.</p>
+<h3>2.5 Everyday aesthetics: aesthetics returns to living</h3>
+<p>Everyday aesthetics widens the field still further. It includes clothes, food, rooms, tools, gestures, bodily movements, cleaning, walking, cooking, noise, clutter, public space, digital life, ceremonies, and ordinary use.</p>
+<p>The SEP entry defines its project as a recovery of neglected scope:</p>
+<blockquote>
+<p><strong>&ldquo;Everyday aesthetics continues this trajectory of widening scope by including objects, events, and activities that constitute people&rsquo;s daily life.&rdquo;</strong><br />
+- SEP Aesthetics of the Everyday</p>
+</blockquote>
+<p>It adds an important moral and social claim:</p>
+<blockquote>
+<p><strong>&ldquo;Seemingly trivial aesthetic tastes, preferences, and judgments regarding everyday life can play a significant role in determining the quality of life and the state of the world.&rdquo;</strong><br />
+- SEP Aesthetics of the Everyday</p>
+</blockquote>
+<p>This is the modern field closest to Madhyasth Darshan. Madhyasth Darshan is not mainly concerned with museum art. It is concerned with living: body, mind, wealth, production, family, society, orderliness, Earth, behaviour, and human fulfilment. From that standpoint, the aesthetics of a house, tool, meal, garment, public place, institution, or technology matters because it shapes conduct, use, attention, relationship, and satisfaction.</p>
+<h3>2.6 Negative aesthetics and aesthetic harm</h3>
+<p>Everyday aesthetics also studies ugliness, clutter, vulgarity, noise, stench, oppressive architecture, manipulative advertising, visual pollution, and aesthetic assault. This matters because aesthetics can harm.</p>
+<p>Modern life often treats aesthetics as consumer attraction: make the package shinier, the interface more addictive, the advertisement louder, the status object more desirable. Aesthetic power is then used to intensify indulgence, comparison, insecurity, and consumption.</p>
+<p>Madhyasth Darshan is especially strong here. Its framework asks whether aesthetic arrangement supports:</p>
+<ol>
+<li>usefulness;</li>
+<li>right-use;</li>
+<li>protection;</li>
+<li>relationship;</li>
+<li>justice;</li>
+<li>resolution;</li>
+<li>coexistence.</li>
+</ol>
+<p>If an aesthetic object increases desire, waste, exploitation, status competition, or ecological harm, Madhyasth Darshan would not treat its attractiveness as sufficient evidence of value.</p>
+<h2>3. Does Advaita Vedanta Have Anything to Say About Aesthetics?</h2>
+<h3>3.1 The short answer</h3>
+<p>Advaita Vedanta does have resources relevant to aesthetics, but it does not have a central, systematic aesthetics in the same way that classical Indian rasa theory or modern philosophy of art does.</p>
+<p>Three distinctions are necessary:</p>
+<ol>
+<li><strong>Primary Advaita Vedanta:</strong> Upanishads, Shankara, and Advaita prakaranas primarily address ignorance, Self-knowledge, Brahman, liberation, detachment, and the status of the world.</li>
+<li><strong>Classical Indian aesthetics:</strong> Rasa, dhvani, natya, poetry, and performance theory belong to a wider Sanskrit aesthetic tradition. Abhinavagupta is central, but he is not simply an Advaitin; his metaphysical background is Kashmir Shaivism.</li>
+<li><strong>Later comparative interpretations:</strong> Modern scholars and spiritual writers often connect rasa, beauty, self-forgetfulness, and bliss with Vedantic or non-dual experience. These are valuable but should not be mistaken for direct Advaita doctrine.</li>
+</ol>
+<p>So the rigorous answer is:</p>
+<pre><code class="language-text">Advaita has indirect and metaphysical implications for aesthetics,
+but not a full independent aesthetics of art, design, or environment.
+</code></pre>
+<h3>3.2 Advaita&rsquo;s relevant claims: Self, bliss, and the status of the world</h3>
+<p>Advaita&rsquo;s main claim is not &ldquo;the world is beautiful.&rdquo; It is that the Self is Brahman and that liberation is knowledge of this non-dual reality. The <em>Taittiriya Upanishad</em> names Brahman&rsquo;s nature:</p>
+<blockquote>
+<p><strong>&ldquo;Truth, knowledge, infinite.&rdquo;</strong><br />
+- TU 2.1</p>
+</blockquote>
+<p>The <em>Brihadaranyaka Upanishad</em> adds that the Self is unattached:</p>
+<blockquote>
+<p><strong>&ldquo;This person is unattached, for it is not attached to anything. That is the Self; that is immortal; that is fearless; that is Brahman.&rdquo;</strong><br />
+- BU 3.9.28</p>
+</blockquote>
+<p>Shankara, in the <em>Vivekachudamani</em>, summarises the Advaita discrimination:</p>
+<blockquote>
+<p><strong>&ldquo;A firm conviction of the mind to the effect that Brahman is real and the universe unreal, is designated as discrimination (Viveka) between the Real and the unreal.&rdquo;</strong><br />
+- VC, v. 20</p>
+</blockquote>
+<p>On the identity of <em>jiva</em> and Brahman he teaches:</p>
+<blockquote>
+<p><strong>&ldquo;The individual soul is itself and directly the Supreme Brahman, and nothing else.&rdquo;</strong><br />
+- VC, v. 216</p>
+</blockquote>
+<p>This has consequences for aesthetics:</p>
+<ol>
+<li>Beauty cannot be ultimately independent of Brahman.</li>
+<li>Sensory beauty belongs to the realm of name and form.</li>
+<li>Attachment to beautiful objects can bind if it strengthens identification with body, desire, possession, or ego.</li>
+<li>Aesthetic experience may become contemplative when it quiets ego and points beyond personal craving.</li>
+</ol>
+<p>The <em>Bhagavad Gita</em> with Shankara&rsquo;s commentary distinguishes external-object pleasure from Self-bliss:</p>
+<blockquote>
+<p><strong>&ldquo;unattached to external objects, he gets the bliss that is in the Self.&rdquo;</strong><br />
+- BG, 5.21</p>
+</blockquote>
+<p>From an Advaita standpoint, therefore, aesthetic delight is spiritually ambiguous. It may be:</p>
+<ol>
+<li>another sensory attachment;</li>
+<li>a sattvic refinement of attention;</li>
+<li>a temporary ego-transcending delight;</li>
+<li>a pointer toward Self-bliss;</li>
+<li>or simply part of empirical life without ultimate status.</li>
+</ol>
+<h3>3.3 The Maitreyi passage and the source of dearness</h3>
+<p>The <em>Brihadaranyaka Upanishad</em> gives a passage that can be read aesthetically, though it is not about art:</p>
+<blockquote>
+<p><strong>&ldquo;It is not for the sake of all, my dear, that all is loved, but for one&rsquo;s own sake that it is loved. The Self, my dear Maitreyi, should be realised - should be heard of, reflected on and meditated upon.&rdquo;</strong><br />
+- BU, 2.4 / 4.5</p>
+</blockquote>
+<p>The direct meaning is metaphysical and soteriological: everything is dear because the Self is dear. Applied cautiously to aesthetics, this suggests that beauty&rsquo;s felt attraction is not finally explained by object-possession. It points back to the Self as the ground of dearness and bliss.</p>
+<p>But this must not be overstated. The passage is not a theory of painting, poetry, music, architecture, craft, ecology, or design. It is a theory of love, dearness, and Self-realization.</p>
+<h3>3.4 Rasa and Advaita: connection, but not identity</h3>
+<p>Classical Indian aesthetics, especially rasa theory, often sounds closer to Advaita than modern analytic aesthetics does. In rasa, ordinary emotion is universalized and savoured aesthetically. The spectator is not simply indulging private grief, erotic desire, anger, or heroism; the emotion is transformed into aesthetic relish.</p>
+<p>Open contemporary discussions of <em>sadharanikarana</em> describe this as a process by which personal and contextual limits are loosened, allowing a universalized aesthetic experience. This naturally invites comparison with non-duality and bliss.</p>
+<p>However, rigorous comparison needs restraint:</p>
+<ol>
+<li>Rasa is primarily a theory of aesthetic experience in poetry, drama, and performance.</li>
+<li>Advaita is primarily a theory of Self-knowledge and liberation.</li>
+<li>Aesthetic self-forgetfulness is temporary; liberation is not.</li>
+<li>Rasa may resemble bliss but does not equal Brahman-realization.</li>
+<li>Abhinavagupta&rsquo;s influential rasa metaphysics is not classical Shankara Advaita.</li>
+</ol>
+<p>Thus Advaita can say something important about aesthetics: the deepest delight is not in objects as objects, but in the Self. Yet Advaita does not by itself supply a detailed social, ecological, or functional aesthetics.</p>
+<h2>4. The Madhyasth Darshan View</h2>
+<h3>4.1 The explicit statement on aesthetic value</h3>
+<p>The most direct passage found in the Madhyasth Darshan primary texts reviewed for this paper is in <em>Jeevan Vidya: An Introduction</em>:</p>
+<blockquote>
+<p><strong>&ldquo;The object value remains constant. For example, whatever value (usefulness) is there in one kilogram sesame seeds, it has always been the same. Similarly, the value of medicine, rice, wheat, vegetables, etc also remains constant. This is called usefulness value. Also, there are things that humans produce - such as cars, trains, etc. - where aesthetic value gets added. Aesthetics is meaningful when it adds convenience to usefulness. This is the basis of our analysis for recognising usefulness, meaningfulness and aesthetics.&rdquo;</strong><br />
+- JV, pp. 137-138</p>
+</blockquote>
+<p>This passage is decisive. Madhyasth Darshan does not define aesthetics as disinterested contemplation, subjective taste, artworld recognition, or emotional intensity. It defines the meaningfulness of aesthetics through a practical-human criterion:</p>
+<pre><code class="language-text">Aesthetics is meaningful when it adds convenience to usefulness.
+</code></pre>
+<p>This does not mean aesthetics is trivial. It means aesthetics must remain accountable to the purpose of the object, the human being, and the larger order of living.</p>
+<p>For example:</p>
+<table>
+<thead>
+<tr>
+<th>Object or environment</th>
+<th>Usefulness</th>
+<th>Meaningful aesthetic addition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chair</td>
+<td>Supports sitting</td>
+<td>Comfort, proportion, material suitability, ease of movement</td>
+</tr>
+<tr>
+<td>House</td>
+<td>Shelter and family life</td>
+<td>Light, ventilation, cleanliness, warmth, social dignity</td>
+</tr>
+<tr>
+<td>Tool</td>
+<td>Enables work</td>
+<td>Grip, balance, legibility, safety, durability</td>
+</tr>
+<tr>
+<td>Road</td>
+<td>Enables movement</td>
+<td>Clarity, safety, drainage, relation to trees and settlements</td>
+</tr>
+<tr>
+<td>Clothing</td>
+<td>Protection and social presentation</td>
+<td>Comfort, modesty, local climate fit, self-respect without status obsession</td>
+</tr>
+<tr>
+<td>Public place</td>
+<td>Shared use</td>
+<td>Accessibility, shade, cleanliness, acoustic calm, trust</td>
+</tr>
+</tbody>
+</table>
+<p>An aesthetic addition becomes distorted when it obstructs usefulness or inflates desire. A heavy decorative chair that cannot be sat on, a luxury car designed mainly for status display, a building that looks impressive but wastes energy, or a phone interface that is beautiful but addictive would all be suspect from this criterion.</p>
+<h3>4.2 Aesthetics is not mere pleasure</h3>
+<p>Madhyasth Darshan distinguishes sensory gratification from deeper fulfilment:</p>
+<blockquote>
+<p><strong>&ldquo;Sensory satisfaction proves to be momentary, intellectual satisfaction proves to be long-lasting, and spiritual satisfaction (realisation) proves to be ever-lasting or non-transformable.&rdquo;</strong><br />
+- MVD, p. 66</p>
+</blockquote>
+<p>This is central for aesthetics. Aesthetic pleasure that remains at the level of sensory liking cannot produce continuous happiness. It may be pleasant, but it remains dependent on contact, novelty, comparison, possession, and repetition.</p>
+<p>Madhyasth Darshan classifies the lower standpoint as pleasant/unpleasant, healthy/unhealthy, and profit/loss:</p>
+<blockquote>
+<p><strong>&ldquo;All human behaviour is manifest in six perspectives: - (1) pleasant-unpleasant, (2) healthy-unhealthy, (3) profit-loss, (4) justice-injustice, (5) dharma-adharma, and (6) truth-untruth.&rdquo;</strong><br />
+- MVD, p. 67</p>
+<p><strong>&ldquo;The behaviour of humans with inhumane perspective is in the refuge of pleasant-unpleasant, healthy-unhealthy, and profit-loss. The behaviour of humans with humane perspective is in the refuge of justice-injustice, dharma-adharma, and truth-untruth.&rdquo;</strong><br />
+- MVD, p. 67</p>
+</blockquote>
+<p>Applied to aesthetics, the implication is severe:</p>
+<pre><code class="language-text">Aesthetic life governed only by pleasant/unpleasant is not yet humane aesthetics.
+</code></pre>
+<p>A pleasurable object is not thereby good. A stylish product is not thereby meaningful. A seductive image is not thereby truthful. A beautiful building is not thereby just. A pleasant entertainment is not thereby conducive to human awakening.</p>
+<p>The aesthetic must be evaluated by higher standpoints:</p>
+<table>
+<thead>
+<tr>
+<th>Lower aesthetic criterion</th>
+<th>Higher Madhyasth criterion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Is it pleasant?</td>
+<td>Does it support justice in behaviour?</td>
+</tr>
+<tr>
+<td>Is it attractive?</td>
+<td>Does it support resolution in thought?</td>
+</tr>
+<tr>
+<td>Is it profitable?</td>
+<td>Does it align with truth and coexistence?</td>
+</tr>
+<tr>
+<td>Is it fashionable?</td>
+<td>Does it fulfil relationship and right-use?</td>
+</tr>
+<tr>
+<td>Does it stimulate?</td>
+<td>Does it contribute to continuous happiness?</td>
+</tr>
+</tbody>
+</table>
+<h3>4.3 Form, properties, essential nature, and dharma</h3>
+<p>Madhyasth Darshan&rsquo;s aesthetics must be read within its general ontology of units:</p>
+<blockquote>
+<p><strong>&ldquo;All units saturated in the Omnipresence (permeative and transparent) have form, properties, essential nature &amp; dharma, and have inherent orderliness &amp; participate in overall orderliness.&rdquo;</strong><br />
+- MVD, p. 11</p>
+</blockquote>
+<p>It further defines these aspects:</p>
+<blockquote>
+<p><strong>&ldquo;The form of a unit is determined by its shape, volume, and density. The properties of a unit are differentiated as generative, degenerative, and mediative. The essential nature of a unit is determined by the usefulness of its properties to the unit.&rdquo;</strong><br />
+- MVD, p. 112</p>
+</blockquote>
+<p>This gives Madhyasth Darshan a rich basis for aesthetics, even where the word &ldquo;beauty&rdquo; is not prominent. A thing is not understood merely by surface appearance. It is understood through:</p>
+<ol>
+<li><strong>form</strong> - shape, measure, density, perceptible arrangement;</li>
+<li><strong>properties</strong> - what it can do and how it affects other units;</li>
+<li><strong>essential nature</strong> - the usefulness of those properties;</li>
+<li><strong>dharma</strong> - its innateness, order, and fulfilment;</li>
+<li><strong>participation</strong> - how it contributes to overall orderliness.</li>
+</ol>
+<p>This is a strong alternative to shallow formalism. It does not reject form. It places form inside function, essentiality, relationship, and orderliness.</p>
+<h3>4.4 Harmony is deeper than beauty</h3>
+<p>Madhyasth Darshan uses harmony more centrally than beauty:</p>
+<blockquote>
+<p><strong>&ldquo;The essence and elaboration of coexistence itself is harmony. This state of harmony is based on uniformity of form, properties, essential nature, and dharma&hellip;&rdquo;</strong><br />
+- MVD, p. 21</p>
+</blockquote>
+<p>This gives a possible Madhyasth definition:</p>
+<pre><code class="language-text">The beautiful is not merely what pleases the senses; it is the perceptible and livable evidence of harmony among form, properties, essential nature, dharma, usefulness, relationship, and coexistence.
+</code></pre>
+<p>This definition is an interpretation, not a direct quotation. But it follows from the textual structure: aesthetic value is meaningful through usefulness and convenience; units are known through form, properties, essential nature, and dharma; coexistence is harmony; human fulfilment requires justice, dharma, and truth.</p>
+<p>The result is not &ldquo;beauty for beauty&rsquo;s sake.&rdquo; It is beauty as evidencing order.</p>
+<h3>4.5 The taste activity of values</h3>
+<p>Madhyasth Darshan uses the language of &ldquo;taste&rdquo; in a way that intersects surprisingly with aesthetics:</p>
+<blockquote>
+<p><strong>&ldquo;Among the values, jeevan values are known by the names - happiness, peace, contentment and bliss, which are only names of the state of harmony within jeevan.&rdquo;</strong><br />
+- JV, p. 138</p>
+<p><strong>&ldquo;It is when the taste activity (of mun) starts having fulfilment of values, those are given names such as love, trust, affection, gratitude, guidance, etc. When relationships are meaningfully recognised then these values start flowing on their own from jeevan.&rdquo;</strong><br />
+- JV, p. 138</p>
+</blockquote>
+<p>This is important. Modern aesthetics often treats taste as a capacity for beauty-judgment. Madhyasth Darshan relocates taste inside <em>jeevan</em>: taste becomes fulfilled when values are tasted in relationships. Aesthetic taste is therefore incomplete if it remains a preference for colours, sounds, forms, styles, pleasures, or atmospheres. Taste matures when the human being savours values: trust, affection, gratitude, love, guidance, care, justice, and mutual satisfaction.</p>
+<p>This gives Madhyasth Darshan a relational aesthetics:</p>
+<pre><code class="language-text">The deepest taste is not taste of objects; it is taste of values in fulfilled relationships.
+</code></pre>
+<h3>4.6 Aesthetics and mental wellbeing</h3>
+<p>Madhyasth Darshan ties happiness, peace, contentment, and bliss to harmony within <em>jeevan</em>:</p>
+<blockquote>
+<p><strong>&ldquo;In the state of higher-conformance - harmony between mun &amp; vritti, vritti &amp; chitta, chitta &amp; buddhi, and buddhi &amp; atma leads to the realisation of happiness, peace, contentment and bliss respectively. The realisation of happiness, peace, contentment and bliss itself is mental wellbeing.&rdquo;</strong><br />
+- MVD, p. 208</p>
+</blockquote>
+<p>And again:</p>
+<blockquote>
+<p><strong>&ldquo;Hence it becomes clear that in an awakened jeevan, the union of mun and vritti leads to happiness, the union of vritti and chitta leads to peace, the union of chitta and buddhi leads to contentment, and the union of buddhi and atma leads to bliss. This itself is awakening.&rdquo;</strong><br />
+- MVD, p. 294</p>
+</blockquote>
+<p>This gives a criterion for judging aesthetic culture:</p>
+<ol>
+<li>Does it agitate <em>mun</em> or harmonize it with <em>vritti</em>?</li>
+<li>Does it intensify restless imagery or bring <em>vritti</em> and <em>chitta</em> toward peace?</li>
+<li>Does it stimulate desire or support contentment?</li>
+<li>Does it distract from realization or help align <em>buddhi</em> with <em>atma</em>?</li>
+</ol>
+<p>This is a much more demanding criterion than &ldquo;is it beautiful?&rdquo; or &ldquo;does it sell?&rdquo;</p>
+<h3>4.7 The ecological implication</h3>
+<p>If aesthetics must add convenience to usefulness, and usefulness must remain within right-use and coexistence, then aesthetics cannot justify ecological destruction.</p>
+<p>A resort may be visually beautiful but ecologically violent. A city may be spectacular but socially alienating. A product may be elegant but made through exploitation. A festival may be colourful but wasteful. A digital platform may be delightful but designed for addiction.</p>
+<p>Madhyasth Darshan would ask:</p>
+<pre><code class="language-text">What relationship is being fulfilled?
+Whose need is being met?
+What is being consumed?
+What is being protected?
+What orderliness is being strengthened or weakened?
+</code></pre>
+<p>This aligns strongly with environmental and everyday aesthetics but grounds them in coexistence rather than in taste, ecological science alone, or lifestyle refinement.</p>
+<h2>5. Comparative Analysis</h2>
+<h3>5.1 Madhyasth Darshan and Kant</h3>
+<p>Kant separates the beautiful from desire and utility. Madhyasth Darshan does almost the opposite: it refuses to detach aesthetics from usefulness. But the contrast is subtler than it first appears.</p>
+<p>Kant is right that beauty is corrupted when reduced to appetite, possession, or profit. Madhyasth Darshan would agree. Aesthetic obsession with consumption is a sign of inhumane perspective.</p>
+<p>But Madhyasth Darshan would reject the idea that aesthetic value becomes purer by being detached from usefulness. For Madhyasth Darshan, usefulness is not mere utility in a crude commercial sense. It is the meaningful role of a unit in relationship and orderliness. Aesthetics becomes meaningful when it enhances that role.</p>
+<p>So the difference is:</p>
+<table>
+<thead>
+<tr>
+<th>Kantian tendency</th>
+<th>Madhyasth response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Beauty is disinterested, not based on desire or use</td>
+<td>Aesthetics should not be driven by desire, but it should support meaningful usefulness</td>
+</tr>
+<tr>
+<td>Aesthetic judgment is contemplative</td>
+<td>Aesthetic evaluation must become livable and relational</td>
+</tr>
+<tr>
+<td>Beauty has a special autonomy</td>
+<td>Aesthetic value is accountable to coexistence, right-use, and human purpose</td>
+</tr>
+</tbody>
+</table>
+<h3>5.2 Madhyasth Darshan and institutional theories of art</h3>
+<p>Institutional theories explain why some objects count as art because of artworld relations. Madhyasth Darshan is mostly silent on this classificatory question.</p>
+<p>This is not necessarily a weakness, because the question &ldquo;what is art?&rdquo; is not the same as &ldquo;what is meaningful aesthetic value?&rdquo; Madhyasth Darshan can allow that a museum, critic, artist, or tradition may classify something as art while still asking whether the object contributes to human fulfilment, justice, truth, and coexistence.</p>
+<p>For example:</p>
+<ol>
+<li>A disturbing artwork may be ugly but valuable if it exposes injustice.</li>
+<li>A luxurious artwork may be beautiful but questionable if it serves vanity and hoarding.</li>
+<li>A public mural may be aesthetically simple but valuable if it strengthens shared memory and dignity.</li>
+<li>A ritual performance may be art, education, community formation, and value-transmission at once.</li>
+</ol>
+<p>Madhyasth Darshan therefore shifts the question:</p>
+<pre><code class="language-text">Not merely: Is this art?
+But: What does this aesthetic act do in human living and coexistence?
+</code></pre>
+<h3>5.3 Madhyasth Darshan and everyday aesthetics</h3>
+<p>This is the closest modern comparison. Everyday aesthetics studies the aesthetic texture of ordinary life. Madhyasth Darshan also refuses to isolate aesthetics in art institutions.</p>
+<p>Both care about:</p>
+<ol>
+<li>tools;</li>
+<li>houses;</li>
+<li>clothing;</li>
+<li>public spaces;</li>
+<li>food;</li>
+<li>cleanliness;</li>
+<li>bodily life;</li>
+<li>social gestures;</li>
+<li>atmosphere;</li>
+<li>quality of life.</li>
+</ol>
+<p>But Madhyasth Darshan adds a normative ontology. Everyday aesthetics can describe how ordinary aesthetics affects life; Madhyasth Darshan says ordinary aesthetics should be evaluated by usefulness, right-use, relationship, values, justice, dharma, truth, and coexistence.</p>
+<h3>5.4 Madhyasth Darshan and environmental aesthetics</h3>
+<p>Environmental aesthetics says nature must not be treated merely as scenery. Madhyasth Darshan agrees strongly. Nature is not a view for human consumption; it is coexistence.</p>
+<p>Environmental aesthetics often debates whether scientific knowledge is needed for correct appreciation. Madhyasth Darshan would say scientific knowledge is useful but incomplete unless the human being also understands relationship and right-use. Ecological facts alone do not produce humane conduct. A person can know climate science and still live exploitatively.</p>
+<p>The Madhyasth criterion is:</p>
+<pre><code class="language-text">Appreciation of nature is incomplete unless it becomes right participation with nature.
+</code></pre>
+<h3>5.5 Madhyasth Darshan and Advaita</h3>
+<p>Advaita and Madhyasth Darshan both refuse to reduce fulfilment to sensory pleasure. Both point toward a deeper bliss than object-contact. Both can critique consumer aesthetics.</p>
+<p>But they differ sharply:</p>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Advaita Vedanta</th>
+<th>Madhyasth Darshan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ultimate reality</td>
+<td>Brahman alone is ultimately real; world is mithya</td>
+<td>Coexistence of Omnipresence and countless units is real</td>
+</tr>
+<tr>
+<td>World of forms</td>
+<td>Name-form belongs to empirical reality and is sublated by knowledge</td>
+<td>Units have real form, properties, essential nature, dharma, and orderliness</td>
+</tr>
+<tr>
+<td>Aesthetic object</td>
+<td>Can be a pointer, distraction, or appearance</td>
+<td>A unit or human-made arrangement whose aesthetic value must support usefulness and relationship</td>
+</tr>
+<tr>
+<td>Bliss</td>
+<td>Self/Brahman bliss</td>
+<td>Harmony and realization in awakened <em>jeevan</em> in coexistence</td>
+</tr>
+<tr>
+<td>Relation to art</td>
+<td>Indirect; later rasa comparisons are possible</td>
+<td>Not art-centred; potentially functional, everyday, relational, and ecological</td>
+</tr>
+</tbody>
+</table>
+<p>Advaita can interpret aesthetic delight as a shadow or reflection of Self-bliss. Madhyasth Darshan interprets meaningful aesthetics as a refinement of usefulness and value-fulfilment in coexistence.</p>
+<h2>6. Critical review</h2>
+<h3>6.1 Madhyasth Darshan</h3>
+<p><strong>Strengths.</strong></p>
+<ul>
+<li>It avoids aesthetic consumerism. Madhyasth Darshan does not let attractiveness justify waste, luxury, addiction, or exploitation. Aesthetic value must answer to usefulness and right-use.</li>
+<li>It integrates aesthetics with life. The darshan is naturally close to everyday aesthetics because it evaluates houses, tools, wealth, conduct, production, relationship, and orderliness rather than only art objects.</li>
+<li>It gives a strong ecological criterion. Nature is not scenery. It is coexistence. Aesthetic appreciation that damages ecological relationship is false or incomplete.</li>
+<li>It connects beauty with harmony rather than surface. By grounding units in form, properties, essential nature, and dharma, it avoids shallow formalism.</li>
+<li>It gives an account of aesthetic failure. Aesthetic life fails when it remains trapped in pleasant/unpleasant, status, indulgence, profit, sensory agitation, or decorative excess.</li>
+<li>It recovers value-taste. The deepest &ldquo;taste&rdquo; is not mere liking but the tasting of values in relationships: love, trust, affection, gratitude, guidance, and mutual satisfaction.</li>
+</ul>
+<p><strong>Weaknesses.</strong></p>
+<ul>
+<li>It underdevelops fine art. The primary texts consulted do not give a detailed theory of painting, music, poetry, sculpture, theatre, cinema, literature, or artistic imagination. A Madhyasth aesthetics of art must therefore be developed interpretively.</li>
+<li>It risks reducing aesthetics to usefulness. The statement &ldquo;aesthetics is meaningful when it adds convenience to usefulness&rdquo; is powerful for design, tools, and daily life. But art often matters precisely when it is not convenient: tragedy, satire, lament, ritual, abstraction, silence, difficulty, or shock. Madhyasth Darshan needs a broader account of how such works can serve resolution, self-understanding, social critique, or value-recognition without being merely convenient.</li>
+<li>It needs an account of negative aesthetics. Modern everyday aesthetics studies ugliness, disgust, clutter, noise, and aesthetic harm. Madhyasth Darshan can handle this through disorder, agitation, and misuse, but a full analysis remains to be written.</li>
+<li>It needs an account of the sublime. A mountain, storm, night sky, death scene, or vast silence may not simply be useful or convenient. Such experiences can break egoic scale and evoke wonder. Madhyasth Darshan could interpret them through coexistence and Omnipresence, but the texts reviewed do not provide a systematic account.</li>
+<li>It must distinguish simplicity from impoverishment. If aesthetics is subordinated to usefulness, one might mistakenly reject ornament, celebration, festival, play, and artistic abundance. Madhyasth Darshan should not be read as anti-beauty or anti-art. The right distinction is between meaningful aesthetic enrichment and delusive excess.</li>
+<li>It needs cultural pluralism. Different communities have different aesthetic languages: dress, music, food, architecture, ritual, colour, silence, gesture. Madhyasth Darshan&rsquo;s universal criterion must not flatten legitimate cultural diversity. It should ask whether a form fulfils relationship and coexistence, not whether it conforms to one style.</li>
+</ul>
+<h3>6.3 A proposed Madhyasth framework for future aesthetics</h3>
+<p>A fuller Madhyasth aesthetics could use seven tests:</p>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Question</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Usefulness</strong></td>
+<td>Does the aesthetic form support the object&rsquo;s or practice&rsquo;s real purpose?</td>
+</tr>
+<tr>
+<td><strong>Convenience</strong></td>
+<td>Does it make right use easier, clearer, safer, more accessible, or more graceful?</td>
+</tr>
+<tr>
+<td><strong>Right-use</strong></td>
+<td>Does it protect body, mind, wealth, and nature from misuse?</td>
+</tr>
+<tr>
+<td><strong>Relationship</strong></td>
+<td>Does it strengthen trust, dignity, mutual satisfaction, and shared life?</td>
+</tr>
+<tr>
+<td><strong>Harmony</strong></td>
+<td>Do form, properties, essential nature, and dharma cohere?</td>
+</tr>
+<tr>
+<td><strong>Resolution</strong></td>
+<td>Does it reduce delusion, agitation, and contradiction?</td>
+</tr>
+<tr>
+<td><strong>Coexistence</strong></td>
+<td>Does it support participation in overall orderliness?</td>
+</tr>
+</tbody>
+</table>
+<p>This framework can evaluate a song, school, farm, website, road, festival, poem, kitchen, public square, clothing practice, or social ritual. It does not answer every art-philosophical question, but it gives a rigorous human criterion.</p>
+<h2>7. Conclusion</h2>
+<p>Modern philosophy treats aesthetics as a plural field: taste, disinterest, beauty, art, form, expression, institution, environment, everyday life, and social critique. Its great achievement is analytical breadth. Its danger is fragmentation and a lingering tendency to isolate aesthetics either in subjective pleasure or in specialized artworlds.</p>
+<p>Advaita Vedanta has no central independent aesthetics, but it has relevant metaphysical resources: the Self as bliss, the dearness of all things for the sake of the Self, detachment from external-object pleasure, and the possibility that aesthetic self-forgetfulness may point toward non-dual bliss. Classical rasa theory and later Vedantic interpretations deepen this connection, but they should not be collapsed into Advaita proper.</p>
+<p>Madhyasth Darshan gives the most practical and normative answer: aesthetics is meaningful when it adds convenience to usefulness and supports harmony, values, relationship, right-use, and coexistence. Its strength is that it can judge the aesthetics of life, not merely the aesthetics of art. Its weakness is that it still needs a more developed theory of autonomous art, tragedy, sublimity, negative aesthetics, and cultural plurality.</p>
+<p>Madhyasth Darshan does not yet give a complete aesthetics of art, but it gives a powerful aesthetics of meaningful living. Its challenge to modern aesthetics is serious: beauty that does not support coexistence is incomplete; taste that does not mature into value is shallow; design that adds desire but not usefulness is delusive; and art that does not finally deepen human understanding remains only partial, however impressive its form.</p>
+<h2>References</h2>
+<h3>Madhyasth Darshan primary texts</h3>
+<ul>
+<li><strong>MVD</strong> - Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan - Coexistentialism, Part 1: Holistic View of Human Behaviour</em></a>. English translation by Rakesh Gupta.</li>
+<li><strong>JV</strong> - Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf"><em>Jeevan Vidya: An Introduction</em></a>. English translation by Rakesh Gupta.</li>
+<li><strong>SB</strong> - Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf"><em>Samadhanatmak Bhautikvad</em></a>. English translation by Rakesh Gupta.</li>
+</ul>
+<h3>Advaita Vedanta and Indian aesthetics</h3>
+<ul>
+<li><strong>TU</strong> - <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf"><em>Taittiriya Upanishad</em></a>. Swami Gambhirananda translation. Cited: Brahman as truth, knowledge, infinite (2.1).</li>
+<li><strong>BU</strong> - <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf"><em>Brihadaranyaka Upanishad with Shankara Bhashya</em></a>. Swami Madhavananda translation. Cited: the unattached Self (3.9.28); Maitreyi passage on dearness and Self-realization (2.4 / 4.5).</li>
+<li><strong>BG</strong> - <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf"><em>Bhagavad Gita with Shankara Bhashya</em></a>. Swami Gambhirananda translation. Cited: Self-bliss apart from external objects (5.21).</li>
+<li><strong>VC</strong> - <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf"><em>Vivekachudamani</em></a>, attributed to Shankara; English translation by Swami Madhavananda. Cited: discrimination between real and unreal (v. 20); <em>jiva</em> as Brahman (v. 216).</li>
+<li><strong>Poorvam Rasa</strong> - <a href="https://analyticmadhyasthdarshan.org/References/Comparative-Philosophy/Poorvam-Sadharanikarana-Rasa.html">&ldquo;Sadharanikarana: An Underlying Process for Experiencing Rasa&rdquo;</a>, <em>Poorvam International Journal</em>. Local HTML snapshot.</li>
+<li><strong>Keating 2008</strong> - Ross Keating, <a href="https://poj.peeters-leuven.be/content.php?id=2033281&amp;url=article">&ldquo;Connecting Art with Spirituality within the Indian Aesthetics of Advaita Vedanta.&rdquo;</a> <em>Studies in Spirituality</em> 18 (2008): 25-37.</li>
+<li><strong>Mind and Creativity Rasa</strong> - <a href="https://indigenouspsych.org/Discussion/forum/Rasa%20theory.pdf">&ldquo;Mind and creativity: Insights from rasa theory with special focus on sahrdaya.&rdquo;</a></li>
+</ul>
+<h3>Modern aesthetics</h3>
+<ul>
+<li><strong>SEP Concept of the Aesthetic</strong> - <a href="https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/SEP-Concept-of-the-Aesthetic.html"><em>The Concept of the Aesthetic</em></a>, Stanford Encyclopedia of Philosophy. Local HTML snapshot.</li>
+<li><strong>SEP Kant Aesthetics</strong> - <a href="https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/SEP-Kant-Aesthetics-Teleology.html"><em>Kant&rsquo;s Aesthetics and Teleology</em></a>, Stanford Encyclopedia of Philosophy. Local HTML snapshot.</li>
+<li><strong>SEP Definition of Art</strong> - <a href="https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/SEP-Definition-of-Art.html"><em>The Definition of Art</em></a>, Stanford Encyclopedia of Philosophy. Local HTML snapshot.</li>
+<li><strong>SEP Environmental Aesthetics</strong> - <a href="https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/SEP-Environmental-Aesthetics.html"><em>Environmental Aesthetics</em></a>, Stanford Encyclopedia of Philosophy. Local HTML snapshot.</li>
+<li><strong>SEP Aesthetics of the Everyday</strong> - <a href="https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/SEP-Aesthetics-of-Everyday.html"><em>Aesthetics of the Everyday</em></a>, Stanford Encyclopedia of Philosophy. Local HTML snapshot.</li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Knowledge, Knower, and Known</title>
+<style>
+  @page {
+    size: A4;
+    margin: 2.2cm 2cm 2.2cm 2cm;
+  }
+  @media print {
+    body {
+      font-size: 11pt;
+      margin: 0;
+      padding: 0;
+      max-width: none;
+    }
+    h1 ~ p {
+      margin: 3pt 0;
+    }
+    h2 {
+      page-break-after: auto;
+      break-after: auto;
+    }
+    h2:first-of-type {
+      margin-top: 10pt;
+    }
+    h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+    h3, h4 { page-break-inside: avoid; break-inside: avoid; }
+    p { text-align: justify; text-justify: inter-word; hyphens: auto; }
+    li { text-align: left; }
+    table {
+      page-break-inside: auto;
+      break-inside: auto;
+    }
+    thead {
+      display: table-header-group;
+    }
+    tr {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    pre { page-break-inside: avoid; white-space: pre-wrap; overflow-wrap: anywhere; word-break: break-word; }
+    blockquote { page-break-inside: avoid; }
+  }
+  body {
+    position: relative;
+    z-index: 1;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 11pt;
+    line-height: 1.55;
+    color: #1a1a1a;
+    max-width: 750px;
+    margin: 30px auto;
+    padding: 0 20px;
+  }
+  h1 {
+    font-size: 20pt;
+    margin-top: 0;
+    margin-bottom: 4pt;
+    color: #111;
+    border-bottom: 2px solid #333;
+    padding-bottom: 6pt;
+  }
+  h1 + p {
+    margin-top: 4pt;
+  }
+  h2 {
+    font-size: 15pt;
+    margin-top: 18pt;
+    margin-bottom: 6pt;
+    color: #222;
+    border-bottom: 1px solid #bbb;
+    padding-bottom: 4pt;
+  }
+  h3 {
+    font-size: 12.5pt;
+    margin-top: 16pt;
+    margin-bottom: 4pt;
+    color: #333;
+  }
+  h4 {
+    font-size: 11.5pt;
+    margin-top: 14pt;
+    margin-bottom: 4pt;
+    color: #333;
+    font-weight: bold;
+  }
+  p {
+    margin: 6pt 0;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+  }
+  a {
+    color: #1a5276;
+    text-decoration: underline;
+  }
+  blockquote {
+    margin: 10pt 0 10pt 16pt;
+    padding: 6pt 12pt;
+    border-left: 3pt solid #888;
+    background: #f7f7f5;
+    font-style: italic;
+    color: #333;
+  }
+  blockquote p {
+    margin: 0;
+    white-space: pre-line;
+  }
+  blockquote p + p {
+    margin-top: 6pt;
+  }
+  blockquote strong {
+    font-style: normal;
+  }
+  .quote-source {
+    font-style: normal;
+    font-size: 10pt;
+    color: #555;
+    margin-top: 4pt;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12pt 0;
+    font-size: 10pt;
+    page-break-inside: auto;
+    break-inside: auto;
+  }
+  thead {
+    display: table-header-group;
+  }
+  tr {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  th {
+    background: #e8e8e4;
+    border: 1px solid #aaa;
+    padding: 5pt 7pt;
+    text-align: left;
+    font-weight: bold;
+  }
+  td {
+    border: 1px solid #ccc;
+    padding: 5pt 7pt;
+    vertical-align: top;
+  }
+  tr:nth-child(even) {
+    background: #fafaf8;
+  }
+  code {
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 10pt;
+    background: #f0f0ec;
+    padding: 1pt 3pt;
+    border-radius: 2pt;
+  }
+  pre {
+    background: #f5f5f1;
+    padding: 10pt 14pt;
+    border-radius: 4pt;
+    overflow-x: auto;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    white-space: pre-wrap;
+    max-width: 100%;
+    font-size: 10pt;
+    line-height: 1.4;
+  }
+  pre code {
+    background: none;
+    padding: 0;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  ul, ol {
+    margin: 6pt 0;
+    padding-left: 24pt;
+  }
+  li {
+    margin: 3pt 0;
+  }
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 12pt auto;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  p:has(> img:only-child) {
+    text-align: center;
+    margin: 12pt 0;
+  }
+  .mermaid {
+    display: flex;
+    justify-content: center;
+    margin: 12pt auto;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .mermaid svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .study-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px 16px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 13px;
+    margin: 0 0 22px;
+    padding: 10px 14px;
+    border: 1px solid #d8d2c8;
+    border-radius: 8px;
+    background: #f7f4ef;
+  }
+  .study-toolbar-link {
+    color: #1a5276;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .study-toolbar-link:hover { color: #13405c; }
+  .study-toolbar-download::after {
+    content: " \2193";
+    font-weight: 700;
+  }
+  .draft-banner {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #8b5e34;
+    background: #f5ebe0;
+    border: 1px solid #e0d0be;
+    border-radius: 6px;
+    padding: 6px 12px;
+    margin: 0 0 18px;
+    text-align: center;
+  }
+  @media print {
+    .study-toolbar,
+    .draft-banner { display: none !important; }
+  }
+
+</style>
+</head>
+<body>
+<nav class="study-toolbar" aria-label="Study navigation">
+  <a class="study-toolbar-link" href="../index.html">&larr; All studies</a>
+  <a class="study-toolbar-link study-toolbar-download" href="Knowledge-Knower-And-Known.pdf" download>Download PDF</a>
+</nav>
+<p class="draft-banner" role="status">Draft</p>
+<h1>Knowledge, Knower, and Known</h1>
+<p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> — a group of people studying Madhyasth Darshan philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
+<p><strong>Edited on:</strong> June 26, 2026, 10:28 AM IST
+<strong>The question:</strong> What is knowledge, who is the knower, and what is it that one can know? How do we ground these concepts in experience, and how does the Co-existentialism of Shri A. Nagraj compare with the non-dualism of Advaita Vedanta and the physicalism of modern science and philosophy?</p>
+<p>This study examines knowledge, the knower, and the knowable in <strong>Madhyasth Darshan</strong> (Co-existentialism), as presented by <strong>Shri A. Nagraj</strong>, and compares its answers with <strong>Advaita Vedanta</strong> and <strong>modern science and philosophy</strong>.</p>
+<h2>Standpoint and scope</h2>
+<p>These studies are written from the standpoint of a <strong>scientist and technologist</strong> — someone trained to graduate-level <strong>physics and mathematics</strong>, at home with contemporary cosmology, quantum theory, conservation laws, and the logic of formal models.</p>
+<p>From that background, a familiar picture of nature is hard to avoid: <strong>consciousness appears as something the brain does</strong> — an epiphenomenon, functional outcome, or emergent property of particular configurations of very large numbers of physical particles. Modern physics and cognitive science are powerful on mechanism, prediction, and public evidence; yet the hard problem of consciousness, the status of the self, and the reality of value remain fiercely contested. The standpoint taken here does not treat those gaps as settled in favour of matter-only reductionism.</p>
+<p>The work begins where that scientific picture leaves open questions — and asks whether Madhyasth Darshan offers a coherent alternative worth examining seriously. This paper reads the primary texts carefully, states what follows from the darshan itself, and compares it in parallel with what we know from <strong>physics and the natural sciences</strong>, <strong>Advaita Vedanta</strong>, and <strong>modern Western philosophy</strong> (especially epistemology and philosophy of mind). Physics and mathematics are <strong>one leg</strong> of that comparison, not the only one. The aim is rigorous comparative understanding — testing definitions, internal consistency, and fit with public knowledge — not persuasion or devotional endorsement.</p>
+<p>These topical studies state the philosophy in clear, checkable prose first. A separate formal mathematical treatment may follow once the definitions and relations are stable across the studies; this paper does not assume or require that treatment.</p>
+<h2>Quick Glossary</h2>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Plain meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><em>Gyan udghatan</em></strong></td>
+<td>The unfolding of knowledge — an activity exclusive to awakened <em>jeevan</em>, not Omnipresence or insentient units.</td>
+</tr>
+<tr>
+<td><strong>Sat-Chit-Ananda</strong></td>
+<td>Advaita: being, consciousness, and bliss as three names of one Brahman.</td>
+</tr>
+<tr>
+<td><strong><em>Chit</em></strong></td>
+<td>Advaita: consciousness as the very nature of Brahman and the inner Self.</td>
+</tr>
+<tr>
+<td><strong><em>Jeevan</em></strong></td>
+<td>The sentient self — in Shri Nagraj&rsquo;s view a real, eternal, atom-scale entity that works <em>through</em> the body. Ontology: <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a>.</td>
+</tr>
+<tr>
+<td><strong><em>Drishta-pad</em> (Seer status)</strong></td>
+<td>The unique capacity of the human being in existence to observe, understand, and evaluate all orders of nature.</td>
+</tr>
+<tr>
+<td><strong><em>Darshan-drishya-drishti</em></strong></td>
+<td>Madhyasth Darshan&rsquo;s structure of worldview, scene, and perspective: the perceiver uses perspective to see the real scene and arrive at holistic understanding.</td>
+</tr>
+<tr>
+<td><strong><em>Sapëkshata</em> (Relativity)</strong></td>
+<td>Epistemological relativity arising from distinctions among perspective, scene, and worldview — real within units and understanding, not a feature of underlying coexistence (§1.4.1).</td>
+</tr>
+<tr>
+<td><strong><em>Gyan-vivek-vigyan</em></strong></td>
+<td>Knowledge, wisdom/discrimination, and science/systematic know-how — the way understanding becomes evaluation and practical participation.</td>
+</tr>
+<tr>
+<td><strong><em>Sanvedansheelta</em> / *sangyansheelta</strong>*</td>
+<td>Sensitivity (body- and sense-based responsiveness) and comprehension/cognisance (the understanding proper to <em>jeevan</em>) — the two modes of engaging the world.</td>
+</tr>
+<tr>
+<td><strong><em>Pramana</em></strong></td>
+<td>Means or proof of valid knowledge; in Madhyasth Darshan, realization (<em>anubhav</em>) evidenced in conduct is the ultimate proof.</td>
+</tr>
+<tr>
+<td><strong><em>Bhram</em></strong></td>
+<td>Delusion — living by inherited belief rather than understanding, rooted in identifying <em>jeevan</em> with the body.</td>
+</tr>
+<tr>
+<td><strong><em>Rahasyata</em> (Mysteriousness)</strong></td>
+<td>Incapacity to reveal or attain complete understanding — not an ontological opacity in coexistence (§1.11).</td>
+</tr>
+<tr>
+<td><strong><em>Bauddhik rahasya</em> (Intellectual mystery)</strong></td>
+<td>Misalignment among <em>mun</em>, <em>vritti</em>, <em>chitta</em>, and <em>buddhi</em> when lower faculties do not take refuge in the one above (§1.11.1).</td>
+</tr>
+<tr>
+<td><strong>Coexistence (<em>saha-astitva</em>)</strong></td>
+<td>Reality as the pervasive ground (<em>satta</em>) and all units (<em>ikai</em>) inseparably present together.</td>
+</tr>
+<tr>
+<td><strong><em>Atman</em> / *Brahman</strong>*</td>
+<td>In Advaita Vedanta: the innermost Self / the one ultimate, non-dual reality.</td>
+</tr>
+<tr>
+<td><strong><em>Mithya</em></strong></td>
+<td>Advaita&rsquo;s term for the world: dependent, provisional appearance, not absolutely real.</td>
+</tr>
+<tr>
+<td><strong>Hard Problem</strong></td>
+<td>Why physical brain processes are accompanied by subjective experience — a modern open question, not the same as Madhyasth Darshan&rsquo;s <em>rahasyata</em> (§1.11).</td>
+</tr>
+</tbody>
+</table>
+<h2>1. The Madhyasth Darshan Answer</h2>
+<p>Madhyasth Darshan holds that knowledge is the realization of coexistence evidenced as wisdom, science, and humane conduct; the knower is the active sentient self (<em>jeevan</em>) operating through the human body in seer-status (<em>drishta-pad</em>); and the knowable is existence itself — Omnipresence and all real units in their relationships, orderliness, and conduct. For Shri A. Nagraj, knowledge (<em>gyan</em>) is not a subjective construct, a private mental state, or a mere collection of information. It has an ontological base, an epistemic structure, and a practical test.</p>
+<h3>1.1 Space as knowledge</h3>
+<p>In its ultimate sense, Space (<em>shunya</em> / <em>vyapak</em>) is not empty nothingness. It is omnipresent, transparent, all-pervasive, and the uniform energy in which all units are saturated. This omnipresent Space is itself Knowledge:</p>
+<blockquote>
+<p><strong>“Knowledge itself is the omnipresent Omnipotence. This itself is referred to as Space.”</strong>
+— MVD, p. 35</p>
+<p><strong>“The Space (Omnipresence) itself is knowledge. Omnipresence itself is Omnipotence.”</strong>
+— MVD, p. 143</p>
+<p><strong>“Space itself is knowledge, knowledge itself is Omnipresence,”</strong>
+— MVD, p. 155</p>
+</blockquote>
+<p>Importantly, Space here is not an individual conscious subject and not a unit among other units. It is the omnipresent, non-transforming medium in which all material (<em>jada</em>) and sentient (<em>chaitanya</em>) units are submerged, energised, regulated, and conserved. The sentient knower is still <em>jeevan</em>, not Space itself.</p>
+<p><em>Gyan</em> here names a <strong>condition of intelligibility</strong> — reality is such that it can be known, is orderly, transparent, and lawful — rather than an act of cognition. Omnipresence is &ldquo;Knowledge&rdquo; the way a perfectly legible text is meaning even when no one is reading it. The knowing act (<em>chaitanya</em>) belongs only to <em>jeevan</em>.</p>
+<p>MVD p. 289 states explicitly that <strong>the unfolding of knowledge</strong> (<em>gyan udghatan</em>) occurs <strong>only</strong> through the sentient aspect (<em>jeevan</em>) or thoughts — not through insentient units and not through Omnipresence acting as a knower. MVD p. 115 adds a narrower formulation: knowledge is inherent everywhere, but <strong>its unfolding happens by awakened humans</strong> — a sleeping, deluded <em>jeevan</em> cannot unfold it. The same passage describes a sensory/cognitive pathway: vibrational motion on the brain from the cognitive organs leads to the unfolding of knowledge. So <em>gyan</em> as a name of <em>satta</em> is the intelligibility-ground; <em>gyan udghatan</em> is an activity exclusive to awakened <em>jeevan</em>.</p>
+<p>That is why Omnipresence can be called Knowledge without being a knowing subject — and why a careless reading of MVD p. 35 collapses straight into Advaita&rsquo;s <em>chit</em> (Brahman as awareness itself), exactly the identification Madhyasth Darshan otherwise resists. All units saturated in permeative <em>gyan</em> participate in inherent orderliness (MVD, p. 11; <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §1.3); the ontology paper develops how ever-present <em>gyan</em> is expressed as active sentience only when a constitutionally complete atom acts as a stable reflector — the <strong>Saturation-Reflector Model</strong> (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §1.3, §6.6).</p>
+<h3>1.2 Knowledge as <em>gyan-vivek-vigyan</em></h3>
+<p>When realized by the human being, knowledge becomes evident as wisdom and science, not as belief alone:</p>
+<blockquote>
+<p><strong>“The realisation in coexistence itself is the unfolding of knowledge. The study is in, by and for realisation in coexistence. Knowledge itself is evident in the form of wisdom and science.”</strong>
+— MVD, p. 35</p>
+</blockquote>
+<p>This gives Madhyasth Darshan a distinctive epistemic structure:</p>
+<ol>
+<li><strong><em>Gyan</em></strong> — understanding reality as coexistence.</li>
+<li><strong><em>Vivek</em></strong> — wisdom/discrimination that evaluates life by justice, dharma, and truth rather than only pleasure, health, and profit.</li>
+<li><strong><em>Vigyan</em></strong> — science or systematic knowledge that enables right experiment, production, and participation in orderliness.</li>
+</ol>
+<p>Knowledge is not only contemplative. It must become correct perspective, correct evaluation, and correct practical participation.</p>
+<h3>1.3 The threefold content of complete knowledge</h3>
+<p>In human life, knowledge has three inseparable areas:</p>
+<blockquote>
+<p><strong>“1. Knowledge of jeevan 2. Knowledge of holistic view of existence 3. Knowledge of humane conduct”</strong>
+— SB, p. 116</p>
+</blockquote>
+<p>To have complete knowledge (<em>paripoorna gyan</em>) means to understand the nature of the self (<em>jeevan</em>), the structure of existence as coexistence (<em>saha-astitva</em>), and how to live in harmony with other humans and nature (humane conduct).</p>
+<h3>1.4 Worldview, scene, and perspective (<em>darshan-drishya-drishti</em>)</h3>
+<p>Madhyasth Darshan does not begin from a detached subject staring at external objects. It describes a perceiver using a perspective to see the scene, and the successful accomplishment of this process is understanding:</p>
+<blockquote>
+<p><strong>“The activity and process that a perceiver uses through their perspective for seeing the scene itself is worldview, the accomplishment from which is the understanding or knowledge.”</strong>
+— MVD, p. 84</p>
+</blockquote>
+<p>Here:</p>
+<ol>
+<li><strong><em>Drishya</em> (scene)</strong> is the world of activities — existence as it appears in the present.</li>
+<li><strong><em>Drishti</em> (perspective)</strong> is the act of seeing, understanding, recognizing, and evaluating realities.</li>
+<li><strong><em>Darshan</em> (worldview / holistic view)</strong> is the accomplished understanding obtained through right perspective.</li>
+</ol>
+<p>The aim of this structure is alignment. When the human&rsquo;s perspective becomes aligned with coexistence, the scene is understood as it is, and that understanding is then evidenced in conduct. Knowing here is therefore not detached observation but the disciplined use of perspective until reality is seen correctly, realized first-hand, and fulfilled in relationships.</p>
+<h3>1.4.1 Relativity (<em>sapëkshata</em>)</h3>
+<p>Madhyasth Darshan uses <em>sapëkshata</em> (relativity) in an epistemological sense, not as a synonym for Einstein&rsquo;s physics. Relativity arises from the distinctions among perspective (<em>drishti</em>), scene (<em>drishya</em>), and holistic view (<em>darshan</em>): qualification yields perspective, perspective organises how the scene is seen and evaluated, and the worldview accomplished through that process is never a view from nowhere. Different <em>drishti</em> — lower or humane, deluded or awakened — therefore yield different relative understandings of the same real activities in existence. The six evaluative perspectives provisioned in <em>jeevan</em>&rsquo;s design — lower <em>priya</em>/<em>hita</em>/<em>labh</em> and humane <em>nyaya</em>/<em>dharma</em>/<em>satya</em> — are the ontological basis for which <em>drishti</em> is active (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §1.10.1).</p>
+<p>This is not a claim that relativity is unreal or that the scene is finally <em>mithya</em>. The distinctions belong to units, viewing, and understanding in the knowledge order — to how <em>jeevan</em> participates in <em>gyan udghatan</em> through study, evaluation, and conduct — not to the underlying reality of coexistence itself. Omnipresence, unit beingness, and structural relationships remain real whether or not any particular human has yet aligned perspective with coexistence. What is relative is the evaluative seeing and the understanding a <em>jeevan</em> has yet to evidence; what is absolute is coexistence as such (§1.11).</p>
+<h3>1.5 Knowing, believing, recognizing, and fulfilling</h3>
+<p>Knowledge is expressed dynamically in human behaviour through four interconnected activities: <em>janna</em> (knowing), <em>manna</em> (believing), <em>pahchanna</em> (recognizing), and <em>nirvaha karna</em> (fulfilling):</p>
+<blockquote>
+<p><strong>“What is knowledge? Knowing and believing constitute knowledge.”</strong>
+— JV, p. 165</p>
+</blockquote>
+<p>In a deluded human, believing is separated from knowing (believing without knowing). In an awakened human, they are unified:</p>
+<blockquote>
+<p><strong>“Believe what is known Know what is believed”</strong>
+— MVD, p. 12</p>
+</blockquote>
+<p>When we <em>know</em> existence as coexistence and <em>believe</em> in this reality, we spontaneously <em>recognize</em> our relationships with all units in nature and <em>fulfill</em> our values (justice, trust, cooperation) in behaviour. In the knowledge order, recognition and fulfilment pass through <strong>capacity</strong>, <strong>ability</strong>, and <strong>receptivity</strong> (<em>kshamata</em>, <em>yogyata</em>, <em>patrata</em>) — the mechanism by which relationship-expectations become lived conduct (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §1.4).</p>
+<h3>1.6 The evidence chain: realization, behaviour, experiment</h3>
+<p>Madhyasth Darshan&rsquo;s test of knowledge is not private conviction alone. The text gives a practical evidence chain:</p>
+<blockquote>
+<p><strong>“Realisation – Behaviour – Experiment”</strong>
+— MVD, p. 12</p>
+<p><strong>“Realisation itself is the ultimate evidence, Evidence itself is the understanding or knowledge, Understanding itself is manifest, The manifest itself is resolution, work and behaviour, Work and behaviour itself is evidence, Evidence itself is awakened tradition, Awakened tradition itself is coexistence.”</strong>
+— MVD, p. 12</p>
+</blockquote>
+<p>This is why humane conduct is not an ethical appendix to knowledge. It is part of the verification of knowledge. If a person claims to know coexistence but cannot evidence resolution, justice, prosperity, fearlessness, and coexistence in living, the knowledge has not yet become complete evidence.</p>
+<h3>1.7 Realization (<em>anubhuti</em>)</h3>
+<p>Ultimate knowledge is direct realization in coexistence, but this realization is expected to become visible in thought, behaviour, and experiment:</p>
+<blockquote>
+<p><strong>“The realisation in coexistence itself is the complete knowledge.”</strong>
+— MVD, p. 116</p>
+<p><strong>“Realisation in knowledge (gyan-anubhuti): - Realisation in the ultimate truth”</strong>
+— MVD, p. 316</p>
+<p><strong>“delusion-less knowledge (nirbhram gyan): - Knowing, understanding and imparting the understanding of the realities the way they are.”</strong>
+— MVD, p. 317</p>
+</blockquote>
+<h3>1.8 Study, realization, and the proof of conveying</h3>
+<p>In Madhyasth Darshan all means of knowing converge on one outcome: direct realization in coexistence, which is then validated in living and in the ability to impart understanding to another.</p>
+<blockquote>
+<p><strong>“The proof of our comprehension lies in our ability to convey it to others; this is the litmus test of our wisdom.”</strong>
+— JV, p. 26</p>
+</blockquote>
+<p>Perception and reasoning are necessary but preliminary; the decisive proof (<em>pramana</em>) is realization (<em>anubhav</em>) evidenced as authentic conduct (<em>pramanikta</em>). This is why the evidence chain above begins with realization rather than with sense data.</p>
+<h3>1.9 Sensitivity and comprehension</h3>
+<p>Madhyasth Darshan distinguishes two modes by which a human engages the world. <em>Sensitivity</em> is body- and sense-based responsiveness — the mode humans share with animals, oriented to pleasure, health, and profit. <em>Comprehension</em> (cognisance) is the understanding proper to <em>jeevan</em>, oriented to relationship, value, and orderliness. Knowing in the full sense requires both, held in balance:</p>
+<blockquote>
+<p><strong>“…the recognising and fulfilling of the insentient and the sentient world is through the balance of cognisance and sensitivity.”</strong>
+— SB, p. 64</p>
+</blockquote>
+<p>The human predicament, in this view, is that we have so far lived almost entirely in sensitivity:</p>
+<blockquote>
+<p><strong>“Thus far, humans have only lived within the purview of sensitivity; hence the issues of accumulation, comfort, revolt-rebellion and exploitation have kept coming up.”</strong>
+— JV, p. 166</p>
+</blockquote>
+<p>To know existence as coexistence is precisely to rise from sense-bound sensitivity to <em>jeevan</em>&rsquo;s comprehension.</p>
+<h3>1.10 Error and delusion (<em>bhram</em>)</h3>
+<p>Any account of knowledge needs an account of error. In Madhyasth Darshan, error is not the presence of a false object but a specific misidentification: taking <em>jeevan</em> to be the body, which forces life to run on inherited belief rather than understanding.</p>
+<blockquote>
+<p><strong>“This adherence to &lsquo;belief&rsquo; rather than &lsquo;knowledge&rsquo; forms the basis of delusion.”</strong>
+— JV, p. 93</p>
+<p><strong>“The root of delusion lies in identifying jeevan with the body.”</strong>
+— JV, p. 93</p>
+</blockquote>
+<p>The correction is not negation of the world but accurate recognition — &ldquo;<em>jeevan</em> should be recognised as <em>jeevan</em>, and the body as the body&rdquo; (JV, p. 93). Error is therefore removable in principle, through study and realization, rather than an irreducible feature of the knowing situation.</p>
+<h3>1.11 Truth and the removability of mystery</h3>
+<p>Madhyasth Darshan recognizes truth in three registers — absolute, relative, and objective — and treats their transmission as the very source of reality in human tradition:</p>
+<blockquote>
+<p><strong>“The tradition of imparting the understanding of absolute truth, relative truth, and objective truth is itself the source of reality.”</strong>
+— MVD, p. 37</p>
+</blockquote>
+<p>The <strong>relative</strong> register names truths that hold within the <em>darshan-drishya-drishti</em> structure (§1.4.1) — perspective-dependent understanding of units, relationships, and conduct. The <strong>absolute</strong> register names coexistence as such. The <strong>objective</strong> register names what can be evidenced and shared in activity, experiment, and tradition. Neither the relative nor the objective register cancels the reality of units or the world; <em>sapëkshata</em> marks the epistemic domain of viewing and understanding, not an intermediate ontological status like Advaita&rsquo;s <em>mithya</em> (§4.2).</p>
+<p>From this follows one of the darshan&rsquo;s sharpest epistemological commitments: existence is <em>fully knowable</em>, and &ldquo;mystery&rdquo; is not a permanent horizon but a removable deficit of understanding.</p>
+<blockquote>
+<p><strong>“The incompleteness in understanding the absolute state and the activity, is mystery.”</strong>
+— MVD, p. 209</p>
+<p><strong>“Eradication of mystery is only through the holistic view of reality.”</strong>
+— MVD, p. 209</p>
+</blockquote>
+<p>Madhyasth Darshan asserts that right understanding culminates in certitude, not residual mystery: &ldquo;The holistic view of reality leads to &lsquo;certitude&rsquo;; otherwise, doubt persists&rdquo; (MVD, p. 209).</p>
+<p>MVD Ch. 17 (<em>Rahasy-mukti</em>, Liberation from Mystery) sharpens the same doctrine at the level of the knower. Mystery is not revealing understanding, not being able to reveal it, or not attaining complete understanding; the incapacity for this is <em>rahasyata</em> (mysteriousness):</p>
+<blockquote>
+<p><strong>“Not revealing understanding or not being able to do so, or not being able to attain it, is a mystery. The incapacity for this is &lsquo;mysteriousness&rsquo;.”</strong>
+— MVD, Ch. 17, p. 273</p>
+</blockquote>
+<p>Page 209 states the epistemic commitment; Ch. 17 states the <strong>mechanism and path</strong> by which incomplete understanding persists in the knowledge order and is removed. Only humans attain complete understanding through the realization-based method in coexistence (MVD, Ch. 17, p. 273); the <em>dharma</em> of a unit is realized, not grasped by description alone, through study and stepwise guidance from one who has realization (MVD, Ch. 17, p. 273). This is not the Hard Problem of consciousness (glossary): Madhyasth Darshan locates <em>rahasyata</em> in the knower&rsquo;s incomplete reflection, not in an irreducible opacity of coexistence itself (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §1.10, §1.11).</p>
+<h3>1.11.1 Intellectual mystery and the knower&rsquo;s misalignment</h3>
+<p>The root misidentification named in §1.10 — <em>jeevan</em> taken for the body — propagates through the knower&rsquo;s inner structure. In delusion, hope in <em>mun</em> follows sensation upward from the body; in awakening, realization in coexistence at <em>atma</em> regulates <em>buddhi</em>, <em>chitta</em>, <em>vritti</em>, and <em>mun</em> through the same projection–reflection cycle (<em>paravartan</em> and <em>pratyavartan</em>). When lower faculties do not take refuge in the one above, the texts call this <em>bauddhik rahasya</em> (intellectual mystery) — misalignment within <em>jeevan</em>, not an ontological limit on what exists (MVD, Ch. 17, pp. 274–277, 279). The ontology study develops the cycle in full (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §1.10); here the epistemic point is that <strong>error in knowing</strong> takes the form of discord among the faculties that should carry reflection upward.</p>
+<p>Until <em>atma-bodh</em>, ego (<em>ahankar</em>) underlies knowing: buddhi without <em>atma-bodh</em> is ego, which appears as conceit in <em>chitta</em>, stubbornness in <em>vritti</em>, and attachment and agitation in <em>mun</em> (MVD, Ch. 17, p. 279). At the root of agitation lies stubbornness, at the root of stubbornness delusion, at the root of delusion ego (MVD, Ch. 17, p. 292). Delusion is therefore not only inherited belief about the body; it is a <strong>structured failure of reflection</strong> in the active knower described in §1.12.</p>
+<p>Why another person&rsquo;s awakening can look equally &ldquo;mysterious&rdquo; while one&rsquo;s own decline feels inevitable uses the same structure: the means (<em>sadhan</em>) are shared; only the direction of the cycle differs (MVD, Ch. 17, pp. 295–296). The appearance of mystery here is failure to understand reflection-direction, not evidence of hidden forces in existence.</p>
+<h3>1.11.2 Uprooting mystery: paths and conditions of valid knowing</h3>
+<p>MVD Ch. 17 names a definite process for ending intellectual mystery. Only through practising and behaving according to this process can <em>bauddhik rahasya</em> be eliminated (MVD, Ch. 17, p. 280). The process is of two kinds:</p>
+<p><strong>Exploration</strong> (<em>anushandhan</em>) is inventive realisation: comprehensive study from the initial state of activity or extreme decline through development and awakening to omnipresence, until the seeker sees the entire decline-and-development chain, the self, and the goal of all humankind as capacity for realisation in omnipresence (MVD, Ch. 17, pp. 280–281).</p>
+<p><strong>Following, emulation, and study</strong> in awakened tradition summarises as: (1) emulating just behaviour, and (2) abiding in resolved, dharma-based thoughts. Firmness in both yields authority for realisation of verity and immersion of <em>buddhi</em> in truth (MVD, Ch. 17, pp. 282–283).</p>
+<p>Successful <strong>reflection</strong> (<em>pratyavartan</em>) — the upward regulation by which behaviour becomes thought, thought desire, desire resolve, and resolve realization — requires four supports working together (MVD, Ch. 17, pp. 284–285, 291–292):</p>
+<ol>
+<li><strong>Universal orderliness</strong> — for behaviour without crime.</li>
+<li><strong>Social conduct</strong> — for thoughts without injustice.</li>
+<li><strong>Study and <em>sanskar</em></strong> — for desire without attachment.</li>
+<li><strong>Inward regulation</strong> (<em>dhyan</em>) — for <em>buddhi</em> without ignorance.</li>
+</ol>
+<p>Concentration (<em>dhyan</em>) here means focusing <em>mun</em>, <em>vritti</em>, <em>chitta</em>, and <em>buddhi</em> to understand, then to evidence after understanding and realization (MVD, Ch. 17, p. 284). These are epistemic conditions for valid knowing, not optional moral extras: they are what makes the evidence chain of §1.6 and the proof-by-conveying of §1.8 possible rather than merely asserted. The detailed practice of <em>dhyan</em>, the six flaws of delusion, and yoga as union belong in the planned study <em>Spiritual-Practice-And-Realization</em>; this section states only the epistemic architecture Ch. 17 presupposes.</p>
+<p>Internal regulation together with humane orderliness, social conduct, study, and <em>sanskar</em> is what makes accomplishment of highest development (awakening) possible (MVD, Ch. 17, p. 285). Becoming established in just behaviour, dharma-based thoughts, and truth-realisation-based desires is complete awakening in the epistemic sense (MVD, Ch. 17, pp. 283–285).</p>
+<h3>1.11.3 Certitude, delusion-less knowledge, and liberation from mystery</h3>
+<p>The arc closes where §1.11 opened: holistic view yields certitude (MVD, p. 209); delusion-less knowledge (<em>nirbhram gyan</em>) is knowing, understanding, and imparting realities as they are (MVD, p. 317; §1.7). MVD Ch. 17 adds the outcome in the knower&rsquo;s own terms: the accomplishment of mental wellbeing or bliss itself is liberation from mystery (MVD, Ch. 17, p. 301). Mystery removed is not a blank positivism but realized harmony — <em>gyan</em> unfolded as <em>vivek</em> and <em>vigyan</em> (§1.2) and evidenced in conduct.</p>
+<p>Madhyasth Darshan contrasts this with mystery-based traditions that treat ultimate knowledge as unmanifest and ineffable (<a href="https://analyticmadhyasthdarshan.org/Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.pdf">Human Behavior and Society</a> §3): here knowledge is manifest, effable, studyable, and verifiable through behaviour. The contrast is epistemic — what counts as adequate knowing — not a dismissal of other traditions&rsquo; ethical or contemplative achievements.</p>
+<h3>1.12 Who is the knower?</h3>
+<p>The knower (<em>gyata</em> or <em>drishta</em>) is the sentient self — <strong><em>jeevan</em></strong> — operating through the human body. Specifically, the human being is the locus where seer-status can be evidenced:</p>
+<blockquote>
+<p><strong>“The noteworthy points here are: 1. In coexistence, the human being is integrally and indivisibly present. 2. In existence, the human being is a seer (observer).”</strong>
+— SB, p. 188</p>
+<p><strong>“The human being alone is the seer-status in existence.”</strong>
+— SB, p. 239</p>
+</blockquote>
+<p>Material things (like stones) and biological organisms (like plants) do not have the capacity to know. Animals have sensory awareness and react to pain or pleasure, but they cannot evaluate existence. Only the human being belongs to the <strong>knowledge order</strong> (<em>gyan avastha</em>) and has the capacity of understanding. However, this capacity must be awakened:</p>
+<blockquote>
+<p><strong>“Only awakened humans are recognisable in the seer status.”</strong>
+— MVD, p. 33</p>
+</blockquote>
+<p>This distinction is important: every human has the possibility of seer-status because every human has imagination, freedom of action, and the capacity for understanding; only the awakened human evidences that status in living.</p>
+<p>In the human order, knowledge-unfolding is additionally <strong><em>sanskar</em>-mediated</strong>: acceptances toward completeness, and knowledge, wisdom, and science carried forward toward resolution for evidencing (MVD, p. 90). Awakening, <em>sanskar</em>, environment, study, and humaneness form an explicit circular dependency (MVD, p. 290). Insentient units do not unfold knowledge; only <em>jeevan</em> does, through thought — a point developed in the ontology study at <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §1.9.</p>
+<p>The knower in Madhyasth Darshan is therefore not an actionless, passive witness. <em>Jeevan</em> is an active, structured, sentient unit. Its activities include hope in <em>mun</em>, thought in <em>vritti</em>, desire in <em>chitta</em>, resoluteness in <em>buddhi</em>, and realization in <em>atma</em>. When these faculties are misaligned — lower layers not taking refuge in higher — the knower-side form of mystery named in §1.11.1 blocks complete knowing even though seer-status remains provisionally possible. (<em>Jeevan Vidya</em> presents the same structure as ten coordinated activities across the atom&rsquo;s nucleus and orbits — taste and selection in <em>mun</em>, deliberation and analysis in <em>vritti</em>, contemplation and visualization in <em>chitta</em>, enlightenment and resolve in <em>buddhi</em>, and realization and authenticity in <em>atma</em> — JV, p. 92.) The body is the instrument through which this <em>jeevan</em> acts; the brain (<em>medhas</em>) receives and processes signals related to <em>jeevan</em>&rsquo;s aspirations, desires, and evidence (MVD, p. 83). The inner self is thus understood as a real, active, constitutionally complete unit capable of awakening — not a passive or actionless witness.</p>
+<p>In this account the brain is a bodily organ through which <em>jeevan</em> operates, and values and evaluation are activities of <em>jeevan</em> rather than mechanical outputs of the body.</p>
+<h3>1.13 What is the knowable?</h3>
+<p>The knowable (<em>gyeya</em>) is <strong>existence itself in the form of coexistence</strong>. It includes Omnipresence and all units saturated in it:</p>
+<blockquote>
+<p><strong>“All units saturated in the Omnipresence (permeative and transparent) have form, properties, essential nature &amp; dharma, and have inherent orderliness &amp; participate in overall orderliness.”</strong>
+— MVD, p. 11</p>
+</blockquote>
+<p>To know something in Madhyasth Darshan is not merely to measure its external properties. It is to understand its form (<em>roop</em>), properties (<em>gun</em>), essential nature (<em>svabhav</em>), dharma, relationships, value, and participation in overall orderliness. The knowable includes:</p>
+<ol>
+<li><strong>The Four Orders of Nature:</strong> The material order (<em>padarth avastha</em>), biological order (<em>pran avastha</em>), animal order (<em>jeev avastha</em>), and knowledge order (<em>gyan avastha</em>).</li>
+<li><strong>Omnipresence and Units:</strong> Space as the omnipresent medium, and all countable units saturated in it.</li>
+<li><strong>The Laws of Nature:</strong> Effort, motion, result, balance, integration, development, awakening, and participation in overall orderliness.</li>
+<li><strong>Relationships and Values:</strong> The mutual expectations through which units participate in one another.</li>
+<li><strong>Humane Conduct:</strong> Justice, values, evaluation, mutual satisfaction, resolution, prosperity, fearlessness, and coexistence in human life.</li>
+</ol>
+<p>Crucially, in Madhyasth Darshan, the known world is <strong>absolutely real and perpetual</strong> (<em>satat</em>). It is not an illusion or a temporary mistake:</p>
+<blockquote>
+<p><strong>“Brahma is truth, the world is perpetual.”</strong>
+— MVD, <em>The Alternative</em>, point 8</p>
+</blockquote>
+<p>Madhyasth Darshan therefore resolves the knower-known distinction by awakening the knower to the real coexistence of Omnipresence and world. The world is not negated; it is understood, recognized, and fulfilled in conduct.</p>
+<h2>2. The Advaita Vedanta Answer</h2>
+<p>Advaita Vedanta holds that the true knower is the actionless witness Self (<em>Atman</em> / <em>sakshi</em>), identical to ultimate reality (<em>Brahman</em>); the known world of diversity is a dependent appearance (<em>mithya</em>); and knowledge is the direct realization of this non-duality, dissolving the distinction between knower, known, and knowing.</p>
+<h3>2.1 Seer and seen (<em>drig-drishya</em>)</h3>
+<p>Advaita Vedanta begins its inquiry by separating the Seer (<em>drig</em>) from the Seen (<em>drishya</em>). The fundamental rule of this discrimination (<em>viveka</em>) is that whatever is observed cannot be the observer:</p>
+<blockquote>
+<p><strong>“The form1&hellip; is perceived and the eye&hellip; is its perceiver&hellip; It&hellip; is perceived and the mind&hellip; is its perceiver. The mind with&hellip; modifications is perceived and the Witness (the Self) is verily the perceiver&hellip; But&hellip; is not perceived&hellip;”</strong>
+— DDV, p. 15</p>
+</blockquote>
+<p>Following this logic, the physical body is seen (observed), so it is not the Seer. Senses, emotions, and thoughts are also witnessed by the mind, so they are not the ultimate Seer. The ultimate Seer is the <strong>Witness Consciousness</strong> (<em>sakshi-caitanya</em> / <em>Atman</em>). This witness is never an object of perception; it is the ultimate subject:</p>
+<blockquote>
+<p><strong>&ldquo;This body, O son of Kunti, is called the field; he who knows it is called the knower of the field.&rdquo;</strong>
+— BG, 13.1</p>
+<p><strong>&ldquo;Know also that I am the Knower of the field in all fields, and the knowledge of the field also am I.&rdquo;</strong>
+— BG, 13.2</p>
+</blockquote>
+<h3>2.2 Sat-Chit-Ananda: knowledge as Brahman</h3>
+<p>A second classical formulation names existence not only as <em>sat</em> — bare being — but as <strong>Sat-Chit-Ananda</strong>: being-consciousness-bliss. These are not three realities added together; Brahman is one partless reality whose nature is expressed in three inseparable names.</p>
+<blockquote>
+<p><strong>&ldquo;Brahman is Truth, Knowledge, and Infinity.&rdquo;</strong>
+— TU, 2.1.1</p>
+</blockquote>
+<p>Shankara&rsquo;s tradition reads <em>satyam</em> as being/reality, <em>jnanam</em> as consciousness, and <em>anantam</em> as the infinite. For Advaita, <strong><em>chit</em></strong> — consciousness — is the very nature of reality and Self, not a function of brain or mind. The mature formula in the <em>Vivekachudamani</em> states:</p>
+<blockquote>
+<p><strong>&ldquo;By that alone he comes to know his own Self as Existence-Knowledge-Bliss Absolute and becomes happy.&rdquo;</strong>
+— VC, v. 152</p>
+</blockquote>
+<p>The Mandukya Upanishad (MU, vv. 3–7) grounds this in the three states of waking, dream, and deep sleep, with <strong>turiya</strong> — the witness beyond all states — as ultimately real. Knowledge (<em>jnana</em>) in Advaita is therefore not information about an external world; it is the direct realization that the inner Self (<em>Atman</em>) is identical to Brahman, dissolving the knower-known-knower triad at <em>paramartha</em>.</p>
+<h3>2.3 Three tiers of reality</h3>
+<p>Advaita&rsquo;s standard framework separates private apparent errors (<em>pratibhasika</em>, such as a rope mistaken for a snake) from shared empirical reality (<em>vyavahara</em>, which governs bodies, physical laws, ethics, and scripture) and the absolute truth of Brahman (<em>paramartha</em>).</p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>What is known?</th>
+<th>Status of error</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Apparent (<em>pratibhasika</em>)</td>
+<td>Rope-snake, dream objects, private errors</td>
+<td>Sublated by waking or correction</td>
+</tr>
+<tr>
+<td>Empirical (<em>vyavahara</em>)</td>
+<td>Bodies, minds, Ishvara, causes, duties, scriptures, science</td>
+<td>Shared, law-governed; operationally valid; sublated only by <em>brahma-jnana</em></td>
+</tr>
+<tr>
+<td>Absolute (<em>paramartha</em>)</td>
+<td>Brahman alone</td>
+<td>World is <em>mithya</em>, dependent appearance</td>
+</tr>
+</tbody>
+</table>
+<p>At <em>vyavahara</em>, the world is not unreal in the way a hallucination is; it is unreal <strong>relative to Brahman</strong> — like a dream relative to waking. This distinction matters when comparing Advaita&rsquo;s ethics and science with Madhyasth Darshan&rsquo;s perpetual world (§4.2).</p>
+<h3>2.4 The nature of the knower</h3>
+<p>In absolute reality (<em>paramartha</em>), Brahman is one, without a second (<em>ekamevaditiyam</em>, CU 6.2.1). Therefore, there cannot be multiple, separate individual knowers. The individual knower (<em>jiva</em> or <em>ahamkara</em>) is a provisional appearance arising due to ignorance (<em>avidya</em>).</p>
+<p>This happens through <strong>superimposition</strong> (<em>adhyasa</em>): we superimpose the qualities of the physical body and mind (like &ldquo;I am tall,&rdquo; &ldquo;I am sad&rdquo;) onto the Self, and we superimpose the self-luminous consciousness of the Self onto the inert body-mind complex. The true Self is actionless (<em>akriya</em>) and does not do anything (BSB, <em>Adhyasa Bhashya</em>).</p>
+<h3>2.5 The nature of the known</h3>
+<p>The known universe of diversity (objects, space, time, individuals) is <strong>not absolutely real</strong>. It is categorized as <strong><em>mithya</em></strong> — meaning it has dependent reality (like a clay pot which is nothing but clay, or a wave which is nothing but water):</p>
+<blockquote>
+<p><strong>&ldquo;My dear, as by the knowledge of one lump of clay alone all things made of clay are known — for all transformation has speech as its basis, it being name, while clay alone is real — so, my dear, is this knowledge.&rdquo;</strong>
+— CU 6.1.4</p>
+<p><strong>&ldquo;A firm conviction of the mind to the effect that Brahman is real and the universe unreal, is designated as discrimination (Viveka) between the Real and the unreal.&rdquo;</strong>
+— VC, v. 20</p>
+<p><strong>&ldquo;The individual soul is itself and directly the Supreme Brahman, and nothing else.&rdquo;</strong>
+— VC, v. 216</p>
+</blockquote>
+<p>The world appears real only as long as ignorance persists; once Brahman is realized, the world is sublated (<em>badhita</em>), and only Brahman remains.</p>
+<h3>2.6 Means of knowledge and the theory of error</h3>
+<p>Advaita inherits the classical Indian analysis of valid knowledge (<em>pramana</em>) and accepts six means: perception (<em>pratyaksha</em>), inference (<em>anumana</em>), comparison (<em>upamana</em>), postulation (<em>arthapatti</em>), non-apprehension (<em>anupalabdhi</em>), and verbal testimony (<em>shabda</em>). Crucially, for the supreme truth of non-duality, only <em>shabda</em> — the revealed word of the Upanishads, processed through reasoning and meditation — is finally competent; perception and inference operate within the very subject-object duality that is to be transcended.</p>
+<p>Advaita also offers a developed theory of error (<em>khyativada</em>). The stock example is mistaking a rope for a snake: the snake is neither real (it vanishes on knowledge) nor utterly unreal (it was genuinely experienced), but <em>anirvacaniya</em> — &ldquo;indescribable&rdquo; — a projection on a real substrate. Cosmic ignorance (<em>avidya</em> / <em>maya</em>) has the same structure writ large: the world is a real-seeming projection on Brahman, sublated the moment Brahman is known. Madhyasth Darshan diverges here: error is a removable misidentification within a fully real world, not an indescribable appearance over a sole reality.</p>
+<p>The supreme path of knowing is classically threefold: hearing the scriptures (<em>shravana</em>), reasoning over them (<em>manana</em>), and sustained meditation (<em>nididhyasana</em>), under a qualified teacher (BU, 2.4.5). First-person discrimination (<em>drig-drishya-viveka</em>, DDV) and <em>neti neti</em> (&ldquo;not this, not this,&rdquo; BU, 2.3.6) complement scripture by negating everything that presents itself as an object until only witnessing awareness remains.</p>
+<h3>2.7 Ethics and the empirical order</h3>
+<p>Advaita&rsquo;s fair reply to the charge that <em>mithya</em> undermines ethics is substantial. At <em>vyavahara</em>, ethics and compassion remain fully valid; realization of non-duality deepens rather than weakens them. Shankara&rsquo;s <em>Vivekachudamani</em> insists on ethical discipline as prerequisite to knowledge (VC, vv. 17–19). The Bhagavad Gita, in Shankara&rsquo;s commentary, grounds social responsibility in <em>loka-sangraha</em> — holding the world together — and ordained duty (<em>niyatam kuru karma</em>, BG, 3.8): the enlightened still act for the welfare of the world.</p>
+<p>Madhyasth Darshan&rsquo;s counter-reply is narrower but precise: an ontology that makes the world <em>mithya</em> at <em>paramartha</em> cannot give the world the <strong>same final weight</strong> coexistence gives it — relationships and nature are ultimately sublated, not perpetual. The dispute is over final ontological status, not whether Advaitins can live ethically at the empirical level.</p>
+<h2>3. The Modern Scientific and Philosophical View</h2>
+<p>Mainstream science and analytical philosophy answer that the knower is a biological organism whose brain processes generate the mind; the known is the physical universe of matter and energy; and knowledge is structured information validated by empirical testing, falsification, and intersubjective consensus.</p>
+<h3>3.1 What is knowledge?</h3>
+<p>In modern science and analytical philosophy, knowledge is typically defined as <strong>justified true belief</strong> (in classical epistemology) or as <strong>predictive modeling</strong> (in cognitive science and naturalism).
+1. <strong>Methodological Naturalism:</strong> Knowledge is obtained by formulating hypotheses about the physical world and testing them against empirical evidence (Popper 1959). It requires intersubjective verification: anyone must be able to replicate the results using the same instruments.
+2. <strong>Information Processing:</strong> The brain builds neural networks that model the properties and behaviors of the environment (Kandel et al. 2021). These models are updated based on sensory feedback to optimize survival and action.</p>
+<p>The classical &ldquo;justified true belief&rdquo; analysis is itself contested from within. Gettier (1963) showed that one can hold a justified true belief that is intuitively <em>not</em> knowledge, launching a long debate over what further condition — reliability, safety, or sensitivity to truth — knowledge requires. This unresolved difficulty over the very definition of &ldquo;knowledge&rdquo; sits alongside the more familiar metaphysical disputes about the knower and the known.</p>
+<h3>3.2 Who is the knower?</h3>
+<p>Mainstream physicalist accounts in modern science and philosophy reject the existence of any eternal, non-physical soul, <em>jeevan</em>, or <em>Atman</em>.
+1. <strong>The Brain as the Mind:</strong> Consciousness and the sense of self are emergent properties of complex neuronal systems (Dennett 1991; Churchland 1986). There is no &ldquo;cartesian theater&rdquo; or separate observer inside the brain; the self is a cognitive construct or illusion generated by the brain&rsquo;s integration of sensory data.
+2. <strong>Causal Closure of the Physical:</strong> The physical universe is causally closed, meaning that every physical event (such as a muscle moving) is entirely caused by preceding physical events (such as motor neurons firing). There is no room for a non-physical entity (<em>jeevan</em> or <em>Atman</em>) to inject energy or intention into the nervous system (Kim 2005).</p>
+<h3>3.3 What can be known?</h3>
+<p>The knowable is the objective, physical universe of matter, energy, space, and time. Claims that cannot be publicly observed, measured, mathematically modeled, or indirectly inferred through successful prediction remain outside established scientific knowledge.</p>
+<p>However, this third-person objective method leaves open the <strong>Hard Problem of Consciousness</strong>: why and how should physical brain processes give rise to subjective, first-person experiences (Chalmers 1995; Nagel 1974)? Some modern philosophers take seriously the idea of <em>panpsychism</em> (consciousness is a fundamental property of matter) or <em>realistic monism</em> (Strawson 2006; Goff 2019), but these remain speculative interpretations rather than mainstream scientific findings.</p>
+<h3>3.4 Recent developments beyond simple physicalism</h3>
+<p>Recent modern philosophy and cognitive science are more diverse than simple brain-reduction. The following developments are especially relevant for future comparison with Madhyasth Darshan:</p>
+<ol>
+<li><strong>Illusionism and phenomenal realism.</strong> Illusionists argue that phenomenal consciousness, as usually conceived, is a powerful introspective illusion that must be explained rather than accepted as a basic datum (Frankish 2016). Recent Russellian and panpsychist accounts move in the opposite direction: they accept phenomenal consciousness as fundamental or intrinsic to reality, often as a dual-aspect monism rather than a substance dualism (Strawson 2006; Goff 2019; Hashemi 2025).</li>
+<li><strong>Predictive processing and the free energy principle.</strong> Here the knower is not a passive spectator but a self-organising system that models the causes of sensory input, acts to reduce uncertainty, and maintains itself through active inference. This gives a modern naturalistic account of agency, selfhood, and &ldquo;self-evidencing&rdquo; without positing an eternal <em>jeevan</em> (Limanowski and Blankenburg 2013; Wiese 2024; Tufft et al. 2024).</li>
+<li><strong>Embodied, enactive, and situated selfhood.</strong> 4E and enactive approaches treat cognition as embodied, embedded, enacted, and extended. The self is not merely an inner representation in the brain; it is shaped through body, environment, habit, and social practice (IEP Enactivism; Piredda 2024). This comes closer to Madhyasth Darshan&rsquo;s insistence that knowing must become participation, although it still does not accept a constitutionally complete <em>jeevan</em>.</li>
+<li><strong>Social virtue epistemology.</strong> Recent epistemology questions the individualistic picture of knowledge and stresses trust, testimony, epistemic environments, intellectual virtues, and collective maintenance of knowledge (Jarczewski and Riggs 2025). This is a useful modern comparison point for Madhyasth Darshan&rsquo;s claim that knowledge must become awakened tradition and humane conduct.</li>
+<li><strong>Perspectival realism.</strong> Recent philosophy of science argues that science is always a &ldquo;view from somewhere&rdquo;: historically situated, instrument-mediated, and community-based, yet still capable of realist knowledge (Massimi 2022). This is worth comparing with Madhyasth Darshan&rsquo;s <em>darshan-drishya-drishti</em>: both reject a view-from-nowhere, but Madhyasth Darshan claims that right perspective can culminate in realization of coexistence.</li>
+<li><strong>Theory pluralism in consciousness science.</strong> Contemporary consciousness research contains many competing theories, including global neuronal workspace, integrated information, higher-order, recurrent processing, illusionist, and panpsychist accounts. A large adversarial test of IIT and GNWT found results that partly supported and partly challenged both (Melloni et al. 2025), and broad surveys now catalogue dozens of competing explanations of consciousness (Kuhn 2024), confirming that modern science has no settled account of subjective experience.</li>
+</ol>
+<p>These developments do not remove the major modern objection to Madhyasth Darshan — the lack of publicly measurable evidence for <em>jeevan</em>. But they do make the comparison more subtle. The live modern debate is not only &ldquo;matter versus soul&rdquo;; it also asks whether cognition is brain-bound or embodied, individual or social, representational or enactive, reductive or panpsychist, and whether scientific knowledge is perspective-free or perspectival.</p>
+<h2>4. Comparing the Three Views</h2>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Madhyasth Darshan</th>
+<th>Advaita Vedanta</th>
+<th>Modern Science &amp; Philosophy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>What is Knowledge?</strong></td>
+<td>Realization of coexistence, unfolding as <em>gyan-vivek-vigyan</em> and humane conduct</td>
+<td>Direct realization of Atman-Brahman identity; non-dual awareness (<em>jnana-svarupa</em>)</td>
+<td>Justified true belief; predictive neural models of physical reality</td>
+</tr>
+<tr>
+<td><strong>Who is the Knower?</strong></td>
+<td>Active sentient <em>jeevan</em> operating through the body; human evidences seer-status (<em>drishta-pad</em>)</td>
+<td>Actionless Witness Self (<em>Atman</em> / <em>sakshi</em>); individual knower (<em>jiva</em>) is provisionally real but ultimately sublated</td>
+<td>Evolved biological organism (brain-mind complex); the &ldquo;self&rdquo; is an emergent cognitive construct</td>
+</tr>
+<tr>
+<td><strong>What is the Known?</strong></td>
+<td>Existence as coexistence: Omnipresence, all units, four orders, relationships, values, humane conduct</td>
+<td>The empirical world (<em>drishya</em>), ultimately <em>mithya</em> (dependent appearance)</td>
+<td>The objective physical universe (matter, energy, space, time)</td>
+</tr>
+<tr>
+<td><strong>Basic Structure</strong></td>
+<td><em>Darshan-drishya-drishti</em>: right perspective sees the real scene and becomes holistic view</td>
+<td><em>Drig-drishya-viveka</em>: seer-seen discrimination negates the seen to reveal the witness</td>
+<td>Subject-object modelling: observer builds public, testable models of objects/events</td>
+</tr>
+<tr>
+<td><strong>Is the World Real?</strong></td>
+<td>Yes. &ldquo;Brahma is truth, the world is perpetual.&rdquo;</td>
+<td>Provisionally (<em>vyavaharika</em>), yes; absolutely (<em>paramarthika</em>), no.</td>
+<td>Yes, for scientific realism and physicalism; methodologically, it is treated as publicly observable and law-governed.</td>
+</tr>
+<tr>
+<td><strong>Method of Knowing</strong></td>
+<td>Study, self-verification, realization–behaviour–experiment, and evidence in conduct</td>
+<td>Scripture (<em>shravana</em>), reasoning (<em>manana</em>), and meditation (<em>nididhyasana</em>)</td>
+<td>Observation, experiment, mathematical modeling, prediction, and replication</td>
+</tr>
+<tr>
+<td><strong>Means of Valid Knowing</strong></td>
+<td>Study and realization (<em>anubhav</em>) as the ultimate <em>pramana</em>, proven by conduct and by the ability to impart it</td>
+<td>Six <em>pramanas</em>, but <em>shabda</em> (revelation) alone reaches non-duality</td>
+<td>Perception, inference, instrument-aided measurement; JTB analysis (contested since Gettier)</td>
+</tr>
+<tr>
+<td><strong>Account of Error</strong></td>
+<td>Delusion (<em>bhram</em>): identifying <em>jeevan</em> with the body; removable through understanding</td>
+<td><em>Khyativada</em>: <em>anirvacaniya</em> projection on Brahman, sublated by knowledge</td>
+<td>Perceptual/cognitive bias and false belief, corrected by replication and peer review</td>
+</tr>
+<tr>
+<td><strong>Recent Modern Alternatives</strong></td>
+<td>Can be compared with MD&rsquo;s active <em>jeevan</em>, conduct-evidence, and awakened tradition</td>
+<td>Can be compared with Advaita&rsquo;s witness and no-self tendencies</td>
+<td>Predictive processing, enactivism, social epistemology, perspectival realism, illusionism, IIT/GNWT, and panpsychism</td>
+</tr>
+<tr>
+<td><strong>Status of Ethics</strong></td>
+<td>Humane conduct is part of complete knowledge and its evidence</td>
+<td>Ethics purifies the mind and operates within provisional reality</td>
+<td>Ethics is explained through evolution, psychology, social contract, or human values</td>
+</tr>
+<tr>
+<td><strong>Life&rsquo;s Purpose</strong></td>
+<td>Awakening: resolution, prosperity, harmony, and coexistence in society</td>
+<td>Liberation (<em>moksha</em>): freedom from birth and death by realizing identity with Brahman</td>
+<td>Biological survival, adaptation, and human-constructed meaning</td>
+</tr>
+</tbody>
+</table>
+<h3>4.1 Key contrasts</h3>
+<ol>
+<li><strong>Reality of the World:</strong> Advaita Vedanta treats the world as <em>mithya</em> — provisionally valid but not absolutely real — to safeguard the absolute non-duality of Brahman. Madhyasth Darshan rejects this, asserting that both Brahma (Space) and the world (material and sentient units) are real: <em>Brahma satya hai, jagat satat hai</em>. Modern science also affirms the reality of the physical world, but does not accept Space as omnipresent knowledge.</li>
+<li><strong>Two Different Seer-Scene Structures:</strong> Advaita&rsquo;s <em>drig-drishya</em> method separates the seer from the seen and keeps negating the seen until only the actionless witness remains. Madhyasth Darshan&rsquo;s <em>darshan-drishya-drishti</em> structure asks whether the human perspective can see the scene as coexistence and then evidence that understanding in conduct. Modern science treats the observer as a biological system that constructs public models of observable events.</li>
+<li><strong>Active vs. Passive Knower:</strong> In Advaita, the true Self is an actionless witness (<em>sakshi</em> / <em>akriya</em>). In Madhyasth Darshan, the knower (<em>jeevan</em>) is active, possessing structure, hope, thought, desire, evaluation, and the capacity for realization. In modern science, the knower is a dynamic, evolving biological system.</li>
+<li><strong>Knowledge must become conduct.</strong> In Madhyasth Darshan, <em>gyan</em> must unfold as <em>vivek</em> and <em>vigyan</em>, and then become evident through realization, behaviour, and experiment. Advaita&rsquo;s highest knowledge culminates in liberation from mistaken identification. Modern science&rsquo;s knowledge culminates in predictive control, explanation, and replicable models.</li>
+<li><strong>The Status of Space:</strong> In modern physics, space-time is a physical structure described mathematically. In Advaita, space (<em>akasha</em>) belongs to the order of appearance and is therefore <em>mithya</em>. In Madhyasth Darshan, Space (<em>shunya</em> / <em>vyapak</em>) is eternal, omnipresent, all-pervasive knowledge and energy itself, but not an individual conscious unit.</li>
+<li><strong>Where Recent Modern Views Come Closer to MD:</strong> Predictive processing and enactivism make the knower active and embodied; social virtue epistemology makes knowledge socially maintained; perspectival realism makes knowledge perspective-dependent but not merely subjective. These partially resemble Madhyasth Darshan&rsquo;s active seer, conduct-evidence, and perspective structure. The decisive difference remains ontological: these modern views generally do not accept <em>jeevan</em> as a real, eternal sentient unit.</li>
+<li><strong>How each explains valid knowing and error.</strong> Madhyasth Darshan makes realization the ultimate proof and treats error as a <em>removable</em> misidentification of <em>jeevan</em> with the body, propagating as intellectual mystery — misaligned reflection among the knower&rsquo;s faculties (§1.11.1) — rather than an irreducible opacity in existence. Advaita reserves ultimate competence for revelation (<em>shabda</em>) and treats error — and the world itself — as <em>anirvacaniya</em> appearance sublated by knowledge. Modern science trusts measurement and replication and treats error as bias or false belief, while conceding (since Gettier) that even &ldquo;justified true belief&rdquo; may not capture knowledge. The contrast is sharpest on mystery: Madhyasth Darshan claims it is fully eliminable through holistic view and aligned knowing; Advaita relocates it beyond the sayable; science leaves the Hard Problem open.</li>
+</ol>
+<h3>4.2 Sat-Chit-Ananda versus distributed coexistence</h3>
+<p>Advaita&rsquo;s Sat-Chit-Ananda and Madhyasth Darshan&rsquo;s coexistence can sound alike — both speak of being, consciousness, and fulfilment. The contrast is over what those words name and whether the world survives them (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §5.6).</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Advaita Vedanta (unified non-dualism)</th>
+<th>Madhyasth Darshan (distributed coexistence)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sat (Being)</strong></td>
+<td>Brahman alone is <em>sat</em>; the world is a dependent appearance ultimately negated.</td>
+<td>Beingness (<em>astitva</em>) is coexistence of formless Omnipresence and countless real units.</td>
+</tr>
+<tr>
+<td><strong>Chit (Consciousness)</strong></td>
+<td>Pure awareness, identical to the inner Self; the world of names/forms is inert.</td>
+<td>Omnipresence is pervasive knowledge/condition-of-intelligibility (§1.1), but active sentience (<em>chaitanya</em>) belongs to the <em>jeevan</em> unit.</td>
+</tr>
+<tr>
+<td><strong>Ananda (Bliss)</strong></td>
+<td>Intrinsic nature of Brahman; sensory joy is a distorted reflection.</td>
+<td>Harmony realized within the awakened <em>jeevan</em>, expressed as humane conduct.</td>
+</tr>
+</tbody>
+</table>
+<p>Modern philosophy has no parallel formula: it may treat experience as physical, fundamental, or illusory, but it does not name existence as Sat-Chit-Ananda or as coexistence.</p>
+<h3>4.3 Partially incommensurable epistemic criteria</h3>
+<p>The three systems do not merely give different answers; they use different criteria for what counts as knowing (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §6.5):</p>
+<table>
+<thead>
+<tr>
+<th>Tradition</th>
+<th>Method</th>
+<th>Adequate for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Madhyasth Darshan</td>
+<td>Study, realization, behaviour, experiment</td>
+<td>Coexistence as lived evidence; conduct as proof of understanding</td>
+</tr>
+<tr>
+<td>Advaita</td>
+<td>Scripture, reasoning, contemplative discrimination (DDV, VC)</td>
+<td>Self as Brahman; sublation of <em>mithya</em></td>
+</tr>
+<tr>
+<td>Physicalism</td>
+<td>Observation, modelling, public evidence</td>
+<td>Mechanism, prediction, third-person confirmation</td>
+</tr>
+</tbody>
+</table>
+<p>To that extent they are <strong>partially incommensurable</strong> — no single neutral tribunal settles them. What comparative work can still do is test each for internal consistency, fit with public knowledge, and responsible distinction of posits from bare assertion. For Madhyasth Darshan, the decisive question is what would count as public evidence for realization beyond the hard-problem explanatory gap — operational criteria for constitutional completeness, reproducible markers of <em>jeevan</em>-mediated activity, or independent evidence for post-death continuity (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §6.4).</p>
+<h2>5. Critical Review</h2>
+<p>No view escapes serious objections. Here is where each is strong and where each is vulnerable.</p>
+<h3>5.1 Madhyasth Darshan — integrated inside, unproven outside</h3>
+<p><strong>Strengths.</strong> It offers a realistic, positive framework that validates human relationships, ethics, and ecological balance as absolutely real. Its structure is unusually integrated: ontology (Space and units), epistemology (<em>darshan-drishya-drishti</em>), self-knowledge (<em>jeevan</em>), practical wisdom (<em>gyan-vivek-vigyan</em>), and conduct are all tied to one evidence chain. It avoids Advaita&rsquo;s difficult task of explaining how a dependent world feels so real, and it avoids the &ldquo;combination problem&rdquo; of panpsychism by defining the self as a single, indivisible, constitutionally complete atom.</p>
+<p><strong>Weaknesses.</strong></p>
+<ul>
+<li><strong>Axiomatic foundations.</strong> The claim that &ldquo;Space is Knowledge&rdquo; is a metaphysical assertion that cannot be verified by physical measurement.</li>
+<li><strong>The interaction problem.</strong> If <em>jeevan</em> is a sentient atom operating through the body, the account needs a clearer bridge between <em>jeevan</em>&rsquo;s signals and the brain&rsquo;s measurable neural processes. Madhyasth Darshan names the brain (<em>medhas</em>) as the receiver of <em>jeevan</em>&rsquo;s signals, but this remains hard to reconcile with physical causal closure.</li>
+<li><strong>Falsifiability.</strong> The system risks being unfalsifiable because any disagreement or failure to verify its claims is attributed to a &ldquo;lack of awakening&rdquo; rather than a possible error in the theory.</li>
+<li><strong>The full-knowability thesis.</strong> The claim that existence contains no permanent mystery and that right understanding yields <em>certitude</em> is unusually strong. MVD Ch. 17 supplies an internal account — intellectual mystery as faculty misalignment, two paths of study, and four supports for valid reflection (§1.11) — so the thesis is not a bare slogan. A critic can still ask how one could ever know that <em>all</em> of existence has been understood, and whether &ldquo;certitude&rdquo; is being guaranteed by definition rather than earned by inquiry.</li>
+<li><strong>Evidence standard vs. science.</strong> Realization and behaviour are cited as proof; science requires public testability. What would count as evidence for <em>jeevan</em> beyond the hard-problem explanatory gap remains unsettled (§4.3; <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §6.4).</li>
+</ul>
+<p>Madhyasth Darshan is best read as an internally integrated epistemology whose decisive tests remain conduct-based and publicly contestable, not as a demonstrated ontology.</p>
+<h3>5.2 Advaita Vedanta — rigorous witness, steep price</h3>
+<p><strong>Strengths.</strong> It is highly rigorous and starts from the most undeniable fact of human existence: first-person consciousness itself. Its method of negating the observed to find the observer (<em>neti neti</em>) is a powerful introspective practice.</p>
+<p><strong>Weaknesses.</strong></p>
+<ul>
+<li><strong>The status of ethics.</strong> If the world and individuality are ultimately unreal (<em>mithya</em>), then ethical action and human suffering also have only provisional value. This makes it difficult to build a robust foundation for social and ecological responsibility.</li>
+<li><strong>The ignorance paradox.</strong> If only Brahman exists and is pure knowledge, where does the ignorance (<em>avidya</em>) that creates the illusion of the world come from? Advaita&rsquo;s explanation that ignorance is &ldquo;indescribable&rdquo; (<em>anirvacaniya</em>) is often criticized as a logical evasion — the same move used to explain a single perceptual error (rope-snake) is stretched to cover all of cosmic ignorance, which critics see as naming a mystery rather than resolving it.</li>
+</ul>
+<p>Advaita can reply fairly on ethics: at <em>vyavahara</em>, compassion, duty, and <em>loka-sangraha</em> remain binding (§2.7). The Madhyasth counter-reply is not that Advaitins cannot live ethically, but that an ontology sublating the world at <em>paramartha</em> cannot match coexistence&rsquo;s final weight for relationships and nature. Advaita is the most radical and in one way the most rigorous answer on the knower — but its rigor is purchased by declaring unanswerable many questions about the world we actually live in.</p>
+<h3>5.3 Modern science and philosophy — powerful method, unfinished story</h3>
+<p><strong>Strengths.</strong> It has delivered unmatched predictive power, medicine, and technology. Its self-correcting methodology of replication and peer review is the most successful system for eliminating subjective bias.</p>
+<p><strong>Weaknesses.</strong></p>
+<ul>
+<li><strong>The hard problem.</strong> Science has failed to explain how objective, physical brain processes (like neurons firing) can produce subjective, qualitative experience (like seeing red or feeling love).</li>
+<li><strong>First-person blindness.</strong> By treating first-person subjective experience as something to be explained from the outside, science can understate the evidential importance of the very medium through which all observations are made.</li>
+<li><strong>Fragmentation.</strong> Recent philosophy of mind and consciousness science have many live but competing accounts — illusionism, panpsychism, predictive processing, enactivism, IIT, GNWT, higher-order theories, and others. This pluralism is intellectually healthy, but it also means modern philosophy has no unified answer to the knower-known-knowledge triad.</li>
+</ul>
+<p>Scientific materialism offers the strongest method and the best-supported account of public evidence — but its claim to be the <em>complete</em> account of knowledge and the knower is a philosophical position, not a scientific finding.</p>
+<h2>References</h2>
+<h3>Madhyasth Darshan (primary sources)</h3>
+<ul>
+<li><strong>MVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan – Co-existentialism</em>, Part 1: <em>Holistic View of Human Behaviour</em></a>. English translation by Rakesh Gupta. Cited: all units in Omnipresence (p. 11); evidence chain and &ldquo;Believe what is known&rdquo; (p. 12); &ldquo;Only awakened humans&rdquo; (p. 33); Space as knowledge and <em>gyan-vivek-vigyan</em> (p. 35, 143, 155); threefold truth (p. 37); <em>sanskar</em> definition (p. 90); <em>medhas</em> and activities of <em>jeevan</em> (p. 83); <em>darshan-drishya-drishti</em> (p. 84); knowledge unfolding by awakened humans (p. 115); &ldquo;Realisation in coexistence&rdquo; (p. 116); mystery and certitude (p. 209); Ch. 17 <em>Rahasy-mukti</em> — mystery, intellectual mystery, paths, four supports, liberation as bliss (pp. 273–301); knowledge unfolding through <em>jeevan</em>/thoughts (p. 289); awakening–<em>sanskar</em> cycle (p. 290); &ldquo;Realisation in knowledge&rdquo; (p. 316); &ldquo;delusion-less knowledge&rdquo; (p. 317); &ldquo;Brahma is truth, the world is perpetual&rdquo; (<em>The Alternative</em>, point 8).</li>
+<li><strong>SB</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf"><em>Samadhanatmak Bhautikvad</em> (<em>Resolution Centred Materialism</em>)</a>. English translation by Rakesh Gupta. Cited: Balance of cognisance and sensitivity (p. 64); Threefold knowledge (p. 116); Human as seer (p. 188); Seer-status in existence (p. 239).</li>
+<li><strong>JV</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf"><em>Jeevan Vidya: An Introduction</em></a>. English translation by Rakesh Gupta. Cited: Proof by conveying understanding (p. 26); ten activities of <em>jeevan</em> (p. 92); root of delusion and belief-vs-knowledge (p. 93); definition of knowledge (p. 165); purview of sensitivity (p. 166).</li>
+</ul>
+<h3>Advaita Vedanta (primary texts)</h3>
+<ul>
+<li><strong>BG</strong> — <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf"><em>Bhagavad Gita</em></a>. Cited: field and knower of the field (13.1–13.2); ordained duty and <em>loka-sangraha</em> (3.8).</li>
+<li><strong>BU</strong> — <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf"><em>Brihadaranyaka Upanishad</em></a>. Cited: <em>neti neti</em> (2.3.6); <em>shravana–manana–nididhyasana</em> (2.4.5).</li>
+<li><strong>DDV</strong> — <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf"><em>Drig-Drishya-Viveka</em></a> (attributed to Shankara or Bharati Tirtha). Cited: Seer and seen discrimination (p. 15).</li>
+<li><strong>BSB</strong> — Shankara, Adi. <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf"><em>Brahma Sutra Bhashya</em></a>. Cited: the <em>Adhyasa Bhashya</em> (preamble) on superimposition of self and not-self.</li>
+<li><strong>CU</strong> — <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf"><em>Chandogya Upanishad</em></a>. Cited: clay analogy (6.1.4); &ldquo;one only, without a second&rdquo; (6.2.1).</li>
+<li><strong>MU</strong> — <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf"><em>Mandukya Upanishad</em></a>. Cited: three states and <em>turiya</em> (vv. 3–7).</li>
+<li><strong>TU</strong> — <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf"><em>Taittiriya Upanishad</em></a>. Cited: Brahman as Truth, Knowledge, and Infinity (2.1.1).</li>
+<li><strong>VC</strong> — <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf"><em>Vivekachudamani</em></a> (attributed to Shankara). Cited: ethical discipline as prerequisite (vv. 17–19); discrimination between real and unreal (v. 20); Existence-Knowledge-Bliss (v. 152); <em>jiva</em> as Brahman (v. 216).</li>
+</ul>
+<h3>Related studies in this collection</h3>
+<ul>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> — &ldquo;Knowledge but not knower&rdquo; (§1.11), projection–reflection cycle and intellectual mystery (§1.10), Sat-Chit-Ananda contrast (§5.6), epistemic incommensurability (§6.5), Saturation-Reflector Model (§6.6), evidence standards (§6.4).</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.pdf">Human Behavior and Society</a> — manifest, effable knowledge versus mystery-based ineffability (§3).</li>
+<li><em>Spiritual-Practice-And-Realization</em> (Ongoing) — <em>dhyan</em>, yoga, six flaws, and the practice path deferred from §1.11.2.</li>
+</ul>
+<h3>Modern Science &amp; Philosophy</h3>
+<ul>
+<li><strong>Chalmers 1995</strong> — Chalmers, D. <a href="https://analyticmadhyasthdarshan.org/References/Science/Chalmers-1995-Facing-Up-to-the-Problem-of-Consciousness.pdf">&ldquo;Facing Up to the Problem of Consciousness.&rdquo;</a> <em>Journal of Consciousness Studies</em>, 2(3), 200–219.</li>
+<li><strong>Churchland 1986</strong> — Churchland, P. S. <a href="https://mitpress.mit.edu/9780262530853/neurophilosophy/"><em>Neurophilosophy: Toward a Unified Science of the Mind-Brain</em></a>. MIT Press.</li>
+<li><strong>Dennett 1991</strong> — Dennett, D. <a href="https://www.penguinrandomhouse.com/books/311069/consciousness-explained-by-daniel-c-dennett/"><em>Consciousness Explained</em></a>. Little, Brown.</li>
+<li><strong>Frankish 2016</strong> — Frankish, K. <a href="https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Frankish-2016-Illusionism-Theory-Consciousness.pdf">&ldquo;Illusionism as a Theory of Consciousness.&rdquo;</a> <em>Journal of Consciousness Studies</em>, 23(11–12), 11–39.</li>
+<li><strong>Gettier 1963</strong> — Gettier, E. L. <a href="https://doi.org/10.1093/analys/23.6.121">&ldquo;Is Justified True Belief Knowledge?&rdquo;</a> <em>Analysis</em>, 23(6), 121–123.</li>
+<li><strong>Goff 2019</strong> — Goff, P. <a href="https://philipgoff.com/galileos-error/"><em>Galileo&rsquo;s Error: Foundations for a New Science of Consciousness</em></a>. Pantheon.</li>
+<li><strong>Hashemi 2025</strong> — Hashemi, A. <a href="https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Hashemi-2025-How-to-Understand-Russellian-Panpsychism.pdf">&ldquo;How to Understand Russellian Panpsychism.&rdquo;</a> <em>Erkenntnis</em>, 90, 3747–3766. Author preprint; also at https://doi.org/10.1007/s10670-024-00877-6.</li>
+<li><strong>IEP Enactivism</strong> — <a href="https://iep.utm.edu/enactivism/">&ldquo;Enactivism.&rdquo;</a> <em>Internet Encyclopedia of Philosophy</em>.</li>
+<li><strong>Jarczewski and Riggs 2025</strong> — Jarczewski, D., and Riggs, W. D. <a href="https://doi.org/10.1017/epi.2025.10">&ldquo;Socializing Virtue Epistemology.&rdquo;</a> <em>Episteme</em>, First View, 1–19.</li>
+<li><strong>Kandel et al. 2021</strong> — Kandel, E. R., et al. <a href="https://www.mheducation.com/highered/product/principles-neural-science-kandel/9781259642234.html"><em>Principles of Neural Science</em></a>, 6th ed. McGraw-Hill.</li>
+<li><strong>Kim 2005</strong> — Kim, J. <a href="https://press.princeton.edu/books/paperback/9780691117532/physicalism-or-something-near-enough"><em>Physicalism, or Something Near Enough</em></a>. Princeton University Press.</li>
+<li><strong>Kuhn 2024</strong> — Kuhn, R. L. <a href="https://doi.org/10.1016/j.pbiomolbio.2023.12.003">&ldquo;A Landscape of Consciousness: Toward a Taxonomy of Explanations and Implications.&rdquo;</a> <em>Progress in Biophysics and Molecular Biology</em>, 190, 28–169.</li>
+<li><strong>Limanowski and Blankenburg 2013</strong> — Limanowski, J., and Blankenburg, F. <a href="https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf">&ldquo;Minimal self-models and the free energy principle.&rdquo;</a> <em>Frontiers in Human Neuroscience</em>, 7. https://doi.org/10.3389/fnhum.2013.00547</li>
+<li><strong>Massimi 2022</strong> — Massimi, M. <a href="https://global.oup.com/academic/product/perspectival-realism-9780197555620"><em>Perspectival Realism</em>.</a> Oxford University Press.</li>
+<li><strong>Melloni et al. 2025</strong> — Melloni, L., et al. <a href="https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf">&ldquo;Adversarial testing of global neuronal workspace and integrated information theories of consciousness.&rdquo;</a> <em>Nature</em>. https://doi.org/10.1038/s41586-025-08888-1</li>
+<li><strong>Nagel 1974</strong> — Nagel, T. <a href="https://analyticmadhyasthdarshan.org/References/Science/Nagel-1974-What-Is-It-Like-to-Be-a-Bat.pdf">&ldquo;What Is It Like to Be a Bat?&rdquo;</a> <em>The Philosophical Review</em>, 83(4), 435–450.</li>
+<li><strong>Piredda 2024</strong> — Piredda, G. <a href="https://doi.org/10.1007/s11245-024-10044-9">&ldquo;The Tacitly Situated Self: From Narration to Sedimentation and Projection.&rdquo;</a> <em>Topoi</em>, 43, 607–615.</li>
+<li><strong>Popper 1959</strong> — Popper, K. <a href="https://www.routledge.com/The-Logic-of-Scientific-Discovery/Popper/p/book/9780415278447"><em>The Logic of Scientific Discovery</em></a>. Hutchinson / Routledge.</li>
+<li><strong>Strawson 2006</strong> — Strawson, G. <a href="https://analyticmadhyasthdarshan.org/References/Science/Strawson-2006-Realistic-Monism-Panpsychism.pdf">&ldquo;Realistic Monism: Why Physicalism Entails Panpsychism.&rdquo;</a> <em>Journal of Consciousness Studies</em>, 13(10–11), 3–31.</li>
+<li><strong>Tufft et al. 2024</strong> — Tufft, M. R. A., et al. <a href="https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Tufft-et-al-2024-Flow-Active-Inference.pdf">&ldquo;Forgetting ourselves in flow: an active inference account of flow states and how we experience ourselves within them.&rdquo;</a> <em>Frontiers in Psychology</em>, 15. https://doi.org/10.3389/fpsyg.2024.1354719</li>
+<li><strong>Wiese 2024</strong> — Wiese, W. <a href="https://doi.org/10.1007/s11098-024-02182-y">&ldquo;Artificial consciousness: a perspective from the free energy principle.&rdquo;</a> <em>Philosophical Studies</em>, 181, 1947–1970.</li>
+</ul>
+
+</body>
+</html>

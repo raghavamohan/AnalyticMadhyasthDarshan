@@ -38,6 +38,7 @@ def main() -> None:
         raise SystemExit(f"{slug} is Ongoing — no PDF to regenerate.")
 
     regenerate_pdf(md_path, status)
+    print(f"Regenerated HTML at {md_path.with_suffix('.html')}")
     print(f"Regenerated PDF at {study_pdf(slug)}")
 
 

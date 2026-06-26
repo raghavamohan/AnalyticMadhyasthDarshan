@@ -230,8 +230,8 @@ Reads **Status:** from the markdown and applies the Draft watermark when appropr
 
 0. **`Scripts/_verify_study_svgs.py`** — before conversion, fails if any `![…](*.svg)`
    referenced from the study is missing, not valid UTF-8, or malformed XML.
-1. **`Scripts/_convert_to_pdf.py`** — markdown → styled HTML (same basename, `.html`).
-   Converts ` ```mermaid ` fenced blocks to `<div class="mermaid">` for rendering.
+1. **`Scripts/_convert_to_pdf.py`** — markdown → styled HTML (same basename, `.html`),
+   with web navigation chrome and in-browser Mermaid when applicable.
 2. **`Scripts/_html_to_pdf.js`** — loads Mermaid from `Scripts/node_modules`, renders
    `.mermaid` divs to SVG, then HTML → PDF via Puppeteer (footer, A4 margins).
 3. **`Scripts/_verify_pdf_diagrams.py`** — after PDF generation, fails if markdown
@@ -256,7 +256,6 @@ python Scripts/_convert_to_pdf.py Studies/<Slug>/<Slug>.md
 node Scripts/_html_to_pdf.js Studies/<Slug>/<Slug>.html Draft
 python Scripts/_verify_pdf_diagrams.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf
 python Scripts/_verify_pdf_fenced_code.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf
-Remove-Item Studies/<Slug>/<Slug>.html
 ```
 
 ### Study SVG figures
@@ -292,7 +291,9 @@ python Scripts/_verify_study_svgs.py
 The second form validates SVG figures for all studies.
 
 - **`Draft`** argument to `_html_to_pdf.js` — required for **Draft** studies. Omit for **Released**.
-- **Delete the intermediate `.html`** after PDF generation; it is a build artifact.
+- **Keep the published `.html`** beside each study `.pdf` — the Studies index **Read**
+  links open HTML; the download control fetches the PDF. Toolbar chrome is hidden in
+  print/PDF output via `@media print` CSS.
 
 ### What the scripts provide (do not reimplement)
 
@@ -341,6 +342,8 @@ foreach ($s in $studies) {
 ### After conversion
 
 - Confirm the output PDF path is `Studies/<Slug>/<Slug>.pdf` (same stem as the `.md`).
+- Confirm the companion HTML path is `Studies/<Slug>/<Slug>.html` (or
+  `Applications/<Slug>/<Slug>.html` for applied studies).
 - If the study uses ` ```mermaid ` blocks, confirm the PDF shows diagrams (not raw
   `flowchart TD` source). Regeneration runs `_verify_pdf_diagrams.py` automatically;
   manual check: `python Scripts/_verify_pdf_diagrams.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf`

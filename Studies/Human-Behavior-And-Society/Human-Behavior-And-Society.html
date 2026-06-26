@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Human Behaviour and Social Organisation</title>
+<style>
+  @page {
+    size: A4;
+    margin: 2.2cm 2cm 2.2cm 2cm;
+  }
+  @media print {
+    body {
+      font-size: 11pt;
+      margin: 0;
+      padding: 0;
+      max-width: none;
+    }
+    h1 ~ p {
+      margin: 3pt 0;
+    }
+    h2 {
+      page-break-after: auto;
+      break-after: auto;
+    }
+    h2:first-of-type {
+      margin-top: 10pt;
+    }
+    h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+    h3, h4 { page-break-inside: avoid; break-inside: avoid; }
+    p { text-align: justify; text-justify: inter-word; hyphens: auto; }
+    li { text-align: left; }
+    table {
+      page-break-inside: auto;
+      break-inside: auto;
+    }
+    thead {
+      display: table-header-group;
+    }
+    tr {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    pre { page-break-inside: avoid; white-space: pre-wrap; overflow-wrap: anywhere; word-break: break-word; }
+    blockquote { page-break-inside: avoid; }
+  }
+  body {
+    position: relative;
+    z-index: 1;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 11pt;
+    line-height: 1.55;
+    color: #1a1a1a;
+    max-width: 750px;
+    margin: 30px auto;
+    padding: 0 20px;
+  }
+  h1 {
+    font-size: 20pt;
+    margin-top: 0;
+    margin-bottom: 4pt;
+    color: #111;
+    border-bottom: 2px solid #333;
+    padding-bottom: 6pt;
+  }
+  h1 + p {
+    margin-top: 4pt;
+  }
+  h2 {
+    font-size: 15pt;
+    margin-top: 18pt;
+    margin-bottom: 6pt;
+    color: #222;
+    border-bottom: 1px solid #bbb;
+    padding-bottom: 4pt;
+  }
+  h3 {
+    font-size: 12.5pt;
+    margin-top: 16pt;
+    margin-bottom: 4pt;
+    color: #333;
+  }
+  h4 {
+    font-size: 11.5pt;
+    margin-top: 14pt;
+    margin-bottom: 4pt;
+    color: #333;
+    font-weight: bold;
+  }
+  p {
+    margin: 6pt 0;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+  }
+  a {
+    color: #1a5276;
+    text-decoration: underline;
+  }
+  blockquote {
+    margin: 10pt 0 10pt 16pt;
+    padding: 6pt 12pt;
+    border-left: 3pt solid #888;
+    background: #f7f7f5;
+    font-style: italic;
+    color: #333;
+  }
+  blockquote p {
+    margin: 0;
+    white-space: pre-line;
+  }
+  blockquote p + p {
+    margin-top: 6pt;
+  }
+  blockquote strong {
+    font-style: normal;
+  }
+  .quote-source {
+    font-style: normal;
+    font-size: 10pt;
+    color: #555;
+    margin-top: 4pt;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12pt 0;
+    font-size: 10pt;
+    page-break-inside: auto;
+    break-inside: auto;
+  }
+  thead {
+    display: table-header-group;
+  }
+  tr {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  th {
+    background: #e8e8e4;
+    border: 1px solid #aaa;
+    padding: 5pt 7pt;
+    text-align: left;
+    font-weight: bold;
+  }
+  td {
+    border: 1px solid #ccc;
+    padding: 5pt 7pt;
+    vertical-align: top;
+  }
+  tr:nth-child(even) {
+    background: #fafaf8;
+  }
+  code {
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 10pt;
+    background: #f0f0ec;
+    padding: 1pt 3pt;
+    border-radius: 2pt;
+  }
+  pre {
+    background: #f5f5f1;
+    padding: 10pt 14pt;
+    border-radius: 4pt;
+    overflow-x: auto;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    white-space: pre-wrap;
+    max-width: 100%;
+    font-size: 10pt;
+    line-height: 1.4;
+  }
+  pre code {
+    background: none;
+    padding: 0;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  ul, ol {
+    margin: 6pt 0;
+    padding-left: 24pt;
+  }
+  li {
+    margin: 3pt 0;
+  }
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 12pt auto;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  p:has(> img:only-child) {
+    text-align: center;
+    margin: 12pt 0;
+  }
+  .mermaid {
+    display: flex;
+    justify-content: center;
+    margin: 12pt auto;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .mermaid svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .study-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px 16px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 13px;
+    margin: 0 0 22px;
+    padding: 10px 14px;
+    border: 1px solid #d8d2c8;
+    border-radius: 8px;
+    background: #f7f4ef;
+  }
+  .study-toolbar-link {
+    color: #1a5276;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .study-toolbar-link:hover { color: #13405c; }
+  .study-toolbar-download::after {
+    content: " \2193";
+    font-weight: 700;
+  }
+  .draft-banner {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #8b5e34;
+    background: #f5ebe0;
+    border: 1px solid #e0d0be;
+    border-radius: 6px;
+    padding: 6px 12px;
+    margin: 0 0 18px;
+    text-align: center;
+  }
+  @media print {
+    .study-toolbar,
+    .draft-banner { display: none !important; }
+  }
+
+</style>
+</head>
+<body>
+<nav class="study-toolbar" aria-label="Study navigation">
+  <a class="study-toolbar-link" href="../index.html">&larr; All studies</a>
+  <a class="study-toolbar-link study-toolbar-download" href="Human-Behavior-And-Society.pdf" download>Download PDF</a>
+</nav>
+<p class="draft-banner" role="status">Draft</p>
+<h1>Human Behaviour and Social Organisation</h1>
+<p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> — a group of people studying Madhyasth Darshan philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
+<p><strong>Edited on:</strong> June 26, 2026, 10:28 AM IST
+<strong>The question:</strong> How should humans behave and organise themselves? Can science alone, or religion alone, define correct ethical behaviour and the right form of society?</p>
+<p>This study examines behaviour, ethics, and social organisation in <strong>Madhyasth Darshan</strong> (Co-existentialism), as presented by <strong>Shri A. Nagraj</strong>, and compares its answers with <strong>physics and the natural sciences</strong>, <strong>Advaita Vedanta</strong>, and selected <strong>religious and technocratic</strong> approaches to human conduct and social order.</p>
+<h2>Standpoint and scope</h2>
+<p>These studies are written from the standpoint of a <strong>scientist and technologist</strong> — someone trained to graduate-level <strong>physics and mathematics</strong>, at home with contemporary cosmology, quantum theory, conservation laws, and the logic of formal models.</p>
+<p>From that background, a familiar picture of nature is hard to avoid: <strong>consciousness appears as something the brain does</strong> — an epiphenomenon, functional outcome, or emergent property of particular configurations of very large numbers of physical particles. Modern physics and cognitive science are powerful on mechanism, prediction, and public evidence; yet the hard problem of consciousness, the status of the self, and the reality of value remain fiercely contested. The standpoint taken here does not treat those gaps as settled in favour of matter-only reductionism.</p>
+<p>The work begins where that scientific picture leaves open questions — and asks whether Madhyasth Darshan offers a coherent alternative worth examining seriously. This paper reads the primary texts carefully, states what follows from the darshan itself, and compares it in parallel with what we know from <strong>physics and the natural sciences</strong>, <strong>Advaita Vedanta</strong>, and <strong>modern Western philosophy</strong> (especially moral science and social philosophy). Physics and mathematics are <strong>one leg</strong> of that comparison, not the only one. The aim is rigorous comparative understanding — testing definitions, internal consistency, and fit with public knowledge — not persuasion or devotional endorsement.</p>
+<p>These topical studies state the philosophy in clear, checkable prose first. A separate formal mathematical treatment may follow once the definitions and relations are stable across the studies; this paper does not assume or require that treatment.</p>
+<h2>Quick Glossary</h2>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Plain meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><em>Jeevan</em></strong></td>
+<td>The sentient self — a real unit that works through the body; for ontology see <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a>.</td>
+</tr>
+<tr>
+<td><strong>Knowledge order (<em>gyan avastha</em>)</strong></td>
+<td>The human level of nature — able to know and evaluate every other level.</td>
+</tr>
+<tr>
+<td><strong><em>Dharma</em></strong></td>
+<td>Orderliness; in conduct, living in line with resolved understanding of existence.</td>
+</tr>
+<tr>
+<td><strong>Right-use (<em>sadupyog</em>)</strong></td>
+<td>Use of body, mind, and resources that serves humane purpose, not mere appetite or profit.</td>
+</tr>
+<tr>
+<td><strong>Undivided society</strong></td>
+<td>Social order that moves beyond sectarian or defensive groupings toward universal human orderliness.</td>
+</tr>
+<tr>
+<td><strong>MVD / SB / JV</strong></td>
+<td>Primary Madhyasth Darshan texts cited in this study; full bibliographic entries under References.</td>
+</tr>
+</tbody>
+</table>
+<h2>1. The Madhyasth Darshan answer</h2>
+<p>Madhyasth Darshan holds that humans should behave as awakened knowledge-order beings, not merely as instinct-driven animals, profit-seeking consumers, or rule-following religious subjects. They should organise themselves through families, communities, undivided society, and universal orderliness, grounded in coexistence, justice, resolution, prosperity, fearlessness, and humane conduct. The darshan does not treat ethics as arbitrary moral instruction; it derives behaviour from a larger ontology in which <strong>existence is coexistence</strong>, all orders of nature are complementary, and humans are the order capable of knowing this and living accordingly.</p>
+<h3>1.1 Core assumptions</h3>
+<p>The behavioural argument rests on a chain of premises, from coexistence to practical conduct:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Assumption</th>
+<th>Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Existence is coexistence.</strong> Reality is not fundamentally conflict, domination, or isolated self-interest.</td>
+<td>Ethics must be based on complementarity, not competition or negation.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Existence is orderly.</strong> Orderliness is already present in nature; humans are the order in which it is not yet fully evidenced.</td>
+<td>Human society should become orderly by understanding existence, not by coercion alone.</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Humans are knowledge-order beings.</strong> Humans alone can know the properties, nature, and dharma of all orders.</td>
+<td>Human behaviour must be guided by understanding, not merely instinct, fear, or commandment.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Every human seeks satisfaction, happiness, and restfulness.</strong> Even deluded behaviour is an attempt to solve suffering.</td>
+<td>Ethics is not external punishment; it is the correct route to fulfilment.</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>The root human problem is delusion.</strong> Humans mistake partial satisfactions for complete fulfilment and confuse body-needs with <em>jeevan</em>-needs.</td>
+<td>Social disorder is a symptom of wrong understanding.</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Humane conduct is studyable and livable.</strong> It is not merely a sermon or private mystical state.</td>
+<td>Behaviour can be taught, learned, verified, and embodied.</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Relationships contain values.</strong> Sociality means fulfilling values inherent in relationships and associations.</td>
+<td>Society is not just a contract or herd; it is value-fulfilment in mutuality.</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Resolution and prosperity are both required.</strong> Thought must be resolved; material life must be adequately provided for.</td>
+<td>Ethics cannot be only spiritual renunciation or only material production.</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>Organisation requires shared cause, goal, and programme.</strong></td>
+<td>Families, communities, and society need a common purpose to remain coherent.</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>Coercive power and religious command have failed to produce universal ethical conduct.</strong></td>
+<td>Neither state-force nor religious law is sufficient without understanding.</td>
+</tr>
+</tbody>
+</table>
+<h3>1.2 What is the human purpose?</h3>
+<p>MVD explicitly states that human life is directed toward restfulness:</p>
+<blockquote>
+<p><strong>&ldquo;Humans on this Earth are engaged in endeavours and experiments to know and recognise their significance, solely for attaining restfulness.&rdquo;</strong><br />
+- MVD, Ch. 4, <em>The Human Purpose</em></p>
+</blockquote>
+<p>The progression is not from individual desire to social contract, but from <strong>sociality to need, production, right-use, humane conduct, and undivided sociality</strong>:</p>
+<blockquote>
+<p><strong>&ldquo;Sociality gives rise to needs; needs give rise to experimentation and production; experimentation and production give rise to creation of wealth; creation of wealth gives rise to use, right-use and purposeful-use; use, right-use and purposeful-use give rise to practicality; practicality gives rise to humaneness, and humaneness gives rise to sociality. Sociality is meaningful when it is towards undivided sociality.&rdquo;</strong><br />
+- MVD, Ch. 4</p>
+</blockquote>
+<p>Wealth and production are not rejected in this chain; they are subordinated to:</p>
+<ul>
+<li>use (<code>upyog</code>)</li>
+<li>right-use (<code>sadupyog</code>)</li>
+<li>purposeful-use (<code>prayojansheelta</code>)</li>
+<li>humane conduct</li>
+<li>undivided society</li>
+</ul>
+<h3>1.3 How should humans behave?</h3>
+<p>MVD classifies human tendencies into three broad categories:</p>
+<blockquote>
+<p><strong>&ldquo;Based on the above, human tendencies is seen to have three categories: (1) Inhumaneness, (2) Humaneness and (3) Higher humaneness.&rdquo;</strong><br />
+- MVD, Ch. 4</p>
+</blockquote>
+<h3>1.3.1 Inhumaneness</h3>
+<p>Inhuman behaviour is defined by nature, propensities, and perspectives:</p>
+<blockquote>
+<p><strong>&ldquo;Servility, perfidy and cruelty itself is inhumane nature.&rdquo;</strong><br />
+- MVD, Ch. 4</p>
+<p><strong>&ldquo;Eating, sleeping, defending and mating are the inhumane propensities.&rdquo;</strong><br />
+- MVD, Ch. 4</p>
+<p><strong>&ldquo;Pleasant-unpleasant, healthy-unhealthy and profit-loss only are the inhumane perspectives.&rdquo;</strong><br />
+- MVD, Ch. 4</p>
+</blockquote>
+<p>This does not mean food, sleep, health, and livelihood are bad. It means that if behaviour is governed <strong>only</strong> by these, humans remain below their knowledge-order potential.</p>
+<h3>1.3.2 Humaneness</h3>
+<p>Humane behaviour is defined by higher nature and higher perspective:</p>
+<blockquote>
+<p><strong>&ldquo;Fortitude, courage, and generosity itself is humane nature.&rdquo;</strong><br />
+- MVD, Ch. 4</p>
+<p><strong>&ldquo;Justice-injustice, dharma-adharma, and truth-untruth are humane perspectives.&rdquo;</strong><br />
+- MVD, Ch. 4</p>
+</blockquote>
+<p>So human behaviour should be guided by:</p>
+<ul>
+<li><strong>justice</strong>, not merely liking/disliking</li>
+<li><strong>dharma/orderliness</strong>, not merely bodily benefit</li>
+<li><strong>truth</strong>, not merely profit</li>
+</ul>
+<h3>1.3.3 Higher-humaneness</h3>
+<p>Higher-humaneness is defined as:</p>
+<blockquote>
+<p><strong>&ldquo;Kindness, grace and compassion itself is the higher-humane nature.&rdquo;</strong><br />
+- MVD, Ch. 4</p>
+</blockquote>
+<p>This moves behaviour from mere justice toward active benevolence: helping others gain both the content and receptivity required for awakening.</p>
+<h3>1.3.4 Values in relationships</h3>
+<p>MVD defines sociality as value-fulfilment:</p>
+<blockquote>
+<p><strong>&ldquo;Fulfilling the values inherent in relationships and associations itself is sociality.&rdquo;</strong><br />
+- MVD, Ch. 4</p>
+</blockquote>
+<p>SB similarly says complementarity is realised through relationships:</p>
+<blockquote>
+<p><strong>&ldquo;For humans, this complementary way is realised through recognising and fulfilling relationships. It is evident, and can be studied, that wherever humans recognise relationships, the fulfilment of values is also observed.&rdquo;</strong><br />
+- SB, <em>Resolution by Way of Complementarity</em></p>
+</blockquote>
+<p>The primary ethical unit is not the isolated individual, nor the state, nor the religious community. It is the <strong>human-in-relationship</strong>.</p>
+<p>Correct behaviour means:</p>
+<ul>
+<li>recognise relationships</li>
+<li>understand expectations within them</li>
+<li>fulfil values such as trust, affection, respect, care, guidance, and responsibility</li>
+<li>avoid betrayal, deceit, exploitation, violence, and retaliation</li>
+</ul>
+<h3>1.3.5 Justice, not merely legality</h3>
+<p>MVD defines justice as orderliness of behaviour that protects humaneness:</p>
+<blockquote>
+<p><strong>&ldquo;Justice pertains to the orderliness of behaviour based on policies that protect humaneness.&rdquo;</strong><br />
+- MVD, Ch. 4</p>
+</blockquote>
+<p>It also says:</p>
+<blockquote>
+<p><strong>&ldquo;The necessary behaviour for humans is to adhere to the laws of justice, and the necessary thought for humans is to adhere to the laws of dharma.&rdquo;</strong><br />
+- MVD, Ch. 4</p>
+</blockquote>
+<p>This is a significant distinction. Law is not enough. A behaviour may be legal and still not humane if it violates justice, relationship, trust, or coexistence.</p>
+<h3>1.3.6 Resolution and prosperity together</h3>
+<p>MVD says sociality needs both intellectual and material fulfilment:</p>
+<blockquote>
+<p><strong>&ldquo;Intellectual resolution is achieved through intellectual exercise and endeavour, while material prosperity is achieved through physical experimentation, endeavour, and production. Both intellectual resolution and material prosperity are helpful for the development of sociality.&rdquo;</strong><br />
+- MVD, Ch. 4</p>
+</blockquote>
+<p>This rejects two common extremes:</p>
+<ul>
+<li><strong>materialism</strong>: production and wealth are enough</li>
+<li><strong>renunciation-only spirituality</strong>: material prosperity is irrelevant</li>
+</ul>
+<p>Madhyasth Darshan says humans need:</p>
+<ul>
+<li><strong>resolution</strong> in understanding</li>
+<li><strong>prosperity</strong> in family/material life</li>
+<li><strong>fearlessness</strong> in society</li>
+<li><strong>coexistence</strong> with nature</li>
+</ul>
+<h3>1.3.7 Complementarity toward nature</h3>
+<p>SB states:</p>
+<blockquote>
+<p><strong>&ldquo;Every order in existence has its respective use, right-use, and purpose, inherently bonded by the natural way of existence. This is the way of complementarity.&rdquo;</strong><br />
+- SB, <em>Resolution by Way of Complementarity</em></p>
+</blockquote>
+<p>It criticises modern human conduct:</p>
+<blockquote>
+<p><strong>&ldquo;For humans, it is evident that the material, biological, and animal orders are mutually complementary. They exist in harmony with each other and are complementary for humans. However, by the end of the twentieth century, the actions of humans have demonstrated the opposite: instead of being complementary to the nature of the other three orders, humans have acted in opposition and revolt.&rdquo;</strong><br />
+- SB</p>
+</blockquote>
+<p>JV makes the ecological point more sharply:</p>
+<blockquote>
+<p><strong>&ldquo;The big benefit from this understanding will be that humans shall live on this Earth forever - without wounding it, without tearing its guts apart, and without destroying it.&rdquo;</strong><br />
+- JV, Ch. 1</p>
+</blockquote>
+<p>So human behaviour toward Earth should not be extraction, conquest, or unlimited consumption. It should be <strong>right-use of natural abundance</strong>.</p>
+<h3>1.4 How should humans organise themselves?</h3>
+<p>Madhyasth Darshan treats organisation as the social expression of resolved understanding — from shared purpose through family and community to undivided society.</p>
+<h3>1.4.1 Shared cause, goal, and programme</h3>
+<p>MVD states:</p>
+<blockquote>
+<p><strong>&ldquo;For an organisation, commonness of cause and goal is necessary. For its sustainment, commonness of the program is also necessary.&rdquo;</strong><br />
+- MVD, Ch. 4</p>
+</blockquote>
+<p>This means a society cannot be stable merely by force, market exchange, shared identity, or ritual. It needs:</p>
+<ol>
+<li>shared understanding of why it exists</li>
+<li>shared aim</li>
+<li>shared practical programme</li>
+</ol>
+<hr />
+<h3>1.4.2 The progression of organisation</h3>
+<p>MVD defines human groupings:</p>
+<blockquote>
+<p><strong>&ldquo;More than one human coming together or becoming organised is referred to as a family, community, or undivided society. In the awakened human tradition, undivided society is evidenced along with the universal orderliness.&rdquo;</strong><br />
+- MVD, Ch. 4</p>
+</blockquote>
+<p>The intended progression runs from person through family and community to undivided society and universal orderliness. The decisive point is that the family or community must not remain sectarian, defensive, or identity-bound; it must move toward <strong>undivided society</strong>.</p>
+<h3>1.4.3 Family-based self-organising orderliness</h3>
+<p>MVD defines higher-humane social order:</p>
+<blockquote>
+<p><strong>&ldquo;A higher-humanely societal orderliness is exemplified by undivided society, family-based self-organising orderliness, as evidence of humane tradition.&rdquo;</strong><br />
+- MVD, Ch. 4</p>
+</blockquote>
+<p>This suggests that the family is not treated merely as a private emotional unit. It is the first school of:</p>
+<ul>
+<li>production</li>
+<li>relationship</li>
+<li>duty</li>
+<li>responsibility</li>
+<li>education</li>
+<li>value fulfilment</li>
+<li>social participation</li>
+</ul>
+<p>But this depends on a <strong>wise family</strong>, not any family as it happens to exist. The family must be aligned with justice, right-use, and sociality.</p>
+<hr />
+<h3>1.4.4 Resolution, prosperity, fearlessness, and coexistence</h3>
+<p>MVD distinguishes animal collectivity from awakened human sociality:</p>
+<blockquote>
+<p><strong>&ldquo;The semblance of collectivity among animals is generally observed only in situations of fear. Under no circumstances is such collectivity observed in activities of study, production, or the maintenance of orderliness. In contrast, the foundational basis of sociality in awakened humans is living in resolution, prosperity, fearlessness, and coexistence.&rdquo;</strong><br />
+- MVD, Ch. 4</p>
+</blockquote>
+<p>Awakened sociality means living in resolution, prosperity, fearlessness, and coexistence — not the fear-bound collectivity animals sometimes show.</p>
+<h3>1.4.5 From selfishness to benevolence</h3>
+<p>MVD distinguishes resource-use by intention:</p>
+<blockquote>
+<p><strong>&ldquo;The planning to utilise resources in a limited and narrow way confined only to one person or family is referred to as selfishness. It signifies thoughts and behaviours aimed at seeking sensory pleasure and comfort only for oneself or one&rsquo;s family.&rdquo;</strong><br />
+- MVD, Ch. 4</p>
+<p><strong>&ldquo;The thoughts and behaviours directed towards the comfort of others along with prioritisation of utilising resources for this purpose are referred to as altruism.&rdquo;</strong><br />
+- MVD, Ch. 4</p>
+<p><strong>&ldquo;The thoughts and behaviours that accomplish universal wellbeing along with resolution, offer solutions to problems, foster relationships based purely on affection, and utilise resources to make these accessible to all are referred to as benevolent.&rdquo;</strong><br />
+- MVD, Ch. 4</p>
+</blockquote>
+<p>Selfish use confines resources to one person or family; altruistic use extends comfort to others; benevolent use aims at universal wellbeing through resolution, problem-solving, affectionate relationships, and shared access to resources. The highest organisation is not merely welfare or charity, but making resolution and humane living <strong>available to all</strong>.</p>
+<h2>2. Can science alone define correct behaviour and society?</h2>
+<p>Mainstream science and technocracy are powerful on observation, production, and modelling means, but <strong>science alone cannot define correct human behaviour</strong> in Madhyasth Darshan&rsquo;s reading, because science as commonly practised is seen as:</p>
+<ul>
+<li>matter-centric</li>
+<li>instrument-centric</li>
+<li>often mechanistic about humans</li>
+<li>good at means, weak at ends</li>
+<li>capable of production but not necessarily resolution</li>
+</ul>
+<p>JV criticises reliance on science to fix human disorder:</p>
+<blockquote>
+<p><strong>&ldquo;We humans committed all these crimes during the scientific age, yet we haven&rsquo;t stopped boasting about science! We think science will find a lasting solution to this situation, even though the human race is on the verge of being wiped out from Earth.&rdquo;</strong><br />
+- JV, Ch. 1</p>
+</blockquote>
+<p>It also criticises power-centric constitutions:</p>
+<blockquote>
+<p><strong>&ldquo;Power-Centric Rule gets implemented in the form of three activities - stopping one mistake by making another mistake, stopping one crime by committing another crime, and stopping one war by waging another war. Yet there is no evidence anywhere if these three actions could rid us of crimes.&rdquo;</strong><br />
+- JV, Ch. 1</p>
+</blockquote>
+<p>The critique is not that science is useless. Science is accepted as useful for observation, production, and understanding physical processes. The critique is that <strong>science alone cannot determine humane ends</strong>:</p>
+<ul>
+<li>what is justice?</li>
+<li>what is right-use?</li>
+<li>what is human fulfilment?</li>
+<li>what is a proper relationship?</li>
+<li>what level of consumption is enough?</li>
+<li>why should humans choose coexistence over domination?</li>
+</ul>
+<p>Science can describe consequences, but it does not by itself generate a complete normative order.</p>
+<h3>2.1 Is human order just an optimization problem?</h3>
+<p>A modern scientific or technocratic view may say:</p>
+<blockquote>
+<p>Humans and organisations are systems that optimise. We only need to find the right parameters - survival, health, pleasure, happiness, productivity, cooperation, social stability - and then organise behaviour to maximise them.</p>
+</blockquote>
+<p>Madhyasth Darshan would treat this as <strong>insufficient</strong>, not because parameters are useless, but because <strong>the choice of parameter already depends on a view of the human being</strong>. If the human is treated as only body, animal, consumer, or machine, the parameters will be chosen from that level: survival, comfort, pleasure, security, efficiency, profit, or measurable happiness. Those parameters do not reach the full human purpose.</p>
+<p>MVD gives a direct framework for this critique through the six perspectives of behaviour:</p>
+<blockquote>
+<p><strong>&ldquo;All human behaviour is manifest in six perspectives: - (1) pleasant-unpleasant, (2) healthy-unhealthy, (3) profit-loss, (4) justice-injustice, (5) dharma-adharma, and (6) truth-untruth.&rdquo;</strong><br />
+- MVD, Ch. 4</p>
+</blockquote>
+<p>It then separates inhumane and humane behaviour:</p>
+<blockquote>
+<p><strong>&ldquo;The behaviour of humans with inhumane perspective is in the refuge of pleasant-unpleasant, healthy-unhealthy, and profit-loss. The behaviour of humans with humane perspective is in the refuge of justice-injustice, dharma-adharma, and truth-untruth.&rdquo;</strong><br />
+- MVD, Ch. 4</p>
+</blockquote>
+<p>This is the key answer to the optimization view. Survival and physical health map mostly to <strong>healthy-unhealthy</strong>. Pleasure or emotional happiness maps mostly to <strong>pleasant-unpleasant</strong>. Economic success maps to <strong>profit-loss</strong>. A system optimising only these three remains within the <strong>inhumane/animalistic perspective</strong>, even if it is mathematically sophisticated.</p>
+<p>Madhyasth Darshan is not saying health, pleasure, or resources are irrelevant. It is saying they are <strong>lower-order criteria</strong>. They cannot define the whole of human behaviour because humans are not merely instinctive or bodily beings. The higher criteria are justice, dharma, and truth — behaviour-relative, resolution-relative, and realisation-in-existence-relative respectively. MVD states the distinction explicitly:</p>
+<blockquote>
+<p><strong>&ldquo;The pleasant-unpleasant perspective becomes clear with respect to instincts; healthy-unhealthy perspective becomes clear with respect to the body; profit-loss perspective becomes clear with respect to material goods and comforts; justice-injustice perspective becomes clear with respect to behaviour; dharma-adharma perspective becomes clear with respect to resolution; and truth-untruth perspective becomes clear with respect to realisation in existence.&rdquo;</strong><br />
+- MVD, Ch. 4</p>
+</blockquote>
+<p>So the prior question is not how to optimise human systems for survival, comfort, happiness, or profit, but what a human is, what human fulfilment consists in, and which perspectives are adequate for human conduct.</p>
+<h3>2.1.1 Optimisation can maximise the wrong level</h3>
+<p>If humans optimise for survival, they may build fear-based collectives. MVD says animal collectivity appears mainly under fear, whereas awakened human sociality is based on resolution, prosperity, fearlessness, and coexistence:</p>
+<blockquote>
+<p><strong>&ldquo;The semblance of collectivity among animals is generally observed only in situations of fear.&rdquo;</strong><br />
+- MVD, Ch. 4</p>
+<p><strong>&ldquo;The foundational basis of sociality in awakened humans is living in resolution, prosperity, fearlessness, and coexistence.&rdquo;</strong><br />
+- MVD, Ch. 4</p>
+</blockquote>
+<p>If humans optimise for pleasure, comfort, or consumption, JV says they keep swinging between comfort-accumulation and devotion-detachment, without arriving at stable goodness:</p>
+<blockquote>
+<p><strong>&ldquo;People enjoyed these benefits extensively, but eventually, scientific achievements also proved insufficient. Once again, humans began to feel restricted. Thus, they oscillate between devotion-detachment and comfort-accumulation&hellip;&rdquo;</strong><br />
+- JV, Ch. 1</p>
+</blockquote>
+<p>The argument is: maximising a partial good does not produce complete human fulfilment.</p>
+<h3>2.1.2 Feeling good is not the same as being good</h3>
+<p>JV directly rejects the idea that subjective preference can define what is good:</p>
+<blockquote>
+<p><strong>&ldquo;Both these pursuits may feel good in themselves, but there is a distinction between &lsquo;feeling good&rsquo; and &lsquo;being good&rsquo;. Just because something feels good doesn&rsquo;t mean that it is good.&rdquo;</strong><br />
+- JV, Ch. 1</p>
+</blockquote>
+<p>This is a direct challenge to happiness-maximisation if happiness means felt pleasure, preference satisfaction, or emotional positivity. Madhyasth Darshan asks for a criterion beyond feeling: <strong>justice, dharma, truth, and resolution</strong>.</p>
+<h3>2.1.3 Parameters cannot choose themselves</h3>
+<p>An optimisation system needs an objective function. But the objective function is already a moral/metaphysical choice. Should society maximise:</p>
+<ul>
+<li>survival?</li>
+<li>pleasure?</li>
+<li>health?</li>
+<li>wealth?</li>
+<li>equality?</li>
+<li>freedom?</li>
+<li>total happiness?</li>
+<li>average happiness?</li>
+<li>ecological stability?</li>
+<li>truth?</li>
+<li>justice?</li>
+</ul>
+<p>Science can help measure and model these ends, but it cannot, by measurement alone, decide which is ultimate. Madhyasth Darshan claims the higher ordering principle is not arbitrary preference but <strong>coexistence</strong>: human conduct should be evaluated by justice, dharma, and truth in coexistence — not merely by pleasure, health, and profit.</p>
+<h3>2.1.4 Optimisation often becomes profit, power, and control</h3>
+<p>SB criticises the modern definition of development as military power, consumption, trade dominance, and accumulation:</p>
+<blockquote>
+<p><strong>&ldquo;Nations are labelled developed if they possess the greatest military power&hellip; where the majority of people indulge in and accumulate the highest levels of food and lifestyle amenities&hellip; where most people are driven towards indulgence, over-indulgence, and excessive indulgence&hellip;&rdquo;</strong><br />
+- SB</p>
+</blockquote>
+<p>It then says:</p>
+<blockquote>
+<p><strong>&ldquo;War and business, in particular, have now been reduced to ideals for all nations. However, tendencies such as war, exploitation, profit-obsession, indulgence-obsession, and sex-obsession&hellip; have not contributed to preserving the social structure or its grandeur.&rdquo;</strong><br />
+- SB</p>
+</blockquote>
+<p>An optimisation approach without a correct human criterion tends to optimise the measurable and controllable: wealth, power, production, consumption, military capacity, efficiency. These may increase system capability while degrading humaneness.</p>
+<h3>2.1.5 Human fulfilment is not a scalar variable</h3>
+<p>Madhyasth Darshan distinguishes three kinds of satisfaction:</p>
+<blockquote>
+<p><strong>&ldquo;Sensory satisfaction proves to be momentary, intellectual satisfaction proves to be long-lasting, and spiritual satisfaction (realisation) proves to be ever-lasting or non-transformable.&rdquo;</strong><br />
+- MVD, Ch. 4</p>
+</blockquote>
+<p>This resists collapsing fulfilment into one number called &ldquo;utility&rdquo; or &ldquo;happiness.&rdquo; A society may increase sensory satisfaction while decreasing resolution. It may increase wealth while decreasing trust. It may increase security while increasing fear. It may increase pleasure while weakening relationships.</p>
+<p>Human order is therefore not a single-variable maximisation problem but a <strong>right-ordering problem</strong>: body needs (nourishment, protection, health), <em>jeevan</em> needs (values, evaluation, resolution), society needs (justice, trust, duty, prosperity, fearlessness), and existence needs (complementarity and right-use) must be kept in their proper relation.</p>
+<h3>2.1.6 Understanding, not only behavioural tuning</h3>
+<p>The optimization model assumes that if incentives, constraints, and metrics are correct, behaviour will become correct. Madhyasth Darshan says behaviour becomes humane only when humans understand:</p>
+<ul>
+<li>existence</li>
+<li><code>jeevan</code></li>
+<li>relationships</li>
+<li>values</li>
+<li>justice</li>
+<li>right-use</li>
+<li>coexistence</li>
+</ul>
+<p>That is why the proposed method is study leading to understanding, resolution, humane conduct, and social order — not parameter-tuning alone. This also explains the critique of power-centric governance: externally controlling behaviour cannot remove delusion.</p>
+<p>Madhyasth Darshan&rsquo;s critique is strong against <strong>naive optimization</strong> — the idea that measurable survival, pleasure, productivity, or happiness can fully define human good. Metrics presuppose values; local optimisation can harm the whole; pleasure and health do not equal justice; profit and power can grow while society decays; emotional happiness can be temporary or misleading. A sophisticated scientist could respond that modern optimisation need not be crude — it can include multi-objective functions, constraints, rights, long-term ecological stability, cooperation, fairness, and preference revision. Madhyasth Darshan&rsquo;s reply would be that once justice, dharma, truth, relationship-values, and coexistence enter the objective function, one is no longer doing value-neutral science alone; the real issue is <strong>what understanding of the human being supplies that function</strong>.</p>
+<p>Science as an empirical method is useful and necessary for observation, production, and understanding physical processes. Scientism as a total worldview — the claim that measurable outcomes alone can settle humane ends — is insufficient. Modern science can tell us about climate damage, health, cooperation, child development, and social trust, but it does not by itself settle ultimate values. It can inform ethics; it cannot fully replace ethics. Madhyasth Darshan sometimes treats &ldquo;science&rdquo; as equivalent to reductionist materialism or mechanistic modernity; that is too broad. Contemporary sciences include ecology, systems theory, behavioural science, developmental psychology, and complexity studies, many of which already critique reductionism.</p>
+<h2>3. Can religion alone define correct behaviour and society?</h2>
+<p>Religious systems often begin with the assumption that humans are sinners, ignorant, or selfish, and then prescribe rules, rituals, duties, and ideals. In Madhyasth Darshan&rsquo;s reading, <strong>religion alone also cannot define correct human behaviour</strong> for that reason.</p>
+<p>JV states:</p>
+<blockquote>
+<p><strong>&ldquo;All religions believe that humans are fundamentally sinners, ignorant, and selfish. However, the reality is different from this. To deliver sinners, turn the ignorant into wise, and the selfish into charitable, each religion prescribes its methods, ideals, duties, responsibilities, and rituals.&rdquo;</strong><br />
+- JV, Ch. 1</p>
+</blockquote>
+<p>It then asks whether this has worked:</p>
+<blockquote>
+<p><strong>&ldquo;What has been the net outcome of these efforts? So far, there is no evidence of any ignorant person becoming wise, any selfish person becoming charitable, or any sinner being emancipated as a result of these efforts.&rdquo;</strong><br />
+- JV, Ch. 1</p>
+</blockquote>
+<p>The alternative path is:</p>
+<blockquote>
+<p><strong>&ldquo;The alternative path is - perform study, attain mastery, then evidence it in living.&rdquo;</strong><br />
+- JV, Ch. 1</p>
+</blockquote>
+<p>So Madhyasth Darshan rejects moral instruction based merely on:</p>
+<ul>
+<li>fear of sin</li>
+<li>promise of heaven</li>
+<li>ritual correctness</li>
+<li>obedience to authority</li>
+<li>sectarian identity</li>
+<li>scripture as unquestioned proof</li>
+</ul>
+<h3>3.1 Advaita: humans as divine</h3>
+<p>The above critique applies most directly to religion as command, ritual, sin, sect, heaven, or scriptural authority. Advaita Vedanta is different and deserves separate treatment. It does not merely say &ldquo;human is sinner.&rdquo; In its strongest form, Advaita says the deepest self (<code>Atman</code>) is not separate from ultimate reality (<code>Brahman</code>). In that sense, the human is already divine at the deepest level; ignorance (<code>avidya</code>) hides this truth.</p>
+<p>Madhyasth Darshan recognises that Shri. Nagraj came through the Vedic/Vedantic stream and directly engaged this claim. MVD summarises the Vedantic position this way:</p>
+<blockquote>
+<p><strong>&ldquo;According to Vedanta knowledge, only Brahma is the truth, and this world is an illusion (&lsquo;Brahma satya, jagat mithya&rsquo;). However, jeeva and jagat are said to have originated from Brahma.&rdquo;</strong><br />
+- MVD, <em>The Alternative</em></p>
+</blockquote>
+<p>Shri. Nagraj&rsquo;s question was:</p>
+<blockquote>
+<p><strong>&ldquo;How can the jeeva and jagat, which originated from the Truth, Knowledge, and Infinite Brahma, be an illusion?&rdquo;</strong><br />
+- MVD, <em>The Alternative</em></p>
+</blockquote>
+<p>SB states the Madhyasth alternative directly:</p>
+<blockquote>
+<p><strong>&ldquo;It is presented as the postulation that &lsquo;Brahma is truth, the world is perpetual.&rsquo;&rdquo;</strong><br />
+- SB, <em>Fundamental Concepts</em></p>
+</blockquote>
+<p>The contrast is not simply Advaita saying the human is divine while Madhyasth Darshan says the human is sinful; that would be wrong. Madhyasth Darshan also gives the human a high status as a knowledge-order being capable of understanding existence, <em>jeevan</em>, and humane conduct. The disagreement is about what follows from that dignity. Advaita holds that the deepest self is Brahman and the world is ultimately <em>mithya</em>; liberation is realisation of non-duality. Madhyasth Darshan holds that existence is coexistence, the world is real and perpetual rather than illusion, and human fulfilment is evidenced through understanding, behaviour, relationships, production, right-use, justice, and universal orderliness.</p>
+<h3>3.2 Why Advaita is still insufficient for behaviour</h3>
+<p>From Madhyasth Darshan&rsquo;s standpoint, saying &ldquo;human is divine&rdquo; is still not enough to define human behaviour unless it becomes a <strong>studiable, communicable, behavioural programme</strong>. Five limits stand out:</p>
+<ol>
+<li>
+<p>Divine identity does not automatically define relationship-values. If all is Brahman, what exactly is the value to be fulfilled between parent and child, spouses, teacher and student, neighbours, producer and consumer, citizen and society? Madhyasth Darshan wants these values specified and lived.</p>
+</li>
+<li>
+<p>World-as-illusion weakens the study of worldly order. If the world is ultimately <em>mithya</em>, then material order, biological order, family, production, ecology, and social organisation can be treated as secondary. Madhyasth Darshan instead says the world is perpetual and must be understood as coexistence.</p>
+</li>
+<li>
+<p>Liberation can become inward, not social. Advaita may produce personal realisation, detachment, and equanimity. Madhyasth Darshan asks for evidence in conduct: justice, right-use, prosperity, fearlessness, family order, and undivided society.</p>
+</li>
+<li>
+<p>The declaration of divinity does not by itself provide a social design — no automatic model of economy, education, governance, family, production, or ecological right-use.</p>
+</li>
+<li>
+<p>The teaching can remain ineffable. MVD contrasts mystery-based knowledge with Madhyasth Darshan&rsquo;s claim that knowledge should be manifest, effable, studyable, and evidenced in behaviour:</p>
+</li>
+</ol>
+<blockquote>
+<p><strong>&ldquo;According to the idealistic scriptures and the mystery-based God-centric contemplation knowledge and tradition, the knowledge is unmanifest and ineffable. According to Madhyasth Darshan, the knowledge is manifest, effable, and understandable through studying, and its evidence becomes accessible to all through behaviour.&rdquo;</strong><br />
+- MVD, <em>The Alternative</em></p>
+</blockquote>
+<p>Unless one can answer how divine humans should behave in family, produce and use wealth, relate to nature, establish justice, organise society without domination or renunciation, and teach and verify this knowledge in conduct, the claim &ldquo;human is divine&rdquo; remains too abstract to define humane conduct.</p>
+<p>Religion often provides values, community, restraint, and discipline, but it can become dogmatic, sectarian, ritualistic, or guilt-based. Madhyasth Darshan wants ethics to be <strong>understood and evidenced</strong>, not merely obeyed. The critique may overgeneralise: many religious traditions also contain deep ethical reflection, compassion, self-discipline, service, and community care, and Advaita in particular offers a high view of human identity rather than a low view of human sinfulness. The real distinction is not religion versus Madhyasth Darshan, but that command-based or ritual-based morality is insufficient, abstract non-dual realisation is insufficient if it does not specify conduct, and understood, lived, universally verifiable humane conduct is required.</p>
+<h2>4. Comparing Madhyasth Darshan, science, religion, and Advaita</h2>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Madhyasth Darshan</th>
+<th>Science alone</th>
+<th>Religion as command/ritual</th>
+<th>Advaita-type spirituality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What is a human?</td>
+<td>Knowledge-order being: body + <em>jeevan</em>, capable of understanding coexistence</td>
+<td>Biological organism, cognitive system, social animal</td>
+<td>Soul/sinner/devotee/child of God, depending on tradition</td>
+<td>Atman is not separate from Brahman; deepest self is divine</td>
+</tr>
+<tr>
+<td>Root problem</td>
+<td>Delusion: not understanding existence, <em>jeevan</em>, and humane conduct</td>
+<td>Ignorance, maladaptation, bad incentives, poor systems</td>
+<td>Sin, ego, ignorance, disobedience, attachment</td>
+<td>Ignorance of non-duality (<em>avidya</em>)</td>
+</tr>
+<tr>
+<td>Ethical basis</td>
+<td>Coexistence, justice, dharma/orderliness, truth, relationship-values</td>
+<td>Evidence of consequences; wellbeing metrics; evolutionary/social models</td>
+<td>Scripture, divine command, tradition, virtue, ritual discipline</td>
+<td>Realisation of non-duality; detachment; seeing unity</td>
+</tr>
+<tr>
+<td>Proper behaviour</td>
+<td>Fulfil values in relationships; live with justice, resolution, right-use, compassion</td>
+<td>Behave in ways that improve measurable outcomes</td>
+<td>Follow duties, commandments, ideals, vows, rituals</td>
+<td>Often expressed as compassion, detachment, non-harm, equanimity</td>
+</tr>
+<tr>
+<td>Proper society</td>
+<td>Family-based self-organising orderliness -&gt; undivided society -&gt; universal orderliness</td>
+<td>Efficient, adaptive, evidence-based institutions</td>
+<td>Religious community or moral order under sacred law</td>
+<td>Often less explicit; worldly order may be secondary to liberation</td>
+</tr>
+<tr>
+<td>Economy</td>
+<td>Production for need; wealth for right-use and purposeful-use</td>
+<td>Production, efficiency, growth, distribution models</td>
+<td>Charity, restraint, duty, sometimes renunciation</td>
+<td>May incline toward renunciation or non-attachment rather than production/right-use</td>
+</tr>
+<tr>
+<td>Nature</td>
+<td>Complementary order; right-use of natural abundance</td>
+<td>Resource/ecosystem studied empirically</td>
+<td>Creation/sacred nature/stewardship, depending on tradition</td>
+<td>World may be treated as <em>mithya</em>/appearance</td>
+</tr>
+<tr>
+<td>Failure mode</td>
+<td>Can become metaphysical assertion without public verification</td>
+<td>Can become technocratic, reductionist, value-blind</td>
+<td>Can become dogmatic, sectarian, fear/guilt-based</td>
+<td>Can become too abstract or inward to define concrete family/social/economic conduct</td>
+</tr>
+</tbody>
+</table>
+<h2>5. Practical principles for behaviour</h2>
+<p>Ethical conduct must be based on understanding rather than blind rule-following. One should live by justice, dharma, and truth — not remain limited to pleasant-unpleasant, health-unhealth, and profit-loss. Sociality is value-fulfilment in relationships, not mere association. Body, mind, and wealth should move from selfish use toward benevolent use. Prosperity is necessary, but hoarding and profit-obsession are disorder. Betrayal, exploitation, violence, and retaliation cannot establish orderliness. Social order requires shared cause, goal, and programme; the family is the first site of education, production, conduct, and responsibility; sectarian identity must mature into undivided society; human use of nature must become right-use rather than domination. The test of knowledge is not belief but lived proof.</p>
+<h2>6. Conclusion</h2>
+<p>Madhyasth Darshan offers a coherent ethical-social framework in which understanding leads to resolution, right-use, humane conduct, and undivided society. Its strength is that it refuses to separate individual conduct from social order, economy from ethics, ecology from human happiness, family from civilisation, or knowledge from behaviour.</p>
+<p>It also offers a useful critique of both dominant alternatives. Science alone can describe and optimise means, but cannot by itself define ultimate human ends. Religion alone can inspire morality, but often relies on authority, sin, ritual, and sectarian identity rather than universally studyable understanding.</p>
+<p>The most distinctive claim is that correct behaviour is neither a command from outside nor an invention by society, but the natural expression of a human who understands existence-as-coexistence, recognises <em>jeevan</em>, and fulfils values in relationships.</p>
+<p>Many premises depend on Shri. Nagraj&rsquo;s ontology of <em>jeevan</em>, awakening, and coexistence. A scientist or secular ethicist may accept the practical ideals — justice, non-exploitation, ecological balance, family responsibility, and social trust — while rejecting the metaphysical foundation. A religious thinker may accept compassion and duty while questioning the rejection of scriptural authority.</p>
+<p>Madhyasth Darshan is best read not merely as a moral code but as a proposed science of humane living grounded in a metaphysics of coexistence. Its social teaching asks humans to organise around understanding, relationship-values, right-use of resources, and universal orderliness. Its ethical claims are strongest as a practical critique of reductionist materialism and command-based religion; they are most debatable where they depend on the unverified ontology of <em>jeevan</em> and awakened realisation.</p>
+<h2>References</h2>
+<h3>Madhyasth Darshan (primary sources)</h3>
+<ul>
+<li><strong>MVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan – Co-existentialism, Part 1: Holistic View of Human Behaviour</em></a>. English translation by Rakesh Gupta. Cited by chapter.</li>
+<li><strong>SB</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf"><em>Samadhanatmak Bhautikvad / Resolution Centred Materialism</em></a>. English translation by Rakesh Gupta. Cited by chapter.</li>
+<li><strong>JV</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf"><em>Jeevan Vidya: An Introduction</em></a>. English translation by Rakesh Gupta. Cited by chapter.</li>
+</ul>
+
+</body>
+</html>
