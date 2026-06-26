@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Category Theory Explained — A Complete Guide</title>
+<style>
+  @page {
+    size: A4;
+    margin: 2.2cm 2cm 2.2cm 2cm;
+  }
+  @media print {
+    body {
+      font-size: 11pt;
+      margin: 0;
+      padding: 0;
+      max-width: none;
+    }
+    h1 ~ p {
+      margin: 3pt 0;
+    }
+    h2 {
+      page-break-after: auto;
+      break-after: auto;
+    }
+    h2:first-of-type {
+      margin-top: 10pt;
+    }
+    h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+    h3, h4 { page-break-inside: avoid; break-inside: avoid; }
+    p { text-align: justify; text-justify: inter-word; hyphens: auto; }
+    li { text-align: left; }
+    table {
+      page-break-inside: auto;
+      break-inside: auto;
+    }
+    thead {
+      display: table-header-group;
+    }
+    tr {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    pre { page-break-inside: avoid; white-space: pre-wrap; overflow-wrap: anywhere; word-break: break-word; }
+    blockquote { page-break-inside: avoid; }
+  }
+  body {
+    position: relative;
+    z-index: 1;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 11pt;
+    line-height: 1.55;
+    color: #1a1a1a;
+    max-width: 750px;
+    margin: 30px auto;
+    padding: 0 20px;
+  }
+  h1 {
+    font-size: 20pt;
+    margin-top: 0;
+    margin-bottom: 4pt;
+    color: #111;
+    border-bottom: 2px solid #333;
+    padding-bottom: 6pt;
+  }
+  h1 + p {
+    margin-top: 4pt;
+  }
+  h2 {
+    font-size: 15pt;
+    margin-top: 18pt;
+    margin-bottom: 6pt;
+    color: #222;
+    border-bottom: 1px solid #bbb;
+    padding-bottom: 4pt;
+  }
+  h3 {
+    font-size: 12.5pt;
+    margin-top: 16pt;
+    margin-bottom: 4pt;
+    color: #333;
+  }
+  h4 {
+    font-size: 11.5pt;
+    margin-top: 14pt;
+    margin-bottom: 4pt;
+    color: #333;
+    font-weight: bold;
+  }
+  p {
+    margin: 6pt 0;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+  }
+  a {
+    color: #1a5276;
+    text-decoration: underline;
+  }
+  blockquote {
+    margin: 10pt 0 10pt 16pt;
+    padding: 6pt 12pt;
+    border-left: 3pt solid #888;
+    background: #f7f7f5;
+    font-style: italic;
+    color: #333;
+  }
+  blockquote p {
+    margin: 0;
+    white-space: pre-line;
+  }
+  blockquote p + p {
+    margin-top: 6pt;
+  }
+  blockquote strong {
+    font-style: normal;
+  }
+  .quote-source {
+    font-style: normal;
+    font-size: 10pt;
+    color: #555;
+    margin-top: 4pt;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12pt 0;
+    font-size: 10pt;
+    page-break-inside: auto;
+    break-inside: auto;
+  }
+  thead {
+    display: table-header-group;
+  }
+  tr {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  th {
+    background: #e8e8e4;
+    border: 1px solid #aaa;
+    padding: 5pt 7pt;
+    text-align: left;
+    font-weight: bold;
+  }
+  td {
+    border: 1px solid #ccc;
+    padding: 5pt 7pt;
+    vertical-align: top;
+  }
+  tr:nth-child(even) {
+    background: #fafaf8;
+  }
+  code {
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 10pt;
+    background: #f0f0ec;
+    padding: 1pt 3pt;
+    border-radius: 2pt;
+  }
+  pre {
+    background: #f5f5f1;
+    padding: 10pt 14pt;
+    border-radius: 4pt;
+    overflow-x: auto;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    white-space: pre-wrap;
+    max-width: 100%;
+    font-size: 10pt;
+    line-height: 1.4;
+  }
+  pre code {
+    background: none;
+    padding: 0;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  ul, ol {
+    margin: 6pt 0;
+    padding-left: 24pt;
+  }
+  li {
+    margin: 3pt 0;
+  }
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 12pt auto;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  p:has(> img:only-child) {
+    text-align: center;
+    margin: 12pt 0;
+  }
+  .mermaid {
+    display: flex;
+    justify-content: center;
+    margin: 12pt auto;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .mermaid svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .study-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px 16px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 13px;
+    margin: 0 0 22px;
+    padding: 10px 14px;
+    border: 1px solid #d8d2c8;
+    border-radius: 8px;
+    background: #f7f4ef;
+  }
+  .study-toolbar-link {
+    color: #1a5276;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .study-toolbar-link:hover { color: #13405c; }
+  .study-toolbar-download::after {
+    content: " \2193";
+    font-weight: 700;
+  }
+  .draft-banner {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #8b5e34;
+    background: #f5ebe0;
+    border: 1px solid #e0d0be;
+    border-radius: 6px;
+    padding: 6px 12px;
+    margin: 0 0 18px;
+    text-align: center;
+  }
+  @media print {
+    .study-toolbar,
+    .draft-banner { display: none !important; }
+  }
+
+</style>
+</head>
+<body>
+<nav class="study-toolbar" aria-label="Study navigation">
+  <a class="study-toolbar-link" href="../index.html">&larr; All studies</a>
+  <a class="study-toolbar-link study-toolbar-download" href="Category-Theory-Explained.pdf" download>Download PDF</a>
+</nav>
+<p class="draft-banner" role="status">Draft</p>
+<h1>Category Theory Explained — A Complete Guide</h1>
+<p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> — a group of people studying Madhyasth Darshan philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
+<p><strong>Edited on:</strong> June 26, 2026, 10:28 AM IST
+<strong>The question:</strong> What does category theory clarify about the structure of Madhyasth Darshan — and where does that notation stop?</p>
+<p>This is a self-contained guide to describing Shri A. Nagraj&rsquo;s Madhyasth Darshan using <strong>category theory</strong>. Parts 1 to 5 introduce the ideas in plain language; Part 6 gives the precise formal theory. The ontological ground and the tier-neutral formal template are developed in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf"><em>The Ontology of Coexistence</em></a> and <a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a>; human-tier conduct and society are worked out further in <a href="https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.pdf"><em>Why Humans Are Not Just Material</em></a> and <a href="https://analyticmadhyasthdarshan.org/Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.pdf"><em>Human Behavior and Society</em></a>. Primary texts: <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan — Co-existentialism</em> (MVD)</a>, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf"><em>Samadhanatmak Bhautikvad</em> (SB)</a>, and <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf"><em>Jeevan Vidya: An Introduction</em> (JV)</a>.</p>
+<p>Category theory here is a <strong>lens for clarity</strong>, not a proof machine. It makes the philosophy&rsquo;s logic visible and shows exactly what each conclusion depends on. It does not prove the metaphysics, and it cannot supply empirical evidence.</p>
+<h2>The one big idea</h2>
+<p>Category theory is built on a single shift in attention:</p>
+<blockquote>
+<p><strong>Stop asking only &ldquo;what is each thing made of?&rdquo; and start asking &ldquo;how does each thing relate to everything else?&rdquo;</strong></p>
+</blockquote>
+<p>Most of modern science explains things by <strong>breaking them into parts</strong> (cells, molecules, atoms, particles). Category theory instead studies the <strong>arrows between things</strong> — the relationships, the flows, the transformations — and treats those relationships as the real subject matter.</p>
+<p>Madhyasth Darshan defines <strong>existence as coexistence</strong> (<em>saha-astitva</em>): the co-eternally present togetherness of formless Omnipresence (<em>satta</em>) and countless real units (<em>ikai</em>), bound in <strong>saturation</strong> — pervasive co-location in which inherent energy and regulation belong to each unit through that relationship, not physical extraction from <em>satta</em> — and then in definite <strong>relationships</strong> (<em>sambandh</em>) with other units (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §§1.1–1.4). Between those two layers, the texts name a <strong>regulation ladder</strong>: regulation read from saturation becomes evident as <strong>law</strong>, executes through <strong>order-specific conformance regimes</strong>, and within constitutionally complete <em>jeevan</em> as <strong>inward regulation</strong> under mediative <em>atma</em> — not efficient causation from <em>satta</em>, and not institutional self-governance (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §§1.7, 1.10; <a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.pdf">The Coexistence Template</a> D2a–D2b). That three-layer picture is close to category theory&rsquo;s attention to structure, though saturation is not itself a morphism between units (§6.13).</p>
+<div class="mermaid">
+flowchart LR
+    A["Old question: what is it made of?"] --> B["Take it apart"]
+    C["New question: how does it relate?"] --> D["Study the relationships"]
+</div>
+<h2>Part 1: The four basic words</h2>
+<p>Category theory has only a few core ideas. Here they are in plain language.</p>
+<h3>1. Objects = the &ldquo;things&rdquo;</h3>
+<p>An <strong>object</strong> is just a thing you want to talk about. It can be concrete (a body, a family) or abstract (justice, resolution, fulfilment). In a diagram, objects are the labelled boxes.</p>
+<blockquote>
+<p>Everyday picture: the dots on a map (cities).</p>
+</blockquote>
+<h3>2. Morphisms (arrows) = the &ldquo;relationships&rdquo;</h3>
+<p>A <strong>morphism</strong>, usually drawn as an arrow, is a relationship or a way of getting from one thing to another. It might mean &ldquo;supports&rdquo;, &ldquo;develops into&rdquo;, &ldquo;understands&rdquo;, &ldquo;uses rightly&rdquo;, or &ldquo;fulfils&rdquo;.</p>
+<blockquote>
+<p>Everyday picture: the roads between cities on the map. The roads, not the cities, are what category theory cares about most.</p>
+</blockquote>
+<h3>3. Composition = &ldquo;chaining relationships&rdquo;</h3>
+<p>If there is an arrow from A to B, and another from B to C, then there is a combined arrow from A to C. This is <strong>composition</strong> — following one relationship by another.</p>
+<blockquote>
+<p>Everyday picture: if there&rsquo;s a road from Delhi to Bhopal, and one from Bhopal to Amarkantak, then there is a route from Delhi to Amarkantak. You can chain them.</p>
+</blockquote>
+<p>In the darshan this shows up as:</p>
+<pre><code class="language-text">Understanding -&gt; Resolution -&gt; Humane conduct -&gt; Social order
+</code></pre>
+<p>Chaining these gives the shortcut &ldquo;Understanding leads (eventually) to social order.&rdquo; The claim that the chain holds together is the interesting part.</p>
+<h3>4. Identity = &ldquo;staying yourself&rdquo;</h3>
+<p>Every object has a trivial &ldquo;do nothing&rdquo; arrow to itself, called the <strong>identity</strong>. It sounds empty, but it lets us ask a sharp question later: <em>has a person actually changed, or only stayed the same while looking different?</em></p>
+<blockquote>
+<p>Everyday picture: staying in the same city.</p>
+</blockquote>
+<p>That is the entire foundation. Boxes, arrows, chaining arrows, and a do-nothing arrow. Everything else is built from these.</p>
+<h2>Part 2: A few more tools, each in one breath</h2>
+<p>These are the slightly fancier tools the formal theory uses. Each is given here as a plain idea plus how the darshan uses it. You do not need to memorise them; refer back as they appear.</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Plain-language meaning</th>
+<th>Everyday analogy</th>
+<th>How Madhyasth Darshan uses it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Functor</strong></td>
+<td>A faithful translation from one world of things-and-arrows to another that keeps the structure intact</td>
+<td>Translating a recipe to another language so the steps still work</td>
+<td>Turning relationships into the values they should fulfil</td>
+</tr>
+<tr>
+<td><strong>Forgetful functor</strong></td>
+<td>A translation that deliberately throws away some information</td>
+<td>Photocopying a colour photo in black and white</td>
+<td>Describing a human using only physics, dropping values and <code>jeevan</code></td>
+</tr>
+<tr>
+<td><strong>Natural transformation</strong></td>
+<td>A consistent, across-the-board upgrade from one way of doing things to another</td>
+<td>Upgrading every road on the map to a highway, uniformly</td>
+<td>Shifting from &ldquo;consumption&rdquo; to &ldquo;right-use&rdquo; everywhere at once</td>
+</tr>
+<tr>
+<td><strong>Retract</strong></td>
+<td>A part that sits inside a whole, where the whole cannot be rebuilt from the part alone</td>
+<td>A thumbnail made from a photo: you can shrink, but not un-shrink</td>
+<td>Comfort is a real part of fulfilment, but not the whole of it</td>
+</tr>
+<tr>
+<td><strong>Colimit (gluing)</strong></td>
+<td>Joining many small pieces into one big consistent whole, along what they share</td>
+<td>Gluing map tiles into one map where the edges match</td>
+<td>Families joining into one undivided society</td>
+</tr>
+<tr>
+<td><strong>Enrichment</strong></td>
+<td>Recording not just &ldquo;is there a relationship&rdquo; but &ldquo;of what quality/grade&rdquo;</td>
+<td>A road map that also marks each road&rsquo;s quality</td>
+<td>Graded values — object, established, civic — and kinds of satisfaction</td>
+</tr>
+<tr>
+<td><strong>Indexed enrichment / fibration</strong></td>
+<td>Structure that varies with who is acting — not one fixed grade for everyone</td>
+<td>Same recipe, but what you can actually cook depends on your kitchen</td>
+<td>Fulfilment modulated by capacity, ability, and receptivity (§6.6.1)</td>
+</tr>
+<tr>
+<td><strong>Mixture vs compound</strong></td>
+<td>Two ways of joining units: side-by-side aggregation, or fusion into a new whole</td>
+<td>Fruit salad vs baking a cake</td>
+<td><em>Mishran</em> keeps each conduct; <em>yaugik</em> creates a new tier with new <strong>sig(<em>u</em>)</strong> (§6.9)</td>
+</tr>
+<tr>
+<td><strong>Unit signature</strong></td>
+<td>Every unit carries form, properties, essential nature, and <em>dharma</em></td>
+<td>Each recipe tile lists ingredients <em>and</em> the dish&rsquo;s role in the menu</td>
+<td><strong>sig(<em>u</em>) = ⟨roop, gun, svabhav, dharma⟩</strong>; properties generative/degenerative/mediative (template D1, D1a)</td>
+</tr>
+<tr>
+<td><strong>Regulation ladder</strong></td>
+<td>How ground-level order reaches each tier without the ground acting</td>
+<td>Same recipe rules at every kitchen station, but pastry vs grill follow different checks</td>
+<td><strong>Sat</strong> → law-as-regulation → order conformance (D2) → inward <strong>AtmaReg</strong> on <code>Liv</code> (D2b); not a morphism in <code>Rel</code> (§6.1.1)</td>
+</tr>
+</tbody>
+</table>
+<h2>Part 3: The philosophy, redrawn as a map</h2>
+<h3>3.1 The four orders as a ladder</h3>
+<p>Madhyasth Darshan names four real developmental plateaus — material (<em>padarth</em>), biological (<em>pran</em>), animal (<em>jeev</em>), and knowledge (<em>gyan</em>) — each containing the ones below:</p>
+<div class="mermaid">
+flowchart LR
+    M["Material: rocks, water, air"] --> B["Plant: living, growing"]
+    B --> A["Animal: feeling, instinct"]
+    A --> K["Human: knowing, valuing"]
+</div>
+<p>The arrows point one way for a reason. A human contains and depends on the material, plant, and animal levels — but you <strong>cannot go backwards</strong> and rebuild human knowing out of pure chemistry. In category-theory language this one-directional ladder (a &ldquo;partial order&rdquo;) is the cleanest way to say:</p>
+<blockquote>
+<p>Higher includes lower, but higher is not reducible to lower.</p>
+</blockquote>
+<p>The formalism does not <em>prove</em> this; it <em>records</em> it cleanly, so the claim is explicit and cannot be smuggled in or out unnoticed.</p>
+<p><strong>Orders vs planes.</strong> The four <strong>orders</strong> name what a unit <em>is</em> (material through knowledge). SB also names four <strong>planes</strong> — physicochemical, delusional, deific, divine — as developmental stages toward completeness, mapped to transitions T1–T3 (constitutional, activity, and conduct completeness). Deluded and awakened humans share the knowledge order but occupy different planes (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §§1.7–1.9; <a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.pdf">The Coexistence Template</a> D11). Category theory models orders as the poset <code>Ord</code> (§6.2); planes need a second layered typing (§6.2.1).</p>
+<h3>3.2 A human being: an actor and an instrument</h3>
+<p>The darshan says a human is <strong>body + <code>jeevan</code></strong> (the sentient self), and crucially that these are not equal partners: <code>jeevan</code> is the actor, the body is its instrument. <em>Jeevan</em> is a <strong>constitutionally complete composite atom</strong> (<em>gathanpurna parmanu</em>) — a self-maintaining sentient unit, not an elementary particle of physics (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §§1.5, 1.9).</p>
+<p>A natural first guess is to write this as a simple pair, &ldquo;Human = Body and Jeevan.&rdquo; That turns out to be the <strong>wrong</strong> picture, because a &ldquo;pair&rdquo; suggests two equal, separable halves. A better plain-language picture is:</p>
+<blockquote>
+<p><code>Jeevan</code> is like a musician; the body is like the instrument. The music (values, evaluation, resolution) comes through the instrument but is not produced by the wood and strings alone. And you cannot swap them — the instrument does not play the musician.</p>
+</blockquote>
+<div class="mermaid">
+flowchart TD
+    J["Jeevan: the actor (values, evaluation)"] --> H["Human (the music that results)"]
+    Bd["Body: the instrument (food, sleep, health)"] --> H
+</div>
+<p>This asymmetry is the heart of the darshan&rsquo;s claim that a human cannot be fully studied as a body alone. In category-theory terms, the &ldquo;black-and-white photocopy&rdquo; (the forgetful functor that keeps only physics) loses the musician and keeps only the instrument.</p>
+<h3>3.3 Delusion: mistaking a part for the whole</h3>
+<ul>
+<li><strong>Comfort</strong> (pleasure, wealth, health) is a genuine <em>part</em> of human fulfilment.</li>
+<li>But <strong>fulfilment</strong> is bigger than comfort; you cannot rebuild full fulfilment out of comfort alone.</li>
+</ul>
+<p>In the tools table this is a <strong>retract</strong>: comfort fits inside fulfilment, but the arrow does not reverse. <strong>Delusion</strong>, in Madhyasth Darshan, is precisely the error of treating the part as if it were the whole — believing &ldquo;maximise comfort&rdquo; equals &ldquo;achieve fulfilment&rdquo;. The texts diagnose a related pathology as unbounded &ldquo;more&rdquo; (JV p. 41); the darshan moves toward <strong>definite completeness</strong>, not open-ended maximisation (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.pdf">The Coexistence Template</a> §5).</p>
+<div class="mermaid">
+flowchart LR
+    C["Comfort (a real part)"] --> F["Fulfilment (the whole)"]
+    F --> C
+</div>
+<p>Both arrows exist (comfort feeds fulfilment; fulfilment includes comfort), but going out and coming back does <strong>not</strong> return you to where you started — something is always left over. That &ldquo;left over&rdquo; is exactly what the darshan calls resolution, the part comfort can never supply.</p>
+<h3>3.4 Right-use: an all-or-nothing upgrade</h3>
+<p>The darshan contrasts <strong>consumption</strong> (using nature as raw material to be extracted) with <strong>right-use</strong> (using it complementarily, sustainably).</p>
+<p>Right-use must be <strong>consistent across every domain at once</strong>. You cannot claim to practise right-use toward the forest while exploiting workers, or right-use toward workers while poisoning rivers. A genuine shift to right-use upgrades <em>every</em> relationship uniformly, the way upgrading a road network only counts if you upgrade the whole network, not one favourite road.</p>
+<div class="mermaid">
+flowchart LR
+    Con["Consumption everywhere"] -->|"uniform upgrade"| Right["Right-use everywhere"]
+</div>
+<p>So &ldquo;partial right-use&rdquo; is, structurally, not yet right-use. That matches the darshan&rsquo;s claim that selective ethics is not yet humane conduct.</p>
+<h3>3.5 Society: gluing families that agree — and transmitting understanding</h3>
+<p>How does a good society form? Not by force, and not by simply piling up individuals. The darshan says it grows from families and communities into one &ldquo;undivided society&rdquo;.</p>
+<p>The &ldquo;gluing&rdquo; tool gives a precise condition for when this works:</p>
+<blockquote>
+<p>Many families can be glued into one society <strong>exactly when they agree about the people and values they share.</strong> Where two families place <em>contradictory</em> demands on the same shared person, the gluing is forced to collapse or break.</p>
+</blockquote>
+<div class="mermaid">
+flowchart TD
+    Shared["Shared members / shared values"] --> F1["Family 1"]
+    Shared --> F2["Family 2"]
+    F1 --> S["Undivided society (clean glue)"]
+    F2 --> S
+</div>
+<p>Gluing alone is not enough at the knowledge order. An assembly <strong>persists</strong> while its relationships are fulfilled (natural state) and <strong>declines</strong> when they are not (excited state); and every persisting assembly <strong>transmits its method of composition</strong> across generations — by education-<em>sanskar</em> at the human tier (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.pdf">The Coexistence Template</a> L4–L5). A society that coheres locally but fails to transmit understanding decays on member turnover.</p>
+<h3>3.6 <em>Jeevan</em>: evaluation and self-evidencing</h3>
+<p>Lower orders already <strong>show</strong> orderliness: a peepal tree exhibits definite conduct (JV p. 113) — that is <em>anubhav jnan</em> as ontological given (MVD p. 11), not knowledge-order evaluation. At the human tier something further is required: only <em>jeevan</em> <strong>evaluates</strong> value (template D6), <strong>unfolds</strong> knowledge (<em>gyan udghatan</em>, MVD pp. 115–116, 289), and must <strong>evidence</strong> what it understands in conduct.</p>
+<p>MVD p. 12 gives a reflexive chain — each link <em>is</em> the next:</p>
+<blockquote>
+<p>Realisation itself is the ultimate evidence; evidence itself is understanding; understanding itself is manifest as resolution, work, and behaviour; work and behaviour itself is evidence; evidence itself is awakened tradition; awakened tradition itself is coexistence.</p>
+</blockquote>
+<p>Private conviction without conduct is incomplete knowledge (<a href="https://analyticmadhyasthdarshan.org/Studies/Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf">Knowledge, Knower, and Known</a> §1.6). The musician/instrument picture from §3.2 extends here: the body can display effects; only <em>jeevan</em> evaluates and makes understanding <strong>evident</strong> to others — <em>pramanikta</em> at conduct completeness (T3; <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §1.10). Four knowledge registers must be kept apart (template D12; formal sketch §6.15).</p>
+<h2>Part 4: How this formalism helps</h2>
+<p>Why bother translating a philosophy into this language at all? Six concrete payoffs.</p>
+<ol>
+<li>
+<p><strong>It forces clarity.</strong> You cannot draw an arrow without saying what relates to what. Vague claims (&ldquo;everything is connected&rdquo;) become specific (&ldquo;this supports that; that fulfils the other&rdquo;). Fuzzy ideas either sharpen or fall apart.</p>
+</li>
+<li>
+<p><strong>It exposes hidden assumptions.</strong> Each conclusion, drawn as a chain of arrows, makes visible exactly which link is doing the work. For example, &ldquo;a human is not just a body&rdquo; turns out to rest entirely on one assumption: that two physically identical acts can differ in value. The formalism puts a spotlight on that assumption instead of letting it hide.</p>
+</li>
+<li>
+<p><strong>It catches inconsistencies.</strong> Drawing a diagram reveals when two paths that <em>should</em> agree actually don&rsquo;t. The &ldquo;delusion&rdquo; idea is literally a diagram that fails to close up — a precise picture of a confused belief.</p>
+</li>
+<li>
+<p><strong>It enables fair comparison.</strong> Once materialism, religion, and Madhyasth Darshan are each drawn as &ldquo;worlds of things and arrows&rdquo;, you can compare what each one keeps and what each one throws away. Reductionism becomes &ldquo;the translation that forgets values&rdquo; — a clear, checkable description rather than an insult.</p>
+</li>
+<li>
+<p><strong>It is teachable and language-neutral.</strong> Diagrams cross language barriers. A student who finds the Sanskrit-derived vocabulary daunting can still follow boxes and arrows, then attach the names afterward.</p>
+</li>
+<li>
+<p><strong>It builds a bridge to science and computation.</strong> The same mathematics is used in physics, computer science, and AI. Phrasing the darshan in it opens a door for dialogue with those fields instead of leaving philosophy and science speaking different languages.</p>
+</li>
+</ol>
+<div class="mermaid">
+flowchart TD
+    Phil["Philosophy in words"] --> Cat["Same ideas as boxes and arrows"]
+    Cat --> Clear["Clarity"]
+    Cat --> Hidden["Hidden assumptions exposed"]
+    Cat --> Compare["Fair comparison"]
+    Cat --> Teach["Easier teaching"]
+    Cat --> Bridge["Bridge to science"]
+</div>
+<h2>Part 5: How it can actually be used</h2>
+<p>This is not only an academic exercise. Here are practical applications, aligned with the template&rsquo;s forward and reverse uses (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.pdf">The Coexistence Template</a> §1.1).</p>
+<h3>In education</h3>
+<p>Teach values as <strong>relationships to be fulfilled</strong> rather than rules to be obeyed. A curriculum can map each relationship (parent-child, teacher-student, citizen-society) to the values it carries, and ask students where the arrows are currently broken.</p>
+<h3>As an ethics or technology checklist</h3>
+<p>Before adopting a technology or policy, ask the &ldquo;right-use&rdquo; question structurally:
+- Does this upgrade <em>every</em> affected relationship, or only some while harming others?
+- Can its benefits be &ldquo;lifted back&rdquo; into coexistence, or do they depend on extraction somewhere?</p>
+<p>A tool passes only if the upgrade is uniform — a concrete, auditable test (naturality of §6.7).</p>
+<h3>In policy and social design</h3>
+<p>Use the gluing condition as a diagnostic: where a community is failing to cohere, look for <strong>shared people or resources carrying contradictory expectations</strong>. Add transmission: does the assembly institutionalise understanding for incoming members, or only rules?</p>
+<h3>In AI and value alignment</h3>
+<p>Modern AI struggles with exactly the darshan&rsquo;s complaint: optimising a single number (engagement, profit, &ldquo;reward&rdquo;) maximises the wrong thing. Graded fulfilment (enrichment over a value preorder, §6.6) is an argument for <strong>multi-level objectives</strong> instead of one scalar reward.</p>
+<h3>In interfaith and science-philosophy dialogue</h3>
+<p>Because the formalism states what each worldview <em>keeps and forgets</em>, it lets very different traditions compare notes without insult or conversion.</p>
+<h3>As a research programme</h3>
+<p>Open questions include: how saturation in <em>O</em> (inherent energy and regulation in units through co-location — not a morphism, not physical transfer from <em>O</em>) relates to the categories of unit-to-unit structure; how the <strong>regulation ladder</strong> (template D2a: law-as-regulation, order conformance, inward <em>atma</em> regulation) is best indexed alongside <code>Sat</code> and <code>Ord</code> without misrepresenting <em>O</em> as an arrow; whether plane transitions T1–T3 admit a clean layered-type or fibration model alongside <code>Ord</code>; whether transmission τ admits a clean coalgebra or indexed-category model; and whether complementarity of need (template L3) can be fully internalised or must remain an external guard on admissible diagrams (§6.9.2).</p>
+<h2>Part 6: The complete formal theory</h2>
+<p>Parts 1 to 5 gave the intuition. This part gives the precise version for readers comfortable with (or curious about) the mathematics, and states exactly what the formalism can and cannot carry.</p>
+<h3>6.0 Design discipline (the rules this theory obeys)</h3>
+<p>A loose use of categorical vocabulary can mislead. This theory commits to five rules.</p>
+<ol>
+<li><strong>One kind of morphism per category.</strong> A single category may not mix causal, developmental, epistemic, and normative arrows, because then composition is meaningless. Different kinds of relation live in different categories, connected by functors.</li>
+<li><strong>Composition and identities must be specified and associative.</strong> If a composite has no clear meaning, the structure is a quiver (a labelled directed graph), not a category, and is labelled as such.</li>
+<li><strong>Universal properties must be stated and, where claimed, checked.</strong> Products, colimits, adjoints, and monoidal structures are not invoked by name unless their defining property is given.</li>
+<li><strong>Every nontrivial claim names its hidden premise.</strong> Where a conclusion depends on a contested Madhyasth assumption, that premise is stated explicitly. The categorical step is then valid only relative to it.</li>
+<li><strong>Propositions are conditional, not theorems about reality.</strong> Nothing here proves <code>jeevan</code>, constitutional completeness, or coexistence. The propositions show what <em>follows structurally if</em> the premises are granted.</li>
+</ol>
+<p>Category theory is <strong>structuralist</strong>: by the Yoneda principle, an object is determined entirely by its pattern of relations to other objects. That will matter, because Madhyasth Darshan holds that <code>jeevan</code> is a <strong>substantial</strong> entity, not merely a relational role — the deepest limit of the whole project (§6.13.1).</p>
+<h3>6.1 Architecture: several categories and functors, not one</h3>
+<p>Instead of a single all-purpose category, we use a small system of categories, each internally clean, related by functors, natural transformations, and — where needed — structure that sits outside ordinary inter-unit morphisms.</p>
+<div class="mermaid">
+flowchart TD
+    Sat["Sat: saturation slice (O not in U)"]
+    Ord["Ord: poset of orders"]
+    Cap["Cap: capability profiles"]
+    Phys["Phys: physical descriptions"]
+    Liv["Liv: living/human descriptions"]
+    Rel["Rel: unit relationships (sambandh)"]
+    Val["Val: values (graded preorder)"]
+    Eval["Eval: evaluation (knowledge order)"]
+    Ev["Ev: evidence / pramanikta"]
+    Conduct["Conduct: enriched over fulfilment"]
+    Comp["Comp: composition (mixture / compound)"]
+    Soc["Soc: social gluings (colimits)"]
+    Trans["Trans: transmission across generations"]
+
+    Sat -.->|"energises/regulates"| Liv
+    Liv -->|"cap(u)"| Cap
+    Cap -.->|"filters / grades phi"| Rel
+    Liv -->|"U (forget jeevan)"| Phys
+    Rel -->|"V (valuation)"| Val
+    Rel -->|"assemble"| Soc
+    Comp -->|"kappa"| Soc
+    Liv -->|"mu (evaluate)"| Eval
+    Liv -->|"Xi (gyan udghatan)"| Liv
+    Eval --> Val
+    Conduct -->|"ev"| Ev
+    Conduct -->|"grades"| Val
+    Liv -->|"inhabits"| Ord
+    Soc -->|"tau"| Trans
+</div>
+<p><strong>Sat (saturation).</strong> Omnipresence <strong>O</strong> is not a unit and not an object of <code>Rel</code> (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.pdf">The Coexistence Template</a> §3.1). Saturation is pervasive co-location in which <strong>inherent energy and regulation belong to each unit</strong> through the O–unit bond — mutual dependence for manifestation, not physical extraction from <em>O</em> (template A1–A2; <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §§1.2–1.3). Categorically it is best treated as an <strong>ambient</strong> or <strong>enrichment base</strong> — a family of regulators indexed by units — not as a morphism <em>u₁ → u₂</em>. The <strong>regulation ladder</strong> (template D2a) adds a typed overlay on that family: for each u ∈ U, regulation from <code>Sat</code> is read as <strong>law-as-regulation</strong>, then as an <strong>order conformance regime</strong> (structural / seed / species / <em>sanskar</em> — definite below the knowledge order, achieved within it), and for constitutionally complete <em>jeevan</em> as <strong>inward regulation</strong> under mediative <em>atma</em> (D2b; ontology §1.9.1). Model inward regulation as a partial endomorphism <strong>AtmaReg : Liv ⇀ Liv</strong> on the faculty stack — parallel to mediative regulation at the atomic nucleus, not an arrow in <code>Rel</code>. Terminal-object and topos-as-space readings of <em>vyapak</em> remain stretches (§6.13.4).</p>
+<p><strong>Eval and μ.</strong> Evaluation is defined <strong>only for knowledge-order units</strong> (template D6): <em>jeevan</em> assesses value delivered in a relationship — bodily mechanisms implement conduct but do not evaluate. Model <code>μ : Liv → Eval</code> (or an endofunctor on <code>Liv</code>) that does not factor through <code>Phys</code>. Justice is the composite <strong>ρ → φ → μ → mutual satisfaction</strong> — an <strong>operator over</strong> <em>V</em>, not a member of <em>V</em> (template D7). Complete knowledge requires the evidence cycle (template D13, L7; §6.15).</p>
+<p><strong>Ξ and <em>gyan udghatan</em>.</strong> Knowledge unfolding is a <strong>partial</strong> endofunctor <code>Ξ : Liv ⇀ Liv</code>, defined only for awakened knowledge-order units (template D12; MVD pp. 115–116, 289). It does not drive material-tier κ_comp.</p>
+<p><strong>Ev and <em>pramanikta</em>.</strong> Model conduct readable as evidence by <code>ev : Conduct → Ev</code>. T3 (conduct completeness) corresponds to a lift in <code>Pln</code> when <code>ev ∘ conduct</code> reaches <em>pramanikta</em> — authenticity others can recognize (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §1.10).</p>
+<p><strong>Trans and τ.</strong> Transmission re-instantiates an assembly&rsquo;s composition method across member turnover (template L5). At the knowledge order, τ carries <strong>evidenced</strong> understanding (template D10), not rules without φ. A clean categorical home is an <strong>indexed category</strong> or <strong>coalgebra</strong>: generations as objects, τ as structure-preserving maps carrying education-<em>sanskar</em> forward. Colimits alone do not generate τ (proposition P8).</p>
+<p><strong>Cap and cap(<em>u</em>).</strong> Fulfilment is not automatic from recognising a relationship: it is modulated by <strong>capacity</strong> (<em>kshamata</em>), <strong>ability</strong> (<em>yogyata</em>), and <strong>receptivity</strong> (<em>patrata</em>) (template D5a). Model cap as a functor <code>cap : Liv → Cap</code> into a category of capability profiles; <code>Rel</code> and <code>Conduct</code> are then <strong>fibred</strong> or <strong>indexed</strong> over unit capability (§6.6.1).</p>
+<p><strong>Comp and κ.</strong> Composition takes two modes — <strong>mixture</strong> and <strong>compound</strong> (template D8). Only <strong>compound-mode</strong> κ creates a new tier; mixture aggregates at the same tier. Categorically this is the difference between a <strong>coproduct preserved at fixed order</strong> and a ** colimit that changes signature** (§6.9).</p>
+<h3>6.1.1 Relation to the coexistence template</h3>
+<p><a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> states the tier-neutral structure formally; this paper supplies natural notation for parts of it. The mapping is intentional, not a proof that the symbols coincide.</p>
+<table>
+<thead>
+<tr>
+<th>Template</th>
+<th>Symbol / law</th>
+<th>Categorical analogue in this paper</th>
+<th>Fit / gap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Coexistence, saturation</td>
+<td><strong>O</strong>, A1–A2</td>
+<td>Ambient <code>Sat</code>; inherent energy in units through co-location; not in <code>Rel</code>; not transfer from <em>O</em></td>
+<td>Medium is constitutive; CT has no default for non-morphismic ground</td>
+</tr>
+<tr>
+<td>Regulation ladder</td>
+<td><strong>D2a</strong>, <strong>D2b</strong></td>
+<td>Typed overlay on <code>Sat</code>: <strong>law</strong> (all orders) → order conformance by <code>Ord</code>; <strong>AtmaReg : Liv ⇀ Liv</strong> for inward regulation</td>
+<td>Not one functor; <em>O</em> must not appear as efficient-cause arrow</td>
+</tr>
+<tr>
+<td>Law vs justice</td>
+<td><strong>D2</strong> vs <strong>D7</strong></td>
+<td><strong>Law</strong>: universal orderliness overlay on <code>Sat</code>/<code>Ord</code>. <strong>Justice</strong>: partial composite ρ → φ → μ on <code>Liv</code> only — operator over <em>V</em>, not in <em>V</em> (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">Ontology</a> §1.10.1)</td>
+<td>Statutory law is third register — outside this formalism</td>
+</tr>
+<tr>
+<td>Order conformance</td>
+<td><strong>D2</strong></td>
+<td>Index regulation regime by order in <code>Ord</code>; definite vs achieved typing on <code>Liv</code></td>
+<td>Strong for four orders; knowledge-order achievement is guard, not automatic</td>
+</tr>
+<tr>
+<td>Knowledge registers</td>
+<td><strong>D12</strong>: AJ, O_gyan, Ξ, TEL</td>
+<td>Ambient typing on all objects; <code>Sat</code> as O_gyan base; <code>Ξ : Liv ⇀ Liv</code>; TEL as progression target (not object in <code>Sat</code>)</td>
+<td>See §6.15; TEL ≠ terminal object in <code>Sat</code></td>
+</tr>
+<tr>
+<td>Self-evidencing</td>
+<td><strong>D13</strong>, <strong>L7</strong></td>
+<td>Partial cycle <code>ev ∘ φ ∘ μ</code>; evidenced <code>Trans</code>; quiver not single endomorphism</td>
+<td>§6.15</td>
+</tr>
+<tr>
+<td>Units, signature</td>
+<td><strong>U</strong>, D1, D1a</td>
+<td>Objects across categories; <strong>sig(<em>u</em>)</strong> typed data (roop, gun, svabhav, dharma)</td>
+<td>Strong for orders; property triad generative/degenerative/mediative is typed, not derived</td>
+</tr>
+<tr>
+<td>Relationships</td>
+<td><strong>R</strong>, D3</td>
+<td>Category <code>Rel</code>; expectation profiles <strong>E(r)</strong> on arrows</td>
+<td>Strong; association vs relationship is typing, not composition</td>
+</tr>
+<tr>
+<td>Values / essentiality</td>
+<td><strong>V</strong>, D4</td>
+<td>Preorder <code>Val</code>; enrichment base <strong>W</strong>; essentiality (<em>maulikta</em>) as participation-as-value</td>
+<td>Moderate — graded taxonomy (object / established / civic) compresses in §6.6</td>
+</tr>
+<tr>
+<td>Recognition, fulfilment</td>
+<td><strong>ρ</strong>, <strong>φ</strong>, D5</td>
+<td>Morphisms/processes on <code>Rel</code> / <code>Conduct</code>; fibred over <code>Cap</code></td>
+<td>Moderate — cap(<em>u</em>) = ⟨ksh, yog, pat⟩ in §6.6.1</td>
+</tr>
+<tr>
+<td>Evaluation</td>
+<td><strong>μ</strong>, D6</td>
+<td><code>Eval</code> on <code>Liv</code> only</td>
+<td>Moderate — order-restriction is essential (P10)</td>
+</tr>
+<tr>
+<td>Composition</td>
+<td><strong>κ</strong>, D8</td>
+<td><code>Comp</code>: mixture = coproduct; compound = tier-changing colimit</td>
+<td>Moderate — modes distinguished in §6.9</td>
+</tr>
+<tr>
+<td>Planes, completeness</td>
+<td><strong>D11</strong>, P6</td>
+<td>Layered typing on units; T1 irreversible vs T2–T3 in <code>Liv</code> (§6.2.1)</td>
+<td>Partial — plane membership for humans is state, not order</td>
+</tr>
+<tr>
+<td>Complementarity</td>
+<td><strong>L3</strong></td>
+<td>—</td>
+<td><strong>Gap:</strong> selection rule for which diagrams are admissible; CT is silent (Template §7)</td>
+</tr>
+<tr>
+<td>Persistence</td>
+<td><strong>L4</strong>, D9</td>
+<td>Colimit compatibility + natural/excited typing</td>
+<td>Partial</td>
+</tr>
+<tr>
+<td>Transmission</td>
+<td><strong>τ</strong>, L5</td>
+<td><code>Trans</code> coalgebra / indexed maps</td>
+<td>Weak — not derivable from κ alone</td>
+</tr>
+<tr>
+<td>Tier iteration</td>
+<td><strong>L6</strong></td>
+<td>Poset <code>Ord</code> + iterated colimits</td>
+<td>Strong</td>
+</tr>
+<tr>
+<td>Four orders</td>
+<td>D2</td>
+<td>Poset <code>M ≤ B ≤ A ≤ K</code></td>
+<td>Strong</td>
+</tr>
+</tbody>
+</table>
+<p>The template&rsquo;s §7 comparison row states the division of labour plainly: category theory is the natural notation for <strong>κ</strong> and <strong>L6</strong>, but <strong>L3</strong> (complementary need as the engine of assembly) is the selection rule the notation lacks. Any colimit model of society must be supplemented by an external criterion — complementary deficiency and surplus — for which diagrams count as development-progression bonding rather than arbitrary gluing.</p>
+<h3>6.2 The poset of orders (mereological containment)</h3>
+<p>The four orders are modelled by a <strong>thin category</strong> (a partial order), with at most one arrow between any two objects.</p>
+<pre><code class="language-text">Objects:   M, B, A, K  (material, biological, animal, knowledge)
+Order:     M &lt;= B &lt;= A &lt;= K
+Reading of x &lt;= y:  &quot;order y contains and depends upon order x&quot;
+</code></pre>
+<ul>
+<li><strong>Morphism-kind:</strong> containment/dependence only.</li>
+<li><strong>Composition:</strong> transitivity of <code>&lt;=</code>. Trivially associative.</li>
+<li><strong>Identities:</strong> reflexivity <code>x &lt;= x</code>.</li>
+</ul>
+<p>The claim &ldquo;the higher-order universe contains the lower-order universe&rdquo; (MVD Ch. 3) is <strong>mereological</strong> (part/whole), not transformational. Posets are the natural home of part/whole structure.</p>
+<p>The non-existence of <code>K &lt;= M</code> is exactly the anti-reductionist content; here it is a flat structural fact, not an argument. The poset <em>encodes</em> the claim, it does not <em>prove</em> it.</p>
+<h3>6.2.1 Planes, completeness stages, and two progressions</h3>
+<p><a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf"><em>The Ontology of Coexistence</em></a> §§1.7–1.9 and the template (D11, P6) distinguish <strong>orders</strong> (what a unit <em>is</em>) from <strong>planes</strong> (where development has reached in nature&rsquo;s progression toward completeness). The three completeness stages map to plane transitions:</p>
+<table>
+<thead>
+<tr>
+<th>Transition</th>
+<th>Completeness stage</th>
+<th>Plane move</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>T1</strong></td>
+<td>Constitutional (<em>gathanpurnata</em>)</td>
+<td>Physicochemical → delusional</td>
+</tr>
+<tr>
+<td><strong>T2</strong></td>
+<td>Activity (<em>kriyapurnata</em>)</td>
+<td>Delusional → deific</td>
+</tr>
+<tr>
+<td><strong>T3</strong></td>
+<td>Conduct (<em>vyavaharpurnata</em>)</td>
+<td>Deific → divine (complete)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Development Progression</strong> (<em>vikas-kram</em>) reaches T1 through compound-mode κ_comp — irreversible at the atomic level (SB p. 92). <strong>Awakening Progression</strong> (<em>jagriti-kram</em>) runs in <em>jeevan</em> already constitutionally complete toward T2 and T3; it is not a second atomic transformation.</p>
+<p>Categorically: <strong><code>Ord</code></strong> models mereological containment among orders (§6.2). <strong>Planes</strong> need a second labelling — a fibration, indexed type, or layered poset <strong><code>Pln</code></strong> — because knowledge-order humans can change plane (deluded → awakened → evidenced) without changing order. T1 is an <strong>irreversible transition</strong> in the Petri/monoidal layer (§6.10); T2 and T3 are <strong>endomorphisms or lifts within <code>Liv</code></strong>, guarded by cap(<em>u</em>) and μ, not by κ_comp at the material tier.</p>
+<h3>6.3 Reduction as a forgetful functor</h3>
+<p>Let <code>Liv</code> be human descriptions that include value-bearing structure, and <code>Phys</code> purely physical descriptions. Define the forgetful functor:</p>
+<pre><code class="language-text">U : Liv -&gt; Phys
+U(human situation) = its physical substrate
+U(humane transition) = the underlying physical change
+</code></pre>
+<p><strong>Is <code>U</code> faithful?</strong> (<code>U</code> is faithful iff distinct <code>Liv</code>-morphisms never collapse to the same <code>Phys</code>-morphism.)</p>
+<ul>
+<li><strong>Premise (stated):</strong> two acts can be physically identical yet differ in value — e.g. genuine justice versus an outwardly identical imitation differ in <code>jeevan</code>-level content (SB Ch. 7).</li>
+<li><strong>Conditional conclusion:</strong> <em>if</em> that premise holds, then <strong><code>U</code> is not faithful</strong>. The functor formalism contributes precision, not evidence; the premise does all the work.</li>
+</ul>
+<p><strong>Does <code>U</code> have a left adjoint (a &ldquo;free jeevan&rdquo; functor)?</strong> A left adjoint would freely generate life/value from bare matter.</p>
+<ul>
+<li><strong>Premise (stated):</strong> <em>gathanpurnata</em> is reached by irreversible <strong>Development Progression</strong> (<em>vikas-kram</em>) through effort–motion–result (<em>shram–gati–parinam</em>), not a free, uniform construction (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §§1.8–1.9).</li>
+<li><strong>Conditional conclusion:</strong> <em>if</em> development is selective and irreversible, there is <strong>no left adjoint with iso unit</strong>; &ldquo;adding life freely to matter&rdquo; is not a structural operation.</li>
+</ul>
+<p><strong>What this does not do.</strong> It does not show the premise is true. A physicalist who denies the value-distinct premise keeps <code>U</code> faithful and is untouched.</p>
+<h3>6.4 The human: not a product, but an action</h3>
+<p>A categorical <strong>product</strong> (<code>Human = Body x Jeevan</code>) is wrong here: a product is symmetric and freely separable, but the darshan says body and <code>jeevan</code> are inseparable in function and asymmetric (&ldquo;<code>jeevan</code> is the bearer; the body is a vehicle and medium&rdquo;, SB Ch. 7, JV Ch. 1). A better model: <code>jeevan</code> as a <strong>monoid acting on body-states</strong>.</p>
+<pre><code class="language-text">Let (J, *, e) be a monoid of jeevan-activities (valuing, evaluating, resolving).
+Let Bdy be the body-states.
+A human is an action:   act : J x Bdy -&gt; Bdy
+with                    act(e, b) = b
+                        act(j1 * j2, b) = act(j1, act(j2, b))
+</code></pre>
+<p>This captures asymmetry (<code>J</code> acts on <code>Bdy</code>, not vice versa), inseparability-in-function (a human is the <em>action</em>, not a detachable pair), and &ldquo;results beyond bodily need&rdquo; (the orbit can contain states unreachable by body-dynamics alone).</p>
+<p>This is a modeling choice, not the unique one; a fibration, comma object, or monad algebra would each capture part of the same asymmetry. The non-uniqueness is itself an issue (§6.14).</p>
+<h3>6.5 Delusion as a retract that is mistaken for an isomorphism</h3>
+<p>Let <code>F</code> be <strong>complete fulfilment</strong> and <code>C</code> <strong>bodily comfort</strong>. Comfort is genuinely part of fulfilment:</p>
+<pre><code class="language-text">i : C -&gt; F      (comfort contributes into fulfilment)
+p : F -&gt; C      (fulfilment includes a recoverable comfort aspect)
+with    p . i = id_C     (C is a retract of F)
+but     i . p != id_F    (F cannot be rebuilt from C alone)
+</code></pre>
+<p>So <code>C</code> is a <strong>retract</strong> of <code>F</code> but <strong>not isomorphic</strong> to it.</p>
+<p><strong>Definition (delusion).</strong> Delusion is the false assertion that <code>i</code> is an isomorphism, i.e. treating <code>i . p = id_F</code> — identifying the two distinct endomorphisms <code>id_F</code> and <code>i . p</code> of <code>F</code>. Equivalently: treating movement toward unbounded &ldquo;more&rdquo; as movement toward completeness (Template §5).</p>
+<div class="mermaid">
+flowchart LR
+    C["C: comfort"] -->|i| F["F: fulfilment"]
+    F -->|p| C
+</div>
+<p>Because both <code>id_F</code> and <code>i . p</code> have the same domain and codomain <code>F</code>, asking whether they are equal is well-typed; the darshan asserts they are unequal. This is a clean structural statement of &ldquo;pleasure/wealth/health are necessary but not sufficient&rdquo; (MVD Ch. 4).</p>
+<h3>6.6 Fulfilment as enrichment, not a scalar</h3>
+<p>The texts give value a <strong>graded taxonomy</strong> (Template D4): object value at all orders; <em>jeevan</em> values and established relationship values (trust, respect, affection, …) at the knowledge order; civic values in assembly tiers. MVD Ch. 4 also distinguishes sensory (momentary), intellectual (lasting), and existential (non-transformable) satisfaction. Model the ordering by <strong>enrichment over a preorder</strong>.</p>
+<pre><code class="language-text">Let W = (sensory &lt;= intellectual &lt;= existential), made monoidal by min, unit = existential.
+Enrich the conduct category over W:
+the hom-object Conduct(f, g) is an element of W recording the quality of fulfilment realized.
+</code></pre>
+<p>Enriched composition requires <code>Conduct(g,h) (x) Conduct(f,g) &lt;= Conduct(f,h)</code> — &ldquo;a chain is only as high-grade as its weakest link.&rdquo; This refuses the collapse of fulfilment into one additive scalar — the Madhyasth objection to utility/happiness maximisation — and aligns with definite completeness rather than open-ended optimisation.</p>
+<p>The base <code>W</code> and the choice of <code>min</code> are modeling decisions. The enrichment captures <em>ordering of qualities</em> well; it does not capture TEL (<em>satta mein anubhav</em> as telos), nor the full D4 class hierarchy without a finer indexed enrichment. <strong>Fulfilment capacity</strong> (template D5a) supplies that finer index — §6.6.1.</p>
+<h3>6.6.1 Fulfilment modulated by capacity (cap(u))</h3>
+<p>Template D5a writes <strong>cap(<em>u</em>) = ⟨ksh, yog, pat⟩</strong> for capacity (<em>kshamata</em>), ability (<em>yogyata</em>), and receptivity (<em>patrata</em>) (MVD p. 62). Recognition ρ and fulfilment φ are universal across orders (template L1), but <strong>φ is realised only at the level cap(<em>u</em>) permits</strong> — not by receptivity alone. In the material order, <strong>ascending</strong> (<em>agreshan</em>) is balance and receptivity gained while converting capacity and ability into effort (<em>shram</em>); <strong>frustration</strong> (<em>kshobh</em>) is the shortcoming in that conversion — &ldquo;incompleteness of receptivity&rdquo; (MVD p. 79). In the knowledge order, cap(<em>u</em>) for worldview arises from environment, study, and prior <em>sanskar</em> (MVD p. 134); extent of receptivity is qualification (<em>arhta</em>), yielding perspective (<em>drishti</em>) and worldview (<em>darshan</em>) (MVD p. 142) (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §§1.4, 1.9). Evaluative <em>sapëkshata</em> (relativity) arises from how <em>jeevan</em> views and understands — <em>drishti</em>, <em>drishya</em>, and <em>darshan</em> — not from unreality of the underlying <em>Rel</em> structure (<a href="https://analyticmadhyasthdarshan.org/Studies/Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf">Knowledge, Knower, and Known</a> §1.4.1; <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §1.9); μ therefore operates on perspective-dependent seeing, unlike the forgetful functor <code>U</code>, which drops value from physical description.</p>
+<h4>The capability category <code>Cap</code></h4>
+<p>Define a category <strong><code>Cap</code></strong> whose objects are capability profiles <strong>c = ⟨ksh, yog, pat⟩</strong>, each coordinate living in an order-specific preorder (material profiles are not human profiles). A morphism <strong>c → c′</strong> means coordinate-wise improvement — more scope, more convertibility, more readiness.</p>
+<p>Each unit carries a profile by a functor:</p>
+<pre><code class="language-text">cap : Liv -&gt; Cap
+cap(u) = &lt;ksh(u), yog(u), pat(u)&gt;
+</code></pre>
+<p><code>Phys</code> has a trivial or collapsed image: lower-order units convert capacity and ability into bonding automatically; the interesting fibred structure appears at the knowledge order, where cap can <strong>fail</strong> to improve and where μ can misfire (over-, under-, mis-evaluation, MVD p. 38).</p>
+<h4>Three roles of the triad (what each coordinate gates)</h4>
+<table>
+<thead>
+<tr>
+<th>Coordinate</th>
+<th>Textual role</th>
+<th>Categorical gate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>pat</strong> (<em>patrata</em>)</td>
+<td>Readiness for a relationship&rsquo;s expectations and values to register</td>
+<td><strong>Existence of morphisms:</strong> <code>(u,r) ∈ Rel</code> only if <code>pat(u) ≥ pat_req(r)</code></td>
+</tr>
+<tr>
+<td><strong>yog</strong> (<em>yogyata</em>)</td>
+<td>Competence to convert capacity into effort, conduct, or bonding</td>
+<td><strong>Composition of φ-steps:</strong> the composite φ₂ ∘ φ₁ is defined only if yog(<em>u</em>) suffices along the chain; failure = <em>kshobh</em></td>
+</tr>
+<tr>
+<td><strong>ksh</strong> (<em>kshamata</em>)</td>
+<td>Scope for participating in relationships and bearing what coexistence makes available</td>
+<td><strong>Grade ceiling in <em>W</em>:</strong> effective satisfaction grade is <code>min(W_chain, ksh_ceiling(u))</code></td>
+</tr>
+</tbody>
+</table>
+<p>Receptivity alone does not produce fulfilment: a unit may <strong>recognise</strong> a relationship (ρ) yet deliver only a truncated value flow because yog or ksh is insufficient — the template&rsquo;s diagnosis of frustrated or partial order.</p>
+<h4>Fibred enrichment over units</h4>
+<p>Combine §6.6&rsquo;s enrichment base <strong>W</strong> with <strong>Cap</strong> by passing to a <strong>fibred category</strong> (or indexed category) over units:</p>
+<pre><code class="language-text">pi : E -&gt; Rel
+</code></pre>
+<p>For each relationship arrow <code>r : u -&gt; v</code> in <code>Rel</code>, the fibre carries <strong>Conduct</strong>-morphisms enriched in <strong>W</strong>, but:</p>
+<ol>
+<li>The arrow <code>r</code> appears in the fibre over <code>u</code> only if <strong>pat(<em>u</em>)</strong> meets the relationship&rsquo;s requirement.</li>
+<li>Composition in the fibre uses <strong>min</strong> on <strong>W</strong> as in §6.6, and is <strong>defined</strong> only when <strong>yog(<em>u</em>)</strong> (and yog(<em>v</em>) where needed) supports the composite effort.</li>
+<li>The grade recorded in the fibre is capped by <strong>ksh(<em>u</em>)</strong>.</li>
+</ol>
+<p><strong>Effective fulfilment</strong> along <code>r</code> is therefore not a single functor <code>Rel → Val</code> but a <strong>family</strong> <code>φ_u</code> indexed by units, with:</p>
+<pre><code class="language-text">grade(φ_u(r)) = min(grade_inherent(r), ksh(u))   in W
+</code></pre>
+<p>when yog(<em>u</em>) and pat(<em>u</em>) permit φ at all. At the knowledge order, <strong>μ</strong> compares <code>grade(φ_u(r))</code> to the value inherent in the relationship — the three failure modes are precisely μ operating on a φ that was already cap-truncated or cap-blocked.</p>
+<h4>Justice as a cap-sensitive composite</h4>
+<p>Justice (template D7) is <strong>ρ → φ → μ → mutual satisfaction</strong>, not a member of <em>V</em>. Ontological prose (law universal, justice knowledge-order only): <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §1.10.1. Categorically it is a <strong>partial composite</strong> on the fibred conduct category:</p>
+<pre><code class="language-text">Justice_u(r) = mu_u o phi_u o rho_u(r)
+</code></pre>
+<p>defined only when all three coordinates of cap(<em>u</em>) permit the chain. The knowledge-order discontinuity (template P3) is visible here: in the first three orders cap is high enough that the composite executes definitely; in the knowledge order the same diagram may <strong>fail to compose</strong> — which is exactly why human assembly is the unfinished tier.</p>
+<h4>What this does not do</h4>
+<p>The preorders on ksh, yog, and pat are <strong>order-specific</strong> and textually grounded, not derived from category theory. The fibred model <strong>organises</strong> D5a; it does not prove that cap(<em>u</em>) has the stated coordinates or that frustration is always &ldquo;incompleteness of receptivity.&rdquo; A simpler stopgap — a single scalar &ldquo;competence&rdquo; per unit — would lose the template&rsquo;s distinction between recognising, converting, and bearing.</p>
+<h3>6.7 Right-use as a natural transformation</h3>
+<p>Let <code>D</code> be &ldquo;domains of use&rdquo; (nature, wealth, body, knowledge) and <code>Pr</code> a category of practices. Define two functors:</p>
+<pre><code class="language-text">C : D -&gt; Pr     consumption practice
+R : D -&gt; Pr     right-use practice
+</code></pre>
+<p>A natural transformation <code>eta : C =&gt; R</code> has components <code>eta_X : C(X) -&gt; R(X)</code> such that for every domain-morphism <code>f : X -&gt; Y</code>:</p>
+<pre><code class="language-text">R(f) . eta_X  =  eta_Y . C(f)        (naturality square commutes)
+</code></pre>
+<div class="mermaid">
+flowchart LR
+    CX["C(X)"] -->|"eta_X"| RX["R(X)"]
+    CX -->|"C(f)"| CY["C(Y)"]
+    RX -->|"R(f)"| RY["R(Y)"]
+    CY -->|"eta_Y"| RY
+</div>
+<p>The naturality square is the substantive content: the shift from consumption to right-use is <strong>uniform across all domains</strong>. <strong>Conditional conclusion:</strong> <em>if</em> right-use is one principle (not domain-by-domain opportunism), then partial right-use that violates naturality is incoherent — a precise version of &ldquo;selective ethics is not yet humane conduct.&rdquo;</p>
+<h3>6.8 Undivided society as a colimit — with persistence and transmission</h3>
+<pre><code class="language-text">Index category J:
+  objects   = families and communities
+  morphisms = inclusions of shared members / shared relationships
+Diagram   D : J -&gt; Rel
+  assigns each family its value-structure, and each overlap the shared sub-structure.
+Undivided society := colim D     (the gluing of all families along shared members)
+</code></pre>
+<p>The simplest case is a pushout of two families sharing a member:</p>
+<div class="mermaid">
+flowchart TD
+    O["overlap: shared member"] --> F1["family 1"]
+    O --> F2["family 2"]
+    F1 --> S["colimit: undivided society"]
+    F2 --> S
+</div>
+<p><strong>Universal property.</strong> Any consistent assignment of value-fulfilment to all families that <strong>agrees on overlaps</strong> factors <em>uniquely</em> through <code>colim D</code>.</p>
+<p><strong>Compatibility (template L4).</strong> The colimit behaves well <strong>only if the diagram is compatible</strong> — families assign the <em>same</em> values to shared members. Conflicting assignments force a <strong>quotient</strong> that collapses distinctions or degenerates. Natural state ↔ fulfilled relationships; excited state ↔ decomposition pressure.</p>
+<pre><code class="language-text">Compatible local value-structures  -&gt;  clean gluing  -&gt;  undivided society
+Conflicting local value-structures -&gt;  forced collapse  -&gt;  no coherent undivided society
+</code></pre>
+<p><strong>Transmission (template L5, P3–P4).</strong> At the knowledge order, sustainment also requires <strong>τ</strong>: common cause, goal, and programme (MVD p. 55), carried by education-<em>sanskar</em>. A colimit that glues families in one generation but lacks τ across turnover is structurally incomplete — the template predicts decay when understanding is not transmitted, even if local φ held momentarily.</p>
+<p>This is where the mathematics contributes a genuine, independent result about gluing: <strong>universal order is coherent exactly when local value-structures agree on what they share.</strong> Transmission is a further clause category theory does not derive from colimits alone.</p>
+<p>At the knowledge tier, a successful <strong>compound</strong> κ (§6.9) — not merely mixture — is what produces a new social conduct with its own sig(·); the colimit in <code>Soc</code> should be read as <strong>compound-mode</strong> gluing when the assembly is meant to ascend a tier.</p>
+<h3>6.9 Composition: mixture and compound (κ)</h3>
+<p>Template D8 distinguishes two modes of composition κ (MVD p. 42; <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §1.8):</p>
+<ul>
+<li><strong>Mixture</strong> (<em>mishran</em>): components <strong>all maintain their respective conducts</strong> — aggregation without a new joint conduct.</li>
+<li><strong>Compound</strong> (<em>yaugik</em>): components combine <strong>in definite proportion</strong>, <strong>discard their own conducts</strong>, and <strong>present another kind of conduct</strong> — a genuinely new unit with its own <strong>sig(<em>u</em>) = ⟨roop, gun, svabhav, dharma⟩</strong>, where <strong>gun</strong> is generative, degenerative, or mediative in mutuality (MVD pp. 50–51; template D1, D1a).</li>
+</ul>
+<p><strong>Only compound-mode κ creates a new tier</strong> of the hierarchy (template L6). <strong>Composition is not development</strong> (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §1.8): arbitrary coproducts and colimits do not model ontological order ascent; only admissible compound-mode κ_comp along <em>vikas-kram</em> reaches T1. Development Progression (<em>vikas-kram</em>) toward <em>gathanpurnata</em> is the canonical <strong>compound</strong> path (MVD p. 8; SB pp. 55, 59). Awakening Progression (<em>jagriti-kram</em>) runs in already constitutionally complete <em>jeevan</em> and must not be conflated with material-tier κ (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §§1.9–1.10).</p>
+<h4>Categorical semantics: two colimit-like constructors</h4>
+<p>Work in a category <strong><code>Unit</code></strong> of units typed by order (objects carry a label in <code>Ord</code>).</p>
+<p><strong>Mixture</strong> κ_mix(<em>u₁</em>, <em>u₂</em>): a <strong>coproduct</strong> (or coproduct preserved in a subcategory at <strong>fixed order</strong>)</p>
+<pre><code class="language-text">u1 --i1--&gt; u1 sqcup u2 &lt;--i2-- u2
+</code></pre>
+<p>with injections <strong>i₁</strong>, <strong>i₂</strong>, such that:</p>
+<ul>
+<li>Each component&rsquo;s conduct factorises through its injection — <strong>no fusion</strong> of <em>dharma</em>.</li>
+<li>sig(κ_mix) <strong>decomposes</strong> as the pair (sig(<em>u₁</em>), sig(<em>u₂</em>)) — same tier, side-by-side.</li>
+<li>Example gloss: co-present units in a mixture without a new joint law — aggregate, not ascent.</li>
+</ul>
+<p><strong>Compound</strong> κ_comp(<em>u₁</em>, <em>u₂</em>): a ** colimit<strong> (often a </strong>pushout<strong> or </strong>coequaliser<strong> following a bonding span) that </strong>quotients<strong> the coproduct by a </strong>fusion** relation</p>
+<pre><code class="language-text">         span of bonding (complementary need)
+u1 --------------------&gt; u_new &lt;-------------------- u2
+</code></pre>
+<p>such that:</p>
+<ul>
+<li>The old separate conducts are <strong>not</strong> recoverable as independent projections — they are <strong>identified</strong> in the new conduct.</li>
+<li>sig(κ_comp) is a <strong>new</strong> signature; the output may occupy the <strong>same or a higher</strong> tier (hungry/overfull bond → molecule; bond chain → <em>gathanpurna</em> threshold).</li>
+<li><strong>L6 iteration</strong> applies to κ_comp outputs, not to κ_mix outputs.</li>
+</ul>
+<div class="mermaid">
+flowchart TD
+    subgraph mix ["Mixture (mishran)"]
+        M1["u1"] --> Mplus["u1 + u2"]
+        M2["u2"] --> Mplus
+    end
+    subgraph comp ["Compound (yaugik)"]
+        C1["u1"] --> Cnew["u_new: new conduct"]
+        C2["u2"] --> Cnew
+    end
+</div>
+<h4>Relation to §6.8 colimits</h4>
+<p>§6.8 models <strong>undivided society</strong> as <code>colim D</code> over families. Read by mode:</p>
+<table>
+<thead>
+<tr>
+<th>Reading</th>
+<th>Mode</th>
+<th>Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Families cohabit but retain separate household conducts</td>
+<td><strong>Mixture</strong></td>
+<td>Coproduct-like diagram; no new social <em>dharma</em></td>
+</tr>
+<tr>
+<td>Families fuse into one <strong>undivided</strong> conduct with shared values on overlaps</td>
+<td><strong>Compound</strong></td>
+<td>Colimit with compatibility (L4); new tier of assembly</td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>universal property</strong> of §6.8 is the <strong>compound</strong> case: agreement on overlaps is the fusion relation. Mixture corresponds to a <strong>disjoint coproduct</strong> of family categories with no shared quotient — weaker cohesion.</p>
+<h4>Order-relative examples</h4>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Mixture-like</th>
+<th>Compound-like</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Material</td>
+<td>Co-present atoms without molecular bond</td>
+<td>Hungry/overfull atoms → molecule; progression toward <em>gathanpurna</em></td>
+</tr>
+<tr>
+<td>Biological</td>
+<td>Cells co-located without multicellular integration</td>
+<td>Cells → organism with new joint conduct (JV p. 82)</td>
+</tr>
+<tr>
+<td>Knowledge</td>
+<td>Individuals in proximity without family order</td>
+<td>Family → community → undivided society (MVD p. 55)</td>
+</tr>
+</tbody>
+</table>
+<h4>6.9.1 Complementarity as an external guard (L3)</h4>
+<p>Template <strong>L3</strong> drives κ_comp: bonding from <strong>complementary deficiency and surplus</strong> (MVD p. 8), not from arbitrary pairs. Category theory supplies <strong>the form</strong> of colimits and coproducts; it does <strong>not</strong> supply <strong>which spans are admissible</strong>.</p>
+<p>Model L3 as a <strong>subcategory</strong> or <strong>predicate</strong> on spans:</p>
+<pre><code class="language-text">AdmissibleComp ⊂ Span(Unit)
+(u1 &lt;- s -&gt; u2) admissible  iff  need(u1) complements surplus(u2) [and order rules]
+</code></pre>
+<p>Only admissible spans define κ_comp transitions. This is proposition <strong>P9</strong> restated at the composition layer: <strong>L3 is a selection rule on diagrams</strong>, not a universal property. The Petri net of §6.10 labels <strong>transitions</strong>, not <strong>which transitions nature permits</strong>.</p>
+<p><strong>Conditional conclusion:</strong> <em>if</em> L3 is the engine of assembly, then a categorical model of Madhyasth Darshan must treat <strong><code>AdmissibleComp</code></strong> (or an equivalent guard) as <strong>given data</strong> alongside the categories — the same division of labour noted in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.pdf">The Coexistence Template</a> §7.</p>
+<h3>6.10 Development as a monoidal/Petri process</h3>
+<p><strong>Development Progression</strong> (<em>vikas-kram</em>) — distinct from <strong>Awakening Progression</strong> (<em>jagriti-kram</em>) in already constitutionally complete <em>jeevan</em> (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §§1.8–1.9) — runs through effort–motion–result (<em>shram–gati–parinam</em>), read toward completeness at each stage: result → constitutional completeness; effort → activity completeness; motion → conduct completeness (SB p. 58). <em>Kaal</em> is the duration of that activity, not an independent container (<a href="https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.pdf">Nature of Time</a> §1.1).</p>
+<p>Hungry/overfull atomic bonding is <strong>compound-mode</strong> κ_comp guarded by L3 (§6.9.1). The progression is <strong>resource-sensitive</strong>, best modelled by a <strong>symmetric monoidal category</strong> (equivalently the free such category on a Petri net), where the tensor is co-presence of resources and <strong>transitions consume inputs to produce outputs</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Transition</th>
+<th>Input</th>
+<th>Output</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Places (resources)</strong></td>
+<td>—</td>
+<td>—</td>
+<td>matter, effort, partial composites, <em>gathanpurna</em> threshold</td>
+<td>Petri places</td>
+</tr>
+<tr>
+<td>κ_comp (<em>vikas-kram</em>; AdmissibleComp)</td>
+<td>bond</td>
+<td>hungry-atom ⊗ overfull-atom</td>
+<td>molecular composite</td>
+<td>compound</td>
+</tr>
+<tr>
+<td>κ_comp (<em>vikas-kram</em>; AdmissibleComp)</td>
+<td>complete</td>
+<td>composite ⊗ effort</td>
+<td><em>gathanpurna parmanu</em></td>
+<td>compound; T1 irreversible</td>
+</tr>
+<tr>
+<td><em>jagriti-kram</em> (in <code>Liv</code>; not κ_comp)</td>
+<td>awaken</td>
+<td>deluded K-order unit</td>
+<td>deific plane</td>
+<td>T2: activity completeness</td>
+</tr>
+<tr>
+<td><em>jagriti-kram</em> (in <code>Liv</code>; not κ_comp)</td>
+<td>evidence</td>
+<td>awakened K-order unit</td>
+<td>divine plane</td>
+<td>T3: conduct completeness; <em>pramanikta</em> via <code>ev</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mixture transitions</strong> (if included) are <strong>identity-preserving</strong> on each factor — token duplication without fusion — and do <strong>not</strong> advance Development Progression toward a new tier. Likewise, social colimits (§6.8) and large assemblies do <strong>not</strong> substitute for order transition: composition is not development (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §1.8).</p>
+<p>Transitions toward <em>gathanpurnata</em> are generally <strong>not invertible</strong> — the constitutionally complete atom does not revert to insentient configuration (SB p. 55). Insentient cycles may still exhibit <strong>cyclical restoration</strong> in exchange (SB pp. 52–53; <a href="https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.pdf">Nature of Time</a> §3.5). The Petri model captures <strong>bookkeeping</strong> of compound κ along <em>vikas-kram</em>, not metaphysical content, and would equally model &ldquo;matter + effort → magic.&rdquo; Structure cannot certify content.</p>
+<h3>6.11 Propositions (conditional, with hidden premises exposed)</h3>
+<p>These are stated as: <strong>structural claim, given premise P</strong>. None is a theorem about reality.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Structural claim</th>
+<th>Required premise (the contested part)</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P1</td>
+<td><code>U : Liv -&gt; Phys</code> is not faithful</td>
+<td>Two physically identical acts can differ in value</td>
+<td>Valid given premise; premise unproven</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>No left adjoint <code>F ⊣ U</code> with iso unit</td>
+<td>Development Progression is selective/irreversible, not free</td>
+<td>Valid given premise; premise unproven</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>Comfort <code>C</code> is a retract of fulfilment <code>F</code>, not iso</td>
+<td>Sensory satisfaction is a proper part of fulfilment</td>
+<td>Valid given premise; premise plausible</td>
+</tr>
+<tr>
+<td>P4</td>
+<td>Delusion = asserting <code>i . p = id_F</code></td>
+<td>P3 holds</td>
+<td>Coherent definition</td>
+</tr>
+<tr>
+<td>P5</td>
+<td>Right-use is a natural transformation; partial right-use breaks naturality</td>
+<td>Right-use is a single cross-domain principle</td>
+<td>Valid given premise</td>
+</tr>
+<tr>
+<td>P6</td>
+<td>Undivided society = <code>colim D</code> exists cleanly iff diagram is compatible</td>
+<td>Shared members carry consistent values</td>
+<td>Close to a real theorem about colimits</td>
+</tr>
+<tr>
+<td>P7</td>
+<td>Means-only categories cannot generate value-morphisms</td>
+<td>The is/ought gap (Hume), not Madhyasth-specific</td>
+<td>Valid; philosophy supplies it</td>
+</tr>
+<tr>
+<td>P8</td>
+<td>Transmission τ is not reconstructible from colimits / κ alone</td>
+<td>L5 is independent of L3–L6 gluing</td>
+<td>Valid; τ needs separate formalisation</td>
+</tr>
+<tr>
+<td>P9</td>
+<td>Complementarity (L3) is not derivable from universal properties</td>
+<td>Assembly is driven by need/surplus, not any colimit</td>
+<td>Valid; external selection rule on diagrams</td>
+</tr>
+<tr>
+<td>P10</td>
+<td>Evaluation μ does not factor through <code>U</code> or lower-order categories</td>
+<td>μ is jeevan-only (D6)</td>
+<td>Valid; encodes knowledge-order discontinuity</td>
+</tr>
+<tr>
+<td>P11</td>
+<td>Effective φ is fibred over cap(<em>u</em>); justice is a partial composite</td>
+<td>D5a: fulfilment modulated by ksh, yog, pat</td>
+<td>Valid given premise; preorders not derived</td>
+</tr>
+<tr>
+<td>P12</td>
+<td>κ_mix (coproduct) ≠ κ_comp (fusion colimit); only κ_comp iterates L6</td>
+<td>D8: mishran vs yaugik</td>
+<td>Valid; distinguishes §6.8 readings</td>
+</tr>
+<tr>
+<td>P13</td>
+<td>T1 is irreversible in the Petri layer; T2–T3 are lifts in <code>Liv</code></td>
+<td>D11: planes vs orders; <em>vikas-kram</em> vs <em>jagriti-kram</em></td>
+<td>Valid; separates atomic and awakening progressions</td>
+</tr>
+<tr>
+<td>P14</td>
+<td>μ is not definable on <code>Phys</code> or <code>Rel</code> alone</td>
+<td>D6: evaluation is <em>jeevan</em>-only</td>
+<td>Valid; restates P10 with ontology citation</td>
+</tr>
+<tr>
+<td>P15</td>
+<td>Complete knowledge requires composable <code>ev ∘ φ ∘ μ</code> (and conduct via <code>act</code>)</td>
+<td>D13, L7: self-evidencing closure</td>
+<td>Valid given premise; cycle blocked by cap(u) or deluded plane</td>
+</tr>
+<tr>
+<td>P16</td>
+<td>τ at knowledge order preserves evidenced understanding</td>
+<td>D10: τ_ev not rules without φ</td>
+<td>Valid; links §6.8 to MVD p. 12 tradition step</td>
+</tr>
+</tbody>
+</table>
+<p><strong>P6</strong> (undivided society colimit) is the only place ordinary category theory does substantive independent work on gluing. Elsewhere the notation sharpens and exposes the argument, but the load is carried by a Madhyasth premise or by structure outside CT (P8–P9, L3 guard in §6.9.1).</p>
+<h3>6.12 Coverage map: what is represented, and how well</h3>
+<table>
+<thead>
+<tr>
+<th>Madhyasth concept</th>
+<th>Categorical representation</th>
+<th>Fit</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Saturation in <em>O</em> (A1–A2)</td>
+<td>Ambient <code>Sat</code>; inherent energy in unit through co-location; regulation ladder overlay (D2a); not <code>Rel</code> morphism; not transfer from <em>O</em></td>
+<td>Weak–moderate</td>
+<td>Two-layer ontology plus typed regulation; CT has no native ground</td>
+</tr>
+<tr>
+<td>Inward regulation (D2b)</td>
+<td>Partial <strong>AtmaReg : Liv ⇀ Liv</strong> on faculty stack</td>
+<td>Weak</td>
+<td>Mediative pattern at sentient scale; not derivable from <code>Phys</code></td>
+</tr>
+<tr>
+<td>Unit signature (D1, D1a)</td>
+<td>Typed <strong>sig(<em>u</em>)</strong> on objects; compound assigns new signature</td>
+<td>Moderate</td>
+<td>Property triad and order <em>svabhav</em>/<em>dharma</em> are data, not derived</td>
+</tr>
+<tr>
+<td>Planes, T1–T3 (D11)</td>
+<td>Layered typing <code>Pln</code>; T1 in Petri; T2–T3 in <code>Liv</code></td>
+<td>Partial</td>
+<td>Orders in <code>Ord</code>; planes cross-cut knowledge order</td>
+</tr>
+<tr>
+<td>Four orders contain lower orders</td>
+<td>Poset <code>Ord</code></td>
+<td>Strong</td>
+<td>Mereology is what posets are for</td>
+</tr>
+<tr>
+<td>Anti-reductionism</td>
+<td>No <code>K &lt;= M</code>; non-faithful <code>U</code></td>
+<td>Strong structurally</td>
+<td>Encodes, does not prove</td>
+</tr>
+<tr>
+<td><em>Gathanpurna parmanu</em></td>
+<td>Irreversible transition in Petri/monoidal layer</td>
+<td>Moderate</td>
+<td>Bookkeeping only</td>
+</tr>
+<tr>
+<td>Body vs <code>jeevan</code>, asymmetry</td>
+<td>Monoid action</td>
+<td>Moderate</td>
+<td>Not unique; see §6.14</td>
+</tr>
+<tr>
+<td>Delusion / completeness not &ldquo;more&rdquo;</td>
+<td>Retract not iso</td>
+<td>Strong</td>
+<td>Coherent and categorical</td>
+</tr>
+<tr>
+<td>Graded values (D4)</td>
+<td>Enrichment over preorder <code>W</code></td>
+<td>Moderate</td>
+<td>Compresses full taxonomy</td>
+</tr>
+<tr>
+<td>Evaluation μ, justice operator</td>
+<td><code>Eval</code> on <code>Liv</code>; partial composite ρ→φ→μ</td>
+<td>Moderate</td>
+<td>Order-restriction; φ fibred over cap (§6.6.1)</td>
+</tr>
+<tr>
+<td>cap(<em>u</em>) triad (D5a)</td>
+<td>Fibred enrichment; <code>cap : Liv → Cap</code></td>
+<td>Moderate</td>
+<td>Preorders given; frustration = failed composition</td>
+</tr>
+<tr>
+<td>Right-use vs consumption</td>
+<td>Natural transformation</td>
+<td>Strong</td>
+<td>Naturality square is real constraint</td>
+</tr>
+<tr>
+<td>Unit relationships</td>
+<td><code>Rel</code>, functor <code>V : Rel -&gt; Val</code></td>
+<td>Moderate</td>
+<td>Effective φ_u family, not global functor</td>
+</tr>
+<tr>
+<td>Undivided society</td>
+<td>Colimit + compatibility (L4)</td>
+<td>Strong</td>
+<td>Compound κ_comp reading of §6.8</td>
+</tr>
+<tr>
+<td>Mixture vs compound (D8)</td>
+<td>Coproduct vs fusion colimit</td>
+<td>Moderate</td>
+<td>Modes distinguished §6.9; content guard separate</td>
+</tr>
+<tr>
+<td>Transmission τ (L5)</td>
+<td><code>Trans</code> coalgebra (sketch)</td>
+<td>Weak</td>
+<td>Not derivable from κ</td>
+</tr>
+<tr>
+<td>Complementarity (L3)</td>
+<td><code>AdmissibleComp</code> guard on spans</td>
+<td>Partial</td>
+<td>Predicate on diagrams, not CT-derived (§6.9.1)</td>
+</tr>
+<tr>
+<td>Development / effort</td>
+<td>Monoidal/Petri; κ_comp transitions</td>
+<td>Moderate</td>
+<td><em>vikas-kram</em> bookkeeping only</td>
+</tr>
+<tr>
+<td>Education / sanskar</td>
+<td>τ + faithfulness of Info→Conduct</td>
+<td>Moderate</td>
+<td>Tied to transmission; evidenced τ (P16)</td>
+</tr>
+<tr>
+<td><em>Anubhav jnan</em> (AJ, D12)</td>
+<td>Ambient typing: sig(<em>u</em>) + orderliness from <code>Sat</code></td>
+<td>Moderate</td>
+<td>Given data, not derived</td>
+</tr>
+<tr>
+<td><em>Gyan udghatan</em> (Ξ, D12)</td>
+<td>Partial endofunctor <code>Ξ : Liv ⇀ Liv</code></td>
+<td>Partial</td>
+<td>&ldquo;Awakened&rdquo; guard external</td>
+</tr>
+<tr>
+<td><em>Satta mein anubhav</em> (TEL, D12)</td>
+<td>Target of progression functors / fulfilled <code>Rel</code> diagrams</td>
+<td>Partial</td>
+<td>Not a new object in <code>Sat</code></td>
+</tr>
+<tr>
+<td>Evidence loop (D13, L7)</td>
+<td>Quiver across <code>Eval</code>, <code>Conduct</code>, <code>Ev</code>, <code>Trans</code></td>
+<td>Weak–moderate</td>
+<td>Not one composable endomorphism</td>
+</tr>
+<tr>
+<td><em>Pramanikta</em> (T3)</td>
+<td><code>ev : Conduct → Ev</code>; lift in <code>Pln</code></td>
+<td>Partial</td>
+<td>Faculty link in ontology §1.10</td>
+</tr>
+<tr>
+<td>Means cannot fix ends</td>
+<td>No generating functor (Hume)</td>
+<td>Weak as novelty</td>
+<td>True; philosophy supplies it</td>
+</tr>
+</tbody>
+</table>
+<h3>6.13 What does NOT fit well (and why)</h3>
+<ol>
+<li>
+<p><strong><code>Jeevan</code> as a substance.</strong> Category theory is structuralist: by Yoneda, an object just <em>is</em> its web of morphisms. A faithful categorical reading inevitably re-describes <code>jeevan</code> as a <strong>functional role</strong> — precisely the reductionist/functionalist position the darshan rejects. The formalism cannot represent &ldquo;substantial existence over and above relational role&rdquo; without leaving category theory. <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> commits to the <strong>Saturation-Reflector Model</strong> (§6.6) — ever-present <em>gyan</em> actualised through a constitutionally complete reflector, not generated from dead matter — as the latency reply to this structuralism-vs-substance tension for <em>jeevan</em>.</p>
+</li>
+<li>
+<p><strong>Samadhi / samyama as the warrant.</strong> Nagraj&rsquo;s epistemic foundation is <em>sadhana-samadhi-samyama</em> (MVD p. 7): private, first-person, non-relational. It is the <em>source of the axioms</em> and necessarily sits <strong>outside</strong> the categories — distinct from <em>anubhav jnan</em> (ontological given, template D12 AJ) and from <em>satta mein anubhav</em> (telos TEL).</p>
+</li>
+<li>
+<p><strong>Constitutional completeness as content.</strong> Encodable as an irreversible transition, but the Petri structure is content-agnostic; the specific metaphysical claim is invisible to it.</p>
+</li>
+<li>
+<p><strong>Saturation vs unit relationships.</strong> Omnipresence provisions inherent energy and regulation in every unit through pervasive co-location (A1–A2) — mutual dependence for manifestation, not physical extraction from <em>O</em> — but <strong>O</strong> is <strong>not</strong> a member of <strong>U</strong> and not an arrow in <code>Rel</code>. Saturation is the first ontological layer; the <strong>regulation ladder</strong> (D2a–D2b) is how that layer reaches order-specific conduct and inward <em>jeevan</em> regulation without <em>O</em> acting as governor; <strong>justice</strong> (D7) is the knowledge-order closure — distinct from universal <strong>law</strong> (Ontology §1.10.1); <em>sambandh</em> is the second layer of unit-to-unit structure (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §§1.7, 1.10.1). Terminal object, monoidal unit, or topos-as-space are inadequate substitutes.</p>
+</li>
+<li>
+<p><strong>Coexistence: ground and constraint.</strong> It functions as the background that makes composition possible and as a constraint (colimit compatibility). That dual role signals a <strong>first principle</strong> not fully internalisable as a single categorical object.</p>
+</li>
+<li>
+<p><strong>Four knowledge registers and TEL.</strong> <em>Anubhav jnan</em>, <em>gyan</em> as <em>satta</em>, <em>gyan udghatan</em>, and <em>satta mein anubhav</em> (template D12; <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §1.11) must not be collapsed. TEL (<em>satta mein anubhav</em>) is temptingly a terminal object, but it names relationships fulfilled and coexistence evident — not a new state of <em>O</em> in <code>Sat</code>. The terminal-object analogy loses the experiential, self-involving closure of D13/L7.</p>
+</li>
+<li>
+<p><strong>The self-knowing of the knowledge order.</strong> Knower and known coincide — reflexive. This gestures at fixed points or Yoneda self-reference but risks paradox and is not obviously well-founded.</p>
+</li>
+<li>
+<p><strong>Normativity (<code>ought</code>).</strong> Category theory describes structure, not obligation. Arrows like <code>usesRightly</code> smuggle an &ldquo;ought&rdquo; into a descriptive arrow; the is/ought gap is untouched.</p>
+</li>
+<li>
+<p><strong>Complementarity as selection (L3).</strong> Colimits and coproducts describe <strong>how</strong> to glue; L3 specifies <strong>which</strong> spans fire. The guard <code>AdmissibleComp</code> (§6.9.1) must be imported as data — P9 and P12.</p>
+</li>
+<li>
+<p><strong>Order-specific cap preorders.</strong> The fibred model (§6.6.1) types ksh, yog, pat by order, but the numeric or comparative structure of those preorders is textual, not categorical.</p>
+</li>
+</ol>
+<h3>6.14 Issues and open problems</h3>
+<ol>
+<li>
+<p><strong>Non-uniqueness of the formalization.</strong> Body/<code>jeevan</code> could be a monoid action, a fibration, a comma object, or a monad algebra; cap(<em>u</em>) could be a fibration, a profunctor, or a weighted enrichment — the &ldquo;theory&rdquo; is really a <em>family</em> of models.</p>
+</li>
+<li>
+<p><strong>The premises do the work.</strong> In all propositions except P6, the categorical step is valid but inert without a contested premise, or requires structure outside CT (P8–P9, L3 guard).</p>
+</li>
+<li>
+<p><strong>Structuralism vs substantialism</strong> (§6.13.1) is unresolved and possibly unresolvable within category theory — a boundary of the tool, not a bug.</p>
+</li>
+<li>
+<p><strong>&ldquo;Mystery&rdquo; in delusion.</strong> MVD Ch. 17 names <em>bauddhik rahasya</em> when lower <em>jeevan</em> faculties fail to take refuge in the one above — misaligned projection–reflection, not an irreducible ontological opacity (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §1.10; <a href="https://analyticmadhyasthdarshan.org/Studies/Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf">Knowledge, Knower, and Known</a> §1.11).</p>
+</li>
+<li>
+<p><strong>No empirical contact.</strong> Nothing yields a measurement or prediction of <code>jeevan</code>, coexistence, or constitutional completeness.</p>
+</li>
+<li>
+<p><strong>Risk of mathematical theater.</strong> Elegant diagrams can create an illusion of proof. The conditional framing and this list are the safeguard.</p>
+</li>
+<li>
+<p><strong>Enrichment base underdetermined.</strong> The quality preorder <code>W</code>, D4 taxonomy, and cap preorders are chosen, not derived.</p>
+</li>
+<li>
+<p><strong>Saturation and τ resist full internalization</strong> (§6.13.4–5, P8).</p>
+</li>
+<li>
+<p><strong>L3 guard underdetermined.</strong> <code>AdmissibleComp</code> is named and typed (§6.9.1) but not uniquely specified — the same span may be admissible under complementarity yet fail other textual constraints (proportion, order).</p>
+</li>
+<li>
+<p><strong>Mixture/compound boundary cases.</strong> Real assemblies may exhibit intermediate behaviour (partial fusion). The binary κ_mix / κ_comp split is a modelling convenience; finer quotients may be needed for some tiers.</p>
+</li>
+</ol>
+<h3>6.15 Knowledge registers and self-evidencing (template D12–D13, L7)</h3>
+<p><a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.pdf">The Coexistence Template</a> D12 names four registers the texts must not conflate; D13 and L7 formalise the MVD p. 12 evidence chain for the knowledge order only. This section maps them categorically — conditional sketches, not theorems.</p>
+<table>
+<thead>
+<tr>
+<th>Register</th>
+<th>Template</th>
+<th>Categorical role</th>
+<th>Fit / gap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>anubhav jnan</em></td>
+<td><strong>AJ</strong></td>
+<td><strong>Ambient typing</strong> on all objects: every unit carries <code>sig(u)</code> + inherent orderliness from <code>Sat</code> — initial data, not a morphism</td>
+<td>Strong as given structure; not derived</td>
+</tr>
+<tr>
+<td><em>gyan</em> as <em>satta</em></td>
+<td><strong>O_gyan</strong></td>
+<td><strong>Enrichment base / regulator</strong> for <code>Sat</code>; not an object in <code>Rel</code></td>
+<td>Already §6.1; name explicitly</td>
+</tr>
+<tr>
+<td><em>gyan udghatan</em></td>
+<td><strong>Ξ</strong></td>
+<td><strong>Partial endofunctor</strong> <code>Ξ : Liv ⇀ Liv</code> — unfolding only on awakened knowledge-order units</td>
+<td>Partial — awakened guard is extra data</td>
+</tr>
+<tr>
+<td><em>satta mein anubhav</em></td>
+<td><strong>TEL</strong></td>
+<td><strong>Target</strong> of progression functors (limit/colimit of fulfilled <code>Rel</code> diagrams), <strong>not</strong> a new object in <code>Sat</code></td>
+<td>Do not read as terminal object in <code>Sat</code></td>
+</tr>
+<tr>
+<td>Samadhi warrant</td>
+<td>MVD p. 7</td>
+<td><strong>Meta</strong>: source of axioms, outside all categories</td>
+<td>§6.13.2; not AJ</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Self-evidencing subsystem.</strong> Lower orders run ρ and φ definitely; the knowledge order adds μ, Ξ, and closure of D13:</p>
+<pre><code class="language-text">mu  : Liv -&gt; Eval
+Xi  : Liv -&gt; Liv           (partial; awakened guard)
+act : J x Bdy -&gt; Bdy       (§6.4)
+ev  : Conduct -&gt; Ev        (pramanikta)
+</code></pre>
+<p>At the knowledge order, φ <strong>evidences</strong> use, right-use, and purposeful-use (template D5; MVD p. 62). Justice remains the partial composite <strong>ρ → φ → μ → mutual satisfaction</strong> (§6.6.1), defined only when cap(<em>u</em>) permits. Complete knowledge requires a <strong>composable cycle</strong> through conduct and <code>ev</code> — blocked when μ misfires or cap(<em>u</em>) is insufficient (P15).</p>
+<p>MVD p. 12 is modelled as a <strong>directed quiver</strong> (§6.0 rule 2 — not all edges compose in one category):</p>
+<pre><code class="language-text">Realisation --evidence--&gt; Understanding --manifest--&gt; Conduct
+     ^                                              |
+     +---------------- evidence / tradition ----------+
+</code></pre>
+<p>Categorical honesty: this is a <strong>family</strong> of functors and partial composites across <code>Eval</code>, <code>Conduct</code>, <code>Ev</code>, and <code>Trans</code> — not <code>id_Liv</code>. Transmission τ at the knowledge order must carry <strong>evidenced</strong> understanding (P16), linking the tradition step to education-<em>sanskar</em> (§6.8).</p>
+<p>Epistemic detail: <a href="https://analyticmadhyasthdarshan.org/Studies/Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf">Knowledge, Knower, and Known</a> §§1.6–1.8. Ontological exposition: <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §1.11.</p>
+<h2>7. Limits and conclusion</h2>
+<p>A clear guide must also say what this does <strong>not</strong> do.</p>
+<ul>
+<li><strong>It does not prove the philosophy.</strong> Drawing <code>jeevan</code> as a box does not show <code>jeevan</code> exists. The diagrams organise the claims; they do not verify them.</li>
+<li><strong>It can quietly shrink <code>jeevan</code>.</strong> Category theory describes things purely by their relationships. But the darshan insists <code>jeevan</code> is a real <em>entity</em>, not just a role it plays. The more faithfully you use the mathematics, the more it risks turning <code>jeevan</code> into &ldquo;the thing that does these jobs&rdquo; — closer to the materialist view the darshan rejects. This tension is real and unresolved.</li>
+<li><strong>Samadhi is not the same as ontological <em>anubhav</em>.</strong> The darshan&rsquo;s meditative warrant (<em>sadhana-samadhi-samyama</em>, MVD p. 7) is the <em>source</em> of the axioms and sits outside any diagram — distinct from <em>anubhav jnan</em> (given structure) and from <em>satta mein anubhav</em> (telos evidenced in fulfilment).</li>
+<li><strong>It adds no third-person evidence.</strong> No measurement of <code>jeevan</code>, constitutional completeness, or coexistence comes out of this notation alone. Madhyasth&rsquo;s own test is conduct-evidence and tradition (MVD p. 12; template D13). Science would still need operational definitions and public observations.</li>
+</ul>
+<p>Category theory is a <strong>lens for clarity</strong>, not a proof machine and not a new physics. It makes Madhyasth Darshan&rsquo;s logic visible, shows exactly what each conclusion depends on, maps naturally onto <a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> — including <strong>sig(<em>u</em>)</strong> and planes (D1a, D11), fibred <strong>cap(<em>u</em>)</strong> (§6.6.1), <strong>mixture/compound</strong> κ (§6.9), <strong>knowledge registers</strong> D12, and <strong>self-evidencing</strong> D13/L7 (§6.15) — and contributes one real insight about social gluing. Ontology–epistemology <strong>closure</strong> at the human tier requires <code>Liv</code> (μ, Ξ, ev), not <code>Rel</code> alone. Saturation, the L3 guard, evidenced transmission, plane typing, and substantial <em>jeevan</em> remain explicit boundaries.</p>
+<div class="mermaid">
+flowchart LR
+    Co["Coexistence"] --> Un["Understanding"]
+    Un --> Re["Resolution"]
+    Re --> Hu["Humane conduct"]
+    Hu --> Ri["Right-use"]
+    Ri --> So["Undivided society"]
+</div>
+<p>Assembly-scale closure evidences resolution, prosperity, fearlessness, and coexistence when the justice cycle completes — <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §1.13; template D7, P1.</p>
+<h2>References</h2>
+<h3>Madhyasth Darshan (primary sources)</h3>
+<ul>
+<li><strong>MVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan — Co-existentialism</em></a>. English translation by Rakesh Gupta. Cited: Realisation Knowledge (p. 11); evidence chain and &ldquo;Believe what is known&rdquo; (p. 12); four orders; unit signature (pp. 50–51); relationships and values; capacity–ability–receptivity (pp. 62, 79, 134, 142); mixture and compound (p. 42); hungry/overfull atoms (p. 8); knowledge unfolding (pp. 115–116, 289); realisation in coexistence (p. 116); three satisfactions (Ch. 4); organisation sustainment (p. 55); samadhi-samyama warrant (p. 7).</li>
+<li><strong>SB</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf"><em>Samadhanatmak Bhautikvad / Resolution Centred Materialism</em></a>. English translation by Rakesh Gupta. Also at https://www.youtube.com/playlist?list=PL69PCoz1OQW0dhshZ0Xv3KtZ7ajJOIpgv (bilingual Hindi and English). Cited: effort–motion–result (p. 58); planes and completeness transitions (pp. 51–52, 92); constitutional completeness (p. 55); essentiality as value (p. 50); value-distinct acts (Ch. 7).</li>
+<li><strong>JV</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf"><em>Jeevan Vidya: An Introduction</em></a>. English translation by Rakesh Gupta. Cited: body as instrument (Ch. 1); complementarity (p. 157); commerce and &ldquo;more&rdquo; (p. 41).</li>
+</ul>
+<h3>Related studies in this collection</h3>
+<ul>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf"><em>The Ontology of Coexistence</em></a> — ontological exposition: coexistence, saturation, <strong>regulation ladder</strong> (§§1.7, 1.10.1), <strong>law vs justice</strong> (§1.10.1), six <em>drishti</em> and humane refuge (§1.10.1), inward regulation (§1.10), unit signature, <em>sambandh</em>, fulfilment by order (§1.6.1), four orders and planes, <em>jeevan</em> and awakening, <em>gathanpurnata</em>, Development and Awakening Progression, activity triad, conservation (§1.12), four human goals and provisions vs achievements (§1.13)</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> — formal template (κ, τ, ρ, φ, μ, D2a–D2b regulation ladder, D12–D13, L7, L1–L6, D11, P6); reciprocal link at §7 and §6.1.1</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf"><em>Knowledge, Knower, and Known</em></a> — evidence chain, <em>gyan udghatan</em>, <em>pramana</em> (§§1.2, 1.6–1.8)</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.pdf"><em>Nature of Time</em></a> — <em>kaal</em> as duration of unit-activity; <em>shram–gati–parinam</em> and directional <em>vikas</em></li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.pdf"><em>Why Humans Are Not Just Material</em></a> — human-tier anthropology</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.pdf"><em>Human Behavior and Society</em></a> — conduct and social order</li>
+</ul>
+<script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+mermaid.initialize({
+  startOnLoad: true,
+  theme: "neutral",
+  securityLevel: "loose",
+  flowchart: { htmlLabels: true, useMaxWidth: true },
+});
+</script>
+
+</body>
+</html>

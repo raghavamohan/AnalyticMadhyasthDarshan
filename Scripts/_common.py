@@ -69,9 +69,19 @@ def study_pdf_href(slug: str) -> str:
     return f"{slug}/{slug}.pdf"
 
 
+def study_html_href(slug: str) -> str:
+    """Relative href from Studies/index.html to a study HTML page."""
+    return f"{slug}/{slug}.html"
+
+
 def application_pdf_href(slug: str) -> str:
     """Relative href from Studies/index.html or Studies/README.md to Applications/."""
     return f"../Applications/{slug}/{slug}.pdf"
+
+
+def application_html_href(slug: str) -> str:
+    """Relative href from Studies/index.html to an applied study HTML page."""
+    return f"../Applications/{slug}/{slug}.html"
 
 
 def study_pdf_ref_path(slug: str) -> str:

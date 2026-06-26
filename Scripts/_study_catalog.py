@@ -16,9 +16,11 @@ from _common import (
     REFERENCES,
     SCRIPTS,
     STUDIES,
+    application_html_href,
     application_pdf_href,
     iter_study_md_paths,
     known_study_slugs,
+    study_html_href,
     study_md,
     study_pdf_href,
     study_pdf_ref_path,
@@ -328,8 +330,12 @@ def row_to_catalog_entry(row: StudyRow) -> dict:
     }
     if row.status != StudyStatus.ONGOING and row.edited_at is not None:
         entry["updated"] = format_catalog_updated(row.edited_at)
-    if row.pdf_href:
-        entry["pdf"] = row.pdf_href
+    pdf_href = row_pdf_href(row)
+    if pdf_href:
+        entry["pdf"] = pdf_href
+    html_href = row_html_href(row)
+    if html_href:
+        entry["html"] = html_href
     return entry
 
 
@@ -463,7 +469,7 @@ def parse_md_rows(content: str, table: StudyTable) -> list[StudyRow]:
         if len(parts) != 4:
             continue
         doc_cell, category, description, status_raw = parts
-        link_match = re.match(r"\[([^\]]+)\]\(([^)]+\.pdf)\)", doc_cell)
+        link_match = re.match(r"\[([^\]]+)\]\(([^)]+\.(?:pdf|html))\)", doc_cell)
         pdf_href: str | None = None
         if link_match:
             pdf_href = link_match.group(2)
@@ -550,11 +556,19 @@ def row_pdf_href(row: StudyRow) -> str | None:
     return None
 
 
+def row_html_href(row: StudyRow) -> str | None:
+    if not row.has_pdf:
+        return None
+    if row.table == StudyTable.APPLIED:
+        return application_html_href(row.slug)
+    return study_html_href(row.slug)
+
+
 def serialize_md_row(row: StudyRow) -> str:
     status_cell = format_status_catalog(row.edited_at, row.status)
     title = display_title(row)
     description = normalize_description(row.description, row.status)
-    href = row_pdf_href(row)
+    href = row_html_href(row) or row_pdf_href(row)
     if href:
         doc_cell = f"[{title}]({href})"
     else:
@@ -816,18 +830,21 @@ def verify_timestamp_sync(slug: str) -> list[str]:
 def regenerate_pdf(md_path: Path, status: StudyStatus) -> None:
     if status == StudyStatus.ONGOING:
         return
+    from _convert_to_pdf import convert_to_html
     from _verify_pdf_diagrams import verify_study_pdf_diagrams
     from _verify_pdf_fenced_code import verify_study_pdf_fenced_code
     from _verify_study_svgs import verify_study_svgs
 
     verify_study_svgs(md_path)
 
-    convert_script = SCRIPTS / "_convert_to_pdf.py"
     html_path = md_path.with_suffix(".html")
     pdf_path = md_path.with_suffix(".pdf")
     build_pdf_path = md_path.with_name(f"{md_path.stem}.build.pdf")
-    convert_cmd = [sys.executable, str(convert_script), str(md_path)]
-    subprocess.run(convert_cmd, check=True, cwd=SCRIPTS.parent)
+    convert_to_html(
+        md_path,
+        is_draft=status == StudyStatus.DRAFT,
+        include_web_chrome=True,
+    )
     html_to_pdf_cmd = ["node", str(SCRIPTS / "_html_to_pdf.js"), str(html_path)]
     if status == StudyStatus.DRAFT:
         html_to_pdf_cmd.append("Draft")
@@ -840,8 +857,6 @@ def regenerate_pdf(md_path: Path, status: StudyStatus) -> None:
     build_pdf_path.replace(pdf_path)
     if build_pdf_path.exists():
         build_pdf_path.unlink()
-    if html_path.exists():
-        html_path.unlink()
     verify_study_pdf_diagrams(md_path, pdf_path)
     verify_study_pdf_fenced_code(md_path, pdf_path)
 

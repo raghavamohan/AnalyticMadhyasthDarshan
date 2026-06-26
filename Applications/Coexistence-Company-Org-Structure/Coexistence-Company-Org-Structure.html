@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Coexistence Company — Concrete Organizational Structure</title>
+<style>
+  @page {
+    size: A4;
+    margin: 2.2cm 2cm 2.2cm 2cm;
+  }
+  @media print {
+    body {
+      font-size: 11pt;
+      margin: 0;
+      padding: 0;
+      max-width: none;
+    }
+    h1 ~ p {
+      margin: 3pt 0;
+    }
+    h2 {
+      page-break-after: auto;
+      break-after: auto;
+    }
+    h2:first-of-type {
+      margin-top: 10pt;
+    }
+    h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+    h3, h4 { page-break-inside: avoid; break-inside: avoid; }
+    p { text-align: justify; text-justify: inter-word; hyphens: auto; }
+    li { text-align: left; }
+    table {
+      page-break-inside: auto;
+      break-inside: auto;
+    }
+    thead {
+      display: table-header-group;
+    }
+    tr {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    pre { page-break-inside: avoid; white-space: pre-wrap; overflow-wrap: anywhere; word-break: break-word; }
+    blockquote { page-break-inside: avoid; }
+  }
+  body {
+    position: relative;
+    z-index: 1;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 11pt;
+    line-height: 1.55;
+    color: #1a1a1a;
+    max-width: 750px;
+    margin: 30px auto;
+    padding: 0 20px;
+  }
+  h1 {
+    font-size: 20pt;
+    margin-top: 0;
+    margin-bottom: 4pt;
+    color: #111;
+    border-bottom: 2px solid #333;
+    padding-bottom: 6pt;
+  }
+  h1 + p {
+    margin-top: 4pt;
+  }
+  h2 {
+    font-size: 15pt;
+    margin-top: 18pt;
+    margin-bottom: 6pt;
+    color: #222;
+    border-bottom: 1px solid #bbb;
+    padding-bottom: 4pt;
+  }
+  h3 {
+    font-size: 12.5pt;
+    margin-top: 16pt;
+    margin-bottom: 4pt;
+    color: #333;
+  }
+  h4 {
+    font-size: 11.5pt;
+    margin-top: 14pt;
+    margin-bottom: 4pt;
+    color: #333;
+    font-weight: bold;
+  }
+  p {
+    margin: 6pt 0;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+  }
+  a {
+    color: #1a5276;
+    text-decoration: underline;
+  }
+  blockquote {
+    margin: 10pt 0 10pt 16pt;
+    padding: 6pt 12pt;
+    border-left: 3pt solid #888;
+    background: #f7f7f5;
+    font-style: italic;
+    color: #333;
+  }
+  blockquote p {
+    margin: 0;
+    white-space: pre-line;
+  }
+  blockquote p + p {
+    margin-top: 6pt;
+  }
+  blockquote strong {
+    font-style: normal;
+  }
+  .quote-source {
+    font-style: normal;
+    font-size: 10pt;
+    color: #555;
+    margin-top: 4pt;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12pt 0;
+    font-size: 10pt;
+    page-break-inside: auto;
+    break-inside: auto;
+  }
+  thead {
+    display: table-header-group;
+  }
+  tr {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  th {
+    background: #e8e8e4;
+    border: 1px solid #aaa;
+    padding: 5pt 7pt;
+    text-align: left;
+    font-weight: bold;
+  }
+  td {
+    border: 1px solid #ccc;
+    padding: 5pt 7pt;
+    vertical-align: top;
+  }
+  tr:nth-child(even) {
+    background: #fafaf8;
+  }
+  code {
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 10pt;
+    background: #f0f0ec;
+    padding: 1pt 3pt;
+    border-radius: 2pt;
+  }
+  pre {
+    background: #f5f5f1;
+    padding: 10pt 14pt;
+    border-radius: 4pt;
+    overflow-x: auto;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    white-space: pre-wrap;
+    max-width: 100%;
+    font-size: 10pt;
+    line-height: 1.4;
+  }
+  pre code {
+    background: none;
+    padding: 0;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  ul, ol {
+    margin: 6pt 0;
+    padding-left: 24pt;
+  }
+  li {
+    margin: 3pt 0;
+  }
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 12pt auto;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  p:has(> img:only-child) {
+    text-align: center;
+    margin: 12pt 0;
+  }
+  .mermaid {
+    display: flex;
+    justify-content: center;
+    margin: 12pt auto;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .mermaid svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .study-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px 16px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 13px;
+    margin: 0 0 22px;
+    padding: 10px 14px;
+    border: 1px solid #d8d2c8;
+    border-radius: 8px;
+    background: #f7f4ef;
+  }
+  .study-toolbar-link {
+    color: #1a5276;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .study-toolbar-link:hover { color: #13405c; }
+  .study-toolbar-download::after {
+    content: " \2193";
+    font-weight: 700;
+  }
+  .draft-banner {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #8b5e34;
+    background: #f5ebe0;
+    border: 1px solid #e0d0be;
+    border-radius: 6px;
+    padding: 6px 12px;
+    margin: 0 0 18px;
+    text-align: center;
+  }
+  @media print {
+    .study-toolbar,
+    .draft-banner { display: none !important; }
+  }
+
+</style>
+</head>
+<body>
+<nav class="study-toolbar" aria-label="Study navigation">
+  <a class="study-toolbar-link" href="../../Studies/index.html">&larr; All studies</a>
+  <a class="study-toolbar-link study-toolbar-download" href="Coexistence-Company-Org-Structure.pdf" download>Download PDF</a>
+</nav>
+<p class="draft-banner" role="status">Draft</p>
+<h1>Coexistence Company — Concrete Organizational Structure</h1>
+<p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> — a group of people studying Madhyasth Darshan philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
+<p><strong>Edited on:</strong> June 26, 2026, 10:28 AM IST
+<strong>Basis:</strong> This application instantiates the coexistence template and categorical architecture for a deliberate human assembly (<a href="../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a>; <a href="../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf"><em>Category Theory Explained</em></a> §§3.5, 5, 6.1, 6.6–6.9, 6.8). It is a design blueprint, not legal advice.</p>
+<p><strong>Example company:</strong> <strong>Saha Coexistence Works</strong> (SCW) — a knowledge-work company (research, education, and technology services) whose product is understood coexistence made useful in the world. Scale assumed: <strong>60 members</strong> at steady state, expandable by <strong>compound</strong> team formation, not mere headcount.</p>
+<h2>1. Design objectives</h2>
+<p>SCW is organised to meet two objectives together (<a href="../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> §8; P3–P4):</p>
+<ol>
+<li><strong>Members are not instrumentalised</strong> — nurturing (<em>poshan</em>), not net extraction; values fulfilled in relationships, not fear or temptation as the basis of order.</li>
+<li><strong>The company sustains across generations of members</strong> — relationships fulfilled (L4), understanding transmitted by education-<em>sanskar</em> (L5, τ), common cause, goal, and programme (P4).</li>
+</ol>
+<p>Orientation is <strong>completeness of relationships</strong>, not unbounded maximisation of profit, comfort, or scale (<a href="../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> §5).</p>
+<h2>2. Assembly tiers (who is a “unit”)</h2>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>SCW name</th>
+<th>Size (example)</th>
+<th>Composition mode</th>
+<th>New joint conduct?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Individual</strong></td>
+<td>Member</td>
+<td>1 person</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Family</strong></td>
+<td><strong>Family Team</strong></td>
+<td>7–12 members</td>
+<td><strong>Compound</strong> (<em>yaugik</em>)</td>
+<td>Yes — one team <em>dharma</em> and outward conduct</td>
+</tr>
+<tr>
+<td><strong>Community</strong></td>
+<td><strong>Cluster</strong></td>
+<td>3–5 Family Teams</td>
+<td><strong>Compound</strong> colimit</td>
+<td>Yes — shared programme across teams</td>
+</tr>
+<tr>
+<td><strong>Undivided society</strong></td>
+<td><strong>Company</strong> (SCW)</td>
+<td>All Clusters</td>
+<td><strong>Compound</strong> + gluing</td>
+<td>Yes — one company-facing conduct</td>
+</tr>
+<tr>
+<td><strong>Federation</strong> (optional)</td>
+<td><strong>Alliance</strong></td>
+<td>2+ aligned companies</td>
+<td>Soc colimit</td>
+<td>Only if overlap values agree</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Rule:</strong> Adding people in the same building without fused conduct is <strong>mixture</strong> (<em>mishran</em>) — weaker cohesion. Scale hiring only after <strong>L3</strong> complementarity (need/surplus) and overlap compatibility are verified (<a href="../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf"><em>Category Theory Explained</em></a> §6.9; <a href="../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> L3).</p>
+<h2>3. Top-level org chart</h2>
+<div class="mermaid">
+flowchart TD
+    SC["Steward Council — ambient ground, not extraction"]
+    SC --> OCG["Office of Cause, Goal & Programme"]
+    SC --> CH["Charter & Ground Office"]
+    SC --> REL["Relationship Registry"]
+    SC --> CAP["Capability Institute"]
+    SC --> VAL["Value & Justice Office"]
+    SC --> EVAL["Evaluation Forum"]
+    SC --> EV["Evidence & Tradition Office"]
+    SC --> COMP["Composition Office"]
+    SC --> SOC["Integration Office"]
+    SC --> TRANS["Transmission Institute"]
+    SC --> COND["Conduct Division — delivery"]
+    COND --> FT["Family Teams × 6"]
+    COND --> RUR["Right-Use & Regeneration"]
+    FT --> CL["Clusters × 2"]
+</div>
+<h2>4. Functional units (departments)</h2>
+<p>Each row is a <strong>mandatory subsystem</strong> — the categorical analogue in <a href="../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf"><em>Category Theory Explained</em></a> §6.1.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Department</th>
+<th>Template / CT role</th>
+<th>Primary responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td><strong>Steward Council</strong></td>
+<td>Sat — ambient ground</td>
+<td>Holds shared coexistence frame; stewards charter; <strong>does not</strong> treat members as fuel for extraction (A1–A2)</td>
+</tr>
+<tr>
+<td>1</td>
+<td><strong>Office of Cause, Goal &amp; Programme</strong></td>
+<td>P4</td>
+<td>Documents and guards common <strong>cause</strong>, <strong>goal</strong>, and <strong>programme</strong> for sustainment</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Charter &amp; Ground Office</strong></td>
+<td>Sat, A3–A5</td>
+<td>Constitutional documents, ethical ground, conducive environment for natural state</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Relationship Registry</strong></td>
+<td>Rel, D3</td>
+<td>Catalogue of <strong>definite relationships</strong> with expectation profiles <strong>E(r)</strong>; role charters; distinguishes relationship vs voluntary association</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Capability Institute</strong></td>
+<td>Cap, D5a</td>
+<td>Builds <strong>capacity</strong> (<em>kshamata</em>), <strong>ability</strong> (<em>yogyata</em>), <strong>receptivity</strong> (<em>patrata</em>) — onboarding, mentorship, study environment</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Value &amp; Justice Office</strong></td>
+<td>Val, D4, D7</td>
+<td>Maps <strong>graded values</strong> per relationship; supports justice cycle ρ → φ → μ → mutual satisfaction</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Evaluation Forum</strong></td>
+<td>Eval, μ, D6</td>
+<td>Understanding-based assessment of value delivered vs inherent; guards over/under/mis-evaluation</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Evidence &amp; Tradition Office</strong></td>
+<td>Ev, D13</td>
+<td>Conduct others can recognise (<em>pramanikta</em>); records awakened tradition; closes evidence loop</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Composition Office</strong></td>
+<td>Comp, κ, D8</td>
+<td>Team formation, mergers, partnerships; <strong>mixture vs compound</strong> decisions; <strong>L3</strong> admissibility</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>Integration Office</strong></td>
+<td>Soc, L4, P6</td>
+<td>Glues Clusters: <strong>overlap compatibility</strong> on shared people, clients, and resources</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>Transmission Institute</strong></td>
+<td>Trans, τ, L5</td>
+<td>Education-<em>sanskar</em> for every cohort; mentor lineage; succession — evidenced understanding, not rules alone</td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>Conduct Division</strong></td>
+<td>Conduct, φ</td>
+<td>Product, service, and operations that <strong>fulfil</strong> external and internal relationships</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>Right-Use &amp; Regeneration</strong></td>
+<td>P5, η</td>
+<td>Uniform right-use across domains; resource use bounded by regeneration</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Headcount allocation (60-member example):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>FTE</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Steward Council</td>
+<td>5</td>
+<td>Part-time rotation; includes Chief Steward</td>
+</tr>
+<tr>
+<td>Offices 1–10</td>
+<td>18</td>
+<td>~2 per office at this scale; Transmission Institute largest (4 FTE)</td>
+</tr>
+<tr>
+<td>Conduct Division — Family Teams</td>
+<td>30</td>
+<td>6 teams × 5 delivery FTE (others in Cap/Trans rotation)</td>
+</tr>
+<tr>
+<td>Conduct Division — leads &amp; glue</td>
+<td>4</td>
+<td>Cluster stewards, Conduct Division coordinator</td>
+</tr>
+<tr>
+<td>Right-Use &amp; Regeneration</td>
+<td>3</td>
+<td>Facilities, procurement, ecological accounts</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>60</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>5. Family Team structure (compound unit)</h2>
+<p>Each <strong>Family Team</strong> is a compound assembly: members discard separate outward conducts and present <strong>one team conduct</strong> with a written <strong>sig(team)</strong> = ⟨form, properties, essential nature, <em>dharma</em>⟩ (<a href="../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> D1, D8).</p>
+<div class="mermaid">
+flowchart LR
+    subgraph FT ["Family Team (compound)"]
+        TL["Team Steward"]
+        MR["Mentor"]
+        PR["Producers × 3–5"]
+        RC["Receptivity & Records"]
+        TL --> PR
+        MR --> PR
+        RC --> TL
+    end
+    EXT["Client / Partner / Earth-tier"] --> PR
+</div>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Relationship (E(r))</th>
+<th>Value primarily flowing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Team Steward</strong></td>
+<td>Stewardship ↔ team members</td>
+<td>Protection, nurturing, resolution of blockers — not command-for-extraction</td>
+</tr>
+<tr>
+<td><strong>Mentor</strong></td>
+<td>Teacher ↔ learner</td>
+<td>Understanding transmitted; cap(u) development</td>
+</tr>
+<tr>
+<td><strong>Producers</strong></td>
+<td>Usefulness ↔ recipient</td>
+<td>Object value + established values in delivery</td>
+</tr>
+<tr>
+<td><strong>Receptivity &amp; Records</strong></td>
+<td>Evidence ↔ team</td>
+<td>Documents φ; feeds Evaluation Forum and Transmission Institute</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Team size:</strong> 7–12. Below 7, insufficient complementarity; above 12, prefer <strong>compound</strong> split into two teams with L3 need/surplus between them.</p>
+<h2>6. Definite relationships (company-wide registry)</h2>
+<p>The Relationship Registry maintains these <strong>knowledge-order</strong> relationships (<a href="../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> §4; JV p. 109 cited in template §4):</p>
+<table>
+<thead>
+<tr>
+<th>Relationship</th>
+<th>Parties</th>
+<th>Expectation profile (summary)</th>
+<th>Value class</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Stewardship</strong></td>
+<td>Steward Council ↔ all members</td>
+<td>Conducive environment; no instrumentalisation; nurturing</td>
+<td>Established + civic</td>
+</tr>
+<tr>
+<td><strong>Mentorship</strong></td>
+<td>Mentor ↔ member</td>
+<td>Understanding passed; cap(u) improved</td>
+<td>Established</td>
+</tr>
+<tr>
+<td><strong>Production</strong></td>
+<td>Producer ↔ client/user</td>
+<td>Usefulness-complementarity; purposeful-use</td>
+<td>Object + established</td>
+</tr>
+<tr>
+<td><strong>Peer complementarity</strong></td>
+<td>Family Team ↔ Family Team</td>
+<td>Surplus meets need; no internal zero-sum competition (L2)</td>
+<td>Object + civic</td>
+</tr>
+<tr>
+<td><strong>Earth-tier use</strong></td>
+<td>Company ↔ land, energy, materials</td>
+<td>Right-use; expenditure ≤ regeneration (P5)</td>
+<td>Civic</td>
+</tr>
+<tr>
+<td><strong>Succession</strong></td>
+<td>Outgoing ↔ incoming member</td>
+<td>τ: method of composition transmitted</td>
+<td>Established</td>
+</tr>
+<tr>
+<td><strong>Evaluation</strong></td>
+<td>Member ↔ member (via Forum)</td>
+<td>Honest μ on value delivered in role</td>
+<td>Established</td>
+</tr>
+</tbody>
+</table>
+<p>Associations (voluntary projects, hobbies) are logged separately and <strong>do not</strong> inherit fixed E(r) until adopted as relationships.</p>
+<h2>7. Graded values in practice</h2>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>SCW examples</th>
+<th>Where monitored</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Object</strong></td>
+<td>Quality of deliverable; usefulness of service</td>
+<td>Value Office + client feedback</td>
+</tr>
+<tr>
+<td><strong>Jeevan</strong></td>
+<td>Member peace, contentment at work</td>
+<td>Capability Institute (not KPI-targeted)</td>
+</tr>
+<tr>
+<td><strong>Established</strong></td>
+<td>Trust, respect, affection, gratitude in teams</td>
+<td>Evaluation Forum + peer review</td>
+</tr>
+<tr>
+<td><strong>Civic</strong></td>
+<td>Right-use of body, mind, wealth; participation in orderliness</td>
+<td>Right-Use Office + Steward Council</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Trust</strong> is the value deposited when fulfilment φ succeeds in a relationship (<a href="../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> D7a). Justice is the <strong>operation</strong> on values, not a poster slogan.</p>
+<h2>8. Three completeness stages (milestones)</h2>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Name</th>
+<th>SCW milestone checklist</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>T1 — Constitutional</strong></td>
+<td><em>Gathanpurnata</em></td>
+<td>Charter ratified; all relationships in registry; Family Teams formed as <strong>compound</strong> units; cause/goal/programme published</td>
+</tr>
+<tr>
+<td><strong>T2 — Activity</strong></td>
+<td><em>Kriyapurnata</em></td>
+<td>Programmes run; φ in daily work; cap(u) converts to effort; Clusters glued with compatible overlaps</td>
+</tr>
+<tr>
+<td><strong>T3 — Conduct</strong></td>
+<td><em>Vyavaharpurnata</em></td>
+<td>Conduct evidenced externally (<em>pramanikta</em>); D13 loop closed; Transmission Institute producing awakened tradition</td>
+</tr>
+</tbody>
+</table>
+<p>T2–T3 are <strong>awakening progression</strong> inside an already-constituted company — not the same as hiring more people (<a href="../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf"><em>Category Theory Explained</em></a> §6.2.1, §6.10).</p>
+<h2>9. Governance and decision rights</h2>
+<table>
+<thead>
+<tr>
+<th>Decision type</th>
+<th>Decides</th>
+<th>Guard</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cause, goal, programme</td>
+<td>Steward Council + all-member consent</td>
+<td>P4</td>
+</tr>
+<tr>
+<td>New <strong>compound</strong> team or Cluster</td>
+<td>Composition Office + L3 proof + Integration Office</td>
+<td>κ_comp, not κ_mix</td>
+</tr>
+<tr>
+<td>Federation / alliance</td>
+<td>Steward Council + Integration Office overlap audit</td>
+<td>Soc colimit — P6</td>
+</tr>
+<tr>
+<td>Relationship recognition</td>
+<td>Relationship Registry + affected parties</td>
+<td>ρ</td>
+</tr>
+<tr>
+<td>Value dispute</td>
+<td>Evaluation Forum → Value Office</td>
+<td>μ</td>
+</tr>
+<tr>
+<td>Resource draw on nature</td>
+<td>Right-Use Office</td>
+<td>P5 regeneration bound</td>
+</tr>
+<tr>
+<td>Member onboarding / offboarding</td>
+<td>Transmission Institute + Mentor</td>
+<td>τ evidenced</td>
+</tr>
+<tr>
+<td>Right-use claim company-wide</td>
+<td>Must pass <strong>naturality</strong> — all domains upgraded together</td>
+<td>η (<a href="../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf"><em>Category Theory Explained</em></a> §6.7)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Chief Steward</strong> coordinates stewards; <strong>does not</strong> own surplus extraction from members. Profit, where it arises, is <strong>circularity for family needs and reinvestment in transmission</strong>, not unbounded accumulation (<a href="../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> §8; MVD p. 265 cited there).</p>
+<h2>10. Operating rhythms</h2>
+<table>
+<thead>
+<tr>
+<th>Rhythm</th>
+<th>Owner</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Weekly — team φ review</strong></td>
+<td>Family Team</td>
+<td>Relationships recognised? Values flowing? cap blockers?</td>
+</tr>
+<tr>
+<td><strong>Monthly — Cluster glue check</strong></td>
+<td>Integration Office</td>
+<td>Shared clients/members: contradictory E(r)?</td>
+</tr>
+<tr>
+<td><strong>Quarterly — μ forum</strong></td>
+<td>Evaluation Forum</td>
+<td>Evaluation quality; mis-evaluation correction</td>
+</tr>
+<tr>
+<td><strong>Quarterly — evidence audit</strong></td>
+<td>Evidence &amp; Tradition Office</td>
+<td>D13 loop; conduct manifest?</td>
+</tr>
+<tr>
+<td><strong>Per cohort — transmission</strong></td>
+<td>Transmission Institute</td>
+<td>Education-<em>sanskar</em> for every new member</td>
+</tr>
+<tr>
+<td><strong>Annual — completeness review</strong></td>
+<td>Steward Council</td>
+<td>T1/T2/T3 progress; P4 programme still common</td>
+</tr>
+</tbody>
+</table>
+<h2>11. Onboarding pipeline (τ)</h2>
+<p>Every new member passes through Transmission Institute — <strong>ignorance cannot flow in tradition</strong> (<a href="../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> §6; JV p. 49 cited there).</p>
+<div class="mermaid">
+flowchart LR
+    A["Offer + relationship charter"] --> B["Cause, goal, programme study"]
+    B --> C["Registry: E(r) for role"]
+    C --> D["Mentor assigned — cap(u) plan"]
+    D --> E["Shadow fulfilment φ"]
+    E --> F["Evidence review"]
+    F --> G["Full member — compound team"]
+</div>
+<p>Minimum duration: <strong>90 days</strong> before full membership in a compound Family Team.</p>
+<h2>12. Growth and merger rules</h2>
+<p><strong>Admissible growth (L3):</strong> New team or hire when a documented <strong>need</strong> in one unit complements <strong>surplus</strong> in another (<a href="../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf"><em>Category Theory Explained</em></a> §6.9.1).</p>
+<p><strong>Admissible merger:</strong> Only when Integration Office certifies:</p>
+<ol>
+<li><strong>Compatible values</strong> on all shared members and shared accounts (P6 / Soc).</li>
+<li><strong>Compound</strong> intent — fused conduct, new sig(assembly), not co-located silos.</li>
+<li><strong>Transmission</strong> plan for combined culture — τ_ev, not policy deck alone (P16).</li>
+</ol>
+<p><strong>Reject</strong> when: contradictory expectations on the same person; mixture presented as merger; selective right-use (η fails naturality).</p>
+<h2>13. Failure diagnostic (reverse use)</h2>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Likely clause broken</th>
+<th>First responder</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Culture collapse after hiring spree</td>
+<td>κ_mix not κ_comp; τ weak</td>
+<td>Composition + Transmission</td>
+</tr>
+<tr>
+<td>High turnover</td>
+<td>τ / L5</td>
+<td>Transmission Institute</td>
+</tr>
+<tr>
+<td>Toxic high performer</td>
+<td>μ skipped; values not in E(r)</td>
+<td>Evaluation Forum</td>
+</tr>
+<tr>
+<td>Green team / exploitative HR</td>
+<td>η non-uniform right-use</td>
+<td>Right-Use + Steward Council</td>
+</tr>
+<tr>
+<td>Merger dysfunction</td>
+<td>Soc — overlap conflict</td>
+<td>Integration Office</td>
+</tr>
+<tr>
+<td>Burnout</td>
+<td>Extraction culture; A1–A2 inverted</td>
+<td>Steward Council</td>
+</tr>
+<tr>
+<td>Metric gaming</td>
+<td>Maximisation pathology</td>
+<td>Value Office</td>
+</tr>
+</tbody>
+</table>
+<h2>14. What this structure is not</h2>
+<ul>
+<li><strong>Not</strong> a conventional command hierarchy optimised for shareholder extraction.</li>
+<li><strong>Not</strong> self-sufficient proof of coexistence — metaphysical premises remain commitments (<a href="../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> §9).</li>
+<li><strong>Not</strong> derivable from category theory alone — L3 complementarity, τ, and saturation are <strong>designed in</strong> (<a href="../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf"><em>Category Theory Explained</em></a> §6.11 P8–P9, P16).</li>
+</ul>
+<p>SCW is a <strong>template instance</strong>: bounded units, definite valued relationships, compound assembly by complementarity, persistence by fulfilment, transmission by education-<em>sanskar</em>, evaluation and evidence at the knowledge tier — structured so longevity and balance are <strong>construction requirements</strong>, not afterthoughts.</p>
+<h2>References</h2>
+<h3>Application basis (this repository)</h3>
+<ul>
+<li><a href="../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> — formal template: units, relationships, values, κ, τ, L1–L7, P3–P5, §8 human organisations</li>
+<li><a href="../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf"><em>Category Theory Explained</em></a> — categorical architecture §6.1; cap(u) §6.6.1; right-use §6.7; society colimit §6.8; mixture/compound §6.9; propositions P6, P8–P9, P16</li>
+</ul>
+<script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+mermaid.initialize({
+  startOnLoad: true,
+  theme: "neutral",
+  securityLevel: "loose",
+  flowchart: { htmlLabels: true, useMaxWidth: true },
+});
+</script>
+
+</body>
+</html>

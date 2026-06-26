@@ -11,6 +11,8 @@ Scripts/_pdf_cache/
 !References/**/*.html
 !Studies/index.html
 !Studies/submit.html
+!Studies/*/*.html
+!Applications/*/*.html
 !/index.html
 
 infra/worker/.wrangler/

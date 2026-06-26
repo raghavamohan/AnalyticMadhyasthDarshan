@@ -42,6 +42,9 @@ watermark when appropriate, and **verifies Mermaid diagrams** in the output PDF.
 3. `_verify_pdf_diagrams.py` — fail if raw Mermaid syntax remains in the PDF
 4. `_verify_pdf_fenced_code.py` — fail if fenced ` ```text ` / code lines are clipped in the PDF
 
+The pipeline **keeps** the companion `.html` (web read view with toolbar and Mermaid);
+it is not deleted after PDF generation.
+
 Manual steps (debugging only):
 
 ```powershell
@@ -50,8 +53,9 @@ python Scripts/_convert_to_pdf.py Studies/<Slug>/<Slug>.md
 node Scripts/_html_to_pdf.js Studies/<Slug>/<Slug>.html Draft
 python Scripts/_verify_pdf_diagrams.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf
 python Scripts/_verify_pdf_fenced_code.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf
-Remove-Item Studies/<Slug>/<Slug>.html
 ```
+
+Do not delete `Studies/<Slug>/<Slug>.html` — it is the published read view.
 
 ## Study SVG figures
 
@@ -80,9 +84,10 @@ flowchart TD
 
 - [ ] Referenced SVG figures pass `python Scripts/_verify_study_svgs.py Studies/<Slug>/<Slug>.md`
 - [ ] `Studies/<Slug>/<Slug>.pdf` updated
+- [ ] `Studies/<Slug>/<Slug>.html` updated (published read view; kept by the pipeline)
 - [ ] No raw `flowchart TD` / `graph LR` visible in PDF when Mermaid blocks exist
 - [ ] `**Edited on:**` and catalog **Last updated on** match (if content changed)
-- [ ] Intermediate `.html` deleted (pipeline removes it)
+- [ ] Intermediate `.html` is the published study page (not a throwaway artifact)
 
 ## Rules
 

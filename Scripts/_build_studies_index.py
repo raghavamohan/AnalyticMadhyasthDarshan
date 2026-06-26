@@ -439,6 +439,36 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   .badge.planned .badge-dot { background: var(--warm); }
   .read-link { color: var(--accent); text-decoration: none; font-weight: 600; white-space: nowrap; }
   .read-link:hover { color: var(--accent-hover); }
+  .card-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+  }
+  .pdf-download {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid #c5d9e6;
+    border-radius: 8px;
+    text-decoration: none;
+    flex: 0 0 auto;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+  .pdf-download:hover {
+    color: var(--accent-hover);
+    background: #d4e6f2;
+    border-color: #a5c4d9;
+  }
+  .pdf-download svg {
+    width: 16px;
+    height: 16px;
+    display: block;
+  }
   .empty {
     font-family: var(--sans); font-size: 13px; color: var(--text-muted);
     background: var(--surface); border: 1px dashed var(--border);
@@ -498,6 +528,8 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     .btn-reset-filters { background: #1e1b18; }
     .btn-reset-filters:disabled { color: #6f655a; }
     .card.is-available:hover { box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5); }
+    .pdf-download { background: #233e52; border-color: #3d6278; color: #7ebbed; }
+    .pdf-download:hover { background: #2f4f63; border-color: #5ba3d3; color: #b8daf3; }
     .triad-item.t3 { border-top: 3px solid #6f655a; } .triad-item.t3 .k { color: #aca194; }
     .field {
       background-color: #1e1b18;
@@ -712,7 +744,8 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       updated: entry.updated || null,
       cats: entry.categories || [],
       d: entry.description || "",
-      pdf: entry.pdf || null
+      pdf: entry.pdf || null,
+      html: entry.html || null
     }));
   };
 
@@ -844,18 +877,26 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     return digits ? `?v=${digits}` : "";
   };
 
+  const studyHtmlHref = s => {
+    const base = s.html || (s.pdf ? s.pdf.replace(/\\.pdf$/i, ".html") : `${s.slug}/${s.slug}.html`);
+    return `${base}${pdfVersionQuery(s.updated)}`;
+  };
+
   const studyPdfHref = s => {
     const base = s.pdf || `${s.slug}/${s.slug}.pdf`;
     return `${base}${pdfVersionQuery(s.updated)}`;
   };
 
+  const PDF_DOWNLOAD_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 3a1 1 0 0 1 1 1v9.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42l2.3 2.3V4a1 1 0 0 1 1-1Zm-7 14a1 1 0 0 1 1 1v1h12v-1a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1Z"/></svg>';
+
   const cardHTML = s => {
     const avail = isAvail(s);
     const chips = s.cats.map(c => `<button type="button" class="chip" data-cat="${c.replace(/"/g, "&quot;")}">${c}</button>`).join("");
+    const htmlHref = avail ? studyHtmlHref(s) : null;
     const pdfHref = avail ? studyPdfHref(s) : null;
-    const titleInner = avail ? `<a href="${pdfHref}">${s.t}</a>` : s.t;
+    const titleInner = avail ? `<a href="${htmlHref}">${s.t}</a>` : s.t;
     const foot = avail
-      ? `<span class="badge available"><span class="badge-dot"></span>${s.status === "released" ? "Released" : "Draft"}</span><a class="read-link" href="${pdfHref}">Read PDF &rarr;</a>`
+      ? `<span class="badge available"><span class="badge-dot"></span>${s.status === "released" ? "Released" : "Draft"}</span><span class="card-actions"><a class="read-link" href="${htmlHref}">Read</a><a class="pdf-download" href="${pdfHref}" download title="Download PDF" aria-label="Download PDF for ${escAttr(s.t)}">${PDF_DOWNLOAD_ICON}</a></span>`
       : `<span class="badge planned"><span class="badge-dot"></span>Planned</span><span>Not yet published</span>`;
     const dateLine = avail && s.updated
       ? `<div class="card-foot" style="border:none;padding:6px 0 0;color:#9a8f80;">Updated ${s.updated}</div>`
