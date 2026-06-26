@@ -2,8 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 26, 2026, 6:32 AM IST
-
+**Edited on:** June 26, 2026, 10:28 AM IST
 **Status:** Draft
 
 **The question:** What does category theory clarify about the structure of Madhyasth Darshan — and where does that notation stop?

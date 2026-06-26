@@ -307,10 +307,23 @@
     renderCatalog();
   };
 
+  const pdfVersionQuery = updated => {
+    if (!updated) return "";
+    const t = Date.parse(String(updated).replace(/\s+IST\s*$/i, " GMT+0530"));
+    if (Number.isFinite(t)) return `?v=${t}`;
+    const digits = String(updated).replace(/[^0-9]/g, "");
+    return digits ? `?v=${digits}` : "";
+  };
+
+  const studyPdfHref = s => {
+    const base = s.pdf || `${s.slug}/${s.slug}.pdf`;
+    return `${base}${pdfVersionQuery(s.updated)}`;
+  };
+
   const cardHTML = s => {
     const avail = isAvail(s);
     const chips = s.cats.map(c => `<button type="button" class="chip" data-cat="${c.replace(/"/g, "&quot;")}">${c}</button>`).join("");
-    const pdfHref = s.pdf || `${s.slug}/${s.slug}.pdf`;
+    const pdfHref = avail ? studyPdfHref(s) : null;
     const titleInner = avail ? `<a href="${pdfHref}">${s.t}</a>` : s.t;
     const foot = avail
       ? `<span class="badge available"><span class="badge-dot"></span>${s.status === "released" ? "Released" : "Draft"}</span><a class="read-link" href="${pdfHref}">Read PDF &rarr;</a>`

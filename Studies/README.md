@@ -28,19 +28,19 @@ Select any linked title to open the full study. Titles shown in italics are stil
 <!-- studies-catalog -->
 | Document | Category | Description | Status |
 |----------|----------|-------------|--------|
-| [The Ontology of Coexistence](The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) | Ontology | Existence, what exists, beginninglessness, self persistence, world reality, saturation, causation, orders, sentience, and conservation — Madhyasth Darshan compared with Advaita Vedanta and modern philosophy | Draft<br>Last updated on: Jun 26, 2026, 7:23 AM IST |
-| [Nature of Time](Nature-Of-Time/Nature-Of-Time.pdf) | Ontology | The nature of time (kaal), timeless satta, activity and duration, and comparison with Advaita, philosophy of time, and physics | Draft<br>Last updated on: Jun 24, 2026, 7:27 AM IST |
-| [Why Humans Are Not Just Material](Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.pdf) | Philosophical Anthropology | Madhyasth Darshan, science, and Advaita Vedanta on whether humans are more than matter | Draft<br>Last updated on: Jun 24, 2026, 7:27 AM IST |
+| [The Ontology of Coexistence](The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) | Ontology | Existence, what exists, beginninglessness, self persistence, world reality, saturation, causation, orders, sentience, and conservation — Madhyasth Darshan compared with Advaita Vedanta and modern philosophy | Draft<br>Last updated on: Jun 26, 2026, 10:28 AM IST |
+| [Nature of Time](Nature-Of-Time/Nature-Of-Time.pdf) | Ontology | The nature of time (kaal), timeless satta, activity and duration, and comparison with Advaita, philosophy of time, and physics | Draft<br>Last updated on: Jun 26, 2026, 10:28 AM IST |
+| [Why Humans Are Not Just Material](Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.pdf) | Philosophical Anthropology | Madhyasth Darshan, science, and Advaita Vedanta on whether humans are more than matter | Draft<br>Last updated on: Jun 26, 2026, 10:28 AM IST |
 | *Philosophy of Mind and Jeevan* <!-- slug: Philosophy-Of-Mind-And-Jeevan --> | Philosophy of Mind | Jeevan, mun, vritti, chitta, buddhi, atma, desire, imagination, selection, delusion, and awakening | Ongoing |
-| [Knowledge Knower and Known](Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) | Epistemology | Comparative study of knowledge, knower, and known in Madhyasth Darshan, Advaita Vedanta, and Modern Philosophy | Draft<br>Last updated on: Jun 26, 2026, 7:23 AM IST |
+| [Knowledge Knower and Known](Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) | Epistemology | Comparative study of knowledge, knower, and known in Madhyasth Darshan, Advaita Vedanta, and Modern Philosophy | Draft<br>Last updated on: Jun 26, 2026, 10:28 AM IST |
 | *Methodology and Hermeneutics* <!-- slug: Methodology-And-Hermeneutics --> | Methodology | Primary-text method, translation issues, citation discipline, interpretation, comparison, and rigorous study practice | Ongoing |
 | *Axiology Value Theory* <!-- slug: Axiology-Value-Theory --> | Axiology | Values, value-recognition, value-fulfilment, mutual satisfaction, and the structure of humane value theory | Ongoing |
-| [Ethics and Morals in Human Beings](Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf) | Ethics, Axiology | Ethics, morals, humane conduct, Advaita Vedanta, and modern moral science | Draft<br>Last updated on: Jun 18, 2026, 9:40 PM IST |
+| [Ethics and Morals in Human Beings](Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf) | Ethics, Axiology | Ethics, morals, humane conduct, Advaita Vedanta, and modern moral science | Draft<br>Last updated on: Jun 26, 2026, 10:28 AM IST |
 | *Family Relationships and Values* <!-- slug: Family-Relationships-And-Values --> | Relationships, Axiology | Family, relationship-recognition, values, trust, affection, gratitude, and mutual satisfaction | Ongoing |
 | *Education and Sanskar* <!-- slug: Education-And-Sanskar --> | Education | Education, sanskar, study, awakening, and how understanding is transmitted across generations | Ongoing |
-| [Aesthetics](Aesthetics/Aesthetics.pdf) | Aesthetics, Axiology | Aesthetics, beauty, art, Advaita Vedanta, and modern philosophy from a Madhyasth Darshan standpoint | Draft<br>Last updated on: Jun 19, 2026, 7:48 AM IST |
-| [Human Behavior and Society](Human-Behavior-And-Society/Human-Behavior-And-Society.pdf) | Social Philosophy, Ethics, Axiology | Behaviour, ethics, and social organisation in the darshan | Draft<br>Last updated on: Jun 24, 2026, 7:27 AM IST |
-| [How to Form Self-Sustaining Organizations](How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.pdf) | Social Philosophy, Axiology | Organisations that sustain without instrumentalising their members | Draft<br>Last updated on: Jun 18, 2026, 9:40 PM IST |
+| [Aesthetics](Aesthetics/Aesthetics.pdf) | Aesthetics, Axiology | Aesthetics, beauty, art, Advaita Vedanta, and modern philosophy from a Madhyasth Darshan standpoint | Draft<br>Last updated on: Jun 26, 2026, 10:28 AM IST |
+| [Human Behavior and Society](Human-Behavior-And-Society/Human-Behavior-And-Society.pdf) | Social Philosophy, Ethics, Axiology | Behaviour, ethics, and social organisation in the darshan | Draft<br>Last updated on: Jun 26, 2026, 10:28 AM IST |
+| [How to Form Self-Sustaining Organizations](How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.pdf) | Social Philosophy, Axiology | Organisations that sustain without instrumentalising their members | Draft<br>Last updated on: Jun 26, 2026, 10:28 AM IST |
 | *Governance Justice and Undivided Society* <!-- slug: Governance-Justice-And-Undivided-Society --> | Political Philosophy, Axiology | Justice, governance, law, fearlessness, public order, and undivided society | Ongoing |
 | *Prosperity Economics and Right Use* <!-- slug: Prosperity-Economics-And-Right-Use --> | Economics, Axiology | Prosperity, production, cyclical economics, right-use of wealth, and limits to accumulation | Ongoing |
 | *Nature Ecology and Right Use* <!-- slug: Nature-Ecology-And-Right-Use --> | Ecology, Axiology | Nature, Earth, right-use, regeneration, ecological balance, and coexistence with the other orders | Ongoing |
@@ -55,8 +55,8 @@ These studies are more mathematical in nature. They represent the structure disc
 <!-- formal-studies-catalog -->
 | Document | Formal Focus | Description | Status |
 |----------|--------------|-------------|--------|
-| [Category Theory Explained](Category-Theory-Explained/Category-Theory-Explained.pdf) | Formal structure | Category-theory lens on the darshan's structure | Draft<br>Last updated on: Jun 26, 2026, 6:32 AM IST |
-| [The Coexistence Template](The-Coexistence-Template/The-Coexistence-Template.pdf) | Formal structure | Formal template of units, relationships, values, and assembly | Draft<br>Last updated on: Jun 26, 2026, 6:32 AM IST |
+| [Category Theory Explained](Category-Theory-Explained/Category-Theory-Explained.pdf) | Formal structure | Category-theory lens on the darshan's structure | Draft<br>Last updated on: Jun 26, 2026, 10:28 AM IST |
+| [The Coexistence Template](The-Coexistence-Template/The-Coexistence-Template.pdf) | Formal structure | Formal template of units, relationships, values, and assembly | Draft<br>Last updated on: Jun 26, 2026, 10:28 AM IST |
 <!-- /formal-studies-catalog -->
 
 ### Applied studies
@@ -66,7 +66,7 @@ These papers apply the formal template and categorical architecture to concrete 
 <!-- applied-studies-catalog -->
 | Document | Applied Focus | Description | Status |
 |----------|---------------|-------------|--------|
-| [Coexistence Company — Concrete Organizational Structure](../Applications/Coexistence-Company-Org-Structure/Coexistence-Company-Org-Structure.pdf) | Organizational design | Organisational blueprint instantiating the coexistence template for a deliberate knowledge-work company | Draft<br>Last updated on: Jun 24, 2026, 8:55 PM IST |
+| [Coexistence Company — Concrete Organizational Structure](../Applications/Coexistence-Company-Org-Structure/Coexistence-Company-Org-Structure.pdf) | Organizational design | Organisational blueprint instantiating the coexistence template for a deliberate knowledge-work company | Draft<br>Last updated on: Jun 26, 2026, 10:28 AM IST |
 <!-- /applied-studies-catalog -->
 
 ## How we work
