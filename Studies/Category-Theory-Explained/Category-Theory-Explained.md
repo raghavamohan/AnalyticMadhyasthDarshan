@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 26, 2026, 5:13 AM IST
+**Edited on:** June 26, 2026, 6:32 AM IST
 
 **Status:** Draft
 
@@ -110,7 +110,7 @@ The formalism does not *prove* this; it *records* it cleanly, so the claim is ex
 
 ### 3.2 A human being: an actor and an instrument
 
-The darshan says a human is **body + `jeevan`** (the sentient self), and crucially that these are not equal partners: `jeevan` is the actor, the body is its instrument. *Jeevan* is a **constitutionally complete composite atom** (*gathanpurna parmanu*) — a self-maintaining sentient unit, not an elementary particle of physics ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.8).
+The darshan says a human is **body + `jeevan`** (the sentient self), and crucially that these are not equal partners: `jeevan` is the actor, the body is its instrument. *Jeevan* is a **constitutionally complete composite atom** (*gathanpurna parmanu*) — a self-maintaining sentient unit, not an elementary particle of physics ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §§1.5, 1.9).
 
 A natural first guess is to write this as a simple pair, "Human = Body and Jeevan." That turns out to be the **wrong** picture, because a "pair" suggests two equal, separable halves. A better plain-language picture is:
 
@@ -377,7 +377,7 @@ U(humane transition) = the underlying physical change
 
 **Does `U` have a left adjoint (a "free jeevan" functor)?** A left adjoint would freely generate life/value from bare matter.
 
-- **Premise (stated):** *gathanpurnata* is reached by irreversible **Development Progression** (*vikas-kram*) through effort–motion–result (*shram–gati–parinam*), not a free, uniform construction ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §§1.6, 1.8).
+- **Premise (stated):** *gathanpurnata* is reached by irreversible **Development Progression** (*vikas-kram*) through effort–motion–result (*shram–gati–parinam*), not a free, uniform construction ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §§1.8–1.9).
 - **Conditional conclusion:** *if* development is selective and irreversible, there is **no left adjoint with iso unit**; "adding life freely to matter" is not a structural operation.
 
 **What this does not do.** It does not show the premise is true. A physicalist who denies the value-distinct premise keeps `U` faithful and is untouched.
@@ -561,12 +561,12 @@ At the knowledge tier, a successful **compound** κ (§6.9) — not merely mixtu
 
 ### 6.9 Composition: mixture and compound (κ)
 
-Template D8 distinguishes two modes of composition κ (MVD p. 42; [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.5):
+Template D8 distinguishes two modes of composition κ (MVD p. 42; [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.8):
 
 - **Mixture** (*mishran*): components **all maintain their respective conducts** — aggregation without a new joint conduct.
 - **Compound** (*yaugik*): components combine **in definite proportion**, **discard their own conducts**, and **present another kind of conduct** — a genuinely new unit with its own **sig(*u*) = ⟨roop, gun, svabhav, dharma⟩**, where **gun** is generative, degenerative, or mediative in mutuality (MVD pp. 50–51; template D1, D1a).
 
-**Only compound-mode κ creates a new tier** of the hierarchy (template L6). **Composition is not development** ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.5): arbitrary coproducts and colimits do not model ontological order ascent; only admissible compound-mode κ_comp along *vikas-kram* reaches T1. Development Progression (*vikas-kram*) toward *gathanpurnata* is the canonical **compound** path (MVD p. 8; SB pp. 55, 59). Awakening Progression (*jagriti-kram*) runs in already constitutionally complete *jeevan* and must not be conflated with material-tier κ ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.5).
+**Only compound-mode κ creates a new tier** of the hierarchy (template L6). **Composition is not development** ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.8): arbitrary coproducts and colimits do not model ontological order ascent; only admissible compound-mode κ_comp along *vikas-kram* reaches T1. Development Progression (*vikas-kram*) toward *gathanpurnata* is the canonical **compound** path (MVD p. 8; SB pp. 55, 59). Awakening Progression (*jagriti-kram*) runs in already constitutionally complete *jeevan* and must not be conflated with material-tier κ ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §§1.9–1.10).
 
 #### Categorical semantics: two colimit-like constructors
 
@@ -645,7 +645,7 @@ Only admissible spans define κ_comp transitions. This is proposition **P9** res
 
 ### 6.10 Development as a monoidal/Petri process
 
-**Development Progression** (*vikas-kram*) — distinct from **Awakening Progression** (*jagriti-kram*) in already constitutionally complete *jeevan* ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §§1.5, 1.8–1.9) — runs through effort–motion–result (*shram–gati–parinam*), read toward completeness at each stage: result → constitutional completeness; effort → activity completeness; motion → conduct completeness (SB p. 58). *Kaal* is the duration of that activity, not an independent container ([Nature of Time](../Nature-Of-Time/Nature-Of-Time.pdf) §1.1).
+**Development Progression** (*vikas-kram*) — distinct from **Awakening Progression** (*jagriti-kram*) in already constitutionally complete *jeevan* ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §§1.8–1.9) — runs through effort–motion–result (*shram–gati–parinam*), read toward completeness at each stage: result → constitutional completeness; effort → activity completeness; motion → conduct completeness (SB p. 58). *Kaal* is the duration of that activity, not an independent container ([Nature of Time](../Nature-Of-Time/Nature-Of-Time.pdf) §1.1).
 
 Hungry/overfull atomic bonding is **compound-mode** κ_comp guarded by L3 (§6.9.1). The progression is **resource-sensitive**, best modelled by a **symmetric monoidal category** (equivalently the free such category on a Petri net), where the tensor is co-presence of resources and **transitions consume inputs to produce outputs**.
 
@@ -657,7 +657,7 @@ Hungry/overfull atomic bonding is **compound-mode** κ_comp guarded by L3 (§6.9
 | *jagriti-kram* (in `Liv`; not κ_comp) | awaken | deluded K-order unit | deific plane | T2: activity completeness |
 | *jagriti-kram* (in `Liv`; not κ_comp) | evidence | awakened K-order unit | divine plane | T3: conduct completeness; *pramanikta* via `ev` |
 
-**Mixture transitions** (if included) are **identity-preserving** on each factor — token duplication without fusion — and do **not** advance Development Progression toward a new tier. Likewise, social colimits (§6.8) and large assemblies do **not** substitute for order transition: composition is not development ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.5).
+**Mixture transitions** (if included) are **identity-preserving** on each factor — token duplication without fusion — and do **not** advance Development Progression toward a new tier. Likewise, social colimits (§6.8) and large assemblies do **not** substitute for order transition: composition is not development ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.8).
 
 Transitions toward *gathanpurnata* are generally **not invertible** — the constitutionally complete atom does not revert to insentient configuration (SB p. 55). Insentient cycles may still exhibit **cyclical restoration** in exchange (SB pp. 52–53; [Nature of Time](../Nature-Of-Time/Nature-Of-Time.pdf) §3.5). The Petri model captures **bookkeeping** of compound κ along *vikas-kram*, not metaphysical content, and would equally model "matter + effort → magic." Structure cannot certify content.
 
@@ -817,6 +817,8 @@ flowchart LR
     Ri --> So["Undivided society"]
 ```
 
+Assembly-scale closure evidences resolution, prosperity, fearlessness, and coexistence when the justice cycle completes — [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.13; template D7, P1.
+
 
 ## References
 
@@ -828,7 +830,7 @@ flowchart LR
 
 ### Related studies in this collection
 
-- [*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — ontological exposition: coexistence, saturation, **regulation ladder** (§§1.7, 1.10.1), **law vs justice** (§1.10.1), inward regulation (§1.10), unit signature, *sambandh*, four orders and planes, *jeevan* and awakening, *gathanpurnata*, Development and Awakening Progression, activity triad, conservation
+- [*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — ontological exposition: coexistence, saturation, **regulation ladder** (§§1.7, 1.10.1), **law vs justice** (§1.10.1), six *drishti* and humane refuge (§1.10.1), inward regulation (§1.10), unit signature, *sambandh*, fulfilment by order (§1.6.1), four orders and planes, *jeevan* and awakening, *gathanpurnata*, Development and Awakening Progression, activity triad, conservation (§1.12), four human goals and provisions vs achievements (§1.13)
 - [*The Coexistence Template*](../The-Coexistence-Template/The-Coexistence-Template.pdf) — formal template (κ, τ, ρ, φ, μ, D2a–D2b regulation ladder, D12–D13, L7, L1–L6, D11, P6); reciprocal link at §7 and §6.1.1
 - [*Knowledge, Knower, and Known*](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) — evidence chain, *gyan udghatan*, *pramana* (§§1.2, 1.6–1.8)
 - [*Nature of Time*](../Nature-Of-Time/Nature-Of-Time.pdf) — *kaal* as duration of unit-activity; *shram–gati–parinam* and directional *vikas*
