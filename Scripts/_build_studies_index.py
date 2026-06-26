@@ -516,10 +516,9 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
   @media (max-width: 820px) {
     .page-nav { margin-top: 18px; margin-bottom: 18px; padding: 0; }
-    .page-nav-inner { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
-    .page-nav-inner::-webkit-scrollbar { display: none; }
-    .page-nav-label { flex: 0 0 auto; }
-    .toc { flex-wrap: nowrap; }
+    .page-nav-inner { flex-wrap: wrap; row-gap: 8px; }
+    .page-nav-label { flex: 0 0 100%; }
+    .toc { flex-wrap: wrap; flex: 1 1 100%; min-width: 0; }
     .section { scroll-margin-top: 56px; }
     .catalog-group { scroll-margin-top: 56px; }
     h1 { font-size: 30px; }
