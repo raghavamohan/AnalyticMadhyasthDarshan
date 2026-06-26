@@ -228,6 +228,8 @@ Reads **Status:** from the markdown and applies the Draft watermark when appropr
 
 `_regenerate_pdf.py` runs this pipeline:
 
+0. **`Scripts/_verify_study_svgs.py`** — before conversion, fails if any `![…](*.svg)`
+   referenced from the study is missing, not valid UTF-8, or malformed XML.
 1. **`Scripts/_convert_to_pdf.py`** — markdown → styled HTML (same basename, `.html`).
    Converts ` ```mermaid ` fenced blocks to `<div class="mermaid">` for rendering.
 2. **`Scripts/_html_to_pdf.js`** — loads Mermaid from `Scripts/node_modules`, renders
@@ -249,12 +251,45 @@ foreach ($s in $studies) {
 Manual single-study steps (only if needed):
 
 ```powershell
+python Scripts/_verify_study_svgs.py Studies/<Slug>/<Slug>.md
 python Scripts/_convert_to_pdf.py Studies/<Slug>/<Slug>.md
 node Scripts/_html_to_pdf.js Studies/<Slug>/<Slug>.html Draft
 python Scripts/_verify_pdf_diagrams.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf
 python Scripts/_verify_pdf_fenced_code.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf
 Remove-Item Studies/<Slug>/<Slug>.html
 ```
+
+### Study SVG figures
+
+Static diagrams live as `Studies/<Slug>/*.svg` and are referenced from the study
+markdown with `![alt text](figure.svg)`. They are embedded in HTML/PDF through
+Chromium; the file must parse as valid XML.
+
+**Encoding and characters**
+
+- Save every study SVG as **UTF-8** (matching `<?xml encoding="UTF-8"?>`).
+- In SVG `<text>` nodes, use **numeric XML entities** for special characters —
+  do not rely on editor defaults that may write Windows-1252 bytes:
+  - § → `&#167;`
+  - · → `&#183;`
+  - — → `&#8212;`
+  - → → `&#8594;`
+- A UTF-8-declared file that contains raw `0xA7` / `0xB7` bytes (Latin-1 § or ·)
+  is **invalid**, breaks XML parsing, and produces a broken or blank figure in the PDF.
+  This has recurred when section references (e.g. `§1.7 · §1.10.1`) were pasted into
+  diagram footers.
+
+**Verification**
+
+- `_verify_study_svgs.py` runs automatically at the start of `_regenerate_pdf.py`.
+- Run manually after editing any study SVG:
+
+```powershell
+python Scripts/_verify_study_svgs.py Studies/<Slug>/<Slug>.md
+python Scripts/_verify_study_svgs.py
+```
+
+The second form validates SVG figures for all studies.
 
 - **`Draft`** argument to `_html_to_pdf.js` — required for **Draft** studies. Omit for **Released**.
 - **Delete the intermediate `.html`** after PDF generation; it is a build artifact.
@@ -265,8 +300,9 @@ Remove-Item Studies/<Slug>/<Slug>.html
 - **Fully justified body paragraphs** — all `<p>` elements use `text-align: justify`
   (with `text-justify: inter-word` and `hyphens: auto`) in screen and print CSS;
   list items and table cells remain left-aligned — `_convert_to_pdf.py`
-- **Embedded study figures** — PNG (or other raster) images referenced from the
-  study `.md` (same directory) render in HTML/PDF with responsive width — `_convert_to_pdf.py`
+- **Embedded study figures** — PNG (or other raster) images and local **SVG** figures
+  referenced from the study `.md` render in HTML/PDF with responsive width —
+  `_convert_to_pdf.py`; SVG sources validated by `_verify_study_svgs.py` before conversion
 - **Mermaid flowcharts and diagrams** — fenced ` ```mermaid ` blocks become rendered SVG
   in the PDF via `_convert_to_pdf.py` + `_html_to_pdf.js`; verified by
   `_verify_pdf_diagrams.py` after each regeneration

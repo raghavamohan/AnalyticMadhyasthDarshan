@@ -1,6 +1,6 @@
 ---
 description: Keep Studies/index.html and Studies/README.md in sync
-globs: Studies/index.html,Studies/README.md,Studies/catalog-*.json,Scripts/_build_studies_index.py,Scripts/_verify_studies_index.py,Scripts/_study_catalog.py
+globs: Studies/index.html,Studies/README.md,Scripts/_build_studies_index.py,Scripts/_verify_studies_index.py,Scripts/_study_catalog.py
 alwaysApply: false
 ---
 
