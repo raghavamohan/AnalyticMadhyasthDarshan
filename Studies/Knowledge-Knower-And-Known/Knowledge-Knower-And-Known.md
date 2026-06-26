@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 26, 2026, 5:50 AM IST
+**Edited on:** June 26, 2026, 7:23 AM IST
 
 **Status:** Draft
 
@@ -435,7 +435,7 @@ These developments do not remove the major modern objection to Madhyasth Darshan
 
 ### 4.2 Sat-Chit-Ananda versus distributed coexistence
 
-Advaita's Sat-Chit-Ananda and Madhyasth Darshan's coexistence can sound alike — both speak of being, consciousness, and fulfilment. The contrast is over what those words name and whether the world survives them ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §5.3).
+Advaita's Sat-Chit-Ananda and Madhyasth Darshan's coexistence can sound alike — both speak of being, consciousness, and fulfilment. The contrast is over what those words name and whether the world survives them ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §5.6).
 
 | Concept | Advaita Vedanta (unified non-dualism) | Madhyasth Darshan (distributed coexistence) |
 |---|---|---|
@@ -519,7 +519,7 @@ Scientific materialism offers the strongest method and the best-supported accoun
 
 ### Related studies in this collection
 
-- [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — "Knowledge but not knower" (§1.11), projection–reflection cycle and intellectual mystery (§1.10), Sat-Chit-Ananda contrast (§5.3), epistemic incommensurability (§6.5), Saturation-Reflector Model (§6.6), evidence standards (§6.4).
+- [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — "Knowledge but not knower" (§1.11), projection–reflection cycle and intellectual mystery (§1.10), Sat-Chit-Ananda contrast (§5.6), epistemic incommensurability (§6.5), Saturation-Reflector Model (§6.6), evidence standards (§6.4).
 - [Human Behavior and Society](../Human-Behavior-And-Society/Human-Behavior-And-Society.pdf) — manifest, effable knowledge versus mystery-based ineffability (§3).
 - *Spiritual-Practice-And-Realization* (Ongoing) — *dhyan*, yoga, six flaws, and the practice path deferred from §1.11.2.
 
