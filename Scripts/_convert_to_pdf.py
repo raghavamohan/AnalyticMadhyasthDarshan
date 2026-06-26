@@ -44,6 +44,7 @@ def _resolve_repo_link(href: str, source_dir: Path) -> Path | None:
         candidates.append((source_dir / fixed).resolve())
 
     studies = BASE / "Studies"
+    applications = BASE / "Applications"
     for candidate in candidates:
         try:
             if not candidate.is_file() or not candidate.is_relative_to(BASE):
@@ -52,17 +53,26 @@ def _resolve_repo_link(href: str, source_dir: Path) -> Path | None:
                 continue
             if candidate.is_relative_to(REFERENCES):
                 return candidate
-            if candidate.suffix.lower() == ".pdf" and candidate.is_relative_to(studies):
+            if candidate.suffix.lower() == ".pdf" and (
+                candidate.is_relative_to(studies) or candidate.is_relative_to(applications)
+            ):
                 return candidate
         except ValueError:
             continue
     return None
 
 
-def rewrite_local_links_for_site(html_body: str, html_path: Path) -> str:
+def rewrite_local_links_for_site(
+    html_body: str,
+    html_path: Path,
+    *,
+    study_links_as_html: bool = False,
+) -> str:
     """Rewrite local bibliography and cross-study hrefs to the published site URL."""
 
     site_root = site_base_url().rstrip("/")
+    studies = BASE / "Studies"
+    applications = BASE / "Applications"
 
     def replace(match: re.Match[str]) -> str:
         href = unquote(match.group(1))
@@ -75,7 +85,15 @@ def rewrite_local_links_for_site(html_body: str, html_path: Path) -> str:
         if target is None:
             return match.group(0)
 
-        url = f"{site_root}/{target.relative_to(BASE).as_posix()}"
+        publish_target = target
+        if study_links_as_html and target.suffix.lower() == ".pdf":
+            try:
+                if target.is_relative_to(studies) or target.is_relative_to(applications):
+                    publish_target = target.with_suffix(".html")
+            except ValueError:
+                pass
+
+        url = f"{site_root}/{publish_target.relative_to(BASE).as_posix()}"
         if fragment:
             url = f"{url}#{fragment}"
         return f'href="{url}"'
@@ -83,7 +101,7 @@ def rewrite_local_links_for_site(html_body: str, html_path: Path) -> str:
     return re.sub(r'href="([^"]+)"', replace, html_body)
 
 
-def _study_toolbar_html(md_path: Path) -> str:
+def _study_toolbar_html(md_path: Path, *, is_draft: bool) -> str:
     stem = md_path.stem
     try:
         if md_path.parent.is_relative_to(APPLICATIONS):
@@ -93,17 +111,19 @@ def _study_toolbar_html(md_path: Path) -> str:
     except ValueError:
         catalog_href = "../index.html"
     pdf_href = f"{stem}.pdf"
+    status_html = (
+        '<span class="study-toolbar-status" role="status">Draft</span>'
+        if is_draft
+        else ""
+    )
     return f"""<nav class="study-toolbar" aria-label="Study navigation">
-  <a class="study-toolbar-link" href="{catalog_href}">&larr; All studies</a>
+  <div class="study-toolbar-start">
+    <a class="study-toolbar-link study-toolbar-back" href="{catalog_href}">&larr; All studies</a>
+    {status_html}
+  </div>
   <a class="study-toolbar-link study-toolbar-download" href="{pdf_href}" download>Download PDF</a>
 </nav>
 """
-
-
-def _draft_banner_html(is_draft: bool) -> str:
-    if not is_draft:
-        return ""
-    return '<p class="draft-banner" role="status">Draft</p>\n'
 
 
 def _mermaid_loader_html(html_body: str) -> str:
@@ -166,10 +186,10 @@ def _study_screen_dark_css() -> str:
     }
     .study-toolbar-link { color: #7ebbed; }
     .study-toolbar-link:hover { color: #b8daf3; }
-    .draft-banner {
-      color: #d5a477;
-      background: #423020;
-      border-color: #6f655a;
+    .study-toolbar-status {
+      color: #7ebbed;
+      background: #233e52;
+      border: 1px solid #3d6278;
     }
   }
 """
@@ -193,10 +213,13 @@ def convert_to_html(
         extensions=["tables", "fenced_code", "smarty"],
     )
     html_body = convert_mermaid_blocks(html_body)
-    html_body = rewrite_local_links_for_site(html_body, output_path)
+    html_body = rewrite_local_links_for_site(
+        html_body,
+        output_path,
+        study_links_as_html=include_web_chrome,
+    )
 
-    toolbar = _study_toolbar_html(input_path) if include_web_chrome else ""
-    draft_banner = _draft_banner_html(is_draft) if include_web_chrome else ""
+    toolbar = _study_toolbar_html(input_path, is_draft=is_draft) if include_web_chrome else ""
     mermaid_loader = _mermaid_loader_html(html_body) if include_web_chrome else ""
     screen_dark_css = _study_screen_dark_css() if include_web_chrome else ""
 
@@ -217,33 +240,37 @@ def convert_to_html(
     border-radius: 8px;
     background: #f7f4ef;
   }
+  .study-toolbar-start {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 12px;
+    min-width: 0;
+  }
   .study-toolbar-link {
     color: #1a5276;
     text-decoration: none;
     font-weight: 600;
   }
   .study-toolbar-link:hover { color: #13405c; }
+  .study-toolbar-status {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #1a5276;
+    background: #e8f1f6;
+    border: 1px solid #c5d9e6;
+    border-radius: 999px;
+    padding: 4px 10px;
+    white-space: nowrap;
+  }
   .study-toolbar-download::after {
     content: " \\2193";
     font-weight: 700;
   }
-  .draft-banner {
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #8b5e34;
-    background: #f5ebe0;
-    border: 1px solid #e0d0be;
-    border-radius: 6px;
-    padding: 6px 12px;
-    margin: 0 0 18px;
-    text-align: center;
-  }
   @media print {
-    .study-toolbar,
-    .draft-banner { display: none !important; }
+    .study-toolbar { display: none !important; }
   }
 """
 
@@ -460,7 +487,7 @@ def convert_to_html(
 </style>
 </head>
 <body>
-{toolbar}{draft_banner}{html_body}
+{toolbar}{html_body}
 {mermaid_loader}
 </body>
 </html>"""

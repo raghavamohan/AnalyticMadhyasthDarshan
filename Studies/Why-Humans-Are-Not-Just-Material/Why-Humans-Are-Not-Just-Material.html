@@ -250,10 +250,10 @@
     }
     .study-toolbar-link { color: #7ebbed; }
     .study-toolbar-link:hover { color: #b8daf3; }
-    .draft-banner {
-      color: #d5a477;
-      background: #423020;
-      border-color: #6f655a;
+    .study-toolbar-status {
+      color: #7ebbed;
+      background: #233e52;
+      border: 1px solid #3d6278;
     }
   }
 
@@ -271,43 +271,49 @@
     border-radius: 8px;
     background: #f7f4ef;
   }
+  .study-toolbar-start {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 12px;
+    min-width: 0;
+  }
   .study-toolbar-link {
     color: #1a5276;
     text-decoration: none;
     font-weight: 600;
   }
   .study-toolbar-link:hover { color: #13405c; }
+  .study-toolbar-status {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #1a5276;
+    background: #e8f1f6;
+    border: 1px solid #c5d9e6;
+    border-radius: 999px;
+    padding: 4px 10px;
+    white-space: nowrap;
+  }
   .study-toolbar-download::after {
     content: " \2193";
     font-weight: 700;
   }
-  .draft-banner {
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #8b5e34;
-    background: #f5ebe0;
-    border: 1px solid #e0d0be;
-    border-radius: 6px;
-    padding: 6px 12px;
-    margin: 0 0 18px;
-    text-align: center;
-  }
   @media print {
-    .study-toolbar,
-    .draft-banner { display: none !important; }
+    .study-toolbar { display: none !important; }
   }
 
 </style>
 </head>
 <body>
 <nav class="study-toolbar" aria-label="Study navigation">
-  <a class="study-toolbar-link" href="../index.html">&larr; All studies</a>
+  <div class="study-toolbar-start">
+    <a class="study-toolbar-link study-toolbar-back" href="../index.html">&larr; All studies</a>
+    <span class="study-toolbar-status" role="status">Draft</span>
+  </div>
   <a class="study-toolbar-link study-toolbar-download" href="Why-Humans-Are-Not-Just-Material.pdf" download>Download PDF</a>
 </nav>
-<p class="draft-banner" role="status">Draft</p>
 <h1>Why Humans Are Not Just Material</h1>
 <p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> — a group of people studying Madhyasth Darshan philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
 <p><strong>Edited on:</strong> June 26, 2026, 10:28 AM IST
@@ -329,11 +335,11 @@
 <tbody>
 <tr>
 <td><strong><em>Jeevan</em></strong></td>
-<td>The sentient self — in Shri. Nagraj&rsquo;s view a real, eternal, atom-scale entity that works <em>through</em> the body. Not brain activity, and not &ldquo;soul&rdquo; in the usual religious sense. For ontology of <em>jeevan</em>, constitutional completeness, and conservation, see <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a>.</td>
+<td>The sentient self — in Shri. Nagraj&rsquo;s view a real, eternal, atom-scale entity that works <em>through</em> the body. Not brain activity, and not &ldquo;soul&rdquo; in the usual religious sense. For ontology of <em>jeevan</em>, constitutional completeness, and conservation, see <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a>.</td>
 </tr>
 <tr>
 <td><strong>Constitutional completeness (<em>gathanpurnata</em>)</strong></td>
-<td>The state when an atom integrates the required particles and crosses irreversibly into sentient status as <em>jeevan</em>. Developed in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §1.9.</td>
+<td>The state when an atom integrates the required particles and crosses irreversibly into sentient status as <em>jeevan</em>. Developed in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.9.</td>
 </tr>
 <tr>
 <td><strong>Coexistence (<em>sah-astitva</em>)</strong></td>
@@ -379,7 +385,7 @@
 — SB, Ch. 7</p>
 </blockquote>
 <h3>1.6 Sentience as developed matter</h3>
-<p>Development is built into existence (effort → motion → result). An atom that becomes constitutionally complete (<em>gathanpurnata</em>) crosses irreversibly into sentient status — and that sentient atom <em>is</em> the <em>jeevan</em>. It is never annihilated, so death is an event of the body only. For the emergence tension, conservation ontology, mereology of <em>jeevan</em>, and identity across death, see <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §§1.8–1.12 and §6.2.</p>
+<p>Development is built into existence (effort → motion → result). An atom that becomes constitutionally complete (<em>gathanpurnata</em>) crosses irreversibly into sentient status — and that sentient atom <em>is</em> the <em>jeevan</em>. It is never annihilated, so death is an event of the body only. For the emergence tension, conservation ontology, mereology of <em>jeevan</em>, and identity across death, see <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §§1.8–1.12 and §6.2.</p>
 <blockquote>
 <p><strong>“Nothing arrives at birth nor does anything depart with death. All that is, exists forever. Jeevan continues to exist even after death as it does while driving a body.”</strong>
 — JV, Ch. 1</p>
@@ -408,7 +414,7 @@
 </blockquote>
 <p>Shri. Nagraj&rsquo;s point is not that this grammar proves dualism, but that the <em>deluded</em> position is the learned one: identifying with the body has to be argued into us, while the felt distinction between self and body is the default datum of experience.</p>
 <h3>The moral demand is felt from the start, before any teaching</h3>
-<p>Justice, truth, and right conduct are not experienced as preferences we acquired but as demands we <em>recognise</em> — and children recognise them before anyone trains them (for comparative moral psychology, see <a href="https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf">Ethics-And-Morals-In-Human-Beings</a>):</p>
+<p>Justice, truth, and right conduct are not experienced as preferences we acquired but as demands we <em>recognise</em> — and children recognise them before anyone trains them (for comparative moral psychology, see <a href="https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.html">Ethics-And-Morals-In-Human-Beings</a>):</p>
 <blockquote>
 <p><strong>“From the time of birth, a human being inherently seeks justice, desires to act correctly, and speaks the truth. This is the natural state of a child.”</strong>
 — SB, Ch. 1</p>
@@ -434,9 +440,9 @@
 <li><strong>No second entity is detected.</strong> Every capacity attributed to <em>jeevan</em> — values, evaluation, the feeling of being a self — correlates with neural and social processes that neuroscience and psychology already study (Kandel et al. 2021). No instrument detects a sentient unit separate from brain activity. Occam&rsquo;s razor says: do not posit a new substance when structured matter plus culture explains the data.</li>
 <li><strong>The interaction problem.</strong> If a separate self &ldquo;drives&rdquo; the body, there must be a junction where its intention becomes muscle motion. Physiology finds no such junction: every movement traces back through neurons obeying ordinary physics, with no detected inflow of energy or information from a second entity. This has been the standard objection to every body/soul dualism since Princess Elisabeth posed it to Descartes in 1643 (Shapiro 2007); its modern form is the causal-closure argument (Kim 2005).</li>
 </ol>
-<p>From a physics standpoint, the objection is sharper than a philosophical puzzle about &ldquo;where mind meets body.&rdquo; If <em>jeevan</em> steers the nervous system, that steering must either inject energy into a closed physical system — violating conservation in any locally closed region where neural dynamics are well modeled — or rearrange existing energy and information without leaving a detectable surplus or deficit in the causal budget. Brain–machine interfaces and motor neuroscience already track intention-linked neural activity down to synaptic and ionic scales (Kandel et al. 2021); no reproducible anomaly has been found where muscle motion requires physics beyond the brain&rsquo;s own energy budget. That does not prove <em>jeevan</em> is absent, but it sets a high bar: any interacting <em>jeevan</em> must be either causally inert (and then it does not &ldquo;drive&rdquo; the body) or physically efficacious in a way that should, in principle, show up as a measurable departure from closed physical prediction. For how Madhyasth Darshan frames conservation, constitutional completeness, and the <em>jeevan</em>–body interaction as open problems, see <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §1.8 and §6.2.</p>
+<p>From a physics standpoint, the objection is sharper than a philosophical puzzle about &ldquo;where mind meets body.&rdquo; If <em>jeevan</em> steers the nervous system, that steering must either inject energy into a closed physical system — violating conservation in any locally closed region where neural dynamics are well modeled — or rearrange existing energy and information without leaving a detectable surplus or deficit in the causal budget. Brain–machine interfaces and motor neuroscience already track intention-linked neural activity down to synaptic and ionic scales (Kandel et al. 2021); no reproducible anomaly has been found where muscle motion requires physics beyond the brain&rsquo;s own energy budget. That does not prove <em>jeevan</em> is absent, but it sets a high bar: any interacting <em>jeevan</em> must be either causally inert (and then it does not &ldquo;drive&rdquo; the body) or physically efficacious in a way that should, in principle, show up as a measurable departure from closed physical prediction. For how Madhyasth Darshan frames conservation, constitutional completeness, and the <em>jeevan</em>–body interaction as open problems, see <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.8 and §6.2.</p>
 <ol>
-<li><strong>Human uniqueness is real but material.</strong> Humans genuinely differ from animals — in symbol use, language, cumulative culture, moral reasoning (Tomasello 2014). But &ldquo;unique&rdquo; is not &ldquo;non-physical.&rdquo; Children&rsquo;s fairness-seeking, for example, is well explained by evolved cooperation and social development (Bloom 2013); see also <a href="https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf">Ethics-And-Morals-In-Human-Beings</a> for a fuller comparative treatment of moral psychology.</li>
+<li><strong>Human uniqueness is real but material.</strong> Humans genuinely differ from animals — in symbol use, language, cumulative culture, moral reasoning (Tomasello 2014). But &ldquo;unique&rdquo; is not &ldquo;non-physical.&rdquo; Children&rsquo;s fairness-seeking, for example, is well explained by evolved cooperation and social development (Bloom 2013); see also <a href="https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.html">Ethics-And-Morals-In-Human-Beings</a> for a fuller comparative treatment of moral psychology.</li>
 <li><strong>Private realisation is not public evidence.</strong> Shri. Nagraj&rsquo;s warrant is his own <em>samadhi</em> realisation. Science requires inter-subjective verification: claims anyone can check, predictions that could fail (Popper 1959).</li>
 </ol>
 <h3>What science leaves open</h3>
@@ -534,7 +540,7 @@
 <p><strong>On matter and mind.</strong> Science: mind comes <em>from</em> matter&rsquo;s organisation. Advaita: matter comes <em>from</em> mind (consciousness). Shri. Nagraj: mind <em>is</em> matter at its highest development — an insentient atom that crossed a one-way threshold into sentience.</p>
 <p><strong>On method.</strong> Science trusts public instruments; Advaita trusts scripture and contemplative insight; Shri. Nagraj trusts study plus living conduct as evidence. Each side considers the others&rsquo; method insufficient: science finds both Indian methods unfalsifiable; both Indian views find science blind to the knower doing the science.</p>
 <p><strong>Where the alliances fall.</strong> Against the materialist, Shri. Nagraj and Advaita stand together: the human is not just the body. Against Advaita, Shri. Nagraj and the scientist stand together: the world is real and worth studying. Against both, the scientist insists nothing survives death. Each pair agrees on something the third denies.</p>
-<p>Other anthropologies — Buddhist <em>anatta</em> (no permanent self), Abrahamic soul doctrines, and Dvaita-style eternal individual souls — offer further comparisons; see the wider table in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §5.</p>
+<p>Other anthropologies — Buddhist <em>anatta</em> (no permanent self), Abrahamic soul doctrines, and Dvaita-style eternal individual souls — offer further comparisons; see the wider table in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §5.</p>
 <h2>5. Critical Review</h2>
 <p>No view escapes serious objections. Here is where each is strong and where each is vulnerable.</p>
 <h3>5.1 Madhyasth Darshan — coherent inside, unproven outside</h3>
@@ -542,9 +548,9 @@
 <p><strong>Weaknesses.</strong></p>
 <ul>
 <li><strong>The conclusion is built into the premises.</strong> The foundational axiom already declares existence &ldquo;not just physicochemical matter&rdquo; — so the system is anti-materialist <em>by assumption</em>, not by proof.</li>
-<li><strong>Different jobs do not prove two things.</strong> The central argument — body serves food and sleep, <em>jeevan</em> serves values, therefore they are distinct entities — is a leap. One system can serve many purposes. And even granting distinctness, nothing in the phenomenological argument alone establishes that <em>jeevan</em> is <em>eternal</em>; that claim rests on the ontological steps and conservation-based reading developed in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a>.</li>
-<li><strong>Constitutional completeness is unexplained, not merely unmeasured.</strong> No observation in particle physics or chemistry presently operationalizes <em>gathanpurnata</em>. The deeper tension — whether sentience at completeness is latent potential actualized or a form of emergence the system elsewhere resists — is analyzed in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §1.9 and §6.2. Until that is settled internally, &ldquo;sentient atoms are not physics&rdquo; remains a fair objection from the scientific leg.</li>
-<li><strong>The interaction problem is unanswered.</strong> If an atom-sized <em>jeevan</em> steers neurons and muscles, that steering must either violate local energy conservation or produce a detectable causal anomaly in the brain&rsquo;s physical budget. None has been found, and the literature gives no mechanism. See §2.3 above and <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> §6.2 item 7.</li>
+<li><strong>Different jobs do not prove two things.</strong> The central argument — body serves food and sleep, <em>jeevan</em> serves values, therefore they are distinct entities — is a leap. One system can serve many purposes. And even granting distinctness, nothing in the phenomenological argument alone establishes that <em>jeevan</em> is <em>eternal</em>; that claim rests on the ontological steps and conservation-based reading developed in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a>.</li>
+<li><strong>Constitutional completeness is unexplained, not merely unmeasured.</strong> No observation in particle physics or chemistry presently operationalizes <em>gathanpurnata</em>. The deeper tension — whether sentience at completeness is latent potential actualized or a form of emergence the system elsewhere resists — is analyzed in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.9 and §6.2. Until that is settled internally, &ldquo;sentient atoms are not physics&rdquo; remains a fair objection from the scientific leg.</li>
+<li><strong>The interaction problem is unanswered.</strong> If an atom-sized <em>jeevan</em> steers neurons and muscles, that steering must either violate local energy conservation or produce a detectable causal anomaly in the brain&rsquo;s physical budget. None has been found, and the literature gives no mechanism. See §2.3 above and <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §6.2 item 7.</li>
 <li><strong>It risks being unfalsifiable.</strong> Disagreement is attributed to &ldquo;lack of awakening,&rdquo; so no observation can count against the system. A claim that cannot be wrong cannot be tested. To be taken seriously empirically, the framework would have to state <em>in advance</em> what observation would disconfirm it.</li>
 </ul>
 <p>Madhyasth Darshan is best read as an internally coherent, ethically rich <em>proposal</em>, not a demonstrated ontology.</p>
@@ -584,8 +590,8 @@
 </ul>
 <h3>Related studies in this collection</h3>
 <ul>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a> — constitutional completeness (<em>gathanpurnata</em>), conservation ontology, emergence tension, <em>jeevan</em> structure and identity, <em>jeevan</em>–body interaction (§§1.8–1.12, §6.2).</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf">Ethics-And-Morals-In-Human-Beings</a> — comparative moral psychology and innate justice claims (§1, §2).</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> — constitutional completeness (<em>gathanpurnata</em>), conservation ontology, emergence tension, <em>jeevan</em> structure and identity, <em>jeevan</em>–body interaction (§§1.8–1.12, §6.2).</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.html">Ethics-And-Morals-In-Human-Beings</a> — comparative moral psychology and innate justice claims (§1, §2).</li>
 </ul>
 <h3>Advaita Vedanta (primary texts)</h3>
 <p>Verse and section numbers follow the standard numbering and apply to any faithful edition or translation (e.g. Swami Gambhirananda&rsquo;s or Swami Madhavananda&rsquo;s translations, Advaita Ashrama).</p>

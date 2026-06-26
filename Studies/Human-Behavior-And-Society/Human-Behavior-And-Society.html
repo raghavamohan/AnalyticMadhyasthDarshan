@@ -250,10 +250,10 @@
     }
     .study-toolbar-link { color: #7ebbed; }
     .study-toolbar-link:hover { color: #b8daf3; }
-    .draft-banner {
-      color: #d5a477;
-      background: #423020;
-      border-color: #6f655a;
+    .study-toolbar-status {
+      color: #7ebbed;
+      background: #233e52;
+      border: 1px solid #3d6278;
     }
   }
 
@@ -271,43 +271,49 @@
     border-radius: 8px;
     background: #f7f4ef;
   }
+  .study-toolbar-start {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 12px;
+    min-width: 0;
+  }
   .study-toolbar-link {
     color: #1a5276;
     text-decoration: none;
     font-weight: 600;
   }
   .study-toolbar-link:hover { color: #13405c; }
+  .study-toolbar-status {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #1a5276;
+    background: #e8f1f6;
+    border: 1px solid #c5d9e6;
+    border-radius: 999px;
+    padding: 4px 10px;
+    white-space: nowrap;
+  }
   .study-toolbar-download::after {
     content: " \2193";
     font-weight: 700;
   }
-  .draft-banner {
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #8b5e34;
-    background: #f5ebe0;
-    border: 1px solid #e0d0be;
-    border-radius: 6px;
-    padding: 6px 12px;
-    margin: 0 0 18px;
-    text-align: center;
-  }
   @media print {
-    .study-toolbar,
-    .draft-banner { display: none !important; }
+    .study-toolbar { display: none !important; }
   }
 
 </style>
 </head>
 <body>
 <nav class="study-toolbar" aria-label="Study navigation">
-  <a class="study-toolbar-link" href="../index.html">&larr; All studies</a>
+  <div class="study-toolbar-start">
+    <a class="study-toolbar-link study-toolbar-back" href="../index.html">&larr; All studies</a>
+    <span class="study-toolbar-status" role="status">Draft</span>
+  </div>
   <a class="study-toolbar-link study-toolbar-download" href="Human-Behavior-And-Society.pdf" download>Download PDF</a>
 </nav>
-<p class="draft-banner" role="status">Draft</p>
 <h1>Human Behaviour and Social Organisation</h1>
 <p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> — a group of people studying Madhyasth Darshan philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
 <p><strong>Edited on:</strong> June 26, 2026, 10:28 AM IST
@@ -329,7 +335,7 @@
 <tbody>
 <tr>
 <td><strong><em>Jeevan</em></strong></td>
-<td>The sentient self — a real unit that works through the body; for ontology see <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf">The Ontology of Coexistence</a>.</td>
+<td>The sentient self — a real unit that works through the body; for ontology see <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a>.</td>
 </tr>
 <tr>
 <td><strong>Knowledge order (<em>gyan avastha</em>)</strong></td>
