@@ -208,6 +208,66 @@
     height: auto;
   }
 
+  .study-toolbar {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 10px 16px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 13px;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    margin: 0 0 22px;
+    padding: 10px 14px;
+    border: 1px solid #d8d2c8;
+    border-radius: 8px;
+    background: rgba(247, 244, 239, 0.92);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+  .study-toolbar-back {
+    justify-self: start;
+    min-width: 0;
+  }
+  .study-toolbar-download {
+    justify-self: end;
+    min-width: 0;
+    text-align: right;
+  }
+  .study-toolbar-link {
+    color: #1a5276;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .study-toolbar-link:hover { color: #13405c; }
+  .study-toolbar-status {
+    justify-self: center;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #1a5276;
+    background: #e8f1f6;
+    border: 1px solid #c5d9e6;
+    border-radius: 999px;
+    padding: 4px 10px;
+    white-space: nowrap;
+  }
+  .study-toolbar-status--empty {
+    visibility: hidden;
+    padding: 4px 10px;
+    border-color: transparent;
+    background: transparent;
+  }
+  .study-toolbar-download::after {
+    content: " \2193";
+    font-weight: 700;
+  }
+  @media print {
+    .study-toolbar { display: none !important; }
+  }
+
   @media screen and (prefers-color-scheme: dark) {
     body {
       color: #e6dfd6;
@@ -245,7 +305,7 @@
       color: #e6dfd6;
     }
     .study-toolbar {
-      background: #26231e;
+      background: rgba(26, 24, 21, 0.92);
       border-color: #423b33;
     }
     .study-toolbar-link { color: #7ebbed; }
@@ -257,61 +317,12 @@
     }
   }
 
-  .study-toolbar {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px 16px;
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    font-size: 13px;
-    margin: 0 0 22px;
-    padding: 10px 14px;
-    border: 1px solid #d8d2c8;
-    border-radius: 8px;
-    background: #f7f4ef;
-  }
-  .study-toolbar-start {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 10px 12px;
-    min-width: 0;
-  }
-  .study-toolbar-link {
-    color: #1a5276;
-    text-decoration: none;
-    font-weight: 600;
-  }
-  .study-toolbar-link:hover { color: #13405c; }
-  .study-toolbar-status {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: #1a5276;
-    background: #e8f1f6;
-    border: 1px solid #c5d9e6;
-    border-radius: 999px;
-    padding: 4px 10px;
-    white-space: nowrap;
-  }
-  .study-toolbar-download::after {
-    content: " \2193";
-    font-weight: 700;
-  }
-  @media print {
-    .study-toolbar { display: none !important; }
-  }
-
 </style>
 </head>
 <body>
 <nav class="study-toolbar" aria-label="Study navigation">
-  <div class="study-toolbar-start">
-    <a class="study-toolbar-link study-toolbar-back" href="../index.html">&larr; All studies</a>
-    <span class="study-toolbar-status" role="status">Draft</span>
-  </div>
+  <a class="study-toolbar-link study-toolbar-back" href="../index.html">&larr; All studies</a>
+  <span class="study-toolbar-status" role="status">Draft</span>
   <a class="study-toolbar-link study-toolbar-download" href="The-Coexistence-Template.pdf" download>Download PDF</a>
 </nav>
 <h1>The Coexistence Template</h1>

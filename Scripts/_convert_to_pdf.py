@@ -114,13 +114,11 @@ def _study_toolbar_html(md_path: Path, *, is_draft: bool) -> str:
     status_html = (
         '<span class="study-toolbar-status" role="status">Draft</span>'
         if is_draft
-        else ""
+        else '<span class="study-toolbar-status study-toolbar-status--empty" aria-hidden="true"></span>'
     )
     return f"""<nav class="study-toolbar" aria-label="Study navigation">
-  <div class="study-toolbar-start">
-    <a class="study-toolbar-link study-toolbar-back" href="{catalog_href}">&larr; All studies</a>
-    {status_html}
-  </div>
+  <a class="study-toolbar-link study-toolbar-back" href="{catalog_href}">&larr; All studies</a>
+  {status_html}
   <a class="study-toolbar-link study-toolbar-download" href="{pdf_href}" download>Download PDF</a>
 </nav>
 """
@@ -181,7 +179,7 @@ def _study_screen_dark_css() -> str:
       color: #e6dfd6;
     }
     .study-toolbar {
-      background: #26231e;
+      background: rgba(26, 24, 21, 0.92);
       border-color: #423b33;
     }
     .study-toolbar-link { color: #7ebbed; }
@@ -227,25 +225,31 @@ def convert_to_html(
     if include_web_chrome:
         web_chrome_css = """
   .study-toolbar {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    justify-content: space-between;
     gap: 10px 16px;
     font-family: 'Segoe UI', system-ui, sans-serif;
     font-size: 13px;
+    position: sticky;
+    top: 0;
+    z-index: 20;
     margin: 0 0 22px;
     padding: 10px 14px;
     border: 1px solid #d8d2c8;
     border-radius: 8px;
-    background: #f7f4ef;
+    background: rgba(247, 244, 239, 0.92);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
   }
-  .study-toolbar-start {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 10px 12px;
+  .study-toolbar-back {
+    justify-self: start;
     min-width: 0;
+  }
+  .study-toolbar-download {
+    justify-self: end;
+    min-width: 0;
+    text-align: right;
   }
   .study-toolbar-link {
     color: #1a5276;
@@ -254,6 +258,7 @@ def convert_to_html(
   }
   .study-toolbar-link:hover { color: #13405c; }
   .study-toolbar-status {
+    justify-self: center;
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.05em;
@@ -264,6 +269,12 @@ def convert_to_html(
     border-radius: 999px;
     padding: 4px 10px;
     white-space: nowrap;
+  }
+  .study-toolbar-status--empty {
+    visibility: hidden;
+    padding: 4px 10px;
+    border-color: transparent;
+    background: transparent;
   }
   .study-toolbar-download::after {
     content: " \\2193";
@@ -483,7 +494,7 @@ def convert_to_html(
     max-width: 100%;
     height: auto;
   }}
-{screen_dark_css}{web_chrome_css}
+{web_chrome_css}{screen_dark_css}
 </style>
 </head>
 <body>
