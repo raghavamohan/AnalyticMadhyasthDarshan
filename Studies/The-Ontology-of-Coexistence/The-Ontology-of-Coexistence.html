@@ -208,11 +208,14 @@
     height: auto;
   }
 
+  html { scroll-behavior: smooth; }
+  h2[id] {
+    scroll-margin-top: calc(var(--study-toolbar-height, 88px) + 10px);
+  }
   .study-toolbar {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    gap: 10px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     font-family: 'Segoe UI', system-ui, sans-serif;
     font-size: 13px;
     position: sticky;
@@ -226,6 +229,17 @@
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
   }
+  .study-toolbar-row {
+    display: grid;
+    align-items: center;
+    gap: 8px 14px;
+  }
+  .study-toolbar-row--primary {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+  }
+  .study-toolbar-row--sections {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
   .study-toolbar-back {
     justify-self: start;
     min-width: 0;
@@ -235,34 +249,59 @@
     min-width: 0;
     text-align: right;
   }
+  .study-toolbar-title {
+    justify-self: center;
+    text-align: center;
+    margin: 0;
+    min-width: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: #2c241c;
+    line-height: 1.35;
+  }
+  .study-toolbar-draft {
+    font-weight: 600;
+    color: #5c5348;
+  }
   .study-toolbar-link {
     color: #1a5276;
     text-decoration: none;
     font-weight: 600;
   }
   .study-toolbar-link:hover { color: #13405c; }
-  .study-toolbar-status {
-    justify-self: center;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: #1a5276;
-    background: #e8f1f6;
-    border: 1px solid #c5d9e6;
-    border-radius: 999px;
-    padding: 4px 10px;
+  .study-toolbar-section {
+    display: block;
+    min-width: 0;
+    font-size: 12px;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
-  .study-toolbar-status--empty {
-    visibility: hidden;
-    padding: 4px 10px;
-    border-color: transparent;
-    background: transparent;
+  .study-toolbar-section--prev { justify-self: start; }
+  .study-toolbar-section--next {
+    justify-self: end;
+    text-align: right;
+  }
+  .study-toolbar-section.is-disabled {
+    opacity: 0.45;
+    pointer-events: none;
+    color: #6f655a;
   }
   .study-toolbar-download::after {
     content: " \2193";
     font-weight: 700;
+  }
+  @media (max-width: 640px) {
+    .study-toolbar-row--primary {
+      grid-template-columns: 1fr 1fr;
+    }
+    .study-toolbar-title {
+      grid-column: 1 / -1;
+      white-space: normal;
+    }
+    .study-toolbar-section {
+      white-space: normal;
+    }
   }
   @media print {
     .study-toolbar { display: none !important; }
@@ -310,33 +349,37 @@
     }
     .study-toolbar-link { color: #7ebbed; }
     .study-toolbar-link:hover { color: #b8daf3; }
-    .study-toolbar-status {
-      color: #7ebbed;
-      background: #233e52;
-      border: 1px solid #3d6278;
-    }
+    .study-toolbar-title { color: #f5f1ec; }
+    .study-toolbar-draft { color: #aca194; }
+    .study-toolbar-section.is-disabled { color: #6f655a; }
   }
 
 </style>
 </head>
 <body>
 <nav class="study-toolbar" aria-label="Study navigation">
-  <a class="study-toolbar-link study-toolbar-back" href="../index.html">&larr; All studies</a>
-  <span class="study-toolbar-status" role="status">Draft</span>
-  <a class="study-toolbar-link study-toolbar-download" href="The-Ontology-of-Coexistence.pdf" download>Download PDF</a>
+  <div class="study-toolbar-row study-toolbar-row--primary">
+    <a class="study-toolbar-link study-toolbar-back" href="../index.html">&larr; All studies</a>
+    <p class="study-toolbar-title">The Ontology of Coexistence <span class="study-toolbar-draft">(Draft)</span></p>
+    <a class="study-toolbar-link study-toolbar-download" href="The-Ontology-of-Coexistence.pdf" download>Download PDF</a>
+  </div>
+  <div class="study-toolbar-row study-toolbar-row--sections">
+    <a class="study-toolbar-link study-toolbar-section study-toolbar-section--prev" id="study-section-prev" href="#" aria-disabled="true">&larr; Previous section</a>
+    <a class="study-toolbar-link study-toolbar-section study-toolbar-section--next" id="study-section-next" href="#" aria-disabled="true">Next section &rarr;</a>
+  </div>
 </nav>
 <h1>The Ontology of Coexistence</h1>
 <p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> — a group of people studying Madhyasth Darshan philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
 <p><strong>Edited on:</strong> June 26, 2026, 10:28 AM IST
 <strong>The question:</strong> What is Existence? What exists? Does what exists begin at some time? Does the individual self (<em>jeevan</em>) begin or end with the body? Is the world finally real?</p>
 <p>This study examines those questions in <strong>Madhyasth Darshan</strong> (Co-existentialism), as presented by <strong>Shri A. Nagraj</strong>, and compares its answers with <strong>Advaita Vedanta</strong> and selected <strong>modern philosophical and scientific approaches</strong> to physical reality, consciousness, and selfhood. Full treatment of time (<em>kaal</em>), <em>trikaalabadh</em>, and spacetime physics is in <a href="https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.html"><em>Nature of Time</em></a>; here only the core claim is stated — that <em>kaal</em> is duration of unit-activity and <em>satta</em> is timeless as ground (§1.4).</p>
-<h2>Standpoint and scope</h2>
+<h2 id="standpoint-and-scope">Standpoint and scope</h2>
 <p>These studies are written from the standpoint of a <strong>scientist and technologist</strong> — someone trained to graduate-level <strong>physics and mathematics</strong>, at home with contemporary cosmology, quantum theory, conservation laws, and the logic of formal models.</p>
 <p>From that background, a familiar picture of nature is hard to avoid: <strong>consciousness appears as something the brain does</strong> — an epiphenomenon, functional outcome, or emergent property of particular configurations of very large numbers of physical particles. Modern physics and cognitive science are powerful on mechanism, prediction, and public evidence; yet the hard problem of consciousness, the status of the self, and the reality of value remain fiercely contested. The standpoint taken here does not treat those gaps as settled in favour of matter-only reductionism.</p>
 <p>The work begins where that scientific picture leaves open questions — and asks whether Madhyasth Darshan offers a coherent alternative worth examining seriously. The study reads the primary texts carefully, states what follows from the darshan itself, and compares it in parallel with what we know from <strong>physics and the natural sciences</strong>, <strong>Advaita Vedanta</strong>, and <strong>modern Western philosophy</strong> (especially philosophy of mind). Physics and mathematics are <strong>one leg</strong> of that comparison, not the only one. The aim is rigorous comparative understanding — testing definitions, internal consistency, and fit with public knowledge — not persuasion or devotional endorsement.</p>
 <p>The study develops Madhyasth Darshan&rsquo;s ontology — saturation, causation, unit structure, the sentience threshold, and conservation — then compares it with Advaita Vedanta and selected modern views. It does not claim that physics, neuroscience, or comparative argument alone establish immortal <em>jeevan</em>, constitutional completeness, or continuity across bodily death. Where traditions use different criteria of knowing, the dispute is treated as partially incommensurable (§6.5); open points are collected in §6.2. These topical studies state the philosophy in clear, checkable prose first; a separate formal mathematical treatment may follow once the definitions are stable across the series.</p>
 <p>Several claims the ontology depends on are argued fully elsewhere: the <strong>full-knowability thesis</strong> in <a href="https://analyticmadhyasthdarshan.org/Studies/Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.html"><em>Knowledge, Knower, and Known</em></a> §1.11, and <strong>post-death continuity and evidence</strong> in §§1.12, 6.2.4, and §6.4. Ethics, society, spiritual practice, and the full <em>kaal</em> treatment are deferred to linked studies (<a href="https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.html"><em>Nature of Time</em></a> and others). Institutional <strong>self-governance</strong>, <em>dharma-niti</em> / <em>rajya-niti</em>, public justice, and statutory social order belong in the planned study <em>Governance Justice and Undivided Society</em> and related social studies; <a href="https://analyticmadhyasthdarshan.org/Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.html">How to Form Self-Sustaining Organizations</a> applies the template in concrete assemblies — neither replaces the ontological account here. This paper states the full regulation ladder ontologically (§1.7), distinguishes law from justice (§1.10.1), and develops saturation through self-governance in §§1.7, 1.10; detailed assembly law, <em>dharma-niti</em>, and statutory social order are developed in the planned Governance study and applied templates. §1 can be read on its own; comparative conclusions that rest on those premises are marked where they arise.</p>
-<h2>Quick Glossary</h2>
+<h2 id="quick-glossary">Quick Glossary</h2>
 <h3>Terms in §1</h3>
 <table>
 <thead>
@@ -562,7 +605,7 @@
 </tr>
 </tbody>
 </table>
-<h2>1. The Madhyasth Darshan Answer</h2>
+<h2 id="1-the-madhyasth-darshan-answer">1. The Madhyasth Darshan Answer</h2>
 <p>Madhyasth Darshan defines <strong>existence</strong> as the ever-present <strong>coexistence</strong> of formless <strong>Omnipresence</strong> (<em>satta</em>) and countless bounded <strong>units</strong> of nature — beginningless, without creation from nothing, and indestructible at the level of being.</p>
 <p>The account proceeds in layers. It begins with the two co-eternal poles and the bond of <strong>saturation</strong> between ground and units, then states what every unit is and how all change appears as <strong>unit-activity</strong>. It names the <strong>four orders</strong> of nature and the <strong>relationships</strong> in which units recognise and fulfil one another. From there it treats <strong>regulation and law</strong>, <strong>composition</strong> of larger units, and <strong>development</strong> toward sentience. The sentient self (<em>jeevan</em>), evaluative life, and knowledge in coexistence follow. The section closes with <strong>conservation</strong>, the <strong>perpetual world</strong>, and what fulfilled human living evidences at the knowledge order. The full architecture is summarised in the figure at §1.9.</p>
 <h3>1.1 Coexistence: Omnipresence and units</h3>
@@ -1131,7 +1174,7 @@
 <p><strong>Resolution</strong> is what <em>dharma</em> disciplines in thought; <strong>prosperity</strong> is what justice evidences in behaviour when relationships close evaluatively; <strong>satya</strong> grounds both in realisation in existence rather than in liking, bodily expedience, or gain alone. <strong>Fearlessness</strong> names the social register the texts prefer to fear-based <strong>security</strong>: optimising protection or survival alone can build the kind of collectivity MVD attributes to animals under threat, whereas awakened humans base sociality on resolved understanding, adequate production, trust, and complementarity.</p>
 <p>Resolved human conduct (<em>manaviya aacharan</em>) is coexistence made evident in daily living. When the justice cycle completes — recognise relationship, fulfil values, evaluate, mutual satisfaction — trust, affection, care, and the other established values flow <strong>in</strong> relationships; justice is the name for that closure as a whole, and the four outcomes above are what it <strong>evidences</strong> at the knowledge order. Individual conduct composes upward: family and community persist while relationships are fulfilled in their natural state and decline when they are not. MVD names the assembly-scale telos <strong>undivided society</strong> (<em>akhand samaj</em>), evidenced together with <strong>universal orderliness</strong> when sectarian or fear-bound groupings mature into humankind as one complementary whole (MVD, Ch. 4). Activity completeness (T2) evidences orderliness with <em>ness</em>; conduct completeness (T3) evidences living proof (<em>pramanikta</em>) — coexistence not merely believed but displayed.</p>
 <p>Understanding without adequate living remains incomplete, and material plenty without resolution remains unfulfilled. Character, conduct, family formation, and institutional self-governance belong in linked ethics and society studies; the ontology here states what successful human living <strong>evidences</strong> when the relational cycle closes.</p>
-<h2>2. The Advaita Vedanta Answer</h2>
+<h2 id="2-the-advaita-vedanta-answer">2. The Advaita Vedanta Answer</h2>
 <p>Advaita Vedanta holds that existence in the strictest, absolute sense is <strong>Brahman</strong> alone — one without a second (<em>ekamevaditiyam</em>). The world of names, forms, bodies, and relations is <strong><em>mithya</em></strong> — a dependent appearance operationally valid at the empirical level (<em>vyavahara</em>) but ultimately sublated at absolute reality (<em>paramartha</em>). The true Self (<em>Atman</em>) is neither born nor destroyed, because it is ultimately identical with this non-dual Brahman.</p>
 <p>The account proceeds in layers. It begins with <strong>Brahman</strong> as absolute existence and <strong>Sat-Chit-Ananda</strong>, then separates the <strong>three tiers of reality</strong> (<em>pratibhasika</em>, <em>vyavahara</em>, <em>paramartha</em>). <strong>Maya</strong>, <strong>adhyasa</strong>, and causal doctrine (<em>satkaryavada</em>, <em>vivartavada</em>) explain how multiplicity appears on changeless Brahman. The <strong>empirical entities</strong> — Ishvara, jiva, and jagat — structure the shared world. <strong>Witness-consciousness</strong> (<em>sakshin</em>, <em>turiya</em>) names the irreducible seer discriminated from body and mind. <strong>Conservation</strong>, origination, and temporality divide timeless Brahman from law-governed <em>vyavahara</em>. <strong>Liberation</strong> (<em>moksha</em>) and the knowledge path state how the illusion of separateness is dispelled. The section closes with <strong>ethics</strong>, <em>loka-sangraha</em>, and what realization <strong>evidences</strong> at the empirical order. The full architecture is summarised in the figure at §2.5. Advaita terms are defined in Quick Glossary, <strong>Terms in §2</strong>.</p>
 <h3>2.1 Brahman and absolute existence</h3>
@@ -1294,7 +1337,7 @@
 </tbody>
 </table>
 <p>Realization <strong>evidences</strong> identity with Brahman — the dispelled illusion of separate individuality, not Madhyasth Darshan&rsquo;s four outcomes of resolution, prosperity, fearlessness, and coexistence (§1.13). The enlightened still act for world-welfare at <em>vyavahara</em>; what changes at <em>paramartha</em> is ontological status, not the possibility of ethical living. Madhyasth Darshan&rsquo;s counter-reply — that robust ethics and beginningless <em>vyavahara</em> do not settle <strong>final</strong> world-realness — is developed in §6.3.</p>
-<h2>3. Modern Philosophical Approaches</h2>
+<h2 id="3-modern-philosophical-approaches">3. Modern Philosophical Approaches</h2>
 <p>Modern Western philosophy takes <strong>physical nature as baseline</strong> and disputes how mind, self, value, and the world&rsquo;s final status fit within it. The dominant materialist line holds that consciousness emerges from matter; metaphysical idealism has held the reverse. SB records that neither one-way emergence has been observed — what is evident is <strong>coexistence</strong>:</p>
 <blockquote>
 <p><strong>&ldquo;In this course, metaphysical thought has held that matter arises from consciousness, whereas materialist thought has maintained that consciousness emerges from matter. Both ideologies have proposed numerous arguments, practices, and experiments in support of their claims. Yet, neither has matter been seen emerging from consciousness, nor consciousness emerging from matter. What is evident is that consciousness and matter are inseparably present.&rdquo;</strong>
@@ -1411,7 +1454,7 @@
 </table>
 <p>What philosophy <strong>has</strong> established, on Madhyasth Darshan&rsquo;s reading, is a high <strong>evidential bar</strong> and a persistent <strong>exposed point</strong>: the hard problem shows that reductive matter-only accounts leave experience unexplained. What it has <strong>not</strong> established is immortal <em>jeevan</em>, constitutional completeness, or post-death continuity — an explanatory gap is not an existence proof (§6.4). Predictive processing and self-model theories (§4.1) deepen the physicalist reply without settling the ontological dispute.</p>
 <p>Mainstream <strong>science</strong> inherits this physicalist baseline and adds measurement, formal models, and institutional replication — the subject of §4.</p>
-<h2>4. Modern Scientific Approaches</h2>
+<h2 id="4-modern-scientific-approaches">4. Modern Scientific Approaches</h2>
 <p>Mainstream science inherits the physicalist baseline of §3 and adds <strong>measurement, formal models, and institutional replication</strong>. Where philosophy disputes mind, self, and world-realness in argument, science operationalises those disputes through instruments, datasets, and peer review. SB records that humans seek to live with evidence through experimentation, behaviour, and experience — not through argument alone:</p>
 <blockquote>
 <p><strong>&ldquo;Humans inherently seek to live with evidence through experimentation, behaviour, and experience. They desire to achieve comprehensive resolution — across various aspects, perspectives, directions, dimensions, and contexts of time and place.&rdquo;</strong>
@@ -1484,7 +1527,7 @@
 </tbody>
 </table>
 <p>What science <strong>has</strong> established is precise mechanism, prediction, and correction across domains from particle physics to neuroscience. What it <strong>has not</strong> established — on Madhyasth Darshan&rsquo;s reading — is immortal <em>jeevan</em>, constitutional completeness at <em>gathanpurnata</em>, or post-death continuity of a sentient unit. An explanatory gap in the hard problem (§3.2) is not an existence proof for <em>jeevan</em>; predictive accuracy alone does not settle whether the regulator is only neural or a distinct unit working through the brain (§6.4, §6.5). The comparative synthesis begins in §5.</p>
-<h2>5. Comparison</h2>
+<h2 id="5-comparison">5. Comparison</h2>
 <p>Sections §§1–4 stated Madhyasth Darshan, Advaita Vedanta, and modern philosophical and scientific approaches on their own terms. This section synthesizes those expositions. The comparison runs on <strong>seven axes</strong> — ground, world realism, self and survival, causation and beginninglessness, time, method, ethics and purpose — summarized in §5.2 and developed in prose in §5.3. Three <strong>fault lines</strong> cut across those axes: whether existence is exhausted by matter and mechanism; whether the world retains final ontological weight; whether an immortal individual self is established. §5.1 names those pairwise alliances first; §§5.4–5.7 then deepen causation, entity structure, Sat-Chit-Ananda, and the Advaita-specific structural fork.</p>
 <h3>5.1 Where the alliances fall</h3>
 <p>No single tradition wins every dispute. Three pairwise patterns clarify what each view shares with and denies to the others:</p>
@@ -1719,7 +1762,7 @@
 <p>In Advaita, <strong>Ishvara</strong> is Brahman associated with <em>Maya</em> — operative cause of name-form manifestation, sublated at <em>paramartha</em> (VC, v. 244), not a personal creator <em>ex nihilo</em>. Madhyasth Darshan rejects Ishvara in this sense — a cosmic governor who plans, acts as efficient cause, or dispenses grace. That is not rejection of transcendence altogether: MVD&rsquo;s ninth Reality set includes <strong>&ldquo;God is omnipresent, deities are many&rdquo;</strong> (proposition 5; §1.12) — <em>God</em> names actionless Omnipresence (<em>satta</em>), while <strong>deities are many</strong> denies elevating personal deities to ultimate status. Orderliness (<em>vyavastha</em>) is self-regulation (<em>swatah-saspurt</em>) inherent in the co-existing orders (§1.7); <em>Satta</em> remains actionless (<em>kriya-shunya</em>).</p>
 <p>Advaita seeks <strong>kaivalya</strong> — recognition of pre-existing identity with Brahman (<em>jiva-brahma-aikya</em>), in which the illusion of separate individuality is dispelled (<em>tat tvam asi</em>, CU 6.8.7; BS 1.1.2; VC, vv. 244, 574). Madhyasth Darshan holds that individual <em>jeevan</em> units remain eternally distinct; the ultimate goal is <strong>awakened coexistence (<em>jagriti</em>)</strong> — active <em>jeevan</em> in harmonious relationships (<em>sambandh</em>) with other humans and the ecological orders.</p>
 <p>While surface-level analogues exist, the core ontological commitments are ultimately irreconcilable. A true one-to-one mapping is impossible without distorting the foundational claims of either system.</p>
-<h2>6. Critical Review</h2>
+<h2 id="6-critical-review">6. Critical Review</h2>
 <h3>6.1 Internal coherence of the Madhyasth Darshan position</h3>
 <p>Judged on its own definitions — not as proof against rivals — the ontology hangs together. Coexistence, real units, and beginninglessness form one picture without separate doctrines for each question (§5.2 summarizes the cross-tradition contrast; §5.3 develops it in prose). &ldquo;Brahma is truth, the world is perpetual&rdquo; preserves the reality of nature, society, relationship, and ethical responsibility rather than sublating the world. Consciousness, value, and selfhood are not treated as mere byproducts of body-chemistry. If existence is coexistence, human fulfilment must be evidenced as coexistence in behavior, not merely believed. &ldquo;Nothing existent is annihilated&rdquo; gives internal coherence to <em>vastu</em> persisting through <em>roop</em>-change, bodily death as configuration-shift, and development within beginningless coexistence — though post-death continuity of <em>this</em> <em>jeevan</em> is a further metaphysical commitment, not a theorem of quantity conservation alone (§1.12, §6.2.4).</p>
 <p>These are strengths <strong>within</strong> the system&rsquo;s premises. They do not by themselves establish those premises against Advaita or physicalism (see §6.2–§6.6).</p>
@@ -1916,14 +1959,14 @@
 <p>Self-model and predictive-processing theories explain hierarchical regulation; they do not by themselves refute latency, because latency does not deny embodied regulation — it locates the sentient <strong>unit</strong> that works through the body.</p>
 <h4>What remains open</h4>
 <p>The model is a metaphysical framework, not a detailed physical mechanism. It does not answer physicalism&rsquo;s demand for third-person public evidence (§6.4), nor does it reconcile the claimed constitutional immunity of the composite <em>gathanpurna parmanu</em> with modern particle physics — where composite bound states decay rather than elementary particles being indestructible (§6.2.4). The hard problem is <strong>asserted away</strong> only in the weak sense that latency denies experience-from-nothing; it is <strong>not solved</strong> in the strong sense until selection and grounding are independently motivated and the Nagarjuna challenge (§6.2.2) is answered. Formalizing that reading within the law of coexistence — and defending it against Nagarjuna&rsquo;s <em>svabhava</em> critique — is the most promising route for later rigorous work.</p>
-<h2>7. Conclusion</h2>
+<h2 id="7-conclusion">7. Conclusion</h2>
 <p>Madhyasth Darshan answers the framing questions through a single ontological picture: eternally present <strong>coexistence</strong> (<em>saha-astitva</em>) of formless Omnipresence (<em>satta</em>) and countless <strong>units</strong> (<em>ikai</em>), beginningless and neither made from the other. Saturation binds ground to units; <em>sambandh</em>, complementarity, and value-fulfilment bind units to one another; complementary units compose into tiered assemblies from particles through societies (§1.5). What exists does not begin from non-existence (<em>abhava</em>); bodies and configurations do, while <em>vastu</em> persists through transformation. Time (<em>kaal</em>) is the duration of unit-activity, not an independent cosmic container (§1.6). Causation is circular and order-specific: <em>satta</em> is <em>mahakaran</em> — sustaining ground, not efficient trigger — and units work change through effort–motion–result (<em>shram–gati–parinam</em>), read in sentient nature toward constitutional, activity, and conduct completeness (§§1.6–1.9). Sentience belongs to the constitutionally complete atom (<em>gathanpurna parmanu</em>), actualised from coexistential ground rather than produced from dead matter (§6.6).</p>
 <blockquote>
 <p><strong>&ldquo;Brahma is truth, the world is perpetual.&rdquo;</strong>
 - MVD, p. 13</p>
 </blockquote>
 <p>That formulation marks what is distinctive in comparative terms. Against <strong>physicalism</strong>, Madhyasth Darshan refuses matter-only reduction: consciousness, value, selfhood, and ethical relation are not exhaustively explained as brain-generated epiphenomena, yet the world of units remains fully real for study and responsibility — not a second-class appearance. Against <strong>Advaita</strong>, it refuses world-negation at the highest level: the perpetual world (<em>jagat satat</em>), distinct immortal <em>jeevan</em> units, and ontologically real relationships and values (<em>mulya</em>) retain final weight; coexistence is not compressed into a single subject whose empirical multiplicity is finally <em>mithya</em>. Against both, it holds a <strong>relational realism</strong>: Brahma is real, the world is real, and their inseparable presentness is coexistence — with ontology tied to conduct, so that understanding is fulfilled when coexistence becomes clear in one&rsquo;s own seeing and evident in humane living, responsible work, and experiment. The pairwise patterns in §5.1 show where each tradition agrees and diverges on these stakes; the critical review in §6 examines what remains open within and against that position.</p>
-<h2>Editorial Notes</h2>
+<h2 id="editorial-notes">Editorial Notes</h2>
 <h3>Translation and editorial conventions (<em>satta</em>)</h3>
 <p>The source texts&rsquo; primary English term for the all-pervasive, formless reality (<em>satta</em>) is <strong>Omnipotence</strong>; <em>vyapak</em> (&ldquo;all-pervasive&rdquo;) is rendered &ldquo;Omnipresence&rdquo; in the English translation. The English translation alternates <strong>Omnipotence</strong> and <strong>Omnipresence</strong> for the same <em>satta</em>; Hindi <em>satta</em> is the constant behind both. To avoid the theistic connotations of &ldquo;Omnipotence,&rdquo; the study uses <strong>&ldquo;Omnipresence&rdquo;</strong> as its running English term in analytical prose. Block quotes preserve whichever word the translation prints. Where Hindi <em>shunya</em> appears, the translation renders it <strong>Space</strong> — void/emptiness (actionless, formless), not physical <em>akasha</em>.</p>
 <h3>&ldquo;Consciousness&rdquo; in SB p. 48</h3>
@@ -1968,7 +2011,7 @@
 <p>The <em>mithya</em> doctrine and Advaita&rsquo;s three-tier framework (<em>pratibhasika</em>, <em>vyavahara</em>, <em>paramartha</em>) are related but distinct tools; §2 keeps them apart. The compound <em>sad-asad-anirvacaniya</em> is a post-Shankara systematic term (Vimuktatman, Vivarana school); Shankara uses &ldquo;neither sat nor asat&rdquo; language without that compound.</p>
 <h3>Advaita: <em>Vivekachudamani</em> as source</h3>
 <p>This study cites the <em>Vivekachudamani</em> (VC) heavily for accessible verse formulations of discrimination, ethics, and liberation. VC is a devotional <em>prakriya</em> (method) text traditionally attributed to Shankara; modern scholarship treats that authorship as uncertain. The Upanishads, <em>Mandukya</em>, and DDV supply the exegetical core; VC supplies pedagogical compression. Claims tied to VC should be read as standard Advaita teaching in that genre, not as a substitute for Brahma Sutra commentary on disputed points.</p>
-<h2>References</h2>
+<h2 id="references">References</h2>
 <h3>Madhyasth Darshan (primary sources)</h3>
 <ul>
 <li><strong>MVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan — Co-existentialism</em></a>. English translation by Rakesh Gupta. Cited: Realisation Knowledge and Effort–Motion–Result principle (p. 11); reciprocal revelation and eternal co-presence of nature in absolute energy (p. 40); mediative Omnipotence, regulated conserved nature, mediative nucleus (p. 26); Omnipresence/Space (pp. 11, 13, 35); nine Reality propositions (pp. 12–13); definite development and awakening, laws inherent to being (p. 5); hungry/overfull atoms, planetary composition, and Earth biological emergence (pp. 8, 13); Postulations: physicochemical nature in development progression; atom as sentient unit (p. 14); Verity chain, orderliness as development and awakening (pp. 14–15); Development and Awakening Progression (pp. 13–14, 27, 87); &ldquo;Brahma is truth, the world is perpetual&rdquo; (p. 13); Vedanta origination objection and <em>jagat satat</em> counter (<em>The Alternative</em>; §6.3); gist of coexistence (p. 5); <em>vyapak</em> at all places and times (p. 34); time (<em>kaal</em>) as duration of activity (pp. 34, 196, 338); measurement of time through mathematics (p. 195); <em>jeevan</em>-cloud and faculties (pp. 83–84); six <em>drishti</em>, perspective domain mapping, balanced and unbalanced <em>vritti</em>, yathartha visualization (pp. 58, 60–61, 66–67, 71, 126–127); relationship vs association, grace, <em>sadhan</em>, and <em>kshamata</em>–<em>yogyata</em>–<em>patrata</em> (pp. 61–62); mixture vs compound composition (p. 42); insentient vs sentient definition, constitution as recognition–fulfilment, inward regulation of <em>jeevan</em> energies (p. 77); <em>atma</em> as mediative regulator of faculties (p. 277); ascending/frustration and order-specific orbit activity (p. 79); action-dependence of animals (p. 69); family/community assembly (p. 55); seed and <em>rachna vidhi</em> (pp. 92–93); <em>patrata</em>–<em>drishti</em>–<em>darshan</em> and capacity–ability–receptivity for worldview (pp. 134, 142, 302); moral development tiers (p. 160); knowledge unfolding by awakened humans (p. 115); <em>sanskar</em> definition (p. 90); unit signature, <em>svabhav</em>, and innateness (<em>dharma</em>) in mutuality (p. 112); four-level causal hierarchy and mortal/immortal/eternal <em>dharma</em>s (p. 288); order-specific cyclical manifestation and knowledge unfolding through <em>jeevan</em>/thoughts (p. 289); reflection–projection cycle (pp. 290–291); effort–motion–result in <em>jeevan</em> (p. 78); no isolated unit; development from environment (p. 230); humane behaviour as justice (p. 35); regulation through justice, <em>dharma</em>, and truth (p. 137); justice as recognition, fulfilment, evaluation, mutual satisfaction (pp. 311, 336); four-fold human goal and awakened sociality — resolution, prosperity, fearlessness, coexistence (Ch. 4); fulfilment evidencing resolution and prosperity (p. 62).</li>
@@ -2029,6 +2072,83 @@
 <li><strong>Friston 2010</strong> — Friston, K. <a href="https://analyticmadhyasthdarshan.org/References/Science/Friston-2010-Free-Energy-Principle.pdf">&ldquo;The free-energy principle: a unified brain theory?&rdquo;</a> <em>Nature Reviews Neuroscience</em>, 11(2), 127–138. Cited: Free Energy Principle (§4.1, §5.5).</li>
 <li><strong>Weinberg 1995</strong> — Weinberg, S. <a href="https://www.cambridge.org/core/books/quantum-theory-of-fields/7A7637CB756DAC56A978B5E4EBD9788F"><em>The Quantum Theory of Fields</em>, Vol. 1: <em>Foundations</em></a>. Cambridge University Press. Cited: quantum field theory and particle excitations (§4.4).</li>
 </ul>
+<script>
+(() => {
+  const toolbar = document.querySelector(".study-toolbar");
+  const prev = document.getElementById("study-section-prev");
+  const next = document.getElementById("study-section-next");
+  if (!toolbar || !prev || !next) return;
+
+  const sections = Array.from(document.querySelectorAll("h2[id]"));
+  const syncToolbarHeight = () => {
+    document.documentElement.style.setProperty(
+      "--study-toolbar-height",
+      `${toolbar.offsetHeight}px`
+    );
+  };
+
+  const sectionLabel = el => el.textContent.replace(/\s+/g, " ").trim();
+
+  const marker = () => (toolbar.offsetHeight || 0) + 16;
+
+  const currentIndex = () => {
+    const y = window.scrollY + marker();
+    let idx = -1;
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop <= y) idx = i;
+      else break;
+    }
+    return idx;
+  };
+
+  const setDisabled = (link, disabled, fallback) => {
+    link.classList.toggle("is-disabled", disabled);
+    if (disabled) {
+      link.removeAttribute("href");
+      link.setAttribute("aria-disabled", "true");
+      link.textContent = fallback;
+    } else {
+      link.setAttribute("aria-disabled", "false");
+    }
+  };
+
+  const update = () => {
+    if (!sections.length) {
+      setDisabled(prev, true, "\u2190 Previous section");
+      setDisabled(next, true, "Next section \u2192");
+      return;
+    }
+
+    const idx = currentIndex();
+
+    if (idx <= 0) {
+      setDisabled(prev, true, "\u2190 Previous section");
+    } else {
+      prev.classList.remove("is-disabled");
+      prev.href = `#${sections[idx - 1].id}`;
+      prev.setAttribute("aria-disabled", "false");
+      prev.textContent = `\u2190 ${sectionLabel(sections[idx - 1])}`;
+    }
+
+    if (idx < 0 || idx >= sections.length - 1) {
+      setDisabled(next, true, "Next section \u2192");
+    } else {
+      next.classList.remove("is-disabled");
+      next.href = `#${sections[idx + 1].id}`;
+      next.setAttribute("aria-disabled", "false");
+      next.textContent = `${sectionLabel(sections[idx + 1])} \u2192`;
+    }
+  };
+
+  syncToolbarHeight();
+  update();
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", () => {
+    syncToolbarHeight();
+    update();
+  });
+})();
+</script>
 
 </body>
 </html>

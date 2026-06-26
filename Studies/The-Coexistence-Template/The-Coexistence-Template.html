@@ -208,11 +208,14 @@
     height: auto;
   }
 
+  html { scroll-behavior: smooth; }
+  h2[id] {
+    scroll-margin-top: calc(var(--study-toolbar-height, 88px) + 10px);
+  }
   .study-toolbar {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    gap: 10px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     font-family: 'Segoe UI', system-ui, sans-serif;
     font-size: 13px;
     position: sticky;
@@ -226,6 +229,17 @@
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
   }
+  .study-toolbar-row {
+    display: grid;
+    align-items: center;
+    gap: 8px 14px;
+  }
+  .study-toolbar-row--primary {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+  }
+  .study-toolbar-row--sections {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
   .study-toolbar-back {
     justify-self: start;
     min-width: 0;
@@ -235,34 +249,59 @@
     min-width: 0;
     text-align: right;
   }
+  .study-toolbar-title {
+    justify-self: center;
+    text-align: center;
+    margin: 0;
+    min-width: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: #2c241c;
+    line-height: 1.35;
+  }
+  .study-toolbar-draft {
+    font-weight: 600;
+    color: #5c5348;
+  }
   .study-toolbar-link {
     color: #1a5276;
     text-decoration: none;
     font-weight: 600;
   }
   .study-toolbar-link:hover { color: #13405c; }
-  .study-toolbar-status {
-    justify-self: center;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: #1a5276;
-    background: #e8f1f6;
-    border: 1px solid #c5d9e6;
-    border-radius: 999px;
-    padding: 4px 10px;
+  .study-toolbar-section {
+    display: block;
+    min-width: 0;
+    font-size: 12px;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
-  .study-toolbar-status--empty {
-    visibility: hidden;
-    padding: 4px 10px;
-    border-color: transparent;
-    background: transparent;
+  .study-toolbar-section--prev { justify-self: start; }
+  .study-toolbar-section--next {
+    justify-self: end;
+    text-align: right;
+  }
+  .study-toolbar-section.is-disabled {
+    opacity: 0.45;
+    pointer-events: none;
+    color: #6f655a;
   }
   .study-toolbar-download::after {
     content: " \2193";
     font-weight: 700;
+  }
+  @media (max-width: 640px) {
+    .study-toolbar-row--primary {
+      grid-template-columns: 1fr 1fr;
+    }
+    .study-toolbar-title {
+      grid-column: 1 / -1;
+      white-space: normal;
+    }
+    .study-toolbar-section {
+      white-space: normal;
+    }
   }
   @media print {
     .study-toolbar { display: none !important; }
@@ -310,27 +349,31 @@
     }
     .study-toolbar-link { color: #7ebbed; }
     .study-toolbar-link:hover { color: #b8daf3; }
-    .study-toolbar-status {
-      color: #7ebbed;
-      background: #233e52;
-      border: 1px solid #3d6278;
-    }
+    .study-toolbar-title { color: #f5f1ec; }
+    .study-toolbar-draft { color: #aca194; }
+    .study-toolbar-section.is-disabled { color: #6f655a; }
   }
 
 </style>
 </head>
 <body>
 <nav class="study-toolbar" aria-label="Study navigation">
-  <a class="study-toolbar-link study-toolbar-back" href="../index.html">&larr; All studies</a>
-  <span class="study-toolbar-status" role="status">Draft</span>
-  <a class="study-toolbar-link study-toolbar-download" href="The-Coexistence-Template.pdf" download>Download PDF</a>
+  <div class="study-toolbar-row study-toolbar-row--primary">
+    <a class="study-toolbar-link study-toolbar-back" href="../index.html">&larr; All studies</a>
+    <p class="study-toolbar-title">The Coexistence Template <span class="study-toolbar-draft">(Draft)</span></p>
+    <a class="study-toolbar-link study-toolbar-download" href="The-Coexistence-Template.pdf" download>Download PDF</a>
+  </div>
+  <div class="study-toolbar-row study-toolbar-row--sections">
+    <a class="study-toolbar-link study-toolbar-section study-toolbar-section--prev" id="study-section-prev" href="#" aria-disabled="true">&larr; Previous section</a>
+    <a class="study-toolbar-link study-toolbar-section study-toolbar-section--next" id="study-section-next" href="#" aria-disabled="true">Next section &rarr;</a>
+  </div>
 </nav>
 <h1>The Coexistence Template</h1>
-<h2>A formal definition of units, relationships, values, assembly, and transmission</h2>
+<h2 id="a-formal-definition-of-units-relationships-values-assembly-and-transmission">A formal definition of units, relationships, values, assembly, and transmission</h2>
 <p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> — a group of people studying Madhyasth Darshan philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
 <p><strong>Edited on:</strong> June 26, 2026, 10:28 AM IST
 <strong>The thesis:</strong> Madhyasth Darshan (Shri A. Nagraj&rsquo;s Co-existentialism) contains, beneath its human-centred exposition, a single recurring structural template: <em>bounded units, saturated in an indivisible medium through pervasive co-location — inherent energy and regulation in each unit through that relationship, not physical extraction from the medium — recognise and fulfil definite relationships with one another through capacity, ability, and receptivity; the content exchanged in those relationships is value (essentiality); complementary units compose into larger units; an assembly persists exactly as long as its relationships are fulfilled; and each assembly transmits its method of composition across generations of its members.</em> Regulation from the medium is <strong>in</strong> units through saturation, becomes evident as <strong>law</strong> and <strong>order-specific conformance regimes</strong>, and within constitutionally complete <em>jeevan</em> as <strong>inward regulation</strong> under mediative <em>atma</em> — not efficient causation from <em>O</em>, and not institutional self-governance (deferred). This paper states that template formally, grounds every clause in the primary texts, shows that Shri Nagraj himself asserts it for <strong>all four orders of nature</strong> (not only for humans), and identifies the one place where the template genuinely changes character — the knowledge order, where participation must be achieved through understanding rather than delivered by constitution. The ontological exposition that motivates this formalisation — coexistence, saturation, the <strong>regulation ladder</strong>, unit signature, unit relationships, four orders and planes, development and awakening progressions, evaluative life, conservation, and societal fulfilment outcomes — is developed in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §§1.1–1.13 (regulation ladder: §§1.7, 1.10.1; inward regulation: §1.10; four human goals and <em>akhand samaj</em>: §1.13). Beyond exposition, this paper has an applied aim: to make the template precise enough to be <strong>carried to systems Shri Nagraj did not himself treat</strong> — used forward, to design organisations, economies, and other assemblies that are stable by construction, and in reverse, to diagnose a failing system by the exact clause of the template it violates (see §1.1).</p>
-<h2>1. Why a template, and why it is legitimate to generalise</h2>
+<h2 id="1-why-a-template-and-why-it-is-legitimate-to-generalise">1. Why a template, and why it is legitimate to generalise</h2>
 <p>A natural reading of Madhyasth Darshan focuses on its human programme: justice in relationships, family-based order, humane education. On that reading, the recurring pattern — units forming larger wholes through valued relationships — looks like a human story that one might <em>extrapolate</em> to atoms and cells.</p>
 <p>The texts support a stronger position: the general template is asserted first, and the human case is derived as its hardest instance. The opening analysis of <em>Samadhanatmak Bhautikvad</em> states the template in fully general terms — each unit a whole with its environment, orderliness with <em>ness</em>, development in natural state and decline in excited state:</p>
 <blockquote>
@@ -364,7 +407,7 @@
 </li>
 </ul>
 <p>This forward/reverse use is what motivates the tier-neutral formalisation of Sections 2–3: it must be stated independently of its original human framing before it can be applied elsewhere. The applications in Section 8 are first instances; the broader claim is that <strong>any</strong> system describable as units-in-relationship is a candidate for both uses. Two cautions travel with this ambition. First, the template&rsquo;s metaphysical axioms (the medium O, <em>jeevan</em>, A1–A2, D6) are not established by the formalism, so any analysis that leans on them inherits their status as commitments, not results. Second, importing the template into a domain Shri Nagraj did not treat is itself an interpretive act: the mapping from that domain&rsquo;s parts onto units, relationships, and values must be argued, not assumed.</p>
-<h2>2. The template, informally</h2>
+<h2 id="2-the-template-informally">2. The template, informally</h2>
 <p>Twelve clauses. Everything in Section 3 is a formalisation of these.</p>
 <ol>
 <li>Existence is <strong>coexistence</strong> (<em>saha-astitva</em>): one indivisible, omnipresent medium (Space / Omnipotence) and countless real units co-eternally present in saturation. The medium is not a unit.</li>
@@ -381,7 +424,7 @@
 <li>Development runs through <strong>three completeness stages</strong> — constitutional (<em>gathanpurnata</em>), activity (<em>kriyapurnata</em>), conduct (<em>vyavaharpurnata</em>) — mapped to <strong>plane transitions</strong> in nature&rsquo;s progression (physicochemical → delusional → deific → divine); T1 at the sentient threshold is irreversible at the atomic level (SB pp. 51–52, 92).</li>
 <li>In the knowledge order, understanding must <strong>evidence</strong> itself: realisation is ultimate proof only when conduct, work, and tradition make coexistence manifest — not private conviction alone (MVD p. 12; <a href="https://analyticmadhyasthdarshan.org/Studies/Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.html">Knowledge, Knower, and Known</a> §1.6).</li>
 </ol>
-<h2>3. The formal template</h2>
+<h2 id="3-the-formal-template">3. The formal template</h2>
 <h3>3.1 Primitives</h3>
 <table>
 <thead>
@@ -724,7 +767,7 @@
 <p><strong>P4 (Sustainment requires shared cause, goal, and programme).</strong> For deliberate (knowledge-order) assemblies: &ldquo;For an organisation, commonness of cause and goal is necessary. For its sustainment, commonness of the program is also necessary&rdquo; (MVD p. 55). This is φ and τ restated for voluntary composition.</p>
 <p><strong>P5 (Boundedness of extraction).</strong> A unit&rsquo;s relationships with lower-order units are also governed by E(r): right-use and purposeful-use, bounded by regeneration — &ldquo;expenditure of natural abundance like minerals and forests in proportion to their regeneration&rdquo; (MVD p. 264). Extraction beyond regeneration is an unfulfilled relationship and, by L4, destabilises the containing assembly (the Earth-tier): &ldquo;we overlooked the purpose of our relationship with the Earth… This lack of understanding led to the catastrophic collapse of our planet[&rsquo;s environment]&rdquo; (JV p. 77).</p>
 <p><strong>P6 (Completeness-directed development).</strong> Every unit is active and developing solely for completeness (SB p. 51). Development Progression (<em>vikas-kram</em>) runs through constitutional completeness in the atom; Awakening Progression (<em>jagriti-kram</em>) runs in <em>jeevan</em> already constitutionally complete toward activity and conduct completeness (MVD pp. 13–14, 27). The same drive appears as plane transitions T1–T3 (D11) — oriented <strong>until realisation in coexistence</strong> (TEL; <em>satta mein anubhav</em>, SB p. 51; MVD p. 116) — a definite terminal orientation, not unbounded maximisation (Section 5).</p>
-<h2>4. The template instantiated, tier by tier</h2>
+<h2 id="4-the-template-instantiated-tier-by-tier">4. The template instantiated, tier by tier</h2>
 <table>
 <thead>
 <tr>
@@ -820,13 +863,13 @@
 <li><strong>The same column-shape repeats four times.</strong> That is the precise sense in which the template is universal — it is not a metaphor carried from human life down to atoms; the texts assert each row for each order.</li>
 <li><strong>Each row&rsquo;s content is richer in the knowledge order but never absent below it.</strong> Value, for instance, does not first appear with humans; it is &ldquo;the essentiality of units in every plane and order&rdquo; (SB p. 50). What first appears with humans is <em>evaluation</em> of value — and with it the possibility of error.</li>
 </ol>
-<h2>5. What the template is <em>not</em></h2>
+<h2 id="5-what-the-template-is-not">5. What the template is <em>not</em></h2>
 <p>These contrasts matter because the most natural modern glosses of the template quietly replace it with something else.</p>
 <p><strong>Not optimisation.</strong> It is tempting to summarise the template as &ldquo;units organise so as to maximise value.&rdquo; The texts never use a maximisation principle, and their machinery actively excludes it. Conduct in the first three orders is <em>definite</em> — an oak does not do more or less oak-ness (JV p. 113); the usefulness value of objects is <em>constant</em> (JV p. 123); development is a <em>definite progression</em> toward completeness — constitutional completeness (the jeevan atom), then activity completeness, then conduct completeness (MVD p. 13–14, p. 27) — i.e. a <strong>terminal state</strong>, not an unbounded objective. Even in the human case the goal-language is saturation language: resolution, satisfaction, completeness. Maximisation (&ldquo;more&rdquo;) is, in fact, the diagnosed pathology: &ldquo;Commerce… has become profit-driven, perpetually pursuing &lsquo;more&rsquo;&rdquo; (JV p. 41). The correct abstract gloss is: <strong>units move definitely toward fulfilment/completeness of their relationships</strong>, not toward a maximum of any quantity.</p>
 <p><strong>Not struggle or selection.</strong> The assembly engine is complementarity of need and surplus (L2, L3), explicitly opposed to dialectical conflict and survival-of-the-fittest readings (JV p. 157; SB p. 13). Where Darwinian narratives explain structure by differential destruction, this template explains structure by mutual offering-acceptance; destruction (decomposition) is the <em>loss</em> of structure when relations go unfulfilled, not the designer of it.</p>
 <p><strong>Not bottom-up emergence alone.</strong> In the template, capacities are <em>provisioned</em> in existence and manifest when composition reaches the right tier (the human body &ldquo;has the provision to evidence understanding&rdquo;, JV p. 59); the medium energises and regulates from below every tier at once (A2). A purely emergentist reading drops O and turns A2 into magic; the texts treat O as doing real explanatory work.</p>
 <p><strong>Not value-as-epiphenomenon.</strong> Value in the template is the <em>content of fulfilment</em> — what flows in a relationship — present at every tier (SB p. 50). The human innovation is a second-order operation on it (evaluation, D6), located in <em>jeevan</em>, &ldquo;not bodily or mechanical&rdquo; (JV p. 39). Any restatement that makes value a human projection onto a value-free substrate inverts the doctrine.</p>
-<h2>6. Critical review of the informal reading</h2>
+<h2 id="6-critical-review-of-the-informal-reading">6. Critical review of the informal reading</h2>
 <p>This paper began from a compact informal reading of the darshan — stability of the whole, units inseparable from environment, a fundamental set of relationships, value assessed on a non-material plane, units organising into ever larger assemblies, knowledge succeeding across generations. Checked against the texts, that reading is substantially faithful; four points need correction or sharpening.</p>
 <h3>Medium immersion versus relational environment</h3>
 <p>The texts distinguish (a) the constitutive saturation of every unit in the <em>medium</em> (A1 — pervasive co-location in which inherent energy and regulation belong to the unit through saturation; &ldquo;no provision in existence to separate units of nature from Omnipresence&rdquo;, JV p. 18) — the ontological relation between O and every unit — and (b) the relational complementarity of every unit with <em>other units</em> (A4, L2; D3) — <strong>sambandh</strong>, with values flowing when relationships are recognised and fulfilled (SB p. 50; JV p. 69). The first is absolute and non-contingent; the second is the domain of relationships and value. SB p. 13 holds them together — &ldquo;Each unit is a whole along with its environment&rdquo; — but the template needs both levels kept apart, because inherent energy and regulation are provisioned in (a), while value flows in (b). <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §§1.2, 1.6 states this as two layers of ontological relation; the <strong>regulation ladder</strong> (D2a) is how (a) reaches order-specific conduct without collapsing into (b).</p>
@@ -847,7 +890,7 @@
 <h3>Universal template, human elaboration</h3>
 <p>The general template is asserted in fully general language in SB Chapter 1 and MVD&rsquo;s opening chapters, with the atomic, cellular, and planetary instances worked out (Section 1). What is true is that the <em>elaboration</em> is densest for the human case — because that is the one tier where the template&rsquo;s execution is not guaranteed and therefore needs teaching. The correct framing: <strong>the universal template is textual; the human chapters are its boundary-case analysis.</strong></p>
 <p>One further sharpening on transmission: in the knowledge order, τ carries <em>understanding</em> — and only understanding. &ldquo;Ignorance cannot flow in tradition&rdquo; (JV p. 49) because wrongs are never accepted as sanskar (JV p. 50); yet &ldquo;tradition is the source of understanding or delusion&rdquo; (JV p. 54), since an unawakened tradition transmits delusion by default until understanding enters it. So human-tier transmission is not a neutral copying channel like the seed or the lineage: it is <em>asymmetric</em>, favouring whatever is genuinely acceptable to jeevan. This asymmetry is the textual basis for the darshan&rsquo;s optimism that an awakened tradition, once established, is self-strengthening (&ldquo;with each successive generation, it becomes more robust and refined&rdquo;, JV p. 49).</p>
-<h2>7. Relation to other formal frameworks</h2>
+<h2 id="7-relation-to-other-formal-frameworks">7. Relation to other formal frameworks</h2>
 <p>Stated at this level of generality, the template invites comparison with several modern frameworks. The comparisons are useful chiefly for locating what is <em>distinctive</em> here.</p>
 <table>
 <thead>
@@ -886,12 +929,12 @@
 </tbody>
 </table>
 <p>The two genuinely distinctive commitments, visible only when the template is laid out formally, are: <strong>(i)</strong> the medium O as a constitutive, energising, regulating presence at every tier simultaneously (A1–A2) — not an aether <em>within</em> physics but a precondition <em>of</em> it; and <strong>(ii)</strong> value as the universal content of relations, with evaluation appearing only at the top tier (D4/D6). Frameworks that drop (i) must find energy and regulation inside the units; frameworks that drop (ii) must reconstruct value as preference or fitness. The darshan does neither.</p>
-<h2>8. Implications and uses of the template</h2>
+<h2 id="8-implications-and-uses-of-the-template">8. Implications and uses of the template</h2>
 <p><strong>For human organisations.</strong> P3 and P4 jointly say: a deliberate human assembly persists only if (a) its relationships are recognised and their values actually fulfilled — not merely incentivised (fear/temptation are explicitly rejected as bases of order, JV p. 39) — and (b) it institutionalises transmission of its understanding to incoming members. An organisation that fulfils values but does not transmit understanding decays on member turnover; one that transmits rules without value-fulfilment holds together only as long as enforcement does. This is the theoretical core of the practical programme developed in <em>How To Form Self-Sustaining Organizations</em> in this collection.</p>
 <p><strong>For ecology and economics.</strong> P5 turns sustainability from an ethical add-on into a stability condition of the template: extraction beyond regeneration is an unfulfilled relationship at the planetary tier, and L4 then predicts decomposition pressure on the containing assembly. Likewise the darshan&rsquo;s cyclical economy (&ldquo;producing more than the needs of family by way of circularity&rdquo;, MVD p. 265) is the φ-condition applied to production-exchange relations.</p>
 <p><strong>For the study of the darshan itself.</strong> The template provides a checklist for reading any passage: identify the unit, the tier, the relationships, the expectation profile, the value, the conformance regime, and the transmission carrier. Much apparent repetition across the four texts resolves into the same template instantiated at different tiers.</p>
 <p><strong>As a falsifiable-in-parts structure.</strong> The metaphysical clauses (O; jeevan) are not empirically testable, but several template-level claims are confronted by evidence and argument: that assembly is everywhere complementarity-driven rather than selection-driven; that human collectives sustained by understanding-transmission outlast those sustained by incentive; that definite, non-maximising development better describes lower-order dynamics than optimisation models. Holding the template explicit makes it possible to say exactly which clause any given criticism touches.</p>
-<h2>9. Limitations</h2>
+<h2 id="9-limitations">9. Limitations</h2>
 <ol>
 <li><strong>Formalisation is interpretive.</strong> The symbols above (κ, τ, μ) do not appear in the texts; they are this paper&rsquo;s compression of textual claims, and the page citations are the warrant for each. Where compression involved judgment (notably, treating &ldquo;seed coordination&rdquo; as one operator τ with four carriers), the judgment is flagged in place.</li>
 <li><strong>The medium and jeevan are axioms, not results.</strong> A1–A2 and D6 carry the darshan&rsquo;s full metaphysical weight. The template&rsquo;s <em>structure</em> survives bracketing them, but its explanation of energisation, regulation, and evaluation does not.</li>
@@ -899,9 +942,9 @@
 <li><strong>Translation risk.</strong> Quotations follow the published English translations of Hindi originals; several key terms (<em>vyavastha</em> as &ldquo;orderliness&rdquo;, <em>nirvah</em> as &ldquo;fulfilment&rdquo;, <em>samprikt</em> as &ldquo;saturated&rdquo;) carry interpretive choices made by the translators.</li>
 <li><strong>D13 is an identity-chain, not a guarantee.</strong> The MVD p. 12 loop models each link as &ldquo;X itself is Y&rdquo;; it does not deductively prove that the cycle always closes in practice — only what complete knowledge requires when it does.</li>
 </ol>
-<h2>10. Conclusion</h2>
+<h2 id="10-conclusion">10. Conclusion</h2>
 <p>The reading that Madhyasth Darshan is &ldquo;centered on the stability of the whole structure of existence&rdquo;, with saturated units, valued relationships, ever-larger assemblies, and inter-generational transmission, is confirmed by the texts — and is <em>more</em> than an interpretation: it is a structure the texts themselves assert at every order of nature. Stated formally, it is one template: <strong>coexistence as co-eternally present medium and units; saturation and sambandh as two relational layers; the regulation ladder from A2 through law to order conformance and inward regulation in jeevan; sig(u) with order-specific svabhav and dharma; definite relationships; value as essentiality modulated by capacity, ability, and receptivity; composition by complementarity; persistence by fulfilment; transmission by order-specific carriers; iterated into a tiered hierarchy; development through three completeness stages and plane transitions T1–T3 toward TEL (realisation in coexistence); knowledge registers D12 and self-evidencing closure D13/L7 at the human tier</strong> — with a single discontinuity at the knowledge order, where every clause must pass through understanding and evidence itself in conduct, making the human tier at once the most capable and the only unfinished level of the structure. The corrections required to the informal reading are few but consequential: separate saturation from sambandh, state the regulation ladder explicitly (D2a–D2b), treat sig(u) as iterating at each compound tier, restrict evaluation (not value) to jeevan, treat atoms as composites whose constitutional completeness is compound-mode κ, and replace maximisation with definite movement toward completeness. With those corrections, the template stands as a precise, general, and textually grounded statement of what Shri Nagraj called coexistence.</p>
-<h2>References</h2>
+<h2 id="references">References</h2>
 <h3>Madhyasth Darshan (primary sources)</h3>
 <ul>
 <li><strong>JV</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf"><em>Jeevan Vidya: An Introduction</em></a> (<em>jv-parichaya</em>). English translation, version 3.0. Cited: order conformity and definite conduct (pp. 48, 113); protected, regulated, energised at fundamental level (p. 82). Page numbers refer to this edition.</li>
@@ -917,6 +960,83 @@
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html"><em>Why Humans Are Not Just Material</em></a></li>
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.html"><em>Human Behavior and Society</em></a></li>
 </ul>
+<script>
+(() => {
+  const toolbar = document.querySelector(".study-toolbar");
+  const prev = document.getElementById("study-section-prev");
+  const next = document.getElementById("study-section-next");
+  if (!toolbar || !prev || !next) return;
+
+  const sections = Array.from(document.querySelectorAll("h2[id]"));
+  const syncToolbarHeight = () => {
+    document.documentElement.style.setProperty(
+      "--study-toolbar-height",
+      `${toolbar.offsetHeight}px`
+    );
+  };
+
+  const sectionLabel = el => el.textContent.replace(/\s+/g, " ").trim();
+
+  const marker = () => (toolbar.offsetHeight || 0) + 16;
+
+  const currentIndex = () => {
+    const y = window.scrollY + marker();
+    let idx = -1;
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop <= y) idx = i;
+      else break;
+    }
+    return idx;
+  };
+
+  const setDisabled = (link, disabled, fallback) => {
+    link.classList.toggle("is-disabled", disabled);
+    if (disabled) {
+      link.removeAttribute("href");
+      link.setAttribute("aria-disabled", "true");
+      link.textContent = fallback;
+    } else {
+      link.setAttribute("aria-disabled", "false");
+    }
+  };
+
+  const update = () => {
+    if (!sections.length) {
+      setDisabled(prev, true, "\u2190 Previous section");
+      setDisabled(next, true, "Next section \u2192");
+      return;
+    }
+
+    const idx = currentIndex();
+
+    if (idx <= 0) {
+      setDisabled(prev, true, "\u2190 Previous section");
+    } else {
+      prev.classList.remove("is-disabled");
+      prev.href = `#${sections[idx - 1].id}`;
+      prev.setAttribute("aria-disabled", "false");
+      prev.textContent = `\u2190 ${sectionLabel(sections[idx - 1])}`;
+    }
+
+    if (idx < 0 || idx >= sections.length - 1) {
+      setDisabled(next, true, "Next section \u2192");
+    } else {
+      next.classList.remove("is-disabled");
+      next.href = `#${sections[idx + 1].id}`;
+      next.setAttribute("aria-disabled", "false");
+      next.textContent = `${sectionLabel(sections[idx + 1])} \u2192`;
+    }
+  };
+
+  syncToolbarHeight();
+  update();
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", () => {
+    syncToolbarHeight();
+    update();
+  });
+})();
+</script>
 
 </body>
 </html>

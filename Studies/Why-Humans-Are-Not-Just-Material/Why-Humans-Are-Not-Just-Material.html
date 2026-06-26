@@ -208,11 +208,14 @@
     height: auto;
   }
 
+  html { scroll-behavior: smooth; }
+  h2[id] {
+    scroll-margin-top: calc(var(--study-toolbar-height, 88px) + 10px);
+  }
   .study-toolbar {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    gap: 10px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     font-family: 'Segoe UI', system-ui, sans-serif;
     font-size: 13px;
     position: sticky;
@@ -226,6 +229,17 @@
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
   }
+  .study-toolbar-row {
+    display: grid;
+    align-items: center;
+    gap: 8px 14px;
+  }
+  .study-toolbar-row--primary {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+  }
+  .study-toolbar-row--sections {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
   .study-toolbar-back {
     justify-self: start;
     min-width: 0;
@@ -235,34 +249,59 @@
     min-width: 0;
     text-align: right;
   }
+  .study-toolbar-title {
+    justify-self: center;
+    text-align: center;
+    margin: 0;
+    min-width: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: #2c241c;
+    line-height: 1.35;
+  }
+  .study-toolbar-draft {
+    font-weight: 600;
+    color: #5c5348;
+  }
   .study-toolbar-link {
     color: #1a5276;
     text-decoration: none;
     font-weight: 600;
   }
   .study-toolbar-link:hover { color: #13405c; }
-  .study-toolbar-status {
-    justify-self: center;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: #1a5276;
-    background: #e8f1f6;
-    border: 1px solid #c5d9e6;
-    border-radius: 999px;
-    padding: 4px 10px;
+  .study-toolbar-section {
+    display: block;
+    min-width: 0;
+    font-size: 12px;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
-  .study-toolbar-status--empty {
-    visibility: hidden;
-    padding: 4px 10px;
-    border-color: transparent;
-    background: transparent;
+  .study-toolbar-section--prev { justify-self: start; }
+  .study-toolbar-section--next {
+    justify-self: end;
+    text-align: right;
+  }
+  .study-toolbar-section.is-disabled {
+    opacity: 0.45;
+    pointer-events: none;
+    color: #6f655a;
   }
   .study-toolbar-download::after {
     content: " \2193";
     font-weight: 700;
+  }
+  @media (max-width: 640px) {
+    .study-toolbar-row--primary {
+      grid-template-columns: 1fr 1fr;
+    }
+    .study-toolbar-title {
+      grid-column: 1 / -1;
+      white-space: normal;
+    }
+    .study-toolbar-section {
+      white-space: normal;
+    }
   }
   @media print {
     .study-toolbar { display: none !important; }
@@ -310,32 +349,36 @@
     }
     .study-toolbar-link { color: #7ebbed; }
     .study-toolbar-link:hover { color: #b8daf3; }
-    .study-toolbar-status {
-      color: #7ebbed;
-      background: #233e52;
-      border: 1px solid #3d6278;
-    }
+    .study-toolbar-title { color: #f5f1ec; }
+    .study-toolbar-draft { color: #aca194; }
+    .study-toolbar-section.is-disabled { color: #6f655a; }
   }
 
 </style>
 </head>
 <body>
 <nav class="study-toolbar" aria-label="Study navigation">
-  <a class="study-toolbar-link study-toolbar-back" href="../index.html">&larr; All studies</a>
-  <span class="study-toolbar-status" role="status">Draft</span>
-  <a class="study-toolbar-link study-toolbar-download" href="Why-Humans-Are-Not-Just-Material.pdf" download>Download PDF</a>
+  <div class="study-toolbar-row study-toolbar-row--primary">
+    <a class="study-toolbar-link study-toolbar-back" href="../index.html">&larr; All studies</a>
+    <p class="study-toolbar-title">Why Humans Are Not Just Material <span class="study-toolbar-draft">(Draft)</span></p>
+    <a class="study-toolbar-link study-toolbar-download" href="Why-Humans-Are-Not-Just-Material.pdf" download>Download PDF</a>
+  </div>
+  <div class="study-toolbar-row study-toolbar-row--sections">
+    <a class="study-toolbar-link study-toolbar-section study-toolbar-section--prev" id="study-section-prev" href="#" aria-disabled="true">&larr; Previous section</a>
+    <a class="study-toolbar-link study-toolbar-section study-toolbar-section--next" id="study-section-next" href="#" aria-disabled="true">Next section &rarr;</a>
+  </div>
 </nav>
 <h1>Why Humans Are Not Just Material</h1>
 <p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> — a group of people studying Madhyasth Darshan philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
 <p><strong>Edited on:</strong> June 26, 2026, 10:28 AM IST
 <strong>The question:</strong> Is a human being nothing more than a physical–chemical body, or is there something real about us that matter-centric science cannot capture?</p>
 <p>This document gives three answers to that question — from <strong>Madhyasth Darshan</strong> (Shri A. Nagraj&rsquo;s Co-existentialism), from <strong>mainstream science</strong>, and from <strong>Advaita Vedanta</strong> — then compares them and critically reviews all three.</p>
-<h2>Standpoint and scope</h2>
+<h2 id="standpoint-and-scope">Standpoint and scope</h2>
 <p>These studies are written from the standpoint of a <strong>scientist and technologist</strong> — someone trained to graduate-level <strong>physics and mathematics</strong>, at home with contemporary cosmology, quantum theory, conservation laws, and the logic of formal models.</p>
 <p>From that background, a familiar picture of nature is hard to avoid: <strong>consciousness appears as something the brain does</strong> — an epiphenomenon, functional outcome, or emergent property of particular configurations of very large numbers of physical particles. Modern physics and cognitive science are powerful on mechanism, prediction, and public evidence; yet the hard problem of consciousness, the status of the self, and the reality of value remain fiercely contested. The standpoint taken here does not treat those gaps as settled in favour of matter-only reductionism.</p>
 <p>The work begins where that scientific picture leaves open questions — and asks whether Madhyasth Darshan offers a coherent alternative worth examining seriously. This paper reads the primary texts carefully, states what follows from the darshan itself, and compares it in parallel with what we know from <strong>physics and the natural sciences</strong>, <strong>Advaita Vedanta</strong>, and <strong>modern Western philosophy</strong> (especially philosophy of mind and moral science). Physics and mathematics are <strong>one leg</strong> of that comparison, not the only one. The aim is rigorous comparative understanding — testing definitions, internal consistency, and fit with public knowledge — not persuasion or devotional endorsement.</p>
 <p>These topical studies state the philosophy in clear, checkable prose first. A separate formal mathematical treatment may follow once the definitions and relations are stable across the studies; this paper does not assume or require that treatment.</p>
-<h2>Quick Glossary</h2>
+<h2 id="quick-glossary">Quick Glossary</h2>
 <table>
 <thead>
 <tr>
@@ -370,7 +413,7 @@
 </tr>
 </tbody>
 </table>
-<h2>1. The Madhyasth Darshan Answer</h2>
+<h2 id="1-the-madhyasth-darshan-answer">1. The Madhyasth Darshan Answer</h2>
 <p>Madhyasth Darshan holds that a human is not only a body but <strong>body + <em>jeevan</em></strong> — a real, sentient self that works through the body — so humans cannot be fully explained by matter-centric science alone.</p>
 <blockquote>
 <p><strong>“Existence is not just physicochemical matter, but all physical, chemical and <em>jeevan</em> entities are inseparably present in Omnipresence.”</strong>
@@ -443,7 +486,7 @@
 <p>Whether conduct-based criteria can discriminate awakened practitioners from controls in a pre-registered, inter-subjective test remains unsettled; §5.4 flags what would count as evidence either way.</p>
 <h3>What makes this answer distinctive</h3>
 <p>Matter is not denied or demoted; it is <em>promoted</em>. Sentience is what matter itself becomes when fully developed. So the human is two real things in one real world: a material body and a developed-material <em>jeevan</em>, coexisting.</p>
-<h2>2. The Scientific Point of View</h2>
+<h2 id="2-the-scientific-point-of-view">2. The Scientific Point of View</h2>
 <p>Mainstream science answers that a human is an organism — a body with an extraordinarily complex nervous system shaped by evolution and culture — and that mind is what the brain <em>does</em>, not a second entity.</p>
 <h3>How science answers the question</h3>
 <ol>
@@ -458,7 +501,7 @@
 </ol>
 <h3>What science leaves open</h3>
 <p>Science explains the <em>functions</em> of mind increasingly well, but the <strong>hard problem of consciousness</strong> — why physical processing is accompanied by felt experience at all — remains unsolved (Chalmers 1995; Nagel 1974). Some respected philosophers take seriously the idea that consciousness belongs to matter&rsquo;s fundamental nature — panpsychism (Strawson 2006; Goff 2019). So &ldquo;sentience in matter&rdquo; is not a lone mystic&rsquo;s idea — but no version of it is established science, and none claims the conscious unit survives death intact.</p>
-<h2>3. The Advaita Vedanta Answer</h2>
+<h2 id="3-the-advaita-vedanta-answer">3. The Advaita Vedanta Answer</h2>
 <p>Advaita Vedanta answers that you are not material because, at the deepest level, you are not even an individual — the true Self (<em>Atman</em>) is identical with the one ultimate reality (<em>Brahman</em>), and the material world itself is a dependent appearance (<em>mithya</em>).</p>
 <h3>How Advaita answers the question</h3>
 <ol>
@@ -486,7 +529,7 @@
 <p>The contrast with Shri. Nagraj&rsquo;s phenomenology is instructive. Both begin from the same first-person data — the felt distinction between self and body, the sleep observation. But they stop at different stations: Shri. Nagraj negates only the body and <em>affirms</em> the inner functionary he finds (<em>jeevan</em> — a desiring, deciding, developing unit); Advaita keeps negating <em>through</em> the inner functionary too, until only the actionless witness remains. To Advaita, Shri. Nagraj stopped too early — <em>jeevan</em>&rsquo;s desires and decisions are still observable, hence still &ldquo;not this.&rdquo; To Shri. Nagraj, Advaita negated too far — dissolving the real, working self into a featureless witness and the real world along with it.</p>
 <h3>What makes this answer distinctive</h3>
 <p>Where Shri. Nagraj defends the reality of <em>both</em> matter and self, Advaita is the most radical anti-materialism possible: matter is not part of the answer because matter is not finally real. The human is &ldquo;not just material&rdquo; because nothing is.</p>
-<h2>4. Comparing the Three Views</h2>
+<h2 id="4-comparing-the-three-views">4. Comparing the Three Views</h2>
 <table>
 <thead>
 <tr>
@@ -552,7 +595,7 @@
 <p><strong>On method.</strong> Science trusts public instruments; Advaita trusts scripture and contemplative insight; Shri. Nagraj trusts study plus living conduct as evidence. Each side considers the others&rsquo; method insufficient: science finds both Indian methods unfalsifiable; both Indian views find science blind to the knower doing the science.</p>
 <p><strong>Where the alliances fall.</strong> Against the materialist, Shri. Nagraj and Advaita stand together: the human is not just the body. Against Advaita, Shri. Nagraj and the scientist stand together: the world is real and worth studying. Against both, the scientist insists nothing survives death. Each pair agrees on something the third denies.</p>
 <p>Other anthropologies — Buddhist <em>anatta</em> (no permanent self), Abrahamic soul doctrines, and Dvaita-style eternal individual souls — offer further comparisons; see the wider table in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §5.</p>
-<h2>5. Critical Review</h2>
+<h2 id="5-critical-review">5. Critical Review</h2>
 <p>No view escapes serious objections. Here is where each is strong and where each is vulnerable.</p>
 <h3>5.1 Madhyasth Darshan — coherent inside, unproven outside</h3>
 <p><strong>Strengths.</strong> It is internally consistent and ethically serious. It cleverly avoids two famous problems: unlike Advaita, it does not have to explain why an illusory world feels so real; unlike panpsychism, it never faces the &ldquo;combination problem&rdquo; (how billions of micro-minds combine into one), because the self is <em>one</em> complete atom, not a chorus of particles. And unlike most spiritual systems, it proposes a test: awakened conduct, observable by anyone.</p>
@@ -588,7 +631,7 @@
 <h3>5.4 The bottom line</h3>
 <p>All three views are partly armoured against refutation: science by ruling first-person evidence out of bounds, Shri. Nagraj by attributing dissent to lack of awakening, Advaita by demoting the empirical world entirely. The genuine disagreement is about <strong>what counts as evidence</strong> — instruments, conduct, or contemplative insight — and that is a philosophical choice no experiment settles.</p>
 <p>What would actually move the debate: a measurable anomaly where neural dynamics deviate from physical prediction (which would support a real, interacting <em>jeevan</em>); a complete mechanistic account of valuation and felt experience (which would remove the work <em>jeevan</em> and <em>Atman</em> are posited to do); or a rigorous, pre-registered demonstration that the conduct-based test Shri. Nagraj proposes reliably distinguishes practitioners from controls. Until something of that kind exists, the three answers remain what they are now: parallel accounts, each coherent from inside, each unproven from outside.</p>
-<h2>References</h2>
+<h2 id="references">References</h2>
 <h3>Madhyasth Darshan (primary sources)</h3>
 <ul>
 <li><strong>MVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan – Co-existentialism</em>, Part 1: <em>Holistic View of Human Behaviour</em></a>. English translation by Rakesh Gupta. Cited by chapter and by the numbered points of <em>The Alternative</em>.</li>
@@ -632,6 +675,83 @@
 <li><strong>Strawson 2006</strong> — Strawson, G. <a href="https://analyticmadhyasthdarshan.org/References/Science/Strawson-2006-Realistic-Monism-Panpsychism.pdf">&ldquo;Realistic Monism: Why Physicalism Entails Panpsychism.&rdquo;</a> <em>Journal of Consciousness Studies</em>, 13(10–11), 3–31. Also at https://consc.net/event/reef/strawsonmonism.pdf</li>
 <li><strong>Tomasello 2014</strong> — Tomasello, M. <a href="https://www.hup.harvard.edu/catalog.php?isbn=9780674724779"><em>A Natural History of Human Thinking</em></a>. Harvard University Press.</li>
 </ul>
+<script>
+(() => {
+  const toolbar = document.querySelector(".study-toolbar");
+  const prev = document.getElementById("study-section-prev");
+  const next = document.getElementById("study-section-next");
+  if (!toolbar || !prev || !next) return;
+
+  const sections = Array.from(document.querySelectorAll("h2[id]"));
+  const syncToolbarHeight = () => {
+    document.documentElement.style.setProperty(
+      "--study-toolbar-height",
+      `${toolbar.offsetHeight}px`
+    );
+  };
+
+  const sectionLabel = el => el.textContent.replace(/\s+/g, " ").trim();
+
+  const marker = () => (toolbar.offsetHeight || 0) + 16;
+
+  const currentIndex = () => {
+    const y = window.scrollY + marker();
+    let idx = -1;
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop <= y) idx = i;
+      else break;
+    }
+    return idx;
+  };
+
+  const setDisabled = (link, disabled, fallback) => {
+    link.classList.toggle("is-disabled", disabled);
+    if (disabled) {
+      link.removeAttribute("href");
+      link.setAttribute("aria-disabled", "true");
+      link.textContent = fallback;
+    } else {
+      link.setAttribute("aria-disabled", "false");
+    }
+  };
+
+  const update = () => {
+    if (!sections.length) {
+      setDisabled(prev, true, "\u2190 Previous section");
+      setDisabled(next, true, "Next section \u2192");
+      return;
+    }
+
+    const idx = currentIndex();
+
+    if (idx <= 0) {
+      setDisabled(prev, true, "\u2190 Previous section");
+    } else {
+      prev.classList.remove("is-disabled");
+      prev.href = `#${sections[idx - 1].id}`;
+      prev.setAttribute("aria-disabled", "false");
+      prev.textContent = `\u2190 ${sectionLabel(sections[idx - 1])}`;
+    }
+
+    if (idx < 0 || idx >= sections.length - 1) {
+      setDisabled(next, true, "Next section \u2192");
+    } else {
+      next.classList.remove("is-disabled");
+      next.href = `#${sections[idx + 1].id}`;
+      next.setAttribute("aria-disabled", "false");
+      next.textContent = `${sectionLabel(sections[idx + 1])} \u2192`;
+    }
+  };
+
+  syncToolbarHeight();
+  update();
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", () => {
+    syncToolbarHeight();
+    update();
+  });
+})();
+</script>
 
 </body>
 </html>

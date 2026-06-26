@@ -208,11 +208,14 @@
     height: auto;
   }
 
+  html { scroll-behavior: smooth; }
+  h2[id] {
+    scroll-margin-top: calc(var(--study-toolbar-height, 88px) + 10px);
+  }
   .study-toolbar {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    gap: 10px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     font-family: 'Segoe UI', system-ui, sans-serif;
     font-size: 13px;
     position: sticky;
@@ -226,6 +229,17 @@
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
   }
+  .study-toolbar-row {
+    display: grid;
+    align-items: center;
+    gap: 8px 14px;
+  }
+  .study-toolbar-row--primary {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+  }
+  .study-toolbar-row--sections {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
   .study-toolbar-back {
     justify-self: start;
     min-width: 0;
@@ -235,34 +249,59 @@
     min-width: 0;
     text-align: right;
   }
+  .study-toolbar-title {
+    justify-self: center;
+    text-align: center;
+    margin: 0;
+    min-width: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: #2c241c;
+    line-height: 1.35;
+  }
+  .study-toolbar-draft {
+    font-weight: 600;
+    color: #5c5348;
+  }
   .study-toolbar-link {
     color: #1a5276;
     text-decoration: none;
     font-weight: 600;
   }
   .study-toolbar-link:hover { color: #13405c; }
-  .study-toolbar-status {
-    justify-self: center;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: #1a5276;
-    background: #e8f1f6;
-    border: 1px solid #c5d9e6;
-    border-radius: 999px;
-    padding: 4px 10px;
+  .study-toolbar-section {
+    display: block;
+    min-width: 0;
+    font-size: 12px;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
-  .study-toolbar-status--empty {
-    visibility: hidden;
-    padding: 4px 10px;
-    border-color: transparent;
-    background: transparent;
+  .study-toolbar-section--prev { justify-self: start; }
+  .study-toolbar-section--next {
+    justify-self: end;
+    text-align: right;
+  }
+  .study-toolbar-section.is-disabled {
+    opacity: 0.45;
+    pointer-events: none;
+    color: #6f655a;
   }
   .study-toolbar-download::after {
     content: " \2193";
     font-weight: 700;
+  }
+  @media (max-width: 640px) {
+    .study-toolbar-row--primary {
+      grid-template-columns: 1fr 1fr;
+    }
+    .study-toolbar-title {
+      grid-column: 1 / -1;
+      white-space: normal;
+    }
+    .study-toolbar-section {
+      white-space: normal;
+    }
   }
   @media print {
     .study-toolbar { display: none !important; }
@@ -310,20 +349,24 @@
     }
     .study-toolbar-link { color: #7ebbed; }
     .study-toolbar-link:hover { color: #b8daf3; }
-    .study-toolbar-status {
-      color: #7ebbed;
-      background: #233e52;
-      border: 1px solid #3d6278;
-    }
+    .study-toolbar-title { color: #f5f1ec; }
+    .study-toolbar-draft { color: #aca194; }
+    .study-toolbar-section.is-disabled { color: #6f655a; }
   }
 
 </style>
 </head>
 <body>
 <nav class="study-toolbar" aria-label="Study navigation">
-  <a class="study-toolbar-link study-toolbar-back" href="../index.html">&larr; All studies</a>
-  <span class="study-toolbar-status" role="status">Draft</span>
-  <a class="study-toolbar-link study-toolbar-download" href="Category-Theory-Explained.pdf" download>Download PDF</a>
+  <div class="study-toolbar-row study-toolbar-row--primary">
+    <a class="study-toolbar-link study-toolbar-back" href="../index.html">&larr; All studies</a>
+    <p class="study-toolbar-title">Category Theory Explained — A Complete Guide <span class="study-toolbar-draft">(Draft)</span></p>
+    <a class="study-toolbar-link study-toolbar-download" href="Category-Theory-Explained.pdf" download>Download PDF</a>
+  </div>
+  <div class="study-toolbar-row study-toolbar-row--sections">
+    <a class="study-toolbar-link study-toolbar-section study-toolbar-section--prev" id="study-section-prev" href="#" aria-disabled="true">&larr; Previous section</a>
+    <a class="study-toolbar-link study-toolbar-section study-toolbar-section--next" id="study-section-next" href="#" aria-disabled="true">Next section &rarr;</a>
+  </div>
 </nav>
 <h1>Category Theory Explained — A Complete Guide</h1>
 <p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> — a group of people studying Madhyasth Darshan philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
@@ -331,7 +374,7 @@
 <strong>The question:</strong> What does category theory clarify about the structure of Madhyasth Darshan — and where does that notation stop?</p>
 <p>This is a self-contained guide to describing Shri A. Nagraj&rsquo;s Madhyasth Darshan using <strong>category theory</strong>. Parts 1 to 5 introduce the ideas in plain language; Part 6 gives the precise formal theory. The ontological ground and the tier-neutral formal template are developed in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html"><em>The Ontology of Coexistence</em></a> and <a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.html"><em>The Coexistence Template</em></a>; human-tier conduct and society are worked out further in <a href="https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html"><em>Why Humans Are Not Just Material</em></a> and <a href="https://analyticmadhyasthdarshan.org/Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.html"><em>Human Behavior and Society</em></a>. Primary texts: <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan — Co-existentialism</em> (MVD)</a>, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf"><em>Samadhanatmak Bhautikvad</em> (SB)</a>, and <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf"><em>Jeevan Vidya: An Introduction</em> (JV)</a>.</p>
 <p>Category theory here is a <strong>lens for clarity</strong>, not a proof machine. It makes the philosophy&rsquo;s logic visible and shows exactly what each conclusion depends on. It does not prove the metaphysics, and it cannot supply empirical evidence.</p>
-<h2>The one big idea</h2>
+<h2 id="the-one-big-idea">The one big idea</h2>
 <p>Category theory is built on a single shift in attention:</p>
 <blockquote>
 <p><strong>Stop asking only &ldquo;what is each thing made of?&rdquo; and start asking &ldquo;how does each thing relate to everything else?&rdquo;</strong></p>
@@ -343,7 +386,7 @@ flowchart LR
     A["Old question: what is it made of?"] --> B["Take it apart"]
     C["New question: how does it relate?"] --> D["Study the relationships"]
 </div>
-<h2>Part 1: The four basic words</h2>
+<h2 id="part-1-the-four-basic-words">Part 1: The four basic words</h2>
 <p>Category theory has only a few core ideas. Here they are in plain language.</p>
 <h3>1. Objects = the &ldquo;things&rdquo;</h3>
 <p>An <strong>object</strong> is just a thing you want to talk about. It can be concrete (a body, a family) or abstract (justice, resolution, fulfilment). In a diagram, objects are the labelled boxes.</p>
@@ -370,7 +413,7 @@ flowchart LR
 <p>Everyday picture: staying in the same city.</p>
 </blockquote>
 <p>That is the entire foundation. Boxes, arrows, chaining arrows, and a do-nothing arrow. Everything else is built from these.</p>
-<h2>Part 2: A few more tools, each in one breath</h2>
+<h2 id="part-2-a-few-more-tools-each-in-one-breath">Part 2: A few more tools, each in one breath</h2>
 <p>These are the slightly fancier tools the formal theory uses. Each is given here as a plain idea plus how the darshan uses it. You do not need to memorise them; refer back as they appear.</p>
 <table>
 <thead>
@@ -444,7 +487,7 @@ flowchart LR
 </tr>
 </tbody>
 </table>
-<h2>Part 3: The philosophy, redrawn as a map</h2>
+<h2 id="part-3-the-philosophy-redrawn-as-a-map">Part 3: The philosophy, redrawn as a map</h2>
 <h3>3.1 The four orders as a ladder</h3>
 <p>Madhyasth Darshan names four real developmental plateaus — material (<em>padarth</em>), biological (<em>pran</em>), animal (<em>jeev</em>), and knowledge (<em>gyan</em>) — each containing the ones below:</p>
 <div class="mermaid">
@@ -512,7 +555,7 @@ flowchart TD
 <p>Realisation itself is the ultimate evidence; evidence itself is understanding; understanding itself is manifest as resolution, work, and behaviour; work and behaviour itself is evidence; evidence itself is awakened tradition; awakened tradition itself is coexistence.</p>
 </blockquote>
 <p>Private conviction without conduct is incomplete knowledge (<a href="https://analyticmadhyasthdarshan.org/Studies/Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.html">Knowledge, Knower, and Known</a> §1.6). The musician/instrument picture from §3.2 extends here: the body can display effects; only <em>jeevan</em> evaluates and makes understanding <strong>evident</strong> to others — <em>pramanikta</em> at conduct completeness (T3; <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.10). Four knowledge registers must be kept apart (template D12; formal sketch §6.15).</p>
-<h2>Part 4: How this formalism helps</h2>
+<h2 id="part-4-how-this-formalism-helps">Part 4: How this formalism helps</h2>
 <p>Why bother translating a philosophy into this language at all? Six concrete payoffs.</p>
 <ol>
 <li>
@@ -543,7 +586,7 @@ flowchart TD
     Cat --> Teach["Easier teaching"]
     Cat --> Bridge["Bridge to science"]
 </div>
-<h2>Part 5: How it can actually be used</h2>
+<h2 id="part-5-how-it-can-actually-be-used">Part 5: How it can actually be used</h2>
 <p>This is not only an academic exercise. Here are practical applications, aligned with the template&rsquo;s forward and reverse uses (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.html">The Coexistence Template</a> §1.1).</p>
 <h3>In education</h3>
 <p>Teach values as <strong>relationships to be fulfilled</strong> rather than rules to be obeyed. A curriculum can map each relationship (parent-child, teacher-student, citizen-society) to the values it carries, and ask students where the arrows are currently broken.</p>
@@ -560,7 +603,7 @@ flowchart TD
 <p>Because the formalism states what each worldview <em>keeps and forgets</em>, it lets very different traditions compare notes without insult or conversion.</p>
 <h3>As a research programme</h3>
 <p>Open questions include: how saturation in <em>O</em> (inherent energy and regulation in units through co-location — not a morphism, not physical transfer from <em>O</em>) relates to the categories of unit-to-unit structure; how the <strong>regulation ladder</strong> (template D2a: law-as-regulation, order conformance, inward <em>atma</em> regulation) is best indexed alongside <code>Sat</code> and <code>Ord</code> without misrepresenting <em>O</em> as an arrow; whether plane transitions T1–T3 admit a clean layered-type or fibration model alongside <code>Ord</code>; whether transmission τ admits a clean coalgebra or indexed-category model; and whether complementarity of need (template L3) can be fully internalised or must remain an external guard on admissible diagrams (§6.9.2).</p>
-<h2>Part 6: The complete formal theory</h2>
+<h2 id="part-6-the-complete-formal-theory">Part 6: The complete formal theory</h2>
 <p>Parts 1 to 5 gave the intuition. This part gives the precise version for readers comfortable with (or curious about) the mathematics, and states exactly what the formalism can and cannot carry.</p>
 <h3>6.0 Design discipline (the rules this theory obeys)</h3>
 <p>A loose use of categorical vocabulary can mislead. This theory commits to five rules.</p>
@@ -1481,7 +1524,7 @@ ev  : Conduct -&gt; Ev        (pramanikta)
 </code></pre>
 <p>Categorical honesty: this is a <strong>family</strong> of functors and partial composites across <code>Eval</code>, <code>Conduct</code>, <code>Ev</code>, and <code>Trans</code> — not <code>id_Liv</code>. Transmission τ at the knowledge order must carry <strong>evidenced</strong> understanding (P16), linking the tradition step to education-<em>sanskar</em> (§6.8).</p>
 <p>Epistemic detail: <a href="https://analyticmadhyasthdarshan.org/Studies/Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.html">Knowledge, Knower, and Known</a> §§1.6–1.8. Ontological exposition: <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.11.</p>
-<h2>7. Limits and conclusion</h2>
+<h2 id="7-limits-and-conclusion">7. Limits and conclusion</h2>
 <p>A clear guide must also say what this does <strong>not</strong> do.</p>
 <ul>
 <li><strong>It does not prove the philosophy.</strong> Drawing <code>jeevan</code> as a box does not show <code>jeevan</code> exists. The diagrams organise the claims; they do not verify them.</li>
@@ -1499,7 +1542,7 @@ flowchart LR
     Ri --> So["Undivided society"]
 </div>
 <p>Assembly-scale closure evidences resolution, prosperity, fearlessness, and coexistence when the justice cycle completes — <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.13; template D7, P1.</p>
-<h2>References</h2>
+<h2 id="references">References</h2>
 <h3>Madhyasth Darshan (primary sources)</h3>
 <ul>
 <li><strong>MVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan — Co-existentialism</em></a>. English translation by Rakesh Gupta. Cited: Realisation Knowledge (p. 11); evidence chain and &ldquo;Believe what is known&rdquo; (p. 12); four orders; unit signature (pp. 50–51); relationships and values; capacity–ability–receptivity (pp. 62, 79, 134, 142); mixture and compound (p. 42); hungry/overfull atoms (p. 8); knowledge unfolding (pp. 115–116, 289); realisation in coexistence (p. 116); three satisfactions (Ch. 4); organisation sustainment (p. 55); samadhi-samyama warrant (p. 7).</li>
@@ -1524,6 +1567,83 @@ mermaid.initialize({
   securityLevel: "loose",
   flowchart: { htmlLabels: true, useMaxWidth: true },
 });
+</script>
+<script>
+(() => {
+  const toolbar = document.querySelector(".study-toolbar");
+  const prev = document.getElementById("study-section-prev");
+  const next = document.getElementById("study-section-next");
+  if (!toolbar || !prev || !next) return;
+
+  const sections = Array.from(document.querySelectorAll("h2[id]"));
+  const syncToolbarHeight = () => {
+    document.documentElement.style.setProperty(
+      "--study-toolbar-height",
+      `${toolbar.offsetHeight}px`
+    );
+  };
+
+  const sectionLabel = el => el.textContent.replace(/\s+/g, " ").trim();
+
+  const marker = () => (toolbar.offsetHeight || 0) + 16;
+
+  const currentIndex = () => {
+    const y = window.scrollY + marker();
+    let idx = -1;
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop <= y) idx = i;
+      else break;
+    }
+    return idx;
+  };
+
+  const setDisabled = (link, disabled, fallback) => {
+    link.classList.toggle("is-disabled", disabled);
+    if (disabled) {
+      link.removeAttribute("href");
+      link.setAttribute("aria-disabled", "true");
+      link.textContent = fallback;
+    } else {
+      link.setAttribute("aria-disabled", "false");
+    }
+  };
+
+  const update = () => {
+    if (!sections.length) {
+      setDisabled(prev, true, "\u2190 Previous section");
+      setDisabled(next, true, "Next section \u2192");
+      return;
+    }
+
+    const idx = currentIndex();
+
+    if (idx <= 0) {
+      setDisabled(prev, true, "\u2190 Previous section");
+    } else {
+      prev.classList.remove("is-disabled");
+      prev.href = `#${sections[idx - 1].id}`;
+      prev.setAttribute("aria-disabled", "false");
+      prev.textContent = `\u2190 ${sectionLabel(sections[idx - 1])}`;
+    }
+
+    if (idx < 0 || idx >= sections.length - 1) {
+      setDisabled(next, true, "Next section \u2192");
+    } else {
+      next.classList.remove("is-disabled");
+      next.href = `#${sections[idx + 1].id}`;
+      next.setAttribute("aria-disabled", "false");
+      next.textContent = `${sectionLabel(sections[idx + 1])} \u2192`;
+    }
+  };
+
+  syncToolbarHeight();
+  update();
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", () => {
+    syncToolbarHeight();
+    update();
+  });
+})();
 </script>
 
 </body>

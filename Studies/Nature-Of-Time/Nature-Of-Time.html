@@ -208,11 +208,14 @@
     height: auto;
   }
 
+  html { scroll-behavior: smooth; }
+  h2[id] {
+    scroll-margin-top: calc(var(--study-toolbar-height, 88px) + 10px);
+  }
   .study-toolbar {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    gap: 10px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     font-family: 'Segoe UI', system-ui, sans-serif;
     font-size: 13px;
     position: sticky;
@@ -226,6 +229,17 @@
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
   }
+  .study-toolbar-row {
+    display: grid;
+    align-items: center;
+    gap: 8px 14px;
+  }
+  .study-toolbar-row--primary {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+  }
+  .study-toolbar-row--sections {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
   .study-toolbar-back {
     justify-self: start;
     min-width: 0;
@@ -235,34 +249,59 @@
     min-width: 0;
     text-align: right;
   }
+  .study-toolbar-title {
+    justify-self: center;
+    text-align: center;
+    margin: 0;
+    min-width: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: #2c241c;
+    line-height: 1.35;
+  }
+  .study-toolbar-draft {
+    font-weight: 600;
+    color: #5c5348;
+  }
   .study-toolbar-link {
     color: #1a5276;
     text-decoration: none;
     font-weight: 600;
   }
   .study-toolbar-link:hover { color: #13405c; }
-  .study-toolbar-status {
-    justify-self: center;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: #1a5276;
-    background: #e8f1f6;
-    border: 1px solid #c5d9e6;
-    border-radius: 999px;
-    padding: 4px 10px;
+  .study-toolbar-section {
+    display: block;
+    min-width: 0;
+    font-size: 12px;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
-  .study-toolbar-status--empty {
-    visibility: hidden;
-    padding: 4px 10px;
-    border-color: transparent;
-    background: transparent;
+  .study-toolbar-section--prev { justify-self: start; }
+  .study-toolbar-section--next {
+    justify-self: end;
+    text-align: right;
+  }
+  .study-toolbar-section.is-disabled {
+    opacity: 0.45;
+    pointer-events: none;
+    color: #6f655a;
   }
   .study-toolbar-download::after {
     content: " \2193";
     font-weight: 700;
+  }
+  @media (max-width: 640px) {
+    .study-toolbar-row--primary {
+      grid-template-columns: 1fr 1fr;
+    }
+    .study-toolbar-title {
+      grid-column: 1 / -1;
+      white-space: normal;
+    }
+    .study-toolbar-section {
+      white-space: normal;
+    }
   }
   @media print {
     .study-toolbar { display: none !important; }
@@ -310,32 +349,36 @@
     }
     .study-toolbar-link { color: #7ebbed; }
     .study-toolbar-link:hover { color: #b8daf3; }
-    .study-toolbar-status {
-      color: #7ebbed;
-      background: #233e52;
-      border: 1px solid #3d6278;
-    }
+    .study-toolbar-title { color: #f5f1ec; }
+    .study-toolbar-draft { color: #aca194; }
+    .study-toolbar-section.is-disabled { color: #6f655a; }
   }
 
 </style>
 </head>
 <body>
 <nav class="study-toolbar" aria-label="Study navigation">
-  <a class="study-toolbar-link study-toolbar-back" href="../index.html">&larr; All studies</a>
-  <span class="study-toolbar-status" role="status">Draft</span>
-  <a class="study-toolbar-link study-toolbar-download" href="Nature-Of-Time.pdf" download>Download PDF</a>
+  <div class="study-toolbar-row study-toolbar-row--primary">
+    <a class="study-toolbar-link study-toolbar-back" href="../index.html">&larr; All studies</a>
+    <p class="study-toolbar-title">Nature of Time <span class="study-toolbar-draft">(Draft)</span></p>
+    <a class="study-toolbar-link study-toolbar-download" href="Nature-Of-Time.pdf" download>Download PDF</a>
+  </div>
+  <div class="study-toolbar-row study-toolbar-row--sections">
+    <a class="study-toolbar-link study-toolbar-section study-toolbar-section--prev" id="study-section-prev" href="#" aria-disabled="true">&larr; Previous section</a>
+    <a class="study-toolbar-link study-toolbar-section study-toolbar-section--next" id="study-section-next" href="#" aria-disabled="true">Next section &rarr;</a>
+  </div>
 </nav>
 <h1>Nature of Time</h1>
 <p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> — a group of people studying Madhyasth Darshan philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
 <p><strong>Edited on:</strong> June 26, 2026, 10:28 AM IST
 <strong>The question:</strong> What is the nature of time (<em>kaal</em>)? How does Madhyasth Darshan relate timeless Omnipresence (<em>satta</em>) to the duration of unit-activity, numerical reckoning, and the past–present–future structure — and how does that compare with Advaita Vedanta, philosophy of time, and modern physics (spacetime, cosmology, entropy)?</p>
 <p>This study develops the comparative treatment begun in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> (§1.6, §2.7, §4.3). That paper states Madhyasth Darshan&rsquo;s core claim — <em>kaal</em> as duration of activity, timeless <em>satta</em>, numerical reckoning within existence — and defers past/present/future structure, JVD on &ldquo;activity eternally present,&rdquo; Advaita <em>trikaal</em> language, and systematic comparison with McTaggart, eternalism/presentism, and spacetime physics to this study.</p>
-<h2>Standpoint and scope</h2>
+<h2 id="standpoint-and-scope">Standpoint and scope</h2>
 <p>These studies are written from the standpoint of a <strong>scientist and technologist</strong> — someone trained to graduate-level <strong>physics and mathematics</strong>, at home with contemporary cosmology, quantum theory, conservation laws, and the logic of formal models.</p>
 <p>From that background, a familiar picture of nature is hard to avoid: <strong>consciousness appears as something the brain does</strong> — an epiphenomenon, functional outcome, or emergent property of particular configurations of very large numbers of physical particles. Modern physics and cognitive science are powerful on mechanism, prediction, and public evidence; yet the hard problem of consciousness, the status of the self, and the reality of value remain fiercely contested. The standpoint taken here does not treat those gaps as settled in favour of matter-only reductionism.</p>
 <p>The work begins where that scientific picture leaves open questions — and asks whether Madhyasth Darshan offers a coherent alternative worth examining seriously. This paper reads the primary texts carefully, states what follows from the darshan itself, and compares it in parallel with what we know from <strong>physics and the natural sciences</strong>, <strong>Advaita Vedanta</strong>, and <strong>modern Western philosophy</strong> (especially philosophy of time). Physics and mathematics are <strong>one leg</strong> of that comparison, not the only one. The aim is rigorous comparative understanding — testing definitions, internal consistency, and fit with public knowledge — not persuasion or devotional endorsement.</p>
 <p>These topical studies state the philosophy in clear, checkable prose first. A separate formal mathematical treatment may follow once the definitions and relations are stable across the studies; this paper does not assume or require that treatment.</p>
-<h2>Quick Glossary</h2>
+<h2 id="quick-glossary">Quick Glossary</h2>
 <table>
 <thead>
 <tr>
@@ -386,7 +429,7 @@
 </tr>
 </tbody>
 </table>
-<h2>1. The Madhyasth Darshan Answer</h2>
+<h2 id="1-the-madhyasth-darshan-answer">1. The Madhyasth Darshan Answer</h2>
 <p>Madhyasth Darshan holds that time (<em>kaal</em>) belongs to the activity of units, not to Omnipresence as ground. To understand that claim, we must look past two common assumptions: the Newtonian view that time is an absolute cosmic container flowing independently of events, and the Advaitic view that time is an ultimate illusion (<em>mithya</em>). The darshan grounds time in the objective reality of nature (<em>prakriti</em>), defining it through the ongoing activity (<em>kriya</em>) of units (<em>ikai</em>).</p>
 <h3>1.1 Time as the duration of activity</h3>
 <p>Madhyasth Darshan does not posit time as an independent dimension, substance, or background framework. It derives time directly from the motion and transformation of units:</p>
@@ -432,7 +475,7 @@
 <p>&ldquo;Activity eternally present&rdquo; therefore names two related truths: (1) units never cease their <em>kriya</em>; (2) the human study of time, activity, and present becomes coherent when we stop treating past and future as independent places and instead trace them to ongoing activity now. This is closer to <strong>present-centred process ontology</strong> than to eternalism, but it is not identical to Western presentism, because the past is real as completed activity (trace, configuration, and human reckoning through <em>chitta</em> and <em>sanskar</em>) rather than as sheer non-being.</p>
 <h3>1.6 The primacy of the present</h3>
 <p>Because units are always in <em>shram–gati–parinam</em> <strong>now</strong>, the present is the actualised state of existence. Madhyasth Darshan refuses both the Advaitic sublation of temporal becoming at the highest truth and the block-universe picture on which all moments are equally real and static. Change is ontologically real; the present is where transformation occurs. Numerical time is how humans coordinate that reality across scales — from atomic cycles to cosmic epochs — without reifying time as a container independent of activity.</p>
-<h2>2. The Advaita Vedanta Answer</h2>
+<h2 id="2-the-advaita-vedanta-answer">2. The Advaita Vedanta Answer</h2>
 <p>Advaita Vedanta holds that existence in the absolute sense (<em>paramartha</em>) is Brahman alone — beginningless, changeless, partless, and entirely outside temporal becoming (VC, v. 393).</p>
 <h3>2.1 Time at <em>vyavahara</em> and <em>paramartha</em></h3>
 <p>The Upanishads place the absolute both within and beyond temporal structure. The Mandukya Upanishad opens by defining the ultimate reality (represented by <em>Om</em>) as encompassing all temporal phases and transcending them:</p>
@@ -453,7 +496,7 @@
 <h3>2.2 <em>Trikaal</em> language and the contrast with <em>trikaalabadh</em></h3>
 <p>Advaita&rsquo;s <em>trikaal</em> formulas (as in MU, v. 1) serve a non-dual purpose: Brahman is not confined to one temporal phase because Brahman is the truth of all phases and also beyond them. Temporal succession belongs to <em>vyavahara</em>; at liberation, the Self is discovered as never truly bound by birth, death, or succession (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §2.7).</p>
 <p>Madhyasth Darshan uses parallel <em>trikaal</em> vocabulary with a different ontological commitment. SB&rsquo;s <em>trikaalabadh</em> binds <strong>coexistence</strong> across the three times while <strong>affirming</strong> perpetual unit-activity and world-realness (<em>jagat satat</em>). Advaita validates time operationally but finally sublates it; Madhyasth Darshan validates time as real duration of real activity and denies that realization cancels the world. The dispute is not over whether humans live in past–present–future structure, but over whether temporal becoming has <strong>final</strong> ontological weight.</p>
-<h2>3. Modern Physics and Philosophy of Time</h2>
+<h2 id="3-modern-physics-and-philosophy-of-time">3. Modern Physics and Philosophy of Time</h2>
 <p>Mainstream science answers questions about time through relativity, thermodynamics, and cosmology — not through activity-based ontology. Those models nonetheless form the main comparative partners for Madhyasth Darshan&rsquo;s <em>kaal</em>.</p>
 <h3>3.1 Spacetime and the block universe</h3>
 <p>In Newtonian mechanics, time was an absolute, uniform background. Einstein&rsquo;s Special and General Relativity showed that time is relative to the observer&rsquo;s frame and inextricably woven with space into a four-dimensional manifold: <strong>spacetime</strong>. In General Relativity, spacetime is dynamical — it can expand, curve, and in some models exhibit local beginnings (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §4.3).</p>
@@ -471,7 +514,7 @@
 <p>Thermodynamics explains the macroscopic <strong>arrow of time</strong> — why eggs break but un-break, and why we remember the past rather than the future — through increasing entropy in closed systems (Second Law). Memory and causation align with the entropy gradient in the human branch of physical history.</p>
 <p>Madhyasth Darshan does not derive the arrow of time from entropy; its present-centrism is <strong>compatible</strong> with thermodynamic asymmetry rather than competing with it. Within the darshan, temporal direction comes from the ontology of activity itself — but in modes that must not be conflated. <strong>Insentient</strong> units change through <em>shram–gati–parinam</em> (effort–motion–<strong>result</strong>): the three are inseparable joint forms of the same activity, and insentient exchange also exhibits <strong>cyclical restoration</strong> and give–take complementarity (SB, pp. 52–53, 58; <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.6). <strong>Sentient</strong> <em>jeevan</em> uses the <strong>same</strong> triad, read toward constitutional, activity, and conduct completeness through projection, reflection, and <em>samadhan</em> — qualitative change without physicochemical <em>parinam</em> (SB, p. 55). <strong>Development (<em>vikas</em>)</strong> across the four orders — material, bio, animal, and knowledge — adds a further directional structure: a seed developing into a tree illustrates real order-specific transformation, not mere statistical fluctuation.</p>
 <p>The darshan therefore offers a <strong>partial</strong> ontological orientation toward temporal asymmetry — present-centred <em>kriya</em>, directional <em>vikas</em>, and (in humans) <em>sanskar</em>-mediated carry-forward — without replacing thermodynamics. Whether <em>shram–gati–parinam</em>, order-specific <em>vikas</em>, or sentient <em>samadhan</em> could formally ground or constrain entropy asymmetry remains an open question (§6.4). What Madhyasth Darshan adds in any case is an account of <strong>what time is</strong> (duration of activity) and <strong>where becoming is real</strong> (unit <em>kriya</em> now).</p>
-<h2>4. Comparative Summary</h2>
+<h2 id="4-comparative-summary">4. Comparative Summary</h2>
 <p>The three frameworks agree that humans live with past–present–future structure and measurable duration. They disagree over what time <strong>is</strong>, whether the ground of reality is timeless, and whether temporal becoming is finally real.</p>
 <table>
 <thead>
@@ -521,7 +564,7 @@
 </tr>
 </tbody>
 </table>
-<h2>5. Critical Review</h2>
+<h2 id="5-critical-review">5. Critical Review</h2>
 <h3>5.1 Madhyasth Darshan — activity-based time, present-centred realism</h3>
 <p><strong>Strengths.</strong> The definition of <em>kaal</em> through <em>kriya</em> is internally consistent with the darshan&rsquo;s coexistential ontology: timeless <em>satta</em>, active <em>ikai</em>, no freestanding temporal container. <em>Trikaalabadh</em> on coexistence answers part of the Advaita challenge without sublating the world. JVD&rsquo;s &ldquo;activity eternally present&rdquo; gives a distinctive present-centred account that resists both block eternalism and world-denying non-dualism. Numerical reckoning as convention aligns measurement with human epistemology while preserving real duration.</p>
 <p><strong>Weaknesses.</strong> The relation between &ldquo;every numerical moment is present as activity&rdquo; and ordinary memory, anticipation, and historical record needs tighter formalisation — especially versus eternalism and versus Advaita&rsquo;s <em>turiya</em> witness of temporal states (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §2.2). The darshan suggests directional structure through <em>vikas</em> and the activity triads but does not derive thermodynamic asymmetry from them or fully reconcile activity-based <em>kaal</em> with relativistic spacetime and cosmological horizons. Public evidence standards remain those of metaphysics, not laboratory physics.</p>
@@ -534,7 +577,7 @@
 <p><strong>Strengths.</strong> Relativity and thermodynamics supply precise, testable accounts of intervals, horizons, and entropy gradients. Relational and process philosophies share structural affinities with activity-based duration. McTaggart&rsquo;s A/B distinction clarifies where Madhyasth Darshan sits among presentism, eternalism, and block models.</p>
 <p><strong>Weaknesses.</strong> Physics does not settle whether the block universe, presentism, or a relational variant is true — interpretations of quantum gravity and cosmology remain contested. Relativity&rsquo;s spacetime is not the same object as Madhyasth Darshan&rsquo;s <em>kaal</em>; mapping one to the other risks category error. Entropy explains asymmetry but not the metaphysical status of &ldquo;now&rdquo; or of unit-activity.</p>
 <p>Modern science is indispensable for measurement and dynamical law; it does not by itself answer what time <strong>is</strong> in the Madhyasth or Advaita sense, nor does it validate immortal <em>jeevan</em> or timeless Omnipresence.</p>
-<h2>6. Open Problems</h2>
+<h2 id="6-open-problems">6. Open Problems</h2>
 <ol>
 <li>
 <p><strong>The mechanisms of the past in <em>jeevan</em> and <em>jada</em>.</strong> While the past survives physically in <em>jada</em> configurations and, in humans, is reckoned through <em>chitta</em> (MVD, p. 327) and carried forward through <em>sanskar</em>, formalising how <em>jeevan</em> accesses physical traces without dualism requires deeper work — to be developed alongside <em>Philosophy-Of-Mind-And-Jeevan</em> — particularly when comparing against block-universe models that treat the past as statically real rather than dependent.</p>
@@ -558,7 +601,7 @@
 <p><strong>Immortal <em>jeevan</em> and the experience of <em>kaal</em>.</strong> Because <em>jeevan</em> undergoes qualitative change through <em>samadhan</em> (resolution) rather than physicochemical <em>parinam</em>, it is constitutionally complete (<em>gathanpurna</em>) and immortal (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.8, §1.9). <em>Kaal</em> still applies to <em>jeevan</em> as duration of activity — the question is not whether an immortal unit has time, but how the <strong>qualitative</strong> experience of duration for <em>jeevan</em> differs from insentient units undergoing <em>shram–gati–parinam</em> and from the decaying body (<em>shareer</em>) whose configurations transform through <em>roopantaran</em> rather than annihilation. Exploring that difference remains a future area of inquiry alongside <em>Philosophy-Of-Mind-And-Jeevan</em>.</p>
 </li>
 </ol>
-<h2>References</h2>
+<h2 id="references">References</h2>
 <h3>Madhyasth Darshan (primary sources)</h3>
 <ul>
 <li><strong>MVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan — Co-existentialism</em></a>. English translation by Rakesh Gupta. Cited: time (<em>kaal</em>) as duration of activity (p. 34); <em>vyapak</em> at all places and times (p. 34); measurement of time through mathematics (p. 195); <em>sanskar</em> definition (p. 90); eight activities of <em>chitta</em> including time (p. 327).</li>
@@ -584,6 +627,83 @@
 <li><strong>Carroll 2010</strong> — Carroll, S. <a href="https://analyticmadhyasthdarshan.org/References/Science/Carroll-2010-Energy-Is-Not-Conserved.html">&ldquo;Energy Is Not Conserved.&rdquo;</a> <em>Preposterous Universe</em> (blog), 2010. Cited: energy conservation and time-symmetry in General Relativity (§3.4).</li>
 <li><strong>Ashtekar and Singh 2011</strong> — Ashtekar, A., and Singh, P. <a href="https://analyticmadhyasthdarshan.org/References/Science/Ashtekar-Singh-2011-Loop-Quantum-Cosmology-Status-Report.pdf">&ldquo;Loop Quantum Cosmology: A Status Report.&rdquo;</a> arXiv:1108.0893. Cited: beginningless-substrate research programs (§3.4).</li>
 </ul>
+<script>
+(() => {
+  const toolbar = document.querySelector(".study-toolbar");
+  const prev = document.getElementById("study-section-prev");
+  const next = document.getElementById("study-section-next");
+  if (!toolbar || !prev || !next) return;
+
+  const sections = Array.from(document.querySelectorAll("h2[id]"));
+  const syncToolbarHeight = () => {
+    document.documentElement.style.setProperty(
+      "--study-toolbar-height",
+      `${toolbar.offsetHeight}px`
+    );
+  };
+
+  const sectionLabel = el => el.textContent.replace(/\s+/g, " ").trim();
+
+  const marker = () => (toolbar.offsetHeight || 0) + 16;
+
+  const currentIndex = () => {
+    const y = window.scrollY + marker();
+    let idx = -1;
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop <= y) idx = i;
+      else break;
+    }
+    return idx;
+  };
+
+  const setDisabled = (link, disabled, fallback) => {
+    link.classList.toggle("is-disabled", disabled);
+    if (disabled) {
+      link.removeAttribute("href");
+      link.setAttribute("aria-disabled", "true");
+      link.textContent = fallback;
+    } else {
+      link.setAttribute("aria-disabled", "false");
+    }
+  };
+
+  const update = () => {
+    if (!sections.length) {
+      setDisabled(prev, true, "\u2190 Previous section");
+      setDisabled(next, true, "Next section \u2192");
+      return;
+    }
+
+    const idx = currentIndex();
+
+    if (idx <= 0) {
+      setDisabled(prev, true, "\u2190 Previous section");
+    } else {
+      prev.classList.remove("is-disabled");
+      prev.href = `#${sections[idx - 1].id}`;
+      prev.setAttribute("aria-disabled", "false");
+      prev.textContent = `\u2190 ${sectionLabel(sections[idx - 1])}`;
+    }
+
+    if (idx < 0 || idx >= sections.length - 1) {
+      setDisabled(next, true, "Next section \u2192");
+    } else {
+      next.classList.remove("is-disabled");
+      next.href = `#${sections[idx + 1].id}`;
+      next.setAttribute("aria-disabled", "false");
+      next.textContent = `${sectionLabel(sections[idx + 1])} \u2192`;
+    }
+  };
+
+  syncToolbarHeight();
+  update();
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", () => {
+    syncToolbarHeight();
+    update();
+  });
+})();
+</script>
 
 </body>
 </html>
