@@ -55,8 +55,8 @@ These studies are more mathematical in nature. They represent the structure disc
 <!-- formal-studies-catalog -->
 | Document | Formal Focus | Description | Status |
 |----------|--------------|-------------|--------|
-| [Category Theory Explained](Category-Theory-Explained/Category-Theory-Explained.html) | Formal structure | Category-theory lens on the darshan's structure | Draft<br>Last updated on: Jun 26, 2026, 10:28 AM IST |
-| [The Coexistence Template](The-Coexistence-Template/The-Coexistence-Template.html) | Formal structure | Formal template of units, relationships, values, and assembly | Draft<br>Last updated on: Jun 26, 2026, 10:28 AM IST |
+| [Category Theory Explained](Category-Theory-Explained/Category-Theory-Explained.html) | Formal structure | Category-theory lens on the darshan's structure | Draft<br>Last updated on: Jun 26, 2026, 9:55 PM IST |
+| [The Coexistence Template](The-Coexistence-Template/The-Coexistence-Template.html) | Formal structure | Formal template of units, relationships, values, and assembly | Draft<br>Last updated on: Jun 26, 2026, 9:55 PM IST |
 <!-- /formal-studies-catalog -->
 
 ### Applied studies
@@ -66,7 +66,7 @@ These papers apply the formal template and categorical architecture to concrete 
 <!-- applied-studies-catalog -->
 | Document | Applied Focus | Description | Status |
 |----------|---------------|-------------|--------|
-| [Coexistence Company — Concrete Organizational Structure](../Applications/Coexistence-Company-Org-Structure/Coexistence-Company-Org-Structure.html) | Organizational design | Organisational blueprint instantiating the coexistence template for a deliberate knowledge-work company | Draft<br>Last updated on: Jun 26, 2026, 10:28 AM IST |
+| [Coexistence Company — Concrete Organizational Structure](../Applications/Coexistence-Company-Org-Structure/Coexistence-Company-Org-Structure.html) | Organizational design | Organisational blueprint instantiating the coexistence template for a deliberate knowledge-work company | Draft<br>Last updated on: Jun 26, 2026, 9:58 PM IST |
 <!-- /applied-studies-catalog -->
 
 ## How we work
