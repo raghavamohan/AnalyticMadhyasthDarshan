@@ -28,7 +28,7 @@ Select any linked title to open the full study in your browser.
 <!-- studies-catalog -->
 | Document | Category | Description | Status |
 |----------|----------|-------------|--------|
-| [The Ontology of Coexistence](The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html) | Ontology | Existence, what exists, beginninglessness, self persistence, world reality, saturation, causation, orders, sentience, and conservation — Madhyasth Darshan compared with Advaita Vedanta and modern philosophy | Released<br>Last updated on: Jun 27, 2026, 6:41 AM IST |
+| [The Ontology of Coexistence](The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html) | Ontology | Existence, what exists, beginninglessness, self persistence, world reality, saturation, causation, orders, sentience, and conservation — Madhyasth Darshan compared with Advaita Vedanta and modern philosophy | Released<br>Last updated on: Jun 27, 2026, 10:52 PM IST |
 | [Nature of Time](Nature-Of-Time/Nature-Of-Time.html) | Ontology | The nature of time (kaal), timeless satta, activity and duration, and comparison with Advaita, philosophy of time, and physics | Released<br>Last updated on: Jun 27, 2026, 8:16 PM IST |
 | [Why Humans Are Not Just Material](Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html) | Philosophical Anthropology | Madhyasth Darshan, science, and Advaita Vedanta on whether humans are more than matter | Released<br>Last updated on: Jun 27, 2026, 6:13 PM IST |
 | *Philosophy of Mind and Jeevan* <!-- slug: Philosophy-Of-Mind-And-Jeevan --> | Philosophy of Mind | Jeevan, mun, vritti, chitta, buddhi, atma, desire, imagination, selection, delusion, and awakening | Ongoing |
@@ -39,13 +39,14 @@ Select any linked title to open the full study in your browser.
 | *Family Relationships and Values* <!-- slug: Family-Relationships-And-Values --> | Relationships, Axiology | Family, relationship-recognition, values, trust, affection, gratitude, and mutual satisfaction | Ongoing |
 | *Education and Sanskar* <!-- slug: Education-And-Sanskar --> | Education | Education, sanskar, study, awakening, and how understanding is transmitted across generations | Ongoing |
 | [Aesthetics](Aesthetics/Aesthetics.html) | Aesthetics, Axiology | Aesthetics, beauty, art, Advaita Vedanta, and modern philosophy from a Madhyasth Darshan standpoint | Draft<br>Last updated on: Jun 26, 2026, 10:28 AM IST |
-| [Human Behavior and Society](Human-Behavior-And-Society/Human-Behavior-And-Society.html) | Social Philosophy, Ethics, Axiology | Behaviour, ethics, and social organisation in the darshan | Draft<br>Last updated on: Jun 26, 2026, 10:28 AM IST |
-| [How to Form Self-Sustaining Organizations](How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.html) | Social Philosophy, Axiology | Organisations that sustain without instrumentalising their members | Draft<br>Last updated on: Jun 26, 2026, 10:28 AM IST |
+| [Human Behavior and Society](Human-Behavior-And-Society/Human-Behavior-And-Society.html) | Social Philosophy, Ethics, Axiology | Behaviour, ethics, and social organisation in the darshan | Draft<br>Last updated on: Jun 27, 2026, 10:52 PM IST |
+| [How to Form Self-Sustaining Organizations](How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.html) | Social Philosophy, Axiology | Organisations that sustain without instrumentalising their members | Draft<br>Last updated on: Jun 27, 2026, 10:52 PM IST |
 | *Governance Justice and Undivided Society* <!-- slug: Governance-Justice-And-Undivided-Society --> | Political Philosophy, Axiology | Justice, governance, law, fearlessness, public order, and undivided society | Ongoing |
 | *Prosperity Economics and Right Use* <!-- slug: Prosperity-Economics-And-Right-Use --> | Economics, Axiology | Prosperity, production, cyclical economics, right-use of wealth, and limits to accumulation | Ongoing |
 | *Nature Ecology and Right Use* <!-- slug: Nature-Ecology-And-Right-Use --> | Ecology, Axiology | Nature, Earth, right-use, regeneration, ecological balance, and coexistence with the other orders | Ongoing |
 | *Spiritual Practice and Realization* <!-- slug: Spiritual-Practice-And-Realization --> | Spiritual Practice | Anubhav, realization, awakening, yoga, liberation from mystery, liberation from suffering, and comparison with moksha traditions | Ongoing |
 | *Science Technology and Human Purpose* <!-- slug: Science-Technology-And-Human-Purpose --> | Philosophy of Science | Science, technology, production, convenience, human purpose, and the limits of instrumental knowledge | Ongoing |
+| [How Akhand Samaj Is Established](How-Akhand-Samaj-Is-Established/How-Akhand-Samaj-Is-Established.html) | Social Philosophy, Axiology | Consolidated architectural account of how undivided society and universal orderliness are established and evidenced in Madhyasth Darshan | Draft<br>Last updated on: Jun 27, 2026, 11:26 PM IST |
 <!-- /studies-catalog -->
 
 ### Formal studies

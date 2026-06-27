@@ -56,6 +56,8 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-19.
 
 
 
+| [How-Akhand-Samaj-Is-Established.pdf](../Studies/How-Akhand-Samaj-Is-Established/How-Akhand-Samaj-Is-Established.pdf) | MVD, SB, JV, JVD, AVD | TBD |
+
 ## By tag
 
 | Tag | Location | Cited in |
