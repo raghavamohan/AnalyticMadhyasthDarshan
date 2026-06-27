@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="color-scheme" content="light dark"/>
 <title>Coexistence Company — Concrete Organizational Structure</title>
 <style>
@@ -209,8 +210,82 @@
   }
 
   html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 100;
+    padding: 8px 14px;
+    background: #1a5276;
+    color: #fff;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 0 0 8px 0;
+  }
+  .skip-link:focus {
+    left: 0;
+    outline: 2px solid #13405c;
+    outline-offset: 2px;
+  }
   h2[id] {
     scroll-margin-top: calc(var(--study-toolbar-height, 88px) + 10px);
+  }
+  .table-scroll {
+    overflow-x: auto;
+    margin: 12pt 0;
+    -webkit-overflow-scrolling: touch;
+  }
+  .table-scroll table {
+    margin: 0;
+  }
+  .term-tip-wrap {
+    position: relative;
+    display: inline;
+    white-space: normal;
+  }
+  .term-tip {
+    background: none;
+    border: none;
+    border-bottom: 1px dotted #1a5276;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: #1a5276;
+    cursor: help;
+    text-align: inherit;
+  }
+  .term-tip:focus-visible {
+    outline: 2px solid #1a5276;
+    outline-offset: 2px;
+    border-bottom-color: transparent;
+  }
+  .term-tip-panel {
+    display: none;
+    position: fixed;
+    z-index: 40;
+    min-width: 220px;
+    max-width: min(320px, 90vw);
+    padding: 8px 10px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    line-height: 1.45;
+    font-style: normal;
+    font-weight: 400;
+    color: #2a241c;
+    background: #fff;
+    border: 1px solid #c5d9e6;
+    border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(42, 36, 28, 0.12);
+    text-align: left;
+    pointer-events: none;
+  }
+  .term-tip-panel.is-visible {
+    display: block;
   }
   .study-toolbar {
     display: flex;
@@ -235,21 +310,38 @@
     gap: 8px 14px;
   }
   .study-toolbar-row--primary {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, auto) minmax(0, 1fr);
+  }
+  .study-toolbar-actions {
+    grid-column: 3;
+    justify-self: end;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px 12px;
+    min-width: 0;
+    text-align: right;
+  }
+  .study-toolbar-feedback {
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
   }
   .study-toolbar-row--sections {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
   .study-toolbar-back {
+    grid-column: 1;
     justify-self: start;
     min-width: 0;
   }
   .study-toolbar-download {
-    justify-self: end;
     min-width: 0;
     text-align: right;
   }
   .study-toolbar-title {
+    grid-column: 2;
     justify-self: center;
     text-align: center;
     margin: 0;
@@ -269,6 +361,10 @@
     font-weight: 600;
   }
   .study-toolbar-link:hover { color: #13405c; }
+  .study-toolbar-link:focus-visible {
+    outline: 2px solid #1a5276;
+    outline-offset: 2px;
+  }
   .study-toolbar-section {
     display: block;
     min-width: 0;
@@ -295,6 +391,14 @@
     .study-toolbar-row--primary {
       grid-template-columns: 1fr 1fr;
     }
+    .study-toolbar-back {
+      grid-column: 1;
+    }
+    .study-toolbar-actions {
+      grid-column: 1 / -1;
+      justify-self: stretch;
+      justify-content: flex-end;
+    }
     .study-toolbar-title {
       grid-column: 1 / -1;
       white-space: normal;
@@ -305,6 +409,13 @@
   }
   @media print {
     .study-toolbar { display: none !important; }
+    .skip-link { display: none !important; }
+    .term-tip {
+      border-bottom: none;
+      color: inherit;
+      cursor: text;
+    }
+    .term-tip-panel { display: none !important; }
   }
 
   @media screen and (prefers-color-scheme: dark) {
@@ -352,24 +463,34 @@
     .study-toolbar-title { color: #f5f1ec; }
     .study-toolbar-draft { color: #aca194; }
     .study-toolbar-section.is-disabled { color: #6f655a; }
+    .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    .term-tip-panel {
+      color: #e6dfd6;
+      background: #26231e;
+      border-color: #423b33;
+    }
   }
 
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <nav class="study-toolbar" aria-label="Study navigation">
   <div class="study-toolbar-row study-toolbar-row--primary">
     <a class="study-toolbar-link study-toolbar-back" href="../../Studies/index.html">&larr; All studies</a>
     <p class="study-toolbar-title">Coexistence Company — Concrete Organizational Structure <span class="study-toolbar-draft">(Draft)</span></p>
-    <a class="study-toolbar-link study-toolbar-download" href="Coexistence-Company-Org-Structure.pdf" download>Download PDF</a>
+    <span class="study-toolbar-actions">
+      <a class="study-toolbar-link study-toolbar-download" href="Coexistence-Company-Org-Structure.pdf" download>Download PDF</a>
+      <a class="study-toolbar-link study-toolbar-feedback" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&title=Study%20feedback%3A%20Coexistence%20Company%20%E2%80%94%20Concrete%20Organizational%20Structure">Suggest a correction</a>
+    </span>
   </div>
   <div class="study-toolbar-row study-toolbar-row--sections">
     <a class="study-toolbar-link study-toolbar-section study-toolbar-section--prev" id="study-section-prev" href="#" aria-disabled="true">&larr; Previous section</a>
     <a class="study-toolbar-link study-toolbar-section study-toolbar-section--next" id="study-section-next" href="#" aria-disabled="true">Next section &rarr;</a>
   </div>
 </nav>
-<h1>Coexistence Company — Concrete Organizational Structure</h1>
-<p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> — a group of people studying Madhyasth Darshan philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
+<main id="main"><h1>Coexistence Company — Concrete Organizational Structure</h1>
+<p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> — a group of people studying <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
 <p><strong>Edited on:</strong> June 26, 2026, 9:58 PM IST
 <strong>Basis:</strong> This application instantiates the coexistence template and categorical architecture for a deliberate human assembly (<a href="../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> D1–D13, L1–L7, P3–P5, §8; <a href="../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf"><em>Category Theory Explained</em></a> §§3.5, 6.1, 6.1.1, 6.2.1, 6.6.1, 6.7–6.9, 6.15). It is a design blueprint, not legal advice.</p>
 <p><strong>Example company:</strong> <strong>Saha Coexistence Works</strong> (SCW) — a knowledge-work company (research, education, and technology services) whose product is understood coexistence made useful in the world. Scale assumed: <strong>60 members</strong> at steady state, expandable by <strong>compound</strong> team formation, not mere headcount.</p>
@@ -377,11 +498,11 @@
 <p>SCW is organised to meet two objectives together (<a href="../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> §8; P3–P4):</p>
 <ol>
 <li><strong>Members are not instrumentalised</strong> — nurturing (<em>poshan</em>), not net extraction; values fulfilled in relationships, not fear or temptation as the basis of order (P3; JV p. 39 cited in template §8).</li>
-<li><strong>The company sustains across generations of members</strong> — relationships fulfilled (L4), understanding transmitted by education-<em>sanskar</em> (L5, τ), common cause, goal, and programme (P4).</li>
+<li><strong>The company sustains across generations of members</strong> — relationships fulfilled (L4), understanding transmitted by education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> (L5, τ), common cause, goal, and programme (P4).</li>
 </ol>
 <p>Orientation is <strong>completeness of relationships</strong>, not unbounded maximisation of profit, comfort, or scale (<a href="../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> §5; P6). Metric targets that chase open-ended &ldquo;more&rdquo; are treated as delusion pathology, not design requirements (<a href="../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf"><em>Category Theory Explained</em></a> §6.5).</p>
 <h2 id="2-assembly-tiers-who-is-a-unit">2. Assembly tiers (who is a “unit”)</h2>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Tier</th>
@@ -428,7 +549,7 @@
 <td>Only if overlap values agree</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>Rule:</strong> Adding people in the same building without fused conduct is <strong>mixture</strong> (<em>mishran</em>) — weaker cohesion. Scale hiring only after <strong>L3</strong> complementarity (need/surplus) and overlap compatibility are verified (<a href="../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf"><em>Category Theory Explained</em></a> §6.9.1; <a href="../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> L3).</p>
 <h2 id="3-top-level-org-chart">3. Top-level org chart</h2>
 <div class="mermaid">
@@ -450,8 +571,8 @@ flowchart TD
     FT --> CL["Clusters × 2"]
 </div>
 <h2 id="4-functional-units-departments">4. Functional units (departments)</h2>
-<p>Each row is a <strong>mandatory subsystem</strong> — the categorical analogue in <a href="../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf"><em>Category Theory Explained</em></a> §6.1. The <strong>regulation ladder</strong> (template D2a) is distributed: ambient ground and law-as-regulation at the Steward Council and Charter offices; order <em>sanskar</em> conformance and inward discipline at Capability and Transmission; <strong>justice</strong> (D7) as the knowledge-order operator ρ → φ → μ → mutual satisfaction at Value &amp; Justice and Evaluation — not a value class in the registry.</p>
-<table>
+<p>Each row is a <strong>mandatory subsystem</strong> — the categorical analogue in <a href="../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf"><em>Category Theory Explained</em></a> §6.1. The <strong>regulation ladder</strong> (template D2a) is distributed: ambient ground and law-as-regulation at the Steward Council and Charter offices; order <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> conformance and inward discipline at Capability and Transmission; <strong>justice</strong> (D7) as the knowledge-order operator ρ → φ → μ → mutual satisfaction at Value &amp; Justice and Evaluation — not a value class in the registry.</p>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>#</th>
@@ -540,9 +661,9 @@ flowchart TD
 <td>Uniform right-use across domains; resource use bounded by regeneration</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>Headcount allocation (60-member example):</strong></p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Area</th>
@@ -582,9 +703,9 @@ flowchart TD
 <td></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="5-family-team-structure-compound-unit">5. Family Team structure (compound unit)</h2>
-<p>Each <strong>Family Team</strong> is a compound assembly: members discard separate outward conducts and present <strong>one team conduct</strong> with a written <strong>sig(team)</strong> = ⟨form, properties, essential nature, <em>dharma</em>⟩ (<a href="../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> D1, D8).</p>
+<p>Each <strong>Family Team</strong> is a compound assembly: members discard separate outward conducts and present <strong>one team conduct</strong> with a written <strong>sig(team)</strong> = ⟨form, properties, essential nature, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>⟩ (<a href="../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> D1, D8).</p>
 <div class="mermaid">
 flowchart LR
     subgraph FT ["Family Team (compound)"]
@@ -598,7 +719,7 @@ flowchart LR
     end
     EXT["Client / Partner / Earth-tier"] --> PR
 </div>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Role</th>
@@ -628,11 +749,11 @@ flowchart LR
 <td>Documents φ; feeds Evaluation Forum, Evidence Office, and Transmission Institute</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>Team size:</strong> 7–12. Below 7, insufficient complementarity; above 12, prefer <strong>compound</strong> split into two teams with L3 need/surplus between them.</p>
 <h2 id="6-definite-relationships-company-wide-registry">6. Definite relationships (company-wide registry)</h2>
 <p>The Relationship Registry maintains these <strong>knowledge-order</strong> relationships (<a href="../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> §4; JV p. 109 cited in template §4):</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Relationship</th>
@@ -685,11 +806,11 @@ flowchart LR
 <td>Established</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>Associations (voluntary projects, hobbies) are logged separately and <strong>do not</strong> inherit fixed E(r) until adopted as relationships.</p>
 <h2 id="7-graded-values-in-practice">7. Graded values in practice</h2>
 <p>Template D4 names six value kinds; four operate at the knowledge order (<a href="../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> D4):</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Class</th>
@@ -729,10 +850,10 @@ flowchart LR
 <td>Right-Use Office + Steward Council</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>Trust</strong> is the value deposited when fulfilment φ succeeds in a relationship (D7a). <strong>Justice</strong> is the <strong>operation</strong> on values — ρ → φ → μ → mutual satisfaction — not a poster slogan and not an entry in the value registry (D7).</p>
 <h2 id="8-three-completeness-stages-milestones">8. Three completeness stages (milestones)</h2>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Stage</th>
@@ -757,10 +878,10 @@ flowchart LR
 <td>Conduct evidenced externally (<em>pramanikta</em>); D13 loop closed; Transmission Institute producing awakened tradition</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>T2–T3 are <strong>awakening progression</strong> (<em>jagriti-kram</em>) inside an already-constituted company — lifts in the knowledge order guarded by cap(u) and μ, not the same as hiring more people or material-tier κ_comp (<a href="../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf"><em>Category Theory Explained</em></a> §6.2.1, §6.10; template D11).</p>
 <h2 id="9-governance-and-decision-rights">9. Governance and decision rights</h2>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Decision type</th>
@@ -810,10 +931,10 @@ flowchart LR
 <td>η (<a href="../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf"><em>Category Theory Explained</em></a> §6.7)</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>Chief Steward</strong> coordinates stewards; <strong>does not</strong> own surplus extraction from members. Profit, where it arises, is <strong>circularity for family needs and reinvestment in transmission</strong>, not unbounded accumulation (<a href="../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> §8; MVD p. 265 cited there).</p>
 <h2 id="10-operating-rhythms">10. Operating rhythms</h2>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Rhythm</th>
@@ -853,7 +974,7 @@ flowchart LR
 <td>T1/T2/T3 progress; P4 programme still common</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="11-onboarding-pipeline-τ">11. Onboarding pipeline (τ)</h2>
 <p>Every new member passes through Transmission Institute — <strong>ignorance cannot flow in tradition</strong> (<a href="../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> §6; JV p. 49 cited there). Full membership requires a composable D13 step: evidenced conduct, not private conviction alone (L7; §6.15).</p>
 <div class="mermaid">
@@ -876,7 +997,7 @@ flowchart LR
 </ol>
 <p><strong>Reject</strong> when: contradictory expectations on the same person; mixture presented as merger; selective right-use (η fails naturality); cap(u) insufficient for the merged E(r) profiles.</p>
 <h2 id="13-failure-diagnostic-reverse-use">13. Failure diagnostic (reverse use)</h2>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Symptom</th>
@@ -936,20 +1057,20 @@ flowchart LR
 <td>Transmission Institute</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="14-what-this-structure-is-not">14. What this structure is not</h2>
 <ul>
 <li><strong>Not</strong> a conventional command hierarchy optimised for shareholder extraction.</li>
 <li><strong>Not</strong> self-sufficient proof of coexistence — metaphysical premises remain commitments (<a href="../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> §9).</li>
 <li><strong>Not</strong> derivable from category theory alone — L3 complementarity, cap(u), τ_ev, and saturation are <strong>designed in</strong> (<a href="../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf"><em>Category Theory Explained</em></a> §6.11 P8–P9, P11, P16).</li>
 </ul>
-<p>SCW is a <strong>template instance</strong>: bounded units, definite valued relationships, compound assembly by complementarity, persistence by fulfilment, transmission by education-<em>sanskar</em>, evaluation and evidence at the knowledge tier — structured so longevity and balance are <strong>construction requirements</strong>, not afterthoughts.</p>
+<p>SCW is a <strong>template instance</strong>: bounded units, definite valued relationships, compound assembly by complementarity, persistence by fulfilment, transmission by education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em>, evaluation and evidence at the knowledge tier — structured so longevity and balance are <strong>construction requirements</strong>, not afterthoughts.</p>
 <h2 id="references">References</h2>
 <h3>Application basis (this repository)</h3>
 <ul>
 <li><a href="../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf"><em>The Coexistence Template</em></a> — formal template: units, regulation ladder (D2a–D2b), relationships, six-fold values (D4), justice operator (D7), κ, τ, L1–L7, P3–P5, D12–D13, §8 human organisations</li>
 <li><a href="../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf"><em>Category Theory Explained</em></a> — categorical architecture §6.1; fibred cap(u) §6.6.1; right-use §6.7; society colimit §6.8; mixture/compound §6.9; knowledge registers and self-evidencing §6.15; propositions P6, P8–P9, P11, P16</li>
-</ul>
+</ul></main>
 <script type="module">
 import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -1034,6 +1155,82 @@ mermaid.initialize({
   window.addEventListener("resize", () => {
     syncToolbarHeight();
     update();
+  });
+  const scrollToSection = id => {
+    const target = document.getElementById(id);
+    if (!target) return;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+  };
+
+  prev.addEventListener("click", event => {
+    if (prev.classList.contains("is-disabled")) return;
+    const href = prev.getAttribute("href");
+    if (!href || !href.startsWith("#")) return;
+    event.preventDefault();
+    scrollToSection(href.slice(1));
+  });
+  next.addEventListener("click", event => {
+    if (next.classList.contains("is-disabled")) return;
+    const href = next.getAttribute("href");
+    if (!href || !href.startsWith("#")) return;
+    event.preventDefault();
+    scrollToSection(href.slice(1));
+  });
+})();
+</script>
+<script>
+(() => {
+  let floatPanel = document.getElementById("term-tip-float");
+  if (!floatPanel) {
+    floatPanel = document.createElement("div");
+    floatPanel.id = "term-tip-float";
+    floatPanel.className = "term-tip-panel";
+    floatPanel.setAttribute("role", "tooltip");
+    floatPanel.hidden = true;
+    document.body.appendChild(floatPanel);
+  }
+
+  const hide = () => {
+    floatPanel.classList.remove("is-visible");
+    floatPanel.hidden = true;
+    floatPanel.textContent = "";
+  };
+
+  const show = (button, text) => {
+    floatPanel.textContent = text;
+    floatPanel.hidden = false;
+    floatPanel.classList.add("is-visible");
+    const rect = button.getBoundingClientRect();
+    const margin = 8;
+    let top = rect.top - floatPanel.offsetHeight - margin;
+    if (top < margin) top = rect.bottom + margin;
+    let left = rect.left;
+    const maxLeft = window.innerWidth - floatPanel.offsetWidth - margin;
+    if (left > maxLeft) left = Math.max(margin, maxLeft);
+    floatPanel.style.top = `${Math.max(8, top)}px`;
+    floatPanel.style.left = `${Math.max(8, left)}px`;
+  };
+
+  document.querySelectorAll(".term-tip").forEach(button => {
+    const definition = button.getAttribute("data-definition");
+    if (!definition) return;
+    button.setAttribute("aria-describedby", "term-tip-float");
+    const reveal = () => show(button, definition);
+    button.addEventListener("mouseenter", reveal);
+    button.addEventListener("focus", reveal);
+    button.addEventListener("mouseleave", hide);
+    button.addEventListener("blur", hide);
+    button.addEventListener("click", event => {
+      event.stopPropagation();
+      if (floatPanel.hidden) reveal();
+      else hide();
+    });
+  });
+
+  document.addEventListener("click", hide);
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") hide();
   });
 })();
 </script>
