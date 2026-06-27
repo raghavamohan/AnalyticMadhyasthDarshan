@@ -4,7 +4,7 @@ Clear, carefully argued studies of **Madhyasth Darshan** (Co-existentialism) —
 
 Browse the published collection at **[analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org)** (or open [index.html](index.html) locally for search, filters, and card layout).
 
-**Want to contribute?** Open **[My Submissions](submit.html)** on the Web Submission Portal. See [How to contribute](#contribute) below for the full workflow.
+**Want to contribute?** See [How to contribute](#contribute) — [comment on a study](#comments-and-corrections) or [propose a new paper](#propose-a-new-study).
 
 **On this page**
 
@@ -99,17 +99,30 @@ Reading the books and following the logic is necessary, but only the starting po
 
 ## How to contribute
 
-We welcome new studies and revisions from anyone studying Madhyasth Darshan. Before you write, read the study format and intent in this document and in [CONTRIBUTING.md](../CONTRIBUTING.md).
+Two paths — pick the one that matches what you want to do.
 
-To add or update a study, the steps are:
+### Comments and corrections
 
-1. **Sign in** on [My Submissions](submit.html) (required to propose or submit; not required to read studies).
-2. **Propose** a new study, **update** an existing one, or **change release status** (Draft ↔ Released) from the same page.
-3. **Track** approval status, pull requests, and CI checks on that page.
-4. When a proposal is approved, click **Submit draft** on your row.
-5. After merge, use **Update study** or **Release study** / **Revert to draft** as needed.
+Spot a typo, unclear terminology, a citation problem, or have a question about a published study? Use this path. You do **not** need to sign in to read, and you are **not** proposing a new paper.
 
-For typos, terminology notes, or factual corrections on an existing study — without proposing a new paper — open a **[study feedback issue](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml)** (also linked from each study page). No approval gate; maintainers triage into small updates.
+1. Open **[Suggest a correction](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml)** on GitHub — choose the study from the dropdown and describe the change.
+2. Or click **Suggest a correction** in the toolbar while reading any study.
+
+No approval gate; maintainers triage into small updates. A GitHub account is required to file the issue.
+
+### Propose a new study
+
+Want to add a new analytic paper to the collection, or submit a full revision of an existing one? Use the Web Submission Portal.
+
+Before you start, read the study format in this document and in [CONTRIBUTING.md](../CONTRIBUTING.md).
+
+1. **Sign in** on [My Submissions](submit.html) with GitHub (required to propose or submit; not required to read studies).
+2. **Propose** a new study and wait for maintainer approval.
+3. When approved, click **Submit draft** with your full markdown.
+4. **Track** pull requests and CI checks on the same page.
+5. After merge, use **Update study** or change **Draft** ↔ **Released** as needed.
+
+Full workflow details: [CONTRIBUTING.md](../CONTRIBUTING.md).
 
 ## About us
 
