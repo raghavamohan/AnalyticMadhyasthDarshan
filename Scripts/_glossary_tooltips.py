@@ -90,12 +90,22 @@ def _apply_terms_to_text(text: str, patterns: list[tuple[re.Pattern[str], str, s
     if not text.strip():
         return text
 
-    def repl(match: re.Match[str], pattern: re.Pattern[str], term_id: str, definition: str) -> str:
-        return _wrap_term(match, term_id, definition)
+    placeholders: list[str] = []
+
+    def repl(match: re.Match[str], term_id: str, definition: str) -> str:
+        html = _wrap_term(match, term_id, definition)
+        token = f"\x00GLOSS{len(placeholders)}\x00"
+        placeholders.append(html)
+        return token
 
     result = text
     for pattern, term_id, definition in patterns:
-        result = pattern.sub(lambda m, p=pattern, i=term_id, d=definition: repl(m, p, i, d), result)
+        result = pattern.sub(
+            lambda m, i=term_id, d=definition: repl(m, i, d),
+            result,
+        )
+    for index, html in enumerate(placeholders):
+        result = result.replace(f"\x00GLOSS{index}\x00", html)
     return result
 
 
