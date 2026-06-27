@@ -848,6 +848,8 @@ def regenerate_pdf(md_path: Path, status: StudyStatus) -> None:
     html_to_pdf_cmd = ["node", str(SCRIPTS / "_html_to_pdf.js"), str(html_path)]
     if status == StudyStatus.DRAFT:
         html_to_pdf_cmd.append("Draft")
+    else:
+        html_to_pdf_cmd.append("")
     html_to_pdf_cmd.append(str(build_pdf_path))
     subprocess.run(
         html_to_pdf_cmd,
