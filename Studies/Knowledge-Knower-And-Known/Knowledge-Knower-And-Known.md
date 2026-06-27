@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 27, 2026, 4:10 PM IST
+**Edited on:** June 27, 2026, 4:14 PM IST
 **Status:** Draft
 
 **The question:** What is knowledge, who is the knower, and what is it that one can know? How do we ground these concepts in experience, and how does the Co-existentialism of Shri A. Nagraj compare with the non-dualism of Advaita Vedanta and the physicalism of modern science and philosophy?
@@ -20,35 +20,6 @@ From that background, a familiar picture of nature is hard to avoid: **conscious
 The work begins where that scientific picture leaves open questions — and asks whether Madhyasth Darshan offers a coherent alternative worth examining seriously. This paper reads the primary texts carefully, states what follows from the darshan itself, and compares it in parallel with what we know from **physics and the natural sciences**, **Advaita Vedanta**, and **modern Western philosophy** (especially epistemology and philosophy of mind). Physics and mathematics are **one leg** of that comparison, not the only one. The aim is rigorous comparative understanding — testing definitions, internal consistency, and fit with public knowledge — not persuasion or devotional endorsement.
 
 These topical studies state the philosophy in clear, checkable prose first. A separate formal mathematical treatment may follow once the definitions and relations are stable across the studies; this paper does not assume or require that treatment.
-
-## Quick Glossary
-
-| Term | Plain meaning |
-|------|---------------|
-| ***Anubhav jnan* (Realisation Knowledge)** | The ontological given in saturated units — form, properties, essential nature, *dharma*, and orderliness (MVD, p. 11; §1.1.1). |
-| ***Anushandhan* (Exploration)** | Inventive comprehensive study from decline through development to omnipresence (MVD, Ch. 17; §1.11.2). |
-| ***Gyan udghatan*** | The unfolding of knowledge — an activity exclusive to awakened *jeevan*, not Omnipresence or insentient units (§1.1.1). |
-| ***Pramanikta* (Authenticity / evidence)** | Conduct and living that evidences realization — the outward test of complete knowing (§1.6, §1.6.1). |
-| **Sat-Chit-Ananda** | Advaita: being, consciousness, and bliss as three names of one Brahman. |
-| ***Chit*** | Advaita: consciousness as the very nature of Brahman and the inner Self. |
-| ***Jeevan*** | The sentient self — in Shri Nagraj's view a real, eternal, atom-scale entity that works *through* the body. Ontology: [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf). |
-| ***Drishta-pad* (Seer status)** | The unique capacity of the human being in existence to observe, understand, and evaluate all orders of nature. |
-| ***Darshan-drishya-drishti*** | Madhyasth Darshan's structure of worldview, scene, and perspective: the perceiver uses perspective to see the real scene and arrive at holistic understanding. |
-| ***Sapëkshata* (Relativity)** | Epistemological relativity arising from distinctions among perspective, scene, and worldview — real within units and understanding, not a feature of underlying coexistence (§1.4.1). |
-| ***Gyan-vivek-vigyan*** | Knowledge, wisdom/discrimination, and science/systematic know-how — the way understanding becomes evaluation and practical participation. |
-| ***Sanvedansheelta* / *sangyansheelta*** | Sensitivity (body- and sense-based responsiveness) and comprehension/cognisance (the understanding proper to *jeevan*) — the two modes of engaging the world. |
-| ***Pramana*** | Means or proof of valid knowledge; in Madhyasth Darshan, realization (*anubhav*) evidenced in conduct is the ultimate proof. |
-| ***Bhram*** | Delusion — living by inherited belief rather than understanding, rooted in identifying *jeevan* with the body. |
-| ***Rahasyata* (Mysteriousness)** | Incapacity to reveal or attain complete understanding — not an ontological opacity in coexistence (§1.11). |
-| ***Bauddhik rahasya* (Intellectual mystery)** | Misalignment among *mun*, *vritti*, *chitta*, and *buddhi* when lower faculties do not take refuge in the one above (§1.11.1). |
-| **Coexistence (*saha-astitva*)** | Reality as the pervasive ground (*satta*) and all units (*ikai*) inseparably present together. |
-| ***Atman* / *Brahman*** | In Advaita Vedanta: the innermost Self / the one ultimate, non-dual reality. |
-| ***Mithya*** | Advaita's term for the world: dependent, provisional appearance, not absolutely real. |
-| ***Svaprakasha*** | Advaita: consciousness self-luminous — reveals itself without another knower (§2.2). |
-| ***Badha* (Sublation)** | Advaita: discovery that what seemed absolutely real was dependent on a substrate (§2.2.1). |
-| ***Moksha*** | Advaita: liberation as recognition of pre-existing identity with Brahman (§2.7). |
-| **Hard Problem** | Why physical brain processes are accompanied by subjective experience — a modern open question, not the same as Madhyasth Darshan's *rahasyata* (§1.11; §3.4). |
-| **Scientific realism** | The view that the physical world is mind-independent and law-governed, suitable for public investigation (§3.3). |
 
 ## 1. The Madhyasth Darshan Answer
 
@@ -729,6 +700,49 @@ Post-death survival of *jeevan* is inferred from conservation and constitutional
 ### 6.5 Partially incommensurable criteria of knowing
 
 The three traditions use different criteria for adequate knowing (§4.3). Madhyasth Darshan adds realization and conduct as evidence beyond mechanism and prediction; Advaita reserves ultimate competence for revelation and contemplative discrimination; physicalism trusts observation and replication. No single neutral tribunal settles them. Comparative work can still test internal consistency, fit with public knowledge, and responsible distinction of posits from bare assertion — but the epistemic standoff at the boundary is real, not a temporary gap in translation.
+
+## Appendix: Quick Glossary
+
+Key terms from §§1–3 are collected here for quick reference. Each term is also defined where it first appears in the exposition.
+
+### Terms in §1
+
+| Term | Plain meaning |
+|------|---------------|
+| **Coexistence (*saha-astitva*)** | Reality as the pervasive ground (*satta*) and all units (*ikai*) inseparably present together. |
+| ***Anubhav jnan* (Realisation Knowledge)** | The ontological given in saturated units — form, properties, essential nature, *dharma*, and orderliness (MVD, p. 11; §1.1.1). |
+| ***Gyan udghatan*** | The unfolding of knowledge — an activity exclusive to awakened *jeevan*, not Omnipresence or insentient units (§1.1.1). |
+| ***Gyan-vivek-vigyan*** | Knowledge, wisdom/discrimination, and science/systematic know-how — the way understanding becomes evaluation and practical participation. |
+| ***Darshan-drishya-drishti*** | Madhyasth Darshan's structure of worldview, scene, and perspective: the perceiver uses perspective to see the real scene and arrive at holistic understanding. |
+| ***Sapëkshata* (Relativity)** | Epistemological relativity arising from distinctions among perspective, scene, and worldview — real within units and understanding, not a feature of underlying coexistence (§1.4.1). |
+| ***Sanvedansheelta* / *sangyansheelta*** | Sensitivity (body- and sense-based responsiveness) and comprehension/cognisance (the understanding proper to *jeevan*) — the two modes of engaging the world. |
+| ***Pramana*** | Means or proof of valid knowledge; in Madhyasth Darshan, realization (*anubhav*) evidenced in conduct is the ultimate proof. |
+| ***Pramanikta* (Authenticity / evidence)** | Conduct and living that evidences realization — the outward test of complete knowing (§1.6, §1.6.1). |
+| ***Bhram*** | Delusion — living by inherited belief rather than understanding, rooted in identifying *jeevan* with the body. |
+| ***Rahasyata* (Mysteriousness)** | Incapacity to reveal or attain complete understanding — not an ontological opacity in coexistence (§1.11). |
+| ***Bauddhik rahasya* (Intellectual mystery)** | Misalignment among *mun*, *vritti*, *chitta*, and *buddhi* when lower faculties do not take refuge in the one above (§1.11.1). |
+| ***Anushandhan* (Exploration)** | Inventive comprehensive study from decline through development to omnipresence (MVD, Ch. 17; §1.11.2). |
+| ***Jeevan*** | The sentient self — in Shri Nagraj's view a real, eternal, atom-scale entity that works *through* the body. Ontology: [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf). |
+| ***Drishta-pad* (Seer status)** | The unique capacity of the human being in existence to observe, understand, and evaluate all orders of nature. |
+
+### Terms in §2
+
+| Term | Plain meaning |
+|------|---------------|
+| ***Atman* / *Brahman*** | In Advaita Vedanta: the innermost Self / the one ultimate, non-dual reality. |
+| **Sat-Chit-Ananda** | Advaita: being, consciousness, and bliss as three names of one Brahman. |
+| ***Chit*** | Advaita: consciousness as the very nature of Brahman and the inner Self. |
+| ***Svaprakasha*** | Advaita: consciousness self-luminous — reveals itself without another knower (§2.2). |
+| ***Badha* (Sublation)** | Advaita: discovery that what seemed absolutely real was dependent on a substrate (§2.2.1). |
+| ***Mithya*** | Advaita's term for the world: dependent, provisional appearance, not absolutely real. |
+| ***Moksha*** | Advaita: liberation as recognition of pre-existing identity with Brahman (§2.7). |
+
+### Terms in §3
+
+| Term | Plain meaning |
+|------|---------------|
+| **Scientific realism** | The view that the physical world is mind-independent and law-governed, suitable for public investigation (§3.3). |
+| **Hard Problem** | Why physical brain processes are accompanied by subjective experience — a modern open question, not the same as Madhyasth Darshan's *rahasyata* (§1.11; §3.4). |
 
 ## References
 
