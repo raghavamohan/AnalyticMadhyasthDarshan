@@ -137,6 +137,52 @@ def apply_zone_setting(token: str, zone_id: str, setting_id: str, value) -> None
     print(f"Set zone setting {setting_id} = {value!r}")
 
 
+DISCUSSIONS_WORKER = "amd-discussions"
+DISCUSSIONS_ROUTE_PATTERNS = (
+    f"{SITE_HOST}/api/discussions/*",
+    f"{SITE_HOST}/api/discuss-auth/*",
+)
+
+
+def list_worker_routes(token: str, zone_id: str) -> list[dict]:
+    body = _api_request("GET", f"/zones/{zone_id}/workers/routes", token)
+    return body.get("result", []) if body else []
+
+
+def ensure_worker_route(token: str, zone_id: str, pattern: str, script: str) -> None:
+    routes = list_worker_routes(token, zone_id)
+    for route in routes:
+        if route.get("pattern") == pattern:
+            if route.get("script") == script:
+                print(f"Worker route already set: {pattern} -> {script}")
+                return
+            route_id = route.get("id")
+            if route_id:
+                _api_request(
+                    "PUT",
+                    f"/zones/{zone_id}/workers/routes/{route_id}",
+                    token,
+                    {"pattern": pattern, "script": script},
+                )
+                print(f"Updated worker route: {pattern} -> {script}")
+                return
+    _api_request(
+        "POST",
+        f"/zones/{zone_id}/workers/routes",
+        token,
+        {"pattern": pattern, "script": script},
+    )
+    print(f"Created worker route: {pattern} -> {script}")
+
+
+def apply_discussions_api_routes(token: str, zone_id: str | None) -> None:
+    zone = resolve_zone_id(token, zone_id)
+    print(f"Zone ID: {zone}")
+    for pattern in DISCUSSIONS_ROUTE_PATTERNS:
+        ensure_worker_route(token, zone, pattern, DISCUSSIONS_WORKER)
+    print("Discussions worker routes applied.")
+
+
 def apply_api_settings(token: str, zone_id: str | None) -> None:
     zone = resolve_zone_id(token, zone_id)
     print(f"Zone ID: {zone}")
@@ -408,6 +454,11 @@ def main() -> int:
         help="Apply minify/http3/brotli and root redirect via Cloudflare API.",
     )
     parser.add_argument(
+        "--apply-discussions-api",
+        action="store_true",
+        help="Create or update Worker routes for amd-discussions on the custom domain.",
+    )
+    parser.add_argument(
         "--apply-redirect",
         action="store_true",
         help="Create or update the root -> catalog 301 redirect rule only.",
@@ -437,6 +488,20 @@ def main() -> int:
 
     api_error = False
     token = cloudflare_api_token()
+
+    if args.apply_discussions_api:
+        if not token:
+            print(
+                "CLOUDFLARE_API_TOKEN is required for --apply-discussions-api "
+                "(set in .env or the process environment).",
+                file=sys.stderr,
+            )
+            return 1
+        try:
+            apply_discussions_api_routes(token, zone_id)
+        except (urllib.error.URLError, RuntimeError) as exc:
+            print(f"API error: {exc}", file=sys.stderr)
+            api_error = True
 
     if args.apply_redirect:
         if not token:
@@ -470,7 +535,7 @@ def main() -> int:
     if api_error:
         return 1
 
-    if not args.apply_api and not args.apply_redirect:
+    if not args.apply_api and not args.apply_redirect and not args.apply_discussions_api:
         print_dashboard_steps()
 
     if not args.skip_verify:

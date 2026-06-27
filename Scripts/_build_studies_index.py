@@ -498,6 +498,25 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     gap: 10px;
     margin-left: auto;
   }
+  .discuss-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid #c5d9e6;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+  .discuss-link:hover {
+    color: var(--accent-hover);
+    background: #d4e6f2;
+    border-color: #a5c4d9;
+  }
   .pdf-download {
     display: inline-flex;
     align-items: center;
@@ -630,6 +649,8 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     .card.is-available:hover { box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5); }
     .pdf-download { background: #233e52; border-color: #3d6278; color: #7ebbed; }
     .pdf-download:hover { background: #2f4f63; border-color: #5ba3d3; color: #b8daf3; }
+    .discuss-link { background: #1a2e22; border-color: #355940; color: #8fd4a8; }
+    .discuss-link:hover { background: #243b2c; border-color: #4f8f66; color: #c2efd0; }
     .triad-item.t3 { border-top: 3px solid #6f655a; } .triad-item.t3 .k { color: #aca194; }
     .contribute-path { background: #1e1b18; }
     .contribute-path h3 { color: #f5f1ec; }
@@ -904,7 +925,8 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       cats: entry.categories || [],
       d: entry.description || "",
       pdf: entry.pdf || null,
-      html: entry.html || null
+      html: entry.html || null,
+      discussion: entry.discussion || null
     }));
   };
 
@@ -1046,6 +1068,11 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     return `${base}${pdfVersionQuery(s.updated)}`;
   };
 
+  const studyDiscussionHref = s => {
+    const base = s.discussion || `${s.slug}/discussion.html`;
+    return `${base}${pdfVersionQuery(s.updated)}`;
+  };
+
   const PDF_DOWNLOAD_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 3a1 1 0 0 1 1 1v9.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42l2.3 2.3V4a1 1 0 0 1 1-1Zm-7 14a1 1 0 0 1 1 1v1h12v-1a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1Z"/></svg>';
 
   const cardHTML = s => {
@@ -1053,13 +1080,14 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     const chips = s.cats.map(c => `<button type="button" class="chip" data-cat="${c.replace(/"/g, "&quot;")}">${c}</button>`).join("");
     const htmlHref = avail ? studyHtmlHref(s) : null;
     const pdfHref = avail ? studyPdfHref(s) : null;
+    const discussHref = avail ? studyDiscussionHref(s) : null;
     const titleInner = avail ? `<a href="${htmlHref}">${s.t}</a>` : s.t;
     const cardClass = !avail ? "is-planned" : (s.status === "released" ? "is-released is-available" : "is-draft is-available");
     const badgeClass = !avail ? "planned" : (s.status === "released" ? "released" : "draft");
     const badgeLabel = !avail ? "Planned" : (s.status === "released" ? "Released" : "Draft");
     const draftTitle = s.status === "draft" ? ' title="Draft PDF includes a watermark"' : "";
     const foot = avail
-      ? `<span class="badge ${badgeClass}"${draftTitle}><span class="badge-dot"></span>${badgeLabel}</span><span class="card-actions"><a class="pdf-download" href="${pdfHref}" download title="Download PDF" aria-label="Download PDF for ${escAttr(s.t)}">${PDF_DOWNLOAD_ICON}</a></span>`
+      ? `<span class="badge ${badgeClass}"${draftTitle}><span class="badge-dot"></span>${badgeLabel}</span><span class="card-actions">${discussHref ? `<a class="discuss-link" href="${discussHref}" title="Discussion board" aria-label="Discuss ${escAttr(s.t)}">Discuss</a>` : ""}<a class="pdf-download" href="${pdfHref}" download title="Download PDF" aria-label="Download PDF for ${escAttr(s.t)}">${PDF_DOWNLOAD_ICON}</a></span>`
       : `<span class="badge planned"><span class="badge-dot"></span>Planned</span><span>Not yet published</span>`;
     const dateLine = avail && s.updated
       ? `<div class="card-foot" style="border:none;padding:6px 0 0;color:#9a8f80;">Updated ${s.updated}</div>`

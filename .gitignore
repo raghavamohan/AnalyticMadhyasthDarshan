@@ -1,6 +1,7 @@
 .env
 .env.local
 .env.*.local
+.dev.vars
 
 node_modules/
 __pycache__/
@@ -17,3 +18,4 @@ Scripts/_pdf_cache/
 
 infra/worker/.wrangler/
 infra/worker/.turnstile-secret.tmp
+infra/discussions-worker/.wrangler/

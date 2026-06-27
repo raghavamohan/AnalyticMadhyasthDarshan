@@ -1,0 +1,14 @@
+# Copy to .dev.vars and fill in values (never commit .dev.vars).
+SESSION_SECRET=generate-a-random-base64-string
+TURNSTILE_SECRET_KEY=your-turnstile-widget-secret
+ADMIN_EMAILS=you@example.com
+
+# Return magic-link URL in JSON instead of sending email (recommended for local dev)
+DEV_EXPOSE_MAGIC_LINK=true
+
+# Optional — real email locally
+# RESEND_API_KEY=re_xxxxxxxx
+# EMAIL_FROM=Discussions <discussions@analyticmadhyasthdarshan.org>
+
+# Optional — browser origin when previewing discussion pages locally
+ALLOWED_ORIGINS=http://localhost:8788,http://127.0.0.1:8788
