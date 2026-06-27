@@ -543,6 +543,52 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   .triad-item.t2 { border-top: 3px solid var(--warm); } .triad-item.t2 .k { color: var(--warm); }
   .triad-item.t3 { border-top: 3px solid #9a8f80; } .triad-item.t3 .k { color: #6f655a; }
 
+  .contribute-paths {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin: 16px 0 4px;
+    align-items: stretch;
+  }
+  .contribute-path {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    background: #fdfcfa;
+  }
+  .contribute-path h3 {
+    margin: 0 0 10px;
+    font-size: 19px;
+    color: #1a1612;
+  }
+  .contribute-path ol {
+    margin: 10px 0 14px 20px;
+    padding: 0;
+  }
+  .contribute-path li { margin: 6px 0; }
+  .contribute-path .path-lead {
+    color: var(--text-muted);
+    font-size: 15px;
+    margin: 0 0 12px;
+  }
+  .contribute-path p.path-note {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin: 0 0 0;
+  }
+  .contribute-path .path-action {
+    margin-top: auto;
+    padding-top: 18px;
+    margin-bottom: 0;
+  }
+  .contribute-path--feedback { border-top: 3px solid var(--warm); }
+  .contribute-path--feedback h3 { color: var(--warm); }
+  .contribute-path--study { border-top: 3px solid var(--accent); }
+  .contribute-path--study h3 { color: var(--accent); }
+
   .catalog-group { scroll-margin-top: 64px; }
   .license-line {
     font-family: var(--sans); font-size: 13px; color: var(--text-muted);
@@ -585,6 +631,10 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     .pdf-download { background: #233e52; border-color: #3d6278; color: #7ebbed; }
     .pdf-download:hover { background: #2f4f63; border-color: #5ba3d3; color: #b8daf3; }
     .triad-item.t3 { border-top: 3px solid #6f655a; } .triad-item.t3 .k { color: #aca194; }
+    .contribute-path { background: #1e1b18; }
+    .contribute-path h3 { color: #f5f1ec; }
+    .contribute-path--feedback h3 { color: var(--warm); }
+    .contribute-path--study h3 { color: var(--accent); }
     .field {
       background-color: #1e1b18;
       background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23aca194' stroke-width='2'><path d='M6 9l6 6 6-6'/></svg>");
@@ -794,16 +844,31 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 <section class="section" id="contribute">
   <h2>How to contribute</h2>
   <div class="section-card">
-    <p>We welcome new studies and revisions from anyone studying Madhyasth Darshan. Before you write, read the study format and intent in the repository <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/Studies/README.md">Studies/README.md</a>.</p>
-    <p>To add or update a study, the steps are:</p>
-    <ol>
-      <li><strong>Sign in</strong> on <a href="submit.html">My Submissions</a> (required to propose or submit; not required to read studies).</li>
-      <li><strong>Propose</strong> a new study, <strong>update</strong> an existing one, or <strong>change release status</strong> (Draft &harr; Released) from the same page.</li>
-      <li><strong>Track</strong> approval status, pull requests, and CI checks on that page.</li>
-      <li>When a proposal is approved, click <strong>Submit draft</strong> on your row.</li>
-      <li>After merge, use <strong>Update study</strong> or <strong>Release study</strong> / <strong>Revert to draft</strong> as needed.</li>
-    </ol>
-    <p>For typos, terminology notes, or factual corrections on an existing study &mdash; without proposing a new paper &mdash; open a <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml">study feedback issue</a> (also linked from each study page). No approval gate; maintainers triage into small updates.</p>
+    <p class="section-intro">Two paths &mdash; pick the one that matches what you want to do.</p>
+    <div class="contribute-paths">
+      <div class="contribute-path contribute-path--feedback" id="comments-and-corrections">
+        <h3>Comments and corrections</h3>
+        <p class="path-lead">Spot a typo, unclear terminology, a citation problem, or have a question about a published study? Use this path. You do <strong>not</strong> need to sign in to read, and you are <strong>not</strong> proposing a new paper.</p>
+        <ol>
+          <li>Open <strong>Suggest a correction</strong> on GitHub &mdash; choose the study from the dropdown and describe the change.</li>
+          <li>Or click <strong>Suggest a correction</strong> in the toolbar while reading any study.</li>
+        </ol>
+        <p class="path-note">No approval gate; maintainers triage into small updates. A GitHub account is required to file the issue.</p>
+        <p class="path-action"><a class="btn-secondary" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml">Suggest a correction</a></p>
+      </div>
+      <div class="contribute-path contribute-path--study" id="propose-a-new-study">
+        <h3>Propose a new study</h3>
+        <p class="path-lead">Want to add a new analytic paper to the collection, or submit a full revision? Use the Web Submission Portal. Read the study format in <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/Studies/README.md">Studies/README.md</a> and <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a> before you start.</p>
+        <ol>
+          <li><strong>Sign in</strong> on <a href="submit.html">My Submissions</a> with GitHub (required to propose or submit).</li>
+          <li><strong>Propose</strong> a new study and wait for maintainer approval.</li>
+          <li>When approved, click <strong>Submit draft</strong> with your full markdown.</li>
+          <li><strong>Track</strong> pull requests and CI checks on the same page.</li>
+          <li>After merge, use <strong>Update study</strong> or change <strong>Draft</strong> &harr; <strong>Released</strong> as needed.</li>
+        </ol>
+        <p class="path-action"><a class="btn-primary" href="submit.html">Open My Submissions</a></p>
+      </div>
+    </div>
   </div>
 </section>
 
