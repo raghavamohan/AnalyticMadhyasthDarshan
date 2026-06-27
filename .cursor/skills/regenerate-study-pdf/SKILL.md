@@ -41,6 +41,7 @@ watermark when appropriate, and **verifies Mermaid diagrams** in the output PDF.
 2. `_html_to_pdf.js` — render Mermaid to SVG, then Puppeteer → PDF
 3. `_verify_pdf_diagrams.py` — fail if raw Mermaid syntax remains in the PDF
 4. `_verify_pdf_fenced_code.py` — fail if fenced ` ```text ` / code lines are clipped in the PDF
+5. `_verify_pdf_outline.py` — fail if the PDF has no sidebar bookmarks when the markdown has two or more `##` headings
 
 The pipeline **keeps** the companion `.html` (web read view with toolbar and Mermaid);
 it is not deleted after PDF generation.
@@ -53,6 +54,7 @@ python Scripts/_convert_to_pdf.py Studies/<Slug>/<Slug>.md
 node Scripts/_html_to_pdf.js Studies/<Slug>/<Slug>.html Draft
 python Scripts/_verify_pdf_diagrams.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf
 python Scripts/_verify_pdf_fenced_code.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf
+python Scripts/_verify_pdf_outline.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf
 ```
 
 Do not delete `Studies/<Slug>/<Slug>.html` — it is the published read view.
