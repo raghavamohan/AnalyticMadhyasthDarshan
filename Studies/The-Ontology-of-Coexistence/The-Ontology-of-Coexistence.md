@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 26, 2026, 9:44 PM IST
+**Edited on:** June 27, 2026, 5:17 AM IST
 **Status:** Draft
 
 **The question:** What is Existence? What exists? Does what exists begin at some time? Does the individual self (*jeevan*) begin or end with the body? Is the world finally real?
@@ -147,6 +147,8 @@ The source describes units as soaked, submerged, and surrounded — *samprikt* �
 
 One way to picture the bond — **illustrative, not identity** — is a living cell in nutrient medium, or a sponge fully soaked in water: the unit remains surrounded, permeated, and sustained **through** the medium, not drained from a finite store. *Satta* is actionless (*kriya-shunya*), non-transforming, and not a physical substance that acts on units.
 
+Readers trained in physical causation may hear a contradiction: actionless energy that nonetheless energizes units. The texts resolve this by treating *satta* as a permeative, non-dynamic background field — a catalyst in the ontological sense, not an agent that pushes or transmits force. **Inherent energy** resides **in** each unit as a consequence of coexistence with that field; it is not an active force propagated from the ground as efficient cause.
+
 Through saturation, every unit has **inherent energy** and regulatory order **in** it:
 
 > **"Every unit in its atomic state is active as orderliness, because it has inherent energy due to being saturated in Omnipotence."**
@@ -223,7 +225,7 @@ SB compresses saturation through development as an identity-chain — each link 
 > **"Saturation in uniform energy itself is forcefulness, forcefulness itself is basic impulsion, basic impulsion itself is activity, activity itself is effort-motion-result, effort-motion-result itself is development and its continuity."**
 > - SB, p. 62
 
-In plain terms: each link is identity ("itself is"), not an external push — from saturation through forcefulness and basic impulsion to activity, the effort–motion–result triad, and development with its continuity.
+In other words, rather than a chain of mechanical reactions, this progression is an internal unfolding where each state inherently holds the capacity for the next, grounded in the original bond of saturation.
 
 At the sentient level the same triad is read toward stages of completeness; that reading is developed in §1.9–1.10 once the four orders and *jeevan* are in view.
 
@@ -419,7 +421,7 @@ Before constitutional completeness, an evolving-constitution atom carries **mole
 
 This is Madhyasth Darshan's **positive** account of why the sentient unit is not an ordinary molecular composite subject to the same decay grammar as insentient bound states — not a settled claim in public physics (§6.2.4).
 
-**Tiered intelligibility:** all saturated units participate in inherent orderliness. Insentient units exhibit radiance and projection (SB, p. 69). At *gathanpurnata*, a stable atom acts as a **mediating configuration**: orderliness shows up as active sentience. Sentience is not produced from dead matter. It becomes actual when the atom's constitution is complete. Ever-present *gyan* in *satta* is **actualized** at that threshold — **latency**, not strong emergence from non-experience. Selection, grounding, and rival threshold accounts are developed in §6.2.11. The four registers of knowledge in coexistence are distinguished in §1.11.
+**Tiered intelligibility:** all saturated units participate in inherent orderliness. Insentient units exhibit radiance and projection (SB, p. 69). At *gathanpurnata*, a constitutionally complete atom acts as a **mediating reflector configuration**: the stable compound registers what is ever-present in *satta* as active sentience (*chaitanya*). What was **latent** in the ground — permeative *gyan* as the intelligibility of coexistence — is **actualized** when the atom's particle constitution closes; the threshold is constitutional completeness, not mere molecular scale or neural complexity. Sentience is not manufactured from non-experiential matter the way physicalism often assumes consciousness is structurally produced by complex neural networks. It becomes evident when a unit's structure is complete enough to reflect what saturation already grounds. This is **latency actualized**, not strong emergence from dead substrate. Selection, grounding, and rival threshold accounts are developed in §6.2.11. The four registers of knowledge in coexistence are distinguished in §1.11.
 
 Three completeness ladders run in parallel through §1.9–§1.10; the table below aligns them:
 
@@ -450,7 +452,7 @@ The five faculties are not optional layers added to an already-complete atom. Th
 > **"The nucleus of the sentient unit (a constitutionally complete atom) is referred to as atma. The particles in its first orbit are referred to as buddhi, those in the second orbit are referred to as chitta, those in the third orbit are referred to as vritti, and those in the fourth orbit are referred to as mun."**
 > - MVD, p. 78
 
-These five faculties are one of **two** five-fold structures in the texts and must not be conflated with the second. Alongside the faculties, Madhyasth Darshan maps the developmental layers of a living being in Upanishadic **kosha** (sheath) vocabulary — *annamaya*, *pranamaya* (*pran kosha* in the texts' shorthand), *manomaya*, *anandamaya*, and *vigyanmaya* (MVD, pp. 49–50). Animal-order *jeevan* and pre-awakening (deluded) humans function across **four** koshas; awakening adds a fifth, *vigyanmaya* — the sheath of right knowledge — so awakened humans function across **five**. This kosha mapping tracks the **planes** of §1.9 (where development has reached); the five faculties above name *jeevan*'s constitutional parts (what it is). The overlap with Advaita's Taittiriya sheaths (*annamaya* through *anandamaya*) is terminological only — the two schemes do not match one-to-one, and Advaita peels sheaths away to reveal the Self beneath while Madhyasth Darshan harmonises them in awakened living (§5.7.2).
+These five faculties are one of **two** five-fold structures in the texts and must not be conflated with the second — **they do not align one-to-one**. The five faculties (*mun* through *atma*) name the **invariant parts and orbital structure** of the *jeevan* atom itself: what a constitutionally complete sentient unit **is** at the atomic level. Alongside them, Madhyasth Darshan maps the developmental **envelopes** of the **joint form** (body + *jeevan*) in Upanishadic **kosha** (sheath) vocabulary — *annamaya*, *pranamaya* (*pran kosha* in the texts' shorthand), *manomaya*, *anandamaya*, and *vigyanmaya* (MVD, pp. 49–50). Animal-order *jeevan* and pre-awakening (deluded) humans function across **four** koshas; awakening adds a fifth, *vigyanmaya* — the sheath of right knowledge — so awakened humans function across **five**. Koshas track **where awakening has opened** on the planes of §1.9; faculties track **what *jeevan* is structurally**. A given faculty is not the same thing as a given sheath, and the two lists cannot be read as parallel columns. The overlap with Advaita's Taittiriya sheaths (*annamaya* through *anandamaya*) is terminological only — those schemes do not match one-to-one either, and Advaita peels sheaths away to reveal the Self beneath while Madhyasth Darshan harmonises them in awakened living (§5.7.2).
 
 Evaluation through six built-in **perspectives** (*drishti*) is developed in §1.10.1. The four felt harmonies within *jeevan* follow in §1.10.2.
 
