@@ -2,8 +2,10 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 27, 2026, 6:05 AM IST
+**Edited on:** June 27, 2026, 6:06 AM IST
+
 **Status:** Released
+
 **The question:** What is Existence? What exists? Does what exists begin at some time? Does the individual self (*jeevan*) begin or end with the body? Is the world finally real?
 
 This study examines those questions in **Madhyasth Darshan** (Co-existentialism), as presented by **Shri A. Nagraj**, and compares its answers with **Advaita Vedanta** and selected **modern philosophical and scientific approaches** to physical reality, consciousness, and selfhood. Full treatment of time (*kaal*), *trikaalabadh*, and spacetime physics is in [*Nature of Time*](../Nature-Of-Time/Nature-Of-Time.pdf); here only the core claim is stated — that *kaal* is duration of unit-activity and *satta* is timeless as ground (§1.4).
