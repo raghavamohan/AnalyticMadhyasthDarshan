@@ -854,7 +854,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
           <li>Or click <strong>Suggest a correction</strong> in the toolbar while reading any study.</li>
         </ol>
         <p class="path-note">No approval gate; maintainers triage into small updates. A GitHub account is required to file the issue.</p>
-        <p class="path-action"><a class="btn-secondary" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml">Suggest a correction</a></p>
+        <p class="path-action"><a class="btn-primary" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml">Suggest a correction</a></p>
       </div>
       <div class="contribute-path contribute-path--study" id="propose-a-new-study">
         <h3>Propose a new study</h3>
