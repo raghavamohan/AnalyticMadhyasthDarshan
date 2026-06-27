@@ -176,6 +176,7 @@ const outputPath = args[2]
     margin: { top: '2.2cm', bottom: '2.2cm', left: '2cm', right: '2cm' },
     printBackground: true,
     displayHeaderFooter: true,
+    outline: true,
     headerTemplate: '<span></span>',
     footerTemplate:
       '<div style="width:100%;font-size:9pt;font-family:Georgia,serif;color:#666;padding:0 2cm;display:flex;justify-content:space-between;align-items:center;">' +

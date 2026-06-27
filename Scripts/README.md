@@ -23,6 +23,7 @@ To submit a study without cloning this repository, use **[My Submissions](../Stu
 | Regenerate PDF | `python Scripts/_regenerate_pdf.py <Slug>` |
 | Verify Mermaid in PDF | `python Scripts/_verify_pdf_diagrams.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf` |
 | Verify fenced code in PDF | `python Scripts/_verify_pdf_fenced_code.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf` |
+| Verify PDF sidebar bookmarks | `python Scripts/_verify_pdf_outline.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf` |
 | Verify blockquotes | `python Scripts/_quote_tool.py verify [--study <Slug>]` |
 | Sync PDF text cache | `python Scripts/_quote_tool.py cache sync [--study <Slug>] [--tags MVD,SB] [--force]` |
 | Search a reference PDF | `python Scripts/_quote_tool.py search <tag-or-path> "<regex>"` |
@@ -49,6 +50,7 @@ Windows wrappers: `.\Scripts\_add_study.ps1`, `.\Scripts\_remove_study.ps1`, `.\
 | `_html_to_pdf.js` | Render Mermaid, then HTML → PDF via Puppeteer (called by `regenerate_pdf`) |
 | `_verify_pdf_diagrams.py` | Fail if Mermaid source leaked into PDF text (called by `regenerate_pdf`) |
 | `_verify_pdf_fenced_code.py` | Fail if fenced code/spec content clipped in PDF (called by `regenerate_pdf`) |
+| `_verify_pdf_outline.py` | Fail if PDF document outline missing when study has multiple sections (called by `regenerate_pdf`) |
 | `_download_references.py` | Download manifest entries into `References/` (called by `.ps1`) |
 | `_reference_downloads.py` | Manifest of mirrorable reference files |
 | `_audit_references.py` | Bibliography-only audit of Studies/ `## References` links |
