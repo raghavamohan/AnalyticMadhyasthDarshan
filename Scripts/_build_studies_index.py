@@ -462,15 +462,15 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     box-shadow: var(--shadow);
   }
   .start-here h2 {
-    font-family: var(--sans);
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: 600;
     color: var(--accent);
     margin: 0 0 10px;
     border: none;
     padding: 0;
+    letter-spacing: normal;
+    text-transform: none;
   }
   .start-here-intro {
     font-size: 15px;
