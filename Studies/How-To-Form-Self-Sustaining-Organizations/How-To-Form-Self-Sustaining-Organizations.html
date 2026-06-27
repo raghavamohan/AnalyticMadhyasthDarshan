@@ -310,12 +310,15 @@
     gap: 8px 14px;
   }
   .study-toolbar-row--primary {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1.2fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, auto) minmax(0, 1fr);
   }
   .study-toolbar-actions {
+    grid-column: 3;
     justify-self: end;
-    display: inline-flex;
+    display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
     gap: 8px 12px;
     min-width: 0;
     text-align: right;
@@ -329,15 +332,16 @@
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
   .study-toolbar-back {
+    grid-column: 1;
     justify-self: start;
     min-width: 0;
   }
   .study-toolbar-download {
-    justify-self: end;
     min-width: 0;
     text-align: right;
   }
   .study-toolbar-title {
+    grid-column: 2;
     justify-self: center;
     text-align: center;
     margin: 0;
@@ -386,6 +390,9 @@
   @media (max-width: 640px) {
     .study-toolbar-row--primary {
       grid-template-columns: 1fr 1fr;
+    }
+    .study-toolbar-back {
+      grid-column: 1;
     }
     .study-toolbar-actions {
       grid-column: 1 / -1;
@@ -839,7 +846,7 @@ flowchart TD
 <ol>
 <li><strong>Its goal is individual, not organisational.</strong> Shankara&rsquo;s exclusive concern (AV) is <em>moksha</em> — the individual&rsquo;s liberating recognition of non-duality. The community, the family, production, and governance belong to the world the renunciant turns away from. An organisation can at best be <em>instrumental</em> to individual liberation; it is never the locus of value. Contrast the darshan, where the family and undivided society are themselves the goal&rsquo;s living form.</li>
 <li><strong>&ldquo;Jagat <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mithya" data-definition="Advaita: dependent appearance — neither absolutely real nor sheer nothing; valid at *vyavahara*, sublated at *paramartha*.">mithya</button></span>&rdquo; undercuts prosperity.</strong> If the world is ultimately appearance, then production, economy, ecology, and material well-being are second-order concerns. A philosophy cannot found a <em>prosperous</em> society on a premise that devalues the very domain in which prosperity occurs. Even sympathetic reformers concede this history: Vivekananda&rsquo;s followers describe pre-reform Vedanta as having &ldquo;become a philosophy of escape,&rdquo; its ideal of inaction deformed into &ldquo;laziness, inertia, and human unconcern&rdquo; (SV). The darshan&rsquo;s reply is structural: the world is not <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mithya" data-definition="Advaita: dependent appearance — neither absolutely real nor sheer nothing; valid at *vyavahara*, sublated at *paramartha*.">mithya</button></span> but <em>perpetual coexistence</em>, and prosperity is a defined goal — &ldquo;producing in excess of our family&rsquo;s needs&rdquo; (JV).</li>
-<li><strong>The two-truths doctrine lets empirical inequality stand.</strong> Advaita distinguishes absolute truth (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="paramartha" data-definition="Advaita: absolute level of truth; <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span> alone is absolutely real.">paramartha</button></span></em>, where all are <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span>) from empirical convention (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vyavahara" data-definition="Advaita: shared empirical order — bodies, law, ethics, scripture; robust but sublated at highest realization.">vyavahara</button></span></em>, where distinctions hold). Historically this allowed perfect equality at the absolute level to coexist with caste hierarchy at the practical level for over a millennium. <em>Interpretation:</em> a unity that does not bind conduct in the empirical world fails the darshan&rsquo;s test that understanding must become <strong>evidence in behaviour</strong> — justice, right-use, fulfilment of values in actual relationships.</li>
+<li><strong>The two-truths doctrine lets empirical inequality stand.</strong> Advaita distinguishes absolute truth (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="paramartha" data-definition="Advaita: absolute level of truth; Brahman alone is absolutely real.">paramartha</button></span></em>, where all are <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span>) from empirical convention (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vyavahara" data-definition="Advaita: shared empirical order — bodies, law, ethics, scripture; robust but sublated at highest realization.">vyavahara</button></span></em>, where distinctions hold). Historically this allowed perfect equality at the absolute level to coexist with caste hierarchy at the practical level for over a millennium. <em>Interpretation:</em> a unity that does not bind conduct in the empirical world fails the darshan&rsquo;s test that understanding must become <strong>evidence in behaviour</strong> — justice, right-use, fulfilment of values in actual relationships.</li>
 <li><strong>Transmission is restricted, not universal.</strong> Advaita&rsquo;s transmission mechanism — guru-shishya lineage, monastic initiation, qualification (<em>adhikara</em>) for study — preserved the teaching superbly but for a renunciant minority. It is the opposite of education-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span>, which the darshan insists must reach <strong>all</strong> members so that &ldquo;understanding flows in tradition&rdquo; (JV) through ordinary families, not past them.</li>
 <li><strong>No organisational programme.</strong> Advaita specifies no economy, no governance design, no family order. The darshan&rsquo;s requirement of &ldquo;commonness of cause and goal &hellip; and of the program&rdquo; (MVD, Ch. 4) has no Advaitic counterpart; Vivekananda (SV) and Rambachan (ATR) supply social <em>direction</em> but still not an integrated design of economy, education, and self-governance such as the ten-tier family-based orderliness.</li>
 </ol>

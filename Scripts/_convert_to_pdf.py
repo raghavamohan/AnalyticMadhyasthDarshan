@@ -552,12 +552,15 @@ def convert_to_html(
     gap: 8px 14px;
   }
   .study-toolbar-row--primary {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1.2fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, auto) minmax(0, 1fr);
   }
   .study-toolbar-actions {
+    grid-column: 3;
     justify-self: end;
-    display: inline-flex;
+    display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
     gap: 8px 12px;
     min-width: 0;
     text-align: right;
@@ -571,15 +574,16 @@ def convert_to_html(
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
   .study-toolbar-back {
+    grid-column: 1;
     justify-self: start;
     min-width: 0;
   }
   .study-toolbar-download {
-    justify-self: end;
     min-width: 0;
     text-align: right;
   }
   .study-toolbar-title {
+    grid-column: 2;
     justify-self: center;
     text-align: center;
     margin: 0;
@@ -628,6 +632,9 @@ def convert_to_html(
   @media (max-width: 640px) {
     .study-toolbar-row--primary {
       grid-template-columns: 1fr 1fr;
+    }
+    .study-toolbar-back {
+      grid-column: 1;
     }
     .study-toolbar-actions {
       grid-column: 1 / -1;
