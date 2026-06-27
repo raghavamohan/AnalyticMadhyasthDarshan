@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="color-scheme" content="light dark"/>
 <title>How to form Self-Sustaining Organizations ?</title>
 <style>
@@ -209,8 +210,82 @@
   }
 
   html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 100;
+    padding: 8px 14px;
+    background: #1a5276;
+    color: #fff;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 0 0 8px 0;
+  }
+  .skip-link:focus {
+    left: 0;
+    outline: 2px solid #13405c;
+    outline-offset: 2px;
+  }
   h2[id] {
     scroll-margin-top: calc(var(--study-toolbar-height, 88px) + 10px);
+  }
+  .table-scroll {
+    overflow-x: auto;
+    margin: 12pt 0;
+    -webkit-overflow-scrolling: touch;
+  }
+  .table-scroll table {
+    margin: 0;
+  }
+  .term-tip-wrap {
+    position: relative;
+    display: inline;
+    white-space: normal;
+  }
+  .term-tip {
+    background: none;
+    border: none;
+    border-bottom: 1px dotted #1a5276;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: #1a5276;
+    cursor: help;
+    text-align: inherit;
+  }
+  .term-tip:focus-visible {
+    outline: 2px solid #1a5276;
+    outline-offset: 2px;
+    border-bottom-color: transparent;
+  }
+  .term-tip-panel {
+    display: none;
+    position: fixed;
+    z-index: 40;
+    min-width: 220px;
+    max-width: min(320px, 90vw);
+    padding: 8px 10px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    line-height: 1.45;
+    font-style: normal;
+    font-weight: 400;
+    color: #2a241c;
+    background: #fff;
+    border: 1px solid #c5d9e6;
+    border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(42, 36, 28, 0.12);
+    text-align: left;
+    pointer-events: none;
+  }
+  .term-tip-panel.is-visible {
+    display: block;
   }
   .study-toolbar {
     display: flex;
@@ -235,7 +310,20 @@
     gap: 8px 14px;
   }
   .study-toolbar-row--primary {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1.2fr);
+  }
+  .study-toolbar-actions {
+    justify-self: end;
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    min-width: 0;
+    text-align: right;
+  }
+  .study-toolbar-feedback {
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
   }
   .study-toolbar-row--sections {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -269,6 +357,10 @@
     font-weight: 600;
   }
   .study-toolbar-link:hover { color: #13405c; }
+  .study-toolbar-link:focus-visible {
+    outline: 2px solid #1a5276;
+    outline-offset: 2px;
+  }
   .study-toolbar-section {
     display: block;
     min-width: 0;
@@ -295,6 +387,11 @@
     .study-toolbar-row--primary {
       grid-template-columns: 1fr 1fr;
     }
+    .study-toolbar-actions {
+      grid-column: 1 / -1;
+      justify-self: stretch;
+      justify-content: flex-end;
+    }
     .study-toolbar-title {
       grid-column: 1 / -1;
       white-space: normal;
@@ -305,6 +402,13 @@
   }
   @media print {
     .study-toolbar { display: none !important; }
+    .skip-link { display: none !important; }
+    .term-tip {
+      border-bottom: none;
+      color: inherit;
+      cursor: text;
+    }
+    .term-tip-panel { display: none !important; }
   }
 
   @media screen and (prefers-color-scheme: dark) {
@@ -352,35 +456,45 @@
     .study-toolbar-title { color: #f5f1ec; }
     .study-toolbar-draft { color: #aca194; }
     .study-toolbar-section.is-disabled { color: #6f655a; }
+    .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    .term-tip-panel {
+      color: #e6dfd6;
+      background: #26231e;
+      border-color: #423b33;
+    }
   }
 
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <nav class="study-toolbar" aria-label="Study navigation">
   <div class="study-toolbar-row study-toolbar-row--primary">
     <a class="study-toolbar-link study-toolbar-back" href="../index.html">&larr; All studies</a>
     <p class="study-toolbar-title">How to form Self-Sustaining Organizations ? <span class="study-toolbar-draft">(Draft)</span></p>
-    <a class="study-toolbar-link study-toolbar-download" href="How-To-Form-Self-Sustaining-Organizations.pdf" download>Download PDF</a>
+    <span class="study-toolbar-actions">
+      <a class="study-toolbar-link study-toolbar-download" href="How-To-Form-Self-Sustaining-Organizations.pdf" download>Download PDF</a>
+      <a class="study-toolbar-link study-toolbar-feedback" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&title=Study%20feedback%3A%20How-To-Form-Self-Sustaining-Organizations">Suggest a correction</a>
+    </span>
   </div>
   <div class="study-toolbar-row study-toolbar-row--sections">
     <a class="study-toolbar-link study-toolbar-section study-toolbar-section--prev" id="study-section-prev" href="#" aria-disabled="true">&larr; Previous section</a>
     <a class="study-toolbar-link study-toolbar-section study-toolbar-section--next" id="study-section-next" href="#" aria-disabled="true">Next section &rarr;</a>
   </div>
 </nav>
-<h1>How to form Self-Sustaining Organizations ?</h1>
+<main id="main"><h1>How to form Self-Sustaining Organizations ?</h1>
 <h2 id="based-on-madhyasth-darshan-so-that-organisations-sustain-and-members-are-not-instrumentalised">Based on Madhyasth Darshan — so that organisations sustain and members are not instrumentalised</h2>
-<p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> — a group of people studying Madhyasth Darshan philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
+<p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> — a group of people studying <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
 <p><strong>Edited on:</strong> June 26, 2026, 10:28 AM IST</p>
 <h2 id="at-a-glance">At a glance</h2>
 <ul>
 <li><strong>The question:</strong> must organisations be built on fear or accumulation, or is there a basis on which they sustain <em>and</em> their members are not used as instruments?</li>
 <li><strong>The diagnosis:</strong> every historical basis — safety, sustenance, protection, belief, wealth — reduces to fear or accumulation; such organisations must extract from their members, and they dissolve when the fear passes or the accumulation stalls.</li>
-<li><strong>The alternative:</strong> organisation around <strong>understood coexistence</strong> — shared cause, goal, and programme; values fulfilled in relationships; prosperity through right-use; understanding transmitted to every member through education-sanskar.</li>
+<li><strong>The alternative:</strong> organisation around <strong>understood coexistence</strong> — shared cause, goal, and programme; values fulfilled in relationships; prosperity through right-use; understanding transmitted to every member through education-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span>.</li>
 <li><strong>The caveat:</strong> the design is coherent but untested at civilisational scale, and its deepest premises are asserted rather than demonstrated (§10).</li>
 </ul>
 <h2 id="glossary-of-key-terms">Glossary of key terms</h2>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Term</th>
@@ -429,7 +543,7 @@
 <td>Treated as a means — net-extracted-from — rather than as an end (this paper&rsquo;s term, not the texts&rsquo;).</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="1-the-central-question">1. The central question</h2>
 <p>Reviewing history, humans have organised in a near-universal sequence — around <strong>safety</strong>, <strong>sustenance</strong>, <strong>protection</strong>, <strong>shared belief</strong>, and finally <strong>wealth and power</strong>. Section 2 traces this sequence in the sources.</p>
 <p>The question of this paper: is this the only way to form human organisations? Any better answer must meet two design objectives together:</p>
@@ -437,7 +551,7 @@
 <li><strong>Objective 1 — members are not instrumentalised.</strong> People in the organisation are happy and do not feel &ldquo;used&rdquo; by the system.</li>
 <li><strong>Objective 2 — the organisation sustains.</strong> It remains orderly and alive over long periods, across generations.</li>
 </ol>
-<p>Madhyasth Darshan answers <strong>No, this is not the only way</strong> — and claims the two objectives are met together or not at all.</p>
+<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> answers <strong>No, this is not the only way</strong> — and claims the two objectives are met together or not at all.</p>
 <p>The argument of the paper in one diagram:</p>
 <div class="mermaid">
 flowchart TD
@@ -447,7 +561,7 @@ flowchart TD
     H["Reached by study, verified in living"] --> E["Alternative basis: understood coexistence"]
     E --> F["Members nurtured: values fulfilled in relationships"]
     E --> G["Organisation sustains: resolution + tradition of coexistence"]
-    E --> I["Transmitted to all members via education-sanskar"]
+    E --> I["Transmitted to all members via education-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span>"]
 </div>
 <h2 id="2-the-historic-pattern-and-its-common-root">2. The historic pattern and its common root</h2>
 <p>SB&rsquo;s <em>History of Humans</em> as well as JV, tell the story of how humans organized themselves as a sequence of ages — each stage formed to answer a felt lack, each stage leaving that lack unresolved.</p>
@@ -530,13 +644,13 @@ flowchart TD
 <p>The same principle scales from individual to family to society to nation to undivided world: &ldquo;a family is an integral part of the undivided society, while an individual is an integral part of a family&rdquo; (MVD, Ch. 14). It is implemented as <strong>family-based self-organising orderliness</strong> — ten-tier self-governance from family assembly up to world family assembly (MVD, Ch. 4).</p>
 <p>SB specifies the working machinery at the local tier: the village council nominates <strong>five self-governance working committees</strong>, each with defined roles:</p>
 <blockquote>
-<p><strong>&ldquo;There will be five such committees: 1. Education-Sanskar Committee 2. Justice-Security Committee 3. Health-Restraint Committee 4. Production-Work Committee 5. Exchange-Reserve Committee. Each committee will have clearly defined roles and responsibilities.&rdquo;</strong>
+<p><strong>&ldquo;There will be five such committees: 1. Education-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">Sanskar</button></span> Committee 2. Justice-Security Committee 3. Health-Restraint Committee 4. Production-Work Committee 5. Exchange-Reserve Committee. Each committee will have clearly defined roles and responsibilities.&rdquo;</strong>
 - SB, Ch. 8</p>
 </blockquote>
-<p>The five names are the four-fold goal made administrative: education-sanskar transmits understanding (§6); justice-security holds relationships and protection together; health-restraint covers the body and self-regulation; production-work delivers prosperity; exchange-reserve circulates goods without the profit-motive.</p>
+<p>The five names are the four-fold goal made administrative: education-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span> transmits understanding (§6); justice-security holds relationships and protection together; health-restraint covers the body and self-regulation; production-work delivers prosperity; exchange-reserve circulates goods without the profit-motive.</p>
 <p>By design, two policies operate <strong>together</strong>, not in rivalry:</p>
 <ul>
-<li><strong>Dharma-niti</strong> (<em>moral policy</em>): orderliness for the <em>right-use</em> of body, mind, and wealth.</li>
+<li><strong><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">Dharma</button></span>-niti</strong> (<em>moral policy</em>): orderliness for the <em>right-use</em> of body, mind, and wealth.</li>
 <li><strong>Rajya-niti</strong> (<em>state policy</em>): orderliness for the <em>security</em> of the same.</li>
 </ul>
 <p>Each person desires both utilisation and protection; the darshan requires them to be <strong>integrated</strong> at every level from family to nation. They address different aspects of the same assets — not competing programmes.</p>
@@ -555,11 +669,11 @@ flowchart TD
 <h3>5.3 How coexistence answers both design objectives</h3>
 <p><strong>The two design objectives of §1 are answered by the same move:</strong></p>
 <ol>
-<li><em>Objective 1 — members not instrumentalised:</em> the organisation must add to the member, not subtract (<code>Unit + Conducive unit</code>); fulfil the values owed in each relationship; and hold to justice above mere legality — &ldquo;Justice (nyaya): Humane behaviour in mutuality itself is justice&rdquo; (MVD, Ch. 1). A member can be treated entirely legally and still be exploited.</li>
-<li><em>Objective 2 — sustainment:</em> shared cause-goal-programme; resolution as foundation; prosperity through right-use rather than accumulation — &ldquo;Material prosperity is accomplished only by adhering to the policy of &lsquo;more production than the needs&rsquo;&rdquo; (MVD, Ch. 5), with &ldquo;earning for expenditure&rdquo; as non-accumulation (MVD, Ch. 10) and a <strong>cyclical economics</strong> (JV); and transmission across generations through <strong>education-sanskar</strong> — &ldquo;This is how understanding flows in tradition. Ignorance cannot flow in tradition&rdquo; (JV).</li>
+<li><em>Objective 1 — members not instrumentalised:</em> the organisation must add to the member, not subtract (<code>Unit + Conducive unit</code>); fulfil the values owed in each relationship; and hold to justice above mere legality — &ldquo;Justice (<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="nyaya" data-definition="Justice — complete relational activity: recognise, fulfil, evaluate, mutual satisfaction.">nyaya</button></span>): Humane behaviour in mutuality itself is justice&rdquo; (MVD, Ch. 1). A member can be treated entirely legally and still be exploited.</li>
+<li><em>Objective 2 — sustainment:</em> shared cause-goal-programme; resolution as foundation; prosperity through right-use rather than accumulation — &ldquo;Material prosperity is accomplished only by adhering to the policy of &lsquo;more production than the needs&rsquo;&rdquo; (MVD, Ch. 5), with &ldquo;earning for expenditure&rdquo; as non-accumulation (MVD, Ch. 10) and a <strong>cyclical economics</strong> (JV); and transmission across generations through <strong>education-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></strong> — &ldquo;This is how understanding flows in tradition. Ignorance cannot flow in tradition&rdquo; (JV).</li>
 </ol>
 <p>The two objectives are not in tension. Extraction-based systems must trade member welfare against growth; a coexistence-based system avoids the trade-off because the member&rsquo;s flourishing <em>is</em> the organisation&rsquo;s strength.</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Dimension</th>
@@ -599,21 +713,21 @@ flowchart TD
 <td>Resolution and tradition of coexistence (internal)</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="6-what-it-takes-to-understand-coexistence">6. What it takes to understand coexistence</h2>
 <p>Everything above rests on the load-bearing phrase introduced in §5.1: organisations founded on <strong>understood coexistence</strong>. This is not a figure of speech. In the darshan, &ldquo;understanding coexistence&rdquo; names a definite cognitive achievement with definite content, a definite method, and definite tests — and it is deliberately contrasted with belief, sentiment, agreement, and mystical experience.</p>
 <h3>6.1 What is to be understood</h3>
 <p>Coexistence here is not tolerance, compromise, or &ldquo;getting along.&rdquo; It is a claim about the structure of reality: existence is units <strong>submerged in</strong> all-pervading space — distinct, energised, and related — and the four natural orders (material, bio, animal, and knowledge order) are mutually complementary. To understand coexistence is to know three things together:</p>
 <ol>
 <li><strong>Existence</strong> — reality as coexistence; the complementarity of all orders</li>
-<li><strong>Jeevan</strong> — the conscious self, distinct from the body, that desires happiness and is satisfied only by understanding</li>
+<li><strong><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">Jeevan</button></span></strong> — the conscious self, distinct from the body, that desires happiness and is satisfied only by understanding</li>
 <li><strong>Humane conduct</strong> — the values, character, and ethics that follow for a being who lives among other such beings</li>
 </ol>
 <p>This is why &ldquo;shared belief&rdquo; cannot substitute for it. A belief locates the bond in an object of faith; understanding locates it in a recognisable structure of reality that each member can examine. The first divides humankind into sects; the second cannot, because what is understood is the same for everyone — &ldquo;Humankind is united in the right and divided in the wrong&rdquo; (MVD, Ch. 16).</p>
 <h3>6.2 How it is reached: study, not belief or command</h3>
 <p>The darshan insists this understanding is <em>teachable</em> — open to examination, not reserved for the initiated or granted by grace:</p>
 <blockquote>
-<p><strong>&ldquo;According to the idealistic scriptures and the mystery-based God-centric contemplation knowledge and tradition, the knowledge is unmanifest and ineffable. According to Madhyasth Darshan, the knowledge is manifest, effable, and understandable through studying, and its evidence becomes accessible to all through behaviour.&rdquo;</strong>
+<p><strong>&ldquo;According to the idealistic scriptures and the mystery-based God-centric contemplation knowledge and tradition, the knowledge is unmanifest and ineffable. According to <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>, the knowledge is manifest, effable, and understandable through studying, and its evidence becomes accessible to all through behaviour.&rdquo;</strong>
 - MVD, <em>The Alternative</em></p>
 <p><strong>&ldquo;The alternative path is - perform study, attain mastery, then evidence it in living.&rdquo;</strong>
 - JV, Ch. 1</p>
@@ -630,13 +744,13 @@ flowchart TD
 <p>This is the organisational crux. In belief-based and command-based organisations, the &ldquo;understanding&rdquo; is held centrally — by the priesthood, the founder, the ideology, the management — and members participate by trust in authority. The darshan&rsquo;s design forbids this delegation: resolution must live in <strong>each member</strong>, because trust is &ldquo;fulfilling the inherent expectation of values in mutuality&rdquo; (MVD, Ch. 4), and mutuality cannot be outsourced.</p>
 <p>Hence two structural consequences already met above:</p>
 <ul>
-<li><strong>Education-sanskar is the central institution</strong>, not an auxiliary one: &ldquo;Education-sanskar is the only source of enlightenment and definitive understanding&rdquo; (SB, Ch. 4). An organisation of understood coexistence is, before anything else, a teaching-and-learning organisation — &ldquo;This is how understanding flows in tradition. Ignorance cannot flow in tradition&rdquo; (JV).</li>
+<li><strong>Education-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span> is the central institution</strong>, not an auxiliary one: &ldquo;Education-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span> is the only source of enlightenment and definitive understanding&rdquo; (SB, Ch. 4). An organisation of understood coexistence is, before anything else, a teaching-and-learning organisation — &ldquo;This is how understanding flows in tradition. Ignorance cannot flow in tradition&rdquo; (JV).</li>
 <li><strong>The family is the first site of verification.</strong> Relationships in the family are where values are first recognised, fulfilled, and evaluated — which is why the darshan&rsquo;s self-organising orderliness is <em>family-based</em> rather than individual-based or state-based.</li>
 </ul>
 <p>This also explains the failure modes catalogued earlier. Organisations decay precisely at the point where understanding stops being transmitted and is replaced by its cheaper substitutes — belief in the founder, fear of the rule, or incentive of the pay-off. The darshan&rsquo;s claim is that no organisational structure can compensate for that substitution, and no structure is needed where it has not occurred.</p>
 <h2 id="7-modern-organisational-forms-in-brief">7. Modern organisational forms in brief</h2>
 <p>The darshan predates these modern forms and does not name them; this section applies its criteria to them. Modern forms line up on a spectrum by what binds members, from extraction toward coexistence:</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Modern form</th>
@@ -671,8 +785,8 @@ flowchart TD
 <td>Closest in spirit — non-extraction, right-use, self-governance; but bounded to one domain or cause, funding/founder-fragile, or belief-based rather than understanding-based</td>
 </tr>
 </tbody>
-</table>
-<p>The best modern forms independently arrive at several darshan principles. What even they stop short of supplying together: <strong>a universal (non-sectarian) goal</strong> oriented to undivided society; <strong>resolution as understood coexistence</strong> rather than shared interest or belief; <strong>the four-fold goal</strong> (resolution, prosperity, fearlessness, coexistence) as a set; <strong>a transmission mechanism</strong> (education-sanskar) independent of founder or funding; and <strong>an integrated cyclical economy of right-use</strong> rather than accumulation merely constrained by rules.</p>
+</table></div>
+<p>The best modern forms independently arrive at several darshan principles. What even they stop short of supplying together: <strong>a universal (non-sectarian) goal</strong> oriented to undivided society; <strong>resolution as understood coexistence</strong> rather than shared interest or belief; <strong>the four-fold goal</strong> (resolution, prosperity, fearlessness, coexistence) as a set; <strong>a transmission mechanism</strong> (education-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span>) independent of founder or funding; and <strong>an integrated cyclical economy of right-use</strong> rather than accumulation merely constrained by rules.</p>
 <h2 id="8-practical-principles">8. Practical principles</h2>
 <p>An organisation that wants to sustain and not instrumentalise its people should:</p>
 <ol>
@@ -684,7 +798,7 @@ flowchart TD
 <li><strong>Hold to justice above mere legality</strong> (§5.3).</li>
 <li><strong>Aim for prosperity through right-use, not accumulation</strong> — produce beyond need, spend righteously, avoid profit-as-imbalance (§5.3).</li>
 <li><strong>Keep moral order and governance complementary</strong>, neither dominating the people (§5.2).</li>
-<li><strong>Transmit understanding through education-sanskar</strong> across generations (§6.4).</li>
+<li><strong>Transmit understanding through education-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></strong> across generations (§6.4).</li>
 <li><strong>Orient the small unit toward the larger whole</strong> — family/team toward society and undivided society, not sectarian self-interest (§5.2).</li>
 </ol>
 <h2 id="9-from-here-to-there-the-transition-path">9. From here to there: the transition path</h2>
@@ -692,46 +806,46 @@ flowchart TD
 <ol>
 <li><strong>Understanding precedes structure.</strong> Since no organisational structure can compensate for the absence of understanding (§6.4), transition cannot begin with restructuring — new charters, new incentives, new org-charts on the old basis reproduce the old basis. It begins with members studying and verifying the proposal.</li>
 <li><strong>Start at the scale where verification is possible.</strong> The family — or the smallest working team — is the first site where values can actually be recognised, fulfilled, and evaluated (§6.4). Larger tiers federate what already works; they cannot conjure it.</li>
-<li><strong>Education-sanskar before governance reform.</strong> The first committee is the teaching one (§5.2). A transmission mechanism that does not depend on the founder must exist before the founder&rsquo;s understanding can outlive them.</li>
+<li><strong>Education-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span> before governance reform.</strong> The first committee is the teaching one (§5.2). A transmission mechanism that does not depend on the founder must exist before the founder&rsquo;s understanding can outlive them.</li>
 <li><strong>Evidence attracts; command does not.</strong> The method is study → mastery → evidence in living (JV, §6.2). An organisation demonstrating resolution, prosperity, and fearlessness recruits by being visibly worth joining — the darshan&rsquo;s answer to &ldquo;how does this spread?&rdquo; is demonstration, not conquest or decree.</li>
 </ol>
 <p>The implied sequence — understand, live it small, teach it, federate — also explains why the darshan is unimpressed by reforms that begin at the top: they change who holds the structure, not what the structure is organised around.</p>
 <h2 id="10-limits-and-open-questions">10. Limits and open questions</h2>
 <p>The diagnosis explains a real, recurring pattern — fear- or accumulation-founded organisations do treat members as instruments and do fracture when the founding fear recedes or accumulation stalls. The definition of exploitation as <em>disregarding values in a relationship</em> gives a usable test for whether people are being instrumentalised, and the resolution-plus-coexistence thesis dissolves the apparent trade-off between member welfare and durability.</p>
-<p>There are however following questionable points in the claims made by the Madhyasth Darshan:</p>
+<p>There are however following questionable points in the claims made by the <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>:</p>
 <ul>
 <li><em>Fear has legitimate uses.</em> Grouping against genuine threats is sometimes necessary. The defensible version of the claim is that threat-avoidance cannot be the <em>foundational organising principle</em>, not that safety-driven cooperation is wrong.</li>
 <li><em>Accumulation versus prudent reserve.</em> &ldquo;Earning for expenditure&rdquo; and &ldquo;production more than needs&rdquo; partly anticipate the need for reserves, but the boundary between healthy surplus and harmful hoarding is left to judgement.</li>
 <li><em>No theory of bad-faith actors.</em> The design assumes members who understand or are willing to study. The texts name a Justice-Security committee (SB, Ch. 8) but give no procedure for the member who persistently exploits, dissents, or refuses to participate — no account of adjudication, sanction, exit, or expulsion. For an organisational design, this is the largest practical gap: every real organisation eventually meets the person its theory says should not exist.</li>
-<li><em>Dependence on the ontology.</em> The deepest premises — jeevan, awakening, existence-as-coexistence — are asserted, not empirically demonstrated. A secular designer can adopt nearly the whole practical programme on organisational grounds alone while remaining agnostic about the metaphysics; a strength for adoption, a weakness for anyone seeking a proven first principle.</li>
+<li><em>Dependence on the ontology.</em> The deepest premises — <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span>, awakening, existence-as-coexistence — are asserted, not empirically demonstrated. A secular designer can adopt nearly the whole practical programme on organisational grounds alone while remaining agnostic about the metaphysics; a strength for adoption, a weakness for anyone seeking a proven first principle.</li>
 </ul>
 <h2 id="11-comparison-with-advaita-vedanta">11. Comparison with Advaita Vedanta</h2>
-<p>A natural question for an Indian reader: does <strong>Advaita Vedanta</strong> — the oldest and most influential non-dual tradition — already offer a basis for humans to come together and build a prosperous society? The two traditions are close relatives: Shri A. Nagraj came through the Vedic/Vedantic stream, and Madhyasth Darshan defines itself partly against Advaita&rsquo;s central formula, which MVD quotes directly:</p>
+<p>A natural question for an Indian reader: does <strong>Advaita Vedanta</strong> — the oldest and most influential non-dual tradition — already offer a basis for humans to come together and build a prosperous society? The two traditions are close relatives: Shri A. Nagraj came through the Vedic/Vedantic stream, and <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> defines itself partly against Advaita&rsquo;s central formula, which MVD quotes directly:</p>
 <blockquote>
-<p><strong>&ldquo;According to Vedanta knowledge, only Brahma is the truth, and this world is an illusion (&lsquo;Brahma satya, jagat mithya&rsquo;). However, jeeva and jagat are said to have originated from Brahma.&rdquo;</strong>
+<p><strong>&ldquo;According to Vedanta knowledge, only Brahma is the truth, and this world is an illusion (&lsquo;Brahma <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satya" data-definition="Realisation perspective — whether assessment is grounded in coexistence as it is.">satya</button></span>, jagat <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mithya" data-definition="Advaita: dependent appearance — neither absolutely real nor sheer nothing; valid at *vyavahara*, sublated at *paramartha*.">mithya</button></span>&rsquo;). However, jeeva and jagat are said to have originated from Brahma.&rdquo;</strong>
 - MVD, <em>The Alternative</em></p>
 </blockquote>
 <p><em>Note: this section draws on Advaita literature beyond the three primary sources — Shankara&rsquo;s classical position (AV), Swami Vivekananda&rsquo;s &ldquo;Practical Vedanta&rdquo; (SV), and Anantanand Rambachan&rsquo;s contemporary Advaita theology (ATR). Readings of both traditions here are marked interpretation where they go beyond the texts.</em></p>
 <h3>11.1 What Advaita does offer</h3>
 <p>Advaita is not socially empty. Three genuine resources stand out:</p>
 <ol>
-<li><strong>A metaphysical ground against exploitation.</strong> If <em>tat tvam asi</em> — the self of every being is Brahman — then there is, ontologically, no &ldquo;Other&rdquo; to exploit. Exploiting another is self-harm under ignorance (<em>avidya</em>). This is arguably a <em>stronger</em> anti-exploitation premise than any contract or rights theory, because it removes the very distinction on which extraction depends.</li>
+<li><strong>A metaphysical ground against exploitation.</strong> If <em>tat tvam asi</em> — the self of every being is <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span> — then there is, ontologically, no &ldquo;Other&rdquo; to exploit. Exploiting another is self-harm under ignorance (<em>avidya</em>). This is arguably a <em>stronger</em> anti-exploitation premise than any contract or rights theory, because it removes the very distinction on which extraction depends.</li>
 <li><strong>An ethic of selfless action.</strong> <em>Nishkama karma</em> (action without craving for results) and <em>lokasamgraha</em> (acting for the cohesion of the world) give the realised or aspiring person a reason to serve rather than accumulate.</li>
-<li><strong>Modern social readings.</strong> Vivekananda&rsquo;s <em>Practical Vedanta</em> (SV) deliberately built a social vision from non-duality — &ldquo;potential divinity&rdquo; of every being, service of the human as worship of Brahman, and on that basis a rejection of caste prejudice. Rambachan&rsquo;s &ldquo;not-two is not one&rdquo; (ATR) similarly argues that since the world is not <em>other than</em> Brahman, it cannot be devalued, and non-duality grounds activism against caste, patriarchy, and ecological harm. The Ramakrishna Mission and the dashanami monastic orders show that Advaita can sustain real institutions across generations.</li>
+<li><strong>Modern social readings.</strong> Vivekananda&rsquo;s <em>Practical Vedanta</em> (SV) deliberately built a social vision from non-duality — &ldquo;potential divinity&rdquo; of every being, service of the human as worship of <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span>, and on that basis a rejection of caste prejudice. Rambachan&rsquo;s &ldquo;not-two is not one&rdquo; (ATR) similarly argues that since the world is not <em>other than</em> <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span>, it cannot be devalued, and non-duality grounds activism against caste, patriarchy, and ecological harm. The Ramakrishna Mission and the dashanami monastic orders show that Advaita can sustain real institutions across generations.</li>
 </ol>
 <p>On the darshan&rsquo;s own spectrum (§7), Advaita-inspired organisations belong with the closest forms — purpose-bound, non-extractive, value-carrying.</p>
 <h3>11.2 What Advaita does not supply</h3>
 <p>Measured against this paper&rsquo;s two design objectives — members not instrumentalised, organisation sustained — classical Advaita falls short in specific, identifiable ways:</p>
 <ol>
 <li><strong>Its goal is individual, not organisational.</strong> Shankara&rsquo;s exclusive concern (AV) is <em>moksha</em> — the individual&rsquo;s liberating recognition of non-duality. The community, the family, production, and governance belong to the world the renunciant turns away from. An organisation can at best be <em>instrumental</em> to individual liberation; it is never the locus of value. Contrast the darshan, where the family and undivided society are themselves the goal&rsquo;s living form.</li>
-<li><strong>&ldquo;Jagat mithya&rdquo; undercuts prosperity.</strong> If the world is ultimately appearance, then production, economy, ecology, and material well-being are second-order concerns. A philosophy cannot found a <em>prosperous</em> society on a premise that devalues the very domain in which prosperity occurs. Even sympathetic reformers concede this history: Vivekananda&rsquo;s followers describe pre-reform Vedanta as having &ldquo;become a philosophy of escape,&rdquo; its ideal of inaction deformed into &ldquo;laziness, inertia, and human unconcern&rdquo; (SV). The darshan&rsquo;s reply is structural: the world is not mithya but <em>perpetual coexistence</em>, and prosperity is a defined goal — &ldquo;producing in excess of our family&rsquo;s needs&rdquo; (JV).</li>
-<li><strong>The two-truths doctrine lets empirical inequality stand.</strong> Advaita distinguishes absolute truth (<em>paramartha</em>, where all are Brahman) from empirical convention (<em>vyavahara</em>, where distinctions hold). Historically this allowed perfect equality at the absolute level to coexist with caste hierarchy at the practical level for over a millennium. <em>Interpretation:</em> a unity that does not bind conduct in the empirical world fails the darshan&rsquo;s test that understanding must become <strong>evidence in behaviour</strong> — justice, right-use, fulfilment of values in actual relationships.</li>
-<li><strong>Transmission is restricted, not universal.</strong> Advaita&rsquo;s transmission mechanism — guru-shishya lineage, monastic initiation, qualification (<em>adhikara</em>) for study — preserved the teaching superbly but for a renunciant minority. It is the opposite of education-sanskar, which the darshan insists must reach <strong>all</strong> members so that &ldquo;understanding flows in tradition&rdquo; (JV) through ordinary families, not past them.</li>
+<li><strong>&ldquo;Jagat <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mithya" data-definition="Advaita: dependent appearance — neither absolutely real nor sheer nothing; valid at *vyavahara*, sublated at *paramartha*.">mithya</button></span>&rdquo; undercuts prosperity.</strong> If the world is ultimately appearance, then production, economy, ecology, and material well-being are second-order concerns. A philosophy cannot found a <em>prosperous</em> society on a premise that devalues the very domain in which prosperity occurs. Even sympathetic reformers concede this history: Vivekananda&rsquo;s followers describe pre-reform Vedanta as having &ldquo;become a philosophy of escape,&rdquo; its ideal of inaction deformed into &ldquo;laziness, inertia, and human unconcern&rdquo; (SV). The darshan&rsquo;s reply is structural: the world is not <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mithya" data-definition="Advaita: dependent appearance — neither absolutely real nor sheer nothing; valid at *vyavahara*, sublated at *paramartha*.">mithya</button></span> but <em>perpetual coexistence</em>, and prosperity is a defined goal — &ldquo;producing in excess of our family&rsquo;s needs&rdquo; (JV).</li>
+<li><strong>The two-truths doctrine lets empirical inequality stand.</strong> Advaita distinguishes absolute truth (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="paramartha" data-definition="Advaita: absolute level of truth; <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span> alone is absolutely real.">paramartha</button></span></em>, where all are <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span>) from empirical convention (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vyavahara" data-definition="Advaita: shared empirical order — bodies, law, ethics, scripture; robust but sublated at highest realization.">vyavahara</button></span></em>, where distinctions hold). Historically this allowed perfect equality at the absolute level to coexist with caste hierarchy at the practical level for over a millennium. <em>Interpretation:</em> a unity that does not bind conduct in the empirical world fails the darshan&rsquo;s test that understanding must become <strong>evidence in behaviour</strong> — justice, right-use, fulfilment of values in actual relationships.</li>
+<li><strong>Transmission is restricted, not universal.</strong> Advaita&rsquo;s transmission mechanism — guru-shishya lineage, monastic initiation, qualification (<em>adhikara</em>) for study — preserved the teaching superbly but for a renunciant minority. It is the opposite of education-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span>, which the darshan insists must reach <strong>all</strong> members so that &ldquo;understanding flows in tradition&rdquo; (JV) through ordinary families, not past them.</li>
 <li><strong>No organisational programme.</strong> Advaita specifies no economy, no governance design, no family order. The darshan&rsquo;s requirement of &ldquo;commonness of cause and goal &hellip; and of the program&rdquo; (MVD, Ch. 4) has no Advaitic counterpart; Vivekananda (SV) and Rambachan (ATR) supply social <em>direction</em> but still not an integrated design of economy, education, and self-governance such as the ten-tier family-based orderliness.</li>
 </ol>
 <h3>11.3 The decisive difference: oneness versus coexistence</h3>
-<p>The deepest divergence is metaphysical and has direct organisational consequences. Advaita resolves plurality <em>upward</em> into one reality without a second: relationships, like the related persons, are ultimately appearance. Madhyasth Darshan refuses this move — existence is units <em>submerged in</em> all-pervading space, distinct and related: <strong>coexistence</strong>. Plurality is real, therefore <strong>relationships are real</strong>, therefore the values inherent in relationships (trust, respect, justice) are real and their fulfilment or violation is real. That is what makes &ldquo;exploitation = disregarding values in a relationship&rdquo; a usable organisational test rather than a provisional truth awaiting dissolution.</p>
-<table>
+<p>The deepest divergence is metaphysical and has direct organisational consequences. Advaita resolves plurality <em>upward</em> into one reality without a second: relationships, like the related persons, are ultimately appearance. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> refuses this move — existence is units <em>submerged in</em> all-pervading space, distinct and related: <strong>coexistence</strong>. Plurality is real, therefore <strong>relationships are real</strong>, therefore the values inherent in relationships (trust, respect, justice) are real and their fulfilment or violation is real. That is what makes &ldquo;exploitation = disregarding values in a relationship&rdquo; a usable organisational test rather than a provisional truth awaiting dissolution.</p>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Dimension</th>
@@ -781,10 +895,10 @@ flowchart TD
 <td>Undivided society as explicit programme</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3>11.4 Advaita and organisation — closing contrast</h3>
-<p>Advaita supplies the strongest possible <strong>premise</strong> for human unity — there is finally no Other — but not the <strong>programme</strong> for human organisation. Its centre of gravity is the individual&rsquo;s exit from the world, not the world&rsquo;s orderliness; its strongest social readings (SV, ATR) are modern efforts to extract from non-duality precisely what Madhyasth Darshan builds in from the start: a real world, real relationships, real values, a defined economy, and a transmission mechanism for all. One may fairly say the darshan keeps Advaita&rsquo;s insistence on human dignity and the unity of existence while replacing &ldquo;one without a second&rdquo; with &ldquo;coexistence&rdquo; — exactly so that the unity can bind conduct, production, and organisation rather than dissolve them.</p>
-<p>A caveat is in order: this comparison is between Advaita&rsquo;s <em>historical record</em> and the darshan&rsquo;s <em>design principles</em>. The darshan&rsquo;s organisational programme — the ten-tier family-based orderliness, the cyclical economy, the universal education-sanskar — has not yet been tested at civilisational scale. The claim here is therefore about the <em>coherence and completeness</em> of the design, not about a proven track record outperforming another. Whether the darshan&rsquo;s programme can deliver in practice what it promises in theory remains an open question — one that only sustained attempts at implementation can answer.</p>
+<p>Advaita supplies the strongest possible <strong>premise</strong> for human unity — there is finally no Other — but not the <strong>programme</strong> for human organisation. Its centre of gravity is the individual&rsquo;s exit from the world, not the world&rsquo;s orderliness; its strongest social readings (SV, ATR) are modern efforts to extract from non-duality precisely what <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> builds in from the start: a real world, real relationships, real values, a defined economy, and a transmission mechanism for all. One may fairly say the darshan keeps Advaita&rsquo;s insistence on human dignity and the unity of existence while replacing &ldquo;one without a second&rdquo; with &ldquo;coexistence&rdquo; — exactly so that the unity can bind conduct, production, and organisation rather than dissolve them.</p>
+<p>A caveat is in order: this comparison is between Advaita&rsquo;s <em>historical record</em> and the darshan&rsquo;s <em>design principles</em>. The darshan&rsquo;s organisational programme — the ten-tier family-based orderliness, the cyclical economy, the universal education-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span> — has not yet been tested at civilisational scale. The claim here is therefore about the <em>coherence and completeness</em> of the design, not about a proven track record outperforming another. Whether the darshan&rsquo;s programme can deliver in practice what it promises in theory remains an open question — one that only sustained attempts at implementation can answer.</p>
 <h2 id="12-conclusion">12. Conclusion</h2>
 <p>Humans do not <em>have</em> to organise around fear, food, protection, belief, or accumulation. Those are the bases history happened to use, and they are precisely why organisations exploit their members and eventually decay. The durable, non-exploitative basis is organisation around understood coexistence — shared cause, goal, and programme; fulfilment of values in relationships; right-use rather than accumulation; and a tradition that transmits this understanding across generations.</p>
 <blockquote>
@@ -804,7 +918,7 @@ flowchart TD
 <li><strong>AV</strong> — <a href="https://analyticmadhyasthdarshan.org/References/Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.html"><em>Śaṅkara</em>, Stanford Encyclopedia of Philosophy</a>. Shankara&rsquo;s classical position as summarised in the SEP entry. Also at https://plato.stanford.edu/entries/shankara/</li>
 <li><strong>SV</strong> — Swami Vivekananda. <a href="https://analyticmadhyasthdarshan.org/References/Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf"><em>Practical Vedanta</em></a> (Complete Works). Cited for the social reading of non-duality and the Ramakrishna tradition.</li>
 <li><strong>ATR</strong> — Rambachan, A. <a href="https://sunypress.edu/Books/A/A-Hindu-theology-of-liberation2"><em>A Hindu Theology of Liberation: Not-Two Is Not One</em></a>. SUNY Press, 2015.</li>
-</ul>
+</ul></main>
 <script type="module">
 import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -889,6 +1003,82 @@ mermaid.initialize({
   window.addEventListener("resize", () => {
     syncToolbarHeight();
     update();
+  });
+  const scrollToSection = id => {
+    const target = document.getElementById(id);
+    if (!target) return;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+  };
+
+  prev.addEventListener("click", event => {
+    if (prev.classList.contains("is-disabled")) return;
+    const href = prev.getAttribute("href");
+    if (!href || !href.startsWith("#")) return;
+    event.preventDefault();
+    scrollToSection(href.slice(1));
+  });
+  next.addEventListener("click", event => {
+    if (next.classList.contains("is-disabled")) return;
+    const href = next.getAttribute("href");
+    if (!href || !href.startsWith("#")) return;
+    event.preventDefault();
+    scrollToSection(href.slice(1));
+  });
+})();
+</script>
+<script>
+(() => {
+  let floatPanel = document.getElementById("term-tip-float");
+  if (!floatPanel) {
+    floatPanel = document.createElement("div");
+    floatPanel.id = "term-tip-float";
+    floatPanel.className = "term-tip-panel";
+    floatPanel.setAttribute("role", "tooltip");
+    floatPanel.hidden = true;
+    document.body.appendChild(floatPanel);
+  }
+
+  const hide = () => {
+    floatPanel.classList.remove("is-visible");
+    floatPanel.hidden = true;
+    floatPanel.textContent = "";
+  };
+
+  const show = (button, text) => {
+    floatPanel.textContent = text;
+    floatPanel.hidden = false;
+    floatPanel.classList.add("is-visible");
+    const rect = button.getBoundingClientRect();
+    const margin = 8;
+    let top = rect.top - floatPanel.offsetHeight - margin;
+    if (top < margin) top = rect.bottom + margin;
+    let left = rect.left;
+    const maxLeft = window.innerWidth - floatPanel.offsetWidth - margin;
+    if (left > maxLeft) left = Math.max(margin, maxLeft);
+    floatPanel.style.top = `${Math.max(8, top)}px`;
+    floatPanel.style.left = `${Math.max(8, left)}px`;
+  };
+
+  document.querySelectorAll(".term-tip").forEach(button => {
+    const definition = button.getAttribute("data-definition");
+    if (!definition) return;
+    button.setAttribute("aria-describedby", "term-tip-float");
+    const reveal = () => show(button, definition);
+    button.addEventListener("mouseenter", reveal);
+    button.addEventListener("focus", reveal);
+    button.addEventListener("mouseleave", hide);
+    button.addEventListener("blur", hide);
+    button.addEventListener("click", event => {
+      event.stopPropagation();
+      if (floatPanel.hidden) reveal();
+      else hide();
+    });
+  });
+
+  document.addEventListener("click", hide);
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") hide();
   });
 })();
 </script>

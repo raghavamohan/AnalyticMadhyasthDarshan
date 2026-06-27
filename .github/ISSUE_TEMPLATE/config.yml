@@ -1,5 +1,8 @@
 blank_issues_enabled: false
 contact_links:
+  - name: Suggest a correction
+    url: https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml
+    about: Typos, terminology, or factual feedback on an existing study
   - name: Contribution guide
     url: https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/CONTRIBUTING.md
     about: Full proposal and pull request workflow for studies

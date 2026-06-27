@@ -17,13 +17,13 @@ Browse the published collection at **[analyticmadhyasthdarshan.org](https://anal
 
 ## The studies
 
-Each study reads the primary texts closely, then compares them with the sciences, Advaita Vedanta, and modern philosophy. Available studies open as PDFs; planned ones are in progress.
+Each study reads the primary texts closely, then compares them with the sciences, Advaita Vedanta, and modern philosophy. Available studies open in the browser; use **Download PDF** on each page for printing or offline reading. Titles shown in italics are still in progress.
 
 ### Topical studies
 
 These studies focus on specific topics that help define different aspects of Madhyasth Darshan. Papers may list multiple categories, separated by commas.
 
-Select any linked title to open the full study. Titles shown in italics are still in progress.
+Select any linked title to open the full study in your browser.
 
 <!-- studies-catalog -->
 | Document | Category | Description | Status |
@@ -108,6 +108,8 @@ To add or update a study, the steps are:
 3. **Track** approval status, pull requests, and CI checks on that page.
 4. When a proposal is approved, click **Submit draft** on your row.
 5. After merge, use **Update study** or **Release study** / **Revert to draft** as needed.
+
+For typos, terminology notes, or factual corrections on an existing study — without proposing a new paper — open a **[study feedback issue](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml)** (also linked from each study page). No approval gate; maintainers triage into small updates.
 
 ## About us
 

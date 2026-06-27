@@ -407,6 +407,11 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
   .card.is-available { border-left-color: var(--accent); }
+  .card.is-released { border-left-color: #2d6a4f; }
+  .card.is-draft { border-left-color: #b45309; }
+  .card.is-planned {
+    opacity: 0.72;
+  }
   .card.is-available:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 18px rgba(42, 36, 28, 0.10);
@@ -439,10 +444,49 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     letter-spacing: 0.02em; border-radius: 999px; padding: 3px 10px;
   }
   .badge-dot { width: 6px; height: 6px; border-radius: 50%; }
-  .badge.available { color: var(--accent); background: var(--accent-soft); border: 1px solid #c5d9e6; }
-  .badge.available .badge-dot { background: var(--accent); }
+  .badge.released { color: #1b4332; background: #d8f3dc; border: 1px solid #95d5b2; }
+  .badge.released .badge-dot { background: #2d6a4f; }
+  .badge.draft { color: #92400e; background: #fef3c7; border: 1px solid #fcd34d; }
+  .badge.draft .badge-dot { background: #d97706; }
   .badge.planned { color: var(--warm); background: var(--warm-soft); border: 1px solid #e0d0be; }
   .badge.planned .badge-dot { background: var(--warm); }
+
+  .start-here {
+    margin: 0 0 20px;
+    padding: 18px 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+  .start-here h2 {
+    font-size: 22px;
+    margin: 0 0 8px;
+    border: none;
+    padding: 0;
+    color: #1a1612;
+  }
+  .start-here-intro {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin: 0 0 12px;
+  }
+  .start-here ol {
+    margin: 0;
+    padding-left: 22px;
+    font-size: 15px;
+  }
+  .start-here li { margin: 6px 0; }
+  .start-here li a { font-weight: 600; }
+  .start-here-status {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--text-muted);
+    margin-left: 4px;
+  }
   .read-link { color: var(--accent); text-decoration: none; font-weight: 600; white-space: nowrap; }
   .read-link:hover { color: var(--accent-hover); }
   .card-actions {
@@ -623,7 +667,8 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   <div class="page-nav-inner">
     <p class="page-nav-label">On this page</p>
     <ul class="toc" id="toc">
-      <li><a href="#topical-studies">Topical Studies</a></li>
+      <li><a href="#studies">Topical Studies</a></li>
+      <li><a href="#start-here">Start here</a></li>
       <li><a href="#formal-studies">Formal Studies</a></li>
       <li><a href="#applied-studies">Applied Studies</a></li>
       <li><a href="#approach">How we work</a></li>
@@ -642,6 +687,18 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   <noscript>
     <p class="section-intro">JavaScript is required for search and filters on this page. Browse the full catalog in <a href="README.md">Studies/README.md</a>.</p>
   </noscript>
+
+  <div class="start-here" id="start-here">
+    <h2>Start here</h2>
+    <p class="start-here-intro">New to the collection? Read these in order to build a foundational understanding before the formal and applied lenses.</p>
+    <ol>
+      <li><a href="The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a><span class="start-here-status">Released &mdash; core ontology, units, sentience</span></li>
+      <li><a href="Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html">Why Humans Are Not Just Material</a><span class="start-here-status">Released &mdash; anthropology, consciousness, value</span></li>
+      <li><a href="Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.html">Knowledge Knower and Known</a><span class="start-here-status">Released &mdash; epistemology, knower, known</span></li>
+      <li><a href="Nature-Of-Time/Nature-Of-Time.html">Nature of Time</a><span class="start-here-status">Draft &mdash; *kaal*, physics, philosophy of time</span></li>
+      <li><a href="The-Coexistence-Template/The-Coexistence-Template.html">The Coexistence Template</a><span class="start-here-status">Draft &mdash; formal structure for the math-heavy lens</span></li>
+    </ol>
+  </div>
 
   <div class="toolbar" role="search">
     <label class="search">
@@ -742,6 +799,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       <li>When a proposal is approved, click <strong>Submit draft</strong> on your row.</li>
       <li>After merge, use <strong>Update study</strong> or <strong>Release study</strong> / <strong>Revert to draft</strong> as needed.</li>
     </ol>
+    <p>For typos, terminology notes, or factual corrections on an existing study &mdash; without proposing a new paper &mdash; open a <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml">study feedback issue</a> (also linked from each study page). No approval gate; maintainers triage into small updates.</p>
   </div>
 </section>
 
@@ -928,13 +986,17 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     const htmlHref = avail ? studyHtmlHref(s) : null;
     const pdfHref = avail ? studyPdfHref(s) : null;
     const titleInner = avail ? `<a href="${htmlHref}">${s.t}</a>` : s.t;
+    const cardClass = !avail ? "is-planned" : (s.status === "released" ? "is-released is-available" : "is-draft is-available");
+    const badgeClass = !avail ? "planned" : (s.status === "released" ? "released" : "draft");
+    const badgeLabel = !avail ? "Planned" : (s.status === "released" ? "Released" : "Draft");
+    const draftTitle = s.status === "draft" ? ' title="Draft PDF includes a watermark"' : "";
     const foot = avail
-      ? `<span class="badge available"><span class="badge-dot"></span>${s.status === "released" ? "Released" : "Draft"}</span><span class="card-actions"><a class="read-link" href="${htmlHref}">Read</a><a class="pdf-download" href="${pdfHref}" download title="Download PDF" aria-label="Download PDF for ${escAttr(s.t)}">${PDF_DOWNLOAD_ICON}</a></span>`
+      ? `<span class="badge ${badgeClass}"${draftTitle}><span class="badge-dot"></span>${badgeLabel}</span><span class="card-actions"><a class="read-link" href="${htmlHref}">Read</a><a class="pdf-download" href="${pdfHref}" download title="Download PDF" aria-label="Download PDF for ${escAttr(s.t)}">${PDF_DOWNLOAD_ICON}</a></span>`
       : `<span class="badge planned"><span class="badge-dot"></span>Planned</span><span>Not yet published</span>`;
     const dateLine = avail && s.updated
       ? `<div class="card-foot" style="border:none;padding:6px 0 0;color:#9a8f80;">Updated ${s.updated}</div>`
       : "";
-    return `<li class="card ${avail ? "is-available" : "is-planned"}">
+    return `<li class="card ${cardClass}">
       <h3 class="card-title">${titleInner}</h3>
       <div class="chips">${chips}</div>
       <p class="card-desc">${s.d}</p>

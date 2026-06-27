@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="color-scheme" content="light dark"/>
 <title>Category Theory Explained — A Complete Guide</title>
 <style>
@@ -209,8 +210,82 @@
   }
 
   html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 100;
+    padding: 8px 14px;
+    background: #1a5276;
+    color: #fff;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 0 0 8px 0;
+  }
+  .skip-link:focus {
+    left: 0;
+    outline: 2px solid #13405c;
+    outline-offset: 2px;
+  }
   h2[id] {
     scroll-margin-top: calc(var(--study-toolbar-height, 88px) + 10px);
+  }
+  .table-scroll {
+    overflow-x: auto;
+    margin: 12pt 0;
+    -webkit-overflow-scrolling: touch;
+  }
+  .table-scroll table {
+    margin: 0;
+  }
+  .term-tip-wrap {
+    position: relative;
+    display: inline;
+    white-space: normal;
+  }
+  .term-tip {
+    background: none;
+    border: none;
+    border-bottom: 1px dotted #1a5276;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: #1a5276;
+    cursor: help;
+    text-align: inherit;
+  }
+  .term-tip:focus-visible {
+    outline: 2px solid #1a5276;
+    outline-offset: 2px;
+    border-bottom-color: transparent;
+  }
+  .term-tip-panel {
+    display: none;
+    position: fixed;
+    z-index: 40;
+    min-width: 220px;
+    max-width: min(320px, 90vw);
+    padding: 8px 10px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    line-height: 1.45;
+    font-style: normal;
+    font-weight: 400;
+    color: #2a241c;
+    background: #fff;
+    border: 1px solid #c5d9e6;
+    border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(42, 36, 28, 0.12);
+    text-align: left;
+    pointer-events: none;
+  }
+  .term-tip-panel.is-visible {
+    display: block;
   }
   .study-toolbar {
     display: flex;
@@ -235,7 +310,20 @@
     gap: 8px 14px;
   }
   .study-toolbar-row--primary {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1.2fr);
+  }
+  .study-toolbar-actions {
+    justify-self: end;
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    min-width: 0;
+    text-align: right;
+  }
+  .study-toolbar-feedback {
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
   }
   .study-toolbar-row--sections {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -269,6 +357,10 @@
     font-weight: 600;
   }
   .study-toolbar-link:hover { color: #13405c; }
+  .study-toolbar-link:focus-visible {
+    outline: 2px solid #1a5276;
+    outline-offset: 2px;
+  }
   .study-toolbar-section {
     display: block;
     min-width: 0;
@@ -295,6 +387,11 @@
     .study-toolbar-row--primary {
       grid-template-columns: 1fr 1fr;
     }
+    .study-toolbar-actions {
+      grid-column: 1 / -1;
+      justify-self: stretch;
+      justify-content: flex-end;
+    }
     .study-toolbar-title {
       grid-column: 1 / -1;
       white-space: normal;
@@ -305,6 +402,13 @@
   }
   @media print {
     .study-toolbar { display: none !important; }
+    .skip-link { display: none !important; }
+    .term-tip {
+      border-bottom: none;
+      color: inherit;
+      cursor: text;
+    }
+    .term-tip-panel { display: none !important; }
   }
 
   @media screen and (prefers-color-scheme: dark) {
@@ -352,27 +456,37 @@
     .study-toolbar-title { color: #f5f1ec; }
     .study-toolbar-draft { color: #aca194; }
     .study-toolbar-section.is-disabled { color: #6f655a; }
+    .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    .term-tip-panel {
+      color: #e6dfd6;
+      background: #26231e;
+      border-color: #423b33;
+    }
   }
 
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <nav class="study-toolbar" aria-label="Study navigation">
   <div class="study-toolbar-row study-toolbar-row--primary">
     <a class="study-toolbar-link study-toolbar-back" href="../index.html">&larr; All studies</a>
     <p class="study-toolbar-title">Category Theory Explained — A Complete Guide <span class="study-toolbar-draft">(Draft)</span></p>
-    <a class="study-toolbar-link study-toolbar-download" href="Category-Theory-Explained.pdf" download>Download PDF</a>
+    <span class="study-toolbar-actions">
+      <a class="study-toolbar-link study-toolbar-download" href="Category-Theory-Explained.pdf" download>Download PDF</a>
+      <a class="study-toolbar-link study-toolbar-feedback" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&title=Study%20feedback%3A%20Category-Theory-Explained">Suggest a correction</a>
+    </span>
   </div>
   <div class="study-toolbar-row study-toolbar-row--sections">
     <a class="study-toolbar-link study-toolbar-section study-toolbar-section--prev" id="study-section-prev" href="#" aria-disabled="true">&larr; Previous section</a>
     <a class="study-toolbar-link study-toolbar-section study-toolbar-section--next" id="study-section-next" href="#" aria-disabled="true">Next section &rarr;</a>
   </div>
 </nav>
-<h1>Category Theory Explained — A Complete Guide</h1>
-<p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> — a group of people studying Madhyasth Darshan philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
+<main id="main"><h1>Category Theory Explained — A Complete Guide</h1>
+<p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> — a group of people studying <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
 <p><strong>Edited on:</strong> June 26, 2026, 9:55 PM IST
-<strong>The question:</strong> What does category theory clarify about the structure of Madhyasth Darshan — and where does that notation stop?</p>
-<p>This is a self-contained guide to describing Shri A. Nagraj&rsquo;s Madhyasth Darshan using <strong>category theory</strong>. Parts 1 to 5 introduce the ideas in plain language; Part 6 gives the precise formal theory. The ontological ground and the tier-neutral formal template are developed in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html"><em>The Ontology of Coexistence</em></a> and <a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.html"><em>The Coexistence Template</em></a>; human-tier conduct and society are worked out further in <a href="https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html"><em>Why Humans Are Not Just Material</em></a> and <a href="https://analyticmadhyasthdarshan.org/Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.html"><em>Human Behavior and Society</em></a>. Primary texts: <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan — Co-existentialism</em> (MVD)</a>, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf"><em>Samadhanatmak Bhautikvad</em> (SB)</a>, and <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf"><em>Jeevan Vidya: An Introduction</em> (JV)</a>.</p>
+<strong>The question:</strong> What does category theory clarify about the structure of <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> — and where does that notation stop?</p>
+<p>This is a self-contained guide to describing Shri A. Nagraj&rsquo;s <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> using <strong>category theory</strong>. Parts 1 to 5 introduce the ideas in plain language; Part 6 gives the precise formal theory. The ontological ground and the tier-neutral formal template are developed in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html"><em>The Ontology of Coexistence</em></a> and <a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.html"><em>The Coexistence Template</em></a>; human-tier conduct and society are worked out further in <a href="https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html"><em>Why Humans Are Not Just Material</em></a> and <a href="https://analyticmadhyasthdarshan.org/Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.html"><em>Human Behavior and Society</em></a>. Primary texts: <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan — Co-existentialism</em> (MVD)</a>, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf"><em>Samadhanatmak Bhautikvad</em> (SB)</a>, and <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf"><em>Jeevan Vidya: An Introduction</em> (JV)</a>.</p>
 <p>Category theory here is a <strong>lens for clarity</strong>, not a proof machine. It makes the philosophy&rsquo;s logic visible and shows exactly what each conclusion depends on. It does not prove the metaphysics, and it cannot supply empirical evidence.</p>
 <h2 id="the-one-big-idea">The one big idea</h2>
 <p>Category theory is built on a single shift in attention:</p>
@@ -380,7 +494,7 @@
 <p><strong>Stop asking only &ldquo;what is each thing made of?&rdquo; and start asking &ldquo;how does each thing relate to everything else?&rdquo;</strong></p>
 </blockquote>
 <p>Most of modern science explains things by <strong>breaking them into parts</strong> (cells, molecules, atoms, particles). Category theory instead studies the <strong>arrows between things</strong> — the relationships, the flows, the transformations — and treats those relationships as the real subject matter.</p>
-<p>Madhyasth Darshan defines <strong>existence as coexistence</strong> (<em>saha-astitva</em>): the co-eternally present togetherness of formless Omnipresence (<em>satta</em>) and countless real units (<em>ikai</em>), bound in <strong>saturation</strong> — pervasive co-location in which inherent energy and regulation belong to each unit through that relationship, not physical extraction from <em>satta</em> — and then in definite <strong>relationships</strong> (<em>sambandh</em>) with other units (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §§1.1–1.4). Between those two layers, the texts name a <strong>regulation ladder</strong>: regulation read from saturation becomes evident as <strong>law</strong>, executes through <strong>order-specific conformance regimes</strong> (<em>niyati-vidhi</em>), and within constitutionally complete <em>jeevan</em> as <strong>inward regulation</strong> under mediative <em>atma</em>, then <strong>justice</strong> and assembly self-governance at the knowledge order — not efficient causation from <em>satta</em>, and not institutional self-governance as statutory command (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §§1.5.1, 1.7, 1.10; <a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.html">The Coexistence Template</a> D2a–D2b). That layered picture is close to category theory&rsquo;s attention to structure, though saturation is not itself a morphism between units (§6.13).</p>
+<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> defines <strong>existence as coexistence</strong> (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="saha-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="astitva" data-definition="Existence as coexistence of formless *<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span>* and active units — beginningless and endless.">astitva</button></span>" data-definition="Reality as the pervasive ground (*<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span>*) and all units (*<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="ikai" data-definition="A countable, bounded entity in nature — insentient (*jada*) or sentient (*chaitanya*).">ikai</button></span>*) inseparably present together — beginningless, without creation from nothing.">saha-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="astitva" data-definition="Existence as coexistence of formless *<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span>* and active units — beginningless and endless.">astitva</button></span></button></span></em>): the co-eternally present togetherness of formless Omnipresence (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span></em>) and countless real units (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="ikai" data-definition="A countable, bounded entity in nature — insentient (*jada*) or sentient (*chaitanya*).">ikai</button></span></em>), bound in <strong>saturation</strong> — pervasive co-location in which inherent energy and regulation belong to each unit through that relationship, not physical extraction from <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span></em> — and then in definite <strong>relationships</strong> (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sambandh" data-definition="Relationship — definite mutuality with expectations predetermined toward completeness.">sambandh</button></span></em>) with other units (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §§1.1–1.4). Between those two layers, the texts name a <strong>regulation ladder</strong>: regulation read from saturation becomes evident as <strong>law</strong>, executes through <strong>order-specific conformance regimes</strong> (<em>niyati-vidhi</em>), and within constitutionally complete <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> as <strong>inward regulation</strong> under mediative <em>atma</em>, then <strong>justice</strong> and assembly self-governance at the knowledge order — not efficient causation from <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span></em>, and not institutional self-governance as statutory command (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §§1.5.1, 1.7, 1.10; <a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.html">The Coexistence Template</a> D2a–D2b). That layered picture is close to category theory&rsquo;s attention to structure, though saturation is not itself a morphism between units (§6.13).</p>
 <div class="mermaid">
 flowchart LR
     A["Old question: what is it made of?"] --> B["Take it apart"]
@@ -415,7 +529,7 @@ flowchart LR
 <p>That is the entire foundation. Boxes, arrows, chaining arrows, and a do-nothing arrow. Everything else is built from these.</p>
 <h2 id="part-2-a-few-more-tools-each-in-one-breath">Part 2: A few more tools, each in one breath</h2>
 <p>These are the slightly fancier tools the formal theory uses. Each is given here as a plain idea plus how the darshan uses it. You do not need to memorise them; refer back as they appear.</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Tool</th>
@@ -486,10 +600,10 @@ flowchart LR
 <td><strong>Sat</strong> → law-as-regulation → order conformance (D2) → inward <strong>AtmaReg</strong> on <code>Liv</code> (D2b); not a morphism in <code>Rel</code> (§6.1.1)</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="part-3-the-philosophy-redrawn-as-a-map">Part 3: The philosophy, redrawn as a map</h2>
 <h3>3.1 The four orders as a ladder</h3>
-<p>Madhyasth Darshan names four real developmental plateaus — material (<em>padarth</em>), biological (<em>pran</em>), animal (<em>jeev</em>), and knowledge (<em>gyan</em>) — each containing the ones below:</p>
+<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> names four real developmental plateaus — material (<em>padarth</em>), biological (<em>pran</em>), animal (<em>jeev</em>), and knowledge (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="gyan" data-definition="Knowledge in several distinct senses in the texts — ontological given, intelligibility-ground, telos of fulfilled relationships, and unfolding through awakened *jeevan*.">gyan</button></span></em>) — each containing the ones below:</p>
 <div class="mermaid">
 flowchart LR
     M["Material: rocks, water, air"] --> B["Plant: living, growing"]
@@ -503,14 +617,14 @@ flowchart LR
 <p>The formalism does not <em>prove</em> this; it <em>records</em> it cleanly, so the claim is explicit and cannot be smuggled in or out unnoticed.</p>
 <p><strong>Orders vs planes.</strong> The four <strong>orders</strong> name what a unit <em>is</em> (material through knowledge). SB also names four <strong>planes</strong> — physicochemical, delusional, deific, divine — as developmental stages toward completeness, mapped to transitions T1–T3 (constitutional, activity, and conduct completeness). Deluded and awakened humans share the knowledge order but occupy different planes; the sentience threshold sits at the pranic→animal junction (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §§1.5.1, 1.9; <a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.html">The Coexistence Template</a> D11). Category theory models orders as the poset <code>Ord</code> (§6.2); planes need a second layered typing (§6.2.1).</p>
 <h3>3.2 A human being: an actor and an instrument</h3>
-<p>The darshan says a human is <strong>body + <code>jeevan</code></strong> (the sentient self), and crucially that these are not equal partners: <code>jeevan</code> is the actor, the body is its instrument. <em>Jeevan</em> is a <strong>constitutionally complete composite atom</strong> (<em>gathanpurna parmanu</em>) — a self-maintaining sentient unit, not an elementary particle of physics (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §§1.5, 1.9).</p>
-<p>A natural first guess is to write this as a simple pair, &ldquo;Human = Body and Jeevan.&rdquo; That turns out to be the <strong>wrong</strong> picture, because a &ldquo;pair&rdquo; suggests two equal, separable halves. A better plain-language picture is:</p>
+<p>The darshan says a human is <strong>body + <code>jeevan</code></strong> (the sentient self), and crucially that these are not equal partners: <code>jeevan</code> is the actor, the body is its instrument. <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">Jeevan</button></span></em> is a <strong>constitutionally complete composite atom</strong> (<em>gathanpurna parmanu</em>) — a self-maintaining sentient unit, not an elementary particle of physics (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §§1.5, 1.9).</p>
+<p>A natural first guess is to write this as a simple pair, &ldquo;Human = Body and <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">Jeevan</button></span>.&rdquo; That turns out to be the <strong>wrong</strong> picture, because a &ldquo;pair&rdquo; suggests two equal, separable halves. A better plain-language picture is:</p>
 <blockquote>
 <p><code>Jeevan</code> is like a musician; the body is like the instrument. The music (values, evaluation, resolution) comes through the instrument but is not produced by the wood and strings alone. And you cannot swap them — the instrument does not play the musician.</p>
 </blockquote>
 <div class="mermaid">
 flowchart TD
-    J["Jeevan: the actor (values, evaluation)"] --> H["Human (the music that results)"]
+    J["<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">Jeevan</button></span>: the actor (values, evaluation)"] --> H["Human (the music that results)"]
     Bd["Body: the instrument (food, sleep, health)"] --> H
 </div>
 <p>This asymmetry is the heart of the darshan&rsquo;s claim that a human cannot be fully studied as a body alone. In category-theory terms, the &ldquo;black-and-white photocopy&rdquo; (the forgetful functor that keeps only physics) loses the musician and keeps only the instrument.</p>
@@ -519,7 +633,7 @@ flowchart TD
 <li><strong>Comfort</strong> (pleasure, wealth, health) is a genuine <em>part</em> of human fulfilment.</li>
 <li>But <strong>fulfilment</strong> is bigger than comfort; you cannot rebuild full fulfilment out of comfort alone.</li>
 </ul>
-<p>In the tools table this is a <strong>retract</strong>: comfort fits inside fulfilment, but the arrow does not reverse. <strong>Delusion</strong>, in Madhyasth Darshan, is precisely the error of treating the part as if it were the whole — believing &ldquo;maximise comfort&rdquo; equals &ldquo;achieve fulfilment&rdquo;. The texts diagnose a related pathology as unbounded &ldquo;more&rdquo; (JV p. 41); the darshan moves toward <strong>definite completeness</strong>, not open-ended maximisation (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.html">The Coexistence Template</a> §5).</p>
+<p>In the tools table this is a <strong>retract</strong>: comfort fits inside fulfilment, but the arrow does not reverse. <strong>Delusion</strong>, in <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>, is precisely the error of treating the part as if it were the whole — believing &ldquo;maximise comfort&rdquo; equals &ldquo;achieve fulfilment&rdquo;. The texts diagnose a related pathology as unbounded &ldquo;more&rdquo; (JV p. 41); the darshan moves toward <strong>definite completeness</strong>, not open-ended maximisation (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.html">The Coexistence Template</a> §5).</p>
 <div class="mermaid">
 flowchart LR
     C["Comfort (a real part)"] --> F["Fulfilment (the whole)"]
@@ -547,14 +661,14 @@ flowchart TD
     F1 --> S["Undivided society (clean glue)"]
     F2 --> S
 </div>
-<p>Gluing alone is not enough at the knowledge order. An assembly <strong>persists</strong> while its relationships are fulfilled (natural state) and <strong>declines</strong> when they are not (excited state); and every persisting assembly <strong>transmits its method of composition</strong> across generations — by education-<em>sanskar</em> at the human tier (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.html">The Coexistence Template</a> L4–L5). A society that coheres locally but fails to transmit understanding decays on member turnover.</p>
+<p>Gluing alone is not enough at the knowledge order. An assembly <strong>persists</strong> while its relationships are fulfilled (natural state) and <strong>declines</strong> when they are not (excited state); and every persisting assembly <strong>transmits its method of composition</strong> across generations — by education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> at the human tier (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.html">The Coexistence Template</a> L4–L5). A society that coheres locally but fails to transmit understanding decays on member turnover.</p>
 <h3>3.6 <em>Jeevan</em>: evaluation and self-evidencing</h3>
-<p>Lower orders already <strong>show</strong> orderliness: a peepal tree exhibits definite conduct (JV p. 113) — that is <em>anubhav jnan</em> as ontological given (MVD p. 11), not knowledge-order evaluation. At the human tier something further is required: only <em>jeevan</em> <strong>evaluates</strong> value (template D6), <strong>unfolds</strong> knowledge (<em>gyan udghatan</em>, MVD pp. 115–116, 289), and must <strong>evidence</strong> what it understands in conduct.</p>
+<p>Lower orders already <strong>show</strong> orderliness: a peepal tree exhibits definite conduct (JV p. 113) — that is <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="anubhav-jnan" data-definition="Realisation Knowledge — the ontological given in saturated units: form, properties, essential nature, *<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span>*, and orderliness.">anubhav jnan</button></span></em> as ontological given (MVD p. 11), not knowledge-order evaluation. At the human tier something further is required: only <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> <strong>evaluates</strong> value (template D6), <strong>unfolds</strong> knowledge (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="gyan" data-definition="Knowledge in several distinct senses in the texts — ontological given, intelligibility-ground, telos of fulfilled relationships, and unfolding through awakened *jeevan*.">gyan</button></span>-udghatan" data-definition="Unfolding of knowledge in thought and conduct — an activity exclusive to awakened *<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span>*, not Omnipresence or insentient matter."><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="gyan" data-definition="Knowledge in several distinct senses in the texts — ontological given, intelligibility-ground, telos of fulfilled relationships, and unfolding through awakened *jeevan*.">gyan</button></span> udghatan</button></span></em>, MVD pp. 115–116, 289), and must <strong>evidence</strong> what it understands in conduct.</p>
 <p>MVD p. 12 gives a reflexive chain — each link <em>is</em> the next:</p>
 <blockquote>
 <p>Realisation itself is the ultimate evidence; evidence itself is understanding; understanding itself is manifest as resolution, work, and behaviour; work and behaviour itself is evidence; evidence itself is awakened tradition; awakened tradition itself is coexistence.</p>
 </blockquote>
-<p>Private conviction without conduct is incomplete knowledge (<a href="https://analyticmadhyasthdarshan.org/Studies/Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.html">Knowledge, Knower, and Known</a> §1.6). The musician/instrument picture from §3.2 extends here: the body can display effects; only <em>jeevan</em> evaluates and makes understanding <strong>evident</strong> to others — <em>pramanikta</em> at conduct completeness (T3; <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.10). Four knowledge registers must be kept apart (template D12; formal sketch §6.15).</p>
+<p>Private conviction without conduct is incomplete knowledge (<a href="https://analyticmadhyasthdarshan.org/Studies/Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.html">Knowledge, Knower, and Known</a> §1.6). The musician/instrument picture from §3.2 extends here: the body can display effects; only <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> evaluates and makes understanding <strong>evident</strong> to others — <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="pramanikta" data-definition="Authentic conduct as living proof that understanding has taken hold — the outward test of complete knowing.">pramanikta</button></span></em> at conduct completeness (T3; <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.10). Four knowledge registers must be kept apart (template D12; formal sketch §6.15).</p>
 <h2 id="part-4-how-this-formalism-helps">Part 4: How this formalism helps</h2>
 <p>Why bother translating a philosophy into this language at all? Six concrete payoffs.</p>
 <ol>
@@ -568,7 +682,7 @@ flowchart TD
 <p><strong>It catches inconsistencies.</strong> Drawing a diagram reveals when two paths that <em>should</em> agree actually don&rsquo;t. The &ldquo;delusion&rdquo; idea is literally a diagram that fails to close up — a precise picture of a confused belief.</p>
 </li>
 <li>
-<p><strong>It enables fair comparison.</strong> Once materialism, religion, and Madhyasth Darshan are each drawn as &ldquo;worlds of things and arrows&rdquo;, you can compare what each one keeps and what each one throws away. Reductionism becomes &ldquo;the translation that forgets values&rdquo; — a clear, checkable description rather than an insult.</p>
+<p><strong>It enables fair comparison.</strong> Once materialism, religion, and <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> are each drawn as &ldquo;worlds of things and arrows&rdquo;, you can compare what each one keeps and what each one throws away. Reductionism becomes &ldquo;the translation that forgets values&rdquo; — a clear, checkable description rather than an insult.</p>
 </li>
 <li>
 <p><strong>It is teachable and language-neutral.</strong> Diagrams cross language barriers. A student who finds the Sanskrit-derived vocabulary daunting can still follow boxes and arrows, then attach the names afterward.</p>
@@ -614,7 +728,7 @@ flowchart TD
 <li><strong>Every nontrivial claim names its hidden premise.</strong> Where a conclusion depends on a contested Madhyasth assumption, that premise is stated explicitly. The categorical step is then valid only relative to it.</li>
 <li><strong>Propositions are conditional, not theorems about reality.</strong> Nothing here proves <code>jeevan</code>, constitutional completeness, or coexistence. The propositions show what <em>follows structurally if</em> the premises are granted.</li>
 </ol>
-<p>Category theory is <strong>structuralist</strong>: by the Yoneda principle, an object is determined entirely by its pattern of relations to other objects. That will matter, because Madhyasth Darshan holds that <code>jeevan</code> is a <strong>substantial</strong> entity, not merely a relational role — the deepest limit of the whole project (§6.13.1).</p>
+<p>Category theory is <strong>structuralist</strong>: by the Yoneda principle, an object is determined entirely by its pattern of relations to other objects. That will matter, because <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> holds that <code>jeevan</code> is a <strong>substantial</strong> entity, not merely a relational role — the deepest limit of the whole project (§6.13.1).</p>
 <h3>6.1 Architecture: several categories and functors, not one</h3>
 <p>Instead of a single all-purpose category, we use a small system of categories, each internally clean, related by functors, natural transformations, and — where needed — structure that sits outside ordinary inter-unit morphisms.</p>
 <div class="mermaid">
@@ -624,10 +738,10 @@ flowchart TD
     Cap["Cap: capability profiles"]
     Phys["Phys: physical descriptions"]
     Liv["Liv: living/human descriptions"]
-    Rel["Rel: unit relationships (sambandh)"]
+    Rel["Rel: unit relationships (<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sambandh" data-definition="Relationship — definite mutuality with expectations predetermined toward completeness.">sambandh</button></span>)"]
     Val["Val: values (graded preorder)"]
     Eval["Eval: evaluation (knowledge order)"]
-    Ev["Ev: evidence / pramanikta"]
+    Ev["Ev: evidence / <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="pramanikta" data-definition="Authentic conduct as living proof that understanding has taken hold — the outward test of complete knowing.">pramanikta</button></span>"]
     Conduct["Conduct: enriched over fulfilment"]
     Comp["Comp: composition (mixture / compound)"]
     Soc["Soc: social gluings (colimits)"]
@@ -636,28 +750,28 @@ flowchart TD
     Sat -.->|"energises/regulates"| Liv
     Liv -->|"cap(u)"| Cap
     Cap -.->|"filters / grades phi"| Rel
-    Liv -->|"U (forget jeevan)"| Phys
+    Liv -->|"U (forget <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span>)"| Phys
     Rel -->|"V (valuation)"| Val
     Rel -->|"assemble"| Soc
     Comp -->|"kappa"| Soc
     Liv -->|"mu (evaluate)"| Eval
-    Liv -->|"Xi (gyan udghatan)"| Liv
+    Liv -->|"Xi (<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="gyan" data-definition="Knowledge in several distinct senses in the texts — ontological given, intelligibility-ground, telos of fulfilled relationships, and unfolding through awakened *jeevan*.">gyan</button></span>-udghatan" data-definition="Unfolding of knowledge in thought and conduct — an activity exclusive to awakened *<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span>*, not Omnipresence or insentient matter."><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="gyan" data-definition="Knowledge in several distinct senses in the texts — ontological given, intelligibility-ground, telos of fulfilled relationships, and unfolding through awakened *jeevan*.">gyan</button></span> udghatan</button></span>)"| Liv
     Eval --> Val
     Conduct -->|"ev"| Ev
     Conduct -->|"grades"| Val
     Liv -->|"inhabits"| Ord
     Soc -->|"tau"| Trans
 </div>
-<p><strong>Sat (saturation).</strong> Omnipresence <strong>O</strong> is not a unit and not an object of <code>Rel</code> (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.html">The Coexistence Template</a> §3.1). Saturation is pervasive co-location in which <strong>inherent energy and regulation belong to each unit</strong> through the O–unit bond — mutual dependence for manifestation, not physical extraction from <em>O</em> (template A1–A2; <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §§1.2–1.3). Categorically it is best treated as an <strong>ambient</strong> or <strong>enrichment base</strong> — a family of regulators indexed by units — not as a morphism <em>u₁ → u₂</em>. The <strong>regulation ladder</strong> (template D2a) adds a typed overlay on that family: for each u ∈ U, regulation from <code>Sat</code> is read as <strong>law-as-regulation</strong>, then as an <strong>order conformance regime</strong> (structural / seed / species / <em>sanskar</em> — definite below the knowledge order, achieved within it), then for constitutionally complete <em>jeevan</em> as <strong>inward regulation</strong> under mediative <em>atma</em> (D2b; ontology §1.10), then <strong>justice</strong> as knowledge-order evaluative closure and assembly self-governance at fulfilled human scale (D7; ontology §§1.10.1, 1.13). Model inward regulation as a partial endomorphism <strong>AtmaReg : Liv ⇀ Liv</strong> on the faculty stack — parallel to mediative regulation at the atomic nucleus, not an arrow in <code>Rel</code>. Terminal-object and topos-as-space readings of <em>vyapak</em> remain stretches (§6.13.4).</p>
-<p><strong>Eval and μ.</strong> Evaluation is defined <strong>only for knowledge-order units</strong> (template D6): <em>jeevan</em> assesses value delivered in a relationship — bodily mechanisms implement conduct but do not evaluate. Model <code>μ : Liv → Eval</code> (or an endofunctor on <code>Liv</code>) that does not factor through <code>Phys</code>. Justice is the composite <strong>ρ → φ → μ → mutual satisfaction</strong> — an <strong>operator over</strong> <em>V</em>, not a member of <em>V</em> (template D7). Complete knowledge requires the evidence cycle (template D13, L7; §6.15).</p>
-<p><strong>Ξ and <em>gyan udghatan</em>.</strong> Knowledge unfolding is a <strong>partial</strong> endofunctor <code>Ξ : Liv ⇀ Liv</code>, defined only for awakened knowledge-order units (template D12; MVD pp. 115–116, 289). It does not drive material-tier κ_comp.</p>
-<p><strong>Ev and <em>pramanikta</em>.</strong> Model conduct readable as evidence by <code>ev : Conduct → Ev</code>. T3 (conduct completeness) corresponds to a lift in <code>Pln</code> when <code>ev ∘ conduct</code> reaches <em>pramanikta</em> — authenticity others can recognize (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.10).</p>
-<p><strong>Trans and τ.</strong> Transmission re-instantiates an assembly&rsquo;s composition method across member turnover (template L5). At the knowledge order, τ carries <strong>evidenced</strong> understanding (template D10), not rules without φ. A clean categorical home is an <strong>indexed category</strong> or <strong>coalgebra</strong>: generations as objects, τ as structure-preserving maps carrying education-<em>sanskar</em> forward. Colimits alone do not generate τ (proposition P8).</p>
+<p><strong>Sat (saturation).</strong> Omnipresence <strong>O</strong> is not a unit and not an object of <code>Rel</code> (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.html">The Coexistence Template</a> §3.1). Saturation is pervasive co-location in which <strong>inherent energy and regulation belong to each unit</strong> through the O–unit bond — mutual dependence for manifestation, not physical extraction from <em>O</em> (template A1–A2; <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §§1.2–1.3). Categorically it is best treated as an <strong>ambient</strong> or <strong>enrichment base</strong> — a family of regulators indexed by units — not as a morphism <em>u₁ → u₂</em>. The <strong>regulation ladder</strong> (template D2a) adds a typed overlay on that family: for each u ∈ U, regulation from <code>Sat</code> is read as <strong>law-as-regulation</strong>, then as an <strong>order conformance regime</strong> (structural / seed / species / <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> — definite below the knowledge order, achieved within it), then for constitutionally complete <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> as <strong>inward regulation</strong> under mediative <em>atma</em> (D2b; ontology §1.10), then <strong>justice</strong> as knowledge-order evaluative closure and assembly self-governance at fulfilled human scale (D7; ontology §§1.10.1, 1.13). Model inward regulation as a partial endomorphism <strong>AtmaReg : Liv ⇀ Liv</strong> on the faculty stack — parallel to mediative regulation at the atomic nucleus, not an arrow in <code>Rel</code>. Terminal-object and topos-as-space readings of <em>vyapak</em> remain stretches (§6.13.4).</p>
+<p><strong>Eval and μ.</strong> Evaluation is defined <strong>only for knowledge-order units</strong> (template D6): <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> assesses value delivered in a relationship — bodily mechanisms implement conduct but do not evaluate. Model <code>μ : Liv → Eval</code> (or an endofunctor on <code>Liv</code>) that does not factor through <code>Phys</code>. Justice is the composite <strong>ρ → φ → μ → mutual satisfaction</strong> — an <strong>operator over</strong> <em>V</em>, not a member of <em>V</em> (template D7). Complete knowledge requires the evidence cycle (template D13, L7; §6.15).</p>
+<p><strong>Ξ and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="gyan" data-definition="Knowledge in several distinct senses in the texts — ontological given, intelligibility-ground, telos of fulfilled relationships, and unfolding through awakened *jeevan*.">gyan</button></span>-udghatan" data-definition="Unfolding of knowledge in thought and conduct — an activity exclusive to awakened *<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span>*, not Omnipresence or insentient matter."><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="gyan" data-definition="Knowledge in several distinct senses in the texts — ontological given, intelligibility-ground, telos of fulfilled relationships, and unfolding through awakened *jeevan*.">gyan</button></span> udghatan</button></span></em>.</strong> Knowledge unfolding is a <strong>partial</strong> endofunctor <code>Ξ : Liv ⇀ Liv</code>, defined only for awakened knowledge-order units (template D12; MVD pp. 115–116, 289). It does not drive material-tier κ_comp.</p>
+<p><strong>Ev and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="pramanikta" data-definition="Authentic conduct as living proof that understanding has taken hold — the outward test of complete knowing.">pramanikta</button></span></em>.</strong> Model conduct readable as evidence by <code>ev : Conduct → Ev</code>. T3 (conduct completeness) corresponds to a lift in <code>Pln</code> when <code>ev ∘ conduct</code> reaches <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="pramanikta" data-definition="Authentic conduct as living proof that understanding has taken hold — the outward test of complete knowing.">pramanikta</button></span></em> — authenticity others can recognize (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.10).</p>
+<p><strong>Trans and τ.</strong> Transmission re-instantiates an assembly&rsquo;s composition method across member turnover (template L5). At the knowledge order, τ carries <strong>evidenced</strong> understanding (template D10), not rules without φ. A clean categorical home is an <strong>indexed category</strong> or <strong>coalgebra</strong>: generations as objects, τ as structure-preserving maps carrying education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> forward. Colimits alone do not generate τ (proposition P8).</p>
 <p><strong>Cap and cap(<em>u</em>).</strong> Fulfilment is not automatic from recognising a relationship: it is modulated by <strong>capacity</strong> (<em>kshamata</em>), <strong>ability</strong> (<em>yogyata</em>), and <strong>receptivity</strong> (<em>patrata</em>) (template D5a). Model cap as a functor <code>cap : Liv → Cap</code> into a category of capability profiles; <code>Rel</code> and <code>Conduct</code> are then <strong>fibred</strong> or <strong>indexed</strong> over unit capability (§6.6.1).</p>
 <p><strong>Comp and κ.</strong> Composition takes two modes — <strong>mixture</strong> and <strong>compound</strong> (template D8). Only <strong>compound-mode</strong> κ creates a new tier; mixture aggregates at the same tier. Categorically this is the difference between a <strong>coproduct preserved at fixed order</strong> and a <strong> colimit that changes signature</strong> (§6.9).</p>
 <h3>6.1.1 Relation to the coexistence template</h3>
 <p><a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.html"><em>The Coexistence Template</em></a> states the tier-neutral structure formally; this paper supplies natural notation for parts of it. The mapping is intentional, not a proof that the symbols coincide.</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Template</th>
@@ -776,7 +890,7 @@ flowchart TD
 <td>Strong</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>The template&rsquo;s §7 comparison row states the division of labour plainly: category theory is the natural notation for <strong>κ</strong> and <strong>L6</strong>, but <strong>L3</strong> (complementary need as the engine of assembly) is the selection rule the notation lacks. Any colimit model of society must be supplemented by an external criterion — complementary deficiency and surplus — for which diagrams count as development-progression bonding rather than arbitrary gluing.</p>
 <h3>6.2 The poset of orders (mereological containment)</h3>
 <p>The four orders are modelled by a <strong>thin category</strong> (a partial order), with at most one arrow between any two objects.</p>
@@ -793,7 +907,7 @@ Reading of x &lt;= y:  &quot;order y contains and depends upon order x&quot;
 <p>The non-existence of <code>K &lt;= M</code> is exactly the anti-reductionist content; here it is a flat structural fact, not an argument. The poset <em>encodes</em> the claim, it does not <em>prove</em> it.</p>
 <h3>6.2.1 Planes, completeness stages, and two progressions</h3>
 <p><a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html"><em>The Ontology of Coexistence</em></a> §§1.5.1, 1.9 and the template (D11, P6) distinguish <strong>orders</strong> (what a unit <em>is</em>) from <strong>planes</strong> (where development has reached in nature&rsquo;s progression toward completeness). Four progressions must not be collapsed: <strong>existential progression</strong> (<em>niyati-kram</em>), <strong>way of existence</strong> (<em>niyati-vidhi</em>), <strong>development progression</strong> (<em>vikas-kram</em>), and <strong>awakening progression</strong> (<em>jagriti-kram</em>). The three completeness stages map to plane transitions:</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Transition</th>
@@ -818,8 +932,8 @@ Reading of x &lt;= y:  &quot;order y contains and depends upon order x&quot;
 <td>Deific → divine (complete)</td>
 </tr>
 </tbody>
-</table>
-<p><strong>Development Progression</strong> (<em>vikas-kram</em>) reaches T1 through compound-mode κ_comp — irreversible at the atomic level (SB p. 92). <strong>Awakening Progression</strong> (<em>jagriti-kram</em>) runs in <em>jeevan</em> already constitutionally complete toward T2 and T3; it is not a second atomic transformation.</p>
+</table></div>
+<p><strong>Development Progression</strong> (<em>vikas-kram</em>) reaches T1 through compound-mode κ_comp — irreversible at the atomic level (SB p. 92). <strong>Awakening Progression</strong> (<em>jagriti-kram</em>) runs in <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> already constitutionally complete toward T2 and T3; it is not a second atomic transformation.</p>
 <p>Categorically: <strong><code>Ord</code></strong> models mereological containment among orders (§6.2). <strong>Planes</strong> need a second labelling — a fibration, indexed type, or layered poset <strong><code>Pln</code></strong> — because knowledge-order humans can change plane (deluded → awakened → evidenced) without changing order. T1 is an <strong>irreversible transition</strong> in the Petri/monoidal layer (§6.10); T2 and T3 are <strong>endomorphisms or lifts within <code>Liv</code></strong>, guarded by cap(<em>u</em>) and μ, not by κ_comp at the material tier.</p>
 <h3>6.3 Reduction as a forgetful functor</h3>
 <p>Let <code>Liv</code> be human descriptions that include value-bearing structure, and <code>Phys</code> purely physical descriptions. Define the forgetful functor:</p>
@@ -832,9 +946,9 @@ U(humane transition) = the underlying physical change
 <li><strong>Premise (stated):</strong> two acts can be physically identical yet differ in value — e.g. genuine justice versus an outwardly identical imitation differ in <code>jeevan</code>-level content (SB Ch. 7).</li>
 <li><strong>Conditional conclusion:</strong> <em>if</em> that premise holds, then <strong><code>U</code> is not faithful</strong>. The functor formalism contributes precision, not evidence; the premise does all the work.</li>
 </ul>
-<p><strong>Does <code>U</code> have a left adjoint (a &ldquo;free jeevan&rdquo; functor)?</strong> A left adjoint would freely generate life/value from bare matter.</p>
+<p><strong>Does <code>U</code> have a left adjoint (a &ldquo;free <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span>&rdquo; functor)?</strong> A left adjoint would freely generate life/value from bare matter.</p>
 <ul>
-<li><strong>Premise (stated):</strong> <em>gathanpurnata</em> is reached by irreversible <strong>Development Progression</strong> (<em>vikas-kram</em>) through effort–motion–result (<em>shram–gati–parinam</em>), not a free, uniform construction (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §§1.8–1.9).</li>
+<li><strong>Premise (stated):</strong> <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="gathanpurnata" data-definition="Constitutional completeness — when a developed atom integrates required particles and crosses irreversibly into sentient *<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span>*.">gathanpurnata</button></span></em> is reached by irreversible <strong>Development Progression</strong> (<em>vikas-kram</em>) through effort–motion–result (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="shram-gati-parinam" data-definition="Effort–motion–result — the single inseparable triad in which all change appears.">shram–gati–parinam</button></span></em>), not a free, uniform construction (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §§1.8–1.9).</li>
 <li><strong>Conditional conclusion:</strong> <em>if</em> development is selective and irreversible, there is <strong>no left adjoint with iso unit</strong>; &ldquo;adding life freely to matter&rdquo; is not a structural operation.</li>
 </ul>
 <p><strong>What this does not do.</strong> It does not show the premise is true. A physicalist who denies the value-distinct premise keeps <code>U</code> faithful and is untouched.</p>
@@ -864,15 +978,15 @@ flowchart LR
 </div>
 <p>Because both <code>id_F</code> and <code>i . p</code> have the same domain and codomain <code>F</code>, asking whether they are equal is well-typed; the darshan asserts they are unequal. This is a clean structural statement of &ldquo;pleasure/wealth/health are necessary but not sufficient&rdquo; (MVD Ch. 4).</p>
 <h3>6.6 Fulfilment as enrichment, not a scalar</h3>
-<p>The texts give value a <strong>six-fold taxonomy</strong> (Template D4; Ontology §1.6): utility and art values at all orders where applicable; <em>jeevan</em>, human, established, and expression values at the knowledge order. MVD Ch. 4 also distinguishes sensory (momentary), intellectual (lasting), and existential (non-transformable) satisfaction. Model the ordering by <strong>enrichment over a preorder</strong>.</p>
+<p>The texts give value a <strong>six-fold taxonomy</strong> (Template D4; Ontology §1.6): utility and art values at all orders where applicable; <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, human, established, and expression values at the knowledge order. MVD Ch. 4 also distinguishes sensory (momentary), intellectual (lasting), and existential (non-transformable) satisfaction. Model the ordering by <strong>enrichment over a preorder</strong>.</p>
 <pre><code class="language-text">Let W = (sensory &lt;= intellectual &lt;= existential), made monoidal by min, unit = existential.
 Enrich the conduct category over W:
 the hom-object Conduct(f, g) is an element of W recording the quality of fulfilment realized.
 </code></pre>
 <p>Enriched composition requires <code>Conduct(g,h) (x) Conduct(f,g) &lt;= Conduct(f,h)</code> — &ldquo;a chain is only as high-grade as its weakest link.&rdquo; This refuses the collapse of fulfilment into one additive scalar — the Madhyasth objection to utility/happiness maximisation — and aligns with definite completeness rather than open-ended optimisation.</p>
-<p>The base <code>W</code> and the choice of <code>min</code> are modeling decisions. The enrichment captures <em>ordering of qualities</em> well; it does not capture TEL (<em>satta mein anubhav</em> as telos), nor the full D4 class hierarchy without a finer indexed enrichment. <strong>Fulfilment capacity</strong> (template D5a) supplies that finer index — §6.6.1.</p>
+<p>The base <code>W</code> and the choice of <code>min</code> are modeling decisions. The enrichment captures <em>ordering of qualities</em> well; it does not capture TEL (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span> mein anubhav</em> as telos), nor the full D4 class hierarchy without a finer indexed enrichment. <strong>Fulfilment capacity</strong> (template D5a) supplies that finer index — §6.6.1.</p>
 <h3>6.6.1 Fulfilment modulated by capacity (cap(u))</h3>
-<p>Template D5a writes <strong>cap(<em>u</em>) = ⟨ksh, yog, pat⟩</strong> for capacity (<em>kshamata</em>), ability (<em>yogyata</em>), and receptivity (<em>patrata</em>) (MVD p. 62). Recognition ρ and fulfilment φ are universal across orders (template L1), but <strong>φ is realised only at the level cap(<em>u</em>) permits</strong> — not by receptivity alone. In the material order, <strong>ascending</strong> (<em>agreshan</em>) is balance and receptivity gained while converting capacity and ability into effort (<em>shram</em>); <strong>frustration</strong> (<em>kshobh</em>) is the shortcoming in that conversion — &ldquo;incompleteness of receptivity&rdquo; (MVD p. 79). In the knowledge order, cap(<em>u</em>) for worldview arises from environment, study, and prior <em>sanskar</em> (MVD p. 134); extent of receptivity is qualification (<em>arhta</em>), yielding perspective (<em>drishti</em>) and worldview (<em>darshan</em>) (MVD p. 142) (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §§1.4, 1.9). Evaluative <em>sapëkshata</em> (relativity) arises from how <em>jeevan</em> views and understands — <em>drishti</em>, <em>drishya</em>, and <em>darshan</em> — not from unreality of the underlying <em>Rel</em> structure (<a href="https://analyticmadhyasthdarshan.org/Studies/Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.html">Knowledge, Knower, and Known</a> §1.4.1; <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.9); μ therefore operates on perspective-dependent seeing, unlike the forgetful functor <code>U</code>, which drops value from physical description.</p>
+<p>Template D5a writes <strong>cap(<em>u</em>) = ⟨ksh, yog, pat⟩</strong> for capacity (<em>kshamata</em>), ability (<em>yogyata</em>), and receptivity (<em>patrata</em>) (MVD p. 62). Recognition ρ and fulfilment φ are universal across orders (template L1), but <strong>φ is realised only at the level cap(<em>u</em>) permits</strong> — not by receptivity alone. In the material order, <strong>ascending</strong> (<em>agreshan</em>) is balance and receptivity gained while converting capacity and ability into effort (<em>shram</em>); <strong>frustration</strong> (<em>kshobh</em>) is the shortcoming in that conversion — &ldquo;incompleteness of receptivity&rdquo; (MVD p. 79). In the knowledge order, cap(<em>u</em>) for worldview arises from environment, study, and prior <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> (MVD p. 134); extent of receptivity is qualification (<em>arhta</em>), yielding perspective (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="drishti" data-definition="Perspective or evaluative lens — in *<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span>*, six built-in perspectives from lower *priya*/*hita*/*labh* to humane *<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="nyaya" data-definition="Justice — complete relational activity: recognise, fulfil, evaluate, mutual satisfaction.">nyaya</button></span>*/*<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span>*/*<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satya" data-definition="Realisation perspective — whether assessment is grounded in coexistence as it is.">satya</button></span>*.">drishti</button></span></em>) and worldview (<em>darshan</em>) (MVD p. 142) (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §§1.4, 1.9). Evaluative <em>sapëkshata</em> (relativity) arises from how <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> views and understands — <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="drishti" data-definition="Perspective or evaluative lens — in *<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span>*, six built-in perspectives from lower *priya*/*hita*/*labh* to humane *<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="nyaya" data-definition="Justice — complete relational activity: recognise, fulfil, evaluate, mutual satisfaction.">nyaya</button></span>*/*<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span>*/*<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satya" data-definition="Realisation perspective — whether assessment is grounded in coexistence as it is.">satya</button></span>*.">drishti</button></span></em>, <em>drishya</em>, and <em>darshan</em> — not from unreality of the underlying <em>Rel</em> structure (<a href="https://analyticmadhyasthdarshan.org/Studies/Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.html">Knowledge, Knower, and Known</a> §1.4.1; <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.9); μ therefore operates on perspective-dependent seeing, unlike the forgetful functor <code>U</code>, which drops value from physical description.</p>
 <h4>The capability category <code>Cap</code></h4>
 <p>Define a category <strong><code>Cap</code></strong> whose objects are capability profiles <strong>c = ⟨ksh, yog, pat⟩</strong>, each coordinate living in an order-specific preorder (material profiles are not human profiles). A morphism <strong>c → c′</strong> means coordinate-wise improvement — more scope, more convertibility, more readiness.</p>
 <p>Each unit carries a profile by a functor:</p>
@@ -881,7 +995,7 @@ cap(u) = &lt;ksh(u), yog(u), pat(u)&gt;
 </code></pre>
 <p><code>Phys</code> has a trivial or collapsed image: lower-order units convert capacity and ability into bonding automatically; the interesting fibred structure appears at the knowledge order, where cap can <strong>fail</strong> to improve and where μ can misfire (over-, under-, mis-evaluation, MVD p. 38).</p>
 <h4>Three roles of the triad (what each coordinate gates)</h4>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Coordinate</th>
@@ -906,7 +1020,7 @@ cap(u) = &lt;ksh(u), yog(u), pat(u)&gt;
 <td><strong>Grade ceiling in <em>W</em>:</strong> effective satisfaction grade is <code>min(W_chain, ksh_ceiling(u))</code></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>Receptivity alone does not produce fulfilment: a unit may <strong>recognise</strong> a relationship (ρ) yet deliver only a truncated value flow because yog or ksh is insufficient — the template&rsquo;s diagnosis of frustrated or partial order.</p>
 <h4>Fibred enrichment over units</h4>
 <p>Combine §6.6&rsquo;s enrichment base <strong>W</strong> with <strong>Cap</strong> by passing to a <strong>fibred category</strong> (or indexed category) over units:</p>
@@ -966,16 +1080,16 @@ flowchart TD
 <pre><code class="language-text">Compatible local value-structures  -&gt;  clean gluing  -&gt;  undivided society
 Conflicting local value-structures -&gt;  forced collapse  -&gt;  no coherent undivided society
 </code></pre>
-<p><strong>Transmission (template L5, P3–P4).</strong> At the knowledge order, sustainment also requires <strong>τ</strong>: common cause, goal, and programme (MVD p. 55), carried by education-<em>sanskar</em>. A colimit that glues families in one generation but lacks τ across turnover is structurally incomplete — the template predicts decay when understanding is not transmitted, even if local φ held momentarily.</p>
+<p><strong>Transmission (template L5, P3–P4).</strong> At the knowledge order, sustainment also requires <strong>τ</strong>: common cause, goal, and programme (MVD p. 55), carried by education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em>. A colimit that glues families in one generation but lacks τ across turnover is structurally incomplete — the template predicts decay when understanding is not transmitted, even if local φ held momentarily.</p>
 <p>This is where the mathematics contributes a genuine, independent result about gluing: <strong>universal order is coherent exactly when local value-structures agree on what they share.</strong> Transmission is a further clause category theory does not derive from colimits alone.</p>
 <p>At the knowledge tier, a successful <strong>compound</strong> κ (§6.9) — not merely mixture — is what produces a new social conduct with its own sig(·); the colimit in <code>Soc</code> should be read as <strong>compound-mode</strong> gluing when the assembly is meant to ascend a tier.</p>
 <h3>6.9 Composition: mixture and compound (κ)</h3>
 <p>Template D8 distinguishes two modes of composition κ (MVD p. 42; <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.8):</p>
 <ul>
 <li><strong>Mixture</strong> (<em>mishran</em>): components <strong>all maintain their respective conducts</strong> — aggregation without a new joint conduct.</li>
-<li><strong>Compound</strong> (<em>yaugik</em>): components combine <strong>in definite proportion</strong>, <strong>discard their own conducts</strong>, and <strong>present another kind of conduct</strong> — a genuinely new unit with its own <strong>sig(<em>u</em>) = ⟨roop, gun, svabhav, dharma⟩</strong>, where <strong>gun</strong> is generative, degenerative, or mediative in mutuality (MVD pp. 50–51; template D1, D1a).</li>
+<li><strong>Compound</strong> (<em>yaugik</em>): components combine <strong>in definite proportion</strong>, <strong>discard their own conducts</strong>, and <strong>present another kind of conduct</strong> — a genuinely new unit with its own <strong>sig(<em>u</em>) = ⟨roop, gun, svabhav, <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span>⟩</strong>, where <strong>gun</strong> is generative, degenerative, or mediative in mutuality (MVD pp. 50–51; template D1, D1a).</li>
 </ul>
-<p><strong>Only compound-mode κ creates a new tier</strong> of the hierarchy (template L6). <strong>Composition is not development</strong> (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.8): arbitrary coproducts and colimits do not model ontological order ascent; only admissible compound-mode κ_comp along <em>vikas-kram</em> reaches T1. Development Progression (<em>vikas-kram</em>) toward <em>gathanpurnata</em> is the canonical <strong>compound</strong> path (MVD p. 8; SB pp. 55, 59). Awakening Progression (<em>jagriti-kram</em>) runs in already constitutionally complete <em>jeevan</em> and must not be conflated with material-tier κ (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §§1.9–1.10).</p>
+<p><strong>Only compound-mode κ creates a new tier</strong> of the hierarchy (template L6). <strong>Composition is not development</strong> (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.8): arbitrary coproducts and colimits do not model ontological order ascent; only admissible compound-mode κ_comp along <em>vikas-kram</em> reaches T1. Development Progression (<em>vikas-kram</em>) toward <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="gathanpurnata" data-definition="Constitutional completeness — when a developed atom integrates required particles and crosses irreversibly into sentient *<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span>*.">gathanpurnata</button></span></em> is the canonical <strong>compound</strong> path (MVD p. 8; SB pp. 55, 59). Awakening Progression (<em>jagriti-kram</em>) runs in already constitutionally complete <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> and must not be conflated with material-tier κ (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §§1.9–1.10).</p>
 <h4>Categorical semantics: two colimit-like constructors</h4>
 <p>Work in a category <strong><code>Unit</code></strong> of units typed by order (objects carry a label in <code>Ord</code>).</p>
 <p><strong>Mixture</strong> κ_mix(<em>u₁</em>, <em>u₂</em>): a <strong>coproduct</strong> (or coproduct preserved in a subcategory at <strong>fixed order</strong>)</p>
@@ -983,7 +1097,7 @@ Conflicting local value-structures -&gt;  forced collapse  -&gt;  no coherent un
 </code></pre>
 <p>with injections <strong>i₁</strong>, <strong>i₂</strong>, such that:</p>
 <ul>
-<li>Each component&rsquo;s conduct factorises through its injection — <strong>no fusion</strong> of <em>dharma</em>.</li>
+<li>Each component&rsquo;s conduct factorises through its injection — <strong>no fusion</strong> of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>.</li>
 <li>sig(κ_mix) <strong>decomposes</strong> as the pair (sig(<em>u₁</em>), sig(<em>u₂</em>)) — same tier, side-by-side.</li>
 <li>Example gloss: co-present units in a mixture without a new joint law — aggregate, not ascent.</li>
 </ul>
@@ -1010,7 +1124,7 @@ flowchart TD
 </div>
 <h4>Relation to §6.8 colimits</h4>
 <p>§6.8 models <strong>undivided society</strong> as <code>colim D</code> over families. Read by mode:</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Reading</th>
@@ -1030,10 +1144,10 @@ flowchart TD
 <td>Colimit with compatibility (L4); new tier of assembly</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>The <strong>universal property</strong> of §6.8 is the <strong>compound</strong> case: agreement on overlaps is the fusion relation. Mixture corresponds to a <strong>disjoint coproduct</strong> of family categories with no shared quotient — weaker cohesion.</p>
 <h4>Order-relative examples</h4>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Tier</th>
@@ -1058,7 +1172,7 @@ flowchart TD
 <td>Family → community → undivided society (MVD p. 55)</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h4>6.9.1 Complementarity as an external guard (L3)</h4>
 <p>Template <strong>L3</strong> drives κ_comp: bonding from <strong>complementary deficiency and surplus</strong> (MVD p. 8), not from arbitrary pairs. Category theory supplies <strong>the form</strong> of colimits and coproducts; it does <strong>not</strong> supply <strong>which spans are admissible</strong>.</p>
 <p>Model L3 as a <strong>subcategory</strong> or <strong>predicate</strong> on spans:</p>
@@ -1066,11 +1180,11 @@ flowchart TD
 (u1 &lt;- s -&gt; u2) admissible  iff  need(u1) complements surplus(u2) [and order rules]
 </code></pre>
 <p>Only admissible spans define κ_comp transitions. This is proposition <strong>P9</strong> restated at the composition layer: <strong>L3 is a selection rule on diagrams</strong>, not a universal property. The Petri net of §6.10 labels <strong>transitions</strong>, not <strong>which transitions nature permits</strong>.</p>
-<p><strong>Conditional conclusion:</strong> <em>if</em> L3 is the engine of assembly, then a categorical model of Madhyasth Darshan must treat <strong><code>AdmissibleComp</code></strong> (or an equivalent guard) as <strong>given data</strong> alongside the categories — the same division of labour noted in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.html">The Coexistence Template</a> §7.</p>
+<p><strong>Conditional conclusion:</strong> <em>if</em> L3 is the engine of assembly, then a categorical model of <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> must treat <strong><code>AdmissibleComp</code></strong> (or an equivalent guard) as <strong>given data</strong> alongside the categories — the same division of labour noted in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.html">The Coexistence Template</a> §7.</p>
 <h3>6.10 Development as a monoidal/Petri process</h3>
-<p><strong>Development Progression</strong> (<em>vikas-kram</em>) — distinct from <strong>Awakening Progression</strong> (<em>jagriti-kram</em>) in already constitutionally complete <em>jeevan</em> (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §§1.8–1.9) — runs through effort–motion–result (<em>shram–gati–parinam</em>), read toward completeness at each stage: result → constitutional completeness; effort → activity completeness; motion → conduct completeness (SB p. 58). <em>Kaal</em> is the duration of that activity, not an independent container (<a href="https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.html">Nature of Time</a> §1.1).</p>
+<p><strong>Development Progression</strong> (<em>vikas-kram</em>) — distinct from <strong>Awakening Progression</strong> (<em>jagriti-kram</em>) in already constitutionally complete <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §§1.8–1.9) — runs through effort–motion–result (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="shram-gati-parinam" data-definition="Effort–motion–result — the single inseparable triad in which all change appears.">shram–gati–parinam</button></span></em>), read toward completeness at each stage: result → constitutional completeness; effort → activity completeness; motion → conduct completeness (SB p. 58). <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">Kaal</button></span></em> is the duration of that activity, not an independent container (<a href="https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.html">Nature of Time</a> §1.1).</p>
 <p>Hungry/overfull atomic bonding is <strong>compound-mode</strong> κ_comp guarded by L3 (§6.9.1). The progression is <strong>resource-sensitive</strong>, best modelled by a <strong>symmetric monoidal category</strong> (equivalently the free such category on a Petri net), where the tensor is co-presence of resources and <strong>transitions consume inputs to produce outputs</strong>.</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Layer</th>
@@ -1117,12 +1231,12 @@ flowchart TD
 <td>T3: conduct completeness; <em>pramanikta</em> via <code>ev</code></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>Mixture transitions</strong> (if included) are <strong>identity-preserving</strong> on each factor — token duplication without fusion — and do <strong>not</strong> advance Development Progression toward a new tier. Likewise, social colimits (§6.8) and large assemblies do <strong>not</strong> substitute for order transition: composition is not development (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.8).</p>
-<p>Transitions toward <em>gathanpurnata</em> are generally <strong>not invertible</strong> — the constitutionally complete atom does not revert to insentient configuration (SB p. 55). Insentient cycles may still exhibit <strong>cyclical restoration</strong> in exchange (SB pp. 52–53; <a href="https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.html">Nature of Time</a> §3.5). The Petri model captures <strong>bookkeeping</strong> of compound κ along <em>vikas-kram</em>, not metaphysical content, and would equally model &ldquo;matter + effort → magic.&rdquo; Structure cannot certify content.</p>
+<p>Transitions toward <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="gathanpurnata" data-definition="Constitutional completeness — when a developed atom integrates required particles and crosses irreversibly into sentient *<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span>*.">gathanpurnata</button></span></em> are generally <strong>not invertible</strong> — the constitutionally complete atom does not revert to insentient configuration (SB p. 55). Insentient cycles may still exhibit <strong>cyclical restoration</strong> in exchange (SB pp. 52–53; <a href="https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.html">Nature of Time</a> §3.5). The Petri model captures <strong>bookkeeping</strong> of compound κ along <em>vikas-kram</em>, not metaphysical content, and would equally model &ldquo;matter + effort → magic.&rdquo; Structure cannot certify content.</p>
 <h3>6.11 Propositions (conditional, with hidden premises exposed)</h3>
 <p>These are stated as: <strong>structural claim, given premise P</strong>. None is a theorem about reality.</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>#</th>
@@ -1229,10 +1343,10 @@ flowchart TD
 <td>Valid; links §6.8 to MVD p. 12 tradition step</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>P6</strong> (undivided society colimit) is the only place ordinary category theory does substantive independent work on gluing. Elsewhere the notation sharpens and exposes the argument, but the load is carried by a Madhyasth premise or by structure outside CT (P8–P9, L3 guard in §6.9.1).</p>
 <h3>6.12 Coverage map: what is represented, and how well</h3>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Madhyasth concept</th>
@@ -1399,26 +1513,26 @@ flowchart TD
 <td>True; philosophy supplies it</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3>6.13 What does NOT fit well (and why)</h3>
 <ol>
 <li>
-<p><strong><code>Jeevan</code> as a substance.</strong> Category theory is structuralist: by Yoneda, an object just <em>is</em> its web of morphisms. A faithful categorical reading inevitably re-describes <code>jeevan</code> as a <strong>functional role</strong> — precisely the reductionist/functionalist position the darshan rejects. The formalism cannot represent &ldquo;substantial existence over and above relational role&rdquo; without leaving category theory. <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> commits to the <strong>Saturation-Reflector Model</strong> (§6.6) — ever-present <em>gyan</em> actualised through a constitutionally complete reflector, not generated from dead matter — as the latency reply to this structuralism-vs-substance tension for <em>jeevan</em>.</p>
+<p><strong><code>Jeevan</code> as a substance.</strong> Category theory is structuralist: by Yoneda, an object just <em>is</em> its web of morphisms. A faithful categorical reading inevitably re-describes <code>jeevan</code> as a <strong>functional role</strong> — precisely the reductionist/functionalist position the darshan rejects. The formalism cannot represent &ldquo;substantial existence over and above relational role&rdquo; without leaving category theory. <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> commits to the <strong>Saturation-Reflector Model</strong> (§6.6) — ever-present <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="gyan" data-definition="Knowledge in several distinct senses in the texts — ontological given, intelligibility-ground, telos of fulfilled relationships, and unfolding through awakened *jeevan*.">gyan</button></span></em> actualised through a constitutionally complete reflector, not generated from dead matter — as the latency reply to this structuralism-vs-substance tension for <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>.</p>
 </li>
 <li>
-<p><strong>Samadhi / samyama as the warrant.</strong> Nagraj&rsquo;s epistemic foundation is <em>sadhana-samadhi-samyama</em> (MVD p. 7): private, first-person, non-relational. It is the <em>source of the axioms</em> and necessarily sits <strong>outside</strong> the categories — distinct from <em>anubhav jnan</em> (ontological given, template D12 AJ) and from <em>satta mein anubhav</em> (telos TEL).</p>
+<p><strong>Samadhi / samyama as the warrant.</strong> Nagraj&rsquo;s epistemic foundation is <em>sadhana-samadhi-samyama</em> (MVD p. 7): private, first-person, non-relational. It is the <em>source of the axioms</em> and necessarily sits <strong>outside</strong> the categories — distinct from <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="anubhav-jnan" data-definition="Realisation Knowledge — the ontological given in saturated units: form, properties, essential nature, *<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span>*, and orderliness.">anubhav jnan</button></span></em> (ontological given, template D12 AJ) and from <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span> mein anubhav</em> (telos TEL).</p>
 </li>
 <li>
 <p><strong>Constitutional completeness as content.</strong> Encodable as an irreversible transition, but the Petri structure is content-agnostic; the specific metaphysical claim is invisible to it.</p>
 </li>
 <li>
-<p><strong>Saturation vs unit relationships.</strong> Omnipresence provisions inherent energy and regulation in every unit through pervasive co-location (A1–A2) — mutual dependence for manifestation, not physical extraction from <em>O</em> — but <strong>O</strong> is <strong>not</strong> a member of <strong>U</strong> and not an arrow in <code>Rel</code>. Saturation is the first ontological layer; the <strong>regulation ladder</strong> (D2a–D2b) is how that layer reaches order-specific conduct and inward <em>jeevan</em> regulation without <em>O</em> acting as governor; <strong>justice</strong> (D7) is the knowledge-order closure — distinct from universal <strong>law</strong> (Ontology §1.10.1); <em>sambandh</em> is the second layer of unit-to-unit structure (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §§1.7, 1.10.1). Terminal object, monoidal unit, or topos-as-space are inadequate substitutes.</p>
+<p><strong>Saturation vs unit relationships.</strong> Omnipresence provisions inherent energy and regulation in every unit through pervasive co-location (A1–A2) — mutual dependence for manifestation, not physical extraction from <em>O</em> — but <strong>O</strong> is <strong>not</strong> a member of <strong>U</strong> and not an arrow in <code>Rel</code>. Saturation is the first ontological layer; the <strong>regulation ladder</strong> (D2a–D2b) is how that layer reaches order-specific conduct and inward <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> regulation without <em>O</em> acting as governor; <strong>justice</strong> (D7) is the knowledge-order closure — distinct from universal <strong>law</strong> (Ontology §1.10.1); <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sambandh" data-definition="Relationship — definite mutuality with expectations predetermined toward completeness.">sambandh</button></span></em> is the second layer of unit-to-unit structure (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §§1.7, 1.10.1). Terminal object, monoidal unit, or topos-as-space are inadequate substitutes.</p>
 </li>
 <li>
 <p><strong>Coexistence: ground and constraint.</strong> It functions as the background that makes composition possible and as a constraint (colimit compatibility). That dual role signals a <strong>first principle</strong> not fully internalisable as a single categorical object.</p>
 </li>
 <li>
-<p><strong>Four knowledge registers and TEL.</strong> <em>Anubhav jnan</em>, <em>gyan</em> as <em>satta</em>, <em>gyan udghatan</em>, and <em>satta mein anubhav</em> (template D12; <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.11) must not be collapsed. TEL (<em>satta mein anubhav</em>) is temptingly a terminal object, but it names relationships fulfilled and coexistence evident — not a new state of <em>O</em> in <code>Sat</code>. The terminal-object analogy loses the experiential, self-involving closure of D13/L7.</p>
+<p><strong>Four knowledge registers and TEL.</strong> <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="anubhav-jnan" data-definition="Realisation Knowledge — the ontological given in saturated units: form, properties, essential nature, *<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span>*, and orderliness.">Anubhav jnan</button></span></em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="gyan" data-definition="Knowledge in several distinct senses in the texts — ontological given, intelligibility-ground, telos of fulfilled relationships, and unfolding through awakened *jeevan*.">gyan</button></span></em> as <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span></em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="gyan" data-definition="Knowledge in several distinct senses in the texts — ontological given, intelligibility-ground, telos of fulfilled relationships, and unfolding through awakened *jeevan*.">gyan</button></span>-udghatan" data-definition="Unfolding of knowledge in thought and conduct — an activity exclusive to awakened *<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span>*, not Omnipresence or insentient matter."><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="gyan" data-definition="Knowledge in several distinct senses in the texts — ontological given, intelligibility-ground, telos of fulfilled relationships, and unfolding through awakened *jeevan*.">gyan</button></span> udghatan</button></span></em>, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span> mein anubhav</em> (template D12; <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.11) must not be collapsed. TEL (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span> mein anubhav</em>) is temptingly a terminal object, but it names relationships fulfilled and coexistence evident — not a new state of <em>O</em> in <code>Sat</code>. The terminal-object analogy loses the experiential, self-involving closure of D13/L7.</p>
 </li>
 <li>
 <p><strong>The self-knowing of the knowledge order.</strong> Knower and known coincide — reflexive. This gestures at fixed points or Yoneda self-reference but risks paradox and is not obviously well-founded.</p>
@@ -1445,7 +1559,7 @@ flowchart TD
 <p><strong>Structuralism vs substantialism</strong> (§6.13.1) is unresolved and possibly unresolvable within category theory — a boundary of the tool, not a bug.</p>
 </li>
 <li>
-<p><strong>&ldquo;Mystery&rdquo; in delusion.</strong> MVD Ch. 17 names <em>bauddhik rahasya</em> when lower <em>jeevan</em> faculties fail to take refuge in the one above — misaligned projection–reflection, not an irreducible ontological opacity (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.10; <a href="https://analyticmadhyasthdarshan.org/Studies/Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.html">Knowledge, Knower, and Known</a> §1.11).</p>
+<p><strong>&ldquo;Mystery&rdquo; in delusion.</strong> MVD Ch. 17 names <em>bauddhik rahasya</em> when lower <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> faculties fail to take refuge in the one above — misaligned projection–reflection, not an irreducible ontological opacity (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.10; <a href="https://analyticmadhyasthdarshan.org/Studies/Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.html">Knowledge, Knower, and Known</a> §1.11).</p>
 </li>
 <li>
 <p><strong>No empirical contact.</strong> Nothing yields a measurement or prediction of <code>jeevan</code>, coexistence, or constitutional completeness.</p>
@@ -1468,7 +1582,7 @@ flowchart TD
 </ol>
 <h3>6.15 Knowledge registers and self-evidencing (template D12–D13, L7)</h3>
 <p><a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.html">The Coexistence Template</a> D12 names four registers the texts must not conflate; D13 and L7 formalise the MVD p. 12 evidence chain for the knowledge order only. This section maps them categorically — conditional sketches, not theorems.</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Register</th>
@@ -1509,7 +1623,7 @@ flowchart TD
 <td>§6.13.2; not AJ</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>Self-evidencing subsystem.</strong> Lower orders run ρ and φ definitely; the knowledge order adds μ, Ξ, and closure of D13:</p>
 <pre><code class="language-text">mu  : Liv -&gt; Eval
 Xi  : Liv -&gt; Liv           (partial; awakened guard)
@@ -1522,17 +1636,17 @@ ev  : Conduct -&gt; Ev        (pramanikta)
      ^                                              |
      +---------------- evidence / tradition ----------+
 </code></pre>
-<p>Categorical honesty: this is a <strong>family</strong> of functors and partial composites across <code>Eval</code>, <code>Conduct</code>, <code>Ev</code>, and <code>Trans</code> — not <code>id_Liv</code>. Transmission τ at the knowledge order must carry <strong>evidenced</strong> understanding (P16), linking the tradition step to education-<em>sanskar</em> (§6.8).</p>
+<p>Categorical honesty: this is a <strong>family</strong> of functors and partial composites across <code>Eval</code>, <code>Conduct</code>, <code>Ev</code>, and <code>Trans</code> — not <code>id_Liv</code>. Transmission τ at the knowledge order must carry <strong>evidenced</strong> understanding (P16), linking the tradition step to education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> (§6.8).</p>
 <p>Epistemic detail: <a href="https://analyticmadhyasthdarshan.org/Studies/Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.html">Knowledge, Knower, and Known</a> §§1.6–1.8. Ontological exposition: <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.11.</p>
 <h2 id="7-limits-and-conclusion">7. Limits and conclusion</h2>
 <p>A clear guide must also say what this does <strong>not</strong> do.</p>
 <ul>
 <li><strong>It does not prove the philosophy.</strong> Drawing <code>jeevan</code> as a box does not show <code>jeevan</code> exists. The diagrams organise the claims; they do not verify them.</li>
 <li><strong>It can quietly shrink <code>jeevan</code>.</strong> Category theory describes things purely by their relationships. But the darshan insists <code>jeevan</code> is a real <em>entity</em>, not just a role it plays. The more faithfully you use the mathematics, the more it risks turning <code>jeevan</code> into &ldquo;the thing that does these jobs&rdquo; — closer to the materialist view the darshan rejects. This tension is real and unresolved.</li>
-<li><strong>Samadhi is not the same as ontological <em>anubhav</em>.</strong> The darshan&rsquo;s meditative warrant (<em>sadhana-samadhi-samyama</em>, MVD p. 7) is the <em>source</em> of the axioms and sits outside any diagram — distinct from <em>anubhav jnan</em> (given structure) and from <em>satta mein anubhav</em> (telos evidenced in fulfilment).</li>
+<li><strong>Samadhi is not the same as ontological <em>anubhav</em>.</strong> The darshan&rsquo;s meditative warrant (<em>sadhana-samadhi-samyama</em>, MVD p. 7) is the <em>source</em> of the axioms and sits outside any diagram — distinct from <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="anubhav-jnan" data-definition="Realisation Knowledge — the ontological given in saturated units: form, properties, essential nature, *<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span>*, and orderliness.">anubhav jnan</button></span></em> (given structure) and from <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span> mein anubhav</em> (telos evidenced in fulfilment).</li>
 <li><strong>It adds no third-person evidence.</strong> No measurement of <code>jeevan</code>, constitutional completeness, or coexistence comes out of this notation alone. Madhyasth&rsquo;s own test is conduct-evidence and tradition (MVD p. 12; template D13). Science would still need operational definitions and public observations.</li>
 </ul>
-<p>Category theory is a <strong>lens for clarity</strong>, not a proof machine and not a new physics. It makes Madhyasth Darshan&rsquo;s logic visible, shows exactly what each conclusion depends on, maps naturally onto <a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.html"><em>The Coexistence Template</em></a> — including <strong>sig(<em>u</em>)</strong> and planes (D1a, D11), fibred <strong>cap(<em>u</em>)</strong> (§6.6.1), <strong>mixture/compound</strong> κ (§6.9), <strong>knowledge registers</strong> D12, and <strong>self-evidencing</strong> D13/L7 (§6.15) — and contributes one real insight about social gluing. Ontology–epistemology <strong>closure</strong> at the human tier requires <code>Liv</code> (μ, Ξ, ev), not <code>Rel</code> alone. Saturation, the L3 guard, evidenced transmission, plane typing, and substantial <em>jeevan</em> remain explicit boundaries.</p>
+<p>Category theory is a <strong>lens for clarity</strong>, not a proof machine and not a new physics. It makes <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s logic visible, shows exactly what each conclusion depends on, maps naturally onto <a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.html"><em>The Coexistence Template</em></a> — including <strong>sig(<em>u</em>)</strong> and planes (D1a, D11), fibred <strong>cap(<em>u</em>)</strong> (§6.6.1), <strong>mixture/compound</strong> κ (§6.9), <strong>knowledge registers</strong> D12, and <strong>self-evidencing</strong> D13/L7 (§6.15) — and contributes one real insight about social gluing. Ontology–epistemology <strong>closure</strong> at the human tier requires <code>Liv</code> (μ, Ξ, ev), not <code>Rel</code> alone. Saturation, the L3 guard, evidenced transmission, plane typing, and substantial <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> remain explicit boundaries.</p>
 <div class="mermaid">
 flowchart LR
     Co["Coexistence"] --> Un["Understanding"]
@@ -1545,19 +1659,19 @@ flowchart LR
 <h2 id="references">References</h2>
 <h3>Madhyasth Darshan (primary sources)</h3>
 <ul>
-<li><strong>MVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan — Co-existentialism</em></a>. English translation by Rakesh Gupta. Cited: Realisation Knowledge (p. 11); evidence chain and &ldquo;Believe what is known&rdquo; (p. 12); four orders; unit signature (pp. 50–51); relationships and values; capacity–ability–receptivity (pp. 62, 79, 134, 142); mixture and compound (p. 42); hungry/overfull atoms (p. 8); knowledge unfolding (pp. 115–116, 289); realisation in coexistence (p. 116); three satisfactions (Ch. 4); organisation sustainment (p. 55); samadhi-samyama warrant (p. 7).</li>
+<li><strong>MVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan — Co-existentialism</em></a>. English translation by Rakesh Gupta. Cited: <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="anubhav-jnan" data-definition="Realisation Knowledge — the ontological given in saturated units: form, properties, essential nature, *<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span>*, and orderliness.">Realisation Knowledge</button></span> (p. 11); evidence chain and &ldquo;Believe what is known&rdquo; (p. 12); four orders; unit signature (pp. 50–51); relationships and values; capacity–ability–receptivity (pp. 62, 79, 134, 142); mixture and compound (p. 42); hungry/overfull atoms (p. 8); knowledge unfolding (pp. 115–116, 289); realisation in coexistence (p. 116); three satisfactions (Ch. 4); organisation sustainment (p. 55); samadhi-samyama warrant (p. 7).</li>
 <li><strong>SB</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf"><em>Samadhanatmak Bhautikvad / Resolution Centred Materialism</em></a>. English translation by Rakesh Gupta. Also at https://www.youtube.com/playlist?list=PL69PCoz1OQW0dhshZ0Xv3KtZ7ajJOIpgv (bilingual Hindi and English). Cited: effort–motion–result (p. 58); planes and completeness transitions (pp. 51–52, 92); constitutional completeness (p. 55); essentiality as value (p. 50); value-distinct acts (Ch. 7).</li>
 <li><strong>JV</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf"><em>Jeevan Vidya: An Introduction</em></a>. English translation by Rakesh Gupta. Cited: body as instrument (Ch. 1); complementarity (p. 157); commerce and &ldquo;more&rdquo; (p. 41).</li>
 </ul>
 <h3>Related studies in this collection</h3>
 <ul>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html"><em>The Ontology of Coexistence</em></a> — ontological exposition: coexistence, saturation, <strong>regulation ladder</strong> (§§1.7, 1.10.1, 1.13), <strong>law vs justice</strong> (§1.10.1), six <em>drishti</em> and humane refuge (§1.10.1), inward regulation and <em>kosha</em> mapping (§1.10), unit signature, <em>sambandh</em>, <strong>six-fold value taxonomy</strong> (§1.6), fulfilment by order (§1.6.1), <em>niyati-kram</em> and <em>niyati-vidhi</em> (§§1.5.1, 1.7), four orders and planes, four progressions (§1.9), <em>jeevan</em> and awakening, <em>gathanpurnata</em>, activity triad, conservation (§1.12), four human goals and provisions vs achievements (§1.13)</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html"><em>The Ontology of Coexistence</em></a> — ontological exposition: coexistence, saturation, <strong>regulation ladder</strong> (§§1.7, 1.10.1, 1.13), <strong>law vs justice</strong> (§1.10.1), six <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="drishti" data-definition="Perspective or evaluative lens — in *<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span>*, six built-in perspectives from lower *priya*/*hita*/*labh* to humane *<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="nyaya" data-definition="Justice — complete relational activity: recognise, fulfil, evaluate, mutual satisfaction.">nyaya</button></span>*/*<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span>*/*<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satya" data-definition="Realisation perspective — whether assessment is grounded in coexistence as it is.">satya</button></span>*.">drishti</button></span></em> and humane refuge (§1.10.1), inward regulation and <em>kosha</em> mapping (§1.10), unit signature, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sambandh" data-definition="Relationship — definite mutuality with expectations predetermined toward completeness.">sambandh</button></span></em>, <strong>six-fold value taxonomy</strong> (§1.6), fulfilment by order (§1.6.1), <em>niyati-kram</em> and <em>niyati-vidhi</em> (§§1.5.1, 1.7), four orders and planes, four progressions (§1.9), <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> and awakening, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="gathanpurnata" data-definition="Constitutional completeness — when a developed atom integrates required particles and crosses irreversibly into sentient *<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span>*.">gathanpurnata</button></span></em>, activity triad, conservation (§1.12), four human goals and provisions vs achievements (§1.13)</li>
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.html"><em>The Coexistence Template</em></a> — formal template (κ, τ, ρ, φ, μ, D2a–D2b regulation ladder, D12–D13, L7, L1–L6, D11, P6); reciprocal link at §7 and §6.1.1</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.html"><em>Knowledge, Knower, and Known</em></a> — evidence chain, <em>gyan udghatan</em>, <em>pramana</em> (§§1.2, 1.6–1.8)</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.html"><em>Nature of Time</em></a> — <em>kaal</em> as duration of unit-activity; <em>shram–gati–parinam</em> and directional <em>vikas</em></li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.html"><em>Knowledge, Knower, and Known</em></a> — evidence chain, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="gyan" data-definition="Knowledge in several distinct senses in the texts — ontological given, intelligibility-ground, telos of fulfilled relationships, and unfolding through awakened *jeevan*.">gyan</button></span>-udghatan" data-definition="Unfolding of knowledge in thought and conduct — an activity exclusive to awakened *<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span>*, not Omnipresence or insentient matter."><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="gyan" data-definition="Knowledge in several distinct senses in the texts — ontological given, intelligibility-ground, telos of fulfilled relationships, and unfolding through awakened *jeevan*.">gyan</button></span> udghatan</button></span></em>, <em>pramana</em> (§§1.2, 1.6–1.8)</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.html"><em>Nature of Time</em></a> — <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em> as duration of unit-activity; <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="shram-gati-parinam" data-definition="Effort–motion–result — the single inseparable triad in which all change appears.">shram–gati–parinam</button></span></em> and directional <em>vikas</em></li>
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html"><em>Why Humans Are Not Just Material</em></a> — human-tier anthropology</li>
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.html"><em>Human Behavior and Society</em></a> — conduct and social order</li>
-</ul>
+</ul></main>
 <script type="module">
 import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -1642,6 +1756,82 @@ mermaid.initialize({
   window.addEventListener("resize", () => {
     syncToolbarHeight();
     update();
+  });
+  const scrollToSection = id => {
+    const target = document.getElementById(id);
+    if (!target) return;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+  };
+
+  prev.addEventListener("click", event => {
+    if (prev.classList.contains("is-disabled")) return;
+    const href = prev.getAttribute("href");
+    if (!href || !href.startsWith("#")) return;
+    event.preventDefault();
+    scrollToSection(href.slice(1));
+  });
+  next.addEventListener("click", event => {
+    if (next.classList.contains("is-disabled")) return;
+    const href = next.getAttribute("href");
+    if (!href || !href.startsWith("#")) return;
+    event.preventDefault();
+    scrollToSection(href.slice(1));
+  });
+})();
+</script>
+<script>
+(() => {
+  let floatPanel = document.getElementById("term-tip-float");
+  if (!floatPanel) {
+    floatPanel = document.createElement("div");
+    floatPanel.id = "term-tip-float";
+    floatPanel.className = "term-tip-panel";
+    floatPanel.setAttribute("role", "tooltip");
+    floatPanel.hidden = true;
+    document.body.appendChild(floatPanel);
+  }
+
+  const hide = () => {
+    floatPanel.classList.remove("is-visible");
+    floatPanel.hidden = true;
+    floatPanel.textContent = "";
+  };
+
+  const show = (button, text) => {
+    floatPanel.textContent = text;
+    floatPanel.hidden = false;
+    floatPanel.classList.add("is-visible");
+    const rect = button.getBoundingClientRect();
+    const margin = 8;
+    let top = rect.top - floatPanel.offsetHeight - margin;
+    if (top < margin) top = rect.bottom + margin;
+    let left = rect.left;
+    const maxLeft = window.innerWidth - floatPanel.offsetWidth - margin;
+    if (left > maxLeft) left = Math.max(margin, maxLeft);
+    floatPanel.style.top = `${Math.max(8, top)}px`;
+    floatPanel.style.left = `${Math.max(8, left)}px`;
+  };
+
+  document.querySelectorAll(".term-tip").forEach(button => {
+    const definition = button.getAttribute("data-definition");
+    if (!definition) return;
+    button.setAttribute("aria-describedby", "term-tip-float");
+    const reveal = () => show(button, definition);
+    button.addEventListener("mouseenter", reveal);
+    button.addEventListener("focus", reveal);
+    button.addEventListener("mouseleave", hide);
+    button.addEventListener("blur", hide);
+    button.addEventListener("click", event => {
+      event.stopPropagation();
+      if (floatPanel.hidden) reveal();
+      else hide();
+    });
+  });
+
+  document.addEventListener("click", hide);
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") hide();
   });
 })();
 </script>
