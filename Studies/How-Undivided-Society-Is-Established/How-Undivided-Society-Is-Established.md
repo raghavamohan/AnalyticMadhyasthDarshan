@@ -1,8 +1,8 @@
-# How Akhand Samaj Is Established
+# How Undivided Society Is Established
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 27, 2026, 11:26 PM IST
+**Edited on:** June 27, 2026, 11:33 PM IST
 **Status:** Draft
 **The question:** What is Madhyasth Darshan's grand vision of undivided society (*akhand samaj*), and how — according to the primary texts — is it established and evidenced?
 
@@ -333,7 +333,7 @@ Each blocker maps to a specific layer failure: evaluation stuck in *priya–hita
 
 The establishment of *akhand samaj* is one chain with five layers and a telos. The delusionlessness ladder (§1.9.2) is the structural spine: Layer 3 closes the knowledge-order gate (delusionlessness → awakening → enlightenment); Layer 4 evidences lordship and sovereignty in assemblies; the telos is undivided society with universal orderliness.
 
-![Five-layer architecture from coexistence ground through knowledge-order gate to akhand samaj and sarvabhaum vyavastha](1-akhand-samaj-architecture.svg)
+![Five-layer architecture from coexistence ground through knowledge-order gate to undivided society and universal orderliness](1-undivided-society-architecture.svg)
 
 The diagram depicts five horizontal layers rising from coexistence ground at the bottom to *akhand samaj* at the top, with arrows showing how each layer depends on the one below and enables the one above. The telos sits above Layer 4 as the culminating evidence.
 
