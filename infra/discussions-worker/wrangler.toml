@@ -1,0 +1,20 @@
+name = "amd-discussions"
+main = "src/index.js"
+compatibility_date = "2024-03-01"
+
+[vars]
+TURNSTILE_SITE_KEY = "0x4AAAAAADoBfrNV5lPeJQWO"
+SITE_ORIGIN = "https://analyticmadhyasthdarshan.org"
+# After first deploy: wrangler d1 create amd-discussions — paste database_id below.
+[[d1_databases]]
+binding = "DB"
+database_name = "amd-discussions"
+database_id = "11f1461e-14c5-4f08-9664-d4d1f7abbe2d"
+
+# Secrets (never commit):
+# npx wrangler secret put SESSION_SECRET
+# npx wrangler secret put TURNSTILE_SECRET_KEY 
+# npx wrangler secret put RESEND_API_KEY 
+# npx wrangler secret put ADMIN_EMAILS 
+# Optional: npx wrangler secret put ALLOWED_ORIGINS
+# Optional: npx wrangler secret put EMAIL_FROM

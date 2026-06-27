@@ -17,10 +17,12 @@ from _common import (
     REFERENCES,
     SCRIPTS,
     STUDIES,
+    application_discussion_href,
     application_html_href,
     application_pdf_href,
     iter_study_md_paths,
     known_study_slugs,
+    study_discussion_href,
     study_html_href,
     study_md,
     study_pdf_href,
@@ -337,6 +339,9 @@ def row_to_catalog_entry(row: StudyRow) -> dict:
     html_href = row_html_href(row)
     if html_href:
         entry["html"] = html_href
+    discussion_href = row_discussion_href(row)
+    if discussion_href:
+        entry["discussion"] = discussion_href
     return entry
 
 
@@ -565,13 +570,24 @@ def row_html_href(row: StudyRow) -> str | None:
     return study_html_href(row.slug)
 
 
+def row_discussion_href(row: StudyRow) -> str | None:
+    if not row.has_pdf:
+        return None
+    if row.table == StudyTable.APPLIED:
+        return application_discussion_href(row.slug)
+    return study_discussion_href(row.slug)
+
+
 def serialize_md_row(row: StudyRow) -> str:
     status_cell = format_status_catalog(row.edited_at, row.status)
     title = display_title(row)
     description = normalize_description(row.description, row.status)
     href = row_html_href(row) or row_pdf_href(row)
+    discuss_href = row_discussion_href(row)
     if href:
         doc_cell = f"[{title}]({href})"
+        if discuss_href:
+            doc_cell += f" · [Discuss]({discuss_href})"
     else:
         doc_cell = f"*{title}* <!-- slug: {row.slug} -->"
     return (
@@ -639,6 +655,10 @@ def write_studies_catalog(rows: list[StudyRow], table: StudyTable) -> None:
         encoding="utf-8",
     )
     write_study_feedback_template()
+
+    from _build_discussion_pages import build_discussion_pages_for_rows
+
+    build_discussion_pages_for_rows(rows)
 
 
 STUDY_FEEDBACK_TEMPLATE_PATH = BASE / ".github" / "ISSUE_TEMPLATE" / "study-feedback.yml"
@@ -960,6 +980,12 @@ def regenerate_pdf(md_path: Path, status: StudyStatus) -> None:
     verify_study_pdf_diagrams(md_path, pdf_path)
     verify_study_pdf_fenced_code(md_path, pdf_path)
     verify_study_pdf_outline(md_path, pdf_path)
+
+    from _build_discussion_pages import write_discussion_page
+
+    row_info = get_study_row(md_path.parent.name)
+    if row_info:
+        write_discussion_page(row_info[0])
 
 
 def title_to_slug(title: str) -> str:

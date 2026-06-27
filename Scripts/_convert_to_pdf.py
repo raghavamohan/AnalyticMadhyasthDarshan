@@ -2,6 +2,7 @@ import argparse
 import html as html_module
 import json
 import re
+import sys
 from pathlib import Path
 from urllib.parse import quote, unquote, urlparse
 
@@ -153,6 +154,7 @@ def _study_toolbar_html(md_path: Path, *, is_draft: bool, title: str) -> str:
     except ValueError:
         catalog_href = "../index.html"
     pdf_href = f"{stem}.pdf"
+    discuss_href = "discussion.html"
     feedback_href = _feedback_href(title)
     title_html = _format_toolbar_title(title, is_draft=is_draft)
     return f"""<nav class="study-toolbar" aria-label="Study navigation">
@@ -160,6 +162,7 @@ def _study_toolbar_html(md_path: Path, *, is_draft: bool, title: str) -> str:
     <a class="study-toolbar-link study-toolbar-back" href="{catalog_href}">&larr; All studies</a>
     <p class="study-toolbar-title">{title_html}</p>
     <span class="study-toolbar-actions">
+      <a class="study-toolbar-link study-toolbar-discuss" href="{discuss_href}">Discuss</a>
       <a class="study-toolbar-link study-toolbar-download" href="{pdf_href}" download>Download PDF</a>
       <a class="study-toolbar-link study-toolbar-feedback" href="{feedback_href}">Suggest a correction</a>
     </span>
@@ -903,7 +906,19 @@ def main() -> None:
     if args.watermark:
         print("Note: --watermark on _convert_to_pdf.py is ignored; use _html_to_pdf.js instead.")
 
-    output_path = convert_to_html(input_path)
+    from _study_catalog import StudyStatus, parse_status_md
+
+    md_text = input_path.read_text(encoding="utf-8")
+    status = parse_status_md(md_text)
+    if status == StudyStatus.ONGOING:
+        print(f"Skipping ongoing study (no HTML): {input_path}", file=sys.stderr)
+        raise SystemExit(1)
+
+    output_path = convert_to_html(
+        input_path,
+        is_draft=status == StudyStatus.DRAFT,
+        include_web_chrome=True,
+    )
     print(f"HTML written to: {output_path}")
 
 
