@@ -10,8 +10,9 @@ SCRIPTS = Path(__file__).resolve().parent
 if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
-from _common import STUDIES  # noqa: E402
+from _common import BASE, STUDIES  # noqa: E402
 from _study_catalog import (  # noqa: E402
+    STUDY_FEEDBACK_TEMPLATE_PATH,
     StudyTable,
     catalog_markers,
     load_catalog_rows,
@@ -461,11 +462,15 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     box-shadow: var(--shadow);
   }
   .start-here h2 {
-    font-size: 22px;
-    margin: 0 0 8px;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 10px;
     border: none;
     padding: 0;
-    color: #1a1612;
   }
   .start-here-intro {
     font-size: 15px;
@@ -487,8 +492,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     color: var(--text-muted);
     margin-left: 4px;
   }
-  .read-link { color: var(--accent); text-decoration: none; font-weight: 600; white-space: nowrap; }
-  .read-link:hover { color: var(--accent-hover); }
   .card-actions {
     display: inline-flex;
     align-items: center;
@@ -571,6 +574,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       --shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
     }
     h1, h2, h3 { color: #f5f1ec; }
+    .start-here h2 { color: var(--accent); }
     .page-nav { background: rgba(26, 24, 21, 0.92); }
     .search input, .seg, .triad-item { background: #1e1b18; }
     .search input::placeholder { color: #6f655a; }
@@ -991,7 +995,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     const badgeLabel = !avail ? "Planned" : (s.status === "released" ? "Released" : "Draft");
     const draftTitle = s.status === "draft" ? ' title="Draft PDF includes a watermark"' : "";
     const foot = avail
-      ? `<span class="badge ${badgeClass}"${draftTitle}><span class="badge-dot"></span>${badgeLabel}</span><span class="card-actions"><a class="read-link" href="${htmlHref}">Read</a><a class="pdf-download" href="${pdfHref}" download title="Download PDF" aria-label="Download PDF for ${escAttr(s.t)}">${PDF_DOWNLOAD_ICON}</a></span>`
+      ? `<span class="badge ${badgeClass}"${draftTitle}><span class="badge-dot"></span>${badgeLabel}</span><span class="card-actions"><a class="pdf-download" href="${pdfHref}" download title="Download PDF" aria-label="Download PDF for ${escAttr(s.t)}">${PDF_DOWNLOAD_ICON}</a></span>`
       : `<span class="badge planned"><span class="badge-dot"></span>Planned</span><span>Not yet published</span>`;
     const dateLine = avail && s.updated
       ? `<div class="card-foot" style="border:none;padding:6px 0 0;color:#9a8f80;">Updated ${s.updated}</div>`
@@ -1277,6 +1281,12 @@ def main() -> int:
     if applied_rows:
         write_studies_catalog(applied_rows, StudyTable.APPLIED)
         print(f"Wrote {len(applied_rows)} applied catalog entries to catalog-applied.json.")
+
+    if STUDY_FEEDBACK_TEMPLATE_PATH.is_file():
+        print(
+            f"Wrote study feedback template to "
+            f"{STUDY_FEEDBACK_TEMPLATE_PATH.relative_to(BASE)}."
+        )
 
     return 0
 
