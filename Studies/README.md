@@ -46,7 +46,7 @@ Select any linked title to open the full study in your browser.
 | *Nature Ecology and Right Use* <!-- slug: Nature-Ecology-And-Right-Use --> | Ecology, Axiology | Nature, Earth, right-use, regeneration, ecological balance, and coexistence with the other orders | Ongoing |
 | *Spiritual Practice and Realization* <!-- slug: Spiritual-Practice-And-Realization --> | Spiritual Practice | Anubhav, realization, awakening, yoga, liberation from mystery, liberation from suffering, and comparison with moksha traditions | Ongoing |
 | *Science Technology and Human Purpose* <!-- slug: Science-Technology-And-Human-Purpose --> | Philosophy of Science | Science, technology, production, convenience, human purpose, and the limits of instrumental knowledge | Ongoing |
-| [How Akhand Samaj Is Established](How-Akhand-Samaj-Is-Established/How-Akhand-Samaj-Is-Established.html) | Social Philosophy, Axiology | Consolidated architectural account of how undivided society and universal orderliness are established and evidenced in Madhyasth Darshan | Draft<br>Last updated on: Jun 27, 2026, 11:26 PM IST |
+| [How Undivided Society Is Established](How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html) | Social Philosophy, Axiology | Consolidated architectural account of how undivided society and universal orderliness are established and evidenced in Madhyasth Darshan | Draft<br>Last updated on: Jun 27, 2026, 11:33 PM IST |
 <!-- /studies-catalog -->
 
 ### Formal studies

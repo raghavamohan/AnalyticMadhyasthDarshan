@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="820" height="620" viewBox="0 0 820 620" role="img" font-family="Helvetica, Arial, sans-serif">
-  <title>How Akhand Samaj Is Established &#8212; five-layer architecture</title>
-  <desc>Five layers from coexistence ground to social evidence: Layer 0 coexistence and regulation; Layer 1 composition and orders; Layer 2 progressions and T1; Layer 3 knowledge-order gate; Layer 4 akhand samaj and sarvabhaum vyavastha telos.</desc>
+  <title>How Undivided Society Is Established &#8212; five-layer architecture</title>
+  <desc>Five layers from coexistence ground to social evidence: Layer 0 coexistence and regulation; Layer 1 composition and orders; Layer 2 progressions and T1; Layer 3 knowledge-order gate; Layer 4 undivided society and universal orderliness telos.</desc>
   <defs>
     <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M0,0 L10,5 L0,10 z" fill="#4A6274"/>
     </marker>
   </defs>
-  <text x="410" y="28" text-anchor="middle" font-size="20" font-weight="700" fill="#1F2D3A">How Akhand Samaj Is Established</text>
+  <text x="410" y="28" text-anchor="middle" font-size="20" font-weight="700" fill="#1F2D3A">How Undivided Society Is Established</text>
   <text x="410" y="48" text-anchor="middle" font-size="11.5" fill="#5A6B78">Consolidated architecture &#8212; five layers to evidenced undivided society and universal orderliness</text>
 
   <rect x="30" y="68" width="760" height="72" rx="8" fill="#E9F0F4" stroke="#9DB4C2" stroke-width="1.2"/>
@@ -33,11 +33,11 @@
   <rect x="30" y="404" width="760" height="88" rx="8" fill="#E4F0EA" stroke="#8FBAA3" stroke-width="1.2"/>
   <text x="44" y="426" font-size="12" font-weight="700" fill="#28543F">Layer 4 &#183; Social establishment (evidence)</text>
   <text x="44" y="444" font-size="10.2" fill="#3F4D57">sociality &#8594; production &#8594; sadupyog &#8594; humaneness &#8594; undivided sociality</text>
-  <text x="44" y="460" font-size="10.2" fill="#3F4D57">four goals jointly evidenced &#183; family &#8594; community &#8594; akhand samaj</text>
+  <text x="44" y="460" font-size="10.2" fill="#3F4D57">four goals jointly evidenced &#183; family &#8594; community &#8594; undivided society</text>
   <text x="44" y="476" font-size="10.2" fill="#3F4D57">five orderliness dimensions &#183; ten-tier family orderliness &#183; education-sanskar</text>
 
   <rect x="130" y="510" width="560" height="56" rx="10" fill="#2F5168" stroke="#1F3545" stroke-width="1.5"/>
-  <text x="410" y="534" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">Telos: Akhand Samaj + Sarvabhaum Vyavastha</text>
+  <text x="410" y="534" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">Telos: Undivided Society + Universal Orderliness</text>
   <text x="410" y="552" text-anchor="middle" font-size="10.5" fill="#D8E4EC">humankind as one complementary whole &#183; evidenced in awakened tradition</text>
 
   <line x1="410" y1="140" x2="410" y2="152" stroke="#4A6274" stroke-width="2" marker-end="url(#arr)"/>
