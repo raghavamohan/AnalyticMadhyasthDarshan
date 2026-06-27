@@ -14,6 +14,7 @@ import {
   countRecentMagicTokens,
   ensureThread,
   findOrCreateUser,
+  getComment,
   hideComment,
   insertComment,
   listComments,
@@ -98,26 +99,43 @@ function workerOrigin(request) {
   return `${url.protocol}//${url.host}`;
 }
 
+function commentPermissions(row, session, env) {
+  const isOwn = Boolean(session?.userId && row.user_id === session.userId);
+  const admin = Boolean(session && isAdmin(session, env));
+  return {
+    canDelete: isOwn,
+    canHide: admin && !isOwn,
+  };
+}
+
+function mapCommentRow(row, session, env) {
+  const { canDelete, canHide } = commentPermissions(row, session, env);
+  return {
+    id: row.id,
+    parentId: row.parent_id,
+    body: row.body,
+    authorName: row.author_name,
+    createdAt: row.created_at,
+    updatedAt: row.updated_at,
+    canDelete,
+    canHide,
+  };
+}
+
 router.options('*', (request, env) => new Response(null, { headers: corsHeaders(request, env) }));
 
 router.get('/api/discussions/:slug', async (request, env) => {
   try {
     const db = requireDb(env);
     const slug = validateSlug(request.params.slug);
+    const session = await getSession(request, env);
     const url = new URL(request.url);
     const limit = Math.min(Number(url.searchParams.get('limit') || 50), 100);
     const offset = Math.max(Number(url.searchParams.get('offset') || 0), 0);
     const comments = await listComments(db, slug, { limit, offset });
     return jsonResponse(request, env, {
       slug,
-      comments: comments.map((row) => ({
-        id: row.id,
-        parentId: row.parent_id,
-        body: row.body,
-        authorName: row.author_name,
-        createdAt: row.created_at,
-        updatedAt: row.updated_at,
-      })),
+      comments: comments.map((row) => mapCommentRow(row, session, env)),
     });
   } catch (err) {
     return jsonResponse(request, env, { error: err.message }, err.status || 500);
@@ -145,6 +163,7 @@ router.post('/api/discussions/:slug/comments', async (request, env) => {
       body,
     });
 
+    const createdAt = nowMs();
     return jsonResponse(request, env, {
       success: true,
       comment: {
@@ -152,8 +171,10 @@ router.post('/api/discussions/:slug/comments', async (request, env) => {
         parentId: data.parentId || null,
         body,
         authorName: session.displayName,
-        createdAt: nowMs(),
-        updatedAt: nowMs(),
+        createdAt,
+        updatedAt: createdAt,
+        canDelete: true,
+        canHide: false,
       },
     }, 201);
   } catch (err) {
@@ -170,7 +191,36 @@ router.post('/api/discussions/:slug/comments/:commentId/hide', async (request, e
       throw err;
     }
     const db = requireDb(env);
-    validateSlug(request.params.slug);
+    const slug = validateSlug(request.params.slug);
+    const comment = await getComment(db, request.params.commentId, slug);
+    if (!comment || comment.status !== 'visible') {
+      const err = new Error('Comment not found.');
+      err.status = 404;
+      throw err;
+    }
+    await hideComment(db, request.params.commentId);
+    return jsonResponse(request, env, { success: true });
+  } catch (err) {
+    return jsonResponse(request, env, { success: false, error: err.message }, err.status || 500);
+  }
+});
+
+router.post('/api/discussions/:slug/comments/:commentId/delete', async (request, env) => {
+  try {
+    const session = requireSession(await getSession(request, env));
+    const db = requireDb(env);
+    const slug = validateSlug(request.params.slug);
+    const comment = await getComment(db, request.params.commentId, slug);
+    if (!comment || comment.status !== 'visible') {
+      const err = new Error('Comment not found.');
+      err.status = 404;
+      throw err;
+    }
+    if (comment.user_id !== session.userId) {
+      const err = new Error('You can only delete your own comments.');
+      err.status = 403;
+      throw err;
+    }
     await hideComment(db, request.params.commentId);
     return jsonResponse(request, env, { success: true });
   } catch (err) {
