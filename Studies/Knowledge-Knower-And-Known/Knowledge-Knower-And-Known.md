@@ -2,9 +2,8 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 27, 2026, 4:14 PM IST
-**Status:** Draft
-
+**Edited on:** June 27, 2026, 6:13 PM IST
+**Status:** Released
 **The question:** What is knowledge, who is the knower, and what is it that one can know? How do we ground these concepts in experience, and how does the Co-existentialism of Shri A. Nagraj compare with the non-dualism of Advaita Vedanta and the physicalism of modern science and philosophy?
 
 This study examines knowledge, the knower, and the knowable in **Madhyasth Darshan** (Co-existentialism), as presented by **Shri A. Nagraj**, and compares its answers with **Advaita Vedanta** and **modern science and philosophy**.
