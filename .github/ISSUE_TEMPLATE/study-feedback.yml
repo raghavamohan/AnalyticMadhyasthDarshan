@@ -1,5 +1,5 @@
 name: Study feedback
-description: Suggest a correction, terminology note, or factual feedback on an existing study
+description: Suggest a correction or comment on an existing study
 title: "Study feedback: "
 labels:
   - study-feedback
@@ -7,25 +7,35 @@ body:
   - type: markdown
     attributes:
       value: |
-        Use this for **small feedback** on an existing study — typos, unclear terminology, citation fixes, or factual questions.
+        Quick feedback on a published study — typos, terminology, citations, or clarity.
 
-        For **new studies** or full rewrites, use the [Web Submission Portal](https://analyticmadhyasthdarshan.org/Studies/submit.html) or the [study proposal](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-proposal.yml) template instead.
+        For **new studies** or full rewrites, use [My Submissions](https://analyticmadhyasthdarshan.org/Studies/submit.html) instead.
 
-        No approval gate; maintainers triage into small pull requests when appropriate.
-
-  - type: input
-    id: study_slug
+  - type: dropdown
+    id: study
     attributes:
-      label: Study slug
-      description: Folder name under Studies/ (e.g. The-Ontology-of-Coexistence). Pre-filled when opened from a study page.
-      placeholder: The-Ontology-of-Coexistence
+      label: Which study?
+      description: Choose the study your comment is about.
+      options:
+        - Aesthetics
+        - Category Theory Explained
+        - Coexistence Company — Concrete Organizational Structure
+        - Ethics and Morals in Human Beings
+        - How to Form Self-Sustaining Organizations
+        - Human Behavior and Society
+        - Knowledge Knower and Known
+        - Nature of Time
+        - The Coexistence Template
+        - The Ontology of Coexistence
+        - Why Humans Are Not Just Material
+        - General — catalog or website
     validations:
       required: true
 
   - type: dropdown
     id: feedback_type
     attributes:
-      label: Feedback type
+      label: What kind of feedback?
       options:
         - Typo or formatting
         - Terminology / translation
@@ -35,19 +45,12 @@ body:
     validations:
       required: true
 
-  - type: input
-    id: section_reference
-    attributes:
-      label: Section or quote (optional)
-      description: Section heading, paragraph excerpt, or PDF page to locate the issue.
-      placeholder: "§2.3 or paste a short quote"
-
   - type: textarea
     id: description
     attributes:
-      label: Description
-      description: What should change, and why? For terminology, suggest the preferred English gloss if you have one.
+      label: Your comment
+      description: Optional — mention a section (e.g. §2.3) or paste a short quote so we can find the passage.
       placeholder: |
-        The term *sanskar* in §1.7 could use a brief gloss on first use...
+        In §1.7, *sanskar* could use a brief gloss on first use...
     validations:
       required: true

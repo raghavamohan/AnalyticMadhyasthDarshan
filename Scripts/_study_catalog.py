@@ -13,6 +13,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from _common import (
+    BASE,
     REFERENCES,
     SCRIPTS,
     STUDIES,
@@ -637,6 +638,102 @@ def write_studies_catalog(rows: list[StudyRow], table: StudyTable) -> None:
         replace_catalog_block(readme_text, start, end, serialize_md_rows(rows, table)),
         encoding="utf-8",
     )
+    write_study_feedback_template()
+
+
+STUDY_FEEDBACK_TEMPLATE_PATH = BASE / ".github" / "ISSUE_TEMPLATE" / "study-feedback.yml"
+
+STUDY_FEEDBACK_TEMPLATE_HEADER = """name: Study feedback
+description: Suggest a correction or comment on an existing study
+title: "Study feedback: "
+labels:
+  - study-feedback
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Quick feedback on a published study — typos, terminology, citations, or clarity.
+
+        For **new studies** or full rewrites, use [My Submissions](https://analyticmadhyasthdarshan.org/Studies/submit.html) instead.
+
+  - type: dropdown
+    id: study
+    attributes:
+      label: Which study?
+      description: Choose the study your comment is about.
+      options:
+"""
+
+
+STUDY_FEEDBACK_TEMPLATE_FOOTER = """
+    validations:
+      required: true
+
+  - type: dropdown
+    id: feedback_type
+    attributes:
+      label: What kind of feedback?
+      options:
+        - Typo or formatting
+        - Terminology / translation
+        - Factual or citation
+        - Clarity / readability
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Your comment
+      description: Optional — mention a section (e.g. §2.3) or paste a short quote so we can find the passage.
+      placeholder: |
+        In §1.7, *sanskar* could use a brief gloss on first use...
+    validations:
+      required: true
+"""
+
+
+def _yaml_quote(value: str) -> str:
+    if re.search(r'[:#"\'\n]', value):
+        escaped = value.replace("\\", "\\\\").replace('"', '\\"')
+        return f'"{escaped}"'
+    return value
+
+
+def _load_feedback_study_titles() -> list[str]:
+    titles: list[str] = []
+    seen: set[str] = set()
+    for filename in ("catalog-topical.json", "catalog-formal.json", "catalog-applied.json"):
+        path = STUDIES / filename
+        if not path.is_file():
+            continue
+        entries = json.loads(path.read_text(encoding="utf-8"))
+        if not isinstance(entries, list):
+            continue
+        for entry in entries:
+            if not isinstance(entry, dict):
+                continue
+            if entry.get("status") not in {"draft", "released"}:
+                continue
+            title = str(entry.get("title") or entry.get("slug") or "").strip()
+            if title and title not in seen:
+                seen.add(title)
+                titles.append(title)
+    titles.sort(key=str.casefold)
+    titles.append("General — catalog or website")
+    return titles
+
+
+def write_study_feedback_template() -> Path:
+    """Regenerate GitHub study-feedback issue template from catalog JSON."""
+    options = "\n".join(
+        f"        - {_yaml_quote(title)}" for title in _load_feedback_study_titles()
+    )
+    content = STUDY_FEEDBACK_TEMPLATE_HEADER + options + STUDY_FEEDBACK_TEMPLATE_FOOTER
+    STUDY_FEEDBACK_TEMPLATE_PATH.parent.mkdir(parents=True, exist_ok=True)
+    STUDY_FEEDBACK_TEMPLATE_PATH.write_text(content, encoding="utf-8")
+    return STUDY_FEEDBACK_TEMPLATE_PATH
 
 
 def parse_references_readme_rows(content: str) -> list[tuple[str, str]]:

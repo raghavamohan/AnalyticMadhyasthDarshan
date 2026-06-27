@@ -137,9 +137,9 @@ def _format_toolbar_title(title: str, *, is_draft: bool) -> str:
     return escaped
 
 
-def _feedback_href(slug: str) -> str:
-    title = quote(f"Study feedback: {slug}")
-    return f"{FEEDBACK_ISSUES_URL}?template=study-feedback.yml&title={title}"
+def _feedback_href(title: str) -> str:
+    issue_title = quote(f"Study feedback: {title}")
+    return f"{FEEDBACK_ISSUES_URL}?template=study-feedback.yml&title={issue_title}"
 
 
 def _study_toolbar_html(md_path: Path, *, is_draft: bool, title: str) -> str:
@@ -153,7 +153,7 @@ def _study_toolbar_html(md_path: Path, *, is_draft: bool, title: str) -> str:
     except ValueError:
         catalog_href = "../index.html"
     pdf_href = f"{stem}.pdf"
-    feedback_href = _feedback_href(stem)
+    feedback_href = _feedback_href(title)
     title_html = _format_toolbar_title(title, is_draft=is_draft)
     return f"""<nav class="study-toolbar" aria-label="Study navigation">
   <div class="study-toolbar-row study-toolbar-row--primary">
