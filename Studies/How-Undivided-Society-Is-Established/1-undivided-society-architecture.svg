@@ -26,9 +26,9 @@
   <text x="44" y="292" font-size="10.2" fill="#3F4D57">mediative nucleus at atom scale &#8594; mediative atma at sentient scale</text>
 
   <rect x="30" y="320" width="760" height="72" rx="8" fill="#EDE8F4" stroke="#B0A3C8" stroke-width="1.2"/>
-  <text x="44" y="342" font-size="12" font-weight="700" fill="#4A3868">Layer 3 &#183; Knowledge-order gate (achievement)</text>
-  <text x="44" y="360" font-size="10.2" fill="#3F4D57">study &#8594; experiment &#8594; realisation-evidence &#183; T2 activity / T3 conduct (pramanikta)</text>
-  <text x="44" y="376" font-size="10.2" fill="#3F4D57">knowing &#8594; believing &#8594; recognising &#8594; fulfilling &#183; provision vs achievement</text>
+  <text x="44" y="342" font-size="12" font-weight="700" fill="#4A3868">Layer 3 &#183; Knowledge-order narrow gate</text>
+  <text x="44" y="360" font-size="10.2" fill="#3F4D57">Jeevan Vidya catalyst &#183; shanka-swada-bodh &#183; T2 / T3 (pramanikta) &#183; fail &#8594; delusion loop</text>
+  <text x="44" y="376" font-size="10.2" fill="#3F4D57">ichcha reoriented &#183; knowing &#8594; believing &#8594; recognising &#8594; fulfilling</text>
 
   <rect x="30" y="404" width="760" height="88" rx="8" fill="#E4F0EA" stroke="#8FBAA3" stroke-width="1.2"/>
   <text x="44" y="426" font-size="12" font-weight="700" fill="#28543F">Layer 4 &#183; Social establishment (evidence)</text>
@@ -46,5 +46,5 @@
   <line x1="410" y1="392" x2="410" y2="404" stroke="#4A6274" stroke-width="2" marker-end="url(#arr)"/>
   <line x1="410" y1="492" x2="410" y2="510" stroke="#4A6274" stroke-width="2" marker-end="url(#arr)"/>
 
-  <text x="410" y="598" text-anchor="middle" font-size="9.8" fill="#6A7A86">Not automatic under delusion &#8212; awakening closes the gate at Layer 3 before Layer 4 evidence</text>
+  <text x="410" y="598" text-anchor="middle" font-size="9.8" fill="#6A7A86">Layers 0&#8211;2 flow easily; Layer 3 narrow gate &#8212; units that fail loop to delusion; Layer 4 evidences what passes</text>
 </svg>
