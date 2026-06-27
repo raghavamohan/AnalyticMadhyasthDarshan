@@ -67,6 +67,7 @@ export async function listComments(db, slug, { limit = 50, offset = 0 } = {}) {
       c.status,
       c.created_at,
       c.updated_at,
+      c.user_id,
       u.display_name AS author_name
     FROM comments c
     JOIN users u ON u.id = c.user_id
@@ -91,9 +92,17 @@ export async function insertComment(db, {
   `).bind(id, threadSlug, parentId || null, userId, body, ts, ts).run();
 }
 
+export async function getComment(db, commentId, threadSlug) {
+  return db.prepare(`
+    SELECT id, thread_slug, user_id, status
+    FROM comments
+    WHERE id = ? AND thread_slug = ?
+  `).bind(commentId, threadSlug).first();
+}
+
 export async function hideComment(db, commentId) {
   await db.prepare(
-    "UPDATE comments SET status = 'hidden', updated_at = ? WHERE id = ?",
+    "UPDATE comments SET status = 'hidden', updated_at = ? WHERE id = ? AND status = 'visible'",
   ).bind(nowMs(), commentId).run();
 }
 

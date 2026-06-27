@@ -93,7 +93,8 @@ Or manually in Cloudflare dashboard → Workers Routes:
 |-------|------|---------|
 | `GET /api/discussions/:slug` | — | List visible comments for a study |
 | `POST /api/discussions/:slug/comments` | cookie + Turnstile | Post a comment |
-| `POST /api/discussions/:slug/comments/:id/hide` | admin cookie | Soft-hide a comment |
+| `POST /api/discussions/:slug/comments/:id/hide` | admin cookie | Soft-hide another user's comment |
+| `POST /api/discussions/:slug/comments/:id/delete` | author cookie | Soft-hide your own comment |
 | `POST /api/discuss-auth/magic-link` | Turnstile | Send email sign-in link |
 | `GET /api/discuss-auth/verify?token=…&return_to=…` | — | Verify token; set session cookie; redirect |
 | `GET /api/discuss-auth/me` | cookie | `{ loggedIn, email, displayName, isAdmin }` |
@@ -107,7 +108,8 @@ Auth routes use the **`/api/discuss-auth/`** prefix so they do not clash with th
 - Max body length: 8192 characters.
 - Turnstile required on magic-link requests and comment posts.
 - Rate limit: 5 magic-link emails per address per hour.
-- Admins (`ADMIN_EMAILS`) can hide comments via `POST .../hide`.
+- Admins (`ADMIN_EMAILS`) see a **Hide** button on others' comments.
+- Authors see **Delete** on their own comments (same soft-hide in D1).
 - Hidden comments are excluded from `GET /api/discussions/:slug`.
 
 ## Local development

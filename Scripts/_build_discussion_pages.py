@@ -184,6 +184,38 @@ def render_discussion_page(row: StudyRow) -> str:
     color: var(--text-muted);
     margin-bottom: 8px;
   }}
+  .comment-meta-main {{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    align-items: baseline;
+  }}
+  .comment-actions {{
+    display: inline-flex;
+    gap: 8px;
+    flex: 0 0 auto;
+  }}
+  .comment-action {{
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-muted);
+    border-radius: 999px;
+    padding: 2px 10px;
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+  }}
+  .comment-action:hover {{
+    color: var(--accent);
+    border-color: #a5c4d9;
+    background: var(--accent-soft);
+  }}
+  .comment-action--hide:hover {{
+    color: #9a6700;
+    border-color: #e6c27a;
+    background: #fff4e5;
+  }}
   .comment-body {{ white-space: pre-wrap; word-break: break-word; }}
   .alert {{
     padding: 10px 12px;
@@ -282,6 +314,7 @@ def render_discussion_page(row: StudyRow) -> str:
   const authSignedIn = document.getElementById("auth-signed-in");
   const authUserLabel = document.getElementById("auth-user-label");
   const logoutBtn = document.getElementById("logout-btn");
+  let currentSession = {{ loggedIn: false }};
 
   const showAlert = (kind, message) => {{
     alertEl.className = `alert alert-${{kind}}`;
@@ -331,6 +364,17 @@ def render_discussion_page(row: StudyRow) -> str:
     }}
   }};
 
+  const renderCommentActions = (item) => {{
+    const parts = [];
+    if (item.canDelete) {{
+      parts.push(`<button type="button" class="comment-action comment-action--delete" data-action="delete" data-comment-id="${{escapeHtml(item.id)}}">Delete</button>`);
+    }}
+    if (item.canHide) {{
+      parts.push(`<button type="button" class="comment-action comment-action--hide" data-action="hide" data-comment-id="${{escapeHtml(item.id)}}">Hide</button>`);
+    }}
+    return parts.length ? `<span class="comment-actions">${{parts.join("")}}</span>` : "";
+  }};
+
   const renderComments = (comments) => {{
     commentList.innerHTML = "";
     if (!comments.length) {{
@@ -341,10 +385,14 @@ def render_discussion_page(row: StudyRow) -> str:
     comments.forEach((item) => {{
       const li = document.createElement("li");
       li.className = "comment";
+      li.dataset.commentId = item.id;
       li.innerHTML = `
         <div class="comment-meta">
-          <strong>${{escapeHtml(item.authorName || "Reader")}}</strong>
-          <time datetime="${{item.createdAt}}">${{formatWhen(item.createdAt)}}</time>
+          <span class="comment-meta-main">
+            <strong>${{escapeHtml(item.authorName || "Reader")}}</strong>
+            <time datetime="${{item.createdAt}}">${{formatWhen(item.createdAt)}}</time>
+          </span>
+          ${{renderCommentActions(item)}}
         </div>
         <div class="comment-body">${{escapeHtml(item.body)}}</div>`;
       commentList.appendChild(li);
@@ -358,14 +406,41 @@ def render_discussion_page(row: StudyRow) -> str:
     .replace(/"/g, "&quot;");
 
   const setAuthUi = (session) => {{
-    const loggedIn = Boolean(session?.loggedIn);
+    currentSession = session || {{ loggedIn: false }};
+    const loggedIn = Boolean(currentSession.loggedIn);
     magicForm.classList.toggle("hidden", loggedIn);
     authSignedOut.classList.toggle("hidden", loggedIn);
     authSignedIn.classList.toggle("hidden", !loggedIn);
     commentForm.classList.toggle("hidden", !loggedIn);
     composeHint.classList.toggle("hidden", loggedIn);
-    if (loggedIn) authUserLabel.textContent = session.displayName || session.email || "Reader";
+    if (loggedIn) authUserLabel.textContent = currentSession.displayName || currentSession.email || "Reader";
   }};
+
+  const removeComment = async (commentId, action) => {{
+    const prompt = action === "hide" ? "Hide this comment?" : "Delete this comment?";
+    if (!window.confirm(prompt)) return;
+    const path = action === "hide"
+      ? `/api/discussions/${{encodeURIComponent(STUDY_SLUG)}}/comments/${{encodeURIComponent(commentId)}}/hide`
+      : `/api/discussions/${{encodeURIComponent(STUDY_SLUG)}}/comments/${{encodeURIComponent(commentId)}}/delete`;
+    await fetchJson(path, {{ method: "POST", body: "{{}}" }});
+    showAlert("success", action === "hide" ? "Comment hidden." : "Comment deleted.");
+    await loadComments();
+  }};
+
+  commentList.addEventListener("click", async (event) => {{
+    const button = event.target.closest(".comment-action");
+    if (!button) return;
+    const commentId = button.dataset.commentId;
+    const action = button.dataset.action;
+    if (!commentId || !action) return;
+    button.disabled = true;
+    try {{
+      await removeComment(commentId, action);
+    }} catch (err) {{
+      showAlert("error", err.message);
+      button.disabled = false;
+    }}
+  }});
 
   const loadComments = async () => {{
     const data = await fetchJson(`/api/discussions/${{encodeURIComponent(STUDY_SLUG)}}`);
@@ -376,6 +451,7 @@ def render_discussion_page(row: StudyRow) -> str:
     try {{
       const session = await fetchJson("/api/discuss-auth/me");
       setAuthUi(session);
+      await loadComments();
     }} catch (err) {{
       setAuthUi({{ loggedIn: false }});
       showAlert("error", err.message);
@@ -446,13 +522,14 @@ def render_discussion_page(row: StudyRow) -> str:
     try {{
       await fetchJson("/api/discuss-auth/logout", {{ method: "POST", body: "{{}}" }});
       setAuthUi({{ loggedIn: false }});
+      await loadComments();
       showAlert("info", "Signed out.");
     }} catch (err) {{
       showAlert("error", err.message);
     }}
   }});
 
-  Promise.all([loadSession(), loadComments()]).catch((err) => showAlert("error", err.message));
+  loadSession().catch((err) => showAlert("error", err.message));
 }})();
 </script>
 </body>
