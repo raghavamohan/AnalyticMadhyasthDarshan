@@ -1141,7 +1141,8 @@ def minify_inline_css(html: str) -> str:
         css = match.group(1)
         css = re.sub(r"/\*.*?\*/", "", css, flags=re.DOTALL)
         css = re.sub(r"\s+", " ", css)
-        css = re.sub(r"\s*([{}:;,>+~])\s*", r"\1", css)
+        # Keep whitespace around + so calc() stays valid (calc(a + b) requires spaces).
+        css = re.sub(r"\s*([{}:;,>~])\s*", r"\1", css)
         return f"<style>\n{css.strip()}\n</style>"
 
     return re.sub(r"<style>(.*?)</style>", _minify, html, count=1, flags=re.DOTALL)
