@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="color-scheme" content="light dark"/>
 <title>Ethics and Morals in Human Beings</title>
 <style>
@@ -209,8 +210,82 @@
   }
 
   html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 100;
+    padding: 8px 14px;
+    background: #1a5276;
+    color: #fff;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 0 0 8px 0;
+  }
+  .skip-link:focus {
+    left: 0;
+    outline: 2px solid #13405c;
+    outline-offset: 2px;
+  }
   h2[id] {
     scroll-margin-top: calc(var(--study-toolbar-height, 88px) + 10px);
+  }
+  .table-scroll {
+    overflow-x: auto;
+    margin: 12pt 0;
+    -webkit-overflow-scrolling: touch;
+  }
+  .table-scroll table {
+    margin: 0;
+  }
+  .term-tip-wrap {
+    position: relative;
+    display: inline;
+    white-space: normal;
+  }
+  .term-tip {
+    background: none;
+    border: none;
+    border-bottom: 1px dotted #1a5276;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: #1a5276;
+    cursor: help;
+    text-align: inherit;
+  }
+  .term-tip:focus-visible {
+    outline: 2px solid #1a5276;
+    outline-offset: 2px;
+    border-bottom-color: transparent;
+  }
+  .term-tip-panel {
+    display: none;
+    position: fixed;
+    z-index: 40;
+    min-width: 220px;
+    max-width: min(320px, 90vw);
+    padding: 8px 10px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    line-height: 1.45;
+    font-style: normal;
+    font-weight: 400;
+    color: #2a241c;
+    background: #fff;
+    border: 1px solid #c5d9e6;
+    border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(42, 36, 28, 0.12);
+    text-align: left;
+    pointer-events: none;
+  }
+  .term-tip-panel.is-visible {
+    display: block;
   }
   .study-toolbar {
     display: flex;
@@ -235,7 +310,20 @@
     gap: 8px 14px;
   }
   .study-toolbar-row--primary {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1.2fr);
+  }
+  .study-toolbar-actions {
+    justify-self: end;
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    min-width: 0;
+    text-align: right;
+  }
+  .study-toolbar-feedback {
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
   }
   .study-toolbar-row--sections {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -269,6 +357,10 @@
     font-weight: 600;
   }
   .study-toolbar-link:hover { color: #13405c; }
+  .study-toolbar-link:focus-visible {
+    outline: 2px solid #1a5276;
+    outline-offset: 2px;
+  }
   .study-toolbar-section {
     display: block;
     min-width: 0;
@@ -295,6 +387,11 @@
     .study-toolbar-row--primary {
       grid-template-columns: 1fr 1fr;
     }
+    .study-toolbar-actions {
+      grid-column: 1 / -1;
+      justify-self: stretch;
+      justify-content: flex-end;
+    }
     .study-toolbar-title {
       grid-column: 1 / -1;
       white-space: normal;
@@ -305,6 +402,13 @@
   }
   @media print {
     .study-toolbar { display: none !important; }
+    .skip-link { display: none !important; }
+    .term-tip {
+      border-bottom: none;
+      color: inherit;
+      cursor: text;
+    }
+    .term-tip-panel { display: none !important; }
   }
 
   @media screen and (prefers-color-scheme: dark) {
@@ -352,29 +456,39 @@
     .study-toolbar-title { color: #f5f1ec; }
     .study-toolbar-draft { color: #aca194; }
     .study-toolbar-section.is-disabled { color: #6f655a; }
+    .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    .term-tip-panel {
+      color: #e6dfd6;
+      background: #26231e;
+      border-color: #423b33;
+    }
   }
 
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <nav class="study-toolbar" aria-label="Study navigation">
   <div class="study-toolbar-row study-toolbar-row--primary">
     <a class="study-toolbar-link study-toolbar-back" href="../index.html">&larr; All studies</a>
     <p class="study-toolbar-title">Ethics and Morals in Human Beings <span class="study-toolbar-draft">(Draft)</span></p>
-    <a class="study-toolbar-link study-toolbar-download" href="Ethics-And-Morals-In-Human-Beings.pdf" download>Download PDF</a>
+    <span class="study-toolbar-actions">
+      <a class="study-toolbar-link study-toolbar-download" href="Ethics-And-Morals-In-Human-Beings.pdf" download>Download PDF</a>
+      <a class="study-toolbar-link study-toolbar-feedback" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&title=Study%20feedback%3A%20Ethics-And-Morals-In-Human-Beings">Suggest a correction</a>
+    </span>
   </div>
   <div class="study-toolbar-row study-toolbar-row--sections">
     <a class="study-toolbar-link study-toolbar-section study-toolbar-section--prev" id="study-section-prev" href="#" aria-disabled="true">&larr; Previous section</a>
     <a class="study-toolbar-link study-toolbar-section study-toolbar-section--next" id="study-section-next" href="#" aria-disabled="true">Next section &rarr;</a>
   </div>
 </nav>
-<h1>Ethics and Morals in Human Beings</h1>
-<p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> - a group of people studying Madhyasth Darshan philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
+<main id="main"><h1>Ethics and Morals in Human Beings</h1>
+<p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> - a group of people studying <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
 <p><strong>Edited on:</strong> June 26, 2026, 10:28 AM IST
-<strong>The question:</strong> What are ethics and morals in human beings? Are they divine commands, social conventions, evolutionary adaptations, rational principles, neural/emotional mechanisms, or evidence of correct understanding? How does <strong>Madhyasth Darshan</strong> answer these questions, and how does its answer compare with <strong>Advaita Vedanta</strong> and <strong>modern scientific approaches</strong>?</p>
-<p>This study argues that Madhyasth Darshan gives a distinctive answer: human ethics is not merely obedience to rules, calculation of consequences, inherited custom, or emotional intuition. It is the lived evidence of a human being who understands existence as coexistence, understands the self as <code>jeevan</code> in association with the body, and fulfils values in relationships through justice, dharma, truth, character, right-use, and purposeful participation in orderliness.</p>
+<strong>The question:</strong> What are ethics and morals in human beings? Are they divine commands, social conventions, evolutionary adaptations, rational principles, neural/emotional mechanisms, or evidence of correct understanding? How does <strong><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span></strong> answer these questions, and how does its answer compare with <strong>Advaita Vedanta</strong> and <strong>modern scientific approaches</strong>?</p>
+<p>This study argues that <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> gives a distinctive answer: human ethics is not merely obedience to rules, calculation of consequences, inherited custom, or emotional intuition. It is the lived evidence of a human being who understands existence as coexistence, understands the self as <code>jeevan</code> in association with the body, and fulfils values in relationships through justice, <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span>, truth, character, right-use, and purposeful participation in orderliness.</p>
 <h2 id="quick-glossary">Quick Glossary</h2>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Term</th>
@@ -435,20 +549,20 @@
 <td>The empirical study of human thought, emotion, judgment, motivation, and behaviour in moral contexts.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="1-the-central-thesis">1. The Central Thesis</h2>
 <p>The central problem is not simply &ldquo;What rules should humans follow?&rdquo; A more rigorous question is:</p>
 <pre><code class="language-text">What is the source, criterion, evidence, and failure mode of human rightness?
 </code></pre>
-<p>Madhyasth Darshan answers by joining ontology, anthropology, and conduct:</p>
+<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> answers by joining ontology, anthropology, and conduct:</p>
 <ol>
 <li><strong>Source:</strong> Ethics arises from existence as coexistence, not from arbitrary command or social invention.</li>
 <li><strong>Human locus:</strong> Only the human being, as a knowledge-order being with imagination and freedom of action, can understand and evidence ethics.</li>
-<li><strong>Criterion:</strong> Humane conduct is right when it fulfils values in relationships, protects humaneness through justice, disciplines thought through dharma, and remains grounded in truth.</li>
+<li><strong>Criterion:</strong> Humane conduct is right when it fulfils values in relationships, protects humaneness through justice, disciplines thought through <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span>, and remains grounded in truth.</li>
 <li><strong>Evidence:</strong> Ethical understanding must become visible in behaviour, work, production, family, society, and coexistence with nature.</li>
 <li><strong>Failure mode:</strong> Immorality is not explained finally as sin, selfish genes, bad incentives, or irrationality alone. It is explained as delusion: wrong identification, wrong priority, wrong perspective, and failure to understand <code>jeevan</code>, existence, and humane conduct.</li>
 </ol>
-<p>This makes Madhyasth Darshan neither a conventional moral code nor a secular moral psychology. It is a proposed science of humane living grounded in a metaphysics of coexistence.</p>
+<p>This makes <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> neither a conventional moral code nor a secular moral psychology. It is a proposed science of humane living grounded in a metaphysics of coexistence.</p>
 <h2 id="2-ethics-and-morals-a-working-distinction">2. Ethics and Morals: A Working Distinction</h2>
 <p>Ordinary language often treats ethics and morals as synonyms. For analysis, a distinction helps.</p>
 <p><strong>Morals</strong> are the norms a person or community holds: do not lie, care for family, keep promises, respect elders, be faithful, do not steal, do not harm, help the weak, obey duty, follow purity rules, defend the group. Morals are usually taught through family, culture, religion, law, story, reward, punishment, shame, honour, and imitation.</p>
@@ -461,16 +575,16 @@
 <li>What is the evidence that it leads to fulfilment rather than repression, domination, or hypocrisy?</li>
 </ol>
 <p>This distinction matters because many societies have strong morals and weak ethics. They possess rules but cannot justify them universally. Conversely, modern institutions may have elaborate ethical theories but weak moral formation: people know arguments but do not embody trust, restraint, care, or justice.</p>
-<p>Madhyasth Darshan tries to bridge this split. It does not want ethics to remain theory, nor morals to remain inherited rule. It wants <strong>understood conduct</strong>.</p>
+<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> tries to bridge this split. It does not want ethics to remain theory, nor morals to remain inherited rule. It wants <strong>understood conduct</strong>.</p>
 <h2 id="3-the-madhyasth-darshan-answer">3. The Madhyasth Darshan Answer</h2>
 <h3>3.1 Ethics is part of humane conduct</h3>
-<p>The most direct Madhyasth Darshan passage for the present topic appears in <em>Jeevan Vidya: An Introduction</em>:</p>
+<p>The most direct <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> passage for the present topic appears in <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">Jeevan</button></span> Vidya: An Introduction</em>:</p>
 <blockquote>
-<p><strong>&ldquo;Humane conduct is universally consistent across all times and places. It combines values, character, and ethics. Character entails rightfully owned wealth, marital faithfulness, and kindness in actions and behaviour. Ethics involve the right-use and protection of body, mind, and wealth. Values are about evaluation and achieving mutual satisfaction in relationships.&rdquo;</strong><br />
+<p><strong>&ldquo;Humane conduct is universally consistent across all times and places. It combines values, character, and ethics. Character entails rightfully owned wealth, marital faithfulness, and kindness in actions and behaviour. Ethics involve the right-use and protection of body, mind, and wealth. Values are about evaluation and achieving mutual satisfaction in relationships.&rdquo;</strong><br/>
 - JV, p. 165</p>
 </blockquote>
 <p>This is a compressed definition. It does not define morality as rule-obedience, ritual purity, divine command, legal compliance, or social preference. It divides humane conduct into three inseparable dimensions:</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Dimension</th>
@@ -495,7 +609,7 @@
 <td>Resources and capacities must be used rightly, not merely possessed or consumed.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>This definition is unusually concrete. It avoids two common extremes:</p>
 <ol>
 <li><strong>Spiritual abstraction:</strong> Ethics is not reduced to inner purity, detachment, or mystical realization.</li>
@@ -503,11 +617,11 @@
 </ol>
 <p>The human being must evidence humane conduct in relationship, wealth, body, mind, speech, family, society, and nature.</p>
 <h3>3.2 The ethical hierarchy: pleasant, useful, profitable, just, dharmic, true</h3>
-<p>Madhyasth Darshan distinguishes lower and higher standpoints of evaluation:</p>
+<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> distinguishes lower and higher standpoints of evaluation:</p>
 <blockquote>
-<p><strong>&ldquo;All human behaviour is manifest in six perspectives: - (1) pleasant-unpleasant, (2) healthy-unhealthy, (3) profit-loss, (4) justice-injustice, (5) dharma-adharma, and (6) truth-untruth.&rdquo;</strong><br />
+<p><strong>&ldquo;All human behaviour is manifest in six perspectives: - (1) pleasant-unpleasant, (2) healthy-unhealthy, (3) profit-loss, (4) justice-injustice, (5) <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span>-adharma, and (6) truth-untruth.&rdquo;</strong><br/>
 - MVD, p. 67</p>
-<p><strong>&ldquo;The behaviour of humans with inhumane perspective is in the refuge of pleasant-unpleasant, healthy-unhealthy, and profit-loss. The behaviour of humans with humane perspective is in the refuge of justice-injustice, dharma-adharma, and truth-untruth.&rdquo;</strong><br />
+<p><strong>&ldquo;The behaviour of humans with inhumane perspective is in the refuge of pleasant-unpleasant, healthy-unhealthy, and profit-loss. The behaviour of humans with humane perspective is in the refuge of justice-injustice, <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span>-adharma, and truth-untruth.&rdquo;</strong><br/>
 - MVD, p. 67</p>
 </blockquote>
 <p>This is one of the strongest ethical claims in the darshan. It does not deny pleasure, health, or profit. It denies their sufficiency. A human being who lives only by liking, bodily benefit, and gain is not yet living as a fully human being.</p>
@@ -522,20 +636,20 @@ Profit/loss         -&gt; Truth/untruth
 <li>biomedical culture optimizes healthy/unhealthy;</li>
 <li>market culture optimizes profit/loss.</li>
 </ol>
-<p>Madhyasth Darshan does not reject these domains, but subordinates them to justice, dharma, and truth. This is the basis of its critique of both consumer materialism and purely instrumental science.</p>
+<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> does not reject these domains, but subordinates them to justice, <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span>, and truth. This is the basis of its critique of both consumer materialism and purely instrumental science.</p>
 <h3>3.3 Justice, dharma, and truth are not optional ideals</h3>
 <p>MVD states the human requirement directly:</p>
 <blockquote>
-<p><strong>&ldquo;The necessary behaviour for humans is to adhere to the laws of justice, and the necessary thought for humans is to adhere to the laws of dharma.&rdquo;</strong><br />
+<p><strong>&ldquo;The necessary behaviour for humans is to adhere to the laws of justice, and the necessary thought for humans is to adhere to the laws of <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span>.&rdquo;</strong><br/>
 - MVD, p. 67</p>
 </blockquote>
 <p>It later clarifies the internal relation:</p>
 <blockquote>
-<p><strong>&ldquo;The regulation of human behaviour takes place through justice, discipline in thoughts takes place through dharma, and realisation takes place only through truth.&rdquo;</strong><br />
+<p><strong>&ldquo;The regulation of human behaviour takes place through justice, discipline in thoughts takes place through <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span>, and realisation takes place only through truth.&rdquo;</strong><br/>
 - MVD, p. 137</p>
 </blockquote>
 <p>This gives a three-level structure:</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Level</th>
@@ -560,21 +674,21 @@ Profit/loss         -&gt; Truth/untruth
 <td>Grounds justice and dharma in what is ultimately real, not merely preferred.</td>
 </tr>
 </tbody>
-</table>
-<p>Madhyasth Darshan therefore does not treat ethics as only external conduct. Behaviour, thought, and realization must become aligned.</p>
+</table></div>
+<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> therefore does not treat ethics as only external conduct. Behaviour, thought, and realization must become aligned.</p>
 <h3>3.4 Values are fulfilled in relationship</h3>
 <p>MVD defines sociality as value-fulfilment:</p>
 <blockquote>
-<p><strong>&ldquo;Sociality (samajikta): - Fulfilling the values inherent in relationships and associations itself is sociality.&rdquo;</strong><br />
+<p><strong>&ldquo;Sociality (samajikta): - Fulfilling the values inherent in relationships and associations itself is sociality.&rdquo;</strong><br/>
 - MVD, p. 56</p>
 </blockquote>
 <p>This has major implications. The primary site of ethics is neither the isolated individual nor the state. It is the human being in relationship.</p>
 <p>In this sense, moral failure is not merely &ldquo;breaking a rule.&rdquo; It is failure to recognize and fulfil the value inherent in a relationship. Betrayal, exploitation, deceit, violence, hoarding, and humiliation are not wrong merely because a rule says so. They are wrong because they break mutuality, destroy trust, obstruct satisfaction, and contradict coexistence.</p>
-<p>This makes Madhyasth Darshan close to virtue ethics and care ethics in one respect: it takes character and relationship seriously. But it is not identical to either. It claims that relationship-values are grounded in the structure of coexistence, not only in cultivated virtue or affective care.</p>
+<p>This makes <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> close to virtue ethics and care ethics in one respect: it takes character and relationship seriously. But it is not identical to either. It claims that relationship-values are grounded in the structure of coexistence, not only in cultivated virtue or affective care.</p>
 <h3>3.5 Character is social, economic, and bodily</h3>
 <p>The JV definition of character is concrete: rightfully owned wealth, marital faithfulness, and kindness in actions and behaviour. MVD expands this:</p>
 <blockquote>
-<p><strong>&ldquo;The behaviour devoid of ill-gotten wealth, adultery, and hurting others, and the dedication towards righteous wealth, marital faithfulness, and kindness in work and behaviour - is the entirety of just behaviour.&rdquo;</strong><br />
+<p><strong>&ldquo;The behaviour devoid of ill-gotten wealth, adultery, and hurting others, and the dedication towards righteous wealth, marital faithfulness, and kindness in work and behaviour - is the entirety of just behaviour.&rdquo;</strong><br/>
 - MVD, p. 102</p>
 </blockquote>
 <p>This is not a random list. It identifies three recurring sites of disorder:</p>
@@ -583,11 +697,11 @@ Profit/loss         -&gt; Truth/untruth
 <li><strong>Sexual/family life:</strong> betrayal, objectification, instability, misuse of attraction.</li>
 <li><strong>Power over others:</strong> injury, cruelty, humiliation, domination.</li>
 </ol>
-<p>Madhyasth Darshan&rsquo;s ethics is therefore not only about individual conscience. It is also about property, sexuality, family, work, and non-harm.</p>
+<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s ethics is therefore not only about individual conscience. It is also about property, sexuality, family, work, and non-harm.</p>
 <h3>3.6 Ethics means right-use, not renunciation of material life</h3>
 <p>The darshan does not ask humans to reject body, wealth, production, or social organization. It asks for right-use:</p>
 <blockquote>
-<p><strong>&ldquo;Sociality gives rise to needs; needs give rise to experimentation and production; experimentation and production give rise to creation of wealth; creation of wealth gives rise to use, right-use and purposeful-use; use, right-use and purposeful-use give rise to practicality; practicality gives rise to humaneness, and humaneness gives rise to sociality. Sociality is meaningful when it is towards undivided sociality.&rdquo;</strong><br />
+<p><strong>&ldquo;Sociality gives rise to needs; needs give rise to experimentation and production; experimentation and production give rise to creation of wealth; creation of wealth gives rise to use, right-use and purposeful-use; use, right-use and purposeful-use give rise to practicality; practicality gives rise to humaneness, and humaneness gives rise to sociality. Sociality is meaningful when it is towards undivided sociality.&rdquo;</strong><br/>
 - MVD, p. 56</p>
 </blockquote>
 <p>This is a full ethical economy:</p>
@@ -596,29 +710,29 @@ Profit/loss         -&gt; Truth/untruth
 -&gt; Practicality -&gt; Humaneness -&gt; Undivided sociality
 </code></pre>
 <p>Here wealth is neither demonized nor absolutized. It is ethically valid only when it becomes right-use and purposeful-use within humane sociality.</p>
-<p>This is one of Madhyasth Darshan&rsquo;s strongest contributions to ethical theory. Many religious systems oscillate between wealth as temptation and wealth as charity. Many modern systems treat wealth as utility, preference satisfaction, growth, or distribution. Madhyasth Darshan asks whether wealth is being used to protect body, mind, relationship, family, society, and coexistence.</p>
+<p>This is one of <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s strongest contributions to ethical theory. Many religious systems oscillate between wealth as temptation and wealth as charity. Many modern systems treat wealth as utility, preference satisfaction, growth, or distribution. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> asks whether wealth is being used to protect body, mind, relationship, family, society, and coexistence.</p>
 <h3>3.7 Moral failure is delusion, not merely weakness</h3>
 <p>MVD states:</p>
 <blockquote>
-<p><strong>&ldquo;Humans who have realised the truth and embody thought and behaviour aligned with justice and dharma are awakened or developed. Those who have thought and behaviour aligned with justice &amp; dharma are half-developed. Those who have thought and behaviour aligned with justice are partially developed or progressive. Those who are attached to thoughts and behaviour of injustice are heading towards decline and are in the form of animalistic-human and demonic-human.&rdquo;</strong><br />
+<p><strong>&ldquo;Humans who have realised the truth and embody thought and behaviour aligned with justice and <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span> are awakened or developed. Those who have thought and behaviour aligned with justice &amp; <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span> are half-developed. Those who have thought and behaviour aligned with justice are partially developed or progressive. Those who are attached to thoughts and behaviour of injustice are heading towards decline and are in the form of animalistic-human and demonic-human.&rdquo;</strong><br/>
 - MVD, p. 160</p>
 </blockquote>
 <p>This is a developmental moral anthropology. Humans are not all treated as equally awakened moral agents. Nor are they condemned as permanently sinful. They are seen along a continuum of awakening and decline.</p>
 <p>The key diagnostic claim is that disorder arises from wrong identification and wrong priority. SB states that complete understanding requires three areas:</p>
 <blockquote>
-<p><strong>&ldquo;The definitive understanding aligned with the human objective in existence encompasses: 1. Knowledge of jeevan 2. Knowledge of holistic view of existence 3. Knowledge of humane conduct&rdquo;</strong><br />
+<p><strong>&ldquo;The definitive understanding aligned with the human objective in existence encompasses: 1. Knowledge of <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span> 2. Knowledge of holistic view of existence 3. Knowledge of humane conduct&rdquo;</strong><br/>
 - SB, p. 116</p>
 </blockquote>
 <p>Without these, the human being confuses body-needs with <code>jeevan</code>-needs, sensory satisfaction with happiness, profit with fulfilment, and social success with human purpose. Morality becomes fragile because the self is misunderstood.</p>
 <h3>3.8 Ethics must be evidenced, not merely believed</h3>
-<p>Madhyasth Darshan repeatedly insists that understanding must become evidence in living. SB presents the human being as the seer in existence:</p>
+<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> repeatedly insists that understanding must become evidence in living. SB presents the human being as the seer in existence:</p>
 <blockquote>
-<p><strong>&ldquo;The noteworthy points here are: 1. In coexistence, the human being is integrally and indivisibly present. 2. In existence, the human being is a seer (observer).&rdquo;</strong><br />
+<p><strong>&ldquo;The noteworthy points here are: 1. In coexistence, the human being is integrally and indivisibly present. 2. In existence, the human being is a seer (observer).&rdquo;</strong><br/>
 - SB, p. 188</p>
 </blockquote>
 <p>And JV says:</p>
 <blockquote>
-<p><strong>&ldquo;The goal of jeevan is happiness, and the human goal is resolution, prosperity, fearlessness, and coexistence. Ethics are essential for achieving these goals and give them purpose.&rdquo;</strong><br />
+<p><strong>&ldquo;The goal of <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span> is happiness, and the human goal is resolution, prosperity, fearlessness, and coexistence. Ethics are essential for achieving these goals and give them purpose.&rdquo;</strong><br/>
 - JV, p. 165</p>
 </blockquote>
 <p>Thus the test of ethics is not only sincerity, scripture, emotion, or intention. The test is whether living produces:</p>
@@ -628,7 +742,7 @@ Profit/loss         -&gt; Truth/untruth
 <li>fearlessness in relationships and society;</li>
 <li>coexistence with nature.</li>
 </ol>
-<p>This gives Madhyasth Darshan a practical criterion for judging moral systems. A system that produces obedience but not resolution, wealth but not prosperity, law but not trust, or spirituality but not humane conduct remains incomplete.</p>
+<p>This gives <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> a practical criterion for judging moral systems. A system that produces obedience but not resolution, wealth but not prosperity, law but not trust, or spirituality but not humane conduct remains incomplete.</p>
 <h2 id="4-traditional-religions-ethics-as-divine-command-sacred-law-and-virtue">4. Traditional Religions: Ethics as Divine Command, Sacred Law, and Virtue</h2>
 <p>Traditional religions usually answer the question of ethics and morals by locating right conduct within a sacred order. In Abrahamic traditions especially, morality is often framed through divine command, covenant, law, sin, obedience, repentance, compassion, justice, charity, and accountability before God.</p>
 <p>This is not one single theory. Religious ethics includes at least four strands:</p>
@@ -639,11 +753,11 @@ Profit/loss         -&gt; Truth/untruth
 <li><strong>Community order:</strong> morality is sustained through family, worship, ritual, law, authority, education, and shared identity.</li>
 </ol>
 <p>In Judaism, Christianity, and Islam, one finds strong ethical themes: justice, care for the poor, sexual restraint, truthfulness, neighbour-love, mercy, charity, reverence, and judgment. Christianity famously compresses the law into love of God and neighbour (Matthew 22:37-40). Islam gives a compact ethical formula in Qur&rsquo;an 16:90: justice, good conduct, giving to relatives, and the rejection of immorality, wrongdoing, and oppression. Jewish ethics similarly binds law, covenant, justice, compassion, and communal obligation.</p>
-<p>From Madhyasth Darshan&rsquo;s standpoint, this religious approach has real strengths. It gives moral seriousness, intergenerational discipline, restraint against selfishness, community support, reverence, charity, and a sense that human conduct is answerable to something higher than private desire or market gain.</p>
+<p>From <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s standpoint, this religious approach has real strengths. It gives moral seriousness, intergenerational discipline, restraint against selfishness, community support, reverence, charity, and a sense that human conduct is answerable to something higher than private desire or market gain.</p>
 <p>Its limitation is that morality can remain <strong>authority-dependent</strong>. If the person obeys because scripture, priest, prophet, community, reward, punishment, heaven, hell, sin, or fear commands it, then conduct may be disciplined without being fully understood. Religious morality may also become sectarian: the ethical boundary can shrink from all humans to the saved, chosen, believing, pure, or obedient community.</p>
-<p>Madhyasth Darshan&rsquo;s critique is therefore not that traditional religions lack morals. They often contain profound moral resources. The critique is that moral instruction must become <strong>universally studyable, understandable, and evidential in behaviour</strong>. A command may restrain wrongdoing, but Madhyasth Darshan asks whether the human being understands why justice, relationship-values, right-use, and coexistence are intrinsically necessary.</p>
+<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s critique is therefore not that traditional religions lack morals. They often contain profound moral resources. The critique is that moral instruction must become <strong>universally studyable, understandable, and evidential in behaviour</strong>. A command may restrain wrongdoing, but <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> asks whether the human being understands why justice, relationship-values, right-use, and coexistence are intrinsically necessary.</p>
 <p>The contrast can be stated simply:</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Traditional religious ethics</th>
@@ -672,51 +786,51 @@ Profit/loss         -&gt; Truth/untruth
 <td>Risk: metaphysical claims must be publicly evidenced.</td>
 </tr>
 </tbody>
-</table>
-<p>Thus, Madhyasth Darshan does not merely reject religion. It relocates the source of ethics from <strong>commanded morality</strong> to <strong>understood orderliness</strong>. If religious virtues become understood as relationship-values and coexistence, they can converge with humane conduct. If they remain only obedience to authority, they remain incomplete.</p>
+</table></div>
+<p>Thus, <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> does not merely reject religion. It relocates the source of ethics from <strong>commanded morality</strong> to <strong>understood orderliness</strong>. If religious virtues become understood as relationship-values and coexistence, they can converge with humane conduct. If they remain only obedience to authority, they remain incomplete.</p>
 <h2 id="5-advaita-vedanta-ethics-as-preparation-and-expression-of-self-knowledge">5. Advaita Vedanta: Ethics as Preparation and Expression of Self-Knowledge</h2>
-<p>Advaita Vedanta gives a very different foundation. Its final claim is not coexistence of real units, but non-duality of Atman and Brahman.</p>
+<p>Advaita Vedanta gives a very different foundation. Its final claim is not coexistence of real units, but non-duality of <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="atman" data-definition="Advaita: the innermost Self; in Madhyasth Darshan the sentient nucleus within constitutionally complete *jeevan*.">Atman</button></span> and <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span>.</p>
 <p>The <em>Bhagavad Gita</em>, read through Shankara, teaches detached witness-consciousness:</p>
 <blockquote>
-<p><strong>&ldquo;Though seeing, hearing, touching, smelling, eating, walking, sleeping, breathing&hellip; he knows that in reality he does nothing at all.&rdquo;</strong><br />
+<p><strong>&ldquo;Though seeing, hearing, touching, smelling, eating, walking, sleeping, breathing&hellip; he knows that in reality he does nothing at all.&rdquo;</strong><br/>
 - BG, 5.8–9</p>
 </blockquote>
 <p>Shankara&rsquo;s <em>Vivekachudamani</em> states the discrimination between real and unreal:</p>
 <blockquote>
-<p><strong>&ldquo;A firm conviction of the mind to the effect that Brahman is real and the universe unreal, is designated as discrimination (Viveka) between the Real and the unreal.&rdquo;</strong><br />
+<p><strong>&ldquo;A firm conviction of the mind to the effect that <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span> is real and the universe unreal, is designated as discrimination (Viveka) between the Real and the unreal.&rdquo;</strong><br/>
 - VC, v. 20</p>
 </blockquote>
-<p>On the identity of <em>jiva</em> and Brahman:</p>
+<p>On the identity of <em>jiva</em> and <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span>:</p>
 <blockquote>
-<p><strong>&ldquo;The individual soul is itself and directly the Supreme Brahman, and nothing else.&rdquo;</strong><br />
+<p><strong>&ldquo;The individual soul is itself and directly the Supreme <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span>, and nothing else.&rdquo;</strong><br/>
 - VC, v. 216</p>
 </blockquote>
 <p>In this framework, the deepest ethical problem is ignorance of one&rsquo;s true Self. Attachment, desire, fear, and ego arise because the Self is confused with body, mind, senses, and action.</p>
 <h3>5.1 Advaita has virtues, but the virtues are preparatory</h3>
 <p>It would be inaccurate to say that Advaita has no ethics. The Bhagavad Gita, read through Shankara, lists divine qualities:</p>
 <blockquote>
-<p><strong>&ldquo;Non-injury, truthfulness, absence of anger, renunciation, control of the internal organ, absence of vilification, kindness to creatures, non-covetousness, gentleness, modesty, freedom from restlessness&rdquo;</strong><br />
+<p><strong>&ldquo;Non-injury, truthfulness, absence of anger, renunciation, control of the internal organ, absence of vilification, kindness to creatures, non-covetousness, gentleness, modesty, freedom from restlessness&rdquo;</strong><br/>
 - BG, 16.2, p. 640</p>
 </blockquote>
 <p>Shankara&rsquo;s commentary expands these virtues:</p>
 <blockquote>
-<p><strong>&ldquo;Ahimsa, non-injury, abstaining from giving pain to creatures; satyam, truthfulness, speaking of things as they are, without unpleasantness and prevarication&rdquo;</strong><br />
+<p><strong>&ldquo;Ahimsa, non-injury, abstaining from giving pain to creatures; satyam, truthfulness, speaking of things as they are, without unpleasantness and prevarication&rdquo;</strong><br/>
 - BG, 16.2, p. 641</p>
 </blockquote>
 <p>Vivekachudamani lists the disciplines required of a seeker:</p>
 <blockquote>
-<p><strong>&ldquo;The first step to Liberation is the extreme aversion to all perishable things, then follow calmness, self-control, forbearance, and the utter relinquishment of all work enjoined in the Scriptures.&rdquo;</strong><br />
+<p><strong>&ldquo;The first step to Liberation is the extreme aversion to all perishable things, then follow calmness, self-control, forbearance, and the utter relinquishment of all work enjoined in the Scriptures.&rdquo;</strong><br/>
 - VC, v. 69, p. 6</p>
 </blockquote>
 <p>And:</p>
 <blockquote>
-<p><strong>&ldquo;If indeed thou hast a craving for Liberation, shun sense-objects from a good distance as thou wouldst do poison, and always cultivate carefully the nectar-like virtues of contentment, compassion, forgiveness, straight-forwardness, calmness and self-control.&rdquo;</strong><br />
+<p><strong>&ldquo;If indeed thou hast a craving for Liberation, shun sense-objects from a good distance as thou wouldst do poison, and always cultivate carefully the nectar-like virtues of contentment, compassion, forgiveness, straight-forwardness, calmness and self-control.&rdquo;</strong><br/>
 - VC, v. 82, p. 7</p>
 </blockquote>
 <p>So Advaita contains a serious discipline of virtue: non-injury, truthfulness, self-control, detachment, compassion, forgiveness, calmness, and desire for liberation.</p>
 <h3>5.2 Where Advaita differs from Madhyasth Darshan</h3>
-<p>The difference is not &ldquo;Advaita is immoral and Madhyasth Darshan is ethical.&rdquo; The difference is the ground, aim, and scope of ethics.</p>
-<table>
+<p>The difference is not &ldquo;Advaita is immoral and <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> is ethical.&rdquo; The difference is the ground, aim, and scope of ethics.</p>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Question</th>
@@ -751,16 +865,16 @@ Profit/loss         -&gt; Truth/untruth
 <td>Resolution, prosperity, fearlessness, coexistence through awakened understanding</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>Advaita&rsquo;s strength is its profound critique of ego, desire, and identification with body-mind. It can produce detachment, compassion, and self-mastery.</p>
-<p>Its vulnerability, from Madhyasth Darshan&rsquo;s standpoint, is that it does not by itself give a complete programme for family, economy, production, right-use, education, justice, undivided society, and coexistence with nature. If the final truth is the witness Self and the world is <code>mithya</code>, worldly order may become ethically secondary. Madhyasth Darshan refuses this move. It says the world is real, relationships are real, units are real, and conduct is the evidence of understanding.</p>
+<p>Its vulnerability, from <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s standpoint, is that it does not by itself give a complete programme for family, economy, production, right-use, education, justice, undivided society, and coexistence with nature. If the final truth is the witness Self and the world is <code>mithya</code>, worldly order may become ethically secondary. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> refuses this move. It says the world is real, relationships are real, units are real, and conduct is the evidence of understanding.</p>
 <h2 id="6-modern-scientific-approaches">6. Modern Scientific Approaches</h2>
 <p>Modern science usually treats morality descriptively: what moral judgment is, how it evolved, how it develops, what brain systems are involved, how cultures vary, and how cooperation is stabilized.</p>
-<p>This is different from Madhyasth Darshan and Advaita. Science does not normally claim to reveal the final purpose of human life. It explains mechanisms.</p>
+<p>This is different from <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> and Advaita. Science does not normally claim to reveal the final purpose of human life. It explains mechanisms.</p>
 <h3>6.1 Moral psychology: empirically responsible ethics</h3>
 <p>The Stanford Encyclopedia entry on empirical moral psychology defines the field as interdisciplinary:</p>
 <blockquote>
-<p><strong>&ldquo;Moral psychology investigates human functioning in moral contexts, and asks how these results may impact debate in ethical theory. This work is necessarily interdisciplinary, drawing on both the empirical resources of the human sciences and the conceptual resources of philosophical ethics.&rdquo;</strong><br />
+<p><strong>&ldquo;Moral psychology investigates human functioning in moral contexts, and asks how these results may impact debate in ethical theory. This work is necessarily interdisciplinary, drawing on both the empirical resources of the human sciences and the conceptual resources of philosophical ethics.&rdquo;</strong><br/>
 - SEP Moral Psychology</p>
 </blockquote>
 <p>This is important. Modern moral science does not simply replace philosophy. It tests the psychological assumptions hidden inside ethical theories.</p>
@@ -768,24 +882,24 @@ Profit/loss         -&gt; Truth/untruth
 <h3>6.2 Intuition and emotion</h3>
 <p>Haidt&rsquo;s social intuitionist model argues that moral judgment is often produced by quick intuitive evaluation, with reasoning frequently serving social justification after the judgment. Greene and colleagues&rsquo; fMRI work similarly helped popularize the idea that emotion and controlled cognition both shape moral judgment, especially in sacrificial dilemmas.</p>
 <p>This line of work is useful because it punctures naive rationalism. Human beings often do not first reason from principle and then judge. They feel, react, identify, defend, and rationalize.</p>
-<p>From a Madhyasth Darshan standpoint, this is unsurprising but incomplete. It describes the unawakened or partially awakened functioning of human beings under sensory, emotional, social, and ideological influence. It does not decide what the human being is capable of after understanding. Empirical description of common moral psychology is not the same as a theory of fulfilled human conduct.</p>
+<p>From a <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> standpoint, this is unsurprising but incomplete. It describes the unawakened or partially awakened functioning of human beings under sensory, emotional, social, and ideological influence. It does not decide what the human being is capable of after understanding. Empirical description of common moral psychology is not the same as a theory of fulfilled human conduct.</p>
 <h3>6.3 Computational neuroscience and decision systems</h3>
 <p>Crockett&rsquo;s &ldquo;Models of morality&rdquo; connects moral judgment to decision systems:</p>
 <blockquote>
-<p><strong>&ldquo;Moral dilemmas engender&rdquo;</strong><br />
+<p><strong>&ldquo;Moral dilemmas engender&rdquo;</strong><br/>
 - Crockett 2013, p. 1</p>
 </blockquote>
 <p>This approach helps explain why people may reject direct physical harm even when the outcome calculus favours it. Moral judgment may emerge from interactions between prospective reasoning, learned action-values, and Pavlovian aversions.</p>
-<p>Madhyasth Darshan can accept the usefulness of such mechanism-level accounts for body-brain-behaviour patterns. But it would reject the reduction of ethics to those mechanisms. It would say that neural and cognitive systems are instruments in human functioning; they do not by themselves define justice, dharma, truth, or the goal of human life.</p>
+<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> can accept the usefulness of such mechanism-level accounts for body-brain-behaviour patterns. But it would reject the reduction of ethics to those mechanisms. It would say that neural and cognitive systems are instruments in human functioning; they do not by themselves define justice, <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span>, truth, or the goal of human life.</p>
 <h3>6.4 Morality as cooperation</h3>
 <p>Curry, Mullins, and Whitehouse propose a cooperative theory:</p>
 <blockquote>
-<p><strong>&ldquo;The theory of &lsquo;morality-as-cooperation&rsquo; argues that morality consists of a collection of biological and cultural solutions to the problems of cooperation recurrent in human social life.&rdquo;</strong><br />
+<p><strong>&ldquo;The theory of &lsquo;morality-as-cooperation&rsquo; argues that morality consists of a collection of biological and cultural solutions to the problems of cooperation recurrent in human social life.&rdquo;</strong><br/>
 - Curry, Mullins, and Whitehouse 2019</p>
 </blockquote>
-<p>They identify recurring moral domains such as family values, group loyalty, reciprocity, bravery, respect, fairness, and property rights. This is one of the strongest scientific parallels to Madhyasth Darshan because both see morality as relational and social, not merely private.</p>
+<p>They identify recurring moral domains such as family values, group loyalty, reciprocity, bravery, respect, fairness, and property rights. This is one of the strongest scientific parallels to <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> because both see morality as relational and social, not merely private.</p>
 <p>But the difference remains sharp:</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Morality-as-cooperation</th>
@@ -810,14 +924,14 @@ Profit/loss         -&gt; Truth/untruth
 <td>It claims to define why cooperation, justice, right-use, and coexistence are humanly necessary.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>The scientific approach is strong where it explains emergence, variation, and mechanism. It is weaker where it must justify ultimate normativity. If morality is a set of cooperative adaptations, why should a person remain just when exploitation pays and punishment is avoidable? Science can answer prudentially, socially, or evolutionarily, but it cannot easily produce an unconditional criterion of rightness.</p>
 <h3>6.5 Moral foundations and plural moral grammars</h3>
 <p>Moral Foundations Theory argues that human moral judgment is plural, not reducible to harm and fairness alone. It identifies domains such as care/harm, fairness/cheating, loyalty/betrayal, authority/subversion, and sanctity/degradation. This helps explain why cultures and political groups moralize different things.</p>
-<p>Madhyasth Darshan would likely accept the observation that humans moralize several domains. But it would challenge whether all such foundations are equally valid. Loyalty can become sectarianism. Authority can become domination. Sanctity can become purity obsession. Care can become attachment. Fairness can become calculation without relationship.</p>
-<p>For Madhyasth Darshan, the criterion is not &ldquo;what humans commonly moralize.&rdquo; The criterion is whether the moral response aligns with justice, dharma, truth, relationship-values, and coexistence.</p>
+<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> would likely accept the observation that humans moralize several domains. But it would challenge whether all such foundations are equally valid. Loyalty can become sectarianism. Authority can become domination. Sanctity can become purity obsession. Care can become attachment. Fairness can become calculation without relationship.</p>
+<p>For <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>, the criterion is not &ldquo;what humans commonly moralize.&rdquo; The criterion is whether the moral response aligns with justice, <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span>, truth, relationship-values, and coexistence.</p>
 <h2 id="7-comparison">7. Comparison</h2>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Question</th>
@@ -878,13 +992,13 @@ Profit/loss         -&gt; Truth/untruth
 <td>Can become descriptive, reductionist, or unable to justify ultimate ought</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="8-critical-review">8. Critical review</h2>
 <h3>8.1 Madhyasth Darshan</h3>
 <p><strong>Strengths.</strong></p>
 <ul>
 <li>It refuses to separate knowledge and conduct. A person who claims realization but cannot evidence justice, right-use, relationship-values, and social responsibility is not ethically complete.</li>
-<li>It integrates body, mind, wealth, sexuality, relationship, society, and nature. Many ethical theories focus on one domain: rights, consequences, virtue, duty, liberation, emotion, or cooperation. Madhyasth Darshan links all of them through humane conduct.</li>
+<li>It integrates body, mind, wealth, sexuality, relationship, society, and nature. Many ethical theories focus on one domain: rights, consequences, virtue, duty, liberation, emotion, or cooperation. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> links all of them through humane conduct.</li>
 <li>It gives a concrete test of moral maturity. The move from pleasant/healthy/profitable to just/dharmic/true is a powerful diagnostic tool for individuals, families, markets, politics, education, and technology.</li>
 <li>It avoids both moral relativism and command morality. Moral rules are not merely local customs, but neither are they arbitrary commands. They are to be understood and evidenced.</li>
 <li>It treats wealth and production ethically without rejecting them. The sequence from need to production to right-use is more socially complete than renunciation-only spirituality and more humane than growth-only economics.</li>
@@ -893,7 +1007,7 @@ Profit/loss         -&gt; Truth/untruth
 <ul>
 <li>It depends on its ontology. The full argument relies on <code>jeevan</code>, coexistence, Omnipresence, awakening, and the human as knowledge-order. A secular scientist may accept the practical ethics while rejecting the metaphysics.</li>
 <li>Its universality requires public demonstration. The claim that humane conduct is universally consistent across all times and places is strong. It needs continued comparative work across cultures, institutions, and moral conflicts.</li>
-<li>It must clarify hard cases. Madhyasth Darshan gives strong principles, but applied ethics must still clarify cases where relationship-values appear to conflict: family duty versus public justice, compassion toward a wrongdoer versus truth, immediate bodily need versus ecological right-use, or local loyalty versus universal humaneness.</li>
+<li>It must clarify hard cases. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> gives strong principles, but applied ethics must still clarify cases where relationship-values appear to conflict: family duty versus public justice, compassion toward a wrongdoer versus truth, immediate bodily need versus ecological right-use, or local loyalty versus universal humaneness.</li>
 </ul>
 <p>The key test is:</p>
 <pre><code class="language-text">Which action preserves truth, protects humaneness, fulfils the real relationship-value,
@@ -902,14 +1016,14 @@ avoids exploitation, and remains compatible with coexistence?
 <p>This means family duty cannot justify hiding injustice; one should stand with the person as a human being, but not with their injustice. Public justice must outrank family partiality, while still avoiding revenge, humiliation, and cruelty. Likewise, ecological right-use cannot deny genuine bodily need, but immediate need cannot become a permanent excuse for exploitation. Emergency use may be justified; repeated extraction without restoration indicates disorder in production, distribution, or understanding.</p>
 <p>So the applied principle is crisp: <strong>justice requires relationship-aware truthfulness</strong>. It is neither cold legalism nor blind affection; neither ecological absolutism nor human convenience. It protects humaneness across person, family, society, and nature.</p>
 <ul>
-<li>It risks moral idealism if social mechanisms are underdeveloped. Understanding is central, but institutions, incentives, trauma, inequality, and power also shape conduct. Madhyasth Darshan needs a robust account of how awakened education and social design handle these realities.</li>
+<li>It risks moral idealism if social mechanisms are underdeveloped. Understanding is central, but institutions, incentives, trauma, inequality, and power also shape conduct. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> needs a robust account of how awakened education and social design handle these realities.</li>
 </ul>
 <h3>8.3 Strengths and limits of traditional religion</h3>
 <p>Traditional religions are strong in moral formation. They train restraint, reverence, charity, repentance, family responsibility, compassion, and accountability. They also sustain moral life through ritual, memory, community, and intergenerational discipline.</p>
-<p>Their limitation, from Madhyasth Darshan&rsquo;s standpoint, is that morality may remain tied to command, fear, guilt, reward, punishment, priestly authority, or sectarian identity. The question is not whether religious morals are valuable; many are. The question is whether the human being understands and evidences them as universal relationship-values and coexistence, rather than merely obeying them as external authority.</p>
+<p>Their limitation, from <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s standpoint, is that morality may remain tied to command, fear, guilt, reward, punishment, priestly authority, or sectarian identity. The question is not whether religious morals are valuable; many are. The question is whether the human being understands and evidences them as universal relationship-values and coexistence, rather than merely obeying them as external authority.</p>
 <h3>8.4 Strengths and limits of Advaita</h3>
 <p>Advaita&rsquo;s strength is its radical diagnosis of ego, attachment, and body-identification. Its disciplines of non-injury, truthfulness, self-control, compassion, calmness, and detachment are ethically serious.</p>
-<p>Its limitation, for this paper&rsquo;s question, is that ethics remains largely preparatory to liberation or an expression of knowledge, not a fully elaborated theory of production, family order, social economy, ecological right-use, and universal human organization. Madhyasth Darshan is more behaviourally and socially explicit.</p>
+<p>Its limitation, for this paper&rsquo;s question, is that ethics remains largely preparatory to liberation or an expression of knowledge, not a fully elaborated theory of production, family order, social economy, ecological right-use, and universal human organization. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> is more behaviourally and socially explicit.</p>
 <h3>8.5 Strengths and limits of science</h3>
 <p>Modern science is strongest in explaining:</p>
 <ol>
@@ -921,23 +1035,23 @@ avoids exploitation, and remains compatible with coexistence?
 </ol>
 <p>Its limitation is normativity. Science can show that humans value cooperation, punish cheaters, feel empathy, respond to harm, and form group norms. It cannot by itself prove that one ought to live for justice, truth, right-use, or universal coexistence. It can inform ethics, constrain ethics, and expose self-deception, but it does not replace the need for an account of human purpose.</p>
 <h2 id="9-final-answer">9. Final Answer</h2>
-<p>Madhyasth Darshan answers the question of ethics and morals by relocating it from rule to understanding.</p>
-<p>Morals, in ordinary human life, are inherited rules and norms. Ethics, in a deeper sense, is the examinable basis of right living. Madhyasth Darshan says that both become complete only as <strong>humane conduct</strong>, which includes values, character, and right-use. The human being is ethical when behaviour is regulated by justice, thought by dharma, realization by truth, wealth by right-use, sexuality by faithfulness, relationships by mutual satisfaction, and society by undivided coexistence.</p>
-<p>Compared with Advaita, Madhyasth Darshan is more world-affirming and socially explicit. Advaita aims at liberation through knowledge of the non-dual Self; its virtues purify and prepare the seeker. Madhyasth Darshan aims at awakening evidenced in conduct: resolution, prosperity, fearlessness, and coexistence.</p>
-<p>Compared with traditional religions, Madhyasth Darshan is less command-centred and less sectarian. Abrahamic and other religious traditions often give powerful moral formation through divine command, sacred law, virtue, repentance, charity, and community. Madhyasth Darshan asks that moral life become universally understandable and evidenced in behaviour, not dependent only on belief, fear, authority, or inherited identity.</p>
-<p>Compared with science, Madhyasth Darshan is more normative and ontological. Science explains moral judgment through evolution, cooperation, emotion, cognition, culture, and neural systems. Madhyasth Darshan asks what human beings are for, what fulfils them, and what conduct evidences correct understanding.</p>
-<p>Madhyasth Darshan offers a rigorous ethical anthropology in which morality is neither divine command, nor social convention, nor evolutionary strategy, nor private emotion. It is the evidence of understanding coexistence. Its practical strength lies in integrating values, character, ethics, wealth, family, society, and nature. Its philosophical vulnerability lies in the need to make its ontology of <code>jeevan</code>, awakening, and coexistence publicly examinable for those outside the darshan.</p>
+<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> answers the question of ethics and morals by relocating it from rule to understanding.</p>
+<p>Morals, in ordinary human life, are inherited rules and norms. Ethics, in a deeper sense, is the examinable basis of right living. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> says that both become complete only as <strong>humane conduct</strong>, which includes values, character, and right-use. The human being is ethical when behaviour is regulated by justice, thought by <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span>, realization by truth, wealth by right-use, sexuality by faithfulness, relationships by mutual satisfaction, and society by undivided coexistence.</p>
+<p>Compared with Advaita, <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> is more world-affirming and socially explicit. Advaita aims at liberation through knowledge of the non-dual Self; its virtues purify and prepare the seeker. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> aims at awakening evidenced in conduct: resolution, prosperity, fearlessness, and coexistence.</p>
+<p>Compared with traditional religions, <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> is less command-centred and less sectarian. Abrahamic and other religious traditions often give powerful moral formation through divine command, sacred law, virtue, repentance, charity, and community. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> asks that moral life become universally understandable and evidenced in behaviour, not dependent only on belief, fear, authority, or inherited identity.</p>
+<p>Compared with science, <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> is more normative and ontological. Science explains moral judgment through evolution, cooperation, emotion, cognition, culture, and neural systems. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> asks what human beings are for, what fulfils them, and what conduct evidences correct understanding.</p>
+<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> offers a rigorous ethical anthropology in which morality is neither divine command, nor social convention, nor evolutionary strategy, nor private emotion. It is the evidence of understanding coexistence. Its practical strength lies in integrating values, character, ethics, wealth, family, society, and nature. Its philosophical vulnerability lies in the need to make its ontology of <code>jeevan</code>, awakening, and coexistence publicly examinable for those outside the darshan.</p>
 <h2 id="references">References</h2>
 <h3>Madhyasth Darshan (primary sources)</h3>
 <ul>
-<li><strong>MVD</strong> - Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan - Co-existentialism</em>, Part 1: <em>Holistic View of Human Behaviour</em></a>. English translation by Rakesh Gupta. Cited: Sociality and right-use sequence (p. 56); six perspectives and necessary behaviour/thought (p. 67); justice, dharma, truth and just behaviour (p. 102); regulation of behaviour/thought/realization (p. 137); moral development and decline (p. 160).</li>
+<li><strong>MVD</strong> - Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan - Co-existentialism</em>, Part 1: <em>Holistic View of Human Behaviour</em></a>. English translation by Rakesh Gupta. Cited: Sociality and right-use sequence (p. 56); six perspectives and necessary behaviour/thought (p. 67); justice, <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span>, truth and just behaviour (p. 102); regulation of behaviour/thought/realization (p. 137); moral development and decline (p. 160).</li>
 <li><strong>SB</strong> - Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf"><em>Samadhanatmak Bhautikvad</em> (<em>Resolution Centred Materialism</em>)</a>. English translation by Rakesh Gupta. Cited: threefold knowledge of <code>jeevan</code>, existence, and humane conduct (p. 116); human being as seer in coexistence (p. 188).</li>
 <li><strong>JV</strong> - Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf"><em>Jeevan Vidya: An Introduction</em></a>. English translation by Rakesh Gupta. Cited: humane conduct as values, character, and ethics; ethics as right-use and protection of body, mind, and wealth; human goal (p. 165).</li>
 </ul>
 <h3>Advaita Vedanta</h3>
 <ul>
 <li><strong>BG</strong> - <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf"><em>Bhagavad Gita with the Commentary of Shankaracharya</em></a>. English translation by Swami Gambhirananda. Cited: detached witness-consciousness (5.8–9); divine qualities, non-injury, truthfulness, absence of anger, renunciation, kindness, and purity (16.2-16.3, pp. 640-642).</li>
-<li><strong>VC</strong> - Shankaracharya, <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf"><em>Vivekachudamani</em></a>. English translation by Swami Madhavananda. Cited: discrimination between real and unreal (v. 20); <em>jiva</em> as Brahman (v. 216); liberation disciplines and virtues (vv. 69, 82).</li>
+<li><strong>VC</strong> - Shankaracharya, <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf"><em>Vivekachudamani</em></a>. English translation by Swami Madhavananda. Cited: discrimination between real and unreal (v. 20); <em>jiva</em> as <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span> (v. 216); liberation disciplines and virtues (vv. 69, 82).</li>
 </ul>
 <h3>Traditional Religious Ethics</h3>
 <ul>
@@ -955,7 +1069,7 @@ avoids exploitation, and remains compatible with coexistence?
 <li><strong>Haidt 2001</strong> - Haidt, Jonathan. <a href="https://pages.stern.nyu.edu/~jhaidt/moraljudgment.html">&ldquo;The Emotional Dog and Its Rational Tail: A Social Intuitionist Approach to Moral Judgment.&rdquo;</a> <em>Psychological Review</em>, 108(4), 814-834. Linked to author page; PDF not stored locally because redistribution status is not clean enough for this repository.</li>
 <li><strong>SEP Moral Psychology</strong> - Doris, John M., and Stephen Stich. <a href="https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/SEP-2025-Moral-Psychology-Empirical-Approaches.html">&ldquo;Moral Psychology: Empirical Approaches.&rdquo;</a> <em>Stanford Encyclopedia of Philosophy</em>, Winter 2025 archived edition.</li>
 <li><strong>Tomasello and Vaish 2013</strong> - Tomasello, Michael, and Amrisha Vaish. <a href="https://www.annualreviews.org/content/journals/10.1146/annurev-psych-113011-143812">&ldquo;Origins of Human Cooperation and Morality.&rdquo;</a> <em>Annual Review of Psychology</em>, 64, 231-255. Linked externally; publisher PDF not stored locally.</li>
-</ul>
+</ul></main>
 <script>
 (() => {
   const toolbar = document.querySelector(".study-toolbar");
@@ -1030,6 +1144,82 @@ avoids exploitation, and remains compatible with coexistence?
   window.addEventListener("resize", () => {
     syncToolbarHeight();
     update();
+  });
+  const scrollToSection = id => {
+    const target = document.getElementById(id);
+    if (!target) return;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+  };
+
+  prev.addEventListener("click", event => {
+    if (prev.classList.contains("is-disabled")) return;
+    const href = prev.getAttribute("href");
+    if (!href || !href.startsWith("#")) return;
+    event.preventDefault();
+    scrollToSection(href.slice(1));
+  });
+  next.addEventListener("click", event => {
+    if (next.classList.contains("is-disabled")) return;
+    const href = next.getAttribute("href");
+    if (!href || !href.startsWith("#")) return;
+    event.preventDefault();
+    scrollToSection(href.slice(1));
+  });
+})();
+</script>
+<script>
+(() => {
+  let floatPanel = document.getElementById("term-tip-float");
+  if (!floatPanel) {
+    floatPanel = document.createElement("div");
+    floatPanel.id = "term-tip-float";
+    floatPanel.className = "term-tip-panel";
+    floatPanel.setAttribute("role", "tooltip");
+    floatPanel.hidden = true;
+    document.body.appendChild(floatPanel);
+  }
+
+  const hide = () => {
+    floatPanel.classList.remove("is-visible");
+    floatPanel.hidden = true;
+    floatPanel.textContent = "";
+  };
+
+  const show = (button, text) => {
+    floatPanel.textContent = text;
+    floatPanel.hidden = false;
+    floatPanel.classList.add("is-visible");
+    const rect = button.getBoundingClientRect();
+    const margin = 8;
+    let top = rect.top - floatPanel.offsetHeight - margin;
+    if (top < margin) top = rect.bottom + margin;
+    let left = rect.left;
+    const maxLeft = window.innerWidth - floatPanel.offsetWidth - margin;
+    if (left > maxLeft) left = Math.max(margin, maxLeft);
+    floatPanel.style.top = `${Math.max(8, top)}px`;
+    floatPanel.style.left = `${Math.max(8, left)}px`;
+  };
+
+  document.querySelectorAll(".term-tip").forEach(button => {
+    const definition = button.getAttribute("data-definition");
+    if (!definition) return;
+    button.setAttribute("aria-describedby", "term-tip-float");
+    const reveal = () => show(button, definition);
+    button.addEventListener("mouseenter", reveal);
+    button.addEventListener("focus", reveal);
+    button.addEventListener("mouseleave", hide);
+    button.addEventListener("blur", hide);
+    button.addEventListener("click", event => {
+      event.stopPropagation();
+      if (floatPanel.hidden) reveal();
+      else hide();
+    });
+  });
+
+  document.addEventListener("click", hide);
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") hide();
   });
 })();
 </script>

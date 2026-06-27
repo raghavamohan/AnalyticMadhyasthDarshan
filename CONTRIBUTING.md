@@ -21,8 +21,9 @@ The public catalog at [analyticmadhyasthdarshan.org](https://analyticmadhyasthda
 ### Ways to contribute (ranked)
 
 1. **Web Submission Portal (recommended)** — [Studies/submit.html](Studies/submit.html). Sign in with GitHub to propose, submit drafts, and track status under **My Submissions**. No local clone required.
-2. **GitHub issue template** — [Study proposal](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-proposal.yml) if you prefer filing directly on GitHub. Still wait for `proposal-approved`, then sign in on the portal to submit your draft.
-3. **Fork and pull request (advanced)** — for contributors comfortable with Git. See the collapsible **Advanced** section in the maintainer approval comment, or [README.md](README.md#for-maintainers).
+2. **Study feedback issue** — [Suggest a correction](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml) for typos, terminology, or factual notes on an existing study. Also linked from each study page toolbar. No approval gate.
+3. **GitHub issue template** — [Study proposal](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-proposal.yml) if you prefer filing directly on GitHub. Still wait for `proposal-approved`, then sign in on the portal to submit your draft.
+4. **Fork and pull request (advanced)** — for contributors comfortable with Git. See the collapsible **Advanced** section in the maintainer approval comment, or [README.md](README.md#for-maintainers).
 
 
 ---
@@ -98,6 +99,10 @@ Create these labels in **GitHub → Issues → Labels** (one-time setup):
 5. **Release policy** — only merge `status-change` → `released` when the study is ready for public release without a Draft watermark.
 
 Enable branch protection on `main` with the **`study-pr`** check required before merge (recommended).
+
+### Shared glossary (`Studies/glossary.json`)
+
+Hindi and darshan-specific terms that recur across studies are registered in [Studies/glossary.json](Studies/glossary.json). The HTML reader shows inline tooltips from this file. When you introduce a term that will appear in multiple studies, add or update an entry there (run `python Scripts/_verify_glossary.py` locally). Study-local **Quick Glossary** tables remain for terms specific to one paper.
 
 ---
 

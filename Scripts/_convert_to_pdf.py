@@ -1,13 +1,17 @@
 import argparse
 import html as html_module
+import json
 import re
 from pathlib import Path
-from urllib.parse import unquote, urlparse
+from urllib.parse import quote, unquote, urlparse
 
 import markdown
 
 from _common import APPLICATIONS, BASE, REFERENCES, STUDIES, is_linkable_reference_file, site_base_url, study_md
+from _glossary_tooltips import apply_glossary_tooltips, load_glossary, wrap_tables_for_scroll
 from _study_catalog import strip_status_for_pdf
+
+FEEDBACK_ISSUES_URL = "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new"
 
 
 def convert_mermaid_blocks(html_body: str) -> str:
@@ -133,6 +137,11 @@ def _format_toolbar_title(title: str, *, is_draft: bool) -> str:
     return escaped
 
 
+def _feedback_href(slug: str) -> str:
+    title = quote(f"Study feedback: {slug}")
+    return f"{FEEDBACK_ISSUES_URL}?template=study-feedback.yml&title={title}"
+
+
 def _study_toolbar_html(md_path: Path, *, is_draft: bool, title: str) -> str:
     md_path = md_path.resolve()
     stem = md_path.stem
@@ -144,12 +153,16 @@ def _study_toolbar_html(md_path: Path, *, is_draft: bool, title: str) -> str:
     except ValueError:
         catalog_href = "../index.html"
     pdf_href = f"{stem}.pdf"
+    feedback_href = _feedback_href(stem)
     title_html = _format_toolbar_title(title, is_draft=is_draft)
     return f"""<nav class="study-toolbar" aria-label="Study navigation">
   <div class="study-toolbar-row study-toolbar-row--primary">
     <a class="study-toolbar-link study-toolbar-back" href="{catalog_href}">&larr; All studies</a>
     <p class="study-toolbar-title">{title_html}</p>
-    <a class="study-toolbar-link study-toolbar-download" href="{pdf_href}" download>Download PDF</a>
+    <span class="study-toolbar-actions">
+      <a class="study-toolbar-link study-toolbar-download" href="{pdf_href}" download>Download PDF</a>
+      <a class="study-toolbar-link study-toolbar-feedback" href="{feedback_href}">Suggest a correction</a>
+    </span>
   </div>
   <div class="study-toolbar-row study-toolbar-row--sections">
     <a class="study-toolbar-link study-toolbar-section study-toolbar-section--prev" id="study-section-prev" href="#" aria-disabled="true">&larr; Previous section</a>
@@ -235,6 +248,86 @@ def _study_section_nav_js() -> str:
     syncToolbarHeight();
     update();
   });
+  const scrollToSection = id => {
+    const target = document.getElementById(id);
+    if (!target) return;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+  };
+
+  prev.addEventListener("click", event => {
+    if (prev.classList.contains("is-disabled")) return;
+    const href = prev.getAttribute("href");
+    if (!href || !href.startsWith("#")) return;
+    event.preventDefault();
+    scrollToSection(href.slice(1));
+  });
+  next.addEventListener("click", event => {
+    if (next.classList.contains("is-disabled")) return;
+    const href = next.getAttribute("href");
+    if (!href || !href.startsWith("#")) return;
+    event.preventDefault();
+    scrollToSection(href.slice(1));
+  });
+})();
+</script>
+"""
+
+
+def _term_tip_js() -> str:
+    return """<script>
+(() => {
+  let floatPanel = document.getElementById("term-tip-float");
+  if (!floatPanel) {
+    floatPanel = document.createElement("div");
+    floatPanel.id = "term-tip-float";
+    floatPanel.className = "term-tip-panel";
+    floatPanel.setAttribute("role", "tooltip");
+    floatPanel.hidden = true;
+    document.body.appendChild(floatPanel);
+  }
+
+  const hide = () => {
+    floatPanel.classList.remove("is-visible");
+    floatPanel.hidden = true;
+    floatPanel.textContent = "";
+  };
+
+  const show = (button, text) => {
+    floatPanel.textContent = text;
+    floatPanel.hidden = false;
+    floatPanel.classList.add("is-visible");
+    const rect = button.getBoundingClientRect();
+    const margin = 8;
+    let top = rect.top - floatPanel.offsetHeight - margin;
+    if (top < margin) top = rect.bottom + margin;
+    let left = rect.left;
+    const maxLeft = window.innerWidth - floatPanel.offsetWidth - margin;
+    if (left > maxLeft) left = Math.max(margin, maxLeft);
+    floatPanel.style.top = `${Math.max(8, top)}px`;
+    floatPanel.style.left = `${Math.max(8, left)}px`;
+  };
+
+  document.querySelectorAll(".term-tip").forEach(button => {
+    const definition = button.getAttribute("data-definition");
+    if (!definition) return;
+    button.setAttribute("aria-describedby", "term-tip-float");
+    const reveal = () => show(button, definition);
+    button.addEventListener("mouseenter", reveal);
+    button.addEventListener("focus", reveal);
+    button.addEventListener("mouseleave", hide);
+    button.addEventListener("blur", hide);
+    button.addEventListener("click", event => {
+      event.stopPropagation();
+      if (floatPanel.hidden) reveal();
+      else hide();
+    });
+  });
+
+  document.addEventListener("click", hide);
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") hide();
+  });
 })();
 </script>
 """
@@ -303,6 +396,12 @@ def _study_screen_dark_css() -> str:
     .study-toolbar-title { color: #f5f1ec; }
     .study-toolbar-draft { color: #aca194; }
     .study-toolbar-section.is-disabled { color: #6f655a; }
+    .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    .term-tip-panel {
+      color: #e6dfd6;
+      background: #26231e;
+      border-color: #423b33;
+    }
   }
 """
 
@@ -332,6 +431,12 @@ def convert_to_html(
     )
     if include_web_chrome:
         html_body = add_section_ids(html_body)
+        html_body = wrap_tables_for_scroll(html_body)
+        try:
+            glossary_terms = load_glossary()
+            html_body = apply_glossary_tooltips(html_body, glossary_terms)
+        except (OSError, ValueError, json.JSONDecodeError):
+            pass
 
     toolbar = (
         _study_toolbar_html(input_path, is_draft=is_draft, title=title)
@@ -340,14 +445,89 @@ def convert_to_html(
     )
     mermaid_loader = _mermaid_loader_html(html_body) if include_web_chrome else ""
     section_nav_js = _study_section_nav_js() if include_web_chrome else ""
+    term_tip_js = _term_tip_js() if include_web_chrome else ""
     screen_dark_css = _study_screen_dark_css() if include_web_chrome else ""
 
     web_chrome_css = ""
     if include_web_chrome:
         web_chrome_css = """
   html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 100;
+    padding: 8px 14px;
+    background: #1a5276;
+    color: #fff;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 0 0 8px 0;
+  }
+  .skip-link:focus {
+    left: 0;
+    outline: 2px solid #13405c;
+    outline-offset: 2px;
+  }
   h2[id] {
     scroll-margin-top: calc(var(--study-toolbar-height, 88px) + 10px);
+  }
+  .table-scroll {
+    overflow-x: auto;
+    margin: 12pt 0;
+    -webkit-overflow-scrolling: touch;
+  }
+  .table-scroll table {
+    margin: 0;
+  }
+  .term-tip-wrap {
+    position: relative;
+    display: inline;
+    white-space: normal;
+  }
+  .term-tip {
+    background: none;
+    border: none;
+    border-bottom: 1px dotted #1a5276;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: #1a5276;
+    cursor: help;
+    text-align: inherit;
+  }
+  .term-tip:focus-visible {
+    outline: 2px solid #1a5276;
+    outline-offset: 2px;
+    border-bottom-color: transparent;
+  }
+  .term-tip-panel {
+    display: none;
+    position: fixed;
+    z-index: 40;
+    min-width: 220px;
+    max-width: min(320px, 90vw);
+    padding: 8px 10px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    line-height: 1.45;
+    font-style: normal;
+    font-weight: 400;
+    color: #2a241c;
+    background: #fff;
+    border: 1px solid #c5d9e6;
+    border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(42, 36, 28, 0.12);
+    text-align: left;
+    pointer-events: none;
+  }
+  .term-tip-panel.is-visible {
+    display: block;
   }
   .study-toolbar {
     display: flex;
@@ -372,7 +552,20 @@ def convert_to_html(
     gap: 8px 14px;
   }
   .study-toolbar-row--primary {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1.2fr);
+  }
+  .study-toolbar-actions {
+    justify-self: end;
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    min-width: 0;
+    text-align: right;
+  }
+  .study-toolbar-feedback {
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
   }
   .study-toolbar-row--sections {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -406,6 +599,10 @@ def convert_to_html(
     font-weight: 600;
   }
   .study-toolbar-link:hover { color: #13405c; }
+  .study-toolbar-link:focus-visible {
+    outline: 2px solid #1a5276;
+    outline-offset: 2px;
+  }
   .study-toolbar-section {
     display: block;
     min-width: 0;
@@ -432,6 +629,11 @@ def convert_to_html(
     .study-toolbar-row--primary {
       grid-template-columns: 1fr 1fr;
     }
+    .study-toolbar-actions {
+      grid-column: 1 / -1;
+      justify-self: stretch;
+      justify-content: flex-end;
+    }
     .study-toolbar-title {
       grid-column: 1 / -1;
       white-space: normal;
@@ -442,6 +644,13 @@ def convert_to_html(
   }
   @media print {
     .study-toolbar { display: none !important; }
+    .skip-link { display: none !important; }
+    .term-tip {
+      border-bottom: none;
+      color: inherit;
+      cursor: text;
+    }
+    .term-tip-panel { display: none !important; }
   }
 """
 
@@ -449,6 +658,7 @@ def convert_to_html(
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="color-scheme" content="light dark"/>
 <title>{html_module.escape(title)}</title>
 <style>
@@ -658,8 +868,9 @@ def convert_to_html(
 </style>
 </head>
 <body>
-{toolbar}{html_body}
-{mermaid_loader}{section_nav_js}
+<a class="skip-link" href="#main">Skip to content</a>
+{toolbar}<main id="main">{html_body}</main>
+{mermaid_loader}{section_nav_js}{term_tip_js}
 </body>
 </html>"""
 
