@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 28, 2026, 7:49 PM IST
+**Edited on:** June 29, 2026, 3:55 AM IST
 **Status:** Released
 **The question:** Is a human being nothing more than a physical–chemical body, or is there something real about us that matter-centric science cannot capture?
 
@@ -79,7 +79,7 @@ Everyone knows from the inside the difference between satisfying the body and sa
 > **“Activities such as eating and sleeping serve the body’s needs, while values and evaluation serve *jeevan*’s purpose. Mere sustenance of the body does not equate to *jeevan*'s fulfilment.”**
 > — SB, Ch. 7
 
-If the human were body alone, bodily completion should be human completion. Experience says it is not. The texts read this split against six built-in **perspectives** (*drishti*): pleasant–unpleasant, healthy–unhealthy, and profit–loss orient the lower refuge; justice, dharma, and truth orient the humane refuge when awakening opens ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.10.1).
+If the human were body alone, bodily completion should be human completion. Experience says it is not. The texts read this split against six built-in **perspectives** (*drishti*): pleasant–unpleasant, healthy–unhealthy, and profit–loss orient the lower refuge; justice, dharma, and truth orient the humane refuge when awakening opens ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.10.5).
 
 ### 1.3.2 The wanting never stops at the body's limit
 
@@ -88,7 +88,7 @@ A material system needs only what maintains it. But human desire is experienced 
 > **“It is clear that whatever *jeevan* does through the body, the result of it always turns out to be more than the needs of the body. It is a natural process. I have seen *jeevan*, and I have seen humans as a combined form of *jeevan* and body.”**
 > — JV, Ch. 1
 
-Humans grow more food than they can eat, build more than they can inhabit, and create art, mathematics, and philosophy that feed no cell. Animals do none of this. Something in us aims past the body's needs — and we *experience* that aiming. The demand for continuous happiness aligns with four *jeevan* values — happiness, peace, contentment, and bliss — as harmonies within the sentient unit, not satisfactions the body could complete on its own (JV, p. 138; [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.10.2). Much of ordinary life runs in **sensitivity** alone — bodily responsiveness to pleasure, health, and gain — while **comprehension** (*jeevan*'s grasp of relationship and order) remains underdeveloped (JV, p. 166; [Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §1.9).
+Humans grow more food than they can eat, build more than they can inhabit, and create art, mathematics, and philosophy that feed no cell. Animals do none of this. Something in us aims past the body's needs — and we *experience* that aiming. The demand for continuous happiness aligns with four *jeevan* values — happiness, peace, contentment, and bliss — as harmonies within the sentient unit, not satisfactions the body could complete on its own (JV, p. 138; [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.10.6). Much of ordinary life runs in **sensitivity** alone — bodily responsiveness to pleasure, health, and gain — while **comprehension** (*jeevan*'s grasp of relationship and order) remains underdeveloped (JV, p. 166; [Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §1.9).
 
 ### 1.3.3 Experience presents a self that the body's states do not exhaust
 
@@ -106,7 +106,7 @@ Justice, truth, and right conduct are not experienced as preferences we acquired
 > **“From the time of birth, a human being inherently seeks justice, desires to act correctly, and speaks the truth. This is the natural state of a child.”**
 > — SB, Ch. 1
 
-A child protests unfairness long before it can defend the concept. For Shri. Nagraj this is the knowledge order showing itself: the orientation toward justice is part of what a human *is*, not part of what a human is taught. In MD's taxonomy, that innate orientation is the humane refuge — *nyaya*, *dharma*, and *satya* — built into *jeevan*'s design, not merely learned preference ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.10.1).
+A child protests unfairness long before it can defend the concept. For Shri. Nagraj this is the knowledge order showing itself: the orientation toward justice is part of what a human *is*, not part of what a human is taught. In MD's taxonomy, that innate orientation is the humane refuge — *nyaya*, *dharma*, and *satya* — built into *jeevan*'s design, not merely learned preference ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.10.5).
 
 Put together, lived experience contains a second kind of fulfilment, a more-than-bodily wanting, a self presented as distinct from its body, and an unlearned moral demand. None of these is detected by instruments; all of them are available to anyone who looks inward. Shri. Nagraj's conclusion is that the materialist account does not merely fail in the laboratory — it fails *in the first person*, every day, in everyone. Even its defenders feel the failure:
 
@@ -350,7 +350,7 @@ Key terms from §§1–5 are collected here for quick reference. Each term is al
 | ***Pramanikta*** | Authentic conduct as living proof that understanding has taken hold — the epistemic standard for complete knowing ([Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §1.6). |
 | ***Rahasyata*** | Mysteriousness — removable deficit in the knower's reflection, not a permanent opacity of nature ([Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §1.11). |
 | **Sensitivity / comprehension** | Body-based responsiveness to pleasure, health, and gain versus *jeevan*'s grasp of relationship, value, and order ([Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §1.9). |
-| **Six perspectives (*drishti*)** | Built-in evaluative lenses in *jeevan* — lower *priya*/*hita*/*labh* and humane *nyaya*/*dharma*/*satya* ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.10.1). |
+| **Six perspectives (*drishti*)** | Built-in evaluative lenses in *jeevan* — lower *priya*/*hita*/*labh* and humane *nyaya*/*dharma*/*satya* ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.10.5). |
 | ***Atman* / *Brahman*** | In Advaita Vedanta: the innermost Self / the one ultimate reality. Advaita says they are identical. |
 | ***Mithya*** | Advaita's term for the world: not absolutely real, a dependent appearance. |
 
