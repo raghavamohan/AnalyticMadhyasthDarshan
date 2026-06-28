@@ -517,6 +517,37 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     background: #d4e6f2;
     border-color: #a5c4d9;
   }
+  .discuss-link--active {
+    padding-right: 8px;
+  }
+  .discuss-link--unread {
+    border-color: #d4a574;
+    background: #fff4e5;
+    color: #8b5e34;
+  }
+  .discuss-link--unread:hover {
+    background: #fdebd0;
+    border-color: #c9924d;
+    color: #6b4518;
+  }
+  .discuss-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 18px;
+    height: 18px;
+    margin-left: 6px;
+    padding: 0 5px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .discuss-link--unread .discuss-badge {
+    background: #b45309;
+  }
   .pdf-download {
     display: inline-flex;
     align-items: center;
@@ -651,6 +682,10 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     .pdf-download:hover { background: #2f4f63; border-color: #5ba3d3; color: #b8daf3; }
     .discuss-link { background: #1a2e22; border-color: #355940; color: #8fd4a8; }
     .discuss-link:hover { background: #243b2c; border-color: #4f8f66; color: #c2efd0; }
+    .discuss-link--unread { background: #3a2818; border-color: #8b5e34; color: #f0c78a; }
+    .discuss-link--unread:hover { background: #4a3220; border-color: #b07a3c; color: #ffe3b8; }
+    .discuss-badge { background: #2f6fed; }
+    .discuss-link--unread .discuss-badge { background: #d97706; }
     .triad-item.t3 { border-top: 3px solid #6f655a; } .triad-item.t3 .k { color: #aca194; }
     .contribute-path { background: #1e1b18; }
     .contribute-path h3 { color: #f5f1ec; }
@@ -931,6 +966,63 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   };
 
   let STUDIES = [];
+  let discussStats = {};
+  const DISCUSS_SEEN_KEY = "amd-discuss-seen";
+  const SITE_HOST = "analyticmadhyasthdarshan.org";
+  const DISCUSS_API_FALLBACK = "https://amd-discussions.raghavamohan.workers.dev";
+
+  const discussApiBase = () => (window.location.hostname === SITE_HOST ? "" : DISCUSS_API_FALLBACK);
+
+  const readDiscussSeenMap = () => {
+    try {
+      return JSON.parse(localStorage.getItem(DISCUSS_SEEN_KEY) || "{}");
+    } catch {
+      return {};
+    }
+  };
+
+  const discussStatsFor = slug => discussStats[slug] || { count: 0, latestAt: 0 };
+
+  const isDiscussUnread = slug => {
+    const { count, latestAt } = discussStatsFor(slug);
+    if (!count || !latestAt) return false;
+    const seen = Number(readDiscussSeenMap()[slug] || 0);
+    return latestAt > seen;
+  };
+
+  const discussLinkHtml = s => {
+    const href = studyDiscussionHref(s);
+    const { count } = discussStatsFor(s.slug);
+    const unread = isDiscussUnread(s.slug);
+    const classes = ["discuss-link"];
+    if (count) classes.push("discuss-link--active");
+    if (unread) classes.push("discuss-link--unread");
+    const badge = count
+      ? `<span class="discuss-badge" aria-hidden="true">${count}</span>`
+      : "";
+    const unreadNote = unread ? " — new comments since your last visit" : "";
+    const countNote = count ? ` — ${count} comment${count === 1 ? "" : "s"}` : "";
+    return `<a class="${classes.join(" ")}" href="${href}" title="Discussion board${countNote}${unreadNote}" aria-label="Discuss ${escAttr(s.t)}${countNote}${unreadNote}">Discuss${badge}</a>`;
+  };
+
+  const loadDiscussStats = async () => {
+    try {
+      const response = await fetch(discussApiBase() + "/api/discussions/stats");
+      if (!response.ok) return;
+      const data = await response.json();
+      const map = {};
+      for (const row of data.threads || []) {
+        if (!row?.slug) continue;
+        map[row.slug] = {
+          count: Number(row.count || 0),
+          latestAt: Number(row.latestAt || 0),
+        };
+      }
+      discussStats = map;
+    } catch {
+      discussStats = {};
+    }
+  };
 
   const loadCatalogs = async () => {
     const parts = await Promise.all(
@@ -1087,7 +1179,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     const badgeLabel = !avail ? "Planned" : (s.status === "released" ? "Released" : "Draft");
     const draftTitle = s.status === "draft" ? ' title="Draft PDF includes a watermark"' : "";
     const foot = avail
-      ? `<span class="badge ${badgeClass}"${draftTitle}><span class="badge-dot"></span>${badgeLabel}</span><span class="card-actions">${discussHref ? `<a class="discuss-link" href="${discussHref}" title="Discussion board" aria-label="Discuss ${escAttr(s.t)}">Discuss</a>` : ""}<a class="pdf-download" href="${pdfHref}" download title="Download PDF" aria-label="Download PDF for ${escAttr(s.t)}">${PDF_DOWNLOAD_ICON}</a></span>`
+      ? `<span class="badge ${badgeClass}"${draftTitle}><span class="badge-dot"></span>${badgeLabel}</span><span class="card-actions">${discussHref ? discussLinkHtml(s) : ""}<a class="pdf-download" href="${pdfHref}" download title="Download PDF" aria-label="Download PDF for ${escAttr(s.t)}">${PDF_DOWNLOAD_ICON}</a></span>`
       : `<span class="badge planned"><span class="badge-dot"></span>Planned</span><span>Not yet published</span>`;
     const dateLine = avail && s.updated
       ? `<div class="card-foot" style="border:none;padding:6px 0 0;color:#9a8f80;">Updated ${s.updated}</div>`
@@ -1185,7 +1277,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   };
 
   const scheduleCatalogBoot = () => {
-    const run = () => loadCatalogs().then(bootCatalog);
+    const run = () => Promise.all([loadCatalogs(), loadDiscussStats()]).then(bootCatalog);
     if ("requestIdleCallback" in window) {
       requestIdleCallback(() => { run(); }, { timeout: 2000 });
     } else {

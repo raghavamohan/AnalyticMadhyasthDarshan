@@ -18,6 +18,7 @@ import {
   hideComment,
   insertComment,
   listComments,
+  listThreadStats,
   nowMs,
   storeMagicToken,
 } from './db.js';
@@ -123,6 +124,22 @@ function mapCommentRow(row, session, env) {
 }
 
 router.options('*', (request, env) => new Response(null, { headers: corsHeaders(request, env) }));
+
+router.get('/api/discussions/stats', async (request, env) => {
+  try {
+    const db = requireDb(env);
+    const rows = await listThreadStats(db);
+    return jsonResponse(request, env, {
+      threads: rows.map((row) => ({
+        slug: row.slug,
+        count: Number(row.count || 0),
+        latestAt: Number(row.latest_at || 0),
+      })),
+    });
+  } catch (err) {
+    return jsonResponse(request, env, { error: err.message }, err.status || 500);
+  }
+});
 
 router.get('/api/discussions/:slug', async (request, env) => {
   try {
