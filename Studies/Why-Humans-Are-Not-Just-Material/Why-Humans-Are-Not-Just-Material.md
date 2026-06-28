@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 27, 2026, 6:13 PM IST
+**Edited on:** June 28, 2026, 7:49 PM IST
 **Status:** Released
 **The question:** Is a human being nothing more than a physical–chemical body, or is there something real about us that matter-centric science cannot capture?
 
@@ -53,7 +53,7 @@ With the orders in view, the sentient unit itself is not a second substance adde
 
 ### 1.2.3 Body and self are not the same
 
-Given what *jeevan* is (§1.2.2), a human is not the body alone but a **joint form** of body and sentient self. The central argument is that the body and *jeevan* have different jobs: eating and sleeping serve the body; values and evaluation serve *jeevan*. When the body sleeps, *jeevan* does not. Different jobs mean they are not the same thing. Within Madhyasth Darshan, mistaking the body for the self is **delusion on the delusional plane** — body-identified life while *jeevan* is already present — not absence of a sentient unit ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.9; [Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §1.10).
+Given what *jeevan* is (§1.2.2), a human is not the body alone but a **joint form** of body and sentient self. The central argument is that the body and *jeevan* have different jobs: eating and sleeping serve the body; values and evaluation serve *jeevan*. When the body sleeps, *jeevan* does not. Different jobs mean they are not the same thing. Within Madhyasth Darshan, mistaking the body for the self is **delusion on the delusional plane** — body-identified life while *jeevan* is already present — not absence of a sentient unit ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.10; [Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §1.10).
 
 > **“The body is not *jeevan*, and *jeevan* is not the body. *Jeevan* is eternal, and the body is merely a vehicle and medium for *jeevan*.”**
 > — SB, Ch. 7
@@ -297,7 +297,7 @@ No view escapes serious objections. Here is where each is strong and where each 
 
 - **The conclusion is built into the premises.** The foundational axiom already declares existence "not just physicochemical matter" — so the system is anti-materialist *by assumption*, not by proof.
 - **Different jobs do not prove two things.** The central argument — body serves food and sleep, *jeevan* serves values, therefore they are distinct entities — is a leap. One system can serve many purposes. And even granting distinctness, nothing in the phenomenological argument in §1.3 alone establishes that *jeevan* is *eternal*; that claim rests on the ontological argument in §1.2 and the conservation-based reading developed in [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf).
-- **Constitutional completeness is unexplained, not merely unmeasured.** No observation in particle physics or chemistry presently operationalizes *gathanpurnata*. The deeper tension — whether sentience at completeness is latent potential actualized or a form of emergence the system elsewhere resists — is analyzed in [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.9 and §6.2. Until that is settled internally, "sentient atoms are not physics" remains a fair objection from the scientific leg.
+- **Constitutional completeness is unexplained, not merely unmeasured.** No observation in particle physics or chemistry presently operationalizes *gathanpurnata*. The deeper tension — whether sentience at completeness is latent potential actualized or a form of emergence the system elsewhere resists — is analyzed in [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.10 and §6.2. Until that is settled internally, "sentient atoms are not physics" remains a fair objection from the scientific leg.
 - **The interaction problem is unanswered.** If an atom-sized *jeevan* steers neurons and muscles, that steering must either violate local energy conservation or produce a detectable causal anomaly in the brain's physical budget. None has been found, and the literature gives no mechanism. See §2.2.3 above and [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §6.2.5.
 - **Immortal individuality meets *anatta*.** Buddhist and Madhyamaka traditions deny an enduring self through aggregate decomposition or dependent origination — a pressure distinct from Advaita's witness but converging on post-death continuity ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §6.2.2).
 - **It risks being unfalsifiable.** Disagreement is attributed to "lack of awakening," so no observation can count against the system. A claim that cannot be wrong cannot be tested. A fair test would require, at minimum: operational criteria for constitutional completeness; reproducible markers distinguishing *jeevan*-mediated from brain-only activity; and independent evidence for post-death continuity ([Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §6.2).
@@ -343,7 +343,7 @@ Key terms from §§1–5 are collected here for quick reference. Each term is al
 | Term | Plain meaning |
 |------|---------------|
 | ***Jeevan*** | The sentient self — in Shri. Nagraj's view a real, eternal, atom-scale entity that works *through* the body. Not brain activity, and not "soul" in the usual religious sense. For ontology of *jeevan*, constitutional completeness, and conservation, see [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf). |
-| **Constitutional completeness (*gathanpurnata*)** | The state when an atom integrates the required particles and crosses irreversibly into sentient status as *jeevan*. Developed in [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.9. |
+| **Constitutional completeness (*gathanpurnata*)** | The state when an atom integrates the required particles and crosses irreversibly into sentient status as *jeevan*. Developed in [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.10. |
 | **Coexistence (*saha-astitva*)** | Existence seen as all units inseparably present together. |
 | **Knowledge order (*gyan avastha*)** | The human level of nature — able to know and evaluate every other level. |
 | ***Gyan udghatan*** | The unfolding of knowledge in thought and conduct — an activity exclusive to awakened *jeevan*, not the brain or insentient matter ([Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §1.1). |
