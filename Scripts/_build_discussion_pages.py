@@ -28,6 +28,7 @@ from _study_catalog import (  # noqa: E402
 
 FEEDBACK_ISSUES_URL = "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new"
 TURNSTILE_SITE_KEY = "0x4AAAAAADoBfrNV5lPeJQWO"
+TURNSTILE_ACTION = "turnstile-spin-v1"
 DISCUSSIONS_API_FALLBACK = "https://amd-discussions.raghavamohan.workers.dev"
 
 
@@ -178,7 +179,7 @@ def render_discussion_page(row: StudyRow) -> str:
     font: inherit;
   }}
   .auth-row textarea {{ min-height: 120px; resize: vertical; }}
-  .turnstile-wrap {{ margin: 10px 0; }}
+  .turnstile-wrap {{ margin: 10px 0; min-height: 65px; }}
   .comments {{ list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }}
   .comment {{
     border: 1px solid var(--border);
@@ -289,14 +290,9 @@ def render_discussion_page(row: StudyRow) -> str:
   .compose-expanded-content {{
     display: none;
     padding: 18px 20px;
-    opacity: 0;
-    transform: translateY(-8px);
-    transition: opacity 0.25s ease, transform 0.25s ease;
   }}
   .compose-wrapper.is-expanded .compose-expanded-content {{
     display: block;
-    opacity: 1;
-    transform: translateY(0);
   }}
   .compose-wrapper.is-expanded .compose-trigger {{ display: none; }}
   .compose-expanded-content .auth-row {{ max-width: none; }}
@@ -394,7 +390,7 @@ def render_discussion_page(row: StudyRow) -> str:
               <label>Email<input type="email" name="email" autocomplete="email" required></label>
               <label>Display name<input type="text" name="displayName" maxlength="80" autocomplete="nickname" required></label>
             </div>
-            <div class="turnstile-wrap"><div class="cf-turnstile" data-sitekey="{TURNSTILE_SITE_KEY}"></div></div>
+            <div class="turnstile-wrap" id="sign-in-turnstile-wrap" aria-live="polite"></div>
             <div class="compose-actions">
               <button type="submit" class="btn btn-primary">Email me a sign-in link</button>
             </div>
@@ -417,7 +413,7 @@ def render_discussion_page(row: StudyRow) -> str:
   </section>
 </div>
 
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script>
 (() => {{
   const STUDY_SLUG = {slug_json};
@@ -425,6 +421,7 @@ def render_discussion_page(row: StudyRow) -> str:
   const SITE_HOST = {site_host};
   const API_FALLBACK = {json.dumps(DISCUSSIONS_API_FALLBACK)};
   const TURNSTILE_SITE_KEY = {json.dumps(TURNSTILE_SITE_KEY)};
+  const TURNSTILE_ACTION = {json.dumps(TURNSTILE_ACTION)};
 
   const apiBase = () => (window.location.hostname === SITE_HOST ? "" : API_FALLBACK);
 
@@ -442,6 +439,8 @@ def render_discussion_page(row: StudyRow) -> str:
   const toolbarAuthBtn = document.getElementById("toolbar-auth-btn");
   let currentSession = {{ loggedIn: false }};
   let composeExpanded = false;
+  let signInTurnstileWidgetId = null;
+  let signInTurnstileTimer = null;
   const DISCUSS_SEEN_KEY = "amd-discuss-seen";
 
   const markDiscussionSeen = (comments) => {{
@@ -475,25 +474,57 @@ def render_discussion_page(row: StudyRow) -> str:
     if (script) script.addEventListener("load", () => window.turnstile?.ready(fn), {{ once: true }});
   }};
 
-  const refreshSignInTurnstile = () => {{
-    if (!authSignedOut || authSignedOut.classList.contains("hidden")) return;
+  const signInTurnstileWrap = () => document.getElementById("sign-in-turnstile-wrap");
+
+  const destroySignInTurnstile = () => {{
     withTurnstile(() => {{
-      const wrap = magicForm.querySelector(".turnstile-wrap");
-      if (!wrap) return;
-      const existing = wrap.querySelector(".cf-turnstile");
-      if (existing?.dataset.widgetId) {{
+      if (signInTurnstileWidgetId != null) {{
         try {{
-          turnstile.remove(existing.dataset.widgetId);
+          turnstile.remove(signInTurnstileWidgetId);
         }} catch {{
           // ignore stale widget ids
         }}
+        signInTurnstileWidgetId = null;
       }}
-      wrap.innerHTML = `<div class="cf-turnstile" data-sitekey="${{TURNSTILE_SITE_KEY}}"></div>`;
-      const widget = wrap.querySelector(".cf-turnstile");
-      if (!widget) return;
-      const widgetId = turnstile.render(widget, {{ sitekey: TURNSTILE_SITE_KEY }});
-      widget.dataset.widgetId = String(widgetId);
+      const wrap = signInTurnstileWrap();
+      if (wrap) wrap.innerHTML = "";
     }});
+  }};
+
+  const mountSignInTurnstile = () => {{
+    if (!authSignedOut || authSignedOut.classList.contains("hidden")) return;
+    if (!composeWrapper.classList.contains("is-expanded")) return;
+    withTurnstile(() => {{
+      const wrap = signInTurnstileWrap();
+      if (!wrap) return;
+      if (signInTurnstileWidgetId != null) {{
+        try {{
+          turnstile.remove(signInTurnstileWidgetId);
+        }} catch {{
+          // ignore stale widget ids
+        }}
+        signInTurnstileWidgetId = null;
+      }}
+      wrap.innerHTML = "";
+      const widget = document.createElement("div");
+      widget.className = "cf-turnstile";
+      wrap.appendChild(widget);
+      signInTurnstileWidgetId = turnstile.render(widget, {{
+        sitekey: TURNSTILE_SITE_KEY,
+        action: TURNSTILE_ACTION,
+        theme: "auto",
+      }});
+    }});
+  }};
+
+  const scheduleSignInTurnstile = () => {{
+    if (signInTurnstileTimer) clearTimeout(signInTurnstileTimer);
+    signInTurnstileTimer = setTimeout(() => {{
+      signInTurnstileTimer = null;
+      requestAnimationFrame(() => {{
+        requestAnimationFrame(() => mountSignInTurnstile());
+      }});
+    }}, 100);
   }};
 
   const expandCompose = ({{ focusLogin = true }} = {{}}) => {{
@@ -507,7 +538,7 @@ def render_discussion_page(row: StudyRow) -> str:
       if (textarea && focusLogin) textarea.focus();
       return;
     }}
-    refreshSignInTurnstile();
+    scheduleSignInTurnstile();
     if (focusLogin) {{
       const emailInput = magicForm.querySelector('input[name="email"]');
       if (emailInput) emailInput.focus();
@@ -569,18 +600,23 @@ def render_discussion_page(row: StudyRow) -> str:
     return data;
   }};
 
-  const turnstileToken = (form) =>
-    form.querySelector('input[name="cf-turnstile-response"]')?.value || "";
+  const turnstileToken = () =>
+    signInTurnstileWrap()?.querySelector('input[name="cf-turnstile-response"]')?.value
+    || magicForm.querySelector('input[name="cf-turnstile-response"]')?.value
+    || "";
 
-  const resetTurnstile = (form) => {{
-    withTurnstile(() => {{
-      const widget = form.querySelector(".cf-turnstile");
-      if (widget?.dataset.widgetId) {{
-        turnstile.reset(widget.dataset.widgetId);
-        return;
-      }}
-      refreshSignInTurnstile();
-    }});
+  const resetSignInTurnstile = () => {{
+    if (signInTurnstileWidgetId != null) {{
+      withTurnstile(() => {{
+        try {{
+          turnstile.reset(signInTurnstileWidgetId);
+        }} catch {{
+          scheduleSignInTurnstile();
+        }}
+      }});
+      return;
+    }}
+    scheduleSignInTurnstile();
   }};
 
   const formatWhen = (ms) => {{
@@ -646,11 +682,12 @@ def render_discussion_page(row: StudyRow) -> str:
       toolbarAuthBtn.textContent = "Log out";
       toolbarAuthBtn.classList.remove("btn-primary");
       toolbarAuthBtn.setAttribute("aria-label", "Sign out of discussion");
+      destroySignInTurnstile();
     }} else {{
       toolbarAuthBtn.textContent = "Log in";
       toolbarAuthBtn.classList.add("btn-primary");
       toolbarAuthBtn.setAttribute("aria-label", "Sign in to discuss");
-      if (composeExpanded) refreshSignInTurnstile();
+      if (composeExpanded) scheduleSignInTurnstile();
     }}
   }};
 
@@ -703,9 +740,10 @@ def render_discussion_page(row: StudyRow) -> str:
     const form = event.currentTarget;
     const email = form.email.value.trim();
     const displayName = form.displayName.value.trim();
-    const turnstileTokenValue = turnstileToken(form);
+    const turnstileTokenValue = turnstileToken();
     if (!turnstileTokenValue) {{
-      showAlert("error", "Complete the Turnstile check.");
+      scheduleSignInTurnstile();
+      showAlert("error", "Complete the verification check below.");
       return;
     }}
     try {{
@@ -719,10 +757,10 @@ def render_discussion_page(row: StudyRow) -> str:
         }}),
       }});
       showAlert("success", data.message || "Check your email for a sign-in link.");
-      resetTurnstile(form);
+      resetSignInTurnstile();
     }} catch (err) {{
       showAlert("error", err.message);
-      resetTurnstile(form);
+      resetSignInTurnstile();
     }}
   }});
 
