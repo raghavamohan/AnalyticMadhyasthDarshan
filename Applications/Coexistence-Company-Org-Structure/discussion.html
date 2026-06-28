@@ -191,45 +191,26 @@
     font-weight: 600;
   }
   .auth-status-inline button:hover { text-decoration: underline; }
-  .compose-wrapper {
+  .action-panel {
     background: var(--surface);
     border: 2px solid var(--border);
     border-radius: var(--radius);
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-    margin-bottom: 28px;
-  }
-  .compose-wrapper.is-expanded {
-    border-color: var(--accent);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  }
-  .compose-trigger {
-    padding: 14px 20px;
-    color: var(--text-muted);
-    cursor: text;
-    font-size: 1rem;
-    background: transparent;
-    user-select: none;
-  }
-  .compose-trigger:hover { background: var(--accent-soft); }
-  .compose-expanded-content {
-    display: none;
     padding: 18px 20px;
+    margin-bottom: 28px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
   }
-  .compose-wrapper.is-expanded .compose-expanded-content {
-    display: block;
+  .action-panel h2 {
+    margin: 0 0 12px;
+    font-size: 1.05rem;
   }
-  .compose-wrapper.is-expanded .compose-trigger { display: none; }
-  .compose-expanded-content .auth-row { max-width: none; }
+  .action-panel .auth-row { max-width: none; }
   .auth-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
-    margin-top: 12px;
   }
   .auth-sign-in-note {
-    margin: 0 0 4px;
+    margin: 0 0 12px;
     font-size: 0.9rem;
     color: var(--text-muted);
   }
@@ -300,36 +281,34 @@
 
   <div id="discuss-alert" class="alert hidden" role="status"></div>
 
-  <section id="compose-panel" aria-label="Add a comment">
-    <div id="compose-wrapper" class="compose-wrapper">
-      <div id="compose-trigger" class="compose-trigger" role="button" tabindex="0" aria-expanded="false" aria-controls="compose-expanded">
-        What are your thoughts on this study?
+  <section id="sign-in-panel" class="action-panel hidden" aria-labelledby="sign-in-heading">
+    <h2 id="sign-in-heading">Sign in to comment</h2>
+    <p class="auth-sign-in-note">Enter your email and display name. We will send a one-time sign-in link.</p>
+    <form id="magic-link-form" class="auth-row">
+      <div class="auth-grid">
+        <label>Email<input type="email" name="email" autocomplete="email" required></label>
+        <label>Display name<input type="text" name="displayName" maxlength="80" autocomplete="nickname" required></label>
       </div>
-      <div id="compose-expanded" class="compose-expanded-content">
-        <div id="auth-signed-in" class="auth-status-inline hidden">
-          <span>Signed in as <strong id="auth-user-label"></strong></span>
-        </div>
-        <div id="auth-signed-out">
-          <p class="auth-sign-in-note">Sign in to post. We will send a one-time link to your email.</p>
-          <form id="magic-link-form" class="auth-row">
-            <div class="auth-grid">
-              <label>Email<input type="email" name="email" autocomplete="email" required></label>
-              <label>Display name<input type="text" name="displayName" maxlength="80" autocomplete="nickname" required></label>
-            </div>
-            <div class="turnstile-wrap" id="sign-in-turnstile-wrap" aria-live="polite"></div>
-            <div class="compose-actions">
-              <button type="submit" class="btn btn-primary">Email me a sign-in link</button>
-            </div>
-          </form>
-        </div>
-        <form id="comment-form" class="auth-row hidden">
-          <label>Your comment<textarea name="body" maxlength="8192" required placeholder="Share a question or comment…"></textarea></label>
-          <div class="compose-actions">
-            <button type="submit" class="btn btn-primary">Post comment</button>
-          </div>
-        </form>
+      <div class="turnstile-wrap">
+        <div id="sign-in-turnstile" class="cf-turnstile" data-sitekey="0x4AAAAAADoBfrNV5lPeJQWO" data-action="turnstile-spin-v1"></div>
       </div>
+      <div class="compose-actions">
+        <button type="submit" class="btn btn-primary">Email me a sign-in link</button>
+      </div>
+    </form>
+  </section>
+
+  <section id="comment-panel" class="action-panel hidden" aria-labelledby="comment-heading">
+    <h2 id="comment-heading">Add a comment</h2>
+    <div class="auth-status-inline">
+      <span>Signed in as <strong id="auth-user-label"></strong></span>
     </div>
+    <form id="comment-form" class="auth-row">
+      <label>Your comment<textarea name="body" maxlength="8192" required placeholder="Share a question or comment…"></textarea></label>
+      <div class="compose-actions">
+        <button type="submit" class="btn btn-primary">Post comment</button>
+      </div>
+    </form>
   </section>
 
   <section class="comments-section" aria-labelledby="comments-heading">
@@ -339,7 +318,7 @@
   </section>
 </div>
 
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
 <script>
 (() => {
   const STUDY_SLUG = "Coexistence-Company-Org-Structure";
@@ -354,17 +333,13 @@
   const alertEl = document.getElementById("discuss-alert");
   const commentList = document.getElementById("comment-list");
   const commentsEmpty = document.getElementById("comments-empty");
-  const composeWrapper = document.getElementById("compose-wrapper");
-  const composePanel = document.getElementById("compose-panel");
-  const composeTrigger = document.getElementById("compose-trigger");
+  const signInPanel = document.getElementById("sign-in-panel");
+  const commentPanel = document.getElementById("comment-panel");
   const magicForm = document.getElementById("magic-link-form");
   const commentForm = document.getElementById("comment-form");
-  const authSignedOut = document.getElementById("auth-signed-out");
-  const authSignedIn = document.getElementById("auth-signed-in");
   const authUserLabel = document.getElementById("auth-user-label");
   const toolbarAuthBtn = document.getElementById("toolbar-auth-btn");
   let currentSession = { loggedIn: false };
-  let composeExpanded = false;
   let signInTurnstileWidgetId = null;
   let signInTurnstileTimer = null;
   const DISCUSS_SEEN_KEY = "amd-discuss-seen";
@@ -400,7 +375,13 @@
     if (script) script.addEventListener("load", () => window.turnstile?.ready(fn), { once: true });
   };
 
-  const signInTurnstileWrap = () => document.getElementById("sign-in-turnstile-wrap");
+  const signInTurnstileEl = () => document.getElementById("sign-in-turnstile");
+
+  const resetSignInTurnstileContainer = () => {
+    const wrap = signInPanel?.querySelector(".turnstile-wrap");
+    if (!wrap) return;
+    wrap.innerHTML = `<div id="sign-in-turnstile" class="cf-turnstile" data-sitekey="${TURNSTILE_SITE_KEY}" data-action="${TURNSTILE_ACTION}"></div>`;
+  };
 
   const destroySignInTurnstile = () => {
     withTurnstile(() => {
@@ -412,17 +393,18 @@
         }
         signInTurnstileWidgetId = null;
       }
-      const wrap = signInTurnstileWrap();
-      if (wrap) wrap.innerHTML = "";
     });
   };
 
   const mountSignInTurnstile = () => {
-    if (!authSignedOut || authSignedOut.classList.contains("hidden")) return;
-    if (!composeWrapper.classList.contains("is-expanded")) return;
+    if (!signInPanel || signInPanel.classList.contains("hidden")) return;
     withTurnstile(() => {
-      const wrap = signInTurnstileWrap();
-      if (!wrap) return;
+      let widget = signInTurnstileEl();
+      if (!widget) {
+        resetSignInTurnstileContainer();
+        widget = signInTurnstileEl();
+      }
+      if (!widget) return;
       if (signInTurnstileWidgetId != null) {
         try {
           turnstile.remove(signInTurnstileWidgetId);
@@ -431,14 +413,11 @@
         }
         signInTurnstileWidgetId = null;
       }
-      wrap.innerHTML = "";
-      const widget = document.createElement("div");
-      widget.className = "cf-turnstile";
-      wrap.appendChild(widget);
       signInTurnstileWidgetId = turnstile.render(widget, {
         sitekey: TURNSTILE_SITE_KEY,
         action: TURNSTILE_ACTION,
         theme: "auto",
+        "refresh-expired": "auto",
       });
     });
   };
@@ -447,33 +426,38 @@
     if (signInTurnstileTimer) clearTimeout(signInTurnstileTimer);
     signInTurnstileTimer = setTimeout(() => {
       signInTurnstileTimer = null;
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => mountSignInTurnstile());
-      });
-    }, 100);
+      requestAnimationFrame(() => mountSignInTurnstile());
+    }, 150);
   };
 
-  const expandCompose = ({ focusLogin = true } = {}) => {
-    if (!composeExpanded) {
-      composeExpanded = true;
-      composeWrapper.classList.add("is-expanded");
-      composeTrigger.setAttribute("aria-expanded", "true");
-    }
-    if (currentSession.loggedIn) {
-      const textarea = commentForm.querySelector('textarea[name="body"]');
-      if (textarea && focusLogin) textarea.focus();
-      return;
-    }
+  const showSignInPanel = () => {
+    signInPanel.classList.remove("hidden");
+    commentPanel.classList.add("hidden");
+    destroySignInTurnstile();
+    resetSignInTurnstileContainer();
     scheduleSignInTurnstile();
-    if (focusLogin) {
-      const emailInput = magicForm.querySelector('input[name="email"]');
-      if (emailInput) emailInput.focus();
-    }
+    signInPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+    const emailInput = magicForm.querySelector('input[name="email"]');
+    if (emailInput) emailInput.focus();
+  };
+
+  const hideSignInPanel = () => {
+    signInPanel.classList.add("hidden");
+    destroySignInTurnstile();
+    resetSignInTurnstileContainer();
+  };
+
+  const showCommentPanel = () => {
+    hideSignInPanel();
+    commentPanel.classList.remove("hidden");
+  };
+
+  const hideCommentPanel = () => {
+    commentPanel.classList.add("hidden");
   };
 
   const openLoginFlow = () => {
-    expandCompose({ focusLogin: true });
-    composePanel?.scrollIntoView({ behavior: "smooth", block: "start" });
+    showSignInPanel();
   };
 
   const handleLogout = async () => {
@@ -487,14 +471,6 @@
     }
   };
 
-  composeTrigger.addEventListener("click", () => expandCompose());
-  composeTrigger.addEventListener("keydown", (event) => {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      expandCompose();
-    }
-  });
-
   toolbarAuthBtn.addEventListener("click", () => {
     if (currentSession.loggedIn) {
       handleLogout();
@@ -507,7 +483,7 @@
   const discussError = params.get("discuss_error");
   if (discussError) {
     showAlert("error", decodeURIComponent(discussError));
-    expandCompose();
+    showSignInPanel();
     params.delete("discuss_error");
     const clean = params.toString();
     history.replaceState(null, "", clean ? `?${clean}` : window.location.pathname);
@@ -527,7 +503,7 @@
   };
 
   const turnstileToken = () =>
-    signInTurnstileWrap()?.querySelector('input[name="cf-turnstile-response"]')?.value
+    signInTurnstileEl()?.closest("form")?.querySelector('input[name="cf-turnstile-response"]')?.value
     || magicForm.querySelector('input[name="cf-turnstile-response"]')?.value
     || "";
 
@@ -537,6 +513,8 @@
         try {
           turnstile.reset(signInTurnstileWidgetId);
         } catch {
+          destroySignInTurnstile();
+          resetSignInTurnstileContainer();
           scheduleSignInTurnstile();
         }
       });
@@ -600,20 +578,18 @@
   const setAuthUi = (session) => {
     currentSession = session || { loggedIn: false };
     const loggedIn = Boolean(currentSession.loggedIn);
-    authSignedOut.classList.toggle("hidden", loggedIn);
-    authSignedIn.classList.toggle("hidden", !loggedIn);
-    commentForm.classList.toggle("hidden", !loggedIn);
     if (loggedIn) {
       authUserLabel.textContent = currentSession.displayName || currentSession.email || "Reader";
       toolbarAuthBtn.textContent = "Log out";
       toolbarAuthBtn.classList.remove("btn-primary");
       toolbarAuthBtn.setAttribute("aria-label", "Sign out of discussion");
-      destroySignInTurnstile();
+      showCommentPanel();
     } else {
       toolbarAuthBtn.textContent = "Log in";
       toolbarAuthBtn.classList.add("btn-primary");
       toolbarAuthBtn.setAttribute("aria-label", "Sign in to discuss");
-      if (composeExpanded) scheduleSignInTurnstile();
+      hideCommentPanel();
+      hideSignInPanel();
     }
   };
 
