@@ -378,7 +378,6 @@ def render_discussion_page(row: StudyRow) -> str:
         </div>
         <form id="comment-form" class="auth-row hidden">
           <label>Your comment<textarea name="body" maxlength="8192" required placeholder="Share a question or comment…"></textarea></label>
-          <div class="turnstile-wrap"><div class="cf-turnstile" id="comment-turnstile" data-sitekey="{TURNSTILE_SITE_KEY}"></div></div>
           <div class="compose-actions">
             <button type="submit" class="btn btn-primary">Post comment</button>
           </div>
@@ -394,13 +393,14 @@ def render_discussion_page(row: StudyRow) -> str:
   </section>
 </div>
 
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
 <script>
 (() => {{
   const STUDY_SLUG = {slug_json};
   const STUDY_TITLE = {title_json};
   const SITE_HOST = {site_host};
   const API_FALLBACK = {json.dumps(DISCUSSIONS_API_FALLBACK)};
+  const TURNSTILE_SITE_KEY = {json.dumps(TURNSTILE_SITE_KEY)};
 
   const apiBase = () => (window.location.hostname === SITE_HOST ? "" : API_FALLBACK);
 
@@ -441,6 +441,25 @@ def render_discussion_page(row: StudyRow) -> str:
     alertEl.classList.remove("hidden");
   }};
 
+  const withTurnstile = (fn) => {{
+    if (window.turnstile) {{
+      window.turnstile.ready(fn);
+      return;
+    }}
+    const script = document.querySelector('script[src*="turnstile"]');
+    if (script) script.addEventListener("load", () => window.turnstile?.ready(fn), {{ once: true }});
+  }};
+
+  const ensureTurnstileRendered = (container) => {{
+    if (!container) return;
+    withTurnstile(() => {{
+      const widget = container.querySelector(".cf-turnstile");
+      if (!widget || widget.dataset.widgetId) return;
+      const widgetId = turnstile.render(widget, {{ sitekey: TURNSTILE_SITE_KEY }});
+      widget.dataset.widgetId = String(widgetId);
+    }});
+  }};
+
   const expandCompose = () => {{
     if (composeExpanded) return;
     composeExpanded = true;
@@ -451,6 +470,7 @@ def render_discussion_page(row: StudyRow) -> str:
       if (textarea) textarea.focus();
       return;
     }}
+    ensureTurnstileRendered(authSignedOut);
     const emailInput = magicForm.querySelector('input[name="email"]');
     if (emailInput) emailInput.focus();
   }};
@@ -490,9 +510,10 @@ def render_discussion_page(row: StudyRow) -> str:
     form.querySelector('input[name="cf-turnstile-response"]')?.value || "";
 
   const resetTurnstile = (form) => {{
-    if (!window.turnstile) return;
-    const widget = form.querySelector(".cf-turnstile");
-    if (widget && widget.dataset.widgetId) turnstile.reset(widget.dataset.widgetId);
+    withTurnstile(() => {{
+      const widget = form.querySelector(".cf-turnstile");
+      if (widget?.dataset.widgetId) turnstile.reset(widget.dataset.widgetId);
+    }});
   }};
 
   const formatWhen = (ms) => {{
@@ -634,13 +655,8 @@ def render_discussion_page(row: StudyRow) -> str:
     event.preventDefault();
     const form = event.currentTarget;
     const body = form.body.value.trim();
-    const turnstileTokenValue = turnstileToken(form);
     if (!body) {{
       showAlert("error", "Comment cannot be empty.");
-      return;
-    }}
-    if (!turnstileTokenValue) {{
-      showAlert("error", "Complete the Turnstile check.");
       return;
     }}
     try {{
@@ -649,16 +665,15 @@ def render_discussion_page(row: StudyRow) -> str:
         body: JSON.stringify({{
           body,
           title: STUDY_TITLE,
-          turnstileToken: turnstileTokenValue,
         }}),
       }});
       form.body.value = "";
-      resetTurnstile(form);
       showAlert("success", "Comment posted.");
       await loadComments();
+      const textarea = form.querySelector('textarea[name="body"]');
+      if (textarea) textarea.focus();
     }} catch (err) {{
       showAlert("error", err.message);
-      resetTurnstile(form);
     }}
   }});
 

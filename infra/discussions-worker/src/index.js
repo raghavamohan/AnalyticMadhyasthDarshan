@@ -165,7 +165,6 @@ router.post('/api/discussions/:slug/comments', async (request, env) => {
     const db = requireDb(env);
     const slug = validateSlug(request.params.slug);
     const data = await request.json();
-    await verifyTurnstile(data.turnstileToken, env, request);
 
     const body = sanitizeBody(data.body);
     const title = String(data.title || slug).trim() || slug;
