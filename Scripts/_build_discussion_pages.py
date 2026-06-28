@@ -315,6 +315,23 @@ def render_discussion_page(row: StudyRow) -> str:
   const authUserLabel = document.getElementById("auth-user-label");
   const logoutBtn = document.getElementById("logout-btn");
   let currentSession = {{ loggedIn: false }};
+  const DISCUSS_SEEN_KEY = "amd-discuss-seen";
+
+  const markDiscussionSeen = (comments) => {{
+    if (!Array.isArray(comments) || !comments.length) return;
+    const latest = comments.reduce(
+      (max, item) => Math.max(max, Number(item.createdAt) || 0),
+      0,
+    );
+    if (!latest) return;
+    try {{
+      const seen = JSON.parse(localStorage.getItem(DISCUSS_SEEN_KEY) || "{{}}");
+      seen[STUDY_SLUG] = Math.max(Number(seen[STUDY_SLUG] || 0), latest);
+      localStorage.setItem(DISCUSS_SEEN_KEY, JSON.stringify(seen));
+    }} catch {{
+      // ignore storage errors
+    }}
+  }};
 
   const showAlert = (kind, message) => {{
     alertEl.className = `alert alert-${{kind}}`;
@@ -444,7 +461,9 @@ def render_discussion_page(row: StudyRow) -> str:
 
   const loadComments = async () => {{
     const data = await fetchJson(`/api/discussions/${{encodeURIComponent(STUDY_SLUG)}}`);
-    renderComments(data.comments || []);
+    const comments = data.comments || [];
+    renderComments(comments);
+    markDiscussionSeen(comments);
   }};
 
   const loadSession = async () => {{

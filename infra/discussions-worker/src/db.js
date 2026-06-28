@@ -100,6 +100,19 @@ export async function getComment(db, commentId, threadSlug) {
   `).bind(commentId, threadSlug).first();
 }
 
+export async function listThreadStats(db) {
+  const { results } = await db.prepare(`
+    SELECT
+      thread_slug AS slug,
+      COUNT(*) AS count,
+      MAX(created_at) AS latest_at
+    FROM comments
+    WHERE status = 'visible'
+    GROUP BY thread_slug
+  `).all();
+  return results || [];
+}
+
 export async function hideComment(db, commentId) {
   await db.prepare(
     "UPDATE comments SET status = 'hidden', updated_at = ? WHERE id = ? AND status = 'visible'",
