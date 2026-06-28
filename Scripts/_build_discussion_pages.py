@@ -507,7 +507,6 @@ def render_discussion_page(row: StudyRow) -> str:
       await fetchJson("/api/discuss-auth/logout", {{ method: "POST", body: "{{}}" }});
       setAuthUi({{ loggedIn: false }});
       await loadComments();
-      showAlert("info", "Signed out.");
     }} catch (err) {{
       showAlert("error", err.message);
     }}
