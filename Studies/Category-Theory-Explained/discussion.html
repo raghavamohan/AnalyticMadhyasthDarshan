@@ -62,15 +62,6 @@
     color: #fff;
   }
   .btn:hover { filter: brightness(0.97); }
-  .panel {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 18px 20px;
-    margin-bottom: 18px;
-  }
-  .panel h2 { margin: 0 0 10px; font-size: 1.05rem; }
-  .panel p { margin: 0 0 10px; color: var(--text-muted); }
   .status-badge {
     display: inline-block;
     font-size: 0.75rem;
@@ -153,6 +144,96 @@
   .alert-success { background: #edf7ed; color: #1e4620; border: 1px solid #c8e6c9; }
   .alert-info { background: var(--accent-soft); color: #13466a; border: 1px solid #c5dcee; }
   .hidden { display: none !important; }
+  .intro-text {
+    padding: 0 10px 24px;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+  .intro-text p { margin: 0 0 8px; }
+  .intro-text a { text-decoration: underline; }
+  .auth-status-inline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+  .auth-status-inline button {
+    background: transparent;
+    border: none;
+    color: var(--accent);
+    cursor: pointer;
+    font-size: 0.85rem;
+    padding: 0;
+    font-weight: 600;
+  }
+  .auth-status-inline button:hover { text-decoration: underline; }
+  .compose-wrapper {
+    background: var(--surface);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    margin-bottom: 28px;
+  }
+  .compose-wrapper.is-expanded {
+    border-color: var(--accent);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+  .compose-trigger {
+    padding: 14px 20px;
+    color: var(--text-muted);
+    cursor: text;
+    font-size: 1rem;
+    background: transparent;
+    user-select: none;
+  }
+  .compose-trigger:hover { background: var(--accent-soft); }
+  .compose-expanded-content {
+    display: none;
+    padding: 18px 20px;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+  .compose-wrapper.is-expanded .compose-expanded-content {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .compose-wrapper.is-expanded .compose-trigger { display: none; }
+  .compose-expanded-content .auth-row { max-width: none; }
+  .auth-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .auth-sign-in-note {
+    margin: 0 0 4px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+  .compose-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+    align-items: center;
+  }
+  .comments-section {
+    margin-top: 8px;
+  }
+  .comments-section h2 {
+    margin: 0 0 14px;
+    font-size: 1.05rem;
+  }
+  @media (max-width: 600px) {
+    .auth-grid { grid-template-columns: 1fr; }
+  }
   @media (prefers-color-scheme: dark) {
     :root {
       --bg: #171411;
@@ -167,6 +248,15 @@
     .alert-error { background: #3a1714; color: #ffb4a9; border-color: #7f2d25; }
     .alert-success { background: #142818; color: #a8d5a8; border-color: #2f5c31; }
     .btn-primary { color: #102030; }
+    .auth-row input, .auth-row textarea {
+      background-color: #26201b;
+      color: var(--text);
+      border-color: #433931;
+    }
+    .auth-row textarea:focus, .auth-row input:focus {
+      border-color: var(--accent);
+      outline: none;
+    }
   }
 </style>
 </head>
@@ -182,41 +272,52 @@
     </span>
   </nav>
 
-  <section class="panel" aria-labelledby="about-discussion">
-    <h2 id="about-discussion">About this board</h2>
-    <p>Use this page for questions, interpretive discussion, and general comments on <em>Category Theory Explained</em>.</p>
+  <div class="intro-text" aria-labelledby="about-discussion">
+    <p id="about-discussion">Use this page for questions, interpretive discussion, and general comments on <em>Category Theory Explained</em>.</p>
     <p>For typos, citations, or section-specific corrections intended for maintainers, use <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&amp;title=Study%20feedback%3A%20Category%20Theory%20Explained" rel="noopener">Suggest a correction</a> (GitHub Issues) instead.</p>
     <p class="privacy-note">Sign-in uses your email address and display name. We use them only for discussion identity and moderation. See the site <a href="../index.html#contribute">contribute</a> section for more.</p>
-  </section>
+  </div>
 
   <div id="discuss-alert" class="alert hidden" role="status"></div>
 
-  <section class="panel" id="auth-panel" aria-labelledby="sign-in-heading">
-    <h2 id="sign-in-heading">Sign in to comment</h2>
-    <p id="auth-signed-out">Enter your email and display name. We will send a one-time sign-in link.</p>
-    <p id="auth-signed-in" class="hidden">Signed in as <strong id="auth-user-label"></strong>. <button type="button" class="btn" id="logout-btn">Sign out</button></p>
-    <form id="magic-link-form" class="auth-row">
-      <label>Email<input type="email" name="email" autocomplete="email" required></label>
-      <label>Display name<input type="text" name="displayName" maxlength="80" autocomplete="nickname" required></label>
-      <div class="turnstile-wrap"><div class="cf-turnstile" data-sitekey="0x4AAAAAADoBfrNV5lPeJQWO"></div></div>
-      <button type="submit" class="btn btn-primary">Email me a sign-in link</button>
-    </form>
+  <section id="compose-panel" aria-label="Add a comment">
+    <div id="compose-wrapper" class="compose-wrapper">
+      <div id="compose-trigger" class="compose-trigger" role="button" tabindex="0" aria-expanded="false" aria-controls="compose-expanded">
+        What are your thoughts on this study?
+      </div>
+      <div id="compose-expanded" class="compose-expanded-content">
+        <div id="auth-signed-in" class="auth-status-inline hidden">
+          <span>Signed in as <strong id="auth-user-label"></strong></span>
+          <button type="button" id="logout-btn">Sign out</button>
+        </div>
+        <div id="auth-signed-out">
+          <p class="auth-sign-in-note">Sign in to post. We will send a one-time link to your email.</p>
+          <form id="magic-link-form" class="auth-row">
+            <div class="auth-grid">
+              <label>Email<input type="email" name="email" autocomplete="email" required></label>
+              <label>Display name<input type="text" name="displayName" maxlength="80" autocomplete="nickname" required></label>
+            </div>
+            <div class="turnstile-wrap"><div class="cf-turnstile" data-sitekey="0x4AAAAAADoBfrNV5lPeJQWO"></div></div>
+            <div class="compose-actions">
+              <button type="submit" class="btn btn-primary">Email me a sign-in link</button>
+            </div>
+          </form>
+        </div>
+        <form id="comment-form" class="auth-row hidden">
+          <label>Your comment<textarea name="body" maxlength="8192" required placeholder="Share a question or comment…"></textarea></label>
+          <div class="turnstile-wrap"><div class="cf-turnstile" id="comment-turnstile" data-sitekey="0x4AAAAAADoBfrNV5lPeJQWO"></div></div>
+          <div class="compose-actions">
+            <button type="submit" class="btn btn-primary">Post comment</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </section>
 
-  <section class="panel" aria-labelledby="comments-heading">
+  <section class="comments-section" aria-labelledby="comments-heading">
     <h2 id="comments-heading">Comments</h2>
     <ul id="comment-list" class="comments" aria-live="polite"></ul>
     <p id="comments-empty" class="hidden">No comments yet. Be the first to start the discussion.</p>
-  </section>
-
-  <section class="panel" id="compose-panel" aria-labelledby="compose-heading">
-    <h2 id="compose-heading">Add a comment</h2>
-    <form id="comment-form" class="auth-row hidden">
-      <label>Your comment<textarea name="body" maxlength="8192" required placeholder="Share a question or comment…"></textarea></label>
-      <div class="turnstile-wrap"><div class="cf-turnstile" id="comment-turnstile" data-sitekey="0x4AAAAAADoBfrNV5lPeJQWO"></div></div>
-      <button type="submit" class="btn btn-primary">Post comment</button>
-    </form>
-    <p id="compose-sign-in-hint">Sign in above to post a comment.</p>
   </section>
 </div>
 
@@ -233,14 +334,16 @@
   const alertEl = document.getElementById("discuss-alert");
   const commentList = document.getElementById("comment-list");
   const commentsEmpty = document.getElementById("comments-empty");
+  const composeWrapper = document.getElementById("compose-wrapper");
+  const composeTrigger = document.getElementById("compose-trigger");
   const magicForm = document.getElementById("magic-link-form");
   const commentForm = document.getElementById("comment-form");
-  const composeHint = document.getElementById("compose-sign-in-hint");
   const authSignedOut = document.getElementById("auth-signed-out");
   const authSignedIn = document.getElementById("auth-signed-in");
   const authUserLabel = document.getElementById("auth-user-label");
   const logoutBtn = document.getElementById("logout-btn");
   let currentSession = { loggedIn: false };
+  let composeExpanded = false;
   const DISCUSS_SEEN_KEY = "amd-discuss-seen";
 
   const markDiscussionSeen = (comments) => {
@@ -265,10 +368,33 @@
     alertEl.classList.remove("hidden");
   };
 
+  const expandCompose = () => {
+    if (composeExpanded) return;
+    composeExpanded = true;
+    composeWrapper.classList.add("is-expanded");
+    composeTrigger.setAttribute("aria-expanded", "true");
+    if (currentSession.loggedIn) {
+      const textarea = commentForm.querySelector('textarea[name="body"]');
+      if (textarea) textarea.focus();
+      return;
+    }
+    const emailInput = magicForm.querySelector('input[name="email"]');
+    if (emailInput) emailInput.focus();
+  };
+
+  composeTrigger.addEventListener("click", expandCompose);
+  composeTrigger.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      expandCompose();
+    }
+  });
+
   const params = new URLSearchParams(window.location.search);
   const discussError = params.get("discuss_error");
   if (discussError) {
     showAlert("error", decodeURIComponent(discussError));
+    expandCompose();
     params.delete("discuss_error");
     const clean = params.toString();
     history.replaceState(null, "", clean ? `?${clean}` : window.location.pathname);
@@ -351,12 +477,12 @@
   const setAuthUi = (session) => {
     currentSession = session || { loggedIn: false };
     const loggedIn = Boolean(currentSession.loggedIn);
-    magicForm.classList.toggle("hidden", loggedIn);
     authSignedOut.classList.toggle("hidden", loggedIn);
     authSignedIn.classList.toggle("hidden", !loggedIn);
     commentForm.classList.toggle("hidden", !loggedIn);
-    composeHint.classList.toggle("hidden", loggedIn);
-    if (loggedIn) authUserLabel.textContent = currentSession.displayName || currentSession.email || "Reader";
+    if (loggedIn) {
+      authUserLabel.textContent = currentSession.displayName || currentSession.email || "Reader";
+    }
   };
 
   const removeComment = async (commentId, action) => {
