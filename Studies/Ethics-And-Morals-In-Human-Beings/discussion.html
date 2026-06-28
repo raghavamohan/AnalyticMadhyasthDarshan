@@ -29,20 +29,40 @@
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     margin-bottom: 20px;
+  }
+  .toolbar-main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    flex: 1 1 240px;
+    min-width: 0;
   }
   .toolbar h1 {
     margin: 0;
     font-size: 1.35rem;
     font-weight: 700;
-    flex: 1 1 240px;
+    flex: 1 1 180px;
+    min-width: 0;
+  }
+  .toolbar-end {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    margin-left: auto;
   }
   .toolbar-actions {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+  }
+  .btn-auth {
+    cursor: pointer;
+    font: inherit;
   }
   .btn {
     display: inline-flex;
@@ -263,13 +283,18 @@
 <body>
 <div class="wrap">
   <nav class="toolbar" aria-label="Discussion navigation">
-    <a class="btn" href="../index.html">&larr; All studies</a>
-    <h1>Discussion — Ethics and Morals in Human Beings <span class="status-badge status-badge--draft">Draft</span></h1>
-    <span class="toolbar-actions">
-      <a class="btn btn-primary" href="Ethics-And-Morals-In-Human-Beings.html">Read paper</a>
-      <a class="btn" href="Ethics-And-Morals-In-Human-Beings.pdf" download>Download PDF</a>
-      <a class="btn" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&amp;title=Study%20feedback%3A%20Ethics%20and%20Morals%20in%20Human%20Beings" rel="noopener">Suggest a correction</a>
-    </span>
+    <div class="toolbar-main">
+      <a class="btn" href="../index.html">&larr; All studies</a>
+      <h1>Discussion — Ethics and Morals in Human Beings <span class="status-badge status-badge--draft">Draft</span></h1>
+    </div>
+    <div class="toolbar-end">
+      <span class="toolbar-actions">
+        <a class="btn btn-primary" href="Ethics-And-Morals-In-Human-Beings.html">Read paper</a>
+        <a class="btn" href="Ethics-And-Morals-In-Human-Beings.pdf" download>Download PDF</a>
+        <a class="btn" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&amp;title=Study%20feedback%3A%20Ethics%20and%20Morals%20in%20Human%20Beings" rel="noopener">Suggest a correction</a>
+      </span>
+      <button type="button" id="toolbar-auth-btn" class="btn btn-primary btn-auth">Log in</button>
+    </div>
   </nav>
 
   <div class="intro-text" aria-labelledby="about-discussion">
@@ -288,7 +313,6 @@
       <div id="compose-expanded" class="compose-expanded-content">
         <div id="auth-signed-in" class="auth-status-inline hidden">
           <span>Signed in as <strong id="auth-user-label"></strong></span>
-          <button type="button" id="logout-btn">Sign out</button>
         </div>
         <div id="auth-signed-out">
           <p class="auth-sign-in-note">Sign in to post. We will send a one-time link to your email.</p>
@@ -335,13 +359,14 @@
   const commentList = document.getElementById("comment-list");
   const commentsEmpty = document.getElementById("comments-empty");
   const composeWrapper = document.getElementById("compose-wrapper");
+  const composePanel = document.getElementById("compose-panel");
   const composeTrigger = document.getElementById("compose-trigger");
   const magicForm = document.getElementById("magic-link-form");
   const commentForm = document.getElementById("comment-form");
   const authSignedOut = document.getElementById("auth-signed-out");
   const authSignedIn = document.getElementById("auth-signed-in");
   const authUserLabel = document.getElementById("auth-user-label");
-  const logoutBtn = document.getElementById("logout-btn");
+  const toolbarAuthBtn = document.getElementById("toolbar-auth-btn");
   let currentSession = { loggedIn: false };
   let composeExpanded = false;
   const DISCUSS_SEEN_KEY = "amd-discuss-seen";
@@ -377,37 +402,75 @@
     if (script) script.addEventListener("load", () => window.turnstile?.ready(fn), { once: true });
   };
 
-  const ensureTurnstileRendered = (container) => {
-    if (!container) return;
+  const refreshSignInTurnstile = () => {
+    if (!authSignedOut || authSignedOut.classList.contains("hidden")) return;
     withTurnstile(() => {
-      const widget = container.querySelector(".cf-turnstile");
-      if (!widget || widget.dataset.widgetId) return;
+      const wrap = magicForm.querySelector(".turnstile-wrap");
+      if (!wrap) return;
+      const existing = wrap.querySelector(".cf-turnstile");
+      if (existing?.dataset.widgetId) {
+        try {
+          turnstile.remove(existing.dataset.widgetId);
+        } catch {
+          // ignore stale widget ids
+        }
+      }
+      wrap.innerHTML = `<div class="cf-turnstile" data-sitekey="${TURNSTILE_SITE_KEY}"></div>`;
+      const widget = wrap.querySelector(".cf-turnstile");
+      if (!widget) return;
       const widgetId = turnstile.render(widget, { sitekey: TURNSTILE_SITE_KEY });
       widget.dataset.widgetId = String(widgetId);
     });
   };
 
-  const expandCompose = () => {
-    if (composeExpanded) return;
-    composeExpanded = true;
-    composeWrapper.classList.add("is-expanded");
-    composeTrigger.setAttribute("aria-expanded", "true");
+  const expandCompose = ({ focusLogin = true } = {}) => {
+    if (!composeExpanded) {
+      composeExpanded = true;
+      composeWrapper.classList.add("is-expanded");
+      composeTrigger.setAttribute("aria-expanded", "true");
+    }
     if (currentSession.loggedIn) {
       const textarea = commentForm.querySelector('textarea[name="body"]');
-      if (textarea) textarea.focus();
+      if (textarea && focusLogin) textarea.focus();
       return;
     }
-    ensureTurnstileRendered(authSignedOut);
-    const emailInput = magicForm.querySelector('input[name="email"]');
-    if (emailInput) emailInput.focus();
+    refreshSignInTurnstile();
+    if (focusLogin) {
+      const emailInput = magicForm.querySelector('input[name="email"]');
+      if (emailInput) emailInput.focus();
+    }
   };
 
-  composeTrigger.addEventListener("click", expandCompose);
+  const openLoginFlow = () => {
+    expandCompose({ focusLogin: true });
+    composePanel?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  const handleLogout = async () => {
+    try {
+      await fetchJson("/api/discuss-auth/logout", { method: "POST", body: "{}" });
+      setAuthUi({ loggedIn: false });
+      await loadComments();
+      showAlert("info", "Signed out.");
+    } catch (err) {
+      showAlert("error", err.message);
+    }
+  };
+
+  composeTrigger.addEventListener("click", () => expandCompose());
   composeTrigger.addEventListener("keydown", (event) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
       expandCompose();
     }
+  });
+
+  toolbarAuthBtn.addEventListener("click", () => {
+    if (currentSession.loggedIn) {
+      handleLogout();
+      return;
+    }
+    openLoginFlow();
   });
 
   const params = new URLSearchParams(window.location.search);
@@ -439,7 +502,11 @@
   const resetTurnstile = (form) => {
     withTurnstile(() => {
       const widget = form.querySelector(".cf-turnstile");
-      if (widget?.dataset.widgetId) turnstile.reset(widget.dataset.widgetId);
+      if (widget?.dataset.widgetId) {
+        turnstile.reset(widget.dataset.widgetId);
+        return;
+      }
+      refreshSignInTurnstile();
     });
   };
 
@@ -503,6 +570,14 @@
     commentForm.classList.toggle("hidden", !loggedIn);
     if (loggedIn) {
       authUserLabel.textContent = currentSession.displayName || currentSession.email || "Reader";
+      toolbarAuthBtn.textContent = "Log out";
+      toolbarAuthBtn.classList.remove("btn-primary");
+      toolbarAuthBtn.setAttribute("aria-label", "Sign out of discussion");
+    } else {
+      toolbarAuthBtn.textContent = "Log in";
+      toolbarAuthBtn.classList.add("btn-primary");
+      toolbarAuthBtn.setAttribute("aria-label", "Sign in to discuss");
+      if (composeExpanded) refreshSignInTurnstile();
     }
   };
 
@@ -599,17 +674,6 @@
       await loadComments();
       const textarea = form.querySelector('textarea[name="body"]');
       if (textarea) textarea.focus();
-    } catch (err) {
-      showAlert("error", err.message);
-    }
-  });
-
-  logoutBtn.addEventListener("click", async () => {
-    try {
-      await fetchJson("/api/discuss-auth/logout", { method: "POST", body: "{}" });
-      setAuthUi({ loggedIn: false });
-      await loadComments();
-      showAlert("info", "Signed out.");
     } catch (err) {
       showAlert("error", err.message);
     }
