@@ -107,7 +107,7 @@ def render_discussion_page(row: StudyRow) -> str:
   .discuss-header-row {{
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
     gap: 8px 12px;
   }}
   .discuss-header-row h1 {{
@@ -118,11 +118,20 @@ def render_discussion_page(row: StudyRow) -> str:
     min-width: 0;
     line-height: 1.3;
   }}
+  .discuss-header-actions {{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+    flex: 0 0 auto;
+    margin-left: auto;
+  }}
   .discuss-header-meta {{
-    margin: 8px 0 0;
+    margin: 0;
     font-size: 0.88rem;
     color: var(--text-muted);
     line-height: 1.4;
+    white-space: nowrap;
   }}
   .discuss-header-meta a {{
     color: var(--accent);
@@ -287,6 +296,7 @@ def render_discussion_page(row: StudyRow) -> str:
   }}
   @media (max-width: 600px) {{
     .auth-grid {{ grid-template-columns: 1fr; }}
+    .discuss-header-meta {{ white-space: normal; }}
   }}
   @media (prefers-color-scheme: dark) {{
     :root {{
@@ -320,13 +330,15 @@ def render_discussion_page(row: StudyRow) -> str:
     <div class="discuss-header-row">
       <a class="btn btn-sm" href="{html.escape(links['catalog'])}">&larr; Studies</a>
       <h1>{html.escape(title)}{draft_note}</h1>
-      <button type="button" id="toolbar-auth-btn" class="btn btn-sm btn-auth btn-primary">Log in</button>
+      <div class="discuss-header-actions">
+        <nav class="discuss-header-meta" aria-label="Study links">
+          <a href="{html.escape(links['read'])}">Read paper</a><span class="meta-sep">·</span>
+          <a href="{html.escape(links['pdf'])}" download>PDF</a><span class="meta-sep">·</span>
+          <a href="{html.escape(feedback)}" rel="noopener">Suggest correction</a>
+        </nav>
+        <button type="button" id="toolbar-auth-btn" class="btn btn-sm btn-auth btn-primary">Log in</button>
+      </div>
     </div>
-    <p class="discuss-header-meta">
-      <a href="{html.escape(links['read'])}">Read paper</a><span class="meta-sep">·</span>
-      <a href="{html.escape(links['pdf'])}" download>PDF</a><span class="meta-sep">·</span>
-      <a href="{html.escape(feedback)}" rel="noopener">Suggest correction</a>
-    </p>
     <p class="discuss-header-note" id="about-discussion">Questions and comments on this study. Maintainer corrections via <a href="{html.escape(feedback)}" rel="noopener">GitHub Issues</a>. Sign-in uses your email for posting identity only.</p>
   </header>
 

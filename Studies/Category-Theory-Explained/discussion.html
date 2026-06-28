@@ -33,7 +33,7 @@
   .discuss-header-row {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
     gap: 8px 12px;
   }
   .discuss-header-row h1 {
@@ -44,11 +44,20 @@
     min-width: 0;
     line-height: 1.3;
   }
+  .discuss-header-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+    flex: 0 0 auto;
+    margin-left: auto;
+  }
   .discuss-header-meta {
-    margin: 8px 0 0;
+    margin: 0;
     font-size: 0.88rem;
     color: var(--text-muted);
     line-height: 1.4;
+    white-space: nowrap;
   }
   .discuss-header-meta a {
     color: var(--accent);
@@ -213,6 +222,7 @@
   }
   @media (max-width: 600px) {
     .auth-grid { grid-template-columns: 1fr; }
+    .discuss-header-meta { white-space: normal; }
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -246,13 +256,15 @@
     <div class="discuss-header-row">
       <a class="btn btn-sm" href="../index.html">&larr; Studies</a>
       <h1>Category Theory Explained <span class="status-badge status-badge--draft">Draft</span></h1>
-      <button type="button" id="toolbar-auth-btn" class="btn btn-sm btn-auth btn-primary">Log in</button>
+      <div class="discuss-header-actions">
+        <nav class="discuss-header-meta" aria-label="Study links">
+          <a href="Category-Theory-Explained.html">Read paper</a><span class="meta-sep">·</span>
+          <a href="Category-Theory-Explained.pdf" download>PDF</a><span class="meta-sep">·</span>
+          <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&amp;title=Study%20feedback%3A%20Category%20Theory%20Explained" rel="noopener">Suggest correction</a>
+        </nav>
+        <button type="button" id="toolbar-auth-btn" class="btn btn-sm btn-auth btn-primary">Log in</button>
+      </div>
     </div>
-    <p class="discuss-header-meta">
-      <a href="Category-Theory-Explained.html">Read paper</a><span class="meta-sep">·</span>
-      <a href="Category-Theory-Explained.pdf" download>PDF</a><span class="meta-sep">·</span>
-      <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&amp;title=Study%20feedback%3A%20Category%20Theory%20Explained" rel="noopener">Suggest correction</a>
-    </p>
     <p class="discuss-header-note" id="about-discussion">Questions and comments on this study. Maintainer corrections via <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&amp;title=Study%20feedback%3A%20Category%20Theory%20Explained" rel="noopener">GitHub Issues</a>. Sign-in uses your email for posting identity only.</p>
   </header>
 
