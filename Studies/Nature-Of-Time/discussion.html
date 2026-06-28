@@ -105,7 +105,7 @@
     font: inherit;
   }
   .auth-row textarea { min-height: 120px; resize: vertical; }
-  .turnstile-wrap { margin: 10px 0; }
+  .turnstile-wrap { margin: 10px 0; min-height: 65px; }
   .comments { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
   .comment {
     border: 1px solid var(--border);
@@ -216,14 +216,9 @@
   .compose-expanded-content {
     display: none;
     padding: 18px 20px;
-    opacity: 0;
-    transform: translateY(-8px);
-    transition: opacity 0.25s ease, transform 0.25s ease;
   }
   .compose-wrapper.is-expanded .compose-expanded-content {
     display: block;
-    opacity: 1;
-    transform: translateY(0);
   }
   .compose-wrapper.is-expanded .compose-trigger { display: none; }
   .compose-expanded-content .auth-row { max-width: none; }
@@ -321,7 +316,7 @@
               <label>Email<input type="email" name="email" autocomplete="email" required></label>
               <label>Display name<input type="text" name="displayName" maxlength="80" autocomplete="nickname" required></label>
             </div>
-            <div class="turnstile-wrap"><div class="cf-turnstile" data-sitekey="0x4AAAAAADoBfrNV5lPeJQWO"></div></div>
+            <div class="turnstile-wrap" id="sign-in-turnstile-wrap" aria-live="polite"></div>
             <div class="compose-actions">
               <button type="submit" class="btn btn-primary">Email me a sign-in link</button>
             </div>
@@ -344,7 +339,7 @@
   </section>
 </div>
 
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script>
 (() => {
   const STUDY_SLUG = "Nature-Of-Time";
@@ -352,6 +347,7 @@
   const SITE_HOST = "analyticmadhyasthdarshan.org";
   const API_FALLBACK = "https://amd-discussions.raghavamohan.workers.dev";
   const TURNSTILE_SITE_KEY = "0x4AAAAAADoBfrNV5lPeJQWO";
+  const TURNSTILE_ACTION = "turnstile-spin-v1";
 
   const apiBase = () => (window.location.hostname === SITE_HOST ? "" : API_FALLBACK);
 
@@ -369,6 +365,8 @@
   const toolbarAuthBtn = document.getElementById("toolbar-auth-btn");
   let currentSession = { loggedIn: false };
   let composeExpanded = false;
+  let signInTurnstileWidgetId = null;
+  let signInTurnstileTimer = null;
   const DISCUSS_SEEN_KEY = "amd-discuss-seen";
 
   const markDiscussionSeen = (comments) => {
@@ -402,25 +400,57 @@
     if (script) script.addEventListener("load", () => window.turnstile?.ready(fn), { once: true });
   };
 
-  const refreshSignInTurnstile = () => {
-    if (!authSignedOut || authSignedOut.classList.contains("hidden")) return;
+  const signInTurnstileWrap = () => document.getElementById("sign-in-turnstile-wrap");
+
+  const destroySignInTurnstile = () => {
     withTurnstile(() => {
-      const wrap = magicForm.querySelector(".turnstile-wrap");
-      if (!wrap) return;
-      const existing = wrap.querySelector(".cf-turnstile");
-      if (existing?.dataset.widgetId) {
+      if (signInTurnstileWidgetId != null) {
         try {
-          turnstile.remove(existing.dataset.widgetId);
+          turnstile.remove(signInTurnstileWidgetId);
         } catch {
           // ignore stale widget ids
         }
+        signInTurnstileWidgetId = null;
       }
-      wrap.innerHTML = `<div class="cf-turnstile" data-sitekey="${TURNSTILE_SITE_KEY}"></div>`;
-      const widget = wrap.querySelector(".cf-turnstile");
-      if (!widget) return;
-      const widgetId = turnstile.render(widget, { sitekey: TURNSTILE_SITE_KEY });
-      widget.dataset.widgetId = String(widgetId);
+      const wrap = signInTurnstileWrap();
+      if (wrap) wrap.innerHTML = "";
     });
+  };
+
+  const mountSignInTurnstile = () => {
+    if (!authSignedOut || authSignedOut.classList.contains("hidden")) return;
+    if (!composeWrapper.classList.contains("is-expanded")) return;
+    withTurnstile(() => {
+      const wrap = signInTurnstileWrap();
+      if (!wrap) return;
+      if (signInTurnstileWidgetId != null) {
+        try {
+          turnstile.remove(signInTurnstileWidgetId);
+        } catch {
+          // ignore stale widget ids
+        }
+        signInTurnstileWidgetId = null;
+      }
+      wrap.innerHTML = "";
+      const widget = document.createElement("div");
+      widget.className = "cf-turnstile";
+      wrap.appendChild(widget);
+      signInTurnstileWidgetId = turnstile.render(widget, {
+        sitekey: TURNSTILE_SITE_KEY,
+        action: TURNSTILE_ACTION,
+        theme: "auto",
+      });
+    });
+  };
+
+  const scheduleSignInTurnstile = () => {
+    if (signInTurnstileTimer) clearTimeout(signInTurnstileTimer);
+    signInTurnstileTimer = setTimeout(() => {
+      signInTurnstileTimer = null;
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => mountSignInTurnstile());
+      });
+    }, 100);
   };
 
   const expandCompose = ({ focusLogin = true } = {}) => {
@@ -434,7 +464,7 @@
       if (textarea && focusLogin) textarea.focus();
       return;
     }
-    refreshSignInTurnstile();
+    scheduleSignInTurnstile();
     if (focusLogin) {
       const emailInput = magicForm.querySelector('input[name="email"]');
       if (emailInput) emailInput.focus();
@@ -496,18 +526,23 @@
     return data;
   };
 
-  const turnstileToken = (form) =>
-    form.querySelector('input[name="cf-turnstile-response"]')?.value || "";
+  const turnstileToken = () =>
+    signInTurnstileWrap()?.querySelector('input[name="cf-turnstile-response"]')?.value
+    || magicForm.querySelector('input[name="cf-turnstile-response"]')?.value
+    || "";
 
-  const resetTurnstile = (form) => {
-    withTurnstile(() => {
-      const widget = form.querySelector(".cf-turnstile");
-      if (widget?.dataset.widgetId) {
-        turnstile.reset(widget.dataset.widgetId);
-        return;
-      }
-      refreshSignInTurnstile();
-    });
+  const resetSignInTurnstile = () => {
+    if (signInTurnstileWidgetId != null) {
+      withTurnstile(() => {
+        try {
+          turnstile.reset(signInTurnstileWidgetId);
+        } catch {
+          scheduleSignInTurnstile();
+        }
+      });
+      return;
+    }
+    scheduleSignInTurnstile();
   };
 
   const formatWhen = (ms) => {
@@ -573,11 +608,12 @@
       toolbarAuthBtn.textContent = "Log out";
       toolbarAuthBtn.classList.remove("btn-primary");
       toolbarAuthBtn.setAttribute("aria-label", "Sign out of discussion");
+      destroySignInTurnstile();
     } else {
       toolbarAuthBtn.textContent = "Log in";
       toolbarAuthBtn.classList.add("btn-primary");
       toolbarAuthBtn.setAttribute("aria-label", "Sign in to discuss");
-      if (composeExpanded) refreshSignInTurnstile();
+      if (composeExpanded) scheduleSignInTurnstile();
     }
   };
 
@@ -630,9 +666,10 @@
     const form = event.currentTarget;
     const email = form.email.value.trim();
     const displayName = form.displayName.value.trim();
-    const turnstileTokenValue = turnstileToken(form);
+    const turnstileTokenValue = turnstileToken();
     if (!turnstileTokenValue) {
-      showAlert("error", "Complete the Turnstile check.");
+      scheduleSignInTurnstile();
+      showAlert("error", "Complete the verification check below.");
       return;
     }
     try {
@@ -646,10 +683,10 @@
         }),
       });
       showAlert("success", data.message || "Check your email for a sign-in link.");
-      resetTurnstile(form);
+      resetSignInTurnstile();
     } catch (err) {
       showAlert("error", err.message);
-      resetTurnstile(form);
+      resetSignInTurnstile();
     }
   });
 
