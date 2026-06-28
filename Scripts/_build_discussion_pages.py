@@ -392,7 +392,7 @@ def render_discussion_page(row: StudyRow) -> str:
   </section>
 </div>
 
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"></script>
 <script>
 (() => {{
   const STUDY_SLUG = {slug_json};
@@ -441,12 +441,7 @@ def render_discussion_page(row: StudyRow) -> str:
   }};
 
   const withTurnstile = (fn) => {{
-    if (window.turnstile) {{
-      window.turnstile.ready(fn);
-      return;
-    }}
-    const script = document.querySelector('script[src*="turnstile"]');
-    if (script) script.addEventListener("load", () => window.turnstile?.ready(fn), {{ once: true }});
+    turnstile.ready(fn);
   }};
 
   const signInTurnstileEl = () => document.getElementById("sign-in-turnstile");
