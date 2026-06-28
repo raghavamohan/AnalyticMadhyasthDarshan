@@ -28,11 +28,11 @@ Select any linked title to open the full study in your browser.
 <!-- studies-catalog -->
 | Document | Category | Description | Status |
 |----------|----------|-------------|--------|
-| [The Ontology of Coexistence](The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html) · [Discuss](The-Ontology-of-Coexistence/discussion.html) | Ontology | Existence, what exists, beginninglessness, self persistence, world reality, saturation, causation, orders, sentience, and conservation — Madhyasth Darshan compared with Advaita Vedanta and modern philosophy | Released<br>Last updated on: Jun 28, 2026, 7:27 PM IST |
-| [Nature of Time](Nature-Of-Time/Nature-Of-Time.html) · [Discuss](Nature-Of-Time/discussion.html) | Ontology | The nature of time (kaal), timeless satta, activity and duration, and comparison with Advaita, philosophy of time, and physics | Released<br>Last updated on: Jun 27, 2026, 8:16 PM IST |
-| [Why Humans Are Not Just Material](Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html) · [Discuss](Why-Humans-Are-Not-Just-Material/discussion.html) | Philosophical Anthropology | Madhyasth Darshan, science, and Advaita Vedanta on whether humans are more than matter | Released<br>Last updated on: Jun 27, 2026, 6:13 PM IST |
+| [The Ontology of Coexistence](The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html) · [Discuss](The-Ontology-of-Coexistence/discussion.html) | Ontology | Existence, what exists, beginninglessness, self persistence, world reality, saturation, causation, orders, sentience, and conservation — Madhyasth Darshan compared with Advaita Vedanta and modern philosophy | Released<br>Last updated on: Jun 28, 2026, 7:49 PM IST |
+| [Nature of Time](Nature-Of-Time/Nature-Of-Time.html) · [Discuss](Nature-Of-Time/discussion.html) | Ontology | The nature of time (kaal), timeless satta, activity and duration, and comparison with Advaita, philosophy of time, and physics | Released<br>Last updated on: Jun 28, 2026, 7:49 PM IST |
+| [Why Humans Are Not Just Material](Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html) · [Discuss](Why-Humans-Are-Not-Just-Material/discussion.html) | Philosophical Anthropology | Madhyasth Darshan, science, and Advaita Vedanta on whether humans are more than matter | Released<br>Last updated on: Jun 28, 2026, 7:49 PM IST |
 | *Philosophy of Mind and Jeevan* <!-- slug: Philosophy-Of-Mind-And-Jeevan --> | Philosophy of Mind | Jeevan, mun, vritti, chitta, buddhi, atma, desire, imagination, selection, delusion, and awakening | Ongoing |
-| [Knowledge Knower and Known](Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.html) · [Discuss](Knowledge-Knower-And-Known/discussion.html) | Epistemology | Comparative study of knowledge, knower, and known in Madhyasth Darshan, Advaita Vedanta, and Modern Philosophy | Released<br>Last updated on: Jun 27, 2026, 6:13 PM IST |
+| [Knowledge Knower and Known](Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.html) · [Discuss](Knowledge-Knower-And-Known/discussion.html) | Epistemology | Comparative study of knowledge, knower, and known in Madhyasth Darshan, Advaita Vedanta, and Modern Philosophy | Released<br>Last updated on: Jun 28, 2026, 7:49 PM IST |
 | *Methodology and Hermeneutics* <!-- slug: Methodology-And-Hermeneutics --> | Methodology | Primary-text method, translation issues, citation discipline, interpretation, comparison, and rigorous study practice | Ongoing |
 | *Axiology Value Theory* <!-- slug: Axiology-Value-Theory --> | Axiology | Values, value-recognition, value-fulfilment, mutual satisfaction, and the structure of humane value theory | Ongoing |
 | [Ethics and Morals in Human Beings](Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.html) · [Discuss](Ethics-And-Morals-In-Human-Beings/discussion.html) | Ethics, Axiology | Ethics, morals, humane conduct, Advaita Vedanta, and modern moral science | Draft<br>Last updated on: Jun 26, 2026, 10:28 AM IST |
@@ -56,8 +56,8 @@ These studies are more mathematical in nature. They represent the structure disc
 <!-- formal-studies-catalog -->
 | Document | Formal Focus | Description | Status |
 |----------|--------------|-------------|--------|
-| [Category Theory Explained](Category-Theory-Explained/Category-Theory-Explained.html) · [Discuss](Category-Theory-Explained/discussion.html) | Formal structure | Category-theory lens on the darshan's structure | Draft<br>Last updated on: Jun 26, 2026, 9:55 PM IST |
-| [The Coexistence Template](The-Coexistence-Template/The-Coexistence-Template.html) · [Discuss](The-Coexistence-Template/discussion.html) | Formal structure | Formal template of units, relationships, values, and assembly | Draft<br>Last updated on: Jun 26, 2026, 9:55 PM IST |
+| [Category Theory Explained](Category-Theory-Explained/Category-Theory-Explained.html) · [Discuss](Category-Theory-Explained/discussion.html) | Formal structure | Category-theory lens on the darshan's structure | Draft<br>Last updated on: Jun 28, 2026, 7:49 PM IST |
+| [The Coexistence Template](The-Coexistence-Template/The-Coexistence-Template.html) · [Discuss](The-Coexistence-Template/discussion.html) | Formal structure | Formal template of units, relationships, values, and assembly | Draft<br>Last updated on: Jun 28, 2026, 7:49 PM IST |
 <!-- /formal-studies-catalog -->
 
 ### Applied studies
