@@ -98,45 +98,56 @@ def render_discussion_page(row: StudyRow) -> str:
     line-height: 1.55;
   }}
   a {{ color: var(--accent); }}
-  .wrap {{ max-width: 820px; margin: 0 auto; padding: 24px 20px 64px; }}
-  .toolbar {{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin-bottom: 20px;
+  .wrap {{ max-width: 820px; margin: 0 auto; padding: 16px 20px 48px; }}
+  .discuss-header {{
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
   }}
-  .toolbar-main {{
+  .discuss-header-row {{
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
     align-items: center;
-    flex: 1 1 240px;
-    min-width: 0;
+    gap: 8px 12px;
   }}
-  .toolbar h1 {{
+  .discuss-header-row h1 {{
     margin: 0;
-    font-size: 1.35rem;
+    font-size: 1.15rem;
     font-weight: 700;
-    flex: 1 1 180px;
+    flex: 1 1 160px;
     min-width: 0;
+    line-height: 1.3;
   }}
-  .toolbar-end {{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    align-items: center;
-    margin-left: auto;
+  .discuss-header-meta {{
+    margin: 8px 0 0;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.4;
   }}
-  .toolbar-actions {{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+  .discuss-header-meta a {{
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+  }}
+  .discuss-header-meta a:hover {{ text-decoration: underline; }}
+  .meta-sep {{
+    margin: 0 6px;
+    color: var(--border);
+  }}
+  .discuss-header-note {{
+    margin: 6px 0 0;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.45;
+  }}
+  .btn-sm {{
+    padding: 5px 11px;
+    font-size: 0.85rem;
   }}
   .btn-auth {{
     cursor: pointer;
     font: inherit;
+    flex-shrink: 0;
   }}
   .btn {{
     display: inline-flex;
@@ -238,44 +249,17 @@ def render_discussion_page(row: StudyRow) -> str:
   .alert-success {{ background: #edf7ed; color: #1e4620; border: 1px solid #c8e6c9; }}
   .alert-info {{ background: var(--accent-soft); color: #13466a; border: 1px solid #c5dcee; }}
   .hidden {{ display: none !important; }}
-  .intro-text {{
-    padding: 0 10px 24px;
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 24px;
-  }}
-  .intro-text p {{ margin: 0 0 8px; }}
-  .intro-text a {{ text-decoration: underline; }}
-  .auth-status-inline {{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    margin-bottom: 12px;
-  }}
-  .auth-status-inline button {{
-    background: transparent;
-    border: none;
-    color: var(--accent);
-    cursor: pointer;
-    font-size: 0.85rem;
-    padding: 0;
-    font-weight: 600;
-  }}
-  .auth-status-inline button:hover {{ text-decoration: underline; }}
   .action-panel {{
     background: var(--surface);
     border: 2px solid var(--border);
     border-radius: var(--radius);
-    padding: 18px 20px;
-    margin-bottom: 28px;
+    padding: 14px 16px;
+    margin-bottom: 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
   }}
   .action-panel h2 {{
-    margin: 0 0 12px;
-    font-size: 1.05rem;
+    margin: 0 0 10px;
+    font-size: 1rem;
   }}
   .action-panel .auth-row {{ max-width: none; }}
   .auth-grid {{
@@ -298,8 +282,8 @@ def render_discussion_page(row: StudyRow) -> str:
     margin-top: 8px;
   }}
   .comments-section h2 {{
-    margin: 0 0 14px;
-    font-size: 1.05rem;
+    margin: 0 0 12px;
+    font-size: 1rem;
   }}
   @media (max-width: 600px) {{
     .auth-grid {{ grid-template-columns: 1fr; }}
@@ -332,26 +316,19 @@ def render_discussion_page(row: StudyRow) -> str:
 </head>
 <body>
 <div class="wrap">
-  <nav class="toolbar" aria-label="Discussion navigation">
-    <div class="toolbar-main">
-      <a class="btn" href="{html.escape(links['catalog'])}">&larr; All studies</a>
-      <h1>Discussion — {html.escape(title)}{draft_note}</h1>
+  <header class="discuss-header" aria-label="Discussion navigation">
+    <div class="discuss-header-row">
+      <a class="btn btn-sm" href="{html.escape(links['catalog'])}">&larr; Studies</a>
+      <h1>{html.escape(title)}{draft_note}</h1>
+      <button type="button" id="toolbar-auth-btn" class="btn btn-sm btn-auth btn-primary">Log in</button>
     </div>
-    <div class="toolbar-end">
-      <span class="toolbar-actions">
-        <a class="btn btn-primary" href="{html.escape(links['read'])}">Read paper</a>
-        <a class="btn" href="{html.escape(links['pdf'])}" download>Download PDF</a>
-        <a class="btn" href="{html.escape(feedback)}" rel="noopener">Suggest a correction</a>
-      </span>
-      <button type="button" id="toolbar-auth-btn" class="btn btn-primary btn-auth">Log in</button>
-    </div>
-  </nav>
-
-  <div class="intro-text" aria-labelledby="about-discussion">
-    <p id="about-discussion">Use this page for questions, interpretive discussion, and general comments on <em>{html.escape(title)}</em>.</p>
-    <p>For typos, citations, or section-specific corrections intended for maintainers, use <a href="{html.escape(feedback)}" rel="noopener">Suggest a correction</a> (GitHub Issues) instead.</p>
-    <p class="privacy-note">Sign-in uses your email address and display name. We use them only for discussion identity and moderation. See the site <a href="{html.escape(links['catalog'])}#contribute">contribute</a> section for more.</p>
-  </div>
+    <p class="discuss-header-meta">
+      <a href="{html.escape(links['read'])}">Read paper</a><span class="meta-sep">·</span>
+      <a href="{html.escape(links['pdf'])}" download>PDF</a><span class="meta-sep">·</span>
+      <a href="{html.escape(feedback)}" rel="noopener">Suggest correction</a>
+    </p>
+    <p class="discuss-header-note" id="about-discussion">Questions and comments on this study. Maintainer corrections via <a href="{html.escape(feedback)}" rel="noopener">GitHub Issues</a>. Sign-in uses your email for posting identity only.</p>
+  </header>
 
   <div id="discuss-alert" class="alert hidden" role="status"></div>
 
@@ -374,9 +351,6 @@ def render_discussion_page(row: StudyRow) -> str:
 
   <section id="comment-panel" class="action-panel hidden" aria-labelledby="comment-heading">
     <h2 id="comment-heading">Add a comment</h2>
-    <div class="auth-status-inline">
-      <span>Signed in as <strong id="auth-user-label"></strong></span>
-    </div>
     <form id="comment-form" class="auth-row">
       <label>Your comment<textarea name="body" maxlength="8192" required placeholder="Share a question or comment…"></textarea></label>
       <div class="compose-actions">
@@ -411,7 +385,6 @@ def render_discussion_page(row: StudyRow) -> str:
   const commentPanel = document.getElementById("comment-panel");
   const magicForm = document.getElementById("magic-link-form");
   const commentForm = document.getElementById("comment-form");
-  const authUserLabel = document.getElementById("auth-user-label");
   const toolbarAuthBtn = document.getElementById("toolbar-auth-btn");
   let currentSession = {{ loggedIn: false }};
   let signInTurnstileWidgetId = null;
@@ -648,7 +621,6 @@ def render_discussion_page(row: StudyRow) -> str:
     currentSession = session || {{ loggedIn: false }};
     const loggedIn = Boolean(currentSession.loggedIn);
     if (loggedIn) {{
-      authUserLabel.textContent = currentSession.displayName || currentSession.email || "Reader";
       toolbarAuthBtn.textContent = "Log out";
       toolbarAuthBtn.classList.remove("btn-primary");
       toolbarAuthBtn.setAttribute("aria-label", "Sign out of discussion");
