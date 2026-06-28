@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 28, 2026, 7:11 PM IST
+**Edited on:** June 28, 2026, 7:27 PM IST
 
 **Status:** Released
 
@@ -83,7 +83,7 @@ Through saturation, every unit has **inherent energy** and regulatory order **in
 
 *Satta* is actionless in itself, yet called energy because unit-activity manifests through basic impulsion.
 
-Through saturation, *satta* does not push units as an external agent but **endows** each unit with inherent forcefulness, basic impulsion, and the **capacity** (*kshamata*), **ability** (*yogyata*), and **receptivity** (*patrata*) to participate in relationships at its order — a gift present *in* the unit from coexistence, developed fully in §1.6 (SB, pp. 57, 62, 79; MVD, p. 62). What saturation places *in* the unit, conducive **environment** and naturalness activate; neither alone suffices for higher status expression (§1.6.2).
+Through saturation, *satta* does not push units as an external agent but **endows** each unit with inherent forcefulness, basic impulsion, and the **capacity** (*kshamata*), **ability** (*yogyata*), and **receptivity** (*patrata*) to participate in relationships at its order — a gift present *in* the unit from coexistence, developed fully in §1.6 (SB, pp. 57, 62, 79; MVD, p. 62). What saturation places *in* the unit, conducive **environment** and naturalness activate; neither alone suffices for higher status expression (§1.6).
 
 ### 1.3 What every unit is
 
@@ -110,7 +110,7 @@ SB opens with three companion facts:
 
 **Unit + environment = the unit as a whole** signifies continuity (SB, p. 51). ***Ness*** is what makes a unit the kind of unit it is — its distinctive way of being, shown through essential nature when it is in its natural state (SB, p. 54).
 
-In its **natural state**, a unit moves toward **development** — fulfilment aligned with its innateness. In its **excited state**, it moves toward **decline** (SB, pp. 14–15). **Complementarity** is reciprocal exchange within the natural state; after give and take, both parties reinstate satisfaction or **natural motion** (*svabhav gati*) (SB, p. 59). When a unit has recognised and fulfilled **all** its relationships, it is **at ease** in its natural state — no relational shortfall remains. That ease is what the texts call **restfulness** (*vishram*): effort is for this outcome, and it is perceived when relationships are complete (SB, p. 61). A molecule whose relationships stay fulfilled persists in its natural state; when relationships break down, the assembly declines — the same rule developed for composition in §1.8. Where evaluation can mis-read relationships and block full complementarity — the sentient case — is developed in §§1.6.1 and 1.10.1.
+In its **natural state**, a unit moves toward **development** — fulfilment aligned with its innateness. In its **excited state**, it moves toward **decline** (SB, pp. 14–15). **Complementarity** is reciprocal exchange within the natural state; after give and take, both parties reinstate satisfaction or **natural motion** (*svabhav gati*) (SB, p. 59). When a unit has recognised and fulfilled **all** its relationships, it is **at ease** in its natural state — no relational shortfall remains. That ease is what the texts call **restfulness** (*vishram*): effort is for this outcome, and it is perceived when relationships are complete (SB, p. 61). A molecule whose relationships stay fulfilled persists in its natural state; when relationships break down, the assembly declines — the same rule developed for composition in §1.8. Where evaluation can mis-read relationships and block full complementarity — the sentient case — is developed in §§1.6 and 1.10.1.
 
 Participation means **recognising and fulfilling** — observable even in the physicochemical realm, where components within an atom recognise and fulfil one another (SB, p. 123). Endeavour aligned with a unit's innateness moves toward fulfilment; endeavour against it gives rise to problems (MVD, p. 112).
 
@@ -136,7 +136,7 @@ The texts distinguish **origination** (units co-eternally present) from **causat
 
 ### 1.5 The four orders of nature
 
-Madhyasth Darshan names four **orders** in nature — material (*padarth*), pranic/bio (*pran*), animal (*jeev*), and knowledge/human (*gyan*). Each is a stable plateau in development. Higher orders **include** the *dharma*s of lower orders cumulatively (SB, p. 179; MVD, p. 115).
+§1.4 established how change appears as unit-activity. The texts next sort units into four **orders** in nature — material (*padarth*), pranic/bio (*pran*), animal (*jeev*), and knowledge/human (*gyan*). Each order is a stable plateau in development, not a human typology. Higher orders **include** the *dharma*s of lower orders cumulatively (SB, p. 179; MVD, p. 115).
 
 | Order | Essential nature (*svabhav*) | *Dharma* (cumulative) |
 |---|---|---|
@@ -145,96 +145,37 @@ Madhyasth Darshan names four **orders** in nature — material (*padarth*), pran
 | Animal (*jeev*) | cruel–uncruel | + hope to live (*jeene ki aasha*) |
 | Knowledge / human (*gyan*) | fortitude, courage, generosity, kindness, grace, compassion | + happiness (*sukh*) |
 
-The cumulative *dharma*s mark where sentience enters. The material and bio/pranic orders are **insentient** (*jada*): they integrate, disintegrate, vitalise, and grow, but have no hope to live. **Hope to live** (*jeene ki aasha*) is the animal order's addition — and hope is the defining activity of the sentient unit (§1.10). The sentient *jeevan* therefore first appears at the **animal** order; the material and pranic orders are pre-sentient development toward it. This is the same threshold §1.9 traces as constitutional completeness (T1): the point at which a stable atomic constitution actualises sentience (SB, pp. 52, 59; §1.9).
+The cumulative *dharma*s mark where sentience enters. The material and bio/pranic orders are **insentient** (*jada*): they integrate, disintegrate, vitalise, and grow, but have no hope to live. **Hope to live** (*jeene ki aasha*) is the animal order's addition — and hope is the defining activity of the sentient unit (§1.10). *Jeevan* first appears at the **animal** order; the material and pranic orders are pre-sentient development toward it — the same threshold §1.9 traces as constitutional completeness (T1) (SB, pp. 52, 59; §1.9). The knowledge order's six *svabhav* qualities are developed as **human values** in §1.6 (JV, p. 44).
 
-These six qualities — fortitude, courage, generosity, kindness, grace, compassion — are what the texts name *manav mulya*, **human values** (§1.6): the knowledge order's *svabhav* seen as essential nature, and, in §1.6's value taxonomy, the same qualities as recognised and reciprocated in mutuality (JV, p. 44).
+Existence is stable and development is **definite** — laws natural and inherent to being, not conventions imposed on unstable matter (MVD, p. 5). That definiteness names two paired structures at the order scale. **Existential progression** (*niyati-kram*) is the fixed sequence in which order-level nature manifests on Earth: pranic from material, animal from pranic, knowledge from animal — chemical composition giving rise to biological cells, vegetation enriching, animal and human bodies and traditions established through that chain (MVD, pp. 8, 13; *Paribhasha Samhita*, ed. 2008). SB qualifies without dissolving the chain: the biological order can revert to the material after manifesting its essentiality, while elevation from material into biological order is not irreversible development in the same sense as constitutional completeness at the atomic level (SB, pp. 76–78). **The way of existence** (*niyati-vidhi*) is definiteness in each order's proper conduct — result-, seed-, species-, and *sanskar*-conformance developed in §1.7. SB names **statuses** embedded in this progression: diversity in nature is diversity of statuses within matter, with constitutional, activity, and conduct completeness as further designed stages toward which units are meant for completeness (SB, pp. 50–52, 78; §1.9).
 
-> **"Existence is not just physicochemical matter, but all physical, chemical and jeevan entities are inseparably present in Omnipresence."**
-> - MVD, p. 5
-
-The human being is a **joint form** of physical body (*shareer*) and sentient self (*jeevan*):
-
-> **"Brahma (Omnipotence) is omnipresent, and jeevan-clouds are many."**
-> - MVD, p. 13
-
-In MVD, **Brahma** names the same all-pervasive *satta* as Omnipresence — not a separate creator god.
-
-These are **objective categories in nature**, not human typologies. Each order cyclically manifests through saturation in a different mode (MVD, p. 289):
-
-| Order | Cyclical manifestation through saturation |
-|---|---|
-| Material (*padarth*) | Units are **active** because of being in Omnipresence |
-| Bio (*pran*) | Units have **pulsation** because of being in it |
-| Animal (*jeev*) | Units have the **hope of living** because of being in it |
-| Knowledge / Human (*gyan*) | Units are **hopeful and conscientious** because of being in it |
-
-*Countless* means practical uncountability — real particulars, indefinitely many from any finite standpoint (SB, p. 49).
-
-### 1.5.1 Existential progression and order conduct
-
-Madhyasth Darshan holds that existence is stable and that **development and awakening are definite**, with laws natural and inherent to being — not human-made conventions imposed on unstable matter (MVD, p. 5). At the scale of the **four orders**, that definiteness names a fixed **existential progression** (*niyati-kram*): the pranic order emerges from the material order, the animal order from the pranic, and the knowledge order from the animal — not as a contingent reordering of plateaus but as the guaranteed sequence in which order-level nature manifests on Earth. In coexistence, chemical composition on Earth gives rise to biological cells; vegetations and forests enrich; animal bodies, including the human body, and their traditions are established through that chain (MVD, pp. 8, 13). The definitions corpus names this macro chain *niyati-kram* (*Paribhasha Samhita*, ed. 2008; see References).
-
-SB qualifies the macro chain without dissolving it: the biological order can revert to the material order after manifesting its essentiality, whereas elevation from material into biological order is not irreversible development in the same sense as constitutional completeness at the atomic level (SB, pp. 76–78). Lower tiers can cycle; the directional enrichment — material order elevated and manifest in biological form, biological and animal emergence on Earth as the basis for the knowledge order (SB, pp. 76–77) — remains the structural reading.
-
-Paired with order emergence is **the way of existence** (*niyati-vidhi*): definiteness in the conduct proper to each order. What §1.7 develops as result-, seed-, species-, and *sanskar*-conformance is the conduct side of the same architecture — *niyati-kram* names fixed order-to-order progression; *niyati-vidhi* names fixed order-specific conduct.
-
-SB names the **statuses** embedded in this progression: diversity in nature is diversity of statuses within matter, countable only as development advances — the material order is one such status, with constitutional, activity, and conduct completeness as further designed stages toward which every unit embedded in the complete is "compulsorily meant for completeness" (SB, pp. 50–52, 78).
+Each order cyclically manifests through saturation in a different mode (MVD, p. 289): material units are **active** because of being in Omnipresence; bio units **pulsate**; animal units carry the **hope of living**; knowledge-order units are **hopeful and conscientious**. *Countless* means practical uncountability — real particulars, indefinitely many from any finite standpoint (SB, p. 49).
 
 ### 1.6 Units in relationships
 
-Saturation names the relation between Omnipresence and every unit. Existence also contains **relations between units**, and it is in those relations that **complementarity** — the essence of coexistence — is actualised (SB, p. 53). Complementarity here is not merely give–take reciprocity in physicochemical exchange (§1.4); it is the whole structure by which units reciprocate essentiality as **value** in mutuality. **Relationships** are where complementarity is predetermined toward completeness; the unit's main drive is to recognise and fulfil them. Nothing in nature is isolated — "nothing is isolated – that is the principle" (JV, p. 43).
+§1.2 named saturation — the relation between Omnipresence and every unit. §1.5 named the four orders. Existence also holds **relations between units**, and it is in those relations that **complementarity** — the essence of coexistence — is actualised as **value** in mutuality (SB, p. 53). Complementarity here is not merely give–take reciprocity in physicochemical exchange (§1.4); it is the whole structure by which units reciprocate essentiality. **Relationships** are where complementarity is predetermined toward completeness; the unit's main drive is to recognise and fulfil them. Nothing in nature is isolated — "nothing is isolated – that is the principle" (JV, p. 43).
 
-MVD defines a **relationship** as "the mutuality where expectations are predetermined in the sense of completeness" (MVD, p. 62), and contrasts it with **association** — "the mutuality where expectations are voluntary" (MVD, p. 61). Neighbours who share a wall have an association; parent and child, or complementary atoms in a bond, stand in a relationship with expectations toward completeness.
+MVD defines a **relationship** as "the mutuality where expectations are predetermined in the sense of completeness" (MVD, p. 62), and contrasts it with **association** — "the mutuality where expectations are voluntary" (MVD, p. 61). Neighbours who share a wall have an association; parent and child stand in a relationship with expectations toward completeness.
 
 **Essentiality** in every order is **value** — what units reciprocate and mutually recognise in mutuality:
 
 > **"Entire beingness implies the essentiality of units in every plane and order. Essentiality refers to value… It is values that are reciprocated and mutually recognised, as complementarity, mutual recognition, and impression occur only in mutuality."**
 > - SB, p. 50
 
-**Value** (*mulya*) is not one undifferentiated category. Essentiality names what units reciprocate; the texts sort that into **six kinds** (MVD p. 306; JV pp. 43, 138–139). Gupta's English on MVD p. 306 sometimes lists **usefulness and aesthetics** in one phrase and renders **expression values** as **civic values**; JV p. 138 treats usefulness and aesthetic value distinctly under **object value** spread everywhere — the table below follows the canonical six-fold split.
-
-| Value type | What it is | Operates in |
-|---|---|---|
-| **Utility values** (*upyogita*) | Usefulness of natural abundance made available through labour; definite and constant across time | All orders; human–nature relation (JV pp. 123, 138) |
-| **Art values** (*kala*) | Aesthetic enhancement that adds convenience to usefulness — activity of aesthetics with usefulness (MVD p. 324) | All orders where production layers aesthetics on utility |
-| ***Jeevan* values** | Happiness (*sukh*), peace (*shanti*), contentment (*santosh*), bliss (*anand*) — harmonies within the sentient unit across faculty pairs | Knowledge order; developed in §1.10.2 (JV p. 138) |
-| **Human values** | Values of humane living grasped through coexistence understanding — comprehending existence as coexistence and embodying humane conduct with confidence (JV pp. 44, 139); distinct from internal *jeevan* harmonies and from relationship-content values | Knowledge order |
-| **Established values** | Care (*mamta*), guidance (*vatsalya*), trust (*vishwas*), affection (*sneh*), gratitude (*kritagyata*), glory (*gaurav*), love (*prem*), reverence (*shraddha*), respect (*samman*) — relationship values that flow when relationships are recognised | Knowledge order; mutuality (JV pp. 108, 138) |
-| **Expression values** (*civic* in MVD/JV) | Right-use of body, mind, and wealth; conduct evidencing values in the social order | Knowledge order; assembly participation (MVD p. 306) |
-
-Four of these six kinds — *jeevan*, human, established, and expression values — operate only at the knowledge order and presuppose *jeevan*. They are listed here for completeness and developed once *jeevan* is in view (§§1.10.2, 1.13).
+**Value** (*mulya*) is not one undifferentiated category. At every order, **object values** — **utility** (*upyogita*), the usefulness of natural abundance made available through labour, and **art** (*kala*), aesthetic enhancement that layers convenience on that usefulness — operate wherever production and exchange occur (MVD p. 306; JV pp. 138, 123). At the knowledge order, four further kinds presuppose *jeevan*: internal ***jeevan* harmonies** (happiness, peace, contentment, bliss); **human values** (the six *svabhav* qualities from §1.5); **established** relationship values (care, trust, affection, and the like that flow when relationships are recognised); and **expression** values (right-use of body, mind, and wealth in assembly) — developed in §§1.10.2 and 1.13.
 
 **Impression** names the describable event in which one unit's activity registers on another in mutuality — alongside complementarity and mutual recognition.
 
-Every unit **recognises** its relationships and **fulfils** them through **capacity** (*kshamata*), **ability** (*yogyata*), and **receptivity** (*patrata*) at the level of its order (MVD, p. 62):
+Every unit **recognises** its relationships and **fulfils** them:
 
 > **"Every entity of nature recognises another; that is why it fulfils. An atomic particle too recognises another, and as a result, these particles abide in orderliness."**
 > - JV, p. 69
 
-The **completeness drive** (SB, p. 51) turns unit-activity toward fulfilling relationships, step by step, at higher levels. Units move toward satisfaction by recognising and fulfilling relationships built into coexistence — not by maximising an abstract quantity. When those relationships are fully evident across nature, the texts call that **realisation in coexistence** (SB, p. 51): not a new state of the ground, but fulfilment made clear within coexistence.
+That recognition and fulfilment draw on **capacity**, **ability**, and **receptivity** endowed through saturation (§1.2). At the material, biological, and animal orders, fulfilment is **definite** — structural, seed, or species conformance (§1.7). In the knowledge order the same relationships must be **achieved** through knowing → believing → recognising → fulfilling; where evaluation mis-reads relationships, complementarity remains incompletely expressed — evaluative closure is developed in §1.10.1. At every order, fulfilment evidences **use, right-use, and purposeful-use** (MVD, p. 27).
 
-### 1.6.1 Fulfilment through the orders
+Higher statuses require inherent capacity and a conducive environment together. SB illustrates the bond with seed and naturalness — **illustrative, not identity**: germination begins when a seed is placed in its naturalness; without naturalness, exuberance cannot happen in it (SB, p. 54). Saturation endows **inherent capacity**; **naturalness and mutuality** in environment activate it — neither alone suffices (§1.2). Atomic constitutional completeness and knowledge-order awakening depend on the same dual structure (§§1.9, 1.10).
 
-At the material, biological, and animal orders, recognition and fulfilment are **definite** — structural, seed, or species conformance — and complementarity reaches **restful natural motion** without evaluative error (JV, pp. 48, 113; SB, pp. 52–53, 62). In the knowledge order the same relationships must be **achieved** through knowing → believing → recognising → fulfilling, then evaluation and choice (JV, p. 48; MVD, p. 77). Where projection and reflection fall out of harmony, complementarity remains **incompletely expressed** even while the unit remains active — the texts contrast insentient units that stay in development progression under excited environments humans create with humans who, in excited delusion, damage themselves and others (SB, pp. 15–16, 60–61). Evaluative closure is developed in §1.10.1.
-
-At every order, fulfilment evidences **use, right-use, and purposeful-use** (MVD, p. 27). What counts as fulfilment differs by order because each order's *dharma* and mode of lawful conformance differ.
-
-| Order | What fulfilment evidences | Plain outcome |
-|---|---|---|
-| Material (*padarth*) | Use, right-use, purposeful-use; complementary exchange → satisfaction (MVD p. 27; SB pp. 52–53) | Stable composition; orderliness in atoms and molecules; no one-way depletion |
-| Bio (*pran*) | Same use triad; seed-conformance; *dharma* includes growth (*pushti*) | Vital balance; persistence in natural state |
-| Animal (*jeev*) | Same use triad; species-conformance; hope to live | Definite species conduct; cruel–uncruel balance |
-| Knowledge / human (*gyan*) | Use triad **plus** evaluative closure when values are assessed and relationships close (MVD p. 62) | Conduct and thought aligned with coexistence — developed in §1.10.1 and §1.13 |
-
-**Capacity** (*kshamata*) sets the scope for participating in a relationship; **ability** (*yogyata*) converts that scope into effort; **receptivity** (*patrata*) determines whether values register and fulfilment (*nirvaha*) can complete. In lower orders the three operate definitely; in humans, awakening or decline depends on how they are used (MVD, pp. 79, 134). Atomic bonding — hungry and overfull atoms complementary (MVD, p. 8) — is relationship-recognition at the material tier.
-
-### 1.6.2 Inherent capacity and conducive environment
-
-Higher statuses — stable composition, order emergence, constitutional completeness — require **two** conditions together: the **inherent capacity** saturation endows (§1.2), and a **conducive environment** of naturalness and mutuality suited to the order.
-
-SB illustrates the bond with seed and naturalness — **illustrative, not identity**: germination begins when a seed is placed in its naturalness; without naturalness, exuberance cannot happen in it (SB, p. 54). The seed carries potential; naturalness is the soil and season that activate it. The same dual structure runs through the orders. Each unit in its natural state achieves further development when naturalness, environment, tradition, and mutuality are conducive; order by order those conditions differ — climatic balance for vegetation, elemental balance on Earth for animal and human life, and for humans a tradition capable of existential understanding (SB, pp. 14–16). Insentient units can remain in development progression even under excited environments humans impose; material-order give and take can still prove complementary while humans in excited delusion harm themselves and others (SB, pp. 15–16).
-
-At the atomic scale, constitutional completeness requires hungry and overfull complementarity **and** environmental mutuality — saturation supplies the capacity to incorporate particles; the mutuality of environment lets the constitution close (MVD, p. 8; §1.9). In the knowledge order, capacity, ability, and receptivity for worldview arise from the interconnected process of environment, study, and prior *sanskar* (MVD, p. 134). **Saturation supplies capacity; environment and naturalness activate it** — neither alone suffices for higher relationship tiers to unfold.
+The **completeness drive** (SB, p. 51) turns unit-activity toward fulfilling relationships, step by step, at higher levels. Units move toward satisfaction by recognising and fulfilling relationships built into coexistence — not by maximising an abstract quantity. When those relationships are fully evident across nature, the texts call that **realisation in coexistence** (SB, p. 51): not a new state of the ground, but fulfilment made clear within coexistence — senses distinguished in §1.11.
 
 ### 1.7 Regulation and law
 
@@ -250,7 +191,7 @@ Orderliness (*vyavastha*) at the level of co-existing orders is **self-regulatio
 
 ![Regulation ladder: Omnipotence through saturation, law, order conformance, jeevan inward regulation, justice, and assembly self-governance](1-regulation-ladder.svg)
 
-**Law** names how regulation and orderliness are **already structurally real** in coexistence — the **law of orderliness with *ness***, expressed in order-specific **conformance regimes**. The definiteness of conduct at each order — the modes tabulated below — is what the texts call ***niyati-vidhi***; it is the conduct-side counterpart to macro *niyati-kram* (§1.5.1):
+**Law** names how regulation and orderliness are **already structurally real** in coexistence — the **law of orderliness with *ness***, expressed in order-specific **conformance regimes**. The definiteness of conduct at each order — the modes tabulated below — is what the texts call ***niyati-vidhi***; it is the conduct-side counterpart to macro *niyati-kram* (§1.5):
 
 | Order | Conformance mode | Definite or achieved |
 |---|---|---|
@@ -280,7 +221,7 @@ When assemblies are **human** compositions — family, community, and society �
 
 Nature saturated in state-complete Omnipotence is oriented for **development and awakening until realisation in coexistence** (SB, p. 51). Four terms name progressions at different levels; they must not be collapsed:
 
-1. **Existential progression** (*niyati-kram*) — fixed order emergence: material → pranic → animal → knowledge (§1.5.1).
+1. **Existential progression** (*niyati-kram*) — fixed order emergence: material → pranic → animal → knowledge (§1.5).
 2. **Way of existence** (*niyati-vidhi*) — definiteness in each order's conduct (§1.7).
 3. **Development progression** (*vikas-kram*) — through the physicochemical complex until an atom reaches **constitutional completeness** and sentient *jeevan* appears (MVD, pp. 13–14).
 4. **Awakening progression** (*jagriti-kram*) — within constitutionally complete *jeevan*, toward fuller **activity** and **conduct** (MVD, pp. 13–14).
@@ -325,7 +266,7 @@ Within these planes the texts distinguish five human types by degree of awakenin
 
 T1 is **irreversible** at the atomic level (SB, p. 92). Molecules exhibit characteristics of development but not **actual** development; the sentient threshold is constitutional completeness of the atom (SB, p. 52).
 
-An insentient atom (*parmanu*) — a **composite** of nucleus and orbiting particles (MVD, p. 42) — reaches *gathanpurnata* through particle incorporation, hungry and overfull complementarity, and **environmental mutuality** — the dual condition of §1.6.2: inherent capacity from saturation plus a mutuality of environment in which the required particles can integrate (MVD, p. 8; SB, pp. 58, 71). When the required particles are integrated, the atom becomes constitutionally complete: satisfaction within, by, and for that constitution — immortality of result and sentient status (SB, p. 59).
+An insentient atom (*parmanu*) — a **composite** of nucleus and orbiting particles (MVD, p. 42) — reaches *gathanpurnata* through particle incorporation, hungry and overfull complementarity, and **environmental mutuality** — the dual condition of §1.6: inherent capacity from saturation plus a mutuality of environment in which the required particles can integrate (MVD, p. 8; SB, pp. 58, 71). When the required particles are integrated, the atom becomes constitutionally complete: satisfaction within, by, and for that constitution — immortality of result and sentient status (SB, p. 59).
 
 In this state there is neither increase nor decrease in particle count; the atom undergoes **qualitative change without quantitative change** (SB, p. 55).
 
@@ -882,7 +823,7 @@ Modern physics treats **spacetime** as a dynamical entity — it can expand, cur
 
 **Natural selection** is mainstream biology's mechanism for adaptation: heritable variation plus differential reproduction produces organisms fitted to their environments. On this picture, bodies, brains, and behavioural strategies — including cooperation — are **products of evolutionary history**, not eternal units with ontologically fixed *dharma*.
 
-Madhyasth Darshan's *niyati-kram* asserts a **fixed, guaranteed** order of emergence — material to pranic to animal to knowledge on Earth (§1.5.1) — whereas evolutionary biology explains adaptation through **contingent** variation and selection. The tension is structural: the same four orders can be read as MD's definite plateaus or as science's historically produced taxonomies and lineages; this study does not resolve that dispute (§6.2.11).
+Madhyasth Darshan's *niyati-kram* asserts a **fixed, guaranteed** order of emergence — material to pranic to animal to knowledge on Earth (§1.5) — whereas evolutionary biology explains adaptation through **contingent** variation and selection. The tension is structural: the same four orders can be read as MD's definite plateaus or as science's historically produced taxonomies and lineages; this study does not resolve that dispute (§6.2.11).
 
 **Ecology** treats organisms as nodes in interdependent networks: energy flows, nutrient cycles, symbiosis, and competition. **Cooperation** among conspecifics and across species is widely studied as an evolved strategy — kin selection, reciprocity, mutualism — not as ontologically real *mulya* (*value*) fulfilled in definite *sambandh* (§1.6). Madhyasth Darshan does not deny biological interdependence; it denies that ecological cooperation **replaces** inherent value-recognition and fulfilment at the knowledge order. At the human–nature relation, MD names **utility** (*upyogita*) and **art** (*kala*) — making natural abundance usable and enhancing that usefulness through aesthetic labour (MVD pp. 56–57, 324; JV p. 77) — not a generic claim that value is "structurally real" without category. Science explains how cooperative behaviour arises; MD claims complementarity, essentiality-as-value, and utility–art on nature are **already structurally real** in coexistence (§1.6).
 
@@ -1169,7 +1110,7 @@ The model is a metaphysical framework, not a detailed physical mechanism. It doe
 
 #### 6.2.11 Fixed order vs evolutionary contingency
 
-Madhyasth Darshan's *niyati-kram* (§1.5.1) treats order emergence as **definite and guaranteed** — pranic from material, animal from pranic, knowledge from animal — not merely as one possible developmental story among others. Mainstream evolutionary biology, by contrast, explains the diversity and fit of organisms through **contingent** historical processes: heritable variation, differential reproduction, and environmental filtering (§4.6). The same four orders can therefore be read in two readings — as MD's stable plateaus with fixed enrichment on Earth, or as science's historically produced lineages and ecological networks.
+Madhyasth Darshan's *niyati-kram* (§1.5) treats order emergence as **definite and guaranteed** — pranic from material, animal from pranic, knowledge from animal — not merely as one possible developmental story among others. Mainstream evolutionary biology, by contrast, explains the diversity and fit of organisms through **contingent** historical processes: heritable variation, differential reproduction, and environmental filtering (§4.6). The same four orders can therefore be read in two readings — as MD's stable plateaus with fixed enrichment on Earth, or as science's historically produced lineages and ecological networks.
 
 What would count as evidence for guaranteed order emergence rather than oriented-but-contingent development remains unsettled. A reconciliation that preserves *niyati-kram* without reducing it to metaphor would need to show how definite order progression and evolutionary contingency are both true under coexistence — or to state clearly which reading is ontological and which empirical. Until that is developed, the fixed-order claim is a distinctive MD commitment in direct tension with §4.6's evolutionary picture, not a theorem established by comparative argument alone.
 
@@ -1250,7 +1191,7 @@ Key terms from §§1–4 are collected here for quick reference. Each term is al
 | **Law (ontological)** | Orderliness and regulation read from saturation — universal across all four orders; not statutory command. |
 | ***Jeevan*** | The sentient self: a constitutionally complete, immortal unit — *atma* as nucleus, *buddhi*–*mun* as orbital structure — that works through the body (§1.10). |
 | **Constitutional completeness (*gathanpurnata*)** | When a developed atom integrates its required particles and crosses irreversibly into sentient *jeevan* (Transition 1, **T1**). |
-| **Existential progression (*niyati-kram*)** | Fixed macro sequence in nature: pranic order from material, animal from pranic, knowledge/human from animal — not contingent reordering of plateaus (§1.5.1). |
+| **Existential progression (*niyati-kram*)** | Fixed macro sequence in nature: pranic order from material, animal from pranic, knowledge/human from animal — not contingent reordering of plateaus (§1.5). |
 | **Way of existence (*niyati-vidhi*)** | Definiteness in the conduct of each of the four orders; paired with *niyati-kram* (order emergence ↔ order conduct; §1.7). |
 | **Development progression (*vikas-kram*)** | Atomic-level movement through the physicochemical complex until an atom reaches constitutional completeness and sentient *jeevan* appears (§1.9). |
 | **Awakening progression (*jagriti-kram*)** | Sentient-level movement within constitutionally complete *jeevan* toward fuller activity and conduct (§1.9). |
@@ -1360,7 +1301,7 @@ This study cites the *Vivekachudamani* (VC) heavily for accessible verse formula
 
 ### Madhyasth Darshan (definitions)
 
-- **Paribhasha** — Nagraj, A. [*Paribhasha Samhita*](https://www.madhyasth.org/browse-texts/browse-topics/definitions) (Hindi, ed. 2008). English selection of definitions on madhyasth.org. Cited: *niyati-kram* (existential progression) and *niyati-vidhi* (way of existence) (§§1.5.1, 1.7, 1.9).
+- **Paribhasha** — Nagraj, A. [*Paribhasha Samhita*](https://www.madhyasth.org/browse-texts/browse-topics/definitions) (Hindi, ed. 2008). English selection of definitions on madhyasth.org. Cited: *niyati-kram* (existential progression) and *niyati-vidhi* (way of existence) (§§1.5, 1.7, 1.9).
 
 ### Madhyasth Darshan (primary sources)
 
