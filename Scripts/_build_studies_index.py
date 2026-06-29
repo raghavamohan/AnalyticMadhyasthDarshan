@@ -2,6 +2,7 @@
 """Write Studies/index.html landing page shell and external catalog JSON files."""
 from __future__ import annotations
 
+import json
 import re
 import sys
 from pathlib import Path
@@ -13,15 +14,20 @@ if str(SCRIPTS) not in sys.path:
 from _common import BASE, STUDIES  # noqa: E402
 from _study_catalog import (  # noqa: E402
     STUDY_FEEDBACK_TEMPLATE_PATH,
+    StudyStatus,
     StudyTable,
+    catalog_json_payload,
     catalog_markers,
     load_catalog_rows,
     parse_catalog_json,
     parse_catalog_json_file,
+    split_categories,
     write_studies_catalog,
 )
 
 CATALOG_SHELL_PLACEHOLDER = "<!-- @catalog-data@ -->"
+CATALOG_BOOTSTRAP_PLACEHOLDER = "<!-- @catalog-bootstrap@ -->"
+HERO_SCOPE_PLACEHOLDER = "<!-- @hero-scope@ -->"
 
 INDEX_TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
@@ -776,7 +782,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     <li><span>Modern philosophy of mind</span></li>
   </ul>
 
-  <p class="scope" id="hero-scope"><strong>&mdash;</strong> studies available &middot; open &amp; independent</p>
+  <p class="scope" id="hero-scope"><!-- @hero-scope@ --></p>
 </header>
 
 <nav class="page-nav" aria-label="On this page">
@@ -948,6 +954,10 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
 </div>
 
+<script type="application/json" id="catalog-bootstrap">
+<!-- @catalog-bootstrap@ -->
+</script>
+
 <script>
 (() => {
   const catalogSources = [
@@ -1032,6 +1042,20 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   };
 
   const loadCatalogs = async () => {
+    const bootstrap = document.getElementById("catalog-bootstrap");
+    if (bootstrap && bootstrap.textContent.trim()) {
+      try {
+        const data = JSON.parse(bootstrap.textContent);
+        STUDIES = [
+          ...mapEntries(data.topical || [], "topical"),
+          ...mapEntries(data.formal || [], "formal"),
+          ...mapEntries(data.applied || [], "applied"),
+        ];
+        return;
+      } catch {
+        // fall through to fetch
+      }
+    }
     const parts = await Promise.all(
       catalogSources.map(async ({ url, coll }) => {
         try {
@@ -1286,11 +1310,16 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   };
 
   const scheduleCatalogBoot = () => {
-    const run = () => Promise.all([loadCatalogs(), loadDiscussStats()]).then(bootCatalog);
-    if ("requestIdleCallback" in window) {
-      requestIdleCallback(() => { run(); }, { timeout: 2000 });
+    const run = () => {
+      loadCatalogs().then(() => {
+        bootCatalog();
+        loadDiscussStats().then(renderCatalog);
+      });
+    };
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", run, { once: true });
     } else {
-      setTimeout(run, 0);
+      run();
     }
   };
 
@@ -1416,9 +1445,54 @@ def load_rows_for_build(legacy_index_text: str, table: StudyTable) -> list:
     return []
 
 
+def serialize_catalog_bootstrap_json(
+    topical_rows: list,
+    formal_rows: list,
+    applied_rows: list,
+) -> str:
+    payload = {
+        "topical": catalog_json_payload(topical_rows),
+        "formal": catalog_json_payload(formal_rows),
+        "applied": catalog_json_payload(applied_rows),
+    }
+    return json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
+
+
+def build_hero_scope_html(rows: list) -> str:
+    total = len(rows)
+    available = sum(
+        1 for row in rows if row.status in (StudyStatus.DRAFT, StudyStatus.RELEASED)
+    )
+    categories: set[str] = set()
+    for row in rows:
+        categories.update(split_categories(row.category))
+    topic_count = len(categories)
+    return (
+        f"<strong>{available} of {total}</strong> studies available &middot; "
+        f"<strong>{topic_count}</strong> topics &middot; open &amp; independent"
+    )
+
+
 def normalize_shell_text(text: str) -> str:
     normalized = text.replace("\r\n", "\n").replace("\r", "\n")
     return "\n".join(line.rstrip() for line in normalized.splitlines()).strip() + "\n"
+
+
+def strip_build_time_data(content: str) -> str:
+    result = re.sub(
+        r'(<script type="application/json" id="catalog-bootstrap">)\s*.*?\s*(</script>)',
+        rf"\1\n{CATALOG_BOOTSTRAP_PLACEHOLDER}\n\2",
+        content,
+        count=1,
+        flags=re.DOTALL,
+    )
+    return re.sub(
+        r'(<p class="scope" id="hero-scope">).*?(</p>)',
+        rf"\1{HERO_SCOPE_PLACEHOLDER}\2",
+        result,
+        count=1,
+        flags=re.DOTALL,
+    )
 
 
 def strip_catalog_blocks(content: str) -> str:
@@ -1437,9 +1511,11 @@ def verify_index_shell_sync() -> list[str]:
     if not index_path.exists():
         return ["Studies/index.html is missing."]
 
-    actual = normalize_shell_text(strip_catalog_blocks(index_path.read_text(encoding="utf-8")))
+    actual = normalize_shell_text(
+        strip_build_time_data(strip_catalog_blocks(index_path.read_text(encoding="utf-8")))
+    )
     expected = normalize_shell_text(
-        strip_catalog_blocks(minify_inline_css(INDEX_TEMPLATE))
+        strip_build_time_data(strip_catalog_blocks(minify_inline_css(INDEX_TEMPLATE)))
     )
 
     if actual != expected:
@@ -1462,7 +1538,13 @@ def main() -> int:
         print("No catalog rows found in index.html or catalog JSON files", file=sys.stderr)
         return 1
 
-    index_path.write_text(minify_inline_css(INDEX_TEMPLATE), encoding="utf-8")
+    all_rows = topical_rows + formal_rows + applied_rows
+    html = INDEX_TEMPLATE.replace(HERO_SCOPE_PLACEHOLDER, build_hero_scope_html(all_rows))
+    html = html.replace(
+        CATALOG_BOOTSTRAP_PLACEHOLDER,
+        serialize_catalog_bootstrap_json(topical_rows, formal_rows, applied_rows),
+    )
+    index_path.write_text(minify_inline_css(html), encoding="utf-8")
     print("Wrote Studies/index.html shell.")
 
     if topical_rows:
