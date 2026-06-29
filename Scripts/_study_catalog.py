@@ -571,8 +571,6 @@ def row_html_href(row: StudyRow) -> str | None:
 
 
 def row_discussion_href(row: StudyRow) -> str | None:
-    if not row.has_pdf:
-        return None
     if row.table == StudyTable.APPLIED:
         return application_discussion_href(row.slug)
     return study_discussion_href(row.slug)
@@ -590,6 +588,8 @@ def serialize_md_row(row: StudyRow) -> str:
             doc_cell += f" · [Discuss]({discuss_href})"
     else:
         doc_cell = f"*{title}* <!-- slug: {row.slug} -->"
+        if discuss_href:
+            doc_cell = f"*{title}* · [Discuss]({discuss_href}) <!-- slug: {row.slug} -->"
     return (
         f"| {doc_cell} | {escape_md_cell(row.category)} | "
         f"{escape_md_cell(description)} | {status_cell} |"
