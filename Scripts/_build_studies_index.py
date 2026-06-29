@@ -812,6 +812,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       <li><a href="Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html">Why Humans Are Not Just Material</a><span class="start-here-status">Released &mdash; anthropology, consciousness, value</span></li>
       <li><a href="Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.html">Knowledge Knower and Known</a><span class="start-here-status">Released &mdash; epistemology, knower, known</span></li>
       <li><a href="Nature-Of-Time/Nature-Of-Time.html">Nature of Time</a><span class="start-here-status">Released &mdash; *kaal*, physics, philosophy of time</span></li>
+      <li><a href="How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established-presentation.pdf">How undivided society is established</a><span class="start-here-status">Draft &mdash; presentation, *akhand samaj*, social architecture</span></li>
     </ol>
   </div>
 
