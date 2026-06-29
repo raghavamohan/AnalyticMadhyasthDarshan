@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate per-study discussion.html pages for published studies."""
+"""Generate per-study discussion.html pages for catalog studies."""
 from __future__ import annotations
 
 import html
@@ -38,36 +38,60 @@ def feedback_href(title: str) -> str:
 
 
 def discussion_output_path(row: StudyRow) -> Path | None:
-    if not row.has_pdf:
-        return None
     if row.table == StudyTable.APPLIED:
         return APPLICATIONS / row.slug / "discussion.html"
     return STUDIES / row.slug / "discussion.html"
 
 
-def _relative_links(row: StudyRow) -> dict[str, str]:
+def _relative_links(row: StudyRow) -> dict[str, str | None]:
     if row.table == StudyTable.APPLIED:
         return {
             "catalog": "../../Studies/index.html",
-            "read": f"{row.slug}.html",
-            "pdf": f"{row.slug}.pdf",
+            "read": f"{row.slug}.html" if row.has_pdf else None,
+            "pdf": f"{row.slug}.pdf" if row.has_pdf else None,
         }
     return {
         "catalog": "../index.html",
-        "read": f"{row.slug}.html",
-        "pdf": f"{row.slug}.pdf",
+        "read": f"{row.slug}.html" if row.has_pdf else None,
+        "pdf": f"{row.slug}.pdf" if row.has_pdf else None,
     }
+
+
+def _toolbar_paper_links(links: dict[str, str | None]) -> str:
+    if not links.get("read") or not links.get("pdf"):
+        return ""
+    return (
+        f'          <a class="discuss-toolbar-link" href="{html.escape(links["read"])}">Read paper</a>\n'
+        f'          <a class="discuss-toolbar-link discuss-toolbar-download" href="{html.escape(links["pdf"])}" download>PDF</a>\n'
+    )
+
+
+def _discussion_header_note(row: StudyRow, feedback: str) -> str:
+    if row.status == StudyStatus.ONGOING:
+        return (
+            f'<p class="discuss-header-note" id="about-discussion">This study is planned but not yet published. '
+            f"Share questions, scope suggestions, and early comments here. Maintainer corrections via "
+            f'<a href="{html.escape(feedback)}" rel="noopener">GitHub Issues</a>. '
+            f"Sign-in uses your email for posting identity only.</p>"
+        )
+    return (
+        f'<p class="discuss-header-note" id="about-discussion">Questions and comments on this study. '
+        f'Maintainer corrections via <a href="{html.escape(feedback)}" rel="noopener">GitHub Issues</a>. '
+        f"Sign-in uses your email for posting identity only.</p>"
+    )
 
 
 def render_discussion_page(row: StudyRow) -> str:
     title = display_title(row)
     links = _relative_links(row)
-    draft_note = (
-        ' <span class="status-badge status-badge--draft">Draft</span>'
-        if row.status == StudyStatus.DRAFT
-        else ""
-    )
+    status_note = ""
+    if row.status == StudyStatus.DRAFT:
+        status_note = ' <span class="status-badge status-badge--draft">Draft</span>'
+    elif row.status == StudyStatus.ONGOING:
+        status_note = ' <span class="status-badge status-badge--planned">Planned</span>'
     feedback = feedback_href(title)
+    paper_links = _toolbar_paper_links(links)
+    header_note = _discussion_header_note(row, feedback)
     slug_json = json.dumps(row.slug)
     title_json = json.dumps(title)
     site_host = json.dumps(site_base_url().replace("https://", ""))
@@ -217,6 +241,7 @@ def render_discussion_page(row: StudyRow) -> str:
     vertical-align: middle;
   }}
   .status-badge--draft {{ background: #fff4e5; color: #9a6700; }}
+  .status-badge--planned {{ background: #f5ebe0; color: #8b6914; }}
   .auth-row {{ display: grid; gap: 10px; max-width: 420px; }}
   .auth-row label {{ display: grid; gap: 4px; font-size: 0.9rem; font-weight: 600; }}
   .auth-row input, .auth-row textarea {{
@@ -384,16 +409,14 @@ def render_discussion_page(row: StudyRow) -> str:
     <nav class="discuss-toolbar" aria-label="Discussion navigation">
       <div class="discuss-toolbar-row">
         <a class="discuss-toolbar-link discuss-toolbar-back" href="{html.escape(links['catalog'])}">&larr; Studies</a>
-        <h1 class="discuss-toolbar-title">{html.escape(title)}{draft_note}</h1>
+        <h1 class="discuss-toolbar-title">{html.escape(title)}{status_note}</h1>
         <span class="discuss-toolbar-actions">
-          <a class="discuss-toolbar-link" href="{html.escape(links['read'])}">Read paper</a>
-          <a class="discuss-toolbar-link discuss-toolbar-download" href="{html.escape(links['pdf'])}" download>PDF</a>
-          <a class="discuss-toolbar-link discuss-toolbar-feedback" href="{html.escape(feedback)}" rel="noopener">Suggest correction</a>
+{paper_links}          <a class="discuss-toolbar-link discuss-toolbar-feedback" href="{html.escape(feedback)}" rel="noopener">Suggest correction</a>
           <button type="button" id="toolbar-auth-btn" class="btn btn-sm btn-auth btn-primary">Log in</button>
         </span>
       </div>
     </nav>
-    <p class="discuss-header-note" id="about-discussion">Questions and comments on this study. Maintainer corrections via <a href="{html.escape(feedback)}" rel="noopener">GitHub Issues</a>. Sign-in uses your email for posting identity only.</p>
+    {header_note}
   </header>
 
   <div id="discuss-alert" class="alert hidden" role="status"></div>
@@ -824,10 +847,9 @@ def remove_discussion_page(row: StudyRow) -> None:
 def build_discussion_pages_for_rows(rows: list[StudyRow]) -> list[Path]:
     written: list[Path] = []
     for row in rows:
-        if row.has_pdf:
-            path = write_discussion_page(row)
-            if path:
-                written.append(path)
+        path = write_discussion_page(row)
+        if path:
+            written.append(path)
     return written
 
 
@@ -842,8 +864,6 @@ def verify_discussion_pages() -> list[str]:
     errors: list[str] = []
     for table in CATALOG_TABLES:
         for row in load_catalog_rows(table):
-            if not row.has_pdf:
-                continue
             path = discussion_output_path(row)
             if path is None:
                 continue

@@ -424,6 +424,12 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   }
   .card-title a:hover { color: var(--accent-hover); border-bottom-color: var(--accent); }
   .card.is-planned .card-title { color: var(--text-muted); font-style: italic; }
+  .card.is-planned .card-title a {
+    color: var(--text-muted);
+    font-style: italic;
+    border-bottom-color: rgba(92, 83, 72, 0.35);
+  }
+  .card.is-planned .card-title a:hover { color: var(--accent); border-bottom-color: var(--accent); }
   .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 10px; }
   .chip {
     font-family: var(--sans); font-size: 11px; color: var(--warm);
@@ -1172,15 +1178,17 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     const chips = s.cats.map(c => `<button type="button" class="chip" data-cat="${c.replace(/"/g, "&quot;")}">${c}</button>`).join("");
     const htmlHref = avail ? studyHtmlHref(s) : null;
     const pdfHref = avail ? studyPdfHref(s) : null;
-    const discussHref = avail ? studyDiscussionHref(s) : null;
-    const titleInner = avail ? `<a href="${htmlHref}">${s.t}</a>` : s.t;
+    const discussHref = studyDiscussionHref(s);
+    const titleInner = avail
+      ? `<a href="${htmlHref}">${s.t}</a>`
+      : `<a href="${discussHref}">${s.t}</a>`;
     const cardClass = !avail ? "is-planned" : (s.status === "released" ? "is-released is-available" : "is-draft is-available");
     const badgeClass = !avail ? "planned" : (s.status === "released" ? "released" : "draft");
     const badgeLabel = !avail ? "Planned" : (s.status === "released" ? "Released" : "Draft");
     const draftTitle = s.status === "draft" ? ' title="Draft PDF includes a watermark"' : "";
     const foot = avail
-      ? `<span class="badge ${badgeClass}"${draftTitle}><span class="badge-dot"></span>${badgeLabel}</span><span class="card-actions">${discussHref ? discussLinkHtml(s) : ""}<a class="pdf-download" href="${pdfHref}" download title="Download PDF" aria-label="Download PDF for ${escAttr(s.t)}">${PDF_DOWNLOAD_ICON}</a></span>`
-      : `<span class="badge planned"><span class="badge-dot"></span>Planned</span><span>Not yet published</span>`;
+      ? `<span class="badge ${badgeClass}"${draftTitle}><span class="badge-dot"></span>${badgeLabel}</span><span class="card-actions">${discussLinkHtml(s)}<a class="pdf-download" href="${pdfHref}" download title="Download PDF" aria-label="Download PDF for ${escAttr(s.t)}">${PDF_DOWNLOAD_ICON}</a></span>`
+      : `<span class="badge planned"><span class="badge-dot"></span>Planned</span><span class="card-actions">${discussLinkHtml(s)}</span>`;
     const dateLine = avail && s.updated
       ? `<div class="card-foot" style="border:none;padding:6px 0 0;color:#9a8f80;">Updated ${s.updated}</div>`
       : "";
