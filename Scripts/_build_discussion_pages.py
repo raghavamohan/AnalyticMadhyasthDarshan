@@ -66,12 +66,22 @@ def _toolbar_paper_links(links: dict[str, str | None]) -> str:
     )
 
 
+def _submission_portal_href(row: StudyRow) -> str:
+    if row.table == StudyTable.APPLIED:
+        return "../../Studies/submit.html"
+    return "../submit.html"
+
+
+def _contributing_href(row: StudyRow) -> str:
+    if row.table == StudyTable.APPLIED:
+        return "../../CONTRIBUTING.md"
+    return "../../CONTRIBUTING.md"
+
+
 def _discussion_header_note(row: StudyRow, feedback: str) -> str:
     if row.status == StudyStatus.ONGOING:
         return (
-            f'<p class="discuss-header-note" id="about-discussion">This study is planned but not yet published. '
-            f"Share questions, scope suggestions, and early comments here. Maintainer corrections via "
-            f'<a href="{html.escape(feedback)}" rel="noopener">GitHub Issues</a>. '
+            f'<p class="discuss-header-note" id="about-discussion">Questions and comments on this planned study. '
             f"Sign-in uses your email for posting identity only.</p>"
         )
     return (
@@ -79,6 +89,20 @@ def _discussion_header_note(row: StudyRow, feedback: str) -> str:
         f'Maintainer corrections via <a href="{html.escape(feedback)}" rel="noopener">GitHub Issues</a>. '
         f"Sign-in uses your email for posting identity only.</p>"
     )
+
+
+def _planned_study_callout(row: StudyRow) -> str:
+    title = display_title(row)
+    submit_href = html.escape(_submission_portal_href(row))
+    contributing_href = html.escape(_contributing_href(row))
+    return f"""
+  <section class="planned-callout" aria-labelledby="planned-callout-heading">
+    <h2 id="planned-callout-heading">Help shape this study</h2>
+    <p>This paper is <strong>planned but not yet written</strong>. We are soliciting proposals from contributors who would like to author <strong>{html.escape(title)}</strong>.</p>
+    <p>Use the comments below to discuss the <strong>scope</strong> of the study: which questions it should answer, what to include or leave out, which primary texts matter most, and how it should compare with other traditions. Your input here helps define the paper before anyone writes it.</p>
+    <p>If you want to take on the study, follow our submission process on <a href="{submit_href}">My Submissions</a> — sign in with GitHub, propose the study, and wait for maintainer approval before submitting a draft. Read the study format in <a href="{contributing_href}">CONTRIBUTING.md</a> before you start.</p>
+  </section>
+"""
 
 
 def render_discussion_page(row: StudyRow) -> str:
@@ -92,6 +116,7 @@ def render_discussion_page(row: StudyRow) -> str:
     feedback = feedback_href(title)
     paper_links = _toolbar_paper_links(links)
     header_note = _discussion_header_note(row, feedback)
+    planned_callout = _planned_study_callout(row) if row.status == StudyStatus.ONGOING else ""
     slug_json = json.dumps(row.slug)
     title_json = json.dumps(title)
     site_host = json.dumps(site_base_url().replace("https://", ""))
@@ -242,6 +267,25 @@ def render_discussion_page(row: StudyRow) -> str:
   }}
   .status-badge--draft {{ background: #fff4e5; color: #9a6700; }}
   .status-badge--planned {{ background: #f5ebe0; color: #8b6914; }}
+  .planned-callout {{
+    margin: 0 0 20px;
+    padding: 18px 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid #b45309;
+    border-radius: var(--radius);
+  }}
+  .planned-callout h2 {{
+    margin: 0 0 10px;
+    font-size: 1.05rem;
+    color: #92400e;
+  }}
+  .planned-callout p {{
+    margin: 0 0 10px;
+    font-size: 0.95rem;
+    color: var(--text);
+  }}
+  .planned-callout p:last-child {{ margin-bottom: 0; }}
   .auth-row {{ display: grid; gap: 10px; max-width: 420px; }}
   .auth-row label {{ display: grid; gap: 4px; font-size: 0.9rem; font-weight: 600; }}
   .auth-row input, .auth-row textarea {{
@@ -400,6 +444,12 @@ def render_discussion_page(row: StudyRow) -> str:
     .discuss-toolbar-link {{ color: #7ebbed; }}
     .discuss-toolbar-link:hover {{ color: #b8daf3; }}
     .discuss-toolbar-title {{ color: #f5f1ec; }}
+    .planned-callout {{
+      background: #211c18;
+      border-color: #3a322b;
+      border-left-color: #d97706;
+    }}
+    .planned-callout h2 {{ color: #fcd34d; }}
   }}
 </style>
 </head>
@@ -420,7 +470,7 @@ def render_discussion_page(row: StudyRow) -> str:
   </header>
 
   <div id="discuss-alert" class="alert hidden" role="status"></div>
-
+{planned_callout}
   <section id="sign-in-panel" class="action-panel hidden" aria-labelledby="sign-in-heading">
     <h2 id="sign-in-heading">Sign in to comment</h2>
     <p class="auth-sign-in-note">Enter your email and display name. We will send a one-time sign-in link.</p>

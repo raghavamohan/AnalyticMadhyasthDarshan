@@ -144,6 +144,25 @@
   }
   .status-badge--draft { background: #fff4e5; color: #9a6700; }
   .status-badge--planned { background: #f5ebe0; color: #8b6914; }
+  .planned-callout {
+    margin: 0 0 20px;
+    padding: 18px 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid #b45309;
+    border-radius: var(--radius);
+  }
+  .planned-callout h2 {
+    margin: 0 0 10px;
+    font-size: 1.05rem;
+    color: #92400e;
+  }
+  .planned-callout p {
+    margin: 0 0 10px;
+    font-size: 0.95rem;
+    color: var(--text);
+  }
+  .planned-callout p:last-child { margin-bottom: 0; }
   .auth-row { display: grid; gap: 10px; max-width: 420px; }
   .auth-row label { display: grid; gap: 4px; font-size: 0.9rem; font-weight: 600; }
   .auth-row input, .auth-row textarea {
@@ -302,6 +321,12 @@
     .discuss-toolbar-link { color: #7ebbed; }
     .discuss-toolbar-link:hover { color: #b8daf3; }
     .discuss-toolbar-title { color: #f5f1ec; }
+    .planned-callout {
+      background: #211c18;
+      border-color: #3a322b;
+      border-left-color: #d97706;
+    }
+    .planned-callout h2 { color: #fcd34d; }
   }
 </style>
 </head>
