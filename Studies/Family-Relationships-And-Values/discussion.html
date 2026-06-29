@@ -144,6 +144,25 @@
   }
   .status-badge--draft { background: #fff4e5; color: #9a6700; }
   .status-badge--planned { background: #f5ebe0; color: #8b6914; }
+  .planned-callout {
+    margin: 0 0 20px;
+    padding: 18px 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid #b45309;
+    border-radius: var(--radius);
+  }
+  .planned-callout h2 {
+    margin: 0 0 10px;
+    font-size: 1.05rem;
+    color: #92400e;
+  }
+  .planned-callout p {
+    margin: 0 0 10px;
+    font-size: 0.95rem;
+    color: var(--text);
+  }
+  .planned-callout p:last-child { margin-bottom: 0; }
   .auth-row { display: grid; gap: 10px; max-width: 420px; }
   .auth-row label { display: grid; gap: 4px; font-size: 0.9rem; font-weight: 600; }
   .auth-row input, .auth-row textarea {
@@ -302,6 +321,12 @@
     .discuss-toolbar-link { color: #7ebbed; }
     .discuss-toolbar-link:hover { color: #b8daf3; }
     .discuss-toolbar-title { color: #f5f1ec; }
+    .planned-callout {
+      background: #211c18;
+      border-color: #3a322b;
+      border-left-color: #d97706;
+    }
+    .planned-callout h2 { color: #fcd34d; }
   }
 </style>
 </head>
@@ -318,10 +343,17 @@
         </span>
       </div>
     </nav>
-    <p class="discuss-header-note" id="about-discussion">This study is planned but not yet published. Share questions, scope suggestions, and early comments here. Maintainer corrections via <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&amp;title=Study%20feedback%3A%20Family%20Relationships%20and%20Values" rel="noopener">GitHub Issues</a>. Sign-in uses your email for posting identity only.</p>
+    <p class="discuss-header-note" id="about-discussion">Questions and comments on this planned study. Sign-in uses your email for posting identity only.</p>
   </header>
 
   <div id="discuss-alert" class="alert hidden" role="status"></div>
+
+  <section class="planned-callout" aria-labelledby="planned-callout-heading">
+    <h2 id="planned-callout-heading">Help shape this study</h2>
+    <p>This paper is <strong>planned but not yet written</strong>. We are soliciting proposals from contributors who would like to author <strong>Family Relationships and Values</strong>.</p>
+    <p>Use the comments below to discuss the <strong>scope</strong> of the study: which questions it should answer, what to include or leave out, which primary texts matter most, and how it should compare with other traditions. Your input here helps define the paper before anyone writes it.</p>
+    <p>If you want to take on the study, follow our submission process on <a href="../submit.html">My Submissions</a> — sign in with GitHub, propose the study, and wait for maintainer approval before submitting a draft. Read the study format in <a href="../../CONTRIBUTING.md">CONTRIBUTING.md</a> before you start.</p>
+  </section>
 
   <section id="sign-in-panel" class="action-panel hidden" aria-labelledby="sign-in-heading">
     <h2 id="sign-in-heading">Sign in to comment</h2>
