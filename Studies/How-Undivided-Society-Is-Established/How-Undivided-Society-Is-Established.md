@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 29, 2026, 6:34 AM IST
+**Edited on:** June 29, 2026, 11:49 AM IST
 **Status:** Draft
 **The question:** What is Madhyasth Darshan's grand vision of undivided society (*akhand samaj*), and how — according to the primary texts — is it established and evidenced?
 
@@ -22,7 +22,7 @@ Realising coexistence — understanding *satta* and units, the sentient *jeevan*
 
 The path runs from individual awakening through family order to universal orderliness — staged study and realisation at the person (§4.3), family council and education-*sanskar* at the micro scale (§5.5), assembly composition to humankind (§5.4), and public dialogue making the telos collectively accessible (§5.7). The architectural account below states how each layer connects.
 
-Madhyasth Darshan holds that *akhand samaj* is not an automatic scale-up of physical regulation. It is an **achieved telos** at the knowledge order — paired with **universal orderliness** when awakened humans close the justice cycle and compose assemblies from family through humankind. Five layers and a telos structure the account: coexistence ground (§1), composition through orders (§2), the sentience threshold (§3), the knowledge-order gate (§4), and social establishment (§5); §6 and its figure render the whole.
+Madhyasth Darshan holds that *akhand samaj* is not an automatic scale-up of physical regulation. It is an **achieved telos** at the knowledge order — paired with **universal orderliness** when awakened humans close the justice cycle and compose assemblies from family through humankind. The fact that makes this telos reachable rather than utopian is that nature is **inherently complementary** (§1.2): division is the aberration of a blocked design, not the baseline, so establishing undivided society means un-blocking a complementarity already present at every order — not engineering harmony into a competitive substrate. Five layers and a telos structure the account: coexistence ground (§1), composition through orders (§2), the sentience threshold (§3), the knowledge-order gate (§4), and social establishment (§5); §6 and its figure render the whole.
 
 ## 1. Coexistence ground (Layer 0)
 
@@ -52,7 +52,9 @@ Nothing in nature is isolated:
 
 A **relationship** is mutuality where expectations are predetermined toward completeness; an **association** is mutuality where expectations are voluntary (MVD, pp. 61–62). Fulfilment proceeds through **capacity** (*kshamata*), **ability** (*yogyata*), and **receptivity** (*patrata*). What units reciprocate is **value** — essentiality (*maulikta*) in every order (SB, p. 50).
 
-In its **natural state**, a unit moves toward development; in its **excited state**, toward decline (SB, pp. 14–15). Participation means recognising and fulfilling built-in relationships — the completeness drive orienting unit-activity toward satisfaction (SB, p. 51).
+Madhyasth Darshan holds **complementarity** to be the essence of coexistence — value reciprocated and mutually recognised in mutuality, the whole structure by which units fulfil one another's essentiality, not merely physicochemical give and take (SB, pp. 50, 53). Because nothing in nature is isolated, the same design runs unbroken from atomic particles through molecules and bodies to human assemblies (JV, p. 43). This is the fact on which the whole establishment rests: undivided society is not harmony imposed on a competitive substrate but this inherent complementarity carried to the scale of humankind ([*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.6).
+
+In its **natural state**, a unit moves toward development, reciprocating in complementarity; in its **excited state**, complementarity falls short and the unit moves toward decline (SB, pp. 14–15). Participation means recognising and fulfilling built-in relationships — the completeness drive orienting unit-activity toward satisfaction (SB, p. 51).
 
 ### 1.3 Activity and regulation
 
@@ -160,7 +162,7 @@ Only *jeevan* at the knowledge order **evaluates** (JV, p. 70). Six built-in **p
 
 Inhumane refuge organises under *priya*, *hita*, and *labh* — instinct, body, and material gain. Humane refuge reorganises under *nyaya*, *dharma*, and *satya* — regulating **conduct**, **thought toward resolution**, and **realisation in existence** respectively (MVD, pp. 67, 137). The lower triad remains legitimate in its domain but is **not sufficient** as the organising standpoint of a knowledge-order being.
 
-Delusion — mistaking body for self — roots sectarian, defensive, and fear-bound sociality resembling animal collectivity under threat (MVD, Ch. 4; SB, pp. 91–92). **Awakening** is the knowledge-order **gate** without which Layer 4 evidence cannot close.
+Delusion — mistaking body for self — roots sectarian, defensive, and fear-bound sociality resembling animal collectivity under threat (MVD, Ch. 4; SB, pp. 91–92). This is **complementarity blocked at the knowledge order** — incompletely expressed where evaluation mis-reads relationships ([*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.10.5), not nature turning competitive. **Awakening** is the knowledge-order **gate** without which Layer 4 evidence cannot close.
 
 ### 4.2 Justice, law, and evaluation
 
@@ -236,7 +238,7 @@ These five *prathishtha* are not optional cultural ornaments after private insig
 
 ### 4.8 Provision versus achievement
 
-Coexistence **provisions** regulation, values, relationships, and the six perspectives. It does **not guarantee** prosperity, trust, or undivided society regardless of conduct. Delusion, legality without justice, accumulation detached from right-use, false learning, and fear as lack of wisdom remain live failures at the knowledge order (MVD, pp. 263–264).
+Coexistence **provisions** regulation, values, relationships, complementarity, and the six perspectives. It does **not guarantee** prosperity, trust, or undivided society regardless of conduct. Delusion, legality without justice, accumulation detached from right-use, false learning, and fear as lack of wisdom remain live failures at the knowledge order (MVD, pp. 263–264) — these are **failure modes of complementarity**, not its absence from the design.
 
 The architecture therefore has two sides at Layer 3–4: what is **built in** to coexistence, and what humans must **evidence** through awakening. *Akhand samaj* belongs to the second — as **telos and achievable evidence**, not as automatic ontological outcome.
 
@@ -246,7 +248,7 @@ What awakened humans evidence does not stay private: it composes upward from fam
 
 ### 5.1 The telos defined
 
-Undivided society is humankind living as **one complementary whole** — every person resolved, families prosperous and trusting, relationships fulfilled from household to world family, with orderliness self-governed from understanding rather than imposed from above. **Undivided society** (*akhand samaj*) and **universal orderliness** (*sarvabhaum vyavastha*) are **paired evidence** in awakened human tradition:
+Undivided society is humankind living as **one complementary whole** — every person resolved, families prosperous and trusting, relationships fulfilled from household to world family, with orderliness self-governed from understanding rather than imposed from above. It is the inherent complementarity of §1.2 **un-blocked across humankind** — relationships fulfilled toward completeness at every tier, emergent in tradition rather than unity imposed from above. **Undivided society** (*akhand samaj*) and **universal orderliness** (*sarvabhaum vyavastha*) are **paired evidence** in awakened human tradition:
 
 > **"More than one human coming together or becoming organised is referred to as a family, community, or undivided society. In the awakened human tradition, undivided society is evidenced along with the universal orderliness."**
 > - MVD, Ch. 4
@@ -288,7 +290,7 @@ The four goals — *samadhan*, *samridhi*, *abhaya*, *saha-astitva* — are **jo
 | **Individual** | Resolution (*Samadhan*) | Happiness (*Sukh*) |
 | **Family** | Prosperity (*Samridhi*) | Peace (*Shanti*) |
 | **Society** | Fearlessness / Trust (*Abhaya*) | Contentment (*Santosh*) |
-| **Nature / Existence** | Coexistence (*Saha-astitva*) | Bliss (*Anand*) |
+| **Nature / Existence** | Coexistence (*Saha-astitva*) — living with complementarity among humans and with nature | Bliss (*Anand*) |
 
 Awakened sociality contrasts with animal collectivity observed **only under fear** — never in study, production, or maintenance of orderliness (MVD, Ch. 4). **Resolution itself is restfulness** (*vishram* / *abhyudaya*) — comprehensive closure, not private calm alone.
 
@@ -351,7 +353,7 @@ The establishment of *akhand samaj* is one chain with five layers and a telos. T
 
 The diagram depicts five horizontal layers rising from coexistence ground at the bottom to *akhand samaj* at the top, with arrows showing how each layer depends on the one below and enables the one above. Matter and regulation flow relatively easily through Layers 0–2; **Layer 3 is a narrow gate**. Every human unit that would reach Layer 4 must pass through awakening — study, experiment, and realisation-evidence closing T2 and T3. A unit that fails at Layer 3 loops back to delusion (body-as-self, *priya*–*hita*–*labh* evaluation); the assembly cannot achieve the telos while that loop remains dominant. Layer 4 evidences what passes the gate in family, community, and world-family orderliness. The telos sits above Layer 4 as the culminating evidence.
 
-**Layer 0 — Coexistence ground.** *Satta* and units co-eternal; saturation provisions inherent energy and regulation in each unit; unit signature and relationships; *shram–gati–parinam*; regulation ladder from saturation through law.
+**Layer 0 — Coexistence ground.** *Satta* and units co-eternal; saturation provisions inherent energy and regulation in each unit; unit signature and relationships; complementarity as the essence of coexistence — value reciprocated in mutuality; *shram–gati–parinam*; regulation ladder from saturation through law.
 
 **Layer 1 — Composition through orders.** Mixtures and compounds; four orders with *niyati-vidhi* conformance; six value kinds; assemblies persist or decline with relationship-fulfilment.
 
@@ -361,7 +363,7 @@ The diagram depicts five horizontal layers rising from coexistence ground at the
 
 **Layer 4 — Social evidence.** Sociality–production chain powered by *ichcha*; four human goals jointly; assembly composition and sect-to-*sampradaya* transmutation; *kutumb shiksha* and family council; five orderliness dimensions and ten-tier family orderliness; *janvad*; *dharma-niti* and *rajya-niti*; education-*sanskar*; consciousness shift; current vs proposed engine (§5.7).
 
-**Telos.** *Akhand samaj* evidenced with *sarvabhaum vyavastha* — humankind as one complementary whole in awakened tradition.
+**Telos.** *Akhand samaj* evidenced with *sarvabhaum vyavastha* — humankind as one complementary whole in awakened tradition; the inherent complementarity of Layer 0 un-blocked at the scale of humankind.
 
 | Layer | Sections | Key concept |
 |---|---|---|
@@ -405,6 +407,7 @@ Key terms from the exposition are collected here for quick reference. Each term 
 | ***Sampradaya*** | Community in the awakened sense — human tradition with purpose of completeness, awakening, and guidance toward undivided society (AVD). |
 | ***Samaj*** | Sect in the deluded sense — groupings based on race, colour, caste, ideology, and creed that fragment what is naturally one humankind (AVD). |
 | ***Satta*** | Omnipresence — formless, all-pervasive ground in which all units are saturated. |
+| **Complementarity** | Reciprocal fulfilment of essentiality in mutuality — the essence of coexistence; definite below the knowledge order and achieved at it; scales from particles to *akhand samaj* (§1.2, §4.8, §5.1). |
 | ***Jeevan*** | The sentient self — constitutionally complete unit working through the body. |
 | ***Ichcha*** | Desire or aspiration in *chitta* — inner means (*antrang sadhan*) driving thought and conduct; reoriented under awakening from body-bound to benevolent desire (MVD, pp. 84, 293). |
 | ***Kutumb shiksha*** | Family education — daily family council evaluating relationships and production; micro-engine of the five orderliness dimensions (JVD, p. 237). |
@@ -426,7 +429,7 @@ Key terms from the exposition are collected here for quick reference. Each term 
 ### Madhyasth Darshan (primary sources)
 
 - **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: coexistence and Realisation Knowledge (pp. 5, 11–14); hungry/overfull atoms and order emergence (pp. 8, 13); mediative Omnipotence and nucleus (p. 26); awakening progression and delusionlessness ladder (p. 27); mixture vs compound (p. 42); hope, thought, desire, resoluteness in faculties (p. 84); six *drishti* and humane refuge (pp. 67, 137); inward regulation (pp. 77, 277); delusion vs awakening faculty activity (pp. 275–276, 293); study–experiment–realisation-evidence (p. 88); constitutional completeness and hope-bondage (p. 91); relationship vs association and fulfilment (pp. 61–62); human typology on planes (p. 160); value taxonomy (p. 306); justice cycle (p. 311); sociality chain and undivided society (Ch. 4); production policy (p. 106); ten-tier orderliness (p. 161); wealth in society (p. 195); consciousness shift and witness (p. 297); live failures (pp. 263–264).
-- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad*](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: coexistence and saturation (pp. 48–49, 57); natural and excited state (pp. 14–15); essentiality as value (p. 50); effort–motion–result and completeness mapping (pp. 58, 71); regulation as law (p. 57); composition not development (pp. 75–76); order *dharma*s (p. 179); hungry–overfull atom sequence and constitutional completeness (pp. 55, 59, 71, 92); perceiver status and planes (pp. 137–138).
+- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad*](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: coexistence and saturation (pp. 48–49, 57); natural and excited state (pp. 14–15); essentiality as value and complementarity as essence of coexistence (pp. 50, 53); effort–motion–result and completeness mapping (pp. 58, 71); regulation as law (p. 57); composition not development (pp. 75–76); order *dharma*s (p. 179); hungry–overfull atom sequence and constitutional completeness (pp. 55, 59, 71, 92); perceiver status and planes (pp. 137–138).
 - **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: Jeevan Vidya program origin and self-verification (pp. 3, 19); nothing isolated (p. 43); six value kinds (pp. 43, 138); recognition and fulfilment (p. 69); coexistence inclination (p. 67); justice in relationships (p. 55); five orderliness dimensions and desire for fearlessness (p. 110); human and *jeevan* goals and harmonies (pp. 61, 165); knowing and believing (p. 48).
 - **JVD** — Nagraj, A. [*Janvad* (*Behaviour Centred Public Discourse*)](../References/Madhyasth-Darshan/JVD-Janvad.pdf). English translation by Sanjeev Chopra (WIP). Cited: wish for undivided society (p. 13); historical formation of sectarian structures and generation-to-generation change (pp. 16–22); meaningfulness and dialogue content (p. 76); family and council inseparable (*kutumb shiksha*) (p. 237); tradition and understanding (p. 93); regulation through undivided society (p. 126); responsibilities and orderliness (p. 133); participation in universal orderliness (p. 157); self-motivated participation (p. 219); collective dialogue question (p. 220); comprehensive resolution (p. 274).
 - **AVD** — Nagraj, A. [*Adhyatmvad* (*Realisation Centred Spiritualism*)](../References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf). English translation by Sanjeev Chopra (WIP). Cited: knowing orderliness and undividedness (p. 31); unity as expression of awakening (p. 80); *samaj* vs *sampradaya* (p. 23); five operational traditions post-awakening (p. 14); universal needs for justice, dharma, truth (p. 156); education-*sanskar* and realisation method (pp. 172–173); activity and conduct completeness, six activity modes, sources of undivided society (p. 173); liberation from delusion and knowing chain (pp. 174–175); humaneness as definition of telos (p. 175); visualisation vs realisation in faculty activity (p. 176); witness and doer (p. 214); establishment through comprehensive resolution (p. 274).
