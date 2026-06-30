@@ -8,6 +8,7 @@ from urllib.parse import quote, unquote, urlparse
 
 import markdown
 
+from _build_discussion_pages import ASSET_VERSION as DISCUSS_ASSET_VERSION
 from _common import APPLICATIONS, BASE, REFERENCES, STUDIES, is_linkable_reference_file, site_base_url, study_md
 from _glossary_tooltips import apply_glossary_tooltips, load_glossary, wrap_tables_for_scroll
 from _study_catalog import strip_status_for_pdf
@@ -154,7 +155,7 @@ def _study_toolbar_html(md_path: Path, *, is_draft: bool, title: str) -> str:
     except ValueError:
         catalog_href = "../index.html"
     pdf_href = f"{stem}.pdf"
-    discuss_href = "discussion.html"
+    discuss_href = f"discussion.html?dv={DISCUSS_ASSET_VERSION}" if DISCUSS_ASSET_VERSION else "discussion.html"
     feedback_href = _feedback_href(title)
     title_html = _format_toolbar_title(title, is_draft=is_draft)
     return f"""<nav class="study-toolbar" aria-label="Study navigation">
