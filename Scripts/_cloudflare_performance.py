@@ -31,6 +31,7 @@ CACHE_RULE_REFS = (
     "amd_cache_pdfs",
     "amd_cache_images",
     "amd_cache_catalog_json",
+    "amd_cache_studies_index",
     "amd_cache_html",
 )
 REDIRECT_STATUSES = frozenset({301, 302, 307, 308})
@@ -346,6 +347,13 @@ def cache_rules_spec() -> list[dict]:
         ),
         _cache_rule_body(
             CACHE_RULE_REFS[3],
+            "Short cache for studies catalog shell",
+            f'({host} and http.request.uri.path eq "/Studies/index.html")',
+            edge_ttl_seconds=5 * 60,
+            browser_ttl_seconds=2 * 60,
+        ),
+        _cache_rule_body(
+            CACHE_RULE_REFS[4],
             "Cache study HTML pages",
             (
                 f"({host} and ("
