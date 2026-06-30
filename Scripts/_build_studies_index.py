@@ -4,8 +4,11 @@ from __future__ import annotations
 
 import json
 import re
+import subprocess
 import sys
+from datetime import datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 SCRIPTS = Path(__file__).resolve().parent
 if str(SCRIPTS) not in sys.path:
@@ -27,6 +30,7 @@ from _study_catalog import (  # noqa: E402
 
 CATALOG_SHELL_PLACEHOLDER = "<!-- @catalog-data@ -->"
 CATALOG_BOOTSTRAP_PLACEHOLDER = "<!-- @catalog-bootstrap@ -->"
+CATALOG_BUILD_ID_PLACEHOLDER = "@catalog-build-id@"
 HERO_SCOPE_PLACEHOLDER = "<!-- @hero-scope@ -->"
 
 INDEX_TEMPLATE = """<!DOCTYPE html>
@@ -960,10 +964,11 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
 <script>
 (() => {
+  const CATALOG_BUILD_ID = "@catalog-build-id@";
   const catalogSources = [
-    { url: "catalog-topical.json", coll: "topical" },
-    { url: "catalog-formal.json", coll: "formal" },
-    { url: "catalog-applied.json", coll: "applied" },
+    { url: `catalog-topical.json?cb=${CATALOG_BUILD_ID}`, coll: "topical" },
+    { url: `catalog-formal.json?cb=${CATALOG_BUILD_ID}`, coll: "formal" },
+    { url: `catalog-applied.json?cb=${CATALOG_BUILD_ID}`, coll: "applied" },
   ];
 
   const mapEntries = (entries, coll) => {
@@ -1495,6 +1500,12 @@ def strip_build_time_data(content: str) -> str:
         count=1,
         flags=re.DOTALL,
     )
+    result = re.sub(
+        r'const CATALOG_BUILD_ID = "[^"]*";',
+        f'const CATALOG_BUILD_ID = "{CATALOG_BUILD_ID_PLACEHOLDER}";',
+        result,
+        count=1,
+    )
     return re.sub(
         r'(<p class="scope" id="hero-scope">).*?(</p>)',
         rf"\1{HERO_SCOPE_PLACEHOLDER}\2",
@@ -1536,6 +1547,24 @@ def verify_index_shell_sync() -> list[str]:
     return []
 
 
+def catalog_build_id() -> str:
+    try:
+        result = subprocess.run(
+            ["git", "rev-parse", "--short", "HEAD"],
+            capture_output=True,
+            text=True,
+            check=True,
+            cwd=BASE,
+        )
+        build_id = result.stdout.strip()
+        if build_id:
+            return build_id
+    except (OSError, subprocess.CalledProcessError):
+        pass
+    ist = ZoneInfo("Asia/Kolkata")
+    return datetime.now(ist).strftime("%Y%m%d%H%M")
+
+
 def main() -> int:
     from _study_catalog import sync_pre_catalog_proposals_to_catalog
 
@@ -1553,12 +1582,9 @@ def main() -> int:
 
     all_rows = topical_rows + formal_rows + applied_rows
     html = INDEX_TEMPLATE.replace(HERO_SCOPE_PLACEHOLDER, build_hero_scope_html(all_rows))
-    html = html.replace(
-        CATALOG_BOOTSTRAP_PLACEHOLDER,
-        serialize_catalog_bootstrap_json(topical_rows, formal_rows, applied_rows),
-    )
+    html = html.replace(CATALOG_BUILD_ID_PLACEHOLDER, catalog_build_id())
     index_path.write_text(minify_inline_css(html), encoding="utf-8")
-    print("Wrote Studies/index.html shell.")
+    print("Wrote Studies/index.html shell (catalog loaded from catalog-*.json at runtime).")
 
     if topical_rows:
         write_studies_catalog(topical_rows, StudyTable.TOPICAL)

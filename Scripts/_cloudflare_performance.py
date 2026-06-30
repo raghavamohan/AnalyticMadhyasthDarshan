@@ -372,6 +372,22 @@ def _cache_rule_is_correct(rule: dict, expected: dict) -> bool:
     )
 
 
+def purge_cache_files(token: str, zone_id: str | None, urls: list[str]) -> None:
+    """Purge specific URLs from Cloudflare edge cache."""
+    zone = resolve_zone_id(token, zone_id)
+    if not urls:
+        raise ValueError("At least one URL is required to purge.")
+    body = _api_request(
+        "POST",
+        f"/zones/{zone}/purge_cache",
+        token,
+        {"files": urls},
+    )
+    if body is None:
+        raise RuntimeError("Cloudflare purge_cache returned no response.")
+    print(f"Purged {len(urls)} URL(s) from Cloudflare cache for zone {zone}.")
+
+
 def apply_cache_rules(token: str, zone_id: str | None) -> None:
     """Create or update zone cache rules for static HTML, JSON, images, and PDFs."""
     zone = resolve_zone_id(token, zone_id)
@@ -685,6 +701,11 @@ def main() -> int:
         help="Zone ID (default: CLOUDFLARE_ZONE_ID from .env or lookup by hostname).",
     )
     parser.add_argument(
+        "--purge-cache",
+        action="store_true",
+        help="Purge Cloudflare edge cache for the studies index and catalog JSON files.",
+    )
+    parser.add_argument(
         "--verify-only",
         action="store_true",
         help="Only run the root redirect check (no dashboard steps).",
@@ -697,6 +718,29 @@ def main() -> int:
     args = parser.parse_args()
     zone_id = args.zone_id or cloudflare_zone_id()
     token = cloudflare_api_token()
+
+    if args.purge_cache:
+        if not token:
+            print(
+                "CLOUDFLARE_API_TOKEN is required for --purge-cache "
+                "(set in .env or the process environment).",
+                file=sys.stderr,
+            )
+            return 1
+        try:
+            purge_cache_files(
+                token,
+                zone_id,
+                [
+                    CATALOG_URL,
+                    f"https://{SITE_HOST}/Studies/catalog-topical.json",
+                    f"https://{SITE_HOST}/Studies/catalog-formal.json",
+                    f"https://{SITE_HOST}/Studies/catalog-applied.json",
+                ],
+            )
+        except (urllib.error.URLError, RuntimeError) as exc:
+            print(f"API error: {exc}", file=sys.stderr)
+            api_error = True
 
     if args.verify_only:
         return 0 if print_verify_root_redirect() else 1
