@@ -47,7 +47,7 @@ A good proposal states a clear analytic question, names the Madhyasth Darshan te
 
 ## Step 2 — Wait for approval
 
-Maintainers review proposals for overlap, scope, and alignment with [Studies/README.md](Studies/README.md). You will be notified once it is approved. If a proposal is not accepted, maintainers add `proposal-declined` and comment on the issue. The proposal issue stays **open** so later draft PRs can link to `Proposal issue: #N`.
+Maintainers review proposals for overlap, scope, and alignment with [Studies/README.md](Studies/README.md). You will be notified once it is approved — GitHub notifies you on the issue, and you can opt in to email updates from the notification bar on **My Submissions**. If a proposal is not accepted, maintainers add `proposal-declined` and comment on the issue. The proposal issue stays **open** so later draft PRs can link to `Proposal issue: #N`.
 
 When approved, automation creates `Studies/<Slug>/<Slug>.md` (proposal stub), `.proposal-meta.json`, HTML, and PDF on the default branch. The study slug is written to the issue as `### Slug` and locked for draft submission.
 
@@ -57,9 +57,9 @@ When approved, automation creates `Studies/<Slug>/<Slug>.md` (proposal stub), `.
 
 Once approved, return to [**My Submissions**](Studies/submit.html) and click **Submit draft** on your proposal row (or use the pre-filled link from the approval comment).
 
-1. Enter your author name (slug is pre-filled and locked from the approved proposal).
+1. Enter your author name — the name published on the study, which can differ from your GitHub handle (slug is pre-filled and locked from the approved proposal).
 2. Enter the approved **proposal issue number** (pre-filled when opened from your row).
-3. Paste your full markdown content.
+3. Click **Insert house-style template** for a section skeleton, then paste or write your full markdown content. A quick check warns if the draft is missing **Standpoint and scope** or **References**.
 4. Submit the form.
 
 The portal opens one **new-study** pull request at a time per slug. If a draft PR is already open, wait for review before submitting again.
@@ -72,7 +72,7 @@ The portal opens one **new-study** pull request at a time per slug. If a draft P
 
 ### Update an existing study or change status
 
-From **My Submissions**, use **Update a study** to open a study-update pull request (paste revised markdown for an existing slug).
+From **My Submissions**, use **Update a study** to open a study-update pull request. Enter the slug and click **Load current content** to pull the published markdown into the editor, then revise and submit.
 
 To change **Draft** ↔ **Released**, use **Change release status** on the same page, or click **Release study** / **Revert to draft** on a merged row. The portal opens a `status-change` pull request; CI runs `_set_study_status.py` on the branch.
 

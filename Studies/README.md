@@ -124,11 +124,13 @@ Want to add a new analytic paper to the collection, or submit a full revision of
 
 Before you start, read the study format in this document and in [CONTRIBUTING.md](../CONTRIBUTING.md).
 
+A free [GitHub account](https://github.com/signup) is required to propose or submit — it is how we track your proposal, pull request, and review history, and how you receive updates. Creating one takes a minute; reading studies never requires an account.
+
 1. **Sign in** on [My Submissions](submit.html) with GitHub (required to propose or submit; not required to read studies).
-2. **Propose** a new study and wait for maintainer approval.
-3. When approved, click **Submit draft** with your full markdown.
+2. **Propose** a new study and wait for maintainer approval. Opt in to email updates so you are notified without watching GitHub.
+3. When approved, click **Submit draft** — start from the built-in house-style template and paste your markdown.
 4. **Track** pull requests and CI checks on the same page.
-5. After merge, use **Update study** or change **Draft** ↔ **Released** as needed.
+5. After merge, use **Update study** (loads the current content for editing) or change **Draft** ↔ **Released** as needed.
 
 Full workflow details: [CONTRIBUTING.md](../CONTRIBUTING.md).
 

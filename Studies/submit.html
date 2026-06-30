@@ -79,6 +79,18 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
 .skeleton-row td{color:var(--text-muted);}
 @media (max-width:720px){.dashboard-table{font-size:12px;}.dashboard-table th:nth-child(4),.dashboard-table td:nth-child(4){display:none;}}
 .hidden{display:none !important;}
+.review-box{font-family:var(--sans);font-size:14px;line-height:1.55;border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-bottom:20px;background:var(--accent-soft);}
+.review-box h3{font-size:15px;margin:0 0 10px;color:var(--text);}
+.review-box dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;}
+.review-box dt{font-weight:600;color:var(--text-muted);}
+.review-box dd{margin:0;color:var(--text);overflow-wrap:anywhere;white-space:pre-wrap;}
+.review-box .review-edit{margin-top:12px;}
+.editor-guide{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-bottom:10px;font-family:var(--sans);font-size:13px;}
+.editor-guide a{font-weight:600;}
+.fmt-checklist{font-family:var(--sans);font-size:13px;color:var(--text-muted);margin-bottom:12px;border:1px solid var(--border);border-radius:8px;padding:8px 12px;background:#fdfcfa;}
+.fmt-checklist summary{cursor:pointer;font-weight:600;color:var(--text);}
+.fmt-checklist ul{margin:8px 0 2px 18px;}
+.fmt-checklist li{margin:3px 0;}
 .editor-tabs{display:inline-flex;border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:8px;}
 .editor-tab{font-family:var(--sans);font-size:13px;color:var(--text-muted);background:transparent;border:none;padding:6px 14px;cursor:pointer;border-right:1px solid var(--border);}
 .editor-tab:last-child{border-right:none;}
@@ -95,7 +107,7 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
 .md-preview hr{border:none;border-top:1px solid var(--border);margin:14px 0;}
 .md-preview a{color:var(--accent);}
 .dashboard-poll-note{font-family:var(--sans);font-size:12px;color:var(--text-muted);margin:8px 0 0;}
-@media (prefers-color-scheme:dark){:root{--bg:#1a1815;--surface:#26231e;--text:#e6dfd6;--text-muted:#aca194;--accent:#5ba3d3;--accent-soft:#233e52;--accent-hover:#7ebbed;--warm:#d5a477;--warm-soft:#423020;--border:#423b33;}h1,h2,label{color:#f5f1ec;}input[type="text"],select,textarea,input[type="number"]{background:#1e1b18;color:var(--text);}button.submit-btn,.action-btn.primary{color:#1a1815;}.alert.success,.proposal-status.approved,.stage-merged,.catalog-released,.ci-success{background:#133a20;color:#81c995;border-color:#1b5e33;}.alert.error,.proposal-status.error,.ci-failure{background:#471815;color:#f28b82;border-color:#712b26;}.step-strip .step.done{background:#133a20;color:#81c995;}.md-preview{background:#1e1b18;}.md-preview h1,.md-preview h2,.md-preview h3{color:#f5f1ec;}}
+@media (prefers-color-scheme:dark){:root{--bg:#1a1815;--surface:#26231e;--text:#e6dfd6;--text-muted:#aca194;--accent:#5ba3d3;--accent-soft:#233e52;--accent-hover:#7ebbed;--warm:#d5a477;--warm-soft:#423020;--border:#423b33;}h1,h2,label{color:#f5f1ec;}input[type="text"],select,textarea,input[type="number"]{background:#1e1b18;color:var(--text);}button.submit-btn,.action-btn.primary{color:#1a1815;}.alert.success,.proposal-status.approved,.stage-merged,.catalog-released,.ci-success{background:#133a20;color:#81c995;border-color:#1b5e33;}.alert.error,.proposal-status.error,.ci-failure{background:#471815;color:#f28b82;border-color:#712b26;}.step-strip .step.done{background:#133a20;color:#81c995;}.md-preview{background:#1e1b18;}.md-preview h1,.md-preview h2,.md-preview h3{color:#f5f1ec;}.fmt-checklist{background:#1e1b18;}}
 </style>
 </head>
 <body>
@@ -120,6 +132,14 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
     <div class="auth-actions">
       <button type="button" class="auth-btn primary" id="auth-login-btn">Sign in with GitHub</button>
       <button type="button" class="auth-btn" id="auth-logout-btn" hidden>Sign out</button>
+    </div>
+  </div>
+
+  <div class="auth-bar" id="notify-bar" hidden style="margin-top:-8px;">
+    <div class="auth-user" id="notify-summary">Email notifications</div>
+    <div class="auth-actions">
+      <label class="checkbox-group" style="gap:6px;"><input type="checkbox" id="notify-enabled"> Email me on approval &amp; merge</label>
+      <button type="button" class="auth-btn" id="notify-email-btn">Set email</button>
     </div>
   </div>
 
@@ -236,7 +256,9 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
           <div id="propose-turnstile" class="cf-turnstile" data-sitekey="0x4AAAAAADoBfrNV5lPeJQWO" data-action="turnstile-spin-v1" data-refresh-expired="auto"></div>
         </div>
 
-        <button type="submit" class="submit-btn" id="p-submit-btn">Submit Proposal</button>
+        <div id="propose-review" class="review-box" role="region" aria-label="Review your proposal" hidden></div>
+
+        <button type="submit" class="submit-btn" id="p-submit-btn">Review proposal</button>
       </form>
     </div>
   </section>
@@ -260,10 +282,13 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
         <div class="form-group">
           <label for="s-slug">Study slug *</label>
           <input type="text" id="s-slug" required pattern="[A-Za-z0-9-]+" title="Only alphanumeric characters and hyphens allowed">
+          <button type="button" class="auth-btn" id="s-load-source" hidden style="margin-top:8px;">Load current content</button>
+          <span class="help-text" id="s-load-source-status" style="display:none;margin-top:6px;"></span>
         </div>
 
         <div class="form-group">
           <label for="s-author">Author name *</label>
+          <div class="help-text">The name published on the study. This can differ from your GitHub handle &mdash; use the name you want readers to see.</div>
           <input type="text" id="s-author" required>
         </div>
 
@@ -284,6 +309,21 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
 
         <div class="form-group">
           <label for="s-content">Study content (Markdown) *</label>
+          <div class="editor-guide">
+            <button type="button" class="auth-btn" id="s-insert-template">Insert house-style template</button>
+            <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/Studies/README.md" target="_blank" rel="noopener">Study format</a>
+            <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/CONTRIBUTING.md" target="_blank" rel="noopener">Contributing guide</a>
+          </div>
+          <details class="fmt-checklist">
+            <summary>House-style checklist (topical studies)</summary>
+            <ul>
+              <li>Opening intro, then a <code>## Standpoint and scope</code> section (four short paragraphs).</li>
+              <li>Continuous scholarly prose &mdash; avoid scaffold labels like <code>**Step N&mdash;**</code>, <code>**Verdict:**</code>, or <code>## How to read this study</code>.</li>
+              <li><code>### N.M Descriptive title</code> subsections for argument steps; cross-reference with <code>&sect;2.3</code>.</li>
+              <li>A <code>## References</code> section grouping sources, linking <code>../References/&hellip;</code> or external URLs.</li>
+              <li>Author name and slug stay consistent with the approved proposal.</li>
+            </ul>
+          </details>
           <div class="editor-tabs" role="tablist" aria-label="Editor mode">
             <button type="button" class="editor-tab" id="s-tab-write" role="tab" aria-selected="true" aria-controls="s-content">Write</button>
             <button type="button" class="editor-tab" id="s-tab-preview" role="tab" aria-selected="false" aria-controls="s-preview">Preview</button>
@@ -347,8 +387,9 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
 
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script>
-const API_BASE = 'https://amd-submissions.raghavamohan.workers.dev';
+const API_BASE = 'https://api.analyticmadhyasthdarshan.org';
 const PROPOSAL_STORAGE_KEY = 'amd-last-proposal-issue';
+const LOGIN_PENDING_KEY = 'amd-login-pending';
 const DASHBOARD_CACHE_MS = 30000;
 
 let currentUser = null;
@@ -376,7 +417,19 @@ function apiFetch(path, options = {}) {
 }
 
 function startGitHubLogin() {
+  try { sessionStorage.setItem(LOGIN_PENDING_KEY, '1'); } catch (e) { /* ignore */ }
   window.location.href = API_BASE + '/api/auth/github?return_to=' + encodeURIComponent(window.location.href);
+}
+
+let authErrorShown = false;
+
+function showCookiesBlockedHint() {
+  const userEl = document.getElementById('auth-user');
+  userEl.innerHTML =
+    '<span style="color:#d93025;">Sign-in did not complete.</span> ' +
+    'Your browser may be blocking the session cookie. Allow cookies for ' +
+    '<strong>analyticmadhyasthdarshan.org</strong> (disable strict tracking protection for this site), then ' +
+    '<button type="button" class="auth-btn" style="padding:4px 10px;" onclick="startGitHubLogin()">try again</button>.';
 }
 
 function stageClass(stage) {
@@ -424,15 +477,26 @@ async function refreshAuthState() {
     currentUser = data.loggedIn ? data : null;
     const userEl = document.getElementById('auth-user');
     if (currentUser) {
+      try { sessionStorage.removeItem(LOGIN_PENDING_KEY); } catch (e) { /* ignore */ }
       userEl.innerHTML = 'Signed in as <strong>@' + escapeHtml(currentUser.login) + '</strong>';
-      if (!document.getElementById('s-author').value) {
-        document.getElementById('s-author').value = currentUser.login;
-      }
+      applyAuthorDefault();
     } else {
-      userEl.textContent = 'Sign in with GitHub to manage your submissions.';
       dashboardCache = null;
+      let loginPending = false;
+      try { loginPending = sessionStorage.getItem(LOGIN_PENDING_KEY) === '1'; } catch (e) { /* ignore */ }
+      if (loginPending && !authErrorShown) {
+        showCookiesBlockedHint();
+      } else if (!authErrorShown) {
+        userEl.textContent = 'Sign in with GitHub to manage your submissions.';
+      }
+      try { sessionStorage.removeItem(LOGIN_PENDING_KEY); } catch (e) { /* ignore */ }
     }
     updateAuthUi(Boolean(currentUser));
+    if (currentUser) {
+      loadNotifyPrefs();
+    } else {
+      document.getElementById('notify-bar').hidden = true;
+    }
     if (currentUser && document.getElementById('dashboard-tab').classList.contains('active')) {
       loadDashboard();
     }
@@ -448,9 +512,72 @@ async function logout() {
   await apiFetch('/api/auth/logout', { method: 'POST' });
   currentUser = null;
   dashboardCache = null;
+  document.getElementById('notify-bar').hidden = true;
   await refreshAuthState();
   showAlert('dashboard', 'info', 'Signed out.');
 }
+
+let notifyPrefs = { configured: false, email: null, enabled: false };
+
+function renderNotifyBar() {
+  const bar = document.getElementById('notify-bar');
+  if (!currentUser || !notifyPrefs.configured) { bar.hidden = true; return; }
+  bar.hidden = false;
+  document.getElementById('notify-enabled').checked = Boolean(notifyPrefs.enabled);
+  const summary = document.getElementById('notify-summary');
+  summary.innerHTML = notifyPrefs.email
+    ? 'Email notifications &mdash; <strong>' + escapeHtml(notifyPrefs.email) + '</strong>'
+    : 'Email notifications &mdash; no address set';
+  document.getElementById('notify-email-btn').textContent = notifyPrefs.email ? 'Change email' : 'Set email';
+}
+
+async function loadNotifyPrefs() {
+  if (!currentUser) return;
+  try {
+    const res = await apiFetch('/api/me/notifications');
+    const data = await res.json();
+    if (res.ok && data.success) {
+      notifyPrefs = { configured: Boolean(data.configured), email: data.email || null, enabled: Boolean(data.enabled) };
+    }
+  } catch (e) {
+    notifyPrefs = { configured: false, email: null, enabled: false };
+  }
+  renderNotifyBar();
+}
+
+async function saveNotifyPrefs(update) {
+  try {
+    const res = await apiFetch('/api/me/notifications', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(update),
+    });
+    const data = await res.json();
+    if (!res.ok || !data.success) throw new Error(data.error || 'Could not save notification settings.');
+    notifyPrefs.email = data.email || null;
+    notifyPrefs.enabled = Boolean(data.enabled);
+    renderNotifyBar();
+  } catch (err) {
+    renderNotifyBar();
+    showAlert('dashboard', 'error', escapeHtml(err.message));
+  }
+}
+
+document.getElementById('notify-enabled').addEventListener('change', (e) => {
+  if (e.target.checked && !notifyPrefs.email) {
+    const email = window.prompt('Email address for submission notifications:');
+    if (!email) { e.target.checked = false; return; }
+    saveNotifyPrefs({ email: email.trim(), enabled: true });
+  } else {
+    saveNotifyPrefs({ enabled: e.target.checked });
+  }
+});
+
+document.getElementById('notify-email-btn').addEventListener('click', () => {
+  const email = window.prompt('Email address for submission notifications:', notifyPrefs.email || '');
+  if (email === null) return;
+  saveNotifyPrefs({ email: email.trim(), enabled: email.trim() ? true : false });
+});
 
 function renderActionButtons(item) {
   const parts = [];
@@ -597,7 +724,40 @@ function configureSubmitView(mode) {
     ? 'Paste revised markdown for an existing study. A study-update pull request will open.'
     : 'Paste your study markdown for a new approved proposal. A pull request will open for review.';
   document.getElementById('s-submit-btn').textContent = isUpdate ? 'Submit update' : 'Submit draft';
+  document.getElementById('s-load-source').hidden = !isUpdate;
+  if (!isUpdate) {
+    const statusEl = document.getElementById('s-load-source-status');
+    statusEl.style.display = 'none';
+    statusEl.textContent = '';
+  }
   toggleProposalField();
+}
+
+async function loadStudySource(opts = {}) {
+  const slug = document.getElementById('s-slug').value.trim();
+  const statusEl = document.getElementById('s-load-source-status');
+  const showStatus = (msg) => { statusEl.style.display = 'block'; statusEl.textContent = msg; };
+  if (!/^[A-Za-z0-9-]+$/.test(slug)) {
+    if (!opts.silent) showStatus('Enter a valid study slug first.');
+    return;
+  }
+  const ta = document.getElementById('s-content');
+  if (ta.value.trim() && !opts.silent &&
+      !window.confirm('Replace the editor content with the current published markdown for "' + slug + '"?')) {
+    return;
+  }
+  showStatus('Loading current content…');
+  try {
+    const res = await apiFetch('/api/study-source?slug=' + encodeURIComponent(slug));
+    const data = await res.json();
+    if (!res.ok || !data.success) throw new Error(data.error || 'Could not load the current study content.');
+    ta.value = data.content;
+    setEditorMode('write');
+    scheduleDraftSave();
+    showStatus('Loaded current content for "' + slug + '". Edit and submit your revision.');
+  } catch (err) {
+    if (!opts.silent) showStatus(err.message);
+  }
 }
 
 function configureStatusView(params) {
@@ -651,6 +811,43 @@ function updateSlugPreview() {
 }
 
 let proposalOptionsLoaded = false;
+let proposeConfirmed = false;
+
+function showProposeReview() {
+  const review = document.getElementById('propose-review');
+  const v = (id) => document.getElementById(id).value.trim();
+  const formal = document.getElementById('p-formal').checked;
+  const rows = [
+    ['Title', v('p-title')],
+    ['Category', v('p-category')],
+    ['Description', v('p-desc')],
+    ['Summary', v('p-summary')],
+    ['Familiarity', document.getElementById('p-fam').value],
+    ['Catalog', formal ? 'Formal Studies' : 'Topical Studies'],
+  ];
+  const dl = rows.map(([k, val]) => '<dt>' + escapeHtml(k) + '</dt><dd>' + escapeHtml(val || '—') + '</dd>').join('');
+  review.innerHTML = '<h3>Review your proposal</h3><dl>' + dl + '</dl>' +
+    '<button type="button" class="auth-btn review-edit" id="propose-edit-btn">Edit</button>';
+  review.hidden = false;
+  document.getElementById('propose-edit-btn').addEventListener('click', resetProposeConfirm);
+  review.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function resetProposeConfirm() {
+  proposeConfirmed = false;
+  const review = document.getElementById('propose-review');
+  review.hidden = true;
+  review.innerHTML = '';
+  document.getElementById('p-submit-btn').textContent = 'Review proposal';
+}
+
+['p-title', 'p-category', 'p-desc', 'p-summary', 'p-fam', 'p-formal'].forEach((id) => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const reset = () => { if (proposeConfirmed) resetProposeConfirm(); };
+  el.addEventListener('input', reset);
+  el.addEventListener('change', reset);
+});
 
 function toggleProposalField() {
   const isNew = document.getElementById('s-new').checked;
@@ -794,6 +991,8 @@ function applyQueryParams() {
   const tab = params.get('tab') || 'dashboard';
   const authError = params.get('auth_error');
   if (authError) {
+    authErrorShown = true;
+    try { sessionStorage.removeItem(LOGIN_PENDING_KEY); } catch (e) { /* ignore */ }
     document.getElementById('auth-user').innerHTML = '<span style="color:#d93025;">Sign-in failed: ' + escapeHtml(decodeURIComponent(authError)) + '</span>';
     const url = new URL(window.location.href);
     url.searchParams.delete('auth_error');
@@ -803,10 +1002,14 @@ function applyQueryParams() {
   if (tab === 'propose') switchTab('propose', false);
   else if (tab === 'submit') {
     switchTab('submit', false);
-    configureSubmitView(params.get('mode') === 'update' ? 'update' : 'new');
+    const isUpdate = params.get('mode') === 'update';
+    configureSubmitView(isUpdate ? 'update' : 'new');
     if (params.get('slug')) document.getElementById('s-slug').value = params.get('slug');
     if (params.get('proposal')) {
       setProposalValue(params.get('proposal'));
+    }
+    if (isUpdate && params.get('slug') && !document.getElementById('s-content').value.trim()) {
+      loadStudySource({ silent: true });
     }
   } else if (tab === 'status') {
     switchTab('status', false);
@@ -828,6 +1031,7 @@ document.getElementById('p-title').addEventListener('input', updateSlugPreview);
 document.getElementById('s-new').addEventListener('change', () => { toggleProposalField(); configureSubmitView(document.getElementById('s-new').checked ? 'new' : 'update'); });
 document.getElementById('s-proposal').addEventListener('input', scheduleProposalStatusCheck);
 document.getElementById('s-proposal').addEventListener('change', scheduleProposalStatusCheck);
+document.getElementById('s-load-source').addEventListener('click', () => loadStudySource());
 
 const proposalSelect = document.getElementById('s-proposal-select');
 if (proposalSelect) proposalSelect.addEventListener('change', () => {
@@ -910,6 +1114,21 @@ function renderMarkdownPreview(md) {
   return out.join('\n');
 }
 
+function draftContentWarnings(content) {
+  const text = String(content || '');
+  const warnings = [];
+  if (!/^##\s+Standpoint and scope/im.test(text)) {
+    warnings.push('No "## Standpoint and scope" section found (required for topical studies).');
+  }
+  if (!/^##\s+References/im.test(text)) {
+    warnings.push('No "## References" section found.');
+  }
+  if (text.replace(/\s+/g, ' ').trim().length < 800) {
+    warnings.push('The draft looks quite short — make sure this is the complete study.');
+  }
+  return warnings;
+}
+
 function setEditorMode(mode) {
   const writeTab = document.getElementById('s-tab-write');
   const previewTab = document.getElementById('s-tab-preview');
@@ -924,6 +1143,75 @@ function setEditorMode(mode) {
 }
 document.getElementById('s-tab-write').addEventListener('click', () => setEditorMode('write'));
 document.getElementById('s-tab-preview').addEventListener('click', () => setEditorMode('preview'));
+
+const STUDY_TEMPLATE = `# Study Title
+
+**Author:** Your Name
+
+One or two opening paragraphs that name the question this study addresses, the Madhyasth Darshan texts it draws on, and the traditions it compares (physics and natural sciences, Advaita Vedanta, modern Western philosophy).
+
+## Standpoint and scope
+
+State the author standpoint and the matter-first starting point that is acknowledged. Describe the method: read the primary MD texts, state the darshan, and compare in parallel with physics and the natural sciences, Advaita Vedanta, and modern Western philosophy. Make clear that physics and mathematics are one leg of comparison, not the only one. Close on the aim of rigorous comparative understanding rather than persuasion. (Four short paragraphs.)
+
+## 1. First major section
+
+Continuous scholarly exposition. Open a tradition's view with prose that states the position (Madhyasth Darshan holds&hellip;, Advaita Vedanta holds&hellip;, Mainstream science answers&hellip;).
+
+### 1.1 An argument step
+
+Develop the step in prose. Cross-reference other parts with the section sign, e.g. &sect;2.3.
+
+## 2. Comparison
+
+A dedicated comparison section (a table is fine here).
+
+## Open problems
+
+Unsettled points, stated directly.
+
+## References
+
+### Madhyasth Darshan
+
+**MVD** &mdash; A. Nagaraj, [Title](../References/Madhyasth-Darshan/Title.pdf). Cited: chapters/sections used.
+
+### Other traditions
+
+**TAG** &mdash; Author, [Title](https://example.org/source). Cited: pages used.
+`;
+
+document.getElementById('s-insert-template').addEventListener('click', () => {
+  const ta = document.getElementById('s-content');
+  if (ta.value.trim() && !window.confirm('Replace the current content with the house-style template?')) return;
+  ta.value = STUDY_TEMPLATE;
+  setEditorMode('write');
+  ta.focus();
+  scheduleDraftSave();
+});
+
+const AUTHOR_NAME_KEY = 'amd-author-name';
+
+function applyAuthorDefault() {
+  const authorEl = document.getElementById('s-author');
+  if (!authorEl) return;
+  let saved = '';
+  try { saved = localStorage.getItem(AUTHOR_NAME_KEY) || ''; } catch (e) { /* ignore */ }
+  if (saved) authorEl.placeholder = saved;
+  else if (currentUser) authorEl.placeholder = currentUser.login;
+  if (!authorEl.value && saved) authorEl.value = saved;
+}
+
+(function bindAuthorPersist() {
+  const authorEl = document.getElementById('s-author');
+  if (!authorEl) return;
+  authorEl.addEventListener('input', () => {
+    try {
+      const v = authorEl.value.trim();
+      if (v) localStorage.setItem(AUTHOR_NAME_KEY, v);
+    } catch (e) { /* ignore */ }
+  });
+})();
 
 const DRAFT_KEY = 'amd-submit-draft';
 let draftTimer = null;
@@ -960,6 +1248,45 @@ function clearDraft() { try { localStorage.removeItem(DRAFT_KEY); } catch (e) { 
   if (el) el.addEventListener('input', scheduleDraftSave);
 });
 
+const PROPOSE_DRAFT_KEY = 'amd-propose-draft';
+let proposeDraftTimer = null;
+function saveProposeDraft() {
+  try {
+    const d = {
+      title: document.getElementById('p-title').value,
+      category: document.getElementById('p-category').value,
+      desc: document.getElementById('p-desc').value,
+      summary: document.getElementById('p-summary').value,
+      fam: document.getElementById('p-fam').value,
+      formal: document.getElementById('p-formal').checked,
+    };
+    if (!d.title && !d.desc && !d.summary) { localStorage.removeItem(PROPOSE_DRAFT_KEY); return; }
+    localStorage.setItem(PROPOSE_DRAFT_KEY, JSON.stringify(d));
+  } catch (e) { /* ignore */ }
+}
+function scheduleProposeDraftSave() { clearTimeout(proposeDraftTimer); proposeDraftTimer = setTimeout(saveProposeDraft, 400); }
+function restoreProposeDraft() {
+  let d = null;
+  try { d = JSON.parse(localStorage.getItem(PROPOSE_DRAFT_KEY) || 'null'); } catch (e) { d = null; }
+  if (!d) return;
+  const setIfEmpty = (id, value) => { const el = document.getElementById(id); if (el && !el.value && value) el.value = value; };
+  setIfEmpty('p-title', d.title);
+  setIfEmpty('p-category', d.category);
+  setIfEmpty('p-desc', d.desc);
+  setIfEmpty('p-summary', d.summary);
+  if (d.fam) document.getElementById('p-fam').value = d.fam;
+  if (d.formal) document.getElementById('p-formal').checked = true;
+}
+function clearProposeDraft() { try { localStorage.removeItem(PROPOSE_DRAFT_KEY); } catch (e) { /* ignore */ } }
+['p-title', 'p-desc', 'p-summary'].forEach((id) => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener('input', scheduleProposeDraftSave);
+});
+['p-category', 'p-fam', 'p-formal'].forEach((id) => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener('change', scheduleProposeDraftSave);
+});
+
 let ciPollTimer = null;
 function hasPendingCi(submissions) {
   return (submissions || []).some((item) => item.checks && item.checks.state === 'pending');
@@ -978,6 +1305,8 @@ function scheduleCiPoll(submissions) {
 toggleProposalField();
 applyQueryParams();
 restoreDraft();
+restoreProposeDraft();
+applyAuthorDefault();
 updateSlugPreview();
 refreshAuthState();
 
@@ -986,6 +1315,12 @@ document.getElementById('propose-form').addEventListener('submit', async (e) => 
   if (!currentUser) { showAlert('propose', 'error', 'Sign in with GitHub first.'); return; }
   const form = e.target;
   const btn = document.getElementById('p-submit-btn');
+  if (!proposeConfirmed) {
+    proposeConfirmed = true;
+    showProposeReview();
+    btn.textContent = 'Confirm and submit';
+    return;
+  }
   const turnstileToken = getTurnstileToken(form);
   if (!turnstileToken) { showAlert('propose', 'error', 'Complete the Turnstile check.'); return; }
   btn.disabled = true;
@@ -1008,6 +1343,8 @@ document.getElementById('propose-form').addEventListener('submit', async (e) => 
     if (!res.ok) throw new Error(data.error || 'Unknown error');
     if (data.issueNumber) sessionStorage.setItem(PROPOSAL_STORAGE_KEY, String(data.issueNumber));
     dashboardCache = null;
+    clearProposeDraft();
+    resetProposeConfirm();
     await goToDashboard(true);
     showAlert('dashboard', 'success', 'Proposal submitted.' + (data.url ? ' <a href="' + data.url + '" target="_blank">View on GitHub</a>' : ''));
     form.reset();
@@ -1018,7 +1355,7 @@ document.getElementById('propose-form').addEventListener('submit', async (e) => 
     resetTurnstile(form);
   } finally {
     btn.disabled = false;
-    btn.textContent = 'Submit Proposal';
+    btn.textContent = proposeConfirmed ? 'Confirm and submit' : 'Review proposal';
   }
 });
 
@@ -1032,6 +1369,13 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
   const submitIsNew = document.getElementById('s-new').checked;
   if (submitIsNew && !Number(document.getElementById('s-proposal').value)) {
     showAlert('submit', 'error', 'Select an approved proposal or enter its issue number.');
+    return;
+  }
+  const warnings = draftContentWarnings(document.getElementById('s-content').value);
+  if (warnings.length && !window.confirm(
+    'Before you submit, a quick check flagged:\n\n- ' + warnings.join('\n- ') +
+    '\n\nThese are recommendations, not hard requirements. Submit anyway?'
+  )) {
     return;
   }
   btn.disabled = true;

@@ -1,0 +1,85 @@
+name: Portal notifications
+
+# Optional email notifications for submission-portal contributors. Sends a
+# request to the submissions worker (/api/notify), which emails the contributor
+# via Resend when they have opted in. No-ops unless PORTAL_NOTIFY_SECRET is set
+# and the worker has RESEND_API_KEY configured.
+
+on:
+  issues:
+    types:
+      - labeled
+  pull_request_target:
+    types:
+      - closed
+
+permissions:
+  contents: read
+  issues: read
+  pull-requests: read
+
+jobs:
+  notify:
+    if: >-
+      github.event.label.name == 'proposal-approved' ||
+      github.event.label.name == 'proposal-declined' ||
+      (github.event.pull_request != null && github.event.pull_request.merged == true)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send notification to portal worker
+        uses: actions/github-script@v7
+        env:
+          NOTIFY_SECRET: ${{ secrets.PORTAL_NOTIFY_SECRET }}
+          API_BASE: ${{ vars.PORTAL_API_BASE }}
+        with:
+          script: |
+            const secret = process.env.NOTIFY_SECRET;
+            if (!secret) {
+              core.info('PORTAL_NOTIFY_SECRET is not set; skipping notification.');
+              return;
+            }
+            const apiBase = (process.env.API_BASE || 'https://api.analyticmadhyasthdarshan.org').replace(/\/$/, '');
+            const repo = context.repo.owner + '/' + context.repo.repo;
+            const portalBase = 'https://analyticmadhyasthdarshan.org/Studies/submit.html';
+
+            let payload = null;
+            if (context.eventName === 'issues') {
+              const issue = context.payload.issue;
+              const label = context.payload.label.name;
+              const login = issue.user && issue.user.login;
+              if (!login) { core.info('No issue author; skipping.'); return; }
+              if (label === 'proposal-approved') {
+                payload = {
+                  login,
+                  event: 'approved',
+                  title: issue.title,
+                  url: portalBase + '?tab=submit&proposal=' + issue.number,
+                };
+              } else if (label === 'proposal-declined') {
+                payload = { login, event: 'declined', title: issue.title, url: issue.html_url };
+              }
+            } else {
+              const pr = context.payload.pull_request;
+              const labels = (pr.labels || []).map((l) => l.name);
+              const isPortalPr = ['new-study', 'study-update', 'status-change'].some((n) => labels.includes(n))
+                || /Portal-GitHub:\s*@/.test(pr.body || '');
+              if (!isPortalPr) { core.info('Not a portal pull request; skipping.'); return; }
+              const match = (pr.body || '').match(/Portal-GitHub:\s*@([A-Za-z0-9-]+)/);
+              const login = match ? match[1] : null;
+              if (!login) { core.info('No Portal-GitHub login in PR body; skipping.'); return; }
+              payload = { login, event: 'merged', title: pr.title, url: pr.html_url };
+            }
+
+            if (!payload) { core.info('No matching event payload; skipping.'); return; }
+
+            const res = await fetch(apiBase + '/api/notify', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', 'X-Notify-Secret': secret },
+              body: JSON.stringify(payload),
+            });
+            const text = await res.text();
+            if (!res.ok) {
+              core.warning('Notify request failed (' + res.status + '): ' + text);
+            } else {
+              core.info('Notify response: ' + text);
+            }

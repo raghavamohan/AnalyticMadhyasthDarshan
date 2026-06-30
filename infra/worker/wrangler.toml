@@ -2,13 +2,23 @@ name = "amd-submissions"
 main = "src/index.js"
 compatibility_date = "2024-03-01"
 
+# Serve the worker from a same-site subdomain of the published site so the
+# session cookie is first-party (not blocked by Safari ITP / Firefox TCP).
+# Requires analyticmadhyasthdarshan.org to be an active zone on this Cloudflare
+# account; Cloudflare provisions the certificate for the custom domain on deploy.
+routes = [
+  { pattern = "api.analyticmadhyasthdarshan.org", custom_domain = true },
+]
+
 [vars]
 TURNSTILE_SITE_KEY = "0x4AAAAAADoBfrNV5lPeJQWO"
 # Public OAuth client id from your GitHub OAuth App (homepage: https://analyticmadhyasthdarshan.org)
 # GITHUB_CLIENT_ID = "Ov23li..."
-# Cookie SameSite: defaults to None (cross-origin workers.dev). Set to "Lax"
-# once this worker is routed same-origin with the site.
-# COOKIE_SAMESITE = "Lax"
+# Cookie SameSite. With the api.analyticmadhyasthdarshan.org custom domain above
+# the worker is same-site with the portal, so Lax cookies are first-party and
+# survive third-party-cookie blocking. Use "None" only for cross-site
+# (*.workers.dev) deployments.
+COOKIE_SAMESITE = "Lax"
 
 # Server-side session store. The signed cookie holds only an opaque session id;
 # the GitHub access token is kept in KV. Create the namespace once with:
@@ -32,3 +42,9 @@ id = "4a9b039c2247477cbce962632e0d6335"
 #
 # Optional comma-separated extra CORS origins for local preview:
 # npx wrangler secret put ALLOWED_ORIGINS
+#
+# Optional email notifications (approval/decline/merge) via Resend. All three
+# are required to enable notifications; omit to keep the feature off.
+# npx wrangler secret put RESEND_API_KEY
+# npx wrangler secret put NOTIFY_SECRET   # shared with the portal-notify.yml workflow (PORTAL_NOTIFY_SECRET)
+# EMAIL_FROM defaults to submissions@analyticmadhyasthdarshan.org; override as a var if needed.
