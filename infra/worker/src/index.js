@@ -669,19 +669,24 @@ function kindLabel(kind, prType) {
   return 'Pull request';
 }
 
+async function listProposalIssues(login, env, userToken, stats) {
+  // The REST issues list is immediately consistent (unlike the Search API,
+  // which lags by seconds), so a just-submitted proposal shows up right away.
+  const perPage = 50;
+  const path = `/issues?creator=${encodeURIComponent(login)}&labels=study-proposal&state=all&per_page=${perPage}&sort=created&direction=desc`;
+  const items = await githubRequest(path, 'GET', null, env, userToken, stats);
+  const list = Array.isArray(items) ? items : [];
+  return { items: list, truncated: list.length >= perPage };
+}
+
 async function buildDashboard(session, env) {
   const started = Date.now();
   const stats = { githubRequests: 0 };
   const login = session.login;
   const userToken = session.accessToken;
 
-  const [proposalSearch, prSearch, catalogMap, proposalRegistry] = await Promise.all([
-    githubSearch(
-      `repo:${REPO} is:issue author:${login} label:study-proposal`,
-      env,
-      userToken,
-      stats
-    ),
+  const [proposalList, prSearch, catalogMap, proposalRegistry] = await Promise.all([
+    listProposalIssues(login, env, userToken, stats),
     githubSearch(
       `repo:${REPO} is:pr label:new-study,study-update,status-change`,
       env,
@@ -693,7 +698,7 @@ async function buildDashboard(session, env) {
   ]);
 
   const preCatalogSlugs = preCatalogSlugSet(proposalRegistry);
-  const proposals = proposalSearch.items.filter(isStudyProposalIssue);
+  const proposals = proposalList.items.filter(isStudyProposalIssue);
   const prItems = prSearch.items.filter((item) => isPortalPullRequest(item, login));
   const openStatusChanges = buildOpenStatusChangeIndex(prItems);
   const openStudyPrs = buildOpenStudyPrIndex(prItems);
@@ -835,7 +840,7 @@ async function buildDashboard(session, env) {
     };
   });
 
-  const truncated = proposalSearch.totalCount > 20 || prSearch.totalCount > 20;
+  const truncated = proposalList.truncated || prSearch.totalCount > 20;
 
   return {
     login,
