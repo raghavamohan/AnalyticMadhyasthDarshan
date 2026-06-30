@@ -1042,20 +1042,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   };
 
   const loadCatalogs = async () => {
-    const bootstrap = document.getElementById("catalog-bootstrap");
-    if (bootstrap && bootstrap.textContent.trim()) {
-      try {
-        const data = JSON.parse(bootstrap.textContent);
-        STUDIES = [
-          ...mapEntries(data.topical || [], "topical"),
-          ...mapEntries(data.formal || [], "formal"),
-          ...mapEntries(data.applied || [], "applied"),
-        ];
-        return;
-      } catch {
-        // fall through to fetch
-      }
-    }
     const parts = await Promise.all(
       catalogSources.map(async ({ url, coll }) => {
         try {
@@ -1067,7 +1053,24 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
         }
       })
     );
-    STUDIES = parts.flat();
+    const fetched = parts.flat();
+    if (fetched.length) {
+      STUDIES = fetched;
+      return;
+    }
+    const bootstrap = document.getElementById("catalog-bootstrap");
+    if (bootstrap && bootstrap.textContent.trim()) {
+      try {
+        const data = JSON.parse(bootstrap.textContent);
+        STUDIES = [
+          ...mapEntries(data.topical || [], "topical"),
+          ...mapEntries(data.formal || [], "formal"),
+          ...mapEntries(data.applied || [], "applied"),
+        ];
+      } catch {
+        STUDIES = [];
+      }
+    }
   };
 
   const isAvail = s => s.status === "draft" || s.status === "released";
@@ -1198,22 +1201,28 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
   const PDF_DOWNLOAD_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 3a1 1 0 0 1 1 1v9.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42l2.3 2.3V4a1 1 0 0 1 1-1Zm-7 14a1 1 0 0 1 1 1v1h12v-1a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1Z"/></svg>';
 
+  const hasReadLinks = s => isAvail(s) || Boolean(s.html || s.pdf);
+
   const cardHTML = s => {
     const avail = isAvail(s);
+    const readable = hasReadLinks(s);
     const chips = s.cats.map(c => `<button type="button" class="chip" data-cat="${c.replace(/"/g, "&quot;")}">${c}</button>`).join("");
-    const htmlHref = avail ? studyHtmlHref(s) : null;
-    const pdfHref = avail ? studyPdfHref(s) : null;
+    const htmlHref = readable ? studyHtmlHref(s) : null;
+    const pdfHref = readable ? studyPdfHref(s) : null;
     const discussHref = studyDiscussionHref(s);
-    const titleInner = avail
+    const titleInner = readable
       ? `<a href="${htmlHref}">${s.t}</a>`
       : `<a href="${discussHref}">${s.t}</a>`;
     const cardClass = !avail ? "is-planned" : (s.status === "released" ? "is-released is-available" : "is-draft is-available");
     const badgeClass = !avail ? "planned" : (s.status === "released" ? "released" : "draft");
     const badgeLabel = !avail ? "Planned" : (s.status === "released" ? "Released" : "Draft");
     const draftTitle = s.status === "draft" ? ' title="Draft PDF includes a watermark"' : "";
+    const readActions = readable
+      ? `<a class="pdf-download" href="${pdfHref}" download title="Download PDF" aria-label="Download PDF for ${escAttr(s.t)}">${PDF_DOWNLOAD_ICON}</a>`
+      : "";
     const foot = avail
-      ? `<span class="badge ${badgeClass}"${draftTitle}><span class="badge-dot"></span>${badgeLabel}</span><span class="card-actions">${discussLinkHtml(s)}<a class="pdf-download" href="${pdfHref}" download title="Download PDF" aria-label="Download PDF for ${escAttr(s.t)}">${PDF_DOWNLOAD_ICON}</a></span>`
-      : `<span class="badge planned"><span class="badge-dot"></span>Planned</span><span class="card-actions">${discussLinkHtml(s)}</span>`;
+      ? `<span class="badge ${badgeClass}"${draftTitle}><span class="badge-dot"></span>${badgeLabel}</span><span class="card-actions">${discussLinkHtml(s)}${readActions}</span>`
+      : `<span class="badge planned"><span class="badge-dot"></span>Planned</span><span class="card-actions">${discussLinkHtml(s)}${readActions}</span>`;
     const dateLine = avail && s.updated
       ? `<div class="card-foot" style="border:none;padding:6px 0 0;color:#9a8f80;">Updated ${s.updated}</div>`
       : "";

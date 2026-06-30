@@ -23,6 +23,7 @@ from _study_catalog import (  # noqa: E402
     StudyStatus,
     StudyTable,
     display_title,
+    has_approved_proposal_stub,
     load_catalog_rows,
 )
 
@@ -44,16 +45,17 @@ def discussion_output_path(row: StudyRow) -> Path | None:
 
 
 def _relative_links(row: StudyRow) -> dict[str, str | None]:
+    has_read = row.has_pdf or has_approved_proposal_stub(row.slug)
     if row.table == StudyTable.APPLIED:
         return {
             "catalog": "../../Studies/index.html",
-            "read": f"{row.slug}.html" if row.has_pdf else None,
-            "pdf": f"{row.slug}.pdf" if row.has_pdf else None,
+            "read": f"{row.slug}.html" if has_read else None,
+            "pdf": f"{row.slug}.pdf" if has_read else None,
         }
     return {
         "catalog": "../index.html",
-        "read": f"{row.slug}.html" if row.has_pdf else None,
-        "pdf": f"{row.slug}.pdf" if row.has_pdf else None,
+        "read": f"{row.slug}.html" if has_read else None,
+        "pdf": f"{row.slug}.pdf" if has_read else None,
     }
 
 
@@ -91,6 +93,21 @@ def _discussion_header_note(row: StudyRow, feedback: str) -> str:
     )
 
 
+def _approved_proposal_callout(row: StudyRow, links: dict[str, str | None]) -> str:
+    title = display_title(row)
+    submit_href = html.escape(_submission_portal_href(row))
+    read_href = html.escape(links["read"] or f"{row.slug}.html")
+    pdf_href = html.escape(links["pdf"] or f"{row.slug}.pdf")
+    return f"""
+  <section class="planned-callout" aria-labelledby="planned-callout-heading">
+    <h2 id="planned-callout-heading">Approved proposal</h2>
+    <p>An approved study proposal for <strong>{html.escape(title)}</strong> is available to read. The full analytic paper is not yet in the catalog as Draft; use the proposal to see scope, questions, and planned comparisons.</p>
+    <p><a href="{read_href}">Read the proposal</a> · <a href="{pdf_href}" download>Download proposal PDF</a> · <a href="{submit_href}">My Submissions</a> to submit the full draft when ready.</p>
+    <p>Use the comments below to discuss scope, sources, and comparisons before the full study is written.</p>
+  </section>
+"""
+
+
 def _planned_study_callout(row: StudyRow) -> str:
     title = display_title(row)
     submit_href = html.escape(_submission_portal_href(row))
@@ -116,7 +133,12 @@ def render_discussion_page(row: StudyRow) -> str:
     feedback = feedback_href(title)
     paper_links = _toolbar_paper_links(links)
     header_note = _discussion_header_note(row, feedback)
-    planned_callout = _planned_study_callout(row) if row.status == StudyStatus.ONGOING else ""
+    if row.status == StudyStatus.ONGOING and has_approved_proposal_stub(row.slug):
+        planned_callout = _approved_proposal_callout(row, links)
+    elif row.status == StudyStatus.ONGOING:
+        planned_callout = _planned_study_callout(row)
+    else:
+        planned_callout = ""
     slug_json = json.dumps(row.slug)
     title_json = json.dumps(title)
     site_host = json.dumps(site_base_url().replace("https://", ""))

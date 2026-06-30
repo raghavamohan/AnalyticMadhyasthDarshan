@@ -147,7 +147,9 @@ class StudyRow:
     status: StudyStatus
     edited_at: datetime | None = None
     table: StudyTable = StudyTable.TOPICAL
+    title: str | None = None
     pdf_href: str | None = None
+    html_href: str | None = None
 
     @property
     def has_pdf(self) -> bool:
@@ -400,7 +402,9 @@ def catalog_entry_to_row(entry: dict, table: StudyTable) -> StudyRow:
         status=status,
         edited_at=edited_at,
         table=table,
+        title=str(entry["title"]) if entry.get("title") else None,
         pdf_href=entry.get("pdf"),
+        html_href=entry.get("html"),
     )
 
 
@@ -581,7 +585,27 @@ def slug_to_title(slug: str) -> str:
 
 def display_title(row: StudyRow) -> str:
     """Human-readable title for a row: explicit override, else derived."""
+    if row.title:
+        return row.title
     return SLUG_TITLE_OVERRIDES.get(row.slug) or slug_to_title(row.slug)
+
+
+def proposal_meta_path(slug: str) -> Path:
+    return STUDIES / slug / ".proposal-meta.json"
+
+
+def has_approved_proposal_stub(slug: str) -> bool:
+    study_path = STUDIES / slug / f"{slug}.html"
+    return proposal_meta_path(slug).is_file() and study_path.is_file()
+
+
+def proposal_stub_hrefs(slug: str) -> tuple[str | None, str | None]:
+    if not has_approved_proposal_stub(slug):
+        return None, None
+    html_href = study_html_href(slug)
+    pdf_path = STUDIES / slug / f"{slug}.pdf"
+    pdf_href = study_pdf_href(slug) if pdf_path.is_file() else html_href
+    return html_href, pdf_href
 
 
 def row_pdf_href(row: StudyRow) -> str | None:
@@ -595,6 +619,8 @@ def row_pdf_href(row: StudyRow) -> str | None:
 
 
 def row_html_href(row: StudyRow) -> str | None:
+    if row.html_href:
+        return row.html_href
     if not row.has_pdf:
         return None
     if row.table == StudyTable.APPLIED:
@@ -718,6 +744,8 @@ def sync_pre_catalog_proposals_to_catalog() -> list[StudyRow]:
         existing = by_slug.get(slug)
         if existing and existing.status in (StudyStatus.DRAFT, StudyStatus.RELEASED):
             continue
+        registry_title = str(entry.get("title") or "").strip() or None
+        html_href, pdf_href = proposal_stub_hrefs(slug)
         by_slug[slug] = StudyRow(
             slug=slug,
             category=str(entry.get("category", "")),
@@ -725,6 +753,9 @@ def sync_pre_catalog_proposals_to_catalog() -> list[StudyRow]:
             status=StudyStatus.ONGOING,
             edited_at=None,
             table=StudyTable.TOPICAL,
+            title=registry_title,
+            html_href=html_href,
+            pdf_href=pdf_href,
         )
 
     ordered = order_topical_rows(list(by_slug.values()))
