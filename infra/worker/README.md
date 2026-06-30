@@ -137,11 +137,23 @@ Contributors manage their address and opt-out from the notification bar on **My 
 
 `GET /api/me/submissions` uses a batched fetch pipeline (no per-proposal GitHub searches):
 
-1. Parallel: proposal search, PR search, catalog JSON (three files, cached 60 s via Workers Cache API).
+1. Parallel: the user's proposals via the REST issues list (`creator` + `study-proposal` label — immediately consistent, so a just-submitted proposal shows up at once), PR search, catalog JSON (three files, cached 60 s via Workers Cache API).
 2. In-memory join: link proposals to PRs by `Proposal issue: #N` in PR bodies.
 3. Conditional enrich: check-runs for open PRs only (concurrency pool of 5).
 
-Response includes `meta.timingMs`, `meta.githubRequests`, and optional `meta.truncated` when search results exceed 20 items.
+Response includes `meta.timingMs`, `meta.githubRequests`, and optional `meta.truncated`.
+
+## Cloudflare edge configuration (not in this repo)
+
+These live on the `analyticmadhyasthdarshan.org` Cloudflare zone, not in version control — recorded here so they are not forgotten.
+
+- **Custom domain:** the worker is served at `api.analyticmadhyasthdarshan.org` via the `routes` block in [`wrangler.toml`](wrangler.toml) (same-site with the portal → first-party `SameSite=Lax` cookie).
+- **Bot Fight Mode:** currently **OFF** (Security → Bots). It had to be turned off because it challenged the GitHub Actions runner's call to `/api/notify` (see the Email notifications note above). When upgrading to **Pro+**, re-enable **Super Bot Fight Mode** and add a WAF **Skip** rule for `/api/notify`.
+- **Rate limiting rule** (compensates for Bot Fight Mode being off): a WAF rate-limit rule in the `http_ratelimit` phase:
+  - Match: `http.host eq "api.analyticmadhyasthdarshan.org" and starts_with(http.request.uri.path, "/api/")`
+  - Limit: **20 requests / 10 s per IP** (Free plan only allows a 10 s period), action **block** for 10 s.
+  - Rationale: a normal portal page load is ~4–5 requests and CI polling is 1 req/20 s, so this only trips on abusive bursts and protects the Workers quota and shared GitHub PAT rate limit. Raise `requests_per_period` (e.g. 40–50) if legitimate users behind a shared/office IP get blocked.
+  - Manage in the dashboard (Security → WAF → Rate limiting rules) or via the rulesets API (`PUT /zones/{zone_id}/rulesets/phases/http_ratelimit/entrypoint`).
 
 ## Local development
 
