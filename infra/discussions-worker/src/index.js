@@ -77,6 +77,9 @@ async function verifyTurnstile(token, env, request) {
 }
 
 function sanitizeBody(body) {
+  // Store the raw text (including characters like "<" so "a < b" survives).
+  // Clients always escape and render this through a safe minimal-Markdown
+  // renderer, so no HTML is interpreted from stored comment bodies.
   const text = String(body || '').replace(/\r\n/g, '\n').trim();
   if (!text) {
     throw new Error('Comment cannot be empty.');
@@ -84,7 +87,7 @@ function sanitizeBody(body) {
   if (text.length > MAX_BODY_LENGTH) {
     throw new Error(`Comment must be at most ${MAX_BODY_LENGTH} characters.`);
   }
-  return text.replace(/<[^>]*>/g, '');
+  return text;
 }
 
 function validateSlug(slug) {
@@ -170,11 +173,21 @@ router.post('/api/discussions/:slug/comments', async (request, env) => {
     const title = String(data.title || slug).trim() || slug;
     await ensureThread(db, slug, title);
 
+    // Only accept a parent that is a visible comment in this same thread;
+    // otherwise treat the comment as a new top-level entry.
+    let parentId = null;
+    if (data.parentId) {
+      const parent = await getComment(db, String(data.parentId), slug);
+      if (parent && parent.status === 'visible') {
+        parentId = parent.id;
+      }
+    }
+
     const commentId = crypto.randomUUID();
     await insertComment(db, {
       id: commentId,
       threadSlug: slug,
-      parentId: data.parentId || null,
+      parentId,
       userId: session.userId,
       body,
     });
@@ -184,7 +197,7 @@ router.post('/api/discussions/:slug/comments', async (request, env) => {
       success: true,
       comment: {
         id: commentId,
-        parentId: data.parentId || null,
+        parentId,
         body,
         authorName: session.displayName,
         createdAt,
@@ -315,7 +328,7 @@ router.get('/api/discuss-auth/verify', async (request, env) => {
       displayName: user.displayName,
     });
 
-    return redirectResponse(returnTo, { 'Set-Cookie': setSessionCookie(sessionToken) });
+    return redirectResponse(returnTo, { 'Set-Cookie': setSessionCookie(sessionToken, env) });
   } catch (err) {
     const fallback = sanitizeReturnTo(null, env);
     const message = encodeURIComponent(err.message);
@@ -338,7 +351,7 @@ router.get('/api/discuss-auth/me', async (request, env) => {
 
 router.post('/api/discuss-auth/logout', async (request, env) => {
   return jsonResponse(request, env, { success: true }, 200, {
-    'Set-Cookie': clearSessionCookie(),
+    'Set-Cookie': clearSessionCookie(env),
   });
 });
 

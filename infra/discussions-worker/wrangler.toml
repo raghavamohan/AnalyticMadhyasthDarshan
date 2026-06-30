@@ -5,6 +5,9 @@ compatibility_date = "2024-03-01"
 [vars]
 TURNSTILE_SITE_KEY = "0x4AAAAAADoBfrNV5lPeJQWO"
 SITE_ORIGIN = "https://analyticmadhyasthdarshan.org"
+# Cookie SameSite: defaults to None (cross-origin workers.dev). Set to "Lax"
+# once this worker is routed under the same origin as the site.
+# COOKIE_SAMESITE = "Lax"
 # After first deploy: wrangler d1 create amd-discussions — paste database_id below.
 [[d1_databases]]
 binding = "DB"

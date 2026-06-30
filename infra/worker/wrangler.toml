@@ -6,6 +6,17 @@ compatibility_date = "2024-03-01"
 TURNSTILE_SITE_KEY = "0x4AAAAAADoBfrNV5lPeJQWO"
 # Public OAuth client id from your GitHub OAuth App (homepage: https://analyticmadhyasthdarshan.org)
 # GITHUB_CLIENT_ID = "Ov23li..."
+# Cookie SameSite: defaults to None (cross-origin workers.dev). Set to "Lax"
+# once this worker is routed same-origin with the site.
+# COOKIE_SAMESITE = "Lax"
+
+# Server-side session store. The signed cookie holds only an opaque session id;
+# the GitHub access token is kept in KV. Create the namespace once with:
+#   npx wrangler kv namespace create SESSIONS
+# then paste the returned id below.
+[[kv_namespaces]]
+binding = "SESSIONS"
+id = "4a9b039c2247477cbce962632e0d6335"
 
 # Secrets (never commit):
 # npx wrangler secret put GITHUB_TOKEN

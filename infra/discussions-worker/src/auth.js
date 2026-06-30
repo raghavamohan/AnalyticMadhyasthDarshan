@@ -104,16 +104,23 @@ function parseCookies(request) {
   return cookies;
 }
 
-export function sessionCookieOptions(maxAgeSec) {
-  return `Path=/; HttpOnly; Secure; SameSite=None; Max-Age=${maxAgeSec}`;
+function sameSiteValue(env) {
+  // Default None preserves cross-origin (workers.dev) deployments. Set
+  // COOKIE_SAMESITE=Lax once the worker is routed same-origin with the site.
+  const value = ((env && env.COOKIE_SAMESITE) || 'None').trim();
+  return value === 'Lax' || value === 'Strict' ? value : 'None';
 }
 
-export function setSessionCookie(token) {
-  return `${SESSION_COOKIE}=${token}; ${sessionCookieOptions(SESSION_MAX_AGE_SEC)}`;
+export function sessionCookieOptions(maxAgeSec, env) {
+  return `Path=/; HttpOnly; Secure; SameSite=${sameSiteValue(env)}; Max-Age=${maxAgeSec}`;
 }
 
-export function clearSessionCookie() {
-  return `${SESSION_COOKIE}=; ${sessionCookieOptions(0)}`;
+export function setSessionCookie(token, env) {
+  return `${SESSION_COOKIE}=${token}; ${sessionCookieOptions(SESSION_MAX_AGE_SEC, env)}`;
+}
+
+export function clearSessionCookie(env) {
+  return `${SESSION_COOKIE}=; ${sessionCookieOptions(0, env)}`;
 }
 
 export async function createSession(env, { userId, email, displayName }) {

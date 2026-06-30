@@ -5,6 +5,7 @@ import {
   clearSessionCookie,
   corsHeaders,
   createSession,
+  destroySession,
   exchangeGitHubCode,
   fetchGitHubUser,
   getSession,
@@ -176,6 +177,14 @@ async function runPool(items, limit, worker) {
 
 function defaultBranch(env) {
   return env.DEFAULT_BRANCH || DEFAULT_BRANCH;
+}
+
+async function deleteBranchQuietly(branchName, env, stats = null) {
+  try {
+    await githubRequest(`/git/refs/heads/${branchName}`, 'DELETE', null, env, null, stats);
+  } catch (e) {
+    // Best-effort cleanup; ignore failures (branch may not exist yet).
+  }
 }
 
 function titleToSlug(title) {
@@ -866,7 +875,7 @@ router.get('/api/auth/github', (request, env) => {
   const stateValue = buildOAuthState(returnTo);
   const headers = {
     Location: githubAuthorizeUrl(env, request, returnTo),
-    'Set-Cookie': setOAuthStateCookie(stateValue),
+    'Set-Cookie': setOAuthStateCookie(stateValue, env),
   };
   return redirectResponse(headers.Location, headers);
 });
@@ -891,14 +900,14 @@ router.get('/api/auth/callback', async (request, env) => {
     });
     const returnTo = sanitizeReturnTo(oauthState.returnTo, env);
     const headers = new Headers({ Location: returnTo });
-    headers.append('Set-Cookie', setSessionCookie(sessionToken));
-    headers.append('Set-Cookie', clearOAuthStateCookie());
+    headers.append('Set-Cookie', setSessionCookie(sessionToken, env));
+    headers.append('Set-Cookie', clearOAuthStateCookie(env));
     return new Response(null, { status: 302, headers });
   } catch (err) {
     const fallback = sanitizeReturnTo(null, env);
     const message = encodeURIComponent(err.message || 'Sign-in failed');
     return redirectResponse(`${fallback}?auth_error=${message}`, {
-      'Set-Cookie': clearOAuthStateCookie(),
+      'Set-Cookie': clearOAuthStateCookie(env),
     });
   }
 });
@@ -915,9 +924,10 @@ router.get('/api/auth/me', async (request, env) => {
   });
 });
 
-router.post('/api/auth/logout', (request, env) => {
+router.post('/api/auth/logout', async (request, env) => {
+  await destroySession(request, env);
   return jsonResponse(request, env, { success: true }, 200, {
-    'Set-Cookie': clearSessionCookie(),
+    'Set-Cookie': clearSessionCookie(env),
   });
 });
 
@@ -1081,42 +1091,47 @@ router.post('/api/submit', async (request, env) => {
       sha: baseSha,
     }, env);
 
-    let fileSha;
     try {
-      const fileData = await githubRequest(`/contents/${filePath}?ref=${branchName}`, 'GET', null, env);
-      fileSha = fileData.sha;
-    } catch (e) {
-      // File doesn't exist, which is fine for new studies
+      let fileSha;
+      try {
+        const fileData = await githubRequest(`/contents/${filePath}?ref=${branchName}`, 'GET', null, env);
+        fileSha = fileData.sha;
+      } catch (e) {
+        // File doesn't exist, which is fine for new studies
+      }
+
+      const contentEncoded = btoa(unescape(encodeURIComponent(content)));
+
+      await githubRequest(`/contents/${filePath}`, 'PUT', {
+        message: `Update ${slug} via Web Portal`,
+        content: contentEncoded,
+        branch: branchName,
+        sha: fileSha,
+      }, env);
+
+      const prTitle = isNew ? `Add study: ${slug}` : `Update study: ${slug}`;
+      let prBody = `Submitted via Web Portal by ${author}.\nPortal-GitHub: @${session.login}\n\nSlug: ${slug}`;
+      if (isNew) {
+        prBody = `Proposal issue: #${proposalIssue}\nSlug: ${slug}\nTags: MVD, SB, JV\nPortal-GitHub: @${session.login}\n\nSubmitted via Web Portal by ${author}.`;
+      }
+
+      const pr = await githubRequest('/pulls', 'POST', {
+        title: prTitle,
+        head: branchName,
+        base,
+        body: prBody,
+      }, env);
+
+      const label = isNew ? 'new-study' : 'study-update';
+      await githubRequest(`/issues/${pr.number}/labels`, 'POST', {
+        labels: [label],
+      }, env);
+
+      return jsonResponse(request, env, { success: true, url: pr.html_url, number: pr.number });
+    } catch (innerErr) {
+      await deleteBranchQuietly(branchName, env);
+      throw innerErr;
     }
-
-    const contentEncoded = btoa(unescape(encodeURIComponent(content)));
-
-    await githubRequest(`/contents/${filePath}`, 'PUT', {
-      message: `Update ${slug} via Web Portal`,
-      content: contentEncoded,
-      branch: branchName,
-      sha: fileSha,
-    }, env);
-
-    const prTitle = isNew ? `Add study: ${slug}` : `Update study: ${slug}`;
-    let prBody = `Submitted via Web Portal by ${author}.\nPortal-GitHub: @${session.login}\n\nSlug: ${slug}`;
-    if (isNew) {
-      prBody = `Proposal issue: #${proposalIssue}\nSlug: ${slug}\nTags: MVD, SB, JV\nPortal-GitHub: @${session.login}\n\nSubmitted via Web Portal by ${author}.`;
-    }
-
-    const pr = await githubRequest('/pulls', 'POST', {
-      title: prTitle,
-      head: branchName,
-      base,
-      body: prBody,
-    }, env);
-
-    const label = isNew ? 'new-study' : 'study-update';
-    await githubRequest(`/issues/${pr.number}/labels`, 'POST', {
-      labels: [label],
-    }, env);
-
-    return jsonResponse(request, env, { success: true, url: pr.html_url, number: pr.number });
   } catch (err) {
     return jsonResponse(request, env, { success: false, error: err.message }, err.status || 500);
   }
@@ -1162,29 +1177,34 @@ router.post('/api/status-change', async (request, env) => {
       sha: baseSha,
     }, env, null, stats);
 
-    const prBody = [
-      `Study slug: ${slug}`,
-      `Target status: ${targetStatus}`,
-      '',
-      '### Reason',
-      '',
-      reason || 'Submitted via Web Submission Portal.',
-      '',
-      `Portal-GitHub: @${session.login}`,
-    ].join('\n');
+    try {
+      const prBody = [
+        `Study slug: ${slug}`,
+        `Target status: ${targetStatus}`,
+        '',
+        '### Reason',
+        '',
+        reason || 'Submitted via Web Submission Portal.',
+        '',
+        `Portal-GitHub: @${session.login}`,
+      ].join('\n');
 
-    const pr = await githubRequest('/pulls', 'POST', {
-      title: `Status change: ${slug} → ${targetStatus}`,
-      head: branchName,
-      base,
-      body: prBody,
-    }, env, null, stats);
+      const pr = await githubRequest('/pulls', 'POST', {
+        title: `Status change: ${slug} → ${targetStatus}`,
+        head: branchName,
+        base,
+        body: prBody,
+      }, env, null, stats);
 
-    await githubRequest(`/issues/${pr.number}/labels`, 'POST', {
-      labels: ['status-change'],
-    }, env, null, stats);
+      await githubRequest(`/issues/${pr.number}/labels`, 'POST', {
+        labels: ['status-change'],
+      }, env, null, stats);
 
-    return jsonResponse(request, env, { success: true, url: pr.html_url, number: pr.number });
+      return jsonResponse(request, env, { success: true, url: pr.html_url, number: pr.number });
+    } catch (innerErr) {
+      await deleteBranchQuietly(branchName, env, stats);
+      throw innerErr;
+    }
   } catch (err) {
     return jsonResponse(request, env, { success: false, error: err.message }, err.status || 500);
   }

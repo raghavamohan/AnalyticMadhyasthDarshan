@@ -40,6 +40,22 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Studies of Madhyasth Darshan</title>
 <meta name="description" content="Studies of Madhyasth Darshan (Co-existentialism) from a scientist's point of view — graduate-level physics and mathematics brought to comparative analysis with Shri A. Nagraj's philosophy, Advaita Vedanta, and modern philosophy of mind."/>
+<meta name="color-scheme" content="light dark"/>
+<link rel="canonical" href="https://analyticmadhyasthdarshan.org/Studies/index.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="AnalyticMadhyasthDarshan.org"/>
+<meta property="og:title" content="Studies of Madhyasth Darshan"/>
+<meta property="og:description" content="Clear, carefully argued studies of Madhyasth Darshan (Co-existentialism) — examined on its own terms and set in dialogue with physics, Advaita Vedanta, and modern philosophy of mind."/>
+<meta property="og:url" content="https://analyticmadhyasthdarshan.org/Studies/index.html"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Studies of Madhyasth Darshan"/>
+<meta name="twitter:description" content="Clear, carefully argued studies of Madhyasth Darshan (Co-existentialism), set in dialogue with physics, Advaita Vedanta, and modern philosophy of mind."/>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"CollectionPage","name":"Studies of Madhyasth Darshan","description":"Clear, carefully argued studies of Madhyasth Darshan (Co-existentialism), examined on its own terms and set in dialogue with the sciences, Advaita Vedanta, and modern philosophy of mind.","url":"https://analyticmadhyasthdarshan.org/Studies/index.html","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/"}
+</script>
+<script>
+(function(){try{var t=localStorage.getItem("amd-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","light");}})();
+</script>
 <style>
   :root {
     --bg: #f7f4ef;
@@ -331,6 +347,25 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     border-radius: 8px; background: #fdfcfa;
   }
   .search input::placeholder { color: #9a8f80; }
+  .search input { padding-right: 30px; }
+  .search-clear {
+    position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+    width: 22px; height: 22px; display: none; align-items: center; justify-content: center;
+    border: none; background: transparent; color: var(--text-muted);
+    font-size: 16px; line-height: 1; cursor: pointer; border-radius: 50%; padding: 0;
+  }
+  .search-clear:hover { color: var(--accent); background: var(--accent-soft); }
+  .search.has-value .search-clear { display: inline-flex; }
+  .theme-toggle {
+    flex: 0 0 auto; margin-left: auto;
+    font-family: var(--sans); font-size: 13px; font-weight: 600;
+    color: var(--text-muted); background: #fdfcfa; border: 1px solid var(--border);
+    border-radius: 999px; padding: 5px 12px; cursor: pointer; white-space: nowrap;
+    display: inline-flex; align-items: center; gap: 6px;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+  .theme-toggle:hover { color: var(--accent); border-color: #a5c4d9; }
+  .theme-toggle .theme-toggle-icon { font-size: 14px; line-height: 1; }
   .seg {
     display: inline-flex; border: 1px solid var(--border); border-radius: 8px;
     overflow: hidden; background: #fdfcfa;
@@ -671,49 +706,51 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px;
   }
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #1a1815;
-      --surface: #26231e;
-      --text: #e6dfd6;
-      --text-muted: #aca194;
-      --accent: #5ba3d3;
-      --accent-soft: #233e52;
-      --accent-hover: #7ebbed;
-      --warm: #d5a477;
-      --warm-soft: #423020;
-      --border: #423b33;
-      --shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-    }
-    h1, h2, h3 { color: #f5f1ec; }
-    .start-here h2 { color: var(--accent); }
-    .page-nav { background: rgba(26, 24, 21, 0.92); }
-    .search input, .seg, .triad-item { background: #1e1b18; }
-    .search input::placeholder { color: #6f655a; }
-    .seg button:hover { background: #2f2a24; }
-    .btn-reset-filters { background: #1e1b18; }
-    .btn-reset-filters:disabled { color: #6f655a; }
-    .card.is-available:hover { box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5); }
-    .pdf-download { background: #233e52; border-color: #3d6278; color: #7ebbed; }
-    .pdf-download:hover { background: #2f4f63; border-color: #5ba3d3; color: #b8daf3; }
-    .discuss-link { background: #1a2e22; border-color: #355940; color: #8fd4a8; }
-    .discuss-link:hover { background: #243b2c; border-color: #4f8f66; color: #c2efd0; }
-    .discuss-link--unread { background: #3a2818; border-color: #8b5e34; color: #f0c78a; }
-    .discuss-link--unread:hover { background: #4a3220; border-color: #b07a3c; color: #ffe3b8; }
-    .discuss-badge { background: #2f6fed; }
-    .discuss-link--unread .discuss-badge { background: #d97706; }
-    .triad-item.t3 { border-top: 3px solid #6f655a; } .triad-item.t3 .k { color: #aca194; }
-    .contribute-path { background: #1e1b18; }
-    .contribute-path h3 { color: #f5f1ec; }
-    .contribute-path--feedback h3 { color: var(--warm); }
-    .contribute-path--study h3 { color: var(--accent); }
-    .field {
-      background-color: #1e1b18;
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23aca194' stroke-width='2'><path d='M6 9l6 6 6-6'/></svg>");
-      background-repeat: no-repeat;
-      background-position: right 10px center;
-      background-size: 12px 12px;
-    }
+  :root[data-theme="dark"] {
+    --bg: #1a1815;
+    --surface: #26231e;
+    --text: #e6dfd6;
+    --text-muted: #aca194;
+    --accent: #5ba3d3;
+    --accent-soft: #233e52;
+    --accent-hover: #7ebbed;
+    --warm: #d5a477;
+    --warm-soft: #423020;
+    --border: #423b33;
+    --shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    color-scheme: dark;
+  }
+  [data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3 { color: #f5f1ec; }
+  [data-theme="dark"] .start-here h2 { color: var(--accent); }
+  [data-theme="dark"] .page-nav { background: rgba(26, 24, 21, 0.92); }
+  [data-theme="dark"] .search input, [data-theme="dark"] .seg, [data-theme="dark"] .triad-item { background: #1e1b18; }
+  [data-theme="dark"] .search input::placeholder { color: #6f655a; }
+  [data-theme="dark"] .seg button:hover { background: #2f2a24; }
+  [data-theme="dark"] .btn-reset-filters { background: #1e1b18; }
+  [data-theme="dark"] .btn-reset-filters:disabled { color: #6f655a; }
+  [data-theme="dark"] .card.is-available:hover { box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5); }
+  [data-theme="dark"] .pdf-download { background: #233e52; border-color: #3d6278; color: #7ebbed; }
+  [data-theme="dark"] .pdf-download:hover { background: #2f4f63; border-color: #5ba3d3; color: #b8daf3; }
+  [data-theme="dark"] .discuss-link { background: #1a2e22; border-color: #355940; color: #8fd4a8; }
+  [data-theme="dark"] .discuss-link:hover { background: #243b2c; border-color: #4f8f66; color: #c2efd0; }
+  [data-theme="dark"] .discuss-link--unread { background: #3a2818; border-color: #8b5e34; color: #f0c78a; }
+  [data-theme="dark"] .discuss-link--unread:hover { background: #4a3220; border-color: #b07a3c; color: #ffe3b8; }
+  [data-theme="dark"] .discuss-badge { background: #2f6fed; }
+  [data-theme="dark"] .discuss-link--unread .discuss-badge { background: #d97706; }
+  [data-theme="dark"] .triad-item.t3 { border-top: 3px solid #6f655a; }
+  [data-theme="dark"] .triad-item.t3 .k { color: #aca194; }
+  [data-theme="dark"] .contribute-path { background: #1e1b18; }
+  [data-theme="dark"] .contribute-path h3 { color: #f5f1ec; }
+  [data-theme="dark"] .contribute-path--feedback h3 { color: var(--warm); }
+  [data-theme="dark"] .contribute-path--study h3 { color: var(--accent); }
+  [data-theme="dark"] .theme-toggle { background: #1e1b18; }
+  [data-theme="dark"] .search-clear { color: #aca194; }
+  [data-theme="dark"] .field {
+    background-color: #1e1b18;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23aca194' stroke-width='2'><path d='M6 9l6 6 6-6'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px 12px;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -802,6 +839,10 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       <li><a href="#about">About us</a></li>
       <li><a href="submit.html">My Submissions</a></li>
     </ul>
+    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch color theme">
+      <span class="theme-toggle-icon" id="theme-toggle-icon" aria-hidden="true">&#9789;</span>
+      <span id="theme-toggle-label">Dark</span>
+    </button>
   </div>
 </nav>
 <div class="page-nav-anchor" aria-hidden="true"></div>
@@ -831,6 +872,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       <span class="sr-only">Search studies</span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
       <input type="text" id="q" placeholder="Search title, topic, or category&hellip;" autocomplete="off"/>
+      <button type="button" class="search-clear" id="search-clear" aria-label="Clear search">&times;</button>
     </label>
     <div class="seg" id="coll-seg" role="group" aria-label="Filter by collection">
       <button type="button" data-coll="all" aria-pressed="true">All</button>
@@ -1046,7 +1088,24 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     }
   };
 
-  const loadCatalogs = async () => {
+  const parseBootstrap = () => {
+    const bootstrap = document.getElementById("catalog-bootstrap");
+    if (!bootstrap) return [];
+    const text = bootstrap.textContent.trim();
+    if (!text || text.charAt(0) === "<") return [];
+    try {
+      const data = JSON.parse(text);
+      return [
+        ...mapEntries(data.topical || [], "topical"),
+        ...mapEntries(data.formal || [], "formal"),
+        ...mapEntries(data.applied || [], "applied"),
+      ];
+    } catch {
+      return [];
+    }
+  };
+
+  const fetchCatalogs = async () => {
     const parts = await Promise.all(
       catalogSources.map(async ({ url, coll }) => {
         try {
@@ -1059,28 +1118,56 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       })
     );
     const fetched = parts.flat();
-    if (fetched.length) {
-      STUDIES = fetched;
-      return;
-    }
-    const bootstrap = document.getElementById("catalog-bootstrap");
-    if (bootstrap && bootstrap.textContent.trim()) {
-      try {
-        const data = JSON.parse(bootstrap.textContent);
-        STUDIES = [
-          ...mapEntries(data.topical || [], "topical"),
-          ...mapEntries(data.formal || [], "formal"),
-          ...mapEntries(data.applied || [], "applied"),
-        ];
-      } catch {
-        STUDIES = [];
-      }
-    }
+    return fetched.length ? fetched : null;
   };
 
   const isAvail = s => s.status === "draft" || s.status === "released";
   const ts = s => s.updated ? Date.parse(s.updated) : -Infinity;
   const state = { q: "", coll: "all", status: "all", cat: "all", sort: "recent" };
+
+  const updateSearchClear = () => {
+    const input = document.getElementById("q");
+    const wrap = input ? input.closest(".search") : null;
+    if (wrap) wrap.classList.toggle("has-value", !!state.q);
+  };
+
+  const syncControlsToState = () => {
+    const input = document.getElementById("q");
+    if (input) input.value = state.q;
+    updateSearchClear();
+    const sortEl = document.getElementById("sort");
+    if (sortEl) sortEl.value = state.sort;
+    const coll = document.getElementById("coll-seg");
+    if (coll) Array.from(coll.querySelectorAll("button")).forEach(b => {
+      b.setAttribute("aria-pressed", b.dataset.coll === state.coll ? "true" : "false");
+    });
+    const status = document.getElementById("status-seg");
+    if (status) Array.from(status.querySelectorAll("button")).forEach(b => {
+      b.setAttribute("aria-pressed", b.dataset.status === state.status ? "true" : "false");
+    });
+  };
+
+  const writeStateToUrl = () => {
+    const params = new URLSearchParams();
+    if (state.q) params.set("q", state.q);
+    if (state.coll !== "all") params.set("coll", state.coll);
+    if (state.status !== "all") params.set("status", state.status);
+    if (state.cat !== "all") params.set("cat", state.cat);
+    if (state.sort !== "recent") params.set("sort", state.sort);
+    const qs = params.toString();
+    const next = window.location.pathname + (qs ? `?${qs}` : "") + window.location.hash;
+    history.replaceState(null, "", next);
+  };
+
+  const readStateFromUrl = () => {
+    const params = new URLSearchParams(window.location.search);
+    state.q = params.get("q") || "";
+    state.coll = params.get("coll") || "all";
+    state.status = params.get("status") || "all";
+    state.cat = params.get("cat") || "all";
+    state.sort = params.get("sort") || "recent";
+    syncControlsToState();
+  };
 
   const updateHeroScope = () => {
     const scope = document.getElementById("hero-scope");
@@ -1262,10 +1349,56 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     });
     const count = document.getElementById("count");
     if (count) count.textContent = `${shown} studies shown`;
+    writeStateToUrl();
   };
 
   const qInput = document.getElementById("q");
-  if (qInput) qInput.addEventListener("input", e => { state.q = e.target.value; renderCatalog(); });
+  let searchTimer = null;
+  if (qInput) qInput.addEventListener("input", e => {
+    state.q = e.target.value;
+    updateSearchClear();
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(renderCatalog, 120);
+  });
+
+  const searchClear = document.getElementById("search-clear");
+  if (searchClear) searchClear.addEventListener("click", () => {
+    state.q = "";
+    if (qInput) { qInput.value = ""; qInput.focus(); }
+    updateSearchClear();
+    renderCatalog();
+  });
+
+  document.addEventListener("keydown", e => {
+    if (e.key !== "/" || e.ctrlKey || e.metaKey || e.altKey) return;
+    const target = e.target;
+    const tag = (target.tagName || "").toLowerCase();
+    if (tag === "input" || tag === "textarea" || target.isContentEditable) return;
+    if (qInput) { e.preventDefault(); qInput.focus(); }
+  });
+
+  const applyThemeUi = theme => {
+    const isDark = theme === "dark";
+    const icon = document.getElementById("theme-toggle-icon");
+    const label = document.getElementById("theme-toggle-label");
+    const btn = document.getElementById("theme-toggle");
+    if (icon) icon.innerHTML = isDark ? "&#9728;" : "&#9789;";
+    if (label) label.textContent = isDark ? "Light" : "Dark";
+    if (btn) btn.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
+  };
+
+  const currentTheme = () => document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+
+  const themeToggle = document.getElementById("theme-toggle");
+  if (themeToggle) {
+    applyThemeUi(currentTheme());
+    themeToggle.addEventListener("click", () => {
+      const next = currentTheme() === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      try { localStorage.setItem("amd-theme", next); } catch {}
+      applyThemeUi(next);
+    });
+  }
 
   const collSeg = document.getElementById("coll-seg");
   if (collSeg) collSeg.addEventListener("click", e => {
@@ -1325,9 +1458,22 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
   const scheduleCatalogBoot = () => {
     const run = () => {
-      loadCatalogs().then(() => {
+      readStateFromUrl();
+      const boot = parseBootstrap();
+      if (boot.length) {
+        STUDIES = boot;
         bootCatalog();
-        loadDiscussStats().then(renderCatalog);
+      }
+      fetchCatalogs().then(fetched => {
+        if (fetched) {
+          STUDIES = fetched;
+          bootCatalog();
+        } else if (!boot.length) {
+          bootCatalog();
+        }
+        loadDiscussStats().then(() => {
+          if (Object.keys(discussStats).length) renderCatalog();
+        });
       });
     };
     if (document.readyState === "loading") {
@@ -1583,8 +1729,12 @@ def main() -> int:
     all_rows = topical_rows + formal_rows + applied_rows
     html = INDEX_TEMPLATE.replace(HERO_SCOPE_PLACEHOLDER, build_hero_scope_html(all_rows))
     html = html.replace(CATALOG_BUILD_ID_PLACEHOLDER, catalog_build_id())
+    bootstrap_json = serialize_catalog_bootstrap_json(topical_rows, formal_rows, applied_rows)
+    # Guard against premature </script> termination inside the inlined JSON island.
+    bootstrap_json = bootstrap_json.replace("</", "<\\/")
+    html = html.replace(CATALOG_BOOTSTRAP_PLACEHOLDER, bootstrap_json)
     index_path.write_text(minify_inline_css(html), encoding="utf-8")
-    print("Wrote Studies/index.html shell (catalog loaded from catalog-*.json at runtime).")
+    print("Wrote Studies/index.html shell with inlined catalog bootstrap (and catalog-*.json for runtime refresh).")
 
     if topical_rows:
         write_studies_catalog(topical_rows, StudyTable.TOPICAL)
