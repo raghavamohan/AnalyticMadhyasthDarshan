@@ -31,7 +31,7 @@ SKIP_TAGS = frozenset(
         "h4",
     }
 )
-SKIP_CLASSES = frozenset({"term-tip", "term-tip-float", "term-tip-panel", "study-toolbar", "skip-link"})
+SKIP_CLASSES = frozenset({"term-tip", "term-tip-float", "term-tip-panel", "study-toolbar", "skip-link", "mermaid"})
 
 
 def load_glossary(path: Path | None = None) -> list[dict[str, object]]:
