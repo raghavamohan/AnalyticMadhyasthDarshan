@@ -83,7 +83,7 @@ python Scripts/_check_references.py
 python Scripts/_verify_studies_index.py
 ```
 
-Site operators: store `CLOUDFLARE_API_TOKEN` in a repo-root `.env` file (gitignored) to run `python Scripts/_cloudflare_performance.py` for redirect setup and checks. Baseline metrics live in `infra/cloudflare-rum-baseline.json`.
+Site operators: copy [`.env.example`](.env.example) to `.env` at the repo root (gitignored). Set `CLOUDFLARE_API_TOKEN` for `python Scripts/_cloudflare_performance.py`; set `R2_*` (or `AWS_*` aliases) for S3-compatible R2 access. Baseline metrics live in `infra/cloudflare-rum-baseline.json`.
 
 ### Study lifecycle
 
