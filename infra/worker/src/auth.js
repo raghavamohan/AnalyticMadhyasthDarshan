@@ -225,7 +225,7 @@ export function githubAuthorizeUrl(env, request, returnTo) {
   const params = new URLSearchParams({
     client_id: env.GITHUB_CLIENT_ID,
     redirect_uri: `${origin}/api/auth/callback`,
-    scope: 'read:user public_repo',
+    scope: 'read:user user:email public_repo',
     state: 'via-cookie',
   });
   return `https://github.com/login/oauth/authorize?${params}`;
@@ -265,6 +265,30 @@ export async function fetchGitHubUser(accessToken) {
     throw new Error('Failed to load GitHub profile');
   }
   return response.json();
+}
+
+export async function fetchGitHubPrimaryEmail(accessToken, profile = null) {
+  try {
+    const response = await fetch('https://api.github.com/user/emails', {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        Accept: 'application/vnd.github.v3+json',
+        'User-Agent': 'Cloudflare-Worker-Submission-Portal',
+      },
+    });
+    if (response.ok) {
+      const emails = await response.json();
+      if (Array.isArray(emails) && emails.length) {
+        const primary = emails.find((e) => e.primary && e.verified)
+          || emails.find((e) => e.verified)
+          || emails[0];
+        if (primary?.email) return primary.email;
+      }
+    }
+  } catch {
+    // Best effort; fall back to the public profile email below.
+  }
+  return profile?.email || null;
 }
 
 export function requireSession(session) {

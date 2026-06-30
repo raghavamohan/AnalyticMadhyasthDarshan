@@ -975,12 +975,13 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       <div class="contribute-path contribute-path--study" id="propose-a-new-study">
         <h3>Propose a new study</h3>
         <p class="path-lead">Want to add a new analytic paper to the collection, or submit a full revision? Use the Web Submission Portal. Read the study format in <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/Studies/README.md">Studies/README.md</a> and <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a> before you start.</p>
+        <p class="path-note">A free <a href="https://github.com/signup" target="_blank" rel="noopener">GitHub account</a> is required to propose or submit &mdash; it is how we track your proposal, pull request, and review history, and how you receive updates. Creating one takes a minute; reading studies never requires an account.</p>
         <ol>
           <li><strong>Sign in</strong> on <a href="submit.html">My Submissions</a> with GitHub (required to propose or submit).</li>
-          <li><strong>Propose</strong> a new study and wait for maintainer approval.</li>
-          <li>When approved, click <strong>Submit draft</strong> with your full markdown.</li>
+          <li><strong>Propose</strong> a new study and wait for maintainer approval. Opt in to email updates so you are notified without watching GitHub.</li>
+          <li>When approved, click <strong>Submit draft</strong> &mdash; start from the built-in house-style template and paste your markdown.</li>
           <li><strong>Track</strong> pull requests and CI checks on the same page.</li>
-          <li>After merge, use <strong>Update study</strong> or change <strong>Draft</strong> &harr; <strong>Released</strong> as needed.</li>
+          <li>After merge, use <strong>Update study</strong> (loads the current content for editing) or change <strong>Draft</strong> &harr; <strong>Released</strong> as needed.</li>
         </ol>
         <p class="path-action"><a class="btn-primary" href="submit.html">Open My Submissions</a></p>
       </div>

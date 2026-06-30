@@ -33,8 +33,8 @@ When prompted, enter `master` (the repository default today).
 1. **GitHub → Settings → Developer settings → OAuth Apps → New OAuth App**
 2. **Application name:** `Analytic Madhyasth Darshan Portal` (or similar)
 3. **Homepage URL:** `https://analyticmadhyasthdarshan.org`
-4. **Authorization callback URL:** `https://amd-submissions.raghavamohan.workers.dev/api/auth/callback`  
-   (use your deployed worker origin if the name changes)
+4. **Authorization callback URL:** `https://api.analyticmadhyasthdarshan.org/api/auth/callback`  
+   (the same-site custom domain configured in `wrangler.toml`; use your deployed worker origin if it differs)
 5. Copy the **Client ID** into `wrangler.toml` as `GITHUB_CLIENT_ID`, or set:
 
    ```powershell
@@ -53,7 +53,7 @@ When prompted, enter `master` (the repository default today).
    npx wrangler secret put SESSION_SECRET
    ```
 
-OAuth scope requested: `read:user public_repo` (proposals are filed as issues on the contributor's account).
+OAuth scope requested: `read:user user:email public_repo` (proposals are filed as issues on the contributor's account; `user:email` lets the portal offer optional email notifications).
 
 For local `wrangler dev`, add a second callback URL on the OAuth app, e.g. `http://localhost:8787/api/auth/callback`, and set:
 
@@ -83,9 +83,11 @@ The worker verifies `turnstileToken` on every write request before calling GitHu
 npx wrangler deploy
 ```
 
-The worker URL is shown after deploy (currently `https://amd-submissions.raghavamohan.workers.dev`). The portal reads this URL from the `API_BASE` constant in [`Studies/submit.html`](../../Studies/submit.html) — update it if the worker name or account changes.
+The worker is served from the same-site custom domain `https://api.analyticmadhyasthdarshan.org` (configured via `routes` in [`wrangler.toml`](wrangler.toml)). Serving the API on a subdomain of the site keeps the session cookie **first-party**, so it is not blocked by Safari ITP or Firefox Total Cookie Protection. The cookie uses `SameSite=Lax` (`COOKIE_SAMESITE` in `wrangler.toml`).
 
-After deploy, confirm the OAuth app callback URL matches `{worker-origin}/api/auth/callback`.
+The portal reads this URL from the `API_BASE` constant in [`Studies/submit.html`](../../Studies/submit.html) — update it if the domain changes. For cross-site (`*.workers.dev`) deployments, set `COOKIE_SAMESITE = "None"` instead, but note third-party-cookie blocking will break sign-in in some browsers.
+
+After deploy, confirm the OAuth app callback URL matches `https://api.analyticmadhyasthdarshan.org/api/auth/callback` (or your worker origin).
 
 ## API
 
@@ -96,12 +98,33 @@ After deploy, confirm the OAuth app callback URL matches `{worker-origin}/api/au
 | `GET /api/auth/me` | cookie | `{ loggedIn, login }` |
 | `POST /api/auth/logout` | cookie | Clear session |
 | `GET /api/me/submissions` | cookie | Unified dashboard: proposals (pending/approved/declined), pre-catalog status, PRs, CI, row actions |
+| `GET /api/me/notifications` | cookie | `{ configured, email, enabled }` notification preferences |
+| `POST /api/me/notifications` | cookie | Update notification `email` / `enabled` |
 | `POST /api/propose` | cookie + Turnstile | Create a `study-proposal` issue **as the signed-in user** |
 | `GET /api/proposal-status?issue=N` | optional | Approval/declined status, locked slug, `preCatalog`, `ownedByYou` when signed in |
+| `GET /api/study-source?slug=Slug` | — | Current published markdown for a study (used by **Update a study**) |
 | `POST /api/submit` | cookie + Turnstile | Branch, commit `Studies/<Slug>/<Slug>.md`, open PR; enforces locked slug and one open PR per slug |
 | `POST /api/status-change` | cookie + Turnstile | Open a `status-change` PR (body: `Study slug:` / `Target status:` for CI) |
+| `POST /api/notify` | `X-Notify-Secret` | Called by the `portal-notify.yml` workflow to email a contributor on approval/decline/merge |
 
 For new studies, `/api/submit` requires `proposalIssue`, verifies `proposal-approved`, and checks the signed-in user owns the proposal issue. PR bodies include `Portal-GitHub: @login` so submissions can be correlated in search.
+
+## Email notifications (optional)
+
+Contributors can opt in to email when a proposal is approved/declined or a study PR is merged, instead of relying on GitHub notifications. The feature is **off** unless configured.
+
+1. OAuth requests the `user:email` scope; on sign-in the worker stores the contributor's verified primary email as their notification address (only if none is set — the portal toggle wins afterwards). Preferences live in the `SESSIONS` KV namespace under `notify:<login>`.
+2. Set the Resend secret and a shared notify secret:
+
+   ```powershell
+   npx wrangler secret put RESEND_API_KEY
+   npx wrangler secret put NOTIFY_SECRET
+   ```
+
+   Optionally override the `From` address with an `EMAIL_FROM` var.
+3. In GitHub, add a repository secret `PORTAL_NOTIFY_SECRET` (same value as `NOTIFY_SECRET`) and optionally a variable `PORTAL_API_BASE` (defaults to `https://api.analyticmadhyasthdarshan.org`). The [`portal-notify.yml`](../../.github/workflows/portal-notify.yml) workflow calls `POST /api/notify` on the `proposal-approved` / `proposal-declined` labels and on merged portal PRs.
+
+Contributors manage their address and opt-out from the notification bar on **My Submissions**. `POST /api/notify` is a no-op when the contributor has not opted in.
 
 ### Dashboard performance
 

@@ -7,6 +7,7 @@ import {
   createSession,
   destroySession,
   exchangeGitHubCode,
+  fetchGitHubPrimaryEmail,
   fetchGitHubUser,
   getSession,
   githubAuthorizeUrl,
@@ -16,6 +17,11 @@ import {
   setOAuthStateCookie,
   setSessionCookie,
 } from './auth.js';
+import {
+  getNotifyPrefs,
+  sendNotificationEmail,
+  setNotifyPrefs,
+} from './email.js';
 
 const router = Router();
 const DEFAULT_BRANCH = 'master';
@@ -898,6 +904,18 @@ router.get('/api/auth/callback', async (request, env) => {
       userId: user.id,
       accessToken,
     });
+    // Best-effort: capture a notification email so optional approval/merge
+    // emails can be sent. Only set the address when none is stored yet, so a
+    // contributor who later changes or disables it is not overwritten on login.
+    try {
+      const existing = await getNotifyPrefs(env, user.login);
+      if (!existing.email) {
+        const email = await fetchGitHubPrimaryEmail(accessToken, user);
+        if (email) await setNotifyPrefs(env, user.login, { email, enabled: true });
+      }
+    } catch {
+      // Notifications are optional; never block sign-in on this.
+    }
     const returnTo = sanitizeReturnTo(oauthState.returnTo, env);
     const headers = new Headers({ Location: returnTo });
     headers.append('Set-Cookie', setSessionCookie(sessionToken, env));
@@ -936,6 +954,72 @@ router.get('/api/me/submissions', async (request, env) => {
     const session = requireSession(await getSession(request, env));
     const dashboard = await buildDashboard(session, env);
     return jsonResponse(request, env, { success: true, ...dashboard });
+  } catch (err) {
+    return jsonResponse(request, env, { success: false, error: err.message }, err.status || 500);
+  }
+});
+
+router.get('/api/me/notifications', async (request, env) => {
+  try {
+    const session = requireSession(await getSession(request, env));
+    const prefs = await getNotifyPrefs(env, session.login);
+    return jsonResponse(request, env, {
+      success: true,
+      configured: Boolean(env.RESEND_API_KEY),
+      email: prefs.email,
+      enabled: prefs.enabled,
+    });
+  } catch (err) {
+    return jsonResponse(request, env, { success: false, error: err.message }, err.status || 500);
+  }
+});
+
+router.post('/api/me/notifications', async (request, env) => {
+  try {
+    const session = requireSession(await getSession(request, env));
+    const data = await request.json();
+    const update = {};
+    if (data.email !== undefined) {
+      const email = String(data.email || '').trim();
+      if (email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+        throw new Error('Enter a valid email address.');
+      }
+      update.email = email;
+    }
+    if (data.enabled !== undefined) update.enabled = Boolean(data.enabled);
+    const prefs = await setNotifyPrefs(env, session.login, update);
+    return jsonResponse(request, env, { success: true, email: prefs.email, enabled: prefs.enabled });
+  } catch (err) {
+    return jsonResponse(request, env, { success: false, error: err.message }, err.status || 500);
+  }
+});
+
+router.post('/api/notify', async (request, env) => {
+  try {
+    if (!env.NOTIFY_SECRET) {
+      return jsonResponse(request, env, { success: false, error: 'Notifications are not configured.' }, 503);
+    }
+    const provided = request.headers.get('X-Notify-Secret') || '';
+    if (provided !== env.NOTIFY_SECRET) {
+      return jsonResponse(request, env, { success: false, error: 'Unauthorized.' }, 401);
+    }
+    const data = await request.json();
+    const login = String(data.login || '').replace(/^@/, '').trim();
+    const event = String(data.event || '').trim();
+    if (!login || !['approved', 'declined', 'merged'].includes(event)) {
+      return jsonResponse(request, env, { success: false, error: 'login and a valid event are required.' }, 400);
+    }
+    const prefs = await getNotifyPrefs(env, login);
+    if (!prefs.enabled || !prefs.email) {
+      return jsonResponse(request, env, { success: true, sent: false, reason: 'no-opt-in' });
+    }
+    await sendNotificationEmail(env, {
+      to: prefs.email,
+      event,
+      title: data.title,
+      url: data.url,
+    });
+    return jsonResponse(request, env, { success: true, sent: true });
   } catch (err) {
     return jsonResponse(request, env, { success: false, error: err.message }, err.status || 500);
   }
@@ -1040,6 +1124,25 @@ router.get('/api/proposal-status', async (request, env) => {
     });
   } catch (err) {
     return jsonResponse(request, env, { success: false, error: err.message }, 500);
+  }
+});
+
+router.get('/api/study-source', async (request, env) => {
+  try {
+    const url = new URL(request.url);
+    const slug = (url.searchParams.get('slug') || '').trim();
+    if (!/^[A-Za-z0-9-]+$/.test(slug)) {
+      return jsonResponse(request, env, { success: false, error: 'Invalid slug.' }, 400);
+    }
+    let content;
+    try {
+      content = await githubRawFile(`Studies/${slug}/${slug}.md`, env);
+    } catch (e) {
+      return jsonResponse(request, env, { success: false, error: `No published markdown found for "${slug}".` }, 404);
+    }
+    return jsonResponse(request, env, { success: true, slug, content });
+  } catch (err) {
+    return jsonResponse(request, env, { success: false, error: err.message }, err.status || 500);
   }
 });
 
