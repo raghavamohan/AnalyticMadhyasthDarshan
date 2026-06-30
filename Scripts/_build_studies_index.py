@@ -831,7 +831,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
 <nav class="page-nav" aria-label="On this page">
   <div class="page-nav-inner">
-    <p class="page-nav-label">On this page</p>
     <ul class="toc" id="toc">
       <li><a href="#studies">Topical Studies</a></li>
       <li><a href="#start-here">Start here</a></li>
