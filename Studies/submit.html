@@ -331,7 +331,10 @@ let dashboardCacheAt = 0;
 const STAGE_LABELS = {
   pending: 'Awaiting review',
   approved: 'Approved',
+  accepted: 'Ready for draft',
+  declined: 'Declined',
   'pr-open': 'PR open',
+  'changes_requested': 'Changes requested',
   merged: 'Merged',
   closed: 'Closed',
   'pr-closed': 'PR closed',
@@ -350,10 +353,11 @@ function startGitHubLogin() {
 }
 
 function stageClass(stage) {
-  if (stage === 'approved') return 'stage-approved';
-  if (stage === 'pr-open') return 'stage-pr-open';
+  if (stage === 'approved' || stage === 'accepted') return 'stage-approved';
+  if (stage === 'pr-open' || stage === 'changes_requested') return 'stage-pr-open';
   if (stage === 'merged') return 'stage-merged';
   if (stage === 'pending') return 'stage-pending';
+  if (stage === 'declined') return 'stage-closed';
   return 'stage-closed';
 }
 
@@ -425,9 +429,11 @@ function renderActionButtons(item) {
     let href = primary.href;
     if (primary.issueOnly && item.issueUrl) href = item.issueUrl;
     if (primary.prOnly && item.pullRequest) href = item.pullRequest.url;
-    if (href) {
+    if (href && !primary.disabled) {
       const cls = primary.variant === 'primary' ? 'action-btn primary' : 'action-btn';
       parts.push('<a class="' + cls + '" href="' + escapeHtml(href) + '">' + escapeHtml(primary.label) + '</a>');
+    } else if (primary.disabled) {
+      parts.push('<span class="action-btn" style="opacity:0.55;cursor:not-allowed;">' + escapeHtml(primary.label) + '</span>');
     }
   }
   (item.secondaryActions || []).forEach((action) => {
@@ -436,6 +442,9 @@ function renderActionButtons(item) {
   });
   if (item.statusChangeBlocked && item.statusChangePr) {
     parts.push('<a class="action-btn" href="' + escapeHtml(item.statusChangePr.url) + '">Status change in progress</a>');
+  }
+  if (item.studyPrBlocked && item.studyPr) {
+    parts.push('<a class="action-btn" href="' + escapeHtml(item.studyPr.url) + '">Draft PR in review</a>');
   }
   return parts.length ? parts.join('') : '—';
 }
@@ -465,6 +474,7 @@ function renderDashboardRows(submissions, truncated) {
     const stageCell = '<span class="stage-badge ' + stageClass(item.stage) + '">' + escapeHtml(STAGE_LABELS[item.stage] || item.stage) + '</span>';
 
     let catalogCell = '—';
+    if (item.catalogStatus === 'pre-catalog') catalogCell = '<span class="catalog-badge stage-pending">Pre-catalog</span>';
     if (item.catalogStatus === 'draft') catalogCell = '<span class="catalog-badge catalog-draft">Draft</span>';
     if (item.catalogStatus === 'released') catalogCell = '<span class="catalog-badge catalog-released">Released</span>';
 
@@ -642,14 +652,21 @@ async function checkProposalStatus() {
     const res = await apiFetch('/api/proposal-status?issue=' + issueNumber);
     const data = await res.json();
     if (!res.ok || !data.success) throw new Error(data.error || 'Could not check proposal status');
+    if (data.declined) {
+      showProposalStatus('error', 'Proposal <strong>#' + issueNumber + '</strong> was declined. Review maintainer comments on the issue.');
+      return;
+    }
     if (data.approved) {
       let msg = 'Proposal <strong>#' + issueNumber + '</strong> is approved.';
+      if (data.preCatalog) msg += ' Pre-catalog stub is ready — you may submit your draft.';
       if (data.slug) {
-        msg += ' Expected slug: <code>' + escapeHtml(data.slug) + '</code>.';
-        if (!document.getElementById('s-slug').value) document.getElementById('s-slug').value = data.slug;
+        msg += ' Locked slug: <code>' + escapeHtml(data.slug) + '</code>.';
+        document.getElementById('s-slug').value = data.slug;
+        document.getElementById('s-slug').readOnly = true;
       }
       showProposalStatus('approved', msg);
     } else {
+      document.getElementById('s-slug').readOnly = false;
       showProposalStatus('pending', 'Proposal <strong>#' + issueNumber + '</strong> is not approved yet.' + (data.url ? ' <a href="' + data.url + '" target="_blank">View issue</a>' : ''));
     }
   } catch (err) {

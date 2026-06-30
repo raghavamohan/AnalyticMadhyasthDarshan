@@ -229,6 +229,25 @@ def sync_study_reference_cache(slug: str) -> None:
     sync_pdf_cache(paths, prune=False)
 
 
+def mark_registry_in_catalog(slug: str) -> None:
+    """After first draft merge, stop treating the slug as pre-catalog in proposal-registry.json."""
+    registry_path = STUDIES / "proposal-registry.json"
+    if not registry_path.is_file():
+        return
+    data = json.loads(registry_path.read_text(encoding="utf-8"))
+    changed = False
+    for row in data.get("proposals", []):
+        if row.get("slug") == slug and row.get("phase") == "pre-catalog":
+            row["phase"] = "catalog-draft"
+            changed = True
+    if changed:
+        registry_path.write_text(
+            json.dumps(data, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        print(f"Updated proposal-registry.json: {slug} is now catalog-draft.")
+
+
 def handle_new_study(body: str, base_ref: str) -> None:
     issue_text = parse_body_field(
         body,
@@ -283,6 +302,7 @@ def handle_new_study(body: str, base_ref: str) -> None:
 
     print("Running:", " ".join(command))
     subprocess.run(command, check=True, cwd=BASE)
+    mark_registry_in_catalog(slug)
     sync_study_reference_cache(slug)
     if references_changed(base_ref):
         run_reference_checks(full_repo=True)
@@ -307,8 +327,10 @@ def handle_study_update(body: str, base_ref: str) -> None:
         raise SystemExit(f"Study not found in catalog: {slug}")
 
     row, _table = located
-    if row.status == StudyStatus.ONGOING:
-        raise SystemExit(f"{slug} is an Ongoing placeholder; register it with a new-study PR first.")
+    if (row.status == StudyStatus.ONGOING:
+        raise SystemExit(
+            f"{slug} is a pre-catalog proposal placeholder. Submit a new-study PR to register the draft."
+        )
 
     sync_catalog_timestamp_from_md(slug)
     located = get_study_row(slug)
