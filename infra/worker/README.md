@@ -126,6 +126,13 @@ Contributors can opt in to email when a proposal is approved/declined or a study
 
 Contributors manage their address and opt-out from the notification bar on **My Submissions**. `POST /api/notify` is a no-op when the contributor has not opted in.
 
+> **Edge security must let the GitHub Actions runner reach `/api/notify`.** The runner calls the worker from a datacenter IP, so Cloudflare **Bot Fight Mode / Managed Challenge** will return a `403 "Just a moment…"` interstitial and the email is never sent (the workflow run still shows `success`, but the step logs `Notify request failed (403)`). Fix it one of two ways on the `api.analyticmadhyasthdarshan.org` zone:
+>
+> - **Pro or higher:** Security → WAF → Custom rules → **Skip** rule for `http.host eq "api.analyticmadhyasthdarshan.org" and starts_with(http.request.uri.path, "/api/notify")`, skipping **Super Bot Fight Mode** (and managed rules). This keeps bot protection everywhere else.
+> - **Free plan:** turn **Bot Fight Mode off** (Security → Bots). The worker still enforces the `X-Notify-Secret` shared secret on `/api/notify`, Turnstile on write endpoints, and signed sessions, so this does not expose the API.
+>
+> Verify by toggling a `proposal-declined`/`proposal-approved` label on a test issue and checking the `portal-notify` run log shows `Notify response: {"success":true,"sent":true}`.
+
 ### Dashboard performance
 
 `GET /api/me/submissions` uses a batched fetch pipeline (no per-proposal GitHub searches):
