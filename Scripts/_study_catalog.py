@@ -106,6 +106,38 @@ CATALOG_TABLES = (
     StudyTable.APPLIED,
 )
 
+PROPOSAL_REGISTRY_PATH = STUDIES / "proposal-registry.json"
+
+# Public index display order for topical studies (ongoing + draft + released).
+TOPICAL_DISPLAY_ORDER = (
+    "The-Ontology-of-Coexistence",
+    "Nature-Of-Time",
+    "Why-Humans-Are-Not-Just-Material",
+    "Philosophy-Of-Mind-And-Jeevan",
+    "Chitta-Brain-And-Memory",
+    "Knowledge-Knower-And-Known",
+    "Methodology-And-Hermeneutics",
+    "Axiology-Value-Theory",
+    "Ethics-And-Morals-In-Human-Beings",
+    "Family-Relationships-And-Values",
+    "Education-And-Sanskar",
+    "Aesthetics",
+    "Human-Behavior-And-Society",
+    "How-To-Form-Self-Sustaining-Organizations",
+    "Governance-Justice-And-Undivided-Society",
+    "Prosperity-Economics-And-Right-Use",
+    "Nature-Ecology-And-Right-Use",
+    "Spiritual-Practice-And-Realization",
+    "Science-Technology-And-Human-Purpose",
+    "How-Undivided-Society-Is-Established",
+    "Death-Continuity-And-Rebirth",
+    "Language-Meaning-And-Definition",
+    "Work-Action-And-Karma",
+    "Free-Will-Choice-And-Agency",
+    "Health-Body-And-Restraint",
+    "God-Divinity-And-The-Sacred",
+)
+
 
 @dataclass
 class StudyRow:
@@ -642,6 +674,62 @@ def get_study_row(slug: str) -> tuple[StudyRow, StudyTable] | None:
             if row.slug == slug:
                 return row, table
     return None
+
+
+def load_pre_catalog_proposals() -> list[dict]:
+    if not PROPOSAL_REGISTRY_PATH.is_file():
+        return []
+    data = json.loads(PROPOSAL_REGISTRY_PATH.read_text(encoding="utf-8"))
+    return [
+        entry
+        for entry in data.get("proposals", [])
+        if entry.get("phase") == "pre-catalog" and not entry.get("formal")
+    ]
+
+
+def order_topical_rows(rows: list[StudyRow]) -> list[StudyRow]:
+    by_slug = {row.slug: row for row in rows}
+    ordered: list[StudyRow] = []
+    seen: set[str] = set()
+    for slug in TOPICAL_DISPLAY_ORDER:
+        row = by_slug.get(slug)
+        if row is not None:
+            ordered.append(row)
+            seen.add(slug)
+    for slug in sorted(by_slug):
+        if slug not in seen:
+            ordered.append(by_slug[slug])
+    return ordered
+
+
+def sync_pre_catalog_proposals_to_catalog() -> list[StudyRow]:
+    """Register approved pre-catalog proposals as Planned (ongoing) on the public index."""
+    pre_catalog = load_pre_catalog_proposals()
+    rows = load_catalog_rows(StudyTable.TOPICAL)
+    by_slug = {row.slug: row for row in rows}
+    pre_catalog_slugs = {entry["slug"] for entry in pre_catalog}
+
+    for slug, row in list(by_slug.items()):
+        if row.status == StudyStatus.ONGOING and slug not in pre_catalog_slugs:
+            del by_slug[slug]
+
+    for entry in pre_catalog:
+        slug = str(entry["slug"])
+        existing = by_slug.get(slug)
+        if existing and existing.status in (StudyStatus.DRAFT, StudyStatus.RELEASED):
+            continue
+        by_slug[slug] = StudyRow(
+            slug=slug,
+            category=str(entry.get("category", "")),
+            description=str(entry.get("description", "")),
+            status=StudyStatus.ONGOING,
+            edited_at=None,
+            table=StudyTable.TOPICAL,
+        )
+
+    ordered = order_topical_rows(list(by_slug.values()))
+    write_studies_catalog(ordered, StudyTable.TOPICAL)
+    return ordered
 
 
 def write_studies_catalog(rows: list[StudyRow], table: StudyTable) -> None:

@@ -1528,6 +1528,10 @@ def verify_index_shell_sync() -> list[str]:
 
 
 def main() -> int:
+    from _study_catalog import sync_pre_catalog_proposals_to_catalog
+
+    sync_pre_catalog_proposals_to_catalog()
+
     index_path = STUDIES / "index.html"
     legacy_text = index_path.read_text(encoding="utf-8") if index_path.exists() else ""
     topical_rows = load_rows_for_build(legacy_text, StudyTable.TOPICAL)
