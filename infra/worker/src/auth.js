@@ -104,28 +104,48 @@ function parseCookies(request) {
   return cookies;
 }
 
-export function sessionCookieOptions(maxAgeSec) {
-  return `Path=/; HttpOnly; Secure; SameSite=None; Max-Age=${maxAgeSec}`;
+function sameSiteValue(env) {
+  // Default None preserves cross-origin (workers.dev) deployments. Set
+  // COOKIE_SAMESITE=Lax once the worker is routed same-origin with the site.
+  const value = ((env && env.COOKIE_SAMESITE) || 'None').trim();
+  return value === 'Lax' || value === 'Strict' ? value : 'None';
 }
 
-export function setSessionCookie(token) {
-  return `${SESSION_COOKIE}=${token}; ${sessionCookieOptions(SESSION_MAX_AGE_SEC)}`;
+export function sessionCookieOptions(maxAgeSec, env) {
+  return `Path=/; HttpOnly; Secure; SameSite=${sameSiteValue(env)}; Max-Age=${maxAgeSec}`;
 }
 
-export function clearSessionCookie() {
-  return `${SESSION_COOKIE}=; ${sessionCookieOptions(0)}`;
+export function setSessionCookie(token, env) {
+  return `${SESSION_COOKIE}=${token}; ${sessionCookieOptions(SESSION_MAX_AGE_SEC, env)}`;
 }
 
-export function setOAuthStateCookie(value) {
-  return `${OAUTH_STATE_COOKIE}=${value}; ${sessionCookieOptions(OAUTH_STATE_MAX_AGE_SEC)}`;
+export function clearSessionCookie(env) {
+  return `${SESSION_COOKIE}=; ${sessionCookieOptions(0, env)}`;
 }
 
-export function clearOAuthStateCookie() {
-  return `${OAUTH_STATE_COOKIE}=; ${sessionCookieOptions(0)}`;
+export function setOAuthStateCookie(value, env) {
+  return `${OAUTH_STATE_COOKIE}=${value}; ${sessionCookieOptions(OAUTH_STATE_MAX_AGE_SEC, env)}`;
+}
+
+export function clearOAuthStateCookie(env) {
+  return `${OAUTH_STATE_COOKIE}=; ${sessionCookieOptions(0, env)}`;
 }
 
 export async function createSession(env, { login, userId, accessToken }) {
   const exp = Math.floor(Date.now() / 1000) + SESSION_MAX_AGE_SEC;
+  if (env.SESSIONS) {
+    // Store the GitHub access token server-side; the cookie only carries an
+    // opaque, signed session id so the token never leaves the worker.
+    const sid = crypto.randomUUID();
+    await env.SESSIONS.put(
+      `sess:${sid}`,
+      JSON.stringify({ login, userId, accessToken, exp }),
+      { expirationTtl: SESSION_MAX_AGE_SEC },
+    );
+    return signSession({ sid, exp }, env.SESSION_SECRET);
+  }
+  // Fallback when no KV namespace is bound (local dev/preview): embed the
+  // payload in the signed cookie, preserving the previous behaviour.
   return signSession({ login, userId, accessToken, exp }, env.SESSION_SECRET);
 }
 
@@ -134,10 +154,46 @@ export async function getSession(request, env) {
   const cookies = parseCookies(request);
   const token = cookies[SESSION_COOKIE];
   if (!token) return null;
+  let payload;
   try {
-    return await verifySession(token, env.SESSION_SECRET);
+    payload = await verifySession(token, env.SESSION_SECRET);
   } catch {
     return null;
+  }
+  if (!payload) return null;
+  if (payload.sid) {
+    if (!env.SESSIONS) return null;
+    const raw = await env.SESSIONS.get(`sess:${payload.sid}`);
+    if (!raw) return null;
+    try {
+      const data = JSON.parse(raw);
+      return {
+        login: data.login,
+        userId: data.userId,
+        accessToken: data.accessToken,
+        exp: payload.exp,
+        sid: payload.sid,
+      };
+    } catch {
+      return null;
+    }
+  }
+  // Legacy cookie with an inline payload (issued before KV-backed sessions).
+  return payload;
+}
+
+export async function destroySession(request, env) {
+  if (!env.SESSIONS) return;
+  const cookies = parseCookies(request);
+  const token = cookies[SESSION_COOKIE];
+  if (!token) return;
+  try {
+    const payload = await verifySession(token, env.SESSION_SECRET);
+    if (payload?.sid) {
+      await env.SESSIONS.delete(`sess:${payload.sid}`);
+    }
+  } catch {
+    // best effort
   }
 }
 

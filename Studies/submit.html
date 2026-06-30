@@ -78,7 +78,24 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
 .dashboard-truncated{font-family:var(--sans);font-size:13px;color:var(--text-muted);margin:12px 0 0;}
 .skeleton-row td{color:var(--text-muted);}
 @media (max-width:720px){.dashboard-table{font-size:12px;}.dashboard-table th:nth-child(4),.dashboard-table td:nth-child(4){display:none;}}
-@media (prefers-color-scheme:dark){:root{--bg:#1a1815;--surface:#26231e;--text:#e6dfd6;--text-muted:#aca194;--accent:#5ba3d3;--accent-soft:#233e52;--accent-hover:#7ebbed;--warm:#d5a477;--warm-soft:#423020;--border:#423b33;}h1,h2,label{color:#f5f1ec;}input[type="text"],select,textarea,input[type="number"]{background:#1e1b18;color:var(--text);}button.submit-btn,.action-btn.primary{color:#1a1815;}.alert.success,.proposal-status.approved,.stage-merged,.catalog-released,.ci-success{background:#133a20;color:#81c995;border-color:#1b5e33;}.alert.error,.proposal-status.error,.ci-failure{background:#471815;color:#f28b82;border-color:#712b26;}.step-strip .step.done{background:#133a20;color:#81c995;}}
+.hidden{display:none !important;}
+.editor-tabs{display:inline-flex;border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:8px;}
+.editor-tab{font-family:var(--sans);font-size:13px;color:var(--text-muted);background:transparent;border:none;padding:6px 14px;cursor:pointer;border-right:1px solid var(--border);}
+.editor-tab:last-child{border-right:none;}
+.editor-tab[aria-selected="true"]{background:var(--accent-soft);color:var(--accent);font-weight:600;}
+.md-preview{border:1px solid var(--border);border-radius:8px;background:#fdfcfa;padding:14px 16px;min-height:200px;font-family:'Georgia','Times New Roman',serif;line-height:1.6;overflow-wrap:anywhere;}
+.md-preview:empty::before{content:"Nothing to preview yet.";color:var(--text-muted);font-family:var(--sans);font-size:13px;}
+.md-preview h1,.md-preview h2,.md-preview h3{line-height:1.25;margin:14px 0 8px;color:#1a1612;}
+.md-preview h1{font-size:24px;}.md-preview h2{font-size:20px;}.md-preview h3{font-size:17px;}
+.md-preview p{margin:8px 0;}.md-preview ul,.md-preview ol{margin:8px 0 8px 22px;}
+.md-preview code{font-family:Consolas,'Courier New',monospace;font-size:0.9em;background:var(--accent-soft);padding:1px 5px;border-radius:4px;}
+.md-preview pre{background:var(--warm-soft);padding:10px 12px;border-radius:8px;overflow:auto;}
+.md-preview pre code{background:none;padding:0;}
+.md-preview blockquote{margin:8px 0;padding:4px 12px;border-left:3px solid var(--border);color:var(--text-muted);}
+.md-preview hr{border:none;border-top:1px solid var(--border);margin:14px 0;}
+.md-preview a{color:var(--accent);}
+.dashboard-poll-note{font-family:var(--sans);font-size:12px;color:var(--text-muted);margin:8px 0 0;}
+@media (prefers-color-scheme:dark){:root{--bg:#1a1815;--surface:#26231e;--text:#e6dfd6;--text-muted:#aca194;--accent:#5ba3d3;--accent-soft:#233e52;--accent-hover:#7ebbed;--warm:#d5a477;--warm-soft:#423020;--border:#423b33;}h1,h2,label{color:#f5f1ec;}input[type="text"],select,textarea,input[type="number"]{background:#1e1b18;color:var(--text);}button.submit-btn,.action-btn.primary{color:#1a1815;}.alert.success,.proposal-status.approved,.stage-merged,.catalog-released,.ci-success{background:#133a20;color:#81c995;border-color:#1b5e33;}.alert.error,.proposal-status.error,.ci-failure{background:#471815;color:#f28b82;border-color:#712b26;}.step-strip .step.done{background:#133a20;color:#81c995;}.md-preview{background:#1e1b18;}.md-preview h1,.md-preview h2,.md-preview h3{color:#f5f1ec;}}
 </style>
 </head>
 <body>
@@ -216,7 +233,7 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
         </div>
 
         <div class="form-group turnstile-wrap">
-          <div id="propose-turnstile" class="cf-turnstile" data-sitekey="0x4AAAAAADoBfrNV5lPeJQWO" data-action="turnstile-spin-v1"></div>
+          <div id="propose-turnstile" class="cf-turnstile" data-sitekey="0x4AAAAAADoBfrNV5lPeJQWO" data-action="turnstile-spin-v1" data-refresh-expired="auto"></div>
         </div>
 
         <button type="submit" class="submit-btn" id="p-submit-btn">Submit Proposal</button>
@@ -256,17 +273,27 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
         </div>
 
         <div class="form-group" id="s-proposal-group">
-          <label for="s-proposal">Approved proposal issue # *</label>
-          <input type="number" id="s-proposal" min="1" step="1" required placeholder="42">
+          <label for="s-proposal-select">Approved proposal *</label>
+          <div class="help-text">Pick one of your approved proposals, or enter the issue number manually.</div>
+          <select id="s-proposal-select">
+            <option value="">Select an approved proposal&hellip;</option>
+            <option value="__manual__">Enter issue number manually&hellip;</option>
+          </select>
+          <input type="number" id="s-proposal" min="1" step="1" placeholder="Approved proposal issue #" style="margin-top:8px;" hidden>
         </div>
 
         <div class="form-group">
           <label for="s-content">Study content (Markdown) *</label>
+          <div class="editor-tabs" role="tablist" aria-label="Editor mode">
+            <button type="button" class="editor-tab" id="s-tab-write" role="tab" aria-selected="true" aria-controls="s-content">Write</button>
+            <button type="button" class="editor-tab" id="s-tab-preview" role="tab" aria-selected="false" aria-controls="s-preview">Preview</button>
+          </div>
           <textarea id="s-content" rows="15" required placeholder="# Title&#10;&#10;Your content here..."></textarea>
+          <div id="s-preview" class="md-preview hidden" role="tabpanel" aria-label="Markdown preview"></div>
         </div>
 
         <div class="form-group turnstile-wrap">
-          <div id="submit-turnstile" class="cf-turnstile" data-sitekey="0x4AAAAAADoBfrNV5lPeJQWO" data-action="turnstile-spin-v1"></div>
+          <div id="submit-turnstile" class="cf-turnstile" data-sitekey="0x4AAAAAADoBfrNV5lPeJQWO" data-action="turnstile-spin-v1" data-refresh-expired="auto"></div>
         </div>
 
         <button type="submit" class="submit-btn" id="s-submit-btn">Submit draft</button>
@@ -308,7 +335,7 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
         </div>
 
         <div class="form-group turnstile-wrap">
-          <div id="status-turnstile" class="cf-turnstile" data-sitekey="0x4AAAAAADoBfrNV5lPeJQWO" data-action="turnstile-spin-v1"></div>
+          <div id="status-turnstile" class="cf-turnstile" data-sitekey="0x4AAAAAADoBfrNV5lPeJQWO" data-action="turnstile-spin-v1" data-refresh-expired="auto"></div>
         </div>
 
         <button type="submit" class="submit-btn" id="st-submit-btn">Open status-change pull request</button>
@@ -408,6 +435,9 @@ async function refreshAuthState() {
     updateAuthUi(Boolean(currentUser));
     if (currentUser && document.getElementById('dashboard-tab').classList.contains('active')) {
       loadDashboard();
+    }
+    if (currentUser && document.getElementById('submit-tab').classList.contains('active') && document.getElementById('s-new').checked) {
+      ensureProposalOptions();
     }
   } catch (err) {
     updateAuthUi(false);
@@ -518,6 +548,7 @@ async function loadDashboard(options = {}) {
   if (!force && dashboardCache && now - dashboardCacheAt < DASHBOARD_CACHE_MS) {
     renderDashboardRows(dashboardCache.submissions, dashboardCache.truncated);
     document.getElementById('dashboard-alert').style.display = 'none';
+    scheduleCiPoll(dashboardCache.submissions);
     return;
   }
 
@@ -529,8 +560,10 @@ async function loadDashboard(options = {}) {
     if (!res.ok || !data.success) throw new Error(data.error || 'Could not load submissions');
     dashboardCache = { submissions: data.submissions || [], truncated: Boolean(data.meta && data.meta.truncated) };
     dashboardCacheAt = Date.now();
+    proposalOptionsLoaded = true;
     document.getElementById('dashboard-alert').style.display = 'none';
     renderDashboardRows(dashboardCache.submissions, dashboardCache.truncated);
+    scheduleCiPoll(dashboardCache.submissions);
   } catch (err) {
     showAlert('dashboard', 'error', err.message);
   }
@@ -617,14 +650,82 @@ function updateSlugPreview() {
   preview.hidden = false;
 }
 
+let proposalOptionsLoaded = false;
+
 function toggleProposalField() {
   const isNew = document.getElementById('s-new').checked;
   const group = document.getElementById('s-proposal-group');
   const input = document.getElementById('s-proposal');
   group.style.display = isNew ? 'block' : 'none';
-  input.required = isNew;
-  if (!isNew) { input.value = ''; hideProposalStatus(); }
-  else if (input.value) checkProposalStatus();
+  input.required = false;
+  if (!isNew) {
+    input.value = '';
+    input.hidden = true;
+    const sel = document.getElementById('s-proposal-select');
+    if (sel) sel.value = '';
+    hideProposalStatus();
+  } else {
+    ensureProposalOptions();
+    if (input.value) checkProposalStatus();
+  }
+}
+
+function approvedProposalsFromCache() {
+  if (!dashboardCache || !Array.isArray(dashboardCache.submissions)) return [];
+  return dashboardCache.submissions.filter(
+    (item) => item.kind === 'proposal' && (item.stage === 'approved' || item.stage === 'accepted')
+  );
+}
+
+function fillProposalOptions(proposals) {
+  const sel = document.getElementById('s-proposal-select');
+  if (!sel) return;
+  const current = sel.value;
+  const opts = ['<option value="">Select an approved proposal\u2026</option>'];
+  proposals.forEach((p) => {
+    const label = '#' + p.issueNumber + ' \u2014 ' + escapeHtml(p.title || p.slug || 'Untitled');
+    opts.push('<option value="' + p.issueNumber + '">' + label + '</option>');
+  });
+  opts.push('<option value="__manual__">Enter issue number manually\u2026</option>');
+  sel.innerHTML = opts.join('');
+  if (current) sel.value = current;
+  const input = document.getElementById('s-proposal');
+  if (input && input.value) setProposalValue(input.value);
+}
+
+async function ensureProposalOptions(force) {
+  if (!currentUser) return;
+  if (proposalOptionsLoaded && !force) {
+    fillProposalOptions(approvedProposalsFromCache());
+    return;
+  }
+  try {
+    if (!dashboardCache) {
+      const res = await apiFetch('/api/me/submissions');
+      const data = await res.json();
+      if (res.ok && data.success) {
+        dashboardCache = { submissions: data.submissions || [], truncated: Boolean(data.meta && data.meta.truncated) };
+        dashboardCacheAt = Date.now();
+      }
+    }
+    proposalOptionsLoaded = true;
+    fillProposalOptions(approvedProposalsFromCache());
+  } catch (err) {
+    // Leave manual entry available if proposals cannot be loaded.
+  }
+}
+
+function setProposalValue(value) {
+  if (!value) return;
+  const input = document.getElementById('s-proposal');
+  const sel = document.getElementById('s-proposal-select');
+  input.value = value;
+  if (sel) {
+    const has = Array.from(sel.options).some((o) => o.value === String(value));
+    if (has) { sel.value = String(value); input.hidden = true; }
+    else { sel.value = '__manual__'; input.hidden = false; }
+  }
+  scheduleProposalStatusCheck();
 }
 
 function hideProposalStatus() {
@@ -705,8 +806,7 @@ function applyQueryParams() {
     configureSubmitView(params.get('mode') === 'update' ? 'update' : 'new');
     if (params.get('slug')) document.getElementById('s-slug').value = params.get('slug');
     if (params.get('proposal')) {
-      document.getElementById('s-proposal').value = params.get('proposal');
-      scheduleProposalStatusCheck();
+      setProposalValue(params.get('proposal'));
     }
   } else if (tab === 'status') {
     switchTab('status', false);
@@ -717,7 +817,7 @@ function applyQueryParams() {
 
   const stored = sessionStorage.getItem(PROPOSAL_STORAGE_KEY);
   if (stored && !document.getElementById('s-proposal').value) {
-    document.getElementById('s-proposal').value = stored;
+    setProposalValue(stored);
   }
 }
 
@@ -729,8 +829,155 @@ document.getElementById('s-new').addEventListener('change', () => { togglePropos
 document.getElementById('s-proposal').addEventListener('input', scheduleProposalStatusCheck);
 document.getElementById('s-proposal').addEventListener('change', scheduleProposalStatusCheck);
 
+const proposalSelect = document.getElementById('s-proposal-select');
+if (proposalSelect) proposalSelect.addEventListener('change', () => {
+  const input = document.getElementById('s-proposal');
+  const value = proposalSelect.value;
+  if (value === '__manual__') {
+    input.hidden = false;
+    input.value = '';
+    input.focus();
+    hideProposalStatus();
+  } else if (value === '') {
+    input.hidden = true;
+    input.value = '';
+    hideProposalStatus();
+  } else {
+    input.hidden = true;
+    input.value = value;
+    checkProposalStatus();
+  }
+});
+
+function renderInlineMd(text) {
+  let t = String(text == null ? '' : text)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const codes = [];
+  t = t.replace(/`([^`]+)`/g, (m, c) => { codes.push(c); return '\u0000C' + (codes.length - 1) + '\u0000'; });
+  t = t.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, (m, l, u) => '<a href="' + u + '" target="_blank" rel="noopener nofollow">' + l + '</a>');
+  t = t.replace(/(^|[\s(])(https?:\/\/[^\s<]+)/g, (m, p, u) => p + '<a href="' + u + '" target="_blank" rel="noopener nofollow">' + u + '</a>');
+  t = t.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  t = t.replace(/(^|[^*])\*([^*\n]+)\*(?!\*)/g, '$1<em>$2</em>');
+  t = t.replace(/\u0000C(\d+)\u0000/g, (m, i) => '<code>' + codes[Number(i)] + '</code>');
+  return t;
+}
+
+function renderMarkdownPreview(md) {
+  const lines = String(md || '').replace(/\r\n/g, '\n').split('\n');
+  const out = [];
+  let i = 0;
+  let listType = null;
+  const closeList = () => { if (listType) { out.push('</' + listType + '>'); listType = null; } };
+  while (i < lines.length) {
+    const line = lines[i];
+    if (/^```/.test(line)) {
+      closeList();
+      const buf = [];
+      i++;
+      while (i < lines.length && !/^```/.test(lines[i])) { buf.push(lines[i]); i++; }
+      i++;
+      const escaped = buf.join('\n').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      out.push('<pre><code>' + escaped + '</code></pre>');
+      continue;
+    }
+    if (/^\s*$/.test(line)) { closeList(); i++; continue; }
+    let m;
+    if ((m = line.match(/^(#{1,6})\s+(.*)$/))) {
+      closeList();
+      const level = m[1].length;
+      out.push('<h' + level + '>' + renderInlineMd(m[2]) + '</h' + level + '>');
+      i++; continue;
+    }
+    if (/^\s*(---|\*\*\*|___)\s*$/.test(line)) { closeList(); out.push('<hr>'); i++; continue; }
+    if ((m = line.match(/^\s*>\s?(.*)$/))) { closeList(); out.push('<blockquote>' + renderInlineMd(m[1]) + '</blockquote>'); i++; continue; }
+    if ((m = line.match(/^\s*[-*+]\s+(.*)$/))) {
+      if (listType !== 'ul') { closeList(); out.push('<ul>'); listType = 'ul'; }
+      out.push('<li>' + renderInlineMd(m[1]) + '</li>'); i++; continue;
+    }
+    if ((m = line.match(/^\s*\d+\.\s+(.*)$/))) {
+      if (listType !== 'ol') { closeList(); out.push('<ol>'); listType = 'ol'; }
+      out.push('<li>' + renderInlineMd(m[1]) + '</li>'); i++; continue;
+    }
+    closeList();
+    const para = [line];
+    i++;
+    while (i < lines.length && !/^\s*$/.test(lines[i]) && !/^(#{1,6})\s/.test(lines[i]) && !/^```/.test(lines[i]) && !/^\s*[-*+]\s/.test(lines[i]) && !/^\s*\d+\.\s/.test(lines[i]) && !/^\s*>/.test(lines[i])) {
+      para.push(lines[i]); i++;
+    }
+    out.push('<p>' + renderInlineMd(para.join('\n')) + '</p>');
+  }
+  closeList();
+  return out.join('\n');
+}
+
+function setEditorMode(mode) {
+  const writeTab = document.getElementById('s-tab-write');
+  const previewTab = document.getElementById('s-tab-preview');
+  const ta = document.getElementById('s-content');
+  const pv = document.getElementById('s-preview');
+  const preview = mode === 'preview';
+  writeTab.setAttribute('aria-selected', preview ? 'false' : 'true');
+  previewTab.setAttribute('aria-selected', preview ? 'true' : 'false');
+  ta.classList.toggle('hidden', preview);
+  pv.classList.toggle('hidden', !preview);
+  if (preview) pv.innerHTML = renderMarkdownPreview(ta.value);
+}
+document.getElementById('s-tab-write').addEventListener('click', () => setEditorMode('write'));
+document.getElementById('s-tab-preview').addEventListener('click', () => setEditorMode('preview'));
+
+const DRAFT_KEY = 'amd-submit-draft';
+let draftTimer = null;
+function saveDraft() {
+  try {
+    const draft = {
+      slug: document.getElementById('s-slug').value,
+      author: document.getElementById('s-author').value,
+      content: document.getElementById('s-content').value,
+      isNew: document.getElementById('s-new').checked,
+    };
+    if (!draft.slug && !draft.content && !draft.author) {
+      localStorage.removeItem(DRAFT_KEY);
+      return;
+    }
+    localStorage.setItem(DRAFT_KEY, JSON.stringify(draft));
+  } catch (e) { /* ignore storage errors */ }
+}
+function scheduleDraftSave() { clearTimeout(draftTimer); draftTimer = setTimeout(saveDraft, 400); }
+function restoreDraft() {
+  let draft = null;
+  try { draft = JSON.parse(localStorage.getItem(DRAFT_KEY) || 'null'); } catch (e) { draft = null; }
+  if (!draft) return;
+  const content = document.getElementById('s-content');
+  const slug = document.getElementById('s-slug');
+  const author = document.getElementById('s-author');
+  if (content && !content.value && draft.content) content.value = draft.content;
+  if (slug && !slug.value && draft.slug) slug.value = draft.slug;
+  if (author && !author.value && draft.author) author.value = draft.author;
+}
+function clearDraft() { try { localStorage.removeItem(DRAFT_KEY); } catch (e) { /* ignore */ } }
+['s-content', 's-slug', 's-author'].forEach((id) => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener('input', scheduleDraftSave);
+});
+
+let ciPollTimer = null;
+function hasPendingCi(submissions) {
+  return (submissions || []).some((item) => item.checks && item.checks.state === 'pending');
+}
+function scheduleCiPoll(submissions) {
+  clearTimeout(ciPollTimer);
+  if (!hasPendingCi(submissions)) return;
+  if (!document.getElementById('dashboard-tab').classList.contains('active')) return;
+  ciPollTimer = setTimeout(() => {
+    if (currentUser && document.getElementById('dashboard-tab').classList.contains('active')) {
+      loadDashboard({ force: true });
+    }
+  }, 20000);
+}
+
 toggleProposalField();
 applyQueryParams();
+restoreDraft();
 updateSlugPreview();
 refreshAuthState();
 
@@ -781,7 +1028,12 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
   const form = e.target;
   const btn = document.getElementById('s-submit-btn');
   const turnstileToken = getTurnstileToken(form);
-  if (!turnstileToken) { showAlert('submit', 'error', 'Complete the Turnstile check.'); return; }
+  if (!turnstileToken) { showAlert('submit', 'error', 'Complete the Turnstile check, then submit again.'); return; }
+  const submitIsNew = document.getElementById('s-new').checked;
+  if (submitIsNew && !Number(document.getElementById('s-proposal').value)) {
+    showAlert('submit', 'error', 'Select an approved proposal or enter its issue number.');
+    return;
+  }
   btn.disabled = true;
   btn.textContent = 'Submitting…';
   const isNew = document.getElementById('s-new').checked;
@@ -802,6 +1054,8 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || 'Unknown error');
     dashboardCache = null;
+    clearDraft();
+    setEditorMode('write');
     await goToDashboard(true);
     showAlert('dashboard', 'success', 'Pull request opened.' + (data.url ? ' <a href="' + data.url + '" target="_blank">View on GitHub</a>' : ''));
     form.reset();
