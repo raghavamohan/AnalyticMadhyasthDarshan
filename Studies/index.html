@@ -222,7 +222,8 @@
 
 <script>
 (() => {
-  const CATALOG_BUILD_ID = "80d44e7";
+  const CATALOG_BUILD_ID = "103be56";
+  const DISCUSS_ASSET_VERSION = "2";
   const catalogSources = [
     { url: `catalog-topical.json?cb=${CATALOG_BUILD_ID}`, coll: "topical" },
     { url: `catalog-formal.json?cb=${CATALOG_BUILD_ID}`, coll: "formal" },
@@ -504,7 +505,10 @@
 
   const studyDiscussionHref = s => {
     const base = s.discussion || `${s.slug}/discussion.html`;
-    return `${base}${pdfVersionQuery(s.updated)}`;
+    const versionQuery = pdfVersionQuery(s.updated);
+    if (!DISCUSS_ASSET_VERSION) return `${base}${versionQuery}`;
+    const sep = versionQuery ? "&" : "?";
+    return `${base}${versionQuery}${sep}dv=${DISCUSS_ASSET_VERSION}`;
   };
 
   const PDF_DOWNLOAD_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 3a1 1 0 0 1 1 1v9.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42l2.3 2.3V4a1 1 0 0 1 1-1Zm-7 14a1 1 0 0 1 1 1v1h12v-1a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1Z"/></svg>';
