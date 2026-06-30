@@ -14,6 +14,7 @@ SCRIPTS = Path(__file__).resolve().parent
 if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
+from _build_discussion_pages import ASSET_VERSION as DISCUSS_ASSET_VERSION  # noqa: E402
 from _common import BASE, STUDIES  # noqa: E402
 from _study_catalog import (  # noqa: E402
     STUDY_FEEDBACK_TEMPLATE_PATH,
@@ -31,6 +32,7 @@ from _study_catalog import (  # noqa: E402
 CATALOG_SHELL_PLACEHOLDER = "<!-- @catalog-data@ -->"
 CATALOG_BOOTSTRAP_PLACEHOLDER = "<!-- @catalog-bootstrap@ -->"
 CATALOG_BUILD_ID_PLACEHOLDER = "@catalog-build-id@"
+DISCUSS_ASSET_VERSION_PLACEHOLDER = "@discuss-asset-version@"
 HERO_SCOPE_PLACEHOLDER = "<!-- @hero-scope@ -->"
 
 INDEX_TEMPLATE = """<!DOCTYPE html>
@@ -1007,6 +1009,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 <script>
 (() => {
   const CATALOG_BUILD_ID = "@catalog-build-id@";
+  const DISCUSS_ASSET_VERSION = "@discuss-asset-version@";
   const catalogSources = [
     { url: `catalog-topical.json?cb=${CATALOG_BUILD_ID}`, coll: "topical" },
     { url: `catalog-formal.json?cb=${CATALOG_BUILD_ID}`, coll: "formal" },
@@ -1288,7 +1291,10 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
   const studyDiscussionHref = s => {
     const base = s.discussion || `${s.slug}/discussion.html`;
-    return `${base}${pdfVersionQuery(s.updated)}`;
+    const versionQuery = pdfVersionQuery(s.updated);
+    if (!DISCUSS_ASSET_VERSION) return `${base}${versionQuery}`;
+    const sep = versionQuery ? "&" : "?";
+    return `${base}${versionQuery}${sep}dv=${DISCUSS_ASSET_VERSION}`;
   };
 
   const PDF_DOWNLOAD_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 3a1 1 0 0 1 1 1v9.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42l2.3 2.3V4a1 1 0 0 1 1-1Zm-7 14a1 1 0 0 1 1 1v1h12v-1a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1Z"/></svg>';
@@ -1652,6 +1658,12 @@ def strip_build_time_data(content: str) -> str:
         result,
         count=1,
     )
+    result = re.sub(
+        r'const DISCUSS_ASSET_VERSION = "[^"]*";',
+        f'const DISCUSS_ASSET_VERSION = "{DISCUSS_ASSET_VERSION_PLACEHOLDER}";',
+        result,
+        count=1,
+    )
     return re.sub(
         r'(<p class="scope" id="hero-scope">).*?(</p>)',
         rf"\1{HERO_SCOPE_PLACEHOLDER}\2",
@@ -1729,6 +1741,7 @@ def main() -> int:
     all_rows = topical_rows + formal_rows + applied_rows
     html = INDEX_TEMPLATE.replace(HERO_SCOPE_PLACEHOLDER, build_hero_scope_html(all_rows))
     html = html.replace(CATALOG_BUILD_ID_PLACEHOLDER, catalog_build_id())
+    html = html.replace(DISCUSS_ASSET_VERSION_PLACEHOLDER, DISCUSS_ASSET_VERSION)
     bootstrap_json = serialize_catalog_bootstrap_json(topical_rows, formal_rows, applied_rows)
     # Guard against premature </script> termination inside the inlined JSON island.
     bootstrap_json = bootstrap_json.replace("</", "<\\/")
