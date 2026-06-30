@@ -358,8 +358,9 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   }
   .search-clear:hover { color: var(--accent); background: var(--accent-soft); }
   .search.has-value .search-clear { display: inline-flex; }
+  .toc .toc-toggle { margin-left: auto; }
   .theme-toggle {
-    flex: 0 0 auto; margin-left: auto;
+    flex: 0 0 auto;
     font-family: var(--sans); font-size: 13px; font-weight: 600;
     color: var(--text-muted); background: #fdfcfa; border: 1px solid var(--border);
     border-radius: 999px; padding: 5px 12px; cursor: pointer; white-space: nowrap;
@@ -840,11 +841,11 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       <li><a href="#contribute">How to contribute</a></li>
       <li><a href="#about">About us</a></li>
       <li><a href="submit.html">My Submissions</a></li>
+      <li class="toc-toggle"><button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch color theme">
+        <span class="theme-toggle-icon" id="theme-toggle-icon" aria-hidden="true">&#9789;</span>
+        <span id="theme-toggle-label">Dark</span>
+      </button></li>
     </ul>
-    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch color theme">
-      <span class="theme-toggle-icon" id="theme-toggle-icon" aria-hidden="true">&#9789;</span>
-      <span id="theme-toggle-label">Dark</span>
-    </button>
   </div>
 </nav>
 <div class="page-nav-anchor" aria-hidden="true"></div>
