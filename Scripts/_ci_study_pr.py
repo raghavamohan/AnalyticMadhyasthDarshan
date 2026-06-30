@@ -275,10 +275,13 @@ def handle_new_study(body: str, base_ref: str) -> None:
     if not md_path.exists():
         raise SystemExit(f"Expected study markdown at {md_path}")
 
-    if get_study_row(slug) is not None:
-        print(f"{slug} is already registered; running study-update pipeline.")
-        handle_study_update(body, base_ref)
-        return
+    located = get_study_row(slug)
+    if located is not None:
+        row, _table = located
+        if row.status != StudyStatus.ONGOING:
+            print(f"{slug} is already registered; running study-update pipeline.")
+            handle_study_update(body, base_ref)
+            return
 
     category, description, formal = proposal_metadata_from_issue(issue_number)
     tags = parse_body_field(body, r"^Tags:\s*(.+)$") or "MVD, SB, JV"

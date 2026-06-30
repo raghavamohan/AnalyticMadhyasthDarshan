@@ -13,12 +13,12 @@ Read [Studies/README.md](Studies/README.md) for study format, tone, and structur
 | Stage | What you do | What maintainers do |
 |-------|-------------|---------------------|
 | 1. Proposal | Propose via **[My Submissions](Studies/submit.html)** | Review scope and fit |
-| 2. Approval | Wait for `proposal-approved` on your issue | Label approved proposals; CI bootstraps a **pre-catalog** stub under `Studies/<Slug>/` |
+| 2. Approval | Wait for `proposal-approved` on your issue | Label approved proposals; CI bootstraps a **pre-catalog** stub and lists it on the index as **Planned** |
 | 3. Submit draft | Paste full markdown; slug is **locked** from the proposal | Review the pull request; request changes or merge |
 | 4. Catalog (Draft) | Track CI on **My Submissions** | Merge when `study-pr` passes — study appears on the index as **Draft** |
 | 5. Release (optional) | Request **Released** when ready | Merge `status-change` PR when content is final |
 
-Approved proposals get a proposal stub (`.md`, `.html`, `.pdf`) in the repository but **do not** appear on the public studies index until the first draft PR is merged. Pull requests (not issue attachments) carry the review artifacts; CI regenerates PDFs and updates catalogs.
+Approved proposals get a proposal stub (`.md`, `.html`, `.pdf`) in the repository and appear on the public studies index as **Planned** until the first draft PR is merged. Pull requests (not issue attachments) carry the review artifacts; CI regenerates PDFs and updates catalogs.
 
 The public catalog at [analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org) links to this workflow from **Contribute** (hero buttons and footer on the studies page).
 

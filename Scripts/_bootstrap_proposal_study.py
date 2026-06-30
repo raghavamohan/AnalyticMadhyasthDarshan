@@ -1,7 +1,7 @@
 """Bootstrap a pre-catalog study directory after proposal approval.
 
 Creates Studies/<Slug>/<Slug>.md (proposal stub), .proposal-meta.json, HTML, and PDF.
-Does not register the study in the public catalog.
+Registers the study on the public index as Planned (ongoing catalog status).
 
 Usage:
   python Scripts/_bootstrap_proposal_study.py --issue 42
@@ -25,7 +25,13 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from _common import STUDIES, study_dir, study_md
-from _study_catalog import format_edited_on_md, now_ist, slug_to_title, title_to_slug
+from _study_catalog import (
+    format_edited_on_md,
+    now_ist,
+    slug_to_title,
+    sync_pre_catalog_proposals_to_catalog,
+    title_to_slug,
+)
 
 SCRIPTS = Path(__file__).resolve().parent
 BASE = SCRIPTS.parent
@@ -159,8 +165,8 @@ def build_proposal_stub_markdown(fields: ProposalFields, edited_at: datetime) ->
 
 {fields.summary}
 
-> This directory holds an **approved study proposal** (pre-catalog). It is not listed on
-> the public studies index until a maintainer merges your first **draft** pull request.
+> This directory holds an **approved study proposal** (pre-catalog). It appears on the
+> studies index as **Planned** until a maintainer merges your first **draft** pull request.
 > Submit the full study via [My Submissions](https://analyticmadhyasthdarshan.org/Studies/submit.html).
 
 ## References
@@ -275,6 +281,7 @@ def bootstrap_proposal(
     write_proposal_meta(fields, edited_at)
     regenerate_proposal_artifacts(dest_md)
     upsert_registry_entry(fields)
+    sync_pre_catalog_proposals_to_catalog()
     print(f"Bootstrapped pre-catalog proposal at {dest_dir}")
 
 

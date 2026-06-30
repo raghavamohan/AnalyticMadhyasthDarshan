@@ -1,7 +1,7 @@
 """Migrate catalog Ongoing rows to pre-catalog approved proposals.
 
-Removes Ongoing entries from the public catalog, bootstraps proposal stubs under
-Studies/<Slug>/, optionally creates GitHub issues, and updates proposal-registry.json.
+Bootstraps proposal stubs under Studies/<Slug>/, optionally creates GitHub issues,
+updates proposal-registry.json, and syncs Planned (ongoing) rows on the public index.
 
 Usage:
   python Scripts/_migrate_ongoing_to_proposals.py --dry-run
@@ -20,9 +20,8 @@ from _study_catalog import (
     StudyStatus,
     StudyTable,
     load_catalog_rows,
-    remove_study_row,
     slug_to_title,
-    write_studies_catalog,
+    sync_pre_catalog_proposals_to_catalog,
 )
 
 REPO = "raghavamohan/AnalyticMadhyasthDarshan"
@@ -105,7 +104,6 @@ def migrate(*, dry_run: bool, create_issues: bool, submitter: str) -> None:
         return
 
     print(f"Found {len(ongoing)} Ongoing study(ies) to migrate.")
-    remaining = rows
     for row in ongoing:
         title = slug_to_title(row.slug)
         fields = ProposalFields(
@@ -119,7 +117,7 @@ def migrate(*, dry_run: bool, create_issues: bool, submitter: str) -> None:
             issue_number=None,
         )
         if dry_run:
-            print(f"  [dry-run] {row.slug}: remove from catalog, bootstrap stub")
+            print(f"  [dry-run] {row.slug}: bootstrap stub and sync Planned index row")
             continue
 
         if create_issues:
@@ -128,14 +126,12 @@ def migrate(*, dry_run: bool, create_issues: bool, submitter: str) -> None:
             print(f"  Created issue #{issue_number} for {row.slug}")
 
         bootstrap_proposal(fields, force=True)
-        upsert_registry_entry(fields)
-        remaining = remove_study_row(remaining, row.slug)
 
     if dry_run:
         return
 
-    write_studies_catalog(remaining, StudyTable.TOPICAL)
-    print(f"Updated catalog; removed {len(ongoing)} Ongoing row(s).")
+    sync_pre_catalog_proposals_to_catalog()
+    print(f"Synced {len(ongoing)} pre-catalog proposal(s) to the public index as Planned.")
 
 
 def main() -> None:
