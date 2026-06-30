@@ -27,6 +27,8 @@ const CATALOG_FILES = [
   'Studies/catalog-applied.json',
 ];
 const CATALOG_CACHE_KEY = 'https://amd-submissions.internal/catalog-slug-map';
+const PROPOSAL_REGISTRY_PATH = 'Studies/proposal-registry.json';
+const PROPOSAL_REGISTRY_CACHE_KEY = 'https://amd-submissions.internal/proposal-registry';
 const CHECK_POOL_SIZE = 5;
 
 function jsonResponse(request, env, payload, status = 200, extraHeaders = {}) {
@@ -189,13 +191,139 @@ function issueLabels(issue) {
 }
 
 function proposedTitleFromIssue(issue) {
-  const match = (issue.title || '').match(/^Study proposal:\s*(.+)$/);
+  const match = (issue.title || '').match(/^Study proposal:\s*(.+)$/i);
   return match ? match[1].trim() : null;
+}
+
+function parseIssueFormSection(body, heading) {
+  const pattern = new RegExp(
+    `###\\s*${heading.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*\\r?\\n+([\\s\\S]+?)(?=\\r?\\n###|$)`,
+    'i'
+  );
+  const match = (body || '').match(pattern);
+  return match ? match[1].trim() : null;
+}
+
+function parseSlugFromIssueBody(issue) {
+  const fromSection = parseIssueFormSection(issue?.body, 'Slug');
+  if (fromSection) {
+    const slug = fromSection.split('\n')[0].trim().replace(/\.md$/i, '');
+    if (slug) return slug;
+  }
+  const title = proposedTitleFromIssue(issue);
+  return title ? titleToSlug(title) : null;
+}
+
+async function fetchProposalRegistry(env, stats) {
+  const cache = caches.default;
+  const cacheRequest = new Request(PROPOSAL_REGISTRY_CACHE_KEY);
+  const cached = await cache.match(cacheRequest);
+  if (cached) {
+    return cached.json();
+  }
+
+  let registry = { version: 1, proposals: [] };
+  try {
+    const text = await githubRawFile(PROPOSAL_REGISTRY_PATH, env, stats);
+    registry = JSON.parse(text);
+  } catch (e) {
+    // Registry is optional until first bootstrap.
+  }
+
+  await cache.put(
+    cacheRequest,
+    new Response(JSON.stringify(registry), { headers: { 'Cache-Control': 'max-age=60' } })
+  );
+  return registry;
+}
+
+function registryByIssue(registry, issueNumber) {
+  const rows = registry?.proposals || [];
+  return rows.find((row) => Number(row.issueNumber) === Number(issueNumber)) || null;
+}
+
+function registryBySlug(registry, slug) {
+  const rows = registry?.proposals || [];
+  return rows.find((row) => row.slug === slug) || null;
+}
+
+function preCatalogSlugSet(registry) {
+  const slugs = new Set();
+  for (const row of registry?.proposals || []) {
+    if (row.slug && row.phase === 'pre-catalog') {
+      slugs.add(row.slug);
+    }
+  }
+  return slugs;
+}
+
+function slugForProposal(issue, registry) {
+  const fromBody = parseSlugFromIssueBody(issue);
+  if (fromBody) return fromBody;
+  const linked = registryByIssue(registry, issue?.number);
+  return linked?.slug || null;
+}
+
+function assertProposalSlugMatch(proposal, slug, registry) {
+  const expected = slugForProposal(proposal, registry);
+  if (!expected) return;
+  if (expected !== slug) {
+    throw new Error(
+      `Slug must match the approved proposal (${expected}). The portal locks the slug when a proposal is approved.`
+    );
+  }
+}
+
+function buildOpenStudyPrIndex(prItems) {
+  const bySlug = new Map();
+  for (const item of prItems) {
+    if (item.state !== 'open') continue;
+    const labels = issueLabels(item);
+    const prType = prTypeFromLabels(labels);
+    if (!prType || prType === 'status-change') continue;
+    const slug = parseSlugFromBody(item.body, prType) || slugFromPrTitle(item.title);
+    if (!slug) continue;
+    bySlug.set(slug, {
+      number: item.number,
+      url: item.pull_request?.html_url || item.html_url,
+      prType,
+    });
+  }
+  return bySlug;
+}
+
+function assertNoOpenStudyPr(slug, openStudyPrs) {
+  if (!slug || !openStudyPrs.has(slug)) return;
+  const pr = openStudyPrs.get(slug);
+  throw new Error(
+    `An open ${pr.prType} pull request already exists for "${slug}" (#${pr.number}). Wait for review or close it before opening another.`
+  );
+}
+
+async function fetchPrReviewState(prNumber, env, userToken, stats) {
+  const reviews = await githubRequest(
+    `/pulls/${prNumber}/reviews`,
+    'GET',
+    null,
+    env,
+    userToken,
+    stats
+  );
+  const list = Array.isArray(reviews) ? reviews : [];
+  if (list.some((review) => review.state === 'CHANGES_REQUESTED')) {
+    return 'changes_requested';
+  }
+  return null;
 }
 
 async function assertProposalApproved(issueNumber, env, userToken = null) {
   const issue = await githubRequest(`/issues/${issueNumber}`, 'GET', null, env, userToken);
   const labels = issueLabels(issue);
+  if (labels.includes('proposal-declined')) {
+    throw new Error(
+      `Issue #${issueNumber} was declined. Open a new proposal or discuss on the issue before submitting.`
+    );
+  }
   if (!labels.includes('proposal-approved')) {
     throw new Error(
       `Issue #${issueNumber} is not approved. Wait for maintainers to add the proposal-approved label.`
@@ -269,10 +397,16 @@ function applyStudyMetadata(content, author, istTime, slug) {
   return content;
 }
 
-function submissionStage(issue, pullRequest) {
+function submissionStage(issue, pullRequest, options = {}) {
   const labels = issue ? issueLabels(issue) : [];
+  if (labels.includes('proposal-declined')) {
+    return 'declined';
+  }
   if (pullRequest) {
     if (pullRequest.state === 'open') {
+      if (pullRequest.changesRequested) {
+        return 'changes_requested';
+      }
       return 'pr-open';
     }
     if (pullRequest.merged_at) {
@@ -281,9 +415,12 @@ function submissionStage(issue, pullRequest) {
     return 'pr-closed';
   }
   if (labels.includes('proposal-approved')) {
+    if (options.preCatalog) {
+      return 'accepted';
+    }
     return 'approved';
   }
-  if (issue && issue.state === 'closed') {
+  if (issue && issue.state === 'closed' && !labels.includes('proposal-approved')) {
     return 'closed';
   }
   return 'pending';
@@ -431,7 +568,7 @@ function buildOpenStatusChangeIndex(prItems) {
   return bySlug;
 }
 
-function buildActions(stage, slug, catalogStatus, statusChangeBlocked, issueNumber) {
+function buildActions(stage, slug, catalogStatus, statusChangeBlocked, issueNumber, studyPrBlocked) {
   const updateUrl = slug ? portalUrl({ tab: 'submit', mode: 'update', slug }) : null;
   const primaryAction = null;
   const secondaryActions = [];
@@ -444,21 +581,35 @@ function buildActions(stage, slug, catalogStatus, statusChangeBlocked, issueNumb
       statusUrl: null,
     };
   }
-  if (stage === 'approved' && issueNumber) {
+  if (stage === 'declined' && issueNumber) {
+    return {
+      primaryAction: { label: 'View feedback', href: null, variant: 'secondary', issueOnly: true },
+      secondaryActions: [],
+      updateUrl,
+      statusUrl: null,
+    };
+  }
+  if ((stage === 'approved' || stage === 'accepted') && issueNumber) {
     return {
       primaryAction: {
-        label: 'Submit draft',
-        href: portalUrl({ tab: 'submit', proposal: issueNumber }),
-        variant: 'primary',
+        label: studyPrBlocked ? 'Draft PR in review' : 'Submit draft',
+        href: studyPrBlocked ? null : portalUrl({ tab: 'submit', proposal: issueNumber }),
+        variant: studyPrBlocked ? 'secondary' : 'primary',
+        disabled: studyPrBlocked,
       },
       secondaryActions: [],
       updateUrl,
       statusUrl: null,
     };
   }
-  if (stage === 'pr-open') {
+  if (stage === 'pr-open' || stage === 'changes_requested') {
     return {
-      primaryAction: { label: 'View pull request', href: null, variant: 'secondary', prOnly: true },
+      primaryAction: {
+        label: stage === 'changes_requested' ? 'Address review' : 'View pull request',
+        href: null,
+        variant: 'secondary',
+        prOnly: true,
+      },
       secondaryActions: [],
       updateUrl,
       statusUrl: null,
@@ -509,25 +660,28 @@ async function buildDashboard(session, env) {
   const login = session.login;
   const userToken = session.accessToken;
 
-  const [proposalSearch, prSearch, catalogMap] = await Promise.all([
+  const [proposalSearch, prSearch, catalogMap, proposalRegistry] = await Promise.all([
     githubSearch(
-      `repo:${REPO} is:issue author:${login} label:study-proposal,proposal-approved`,
+      `repo:${REPO} is:issue author:${login} label:study-proposal`,
       env,
       userToken,
       stats
     ),
     githubSearch(
-      `repo:${REPO} is:pr author:${login} label:new-study,study-update,status-change`,
+      `repo:${REPO} is:pr label:new-study,study-update,status-change`,
       env,
       userToken,
       stats
     ),
     fetchCatalogSlugMap(env, stats),
+    fetchProposalRegistry(env, stats),
   ]);
 
+  const preCatalogSlugs = preCatalogSlugSet(proposalRegistry);
   const proposals = proposalSearch.items.filter(isStudyProposalIssue);
   const prItems = prSearch.items.filter((item) => isPortalPullRequest(item, login));
   const openStatusChanges = buildOpenStatusChangeIndex(prItems);
+  const openStudyPrs = buildOpenStudyPrIndex(prItems);
 
   const prByProposal = new Map();
   const prByNumber = new Map();
@@ -541,19 +695,28 @@ async function buildDashboard(session, env) {
   const submissions = [];
 
   for (const issue of proposals) {
-    const title = proposedTitleFromIssue(issue);
-    const slug = title ? titleToSlug(title) : null;
+    const title = proposedTitleFromIssue(issue) || issue.title;
+    const slug = slugForProposal(issue, proposalRegistry);
     const linkedItem = prByProposal.get(issue.number) || null;
     let prDetails = linkedItem ? summarizePullRequestFromSearch(linkedItem) : null;
     if (linkedItem) usedPrNumbers.add(linkedItem.number);
 
+    const preCatalog = Boolean(slug && preCatalogSlugs.has(slug) && !catalogMap.get(slug));
     const stage = submissionStage(issue, linkedItem ? {
       state: linkedItem.state,
       merged_at: linkedItem.pull_request?.merged_at,
-    } : null);
-    const catalogStatus = slug ? (catalogMap.get(slug) || null) : null;
+    } : null, { preCatalog });
+    const catalogStatus = slug ? (catalogMap.get(slug) || (preCatalog ? 'pre-catalog' : null)) : null;
     const statusBlocked = slug ? openStatusChanges.has(slug) : false;
-    const actions = buildActions(stage, slug, catalogStatus, statusBlocked, issue.number);
+    const studyPrBlocked = slug ? openStudyPrs.has(slug) : false;
+    const actions = buildActions(
+      stage,
+      slug,
+      catalogStatus,
+      statusBlocked,
+      issue.number,
+      studyPrBlocked
+    );
 
     submissions.push({
       kind: 'proposal',
@@ -565,10 +728,14 @@ async function buildDashboard(session, env) {
       issueUrl: issue.html_url,
       issueState: issue.state,
       approved: issueLabels(issue).includes('proposal-approved'),
+      declined: issueLabels(issue).includes('proposal-declined'),
       stage,
       catalogStatus,
+      preCatalog,
+      studyPrBlocked,
       statusChangeBlocked: statusBlocked,
       statusChangePr: statusBlocked && slug ? openStatusChanges.get(slug) : null,
+      studyPr: studyPrBlocked && slug ? openStudyPrs.get(slug) : null,
       pullRequest: prDetails,
       checks: null,
       ...actions,
@@ -586,7 +753,8 @@ async function buildDashboard(session, env) {
     const stage = prStageFromSearchItem(item);
     const catalogStatus = slug ? (catalogMap.get(slug) || null) : null;
     const statusBlocked = slug ? openStatusChanges.has(slug) : false;
-    const actions = buildActions(stage, slug, catalogStatus, statusBlocked, null);
+    const studyPrBlocked = slug ? openStudyPrs.has(slug) : false;
+    const actions = buildActions(stage, slug, catalogStatus, statusBlocked, null, studyPrBlocked);
 
     submissions.push({
       kind: 'pull-request',
@@ -600,8 +768,11 @@ async function buildDashboard(session, env) {
       approved: false,
       stage,
       catalogStatus,
+      preCatalog: Boolean(slug && preCatalogSlugs.has(slug) && !catalogMap.get(slug)),
+      studyPrBlocked,
       statusChangeBlocked: statusBlocked,
       statusChangePr: statusBlocked && slug ? openStatusChanges.get(slug) : null,
+      studyPr: studyPrBlocked && slug ? openStudyPrs.get(slug) : null,
       pullRequest: summarizePullRequestFromSearch(item),
       checks: null,
       ...actions,
@@ -624,7 +795,15 @@ async function buildDashboard(session, env) {
       prDetailsCache.set(num, full);
     }
     const full = prDetailsCache.get(num);
-    row.pullRequest = summarizePullRequest(full);
+    const summary = summarizePullRequest(full);
+    const reviewState = await fetchPrReviewState(num, env, userToken, stats);
+    if (reviewState === 'changes_requested') {
+      summary.changesRequested = true;
+      if (row.stage === 'pr-open') {
+        row.stage = 'changes_requested';
+      }
+    }
+    row.pullRequest = summary;
   });
 
   await runPool(openRows, CHECK_POOL_SIZE, async (row) => {
@@ -657,10 +836,9 @@ async function buildDashboard(session, env) {
 function catalogStatusForSlug(slug, catalogMap) {
   const status = catalogMap.get(slug);
   if (!status) {
-    throw new Error(`Study "${slug}" was not found in the catalog.`);
-  }
-  if (status === 'ongoing') {
-    throw new Error(`"${slug}" is still in progress (Ongoing) and cannot change Draft/Released status yet.`);
+    throw new Error(
+      `Study "${slug}" is not in the public catalog yet. Submit and merge a draft pull request first.`
+    );
   }
   return status;
 }
@@ -825,16 +1003,28 @@ router.get('/api/proposal-status', async (request, env) => {
     const issue = await githubRequest(`/issues/${issueNumber}`, 'GET', null, env, session?.accessToken);
     const labels = issueLabels(issue);
     const approved = labels.includes('proposal-approved');
+    const declined = labels.includes('proposal-declined');
     const title = proposedTitleFromIssue(issue);
-    const slug = title ? titleToSlug(title) : null;
+    let registry = { proposals: [] };
+    try {
+      registry = await fetchProposalRegistry(env, { githubRequests: 0 });
+    } catch (e) {
+      // optional
+    }
+    const slug = slugForProposal(issue, registry);
     const ownedByYou = session ? issue.user?.login === session.login : null;
+    const preCatalog = Boolean(
+      slug && preCatalogSlugSet(registry).has(slug)
+    );
 
     return jsonResponse(request, env, {
       success: true,
       approved,
+      declined,
       issueNumber,
       title,
       slug,
+      preCatalog,
       url: issue.html_url,
       ownedByYou,
     });
@@ -852,14 +1042,29 @@ router.post('/api/submit', async (request, env) => {
     const { slug, author, isNew, proposalIssue } = data;
     let { content } = data;
 
+    const stats = { githubRequests: 0 };
     let proposal = null;
+    let proposalRegistry = { proposals: [] };
     if (isNew) {
       if (!proposalIssue) {
         throw new Error('Proposal issue number is required for new studies.');
       }
-      proposal = await assertProposalApproved(Number(proposalIssue), env, session.accessToken);
+      [proposal, proposalRegistry] = await Promise.all([
+        assertProposalApproved(Number(proposalIssue), env, session.accessToken),
+        fetchProposalRegistry(env, stats),
+      ]);
       await assertProposalOwner(proposal, session.login);
+      assertProposalSlugMatch(proposal, slug, proposalRegistry);
     }
+
+    const prSearch = await githubSearch(
+      `repo:${REPO} is:pr is:open label:new-study,study-update`,
+      env,
+      session.accessToken,
+      stats
+    );
+    const openStudyPrs = buildOpenStudyPrIndex(prSearch.items);
+    assertNoOpenStudyPr(slug, openStudyPrs);
 
     const istTime = getISTDateString();
     content = applyStudyMetadata(content, author, istTime, slug);

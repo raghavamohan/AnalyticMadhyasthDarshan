@@ -12,9 +12,13 @@ Read [Studies/README.md](Studies/README.md) for study format, tone, and structur
 
 | Stage | What you do | What maintainers do |
 |-------|-------------|---------------------|
-| 1. Proposal | Propose a study via the **[Web Submission Portal](Studies/submit.html)** | Review scope and fit |
-| 2. Approval | Wait for a GitHub issue comment from maintainers | Label approved proposals |
-| 3. Submit | Paste your markdown draft into the Web Portal | Review content and merge |
+| 1. Proposal | Propose via **[My Submissions](Studies/submit.html)** | Review scope and fit |
+| 2. Approval | Wait for `proposal-approved` on your issue | Label approved proposals; CI bootstraps a **pre-catalog** stub under `Studies/<Slug>/` |
+| 3. Submit draft | Paste full markdown; slug is **locked** from the proposal | Review the pull request; request changes or merge |
+| 4. Catalog (Draft) | Track CI on **My Submissions** | Merge when `study-pr` passes — study appears on the index as **Draft** |
+| 5. Release (optional) | Request **Released** when ready | Merge `status-change` PR when content is final |
+
+Approved proposals get a proposal stub (`.md`, `.html`, `.pdf`) in the repository but **do not** appear on the public studies index until the first draft PR is merged. Pull requests (not issue attachments) carry the review artifacts; CI regenerates PDFs and updates catalogs.
 
 The public catalog at [analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org) links to this workflow from **Contribute** (hero buttons and footer on the studies page).
 
@@ -43,7 +47,9 @@ A good proposal states a clear analytic question, names the Madhyasth Darshan te
 
 ## Step 2 — Wait for approval
 
-Maintainers review proposals for overlap, scope, and alignment with [Studies/README.md](Studies/README.md). You will be notified once it is approved. If changes are needed, maintainers will reach out.
+Maintainers review proposals for overlap, scope, and alignment with [Studies/README.md](Studies/README.md). You will be notified once it is approved. If a proposal is not accepted, maintainers add `proposal-declined` and comment on the issue. The proposal issue stays **open** so later draft PRs can link to `Proposal issue: #N`.
+
+When approved, automation creates `Studies/<Slug>/<Slug>.md` (proposal stub), `.proposal-meta.json`, HTML, and PDF on the default branch. The study slug is written to the issue as `### Slug` and locked for draft submission.
 
 ---
 
@@ -51,12 +57,18 @@ Maintainers review proposals for overlap, scope, and alignment with [Studies/REA
 
 Once approved, return to [**My Submissions**](Studies/submit.html) and click **Submit draft** on your proposal row (or use the pre-filled link from the approval comment).
 
-1. Enter your study slug and author name.
+1. Enter your author name (slug is pre-filled and locked from the approved proposal).
 2. Enter the approved **proposal issue number** (pre-filled when opened from your row).
 3. Paste your full markdown content.
 4. Submit the form.
 
-The portal will automatically create a Pull Request on your behalf. CI verifies the format, runs `_add_study.py`, and commits the PDF and catalog updates.
+The portal opens one **new-study** pull request at a time per slug. If a draft PR is already open, wait for review before submitting again.
+
+### Minor corrections vs full revisions
+
+- **Typos or citations on a published study** — [study feedback issue](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml) (no approval gate).
+- **Author revision** — **Update a study** on My Submissions (`study-update` PR).
+- **Maintainer edit** — direct PR on the default branch (portal optional).
 
 ### Update an existing study or change status
 
@@ -83,7 +95,8 @@ Create these labels in **GitHub → Issues → Labels** (one-time setup):
 | Label | Color (suggested) | Used on |
 |-------|-------------------|---------|
 | `study-proposal` | default | New proposal issues (auto-applied) |
-| `proposal-approved` | green | Approved proposals |
+| `proposal-approved` | green | Approved proposals (issue stays open) |
+| `proposal-declined` | red | Declined proposals |
 | `new-study` | blue | PRs adding a study |
 | `study-update` | yellow | PRs editing study content |
 | `status-change` | purple | PRs changing draft/released |
@@ -93,10 +106,11 @@ Create these labels in **GitHub → Issues → Labels** (one-time setup):
 ## Maintainer duties
 
 1. **Review proposals** — scope, overlap, fit with collection standards.
-2. **Approve** — add `proposal-approved` when ready (bot posts portal instructions with a direct submit link).
-3. **Review PRs** — content quality, citations, quote accuracy.
-4. **Merge** when the `study-pr` CI check passes.
-5. **Release policy** — only merge `status-change` → `released` when the study is ready for public release without a Draft watermark.
+2. **Approve** — add `proposal-approved` when ready (bot bootstraps pre-catalog stub and posts portal instructions).
+3. **Decline** — add `proposal-declined` with a comment when scope does not fit.
+4. **Review PRs** — content quality, citations, quote accuracy; use **Request changes** on GitHub when needed.
+5. **Merge** when the `study-pr` CI check passes.
+6. **Release policy** — only merge `status-change` → `released` when the study is ready for public release without a Draft watermark.
 
 Enable branch protection on `main` with the **`study-pr`** check required before merge (recommended).
 

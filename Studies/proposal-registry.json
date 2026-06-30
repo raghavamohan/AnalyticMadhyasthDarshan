@@ -1,0 +1,175 @@
+{
+  "version": 1,
+  "proposals": [
+    {
+      "slug": "Axiology-Value-Theory",
+      "title": "Axiology Value Theory",
+      "issueNumber": 13,
+      "submitter": "raghavamohan",
+      "category": "Axiology",
+      "description": "Madhyasth Darshan's theory of value: what values are, how they are recognised and fulfilled, and how mutual satisfaction grounds a humane axiology",
+      "formal": false,
+      "phase": "pre-catalog"
+    },
+    {
+      "slug": "Chitta-Brain-And-Memory",
+      "title": "Chitta, the Brain, and the Architecture of Memory",
+      "issueNumber": 27,
+      "submitter": "raghavamohan",
+      "category": "Philosophy of Mind",
+      "description": "Where memory lives in Madhyasth Darshan \u2014 chitta and jeevan versus the brain's biological memory \u2014 compared with neuroscience and philosophy of mind.",
+      "formal": false,
+      "phase": "pre-catalog"
+    },
+    {
+      "slug": "Death-Continuity-And-Rebirth",
+      "title": "Death Continuity and Rebirth",
+      "issueNumber": 21,
+      "submitter": "raghavamohan",
+      "category": "Ontology, Philosophy of Mind",
+      "description": "What happens at death in Madhyasth Darshan: the continuity of jeevan beyond the body and its re-embodiment, compared with Advaita Vedanta's rebirth and the physicalist view that death ends the self",
+      "formal": false,
+      "phase": "pre-catalog"
+    },
+    {
+      "slug": "Education-And-Sanskar",
+      "title": "Education and Sanskar",
+      "issueNumber": 15,
+      "submitter": "raghavamohan",
+      "category": "Education",
+      "description": "How understanding is formed and carried forward: education, sanskar, study, awakening, and transmission across generations",
+      "formal": false,
+      "phase": "pre-catalog"
+    },
+    {
+      "slug": "Family-Relationships-And-Values",
+      "title": "Family Relationships and Values",
+      "issueNumber": 14,
+      "submitter": "raghavamohan",
+      "category": "Relationships, Axiology",
+      "description": "The family as the first site of values: recognising relationships and living trust, affection, gratitude, and mutual satisfaction",
+      "formal": false,
+      "phase": "pre-catalog"
+    },
+    {
+      "slug": "Free-Will-Choice-And-Agency",
+      "title": "Free Will Choice and Agency",
+      "issueNumber": 24,
+      "submitter": "raghavamohan",
+      "category": "Philosophy of Mind",
+      "description": "Whether human conduct is free or determined: definite conduct in the lower orders versus achieved selection at the knowledge order, compared with debates on free will and determinism",
+      "formal": false,
+      "phase": "pre-catalog"
+    },
+    {
+      "slug": "God-Divinity-And-The-Sacred",
+      "title": "God Divinity and the Sacred",
+      "issueNumber": 26,
+      "submitter": "raghavamohan",
+      "category": "Philosophy of Religion",
+      "description": "How Madhyasth Darshan reframes God and the divine: satta as omnipresence and the awakened (divya) human, compared with theism, Advaita Vedanta's Ishvara, and secular critiques of religion",
+      "formal": false,
+      "phase": "pre-catalog"
+    },
+    {
+      "slug": "Governance-Justice-And-Undivided-Society",
+      "title": "Governance Justice and Undivided Society",
+      "issueNumber": 16,
+      "submitter": "raghavamohan",
+      "category": "Political Philosophy, Axiology",
+      "description": "Justice, governance, and law in Madhyasth Darshan: fearlessness, public order, and the institutions of an undivided society",
+      "formal": false,
+      "phase": "pre-catalog"
+    },
+    {
+      "slug": "Health-Body-And-Restraint",
+      "title": "Health Body and Restraint",
+      "issueNumber": 25,
+      "submitter": "raghavamohan",
+      "category": "Health, Axiology",
+      "description": "The jeevan-body relationship in health: ahar-vihar, restraint (sanyam), and well-being as the health-restraint dimension of universal orderliness",
+      "formal": false,
+      "phase": "pre-catalog"
+    },
+    {
+      "slug": "Language-Meaning-And-Definition",
+      "title": "Language Meaning and Definition",
+      "issueNumber": 22,
+      "submitter": "raghavamohan",
+      "category": "Philosophy of Language, Epistemology",
+      "description": "Madhyasth Darshan's claim that reality is fully expressible: word, meaning, and definition (shabd, artha, Paribhasha), set against Advaita Vedanta's ineffability and modern philosophy of language",
+      "formal": false,
+      "phase": "pre-catalog"
+    },
+    {
+      "slug": "Methodology-And-Hermeneutics",
+      "title": "Methodology and Hermeneutics",
+      "issueNumber": 12,
+      "submitter": "raghavamohan",
+      "category": "Methodology",
+      "description": "The method behind these studies: reading the primary texts, translation issues, citation discipline, interpretation, and disciplined comparison across traditions",
+      "formal": false,
+      "phase": "pre-catalog"
+    },
+    {
+      "slug": "Nature-Ecology-And-Right-Use",
+      "title": "Nature Ecology and Right Use",
+      "issueNumber": 18,
+      "submitter": "raghavamohan",
+      "category": "Ecology, Axiology",
+      "description": "Living with the other orders of nature: Earth, right-use, regeneration, and ecological balance within coexistence",
+      "formal": false,
+      "phase": "pre-catalog"
+    },
+    {
+      "slug": "Philosophy-Of-Mind-And-Jeevan",
+      "title": "Philosophy of Mind and Jeevan",
+      "issueNumber": 11,
+      "submitter": "raghavamohan",
+      "category": "Philosophy of Mind",
+      "description": "How Madhyasth Darshan understands the inner life: jeevan and its faculties \u2014 mun, vritti, chitta, buddhi, and atma \u2014 and desire, imagination, selection, delusion, and awakening",
+      "formal": false,
+      "phase": "pre-catalog"
+    },
+    {
+      "slug": "Prosperity-Economics-And-Right-Use",
+      "title": "Prosperity Economics and Right Use",
+      "issueNumber": 17,
+      "submitter": "raghavamohan",
+      "category": "Economics, Axiology",
+      "description": "Prosperity without accumulation: production, cyclical economics, right-use of wealth, and the limits of accumulation",
+      "formal": false,
+      "phase": "pre-catalog"
+    },
+    {
+      "slug": "Science-Technology-And-Human-Purpose",
+      "title": "Science Technology and Human Purpose",
+      "issueNumber": 20,
+      "submitter": "raghavamohan",
+      "category": "Philosophy of Science",
+      "description": "Science, technology, and human purpose: production and convenience, and the limits of instrumental knowledge",
+      "formal": false,
+      "phase": "pre-catalog"
+    },
+    {
+      "slug": "Spiritual-Practice-And-Realization",
+      "title": "Spiritual Practice and Realization",
+      "issueNumber": 19,
+      "submitter": "raghavamohan",
+      "category": "Spiritual Practice",
+      "description": "Realization and awakening in Madhyasth Darshan: anubhav, practice, yoga, and liberation from mystery and suffering, compared with moksha traditions",
+      "formal": false,
+      "phase": "pre-catalog"
+    },
+    {
+      "slug": "Work-Action-And-Karma",
+      "title": "Work Action and Karma",
+      "issueNumber": 23,
+      "submitter": "raghavamohan",
+      "category": "Ethics, Axiology",
+      "description": "Human action and work in Madhyasth Darshan: effort-motion-result (shram-gati-parinam), karma, labour, and right-use, and how action carries consequence",
+      "formal": false,
+      "phase": "pre-catalog"
+    }
+  ]
+}
