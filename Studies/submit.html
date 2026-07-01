@@ -117,7 +117,7 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
 
   <header class="hero" id="hub-hero">
     <h1>My Submissions</h1>
-    <p class="lead">Propose studies, submit drafts, update content, and change release status — all in one place. Sign in with GitHub to track proposals, pull requests, and CI checks.</p>
+    <p class="lead">Propose studies, submit drafts, and manage your contributions — all in one place. Sign in with GitHub to track proposals, pull requests, and CI checks.</p>
   </header>
 
   <div class="step-strip hidden" id="step-strip" aria-label="Submission workflow">
@@ -610,7 +610,6 @@ function renderDashboardRows(submissions, truncated) {
       titleHtml = '<a href="' + escapeHtml(item.issueUrl) + '" target="_blank" rel="noopener">' + titleHtml + '</a>';
     }
     titleHtml = '<span class="type-badge">' + escapeHtml(item.kindLabel || 'Item') + '</span> ' + titleHtml;
-    if (item.slug) titleHtml += '<br><code style="font-size:11px;">' + escapeHtml(item.slug) + '</code>';
 
     const stageCell = '<span class="stage-badge ' + stageClass(item.stage) + '">' + escapeHtml(STAGE_LABELS[item.stage] || item.stage) + '</span>';
 
