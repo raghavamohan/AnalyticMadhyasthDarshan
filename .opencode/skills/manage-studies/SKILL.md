@@ -36,6 +36,12 @@ Orchestration skill for the study lifecycle. Read the focused skill for your tas
 | Draft | Linked + Draft status | Draft watermark |
 | Released | Linked + Released status | No watermark |
 
+## Before you start
+
+Create a feature branch before touching anything under `Studies/` — never commit study
+changes directly to the default branch. See [AGENTS.md](../../AGENTS.md) §7 for the full
+branch/PR-label/template workflow; this skill covers file-level correctness only.
+
 ## Prerequisites
 
 From repo root (PowerShell):
@@ -66,8 +72,11 @@ Confirm before finishing:
 - [ ] PDF regenerated when content or status changed (Mermaid studies: `npm install` in `Scripts/`)
 - [ ] `Studies/catalog-*.json` and `Studies/README.md` table rows stay in sync (use `write_studies_catalog` via scripts — never hand-edit JSON)
 - [ ] After landing-page UI changes: `INDEX_TEMPLATE` updated in `_build_studies_index.py`, shell rebuilt, `python Scripts/_verify_studies_index.py` passes
+- [ ] Change is on a feature branch (not the default branch); the PR to open carries exactly one
+  of `new-study` / `study-update` / `status-change` and the body field that label requires —
+  [AGENTS.md](../../AGENTS.md) §7
 
-**Agent rules:** [AGENTS.md](../../AGENTS.md) — §1 (Edited on), §2 (catalog sync), §3 (PDF pipeline).
+**Agent rules:** [AGENTS.md](../../AGENTS.md) — §1 (Edited on), §2 (catalog sync), §3 (PDF pipeline), §7 (submission process: branches, PR labels, templates).
 
 ## Study writing standards
 

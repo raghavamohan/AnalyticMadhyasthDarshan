@@ -15,7 +15,7 @@ Run sync **before you finish** any task that edits:
 
 | Path | Role |
 |------|------|
-| `AGENTS.md` | Canonical rules (§1–§6) |
+| `AGENTS.md` | Canonical rules (§1–§7) |
 | `.agents/skills/**/SKILL.md` | Canonical skills (OpenCode/ZCode via junction) |
 | `Scripts/_sync_agent_rules.py` | Sync script itself |
 
@@ -32,7 +32,7 @@ python Scripts/_sync_agent_rules.py
 python Scripts/_sync_agent_rules.py --check
 ```
 
-1. **`_sync_agent_rules.py`** — writes `.cursor/rules/*.mdc` from `AGENTS.md` §1–§6 and
+1. **`_sync_agent_rules.py`** — writes `.cursor/rules/*.mdc` from `AGENTS.md` §1–§7 and
    copies `.agents/skills/` → `.cursor/skills/`. (`.opencode/skills/` is a junction to
    `.agents/skills/` — no separate copy.)
 2. **`--check`** — exits with an error if mirrors are stale. Run after sync and before commit.

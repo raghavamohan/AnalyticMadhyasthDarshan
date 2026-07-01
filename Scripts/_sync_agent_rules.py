@@ -1,7 +1,7 @@
 """Sync AGENTS.md rule sections and skills to Cursor/OpenCode mirrors.
 
 Source of truth:
-  - Rules: AGENTS.md sections 1–5 → .cursor/rules/*.mdc (OpenCode via opencode.json)
+  - Rules: AGENTS.md sections 1–7 → .cursor/rules/*.mdc (OpenCode via opencode.json)
   - Skills: .agents/skills/ → .cursor/skills/ (.opencode/skills/ is a junction to .agents/skills/)
 
 Run from repo root after editing AGENTS.md or .agents/skills/:
@@ -88,6 +88,15 @@ MDC_CONFIG: dict[int, dict[str, str]] = {
         "alwaysApply": "false",
         "title": "Reference checks when citations change",
         "section_ref": "§6",
+        "extra_globs": "",
+    },
+    7: {
+        "file": "study-submission-process.mdc",
+        "description": "Studies/ changes go through a feature branch and a labeled pull request, never a direct commit to the default branch",
+        "globs": "Studies/**",
+        "alwaysApply": "true",
+        "title": "Study submission process — branches, PR labels, and templates",
+        "section_ref": "§7",
         "extra_globs": "",
     },
 }
