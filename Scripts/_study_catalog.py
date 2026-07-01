@@ -609,7 +609,10 @@ def proposal_stub_hrefs(slug: str) -> tuple[str | None, str | None]:
 
 
 def row_pdf_href(row: StudyRow) -> str | None:
-    if row.pdf_href:
+    # Only honor a stored href when it actually points at a PDF. Older catalog
+    # rows and README links stored the HTML "read" link here, which made the
+    # index "download" control fetch HTML instead of the PDF.
+    if row.pdf_href and row.pdf_href.lower().endswith(".pdf"):
         return row.pdf_href
     if row.has_pdf:
         if row.table == StudyTable.APPLIED:
