@@ -16,7 +16,7 @@ import urllib.request
 from dataclasses import replace
 from pathlib import Path
 
-from _common import BASE, STUDIES, slug_from_study_relative_path, study_md
+from _common import BASE, STUDIES, slug_from_repo_relative_path, study_md
 
 from _build_studies_index import verify_index_shell_sync  # noqa: E402
 from _check_references import run_checks, print_report  # noqa: E402
@@ -115,7 +115,7 @@ def references_changed(base_ref: str) -> bool:
 
 
 def study_references_changed(base_ref: str, slug: str) -> bool:
-    md_path = f"Studies/{slug}/{slug}.md"
+    md_path = study_md(slug).relative_to(BASE).as_posix()
     result = subprocess.run(
         ["git", "diff", base_ref, "HEAD", "--", md_path],
         capture_output=True,
@@ -173,10 +173,7 @@ def changed_study_slugs(base_ref: str) -> list[str]:
     seen: set[str] = set()
     for line in result.stdout.splitlines():
         path = Path(line.strip())
-        if path.parts[:1] != ("Studies",):
-            continue
-        rel = Path(*path.parts[1:])
-        slug = slug_from_study_relative_path(rel)
+        slug = slug_from_repo_relative_path(path)
         if slug and slug not in seen:
             seen.add(slug)
             slugs.append(slug)
@@ -268,7 +265,8 @@ def handle_new_study(body: str, base_ref: str) -> None:
         slug = changed[0]
     else:
         raise SystemExit(
-            "Set `Slug:` in the PR body or change exactly one Studies/<Slug>/<Slug>.md file."
+            "Set `Slug:` in the PR body or change exactly one "
+            "Studies/<Slug>/<Slug>.md (or Applications/<Slug>/<Slug>.md) file."
         )
 
     md_path = study_md(slug)
@@ -322,7 +320,8 @@ def handle_study_update(body: str, base_ref: str) -> None:
         slug = changed[0]
     else:
         raise SystemExit(
-            "Set `Study slug:` in the PR body or change exactly one Studies/<Slug>/<Slug>.md file."
+            "Set `Study slug:` in the PR body or change exactly one "
+            "Studies/<Slug>/<Slug>.md (or Applications/<Slug>/<Slug>.md) file."
         )
 
     located = get_study_row(slug)

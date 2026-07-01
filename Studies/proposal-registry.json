@@ -42,6 +42,17 @@
       "phase": "pre-catalog"
     },
     {
+      "slug": "Coexistence-Company-Org-Structure",
+      "title": "Coexistence Company \u2014 Concrete Organizational Structure",
+      "issueNumber": 42,
+      "submitter": "raghavamohan",
+      "category": "Organizational design",
+      "description": "A concrete organisational blueprint that instantiates the coexistence template and categorical architecture for a deliberate knowledge-work company \u2014 structure, roles, and governance designed to be stable by construction",
+      "formal": false,
+      "phase": "published",
+      "applied": true
+    },
+    {
       "slug": "Death-Continuity-And-Rebirth",
       "title": "Death Continuity and Rebirth",
       "issueNumber": 21,
