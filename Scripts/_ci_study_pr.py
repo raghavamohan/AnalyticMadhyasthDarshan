@@ -330,7 +330,7 @@ def handle_study_update(body: str, base_ref: str) -> None:
         raise SystemExit(f"Study not found in catalog: {slug}")
 
     row, _table = located
-    if (row.status == StudyStatus.ONGOING:
+    if row.status == StudyStatus.ONGOING:
         raise SystemExit(
             f"{slug} is a pre-catalog proposal placeholder. Submit a new-study PR to register the draft."
         )
