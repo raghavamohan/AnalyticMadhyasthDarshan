@@ -2,22 +2,22 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 26, 2026, 9:58 PM IST
+**Edited on:** July 1, 2026, 2:41 PM IST
 **Status:** Draft
 
-**Basis:** This application instantiates the coexistence template and categorical architecture for a deliberate human assembly ([*The Coexistence Template*](../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf) D1–D13, L1–L7, P3–P5, §8; [*Category Theory Explained*](../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf) §§3.5, 6.1, 6.1.1, 6.2.1, 6.6.1, 6.7–6.9, 6.15). It is a design blueprint, not legal advice.
+**Basis:** This application instantiates the coexistence template and categorical architecture for a deliberate human assembly ([*The Coexistence Template*](../../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf) D1–D13, L1–L7, P3–P5, §8; [*Category Theory Explained*](../../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf) §§3.5, 6.1, 6.1.1, 6.2.1, 6.6.1, 6.7–6.9, 6.15). It works out, at company scale, the practical programme whose theoretical core is [*How To Form Self-Sustaining Organizations*](../../Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.pdf) (template §8, P3–P4). It is a design blueprint, not legal advice.
 
 **Example company:** **Saha Coexistence Works** (SCW) — a knowledge-work company (research, education, and technology services) whose product is understood coexistence made useful in the world. Scale assumed: **60 members** at steady state, expandable by **compound** team formation, not mere headcount.
 
 
 ## 1. Design objectives
 
-SCW is organised to meet two objectives together ([*The Coexistence Template*](../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf) §8; P3–P4):
+SCW is organised to meet two objectives together ([*The Coexistence Template*](../../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf) §8; P3–P4):
 
 1. **Members are not instrumentalised** — nurturing (*poshan*), not net extraction; values fulfilled in relationships, not fear or temptation as the basis of order (P3; JV p. 39 cited in template §8).
 2. **The company sustains across generations of members** — relationships fulfilled (L4), understanding transmitted by education-*sanskar* (L5, τ), common cause, goal, and programme (P4).
 
-Orientation is **completeness of relationships**, not unbounded maximisation of profit, comfort, or scale ([*The Coexistence Template*](../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf) §5; P6). Metric targets that chase open-ended "more" are treated as delusion pathology, not design requirements ([*Category Theory Explained*](../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf) §6.5).
+Orientation is **completeness of relationships**, not unbounded maximisation of profit, comfort, or scale ([*The Coexistence Template*](../../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf) §5; P6). Metric targets that chase open-ended "more" are treated as delusion pathology, not design requirements ([*Category Theory Explained*](../../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf) §6.5).
 
 
 ## 2. Assembly tiers (who is a “unit”)
@@ -30,7 +30,7 @@ Orientation is **completeness of relationships**, not unbounded maximisation of 
 | **Undivided society** | **Company** (SCW) | All Clusters | **Compound** + gluing | Yes — one company-facing conduct |
 | **Federation** (optional) | **Alliance** | 2+ aligned companies | Soc colimit | Only if overlap values agree |
 
-**Rule:** Adding people in the same building without fused conduct is **mixture** (*mishran*) — weaker cohesion. Scale hiring only after **L3** complementarity (need/surplus) and overlap compatibility are verified ([*Category Theory Explained*](../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf) §6.9.1; [*The Coexistence Template*](../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf) L3).
+**Rule:** Adding people in the same building without fused conduct is **mixture** (*mishran*) — weaker cohesion. Scale hiring only after **L3** complementarity (need/surplus) and overlap compatibility are verified ([*Category Theory Explained*](../../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf) §6.9.1; [*The Coexistence Template*](../../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf) L3).
 
 
 ## 3. Top-level org chart
@@ -57,7 +57,7 @@ flowchart TD
 
 ## 4. Functional units (departments)
 
-Each row is a **mandatory subsystem** — the categorical analogue in [*Category Theory Explained*](../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf) §6.1. The **regulation ladder** (template D2a) is distributed: ambient ground and law-as-regulation at the Steward Council and Charter offices; order *sanskar* conformance and inward discipline at Capability and Transmission; **justice** (D7) as the knowledge-order operator ρ → φ → μ → mutual satisfaction at Value & Justice and Evaluation — not a value class in the registry.
+Each row is a **mandatory subsystem** — the categorical analogue in [*Category Theory Explained*](../../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf) §6.1. The **regulation ladder** (template D2a) is distributed: ambient ground and law-as-regulation at the Steward Council and Charter offices; order *sanskar* conformance and inward discipline at Capability and Transmission; **justice** (D7) as the knowledge-order operator ρ → φ → μ → mutual satisfaction at Value & Justice and Evaluation — not a value class in the registry.
 
 | # | Department | Template / CT role | Primary responsibility |
 |---|------------|-------------------|------------------------|
@@ -71,7 +71,7 @@ Each row is a **mandatory subsystem** — the categorical analogue in [*Category
 | 7 | **Evidence & Tradition Office** | Ev, D13, L7; §6.15 | Conduct others can recognise (*pramanikta*); closes D13 evidence loop; records awakened tradition |
 | 8 | **Composition Office** | Comp, κ, D8; L3 guard | Team formation, mergers, partnerships; **mixture vs compound** decisions; **AdmissibleComp** (L3) proof |
 | 9 | **Integration Office** | Soc, L4, P6 | Glues Clusters: **overlap compatibility** on shared people, clients, and resources |
-| 10 | **Transmission Institute** | Trans, τ, L5; P16 | Education-*sanskar* for every cohort; mentor lineage; succession — **evidenced** understanding (τ_ev), not rules without φ |
+| 10 | **Transmission Institute** | Trans, τ, L5; CT §6.11 P16 | Education-*sanskar* for every cohort; mentor lineage; succession — **evidenced** understanding (τ_ev), not rules without φ |
 | 11 | **Conduct Division** | Conduct, φ | Product, service, and operations that **fulfil** external and internal relationships |
 | 12 | **Right-Use & Regeneration** | P5, η | Uniform right-use across domains; resource use bounded by regeneration |
 
@@ -89,7 +89,7 @@ Each row is a **mandatory subsystem** — the categorical analogue in [*Category
 
 ## 5. Family Team structure (compound unit)
 
-Each **Family Team** is a compound assembly: members discard separate outward conducts and present **one team conduct** with a written **sig(team)** = ⟨form, properties, essential nature, *dharma*⟩ ([*The Coexistence Template*](../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf) D1, D8).
+Each **Family Team** is a compound assembly: members discard separate outward conducts and present **one team conduct** with a written **sig(team)** = ⟨form, properties, essential nature, *dharma*⟩ ([*The Coexistence Template*](../../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf) D1, D8).
 
 ```mermaid
 flowchart LR
@@ -117,7 +117,7 @@ flowchart LR
 
 ## 6. Definite relationships (company-wide registry)
 
-The Relationship Registry maintains these **knowledge-order** relationships ([*The Coexistence Template*](../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf) §4; JV p. 109 cited in template §4):
+The Relationship Registry maintains these **knowledge-order** relationships ([*The Coexistence Template*](../../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf) §4; JV p. 109 cited in template §4):
 
 | Relationship | Parties | Expectation profile (summary) | Value class |
 |--------------|---------|------------------------------|-------------|
@@ -134,7 +134,7 @@ Associations (voluntary projects, hobbies) are logged separately and **do not** 
 
 ## 7. Graded values in practice
 
-Template D4 names six value kinds; four operate at the knowledge order ([*The Coexistence Template*](../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf) D4):
+Template D4 names six value kinds; four operate at the knowledge order ([*The Coexistence Template*](../../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf) D4):
 
 | Class | SCW examples | Where monitored |
 |-------|----------------|-----------------|
@@ -156,7 +156,7 @@ Template D4 names six value kinds; four operate at the knowledge order ([*The Co
 | **T2 — Activity** | *Kriyapurnata* | Programmes run; φ in daily work; cap(u) converts to effort; Clusters glued with compatible overlaps |
 | **T3 — Conduct** | *Vyavaharpurnata* | Conduct evidenced externally (*pramanikta*); D13 loop closed; Transmission Institute producing awakened tradition |
 
-T2–T3 are **awakening progression** (*jagriti-kram*) inside an already-constituted company — lifts in the knowledge order guarded by cap(u) and μ, not the same as hiring more people or material-tier κ_comp ([*Category Theory Explained*](../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf) §6.2.1, §6.10; template D11).
+T2–T3 are **awakening progression** (*jagriti-kram*) inside an already-constituted company — lifts in the knowledge order guarded by cap(u) and μ, not the same as hiring more people or material-tier κ_comp ([*Category Theory Explained*](../../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf) §6.2.1, §6.10; template D11).
 
 
 ## 9. Governance and decision rights
@@ -170,9 +170,9 @@ T2–T3 are **awakening progression** (*jagriti-kram*) inside an already-constit
 | Value dispute | Evaluation Forum → Value Office | μ |
 | Resource draw on nature | Right-Use Office | P5 regeneration bound |
 | Member onboarding / offboarding | Transmission Institute + Mentor | τ_ev evidenced (P16) |
-| Right-use claim company-wide | Must pass **naturality** — all domains upgraded together | η ([*Category Theory Explained*](../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf) §6.7) |
+| Right-use claim company-wide | Must pass **naturality** — all domains upgraded together | η ([*Category Theory Explained*](../../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf) §6.7) |
 
-**Chief Steward** coordinates stewards; **does not** own surplus extraction from members. Profit, where it arises, is **circularity for family needs and reinvestment in transmission**, not unbounded accumulation ([*The Coexistence Template*](../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf) §8; MVD p. 265 cited there).
+**Chief Steward** coordinates stewards; **does not** own surplus extraction from members. Profit, where it arises, is **circularity for family needs and reinvestment in transmission**, not unbounded accumulation ([*The Coexistence Template*](../../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf) §8; MVD p. 265 cited there).
 
 
 ## 10. Operating rhythms
@@ -189,7 +189,7 @@ T2–T3 are **awakening progression** (*jagriti-kram*) inside an already-constit
 
 ## 11. Onboarding pipeline (τ)
 
-Every new member passes through Transmission Institute — **ignorance cannot flow in tradition** ([*The Coexistence Template*](../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf) §6; JV p. 49 cited there). Full membership requires a composable D13 step: evidenced conduct, not private conviction alone (L7; §6.15).
+Every new member passes through Transmission Institute — **ignorance cannot flow in tradition** ([*The Coexistence Template*](../../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf) §6; JV p. 49 cited there). Full membership requires a composable D13 step: evidenced conduct, not private conviction alone (L7; §6.15).
 
 ```mermaid
 flowchart LR
@@ -206,7 +206,7 @@ Minimum duration: **90 days** before full membership in a compound Family Team.
 
 ## 12. Growth and merger rules
 
-**Admissible growth (L3):** New team or hire when a documented **need** in one unit complements **surplus** in another — an admissible span in **AdmissibleComp**, not arbitrary colocation ([*Category Theory Explained*](../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf) §6.9.1).
+**Admissible growth (L3):** New team or hire when a documented **need** in one unit complements **surplus** in another — an admissible span in **AdmissibleComp**, not arbitrary colocation ([*Category Theory Explained*](../../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf) §6.9.1).
 
 **Admissible merger:** Only when Integration Office certifies:
 
@@ -236,8 +236,8 @@ Minimum duration: **90 days** before full membership in a compound Family Team.
 ## 14. What this structure is not
 
 - **Not** a conventional command hierarchy optimised for shareholder extraction.
-- **Not** self-sufficient proof of coexistence — metaphysical premises remain commitments ([*The Coexistence Template*](../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf) §9).
-- **Not** derivable from category theory alone — L3 complementarity, cap(u), τ_ev, and saturation are **designed in** ([*Category Theory Explained*](../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf) §6.11 P8–P9, P11, P16).
+- **Not** self-sufficient proof of coexistence — metaphysical premises remain commitments ([*The Coexistence Template*](../../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf) §9).
+- **Not** derivable from category theory alone — L3 complementarity, cap(u), τ_ev, and saturation are **designed in** ([*Category Theory Explained*](../../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf) §6.11 P8–P9, P11, P16).
 
 SCW is a **template instance**: bounded units, definite valued relationships, compound assembly by complementarity, persistence by fulfilment, transmission by education-*sanskar*, evaluation and evidence at the knowledge tier — structured so longevity and balance are **construction requirements**, not afterthoughts.
 
@@ -246,5 +246,6 @@ SCW is a **template instance**: bounded units, definite valued relationships, co
 
 ### Application basis (this repository)
 
-- [*The Coexistence Template*](../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf) — formal template: units, regulation ladder (D2a–D2b), relationships, six-fold values (D4), justice operator (D7), κ, τ, L1–L7, P3–P5, D12–D13, §8 human organisations
-- [*Category Theory Explained*](../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf) — categorical architecture §6.1; fibred cap(u) §6.6.1; right-use §6.7; society colimit §6.8; mixture/compound §6.9; knowledge registers and self-evidencing §6.15; propositions P6, P8–P9, P11, P16
+- [*The Coexistence Template*](../../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf) — formal template: units, regulation ladder (D2a–D2b), relationships, six-fold values (D4), justice operator (D7), κ, τ, L1–L7, P3–P5, D12–D13, §8 human organisations
+- [*Category Theory Explained*](../../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf) — categorical architecture §6.1; fibred cap(u) §6.6.1; right-use §6.7; society colimit §6.8; mixture/compound §6.9; knowledge registers and self-evidencing §6.15; propositions P6, P8–P9, P11, P16
+- [*How To Form Self-Sustaining Organizations*](../../Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.pdf) — the practical organisational programme this blueprint instantiates at company scale (template §8, P3–P4)
