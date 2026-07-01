@@ -336,7 +336,7 @@ function buildOpenStudyPrIndex(prItems) {
     const labels = issueLabels(item);
     const prType = prTypeFromLabels(labels);
     if (!prType || prType === 'status-change') continue;
-    const slug = parseSlugFromBody(item.body, prType) || slugFromPrTitle(item.title);
+    const slug = parseSlugFromBody(item.body) || slugFromPrTitle(item.title);
     if (!slug) continue;
     bySlug.set(slug, {
       number: item.number,
@@ -538,20 +538,28 @@ function stripMdSuffix(value) {
   return trimmed.endsWith('.md') ? trimmed.slice(0, -3) : trimmed;
 }
 
-function parseSlugFromBody(body, prType) {
+// Both `.github/PULL_REQUEST_TEMPLATE/study-update.md` and `status-change.md` use
+// "Study slug:"; only `new-study.md` uses plain "Slug:". Check "Study slug:" first for
+// every prType (mirroring Scripts/_ci_study_pr.py's handle_study_update, which tries
+// `^Study slug:` before falling back to `^Slug:`) so a study-update PR filled in exactly
+// as its own template instructs still resolves -- previously only the status-change branch
+// recognized "Study slug:", so a template-following study-update PR's slug (and therefore
+// its catalog status and dashboard actions) silently failed to resolve.
+function parseSlugFromBody(body) {
   const text = body || '';
-  if (prType === 'status-change') {
-    const match = text.match(/^Study slug:\s*(.+)$/im);
-    return match ? stripMdSuffix(match[1]) : null;
-  }
-  const match = text.match(/^Slug:\s*(.+)$/im);
-  return match ? stripMdSuffix(match[1]) : null;
+  const studySlugMatch = text.match(/^Study slug:\s*(.+)$/im);
+  if (studySlugMatch) return stripMdSuffix(studySlugMatch[1]);
+  const slugMatch = text.match(/^Slug:\s*(.+)$/im);
+  return slugMatch ? stripMdSuffix(slugMatch[1]) : null;
 }
 
 function slugFromPrTitle(title) {
   const addMatch = (title || '').match(/^Add study:\s*(.+)$/i);
   if (addMatch) return addMatch[1].trim();
-  const updateMatch = (title || '').match(/^Update study:\s*(.+)$/i);
+  // "Update study: <slug>" is the portal-generated title; "Study update: <slug>" is the
+  // PR template's own section heading ("## Study update") and a natural title for a
+  // hand-authored PR that follows the template literally -- accept both.
+  const updateMatch = (title || '').match(/^(?:Update study|Study update):\s*(.+)$/i);
   if (updateMatch) return updateMatch[1].trim();
   const statusMatch = (title || '').match(/^Status change:\s*(.+?)\s*→/i);
   if (statusMatch) return statusMatch[1].trim();
@@ -647,7 +655,7 @@ function buildOpenStatusChangeIndex(prItems) {
   for (const item of prItems) {
     const labels = issueLabels(item);
     if (!labels.includes('status-change') || item.state !== 'open') continue;
-    const slug = parseSlugFromBody(item.body, 'status-change') || slugFromPrTitle(item.title);
+    const slug = parseSlugFromBody(item.body) || slugFromPrTitle(item.title);
     if (slug) {
       bySlug.set(slug, {
         number: item.number,
@@ -887,7 +895,7 @@ async function buildDashboard(session, env) {
     const labels = issueLabels(item);
     const prType = prTypeFromLabels(labels);
     const slug =
-      parseSlugFromBody(item.body, prType) ||
+      parseSlugFromBody(item.body) ||
       slugFromPrTitle(item.title);
     const stage = prStageFromSearchItem(item);
     const catalogStatus = slug ? (catalogMap.get(slug) || null) : null;
