@@ -8,7 +8,7 @@ It is the **source of truth** for ZCode, OpenCode, and other agents that read
 per section below). **OpenCode / ZCode** loads `AGENTS.md` automatically and also reads
 `.cursor/rules/*.mdc` via `opencode.json` → `instructions`.
 
-**After editing `AGENTS.md` (§1–§7) or any `.agents/skills/**/SKILL.md`**, run sync before
+**After editing `AGENTS.md` (§1–§8) or any `.agents/skills/**/SKILL.md`**, run sync before
 you finish the task or commit:
 
 ```powershell
@@ -38,10 +38,11 @@ Available skills: `manage-studies`, `add-study`, `remove-study`, `set-study-stat
 | §5 | Standpoint and scope | `study-standpoint-scope.mdc` |
 | §6 | Reference checks when citations change | `study-references-check.mdc` |
 | §7 | Study submission process: branches, PR labels, templates | `study-submission-process.mdc` |
+| §8 | Line endings: LF everywhere | `line-endings.mdc` |
 
-There are seven rule sections below. The first, fourth, fifth, and sixth apply when
+There are eight rule sections below. The first, fourth, fifth, and sixth apply when
 their stated conditions are met; §1 also applies to every topical study edit; §7 always
-applies to any change under `Studies/`.
+applies to any change under `Studies/`; §8 always applies to every file in the repo.
 
 ---
 
@@ -625,3 +626,34 @@ drift out of sync with the source `.md`.
 - [ ] Local verification (`_quote_tool.py verify`, `_check_references.py`, `_regenerate_pdf.py`,
   `_verify_studies_index.py` as applicable) run and passing before push
 - [ ] Non-study changes (Scripts/, rules, skills, infra) are not carrying a study label
+
+---
+
+## 8. Line endings — LF everywhere *(always applies)*
+
+Every file in this repository uses **LF** (`\n`) line endings. `.gitattributes` at
+the repo root (`* text=auto eol=lf`) normalizes all tracked text files to LF in git
+and on checkout across platforms; binary types (`*.pdf`, `*.png`, fonts, Office
+documents, archives) are marked `binary` and left untouched. `.vscode/settings.json`
+sets `"files.eol": "\n"` so the editor writes LF at the source on every OS.
+
+This exists because the repo previously had mixed endings and no `.gitattributes`,
+so generated artifacts (study `*.html`, `catalog-*.json`, `Studies/index.html`,
+companion HTML from PDF regeneration) churned between CRLF and LF depending on which
+tool or OS last wrote them, producing large line-ending-only diffs.
+
+### Rules
+
+- Never introduce CRLF (`\r\n`) into tracked text files. Create and edit files with LF.
+- Keep `.gitattributes` as the single source of EOL policy; do not add per-path
+  overrides that reintroduce CRLF, and do not delete the `eol=lf` normalization.
+- Scripts that write files (PDF/HTML pipeline, `_build_studies_index.py`, catalog
+  writers) must emit LF; `.gitattributes` also normalizes on commit as a backstop.
+- Do not hand-convert generated artifacts to CRLF to "fix" a diff — regenerate them
+  with the repo scripts instead.
+
+### Check
+
+- `git add --renormalize .` produces no changes on an otherwise clean tree.
+- `git diff --ignore-cr-at-eol` shows no files that differ only by line ending.
+- New text files report `i/lf` under `git ls-files --eol`.
