@@ -8,7 +8,7 @@ It is the **source of truth** for ZCode, OpenCode, and other agents that read
 per section below). **OpenCode / ZCode** loads `AGENTS.md` automatically and also reads
 `.cursor/rules/*.mdc` via `opencode.json` → `instructions`.
 
-**After editing `AGENTS.md` (§1–§6) or any `.agents/skills/**/SKILL.md`**, run sync before
+**After editing `AGENTS.md` (§1–§7) or any `.agents/skills/**/SKILL.md`**, run sync before
 you finish the task or commit:
 
 ```powershell
@@ -37,9 +37,11 @@ Available skills: `manage-studies`, `add-study`, `remove-study`, `set-study-stat
 | §4 | Study prose style | `study-prose-style.mdc` |
 | §5 | Standpoint and scope | `study-standpoint-scope.mdc` |
 | §6 | Reference checks when citations change | `study-references-check.mdc` |
+| §7 | Study submission process: branches, PR labels, templates | `study-submission-process.mdc` |
 
-There are six rule sections below. The first, fourth, fifth, and sixth apply when
-their stated conditions are met; §1 also applies to every topical study edit.
+There are seven rule sections below. The first, fourth, fifth, and sixth apply when
+their stated conditions are met; §1 also applies to every topical study edit; §7 always
+applies to any change under `Studies/`.
 
 ---
 
@@ -559,3 +561,67 @@ under `References/`.
 - [ ] No `file://` reference links in regenerated study PDFs
 - [ ] `References/README.md`, `MANIFEST.md`, and `NOT-DOWNLOADED.md` agree on local vs external
 - [ ] Study PDFs regenerated when bibliography links changed
+
+---
+
+## 7. Study submission process — branches, PR labels, and templates *(always applies)*
+
+Applies to any change under `Studies/` (adding, editing, or changing the status of a study).
+Human contributors follow the Web Submission Portal flow in [CONTRIBUTING.md](CONTRIBUTING.md).
+Agents and other direct-repo contributors must follow the same underlying shape as a plain git
+workflow: **never commit a `Studies/` change directly to the default branch.** Every study
+addition, edit, or status change lands through a pull request that CI
+(`.github/workflows/study-pr.yml` → `Scripts/_ci_study_pr.py`) can process.
+
+### Mandatory workflow
+
+1. **Create a feature branch** before touching any file under `Studies/`. Do not commit study
+   changes on `master`/`main`.
+2. **Scope one study slug per pull request** for `study-update` and `status-change` changes —
+   `Scripts/_ci_study_pr.py` resolves the slug from the PR body (or from the single changed
+   `Studies/<Slug>/<Slug>.md`) and will fail if more than one slug changed without a `Study slug:`
+   field naming which one to process. If you must touch two studies (e.g. adding a cross-link in
+   both directions), open **two** PRs, one per slug.
+3. **Run local verification before pushing** — the same checks CI runs, so the PR is expected to
+   pass on first push:
+   - `python Scripts/_quote_tool.py verify --study <Slug>` if you quoted a local source
+   - `python Scripts/_check_references.py --study <Slug>` (drop `--study` if `References/` itself
+     changed)
+   - `python Scripts/_regenerate_pdf.py <Slug>` (regenerates PDF/HTML and runs the SVG/diagram/
+     fenced-code/outline verifiers)
+   - `python Scripts/_verify_studies_index.py` if a catalog or the index shell changed
+4. **Push the branch and open a pull request** using the matching template in
+   [.github/PULL_REQUEST_TEMPLATE/](.github/PULL_REQUEST_TEMPLATE/) and apply **exactly one**
+   label:
+
+   | Change | Template | Label | Required PR body field |
+   |--------|----------|-------|-------------------------|
+   | Add a new study (after `proposal-approved`) | `new-study.md` | `new-study` | `Proposal issue: #N` and `Slug:` |
+   | Edit an existing study's content | `study-update.md` | `study-update` | `Study slug: <Slug>` |
+   | Change Draft ↔ Released | `status-change.md` | `status-change` | `Study slug: <Slug>` and `Target status: draft`/`released` |
+
+   A change that only touches non-study files (`Scripts/`, `AGENTS.md`, `.agents/skills/`,
+   infra, etc.) is not a study PR — do not apply a study label to it, and it does not need a
+   `Study slug:` field.
+5. **Tick the template checklist** in the PR body before requesting review or merge (Edited on
+   refreshed, `References/MANIFEST.md` updated if citations changed, quote verification run).
+
+### Why this matters
+
+`Scripts/_ci_study_pr.py` re-derives the slug, re-syncs the catalog timestamp from the study's
+`**Edited on:**`, regenerates the PDF, runs reference checks when the bibliography changed, and
+verifies timestamp/catalog sync — all keyed to the PR's label and body field. Committing directly
+to the default branch skips every one of those checks and is how catalogs, timestamps, and PDFs
+drift out of sync with the source `.md`.
+
+### Completion check
+
+- [ ] Change is on a feature branch, not the default branch
+- [ ] Exactly one of `new-study` / `study-update` / `status-change` will be applied to the PR
+- [ ] PR body includes the field that label requires (`Study slug:`, `Proposal issue: #N`, or
+  `Target status:`)
+- [ ] One study slug per PR for `study-update` / `status-change` (open a second PR for a second
+  slug)
+- [ ] Local verification (`_quote_tool.py verify`, `_check_references.py`, `_regenerate_pdf.py`,
+  `_verify_studies_index.py` as applicable) run and passing before push
+- [ ] Non-study changes (Scripts/, rules, skills, infra) are not carrying a study label

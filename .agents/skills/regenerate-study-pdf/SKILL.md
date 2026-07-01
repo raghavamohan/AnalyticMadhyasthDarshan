@@ -11,9 +11,11 @@ description: >-
 
 ## Before you start
 
-1. If you edited study **content**, refresh `**Edited on:**` and catalog **Status**
+1. Confirm you are on a **feature branch**, not the default branch — study changes always
+   go through a branch + labeled pull request per [AGENTS.md](../../AGENTS.md) §7.
+2. If you edited study **content**, refresh `**Edited on:**` and catalog **Status**
    dates per [AGENTS.md](../../AGENTS.md) §1 (run `Get-Date`, never guess).
-2. Ensure one-time setup is done (repo root):
+3. Ensure one-time setup is done (repo root):
 
 ```powershell
 pip install -r requirements.txt
@@ -90,9 +92,13 @@ flowchart TD
 - [ ] No raw `flowchart TD` / `graph LR` visible in PDF when Mermaid blocks exist
 - [ ] `**Edited on:**` and catalog **Last updated on** match (if content changed)
 - [ ] Intermediate `.html` is the published study page (not a throwaway artifact)
+- [ ] Change is on a feature branch with the correct PR label (`new-study` / `study-update` /
+  `status-change`) ready to apply — not committed to `master`/`main`
 
 ## Rules
 
 - [AGENTS.md](../../AGENTS.md) §3 — Markdown to PDF (source of truth)
+- [AGENTS.md](../../AGENTS.md) §7 — Study submission process: branches, PR labels, templates
 - `.cursor/rules/md-to-pdf.mdc` — Cursor mirror
 - `.cursor/rules/study-edited-on.mdc` — timestamps when content changed
+- `.cursor/rules/study-submission-process.mdc` — Cursor mirror of §7

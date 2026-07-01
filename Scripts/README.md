@@ -15,6 +15,11 @@ cd ..
 
 To submit a study without cloning this repository, use **[My Submissions](../Studies/submit.html)** on the Web Submission Portal.
 
+Any `Studies/` change made from a local clone (by a human or an agent) still goes through a
+feature branch and a `new-study` / `study-update` / `status-change` labeled pull request — see
+[AGENTS.md](../AGENTS.md) §7 and [CONTRIBUTING.md](../CONTRIBUTING.md). The commands below are
+what to run **on that branch** before opening the PR.
+
 | Task | Command |
 |------|---------|
 | Add / register a study | `python Scripts/_add_study.py Studies/<Slug>/<Slug>.md --category "..." --description "..." --tags "MVD, SB" --status draft` |
