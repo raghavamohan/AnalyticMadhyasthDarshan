@@ -34,3 +34,5 @@ tool or OS last wrote them, producing large line-ending-only diffs.
 - `git add --renormalize .` produces no changes on an otherwise clean tree.
 - `git diff --ignore-cr-at-eol` shows no files that differ only by line ending.
 - New text files report `i/lf` under `git ls-files --eol`.
+
+---
