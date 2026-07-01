@@ -49,6 +49,14 @@ def is_linkable_reference_file(path: Path, *, min_html_bytes: int = 500) -> bool
 
 
 def study_dir(slug: str) -> Path:
+    """Directory holding a study's source files.
+
+    Applied studies live under Applications/<slug>/; every other study under
+    Studies/<slug>/. Resolve to Applications/ only when that applied source
+    already exists on disk, so brand-new studies still default to Studies/.
+    """
+    if (APPLICATIONS / slug / f"{slug}.md").is_file():
+        return APPLICATIONS / slug
     return STUDIES / slug
 
 
@@ -131,6 +139,29 @@ def slug_from_study_relative_path(rel: Path) -> str | None:
     if len(parts) == 2 and parts[1] == f"{slug}.md":
         return slug
     if (STUDIES / slug / f"{slug}.md").is_file():
+        return slug
+    return None
+
+
+def slug_from_repo_relative_path(path: Path) -> str | None:
+    """Slug for a repo-relative path under Studies/<slug>/ or Applications/<slug>/.
+
+    Handles both study roots so change detection works for applied studies
+    (Applications/) as well as topical/formal ones (Studies/).
+    """
+    parts = path.parts
+    if len(parts) < 2:
+        return None
+    root, slug = parts[0], parts[1]
+    if root == "Studies":
+        base = STUDIES
+    elif root == "Applications":
+        base = APPLICATIONS
+    else:
+        return None
+    if not (base / slug).is_dir():
+        return None
+    if (base / slug / f"{slug}.md").is_file():
         return slug
     return None
 

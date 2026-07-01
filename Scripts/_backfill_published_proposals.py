@@ -3,7 +3,7 @@
 Studies that were written before the proposal workflow existed have no
 `study-proposal` issue, so they never appear in a contributor's My Submissions
 dashboard. This script creates one GitHub issue per published (`draft`/`released`)
-study under `Studies/` (topical + formal catalogs) and registers it in
+study across the topical, formal, and applied catalogs and registers it in
 `proposal-registry.json`, attributing it to the given submitter.
 
 Only the `study-proposal` label is applied. The `proposal-approved` label is
@@ -13,9 +13,10 @@ would overwrite the existing full study with a proposal stub. The submissions
 worker already treats any proposal whose slug is `draft`/`released` in the catalog
 as published, so the approved label is not needed for the dashboard.
 
-The applied catalog (`catalog-applied.json`) is skipped: those studies live under
-`Applications/`, but the portal update/status endpoints only handle
-`Studies/<slug>/<slug>.md`.
+Applied studies (`catalog-applied.json`) live under `Applications/<slug>/` rather
+than `Studies/<slug>/`. The portal update/status endpoints and CI pipeline now
+resolve that base folder per slug, so applied studies are backfilled here too and
+tagged with `"applied": true` in the registry.
 
 Usage:
   python Scripts/_backfill_published_proposals.py --dry-run
@@ -36,10 +37,12 @@ REGISTRY_PATH = STUDIES / "proposal-registry.json"
 REPO = "raghavamohan/AnalyticMadhyasthDarshan"
 
 PUBLISHED_STATUSES = {"draft", "released"}
-# (catalog file, formal flag). catalog-applied.json is intentionally excluded.
+# (catalog file, formal flag, applied flag). Applied studies live under
+# Applications/<slug>/; the worker and CI resolve that base folder per slug.
 CATALOG_SOURCES = [
-    ("catalog-topical.json", False),
-    ("catalog-formal.json", True),
+    ("catalog-topical.json", False, False),
+    ("catalog-formal.json", True, False),
+    ("catalog-applied.json", False, True),
 ]
 
 
@@ -95,7 +98,7 @@ def registry_slugs(registry: dict) -> set[str]:
 def collect_published_studies() -> list[dict]:
     studies: list[dict] = []
     seen: set[str] = set()
-    for filename, formal in CATALOG_SOURCES:
+    for filename, formal, applied in CATALOG_SOURCES:
         path = STUDIES / filename
         if not path.is_file():
             continue
@@ -112,6 +115,7 @@ def collect_published_studies() -> list[dict]:
                     "category": row.get("category") or "Other",
                     "description": row.get("description") or "",
                     "formal": formal,
+                    "applied": applied,
                     "status": status,
                 }
             )
@@ -120,9 +124,16 @@ def collect_published_studies() -> list[dict]:
 
 def build_issue_body(study: dict, submitter: str) -> str:
     formal_mark = "x" if study["formal"] else " "
+    applied_note = (
+        "\nThis is an **Applied** study; its source lives under "
+        f"`Applications/{study['slug']}/`.\n"
+        if study.get("applied")
+        else ""
+    )
     return (
         "Backfilled proposal for an existing published study "
-        "(streamlining studies written before the proposal workflow).\n\n"
+        "(streamlining studies written before the proposal workflow).\n"
+        f"{applied_note}\n"
         f"### Proposed title\n\n{study['title']}\n\n"
         f"### Category\n\n{study['category']}\n\n"
         f"### One-line description\n\n{study['description']}\n\n"
@@ -189,18 +200,19 @@ def main() -> None:
     for study in targets:
         number = create_issue(study, args.submitter)
         print(f"Created issue #{number} for {study['slug']}")
-        new_entries.append(
-            {
-                "slug": study["slug"],
-                "title": study["title"],
-                "issueNumber": number,
-                "submitter": args.submitter,
-                "category": study["category"],
-                "description": study["description"],
-                "formal": study["formal"],
-                "phase": "published",
-            }
-        )
+        entry = {
+            "slug": study["slug"],
+            "title": study["title"],
+            "issueNumber": number,
+            "submitter": args.submitter,
+            "category": study["category"],
+            "description": study["description"],
+            "formal": study["formal"],
+            "phase": "published",
+        }
+        if study.get("applied"):
+            entry["applied"] = True
+        new_entries.append(entry)
 
     write_registry(registry, new_entries)
     print(f"\nRegistered {len(new_entries)} proposals in {REGISTRY_PATH.relative_to(BASE)}")

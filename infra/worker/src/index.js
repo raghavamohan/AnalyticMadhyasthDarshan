@@ -33,7 +33,12 @@ const CATALOG_FILES = [
   'Studies/catalog-formal.json',
   'Studies/catalog-applied.json',
 ];
+// Applied studies live under Applications/<slug>/, every other study under
+// Studies/<slug>/. The write-side endpoints resolve the base folder per slug
+// from this catalog file.
+const CATALOG_APPLIED_FILE = 'Studies/catalog-applied.json';
 const CATALOG_CACHE_KEY = 'https://amd-submissions.internal/catalog-slug-map';
+const APPLIED_SLUGS_CACHE_KEY = 'https://amd-submissions.internal/applied-slugs';
 const PROPOSAL_REGISTRY_PATH = 'Studies/proposal-registry.json';
 const PROPOSAL_REGISTRY_CACHE_KEY = 'https://amd-submissions.internal/proposal-registry';
 const CHECK_POOL_SIZE = 5;
@@ -164,6 +169,41 @@ async function fetchCatalogSlugMap(env, stats) {
     new Response(body, { headers: { 'Cache-Control': 'max-age=60' } })
   );
   return map;
+}
+
+// Set of slugs registered in the applied catalog. Used to resolve the study's
+// markdown path: applied studies live under Applications/, not Studies/.
+async function fetchAppliedSlugSet(env, stats) {
+  const cache = caches.default;
+  const cacheRequest = new Request(APPLIED_SLUGS_CACHE_KEY);
+  const cached = await cache.match(cacheRequest);
+  if (cached) {
+    const parsed = await cached.json();
+    return new Set(parsed);
+  }
+
+  const slugs = [];
+  try {
+    const rows = JSON.parse(await githubRawFile(CATALOG_APPLIED_FILE, env, stats));
+    for (const row of rows) {
+      if (row.slug) slugs.push(row.slug);
+    }
+  } catch (e) {
+    // Applied catalog is optional; treat as empty when unavailable.
+  }
+
+  await cache.put(
+    cacheRequest,
+    new Response(JSON.stringify(slugs), { headers: { 'Cache-Control': 'max-age=60' } })
+  );
+  return new Set(slugs);
+}
+
+// Repository path to a study's markdown source. Applied studies are stored
+// under Applications/<slug>/<slug>.md; all others under Studies/<slug>/<slug>.md.
+function studyMdPath(slug, appliedSlugs) {
+  const base = appliedSlugs && appliedSlugs.has(slug) ? 'Applications' : 'Studies';
+  return `${base}/${slug}/${slug}.md`;
 }
 
 async function runPool(items, limit, worker) {
@@ -714,6 +754,40 @@ async function listProposalIssues(login, env, userToken, stats) {
   return { items: list, truncated: list.length >= perPage };
 }
 
+function submissionRecency(row) {
+  return row.pullRequest?.number || row.issueNumber || 0;
+}
+
+// Collapse the dashboard to one row per study. A single study accumulates
+// several GitHub items over its lifetime — the proposal issue, the new-study
+// PR, and every merged status-change / study-update PR (e.g. each draft <->
+// released toggle). Only the current state is useful, so for each slug we keep
+// a single representative row: the proposal row when one exists (it carries the
+// full lifecycle actions and reflects any in-flight PR), otherwise the most
+// recent pull request. Rows without a slug (e.g. proposals not yet approved)
+// are always kept.
+function dedupeSubmissionsBySlug(submissions) {
+  const preferred = new Map();
+  const keep = (a, b) => {
+    if (!a) return b;
+    if (!b) return a;
+    const aProposal = a.kind === 'proposal';
+    const bProposal = b.kind === 'proposal';
+    if (aProposal !== bProposal) return aProposal ? a : b;
+    return submissionRecency(a) >= submissionRecency(b) ? a : b;
+  };
+  const result = [];
+  for (const row of submissions) {
+    if (!row.slug) {
+      result.push(row);
+      continue;
+    }
+    preferred.set(row.slug, keep(preferred.get(row.slug), row));
+  }
+  for (const row of preferred.values()) result.push(row);
+  return result;
+}
+
 async function buildDashboard(session, env) {
   const started = Date.now();
   const stats = { githubRequests: 0 };
@@ -845,13 +919,11 @@ async function buildDashboard(session, env) {
     });
   }
 
-  submissions.sort((a, b) => {
-    const aKey = a.pullRequest?.number || a.issueNumber || 0;
-    const bKey = b.pullRequest?.number || b.issueNumber || 0;
-    return bKey - aKey;
-  });
+  const dedupedSubmissions = dedupeSubmissionsBySlug(submissions);
 
-  const openRows = submissions.filter((row) => row.stage === 'pr-open' && row.pullRequest);
+  dedupedSubmissions.sort((a, b) => submissionRecency(b) - submissionRecency(a));
+
+  const openRows = dedupedSubmissions.filter((row) => row.stage === 'pr-open' && row.pullRequest);
   const prDetailsCache = new Map();
   await runPool(openRows, CHECK_POOL_SIZE, async (row) => {
     const num = row.pullRequest.number;
@@ -889,7 +961,7 @@ async function buildDashboard(session, env) {
 
   return {
     login,
-    submissions,
+    submissions: dedupedSubmissions,
     meta: {
       timingMs: Date.now() - started,
       githubRequests: stats.githubRequests,
@@ -1184,9 +1256,10 @@ router.get('/api/study-source', async (request, env) => {
     if (!/^[A-Za-z0-9-]+$/.test(slug)) {
       return jsonResponse(request, env, { success: false, error: 'Invalid slug.' }, 400);
     }
+    const appliedSlugs = await fetchAppliedSlugSet(env, { githubRequests: 0 });
     let content;
     try {
-      content = await githubRawFile(`Studies/${slug}/${slug}.md`, env);
+      content = await githubRawFile(studyMdPath(slug, appliedSlugs), env);
     } catch (e) {
       return jsonResponse(request, env, { success: false, error: `No published markdown found for "${slug}".` }, 404);
     }
@@ -1232,8 +1305,11 @@ router.post('/api/submit', async (request, env) => {
     const istTime = getISTDateString();
     content = applyStudyMetadata(content, author, istTime, slug);
 
+    // Updates to an existing applied study must target Applications/<slug>/.
+    // Brand-new studies proposed via the portal are always created under Studies/.
+    const appliedSlugs = isNew ? new Set() : await fetchAppliedSlugSet(env, stats);
     const branchName = `submission-${slug}-${Date.now()}`;
-    const filePath = `Studies/${slug}/${slug}.md`;
+    const filePath = studyMdPath(slug, appliedSlugs);
     const base = defaultBranch(env);
 
     const baseRef = await githubRequest(`/git/refs/heads/${base}`, 'GET', null, env);
@@ -1308,8 +1384,9 @@ router.post('/api/status-change', async (request, env) => {
     }
 
     const stats = { githubRequests: 0 };
-    const [catalogMap, prSearch] = await Promise.all([
+    const [catalogMap, appliedSlugs, prSearch] = await Promise.all([
       fetchCatalogSlugMap(env, stats),
+      fetchAppliedSlugSet(env, stats),
       githubSearch(
         `repo:${REPO} is:pr author:${session.login} label:status-change`,
         env,
@@ -1334,7 +1411,7 @@ router.post('/api/status-change', async (request, env) => {
       // Commit the status flip on the branch so the pull request has a diff.
       // CI (_set_study_status via _ci_study_pr.py) then finalizes the catalog,
       // timestamp, and PDF watermark on merge.
-      const filePath = `Studies/${slug}/${slug}.md`;
+      const filePath = studyMdPath(slug, appliedSlugs);
       let fileData;
       try {
         fileData = await githubRequest(`/contents/${filePath}?ref=${branchName}`, 'GET', null, env, null, stats);
