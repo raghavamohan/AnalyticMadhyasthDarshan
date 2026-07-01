@@ -108,6 +108,15 @@ MDC_CONFIG: dict[int, dict[str, str]] = {
         "section_ref": "§8",
         "extra_globs": "",
     },
+    9: {
+        "file": "powershell-terminal.mdc",
+        "description": "Use PowerShell syntax for terminal commands on Windows; no bash && / || or heredocs, quote spaced paths",
+        "globs": "*",
+        "alwaysApply": "true",
+        "title": "Windows shell — PowerShell conventions",
+        "section_ref": "§9",
+        "extra_globs": "",
+    },
 }
 
 
