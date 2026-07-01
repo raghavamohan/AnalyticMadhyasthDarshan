@@ -4,7 +4,7 @@ A collaborative, open project for **rigorous analytic work** on **Madhyasth Dars
 
 We examine defined questions from the darshan, ground claims in the **primary texts**, and compare them critically with other traditions and modern thought where relevant. The aim is to present Shri Nagraj's philosophy **as he gave it to us** — with a clear line between what the texts say, what is interpretation or comparison, and what remains open. A further goal is **formal representation** of the darshan's structure — definitions, relations, and arguments stated with enough precision to compare traditions rigorously and to support the Formal Studies in this collection.
 
-Maintained by **[AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan)**. All original writing is under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
+Maintained by **[AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan)**. Original writing is under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/); the code (`Scripts/`, `infra/`) is under the [MIT License](LICENSE-CODE) — see [License](#license).
 
 ---
 
@@ -186,6 +186,11 @@ Pass `Draft` to `_html_to_pdf.js` for draft studies; omit it for released studie
 
 ## License
 
-Studies and original writing: [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) — cite **AnalyticMadhyasthDarshan.org** and link to this repository.
+This repository is dual-licensed:
+
+- **Content** — studies and original writing under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) (see [LICENSE](LICENSE)). Cite **AnalyticMadhyasthDarshan.org** and link to this repository.
+- **Code** — the tooling in `Scripts/` and the backend services in `infra/` under the [MIT License](LICENSE-CODE).
+
+Copyright © 2026 AnalyticMadhyasthDarshan.org.
 
 Source files in `References/` are described in [References/README.md](References/README.md). Works we do not store locally are listed in [References/NOT-DOWNLOADED.md](References/NOT-DOWNLOADED.md).
