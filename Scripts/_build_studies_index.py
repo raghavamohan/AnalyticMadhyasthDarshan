@@ -1823,22 +1823,39 @@ def render_catalog_cards(rows: list[StudyRow]) -> str:
 
 def inject_catalog_cards(html: str, rows_by_coll: dict[str, list[StudyRow]]) -> str:
     """Pre-render the default catalog cards into the empty grids so the first paint
-    reserves their height (eliminating the JS-fill layout shift)."""
+    reserves their height (eliminating the JS-fill layout shift).
+
+    The grid ``<ul>`` is located by its ``id`` (tolerant of attribute order and
+    whitespace) rather than an exact string, and a missing target raises instead
+    of silently skipping pre-rendering if INDEX_TEMPLATE markup changes.
+    """
     for coll, rows in rows_by_coll.items():
         cards = render_catalog_cards(rows)
-        html = html.replace(
-            f'<ul class="grid" id="grid-{coll}"></ul>',
-            f'<ul class="grid" id="grid-{coll}">{cards}</ul>',
-            1,
+        pattern = re.compile(
+            rf'(<ul\b[^>]*\bid="grid-{re.escape(coll)}"[^>]*>).*?(</ul>)',
+            flags=re.DOTALL,
         )
+        # A replacement function avoids re-interpreting backslashes/group refs in card markup.
+        html, replaced = pattern.subn(
+            lambda m: f"{m.group(1)}{cards}{m.group(2)}", html, count=1
+        )
+        if not replaced:
+            raise ValueError(
+                f'Could not find grid container id="grid-{coll}" in INDEX_TEMPLATE '
+                "to inject pre-rendered catalog cards."
+            )
     return html
 
 
 def strip_grid_contents(content: str) -> str:
     """Blank the pre-rendered catalog cards so shell verification compares only the
-    static template markup (cards are build-time data, like the catalog bootstrap)."""
+    static template markup (cards are build-time data, like the catalog bootstrap).
+
+    Matches every catalog grid container (``id="grid-*"``, tolerant of attribute
+    order) so verification stays aligned as collections are added or reordered.
+    """
     return re.sub(
-        r'(<ul class="grid" id="grid-(?:topical|formal|applied)">).*?(</ul>)',
+        r'(<ul\b[^>]*\bid="grid-[^"]+"[^>]*>).*?(</ul>)',
         r"\1\2",
         content,
         flags=re.DOTALL,
