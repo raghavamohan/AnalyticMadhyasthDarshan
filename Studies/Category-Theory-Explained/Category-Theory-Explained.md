@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 29, 2026, 3:55 AM IST
+**Edited on:** July 1, 2026, 11:06 AM IST
 **Status:** Draft
 
 **The question:** What does category theory clarify about the structure of Madhyasth Darshan — and where does that notation stop?
@@ -558,6 +558,8 @@ This is where the mathematics contributes a genuine, independent result about gl
 
 At the knowledge tier, a successful **compound** κ (§6.9) — not merely mixture — is what produces a new social conduct with its own sig(·); the colimit in `Soc` should be read as **compound-mode** gluing when the assembly is meant to ascend a tier.
 
+Individual T2/T3 completeness (§6.2.1) does not by itself supply this colimit's compatibility condition. [How Undivided Society Is Established](../How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf) §4.6 names the textual bridge — MVD p. 27's delusionlessness ladder (delusionlessness → awakening → enlightenment → lordship → sovereignty → undivided society/universal orderliness) — under which T2/T3 **source and seed** the telos while assembly-scale gluing still **evidences** it separately. That is the same asymmetry §6.6.1 states categorically: the justice composite can fail to compose even when individual cap(*u*) is high, which is exactly why human assembly is the unfinished tier (P3).
+
 ### 6.9 Composition: mixture and compound (κ)
 
 Template D8 distinguishes two modes of composition κ (MVD p. 42; [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.8):
@@ -642,6 +644,8 @@ Only admissible spans define κ_comp transitions. This is proposition **P9** res
 
 **Conditional conclusion:** *if* L3 is the engine of assembly, then a categorical model of Madhyasth Darshan must treat **`AdmissibleComp`** (or an equivalent guard) as **given data** alongside the categories — the same division of labour noted in [The Coexistence Template](../The-Coexistence-Template/The-Coexistence-Template.pdf) §7.
 
+At the knowledge order specifically, [How Undivided Society Is Established](../How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf) §5.2 supplies textual content for what `AdmissibleComp` would need to encode: reoriented ***ichcha*** (desire in *chitta*) powering the sociality–production chain, not physical need alone. The same study's §4.1 reframes delusion as **complementarity blocked**, not competition — a sharper primary-text gloss on the retract/isomorphism account of delusion given here in §6.5. Neither closes P9; both are candidate content for the guard this paper leaves as an open problem.
+
 ### 6.10 Development as a monoidal/Petri process
 
 **Development Progression** (*vikas-kram*) — distinct from **Awakening Progression** (*jagriti-kram*) in already constitutionally complete *jeevan* ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §§1.8–1.10) — runs through effort–motion–result (*shram–gati–parinam*), read toward completeness at each stage: result → constitutional completeness; effort → activity completeness; motion → conduct completeness (SB p. 58). *Kaal* is the duration of that activity, not an independent container ([Nature of Time](../Nature-Of-Time/Nature-Of-Time.pdf) §1.1).
@@ -718,7 +722,7 @@ These are stated as: **structural claim, given premise P**. None is a theorem ab
 
 ### 6.13 What does NOT fit well (and why)
 
-1. **`Jeevan` as a substance.** Category theory is structuralist: by Yoneda, an object just *is* its web of morphisms. A faithful categorical reading inevitably re-describes `jeevan` as a **functional role** — precisely the reductionist/functionalist position the darshan rejects. The formalism cannot represent "substantial existence over and above relational role" without leaving category theory. [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) commits to the **Saturation-Reflector Model** (§§1.2, 1.9–1.10, 6.2.10) — ever-present *gyan* in *satta* **latency actualized** as active *chaitanya* through a constitutionally complete mediating configuration, not strong emergence from dead matter — as the darshan's reply to this structuralism-vs-substance tension. Category theory can encode the threshold as an irreversible Petri transition (§6.10) but cannot discharge the **selection** and **grounding** problems that remain open in Ontology §6.2.10.
+1. **`Jeevan` as a substance.** Category theory is structuralist: by Yoneda, an object just *is* its web of morphisms. A faithful categorical reading inevitably re-describes `jeevan` as a **functional role** — precisely the reductionist/functionalist position the darshan rejects. The formalism cannot represent "substantial existence over and above relational role" without leaving category theory. [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) commits to the **Saturation-Reflector Model** (§§1.2, 1.9–1.10, 6.2.1) — ever-present *gyan* in *satta* **latency actualized** as active *chaitanya* through a constitutionally complete mediating configuration, not strong emergence from dead matter — as the darshan's reply to this structuralism-vs-substance tension. Category theory can encode the threshold as an irreversible Petri transition (§6.10) but cannot discharge the **selection** and **grounding** problems that remain open in Ontology §6.2.1.
 
 2. **Samadhi / samyama as the warrant.** Nagraj's epistemic foundation is *sadhana-samadhi-samyama* (MVD p. 7): private, first-person, non-relational. It is the *source of the axioms* and necessarily sits **outside** the categories — distinct from *anubhav jnan* (ontological given, template D12 AJ) and from *satta mein anubhav* (telos TEL).
 
@@ -829,8 +833,9 @@ Assembly-scale closure **evidences** resolution, prosperity, fearlessness, and c
 
 ### Related studies in this collection
 
-- [*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — ontological exposition: coexistence, saturation, **regulation ladder** (§§1.7, 1.10.5–1.10.6, 1.13), **law vs justice** (§1.10.5), six *drishti* and humane refuge (§1.10.5), *jeevan* structure and inward regulation (§§1.9, 1.10.6), *kosha* mapping (§§1.9–1.10.4), unit signature, *sambandh*, **six-fold value taxonomy** (§1.6), fulfilment by order (§§1.6, 1.7), *niyati-kram* and *niyati-vidhi* (§§1.5, 1.7), four orders and planes, four progressions (§1.10.1), awakening and *gathanpurnata*, activity triad, conservation (§1.12), four human goals and provisions vs achievements (§1.13), Saturation-Reflector Model (§§1.2, 1.9–1.10.3, 6.2.10)
+- [*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — ontological exposition: coexistence, saturation, **regulation ladder** (§§1.7, 1.10.5–1.10.6, 1.13), **law vs justice** (§1.10.5), six *drishti* and humane refuge (§1.10.5), *jeevan* structure and inward regulation (§§1.9, 1.10.6), *kosha* mapping (§§1.9–1.10.4), unit signature, *sambandh*, **six-fold value taxonomy** (§1.6), fulfilment by order (§§1.6, 1.7), *niyati-kram* and *niyati-vidhi* (§§1.5, 1.7), four orders and planes, four progressions (§1.10.1), awakening and *gathanpurnata*, activity triad, conservation (§1.12), four human goals and provisions vs achievements (§1.13), Saturation-Reflector Model (§§1.2, 1.9–1.10.3, 6.2.1)
 - [*The Coexistence Template*](../The-Coexistence-Template/The-Coexistence-Template.pdf) — formal template (κ, τ, ρ, φ, μ, D2a–D2b regulation ladder, D12–D13, L7, L1–L6, D11, P6); reciprocal link at §7 and §6.1.1
+- [*How Undivided Society Is Established*](../How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf) — the fuller architectural account of the same colimit/L3 territory: five-layer establishment chain, the delusionlessness ladder (MVD p. 27) linking T2/T3 individual completeness to assembly-scale telos, and the *ichcha*-driven sociality–production chain that supplies textual content for the L3/`AdmissibleComp` guard (§6.9.1)
 - [*Knowledge, Knower, and Known*](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) — evidence chain, *gyan udghatan*, *pramana* (§§1.2, 1.6–1.8)
 - [*Nature of Time*](../Nature-Of-Time/Nature-Of-Time.pdf) — *kaal* as duration of unit-activity; *shram–gati–parinam* and directional *vikas*
 - [*Why Humans Are Not Just Material*](../Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.pdf) — human-tier anthropology
