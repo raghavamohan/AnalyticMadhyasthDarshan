@@ -625,8 +625,12 @@ function renderDashboardRows(submissions, truncated) {
     }
 
     let prCell = '—';
-    if (item.pullRequest) {
-      prCell = '<a href="' + escapeHtml(item.pullRequest.url) + '" target="_blank" rel="noopener">#' + item.pullRequest.number + '</a>';
+    // Fall back to whichever lifecycle PR is actually open for this slug
+    // (status-change or study-update) when the row's own linked PR (set only
+    // for the original new-study PR) is missing or stale.
+    const prForCell = item.pullRequest || item.statusChangePr || item.studyPr;
+    if (prForCell) {
+      prCell = '<a href="' + escapeHtml(prForCell.url) + '" target="_blank" rel="noopener">#' + prForCell.number + '</a>';
     }
 
     tr.innerHTML =

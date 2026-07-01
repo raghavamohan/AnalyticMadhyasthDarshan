@@ -355,6 +355,18 @@ function assertNoOpenStudyPr(slug, openStudyPrs) {
   );
 }
 
+// A slug's markdown file is touched by exactly one lifecycle PR type at a
+// time (new-study/study-update XOR status-change) -- both endpoints must
+// agree on this, or the dashboard can show one action while GitHub still
+// has another PR open for the same file.
+function assertNoOpenStatusChangePr(slug, openStatusChanges) {
+  if (!slug || !openStatusChanges.has(slug)) return;
+  const pr = openStatusChanges.get(slug);
+  throw new Error(
+    `A status-change pull request is already open for "${slug}" (#${pr.number}). Wait for review or close it before submitting an update.`
+  );
+}
+
 async function fetchPrReviewState(prNumber, env, userToken, stats) {
   const reviews = await githubRequest(
     `/pulls/${prNumber}/reviews`,
@@ -714,17 +726,26 @@ function buildActions(stage, slug, catalogStatus, statusChangeBlocked, issueNumb
     };
   }
   if (stage === 'merged' && slug && catalogStatus && catalogStatus !== 'ongoing') {
+    // A slug can have at most one in-flight lifecycle PR at a time (a
+    // study-update PR and a status-change PR both touch the same file and
+    // would otherwise conflict). Whichever kind is open blocks the other
+    // action so the dashboard never shows two live actions for one slug.
+    const updateBlocked = statusChangeBlocked || studyPrBlocked;
+    let primaryLabel = 'Update study';
+    if (statusChangeBlocked) primaryLabel = 'Status change in review';
+    else if (studyPrBlocked) primaryLabel = 'Update in review';
     const actions = {
       primaryAction: {
-        label: 'Update study',
-        href: updateUrl,
-        variant: 'primary',
+        label: primaryLabel,
+        href: updateBlocked ? null : updateUrl,
+        variant: updateBlocked ? 'secondary' : 'primary',
+        disabled: updateBlocked,
       },
       secondaryActions: [],
       updateUrl,
       statusUrl: portalUrl({ tab: 'status', slug }),
     };
-    if (!statusChangeBlocked) {
+    if (!statusChangeBlocked && !studyPrBlocked) {
       if (catalogStatus === 'draft') {
         actions.secondaryActions.push({
           label: 'Release study',
@@ -1302,13 +1323,14 @@ router.post('/api/submit', async (request, env) => {
     }
 
     const prSearch = await githubSearch(
-      `repo:${REPO} is:pr is:open label:new-study,study-update`,
+      `repo:${REPO} is:pr is:open label:new-study,study-update,status-change`,
       env,
       session.accessToken,
       stats
     );
     const openStudyPrs = buildOpenStudyPrIndex(prSearch.items);
     assertNoOpenStudyPr(slug, openStudyPrs);
+    assertNoOpenStatusChangePr(slug, buildOpenStatusChangeIndex(prSearch.items));
 
     const istTime = getISTDateString();
     content = applyStudyMetadata(content, author, istTime, slug);
@@ -1392,7 +1414,7 @@ router.post('/api/status-change', async (request, env) => {
     }
 
     const stats = { githubRequests: 0 };
-    const [catalogMap, appliedSlugs, prSearch] = await Promise.all([
+    const [catalogMap, appliedSlugs, statusPrSearch, studyPrSearch] = await Promise.all([
       fetchCatalogSlugMap(env, stats),
       fetchAppliedSlugSet(env, stats),
       githubSearch(
@@ -1401,9 +1423,16 @@ router.post('/api/status-change', async (request, env) => {
         session.accessToken,
         stats
       ),
+      githubSearch(
+        `repo:${REPO} is:pr is:open label:new-study,study-update`,
+        env,
+        session.accessToken,
+        stats
+      ),
     ]);
 
-    assertStatusChangeAllowed(slug, targetStatus, catalogMap, prSearch.items);
+    assertStatusChangeAllowed(slug, targetStatus, catalogMap, statusPrSearch.items);
+    assertNoOpenStudyPr(slug, buildOpenStudyPrIndex(studyPrSearch.items));
 
     const branchName = `status-${slug}-${Date.now()}`;
     const base = defaultBranch(env);
