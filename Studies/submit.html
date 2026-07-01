@@ -556,15 +556,21 @@ function statusTargetForLabel(label) {
 function renderActionButtons(item) {
   const parts = [];
   const primary = item.primaryAction;
+  // A blocked primary action (e.g. "Status change in review") and the
+  // "awaiting approval" link below both describe the same open PR -- render
+  // only the clickable link and drop the redundant disabled placeholder.
+  const hasStatusChangeLink = Boolean(item.statusChangeBlocked && item.statusChangePr);
+  const hasStudyPrLink = Boolean(item.studyPrBlocked && item.studyPr);
   if (primary) {
     let href = primary.href;
     if (primary.issueOnly && item.issueUrl) href = item.issueUrl;
     if (primary.prOnly && item.pullRequest) href = item.pullRequest.url;
     const label = actionDisplayLabel(primary.label);
+    const duplicatesAwaitingApprovalLink = primary.disabled && (hasStatusChangeLink || hasStudyPrLink);
     if (href && !primary.disabled) {
       const cls = primary.variant === 'primary' ? 'action-btn primary' : 'action-btn';
       parts.push('<a class="' + cls + '" href="' + escapeHtml(href) + '">' + escapeHtml(label) + '</a>');
-    } else if (primary.disabled) {
+    } else if (primary.disabled && !duplicatesAwaitingApprovalLink) {
       parts.push('<span class="action-btn" style="opacity:0.55;cursor:not-allowed;">' + escapeHtml(label) + '</span>');
     }
   }
@@ -581,10 +587,10 @@ function renderActionButtons(item) {
     }
     parts.push('<a class="action-btn" href="' + escapeHtml(action.href) + '">' + escapeHtml(action.label) + '</a>');
   });
-  if (item.statusChangeBlocked && item.statusChangePr) {
+  if (hasStatusChangeLink) {
     parts.push('<a class="action-btn" href="' + escapeHtml(item.statusChangePr.url) + '">Status change awaiting approval</a>');
   }
-  if (item.studyPrBlocked && item.studyPr) {
+  if (hasStudyPrLink) {
     parts.push('<a class="action-btn" href="' + escapeHtml(item.studyPr.url) + '">Update awaiting approval</a>');
   }
   return parts.length ? parts.join('') : '—';
