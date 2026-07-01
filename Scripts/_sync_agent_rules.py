@@ -99,6 +99,15 @@ MDC_CONFIG: dict[int, dict[str, str]] = {
         "section_ref": "§7",
         "extra_globs": "",
     },
+    8: {
+        "file": "line-endings.mdc",
+        "description": "Use LF line endings for all files; never introduce CRLF into tracked text files",
+        "globs": "*",
+        "alwaysApply": "true",
+        "title": "Line endings — LF everywhere",
+        "section_ref": "§8",
+        "extra_globs": "",
+    },
 }
 
 
