@@ -8,7 +8,7 @@ It is the **source of truth** for ZCode, OpenCode, and other agents that read
 per section below). **OpenCode / ZCode** loads `AGENTS.md` automatically and also reads
 `.cursor/rules/*.mdc` via `opencode.json` → `instructions`.
 
-**After editing `AGENTS.md` (§1–§8) or any `.agents/skills/**/SKILL.md`**, run sync before
+**After editing `AGENTS.md` (§1–§9) or any `.agents/skills/**/SKILL.md`**, run sync before
 you finish the task or commit:
 
 ```powershell
@@ -39,10 +39,12 @@ Available skills: `manage-studies`, `add-study`, `remove-study`, `set-study-stat
 | §6 | Reference checks when citations change | `study-references-check.mdc` |
 | §7 | Study submission process: branches, PR labels, templates | `study-submission-process.mdc` |
 | §8 | Line endings: LF everywhere | `line-endings.mdc` |
+| §9 | Windows shell: PowerShell conventions | `powershell-terminal.mdc` |
 
-There are eight rule sections below. The first, fourth, fifth, and sixth apply when
+There are nine rule sections below. The first, fourth, fifth, and sixth apply when
 their stated conditions are met; §1 also applies to every topical study edit; §7 always
-applies to any change under `Studies/`; §8 always applies to every file in the repo.
+applies to any change under `Studies/`; §8 and §9 always apply (line endings and the
+Windows/PowerShell shell).
 
 ---
 
@@ -657,3 +659,34 @@ tool or OS last wrote them, producing large line-ending-only diffs.
 - `git add --renormalize .` produces no changes on an otherwise clean tree.
 - `git diff --ignore-cr-at-eol` shows no files that differ only by line ending.
 - New text files report `i/lf` under `git ls-files --eol`.
+
+---
+
+## 9. Windows shell — PowerShell conventions *(always applies)*
+
+The development environment is **Windows with PowerShell**. All terminal commands must
+use PowerShell syntax, never bash. The repo root path contains a space
+(`e:\Madhyasth Darshan`), which makes quoting mandatory.
+
+### Rules
+
+- **Sequencing:** chain commands with `;`, or run them as separate calls. Do **not** use
+  bash `&&` or `||` — the PowerShell here rejects `&&` as an invalid statement separator.
+- **No bash heredocs.** For multi-line input (PR bodies, commit bodies), write a temp file
+  and pass it (e.g. `gh pr create --body-file <file>`) or use a PowerShell here-string
+  (`@" ... "@`); never `cat <<'EOF'`.
+- **Quote paths that contain spaces** with double quotes:
+  `python "Scripts/_regenerate_pdf.py"`, `cd "e:\Madhyasth Darshan"`.
+- **Use PowerShell cmdlets and idioms**, not unix-only assumptions: `Get-ChildItem`,
+  `Get-Content`, `Select-String`, `Measure-Object`, `$env:VAR`, `$LASTEXITCODE`.
+  Prefer the editor's dedicated file and search tools over shelling out to read, edit, or
+  search files.
+- **Line endings:** author files as **LF** (§8). On Windows some generators still write
+  CRLF into the working tree; `.gitattributes` (`* text=auto eol=lf`) normalizes on commit,
+  so CRLF churn in `git status` is expected — stage only real content changes and let
+  normalization handle EOL, rather than hand-converting files.
+
+### Check
+
+- No `&&`, `||`, or bash heredocs in commands issued this session.
+- Paths containing spaces are wrapped in double quotes.
