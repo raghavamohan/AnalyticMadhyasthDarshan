@@ -63,7 +63,7 @@ These studies are more mathematical in nature. They represent the structure disc
 <!-- formal-studies-catalog -->
 | Document | Formal Focus | Description | Status |
 |----------|--------------|-------------|--------|
-| [Category Theory Explained](Category-Theory-Explained/Category-Theory-Explained.html) · [Discuss](Category-Theory-Explained/discussion.html) | Formal structure | A self-contained guide that uses category theory as a lens to make the structure and logic of Madhyasth Darshan precise — plain-language ideas first, then the formal theory — and shows where the notation stops | Draft<br>Last updated on: Jul 1, 2026, 11:06 AM IST |
+| [Category Theory Explained](Category-Theory-Explained/Category-Theory-Explained.html) · [Discuss](Category-Theory-Explained/discussion.html) | Formal structure | A self-contained guide that uses category theory as a lens to make the structure and logic of Madhyasth Darshan precise — plain-language ideas first, then the formal theory — and shows where the notation stops | Released<br>Last updated on: Jul 1, 2026, 2:23 PM IST |
 | [The Coexistence Template](The-Coexistence-Template/The-Coexistence-Template.html) · [Discuss](The-Coexistence-Template/discussion.html) | Formal structure | The single structural template beneath Madhyasth Darshan — saturated units recognising and fulfilling relationships, exchanging value, composing into assemblies, and transmitting their method — stated formally for all four orders and usable to design or diagnose any assembly | Released<br>Last updated on: Jul 1, 2026, 2:02 PM IST |
 <!-- /formal-studies-catalog -->
 
