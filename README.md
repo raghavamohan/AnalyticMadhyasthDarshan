@@ -95,6 +95,8 @@ Site operators: copy [`.env.example`](.env.example) to `.env` at the repo root (
 
 Published studies carry `**Edited on:**` and `**Status:**` in the `.md` file. The catalog **Last updated on** date must match `**Edited on:**`. The status line is for repository management only — it is omitted from the PDF (draft is shown by the watermark).
 
+Every change under `Studies/` — by a human contributor or an agent — goes through a feature branch and a pull request labeled `new-study`, `study-update`, or `status-change`, never a direct commit to the default branch. See [CONTRIBUTING.md](CONTRIBUTING.md) for the contributor-facing flow and [AGENTS.md](AGENTS.md) §7 for the agent-facing operational summary (branch, label, PR body field, and the local checks to run before pushing).
+
 ### Scripts
 
 Run from the repository root. Append `--dry-run` to any command to preview without writing files.

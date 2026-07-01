@@ -66,3 +66,5 @@ under `References/`.
 - [ ] No `file://` reference links in regenerated study PDFs
 - [ ] `References/README.md`, `MANIFEST.md`, and `NOT-DOWNLOADED.md` agree on local vs external
 - [ ] Study PDFs regenerated when bibliography links changed
+
+---
