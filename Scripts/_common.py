@@ -116,14 +116,15 @@ def normalize_study_slug(value: str) -> str:
 
 def iter_study_md_paths() -> list[Path]:
     paths: list[Path] = []
-    if not STUDIES.is_dir():
-        return paths
-    for child in sorted(STUDIES.iterdir()):
-        if not child.is_dir():
+    for root in (STUDIES, APPLICATIONS):
+        if not root.is_dir():
             continue
-        md_path = child / f"{child.name}.md"
-        if md_path.is_file():
-            paths.append(md_path)
+        for child in sorted(root.iterdir()):
+            if not child.is_dir():
+                continue
+            md_path = child / f"{child.name}.md"
+            if md_path.is_file():
+                paths.append(md_path)
     return paths
 
 
