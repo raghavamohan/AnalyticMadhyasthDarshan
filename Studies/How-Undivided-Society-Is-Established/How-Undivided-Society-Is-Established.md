@@ -2,8 +2,8 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 29, 2026, 11:49 AM IST
-**Status:** Draft
+**Edited on:** July 1, 2026, 6:56 AM IST
+**Status:** Released
 **The question:** What is Madhyasth Darshan's grand vision of undivided society (*akhand samaj*), and how — according to the primary texts — is it established and evidenced?
 
 This study gives the **consolidated architectural account**: one connected chain from coexistence through awakening to social evidence. It **builds on** the coexistence ontology, completeness transitions, and social-order exposition in [*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) and related studies in this collection (see References). It reads **Shri A. Nagraj's** primary works — *Madhyasth Darshan* (MVD), *Samadhanatmak Bhautikvad* (SB), *Jeevan Vidya* (JV), *Janvad* (JVD), and *Adhyatmvad* (AVD) — and states what the darshan itself teaches about establishment. Comparative treatment of other traditions is intentionally omitted; this paper expounds Madhyasth Darshan's vision only. Minute detail on statutory governance, formal template mathematics, or cyclical-economics treatises appears in linked studies listed under References.
