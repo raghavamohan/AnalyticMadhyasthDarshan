@@ -383,6 +383,8 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
     </div>
   </section>
 
+  <div id="inline-turnstile" style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true"></div>
+
 </div>
 
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
@@ -401,7 +403,7 @@ const STAGE_LABELS = {
   approved: 'Approved',
   accepted: 'Ready for draft',
   declined: 'Declined',
-  'pr-open': 'PR open',
+  'pr-open': 'Awaiting approval',
   'changes_requested': 'Changes requested',
   merged: 'Merged',
   closed: 'Closed',
@@ -587,6 +589,17 @@ document.getElementById('notify-email-btn').addEventListener('click', () => {
   saveNotifyPrefs({ email: email.trim(), enabled: email.trim() ? true : false });
 });
 
+function actionDisplayLabel(label) {
+  if (label === 'Update study') return 'Submit new version';
+  return label;
+}
+
+function statusTargetForLabel(label) {
+  if (/release/i.test(label)) return 'released';
+  if (/revert/i.test(label)) return 'draft';
+  return null;
+}
+
 function renderActionButtons(item) {
   const parts = [];
   const primary = item.primaryAction;
@@ -594,22 +607,32 @@ function renderActionButtons(item) {
     let href = primary.href;
     if (primary.issueOnly && item.issueUrl) href = item.issueUrl;
     if (primary.prOnly && item.pullRequest) href = item.pullRequest.url;
+    const label = actionDisplayLabel(primary.label);
     if (href && !primary.disabled) {
       const cls = primary.variant === 'primary' ? 'action-btn primary' : 'action-btn';
-      parts.push('<a class="' + cls + '" href="' + escapeHtml(href) + '">' + escapeHtml(primary.label) + '</a>');
+      parts.push('<a class="' + cls + '" href="' + escapeHtml(href) + '">' + escapeHtml(label) + '</a>');
     } else if (primary.disabled) {
-      parts.push('<span class="action-btn" style="opacity:0.55;cursor:not-allowed;">' + escapeHtml(primary.label) + '</span>');
+      parts.push('<span class="action-btn" style="opacity:0.55;cursor:not-allowed;">' + escapeHtml(label) + '</span>');
     }
   }
   (item.secondaryActions || []).forEach((action) => {
-    if (item.statusChangeBlocked && /release|revert/i.test(action.label)) return;
+    const target = statusTargetForLabel(action.label);
+    if (target) {
+      if (item.statusChangeBlocked) return;
+      if (!item.slug) return;
+      parts.push(
+        '<button type="button" class="action-btn" data-status-slug="' + escapeHtml(item.slug) +
+        '" data-status-target="' + escapeHtml(target) + '">' + escapeHtml(action.label) + '</button>'
+      );
+      return;
+    }
     parts.push('<a class="action-btn" href="' + escapeHtml(action.href) + '">' + escapeHtml(action.label) + '</a>');
   });
   if (item.statusChangeBlocked && item.statusChangePr) {
-    parts.push('<a class="action-btn" href="' + escapeHtml(item.statusChangePr.url) + '">Status change in progress</a>');
+    parts.push('<a class="action-btn" href="' + escapeHtml(item.statusChangePr.url) + '">Status change awaiting approval</a>');
   }
   if (item.studyPrBlocked && item.studyPr) {
-    parts.push('<a class="action-btn" href="' + escapeHtml(item.studyPr.url) + '">Draft PR in review</a>');
+    parts.push('<a class="action-btn" href="' + escapeHtml(item.studyPr.url) + '">Update awaiting approval</a>');
   }
   return parts.length ? parts.join('') : '—';
 }
@@ -664,6 +687,41 @@ function renderDashboardRows(submissions, truncated) {
     tbody.appendChild(tr);
   });
 }
+
+async function inlineStatusChange(slug, target, buttonEl) {
+  if (!currentUser) { showAlert('dashboard', 'error', 'Sign in with GitHub first.'); return; }
+  if (!slug || (target !== 'draft' && target !== 'released')) return;
+  const label = target === 'released' ? 'released' : 'draft';
+  if (!window.confirm('Change "' + slug + '" to ' + label + '? A pull request will open for maintainer approval.')) {
+    return;
+  }
+  const original = buttonEl ? buttonEl.textContent : '';
+  if (buttonEl) { buttonEl.disabled = true; buttonEl.textContent = 'Verifying…'; }
+  try {
+    const turnstileToken = await getInlineTurnstileToken();
+    if (buttonEl) buttonEl.textContent = 'Opening PR…';
+    const res = await apiFetch('/api/status-change', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ slug, targetStatus: target, reason: '', turnstileToken }),
+    });
+    const data = await res.json();
+    if (!res.ok || !data.success) throw new Error(data.error || 'Could not open the status-change pull request.');
+    dashboardCache = null;
+    await loadDashboard({ force: true });
+    showAlert('dashboard', 'success', 'Status-change pull request opened.' + (data.url ? ' <a href="' + escapeHtml(data.url) + '" target="_blank" rel="noopener">View on GitHub</a>' : ''));
+  } catch (err) {
+    if (buttonEl) { buttonEl.disabled = false; buttonEl.textContent = original; }
+    showAlert('dashboard', 'error', escapeHtml(err.message));
+  }
+}
+
+document.getElementById('dashboard-rows').addEventListener('click', (e) => {
+  const btn = e.target.closest('button[data-status-slug]');
+  if (!btn) return;
+  e.preventDefault();
+  inlineStatusChange(btn.getAttribute('data-status-slug'), btn.getAttribute('data-status-target'), btn);
+});
 
 function showDashboardSkeleton() {
   const tbody = document.getElementById('dashboard-rows');
@@ -806,6 +864,56 @@ function resetTurnstile(form) {
   if (!window.turnstile) return;
   const widget = form.querySelector('.cf-turnstile');
   if (widget && widget.dataset.widgetId) turnstile.reset(widget.dataset.widgetId);
+}
+
+const TURNSTILE_SITEKEY = '0x4AAAAAADoBfrNV5lPeJQWO';
+let inlineTurnstileWidgetId = null;
+let inlineTurnstilePending = null;
+
+function getInlineTurnstileToken() {
+  if (!window.turnstile) {
+    return Promise.reject(new Error('Verification is still loading. Try again in a moment.'));
+  }
+  if (inlineTurnstilePending) {
+    return Promise.reject(new Error('A verification is already in progress.'));
+  }
+  return new Promise((resolve, reject) => {
+    let settled = false;
+    const timer = setTimeout(() => {
+      if (settled) return;
+      settled = true;
+      inlineTurnstilePending = null;
+      reject(new Error('Verification timed out. Please try again.'));
+    }, 30000);
+    const finish = (fn, value) => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      inlineTurnstilePending = null;
+      fn(value);
+    };
+    inlineTurnstilePending = {
+      resolve: (token) => finish(resolve, token),
+      reject: (err) => finish(reject, err),
+    };
+    try {
+      if (inlineTurnstileWidgetId === null) {
+        inlineTurnstileWidgetId = turnstile.render('#inline-turnstile', {
+          sitekey: TURNSTILE_SITEKEY,
+          action: 'turnstile-spin-v1',
+          size: 'invisible',
+          callback: (token) => { if (inlineTurnstilePending) inlineTurnstilePending.resolve(token); },
+          'error-callback': () => { if (inlineTurnstilePending) inlineTurnstilePending.reject(new Error('Verification failed. Please try again.')); },
+          'expired-callback': () => { if (inlineTurnstilePending) inlineTurnstilePending.reject(new Error('Verification expired. Please try again.')); },
+        });
+      } else {
+        turnstile.reset(inlineTurnstileWidgetId);
+      }
+      turnstile.execute(inlineTurnstileWidgetId);
+    } catch (err) {
+      finish(reject, err instanceof Error ? err : new Error('Could not run verification.'));
+    }
+  });
 }
 
 function updateSlugPreview() {
