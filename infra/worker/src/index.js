@@ -412,6 +412,36 @@ function applyStudyMetadata(content, author, istTime, slug) {
   return content;
 }
 
+function setEditedOnLine(content, istTime) {
+  if (/\*\*Edited on:\*\*/.test(content)) {
+    return content.replace(/\*\*Edited on:\*\*.*(\r?\n|$)/, `**Edited on:** ${istTime}$1`);
+  }
+  if (/\*\*Author:\*\*/.test(content)) {
+    return content.replace(/(\*\*Author:\*\*.*)(\r?\n)/, `$1$2\n**Edited on:** ${istTime}\n`);
+  }
+  return content;
+}
+
+function setStatusLine(content, targetStatus) {
+  const label = targetStatus === 'released' ? 'Released' : 'Draft';
+  const statusRe = /^\*\*Status:\*\*[ \t]+(?:Draft|Released)[ \t]*$/m;
+  if (statusRe.test(content)) {
+    return content.replace(statusRe, `**Status:** ${label}`);
+  }
+  const line = `**Status:** ${label}`;
+  if (/\*\*Edited on:\*\*/.test(content)) {
+    return content.replace(/(\*\*Edited on:\*\*.*?)(\r?\n)/, `$1$2\n${line}\n`);
+  }
+  if (/\*\*Author:\*\*/.test(content)) {
+    return content.replace(/(\*\*Author:\*\*.*?)(\r?\n)/, `$1$2\n${line}\n`);
+  }
+  return content.replace(/^(# .*?)(\r?\n)/, `$1$2\n${line}\n`);
+}
+
+function decodeBase64Content(encoded) {
+  return decodeURIComponent(escape(atob((encoded || '').replace(/\n/g, ''))));
+}
+
 function submissionStage(issue, pullRequest, options = {}) {
   const labels = issue ? issueLabels(issue) : [];
   if (labels.includes('proposal-declined')) {
@@ -1301,6 +1331,30 @@ router.post('/api/status-change', async (request, env) => {
     }, env, null, stats);
 
     try {
+      // Commit the status flip on the branch so the pull request has a diff.
+      // CI (_set_study_status via _ci_study_pr.py) then finalizes the catalog,
+      // timestamp, and PDF watermark on merge.
+      const filePath = `Studies/${slug}/${slug}.md`;
+      let fileData;
+      try {
+        fileData = await githubRequest(`/contents/${filePath}?ref=${branchName}`, 'GET', null, env, null, stats);
+      } catch (e) {
+        throw new Error(`Could not load ${filePath} to apply the status change.`);
+      }
+      const currentContent = decodeBase64Content(fileData.content);
+      const istTime = getISTDateString();
+      let newContent = setStatusLine(currentContent, targetStatus);
+      newContent = setEditedOnLine(newContent, istTime);
+      if (newContent === currentContent) {
+        throw new Error(`"${slug}" already appears to be ${targetStatus}.`);
+      }
+      await githubRequest(`/contents/${filePath}`, 'PUT', {
+        message: `Set ${slug} status to ${targetStatus} via Web Portal`,
+        content: btoa(unescape(encodeURIComponent(newContent))),
+        branch: branchName,
+        sha: fileData.sha,
+      }, env, null, stats);
+
       const prBody = [
         `Study slug: ${slug}`,
         `Target status: ${targetStatus}`,
