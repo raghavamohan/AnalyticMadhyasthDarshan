@@ -3,8 +3,8 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 1, 2026, 4:17 PM IST
-**Status:** Draft
+**Edited on:** July 1, 2026, 4:35 PM IST
+**Status:** Released
 **The question:** must organisations be built on fear or accumulation, or is there a basis on which they sustain *and* their members are not used as instruments?
 
 This study takes the near-universal history of human organisation — grouping for safety, sustenance, protection, shared belief, and finally wealth and power — and asks whether every such basis reduces to **fear** and **accumulation**, and whether that reduction explains two recurring failures together: members treated as instruments, and organisations that dissolve once the founding fear passes or the accumulation stalls. Against that pattern it sets Madhyasth Darshan's alternative — organisation around **understood coexistence**: shared cause, goal, and programme; values fulfilled in relationships; prosperity through right-use rather than accumulation; and understanding transmitted to every member through education-sanskar. The design is argued to be coherent but is untested at civilisational scale, and its deepest premises are asserted rather than demonstrated (§10).
