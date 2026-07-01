@@ -49,6 +49,7 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
 .auth-bar .auth-user strong{color:var(--text);}
 .auth-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
 .auth-btn{font-family:var(--sans);font-size:14px;font-weight:600;border-radius:8px;padding:8px 14px;cursor:pointer;border:1px solid var(--border);background:var(--surface);color:var(--text);text-decoration:none;display:inline-block;}
+.auth-btn[hidden],.auth-btn.hidden{display:none !important;}
 .auth-btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;}
 .auth-btn:hover{opacity:0.92;}
 .login-gate{background:var(--warm-soft);border:1px solid #e0d0be;border-radius:8px;padding:14px 16px;margin-bottom:20px;font-family:var(--sans);font-size:14px;display:none;}
@@ -130,8 +131,7 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
   <div class="auth-bar" id="auth-bar">
     <div class="auth-user" id="auth-user">Sign in with GitHub to manage your submissions.</div>
     <div class="auth-actions">
-      <button type="button" class="auth-btn primary" id="auth-login-btn">Sign in with GitHub</button>
-      <button type="button" class="auth-btn" id="auth-logout-btn" hidden>Sign out</button>
+      <button type="button" class="auth-btn primary" id="auth-action-btn">Sign in with GitHub</button>
     </div>
   </div>
 
@@ -465,8 +465,16 @@ function updateAuthUi(loggedIn) {
   document.getElementById('status-login-gate').classList.toggle('visible', !loggedIn);
   document.getElementById('dashboard-login-gate').classList.toggle('visible', !loggedIn);
   document.getElementById('dashboard-content').hidden = !loggedIn;
-  document.getElementById('auth-login-btn').hidden = loggedIn;
-  document.getElementById('auth-logout-btn').hidden = !loggedIn;
+  const authBtn = document.getElementById('auth-action-btn');
+  if (loggedIn) {
+    authBtn.textContent = 'Sign out';
+    authBtn.classList.remove('primary');
+    authBtn.setAttribute('aria-label', 'Sign out of GitHub');
+  } else {
+    authBtn.textContent = 'Sign in with GitHub';
+    authBtn.classList.add('primary');
+    authBtn.setAttribute('aria-label', 'Sign in with GitHub');
+  }
   document.getElementById('dashboard-refresh-btn').hidden = !loggedIn;
 }
 
@@ -1024,8 +1032,10 @@ function applyQueryParams() {
   }
 }
 
-document.getElementById('auth-login-btn').addEventListener('click', startGitHubLogin);
-document.getElementById('auth-logout-btn').addEventListener('click', logout);
+document.getElementById('auth-action-btn').addEventListener('click', () => {
+  if (currentUser) logout();
+  else startGitHubLogin();
+});
 document.getElementById('dashboard-refresh-btn').addEventListener('click', () => loadDashboard({ force: true }));
 document.getElementById('p-title').addEventListener('input', updateSlugPreview);
 document.getElementById('s-new').addEventListener('change', () => { toggleProposalField(); configureSubmitView(document.getElementById('s-new').checked ? 'new' : 'update'); });
