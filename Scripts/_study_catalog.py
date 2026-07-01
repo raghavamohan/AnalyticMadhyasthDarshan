@@ -78,6 +78,14 @@ STATUS_MD_RE = re.compile(
     r"^\*\*Status:\*\*\s+(Draft|Released)\s*$",
     re.MULTILINE,
 )
+# Same line, plus any blank-line runs immediately before/after it, so removing this whole
+# match and replacing it with exactly "\n\n" always leaves one blank line where **Status:**
+# was -- regardless of how much blank-line spacing the source markdown used around it --
+# without touching newlines anywhere else in the document.
+STATUS_MD_WITH_SURROUNDING_BLANKS_RE = re.compile(
+    r"\n*^\*\*Status:\*\*\s+(?:Draft|Released)\s*$\n*",
+    re.MULTILINE,
+)
 CATALOG_TIMESTAMP_RE = re.compile(
     r"Last updated on:\s+(\w+)\s+(\d+),\s+(\d{4}),\s+(\d+:\d+\s+[AP]M)\s+IST"
 )
@@ -274,18 +282,29 @@ def strip_status_for_pdf(md_text: str) -> str:
     """Remove the **Status:** line from markdown before PDF rendering (watermark/catalog
     carry status), while preserving the paragraph break on either side of it.
 
-    Only the line's own text is removed via STATUS_MD_RE, whose ``$`` anchor stops before
-    the line's trailing newline rather than consuming it -- unlike a pattern that also eats
-    trailing ``\\n+``, which would swallow any blank line after **Status:** and merge the
-    line before it (e.g. **Edited on:**) with the line after it (e.g. **The question:**)
-    into one paragraph. Removing just the line's text leaves its surrounding newlines
-    intact, so whatever came before and after **Status:** stays separated by at least one
-    blank line regardless of how much blank-line spacing the source markdown used around it.
-    Any resulting run of 3+ newlines (if blank lines already surrounded **Status:**) is
-    collapsed to a single blank line for a tidy intermediate string.
+    Every Draft/Released study must carry a **Status:** line (AGENTS.md §1); callers only
+    reach this function once that has been confirmed (``regenerate_pdf`` and
+    ``_convert_to_pdf.main`` both gate on status first and return/exit before calling it for
+    Ongoing studies, which have no PDF and no **Status:** line to strip). A study reaching
+    here without one is therefore a markdown-formatting bug, not a state this function should
+    paper over silently -- raise so it surfaces immediately instead of shipping a PDF with a
+    stray or missing header line.
+
+    STATUS_MD_WITH_SURROUNDING_BLANKS_RE matches the **Status:** line together with any
+    blank-line runs immediately before and after it, and the whole match is replaced with
+    exactly one blank line (``\\n\\n``). That keeps the normalization scoped to the
+    **Status:** line's own vicinity -- unlike a global ``\\n{3,}`` collapse, it never touches
+    blank-line spacing elsewhere in the document -- while still guaranteeing that whatever
+    came before **Status:** (e.g. **Edited on:**) and whatever came after it (e.g. **The
+    question:**) end up separated by a real paragraph break, regardless of how much or how
+    little blank-line spacing the source markdown used around **Status:** to begin with.
     """
-    md_text = STATUS_MD_RE.sub("", md_text, count=1)
-    return re.sub(r"\n{3,}", "\n\n", md_text)
+    if not STATUS_MD_RE.search(md_text):
+        raise ValueError(
+            "strip_status_for_pdf: no **Status:** Draft|Released line found. Every "
+            "Draft/Released study must carry one (AGENTS.md §1) before PDF rendering."
+        )
+    return STATUS_MD_WITH_SURROUNDING_BLANKS_RE.sub("\n\n", md_text, count=1)
 
 
 def set_status_md(md_text: str, status: StudyStatus) -> str:
