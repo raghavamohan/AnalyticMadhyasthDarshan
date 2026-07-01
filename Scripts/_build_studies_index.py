@@ -18,6 +18,7 @@ from _build_discussion_pages import ASSET_VERSION as DISCUSS_ASSET_VERSION  # no
 from _common import BASE, STUDIES  # noqa: E402
 from _study_catalog import (  # noqa: E402
     STUDY_FEEDBACK_TEMPLATE_PATH,
+    StudyRow,
     StudyStatus,
     StudyTable,
     catalog_json_payload,
@@ -25,6 +26,7 @@ from _study_catalog import (  # noqa: E402
     load_catalog_rows,
     parse_catalog_json,
     parse_catalog_json_file,
+    row_to_catalog_entry,
     split_categories,
     write_studies_catalog,
 )
@@ -1704,6 +1706,145 @@ def build_hero_scope_html(rows: list) -> str:
     )
 
 
+# Kept byte-for-byte in sync with the JavaScript `PDF_DOWNLOAD_ICON` in INDEX_TEMPLATE
+# so the pre-rendered cards and the client re-render produce identical markup.
+PDF_DOWNLOAD_ICON = (
+    '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">'
+    '<path fill="currentColor" d="M12 3a1 1 0 0 1 1 1v9.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42l2.3 2.3V4a1 1 0 0 1 1-1Zm-7 14a1 1 0 0 1 1 1v1h12v-1a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1Z"/>'
+    "</svg>"
+)
+
+
+def _card_esc_attr(value: str) -> str:
+    """Mirror the JavaScript `escAttr` helper in INDEX_TEMPLATE."""
+    return str(value).replace('"', "&quot;").replace("<", "&lt;")
+
+
+def _card_version_query(row: StudyRow) -> str:
+    """Match the JS `pdfVersionQuery`: `?v=<epoch-ms>` from the `Edited on` time.
+
+    The client parses the catalog `updated` string reformatted to `GMT+0530`; the
+    tz-aware IST ``edited_at`` produces the same epoch milliseconds.
+    """
+    if row.edited_at is None:
+        return ""
+    return f"?v={int(row.edited_at.timestamp() * 1000)}"
+
+
+def _card_html_href(entry: dict, version_query: str) -> str:
+    base = entry.get("html")
+    if not base:
+        pdf = entry.get("pdf")
+        if pdf:
+            base = re.sub(r"\.pdf$", ".html", pdf, flags=re.IGNORECASE)
+        else:
+            base = f"{entry['slug']}/{entry['slug']}.html"
+    return f"{base}{version_query}"
+
+
+def _card_pdf_href(entry: dict, version_query: str) -> str:
+    base = entry.get("pdf") or f"{entry['slug']}/{entry['slug']}.pdf"
+    return f"{base}{version_query}"
+
+
+def _card_discussion_href(entry: dict, version_query: str) -> str:
+    base = entry.get("discussion") or f"{entry['slug']}/discussion.html"
+    if not DISCUSS_ASSET_VERSION:
+        return f"{base}{version_query}"
+    sep = "&" if version_query else "?"
+    return f"{base}{version_query}{sep}dv={DISCUSS_ASSET_VERSION}"
+
+
+def _card_discuss_link_html(entry: dict, version_query: str) -> str:
+    """Initial (pre-stats) discussion link: no comment count badge, matching the
+    JS `discussLinkHtml` before `/api/discussions/stats` resolves."""
+    href = _card_discussion_href(entry, version_query)
+    title = entry["title"]
+    return (
+        f'<a class="discuss-link" href="{href}" title="Discussion board" '
+        f'aria-label="Discuss {_card_esc_attr(title)}">Discuss</a>'
+    )
+
+
+def _render_catalog_card(row: StudyRow, entry: dict) -> str:
+    """Reproduce the JS `cardHTML` for an available (draft/released) study so the
+    server-rendered card and the client re-render have identical layout height."""
+    version_query = _card_version_query(row)
+    status = entry["status"]
+    released = status == "released"
+    card_class = "is-released is-available" if released else "is-draft is-available"
+    badge_class = "released" if released else "draft"
+    badge_label = "Released" if released else "Draft"
+    draft_title = ' title="Draft PDF includes a watermark"' if status == "draft" else ""
+
+    title = entry["title"]
+    title_inner = f'<a href="{_card_html_href(entry, version_query)}">{title}</a>'
+    chips = "".join(
+        f'<button type="button" class="chip" data-cat="{c.replace(chr(34), "&quot;")}">{c}</button>'
+        for c in entry["categories"]
+    )
+    read_actions = (
+        f'<a class="pdf-download" href="{_card_pdf_href(entry, version_query)}" download '
+        f'title="Download PDF" aria-label="Download PDF for {_card_esc_attr(title)}">'
+        f"{PDF_DOWNLOAD_ICON}</a>"
+    )
+    foot = (
+        f'<span class="badge {badge_class}"{draft_title}>'
+        f'<span class="badge-dot"></span>{badge_label}</span>'
+        f'<span class="card-actions">'
+        f"{_card_discuss_link_html(entry, version_query)}{read_actions}</span>"
+    )
+    updated = entry.get("updated")
+    date_line = (
+        f'<div class="card-foot" style="border:none;padding:6px 0 0;color:#9a8f80;">'
+        f"Updated {updated}</div>"
+        if updated
+        else ""
+    )
+    return (
+        f'<li class="card {card_class}" id="study-{_card_esc_attr(entry["slug"])}">\n'
+        f'      <h3 class="card-title">{title_inner}</h3>\n'
+        f'      <div class="chips">{chips}</div>\n'
+        f'      <p class="card-desc">{entry["description"]}</p>\n'
+        f'      <div class="card-foot">{foot}</div>{date_line}</li>'
+    )
+
+
+def render_catalog_cards(rows: list[StudyRow]) -> str:
+    """Render the default-visible (status "available") cards for one collection,
+    in catalog-file order to match the client's stable "recently updated" sort."""
+    parts: list[str] = []
+    for row in rows:
+        if row.status not in (StudyStatus.DRAFT, StudyStatus.RELEASED):
+            continue
+        parts.append(_render_catalog_card(row, row_to_catalog_entry(row)))
+    return "".join(parts)
+
+
+def inject_catalog_cards(html: str, rows_by_coll: dict[str, list[StudyRow]]) -> str:
+    """Pre-render the default catalog cards into the empty grids so the first paint
+    reserves their height (eliminating the JS-fill layout shift)."""
+    for coll, rows in rows_by_coll.items():
+        cards = render_catalog_cards(rows)
+        html = html.replace(
+            f'<ul class="grid" id="grid-{coll}"></ul>',
+            f'<ul class="grid" id="grid-{coll}">{cards}</ul>',
+            1,
+        )
+    return html
+
+
+def strip_grid_contents(content: str) -> str:
+    """Blank the pre-rendered catalog cards so shell verification compares only the
+    static template markup (cards are build-time data, like the catalog bootstrap)."""
+    return re.sub(
+        r'(<ul class="grid" id="grid-(?:topical|formal|applied)">).*?(</ul>)',
+        r"\1\2",
+        content,
+        flags=re.DOTALL,
+    )
+
+
 def normalize_shell_text(text: str) -> str:
     normalized = text.replace("\r\n", "\n").replace("\r", "\n")
     return "\n".join(line.rstrip() for line in normalized.splitlines()).strip() + "\n"
@@ -1755,10 +1896,14 @@ def verify_index_shell_sync() -> list[str]:
         return ["Studies/index.html is missing."]
 
     actual = normalize_shell_text(
-        strip_build_time_data(strip_catalog_blocks(index_path.read_text(encoding="utf-8")))
+        strip_build_time_data(
+            strip_catalog_blocks(strip_grid_contents(index_path.read_text(encoding="utf-8")))
+        )
     )
     expected = normalize_shell_text(
-        strip_build_time_data(strip_catalog_blocks(minify_inline_css(INDEX_TEMPLATE)))
+        strip_build_time_data(
+            strip_catalog_blocks(strip_grid_contents(minify_inline_css(INDEX_TEMPLATE)))
+        )
     )
 
     if actual != expected:
@@ -1811,6 +1956,10 @@ def main() -> int:
     # Guard against premature </script> termination inside the inlined JSON island.
     bootstrap_json = bootstrap_json.replace("</", "<\\/")
     html = html.replace(CATALOG_BOOTSTRAP_PLACEHOLDER, bootstrap_json)
+    html = inject_catalog_cards(
+        html,
+        {"topical": topical_rows, "formal": formal_rows, "applied": applied_rows},
+    )
     index_path.write_text(minify_inline_css(html), encoding="utf-8")
     print("Wrote Studies/index.html shell with inlined catalog bootstrap (and catalog-*.json for runtime refresh).")
 
