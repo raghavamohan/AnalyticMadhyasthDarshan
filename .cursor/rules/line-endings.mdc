@@ -1,0 +1,36 @@
+---
+description: Use LF line endings for all files; never introduce CRLF into tracked text files
+globs: *
+alwaysApply: true
+---
+
+# Line endings — LF everywhere
+
+> **Source of truth:** [AGENTS.md](../AGENTS.md) §8. Keep this file in sync when editing.
+
+Every file in this repository uses **LF** (`\n`) line endings. `.gitattributes` at
+the repo root (`* text=auto eol=lf`) normalizes all tracked text files to LF in git
+and on checkout across platforms; binary types (`*.pdf`, `*.png`, fonts, Office
+documents, archives) are marked `binary` and left untouched. `.vscode/settings.json`
+sets `"files.eol": "\n"` so the editor writes LF at the source on every OS.
+
+This exists because the repo previously had mixed endings and no `.gitattributes`,
+so generated artifacts (study `*.html`, `catalog-*.json`, `Studies/index.html`,
+companion HTML from PDF regeneration) churned between CRLF and LF depending on which
+tool or OS last wrote them, producing large line-ending-only diffs.
+
+## Rules
+
+- Never introduce CRLF (`\r\n`) into tracked text files. Create and edit files with LF.
+- Keep `.gitattributes` as the single source of EOL policy; do not add per-path
+  overrides that reintroduce CRLF, and do not delete the `eol=lf` normalization.
+- Scripts that write files (PDF/HTML pipeline, `_build_studies_index.py`, catalog
+  writers) must emit LF; `.gitattributes` also normalizes on commit as a backstop.
+- Do not hand-convert generated artifacts to CRLF to "fix" a diff — regenerate them
+  with the repo scripts instead.
+
+## Check
+
+- `git add --renormalize .` produces no changes on an otherwise clean tree.
+- `git diff --ignore-cr-at-eol` shows no files that differ only by line ending.
+- New text files report `i/lf` under `git ls-files --eol`.
