@@ -1,0 +1,25 @@
+# Normalize line endings across the repository.
+#
+# All text files are stored with LF in git and checked out with LF in the
+# working tree on every platform. This keeps generated artifacts (HTML,
+# catalog JSON, PDFs regenerated from markdown) from churning between CRLF
+# and LF depending on which tool or OS last wrote them.
+* text=auto eol=lf
+
+# Explicit binary types: never apply EOL conversion or text diffing.
+*.pdf   binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ico   binary
+*.webp  binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.otf   binary
+*.eot   binary
+*.pptx  binary
+*.docx  binary
+*.xlsx  binary
+*.zip   binary
