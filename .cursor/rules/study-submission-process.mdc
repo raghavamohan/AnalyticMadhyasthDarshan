@@ -67,3 +67,5 @@ drift out of sync with the source `.md`.
 - [ ] Local verification (`_quote_tool.py verify`, `_check_references.py`, `_regenerate_pdf.py`,
   `_verify_studies_index.py` as applicable) run and passing before push
 - [ ] Non-study changes (Scripts/, rules, skills, infra) are not carrying a study label
+
+---
