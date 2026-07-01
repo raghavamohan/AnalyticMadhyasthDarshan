@@ -861,11 +861,11 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     <h2>Start here</h2>
     <p class="start-here-intro">New to the collection? Read these in order to build a foundational understanding before the formal and applied lenses.</p>
     <ol>
-      <li><a href="The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a><span class="start-here-status">Released &mdash; core ontology, units, sentience</span></li>
-      <li><a href="Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html">Why Humans Are Not Just Material</a><span class="start-here-status">Released &mdash; anthropology, consciousness, value</span></li>
-      <li><a href="Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.html">Knowledge Knower and Known</a><span class="start-here-status">Released &mdash; epistemology, knower, known</span></li>
-      <li><a href="Nature-Of-Time/Nature-Of-Time.html">Nature of Time</a><span class="start-here-status">Released &mdash; *kaal*, physics, philosophy of time</span></li>
-      <li><a href="How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established-presentation.pdf">How undivided society is established</a><span class="start-here-status">Draft &mdash; presentation, *akhand samaj*, social architecture</span></li>
+      <li data-slug="The-Ontology-of-Coexistence"><a href="The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a><span class="start-here-status"><span class="sh-status-word">Released</span> &mdash; core ontology, units, sentience</span></li>
+      <li data-slug="Why-Humans-Are-Not-Just-Material"><a href="Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html">Why Humans Are Not Just Material</a><span class="start-here-status"><span class="sh-status-word">Released</span> &mdash; anthropology, consciousness, value</span></li>
+      <li data-slug="Knowledge-Knower-And-Known"><a href="Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.html">Knowledge Knower and Known</a><span class="start-here-status"><span class="sh-status-word">Released</span> &mdash; epistemology, knower, known</span></li>
+      <li data-slug="Nature-Of-Time"><a href="Nature-Of-Time/Nature-Of-Time.html">Nature of Time</a><span class="start-here-status"><span class="sh-status-word">Released</span> &mdash; *kaal*, physics, philosophy of time</span></li>
+      <li data-slug="How-Undivided-Society-Is-Established"><a href="How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established-presentation.pdf">How undivided society is established</a><span class="start-here-status"><span class="sh-status-word">Draft</span> &mdash; presentation, *akhand samaj*, social architecture</span></li>
     </ol>
   </div>
 
@@ -1458,9 +1458,22 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     b.addEventListener("click", resetFilters);
   });
 
+  const START_HERE_STATUS_WORDS = { released: "Released", draft: "Draft", planned: "Planned" };
+  const syncStartHere = studies => {
+    const statusBySlug = {};
+    (studies || []).forEach(s => { if (s.slug) statusBySlug[s.slug] = s.status; });
+    document.querySelectorAll("#start-here li[data-slug]").forEach(li => {
+      const word = li.querySelector(".sh-status-word");
+      if (!word) return;
+      const label = START_HERE_STATUS_WORDS[statusBySlug[li.dataset.slug]];
+      if (label) word.textContent = label;
+    });
+  };
+
   const bootCatalog = () => {
     updateHeroScope();
     renderCatalog();
+    syncStartHere(STUDIES);
   };
 
   const scheduleCatalogBoot = () => {
