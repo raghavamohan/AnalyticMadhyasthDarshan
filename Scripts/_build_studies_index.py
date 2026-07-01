@@ -453,7 +453,11 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     background: var(--surface); border: 1px solid var(--border);
     border-left: 4px solid var(--warm); border-radius: var(--radius);
     box-shadow: var(--shadow); padding: 16px 18px 14px;
+    scroll-margin-top: 64px;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .card.is-targeted {
+    animation: section-target-flash 1.6s ease-out forwards;
   }
   .card.is-available { border-left-color: var(--accent); }
   .card.is-released { border-left-color: #2d6a4f; }
@@ -795,6 +799,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     .toc { flex-wrap: wrap; flex: 1 1 100%; min-width: 0; }
     .section { scroll-margin-top: calc(var(--page-nav-offset, 56px) + 12px); }
     .catalog-group { scroll-margin-top: calc(var(--page-nav-offset, 56px) + 12px); }
+    .card { scroll-margin-top: calc(var(--page-nav-offset, 56px) + 12px); }
     h1 { font-size: 30px; }
     .triad { grid-template-columns: 1fr; }
   }
@@ -883,8 +888,8 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       <button type="button" data-coll="applied" aria-pressed="false">Applied</button>
     </div>
     <div class="seg" id="status-seg" role="group" aria-label="Filter by status">
-      <button type="button" data-status="all" aria-pressed="true">All</button>
-      <button type="button" data-status="available" aria-pressed="false">Available</button>
+      <button type="button" data-status="all" aria-pressed="false">All</button>
+      <button type="button" data-status="available" aria-pressed="true">Available</button>
       <button type="button" data-status="planned" aria-pressed="false">Planned</button>
     </div>
     <label class="sr-only" for="sort">Sort</label>
@@ -1127,7 +1132,8 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
   const isAvail = s => s.status === "draft" || s.status === "released";
   const ts = s => s.updated ? Date.parse(s.updated) : -Infinity;
-  const state = { q: "", coll: "all", status: "all", cat: "all", sort: "recent" };
+  const DEFAULT_STATUS = "available";
+  const state = { q: "", coll: "all", status: DEFAULT_STATUS, cat: "all", sort: "recent" };
 
   const updateSearchClear = () => {
     const input = document.getElementById("q");
@@ -1155,7 +1161,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     const params = new URLSearchParams();
     if (state.q) params.set("q", state.q);
     if (state.coll !== "all") params.set("coll", state.coll);
-    if (state.status !== "all") params.set("status", state.status);
+    if (state.status !== DEFAULT_STATUS) params.set("status", state.status);
     if (state.cat !== "all") params.set("cat", state.cat);
     if (state.sort !== "recent") params.set("sort", state.sort);
     const qs = params.toString();
@@ -1167,10 +1173,11 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     const params = new URLSearchParams(window.location.search);
     state.q = params.get("q") || "";
     state.coll = params.get("coll") || "all";
-    state.status = params.get("status") || "all";
+    state.status = params.get("status") || DEFAULT_STATUS;
     state.cat = params.get("cat") || "all";
     state.sort = params.get("sort") || "recent";
     syncControlsToState();
+    initHashStudyTarget();
   };
 
   const updateHeroScope = () => {
@@ -1208,7 +1215,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     return true;
   };
 
-  const filtersActive = () => !!(state.q || state.coll !== "all" || state.status !== "all" || state.cat !== "all" || state.sort !== "recent");
+  const filtersActive = () => !!(state.q || state.coll !== "all" || state.status !== DEFAULT_STATUS || state.cat !== "all" || state.sort !== "recent");
 
   const categoryCounts = () => {
     const counts = {};
@@ -1254,7 +1261,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   const resetFilters = () => {
     state.q = "";
     state.coll = "all";
-    state.status = "all";
+    state.status = DEFAULT_STATUS;
     state.cat = "all";
     state.sort = "recent";
     if (qInput) qInput.value = "";
@@ -1266,7 +1273,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     }
     if (statusSeg) {
       Array.from(statusSeg.querySelectorAll("button")).forEach(x => {
-        x.setAttribute("aria-pressed", x.dataset.status === "all" ? "true" : "false");
+        x.setAttribute("aria-pressed", x.dataset.status === DEFAULT_STATUS ? "true" : "false");
       });
     }
     renderCatalog();
@@ -1325,7 +1332,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     const dateLine = avail && s.updated
       ? `<div class="card-foot" style="border:none;padding:6px 0 0;color:#9a8f80;">Updated ${s.updated}</div>`
       : "";
-    return `<li class="card ${cardClass}">
+    return `<li class="card ${cardClass}" id="study-${escAttr(s.slug)}">
       <h3 class="card-title">${titleInner}</h3>
       <div class="chips">${chips}</div>
       <p class="card-desc">${s.d}</p>
@@ -1357,6 +1364,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     const count = document.getElementById("count");
     if (count) count.textContent = `${shown} studies shown`;
     writeStateToUrl();
+    applyHashStudyTarget();
   };
 
   const qInput = document.getElementById("q");
@@ -1468,6 +1476,49 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       const label = START_HERE_STATUS_WORDS[statusBySlug[li.dataset.slug]];
       if (label) word.textContent = label;
     });
+  };
+
+  // Support returning from a study's HTML page to the exact card it was opened
+  // from (via a `#study-<slug>` hash on the "All studies" link) instead of always
+  // landing back at the top of the catalog. Catalog data arrives in stages (inline
+  // bootstrap, then a background fetch, then discussion stats), each of which
+  // re-renders the grid and would otherwise drop a highlight added on an earlier
+  // pass, so re-apply it for a few seconds after load rather than only once.
+  let hashStudySlug = null;
+  let hashStudyExpiresAt = 0;
+  let hashStudyScrolled = false;
+
+  const initHashStudyTarget = () => {
+    const match = /^#study-(.+)$/.exec(window.location.hash);
+    hashStudySlug = match ? decodeURIComponent(match[1]) : null;
+    hashStudyExpiresAt = hashStudySlug ? Date.now() + 4000 : 0;
+  };
+
+  const applyHashStudyTarget = () => {
+    if (!hashStudySlug) return;
+    if (Date.now() > hashStudyExpiresAt) {
+      hashStudySlug = null;
+      return;
+    }
+    const target = document.getElementById(`study-${hashStudySlug}`);
+    if (!target) {
+      // The linked study may be hidden by the current status/collection filter
+      // (e.g. its status changed since the link was generated); widen to "all"
+      // so it stays reachable, then let the resulting re-render try again.
+      if (STUDIES.some(s => s.slug === hashStudySlug) && (state.status !== "all" || state.coll !== "all")) {
+        state.status = "all";
+        state.coll = "all";
+        syncControlsToState();
+        renderCatalog();
+      }
+      return;
+    }
+    if (!hashStudyScrolled) {
+      target.scrollIntoView({ behavior: "auto", block: "center" });
+      hashStudyScrolled = true;
+    }
+    target.classList.add("is-targeted");
+    window.setTimeout(() => { target.classList.remove("is-targeted"); }, 1600);
   };
 
   const bootCatalog = () => {

@@ -154,6 +154,7 @@ def _study_toolbar_html(md_path: Path, *, is_draft: bool, title: str) -> str:
             catalog_href = "../index.html"
     except ValueError:
         catalog_href = "../index.html"
+    catalog_href = f"{catalog_href}#study-{quote(stem)}"
     pdf_href = f"{stem}.pdf"
     discuss_href = f"discussion.html?dv={DISCUSS_ASSET_VERSION}" if DISCUSS_ASSET_VERSION else "discussion.html"
     feedback_href = _feedback_href(title)
