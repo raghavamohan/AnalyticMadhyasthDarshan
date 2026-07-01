@@ -74,16 +74,27 @@ EDITED_ON_RE = re.compile(
     r"^\*\*Edited on:\*\*\s+(.+?)\s+IST\s*$",
     re.MULTILINE,
 )
-STATUS_MD_RE = re.compile(
-    r"^\*\*Status:\*\*\s+(Draft|Released)\s*$",
-    re.MULTILINE,
-)
-# Same line, plus any blank-line runs immediately before/after it, so removing this whole
-# match and replacing it with exactly "\n\n" always leaves one blank line where **Status:**
-# was -- regardless of how much blank-line spacing the source markdown used around it --
-# without touching newlines anywhere else in the document.
+# Core text of the **Status:** line itself, shared by the existence check (STATUS_MD_RE)
+# and the paragraph-scoped removal below (STATUS_MD_WITH_SURROUNDING_BLANKS_RE) so the two
+# can never drift into testing two different notions of "the Status line." Restricted to
+# horizontal whitespace ([ \t]) rather than \s so this fragment can only ever match within a
+# single line -- all newline/blank-line handling is left entirely to the explicit
+# blank-line pattern below rather than leaking into this one via a newline-matching \s.
+_STATUS_LINE_BODY = r"\*\*Status:\*\*[ \t]+(Draft|Released)[ \t]*"
+STATUS_MD_RE = re.compile(rf"^{_STATUS_LINE_BODY}$", re.MULTILINE)
+# One mandatory line separator, plus any further lines that are themselves blank (only
+# horizontal whitespace). Each repetition requires its own trailing \n before it is
+# accepted, so this can only ever consume vertical whitespace between paragraphs -- it can
+# never consume a real line's leading indentation or any other paragraph text, because the
+# moment [ \t]* runs into a non-blank line's content instead of a \n, that whole repetition
+# fails to match and nothing from that line is consumed.
+_BLANK_LINE_RUN = r"\n(?:[ \t]*\n)*"
+# The Status line together with any blank-line run immediately before/after it, so removing
+# this whole match and replacing it with exactly "\n\n" always leaves one blank line where
+# **Status:** was -- regardless of how much blank-line spacing the source markdown used
+# around it -- without touching newlines, indentation, or text anywhere else in the document.
 STATUS_MD_WITH_SURROUNDING_BLANKS_RE = re.compile(
-    r"\n*^\*\*Status:\*\*\s+(?:Draft|Released)\s*$\n*",
+    rf"(?:{_BLANK_LINE_RUN})?^{_STATUS_LINE_BODY}$(?:{_BLANK_LINE_RUN})?",
     re.MULTILINE,
 )
 CATALOG_TIMESTAMP_RE = re.compile(
@@ -294,10 +305,12 @@ def strip_status_for_pdf(md_text: str) -> str:
     blank-line runs immediately before and after it, and the whole match is replaced with
     exactly one blank line (``\\n\\n``). That keeps the normalization scoped to the
     **Status:** line's own vicinity -- unlike a global ``\\n{3,}`` collapse, it never touches
-    blank-line spacing elsewhere in the document -- while still guaranteeing that whatever
-    came before **Status:** (e.g. **Edited on:**) and whatever came after it (e.g. **The
-    question:**) end up separated by a real paragraph break, regardless of how much or how
-    little blank-line spacing the source markdown used around **Status:** to begin with.
+    blank-line spacing elsewhere in the document, and (per _BLANK_LINE_RUN's construction)
+    it can never consume a real line's text or leading indentation either -- while still
+    guaranteeing that whatever came before **Status:** (e.g. **Edited on:**) and whatever
+    came after it (e.g. **The question:**) end up separated by a real paragraph break,
+    regardless of how much or how little blank-line spacing the source markdown used around
+    **Status:** to begin with.
     """
     if not STATUS_MD_RE.search(md_text):
         raise ValueError(
