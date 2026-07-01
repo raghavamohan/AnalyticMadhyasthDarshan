@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 1, 2026, 2:58 PM IST
+**Edited on:** July 1, 2026, 7:53 PM IST
 **Status:** Released
 
 **Basis:** This application instantiates the coexistence template and categorical architecture for a deliberate human assembly ([*The Coexistence Template*](../../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf) D1–D13, L1–L7, P3–P5, §8; [*Category Theory Explained*](../../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf) §§3.5, 6.1, 6.1.1, 6.2.1, 6.6.1, 6.7–6.9, 6.15). It works out, at company scale, the practical programme whose theoretical core is [*How To Form Self-Sustaining Organizations*](../../Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.pdf) (template §8, P3–P4). It is a design blueprint, not legal advice.
@@ -240,6 +240,116 @@ Minimum duration: **90 days** before full membership in a compound Family Team.
 - **Not** derivable from category theory alone — L3 complementarity, cap(u), τ_ev, and saturation are **designed in** ([*Category Theory Explained*](../../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf) §6.11 P8–P9, P11, P16).
 
 SCW is a **template instance**: bounded units, definite valued relationships, compound assembly by complementarity, persistence by fulfilment, transmission by education-*sanskar*, evaluation and evidence at the knowledge tier — structured so longevity and balance are **construction requirements**, not afterthoughts.
+
+
+## Appendix A — "Where is my department?" (conventional-role FAQ)
+
+Readers arriving from a conventional org chart look for familiar boxes — a sales team, a finance department, HR, a CEO, a board. Some of those functions map cleanly onto an office or relationship already defined above. Others are **reframed**: the work still happens, but it is carried by a differently-shaped unit because the premise behind the conventional box (net extraction of members, open-ended maximisation) is rejected at the design objectives (§1; P3). A few have **no direct answer** in the current design — where that is the case it is said plainly, followed by the darshan's reasoning and the handling that reasoning implies.
+
+| Conventional function | Status | Where it lives here |
+|-----------------------|--------|---------------------|
+| Sales / business development | Reframed | Conduct Division (φ); Production relationship (§4, §6) |
+| Marketing / advertising / brand | No direct answer | Recognisable conduct (*pramanikta*), Evidence & Tradition Office (§4) |
+| Customer support / success | Mapped | Production relationship + client feedback (§6, §7) |
+| Finance & accounts | Mapped | Right-Use & Regeneration; Steward Council (§4, §9) |
+| Payroll / compensation | No direct answer | Needs-based circulation; Steward Council + Right-Use (§9) |
+| Shareholders / investors / board | No direct answer | Rejected as owner-extractor; Steward Council is ambient ground (§3, §14) |
+| Profit distribution / dividends / equity | No direct answer | Circulation for family needs + reinvestment (§1, §9) |
+| Human resources | Reframed | Capability Institute, Relationship Registry, Transmission Institute, Evaluation Forum (§4) |
+| Recruiting / hiring | Mapped | Onboarding pipeline τ; L3 need/surplus (§11, §12) |
+| Performance management / KPIs | Reframed | Evaluation Forum (μ), *jeevan*-only (§4, §10, §13) |
+| Promotions / raises / career ladder | No direct answer | Awakening progression T1–T3; cap(u), μ (§8) |
+| Training / L&D | Mapped | Transmission Institute + Capability Institute (§4, §11) |
+| Grievances / ethics / employee relations | Mapped | Justice cycle ρ → φ → μ; Value & Justice + Charter (§4, §9) |
+| Layoffs / downsizing | Partial / no direct answer | Offboarding τ_ev exists; cost-cutting layoffs contradict A1–A2 (§9) |
+| CEO / executive leadership | Reframed | Steward Council + Chief Steward + Office of Cause, Goal & Programme (§3, §9) |
+| Middle management / team leads | Reframed | Team Steward — stewardship, not command (§5) |
+| Strategy / planning | Mapped | Office of Cause, Goal & Programme; completeness review (§1, §10) |
+| Operations / production | Mapped | Conduct Division + Family Teams (§3–§5) |
+| Quality assurance | Mapped | Value & Justice + Evaluation + Evidence & Tradition (§4, §10) |
+| Legal / compliance / governance docs | Mapped | Charter & Ground Office (§4) |
+| R&D / innovation | Reframed | Research is the product; growth by L3 need/surplus (intro, §12) |
+| IT / facilities / procurement / admin | Mapped | Right-Use & Regeneration (§4, §9) |
+| PR / communications | Reframed | Evidence & Tradition Office — *pramanikta*, not spin (§4) |
+
+### A.1 Selling and customers
+
+**Q — Where is the Sales department?**
+There is no unit whose mandate is to close deals against a quota. The client-facing exchange is registered as the **Production** relationship — Producer ↔ client/user, an expectation profile of *usefulness-complementarity* and *purposeful-use* (§6) — and the work of fulfilling it belongs to the **Conduct Division** (φ) through the Family Teams (§3, §4 row 11, §5). Selling here is the offer of a genuinely useful deliverable, not persuasion engineered to manufacture a purchase.
+
+**Q — Where is Marketing, advertising, and brand?**
+There is no direct answer: the design has no unit for demand manufacture, and it is deliberate rather than an omission. Order in this company rests on values fulfilled in relationships, not on fear or temptation as the lever of conduct (P3; §1), and open-ended metric chasing is treated as a maximisation pathology, not a goal (§5, §13). The nearest legitimate function is **recognisable conduct** — *pramanikta* held by the **Evidence & Tradition Office** (§4 row 7): reputation is earned by conduct others can verify, so the honest counterpart to marketing is truthful representation of what the company actually delivers, not cultivation of wants.
+
+**Q — Where is Customer support / success?**
+This is the continuing life of the **Production** relationship, not a separate cost centre. Client experience feeds the **Utility** and **Art** value monitoring (§7) and surfaces in the **weekly team φ review** (§10), where the question is whether the relationship is still being fulfilled — support is part of φ, not an afterthought bolted on after the sale.
+
+### A.2 Money, ownership, and pay
+
+**Q — Where is Finance & Accounts?**
+Bookkeeping, procurement, and asset records sit with **Right-Use & Regeneration** (§4 row 12: "procurement, ecological accounts"), whose remit binds resource use to regeneration (P5) and which holds the decision right over resource draw (§9). Disposition of any surplus is a stewardship matter held by the **Steward Council** (§9). There is no treasury whose mandate is to maximise retained earnings.
+
+**Q — Who pays salaries, and how is compensation set?**
+The study does not currently name a payroll unit, and the concept of "salary" is not modelled as a wage bargained against extracted output. Member livelihood is framed as **circulation for family needs** — nurturing (*poshan*), not net extraction (§9; P3; A1–A2). The handling this implies: needs-based disbursement whose policy is a **Steward Council** decision and whose ledger sits with **Right-Use & Regeneration**. This remains underspecified in the body text; assigning explicit ownership of member livelihood would close the gap.
+
+**Q — Where are the shareholders, investors, and board of directors?**
+There is no direct answer because the role is rejected, not relocated. The **Steward Council** is "ambient ground, not extraction" (§3, §4 row 0) and the whole structure is explicitly "not a conventional command hierarchy optimised for shareholder extraction" (§14). No party holds a claim on members' surplus by virtue of ownership. A capital provider, were one involved, could only enter as a **relationship with a stated expectation profile** in the registry (§6), never as an owner entitled to extract returns.
+
+**Q — How are profit, dividends, and equity distributed?**
+There is no direct answer in the conventional sense. Profit, where it arises, is **circularity for family needs and reinvestment in transmission**, not unbounded accumulation (§9; §1). Surplus is recirculated to meet needs and to sustain the company across generations of members, rather than distributed as a return on ownership; there is no equity or dividend instrument in the design.
+
+### A.3 People (HR)
+
+**Q — Where is Human Resources?**
+HR is distributed across four units rather than centralised: the **Capability Institute** develops cap(u) = ⟨ksh, yog, pat⟩, the **Relationship Registry** holds role charters and expectation profiles E(r), the **Transmission Institute** owns onboarding and succession, and the **Evaluation Forum** handles assessment (§4). "Green team / exploitative HR" is named as a **failure symptom** in the diagnostic (§13), first-answered by Right-Use + Steward Council — the design treats extractive HR as a defect to catch, not a function to build.
+
+**Q — Where is Recruiting / hiring?**
+Hiring runs through the **onboarding pipeline** τ (§11) — offer, cause/goal/programme study, registry E(r), mentor and cap(u) plan, shadow fulfilment, D13 evidence gate — with a 90-day minimum before full membership. Whether to add a person at all is governed by the **L3 need/surplus** rule (§12): a hire is admissible only when a documented need complements a surplus, not by arbitrary headcount growth.
+
+**Q — Where are performance reviews and KPIs?**
+Assessment belongs to the **Evaluation Forum** (μ, §4 row 6), which is *jeevan*-only and guards against over-, under-, and mis-evaluation (§10). Conventional KPI and sales-target regimes are treated as **metric gaming**, a maximisation pathology first-answered by the Value Office (§13). Evaluation measures value delivered in the relationship, not output against an open-ended number.
+
+**Q — Where are promotions, raises, and the career ladder?**
+There is no direct answer: the design has no rank-and-pay ladder. Advancement is **awakening progression** through the completeness stages T1 → T2 → T3 (§8) — a lift in the knowledge order guarded by cap(u) and μ, not a change of title or headcount tier. The handling this implies: members grow by deepening capability and fulfilment, and their needs are met regardless of a positional ladder, rather than competing upward for scarce senior slots.
+
+**Q — Where is Training & Development (L&D)?**
+This is the core of two units: the **Transmission Institute** delivers education-*sanskar* (τ_ev) to every cohort and owns the mentor lineage (§4 row 10, §11), and the **Capability Institute** builds cap(u) (§4 row 4). Development is a construction requirement here — "ignorance cannot flow in tradition" (§11) — not an optional perk.
+
+**Q — Where do grievances and ethics complaints go?**
+Disputes follow the **justice cycle** ρ → φ → μ → mutual satisfaction: a value dispute goes to the **Evaluation Forum**, then the **Value & Justice Office** (§9), with the **Charter & Ground Office** holding the ethical ground and law-as-regulation (§4 row 2). Justice is the *operation* on values (D7), not a poster slogan or a complaints inbox.
+
+**Q — Where are layoffs and downsizing handled?**
+Only partially, and cost-cutting layoffs have no direct sanction in the design. Individual **offboarding** exists via the Transmission Institute and mentor with τ_ev evidence (§9). But treating members as fuel to be shed in a downturn inverts the first design objective — members are not instrumentalised (A1–A2, §1) — and appears in the diagnostic as burnout/extraction pathology (§13). The handling this implies: contraction by rebalancing **need and surplus** across teams (L3, §12) and by completeness review (§10), not disposal of people to protect a margin.
+
+### A.4 Leadership and management
+
+**Q — Who is the CEO?**
+There is no single owner-executive. Coordination is shared: the **Steward Council** holds the coexistence frame as ambient ground, the **Chief Steward** coordinates stewards but "does not own surplus extraction from members" (§9), and the **Office of Cause, Goal & Programme** guards the common cause, goal, and programme (§4 row 1). Decisions are allocated by the governance rights table (§9), not concentrated in one office.
+
+**Q — Where are the middle managers?**
+The nearest role is the **Team Steward** in each Family Team, whose relationship to members is **stewardship** — protection, nurturing, and resolution of blockers — explicitly "not command-for-extraction" (§5). The steward serves the team's fulfilment rather than directing labour for output.
+
+**Q — Where is Strategy / planning?**
+Direction is held by the **Office of Cause, Goal & Programme** (P4) and reviewed at the **annual completeness review** by the Steward Council (§10). Orientation is completeness of relationships, not maximisation of profit, comfort, or scale (§1) — so "strategy" here means keeping the common programme common, not chasing growth targets.
+
+### A.5 Delivery, quality, and support functions
+
+**Q — Where is Operations / production?**
+Delivery is the **Conduct Division** (φ) executed by the **Family Teams** (§3–§5) — the units that actually fulfil external and internal relationships through their work.
+
+**Q — Where is Quality Assurance?**
+Quality is held at the knowledge tier by three units together: the **Value & Justice Office** maps graded values per relationship, the **Evaluation Forum** assesses value delivered (μ), and the **Evidence & Tradition Office** closes the D13 loop so conduct is externally recognisable (*pramanikta*) (§4, §10).
+
+**Q — Where is Legal / compliance?**
+Constitutional documents, ethical ground, and law-as-regulation readable across units are held by the **Charter & Ground Office** (§4 row 2).
+
+**Q — Where is R&D / innovation?**
+There is no dedicated R&D box because, for a knowledge-work company, research and understanding *are* the product (intro). New lines of work are admitted the same way as any growth — by **L3 need/surplus** complementarity (§12) — while capability to pursue them is built at the Capability and Transmission Institutes.
+
+**Q — Where is IT, Facilities, Procurement, and Admin?**
+These operational supports sit with **Right-Use & Regeneration**, which owns facilities and procurement under the P5 regeneration bound (§4 row 12, §9).
+
+**Q — Where is PR / Communications?**
+External representation is the province of the **Evidence & Tradition Office**: conduct others can recognise (*pramanikta*) and awakened tradition recorded (§4 row 7). The counterpart to communications is verifiable conduct, not spin.
 
 
 ## References
