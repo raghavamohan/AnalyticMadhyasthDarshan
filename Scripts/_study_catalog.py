@@ -271,14 +271,21 @@ def parse_status_md(md_text: str) -> StudyStatus | None:
 
 
 def strip_status_for_pdf(md_text: str) -> str:
-    """Remove **Status:** from markdown before PDF rendering (watermark/catalog carry status)."""
-    return re.sub(
-        r"^\*\*Status:\*\*\s+(?:Draft|Released)\s*\n+",
-        "",
-        md_text,
-        count=1,
-        flags=re.MULTILINE,
-    )
+    """Remove the **Status:** line from markdown before PDF rendering (watermark/catalog
+    carry status), while preserving the paragraph break on either side of it.
+
+    Only the line's own text is removed via STATUS_MD_RE, whose ``$`` anchor stops before
+    the line's trailing newline rather than consuming it -- unlike a pattern that also eats
+    trailing ``\\n+``, which would swallow any blank line after **Status:** and merge the
+    line before it (e.g. **Edited on:**) with the line after it (e.g. **The question:**)
+    into one paragraph. Removing just the line's text leaves its surrounding newlines
+    intact, so whatever came before and after **Status:** stays separated by at least one
+    blank line regardless of how much blank-line spacing the source markdown used around it.
+    Any resulting run of 3+ newlines (if blank lines already surrounded **Status:**) is
+    collapsed to a single blank line for a tidy intermediate string.
+    """
+    md_text = STATUS_MD_RE.sub("", md_text, count=1)
+    return re.sub(r"\n{3,}", "\n\n", md_text)
 
 
 def set_status_md(md_text: str, status: StudyStatus) -> str:
