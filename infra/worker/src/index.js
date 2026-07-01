@@ -502,9 +502,14 @@ function isStudyProposalIssue(issue) {
 
 function isPortalPullRequest(item, login) {
   if (!item.pull_request) return false;
+  // Only surface the signed-in user's own portal pull requests. Portal PRs are
+  // opened by the bot token but tag the submitter as `Portal-GitHub: @<login>`;
+  // a PR the user authored directly also counts.
+  const taggedInBody = (item.body || '').includes(`Portal-GitHub: @${login}`);
+  const authoredByUser = item.user?.login === login;
+  if (!taggedInBody && !authoredByUser) return false;
   const labels = issueLabels(item);
-  if (prTypeFromLabels(labels)) return true;
-  return (item.body || '').includes(`Portal-GitHub: @${login}`);
+  return Boolean(prTypeFromLabels(labels)) || taggedInBody;
 }
 
 function summarizePullRequest(prDetails) {
@@ -722,11 +727,21 @@ async function buildDashboard(session, env) {
     if (linkedItem) usedPrNumbers.add(linkedItem.number);
 
     const preCatalog = Boolean(slug && preCatalogSlugs.has(slug) && !catalogMap.get(slug));
-    const stage = submissionStage(issue, linkedItem ? {
+    let stage = submissionStage(issue, linkedItem ? {
       state: linkedItem.state,
       merged_at: linkedItem.pull_request?.merged_at,
     } : null, { preCatalog });
     const catalogStatus = slug ? (catalogMap.get(slug) || (preCatalog ? 'pre-catalog' : null)) : null;
+    // A proposal whose study is already published (draft/released in the
+    // catalog) is treated as merged so the dashboard offers "Submit new
+    // version" and the status toggle, even when no portal PR is linked.
+    if (
+      (catalogStatus === 'draft' || catalogStatus === 'released') &&
+      stage !== 'pr-open' &&
+      stage !== 'changes_requested'
+    ) {
+      stage = 'merged';
+    }
     const statusBlocked = slug ? openStatusChanges.has(slug) : false;
     const studyPrBlocked = slug ? openStudyPrs.has(slug) : false;
     const actions = buildActions(

@@ -148,8 +148,6 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
     <div class="section-card">
       <div class="hub-toolbar" id="hub-toolbar">
         <a class="auth-btn primary" href="?tab=propose">Propose a new study</a>
-        <a class="auth-btn" href="?tab=submit&amp;mode=update">Update a study</a>
-        <a class="auth-btn" href="?tab=status">Change release status</a>
         <span class="hub-toolbar-spacer"></span>
         <button type="button" class="auth-btn" id="dashboard-refresh-btn" hidden>Refresh</button>
       </div>
@@ -292,10 +290,8 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
           <input type="text" id="s-author" required>
         </div>
 
-        <div class="form-group checkbox-group" id="s-new-group" style="margin-bottom:20px;">
-          <input type="checkbox" id="s-new" checked>
-          <label for="s-new">This is a new study (uncheck to update an existing study)</label>
-        </div>
+        <input type="checkbox" id="s-new" checked hidden>
+        <input type="hidden" id="s-new-group" hidden>
 
         <div class="form-group" id="s-proposal-group">
           <label for="s-proposal-select">Approved proposal *</label>
@@ -341,48 +337,6 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
     </div>
   </section>
 
-  <!-- Status change -->
-  <section id="status-tab" class="tab-content">
-    <p class="subview-back"><a href="submit.html">&larr; Back to My Submissions</a></p>
-    <div class="section-card">
-      <h2>Change release status</h2>
-      <p class="help-text" style="margin-bottom:20px;">Request a change between <strong>Draft</strong> and <strong>Released</strong>. CI updates the study metadata, catalog, and PDF watermark on your pull request branch. Maintainers review before merge.</p>
-
-      <div id="status-login-gate" class="login-gate">
-        <strong>GitHub sign-in required.</strong>
-        <button type="button" class="auth-btn primary" style="margin-top:10px;" onclick="startGitHubLogin()">Sign in with GitHub</button>
-      </div>
-
-      <div id="status-alert" class="alert"></div>
-
-      <form id="status-form">
-        <div class="form-group">
-          <label for="st-slug">Study slug *</label>
-          <input type="text" id="st-slug" required pattern="[A-Za-z0-9-]+">
-        </div>
-
-        <div class="form-group">
-          <span class="help-text" style="display:block;margin-bottom:8px;">Target status *</span>
-          <div class="radio-group">
-            <label><input type="radio" name="st-target" value="released" required> Released (remove Draft watermark)</label>
-            <label><input type="radio" name="st-target" value="draft"> Draft (add Draft watermark)</label>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="st-reason">Reason (optional)</label>
-          <textarea id="st-reason" rows="3" placeholder="Brief reason for releasing or reverting to draft"></textarea>
-        </div>
-
-        <div class="form-group turnstile-wrap">
-          <div id="status-turnstile" class="cf-turnstile" data-sitekey="0x4AAAAAADoBfrNV5lPeJQWO" data-action="turnstile-spin-v1" data-refresh-expired="auto"></div>
-        </div>
-
-        <button type="submit" class="submit-btn" id="st-submit-btn">Open status-change pull request</button>
-      </form>
-    </div>
-  </section>
-
   <div id="inline-turnstile" style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true"></div>
 
 </div>
@@ -405,7 +359,7 @@ const STAGE_LABELS = {
   declined: 'Declined',
   'pr-open': 'Awaiting approval',
   'changes_requested': 'Changes requested',
-  merged: 'Merged',
+  merged: 'Published',
   closed: 'Closed',
   'pr-closed': 'PR closed',
 };
@@ -455,7 +409,7 @@ function escapeHtml(text) {
 }
 
 function updateAuthUi(loggedIn) {
-  ['propose-form', 'submit-form', 'status-form'].forEach((id) => {
+  ['propose-form', 'submit-form'].forEach((id) => {
     const form = document.getElementById(id);
     if (!form) return;
     form.querySelectorAll('input, select, textarea, button').forEach((el) => {
@@ -464,7 +418,6 @@ function updateAuthUi(loggedIn) {
   });
   document.getElementById('propose-login-gate').classList.toggle('visible', !loggedIn);
   document.getElementById('submit-login-gate').classList.toggle('visible', !loggedIn);
-  document.getElementById('status-login-gate').classList.toggle('visible', !loggedIn);
   document.getElementById('dashboard-login-gate').classList.toggle('visible', !loggedIn);
   document.getElementById('dashboard-content').hidden = !loggedIn;
   const authBtn = document.getElementById('auth-action-btn');
@@ -771,7 +724,7 @@ function titleToSlug(title) {
 function updateHubChrome(tabId) {
   const isDashboard = tabId === 'dashboard';
   document.getElementById('hub-hero').hidden = !isDashboard;
-  document.getElementById('step-strip').classList.toggle('hidden', isDashboard || tabId === 'status');
+  document.getElementById('step-strip').classList.toggle('hidden', isDashboard);
   if (tabId === 'propose') {
     document.getElementById('step-propose').classList.add('active');
   } else if (tabId === 'submit' && document.getElementById('s-new').checked) {
@@ -823,16 +776,6 @@ async function loadStudySource(opts = {}) {
     showStatus('Loaded current content for "' + slug + '". Edit and submit your revision.');
   } catch (err) {
     if (!opts.silent) showStatus(err.message);
-  }
-}
-
-function configureStatusView(params) {
-  const slug = params.get('slug');
-  const target = params.get('target');
-  if (slug) document.getElementById('st-slug').value = slug;
-  if (target === 'draft' || target === 'released') {
-    const radio = document.querySelector('input[name="st-target"][value="' + target + '"]');
-    if (radio) radio.checked = true;
   }
 }
 
@@ -1127,9 +1070,6 @@ function applyQueryParams() {
     if (isUpdate && params.get('slug') && !document.getElementById('s-content').value.trim()) {
       loadStudySource({ silent: true });
     }
-  } else if (tab === 'status') {
-    switchTab('status', false);
-    configureStatusView(params);
   } else {
     switchTab('dashboard', false);
   }
@@ -1146,7 +1086,6 @@ document.getElementById('auth-action-btn').addEventListener('click', () => {
 });
 document.getElementById('dashboard-refresh-btn').addEventListener('click', () => loadDashboard({ force: true }));
 document.getElementById('p-title').addEventListener('input', updateSlugPreview);
-document.getElementById('s-new').addEventListener('change', () => { toggleProposalField(); configureSubmitView(document.getElementById('s-new').checked ? 'new' : 'update'); });
 document.getElementById('s-proposal').addEventListener('input', scheduleProposalStatusCheck);
 document.getElementById('s-proposal').addEventListener('change', scheduleProposalStatusCheck);
 document.getElementById('s-load-source').addEventListener('click', () => loadStudySource());
@@ -1533,43 +1472,6 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
   }
 });
 
-document.getElementById('status-form').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  if (!currentUser) { showAlert('status', 'error', 'Sign in with GitHub first.'); return; }
-  const form = e.target;
-  const btn = document.getElementById('st-submit-btn');
-  const turnstileToken = getTurnstileToken(form);
-  if (!turnstileToken) { showAlert('status', 'error', 'Complete the Turnstile check.'); return; }
-  const target = form.querySelector('input[name="st-target"]:checked');
-  if (!target) { showAlert('status', 'error', 'Select a target status.'); return; }
-  btn.disabled = true;
-  btn.textContent = 'Opening PR…';
-  try {
-    const res = await apiFetch('/api/status-change', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        slug: document.getElementById('st-slug').value.trim(),
-        targetStatus: target.value,
-        reason: document.getElementById('st-reason').value.trim(),
-        turnstileToken,
-      }),
-    });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error || 'Unknown error');
-    dashboardCache = null;
-    await goToDashboard(true);
-    showAlert('dashboard', 'success', 'Status-change pull request opened.' + (data.url ? ' <a href="' + data.url + '" target="_blank">View on GitHub</a>' : ''));
-    form.reset();
-    resetTurnstile(form);
-  } catch (err) {
-    showAlert('status', 'error', escapeHtml(err.message));
-    resetTurnstile(form);
-  } finally {
-    btn.disabled = false;
-    btn.textContent = 'Open status-change pull request';
-  }
-});
 </script>
 </body>
 </html>
