@@ -2,6 +2,16 @@
   "version": 1,
   "proposals": [
     {
+      "slug": "Aesthetics",
+      "title": "Aesthetics",
+      "issueNumber": 35,
+      "submitter": "raghavamohan",
+      "category": "Aesthetics, Axiology",
+      "description": "What beauty and art are: Madhyasth Darshan's functional aesthetics of usefulness, harmony, and human purpose, compared with modern philosophical aesthetics and Advaita Vedanta",
+      "formal": false,
+      "phase": "published"
+    },
+    {
       "slug": "Axiology-Value-Theory",
       "title": "Axiology Value Theory",
       "issueNumber": 13,
@@ -10,6 +20,16 @@
       "description": "Madhyasth Darshan's theory of value: what values are, how they are recognised and fulfilled, and how mutual satisfaction grounds a humane axiology",
       "formal": false,
       "phase": "pre-catalog"
+    },
+    {
+      "slug": "Category-Theory-Explained",
+      "title": "Category Theory Explained",
+      "issueNumber": 39,
+      "submitter": "raghavamohan",
+      "category": "Formal structure",
+      "description": "A self-contained guide that uses category theory as a lens to make the structure and logic of Madhyasth Darshan precise \u2014 plain-language ideas first, then the formal theory \u2014 and shows where the notation stops",
+      "formal": true,
+      "phase": "published"
     },
     {
       "slug": "Chitta-Brain-And-Memory",
@@ -40,6 +60,16 @@
       "description": "How understanding is formed and carried forward: education, sanskar, study, awakening, and transmission across generations",
       "formal": false,
       "phase": "pre-catalog"
+    },
+    {
+      "slug": "Ethics-And-Morals-In-Human-Beings",
+      "title": "Ethics and Morals in Human Beings",
+      "issueNumber": 34,
+      "submitter": "raghavamohan",
+      "category": "Ethics, Axiology",
+      "description": "Whether ethics is divine command, convention, evolution, reason, or evidence of understanding: Madhyasth Darshan's account of humane conduct through justice, dharma, truth, and right-use, compared with Advaita Vedanta and modern moral science",
+      "formal": false,
+      "phase": "published"
     },
     {
       "slug": "Family-Relationships-And-Values",
@@ -92,6 +122,46 @@
       "phase": "pre-catalog"
     },
     {
+      "slug": "How-To-Form-Self-Sustaining-Organizations",
+      "title": "How to Form Self-Sustaining Organizations",
+      "issueNumber": 37,
+      "submitter": "raghavamohan",
+      "category": "Social Philosophy, Axiology",
+      "description": "Why organisations built on fear or accumulation must extract from their members and dissolve, and how Madhyasth Darshan grounds organisations that sustain themselves without instrumentalising the people in them",
+      "formal": false,
+      "phase": "published"
+    },
+    {
+      "slug": "How-Undivided-Society-Is-Established",
+      "title": "How Undivided Society Is Established",
+      "issueNumber": 38,
+      "submitter": "raghavamohan",
+      "category": "Social Philosophy, Axiology",
+      "description": "Madhyasth Darshan's vision of undivided society (akhand samaj) and universal orderliness: the full architecture from coexistence through individual awakening to social evidence, drawn from the primary texts",
+      "formal": false,
+      "phase": "published"
+    },
+    {
+      "slug": "Human-Behavior-And-Society",
+      "title": "Human Behavior and Society",
+      "issueNumber": 36,
+      "submitter": "raghavamohan",
+      "category": "Social Philosophy, Ethics, Axiology",
+      "description": "How humans should behave and organise: Madhyasth Darshan on conduct, ethics, and social order, compared with the natural sciences, Advaita Vedanta, and religious and technocratic approaches",
+      "formal": false,
+      "phase": "published"
+    },
+    {
+      "slug": "Knowledge-Knower-And-Known",
+      "title": "Knowledge Knower and Known",
+      "issueNumber": 33,
+      "submitter": "raghavamohan",
+      "category": "Epistemology",
+      "description": "What knowledge is, who the knower is, and what can be known: the four senses of gyan, the staged path to knowing, and conduct as evidence \u2014 compared with Advaita Vedanta and modern epistemology and science",
+      "formal": false,
+      "phase": "published"
+    },
+    {
       "slug": "Language-Meaning-And-Definition",
       "title": "Language Meaning and Definition",
       "issueNumber": 22,
@@ -120,6 +190,16 @@
       "description": "Living with the other orders of nature: Earth, right-use, regeneration, and ecological balance within coexistence",
       "formal": false,
       "phase": "pre-catalog"
+    },
+    {
+      "slug": "Nature-Of-Time",
+      "title": "Nature of Time",
+      "issueNumber": 31,
+      "submitter": "raghavamohan",
+      "category": "Ontology",
+      "description": "What time (kaal) is: the duration of unit-activity against timeless satta, numerical reckoning, and the past\u2013present\u2013future structure \u2014 compared with Advaita Vedanta, the philosophy of time, and physics (spacetime, cosmology, entropy)",
+      "formal": false,
+      "phase": "published"
     },
     {
       "slug": "Philosophy-Of-Mind-And-Jeevan",
@@ -160,6 +240,36 @@
       "description": "Realization and awakening in Madhyasth Darshan: anubhav, practice, yoga, and liberation from mystery and suffering, compared with moksha traditions",
       "formal": false,
       "phase": "pre-catalog"
+    },
+    {
+      "slug": "The-Coexistence-Template",
+      "title": "The Coexistence Template",
+      "issueNumber": 40,
+      "submitter": "raghavamohan",
+      "category": "Formal structure",
+      "description": "The single structural template beneath Madhyasth Darshan \u2014 saturated units recognising and fulfilling relationships, exchanging value, composing into assemblies, and transmitting their method \u2014 stated formally for all four orders and usable to design or diagnose any assembly",
+      "formal": true,
+      "phase": "published"
+    },
+    {
+      "slug": "The-Ontology-of-Coexistence",
+      "title": "The Ontology of Coexistence",
+      "issueNumber": 30,
+      "submitter": "raghavamohan",
+      "category": "Ontology",
+      "description": "Madhyasth Darshan's account of existence as the coexistence of satta and units \u2014 saturation, the four orders, sentience, causation, conservation, and the reality of the world \u2014 compared in depth with Advaita Vedanta and modern physics and philosophy",
+      "formal": false,
+      "phase": "published"
+    },
+    {
+      "slug": "Why-Humans-Are-Not-Just-Material",
+      "title": "Why Humans Are Not Just Material",
+      "issueNumber": 32,
+      "submitter": "raghavamohan",
+      "category": "Philosophical Anthropology",
+      "description": "Whether a human being is only a physical\u2013chemical body: Madhyasth Darshan's jeevan-and-body account set against mainstream science and Advaita Vedanta, with a critical review of all three",
+      "formal": false,
+      "phase": "published"
     },
     {
       "slug": "Work-Action-And-Karma",
