@@ -185,4 +185,14 @@ foreach ($s in $studies) {
 - Change conversion behavior inline in chat without updating these scripts when
   the change should apply to all future PDFs (footer, watermark, styling).
 
+## PDF → markdown (maintainers only)
+
+Contributors submit markdown; PDF is always a **generated** artifact in CI. When a
+contributor provides only a PDF, maintainers run `Scripts/_pdf_to_study_md.py` or
+`Scripts/_add_study.py … --convert` on a feature branch, **review and fix** the
+converted `.md` (headings, tables, citations, Standpoint and scope, References), then
+regenerate the PDF with `_regenerate_pdf.py` before opening a study PR. Diagrams,
+math, and glossary tooltips are not recovered from PDF — re-add them in markdown.
+Scanned or image-only PDFs fail fast; do not commit placeholder extractions.
+
 ---
