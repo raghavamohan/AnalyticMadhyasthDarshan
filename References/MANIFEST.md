@@ -58,7 +58,7 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-19.
 
 | [How-Undivided-Society-Is-Established.pdf](../Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf) | MVD, SB, JV, JVD, AVD | TBD |
 
-| [Comparative-Ontology-Of-Restfulness-In-Madhyasth-Darshan-And-The-Principle-Of-Least-Action-A-Category-Theoretic-Evaluation.pdf](../Studies/Comparative-Ontology-Of-Restfulness-In-Madhyasth-Darshan-And-The-Principle-Of-Least-Action-A-Category-Theoretic-Evaluation/Comparative-Ontology-Of-Restfulness-In-Madhyasth-Darshan-And-The-Principle-Of-Least-Action-A-Category-Theoretic-Evaluation.pdf) | MVD, SB, JV | TBD |
+| [Restfulness-And-Least-Action.pdf](../Studies/Restfulness-And-Least-Action/Restfulness-And-Least-Action.pdf) | MVD, SB, JV | TBD |
 
 ## By tag
 
