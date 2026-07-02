@@ -1,0 +1,8 @@
+name = "amd-google-verification"
+main = "src/index.js"
+compatibility_date = "2024-03-01"
+
+# GitHub Pages excludes google*.html even with .nojekyll; serve GSC token at the edge.
+routes = [
+  { pattern = "analyticmadhyasthdarshan.org/google8e0758eaee6de8ab.html", zone_name = "analyticmadhyasthdarshan.org" },
+]
