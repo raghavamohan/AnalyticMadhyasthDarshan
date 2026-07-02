@@ -1996,6 +1996,11 @@ def main() -> int:
             f"{STUDY_FEEDBACK_TEMPLATE_PATH.relative_to(BASE)}."
         )
 
+    from _build_sitemap import write_sitemap
+
+    sitemap_path = write_sitemap()
+    print(f"Wrote sitemap to {sitemap_path.relative_to(BASE)}.")
+
     return 0
 
 
