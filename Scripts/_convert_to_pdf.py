@@ -2,6 +2,7 @@ import argparse
 import html as html_module
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 from urllib.parse import quote, unquote, urlparse
@@ -14,6 +15,75 @@ from _glossary_tooltips import apply_glossary_tooltips, load_glossary, wrap_tabl
 from _study_catalog import strip_status_for_pdf
 
 FEEDBACK_ISSUES_URL = "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new"
+
+SCRIPTS_DIR = Path(__file__).resolve().parent
+KATEX_CSS_PATH = SCRIPTS_DIR / "node_modules" / "katex" / "dist" / "katex.min.css"
+KATEX_RENDER_SCRIPT = SCRIPTS_DIR / "_render_katex_math.js"
+_INLINE_MATH = re.compile(r"(?<!\\)\$(?!\$).+?(?<!\\)\$(?!\$)", re.DOTALL)
+_DISPLAY_MATH = re.compile(r"\$\$.+?\$\$", re.DOTALL)
+_INLINE_MATH_CAPTURE = re.compile(
+    r"(?<!\\)\$(?!\$)((?:\\.|[^$\\])+?)(?<!\\)\$(?!\$)",
+)
+_DISPLAY_MATH_CAPTURE = re.compile(r"\$\$([\s\S]+?)\$\$")
+_MATH_PLACEHOLDER = "\x00MATH_{idx}\x00"
+
+
+def contains_latex_math(text: str) -> bool:
+    """Return True when markdown or HTML still has $...$ / $$...$$ math delimiters."""
+    return bool(_INLINE_MATH.search(text) or _DISPLAY_MATH.search(text))
+
+
+def protect_latex_math(html_body: str) -> tuple[str, list[str]]:
+    """Replace math delimiters with placeholders so later HTML passes leave them intact."""
+    segments: list[str] = []
+
+    def stash(match: re.Match[str]) -> str:
+        segments.append(match.group(0))
+        return _MATH_PLACEHOLDER.format(idx=len(segments) - 1)
+
+    protected = _DISPLAY_MATH_CAPTURE.sub(stash, html_body)
+    protected = _INLINE_MATH_CAPTURE.sub(stash, protected)
+    return protected, segments
+
+
+def restore_latex_math(html_body: str, segments: list[str]) -> str:
+    def repl(match: re.Match[str]) -> str:
+        return segments[int(match.group(1))]
+
+    return re.sub(r"\x00MATH_(\d+)\x00", repl, html_body)
+
+
+def _load_katex_css() -> str:
+    if not KATEX_CSS_PATH.is_file():
+        raise FileNotFoundError(
+            "KaTeX CSS not found. Run once from the repo root:\n"
+            "  cd Scripts; npm install"
+        )
+    css = KATEX_CSS_PATH.read_text(encoding="utf-8")
+    fonts_dir = (KATEX_CSS_PATH.parent / "fonts").resolve().as_posix()
+    return css.replace("url(fonts/", f"url({fonts_dir}/")
+
+
+def render_latex_math(html_body: str) -> str:
+    """Replace LaTeX math delimiters with KaTeX HTML before glossary/tooltip passes."""
+    if not contains_latex_math(html_body):
+        return html_body
+    if not KATEX_RENDER_SCRIPT.is_file():
+        raise FileNotFoundError(f"Missing KaTeX render script: {KATEX_RENDER_SCRIPT}")
+
+    result = subprocess.run(
+        ["node", str(KATEX_RENDER_SCRIPT)],
+        input=html_body,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        check=False,
+        cwd=SCRIPTS_DIR,
+    )
+    if result.returncode != 0:
+        detail = (result.stderr or result.stdout or "unknown error").strip()
+        raise RuntimeError(f"KaTeX rendering failed: {detail}")
+    return result.stdout
 
 
 def convert_mermaid_blocks(html_body: str) -> str:
@@ -434,6 +504,10 @@ def convert_to_html(
         output_path,
         study_links_as_html=include_web_chrome,
     )
+    has_latex_math = contains_latex_math(md_text)
+    math_segments: list[str] = []
+    if has_latex_math:
+        html_body, math_segments = protect_latex_math(html_body)
     if include_web_chrome:
         html_body = add_section_ids(html_body)
         html_body = wrap_tables_for_scroll(html_body)
@@ -442,6 +516,9 @@ def convert_to_html(
             html_body = apply_glossary_tooltips(html_body, glossary_terms)
         except (OSError, ValueError, json.JSONDecodeError):
             pass
+    if has_latex_math:
+        html_body = restore_latex_math(html_body, math_segments)
+        html_body = render_latex_math(html_body)
 
     toolbar = (
         _study_toolbar_html(input_path, is_draft=is_draft, title=title)
@@ -452,6 +529,7 @@ def convert_to_html(
     section_nav_js = _study_section_nav_js() if include_web_chrome else ""
     term_tip_js = _term_tip_js() if include_web_chrome else ""
     screen_dark_css = _study_screen_dark_css() if include_web_chrome else ""
+    katex_css = _load_katex_css() if has_latex_math else ""
 
     web_chrome_css = ""
     if include_web_chrome:
@@ -876,7 +954,12 @@ def convert_to_html(
     max-width: 100%;
     height: auto;
   }}
-{web_chrome_css}{screen_dark_css}
+  .katex-display {{
+    margin: 8pt 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }}
+{katex_css}{web_chrome_css}{screen_dark_css}
 </style>
 </head>
 <body>
