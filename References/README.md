@@ -56,7 +56,7 @@ Audit Studies bibliographies first: `python Scripts/_audit_references.py`. Agent
 | [The-Ontology-of-Coexistence.pdf](../Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) | MVD, SB, JV; Bhattacharya; Advaita (CU, TU, VC); modern science/philosophy (Chalmers 1995, Nagel 1974, Strawson 2006, Frankish 2016, Limanowski and Blankenburg 2013, Whitehead 1929, Russell 1921, Mach 1914, Friston 2010, Carroll 2010, Guth 2007, Ashtekar and Singh 2011); external (Metzinger 2003, Penrose 2010, Ishvarakrishna, Nagarjuna, Weinberg 1995) |
 | [Why-Humans-Are-Not-Just-Material.pdf](../Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.pdf) | MVD, SB, JV; Bhattacharya; Advaita (BU, TU, MU, CU, KU, BG, BSB, VC, DDV); Science (12 works, 3 local / 9 external) |
 | [How-Undivided-Society-Is-Established.pdf](../Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf) | MVD, SB, JV, JVD, AVD |
-| [Restfulness-And-Least-Action.pdf](../Studies/Restfulness-And-Least-Action/Restfulness-And-Least-Action.pdf) | MVD, SB, JV |
+| [Restfulness-And-Least-Action.pdf](../Studies/Restfulness-And-Least-Action/Restfulness-And-Least-Action.pdf) | MVD, SB, JV; Terekhovich 2015, Feynman 1964, Kotiuga and Lahtinen 2018, Arnold symplectic, Baehni 2019, Russell Basic Writings local; Scholarpedia PLA, Landau SE, particle future SE, Reddit PLA, Gray and Taylor astonishment, Apeiron biological action, Emergent Mind PLA, ResearchGate teleology, Gromov 1989, path integrals blog, Milewski 2015, Baez week292, Baez week296, Baez maximum principles, Baez and Fong 2015, Baez and Weingarten 2020, nLab prequantized Lagrangian, Weinstein Lagrangian, Math SE modules external |
 <!-- /studies-catalog -->
 
 ## Madhyasth-Darshan/
@@ -96,6 +96,11 @@ Audit Studies bibliographies first: `python Scripts/_audit_references.py`. Agent
 | **Carroll 2010** | [Carroll-2010-Energy-Is-Not-Conserved.html](Science/Carroll-2010-Energy-Is-Not-Conserved.html) | Internet Archive snapshot of author blog |
 | **Friston 2010** | [Friston-2010-Free-Energy-Principle.pdf](Science/Friston-2010-Free-Energy-Principle.pdf) | Author-hosted / open-access PDF |
 | **Guth 2007** | [Guth-2007-Eternal-Inflation.pdf](Science/Guth-2007-Eternal-Inflation.pdf) | IOP open access |
+| **Terekhovich 2015** | [Terekhovich-2015-Metaphysics-Principle-Least-Action.pdf](Science/Terekhovich-2015-Metaphysics-Principle-Least-Action.pdf) | arXiv open access (physics.hist-ph) |
+| **Kotiuga and Lahtinen 2018** | [Kotiuga-Lahtinen-2018-Electrical-Engineering-Naturality.pdf](Science/Kotiuga-Lahtinen-2018-Electrical-Engineering-Naturality.pdf) | arXiv open access (math-ph) |
+| **Feynman 1964** | [Feynman-1964-Principle-Least-Action-Ch19.pdf](Science/Feynman-1964-Principle-Least-Action-Ch19.pdf) | *Feynman Lectures on Physics*, Vol. II, Ch. 19 (Illinois course mirror) |
+| **Arnold symplectic** | [Arnold-Symplectic-Geometry-Applications.pdf](Science/Arnold-Symplectic-Geometry-Applications.pdf) | Author-hosted scan |
+| **Baehni 2019** | [Baehni-2019-Mathematical-Aspects-Classical-Mechanics.pdf](Science/Baehni-2019-Mathematical-Aspects-Classical-Mechanics.pdf) | ETH Zurich semester paper |
 
 ## Modern-Philosophy/
 
@@ -115,6 +120,7 @@ Audit Studies bibliographies first: `python Scripts/_audit_references.py`. Agent
 | **Hashemi 2025** | [Hashemi-2025-How-to-Understand-Russellian-Panpsychism.pdf](Modern-Philosophy/Hashemi-2025-How-to-Understand-Russellian-Panpsychism.pdf) | Author preprint (PhilSci-Archive) |
 | **Whitehead 1929** | [Whitehead-1929-Process-and-Reality.pdf](Modern-Philosophy/Whitehead-1929-Process-and-Reality.pdf) | 1929 Macmillan edition (public domain) |
 | **Russell 1921** | [Russell-1921-The-Analysis-of-Mind.pdf](Modern-Philosophy/Russell-1921-The-Analysis-of-Mind.pdf) | Public domain |
+| **Russell Basic Writings** | [Russell-Basic-Writings.pdf](Modern-Philosophy/Russell-Basic-Writings.pdf) | NDL Ethiopia mirror; public-domain anthology |
 | **Mach 1914** | [Mach-1914-The-Analysis-of-Sensations.pdf](Modern-Philosophy/Mach-1914-The-Analysis-of-Sensations.pdf) | Open Court translation (public domain) |
 
 ## Comparative-Philosophy/
