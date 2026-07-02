@@ -17,6 +17,7 @@ Orchestration skill for the study lifecycle. Read the focused skill for your tas
 | Register or add a study | [add-study](../add-study/SKILL.md) |
 | Remove a study | [remove-study](../remove-study/SKILL.md) |
 | Draft ↔ Released | [set-study-status](../set-study-status/SKILL.md) |
+| Rename slug / sync proposal metadata | `_rename_study.py` (see below) |
 | Regenerate PDF / fix diagrams | [regenerate-study-pdf](../regenerate-study-pdf/SKILL.md) |
 | Audit / download references | [download-references](../download-references/SKILL.md) |
 
@@ -57,9 +58,26 @@ Set-Location Scripts; npm install; Set-Location ..
 New study or catalog entry?     → _add_study.py
 Delete study entirely?          → _remove_study.py
 Finalize or revert draft?       → _set_study_status.py
+Rename slug (directory move)?   → _rename_study.py (study-update PR; CI detects renames)
 Edit body text only?            → edit .md, then [regenerate-study-pdf](../regenerate-study-pdf/SKILL.md)
 Quote check before PR?          → `python Scripts/_quote_tool.py verify --study <Slug>`
 ```
+
+### Rename workflow
+
+When a study slug or display title must change (path length, clarity, or portal duplicate fix):
+
+```powershell
+python Scripts/_rename_study.py --from Old-Slug --to New-Slug --title "New display title"
+```
+
+Use `--metadata-only` when the directory was already renamed in the PR branch; use `--dry-run`
+to preview. The script updates catalog, `proposal-registry.json`, `.proposal-meta.json`, the
+GitHub proposal issue (`### Slug`, `### Proposed title`), `References/README.md` / `MANIFEST.md`,
+and regenerates PDF/discussion pages.
+
+Open a **`study-update`** PR on a feature branch with `Study slug: <New-Slug>`. See
+[AGENTS.md](../../AGENTS.md) §7 and [CONTRIBUTING.md](../../CONTRIBUTING.md).
 
 Always run scripts from the **repository root**. Append `--dry-run` to preview.
 

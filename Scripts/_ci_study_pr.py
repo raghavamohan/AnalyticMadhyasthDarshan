@@ -180,6 +180,68 @@ def changed_study_slugs(base_ref: str) -> list[str]:
     return slugs
 
 
+def detect_study_rename(base_ref: str) -> tuple[str, str] | None:
+    result = subprocess.run(
+        ["git", "diff", "--name-status", f"{base_ref}...HEAD"],
+        capture_output=True,
+        text=True,
+        check=True,
+        cwd=BASE,
+    )
+    removed_slugs: set[str] = set()
+    added_slugs: set[str] = set()
+    for line in result.stdout.splitlines():
+        parts = line.split("\t")
+        if len(parts) < 2:
+            continue
+        status = parts[0]
+        if status.startswith("R") and len(parts) >= 3:
+            old_slug = slug_from_repo_relative_path(Path(parts[1]))
+            new_slug = slug_from_repo_relative_path(Path(parts[2]))
+            if old_slug and new_slug and old_slug != new_slug:
+                return old_slug, new_slug
+        if status == "D":
+            slug = slug_from_repo_relative_path(Path(parts[1]))
+            if slug:
+                removed_slugs.add(slug)
+        elif status.startswith("A"):
+            slug = slug_from_repo_relative_path(Path(parts[1]))
+            if slug:
+                added_slugs.add(slug)
+    if len(removed_slugs) == 1 and len(added_slugs) == 1:
+        return removed_slugs.pop(), added_slugs.pop()
+    return None
+
+
+def registry_row_for_slug(slug: str) -> dict | None:
+    registry_path = STUDIES / "proposal-registry.json"
+    if not registry_path.is_file():
+        return None
+    data = json.loads(registry_path.read_text(encoding="utf-8"))
+    for row in data.get("proposals", []):
+        if row.get("slug") == slug:
+            return row
+    return None
+
+
+def verify_rename_metadata(old_slug: str, new_slug: str) -> None:
+    errors: list[str] = []
+    if registry_row_for_slug(old_slug):
+        errors.append(
+            f"proposal-registry.json still lists old slug {old_slug}; run _rename_study.py metadata sync."
+        )
+    if not registry_row_for_slug(new_slug):
+        errors.append(
+            f"proposal-registry.json is missing new slug {new_slug}; run _rename_study.py metadata sync."
+        )
+    meta_path = STUDIES / new_slug / ".proposal-meta.json"
+    applied_meta = BASE / "Applications" / new_slug / ".proposal-meta.json"
+    if not meta_path.is_file() and not applied_meta.is_file():
+        errors.append(f"Missing .proposal-meta.json under {new_slug}.")
+    if errors:
+        raise SystemExit("Rename metadata verification failed:\n  - " + "\n  - ".join(errors))
+
+
 def active_pr_label(labels: list[dict]) -> str | None:
     names = [label["name"] for label in labels if label["name"] in PR_LABELS]
     if not names:
@@ -312,10 +374,13 @@ def handle_new_study(body: str, base_ref: str) -> None:
 
 
 def handle_study_update(body: str, base_ref: str) -> None:
+    rename = detect_study_rename(base_ref)
     slug = parse_body_field(body, r"^Study slug:\s*(.+)$", r"^Slug:\s*(.+)$")
     changed = changed_study_slugs(base_ref)
     if slug:
         slug = slug.strip().removesuffix(".md")
+    elif rename:
+        slug = rename[1]
     elif len(changed) == 1:
         slug = changed[0]
     else:
@@ -323,6 +388,28 @@ def handle_study_update(body: str, base_ref: str) -> None:
             "Set `Study slug:` in the PR body or change exactly one "
             "Studies/<Slug>/<Slug>.md (or Applications/<Slug>/<Slug>.md) file."
         )
+
+    if rename:
+        old_slug, new_slug = rename
+        if slug != new_slug:
+            raise SystemExit(
+                f"Directory rename {old_slug} -> {new_slug} requires "
+                f"`Study slug: {new_slug}` in the PR body."
+            )
+        print(f"Detected study rename: {old_slug} -> {new_slug}")
+        command = [
+            sys.executable,
+            str(SCRIPTS / "_rename_study.py"),
+            "--from",
+            old_slug,
+            "--to",
+            new_slug,
+            "--metadata-only",
+            "--skip-pdf",
+        ]
+        print("Running:", " ".join(command))
+        subprocess.run(command, check=True, cwd=BASE)
+        verify_rename_metadata(old_slug, new_slug)
 
     located = get_study_row(slug)
     if located is None:
