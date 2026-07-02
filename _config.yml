@@ -1,0 +1,4 @@
+# GitHub Pages runs Jekyll unless .nojekyll disables it. The github-pages gem
+# excludes google*.html by default; force-include the Search Console token file.
+include:
+  - google8e0758eaee6de8ab.html
