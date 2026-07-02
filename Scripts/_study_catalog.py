@@ -821,6 +821,10 @@ def write_studies_catalog(rows: list[StudyRow], table: StudyTable) -> None:
 
     build_discussion_pages_for_rows(rows)
 
+    from _build_sitemap import write_sitemap
+
+    write_sitemap()
+
 
 STUDY_FEEDBACK_TEMPLATE_PATH = BASE / ".github" / "ISSUE_TEMPLATE" / "study-feedback.yml"
 
