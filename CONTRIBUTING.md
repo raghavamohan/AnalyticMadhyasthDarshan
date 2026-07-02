@@ -146,6 +146,24 @@ python Scripts\_regenerate_pdf.py <Slug>
 
 Study management scripts are for **maintainers and local development** — see [README.md](README.md#for-maintainers) and [Scripts/README.md](Scripts/README.md). To submit a study without a clone, use the [Web Submission Portal](Studies/submit.html).
 
+### When a contributor only has a PDF
+
+The portal accepts **markdown only**. If someone sends a PDF (email, issue attachment, or direct handoff), maintainers convert it locally before opening a study PR:
+
+```powershell
+python Scripts/_add_study.py path/to/submission.pdf `
+  --convert --slug <Slug> --title "Study title" `
+  --category "..." --description "..." --tags "MVD, SB" --status draft
+```
+
+Or convert without registering in the catalog:
+
+```powershell
+python Scripts/_pdf_to_study_md.py path/to/submission.pdf --slug <Slug> --title "Study title"
+```
+
+Review the generated `Studies/<Slug>/<Slug>.md` — fix headings, tables, citations, `## Standpoint and scope`, and `## References` to house style (AGENTS.md §4–§5) — then regenerate the PDF and open a labeled pull request as usual. Conversion works best on text-native PDFs; scanned documents fail with a clear error. Run `python Scripts/_test_pdf_to_md.py` after changing the import scripts.
+
 ---
 
 ## License

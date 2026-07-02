@@ -382,6 +382,16 @@ foreach ($s in $studies) {
 - Change conversion behavior inline in chat without updating these scripts when
   the change should apply to all future PDFs (footer, watermark, styling).
 
+### PDF → markdown (maintainers only)
+
+Contributors submit markdown; PDF is always a **generated** artifact in CI. When a
+contributor provides only a PDF, maintainers run `Scripts/_pdf_to_study_md.py` or
+`Scripts/_add_study.py … --convert` on a feature branch, **review and fix** the
+converted `.md` (headings, tables, citations, Standpoint and scope, References), then
+regenerate the PDF with `_regenerate_pdf.py` before opening a study PR. Diagrams,
+math, and glossary tooltips are not recovered from PDF — re-add them in markdown.
+Scanned or image-only PDFs fail fast; do not commit placeholder extractions.
+
 ---
 
 ## 4. Study prose style — scholarly essay, not AI scaffold *(always applies)*
@@ -613,6 +623,14 @@ addition, edit, or status change lands through a pull request that CI
    `Study slug:` field.
 5. **Tick the template checklist** in the PR body before requesting review or merge (Edited on
    refreshed, `References/MANIFEST.md` updated if citations changed, quote verification run).
+
+### Contributor PDFs (maintainers only)
+
+The Web Submission Portal and CI expect `Studies/<Slug>/<Slug>.md` as source. When a
+contributor hands off a PDF instead, maintainers convert on a feature branch with
+`python Scripts/_pdf_to_study_md.py …` or `python Scripts/_add_study.py … --convert`,
+manually review the output against AGENTS.md §4–§5, regenerate the PDF, then open the
+normal labeled PR. PDF is never accepted as the canonical study source in the repository.
 
 ### Renaming a study slug
 
