@@ -1,0 +1,1 @@
+# Disable Jekyll so static root files (robots.txt, sitemap.xml, verification) publish as-is.
