@@ -2,13 +2,13 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 2, 2026, 2:57 PM IST
+**Edited on:** July 2, 2026, 4:57 PM IST
 
 **Status:** Draft
 
 **The question:** Does the pursuit of restfulness (*vishram*) in Madhyasth Darshan structurally mirror the Principle of Least Action in physics — and can category theory map the two paradigms rigorously?
 
-This formal study compares Madhyasth Darshan's ontology of effort, motion, and restfulness with the variational mechanics of least action, then evaluates the mapping through category-theoretic functors, forgetful reduction, and colimit assembly. Ontological ground and the tier-neutral template appear in [*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) and [*The Coexistence Template*](../The-Coexistence-Template/The-Coexistence-Template.pdf); categorical notation and limits are developed in [*Category Theory Explained*](../Category-Theory-Explained/Category-Theory-Explained.pdf).
+This formal study compares Madhyasth Darshan's ontology of effort, motion, result, and restfulness with the variational mechanics of least action, then evaluates the mapping through category-theoretic functors, forgetful reduction, and colimit assembly. Ontological ground and the tier-neutral template appear in [*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) and [*The Coexistence Template*](../The-Coexistence-Template/The-Coexistence-Template.pdf); categorical notation and limits are developed in [*Category Theory Explained*](../Category-Theory-Explained/Category-Theory-Explained.pdf).
 
 The philosophical framework of Madhyasth Darshan presents a coexistence-based ontological architecture wherein existence comprises sentient and insentient countable units saturated in an omnipresent, actionless medium. Within this paradigm, the evolutionary trajectory of all units is directed toward completeness and resolution — restfulness (*vishram*) — as the culmination of effort (*shram ka vishram*) into continuous, frictionless activity within universal orderliness. In parallel, classical and quantum physics rely on the Principle of Least Action (PLA): dynamical trajectories between initial and final configurations are those that make the action functional locally stationary. This study maps both paradigms, evaluates their philosophical commitments, and asks whether category theory can translate between coexistence ontology and variational mechanics rigorously.
 
