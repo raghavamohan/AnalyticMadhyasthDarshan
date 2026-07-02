@@ -18,6 +18,8 @@ Maintained by **[AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/A
 | **[Official source materials](https://www.madhyasth.org/)** | Primary texts and institutional resources from **Divya Path Sansthan** — the authoritative source for Madhyasth Darshan |
 | **[References](References/README.md)** | Source texts and papers cited across the studies |
 
+Each study page links to a **Discuss** board (email sign-in) for open conversation; structured corrections use **Suggest a correction** in the study toolbar or a [study feedback issue](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml).
+
 Draft papers carry a **Draft** watermark on each page; released papers do not.
 
 ---
@@ -25,16 +27,20 @@ Draft papers carry a **Draft** watermark on each page; released papers do not.
 ## What is in this repository
 
 ```
-Studies/          Papers (.md source, .pdf output), catalog page (index.html),
-                  and catalog data (catalog-topical.json, catalog-formal.json,
-                  catalog-applied.json)
+Studies/          Papers (.md source; companion .html and .pdf output; discussion.html),
+                  catalog pages (index.html, submit.html), catalog JSON
+                  (catalog-topical.json, catalog-formal.json, catalog-applied.json),
+                  shared glossary (glossary.json), reader assets (assets/)
 Applications/     Applied studies — concrete instantiations of formal templates
 References/       Local copies of cited sources; citation audit (MANIFEST.md)
 Scripts/          Tools to add, remove, convert, verify, and publish studies
-infra/            Site performance baselines (Cloudflare RUM), submissions worker, audit notes
+infra/            Cloudflare Workers (submissions portal, per-study discussions),
+                  performance baselines (cloudflare-rum-baseline.json), audit notes
+AGENTS.md         Standing rules for agents and local maintainers (§1–§8)
+.github/          CI workflows and study pull request templates
 ```
 
-The **markdown** file for each paper is the source of truth. PDFs, the studies landing page, and catalog JSON are generated from it and should not be edited by hand. The catalog page loads study metadata from `Studies/catalog-*.json`; `Studies/README.md` tables stay in sync via the study lifecycle scripts.
+The **markdown** file for each paper is the source of truth. Companion HTML, PDFs, the studies landing page, and catalog JSON are generated from it and should not be edited by hand. The catalog page loads study metadata from `Studies/catalog-*.json`; `Studies/README.md` tables stay in sync via the study lifecycle scripts.
 
 For the full script list, see **[Scripts/README.md](Scripts/README.md)**.
 
@@ -42,13 +48,19 @@ For the full script list, see **[Scripts/README.md](Scripts/README.md)**.
 
 ## For contributors
 
+Two paths — pick the one that matches what you want to do.
+
+**Corrections on a published study** — [Suggest a correction](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml) or use the toolbar link while reading a study. No approval gate; a GitHub account is required to file the issue.
+
+**New study or full revision** — the Web Submission Portal:
+
 1. **Read** [Studies/README.md](Studies/README.md) for what a study should cover and how we write.
 2. Open **[My Submissions](Studies/submit.html)** and **sign in** with GitHub (required to propose or submit).
 3. **Propose** a title, category, and summary from that page.
-4. **Wait** for maintainer approval; track status and CI on the same page.
+4. **Wait** for maintainer approval; the study appears on the index as **Planned** until your first draft merges.
 5. When approved, click **Submit draft** on your row to open a pull request automatically.
 
-The portal handles GitHub issues and pull requests for you. Full details: [CONTRIBUTING.md](CONTRIBUTING.md).
+The portal handles GitHub issues and pull requests for you. Agents and local git contributors follow the same branch, label, and checklist rules in [AGENTS.md](AGENTS.md) §7. Full details: [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## For maintainers
 
@@ -83,19 +95,21 @@ python Scripts/_check_references.py
 python Scripts/_verify_studies_index.py
 ```
 
-Site operators: copy [`.env.example`](.env.example) to `.env` at the repo root (gitignored). Set `CLOUDFLARE_API_TOKEN` for `python Scripts/_cloudflare_performance.py`; set `R2_*` (or `AWS_*` aliases) for S3-compatible R2 access. Baseline metrics live in `infra/cloudflare-rum-baseline.json`.
+Site operators: copy [`.env.example`](.env.example) to `.env` at the repo root (gitignored). Set `CLOUDFLARE_API_TOKEN` for `python Scripts/_cloudflare_performance.py`; set `R2_*` (or `AWS_*` aliases) for S3-compatible R2 access; set `GITHUB_TOKEN` for local proposal-bootstrap helpers. Worker runtime secrets (OAuth, Turnstile) live in Wrangler — see [infra/worker/README.md](infra/worker/README.md) and [infra/discussions-worker/README.md](infra/discussions-worker/README.md). Baseline metrics live in `infra/cloudflare-rum-baseline.json`.
 
 ### Study lifecycle
 
-| State | In the catalog | PDF |
-|-------|----------------|-----|
-| **Ongoing** | Italic title, no link | None — topic registered, not yet written |
-| **Draft** | Linked title, “Draft” status | **Draft** watermark on every page |
-| **Released** | Linked title, “Released” status | No watermark |
+| State | On the studies index | In `Studies/README.md` | PDF / HTML |
+|-------|----------------------|-------------------------|------------|
+| **Planned** | “Planned” badge; read links when a proposal stub exists | `Ongoing` — topic registered or approved proposal awaiting first draft | Proposal stub after approval; none for catalog-only placeholders |
+| **Draft** | “Draft” badge, linked title | `Draft` + **Last updated on** | **Draft** watermark on every PDF page; companion `.html` for reading |
+| **Released** | “Released” badge, linked title | `Released` + **Last updated on** | No watermark |
 
-Published studies carry `**Edited on:**` and `**Status:**` in the `.md` file. The catalog **Last updated on** date must match `**Edited on:**`. The status line is for repository management only — it is omitted from the PDF (draft is shown by the watermark).
+Published studies carry `**Edited on:**` and `**Status:**` in the `.md` file. Refresh `**Edited on:**` with the current IST time whenever study content changes (`Get-Date -Format "MMMM d, yyyy, h:mm tt"` in PowerShell, then append ` IST`), and update the matching catalog **Last updated on** date in both `Studies/README.md` and `Studies/index.html` — see [AGENTS.md](AGENTS.md) §1. The `**Status:**` line is for repository management only; it is omitted from the PDF body (draft is shown by the watermark).
 
-Every change under `Studies/` — by a human contributor or an agent — goes through a feature branch and a pull request labeled `new-study`, `study-update`, or `status-change`, never a direct commit to the default branch. See [CONTRIBUTING.md](CONTRIBUTING.md) for the contributor-facing flow and [AGENTS.md](AGENTS.md) §7 for the agent-facing operational summary (branch, label, PR body field, and the local checks to run before pushing).
+Recurring Hindi and darshan terms across studies belong in [Studies/glossary.json](Studies/glossary.json) (`python Scripts/_verify_glossary.py` after edits).
+
+Every change under `Studies/` — by a human contributor or an agent — goes through a feature branch and a pull request labeled `new-study`, `study-update`, or `status-change`, never a direct commit to `master`. Use the matching template in [`.github/PULL_REQUEST_TEMPLATE/`](.github/PULL_REQUEST_TEMPLATE/) and include the required PR body field (`Study slug:`, `Proposal issue: #N`, or `Target status:`). See [CONTRIBUTING.md](CONTRIBUTING.md) for the contributor-facing flow and [AGENTS.md](AGENTS.md) §7 for the full local checklist before pushing.
 
 ### Scripts
 
@@ -103,13 +117,15 @@ Run from the repository root. Append `--dry-run` to any command to preview witho
 
 | Task | Command |
 |------|---------|
-| Add or register a study | `python Scripts\_add_study.py Studies\<Slug>.md --category "..." --description "..." --tags "MVD, SB, JV" --status draft` |
+| Add or register a study | `python Scripts\_add_study.py Studies\<Slug>\<Slug>.md --category "..." --description "..." --tags "MVD, SB, JV" --status draft` |
 | Remove a study | `python Scripts\_remove_study.py <Slug> --yes` |
 | Draft ↔ Released | `python Scripts\_set_study_status.py <Slug> --status released` |
-| Regenerate PDF after editing `.md` | `python Scripts\_regenerate_pdf.py <Slug>` |
+| Regenerate PDF/HTML after editing `.md` | `python Scripts\_regenerate_pdf.py <Slug>` |
 | Verify references / links | `python Scripts\_check_references.py` (or `--study <Slug>`) |
 | Verify studies catalog sync | `python Scripts\_verify_studies_index.py` |
 | Rebuild studies landing page shell | `python Scripts\_build_studies_index.py` |
+| Rebuild per-study discussion pages | `python Scripts\_build_discussion_pages.py` |
+| Sync agent rules and skills | `python Scripts\_sync_agent_rules.py` then `python Scripts\_sync_agent_rules.py --check` |
 | Cloudflare redirect / performance | `python Scripts\_cloudflare_performance.py` (`--apply-redirect`, `--verify-only`) |
 | Verify blockquotes (optional) | `python Scripts\_quote_tool.py verify --study <Slug>` |
 
@@ -133,7 +149,7 @@ Other modes: `--status ongoing` (catalog placeholder, no PDF), `--formal` (Forma
 
 Flags: `--force` (refresh existing), `--skip-pdf` (catalog only), `--no-check-timestamps`.
 
-**Edit** — change `Studies/<Slug>/<Slug>.md`, refresh `**Edited on:**` (and the catalog date to match), then regenerate the PDF.
+**Edit** — change `Studies/<Slug>/<Slug>.md`, refresh `**Edited on:**` (and the catalog date to match), then run `python Scripts\_regenerate_pdf.py <Slug>` (updates companion HTML and PDF).
 
 **Release or revert to draft:**
 
@@ -163,24 +179,29 @@ python Scripts\_regenerate_pdf.py <Slug>
 Manual steps only if debugging:
 
 ```powershell
+python Scripts\_verify_study_svgs.py "Studies\<Slug>\<Slug>.md"
 python Scripts\_convert_to_pdf.py "Studies\<Slug>\<Slug>.md"
 node Scripts\_html_to_pdf.js "Studies\<Slug>\<Slug>.html" Draft
 python Scripts\_verify_pdf_diagrams.py "Studies\<Slug>\<Slug>.md" "Studies\<Slug>\<Slug>.pdf"
 python Scripts\_verify_pdf_fenced_code.py "Studies\<Slug>\<Slug>.md" "Studies\<Slug>\<Slug>.pdf"
-Remove-Item "Studies\<Slug>\<Slug>.html"
+python Scripts\_verify_pdf_outline.py "Studies\<Slug>\<Slug>.md" "Studies\<Slug>\<Slug>.pdf"
 ```
 
-Pass `Draft` to `_html_to_pdf.js` for draft studies; omit it for released studies.
+Pass `Draft` to `_html_to_pdf.js` for draft studies; omit it for released studies. Keep the companion `.html` beside each `.pdf` — the catalog **Read** links open HTML; do not delete it after regeneration.
 
 ### Before opening a pull request
 
-1. Follow the study format and intent in [Studies/README.md](Studies/README.md).
-2. Link references to files under `References/` where permitted; otherwise link externally — see [References/NOT-DOWNLOADED.md](References/NOT-DOWNLOADED.md). Do not upload restricted material.
-3. Update [References/MANIFEST.md](References/MANIFEST.md) for new citations.
-4. Run `python Scripts\_check_references.py --study <Slug>` when bibliography or `../References/` links change.
-5. Run `python Scripts\_quote_tool.py verify --study <Slug>` if the study quotes local sources.
-6. If you changed the studies landing page shell, run `python Scripts\_verify_studies_index.py`.
-7. Describe the question, primary texts, and any new references in the PR.
+1. Work on a **feature branch**, not `master`.
+2. Follow the study format and intent in [Studies/README.md](Studies/README.md) and writing rules in [AGENTS.md](AGENTS.md) §4–§5.
+3. Refresh `**Edited on:**` and the catalog **Last updated on** dates when study content changed ([AGENTS.md](AGENTS.md) §1).
+4. Link references to files under `References/` where permitted; otherwise link externally — see [References/NOT-DOWNLOADED.md](References/NOT-DOWNLOADED.md). Do not upload restricted material.
+5. Update [References/MANIFEST.md](References/MANIFEST.md) for new citations.
+6. Run `python Scripts\_regenerate_pdf.py <Slug>` after editing a study `.md`.
+7. Run `python Scripts\_check_references.py --study <Slug>` when bibliography or `../References/` links change.
+8. Run `python Scripts\_quote_tool.py verify --study <Slug>` if the study quotes local sources.
+9. Run `python Scripts\_verify_studies_index.py` if catalog data or the index shell changed.
+10. Apply exactly one PR label (`new-study`, `study-update`, or `status-change`) and fill the matching template field in the PR body.
+11. Describe the question, primary texts, and any new references in the PR.
 
 ---
 
