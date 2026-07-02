@@ -49,6 +49,14 @@ addition, edit, or status change lands through a pull request that CI
 5. **Tick the template checklist** in the PR body before requesting review or merge (Edited on
    refreshed, `References/MANIFEST.md` updated if citations changed, quote verification run).
 
+## Contributor PDFs (maintainers only)
+
+The Web Submission Portal and CI expect `Studies/<Slug>/<Slug>.md` as source. When a
+contributor hands off a PDF instead, maintainers convert on a feature branch with
+`python Scripts/_pdf_to_study_md.py …` or `python Scripts/_add_study.py … --convert`,
+manually review the output against AGENTS.md §4–§5, regenerate the PDF, then open the
+normal labeled PR. PDF is never accepted as the canonical study source in the repository.
+
 ## Renaming a study slug
 
 Renaming is a **`study-update`** PR, not a silent directory move. When the diff removes one
