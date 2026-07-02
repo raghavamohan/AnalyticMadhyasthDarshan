@@ -209,6 +209,48 @@ DOWNLOADS: tuple[DownloadEntry, ...] = (
         notes="Author preprint; published in Erkenntnis.",
     ),
     DownloadEntry(
+        dest="Science/Terekhovich-2015-Metaphysics-Principle-Least-Action.pdf",
+        urls=("https://arxiv.org/pdf/1511.03429.pdf",),
+        tag="Terekhovich 2015",
+        notes="arXiv open access (physics.hist-ph).",
+    ),
+    DownloadEntry(
+        dest="Science/Kotiuga-Lahtinen-2018-Electrical-Engineering-Naturality.pdf",
+        urls=("https://arxiv.org/pdf/1809.01002.pdf",),
+        tag="Kotiuga and Lahtinen 2018",
+        notes="arXiv open access (math-ph).",
+    ),
+    DownloadEntry(
+        dest="Science/Feynman-1964-Principle-Least-Action-Ch19.pdf",
+        urls=(
+            "https://liberzon.csl.illinois.edu/teaching/FeynmanLecturesOnPhysicsChapter2-19.pdf",
+        ),
+        tag="Feynman 1964",
+        notes="Feynman Lectures on Physics, Vol. II, Ch. 19 (Illinois course mirror).",
+    ),
+    DownloadEntry(
+        dest="Science/Arnold-Symplectic-Geometry-Applications.pdf",
+        urls=("https://webhomes.maths.ed.ac.uk/~v1ranick/papers/arnold6.pdf",),
+        tag="Arnold symplectic",
+        notes="Author-hosted scan; symplectic geometry survey.",
+    ),
+    DownloadEntry(
+        dest="Science/Baehni-2019-Mathematical-Aspects-Classical-Mechanics.pdf",
+        urls=(
+            "https://people.math.ethz.ch/~acannas/Student_Papers/Semester_Papers/2019_yannis_baehni_sp_mathematical_aspects_of_classical_mechanics.pdf",
+        ),
+        tag="Baehni 2019",
+        notes="ETH Zurich semester paper (open access).",
+    ),
+    DownloadEntry(
+        dest="Modern-Philosophy/Russell-Basic-Writings.pdf",
+        urls=(
+            "http://ndl.ethernet.edu.et/bitstream/123456789/36936/1/6.pdf.pdf",
+        ),
+        tag="Russell Basic Writings",
+        notes="NDL Ethiopia mirror; public-domain anthology.",
+    ),
+    DownloadEntry(
         dest="Modern-Philosophy/Kuhn-2024-Landscape-of-Consciousness.pdf",
         urls=(
             "https://www.sciencedirect.com/science/article/pii/S0079610723001958/pdfft",
