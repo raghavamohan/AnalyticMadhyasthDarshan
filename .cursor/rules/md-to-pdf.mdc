@@ -21,8 +21,9 @@ npm install
 cd ..
 ```
 
-`npm install` in `Scripts/` installs **Puppeteer**, **pdf-lib**, and **mermaid** (for
-` ```mermaid ` diagrams in studies). CI runs `npm ci` in `Scripts/` automatically.
+`npm install` in `Scripts/` installs **Puppeteer**, **pdf-lib**, **mermaid** (for
+` ```mermaid ` diagrams in studies), and **katex** (for `$...$` / `$$...$$` math). CI runs
+`npm ci` in `Scripts/` automatically.
 
 ## Regenerate one study
 
@@ -118,6 +119,9 @@ The second form validates SVG figures for all studies.
 - **Mermaid flowcharts and diagrams** — fenced ` ```mermaid ` blocks become rendered SVG
   in the PDF via `_convert_to_pdf.py` + `_html_to_pdf.js`; verified by
   `_verify_pdf_diagrams.py` after each regeneration
+- **Inline and display LaTeX math** — `$...$` and `$$...$$` in study markdown are rendered
+  with KaTeX in `_convert_to_pdf.py` (`_render_katex_math.js`) before glossary tooltips run;
+  KaTeX CSS (with absolute font paths) is embedded in the HTML for PDF output
 - **Fenced code and spec blocks** — ` ```text ` and other fenced code use `white-space:
   pre-wrap` so long lines wrap inside the page; verified by `_verify_pdf_fenced_code.py`.
   Prefer a **table** for multi-column formal specs (Petri transitions, type signatures)
