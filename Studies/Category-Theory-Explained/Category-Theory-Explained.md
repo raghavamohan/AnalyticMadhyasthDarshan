@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 3, 2026, 7:10 AM IST
+**Edited on:** July 3, 2026, 7:44 AM IST
 **Status:** Released
 
 **The question:** What does category theory clarify about the structure of Madhyasth Darshan — and where does that notation stop?
@@ -316,6 +316,7 @@ flowchart TD
 | Relationships | **R**, D3 | Category `Rel`; expectation profiles **E(r)** on arrows | Strong; association vs relationship is typing, not composition |
 | Values / essentiality | **V**, D4 | Preorder `Val`; enrichment base **W**; essentiality (*maulikta*) as participation-as-value | Moderate — six-fold taxonomy (utility / art / *jeevan* / human / established / expression) compresses in §6.6 |
 | Recognition, fulfilment | **ρ**, **φ**, D5 | Morphisms/processes on `Rel` / `Conduct`; fibred over `Cap` | Moderate — cap(*u*) = ⟨ksh, yog, pat⟩ in §6.6.1 |
+| Activity triad | **D5b** | Petri/monoidal transitions (§6.10): run = transition firing; φ as terminal *parinam*; *kshobh* = enabled transition that fails to fire | Strong for bookkeeping; content-agnostic |
 | Evaluation | **μ**, D6 | `Eval` on `Liv` only | Moderate — order-restriction is essential (P10) |
 | Composition | **κ**, D8 | `Comp`: mixture = coproduct; compound = tier-changing colimit | Moderate — modes distinguished in §6.9 |
 | Planes, completeness | **D11**, P6 | Layered typing on units; T1 irreversible vs T2–T3 in `Liv` (§6.2.1) | Partial — plane membership for humans is state, not order |
@@ -460,7 +461,7 @@ cap(u) = <ksh(u), yog(u), pat(u)>
 | **yog** (*yogyata*) | Competence to convert capacity into effort, conduct, or bonding | **Composition of φ-steps:** the composite φ₂ ∘ φ₁ is defined only if yog(*u*) suffices along the chain; failure = *kshobh* |
 | **ksh** (*kshamata*) | Scope for participating in relationships and bearing what coexistence makes available | **Grade ceiling in *W*:** effective satisfaction grade is `min(W_chain, ksh_ceiling(u))` |
 
-Receptivity alone does not produce fulfilment: a unit may **recognise** a relationship (ρ) yet deliver only a truncated value flow because yog or ksh is insufficient — the template's diagnosis of frustrated or partial order.
+Receptivity alone does not produce fulfilment: a unit may **recognise** a relationship (ρ) yet deliver only a truncated value flow because yog or ksh is insufficient — the template's diagnosis of frustrated or partial order. In the template's activity-triad terms (D5b), cap(*u*) gates the first arrow of the run *shram → gati → parinam*: the yog composition gate above is exactly what a stalled run (*kshobh*) violates.
 
 #### Fibred enrichment over units
 
@@ -651,6 +652,8 @@ At the knowledge order specifically, [How Undivided Society Is Established](../H
 
 **Development Progression** (*vikas-kram*) — distinct from **Awakening Progression** (*jagriti-kram*) in already constitutionally complete *jeevan* ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §§1.8–1.10) — runs through effort–motion–result (*shram–gati–parinam*), read toward completeness at each stage: result → constitutional completeness; effort → activity completeness; motion → conduct completeness (SB p. 58). *Kaal* is the duration of that activity, not an independent container ([Nature of Time](../Nature-Of-Time/Nature-Of-Time.pdf) §1.1).
 
+This layer is the categorical home of the template's **activity triad** (template D5b): a run *shram → gati → parinam* is a transition firing — effort consumed as input, result produced as output — and φ reads value off the produced token. Frustration (*kshobh*, template D5a–D5b) is an enabled transition that fails to fire: inputs present, output never produced. The stage mapping above is D5b's completeness reading of the same triad.
+
 Hungry/overfull atomic bonding is **compound-mode** κ_comp guarded by L3 (§6.9.1). The progression is **resource-sensitive**, best modelled by a **symmetric monoidal category** (equivalently the free such category on a Petri net), where the tensor is co-presence of resources and **transitions consume inputs to produce outputs**.
 
 | Layer | Transition | Input | Output | Note |
@@ -713,6 +716,7 @@ These are stated as: **structural claim, given premise P**. None is a theorem ab
 | Transmission τ (L5) | `Trans` coalgebra (sketch); opfibration over levels as candidate home (§6.16.6) | Weak | Not derivable from κ |
 | Complementarity (L3) | `AdmissibleComp` guard on spans | Partial | Predicate on diagrams, not CT-derived (§6.9.1) |
 | Development / effort | Monoidal/Petri; κ_comp transitions | Moderate | *vikas-kram* bookkeeping only |
+| Activity triad (D5b) | Petri transition firing: effort consumed, result produced; φ reads the token; *kshobh* = enabled but unfired (§6.10) | Moderate | Run grammar captured; goal-directedness of each moment is textual content |
 | Education / sanskar | τ + faithfulness of Info→Conduct | Moderate | Tied to transmission; evidenced τ (P16) |
 | *Anubhav jnan* (AJ, D12) | Ambient typing: sig(*u*) + orderliness from `Sat` | Moderate | Given data, not derived |
 | *Gyan udghatan* (Ξ, D12) | Total functor on the awakened open subuniverse (§6.16.2); formerly partial `Ξ : Liv ⇀ Liv` with external guard | Moderate | Guard internalised as subuniverse inclusion |
@@ -819,7 +823,7 @@ Three constructions in this paper share an awkward shape: a partial endofunctor 
 
 #### 6.16.4 Conservativity and minimality discipline
 
-Morleyisation — adding a predicate that merely names an existing formula, with biconditionals, and proving that no new theorems in the old vocabulary result — is model theory's standard for *definitional* extension. Adopting it as a discipline sharpens rule 4 of §6.0: every named predicate this formalisation introduces is henceforth classified as **definitional** (a conservative name for structure already present) or **substantive** (a genuinely new axiom requiring textual warrant). The classification is immediately informative. `AdmissibleComp` (§6.9.1) is substantive: no combination of colimit vocabulary defines it, so it stands as an axiom family whose content must come from the texts — which is what P9 asserted, now with a criterion rather than an impression. The same standard motivates an **independence audit** of the template's primitives: for each definition and law of [The Coexistence Template](../The-Coexistence-Template/The-Coexistence-Template.pdf) (D1–D13, L1–L7), either derive it from the rest or exhibit a countermodel witnessing its independence, as MD-TOPOS does for its twenty-seven generators. That audit, and the mechanised checking it enables (the internal theory of §6.16.1 is finitary and within reach of a proof assistant), are the programme this section opens rather than results it claims; they are the safeguard of §6.14.6 made mechanical.
+Morleyisation — adding a predicate that merely names an existing formula, with biconditionals, and proving that no new theorems in the old vocabulary result — is model theory's standard for *definitional* extension. Adopting it as a discipline sharpens rule 4 of §6.0: every named predicate this formalisation introduces is henceforth classified as **definitional** (a conservative name for structure already present) or **substantive** (a genuinely new axiom requiring textual warrant). The classification is immediately informative. `AdmissibleComp` (§6.9.1) is substantive: no combination of colimit vocabulary defines it, so it stands as an axiom family whose content must come from the texts — which is what P9 asserted, now with a criterion rather than an impression. The same standard motivates an **independence audit** of the template's primitives: for each definition and law of [The Coexistence Template](../The-Coexistence-Template/The-Coexistence-Template.pdf) (D1–D13, L1–L7), either derive it from the rest or exhibit a countermodel witnessing its independence, as MD-TOPOS does for its twenty-seven generators. That audit, and the mechanised checking it enables (the internal theory of §6.16.1 is finitary and within reach of a proof assistant), are the programme this section opens rather than results it claims; they are the safeguard of §6.14.6 made mechanical. The template's activity triad (D5b) is the first clause added under this discipline: classified substantive, warranted by SB pp. 58, 71 and MVD p. 11, and given its categorical semantics in §6.10.
 
 #### 6.16.5 Two orthogonal orders
 
