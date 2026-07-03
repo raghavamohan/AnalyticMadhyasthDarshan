@@ -15,7 +15,9 @@ Scripts/_pdf_cache/
 !Studies/*/*.html
 !Applications/*/*.html
 !/index.html
+!google*.html
 
 infra/worker/.wrangler/
 infra/worker/.turnstile-secret.tmp
 infra/discussions-worker/.wrangler/
+infra/google-verification-worker/.wrangler/

@@ -1,0 +1,2 @@
+# Disable Jekyll so static root files (robots.txt, sitemap.xml) publish as-is.
+# Note: GitHub Pages still does not publish google*.html; see infra/google-verification-worker/.

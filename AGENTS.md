@@ -218,8 +218,9 @@ npm install
 cd ..
 ```
 
-`npm install` in `Scripts/` installs **Puppeteer**, **pdf-lib**, and **mermaid** (for
-` ```mermaid ` diagrams in studies). CI runs `npm ci` in `Scripts/` automatically.
+`npm install` in `Scripts/` installs **Puppeteer**, **pdf-lib**, **mermaid** (for
+` ```mermaid ` diagrams in studies), and **katex** (for `$...$` / `$$...$$` math). CI runs
+`npm ci` in `Scripts/` automatically.
 
 ### Regenerate one study
 
@@ -315,6 +316,9 @@ The second form validates SVG figures for all studies.
 - **Mermaid flowcharts and diagrams** — fenced ` ```mermaid ` blocks become rendered SVG
   in the PDF via `_convert_to_pdf.py` + `_html_to_pdf.js`; verified by
   `_verify_pdf_diagrams.py` after each regeneration
+- **Inline and display LaTeX math** — `$...$` and `$$...$$` in study markdown are rendered
+  with KaTeX in `_convert_to_pdf.py` (`_render_katex_math.js`) before glossary tooltips run;
+  KaTeX CSS (with absolute font paths) is embedded in the HTML for PDF output
 - **Fenced code and spec blocks** — ` ```text ` and other fenced code use `white-space:
   pre-wrap` so long lines wrap inside the page; verified by `_verify_pdf_fenced_code.py`.
   Prefer a **table** for multi-column formal specs (Petri transitions, type signatures)
@@ -377,6 +381,16 @@ foreach ($s in $studies) {
 - Edit PDFs directly or commit hand-built HTML as the source of truth.
 - Change conversion behavior inline in chat without updating these scripts when
   the change should apply to all future PDFs (footer, watermark, styling).
+
+### PDF → markdown (maintainers only)
+
+Contributors submit markdown; PDF is always a **generated** artifact in CI. When a
+contributor provides only a PDF, maintainers run `Scripts/_pdf_to_study_md.py` or
+`Scripts/_add_study.py … --convert` on a feature branch, **review and fix** the
+converted `.md` (headings, tables, citations, Standpoint and scope, References), then
+regenerate the PDF with `_regenerate_pdf.py` before opening a study PR. Diagrams,
+math, and glossary tooltips are not recovered from PDF — re-add them in markdown.
+Scanned or image-only PDFs fail fast; do not commit placeholder extractions.
 
 ---
 
@@ -601,6 +615,7 @@ addition, edit, or status change lands through a pull request that CI
    |--------|----------|-------|-------------------------|
    | Add a new study (after `proposal-approved`) | `new-study.md` | `new-study` | `Proposal issue: #N` and `Slug:` |
    | Edit an existing study's content | `study-update.md` | `study-update` | `Study slug: <Slug>` |
+   | Rename slug (directory + metadata) | `study-update.md` | `study-update` | `Study slug: <New-Slug>` (CI runs `_rename_study.py` when one slug is removed and another added) |
    | Change Draft ↔ Released | `status-change.md` | `status-change` | `Study slug: <Slug>` and `Target status: draft`/`released` |
 
    A change that only touches non-study files (`Scripts/`, `AGENTS.md`, `.agents/skills/`,
@@ -608,6 +623,30 @@ addition, edit, or status change lands through a pull request that CI
    `Study slug:` field.
 5. **Tick the template checklist** in the PR body before requesting review or merge (Edited on
    refreshed, `References/MANIFEST.md` updated if citations changed, quote verification run).
+
+### Contributor PDFs (maintainers only)
+
+The Web Submission Portal and CI expect `Studies/<Slug>/<Slug>.md` as source. When a
+contributor hands off a PDF instead, maintainers convert on a feature branch with
+`python Scripts/_pdf_to_study_md.py …` or `python Scripts/_add_study.py … --convert`,
+manually review the output against AGENTS.md §4–§5, regenerate the PDF, then open the
+normal labeled PR. PDF is never accepted as the canonical study source in the repository.
+
+### Renaming a study slug
+
+Renaming is a **`study-update`** PR, not a silent directory move. When the diff removes one
+`Studies/<Old>/` (or `Applications/<Old>/`) tree and adds one new slug, `_ci_study_pr.py`
+invokes `Scripts/_rename_study.py --metadata-only` to sync `proposal-registry.json`,
+`.proposal-meta.json`, and the linked GitHub proposal issue. The PR must set `Study slug: <New-Slug>`
+and include registry/meta updates (or let CI write them on the branch).
+
+For local/maintainer runs before opening the PR:
+
+```powershell
+python Scripts/_rename_study.py --from Old-Slug --to New-Slug --title "New display title"
+```
+
+Keep slugs at or under **60 characters**. The portal rejects longer slugs at proposal time.
 
 ### Why this matters
 

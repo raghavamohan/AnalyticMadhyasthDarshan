@@ -159,6 +159,8 @@ def build_proposal_stub_markdown(fields: ProposalFields, edited_at: datetime) ->
 
 {format_edited_on_md(edited_at)}
 
+**Status:** Draft
+
 {fields.description}
 
 ## Study proposal
@@ -245,14 +247,29 @@ def upsert_registry_entry(fields: ProposalFields) -> None:
     )
 
 
-def issue_body_with_slug(body: str, slug: str) -> str:
-    if parse_issue_form_section(body, ISSUE_FORM_HEADINGS["slug"]):
-        return body
-    slug_block = f"### Slug\n\n{slug}\n\n"
+def replace_issue_form_section(body: str, heading: str, value: str) -> str:
+    pattern = rf"(###\s*{re.escape(heading)}\s*\r?\n+)(.+?)(?=\r?\n###|\Z)"
+    if re.search(pattern, body, re.DOTALL | re.IGNORECASE):
+        return re.sub(
+            pattern,
+            lambda match: f"{match.group(1)}{value}\n",
+            body,
+            count=1,
+            flags=re.DOTALL | re.IGNORECASE,
+        )
+    slug_block = f"### {heading}\n\n{value}\n\n"
     marker = "### Proposed title"
     if marker in body:
         return body.replace(marker, slug_block + marker, 1)
     return slug_block + body
+
+
+def issue_body_with_slug(body: str, slug: str) -> str:
+    return replace_issue_form_section(body, ISSUE_FORM_HEADINGS["slug"], slug)
+
+
+def issue_body_with_title(body: str, title: str) -> str:
+    return replace_issue_form_section(body, ISSUE_FORM_HEADINGS["title"], title)
 
 
 def bootstrap_proposal(

@@ -36,7 +36,7 @@ The public catalog at [analyticmadhyasthdarshan.org](https://analyticmadhyasthda
 
 Open the [**Web Submission Portal**](Studies/submit.html), **sign in with GitHub**, and fill out the **Propose a Study** form. Include:
 
-- **Proposed title** — becomes the study name; the file slug is derived from it (e.g. `The Ontology of Coexistence` → `The-Ontology-of-Coexistence`).
+- **Proposed title** — becomes the study name; the file slug is derived from it (e.g. `The Ontology of Coexistence` → `The-Ontology-of-Coexistence`). Keep titles short enough for a slug of **60 characters or fewer** (roughly eight words); the portal rejects longer slugs so paths work on Windows and in CI.
 - **Category** — topical area (Ontology, Epistemology, Ethics, etc.) or formal focus.
 - **One-line description** — catalog summary shown on the studies page.
 - **Study summary** — the question, primary texts, and scope you plan to cover.
@@ -75,6 +75,17 @@ The portal opens one **new-study** pull request at a time per slug. If a draft P
 From **My Submissions**, use **Update a study** to open a study-update pull request. Enter the slug and click **Load current content** to pull the published markdown into the editor, then revise and submit.
 
 To change **Draft** ↔ **Released**, use **Change release status** on the same page, or click **Release study** / **Revert to draft** on a merged row. The portal opens a `status-change` pull request; CI runs `_set_study_status.py` on the branch.
+
+### Rename a study slug or title
+
+The slug is **locked** when a proposal is approved. If the derived slug is too long for Windows paths or you need a shorter catalog name, rename **before or right after** the first draft merge using a maintainer-reviewed **`study-update`** pull request:
+
+1. Rename `Studies/<Old-Slug>/` to `Studies/<New-Slug>/` (and inner `.md`/`.html`/`.pdf` files) on a feature branch.
+2. Update the catalog row slug/title via the same PR (or let CI sync timestamps after the rename).
+3. Run `python Scripts/_rename_study.py --from <Old-Slug> --to <New-Slug> --title "New display title"` locally to sync `proposal-registry.json`, `.proposal-meta.json`, the GitHub proposal issue `### Slug` / `### Proposed title`, and `References/` paths — or rely on CI (`_ci_study_pr.py` detects directory renames and runs metadata sync automatically).
+4. Set `Study slug: <New-Slug>` in the PR body and apply the **`study-update`** label.
+
+Do **not** rename only the directory without updating the proposal issue and registry; **My Submissions** keys studies by slug and will show duplicate rows if metadata drifts.
 
 ---
 
@@ -134,6 +145,24 @@ python Scripts\_regenerate_pdf.py <Slug>
 ```
 
 Study management scripts are for **maintainers and local development** — see [README.md](README.md#for-maintainers) and [Scripts/README.md](Scripts/README.md). To submit a study without a clone, use the [Web Submission Portal](Studies/submit.html).
+
+### When a contributor only has a PDF
+
+The portal accepts **markdown only**. If someone sends a PDF (email, issue attachment, or direct handoff), maintainers convert it locally before opening a study PR:
+
+```powershell
+python Scripts/_add_study.py path/to/submission.pdf `
+  --convert --slug <Slug> --title "Study title" `
+  --category "..." --description "..." --tags "MVD, SB" --status draft
+```
+
+Or convert without registering in the catalog:
+
+```powershell
+python Scripts/_pdf_to_study_md.py path/to/submission.pdf --slug <Slug> --title "Study title"
+```
+
+Review the generated `Studies/<Slug>/<Slug>.md` — fix headings, tables, citations, `## Standpoint and scope`, and `## References` to house style (AGENTS.md §4–§5) — then regenerate the PDF and open a labeled pull request as usual. Conversion works best on text-native PDFs; scanned documents fail with a clear error. Run `python Scripts/_test_pdf_to_md.py` after changing the import scripts.
 
 ---
 

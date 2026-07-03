@@ -2,147 +2,65 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 2, 2026, 9:16 AM IST
+**Edited on:** July 2, 2026, 4:57 PM IST
 
 **Status:** Draft
 
 **The question:** Does the pursuit of restfulness (*vishram*) in Madhyasth Darshan structurally mirror the Principle of Least Action in physics — and can category theory map the two paradigms rigorously?
 
-This formal study compares Madhyasth Darshan's ontology of effort, motion, and restfulness with the variational mechanics of least action, then evaluates the mapping through category-theoretic functors, forgetful reduction, and colimit assembly. Ontological ground and the tier-neutral template appear in [*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) and [*The Coexistence Template*](../The-Coexistence-Template/The-Coexistence-Template.pdf); categorical notation and limits are developed in [*Category Theory Explained*](../Category-Theory-Explained/Category-Theory-Explained.pdf).
+This formal study compares Madhyasth Darshan's ontology of effort, motion, result, and restfulness with the variational mechanics of least action, then evaluates the mapping through category-theoretic functors, forgetful reduction, and colimit assembly. Ontological ground and the tier-neutral template appear in [*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) and [*The Coexistence Template*](../The-Coexistence-Template/The-Coexistence-Template.pdf); categorical notation and limits are developed in [*Category Theory Explained*](../Category-Theory-Explained/Category-Theory-Explained.pdf).
 
-## Introduction to the Ontological and Physical Paradigms
+The philosophical framework of Madhyasth Darshan presents a coexistence-based ontological architecture wherein existence comprises sentient and insentient countable units saturated in an omnipresent, actionless medium. Within this paradigm, the evolutionary trajectory of all units is directed toward completeness and resolution — restfulness (*vishram*) — as the culmination of effort (*shram ka vishram*) into continuous, frictionless activity within universal orderliness. In parallel, classical and quantum physics rely on the Principle of Least Action (PLA): dynamical trajectories between initial and final configurations are those that make the action functional locally stationary. This study maps both paradigms, evaluates their philosophical commitments, and asks whether category theory can translate between coexistence ontology and variational mechanics rigorously.
 
-The philosophical framework of Madhyasth Darshan, extensively propounded as an existence-based, human-centric contemplation, presents a profound, coexistence-based ontological architecture wherein the entirety of existence is understood as nature saturated in an omnipresent, actionless medium.
+## Standpoint and scope
 
-At the core of this philosophy is the assertion that existence is fundamentally structured as "coexistence" (saha-astitva), comprising sentient and insentient countable units submerged, surrounded, and soaked in Space (satta).
+These studies are written from the standpoint of a **scientist and technologist** — someone trained to graduate-level **physics and mathematics**, at home with variational mechanics, symplectic geometry, conservation laws, and the logic of formal models.
 
-Within this paradigm, the evolutionary and existential trajectory of all countable units is directed toward an ultimate state of completeness and resolution, defined conceptually as "restfulness" (vishram).
+From that background, a familiar picture of nature is hard to avoid: **consciousness appears as something the brain does** — an epiphenomenon, functional outcome, or emergent property of particular configurations of very large numbers of physical particles. Modern physics and cognitive science are powerful on mechanism, prediction, and public evidence; yet the hard problem of consciousness, the status of the self, and the reality of value remain fiercely contested. The standpoint taken here does not treat those gaps as settled in favour of matter-only reductionism.
 
-Restfulness in this specific context does not imply a cessation of movement, a thermodynamic heat death, or static inertia; rather, it represents the culmination of effort (shram ka vishram) into a continuous, frictionless, and harmonious state of activity within a universal orderliness.
+The work begins where that scientific picture leaves open questions — and asks whether Madhyasth Darshan's account of restfulness structurally mirrors variational principles in physics. This paper reads the primary texts carefully, states what follows from the darshan itself, and compares it in parallel with **physics and the natural sciences** (especially the principle of least action), **category-theoretic formalizations of classical mechanics**, and **modern Western philosophy** (teleology, causation, and optimization). Physics and mathematics are **one leg** of that comparison, not the only one. The aim is rigorous comparative understanding — testing definitions, internal consistency, and fit with public knowledge — not persuasion or devotional endorsement.
 
-In parallel, modern classical and quantum theoretical physics rely on a foundational variational framework known as the Principle of Least Action (PLA).
+These topical studies state the philosophy in clear, checkable prose first. This study employs category-theoretic notation as an expository lens for structural mapping; it does not claim to prove the philosophy from the formalism alone. A separate fully axiomatized treatment may follow once the definitions are stable across the series.
 
-The PLA dictates that the true dynamical trajectory of a physical system between an initial and a final configuration is the one that makes the action functional locally stationary, an outcome classically interpreted as minimizing the action over time.
+## 1. The ontology of Madhyasth Darshan: space, units, and saturation
 
-The action itself is defined mathematically as the time integral of the Lagrangian (the difference between kinetic and potential energy).
+To comprehensively evaluate the concept of restfulness (vishram), it is first necessary to dissect the foundational ontology of Madhyasth Darshan. According to this framework, the universe is not an accidental collision of particles but is composed of two fundamental, co-eternal realities: the omnipresent medium (Space) and the countless real units of nature. The structural relationship between these two realities forms the basis of the Coexistence Template.
 
-This principle governs the motion of particles, the propagation of light, the behavior of electromagnetic fields, and the evolution of relativistic systems, serving as a global mathematical formulation of local deterministic equations of motion.
+### 1.1 The actionless medium and inherent regulation
 
-A rigorous conceptual comparison between these two frameworks reveals profound intersections and divergences regarding teleology, determinism, and the fundamental nature of equilibrium.
+The omnipresent medium, referred to as satta or Omnipresence, is characterized as an indivisible, transparent, and entirely actionless void. Unlike classical physics where the gravitational field exerts a force, or general relativity where spacetime curves to dictate the paths of masses, the medium in Madhyasth Darshan does not exert physical force, transmit statutory commands, or act as an efficient cause. Instead, it serves as the ultimate ground of being in which all units are "saturated." Saturation is strictly defined as a pervasive co-location; every physical and conscious reality is soaked, surrounded, and submerged in this omnipresent medium. Because the medium itself is completely actionless, the regulatory order and inherent energy of any given unit are not physically drawn from the background. Instead, energy and regulation are localized entirely within the unit itself as an immediate structural consequence of this saturation relationship. This mechanism explains why entities are fully energized and regulated from within, establishing a universe where orderliness is an intrinsic property of the unit rather than an externally imposed law.
 
-By employing category theory as a mathematical lens for structural mapping, it becomes possible to evaluate whether the continuous pursuit of vishram by sentient and insentient units in Madhyasth Darshan mathematically mirrors the physical tendency of dynamical systems to minimize action.
+### 1.2 The architecture of countable units
 
-This study conducts an exhaustive investigation into these two paradigms, mapping their underlying mechanics, evaluating their philosophical commitments, exploring the application of these principles from subatomic particles to complex human organizations, and establishing a rigorous category-theoretic translation between the ontology of coexistence and variational mechanics.
+The units of nature are countable, bounded clusters of activity that exist in continuous interplay. Every unit possesses an intrinsic, four-aspect ontological signature (sig(u)): form (roop), properties (gun), essential nature (svabhav), and its fundamental purpose or dharma. These units manifest across four distinct evolutionary orders that represent a hierarchy of increasing structural and relational complexity: the material order (comprising soils, minerals, and metals), the biological order (encompassing plants, cells, and vegetative life), the animal order, and finally, the knowledge order (comprising human beings). The material and biological orders are governed by rigorous physicochemical rules and comprise atoms that possess an evolving constitution. These evolving-constitution atoms are fundamentally categorized as either "hungry" (requiring additional particles to achieve stability) or "overfull" (requiring the expulsion of particles). This perpetual structural deficiency drives a continuous cycle of elemental transformation, atomic bonding, composition, and decomposition, which physically underpins the dynamic flux of the observable universe.
 
-## The Ontology of Madhyasth Darshan: Space, Units, and Saturation
+### 1.3 The sentient unit: constitutional completeness
 
-To comprehensively evaluate the concept of restfulness (vishram), it is first necessary to dissect the foundational ontology of Madhyasth Darshan.
+In stark contrast to the evolving atoms of the physical realm, the sentient unit, termed Jeevan, is defined as a constitutionally complete atom. The Jeevan atom does not undergo the insertion or expulsion of subatomic particles; its constitution is fixed and permanently stable, granting it inexhaustible strengths and powers. While the physical body of an organism eventually decomposes and returns to the physicochemical cycle of the Earth, the Jeevan maintains eternal continuity. Because of its constitutional completeness, the Jeevan escapes the purely mechanistic thermodynamics of physical decay.
 
-According to this framework, the universe is not an accidental collision of particles but is composed of two fundamental, co-eternal realities: the omnipresent medium (Space) and the countless real units of nature.
+The Jeevan operates through ten distinct conscious activities, which are structurally categorized into five integrated levels: mun (taste and selection), vritti (analysis and deliberation), chitta (visualization and contemplation), buddhi (enlightenment and resolve), and atma (authenticity and realization). When these ten activities are perfectly aligned, operating holistically without internal contradiction, the Jeevan achieves a state of comprehensive awakening. This internal awakening translates outwardly into the physical world as humane conduct.
 
-The structural relationship between these two realities forms the basis of the Coexistence Template.
+## 2. The mechanics of effort, motion, and the genesis of restfulness
 
-### The Actionless Medium and Inherent Regulation
+Within Madhyasth Darshan, the dynamic progression of existence is systematically modeled through a continuous triad of physical and conscious realities: effort (shram), motion (gati), and result/configuration (parinam). Understanding this triad is essential to decoding the concept of restfulness.
 
-The omnipresent medium, referred to as satta or Omnipresence, is characterized as an indivisible, transparent, and entirely actionless void.
+### 2.1 The trajectory of shram (effort)
 
-Unlike classical physics where the gravitational field exerts a force, or general relativity where spacetime curves to dictate the paths of masses , the medium in Madhyasth Darshan does not exert physical force, transmit statutory commands, or act as an efficient cause.
+Effort (shram) is defined as the continuous activity and internal displacement inherent in all units as they interact, compose, decompose, and attempt to fulfill their structural or relational deficiencies. In the material and biological orders, this effort leads to continuous physical transformation, perpetually generating new configurations (parinam) in a cyclic progression. However, effort is not an open-ended, chaotic expenditure of energy; it carries an inherent, teleological directional vector toward ultimate stability and completeness. The culmination of motion (gati ka gantavya) and the absolute fulfillment of effort (shram ka vishram) is defined conceptually as "restfulness" or vishram. Restfulness is posited as the ultimate goal of the universe, and its highest, most complex evidence is witnessed exclusively in an awakened human tradition.
 
-Instead, it serves as the ultimate ground of being in which all units are "saturated.
+It is critical to distinguish this concept of restfulness from thermodynamic death, entropy, or static inertia. Restfulness in the context of a constitutionally complete unit (Jeevan) represents "resolution" (samadhan). It is an active state of comprehensive cognitive and existential equilibrium where internal contradictions, dilemmas, and delusions cease to exist, yet dynamic participation in the world continues.
 
-"Saturation is strictly defined as a pervasive co-location; every physical and conscious reality is soaked, surrounded, and submerged in this omnipresent medium.
+### 2.2 Delusion as an excited state
 
-Because the medium itself is completely actionless, the regulatory order and inherent energy of any given unit are not physically drawn from the background.
+When a human being lives in a state of delusion, only four and a half of the ten activities of Jeevan are fully operational. These lower-order activities are driven strictly by sensory input and are heavily oriented toward the pursuit of pleasure, health, and profit. Because the higher-order evaluative capacities are dormant, this creates a state of continuous internal conflict and an unstable "excited state". The Jeevan remains deeply anxious for restfulness but systematically fails to achieve it because it misidentifies the self with the physical body, relying entirely on the temporary, fleeting fulfillment of the physical senses.
 
-Instead, energy and regulation are localized entirely within the unit itself as an immediate structural consequence of this saturation relationship.
+The pursuit of profit and infinite accumulation in modern economic systems is identified as a macroscopic manifestation of this delusion. It represents a state of "profit-obsession" where the point of satisfaction can never be reached, rendering restfulness impossible. Because the physical resources of the Earth are finite, attempting to achieve infinite cognitive fulfillment through material consumption inevitably leads to the exhaustion of the environment and the structural collapse of societies. This highlights that effort (shram) misdirected by delusion results in societal and ecological friction rather than restfulness.
 
-This mechanism explains why entities are fully energized and regulated from within, establishing a universe where orderliness is an intrinsic property of the unit rather than an externally imposed law.
+### 2.3 The transition to resolution (samadhan)
 
-### The Architecture of Countable Units
+Awakening occurs when the remaining five and a half activities of the Jeevan are activated through rigorous understanding and realization. Once realized, the Jeevan accurately recognizes its relationships with all other units based on their inherent existential purposes, rather than transactional metrics of fear or temptation. Fulfilling these relationships generates profound mutual satisfaction, leading to a state of absolute justice and resolution. This cognitive and behavioral resolution is synonymous with restfulness (vishram). Therefore, restfulness is achieved not by halting activity, but by achieving "conduct completeness" (acharan poornta), wherein the conscious unit's internal harmony perfectly maps to its external behavioral participation in universal orderliness. The individual transitions from operating out of lack and hunger to operating out of abundance and completeness.
 
-The units of nature are countable, bounded clusters of activity that exist in continuous interplay.
-
-Every unit possesses an intrinsic, four-aspect ontological signature (sig(u)): form (roop), properties (gun), essential nature (svabhav), and its fundamental purpose or dharma.
-
-These units manifest across four distinct evolutionary orders that represent a hierarchy of increasing structural and relational complexity: the material order (comprising soils, minerals, and metals), the biological order (encompassing plants, cells, and vegetative life), the animal order, and finally, the knowledge order (comprising human beings).The material and biological orders are governed by rigorous physicochemical rules and comprise atoms that possess an evolving constitution.
-
-These evolving-constitution atoms are fundamentally categorized as either "hungry" (requiring additional particles to achieve stability) or "overfull" (requiring the expulsion of particles).
-
-This perpetual structural deficiency drives a continuous cycle of elemental transformation, atomic bonding, composition, and decomposition, which physically underpins the dynamic flux of the observable universe.
-
-### The Sentient Unit: Constitutional Completeness
-
-In stark contrast to the evolving atoms of the physical realm, the sentient unit, termed Jeevan, is defined as a constitutionally complete atom.
-
-The Jeevan atom does not undergo the insertion or expulsion of subatomic particles; its constitution is fixed and permanently stable, granting it inexhaustible strengths and powers.
-
-While the physical body of an organism eventually decomposes and returns to the physicochemical cycle of the Earth, the Jeevan maintains eternal continuity.
-
-Because of its constitutional completeness, the Jeevan escapes the purely mechanistic thermodynamics of physical decay.
-
-The Jeevan operates through ten distinct conscious activities, which are structurally categorized into five integrated levels: mun (taste and selection), vritti (analysis and deliberation), chitta (visualization and contemplation), buddhi (enlightenment and resolve), and atma (authenticity and realization).
-
-When these ten activities are perfectly aligned, operating holistically without internal contradiction, the Jeevan achieves a state of comprehensive awakening.
-
-This internal awakening translates outwardly into the physical world as humane conduct.
-
-## The Mechanics of Effort, Motion, and the Genesis of Restfulness
-
-Within Madhyasth Darshan, the dynamic progression of existence is systematically modeled through a continuous triad of physical and conscious realities: effort (shram), motion (gati), and result/configuration (parinam).
-
-Understanding this triad is essential to decoding the concept of restfulness.
-
-### The Trajectory of Shram (Effort)
-
-Effort (shram) is defined as the continuous activity and internal displacement inherent in all units as they interact, compose, decompose, and attempt to fulfill their structural or relational deficiencies.
-
-In the material and biological orders, this effort leads to continuous physical transformation, perpetually generating new configurations (parinam) in a cyclic progression.
-
-However, effort is not an open-ended, chaotic expenditure of energy; it carries an inherent, teleological directional vector toward ultimate stability and completeness.
-
-The culmination of motion (gati ka gantavya) and the absolute fulfillment of effort (shram ka vishram) is defined conceptually as "restfulness" or vishram.
-
-Restfulness is posited as the ultimate goal of the universe, and its highest, most complex evidence is witnessed exclusively in an awakened human tradition.
-
-It is critical to distinguish this concept of restfulness from thermodynamic death, entropy, or static inertia.
-
-Restfulness in the context of a constitutionally complete unit (Jeevan) represents "resolution" (samadhan).
-
-It is an active state of comprehensive cognitive and existential equilibrium where internal contradictions, dilemmas, and delusions cease to exist, yet dynamic participation in the world continues.
-
-### Delusion as an Excited State
-
-When a human being lives in a state of delusion, only four and a half of the ten activities of Jeevan are fully operational.
-
-These lower-order activities are driven strictly by sensory input and are heavily oriented toward the pursuit of pleasure, health, and profit.
-
-Because the higher-order evaluative capacities are dormant, this creates a state of continuous internal conflict and an unstable "excited state".
-
-The Jeevan remains deeply anxious for restfulness but systematically fails to achieve it because it misidentifies the self with the physical body, relying entirely on the temporary, fleeting fulfillment of the physical senses.
-
-The pursuit of profit and infinite accumulation in modern economic systems is identified as a macroscopic manifestation of this delusion.
-
-It represents a state of "profit-obsession" where the point of satisfaction can never be reached, rendering restfulness impossible.
-
-Because the physical resources of the Earth are finite, attempting to achieve infinite cognitive fulfillment through material consumption inevitably leads to the exhaustion of the environment and the structural collapse of societies.
-
-This highlights that effort (shram) misdirected by delusion results in societal and ecological friction rather than restfulness.
-
-### The Transition to Resolution (Samadhan)
-
-Awakening occurs when the remaining five and a half activities of the Jeevan are activated through rigorous understanding and realization.
-
-Once realized, the Jeevan accurately recognizes its relationships with all other units based on their inherent existential purposes, rather than transactional metrics of fear or temptation.
-
-Fulfilling these relationships generates profound mutual satisfaction, leading to a state of absolute justice and resolution.
-
-This cognitive and behavioral resolution is synonymous with restfulness (vishram).
-
-Therefore, restfulness is achieved not by halting activity, but by achieving "conduct completeness" (acharan poornta), wherein the conscious unit's internal harmony perfectly maps to its external behavioral participation in universal orderliness.
-
-The individual transitions from operating out of lack and hunger to operating out of abundance and completeness.
-
-### Ontological phase and restfulness outcomes
+### 2.4 Ontological phase and restfulness outcomes
 
 | Ontological phase | State of the unit | Operative activities | Behavioral outcome | Systemic goal |
 | --- | --- | --- | --- | --- |
@@ -150,97 +68,37 @@ The individual transitions from operating out of lack and hunger to operating ou
 | Deluded human | Constitutionally complete | 4.5 activities (sensory-driven) | Profit-obsession, consumption, exploitation | Illusory pursuit of physical restfulness |
 | Awakened human | Constitutionally complete | 10 activities (realization-driven) | Right-use, justice, mutual satisfaction | True restfulness (*vishram* / *samadhan*) |
 
-## The Principle of Least Action in Theoretical Physics
+## 3. The principle of least action in theoretical physics
 
-To draw a robust comparative analysis, one must thoroughly examine the mathematical, physical, and metaphysical properties of the Principle of Least Action.
+To draw a robust comparative analysis, one must thoroughly examine the mathematical, physical, and metaphysical properties of the Principle of Least Action. Formulated historically through the insights of Fermat, Maupertuis, Euler, and formalized rigorously by Lagrange and Hamilton, the PLA is a variational principle asserting that nature operates with a fundamental economy of action.
 
-Formulated historically through the insights of Fermat, Maupertuis, Euler, and formalized rigorously by Lagrange and Hamilton, the PLA is a variational principle asserting that nature operates with a fundamental economy of action.
+### 3.1 The calculus of variations and stationarity
 
-### The Calculus of Variations and Stationarity
+In classical mechanics, a physical system characterized by generalized coordinates and velocities is completely described by a function known as the Lagrangian ($\mathcal{L}$). The Lagrangian is typically defined as the difference between the kinetic energy ($T$) and the potential energy ($V$) of the system ($\mathcal{L} = T - V$). The action integral ($S$) is the integral of this Lagrangian over a specific time interval from an initial time $t_1$ to a final time $t_2$. The principle dictates that the true dynamical path taken by the physical system is the one where the variation of the action is zero ($\delta S = 0$). It is a stationary path—often, though not always, a minimum—relative to all nearby hypothetical paths the system could conceivably take. From this global stationary condition, the local, differential Euler-Lagrange equations of motion are mathematically derived.
 
-In classical mechanics, a physical system characterized by generalized coordinates and velocities is completely described by a function known as the Lagrangian ($\mathcal{L}$).
+### 3.2 The teleological debate
 
-The Lagrangian is typically defined as the difference between the kinetic energy ($T$) and the potential energy ($V$) of the system ($\mathcal{L} = T - V$).
+Philosophically, the PLA has frequently sparked intense debates regarding teleology and causality. Because the mathematical formulation explicitly requires fixing an initial point and a final point in time, and then minimizing the integral over the entire path, it creates the conceptual illusion that the particle "knows" its destination before it begins its journey. This apparent retro-causality or foresight challenges the standard Humean view of sequential cause and effect. However, this apparent teleology is mathematically resolved by the calculus of variations, which demonstrates that the global stationary action condition is strictly and provably equivalent to local, instantaneous differential equations. The particle obeys localized forces at each infinitesimal instant, and the global minimization of action is an emergent mathematical property of these local deterministic rules rather than an act of conscious foresight.
 
-The action integral ($S$) is the integral of this Lagrangian over a specific time interval from an initial time $t_1$ to a final time $t_2$.
+### 3.3 Extensions to relativity, quantum mechanics, and thermodynamics
 
-The principle dictates that the true dynamical path taken by the physical system is the one where the variation of the action is zero ($\delta S = 0$).
+In modern theoretical physics, the PLA extends far beyond simple classical mechanics. In relativistic dynamics, the action function provides the complete theory of motion for a particle in an electromagnetic field by integrating over the proper time and accounting for relativistic invariance and the speed of light. In the realm of quantum mechanics, Richard Feynman generalized the PLA through his revolutionary path integral formulation. Instead of assuming a single deterministic path, Feynman's framework posits that a quantum particle simultaneously explores an infinite set of all possible histories between two points. Each possible path is assigned a probability amplitude related to its specific action; paths near the classical trajectory of least action constructively interfere, while those far from it cancel out due to rapid phase oscillations. This provided a bridge between the deterministic macroscopic world of least action and the probabilistic microscopic world of quantum mechanics.
 
-It is a stationary path—often, though not always, a minimum—relative to all nearby hypothetical paths the system could conceivably take.
+Furthermore, in dissipative and nonequilibrium thermodynamic systems, analogs to the PLA exist, such as the principle of least power, the maximum entropy production principle, and the principle of least energy dissipation. These principles govern how energy is dispersed across networks and electrical circuits, emphasizing that natural macroscopic systems tend toward states that optimize the dissipation of gradients. For example, networks composed of linear passive circuit elements alongside effort and flow sources can be modeled using these variational minimization principles, demonstrating that even complex systems losing energy seek an optimal structural path.
 
-From this global stationary condition, the local, differential Euler-Lagrange equations of motion are mathematically derived.
+## 4. Extending restfulness to human organizations: the colimit of coexistence
 
-### The Teleological Debate
+While the Principle of Least Action governs the trajectory of particles and thermodynamic energy, Madhyasth Darshan extends its principle of optimization—restfulness—upward into the highly complex domain of human sociology, economics, and systemic organization. Restfulness is not confined to the internal psychology of the individual Jeevan; it must be evidenced across all scales of human interaction.
 
-Philosophically, the PLA has frequently sparked intense debates regarding teleology and causality.
+### 4.1 Evaluating relationships and mutual satisfaction
 
-Because the mathematical formulation explicitly requires fixing an initial point and a final point in time, and then minimizing the integral over the entire path, it creates the conceptual illusion that the particle "knows" its destination before it begins its journey.
+In a human organization, restfulness is achieved when units (individuals) recognize and fulfill their relationships based on inherent values (mulya) rather than superficial metrics of power, wealth, or intelligence. The framework identifies specific relational purposes: nurturing, protection, guidance, and usefulness. When these purposes are fulfilled through human capacity, ability, and receptivity, the outcome is "mutual satisfaction". Mutual satisfaction serves as the exact sociological equivalent to energetic equilibrium in a physical system. When relationships are fulfilled with justice, the social system enters its "natural state" and persists harmoniously. Conversely, when relationships are neglected or driven by exploitation and the lust for infinite consumption, the social system enters an "excited state". An excited social system experiences high internal friction—manifested as revolts, rebellions, economic disparity, and war. Thus, the eradication of this friction through the fulfillment of values represents the organizational manifestation of vishram.
 
-This apparent retro-causality or foresight challenges the standard Humean view of sequential cause and effect.
+### 4.2 Cyclical economics and universal orderliness
 
-However, this apparent teleology is mathematically resolved by the calculus of variations, which demonstrates that the global stationary action condition is strictly and provably equivalent to local, instantaneous differential equations.
+The transition of a human organization into a restful state fundamentally requires an economic shift. Madhyasth Darshan proposes "Cyclical Economics" (avartansheel arthshastra), a system completely aligned with the cyclical orderliness of the natural world. In this model, human resources (body, mind, and wealth) are deployed exclusively for the production of common aspirations (food, shelter, clothing) and special aspirations (communication, transportation) rather than for infinite accumulation. By operating cyclically, humans mirror the biological and material orders, returning to the Earth what is taken, thereby ensuring that the planetary system itself remains in a state of stable equilibrium. A society functioning on these principles builds a family-based self-governing system, evolving from the individual up to a unified, undivided global society. This comprehensive progression toward an indivisible society is the macro-level evidence of restfulness, structurally analogous to a highly complex physical system settling into its lowest available energy state.
 
-The particle obeys localized forces at each infinitesimal instant, and the global minimization of action is an emergent mathematical property of these local deterministic rules rather than an act of conscious foresight.
-
-### Extensions to Relativity, Quantum Mechanics, and Thermodynamics
-
-In modern theoretical physics, the PLA extends far beyond simple classical mechanics.
-
-In relativistic dynamics, the action function provides the complete theory of motion for a particle in an electromagnetic field by integrating over the proper time and accounting for relativistic invariance and the speed of light.
-
-In the realm of quantum mechanics, Richard Feynman generalized the PLA through his revolutionary path integral formulation.
-
-Instead of assuming a single deterministic path, Feynman's framework posits that a quantum particle simultaneously explores an infinite set of all possible histories between two points.
-
-Each possible path is assigned a probability amplitude related to its specific action; paths near the classical trajectory of least action constructively interfere, while those far from it cancel out due to rapid phase oscillations.
-
-This provided a bridge between the deterministic macroscopic world of least action and the probabilistic microscopic world of quantum mechanics.
-
-Furthermore, in dissipative and nonequilibrium thermodynamic systems, analogs to the PLA exist, such as the principle of least power, the maximum entropy production principle, and the principle of least energy dissipation.
-
-These principles govern how energy is dispersed across networks and electrical circuits, emphasizing that natural macroscopic systems tend toward states that optimize the dissipation of gradients.
-
-For example, networks composed of linear passive circuit elements alongside effort and flow sources can be modeled using these variational minimization principles, demonstrating that even complex systems losing energy seek an optimal structural path.
-
-## Extending Restfulness to Human Organizations: The Colimit of Coexistence
-
-While the Principle of Least Action governs the trajectory of particles and thermodynamic energy, Madhyasth Darshan extends its principle of optimization—restfulness—upward into the highly complex domain of human sociology, economics, and systemic organization.
-
-Restfulness is not confined to the internal psychology of the individual Jeevan; it must be evidenced across all scales of human interaction.
-
-### Evaluating Relationships and Mutual Satisfaction
-
-In a human organization, restfulness is achieved when units (individuals) recognize and fulfill their relationships based on inherent values (mulya) rather than superficial metrics of power, wealth, or intelligence.
-
-The framework identifies specific relational purposes: nurturing, protection, guidance, and usefulness.
-
-When these purposes are fulfilled through human capacity, ability, and receptivity, the outcome is "mutual satisfaction".Mutual satisfaction serves as the exact sociological equivalent to energetic equilibrium in a physical system.
-
-When relationships are fulfilled with justice, the social system enters its "natural state" and persists harmoniously.
-
-Conversely, when relationships are neglected or driven by exploitation and the lust for infinite consumption, the social system enters an "excited state".
-
-An excited social system experiences high internal friction—manifested as revolts, rebellions, economic disparity, and war.
-
-Thus, the eradication of this friction through the fulfillment of values represents the organizational manifestation of vishram.
-
-### Cyclical Economics and Universal Orderliness
-
-The transition of a human organization into a restful state fundamentally requires an economic shift.
-
-Madhyasth Darshan proposes "Cyclical Economics" (avartansheel arthshastra), a system completely aligned with the cyclical orderliness of the natural world.
-
-In this model, human resources (body, mind, and wealth) are deployed exclusively for the production of common aspirations (food, shelter, clothing) and special aspirations (communication, transportation) rather than for infinite accumulation.
-
-By operating cyclically, humans mirror the biological and material orders, returning to the Earth what is taken, thereby ensuring that the planetary system itself remains in a state of stable equilibrium.
-
-A society functioning on these principles builds a family-based self-governing system, evolving from the individual up to a unified, undivided global society.
-
-This comprehensive progression toward an indivisible society is the macro-level evidence of restfulness, structurally analogous to a highly complex physical system settling into its lowest available energy state.
-
-### System levels: friction, resolution, and restfulness
-
-Mechanism of ResolutionManifestation of Restfulness / Least ActionPhysical ParticlePotential/Kinetic Energy GradientsLocal deterministic forces (Euler-Lagrange)Stationary Action TrajectoryThermodynamic NetworkThermal/Voltage GradientsDissipation laws; convex dualityLeast Power / Max Entropy ProductionIndividual JeevanDelusion; Misidentification with BodyActivation of higher cognitive activitiesSamadhan (Comprehensive Cognitive Resolution)Human OrganizationExploitation; Unfulfilled RelationshipsEvaluation of values; Mutual SatisfactionJustice and Undivided SocietyGlobal EconomyProfit-Obsession; Resource DepletionCyclical Economics; Right-UseEcological Harmony; Elimination of War
+### 4.3 System levels: friction, resolution, and restfulness
 
 | System level | Origin of friction / excitation | Mechanism of resolution | Manifestation of restfulness / least action |
 | --- | --- | --- | --- |
@@ -250,99 +108,33 @@ Mechanism of ResolutionManifestation of Restfulness / Least ActionPhysical Parti
 | Human organization | Exploitation; unfulfilled relationships | Evaluation of values; mutual satisfaction | Justice and undivided society |
 | Global economy | Profit-obsession; resource depletion | Cyclical economics; right-use | Ecological harmony; elimination of war |
 
-## Category-Theoretic Formalization of the Paradigms
+## 5. Category-theoretic formalization of the paradigms
 
-To rigorously map these two seemingly disparate conceptual spaces—one rooted in mathematical physics and the other in the ontology of consciousness—category theory provides an optimal structural framework.
+To rigorously map these two seemingly disparate conceptual spaces—one rooted in mathematical physics and the other in the ontology of consciousness—category theory provides an optimal structural framework. Category theory abstracts systems into "objects" and the relationships or transformations between them as "morphisms," focusing entirely on structural coherence, compositional flows, and universal properties rather than reductionist constituent parts. Recent advancements in mathematical physics have heavily utilized category theory to formalize the PLA, employing symplectic geometry and Lagrangian correspondences. Concurrently, the Coexistence Template of Madhyasth Darshan has been systematically translated into a categorical structure.
 
-Category theory abstracts systems into "objects" and the relationships or transformations between them as "morphisms," focusing entirely on structural coherence, compositional flows, and universal properties rather than reductionist constituent parts.
+### 5.1 Formalizing the principle of least action
 
-Recent advancements in mathematical physics have heavily utilized category theory to formalize the PLA, employing symplectic geometry and Lagrangian correspondences.
+In the modern category-theoretic formalization of classical mechanics, we define distinct categories to represent physical systems. We define a category of Hamiltonian systems, $\mathsf{HamSy}$, and a category of Lagrangian systems, $\mathsf{LagSy}$. The objects in $\mathsf{HamSy}$ are symplectic manifolds, which rigorously represent the phase space (position and momentum) of physical systems. The morphisms between these objects are symplectomorphisms or, in a broader sense, Lagrangian correspondences. These correspondences act as mathematical relations that preserve the fundamental symplectic structure between interacting manifolds. The transition between Lagrangian mechanics (where the PLA is defined via the action integral) and Hamiltonian mechanics (where the system evolves via energy surfaces) is formalized beautifully as a functor $\mathcal{L} : \mathsf{LagSy} \to \mathsf{HamSy}$, known physically as the Legendre transformation.
 
-Concurrently, the Coexistence Template of Madhyasth Darshan has been systematically translated into a categorical structure.
+The Principle of Least Action operates continuously on the paths within these manifolds. For any given time interval, the PLA ensures that the true physical trajectory is a critical point of the action functional. Furthermore, for open or passive dissipative networks (such as thermodynamic systems and electrical circuits), researchers have defined categories where objects are vector spaces and morphisms are quadratic forms representing power dissipation, composed iteratively via the principle of minimum power.
 
-### Formalizing the Principle of Least Action
+### 5.2 Formalizing Madhyasth Darshan
 
-In the modern category-theoretic formalization of classical mechanics, we define distinct categories to represent physical systems.
+By applying this exact mathematical logic to the philosophy of coexistence, we define the category of Madhyasth Darshan, denoted as $\mathcal{C}_{MD}$. The fundamental objects in $\mathcal{C}_{MD}$ are countable units $u$. Every object is equipped with an intrinsic signature $\text{sig}(u) = \langle \text{roop}, \text{gun}, \text{svabhav}, \text{dharma} \rangle$ representing its form, properties, essential nature, and ultimate purpose. The morphisms between these units are the definite relationships they share. When a unit recognizes and fulfills a relationship using its capacity (kshamata), ability (yogyata), and receptivity (patrata), the morphism carries a qualitative content known as "value" (mulya). The hierarchical structure of the four evolutionary orders (material, biological, animal, and knowledge) is mathematically modeled as a partially ordered set (poset). A poset is a specific type of category where morphisms only flow in the direction of developmental dependence. Higher orders structurally depend on the lower orders for existence (e.g., humans depend on the biological and material world), but they possess novel categorical signatures that cannot be reduced entirely to physicochemical properties.
 
-We define a category of Hamiltonian systems, $\mathsf{HamSy}$, and a category of Lagrangian systems, $\mathsf{LagSy}$.
+Delusion in human consciousness is defined structurally as a mathematical "retract". A human operating in delusion treats sensory comfort (which is only a partial subset of true fulfillment) as if it were the entirety of existential fulfillment. While a mathematical arrow exists mapping comfort into fulfillment, traversing the loop backward does not return the subject to a state of total fulfillment; it results in a massive loss of information and state. This structural retract rigorously demonstrates why the pursuit of pure comfort perpetually leaves the Jeevan in an unsatisfied, excited state, unable to achieve vishram.
 
-The objects in $\mathsf{HamSy}$ are symplectic manifolds, which rigorously represent the phase space (position and momentum) of physical systems.
+When individual families operate with awakened consciousness and fulfilled relationships, they "glue" together to form an undivided society. In category theory, this structural gluing operation is precisely defined as a colimit. The colimit exists cleanly and stably only if the families agree absolutely on shared values and relationships. If they place contradictory demands on the system (such as attempting to simultaneously uphold humane conduct and aggressive profit-obsession), the colimit shatters. This mathematical failure of the colimit perfectly models the breakdown of societal order and the genesis of systemic conflict.
 
-The morphisms between these objects are symplectomorphisms or, in a broader sense, Lagrangian correspondences.
+## 6. Conceptual isomorphism: mapping restfulness to least action
 
-These correspondences act as mathematical relations that preserve the fundamental symplectic structure between interacting manifolds.
+To seamlessly map vishram (restfulness) directly to the Principle of Least Action, we must introduce the concept of a forgetful functor, denoted as $U: \mathcal{C}_{MD} \to \mathsf{LagSy}$. A forgetful functor is a standard mathematical translation that intentionally discards complex structural information to map a richer, higher-dimensional category onto a simpler, lower-dimensional one. The functor $U$ takes a fully described unit $u$ in Madhyasth Darshan—complete with its rich signature—and strips away the svabhav (essential nature) and dharma (purpose/happiness), discarding the sentient attributes of the Jeevan completely. It retains only the roop (form) and gun (physicochemical properties). Once the conscious parameters are forgotten by the functor, the entity is completely reduced to a purely physical object operating on a symplectic manifold. In this heavily reduced category, the relationships (morphisms) are no longer fulfilled through the conscious evaluation of "values" (mulya) but are dictated solely by differential equations of motion. Here, the physical system naturally seeks kinetic and potential equilibrium via the Principle of Least Action.
 
-The transition between Lagrangian mechanics (where the PLA is defined via the action integral) and Hamiltonian mechanics (where the system evolves via energy surfaces) is formalized beautifully as a functor $\mathcal{L} : \mathsf{LagSy} \to \mathsf{HamSy}$, known physically as the Legendre transformation.
+However, when we lift the mathematical analysis back to $\mathcal{C}_{MD}$ by re-introducing the Jeevan and its full signature, the optimization principle must scale accordingly to govern the new parameters. The mathematical structure of "stationarity" (zero variation of the action path) in physics corresponds precisely to the state of vishram (restfulness) in consciousness. Let the state of a human being be modeled as a trajectory in the space of consciousness over time. The "action" in this conscious space is analogous to internal contradiction, dilemma, or cognitive friction resulting from unfulfilled relationships and delusion. When a Jeevan lives in delusion, its trajectory is highly non-stationary and chaotic; it oscillates wildly between periods of devotion-detachment and aggressive comfort-accumulation, continuously generating high relational friction and societal decay.
 
-The Principle of Least Action operates continuously on the paths within these manifolds.
+When the Jeevan finally attains understanding, it initiates what category theory calls a natural transformation. A natural transformation maps one functor to another seamlessly across all objects in a category. In this context, it shifts the fundamental human behavioral algorithm from "consumption and exploitation" to "right-use and benevolence" uniformly across every relationship, family unit, and economic domain simultaneously. Once this natural transformation is successfully executed, the Jeevan achieves the ultimate state of vishram. Just as the variation of action is exactly zero ($\delta S = 0$) along the true physical path in classical mechanics, the variation in the Jeevan's internal conflict becomes exactly zero. The Jeevan operates in absolute, frictionless harmony with universal orderliness, experiencing continuous happiness, peace, contentment, and bliss without requiring any further expenditure of psychological effort to resolve dilemmas.
 
-For any given time interval, the PLA ensures that the true physical trajectory is a critical point of the action functional.
-
-Furthermore, for open or passive dissipative networks (such as thermodynamic systems and electrical circuits), researchers have defined categories where objects are vector spaces and morphisms are quadratic forms representing power dissipation, composed iteratively via the principle of minimum power.
-
-### Formalizing Madhyasth Darshan
-
-By applying this exact mathematical logic to the philosophy of coexistence, we define the category of Madhyasth Darshan, denoted as $\mathcal{C}_{MD}$.
-
-The fundamental objects in $\mathcal{C}_{MD}$ are countable units $u$.
-
-Every object is equipped with an intrinsic signature $\text{sig}(u) = \langle \text{roop}, \text{gun}, \text{svabhav}, \text{dharma} \rangle$ representing its form, properties, essential nature, and ultimate purpose.
-
-The morphisms between these units are the definite relationships they share.
-
-When a unit recognizes and fulfills a relationship using its capacity (kshamata), ability (yogyata), and receptivity (patrata), the morphism carries a qualitative content known as "value" (mulya).The hierarchical structure of the four evolutionary orders (material, biological, animal, and knowledge) is mathematically modeled as a partially ordered set (poset).
-
-A poset is a specific type of category where morphisms only flow in the direction of developmental dependence.
-
-Higher orders structurally depend on the lower orders for existence (e.g., humans depend on the biological and material world), but they possess novel categorical signatures that cannot be reduced entirely to physicochemical properties.
-
-Delusion in human consciousness is defined structurally as a mathematical "retract".
-
-A human operating in delusion treats sensory comfort (which is only a partial subset of true fulfillment) as if it were the entirety of existential fulfillment.
-
-While a mathematical arrow exists mapping comfort into fulfillment, traversing the loop backward does not return the subject to a state of total fulfillment; it results in a massive loss of information and state.
-
-This structural retract rigorously demonstrates why the pursuit of pure comfort perpetually leaves the Jeevan in an unsatisfied, excited state, unable to achieve vishram.
-
-When individual families operate with awakened consciousness and fulfilled relationships, they "glue" together to form an undivided society.
-
-In category theory, this structural gluing operation is precisely defined as a colimit.
-
-The colimit exists cleanly and stably only if the families agree absolutely on shared values and relationships.
-
-If they place contradictory demands on the system (such as attempting to simultaneously uphold humane conduct and aggressive profit-obsession), the colimit shatters.
-
-This mathematical failure of the colimit perfectly models the breakdown of societal order and the genesis of systemic conflict.
-
-## Conceptual Isomorphism: Mapping Restfulness to Least Action
-
-To seamlessly map vishram (restfulness) directly to the Principle of Least Action, we must introduce the concept of a forgetful functor, denoted as $U: \mathcal{C}_{MD} \to \mathsf{LagSy}$.
-
-A forgetful functor is a standard mathematical translation that intentionally discards complex structural information to map a richer, higher-dimensional category onto a simpler, lower-dimensional one.
-
-The functor $U$ takes a fully described unit $u$ in Madhyasth Darshan—complete with its rich signature—and strips away the svabhav (essential nature) and dharma (purpose/happiness), discarding the sentient attributes of the Jeevan completely.
-
-It retains only the roop (form) and gun (physicochemical properties).Once the conscious parameters are forgotten by the functor, the entity is completely reduced to a purely physical object operating on a symplectic manifold.
-
-In this heavily reduced category, the relationships (morphisms) are no longer fulfilled through the conscious evaluation of "values" (mulya) but are dictated solely by differential equations of motion.
-
-Here, the physical system naturally seeks kinetic and potential equilibrium via the Principle of Least Action.
-
-However, when we lift the mathematical analysis back to $\mathcal{C}_{MD}$ by re-introducing the Jeevan and its full signature, the optimization principle must scale accordingly to govern the new parameters.
-
-The mathematical structure of "stationarity" (zero variation of the action path) in physics corresponds precisely to the state of vishram (restfulness) in consciousness.
-
-Let the state of a human being be modeled as a trajectory in the space of consciousness over time.
-
-The "action" in this conscious space is analogous to internal contradiction, dilemma, or cognitive friction resulting from unfulfilled relationships and delusion.
-
-When a Jeevan lives in delusion, its trajectory is highly non-stationary and chaotic; it oscillates wildly between periods of devotion-detachment and aggressive comfort-accumulation, continuously generating high relational friction and societal decay.
-
-When the Jeevan finally attains understanding, it initiates what category theory calls a natural transformation. A natural transformation maps one functor to another seamlessly across all objects in a category. In this context, it shifts the fundamental human behavioral algorithm from "consumption and exploitation" to "right-use and benevolence" uniformly across every relationship, family unit, and economic domain simultaneously.[1, 1]Once this natural transformation is successfully executed, the Jeevan achieves the ultimate state of vishram. Just as the variation of action is exactly zero ($\delta S = 0$) along the true physical path in classical mechanics, the variation in the Jeevan's internal conflict becomes exactly zero. The Jeevan operates in absolute, frictionless harmony with universal orderliness, experiencing continuous happiness, peace, contentment, and bliss without requiring any further expenditure of psychological effort to resolve dilemmas.
-
-### Comparative category-theoretic mapping
-
-Implementation in Madhyasth Darshan (Vishram)ObjectsPhase space states; Symplectic manifolds ($\mathsf{HamSy}$)Real units equipped with full signatures ($roop, gun, svabhav, dharma$)MorphismsLagrangian correspondences; time-evolution operatorsDefinite relationships fulfilled via capacity and existential values (mulya)Optimization MetricMinimization or stationarity of the Action integral over a physical pathAttainment of Vishram (resolution); complete elimination of cognitive frictionStructural FailuresMathematical singularities; unstable, unbounded energy statesDelusion modeled as a retract; failure to form colimits leading to societal breakdownTranslational MappingLegendre transform linking Lagrangian and Hamiltonian mechanics as a functorForgetful functor reducing human ontology to pure materialism by stripping svabhav and dharma
+### 6.1 Comparative category-theoretic mapping
 
 | Construct | Principle of Least Action (physics) | Madhyasth Darshan (*vishram*) |
 | --- | --- | --- |
@@ -352,86 +144,65 @@ Implementation in Madhyasth Darshan (Vishram)ObjectsPhase space states; Symplect
 | Structural failures | Singularities; unstable, unbounded energy states | Delusion as retract; colimit failure and societal breakdown |
 | Translational mapping | Legendre functor $\mathcal{L} : \mathsf{LagSy} \to \mathsf{HamSy}$ | Forgetful functor $U : \mathcal{C}_{MD} \to \mathsf{LagSy}$ |
 
-## Synthesizing the Framework: Towards a Unified System of Dynamics and Consciousness
+## 7. Synthesizing the framework: towards a unified system of dynamics and consciousness
 
-The rigorous comparative evaluation utilizing category theory yields profound implications for how we understand systemic evolution across disciplines.
+The rigorous comparative evaluation utilizing category theory yields profound implications for how we understand systemic evolution across disciplines. In theoretical physics and biology, the concept of the PLA occasionally flirts with deep biological teleology. Certain contemporary analyses propose that the biological version of the least action principle is effectively a "most action principle," wherein highly complex biological entities appear to actively select endpoints to maximize their agency, seemingly stepping outside the bounds of purely mechanistic determinism. This biological teleology highlights the severe limitations of standard variational calculus when it is applied to higher-order systems possessing intrinsic processing capabilities or sentience.
 
-In theoretical physics and biology, the concept of the PLA occasionally flirts with deep biological teleology.
+Madhyasth Darshan elegantly answers this structural limitation by fundamentally bifurcating the nature of atoms within its ontology. It recognizes that while the physical body—which is built entirely of evolving-constitution atoms—strictly follows deterministic physical laws and biological thermodynamics, the conscious driver of the body (the Jeevan, a constitutionally complete atom) follows an entirely different trajectory of awakening. The Jeevan cannot be mathematically modeled as a physical system seeking a thermodynamic energy minimum because its foundational energy is inexhaustible and its constitution never degrades. Attempting to apply the physical PLA directly to the Jeevan results in a category error, precisely because it ignores the topological reality of constitutional completeness. Instead, the optimization principle for the Jeevan is strictly existential and relational. The "action" it seeks to minimize is not physical kinetic or potential energy, but rather the degree of divergence from universal orderliness. Delusion represents the maximum state of divergence and friction. Awakening represents the alignment of all ten conscious activities—from basic taste and selection in the mun up through the complex layers to realization and authenticity in the atma—with the fundamental truth of coexistence.
 
-Certain contemporary analyses propose that the biological version of the least action principle is effectively a "most action principle," wherein highly complex biological entities appear to actively select endpoints to maximize their agency, seemingly stepping outside the bounds of purely mechanistic determinism.
+When profound realization is attained, the Jeevan operates with absolute authenticity. This authenticity flows downward through the cognitive stack, flawlessly regulating resolve in the buddhi, contemplation in the chitta, and analysis in the vritti, ultimately producing universally beneficial humane conduct in the physical world. This state of perfect, frictionless top-down cognitive alignment is the true essence of vishram. At this advanced stage of development, the human being's physical interactions with the surrounding environment (the material and biological orders) are governed entirely by the highly refined ethics of right-use and purposeful-use. By acting strictly with right-use, the awakened human intentionally ceases to inflict thermodynamic damage (entropy) upon the Earth's ecosystems. Consequently, the conscious attainment of vishram by the human order directly empowers the physical and biological orders to maintain their own natural states of equilibrium, thereby facilitating the physical manifestation of the Principle of Least Action on a planetary scale. The healing of the Earth and the restoration of natural cycles, which is frequently and heavily emphasized in the practical applications of Madhyasth Darshan, is the macroscopic physical reflection of humanity achieving internal cognitive and relational restfulness.
 
-This biological teleology highlights the severe limitations of standard variational calculus when it is applied to higher-order systems possessing intrinsic processing capabilities or sentience.
+The deep integration of these concepts through the formal logic of category theory proves that they are conceptually isomorphic at the highest level of systemic abstraction. Both frameworks describe the inherent, unyielding tendency of nature—whether insentient or sentient—to resolve gradients and find a stationary state. Insentient nature resolves energetic gradients through spatial motion guided automatically by the Principle of Least Action. Sentient nature resolves existential, relational, and cognitive gradients through conscious understanding, deliberate choice, and the fulfillment of values, culminating ultimately in the permanent state of Restfulness.
 
-Madhyasth Darshan elegantly answers this structural limitation by fundamentally bifurcating the nature of atoms within its ontology.
+## 8. Conclusion
 
-It recognizes that while the physical body—which is built entirely of evolving-constitution atoms—strictly follows deterministic physical laws and biological thermodynamics, the conscious driver of the body (the Jeevan, a constitutionally complete atom) follows an entirely different trajectory of awakening.
+The vast ontological framework of Madhyasth Darshan and the rigorous mathematical Principle of Least Action in physics offer deeply complementary, multi-disciplinary perspectives on the fundamental nature of stability, evolutionary trajectory, and systemic fulfillment in the universe. An exhaustive, multi-layered review of the concept of vishram (restfulness) reveals that it represents the absolute pinnacle of functional and behavioral optimization for a constitutionally complete conscious unit (Jeevan). Far from a state of static inaction, it is the dynamic state where cognitive resolution is continuous, complex relationships are perfectly and effortlessly fulfilled, and active participation in universal orderliness is seamless.
 
-The Jeevan cannot be mathematically modeled as a physical system seeking a thermodynamic energy minimum because its foundational energy is inexhaustible and its constitution never degrades.
+The Principle of Least Action, operating exclusively on the physicochemical plane, mathematically dictates that physical systems minimize the action integral, achieving a state of dynamic stationarity through localized, deterministic equations. While the underlying medium in Madhyasth Darshan (Space) is rigorously defined as completely actionless—thereby perfectly mirroring the passive, non-causal background metric of physical space—the physical entities saturated within it possess varying capacities for structural optimization based on their evolutionary order. Category theory successfully and rigorously bridges these two massive paradigms by demonstrating that the Principle of Least Action acts as the lower-dimensional projection of a universal optimization law. Through the mathematical application of a forgetful functor, the rich, value-driven relational morphisms of Madhyasth Darshan are stripped of their conscious, teleological attributes (dharma and svabhav), leaving behind only the bare mechanics of physical action and energy conservation. However, when the full categorical signature of the sentient unit is restored to the system, the optimization principle scales upwards into the conscious domain as the active, relational pursuit of vishram.
 
-Attempting to apply the physical PLA directly to the Jeevan results in a category error, precisely because it ignores the topological reality of constitutional completeness.
-
-Instead, the optimization principle for the Jeevan is strictly existential and relational.
-
-The "action" it seeks to minimize is not physical kinetic or potential energy, but rather the degree of divergence from universal orderliness.
-
-Delusion represents the maximum state of divergence and friction.
-
-Awakening represents the alignment of all ten conscious activities—from basic taste and selection in the mun up through the complex layers to realization and authenticity in the atma—with the fundamental truth of coexistence.
-
-When profound realization is attained, the Jeevan operates with absolute authenticity.
-
-This authenticity flows downward through the cognitive stack, flawlessly regulating resolve in the buddhi, contemplation in the chitta, and analysis in the vritti, ultimately producing universally beneficial humane conduct in the physical world.
-
-This state of perfect, frictionless top-down cognitive alignment is the true essence of vishram.
-
-At this advanced stage of development, the human being's physical interactions with the surrounding environment (the material and biological orders) are governed entirely by the highly refined ethics of right-use and purposeful-use.
-
-By acting strictly with right-use, the awakened human intentionally ceases to inflict thermodynamic damage (entropy) upon the Earth's ecosystems.
-
-Consequently, the conscious attainment of vishram by the human order directly empowers the physical and biological orders to maintain their own natural states of equilibrium, thereby facilitating the physical manifestation of the Principle of Least Action on a planetary scale.
-
-The healing of the Earth and the restoration of natural cycles, which is frequently and heavily emphasized in the practical applications of Madhyasth Darshan, is the macroscopic physical reflection of humanity achieving internal cognitive and relational restfulness.
-
-The deep integration of these concepts through the formal logic of category theory proves that they are conceptually isomorphic at the highest level of systemic abstraction.
-
-Both frameworks describe the inherent, unyielding tendency of nature—whether insentient or sentient—to resolve gradients and find a stationary state.
-
-Insentient nature resolves energetic gradients through spatial motion guided automatically by the Principle of Least Action.
-
-Sentient nature resolves existential, relational, and cognitive gradients through conscious understanding, deliberate choice, and the fulfillment of values, culminating ultimately in the permanent state of Restfulness.
-
-## Conclusion
-
-The vast ontological framework of Madhyasth Darshan and the rigorous mathematical Principle of Least Action in physics offer deeply complementary, multi-disciplinary perspectives on the fundamental nature of stability, evolutionary trajectory, and systemic fulfillment in the universe.
-
-An exhaustive, multi-layered review of the concept of vishram (restfulness) reveals that it represents the absolute pinnacle of functional and behavioral optimization for a constitutionally complete conscious unit (Jeevan).
-
-Far from a state of static inaction, it is the dynamic state where cognitive resolution is continuous, complex relationships are perfectly and effortlessly fulfilled, and active participation in universal orderliness is seamless.
-
-The Principle of Least Action, operating exclusively on the physicochemical plane, mathematically dictates that physical systems minimize the action integral, achieving a state of dynamic stationarity through localized, deterministic equations.
-
-While the underlying medium in Madhyasth Darshan (Space) is rigorously defined as completely actionless—thereby perfectly mirroring the passive, non-causal background metric of physical space—the physical entities saturated within it possess varying capacities for structural optimization based on their evolutionary order.
-
-Category theory successfully and rigorously bridges these two massive paradigms by demonstrating that the Principle of Least Action acts as the lower-dimensional projection of a universal optimization law.
-
-Through the mathematical application of a forgetful functor, the rich, value-driven relational morphisms of Madhyasth Darshan are stripped of their conscious, teleological attributes (dharma and svabhav), leaving behind only the bare mechanics of physical action and energy conservation.
-
-However, when the full categorical signature of the sentient unit is restored to the system, the optimization principle scales upwards into the conscious domain as the active, relational pursuit of vishram.
-
-Ultimately, there is a profound, mathematically sound, category-theoretic mapping between the two.
-
-Least Action is to the insentient universe what Restfulness is to the sentient universe.
-
-Both represent the mathematically and existentially inevitable resolution of systemic gradients—one achieved automatically through the unconscious geometry of spacetime trajectories and thermodynamic laws, and the other achieved through the conscious, deliberate realization of universal coexistence and the ethical fulfillment of relationships.
-
-Through this synthesis, the physical architecture of the universe and the moral trajectory of human consciousness are unified under a singular, overarching logic of optimization and harmony.
+Ultimately, there is a profound, mathematically sound, category-theoretic mapping between the two. Least Action is to the insentient universe what Restfulness is to the sentient universe. Both represent the mathematically and existentially inevitable resolution of systemic gradients—one achieved automatically through the unconscious geometry of spacetime trajectories and thermodynamic laws, and the other achieved through the conscious, deliberate realization of universal coexistence and the ethical fulfillment of relationships. Through this synthesis, the physical architecture of the universe and the moral trajectory of human consciousness are unified under a singular, overarching logic of optimization and harmony.
 
 ## References
 
+### Madhyasth Darshan (primary sources)
+
+- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*, Part 1: *Holistic View of Human Behaviour*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Also at https://www.youtube.com/watch?v=SfPDWbXe0v0 (Manav Vyavhar Darshan, Session 17). Cited: coexistence, saturation, effort–motion–result, four orders, restfulness and resolution, relationships and values, undivided society.
+- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad / Resolution Centred Materialism*](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Also at https://www.youtube.com/playlist?list=PL69PCoz1OQW0dhshZ0Xv3KtZ7ajJOIpgv (bilingual Hindi and English). Cited: effort–motion–result, physicochemical regulation, constitutional completeness, planes and resolution transitions.
+- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: ten activities of *jeevan*, awakening, values and evaluation, restfulness as resolution.
+
+### Physics and variational mechanics
+
+- **Scholarpedia PLA** — Gray, G., and Taylor, J. N. ["Principle of least action."](http://www.scholarpedia.org/article/Principle_of_least_action) *Scholarpedia*, 2(8), 1601. Cited: action integral, calculus of variations, stationarity.
+- **Terekhovich 2015** — Terekhovich, V. ["Metaphysics of the Principle of Least Action."](../References/Science/Terekhovich-2015-Metaphysics-Principle-Least-Action.pdf) arXiv:1511.03429. Also at https://arxiv.org/abs/1511.03429. Cited: teleology, retro-causality, and the philosophical status of least action.
+- **Feynman 1964** — Feynman, R. P. ["The Principle of Least Action."](../References/Science/Feynman-1964-Principle-Least-Action-Ch19.pdf) *The Feynman Lectures on Physics*, Vol. II, Ch. 19. Illinois course mirror. Cited: path integral intuition, classical limit, constructive interference near stationary action.
+- **Kotiuga and Lahtinen 2018** — Kotiuga, P. R., and Lahtinen, V. ["An electrical engineering perspective on naturality in computational physics."](../References/Science/Kotiuga-Lahtinen-2018-Electrical-Engineering-Naturality.pdf) arXiv:1809.01002. Also at https://arxiv.org/abs/1809.01002. Cited: variational formulations and naturality in physical modelling.
+- **Arnold symplectic** — Arnold, V. I. ["Symplectic Geometry and its Applications."](../References/Science/Arnold-Symplectic-Geometry-Applications.pdf) Author-hosted scan. Cited: symplectic manifolds and phase-space structure underlying Lagrangian–Hamiltonian mechanics.
+- **Baehni 2019** — Baehni, Y. ["Mathematical Aspects of Classical Mechanics."](../References/Science/Baehni-2019-Mathematical-Aspects-Classical-Mechanics.pdf) ETH Zurich semester paper. Cited: formal Lagrangian and Hamiltonian mechanics.
+- **Russell Basic Writings** — Russell, B. [*The Basic Writings of Bertrand Russell*](../References/Modern-Philosophy/Russell-Basic-Writings.pdf). NDL Ethiopia mirror (public-domain anthology). Cited: causation and teleological explanation in philosophy of science.
+- **Landau and Lifshitz PLA** — ["Confusion regarding the principle of least action in Landau & Lifshitz *The Classical Theory of Fields*."](https://physics.stackexchange.com/questions/122486/confusion-regarding-the-principle-of-least-action-in-landau-lifshitz-the-clas) *Physics Stack Exchange*. Cited: variational formulation and boundary conditions.
+- **Particle future PLA** — ["In the Principle of Least Action, how does a particle know where it will be in the future?"](https://physics.stackexchange.com/questions/245704/in-the-principle-of-least-action-how-does-a-particle-know-where-it-will-be-in-t) *Physics Stack Exchange*. Cited: apparent foresight and global versus local formulation.
+- **Reddit PLA** — ["Why does a particle's path need to follow the principle of least action?"](https://www.reddit.com/r/AskPhysics/comments/1ub3jab/why_does_a_particles_path_need_to_follow_the/) *r/AskPhysics*. Cited: pedagogical debate on teleology and necessity.
+- **Gray and Taylor astonishment** — ["Should we be astonished by the Principle of 'Least' Action?"](https://egtheory.wordpress.com/2014/09/28/principle-of-least-action/) *egtheory* (WordPress). Cited: philosophical reception of variational principles.
+- **Apeiron biological action** — ["Biological Version of the Action Principle: The Next Frontier of Physics."](https://apeironcentre.org/biological-version-of-the-action-principle-the-next-frontier-of-physics/) Apeiron Centre. Cited: biological teleology and action principles beyond classical mechanics.
+- **Emergent Mind PLA** — ["Variational Principles of Least Action."](https://www.emergentmind.com/topics/variational-principles-of-least-action) *Emergent Mind*. Cited: survey of variational formulations.
+- **ResearchGate teleology** — ["The principle of least action and teleological explanation in physics."](https://www.researchgate.net/publication/372312619_The_principle_of_least_action_and_teleological_explanation_in_physics) ResearchGate. Cited: teleological explanation and physics.
+- **Gromov 1989** — Gromov, M. ["Symplectic fixed points and holomorphic spheres."](https://projecteuclid.org/journals/communications-in-mathematical-physics/volume-120/issue-4/Symplectic-fixed-points-and-holomorphic-spheres/cmp/1104177909.pdf) *Communications in Mathematical Physics*, 120(4), 575–613. Cited: symplectic fixed-point theory linked to action principles.
+- **Path integrals blog** — ["Path integrals: particle paths for principle of least action."](https://nige.wordpress.com/path-integrals/) *Quantum field theory* (WordPress). Cited: path-integral reading of least action.
+
+### Category theory and mathematical physics
+
+- **Milewski 2015** — Milewski, B. ["Category Theory and Declarative Programming."](https://bartoszmilewski.com/2015/04/15/category-theory-and-declarative-programming/) Bartosz Milewski's Programming Cafe. Cited: categorical structure and declarative specification.
+- **Baez week292** — Baez, J. ["This Week's Finds in Mathematical Physics (Week 292)."](https://math.ucr.edu/home/baez/week292.html) UCR Math. Cited: symplectic geometry, Lagrangian correspondences, and categorical mechanics.
+- **Baez week296** — Baez, J. ["This Week's Finds in Mathematical Physics (Week 296)."](https://math.ucr.edu/home/baez/week296.html) UCR Math. Cited: compositional open systems and classical mechanics.
+- **Baez maximum principles** — Baez, J. ["Maximum principles."](https://ncatlab.org/johnbaez/show/Maximum+principles) *nLab*. Cited: maximum and minimum principles in mathematical physics.
+- **Baez and Fong 2015** — Baez, J., and Fong, B. ["A Compositional Framework for Passive Linear Networks."](https://golem.ph.utexas.edu/category/2015/12/a_compositional_framework_for_1.html) *The n-Category Café*. Cited: compositional/category-theoretic network formalism.
+- **Baez and Weingarten 2020** — Baez, J., and Weingarten, S. ["Open Systems in Classical Mechanics."](https://golem.ph.utexas.edu/category/2020/08/open_systems_in_classical_mech.html) *The n-Category Café*. Cited: open systems, symplectic geometry, and category theory.
+- **nLab prequantized Lagrangian** — ["prequantized Lagrangian correspondence."](https://ncatlab.org/nlab/show/prequantized+Lagrangian+correspondence) *nLab*. Cited: Lagrangian correspondences and geometric quantization.
+- **Weinstein Lagrangian** — Weinstein, A. ["Lagrangian mechanics and groupoids."](https://math.berkeley.edu/~alanw/Lagrangian.tex) Department of Mathematics, UC Berkeley (TeX source). Cited: groupoids and Lagrangian mechanics.
+- **Math SE modules** — ["Help with notation/concepts in module theory and category theory, specifically Add(M), Gen(M) and ∘(M∘)."](https://math.stackexchange.com/questions/2895986/help-with-notation-concepts-in-module-theory-and-category-theory-specifically) *Mathematics Stack Exchange*. Cited: categorical module notation.
+
 ### Related studies in this collection
 
-**ONTOLOGY** — [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf). Cited: coexistence, saturation, effort–motion–result, four orders.
-
-**FORMAL** — [The Coexistence Template](../The-Coexistence-Template/The-Coexistence-Template.pdf). Cited: unit signature, relationships, values, colimits.
-
-**FORMAL** — [Category Theory Explained](../Category-Theory-Explained/Category-Theory-Explained.pdf). Cited: functors, forgetful functors, natural transformations, retracts, colimits.
+- [*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — coexistence, saturation, effort–motion–result, four orders, constitutional completeness (§§1.1–1.3).
+- [*The Coexistence Template*](../The-Coexistence-Template/The-Coexistence-Template.pdf) — unit signature, relationships, values, colimits, assembly gluing (§§4–5).
+- [*Category Theory Explained*](../Category-Theory-Explained/Category-Theory-Explained.pdf) — functors, forgetful functors, natural transformations, retracts, colimits (§§5–6).

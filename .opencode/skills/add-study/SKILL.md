@@ -15,7 +15,7 @@ description: >-
 2. Follow [AGENTS.md](../../AGENTS.md) §4 (prose style) and §5 (Standpoint and scope).
    Reference implementations: `Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.md` (ontology, open problems);
    `Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.md` (comparative anthropology, critique closings).
-3. Write `Studies/<Slug>/<Slug>.md` with author block, or prepare an external PDF to import.
+3. Write `Studies/<Slug>/<Slug>.md` with author block, or prepare an external PDF for maintainer conversion (`--convert`).
 4. Choose catalog table: **topical** (default) or **formal** (`--formal`).
 
 ## Recommended: register from markdown
@@ -55,7 +55,9 @@ Omit `--category`, `--description`, `--tags` in an interactive terminal to be pr
 | Released study | `--status released` |
 | Ongoing placeholder (no PDF) | `--status ongoing --category "..."` |
 | Formal Studies table | `--formal --category "Category theory"` |
-| Import external PDF | `python Scripts/_add_study.py "path/to/paper.pdf" --title "Title"` |
+| Import external PDF (stub only) | `python Scripts/_add_study.py "path/to/paper.pdf" --title "Title"` |
+| Import external PDF (convert to markdown) | `python Scripts/_add_study.py "path/to/paper.pdf" --convert --slug <Slug> --title "Title" --category "..." --description "..."` |
+| Convert PDF without catalog register | `python Scripts/_pdf_to_study_md.py "path/to/paper.pdf" --slug <Slug> --title "Title"` |
 
 ## Flags
 
@@ -66,10 +68,22 @@ Omit `--category`, `--description`, `--tags` in an interactive terminal to be pr
 | `--skip-pdf` | Update catalogs/metadata only |
 | `--no-check-timestamps` | Skip post-run sync verification |
 | `--slug` | Override filename-derived slug |
+| `--convert` | For PDF input: extract markdown body instead of a stub |
+| `--no-keep-pdf` | With `--convert`: skip copying source PDF into `Studies/<Slug>/` |
 
-## PDF import caveat
+## PDF import
 
-Imported PDFs are copied as-is. The stub `.md` is created without overwriting content. After expanding the markdown, re-run `_add_study.py` on the `.md` to apply the Draft watermark.
+**Stub import (default):** copies the PDF and writes a placeholder `.md` for manual expansion.
+
+**Converted import (`--convert`):** runs layout-aware extraction (`_pdf_to_md.py`) into a real
+draft `.md`. Maintainer must review before regenerating PDF:
+
+1. Fix headings, tables, blockquotes, and bibliography to house style (AGENTS.md §4)
+2. Add or correct `## Standpoint and scope` if missing (§5)
+3. Re-run `_add_study.py` on the `.md` or `_regenerate_pdf.py <Slug>` for Draft watermark
+
+Diagrams, KaTeX math, and glossary tooltips are **not** recovered from PDF. Scanned PDFs fail
+with a clear error. Test changes with `python Scripts/_test_pdf_to_md.py`.
 
 ## Manual edit after register
 
