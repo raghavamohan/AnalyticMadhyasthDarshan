@@ -59,6 +59,7 @@ Audit Studies bibliographies first: `python Scripts/_audit_references.py`. Agent
 | [Why-Humans-Are-Not-Just-Material.pdf](../Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.pdf) | MVD, SB, JV; Bhattacharya; Advaita (BU, TU, MU, CU, KU, BG, BSB, VC, DDV); Science (12 works, 3 local / 9 external) |
 | [How-Undivided-Society-Is-Established.pdf](../Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf) | MVD, SB, JV, JVD, AVD |
 | [Restfulness-And-Least-Action.pdf](../Studies/Restfulness-And-Least-Action/Restfulness-And-Least-Action.pdf) | MVD, SB, JV; Terekhovich 2015, Feynman 1964, Kotiuga and Lahtinen 2018, Arnold symplectic, Baehni 2019, Russell Basic Writings local; Scholarpedia PLA, Landau SE, particle future SE, Reddit PLA, Gray and Taylor astonishment, Apeiron biological action, Emergent Mind PLA, ResearchGate teleology, Gromov 1989, path integrals blog, Milewski 2015, Baez week292, Baez week296, Baez maximum principles, Baez and Fong 2015, Baez and Weingarten 2020, nLab prequantized Lagrangian, Weinstein Lagrangian, Math SE modules external |
+| [Coexistence-From-First-Principles.pdf](../Studies/Coexistence-From-First-Principles/Coexistence-From-First-Principles.pdf) | MVD, SB, JV, MD-TOPOS |
 <!-- /studies-catalog -->
 
 ## Madhyasth-Darshan/
