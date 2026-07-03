@@ -76,7 +76,7 @@ These papers apply the formal template and categorical architecture to concrete 
 <!-- applied-studies-catalog -->
 | Document | Applied Focus | Description | Status |
 |----------|---------------|-------------|--------|
-| [Coexistence Company — Concrete Organizational Structure](../Applications/Coexistence-Company-Org-Structure/Coexistence-Company-Org-Structure.html) · [Discuss](../Applications/Coexistence-Company-Org-Structure/discussion.html) | Organizational design | A concrete organisational blueprint that instantiates the coexistence template and categorical architecture for a deliberate knowledge-work company — structure, roles, and governance designed to be stable by construction | Draft<br>Last updated on: Jul 1, 2026, 8:22 PM IST |
+| [Coexistence Company — Concrete Organizational Structure](../Applications/Coexistence-Company-Org-Structure/Coexistence-Company-Org-Structure.html) · [Discuss](../Applications/Coexistence-Company-Org-Structure/discussion.html) | Organizational design | A concrete organisational blueprint that instantiates the coexistence template and categorical architecture for a deliberate knowledge-work company — structure, roles, and governance designed to be stable by construction | Draft<br>Last updated on: Jul 3, 2026, 12:29 PM IST |
 <!-- /applied-studies-catalog -->
 
 ## How we work
