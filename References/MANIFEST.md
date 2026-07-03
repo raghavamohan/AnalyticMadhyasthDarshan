@@ -32,6 +32,7 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-19.
 | [Category-Theory-Explained.pdf](../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf) | MVD, SB, JV (via companion papers) | present |
 | | MD-TOPOS | present |
 | [The-Coexistence-Template.pdf](../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf) | MVD, SB, JV | present |
+| | MD-TOPOS | present |
 
 | [Knowledge-Knower-And-Known.pdf](../Studies/Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) | MVD, SB, JV | present |
 | | CU, BG, BSB, DDV, VC | present |
@@ -84,7 +85,7 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-19.
 | **SV** | [Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf](Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf) | How-To-Form |
 | **Bhattacharya** | [Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf](Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf) | The-Ontology-of-Coexistence, Why-Humans |
 | **ATR** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | How-To-Form |
-| **MD-TOPOS** | [Applied-Studies/MD_TOPOS.pdf](Applied-Studies/MD_TOPOS.pdf) | Category-Theory-Explained (Meena 2025, Zenodo preprint, CC BY-NC-SA 4.0) |
+| **MD-TOPOS** | [Applied-Studies/MD_TOPOS.pdf](Applied-Studies/MD_TOPOS.pdf) | Category-Theory-Explained, The-Coexistence-Template (Meena 2025, Zenodo preprint, CC BY-NC-SA 4.0) |
 | **Poorvam Rasa** | [Comparative-Philosophy/Poorvam-Sadharanikarana-Rasa.html](Comparative-Philosophy/Poorvam-Sadharanikarana-Rasa.html) | Aesthetics |
 | **SEP Natural Law Ethics** | [Comparative-Philosophy/SEP-Natural-Law-Ethics.html](Comparative-Philosophy/SEP-Natural-Law-Ethics.html) | Ethics-And-Morals |
 | **SEP Theological Voluntarism** | [Comparative-Philosophy/SEP-Theological-Voluntarism.html](Comparative-Philosophy/SEP-Theological-Voluntarism.html) | Ethics-And-Morals |
