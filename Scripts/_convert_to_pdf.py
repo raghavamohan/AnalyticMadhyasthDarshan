@@ -2,6 +2,7 @@ import argparse
 import html as html_module
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 from urllib.parse import quote, unquote, urlparse
@@ -11,9 +12,85 @@ import markdown
 from _build_discussion_pages import ASSET_VERSION as DISCUSS_ASSET_VERSION
 from _common import APPLICATIONS, BASE, REFERENCES, STUDIES, is_linkable_reference_file, site_base_url, study_md
 from _glossary_tooltips import apply_glossary_tooltips, load_glossary, wrap_tables_for_scroll
-from _study_catalog import strip_status_for_pdf
+from _study_catalog import STATUS_MD_RE, get_study_row, parse_edited_on, strip_status_for_pdf
 
 FEEDBACK_ISSUES_URL = "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new"
+
+SCRIPTS_DIR = Path(__file__).resolve().parent
+KATEX_CSS_PATH = SCRIPTS_DIR / "node_modules" / "katex" / "dist" / "katex.min.css"
+KATEX_RENDER_SCRIPT = SCRIPTS_DIR / "_render_katex_math.js"
+_INLINE_MATH = re.compile(r"(?<!\\)\$(?!\$).+?(?<!\\)\$(?!\$)", re.DOTALL)
+_DISPLAY_MATH = re.compile(r"\$\$.+?\$\$", re.DOTALL)
+_INLINE_MATH_CAPTURE = re.compile(
+    r"(?<!\\)\$(?!\$)((?:\\.|[^$\\])+?)(?<!\\)\$(?!\$)",
+)
+_DISPLAY_MATH_CAPTURE = re.compile(r"\$\$([\s\S]+?)\$\$")
+_MATH_PLACEHOLDER = "\x00MATH_{idx}\x00"
+_ORG_NAME = "AnalyticMadhyasthDarshan.org"
+_CC_LICENSE = "https://creativecommons.org/licenses/by/4.0/"
+_THE_QUESTION_RE = re.compile(
+    r"^\*\*The question:\*\*\s*(.+?)\s*$",
+    re.MULTILINE,
+)
+_META_DESC_MAX = 300
+
+
+def contains_latex_math(text: str) -> bool:
+    """Return True when markdown or HTML still has $...$ / $$...$$ math delimiters."""
+    return bool(_INLINE_MATH.search(text) or _DISPLAY_MATH.search(text))
+
+
+def protect_latex_math(html_body: str) -> tuple[str, list[str]]:
+    """Replace math delimiters with placeholders so later HTML passes leave them intact."""
+    segments: list[str] = []
+
+    def stash(match: re.Match[str]) -> str:
+        segments.append(match.group(0))
+        return _MATH_PLACEHOLDER.format(idx=len(segments) - 1)
+
+    protected = _DISPLAY_MATH_CAPTURE.sub(stash, html_body)
+    protected = _INLINE_MATH_CAPTURE.sub(stash, protected)
+    return protected, segments
+
+
+def restore_latex_math(html_body: str, segments: list[str]) -> str:
+    def repl(match: re.Match[str]) -> str:
+        return segments[int(match.group(1))]
+
+    return re.sub(r"\x00MATH_(\d+)\x00", repl, html_body)
+
+
+def _load_katex_css() -> str:
+    if not KATEX_CSS_PATH.is_file():
+        raise FileNotFoundError(
+            "KaTeX CSS not found. Run once from the repo root:\n"
+            "  cd Scripts; npm install"
+        )
+    css = KATEX_CSS_PATH.read_text(encoding="utf-8")
+    fonts_dir = (KATEX_CSS_PATH.parent / "fonts").resolve().as_posix()
+    return css.replace("url(fonts/", f"url({fonts_dir}/")
+
+
+def render_latex_math(html_body: str) -> str:
+    """Replace LaTeX math delimiters with KaTeX HTML before glossary/tooltip passes."""
+    if not contains_latex_math(html_body):
+        return html_body
+    if not KATEX_RENDER_SCRIPT.is_file():
+        raise FileNotFoundError(f"Missing KaTeX render script: {KATEX_RENDER_SCRIPT}")
+
+    result = subprocess.run(
+        ["node", str(KATEX_RENDER_SCRIPT)],
+        input=html_body,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        check=False,
+        cwd=SCRIPTS_DIR,
+    )
+    if result.returncode != 0:
+        detail = (result.stderr or result.stdout or "unknown error").strip()
+        raise RuntimeError(f"KaTeX rendering failed: {detail}")
+    return result.stdout
 
 
 def convert_mermaid_blocks(html_body: str) -> str:
@@ -411,6 +488,81 @@ def _study_screen_dark_css() -> str:
 """
 
 
+def _study_canonical_url(input_path: Path) -> str:
+    rel = input_path.relative_to(BASE).with_suffix(".html")
+    return f"{site_base_url()}/{rel.as_posix()}"
+
+
+def _truncate_description(text: str, limit: int = _META_DESC_MAX) -> str:
+    cleaned = " ".join(text.split())
+    if len(cleaned) <= limit:
+        return cleaned
+    truncated = cleaned[: limit - 1].rsplit(" ", 1)[0]
+    return f"{truncated}…"
+
+
+def _study_description(md_text: str, slug: str) -> str:
+    from _study_catalog import ONGOING_DESC_PREFIX_RE
+
+    row_info = get_study_row(slug)
+    if row_info:
+        desc = ONGOING_DESC_PREFIX_RE.sub("", row_info[0].description.strip()).strip()
+        if desc:
+            return _truncate_description(desc)
+    question = _THE_QUESTION_RE.search(md_text)
+    if question:
+        return _truncate_description(question.group(1).strip())
+    for line in md_text.splitlines():
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#") or stripped.startswith("**"):
+            continue
+        return _truncate_description(stripped)
+    return _truncate_description(slug.replace("-", " "))
+
+
+def _study_seo_head_html(
+    *,
+    title: str,
+    description: str,
+    canonical_url: str,
+    date_modified_iso: str | None,
+) -> str:
+    site_url = site_base_url().rstrip("/") + "/"
+    esc_title = html_module.escape(title)
+    esc_desc = html_module.escape(description)
+    esc_canonical = html_module.escape(canonical_url)
+    og_bits = f"""
+<link rel="canonical" href="{esc_canonical}"/>
+<meta name="description" content="{esc_desc}"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="{_ORG_NAME}"/>
+<meta property="og:title" content="{esc_title}"/>
+<meta property="og:description" content="{esc_desc}"/>
+<meta property="og:url" content="{esc_canonical}"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="{esc_title}"/>
+<meta name="twitter:description" content="{esc_desc}"/>"""
+    schema: dict = {
+        "@context": "https://schema.org",
+        "@type": "ScholarlyArticle",
+        "headline": title,
+        "description": description,
+        "url": canonical_url,
+        "inLanguage": "en",
+        "author": {"@type": "Organization", "name": _ORG_NAME, "url": site_url},
+        "publisher": {"@type": "Organization", "name": _ORG_NAME, "url": site_url},
+        "license": _CC_LICENSE,
+        "isPartOf": {"@type": "WebSite", "name": _ORG_NAME, "url": site_url},
+    }
+    if date_modified_iso:
+        schema["dateModified"] = date_modified_iso
+    schema_json = json.dumps(schema, ensure_ascii=False, separators=(",", ":"))
+    return f"""{og_bits}
+<script type="application/ld+json">
+{schema_json}
+</script>"""
+
+
 def convert_to_html(
     input_path: Path,
     *,
@@ -418,8 +570,8 @@ def convert_to_html(
     include_web_chrome: bool = False,
 ) -> Path:
     output_path = input_path.with_suffix(".html")
-    md_text = input_path.read_text(encoding="utf-8")
-    md_text = strip_status_for_pdf(md_text)
+    md_text_raw = input_path.read_text(encoding="utf-8")
+    md_text = strip_status_for_pdf(md_text_raw) if STATUS_MD_RE.search(md_text_raw) else md_text_raw
 
     h1 = next((line[2:].strip() for line in md_text.splitlines() if line.startswith("# ")), None)
     title = h1 or input_path.stem
@@ -434,6 +586,10 @@ def convert_to_html(
         output_path,
         study_links_as_html=include_web_chrome,
     )
+    has_latex_math = contains_latex_math(md_text)
+    math_segments: list[str] = []
+    if has_latex_math:
+        html_body, math_segments = protect_latex_math(html_body)
     if include_web_chrome:
         html_body = add_section_ids(html_body)
         html_body = wrap_tables_for_scroll(html_body)
@@ -442,6 +598,9 @@ def convert_to_html(
             html_body = apply_glossary_tooltips(html_body, glossary_terms)
         except (OSError, ValueError, json.JSONDecodeError):
             pass
+    if has_latex_math:
+        html_body = restore_latex_math(html_body, math_segments)
+        html_body = render_latex_math(html_body)
 
     toolbar = (
         _study_toolbar_html(input_path, is_draft=is_draft, title=title)
@@ -452,6 +611,21 @@ def convert_to_html(
     section_nav_js = _study_section_nav_js() if include_web_chrome else ""
     term_tip_js = _term_tip_js() if include_web_chrome else ""
     screen_dark_css = _study_screen_dark_css() if include_web_chrome else ""
+    katex_css = _load_katex_css() if has_latex_math else ""
+
+    seo_head = ""
+    if include_web_chrome:
+        slug = input_path.parent.name
+        description = _study_description(md_text, slug)
+        canonical_url = _study_canonical_url(input_path)
+        edited_at = parse_edited_on(md_text_raw)
+        date_modified_iso = edited_at.isoformat() if edited_at else None
+        seo_head = _study_seo_head_html(
+            title=title,
+            description=description,
+            canonical_url=canonical_url,
+            date_modified_iso=date_modified_iso,
+        )
 
     web_chrome_css = ""
     if include_web_chrome:
@@ -672,7 +846,7 @@ def convert_to_html(
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="color-scheme" content="light dark"/>
-<title>{html_module.escape(title)}</title>
+<title>{html_module.escape(title)}</title>{seo_head}
 <style>
   @page {{
     size: A4;
@@ -876,7 +1050,12 @@ def convert_to_html(
     max-width: 100%;
     height: auto;
   }}
-{web_chrome_css}{screen_dark_css}
+  .katex-display {{
+    margin: 8pt 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }}
+{katex_css}{web_chrome_css}{screen_dark_css}
 </style>
 </head>
 <body>
