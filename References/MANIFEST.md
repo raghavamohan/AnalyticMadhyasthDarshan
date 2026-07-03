@@ -62,6 +62,9 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-19.
 
 | [Restfulness-And-Least-Action.pdf](../Studies/Restfulness-And-Least-Action/Restfulness-And-Least-Action.pdf) | MVD, SB, JV; Terekhovich 2015, Feynman 1964, Kotiuga and Lahtinen 2018, Arnold symplectic, Baehni 2019, Russell Basic Writings local; Scholarpedia PLA, Landau SE, particle future SE, Reddit PLA, Gray and Taylor astonishment, Apeiron biological action, Emergent Mind PLA, ResearchGate teleology, Gromov 1989, path integrals blog, Milewski 2015, Baez week292, Baez week296, Baez maximum principles, Baez and Fong 2015, Baez and Weingarten 2020, nLab prequantized Lagrangian, Weinstein Lagrangian, Math SE modules external |
 
+| [Coexistence-From-First-Principles.pdf](../Studies/Coexistence-From-First-Principles/Coexistence-From-First-Principles.pdf) | MVD, SB, JV | present |
+| | MD-TOPOS | present |
+
 ## By tag
 
 | Tag | Location | Cited in |
@@ -85,7 +88,7 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-19.
 | **SV** | [Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf](Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf) | How-To-Form |
 | **Bhattacharya** | [Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf](Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf) | The-Ontology-of-Coexistence, Why-Humans |
 | **ATR** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | How-To-Form |
-| **MD-TOPOS** | [Applied-Studies/MD_TOPOS.pdf](Applied-Studies/MD_TOPOS.pdf) | Category-Theory-Explained, The-Coexistence-Template (Meena 2025, Zenodo preprint, CC BY-NC-SA 4.0) |
+| **MD-TOPOS** | [Applied-Studies/MD_TOPOS.pdf](Applied-Studies/MD_TOPOS.pdf) | Category-Theory-Explained, The-Coexistence-Template, Coexistence-From-First-Principles (Meena 2025, Zenodo preprint, CC BY-NC-SA 4.0) |
 | **Poorvam Rasa** | [Comparative-Philosophy/Poorvam-Sadharanikarana-Rasa.html](Comparative-Philosophy/Poorvam-Sadharanikarana-Rasa.html) | Aesthetics |
 | **SEP Natural Law Ethics** | [Comparative-Philosophy/SEP-Natural-Law-Ethics.html](Comparative-Philosophy/SEP-Natural-Law-Ethics.html) | Ethics-And-Morals |
 | **SEP Theological Voluntarism** | [Comparative-Philosophy/SEP-Theological-Voluntarism.html](Comparative-Philosophy/SEP-Theological-Voluntarism.html) | Ethics-And-Morals |
