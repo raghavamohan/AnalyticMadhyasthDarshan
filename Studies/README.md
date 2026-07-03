@@ -54,6 +54,7 @@ Select any linked title to open the full study in your browser.
 | [Free Will Choice and Agency](Free-Will-Choice-And-Agency/Free-Will-Choice-And-Agency.html) · [Discuss](Free-Will-Choice-And-Agency/discussion.html) | Philosophy of Mind | Whether human conduct is free or determined: definite conduct in the lower orders versus achieved selection at the knowledge order, compared with debates on free will and determinism | Ongoing |
 | [Health Body and Restraint](Health-Body-And-Restraint/Health-Body-And-Restraint.html) · [Discuss](Health-Body-And-Restraint/discussion.html) | Health, Axiology | The jeevan-body relationship in health: ahar-vihar, restraint (sanyam), and well-being as the health-restraint dimension of universal orderliness | Ongoing |
 | [God Divinity and the Sacred](God-Divinity-And-The-Sacred/God-Divinity-And-The-Sacred.html) · [Discuss](God-Divinity-And-The-Sacred/discussion.html) | Philosophy of Religion | How Madhyasth Darshan reframes God and the divine: satta as omnipresence and the awakened (divya) human, compared with theism, Advaita Vedanta's Ishvara, and secular critiques of religion | Ongoing |
+| *Coexistence Company — Concrete Organizational Structure* · [Discuss](Coexistence-Company-Org-Structure/discussion.html) <!-- slug: Coexistence-Company-Org-Structure --> | Organizational design | A concrete organisational blueprint that instantiates the coexistence template and categorical architecture for a deliberate knowledge-work company — structure, roles, and governance designed to be stable by construction | Ongoing |
 <!-- /studies-catalog -->
 
 ### Formal studies
@@ -73,7 +74,7 @@ These papers apply the formal template and categorical architecture to concrete 
 <!-- applied-studies-catalog -->
 | Document | Applied Focus | Description | Status |
 |----------|---------------|-------------|--------|
-| [Coexistence Company — Concrete Organizational Structure](../Applications/Coexistence-Company-Org-Structure/Coexistence-Company-Org-Structure.html) · [Discuss](../Applications/Coexistence-Company-Org-Structure/discussion.html) | Organizational design | A concrete organisational blueprint that instantiates the coexistence template and categorical architecture for a deliberate knowledge-work company — structure, roles, and governance designed to be stable by construction | Draft<br>Last updated on: Jul 3, 2026, 12:29 PM IST |
+
 <!-- /applied-studies-catalog -->
 
 ## How we work
