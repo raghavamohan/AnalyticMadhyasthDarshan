@@ -9,6 +9,7 @@ Local copies of source texts cited across `Studies/`. See [MANIFEST.md](MANIFEST
 - **Comparative philosophy, Indian aesthetics, and religious ethics** (AV, SV, SEP snapshots, rasa material) under `Comparative-Philosophy/`.
 - **Open-access science papers** (Chalmers 1995, Nagel 1974, Strawson 2006, Crockett 2013, Ashtekar and Singh 2011, Carroll 2010, Friston 2010, Guth 2007) under `Science/`.
 - **Open-access modern philosophy / cognitive science papers** under `Modern-Philosophy/`.
+- **Applied formal studies of Madhyasth Darshan by other authors** (openly licensed preprints) under `Applied-Studies/`.
 
 **What we do not store**
 
@@ -27,7 +28,8 @@ References/
 ├── Advaita-Vedanta/            Upanishads, Gita, BSB, prakarana texts
 ├── Comparative-Philosophy/     AV (SEP), SV (Vivekananda)
 ├── Science/                    Chalmers, Nagel, Strawson, cosmology & physics papers
-└── Modern-Philosophy/          Open-access papers and SEP snapshots on consciousness, self, epistemology, and aesthetics
+├── Modern-Philosophy/          Open-access papers and SEP snapshots on consciousness, self, epistemology, and aesthetics
+└── Applied-Studies/            Openly licensed formal studies of Madhyasth Darshan by other authors
 ```
 
 To refresh externally downloaded files (Advaita Vedanta, comparative philosophy, open-access science papers):
@@ -122,6 +124,12 @@ Audit Studies bibliographies first: `python Scripts/_audit_references.py`. Agent
 | **Russell 1921** | [Russell-1921-The-Analysis-of-Mind.pdf](Modern-Philosophy/Russell-1921-The-Analysis-of-Mind.pdf) | Public domain |
 | **Russell Basic Writings** | [Russell-Basic-Writings.pdf](Modern-Philosophy/Russell-Basic-Writings.pdf) | NDL Ethiopia mirror; public-domain anthology |
 | **Mach 1914** | [Mach-1914-The-Analysis-of-Sensations.pdf](Modern-Philosophy/Mach-1914-The-Analysis-of-Sensations.pdf) | Open Court translation (public domain) |
+
+## Applied-Studies/
+
+| Tag | File | Notes |
+|-----|------|-------|
+| **MD-TOPOS** | [MD_TOPOS.pdf](Applied-Studies/MD_TOPOS.pdf) | Meena, B. (2025). *Minimal Decidable Site for the Madhyasth–Darshan Classifying Topos via Single-Flag Morleyisation*. Zenodo preprint, [DOI 10.5281/zenodo.16786431](https://doi.org/10.5281/zenodo.16786431); CC BY-NC-SA 4.0 |
 
 ## Comparative-Philosophy/
 

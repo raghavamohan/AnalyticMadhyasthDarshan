@@ -83,6 +83,7 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-19.
 | **SV** | [Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf](Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf) | How-To-Form |
 | **Bhattacharya** | [Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf](Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf) | The-Ontology-of-Coexistence, Why-Humans |
 | **ATR** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | How-To-Form |
+| **MD-TOPOS** | [Applied-Studies/MD_TOPOS.pdf](Applied-Studies/MD_TOPOS.pdf) | not yet cited in Studies (Meena 2025, Zenodo preprint, CC BY-NC-SA 4.0) |
 | **Poorvam Rasa** | [Comparative-Philosophy/Poorvam-Sadharanikarana-Rasa.html](Comparative-Philosophy/Poorvam-Sadharanikarana-Rasa.html) | Aesthetics |
 | **SEP Natural Law Ethics** | [Comparative-Philosophy/SEP-Natural-Law-Ethics.html](Comparative-Philosophy/SEP-Natural-Law-Ethics.html) | Ethics-And-Morals |
 | **SEP Theological Voluntarism** | [Comparative-Philosophy/SEP-Theological-Voluntarism.html](Comparative-Philosophy/SEP-Theological-Voluntarism.html) | Ethics-And-Morals |
@@ -134,6 +135,7 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-19.
 | Comparative philosophy, Indian aesthetics, and religious ethics | 5 | 5 |
 | Science and moral science | 14 (open-access papers) | 24 |
 | Modern philosophy and cognitive science | 19 | 4 |
-| **Total distinct tags** | **46 local files + MD** | **29 external** |
+| Applied formal studies of Madhyasth Darshan | 1 | 0 |
+| **Total distinct tags** | **47 local files + MD** | **29 external** |
 
 Works not stored locally are linked from each paper's References section. See [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) for original URLs.
