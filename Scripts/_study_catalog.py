@@ -727,9 +727,8 @@ def find_study_table(slug: str) -> StudyTable | None:
 
 
 def load_catalog_rows(table: StudyTable) -> list[StudyRow]:
-    rows = parse_catalog_json_file(table)
-    if rows:
-        return rows
+    if catalog_json_path(table).is_file():
+        return parse_catalog_json_file(table)
     index_path = STUDIES / "index.html"
     if index_path.is_file():
         return parse_html_rows(index_path.read_text(encoding="utf-8"), table)
