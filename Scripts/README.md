@@ -26,6 +26,9 @@ what to run **on that branch** before opening the PR.
 | Remove a study | `python Scripts/_remove_study.py <Slug> --yes` |
 | Draft ↔ Released | `python Scripts/_set_study_status.py <Slug> --status released` |
 | Regenerate PDF | `python Scripts/_regenerate_pdf.py <Slug>` |
+| PDF → study markdown (maintainer) | `python Scripts/_pdf_to_study_md.py path/to/paper.pdf --slug <Slug> --title "..."` |
+| PDF import with catalog register | `python Scripts/_add_study.py path/to/paper.pdf --convert --slug <Slug> --title "..." --category "..." --description "..." --tags "MVD, SB" --status draft` |
+| Test PDF conversion | `python Scripts/_test_pdf_to_md.py` |
 | Verify Mermaid in PDF | `python Scripts/_verify_pdf_diagrams.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf` |
 | Verify fenced code in PDF | `python Scripts/_verify_pdf_fenced_code.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf` |
 | Verify PDF sidebar bookmarks | `python Scripts/_verify_pdf_outline.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf` |
@@ -60,6 +63,9 @@ Windows wrappers: `.\Scripts\_add_study.ps1`, `.\Scripts\_remove_study.ps1`, `.\
 | `_reference_downloads.py` | Manifest of mirrorable reference files |
 | `_audit_references.py` | Bibliography-only audit of Studies/ `## References` links |
 | `_check_references.py` | Full reference check suite (bibliography, markdown links, mirror files, PDF links) |
+| `_pdf_to_md.py` | Layout-aware PDF → markdown body extraction (PyMuPDF + pdfplumber) |
+| `_pdf_to_study_md.py` | Maintainer CLI: PDF → `Studies/<Slug>/<Slug>.md` with metadata |
+| `_test_pdf_to_md.py` | Round-trip and failure tests for PDF import |
 | `_ci_study_pr.py` | GitHub Actions study PR pipeline |
 | `_sync_agent_rules.py` | Sync AGENTS.md → `.cursor/rules/*.mdc`; `.agents/skills/` → `.cursor/skills/` |
 
