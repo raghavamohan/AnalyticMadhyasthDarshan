@@ -3,6 +3,7 @@
 Usage:
   python Scripts\\_add_study.py path\\to\\Study.md
   python Scripts\\_add_study.py path\\to\\external.pdf
+  python Scripts\\_add_study.py path\\to\\external.pdf --convert --slug My-Study --title "..."
   python Scripts\\_add_study.py Study.md --category Ontology --description "..." --tags "MVD, SB, JV"
   python Scripts\\_add_study.py Study.md --status ongoing --dry-run
 
@@ -20,6 +21,7 @@ from pathlib import Path
 
 from _common import REFERENCES, STUDIES, study_dir, study_md, study_pdf, study_pdf_ref_path
 from _pdf_cache_sync import pdfs_for_tags, sync_pdf_cache
+from _pdf_to_md import convert_pdf_to_markdown
 from _study_catalog import (
     StudyRow,
     StudyStatus,
@@ -148,6 +150,8 @@ def add_study(
     force: bool,
     skip_pdf: bool,
     check_timestamps: bool,
+    convert: bool,
+    no_keep_pdf: bool,
 ) -> None:
     if not input_path.is_file():
         raise SystemExit(f"Input file not found: {input_path}")
@@ -240,27 +244,56 @@ def add_study(
     dest_dir.mkdir(parents=True, exist_ok=True)
 
     if is_pdf_import:
-        shutil.copy2(input_path, dest_pdf)
-        print(f"Copied PDF to {dest_pdf}")
-        if not dest_md.exists() or force:
-            dest_md.write_text(
-                build_stub_markdown(study_title, study_description, edited_at, status),
-                encoding="utf-8",
+        if convert:
+            print("Converting PDF to markdown...")
+            body, report = convert_pdf_to_markdown(input_path)
+            print(
+                f"  Extracted {report.total_chars} characters from "
+                f"{report.pages_processed} page(s); "
+                f"{report.headings_found} heading(s), {report.tables_found} table(s)."
             )
-            print(f"Wrote stub markdown to {dest_md}")
-        else:
-            md_text = dest_md.read_text(encoding="utf-8")
+            for warning in report.warnings:
+                print(f"  Warning: {warning}")
+            md_text = ensure_author_block(body, fallback_title=study_title)
             md_text = set_edited_on(md_text, edited_at)
             if status != StudyStatus.ONGOING:
                 md_text = set_status_md(md_text, status)
-            dest_md.write_text(md_text, encoding="utf-8")
-            print(f"Updated **Edited on:** in {dest_md}")
-        print(
-            "\nNote: imported PDFs keep their original content. "
-            "A Draft watermark is applied only after you expand the markdown and "
-            "regenerate the PDF (re-run this script on the .md file, or use "
-            "Scripts/_convert_to_pdf.py)."
-        )
+            if not no_keep_pdf:
+                shutil.copy2(input_path, dest_pdf)
+                print(f"Copied PDF to {dest_pdf}")
+            if not dest_md.exists() or force:
+                dest_md.write_text(md_text, encoding="utf-8")
+                print(f"Wrote converted markdown to {dest_md}")
+            else:
+                dest_md.write_text(md_text, encoding="utf-8")
+                print(f"Updated converted markdown at {dest_md}")
+            print(
+                "\nNote: Review the converted markdown before regenerating the PDF. "
+                "Fix headings, tables, citations, and house-style sections, then "
+                "re-run on the .md file to regenerate a Draft-watermarked PDF."
+            )
+        else:
+            shutil.copy2(input_path, dest_pdf)
+            print(f"Copied PDF to {dest_pdf}")
+            if not dest_md.exists() or force:
+                dest_md.write_text(
+                    build_stub_markdown(study_title, study_description, edited_at, status),
+                    encoding="utf-8",
+                )
+                print(f"Wrote stub markdown to {dest_md}")
+            else:
+                md_text = dest_md.read_text(encoding="utf-8")
+                md_text = set_edited_on(md_text, edited_at)
+                if status != StudyStatus.ONGOING:
+                    md_text = set_status_md(md_text, status)
+                dest_md.write_text(md_text, encoding="utf-8")
+                print(f"Updated **Edited on:** in {dest_md}")
+            print(
+                "\nNote: imported PDFs keep their original content. "
+                "A Draft watermark is applied only after you expand the markdown and "
+                "regenerate the PDF (re-run this script on the .md file, or use "
+                "Scripts/_convert_to_pdf.py). Use --convert to extract markdown from the PDF."
+            )
     else:
         if input_path.resolve() != dest_md.resolve():
             shutil.copy2(input_path, dest_md)
@@ -303,8 +336,13 @@ def add_study(
 
     print("\nDone. Next steps:")
     if is_pdf_import:
-        print(f"  1. Edit {dest_md} — expand content and add a References section.")
-        print("  2. Re-run on the .md file to regenerate a Draft-watermarked PDF.")
+        if convert:
+            print(f"  1. Review and edit {dest_md} — fix structure, citations, and references.")
+            print("  2. Re-run on the .md file to regenerate a Draft-watermarked PDF.")
+        else:
+            print(f"  1. Edit {dest_md} — expand content and add a References section.")
+            print("  2. Re-run on the .md file to regenerate a Draft-watermarked PDF.")
+            print("     Or re-import with --convert to extract markdown from the PDF.")
     else:
         print(f"  1. Continue editing {dest_md} as the canonical source.")
     print(f"  2. Update tag details in {REFERENCES / 'MANIFEST.md'} (change TBD rows as needed).")
@@ -351,6 +389,16 @@ def main() -> None:
         default=True,
         help="Verify **Edited on:** matches catalog timestamps after add (default: on)",
     )
+    parser.add_argument(
+        "--convert",
+        action="store_true",
+        help="For PDF input: extract markdown body instead of writing a stub",
+    )
+    parser.add_argument(
+        "--no-keep-pdf",
+        action="store_true",
+        help="With --convert: do not copy the source PDF into Studies/<Slug>/",
+    )
     args = parser.parse_args()
 
     add_study(
@@ -366,6 +414,8 @@ def main() -> None:
         force=args.force,
         skip_pdf=args.skip_pdf,
         check_timestamps=args.check_timestamps,
+        convert=args.convert,
+        no_keep_pdf=args.no_keep_pdf,
     )
 
 
