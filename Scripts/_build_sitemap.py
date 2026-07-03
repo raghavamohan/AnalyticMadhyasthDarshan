@@ -1,0 +1,154 @@
+#!/usr/bin/env python3
+"""Build sitemap.xml for the published site from catalog JSON files."""
+from __future__ import annotations
+
+import sys
+from datetime import datetime
+from pathlib import Path
+from xml.etree import ElementTree as ET
+
+SCRIPTS = Path(__file__).resolve().parent
+if str(SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS))
+
+from _common import BASE, STUDIES, site_base_url  # noqa: E402
+from _study_catalog import (  # noqa: E402
+    CATALOG_TABLES,
+    StudyRow,
+    StudyTable,
+    catalog_json_path,
+    parse_catalog_json_file,
+)
+
+SITEMAP_PATH = BASE / "sitemap.xml"
+SITEMAP_NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
+
+
+def _absolute_url(path: str) -> str:
+    base = site_base_url().rstrip("/")
+    return f"{base}/{path.lstrip('/')}"
+
+
+def _lastmod_from_row(row: StudyRow) -> str | None:
+    if row.edited_at is not None:
+        return row.edited_at.strftime("%Y-%m-%d")
+    return None
+
+
+def _lastmod_from_file(path: Path) -> str | None:
+    if not path.is_file():
+        return None
+    mtime = datetime.fromtimestamp(path.stat().st_mtime)
+    return mtime.strftime("%Y-%m-%d")
+
+
+def _study_html_site_path(slug: str, table: StudyTable) -> str:
+    if table == StudyTable.APPLIED:
+        return f"Applications/{slug}/{slug}.html"
+    return f"Studies/{slug}/{slug}.html"
+
+
+def _study_discussion_site_path(slug: str, table: StudyTable) -> str:
+    if table == StudyTable.APPLIED:
+        return f"Applications/{slug}/discussion.html"
+    return f"Studies/{slug}/discussion.html"
+
+
+def _add_url(
+    root: ET.Element,
+    loc: str,
+    *,
+    lastmod: str | None = None,
+    changefreq: str | None = None,
+    priority: str | None = None,
+) -> None:
+    url_el = ET.SubElement(root, "url")
+    ET.SubElement(url_el, "loc").text = loc
+    if lastmod:
+        ET.SubElement(url_el, "lastmod").text = lastmod
+    if changefreq:
+        ET.SubElement(url_el, "changefreq").text = changefreq
+    if priority:
+        ET.SubElement(url_el, "priority").text = priority
+
+
+def collect_sitemap_entries() -> list[tuple[str, str | None, str | None, str | None]]:
+    """Return (loc, lastmod, changefreq, priority) tuples in stable order."""
+    entries: list[tuple[str, str | None, str | None, str | None]] = []
+    seen: set[str] = set()
+
+    def add(
+        path: str,
+        *,
+        lastmod: str | None = None,
+        changefreq: str | None = None,
+        priority: str | None = None,
+    ) -> None:
+        loc = _absolute_url(path)
+        if loc in seen:
+            return
+        seen.add(loc)
+        entries.append((loc, lastmod, changefreq, priority))
+
+    index_path = STUDIES / "index.html"
+    add(
+        "Studies/index.html",
+        lastmod=_lastmod_from_file(index_path),
+        changefreq="weekly",
+        priority="1.0",
+    )
+
+    for table in CATALOG_TABLES:
+        catalog_path = catalog_json_path(table)
+        if not catalog_path.is_file():
+            continue
+        for row in parse_catalog_json_file(catalog_path):
+            lastmod = _lastmod_from_row(row)
+
+            html_site_path = _study_html_site_path(row.slug, table)
+            html_repo_path = BASE / Path(html_site_path)
+            if html_repo_path.is_file():
+                add(
+                    html_site_path,
+                    lastmod=lastmod or _lastmod_from_file(html_repo_path),
+                    changefreq="monthly",
+                    priority="0.8",
+                )
+
+            discuss_site_path = _study_discussion_site_path(row.slug, table)
+            discuss_repo_path = BASE / Path(discuss_site_path)
+            if discuss_repo_path.is_file():
+                add(
+                    discuss_site_path,
+                    lastmod=lastmod or _lastmod_from_file(discuss_repo_path),
+                    changefreq="weekly",
+                    priority="0.5",
+                )
+
+    return entries
+
+
+def render_sitemap_xml(entries: list[tuple[str, str | None, str | None, str | None]]) -> str:
+    root = ET.Element("urlset", xmlns=SITEMAP_NS)
+    for loc, lastmod, changefreq, priority in entries:
+        _add_url(root, loc, lastmod=lastmod, changefreq=changefreq, priority=priority)
+    ET.indent(root, space="  ")
+    xml_body = ET.tostring(root, encoding="unicode")
+    return f'<?xml version="1.0" encoding="UTF-8"?>\n{xml_body}\n'
+
+
+def write_sitemap() -> Path:
+    entries = collect_sitemap_entries()
+    SITEMAP_PATH.write_text(render_sitemap_xml(entries), encoding="utf-8")
+    return SITEMAP_PATH
+
+
+def main() -> int:
+    entries = collect_sitemap_entries()
+    path = write_sitemap()
+    print(f"Wrote {len(entries)} URLs to {path.relative_to(BASE)}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -5,6 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="color-scheme" content="light dark"/>
 <title>Category Theory Explained — A Complete Guide</title>
+<link rel="canonical" href="https://analyticmadhyasthdarshan.org/Studies/Category-Theory-Explained/Category-Theory-Explained.html"/>
+<meta name="description" content="A self-contained guide that uses category theory as a lens to make the structure and logic of Madhyasth Darshan precise — plain-language ideas first, then the formal theory — and shows where the notation stops"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="AnalyticMadhyasthDarshan.org"/>
+<meta property="og:title" content="Category Theory Explained — A Complete Guide"/>
+<meta property="og:description" content="A self-contained guide that uses category theory as a lens to make the structure and logic of Madhyasth Darshan precise — plain-language ideas first, then the formal theory — and shows where the notation stops"/>
+<meta property="og:url" content="https://analyticmadhyasthdarshan.org/Studies/Category-Theory-Explained/Category-Theory-Explained.html"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Category Theory Explained — A Complete Guide"/>
+<meta name="twitter:description" content="A self-contained guide that uses category theory as a lens to make the structure and logic of Madhyasth Darshan precise — plain-language ideas first, then the formal theory — and shows where the notation stops"/>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Category Theory Explained — A Complete Guide","description":"A self-contained guide that uses category theory as a lens to make the structure and logic of Madhyasth Darshan precise — plain-language ideas first, then the formal theory — and shows where the notation stops","url":"https://analyticmadhyasthdarshan.org/Studies/Category-Theory-Explained/Category-Theory-Explained.html","inLanguage":"en","author":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"publisher":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"dateModified":"2026-07-01T14:23:00+05:30"}
+</script>
 <style>
   @page {
     size: A4;
@@ -207,6 +220,11 @@
   .mermaid svg {
     max-width: 100%;
     height: auto;
+  }
+  .katex-display {
+    margin: 8pt 0;
+    overflow-x: auto;
+    overflow-y: hidden;
   }
 
   html { scroll-behavior: smooth; }
@@ -776,7 +794,7 @@ flowchart TD
 <p><strong>Ev and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="pramanikta" data-definition="Authentic conduct as living proof that understanding has taken hold — the outward test of complete knowing.">pramanikta</button></span></em>.</strong> Model conduct readable as evidence by <code>ev : Conduct → Ev</code>. T3 (conduct completeness) corresponds to a lift in <code>Pln</code> when <code>ev ∘ conduct</code> reaches <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="pramanikta" data-definition="Authentic conduct as living proof that understanding has taken hold — the outward test of complete knowing.">pramanikta</button></span></em> — authenticity others can recognize (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.10).</p>
 <p><strong>Trans and τ.</strong> Transmission re-instantiates an assembly&rsquo;s composition method across member turnover (template L5). At the knowledge order, τ carries <strong>evidenced</strong> understanding (template D10), not rules without φ. A clean categorical home is an <strong>indexed category</strong> or <strong>coalgebra</strong>: generations as objects, τ as structure-preserving maps carrying education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> forward. Colimits alone do not generate τ (proposition P8).</p>
 <p><strong>Cap and cap(<em>u</em>).</strong> Fulfilment is not automatic from recognising a relationship: it is modulated by <strong>capacity</strong> (<em>kshamata</em>), <strong>ability</strong> (<em>yogyata</em>), and <strong>receptivity</strong> (<em>patrata</em>) (template D5a). Model cap as a functor <code>cap : Liv → Cap</code> into a category of capability profiles; <code>Rel</code> and <code>Conduct</code> are then <strong>fibred</strong> or <strong>indexed</strong> over unit capability (§6.6.1).</p>
-<p><strong>Comp and κ.</strong> Composition takes two modes — <strong>mixture</strong> and <strong>compound</strong> (template D8). Only <strong>compound-mode</strong> κ creates a new tier; mixture aggregates at the same tier. Categorically this is the difference between a <strong>coproduct preserved at fixed order</strong> and a <strong> colimit that changes signature</strong> (§6.9).</p>
+<p><strong>Comp and κ.</strong> Composition takes two modes — <strong>mixture</strong> and <strong>compound</strong> (template D8). Only <strong>compound-mode</strong> κ creates a new tier; mixture aggregates at the same tier. Categorically this is the difference between a <strong>coproduct preserved at fixed order</strong> and a ** colimit that changes signature** (§6.9).</p>
 <h3>6.1.1 Relation to the coexistence template</h3>
 <p><a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.html"><em>The Coexistence Template</em></a> states the tier-neutral structure formally; this paper supplies natural notation for parts of it. The mapping is intentional, not a proof that the symbols coincide.</p>
 <div class="table-scroll"><table>
@@ -1116,7 +1134,7 @@ Conflicting local value-structures -&gt;  forced collapse  -&gt;  no coherent un
 <li>sig(κ_mix) <strong>decomposes</strong> as the pair (sig(<em>u₁</em>), sig(<em>u₂</em>)) — same tier, side-by-side.</li>
 <li>Example gloss: co-present units in a mixture without a new joint law — aggregate, not ascent.</li>
 </ul>
-<p><strong>Compound</strong> κ_comp(<em>u₁</em>, <em>u₂</em>): a <strong> colimit</strong> (often a <strong>pushout</strong> or <strong>coequaliser</strong> following a bonding span) that <strong>quotients</strong> the coproduct by a <strong>fusion</strong> relation</p>
+<p><strong>Compound</strong> κ_comp(<em>u₁</em>, <em>u₂</em>): a ** colimit<strong> (often a </strong>pushout<strong> or </strong>coequaliser<strong> following a bonding span) that </strong>quotients<strong> the coproduct by a </strong>fusion** relation</p>
 <pre><code class="language-text">         span of bonding (complementary need)
 u1 --------------------&gt; u_new &lt;-------------------- u2
 </code></pre>

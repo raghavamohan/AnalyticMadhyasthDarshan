@@ -239,6 +239,28 @@ function titleToSlug(title) {
   return words.map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join('-');
 }
 
+const MAX_SLUG_LEN = 60;
+const MAX_STUDY_MD_PATH_LEN = 200;
+
+function validateProposalSlug(slug) {
+  if (!slug || !/^[A-Za-z0-9-]+$/.test(slug)) {
+    throw new Error('Could not derive a valid slug from the proposed title.');
+  }
+  if (slug.length > MAX_SLUG_LEN) {
+    throw new Error(
+      `The slug derived from your title is ${slug.length} characters (${slug}). ` +
+        `Keep the proposed title short enough for a slug of ${MAX_SLUG_LEN} characters or fewer ` +
+        '(roughly eight words).'
+    );
+  }
+  const mdPath = `Studies/${slug}/${slug}.md`;
+  if (mdPath.length > MAX_STUDY_MD_PATH_LEN) {
+    throw new Error(
+      `The study path would be ${mdPath.length} characters. Use a shorter proposed title.`
+    );
+  }
+}
+
 function issueLabels(issue) {
   return (issue.labels || []).map((label) =>
     typeof label === 'string' ? label : label.name
@@ -313,9 +335,10 @@ function preCatalogSlugSet(registry) {
 }
 
 function slugForProposal(issue, registry) {
+  const linked = registryByIssue(registry, issue?.number);
+  if (linked?.slug) return linked.slug;
   const fromBody = parseSlugFromIssueBody(issue);
   if (fromBody) return fromBody;
-  const linked = registryByIssue(registry, issue?.number);
   return linked?.slug || null;
 }
 
@@ -796,7 +819,8 @@ function submissionRecency(row) {
 // recent pull request. Rows without a slug (e.g. proposals not yet approved)
 // are always kept.
 function dedupeSubmissionsBySlug(submissions) {
-  const preferred = new Map();
+  const preferredBySlug = new Map();
+  const preferredByIssue = new Map();
   const keep = (a, b) => {
     if (!a) return b;
     if (!b) return a;
@@ -805,15 +829,33 @@ function dedupeSubmissionsBySlug(submissions) {
     if (aProposal !== bProposal) return aProposal ? a : b;
     return submissionRecency(a) >= submissionRecency(b) ? a : b;
   };
-  const result = [];
+
+  const withoutSlug = [];
   for (const row of submissions) {
     if (!row.slug) {
-      result.push(row);
+      withoutSlug.push(row);
       continue;
     }
-    preferred.set(row.slug, keep(preferred.get(row.slug), row));
+    preferredBySlug.set(row.slug, keep(preferredBySlug.get(row.slug), row));
+    if (row.issueNumber) {
+      preferredByIssue.set(row.issueNumber, keep(preferredByIssue.get(row.issueNumber), row));
+    }
   }
-  for (const row of preferred.values()) result.push(row);
+
+  const result = [...withoutSlug];
+  const seenSlugs = new Set();
+  for (const row of preferredByIssue.values()) {
+    if (!seenSlugs.has(row.slug)) {
+      result.push(row);
+      seenSlugs.add(row.slug);
+    }
+  }
+  for (const row of preferredBySlug.values()) {
+    if (!seenSlugs.has(row.slug)) {
+      result.push(row);
+      seenSlugs.add(row.slug);
+    }
+  }
   return result;
 }
 
@@ -1183,6 +1225,9 @@ router.post('/api/propose', async (request, env) => {
     await verifyTurnstile(data.turnstileToken, env, request);
 
     const { title, category, description, summary, formal, familiarity } = data;
+
+    const derivedSlug = titleToSlug(title);
+    validateProposalSlug(derivedSlug);
 
     const body = `Propose a new analytic study before writing the full paper.
 Maintainers will review and label approved proposals \`proposal-approved\`.
