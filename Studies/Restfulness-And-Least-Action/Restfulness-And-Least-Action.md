@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 2, 2026, 4:57 PM IST
+**Edited on:** July 3, 2026, 9:50 AM IST
 
 **Status:** Draft
 
@@ -42,7 +42,7 @@ The Jeevan operates through ten distinct conscious activities, which are structu
 
 ## 2. The mechanics of effort, motion, and the genesis of restfulness
 
-Within Madhyasth Darshan, the dynamic progression of existence is systematically modeled through a continuous triad of physical and conscious realities: effort (shram), motion (gati), and result/configuration (parinam). Understanding this triad is essential to decoding the concept of restfulness.
+Within Madhyasth Darshan, the dynamic progression of existence is systematically modeled through a continuous triad of physical and conscious realities: effort (shram), motion (gati), and result/configuration (parinam) — stated formally as clause D1b of [The Coexistence Template](../The-Coexistence-Template/The-Coexistence-Template.pdf), where the triad is constitutive of units themselves: a unit is active because it is replete with energy through saturation, and that activeness *is* the triad (SB p. 69). Understanding this triad is essential to decoding the concept of restfulness.
 
 ### 2.1 The trajectory of shram (effort)
 
@@ -144,6 +144,14 @@ When the Jeevan finally attains understanding, it initiates what category theory
 | Structural failures | Singularities; unstable, unbounded energy states | Delusion as retract; colimit failure and societal breakdown |
 | Translational mapping | Legendre functor $\mathcal{L} : \mathsf{LagSy} \to \mathsf{HamSy}$ | Forgetful functor $U : \mathcal{C}_{MD} \to \mathsf{LagSy}$ |
 
+### 6.2 The energetic registers of the triad
+
+The mapping gains further support from the way energy sits beneath the triad on both sides. SB asserts that every unit is active because it is replete with energy through saturation, and that this activeness is seen in every unit as effort, motion, and result — compressed into the equation "Unit + Energy fullness = Activeness" (SB p. 69); one uniform energy (*saamya urja*) manifests as three aspects of one activity (MVD p. 75). Classical mechanics exhibits the same shape. Each moment of the triad has a natural energetic register: effort corresponds to work performed ($W = \int F \, dx$, joules); motion's register is kinetic energy ($\tfrac{1}{2}mv^2$, joules — velocity itself is not energy-dimensioned, but its energetic registration is); and result, as transformation of constitution, has rest energy as its register ($E = mc^2$, joules), a reading supported by the texts' account of weight as participation in bonding (JV p. 150) and of conservation as transformation without loss. Three commensurable registers of one conserved quantity mirror one uniform energy manifesting as three moments of one activity.
+
+The completeness goals of the triad (SB pp. 58, 71) sharpen the correspondence. Restfulness of effort matches stationarity of the action integral — the condition $\delta S = 0$ under which no further variation is demanded; destination of motion matches the determined endpoint of the true trajectory; immortality of result matches conservation of rest energy and mass. And since *kaal* is the duration of unit-activity ([Nature of Time](../Nature-Of-Time/Nature-Of-Time.pdf) §1.1), effort sustained over duration carries the dimensions of action (joule-seconds) — the very quantity the variational principle extremises. This is the sharpest structural bridge in the comparison: the quantity physics extremises is dimensionally the texts' effort-over-time, and the state the texts call restfulness is the condition under which that quantity's variation vanishes.
+
+These correspondences are interpretive, and their limits belong beside their appeal. The texts assign no physical dimensions to *shram*, *gati*, or *parinam*; the parinam–mass reading is a reading, not a derivation; and nothing here constitutes a physics result or a prediction. What the registers show is a structural rhyme — one energy, three aspects, a stationarity condition — precise enough to guide the mapping of §6.1 and loose enough that it must not be mistaken for an identity.
+
 ## 7. Synthesizing the framework: towards a unified system of dynamics and consciousness
 
 The rigorous comparative evaluation utilizing category theory yields profound implications for how we understand systemic evolution across disciplines. In theoretical physics and biology, the concept of the PLA occasionally flirts with deep biological teleology. Certain contemporary analyses propose that the biological version of the least action principle is effectively a "most action principle," wherein highly complex biological entities appear to actively select endpoints to maximize their agency, seemingly stepping outside the bounds of purely mechanistic determinism. This biological teleology highlights the severe limitations of standard variational calculus when it is applied to higher-order systems possessing intrinsic processing capabilities or sentience.
@@ -167,8 +175,8 @@ Ultimately, there is a profound, mathematically sound, category-theoretic mappin
 ### Madhyasth Darshan (primary sources)
 
 - **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*, Part 1: *Holistic View of Human Behaviour*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Also at https://www.youtube.com/watch?v=SfPDWbXe0v0 (Manav Vyavhar Darshan, Session 17). Cited: coexistence, saturation, effort–motion–result, four orders, restfulness and resolution, relationships and values, undivided society.
-- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad / Resolution Centred Materialism*](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Also at https://www.youtube.com/playlist?list=PL69PCoz1OQW0dhshZ0Xv3KtZ7ajJOIpgv (bilingual Hindi and English). Cited: effort–motion–result, physicochemical regulation, constitutional completeness, planes and resolution transitions.
-- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: ten activities of *jeevan*, awakening, values and evaluation, restfulness as resolution.
+- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad / Resolution Centred Materialism*](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Also at https://www.youtube.com/playlist?list=PL69PCoz1OQW0dhshZ0Xv3KtZ7ajJOIpgv (bilingual Hindi and English). Cited: effort–motion–result and its completeness goals (pp. 58, 71); unit + energy fullness = activeness (p. 69); physicochemical regulation, constitutional completeness, planes and resolution transitions.
+- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: ten activities of *jeevan*, awakening, values and evaluation, restfulness as resolution; weight as participation in bonding (p. 150).
 
 ### Physics and variational mechanics
 
