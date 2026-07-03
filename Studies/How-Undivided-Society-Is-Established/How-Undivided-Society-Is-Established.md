@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 1, 2026, 11:17 AM IST
+**Edited on:** July 3, 2026, 12:23 PM IST
 **Status:** Released
 **The question:** What is Madhyasth Darshan's grand vision of undivided society (*akhand samaj*), and how — according to the primary texts — is it established and evidenced?
 
@@ -440,6 +440,5 @@ Key terms from the exposition are collected here for quick reference. Each term 
 - [*Human Behavior and Society*](../Human-Behavior-And-Society/Human-Behavior-And-Society.pdf) — behaviour and organisation with tradition comparison.
 - [*Ethics and Morals in Human Beings*](../Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf) — faculty-level humane conduct.
 - [*How to Form Self-Sustaining Organizations*](../How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.pdf) — applied assembly design.
-- [*The Coexistence Template*](../The-Coexistence-Template/The-Coexistence-Template.pdf) — formal template of units, relationships, and assemblies.
-- [*Category Theory Explained*](../Category-Theory-Explained/Category-Theory-Explained.pdf) — categorical notation for the same colimit/transmission territory (§6.8, §6.9.1) this study expounds architecturally.
+- [*Coexistence From First Principles*](../Coexistence-From-First-Principles/Coexistence-From-First-Principles.pdf) — formal template of units, relationships, and assemblies, with categorical notation for the same colimit/transmission territory (§§7.8–7.9) this study expounds architecturally.
 - [*Knowledge, Knower, and Known*](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) — *pramanikta*, study–experiment–practice, false learning.
