@@ -2,13 +2,13 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 3, 2026, 9:50 AM IST
+**Edited on:** July 3, 2026, 12:21 PM IST
 
 **Status:** Draft
 
 **The question:** Does the pursuit of restfulness (*vishram*) in Madhyasth Darshan structurally mirror the Principle of Least Action in physics — and can category theory map the two paradigms rigorously?
 
-This formal study compares Madhyasth Darshan's ontology of effort, motion, result, and restfulness with the variational mechanics of least action, then evaluates the mapping through category-theoretic functors, forgetful reduction, and colimit assembly. Ontological ground and the tier-neutral template appear in [*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) and [*The Coexistence Template*](../The-Coexistence-Template/The-Coexistence-Template.pdf); categorical notation and limits are developed in [*Category Theory Explained*](../Category-Theory-Explained/Category-Theory-Explained.pdf).
+This formal study compares Madhyasth Darshan's ontology of effort, motion, result, and restfulness with the variational mechanics of least action, then evaluates the mapping through category-theoretic functors, forgetful reduction, and colimit assembly. Ontological ground appears in [*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf); the tier-neutral template, categorical notation, and limits are developed in [*Coexistence From First Principles*](../Coexistence-From-First-Principles/Coexistence-From-First-Principles.pdf).
 
 The philosophical framework of Madhyasth Darshan presents a coexistence-based ontological architecture wherein existence comprises sentient and insentient countable units saturated in an omnipresent, actionless medium. Within this paradigm, the evolutionary trajectory of all units is directed toward completeness and resolution — restfulness (*vishram*) — as the culmination of effort (*shram ka vishram*) into continuous, frictionless activity within universal orderliness. In parallel, classical and quantum physics rely on the Principle of Least Action (PLA): dynamical trajectories between initial and final configurations are those that make the action functional locally stationary. This study maps both paradigms, evaluates their philosophical commitments, and asks whether category theory can translate between coexistence ontology and variational mechanics rigorously.
 
@@ -42,7 +42,7 @@ The Jeevan operates through ten distinct conscious activities, which are structu
 
 ## 2. The mechanics of effort, motion, and the genesis of restfulness
 
-Within Madhyasth Darshan, the dynamic progression of existence is systematically modeled through a continuous triad of physical and conscious realities: effort (shram), motion (gati), and result/configuration (parinam) — stated formally as clause D1b of [The Coexistence Template](../The-Coexistence-Template/The-Coexistence-Template.pdf), where the triad is constitutive of units themselves: a unit is active because it is replete with energy through saturation, and that activeness *is* the triad (SB p. 69). Understanding this triad is essential to decoding the concept of restfulness.
+Within Madhyasth Darshan, the dynamic progression of existence is systematically modeled through a continuous triad of physical and conscious realities: effort (shram), motion (gati), and result/configuration (parinam) — stated formally as clause D1 of [Coexistence From First Principles](../Coexistence-From-First-Principles/Coexistence-From-First-Principles.pdf), where the triad is constitutive of units themselves: a unit is active because it is replete with energy through saturation, and that activeness *is* the triad (SB p. 69). Understanding this triad is essential to decoding the concept of restfulness.
 
 ### 2.1 The trajectory of shram (effort)
 
@@ -212,5 +212,4 @@ Ultimately, there is a profound, mathematically sound, category-theoretic mappin
 ### Related studies in this collection
 
 - [*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — coexistence, saturation, effort–motion–result, four orders, constitutional completeness (§§1.1–1.3).
-- [*The Coexistence Template*](../The-Coexistence-Template/The-Coexistence-Template.pdf) — unit signature, relationships, values, colimits, assembly gluing (§§4–5).
-- [*Category Theory Explained*](../Category-Theory-Explained/Category-Theory-Explained.pdf) — functors, forgetful functors, natural transformations, retracts, colimits (§§5–6).
+- [*Coexistence From First Principles*](../Coexistence-From-First-Principles/Coexistence-From-First-Principles.pdf) — the activity triad (D1), unit signature, relationships, values, and assembly gluing (§§4, 8); functors, forgetful functors, natural transformations, retracts, colimits (§§3, 7).
