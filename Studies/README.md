@@ -63,8 +63,7 @@ These studies are more mathematical in nature. They represent the structure disc
 <!-- formal-studies-catalog -->
 | Document | Formal Focus | Description | Status |
 |----------|--------------|-------------|--------|
-| [Restfulness and Least Action: A Category-Theoretic Comparison](Restfulness-And-Least-Action/Restfulness-And-Least-Action.html) · [Discuss](Restfulness-And-Least-Action/discussion.html) | Formal structure | Whether restfulness (vishram) in Madhyasth Darshan structurally mirrors the Principle of Least Action — mapped through category-theoretic functors, forgetful reduction, and colimits. | Draft<br>Last updated on: Jul 3, 2026, 12:21 PM IST |
-| [Coexistence from First Principles](Coexistence-From-First-Principles/Coexistence-From-First-Principles.html) · [Discuss](Coexistence-From-First-Principles/discussion.html) | Formal structure | The complete formal statement of Madhyasth Darshan: a dual-primitive kernel — co-eternal satta and units under saturation, with triadic activeness as manifestation — generating the tier-neutral template, recovery audit, and category-theoretic formalisation (traced triad, faculty adjunctions, Saturation-Reflector sketch) | Draft<br>Last updated on: Jul 3, 2026, 2:05 PM IST |
+
 <!-- /formal-studies-catalog -->
 
 ### Applied studies
