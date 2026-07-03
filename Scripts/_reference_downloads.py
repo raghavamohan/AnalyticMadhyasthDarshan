@@ -259,6 +259,12 @@ DOWNLOADS: tuple[DownloadEntry, ...] = (
         tag="Kuhn 2024",
         notes="CC BY-NC-ND at publisher; may fail behind bot checks — keep external URL in study if download fails.",
     ),
+    DownloadEntry(
+        dest="Applied-Studies/MD_TOPOS.pdf",
+        urls=("https://zenodo.org/records/16786431/files/MD_TOPOS.pdf?download=1",),
+        tag="MD-TOPOS",
+        notes="Meena 2025, minimal decidable site for the MD classifying topos; CC BY-NC-SA 4.0.",
+    ),
 )
 
 
@@ -269,4 +275,5 @@ def download_subdirs() -> tuple[str, ...]:
         "Comparative-Philosophy",
         "Science",
         "Modern-Philosophy",
+        "Applied-Studies",
     )
