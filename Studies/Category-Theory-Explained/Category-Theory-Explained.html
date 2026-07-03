@@ -16,7 +16,7 @@
 <meta name="twitter:title" content="Category Theory Explained — A Complete Guide"/>
 <meta name="twitter:description" content="A self-contained guide that uses category theory as a lens to make the structure and logic of Madhyasth Darshan precise — plain-language ideas first, then the formal theory — and shows where the notation stops"/>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Category Theory Explained — A Complete Guide","description":"A self-contained guide that uses category theory as a lens to make the structure and logic of Madhyasth Darshan precise — plain-language ideas first, then the formal theory — and shows where the notation stops","url":"https://analyticmadhyasthdarshan.org/Studies/Category-Theory-Explained/Category-Theory-Explained.html","inLanguage":"en","author":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"publisher":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"dateModified":"2026-07-01T14:23:00+05:30"}
+{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Category Theory Explained — A Complete Guide","description":"A self-contained guide that uses category theory as a lens to make the structure and logic of Madhyasth Darshan precise — plain-language ideas first, then the formal theory — and shows where the notation stops","url":"https://analyticmadhyasthdarshan.org/Studies/Category-Theory-Explained/Category-Theory-Explained.html","inLanguage":"en","author":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"publisher":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"dateModified":"2026-07-03T08:52:00+05:30"}
 </script>
 <style>
   @page {
@@ -510,7 +510,7 @@
 </nav>
 <main id="main"><h1>Category Theory Explained — A Complete Guide</h1>
 <p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> — a group of people studying <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
-<p><strong>Edited on:</strong> July 1, 2026, 2:23 PM IST</p>
+<p><strong>Edited on:</strong> July 3, 2026, 8:52 AM IST</p>
 <p><strong>The question:</strong> What does category theory clarify about the structure of <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> — and where does that notation stop?</p>
 <p>This is a self-contained guide to describing Shri A. Nagraj&rsquo;s <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> using <strong>category theory</strong>. Parts 1 to 5 introduce the ideas in plain language; Part 6 gives the precise formal theory. The ontological ground and the tier-neutral formal template are developed in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html"><em>The Ontology of Coexistence</em></a> and <a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.html"><em>The Coexistence Template</em></a>; human-tier conduct and society are worked out further in <a href="https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html"><em>Why Humans Are Not Just Material</em></a> and <a href="https://analyticmadhyasthdarshan.org/Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.html"><em>Human Behavior and Society</em></a>. Primary texts: <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan — Co-existentialism</em> (MVD)</a>, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf"><em>Samadhanatmak Bhautikvad</em> (SB)</a>, and <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf"><em>Jeevan Vidya: An Introduction</em> (JV)</a>.</p>
 <p>Category theory here is a <strong>lens for clarity</strong>, not a proof machine. It makes the philosophy&rsquo;s logic visible and shows exactly what each conclusion depends on. It does not prove the metaphysics, and it cannot supply empirical evidence.</p>
@@ -868,6 +868,12 @@ flowchart TD
 <td>Moderate — cap(<em>u</em>) = ⟨ksh, yog, pat⟩ in §6.6.1</td>
 </tr>
 <tr>
+<td>Activity triad</td>
+<td><strong>D5b</strong></td>
+<td>Petri/monoidal transitions (§6.10): run = transition firing; φ as terminal <em>parinam</em>; <em>kshobh</em> = enabled transition that fails to fire</td>
+<td>Strong for bookkeeping; content-agnostic</td>
+</tr>
+<tr>
 <td>Evaluation</td>
 <td><strong>μ</strong>, D6</td>
 <td><code>Eval</code> on <code>Liv</code> only</td>
@@ -914,6 +920,12 @@ flowchart TD
 <td>D2</td>
 <td>Poset <code>M ≤ B ≤ A ≤ K</code></td>
 <td>Strong</td>
+</tr>
+<tr>
+<td>Crisp classification / decidability</td>
+<td>(D-definitions as sequents)</td>
+<td>Internal coherent theory over the §6.1 system; nucleus-stable predicates and open subuniverses (§6.16)</td>
+<td>Programme adopted from the topos route (MD-TOPOS); theorems pending</td>
 </tr>
 </tbody>
 </table></div>
@@ -1047,7 +1059,7 @@ cap(u) = &lt;ksh(u), yog(u), pat(u)&gt;
 </tr>
 </tbody>
 </table></div>
-<p>Receptivity alone does not produce fulfilment: a unit may <strong>recognise</strong> a relationship (ρ) yet deliver only a truncated value flow because yog or ksh is insufficient — the template&rsquo;s diagnosis of frustrated or partial order.</p>
+<p>Receptivity alone does not produce fulfilment: a unit may <strong>recognise</strong> a relationship (ρ) yet deliver only a truncated value flow because yog or ksh is insufficient — the template&rsquo;s diagnosis of frustrated or partial order. In the template&rsquo;s activity-triad terms (D5b), cap(<em>u</em>) gates the first arrow of the run <em>shram → gati → parinam</em>: the yog composition gate above is exactly what a stalled run (<em>kshobh</em>) violates.</p>
 <h4>Fibred enrichment over units</h4>
 <p>Combine §6.6&rsquo;s enrichment base <strong>W</strong> with <strong>Cap</strong> by passing to a <strong>fibred category</strong> (or indexed category) over units:</p>
 <pre><code class="language-text">pi : E -&gt; Rel
@@ -1211,6 +1223,7 @@ flowchart TD
 <p>At the knowledge order specifically, <a href="https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html">How Undivided Society Is Established</a> §5.2 supplies textual content for what <code>AdmissibleComp</code> would need to encode: reoriented <strong><em>ichcha</em></strong> (desire in <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery.">chitta</button></span></em>) powering the sociality–production chain, not physical need alone. The same study&rsquo;s §4.1 reframes delusion as <strong>complementarity blocked</strong>, not competition — a sharper primary-text gloss on the retract/isomorphism account of delusion given here in §6.5. Neither closes P9; both are candidate content for the guard this paper leaves as an open problem.</p>
 <h3>6.10 Development as a monoidal/Petri process</h3>
 <p><strong>Development Progression</strong> (<em>vikas-kram</em>) — distinct from <strong>Awakening Progression</strong> (<em>jagriti-kram</em>) in already constitutionally complete <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §§1.8–1.10) — runs through effort–motion–result (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="shram-gati-parinam" data-definition="Effort–motion–result — the single inseparable triad in which all change appears.">shram–gati–parinam</button></span></em>), read toward completeness at each stage: result → constitutional completeness; effort → activity completeness; motion → conduct completeness (SB p. 58). <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">Kaal</button></span></em> is the duration of that activity, not an independent container (<a href="https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.html">Nature of Time</a> §1.1).</p>
+<p>This layer is the categorical home of the template&rsquo;s <strong>activity triad</strong> (template D5b): a run <em>shram → gati → parinam</em> is a transition firing — effort consumed as input, result produced as output — and φ reads value off the produced token. Frustration (<em>kshobh</em>, template D5a–D5b) is an enabled transition that fails to fire: inputs present, output never produced. The stage mapping above is D5b&rsquo;s completeness reading of the same triad.</p>
 <p>Hungry/overfull atomic bonding is <strong>compound-mode</strong> κ_comp guarded by L3 (§6.9.1). The progression is <strong>resource-sensitive</strong>, best modelled by a <strong>symmetric monoidal category</strong> (equivalently the free such category on a Petri net), where the tensor is co-presence of resources and <strong>transitions consume inputs to produce outputs</strong>.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -1404,8 +1417,8 @@ flowchart TD
 </tr>
 <tr>
 <td>Planes, T1–T3 (D11)</td>
-<td>Layered typing <code>Pln</code>; T1 in Petri; T2–T3 in <code>Liv</code></td>
-<td>Partial</td>
+<td>Layered typing <code>Pln</code>; T1 in Petri; T2–T3 in <code>Liv</code>; chain of open subuniverses with an orthogonal awakening preorder (§§6.16.2, 6.16.5)</td>
+<td>Partial–moderate</td>
 <td>Orders in <code>Ord</code>; planes cross-cut knowledge order</td>
 </tr>
 <tr>
@@ -1434,7 +1447,7 @@ flowchart TD
 </tr>
 <tr>
 <td>Delusion / completeness not &ldquo;more&rdquo;</td>
-<td>Retract not iso</td>
+<td>Retract not iso; internally undecidable equation in the deluded plane (§6.16.3)</td>
 <td>Strong</td>
 <td>Coherent and categorical</td>
 </tr>
@@ -1482,7 +1495,7 @@ flowchart TD
 </tr>
 <tr>
 <td>Transmission τ (L5)</td>
-<td><code>Trans</code> coalgebra (sketch)</td>
+<td><code>Trans</code> coalgebra (sketch); opfibration over levels as candidate home (§6.16.6)</td>
 <td>Weak</td>
 <td>Not derivable from κ</td>
 </tr>
@@ -1499,6 +1512,12 @@ flowchart TD
 <td><em>vikas-kram</em> bookkeeping only</td>
 </tr>
 <tr>
+<td>Activity triad (D5b)</td>
+<td>Petri transition firing: effort consumed, result produced; φ reads the token; <em>kshobh</em> = enabled but unfired (§6.10)</td>
+<td>Moderate</td>
+<td>Run grammar captured; goal-directedness of each moment is textual content</td>
+</tr>
+<tr>
 <td>Education / sanskar</td>
 <td>τ + faithfulness of Info→Conduct</td>
 <td>Moderate</td>
@@ -1512,9 +1531,9 @@ flowchart TD
 </tr>
 <tr>
 <td><em>Gyan udghatan</em> (Ξ, D12)</td>
-<td>Partial endofunctor <code>Ξ : Liv ⇀ Liv</code></td>
-<td>Partial</td>
-<td>&ldquo;Awakened&rdquo; guard external</td>
+<td>Total functor on the awakened open subuniverse (§6.16.2); formerly partial <code>Ξ : Liv ⇀ Liv</code> with external guard</td>
+<td>Moderate</td>
+<td>Guard internalised as subuniverse inclusion</td>
 </tr>
 <tr>
 <td><em>Satta mein anubhav</em> (TEL, D12)</td>
@@ -1539,6 +1558,12 @@ flowchart TD
 <td>No generating functor (Hume)</td>
 <td>Weak as novelty</td>
 <td>True; philosophy supplies it</td>
+</tr>
+<tr>
+<td>Recognisable states / crisp classification</td>
+<td>Internal coherent theory with nucleus-stable (decidable) predicates (§6.16)</td>
+<td>Partial</td>
+<td>Programme adopted from the topos route; theorems pending</td>
 </tr>
 </tbody>
 </table></div>
@@ -1581,13 +1606,13 @@ flowchart TD
 <p><strong>Non-uniqueness of the formalization.</strong> Body/<code>jeevan</code> could be a monoid action, a fibration, a comma object, or a monad algebra; cap(<em>u</em>) could be a fibration, a profunctor, or a weighted enrichment — the &ldquo;theory&rdquo; is really a <em>family</em> of models.</p>
 </li>
 <li>
-<p><strong>The premises do the work.</strong> In all propositions except P6, the categorical step is valid but inert without a contested premise, or requires structure outside CT (P8–P9, L3 guard).</p>
+<p><strong>The premises do the work.</strong> In all propositions except P6, the categorical step is valid but inert without a contested premise, or requires structure outside CT (P8–P9, L3 guard). §6.16.1 gives this a workable form: once the premise set is stated as an internal coherent theory, which conclusions follow from which subset becomes checkable rather than editorial.</p>
 </li>
 <li>
 <p><strong>Structuralism vs substantialism</strong> (§6.13.1) is unresolved and possibly unresolvable within category theory — a boundary of the tool, not a bug.</p>
 </li>
 <li>
-<p><strong>&ldquo;Mystery&rdquo; in delusion.</strong> MVD Ch. 17 names <em>bauddhik rahasya</em> when lower <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> faculties fail to take refuge in the one above — misaligned projection–reflection, not an irreducible ontological opacity (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.9; <a href="https://analyticmadhyasthdarshan.org/Studies/Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.html">Knowledge, Knower, and Known</a> §1.11).</p>
+<p><strong>&ldquo;Mystery&rdquo; in delusion.</strong> MVD Ch. 17 names <em>bauddhik rahasya</em> when lower <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> faculties fail to take refuge in the one above — misaligned projection–reflection, not an irreducible ontological opacity (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.9; <a href="https://analyticmadhyasthdarshan.org/Studies/Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.html">Knowledge, Knower, and Known</a> §1.11). §6.16.3 offers a formal reading: the deluded plane is one whose internal logic cannot decide the comfort/fulfilment equation, and awakening is passage to the subuniverse where it becomes decidable.</p>
 </li>
 <li>
 <p><strong>No empirical contact.</strong> Nothing yields a measurement or prediction of <code>jeevan</code>, coexistence, or constitutional completeness.</p>
@@ -1599,10 +1624,10 @@ flowchart TD
 <p><strong>Enrichment base underdetermined.</strong> The quality preorder <code>W</code>, D4 taxonomy, and cap preorders are chosen, not derived.</p>
 </li>
 <li>
-<p><strong>Saturation and τ resist full internalization</strong> (§6.13.4–5, P8).</p>
+<p><strong>Saturation and τ resist full internalization</strong> (§6.13.4–5, P8). For τ specifically, an opfibration of instances over levels is now a named candidate home (§6.16.6); saturation remains outside.</p>
 </li>
 <li>
-<p><strong>L3 guard underdetermined.</strong> <code>AdmissibleComp</code> is named and typed (§6.9.1) but not uniquely specified — the same span may be admissible under complementarity yet fail other textual constraints (proportion, order).</p>
+<p><strong>L3 guard underdetermined.</strong> <code>AdmissibleComp</code> is named and typed (§6.9.1) but not uniquely specified — the same span may be admissible under complementarity yet fail other textual constraints (proportion, order). The conservativity discipline of §6.16.4 at least classifies it: <code>AdmissibleComp</code> is a substantive axiom family, not a definitional name, so its content must be supplied by the texts.</p>
 </li>
 <li>
 <p><strong>Mixture/compound boundary cases.</strong> Real assemblies may exhibit intermediate behaviour (partial fusion). The binary κ_mix / κ_comp split is a modelling convenience; finer quotients may be needed for some tiers.</p>
@@ -1666,6 +1691,21 @@ ev  : Conduct -&gt; Ev        (pramanikta)
 </code></pre>
 <p>Categorical honesty: this is a <strong>family</strong> of functors and partial composites across <code>Eval</code>, <code>Conduct</code>, <code>Ev</code>, and <code>Trans</code> — not <code>id_Liv</code>. Transmission τ at the knowledge order must carry <strong>evidenced</strong> understanding (P16), linking the tradition step to education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> (§6.8).</p>
 <p>Epistemic detail: <a href="https://analyticmadhyasthdarshan.org/Studies/Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.html">Knowledge, Knower, and Known</a> §§1.6–1.8. Ontological exposition: <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.11.</p>
+<h3>6.16 The logic layer: internal language, modalities, and decidability</h3>
+<p>Everything in this paper so far works at the level of objects and arrows. A parallel formal effort approaches the darshan from the level of logic instead. Meena&rsquo;s topos-theoretic study (MD-TOPOS) axiomatises Madhyasth classifications as twenty-six predicates over a single sort of &ldquo;world-points&rdquo; — six agitations (<em>Walls</em>), six virtues, four responsibilities, five scales, five shells — adds one definitional flag naming the disjunction of the agitations, and proves that the resulting finite site presents the theory&rsquo;s classifying topos with decidable equality on all &ldquo;ledger&rdquo; states, while five Lawvere–Tierney nuclei modelling the <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> layers preserve that decidability. The single-sort flattening discards nearly everything §§6.1–6.10 articulate — units with signatures, relationships with expectation profiles, assembly, transmission — so the construction answers a different question than this paper&rsquo;s: not <em>what is the structure of the darshan&rsquo;s ontology</em> but <em>in which minimal logic do its classifications become computable</em>. Several of its devices nevertheless land precisely on problems recorded in §§6.13–6.14. This section adopts those devices on top of the present architecture and closes with what the topos route settles and what it does not.</p>
+<h4>6.16.1 The template as an internal coherent theory</h4>
+<p>Presheaves over the §6.1 category system form a topos, and every topos carries an internal language in which predicates on objects, finite conjunction and disjunction, and existential quantification behave intuitionistically. In that language the template&rsquo;s definitions and laws stop being informal side conditions and become geometric sequents interpreted over <code>Liv</code>, <code>Rel</code>, <code>Conduct</code>, and the rest: recognition and fulfilment as relations guarded by cap(<em>u</em>) (§6.6.1), the compatibility condition of §6.8 as a sequent about agreement on overlaps, the stage bounds of §6.2.1 as monotone flags. Each proposition P1–P16 then reads as a sequent whose hypotheses are visible in the internal theory rather than in surrounding prose. This is the precise form of the concern in §6.14.2 that &ldquo;the premises do the work&rdquo;: once the premise set is a theory, what follows from which subset becomes a checkable question, not an editorial judgment. Nothing in this move imports MD-TOPOS&rsquo;s single sort — the internal theory is many-sorted, one sort per category of the §6.1 system, so units, relationships, and assemblies keep their distinct types.</p>
+<h4>6.16.2 Modalities and open subuniverses</h4>
+<p>Three constructions in this paper share an awkward shape: a partial endofunctor plus an external guard. Knowledge unfolding is <code>Ξ : Liv ⇀ Liv</code> defined only on awakened units (§6.15); inward regulation is <code>AtmaReg : Liv ⇀ Liv</code> defined only within constitutionally complete <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> (§6.1); plane membership is a second labelling <code>Pln</code> bolted onto <code>Ord</code> (§6.2.1). Topos logic supplies one standard gadget that absorbs all three: an <strong>open subuniverse</strong> — a full subcategory with a reflector <code>a ⊣ i</code> whose composite is an idempotent, left-exact closure operator (a Lawvere–Tierney nucleus) on the ambient universe. <em>Awakened</em> becomes an open subuniverse of <code>Liv</code>; <code>Ξ</code> is a total functor there, and the former guard is the inclusion itself. <code>AtmaReg</code> becomes closure under an inward-regulation nucleus rather than a partial map. The planes of §6.2.1 become a chain of open subuniverses (physicochemical ⊂ delusional ⊂ deific ⊂ divine read as successively stronger closure conditions), and the regulation ladder D2a acquires a slogan: a conformance regime is <em>definite</em> for a unit exactly when the unit&rsquo;s conduct predicates are closed under the corresponding nucleus, and <em>achieved</em> when closure holds only after passage through knowing, believing, recognising, and fulfilling. MD-TOPOS names five such nuclei after the <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> faculties (<em>Ātmā</em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="buddhi" data-definition="Discriminative faculty in *jeevan* — part of the sentient unit's orbital structure with *mun*, *vritti*, and *chitta*.">Buddhi</button></span></em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery.">Chitta</button></span></em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Modification or tendency in *jeevan* — one of the faculties whose alignment supports or obstructs understanding.">Vritti</button></span></em>, <em>Mana</em>); this paper does not adopt that particular five-fold indexing, because the faculty stack is already carried by the monoid action of §6.4 and the ontology&rsquo;s projection–reflection account (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.9) — what is adopted is the device, not the inventory.</p>
+<h4>6.16.3 Decidability, delusion, and resolution</h4>
+<p>§6.5 defines delusion as asserting the false equation <code>i ∘ p = id_F</code> — treating comfort as the whole of fulfilment. The topos study&rsquo;s sharpest finding suggests an upgrade. Of all its predicate families, exactly one resists crisp classification: the agitations of outward-oriented <em>Mana</em>. Equality on that family is undecidable in the base theory, becomes decidable only when the ambiguity is <em>named</em> (a single conservative flag for &ldquo;some agitation is present&rdquo;), and the resolved condition is the decidable complement of that flag. Read back into this paper&rsquo;s vocabulary: the deluded plane is not merely one in which a false equation is asserted, but one whose internal logic cannot yet <em>decide</em> the equation — the distinction between comfort and fulfilment is present in the structure yet not recognisable from inside. Awakening is then passage to the open subuniverse (§6.16.2) in which that distinction becomes decidable, which matches the ontology&rsquo;s account of <em>bauddhik rahasya</em> as misaligned projection–reflection rather than irreducible opacity (§6.14.4; <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.9). The reading also yields a theorem target analogous to MD-TOPOS&rsquo;s Modal Transparency result: identify which template predicates remain complemented — crisply decidable — under the evaluation functor μ and the unfolding <code>Ξ</code>, and which acquire definiteness only inside the awakened subuniverse. Proving such a statement for the fibred conduct category of §6.6.1 would be the first genuinely new mathematics this logic layer demands.</p>
+<h4>6.16.4 Conservativity and minimality discipline</h4>
+<p>Morleyisation — adding a predicate that merely names an existing formula, with biconditionals, and proving that no new theorems in the old vocabulary result — is model theory&rsquo;s standard for <em>definitional</em> extension. Adopting it as a discipline sharpens rule 4 of §6.0: every named predicate this formalisation introduces is henceforth classified as <strong>definitional</strong> (a conservative name for structure already present) or <strong>substantive</strong> (a genuinely new axiom requiring textual warrant). The classification is immediately informative. <code>AdmissibleComp</code> (§6.9.1) is substantive: no combination of colimit vocabulary defines it, so it stands as an axiom family whose content must come from the texts — which is what P9 asserted, now with a criterion rather than an impression. The same standard motivates an <strong>independence audit</strong> of the template&rsquo;s primitives: for each definition and law of <a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.html">The Coexistence Template</a> (D1–D13, L1–L7), either derive it from the rest or exhibit a countermodel witnessing its independence, as MD-TOPOS does for its twenty-seven generators. That audit, and the mechanised checking it enables (the internal theory of §6.16.1 is finitary and within reach of a proof assistant), are the programme this section opens rather than results it claims; they are the safeguard of §6.14.6 made mechanical. The template&rsquo;s activity triad (D5b) is the first clause added under this discipline: classified substantive, warranted by SB pp. 58, 71 and MVD p. 11, and given its categorical semantics in §6.10.</p>
+<h4>6.16.5 Two orthogonal orders</h4>
+<p>§6.2.1 insists that orders and planes must not be collapsed, and handles the demand with a second labelling. MD-TOPOS §9.1 shows the cleaner form: put <em>two</em> order structures on the same family of subuniverses and let them disagree. Its knowledge slices are ordered once by scope — cosmic inside conduct inside self, as nested open embeddings — and again, in the opposite direction, by explanatory adequacy: the self-knowledge slice is the most complete constitution, which furnishes humane conduct, which organises the cosmic picture. Transposed here: <code>Ord</code> carries the mereological containment <code>M ≤ B ≤ A ≤ K</code> (§6.2), while the planes carry an orthogonal awakening preorder on the knowledge order&rsquo;s subuniverses (§6.16.2), and the compatibility condition between the two is exactly the content of P13 — plane transitions T2–T3 move a unit along the second order without moving it along the first. Stating both orders on one structure, with their orthogonality as an explicit axiom, replaces the ad-hoc feel of the <code>Pln</code> overlay and keeps the four progressions of §6.2.1 from collapsing into one.</p>
+<h4>6.16.6 What the topos route does and does not settle</h4>
+<p>From MD-TOPOS this paper adopts the internal-logic layer (§6.16.1), the nucleus/open-subuniverse device (§6.16.2), the decidability reading of delusion and resolution (§6.16.3), the conservativity and independence discipline (§6.16.4), and the two-orders device (§6.16.5). One further borrowing is recorded for the transmission problem: the study organises council instances over a chain of levels as a cloven opfibration, with nomination formalised as opcartesian lifts — a concrete candidate for the indexed-category home this paper sketched for <code>Trans</code> and τ (§6.1; §6.14.8), to be developed where governance is treated in its own right.</p>
+<p>This paper declines the rest. The single-sort flattening is not adopted, for the reasons stated at the head of this section. The study&rsquo;s exclusivity axioms — at most one virtue, one responsibility, one scale holding at a point — purchase its decidability results, but the texts describe virtues as co-present intrinsic nature at the <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Modification or tendency in *jeevan* — one of the faculties whose alignment supports or obstructs understanding.">Vritti</button></span></em> layer, not mutually exclusive states, so importing those axioms would trade fidelity for computability; any decidability claims made here must be derived from textual warrant instead. Brahma as a terminal object is declined consistently with §6.13.4: the terminal object is relationally trivial, while saturation is constitutive. The study&rsquo;s ten tier formulas and its claim that the twenty-six-atom count is <em>forced</em> by a representation-theoretic construction rest on companion papers whose extraordinary further claims have not been independently verified; both are treated as stipulations. And three boundaries of this paper are untouched by anything the topos route offers: the structuralism-versus-substance tension over <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> (§6.13.1) — a single-sort logic re-describes <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> as predicates even more thoroughly than arrows do; the samadhi warrant, which remains outside every formalism (§6.13.2); and the absence of empirical contact (§6.14.5), since decidability concerns proof, not measurement.</p>
 <h2 id="7-limits-and-conclusion">7. Limits and conclusion</h2>
 <p>A clear guide must also say what this does <strong>not</strong> do.</p>
 <ul>
@@ -1674,7 +1714,7 @@ ev  : Conduct -&gt; Ev        (pramanikta)
 <li><strong>Samadhi is not the same as ontological <em>anubhav</em>.</strong> The darshan&rsquo;s meditative warrant (<em>sadhana-samadhi-samyama</em>, MVD p. 7) is the <em>source</em> of the axioms and sits outside any diagram — distinct from <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="anubhav-jnan" data-definition="Realisation Knowledge — the ontological given in saturated units: form, properties, essential nature, *dharma*, and orderliness.">anubhav jnan</button></span></em> (given structure) and from <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span> mein anubhav</em> (telos evidenced in fulfilment).</li>
 <li><strong>It adds no third-person evidence.</strong> No measurement of <code>jeevan</code>, constitutional completeness, or coexistence comes out of this notation alone. Madhyasth&rsquo;s own test is conduct-evidence and tradition (MVD p. 12; template D13). Science would still need operational definitions and public observations.</li>
 </ul>
-<p>Category theory is a <strong>lens for clarity</strong>, not a proof machine and not a new physics. It makes <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s logic visible, shows exactly what each conclusion depends on, maps naturally onto <a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.html"><em>The Coexistence Template</em></a> — including <strong>sig(<em>u</em>)</strong> and planes (D1a, D11), fibred <strong>cap(<em>u</em>)</strong> (§6.6.1), <strong>mixture/compound</strong> κ (§6.9), <strong>knowledge registers</strong> D12, and <strong>self-evidencing</strong> D13/L7 (§6.15) — and contributes one real insight about social gluing. Ontology–epistemology <strong>closure</strong> at the human tier requires <code>Liv</code> (μ, Ξ, ev), not <code>Rel</code> alone. Saturation, the L3 guard, evidenced transmission, plane typing, and substantial <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> remain explicit boundaries.</p>
+<p>Category theory is a <strong>lens for clarity</strong>, not a proof machine and not a new physics. It makes <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s logic visible, shows exactly what each conclusion depends on, maps naturally onto <a href="https://analyticmadhyasthdarshan.org/Studies/The-Coexistence-Template/The-Coexistence-Template.html"><em>The Coexistence Template</em></a> — including <strong>sig(<em>u</em>)</strong> and planes (D1a, D11), fibred <strong>cap(<em>u</em>)</strong> (§6.6.1), <strong>mixture/compound</strong> κ (§6.9), <strong>knowledge registers</strong> D12, and <strong>self-evidencing</strong> D13/L7 (§6.15) — and contributes one real insight about social gluing. The logic layer of §6.16 extends the lens one level: an internal coherent theory over the same categories, with awakening and planes as open subuniverses and delusion as internal undecidability, opening an independence-audit and mechanisation programme. Ontology–epistemology <strong>closure</strong> at the human tier requires <code>Liv</code> (μ, Ξ, ev), not <code>Rel</code> alone. Saturation, the L3 guard, evidenced transmission, and substantial <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> remain explicit boundaries.</p>
 <div class="mermaid">
 flowchart LR
     Co["Coexistence"] --> Un["Understanding"]
@@ -1690,6 +1730,10 @@ flowchart LR
 <li><strong>MVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan — Co-existentialism</em></a>. English translation by Rakesh Gupta. Cited: <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="anubhav-jnan" data-definition="Realisation Knowledge — the ontological given in saturated units: form, properties, essential nature, *dharma*, and orderliness.">Realisation Knowledge</button></span> (p. 11); evidence chain and &ldquo;Believe what is known&rdquo; (p. 12); four orders; unit signature (pp. 50–51); relationships and values; capacity–ability–receptivity (pp. 62, 79, 134, 142); mixture and compound (p. 42); hungry/overfull atoms (p. 8); knowledge unfolding (pp. 115–116, 289); realisation in coexistence (p. 116); three satisfactions (Ch. 4); organisation sustainment (p. 55); samadhi-samyama warrant (p. 7).</li>
 <li><strong>SB</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf"><em>Samadhanatmak Bhautikvad / Resolution Centred Materialism</em></a>. English translation by Rakesh Gupta. Also at https://www.youtube.com/playlist?list=PL69PCoz1OQW0dhshZ0Xv3KtZ7ajJOIpgv (bilingual Hindi and English). Cited: effort–motion–result (p. 58); planes and completeness transitions (pp. 51–52, 92); constitutional completeness (p. 55); essentiality as value (p. 50); value-distinct acts (Ch. 7).</li>
 <li><strong>JV</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf"><em>Jeevan Vidya: An Introduction</em></a>. English translation by Rakesh Gupta. Cited: body as instrument (Ch. 1); complementarity (p. 157); commerce and &ldquo;more&rdquo; (p. 41).</li>
+</ul>
+<h3>Formal approaches to Madhyasth Darshan</h3>
+<ul>
+<li><strong>MD-TOPOS</strong> — Meena, B. <a href="https://analyticmadhyasthdarshan.org/References/Applied-Studies/MD_TOPOS.pdf"><em>Minimal Decidable Site for the Madhyasth–Darshan Classifying Topos via Single-Flag Morleyisation</em></a>. Zenodo preprint, 2025; DOI <a href="https://doi.org/10.5281/zenodo.16786431">10.5281/zenodo.16786431</a>. Cited: single-sort predicate ledger and Morleyisation of the Wall disjunction (its §§2–5); Lawvere–Tierney value nuclei and Modal Transparency (its §§2.4, 8); two orders on knowledge slices (its §9.1); instance opfibration and election lifts (its App. H) — engaged critically throughout §6.16.</li>
 </ul>
 <h3>Related studies in this collection</h3>
 <ul>
