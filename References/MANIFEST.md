@@ -56,10 +56,7 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-19.
 
 | [How-Undivided-Society-Is-Established.pdf](../Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf) | MVD, SB, JV, JVD, AVD | TBD |
 
-| [Restfulness-And-Least-Action.pdf](../Studies/Restfulness-And-Least-Action/Restfulness-And-Least-Action.pdf) | MVD, SB, JV; Terekhovich 2015, Feynman 1964, Kotiuga and Lahtinen 2018, Arnold symplectic, Baehni 2019, Russell Basic Writings local; Scholarpedia PLA, Landau SE, particle future SE, Reddit PLA, Gray and Taylor astonishment, Apeiron biological action, Emergent Mind PLA, ResearchGate teleology, Gromov 1989, path integrals blog, Milewski 2015, Baez week292, Baez week296, Baez maximum principles, Baez and Fong 2015, Baez and Weingarten 2020, nLab prequantized Lagrangian, Weinstein Lagrangian, Math SE modules external |
 
-| [Coexistence-From-First-Principles.pdf](../Studies/Coexistence-From-First-Principles/Coexistence-From-First-Principles.pdf) | MVD, SB, JV | present |
-| | MD-TOPOS | present |
 
 ## By tag
 
@@ -107,18 +104,18 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-19.
 | **Tufft et al. 2024** | [Modern-Philosophy/Tufft-et-al-2024-Flow-Active-Inference.pdf](Modern-Philosophy/Tufft-et-al-2024-Flow-Active-Inference.pdf) | Knowledge-Knower |
 | **Whitehead 1929** | [Modern-Philosophy/Whitehead-1929-Process-and-Reality.pdf](Modern-Philosophy/Whitehead-1929-Process-and-Reality.pdf) | The-Ontology-of-Coexistence |
 | **Russell 1921** | [Modern-Philosophy/Russell-1921-The-Analysis-of-Mind.pdf](Modern-Philosophy/Russell-1921-The-Analysis-of-Mind.pdf) | The-Ontology-of-Coexistence |
-| **Russell Basic Writings** | [Modern-Philosophy/Russell-Basic-Writings.pdf](Modern-Philosophy/Russell-Basic-Writings.pdf) | Restfulness-And-Least-Action |
+| **Russell Basic Writings** | [Modern-Philosophy/Russell-Basic-Writings.pdf](Modern-Philosophy/Russell-Basic-Writings.pdf) | (none — review MANIFEST.md) |
 | **Mach 1914** | [Modern-Philosophy/Mach-1914-The-Analysis-of-Sensations.pdf](Modern-Philosophy/Mach-1914-The-Analysis-of-Sensations.pdf) | The-Ontology-of-Coexistence |
 | **Ashtekar and Singh 2011** | [Science/Ashtekar-Singh-2011-Loop-Quantum-Cosmology-Status-Report.pdf](Science/Ashtekar-Singh-2011-Loop-Quantum-Cosmology-Status-Report.pdf) | The-Ontology-of-Coexistence, Nature-Of-Time |
 | **Carroll 2010** | [Science/Carroll-2010-Energy-Is-Not-Conserved.html](Science/Carroll-2010-Energy-Is-Not-Conserved.html) | The-Ontology-of-Coexistence, Nature-Of-Time |
 | **Friston 2010** | [Science/Friston-2010-Free-Energy-Principle.pdf](Science/Friston-2010-Free-Energy-Principle.pdf) | The-Ontology-of-Coexistence |
 | **Guth 2007** | [Science/Guth-2007-Eternal-Inflation.pdf](Science/Guth-2007-Eternal-Inflation.pdf) | The-Ontology-of-Coexistence |
-| **Terekhovich 2015** | [Science/Terekhovich-2015-Metaphysics-Principle-Least-Action.pdf](Science/Terekhovich-2015-Metaphysics-Principle-Least-Action.pdf) | Restfulness-And-Least-Action |
-| **Kotiuga and Lahtinen 2018** | [Science/Kotiuga-Lahtinen-2018-Electrical-Engineering-Naturality.pdf](Science/Kotiuga-Lahtinen-2018-Electrical-Engineering-Naturality.pdf) | Restfulness-And-Least-Action |
-| **Feynman 1964** | [Science/Feynman-1964-Principle-Least-Action-Ch19.pdf](Science/Feynman-1964-Principle-Least-Action-Ch19.pdf) | Restfulness-And-Least-Action |
-| **Arnold symplectic** | [Science/Arnold-Symplectic-Geometry-Applications.pdf](Science/Arnold-Symplectic-Geometry-Applications.pdf) | Restfulness-And-Least-Action |
-| **Baehni 2019** | [Science/Baehni-2019-Mathematical-Aspects-Classical-Mechanics.pdf](Science/Baehni-2019-Mathematical-Aspects-Classical-Mechanics.pdf) | Restfulness-And-Least-Action |
-| **Scholarpedia PLA**, **Landau SE**, **particle future SE**, **Reddit PLA**, **Gray and Taylor astonishment**, **Apeiron biological action**, **Emergent Mind PLA**, **ResearchGate teleology**, **Gromov 1989**, **path integrals blog**, **Milewski 2015**, **Baez week292**, **Baez week296**, **Baez maximum principles**, **Baez and Fong 2015**, **Baez and Weingarten 2020**, **nLab prequantized Lagrangian**, **Weinstein Lagrangian**, **Math SE modules** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Restfulness-And-Least-Action |
+| **Terekhovich 2015** | [Science/Terekhovich-2015-Metaphysics-Principle-Least-Action.pdf](Science/Terekhovich-2015-Metaphysics-Principle-Least-Action.pdf) | (none — review MANIFEST.md) |
+| **Kotiuga and Lahtinen 2018** | [Science/Kotiuga-Lahtinen-2018-Electrical-Engineering-Naturality.pdf](Science/Kotiuga-Lahtinen-2018-Electrical-Engineering-Naturality.pdf) | (none — review MANIFEST.md) |
+| **Feynman 1964** | [Science/Feynman-1964-Principle-Least-Action-Ch19.pdf](Science/Feynman-1964-Principle-Least-Action-Ch19.pdf) | (none — review MANIFEST.md) |
+| **Arnold symplectic** | [Science/Arnold-Symplectic-Geometry-Applications.pdf](Science/Arnold-Symplectic-Geometry-Applications.pdf) | (none — review MANIFEST.md) |
+| **Baehni 2019** | [Science/Baehni-2019-Mathematical-Aspects-Classical-Mechanics.pdf](Science/Baehni-2019-Mathematical-Aspects-Classical-Mechanics.pdf) | (none — review MANIFEST.md) |
+| **Scholarpedia PLA**, **Landau SE**, **particle future SE**, **Reddit PLA**, **Gray and Taylor astonishment**, **Apeiron biological action**, **Emergent Mind PLA**, **ResearchGate teleology**, **Gromov 1989**, **path integrals blog**, **Milewski 2015**, **Baez week292**, **Baez week296**, **Baez maximum principles**, **Baez and Fong 2015**, **Baez and Weingarten 2020**, **nLab prequantized Lagrangian**, **Weinstein Lagrangian**, **Math SE modules** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | (none — review MANIFEST.md) |
 | **Metzinger 2003**, **Penrose 2010**, **Ishvarakrishna**, **Nagarjuna**, **Weinberg 1995** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence |
 | **Hashemi 2025** | [Modern-Philosophy/Hashemi-2025-How-to-Understand-Russellian-Panpsychism.pdf](Modern-Philosophy/Hashemi-2025-How-to-Understand-Russellian-Panpsychism.pdf) | Knowledge-Knower |
 | **McTaggart 1908** | [Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.html](Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.html) | Nature-Of-Time |

@@ -21,6 +21,7 @@ from _study_catalog import (  # noqa: E402
     StudyRow,
     StudyStatus,
     StudyTable,
+    catalog_json_path,
     catalog_json_payload,
     catalog_markers,
     load_catalog_rows,
@@ -1670,9 +1671,8 @@ def minify_inline_css(html: str) -> str:
 
 
 def load_rows_for_build(legacy_index_text: str, table: StudyTable) -> list:
-    rows = parse_catalog_json_file(table)
-    if rows:
-        return rows
+    if catalog_json_path(table).is_file():
+        return parse_catalog_json_file(table)
     if legacy_index_text:
         return parse_catalog_json(legacy_index_text, table)
     return []
