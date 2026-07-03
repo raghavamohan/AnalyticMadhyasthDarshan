@@ -750,7 +750,9 @@ def load_pre_catalog_proposals() -> list[dict]:
     return [
         entry
         for entry in data.get("proposals", [])
-        if entry.get("phase") == "pre-catalog" and not entry.get("formal")
+        if entry.get("phase") == "pre-catalog"
+        and not entry.get("formal")
+        and not entry.get("applied")
     ]
 
 
