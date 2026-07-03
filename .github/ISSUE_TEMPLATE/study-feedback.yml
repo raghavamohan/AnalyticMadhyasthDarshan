@@ -18,7 +18,6 @@ body:
       description: Choose the study your comment is about.
       options:
         - Aesthetics
-        - Category Theory Explained
         - Coexistence Company — Concrete Organizational Structure
         - Coexistence from First Principles
         - Ethics and Morals in Human Beings
@@ -28,7 +27,6 @@ body:
         - Knowledge Knower and Known
         - Nature of Time
         - "Restfulness and Least Action: A Category-Theoretic Comparison"
-        - The Coexistence Template
         - The Ontology of Coexistence
         - Why Humans Are Not Just Material
         - General — catalog or website
