@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 1, 2026, 2:23 PM IST
+**Edited on:** July 3, 2026, 8:52 AM IST
 **Status:** Released
 
 **The question:** What does category theory clarify about the structure of Madhyasth Darshan — and where does that notation stop?
@@ -316,6 +316,7 @@ flowchart TD
 | Relationships | **R**, D3 | Category `Rel`; expectation profiles **E(r)** on arrows | Strong; association vs relationship is typing, not composition |
 | Values / essentiality | **V**, D4 | Preorder `Val`; enrichment base **W**; essentiality (*maulikta*) as participation-as-value | Moderate — six-fold taxonomy (utility / art / *jeevan* / human / established / expression) compresses in §6.6 |
 | Recognition, fulfilment | **ρ**, **φ**, D5 | Morphisms/processes on `Rel` / `Conduct`; fibred over `Cap` | Moderate — cap(*u*) = ⟨ksh, yog, pat⟩ in §6.6.1 |
+| Activity triad | **D5b** | Petri/monoidal transitions (§6.10): run = transition firing; φ as terminal *parinam*; *kshobh* = enabled transition that fails to fire | Strong for bookkeeping; content-agnostic |
 | Evaluation | **μ**, D6 | `Eval` on `Liv` only | Moderate — order-restriction is essential (P10) |
 | Composition | **κ**, D8 | `Comp`: mixture = coproduct; compound = tier-changing colimit | Moderate — modes distinguished in §6.9 |
 | Planes, completeness | **D11**, P6 | Layered typing on units; T1 irreversible vs T2–T3 in `Liv` (§6.2.1) | Partial — plane membership for humans is state, not order |
@@ -324,6 +325,7 @@ flowchart TD
 | Transmission | **τ**, L5 | `Trans` coalgebra / indexed maps | Weak — not derivable from κ alone |
 | Tier iteration | **L6** | Poset `Ord` + iterated colimits | Strong |
 | Four orders | D2 | Poset `M ≤ B ≤ A ≤ K` | Strong |
+| Crisp classification / decidability | (D-definitions as sequents) | Internal coherent theory over the §6.1 system; nucleus-stable predicates and open subuniverses (§6.16) | Programme adopted from the topos route (MD-TOPOS); theorems pending |
 
 The template's §7 comparison row states the division of labour plainly: category theory is the natural notation for **κ** and **L6**, but **L3** (complementary need as the engine of assembly) is the selection rule the notation lacks. Any colimit model of society must be supplemented by an external criterion — complementary deficiency and surplus — for which diagrams count as development-progression bonding rather than arbitrary gluing.
 
@@ -459,7 +461,7 @@ cap(u) = <ksh(u), yog(u), pat(u)>
 | **yog** (*yogyata*) | Competence to convert capacity into effort, conduct, or bonding | **Composition of φ-steps:** the composite φ₂ ∘ φ₁ is defined only if yog(*u*) suffices along the chain; failure = *kshobh* |
 | **ksh** (*kshamata*) | Scope for participating in relationships and bearing what coexistence makes available | **Grade ceiling in *W*:** effective satisfaction grade is `min(W_chain, ksh_ceiling(u))` |
 
-Receptivity alone does not produce fulfilment: a unit may **recognise** a relationship (ρ) yet deliver only a truncated value flow because yog or ksh is insufficient — the template's diagnosis of frustrated or partial order.
+Receptivity alone does not produce fulfilment: a unit may **recognise** a relationship (ρ) yet deliver only a truncated value flow because yog or ksh is insufficient — the template's diagnosis of frustrated or partial order. In the template's activity-triad terms (D5b), cap(*u*) gates the first arrow of the run *shram → gati → parinam*: the yog composition gate above is exactly what a stalled run (*kshobh*) violates.
 
 #### Fibred enrichment over units
 
@@ -650,6 +652,8 @@ At the knowledge order specifically, [How Undivided Society Is Established](../H
 
 **Development Progression** (*vikas-kram*) — distinct from **Awakening Progression** (*jagriti-kram*) in already constitutionally complete *jeevan* ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §§1.8–1.10) — runs through effort–motion–result (*shram–gati–parinam*), read toward completeness at each stage: result → constitutional completeness; effort → activity completeness; motion → conduct completeness (SB p. 58). *Kaal* is the duration of that activity, not an independent container ([Nature of Time](../Nature-Of-Time/Nature-Of-Time.pdf) §1.1).
 
+This layer is the categorical home of the template's **activity triad** (template D5b): a run *shram → gati → parinam* is a transition firing — effort consumed as input, result produced as output — and φ reads value off the produced token. Frustration (*kshobh*, template D5a–D5b) is an enabled transition that fails to fire: inputs present, output never produced. The stage mapping above is D5b's completeness reading of the same triad.
+
 Hungry/overfull atomic bonding is **compound-mode** κ_comp guarded by L3 (§6.9.1). The progression is **resource-sensitive**, best modelled by a **symmetric monoidal category** (equivalently the free such category on a Petri net), where the tensor is co-presence of resources and **transitions consume inputs to produce outputs**.
 
 | Layer | Transition | Input | Output | Note |
@@ -696,12 +700,12 @@ These are stated as: **structural claim, given premise P**. None is a theorem ab
 | Saturation in *O* (A1–A2) | Ambient `Sat`; inherent energy in unit through co-location; regulation ladder overlay (D2a); not `Rel` morphism; not transfer from *O* | Weak–moderate | Two-layer ontology plus typed regulation; CT has no native ground |
 | Inward regulation (D2b) | Partial **AtmaReg : Liv ⇀ Liv** on faculty stack | Weak | Mediative pattern at sentient scale; not derivable from `Phys` |
 | Unit signature (D1, D1a) | Typed **sig(*u*)** on objects; compound assigns new signature | Moderate | Property triad and order *svabhav*/*dharma* are data, not derived |
-| Planes, T1–T3 (D11) | Layered typing `Pln`; T1 in Petri; T2–T3 in `Liv` | Partial | Orders in `Ord`; planes cross-cut knowledge order |
+| Planes, T1–T3 (D11) | Layered typing `Pln`; T1 in Petri; T2–T3 in `Liv`; chain of open subuniverses with an orthogonal awakening preorder (§§6.16.2, 6.16.5) | Partial–moderate | Orders in `Ord`; planes cross-cut knowledge order |
 | Four orders contain lower orders | Poset `Ord` | Strong | Mereology is what posets are for |
 | Anti-reductionism | No `K <= M`; non-faithful `U` | Strong structurally | Encodes, does not prove |
 | *Gathanpurna parmanu* | Irreversible transition in Petri/monoidal layer | Moderate | Bookkeeping only |
 | Body vs `jeevan`, asymmetry | Monoid action | Moderate | Not unique; see §6.14 |
-| Delusion / completeness not "more" | Retract not iso | Strong | Coherent and categorical |
+| Delusion / completeness not "more" | Retract not iso; internally undecidable equation in the deluded plane (§6.16.3) | Strong | Coherent and categorical |
 | Graded values (D4) | Enrichment over preorder `W` | Moderate | Compresses six-fold taxonomy |
 | Evaluation μ, justice operator | `Eval` on `Liv`; partial composite ρ→φ→μ | Moderate | Order-restriction; φ fibred over cap (§6.6.1) |
 | cap(*u*) triad (D5a) | Fibred enrichment; `cap : Liv → Cap` | Moderate | Preorders given; frustration = failed composition |
@@ -709,16 +713,18 @@ These are stated as: **structural claim, given premise P**. None is a theorem ab
 | Unit relationships | `Rel`, functor `V : Rel -> Val` | Moderate | Effective φ_u family, not global functor |
 | Undivided society | Colimit + compatibility (L4) | Strong | Compound κ_comp reading of §6.8 |
 | Mixture vs compound (D8) | Coproduct vs fusion colimit | Moderate | Modes distinguished §6.9; content guard separate |
-| Transmission τ (L5) | `Trans` coalgebra (sketch) | Weak | Not derivable from κ |
+| Transmission τ (L5) | `Trans` coalgebra (sketch); opfibration over levels as candidate home (§6.16.6) | Weak | Not derivable from κ |
 | Complementarity (L3) | `AdmissibleComp` guard on spans | Partial | Predicate on diagrams, not CT-derived (§6.9.1) |
 | Development / effort | Monoidal/Petri; κ_comp transitions | Moderate | *vikas-kram* bookkeeping only |
+| Activity triad (D5b) | Petri transition firing: effort consumed, result produced; φ reads the token; *kshobh* = enabled but unfired (§6.10) | Moderate | Run grammar captured; goal-directedness of each moment is textual content |
 | Education / sanskar | τ + faithfulness of Info→Conduct | Moderate | Tied to transmission; evidenced τ (P16) |
 | *Anubhav jnan* (AJ, D12) | Ambient typing: sig(*u*) + orderliness from `Sat` | Moderate | Given data, not derived |
-| *Gyan udghatan* (Ξ, D12) | Partial endofunctor `Ξ : Liv ⇀ Liv` | Partial | "Awakened" guard external |
+| *Gyan udghatan* (Ξ, D12) | Total functor on the awakened open subuniverse (§6.16.2); formerly partial `Ξ : Liv ⇀ Liv` with external guard | Moderate | Guard internalised as subuniverse inclusion |
 | *Satta mein anubhav* (TEL, D12) | Target of progression functors / fulfilled `Rel` diagrams | Partial | Not a new object in `Sat` |
 | Evidence loop (D13, L7) | Quiver across `Eval`, `Conduct`, `Ev`, `Trans` | Weak–moderate | Not one composable endomorphism |
 | *Pramanikta* (T3) | `ev : Conduct → Ev`; lift in `Pln` | Partial | Faculty link in ontology §1.9 |
 | Means cannot fix ends | No generating functor (Hume) | Weak as novelty | True; philosophy supplies it |
+| Recognisable states / crisp classification | Internal coherent theory with nucleus-stable (decidable) predicates (§6.16) | Partial | Programme adopted from the topos route; theorems pending |
 
 ### 6.13 What does NOT fit well (and why)
 
@@ -746,11 +752,11 @@ These are stated as: **structural claim, given premise P**. None is a theorem ab
 
 1. **Non-uniqueness of the formalization.** Body/`jeevan` could be a monoid action, a fibration, a comma object, or a monad algebra; cap(*u*) could be a fibration, a profunctor, or a weighted enrichment — the "theory" is really a *family* of models.
 
-2. **The premises do the work.** In all propositions except P6, the categorical step is valid but inert without a contested premise, or requires structure outside CT (P8–P9, L3 guard).
+2. **The premises do the work.** In all propositions except P6, the categorical step is valid but inert without a contested premise, or requires structure outside CT (P8–P9, L3 guard). §6.16.1 gives this a workable form: once the premise set is stated as an internal coherent theory, which conclusions follow from which subset becomes checkable rather than editorial.
 
 3. **Structuralism vs substantialism** (§6.13.1) is unresolved and possibly unresolvable within category theory — a boundary of the tool, not a bug.
 
-4. **"Mystery" in delusion.** MVD Ch. 17 names *bauddhik rahasya* when lower *jeevan* faculties fail to take refuge in the one above — misaligned projection–reflection, not an irreducible ontological opacity ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.9; [Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §1.11).
+4. **"Mystery" in delusion.** MVD Ch. 17 names *bauddhik rahasya* when lower *jeevan* faculties fail to take refuge in the one above — misaligned projection–reflection, not an irreducible ontological opacity ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.9; [Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §1.11). §6.16.3 offers a formal reading: the deluded plane is one whose internal logic cannot decide the comfort/fulfilment equation, and awakening is passage to the subuniverse where it becomes decidable.
 
 5. **No empirical contact.** Nothing yields a measurement or prediction of `jeevan`, coexistence, or constitutional completeness.
 
@@ -758,9 +764,9 @@ These are stated as: **structural claim, given premise P**. None is a theorem ab
 
 7. **Enrichment base underdetermined.** The quality preorder `W`, D4 taxonomy, and cap preorders are chosen, not derived.
 
-8. **Saturation and τ resist full internalization** (§6.13.4–5, P8).
+8. **Saturation and τ resist full internalization** (§6.13.4–5, P8). For τ specifically, an opfibration of instances over levels is now a named candidate home (§6.16.6); saturation remains outside.
 
-9. **L3 guard underdetermined.** `AdmissibleComp` is named and typed (§6.9.1) but not uniquely specified — the same span may be admissible under complementarity yet fail other textual constraints (proportion, order).
+9. **L3 guard underdetermined.** `AdmissibleComp` is named and typed (§6.9.1) but not uniquely specified — the same span may be admissible under complementarity yet fail other textual constraints (proportion, order). The conservativity discipline of §6.16.4 at least classifies it: `AdmissibleComp` is a substantive axiom family, not a definitional name, so its content must be supplied by the texts.
 
 10. **Mixture/compound boundary cases.** Real assemblies may exhibit intermediate behaviour (partial fusion). The binary κ_mix / κ_comp split is a modelling convenience; finer quotients may be needed for some tiers.
 
@@ -799,6 +805,36 @@ Categorical honesty: this is a **family** of functors and partial composites acr
 
 Epistemic detail: [Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §§1.6–1.8. Ontological exposition: [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.11.
 
+### 6.16 The logic layer: internal language, modalities, and decidability
+
+Everything in this paper so far works at the level of objects and arrows. A parallel formal effort approaches the darshan from the level of logic instead. Meena's topos-theoretic study (MD-TOPOS) axiomatises Madhyasth classifications as twenty-six predicates over a single sort of "world-points" — six agitations (*Walls*), six virtues, four responsibilities, five scales, five shells — adds one definitional flag naming the disjunction of the agitations, and proves that the resulting finite site presents the theory's classifying topos with decidable equality on all "ledger" states, while five Lawvere–Tierney nuclei modelling the *jeevan* layers preserve that decidability. The single-sort flattening discards nearly everything §§6.1–6.10 articulate — units with signatures, relationships with expectation profiles, assembly, transmission — so the construction answers a different question than this paper's: not *what is the structure of the darshan's ontology* but *in which minimal logic do its classifications become computable*. Several of its devices nevertheless land precisely on problems recorded in §§6.13–6.14. This section adopts those devices on top of the present architecture and closes with what the topos route settles and what it does not.
+
+#### 6.16.1 The template as an internal coherent theory
+
+Presheaves over the §6.1 category system form a topos, and every topos carries an internal language in which predicates on objects, finite conjunction and disjunction, and existential quantification behave intuitionistically. In that language the template's definitions and laws stop being informal side conditions and become geometric sequents interpreted over `Liv`, `Rel`, `Conduct`, and the rest: recognition and fulfilment as relations guarded by cap(*u*) (§6.6.1), the compatibility condition of §6.8 as a sequent about agreement on overlaps, the stage bounds of §6.2.1 as monotone flags. Each proposition P1–P16 then reads as a sequent whose hypotheses are visible in the internal theory rather than in surrounding prose. This is the precise form of the concern in §6.14.2 that "the premises do the work": once the premise set is a theory, what follows from which subset becomes a checkable question, not an editorial judgment. Nothing in this move imports MD-TOPOS's single sort — the internal theory is many-sorted, one sort per category of the §6.1 system, so units, relationships, and assemblies keep their distinct types.
+
+#### 6.16.2 Modalities and open subuniverses
+
+Three constructions in this paper share an awkward shape: a partial endofunctor plus an external guard. Knowledge unfolding is `Ξ : Liv ⇀ Liv` defined only on awakened units (§6.15); inward regulation is `AtmaReg : Liv ⇀ Liv` defined only within constitutionally complete *jeevan* (§6.1); plane membership is a second labelling `Pln` bolted onto `Ord` (§6.2.1). Topos logic supplies one standard gadget that absorbs all three: an **open subuniverse** — a full subcategory with a reflector `a ⊣ i` whose composite is an idempotent, left-exact closure operator (a Lawvere–Tierney nucleus) on the ambient universe. *Awakened* becomes an open subuniverse of `Liv`; `Ξ` is a total functor there, and the former guard is the inclusion itself. `AtmaReg` becomes closure under an inward-regulation nucleus rather than a partial map. The planes of §6.2.1 become a chain of open subuniverses (physicochemical ⊂ delusional ⊂ deific ⊂ divine read as successively stronger closure conditions), and the regulation ladder D2a acquires a slogan: a conformance regime is *definite* for a unit exactly when the unit's conduct predicates are closed under the corresponding nucleus, and *achieved* when closure holds only after passage through knowing, believing, recognising, and fulfilling. MD-TOPOS names five such nuclei after the *jeevan* faculties (*Ātmā*, *Buddhi*, *Chitta*, *Vritti*, *Mana*); this paper does not adopt that particular five-fold indexing, because the faculty stack is already carried by the monoid action of §6.4 and the ontology's projection–reflection account ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.9) — what is adopted is the device, not the inventory.
+
+#### 6.16.3 Decidability, delusion, and resolution
+
+§6.5 defines delusion as asserting the false equation `i ∘ p = id_F` — treating comfort as the whole of fulfilment. The topos study's sharpest finding suggests an upgrade. Of all its predicate families, exactly one resists crisp classification: the agitations of outward-oriented *Mana*. Equality on that family is undecidable in the base theory, becomes decidable only when the ambiguity is *named* (a single conservative flag for "some agitation is present"), and the resolved condition is the decidable complement of that flag. Read back into this paper's vocabulary: the deluded plane is not merely one in which a false equation is asserted, but one whose internal logic cannot yet *decide* the equation — the distinction between comfort and fulfilment is present in the structure yet not recognisable from inside. Awakening is then passage to the open subuniverse (§6.16.2) in which that distinction becomes decidable, which matches the ontology's account of *bauddhik rahasya* as misaligned projection–reflection rather than irreducible opacity (§6.14.4; [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.9). The reading also yields a theorem target analogous to MD-TOPOS's Modal Transparency result: identify which template predicates remain complemented — crisply decidable — under the evaluation functor μ and the unfolding `Ξ`, and which acquire definiteness only inside the awakened subuniverse. Proving such a statement for the fibred conduct category of §6.6.1 would be the first genuinely new mathematics this logic layer demands.
+
+#### 6.16.4 Conservativity and minimality discipline
+
+Morleyisation — adding a predicate that merely names an existing formula, with biconditionals, and proving that no new theorems in the old vocabulary result — is model theory's standard for *definitional* extension. Adopting it as a discipline sharpens rule 4 of §6.0: every named predicate this formalisation introduces is henceforth classified as **definitional** (a conservative name for structure already present) or **substantive** (a genuinely new axiom requiring textual warrant). The classification is immediately informative. `AdmissibleComp` (§6.9.1) is substantive: no combination of colimit vocabulary defines it, so it stands as an axiom family whose content must come from the texts — which is what P9 asserted, now with a criterion rather than an impression. The same standard motivates an **independence audit** of the template's primitives: for each definition and law of [The Coexistence Template](../The-Coexistence-Template/The-Coexistence-Template.pdf) (D1–D13, L1–L7), either derive it from the rest or exhibit a countermodel witnessing its independence, as MD-TOPOS does for its twenty-seven generators. That audit, and the mechanised checking it enables (the internal theory of §6.16.1 is finitary and within reach of a proof assistant), are the programme this section opens rather than results it claims; they are the safeguard of §6.14.6 made mechanical. The template's activity triad (D5b) is the first clause added under this discipline: classified substantive, warranted by SB pp. 58, 71 and MVD p. 11, and given its categorical semantics in §6.10.
+
+#### 6.16.5 Two orthogonal orders
+
+§6.2.1 insists that orders and planes must not be collapsed, and handles the demand with a second labelling. MD-TOPOS §9.1 shows the cleaner form: put *two* order structures on the same family of subuniverses and let them disagree. Its knowledge slices are ordered once by scope — cosmic inside conduct inside self, as nested open embeddings — and again, in the opposite direction, by explanatory adequacy: the self-knowledge slice is the most complete constitution, which furnishes humane conduct, which organises the cosmic picture. Transposed here: `Ord` carries the mereological containment `M ≤ B ≤ A ≤ K` (§6.2), while the planes carry an orthogonal awakening preorder on the knowledge order's subuniverses (§6.16.2), and the compatibility condition between the two is exactly the content of P13 — plane transitions T2–T3 move a unit along the second order without moving it along the first. Stating both orders on one structure, with their orthogonality as an explicit axiom, replaces the ad-hoc feel of the `Pln` overlay and keeps the four progressions of §6.2.1 from collapsing into one.
+
+#### 6.16.6 What the topos route does and does not settle
+
+From MD-TOPOS this paper adopts the internal-logic layer (§6.16.1), the nucleus/open-subuniverse device (§6.16.2), the decidability reading of delusion and resolution (§6.16.3), the conservativity and independence discipline (§6.16.4), and the two-orders device (§6.16.5). One further borrowing is recorded for the transmission problem: the study organises council instances over a chain of levels as a cloven opfibration, with nomination formalised as opcartesian lifts — a concrete candidate for the indexed-category home this paper sketched for `Trans` and τ (§6.1; §6.14.8), to be developed where governance is treated in its own right.
+
+This paper declines the rest. The single-sort flattening is not adopted, for the reasons stated at the head of this section. The study's exclusivity axioms — at most one virtue, one responsibility, one scale holding at a point — purchase its decidability results, but the texts describe virtues as co-present intrinsic nature at the *Vritti* layer, not mutually exclusive states, so importing those axioms would trade fidelity for computability; any decidability claims made here must be derived from textual warrant instead. Brahma as a terminal object is declined consistently with §6.13.4: the terminal object is relationally trivial, while saturation is constitutive. The study's ten tier formulas and its claim that the twenty-six-atom count is *forced* by a representation-theoretic construction rest on companion papers whose extraordinary further claims have not been independently verified; both are treated as stipulations. And three boundaries of this paper are untouched by anything the topos route offers: the structuralism-versus-substance tension over *jeevan* (§6.13.1) — a single-sort logic re-describes *jeevan* as predicates even more thoroughly than arrows do; the samadhi warrant, which remains outside every formalism (§6.13.2); and the absence of empirical contact (§6.14.5), since decidability concerns proof, not measurement.
+
 
 ## 7. Limits and conclusion
 
@@ -809,7 +845,7 @@ A clear guide must also say what this does **not** do.
 - **Samadhi is not the same as ontological *anubhav*.** The darshan's meditative warrant (*sadhana-samadhi-samyama*, MVD p. 7) is the *source* of the axioms and sits outside any diagram — distinct from *anubhav jnan* (given structure) and from *satta mein anubhav* (telos evidenced in fulfilment).
 - **It adds no third-person evidence.** No measurement of `jeevan`, constitutional completeness, or coexistence comes out of this notation alone. Madhyasth's own test is conduct-evidence and tradition (MVD p. 12; template D13). Science would still need operational definitions and public observations.
 
-Category theory is a **lens for clarity**, not a proof machine and not a new physics. It makes Madhyasth Darshan's logic visible, shows exactly what each conclusion depends on, maps naturally onto [*The Coexistence Template*](../The-Coexistence-Template/The-Coexistence-Template.pdf) — including **sig(*u*)** and planes (D1a, D11), fibred **cap(*u*)** (§6.6.1), **mixture/compound** κ (§6.9), **knowledge registers** D12, and **self-evidencing** D13/L7 (§6.15) — and contributes one real insight about social gluing. Ontology–epistemology **closure** at the human tier requires `Liv` (μ, Ξ, ev), not `Rel` alone. Saturation, the L3 guard, evidenced transmission, plane typing, and substantial *jeevan* remain explicit boundaries.
+Category theory is a **lens for clarity**, not a proof machine and not a new physics. It makes Madhyasth Darshan's logic visible, shows exactly what each conclusion depends on, maps naturally onto [*The Coexistence Template*](../The-Coexistence-Template/The-Coexistence-Template.pdf) — including **sig(*u*)** and planes (D1a, D11), fibred **cap(*u*)** (§6.6.1), **mixture/compound** κ (§6.9), **knowledge registers** D12, and **self-evidencing** D13/L7 (§6.15) — and contributes one real insight about social gluing. The logic layer of §6.16 extends the lens one level: an internal coherent theory over the same categories, with awakening and planes as open subuniverses and delusion as internal undecidability, opening an independence-audit and mechanisation programme. Ontology–epistemology **closure** at the human tier requires `Liv` (μ, Ξ, ev), not `Rel` alone. Saturation, the L3 guard, evidenced transmission, and substantial *jeevan* remain explicit boundaries.
 
 ```mermaid
 flowchart LR
@@ -830,6 +866,10 @@ Assembly-scale closure **evidences** resolution, prosperity, fearlessness, and c
 - **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: Realisation Knowledge (p. 11); evidence chain and "Believe what is known" (p. 12); four orders; unit signature (pp. 50–51); relationships and values; capacity–ability–receptivity (pp. 62, 79, 134, 142); mixture and compound (p. 42); hungry/overfull atoms (p. 8); knowledge unfolding (pp. 115–116, 289); realisation in coexistence (p. 116); three satisfactions (Ch. 4); organisation sustainment (p. 55); samadhi-samyama warrant (p. 7).
 - **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad / Resolution Centred Materialism*](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Also at https://www.youtube.com/playlist?list=PL69PCoz1OQW0dhshZ0Xv3KtZ7ajJOIpgv (bilingual Hindi and English). Cited: effort–motion–result (p. 58); planes and completeness transitions (pp. 51–52, 92); constitutional completeness (p. 55); essentiality as value (p. 50); value-distinct acts (Ch. 7).
 - **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: body as instrument (Ch. 1); complementarity (p. 157); commerce and "more" (p. 41).
+
+### Formal approaches to Madhyasth Darshan
+
+- **MD-TOPOS** — Meena, B. [*Minimal Decidable Site for the Madhyasth–Darshan Classifying Topos via Single-Flag Morleyisation*](../References/Applied-Studies/MD_TOPOS.pdf). Zenodo preprint, 2025; DOI [10.5281/zenodo.16786431](https://doi.org/10.5281/zenodo.16786431). Cited: single-sort predicate ledger and Morleyisation of the Wall disjunction (its §§2–5); Lawvere–Tierney value nuclei and Modal Transparency (its §§2.4, 8); two orders on knowledge slices (its §9.1); instance opfibration and election lifts (its App. H) — engaged critically throughout §6.16.
 
 ### Related studies in this collection
 

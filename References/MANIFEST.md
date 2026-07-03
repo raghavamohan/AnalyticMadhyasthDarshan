@@ -30,6 +30,7 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-19.
 | | ATR | external |
 | [Human-Behavior-And-Society.pdf](../Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.pdf) | MVD, SB, JV | present |
 | [Category-Theory-Explained.pdf](../Studies/Category-Theory-Explained/Category-Theory-Explained.pdf) | MVD, SB, JV (via companion papers) | present |
+| | MD-TOPOS | present |
 | [The-Coexistence-Template.pdf](../Studies/The-Coexistence-Template/The-Coexistence-Template.pdf) | MVD, SB, JV | present |
 | | MD-TOPOS | present |
 
