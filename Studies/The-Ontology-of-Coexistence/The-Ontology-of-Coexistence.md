@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 4, 2026, 8:10 AM IST
+**Edited on:** July 4, 2026, 8:17 AM IST
 
 **Status:** Released
 
@@ -121,7 +121,7 @@ SB opens with three companion facts:
 
 In its **natural state**, a unit moves toward **development** — fulfilment aligned with its innateness; in its **excited state**, toward **decline** (SB, pp. 14–15). **Complementarity** — established in §1.2 — appears here as reciprocal exchange within the natural state: after give and take, both parties reinstate satisfaction or **natural motion** (*svabhav gati*) (SB, p. 59). When all relationships are recognised and fulfilled, the unit is **at ease** in its natural state — no relational shortfall remains.
 
-The **completeness drive** (§1.2) runs through two atomic paths from this natural-state complementarity. In the **insentient atom** (*jada parmanu*), *shram–gati–parinam* drives hungry and overfull exchange, **collections and assemblies** (§1.8), and **development progression** (*vikas-kram*) toward **constitutional completeness** (*gathanpurnata*) — the sentience threshold (T1), developed in §1.10.3. In the **sentient atom** — a constitutionally complete *jeevan* atom — the same triad works through projection and reflection (SB, p. 60) toward **activity completeness** and **conduct completeness** (T2 and T3), named in §1.4 and traced in §1.10.4. **Composition is not development**: only the **atom** crosses T1; assemblies persist or decline with relationship-fulfilment in natural state (§1.8).
+The **completeness drive** (§1.2) runs through two atomic paths from this natural-state complementarity. In the **insentient atom** (*jada parmanu*), the triad drives hungry and overfull exchange, **collections and assemblies** (§1.8), and **development progression** (*vikas-kram*) toward **constitutional completeness** (*gathanpurnata*) — the sentience threshold (T1), developed in §1.10.3. In the **sentient atom** — a constitutionally complete *jeevan* atom — the triad works through projection and reflection (SB, p. 60) toward **activity completeness** and **conduct completeness** (T2 and T3), defined in §1.4 and traced in §1.10.4. **Composition is not development**: only the **atom** crosses T1; assemblies persist or decline with relationship-fulfilment in natural state (§1.8).
 
 Participation means **recognising and fulfilling** — observable even in the physicochemical realm, where components within an atom recognise and fulfil one another (SB, p. 123). Endeavour aligned with a unit's innateness moves toward fulfilment; endeavour against it gives rise to problems (MVD, p. 112).
 
@@ -129,23 +129,23 @@ JV illustrates definite conduct: a peepal tree maintains its conduct with all it
 
 ### 1.4 All change is unit-activity
 
-§1.2 established coexistence → saturation → complementarity, activeness as *shram–gati–parinam* in mutuality, and the completeness drive. §1.3 split **insentient** and **sentient** atomic paths toward constitutional, activity, and conduct completeness. This section **deepens** the triad — joint form, teleological goals, and disambiguation — and closes with origination, causation, and *kaal*.
+§1.3 named what every unit is and split the **insentient** and **sentient** atomic paths; this section deepens the *shram–gati–parinam* triad from §1.2 — joint form, teleological goals on the sentient path, disambiguation from §1.3 natural-state ease — and closes with origination, causation, and *kaal*.
 
-§1.1 established that Omnipresence is *sthitipurn*: the ground does not change. **All change is unit-activity** — the inseparable triad of effort, motion, and result. A unit is not a passive substrate that merely possesses activity; its existence is this triadic activity in complementarity.
+Omnipresence is *sthitipurn* (§1.1): the ground does not change. **All change is unit-activity** — that triad in complementarity. A unit is not a passive substrate that merely possesses activity; its existence is this triadic activity.
 
 > **"Every physical-chemical activity is an inseparable presence of effort, motion and result. Each of these is a joint form of the other two."**
 > - SB, p. 58
 
 Effort, motion, and result are not three sequential steps but three joint aspects of one activity — in sodium and chlorine ions approaching one another, the approach is effort and motion together and the stable salt crystal is result (SB, p. 58).
 
-SB compresses the progression from saturation as identity, not external push:
+That unfolding is internal to saturation, not an external push — SB compresses the chain:
 
 > **"Saturation in uniform energy itself is forcefulness, forcefulness itself is basic impulsion, basic impulsion itself is activity, activity itself is effort-motion-result, effort-motion-result itself is development and its continuity."**
 > - SB, p. 62
 
 Each link is internal unfolding grounded in saturation (§1.2), not a mechanical reaction chain. In insentient orders, state and motion are inseparable — force in state, power in motion (SB, pp. 248–249).
 
-In the sentient atom (*jeevan*), the triad is teleologically oriented toward three qualitative milestones of completeness (*purnata*), each representing the resolution and settlement of one of its terms (SB, pp. 58, 71):
+Each triad term has a teleological goal. The **insentient path** (§1.3) completes the first; the **sentient path** continues with the other two (SB, pp. 58, 71):
 
 > **"In the sentient atom:
 > - Conduct completeness is in the form of destination of motion.
@@ -153,7 +153,7 @@ In the sentient atom (*jeevan*), the triad is teleologically oriented toward thr
 > - Constitutional completeness (the jeevan atom) is in the form of immortality of result."**
 > - SB, p. 58
 
-**Constitutional completeness** (*gathanpurnata* / T1) is the **immortality of result** (*parinam ki amarta*): the physical structure of the atom stabilises permanently and ceases to undergo decomposition (SB, pp. 52, 73). **Activity completeness** (*kriyapurnata* / T2) is the **restfulness of effort** (*shram ka vishram*): internal cognitive seeking and friction resolve through realization (*anubhav*) in coexistence, culminating in absolute resolution (*samadhan*) (SB, p. 61; MVD, p. 65). **Conduct completeness** (*vyavaharpurnata* / T3) is the **destination of motion** (*gati ka gantavya*): external behavioural participation aligns with universal orderliness (*vyavastha*), yielding mutual satisfaction and justice (MVD, p. 80).
+**Constitutional completeness** (*gathanpurnata* / T1) is the **immortality of result** (*parinam ki amarta*): the physical structure of the atom stabilises permanently and ceases to undergo decomposition — the threshold the insentient path reaches (SB, pp. 52, 73; §1.10.3). **Activity completeness** (*kriyapurnata* / T2) is the **restfulness of effort** (*shram ka vishram*): internal cognitive seeking and friction resolve through realization (*anubhav*) in coexistence, culminating in absolute resolution (*samadhan*) (SB, p. 61; MVD, p. 65). **Conduct completeness** (*vyavaharpurnata* / T3) is the **destination of motion** (*gati ka gantavya*): external behavioural participation aligns with universal orderliness (*vyavastha*), yielding mutual satisfaction and justice (MVD, p. 80).
 
 > **"The result is meant to attain the goal of immortality, the effort is meant to attain the goal of restfulness, motion is meant to attain the goal of destination. This goal itself becomes evident in the form of development progression and development."**
 > - SB, p. 71
@@ -161,7 +161,7 @@ In the sentient atom (*jeevan*), the triad is teleologically oriented toward thr
 > **"...at the core of effort, motion and result, the study of immortality of result, restfulness of effort, and final-destination of motion is necessary..."**
 > - MVD, p. 104
 
-These goals must not be conflated. *Vishram* names the settlement of **internal cognitive effort** (*shram*) — the seeking, visualising, and analysing of *jeevan*'s faculties resolving into direct realization — not the relational ease of insentient complementarity in §1.3. *Gantavya* names the settlement of **external behavioural motion** (*gati*) in work and social participation. The relational ease described in §1.3 is natural-state fulfilment that reinstates *svabhav gati*; it is not *shram ka vishram* or *gati ka gantavya*. §1.10 traces how each goal is evidenced through planes, faculties, and conduct once the four orders and *jeevan* structure are in view.
+These goals must not be conflated with §1.3 natural-state ease. *Vishram* names the settlement of **internal cognitive effort** (*shram*) — *jeevan*'s seeking, visualising, and analysing resolving into direct realization — not insentient complementarity reinstating *svabhav gati*. *Gantavya* names the settlement of **external behavioural motion** (*gati*) in work and social participation toward universal orderliness. §1.10 traces how each goal is evidenced through planes, faculties, and conduct once the four orders and *jeevan* structure are in view.
 
 The texts distinguish **origination** (units co-eternally present) from **causation** (what produces change when units transform). Omnipresence grounds all units through saturation as **supreme cause** (*mahakaran*) in the sustaining sense — the ground of activity, not its trigger (MVD, pp. 288–289; SB, pp. 49, 62). The causal work of change is done by units themselves. **Time** (*kaal*) is the **duration of unit-activity** — inseparable from effort, motion, and result in active units, not a separate cosmic container alongside *satta* and units. Full treatment: [*Nature of Time*](../Nature-Of-Time/Nature-Of-Time.pdf).
 
