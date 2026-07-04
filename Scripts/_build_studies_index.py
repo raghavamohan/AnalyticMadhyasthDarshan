@@ -1981,13 +1981,28 @@ def main() -> int:
     print("Wrote Studies/index.html shell with inlined catalog bootstrap (and catalog-*.json for runtime refresh).")
 
     if topical_rows:
-        write_studies_catalog(topical_rows, StudyTable.TOPICAL)
+        write_studies_catalog(
+            topical_rows,
+            StudyTable.TOPICAL,
+            rebuild_discussion=False,
+            rebuild_feedback_template=False,
+        )
         print(f"Wrote {len(topical_rows)} topical catalog entries to catalog-topical.json.")
     if formal_rows:
-        write_studies_catalog(formal_rows, StudyTable.FORMAL)
+        write_studies_catalog(
+            formal_rows,
+            StudyTable.FORMAL,
+            rebuild_discussion=False,
+            rebuild_feedback_template=False,
+        )
         print(f"Wrote {len(formal_rows)} formal catalog entries to catalog-formal.json.")
     if applied_rows:
-        write_studies_catalog(applied_rows, StudyTable.APPLIED)
+        write_studies_catalog(
+            applied_rows,
+            StudyTable.APPLIED,
+            rebuild_discussion=False,
+            rebuild_feedback_template=False,
+        )
         print(f"Wrote {len(applied_rows)} applied catalog entries to catalog-applied.json.")
 
     if STUDY_FEEDBACK_TEMPLATE_PATH.is_file():

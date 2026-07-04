@@ -137,7 +137,7 @@ def update_catalog_row(old_slug: str, new_slug: str, new_title: str | None, *, d
     if dry_run:
         print(f"Would update {table.value} catalog: {old_slug} -> {new_slug}")
         return
-    write_studies_catalog(rows, table)
+    write_studies_catalog(rows, table, rebuild_discussion=[new_slug])
     print(f"Updated {table.value} catalog: {old_slug} -> {new_slug}")
 
 

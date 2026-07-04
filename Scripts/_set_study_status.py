@@ -115,7 +115,7 @@ def set_study_status(
     updated_row.status = target_status
     updated_row.edited_at = edited_at
     rows = upsert_study_row(load_catalog_rows(table), updated_row)
-    write_studies_catalog(rows, table)
+    write_studies_catalog(rows, table, rebuild_discussion=[slug])
     print(f"Updated Studies/catalog JSON and Studies/README.md ({table.value} catalog)")
 
     if not skip_pdf:
