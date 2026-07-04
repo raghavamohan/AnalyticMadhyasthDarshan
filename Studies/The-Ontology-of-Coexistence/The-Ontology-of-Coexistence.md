@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 4, 2026, 5:05 PM IST
+**Edited on:** July 4, 2026, 5:15 PM IST
 **Status:** Released
 
 **The question:** What is Existence? What exists? Does what exists begin at some time? Does the individual self (*jeevan*) begin or end with the body? Is the world finally real?
@@ -33,11 +33,9 @@ Regulation, law, and justice are treated ontologically in §§1.11–1.12. Terms
 
 ## 1. The Madhyasth Darshan Answer
 
-Madhyasth Darshan defines existence as the ever-present **coexistence** of formless Omnipresence (*satta*) and countless bounded units of nature — beginningless, without creation from nothing, and indestructible at the level of being. Neither pole derives from the other; change occurs through unit-activity, development, and awakening within their bond.
+Madhyasth Darshan reads existence as **coexistence** — the ever-present togetherness of Omnipotence (*satta*) and countless units of nature, insentient (*jada*) and sentient (*chaitanya*), each saturated in that ground. Nothing stands apart from it: units are real, bounded, and soaked in *satta* at every order, and change unfolds through their activity within that bond.
 
-Coexistence is not inert juxtaposition. Ground and units are co-eternally inseparable — *satta* permeates everywhere, even where no local unit appears, while units are real countable wholes bounded within that field, never apart from Omnipresence. At the knowledge order, designed completeness is what humans must achieve and evidence as resolution, prosperity, fearlessness, and coexistence; scaled to humankind that becomes undivided society with universal orderliness — the human *dharma* telos toward which the whole architecture is ordered.
-
-*Madhyasth* means mediative, naming how this bond holds without collapse into either pole. *Satta* — all-pervasive and non-transforming — regulates and conserves every unit without itself acting (MVD, p. 26). The same mediative role recurs within nature as the nucleus of every atom and, in *jeevan*, as *atma*. Madhyasth Darshan names this account *samadhanatmak bhautikvad*, Resolution Centred Materialism.
+That picture is the basis for values in relationships at every level. Complementarity and fulfilment are not afterthoughts imposed on a value-neutral world; they are built into how units recognise and respond to one another in coexistence. At the human scale the same logic opens toward a tradition of undivided society and universal orderliness — human life lived fearlessly, in prosperity, with trust, and in coexistence with one another and with nature.
 
 ### 1.1 Coexistence: Omnipresence and units
 
