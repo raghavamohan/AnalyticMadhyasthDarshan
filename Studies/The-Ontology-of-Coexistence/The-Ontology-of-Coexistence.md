@@ -2,13 +2,12 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 4, 2026, 3:55 PM IST
-
+**Edited on:** July 4, 2026, 4:42 PM IST
 **Status:** Released
 
 **The question:** What is Existence? What exists? Does what exists begin at some time? Does the individual self (*jeevan*) begin or end with the body? Is the world finally real?
 
-This study examines those questions in **Madhyasth Darshan** (Co-existentialism), as presented by **Shri A. Nagraj**, and compares its answers with **Advaita Vedanta** and selected **modern philosophical and scientific approaches** to physical reality, consciousness, and selfhood. Full treatment of time (*kaal*), *trikaalabadh*, and spacetime physics is in [*Nature of Time*](../Nature-Of-Time/Nature-Of-Time.pdf); here only the core claim is stated — that *kaal* is duration of unit-activity and *satta* is timeless as ground (§1.4).
+This study examines those questions in **Madhyasth Darshan** (Co-existentialism), as presented by **Shri A. Nagraj**, and compares its answers with **Advaita Vedanta** and selected **modern philosophical and scientific approaches** to physical reality, consciousness, and selfhood. Full treatment of time (*kaal*), *trikaalabadh*, and spacetime physics is in [*Nature of Time*](../Nature-Of-Time/Nature-Of-Time.pdf); here only the core claim is stated — that *kaal* is duration of unit-activity and *satta* is timeless as ground (§1.6.4).
 
 ## Standpoint and scope
 
@@ -30,17 +29,15 @@ The primary base for this study is three English translations by Rakesh Gupta (M
 
 Institutional **self-governance**, *dharma-niti*, *rajya-niti*, public justice, and statutory social order belong in the planned study *Governance Justice and Undivided Society* and related social studies. [How to Form Self-Sustaining Organizations](../How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.pdf) applies the assembly template in concrete social forms — it does not replace the ontological account here.
 
-This paper states the regulation ladder ontologically (§1.7), distinguishes law from justice (§1.10.5), and develops saturation through self-governance in §§1.7 and 1.10. §1 can be read on its own; comparative conclusions that rest on those premises are marked where they arise. Terms are defined in the essay where they first arise; a consolidated glossary keyed to §§1–4 appears in the Appendix.
+Regulation, law, and justice are treated ontologically in §§1.10–1.11. Terms are defined in the essay where they first arise; a consolidated glossary keyed to §§1–4 appears in the Appendix.
 
 ## 1. The Madhyasth Darshan Answer
 
-Madhyasth Darshan defines **existence** as the ever-present **coexistence** of formless **Omnipresence** (*satta*) and countless bounded **units** of nature — beginningless, without creation from nothing, and indestructible at the level of being. Neither pole is produced from the other; what changes is unit-activity, development, and awakening within their bond.
+Madhyasth Darshan defines existence as the ever-present **coexistence** of formless Omnipresence (*satta*) and countless bounded units of nature — beginningless, without creation from nothing, and indestructible at the level of being. Neither pole derives from the other; change occurs through unit-activity, development, and awakening within their bond.
 
-Coexistence is not inert juxtaposition. Ground and units are co-eternally inseparable — *satta* pervades everywhere, even where no local unit appears, while units are real countable wholes bounded within that field, never apart from Omnipresence (§1.1). That **saturated, bounded plurality** is the architectural pivot of the ontology: from it three endowments follow **in** every unit — **recognition capability** for the complementarity that already exists in coexistence, **activeness** as inherent energy and unit-activity, and **inherent regulation** as orderliness placed in each unit (named in §1.2, developed in §1.7). Together they ground **relationships** predetermined toward completeness and the **completeness drive** (§1.4) — not as an ethic added to matter but as the basic design of what exists. Development expresses that drive as units move toward designed **statuses** at ever higher levels (§§1.5–1.10). At the knowledge order that designed completeness is what humans must achieve and evidence as resolution, prosperity, fearlessness, and coexistence. Scaled to humankind it becomes **undivided society** with **universal orderliness** — the **human dharma** telos toward which the whole architecture is ordered (§1.13).
+Coexistence is not inert juxtaposition. Ground and units are co-eternally inseparable — *satta* permeates everywhere, even where no local unit appears, while units are real countable wholes bounded within that field, never apart from Omnipresence. At the knowledge order, designed completeness is what humans must achieve and evidence as resolution, prosperity, fearlessness, and coexistence; scaled to humankind that becomes undivided society with universal orderliness — the human *dharma* telos toward which the whole architecture is ordered.
 
-*Madhyasth* means **mediative**, and names how this bond holds without collapse into either pole. *Satta* — all-pervasive and non-transforming — regulates and conserves every unit without itself acting (MVD, p. 26), the third endowment read upward from saturation. The same mediative role recurs within nature as the nucleus of every atom (§1.7) and, in *jeevan*, as *atma* (§1.10.6). Madhyasth Darshan names this account *samadhanatmak bhautikvad*, Resolution Centred Materialism.
-
-§1 develops the architecture in layers. **Coexistence** and its bond **saturation** come first (§§1.1–1.2), establishing the three endowments — recognition capability, activeness, and inherent regulation — from which complementarity and *shram–gati–parinam* follow; then what every unit **is** (§1.3), and **the completeness drive** — insentient and sentient atomic paths, teleological goals, unit-activity, and causation (§1.4). The **four orders** and **relationships** of recognition and fulfilment (§§1.5–1.6), regulation and **composition** (§§1.7–1.8), and *jeevan* **structure** (§1.9) follow. Later subsections cover **development**, planes, evaluative awakening, knowledge, conservation, and the perpetual world, closing with the **societal fulfilment the ontology evidences** — undivided society and universal orderliness — and the darshan's method of knowing (§§1.10–1.14). The figures at §1.10.4 summarise the full structure.
+*Madhyasth* means mediative, naming how this bond holds without collapse into either pole. *Satta* — all-pervasive and non-transforming — regulates and conserves every unit without itself acting (MVD, p. 26). The same mediative role recurs within nature as the nucleus of every atom and, in *jeevan*, as *atma*. Madhyasth Darshan names this account *samadhanatmak bhautikvad*, Resolution Centred Materialism.
 
 ### 1.1 Coexistence: Omnipresence and units
 
@@ -49,23 +46,23 @@ The translation prints **Omnipotence** for *satta*; this study uses **Omnipresen
 > **"What is evident is that consciousness and matter are inseparably present. Upon examining their fundamental nature, we learn that all of existence is essentially nature (matter) saturated in Omnipotence (consciousness). Here, 'seeing' is intended in the sense of understanding. Since nature saturated in Omnipotence is inseparably present, existence itself is eternally manifest in the form of coexistence."**
 > - SB, p. 48
 
-Existence has two inseparable aspects. **Omnipresence** (*satta* / *vyapak*) is formless, all-pervasive, non-transforming, and immeasurable — actionless energy (*kriya-shunya urja*) that performs no actions yet permeates existence as the ground through which units are energized, regulated, and conserved (SB, pp. 48–49). SB lists several English names for the same *satta* — Uniform Energy, Space (*shunya*), Knowledge (*gyan*), Consciousness, and Absolute Energy among others (SB, p. 48); no single word covers all of them. **Consciousness** and **Knowledge** here do not mean a mind that knows; sentience as the activity of a knower belongs to *jeevan*, not to Omnipresence itself (Editorial Notes; §1.11).
+Existence has two inseparable aspects. **Omnipresence** (*satta* / *vyapak*) is formless, all-pervasive, non-transforming, and immeasurable — actionless energy (*kriya-shunya urja*) that performs no actions yet permeates existence as the ground through which units are energized, regulated, and conserved (SB, pp. 48–49). SB lists several English names for the same *satta* — Uniform Energy, Space (*shunya*), Knowledge (*gyan*), Consciousness, and Absolute Energy among others (SB, p. 48); no single word covers all of them. Consciousness and Knowledge here do not mean a mind that knows; sentience as the activity of a knower belongs to *jeevan*, not to Omnipresence itself (Editorial Notes).
 
-**Units of nature** are the formful, active, countable entities within **nature** — the saturated whole of formful existence. Each unit is bounded from six directions, surrounded, submerged, and soaked in Omnipresence, with form, properties, essential nature, *dharma*, and orderliness (SB, p. 48; MVD, pp. 11, 34). **Realisation Knowledge** (*anubhav jnan*) names that ontological given; four distinct senses of knowledge in the texts are kept apart in §1.11.
+Units of nature are the formful, active, countable entities within nature — the saturated whole of formful existence. Each unit is bounded from six directions, surrounded, submerged, and soaked in Omnipresence, with form, properties, essential nature, *dharma*, and orderliness (SB, p. 48; MVD, pp. 11, 34). Realisation Knowledge (*anubhav jnan*) names that ontological given.
 
-Three structural features complete the picture. *Satta* and units **never existed as separate poles** — separation of unit from saturated fullness "never happens" (SB, p. 70; JV, p. 18). Omnipresence has **no absent place**, even where no local unit appears (SB, pp. 48, 62, 69). Units are **distinct from one another** by boundaries within saturation, not by leaving the ground: inter-unit distance is held in formless existence — *satta* as Space (*shunya*) between bounded wholes (SB, pp. 57, 59, 79) — which provisions the conditions for **recognition capability** developed in §1.2. Omnipresence is *sthitipurn* (**state-complete**): without motion, wave, or pressure. Nature saturated in it is *sthitishil* (**state-dynamic**): unit-activity, development, and awakening alone constitute change (SB, pp. 50, 68–69). **Saturation** — the bond coexistence entails at unit scale — is developed in §1.2.
+Three structural features complete the picture. *Satta* and units never existed as separate poles — separation of unit from saturated fullness "never happens" (SB, p. 70; JV, p. 18). Omnipresence has no absent place, even where no local unit appears (SB, pp. 48, 62, 69). Units are distinct from one another by boundaries within saturation, not by leaving the ground: inter-unit distance is held in formless existence — *satta* as Space (*shunya*) between bounded wholes (SB, pp. 57, 59, 79) — which provisions the conditions for mutual recognition. Omnipresence is *sthitipurn* (state-complete): without motion, wave, or pressure. Nature saturated in it is *sthitishil* (state-dynamic): unit-activity, development, and awakening alone constitute change (SB, pp. 50, 68–69).
 
 ### 1.2 Saturation: the ground–unit bond
 
-Coexistence is not inert juxtaposition of ground and units; **therefore** every formful unit is **saturated** — soaked, submerged, and surrounded (*samprikt*) — in Omnipresence (SB, pp. 48–49). **Saturation** is the ever-present ontological bond between formless *satta* and each formful unit. Omnipresence does not act, transform, or be consumed in saturating a unit.
+Coexistence is not inert juxtaposition of ground and units; every formful unit is **saturated** — soaked, submerged, and surrounded (*samprikt*) — in Omnipresence (SB, pp. 48–49). Saturation is the ever-present ontological bond between formless *satta* and each formful unit. Omnipresence does not act, transform, or be consumed in saturating a unit.
 
-One way to picture the bond — **illustrative, not identity** — is a living cell in nutrient medium, or a sponge fully soaked in water: the unit remains surrounded, permeated, and sustained **through** the medium, not drained from a finite store. *Satta* is actionless (*kriya-shunya*), non-transforming, and not a physical substance that acts on units — yet as permeative presence through which units are energized. **Inherent energy** resides **in** each unit as a consequence of coexistence with that field; it is not an active force propagated from the ground as efficient cause.
+One way to picture the bond — illustrative, not an identity — is a living cell in a nutrient medium, or a sponge fully soaked in water: the unit remains surrounded, permeated, and sustained through the medium, not drained from a finite store. Though actionless and non-physical, *satta* permeates and energizes every unit. Inherent energy resides in each unit as a consequence of coexistence with that field; it is not an active force propagated from the ground as efficient cause.
 
-From that **saturated, bounded plurality**, three ontological endowments follow **in** every unit.
+From that saturated, bounded plurality, three ontological endowments follow in every unit.
 
-The first is **recognition capability** for the **complementarity that already exists** in coexistence. Saturated units stand in mutuality; reciprocity and give–take are eternally established — complementarity is not created by recognition but given in the bond (SB, pp. 49–50, 53). Bounded plurality within saturation provisions **mutual recognition** (SB, pp. 50, 57, 62): units can recognise one another because complementarity is a perpetual condition of coexistence. Through saturation, *satta* does not push units as an external agent but **endows** each unit with the **basis** of **capacity** (*kshamata*), **ability** (*yogyata*), and **receptivity** (*patrata*) to participate in relationships at its order — a gift present *in* the unit from coexistence (SB, pp. 57, 62, 79; MVD, p. 62). Value, relationships, and recognition/fulfilment at each order are developed in §1.6; full acquisition under environmental interference and activation through naturalness in §§1.6 and 1.10 (SB, p. 61).
+The first is recognition capability for the complementarity that already exists in coexistence. Saturated units stand in mutuality; reciprocity and give–take are eternally established — complementarity is not created by recognition but given in the bond (SB, pp. 49–50, 53). Bounded plurality within saturation provisions mutual recognition (SB, pp. 50, 57, 62): units can recognise one another because complementarity is a perpetual condition of coexistence. Through saturation, *satta* does not push units as an external agent but endows each unit with the basis of capacity (*kshamata*), ability (*yogyata*), and receptivity (*patrata*) to participate in relationships at its order — a gift present in the unit from coexistence (SB, pp. 57, 62, 79; MVD, p. 62).
 
-The second endowment is **activeness in units**. Through saturation, every unit has **inherent energy** in it:
+The second endowment is activeness in units. Through saturation, every unit has inherent energy in it:
 
 > **"Every unit in its atomic state is active as orderliness, because it has inherent energy due to being saturated in Omnipotence."**
 > - SB, p. 69
@@ -73,7 +70,7 @@ The second endowment is **activeness in units**. Through saturation, every unit 
 > **"Unit + Energy fullness = Activeness."**
 > - SB, p. 69
 
-**Basic impulsion** is each unit's inherent drive to be active, given saturation — not an external push. SB and MVD state the reciprocal structure of manifestation:
+Basic impulsion is each unit's inherent drive to be active, given saturation — not an external push. SB and MVD state the reciprocal structure of manifestation:
 
 > **"Thus, without basic impulsion, the energy remains unmanifest, and without the energy, there is no basic impulsion."**
 > - SB, p. 62
@@ -81,28 +78,28 @@ The second endowment is **activeness in units**. Through saturation, every unit 
 > **"Without absolute energy, there is no basic impulsion in matter, and without matter, absolute energy is not revealed. Nature is eternally present in absolute energy."**
 > - MVD, p. 40
 
-Through saturation, *satta* **endows** each unit with inherent forcefulness and basic impulsion (SB, p. 57). *Satta* is actionless in itself, yet called energy because unit-activity manifests through basic impulsion. Activeness is not activity of an isolated unit: every unit is always active along with contact in its mutuality (SB, p. 62). That activeness **appears as** the inseparable triad **effort, motion, and result** (*shram–gati–parinam*) — how all change is unit-activity in reciprocity (SB, pp. 53, 58, 69; MVD, p. 40). Relative energy does not become apparent without mutuality of units (MVD, p. 40).
+Through saturation, *satta* endows each unit with inherent forcefulness and basic impulsion (SB, p. 57). *Satta* is actionless in itself, yet called energy because unit-activity manifests through basic impulsion. Activeness is not activity of an isolated unit: every unit is always active along with contact in its mutuality (SB, p. 62). That activeness appears as the inseparable triad effort, motion, and result (*shram–gati–parinam*) — how all change is unit-activity in reciprocity (SB, pp. 53, 58, 69; MVD, p. 40). Relative energy does not become apparent without mutuality of units (MVD, p. 40).
 
 > **"Since nature is eternally active within existence, every activity has inseparable effort, motion and result."**
 > - SB, p. 53
 
-The third endowment is **inherent regulation**. Saturation is where a unit gets regulatory order **in** it, alongside activeness and forcefulness (SB, p. 57) — not from an outside push, like one object hitting another. Regulation becomes clear in the form of **law** and orderliness; the full regulation ladder, conformance regimes, and evaluative closure at the knowledge order are developed in §1.7, with orderliness and *ness* in §1.3.
+The third endowment is inherent regulation. Saturation is where a unit gets regulatory order in it, alongside activeness and forcefulness (SB, p. 57) — not from an outside push. Regulation manifests as law and orderliness.
 
-**Mutual dependence for manifestation** means that the ground's uniform energy and unit-activity always appear together. You do not get one without the other. Neither pole creates the other's existence — only its manifestation.
+Mutual dependence for manifestation means that the ground's uniform energy and unit-activity always appear together. You do not get one without the other. Neither pole creates the other's existence — only its manifestation.
 
-From recognition capability, activeness, and inherent order together, the **completeness drive** is present in every unit: embedded in the complete, each unit is compulsorily meant for completeness and oriented toward development (SB, pp. 50–51), developed in §1.4; what saturation places *in* the unit, conducive **environment** and naturalness activate (§1.6).
+Together, these three endowments ground a unit's completeness drive: each unit is oriented toward development, activated by conducive environments and naturalness (SB, pp. 50–51).
 
 ### 1.3 What every unit is
 
-Every saturated unit carries the same four inseparable aspects — form, properties, essential nature, and *dharma* — regardless of order. They are not optional descriptors; they are what each unit **is** as a participant in coexistence (MVD, pp. 50–51).
+Every saturated unit carries the same four inseparable aspects — form, properties, essential nature, and *dharma* — regardless of order. They are not optional descriptors; they are what each unit is as a participant in coexistence (MVD, pp. 50–51).
 
-**Form** (*roop*) is shared across all orders — shape, volume, and density by which a bounded unit is individuated (MVD, pp. 50, 112).
+Form (*roop*) is shared across all orders — shape, volume, and density by which a bounded unit is individuated (MVD, pp. 50, 112).
 
-**Properties** (*gun*) name the effects units have on one another in mutuality, differentiated as **generative**, **degenerative**, and **mediative** — assisting creation, dissolution, and sustainment (MVD, pp. 50–51).
+Properties (*gun*) name the effects units have on one another in mutuality, differentiated as generative, degenerative, and mediative — assisting creation, dissolution, and sustainment (MVD, pp. 50–51).
 
-**Essential nature** (*svabhav* — Editorial Notes) is how the usefulness of a unit's properties participates in its order (MVD, pp. 50–51, 112).
+Essential nature (*svabhav* — Editorial Notes) is how the usefulness of a unit's properties participates in its order (MVD, pp. 50–51, 112).
 
-**Dharma** names what a unit cannot be separated from — its innateness and fulfilment (SB, p. 50). Since existence is coexistence, indestructibility itself is the ultimate *dharma*.
+*Dharma* names what a unit cannot be separated from — its innateness and fulfilment (SB, p. 50). Since existence is coexistence, indestructibility itself is the ultimate *dharma*.
 
 SB opens with three companion facts:
 
@@ -115,21 +112,64 @@ SB opens with three companion facts:
 > **"Each unit moves towards 'development' in its natural state and 'decline' in its excited state."**
 > - SB, p. 14
 
-**Unit + environment = the unit as a whole** signifies continuity (SB, p. 51). ***Ness*** is what makes a unit the kind of unit it is — its distinctive way of being, shown through essential nature when it is in its natural state (SB, p. 54).
+Unit + environment = the unit as a whole signifies continuity (SB, p. 51). *Ness* is what makes a unit the kind of unit it is — its distinctive way of being, shown through essential nature when it is in its natural state (SB, p. 54).
 
-In its **natural state**, a unit moves toward **development** — fulfilment aligned with its innateness; in its **excited state**, toward **decline** (SB, pp. 14–15). **Complementarity** — given in coexistence and established through saturation's recognition capability (§1.2) — appears here as reciprocal exchange within the natural state: after give and take, both parties reinstate satisfaction or **natural motion** (*svabhav gati*) (SB, p. 59). When all relationships are recognised and fulfilled, the unit is **at ease** in its natural state — no relational shortfall remains. The **completeness drive** develops in §1.4 from this natural-state complementarity.
+In its natural state, a unit moves toward development — fulfilment aligned with its innateness; in its excited state, toward decline (SB, pp. 14–15). Complementarity — given in coexistence and established through saturation's recognition capability — appears here as reciprocal exchange within the natural state: after give and take, both parties reinstate satisfaction or natural motion (*svabhav gati*) (SB, p. 59). When all relationships are recognised and fulfilled, the unit is at ease in its natural state — no relational shortfall remains.
 
-Participation means **recognising and fulfilling** — observable even in the physicochemical realm, where components within an atom recognise and fulfil one another (SB, p. 123). Endeavour aligned with a unit's innateness moves toward fulfilment; endeavour against it gives rise to problems (MVD, p. 112).
+Participation means recognising and fulfilling — observable even in the physicochemical realm, where components within an atom recognise and fulfil one another (SB, p. 123). Endeavour aligned with a unit's innateness moves toward fulfilment; endeavour against it gives rise to problems (MVD, p. 112).
 
 JV illustrates definite conduct: a peepal tree maintains its conduct with all its fruits, seeds, and leaves exhibiting peepal's properties, intrinsic nature, and *dharma* (JV, p. 113). Harmony among the four aspects is what MVD calls the essence of coexistence itself (MVD, p. 21).
 
-### 1.4 The completeness drive
+### 1.4 Units in relationships
 
-§1.2 named the three endowments of saturation — recognition capability, activeness, and inherent regulation — and the **completeness drive** they jointly ground; §1.3 established what units are and natural-state complementarity. Here the drive runs through two **atomic paths** and the unit-activity that carries it toward constitutional, activity, and conduct completeness (traced in §1.10).
+Nothing in nature is isolated — "nothing is isolated – that is the principle" (JV, p. 43). Existence holds relations between units, and it is in those relations that complementarity is actualised as value in mutuality (SB, p. 53). Complementarity here is not merely give–take reciprocity in physicochemical exchange; it is the whole structure by which units reciprocate essentiality. Relationships are where complementarity is predetermined toward completeness; the unit's main drive is to recognise and fulfil them.
 
-The **completeness drive** (§1.2) runs through two atomic paths from §1.3 natural-state complementarity, powered by activeness as *shram–gati–parinam* within complementarity given for recognition. In the **insentient atom** (*jada parmanu*), the triad drives hungry and overfull exchange, **collections and assemblies** (§1.8), and **development progression** (*vikas-kram*) toward **constitutional completeness** (*gathanpurnata*) — the sentience threshold (T1), developed in §1.10.3. In the **sentient atom** — a constitutionally complete *jeevan* atom — the triad works through projection and reflection (SB, p. 60) toward **activity completeness** and **conduct completeness** (T2 and T3), defined below and traced in §1.10.4. **Composition is not development**: only the **atom** crosses T1; assemblies persist or decline with relationship-fulfilment in natural state (§1.8).
+MVD defines a relationship as "the mutuality where expectations are predetermined in the sense of completeness" (MVD, p. 62), and contrasts it with association — "the mutuality where expectations are voluntary" (MVD, p. 61). Neighbours who share a wall have an association; parent and child stand in a relationship with expectations toward completeness.
 
-That drive moves as **unit-activity**. Omnipresence is *sthitipurn* (§1.1): the ground does not change. **All change is unit-activity** — the *shram–gati–parinam* triad from §1.2's activeness endowment, in complementarity. A unit is not a passive substrate that merely possesses activity; its existence is this triadic activity.
+Essentiality in every order is value — what units reciprocate and mutually recognise in mutuality:
+
+> **"Entire beingness implies the essentiality of units in every plane and order. Essentiality refers to value… It is values that are reciprocated and mutually recognised, as complementarity, mutual recognition, and impression occur only in mutuality."**
+> - SB, p. 50
+
+Value (*mulya*) is not one undifferentiated category. At every order, object values — utility (*upyogita*), the usefulness of natural abundance made available through labour, and art (*kala*), aesthetic enhancement that layers convenience on that usefulness — operate wherever production and exchange occur (MVD p. 306; JV pp. 138, 123). At the knowledge order, four further kinds presuppose *jeevan*: internal *jeevan* harmonies (happiness, peace, contentment, bliss); human values (the six *svabhav* qualities of the knowledge order); established relationship values (care, trust, affection, and the like that flow when relationships are recognised); and expression values (right-use of body, mind, and wealth in assembly).
+
+Impression names the describable event in which one unit's activity registers on another in mutuality — alongside complementarity and mutual recognition.
+
+Every unit recognises its relationships and fulfils them:
+
+> **"Every entity of nature recognises another; that is why it fulfils. An atomic particle too recognises another, and as a result, these particles abide in orderliness."**
+> - JV, p. 69
+
+That recognition and fulfilment draw on capacity, ability, and receptivity — endowed through saturation and developed or activated through environment and interference (SB, p. 61). At the material, biological, and animal orders, fulfilment is definite — structural, seed, or species conformance. In the knowledge order the same relationships must be achieved through knowing → believing → recognising → fulfilling; where evaluation mis-reads relationships, complementarity remains incompletely expressed. At every order, fulfilment evidences use, right-use, and purposeful-use (MVD, p. 27).
+
+Higher statuses require inherent capacity and a conducive environment together. SB illustrates the bond with seed and naturalness — illustrative, not identity: germination begins when a seed is placed in its naturalness; without naturalness, exuberance cannot happen in it (SB, p. 54). Saturation endows inherent capacity; naturalness and mutuality in environment activate it — neither alone suffices.
+
+The completeness drive turns unit-activity toward fulfilling relationships, step by step, at higher levels. Units move toward satisfaction by recognising and fulfilling relationships built into coexistence — not by maximising an abstract quantity. When those relationships are fully evident across nature, the texts call that realisation in coexistence (SB, p. 51): not a new state of the ground, but fulfilment made clear within coexistence.
+
+### 1.5 The four orders of nature
+
+Units of nature are organised into four stable orders — material (*padarth*), pranic/bio (*pran*), animal (*jeev*), and knowledge/human (*gyan*). Each order is a stable plateau in development, not a human typology. Higher orders include the *dharma*s of lower orders cumulatively (SB, p. 179; MVD, p. 115).
+
+| Order | Essential nature (*svabhav*) | *Dharma* (cumulative) |
+|---|---|---|
+| Material (*padarth*) | integration–disintegration (*sangathan–vighatan*) | existence (*astitva*) |
+| Bio (*pran*) | vitalising–devitalising (*sarak–marak*) | + growth (*pushti*) |
+| Animal (*jeev*) | cruel–uncruel | + hope to live (*jeene ki aasha*) |
+| Knowledge / human (*gyan*) | fortitude, courage, generosity, kindness, grace, compassion | + happiness (*sukh*) |
+
+The cumulative *dharma*s mark where sentience enters. The material and bio/pranic orders are insentient (*jada*): they integrate, disintegrate, vitalise, and grow, but have no hope to live. Hope to live (*jeene ki aasha*) is the animal order's addition — and hope is the defining activity of the sentient unit, expressed through *mun* in the constitutionally complete atom. *Jeevan* first appears at the animal order; the material and pranic orders are pre-sentient development toward it. The knowledge order's six *svabhav* qualities are developed as human values (JV, p. 44).
+
+Existence is stable and development is definite — laws natural and inherent to being, not conventions imposed on unstable matter (MVD, p. 5). That definiteness names two paired structures at the order scale. Existential progression (*niyati-kram*) is the fixed sequence in which order-level nature manifests on Earth: pranic from material, animal from pranic, knowledge from animal — chemical composition giving rise to biological cells, vegetation enriching, animal and human bodies and traditions established through that chain (MVD, pp. 8, 13; *Paribhasha Samhita*, ed. 2008). SB qualifies without dissolving the chain: the biological order can revert to the material after manifesting its essentiality, while elevation from material into biological order is not irreversible development in the same sense as constitutional completeness at the atomic level (SB, pp. 76–78). The way of existence (*niyati-vidhi*) is definiteness in each order's proper conduct — result-, seed-, species-, and *sanskar*-conformance. In the animal order that species-conformance carries through *adhyasa* — a species-traditional inertial impression transmitted from gestation, the inheritance of conduct-pattern (SB, pp. 62–63); this is a homonym of, and must not be confused with, Advaita's *adhyasa* as superimposition (§5.7.5). SB names statuses embedded in this progression: diversity in nature is diversity of statuses within matter, with constitutional, activity, and conduct completeness as further designed stages toward which units are meant for completeness (SB, pp. 50–52, 78).
+
+Each order cyclically manifests through saturation in a different mode (MVD, p. 289): material units are active because of being in Omnipresence; bio units pulsate; animal units carry the hope of living; knowledge-order units are hopeful and conscientious. *Countless* means practical uncountability — real particulars, indefinitely many from any finite standpoint (SB, p. 49).
+
+### 1.6 The completeness drive and transitions (T1, T2, T3)
+
+The three endowments of saturation — recognition capability, activeness, and inherent regulation — ground a unit's completeness drive. Rather than an ethic added to matter, this drive is built into the basic design of existence. It runs through two atomic paths powered by the *shram–gati–parinam* (effort–motion–result) triad.
+
+In the evolving insentient atom (*jada parmanu*), the triad drives hungry and overfull exchange toward constitutional completeness (*gathanpurnata* / T1). In the constitutionally complete *jeevan* atom, the triad works through projection and reflection (SB, p. 60) toward activity completeness (*kriyapurnata* / T2) and conduct completeness (*vyavaharpurnata* / T3).
+
+All change is unit-activity. Omnipresence is *sthitipurn*: the ground does not change. A unit is not a passive substrate that merely possesses activity; its existence is this triadic activity.
 
 > **"Every physical-chemical activity is an inseparable presence of effort, motion and result. Each of these is a joint form of the other two."**
 > - SB, p. 58
@@ -141,9 +181,9 @@ That unfolding is internal to saturation, not an external push — SB compresses
 > **"Saturation in uniform energy itself is forcefulness, forcefulness itself is basic impulsion, basic impulsion itself is activity, activity itself is effort-motion-result, effort-motion-result itself is development and its continuity."**
 > - SB, p. 62
 
-Each link is internal unfolding grounded in saturation (§1.2), not a mechanical reaction chain. In insentient orders, state and motion are inseparable — force in state, power in motion (SB, pp. 248–249).
+Each link is internal unfolding grounded in saturation, not a mechanical reaction chain. In insentient orders, state and motion are inseparable — force in state, power in motion (SB, pp. 248–249).
 
-Each triad term has a teleological goal. The **insentient path** completes the first; the **sentient path** continues with the other two (SB, pp. 58, 71):
+Each triad term has a teleological goal. The insentient path completes the first; the sentient path continues with the other two (SB, pp. 58, 71):
 
 > **"In the sentient atom:
 > - Conduct completeness is in the form of destination of motion.
@@ -151,104 +191,56 @@ Each triad term has a teleological goal. The **insentient path** completes the f
 > - Constitutional completeness (the jeevan atom) is in the form of immortality of result."**
 > - SB, p. 58
 
-**Constitutional completeness** (*gathanpurnata* / T1) is the **immortality of result** (*parinam ki amarta*): the physical structure of the atom stabilises permanently and ceases to undergo decomposition — the threshold the insentient path reaches (SB, pp. 52, 73; §1.10.3). **Activity completeness** (*kriyapurnata* / T2) is the **restfulness of effort** (*shram ka vishram*): internal cognitive seeking and friction resolve through realization (*anubhav*) in coexistence, culminating in absolute resolution (*samadhan*) (SB, p. 61; MVD, p. 65). **Conduct completeness** (*vyavaharpurnata* / T3) is the **destination of motion** (*gati ka gantavya*): external behavioural participation aligns with universal orderliness (*vyavastha*), yielding mutual satisfaction and justice (MVD, p. 80).
-
 > **"The result is meant to attain the goal of immortality, the effort is meant to attain the goal of restfulness, motion is meant to attain the goal of destination. This goal itself becomes evident in the form of development progression and development."**
 > - SB, p. 71
 
 > **"...at the core of effort, motion and result, the study of immortality of result, restfulness of effort, and final-destination of motion is necessary..."**
 > - MVD, p. 104
 
-These goals must not be conflated with §1.3 natural-state ease. *Vishram* names the settlement of **internal cognitive effort** (*shram*) — *jeevan*'s seeking, visualising, and analysing resolving into direct realization — not insentient complementarity reinstating *svabhav gati*. *Gantavya* names the settlement of **external behavioural motion** (*gati*) in work and social participation toward universal orderliness. §1.10 traces how each goal is evidenced through planes, faculties, and conduct once the four orders and *jeevan* structure are in view.
+The three completeness transitions mark developmental milestones on these paths:
 
-The texts distinguish **origination** (units co-eternally present) from **causation** (what produces change when units transform). Omnipresence grounds all units through saturation as **supreme cause** (*mahakaran*) in the sustaining sense — the ground of activity, not its trigger (MVD, pp. 288–289; SB, pp. 49, 62). The causal work of change is done by units themselves. **Time** (*kaal*) is the **duration of unit-activity** — inseparable from effort, motion, and result in active units, not a separate cosmic container alongside *satta* and units. Full treatment: [*Nature of Time*](../Nature-Of-Time/Nature-Of-Time.pdf).
+| Transition | Completeness | Plane shift | Triad term | Teleological goal | What becomes evident |
+|---|---|---|---|---|---|
+| **T1** | Constitutional (*gathanpurnata*) | Physicochemical → delusional | Result | Immortality of result (*parinam ki amarta*) | Sentient *jeevan*; hope to live |
+| **T2** | Activity (*kriyapurnata*) | Delusional → deific | Effort | Restfulness of effort (*shram ka vishram*) | Awakened humans; orderliness with *ness* |
+| **T3** | Conduct (*vyavaharpurnata*) | Deific → divine (complete) | Motion | Destination of motion (*gati ka gantavya*) | Awakened humans with evidence (*pramanikta*) |
 
-### 1.5 The four orders of nature
+These goals must not be conflated with natural-state ease in §1.3. *Vishram* names the settlement of internal cognitive effort (*shram*) — *jeevan*'s seeking, visualising, and analysing resolving into direct realisation — not insentient complementarity reinstating *svabhav gati*. *Gantavya* names the settlement of external behavioural motion (*gati*) in work and social participation toward universal orderliness.
 
-§1.4 developed the **completeness drive** — insentient and sentient atomic paths, teleological goals, and unit-activity — and disambiguated *vishram* and *gantavya* from §1.3 natural-state ease. The texts next sort units into four **orders** in nature — material (*padarth*), pranic/bio (*pran*), animal (*jeev*), and knowledge/human (*gyan*). Each order is a stable plateau in development, not a human typology. Higher orders **include** the *dharma*s of lower orders cumulatively (SB, p. 179; MVD, p. 115).
+### 1.6.1 Constitutional completeness (T1)
 
-| Order | Essential nature (*svabhav*) | *Dharma* (cumulative) |
-|---|---|---|
-| Material (*padarth*) | integration–disintegration (*sangathan–vighatan*) | existence (*astitva*) |
-| Bio (*pran*) | vitalising–devitalising (*sarak–marak*) | + growth (*pushti*) |
-| Animal (*jeev*) | cruel–uncruel | + hope to live (*jeene ki aasha*) |
-| Knowledge / human (*gyan*) | fortitude, courage, generosity, kindness, grace, compassion | + happiness (*sukh*) |
+T1 is the irreversible sentience threshold: constitutional completeness (*gathanpurnata*) at the atomic level — not neural complexity, molecular size, or mere elevation along the order chain (SB, p. 52). Molecules exhibit characteristics of development but not actual development; the sentient threshold is constitutional completeness of the atom (SB, p. 52). T1 is irreversible at the atomic level (SB, p. 92).
 
-The cumulative *dharma*s mark where sentience enters. The material and bio/pranic orders are **insentient** (*jada*): they integrate, disintegrate, vitalise, and grow, but have no hope to live. **Hope to live** (*jeene ki aasha*) is the animal order's addition — and hope is the defining activity of the sentient unit (§1.9). *Jeevan* first appears at the **animal** order; the material and pranic orders are pre-sentient development toward it — the same threshold §1.10.3 traces as constitutional completeness (T1) (SB, pp. 52, 59). The knowledge order's six *svabhav* qualities are developed as **human values** in §1.6 (JV, p. 44).
+An insentient atom (*parmanu*) — a composite of nucleus and orbiting particles (MVD, p. 42) — reaches *gathanpurnata* through particle incorporation, hungry and overfull complementarity, and environmental mutuality — inherent capacity from saturation plus a mutuality of environment in which the required particles can integrate (MVD, p. 8; SB, pp. 58, 71). When the required particles are integrated, the atom becomes constitutionally complete: satisfaction within, by, and for that constitution — the goal of result, immortality of result (*parinam ki amarta*), and sentient status (SB, p. 59).
 
-Existence is stable and development is **definite** — laws natural and inherent to being, not conventions imposed on unstable matter (MVD, p. 5). That definiteness names two paired structures at the order scale. **Existential progression** (*niyati-kram*) is the fixed sequence in which order-level nature manifests on Earth: pranic from material, animal from pranic, knowledge from animal — chemical composition giving rise to biological cells, vegetation enriching, animal and human bodies and traditions established through that chain (MVD, pp. 8, 13; *Paribhasha Samhita*, ed. 2008). SB qualifies without dissolving the chain: the biological order can revert to the material after manifesting its essentiality, while elevation from material into biological order is not irreversible development in the same sense as constitutional completeness at the atomic level (SB, pp. 76–78). **The way of existence** (*niyati-vidhi*) is definiteness in each order's proper conduct — result-, seed-, species-, and *sanskar*-conformance developed in §1.7. In the animal order that species-conformance carries through *adhyasa* — a species-traditional inertial impression transmitted from gestation, the inheritance of conduct-pattern (SB, pp. 62–63); this is a homonym of, and must not be confused with, Advaita's *adhyasa* as superimposition (§5.7.5). SB names **statuses** embedded in this progression: diversity in nature is diversity of statuses within matter, with constitutional, activity, and conduct completeness as further designed stages toward which units are meant for completeness (SB, pp. 50–52, 78; §§1.10.3–1.10.4).
+In this state there is neither increase nor decrease in particle count; the atom undergoes qualitative change without quantitative change (SB, p. 55).
 
-Each order cyclically manifests through saturation in a different mode (MVD, p. 289): material units are **active** because of being in Omnipresence; bio units **pulsate**; animal units carry the **hope of living**; knowledge-order units are **hopeful and conscientious**. *Countless* means practical uncountability — real particulars, indefinitely many from any finite standpoint (SB, p. 49).
+Before constitutional completeness, an evolving-constitution atom carries molecular-bondage and weight-bondage. On crossing T1 it is liberated from both; hope-bondage replaces them as the sentient mode's defining bondage (MVD, p. 91; MVD, p. 117; SB, p. 114):
 
-### 1.6 Units in relationships
+> **"An evolving-constitution atom is with molecular-bondage and weight-bondage. However, when the contraction and expansion activity increases in this atom, it instantly breaks free from its group and attains constitutional completeness, becoming a jeevan atom. The evidence of constitutional completeness is the jeevan atom's liberation from molecular-bondage and weight-bondage, and its having the hope-bondage."**
+> - MVD, p. 91
 
-§1.2 established saturation's three endowments — recognition capability for complementarity, activeness as *shram–gati–parinam*, and inherent regulation deferred to §1.7; §1.4 developed the **completeness drive** in atomic paths and teleological goals. §1.5 named the four orders. Existence also holds **relations between units**, and it is in those relations that complementarity is actualised as **value** in mutuality (SB, p. 53). Complementarity here is not merely give–take reciprocity in physicochemical exchange (§§1.2–1.3); it is the whole structure by which units reciprocate essentiality. **Relationships** are where complementarity is predetermined toward completeness; the unit's main drive is to recognise and fulfil them. Nothing in nature is isolated — "nothing is isolated – that is the principle" (JV, p. 43).
+All saturated units participate in inherent orderliness. Insentient units exhibit radiance and projection (SB, p. 69). At *gathanpurnata*, a constitutionally complete atom acts as a mediating reflector configuration: the stable compound reflects what is ever-present in *satta* as active sentience (*chaitanya*). What was latent in the ground — permeative *gyan* as the intelligibility of coexistence — is actualised when the atom's particle constitution closes. Sentience is latency actualised within coexistence.
 
-MVD defines a **relationship** as "the mutuality where expectations are predetermined in the sense of completeness" (MVD, p. 62), and contrasts it with **association** — "the mutuality where expectations are voluntary" (MVD, p. 61). Neighbours who share a wall have an association; parent and child stand in a relationship with expectations toward completeness.
+### 1.6.2 Activity completeness (T2)
 
-**Essentiality** in every order is **value** — what units reciprocate and mutually recognise in mutuality:
+T2 is the settlement of internal cognitive effort — restfulness of effort (*shram ka vishram*): *jeevan*'s seeking, visualising, and analysing resolving into direct realisation (*anubhav*) in coexistence, culminating in absolute resolution (*samadhan*) (SB, p. 61; MVD, p. 65). T2 is not the relational ease of insentient natural-state fulfilment in §1.3 — that reinstates *svabhav gati*, not *shram ka vishram*.
 
-> **"Entire beingness implies the essentiality of units in every plane and order. Essentiality refers to value… It is values that are reciprocated and mutually recognised, as complementarity, mutual recognition, and impression occur only in mutuality."**
-> - SB, p. 50
+### 1.6.3 Conduct completeness (T3)
 
-**Value** (*mulya*) is not one undifferentiated category. At every order, **object values** — **utility** (*upyogita*), the usefulness of natural abundance made available through labour, and **art** (*kala*), aesthetic enhancement that layers convenience on that usefulness — operate wherever production and exchange occur (MVD p. 306; JV pp. 138, 123). At the knowledge order, four further kinds presuppose *jeevan*: internal ***jeevan* harmonies** (happiness, peace, contentment, bliss); **human values** (the six *svabhav* qualities from §1.5); **established** relationship values (care, trust, affection, and the like that flow when relationships are recognised); and **expression** values (right-use of body, mind, and wealth in assembly) — developed in §§1.10.6 and 1.13.
+T3 is where external behavioural motion reaches its destination — destination of motion (*gati ka gantavya*): authentic conduct and living proof (*pramanikta*) in universal orderliness (*vyavastha*), yielding mutual satisfaction and justice (MVD, p. 80). T3 is not a second name for the same internal settlement as T2.
 
-**Impression** names the describable event in which one unit's activity registers on another in mutuality — alongside complementarity and mutual recognition.
+At the knowledge order, perceiver status (*drishta pad*) — enlightenment and realisation within the truth of coexistence — is what awakened humans attain. Activity completeness (T2) and conduct completeness (T3) evidence it in orderliness with *ness* and living proof (SB, pp. 137–138, 159).
 
-Every unit **recognises** its relationships and **fulfils** them:
+### 1.6.4 Time and causation
 
-> **"Every entity of nature recognises another; that is why it fulfils. An atomic particle too recognises another, and as a result, these particles abide in orderliness."**
-> - JV, p. 69
+The texts distinguish origination (units co-eternally present) from causation (what produces change when units transform). Omnipresence grounds all units through saturation as supreme cause (*mahakaran*) in the sustaining sense — the ground of activity, not its trigger (MVD, pp. 288–289; SB, pp. 49, 62). The causal work of change is done by units themselves.
 
-That recognition and fulfilment draw on **capacity**, **ability**, and **receptivity** — endowed through saturation (§1.2) and developed or activated through environment and interference (SB, p. 61; §1.6 below). At the material, biological, and animal orders, fulfilment is **definite** — structural, seed, or species conformance (§1.7). In the knowledge order the same relationships must be **achieved** through knowing → believing → recognising → fulfilling; where evaluation mis-reads relationships, complementarity remains incompletely expressed — evaluative closure is developed in §1.10.5. At every order, fulfilment evidences **use, right-use, and purposeful-use** (MVD, p. 27).
+Time (*kaal*) is the duration of unit-activity — inseparable from effort, motion, and result in active units, not a separate cosmic container alongside *satta* and units. Omnipresence is timeless as non-transforming ground. Full treatment: [*Nature of Time*](../Nature-Of-Time/Nature-Of-Time.pdf).
 
-Higher statuses require inherent capacity and a conducive environment together. SB illustrates the bond with seed and naturalness — **illustrative, not identity**: germination begins when a seed is placed in its naturalness; without naturalness, exuberance cannot happen in it (SB, p. 54). Saturation endows **inherent capacity**; **naturalness and mutuality** in environment activate it — neither alone suffices (§1.2). Atomic constitutional completeness and knowledge-order awakening depend on the same dual structure (§§1.9, 1.10.3–1.10.4).
+### 1.7 *Jeevan*: structure and faculties
 
-The **completeness drive** (§1.4; SB, p. 51) turns unit-activity toward fulfilling relationships, step by step, at higher levels. Units move toward satisfaction by recognising and fulfilling relationships built into coexistence — not by maximising an abstract quantity. When those relationships are fully evident across nature, the texts call that **realisation in coexistence** (SB, p. 51): not a new state of the ground, but fulfilment made clear within coexistence — senses distinguished in §1.11.
-
-### 1.7 Regulation and law
-
-§1.2 named **inherent regulation** as the third endowment of saturation; here the **regulation ladder** reads that bond upward: saturation → law → order-specific conformance → inward regulation in *jeevan* → **justice** (*nyaya*) as evaluative closure in the knowledge order → assembly self-governance. The upper rungs — inward regulation, *justice*, and assembly self-governance — presuppose the sentient self and its capacity to evaluate and err. They are stated here to show the whole ladder and are defined in §§1.9, 1.10.5, and 1.10.6. *Satta* does not descend as statutory command.
-
-> **"Regulation itself becomes clear in the form of law. Consequently, there is provision in every unit for recognising one another based on law. This itself is the meaning of regulation."**
-> - SB, p. 57
-
-> **"Omnipotence is mediative, therefore the nature saturated in it is regulated and conserved. The nucleus within every atom is the mediative activity, whereby the atom's generative-degenerative activities and relative powers are regulated and conserved."**
-> - MVD, p. 26
-
-Orderliness (*vyavastha*) at the level of co-existing orders is **self-regulation** (*swatah-saspurt*) — inherent in nature's orders, not dispensed by a cosmic governor — the mediative (*madhyasth*) role that gives the darshan its name. The same inherent orderliness in each unit, by which it participates in **overall orderliness** (§1.3), is the law that — recognised and fulfilled at the knowledge order — scales into the **universal orderliness** of an undivided society (§1.13).
-
-![Regulation ladder: Omnipotence through saturation, law, order conformance, jeevan inward regulation, justice, and assembly self-governance](1-regulation-ladder.svg)
-
-**Law** names how regulation and orderliness are **already structurally real** in coexistence — the **law of orderliness with *ness***, expressed in order-specific **conformance regimes**. The definiteness of conduct at each order — the modes tabulated below — is what the texts call ***niyati-vidhi***; it is the conduct-side counterpart to macro *niyati-kram* (§1.5):
-
-| Order | Conformance mode | Definite or achieved |
-|---|---|---|
-| Material (*padarth*) | Result- / structural-conformance | Definite |
-| Bio (*pran*) | Seed-conformance | Definite |
-| Animal (*jeev*) | Species-conformance | Definite |
-| Knowledge / human (*gyan*) | *Sanskar*-conformance | Achieved through knowing → believing → recognising → fulfilling |
-
-Below the knowledge order, lawful recognition and fulfilment need no separate name for evaluation. Once *jeevan* must evaluate and can err, the texts name the evaluative closure of the relational cycle **justice** (*nyaya*). The six **perspectives** (*drishti*) through which humans evaluate are developed in §1.10.5. **Statutory and public law** (*dharma-niti*, *rajya-niti*) codifies assembly order separately; conduct may satisfy legality while violating justice. Institutional governance belongs in the planned *Governance Justice and Undivided Society* study.
-
-### 1.8 Composition and assemblies
-
-When complementary units fulfil their relationships, they **compose** into larger units:
-
-> **"Everywhere, there exists a natural inclination towards coexistence. This inclination is what leads atomic particles to assemble into atoms, atoms to combine into molecules, and molecules to combine into molecular forms."**
-> - JV, p. 67
-
-Each successful composition **opens relationships at a higher tier** — particles to atoms, atoms to molecules, molecules to cells and bodies, and onward to human assemblies — while stability **persists in natural state** and **declines** when fulfilment breaks down (SB, p. 14). On the **insentient atomic path** (§1.4), collections and assemblies participate in *vikas-kram* toward T1; the completeness drive also scales complementarity upward through *niyati-kram* at the order level. Composition must still be distinguished from atomic development (§1.10.1).
-
-In a **mixture** (*mishran*), components maintain their respective conducts. In a **compound** (*yaugik*), components combine in definite proportion and present a genuinely new unit with its own four-aspect signature (MVD, p. 42).
-
-**Composition is not development.** The developmental plateau is crossed only when an **atom** reaches constitutional completeness. Assemblies **persist** while relationships are fulfilled in their natural state and **decline** when they are not (SB, p. 14). Transmission of composition method (*rachna vidhi*) runs by constitution, seed, lineage, or education-*sanskar* according to order (JV, pp. 48, 82; MVD, pp. 92–93).
-
-When assemblies are **human** compositions — family, community, and society — the same persist-or-decline rule applies, but recognition and fulfilment are **achieved** and evaluative rather than definite. Human assemblies, like molecules and bodies, are real compositions whose durability tracks relationship-fulfilment, not fear or extraction alone. Assembly-scale outcomes at awakened sociality are developed in §1.13.
-
-### 1.9 *Jeevan*: structure and faculties
-
-*Jeevan* — the sentient self that works through the body (*shareer*) — is a **constitutionally complete** unit: a self-maintaining sentient atom whose particle constitution has closed, not a conventional aggregate of insentient parts. How such units arise at the sentience threshold (T1), which **planes** they occupy, and how awakening proceeds are developed in §§1.10.1–1.10.4; here the focus is what *jeevan* **is** structurally.
+*Jeevan* — the sentient self that works through the body (*shareer*) — is a constitutionally complete unit: a self-maintaining sentient atom whose particle constitution has closed at T1, not a conventional aggregate of insentient parts.
 
 MVD lists five inseparable aspects — *mun*, *vritti*, *chitta*, *buddhi*, and *atma* — within the *jeevan*-cloud (MVD, p. 13). They operate through the projection and reflection cycle (*paravartan* and *pratyavartan*):
 
@@ -260,45 +252,41 @@ MVD lists five inseparable aspects — *mun*, *vritti*, *chitta*, *buddhi*, and 
 | *Buddhi* | resolve (*sankalp*) | enlightenment (*bodh*) |
 | *Atma* | authenticity (*pramanikta*) | realisation (*anubhav*) |
 
-The five faculties are not optional layers added to an already-complete atom. They **are** the atom's constitutional structure: *atma* is the nucleus; *buddhi*, *chitta*, *vritti*, and *mun* are the particles in the first through fourth orbits respectively (MVD, p. 78). JV presents the same structure as ten coordinated activities across nucleus and orbits — taste and selection in *mun*, deliberation and analysis in *vritti*, contemplation and visualisation in *chitta*, enlightenment and resolve in *buddhi*, and realisation and authenticity in *atma* (JV, p. 92). Functional indivisibility is structural: the faculties are the sentient atom's parts in their proper orbits, not a conventional aggregate.
+The five faculties are the atom's constitutional structure: *atma* is the nucleus; *buddhi*, *chitta*, *vritti*, and *mun* are the particles in the first through fourth orbits respectively (MVD, p. 78). JV presents the same structure as ten coordinated activities across nucleus and orbits — taste and selection in *mun*, deliberation and analysis in *vritti*, contemplation and visualisation in *chitta*, enlightenment and resolve in *buddhi*, and realisation and authenticity in *atma* (JV, p. 92).
 
 > **"The nucleus of the sentient unit (a constitutionally complete atom) is referred to as atma. The particles in its first orbit are referred to as buddhi, those in the second orbit are referred to as chitta, those in the third orbit are referred to as vritti, and those in the fourth orbit are referred to as mun."**
 > - MVD, p. 78
 
-These five faculties are one of **two** five-fold structures in the texts and must not be conflated with the second — **they do not align one-to-one**. The five faculties (*mun* through *atma*) name the **invariant parts and orbital structure** of the *jeevan* atom itself: what a constitutionally complete sentient unit **is** at the atomic level.
+These five faculties are one of two five-fold structures in the texts and must not be conflated with the second — they do not align one-to-one. The five faculties (*mun* through *atma*) name the invariant parts and orbital structure of the *jeevan* atom itself: what a constitutionally complete sentient unit is at the atomic level.
 
-Alongside them, Madhyasth Darshan maps the developmental **envelopes** of the **joint form** (body + *jeevan*) in **kosha** (sheath) vocabulary — *annamaya*, *pranamaya* (*pran kosha* in the texts' shorthand), *manomaya*, *anandamaya*, and *vigyanmaya* (MVD, pp. 49–50). Animal-order *jeevan* and pre-awakening (deluded) humans function across **four** koshas; awakening adds a fifth, *vigyanmaya* — the sheath of right knowledge — so awakened humans function across **five**. Faculties track **what *jeevan* is structurally**; koshas track **where awakening has opened** on the planes of §1.10.4 — a given faculty is not the same thing as a given sheath, and the two lists cannot be read as parallel columns.
+Alongside them, Madhyasth Darshan maps the developmental envelopes of the joint form (body + *jeevan*) in *kosha* (sheath) vocabulary — *annamaya*, *pranamaya* (*pran kosha* in the texts' shorthand), *manomaya*, *anandamaya*, and *vigyanmaya* (MVD, pp. 49–50). Animal-order *jeevan* and pre-awakening (deluded) humans function across four koshas; awakening adds a fifth, *vigyanmaya* — the sheath of right knowledge — so awakened humans function across five. Faculties track what *jeevan* is structurally; koshas track where awakening has opened — a given faculty is not the same thing as a given sheath, and the two lists cannot be read as parallel columns.
 
-Evaluation through six built-in **perspectives** (*drishti*) is developed in §1.10.5. The four felt harmonies within *jeevan* follow in §1.10.6.
+On the delusional plane, *atma* is the "I" at the nucleus; the inseparable orbital set *buddhi*–*chitta*–*vritti*–*mun* is "mine"; awakening is these four coming into accordance with *atma* (MVD, p. 78). Mistaking the body for the self is the root of that confusion (SB, pp. 91–92).
 
-### 1.10 Development, planes, and awakening
+### 1.8 Progressions and planes
 
-Through §§1.1–1.9, this study has built the static architecture of coexistence: the two poles and saturation, what every unit is, how change appears as unit-activity, the four orders and their relationships, regulation and composition, and the structural makeup of constitutionally complete *jeevan*. §1.10 turns to development and awakening — how sentient units **arise**, what **developmental stage** a unit has reached, and how **awakening** proceeds toward realisation in coexistence. Bigger molecules, richer bodies, or higher orders are not the same thing as crossing the sentience threshold; this section keeps those levels apart.
+Madhyasth Darshan maps change and development across two coordinates: progressions (how nature moves) and planes (where a unit stands).
 
-The **completeness drive** (§1.4) — insentient and sentient atomic paths, teleological goals, and unit-activity — now read through effort–motion–result in the sentient mode. The four orders and the dual condition of inherent capacity plus conducive environment (§§1.5–1.6) supply the backdrop; composition of assemblies must still be distinguished from atomic development (§1.8). §1.9 named what constitutionally complete *jeevan* **is** structurally; what follows traces its **history and stages**. The section moves from four kinds of progression, through orders and planes as coordinates, to three completeness thresholds (T1–T3), and then to evaluative and experiential awakening in §§1.10.5–1.10.6. Summary figures appear at §1.10.4.
+### 1.8.1 Four progressions
 
-Nature saturated in state-complete Omnipotence is oriented for **development and awakening until realisation in coexistence** (SB, p. 51).
+The texts use four different words for "progress" at different levels; they must not be collapsed:
 
-### 1.10.1 Four progressions at different levels
+1. Existential progression (*niyati-kram*) — fixed order emergence: material → pranic → animal → knowledge.
+2. Way of existence (*niyati-vidhi*) — definiteness in each order's conduct.
+3. Development progression (*vikas-kram*) — through the physicochemical complex until an atom reaches constitutional completeness and sentient *jeevan* appears (MVD, pp. 13–14).
+4. Awakening progression (*jagriti-kram*) — within constitutionally complete *jeevan*, toward fuller activity and conduct (MVD, pp. 13–14).
 
-The texts use **four different words for "progress"** at different levels; they must not be collapsed:
+Macro order chain (*niyati-kram*) and atomic development (*vikas-kram*) run on different levels — the fixed sequence in which bodies and orders appear on Earth is not the same process as an atom closing its particle constitution at the sentience threshold.
 
-1. **Existential progression** (*niyati-kram*) — fixed order emergence: material → pranic → animal → knowledge (§1.5).
-2. **Way of existence** (*niyati-vidhi*) — definiteness in each order's conduct (§1.7).
-3. **Development progression** (*vikas-kram*) — through the physicochemical complex until an atom reaches **constitutional completeness** and sentient *jeevan* appears (MVD, pp. 13–14).
-4. **Awakening progression** (*jagriti-kram*) — within constitutionally complete *jeevan*, toward fuller **activity** and **conduct** (MVD, pp. 13–14).
+MVD distinguishes development progression and awakening progression as actualities of coexistence alongside order-level enrichment (MVD, pp. 13–14). Molecules and larger assemblies participate in composition and in *vikas-kram* at the atomic scale; crossing T1 is not the same as the order-to-order chain named in *niyati-kram*.
 
-Macro order chain (*niyati-kram*) and atomic development (*vikas-kram*) run on **different levels** — the fixed sequence in which bodies and orders appear on Earth is not the same process as an atom closing its particle constitution at the sentience threshold.
+The two axes meet at the pranic→animal junction. *Niyati-kram* delivers, on Earth, the bodily basis of the animal order from enriched pranic life (MVD, pp. 8, 13; SB, pp. 76–77); *vikas-kram* delivers, at the atomic scale, an atom that has reached constitutional completeness (MVD, p. 91). An animal is the joint presence of such a *jeevan* atom with a body of that order — the body comes from the order chain; the sentient unit comes from atomic constitutional completeness.
 
-MVD distinguishes **development progression** and **awakening progression** as actualities of coexistence alongside order-level enrichment (MVD, pp. 13–14). Molecules and larger assemblies participate in composition and in *vikas-kram* at the atomic scale; crossing T1 is not the same as the order-to-order chain named in *niyati-kram* (§1.8).
+In the sentient mode, effort–motion–result maps to the three teleological goals named in §1.6: result toward immortality of result at T1; effort toward restfulness of effort at T2; motion toward destination of motion at T3 (SB, pp. 58, 71). Sentient nature also works through projection and reflection toward relational closure (*samadhan*) at the knowledge order (SB, pp. 60, 64–65, 69).
 
-The two axes meet at the pranic→animal junction. *Niyati-kram* delivers, on Earth, the bodily basis of the animal order from enriched pranic life (MVD, pp. 8, 13; SB, pp. 76–77); *vikas-kram* delivers, at the atomic scale, an atom that has reached constitutional completeness (MVD, p. 91). An animal is the joint presence of such a *jeevan* atom with a body of that order — **the body comes from the order chain; the sentient unit comes from atomic constitutional completeness**. The two progressions are distinct in level but coincide in producing animal-order life.
+### 1.8.2 Four planes
 
-In the sentient mode, effort–motion–result maps to those stages with the three teleological goals named in §1.4: result toward **immortality of result** (*parinam ki amarta*) at constitutional completeness (T1); effort toward **restfulness of effort** (*shram ka vishram*) at activity completeness (T2); motion toward **destination of motion** (*gati ka gantavya*) at conduct completeness (T3) (SB, pp. 58, 71). Sentient nature also works through projection and reflection toward relational closure (*samadhan*) at the knowledge order (SB, pp. 60, 64–65, 69).
-
-### 1.10.2 Orders and planes
-
-**Order** names what a unit **is**; **plane** (*pad*) names how far its development has gone — where on the map it currently stands, not merely what kind of unit it is (SB, p. 52). SB lists four planes:
+Order names what a unit is; plane (*pad*) names how far its development has gone — where on the map it currently stands, not merely what kind of unit it is (SB, p. 52). SB lists four planes:
 
 | Plane | Plain meaning |
 |---|---|
@@ -309,7 +297,7 @@ In the sentient mode, effort–motion–result maps to those stages with the thr
 
 "Delusional" here names a developmental stage in the texts, not psychiatric illness.
 
-Orders and planes are different axes, and they do **not** line up one-to-one. The two insentient orders share the single physicochemical plane; the animal order and the pre-awakening human occupy the delusional plane; and the knowledge order alone spans three plane-states as a human develops (SB, p. 52):
+Orders and planes are different axes, and they do not line up one-to-one (SB, p. 52):
 
 | Order | Plane(s) it occupies | Status |
 |---|---|---|
@@ -318,60 +306,67 @@ Orders and planes are different axes, and they do **not** line up one-to-one. Th
 | Animal (*jeev*) | Delusional | Sentient *jeevan*; body-identified |
 | Knowledge / human (*gyan*) | Delusional → deific → divine | Sentient *jeevan*; awakening across planes |
 
-Two orders thus map to one plane (physicochemical), while one order maps to three — the asymmetry the figure below renders, and the reason *order* and *plane* must not be used interchangeably.
+Two orders thus map to one plane (physicochemical), while one order maps to three — the asymmetry the figure below renders, and the reason order and plane must not be used interchangeably.
 
-Within these planes the texts distinguish five human types by degree of awakening — the servile human (*pashu-manav*) and the brutal human (*rakshas-manav*) on the delusional plane, the discerning human in transition, the *dev-manav* on the deific plane, and the fully awakened *divya-manav* on the divine plane (MVD, p. 160). The typology itself belongs to the ethics and society studies; here it only locates the planes on a human scale.
+Within these planes the texts distinguish five human types by degree of awakening — the servile human (*pashu-manav*) and the brutal human (*rakshas-manav*) on the delusional plane, the discerning human in transition, the *dev-manav* on the deific plane, and the fully awakened *divya-manav* on the divine plane (MVD, p. 160). Awakening to the knowledge order requires the human body as enabling medium — with fully enriched nervous system and imagination — not merely a vehicle any sentient plane could use (MVD, p. 115; JV, pp. 79, 93).
 
 ![Four ontological orders mapped to four planes with completeness transitions T1 through T3](1-orders-planes.svg)
 
-### 1.10.3 Constitutional completeness and sentience (T1)
-
-**T1** is the irreversible sentience threshold: **constitutional completeness** (*gathanpurnata*) at the atomic level — not neural complexity, molecular size, or mere elevation along the order chain (SB, p. 52). Molecules exhibit characteristics of development but not **actual** development; the sentient threshold is constitutional completeness of the atom (SB, p. 52). T1 is **irreversible** at the atomic level (SB, p. 92).
-
-An insentient atom (*parmanu*) — a **composite** of nucleus and orbiting particles (MVD, p. 42) — reaches *gathanpurnata* through particle incorporation, hungry and overfull complementarity, and **environmental mutuality** — the dual condition of §1.6: inherent capacity from saturation plus a mutuality of environment in which the required particles can integrate (MVD, p. 8; SB, pp. 58, 71). When the required particles are integrated, the atom becomes constitutionally complete: satisfaction within, by, and for that constitution — the **goal of result**, immortality of result (*parinam ki amarta*), and sentient status (SB, p. 59; §1.4).
-
-In this state there is neither increase nor decrease in particle count; the atom undergoes **qualitative change without quantitative change** (SB, p. 55).
-
-Before constitutional completeness, an evolving-constitution atom carries **molecular-bondage** and **weight-bondage**. On crossing T1 it is liberated from both; hope-bondage replaces them as the sentient mode's defining bondage (MVD, p. 91; MVD, p. 117; SB, p. 114):
-
-> **"An evolving-constitution atom is with molecular-bondage and weight-bondage. However, when the contraction and expansion activity increases in this atom, it instantly breaks free from its group and attains constitutional completeness, becoming a jeevan atom. The evidence of constitutional completeness is the jeevan atom's liberation from molecular-bondage and weight-bondage, and its having the hope-bondage."**
-> - MVD, p. 91
-
-**Tiered intelligibility:** all saturated units participate in inherent orderliness. Insentient units exhibit radiance and projection (SB, p. 69).
-
-At *gathanpurnata*, a constitutionally complete atom acts as a **mediating reflector configuration**: the stable compound reflects what is ever-present in *satta* as active sentience (*chaitanya*). What was **latent** in the ground — permeative *gyan* as the intelligibility of coexistence — is **actualized** when the atom's particle constitution closes. The threshold is constitutional completeness, not mere molecular scale or neural complexity. Sentience becomes evident when a unit's structure is complete enough to reflect what saturation already grounds — **latency actualized** within coexistence. The four senses of knowledge in coexistence are distinguished in §1.11.
-
-### 1.10.4 Awakening milestones (T2 and T3)
-
-**T2** and **T3** are awakening milestones within an already constitutionally complete *jeevan* in the knowledge order — fuller **activity** and **conduct**, not a second atomic transformation. Animal-order *jeevan* and pre-awakening humans occupy the delusional plane; awakening to the knowledge order requires the **human body** as enabling medium — with fully enriched nervous system and imagination — not merely a vehicle any sentient plane could use (MVD, p. 115; JV, pp. 79, 93). Awakening moves a human through the deific plane toward the divine plane. Koshas track **where awakening has opened** on these planes; the five faculties of §1.9 track **what *jeevan* is structurally**.
-
-Delusion on the delusional plane confuses **body** with **self**: *atma* is the "I" at the nucleus; the inseparable orbital set *buddhi*–*chitta*–*vritti*–*mun* is "mine"; awakening is these four coming into accordance with *atma* (MVD, p. 78; §1.9). Mistaking the body for the self is the root of that confusion (SB, pp. 91–92).
-
-Three completeness thresholds align plane shifts with effort–motion–result and its teleological goals in the sentient mode (§1.4):
-
-| Transition | Completeness | Plane shift | Triad term | Teleological goal | What becomes evident |
-|---|---|---|---|---|---|
-| **T1** | Constitutional (*gathanpurnata*) | Physicochemical → delusional | Result | Immortality of result (*parinam ki amarta*) | Sentient *jeevan*; hope to live |
-| **T2** | Activity (*kriyapurnata*) | Delusional → deific | Effort | Restfulness of effort (*shram ka vishram*) | Awakened humans; orderliness with *ness* |
-| **T3** | Conduct (*vyavaharpurnata*) | Deific → divine (complete) | Motion | Destination of motion (*gati ka gantavya*) | Awakened humans with evidence (*pramanikta*) |
-
-T2 is not the relational ease of insentient natural-state fulfilment in §1.3 — that reinstates *svabhav gati*, not *shram ka vishram*. T2 is the settlement of **internal cognitive effort** — *jeevan*'s seeking and analysing resolving into realization and *samadhan*. T3 is where **external behavioural motion** reaches its destination: authentic conduct and living proof (*pramanikta*) in universal orderliness, not a second name for the same internal settlement.
-
-At the knowledge order, **perceiver status** (*drishta pad*) — enlightenment and realisation within the truth of coexistence — is what awakened humans attain. Activity completeness (T2) and conduct completeness (T3) evidence it in orderliness with *ness* and living proof (SB, pp. 137–138, 159).
-
-The figure below pulls together the full §1 architecture: coexistence and saturation, four orders, the three progressions (*niyati-kram*, *vikas-kram*, *jagriti-kram*), and completeness transitions T1–T3.
-
 ![Madhyasth Darshan architecture of coexistence: Omnipresence (satta) and units (ikai) as co-eternal poles bound by saturation; four orders labelled insentient (material, pranic) and sentient (animal, knowledge) with a sentience boundary at the pranic-to-animal junction; niyati-kram, vikas-kram, and jagriti-kram progressions through transitions T1–T3; conservation and causation framing](1-madhyasth-darshan-ontology.svg)
-
-The next figure traces the same bond from saturation through composition to body, and shows constitutional completeness actualizing sentient *jeevan* as reflector of what *satta* grounds.
 
 ![Units saturated in satta compose through particles and atoms to body; constitutional completeness actualizes sentient jeevan reflecting gyan; jeevan works through the body as joint form](1-saturation-samprikt.svg)
 
-### 1.10.5 Evaluative perspectives: justice, dharma, and truth
+### 1.9 Composition and assemblies
 
-At the knowledge order, relationships must be **achieved** rather than definite (§1.6), and evaluation can mis-read them — blocking full complementarity. This subsection completes the regulation ladder's upper rungs (§1.7): how *jeevan* evaluates through six built-in **perspectives** and the humane refuge of justice, dharma, and truth.
+When complementary units fulfil their relationships, they compose into larger units:
 
-Only *jeevan* in the knowledge order evaluates (JV, p. 70). It does not use a single lens. *Jeevan*'s design includes six **perspectives** for knowing, believing, evaluation, and choice. In awakening, **humane refuge** reorganises under *nyaya*, *dharma*, and *satya* rather than *priya*, *hita*, and *labh* (MVD, pp. 27, 67).
+> **"Everywhere, there exists a natural inclination towards coexistence. This inclination is what leads atomic particles to assemble into atoms, atoms to combine into molecules, and molecules to combine into molecular forms."**
+> - JV, p. 67
+
+Each successful composition opens relationships at a higher tier — particles to atoms, atoms to molecules, molecules to cells and bodies, and onward to human assemblies — while stability persists in natural state and declines when fulfilment breaks down (SB, p. 14). On the insentient atomic path, collections and assemblies participate in *vikas-kram* toward T1; the completeness drive also scales complementarity upward through *niyati-kram* at the order level.
+
+In a mixture (*mishran*), components maintain their respective conducts. In a compound (*yaugik*), components combine in definite proportion and present a genuinely new unit with its own four-aspect signature (MVD, p. 42).
+
+Composition is not development. The developmental plateau is crossed only when an atom reaches constitutional completeness. Assemblies persist while relationships are fulfilled in their natural state and decline when they are not (SB, p. 14). Transmission of composition method (*rachna vidhi*) runs by constitution, seed, lineage, or education-*sanskar* according to order (JV, pp. 48, 82; MVD, pp. 92–93).
+
+When assemblies are human compositions — family, community, and society — the same persist-or-decline rule applies, but recognition and fulfilment are achieved and evaluative rather than definite. Human assemblies, like molecules and bodies, are real compositions whose durability tracks relationship-fulfilment, not fear or extraction alone.
+
+### 1.10 Regulation, law, and conformance
+
+Inherent regulation is the third endowment of saturation. Saturated units are self-regulating (*swatah-saspurt*); orderliness is inherent to nature rather than dispensed by an external ruler. This mediative (*madhyasth*) regulation regulates and conserves every unit. *Satta* does not descend as statutory command.
+
+> **"Regulation itself becomes clear in the form of law. Consequently, there is provision in every unit for recognising one another based on law. This itself is the meaning of regulation."**
+> - SB, p. 57
+
+> **"Omnipotence is mediative, therefore the nature saturated in it is regulated and conserved. The nucleus within every atom is the mediative activity, whereby the atom's generative-degenerative activities and relative powers are regulated and conserved."**
+> - MVD, p. 26
+
+Orderliness (*vyavastha*) at the level of co-existing orders is self-regulation — inherent in nature's orders, not dispensed by a cosmic governor — the mediative role that gives the darshan its name. The same inherent orderliness in each unit, by which it participates in overall orderliness, is the law that — recognised and fulfilled at the knowledge order — scales into the universal orderliness of an undivided society.
+
+Regulation manifests as law (*niyam*), which is expressed through order-specific conformance modes (*niyati-vidhi*):
+
+| Order | Conformance mode | Definite or achieved |
+|---|---|---|
+| Material (*padarth*) | Result- / structural-conformance | Definite |
+| Bio (*pran*) | Seed-conformance | Definite |
+| Animal (*jeev*) | Species-conformance | Definite |
+| Knowledge / human (*gyan*) | *Sanskar*-conformance | Achieved through knowing → believing → recognising → fulfilling |
+
+In the animal order, species-conformance is transmitted through *adhyasa* (gestational inheritance of conduct patterns; not to be confused with Advaita's *adhyasa*).
+
+![Regulation ladder: Omnipotence through saturation, law, order conformance, jeevan inward regulation, justice, and assembly self-governance](1-regulation-ladder.svg)
+
+Below the knowledge order, lawful recognition and fulfilment need no separate name for evaluation. Once *jeevan* must evaluate and can err, the texts name the evaluative closure of the relational cycle justice (*nyaya*). Statutory and public law (*dharma-niti*, *rajya-niti*) codifies assembly order separately; conduct may satisfy legality while violating justice. Institutional governance belongs in the planned *Governance Justice and Undivided Society* study.
+
+| Domain | Scope | Ontological status |
+|---|---|---|
+| Regulation / law | All four orders | Inherent in saturated units; same law of orderliness with *ness* |
+| Justice (*nyaya*) | Knowledge order | Complete relational activity: recognise, fulfil, evaluate, mutual satisfaction |
+| Statutory / public law | Assemblies, society | Institutional codification; may diverge from justice |
+
+### 1.11 Evaluative perspectives and justice
+
+Only *jeevan* in the knowledge order evaluates and chooses (JV, p. 70). It does not use a single lens. *Jeevan*'s design includes six perspectives (*drishti*) for knowing, believing, evaluation, and choice. In awakening, humane refuge reorganises under *nyaya*, *dharma*, and *satya* rather than *priya*, *hita*, and *labh* (MVD, pp. 27, 67).
 
 > **"All human behaviour is manifest in six perspectives: - (1) pleasant-unpleasant, (2) healthy-unhealthy, (3) profit-loss, (4) justice-injustice, (5) dharma-adharma, and (6) truth-untruth."**
 > - MVD, p. 67
@@ -379,220 +374,126 @@ Only *jeevan* in the knowledge order evaluates (JV, p. 70). It does not use a si
 > **"The behaviour of humans with inhumane perspective is in the refuge of pleasant-unpleasant, healthy-unhealthy, and profit-loss. The behaviour of humans with humane perspective is in the refuge of justice-injustice, dharma-adharma, and truth-untruth."**
 > - MVD, p. 67
 
-Each perspective becomes clear with respect to a definite domain (MVD, p. 66):
-
-| Perspective | Becomes clear with respect to | Role in evaluation |
+| Perspective | Domain | Role in evaluation |
 |---|---|---|
-| *Priya*–*apriya* | Instincts / sense-objects | Lower refuge; not enough as the main standpoint |
-| *Hita*–*ahita* | Body | Same |
-| *Labh*–*alabh* | Material goods and comforts | Same |
-| *Nyaya*–*anyaya* | **Behaviour** (*vyavahar*) | Humane refuge; regulates conduct |
-| *Dharma*–*adharma* | **Resolution** (*samadhan*) | Humane refuge; disciplines thought |
-| *Satya*–*asatya* | **Realisation in existence** | Humane refuge; grounds assessment in what is ultimately real |
+| *Priya*–*apriya* (pleasant-unpleasant) | Senses / instincts | Lower refuge; insufficient as main standpoint |
+| *Hita*–*ahita* (healthy-unhealthy) | Body | Lower refuge; insufficient as main standpoint |
+| *Labh*–*alabh* (profit-loss) | Material comfort | Lower refuge; insufficient as main standpoint |
+| *Nyaya*–*anyaya* (justice-injustice) | Behaviour (*vyavahar*) | Humane refuge; regulates conduct |
+| *Dharma*–*adharma* (dharma-adharma) | Resolution (*samadhan*) | Humane refuge; disciplines thought |
+| *Satya*–*asatya* (truth-untruth) | Existence | Humane refuge; grounds realisation in reality |
 
-The lower triad is legitimate in its domain — food and instinct, bodily health, livelihood — but not **sufficient** as the organising refuge of a knowledge-order being. Awakening **subordinates** rather than abandons those domains: pleasant, healthy, and profitable outcomes stay meaningful when ordered under justice, dharma, and truth ([Ethics and Morals in Human Beings](../Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf) §3.2).
+The lower triad is legitimate in its domain — food and instinct, bodily health, livelihood — but not sufficient as the organising refuge of a knowledge-order being. Awakening subordinates rather than abandons those domains: pleasant, healthy, and profitable outcomes stay meaningful when ordered under justice, dharma, and truth ([Ethics and Morals in Human Beings](../Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf) §3.2).
 
-Unit **dharma** (§1.3) — the fourth aspect of every unit's signature — must not be confused with the **dharma–adharma perspective**: the latter is an evaluative *drishti* on thought and resolution, not the innateness and fulfilment of a unit as such.
+Unit *dharma* (§1.3) — the fourth aspect of every unit's signature — must not be confused with the *dharma*–*adharma* perspective: the latter is an evaluative *drishti* on thought and resolution, not the innateness and fulfilment of a unit as such.
 
-The three humane perspectives regulate distinct domains of evaluative life (MVD, p. 137):
+These perspectives regulate distinct domains:
 
 > **"The regulation of human behaviour takes place through justice, discipline in thoughts takes place through dharma, and realisation takes place only through truth."**
 > - MVD, p. 137
 
-| Domain | Humane perspective | What evaluation disciplines |
-|---|---|---|
-| **Conduct** | *Nyaya*–*anyaya* | Behaviour in relationships — just or unjust |
-| **Thought** | *Dharma*–*adharma* | Deliberation and intention toward resolution |
-| **Realisation** | *Satya*–*asatya* | Whether assessment is grounded in coexistence as it is |
+### 1.11.1 The dual role of justice
 
-**Justice** (*nyaya*) has a **dual role**. As a **perspective**, it assesses behaviour as just or unjust. As an **ontological term**, justice names the **full relational activity** when the cycle closes: relationships recognised, values fulfilled, evaluation done, **mutual satisfaction** reached. Justice is not trust, respect, or a moral value among values. The nine established values (§1.6) flow **in** relationships; justice is what happens when that flow is complete and assessed as such.
+Justice (*nyaya*) has a dual role. As a perspective, it assesses behaviour as just or unjust. As an ontological term, justice names the full relational activity when the cycle closes: relationships recognised, values fulfilled, evaluation done, mutual satisfaction reached. Justice is not trust, respect, or a moral value among values.
 
 > **"Recognising relationships, fulfilling values, evaluating, and achieving mutual satisfaction is justice."**
 > - MVD, p. 311
 
-**Dharma** as evaluative perspective disciplines **thought** toward resolution (*samadhan*). **Satya** grounds assessment in realisation in existence rather than in liking, bodily expedience, or gain. Deliberation and visualisation from the humane triad are **balanced *vritti*** and **yathartha** *chitta*; stuck in the lower triad they are unbalanced and unreal (MVD, pp. 71, 126–127) — developed in [Ethics and Morals in Human Beings](../Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf) §3.2.
+*Dharma* as evaluative perspective disciplines thought toward resolution (*samadhan*). *Satya* grounds assessment in realisation in existence rather than in liking, bodily expedience, or gain. Below the knowledge order, recognition and fulfilment are lawful and definite without bearing the name justice, because evaluation and the possibility of error are not yet in play.
 
-Below the knowledge order, recognition and fulfilment are lawful and definite without bearing the name *justice*, because evaluation and the possibility of error are not yet in play. In the knowledge order, justice, dharma, and truth structure how *jeevan* evaluates — conduct, thought, and realisation — as the humane refuge built into *jeevan*'s design.
+### 1.12 *Jeevan* harmonies and experience
 
-| Domain | Scope | Ontological status |
-|---|---|---|
-| **Regulation / law** | All four orders | Inherent in saturated units; same law of orderliness with *ness* |
-| **Justice** (*nyaya*) | Knowledge order | Complete relational activity: recognise, fulfil, evaluate, mutual satisfaction |
-| **Statutory / public law** | Assemblies, society | Institutional codification; may diverge from justice |
+Awakening is not only a plane label or completeness stage. It is also felt harmony within the faculty structure of §1.7 — happiness, peace, contentment, and bliss as orbital faculties come into accordance with *atma*.
 
-### 1.10.6 *Jeevan* values and faculty harmony
-
-Awakening is not only a plane label or completeness stage. It is also **felt harmony** within the faculty structure of §1.9 — happiness, peace, contentment, and bliss as orbital faculties come into accordance with *atma*. Activity completeness (T2) and conduct completeness (T3) evidence perceiver status (*drishta pad*); this subsection names what *jeevan* **experiences** along that path.
-
-The faculty cycle is organised around what *jeevan* **experiences**, not only what it projects and reflects. JV names four *jeevan* values — happiness, peace, contentment, and bliss — as harmonies between faculty pairs:
+JV names four *jeevan* values — happiness, peace, contentment, and bliss — as harmonies between faculty pairs:
 
 > **"Among the values, jeevan values are known by the names — happiness, peace, contentment and bliss, which are only names of the state of harmony within jeevan. Happiness is when there is harmony in mun and vritti, peace is when there is harmony in vritti and chitta, contentment is when there is harmony in chitta and buddhi, and bliss is when there is harmony in buddhi and atma."**
 > - JV, p. 138
 
-MVD states the same progression as effects of *atma* realised in truth on the lower faculties — taste (*asvad*) in *mun* registers as happiness; enthusiasm or peace in *vritti*; rejoicing or contentment in *chitta*; immersion or bliss in *buddhi* (MVD, p. 101). The taste reflection of *mun* in the projection–reflection table above is therefore not a bare sensory datum but where **sukh** first appears in the cycle. Awakening means retaining happiness, peace, and contentment as human goals are evidenced (JV, pp. 61–62); bliss follows as understanding becomes ingrained in tradition.
+MVD states the same progression as effects of *atma* realised in truth on the lower faculties — taste (*asvad*) in *mun* registers as happiness; enthusiasm or peace in *vritti*; rejoicing or contentment in *chitta*; immersion or bliss in *buddhi* (MVD, p. 101).
 
 > **"The mode of channelling jeevan's energies towards development (awakening) is through curiosity in mun, enthusiasm in vritti, delight in chitta, elation and immersion in buddhi, and finally, realisation in atma. For this, inward regulation of jeevan energies is essential."**
 > - MVD, p. 77
 
-**Inward regulation** is self-regulation within the sentient unit — mediative *atma* at the nucleus disciplines the orbital faculties and body (MVD, p. 277). This is the sentient-scale mediative nucleus structure named at the atomic level in §1.7 (MVD, pp. 26, 78) — identity at two scales, not mere analogy.
+Inward regulation is self-regulation within the sentient unit — mediative *atma* at the nucleus disciplines the orbital faculties and body (MVD, p. 277). This is the sentient-scale mediative nucleus structure named at the atomic level in §1.10 (MVD, pp. 26, 78) — identity at two scales, not mere analogy.
 
-*Jeevan* does not sleep when the body sleeps; values and evaluation are *jeevan*'s practical purpose. Activity completeness (T2) and conduct completeness (T3) — plane transitions developed in §1.10.4 — evidence perceiver status (*drishta pad*) in orderliness with *ness* and living proof.
+*Jeevan* does not sleep when the body sleeps; values and evaluation are *jeevan*'s practical purpose. Activity completeness (T2) and conduct completeness (T3) evidence perceiver status (*drishta pad*) in orderliness with *ness* and living proof.
 
 > **"Jeevan continues to exist even after death as it does while driving a body."**
 > - JV, p. 20
 
-Post-death continuity follows from the darshan's conservation and constitutional-immortality claims (JV, p. 20; §1.12).
+Because *jeevan* is a constitutionally complete atom, it persists indefinitely across bodily birth and death, carrying its accumulated impressions and state of awakening.
 
-### 1.11 Knowledge in coexistence
+### 1.13 Knowledge in coexistence
 
-§§1.1–1.10 established what exists, how units develop and awaken, and how *jeevan* evaluates through six *drishti* and faculty harmony. §1.11 answers a prior question the completeness drive already presupposes: when the texts say *gyan* or knowledge, **which meaning is in play?** Conflating the senses makes Omnipresence a cosmic mind that knows, treats active sentience as mere insentient orderliness, or treats fulfilled relationships as private belief — each misreading breaks the architecture built in §1.
-
-The **completeness drive** (§1.4) moves units toward relationships fulfilled and evident — **realisation in coexistence** as telos. That fulfilment is not automatic at every level. Below the knowledge order, recognition and fulfilment are **definite**; at the knowledge order they must be **achieved**. Latent intelligibility in *satta* (sense 2) is actualized at T1 (§1.10.3); unfolding into complete understanding requires awakened *jeevan* through T2–T3, evaluation under justice, dharma, and truth (§1.10.5), and lived faculty harmony (§1.10.6). This section names the four senses, traces how knowledge is **achieved** at the knowledge order, and states how complete knowing evidences itself in conduct — before conservation (§1.12) and assembly-scale outcomes (§1.13).
-
-### 1.11.1 Four senses of knowledge
-
-The texts use *gyan* and related words at **four distinct senses**. Treating them as one thing is the main source of misreading. The epistemic task is to keep them apart while tracing how they connect in human knowing:
+The texts use *gyan* and related words at four distinct senses. Treating them as one thing is the main source of misreading — for example, treating Omnipresence as a conscious mind, or fulfilled relationships as private belief.
 
 | Sense | What it names | Primary locus | Epistemic role |
 |---|---|---|---|
-| **Realisation Knowledge** (*anubhav jnan*) | Orderliness already present in saturated units | All units in Omnipresence (MVD, p. 11) | Ontological **given** — what exists to be known |
+| **Realisation Knowledge** (*anubhav jnan*) | Orderliness already present in saturated units | All units in Omnipresence (MVD, p. 11) | Ontological given — what exists to be known |
 | ***Gyan* as *satta*** | Intelligibility-ground; Space as knowledge | Omnipresence (MVD, p. 35) | Condition of intelligibility — not a knowing subject |
-| **Realisation in coexistence** | Relationships fulfilled and evident | Knowledge-order telos (MVD, p. 116; SB, p. 51) | **Goal** of complete knowing — not a new state of the ground |
-| ***Gyan udghatan*** | Unfolding of knowledge in thought and conduct | Awakened *jeevan* only (MVD, pp. 115–116, 289) | **Activity** of the knower — exclusive to awakened humans |
+| **Realisation in coexistence** | Relationships fulfilled and evident | Knowledge-order telos (MVD, p. 116; SB, p. 51) | Goal of complete knowing — not a new state of the ground |
+| ***Gyan udghatan*** | Unfolding of knowledge in thought and conduct | Awakened *jeevan* only (MVD, pp. 115–116, 289) | Activity of the knower — exclusive to awakened humans |
 
-**Realisation Knowledge** is the ontological given already stated in §§1.1 and 1.3 — saturated units with form, properties, essential nature, *dharma*, and orderliness:
+Realisation Knowledge is the ontological given already stated in coexistence and unit structure — saturated units with form, properties, essential nature, *dharma*, and orderliness:
 
 > **"All units saturated in the Omnipresence (permeative and transparent) have form, properties, essential nature & dharma, and have inherent orderliness & participate in overall orderliness."**
 > - MVD, p. 11
 
-This is knowledge as what **is** in every unit — not yet the human accomplishment of understanding. ***Gyan* as *satta*** names the ground's state-complete intelligibility: relational, evaluatively structured orderliness — not merely statistical regularity, and not a mind that knows (Editorial Notes; §1.1). What was **latent** in that ground is **actualized** as active sentience at constitutional completeness (§1.10.3); Omnipresence does not unfold knowledge as a knower.
+This is knowledge as what is in every unit — not yet the human accomplishment of understanding. *Gyan* as *satta* names the ground's state-complete intelligibility: relational, evaluatively structured orderliness — not merely statistical regularity, and not a mind that knows (Editorial Notes). What was latent in that ground is actualised as active sentience at constitutional completeness; Omnipresence does not unfold knowledge as a knower.
 
-**Realisation in coexistence** is the telos the completeness drive names in §1.4 — relationships fulfilled and made evident across nature, not a transformation of *satta* itself. ***Gyan udghatan*** — the unfolding of knowledge — is the activity by which awakened *jeevan* brings what is given into lived understanding; it occurs **only** through the sentient aspect or thoughts, not through insentient units and not through Omnipresence acting as a knower (MVD, pp. 115–116, 289).
+Realisation in coexistence is the telos the completeness drive names — relationships fulfilled and made evident across nature, not a transformation of *satta* itself. *Gyan udghatan* — the unfolding of knowledge — is the activity by which awakened *jeevan* brings what is given into lived understanding; it occurs only through the sentient aspect or thoughts, not through insentient units and not through Omnipresence acting as a knower (MVD, pp. 115–116, 289).
 
-Orderliness in all saturated units, active sentience at *gathanpurnata*, and knowledge unfolding through awakened humans are **three different senses**. Conflating them produces either pan-knowing Omnipresence or a world with no inherent intelligibility to unfold.
+Orderliness in all saturated units, active sentience at *gathanpurnata*, and knowledge unfolding through awakened humans are three different senses. Conflating them produces either pan-knowing Omnipresence or a world with no inherent intelligibility to unfold.
 
-### 1.11.2 How knowledge is achieved
+Knowledge is inherent everywhere in coexistence — Realisation Knowledge in every unit, intelligibility in *satta* — but its unfolding happens through awakened humans (MVD, p. 115). At the knowledge order the same relationships that are definite below must be achieved through knowing → believing → recognising → fulfilling. In a deluded human, believing is separated from knowing — believing without knowing. In an awakened human the two are unified: one knows existence as coexistence, believes this truth, and spontaneously recognises and fulfils relationships.
 
-Knowledge is **inherent everywhere** in coexistence — Realisation Knowledge in every unit, intelligibility in *satta* — but **its unfolding happens through awakened humans** (MVD, p. 115). A sleeping or deluded *jeevan* on the delusional plane does not yet unfold knowledge in the full sense; *gyan udghatan* is the knower-activity exclusive to awakening at the knowledge order.
+This unfolding occurs through the human as a joint form of *jeevan* and body. The brain acts as a physical interface for cognitive expression, but the knower is always the sentient *jeevan*, not the physical body.
 
-At that order the same relationships that are **definite** below must be **achieved** through **knowing → believing → recognising → fulfilling** (§§1.6, 1.7). Capacity, ability, and receptivity from saturation (§1.2) and a conducive environment (§1.6) remain necessary; what changes is that evaluation can err, relationships must be **known** before they are fully **fulfilled**, and the six *drishti* under humane refuge — justice, dharma, and truth (§1.10.5) — structure how *jeevan* reads and responds. Inward regulation and faculty harmony (§1.10.6) are the sentient conditions under which unfolding stays stable rather than collapsing into body-identified reactivity.
+Complete knowledge (*paripoorna gyan*) encompasses knowledge of the self (*jeevan*), knowledge of existence as coexistence (*saha-astitva*), and knowledge of humane conduct (*manaviyata purna acharan*). Its ultimate test is lived evidence (*pramanikta*) in behaviour and experiment, not private intellectual assent.
 
-In a deluded human, **believing is separated from knowing** — believing without knowing. In an awakened human the two are unified:
+### 1.14 Conservation and the perpetual world
 
-> **"Believe what is known Know what is believed"**
-> - MVD, p. 12
+Madhyasth Darshan advances two distinct conservation claims.
 
-When *jeevan* **knows** existence as coexistence and **believes** in that reality, it spontaneously **recognises** its relationships with units in nature and **fulfils** values — justice, trust, cooperation — in behaviour. Achievement is therefore not a private mental state stored in the body; it is the dynamic closure of the relational cycle the completeness drive already names, now passed through the knowledge order's evaluative and conduct requirements.
+Coexistence conservation: what exists does not arise from non-being (*abhava*) and cannot be annihilated. Plurality is perpetual; only configurations and associations change. The world is perpetual (*jagat satat*).
 
-The human is a **joint form** of *jeevan* and body (§§1.9–1.10). MVD describes vibrational motion on the brain from the cognitive organs leading to the unfolding of knowledge (MVD, p. 115) — a pathway **within** that joint form, not Omnipresence knowing through matter from outside. How *jeevan* and body interact at the physical interface is developed in §6.2.4; here the ontological point is that unfolding requires the enriched human medium imagination and nervous system provision (§1.10.4), while the **knower** remains constitutionally complete *jeevan*, not the body alone.
+*Jeevan* persistence: because *jeevan* is constitutionally complete and immune to decomposition, it persists across bodily birth and death.
 
-When realized, knowledge becomes evident as **wisdom, science, and humane conduct** — the structure the texts call *gyan-vivek-vigyan*. Staged study, experiment, false learning, and the full epistemic chain are developed in [Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §§1.2–1.8.
-
-### 1.11.3 Complete knowledge and conduct-evidence
-
-**Complete knowledge** (*paripoorna gyan*) at the knowledge order has three inseparable areas:
-
-> **"1. Knowledge of jeevan 2. Knowledge of holistic view of existence 3. Knowledge of humane conduct"**
-> - SB, p. 116
-
-To know completely is to understand the nature of the self (*jeevan*), the structure of existence as coexistence (*saha-astitva*), and how to live in harmony with other humans and nature. MVD ties realization to the telos named in sense 3:
-
-> **"The realisation in coexistence itself is the unfolding of knowledge. The study is in, by and for realisation in coexistence. Knowledge itself is evident in the form of wisdom and science."**
-> - MVD, p. 35
-
-Madhyasth Darshan's test of knowledge is not private conviction alone. JV states the dynamic core:
-
-> **"What is knowledge? Knowing and believing constitute knowledge."**
-> - JV, p. 165
-
-The texts compress the evidence structure as **Realisation – Behaviour – Experiment** (MVD, p. 12). Humane conduct is **verification** of knowledge, not an ethical appendix added after understanding is complete. A person who claims coexistence but cannot evidence resolution, justice, prosperity, fearlessness, and coexistence in living has not yet closed the evidence cycle — the failure modes named in §1.13 remain live at the knowledge order.
-
-**Conduct completeness** (T3) and **perceiver status** (*drishta pad*) (§1.10.4) evidence understanding as **authentic conduct** (*pramanikta*) — living proof others can recognise, not merely correct opinion or legal compliance. When the justice cycle completes (§1.10.5), the four human goals — resolution, prosperity, fearlessness, and coexistence — are what it **evidences** (§1.13). Comparative epistemology, staged method, false learning, and the full-knowability thesis belong in [Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §§1.5–1.11; §1.14 summarises method against the study's framing questions.
-
-### 1.12 Conservation and the perpetual world
-
-Madhyasth Darshan advances **two conservation claims** that must be kept apart.
-
-**Coexistence conservation** holds that what exists does not arise from non-being (*abhava*) and does not vanish into it — only configurations, bodies, and associations begin and end (§4.4). Conservation is asserted of **each** existing particular through configuration change.
-
-***Jeevan* persistence** is a separate commitment — inferred from constitutional immortality together with conservation (JV, p. 20; MVD Reality proposition 9; §1.12).
-
-Existence is **beginningless**:
-
-> **"That which exists continues to be, and that which was not, does not come into existence. Therefore, existence will remain as it is till eternity."**
-> - SB, p. 49
-
-> **"Nothing arrives at birth nor does anything depart with death. All that is, exists forever."**
-> - JV, p. 20
-
-Underlying *vastu* persists through transformation (*roopantaran*), never annihilated into absolute non-being.
-
-MVD compresses the positive ontology:
+Coexistence is co-eternal: *satta* remains state-complete, while units remain state-dynamic, moving toward designed completeness within their saturated bond.
 
 > **"Brahma is truth, the world is perpetual."**
 > - MVD, p. 13
 
-Madhyasth Darshan holds *jagat satat* — the world is perpetual (MVD, p. 13). Coexistence as an **organic whole** does not dissolve plurality into the ground: Brahman (*satta*) remains state-complete while countless units remain state-dynamic, each progressing as unit-and-environment toward completeness. **Realisation in Omnipresence** is coexistence evident in fulfilment — a perpetual structured world.
+### 1.15 Ontology and societal fulfilment outcomes
 
-### 1.13 Ontology and societal fulfilment outcomes
+At the human scale, the completeness drive manifests as societal outcomes. When the cognitive and behavioural cycle of justice completes, it evidences four human goals: resolution (*samadhan*) — intellectual clarity and relational closure without residue; prosperity (*samridhi*) — producing more physical goods than needed and utilising them properly, rather than hoarding; fearlessness (*abhay*) — trust in the present and in society, rather than collectivity based on mutual threat; and coexistence (*saha-astitva*) — complementary living with other humans and nature.
 
-At the knowledge order, the six *drishti*, the justice cycle (§1.10.5), and effort–motion–result toward resolution (*samadhan*) make explicit what is already built into unit relationships. Ethics is not an optional layer on an indifferent material base.
+These goals align directly with internal *jeevan* values:
 
-What coexistence **builds in** must be distinguished from what humans **achieve**. Relationships carry expectations toward completeness; regulation and law are inherent in saturated units; the six perspectives and the justice cycle structure evaluation. None of this guarantees prosperity, trust, or order regardless of conduct. Delusion, legality without justice, **accumulation** detached from right-use expenditure, **false learning** stuck in doubt and mis-evaluation, and **fear** as lack of wisdom remain live failures at the knowledge order (MVD, pp. 263–264). The ontology states what successful human living **evidences** when the relational cycle closes — not automatic outcomes under coercion or survival-optimisation alone.
-
-JV names the human goal in four terms:
-
-> **"The goal of jeevan is happiness, and the human goal is resolution, prosperity, fearlessness, and coexistence. Ethics are essential for achieving these goals and give them purpose."**
-> - JV, p. 165
-
-*Jeevan*'s own goal is happiness (*sukh*). **Human** living at the knowledge order evidences resolution, prosperity, fearlessness, and coexistence together. JV ties the two levels of fulfilment:
-
-> **"The values of awakened jeevan are: happiness, peace, contentment, and bliss. Human goals are accomplished by realising jeevan values. These goals are resolution, prosperity, fearlessness, and coexistence. When human goals are evidenced, jeevan values are also evidenced. Resolution = Happiness. We realise happiness wherever we are resolved, and we suffer wherever we are unresolved. Thereafter, we realise peace while evidencing resolution and prosperity in the family. We realise contentment by living orderly in society. We realise bliss in the course of evidencing our understanding."**
+> **"Resolution = Happiness. We realise happiness wherever we are resolved... Thereafter, we realise peace while evidencing resolution and prosperity in the family. We realise contentment by living orderly in society. We realise bliss in the course of evidencing our understanding."**
 > - JV, p. 61
 
-Awakening means retaining the four *jeevan* harmonies as the four human goals are evidenced — not treating happiness as a private mood detached from resolution in conduct. JV ties these goals to **ethics** — right-use of body, mind, and wealth — **character**, and **values** in relationships.
+Unlike animals, whose collectivity arises primarily from fear, human sociality is built on resolution and trust.
 
-MVD contrasts animal collectivity under fear with awakened human sociality:
+At the macro scale, these goals compose upward from the family to undivided society (*akhand samaj*) and universal orderliness (*sarvabhaum vyavastha*). This is the expression of human *dharma* — the telos of the knowledge order.
 
-> **"The semblance of collectivity among animals is generally observed only in situations of fear. Under no circumstances is such collectivity observed in activities of study, production, or the maintenance of orderliness. In contrast, the foundational basis of sociality in awakened humans is living in resolution, prosperity, fearlessness, and coexistence."**
-> - MVD, p. 68
+Universal orderliness is actualised across five dimensions: education-character (*shiksha-sanskar*), justice-preservation (*nyaya-suraksha*), health-restraint (*swasthya-sanyam*), production-work (*utpadan-karya*), and exchange-storage (*vinimay-kosh*).
 
-Awakened humans commonly live with the **desire-trio** — progeny-motive, wealth-motive, reputation-motive — **and** evidence the four outcomes with **restfulness** (*vishram*). **Resolution itself is restfulness**, also named *abhyudaya* — comprehensive resolution, not merely private calm. That resolution **evidences activity completeness** (T2): the restfulness **of effort** (*shram ka vishram*) named in §1.4. **Conduct completeness** (T3) is evidenced separately as **destination of motion** (*gati ka gantavya*) — authentic conduct and living proof in universal orderliness (§1.10.4), not a second label for the same internal cognitive settlement.
-
-| Outcome | Plain meaning | Tied to |
-|---|---|---|
-| **Resolution** (*samadhan*) | Understanding and relational closure without residue; intellectual resolution and material prosperity as joint evidence of complete happiness (MVD, p. 106) | *Dharma*–*adharma* perspective (§1.10.5) |
-| **Prosperity** | Material adequacy through production beyond need and right-use — not hoarding or profit-maximisation (MVD, pp. 106, 263) | Justice cycle in conduct |
-| **Fearlessness** | Trust in the present; sociality not founded on fear | Contrast with animal collectivity under threat (MVD, p. 68) |
-| **Coexistence** | Living with complementarity — among humans and with nature | *Satya*–*asatya* perspective; right-use toward undivided humankind |
-
-When the justice cycle completes (§1.10.5), these four outcomes are what it **evidences** at the knowledge order. Individual conduct composes upward: family and community persist while relationships are fulfilled in their natural state and decline when they are not.
-
-These four outcomes are not a private achievement that happens to scale up. Madhyasth Darshan holds that resolution is **universal** and **undivided**: what cannot be fragmented is **human dharma** (*manav dharma*) itself, present as undivided society and universal orderliness, with happiness as its evidence (SB, pp. 246–247; MVD, p. 28). The assembly-scale telos the texts name **undivided society** (*akhand samaj*) is therefore not a further goal added to the four; it is the same human dharma read at the scale of humankind, evidenced with **universal orderliness** when fear-bound groupings mature into one complementary whole (MVD, p. 68).
-
-> **"The fruition of undivided human society and nation is resolution, prosperity, fearlessness, and coexistence… The undividedness grounded in human dharma itself is undivided society and universal orderliness."**
-> - SB, p. 247
-
-That upward composition does not stop at community. Through the **family-based self-organising order**, the same persist-or-decline rule scales toward a world family and world order (SB, p. 246). What it overcomes is **sectarian consciousness** — communities gathered around opinion, and occupation-castes the texts read as "bundles of suffering" — maturing into the consciousness of one undivided human society, on the ground that the human race is one (SB, pp. 246–247).
-
-Universal orderliness is evidenced only through study of science and wisdom aligned with the knowledge of coexistence (MVD, p. 210; §1.11), not through coercion or opinion. JV names five dimensions of that orderliness — education-*sanskar*, justice-security, health-restraint, production-work, and exchange-reserve (JV, p. 110). Each is meaningful only at universal scale: understanding of meaning, recognition and fulfilment of relationships, family production beyond need, labour-value exchange, and a body fit to evidence awakening (MVD, p. 260). Family right-use becomes evident as moral policy and security as state policy — the basis of undivided society and universal orderliness (MVD, pp. 74, 256); institutional structure belongs in the planned *Governance Justice and Undivided Society* study. Activity completeness (T2) evidences orderliness with *ness*; conduct completeness (T3) evidences living proof (*pramanikta*).
-
-Character, conduct, family formation, and institutional self-governance belong in linked ethics and society studies; the ontology here states what successful human living **evidences** when the relational cycle closes.
-
-### 1.14 Method, evidence, and what Madhyasth Darshan establishes
+### 1.16 Method, evidence, and what Madhyasth Darshan establishes
 
 Madhyasth Darshan answers the study's framing questions as follows:
 
-| Question | Madhyasth Darshan answer | Developed in |
+| Question | Madhyasth Darshan answer | Section |
 |---|---|---|
-| **What is existence?** | Eternally present coexistence of *satta* and units | §1.1 |
-| **What exists?** | Omnipresence and real sentient and insentient units | §§1.1, 1.5 |
-| **Does it begin?** | No; bodies and configurations do | §1.12 |
-| **Does the individual self begin?** | *Jeevan* does not begin at birth or end with death | §§1.9–1.12 |
-| **Is the world finally real?** | Yes — *jagat satat* | §1.12 |
-| **Method of knowing** | Staged study → experiment and practice → realisation with evidence in conduct | §§1.11–1.11.3; [*Knowledge, Knower, and Known*](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) for full method |
+| **What is existence?** | The eternal coexistence of *satta* and units | §1.1 |
+| **What exists?** | Omnipresence (*satta*) and countable units (*ikai*) | §§1.1, 1.5 |
+| **Does it begin?** | No; only temporary configurations do | §1.14 |
+| **Does the self begin?** | *Jeevan* is constitutionally immortal and does not end with the body | §§1.6, 1.7, 1.12 |
+| **Is the world real?** | Yes, the world is perpetual (*jagat satat*) | §1.14 |
+| **How do we know?** | Through staged study, experiment, and conduct-evidence | §1.13 |
 
-What the darshan establishes, on its own terms, is a coherent ontology of coexistence, saturation, unit structure, and conservation. Immortal *jeevan* and post-death continuity are commitments within that ontology, grounded in constitutional immortality and conservation (§§1.9–1.12).
+The darshan establishes a logical ontology of coexistence, saturation, and conservation. Lived verification through humane conduct (*pramanikta*) serves as the final proof of realisation.
 
 ## 2. The Advaita Vedanta Answer
 
@@ -699,7 +600,7 @@ The *Drig-Drishya-Viveka* (DDV) offers a rigorous seer-seen (*drig-drishya*) dis
 > **"Know also that I am the Knower of the field in all fields, and the knowledge of the field also am I."**
 > - BG, 13.2
 
-In the *Mandukya* analysis, *turiya* — the fourth, witness beyond waking, dream, and deep sleep — plays the same structural role: not another state among states, but the awareness in which states appear (MU, vv. 3–7; §2.2). At liberation, that witness is discovered as **non-personal Brahman** — one partless awareness without a second. Madhyasth Darshan agrees that the seer is not the seen body or brain-state, but locates the irreducible knower in **immortal *jeevan*** with active *gyan udghatan* (§1.11), not in a universal Self that finally absorbs all individuality (§5.6).
+In the *Mandukya* analysis, *turiya* — the fourth, witness beyond waking, dream, and deep sleep — plays the same structural role: not another state among states, but the awareness in which states appear (MU, vv. 3–7; §2.2). At liberation, that witness is discovered as **non-personal Brahman** — one partless awareness without a second. Madhyasth Darshan agrees that the seer is not the seen body or brain-state, but locates the irreducible knower in **immortal *jeevan*** with active *gyan udghatan* (§1.13), not in a universal Self that finally absorbs all individuality (§5.6).
 
 ### 2.7 Conservation, origination, and temporality
 
@@ -707,7 +608,7 @@ Brahman does not begin: it is beginningless, partless, actionless, non-dual — 
 
 Advaita does not devote a separate chapter to *kaal*, but its framework implies a sharp division. At ***paramartha***, only Brahman is absolutely real; temporality belongs to the empirical order. At ***vyavahara***, past, present, and future, birth and death, and causal succession are operationally valid — the world is law-governed and shared (§2.3) — yet finally sublated when Brahman alone is known.
 
-The *Mandukya* analysis of waking, dream, and deep sleep (§2.2) is a first-person route into how temporal **states** appear and are witnessed; the witness (*turiya*) is not another state among them. Madhyasth Darshan accepts the reality of cyclical development and unit-activity across orders (§1.4–1.5) and refuses to sublate the world at the highest realization; its account of *kaal* as duration of activity (§1.4) is therefore closer to a **realist** temporal ontology at every order, while still denying that time is a substance independent of activity. Comparison with Advaita's *trikaal* language and with Madhyasth Darshan's *trikaalabadh* coexistence claim (SB, p. 48) is developed in [*Nature-Of-Time*](../Nature-Of-Time/Nature-Of-Time.pdf) (§2.2, §4).
+The *Mandukya* analysis of waking, dream, and deep sleep (§2.2) is a first-person route into how temporal **states** appear and are witnessed; the witness (*turiya*) is not another state among them. Madhyasth Darshan accepts the reality of cyclical development and unit-activity across orders (§§1.5–1.6) and refuses to sublate the world at the highest realization; its account of *kaal* as duration of activity (§1.6.4) is therefore closer to a **realist** temporal ontology at every order, while still denying that time is a substance independent of activity. Comparison with Advaita's *trikaal* language and with Madhyasth Darshan's *trikaalabadh* coexistence claim (SB, p. 48) is developed in [*Nature-Of-Time*](../Nature-Of-Time/Nature-Of-Time.pdf) (§2.2, §4).
 
 ### 2.8 Liberation and the knowledge path
 
@@ -730,7 +631,7 @@ Advaita's charge that the world is *mithya* at *paramartha* does not make ethics
 > **"Perform your bounden duty, for action is superior to inaction."**
 > - BG, 3.8 (Shankara's commentary: *niyatam kuru karma*; the enlightened still act for the welfare of the world)
 
-What Advaita **provisions** at the empirical order must be distinguished from what realization **evidences** at *paramartha*. Ethics, scripture, causal law, and compassionate action prepare the mind for *brahma-jnana*; they are binding where humans actually live. None of this guarantees that the world retains **final** ontological weight at the highest truth — that dispute is with Madhyasth Darshan's *jagat satat* (§1.12, §5.7).
+What Advaita **provisions** at the empirical order must be distinguished from what realization **evidences** at *paramartha*. Ethics, scripture, causal law, and compassionate action prepare the mind for *brahma-jnana*; they are binding where humans actually live. None of this guarantees that the world retains **final** ontological weight at the highest truth — that dispute is with Madhyasth Darshan's *jagat satat* (§1.14, §5.7).
 
 | Domain | Valid at *vyavahara* | Status at *paramartha* |
 |---|---|---|
@@ -740,7 +641,7 @@ What Advaita **provisions** at the empirical order must be distinguished from wh
 | **Relationships and society** | *Loka-sangraha*, ordained action for world-welfare | Not ultimately separate from Brahman |
 | **Time and change** | Past, present, future, birth and death operationally valid | Sublated when timeless Self is known |
 
-Realization **evidences** identity with Brahman — the dispelled illusion of separate individuality, not Madhyasth Darshan's four outcomes of resolution, prosperity, fearlessness, and coexistence (§1.13). The enlightened still act for world-welfare at *vyavahara*; what changes at *paramartha* is ontological status, not the possibility of ethical living. Madhyasth Darshan's counter-reply — that robust ethics and beginningless *vyavahara* do not settle **final** world-realness — is developed in §6.3.
+Realization **evidences** identity with Brahman — the dispelled illusion of separate individuality, not Madhyasth Darshan's four outcomes of resolution, prosperity, fearlessness, and coexistence (§1.15). The enlightened still act for world-welfare at *vyavahara*; what changes at *paramartha* is ontological status, not the possibility of ethical living. Madhyasth Darshan's counter-reply — that robust ethics and beginningless *vyavahara* do not settle **final** world-realness — is developed in §6.3.
 
 ## 3. Modern Philosophical Approaches
 
@@ -779,7 +680,7 @@ Physicalism also asserts **causal closure**: every physical event has a sufficie
 
 The hard problem is not whether brains correlate with experience — they do — but why any physical process should have an **inside** at all. Advaita's DDV offers a complementary first-person route: whatever can be observed — body, sensations, thoughts — is "seen" and therefore not the seer (DDV, vv. 1–5; §2.6). Madhyasth Darshan reads the explanatory gap as evidence that matter-only ontology is **incomplete**; physicalists often treat it as philosophically non-decisive — a gap in current theory, not proof of extra-physical being (§6.2.1, §6.4).
 
-Some philosophers split the difference through **property dualism**: experience may be an irreducible property of certain physical systems while the laws governing matter remain intact. That fork preserves law-governed physics but adds a primitive experiential aspect Chalmers-style accounts find unavoidable. Madhyasth Darshan does not map cleanly onto property dualism: active *chaitanya* belongs to constitutionally complete *jeevan*, not to every complex physical system, and *satta* as *gyan* is not a property of particles (§1.11).
+Some philosophers split the difference through **property dualism**: experience may be an irreducible property of certain physical systems while the laws governing matter remain intact. That fork preserves law-governed physics but adds a primitive experiential aspect Chalmers-style accounts find unavoidable. Madhyasth Darshan does not map cleanly onto property dualism: active *chaitanya* belongs to constitutionally complete *jeevan*, not to every complex physical system, and *satta* as *gyan* is not a property of particles (§1.13).
 
 ### 3.3 Physicalist responses: panpsychism, emergentism, illusionism
 
@@ -796,7 +697,7 @@ Physicalists who take the hard problem seriously divide into several families. *
 
 This is closer to Madhyasth Darshan than reductive physicalism, since both refuse experience-from-dead-matter. Strawson's anti-emergence principle presses on the *gathanpurnata* account: if experience cannot emerge from the wholly non-experiential, sentience at completeness must be **actualized from an ever-present ground**, not produced from nothing — the latency reading developed in §6.2.1. Madhyasth Darshan differs in scope: it does not say every particle is a subject; active sentience is the status of constitutionally complete atoms only.
 
-Panpsychism's **combination problem** bears directly on that restriction. If micro-experientiality is primitive, how do micro-subjects combine into a unified macro-subject? Strawson and other panpsychists leave this wound open; integrated information theory addresses it through structural integration, at the cost of pan-experiential commitments Madhyasth Darshan rejects (§4.2). Madhyasth Darshan's answer is different in kind: **one constitutionally complete atom is already the sentient unit** — *jeevan* is not assembled from many micro-minds but is a self-maintaining composite whose completeness is functional indivisibility (§1.9–1.10). Whether that avoids the combination problem or relocates it to the threshold itself is examined in §6.2.1.
+Panpsychism's **combination problem** bears directly on that restriction. If micro-experientiality is primitive, how do micro-subjects combine into a unified macro-subject? Strawson and other panpsychists leave this wound open; integrated information theory addresses it through structural integration, at the cost of pan-experiential commitments Madhyasth Darshan rejects (§4.2). Madhyasth Darshan's answer is different in kind: **one constitutionally complete atom is already the sentient unit** — *jeevan* is not assembled from many micro-minds but is a self-maintaining composite whose completeness is functional indivisibility (§§1.7, 1.6). Whether that avoids the combination problem or relocates it to the threshold itself is examined in §6.2.1.
 
 **Emergentism** offers a middle path: new properties appear at organisational thresholds — digestion from chemistry, life from biochemistry, mind from neural complexity. **Weak emergence** treats higher-level patterns as real but dependent on lower-level physics; **strong emergence** would add causally novel properties irreducible to microphysics. Threshold grammar — a structural condition producing a qualitative level — is shared by emergentism, integrated information theory, and *gathanpurnata* (§6.2.1). Madhyasth Darshan denies **strong** emergence from dead matter while accepting qualitative change at constitutional completeness; latency names ever-present *gyan* in *satta* actualized at the threshold, not a new experiential ingredient from nothing.
 
@@ -816,13 +717,13 @@ Physicalism's answer to "does the individual self begin or end with the body?" i
 
 Locke's classical account ties identity to **psychological continuity** — memory and connectedness of consciousness — rather than to sameness of material particles. Parfit's later work argues that what matters in survival is psychological connectedness and continuity, not a further fact of identity: there is no deep entity beyond the stream of mental states that must persist (Parfit 1984; SEP Personal Identity). On reductionist readings, the question "is this the same *jeevan* after death?" has no fact of the matter beyond causal and psychological links — which bodily death breaks.
 
-Substance views — rational soul as form of the body (§3.6.1), simple monads (§3.6.3) — preserve an enduring individual bearer. Madhyasth Darshan's *jeevan* aligns with substance pluralism: a constitutionally complete, immortal unit that works through the body and persists across bodily death (§§1.9–1.12). Against physicalism, the dispute is not only metaphysical but **causal**: if the physical domain is closed, a non-physical *jeevan* is either epiphenomenal or a violation of closure. Self-model, predictive-processing, and integrated-information accounts in cognitive science (§§4.1–4.2) explain the **sense** of self without positing an immortal unit; Madhyasth Darshan's counter is that regulation and representation do not settle what **works through** the brain (§6.4, §6.2.1).
+Substance views — rational soul as form of the body (§3.6.1), simple monads (§3.6.3) — preserve an enduring individual bearer. Madhyasth Darshan's *jeevan* aligns with substance pluralism: a constitutionally complete, immortal unit that works through the body and persists across bodily death (§§1.7–1.12). Against physicalism, the dispute is not only metaphysical but **causal**: if the physical domain is closed, a non-physical *jeevan* is either epiphenomenal or a violation of closure. Self-model, predictive-processing, and integrated-information accounts in cognitive science (§§4.1–4.2) explain the **sense** of self without positing an immortal unit; Madhyasth Darshan's counter is that regulation and representation do not settle what **works through** the brain (§6.4, §6.2.1).
 
 ### 3.5 Origination, conservation, and world realism
 
-Western philosophy asks whether **what exists** had a beginning and whether **particulars** endure through change. Mainstream physicalism holds that local systems — organisms, stars, civilisations — begin and end, while fundamental physics may or may not require a cosmic beginning (§4.3). **Conservation** principles in physics treat certain quantities as preserved through transformation — a structural parallel to Madhyasth Darshan's claim that *vastu* persists through *roop*-change (§1.12, §4.4), though the categories differ.
+Western philosophy asks whether **what exists** had a beginning and whether **particulars** endure through change. Mainstream physicalism holds that local systems — organisms, stars, civilisations — begin and end, while fundamental physics may or may not require a cosmic beginning (§4.3). **Conservation** principles in physics treat certain quantities as preserved through transformation — a structural parallel to Madhyasth Darshan's claim that *vastu* persists through *roop*-change (§1.14, §4.4), though the categories differ.
 
-**Scientific realism** answers "is the world finally real?" with **yes** for the physical universe: tables, fields, and brains are real mind-independent items suitable for public study. **Idealism** (Berkeley and successors) makes reality depend on perception or mind; **nihilism** denies that anything ultimately exists or matters. Both are outliers in contemporary analytic ontology but sharpen the stakes: Madhyasth Darshan's perpetual world (*jagat satat*) is neither mind-dependent appearance nor physical reduction alone — units and Omnipresence are co-eternally real (§1.12).
+**Scientific realism** answers "is the world finally real?" with **yes** for the physical universe: tables, fields, and brains are real mind-independent items suitable for public study. **Idealism** (Berkeley and successors) makes reality depend on perception or mind; **nihilism** denies that anything ultimately exists or matters. Both are outliers in contemporary analytic ontology but sharpen the stakes: Madhyasth Darshan's perpetual world (*jagat satat*) is neither mind-dependent appearance nor physical reduction alone — units and Omnipresence are co-eternally real (§1.14).
 
 Philosophy of **time** adds a further fork. Block-universe **eternalism** treats past, present, and future as equally real coordinates; **presentism** privileges the present. Relational theories deny time as an independent container — time is the order of change among things. Madhyasth Darshan's *kaal* as duration of unit-activity is structurally closer to relational and process views than to block eternalism ([*Nature of Time*](../Nature-Of-Time/Nature-Of-Time.pdf) §3). Cosmological questions about a beginningless substrate are developed in §4.3; the philosophical point here is that Western ontology has **no consensus** on whether existence as a whole begins, even when particular configurations do.
 
@@ -905,7 +806,7 @@ For Madhyasth Darshan this is nearly the opposite of the *jeevan* ontology: the 
 
 ### 4.2 Consciousness science: IIT, autopoiesis, and rival programs
 
-**Integrated Information Theory (IIT)** proposes that consciousness corresponds to integrated information (Φ) in a system, with a quantitative threshold producing a qualitative difference — "an experience is a maximally irreducible conceptual structure" (Tononi 2012). IIT is a useful physicalist mirror of threshold grammar: like *gathanpurnata*, it ties consciousness to a structural condition. The contrasts are decisive: IIT is pan-experiential at the fundamental level in many formulations, operational and measurement-oriented, and silent on immortal individual units or coexistential ground; Madhyasth Darshan restricts **active** sentience to constitutionally complete reflector atoms and locates latency in *satta* as *gyan* (§§1.11, 6.6).
+**Integrated Information Theory (IIT)** proposes that consciousness corresponds to integrated information (Φ) in a system, with a quantitative threshold producing a qualitative difference — "an experience is a maximally irreducible conceptual structure" (Tononi 2012). IIT is a useful physicalist mirror of threshold grammar: like *gathanpurnata*, it ties consciousness to a structural condition. The contrasts are decisive: IIT is pan-experiential at the fundamental level in many formulations, operational and measurement-oriented, and silent on immortal individual units or coexistential ground; Madhyasth Darshan restricts **active** sentience to constitutionally complete reflector atoms and locates latency in *satta* as *gyan* (§§1.13, 6.6).
 
 **Autopoiesis** (Maturana and Varela) treats living organization as a self-producing network that maintains its boundary and identity through continuous metabolism — "a machine organized as a network of processes of production of components" that "continuously regenerate and realize the network that produces them" (Maturana and Varela 1980, p. 78). This parallels Madhyasth Darshan's emphasis on self-maintaining constitutional completeness and bio-order cyclicality, but autopoiesis describes organizational closure in biology, not the ontological saturation of units in *satta* or the latency of sentience at *gathanpurnata*.
 
@@ -915,11 +816,11 @@ Contemporary **consciousness science** has no settled account. Competing program
 
 The **ΛCDM** standard model treats the observable universe as expanding from a hot dense state roughly **13.8 billion years ago** — a cosmic beginning for the universe we can observe. That model is extraordinarily successful on large-scale structure, nucleosynthesis, and the cosmic microwave background. It does not by itself answer whether **existence as a whole** began, or only this cosmic epoch.
 
-Several **non-singular** research programs explore a beginningless physical substrate from which local universes or phases arise. **Loop quantum cosmology** replaces the initial singularity with a "bounce" from a prior contracting phase (Ashtekar and Singh 2011). **Penrose's conformal cyclic cosmology** posits successive aeons, each with its own big bang (Penrose 2010). **Eternal inflation** treats our observable patch as one bubble in a potentially infinite multiverse (Guth 2007). These are competing speculative programs, not consensus — the most this comparison claims is **conceptual resonance** with Madhyasth Darshan's claim that nature (*prakriti*) is perpetual (*satat*), not proof that *jagat satat* is established by cosmology (§1.12, §6.2.5).
+Several **non-singular** research programs explore a beginningless physical substrate from which local universes or phases arise. **Loop quantum cosmology** replaces the initial singularity with a "bounce" from a prior contracting phase (Ashtekar and Singh 2011). **Penrose's conformal cyclic cosmology** posits successive aeons, each with its own big bang (Penrose 2010). **Eternal inflation** treats our observable patch as one bubble in a potentially infinite multiverse (Guth 2007). These are competing speculative programs, not consensus — the most this comparison claims is **conceptual resonance** with Madhyasth Darshan's claim that nature (*prakriti*) is perpetual (*satat*), not proof that *jagat satat* is established by cosmology (§1.14, §6.2.5).
 
 ### 4.4 Quantum fields, particles, and conservation
 
-Particle–antiparticle annihilation and pair creation are not passages into or out of absolute non-being. In quantum field theory, particles are localized excitations of conserved, all-pervasive fields, and annihilation transforms one excitation (matter) into another (radiation) under strict conservation laws (Weinberg 1995). This is broadly consonant with Madhyasth Darshan's claim that fundamental reality (*vastu*) is conserved while configurations (*roop*) transform (§1.12) — though the alignment must be handled with care.
+Particle–antiparticle annihilation and pair creation are not passages into or out of absolute non-being. In quantum field theory, particles are localized excitations of conserved, all-pervasive fields, and annihilation transforms one excitation (matter) into another (radiation) under strict conservation laws (Weinberg 1995). This is broadly consonant with Madhyasth Darshan's claim that fundamental reality (*vastu*) is conserved while configurations (*roop*) transform (§1.14) — though the alignment must be handled with care.
 
 What persists in QFT are **field configurations** and conserved quantities; a "particle" is a localized excitation, not a tiny enduring substance. Madhyasth Darshan's *vastu* names an underlying reality that survives every *roop*-change in countable units with *dharma* saturated in Omnipresence. The parallel is structural, not identity of category: fields are mathematical-physical entities governed by equations, not bounded *ikai* in coexistence.
 
@@ -927,7 +828,7 @@ Comparing *satta* to a physical field is misleading for the same reason. A dynam
 
 ### 4.5 Spacetime, entropy, and order
 
-Modern physics treats **spacetime** as a dynamical entity — it can expand, curve, and in some models exhibit local beginnings. Madhyasth Darshan treats *kaal* as the **duration of unit-activity**, numerically reckoned by humans within existence (§1.4; SB, pp. 65, 251; MVD, pp. 34, 195) — not an independent cosmic container. Omnipresence is timeless as non-transforming ground. The contrast is over whether temporality belongs to the ground of reality or only to transforming units, and over whether spacetime is fundamental physics or derivative of measurement conventions on activity. Relational and process philosophies of time (§3.6.4; §3.5) share some structural affinity with activity-based *kaal*; block-universe eternalism does not. Comparative detail: [*Nature-Of-Time*](../Nature-Of-Time/Nature-Of-Time.pdf).
+Modern physics treats **spacetime** as a dynamical entity — it can expand, curve, and in some models exhibit local beginnings. Madhyasth Darshan treats *kaal* as the **duration of unit-activity**, numerically reckoned by humans within existence (§1.6.4; SB, pp. 65, 251; MVD, pp. 34, 195) — not an independent cosmic container. Omnipresence is timeless as non-transforming ground. The contrast is over whether temporality belongs to the ground of reality or only to transforming units, and over whether spacetime is fundamental physics or derivative of measurement conventions on activity. Relational and process philosophies of time (§3.6.4; §3.5) share some structural affinity with activity-based *kaal*; block-universe eternalism does not. Comparative detail: [*Nature-Of-Time*](../Nature-Of-Time/Nature-Of-Time.pdf).
 
 **Thermodynamic entropy** describes a statistical arrow toward disorder in closed systems. Madhyasth Darshan asserts inherent **orderliness** (*vyavastha*) at every order, with development toward greater organization when units are in their natural state. These are not straightforward opposites — biological and ecological systems can increase local order at the cost of entropy elsewhere — but they use different notions of "order." The second law neither supports nor refutes coexistence orderliness.
 
@@ -937,7 +838,7 @@ Modern physics treats **spacetime** as a dynamical entity — it can expand, cur
 
 Madhyasth Darshan's *niyati-kram* asserts a **fixed, guaranteed** order of emergence — material to pranic to animal to knowledge on Earth (§1.5) — whereas evolutionary biology explains adaptation through **contingent** variation and selection. The tension is structural: the same four orders can be read as MD's definite plateaus or as science's historically produced taxonomies and lineages; this study does not resolve that dispute (§6.2.6).
 
-**Ecology** treats organisms as nodes in interdependent networks: energy flows, nutrient cycles, symbiosis, and competition. **Cooperation** among conspecifics and across species is widely studied as an evolved strategy — kin selection, reciprocity, mutualism — not as ontologically real *mulya* (*value*) fulfilled in definite *sambandh* (§1.6). Madhyasth Darshan does not deny biological interdependence; it denies that ecological cooperation **replaces** inherent value-recognition and fulfilment at the knowledge order. At the human–nature relation, MD names **utility** (*upyogita*) and **art** (*kala*) — making natural abundance usable and enhancing that usefulness through aesthetic labour (MVD pp. 56–57, 324; JV p. 77) — not a generic claim that value is "structurally real" without category. Science explains how cooperative behaviour arises; MD claims complementarity, essentiality-as-value, and utility–art on nature are **already structurally real** in coexistence (§1.6).
+**Ecology** treats organisms as nodes in interdependent networks: energy flows, nutrient cycles, symbiosis, and competition. **Cooperation** among conspecifics and across species is widely studied as an evolved strategy — kin selection, reciprocity, mutualism — not as ontologically real *mulya* (*value*) fulfilled in definite *sambandh* (§1.4). Madhyasth Darshan does not deny biological interdependence; it denies that ecological cooperation **replaces** inherent value-recognition and fulfilment at the knowledge order. At the human–nature relation, MD names **utility** (*upyogita*) and **art** (*kala*) — making natural abundance usable and enhancing that usefulness through aesthetic labour (MVD pp. 56–57, 324; JV p. 77) — not a generic claim that value is "structurally real" without category. Science explains how cooperative behaviour arises; MD claims complementarity, essentiality-as-value, and utility–art on nature are **already structurally real** in coexistence (§1.4).
 
 Against all of these, Madhyasth Darshan makes stronger metaphysical claims: coexistence is eternal, units are not annihilated, and *jeevan* is immortal. That eternalism is **consistent with** conservation principles and beginningless cosmological models; individual immortality and constitutional completeness are **distinct commitments** examined in §6.2.
 
@@ -964,7 +865,7 @@ Sections §§1–4 stated Madhyasth Darshan, Advaita Vedanta, and modern philoso
 
 No single tradition wins every dispute. Three pairwise patterns clarify what each view shares with and denies to the others:
 
-**Madhyasth Darshan and Advaita against physicalism.** Both refuse to treat existence as merely physicochemical matter. Consciousness, value, and the self are not exhaustively explained as brain-generated epiphenomena. Against reductive materialism, both hold that something more than bare mechanism is required — though they disagree sharply on what that "more" is. Advaita's *Sakshin* / *turiya* route and Madhyasth Darshan's constitutionally complete *jeevan* both reject the predictive self-model picture in which the self is only a hierarchical brain construct (§4.1); Madhyasth Darshan adds latency in *satta* as *gyan* actualized at constitutional completeness (§1.11), not experience generated from dead matter.
+**Madhyasth Darshan and Advaita against physicalism.** Both refuse to treat existence as merely physicochemical matter. Consciousness, value, and the self are not exhaustively explained as brain-generated epiphenomena. Against reductive materialism, both hold that something more than bare mechanism is required — though they disagree sharply on what that "more" is. Advaita's *Sakshin* / *turiya* route and Madhyasth Darshan's constitutionally complete *jeevan* both reject the predictive self-model picture in which the self is only a hierarchical brain construct (§4.1); Madhyasth Darshan adds latency in *satta* as *gyan* actualized at constitutional completeness (§1.13), not experience generated from dead matter.
 
 **Madhyasth Darshan and science against Advaita.** Both treat the world as real and worth studying. Matter, bodies, relationships, and ecological order are not finally *mithya* or preparatory illusion. Against world-negating non-dualism, both insist that nature and society have final weight — though science does not affirm Omnipresence or immortal *jeevan*. Quantum field conservation and public cosmology treat physical nature as law-governed and investigable (§4.4); Madhyasth Darshan's *jagat satat* agrees that the world is perpetual and real at the highest truth, against Advaita's *paramartha* sublation of name-form (§2.4).
 
@@ -982,7 +883,7 @@ The table below aggregates **modern physicalist approaches** — the philosophic
 | What exists? | Omnipresence and real units, sentient and insentient. | Brahman alone (absolutely); world *mithya* at *paramartha*. | Usually the physical; experience disputed. | §5.3.1–5.3.2; §5.5 |
 | Does it begin? | No — what exists does not come from non-existence; bodies and configurations do. | Brahman does not begin; name-form at *vyavahara*. | Particular systems begin and end; cosmology unsettled. | §5.3.4; §5.4 |
 | Does the individual self begin? | *Jeevan* does not begin at birth or die with the body. | *Jiva* is ultimately Brahman; separate individuality dispelled at realization (VC, vv. 244, 574). | Self develops as biological/cognitive process. | §5.3.3; §5.6 |
-| What is time? | Duration of unit-activity; human numerical reckoning within existence; *satta* timeless as ground (§1.4). | Brahman beyond temporal becoming; time valid at *vyavahara*, sublated at *paramartha*. | Spacetime as dynamical physical structure; philosophy of time contested. | [*Nature of Time*](../Nature-Of-Time/Nature-Of-Time.pdf) |
+| What is time? | Duration of unit-activity; human numerical reckoning within existence; *satta* timeless as ground (§1.6.4). | Brahman beyond temporal becoming; time valid at *vyavahara*, sublated at *paramartha*. | Spacetime as dynamical physical structure; philosophy of time contested. | [*Nature of Time*](../Nature-Of-Time/Nature-Of-Time.pdf) |
 | Is the world finally real? | Yes. "Brahma is truth, the world is perpetual." | Empirically valid but ultimately *mithya*. | Yes, as physical reality. | §5.3.2; §5.7 |
 | Method of knowing | Study → experiment and practice → realisation with evidence in conduct. | Scripture, reasoning, contemplative discrimination. | Observation, modelling, public evidence. | §5.3.5 |
 | Ethical consequence | Humane conduct evidences understanding of coexistence. | Ethics prepares the mind for liberation. | Ethics via naturalism, social/normative theory. | §5.3.6; §5.5 |
@@ -995,15 +896,15 @@ The deepest question is what **existence** itself is. Madhyasth Darshan holds et
 
 ### 5.3.2 World realism
 
-Whether the world retains **final** ontological weight divides Madhyasth Darshan from Advaita while aligning it partially with scientific realism. Madhyasth Darshan holds *jagat satat* — the world is perpetual and real at every level of realization: "Brahma is truth, the world is perpetual" (MVD, p. 13; §1.12). Advaita's three-tier scheme (*paramartha*, *vyavahara*, *pratibhasika*) makes the empirical world robust for ethics and daily life yet **mithya** — neither absolutely real nor sheer nothing — at *paramartha* (§§2.3–2.4). Modern **scientific realism** treats the physical world as mind-independent and law-governed (§3.1); that is not the same as Omnipresence, but it allies with Madhyasth Darshan against world-negation at the highest truth. Advaita's fair reply — beginningless *vyavahara*, *loka-sangraha*, preparatory ethics (§2.9) — does not settle whether the world survives sublation; §5.7 treats *mithya* as the unmappable category.
+Whether the world retains **final** ontological weight divides Madhyasth Darshan from Advaita while aligning it partially with scientific realism. Madhyasth Darshan holds *jagat satat* — the world is perpetual and real at every level of realization: "Brahma is truth, the world is perpetual" (MVD, p. 13; §1.14). Advaita's three-tier scheme (*paramartha*, *vyavahara*, *pratibhasika*) makes the empirical world robust for ethics and daily life yet **mithya** — neither absolutely real nor sheer nothing — at *paramartha* (§§2.3–2.4). Modern **scientific realism** treats the physical world as mind-independent and law-governed (§3.1); that is not the same as Omnipresence, but it allies with Madhyasth Darshan against world-negation at the highest truth. Advaita's fair reply — beginningless *vyavahara*, *loka-sangraha*, preparatory ethics (§2.9) — does not settle whether the world survives sublation; §5.7 treats *mithya* as the unmappable category.
 
 ### 5.3.3 Self, consciousness, and survival
 
-On **selfhood**, Madhyasth Darshan and Advaita stand together against reductive physicalism and apart from each other on individuality. Madhyasth Darshan holds many **immortal, constitutionally complete *jeevan* units** — real sentient atoms that work through the body, actualized from latency in *satta* at *gathanpurnata* (§§1.9–1.11). Advaita holds the true Self is **Brahman**; separate *jivatman* is *vyavahara* superimposition dispelled at liberation (VC, vv. 244, 574; §2.5). Modern approaches treat the self as **brain-generated process**: predictive self-models, integrated-information thresholds, or evolved cognitive agents, with **brain death** as the operational end of the person (§4.1). Physicalist rivals — strong emergence, panpsychism, illusionism (§3.2–3.3) — dispute how experience arises but not, in the mainstream, post-death survival of a distinct unit. The Sat-Chit-Ananda distribution of consciousness across ground and *jeevan* is tabulated in §5.6.
+On **selfhood**, Madhyasth Darshan and Advaita stand together against reductive physicalism and apart from each other on individuality. Madhyasth Darshan holds many **immortal, constitutionally complete *jeevan* units** — real sentient atoms that work through the body, actualized from latency in *satta* at *gathanpurnata* (§§1.6–1.7, 1.13). Advaita holds the true Self is **Brahman**; separate *jivatman* is *vyavahara* superimposition dispelled at liberation (VC, vv. 244, 574; §2.5). Modern approaches treat the self as **brain-generated process**: predictive self-models, integrated-information thresholds, or evolved cognitive agents, with **brain death** as the operational end of the person (§4.1). Physicalist rivals — strong emergence, panpsychism, illusionism (§3.2–3.3) — dispute how experience arises but not, in the mainstream, post-death survival of a distinct unit. The Sat-Chit-Ananda distribution of consciousness across ground and *jeevan* is tabulated in §5.6.
 
 ### 5.3.4 Causation and beginninglessness
 
-**Causation** determines how each tradition treats origination. Madhyasth Darshan denies origination from non-existence (*abhava*): *satta* is *mahakaran* — sustaining ground, not efficient trigger — and units change through the inseparable triad *shram–gati–parinam* (§§1.2–1.4). Advaita inherits *satkaryavada* (effect in cause) and, at the empirical level, **vivartavada**: changeless Brahman, apparent transformation of name-form through *Maya* (§2.4). Modern physicalism uses **efficient causation** under conservation laws; particular systems begin and end, while a beginningless substrate remains cosmologically unsettled (§4.3). Madhyasth Darshan's slogan — Brahma is truth, the world is perpetual — preserves real unit transformation where Advaita projects and physicalism dynamizes fields. Full comparative detail is in §5.4.
+**Causation** determines how each tradition treats origination. Madhyasth Darshan denies origination from non-existence (*abhava*): *satta* is *mahakaran* — sustaining ground, not efficient trigger — and units change through the inseparable triad *shram–gati–parinam* (§§1.2–1.6). Advaita inherits *satkaryavada* (effect in cause) and, at the empirical level, **vivartavada**: changeless Brahman, apparent transformation of name-form through *Maya* (§2.4). Modern physicalism uses **efficient causation** under conservation laws; particular systems begin and end, while a beginningless substrate remains cosmologically unsettled (§4.3). Madhyasth Darshan's slogan — Brahma is truth, the world is perpetual — preserves real unit transformation where Advaita projects and physicalism dynamizes fields. Full comparative detail is in §5.4.
 
 ### 5.3.5 Method and what counts as evidence
 
@@ -1019,7 +920,7 @@ To that extent the traditions are **partially incommensurable** — no single ne
 
 ### 5.3.6 Ethics and life's purpose
 
-**Telos** follows ontology. Madhyasth Darshan seeks **awakened coexistence** (*jagriti*): realization of coexistence expressed as resolved humane conduct (*manaviya aacharan*) in society, with ontologically real values (*mulya*) and relationships (*sambandh*) (§§1.7, 1.10). Advaita seeks **liberation** (*moksha*): recognition of identity with Brahman, in which the illusion of separate self is dispelled; ethics at *vyavahara* purifies the mind for that end (§2.9). Modern physicalist approaches explain ethics through evolution, psychology, social contract, or naturalized normativity; life's purpose, where acknowledged, is adaptation, flourishing, or human-constructed meaning (§§3, 4.6). Madhyasth Darshan ties fulfilment to conduct-evidence; Advaita to sublation; science to mechanism and survival — three different standards for whether a life is well-lived.
+**Telos** follows ontology. Madhyasth Darshan seeks **awakened coexistence** (*jagriti*): realization of coexistence expressed as resolved humane conduct (*manaviya aacharan*) in society, with ontologically real values (*mulya*) and relationships (*sambandh*) (§§1.4, 1.15). Advaita seeks **liberation** (*moksha*): recognition of identity with Brahman, in which the illusion of separate self is dispelled; ethics at *vyavahara* purifies the mind for that end (§2.9). Modern physicalist approaches explain ethics through evolution, psychology, social contract, or naturalized normativity; life's purpose, where acknowledged, is adaptation, flourishing, or human-constructed meaning (§§3, 4.6). Madhyasth Darshan ties fulfilment to conduct-evidence; Advaita to sublation; science to mechanism and survival — three different standards for whether a life is well-lived.
 
 ### 5.4 Causal doctrine: *Satkaryavada*, *Vivartavada*, and Madhyasth Darshan
 
@@ -1027,7 +928,7 @@ Causal doctrine is the deepest structural difference on the beginninglessness ax
 
 **Advaita (Sankhya inheritance):** *Satkaryavada* — the effect pre-exists in the cause (clay-pot, VC v. 251). At the empirical level, creation is *vivartavada*: apparent transformation of name-form on changeless Brahman — the effect is not a real transformation of the cause. Brahman does not change; multiplicity is projected through *Maya*.
 
-**Madhyasth Darshan:** Denies single-material-cause reduction and linear efficient-cause chains. *Satta* is *mahakaran* (supreme sustaining cause), not efficient cause (§1.2). Units change through the single activity triad *shram–gati–parinam*, read toward completeness in sentient nature through projection, reflection, and *samadhan*, with circular activity, order-specific cyclicality, and *sanskar*-mediated human cycles. Conservation of *vastu* through *roop*-change resembles *parinamavada* at the unit level, but the full picture is not reducible to "*parinamavada*-like" alone.
+**Madhyasth Darshan:** Denies single-material-cause reduction and linear efficient-cause chains. *Satta* is *mahakaran* (supreme sustaining cause), not efficient cause (§1.6.4). Units change through the single activity triad *shram–gati–parinam*, read toward completeness in sentient nature through projection, reflection, and *samadhan*, with circular activity, order-specific cyclicality, and *sanskar*-mediated human cycles. Conservation of *vastu* through *roop*-change resembles *parinamavada* at the unit level, but the full picture is not reducible to "*parinamavada*-like" alone.
 
 **Modern physicalism:** Strict efficient causation — mechanism, fields, conservation laws. Origination of particular systems is compatible with a beginningless substrate (§4.3); no teleology or supreme ground.
 
@@ -1048,8 +949,8 @@ The table compares primary entities across the four traditions developed in §§
 | **Cosmic Ground** | **Omnipresence (*Satta / Space*)**: Pervasive, formless, actionless energy (*kriya-shunya*). Inherent energy and regulation in units through saturation (*samprikt*); uniform energy manifests as activity only through units (§1.2). | **Brahman**: The single, non-dual absolute reality (*Sat-Chit-Ananda*). The world is *mithya* (dependent appearance) at *paramartha*. | **Form + Matter** (Hylomorphism): Substantial form actualizing matter. **Substance + modes** (Spinoza): One *Deus sive Natura*, finite modes. **Monad field** (Leibniz): Simple substances in harmony. **Creativity** (Process): the ultimate by which prior occasions become one new occasion. **Neutral Stuff** (Neutral Monism): Common element. | **Spacetime & Quantum Fields**: Dynamic, physical substrate. No inherent consciousness or teleology. |
 | **Individual Self / Sentience** | **Jeevan**: A constitutionally complete, immortal atom (*gathanpurna parmanu*). Many distinct, eternal *jeevan* exist. | **Jivatman / Atman**: Individuality (*jivatman*) is a *vyavahara* superimposition (VC, v. 244). The true Self (*Atman*) is identical to Brahman. | **Rational Soul as Form** (Hylomorphism): Form of the living body. **Monad** (Leibniz): Simple, mirroring, immortal substance. **Self-Model** (Physicalist): Evolved cognitive model. **Φ-threshold system** (IIT): Integrated information. | **Predictive Self / Cognitive Agent**: Brain-generated hierarchical model (§4.1). No survival post-death. |
 | **Material Reality / Body** | **Jada Units / Shareer**: Real, perpetual, transforming matter. Composes the body, which acts as the vehicle for *jeevan*. | **Nama-Roopa / Mithya**: Form and name; robust at *vyavahara*; sublated at *paramartha*. | **Physical Matter**: The primary concrete reality (Physicalism); or the outer aspect of experiential units (Panpsychism). | **Matter & Energy**: Consolidated excitations of quantum fields. Governed by conservation laws. Perpetual in base fields. |
-| **Relationships & Moral Order** | **Coexistence / Complementarity**: Inherent, ontologically real values (*mulya*) and orderliness (*vyavastha*) through the regulation ladder (§1.7). | **Ethics at *vyavahara***: Valid to purify the mind; *loka-sangraha* (BG); sublated at *paramartha*. | **Social / Internal Relations**: Relationality constitutes the self (Process); or evolutionary strategies for survival (Physicalism). | **Ecology & Cooperation**: Interdependent biological networks. Cooperation is an evolved behavioral strategy. |
-| **Primary Causation** | **Cyclical mutually-sustaining causation (§§1.2–1.4)**: *Satta* as *mahakaran*; single *shram–gati–parinam* triad with sentient unfolding; cyclical activity returning units to natural state in give–take complementarity (*svabhav gati*), not vicious circular **grounding**; *sanskar*-mediated human cycles. | **Vivartavada**: Apparent transformation on changeless Brahman (*satkaryavada* background). | **Efficient / Creative Causation**: Physical mechanisms (Physicalism); or "concrescence" (Process). | **Physical Causation**: Mathematical laws, conservation, entropy. |
+| **Relationships & Moral Order** | **Coexistence / Complementarity**: Inherent, ontologically real values (*mulya*) and orderliness (*vyavastha*) through the regulation ladder (§1.10). | **Ethics at *vyavahara***: Valid to purify the mind; *loka-sangraha* (BG); sublated at *paramartha*. | **Social / Internal Relations**: Relationality constitutes the self (Process); or evolutionary strategies for survival (Physicalism). | **Ecology & Cooperation**: Interdependent biological networks. Cooperation is an evolved behavioral strategy. |
+| **Primary Causation** | **Cyclical mutually-sustaining causation (§§1.2–1.6)**: *Satta* as *mahakaran*; single *shram–gati–parinam* triad with sentient unfolding; cyclical activity returning units to natural state in give–take complementarity (*svabhav gati*), not vicious circular **grounding**; *sanskar*-mediated human cycles. | **Vivartavada**: Apparent transformation on changeless Brahman (*satkaryavada* background). | **Efficient / Creative Causation**: Physical mechanisms (Physicalism); or "concrescence" (Process). | **Physical Causation**: Mathematical laws, conservation, entropy. |
 | **Ultimate Purpose / Realization** | **Awakening (*Jagriti*)**: Realization of coexistence, leading to resolved humane conduct (*manaviya aacharan*) in society. | **Liberation (*Moksha*)**: Recognition of identity with Brahman; illusion of separate self dispelled (VC, v. 574). | **Flourishing / Adaptation**: Cognitive adaptability (Physicalism); intensity of experience in each occasion (Process). | **Survival & Adaptation**: Natural selection; active inference / free-energy minimization (Friston 2010; §4.1); homeostasis. |
 
 ### 5.6 The Sat-Chit-Ananda contrast, distributed
@@ -1061,10 +962,10 @@ For Advaita, *sat*, *chit*, *ananda* are three names for one ultimate reality wi
 | Concept | Advaita Vedanta (Unified Non-Dualism) | Madhyasth Darshan (Distributed Coexistence) |
 |---|---|---|
 | **Sat (Being)** | Brahman alone is Sat; the world is a dependent appearance ultimately negated. | Beingness (*astitva*) is coexistence of formless Omnipresence and countless real units. |
-| **Chit (Consciousness)** | Pure awareness, identical to the inner Self; the world of names/forms is inert. | Omnipresence is pervasive knowledge/condition-of-intelligibility (§1.11), but active sentience (*chaitanya*) belongs to the *jeevan* unit. |
-| **Ananda (Bliss)** | Intrinsic nature of Brahman; sensory joy is a distorted reflection. | Harmony realised within awakened *jeevan* — bliss as buddhi–*atma* harmony and humane conduct — not Brahman's intrinsic *ananda* alone (§1.10.6). |
+| **Chit (Consciousness)** | Pure awareness, identical to the inner Self; the world of names/forms is inert. | Omnipresence is pervasive knowledge/condition-of-intelligibility (§1.13), but active sentience (*chaitanya*) belongs to the *jeevan* unit. |
+| **Ananda (Bliss)** | Intrinsic nature of Brahman; sensory joy is a distorted reflection. | Harmony realised within awakened *jeevan* — bliss as buddhi–*atma* harmony and humane conduct — not Brahman's intrinsic *ananda* alone (§1.12). |
 
-The *chit* row and the DDV route sharpen a further fork. Both traditions refuse to reduce the first person to observed brain-states; both distinguish seer from seen. Advaita's *Sakshin* / *turiya*, once discriminated, is **Brahman itself** — impersonal, universal, and finally without a second knower. Madhyasth Darshan's knower is **constitutionally complete *jeevan***: many distinct units, each capable of *gyan udghatan* when awakened (§1.11). Against physicalism the two stand together; against each other the dispute is whether irreducible awareness is one or many, impersonal ground or immortal persons-in-coexistence.
+The *chit* row and the DDV route sharpen a further fork. Both traditions refuse to reduce the first person to observed brain-states; both distinguish seer from seen. Advaita's *Sakshin* / *turiya*, once discriminated, is **Brahman itself** — impersonal, universal, and finally without a second knower. Madhyasth Darshan's knower is **constitutionally complete *jeevan***: many distinct units, each capable of *gyan udghatan* when awakened (§1.13). Against physicalism the two stand together; against each other the dispute is whether irreducible awareness is one or many, impersonal ground or immortal persons-in-coexistence.
 
 Modern philosophy has no parallel formula: it may treat experience as physical, fundamental, or illusory, but it does not name existence as Sat-Chit-Ananda or as coexistence.
 
@@ -1074,7 +975,7 @@ Advaita Vedanta and Madhyasth Darshan arise from different core commitments — 
 
 #### 5.7.1 Brahman and *Satta*
 
-Both **Brahman** and **Omnipresence (*satta*)** are formless, all-pervasive, non-transforming, timeless, and actionless — the ontological ground of everything. Advaita's Brahman is the *sole* absolute reality (*paramartha*), making the world dependent appearance (*mithya*). Madhyasth Darshan's *Satta* **coexists** with nature (*prakriti*); both are real. Brahman is awareness itself (*chit*); *Satta* is actionless energy (*kriya-shunya urja*) — the condition of intelligibility — while active sentience (*chaitanya*) belongs exclusively to the *jeevan* unit (§1.11).
+Both **Brahman** and **Omnipresence (*satta*)** are formless, all-pervasive, non-transforming, timeless, and actionless — the ontological ground of everything. Advaita's Brahman is the *sole* absolute reality (*paramartha*), making the world dependent appearance (*mithya*). Madhyasth Darshan's *Satta* **coexists** with nature (*prakriti*); both are real. Brahman is awareness itself (*chit*); *Satta* is actionless energy (*kriya-shunya urja*) — the condition of intelligibility — while active sentience (*chaitanya*) belongs exclusively to the *jeevan* unit (§1.13).
 
 #### 5.7.2 *Atman*, *Paramatman*, and *Jeevan*
 
@@ -1100,7 +1001,7 @@ In Advaita, the world is **superimposed** (*adhyasa*) on Brahman like a snake on
 
 Advaita's **mithya** (*sad-asad-anirvacaniya* — neither absolutely real nor sheer nothing) describes the world's dependent appearance (CU 6.2.1–6.2.2 with Śaṅkara's bhāṣya; VC, v. 251; §§2.3–2.4). Madhyasth Darshan rejects any intermediate ontological status: everything that exists is real, perpetual, and indestructible.
 
-In Advaita, **Ishvara** is Brahman associated with *Maya* — operative cause of name-form manifestation, sublated at *paramartha* (VC, v. 244), not a personal creator *ex nihilo*. Madhyasth Darshan rejects Ishvara in this sense — a cosmic governor who plans, acts as efficient cause, or dispenses grace. That is not rejection of transcendence altogether: MVD's ninth Reality set includes **"God is omnipresent, deities are many"** (proposition 5; §1.12) — *God* names actionless Omnipresence (*satta*), while **deities are many** denies elevating personal deities to ultimate status. Orderliness (*vyavastha*) is self-regulation (*swatah-saspurt*) inherent in the co-existing orders (§1.7); *Satta* remains actionless (*kriya-shunya*).
+In Advaita, **Ishvara** is Brahman associated with *Maya* — operative cause of name-form manifestation, sublated at *paramartha* (VC, v. 244), not a personal creator *ex nihilo*. Madhyasth Darshan rejects Ishvara in this sense — a cosmic governor who plans, acts as efficient cause, or dispenses grace. That is not rejection of transcendence altogether: MVD's ninth Reality set includes **"God is omnipresent, deities are many"** (proposition 5; §1.14) — *God* names actionless Omnipresence (*satta*), while **deities are many** denies elevating personal deities to ultimate status. Orderliness (*vyavastha*) is self-regulation (*swatah-saspurt*) inherent in the co-existing orders (§1.10); *Satta* remains actionless (*kriya-shunya*).
 
 Advaita seeks **kaivalya** — recognition of pre-existing identity with Brahman (*jiva-brahma-aikya*), in which the illusion of separate individuality is dispelled (*tat tvam asi*, CU 6.8.7; BS 1.1.2; VC, vv. 244, 574). Madhyasth Darshan holds that individual *jeevan* units remain eternally distinct; the ultimate goal is **awakened coexistence (*jagriti*)** — active *jeevan* in harmonious relationships (*sambandh*) with other humans and the ecological orders.
 
@@ -1112,7 +1013,7 @@ While surface-level analogues exist, the core ontological commitments are ultima
 
 Judged on its own definitions — not as proof against rivals — the ontology hangs together. Coexistence, real units, and beginninglessness form one picture without separate doctrines for each question (§5.2 summarizes the cross-tradition contrast; §5.3 develops it in prose). "Brahma is truth, the world is perpetual" preserves the reality of nature, society, relationship, and ethical responsibility rather than sublating the world. Consciousness, value, and selfhood are not treated as mere byproducts of body-chemistry.
 
-If existence is coexistence, human fulfilment must be evidenced as coexistence in behavior, not merely believed. "Nothing existent is annihilated" gives internal coherence to *vastu* persisting through *roop*-change, bodily death as configuration-shift, and development within beginningless coexistence — though post-death continuity of *this* *jeevan* is a further metaphysical commitment, not a theorem of quantity conservation alone (§1.12, §6.2.3).
+If existence is coexistence, human fulfilment must be evidenced as coexistence in behavior, not merely believed. "Nothing existent is annihilated" gives internal coherence to *vastu* persisting through *roop*-change, bodily death as configuration-shift, and development within beginningless coexistence — though post-death continuity of *this* *jeevan* is a further metaphysical commitment, not a theorem of quantity conservation alone (§1.14, §6.2.3).
 
 These are strengths **within** the system's premises. They do not by themselves establish those premises against Advaita or physicalism (see §6.2–§6.4).
 
@@ -1122,9 +1023,9 @@ The items below are numbered **6.2.1–6.2.6** for cross-reference. They group u
 
 #### 6.2.1 Emergence of sentience and latency
 
-Madhyasth Darshan holds that an insentient atom, through development, reaches constitutional completeness and becomes sentient *jeevan* (SB, pp. 55, 59). That account uses threshold grammar — a quantitative stability producing a qualitative level of active sentience — which can sound like strong emergence. The darshan also borrows Strawson's anti-emergence principle against physicalism (§3.3). Its resolution is **latency**: as sketched in §1.10.3, the **Saturation-Reflector Model** states how ever-present *gyan* in *satta* reaches active sentience (*chaitanya*) at constitutional completeness without strong emergence from dead matter (§§1.2, 1.9–1.10.3) — actualized, not created from nothing (SB, p. 59).
+Madhyasth Darshan holds that an insentient atom, through development, reaches constitutional completeness and becomes sentient *jeevan* (SB, pp. 55, 59). That account uses threshold grammar — a quantitative stability producing a qualitative level of active sentience — which can sound like strong emergence. The darshan also borrows Strawson's anti-emergence principle against physicalism (§3.3). Its resolution is **latency**: as sketched in §1.6, the **Saturation-Reflector Model** states how ever-present *gyan* in *satta* reaches active sentience (*chaitanya*) at constitutional completeness without strong emergence from dead matter (§§1.2, 1.7, 1.6) — actualized, not created from nothing (SB, p. 59).
 
-Madhyasth Darshan does **not** solve the hard problem of consciousness in the physicalist's sense. Sentience is eternally present in coexistence and **actualized** at constitutional completeness rather than produced from non-experience; the Saturation-Reflector Model is the darshan's central statement of that reading — but it **relocates** the problem rather than discharging it. Instead of asking why experience arises from wholly non-experiential matter, the system now owes two further questions: **(a)** why a constitutionally stable atom-configuration channels ever-present *gyan* into active *chaitanya* rather than remaining at the orderliness tier only (**selection**), and **(b)** what makes *satta* as *gyan* the experiential ground at all (**grounding**). Latency converts an emergence problem into a selection problem and a grounding problem; neither is settled here. Against physicalism's gap-only framing, MD also offers a **positive** account of qualitative felt life: the four *jeevan* values — happiness, peace, contentment, and bliss — as real harmonies within the sentient unit (§1.10.6), not reducible to brain function alone on the darshan's reading.
+Madhyasth Darshan does **not** solve the hard problem of consciousness in the physicalist's sense. Sentience is eternally present in coexistence and **actualized** at constitutional completeness rather than produced from non-experience; the Saturation-Reflector Model is the darshan's central statement of that reading — but it **relocates** the problem rather than discharging it. Instead of asking why experience arises from wholly non-experiential matter, the system now owes two further questions: **(a)** why a constitutionally stable atom-configuration channels ever-present *gyan* into active *chaitanya* rather than remaining at the orderliness tier only (**selection**), and **(b)** what makes *satta* as *gyan* the experiential ground at all (**grounding**). Latency converts an emergence problem into a selection problem and a grounding problem; neither is settled here. Against physicalism's gap-only framing, MD also offers a **positive** account of qualitative felt life: the four *jeevan* values — happiness, peace, contentment, and bliss — as real harmonies within the sentient unit (§1.12), not reducible to brain function alone on the darshan's reading.
 
 In analytical prose the study uses **mediating configuration** for the stable atom-structure at constitutional completeness; the source texts call it a **reflector** (*pratibimba* register in SB's saturation language — SB's term). The English word is retained where the texts use it; it should not be read as optical bounce.
 
@@ -1171,26 +1072,26 @@ This clarifies what coexistence claims against misreadings — isolated substanc
 |---|---|---|
 | Saturation / boundaries | Co-eternal inseparability; bounded wholes in omnipresence; asymmetric sustaining vs active roles | Whether co-eternal structure escapes *svabhava* emptiness at final truth |
 | Unit signature | Order-specific *svabhav* in mutuality, not isolated substance | Bridge to Buddhist *svabhava* for anglophone readers |
-| *Jeevan* / *anatta* | Constitutionally immortal sentient atom (§§1.9–1.10) | Anatta denies what MD asserts without shared proof |
-| Conservation | *Vastu* conserved through *roop*-change (§1.12) | Persistence inference vs physics (§6.2.3) |
+| *Jeevan* / *anatta* | Constitutionally immortal sentient atom (§§1.7, 1.6) | Anatta denies what MD asserts without shared proof |
+| Conservation | *Vastu* conserved through *roop*-change (§1.14) | Persistence inference vs physics (§6.2.3) |
 
 Formal work on the law of coexistence (§6.2.1) must show that dependence-for-manifestation and co-eternal co-presence are principled — not merely verbal. Until then, Nagarjuna's challenge stays central among open problems; the reply remains open, not settled.
 
 #### 6.2.3 Mereology, identity, conservation inference, and rebirth
 
-**Category error first:** JV p. 20 is the system's most empirically exposed inference — post-death survival and re-association of *jeevan* from "nothing is annihilated." From the standpoint of modern science, this inference conflates **conservation of quantity** with **conservation of structure (or entity)**: physics conserves mass-energy and charge, but not specific configurations or functional identities. Thermodynamic and field-theoretic conservation alone do not guarantee the immortality of a structured unit like *jeevan* unless *gathanpurnata* is already assumed as a separate metaphysical axiom. §1.12 separates coexistence conservation from *jeevan* persistence and rebirth; the friction with particle physics is whether a **particular composite configuration** — once constitutionally complete — is immune to decay or decomposition, when composite bound states in physics are not absolutely indestructible. That is the weakest inferential link for post-death survival and transmigration and should be weighed accordingly.
+**Category error first:** JV p. 20 is the system's most empirically exposed inference — post-death survival and re-association of *jeevan* from "nothing is annihilated." From the standpoint of modern science, this inference conflates **conservation of quantity** with **conservation of structure (or entity)**: physics conserves mass-energy and charge, but not specific configurations or functional identities. Thermodynamic and field-theoretic conservation alone do not guarantee the immortality of a structured unit like *jeevan* unless *gathanpurnata* is already assumed as a separate metaphysical axiom. §1.14 separates coexistence conservation from *jeevan* persistence and rebirth; the friction with particle physics is whether a **particular composite configuration** — once constitutionally complete — is immune to decay or decomposition, when composite bound states in physics are not absolutely indestructible. That is the weakest inferential link for post-death survival and transmigration and should be weighed accordingly.
 
 Madhyasth Darshan's **own** reply to the composite-decay worry is stated in §1.10: at constitutional completeness the atom is **liberated from molecular-bondage and weight-bondage** (MVD, p. 91; SB, p. 114). The sentient unit is therefore not modeled as an ordinary molecular bound state subject to the same decay grammar. The sharpest test from physics is not whether MD forgot composite instability, but whether **weight-bondage exit** is coherent with mass, energy, and gravitational coupling in public science — a friction that belongs in open problems regardless of how the texts answer mereology.
 
-The *gathanpurna parmanu* at issue is **not** an elementary particle in the sense of modern physics. MVD treats every atom as a **composite**: its kind, state, and measure are fixed by the number of particles in its nucleus and its orbiting dependent particles (MVD, p. 42); constitutional completeness is reached when the required number of such particles is integrated into a stable compound configuration (SB, pp. 55, 59; §1.10). Madhyasth Darshan reads *jeevan*'s "indivisibility" as **functional** — a self-maintaining constitution whose nucleus–orbit structure is one integrated sentient atom (§1.9) — not as the claim that *jeevan* has no parts. Identity is continuity of that constitution across death and re-association (§§1.9–1.12).
+The *gathanpurna parmanu* at issue is **not** an elementary particle in the sense of modern physics. MVD treats every atom as a **composite**: its kind, state, and measure are fixed by the number of particles in its nucleus and its orbiting dependent particles (MVD, p. 42); constitutional completeness is reached when the required number of such particles is integrated into a stable compound configuration (SB, pp. 55, 59; §1.6). Madhyasth Darshan reads *jeevan*'s "indivisibility" as **functional** — a self-maintaining constitution whose nucleus–orbit structure is one integrated sentient atom (§1.7) — not as the claim that *jeevan* has no parts. Identity is continuity of that constitution across death and re-association (§§1.7–1.12).
 
 #### 6.2.4 *Jeevan*–body interaction
 
-If *jeevan* is a constitutionally complete atom that **drives** the body, physicalist readers face an interaction problem as old as Descartes — the **Cartesian gap** between a weightless sentient unit and a molecular nervous system. Either *jeevan* exerts physical force on neural and muscular tissue — in which case the interaction should be measurable in principle, and constitutional completeness should be operationalizable, contradicting §6.2.5 — or it does not exert physical force, in which case "drives" must name a non-mechanical mode of influence that the texts have not fully specified in modern vocabulary. Readers trained in physics will press a sharper thermodynamic question: if *jeevan* is free of molecular bondage and weight-bondage (§6.2.3), how can it steer the brain without injecting energy and violating conservation? MD also restricts full knowledge-order awakening to the **human** joint form (§§1.9–1.10; MVD, p. 115), so the interaction question is not posed for every sentient plane alike.
+If *jeevan* is a constitutionally complete atom that **drives** the body, physicalist readers face an interaction problem as old as Descartes — the **Cartesian gap** between a weightless sentient unit and a molecular nervous system. Either *jeevan* exerts physical force on neural and muscular tissue — in which case the interaction should be measurable in principle, and constitutional completeness should be operationalizable, contradicting §6.2.5 — or it does not exert physical force, in which case "drives" must name a non-mechanical mode of influence that the texts have not fully specified in modern vocabulary. Readers trained in physics will press a sharper thermodynamic question: if *jeevan* is free of molecular bondage and weight-bondage (§6.2.3), how can it steer the brain without injecting energy and violating conservation? MD also restricts full knowledge-order awakening to the **human** joint form (§1.13; MVD, p. 115), so the interaction question is not posed for every sentient plane alike.
 
-**What the primary texts do say.** Humans are a **joint form** of *jeevan* and body; the body is medium and instrument, not the sentient self (§§1.9–1.10; MVD p. 13). MVD's four-level causal hierarchy places *atma* within *jeevan* as **causal** level — gross body, subtle atoms, causal *atma*, supreme cause *satta* (MVD, pp. 288–289) — so intention is not modeled as a separate substance pushing neurons from outside. MVD p. 115 describes vibrational motion on the brain from the cognitive organs leading to knowledge-unfolding (§1.11) — a pathway description within the human as joint form, not a proof of physical causal closure.
+**What the primary texts do say.** Humans are a **joint form** of *jeevan* and body; the body is medium and instrument, not the sentient self (§1.13; MVD p. 13). MVD's four-level causal hierarchy places *atma* within *jeevan* as **causal** level — gross body, subtle atoms, causal *atma*, supreme cause *satta* (MVD, pp. 288–289) — so intention is not modeled as a separate substance pushing neurons from outside. MVD p. 115 describes vibrational motion on the brain from the cognitive organs leading to knowledge-unfolding (§1.13) — a pathway description within the human as joint form, not a proof of physical causal closure.
 
-**State and order versus kinetic energy.** On the reading the texts most strongly suggest, *jeevan*'s "driving" is not modeled as a ghostly piston adding joules to neural tissue from outside a closed thermodynamic system. The human is already a **joint form** (§1.10): effort–motion–result is one inseparable activity in which body and *jeevan* co-participate (§1.4). MVD's vibrational motion on the brain from the cognitive organs (p. 115) describes **motion within that joint pathway** — the ordering of activity through which *gyan udghatan* unfolds in awakened humans ([*Knowledge, Knower, and Known*](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §1.1) — not an external force vector registered on a calorimeter. *Jeevan* carries **inherent energy** as saturated orderliness (§1.2); inward regulation channels faculty activity toward awakening (MVD, p. 77), and at constitutional completeness the sentient unit is read as liberated from **weight-bondage** (§6.2.3). In comparative vocabulary helpful to physicist readers — not as MD's own English labels — the link is closer to **transmission of state, order, and informational structure** (which faculty is active, how resolve and desire are coordinated, whether inward regulation succeeds) than to supply of macroscopic kinetic energy from a separate substance. **Resonance** or **constraint** language captures part of the picture: the body remains the medium; *jeevan* orients the joint form's activity without being modeled as a second motor doing work on the first. That reading spares the crude Cartesian picture of an immaterial object pushing neurons, and it aligns with why the four-level hierarchy treats *atma* as **causal** level within the joint form rather than as a Cartesian ego adjacent to the pineal gland. It does **not** by itself answer Kim-style **causal closure**: coordinating order inside a joint system may still require that every physical state transition have a sufficient physical cause, and whether MD's joint-causation satisfies that constraint remains unsettled below.
+**State and order versus kinetic energy.** On the reading the texts most strongly suggest, *jeevan*'s "driving" is not modeled as a ghostly piston adding joules to neural tissue from outside a closed thermodynamic system. The human is already a **joint form** (§1.13): effort–motion–result is one inseparable activity in which body and *jeevan* co-participate (§1.6). MVD's vibrational motion on the brain from the cognitive organs (p. 115) describes **motion within that joint pathway** — the ordering of activity through which *gyan udghatan* unfolds in awakened humans ([*Knowledge, Knower, and Known*](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §1.1) — not an external force vector registered on a calorimeter. *Jeevan* carries **inherent energy** as saturated orderliness (§1.2); inward regulation channels faculty activity toward awakening (MVD, p. 77), and at constitutional completeness the sentient unit is read as liberated from **weight-bondage** (§6.2.3). In comparative vocabulary helpful to physicist readers — not as MD's own English labels — the link is closer to **transmission of state, order, and informational structure** (which faculty is active, how resolve and desire are coordinated, whether inward regulation succeeds) than to supply of macroscopic kinetic energy from a separate substance. **Resonance** or **constraint** language captures part of the picture: the body remains the medium; *jeevan* orients the joint form's activity without being modeled as a second motor doing work on the first. That reading spares the crude Cartesian picture of an immaterial object pushing neurons, and it aligns with why the four-level hierarchy treats *atma* as **causal** level within the joint form rather than as a Cartesian ego adjacent to the pineal gland. It does **not** by itself answer Kim-style **causal closure**: coordinating order inside a joint system may still require that every physical state transition have a sufficient physical cause, and whether MD's joint-causation satisfies that constraint remains unsettled below.
 
 **What the primary texts do not settle.** Whether *jeevan*'s "driving" **violates physical causal closure** or names **non-mechanical influence within** the effort–motion–result activity already attributed to the human as joint form. Even if the driving is read as **state and order transmission** rather than kinetic-energy injection — sparing the thermodynamic violation a naive Cartesian reading would imply — Kim-style closure remains open: the texts commit neither to measurable extra physical force **nor** to epiphenomenal accompaniment. The system **appears** to take the non-Cartesian horn in spirit — hierarchical unit-causation within coexistence — but whether that horn satisfies modern physics remains **open in the primary sources**, not only in the comparative account here.
 
@@ -1210,7 +1111,7 @@ What would count as evidence for guaranteed order emergence rather than oriented
 
 Advaita has a powerful answer to non-being (existence cannot arise from non-existence, CU 6.2.2) and a rigorous first-person method — DDV's seer-seen discrimination and MU's three-state analysis (§§2.1–2.6). Its ontology is also **parsimonious**: one partless Brahman, without a second ground, without plural immortal substances, without a separate cosmic power of illusion standing alongside the absolute. Against Madhyasth Darshan's coexistence of *satta*, countless *ikai*, definite *sambandh*, and latency at *gathanpurnata*, Advaita compresses existence into a single subject whose empirical multiplicity is finally sublated.
 
-Two further limits belong alongside world-subordination, developed in §§5.6–5.7. On **individuality**, liberation in Advaita is *jiva-brahma-aikya* — separate *jivatman* is *upadhi*-conditioned appearance dispelled at *paramartha* (§§2.5, 5.3.3). Madhyasth Darshan holds many constitutionally complete, immortal *jeevan* units that remain distinct after awakening; relational realism and post-death continuity (§§1.9–1.12) require that individuality, not only robust *vyavahara*. On **structural vocabulary**, Advaita's *Maya*, *adhyasa*, *mithya*, and Brahman as *chit* (awareness itself) do not map onto Madhyasth Darshan's saturation, *jagat satat*, and *gyan* as intelligibility-ground without active knowing in *satta* (§§1.11, 5.6, 5.7.5). Those are not minor terminological gaps; they mark where the two systems part on what finally exists.
+Two further limits belong alongside world-subordination, developed in §§5.6–5.7. On **individuality**, liberation in Advaita is *jiva-brahma-aikya* — separate *jivatman* is *upadhi*-conditioned appearance dispelled at *paramartha* (§§2.5, 5.3.3). Madhyasth Darshan holds many constitutionally complete, immortal *jeevan* units that remain distinct after awakening; relational realism and post-death continuity (§§1.7–1.12) require that individuality, not only robust *vyavahara*. On **structural vocabulary**, Advaita's *Maya*, *adhyasa*, *mithya*, and Brahman as *chit* (awareness itself) do not map onto Madhyasth Darshan's saturation, *jagat satat*, and *gyan* as intelligibility-ground without active knowing in *satta* (§§1.13, 5.6, 5.7.5). Those are not minor terminological gaps; they mark where the two systems part on what finally exists.
 
 Its limit, from the Madhyasth perspective, is that making the world *mithya* at *paramartha* makes it harder to ground the **final** ontological weight of relationships, nature, society, and conduct — even though *vyavahara* is robust, shared, and law-governed (§2.3). Nagraj's native objection, framed against the Vedanta he inherited, presses this point from origination:
 
@@ -1220,7 +1121,7 @@ Its limit, from the Madhyasth perspective, is that making the world *mithya* at 
 > **"How can the jeeva and jagat, which originated from the Truth, Knowledge, and Infinite Brahma, be an illusion?"**
 > - MVD, *The Alternative*
 
-Madhyasth Darshan's counter-slogan — *Brahma is truth, the world is perpetual* (MVD, p. 13; §1.12) — is not mere rhetoric. If *jeeva* and *jagat* arise from Sat-Chit-Ananda Brahman through *satkaryavada*, treating them as finally *mithya* looks internally unstable: the effect would be less real than a cause whose nature is being, consciousness, and bliss. Advaita's reply is the three-tier distinction and *vivartavada*: name-form is dependently real at *vyavahara* and sublated only at *paramartha*; the clay-pot is not nothing, but its separateness from clay is (VC, v. 251; §§2.3–2.4). That reply is coherent **within** Advaita; Madhyasth Darshan denies that sublation is the last word on the world.
+Madhyasth Darshan's counter-slogan — *Brahma is truth, the world is perpetual* (MVD, p. 13; §1.14) — is not mere rhetoric. If *jeeva* and *jagat* arise from Sat-Chit-Ananda Brahman through *satkaryavada*, treating them as finally *mithya* looks internally unstable: the effect would be less real than a cause whose nature is being, consciousness, and bliss. Advaita's reply is the three-tier distinction and *vivartavada*: name-form is dependently real at *vyavahara* and sublated only at *paramartha*; the clay-pot is not nothing, but its separateness from clay is (VC, v. 251; §§2.3–2.4). That reply is coherent **within** Advaita; Madhyasth Darshan denies that sublation is the last word on the world.
 
 Advaita's fair reply to world-negation — ethics, *loka-sangraha*, and beginningless *vyavahara* — is substantial and is exposited in §2.9; it should not be dismissed in a sentence. The Madhyasth counter-reply is narrower but precise. Beginningless *vyavahara* and robust ethics do not settle **final** ontological status. *Satat* (*perpetual*) names a world that retains full weight at the highest realization — relationships, nature, and *mulya* are not ultimately sublated (§5.7). An ontology that makes the world *mithya* at *paramartha* cannot give the world the same final weight coexistence gives it. This is a genuine disagreement about whether *vyavahara*'s robustness suffices for Madhyasth Darshan's standard of world-realness, not a defeat of Advaita on its own terms.
 
@@ -1252,9 +1153,9 @@ The Madhyasth counter-reply is narrower. Predictive models explain **how** a bod
 
 ## 7. Conclusion
 
-Madhyasth Darshan answers the framing questions through a single ontological picture: eternally present **coexistence** (*saha-astitva*) of formless Omnipresence (*satta*) and countless **units** (*ikai*), beginningless and neither made from the other. Saturation binds ground to units; *sambandh*, complementarity, and value-fulfilment bind units to one another; complementary units compose into tiered assemblies from particles through societies (§1.5).
+Madhyasth Darshan answers the framing questions through a single ontological picture: eternally present **coexistence** (*saha-astitva*) of formless Omnipresence (*satta*) and countless **units** (*ikai*), beginningless and neither made from the other. Saturation binds ground to units; *sambandh*, complementarity, and value-fulfilment bind units to one another; complementary units compose into tiered assemblies from particles through societies (§1.9).
 
-What exists does not begin from non-existence (*abhava*); bodies and configurations do, while *vastu* persists through transformation. Time (*kaal*) is the duration of unit-activity, not an independent cosmic container (§1.4). Causation is circular and order-specific: *satta* is *mahakaran* — sustaining ground, not efficient trigger — and units work change through effort–motion–result (*shram–gati–parinam*), read in sentient nature toward immortality of result, restfulness of effort, and destination of motion at constitutional, activity, and conduct completeness (§§1.4, 1.6–1.10). Sentience belongs to the constitutionally complete atom (*gathanpurna parmanu*), actualised from coexistential ground rather than produced from dead matter (§6.2.1).
+What exists does not begin from non-existence (*abhava*); bodies and configurations do, while *vastu* persists through transformation. Time (*kaal*) is the duration of unit-activity, not an independent cosmic container (§1.6.4). Causation is circular and order-specific: *satta* is *mahakaran* — sustaining ground, not efficient trigger — and units work change through effort–motion–result (*shram–gati–parinam*), read in sentient nature toward immortality of result, restfulness of effort, and destination of motion at constitutional, activity, and conduct completeness (§§1.6, 1.7–1.11). Sentience belongs to the constitutionally complete atom (*gathanpurna parmanu*), actualised from coexistential ground rather than produced from dead matter (§6.2.1).
 
 > **"Brahma is truth, the world is perpetual."**
 > - MVD, p. 13
@@ -1278,27 +1179,27 @@ Key terms from §§1–4 are collected here for quick reference. Each term is al
 | **Unit (*ikai*)** | A countable, bounded entity in nature — insentient (*jada*) or sentient (*chaitanya*). |
 | **Saturation (*samprikt*)** | The ever-present bond in which each unit is soaked, submerged, and surrounded in Omnipresence; from saturated bounded plurality three endowments follow in every unit — recognition capability for complementarity, activeness, and inherent regulation (§1.2). |
 | **Effort–motion–result (*shram–gati–parinam*)** | The inseparable triad of unit-activity powered by saturation, identical to the unit's existence. In the sentient atom, result (*parinam*) seeks the goal of immortality (*amarta*) at constitutional completeness; effort (*shram*) seeks the goal of restfulness (*vishram*) at activity completeness; and motion (*gati*) seeks the goal of destination (*gantavya*) at conduct completeness (SB pp. 58, 71; MVD p. 104). |
-| **Immortality of result (*parinam ki amarta*)** | The teleological goal of result (*parinam*) at constitutional completeness (T1 / *gathanpurnata*) — permanent stabilisation of the atom's physical structure (§1.4). |
-| **Restfulness of effort (*shram ka vishram*)** | The teleological goal of effort (*shram*) at activity completeness (T2 / *kriyapurnata*) — internal cognitive seeking resolves into realization and *samadhan*; not relational ease in §1.3 (§1.4). |
-| **Destination of motion (*gati ka gantavya*)** | The teleological goal of motion (*gati*) at conduct completeness (T3 / *vyavaharpurnata*) — external behavioural participation aligned with universal orderliness (§1.4). |
+| **Immortality of result (*parinam ki amarta*)** | The teleological goal of result (*parinam*) at constitutional completeness (T1 / *gathanpurnata*) — permanent stabilisation of the atom's physical structure (§1.6). |
+| **Restfulness of effort (*shram ka vishram*)** | The teleological goal of effort (*shram*) at activity completeness (T2 / *kriyapurnata*) — internal cognitive seeking resolves into realization and *samadhan*; not relational ease in §1.3 (§1.6). |
+| **Destination of motion (*gati ka gantavya*)** | The teleological goal of motion (*gati*) at conduct completeness (T3 / *vyavaharpurnata*) — external behavioural participation aligned with universal orderliness (§1.6). |
 | **The four orders (*chaar avastha*)** | Material, bio/pranic, animal, and knowledge/human — real developmental plateaus in nature. |
 | **Relationship (*sambandh*)** | Definite mutuality with expectations predetermined toward completeness (MVD p. 62). |
 | **Law (ontological)** | Orderliness and regulation read from saturation — universal across all four orders; not statutory command. |
-| ***Jeevan*** | The sentient self: a constitutionally complete, immortal unit — *atma* as nucleus, *buddhi*–*mun* as orbital structure — that works through the body (§1.9). |
+| ***Jeevan*** | The sentient self: a constitutionally complete, immortal unit — *atma* as nucleus, *buddhi*–*mun* as orbital structure — that works through the body (§1.7). |
 | **Constitutional completeness (*gathanpurnata*)** | When a developed atom integrates its required particles and crosses irreversibly into sentient *jeevan* (Transition 1, **T1**). |
-| **Existential progression (*niyati-kram*)** | Fixed macro sequence in nature: pranic order from material, animal from pranic, knowledge/human from animal — not contingent reordering of plateaus (§1.5). |
-| **Way of existence (*niyati-vidhi*)** | Definiteness in the conduct of each of the four orders; paired with *niyati-kram* (order emergence ↔ order conduct; §1.7). |
-| **Development progression (*vikas-kram*)** | Atomic-level movement through the physicochemical complex until an atom reaches constitutional completeness and sentient *jeevan* appears (§1.10.1). |
-| **Awakening progression (*jagriti-kram*)** | Sentient-level movement within constitutionally complete *jeevan* toward fuller activity and conduct (§1.10). |
-| ***Jeevan* values (*sukh*, *shanti*, *santosh*, *anand*)** | Four felt harmonies within *jeevan* — happiness, peace, contentment, bliss — organised through faculty pairs (§1.10.6). |
+| **Existential progression (*niyati-kram*)** | Fixed macro sequence in nature: pranic order from material, animal from pranic, knowledge/human from animal — not contingent reordering of plateaus (§1.8). |
+| **Way of existence (*niyati-vidhi*)** | Definiteness in the conduct of each of the four orders; paired with *niyati-kram* (order emergence ↔ order conduct; §1.10). |
+| **Development progression (*vikas-kram*)** | Atomic-level movement through the physicochemical complex until an atom reaches constitutional completeness and sentient *jeevan* appears (§1.8). |
+| **Awakening progression (*jagriti-kram*)** | Sentient-level movement within constitutionally complete *jeevan* toward fuller activity and conduct (§1.8). |
+| ***Jeevan* values (*sukh*, *shanti*, *santosh*, *anand*)** | Four felt harmonies within *jeevan* — happiness, peace, contentment, bliss — organised through faculty pairs (§1.12). |
 | **Utility value (*upyogita*)** | Usefulness of natural abundance made available through labour; definite and constant across time (JV p. 123). |
 | **Art value (*kala*)** | Aesthetic enhancement of utility — beautification along with usefulness (MVD p. 324). |
-| **Human values** | Values of humane living grasped through coexistence understanding and humane conduct (JV pp. 44, 139); one of six value kinds (§1.6). |
-| **Established values** | Relationship values — care, trust, affection, and the like — that flow when relationships are recognised (JV pp. 108, 138; §1.6). |
-| **Expression values** | Right-use of body, mind, and wealth in the social order; *civic values* in Gupta's English (MVD p. 306; §1.6). |
-| **Knowledge sense (four)** | Four meanings of *gyan* / knowledge the texts must not conflate — ontological given, intelligibility-ground in *satta*, telos of fulfilled relationships, and unfolding through awakened *jeevan* (§§1.11.1–1.11.3). |
-| **Evaluative domain** | Conduct, thought, or realisation — the three humane perspectives discipline distinct domains (§1.10.5). |
-| **Sentient mode** | How effort–motion–result maps once constitutional completeness is reached — distinct from insentient unit-activity (§1.10). |
+| **Human values** | Values of humane living grasped through coexistence understanding and humane conduct (JV pp. 44, 139); one of six value kinds (§1.4). |
+| **Established values** | Relationship values — care, trust, affection, and the like — that flow when relationships are recognised (JV pp. 108, 138; §1.4). |
+| **Expression values** | Right-use of body, mind, and wealth in the social order; *civic values* in Gupta's English (MVD p. 306; §1.4). |
+| **Knowledge sense (four)** | Four meanings of *gyan* / knowledge the texts must not conflate — ontological given, intelligibility-ground in *satta*, telos of fulfilled relationships, and unfolding through awakened *jeevan* (§1.13). |
+| **Evaluative domain** | Conduct, thought, or realisation — the three humane perspectives discipline distinct domains (§1.11). |
+| **Sentient mode** | How effort–motion–result maps once constitutional completeness is reached — distinct from insentient unit-activity (§1.6). |
 
 Further terms — planes, justice, prosperity — are defined where they first appear in §1.
 
@@ -1358,11 +1259,11 @@ The source texts' primary English term for the all-pervasive, formless reality (
 
 ### Analytical vocabulary: sense, domain, mode
 
-The source texts reuse words — *gyan*, *nyaya*, law — at more than one level of meaning. Conflating those levels is a common source of misreading. This study uses **sense** for distinct meanings of knowledge terms (§1.11); **domain** for conduct, thought, and realisation — and for regulation, justice, and statute — in §1.10.5; and **mode** or **level** where the darshan marks a qualitative threshold (sentience, emergence). **Register** is reserved for ordinary English (*registers as happiness*, *activity registers on another*) and for quoted source usage — not as a standalone analytical label.
+The source texts reuse words — *gyan*, *nyaya*, law — at more than one level of meaning. Conflating those levels is a common source of misreading. This study uses **sense** for distinct meanings of knowledge terms (§1.13); **domain** for conduct, thought, and realisation — and for regulation, justice, and statute — in §1.11; and **mode** or **level** where the darshan marks a qualitative threshold (sentience, emergence). **Register** is reserved for ordinary English (*registers as happiness*, *activity registers on another*) and for quoted source usage — not as a standalone analytical label.
 
 ### "Consciousness" in SB p. 48
 
-The English translation lists several names for the pervasive reality (*Satta* / *Vyapak*): Uniform Energy, Space (*shunya*), Knowledge (*gyan*), Consciousness, Omnipresence, Eternity, God, and Absolute Energy. In SB p. 48, the parenthetical "(consciousness)" labels the all-pervasive reality, not a personal knowing mind. Sentience as the activity of a knower (*chaitanya*) is the status of *jeevan* (the sentient unit), not of Omnipresence (*satta*) itself. This distinction is essential; the comparative risk of collapsing *satta*-as-*gyan* into Advaita's *chit* is addressed in §1.11 and §6.2.5.
+The English translation lists several names for the pervasive reality (*Satta* / *Vyapak*): Uniform Energy, Space (*shunya*), Knowledge (*gyan*), Consciousness, Omnipresence, Eternity, God, and Absolute Energy. In SB p. 48, the parenthetical "(consciousness)" labels the all-pervasive reality, not a personal knowing mind. Sentience as the activity of a knower (*chaitanya*) is the status of *jeevan* (the sentient unit), not of Omnipresence (*satta*) itself. This distinction is essential; the comparative risk of collapsing *satta*-as-*gyan* into Advaita's *chit* is addressed in §1.13 and §6.2.5.
 
 ### Naming tensions for *satta*
 
@@ -1370,7 +1271,7 @@ The source gives *satta* multiple English names. Several generate internal tensi
 
 | Name | Tension |
 |---|---|
-| **Knowledge / Consciousness** | Implies cognition — yet *satta* is denied as knower (§1.11). |
+| **Knowledge / Consciousness** | Implies cognition — yet *satta* is denied as knower (§1.13). |
 | **Space / *Shunya*** | Void/emptiness vs. fullness of energy; *shunya* is rendered "Space" in the English translation, not physical *akasha*. |
 | **God** | Personhood vs. actionless, non-willing *satta*. |
 | **Absolute Energy** | Dynamism vs. *kriya-shunya* (actionless). |
@@ -1382,7 +1283,7 @@ The source does not fully settle how these names cohere as one reality.
 
 Anglophone readers trained on Madhyamaka will hear Madhyasth Darshan's **essential nature** (*svabhav*) and hear Buddhist **intrinsic existence** (*svabhava*) — the same English stem, different technical terms. That homonym does real damage: "inherent energy," "essential nature," and "indestructible unit" can sound like precisely the intrinsic status Nagarjuna targets (§6.2.2).
 
-In Madhyasth Darshan, *svabhav* names **order-specific essential nature** — how a unit's properties participate in mutuality and maintain balance among the four orders (§1.3). In Madhyamaka, *svabhava* names existence **from its own side**, incompatible with dependent origination. Read the essential-nature table in §1.2 with that distinction in mind; the Madhyamaka engagement belongs in §6.2.2, not in a casual identification of the two terms.
+In Madhyasth Darshan, *svabhav* names **order-specific essential nature** — how a unit's properties participate in mutuality and maintain balance among the four orders (§1.3). In Madhyamaka, *svabhava* names existence **from its own side**, incompatible with dependent origination. Read the essential-nature table in §1.3 with that distinction in mind; the Madhyamaka engagement belongs in §6.2.2, not in a casual identification of the two terms.
 
 ### Advaita: *mithya* and *sad-asad-anirvacaniya*
 
@@ -1396,7 +1297,7 @@ This study cites the *Vivekachudamani* (VC) heavily for accessible verse formula
 
 ### Madhyasth Darshan (definitions)
 
-- **Paribhasha** — Nagraj, A. [*Paribhasha Samhita*](https://www.madhyasth.org/browse-texts/browse-topics/definitions) (Hindi, ed. 2008). English selection of definitions on madhyasth.org. Cited: *niyati-kram* (existential progression) and *niyati-vidhi* (way of existence) (§§1.5, 1.7, 1.9).
+- **Paribhasha** — Nagraj, A. [*Paribhasha Samhita*](https://www.madhyasth.org/browse-texts/browse-topics/definitions) (Hindi, ed. 2008). English selection of definitions on madhyasth.org. Cited: *niyati-kram* (existential progression) and *niyati-vidhi* (way of existence) (§§1.5, 1.8, 1.10).
 
 ### Madhyasth Darshan (primary sources)
 
