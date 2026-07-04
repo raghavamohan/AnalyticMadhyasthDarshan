@@ -6,6 +6,7 @@ import json
 import re
 import subprocess
 import sys
+from collections.abc import Sequence
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
@@ -806,7 +807,13 @@ def sync_pre_catalog_proposals_to_catalog() -> list[StudyRow]:
     return ordered
 
 
-def write_studies_catalog(rows: list[StudyRow], table: StudyTable) -> None:
+def write_studies_catalog(
+    rows: list[StudyRow],
+    table: StudyTable,
+    *,
+    rebuild_discussion: bool | Sequence[str] = True,
+    rebuild_feedback_template: bool = True,
+) -> None:
     write_catalog_json_file(rows, table)
 
     readme_path = STUDIES / "README.md"
@@ -816,11 +823,20 @@ def write_studies_catalog(rows: list[StudyRow], table: StudyTable) -> None:
         replace_catalog_block(readme_text, start, end, serialize_md_rows(rows, table)),
         encoding="utf-8",
     )
-    write_study_feedback_template()
+    if rebuild_feedback_template:
+        write_study_feedback_template()
 
-    from _build_discussion_pages import build_discussion_pages_for_rows
+    if rebuild_discussion is not False:
+        from _build_discussion_pages import build_discussion_pages_for_rows, write_discussion_page
 
-    build_discussion_pages_for_rows(rows)
+        if rebuild_discussion is True:
+            build_discussion_pages_for_rows(rows)
+        else:
+            rows_by_slug = {row.slug: row for row in rows}
+            for slug in rebuild_discussion:
+                row = rows_by_slug.get(slug)
+                if row is not None:
+                    write_discussion_page(row)
 
     from _build_sitemap import write_sitemap
 
