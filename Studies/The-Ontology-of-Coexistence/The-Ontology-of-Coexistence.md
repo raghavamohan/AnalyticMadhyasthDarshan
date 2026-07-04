@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 4, 2026, 8:17 AM IST
+**Edited on:** July 4, 2026, 8:35 AM IST
 
 **Status:** Released
 
@@ -36,11 +36,11 @@ This paper states the regulation ladder ontologically (§1.7), distinguishes law
 
 Madhyasth Darshan defines **existence** as the ever-present **coexistence** of formless **Omnipresence** (*satta*) and countless bounded **units** of nature — beginningless, without creation from nothing, and indestructible at the level of being. Neither pole is produced from the other; what changes is unit-activity, development, and awakening within their bond.
 
-Coexistence is not inert juxtaposition. Ground and units are co-eternally inseparable — *satta* pervades everywhere, even where no local unit appears, while units are real countable wholes bounded within that field, never apart from Omnipresence (§1.1). That saturated, bounded plurality is the ontological basis for **mutual recognition**; **relationships** predetermined toward completeness and the **completeness drive** follow from coexistence through **saturation** and **complementarity** (§1.2), not as an ethic added to matter but as the basic design of what exists. Development expresses that drive as units move toward designed **statuses** at ever higher levels (§§1.5–1.10). At the knowledge order that designed completeness is what humans must achieve and evidence as resolution, prosperity, fearlessness, and coexistence. Scaled to humankind it becomes **undivided society** with **universal orderliness** — the **human dharma** telos toward which the whole architecture is ordered (§1.13).
+Coexistence is not inert juxtaposition. Ground and units are co-eternally inseparable — *satta* pervades everywhere, even where no local unit appears, while units are real countable wholes bounded within that field, never apart from Omnipresence (§1.1). That saturated, bounded plurality is the ontological basis for **mutual recognition**; **relationships** predetermined toward completeness and the **completeness drive** follow from coexistence through **saturation** and **complementarity** (§1.2), developed in §1.4, not as an ethic added to matter but as the basic design of what exists. Development expresses that drive as units move toward designed **statuses** at ever higher levels (§§1.5–1.10). At the knowledge order that designed completeness is what humans must achieve and evidence as resolution, prosperity, fearlessness, and coexistence. Scaled to humankind it becomes **undivided society** with **universal orderliness** — the **human dharma** telos toward which the whole architecture is ordered (§1.13).
 
 *Madhyasth* means **mediative**, and names how this bond holds without collapse into either pole. *Satta* — all-pervasive and non-transforming — regulates and conserves every unit without itself acting (MVD, p. 26). The same mediative role recurs within nature as the nucleus of every atom (§1.7) and, in *jeevan*, as *atma* (§1.10.6). Madhyasth Darshan names this account *samadhanatmak bhautikvad*, Resolution Centred Materialism.
 
-§1 develops the architecture in layers. **Coexistence** and its bond **saturation** come first (§§1.1–1.2), establishing complementarity, activeness as *shram–gati–parinam*, and the completeness drive; then what every unit **is** and how that activity splits into **insentient** and **sentient** atomic paths (§1.3), with teleological goals and causation developed in §1.4. The **four orders** and **relationships** of recognition and fulfilment (§§1.5–1.6), regulation and **composition** (§§1.7–1.8), and *jeevan* **structure** (§1.9) follow. Later subsections cover **development**, planes, evaluative awakening, knowledge, conservation, and the perpetual world, closing with the **societal fulfilment the ontology evidences** — undivided society and universal orderliness — and the darshan's method of knowing (§§1.10–1.14). The figures at §1.10.4 summarise the full structure.
+§1 develops the architecture in layers. **Coexistence** and its bond **saturation** come first (§§1.1–1.2), establishing complementarity and activeness as *shram–gati–parinam*; then what every unit **is** (§1.3), and **the completeness drive** — insentient and sentient atomic paths, teleological goals, unit-activity, and causation (§1.4). The **four orders** and **relationships** of recognition and fulfilment (§§1.5–1.6), regulation and **composition** (§§1.7–1.8), and *jeevan* **structure** (§1.9) follow. Later subsections cover **development**, planes, evaluative awakening, knowledge, conservation, and the perpetual world, closing with the **societal fulfilment the ontology evidences** — undivided society and universal orderliness — and the darshan's method of knowing (§§1.10–1.14). The figures at §1.10.4 summarise the full structure.
 
 ### 1.1 Coexistence: Omnipresence and units
 
@@ -92,7 +92,7 @@ Saturated units stand in mutuality; **therefore complementarity** — reciprocit
 > **"Since nature is eternally active within existence, every activity has inseparable effort, motion and result."**
 > - SB, p. 53
 
-Based on the **capacity, ability, and receptivity** saturation endows, and on unit-activity as the triad in complementarity, the **completeness drive** is present in every unit: embedded in the complete, each unit is compulsorily meant for completeness and oriented toward development (SB, pp. 50–51). The designed statuses toward which that drive moves — constitutional, activity, and conduct completeness — are named in §§1.3–1.4 and traced in §1.10; what saturation places *in* the unit, conducive **environment** and naturalness activate (§1.6).
+Based on the **capacity, ability, and receptivity** saturation endows, and on unit-activity as the triad in complementarity, the **completeness drive** is present in every unit: embedded in the complete, each unit is compulsorily meant for completeness and oriented toward development (SB, pp. 50–51), developed in §1.4; what saturation places *in* the unit, conducive **environment** and naturalness activate (§1.6).
 
 ### 1.3 What every unit is
 
@@ -119,19 +119,19 @@ SB opens with three companion facts:
 
 **Unit + environment = the unit as a whole** signifies continuity (SB, p. 51). ***Ness*** is what makes a unit the kind of unit it is — its distinctive way of being, shown through essential nature when it is in its natural state (SB, p. 54).
 
-In its **natural state**, a unit moves toward **development** — fulfilment aligned with its innateness; in its **excited state**, toward **decline** (SB, pp. 14–15). **Complementarity** — established in §1.2 — appears here as reciprocal exchange within the natural state: after give and take, both parties reinstate satisfaction or **natural motion** (*svabhav gati*) (SB, p. 59). When all relationships are recognised and fulfilled, the unit is **at ease** in its natural state — no relational shortfall remains.
-
-The **completeness drive** (§1.2) runs through two atomic paths from this natural-state complementarity. In the **insentient atom** (*jada parmanu*), the triad drives hungry and overfull exchange, **collections and assemblies** (§1.8), and **development progression** (*vikas-kram*) toward **constitutional completeness** (*gathanpurnata*) — the sentience threshold (T1), developed in §1.10.3. In the **sentient atom** — a constitutionally complete *jeevan* atom — the triad works through projection and reflection (SB, p. 60) toward **activity completeness** and **conduct completeness** (T2 and T3), defined in §1.4 and traced in §1.10.4. **Composition is not development**: only the **atom** crosses T1; assemblies persist or decline with relationship-fulfilment in natural state (§1.8).
+In its **natural state**, a unit moves toward **development** — fulfilment aligned with its innateness; in its **excited state**, toward **decline** (SB, pp. 14–15). **Complementarity** — established in §1.2 — appears here as reciprocal exchange within the natural state: after give and take, both parties reinstate satisfaction or **natural motion** (*svabhav gati*) (SB, p. 59). When all relationships are recognised and fulfilled, the unit is **at ease** in its natural state — no relational shortfall remains. The **completeness drive** develops in §1.4 from this natural-state complementarity.
 
 Participation means **recognising and fulfilling** — observable even in the physicochemical realm, where components within an atom recognise and fulfil one another (SB, p. 123). Endeavour aligned with a unit's innateness moves toward fulfilment; endeavour against it gives rise to problems (MVD, p. 112).
 
 JV illustrates definite conduct: a peepal tree maintains its conduct with all its fruits, seeds, and leaves exhibiting peepal's properties, intrinsic nature, and *dharma* (JV, p. 113). Harmony among the four aspects is what MVD calls the essence of coexistence itself (MVD, p. 21).
 
-### 1.4 All change is unit-activity
+### 1.4 The completeness drive
 
-§1.3 named what every unit is and split the **insentient** and **sentient** atomic paths; this section deepens the *shram–gati–parinam* triad from §1.2 — joint form, teleological goals on the sentient path, disambiguation from §1.3 natural-state ease — and closes with origination, causation, and *kaal*.
+§1.2 named the **completeness drive** in every unit; §1.3 established what units are and natural-state complementarity. Here the drive runs through two **atomic paths** and the unit-activity that carries it toward constitutional, activity, and conduct completeness (traced in §1.10).
 
-Omnipresence is *sthitipurn* (§1.1): the ground does not change. **All change is unit-activity** — that triad in complementarity. A unit is not a passive substrate that merely possesses activity; its existence is this triadic activity.
+The **completeness drive** (§1.2) runs through two atomic paths from §1.3 natural-state complementarity. In the **insentient atom** (*jada parmanu*), the triad drives hungry and overfull exchange, **collections and assemblies** (§1.8), and **development progression** (*vikas-kram*) toward **constitutional completeness** (*gathanpurnata*) — the sentience threshold (T1), developed in §1.10.3. In the **sentient atom** — a constitutionally complete *jeevan* atom — the triad works through projection and reflection (SB, p. 60) toward **activity completeness** and **conduct completeness** (T2 and T3), defined below and traced in §1.10.4. **Composition is not development**: only the **atom** crosses T1; assemblies persist or decline with relationship-fulfilment in natural state (§1.8).
+
+That drive moves as **unit-activity**. Omnipresence is *sthitipurn* (§1.1): the ground does not change. **All change is unit-activity** — the *shram–gati–parinam* triad from §1.2 in complementarity. A unit is not a passive substrate that merely possesses activity; its existence is this triadic activity.
 
 > **"Every physical-chemical activity is an inseparable presence of effort, motion and result. Each of these is a joint form of the other two."**
 > - SB, p. 58
@@ -145,7 +145,7 @@ That unfolding is internal to saturation, not an external push — SB compresses
 
 Each link is internal unfolding grounded in saturation (§1.2), not a mechanical reaction chain. In insentient orders, state and motion are inseparable — force in state, power in motion (SB, pp. 248–249).
 
-Each triad term has a teleological goal. The **insentient path** (§1.3) completes the first; the **sentient path** continues with the other two (SB, pp. 58, 71):
+Each triad term has a teleological goal. The **insentient path** completes the first; the **sentient path** continues with the other two (SB, pp. 58, 71):
 
 > **"In the sentient atom:
 > - Conduct completeness is in the form of destination of motion.
@@ -167,7 +167,7 @@ The texts distinguish **origination** (units co-eternally present) from **causat
 
 ### 1.5 The four orders of nature
 
-§1.4 defined teleological goals for the sentient triad and disambiguated *vishram* and *gantavya* from §1.3 natural-state ease. The texts next sort units into four **orders** in nature — material (*padarth*), pranic/bio (*pran*), animal (*jeev*), and knowledge/human (*gyan*). Each order is a stable plateau in development, not a human typology. Higher orders **include** the *dharma*s of lower orders cumulatively (SB, p. 179; MVD, p. 115).
+§1.4 developed the **completeness drive** — insentient and sentient atomic paths, teleological goals, and unit-activity — and disambiguated *vishram* and *gantavya* from §1.3 natural-state ease. The texts next sort units into four **orders** in nature — material (*padarth*), pranic/bio (*pran*), animal (*jeev*), and knowledge/human (*gyan*). Each order is a stable plateau in development, not a human typology. Higher orders **include** the *dharma*s of lower orders cumulatively (SB, p. 179; MVD, p. 115).
 
 | Order | Essential nature (*svabhav*) | *Dharma* (cumulative) |
 |---|---|---|
@@ -184,7 +184,7 @@ Each order cyclically manifests through saturation in a different mode (MVD, p. 
 
 ### 1.6 Units in relationships
 
-§1.2 established coexistence → saturation → complementarity, the triad in mutuality, and the completeness drive with capacity endowment. §1.5 named the four orders. Existence also holds **relations between units**, and it is in those relations that complementarity is actualised as **value** in mutuality (SB, p. 53). Complementarity here is not merely give–take reciprocity in physicochemical exchange (§§1.2–1.3); it is the whole structure by which units reciprocate essentiality. **Relationships** are where complementarity is predetermined toward completeness; the unit's main drive is to recognise and fulfil them. Nothing in nature is isolated — "nothing is isolated – that is the principle" (JV, p. 43).
+§1.2 established coexistence → saturation → complementarity and the triad in mutuality; §1.4 developed the **completeness drive** in atomic paths and teleological goals. §1.5 named the four orders. Existence also holds **relations between units**, and it is in those relations that complementarity is actualised as **value** in mutuality (SB, p. 53). Complementarity here is not merely give–take reciprocity in physicochemical exchange (§§1.2–1.3); it is the whole structure by which units reciprocate essentiality. **Relationships** are where complementarity is predetermined toward completeness; the unit's main drive is to recognise and fulfil them. Nothing in nature is isolated — "nothing is isolated – that is the principle" (JV, p. 43).
 
 MVD defines a **relationship** as "the mutuality where expectations are predetermined in the sense of completeness" (MVD, p. 62), and contrasts it with **association** — "the mutuality where expectations are voluntary" (MVD, p. 61). Neighbours who share a wall have an association; parent and child stand in a relationship with expectations toward completeness.
 
@@ -206,7 +206,7 @@ That recognition and fulfilment draw on **capacity**, **ability**, and **recepti
 
 Higher statuses require inherent capacity and a conducive environment together. SB illustrates the bond with seed and naturalness — **illustrative, not identity**: germination begins when a seed is placed in its naturalness; without naturalness, exuberance cannot happen in it (SB, p. 54). Saturation endows **inherent capacity**; **naturalness and mutuality** in environment activate it — neither alone suffices (§1.2). Atomic constitutional completeness and knowledge-order awakening depend on the same dual structure (§§1.9, 1.10.3–1.10.4).
 
-The **completeness drive** (§1.2; SB, p. 51) turns unit-activity toward fulfilling relationships, step by step, at higher levels. Units move toward satisfaction by recognising and fulfilling relationships built into coexistence — not by maximising an abstract quantity. When those relationships are fully evident across nature, the texts call that **realisation in coexistence** (SB, p. 51): not a new state of the ground, but fulfilment made clear within coexistence — senses distinguished in §1.11.
+The **completeness drive** (§1.4; SB, p. 51) turns unit-activity toward fulfilling relationships, step by step, at higher levels. Units move toward satisfaction by recognising and fulfilling relationships built into coexistence — not by maximising an abstract quantity. When those relationships are fully evident across nature, the texts call that **realisation in coexistence** (SB, p. 51): not a new state of the ground, but fulfilment made clear within coexistence — senses distinguished in §1.11.
 
 ### 1.7 Regulation and law
 
@@ -240,7 +240,7 @@ When complementary units fulfil their relationships, they **compose** into large
 > **"Everywhere, there exists a natural inclination towards coexistence. This inclination is what leads atomic particles to assemble into atoms, atoms to combine into molecules, and molecules to combine into molecular forms."**
 > - JV, p. 67
 
-Each successful composition **opens relationships at a higher tier** — particles to atoms, atoms to molecules, molecules to cells and bodies, and onward to human assemblies — while stability **persists in natural state** and **declines** when fulfilment breaks down (SB, p. 14). On the **insentient atomic path** (§1.3), collections and assemblies participate in *vikas-kram* toward T1; the completeness drive (§1.2) also scales complementarity upward through *niyati-kram* at the order level. Composition must still be distinguished from atomic development (§1.10.1).
+Each successful composition **opens relationships at a higher tier** — particles to atoms, atoms to molecules, molecules to cells and bodies, and onward to human assemblies — while stability **persists in natural state** and **declines** when fulfilment breaks down (SB, p. 14). On the **insentient atomic path** (§1.4), collections and assemblies participate in *vikas-kram* toward T1; the completeness drive also scales complementarity upward through *niyati-kram* at the order level. Composition must still be distinguished from atomic development (§1.10.1).
 
 In a **mixture** (*mishran*), components maintain their respective conducts. In a **compound** (*yaugik*), components combine in definite proportion and present a genuinely new unit with its own four-aspect signature (MVD, p. 42).
 
@@ -277,7 +277,7 @@ Evaluation through six built-in **perspectives** (*drishti*) is developed in §1
 
 Through §§1.1–1.9, this study has built the static architecture of coexistence: the two poles and saturation, what every unit is, how change appears as unit-activity, the four orders and their relationships, regulation and composition, and the structural makeup of constitutionally complete *jeevan*. §1.10 turns to development and awakening — how sentient units **arise**, what **developmental stage** a unit has reached, and how **awakening** proceeds toward realisation in coexistence. Bigger molecules, richer bodies, or higher orders are not the same thing as crossing the sentience threshold; this section keeps those levels apart.
 
-The **completeness drive** (§1.2) and the **insentient** and **sentient** atomic paths (§1.3) now read through effort–motion–result in the sentient mode, with teleological goals defined in §1.4. The four orders and the dual condition of inherent capacity plus conducive environment (§§1.5–1.6) supply the backdrop; composition of assemblies must still be distinguished from atomic development (§1.8). §1.9 named what constitutionally complete *jeevan* **is** structurally; what follows traces its **history and stages**. The section moves from four kinds of progression, through orders and planes as coordinates, to three completeness thresholds (T1–T3), and then to evaluative and experiential awakening in §§1.10.5–1.10.6. Summary figures appear at §1.10.4.
+The **completeness drive** (§1.4) — insentient and sentient atomic paths, teleological goals, and unit-activity — now read through effort–motion–result in the sentient mode. The four orders and the dual condition of inherent capacity plus conducive environment (§§1.5–1.6) supply the backdrop; composition of assemblies must still be distinguished from atomic development (§1.8). §1.9 named what constitutionally complete *jeevan* **is** structurally; what follows traces its **history and stages**. The section moves from four kinds of progression, through orders and planes as coordinates, to three completeness thresholds (T1–T3), and then to evaluative and experiential awakening in §§1.10.5–1.10.6. Summary figures appear at §1.10.4.
 
 Nature saturated in state-complete Omnipotence is oriented for **development and awakening until realisation in coexistence** (SB, p. 51).
 
@@ -449,7 +449,7 @@ Post-death continuity follows from the darshan's conservation and constitutional
 
 §§1.1–1.10 established what exists, how units develop and awaken, and how *jeevan* evaluates through six *drishti* and faculty harmony. §1.11 answers a prior question the completeness drive already presupposes: when the texts say *gyan* or knowledge, **which meaning is in play?** Conflating the senses makes Omnipresence a cosmic mind that knows, treats active sentience as mere insentient orderliness, or treats fulfilled relationships as private belief — each misreading breaks the architecture built in §1.
 
-The **completeness drive** (§1.2) moves units toward relationships fulfilled and evident — **realisation in coexistence** as telos. That fulfilment is not automatic at every level. Below the knowledge order, recognition and fulfilment are **definite**; at the knowledge order they must be **achieved**. Latent intelligibility in *satta* (sense 2) is actualized at T1 (§1.10.3); unfolding into complete understanding requires awakened *jeevan* through T2–T3, evaluation under justice, dharma, and truth (§1.10.5), and lived faculty harmony (§1.10.6). This section names the four senses, traces how knowledge is **achieved** at the knowledge order, and states how complete knowing evidences itself in conduct — before conservation (§1.12) and assembly-scale outcomes (§1.13).
+The **completeness drive** (§1.4) moves units toward relationships fulfilled and evident — **realisation in coexistence** as telos. That fulfilment is not automatic at every level. Below the knowledge order, recognition and fulfilment are **definite**; at the knowledge order they must be **achieved**. Latent intelligibility in *satta* (sense 2) is actualized at T1 (§1.10.3); unfolding into complete understanding requires awakened *jeevan* through T2–T3, evaluation under justice, dharma, and truth (§1.10.5), and lived faculty harmony (§1.10.6). This section names the four senses, traces how knowledge is **achieved** at the knowledge order, and states how complete knowing evidences itself in conduct — before conservation (§1.12) and assembly-scale outcomes (§1.13).
 
 ### 1.11.1 Four senses of knowledge
 
@@ -469,7 +469,7 @@ The texts use *gyan* and related words at **four distinct senses**. Treating the
 
 This is knowledge as what **is** in every unit — not yet the human accomplishment of understanding. ***Gyan* as *satta*** names the ground's state-complete intelligibility: relational, evaluatively structured orderliness — not merely statistical regularity, and not a mind that knows (Editorial Notes; §1.1). What was **latent** in that ground is **actualized** as active sentience at constitutional completeness (§1.10.3); Omnipresence does not unfold knowledge as a knower.
 
-**Realisation in coexistence** is the telos the completeness drive names in §1.2 — relationships fulfilled and made evident across nature, not a transformation of *satta* itself. ***Gyan udghatan*** — the unfolding of knowledge — is the activity by which awakened *jeevan* brings what is given into lived understanding; it occurs **only** through the sentient aspect or thoughts, not through insentient units and not through Omnipresence acting as a knower (MVD, pp. 115–116, 289).
+**Realisation in coexistence** is the telos the completeness drive names in §1.4 — relationships fulfilled and made evident across nature, not a transformation of *satta* itself. ***Gyan udghatan*** — the unfolding of knowledge — is the activity by which awakened *jeevan* brings what is given into lived understanding; it occurs **only** through the sentient aspect or thoughts, not through insentient units and not through Omnipresence acting as a knower (MVD, pp. 115–116, 289).
 
 Orderliness in all saturated units, active sentience at *gathanpurnata*, and knowledge unfolding through awakened humans are **three different senses**. Conflating them produces either pan-knowing Omnipresence or a world with no inherent intelligibility to unfold.
 
