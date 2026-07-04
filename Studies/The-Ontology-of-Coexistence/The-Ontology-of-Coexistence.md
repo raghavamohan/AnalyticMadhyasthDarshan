@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 4, 2026, 8:05 AM IST
+**Edited on:** July 4, 2026, 8:10 AM IST
 
 **Status:** Released
 
@@ -119,7 +119,7 @@ SB opens with three companion facts:
 
 **Unit + environment = the unit as a whole** signifies continuity (SB, p. 51). ***Ness*** is what makes a unit the kind of unit it is — its distinctive way of being, shown through essential nature when it is in its natural state (SB, p. 54).
 
-In its **natural state**, a unit moves toward **development** — fulfilment aligned with its innateness; in its **excited state**, toward **decline** (SB, pp. 14–15). **Complementarity** — established in §1.2 — appears here as reciprocal exchange within the natural state: after give and take, both parties reinstate satisfaction or **natural motion** (*svabhav gati*) (SB, p. 59). When all relationships are recognised and fulfilled, the unit is **at ease** — no relational shortfall remains. That insentient reinstatement of natural motion is not the sentient **restfulness of effort** (*shram ka vishram*) defined in §1.4 (T2 in §1.10); where evaluation can mis-read relationships and block full complementarity, see §§1.6 and 1.10.5.
+In its **natural state**, a unit moves toward **development** — fulfilment aligned with its innateness; in its **excited state**, toward **decline** (SB, pp. 14–15). **Complementarity** — established in §1.2 — appears here as reciprocal exchange within the natural state: after give and take, both parties reinstate satisfaction or **natural motion** (*svabhav gati*) (SB, p. 59). When all relationships are recognised and fulfilled, the unit is **at ease** in its natural state — no relational shortfall remains.
 
 The **completeness drive** (§1.2) runs through two atomic paths from this natural-state complementarity. In the **insentient atom** (*jada parmanu*), *shram–gati–parinam* drives hungry and overfull exchange, **collections and assemblies** (§1.8), and **development progression** (*vikas-kram*) toward **constitutional completeness** (*gathanpurnata*) — the sentience threshold (T1), developed in §1.10.3. In the **sentient atom** — a constitutionally complete *jeevan* atom — the same triad works through projection and reflection (SB, p. 60) toward **activity completeness** and **conduct completeness** (T2 and T3), named in §1.4 and traced in §1.10.4. **Composition is not development**: only the **atom** crosses T1; assemblies persist or decline with relationship-fulfilment in natural state (§1.8).
 
