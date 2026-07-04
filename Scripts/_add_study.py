@@ -312,7 +312,7 @@ def add_study(
 
     rows = load_catalog_rows(table)
     rows = upsert_study_row(rows, catalog_row)
-    write_studies_catalog(rows, table)
+    write_studies_catalog(rows, table, rebuild_discussion=[derived_slug])
     print(f"Updated Studies/catalog JSON and Studies/README.md ({table.value} catalog)")
 
     if status != StudyStatus.ONGOING:

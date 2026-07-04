@@ -276,7 +276,7 @@ def sync_catalog_timestamp_from_md(slug: str) -> None:
 
     row = replace(row, edited_at=edited_at)
     rows = upsert_study_row(load_catalog_rows(table), row)
-    write_studies_catalog(rows, table)
+    write_studies_catalog(rows, table, rebuild_discussion=False, rebuild_feedback_template=False)
 
 
 def sync_study_reference_cache(slug: str) -> None:
