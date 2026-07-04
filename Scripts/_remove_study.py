@@ -180,7 +180,12 @@ def remove_study(
         if len(rows) == before_count:
             print(f"Warning: {slug} not found in {table.value} catalog.")
         else:
-            write_studies_catalog(rows, table)
+            write_studies_catalog(
+                rows,
+                table,
+                rebuild_discussion=False,
+                rebuild_feedback_template=True,
+            )
             print(f"Updated Studies/catalog JSON and Studies/README.md ({table.value} catalog)")
 
     if not is_ongoing:
