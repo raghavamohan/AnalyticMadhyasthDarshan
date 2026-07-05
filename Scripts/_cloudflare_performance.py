@@ -30,9 +30,38 @@ API_BASE = "https://api.cloudflare.com/client/v4"
 REDIRECT_PHASE = "http_request_dynamic_redirect"
 CACHE_PHASE = "http_request_cache_settings"
 WAF_CUSTOM_PHASE = "http_request_firewall_custom"
+RATE_LIMIT_PHASE = "http_ratelimit"
+RESPONSE_HEADERS_PHASE = "http_response_headers_transform"
 NOTIFY_SKIP_REF = "amd_skip_sbfm_portal_notify"
+PROBE_BLOCK_REF = "amd_block_common_probes"
+SECURITY_HEADERS_REF = "amd_security_headers_static"
+EDGE_API_RATE_LIMIT_REF = "amd_rl_edge_api"
+WAF_CUSTOM_MANAGED_REFS = (PROBE_BLOCK_REF, NOTIFY_SKIP_REF)
+EDGE_API_RATE_LIMIT_REFS = (EDGE_API_RATE_LIMIT_REF,)
+HSTS_MAX_AGE_SEC = 31536000
+CSP_REPORT_ONLY = (
+    "default-src 'self'; "
+    "script-src 'self' https://challenges.cloudflare.com 'unsafe-inline'; "
+    "style-src 'self' 'unsafe-inline'; "
+    "img-src 'self' data:; "
+    "connect-src 'self' https://api.analyticmadhyasthdarshan.org https://challenges.cloudflare.com; "
+    "frame-src https://challenges.cloudflare.com; "
+    "base-uri 'self'; "
+    "form-action 'self'"
+)
 NOTIFY_SKIP_EXPRESSION = (
     f'(http.host eq "{API_HOST}" and starts_with(http.request.uri.path, "/api/notify"))'
+)
+PROBE_BLOCK_EXPRESSION = (
+    f'(http.host in {{"{SITE_HOST}" "{API_HOST}"}}) '
+    'and (starts_with(http.request.uri.path, "/wp-") '
+    'or starts_with(http.request.uri.path, "/.env") '
+    'or starts_with(http.request.uri.path, "/.git") '
+    'or http.request.uri.path eq "/xmlrpc.php" '
+    'or http.request.uri.path eq "/phpmyadmin")'
+)
+SECURITY_HEADERS_EXPRESSION = (
+    f'(http.host eq "{SITE_HOST}" and not starts_with(http.request.uri.path, "/api/"))'
 )
 ROOT_REDIRECT_REF = "analyticmadhyasth_root_to_catalog"
 CACHE_RULE_REFS = (
@@ -231,65 +260,6 @@ def get_waf_custom_entrypoint_ruleset(token: str, zone_id: str) -> dict | None:
     return get_phase_entrypoint_ruleset(token, zone_id, WAF_CUSTOM_PHASE)
 
 
-def apply_notify_waf_skip(token: str, zone_id: str | None) -> None:
-    """Create or update the WAF Skip rule so GitHub Actions can POST /api/notify."""
-    zone = resolve_zone_id(token, zone_id)
-    print(f"Zone ID: {zone}")
-    rule_body = notify_skip_rule_body()
-    ruleset = get_waf_custom_entrypoint_ruleset(token, zone)
-
-    if ruleset is None:
-        _api_request(
-            "POST",
-            f"/zones/{zone}/rulesets",
-            token,
-            {
-                "name": "AnalyticMadhyasthDarshan WAF custom rules",
-                "kind": "zone",
-                "phase": WAF_CUSTOM_PHASE,
-                "rules": [rule_body],
-            },
-        )
-        print(f"Created {WAF_CUSTOM_PHASE} ruleset with portal notify skip rule.")
-        return
-
-    ruleset_id = ruleset["id"]
-    rules = ruleset.get("rules", [])
-    existing = next((rule for rule in rules if rule.get("ref") == NOTIFY_SKIP_REF), None)
-    if existing and _notify_skip_rule_is_correct(existing):
-        print("Portal notify WAF skip rule already configured.")
-        return
-
-    if existing:
-        updated_rules: list[dict] = []
-        for rule in rules:
-            if rule.get("ref") == NOTIFY_SKIP_REF:
-                updated_rules.append(rule_body)
-            else:
-                updated_rules.append(_sanitize_rule_for_put(rule))
-        _api_request(
-            "PUT",
-            f"/zones/{zone}/rulesets/{ruleset_id}",
-            token,
-            {
-                "name": ruleset.get("name", "AnalyticMadhyasthDarshan WAF custom rules"),
-                "kind": "zone",
-                "phase": WAF_CUSTOM_PHASE,
-                "rules": updated_rules,
-            },
-        )
-        print("Updated portal notify WAF skip rule in existing custom ruleset.")
-        return
-
-    _api_request(
-        "POST",
-        f"/zones/{zone}/rulesets/{ruleset_id}/rules",
-        token,
-        rule_body,
-    )
-    print("Added portal notify WAF skip rule to existing custom ruleset.")
-
-
 def super_bot_fight_mode_spec() -> dict:
     """Pro-plan Super Bot Fight Mode: challenge definitely automated traffic."""
     return {
@@ -337,6 +307,7 @@ def apply_super_bot_fight_mode(token: str, zone_id: str | None) -> None:
 
 
 def check_portal_edge_security(token: str, zone_id: str | None) -> tuple[bool, list[str]]:
+    """Verify SBFM and the /api/notify WAF skip rule."""
     zone = resolve_zone_id(token, zone_id)
     issues: list[str] = []
     ok = True
@@ -356,11 +327,14 @@ def check_portal_edge_security(token: str, zone_id: str | None) -> tuple[bool, l
         issues.append(f"WAF skip rule {NOTIFY_SKIP_REF!r} is disabled.")
     elif not _notify_skip_rule_is_correct(skip_rule):
         ok = False
-        issues.append(f"WAF skip rule {NOTIFY_SKIP_REF!r} does not match expected expression/phases.")
+        issues.append(
+            f"WAF skip rule {NOTIFY_SKIP_REF!r} does not match expected expression/phases."
+        )
 
     expected = super_bot_fight_mode_spec()
     current = get_bot_management_config(token, zone)
-    ok, bot_issues = _bot_management_matches(current, expected)
+    bot_ok, bot_issues = _bot_management_matches(current, expected)
+    ok = ok and bot_ok
     issues.extend(bot_issues)
     return ok, issues
 
@@ -424,8 +398,550 @@ def print_verify_notify_reachable() -> bool:
 
 def apply_portal_edge_security(token: str, zone_id: str | None) -> None:
     """WAF skip for /api/notify first, then enable Super Bot Fight Mode."""
-    apply_notify_waf_skip(token, zone_id)
+    apply_waf_custom_security_rules(token, zone_id)
     apply_super_bot_fight_mode(token, zone_id)
+
+
+def get_zone_setting(token: str, zone_id: str, setting_id: str):
+    body = _api_request("GET", f"/zones/{zone_id}/settings/{setting_id}", token)
+    return body.get("result", {}).get("value") if body else None
+
+
+def security_baseline_settings_spec() -> dict[str, object]:
+    return {
+        "min_tls_version": "1.2",
+        "automatic_https_rewrites": "on",
+        "browser_check": "off",
+        "ssl": "full",
+    }
+
+
+def security_header_hsts_spec() -> dict:
+    return {
+        "strict_transport_security": {
+            "enabled": True,
+            "max_age": HSTS_MAX_AGE_SEC,
+            "include_subdomains": True,
+            "preload": False,
+            "nosniff": False,
+        },
+    }
+
+
+def apply_security_baseline(token: str, zone_id: str | None) -> None:
+    zone = resolve_zone_id(token, zone_id)
+    print(f"Zone ID: {zone}")
+    for setting_id, value in security_baseline_settings_spec().items():
+        current = get_zone_setting(token, zone, setting_id)
+        if current == value:
+            print(f"Zone setting {setting_id} already {value!r}.")
+            continue
+        apply_zone_setting(token, zone, setting_id, value)
+    hsts_spec = security_header_hsts_spec()
+    current_hsts = get_zone_setting(token, zone, "security_header") or {}
+    current_sts = current_hsts.get("strict_transport_security", {})
+    expected_sts = hsts_spec["strict_transport_security"]
+    if all(current_sts.get(key) == expected_sts.get(key) for key in expected_sts):
+        print("HSTS already configured.")
+    else:
+        apply_zone_setting(token, zone, "security_header", hsts_spec)
+        print("HSTS enabled (preload=false).")
+
+
+def check_security_baseline(token: str, zone_id: str | None) -> tuple[bool, list[str]]:
+    zone = resolve_zone_id(token, zone_id)
+    issues: list[str] = []
+    for setting_id, expected in security_baseline_settings_spec().items():
+        current = get_zone_setting(token, zone, setting_id)
+        if current != expected:
+            issues.append(
+                f"zone setting {setting_id} is {current!r}, expected {expected!r}."
+            )
+    current_hsts = get_zone_setting(token, zone, "security_header") or {}
+    expected_sts = security_header_hsts_spec()["strict_transport_security"]
+    current_sts = current_hsts.get("strict_transport_security", {})
+    for key, expected in expected_sts.items():
+        if current_sts.get(key) != expected:
+            issues.append(
+                f"HSTS {key} is {current_sts.get(key)!r}, expected {expected!r}."
+            )
+    return not issues, issues
+
+
+def print_check_security_baseline(token: str, zone_id: str | None) -> bool:
+    print("Security baseline check:")
+    try:
+        ok, issues = check_security_baseline(token, zone_id)
+    except (urllib.error.URLError, RuntimeError) as exc:
+        print(f"  ERROR: {exc}")
+        return False
+    if ok:
+        print("  OK: TLS 1.2+, HSTS, HTTPS rewrites, browser_check off, ssl full.")
+        return True
+    for issue in issues:
+        print(f"  {issue}")
+    return False
+
+
+def probe_block_rule_body() -> dict:
+    return {
+        "ref": PROBE_BLOCK_REF,
+        "expression": PROBE_BLOCK_EXPRESSION,
+        "description": "Block common scanner probe paths (WordPress, .env, .git).",
+        "action": "block",
+        "enabled": True,
+    }
+
+
+def _probe_block_rule_is_correct(rule: dict) -> bool:
+    return (
+        rule.get("action") == "block"
+        and rule.get("expression") == PROBE_BLOCK_EXPRESSION
+        and rule.get("enabled", True)
+    )
+
+
+def waf_custom_security_rules_spec() -> list[dict]:
+    """Custom WAF rules in evaluation order (block probes before notify skip)."""
+    return [probe_block_rule_body(), notify_skip_rule_body()]
+
+
+def _waf_custom_rule_is_correct(rule: dict, expected: dict) -> bool:
+    ref = expected.get("ref")
+    if rule.get("ref") != ref:
+        return False
+    if ref == PROBE_BLOCK_REF:
+        return _probe_block_rule_is_correct(rule)
+    if ref == NOTIFY_SKIP_REF:
+        return _notify_skip_rule_is_correct(rule)
+    return False
+
+
+def apply_waf_custom_security_rules(token: str, zone_id: str | None) -> None:
+    """Upsert probe-path block and portal notify SBFM skip rules."""
+    zone = resolve_zone_id(token, zone_id)
+    print(f"Zone ID: {zone}")
+    expected_rules = waf_custom_security_rules_spec()
+    ruleset = get_waf_custom_entrypoint_ruleset(token, zone)
+    managed_refs = set(WAF_CUSTOM_MANAGED_REFS)
+
+    if ruleset is None:
+        _api_request(
+            "POST",
+            f"/zones/{zone}/rulesets",
+            token,
+            {
+                "name": "AnalyticMadhyasthDarshan WAF custom rules",
+                "kind": "zone",
+                "phase": WAF_CUSTOM_PHASE,
+                "rules": expected_rules,
+            },
+        )
+        print(f"Created {WAF_CUSTOM_PHASE} ruleset with {len(expected_rules)} custom rules.")
+        return
+
+    ruleset_id = ruleset["id"]
+    existing_by_ref = {rule.get("ref"): rule for rule in ruleset.get("rules", []) if rule.get("ref")}
+    foreign_rules = [
+        _sanitize_rule_for_put(rule)
+        for rule in ruleset.get("rules", [])
+        if rule.get("ref") not in managed_refs
+    ]
+
+    if all(
+        ref in existing_by_ref and _waf_custom_rule_is_correct(existing_by_ref[ref], expected)
+        for ref, expected in zip(WAF_CUSTOM_MANAGED_REFS, expected_rules, strict=True)
+    ):
+        print("WAF custom security rules already configured.")
+        return
+
+    updated_managed: list[dict] = []
+    for expected in expected_rules:
+        ref = expected["ref"]
+        existing = existing_by_ref.get(ref)
+        if existing and _waf_custom_rule_is_correct(existing, expected):
+            updated_managed.append(_sanitize_rule_for_put(existing))
+        else:
+            updated_managed.append(expected)
+
+    merged_rules = updated_managed + foreign_rules
+    _api_request(
+        "PUT",
+        f"/zones/{zone}/rulesets/{ruleset_id}",
+        token,
+        {
+            "name": ruleset.get("name", "AnalyticMadhyasthDarshan WAF custom rules"),
+            "kind": "zone",
+            "phase": WAF_CUSTOM_PHASE,
+            "rules": merged_rules,
+        },
+    )
+    print(f"Updated WAF custom ruleset ({len(updated_managed)} managed + {len(foreign_rules)} other).")
+
+
+def apply_waf_probe_block(token: str, zone_id: str | None) -> None:
+    apply_waf_custom_security_rules(token, zone_id)
+
+
+def apply_notify_waf_skip(token: str, zone_id: str | None) -> None:
+    apply_waf_custom_security_rules(token, zone_id)
+
+
+def _rate_limit_rule(
+    ref: str,
+    description: str,
+    expression: str,
+    *,
+    requests_per_period: int,
+    period: int,
+    mitigation_timeout: int | None = None,
+) -> dict:
+    timeout = mitigation_timeout if mitigation_timeout is not None else period
+    return {
+        "ref": ref,
+        "expression": expression,
+        "description": description,
+        "action": "block",
+        "enabled": True,
+        "ratelimit": {
+            "characteristics": ["ip.src", "cf.colo.id"],
+            "period": period,
+            "requests_per_period": requests_per_period,
+            "mitigation_timeout": timeout,
+        },
+    }
+
+
+def _rate_limit_rule_is_correct(rule: dict, expected: dict) -> bool:
+    if rule.get("action") != "block":
+        return False
+    if rule.get("expression") != expected.get("expression"):
+        return False
+    return rule.get("ratelimit") == expected.get("ratelimit")
+
+
+def get_rate_limit_entrypoint_ruleset(token: str, zone_id: str) -> dict | None:
+    return get_phase_entrypoint_ruleset(token, zone_id, RATE_LIMIT_PHASE)
+
+
+def edge_api_rate_limit_expression() -> str:
+    """Single rate-limit match for portal (api. host) and discussions (apex /api/...)."""
+    return (
+        f'(http.host eq "{API_HOST}" and starts_with(http.request.uri.path, "/api/")) '
+        f'or (http.host eq "{SITE_HOST}" and ('
+        'starts_with(http.request.uri.path, "/api/discussions/") '
+        'or http.request.uri.path eq "/api/discuss-auth/magic-link"))'
+    )
+
+
+def edge_api_rate_limit_rules_spec() -> list[dict]:
+    """One combined API rate limit (Pro plan allows 2 rules in http_ratelimit phase)."""
+    return [
+        _rate_limit_rule(
+            EDGE_API_RATE_LIMIT_REF,
+            "Throttle portal and discussion API per IP",
+            edge_api_rate_limit_expression(),
+            requests_per_period=40,
+            period=10,
+        ),
+    ]
+
+
+def _is_legacy_portal_rate_limit_rule(rule: dict) -> bool:
+    expression = rule.get("expression", "")
+    return API_HOST in expression and "/api/" in expression and rule.get("ref") != EDGE_API_RATE_LIMIT_REF
+
+
+def apply_discussions_rate_limits(token: str, zone_id: str | None) -> None:
+    """Upsert combined portal + discussion API rate limit (Pro: max 2 rules in phase)."""
+    zone = resolve_zone_id(token, zone_id)
+    print(f"Zone ID: {zone}")
+    expected_rules = edge_api_rate_limit_rules_spec()
+    managed_refs = set(EDGE_API_RATE_LIMIT_REFS)
+    ruleset = get_rate_limit_entrypoint_ruleset(token, zone)
+
+    if ruleset is None:
+        _api_request(
+            "POST",
+            f"/zones/{zone}/rulesets",
+            token,
+            {
+                "name": "AnalyticMadhyasthDarshan rate limits",
+                "kind": "zone",
+                "phase": RATE_LIMIT_PHASE,
+                "rules": expected_rules,
+            },
+        )
+        print(f"Created {RATE_LIMIT_PHASE} ruleset with edge API rate limit.")
+        return
+
+    ruleset_id = ruleset["id"]
+    existing_by_ref = {rule.get("ref"): rule for rule in ruleset.get("rules", []) if rule.get("ref")}
+    foreign_rules = [
+        _sanitize_rule_for_put(rule)
+        for rule in ruleset.get("rules", [])
+        if rule.get("ref") not in managed_refs and not _is_legacy_portal_rate_limit_rule(rule)
+    ]
+
+    if all(
+        ref in existing_by_ref and _rate_limit_rule_is_correct(existing_by_ref[ref], expected)
+        for ref, expected in zip(EDGE_API_RATE_LIMIT_REFS, expected_rules, strict=True)
+    ):
+        print("Edge API rate-limit rule already configured.")
+        return
+
+    updated_managed: list[dict] = []
+    for expected in expected_rules:
+        ref = expected["ref"]
+        existing = existing_by_ref.get(ref)
+        if existing and _rate_limit_rule_is_correct(existing, expected):
+            updated_managed.append(_sanitize_rule_for_put(existing))
+        else:
+            updated_managed.append(expected)
+
+    merged_rules = foreign_rules + updated_managed
+    if len(merged_rules) > 2:
+        raise RuntimeError(
+            f"http_ratelimit phase allows 2 rules on Pro; merged list has {len(merged_rules)}. "
+            "Drop a foreign rule in the dashboard or consolidate limits."
+        )
+    _api_request(
+        "PUT",
+        f"/zones/{zone}/rulesets/{ruleset_id}",
+        token,
+        {
+            "name": ruleset.get("name", "AnalyticMadhyasthDarshan rate limits"),
+            "kind": "zone",
+            "phase": RATE_LIMIT_PHASE,
+            "rules": merged_rules,
+        },
+    )
+    print(
+        f"Updated rate-limit ruleset ({len(foreign_rules)} other + "
+        f"{len(updated_managed)} edge API rule)."
+    )
+
+
+def check_discussions_rate_limits(token: str, zone_id: str | None) -> tuple[bool, list[str]]:
+    zone = resolve_zone_id(token, zone_id)
+    issues: list[str] = []
+    ruleset = get_rate_limit_entrypoint_ruleset(token, zone)
+    if ruleset is None:
+        return False, [f"No {RATE_LIMIT_PHASE} ruleset found."]
+    existing_by_ref = {rule.get("ref"): rule for rule in ruleset.get("rules", []) if rule.get("ref")}
+    for expected in edge_api_rate_limit_rules_spec():
+        ref = expected["ref"]
+        rule = existing_by_ref.get(ref)
+        if rule is None:
+            issues.append(f"Missing rate-limit rule ref {ref!r}.")
+            continue
+        if not rule.get("enabled", True):
+            issues.append(f"Rate-limit rule {ref!r} is disabled.")
+            continue
+        if not _rate_limit_rule_is_correct(rule, expected):
+            issues.append(f"Rate-limit rule {ref!r} does not match expected expression/limits.")
+    return not issues, issues
+
+
+def print_check_discussions_rate_limits(token: str, zone_id: str | None) -> bool:
+    print("Edge API rate-limit check:")
+    try:
+        ok, issues = check_discussions_rate_limits(token, zone_id)
+    except (urllib.error.URLError, RuntimeError) as exc:
+        print(f"  ERROR: {exc}")
+        return False
+    if ok:
+        print("  OK: combined portal + discussion API rate limit configured.")
+        return True
+    for issue in issues:
+        print(f"  {issue}")
+    return False
+
+
+def _header_set(value: str) -> dict:
+    return {"operation": "set", "value": value}
+
+
+def security_headers_rule_body() -> dict:
+    return {
+        "ref": SECURITY_HEADERS_REF,
+        "expression": SECURITY_HEADERS_EXPRESSION,
+        "description": "Security headers for static site pages (not Worker /api JSON).",
+        "action": "rewrite",
+        "enabled": True,
+        "action_parameters": {
+            "headers": {
+                "X-Content-Type-Options": _header_set("nosniff"),
+                "X-Frame-Options": _header_set("SAMEORIGIN"),
+                "Referrer-Policy": _header_set("strict-origin-when-cross-origin"),
+                "Permissions-Policy": _header_set("camera=(), microphone=(), geolocation=()"),
+                "Content-Security-Policy-Report-Only": _header_set(CSP_REPORT_ONLY),
+            },
+        },
+    }
+
+
+def _security_headers_rule_is_correct(rule: dict) -> bool:
+    if rule.get("action") != "rewrite":
+        return False
+    if rule.get("expression") != SECURITY_HEADERS_EXPRESSION:
+        return False
+    headers = rule.get("action_parameters", {}).get("headers", {})
+    expected = security_headers_rule_body()["action_parameters"]["headers"]
+    for name, spec in expected.items():
+        actual = headers.get(name, {})
+        if actual.get("operation") != "set" or actual.get("value") != spec["value"]:
+            return False
+    return True
+
+
+def get_response_headers_entrypoint_ruleset(token: str, zone_id: str) -> dict | None:
+    return get_phase_entrypoint_ruleset(token, zone_id, RESPONSE_HEADERS_PHASE)
+
+
+def apply_security_headers(token: str, zone_id: str | None) -> None:
+    zone = resolve_zone_id(token, zone_id)
+    print(f"Zone ID: {zone}")
+    rule_body = security_headers_rule_body()
+    ruleset = get_response_headers_entrypoint_ruleset(token, zone)
+
+    if ruleset is None:
+        _api_request(
+            "POST",
+            f"/zones/{zone}/rulesets",
+            token,
+            {
+                "name": "AnalyticMadhyasthDarshan response security headers",
+                "kind": "zone",
+                "phase": RESPONSE_HEADERS_PHASE,
+                "rules": [rule_body],
+            },
+        )
+        print(f"Created {RESPONSE_HEADERS_PHASE} ruleset with CSP report-only headers.")
+        return
+
+    ruleset_id = ruleset["id"]
+    rules = ruleset.get("rules", [])
+    existing = next((rule for rule in rules if rule.get("ref") == SECURITY_HEADERS_REF), None)
+    if existing and _security_headers_rule_is_correct(existing):
+        print("Response security headers already configured.")
+        return
+
+    if existing:
+        updated_rules: list[dict] = []
+        for rule in rules:
+            if rule.get("ref") == SECURITY_HEADERS_REF:
+                updated_rules.append(rule_body)
+            else:
+                updated_rules.append(_sanitize_rule_for_put(rule))
+    else:
+        updated_rules = [_sanitize_rule_for_put(rule) for rule in rules] + [rule_body]
+
+    _api_request(
+        "PUT",
+        f"/zones/{zone}/rulesets/{ruleset_id}",
+        token,
+        {
+            "name": ruleset.get(
+                "name", "AnalyticMadhyasthDarshan response security headers"
+            ),
+            "kind": "zone",
+            "phase": RESPONSE_HEADERS_PHASE,
+            "rules": updated_rules,
+        },
+    )
+    print("Updated response security headers (CSP report-only).")
+
+
+def check_security_headers(token: str, zone_id: str | None) -> tuple[bool, list[str]]:
+    zone = resolve_zone_id(token, zone_id)
+    ruleset = get_response_headers_entrypoint_ruleset(token, zone)
+    if ruleset is None:
+        return False, [f"No {RESPONSE_HEADERS_PHASE} ruleset found."]
+    rule = next(
+        (item for item in ruleset.get("rules", []) if item.get("ref") == SECURITY_HEADERS_REF),
+        None,
+    )
+    if rule is None:
+        return False, [f"Missing response header rule ref {SECURITY_HEADERS_REF!r}."]
+    if not rule.get("enabled", True):
+        return False, [f"Response header rule {SECURITY_HEADERS_REF!r} is disabled."]
+    if not _security_headers_rule_is_correct(rule):
+        return False, [f"Response header rule {SECURITY_HEADERS_REF!r} does not match spec."]
+    return True, []
+
+
+def print_check_security_headers(token: str, zone_id: str | None) -> bool:
+    print("Response security headers check:")
+    try:
+        ok, issues = check_security_headers(token, zone_id)
+    except (urllib.error.URLError, RuntimeError) as exc:
+        print(f"  ERROR: {exc}")
+        return False
+    if ok:
+        print("  OK: static-site security headers with CSP report-only.")
+        return True
+    for issue in issues:
+        print(f"  {issue}")
+    return False
+
+
+def check_waf_custom_security(token: str, zone_id: str | None) -> tuple[bool, list[str]]:
+    zone = resolve_zone_id(token, zone_id)
+    issues: list[str] = []
+    ruleset = get_waf_custom_entrypoint_ruleset(token, zone)
+    if ruleset is None:
+        return False, [f"No {WAF_CUSTOM_PHASE} ruleset found."]
+    existing_by_ref = {rule.get("ref"): rule for rule in ruleset.get("rules", []) if rule.get("ref")}
+    expected_rules = waf_custom_security_rules_spec()
+    for expected in expected_rules:
+        ref = expected["ref"]
+        rule = existing_by_ref.get(ref)
+        if rule is None:
+            issues.append(f"Missing WAF custom rule ref {ref!r}.")
+            continue
+        if not rule.get("enabled", True):
+            issues.append(f"WAF custom rule {ref!r} is disabled.")
+            continue
+        if not _waf_custom_rule_is_correct(rule, expected):
+            issues.append(f"WAF custom rule {ref!r} does not match expected spec.")
+    return not issues, issues
+
+
+def print_check_waf_custom_security(token: str, zone_id: str | None) -> bool:
+    print("WAF custom security check:")
+    try:
+        ok, issues = check_waf_custom_security(token, zone_id)
+    except (urllib.error.URLError, RuntimeError) as exc:
+        print(f"  ERROR: {exc}")
+        return False
+    if ok:
+        print("  OK: probe-path block and portal notify SBFM skip configured.")
+        return True
+    for issue in issues:
+        print(f"  {issue}")
+    return False
+
+
+def apply_edge_security(token: str, zone_id: str | None) -> None:
+    """Apply full edge security stack from the hardening plan."""
+    apply_security_baseline(token, zone_id)
+    apply_waf_custom_security_rules(token, zone_id)
+    apply_super_bot_fight_mode(token, zone_id)
+    apply_discussions_rate_limits(token, zone_id)
+    apply_security_headers(token, zone_id)
+
+
+def print_check_edge_security(token: str, zone_id: str | None) -> bool:
+    checks = [
+        print_check_security_baseline(token, zone_id),
+        print_check_waf_custom_security(token, zone_id),
+        print_check_portal_edge_security(token, zone_id),
+        print_check_discussions_rate_limits(token, zone_id),
+        print_check_security_headers(token, zone_id),
+        print_verify_notify_reachable(),
+    ]
+    return all(checks)
 
 
 def apply_api_settings(token: str, zone_id: str | None) -> None:
@@ -458,7 +974,15 @@ def root_redirect_rule_body() -> dict:
 
 
 def _sanitize_rule_for_put(rule: dict) -> dict:
-    keep = ("ref", "expression", "description", "action", "action_parameters", "enabled")
+    keep = (
+        "ref",
+        "expression",
+        "description",
+        "action",
+        "action_parameters",
+        "enabled",
+        "ratelimit",
+    )
     cleaned = {key: rule[key] for key in keep if key in rule}
     if "ref" not in cleaned:
         ref = rule.get("ref") or rule.get("id")
@@ -894,7 +1418,13 @@ Cloudflare dashboard steps for {SITE_HOST} (GitHub Pages origin, orange-cloud pr
    python Scripts/_cloudflare_performance.py --apply-portal-edge-security
    python Scripts/_cloudflare_performance.py --check-portal-edge-security
 
-7. Re-check RUM after 7 days against infra/cloudflare-rum-baseline.json
+7. Full edge security hardening (TLS, HSTS, probe block, discussion rate limits,
+   response headers with CSP report-only):
+   python Scripts/_cloudflare_performance.py --apply-edge-security
+   python Scripts/_cloudflare_performance.py --check-edge-security
+   Operator next steps (CSP enforce, HSTS preload): infra/worker/README.md
+
+8. Re-check RUM after 7 days against infra/cloudflare-rum-baseline.json
    Targets: LCP P99 < 2500 ms, LCP poor % near 0.
 """
     )
@@ -949,6 +1479,41 @@ def main() -> int:
         "--check-portal-edge-security",
         action="store_true",
         help="Verify Super Bot Fight Mode and the portal notify WAF skip rule.",
+    )
+    parser.add_argument(
+        "--apply-security-baseline",
+        action="store_true",
+        help="Apply TLS 1.2, HSTS, HTTPS rewrites, and disable browser_check.",
+    )
+    parser.add_argument(
+        "--check-security-baseline",
+        action="store_true",
+        help="Verify zone TLS/HSTS/HTTPS rewrite baseline settings.",
+    )
+    parser.add_argument(
+        "--apply-discussions-rate-limits",
+        action="store_true",
+        help="Add WAF rate limits for discussion magic-link and comment API routes.",
+    )
+    parser.add_argument(
+        "--apply-security-headers",
+        action="store_true",
+        help="Add response security headers (CSP report-only) for static site pages.",
+    )
+    parser.add_argument(
+        "--apply-waf-probe-block",
+        action="store_true",
+        help="Add WAF block rule for common scanner probe paths (with notify skip).",
+    )
+    parser.add_argument(
+        "--apply-edge-security",
+        action="store_true",
+        help="Apply full edge security stack (baseline, WAF, SBFM, rate limits, headers).",
+    )
+    parser.add_argument(
+        "--check-edge-security",
+        action="store_true",
+        help="Run all edge security checks (baseline, WAF, portal, rate limits, headers).",
     )
     parser.add_argument(
         "--apply-redirect",
@@ -1016,6 +1581,26 @@ def main() -> int:
         ok = print_check_cache_rules(token, zone_id)
         return 0 if ok else 1
 
+    if args.check_edge_security:
+        if not token:
+            print(
+                "CLOUDFLARE_API_TOKEN is required for --check-edge-security "
+                "(set in .env or the process environment).",
+                file=sys.stderr,
+            )
+            return 1
+        return 0 if print_check_edge_security(token, zone_id) else 1
+
+    if args.check_security_baseline:
+        if not token:
+            print(
+                "CLOUDFLARE_API_TOKEN is required for --check-security-baseline "
+                "(set in .env or the process environment).",
+                file=sys.stderr,
+            )
+            return 1
+        return 0 if print_check_security_baseline(token, zone_id) else 1
+
     if args.check_portal_edge_security:
         if not token:
             print(
@@ -1031,6 +1616,76 @@ def main() -> int:
     print_baseline_summary()
 
     api_error = False
+
+    if args.apply_edge_security:
+        if not token:
+            print(
+                "CLOUDFLARE_API_TOKEN is required for --apply-edge-security "
+                "(set in .env or the process environment).",
+                file=sys.stderr,
+            )
+            return 1
+        try:
+            apply_edge_security(token, zone_id)
+        except (urllib.error.URLError, RuntimeError) as exc:
+            print(f"API error: {exc}", file=sys.stderr)
+            api_error = True
+
+    if args.apply_security_baseline:
+        if not token:
+            print(
+                "CLOUDFLARE_API_TOKEN is required for --apply-security-baseline "
+                "(set in .env or the process environment).",
+                file=sys.stderr,
+            )
+            return 1
+        try:
+            apply_security_baseline(token, zone_id)
+        except (urllib.error.URLError, RuntimeError) as exc:
+            print(f"API error: {exc}", file=sys.stderr)
+            api_error = True
+
+    if args.apply_discussions_rate_limits:
+        if not token:
+            print(
+                "CLOUDFLARE_API_TOKEN is required for --apply-discussions-rate-limits "
+                "(set in .env or the process environment).",
+                file=sys.stderr,
+            )
+            return 1
+        try:
+            apply_discussions_rate_limits(token, zone_id)
+        except (urllib.error.URLError, RuntimeError) as exc:
+            print(f"API error: {exc}", file=sys.stderr)
+            api_error = True
+
+    if args.apply_security_headers:
+        if not token:
+            print(
+                "CLOUDFLARE_API_TOKEN is required for --apply-security-headers "
+                "(set in .env or the process environment).",
+                file=sys.stderr,
+            )
+            return 1
+        try:
+            apply_security_headers(token, zone_id)
+        except (urllib.error.URLError, RuntimeError) as exc:
+            print(f"API error: {exc}", file=sys.stderr)
+            api_error = True
+
+    if args.apply_waf_probe_block:
+        if not token:
+            print(
+                "CLOUDFLARE_API_TOKEN is required for --apply-waf-probe-block "
+                "(set in .env or the process environment).",
+                file=sys.stderr,
+            )
+            return 1
+        try:
+            apply_waf_probe_block(token, zone_id)
+        except (urllib.error.URLError, RuntimeError) as exc:
+            print(f"API error: {exc}", file=sys.stderr)
+            api_error = True
 
     if args.apply_portal_edge_security:
         if not token:
@@ -1106,7 +1761,19 @@ def main() -> int:
     if api_error:
         return 1
 
-    if not args.apply_api and not args.apply_redirect and not args.apply_discussions_api and not args.apply_cache_rules and not args.apply_portal_edge_security:
+    apply_flags = (
+        args.apply_api,
+        args.apply_redirect,
+        args.apply_discussions_api,
+        args.apply_cache_rules,
+        args.apply_portal_edge_security,
+        args.apply_edge_security,
+        args.apply_security_baseline,
+        args.apply_discussions_rate_limits,
+        args.apply_security_headers,
+        args.apply_waf_probe_block,
+    )
+    if not any(apply_flags):
         print_dashboard_steps()
 
     if not args.skip_verify:
@@ -1114,7 +1781,9 @@ def main() -> int:
         verify_ok = print_verify_root_redirect()
         if token and (args.apply_cache_rules or args.apply_api):
             verify_ok = print_check_cache_rules(token, zone_id) and verify_ok
-        if args.apply_portal_edge_security:
+        if args.apply_edge_security:
+            verify_ok = print_check_edge_security(token, zone_id) and verify_ok
+        elif args.apply_portal_edge_security:
             verify_ok = print_check_portal_edge_security(token, zone_id) and verify_ok
             verify_ok = print_verify_notify_reachable() and verify_ok
         if not verify_ok:
