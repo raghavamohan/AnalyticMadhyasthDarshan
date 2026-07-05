@@ -77,6 +77,14 @@ If you discover a leaked credential, API token, or private key in this repositor
 report it privately as above and do **not** use it. Maintainers will rotate the affected secret and
 purge it as needed.
 
+## Site operators — Cloudflare edge
+
+Production edge security (Super Bot Fight Mode, WAF rules, TLS/HSTS, response headers) is applied
+via [`Scripts/_cloudflare_performance.py`](Scripts/_cloudflare_performance.py) and documented in
+[`infra/worker/README.md`](infra/worker/README.md) under **Cloudflare edge configuration** —
+including what is live today and **operator next steps** (CSP enforce, HSTS preload, smoke tests).
+Verify with `python Scripts/_cloudflare_performance.py --check-edge-security`.
+
 ## Safe harbor
 
 We consider good-faith security research that follows this policy to be authorized. We will not

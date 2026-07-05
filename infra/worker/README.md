@@ -126,12 +126,13 @@ Contributors can opt in to email when a proposal is approved/declined or a study
 
 Contributors manage their address and opt-out from the notification bar on **My Submissions**. `POST /api/notify` is a no-op when the contributor has not opted in.
 
-> **Edge security must let the GitHub Actions runner reach `/api/notify`.** The runner calls the worker from a datacenter IP, so Cloudflare **Bot Fight Mode / Managed Challenge** will return a `403 "Just a moment…"` interstitial and the email is never sent (the workflow run still shows `success`, but the step logs `Notify request failed (403)`). Fix it one of two ways on the `api.analyticmadhyasthdarshan.org` zone:
+> **GitHub Actions must reach `/api/notify`.** The runner uses a datacenter IP; without the WAF skip below, Super Bot Fight Mode returns `403 "Just a moment…"` and email is never sent (the workflow may still show `success`, with `Notify request failed (403)` in the logs).
 >
-> - **Pro or higher:** Security → WAF → Custom rules → **Skip** rule for `http.host eq "api.analyticmadhyasthdarshan.org" and starts_with(http.request.uri.path, "/api/notify")`, skipping **All Super Bot Fight Mode rules** (`http_request_sbfm` phase). This keeps bot protection everywhere else. Or run `python Scripts/_cloudflare_performance.py --apply-portal-edge-security`.
-> - **Free plan:** turn **Bot Fight Mode off** (Security → Bots). The worker still enforces the `X-Notify-Secret` shared secret on `/api/notify`, Turnstile on write endpoints, and signed sessions, so this does not expose the API.
+> **Pro (current):** Super Bot Fight Mode is on; WAF skip rule `amd_skip_sbfm_portal_notify` exempts only `/api/notify`. Verify with `python Scripts/_cloudflare_performance.py --check-edge-security` (notify reachability check). Re-apply with `--apply-portal-edge-security` if the skip rule was removed.
 >
-> Verify by toggling a `proposal-declined`/`proposal-approved` label on a test issue and checking the `portal-notify` run log shows `Notify response: {"success":true,"sent":true}`.
+> **Free plan fallback:** turn Bot Fight Mode off (Security → Bots) — the worker still enforces `X-Notify-Secret`, Turnstile on writes, and signed sessions.
+>
+> Functional test: toggle `proposal-approved` or `proposal-declined` on a test issue; `portal-notify` should log `Notify response: {"success":true,...}`.
 
 ### Dashboard performance
 
@@ -145,15 +146,34 @@ Response includes `meta.timingMs`, `meta.githubRequests`, and optional `meta.tru
 
 ## Cloudflare edge configuration (not in this repo)
 
-These live on the `analyticmadhyasthdarshan.org` Cloudflare zone, not in version control — recorded here so they are not forgotten.
+- **Custom domain:** submissions worker at `api.analyticmadhyasthdarshan.org` via [`wrangler.toml`](wrangler.toml) (`SameSite=Lax` cookie with the portal).
 
-- **Custom domain:** the worker is served at `api.analyticmadhyasthdarshan.org` via the `routes` block in [`wrangler.toml`](wrangler.toml) (same-site with the portal → first-party `SameSite=Lax` cookie).
-- **Bot Fight Mode:** **Super Bot Fight Mode ON** (Pro plan). GitHub Actions calls `POST /api/notify` from a datacenter IP, which SBFM would challenge with a `403 "Just a moment…"` interstitial unless exempted. A WAF **Skip** rule (`amd_skip_sbfm_portal_notify`) skips SBFM for `/api/notify` only; the worker still requires `X-Notify-Secret`. Apply or verify with `python Scripts/_cloudflare_performance.py --apply-portal-edge-security` / `--check-portal-edge-security`.
-- **Rate limiting rule** (compensates for Bot Fight Mode being off): a WAF rate-limit rule in the `http_ratelimit` phase:
-  - Match: `http.host eq "api.analyticmadhyasthdarshan.org" and starts_with(http.request.uri.path, "/api/")`
-  - Limit: **20 requests / 10 s per IP** (Free plan only allows a 10 s period), action **block** for 10 s.
-  - Rationale: a normal portal page load is ~4–5 requests and CI polling is 1 req/20 s, so this only trips on abusive bursts and protects the Workers quota and shared GitHub PAT rate limit. Raise `requests_per_period` (e.g. 40–50) if legitimate users behind a shared/office IP get blocked.
-  - Manage in the dashboard (Security → WAF → Rate limiting rules) or via the rulesets API (`PUT /zones/{zone_id}/rulesets/phases/http_ratelimit/entrypoint`).
+Zone settings live on `analyticmadhyasthdarshan.org` in Cloudflare, not in git. Scripts in [`Scripts/_cloudflare_performance.py`](../../Scripts/_cloudflare_performance.py) apply and verify the stack; [`infra/discussions-worker/README.md`](../discussions-worker/README.md) notes discussion-specific limits and CSP/Turnstile interaction.
+
+**Verify anytime:** `python Scripts/_cloudflare_performance.py --check-edge-security`
+
+### Applied on Pro (live)
+
+| Control | Rule / setting | Script ref |
+|---------|----------------|------------|
+| Super Bot Fight Mode | `managed_challenge` on definitely automated; AI bots blocked | `--apply-portal-edge-security` |
+| Notify SBFM skip | `amd_skip_sbfm_portal_notify` → `http_request_sbfm` skip for `/api/notify` only | `--apply-portal-edge-security` |
+| Probe-path block | `amd_block_common_probes` (`/wp-*`, `/.env`, `/.git`, …) | `--apply-edge-security` |
+| API rate limit | `amd_rl_edge_api` — 40 req / 10 s per IP (portal `api.*` + apex discussion routes); plus leaked-credential rule (Pro max **2** rate-limit rules) | `--apply-discussions-rate-limits` |
+| TLS / transport | min TLS 1.2, HSTS 1y + includeSubDomains (preload **off**), HTTPS rewrites on, `browser_check` off, SSL **full** (GitHub Pages) | `--apply-security-baseline` |
+| Response headers | `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`, **CSP report-only** on static pages (not `/api/*`) | `--apply-security-headers` |
+
+**Re-apply full stack after drift or zone changes:** `python Scripts/_cloudflare_performance.py --apply-edge-security`
+
+### Operator next steps (not done yet)
+
+1. **CSP enforce** — CSP is **report-only** today. Browse `Studies/index.html`, `Studies/submit.html`, and a discussion page; confirm the browser console shows no unexpected violations for 1–2 weeks. Then change `security_headers_rule_body()` in `_cloudflare_performance.py` to set `Content-Security-Policy` (enforcing) instead of `Content-Security-Policy-Report-Only`, run `--apply-security-headers`, and re-check pages.
+2. **HSTS preload** — only after ~30 days of stable HSTS with no HTTPS regressions. Set `preload: true` in `security_header_hsts_spec()`, re-run `--apply-security-baseline`, then submit the domain to the [HSTS preload list](https://hstspreload.org/) if desired. Preload is hard to undo.
+3. **Manual smoke tests** — portal GitHub OAuth sign-in + submit flow; discussion magic-link request + email verify link; optional [SSL Labs](https://www.ssllabs.com/ssltest/) check (TLS 1.2+ only, HSTS present).
+4. **Optional: `content_bots_protection`** — can enable in Super Bot Fight Mode after confirming Google/Bing indexing in Search Console (verified bots remain allowed). Not enabled by default.
+5. **Rate-limit tuning** — if users behind a shared office IP hit `amd_rl_edge_api`, raise `requests_per_period` in `edge_api_rate_limit_rules_spec()` (e.g. 50–60) and re-run `--apply-discussions-rate-limits`.
+
+Items **not** planned: SSL Full (Strict) on GitHub Pages origin; separate per-route rate limits beyond Pro’s two-rule cap (worker-side limits cover magic-link abuse).
 
 ## Local development
 

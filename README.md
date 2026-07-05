@@ -95,7 +95,7 @@ python Scripts/_check_references.py
 python Scripts/_verify_studies_index.py
 ```
 
-Site operators: copy [`.env.example`](.env.example) to `.env` at the repo root (gitignored). Set `CLOUDFLARE_API_TOKEN` for `python Scripts/_cloudflare_performance.py`; set `R2_*` (or `AWS_*` aliases) for S3-compatible R2 access; set `GITHUB_TOKEN` for local proposal-bootstrap helpers. Worker runtime secrets (OAuth, Turnstile) live in Wrangler — see [infra/worker/README.md](infra/worker/README.md) and [infra/discussions-worker/README.md](infra/discussions-worker/README.md). Baseline metrics live in `infra/cloudflare-rum-baseline.json`.
+Site operators: copy [`.env.example`](.env.example) to `.env` at the repo root (gitignored). Set `CLOUDFLARE_API_TOKEN` for `python Scripts/_cloudflare_performance.py` (edge security: see [infra/worker/README.md](infra/worker/README.md#cloudflare-edge-configuration-not-in-this-repo)); set `R2_*` (or `AWS_*` aliases) for S3-compatible R2 access; set `GITHUB_TOKEN` for local proposal-bootstrap helpers. Worker runtime secrets (OAuth, Turnstile) live in Wrangler — see [infra/worker/README.md](infra/worker/README.md) and [infra/discussions-worker/README.md](infra/discussions-worker/README.md). Baseline metrics live in `infra/cloudflare-rum-baseline.json`.
 
 ### Study lifecycle
 
@@ -126,7 +126,7 @@ Run from the repository root. Append `--dry-run` to any command to preview witho
 | Rebuild studies landing page shell | `python Scripts\_build_studies_index.py` |
 | Rebuild per-study discussion pages | `python Scripts\_build_discussion_pages.py` |
 | Sync agent rules and skills | `python Scripts\_sync_agent_rules.py` then `python Scripts\_sync_agent_rules.py --check` |
-| Cloudflare redirect / performance | `python Scripts\_cloudflare_performance.py` (`--apply-redirect`, `--verify-only`) |
+| Cloudflare redirect / performance / edge security | `python Scripts\_cloudflare_performance.py` (`--apply-edge-security`, `--check-edge-security`, `--apply-redirect`, `--verify-only`) |
 | Verify blockquotes (optional) | `python Scripts\_quote_tool.py verify --study <Slug>` |
 
 Windows wrappers: `.\Scripts\_add_study.ps1`, `.\Scripts\_remove_study.ps1`, `.\Scripts\_set_study_status.ps1`.

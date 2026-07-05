@@ -103,12 +103,20 @@ Or manually in Cloudflare dashboard → Workers Routes:
 
 Auth routes use the **`/api/discuss-auth/`** prefix so they do not clash with the submissions worker (`/api/auth/github`, etc.).
 
+## Cloudflare edge limits (apex domain)
+
+Discussion routes run on `analyticmadhyasthdarshan.org/api/...` (not the `api.` subdomain). **Pro plan allows only two WAF rate-limit rules** in the zone; the repo uses one for leaked-credential checks and one combined rule (`amd_rl_edge_api`: **40 req / 10 s per IP** on portal `api.*` paths plus apex `/api/discussions/*` and `/api/discuss-auth/magic-link`). Worker-side magic-link limit remains 5/hour per email. Apply or verify via [`infra/worker/README.md`](../worker/README.md) (`--apply-discussions-rate-limits` / `--check-edge-security`).
+
+Static discussion pages receive **CSP report-only** and other security headers from zone Transform Rules. Turnstile needs `https://challenges.cloudflare.com` in `script-src`, `connect-src`, and `frame-src` — included in the repo CSP spec. **Next step:** enforce CSP after console smoke tests (see operator next steps in [`infra/worker/README.md`](../worker/README.md)).
+
+`GET /api/discuss-auth/verify` is intentionally not rate-limited at the edge (email link retries).
+
 ## Moderation
 
 - Comments are plain text (HTML stripped server-side).
 - Max body length: 8192 characters.
 - Turnstile required on magic-link requests only (signed-in session covers repeat comment posts).
-- Rate limit: 5 magic-link emails per address per hour.
+- Rate limit: 5 magic-link emails per address per hour (worker); edge WAF limits — see **Cloudflare edge limits** above.
 - Admins (`ADMIN_EMAILS`) see a **Hide** button on others' comments.
 - Authors see **Delete** on their own comments (same soft-hide in D1).
 - Hidden comments are excluded from `GET /api/discussions/:slug`.
