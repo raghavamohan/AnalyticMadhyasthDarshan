@@ -65,7 +65,7 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-19.
 | **MVD** | [Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf](Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf) | all Studies papers above |
 | **SB** | [Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf](Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf) | all Studies papers above |
 | **JV** | [Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf](Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf) | all Studies papers above |
-| **AVD** | [Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf](Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf) | not yet cited in Studies |
+| **AVD** | [Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf](Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf) | The-Ontology-of-Coexistence |
 | **JVD** | [Madhyasth-Darshan/JVD-Janvad.pdf](Madhyasth-Darshan/JVD-Janvad.pdf) | Nature-Of-Time |
 | **MD** | [Madhyasth-Darshan/MD-Mapping.xlsx](Madhyasth-Darshan/MD-Mapping.xlsx) | supporting spreadsheet (not cited inline) |
 | **BU** | [Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf](Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf) | Why-Humans, Aesthetics |
