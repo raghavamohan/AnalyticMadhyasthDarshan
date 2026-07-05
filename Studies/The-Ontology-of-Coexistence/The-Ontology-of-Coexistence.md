@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 5, 2026, 10:33 PM IST
+**Edited on:** July 5, 2026, 11:42 PM IST
 **Status:** Released
 
 **The question:** What is Existence? What exists? Does what exists begin at some time? Does the individual self (*jeevan*) begin or end with the body? Is the world finally real?
@@ -60,9 +60,12 @@ One way to picture the bond — illustrative, not an identity — is a living ce
 
 Saturation binds ground and units in mutual dependence for manifestation: the ground's uniform energy and unit-activity always appear together, and neither pole creates the other's existence — only its manifestation. Three ontological endowments follow from that bond in every unit.
 
-The first is recognition capability for the complementarity that already exists in coexistence. Saturated units stand in mutuality; reciprocity and give–take are eternally established — complementarity is not created by recognition but given in the bond (SB, pp. 49–50, 53). Bounded plurality within saturation provisions mutual recognition (SB, pp. 50, 57, 62): units can recognise one another because complementarity is a perpetual condition of coexistence. Through saturation, *satta* does not push units as an external agent but endows each unit with the basis of capacity (*kshamata*), ability (*yogyata*), and receptivity (*patrata*) to participate in relationships at its order — a gift present in the unit from coexistence (SB, pp. 57, 62, 79; MVD, p. 62).
+The first is recognition capability for the complementarity that already exists in coexistence. Saturated units stand in mutuality; reciprocity and give–take are eternally established — complementarity is not created by recognition but given in the bond (SB, pp. 49–50, 53). Bounded plurality within saturation provisions mutual recognition (SB, pp. 50, 57, 62): units can recognise one another because complementarity is a perpetual condition of coexistence. Through saturation, *satta* does not push units as an external agent but endows each unit with the basis of capacity (*kshamata*), ability (*yogyata*), and receptivity (*patrata*) to participate in relationships at its order — a gift present in the unit from coexistence (SB, pp. 57, 62, 79; MVD, p. 62). This recognisability is located in the transparent ground, not merely in the units taken alone — Omnipotence is "transparent in mutuality" (MVD, p. 32): inter-unit distance held in satta as Space (§1.1) and transparency in mutuality are two statements of one provision.
 
-The second endowment is activeness in units. Through saturation, every unit has inherent energy in it:
+**"Nature is recognisable in the state-complete Omnipotence with its countless unitness. Consequently, a provision for one unit to recognise another got manifest in existence."**
+> - SB, p. 50
+
+The second endowment is activeness in units. Activeness is the unit-side testimony of satta's permeativeness (MVD, p. 32; JV, p. 150). Through saturation, every unit has inherent energy in it:
 
 > **"Every unit in its atomic state is active as orderliness, because it has inherent energy due to being saturated in Omnipotence."**
 > - SB, p. 69
@@ -83,23 +86,14 @@ Through saturation, *satta* endows each unit with inherent forcefulness and basi
 > **"Since nature is eternally active within existence, every activity has inseparable effort, motion and result."**
 > - SB, p. 53
 
-The third endowment is inherent regulation. Saturation is where a unit gets regulatory order in it, alongside activeness and forcefulness (SB, p. 57) — not from an outside push. Regulation manifests as law and orderliness.
+The third endowment is inherent regulation. Regulation is the evidence of satta's mediative character (MVD, p. 26; §1.11). Saturation is where a unit gets regulatory order in it, alongside activeness and forcefulness (SB, p. 57) — not from an outside push. Regulation manifests as law and orderliness. 
 
-MVD's definitional opening identifies saturated coexistence itself as knowledge — stronger than treating Knowledge as one name among several for *satta* (§1.1). The referent of "this itself" (*yahi*) in the definition is the saturated state — nature submerged, soaked, and surrounded in *satta* — which the text names coexistence and identifies with knowledge:
+MVD's definitional opening identifies saturated coexistence itself as knowledge — stronger than treating Knowledge as one name among several for *satta* (§1.1). Therefore constitutionally complete atoms alone refelct this as *gyan*. 
 
 > **"Saturated (samprikt): - Insentient and sentient nature is submerged, soaked and surrounded in Omnipotence. This itself is coexistence, coexistence itself is eternal, and this itself is knowledge. Law, regulation, balance, justice, dharma and ultimate truth are evident in coexistence only."**
 > - MVD, pp. 32–33
 
-Recognition, activeness, and regulation are how *gyan* as ground is present on the unit side — the same law, regulation, balance, justice, and *dharma* the definition names, developed in the sections that follow. *Gyan* names the saturated coexistence of ground and units — an identity claim about the state, not about a reified bond standing between them; from it, every unit has its three endowments.
-
-*Satta*'s operative attributes ground that mapping. Omnipotence is permeative in insentient and sentient nature, and transparent in mutuality (MVD, p. 32). Permeativeness provisions activeness — inherent energy and basic impulsion within each unit (JV, p. 150). Transparency in mutuality provisions recognition: units are recognisable in state-complete *satta*, and a provision for one unit to recognise another is manifest in existence — recognisability located in the transparent ground, not merely in the units taken alone:
-
-> **"Nature is recognisable in the state-complete Omnipotence with its countless unitness. Consequently, a provision for one unit to recognise another got manifest in existence."**
-> - SB, p. 50
-
-Inter-unit distance held in *satta* as Space (§1.1) and transparency in mutuality are two statements of one provision. Mediativeness provisions inherent regulation (MVD, p. 26; §1.11). The same definitional block characterises *satta* as uniformly perceivable-comprehensible, realisable, blissful in realisation, and understandable (*satya*, *shuddha*, *buddha*) (MVD, p. 32) — the ontological root of the full-knowability thesis developed in [Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §1.11.
-
-Together, these three endowments ground a unit's completeness drive: each unit is oriented toward development, activated by conducive environments and naturalness (SB, pp. 50–51). In every unit — insentient or sentient — *gyan* is present as these endowments; the constitutionally complete atom alone additionally reflects it as active sentience, the capacity to know (§1.6.1).
+Together, these three endowments ground a unit's completeness drive: each unit is oriented toward development, activated by conducive environments and naturalness (SB, pp. 50–51). The constitutionally complete atom alone additionally reflects the saturation as active sentience and shows a drive towards *anand*.
 
 ### 1.3 What every unit is
 
@@ -1294,7 +1288,7 @@ The source texts' primary English term for the all-pervasive, formless reality (
 
 ### *Gyan* in analytical prose
 
-In analytical prose, ***gyan*** names intelligibility in *satta* — the saturated coexistence of ground and units (§1.2) — not a mind that knows, and not a property of a reified bond between them. Where the texts use a distinct compound or order name, this study keeps it explicit: Realisation Knowledge (*anubhav jnan*) for orderliness in every unit (§1.1); *gyan udghatan* for knowledge unfolding through awakened *jeevan* (§1.7); knowledge order (*gyan-avastha*) for the fourth order of nature, named for the medium of human knowing, not for Omnipresence-as-knower (§1.5).
+In analytical prose, ***gyan*** names intelligibility in *satta* — the saturated coexistence of ground and units (§1.2) — not a mind that knows, and not a property of a reified bond between them. For the ground's presence in units this study uses evidence language ("evident as," "testimony of") rather than agentive verbs: *satta* is actionless, projection (*paravartan*) and reflection (*pratyavartan*) name *jeevan*'s faculty activities (§1.7), and reflection of *satta* as *chaitanya* is predicated of the atom, never of the ground (§1.6.1). Where the texts use a distinct compound or order name, this study keeps it explicit: Realisation Knowledge (*anubhav jnan*) for orderliness in every unit (§1.1); *gyan udghatan* for knowledge unfolding through awakened *jeevan* (§1.7); knowledge order (*gyan-avastha*) for the fourth order of nature, named for the medium of human knowing, not for Omnipresence-as-knower (§1.5).
 
 ### Analytical vocabulary: sense, domain, mode
 
