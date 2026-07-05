@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 5, 2026, 9:06 PM IST
+**Edited on:** July 5, 2026, 10:21 PM IST
 **Status:** Released
 
 **The question:** What is Existence? What exists? Does what exists begin at some time? Does the individual self (*jeevan*) begin or end with the body? Is the world finally real?
@@ -85,12 +85,12 @@ Through saturation, *satta* endows each unit with inherent forcefulness and basi
 
 The third endowment is inherent regulation. Saturation is where a unit gets regulatory order in it, alongside activeness and forcefulness (SB, p. 57) — not from an outside push. Regulation manifests as law and orderliness.
 
-MVD's definitional opening identifies the saturation bond itself as knowledge — stronger than treating Knowledge as one name among several for *satta* (§1.1):
+MVD's definitional opening identifies saturated coexistence itself as knowledge — stronger than treating Knowledge as one name among several for *satta* (§1.1). The referent of "this itself" (*yahi*) in the definition is the saturated state — nature submerged, soaked, and surrounded in *satta* — which the text names coexistence and identifies with knowledge:
 
 > **"Saturated (samprikt): - Insentient and sentient nature is submerged, soaked and surrounded in Omnipotence. This itself is coexistence, coexistence itself is eternal, and this itself is knowledge. Law, regulation, balance, justice, dharma and ultimate truth are evident in coexistence only."**
 > - MVD, pp. 32–33
 
-Recognition, activeness, and regulation are how *gyan* as ground is present on the unit side — the same law, regulation, balance, justice, and *dharma* the definition names, developed in the sections that follow. *Gyan* names the saturation bond; the three endowments name how that bond is present in each unit.
+Recognition, activeness, and regulation are how *gyan* as ground is present on the unit side — the same law, regulation, balance, justice, and *dharma* the definition names, developed in the sections that follow. *Gyan* names the saturated coexistence of ground and units — an identity claim about the state, not about a reified bond standing between them; from it, every unit has its three endowments.
 
 *Satta*'s operative attributes ground that mapping. Omnipotence is permeative in insentient and sentient nature, and transparent in mutuality (MVD, p. 32). Permeativeness provisions activeness — inherent energy and basic impulsion within each unit (JV, p. 150). Transparency in mutuality provisions recognition: units are recognisable in state-complete *satta*, and a provision for one unit to recognise another is manifest in existence — recognisability located in the transparent ground, not merely in the units taken alone:
 
@@ -99,7 +99,7 @@ Recognition, activeness, and regulation are how *gyan* as ground is present on t
 
 Inter-unit distance held in *satta* as Space (§1.1) and transparency in mutuality are two statements of one provision. Mediativeness provisions inherent regulation (MVD, p. 26; §1.11). The same definitional block characterises *satta* as uniformly perceivable-comprehensible, realisable, blissful in realisation, and understandable (*satya*, *shuddha*, *buddha*) (MVD, p. 32) — the ontological root of the full-knowability thesis developed in [Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §1.11.
 
-Together, these three endowments ground a unit's completeness drive: each unit is oriented toward development, activated by conducive environments and naturalness (SB, pp. 50–51).
+Together, these three endowments ground a unit's completeness drive: each unit is oriented toward development, activated by conducive environments and naturalness (SB, pp. 50–51). In every unit — insentient or sentient — *gyan* is present as these endowments; the constitutionally complete atom alone additionally reflects it as active sentience, the capacity to know (§1.6.1).
 
 ### 1.3 What every unit is
 
@@ -473,7 +473,7 @@ Justice (*nyaya*) has a dual role. As a perspective, it assesses behaviour as ju
 
 ### 1.13 Realisation in coexistence
 
-The completeness drive (§1.6) terminates when relationships across nature are fulfilled and made evident in coexistence — not by *satta* becoming a knower, but by awakened *jeevan* enacting what was latent in the saturation bond (§1.2). Recognition and fulfilment then constitute authenticity: the expression of realisation itself.
+The completeness drive (§1.6) terminates when relationships across nature are fulfilled and made evident in coexistence — not by *satta* becoming a knower, but by awakened *jeevan* enacting what was latent in saturation (§1.2). Recognition and fulfilment then constitute authenticity: the expression of realisation itself.
 
 > **"The goal of development is for nature, saturated in Omnipotence, to be realised in Omnipotence. Realisation itself is the form of awakening. It is only through awakening that there is the orderliness of recognition and fulfilment. Recognition and fulfilment themselves constitute authenticity; this is the expression of realisation."**
 > - SB, p. 81
@@ -1232,7 +1232,7 @@ Key terms from §§1–4 are collected here for quick reference. Each term is al
 | Human values | Values of humane living grasped through coexistence understanding and humane conduct (JV pp. 44, 139); one of six value kinds (§1.4). |
 | Established values | Relationship values — care, trust, affection, and the like — that flow when relationships are recognised (JV pp. 108, 138; §1.4). |
 | Expression values | Right-use of body, mind, and wealth in the social order; *civic values* in Gupta's English (MVD p. 306; §1.4). |
-| *Gyan* (ground) | In analytical prose, intelligibility in *satta* — the saturation bond (§1.2; Editorial Notes). Distinct from Realisation Knowledge (*anubhav jnan*), *gyan udghatan*, and the knowledge order name (*gyan-avastha*). |
+| *Gyan* (ground) | In analytical prose, intelligibility in *satta* — the saturated coexistence of ground and units (§1.2; Editorial Notes). Distinct from Realisation Knowledge (*anubhav jnan*), *gyan udghatan*, and the knowledge order name (*gyan-avastha*). |
 | Evaluative domain | Conduct, thought, or realisation — the three humane perspectives discipline distinct domains (§1.12). |
 | Sentient mode | How effort–motion–result maps once constitutional completeness is reached — distinct from insentient unit-activity (§1.6). |
 
@@ -1294,7 +1294,7 @@ The source texts' primary English term for the all-pervasive, formless reality (
 
 ### *Gyan* in analytical prose
 
-In analytical prose, ***gyan*** names intelligibility in *satta* — the saturation bond (§1.2) — not a mind that knows. Where the texts use a distinct compound or order name, this study keeps it explicit: Realisation Knowledge (*anubhav jnan*) for orderliness in every unit (§1.1); *gyan udghatan* for knowledge unfolding through awakened *jeevan* (§1.7); knowledge order (*gyan-avastha*) for the fourth order of nature, named for the medium of human knowing, not for Omnipresence-as-knower (§1.5).
+In analytical prose, ***gyan*** names intelligibility in *satta* — the saturated coexistence of ground and units (§1.2) — not a mind that knows, and not a property of a reified bond between them. Where the texts use a distinct compound or order name, this study keeps it explicit: Realisation Knowledge (*anubhav jnan*) for orderliness in every unit (§1.1); *gyan udghatan* for knowledge unfolding through awakened *jeevan* (§1.7); knowledge order (*gyan-avastha*) for the fourth order of nature, named for the medium of human knowing, not for Omnipresence-as-knower (§1.5).
 
 ### Analytical vocabulary: sense, domain, mode
 
