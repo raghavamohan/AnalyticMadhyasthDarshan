@@ -128,7 +128,7 @@ Contributors manage their address and opt-out from the notification bar on **My 
 
 > **Edge security must let the GitHub Actions runner reach `/api/notify`.** The runner calls the worker from a datacenter IP, so Cloudflare **Bot Fight Mode / Managed Challenge** will return a `403 "Just a moment…"` interstitial and the email is never sent (the workflow run still shows `success`, but the step logs `Notify request failed (403)`). Fix it one of two ways on the `api.analyticmadhyasthdarshan.org` zone:
 >
-> - **Pro or higher:** Security → WAF → Custom rules → **Skip** rule for `http.host eq "api.analyticmadhyasthdarshan.org" and starts_with(http.request.uri.path, "/api/notify")`, skipping **Super Bot Fight Mode** (and managed rules). This keeps bot protection everywhere else.
+> - **Pro or higher:** Security → WAF → Custom rules → **Skip** rule for `http.host eq "api.analyticmadhyasthdarshan.org" and starts_with(http.request.uri.path, "/api/notify")`, skipping **All Super Bot Fight Mode rules** (`http_request_sbfm` phase). This keeps bot protection everywhere else. Or run `python Scripts/_cloudflare_performance.py --apply-portal-edge-security`.
 > - **Free plan:** turn **Bot Fight Mode off** (Security → Bots). The worker still enforces the `X-Notify-Secret` shared secret on `/api/notify`, Turnstile on write endpoints, and signed sessions, so this does not expose the API.
 >
 > Verify by toggling a `proposal-declined`/`proposal-approved` label on a test issue and checking the `portal-notify` run log shows `Notify response: {"success":true,"sent":true}`.
@@ -148,7 +148,7 @@ Response includes `meta.timingMs`, `meta.githubRequests`, and optional `meta.tru
 These live on the `analyticmadhyasthdarshan.org` Cloudflare zone, not in version control — recorded here so they are not forgotten.
 
 - **Custom domain:** the worker is served at `api.analyticmadhyasthdarshan.org` via the `routes` block in [`wrangler.toml`](wrangler.toml) (same-site with the portal → first-party `SameSite=Lax` cookie).
-- **Bot Fight Mode:** currently **OFF** (Security → Bots). It had to be turned off because it challenged the GitHub Actions runner's call to `/api/notify` (see the Email notifications note above). When upgrading to **Pro+**, re-enable **Super Bot Fight Mode** and add a WAF **Skip** rule for `/api/notify`.
+- **Bot Fight Mode:** **Super Bot Fight Mode ON** (Pro plan). GitHub Actions calls `POST /api/notify` from a datacenter IP, which SBFM would challenge with a `403 "Just a moment…"` interstitial unless exempted. A WAF **Skip** rule (`amd_skip_sbfm_portal_notify`) skips SBFM for `/api/notify` only; the worker still requires `X-Notify-Secret`. Apply or verify with `python Scripts/_cloudflare_performance.py --apply-portal-edge-security` / `--check-portal-edge-security`.
 - **Rate limiting rule** (compensates for Bot Fight Mode being off): a WAF rate-limit rule in the `http_ratelimit` phase:
   - Match: `http.host eq "api.analyticmadhyasthdarshan.org" and starts_with(http.request.uri.path, "/api/")`
   - Limit: **20 requests / 10 s per IP** (Free plan only allows a 10 s period), action **block** for 10 s.
