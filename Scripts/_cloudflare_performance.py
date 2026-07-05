@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Cloudflare performance setup for analyticmadhyasthdarshan.org (GitHub Pages + proxy).
 
-Applies zone settings, cache rules, and the root-to-catalog redirect via API when
+Applies zone settings, cache rules, the root-to-catalog redirect, and portal edge
+security (Super Bot Fight Mode + WAF skip for GitHub Actions notify) via API when
 CLOUDFLARE_API_TOKEN is set (repo-root `.env`, `.env.local`, or the process environment).
 Baseline RUM metrics: infra/cloudflare-rum-baseline.json
 """
@@ -20,12 +21,19 @@ SCRIPTS = Path(__file__).resolve().parent
 BASE = SCRIPTS.parent
 BASELINE_PATH = BASE / "infra" / "cloudflare-rum-baseline.json"
 SITE_HOST = "analyticmadhyasthdarshan.org"
+API_HOST = f"api.{SITE_HOST}"
+PORTAL_NOTIFY_URL = f"https://{API_HOST}/api/notify"
 ROOT_URL = f"https://{SITE_HOST}/"
 CATALOG_PATH = "/Studies/index.html"
 CATALOG_URL = f"https://{SITE_HOST}{CATALOG_PATH}"
 API_BASE = "https://api.cloudflare.com/client/v4"
 REDIRECT_PHASE = "http_request_dynamic_redirect"
 CACHE_PHASE = "http_request_cache_settings"
+WAF_CUSTOM_PHASE = "http_request_firewall_custom"
+NOTIFY_SKIP_REF = "amd_skip_sbfm_portal_notify"
+NOTIFY_SKIP_EXPRESSION = (
+    f'(http.host eq "{API_HOST}" and starts_with(http.request.uri.path, "/api/notify"))'
+)
 ROOT_REDIRECT_REF = "analyticmadhyasth_root_to_catalog"
 CACHE_RULE_REFS = (
     "amd_cache_pdfs",
@@ -192,6 +200,232 @@ def apply_discussions_api_routes(token: str, zone_id: str | None) -> None:
     for pattern in DISCUSSIONS_ROUTE_PATTERNS:
         ensure_worker_route(token, zone, pattern, DISCUSSIONS_WORKER)
     print("Discussions worker routes applied.")
+
+
+def notify_skip_rule_body() -> dict:
+    return {
+        "ref": NOTIFY_SKIP_REF,
+        "expression": NOTIFY_SKIP_EXPRESSION,
+        "description": (
+            "Skip Super Bot Fight Mode for GitHub Actions portal email notify "
+            "(datacenter IP; worker enforces X-Notify-Secret)."
+        ),
+        "action": "skip",
+        "enabled": True,
+        "action_parameters": {
+            "phases": ["http_request_sbfm"],
+        },
+    }
+
+
+def _notify_skip_rule_is_correct(rule: dict) -> bool:
+    if rule.get("action") != "skip":
+        return False
+    if rule.get("expression") != NOTIFY_SKIP_EXPRESSION:
+        return False
+    phases = rule.get("action_parameters", {}).get("phases", [])
+    return "http_request_sbfm" in phases
+
+
+def get_waf_custom_entrypoint_ruleset(token: str, zone_id: str) -> dict | None:
+    return get_phase_entrypoint_ruleset(token, zone_id, WAF_CUSTOM_PHASE)
+
+
+def apply_notify_waf_skip(token: str, zone_id: str | None) -> None:
+    """Create or update the WAF Skip rule so GitHub Actions can POST /api/notify."""
+    zone = resolve_zone_id(token, zone_id)
+    print(f"Zone ID: {zone}")
+    rule_body = notify_skip_rule_body()
+    ruleset = get_waf_custom_entrypoint_ruleset(token, zone)
+
+    if ruleset is None:
+        _api_request(
+            "POST",
+            f"/zones/{zone}/rulesets",
+            token,
+            {
+                "name": "AnalyticMadhyasthDarshan WAF custom rules",
+                "kind": "zone",
+                "phase": WAF_CUSTOM_PHASE,
+                "rules": [rule_body],
+            },
+        )
+        print(f"Created {WAF_CUSTOM_PHASE} ruleset with portal notify skip rule.")
+        return
+
+    ruleset_id = ruleset["id"]
+    rules = ruleset.get("rules", [])
+    existing = next((rule for rule in rules if rule.get("ref") == NOTIFY_SKIP_REF), None)
+    if existing and _notify_skip_rule_is_correct(existing):
+        print("Portal notify WAF skip rule already configured.")
+        return
+
+    if existing:
+        updated_rules: list[dict] = []
+        for rule in rules:
+            if rule.get("ref") == NOTIFY_SKIP_REF:
+                updated_rules.append(rule_body)
+            else:
+                updated_rules.append(_sanitize_rule_for_put(rule))
+        _api_request(
+            "PUT",
+            f"/zones/{zone}/rulesets/{ruleset_id}",
+            token,
+            {
+                "name": ruleset.get("name", "AnalyticMadhyasthDarshan WAF custom rules"),
+                "kind": "zone",
+                "phase": WAF_CUSTOM_PHASE,
+                "rules": updated_rules,
+            },
+        )
+        print("Updated portal notify WAF skip rule in existing custom ruleset.")
+        return
+
+    _api_request(
+        "POST",
+        f"/zones/{zone}/rulesets/{ruleset_id}/rules",
+        token,
+        rule_body,
+    )
+    print("Added portal notify WAF skip rule to existing custom ruleset.")
+
+
+def super_bot_fight_mode_spec() -> dict:
+    """Pro-plan Super Bot Fight Mode: challenge definitely automated traffic."""
+    return {
+        "enable_js": True,
+        "sbfm_definitely_automated": "managed_challenge",
+        "sbfm_verified_bots": "allow",
+    }
+
+
+def _bot_management_matches(current: dict, expected: dict) -> tuple[bool, list[str]]:
+    issues: list[str] = []
+    for key, value in expected.items():
+        if current.get(key) != value:
+            issues.append(
+                f"bot_management {key} is {current.get(key)!r}, expected {value!r}."
+            )
+    fight_mode = current.get("fight_mode")
+    if fight_mode is True:
+        issues.append(
+            "bot_management fight_mode is True; disable legacy Bot Fight Mode when using SBFM."
+        )
+    return not issues, issues
+
+
+def get_bot_management_config(token: str, zone_id: str) -> dict:
+    body = _api_request("GET", f"/zones/{zone_id}/bot_management", token)
+    return body.get("result", {}) if body else {}
+
+
+def apply_super_bot_fight_mode(token: str, zone_id: str | None) -> None:
+    zone = resolve_zone_id(token, zone_id)
+    print(f"Zone ID: {zone}")
+    expected = super_bot_fight_mode_spec()
+    current = get_bot_management_config(token, zone)
+    ok, _ = _bot_management_matches(current, expected)
+    if ok:
+        print("Super Bot Fight Mode already configured.")
+        return
+    payload = {**expected, "fight_mode": False}
+    _api_request("PUT", f"/zones/{zone}/bot_management", token, payload)
+    print(
+        "Super Bot Fight Mode enabled "
+        f"(sbfm_definitely_automated={expected['sbfm_definitely_automated']!r})."
+    )
+
+
+def check_portal_edge_security(token: str, zone_id: str | None) -> tuple[bool, list[str]]:
+    zone = resolve_zone_id(token, zone_id)
+    issues: list[str] = []
+    ok = True
+
+    ruleset = get_waf_custom_entrypoint_ruleset(token, zone)
+    skip_rule = None
+    if ruleset:
+        skip_rule = next(
+            (rule for rule in ruleset.get("rules", []) if rule.get("ref") == NOTIFY_SKIP_REF),
+            None,
+        )
+    if skip_rule is None:
+        ok = False
+        issues.append(f"Missing WAF skip rule ref {NOTIFY_SKIP_REF!r}.")
+    elif not skip_rule.get("enabled", True):
+        ok = False
+        issues.append(f"WAF skip rule {NOTIFY_SKIP_REF!r} is disabled.")
+    elif not _notify_skip_rule_is_correct(skip_rule):
+        ok = False
+        issues.append(f"WAF skip rule {NOTIFY_SKIP_REF!r} does not match expected expression/phases.")
+
+    expected = super_bot_fight_mode_spec()
+    current = get_bot_management_config(token, zone)
+    ok, bot_issues = _bot_management_matches(current, expected)
+    issues.extend(bot_issues)
+    return ok, issues
+
+
+def print_check_portal_edge_security(token: str, zone_id: str | None) -> bool:
+    print("Portal edge security check:")
+    try:
+        ok, issues = check_portal_edge_security(token, zone_id)
+    except (urllib.error.URLError, RuntimeError) as exc:
+        print(f"  ERROR: {exc}")
+        return False
+    if ok:
+        print(
+            f"  OK: Super Bot Fight Mode on with WAF skip for {PORTAL_NOTIFY_URL}."
+        )
+        return True
+    for issue in issues:
+        print(f"  {issue}")
+    return False
+
+
+def verify_notify_reachable() -> tuple[bool, str]:
+    """POST /api/notify without secret; worker 401 means Cloudflare did not challenge."""
+    payload = json.dumps({}).encode("utf-8")
+    req = urllib.request.Request(
+        PORTAL_NOTIFY_URL,
+        data=payload,
+        method="POST",
+        headers={
+            "Content-Type": "application/json",
+            "User-Agent": "GitHub-Actions/1.0",
+        },
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            body = resp.read(500).decode("utf-8", errors="replace")
+            if resp.status == 401:
+                return True, f"OK: worker returned 401 (reachable through edge): {body[:120]}"
+            return False, f"Unexpected {resp.status}: {body[:200]}"
+    except urllib.error.HTTPError as exc:
+        body = exc.read(500).decode("utf-8", errors="replace")
+        if exc.code == 401:
+            return True, f"OK: worker returned 401 (reachable through edge): {body[:120]}"
+        if exc.code == 403 and "just a moment" in body.lower():
+            return (
+                False,
+                "Cloudflare bot challenge blocked /api/notify (403). "
+                "Add the WAF skip rule before enabling Super Bot Fight Mode.",
+            )
+        return False, f"HTTP {exc.code}: {body[:200]}"
+    except urllib.error.URLError as exc:
+        return False, f"Request failed: {exc.reason}"
+
+
+def print_verify_notify_reachable() -> bool:
+    print("Portal notify reachability check:")
+    ok, message = verify_notify_reachable()
+    print(f"  {message}")
+    return ok
+
+
+def apply_portal_edge_security(token: str, zone_id: str | None) -> None:
+    """WAF skip for /api/notify first, then enable Super Bot Fight Mode."""
+    apply_notify_waf_skip(token, zone_id)
+    apply_super_bot_fight_mode(token, zone_id)
 
 
 def apply_api_settings(token: str, zone_id: str | None) -> None:
@@ -655,7 +889,12 @@ Cloudflare dashboard steps for {SITE_HOST} (GitHub Pages origin, orange-cloud pr
 5. After deploy, verify the root redirect (this script runs the check by default):
    python Scripts/_cloudflare_performance.py --verify-only
 
-6. Re-check RUM after 7 days against infra/cloudflare-rum-baseline.json
+6. Portal edge security (Pro+): Super Bot Fight Mode with a WAF Skip for GitHub Actions
+   POST /api/notify (see infra/worker/README.md):
+   python Scripts/_cloudflare_performance.py --apply-portal-edge-security
+   python Scripts/_cloudflare_performance.py --check-portal-edge-security
+
+7. Re-check RUM after 7 days against infra/cloudflare-rum-baseline.json
    Targets: LCP P99 < 2500 ms, LCP poor % near 0.
 """
     )
@@ -697,6 +936,19 @@ def main() -> int:
         "--apply-discussions-api",
         action="store_true",
         help="Create or update Worker routes for amd-discussions on the custom domain.",
+    )
+    parser.add_argument(
+        "--apply-portal-edge-security",
+        action="store_true",
+        help=(
+            "Enable Super Bot Fight Mode and add a WAF Skip rule for "
+            "POST /api/notify (GitHub Actions email notify)."
+        ),
+    )
+    parser.add_argument(
+        "--check-portal-edge-security",
+        action="store_true",
+        help="Verify Super Bot Fight Mode and the portal notify WAF skip rule.",
     )
     parser.add_argument(
         "--apply-redirect",
@@ -764,9 +1016,35 @@ def main() -> int:
         ok = print_check_cache_rules(token, zone_id)
         return 0 if ok else 1
 
+    if args.check_portal_edge_security:
+        if not token:
+            print(
+                "CLOUDFLARE_API_TOKEN is required for --check-portal-edge-security "
+                "(set in .env or the process environment).",
+                file=sys.stderr,
+            )
+            return 1
+        config_ok = print_check_portal_edge_security(token, zone_id)
+        reach_ok = print_verify_notify_reachable()
+        return 0 if config_ok and reach_ok else 1
+
     print_baseline_summary()
 
     api_error = False
+
+    if args.apply_portal_edge_security:
+        if not token:
+            print(
+                "CLOUDFLARE_API_TOKEN is required for --apply-portal-edge-security "
+                "(set in .env or the process environment).",
+                file=sys.stderr,
+            )
+            return 1
+        try:
+            apply_portal_edge_security(token, zone_id)
+        except (urllib.error.URLError, RuntimeError) as exc:
+            print(f"API error: {exc}", file=sys.stderr)
+            api_error = True
 
     if args.apply_discussions_api:
         if not token:
@@ -828,7 +1106,7 @@ def main() -> int:
     if api_error:
         return 1
 
-    if not args.apply_api and not args.apply_redirect and not args.apply_discussions_api and not args.apply_cache_rules:
+    if not args.apply_api and not args.apply_redirect and not args.apply_discussions_api and not args.apply_cache_rules and not args.apply_portal_edge_security:
         print_dashboard_steps()
 
     if not args.skip_verify:
@@ -836,6 +1114,9 @@ def main() -> int:
         verify_ok = print_verify_root_redirect()
         if token and (args.apply_cache_rules or args.apply_api):
             verify_ok = print_check_cache_rules(token, zone_id) and verify_ok
+        if args.apply_portal_edge_security:
+            verify_ok = print_check_portal_edge_security(token, zone_id) and verify_ok
+            verify_ok = print_verify_notify_reachable() and verify_ok
         if not verify_ok:
             return 1
 
