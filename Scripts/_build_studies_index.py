@@ -869,7 +869,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     <h2>Start here</h2>
     <p class="start-here-intro">New to the collection? Read these in order to build a foundational understanding before the formal and applied lenses.</p>
     <ol>
-      <li data-slug="The-Ontology-of-Coexistence"><a href="The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a><span class="start-here-status"><span class="sh-status-word">Released</span> &mdash; core ontology, units, sentience</span></li>
+      <li data-slug="The-Ontology-of-Coexistence"><a href="The-Ontology-of-Coexistence/The-Ontology-of-Existence-Madhyasth-Darshan.pdf">The Ontology of Coexistence</a><span class="start-here-status"><span class="sh-status-word">Released</span> &mdash; core ontology, units, sentience</span></li>
       <li data-slug="Why-Humans-Are-Not-Just-Material"><a href="Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html">Why Humans Are Not Just Material</a><span class="start-here-status"><span class="sh-status-word">Released</span> &mdash; anthropology, consciousness, value</span></li>
       <li data-slug="Knowledge-Knower-And-Known"><a href="Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.html">Knowledge Knower and Known</a><span class="start-here-status"><span class="sh-status-word">Released</span> &mdash; epistemology, knower, known</span></li>
       <li data-slug="Nature-Of-Time"><a href="Nature-Of-Time/Nature-Of-Time.html">Nature of Time</a><span class="start-here-status"><span class="sh-status-word">Released</span> &mdash; *kaal*, physics, philosophy of time</span></li>
