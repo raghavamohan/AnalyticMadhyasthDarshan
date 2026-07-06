@@ -1,0 +1,35 @@
+name: Pages deploy retry
+
+# GitHub Pages occasionally fails during syncing_files for this ~300 MB site
+# ("Deployment failed, try again later") with no actionable build error. Re-run
+# the failed pages-build-deployment jobs once after a short delay.
+
+on:
+  workflow_run:
+    workflows:
+      - pages build and deployment
+    types:
+      - completed
+
+permissions:
+  actions: write
+
+concurrency:
+  group: pages-deploy-retry
+  cancel-in-progress: false
+
+jobs:
+  retry:
+    if: >-
+      github.event.workflow_run.conclusion == 'failure' &&
+      github.event.workflow_run.head_branch == 'master' &&
+      github.event.workflow_run.run_attempt == 1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait before retry
+        run: sleep 90
+
+      - name: Re-run failed Pages deployment jobs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run rerun ${{ github.event.workflow_run.id }} --failed
