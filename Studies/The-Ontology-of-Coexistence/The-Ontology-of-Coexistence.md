@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 6, 2026, 8:28 AM IST
+**Edited on:** July 6, 2026, 1:49 PM IST
 **Status:** Released
 
 **The question:** What is Existence? What exists? Does what exists begin at some time? Does the individual self (*jeevan*) begin or end with the body? Is the world finally real?
@@ -354,55 +354,31 @@ The darshan establishes a logical ontology of coexistence, saturation, and conse
 
 Advaita Vedanta holds that existence in the strictest, absolute sense is Brahman alone — one without a second (*ekamevaditiyam*). The world of names, forms, bodies, and relations is *mithya* — a dependent appearance operationally valid at the empirical level (*vyavahara*) but ultimately sublated at absolute reality (*paramartha*). The true Self (*Atman*) is neither born nor destroyed, because it is ultimately identical with this non-dual Brahman.
 
-The exposition moves from Brahman as absolute existence and Sat-Chit-Ananda through the three tiers of reality (*pratibhasika*, *vyavahara*, *paramartha*). Maya, *adhyasa*, and causal doctrine (*satkaryavada*, *vivartavada*) explain how multiplicity appears on changeless Brahman; Ishvara, *jiva*, and *jagat* structure the shared empirical world. Witness-consciousness (*sakshin*, *turiya*) names the seer discriminated from body and mind. Conservation, origination, and temporality divide timeless Brahman from law-governed *vyavahara*; liberation (*moksha*) and the knowledge path describe how separateness is dispelled. Ethics, *loka-sangraha*, and what realisation evidences at the empirical order close the section. The figure at §2.5 summarises the architecture; Advaita terms appear in the Appendix under Terms in §2.
+The exposition moves from Brahman as absolute existence and Sat-Chit-Ananda through the three tiers of reality (*pratibhasika*, *vyavahara*, *paramartha*). Maya, *adhyasa*, and causal doctrine (*satkaryavada*, *vivartavada*) explain how multiplicity appears on changeless Brahman; Ishvara, *jiva*, and *jagat* structure the shared empirical world. Witness-consciousness (*sakshin*, *turiya*) names the seer discriminated from body and mind. Conservation, origination, and temporality divide timeless Brahman from law-governed *vyavahara*; liberation (*moksha*) and the knowledge path describe how separateness is dispelled. Ethics, *loka-sangraha*, and what realisation evidences at the empirical order close the section. The figure at §2.5 summarises the architecture; §2.10 collects Advaita's answers to the study's framing questions; Advaita terms appear in the Appendix under Terms in §2. Exact wording of the verses and passages cited below is preserved in References, Section 2.
 
 ### 2.1 Brahman and absolute existence
 
-> **"In the beginning this was Existence alone, One only, without a second."**
-> - CU 6.2.1
+The Chandogya Upanishad states Advaita's foundational claim directly: in the beginning there was Existence alone, one only, without a second (CU 6.2.1). Shankara's commentary glosses that Existence as *sat* — subtle, without distinction, all-pervasive, one, taintless, partless, and itself consciousness (CU 6.2.1, Shankara's commentary).
 
-Shankara glosses *sat* as:
+Advaita's opening move parallels Madhyasth Darshan's refusal of origination from non-being, but compresses the answer differently. The text presses the point as a rhetorical question — by what logic could existence come out of non-existence? — and answers that in the beginning all this was Existence, one only, without a second (CU 6.2.2).
 
-> **"mere Existence, a thing that is subtle, without distinction, all pervasive, one, taintless, partless, consciousness"**
-> - CU 6.2.1, Shankara commentary
-
-Advaita's opening move parallels Madhyasth Darshan's refusal of origination from non-being, but compresses the answer differently. The text rejects existence arising from non-existence:
-
-> **"By what logic can existence verily come out of non-existence? But surely, o good looking one, in the beginning all this was Existence, One only, without a second."**
-> - CU 6.2.2
-
-At *paramartha*, only this one partless reality exists absolutely. *Paramatman* is not a second absolute beside Brahman — it is Brahman named from the empirical or devotional standpoint, sublated together with Ishvara and jiva when superimposition is perfectly eliminated (VC, v. 244; §2.5).
+At *paramartha*, only this one partless reality exists absolutely. *Paramatman* (the Supreme Self) is not a second absolute beside Brahman — it is Brahman named from the empirical or devotional standpoint, sublated together with Ishvara and jiva when superimposition is perfectly eliminated (VC, v. 244; §2.5).
 
 ### 2.2 Sat-Chit-Ananda and the three states
 
-A second classical formulation names existence not only as *sat* — bare being — but as Sat-Chit-Ananda: being-consciousness-bliss. These are not three realities added together; Brahman is one partless reality whose nature is expressed in three inseparable names.
+A second classical formulation names existence not only as *sat* — bare being — but as Sat-Chit-Ananda: being-consciousness-bliss. These are not three realities added together; Brahman is one partless reality whose nature is expressed in three inseparable names. The Taittiriya Upanishad states this compactly: Brahman is Truth, Knowledge, and Infinity (TU 2.1.1). Shankara's tradition reads *satyam* as being/reality, *jnanam* as consciousness, and *anantam* as the infinite; the *anandamaya* passage (TU 2.5) leads the seeker beyond even bliss-as-sheath to the Self beyond all coverings.
 
-> **"Brahman is Truth, Knowledge, and Infinity."**
-> - TU 2.1.1
-
-Shankara's tradition reads *satyam* as being/reality, *jnanam* as consciousness, and *anantam* as the infinite. The *anandamaya* passage (TU 2.5) leads the seeker beyond even bliss-as-sheath to the Self beyond all coverings. Shankara states the mature formula in the *Vivekachudamani*:
-
-> **"By that alone he comes to know his own Self as Existence-Knowledge-Bliss Absolute and becomes happy."**
-> - VC, v. 152
-
-The same triad recurs at v. 217, one of the most comprehensive Self-descriptions in the *Vivekachudamani*:
-
-> **"That which clearly manifests Itself in the states of wakefulness, dream and profound sleep; which is inwardly perceived in the mind in various forms as an unbroken series of egoistic impressions; which witnesses the egoism, the Buddhi, etc., which are of diverse forms and modifications; and which makes Itself felt as the Existence-Knowledge-Bliss Absolute; know thou this Atman, thy own Self, within thy heart."**
-> - VC, v. 217
+Shankara states the mature formula directly in the *Vivekachudamani*: through that same knowledge, one comes to know one's own Self as Existence-Knowledge-Bliss Absolute (VC, v. 152). The triad recurs more fully at v. 217, one of the *Vivekachudamani*'s most comprehensive Self-descriptions: the Self clearly manifests in the states of wakefulness, dream, and profound sleep; is inwardly perceived in the mind as an unbroken series of egoistic impressions; witnesses the diverse forms and modifications of egoism and buddhi; and makes itself felt as the Existence-Knowledge-Bliss Absolute — this Atman, one's own Self, within the heart (VC, v. 217).
 
 In this scheme, *sat* names absolute being; *chit* names consciousness as the very nature of reality and Self, not a function of brain or mind; *ananda* names the intrinsic fullness of the Self, free from lack and dependence on objects. Advaita concentrates existence in one subject whose nature is being, consciousness, and bliss without a second.
 
-The Mandukya Upanishad (MU, vv. 3–7) grounds this analysis in the three states (*avastha-traya*): waking, dream, and deep sleep — with turiya, the witness beyond all states, as ultimately real. This first-person ladder is not a map of Madhyasth Darshan's four developmental orders (§1.5); it analyses how temporal states appear and are witnessed from within. Witness analysis is developed in §2.6; the Sat-Chit-Ananda contrast with distributed coexistence is developed in §5.6.
+That same one subject is also disclosed through its states of awareness. The Mandukya Upanishad (MU, vv. 3–7) grounds this analysis in the three states (*avastha-traya*): waking, dream, and deep sleep — with *turiya*, the witness beyond all states, as ultimately real. This first-person ladder is not a map of Madhyasth Darshan's four developmental orders (§1.5); it analyses how temporal states appear and are witnessed from within. Witness analysis is developed in §2.6; the Sat-Chit-Ananda contrast with distributed coexistence is developed in §5.6.
 
 ### 2.3 Three tiers of reality
 
-Advaita's standard framework separates three levels of reality. Private apparent errors (*pratibhasika*) include a rope mistaken for a snake. Shared empirical reality (*vyavahara*) governs bodies, physical laws, ethics, and scripture. Absolute truth (*paramartha*) is Brahman alone. The *mithya* doctrine and the three-tier framework are related but distinct tools (Editorial Notes); both are needed to read Advaita's ontology.
+Advaita's standard framework separates three levels of reality. Private apparent errors (*pratibhasika*) include a rope mistaken for a snake. Shared empirical reality (*vyavahara*) governs bodies, physical laws, ethics, and scripture. Absolute truth (*paramartha*) is Brahman alone. Discrimination (*viveka*) between the real and the unreal is defined as the firm conviction that Brahman alone is real and the universe unreal (VC, v. 20); at the deepest level the individual soul is itself, directly, the Supreme Brahman, and nothing else (VC, v. 216).
 
-> **"A firm conviction of the mind to the effect that Brahman is real and the universe unreal, is designated as discrimination (Viveka) between the Real and the unreal."**
-> - VC, v. 20
-
-> **"The individual soul is itself and directly the Supreme Brahman, and nothing else."**
-> - VC, v. 216
+The *mithya* doctrine and this three-tier framework are related but distinct tools, and the study keeps them apart. *Mithya* names the world's dependent ontological status; the three tiers (*pratibhasika*, *vyavahara*, *paramartha*) name the levels at which that status is assessed. Both are needed to read Advaita's ontology.
 
 | Level | What exists? | Status of world / error |
 |---|---|---|
@@ -410,23 +386,17 @@ Advaita's standard framework separates three levels of reality. Private apparent
 | Empirical (*vyavahara*) | Bodies, minds, Ishvara, causes, duties, scriptures, science | Shared, law-governed; operationally valid; sublated only by *brahma-jnana* |
 | Absolute (*paramartha*) | Brahman alone | World is *mithya*, dependent appearance |
 
-At *vyavahara*, the world is not unreal in the way a hallucination is; it is unreal relative to Brahman — like a dream relative to waking. The world is not sheer nothing, nor absolutely real; it is *mithya* — dependent appearance. Later Advaita systematises this as *anirvacaniya* ("indescribable" as either absolutely real or sheer nothing); Shankara uses "neither sat nor asat" language without that compound (Editorial Notes). That status matters when comparing Advaita's ethics and science with Madhyasth Darshan's perpetual world (§2.9, §6.3).
+At *vyavahara*, the world is not unreal in the way a hallucination is; it is unreal relative to Brahman — like a dream relative to waking. The world is not sheer nothing, nor absolutely real; it is *mithya* — dependent appearance.
 
-### 2.4 Maya, adhyasa, and causal doctrine
+Later Advaita systematises this status as *anirvacaniya* — indescribable as either absolutely real or sheer nothing. Shankara himself uses "neither *sat* nor *asat*" language without that compound; *sad-asad-anirvacaniya* is a post-Shankara systematic term from the Vimuktatman and Vivarana school. That status matters when comparing Advaita's ethics and science with Madhyasth Darshan's perpetual world (§2.9, §6.3).
 
-The multiplicity of the world rests on Brahman through superimposition (*adhyasa*) — like a snake seen on a rope. Cosmic Maya conceals Brahman's true nature (*avarana*) and projects the diversity of name-form (*vikshepa*). VC vv. 243–244 distinguish Maya (cosmic, Ishvara's superimposition) from Avidya (individual, the jiva's superimposition of body-mind on the Self). These are the structural concepts Madhyasth Darshan does not map to saturation (§5.7).
+### 2.4 Maya, *adhyasa*, and causal doctrine
 
-Advaita inherits satkaryavada from its Samkhya background: the effect pre-exists in the cause. The Chandogya clay teaching states the pattern:
+The multiplicity of the world rests on Brahman through superimposition (*adhyasa*) — like a snake seen on a rope. Cosmic Maya conceals Brahman's true nature (*avarana*) and projects the diversity of name-form (*vikshepa*). Avidya is the individual counterpart: not the cosmic power itself, but the jiva's own superimposition of body and mind on the Self. VC vv. 243–244 distinguish the two — Maya as Ishvara's superimposition, Avidya as the jiva's. These are the structural concepts Madhyasth Darshan does not map to saturation (§5.7).
 
-> **"My dear, as by the knowledge of one lump of clay alone all things made of clay are known — for all transformation has speech as its basis, it being name, while clay alone is real — so, my dear, is this knowledge."**
-> - CU 6.1.4
+Advaita inherits *satkaryavada* from its Samkhya background: the effect pre-exists in the cause. The Chandogya's clay teaching states the pattern directly: through knowledge of one lump of clay, all things made of clay are known, since every transformation is a matter of speech and name while clay alone is real (CU 6.1.4). The *Vivekachudamani* compresses the same point: modifications of clay, such as the jar, are always accepted by the mind as real, yet in reality are nothing but clay; likewise this entire universe, produced from the real Brahman, is Brahman itself and nothing but that (VC, v. 251).
 
-The *Vivekachudamani* compresses the same point:
-
-> **"All modifications of clay, such as the jar, which are always accepted by the mind as real, are (in reality) nothing but clay. Similarly, this entire universe which is produced from the real Brahman, is Brahman Itself and nothing but That."**
-> - VC, v. 251
-
-At the empirical level, creation is vivartavada — apparent transformation of name-form on changeless Brahman. Brahman does not change; multiplicity is projected through Maya. The effect is not a real transformation of the cause. Creation is therefore not production from nothing; it is manifestation of names and forms on the basis of Brahman. Comparative causal doctrine across traditions is tabulated in §5.4.
+At the empirical level, creation is *vivartavada* — apparent transformation of name-form on changeless Brahman. Brahman does not change; multiplicity is projected through Maya. The effect is not a real transformation of the cause. Creation is therefore not production from nothing; it is manifestation of names and forms on the basis of Brahman. Comparative causal doctrine across traditions is tabulated in §5.4.
 
 The stock error of mistaking a rope for a snake illustrates Advaita's theory of error (*khyativada*): the snake is neither real (it vanishes on knowledge) nor utterly unreal (it was genuinely experienced), but a projection on a real substrate — the same structure Maya writ large applies to the world until Brahman is known. Madhyasth Darshan treats error as removable misidentification within a fully real world, not an indescribable appearance over a sole reality (§5.7).
 
@@ -434,10 +404,7 @@ The stock error of mistaking a rope for a snake illustrates Advaita's theory of 
 
 Because Advaita uses a three-tier framework, it posits several categories structurally necessary to explain the empirical world, even if they are ultimately sublated at the absolute level. These are the specific concepts compared against Madhyasth Darshan in §5.
 
-Brahman is the sole absolute reality (*paramartha*) — pure, actionless awareness. Ishvara (Saguna Brahman) is Brahman associated with *Maya*, functioning as operative cause of name-form manifestation — not a creator *ex nihilo*. Ishvara is a *vyavahara*-level category sublated at *paramartha* (VC, v. 244):
-
-> **"These two are the superimpositions of Ishwara and the Jiva respectively, and when these are perfectly eliminated, there is neither Ishwara nor Jiva."**
-> - VC, v. 244
+Brahman is the sole absolute reality (*paramartha*) — pure, actionless awareness. Ishvara (Saguna Brahman) is Brahman associated with *Maya*, functioning as operative cause of name-form manifestation — not a creator *ex nihilo*. Ishvara is a *vyavahara*-level category, sublated at *paramartha*: Ishvara and jiva are themselves superimpositions — cosmic and individual respectively — and when these are perfectly eliminated, neither Ishvara nor jiva remains (VC, v. 244).
 
 Jivatman (*jiva*) is the individual embodied soul — the true Self (*Atman*) conditioned by *upadhis* (limiting adjuncts such as body and mind), appearing as separate until realisation. Advaita's *Pancha Kosha* (five sheaths) language shares Upanishadic vocabulary with Madhyasth Darshan's order-and-plane exposition, but the two five-fold structures do not match one-to-one (§5.7.2); here the point is only that empirical individuality is conditioned, not that layers are discarded as unreal equipment.
 
@@ -449,13 +416,9 @@ Jagat (*nama-roopa*) is the physical universe of names and forms — operational
 
 The *Drig-Drishya-Viveka* (DDV) offers a rigorous seer-seen (*drig-drishya*) discrimination: whatever can be observed — body, sensations, thoughts — is "seen" and therefore not the seer (DDV, vv. 1–5). What remains is *Sakshin*, witness-consciousness — irreducible to matter and closer to Advaita's first-person route against physicalism than devotional VC passages alone (see §3.2, §5.6, §6.3).
 
-> **"This body, O son of Kunti, is called the field; he who knows it is called the knower of the field."**
-> - BG, 13.1
+The Gita names this directly: the body is the field, and the one who knows it is the knower of the field; that same knower of the field in every field, it adds, is also the knowledge of the field itself (BG 13.1–13.2). In the *Mandukya* analysis, *turiya* — the fourth, witness beyond waking, dream, and deep sleep — plays the same structural role: not another state among states, but the awareness in which states appear (MU, vv. 3–7; §2.2).
 
-> **"Know also that I am the Knower of the field in all fields, and the knowledge of the field also am I."**
-> - BG, 13.2
-
-In the *Mandukya* analysis, *turiya* — the fourth, witness beyond waking, dream, and deep sleep — plays the same structural role: not another state among states, but the awareness in which states appear (MU, vv. 3–7; §2.2). At liberation, that witness is discovered as non-personal Brahman — one partless awareness without a second. Madhyasth Darshan agrees that the seer is not the seen body or brain-state, but locates the irreducible knower in immortal *jeevan* with active *gyan udghatan* (§1.7), not in a universal Self that finally absorbs all individuality (§5.6).
+At liberation, that witness is discovered as non-personal Brahman — one partless awareness without a second. Madhyasth Darshan agrees that the seer is not the seen body or brain-state, but locates the irreducible knower in immortal *jeevan* with active *gyan udghatan* (§1.7), not in a universal Self that finally absorbs all individuality (§5.6).
 
 ### 2.7 Conservation, origination, and temporality
 
@@ -467,24 +430,17 @@ The *Mandukya* analysis of waking, dream, and deep sleep (§2.2) is a first-pers
 
 ### 2.8 Liberation and the knowledge path
 
-Liberation (*moksha*) is not dissolution or merger of a real individual into Brahman. The jiva was never a separate entity; realisation is recognition of pre-existing identity with Brahman, in which the illusion of separate individuality is dispelled. The classical identity formula is *tat tvam asi* — "That thou art" (CU 6.8.7, with Śaṅkara's bhāṣya); BS 1.1.2 treats the same doctrine systematically. VC compresses the pedagogy:
+Liberation (*moksha*) is not dissolution or merger of a real individual into Brahman. The jiva was never a separate entity; realisation is recognition of pre-existing identity with Brahman, in which the illusion of separate individuality is dispelled. The classical identity formula is *tat tvam asi* — "That thou art" (CU 6.8.7, with Śaṅkara's bhāṣya); BS 1.1.2 treats the same doctrine systematically. The *Vivekachudamani* compresses the pedagogy into its most direct statement: at the ultimate truth there is neither death nor birth, neither a bound nor a struggling soul, neither a seeker after liberation nor a liberated one (VC, v. 574) — for the Supreme Brahman is, like the sky, pure, absolute, infinite, motionless, and changeless, without interior or exterior: the one Existence, without a second, and one's own Self (VC, v. 393).
 
-> **"There is neither death nor birth, neither a bound nor a struggling soul, neither a seeker after Liberation nor a liberated one – this is the ultimate truth."**
-> - VC, v. 574
+Advaita inherits the classical analysis of valid knowledge (*pramana*). For the supreme truth of non-duality, verbal testimony (*shabda*) — the revealed word of the Upanishads, processed through reasoning and meditation — is finally competent; perception and inference operate within the subject-object duality to be transcended.
 
-> **"The Supreme Brahman is, like the sky, pure, absolute, infinite, motionless and changeless, devoid of interior or exterior, the One Existence, without a second, and one's own Self."**
-> - VC, v. 393
-
-Advaita inherits the classical analysis of valid knowledge (*pramana*). For the supreme truth of non-duality, verbal testimony (*shabda*) — the revealed word of the Upanishads, processed through reasoning and meditation — is finally competent; perception and inference operate within the subject-object duality to be transcended. The supreme path is classically threefold: hearing the scriptures (*shravana*), reasoning over them (*manana*), and sustained meditation (*nididhyasana*), under a qualified teacher. First-person discrimination (*drig-drishya-viveka*, DDV) complements scripture by negating everything that presents itself as an object until only witnessing awareness remains. Full epistemological comparison: [*Knowledge, Knower, and Known*](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §2.
+The supreme path is classically threefold: hearing the scriptures (*shravana*), reasoning over them (*manana*), and sustained meditation (*nididhyasana*), under a qualified teacher. First-person discrimination (*drig-drishya-viveka*, DDV) complements scripture by negating everything that presents itself as an object until only witnessing awareness remains. Full epistemological comparison: [*Knowledge, Knower, and Known*](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §2.
 
 Shankara's *Vivekachudamani* insists on ethical discipline as prerequisite to knowledge (VC, vv. 17–19). Ethics at *vyavahara* is developed as the section capstone in §2.9.
 
 ### 2.9 Ethics, *loka-sangraha*, and what realisation evidences
 
-Advaita's charge that the world is *mithya* at *paramartha* does not make ethics untenable at the level where life is actually lived. At *vyavahara*, ethics and compassion remain fully valid; realisation of non-duality deepens rather than weakens them. The Bhagavad Gita, in Shankara's commentary, grounds social responsibility in *loka-sangraha* — holding the world together — and ordained duty:
-
-> **"Perform your bounden duty, for action is superior to inaction."**
-> - BG, 3.8 (Shankara's commentary: *niyatam kuru karma*; the enlightened still act for the welfare of the world)
+Advaita's charge that the world is *mithya* at *paramartha* does not make ethics untenable at the level where life is actually lived. At *vyavahara*, ethics and compassion remain fully valid; realisation of non-duality deepens rather than weakens them. The Bhagavad Gita, in Shankara's commentary, grounds social responsibility in *loka-sangraha* — holding the world together — and ordained duty: perform your bounden duty, for action is superior to inaction (BG 3.8; Shankara's commentary reads this as *niyatam kuru karma* — even the enlightened continue to act for the welfare of the world).
 
 What Advaita provisions at the empirical order must be distinguished from what realisation evidences at *paramartha*. Ethics, scripture, causal law, and compassionate action prepare the mind for *brahma-jnana*; they are binding where humans actually live. None of this guarantees that the world retains final ontological weight at the highest truth — that dispute is with Madhyasth Darshan's *jagat satat* (§1.14, §5.7).
 
@@ -497,6 +453,21 @@ What Advaita provisions at the empirical order must be distinguished from what r
 | Time and change | Past, present, future, birth and death operationally valid | Sublated when timeless Self is known |
 
 Realisation evidences identity with Brahman — the dispelled illusion of separate individuality, not Madhyasth Darshan's four outcomes of resolution, prosperity, fearlessness, and coexistence (§1.15). The enlightened still act for world-welfare at *vyavahara*; what changes at *paramartha* is ontological status, not the possibility of ethical living. Madhyasth Darshan's counter-reply — that robust ethics and beginningless *vyavahara* do not settle final world-realness — is developed in §6.3.
+
+### 2.10 Method, evidence, and what Advaita establishes
+
+Advaita Vedanta answers the study's framing questions as follows:
+
+| Question | Advaita Vedanta answer | Section |
+|---|---|---|
+| What is existence? | Brahman alone — being, consciousness, bliss, one without a second | §§2.1–2.2 |
+| What exists? | Brahman absolutely; *jiva*, Ishvara, and *jagat* real only at *vyavahara* | §§2.3, 2.5 |
+| Does it begin? | Brahman does not begin; name-form originates at *vyavahara* within beginningless cosmology | §2.7 |
+| Does the self begin? | *Jivatman* is *vyavahara*-level conditioning; the true Self was never born and never separate | §§2.6, 2.8 |
+| Is the world real? | Operationally real at *vyavahara*; *mithya* — dependent appearance — at *paramartha* | §§2.3–2.4 |
+| How do we know? | Scripture (*shabda*), reasoning, and contemplative discrimination — *shravana*, *manana*, *nididhyasana* | §2.8 |
+
+Advaita establishes a rigorous non-dual ontology and a disciplined first-person method for discriminating seer from seen. What it does not establish, on Madhyasth Darshan's reading, is that the world's robustness at *vyavahara* settles its status at the highest truth — that dispute is carried forward in §6.3.
 
 ## 3. Modern Philosophical Approaches
 
@@ -1183,7 +1154,7 @@ This study cites the *Vivekachudamani* (VC) heavily for accessible verse formula
 
 ### Section 2
 
-Verse and section numbers follow standard numbering and apply to any faithful edition (e.g. Swami Gambhirananda's or Swami Madhavananda's translations, Advaita Ashrama).
+Verse and section numbers follow standard numbering and apply to any faithful edition (e.g. Swami Gambhirananda's or Swami Madhavananda's translations, Advaita Ashrama). Exact wording of every verse and passage paraphrased in §2's body is preserved below, organised by subsection.
 
 - **CU** — [*Chandogya Upanishad*](../References/Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf). Cited: §§2.1–2.4, 2.8 (CU 6.2.1–6.2.2, Shankara commentary, 6.1.4, 6.8.7 with Śaṅkara's bhāṣya).
 - **TU** — [*Taittiriya Upanishad*](../References/Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf). Cited: §2.2 (TU 2.1.1, 2.5).
@@ -1193,6 +1164,17 @@ Verse and section numbers follow standard numbering and apply to any faithful ed
 - **DDV** — [*Drig-Drishya-Viveka*](../References/Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf) (attributed to Shankara or Bharati Tirtha). Cited: §§2.6, 2.8 (vv. 1–5).
 - **BS** — [*Brahma Sutra Bhashya*](../References/Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf) (Shankara; Swami Gambhirananda). Cited: §2.8 (BS 1.1.2).
 - **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Also at https://www.youtube.com/playlist?list=PL69PCoz1OQW0dhshZ0Xv3KtZ7ajJOIpgv (bilingual Hindi and English). Cited: §2.7 (*trikaalabadh* coexistence claim, p. 48).
+
+- **§2.1.** Foundational claim: "In the beginning this was Existence alone, One only, without a second." (CU 6.2.1). Shankara's gloss on *sat*: "mere Existence, a thing that is subtle, without distinction, all pervasive, one, taintless, partless, consciousness" (CU 6.2.1, Shankara commentary). Rejection of origination from non-existence: "By what logic can existence verily come out of non-existence? But surely, o good looking one, in the beginning all this was Existence, One only, without a second." (CU 6.2.2). *Paramatman* sublated together with Ishvara and jiva: VC, v. 244 (quoted under §2.5 below).
+- **§2.2.** Sat-Chit-Ananda: "Brahman is Truth, Knowledge, and Infinity." (TU 2.1.1); *anandamaya* sheath leading beyond bliss: TU 2.5. Mature formula: "By that alone he comes to know his own Self as Existence-Knowledge-Bliss Absolute and becomes happy." (VC, v. 152). Fuller statement: "That which clearly manifests Itself in the states of wakefulness, dream and profound sleep; which is inwardly perceived in the mind in various forms as an unbroken series of egoistic impressions; which witnesses the egoism, the Buddhi, etc., which are of diverse forms and modifications; and which makes Itself felt as the Existence-Knowledge-Bliss Absolute; know thou this Atman, thy own Self, within thy heart." (VC, v. 217). Three states and *turiya*: MU, vv. 3–7.
+- **§2.3.** Discrimination: "A firm conviction of the mind to the effect that Brahman is real and the universe unreal, is designated as discrimination (Viveka) between the Real and the unreal." (VC, v. 20). Identity of soul and Brahman: "The individual soul is itself and directly the Supreme Brahman, and nothing else." (VC, v. 216). *Anirvacaniya* as a post-Shankara systematic term (Vimuktatman, Vivarana school); Shankara's own usage is "neither *sat* nor *asat*" without that compound.
+- **§2.4.** Maya/Avidya distinction: VC, vv. 243–244. Clay teaching: "My dear, as by the knowledge of one lump of clay alone all things made of clay are known — for all transformation has speech as its basis, it being name, while clay alone is real — so, my dear, is this knowledge." (CU 6.1.4). Compressed restatement: "All modifications of clay, such as the jar, which are always accepted by the mind as real, are (in reality) nothing but clay. Similarly, this entire universe which is produced from the real Brahman, is Brahman Itself and nothing but That." (VC, v. 251).
+- **§2.5.** Ishvara/jiva superimposition: "These two are the superimpositions of Ishwara and the Jiva respectively, and when these are perfectly eliminated, there is neither Ishwara nor Jiva." (VC, v. 244). *Pancha Kosha* sheath language shares Upanishadic vocabulary with §§1.7, 1.9 (§5.7.2).
+- **§2.6.** Seer-seen discrimination: DDV, vv. 1–5. Field and knower: "This body, O son of Kunti, is called the field; he who knows it is called the knower of the field." (BG 13.1); "Know also that I am the Knower of the field in all fields, and the knowledge of the field also am I." (BG 13.2). *Turiya*: MU, vv. 3–7.
+- **§2.7.** Beginninglessness of Brahman: VC, v. 393. *Trikaalabadh* coexistence claim for comparison: SB, p. 48 (full treatment in *Nature of Time*).
+- **§2.8.** *Tat tvam asi*: CU 6.8.7, with Śaṅkara's bhāṣya; BS 1.1.2. Ultimate truth: "There is neither death nor birth, neither a bound nor a struggling soul, neither a seeker after Liberation nor a liberated one – this is the ultimate truth." (VC, v. 574). Nature of Brahman: "The Supreme Brahman is, like the sky, pure, absolute, infinite, motionless and changeless, devoid of interior or exterior, the One Existence, without a second, and one's own Self." (VC, v. 393). *Pramana* and the threefold path (*shravana*, *manana*, *nididhyasana*): classical Advaita epistemology, developed further in [*Knowledge, Knower, and Known*](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §2. Ethical discipline as prerequisite to knowledge: VC, vv. 17–19.
+- **§2.9.** *Loka-sangraha* and ordained duty: "Perform your bounden duty, for action is superior to inaction." (BG, 3.8; Shankara's commentary: *niyatam kuru karma*; the enlightened still act for the welfare of the world).
+- **§2.10.** Summary table draws on the references above; no new sources cited.
 
 ### Section 3
 
