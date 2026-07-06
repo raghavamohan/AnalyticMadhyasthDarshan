@@ -1,5 +1,9 @@
 name: Study PR
 
+# Do not trigger on pull_request edited — body/checklist edits must not rerun
+# the full PDF pipeline (Puppeteer). Use synchronize (new commits) or labeled
+# (first application of new-study / study-update / status-change).
+
 on:
   pull_request:
     types:
@@ -7,7 +11,6 @@ on:
       - synchronize
       - reopened
       - labeled
-      - edited
 
 permissions:
   contents: write
