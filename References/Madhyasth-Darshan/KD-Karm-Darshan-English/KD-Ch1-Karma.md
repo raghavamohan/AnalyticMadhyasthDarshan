@@ -155,9 +155,9 @@ The immersion in, upholding of, and evaluation of cultural values is itself the 
 
 It is the *sanskar* contained within the human being that expresses his disposition. Human culture originates only in company with wholesome-*sanskar*-purity. This will keep remaining pure in *sanskar* only until it becomes complete.
 
-The evident form of the completeness of *sanskar* is itself humaneness, supra-humaneness-replete disposition.
+The evident form of the completeness of *sanskar* is itself the humane, supra-humane disposition.
 
-The evident form of the accomplishment of wholesome culture is humaneness-replete disposition.
+The evident form of the accomplishment of wholesome culture is humane disposition.
 
 The evident form of a corrupted culture is itself inhumaneness.
 
@@ -167,13 +167,13 @@ Culture full of sociality becomes clear through humaneness. It is precisely for 
 
 These are mutually complementary, because civilisation nourishes culture, method nourishes civilisation, orderliness nourishes method, and culture nourishes orderliness.
 
-In awakened tradition, the humaneness-replete cultural programme is nothing but the display of *sanskars*, because in awakened tradition there is no human being devoid of *sanskar*. Whereas deluded human traditions are reckoned in the form of communities [factions]. This itself is the cause of the whole problem. Problems are not evidence of *sanskar*, because all problems do indeed get resolved.
+In awakened tradition, the humane cultural programme is nothing but the display of *sanskars*, because in awakened tradition there is no human being devoid of *sanskar*. Whereas deluded human traditions are reckoned in the form of communities [factions]. This itself is the cause of the whole problem. Problems are not evidence of *sanskar*, because all problems do indeed get resolved.
 
 Visualisation and thought reveal, respectively, art and usefulness.
 
 Thought remaining bound to wholesome *sanskar* is itself awakening.
 
-Humaneness-replete *sanskar* is itself the indicator of universal culture. Below this — that is, for inhumane tendencies — becoming universal is simply not possible.
+Humane *sanskar* is itself the indicator of universal culture. Below this — that is, for inhumane tendencies — becoming universal is simply not possible.
 
 It is only from the observance of social rules that healthy, universal culture and civilisation arise. As a result, the wholeness of society and its unbrokenness are established.
 
@@ -191,9 +191,9 @@ The human being, through animal consciousness, gives rise to many problems. The 
 
 Without the study of good scripture there is no true aspiration and tendency; without true aspiration, no true love; without true love, no true fidelity; without true fidelity, no true establishment; without true establishment, no true conviction; without true conviction, no true realisation; without true realisation, no unveiling of good scripture; and without the unveiling of good scripture, the study of good scripture is neither complete nor meaningful.
 
-It is only in true conviction and experiencing that fidelity is found in humaneness-replete conduct and just behaviour.
+It is only in true conviction and experiencing that fidelity is found in humane conduct and just behaviour.
 
-Without humaneness-replete conduct and just behaviour, just exchange and just benefit in mutuality are not possible.
+Without humane conduct and just behaviour, just exchange and just benefit in mutuality are not possible.
 
 Just exchange and benefit are themselves prosperity.
 
@@ -207,7 +207,7 @@ The human being is inclined toward true knowledge, toward study fit for the visi
 
 [p. 11]
 
-In humaneness, or in the humaneness-replete, every programme is method and orderliness. Its conduct is itself civilisation, and the observance of that tradition is itself culture.
+In the humane, or in humaneness, every programme is method and orderliness. Its conduct is itself civilisation, and the observance of that tradition is itself culture.
 
 In the human being, sorrow, disquiet, discontent — this itself is duality, and this itself is also the result of duality.
 
@@ -338,7 +338,7 @@ Practical values become meaningful in the sense of humaneness. It is on this bas
 
 Conduct and observance carried out in the human being's natural mutuality are meaningful by the method of coexistence, and are meaningless, and a problem, by the method of non-coexistence.
 
-The evident form of actual knowledge-capacity is itself humaneness-replete conduct.
+The evident form of actual knowledge-capacity is itself humane conduct.
 
 The capacity to understand is itself the natural unveiling of knowledge in mutuality.
 
@@ -368,19 +368,19 @@ For this very reason all humankind is equal in capacity.
 
 [p. 18]
 
-For the refinement of ideational capacity, the true path and auspicious yoga-practice are well known. It is precisely qualitative change, through consciousness-development-value education, in *sanskar*, that is universally auspicious. Again, this itself is ideational capacity. This sequence is a complete orderliness right up until it is accomplished through humaneness- and supra-humaneness-replete conduct. It is successful through the observance, adherence, and cultivation of the "triad of rule"; otherwise it is unsuccessful.
+For the refinement of ideational capacity, the true path and auspicious yoga-practice are well known. It is precisely qualitative change, through consciousness-development-value education, in *sanskar*, that is universally auspicious. Again, this itself is ideational capacity. This sequence is a complete orderliness right up until it is accomplished through humane and supra-humane conduct. It is successful through the observance, adherence, and cultivation of the "triad of rule"; otherwise it is unsuccessful.
 
 Union-worthy practice — the practice of meeting/union. After union, acceptance is to be seen in the form of jeevan-awakening, and deviation in the form of inhumaneness.
 
-Every human being is engaged in effort toward enlightenment. The evident form of enlightenment is itself humaneness-replete conduct. Humaneness and supra-humaneness are themselves glory attained with orderliness, complete.
+Every human being is engaged in effort toward enlightenment. The evident form of enlightenment is itself humane conduct. Humaneness and supra-humaneness are themselves glory attained with orderliness, complete.
 
 The programme of jeevan is itself karma. This itself is conduct.
 
-Conduct for prosperity, art, and comprehension is found in the humaneness-replete human being.
+Conduct for prosperity, art, and comprehension is found in the humane human being.
 
-Conduct for true comprehension and naturalness is evident in the human being replete with humaneness and divine humaneness, which is their disposition.
+Conduct for true comprehension and naturalness is evident in the humane and divine-humane human being, which is their disposition.
 
-For the human being, conduct replete with humaneness and supra-humaneness alone is utterly useful and necessary.
+For the human being, humane and supra-humane conduct alone is utterly useful and necessary.
 
 The human being's five states are mutually complementary. Their unified-threading is itself undivided sociality. This comes from the observance of the "triad of rule" being universal to all.
 
@@ -502,7 +502,7 @@ The awakened human being places trust in the seeker, and the seeker remains disc
 
 It is in human jeevan alone that the particularities connected with the gross, the subtle, and the causal are to be seen. In these three conditions, it is happiness, peace, contentment, and joy alone that are expected.
 
-The human being's gross life is in expectation of happiness and peace; the subtle life, in expectation of peace and contentment; and the causal life is in anticipation of joy and supreme joy — for which this awakening is the natural evidence. It is precisely the all-round programme in accordance with this that is awakening. This itself is also the physical, intellectual, and spiritual attainments. This has become successful only through a programme replete with humaneness and supra-humaneness.
+The human being's gross life is in expectation of happiness and peace; the subtle life, in expectation of peace and contentment; and the causal life is in anticipation of joy and supreme joy — for which this awakening is the natural evidence. It is precisely the all-round programme in accordance with this that is awakening. This itself is also the physical, intellectual, and spiritual attainments. This has become successful only through a humane and supra-humane programme.
 
 The deployment and disposal of the powers found in material-conscious nature lie only in origination, potency, and dissolution. In a perspective beyond this there is no disposal or deployment of property.
 
@@ -582,7 +582,7 @@ In progress toward development there is the experience of enthusiasm, delight, a
 
 Upward-facing science is engrossed in the work of potency through pure *rajoguna* and together with *sattvaguna*, which is the actual fulfilment of science. Along with this, opposite to it, in science, there is science engrossed in destruction and over-indulgence through tainted *rajoguna* and together with *tamoguna*, which is the indicator of the complete misuse of science.
 
-It is the humaneness-replete human being, and awakening-fullness beyond this, that is reckoned in upward-facing life, in which fundamental valuableness such as compassion, simplicity, sacrifice, austerity, benevolence, truth, non-violence, non-stealing, non-possession, and dignity is conducted. This itself is auspicious for self and other.
+It is the humane human being, and awakening-fullness beyond this, that is reckoned in upward-facing life, in which fundamental valuableness such as compassion, simplicity, sacrifice, austerity, benevolence, truth, non-violence, non-stealing, non-possession, and dignity is conducted. This itself is auspicious for self and other.
 
 [p. 29]
 
