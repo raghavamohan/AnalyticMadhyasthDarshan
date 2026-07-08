@@ -1,0 +1,1 @@
+This folder contains all the studies I have been working on to understand Madhyasth Darshan philosophy. Individual studies I am working on are in Studies directory or Applications directory. Reference sections have all the references I am using. The primary source texts on Madhyasth Darshan are in References directory, and are translations by Rakesh Gupta from Hindi.
