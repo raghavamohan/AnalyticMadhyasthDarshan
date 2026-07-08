@@ -166,7 +166,7 @@ const outputPath = args[2]
   const browser = await puppeteer.launch(puppeteerLaunchOptions(executablePath));
   const page = await browser.newPage();
 
-  await page.goto('file:///' + inputPath.replace(/\\/g, '/'), { waitUntil: 'networkidle0' });
+  await page.goto('file:///' + inputPath.replace(/\\/g, '/'), { waitUntil: 'load' });
 
   await renderMermaidDiagrams(page);
 
