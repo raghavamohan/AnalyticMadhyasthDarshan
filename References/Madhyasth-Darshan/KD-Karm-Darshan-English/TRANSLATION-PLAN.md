@@ -14,7 +14,7 @@ throughout.
 
 | Chapter | Hindi | Printed pp. | Status |
 |---|---|---|---|
-| — | Front matter (title page, author's declaration, "मध्यस्थ दर्शन के मूल तत्व" outline, प्राक्कथन preface, अनुक्रमणिका TOC) | pdf 1–25 (~21 content pages) | Not translated |
+| — | Front matter (title page, author's declaration, "मध्यस्थ दर्शन के मूल तत्व" outline, प्राक्कथन preface, अनुक्रमणिका TOC) | pdf 1–25 (~21 content pages) | **Done** — `KD-Front-Matter.md` (मूल तत्व reuses MVD English) |
 | 1 | कर्म (Karma) | 1–29 | **Done** — `KD-Ch1-Karma.md` |
 | 2 | उपासना (Upasana / Worship) | 30–49 | **Done** — `KD-Ch2-Upasana.md` (corrected range: pp.50–52 are not chapter 2 — p.50 is blank, pp.51–52 are chapter 3's title page and detailed sub-TOC) |
 | 3.1–3.3 | Atomic Structure & Molecular Composition; Development Progression; Development in the Atom | 53–63 | **Done** — `KD-3.1-3.3-Atomic-Structure-and-Development.md` |
@@ -26,8 +26,8 @@ throughout.
 | 3.16–3.18 | प्राणावस्था, मानव शरीर और जीवन के संयुक्त रूप में मानव; ज्ञान, ज्ञाता, ज्ञेय (Knowledge, Knower, Known); दृष्टा, कर्त्ता, भोक्ता (Seer, Doer, Enjoyer) | 135–153 | **Done** — `KD-3.16-3.18-Life-State-Knower-Seer-Doer.md` |
 
 **Chapter 3 (pp. 53–153) is fully translated across 7 files, chapter 1 (pp. 1–29) is done as its
-own file, and chapter 2 (pp. 30–49) is done as its own file.** Done: ~148 printed pages (9
-files). Remaining: front matter only (~21pp).
+own file, chapter 2 (pp. 30–49) is done as its own file, and front matter (PDF pp. 1–25) is done
+in `KD-Front-Matter.md`.** Done: entire book content (~169 PDF pages, 10 files). Remaining: none.
 
 Note: chapter 2's actual content ends at printed p.49, not p.52 as originally estimated below —
 p.50 is blank and pp.51–52 are chapter 3's own title page and detailed sub-table-of-contents
@@ -74,6 +74,30 @@ page-by-page against the source images), `KD-Ch2-Upasana.md` (7 + 4 + 1), `KD-3.
 citations, and the excluded senses are in `KD-Glossary-Additions.md` (see the दर्शन,
 मानवीयतापूर्ण, and जीवन ज्ञान rows).
 
+## Terminology remediation (2026-07-08)
+
+After the initial दर्शन / मानवीयतापूर्ण / जीवन ज्ञान sweep, a second pass aligned remaining systematic drift with MVD/SB:
+
+1. **परिणाम / फल → "result"** — reverted the interim "consequence" split; श्रम-गति-परिणाम → **Effort – Motion – Result** everywhere (MVD/SB title-page Principle). Both bare परिणाम and फल render as "result"; फल-परिणाम compounds collapse to "result." Idiomatic "as a result of" unchanged. Script: `Scripts/_kd_remediate_parinam.py` (plus manual fixes for `consequence-*` compounds and the last `fruit` instance in KD 3.11).
+
+2. **संचेतना → "awareness"** — grep audit for "human consciousness": KD 3.4 p.69 (मानव संचेतना) corrected to "human awareness"; KD 2 and KD 3.9 kept "human consciousness" where Hindi is मानव चेतना.
+
+3. **Incomplete -replete sweep** — Ch1 `humaneness-replete` / `truthfulness-replete` fixed to "humane conduct" and "conduct full of truthfulness"; KD 3.9 knowledge-filled work-behaviour compression applied.
+
+4. **स्वयं स्फूर्त in KD 3.7–3.8** — all four former "self-inspired" instances (pp. 76, 77, 81, 87) verified as स्वयं स्फूर्त → "self-motivated" (distinct from स्वयं प्रेरित = "self-inspired," not found in 3.7–3.8).
+
+**Grep checklist** (run after each batch; expect zero except noted exceptions):
+
+```
+consequence          # bare परिणाम — zero
+fruit                # bare फल — zero (फलन=fruition OK)
+humaneness-replete   # zero
+jeevan knowledge     # zero
+self-inspired        # zero in 3.7–3.8; SB term elsewhere OK
+human consciousness  # only where Hindi is चेतना, not संचेतना
+Effort.*Consequence  # zero — use Result
+```
+
 ## Proposed batches and order
 
 Same granularity as the existing files (topic-coherent chunks, each its own `.md`). Suggested
@@ -84,11 +108,7 @@ order, front-loading the highest-value/lowest-risk work:
    आवश्यकता, वेदना, संस्कार, काम, अर्थ, अभीष्ट) were reused rather than re-decided; see
    `KD-Glossary-Additions.md` for chapter 2's own new terms (उपासना, विवेक, नश्वरत्व,
    कूटस्थ/रूपस्थ/आत्मस्थ, देवात्मा/भूतात्मा/दिव्यात्मा, and others).
-2. **Front matter** last (~21pp) — paratext rather than argument, lowest priority for a working
-   translation, but needed for completeness. Note: `MVD-Madhyasth-Darshan-Coexistentialism.pdf`
-   already contains a published English rendering of the "मध्यस्थ दर्शन के मूल तत्व" section
-   (it's reproduced verbatim there, item-numbered, starting MVD p.11) — reuse/cross-check against
-   that instead of translating it cold.
+2. ~~**Front matter** last (~21pp)~~ **Done** — `KD-Front-Matter.md` (PDF pp. 1–25). The "मध्यस्थ दर्शन के मूल तत्व" section reuses Rakesh Gupta's published English from MVD (item-numbered, MVD pp. 11–19); remaining front matter translated from page images with glossary conventions applied.
 
 ## Methodology (unchanged from the existing 8 files)
 
@@ -177,7 +197,11 @@ not work. For each batch:
   rendering or MD-Mapping's row alone — this is how the दर्शन / मानवीयतापूर्ण / जीवन ज्ञान errors
   were caught (see "Systematic errors found and corrected" above). Do this check *before* the
   batch is marked done, not as an afterthought.
-- Grep the newly-translated file for the three already-known error patterns as a final check:
+- Grep the newly-translated file for the known error patterns as a final check:
   "darshan" (should only remain as the "Madhyasth Darshan" proper noun, the दृश्य-triad, or "X का
-  दर्शन करना" → "beholds"), "replete with humaneness" / "-replete" (should not exist — use "humane
-  X"), and "jeevan knowledge" (should read "knowledge of jeevan").
+  दर्शन करना" → "beholds"), "replete with humaneness" / "humaneness-replete" / "-replete" on
+  मानवीयता roots (should not exist — use "humane X"), "jeevan knowledge" (should read "knowledge of
+  jeevan"), "fruit" for bare फल (should read "result"), bare "consequence" for परिणाम (should read
+  "result"; keep idiomatic "as a result of"), "human consciousness" where Hindi is संचेतना (should
+  read "awareness"; keep "consciousness" for चेतना), and "Effort.*Motion.*Consequence" (should read
+  Effort – Motion – Result).
