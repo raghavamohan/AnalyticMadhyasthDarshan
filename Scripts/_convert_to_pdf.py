@@ -93,6 +93,33 @@ def render_latex_math(html_body: str) -> str:
     return result.stdout
 
 
+_OL_SPLIT_BY_PAGE_MARKER = re.compile(
+    r"(<ol(?:\s[^>]*)?>)(.*?)(</ol>\s*)"
+    r'(<span class="page-marker"[^>]*>\[[^\]]+\]</span>\s*)'
+    r"(<ol>)",
+    re.DOTALL,
+)
+
+
+def _continue_ordered_list_numbering(html_body: str) -> str:
+    """Set start= on <ol> blocks split only by page markers so numbering continues."""
+    while True:
+        match = _OL_SPLIT_BY_PAGE_MARKER.search(html_body)
+        if not match:
+            break
+        open_tag, content, close_ol, separator, next_open = match.groups()
+        start_match = re.search(r'\bstart="(\d+)"', open_tag)
+        start = int(start_match.group(1)) if start_match else 1
+        item_count = len(re.findall(r"<li\b", content))
+        next_start = start + item_count
+        html_body = (
+            html_body[: match.start()]
+            + f"{open_tag}{content}{close_ol}{separator}<ol start=\"{next_start}\">"
+            + html_body[match.end() :]
+        )
+    return html_body
+
+
 def convert_mermaid_blocks(html_body: str) -> str:
     """Turn fenced ```mermaid code blocks into div.mermaid for browser rendering."""
 
@@ -590,6 +617,7 @@ def convert_to_html(
         r'<span class="page-marker">[p. \1]</span>',
         html_body,
     )
+    html_body = _continue_ordered_list_numbering(html_body)
     html_body = convert_mermaid_blocks(html_body)
     html_body = rewrite_local_links_for_site(
         html_body,
@@ -622,6 +650,18 @@ def convert_to_html(
     term_tip_js = _term_tip_js() if include_web_chrome else ""
     screen_dark_css = _study_screen_dark_css() if include_web_chrome else ""
     katex_css = _load_katex_css() if has_latex_math else ""
+
+    kd_print_css = ""
+    if input_path.name == "KD-Karm-Darshan-English.md":
+        kd_print_css = """
+    body { font-size: 10.5pt; line-height: 1.45; }
+    h2 { margin: 8pt 0 4pt 0; }
+    h3 { margin: 4pt 0 1pt 0; page-break-after: avoid; break-after: avoid; }
+    h3 + p { margin: 1pt 0 2pt 0; }
+    p { margin: 2pt 0; }
+    ul, ol { margin: 1pt 0 3pt 0; padding-left: 16pt; }
+    li { margin: 0; }
+"""
 
     seo_head = ""
     if include_web_chrome:
@@ -896,7 +936,7 @@ def convert_to_html(
     }}
     pre {{ page-break-inside: avoid; white-space: pre-wrap; overflow-wrap: anywhere; word-break: break-word; }}
     blockquote {{ page-break-inside: avoid; }}
-    .page-marker {{
+{kd_print_css}    .page-marker {{
       page-break-before: always;
       break-before: page;
       visibility: hidden;
