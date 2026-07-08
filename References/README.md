@@ -4,7 +4,7 @@ Local copies of source texts cited across `Studies/`. See [MANIFEST.md](MANIFEST
 
 **What we store locally**
 
-- **Madhyasth Darshan** primary texts (MVD, SB, JV, AVD, JVD) and the MD mapping spreadsheet.
+- **Madhyasth Darshan** primary texts (MVD, SB, JV, AVD, JVD, KD Hindi source) and the MD mapping spreadsheet; working English translations of KD section 3 under `Madhyasth-Darshan/KD-Karm-Darshan-English/`.
 - **Advaita Vedanta** translations under `Advaita-Vedanta/`.
 - **Comparative philosophy, Indian aesthetics, and religious ethics** (AV, SV, SEP snapshots, rasa material) under `Comparative-Philosophy/`.
 - **Open-access science papers** (Chalmers 1995, Nagel 1974, Strawson 2006, Crockett 2013, Ashtekar and Singh 2011, Carroll 2010, Friston 2010, Guth 2007) under `Science/`.
@@ -24,7 +24,7 @@ References/
 ├── README.md
 ├── MANIFEST.md                 Citation audit: Studies tags → files or external
 ├── NOT-DOWNLOADED.md           External works with original URLs
-├── Madhyasth-Darshan/          MVD, SB, JV, AVD, JVD + MD-Mapping.xlsx
+├── Madhyasth-Darshan/          MVD, SB, JV, AVD, JVD, KD + MD-Mapping.xlsx; KD-Karm-Darshan-English/
 ├── Advaita-Vedanta/            Upanishads, Gita, BSB, prakarana texts
 ├── Comparative-Philosophy/     AV (SEP), SV (Vivekananda)
 ├── Science/                    Chalmers, Nagel, Strawson, cosmology & physics papers
@@ -68,6 +68,8 @@ Audit Studies bibliographies first: `python Scripts/_audit_references.py`. Agent
 | **AVD** | [AVD-Adhyatmvad.docx.pdf](Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf) | *Realisation Centred Spiritualism* (Adhyatmvad); English WIP translation by Sanjeev Chopra |
 | **JVD** | [JVD-Janvad.pdf](Madhyasth-Darshan/JVD-Janvad.pdf) | *Behaviour Centred Public Discourse* (Janvad); English WIP translation by Sanjeev Chopra |
 | **MD** | [MD-Mapping.xlsx](Madhyasth-Darshan/MD-Mapping.xlsx) | Chapter/page mapping spreadsheet |
+| **KD** | [KD-karm darshan v5.pdf](Madhyasth-Darshan/KD-karm%20darshan%20v5.pdf) | *Manav Karm Darshan* (Hindi, v5); cited via working translations in [KD-Karm-Darshan-English/](Madhyasth-Darshan/KD-Karm-Darshan-English/README.md) |
+| **KD-Karm-Darshan-English** | [KD-Karm-Darshan-English/](Madhyasth-Darshan/KD-Karm-Darshan-English/README.md) | Working English translation of KD section 3 (chapters 3.1–3.15 partial); not a published translation |
 
 ## Advaita-Vedanta/
 
