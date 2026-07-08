@@ -7,6 +7,7 @@ Working English translation of *Manav Karm Darshan* (v5) by Shri A. Nagaraj, pro
 | File | Chapters | Printed pages |
 | :---- | :---- | :---- |
 | `KD-Ch1-Karma.md` | Chapter 1 — कर्म (Karma) | 1–29 |
+| `KD-Ch2-Upasana.md` | Chapter 2 — उपासना (Upasana / Worship) | 30–49 |
 | `KD-3.1-3.3-Atomic-Structure-and-Development.md` | 3.1 Atomic Structure & Molecular Composition; 3.2 Development Progression; 3.3 Development in the Atom | 53–63 |
 | `KD-3.4-3.6-Mental-Wellbeing-Coexistence-Stability.md` | 3.4 Nature of Mental Well-Being; 3.5 Coexistence Is Stable, Development and Awakening Are Certain; 3.6 Stability and Certainty of Realisation and Awakening | 64–72 |
 | `KD-3.7-3.8-Heat-Earth-Balance-State-Motion.md` | 3.7 Heat and the Earth's Balance; 3.8 State–Motion | 73–87 |
@@ -15,11 +16,11 @@ Working English translation of *Manav Karm Darshan* (v5) by Shri A. Nagaraj, pro
 | `KD-3.13-3.15-Pressure-Wave-Electromagnetic-Space-Time.md` | 3.13 Pressure, Flow, Wave, Electromagnetic Force; 3.14 Place, Direction, Distance, Area (*vistār āyām*), Angle; 3.15 Time | 118–135 |
 | `KD-3.16-3.18-Life-State-Knower-Seer-Doer.md` | 3.16 The Human Being as the Combined Form of the Prana-State, the Human Body, and Jeevan; 3.17 Knowledge, Knower, Known; 3.18 Seer, Doer, Enjoyer | 135–153 |
 
-Chapter 3 runs printed pp. 53–153 and is fully translated across 7 files; printed p.153 ends with the book's closing benediction (*nityam yātu śubhodayam*), and pp.154–155 are publisher back matter, not book content. Chapter 1 (pp. 1–29, one file) is also done — note its register is terser and more aphoristic than chapter 3's flowing prose (short definitional statements), and the translation follows that.
+Chapter 3 runs printed pp. 53–153 and is fully translated across 7 files; printed p.153 ends with the book's closing benediction (*nityam yātu śubhodayam*), and pp.154–155 are publisher back matter, not book content. Chapter 1 (pp. 1–29, one file) is also done — note its register is terser and more aphoristic than chapter 3's flowing prose (short definitional statements), and the translation follows that. Chapter 2 (pp. 30–49, one file) is also done, ending in its own closing benediction ("नित्य शुभ हो, सर्व शुभ हो"); printed pp. 50–52 are not chapter 2 content — p.50 is blank and pp.51–52 are chapter 3's own title page and detailed sub-table-of-contents (corrects the printed-page range originally estimated for chapter 2 in `TRANSLATION-PLAN.md`).
 
 ## Not yet translated
 
-Book front matter and chapter 2 — उपासना/Upasana (pp. 30–52). The same pipeline (render page images → visual translation with the glossary) applies.
+Book front matter only (pp. 1–25 of the front matter, i.e. PDF pp. 1–25). The same pipeline (render page images → visual translation with the glossary) applies.
 
 ## Conventions
 
