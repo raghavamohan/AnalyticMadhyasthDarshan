@@ -7,7 +7,7 @@ Chapter Two
 
 Upasana (*upāsanā*) – Wisdom
 
-Knowledge: — knowledge of the holistic view of existence, jeevan knowledge, knowledge of humane conduct
+Knowledge: — knowledge of the holistic view of existence, knowledge of jeevan, knowledge of humane conduct
 
 Wisdom: — the immortality of jeevan, the perishability (*nashwaratva*) of the body, the rules of behaviour — together with knowledge — being evidenced in the human goal and the jeevan goal
 
