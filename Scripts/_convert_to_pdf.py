@@ -581,6 +581,11 @@ def convert_to_html(
         extensions=["tables", "fenced_code", "smarty"],
     )
     html_body = re.sub(
+        r'<p>\[blank p[.\-]\s*([^\]]+)\]</p>',
+        r'<div class="blank-page"><span class="blank-page-label">[p. \1]</span></div>',
+        html_body,
+    )
+    html_body = re.sub(
         r'<p>\[p[.\-]\s*([^\]]+)\]</p>',
         r'<span class="page-marker">[p. \1]</span>',
         html_body,
@@ -903,6 +908,17 @@ def convert_to_html(
     .blank-page {{
       page-break-before: always;
       break-before: page;
+      min-height: 1px;
+      margin: 0;
+      padding: 0;
+    }}
+    .blank-page-label {{
+      visibility: hidden;
+      height: 0;
+      margin: 0;
+      padding: 0;
+      border: none;
+      display: block;
     }}
   }}
   .page-marker {{
