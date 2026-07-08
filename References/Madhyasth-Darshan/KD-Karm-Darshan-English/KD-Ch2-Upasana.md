@@ -7,7 +7,7 @@ Chapter Two
 
 Upasana (*upāsanā*) – Wisdom
 
-Knowledge: — existence-darshan knowledge, jeevan knowledge, knowledge of conduct filled with humaneness
+Knowledge: — knowledge of the holistic view of existence, jeevan knowledge, knowledge of conduct filled with humaneness
 
 Wisdom: — the immortality of jeevan, the perishability (*nashwaratva*) of the body, the rules of behaviour — together with knowledge — being evidenced in the human goal and the jeevan goal
 
@@ -244,7 +244,7 @@ The very disappearance of the moment-to-moment mediating obstruction is itself t
 
 The meaning of *anukshan* [each-moment] is that, continuously, in every moment, contemplation on coexistence, and the natural evidencing of authenticity in the sequence of thought, becomes presented — this itself is natural-recurrence.
 
-The knowledge of the saturated-ness of nature saturated in Omnipotence — [that is,] complete-darshan — is itself the disappearance of moment-to-moment mediating obstruction. This itself is the disappearance of deluded presence-and-absence. This itself is natural standing and state.
+The knowledge of the saturated-ness of nature saturated in Omnipotence — [that is,] the complete holistic view — is itself the disappearance of moment-to-moment mediating obstruction. This itself is the disappearance of deluded presence-and-absence. This itself is natural standing and state.
 
 From the absence of natural knowledge of nature saturated in Omnipotence, and from the absence of realisation-rooted knowledge, [the human being], out of fear and temptation, sustains all delusion-rooted activity-behaviour and thinking. This itself is the cause of all affliction.
 
@@ -288,9 +288,9 @@ Nature is present within itself with completeness. This itself is duration. Ther
 
 [p. 45]
 
-The removal of unnecessary imaginings found in the human being's intellectual domain is itself qualitative refinement in the capacity for darshan. This itself is the sum-total of qualitative sanskar-transformation, education, and the programme of jeevan.
+The removal of unnecessary imaginings found in the human being's intellectual domain is itself qualitative refinement in the capacity for the holistic view. This itself is the sum-total of qualitative sanskar-transformation, education, and the programme of jeevan.
 
-The excellence of the capacity for darshan is itself the moment-to-moment [unbroken tendency]. This itself is the capacity of mediating activity. Mediating activity itself is the Seer.
+The excellence of the capacity for the holistic view is itself the moment-to-moment [unbroken tendency]. This itself is the capacity of mediating activity. Mediating activity itself is the Seer.
 
 The supreme-culmination of mediating activity is itself the complete control of generative and degenerative activity. This very capacity is freedom from moment-to-moment mediating obstruction.
 
