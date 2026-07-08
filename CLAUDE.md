@@ -82,7 +82,7 @@ Stored under `References/Madhyasth-Darshan/`:
 | **JV** | *Jeevan Vidya: An Introduction* | Rakesh Gupta |
 | **AVD** | *Adhyatmvad* (Realisation Centred Spiritualism) | Sanjeev Chopra (WIP) |
 | **JVD** | *Janvad* (Behaviour Centred Public Discourse) | Sanjeev Chopra (WIP) |
-| **KD** | *Manav Karm Darshan* (Hindi, v5) | Hindi source PDF; working English translations of section 3 in `KD-English/` (not published translations) |
+| **KD** | *Manav Karm Darshan* (Hindi, v5) | Hindi source PDF; working English translations of section 3 in `KD-Karm-Darshan-English/` (not published translations) |
 | **MD** | `MD-Mapping.xlsx` | Chapter/page mapping spreadsheet |
 
 Other traditions and modern sources live under `References/Advaita-Vedanta/`, `Comparative-Philosophy/`, `Science/`, `Modern-Philosophy/`, and `Applied-Studies/`. See [References/README.md](References/README.md) and [References/MANIFEST.md](References/MANIFEST.md).

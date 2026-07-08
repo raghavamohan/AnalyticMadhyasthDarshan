@@ -1,4 +1,4 @@
-# Karm Darshan — Working English Translation (KD-English)
+# Karm Darshan — Working English Translation (KD-Karm-Darshan-English)
 
 Working English translation of *Manav Karm Darshan* (v5) by Shri A. Nagaraj, produced from page images because the source PDF's embedded text layer is corrupted. **These are machine-assisted working translations, not published translations** — verify against the Hindi original (`../KD-karm darshan v5.pdf`) before quoting in publications. Technical terms follow the conventions in `../MD-Mapping.xlsx`; new KD-specific terms and judgment calls are catalogued in `KD-Glossary-Additions.md` and in `KD-Translation-Glossary.xlsx`.
 
