@@ -2,10 +2,11 @@
 
 Working English translation of *Manav Karm Darshan* (v5) by Shri A. Nagaraj, produced from page images because the source PDF's embedded text layer is corrupted. **These are machine-assisted working translations, not published translations** — verify against the Hindi original (`../KD-karm darshan v5.pdf`) before quoting in publications. Technical terms follow the conventions in `../MD-Mapping.xlsx`; new KD-specific terms and judgment calls are catalogued in `KD-Glossary-Additions.md` and in `KD-Translation-Glossary.xlsx`.
 
-## Translated so far (chapter 3 — physics and philosophy core — complete)
+## Translated so far
 
 | File | Chapters | Printed pages |
 | :---- | :---- | :---- |
+| `KD-Ch1-Karma.md` | Chapter 1 — कर्म (Karma) | 1–29 |
 | `KD-3.1-3.3-Atomic-Structure-and-Development.md` | 3.1 Atomic Structure & Molecular Composition; 3.2 Development Progression; 3.3 Development in the Atom | 53–63 |
 | `KD-3.4-3.6-Mental-Wellbeing-Coexistence-Stability.md` | 3.4 Nature of Mental Well-Being; 3.5 Coexistence Is Stable, Development and Awakening Are Certain; 3.6 Stability and Certainty of Realisation and Awakening | 64–72 |
 | `KD-3.7-3.8-Heat-Earth-Balance-State-Motion.md` | 3.7 Heat and the Earth's Balance; 3.8 State–Motion | 73–87 |
@@ -14,11 +15,11 @@ Working English translation of *Manav Karm Darshan* (v5) by Shri A. Nagaraj, pro
 | `KD-3.13-3.15-Pressure-Wave-Electromagnetic-Space-Time.md` | 3.13 Pressure, Flow, Wave, Electromagnetic Force; 3.14 Place, Direction, Distance, Area (*vistār āyām*), Angle; 3.15 Time | 118–135 |
 | `KD-3.16-3.18-Life-State-Knower-Seer-Doer.md` | 3.16 The Human Being as the Combined Form of the Prana-State, the Human Body, and Jeevan; 3.17 Knowledge, Knower, Known; 3.18 Seer, Doer, Enjoyer | 135–153 |
 
-Chapter 3 runs printed pp. 53–153 and is now fully translated across the 7 files above. Printed p.153 ends with the book's closing benediction (*nityam yātu śubhodayam*); pp.154–155 are publisher back matter, not book content.
+Chapter 3 runs printed pp. 53–153 and is fully translated across 7 files; printed p.153 ends with the book's closing benediction (*nityam yātu śubhodayam*), and pp.154–155 are publisher back matter, not book content. Chapter 1 (pp. 1–29, one file) is also done — note its register is terser and more aphoristic than chapter 3's flowing prose (short definitional statements), and the translation follows that.
 
 ## Not yet translated
 
-Book front matter and chapters 1–2 (pp. 1–52). The same pipeline (render page images → visual translation with the glossary) applies.
+Book front matter and chapter 2 — उपासना/Upasana (pp. 30–52). The same pipeline (render page images → visual translation with the glossary) applies.
 
 ## Conventions
 
@@ -29,3 +30,5 @@ Two more contextual exceptions found while reconciling against MVD/SB (2026-07-0
 Settled per Raghava (2026-07-08): ***guṇa* = "property", NOT "quality"** — the noun गुण, as it recurs in KD's रूप/गुण/स्वभाव/धर्म (form/property/disposition/dharma) list of the four orders' predominant traits and as chapter 3.10's title, takes "property," aligning with one of MD-Mapping's two existing रूप rows (the other, "qualitative," is the adjectival reading and does not apply to this noun usage). Retroactively corrected in KD-3.4-3.6, KD-3.11-3.12, and KD-3.13-3.15 on 2026-07-08. The compound गुणात्मक परिवर्तन (KD 3.9) is a documented exception, kept as "qualitative change/transformation" per MD-Mapping's own separate row for that adjectival compound.
 
 Chapter 3's closing triads (3.16–3.18) introduce several three- and five-term Sanskrit sets that are largely left transliterated with bracketed glosses on first use, following MD-Mapping where it has an entry (दृष्टा=Seer, ज्ञाता=knower, साध्य=aim, साधक=the seeker, साधन=the means) and compositional/judgment-call renderings where it doesn't (कर्त्ता=doer, भोक्ता=enjoyer, दृश/दृश्य/दर्शन=the seeing/the seen/seeing, ध्यान/ध्याता/ध्येय=attention/attender/object of attention). See `KD-Glossary-Additions.md` for the full set and reasoning.
+
+Chapter 1 (Karma) settles several more terminology decisions, all judgment calls, some of them overriding MD-Mapping: ***संस्कार* = left transliterated as "*sanskar*"**, distinct from ***संस्कृति* = "culture"*** (the two appear together constantly, e.g. "संस्कार, संस्कृति व सभ्यता"); ***अभीष्ट* = "desire"** (per Raghava, 2026-07-08, superseding this project's earlier "desideratum") — note this now overlaps in English with इच्छा (the general term for desire), distinguish by context; ***साध्य* = "aim"** kept distinct from अभीष्ट (the source glosses them together as "साध्य (अभीष्ट)," rendered "the aim (the desire)"); ***अनुभूति* = "experiencing"**, distinct from ***अनुभव* = "realisation"*** (both are "realisation" per MD-Mapping, but अनुभव is entrenched across all of chapter 3 and the two words appear near each other throughout chapter 1); ***काम* = "*kama*" (desire)**, kept transliterated rather than MD-Mapping's "lust," since chapter 1 uses it only in the classical मोक्ष/धर्म/काम/अर्थ (moksha/dharma/kama/wealth) list; ***कायिक* = "physical"** (per Raghava, 2026-07-08, matching MD-Mapping, superseding this project's earlier "bodily") — now overlaps in English with भौतिक (also "physical," the material/physical-world sense), distinguish by context; and ***कृत, कारित, अनुमोदित* = "done, caused, intended"** (per Raghava, 2026-07-08, superseding "done, caused-to-be-done, and approved"). See `KD-Glossary-Additions.md` for the full reasoning on each.
