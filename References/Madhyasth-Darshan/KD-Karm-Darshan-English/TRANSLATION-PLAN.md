@@ -15,7 +15,7 @@ throughout.
 | Chapter | Hindi | Printed pp. | Status |
 |---|---|---|---|
 | — | Front matter (title page, author's declaration, "मध्यस्थ दर्शन के मूल तत्व" outline, प्राक्कथन preface, अनुक्रमणिका TOC) | pdf 1–25 (~21 content pages) | Not translated |
-| 1 | कर्म (Karma) | 1–29 | Not translated |
+| 1 | कर्म (Karma) | 1–29 | **Done** — `KD-Ch1-Karma.md` |
 | 2 | उपासना (Upasana / Worship) | 30–52 | Not translated |
 | 3.1–3.3 | Atomic Structure & Molecular Composition; Development Progression; Development in the Atom | 53–63 | **Done** — `KD-3.1-3.3-Atomic-Structure-and-Development.md` |
 | 3.4–3.6 | मनःस्वस्थता का स्वरूप (Nature of mental well-being); सहअस्तित्व स्थिर है, विकास और जागृति निश्चित है; अनुभव और जागृति की स्थिरता और निश्चयता | 64–72 | **Done** — `KD-3.4-3.6-Mental-Wellbeing-Coexistence-Stability.md` |
@@ -25,25 +25,25 @@ throughout.
 | 3.13–3.15 | Pressure/Flow/Wave/EM Force; Place/Direction/Distance/Area/Angle; Time | 118–135 | **Done** — `KD-3.13-3.15-Pressure-Wave-Electromagnetic-Space-Time.md` |
 | 3.16–3.18 | प्राणावस्था, मानव शरीर और जीवन के संयुक्त रूप में मानव; ज्ञान, ज्ञाता, ज्ञेय (Knowledge, Knower, Known); दृष्टा, कर्त्ता, भोक्ता (Seer, Doer, Enjoyer) | 135–153 | **Done** — `KD-3.16-3.18-Life-State-Knower-Seer-Doer.md` |
 
-**Chapter 3 (pp. 53–153) is now fully translated across 7 files.** Done: ~100 printed pages
-(7 files). Remaining: ~74 pages across front matter + chapters 1–2.
+**Chapter 3 (pp. 53–153) is fully translated across 7 files, and chapter 1 (pp. 1–29) is done
+as its own file.** Done: ~129 printed pages (8 files). Remaining: ~45 pages across front matter
+and chapter 2.
 
 ## Proposed batches and order
 
 Same granularity as the existing files (topic-coherent chunks, each its own `.md`). Suggested
 order, front-loading the highest-value/lowest-risk work:
 
-1. **Chapter 1 — कर्म** (pp.1–29, ~29pp) as its own file. Foundational terms here (कर्म, इच्छा,
-   आवश्यकता, वेदना) will seed glossary entries the rest of the book leans on — translate before
-   chapter 2.
-2. **Chapter 2 — उपासना** (pp.30–52, ~23pp) as its own file.
-3. **Front matter** last (~21pp) — paratext rather than argument, lowest priority for a working
+1. **Chapter 2 — उपासना** (pp.30–52, ~23pp) as its own file. Chapter 1 is done and has already
+   seeded several foundational glossary entries (कर्म, इच्छा, आवश्यकता, वेदना, संस्कार, काम,
+   अर्थ, अभीष्ट) that chapter 2 should reuse rather than re-deciding.
+2. **Front matter** last (~21pp) — paratext rather than argument, lowest priority for a working
    translation, but needed for completeness. Note: `MVD-Madhyasth-Darshan-Coexistentialism.pdf`
    already contains a published English rendering of the "मध्यस्थ दर्शन के मूल तत्व" section
    (it's reproduced verbatim there, item-numbered, starting MVD p.11) — reuse/cross-check against
    that instead of translating it cold.
 
-## Methodology (unchanged from the existing 7 files)
+## Methodology (unchanged from the existing 8 files)
 
 The source PDF's embedded text layer is corrupted (confirmed: extracted text shows systematic
 glyph-substitution garbling, e.g. "कास्यक" for "कायिक") — text extraction/OCR-by-copy-paste does
@@ -53,7 +53,7 @@ not work. For each batch:
    (PDF page = printed page + 25).
 2. Translate page-by-page from the images, carrying `[p. NN]` markers at each page break, italic
    transliteration on first occurrence per chapter for untranslatable technical terms.
-3. Apply glossary conventions (below) for consistency with the 7 completed files and with the
+3. Apply glossary conventions (below) for consistency with the 8 completed files and with the
    wider Madhyasth Darshan corpus.
 4. Update `README.md`'s status table and this plan's status table as each batch lands.
 
@@ -65,9 +65,8 @@ not work. For each batch:
   unfamiliar term.
 - **`../MD-Mapping-Sources/`** — the underlying parallel Hindi–English corpora
   (`mvd_pairs.json`, `sb_pairs.json`) extracted from MVD and SB. **SB in particular directly
-  overlaps with KD's कर्म/उपासना content** — before translating chapters 1–2, it's worth grepping
-  these files for each chapter's key terms (कर्म, इच्छा, आवश्यकता, वेदना for ch.1; उपासना-specific
-  vocabulary for ch.2) — SB may already have a Rakesh Gupta–quality rendering of the same concept
+  overlaps with KD's उपासना content** — before translating chapter 2, it's worth grepping
+  these files for उपासना-specific vocabulary — SB may already have a Rakesh Gupta–quality rendering of the same concept
   to check against, the same way MVD already covers the front matter's "मूल तत्व" section.
 - **`KD-Glossary-Additions.md`** — KD-specific term decisions and settled conventions. Known
   contextual exceptions to apply (don't blindly follow MD-Mapping's single global rendering
@@ -95,6 +94,17 @@ not work. For each batch:
     MD-Mapping and use compositional judgment-call renderings (doer/enjoyer; the
     seeing/the seen/seeing; attention/attender/object of attention) — see
     `KD-Glossary-Additions.md` for the full triads and reasoning, introduced in KD 3.16–3.18.
+  - **KD 1 (Karma) settles several more terminology decisions**, watch for these in chapter 2
+    too: **संस्कार** = left transliterated "*sanskar*", distinct from **संस्कृति** = "culture"
+    (they appear together constantly); **अभीष्ट** = "desire" (per Raghava, 2026-07-08 — note
+    this now overlaps in English with इच्छा, the general term for desire; distinguish by
+    context), kept distinct from **साध्य** = "aim" (the source glosses them together as
+    "साध्य (अभीष्ट)" → "the aim (the desire)"); **अनुभूति** = "experiencing", distinct from
+    **अनुभव** = "realisation"; **काम** = "*kama*" (desire), kept transliterated rather than
+    MD-Mapping's "lust" (used only in the classical मोक्ष/धर्म/काम/अर्थ list); **कायिक** =
+    "physical" (per Raghava, 2026-07-08, matching MD-Mapping — note this now overlaps in
+    English with भौतिक, also "physical"; distinguish by context); and **कृत, कारित, अनुमोदित**
+    = "done, caused, intended" (per Raghava, 2026-07-08).
 - When a new technical term comes up with no existing MD-Mapping row and no MVD/SB evidence,
   add it to `KD-Glossary-Additions.md` following the existing table format, and flag it as a
   judgment call (as the existing entries do) rather than silently deciding.
