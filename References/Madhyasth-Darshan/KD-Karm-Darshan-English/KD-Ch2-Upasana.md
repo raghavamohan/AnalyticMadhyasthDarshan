@@ -7,7 +7,7 @@ Chapter Two
 
 Upasana (*upāsanā*) – Wisdom
 
-Knowledge: — knowledge of the holistic view of existence, jeevan knowledge, knowledge of conduct filled with humaneness
+Knowledge: — knowledge of the holistic view of existence, jeevan knowledge, knowledge of humane conduct
 
 Wisdom: — the immortality of jeevan, the perishability (*nashwaratva*) of the body, the rules of behaviour — together with knowledge — being evidenced in the human goal and the jeevan goal
 
@@ -29,7 +29,7 @@ Gods and goddesses (*devi-devata*) are to be reckoned of three kinds: earth-loca
 
 The three kinds of deity are: heaven-located (moving in unlimited space), space-located (moving in the space of a single cosmos), and earth-located (moving only within the environment of a single land). These, in order, are the divine soul, the deific soul, and the elemental soul.
 
-Because of conduct-completeness and being endowed with complete awakening, [there is] the divine soul; because of being endowed with alertness accompanied by activity-completeness, [there is] the deific soul; and because of intense attachment to objects together with apprehension and fear, [there is] the elemental soul. It is the demonic human and the animalistic human who, upon a change of body, are reckoned as elemental souls; it is the humaneness-filled human and the deific human who, upon a change of body, are reckoned as deific souls; and it is the divine human who, after relinquishing the body, is reckoned in the category of the divine soul.
+Because of conduct-completeness and being endowed with complete awakening, [there is] the divine soul; because of being endowed with alertness accompanied by activity-completeness, [there is] the deific soul; and because of intense attachment to objects together with apprehension and fear, [there is] the elemental soul. It is the demonic human and the animalistic human who, upon a change of body, are reckoned as elemental souls; it is the humane human and the deific human who, upon a change of body, are reckoned as deific souls; and it is the divine human who, after relinquishing the body, is reckoned in the category of the divine soul.
 
 Elemental souls are in a state of absolute-oneness (*tadatmya*) with adhibhautik elements, deific souls with adhidaivik facts, and divine souls with the Spirit (*adhyatma*). Therefore, three categories are found to be established.
 
@@ -94,7 +94,7 @@ At the root of all upasanas there is a similarity of aim: it is undivided societ
 
 Other desirable desires only give the appearance of a state of welfare, not realisation. Therefore, the human being is bound to make effort toward a programme in conformity with the aspiration for universal welfare, and up to the capacity worthy of following it.
 
-It is only through the universal, humaneness-filled method of conducting the "triad of rule" — intellectual, social, and natural — that there is the possibility of, and actual freedom from, economic and communal class-sentiments. In this alone does all class-sentiment dissolve. Therefore, upasana becomes meaningful only through the desired understanding, together with awakening — which is itself awakening.
+It is only through the universal, humane method of conducting the "triad of rule" — intellectual, social, and natural — that there is the possibility of, and actual freedom from, economic and communal class-sentiments. In this alone does all class-sentiment dissolve. Therefore, upasana becomes meaningful only through the desired understanding, together with awakening — which is itself awakening.
 
 In the human being, the powers are activity-power, desire-power, and knowledge-power alone — these are its qualifications. Qualifications are found to be based on each unit's capacity-for-awakening and on [its] awakening.
 
@@ -134,7 +134,7 @@ Wisdom and science are themselves the chief characteristic of indirect knowledge
 
 Without indirect knowledge, [the discernment of] the eternal and the non-eternal, the proper and improper, the just and unjust, the righteous and unrighteous, the true and false, the desirable and undesirable, the seen and unseen, and the authority of indirect knowledge itself, is not established.
 
-Without the authority-of-knowledge of the eternal-and-non-eternal, dedication toward one's own-dharma is not found in the human being. Human dharma is itself happiness; happiness is itself just conduct; just conduct is itself the observance of humaneness-filled [conduct] and of the "triad of rule". This itself is the human being's own-dharma. The human being is happiness-natured.
+Without the authority-of-knowledge of the eternal-and-non-eternal, dedication toward one's own-dharma is not found in the human being. Human dharma is itself happiness; happiness is itself just conduct; just conduct is itself the observance of humane [conduct] and of the "triad of rule". This itself is the human being's own-dharma. The human being is happiness-natured.
 
 There is no unit without propriety. Just as, in animals, disposition-propriety; in plants, property-propriety; and in substances, form-propriety, is not violated. This itself is their dignity. In the same way, in the human being, resolution-happiness is itself dharma; dharma is itself propriety. This itself is their dignity and trust. The direct form of propriety is itself trust.
 
@@ -220,7 +220,7 @@ The process of generalisation of enlightenment is itself the direct form of qual
 
 In the state of not having the perspective of qualitative change, the deluded human being becomes intent on evaluating on the basis of quantity. This itself is class-struggle and conflict.
 
-The conduct of the "triad of rule," natural to humaneness-filled behaviour, is itself personality. Active contribution to the making of such a personality is itself duty. This itself is human effort. This itself is enlightenment.
+The conduct of the "triad of rule," natural to humane behaviour, is itself personality. Active contribution to the making of such a personality is itself duty. This itself is human effort. This itself is enlightenment.
 
 Upasana grants the individual the direct form of personality and duty, because upasana is itself, in its own nature, education and orderliness. Therefore, this itself is enlightenment. Enlightenment itself is education and orderliness in the human being.
 
@@ -282,7 +282,7 @@ Self-evaluation occurs within the domain of the "triad of *-tā*" [likely capaci
 
 There is no human being on this earth who does not fall within the domain of the "triad of *-tā*".
 
-There is no separation from dharma, because this is [itself its] conception. Its direct form is itself conduct filled with humaneness and higher-humaneness, which is the chief characteristic of naturalness. Therefore, conduct that advocates inhumaneness is itself unnatural.
+There is no separation from dharma, because this is [itself its] conception. Its direct form is itself humane and higher-humane conduct, which is the chief characteristic of naturalness. Therefore, conduct that advocates inhumaneness is itself unnatural.
 
 Nature is present within itself with completeness. This itself is duration. Therefore, it is contained within the whole. This itself is coexistence, natural to completeness within the whole. This itself is the ever-present-ness of completeness, and the emergence of completeness in the human being in the state of knowledge. This itself is the imperativeness for awakening.
 
