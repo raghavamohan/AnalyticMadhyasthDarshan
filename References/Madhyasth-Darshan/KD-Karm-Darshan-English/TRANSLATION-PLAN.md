@@ -27,7 +27,8 @@ throughout.
 | 3.16–3.18 | प्राणावस्था…; ज्ञान, ज्ञाता, ज्ञेय; दृष्टा, कर्त्ता, भोक्ता | 135–153 | **Done** |
 
 **Entire book content is translated** in `KD-Karm-Darshan-English.md`. The English PDF is
-page-aligned with the Hindi original (182 PDF pages): printed p. 50 is left empty by natural pagination after ch. 2; printed pp. 51–52 use `[blank p. NN]` placeholders (ch. 3 title / sub-TOC in Hindi).
+page-aligned with the Hindi original (182 PDF pages): printed pp. 50–52 use `[blank p. NN]`
+placeholders matching the Hindi layout (blank / ch.3 title / sub-TOC).
 
 Note: chapter 2's actual content ends at printed p.49, not p.52 — p.50 is blank and pp.51–52 are
 chapter 3's own title page and detailed sub-table-of-contents (printed page = PDF page − 25 still
