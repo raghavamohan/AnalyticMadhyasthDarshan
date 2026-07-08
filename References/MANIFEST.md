@@ -69,7 +69,7 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-19.
 | **JVD** | [Madhyasth-Darshan/JVD-Janvad.pdf](Madhyasth-Darshan/JVD-Janvad.pdf) | Nature-Of-Time |
 | **MD** | [Madhyasth-Darshan/MD-Mapping.xlsx](Madhyasth-Darshan/MD-Mapping.xlsx) | supporting spreadsheet (not cited inline) |
 | **KD** | [Madhyasth-Darshan/KD-karm darshan v5.pdf](Madhyasth-Darshan/KD-karm%20darshan%20v5.pdf) | Research-Note-Physics-Of-Satta-Unit-Interaction (internal) |
-| **KD-English** | [Madhyasth-Darshan/KD-English/](Madhyasth-Darshan/KD-English/README.md) | Research-Note-Physics-Of-Satta-Unit-Interaction (internal); working translation of KD section 3 |
+| **KD-Karm-Darshan-English** | [Madhyasth-Darshan/KD-Karm-Darshan-English/](Madhyasth-Darshan/KD-Karm-Darshan-English/README.md) | Research-Note-Physics-Of-Satta-Unit-Interaction (internal); working translation of KD section 3 |
 | **BU** | [Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf](Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf) | Why-Humans, Aesthetics |
 | **TU** | [Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf](Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf) | Why-Humans, The-Ontology-of-Coexistence, Aesthetics (Gambhirananda 2-vol. set; TU at p. 237) |
 | **KU** | same as TU | Why-Humans (Katha at p. 97) |
@@ -130,7 +130,7 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-19.
 
 | Category | Stored locally | External only |
 |----------|----------------|---------------|
-| Madhyasth Darshan (MVD, SB, JV, AVD, JVD, KD) | 6 PDFs + 1 spreadsheet + KD-English working translations | 0 |
+| Madhyasth Darshan (MVD, SB, JV, AVD, JVD, KD) | 6 PDFs + 1 spreadsheet + KD-Karm-Darshan-English working translations | 0 |
 | Advaita Vedanta (9 tags) | 9 PDFs | 0 |
 | Comparative philosophy, Indian aesthetics, and religious ethics | 5 | 5 |
 | Science and moral science | 14 (open-access papers) | 24 |
