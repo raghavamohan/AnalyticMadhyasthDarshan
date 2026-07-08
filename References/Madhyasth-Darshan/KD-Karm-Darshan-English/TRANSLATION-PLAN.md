@@ -18,43 +18,32 @@ throughout.
 | 1 | कर्म (Karma) | 1–29 | Not translated |
 | 2 | उपासना (Upasana / Worship) | 30–52 | Not translated |
 | 3.1–3.3 | Atomic Structure & Molecular Composition; Development Progression; Development in the Atom | 53–63 | **Done** — `KD-3.1-3.3-Atomic-Structure-and-Development.md` |
-| 3.4 | मनःस्वस्थता का स्वरूप (Nature of mental well-being) | 63–67 | Not translated |
-| 3.5 | सहअस्तित्व स्थिर है, विकास और जागृति निश्चित है | 68 | Not translated |
-| 3.6 | अनुभव और जागृति की स्थिरता और निश्चयता | 69–72 | Not translated |
+| 3.4–3.6 | मनःस्वस्थता का स्वरूप (Nature of mental well-being); सहअस्तित्व स्थिर है, विकास और जागृति निश्चित है; अनुभव और जागृति की स्थिरता और निश्चयता | 64–72 | **Done** — `KD-3.4-3.6-Mental-Wellbeing-Coexistence-Stability.md` |
 | 3.7–3.8 | Heat and the Earth's Balance; State–Motion | 73–87 | **Done** — `KD-3.7-3.8-Heat-Earth-Balance-State-Motion.md` |
-| 3.9 | मात्रा (Quantity) | 87–98 | Not translated |
-| 3.10 | गुण (Quality) | 99–101 | Not translated |
+| 3.9–3.10 | मात्रा (Quantity); गुण, स्वभाव, धर्म (Property, Disposition, Dharma) | 88–102 | **Done** — `KD-3.9-3.10-Quantity-Property.md` |
 | 3.11–3.12 | Force–Power; Projection–Reflection | 102–118 | **Done** — `KD-3.11-3.12-Force-Power-Projection-Reflection.md` |
 | 3.13–3.15 | Pressure/Flow/Wave/EM Force; Place/Direction/Distance/Area/Angle; Time | 118–135 | **Done** — `KD-3.13-3.15-Pressure-Wave-Electromagnetic-Space-Time.md` |
-| 3.16 | प्राणावस्था, मानव शरीर और जीवन के संयुक्त रूप में मानव | 135–144 | Not translated |
-| 3.17 | ज्ञान, ज्ञाता, ज्ञेय (Knowledge, Knower, Known) | 145–149 | Not translated |
-| 3.18 | दृष्टा, कर्त्ता, भोक्ता (Seer, Doer, Enjoyer) | 150–153 | Not translated |
+| 3.16–3.18 | प्राणावस्था, मानव शरीर और जीवन के संयुक्त रूप में मानव; ज्ञान, ज्ञाता, ज्ञेय (Knowledge, Knower, Known); दृष्टा, कर्त्ता, भोक्ता (Seer, Doer, Enjoyer) | 135–153 | **Done** — `KD-3.16-3.18-Life-State-Knower-Seer-Doer.md` |
 
-Done: ~57 printed pages (4 files). Remaining: ~117 pages across front matter + 2 chapters + 6
-chapter-3 gaps.
+**Chapter 3 (pp. 53–153) is now fully translated across 7 files.** Done: ~100 printed pages
+(7 files). Remaining: ~74 pages across front matter + chapters 1–2.
 
 ## Proposed batches and order
 
 Same granularity as the existing files (topic-coherent chunks, each its own `.md`). Suggested
 order, front-loading the highest-value/lowest-risk work:
 
-1. **Close the chapter 3 gaps first** — keeps the physics core (chapter 3) complete and
-   self-contained, and stays in the vocabulary already built up across 4 files and the glossary:
-   - `KD-3.4-3.6-Mental-Wellbeing-Coexistence-Stability.md` (pp.63–72, ~10pp)
-   - `KD-3.9-3.10-Quantity-Quality.md` (pp.87–101, ~15pp)
-   - `KD-3.16-3.18-Life-State-Knower-Seer-Doer.md` (pp.135–153, ~19pp) — the philosophical
-     capstone of chapter 3; likely the densest of the three remaining gaps.
-2. **Chapter 1 — कर्म** (pp.1–29, ~29pp) as its own file. Foundational terms here (कर्म, इच्छा,
+1. **Chapter 1 — कर्म** (pp.1–29, ~29pp) as its own file. Foundational terms here (कर्म, इच्छा,
    आवश्यकता, वेदना) will seed glossary entries the rest of the book leans on — translate before
    chapter 2.
-3. **Chapter 2 — उपासना** (pp.30–52, ~23pp) as its own file.
-4. **Front matter** last (~21pp) — paratext rather than argument, lowest priority for a working
+2. **Chapter 2 — उपासना** (pp.30–52, ~23pp) as its own file.
+3. **Front matter** last (~21pp) — paratext rather than argument, lowest priority for a working
    translation, but needed for completeness. Note: `MVD-Madhyasth-Darshan-Coexistentialism.pdf`
    already contains a published English rendering of the "मध्यस्थ दर्शन के मूल तत्व" section
    (it's reproduced verbatim there, item-numbered, starting MVD p.11) — reuse/cross-check against
    that instead of translating it cold.
 
-## Methodology (unchanged from the existing 4 files)
+## Methodology (unchanged from the existing 7 files)
 
 The source PDF's embedded text layer is corrupted (confirmed: extracted text shows systematic
 glyph-substitution garbling, e.g. "कास्यक" for "कायिक") — text extraction/OCR-by-copy-paste does
@@ -64,7 +53,7 @@ not work. For each batch:
    (PDF page = printed page + 25).
 2. Translate page-by-page from the images, carrying `[p. NN]` markers at each page break, italic
    transliteration on first occurrence per chapter for untranslatable technical terms.
-3. Apply glossary conventions (below) for consistency with the 4 completed files and with the
+3. Apply glossary conventions (below) for consistency with the 7 completed files and with the
    wider Madhyasth Darshan corpus.
 4. Update `README.md`'s status table and this plan's status table as each batch lands.
 
@@ -76,11 +65,10 @@ not work. For each batch:
   unfamiliar term.
 - **`../MD-Mapping-Sources/`** — the underlying parallel Hindi–English corpora
   (`mvd_pairs.json`, `sb_pairs.json`) extracted from MVD and SB. **SB in particular directly
-  overlaps with KD's remaining physics content** — e.g. SB has passages specifically about
-  प्राणावस्था/biological cells that map onto KD 3.16. Before translating a chapter-3 gap, it's
-  worth grepping these files for the chapter's key terms — SB may already have a Rakesh
-  Gupta–quality rendering of the same concept to check against, the same way MVD already covers
-  the front matter's "मूल तत्व" section.
+  overlaps with KD's कर्म/उपासना content** — before translating chapters 1–2, it's worth grepping
+  these files for each chapter's key terms (कर्म, इच्छा, आवश्यकता, वेदना for ch.1; उपासना-specific
+  vocabulary for ch.2) — SB may already have a Rakesh Gupta–quality rendering of the same concept
+  to check against, the same way MVD already covers the front matter's "मूल तत्व" section.
 - **`KD-Glossary-Additions.md`** — KD-specific term decisions and settled conventions. Known
   contextual exceptions to apply (don't blindly follow MD-Mapping's single global rendering
   where these apply):
@@ -98,6 +86,15 @@ not work. For each batch:
     recurring epistemological duality in this corpus, not confined to chapter 3.12.
   - **संसार compounds** (पशु-संसार, वनस्पति-संसार, etc.) render as "order" (animal order, plant
     order), not literal "world".
+  - **गुण = "property"**, NOT "quality" (per Raghava, 2026-07-08) — applies to the noun गुण as it
+    recurs in the रूप/गुण/स्वभाव/धर्म (form/property/disposition/dharma) list of the four orders'
+    predominant traits. Exception: गुणात्मक परिवर्तन (adjectival compound) keeps "qualitative
+    change/transformation" per MD-Mapping's own separate row for that compound.
+  - **दृष्टा/ज्ञाता/साध्य/साधक/साधन** keep MD-Mapping's existing renderings (Seer, knower, aim,
+    the seeker, the means); **कर्त्ता/भोक्ता, दृश/दृश्य/दर्शन, ध्यान/ध्याता/ध्येय** are not in
+    MD-Mapping and use compositional judgment-call renderings (doer/enjoyer; the
+    seeing/the seen/seeing; attention/attender/object of attention) — see
+    `KD-Glossary-Additions.md` for the full triads and reasoning, introduced in KD 3.16–3.18.
 - When a new technical term comes up with no existing MD-Mapping row and no MVD/SB evidence,
   add it to `KD-Glossary-Additions.md` following the existing table format, and flag it as a
   judgment call (as the existing entries do) rather than silently deciding.

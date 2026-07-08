@@ -9,7 +9,7 @@ The desire to recognise atomic structure has been found in the human being from 
 
 By the method of decomposition, the human being applied thought, reflection, and experiment in order to reach the fundamental substance. Even at the end of decomposition, the expectation of some definite fundamental substance remained.
 
-Experimenting with the above mindset, the human being arrived at this conclusion: that if we keep on decomposing any substance whatsoever, we will reach a state in which the decomposed units function in a self-organised (*svayamsphurt*) manner — this is understood. Such a functioning unit we call the atom. The desire to understand how all this functions has also remained in the human being.
+Experimenting with the above mindset, the human being arrived at this conclusion: that if we keep on decomposing any substance whatsoever, we will reach a state in which the decomposed units function in a self-motivated (*svayamsphurt*) manner — this is understood. Such a functioning unit we call the atom. The desire to understand how all this functions has also remained in the human being.
 
 The atom has, at its middle, one or more particles (*ansh*), and, revolving on all sides in its orbits, one or more particles. Below this, the matter of an atom does not come to be. That the number of particles in the middle or in the orbit might increase — this arises in human imagination alone.
 
@@ -41,7 +41,7 @@ At the root of the physical-chemical activity-process, it is the atom and the mo
 
 [p. 57]
 
-Every atom and molecule is found to be a rung of its own species. What is meant by being a rung is its existent-state, its continuity. Just as two particles are in one existent-state in the form of an atom. This itself is one step. Their having definite conduct is itself their grandeur. This very having of definite conduct becomes the basis of the further step, and remains so. Atoms and molecules with various numerical particles remain with their definite conduct established. This itself is a wondrous self-organised form of orderliness, clear before the human being.
+Every atom and molecule is found to be a rung of its own species. What is meant by being a rung is its existent-state, its continuity. Just as two particles are in one existent-state in the form of an atom. This itself is one step. Their having definite conduct is itself their grandeur. This very having of definite conduct becomes the basis of the further step, and remains so. Atoms and molecules with various numerical particles remain with their definite conduct established. This itself is a wondrous self-motivated form of orderliness, clear before the human being.
 
 Such physical molecule-atoms, participating in the chemical activity-process, are amenable to study, each in the form of a state of motion. The well-established combining of all these molecules-atoms comes to be clear in the form of large-large compositions like the earth. This is indicative of the fact that however many species' atoms and molecules are necessary before chemical action begins on the earth, that has come to be accomplished by the destiny-borne innate method itself. What is meant by the destiny-borne innate method is the coexistence method itself. Only after there comes to be endowment with the atoms-molecules of all species do the compound propensity and processes come to be accomplished. On this earth the testimony to this is well established.
 
