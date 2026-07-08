@@ -34,6 +34,46 @@ p.50 is blank and pp.51–52 are chapter 3's own title page and detailed sub-tab
 (printed page = PDF page − 25 still holds; the sub-TOC there lists chapter 3's 16 sections with
 their own page numbers, corroborating the PDF pp. 76–78 sub-TOC location noted above).
 
+## Systematic errors found and corrected across all 9 files (2026-07-08) — read before reviewing
+
+While translating chapter 2, three recurring mistranslations were caught by checking a KD phrase
+against MVD's actual running-prose sentence (not just MD-Mapping's isolated row), then swept back
+across every already-translated file. **The lesson for review and for the remaining front-matter
+work: whenever a KD sentence closely parallels a known MVD passage — especially a recurring
+formula, not a one-off phrase — look up MVD's real sentence-level translation before trusting
+MD-Mapping's row gloss or a first-pass literal rendering.** MD-Mapping's row can be terse, list
+multiple options, or gloss only the head word; MVD's prose shows how the compound is actually
+idiomatically resolved.
+
+1. **दर्शन (bare, or in "X दर्शन (ज्ञान)" / "दर्शन-क्षमता" compounds) = "the holistic view (of X)"**,
+   not transliterated "darshan". MD-Mapping has a direct row (दर्शन = "Holistic view, Worldview,
+   Philosophy") and MVD confirms it in the exact recurring formula below. *Excluded* from this
+   fix: the proper noun "Madhyasth Darshan" (book/philosophy name); the दृश/दृश्य/दर्शन seer-triad
+   sense (KD 3.17, a separate established convention, see `KD-Glossary-Additions.md`); and the
+   devotional-register verb "X का दर्शन करना" = "to behold X" (KD 1 p.24).
+2. **मानवीयतापूर्ण (X) / अतिमानवीयतापूर्ण (X) = "humane (X)" / "higher-humane (X)"**, a plain
+   adjective — not "X filled with humaneness," "humaneness-replete X," or "humanity-replete X"
+   (all three wordings of the same error turned up across files). MD-Mapping has direct rows
+   (मानवीयता पूर्ण आचरण = "Humane Conduct") and MVD confirms it in running prose ("...जीवन ज्ञान व
+   मानवीयतापूर्ण आचरण ज्ञान..." → "...knowledge of jeevan and humane conduct", MVD p.3) and in its
+   own glossary ("मानवीयतापूर्ण व्यवहार" → "Humane Behaviour", MVD p.34). *Not* extended to other
+   "-पूर्ण" compounds on different roots (सत्यतापूर्ण, ज्ञान-/विवेक-/विज्ञान-पूर्ण, etc.) — only
+   मानवीयता/अतिमानवीयता has this specific MVD-attested simplification.
+3. **जीवन ज्ञान = "knowledge of jeevan"**, not "jeevan knowledge" — keeps the "knowledge of X"
+   pattern parallel with the other two terms in the recurring three-part formula (अस्तित्व दर्शन
+   ज्ञान / जीवन ज्ञान / मानवीयतापूर्ण आचरण ज्ञान → "knowledge of the holistic view of existence,
+   knowledge of jeevan, knowledge of humane conduct"), confirmed twice in MVD (p.3, p.259). This
+   exact formula recurs verbatim or near-verbatim at several points across the book — treat it as
+   a fixed idiom, not three independently-translated words, wherever it appears in the front matter
+   too.
+
+**Files corrected:** `KD-Ch1-Karma.md` (~15 मानवीयतापूर्ण + 10 दर्शन instances, all verified
+page-by-page against the source images), `KD-Ch2-Upasana.md` (7 + 4 + 1), `KD-3.4-3.6` (2 + 0 + 1),
+`KD-3.9-3.10` (4 + 0 + 0), `KD-3.11-3.12` (0 + 3 + 2), `KD-3.16-3.18` (1 + 0 + 2). `KD-3.1-3.3`,
+`KD-3.7-3.8`, and `KD-3.13-3.15` had no instances of any of the three. Full reasoning, MVD page
+citations, and the excluded senses are in `KD-Glossary-Additions.md` (see the दर्शन,
+मानवीयतापूर्ण, and जीवन ज्ञान rows).
+
 ## Proposed batches and order
 
 Same granularity as the existing files (topic-coherent chunks, each its own `.md`). Suggested
@@ -112,6 +152,12 @@ not work. For each batch:
     "physical" (per Raghava, 2026-07-08, matching MD-Mapping — note this now overlaps in
     English with भौतिक, also "physical"; distinguish by context); and **कृत, कारित, अनुमोदित**
     = "done, caused, intended" (per Raghava, 2026-07-08).
+  - **दर्शन = "the holistic view"** (not "darshan"), **मानवीयतापूर्ण (X) = "humane (X)"** (not "X
+    replete with/filled with humaneness"), and **जीवन ज्ञान = "knowledge of jeevan"** (not "jeevan
+    knowledge") — three corrections swept across all 9 completed files on 2026-07-08; see the
+    "Systematic errors" section above and the matching glossary rows before translating the front
+    matter, where the same recurring three-part ज्ञान formula ("अस्तित्व दर्शन ज्ञान, जीवन ज्ञान,
+    मानवीयतापूर्ण आचरण ज्ञान") is likely to reappear.
 - When a new technical term comes up with no existing MD-Mapping row and no MVD/SB evidence,
   add it to `KD-Glossary-Additions.md` following the existing table format, and flag it as a
   judgment call (as the existing entries do) rather than silently deciding.
@@ -125,3 +171,13 @@ not work. For each batch:
 - Any new judgment-call terms added to `KD-Glossary-Additions.md`.
 - Spot-check a handful of technical terms against `MD-Mapping.xlsx` before considering the batch
   finished.
+- For any phrase that looks like it could be a recurring formula or a direct MVD/SB parallel
+  (not just an isolated technical term), look up MVD/SB's actual sentence-level translation via
+  `MD-Mapping-Sources/mvd_pairs.json` / `sb_pairs.json` rather than trusting a literal first-pass
+  rendering or MD-Mapping's row alone — this is how the दर्शन / मानवीयतापूर्ण / जीवन ज्ञान errors
+  were caught (see "Systematic errors found and corrected" above). Do this check *before* the
+  batch is marked done, not as an afterthought.
+- Grep the newly-translated file for the three already-known error patterns as a final check:
+  "darshan" (should only remain as the "Madhyasth Darshan" proper noun, the दृश्य-triad, or "X का
+  दर्शन करना" → "beholds"), "replete with humaneness" / "-replete" (should not exist — use "humane
+  X"), and "jeevan knowledge" (should read "knowledge of jeevan").
