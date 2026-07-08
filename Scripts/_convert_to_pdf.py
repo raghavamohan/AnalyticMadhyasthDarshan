@@ -580,6 +580,16 @@ def convert_to_html(
         md_text,
         extensions=["tables", "fenced_code", "smarty"],
     )
+    html_body = re.sub(
+        r'<p>\[blank p[.\-]\s*([^\]]+)\]</p>',
+        r'<div class="blank-page"><span class="blank-page-label">[p. \1]</span></div>',
+        html_body,
+    )
+    html_body = re.sub(
+        r'<p>\[p[.\-]\s*([^\]]+)\]</p>',
+        r'<span class="page-marker">[p. \1]</span>',
+        html_body,
+    )
     html_body = convert_mermaid_blocks(html_body)
     html_body = rewrite_local_links_for_site(
         html_body,
@@ -886,6 +896,40 @@ def convert_to_html(
     }}
     pre {{ page-break-inside: avoid; white-space: pre-wrap; overflow-wrap: anywhere; word-break: break-word; }}
     blockquote {{ page-break-inside: avoid; }}
+    .page-marker {{
+      page-break-before: always;
+      break-before: page;
+      visibility: hidden;
+      height: 0;
+      margin: 0;
+      padding: 0;
+      border: none;
+    }}
+    .blank-page {{
+      page-break-before: always;
+      break-before: page;
+      min-height: 1px;
+      margin: 0;
+      padding: 0;
+    }}
+    .blank-page-label {{
+      visibility: hidden;
+      height: 0;
+      margin: 0;
+      padding: 0;
+      border: none;
+      display: block;
+    }}
+  }}
+  .page-marker {{
+    display: block;
+    font-family: Georgia, serif;
+    font-size: 9pt;
+    color: #888;
+    margin: 24pt 0 12pt 0;
+    border-top: 1px dashed #ddd;
+    padding-top: 6pt;
+    text-align: right;
   }}
   body {{
     position: relative;
