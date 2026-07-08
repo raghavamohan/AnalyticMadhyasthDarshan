@@ -42,8 +42,6 @@ District — Anuppur, M.P. (India) — 484886
 
 [p. 3]
 
-[p. 4]
-
 ## Alternative (*vikalp*)
 
 1. The study of humans could not be completed through the unstable, uncertain, physicochemical-centric method of science, nor through mystery-based idealistic contemplation. Both these ideologies categorised humans as mere living beings (*jeeva*).
@@ -100,7 +98,7 @@ District — Anuppur, M.P. (India) — 484886
 
     (3) I began the practice of *sadhana* in 1950; maturity in *sadhana* came in the 1960s.
 
-[p. 7]
+    [p. 7]
 
     (4) In 1970, the state of *samadhi* was attained. In this state of *samadhi*, my expectations, thoughts, and desires remained silent. I realized that in this state, the occurrence of the unknown becoming known was zero. This state lasted twelve (12) to eighteen (18) hours daily.
 
@@ -124,8 +122,6 @@ District — Anuppur, M.P. (India) — 484886
 
 15. In, from, and for coexistence, coexistence was understood to be eternally effective; this itself was understood as the natural sequence (*niyatikram*).
 
-[p. 9]
-
 16. **Natural-law method — only by the natural method of coexistence:**
 
     (i) Four orders in existence: material order, prana order, animal order, knowledge order; and
@@ -135,6 +131,8 @@ District — Anuppur, M.P. (India) — 484886
     (iii) Development progression and development; awakening progression and awakening.
 
     Similarly, the awakening-based human tradition, replete with human-ness, orderliness, and participation in the overall orderliness, is understood as an eternal glory. I accepted this as the universal-auspicious formula and recognized the aspiration for universal welfare in all humans. As a result, I have presented before humankind the natural explanation of consciousness-development value education, constitution, conduct, and orderliness.
+
+[p. 9]
 
 May the earth be heaven, may humans be divine,
 
@@ -163,21 +161,16 @@ Effort – Motion – Result
 Believe what is known
 Know what is believed
 
+[p. 11]
+
 ### 6. The State of Existence
 The state-dynamic nature saturated in the state-complete Omnipotence
 Eternally present Coexistence
 
 ### 7. The Evidence
 Realisation – Behaviour – Experiment
-- Realisation itself is the ultimate evidence,
-- Evidence itself is the understanding or knowledge,
-- Understanding itself is manifest,
-- The manifest itself is resolution, work and behaviour,
-- Work and behaviour itself is evidence,
-- Evidence itself is awakened tradition,
-- Awakened tradition itself is coexistence.
 
-[p. 11]
+Realisation itself is the ultimate evidence; evidence itself is the understanding or knowledge; understanding itself is manifest; the manifest itself is resolution, work and behaviour; work and behaviour itself is evidence; evidence itself is awakened tradition; awakened tradition itself is coexistence.
 
 ### 8. Reality
 Brahma is truth, the world is perpetual.
@@ -189,6 +182,8 @@ Brahma is truth, the world is perpetual.
 - Earth is one (undivided nation), States are many.
 - Human dharma is one, resolutions are many.
 - Jeevan is immortal; birth and death are occurrences.
+
+[p. 12]
 
 ### 9. Actuality
 Development Progression, Development in Coexistence.
@@ -216,6 +211,8 @@ The physicochemical nature itself is in development progression. Atom in the dev
 - Divine humaneness with complete awareness.
 - Constitutional completeness, Activity completeness, and Conduct completeness.
 
+[p. 13]
+
 ### 14. Verity
 Nature saturated in the Omnipotence itself is the universe.
 - Nature itself is destiny.
@@ -223,9 +220,6 @@ Nature saturated in the Omnipotence itself is the universe.
 - Orderliness itself is development and awakening.
 - Development and awakening itself is the universe.
     - Rule itself is justice, justice itself is dharma, dharma itself is truth, truth itself is glory (coexistence), experiencing glory itself is bliss, bliss itself is jeevan, and jeevan has rule within it.
-
-[p. 12]
-
 - The deluded human alone is free while doing karma and dependent while experiencing result.
 - The awakened human is free both while doing karma and while experiencing result.
 
@@ -239,7 +233,7 @@ Humaneness. Orderliness with human-ness, participation in the overall orderlines
 - Activity completeness
 - Conduct completeness
 
-[p. 13]
+[p. 14]
 
 ### 18. Completeness in Society
 - Comprehensive resolution
@@ -264,12 +258,12 @@ Orderliness for the right use of wealth in the form of body, mind, and money.
 ### 23. The Basis of State Policy
 Orderliness for the protection of wealth in the form of body, mind, and money.
 
-[p. 14]
-
 ### 24. The Path to Realisation, and Contemplation
 - Gross to subtle
 - Subtle to cause
 - Cause to great-cause
+
+[p. 15]
 
 ### 25. The Evidence of Awakening
 - From inhumaneness to humaneness
@@ -283,8 +277,6 @@ Jeevan is auspicious.
 - Realisation is auspicious.
 - Awakening is auspicious.
 
-[p. 15]
-
 ### 27. Universal Auspiciousness
 Non-discrepancy (harmony) and unanimity in all four dimensions of the human being (work, behaviour, thought, and experience), all five levels (individual, family, society, nation, and international), and the ten-stage family-based self-governance orderliness.
 
@@ -296,6 +288,8 @@ Awakening as realisation in truth (liberation from delusion).
 - Evidence of resolution, prosperity, fearlessness and coexistence — this itself is universal wellbeing.
 - Liberation from delusion and eternal awakening.
 
+[p. 16]
+
 ### 30. Completeness in Education
 - Consciousness-development value education
 - Craftsmanship (technical) education
@@ -305,9 +299,9 @@ Awakening as realisation in truth (liberation from delusion).
 - Humane Constitution
 - Humane family-based self-governance orderliness
 
-[p. 16]
-
 [p. 17]
+
+[p. 18]
 
 ## Main points propounded in Madhyasth Darshan
 
@@ -1386,6 +1380,8 @@ The realisation of freedom-from-delusion is itself, for the human being, the ult
 This itself is complete awakening and the standing of the Seer's plane.
 
 "May there be eternal good, may there be good for all."
+
+[blank p. 50]
 
 [blank p. 51]
 
