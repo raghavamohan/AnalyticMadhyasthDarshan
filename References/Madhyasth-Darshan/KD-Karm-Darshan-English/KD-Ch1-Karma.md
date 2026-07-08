@@ -15,7 +15,7 @@ The pressure that lies in accepting the unacceptable — that itself is pain (*v
 
 In every karma, five limbs remain contained: doer, cause, objective, result, and effect. It is only for the fulfilment of necessity that there is contact and relationship. Necessity is itself desire, at whose root remain contained society, sociality, its observance, its upholding, conduct, following, and cultivation.
 
-All the activities carried out, in accordance with darshan, for determining necessities and for the acceptance of following them, occur in the form of desire, which is the manifestation of the awareness found in conscious activity.
+All the activities carried out, in accordance with the holistic view, for determining necessities and for the acceptance of following them, occur in the form of desire, which is the manifestation of the awareness found in conscious activity.
 
 From the fulfilment of every desire and necessity, the human being aspires to become happy.
 
@@ -41,7 +41,7 @@ For the aim (the desire), the surrender of the seeker and the deployment of the 
 
 In every karma, the sequence of experiencing and inference is available. This sequence of karmas will keep going on until realisation. True-experiencing alone is completeness. Factual condition, the objective, and the condition are well known by natural realisation of truth, and therefore the complete meaning of the whole of meaning is realisation itself.
 
-The whole of karma exists only for the acquisition of wealth, whose purpose is realisation. The acquisition, use, proper use, and distribution of the whole of wealth also occur only for the fulfilment of desire. At the root of the fulfilment of desire is realisation alone. This is evident only, with awakening, in the individual and in the whole of humankind. Whatever is in existence is the darshan and knowledge of that very thing. Darshan and knowledge are themselves realisation.
+The whole of karma exists only for the acquisition of wealth, whose purpose is realisation. The acquisition, use, proper use, and distribution of the whole of wealth also occur only for the fulfilment of desire. At the root of the fulfilment of desire is realisation alone. This is evident only, with awakening, in the individual and in the whole of humankind. Whatever is in existence is the holistic view and knowledge of that very thing. The holistic view and knowledge are themselves realisation.
 
 In the human being, happiness is the desired equilibrium (*abhīṣṭa*). It is precisely the deployment of internal and external means for realisation that is enlightenment; otherwise it is non-enlightenment. The possibility of these two conditions is itself the basis of diversity.
 
@@ -155,9 +155,9 @@ The immersion in, upholding of, and evaluation of cultural values is itself the 
 
 It is the *sanskar* contained within the human being that expresses his disposition. Human culture originates only in company with wholesome-*sanskar*-purity. This will keep remaining pure in *sanskar* only until it becomes complete.
 
-The evident form of the completeness of *sanskar* is itself humaneness, supra-humaneness-replete disposition.
+The evident form of the completeness of *sanskar* is itself the humane, supra-humane disposition.
 
-The evident form of the accomplishment of wholesome culture is humaneness-replete disposition.
+The evident form of the accomplishment of wholesome culture is humane disposition.
 
 The evident form of a corrupted culture is itself inhumaneness.
 
@@ -167,13 +167,13 @@ Culture full of sociality becomes clear through humaneness. It is precisely for 
 
 These are mutually complementary, because civilisation nourishes culture, method nourishes civilisation, orderliness nourishes method, and culture nourishes orderliness.
 
-In awakened tradition, the humaneness-replete cultural programme is nothing but the display of *sanskars*, because in awakened tradition there is no human being devoid of *sanskar*. Whereas deluded human traditions are reckoned in the form of communities [factions]. This itself is the cause of the whole problem. Problems are not evidence of *sanskar*, because all problems do indeed get resolved.
+In awakened tradition, the humane cultural programme is nothing but the display of *sanskars*, because in awakened tradition there is no human being devoid of *sanskar*. Whereas deluded human traditions are reckoned in the form of communities [factions]. This itself is the cause of the whole problem. Problems are not evidence of *sanskar*, because all problems do indeed get resolved.
 
 Visualisation and thought reveal, respectively, art and usefulness.
 
 Thought remaining bound to wholesome *sanskar* is itself awakening.
 
-Humaneness-replete *sanskar* is itself the indicator of universal culture. Below this — that is, for inhumane tendencies — becoming universal is simply not possible.
+Humane *sanskar* is itself the indicator of universal culture. Below this — that is, for inhumane tendencies — becoming universal is simply not possible.
 
 It is only from the observance of social rules that healthy, universal culture and civilisation arise. As a result, the wholeness of society and its unbrokenness are established.
 
@@ -191,9 +191,9 @@ The human being, through animal consciousness, gives rise to many problems. The 
 
 Without the study of good scripture there is no true aspiration and tendency; without true aspiration, no true love; without true love, no true fidelity; without true fidelity, no true establishment; without true establishment, no true conviction; without true conviction, no true realisation; without true realisation, no unveiling of good scripture; and without the unveiling of good scripture, the study of good scripture is neither complete nor meaningful.
 
-It is only in true conviction and experiencing that fidelity is found in humaneness-replete conduct and just behaviour.
+It is only in true conviction and experiencing that fidelity is found in humane conduct and just behaviour.
 
-Without humaneness-replete conduct and just behaviour, just exchange and just benefit in mutuality are not possible.
+Without humane conduct and just behaviour, just exchange and just benefit in mutuality are not possible.
 
 Just exchange and benefit are themselves prosperity.
 
@@ -207,7 +207,7 @@ The human being is inclined toward true knowledge, toward study fit for the visi
 
 [p. 11]
 
-In humaneness, or in the humaneness-replete, every programme is method and orderliness. Its conduct is itself civilisation, and the observance of that tradition is itself culture.
+In the humane, or in humaneness, every programme is method and orderliness. Its conduct is itself civilisation, and the observance of that tradition is itself culture.
 
 In the human being, sorrow, disquiet, discontent — this itself is duality, and this itself is also the result of duality.
 
@@ -268,7 +268,7 @@ There is no unit in material-conscious nature that is not in motion toward decli
 
 Knowledge, wisdom, and science alone are the one basis for the completeness of awakening. It is only for becoming endowed with such capacity that there is propensity toward refined karmas. This itself is to be conducted in the human being's five states and four dimensions.
 
-An international order devoid of actual darshan; a programme devoid of resolution and an orderliness devoid of treasury; a society fallen from dharma, devoid of certainty; a family devoid of righteous character; an individual empty of good conduct — these are perpetually anxious.
+An international order devoid of the actual holistic view; a programme devoid of resolution and an orderliness devoid of treasury; a society fallen from dharma, devoid of certainty; a family devoid of righteous character; an individual empty of good conduct — these are perpetually anxious.
 
 The evident form of dharma is itself sociality. This itself is culture and civilisation.
 
@@ -276,7 +276,7 @@ It is precisely for the sake of non-disparity in the human being's natural mutua
 
 [p. 14]
 
-An international order incapable of holding a mystery-free darshan toward the whole; a (national) order incapable in the process of the protection and promotion of truthfulness; a society incapable of propagating truthfulness; a family incapable of following truthfulness; an individual incapable of truthfulness-replete conduct — these are afflicted by intense distress.
+An international order incapable of holding a mystery-free holistic view toward the whole; a (national) order incapable in the process of the protection and promotion of truthfulness; a society incapable of propagating truthfulness; a family incapable of following truthfulness; an individual incapable of truthfulness-replete conduct — these are afflicted by intense distress.
 
 It is precisely from adopting necessities in excess of leisure (possibility) that every kind of ill tendency becomes effective. These occur principally in the form of exploitation, which is harmful to self and other.
 
@@ -304,7 +304,7 @@ In the governance-process endowed with law-and-regulation based on object-basis,
 
 Every karma performed with wisdom-full thought, together with the desire for worship, is beneficial at every level.
 
-The capacity for darshan is found to rest on awakening; awakening, on aspiration and conduct; aspiration and conduct, on education and study; education and study, on orderliness; orderliness, on the basis of the capacity for darshan and understanding.
+The capacity for the holistic view is found to rest on awakening; awakening, on aspiration and conduct; aspiration and conduct, on education and study; education and study, on orderliness; orderliness, on the basis of the capacity for the holistic view and understanding.
 
 It is only in effort consonant with knowledge, work consonant with effort, result-consequence consonant with work, realisation consonant with result-consequence, and in that which is consonant with realisation, that knowledge has become clear — which is well known.
 
@@ -326,7 +326,7 @@ Activities of sentiment occur mutually by way of the high and the low kind, and 
 
 A family full of high sentiment, a society full of *sam*-mediating union, an orderliness-system and behaviour full of mediating-*sam* union — this itself is the universal-wellbeing programme.
 
-There is no determination of righteous action without clear capacity for darshan. It is capacity for darshan alone that decides *sam*, *visham*, and mediating, activity-process, and purpose. Along with this, it establishes completeness in conduct, behaviour, orderliness, and the education system.
+There is no determination of righteous action without clear capacity for the holistic view. It is the capacity for the holistic view alone that decides *sam*, *visham*, and mediating, activity-process, and purpose. Along with this, it establishes completeness in conduct, behaviour, orderliness, and the education system.
 
 For behaviour, knowledge, wisdom, and science; for production, wisdom endorsed by knowledge, and knowledge full of science endorsed by wisdom — these are essential. Such knowledge is found to be manifest and put into practice according to the capacity and necessity of every awakened individual.
 
@@ -338,17 +338,17 @@ Practical values become meaningful in the sense of humaneness. It is on this bas
 
 Conduct and observance carried out in the human being's natural mutuality are meaningful by the method of coexistence, and are meaningless, and a problem, by the method of non-coexistence.
 
-The evident form of actual knowledge-capacity is itself humaneness-replete conduct.
+The evident form of actual knowledge-capacity is itself humane conduct.
 
 The capacity to understand is itself the natural unveiling of knowledge in mutuality.
 
-The capacity to understand is expressibility (*vyanjaniyata*). The unit's root expressibility is nothing but conjointness within Omnipotence. The experiencing of conjointness is itself complete expressibility. It is precisely the qualitative refinement in the conscious unit's expressible capacity that is *sanskar* — this itself is the capacity for darshan and realisation
+The capacity to understand is expressibility (*vyanjaniyata*). The unit's root expressibility is nothing but conjointness within Omnipotence. The experiencing of conjointness is itself complete expressibility. It is precisely the qualitative refinement in the conscious unit's expressible capacity that is *sanskar* — this itself is the capacity for the holistic view and realisation
 
 [p. 17]
 
-— capacity. The darshan of measure and boundary, and realisation in truth, are well known. It is precisely the sequence of expressible capacity that reveals the awakening-sequence and awakening itself.
+— capacity. The holistic view of measure and boundary, and realisation in truth, are well known. It is precisely the sequence of expressible capacity that reveals the awakening-sequence and awakening itself.
 
-The human being is present, manifest, in the form of coexistence, as beholder and beheld — this itself is the background of darshan.
+The human being is present, manifest, in the form of coexistence, as beholder and beheld — this itself is the background of the holistic view.
 
 For manifestation to be evidenced, it is necessary for the beholder to remain. The beholder alone is established by expressible-capacity.
 
@@ -360,7 +360,7 @@ The programme and conduct, from beginning to end, of human jeevan are reckoned t
 
 Humaneness-replete conduct is itself the natural evidence of ascertainment. Ascertainment itself is evidenced in disencumberance (*nivṛtti*). Disencumberance is itself impetus and wisdom; impetus and wisdom are themselves accordance and adherence; accordance and adherence are themselves unveiling; unveiling is itself manifestation; manifestation is itself the evident; the evident is itself evidence; evidence is itself experiencing; experiencing is itself capacity, merit, and worthiness; capacity, merit, and worthiness are themselves state-fullness; state-fullness is itself potency; potency is itself glory; and glory is itself conduct.
 
-The seer-status alone is the counterpart of the capacity for darshan, and behaviour is in accordance with it — which is well known. In the absence of thought, no work-behaviour is accomplished, or becomes evident, through the body. From this it becomes clear that it is thought alone that is at the root of the whole of the activities carried out through the body. The body is not thought. It is the medium for propagating thought. From this conclusion, thought is additional to the body, and this is a conscious activity.
+The seer-status alone is the counterpart of the capacity for the holistic view, and behaviour is in accordance with it — which is well known. In the absence of thought, no work-behaviour is accomplished, or becomes evident, through the body. From this it becomes clear that it is thought alone that is at the root of the whole of the activities carried out through the body. The body is not thought. It is the medium for propagating thought. From this conclusion, thought is additional to the body, and this is a conscious activity.
 
 Ideational capacity is situated in the human being's five states.
 
@@ -368,19 +368,19 @@ For this very reason all humankind is equal in capacity.
 
 [p. 18]
 
-For the refinement of ideational capacity, the true path and auspicious yoga-practice are well known. It is precisely qualitative change, through consciousness-development-value education, in *sanskar*, that is universally auspicious. Again, this itself is ideational capacity. This sequence is a complete orderliness right up until it is accomplished through humaneness- and supra-humaneness-replete conduct. It is successful through the observance, adherence, and cultivation of the "triad of rule"; otherwise it is unsuccessful.
+For the refinement of ideational capacity, the true path and auspicious yoga-practice are well known. It is precisely qualitative change, through consciousness-development-value education, in *sanskar*, that is universally auspicious. Again, this itself is ideational capacity. This sequence is a complete orderliness right up until it is accomplished through humane and supra-humane conduct. It is successful through the observance, adherence, and cultivation of the "triad of rule"; otherwise it is unsuccessful.
 
 Union-worthy practice — the practice of meeting/union. After union, acceptance is to be seen in the form of jeevan-awakening, and deviation in the form of inhumaneness.
 
-Every human being is engaged in effort toward enlightenment. The evident form of enlightenment is itself humaneness-replete conduct. Humaneness and supra-humaneness are themselves glory attained with orderliness, complete.
+Every human being is engaged in effort toward enlightenment. The evident form of enlightenment is itself humane conduct. Humaneness and supra-humaneness are themselves glory attained with orderliness, complete.
 
 The programme of jeevan is itself karma. This itself is conduct.
 
-Conduct for prosperity, art, and comprehension is found in the humaneness-replete human being.
+Conduct for prosperity, art, and comprehension is found in the humane human being.
 
-Conduct for true comprehension and naturalness is evident in the human being replete with humaneness and divine humaneness, which is their disposition.
+Conduct for true comprehension and naturalness is evident in the humane and divine-humane human being, which is their disposition.
 
-For the human being, conduct replete with humaneness and supra-humaneness alone is utterly useful and necessary.
+For the human being, humane and supra-humane conduct alone is utterly useful and necessary.
 
 The human being's five states are mutually complementary. Their unified-threading is itself undivided sociality. This comes from the observance of the "triad of rule" being universal to all.
 
@@ -496,13 +496,13 @@ The capacity of the conscious powers, which are reckoned in five forms, is evalu
 
 *Chitta* endowed with auspicious desire, and *buddhi* endowed with true resolve, is the evidence, within coexistence, of the awakening of the experiencing-full *atma*. The experiencing-full *atma* beholds *buddhi* endowed with resolve. This itself is the aggregate of realisation. This itself is complete awakening.
 
-The more-awakened beholds the darshan of the less-awakened; the less-awakened recognises the more-awakened. Therefore the awakened human being recognises the seeker of awakening, and the seeker recognises the awakened.
+The more-awakened beholds the less-awakened; the less-awakened recognises the more-awakened. Therefore the awakened human being recognises the seeker of awakening, and the seeker recognises the awakened.
 
 The awakened human being places trust in the seeker, and the seeker remains disciplined together with the awakened human being.
 
 It is in human jeevan alone that the particularities connected with the gross, the subtle, and the causal are to be seen. In these three conditions, it is happiness, peace, contentment, and joy alone that are expected.
 
-The human being's gross life is in expectation of happiness and peace; the subtle life, in expectation of peace and contentment; and the causal life is in anticipation of joy and supreme joy — for which this awakening is the natural evidence. It is precisely the all-round programme in accordance with this that is awakening. This itself is also the physical, intellectual, and spiritual attainments. This has become successful only through a programme replete with humaneness and supra-humaneness.
+The human being's gross life is in expectation of happiness and peace; the subtle life, in expectation of peace and contentment; and the causal life is in anticipation of joy and supreme joy — for which this awakening is the natural evidence. It is precisely the all-round programme in accordance with this that is awakening. This itself is also the physical, intellectual, and spiritual attainments. This has become successful only through a humane and supra-humane programme.
 
 The deployment and disposal of the powers found in material-conscious nature lie only in origination, potency, and dissolution. In a perspective beyond this there is no disposal or deployment of property.
 
@@ -582,7 +582,7 @@ In progress toward development there is the experience of enthusiasm, delight, a
 
 Upward-facing science is engrossed in the work of potency through pure *rajoguna* and together with *sattvaguna*, which is the actual fulfilment of science. Along with this, opposite to it, in science, there is science engrossed in destruction and over-indulgence through tainted *rajoguna* and together with *tamoguna*, which is the indicator of the complete misuse of science.
 
-It is the humaneness-replete human being, and awakening-fullness beyond this, that is reckoned in upward-facing life, in which fundamental valuableness such as compassion, simplicity, sacrifice, austerity, benevolence, truth, non-violence, non-stealing, non-possession, and dignity is conducted. This itself is auspicious for self and other.
+It is the humane human being, and awakening-fullness beyond this, that is reckoned in upward-facing life, in which fundamental valuableness such as compassion, simplicity, sacrifice, austerity, benevolence, truth, non-violence, non-stealing, non-possession, and dignity is conducted. This itself is auspicious for self and other.
 
 [p. 29]
 
