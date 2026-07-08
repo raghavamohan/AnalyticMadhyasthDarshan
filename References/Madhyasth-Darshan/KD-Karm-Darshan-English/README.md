@@ -6,7 +6,7 @@ Working English translation of *Manav Karm Darshan* (v5) by Shri A. Nagaraj, pro
 
 | File | Content | Printed / PDF pages |
 | :---- | :---- | :---- |
-| [`KD-Karm-Darshan-English.md`](KD-Karm-Darshan-English.md) | Full working translation (front matter + chapters 1–3) | PDF pp. 1–25 (front matter); printed pp. 1–153 (body); blank placeholders at printed pp. 51–52 (p. 50 via natural pagination) |
+| [`KD-Karm-Darshan-English.md`](KD-Karm-Darshan-English.md) | Full working translation (front matter + chapters 1–3) | PDF pp. 1–25 (front matter); printed pp. 1–153 (body); blank placeholders at printed pp. 50–52 |
 | [`KD-Karm-Darshan-English.pdf`](KD-Karm-Darshan-English.pdf) | Generated PDF (182 pages — aligned with Hindi PDF page count) | Same markers as markdown |
 | [`_page-images/`](_page-images/) | Hindi source page renders for side-by-side verification | 182 PNGs (`p{pdf}_print{printed}.png`) |
 
@@ -47,7 +47,7 @@ node Scripts/_html_to_pdf.js "References/Madhyasth-Darshan/KD-Karm-Darshan-Engli
 
 **Page-image naming:** `p{pdf:03d}_print{printed:03d}.png` where `printed = pdf page` for PDF pages 1–25 (front matter), and `printed = pdf page − 25` for PDF pages 26+ (body).
 
-**Blank PDF pages:** Printed pp. 51–52 are marked `[blank p. NN]` in the markdown so the English PDF stays page-aligned with the Hindi original for side-by-side verification (ch. 3 title / sub-TOC in Hindi). Printed p. 50 is blank in the Hindi original; the English PDF leaves it empty via natural pagination after the ch. 2 closing benediction (`[p. 50]` marker only).
+**Blank PDF pages:** Printed pp. 50–52 are marked `[blank p. NN]` in the markdown so the English PDF stays page-aligned with the Hindi original for side-by-side verification (blank / ch.3 title / sub-TOC in Hindi).
 
 ## Conventions
 
