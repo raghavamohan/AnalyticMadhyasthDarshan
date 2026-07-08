@@ -16,7 +16,7 @@ throughout.
 |---|---|---|---|
 | — | Front matter (title page, author's declaration, "मध्यस्थ दर्शन के मूल तत्व" outline, प्राक्कथन preface, अनुक्रमणिका TOC) | pdf 1–25 (~21 content pages) | Not translated |
 | 1 | कर्म (Karma) | 1–29 | **Done** — `KD-Ch1-Karma.md` |
-| 2 | उपासना (Upasana / Worship) | 30–52 | Not translated |
+| 2 | उपासना (Upasana / Worship) | 30–49 | **Done** — `KD-Ch2-Upasana.md` (corrected range: pp.50–52 are not chapter 2 — p.50 is blank, pp.51–52 are chapter 3's title page and detailed sub-TOC) |
 | 3.1–3.3 | Atomic Structure & Molecular Composition; Development Progression; Development in the Atom | 53–63 | **Done** — `KD-3.1-3.3-Atomic-Structure-and-Development.md` |
 | 3.4–3.6 | मनःस्वस्थता का स्वरूप (Nature of mental well-being); सहअस्तित्व स्थिर है, विकास और जागृति निश्चित है; अनुभव और जागृति की स्थिरता और निश्चयता | 64–72 | **Done** — `KD-3.4-3.6-Mental-Wellbeing-Coexistence-Stability.md` |
 | 3.7–3.8 | Heat and the Earth's Balance; State–Motion | 73–87 | **Done** — `KD-3.7-3.8-Heat-Earth-Balance-State-Motion.md` |
@@ -25,18 +25,25 @@ throughout.
 | 3.13–3.15 | Pressure/Flow/Wave/EM Force; Place/Direction/Distance/Area/Angle; Time | 118–135 | **Done** — `KD-3.13-3.15-Pressure-Wave-Electromagnetic-Space-Time.md` |
 | 3.16–3.18 | प्राणावस्था, मानव शरीर और जीवन के संयुक्त रूप में मानव; ज्ञान, ज्ञाता, ज्ञेय (Knowledge, Knower, Known); दृष्टा, कर्त्ता, भोक्ता (Seer, Doer, Enjoyer) | 135–153 | **Done** — `KD-3.16-3.18-Life-State-Knower-Seer-Doer.md` |
 
-**Chapter 3 (pp. 53–153) is fully translated across 7 files, and chapter 1 (pp. 1–29) is done
-as its own file.** Done: ~129 printed pages (8 files). Remaining: ~45 pages across front matter
-and chapter 2.
+**Chapter 3 (pp. 53–153) is fully translated across 7 files, chapter 1 (pp. 1–29) is done as its
+own file, and chapter 2 (pp. 30–49) is done as its own file.** Done: ~148 printed pages (9
+files). Remaining: front matter only (~21pp).
+
+Note: chapter 2's actual content ends at printed p.49, not p.52 as originally estimated below —
+p.50 is blank and pp.51–52 are chapter 3's own title page and detailed sub-table-of-contents
+(printed page = PDF page − 25 still holds; the sub-TOC there lists chapter 3's 16 sections with
+their own page numbers, corroborating the PDF pp. 76–78 sub-TOC location noted above).
 
 ## Proposed batches and order
 
 Same granularity as the existing files (topic-coherent chunks, each its own `.md`). Suggested
 order, front-loading the highest-value/lowest-risk work:
 
-1. **Chapter 2 — उपासना** (pp.30–52, ~23pp) as its own file. Chapter 1 is done and has already
-   seeded several foundational glossary entries (कर्म, इच्छा, आवश्यकता, वेदना, संस्कार, काम,
-   अर्थ, अभीष्ट) that chapter 2 should reuse rather than re-deciding.
+1. ~~Chapter 2 — उपासना (pp.30–52, ~23pp) as its own file.~~ **Done** — `KD-Ch2-Upasana.md`
+   (actual range pp.30–49, ~20pp). Chapter 1's foundational glossary entries (कर्म, इच्छा,
+   आवश्यकता, वेदना, संस्कार, काम, अर्थ, अभीष्ट) were reused rather than re-decided; see
+   `KD-Glossary-Additions.md` for chapter 2's own new terms (उपासना, विवेक, नश्वरत्व,
+   कूटस्थ/रूपस्थ/आत्मस्थ, देवात्मा/भूतात्मा/दिव्यात्मा, and others).
 2. **Front matter** last (~21pp) — paratext rather than argument, lowest priority for a working
    translation, but needed for completeness. Note: `MVD-Madhyasth-Darshan-Coexistentialism.pdf`
    already contains a published English rendering of the "मध्यस्थ दर्शन के मूल तत्व" section
