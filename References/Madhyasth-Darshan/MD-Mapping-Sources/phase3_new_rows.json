@@ -1,0 +1,482 @@
+[
+ {
+  "token": "संबंध",
+  "action": "propose",
+  "hindi_lemma": "संबंध",
+  "english": "Relationship",
+  "transliteration": "sambandh",
+  "note": "Forms a key paired technical distinction with संपर्क (already in glossary as 'association/contact'); the corpus consistently pairs 'सम्पर्क एवं संबंध' as 'associations and relationships', with संबंध denoting the value-bound relational tie (esp. kinship/duty relations) as opposed to mere contact.",
+  "citation": "MVD p.243"
+ },
+ {
+  "token": "युग",
+  "action": "propose",
+  "hindi_lemma": "युग",
+  "english": "Age / Era",
+  "transliteration": "yug",
+  "note": "Names the stages in SB's historical periodization of human civilization, each rendered as a capitalized 'Age': जंगल युग=Jungle Age, शिला युग=Stone Age, धातु युग=Iron Age, दास युग=Submission Age, संघर्ष युग=Struggle Age.",
+  "citation": "SB p.23"
+ },
+ {
+  "token": "उपलब्धि",
+  "action": "propose",
+  "hindi_lemma": "उपलब्धि",
+  "english": "Accomplishment / Attainment",
+  "transliteration": "upalabdhi",
+  "note": "Defined in the effort-accomplishment formula contrasted with श्रम (effortful strain): accomplishment exceeding hope is resolution, falling short of hope is shram; also used for accomplishment of resolution/humaneness.",
+  "citation": "MVD p.113"
+ },
+ {
+  "token": "मूल्यांकन",
+  "action": "propose",
+  "hindi_lemma": "मूल्यांकन",
+  "english": "Evaluation",
+  "transliteration": "mulyankan",
+  "note": "Core term in the value/relationship framework, defined equivalent to भाव (sentiment) and made the basis for right-use of every relationship ('every aspect of human beings' needs मूल्यांकन'); consistently rendered as 'evaluation'.",
+  "citation": "MVD p.236"
+ },
+ {
+  "token": "केन्द्रित",
+  "action": "propose",
+  "hindi_lemma": "केन्द्रित",
+  "english": "-centric / Centered",
+  "transliteration": "kendrit",
+  "note": "Used to classify philosophical traditions by their basis: मानव केंद्रित चिंतन (human-centric contemplation, i.e. Madhyasth Darshan itself) vs ईश्वर केंद्रित (God-centric/idealism) vs वस्तु केंद्रित (object-centric/materialism); rendered consistently as '-centric'.",
+  "citation": "MVD p.3"
+ },
+ {
+  "token": "इतिहास",
+  "action": "propose",
+  "hindi_lemma": "इतिहास",
+  "english": "History",
+  "transliteration": "itihaas",
+  "note": "Given an explicit technical definition in the text: the language/word-collection used to recall the chronological record of past actions and events toward humaneness; rendered consistently as 'history'.",
+  "citation": "MVD p.135"
+ },
+ {
+  "token": "सर्वतोमुखी",
+  "action": "propose",
+  "hindi_lemma": "सर्वतोमुखी",
+  "english": "Comprehensive",
+  "transliteration": "sarvatomukhi",
+  "note": "Recurring technical adjective modifying समाधान and used alongside अभ्युदय, consistently rendered \"comprehensive\" in the fixed phrase \"comprehensive resolution\".",
+  "citation": "MVD p.23"
+ },
+ {
+  "token": "अज्ञान",
+  "action": "propose",
+  "hindi_lemma": "अज्ञान",
+  "english": "Ignorance",
+  "transliteration": "agyan",
+  "note": "Explicitly defined synonym-pair with अविद्या (\"अविद्या अथवा अज्ञान\") meaning lack of awakening to understand a thing's true form/properties/nature/dharma; distinct from अज्ञानी (the ignorant person) which is already glossed.",
+  "citation": "MVD p.184"
+ },
+ {
+  "token": "हृदय",
+  "action": "propose",
+  "hindi_lemma": "हृदय",
+  "english": "Heart",
+  "transliteration": "hriday",
+  "note": "Technical link in the mun-prana-hriday-sharir chain (mind - vital force - heart - body) describing sensory/instinctual activity; translator renders it \"heart\" but has inconsistently glossed it as \"(senses)\" vs \"(the body)\" across occurrences, suggesting a fixed rendering is needed.",
+  "citation": "MVD p.208"
+ },
+ {
+  "token": "सहअस्तित्ववाद",
+  "action": "propose",
+  "hindi_lemma": "सहअस्तित्ववाद",
+  "english": "Coexistentialism",
+  "transliteration": "Sah-astitvavad",
+  "note": "Name of the overall philosophical system/ism (\"Madhyasth Darshan Sahastitvavad\"), distinct from सहअस्तित्व (coexistence, the state) which is already glossed separately.",
+  "citation": "MVD p.3"
+ },
+ {
+  "token": "अंशों",
+  "action": "propose",
+  "hindi_lemma": "अंश",
+  "english": "Particle",
+  "transliteration": "ansh",
+  "note": "Core atomic-theory term for the sub-units composing a परमाणु (atom), as in \"परमाणु अंश\" (atomic particle) and मध्यांश (nucleus, lit. middle-particle); consistently rendered \"particle\".",
+  "citation": "MVD p.78"
+ },
+ {
+  "token": "साकार",
+  "action": "propose",
+  "hindi_lemma": "साकार",
+  "english": "Manifested (having form)",
+  "transliteration": "sakar",
+  "note": "Natural paired opposite of निराकार (already glossed as \"formless\"); denotes taking concrete form/materialising, e.g. \"मनाकार साकार होना\" = \"materialisation of ideas\".",
+  "citation": "MVD p.209"
+ },
+ {
+  "token": "स्वभावगति",
+  "action": "propose",
+  "hindi_lemma": "स्वभावगति",
+  "english": "natural state",
+  "transliteration": "svabhav-gati",
+  "note": "Denotes a unit's or nature's own inherent/natural condition of movement, contrasted with आवेशित गति (excited state); e.g. Earth's or vegetation's 'natural state' (SB p.16, p.52).",
+  "citation": "SB p.16"
+ },
+ {
+  "token": "परम्परा",
+  "action": "propose",
+  "hindi_lemma": "परम्परा",
+  "english": "tradition",
+  "transliteration": "parampara",
+  "note": "Recurring key term for social/human continuity of practice, e.g. 'जागृत मानव परम्परा' rendered 'the awakened human tradition' (MVD p.300).",
+  "citation": "MVD p.300"
+ },
+ {
+  "token": "सिद्धान्त",
+  "action": "propose",
+  "hindi_lemma": "सिद्धान्त",
+  "english": "principle",
+  "transliteration": "siddhant",
+  "note": "Used for foundational principles, e.g. 'श्रम-गति-परिणाम' is titled 'The Principle', and 'सहअस्तित्व सिद्धान्त' = 'principle of coexistence' (MVD p.11, p.265).",
+  "citation": "MVD p.11"
+ },
+ {
+  "token": "धर्मनीति",
+  "action": "propose",
+  "hindi_lemma": "धर्मनीति",
+  "english": "Moral policy",
+  "transliteration": "dharmaniti",
+  "note": "Paired technical term with राज्यनीति (State policy); defined as the policy for right-use of wealth (tan-man-dhan) (MVD p.242).",
+  "citation": "MVD p.242"
+ },
+ {
+  "token": "वनस्पति",
+  "action": "propose",
+  "hindi_lemma": "वनस्पति",
+  "english": "vegetation / plant",
+  "transliteration": "vanaspati",
+  "note": "Base classification noun for the biological/plant order (प्राणावस्था), consistently rendered 'vegetation' or 'plant forms' (MVD p.47, p.203).",
+  "citation": "MVD p.47"
+ },
+ {
+  "token": "गठनपूर्णता",
+  "action": "propose",
+  "hindi_lemma": "गठनपूर्णता",
+  "english": "constitutional completeness",
+  "transliteration": "gathan-purnata",
+  "note": "Technical term for the stage at which an atom completes its constitution/structure and becomes a jeevan-atom (MVD p.91, SB p.51).",
+  "citation": "MVD p.91"
+ },
+ {
+  "token": "हिताहित",
+  "action": "propose",
+  "hindi_lemma": "हिताहित",
+  "english": "healthy-unhealthy",
+  "transliteration": "hitahit",
+  "note": "One of the fixed six perspectives (प्रियाप्रिय, हिताहित, लाभालाभ, न्यायान्याय, धर्माधर्म, सत्यासत्य) through which behaviour is analysed; consistently rendered 'healthy-unhealthy' (MVD p.67).",
+  "citation": "MVD p.67"
+ },
+ {
+  "token": "शांति",
+  "action": "propose",
+  "hindi_lemma": "शांति",
+  "english": "peace",
+  "transliteration": "shanti",
+  "note": "Explicitly defined technical term: the effect of truth-realised atma upon vritti; part of the defined quartet सुख-शांति-संतोष-आनंद (MVD p.101, p.180).",
+  "citation": "MVD p.101"
+ },
+ {
+  "token": "पोषक",
+  "action": "propose",
+  "hindi_lemma": "पोषक",
+  "english": "nurturing",
+  "transliteration": "poshak",
+  "note": "Core dichotomy term paired with शोषक ('exploitative'); describes behaviour/relationships that nurture rather than exploit (MVD p.161, p.241).",
+  "citation": "MVD p.241"
+ },
+ {
+  "token": "दास",
+  "action": "propose",
+  "hindi_lemma": "दास युग",
+  "english": "Submission Age",
+  "transliteration": "das yug",
+  "note": "Named historical epoch in the periodization जंगल→शिला→धातु→दास→संघर्ष युग, consistently rendered 'Submission Age' (SB p.23).",
+  "citation": "SB p.23"
+ },
+ {
+  "token": "विधायिका",
+  "action": "propose",
+  "hindi_lemma": "विधायिका",
+  "english": "Legislature",
+  "transliteration": "vidhayika",
+  "note": "Institutional term used in SB's discussion of government departments (कार्यपालिका/विधायिका/न्यायपालिका), consistently rendered 'legislature/legislative' (SB p.31).",
+  "citation": "SB p.31"
+ },
+ {
+  "token": "सेवा",
+  "action": "propose",
+  "hindi_lemma": "सेवा",
+  "english": "service (seva)",
+  "transliteration": "seva",
+  "note": "Explicitly defined technical term: the tendency to derive satisfaction from benevolent acts, distinguished from remuneration-based service (MVD p.73).",
+  "citation": "MVD p.73"
+ },
+ {
+  "token": "आनन्द",
+  "action": "propose",
+  "hindi_lemma": "आनन्द",
+  "english": "bliss",
+  "transliteration": "aanand",
+  "note": "Fourth term in the defined quartet सुख-शांति-संतोष-आनंद (happiness-peace-contentment-bliss) describing the dharma of humans (MVD p.16, p.180).",
+  "citation": "MVD p.16"
+ },
+ {
+  "token": "सत्यानुभूति",
+  "action": "propose",
+  "hindi_lemma": "सत्यानुभूति",
+  "english": "realisation in truth",
+  "transliteration": "satya-anubhuti",
+  "note": "Core defined term equating awakening (जागृति) with truth-realisation/liberation from delusion, central to the model of जागृति (MVD p.18, p.160).",
+  "citation": "MVD p.18"
+ },
+ {
+  "token": "द्वन्द्व",
+  "action": "propose",
+  "hindi_lemma": "द्वन्द्व",
+  "english": "Duality",
+  "transliteration": "dwandwa",
+  "note": "Named as the direct counterpart/antithesis of समाधान (Resolution) in a section title, 'समाधान और द्वन्द्व' rendered 'Resolution and Duality' (SB p.13); also rendered 'conflict' in adversarial contexts (MVD p.184). Root of the existing compound entry अंर्तद्वंद्व = Internal conflict, but the base term itself is not yet in the glossary.",
+  "citation": "SB p.13",
+  "skip_reason": null
+ },
+ {
+  "token": "सानुकूलता",
+  "action": "propose",
+  "hindi_lemma": "सानुकूलता",
+  "english": "Conduciveness",
+  "transliteration": "sanukulta",
+  "note": "Recurring technical term in SB for the harmonious/congruent relation between a unit and its environment, paired antonymically with प्रतिकूलता (adverseness); consistently rendered 'conduciveness'/'conducive conditions' (SB p.15: 'elements of conducive conditions'; SB p.17: 'conduciveness ... of the animal order').",
+  "citation": "SB p.15",
+  "skip_reason": null
+ },
+ {
+  "token": "प्रियाप्रिय",
+  "action": "propose",
+  "hindi_lemma": "प्रियाप्रिय",
+  "english": "pleasant-unpleasant",
+  "transliteration": "Priyapriya",
+  "note": "One of the six paired 'drishti' (perspectives) formally enumerated together with hitahit, labhalabh, nyayanyaya, dharmadharma, satyasatya as the six dimensions of behavioural evaluation.",
+  "citation": "MVD p.67"
+ },
+ {
+  "token": "न्यायान्याय",
+  "action": "propose",
+  "hindi_lemma": "न्यायान्याय",
+  "english": "justice-injustice",
+  "transliteration": "Nyayanyaya",
+  "note": "One of the six paired 'drishti' (perspectives) of behaviour, listed alongside priyapriya, hitahit, labhalabh, dharmadharma, satyasatya.",
+  "citation": "MVD p.67"
+ },
+ {
+  "token": "धर्माधर्म",
+  "action": "propose",
+  "hindi_lemma": "धर्माधर्म",
+  "english": "dharma-adharma",
+  "transliteration": "Dharmadharma",
+  "note": "One of the six paired 'drishti' (perspectives) of behaviour in the same enumerated set as nyayanyaya and satyasatya.",
+  "citation": "MVD p.67"
+ },
+ {
+  "token": "सत्यासत्य",
+  "action": "propose",
+  "hindi_lemma": "सत्यासत्य",
+  "english": "truth-untruth",
+  "transliteration": "Satyasatya",
+  "note": "One of the six paired 'drishti' (perspectives) of behaviour in the same enumerated set as nyayanyaya and dharmadharma.",
+  "citation": "MVD p.67"
+ },
+ {
+  "token": "राज्यनीति",
+  "action": "propose",
+  "hindi_lemma": "राज्यनीति",
+  "english": "State policy",
+  "transliteration": "Rajyaniti",
+  "note": "Paired counterpart to Moral policy (धर्मनीति) in the system's political taxonomy; consistently capitalized/rendered as 'State policy' concerned with security of resources.",
+  "citation": "MVD p.234"
+ },
+ {
+  "token": "मित्र",
+  "action": "propose",
+  "hindi_lemma": "मित्र",
+  "english": "Friend",
+  "transliteration": "Mitra",
+  "note": "Formally defined relationship term in the system's relationship taxonomy (alongside guru-shishya, saathi-sahyogi): 'one in whom there is absence of animosity'.",
+  "citation": "MVD p.253"
+ },
+ {
+  "token": "आश्रय",
+  "action": "propose",
+  "hindi_lemma": "आश्रय",
+  "english": "refuge",
+  "transliteration": "Aashray",
+  "note": "Technical relational term for hierarchical dependency/containment (e.g. mun in the refuge of vritti, vritti in the refuge of chitta; being in the refuge of the ideal), consistently rendered 'refuge'.",
+  "citation": "MVD p.279"
+ },
+ {
+  "token": "वांङ्गमय",
+  "action": "propose",
+  "hindi_lemma": "वाङ्मय",
+  "english": "body of thought / literature",
+  "transliteration": "Vaangmaya",
+  "note": "Refers to an entire corpus of ideology/literature produced around a school of thought (e.g. 'materialist vaangmaya'), rendered as 'body of thought' or 'literature' depending on context.",
+  "citation": "SB p.25"
+ },
+ {
+  "token": "विकासक्रम",
+  "action": "propose",
+  "hindi_lemma": "विकासक्रम",
+  "english": "development progression",
+  "transliteration": "Vikaskram",
+  "note": "Distinct compound from विकास (development) alone; the text itself glosses it with the transliteration 'vikas kram', denoting the ongoing progression/sequence of development in nature.",
+  "citation": "MVD p.7"
+ },
+ {
+  "token": "लाभालाभ",
+  "action": "propose",
+  "hindi_lemma": "लाभालाभ",
+  "english": "profit-loss",
+  "transliteration": "labhalabh",
+  "note": "One of the six paired dvandva perspectives (प्रियाप्रिय, हिताहित, लाभालाभ, न्यायान्याय, धर्माधर्म, सत्यासत्य) through which all human behaviour is manifest; rendered profit-loss when listing the inhumane/amanveeya perspectives.",
+  "citation": "MVD p.58"
+ },
+ {
+  "token": "अध्यापक",
+  "action": "propose",
+  "hindi_lemma": "अध्यापक",
+  "english": "Teacher (adhyapak)",
+  "transliteration": "adhyapak",
+  "note": "Formally defined technical role: one who imparts realisation of truth-as-coexistence through the realisation-based/experiential method, distinct from an ordinary school teacher.",
+  "citation": "MVD p.150"
+ },
+ {
+  "token": "फलन",
+  "action": "propose",
+  "hindi_lemma": "फलन",
+  "english": "function/outcome",
+  "transliteration": "phalan",
+  "note": "Denotes a functional (mathematical-style) interdependence between two factors yielding a third, e.g. गति एवं परिणाम के फलन में उपलब्धि श्रम है rendered as 'the outcome of motion and result is effort'; translator often folds it into paraphrase rather than a fixed word.",
+  "citation": "MVD p.105"
+ },
+ {
+  "token": "भौतिकता",
+  "action": "propose",
+  "hindi_lemma": "भौतिकता",
+  "english": "materiality",
+  "transliteration": "bhautikta",
+  "note": "Distinct from भौतिकवाद (materialism, the ideology) - denotes the physical/material quality itself, e.g. prosperity in the physical aspect, and materiality propounded as dialectical.",
+  "citation": "MVD p.96"
+ },
+ {
+  "token": "सत्यानुभूत",
+  "action": "propose",
+  "hindi_lemma": "सत्यानुभूत",
+  "english": "truth-realised",
+  "transliteration": "satyanubhoot",
+  "note": "Standard qualifier for आत्मा (atma) used to define आनंद/सुख/शांति/चिदानंद as the effect of truth-realised atma on buddhi/mun/vritti/chitta respectively.",
+  "citation": "MVD p.101"
+ },
+ {
+  "token": "प्रयुक्ति",
+  "action": "propose",
+  "hindi_lemma": "प्रयुक्ति",
+  "english": "usage/application",
+  "transliteration": "prayukti",
+  "note": "Denotes the employment or application of a गुण (property) or साधन (means); e.g. the usage of every property is solely for creation, sustainment, or dissolution.",
+  "citation": "MVD p.112"
+ },
+ {
+  "token": "दत्त",
+  "action": "propose",
+  "hindi_lemma": "दत्त",
+  "english": "conferred",
+  "transliteration": "datta",
+  "note": "Technical suffix marking the source of a right/duty, as in व्यवस्था-दत्त अधिकार (orderliness-conferred rights) and कुटुंब-दत्त अधिकार (family-conferred rights).",
+  "citation": "MVD p.191"
+ },
+ {
+  "token": "अवसरवादी",
+  "action": "propose",
+  "hindi_lemma": "अवसरवादी",
+  "english": "opportunistic",
+  "transliteration": "avsarwadi",
+  "note": "Paired antonym of न्यायवादी (justice-oriented); denotes opportunism-driven policy, thought, or behaviour throughout the ethics/politics discussion.",
+  "citation": "MVD p.169"
+ },
+ {
+  "token": "न्यायवादी",
+  "action": "propose",
+  "hindi_lemma": "न्यायवादी",
+  "english": "justice-oriented/just",
+  "transliteration": "nyayvadi",
+  "note": "Paired antonym of अवसरवादी; denotes justice-driven policy, thought, or behaviour (e.g. 'just behaviour', 'just policy').",
+  "citation": "MVD p.222"
+ },
+ {
+  "token": "वियोग",
+  "action": "propose",
+  "hindi_lemma": "वियोग",
+  "english": "separation",
+  "transliteration": "viyog",
+  "note": "Central to the text's definition of धर्म: 'that which cannot be separated, or whose separation is not possible, from a unit, is its dharma'; also used for loss (of societal status).",
+  "citation": "MVD p.254"
+ },
+ {
+  "token": "पुत्र",
+  "action": "propose",
+  "hindi_lemma": "पुत्र-पुत्री",
+  "english": "Son-Daughter",
+  "transliteration": "putra-putri",
+  "note": "One of the ten formally defined family relationships (संबंध) with its own duty definition: acceptance of parents as having given birth and being complementary for awakening.",
+  "citation": "MVD p.341"
+ },
+ {
+  "token": "भाई",
+  "action": "propose",
+  "hindi_lemma": "भाई-बहन",
+  "english": "Brother-Sister",
+  "transliteration": "bhai-bahan",
+  "note": "Another of the ten defined family relationships, with life-success defined as hope and endeavour for each other's awakening and fulfilling responsibilities with affection.",
+  "citation": "MVD p.258"
+ },
+ {
+  "token": "अंधकार",
+  "action": "propose",
+  "hindi_lemma": "अंधकार",
+  "english": "darkness",
+  "transliteration": "andhakar",
+  "note": "Technically defined in the physics-of-matter discussion as equivalent to shadow (अंधकार मूलतः छाया ही है), part of a transparency/translucence/opacity property set.",
+  "citation": "MVD p.197"
+ },
+ {
+  "token": "बाह्य",
+  "action": "propose",
+  "hindi_lemma": "बाह्य विरोध",
+  "english": "external contradiction",
+  "transliteration": "bahya virodh",
+  "note": "Paired opposite of the already-glossed अंतर्विरोध (internal contradiction/conflict), used in the critique of dialectical materialism's dichotomy of internal vs. external contradiction.",
+  "citation": "SB p.13"
+ },
+ {
+  "token": "शिलायुग",
+  "action": "propose",
+  "hindi_lemma": "शिलायुग",
+  "english": "Stone Age",
+  "transliteration": "shilayug",
+  "note": "Named era in the corpus's periodization of human tradition (jungle/stone age preceding metal age, clan age, village age, submission age, struggle age); consistently rendered 'Stone Age'.",
+  "citation": "SB p.28"
+ },
+ {
+  "token": "मानवेतर",
+  "action": "propose",
+  "hindi_lemma": "मानवेत्तर, मानवेतर, मनुष्येत्तर",
+  "english": "nature other than human / non-human (nature)",
+  "transliteration": "manavetar",
+  "note": "Merged spelling variants (मानवेत्तर/मानवेतर/मनुष्येत्तर all attested) for the compound मानव+इतर denoting matter/plant/animal orders collectively, as distinct from the human/knowledge order. Coined compound (मानव+इतर) referring to the material/biological/animal orders collectively as distinct from the human/knowledge order; rendered contextually as 'animals', 'the rest of nature', or 'nature other than humans' (MVD p.55: 'capable of use... of the rest of nature'; SB p.15: 'nature other than humans').; Denotes the whole of nature excluding humans (matter, plants, animals) as a category distinct from the human/knowledge order, e.g. 'मनुष्येत्तर संपूर्ण प्रकृति' rendered as 'the entire nature apart from humans'.",
+  "citation": "SB p.15; SB p.8",
+  "skip_reason": null
+ }
+]
