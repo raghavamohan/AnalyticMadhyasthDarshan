@@ -652,13 +652,15 @@ def convert_to_html(
     katex_css = _load_katex_css() if has_latex_math else ""
 
     kd_print_css = ""
+    page_margin = "2.2cm 2cm 2.2cm 2cm"
     if input_path.name == "KD-Karm-Darshan-English.md":
+        page_margin = "1.6cm 1.5cm 1.6cm 1.5cm"
         kd_print_css = """
-    body { font-size: 10.5pt; line-height: 1.45; }
+    body { font-size: 10pt; line-height: 1.34; }
     h2 { margin: 8pt 0 4pt 0; }
     h3 { margin: 4pt 0 1pt 0; page-break-after: avoid; break-after: avoid; }
     h3 + p { margin: 1pt 0 2pt 0; }
-    p { margin: 2pt 0; }
+    p { margin: 1pt 0; }
     ul, ol { margin: 1pt 0 3pt 0; padding-left: 16pt; }
     li { margin: 0; }
 """
@@ -900,7 +902,7 @@ def convert_to_html(
 <style>
   @page {{
     size: A4;
-    margin: 2.2cm 2cm 2.2cm 2cm;
+    margin: {page_margin};
   }}
   @media print {{
     body {{

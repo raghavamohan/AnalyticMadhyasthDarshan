@@ -54,7 +54,7 @@ District — Anuppur, M.P. (India) — 484886
 
 2. Prior to this existence-based human-centric contemplation, my initiation was in spiritual knowledge and Vedic tradition-based worship and action (*upasana*–*karma*).
 
-3. According to the Vedanta view, "Brahma is truth, the world is an illusion (*maya*)," while also stating that the world of living beings originated from Brahma. In the language of tradition: *upasana* refers to the rituals and ceremonies for becoming deities (Vedic worship); *karma* refers to all actions aimed at attaining heaven; in *Manu Dharma Shastra*, daily duties (*nitya karma*) for the four classes (*varnas*) and four stages of life (*ashramas*); in ritual texts (*karmakanda*), sixteen kinds of rituals from conception (*garbha sanskar*) to death (*mrityu sanskar*).
+3. According to the Vedanta view, "Brahma is truth, the world is an illusion (*maya*)," while also stating that the world of living beings originated from Brahma. In the language of tradition: *upasana* refers to the rituals and ceremonies for becoming deities (Vedic worship); *karma* refers to all actions aimed at attaining heaven; in *Manu Dharma Shastra*, daily duties (*nitya karma*) for the four classes (*varnas*) and four stages of life (*ashramas*); in ritual texts (*karmakanda*), sixteen kinds of rituals from conception (*garbha sanskar*) to death (*mrityu sanskar*). By studying all these, my mind presented a question -
 
 [p. 5]
 
@@ -116,13 +116,13 @@ District — Anuppur, M.P. (India) — 484886
 
 13. In existence, on this earth (which is a physical structure), through chemical processes and composition, biological cells formed and flourished as vegetation. Following this, biological cells formed animal bodies, and finally, the human body and tradition were completed and understood.
 
-14. **Within coexistence:** The human tradition is understood as the combined form of body and *jeevan*.
-
 [p. 8]
 
-15. In, from, and for coexistence, coexistence was understood to be eternally effective; this itself was understood as the natural sequence (*niyatikram*).
+14. **Within coexistence:** The human tradition is understood as the combined form of body and *jeevan*.
 
-16. **Natural-law method — only by the natural method of coexistence:**
+    In, from, and for coexistence, coexistence was understood to be eternally effective; this itself was understood as the natural sequence (*niyatikram*).
+
+15. **Natural-law: Only by the natural method of coexistence:**
 
     (i) Four orders in existence: material order, prana order, animal order, knowledge order; and
 
@@ -130,7 +130,7 @@ District — Anuppur, M.P. (India) — 484886
 
     (iii) Development progression and development; awakening progression and awakening.
 
-    Similarly, the awakening-based human tradition, replete with human-ness, orderliness, and participation in the overall orderliness, is understood as an eternal glory. I accepted this as the universal-auspicious formula and recognized the aspiration for universal welfare in all humans. As a result, I have presented before humankind the natural explanation of consciousness-development value education, constitution, conduct, and orderliness.
+    And the eternal glory of the awakening-based human tradition, replete with human-ness, orderliness, and participation in the overall orderliness, was understood. I accepted this as the universal-auspicious formula and recognized the aspiration for universal welfare in all humans. As a result, I have presented before humankind the natural explanation of consciousness-development value education, constitution, conduct, and orderliness.
 
 [p. 9]
 
@@ -1383,13 +1383,51 @@ This itself is complete awakening and the standing of the Seer's plane.
 
 [blank p. 50]
 
-[blank p. 51]
+[p. 51]
 
-[blank p. 52]
+Chapter Three
 
-## 3.1 Atomic Structure and Molecular Composition (परमाणु संरचना एवं अणु रचना)
+Coexistence-ist Science (सहअस्तित्ववादी विज्ञान)
+
+1. Coexistence is eternally present
+2. Coexistence is eternally effective
+3. All-pervasive substance is permeating, transparent; entire nature (units) submerged in all-pervasive substance, order with selfhood, participation in the overall order
+4. Complementarity, utility
+5. Relationship, value, evaluation, balance
+
+
+[p. 52]
+## Table of contents (अनुक्रमणिका)
+
+| Chapter | Page |
+| :---- | :---- |
+| 1. Atomic Structure and Molecular Composition | 53 |
+| 2. Development Progression, Development | 57 |
+| 3. Development in the Atom | 59 |
+| 4. The Nature of Mental Well-Being | 63 |
+| 5. Coexistence Is Stable; Development and Awakening Are Certain | 68 |
+| 6. The Stability and Certainty of Realisation and Awakening | 69 |
+| 7. Heat and the Earth's Balance | 72 |
+| 8. State–Motion | 83 |
+| 9. Quantity | 87 |
+| 10. Property, Essential nature, Dharma | 99 |
+| 11. Force–Power (State–Motion) | 101 |
+| 12. Projection–Reflection | 109 |
+| 13. Pressure, Flow, Wave, Electromagnetic Force | 117 |
+| 14. Place, Direction, Distance, Area, Angle | 124 |
+| 15. Time | 133 |
+| 16. The Human Being as the Combined Form of the Prana-State, the Human Body, and Jeevan | 135 |
 
 [p. 53]
+
+| Chapter | Page |
+| :---- | :---- |
+| 17. Knowledge, Knower, Known (ज्ञान, ज्ञाता, ज्ञेय) | 145 |
+| 18. Seer, Doer, Enjoyer (दृष्टा, कर्त्ता, भोक्ता) | 150 |
+
+[p. 54]
+
+## 3.1 Atomic Structure and Molecular Composition (परमाणु संरचना एवं अणु रचना)
 
 The desire to recognise atomic structure has been found in the human being from the distant past.
 
@@ -1401,11 +1439,9 @@ The atom has, at its middle, one or more particles (*ansh*), and, revolving on a
 
 In this connection, two main questions came to attention — 1. How could recognition come to be established in the mutuality of the atomic particles? 2. After recognition, why did they enter into orderliness? On carrying this line of thought further, it was understood that coexistence itself is its principal cause, because the omnipresent substance (Omnipresence) is fully immersed, soaked, and enveloping within every single object, in energy. The omnipresent substance is all-permeating within all of these. In this way it became clear that, from the subtlest to the largest unit, being saturated within the omnipresent is the basis of remaining energy-endowed. Being energy-endowed itself is understood to be being force-endowed and being endowed with magnetic force. It is by virtue of this force-endowment that in the subtle atomic particle there is the propensity to recognise mutuality and to participate in orderliness. For the human being it is necessary to accept the recognition of one by another as evidence of this force. The human being alone is endowed with the innate right to recognise propensity, action, and fruition. In this very progression, when human beings recognise one another, there they present themselves in the form of orderliness itself. Wherever they have committed error in recognising this meaning, functioning and behaving in the form of disorderliness, the cause of the problem
 
-[p. 54]
+[p. 55]
 
 comes to be. In this way it is understood that every atomic particle (on the basis of being saturated within the omnipresent) is functioning in orderliness precisely as a result of recognising one another. The functional form of orderliness is definite conduct itself.
-
-[p. 55]
 
 In the above manner, as a result of every atomic particle too being energy-endowed, recognising one another is natural for it; the purpose of this recognising is to conduct itself in a combined form — this was understood as an eternal law. From this a further formula also emerges: that on the basis of such recognising alone does constitution-organisation come to be, and constitution-organisation comes to be evidenced in the sense of orderliness, being the ever-present. In this way, that within the omnipresent substance every single entire object is indivisible, and that this is understood in the form of coexistence, has become easy to comprehend. In this progression, that coexistence is eternally influenced — this is acceptable to us humans.
 
@@ -1435,9 +1471,8 @@ Such physical molecule-atoms, participating in the chemical activity-process, ar
 
 That all the above manifestations, in the material state, are based upon molecule-atom species, and that the species of molecule-atoms are dependent on the number of atomic particles — this is well established. The changing of the number of particles, and, as a result of the change, the result — such results remain continuously coming to be. The name of this activity-process is absorption-displacement (*prasthapan-visthapan*). In atoms, absorption-displacement remains occurring in order to fulfil the result-oriented intent. In this the intent of the process of being complementary to one another also comes to be accomplished. Before some particle is displaced from any atom, that atom is found to remain excited; it is only as a result of being excited that being displaced from some atom becomes possible. That particle becomes absorbed into some atom. The name of this action is absorption. In this way, after being displaced, the displaced atom comes to be in natural-state motion; the emplacing atom, after absorbing the absorbed particle, having welled up, comes to be in the establishment of natural-state motion. Only in the establishment of natural-state motion does every atom, molecule, and molecular composition come to be clear as accomplishing definite conduct. Definite conduct itself is the evidence of orderliness. In this progression the intent of development remains contained.
 
-## 3.2 Development Progression, Development (विकासक्रम, विकास)
-
 [p. 58]
+## 3.2 Development Progression, Development (विकासक्रम, विकास)
 
 In the development progression, the molecules, atoms, and molecule-composed compositions of many species are well established. Just as the earth and many planet-globes are present in existence. All these compositions are the present precisely in the forms of solid, liquid, and rarefied. On this earth these three states are well established. Among these, that which is water, in the form of liquid substance, is itself the very first grandeur of compound action. Water is found to become acid and alkali on the basis of the earth's combination. Only after these come to arise up to a definite quantity does, through the combination of cosmic heat, from the influence of the reflection (the basis for recognition in mutuality), substance-composition in the form of nourishment-element and composition-element come to be found in the water. Its root form is called 'algae' (*kaai*). It is right after such algae that compositions composed from the prana cells have already come to be formed by the single-celled, two-celled, and multi-celled method. This exhibits the development progression in composition. This earth has within it small-large compositions in the form of soil, stone, gem, and metal. As the grandeur of compound action, the compositions composed from prana cells are called the plant-order. All these plant-orders are indivisible from the earth; they remain joined with the earth.
 
@@ -1471,7 +1506,7 @@ What is meant by development in the atom is the atom's becoming constitutionally
 
 [p. 61]
 
-In the result-progression, it has become easy to understand atoms in the terms of hungry and undigested (*ajeeran*). Undigested atoms remain in the attempt to expel some of the particles contained within their constitution. Such atoms remain endowed with radiative grandeur. Radiativeness can be understood thus: that in atoms activeness is always-always kept up; in the fruition of activeness, sound, heat, and electricity come to be produced of their own accord. As a result of remaining soaked within the omnipresent substance, they keep energy-endowment and force-endowment maintained. This very force-endowment comes to be reckoned in the form of magnetic force. Therefore, radiative atoms remain expressing undigestedness within their constitution, because from their constitution the attempt to expel some particles remains ever present. In this progression, radiativeness remains produced in such a way that in the undigested atom there is an internal-conjoining of heat toward the nuclei. In this very progression electricity too remains present. It is as a result of these two processes that radiativeness remains manifest.
+In the result-progression, it has become easy to understand atoms in the terms of hungry and undigested. Undigested atoms remain in the attempt to expel some of the particles contained within their constitution. Such atoms remain endowed with radiative grandeur. Radiativeness can be understood thus: that in atoms activeness is always-always kept up; in the fruition of activeness, sound, heat, and electricity come to be produced of their own accord. As a result of remaining soaked within the omnipresent substance, they keep energy-endowment and force-endowment maintained. This very force-endowment comes to be reckoned in the form of magnetic force. Therefore, radiative atoms remain expressing undigestedness within their constitution, because from their constitution the attempt to expel some particles remains ever present. In this progression, radiativeness remains produced in such a way that in the undigested atom there is an internal-conjoining of heat toward the nuclei. In this very progression electricity too remains present. It is as a result of these two processes that radiativeness remains manifest.
 
 In hungry atoms, the possibility of absorbing some more particles into themselves remains present. This is precisely why they have the name "hungry" atoms. Being undigested and hungry in atoms is understood precisely in the sense of the satisfied (*tript*) atoms (the human being is the one who studies it). Such a satisfied atom — that is, the constitutionally satisfied atom — is found to come to be in the jeevan status. As a result, in the constitutionally complete atom, force and power become inexhaustible. What is meant by inexhaustibility is precisely this: that however much one may express or spend, it does not decrease. However much one may express hope, thought, desire, or evidence, it does not decrease at all, and they remain keen. That is why the name "inexhaustible" has been given. Such inexhaustibility every human being can recognise within himself by examination.
 
@@ -1553,7 +1588,7 @@ goal and the human goal becoming meaningful is itself the universality of study 
 
 The human goal — evidencing resolution, prosperity, fearlessness, and coexistence naturally, and, on that basis, the jeevan goal (mental well-being) — the evidence of this, in the sense of making happiness, peace, contentment, and joy meaningful, is precisely why the necessity of human education-and-culture has remained in place for ever and ever. The success of this alone is the good fortune of the human family.
 
-### The Meaningful Evidence of the Human Family and of Chemical-Physical Activity (मानव कुल और रासायनिक-भौतिक क्रियाकलाप का सार्थक प्रमाण)
+### The Meaningful Evidence of the Human Family and of Chemical-Physical Activity
 
 The entire substance of education lies, within coexistence-as-existence, precisely in the form of chemical, physical, and jeevan activity. Of these, in their indivisible form, is the entire activity, behaviour, thinking, and understanding of human tradition. It is in the sense of understanding alone that every human being has to carry out study. Understanding, in itself, is found evidenced in the forms of knowing, believing, recognising, and carrying out. It is in this very sense that the whole of study is found to be meaningful.
 
@@ -1567,7 +1602,7 @@ By the coexistence-ist method it becomes possible to recognise the whole of huma
 
 In the conduct of humankind, dharma predominates; in animal species, essential nature predominates; in plants, property predominates; in material things, form predominates. It has already become necessary that human dharma, in itself, evidence resolution on the basis of happiness. All-round, resolution-complete education-and-culture is itself the tradition and the source for this. This itself is awakened tradition.
 
-## 3.5 Coexistence Is Stable; Development and Awakening Are Certain (सहअस्तित्व स्थिर है, विकास और जागृति निश्चित है)
+## 3.5 Coexistence Is Stable; Development and Awakening Are Certain
 
 Existence-as-coexistence is stable. It is in coexistence alone that development and awakening are certain. We human beings on this earth have already arrived at a condition fit for studying this fact. The seer, doer, and enjoyer of universal wellbeing, and the bearer and carrier of the knowledge, science, and wisdom obtained at its root from education-and-culture, is the awakened human being alone. This fact is found, in itself, to be well understood. It is only with coexistence-ist philosophy, knowledge, science, and wisdom that every human being comes to evidence himself, in the sequence of the event of universal wellbeing, naturally in the form of orderliness, and comes to participate in the overall orderliness. This itself is the reach and the manifest form of the programme of universal wellbeing. For this — that is, for universal knowledge, science, and wisdom — study alone is the one and only source. The nature of knowledge and science, in itself, is complete knowledge only when it comprises: the knowledge of the holistic view of existence-as-coexistence, the knowledge of jeevan in the form of conscious nature, the knowledge of activity-behaviour in the form of humane conduct, and the knowledge of participating in the overall orderliness. Of these, existence-as-coexistence comes to be studied in four states and in four categories (*pad*). Its root form, in the pervasive substance, is that each and every single substance
 
@@ -1577,7 +1612,7 @@ remains submerged, saturated, and enclosed within the whole. This alone is the e
 
 We human beings have the tendency to participate, together with human-ness, in orderliness and in the overall orderliness only in natural-state motion — that is, only after the accomplishment of natural-state motion, with awakening. Such natural-state motion is found to occur only after awakening. Awakening is evidenced only when the human being becomes accomplished in understanding, honesty, and responsibility, as a result of which he evidences, with participation, his own glory, his actual condition. In the second stage it also became understood that the human being alone is fit to be the one who understands. Only after understanding stability and certainty does the human being himself become capable of being honest and responsible in respect of certainty and stability. As a result he is able to be evidenced with participation. Therefore it is necessary for the human being to be understanding; the expectation of this — that is, the expectation of understanding — is found to be present in all humankind.
 
-## 3.6 The Stability and Certainty of Realisation and Awakening (अनुभव और जागृति की स्थिरता और निश्चयता)
+## 3.6 The Stability and Certainty of Realisation and Awakening
 
 Certainty and stability have indeed remained formed in all humankind in the form of an abiding aspiration (*chira-akanksha*). Existence-as-coexistence is the basis of knowledge and acceptance. This is a fact that comes to be known in all humankind through survey. This becomes clear also from examining oneself. All of us have continued to accept stability and certainty alone, and not instability and uncertainty. It is natural for certainty to occur only on the natural basis of stability. The certainty natural to development and awakening is evidenced, in all humankind, in the form of jeevan activity. It is natural for all humankind to study the five activities of jeevan in the form of state, and five activities in the form of motion. In carrying out this study
 
@@ -1607,11 +1642,17 @@ That the human goal is resolution, prosperity, fearlessness, and coexistence —
 
 Realisation alone is the ultimate expression, communication, and manifestation of awakening and of jeevan. What is meant by ultimate is that it is never more than realisation; jeevan remains incomplete in anything less than that. It is found that satiation (*tripti*) in jeevan comes about through realisation. Jeevan-satiation, in itself, is what comes to be recognised, in human tradition, in the forms of happiness, peace, and contentment, on the basis of resolution, prosperity, and fearlessness. In coexistence, realisation alone is the ultimate; this itself is joy. The evidence of this is ultimate in, from, and for human tradition. The evaluation-system of these — that is, of the human goal — remains contained within orderliness; this itself is the justice-and-security system. By the method of justice and security, the human being is found to remain trusting and assured in every state and motion. As a result, the path remains cleared for the entire glory natural to jeevan to be evidenced within human tradition. This itself is awakened tradition. The evidence of jeevan-satiation is the human being's being a participant in undivided society, in universal orderliness. It remains natural that, once there is orderliness within human tradition, it is by the method of orderliness alone that resolution, prosperity, fearlessness, and coexistence come to be evidenced. This itself is the evidence of awakening, and the evidence of the whole of human jeevan as well. It is the ultimate glory of human tradition. Orderliness in the form of purpose is indeed the highest attainment of human tradition. In these very attainments, stability and certainty are clear.
 
-## 3.7 Heat and the Earth's Balance (ऊष्मा और धरती का संतुलन)
-
 [p. 73]
 
-We see nature-other-than-human (*manavettar prakriti*) as the greenery spread out upon this earth, replete with mineral wealth, and as the world of living beings. This earth is endowed with mountains, forests, rivers, streams, and living animals. Endowment means that all these are indeed present on this earth. The earth has minerals contained within itself in solid and rarefied form, and the chemical world spread out upon it is seen to exist in solid, liquid, and rarefied forms. Many things in solid form are indeed to be seen. For example, the bones formed in the body
+In the human tradition's becoming awakened, stability is evidenced, becomes well established, by the natural method of existence. Certainty is evidenced, becomes well established, by the method of humane conduct. The expectation of this has remained in the human being from generation to generation. In this way, becoming capable of evidencing the human's development and awakening itself is found to be the human's rise, grandeur, and dominion. The definition of dominion too is grandeur itself. What rise means is reaching, or the sequence of reaching, the height that is in the form of innateness (*maulikata*). Grandeur, in its own form, is itself family orderliness and world-family orderliness. Participation in such orderliness is the human's good fortune. In this progression, study remaining available in the form of education-and-culture too is the fundamental grandeur of orderliness. Grandeur itself becomes well established in the forms of dominion and self-dominion (*swarajya*). What self-dominion means too is precisely from the human's grandeur. This grandeur reaches every human being only with understanding. It becomes capable of being disseminated universally through education. Such orderliness is found, in itself, to remain free of treachery, rebellion, exploitation, and war — and, in their place, to remain with resolution, prosperity, fearlessness, and coexistence. This itself is the meaning of universal orderliness.
+
+A tradition endowed with the natural evidence of awakening free from war and conflict, and of comprehensive resolution, is itself the thread and the explanation of orderliness. Every human being — that is, every man and woman — evidencing his or her own awakening with understanding is a self-motivated propensity. On the basis of these propensities, the human being becomes able to evidence trust in the present. This itself is the link. It is only on the basis of trust in the present that coexistence becomes capable of being evidenced.
+
+It is only in awakened human tradition that stability is evidenced by the method of existence in the form of coexistence, and certainty is evidenced by the method of humane conduct.
+
+## 3.7 Heat and the Earth's Balance (ऊष्मा और धरती का संतुलन)
+
+We see nature, other than human, as the greenery spread out upon this earth, replete with mineral wealth, and as the world of living beings. This earth is endowed with mountains, forests, rivers, streams, and living animals. Prosperity means that all these are indeed present on this earth. The earth has minerals contained within itself in solid and rarefied form, and the chemical world spread out upon it is seen to exist in solid, liquid, and rarefied forms. Many things in solid form are indeed to be seen. For example, the bones formed in the body
 
 [p. 74]
 
@@ -1681,9 +1722,9 @@ feet the vastness goes on decreasing. Every student can test and observe this. F
 
 Along with this, on paying further attention it becomes known that the grandeur of the biological order, the grandeur of the animal order and of the knowledge order, their workings, and the auspicious site of work-behaviour, stand evidenced only on the upper surface of the earth. These three orders cannot flourish anywhere inside the earth. Along with this it is also seen that celestial light is reflected (imaged) only in the upper part. On the basis of the earth being opaque, it is not possible for celestial light to be permeative through the earth. It is necessary for the human alone to pay attention to all these facts. Because it is the human alone who has interfered in the inner part of the earth; its result has already turned inauspicious. Its clarification has been done. The human wants only wellbeing (*shubh*). There is need to become adept in the formula and explanation of wellbeing. On the basis of such a formula and explanation of wellbeing, or the formula and explanation of universal wellbeing, one lives evidencing the coexistence method — that is, law, control, balance, justice, dharma, and, with truth, resolution, prosperity, fearlessness, coexistence. Universality is the formula and explanation of wellbeing. We have understood this matter well. We have explained it before: undividedness is the formula, universality is the explanation; its bearer-carrier is the human alone. This itself is the evidence of awakening, the grandeur of good fortune. This is also the human's desire; therefore, all improper, unnecessary, ruinous tendencies, work-behaviours, and configurations that have occurred through the human out of delusion — to correct these with awakening is itself the human's honour, and, together with it, good fortune.
 
-## 3.8 State–Motion (स्थिति-गति)
-
 [p. 84]
+
+## 3.8 State–Motion (स्थिति-गति)
 
 The human wants to be evidenced in state–motion with awakening. Such evidences are hoped for in relation both to one's own self and to the whole. First of all, this principle will have to be taken to heart: state and motion are indivisible. 'Being', 'remaining in motion' — this is its root evidence. Even an atom remains in motion on the basis of being. A planet-orb too remains in motion on the basis of being. The entire world of matter maintains motion in the form of formation and decomposition only on the basis of 'being'. All plants too, on the basis of being alone, remain in motion in the form of growth (*pushti*). The entire animal order too remains in motion on the basis of being. The human evidences motion only on the basis of being awakened. Thus, in existence in the form of coexistence, every thing that has attained eternal establishment is present in the form of state–motion. By this method the whole of state–motion is indivisible. Force in state, power in motion — or, state is seen as force and motion as power — and force and power are certainly indivisible.
 
@@ -1713,9 +1754,8 @@ method alone, by the realisation-based method, every man and woman can evidence 
 
 There is simply no thing that does not become clear by the coexistence method. The whole of things is worthy of being understood by the one who understands; it does get understood; it has also been understood. To make understood what has been understood is a self-motivated activity. Thus, the basis of the manifest and the unmanifest has become clear. The human was able to evidence, was able to make understood, what he wished — this itself is the evidence of being manifest. Along with this there is also living. What we kept regarding as understood but could not make understood — this itself was called the unmanifest. Whereas existence in the form of coexistence is eternally present and manifest; in it nothing at all is unmanifest.
 
-## 3.9 Quantity (मात्रा)
-
 [p. 88]
+## 3.9 Quantity
 
 Whatever substance exists in the form of a single unit — what is meant by substance is precisely the expression of actuality. Actuality, in every substance, is orderliness-with-inherence (*tva*). Actualities remain present, mutually with one another, in an indivisible form all the way from form, property, essential nature, to dharma. That is, form, property, essential nature, and dharma are found expressed in an indivisible form together with quantity. At the root of being expressed is the expression, communication, and manifestation of coexistence. It has already become clear that, in coexistence, every single unit is found submerged, saturated, and enclosed within the pervasive substance. It has also become clear that the pervasive substance is permeative and transparent throughout each and every single unit. It is precisely as a result of remaining saturated within the pervasive that each single unit is found to be endowed with energy and endowed with magnetic force.
 
@@ -1834,8 +1874,6 @@ itself. Among these, in every state and category other than the human being, eve
 
 ## 3.11 Force–Power (State–Motion) (बल-शक्ति (स्थिति-गति))
 
-[p. 102]
-
 We humans have, from the past, been making a great many conjectures about force (*bal*) and power (*shakti*). After the arrival of the age of modern science, experiments were made to draw further conclusions about power. That no complete conclusion has yet emerged from the discipline of science, and that nothing has emerged for humanness, is a point worth considering. In this context, through the discipline of science there has been an attempt to recognize pressure as force, and to recognize motion, wave, and flow as power. In this, many examples were presented — in the form of electric wave and magnetic force, likewise in the form of sound wave and pressure, in the form of the wave and pressure that occur in flow — in these various ways the attempt was made to impart study. In all of these it was found that the fact of mediation (*madhyasthiyakaran*) occurring in all of them has been denied. All these studies are based only on excited motion. When there is natural-state motion, where do force and power go — this question does indeed arise.
 
 On this issue, from the viewpoint of Madhyasth Darshan it comes to be known that force is manifest in state, power in motion. This means that in the course of evidencing effect upon another, the introduction and recognition of power in the form of mechanical process occurs. It comes to be recognized on the basis of there being states. Many methods for testing this fact or principle are at hand (*samicheen*) before the human. 'At hand' means being nearby, being available. For example a stone: we go to lift it, we lift it; then whatever apprehension arises of the conjunction of the stone and ourselves, whatever comes into understanding, that is called weight. This weight, of its own
@@ -1864,11 +1902,11 @@ State-motion, in its own form, is the combined form of pressure and flow. In som
 
 [p. 106]
 
-being operated too is something the human has practised. Their discharge — that is, the discharge or residue of minerals, coal, oil, and radiant materials — has become the cause of pollution. On this issue we have already made study earlier. In the context of its alternative too, attention has been drawn, by way of proposal, toward the flow-force of water. Along with this, attention also needs to go toward wind and ocean waves. The human's attention going toward the sun's heat as well — there is need to be encouraged in the course of obtaining magnetic electric current. Only then is it possible for the human to gain release from the polluting tradition of great crime — anti-destiny, anti-development, anti-awakening, anti-human, opposed to the earth's environment. On examining state-motion by the existence method it comes to be known (examining means ascertaining by way of testing, observing, surveying) that all units keep displaying and expressing force in state, power in motion. Such a situation is found equally in all units, from the smallest of the small to the biggest of the big. That a unit endowed with state-motion is in the form of orderliness and participation in orderliness has become clear before. **Endowment with force in state means the evidence of orderliness in oneself; power in motion means participation in the overall orderliness.** Fundamentally, it should be known that every unit, as a result of remaining saturated in the pervasive reality, is endowed with energy, endowed with force. At the root of every unit is the atom itself. It is quite clear that the atom itself works in the form of physical, chemical, and jeevan activity. Jeevan atoms remain free from molecular bond and weight bond, and, owing to delusion, remain joined with the bonds of hope, thought, and desire. All other atoms that participate in physico-chemical activity remain joined with molecular bond and weight bond. It is by virtue of such molecular bond and weight bond that being formed as small structures and large structures is found. The smallest structure is the atom itself. Atoms alone manifest grandeur in the form of molecules and molecule-formed structures. The form of such grandeur remains animated by the formula of coexistence alone. For instance, there being more than one particle in one atom, more than one atom in one molecule, more than one molecule in a molecular structure — all these are in themselves evidences that remain animated by the formula of coexistence. Among structures there are only physical structure and chemical structure. In these structures, being complementary and useful for one another has become quite clear. In molecules of all these species, the expression of both state and motion is continuously present. It is never going to stop. From ever and ever these activities and expressions are present indeed. That is why the human stands presented as a unit fit to study all these. That is why the human himself has also to evidence orderliness in state and, in motion, participation in the overall orderliness. Only then is the evidence of mental
+being operated too is something the human has practised. Their discharge — that is, the discharge or residue of minerals, coal, oil, and radiant materials — has become the cause of pollution. On this issue we have already made study earlier. In the context of its alternative too, attention has been drawn, by way of proposal, toward the flow-force of water. Along with this, attention also needs to go toward wind and ocean waves. The human's attention going toward the sun's heat as well — there is need to be encouraged in the course of obtaining magnetic electric current. Only then is it possible for the human to gain release from the polluting tradition of great crime — anti-destiny, anti-development, anti-awakening, anti-human, opposed to the earth's environment. On examining state-motion by the existence method it comes to be known (examining means ascertaining by way of testing, observing, surveying) that all units keep displaying and expressing force in state, power in motion. Such a situation is found equally in all units, from the smallest of the small to the biggest of the big. That a unit endowed with state-motion is in the form of orderliness and participation in orderliness has become clear before. **Endowment with force in state means the evidence of orderliness in oneself; power in motion means participation in the overall orderliness.** Fundamentally, it should be known that every unit, as a result of remaining saturated in the pervasive reality, is endowed with energy, endowed with force. At the root of every unit is the atom itself. It is quite clear that the atom itself works in the form of physical, chemical, and jeevan activity. Jeevan atoms remain free from molecular bond and weight bond, and, owing to delusion, remain joined with the bonds of hope, thought, and desire. All other atoms that participate in physico-chemical activity remain joined with molecular bond and weight bond. It is by virtue of such molecular bond and weight bond that being formed as small structures and large structures is found. The smallest structure is the atom itself. Atoms alone manifest grandeur in the form of molecules and molecule-formed structures. The form of such grandeur remains animated by the formula of coexistence alone. For instance, there being more than one particle in one atom, more than one atom in one molecule, more than one molecule in a molecular structure — all these are in themselves evidences that remain animated by the formula of coexistence. Among structures there are only physical structure and chemical structure. In these structures, being complementary and useful for one another has become quite clear. In molecules of all these species, the expression of both state and motion is continuously present. It is never going to stop. From ever and ever these activities and expressions are present indeed. That is why the human stands presented as a unit fit to study all these. That is why the human himself has also to evidence orderliness in state and, in motion, participation in the overall orderliness. 
 
 [p. 107]
 
-wellbeing (*manah svasthata*) presented in tradition. Without mental well-being, all-round resolution in the human is simply not possible. Therefore mental well-being is for the human an utterly essential or supremely necessary attainment.
+Only then is the evidence of mental wellbeing (*manah svasthata*) presented in tradition. Without mental well-being, all-round resolution in the human is simply not possible. Therefore mental well-being is for the human an utterly essential or supremely necessary attainment.
 
 In this same sequence it is natural for the human, on the basis of understanding, to be glorified in himself in the formula of mental well-being in the form of all-round resolution. Such grandeur alone — that is, endowment with resolution alone — becomes able, or becomes successful, in evidencing prosperity, fearlessness, coexistence. This very success is the succour and life-breath (*tran* and *pran*) in, from, and for the human tradition. *Tran* means state; *pran* means motion. Being inspiration in motion, orderliness being evidenced in the environment or in the sphere of effect, and in state oneself being orderliness — this is the meaningful form of grandeur. For maintaining such grandeur there is indeed a hopeful propensity in the human. In the same way, in the atom, force in state and power in motion — that is, being endowed with a sphere of effect — is found. The remaining-secure of this mutual sphere of effect is itself the good distance in mutuality. Every unit endowed with such effects is successful in maintaining its own originality in mutuality; the name of this very thing is control.
 
@@ -1957,8 +1995,6 @@ In the human, from imaginativeness and freedom of action up to understanding, ho
 and accepted. This being evidenced is itself the purpose of projection-reflection. This is also the purpose of the human tradition. This alone, by the destiny method, is the destination-site. This alone is the necessity of all humans.
 
 ## 3.13 Pressure, Flow, Wave, Electromagnetic Force (दबाव, प्रवाह, तरंग, विद्युत चुम्बकीय बल)
-
-[p. 118]
 
 Pressure — the compulsions received for generative-degenerative (*sam-visham*) excitation (*āvesh*), as distinct from natural-state motion, are pressure.
 
@@ -2110,9 +2146,8 @@ In the aforesaid way, however many experiments and decisions humankind has made 
 
 From the viewpoint of human contentment: only after taking to heart with clarity the dimensions in the form of form, property, essential nature, and dharma does every human accomplish resolution-oriented decision in the context of development and awakening, and, as a result, become able to be meaningful in the direction of awakening and development. This itself is the summary.
 
-## 3.15 Time (काल)
-
 [p. 134]
+## 3.15 Time (काल)
 
 The definition of time in the form of 'the duration of activity' is clear. Activity, in itself, does keep being accomplished continuously. Along with it, some activities keep recurring. The continuity of such recurrence remains formed. It never stops at all. On the basis of one recurrence of such continuously accomplished activity, the basis for recognizing time was accepted. In one rotational motion of the earth, day and night are found to be accomplished over the whole earth. This itself has been given the designation of one day. Such day-and-night activity has come on from ever and ever, and will keep going on. Dividing this duration by 24 parts, by 60 parts, we recognize it by names such as hour, minute, *ghati*, *pal*, and so on. In this manner we went on dividing time, and forgot the activity. We made ourselves ready to evaluate every activity on the basis of time. Time became primary; the thing was forgotten. From all the decisions taken on the basis of this mistake, problems arose. The need remained for evaluation to occur on the basis of activity and its fruition.
 
@@ -2126,21 +2161,18 @@ we go on fashioning past, future, and present. On the basis of being imaginative
 
 If the present becomes zero, where is human conduct to be recognized, where is behaviour to be recognized, where is the place for recognizing human knowledge, science, and discretion? That is why the human, beset with problems, began to bring problems about. He regarded this as his bravery; in this very thing, human tradition has sunk quite far. The way of escape ahead is this alone — coexistence as the ever-present, the eternal manifestation of development and awakening, and, on the basis of recognizing that the human alone is the one who evidences development and awakening — only on this basis will human-aspiration and jeevan-aspiration be able to be fulfilled.
 
-## 3.16 The Human Being as the Combined Form of the Prana-State, the Human Body, and Jeevan (प्राणावस्था, मानव शरीर और जीवन के संयुक्त रूप में मानव)
-
-[p. 135]
+## 3.16 The Human Being as the Combined Form of the Prana-State, the Human Body, and Jeevan 
 
 At the root of the prana state, combinative (*yaugik*) method and tendency are found to occur by the self-motivated method. If study is made regarding the favourable circumstance for this, then it appears, in background, that it lies simply in being enriched, in itself, from cosmic rays and from atoms of many species on the earth. If one thinks about the combinative background on this earth, there is no cause greater than this. In maintaining cosmic favourableness, cosmic ray-radiation alone is the one source. Even today this thing is presented right up to this earth's atmosphere. Whatever the ray manages to reach, all of that comes to be more evidenced in the earth's own light. Along with this, heat's relation too is formed with the earth. The earth, and every atom in the earth, is affected; in such a condition, whatever other sources there are, those radiant sources keep up a circulation of radiativeness produced from, or spread from, many earths as an effect of cosmic activities. This is still ongoing even now. Along with this, this earth, on the basis of being enriched with atoms of many species, also has, within itself, a great many radiant substances at work. In this way it has been the background for the whole of combinative activity to occur, through the combination of ray, radiation, and heat. Combinative events, proceeding from the event of water, into acid and
 
 [p. 136]
-
 alkaline forms — the background of the possibility of such combinative events occurring may be accepted. Because even now, in another form, acid, alkali, and water combining, in various ratio-sequences, various kinds of chemical substance remain ready before us. Whatever became helpful, in these ratios, for change has always been the help of organic and other species' molecule-atoms. In this way acid, alkali, and water, together with these molecule-atoms, are found to have been helpful in increasing the number of species of chemical substances.
 
 In this way the activity of chemical substances becoming enriched has been occurring on this earth. Out of the union-combination of these chemical substances, the formation of nourishment-elements and composition-elements — this event, being brought forth from the continued combination of radiant rays and heat, is found to be manifest to this very day. It is seen that in the sum of nourishment-element and composition-element, the composition, presentation, and functionality of prana-sutras comes about. It is this very nourishment-element and composition-element which, becoming enriched in themselves, in the form of the prana-sutra and the composition of the prana-sutra — through this same combination of heat, through the combination of radiation, by force of vibration — bring about, in the prana-sutras, the manifestation of the respiration activity together with the composition-method. Immediately after this, the acceptance of the composition-method in the prana-sutras, for the nature of prana-cells to be a composition composed from cells, and for such compositions to be diverse, becomes intelligible. After one kind of composition becomes enriched in itself, acceptance in the prana-sutras for a second kind of composition occurs; as a result, compositions of the second kind, and, in this same sequence, other compositions, have already come to be evidenced upon this earth. All of these are together with the seed-tree method. In this same sequence, the sequence of the glory of plants, the sequence of the composition and de-composition of plants, and its continuity, are in the form of the actual condition.
 
 The residue of decomposed plants alone became the basis of the sweat-born world. Even today this matter can be tested. Gather leaves together before the rainy season; those very leaves, at the time of rotting, produce a great many worms and insects. These worms and insects prepare the egg-born world. In such an egg-born tradition, it has remained natural for excellence to occur in the prana-cells, or there kept being talk of further excellence, and of further species. The egg-born world, becoming abundant, kept establishing itself in the forms of the water-dweller, the land-dweller, and the sky-dweller. From the prana-cells of the egg-born world, the prana-cells of the womb-born world developed. In this womb-born world, the majority became land-dwellers, whereas in the egg-born world all three — land-dweller, water-dweller, sky-dweller — occurred. Of these, in the egg-born world the sky-dwellers were more numerous; after this, just as
 
-[p. 137]
+[p. 137 ]
 
 the womb-born world too came, land-dwellers became more numerous. In the sky-dweller and water-dweller, the womb-born world obtained fewer species. After this, in this sequence, as many species developed in the womb-born world, the tradition of the human body-composition developed as the final species.
 
@@ -2276,7 +2308,7 @@ Human-aspiration — the natural evidence of resolution, prosperity, fearlessnes
 
 Jeevan-aspiration — is reckoned in the forms of happiness, peace, contentment, joy.
 
-## 3.18 Seer, Doer, Enjoyer (दृष्टा, कर्त्ता, भोक्ता)
+## 3.18 Seer, Doer, Enjoyer
 
 In awakened human tradition, fundamental right is evidenced in the forms of seer, doer, and enjoyer. In most countries, spiritualists have made mentality ready to accept God, the Supreme Soul, Brahma, goddesses, and gods. For this, scriptures too were prepared, and, at the root of all religions, the good sayings written in the scriptures, in the form of divine speech, God's speech, or voice-from-the-sky, came to be accepted. This itself came to be regarded as scripture. On the basis of such a belief, the treatise, and, on the basis of the treatise, the method of preaching became prevalent. Such scriptures came to be prepared at a time when the human beings of one country were not capable of forming relations with all countries. When human beings became so capable, one community became ready to study the religious texts of another. In this it became known that the things which we accept according to our own religious text, another religious text does not accept. Then where is this divine speech? In this way religious differences of opinion only became more entangled. It is naturally accepted by all that there should be a religious text; along with this, the self-motivated conception also arises in mentality that there should be no dispute in religion; and if a dispute does occur,
 
@@ -2301,3 +2333,11 @@ Understanding itself was found to become the seer-status, established as the kno
 to this. This became clear as a result of awakening. This itself is the main matter. In the whole of chemical and physical activity, in the animal order, and in the deluded human being, testimony to being doer and enjoyer has forever remained formed. For this very reason, it is precisely together with the seer-status that the human being, as doer, has the arrangement for becoming meaningfully successful — not in the deluded condition. So be it: it is natural for the seer-status to be the glory of awakened tradition alone. Therefore, keeping human tradition intact is, for all of us human beings, the all-auspicious thread, the all-auspicious explanation.
 
 *Nityam yātu śubhodayam* [May auspicious dawn come forever]
+
+[blank p. 154]
+
+[blank p. 155]
+
+[blank p. 156]
+
+[blank p. 157]
