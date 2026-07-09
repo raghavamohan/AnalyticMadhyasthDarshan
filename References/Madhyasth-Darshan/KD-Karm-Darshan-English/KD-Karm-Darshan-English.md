@@ -54,7 +54,7 @@ District — Anuppur, M.P. (India) — 484886
 
 2. Prior to this existence-based human-centric contemplation, my initiation was in spiritual knowledge and Vedic tradition-based worship and action (*upasana*–*karma*).
 
-3. According to the Vedanta view, "Brahma is truth, the world is an illusion (*maya*)," while also stating that the world of living beings originated from Brahma. In the language of tradition: *upasana* refers to the rituals and ceremonies for becoming deities (Vedic worship); *karma* refers to all actions aimed at attaining heaven; in *Manu Dharma Shastra*, daily duties (*nitya karma*) for the four classes (*varnas*) and four stages of life (*ashramas*); in ritual texts (*karmakanda*), sixteen kinds of rituals from conception (*garbha sanskar*) to death (*mrityu sanskar*).
+3. According to the Vedanta view, "Brahma is truth, the world is an illusion (*maya*)," while also stating that the world of living beings originated from Brahma. In the language of tradition: *upasana* refers to the rituals and ceremonies for becoming deities (Vedic worship); *karma* refers to all actions aimed at attaining heaven; in *Manu Dharma Shastra*, daily duties (*nitya karma*) for the four classes (*varnas*) and four stages of life (*ashramas*); in ritual texts (*karmakanda*), sixteen kinds of rituals from conception (*garbha sanskar*) to death (*mrityu sanskar*). By studying all these, my mind presented a question -
 
 [p. 5]
 
@@ -116,13 +116,13 @@ District — Anuppur, M.P. (India) — 484886
 
 13. In existence, on this earth (which is a physical structure), through chemical processes and composition, biological cells formed and flourished as vegetation. Following this, biological cells formed animal bodies, and finally, the human body and tradition were completed and understood.
 
-14. **Within coexistence:** The human tradition is understood as the combined form of body and *jeevan*.
-
 [p. 8]
 
-15. In, from, and for coexistence, coexistence was understood to be eternally effective; this itself was understood as the natural sequence (*niyatikram*).
+14. **Within coexistence:** The human tradition is understood as the combined form of body and *jeevan*.
 
-16. **Natural-law method — only by the natural method of coexistence:**
+    In, from, and for coexistence, coexistence was understood to be eternally effective; this itself was understood as the natural sequence (*niyatikram*).
+
+15. **Natural-law: Only by the natural method of coexistence:**
 
     (i) Four orders in existence: material order, prana order, animal order, knowledge order; and
 
@@ -130,7 +130,7 @@ District — Anuppur, M.P. (India) — 484886
 
     (iii) Development progression and development; awakening progression and awakening.
 
-    Similarly, the awakening-based human tradition, replete with human-ness, orderliness, and participation in the overall orderliness, is understood as an eternal glory. I accepted this as the universal-auspicious formula and recognized the aspiration for universal welfare in all humans. As a result, I have presented before humankind the natural explanation of consciousness-development value education, constitution, conduct, and orderliness.
+    And the eternal glory of the awakening-based human tradition, replete with human-ness, orderliness, and participation in the overall orderliness, was understood. I accepted this as the universal-auspicious formula and recognized the aspiration for universal welfare in all humans. As a result, I have presented before humankind the natural explanation of consciousness-development value education, constitution, conduct, and orderliness.
 
 [p. 9]
 
