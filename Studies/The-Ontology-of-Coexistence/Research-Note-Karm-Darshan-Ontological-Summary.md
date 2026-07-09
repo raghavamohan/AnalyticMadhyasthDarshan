@@ -288,7 +288,7 @@ flowchart TD
 | §1.2 Saturation and endowments | 3.1; 3.9; 3.11; 3.13 |
 | §1.3 Form, property, essential nature, dharma | 3.9–3.10 |
 | §1.5 Four orders | 3.2; 3.4; 3.9–3.10 |
-| §1.6 Completeness drive; T1–T3 | 3.2–3.3 (two developments; three stages scoped to *jeevan*); 3.6; 3.18 — Ontology §1.6 now names the compositional vs atomic split so T2/T3 are not read as particle teleology |
+| §1.6 Completeness drive; T1–T3; happiness→bliss as knowledge-path face | 3.2–3.3 (two developments; three stages scoped to *jeevan*); 3.6; 3.18 — Ontology §1 names the compositional vs atomic split and the sentient bliss face without treating bliss as a fourth T-stage |
 | §1.6 Effort–motion–result | Title principle; 3.11; ch. 1 |
 | §1.7 Five faculties / *jeevan* | 3.6; 3.16 |
 | Force, weight, gravitation, EM | 3.7–3.8; 3.11–3.13 |
