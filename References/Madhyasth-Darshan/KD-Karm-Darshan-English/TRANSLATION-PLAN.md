@@ -1,183 +1,72 @@
-# Karm Darshan English Translation — Plan (complete)
+# Karm Darshan English Translation — Plan
 
-Goal: a complete working English translation of *Manav Karm Darshan* (v5) by Shri A. Nagaraj,
-covering front matter and all three chapters. **Status: complete** — all content lives in the single
-canonical file [`KD-Karm-Darshan-English.md`](KD-Karm-Darshan-English.md) (front matter + chapters
-1–3). Per-chapter intermediate files were consolidated on 2026-07-08.
+Goal: a page-aligned Hindi–English PDF pair for side-by-side verification of *Manav Karm Darshan* (v5). All content lives in [`KD-Karm-Darshan-English.md`](KD-Karm-Darshan-English.md).
 
-## Status as of 2026-07-08
+## Page-number convention
 
-**Book structure** (confirmed against the Hindi original's own table of contents and the
-detailed chapter-3 sub-TOC, PDF pp. 24 and 76–78): the book has front matter, then exactly three
-chapters. Printed page = PDF page − 25. Actual book content ends at printed p.153 (PDF p.178,
-closing benediction); printed pp.154–155 are publisher back matter, not book content — excluded
-throughout.
+- **Printed page** = PDF page − 25 for body content (printed pp. 1–153 → PDF pp. 26–178).
+- Front matter uses printed = PDF for PDF pages 1–25.
+- Page images: `_page-images/p{pdf:03d}_print{printed:03d}.png` (render with `python Scripts/_kd_render_page_images.py`).
 
-| Chapter | Hindi | Printed pp. | Status |
-|---|---|---|---|
-| — | Front matter (title page, author's declaration, "मध्यस्थ दर्शन के मूल तत्व" outline, प्राक्कथन preface, अनुक्रमणिका TOC) | pdf 1–25 (~21 content pages) | **Done** — `KD-Karm-Darshan-English.md` (मूल तत्व reuses MVD English) |
-| 1 | कर्म (Karma) | 1–29 | **Done** |
-| 2 | उपासना (Upasana / Worship) | 30–49 | **Done** (pp.50–52 are not chapter 2 — p.50 is blank, pp.51–52 are chapter 3's title page and detailed sub-TOC; represented as blank PDF placeholders in the English file) |
-| 3.1–3.3 | Atomic Structure & Molecular Composition; Development Progression; Development in the Atom | 53–63 | **Done** |
-| 3.4–3.6 | मनःस्वस्थता का स्वरूप; सहअस्तित्व स्थिर है…; अनुभव और जागृति की स्थिरता… | 64–72 | **Done** |
-| 3.7–3.8 | Heat and the Earth's Balance; State–Motion | 73–87 | **Done** |
-| 3.9–3.10 | मात्रा (Quantity); गुण, स्वभाव, धर्म | 88–102 | **Done** |
-| 3.11–3.12 | Force–Power; Projection–Reflection | 102–118 | **Done** |
-| 3.13–3.15 | Pressure/Flow/Wave/EM Force; Place/Direction/Distance/Area/Angle; Time | 118–135 | **Done** |
-| 3.16–3.18 | प्राणावस्था…; ज्ञान, ज्ञाता, ज्ञेय; दृष्टा, कर्त्ता, भोक्ता | 135–153 | **Done** |
+## Transition layout (printed pp. 50–54)
 
-**Entire book content is translated** in `KD-Karm-Darshan-English.md`. The English PDF is
-page-aligned with the Hindi original (182 PDF pages): printed pp. 50–52 use `[blank p. NN]`
-placeholders matching the Hindi layout (blank / ch.3 title / sub-TOC).
+| Printed | PDF | Content |
+|---|---|---|
+| 50 | 75 | Blank |
+| 51 | 76 | Chapter 3 title + five-theme outline |
+| 52 | 77 | Sub-TOC sections 1–16 |
+| 53 | 78 | Sub-TOC sections 17–18 |
+| 54 | 79 | Section 3.1 begins |
 
-Note: chapter 2's actual content ends at printed p.49, not p.52 — p.50 is blank and pp.51–52 are
-chapter 3's own title page and detailed sub-table-of-contents (printed page = PDF page − 25 still
-holds; the sub-TOC there lists chapter 3's 16 sections with their own page numbers, corroborating
-the PDF pp. 76–78 sub-TOC location noted above).
+Previously, printed pp. 51–52 were `[blank p. NN]` placeholders and section 3.1 started at printed p. 53, which misaligned every interleaved pair from chapter 3 onward.
 
-## Systematic errors found and corrected (2026-07-08) — read before reviewing
+## Remaining work
 
-While translating chapter 2, three recurring mistranslations were caught by checking a KD phrase
-against MVD's actual running-prose sentence (not just MD-Mapping's isolated row), then swept back
-across the full translation. **The lesson for review: whenever a KD sentence closely parallels a
-known MVD passage — especially a recurring formula, not a one-off phrase — look up MVD's real
-sentence-level translation before trusting MD-Mapping's row gloss or a first-pass literal
-rendering.** MD-Mapping's row can be terse, list multiple options, or gloss only the head word;
-MVD's prose shows how the compound is actually idiomatically resolved.
+### Done (2026-07-09)
 
-1. **दर्शन (bare, or in "X दर्शन (ज्ञान)" / "दर्शन-क्षमता" compounds) = "the holistic view (of X)"**,
-   not transliterated "darshan". MD-Mapping has a direct row (दर्शन = "Holistic view, Worldview,
-   Philosophy") and MVD confirms it in the exact recurring formula below. *Excluded* from this
-   fix: the proper noun "Madhyasth Darshan" (book/philosophy name); the दृश/दृश्य/दर्शन seer-triad
-   sense (KD 3.17, a separate established convention, see `KD-Glossary-Additions.md`); and the
-   devotional-register verb "X का दर्शन करना" = "to behold X" (KD 1 p.24).
-2. **मानवीयतापूर्ण (X) / अतिमानवीयतापूर्ण (X) = "humane (X)" / "higher-humane (X)"**, a plain
-   adjective — not "X filled with humaneness," "humaneness-replete X," or "humanity-replete X"
-   (all three wordings of the same error turned up across files). MD-Mapping has direct rows
-   (मानवीयता पूर्ण आचरण = "Humane Conduct") and MVD confirms it in running prose ("...जीवन ज्ञान व
-   मानवीयतापूर्ण आचरण ज्ञान..." → "...knowledge of jeevan and humane conduct", MVD p.3) and in its
-   own glossary ("मानवीयतापूर्ण व्यवहार" → "Humane Behaviour", MVD p.34). *Not* extended to other
-   "-पूर्ण" compounds on different roots (सत्यतापूर्ण, ज्ञान-/विवेक-/विज्ञान-पूर्ण, etc.) — only
-   मानवीयता/अतिमानवीयता has this specific MVD-attested simplification.
-3. **जीवन ज्ञान = "knowledge of jeevan"**, not "jeevan knowledge" — keeps the "knowledge of X"
-   pattern parallel with the other two terms in the recurring three-part formula (अस्तित्व दर्शन
-   ज्ञान / जीवन ज्ञान / मानवीयतापूर्ण आचरण ज्ञान → "knowledge of the holistic view of existence,
-   knowledge of jeevan, knowledge of humane conduct"), confirmed twice in MVD (p.3, p.259). This
-   exact formula recurs verbatim or near-verbatim at several points across the book — treat it as
-   a fixed idiom, not three independently-translated words, wherever it appears in the front matter
-   too.
+- [x] Translate printed pp. 51–53 (chapter 3 title page + detailed sub-TOC)
+- [x] Renumber chapter 3 body markers (+1 after sub-TOC; final page stays p. 153)
+- [x] Regenerate `KD-Karm-Darshan-English.pdf` (182 pages) and `KD-Karm-Darshan-Hindi-English.pdf` (364 pages)
+- [x] Add helper scripts: `_kd_shift_page_markers.py`, `_kd_verify_page_markers.py`
 
-**Sections corrected:** chapter 1 (~15 मानवीयतापूर्ण + 10 दर्शन instances, all verified
-page-by-page against the source images), chapter 2 (7 + 4 + 1), §3.4–3.6 (2 + 0 + 1),
-§3.9–3.10 (4 + 0 + 0), §3.11–3.12 (0 + 3 + 2), §3.16–3.18 (1 + 0 + 2). §3.1–3.3,
-§3.7–3.8, and §3.13–3.15 had no instances of any of the three. Full reasoning, MVD page
-citations, and the excluded senses are in `KD-Glossary-Additions.md` (see the दर्शन,
-मानवीयतापूर्ण, and जीवन ज्ञान rows).
+### Ongoing — fine page alignment (chapter 3 body)
 
-## Terminology remediation (2026-07-08)
+English prose length differs from Hindi, so section headings may sit ±1–2 printed pages from the sub-TOC start pages. Use `_page-images/` vs the regenerated English PDF to adjust paragraph splits at `[p. NN]` markers.
 
-After the initial दर्शन / मानवीयतापूर्ण / जीवन ज्ञान sweep, a second pass aligned remaining systematic drift with MVD/SB:
+Priority checkpoints (sub-TOC start pages):
 
-1. **परिणाम / फल → "result"** — reverted the interim "consequence" split; श्रम-गति-परिणाम → **Effort – Motion – Result** everywhere (MVD/SB title-page Principle). Both bare परिणाम and फल render as "result"; फल-परिणाम compounds collapse to "result." Idiomatic "as a result of" unchanged. Script: `Scripts/_kd_remediate_parinam.py` (plus manual fixes for `consequence-*` compounds and the last `fruit` instance in KD 3.11).
+| Section | Hindi start | Verify marker / heading |
+|---|---|---|
+| 3.1 | 54 | PDF p. 79 |
+| 3.2 | 57 | |
+| 3.3 | 59 | |
+| 3.8 | 83 | sanity check (content was aligned pre-shift) |
+| 3.18 | 150–153 | closing benediction on p. 153 |
 
-2. **संचेतना → "awareness"** — grep audit for "human consciousness": KD 3.4 p.69 (मानव संचेतना) corrected to "human awareness"; KD 2 and KD 3.9 kept "human consciousness" where Hindi is मानव चेतना.
+Run `python Scripts/_kd_verify_page_markers.py` for a section-boundary report.
 
-3. **Incomplete -replete sweep** — Ch1 `humaneness-replete` / `truthfulness-replete` fixed to "humane conduct" and "conduct full of truthfulness"; KD 3.9 knowledge-filled work-behaviour compression applied.
+### Optional
 
-4. **स्वयं स्फूर्त in KD 3.7–3.8** — all four former "self-inspired" instances (pp. 76, 77, 81, 87) verified as स्वयं स्फूर्त → "self-motivated" (distinct from स्वयं प्रेरित = "self-inspired," not found in 3.7–3.8).
-
-**Grep checklist** (run after each batch; expect zero except noted exceptions):
-
-```
-consequence          # bare परिणाम — zero
-fruit                # bare फल — zero (फलन=fruition OK)
-humaneness-replete   # zero
-jeevan knowledge     # zero
-self-inspired        # zero in 3.7–3.8; SB term elsewhere OK
-human consciousness  # only where Hindi is चेतना, not संचेतना
-Effort.*Consequence  # zero — use Result
-```
+- Isolate printed p. 50 as a fully blank English PDF page (currently the title outline may share the break with `[blank p. 50]`); requires removing one page break elsewhere to keep 182 pages.
 
 ## Methodology
 
-The source PDF's embedded text layer is corrupted (confirmed: extracted text shows systematic
-glyph-substitution garbling, e.g. "कास्यक" for "कायिक") — text extraction/OCR-by-copy-paste does
-not work. Translation workflow:
+1. Render Hindi page images — `python Scripts/_kd_render_page_images.py`
+2. Translate from images into `KD-Karm-Darshan-English.md` with `[p. NN]` / `[blank p. NN]` markers
+3. Apply glossary conventions — see `KD-Glossary-Additions.md`
+4. Rebuild glossary spreadsheet — `python Scripts/_kd_build_glossary_xlsx.py`
+5. Regenerate PDFs (below)
 
-1. **Render page images** — `python Scripts/_kd_render_page_images.py` writes all 182 Hindi PDF
-   pages to `_page-images/` (PyMuPDF, 150 dpi) from `../KD-karm darshan v5.pdf`
-   (PDF page = printed page + 25 for body content).
-2. **Translate page-by-page** from the images into `KD-Karm-Darshan-English.md`, carrying `[p. NN]`
-   markers at each page break; use `[blank p. NN]` for untranslated placeholder pages (pp. 50–52).
-3. **Apply glossary conventions** (below) for consistency with the wider Madhyasth Darshan corpus.
-4. **Rebuild glossary spreadsheet** — `python Scripts/_kd_build_glossary_xlsx.py` merges
-   `MD-Mapping.xlsx` with `KD-Glossary-Additions.md` into `KD-Translation-Glossary.xlsx`.
-5. **Regenerate PDF** — see commands in `README.md`.
+## Regenerate PDFs
 
-## Glossary resources
+```powershell
+python Scripts/_convert_to_pdf.py "References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.md"
+node Scripts/_html_to_pdf.js "References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.html"
+python Scripts/_kd_build_hindi_english_pdf.py
+```
 
-- **`../MD-Mapping.xlsx`** — now ~2147 rows, reconciled against Rakesh Gupta's MVD and SB
-  translations (2026-07-08 update): 59 terms corrected where MD-Mapping's old value conflicted
-  with MVD/SB usage, 53 new rows added for previously-uncovered terms. Check it first for any
-  unfamiliar term.
-- **`KD-Translation-Glossary.xlsx`** — three sheets: MD-Mapping (full copy), KD-Additions (from
-  `KD-Glossary-Additions.md`), KD-Overrides (where KD English differs from MD-Mapping for the
-  same Hindi headword). Rebuild with `Scripts/_kd_build_glossary_xlsx.py`.
-- **`../MD-Mapping-Sources/`** — the underlying parallel Hindi–English corpora
-  (`mvd_pairs.json`, `sb_pairs.json`) extracted from MVD and SB. **SB in particular directly
-  overlaps with KD's उपासना content** — SB may already have a Rakesh Gupta–quality rendering of the same concept
-  to check against, the same way MVD already covers the front matter's "मूल तत्व" section.
-- **`KD-Glossary-Additions.md`** — KD-specific term decisions and settled conventions. Known
-  contextual exceptions to apply (don't blindly follow MD-Mapping's single global rendering
-  where these apply):
-  - **आवेश/आवेशित** — "charge/charged" for the positive–negative (sam–visham) atomic-imbalance
-    sense; "excitation/excited" where it contrasts a neutral/natural state with a disturbed one.
-  - **श्रम = effort**; "labour" only in the economic compounds (श्रम मूल्य, श्रम विनिमय, श्रम
-    नियोजन — not yet encountered in translated KD text, so this hasn't been tested yet).
-  - **ताप = "temperature"**, distinct from ऊष्मा = "heat" — the two are used contrastively in
-    KD 3.7 itself; don't collapse both to "heat" even though MD-Mapping's plain row now says
-    ताप=heat.
-  - **वास्तविकता = "actuality"**, distinct from यथार्थता = "reality" — both appear together in a
-    "reality, actuality, truth" list; don't collapse to the same English word.
-  - **परावर्तन = projection, प्रत्यावर्तन = reflection** (re-settled 2026-07-08, aligned with
-    MD-Mapping/MVD) — watch for this pair throughout the corpus, since it's a
-    recurring epistemological duality, not confined to chapter 3.12.
-  - **संसार compounds** (पशु-संसार, वनस्पति-संसार, etc.) render as "order" (animal order, plant
-    order), not literal "world".
-  - **गुण = "property"**, NOT "quality" (per Raghava, 2026-07-08) — applies to the noun गुण as it
-    recurs in the रूप/गुण/स्वभाव/धर्म (form/property/essential nature/dharma) list of the four orders'
-    predominant traits. Exception: गुणात्मक परिवर्तन (adjectival compound) keeps "qualitative
-    change/transformation" per MD-Mapping's own separate row for that compound.
-  - **दृष्टा/ज्ञाता/साध्य/साधक/साधन** keep MD-Mapping's existing renderings (Seer, knower, aim,
-    the seeker, the means); **कर्त्ता/भोक्ता, दृश/दृश्य/दर्शन, ध्यान/ध्याता/ध्येय** are not in
-    MD-Mapping and use compositional judgment-call renderings (doer/enjoyer; the
-    seeing/the seen/seeing; attention/attender/object of attention) — see
-    `KD-Glossary-Additions.md` for the full triads and reasoning, introduced in KD 3.16–3.18.
-  - **Chapter 1 (Karma) settles several more terminology decisions**, watch for these in chapter 2
-    too: **संस्कार** = left transliterated "*sanskar*", distinct from **संस्कृति** = "culture"
-    (they appear together constantly); **अभीष्ट** = "desire" (per Raghava, 2026-07-08 — note
-    this now overlaps in English with इच्छा, the general term for desire; distinguish by
-    context), kept distinct from **साध्य** = "aim" (the source glosses them together as
-    "साध्य (अभीष्ट)" → "the aim (the desire)"); **अनुभूति** = "experiencing", distinct from
-    **अनुभव** = "realisation"; **काम** = "*kama*" (desire), kept transliterated rather than
-    MD-Mapping's "lust" (used only in the classical मोक्ष/धर्म/काम/अर्थ list); **कायिक** =
-    "physical" (per Raghava, 2026-07-08, matching MD-Mapping — note this now overlaps in
-    English with भौतिक, also "physical"; distinguish by context); and **कृत, कारित, अनुमोदित**
-    = "done, caused, intended" (per Raghava, 2026-07-08).
-  - **दर्शन = "the holistic view"** (not "darshan"), **मानवीयतापूर्ण (X) = "humane (X)"** (not "X
-    replete with/filled with humaneness"), and **जीवन ज्ञान = "knowledge of jeevan"** (not "jeevan
-    knowledge") — three corrections swept across the full translation on 2026-07-08; see the
-    "Systematic errors" section above and the matching glossary rows.
-- When a new technical term comes up with no existing MD-Mapping row and no MVD/SB evidence,
-  add it to `KD-Glossary-Additions.md` following the existing table format, and flag it as a
-  judgment call (as the existing entries do) rather than silently deciding.
+Shift page markers (if needed): `python Scripts/_kd_shift_page_markers.py --from 54 --delta 1 --cap-final 153`
 
-## Definition of done (met)
+## Glossary
 
-- Single canonical file `KD-Karm-Darshan-English.md`: title line, disclaimer/epigraph, `##`
-  chapter headers with Hindi title in parentheses, `[p. NN]` markers, `[blank p. NN]` placeholders
-  where needed, italic transliterations.
-- `README.md` section index and this plan's status table reflect the combined file.
-- Judgment-call terms catalogued in `KD-Glossary-Additions.md` and `KD-Translation-Glossary.xlsx`.
-- `_page-images/` contains 182 Hindi source page renders for side-by-side verification.
-- English PDF page count matches Hindi (182 pages).
+Settled terminology and judgment calls: [`KD-Glossary-Additions.md`](KD-Glossary-Additions.md), [`KD-Translation-Glossary.xlsx`](KD-Translation-Glossary.xlsx), [`../MD-Mapping.xlsx`](../MD-Mapping.xlsx).
