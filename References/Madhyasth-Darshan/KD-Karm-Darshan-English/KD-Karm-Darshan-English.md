@@ -395,7 +395,7 @@ Karma
 
 By physical, vocal, mental, and by the distinctions of done, caused, and intended, every human being performs karma in nine ways. Every karma has result.
 
-In the human being, physical, vocal, and mental karma are well known across all three times. By the distinctions of done, caused, and intended, these are reckoned in fully nine kinds, which are evident. The human being's field of work is only the natural, the social, and the intellectual, whose desire (*abhīṣṭa*) is happiness. It is neither more nor less than this. Without this, the repose of effort does not manifest in the human being. Therefore, activity together with aspiration is karma itself; motion together with awareness is the complete activity.
+In the human being, physical, vocal, and mental karma are well known across all three times. By the distinctions of done, caused, and intended, these are reckoned in fully nine kinds, which are evident. The human being's field of work is only the natural, the social, and the intellectual, whose desire (*abhīṣṭa*) is happiness. It is neither more nor less than this. Without this, the restfulness of effort does not manifest in the human being. Therefore, activity together with aspiration is karma itself; motion together with awareness is the complete activity.
 
 The pressure that lies in accepting the unacceptable — that itself is pain (*vedanā*). It is the environment alone that is the pressure-giving fact, and relativity, which is evident. Relativity alone is the influential fact of decline and development.
 
@@ -419,7 +419,7 @@ Causal desires — whatever impulses arise by union, coincidence, or happenstanc
 
 Subtle desires — in the human being, truth is some thing, just as dharma, justice, are some thing, for the evidencing of which no clear thought remains.
 
-The whole of means is to be seen by the distinction of internal and external. Internal means are found in the forms of hope, thought, desire, resoluteness (*ṛtambharā*), and the evidences of realisation; external means are found in the forms of body and wealth. This itself is the clear form of material and conscious activity. It is precisely the attaining of the oneness, balance, and harmony of the material and the conscious that is the accomplishment of the desire. Every human being is engaged in effort for the accomplishment of the desire, which is evident.
+The whole of means is to be seen by the distinction of internal and external. Internal means are found in the forms of hope, thought, desire, resoluteness (*ṛtambharā*), and the evidences of realisation; external means are found in the forms of body and wealth. This itself is the clear form of insentient and sentient activity. It is precisely the attaining of the oneness, balance, and harmony of the insentient and the sentient that is the accomplishment of the desire. Every human being is engaged in effort for the accomplishment of the desire, which is evident.
 
 For the aim (the desire), the surrender of the seeker and the deployment of the means are necessary. The means is itself wealth, which is to be seen in the forms of body, mind, and money. This, while being constituted from work, is also the means for the constitution of karma.
 
@@ -431,11 +431,11 @@ The whole of karma exists only for the acquisition of wealth, whose purpose is r
 
 In the human being, happiness is the desired equilibrium (*abhīṣṭa*). It is precisely the deployment of internal and external means for realisation that is enlightenment; otherwise it is non-enlightenment. The possibility of these two conditions is itself the basis of diversity.
 
-It is precisely in accordance with the capacity of internal means (hope, thought, desire, resoluteness, the evidences of realisation) that there is control of external means. The internal totality is itself the conscious. Material-conscious nature is contained within knowledge (Omnipotence), and therefore it is controlled within it; in such equilibrium-control, development and awakening exist all the way to realisation.
+It is precisely in accordance with the capacity of internal means (hope, thought, desire, resoluteness, the evidences of realisation) that there is control of external means. The internal totality is itself the conscious. Insentient and sentient nature is contained within knowledge (Omnipotence), and therefore it is controlled within it; in such equilibrium-control, development and awakening exist all the way to realisation.
 
 In a life full of knowledge, the rise of freedom-from-delusion is seen, and, in its opposite, delusion is to be seen. Knowledge is itself realisation, resolve, desire, thought, and hope, whose complete manifestation is found to be based on the conscious unit's essential nature toward awakening and capacity.
 
-Freedom-from-delusion, being a complete capacity, is itself the accomplishment of the desire, because of being capable of doing proper and refined karma. The knowledge that comes to be manifest through the human being is to be known in three kinds: (1) physical, (2) intellectual, and (3) spiritual (coexistence). Their evident form is skill, proficiency, and erudition.
+Freedom-from-delusion, being a complete capacity, is itself the accomplishment of the desire, because of being capable of doing proper and refined karma. The knowledge that comes to be manifest through the human being is to be known in three kinds: (1) physical, (2) intellectual, and (3) spiritual (coexistence). Their evident form is skill, proficiency, and scholarliness.
 
 Principally, the practice of material science is from the whole of external means, and the practice of intellectual and spiritual science is from internal means. Material science and psychology are relative knowledge and study. The Spirit (Omnipotence) is absolute (determinate) knowledge. In relativity there is gain, expenditure, decline, development, and awakening. The proper use of the whole of word-powers is knowledge-producing, and wastage is ignorance-producing. Whoever wastes whatever, becomes deprived of it.
 
@@ -491,7 +491,7 @@ The environment is well known by the distinction of nature and the human-made.
 
 Education and orderliness are themselves the evident form of the human-made environment.
 
-The *sanskar* of the whole of humankind is clear in the "triad of investigation" (object-investigation, desire-investigation, truth-investigation).
+The *sanskar* of the whole of humankind is clear in the "investigation-trio" (object-investigation, desire-investigation, truth-investigation).
 
 The reckoning of the natural environment is connected to the balance of the measure of cold, heat, and rainfall found on every land, together with the three states other than the human.
 
@@ -533,7 +533,7 @@ At the root of the individual's thought-balance (intellectual balance) is found 
 
 Necessary root tendencies are evident, in sequence, in the forms of non-accumulation (prosperity), affection, learning, simplicity, and fearlessness (trust in the present); unnecessary root tendencies are evident in the forms of convenience, accumulation, hatred, ignorance, conceit, and fear.
 
-The rule fit for natural balance, social balance, and intellectual balance is itself the necessary rule. This is the "triad of rule."
+The rule fit for natural balance, social balance, and intellectual balance is itself the necessary rule. This is the "rule-trio."
 
 The decision to know and follow the necessary rules becomes clear from its proper use; the decision of proper use, from development and awakening; the decision of development and awakening, from the understanding and observance of intellectual, social, and natural rules. For the human being, following the necessary rules is an essential process for keeping the chain-sequence of one's own development and awakening unbroken. This itself is also the evident form of human jeevan, the awakening sequence, and the programme of awakened jeevan.
 
@@ -650,7 +650,7 @@ The programme is itself karma.
 
 Karma alone is helpful for decline, or for development and awakening.
 
-There is no unit in material-conscious nature that is not in motion toward decline or development.
+There is no unit in insentient and sentient nature that is not in motion toward decline or development.
 
 Knowledge, wisdom, and science alone are the one basis for the completeness of awakening. It is only for becoming endowed with such capacity that there is propensity toward refined karmas. This itself is to be conducted in the human being's five states and four dimensions.
 
@@ -664,15 +664,15 @@ It is precisely for the sake of non-disparity in the human being's natural mutua
 
 An international order incapable of holding a mystery-free holistic view toward the whole; a (national) order incapable in the process of the protection and promotion of truthfulness; a society incapable of propagating truthfulness; a family incapable of following truthfulness; an individual incapable of conduct full of truthfulness — these are afflicted by intense distress.
 
-It is precisely from adopting necessities in excess of leisure (possibility) that every kind of ill tendency becomes effective. These occur principally in the form of exploitation, which is harmful to self and other.
+It is precisely from adopting necessities in excess of opportunity (possibility) that every kind of ill tendency becomes effective. These occur principally in the form of exploitation, which is harmful to self and other.
 
-The means that is body, mind, and wealth is itself leisure.
+The means that is body, mind, and wealth is itself opportunity.
 
 It is natural for the means to become less for unrestrained necessity, and for the means to become more in restrained necessities. Wastage is contained within unrestrained necessity.
 
 For the human being, humaneness alone is the thread of restraint.
 
-In the human being, form, strength, intellect, status, wealth, karma, worship, necessity, occasion, and leisure are all fitting.
+In the human being, form, strength, intellect, status, wealth, karma, worship, necessity, occasion, and opportunity are all fitting.
 
 Assurances that never come into activity, right in excess of merit, scripture devoid of principle, method devoid of basis, conduct devoid of direction — all of these are causes of distress.
 
@@ -698,7 +698,7 @@ It is only in order to obtain the three kinds of karma-result that the human bei
 
 The whole of karma is accomplished by the distinction of the goals of self-interest, others'-interest, and ultimate-interest.
 
-In the union of mediating-intellect, *sam*-intellect is found engaged in righteous action. The whole diversity of karma becomes free from a mutually-opposed condition in humaneness. The direct evidence of this is precisely the conduct of the "triad of rule."
+In the union of mediating-intellect, *sam*-intellect is found engaged in righteous action. The whole diversity of karma becomes free from a mutually-opposed condition in humaneness. The direct evidence of this is precisely the conduct of the "rule-trio."
 
 In every union and separation, the conviction and deployment of values is found.
 
@@ -720,7 +720,7 @@ The determination of practical values occurs only through deliberation.
 
 Deliberations are in accordance with the immortality of jeevan, the mortality of the body, and the rule of behaviour.
 
-Practical values become meaningful in the sense of humaneness. It is on this basis that the triad of rule (intellectual, social, and natural) has been established.
+Practical values become meaningful in the sense of humaneness. It is on this basis that the rule-trio (intellectual, social, and natural) has been established.
 
 Conduct and observance carried out in the human being's natural mutuality are meaningful by the method of coexistence, and are meaningless, and a problem, by the method of non-coexistence.
 
@@ -754,7 +754,7 @@ For this very reason all humankind is equal in capacity.
 
 [p. 18]
 
-For the refinement of ideational capacity, the true path and auspicious yoga-practice are well known. It is precisely qualitative change, through consciousness-development-value education, in *sanskar*, that is universally auspicious. Again, this itself is ideational capacity. This sequence is a complete orderliness right up until it is accomplished through humane and supra-humane conduct. It is successful through the observance, adherence, and cultivation of the "triad of rule"; otherwise it is unsuccessful.
+For the refinement of ideational capacity, the true path and auspicious yoga-practice are well known. It is precisely qualitative change, through consciousness-development-value education, in *sanskar*, that is universally auspicious. Again, this itself is ideational capacity. This sequence is a complete orderliness right up until it is accomplished through humane and supra-humane conduct. It is successful through the observance, adherence, and cultivation of the "rule-trio"; otherwise it is unsuccessful.
 
 Union-worthy practice — the practice of meeting/union. After union, acceptance is to be seen in the form of jeevan-awakening, and deviation in the form of inhumaneness.
 
@@ -768,7 +768,7 @@ Conduct for true comprehension and naturalness is evident in the humane and divi
 
 For the human being, humane and supra-humane conduct alone is utterly useful and necessary.
 
-The human being's five states are mutually complementary. Their unified-threading is itself undivided sociality. This comes from the observance of the "triad of rule" being universal to all.
+The human being's five states are mutually complementary. Their unified-threading is itself undivided sociality. This comes from the observance of the "rule-trio" being universal to all.
 
 Every discovery and investigation is an individual-based unveiling. It becomes universally accessible through the medium of education and propagation. This itself is the process of universal generalisation.
 
@@ -852,7 +852,7 @@ Effort, motion, and result-fullness belong to activity; its projection to karma;
 
 In relative form, material powers, and, in the sense of expectation, conscious powers, are state-bound; and, in absolute form, the Spirit-Omnipotence is complete in state.
 
-Material powers are well known in the forms of heat, light, electricity, attraction, and sound; conscious powers are well known in the forms of hope, thought, desire, resolve, and experiencing. The foundational Omnipotence of material-conscious nature is itself the Spirit, which is absolute Omnipotence.
+Material powers are well known in the forms of heat, light, electricity, attraction, and sound; conscious powers are well known in the forms of hope, thought, desire, resolve, and experiencing. The foundational Omnipotence of insentient and sentient nature is itself the Spirit, which is absolute Omnipotence.
 
 [p. 23]
 
@@ -890,7 +890,7 @@ It is in human jeevan alone that the particularities connected with the gross, t
 
 The human being's gross life is in expectation of happiness and peace; the subtle life, in expectation of peace and contentment; and the causal life is in anticipation of joy and supreme joy — for which this awakening is the natural evidence. It is precisely the all-round programme in accordance with this that is awakening. This itself is also the physical, intellectual, and spiritual attainments. This has become successful only through a humane and supra-humane programme.
 
-The deployment and disposal of the powers found in material-conscious nature lie only in origination, potency, and dissolution. In a perspective beyond this there is no disposal or deployment of property.
+The deployment and disposal of the powers found in insentient and sentient nature lie only in origination, potency, and dissolution. In a perspective beyond this there is no disposal or deployment of property.
 
 The beginning-to-end aim of the whole of disposal is itself the completeness of awakening.
 
@@ -922,9 +922,9 @@ It is precisely the human being's observance of his own dharma that is wholeness
 
 For the abundance of individuals full of righteous character, the awakened human being's cooperation and encouragement, their proper education and protection, and circumstances favourable to them, are themselves the evident form of world peace. Opposite to this is unrest, which is clear.
 
-It is precisely the observance of the rule of the "triad of behaviour" that is righteous character. This itself is the evident dignity in the human being's five states. This itself is natural fidelity, and it is in this that science and wisdom have been fulfilled in their entirety. As a result, a healthy orderliness-method and education-system become effective.
+It is precisely the observance of the rule of the "behaviour-trio" that is righteous character. This itself is the evident dignity in the human being's five states. This itself is natural fidelity, and it is in this that science and wisdom have been fulfilled in their entirety. As a result, a healthy orderliness-method and education-system become effective.
 
-What is meant by the "triad of behaviour" is physical, vocal, and mental behaviour carried out by the awakened human being.
+What is meant by the "behaviour-trio" is physical, vocal, and mental behaviour carried out by the awakened human being.
 
 The whole of result, refinement, and change is to be seen in five kinds:
 
@@ -938,11 +938,11 @@ In a life of enjoyment and excessive-enjoyment-ism, the human being is not capab
 
 In the absence of culture, it is not possible for civilisation, method, and orderliness to be beyond doubt. Therefore this itself is evident in the forms of vexation, anguish, agitation, anger, indignation, conflict, rivalry, terror, fear, and distress. This is not what the human being desires. Therefore he is bound toward progress in the direction of the desired. This itself is the possibility, in the human being, of a change and refinement of thought. Along with this, there is opportunity for qualitative arising in *sanskars*.
 
-The evident form of qualitative arising in *sanskars* is itself the observance of the "triad of rule." By this very method, the capacity to uphold social values, together with restrained tendency, becomes established as natural essential nature. What is meant by restrained tendency is the natural evidence of universal orderliness. It has been seen by living according to this method.
+The evident form of qualitative arising in *sanskars* is itself the observance of the "rule-trio." By this very method, the capacity to uphold social values, together with restrained tendency, becomes established as natural essential nature. What is meant by restrained tendency is the natural evidence of universal orderliness. It has been seen by living according to this method.
 
 This itself is also universal aspiration.
 
-Refined thought is itself wisdom-full science. This itself has been established in the forms of proficiency, skill, and erudition.
+Refined thought is itself wisdom-full science. This itself has been established in the forms of proficiency, skill, and scholarliness.
 
 Every accomplishment has occurred through application, behaviour, and realisation, which is evident.
 
@@ -1026,7 +1026,7 @@ In the adhibhautik domain, production-predominant behaviour [prevails]; in the a
 
 For the sake of the "instincts-quad" (*vishaya-chatushtaya*), [absolute-oneness is found] in adhibhautik elements; for the sake of the "triad of desires" (*eshana-traya*), in adhidaivik (social and behavioural) values; and the divine human is found in a state of absolute-oneness with the Spirit — for which, respectively, attachment, upasana, and dedication are employed.
 
-The whole of insentient-sentient nature is saturated in Paramatma (Omnipotence); therefore these [three kinds of soul] are bound to awakening, culminating in realisation, in "this" [existence].
+The whole of insentient and sentient nature is saturated in Paramatma (Omnipotence); therefore these [three kinds of soul] are bound to awakening, culminating in realisation, in "this" [existence].
 
 The deluded human is afflicted, excited, or bound by relativity — this is directly evident. This relativity remains observable only until the unit becomes free from delusion, because the free-from-delusion state is itself its supreme excellence.
 
@@ -1081,7 +1081,7 @@ At the root of all upasanas there is a similarity of aim: it is undivided societ
 
 Other desirable desires only give the appearance of a state of welfare, not realisation. Therefore, the human being is bound to make effort toward a programme in conformity with the aspiration for universal welfare, and up to the capacity worthy of following it.
 
-It is only through the universal, humane method of conducting the "triad of rule" — intellectual, social, and natural — that there is the possibility of, and actual freedom from, economic and communal class-sentiments. In this alone does all class-sentiment dissolve. Therefore, upasana becomes meaningful only through the desired understanding, together with awakening — which is itself awakening.
+It is only through the universal, humane method of conducting the "rule-trio" — intellectual, social, and natural — that there is the possibility of, and actual freedom from, economic and communal class-sentiments. In this alone does all class-sentiment dissolve. Therefore, upasana becomes meaningful only through the desired understanding, together with awakening — which is itself awakening.
 
 In the human being, the powers are activity-power, desire-power, and knowledge-power alone — these are its qualifications. Qualifications are found to be based on each unit's capacity-for-awakening and on [its] awakening.
 
@@ -1095,11 +1095,11 @@ There are intellectual, behavioural, and physical pains. These pains are observa
 
 It is only deficiency in watchfulness and alertness that is the cause of all affliction. Watchfulness and alertness are seen to manifest only on the basis of the capacity, competence, and worthiness found in the human unit. Therefore —
 
-For powers not to be wasted through the sense-organs of sound, touch, form, taste, and smell, but rather to be well spent — this itself is the awakening of activity-power. The determination of good-use and wastage lies, within the domain of humaneness, in the form of the "triad of rule".
+For powers not to be wasted through the sense-organs of sound, touch, form, taste, and smell, but rather to be well spent — this itself is the awakening of activity-power. The determination of good-use and wastage lies, within the domain of humaneness, in the form of the "rule-trio".
 
 The non-wasting of the *antahkarana*'s (the inner instrument's) root tendencies — namely hope, thought, desire, and resoluteness (*ṛtambharā*) — occurs only by the method of human consciousness and higher-human consciousness, and this itself is good-use. This itself is the awakening of desire-power.
 
-Right-enlightenment together with the completeness of experiencing is itself the capacity for the manifestation of knowledge. This itself is the awakening — or the complete awakening — of knowledge-power. This "triad of awakening" is directly evident in humaneness and higher-humaneness. This itself is the supreme-culmination attainment of human jeevan. This itself is the utility of empowered upasana; this itself is the aspiration of the whole of humankind. This itself is universal welfare.
+Right-enlightenment together with the completeness of experiencing is itself the capacity for the manifestation of knowledge. This itself is the awakening — or the complete awakening — of knowledge-power. This "awakening-trio" is directly evident in humaneness and higher-humaneness. This itself is the supreme-culmination attainment of human jeevan. This itself is the utility of empowered upasana; this itself is the aspiration of the whole of humankind. This itself is universal welfare.
 
 The direct form of jeevan-awakening is itself the application of wisdom-filled science. This itself is watchfulness, undivided sociality, enlightenment, freedom-from-disparity, coexistence, education, method, orderliness, civilisation, culture, intellectual resolution, material prosperity, and the continuity of jeevan-awakening.
 
@@ -1121,7 +1121,7 @@ Wisdom and science are themselves the chief characteristic of indirect knowledge
 
 Without indirect knowledge, [the discernment of] the eternal and the non-eternal, the proper and improper, the just and unjust, the righteous and unrighteous, the true and false, the desirable and undesirable, the seen and unseen, and the authority of indirect knowledge itself, is not established.
 
-Without the authority-of-knowledge of the eternal-and-non-eternal, dedication toward one's own-dharma is not found in the human being. Human dharma is itself happiness; happiness is itself just conduct; just conduct is itself the observance of humane [conduct] and of the "triad of rule". This itself is the human being's own-dharma. The human being is happiness-natured.
+Without the authority-of-knowledge of the eternal-and-non-eternal, dedication toward one's own-dharma is not found in the human being. Human dharma is itself happiness; happiness is itself just conduct; just conduct is itself the observance of humane [conduct] and of the "rule-trio". This itself is the human being's own-dharma. The human being is happiness-natured.
 
 There is no unit without propriety. Just as, in animals, essential nature-propriety; in plants, property-propriety; and in substances, form-propriety, is not violated. This itself is their dignity. In the same way, in the human being, resolution-happiness is itself dharma; dharma is itself propriety. This itself is their dignity and trust. The direct form of propriety is itself trust.
 
@@ -1207,7 +1207,7 @@ The process of generalisation of enlightenment is itself the direct form of qual
 
 In the state of not having the perspective of qualitative change, the deluded human being becomes intent on evaluating on the basis of quantity. This itself is class-struggle and conflict.
 
-The conduct of the "triad of rule," natural to humane behaviour, is itself personality. Active contribution to the making of such a personality is itself duty. This itself is human effort. This itself is enlightenment.
+The conduct of the "rule-trio," natural to humane behaviour, is itself personality. Active contribution to the making of such a personality is itself duty. This itself is human effort. This itself is enlightenment.
 
 Upasana grants the individual the direct form of personality and duty, because upasana is itself, in its own nature, education and orderliness. Therefore, this itself is enlightenment. Enlightenment itself is education and orderliness in the human being.
 
@@ -1241,7 +1241,7 @@ It is in the human unit alone that, even in the progress of awakening, the capac
 
 Whatever is as it is — [regarding it] as more, less, or not-understanding — this itself is imposition. This itself is ignorance. This itself is incapacity. This itself is delusion.
 
-It is only in relation to the state-fulness of insentient-sentient nature saturated in Omnipotence, and to the natural completeness of Omnipotence, that the activity of imposition or non-imposition is found to occur.
+It is only in relation to the state-fulness of insentient and sentient nature saturated in Omnipotence, and to the natural completeness of Omnipotence, that the activity of imposition or non-imposition is found to occur.
 
 In every unit, form, property, essential nature, and dharma are contained. This itself is its functionality. It is only the knowledge of the count, measure, and purpose of this that is the indicator of the capacity, free-from-delusion, toward nature. This itself is proof. This itself is naturalness.
 
@@ -1265,9 +1265,9 @@ There is no obstruction in the realisation-sequence of truth and truthfulness, b
 
 Naturalness is free from imposition. Imposition itself is deficient-or-excessive evaluation. The activity of deficient-or-excessive self-evaluation is itself unnaturalness.
 
-Self-evaluation occurs within the domain of the "triad of *-tā*".
+Self-evaluation occurs within the domain of the "*-tā*-trio".
 
-There is no human being on this earth who does not fall within the domain of the "triad of *-tā*".
+There is no human being on this earth who does not fall within the domain of the "*-tā*-trio".
 
 There is no separation from dharma, because this is [itself its] conception. Its direct form is itself humane and higher-humane conduct, which is the chief characteristic of naturalness. Therefore, conduct that advocates inhumaneness is itself unnatural.
 
@@ -1341,7 +1341,7 @@ Activity-power [as] *kāsā*, desire-power [as] *ākūti*, and knowledge-power [
 
 [p. 48]
 
-Without the awakening of the triad-of-powers — [that is,] the awakening of desire-power, activity-power, and knowledge-power — renunciation (freedom-from-delusion) and love are not evidenced.
+Without the awakening of the powers-trio — [that is,] the awakening of desire-power, activity-power, and knowledge-power — renunciation (freedom-from-delusion) and love are not evidenced.
 
 For body-centred jeevan, there is the creation of beings other than human; and for mind-centred, intellect-centred, and atma-centred jeevan, there is the creation of the human being alone.
 
@@ -1660,7 +1660,7 @@ do remain in solid form. Such things, before becoming solid, do remain in liquid
 
 We recognise heat by this method: the effect that occurs when a thing burns or is burnt — to this we are giving the name heat. We are able to recognise it in another way as well: a thing that has become more excited is always heated up. That is, its temperature increases. It is the human who recognises temperature. The rest of nature is affected by temperature. Setting the human apart, temperature does not get recognised by any measuring standard. To deploy temperature in experiments and to be able to assess the consequent outcomes is accomplished only by the human — that is, only the human carries it out.
 
-Recognising occurs in both material and conscious (*jad–chaitanya*) nature; in recognising and fulfilling, material nature stands evidenced. Whereas knowing and accepting occur only in conscious nature, in the human. The human, while being in the combined form of the material and the conscious, is endowed with the capacity for knowing-accepting. On the basic point, recognising too is an activity. One substance projects temperature for another; whatever temperature they express out of themselves, the molecules and atoms around them accept that temperature. This is what we are calling recognising. As a result, transformations come about. For example, whatever heat is deployed for melting iron, the iron accepts it; the molecule and atom of iron accept it. As a result it melts. We humans explain this activity thus: it recognises, it fulfils — only then does it melt. The human alone is such a unit that changes heated iron into various shapes; this is what we regard as casting into a mould. In this, the iron keeps on projecting heat until it sets again, until it becomes cold. All the substances joined with it apportion the iron's temperature to themselves. Eventually the iron becomes cold.
+Recognising occurs in both insentient and sentient (*jad–chaitanya*) nature; in recognising and fulfilling, insentient nature stands evidenced. Whereas knowing and accepting occur only in sentient nature, in the human. The human, while being in the combined form of the insentient and the sentient, is endowed with the capacity for knowing-accepting. On the basic point, recognising too is an activity. One substance projects temperature for another; whatever temperature they express out of themselves, the molecules and atoms around them accept that temperature. This is what we are calling recognising. As a result, transformations come about. For example, whatever heat is deployed for melting iron, the iron accepts it; the molecule and atom of iron accept it. As a result it melts. We humans explain this activity thus: it recognises, it fulfils — only then does it melt. The human alone is such a unit that changes heated iron into various shapes; this is what we regard as casting into a mould. In this, the iron keeps on projecting heat until it sets again, until it becomes cold. All the substances joined with it apportion the iron's temperature to themselves. Eventually the iron becomes cold.
 
 In the effort to stimulate temperature — that is, in the activity of manifesting and increasing temperature — there is always the conjunction of one that burns and one that makes burn. For example, coal is what burns; the air keeps making it burn. Going to its root, for burning coal in the initial stage some burning thing or other is there in the role of the igniter — such as burning fire. Proceeding by these methods,
 
@@ -1870,7 +1870,7 @@ By the above method, the study of the prana state too has already been understoo
 
 [p. 102]
 
-itself. Among these, in every state and category other than the human being, every unit is indeed itself an orderliness together with its inherence. The human being too, being a unit, has need to become awakened up to the point where control in sensitivity is evidenced through cognisance. What is meant by the human being is precisely this: knowing, believing, recognising, and carrying out the material-conscious (*jad-chaitanya*) nature situated in the whole of the categories and states within coexistence. By this method, wholeness and universality in the human being, communality in animals, genus-ness and species-ness in plants, and, in the material state, numerous actual conditions according to the numerical differences of particles in the developmental sequence, are found to be evidenced. Even while there is diversity in existence, the arrangement of quantity, through the differences of these states and categories, for recognising the human family, is a matter for study through the explanation of the thread of coexistence.
+itself. Among these, in every state and category other than the human being, every unit is indeed itself an orderliness together with its inherence. The human being too, being a unit, has need to become awakened up to the point where control in sensitivity is evidenced through cognisance. What is meant by the human being is precisely this: knowing, believing, recognising, and carrying out the insentient and sentient (*jad-chaitanya*) nature situated in the whole of the categories and states within coexistence. By this method, wholeness and universality in the human being, communality in animals, genus-ness and species-ness in plants, and, in the material state, numerous actual conditions according to the numerical differences of particles in the developmental sequence, are found to be evidenced. Even while there is diversity in existence, the arrangement of quantity, through the differences of these states and categories, for recognising the human family, is a matter for study through the explanation of the thread of coexistence.
 
 ## 3.11 Force–Power (State–Motion) (बल-शक्ति (स्थिति-गति))
 
@@ -2318,7 +2318,7 @@ then what indeed became of religion! Human beings who think with such logical in
 
 The matter to which attention needs to be paid here is just this: whatever is reflected before us — is there, at its root, any doer-status or not, is there one who does or not? If, at its root, there is no doer, then the ascription of the status of universal-doer became wrong. If there is no doer, then what would the enjoyer-status be like? If this is not so, then what became of the seer-status? All these questions have kept arising one after another. The answer to these questions is not to be found by the idealist method.
 
-When, by the coexistence-ist method, thinking and reflection began, and decisions began to be recognised, then it became known that whatever is functioning, in coexistence, in the form of the four states, all of it is indeed itself in the self-motivated doer-status. For this reason, activity, in itself, is clearly functioning in the sense of the developmental sequence in the forms of effort, motion, and result. In this same sequence, awakening was recognised in the forms of the immortality of result, the repose of effort, and the destination of motion. It has become possible to recognise the immortal status of result in the sense of development, the repose of effort, and the destination of motion, as awakening and awakening-completeness. In this way the human being himself becomes the knower of the awakening-status,
+When, by the coexistence-ist method, thinking and reflection began, and decisions began to be recognised, then it became known that whatever is functioning, in coexistence, in the form of the four states, all of it is indeed itself in the self-motivated doer-status. For this reason, activity, in itself, is clearly functioning in the sense of the developmental sequence in the forms of effort, motion, and result. In this same sequence, awakening was recognised in the forms of the immortality of result, the restfulness of effort, and the destination of motion. It has become possible to recognise the immortal status of result in the sense of development, the restfulness of effort, and the destination of motion, as awakening and awakening-completeness. In this way the human being himself becomes the knower of the awakening-status,
 
 [p. 152]
 
