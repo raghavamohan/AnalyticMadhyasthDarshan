@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 9, 2026, 2:30 PM IST
+**Edited on:** July 9, 2026, 2:37 PM IST
 **Status:** Released
 
 **The question:** What is Existence? What exists? Does what exists begin at some time? Does the individual self (*jeevan*) begin or end with the body? Is the world finally real?
@@ -474,7 +474,7 @@ That recognition can obtain while the body still lives (*jivanmukti*) or is comp
 
 Method serves that ontological claim rather than replacing it. Advaita inherits the classical analysis of valid knowledge (*pramana*): for the supreme truth of non-duality, verbal testimony (*shabda*) — the revealed word of the Upanishads, processed through reasoning and meditation — is finally competent; perception and inference operate within the subject-object duality to be transcended. The path is classically threefold: hearing (*shravana*), reasoning (*manana*), and sustained meditation (*nididhyasana*), under a qualified teacher. Teaching itself often proceeds by provisional attribution and later withdrawal (*adhyaropa–apavada*): names and forms are first admitted for instruction, then negated until only the Self remains — the same logic as seer-seen discrimination in the DDV. Full epistemological comparison: [*Knowledge, Knower, and Known*](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §2.
 
-Shankara's *Vivekachudamani* insists on ethical discipline as prerequisite to knowledge (VC, vv. 17–19). Ethics at *vyavahara* is developed as the section capstone in §2.10.
+Shankara's *Vivekachudamani* insists on ethical discipline as prerequisite to knowledge (VC, vv. 17–19). Ethics at *vyavahara* is developed in §2.10.
 
 ### 2.10 Ethics, *loka-sangraha*, and what realisation evidences
 
