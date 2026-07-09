@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="420" viewBox="0 0 900 420" role="img">
+  <title>Two developments that must not be collapsed</title>
+  <desc>Compositional progression builds bodies and environments; development in the atom alone yields constitutionally complete jeevan (T1). Activity and conduct completeness continue only on the jeevan path.</desc>
+  <style>
+
+    .bg { fill: #FCFBF8; }
+    .panel { fill: #FFFFFF; stroke: #C2CED6; }
+    .panel-alt { fill: #F4F8F5; stroke: #93B79E; }
+    .panel-warm { fill: #F2E7CF; stroke: #CBAE78; }
+    .panel-green { fill: #F4F8F5; stroke: #93B79E; }
+    .panel-purple { fill: #F3F1F8; stroke: #A39BCB; }
+    .panel-blue { fill: #E7F0F9; stroke: #185FA5; }
+    .panel-gold { fill: #FFF8E7; stroke: #D4A843; }
+    .ground { fill: #E9F0F4; stroke: #9DB4C2; }
+    .title { fill: #1F2D3A; }
+    .sub { fill: #5A6B78; }
+    .ink { fill: #3F4D57; }
+    .ink-dim { fill: #5A6B78; }
+    .ink-blue { fill: #2F5168; }
+    .ink-green { fill: #28402F; }
+    .ink-purple { fill: #3A3470; }
+    .ink-gold { fill: #7A6420; }
+    .ink-warm { fill: #5C4A1E; }
+    .stroke-blue { stroke: #5E7686; }
+    .stroke-green { stroke: #3F6B52; }
+    .stroke-purple { stroke: #6F63A8; }
+    .stroke-gold { stroke: #C9A227; }
+    .stroke-muted { stroke: #5E7686; }
+    .chip { fill: #FFFFFF; stroke: #C2CED6; }
+    .chip-hi { fill: #FFF8E7; stroke: #C9A227; }
+    .chip-purple { fill: #ECE7F6; stroke: #5B3FA0; }
+    .foot { fill: #F7F5F0; stroke: #D8D0C0; }
+    .mark-fill { fill: #5E7686; }
+    .mark-green { fill: #3F6B52; }
+    .mark-purple { fill: #6F63A8; }
+    .mark-gold { fill: #C9A227; }
+    text { font-family: Helvetica, Arial, sans-serif; }
+
+
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #1a1815; }
+    .panel { fill: #26231e; stroke: #423b33; }
+    .panel-alt { fill: #1e1b18; stroke: #423b33; }
+    .panel-warm { fill: #2a2418; stroke: #6f5a22; }
+    .panel-green { fill: #1a2e22; stroke: #355940; }
+    .panel-purple { fill: #241e33; stroke: #5b3fa0; }
+    .panel-blue { fill: #1a2430; stroke: #3d6278; }
+    .panel-gold { fill: #2a2418; stroke: #c9a227; }
+    .ground { fill: #1e2830; stroke: #3d6278; }
+    .title { fill: #f5f1ec; }
+    .sub { fill: #aca194; }
+    .ink { fill: #e6dfd6; }
+    .ink-dim { fill: #aca194; }
+    .ink-blue { fill: #7ebbed; }
+    .ink-green { fill: #8fd4a8; }
+    .ink-purple { fill: #c4b5fd; }
+    .ink-gold { fill: #f0c78a; }
+    .ink-warm { fill: #f0c78a; }
+    .stroke-blue { stroke: #7ebbed; }
+    .stroke-green { stroke: #8fd4a8; }
+    .stroke-purple { stroke: #c4b5fd; }
+    .stroke-gold { stroke: #f0c78a; }
+    .stroke-muted { stroke: #6f655a; }
+    .chip { fill: #2f2a24; stroke: #423b33; }
+    .chip-hi { fill: #2a2418; stroke: #c9a227; }
+    .chip-purple { fill: #241e33; stroke: #5b3fa0; }
+    .foot { fill: #26231e; stroke: #423b33; }
+    .mark-fill { fill: #aca194; }
+    .mark-green { fill: #8fd4a8; }
+    .mark-purple { fill: #c4b5fd; }
+    .mark-gold { fill: #f0c78a; }
+  }
+
+  </style>
+  <defs>
+    <marker id="ahA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" class="mark-green"/>
+    </marker>
+    <marker id="ahB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" class="mark-purple"/>
+    </marker>
+    <marker id="ahC" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" class="mark-gold"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="900" height="420"/>
+  <text class="title" x="450" y="28" text-anchor="middle" font-size="18" font-weight="700">Two developments that must not be collapsed</text>
+  <text class="sub" x="450" y="48" text-anchor="middle" font-size="11.5">Same effort&#8211;motion&#8211;result activity; two different lines of fruition (&#167;1.6)</text>
+  <rect class="ground" x="340" y="68" width="220" height="52" rx="8" stroke-width="1.2"/>
+  <text class="ink-blue" x="450" y="90" text-anchor="middle" font-size="12" font-weight="700">Every unit: EMR activity</text>
+  <text class="ink" x="450" y="108" text-anchor="middle" font-size="10">recognition &#183; fulfilment &#183; definite conduct</text>
+  <line x1="380" y1="120" x2="200" y2="155" class="stroke-green" stroke-width="1.8" marker-end="url(#ahA)"/>
+  <line x1="520" y1="120" x2="700" y2="155" class="stroke-purple" stroke-width="1.8" marker-end="url(#ahB)"/>
+  <rect class="panel-green" x="40" y="160" width="320" height="200" rx="10" stroke-width="1.4"/>
+  <text class="ink-green" x="200" y="186" text-anchor="middle" font-size="13" font-weight="700">A. Compositional progression</text>
+  <text class="ink" x="200" y="206" text-anchor="middle" font-size="10.5">molecules &#8594; earth &#8594; prana &#8594; bodies</text>
+  <text class="ink" x="200" y="228" text-anchor="middle" font-size="10.5">environments for jeevan</text>
+  <rect class="chip" x="70" y="248" width="70" height="36" rx="6"/>
+  <text class="ink-green" x="105" y="270" text-anchor="middle" font-size="10">molecule</text>
+  <line x1="140" y1="266" x2="168" y2="266" class="stroke-green" stroke-width="1.5" marker-end="url(#ahA)"/>
+  <rect class="chip" x="168" y="248" width="70" height="36" rx="6"/>
+  <text class="ink-green" x="203" y="270" text-anchor="middle" font-size="10">body</text>
+  <line x1="238" y1="266" x2="266" y2="266" class="stroke-green" stroke-width="1.5" marker-end="url(#ahA)"/>
+  <rect class="chip" x="266" y="248" width="70" height="36" rx="6"/>
+  <text class="ink-green" x="301" y="270" text-anchor="middle" font-size="10">medium</text>
+  <text class="ink-green" x="200" y="318" text-anchor="middle" font-size="11" font-weight="700">Supports T1 and human medium</text>
+  <text class="ink" x="200" y="338" text-anchor="middle" font-size="10.5">does not itself awaken</text>
+  <text class="ink-dim" x="200" y="356" text-anchor="middle" font-size="10" font-style="italic">no T2 / T3 on this line</text>
+  <rect class="panel-purple" x="540" y="160" width="320" height="200" rx="10" stroke-width="1.4"/>
+  <text class="ink-purple" x="700" y="186" text-anchor="middle" font-size="13" font-weight="700">B. Development in the atom</text>
+  <text class="ink" x="700" y="206" text-anchor="middle" font-size="10.5">hungry / undigested &#8594; satisfied</text>
+  <text class="ink" x="700" y="228" text-anchor="middle" font-size="10.5">constitutional completeness</text>
+  <rect class="chip" x="570" y="248" width="78" height="36" rx="6"/>
+  <text class="ink-warm" x="609" y="270" text-anchor="middle" font-size="10">hungry</text>
+  <line x1="648" y1="266" x2="672" y2="266" class="stroke-gold" stroke-width="1.5" marker-end="url(#ahC)"/>
+  <rect class="chip" x="672" y="248" width="78" height="36" rx="6"/>
+  <text class="ink-warm" x="711" y="270" text-anchor="middle" font-size="10">undigested</text>
+  <line x1="750" y1="266" x2="774" y2="266" class="stroke-gold" stroke-width="1.5" marker-end="url(#ahC)"/>
+  <rect class="chip-hi" x="774" y="248" width="66" height="36" rx="6" stroke-width="1.4"/>
+  <text class="ink-gold" x="807" y="270" text-anchor="middle" font-size="11" font-weight="700">T1</text>
+  <text class="ink-purple" x="700" y="318" text-anchor="middle" font-size="11" font-weight="700">T1 = jeevan (selective)</text>
+  <text class="ink" x="700" y="338" text-anchor="middle" font-size="10.5">then T2 activity &#183; T3 conduct</text>
+  <text class="ink-dim" x="700" y="356" text-anchor="middle" font-size="10" font-style="italic">jeevan / human tradition only</text>
+  <text class="ink" x="450" y="400" text-anchor="middle" font-size="11">Most units stay on path A or remain constitution-oriented; only some atoms cross T1.</text>
+</svg>

@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 9, 2026, 1:35 PM IST
+**Edited on:** July 9, 2026, 2:03 PM IST
 **Status:** Released
 
 **The question:** What is Existence? What exists? Does what exists begin at some time? Does the individual self (*jeevan*) begin or end with the body? Is the world finally real?
@@ -52,6 +52,8 @@ The third endowment is inherent regulation. Regulation is the evidence of the gr
 The texts go further than listing Knowledge as one name among several for the ground: saturated coexistence itself is knowledge. Insentient and sentient nature submerged, soaked, and surrounded in Omnipotence — this itself is coexistence, coexistence itself is eternal, and this itself is knowledge; law, regulation, balance, justice, dharma, and ultimate truth are evident in coexistence only.
 
 Together, these three endowments — recognition, activeness (forcefulness), and regulation — orient each unit toward development at its order, activated by conducive environments and naturalness. The constitutionally complete atom alone reflects this saturation as active sentience, and it alone shows a drive toward bliss — the sentient face of the completeness drive whose stages and felt ladder are stated in §§1.6 and 1.8.
+
+![Saturation as the ground–unit bond: Omnipotence endows every unit with recognition, activeness (forcefulness), and inherent regulation; the constitutionally complete atom alone reflects that bond as active sentience](1-emr-endowments.svg)
 
 ### 1.3 What every unit is
 
@@ -103,6 +105,8 @@ The three endowments of saturation (§1.2) ground a completeness drive in satura
 Because saturation itself is knowledge (§1.2), every unit is soaked in intelligibility from eternity — being-in-knowledge. Knowing and realisation of the ground, however, belong to the constitutionally complete atom (*jeevan*) at activity completeness (§1.6.2), not to material or pranic units, which show definite recognition and fulfilment without knowing and believing. After constitutional completeness, the same drive continues in *jeevan* as orientation from happiness toward bliss — peace and contentment intermediate — the knowledge-order face of activity- and conduct-completeness. Those developmental names remain T2 and T3; the felt ladder is owned in §1.8; the terminus is realisation as bliss (§1.13). Animal-order *jeevan* has hope but not that knowledge-order path (§1.5). Realisation in coexistence is therefore the drive's termination condition for the sentient path, not a knowing-event ascribed to every particle.
 
 Two developments must not be collapsed. Development progression in compositions builds molecules, earth and planets, prana cells, vegetation, animal bodies, and the human body as conducive environments (§1.5 existential progression; §1.10) — support for *jeevan*, not awakening of the compositions themselves. Development in the atom is the separate line on which an evolving constitution becomes satisfied and constitutionally complete — *jeevan* (T1). Activity- and conduct-completeness are further stages of that *jeevan* atom, not of hungry or undigested particles. Awakening belongs to *jeevan* alone, in joint form with a body — the human body its medium (§1.9.2); the drive can stall only in the human's delusion of body as self (§1.7), and it completes as realisation of coexistence (§1.13), evidenced in humane tradition (§1.15).
+
+![Two developments that must not be collapsed: compositional progression builds bodies and environments as support for jeevan; atomic development alone reaches constitutional completeness (T1) and continues through activity and conduct completeness (T2, T3)](1-two-developments.svg)
 
 ![Madhyasth Darshan architecture of coexistence: Omnipotence and units as co-eternal poles bound by saturation; four orders labelled insentient (material, pranic) and sentient (animal, knowledge) with a sentience boundary at the pranic-to-animal junction; existential progression and the completeness transitions T1–T3](1-madhyasth-darshan-ontology.svg)
 
@@ -189,6 +193,8 @@ Awakening is accordingly staged by how far up the circuit discipline reaches. Th
 The happiness→bliss face of the completeness drive named in §1.6 is felt here as harmony within the faculty structure of §1.7 — not a separate psychology beside the ontology. Happiness, peace, contentment, and bliss are the orbital faculties coming into accordance with atma.
 
 Four jeevan values name states of harmony within jeevan: happiness is harmony between mun and vritti; peace between vritti and chitta; contentment between chitta and buddhi; bliss between buddhi and atma — a progression the texts also state as the effects on the lower faculties of atma realised in truth. The mode of channelling jeevan's energies toward awakening runs through curiosity in mun, enthusiasm in vritti, delight in chitta, elation and immersion in buddhi, and finally realisation in atma — for which inward regulation of jeevan's energies is essential.
+
+![Happiness toward bliss as the knowledge-order face of the completeness drive: harmony ascending through mun–vritti, vritti–chitta, chitta–buddhi, and buddhi–atma, aligned with activity and conduct completeness rather than a fourth T-stage](1-happiness-bliss.svg)
 
 Inward regulation is self-regulation within the sentient unit: mediative atma at the nucleus disciplines the orbital faculties and the body. The mediative nucleus at the atomic level and atma at the sentient centre are the same structural role at two scales — not mere analogy.
 
