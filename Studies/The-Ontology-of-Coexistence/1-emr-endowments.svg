@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="360" viewBox="0 0 860 360" role="img">
+  <title>Saturation endowments and effort-motion-result</title>
+  <desc>Saturation endows recognition, activeness (forcefulness), and regulation. Activeness appears as the inseparable triad of effort, motion, and result.</desc>
+  <style>
+
+    .bg { fill: #FCFBF8; }
+    .panel { fill: #FFFFFF; stroke: #C2CED6; }
+    .panel-alt { fill: #F4F8F5; stroke: #93B79E; }
+    .panel-warm { fill: #F2E7CF; stroke: #CBAE78; }
+    .panel-green { fill: #F4F8F5; stroke: #93B79E; }
+    .panel-purple { fill: #F3F1F8; stroke: #A39BCB; }
+    .panel-blue { fill: #E7F0F9; stroke: #185FA5; }
+    .panel-gold { fill: #FFF8E7; stroke: #D4A843; }
+    .ground { fill: #E9F0F4; stroke: #9DB4C2; }
+    .title { fill: #1F2D3A; }
+    .sub { fill: #5A6B78; }
+    .ink { fill: #3F4D57; }
+    .ink-dim { fill: #5A6B78; }
+    .ink-blue { fill: #2F5168; }
+    .ink-green { fill: #28402F; }
+    .ink-purple { fill: #3A3470; }
+    .ink-gold { fill: #7A6420; }
+    .ink-warm { fill: #5C4A1E; }
+    .stroke-blue { stroke: #5E7686; }
+    .stroke-green { stroke: #3F6B52; }
+    .stroke-purple { stroke: #6F63A8; }
+    .stroke-gold { stroke: #C9A227; }
+    .stroke-muted { stroke: #5E7686; }
+    .chip { fill: #FFFFFF; stroke: #C2CED6; }
+    .chip-hi { fill: #FFF8E7; stroke: #C9A227; }
+    .chip-purple { fill: #ECE7F6; stroke: #5B3FA0; }
+    .foot { fill: #F7F5F0; stroke: #D8D0C0; }
+    .mark-fill { fill: #5E7686; }
+    .mark-green { fill: #3F6B52; }
+    .mark-purple { fill: #6F63A8; }
+    .mark-gold { fill: #C9A227; }
+    text { font-family: Helvetica, Arial, sans-serif; }
+
+
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #1a1815; }
+    .panel { fill: #26231e; stroke: #423b33; }
+    .panel-alt { fill: #1e1b18; stroke: #423b33; }
+    .panel-warm { fill: #2a2418; stroke: #6f5a22; }
+    .panel-green { fill: #1a2e22; stroke: #355940; }
+    .panel-purple { fill: #241e33; stroke: #5b3fa0; }
+    .panel-blue { fill: #1a2430; stroke: #3d6278; }
+    .panel-gold { fill: #2a2418; stroke: #c9a227; }
+    .ground { fill: #1e2830; stroke: #3d6278; }
+    .title { fill: #f5f1ec; }
+    .sub { fill: #aca194; }
+    .ink { fill: #e6dfd6; }
+    .ink-dim { fill: #aca194; }
+    .ink-blue { fill: #7ebbed; }
+    .ink-green { fill: #8fd4a8; }
+    .ink-purple { fill: #c4b5fd; }
+    .ink-gold { fill: #f0c78a; }
+    .ink-warm { fill: #f0c78a; }
+    .stroke-blue { stroke: #7ebbed; }
+    .stroke-green { stroke: #8fd4a8; }
+    .stroke-purple { stroke: #c4b5fd; }
+    .stroke-gold { stroke: #f0c78a; }
+    .stroke-muted { stroke: #6f655a; }
+    .chip { fill: #2f2a24; stroke: #423b33; }
+    .chip-hi { fill: #2a2418; stroke: #c9a227; }
+    .chip-purple { fill: #241e33; stroke: #5b3fa0; }
+    .foot { fill: #26231e; stroke: #423b33; }
+    .mark-fill { fill: #aca194; }
+    .mark-green { fill: #8fd4a8; }
+    .mark-purple { fill: #c4b5fd; }
+    .mark-gold { fill: #f0c78a; }
+  }
+
+  </style>
+  <defs>
+    <marker id="ahE" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" class="mark-fill"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="860" height="360"/>
+  <text class="title" x="430" y="28" text-anchor="middle" font-size="18" font-weight="700">Saturation &#8594; endowments &#8594; effort&#8211;motion&#8211;result</text>
+  <text class="sub" x="430" y="48" text-anchor="middle" font-size="11.5">Owned in &#167;1.2 before orders and completeness transitions</text>
+  <rect class="ground" x="40" y="78" width="200" height="100" rx="10" stroke-width="1.4"/>
+  <text class="ink-blue" x="140" y="112" text-anchor="middle" font-size="13" font-weight="700">SATURATION</text>
+  <text class="ink" x="140" y="132" text-anchor="middle" font-size="10.5">soaked &#183; submerged</text>
+  <text class="ink" x="140" y="150" text-anchor="middle" font-size="10.5">surrounded in satta</text>
+  <text class="ink-dim" x="140" y="168" text-anchor="middle" font-size="9.5" font-style="italic">bond, not push</text>
+  <line x1="240" y1="128" x2="288" y2="128" class="stroke-muted" stroke-width="2" marker-end="url(#ahE)"/>
+  <rect class="panel" x="290" y="70" width="240" height="116" rx="10" stroke-width="1.4"/>
+  <text class="ink-blue" x="410" y="94" text-anchor="middle" font-size="12" font-weight="700">Three endowments</text>
+  <text class="ink" x="410" y="118" text-anchor="middle" font-size="11">1. recognition capability</text>
+  <text class="ink" x="410" y="138" text-anchor="middle" font-size="11">2. activeness (forcefulness)</text>
+  <text class="ink" x="410" y="158" text-anchor="middle" font-size="11">3. inherent regulation</text>
+  <text class="ink-dim" x="410" y="176" text-anchor="middle" font-size="9.5" font-style="italic">force-side name of the same bond</text>
+  <line x1="530" y1="128" x2="578" y2="128" class="stroke-muted" stroke-width="2" marker-end="url(#ahE)"/>
+  <rect class="panel-gold" x="580" y="70" width="240" height="116" rx="10" stroke-width="1.4"/>
+  <text class="ink-gold" x="700" y="94" text-anchor="middle" font-size="12" font-weight="700">Effort &#183; Motion &#183; Result</text>
+  <text class="ink-warm" x="700" y="118" text-anchor="middle" font-size="10.5">three joint aspects</text>
+  <text class="ink-warm" x="700" y="138" text-anchor="middle" font-size="10.5">of one unit-activity</text>
+  <text class="ink-warm" x="700" y="158" text-anchor="middle" font-size="10.5">not three sequential steps</text>
+  <text class="ink-dim" x="700" y="176" text-anchor="middle" font-size="9.5" font-style="italic">force in state &#183; power in motion</text>
+  <rect class="foot" x="40" y="220" width="780" height="100" rx="8" stroke-width="1"/>
+  <text class="title" x="430" y="250" text-anchor="middle" font-size="12" font-weight="700">What this figure does not claim</text>
+  <text class="ink" x="430" y="274" text-anchor="middle" font-size="11">EMR is universal unit-activity; it does not mean every unit reaches T2/T3.</text>
+  <text class="ink" x="430" y="296" text-anchor="middle" font-size="11">Completeness stages and happiness&#8594;bliss belong to the jeevan / knowledge path (&#167;1.6).</text>
+  <text class="ink-dim" x="430" y="318" text-anchor="middle" font-size="10.5" font-style="italic">Sodium&#8211;chlorine crystal: approach = effort+motion together; salt = result.</text>
+</svg>

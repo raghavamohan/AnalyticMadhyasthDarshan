@@ -2,68 +2,104 @@
 <svg viewBox="0 0 1040 730" xmlns="http://www.w3.org/2000/svg" role="img">
 <title>Where the alliances fall</title>
 <desc>Triangle diagram of the three pairwise alliances among Madhyasth Darshan, Advaita Vedanta, and modern physicalist approaches: Madhyasth Darshan and Advaita against physicalism on consciousness and self; Madhyasth Darshan and science against Advaita on world realism; Advaita and science against Madhyasth Darshan on immortal individual selfhood. Each pair agrees on something the third denies.</desc>
+<style>
+  .bg { fill: #FCFBF8; }
+  .eyebrow { fill: #56554F; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 2px; }
+  .title { fill: #1A1A18; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 26px; font-weight: 700; }
+  .edge { stroke: #B8860B; stroke-width: 1.5; fill: none; }
+  .rule { stroke: #D8D6CD; stroke-width: 1; fill: none; }
+  .alliance { fill: #FBF0DA; stroke: #B8860B; stroke-width: 1.1; }
+  .tradition { fill: #E7F0F9; stroke: #185FA5; stroke-width: 1.2; }
+  .mark-ring { fill: none; stroke: #185FA5; stroke-width: 1.2; }
+  .mark-dot { fill: #185FA5; }
+  .label { fill: #56554F; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 10.5px; font-weight: 600; letter-spacing: 0.5px; }
+  .heading { fill: #1A1A18; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 700; }
+  .body { fill: #56554F; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 12px; }
+  .node-title { fill: #1A1A18; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 700; }
+  .node-body { fill: #56554F; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px; }
+  .foot { fill: #6B6A63; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-style: italic; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #1a1815; }
+    .eyebrow { fill: #aca194; }
+    .title { fill: #f5f1ec; }
+    .edge { stroke: #c9a227; }
+    .rule { stroke: #423b33; }
+    .alliance { fill: #2a2418; stroke: #c9a227; }
+    .tradition { fill: #1a2430; stroke: #4a7a9b; }
+    .mark-ring { stroke: #7ebbed; }
+    .mark-dot { fill: #7ebbed; }
+    .label { fill: #aca194; }
+    .heading { fill: #f5f1ec; }
+    .body { fill: #aca194; }
+    .node-title { fill: #f5f1ec; }
+    .node-body { fill: #aca194; }
+    .foot { fill: #aca194; }
+  }
+</style>
 
-<text x="520" y="35" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" letter-spacing="2" fill="#56554F">&#167;5.1 &#183; COMPARISON</text>
-<text x="520" y="70" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#1A1A18">Where the Alliances Fall</text>
+<rect class="bg" width="1040" height="730"/>
 
-<line x1="520" y1="175" x2="220" y2="560" stroke="#B8860B" stroke-width="1.5"/>
-<line x1="520" y1="175" x2="820" y2="560" stroke="#B8860B" stroke-width="1.5"/>
-<line x1="220" y1="560" x2="820" y2="560" stroke="#B8860B" stroke-width="1.5"/>
+<text class="eyebrow" x="520" y="35" text-anchor="middle">&#167;5.1 &#183; COMPARISON</text>
+<text class="title" x="520" y="70" text-anchor="middle">Where the Alliances Fall</text>
+
+<line class="edge" x1="520" y1="175" x2="220" y2="560"/>
+<line class="edge" x1="520" y1="175" x2="820" y2="560"/>
+<line class="edge" x1="220" y1="560" x2="820" y2="560"/>
 
 <g>
-<rect x="245" y="316" width="250" height="105" rx="10" fill="#FBF0DA" stroke="#B8860B" stroke-width="1.1"/>
-<text x="370" y="338" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" letter-spacing="0.5" fill="#56554F">MADHYASTH DARSHAN + ADVAITA</text>
-<text x="370" y="362" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#1A1A18">Against physicalism</text>
-<text x="370" y="384" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" fill="#56554F">consciousness &amp; self exceed</text>
-<text x="370" y="403" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" fill="#56554F">matter-only mechanism</text>
+<rect class="alliance" x="245" y="316" width="250" height="105" rx="10"/>
+<text class="label" x="370" y="338" text-anchor="middle">MADHYASTH DARSHAN + ADVAITA</text>
+<text class="heading" x="370" y="362" text-anchor="middle">Against physicalism</text>
+<text class="body" x="370" y="384" text-anchor="middle">consciousness &amp; self exceed</text>
+<text class="body" x="370" y="403" text-anchor="middle">matter-only mechanism</text>
 </g>
 
 <g>
-<rect x="545" y="316" width="250" height="105" rx="10" fill="#FBF0DA" stroke="#B8860B" stroke-width="1.1"/>
-<text x="670" y="338" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" letter-spacing="0.5" fill="#56554F">MADHYASTH DARSHAN + SCIENCE</text>
-<text x="670" y="362" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#1A1A18">Against world-negation</text>
-<text x="670" y="384" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" fill="#56554F">nature &amp; society hold</text>
-<text x="670" y="403" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" fill="#56554F">final ontological weight</text>
+<rect class="alliance" x="545" y="316" width="250" height="105" rx="10"/>
+<text class="label" x="670" y="338" text-anchor="middle">MADHYASTH DARSHAN + SCIENCE</text>
+<text class="heading" x="670" y="362" text-anchor="middle">Against world-negation</text>
+<text class="body" x="670" y="384" text-anchor="middle">nature &amp; society hold</text>
+<text class="body" x="670" y="403" text-anchor="middle">final ontological weight</text>
 </g>
 
 <g>
-<rect x="400" y="506" width="240" height="108" rx="10" fill="#FBF0DA" stroke="#B8860B" stroke-width="1.1"/>
-<text x="520" y="528" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" letter-spacing="0.5" fill="#56554F">ADVAITA + MODERN SCIENCE</text>
-<text x="520" y="552" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#1A1A18">Against immortal selfhood</text>
-<text x="520" y="574" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" fill="#56554F">no eternal distinct self</text>
-<text x="520" y="593" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" fill="#56554F">is established</text>
+<rect class="alliance" x="400" y="506" width="240" height="108" rx="10"/>
+<text class="label" x="520" y="528" text-anchor="middle">ADVAITA + MODERN SCIENCE</text>
+<text class="heading" x="520" y="552" text-anchor="middle">Against immortal selfhood</text>
+<text class="body" x="520" y="574" text-anchor="middle">no eternal distinct self</text>
+<text class="body" x="520" y="593" text-anchor="middle">is established</text>
 </g>
 
 <g>
-<rect x="360" y="115" width="320" height="120" rx="14" fill="#E7F0F9" stroke="#185FA5" stroke-width="1.2"/>
-<circle cx="386" cy="139" r="9" fill="none" stroke="#185FA5" stroke-width="1.2" opacity="0.5"/>
-<circle cx="386" cy="139" r="5" fill="none" stroke="#185FA5" stroke-width="1.2" opacity="0.7"/>
-<circle cx="386" cy="139" r="1.8" fill="#185FA5"/>
-<text x="520" y="165" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#1A1A18">Madhyasth Darshan</text>
-<text x="520" y="191" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="#56554F">Omnipresence + eternal units</text>
-<text x="520" y="212" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="#56554F">held together in saturation</text>
+<rect class="tradition" x="360" y="115" width="320" height="120" rx="14"/>
+<circle class="mark-ring" cx="386" cy="139" r="9" opacity="0.5"/>
+<circle class="mark-ring" cx="386" cy="139" r="5" opacity="0.7"/>
+<circle class="mark-dot" cx="386" cy="139" r="1.8"/>
+<text class="node-title" x="520" y="165" text-anchor="middle">Madhyasth Darshan</text>
+<text class="node-body" x="520" y="191" text-anchor="middle">Omnipresence + eternal units</text>
+<text class="node-body" x="520" y="212" text-anchor="middle">held together in saturation</text>
 </g>
 
 <g>
-<rect x="60" y="500" width="320" height="120" rx="14" fill="#E7F0F9" stroke="#185FA5" stroke-width="1.2"/>
-<circle cx="86" cy="524" r="9" fill="none" stroke="#185FA5" stroke-width="1.2" opacity="0.5"/>
-<circle cx="86" cy="524" r="5" fill="none" stroke="#185FA5" stroke-width="1.2" opacity="0.7"/>
-<circle cx="86" cy="524" r="1.8" fill="#185FA5"/>
-<text x="220" y="550" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#1A1A18">Advaita Vedanta</text>
-<text x="220" y="576" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="#56554F">Brahman alone is real;</text>
-<text x="220" y="597" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="#56554F">world is mithya at paramartha</text>
+<rect class="tradition" x="60" y="500" width="320" height="120" rx="14"/>
+<circle class="mark-ring" cx="86" cy="524" r="9" opacity="0.5"/>
+<circle class="mark-ring" cx="86" cy="524" r="5" opacity="0.7"/>
+<circle class="mark-dot" cx="86" cy="524" r="1.8"/>
+<text class="node-title" x="220" y="550" text-anchor="middle">Advaita Vedanta</text>
+<text class="node-body" x="220" y="576" text-anchor="middle">Brahman alone is real;</text>
+<text class="node-body" x="220" y="597" text-anchor="middle">world is mithya at paramartha</text>
 </g>
 
 <g>
-<rect x="660" y="500" width="320" height="120" rx="14" fill="#E7F0F9" stroke="#185FA5" stroke-width="1.2"/>
-<circle cx="686" cy="524" r="9" fill="none" stroke="#185FA5" stroke-width="1.2" opacity="0.5"/>
-<circle cx="686" cy="524" r="5" fill="none" stroke="#185FA5" stroke-width="1.2" opacity="0.7"/>
-<circle cx="686" cy="524" r="1.8" fill="#185FA5"/>
-<text x="820" y="550" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#1A1A18">Modern Physicalist Approaches</text>
-<text x="820" y="576" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="#56554F">Physical reality baseline;</text>
-<text x="820" y="597" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="#56554F">self as a brain-based process</text>
+<rect class="tradition" x="660" y="500" width="320" height="120" rx="14"/>
+<circle class="mark-ring" cx="686" cy="524" r="9" opacity="0.5"/>
+<circle class="mark-ring" cx="686" cy="524" r="5" opacity="0.7"/>
+<circle class="mark-dot" cx="686" cy="524" r="1.8"/>
+<text class="node-title" x="820" y="550" text-anchor="middle">Modern Physicalist Approaches</text>
+<text class="node-body" x="820" y="576" text-anchor="middle">Physical reality baseline;</text>
+<text class="node-body" x="820" y="597" text-anchor="middle">self as a brain-based process</text>
 </g>
 
-<line x1="220" y1="655" x2="820" y2="655" stroke="#D8D6CD" stroke-width="1"/>
-<text x="520" y="685" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-style="italic" font-size="14" fill="#6B6A63">Each pair agrees on something the third denies &#8212; see &#167;5.1</text>
+<line class="rule" x1="220" y1="655" x2="820" y2="655"/>
+<text class="foot" x="520" y="685" text-anchor="middle">Each pair agrees on something the third denies &#8212; see &#167;5.1</text>
 </svg>

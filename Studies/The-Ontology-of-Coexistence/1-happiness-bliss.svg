@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="400" viewBox="0 0 880 400" role="img">
+  <title>Completeness drive: happiness toward bliss</title>
+  <desc>After T1, the completeness drive continues in jeevan as orientation from happiness toward bliss. Hope is the animal-order precondition; T2 and T3 are developmental names of settling that felt ladder.</desc>
+  <style>
+
+    .bg { fill: #FCFBF8; }
+    .panel { fill: #FFFFFF; stroke: #C2CED6; }
+    .panel-alt { fill: #F4F8F5; stroke: #93B79E; }
+    .panel-warm { fill: #F2E7CF; stroke: #CBAE78; }
+    .panel-green { fill: #F4F8F5; stroke: #93B79E; }
+    .panel-purple { fill: #F3F1F8; stroke: #A39BCB; }
+    .panel-blue { fill: #E7F0F9; stroke: #185FA5; }
+    .panel-gold { fill: #FFF8E7; stroke: #D4A843; }
+    .ground { fill: #E9F0F4; stroke: #9DB4C2; }
+    .title { fill: #1F2D3A; }
+    .sub { fill: #5A6B78; }
+    .ink { fill: #3F4D57; }
+    .ink-dim { fill: #5A6B78; }
+    .ink-blue { fill: #2F5168; }
+    .ink-green { fill: #28402F; }
+    .ink-purple { fill: #3A3470; }
+    .ink-gold { fill: #7A6420; }
+    .ink-warm { fill: #5C4A1E; }
+    .stroke-blue { stroke: #5E7686; }
+    .stroke-green { stroke: #3F6B52; }
+    .stroke-purple { stroke: #6F63A8; }
+    .stroke-gold { stroke: #C9A227; }
+    .stroke-muted { stroke: #5E7686; }
+    .chip { fill: #FFFFFF; stroke: #C2CED6; }
+    .chip-hi { fill: #FFF8E7; stroke: #C9A227; }
+    .chip-purple { fill: #ECE7F6; stroke: #5B3FA0; }
+    .foot { fill: #F7F5F0; stroke: #D8D0C0; }
+    .mark-fill { fill: #5E7686; }
+    .mark-green { fill: #3F6B52; }
+    .mark-purple { fill: #6F63A8; }
+    .mark-gold { fill: #C9A227; }
+    text { font-family: Helvetica, Arial, sans-serif; }
+
+
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #1a1815; }
+    .panel { fill: #26231e; stroke: #423b33; }
+    .panel-alt { fill: #1e1b18; stroke: #423b33; }
+    .panel-warm { fill: #2a2418; stroke: #6f5a22; }
+    .panel-green { fill: #1a2e22; stroke: #355940; }
+    .panel-purple { fill: #241e33; stroke: #5b3fa0; }
+    .panel-blue { fill: #1a2430; stroke: #3d6278; }
+    .panel-gold { fill: #2a2418; stroke: #c9a227; }
+    .ground { fill: #1e2830; stroke: #3d6278; }
+    .title { fill: #f5f1ec; }
+    .sub { fill: #aca194; }
+    .ink { fill: #e6dfd6; }
+    .ink-dim { fill: #aca194; }
+    .ink-blue { fill: #7ebbed; }
+    .ink-green { fill: #8fd4a8; }
+    .ink-purple { fill: #c4b5fd; }
+    .ink-gold { fill: #f0c78a; }
+    .ink-warm { fill: #f0c78a; }
+    .stroke-blue { stroke: #7ebbed; }
+    .stroke-green { stroke: #8fd4a8; }
+    .stroke-purple { stroke: #c4b5fd; }
+    .stroke-gold { stroke: #f0c78a; }
+    .stroke-muted { stroke: #6f655a; }
+    .chip { fill: #2f2a24; stroke: #423b33; }
+    .chip-hi { fill: #2a2418; stroke: #c9a227; }
+    .chip-purple { fill: #241e33; stroke: #5b3fa0; }
+    .foot { fill: #26231e; stroke: #423b33; }
+    .mark-fill { fill: #aca194; }
+    .mark-green { fill: #8fd4a8; }
+    .mark-purple { fill: #c4b5fd; }
+    .mark-gold { fill: #f0c78a; }
+  }
+
+  </style>
+  <defs>
+    <marker id="ahH" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" class="mark-purple"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="880" height="400"/>
+  <text class="title" x="440" y="28" text-anchor="middle" font-size="18" font-weight="700">Sentient face of the completeness drive</text>
+  <text class="sub" x="440" y="48" text-anchor="middle" font-size="11.5">One drive; developmental names T2/T3; felt name happiness &#8594; bliss (&#167;1.6, &#167;1.8)</text>
+  <rect class="panel-warm" x="40" y="72" width="180" height="88" rx="8" stroke-width="1.2"/>
+  <text class="ink-warm" x="130" y="98" text-anchor="middle" font-size="12" font-weight="700">T1 precondition</text>
+  <text class="ink" x="130" y="118" text-anchor="middle" font-size="11">hope to live</text>
+  <text class="ink" x="130" y="136" text-anchor="middle" font-size="10">animal-order jeevan</text>
+  <text class="ink-dim" x="130" y="152" text-anchor="middle" font-size="9.5" font-style="italic">not yet bliss ladder</text>
+  <line x1="220" y1="116" x2="268" y2="116" class="stroke-purple" stroke-width="2" marker-end="url(#ahH)"/>
+  <rect class="panel-purple" x="270" y="72" width="520" height="88" rx="8" stroke-width="1.2"/>
+  <text class="ink-purple" x="530" y="94" text-anchor="middle" font-size="12" font-weight="700">Knowledge-order felt ladder (owned in &#167;1.8)</text>
+  <rect class="chip" x="290" y="108" width="100" height="36" rx="6"/>
+  <text class="ink-purple" x="340" y="130" text-anchor="middle" font-size="11" font-weight="700">happiness</text>
+  <line x1="390" y1="126" x2="412" y2="126" class="stroke-purple" stroke-width="1.6" marker-end="url(#ahH)"/>
+  <rect class="chip" x="412" y="108" width="90" height="36" rx="6"/>
+  <text class="ink-purple" x="457" y="130" text-anchor="middle" font-size="11">peace</text>
+  <line x1="502" y1="126" x2="524" y2="126" class="stroke-purple" stroke-width="1.6" marker-end="url(#ahH)"/>
+  <rect class="chip" x="524" y="108" width="110" height="36" rx="6"/>
+  <text class="ink-purple" x="579" y="130" text-anchor="middle" font-size="11">contentment</text>
+  <line x1="634" y1="126" x2="656" y2="126" class="stroke-purple" stroke-width="1.6" marker-end="url(#ahH)"/>
+  <rect class="chip-purple" x="656" y="108" width="110" height="36" rx="6" stroke-width="1.4"/>
+  <text class="ink-purple" x="711" y="130" text-anchor="middle" font-size="12" font-weight="700">bliss</text>
+  <text class="ink-blue" x="440" y="196" text-anchor="middle" font-size="12" font-weight="700">Same settlement, two vocabularies</text>
+  <rect class="panel" x="80" y="216" width="320" height="100" rx="8" stroke-width="1.2"/>
+  <text class="ink-purple" x="240" y="242" text-anchor="middle" font-size="12" font-weight="700">Developmental names</text>
+  <text class="ink" x="240" y="266" text-anchor="middle" font-size="11">T2 &#183; restfulness of effort</text>
+  <text class="ink" x="240" y="286" text-anchor="middle" font-size="11">T3 &#183; destination of motion</text>
+  <text class="ink-dim" x="240" y="306" text-anchor="middle" font-size="10" font-style="italic">knowing + living proof</text>
+  <rect class="panel" x="480" y="216" width="320" height="100" rx="8" stroke-width="1.2"/>
+  <text class="ink-purple" x="640" y="242" text-anchor="middle" font-size="12" font-weight="700">Felt / knowledge names</text>
+  <text class="ink" x="640" y="266" text-anchor="middle" font-size="11">happiness &#8594; peace &#8594; contentment</text>
+  <text class="ink" x="640" y="286" text-anchor="middle" font-size="11">&#8594; bliss = realisation (&#167;1.13)</text>
+  <text class="ink-dim" x="640" y="306" text-anchor="middle" font-size="10" font-style="italic">not Omnipotence&#8217;s ananda</text>
+  <text class="ink" x="440" y="350" text-anchor="middle" font-size="11">Not a fourth T-stage &#183; not particle teleology &#183; animal hope &#8800; knowledge-order bliss</text>
+  <text class="sub" x="440" y="372" text-anchor="middle" font-size="10.5">Societal evidence (&#167;1.15) is the public face of the same sentient drive.</text>
+</svg>
