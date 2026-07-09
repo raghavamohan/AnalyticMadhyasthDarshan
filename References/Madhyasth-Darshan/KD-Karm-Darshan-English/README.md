@@ -6,8 +6,9 @@ Working English translation of *Manav Karm Darshan* (v5) by Shri A. Nagaraj, pro
 
 | File | Content | Printed / PDF pages |
 | :---- | :---- | :---- |
-| [`KD-Karm-Darshan-English.md`](KD-Karm-Darshan-English.md) | Full working translation (front matter + chapters 1–3) | PDF pp. 1–25 (front matter); printed pp. 1–153 (body); blank placeholders at printed pp. 50–52 |
+| [`KD-Karm-Darshan-English.md`](KD-Karm-Darshan-English.md) | Full working translation (front matter + chapters 1–3) | PDF pp. 1–25 (front matter); printed pp. 1–153 (body) |
 | [`KD-Karm-Darshan-English.pdf`](KD-Karm-Darshan-English.pdf) | Generated PDF (182 pages — aligned with Hindi PDF page count) | Same markers as markdown |
+| [`KD-Karm-Darshan-Hindi-English.pdf`](KD-Karm-Darshan-Hindi-English.pdf) | Interleaved Hindi-then-English PDF for side-by-side reading | 364 pages (182 × 2) |
 | [`_page-images/`](_page-images/) | Hindi source page renders for side-by-side verification | 182 PNGs (`p{pdf}_print{printed}.png`) |
 
 ## Section index (in `KD-Karm-Darshan-English.md`)
@@ -17,9 +18,9 @@ Working English translation of *Manav Karm Darshan* (v5) by Shri A. Nagaraj, pro
 | Front matter (*vikalp*, मूल तत्व outline, author's declaration, gratitude, foreword, TOC) | PDF pp. 1–25 |
 | Chapter 1 — कर्म (Karma) | 1–29 |
 | Chapter 2 — उपासना (Upasana / Worship) | 30–49 |
-| *(blank placeholders — not translated)* | 50–52 |
-| Chapter 3 — Coexistence-ist Science | 53–153 |
-| 3.1–3.3 Atomic structure and development | 53–63 |
+| Chapter 3 transition (blank p. 50; title + sub-TOC pp. 51–53) | 50–53 |
+| Chapter 3 — Coexistence-ist Science | 54–153 |
+| 3.1–3.3 Atomic structure and development | 54–63 |
 | 3.4–3.6 Mental well-being, coexistence stability | 64–72 |
 | 3.7–3.8 Heat, earth balance, state–motion | 73–87 |
 | 3.9–3.10 Quantity; property, essential nature, dharma | 88–102 |
@@ -43,11 +44,14 @@ python Scripts/_kd_build_glossary_xlsx.py
 # Regenerate English PDF
 python Scripts/_convert_to_pdf.py "References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.md"
 node Scripts/_html_to_pdf.js "References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.html"
+
+# Build interleaved Hindi–English PDF (requires both PDFs at 182 pages)
+python Scripts/_kd_build_hindi_english_pdf.py
 ```
 
 **Page-image naming:** `p{pdf:03d}_print{printed:03d}.png` where `printed = pdf page` for PDF pages 1–25 (front matter), and `printed = pdf page − 25` for PDF pages 26+ (body).
 
-**Blank PDF pages:** Printed pp. 50–52 are marked `[blank p. NN]` in the markdown so the English PDF stays page-aligned with the Hindi original for side-by-side verification (blank / ch.3 title / sub-TOC in Hindi).
+**Chapter 3 transition (printed pp. 50–53):** Printed p. 50 is `[blank p. 50]`; pp. 51–53 carry the chapter 3 title outline and detailed sub-TOC (with Hindi printed page numbers preserved in the table). Section 3.1 prose begins at printed p. 54 (PDF p. 79).
 
 ## Conventions
 
