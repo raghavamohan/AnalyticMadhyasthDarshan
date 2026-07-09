@@ -2,22 +2,37 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="950" height="550" viewBox="0 0 950 550" role="img">
 <title>Saturation contrasted with physicalist emergence</title>
 <desc>Left: physicalist emergence stacks consciousness above complex biological assembly with an explanatory gap. Right: in Madhyasth Darshan, units saturated in satta compose from particles through atoms to body; constitutional completeness actualizes sentient jeevan reflecting ever-present gyan, which works through the body as joint form.</desc>
-<style>
-  .th  { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 20px; fill: #37474F; }
-  .sub { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 400; font-size: 14px; fill: #546E7A; }
-  .lbl { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 14px; fill: #37474F; }
-  .txs { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 400; font-size: 12px; fill: #546E7A; }
-  .txs-sm { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 400; font-size: 11px; fill: #37474F; }
-  .gap { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 13px; fill: #EF5350; }
-  .bond { font-family: 'Helvetica Neue', Arial, sans-serif; font-style: italic; font-size: 11px; fill: #0D47A1; }
-  .cc   { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 12px; fill: #E65100; }
-  .cc-i { font-family: 'Helvetica Neue', Arial, sans-serif; font-style: italic; font-size: 11px; fill: #E65100; }
-  .jv   { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 14px; fill: #E65100; }
-  .jv-s { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; fill: #E65100; }
-  .jf   { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 12px; fill: #1B5E20; }
-  .th-r { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 20px; fill: #0D47A1; }
-  .sub-r { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 400; font-size: 14px; fill: #1565C0; }
-</style>
+
+  <style>
+    .frame-left { fill: #F8F9FA; stroke: #CFD8DC; }
+    .frame-right { fill: #E3F2FD; stroke: #90CAF9; }
+    .th { fill: #37474F; }
+    .sub { fill: #546E7A; }
+    .lbl { fill: #37474F; }
+    .txs { fill: #546E7A; }
+    .gap { fill: #EF5350; }
+    .th-r { fill: #0D47A1; }
+    .sub-r { fill: #1565C0; }
+    .jv { fill: #E65100; }
+    .jf { fill: #1B5E20; }
+    .cc { fill: #E65100; }
+    @media (prefers-color-scheme: dark) {
+      .frame-left { fill: #26231e; stroke: #423b33; }
+      .frame-right { fill: #1a2430; stroke: #3d6278; }
+      .th { fill: #f5f1ec; }
+      .sub { fill: #aca194; }
+      .lbl { fill: #e6dfd6; }
+      .txs { fill: #aca194; }
+      .gap { fill: #f87171; }
+      .th-r { fill: #7ebbed; }
+      .sub-r { fill: #9ec8e8; }
+      .jv { fill: #f0c78a; }
+      .jf { fill: #8fd4a8; }
+      .cc { fill: #f0c78a; }
+      svg { background: #1a1815; }
+    }
+  </style>
+
 <defs>
   <linearGradient id="sattaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
     <stop offset="0%" stop-color="#E3F2FD"/>
@@ -52,7 +67,7 @@
 </defs>
 
 <!-- Left: physicalist emergence -->
-<rect x="25" y="40" width="425" height="490" fill="#F8F9FA" stroke="#CFD8DC" stroke-width="2" rx="10"/>
+<rect class="frame-left" x="25" y="40" width="425" height="490" stroke-width="2" rx="10"/>
 <text class="th" x="237" y="75" text-anchor="middle">Physicalist Emergence</text>
 <text class="sub" x="237" y="95" text-anchor="middle">Sentience generated from complex matter</text>
 
