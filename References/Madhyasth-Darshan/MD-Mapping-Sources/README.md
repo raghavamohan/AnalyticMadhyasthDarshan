@@ -14,6 +14,7 @@ his established terminology.
 - `build_candidates.py` — Phase 4: uncovered tokens at freq ≥ 2 vs live `MD-Mapping.xlsx`.
 - `gather_new_term_evidence.py` — evidence packs for candidate tokens.
 - `phase4_apply_rows.py` / `phase4_new_rows.json` — apply curated Phase 4 rows.
+- `kd_missing35_rows.json` — 35 KD-Glossary-Additions lemmas formerly missing from MD-Mapping (rows 2208–2242).
 - `kd_verify_against_mapping.py` — KD glossary/body vs MD-Mapping report.
 - `phase4_review_cards.*` — remaining technical candidates for continued curation.
 
