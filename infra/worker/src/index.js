@@ -573,6 +573,14 @@ function stripMdSuffix(value) {
   return trimmed.endsWith('.md') ? trimmed.slice(0, -3) : trimmed;
 }
 
+function normalizePrSlug(value) {
+  // Mirror Scripts/_ci_study_pr.py normalize_pr_slug: bare catalog slug only.
+  let cleaned = stripMdSuffix(value).trim();
+  cleaned = cleaned.split(/\s+[\(\[\u2014\u2013\-]|[;,]/, 2)[0].trim();
+  const match = cleaned.match(/^([A-Za-z0-9][A-Za-z0-9._-]*)/);
+  return match ? match[1] : cleaned;
+}
+
 // Both `.github/PULL_REQUEST_TEMPLATE/study-update.md` and `status-change.md` use
 // "Study slug:"; only `new-study.md` uses plain "Slug:". Check "Study slug:" first for
 // every prType (mirroring Scripts/_ci_study_pr.py's handle_study_update, which tries
@@ -583,9 +591,9 @@ function stripMdSuffix(value) {
 function parseSlugFromBody(body) {
   const text = body || '';
   const studySlugMatch = text.match(/^Study slug:\s*(.+)$/im);
-  if (studySlugMatch) return stripMdSuffix(studySlugMatch[1]);
+  if (studySlugMatch) return normalizePrSlug(studySlugMatch[1]);
   const slugMatch = text.match(/^Slug:\s*(.+)$/im);
-  return slugMatch ? stripMdSuffix(slugMatch[1]) : null;
+  return slugMatch ? normalizePrSlug(slugMatch[1]) : null;
 }
 
 function slugFromPrTitle(title) {
