@@ -33,21 +33,37 @@ addition, edit, or status change lands through a pull request that CI
      fenced-code/outline verifiers)
    - `python Scripts/_verify_studies_index.py` if a catalog or the index shell changed
 4. **Push the branch and open a pull request** using the matching template in
-   [.github/PULL_REQUEST_TEMPLATE/](.github/PULL_REQUEST_TEMPLATE/) and apply **exactly one**
-   label:
+   [.github/PULL_REQUEST_TEMPLATE/](.github/PULL_REQUEST_TEMPLATE/) (or the chooser
+   [.github/pull_request_template.md](.github/pull_request_template.md)) and apply
+   **exactly one** label:
 
    | Change | Template | Label | Required PR body field |
    |--------|----------|-------|-------------------------|
-   | Add a new study (after `proposal-approved`) | `new-study.md` | `new-study` | `Proposal issue: #N` and `Slug:` |
-   | Edit an existing study's content | `study-update.md` | `study-update` | `Study slug: <Slug>` |
+   | Add a new study (after `proposal-approved`) | `new-study.md` | `new-study` | `Proposal issue: #N` and `Slug: <Slug>` |
+   | Edit an existing study's content **or companion files** under that study folder (`.pptx`, research notes, SVGs, etc.) | `study-update.md` | `study-update` | `Study slug: <Slug>` |
    | Rename slug (directory + metadata) | `study-update.md` | `study-update` | `Study slug: <New-Slug>` (CI runs `_rename_study.py` when one slug is removed and another added) |
    | Change Draft ↔ Released | `status-change.md` | `status-change` | `Study slug: <Slug>` and `Target status: draft`/`released` |
 
+   **Bare slug only.** Put `Study slug:`, `Slug:`, and `Target status:` each on its **own
+   line**. The value must be the catalog directory name alone — e.g.
+   `Study slug: The-Ontology-of-Coexistence`. Do **not** append parentheticals, em dashes,
+   or other notes on that line (`Study slug: Foo (pptx only)` fails catalog lookup; put
+   notes under Summary instead). CI strips common trailing notes as a backstop, but
+   templates and agents must still write a bare slug.
+
+   **When a study label is required.** Any change under `Studies/<Slug>/` or
+   `Applications/<Slug>/` — including companion-only edits that do not touch the study
+   `.md` — needs a study-labeled PR and the matching template. Companion-only PRs still
+   set `Study slug: <Slug>`; mark Edited-on checklist items N/A in the PR body when the
+   study markdown was not changed.
+
    A change that only touches non-study files (`Scripts/`, `AGENTS.md`, `.agents/skills/`,
-   infra, etc.) is not a study PR — do not apply a study label to it, and it does not need a
-   `Study slug:` field.
+   infra, etc.) is **not** a study PR — do not apply a study label to it, and it does not
+   need a `Study slug:` field.
 5. **Tick the template checklist** in the PR body before requesting review or merge (Edited on
-   refreshed, `References/MANIFEST.md` updated if citations changed, quote verification run).
+   refreshed when the study `.md` changed, `References/MANIFEST.md` updated if citations
+   changed, quote verification run when applicable). Prefer opening the specific template
+   link rather than leaving the default chooser body as the PR description.
 
 ## Contributor PDFs (maintainers only)
 
@@ -86,7 +102,7 @@ drift out of sync with the source `.md`.
 - [ ] Change is on a feature branch, not the default branch
 - [ ] Exactly one of `new-study` / `study-update` / `status-change` will be applied to the PR
 - [ ] PR body includes the field that label requires (`Study slug:`, `Proposal issue: #N`, or
-  `Target status:`)
+  `Target status:`) — bare slug / status value only, no notes on that line
 - [ ] One study slug per PR for `study-update` / `status-change` (open a second PR for a second
   slug)
 - [ ] Local verification (`_quote_tool.py verify`, `_check_references.py`, `_regenerate_pdf.py`,
