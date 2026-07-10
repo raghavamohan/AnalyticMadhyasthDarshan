@@ -1,0 +1,2101 @@
+{
+ "md_mapping_rows": 1684,
+ "kd_glossary_rows": 153,
+ "glossary_comparison": [
+  {
+   "status": "aligned",
+   "kd_hindi": "मध्यांश",
+   "kd_english": "nucleus",
+   "md_english": "nucleus",
+   "md_row": 2208
+  },
+  {
+   "status": "override",
+   "kd_hindi": "प्रस्थापन",
+   "kd_english": "absorption (absorbed)",
+   "md_english": "insertion",
+   "md_row": 153
+  },
+  {
+   "status": "override",
+   "kd_hindi": "विस्थापन",
+   "kd_english": "displacement (displaced/shed)",
+   "md_english": "expulsion",
+   "md_row": 154
+  },
+  {
+   "status": "override",
+   "kd_hindi": "आवेशित",
+   "kd_english": "excited / charged (contextual)",
+   "md_english": "agitated state, excited state",
+   "md_row": 1085
+  },
+  {
+   "status": "override",
+   "kd_hindi": "आवेश",
+   "kd_english": "excitation / charge (contextual)",
+   "md_english": "agitation, charge, excitement",
+   "md_row": 1084
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "श्रम",
+   "kd_english": "effort",
+   "md_english": "effort, physical labour",
+   "md_row": 75
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "अच्छी दूरी",
+   "kd_english": "good distance",
+   "md_english": "good distance",
+   "md_row": 2209
+  },
+  {
+   "status": "override",
+   "kd_hindi": "विन्यास",
+   "kd_english": "arrangement",
+   "md_english": "demeanour, design",
+   "md_row": 1352
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "मध्यस्थीयकरण",
+   "kd_english": "mediation",
+   "md_english": "mediation",
+   "md_row": 2210
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "चुम्बकीय धारा",
+   "kd_english": "magnetic current",
+   "md_english": "magnetic current",
+   "md_row": 2211
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "विखंडन",
+   "kd_english": "fragmentation",
+   "md_english": "the way of fragmentation",
+   "md_row": 1394
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "विद्युतवाहिता",
+   "kd_english": "electric conduction",
+   "md_english": "electric conduction",
+   "md_row": 2212
+  },
+  {
+   "status": "override",
+   "kd_hindi": "चुम्बकीयता",
+   "kd_english": "magneticness",
+   "md_english": "magnestism",
+   "md_row": 1363
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "प्रभाव क्षेत्र",
+   "kd_english": "field of effect",
+   "md_english": "Field",
+   "md_row": 60
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "संकोचन प्रसारण",
+   "kd_english": "contraction-expansion",
+   "md_english": "contraction-expansion",
+   "md_row": 2213
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "सम विषम आवेश",
+   "kd_english": "generative-degenerative excitation",
+   "md_english": "generative",
+   "md_row": 190
+  },
+  {
+   "status": "override",
+   "kd_hindi": "रस द्रव्य",
+   "kd_english": "fluid matter",
+   "md_english": "Taste",
+   "md_row": 263
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "अण्डाकार",
+   "kd_english": "elliptic",
+   "md_english": "elliptic",
+   "md_row": 2214
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "ससम्मुखता",
+   "kd_english": "facing-ness",
+   "md_english": "facing-ness",
+   "md_row": 2215
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "सौर व्यूह",
+   "kd_english": "solar system (solar array)",
+   "md_english": "solar system (solar array)",
+   "md_row": 2216
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "ग्रह-गोल",
+   "kd_english": "planet-orb",
+   "md_english": "planet-orb",
+   "md_row": 2217
+  },
+  {
+   "status": "override",
+   "kd_hindi": "ब्रह्माण्डीय ऊष्मा",
+   "kd_english": "cosmic heat",
+   "md_english": "cosmic rays",
+   "md_row": 1290
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "ब्रह्माण्डीय किरण",
+   "kd_english": "cosmic rays",
+   "md_english": "cosmic rays",
+   "md_row": 1290
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "काई",
+   "kd_english": "algae",
+   "md_english": "algae",
+   "md_row": 1364
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "अजीर्ण (परमाणु)",
+   "kd_english": "undigested (atom)",
+   "md_english": "Atom",
+   "md_row": 244
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "भूखा (परमाणु)",
+   "kd_english": "hungry (atom)",
+   "md_english": "Atom",
+   "md_row": 244
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "तृप्त (परमाणु)",
+   "kd_english": "satisfied (atom)",
+   "md_english": "Atom",
+   "md_row": 244
+  },
+  {
+   "status": "override",
+   "kd_hindi": "गठन तृप्त पद",
+   "kd_english": "constitution-satisfied status",
+   "md_english": "constitutional completeness",
+   "md_row": 91
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "संक्रमण",
+   "kd_english": "transition",
+   "md_english": "irrversible transition",
+   "md_row": 528
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "संक्रमणीयता",
+   "kd_english": "transition-ness",
+   "md_english": "transition-ness",
+   "md_row": 2218
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "विकिरणीयता",
+   "kd_english": "radiativeness",
+   "md_english": "radiativeness",
+   "md_row": 2219
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "विकिरणीय द्रव्य",
+   "kd_english": "radiant (radioactive) materials",
+   "md_english": "radiant (radioactive) materials",
+   "md_row": 2220
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "ताप पाचन",
+   "kd_english": "heat-digestion",
+   "md_english": "heat",
+   "md_row": 1359
+  },
+  {
+   "status": "override",
+   "kd_hindi": "प्राण घातक वायु",
+   "kd_english": "life-fatal air (carbon monoxide)",
+   "md_english": "Biological plane",
+   "md_row": 129
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "संतुलनीकरण",
+   "kd_english": "equilibration",
+   "md_english": "equilibration",
+   "md_row": 2221
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "आवर्तनशीलता",
+   "kd_english": "cyclicality",
+   "md_english": "cyclicality",
+   "md_row": 2222
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "तापोद्दीपन",
+   "kd_english": "heat-stimulation",
+   "md_english": "heat-stimulation",
+   "md_row": 2223
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "मानवेत्तर प्रकृति",
+   "kd_english": "nature-other-than-human",
+   "md_english": "nature",
+   "md_row": 125
+  },
+  {
+   "status": "override",
+   "kd_hindi": "त्राण-प्राण",
+   "kd_english": "succour and life-breath",
+   "md_english": "Biological plane",
+   "md_row": 129
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "गम्य स्थली",
+   "kd_english": "destination",
+   "md_english": "destination",
+   "md_row": 1055
+  },
+  {
+   "status": "override",
+   "kd_hindi": "अनुप्राणित",
+   "kd_english": "animated onward",
+   "md_english": "invigorated, inspired",
+   "md_row": 1049
+  },
+  {
+   "status": "override",
+   "kd_hindi": "निष्पत्ति स्थली",
+   "kd_english": "site of production",
+   "md_english": "destination",
+   "md_row": 1055
+  },
+  {
+   "status": "override",
+   "kd_hindi": "स्वयं स्फूर्त",
+   "kd_english": "self-motivated / self-motivation (contextual)",
+   "md_english": "spontaneity/spontaneous",
+   "md_row": 625
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "साम्य ऊर्जा",
+   "kd_english": "uniform energy",
+   "md_english": "Uniform Energy",
+   "md_row": 33
+  },
+  {
+   "status": "override",
+   "kd_hindi": "ऊर्जा सम्पन्न, पूर्णतया ऊर्जा सम्पन्न",
+   "kd_english": "energised / fully energised",
+   "md_english": "Energy",
+   "md_row": 30
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "ऊर्जा सम्पन्नता",
+   "kd_english": "energy-fullness",
+   "md_english": "energy-fullness",
+   "md_row": 735
+  },
+  {
+   "status": "override",
+   "kd_hindi": "बल सम्पन्न, बल सम्पन्नता",
+   "kd_english": "forceful / forcefulness",
+   "md_english": "Strength, Force",
+   "md_row": 55
+  },
+  {
+   "status": "override",
+   "kd_hindi": "चुंबकीय बल सम्पन्न, चुंबकीय बल सम्पन्नता",
+   "kd_english": "magnetic-force-full / magnetic force-fullness",
+   "md_english": "Strength, Force",
+   "md_row": 55
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "ग्राही",
+   "kd_english": "receptive",
+   "md_english": "Receptive Gemstones",
+   "md_row": 173
+  },
+  {
+   "status": "override",
+   "kd_hindi": "विस्तार आयाम",
+   "kd_english": "area",
+   "md_english": "expanse",
+   "md_row": 1060
+  },
+  {
+   "status": "override",
+   "kd_hindi": "विस्तार",
+   "kd_english": "extension (span)",
+   "md_english": "expanse",
+   "md_row": 1060
+  },
+  {
+   "status": "override",
+   "kd_hindi": "दृष्टि पाट",
+   "kd_english": "span of vision",
+   "md_english": "Perspective of Civility",
+   "md_row": 364
+  },
+  {
+   "status": "override",
+   "kd_hindi": "दृग बिन्दु",
+   "kd_english": "sight-point",
+   "md_english": "Satisfaction Point",
+   "md_row": 314
+  },
+  {
+   "status": "override",
+   "kd_hindi": "चक्षु तंत्र",
+   "kd_english": "visual system",
+   "md_english": "Nervous system",
+   "md_row": 284
+  },
+  {
+   "status": "override",
+   "kd_hindi": "अंश (कोण में)",
+   "kd_english": "degree (angle)",
+   "md_english": "participation in the overall orderliness",
+   "md_row": 879
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "समकेन्द्रीय रेखा",
+   "kd_english": "concentric line",
+   "md_english": "concentric line",
+   "md_row": 2224
+  },
+  {
+   "status": "override",
+   "kd_hindi": "काल शून्य",
+   "kd_english": "time-zero",
+   "md_english": "Space",
+   "md_row": 15
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "घटी, पल",
+   "kd_english": "ghati, pal (time units)",
+   "md_english": "ghati, pal (time units)",
+   "md_row": 2225
+  },
+  {
+   "status": "override",
+   "kd_hindi": "फलन",
+   "kd_english": "fruition",
+   "md_english": "function/outcome",
+   "md_row": 2134
+  },
+  {
+   "status": "override",
+   "kd_hindi": "नित्य वर्तमान",
+   "kd_english": "ever-present",
+   "md_english": "eternal presence",
+   "md_row": 219
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "मेधस",
+   "kd_english": "brain / medhas",
+   "md_english": "brain",
+   "md_row": 1007
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "शून्याकर्षण",
+   "kd_english": "zero-attraction",
+   "md_english": "zero-attraction",
+   "md_row": 713
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "परावर्तन",
+   "kd_english": "projection",
+   "md_english": "projection",
+   "md_row": 607
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "प्रत्यावर्तन",
+   "kd_english": "reflection",
+   "md_english": "reflection",
+   "md_row": 608
+  },
+  {
+   "status": "override",
+   "kd_hindi": "संसार (पशु/वनस्पति/खनिज-)",
+   "kd_english": "order (animal order, plant order, mineral order, human order)",
+   "md_english": "animalistic human",
+   "md_row": 112
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "आत्मा, बुद्धि, चित्त, वृत्ति, मन",
+   "kd_english": "left transliterated (atma, buddhi, chitta, vritti, mun/\"mind\")",
+   "md_english": "atma",
+   "md_row": 375
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "ऋतम्भरा, ऋतंभरा",
+   "kd_english": "resoluteness",
+   "md_english": "resoluteness",
+   "md_row": 397
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "गठनपूर्णता, क्रियापूर्णता, आचरणपूर्णता",
+   "kd_english": "constitutional completeness, activity-completeness, conduct-completeness",
+   "md_english": "constitutional completeness",
+   "md_row": 2112
+  },
+  {
+   "status": "md_missing_english",
+   "kd_hindi": "अखण्ड समाज",
+   "kd_english": "undivided society",
+   "md_english": "",
+   "md_row": 235
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "चिराकांक्षा, चिराकाँक्षा",
+   "kd_english": "abiding aspiration",
+   "md_english": "abiding aspiration",
+   "md_row": 2226
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "सचेष्ट",
+   "kd_english": "earnestly active",
+   "md_english": "earnestly active",
+   "md_row": 2227
+  },
+  {
+   "status": "override",
+   "kd_hindi": "यथास्थिति",
+   "kd_english": "actual condition",
+   "md_english": "existent state",
+   "md_row": 214
+  },
+  {
+   "status": "override",
+   "kd_hindi": "तृप्ति",
+   "kd_english": "satiation",
+   "md_english": "Satisfaction",
+   "md_row": 313
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "परम",
+   "kd_english": "ultimate",
+   "md_english": "ultimate dharma",
+   "md_row": 52
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "ध्रुवीकरण",
+   "kd_english": "anchoring",
+   "md_english": "anchoring",
+   "md_row": 43
+  },
+  {
+   "status": "override",
+   "kd_hindi": "गुण",
+   "kd_english": "property",
+   "md_english": "properties",
+   "md_row": 42
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "सम, विषम, मध्यस्थ (गुण के रूप में)",
+   "kd_english": "generative, degenerative, mediating",
+   "md_english": "generative",
+   "md_row": 190
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "जागृति क्रम",
+   "kd_english": "awakening progression",
+   "md_english": "awakening progression",
+   "md_row": 180
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "विकास क्रम, विकासक्रम",
+   "kd_english": "development progression",
+   "md_english": "development progression",
+   "md_row": 178
+  },
+  {
+   "status": "override",
+   "kd_hindi": "सारक, मारक",
+   "kd_english": "essential(ity), destructive(ness)",
+   "md_english": "Vitalising",
+   "md_row": 160
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "पात्रता",
+   "kd_english": "receptivity / worthiness (contextual)",
+   "md_english": "receptivity",
+   "md_row": 512
+  },
+  {
+   "status": "override",
+   "kd_hindi": "देव मानव, दिव्य मानव",
+   "kd_english": "god-human, divine human",
+   "md_english": "deific human",
+   "md_row": 110
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "पशु मानव, राक्षस मानव",
+   "kd_english": "the animalistic human, the demonic human",
+   "md_english": "animalistic human",
+   "md_row": 112
+  },
+  {
+   "status": "override",
+   "kd_hindi": "राशि विधि",
+   "kd_english": "the arrangement of quantity",
+   "md_english": "rachna vidhi",
+   "md_row": 269
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "दृष्टा, ज्ञाता, ज्ञेय",
+   "kd_english": "seer, knower, known",
+   "md_english": "Seer",
+   "md_row": 584
+  },
+  {
+   "status": "override",
+   "kd_hindi": "कर्त्ता, भोक्ता",
+   "kd_english": "doer, enjoyer",
+   "md_english": "enjoyer, experiencer",
+   "md_row": 589
+  },
+  {
+   "status": "override",
+   "kd_hindi": "दृश, दृश्य, दर्शन",
+   "kd_english": "the seeing, the seen, seeing/philosophy",
+   "md_english": "knowledge of holistic view of coexistence",
+   "md_row": 330
+  },
+  {
+   "status": "override",
+   "kd_hindi": "ध्यान, ध्याता, ध्येय",
+   "kd_english": "attention, attender, object of attention",
+   "md_english": "concentration",
+   "md_row": 574
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "साध्य, साधक, साधन",
+   "kd_english": "aim, seeker, means",
+   "md_english": "aim",
+   "md_row": 580
+  },
+  {
+   "status": "override",
+   "kd_hindi": "अध्यात्मवाद, अधिदैवीवाद, अधिभौतिकवाद",
+   "kd_english": "spiritualism, god-centred-ism, materialism-of-the-beyond",
+   "md_english": "spiritualism, adhyatma-vada",
+   "md_row": 529
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "ब्रह्मवाद, आत्मवाद, जातिवाद, नस्लवाद, वंशवाद",
+   "kd_english": "Brahma-doctrine, self-doctrine, casteism, racism, lineage-ism",
+   "md_english": "Brahma-doctrine, self-doctrine, casteism, racism, lineage-ism",
+   "md_row": 2228
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "उद्घाता",
+   "kd_english": "herald",
+   "md_english": "herald",
+   "md_row": 2229
+  },
+  {
+   "status": "override",
+   "kd_hindi": "कर्म अभ्यास",
+   "kd_english": "practical-experiential method",
+   "md_english": "Retributional action",
+   "md_row": 421
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "औकात",
+   "kd_english": "standing",
+   "md_english": "standing",
+   "md_row": 2230
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "वेदना",
+   "kd_english": "pain",
+   "md_english": "pain",
+   "md_row": 2231
+  },
+  {
+   "status": "override",
+   "kd_hindi": "संचेतना",
+   "kd_english": "awareness",
+   "md_english": "consciousness, human consciousness, humane consciousness",
+   "md_row": 413
+  },
+  {
+   "status": "override",
+   "kd_hindi": "अभीष्ट",
+   "kd_english": "desire",
+   "md_english": "Aim",
+   "md_row": 965
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "कायिक",
+   "kd_english": "physical",
+   "md_english": "physical",
+   "md_row": 1343
+  },
+  {
+   "status": "override",
+   "kd_hindi": "कृत, कारित, अनुमोदित",
+   "kd_english": "done, caused, intended",
+   "md_english": "doing",
+   "md_row": 1337
+  },
+  {
+   "status": "override",
+   "kd_hindi": "फल",
+   "kd_english": "result",
+   "md_english": "consequence",
+   "md_row": 1024
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "परिणाम",
+   "kd_english": "result",
+   "md_english": "Result",
+   "md_row": 1027
+  },
+  {
+   "status": "override",
+   "kd_hindi": "अनुभूति",
+   "kd_english": "experiencing",
+   "md_english": "realisation",
+   "md_row": 209
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "सत्ता",
+   "kd_english": "Omnipotence",
+   "md_english": "Omnipotence",
+   "md_row": 9
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "अध्यात्म",
+   "kd_english": "the Spirit",
+   "md_english": "The Spirit",
+   "md_row": 914
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "संस्कार",
+   "kd_english": "*sanskar* (left transliterated)",
+   "md_english": "Sanskar",
+   "md_row": 119
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "संस्कृति",
+   "kd_english": "culture",
+   "md_english": "culture",
+   "md_row": 804
+  },
+  {
+   "status": "override",
+   "kd_hindi": "सभ्यता",
+   "kd_english": "civilisation",
+   "md_english": "civilization, civility",
+   "md_row": 803
+  },
+  {
+   "status": "override",
+   "kd_hindi": "काम",
+   "kd_english": "*kama* (desire)",
+   "md_english": "lust",
+   "md_row": 1073
+  },
+  {
+   "status": "override",
+   "kd_hindi": "अर्थ",
+   "kd_english": "wealth (contextual)",
+   "md_english": "resources",
+   "md_row": 434
+  },
+  {
+   "status": "override",
+   "kd_hindi": "कासा, आकूति, मेधा",
+   "kd_english": "left transliterated",
+   "md_english": "intellect",
+   "md_row": 1215
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "मति, सुमति, अनुमति",
+   "kd_english": "left transliterated",
+   "md_english": "mati, sumati, anumati (left transliterated)",
+   "md_row": 2232
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "अमति, कुमति, दुर्मति",
+   "kd_english": "left transliterated",
+   "md_english": "amati, kumati, durmati (left transliterated)",
+   "md_row": 2233
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "निवृत्ति",
+   "kd_english": "disencumberance",
+   "md_english": "Disencumberance, Disinclination",
+   "md_row": 142
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "संवेग",
+   "kd_english": "impetus",
+   "md_english": "impetus",
+   "md_row": 700
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "पुण्यात्मा, पापात्मा",
+   "kd_english": "the meritorious soul, the sinful soul",
+   "md_english": "the meritorious soul, the sinful soul",
+   "md_row": 2234
+  },
+  {
+   "status": "override",
+   "kd_hindi": "स्थूल, सूक्ष्म, कारण",
+   "kd_english": "gross, subtle, causal",
+   "md_english": "subtle desire",
+   "md_row": 387
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "रजोगुण, तमोगुण, सत्वगुण",
+   "kd_english": "left transliterated",
+   "md_english": "rajoguna, tamoguna, sattvaguna (left transliterated)",
+   "md_row": 2235
+  },
+  {
+   "status": "override",
+   "kd_hindi": "नियम-त्रय, व्यवहार-त्रय, अन्वेषण-त्रय",
+   "kd_english": "triad of rule, triad of behaviour, triad of investigation",
+   "md_english": "Law",
+   "md_row": 63
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "मानवीयतापूर्ण (X) / अतिमानवीयतापूर्ण (X)",
+   "kd_english": "humane (X) / higher-humane (X)",
+   "md_english": "humane (X) / higher-humane (X)",
+   "md_row": 2236
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "जीवन ज्ञान",
+   "kd_english": "knowledge of jeevan",
+   "md_english": "knowledge of jeevan",
+   "md_row": 329
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "गम्यता",
+   "kd_english": "the destination",
+   "md_english": "the destination",
+   "md_row": 2237
+  },
+  {
+   "status": "override",
+   "kd_hindi": "दर्शन (bare, or in \"X दर्शन ज्ञान\" / \"X दर्शन\" / \"दर्शन-क्षमता\" compounds)",
+   "kd_english": "the holistic view (of X)",
+   "md_english": "Knowledge",
+   "md_row": 28
+  },
+  {
+   "status": "override",
+   "kd_hindi": "उपासना",
+   "kd_english": "Upasana (worship)",
+   "md_english": "worship, upasana",
+   "md_row": 1370
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "विवेक",
+   "kd_english": "wisdom",
+   "md_english": "wisdom",
+   "md_row": 332
+  },
+  {
+   "status": "override",
+   "kd_hindi": "नश्वरत्व",
+   "kd_english": "perishability",
+   "md_english": "mortality",
+   "md_row": 1044
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "कूटस्थ, रूपस्थ, आत्मस्थ (उपासना के रूप में)",
+   "kd_english": "kutastha upasana (abiding in the immutable), rupastha upasana (abiding in form), atmastha upasana (abiding in the self)",
+   "md_english": "form",
+   "md_row": 46
+  },
+  {
+   "status": "override",
+   "kd_hindi": "देवात्मा, भूतात्मा, दिव्यात्मा",
+   "kd_english": "the deific soul, the elemental soul, the divine soul",
+   "md_english": "deific-self",
+   "md_row": 971
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "जीवन-पुंज",
+   "kd_english": "jeevan-cluster",
+   "md_english": "jeevan",
+   "md_row": 94
+  },
+  {
+   "status": "override",
+   "kd_hindi": "विषय-चतुष्टय, चतुर्विषय",
+   "kd_english": "instincts-quad / the four-object domain",
+   "md_english": "instincts, propensity",
+   "md_row": 451
+  },
+  {
+   "status": "override",
+   "kd_hindi": "ऐषणा-त्रय",
+   "kd_english": "the \"desires-trio\"",
+   "md_english": "motive-trio",
+   "md_row": 507
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "विद्या, उपविद्या, क्षुद्र विद्या",
+   "kd_english": "learning, sub-learning, base learning",
+   "md_english": "learning",
+   "md_row": 1219
+  },
+  {
+   "status": "override",
+   "kd_hindi": "नियम-त्रय",
+   "kd_english": "the \"triad of rule\"",
+   "md_english": "Law",
+   "md_row": 63
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "जागृति-त्रय, शक्ति-त्रय",
+   "kd_english": "the \"triad of awakening\", the \"triad of powers\"",
+   "md_english": "Power",
+   "md_row": 56
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "इच्छा शक्ति, क्रिया शक्ति, ज्ञान शक्ति",
+   "kd_english": "desire-power, activity-power, knowledge-power",
+   "md_english": "Knowledge",
+   "md_row": 28
+  },
+  {
+   "status": "override",
+   "kd_hindi": "ता-त्रय",
+   "kd_english": "the \"*-tā*-trio\"",
+   "md_english": "motive-trio",
+   "md_row": 507
+  },
+  {
+   "status": "override",
+   "kd_hindi": "अनुक्षण-विक्षण-वृत्ति, सहजावृत्ति",
+   "kd_english": "the moment-to-moment unbroken tendency; natural-recurrence",
+   "md_english": "vritti",
+   "md_row": 372
+  },
+  {
+   "status": "override",
+   "kd_hindi": "तदाकार",
+   "kd_english": "taking-the-form-of",
+   "md_english": "absolute-resonance",
+   "md_row": 929
+  },
+  {
+   "status": "override",
+   "kd_hindi": "सम्यक्-बोध, सम्यक् संकल्प",
+   "kd_english": "right-enlightenment, right resolve",
+   "md_english": "conception enlightenment",
+   "md_row": 211
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "सद्विवेक",
+   "kd_english": "right-wisdom",
+   "md_english": "right-wisdom",
+   "md_row": 2238
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "साध्य, साधक, साधन (उपासना में)",
+   "kd_english": "the aim, the seeker, the means",
+   "md_english": "aim",
+   "md_row": 580
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "मत, सम्प्रदाय, वर्ग",
+   "kd_english": "creed, sect, class",
+   "md_english": "class",
+   "md_row": 2153
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "वर्ग-भावना",
+   "kd_english": "class-sentiment",
+   "md_english": "class",
+   "md_row": 2153
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "सर्वमंगल, मांगल्य",
+   "kd_english": "universal welfare, welfare",
+   "md_english": "universal welfare, welfare",
+   "md_row": 2239
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "अभ्युदय",
+   "kd_english": "comprehensive resolution",
+   "md_english": "comprehensive resolution (Abhyudaya)",
+   "md_row": 1038
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "न्यूनातिरेक",
+   "kd_english": "deficiency-or-excess",
+   "md_english": "deficiency-or-excess",
+   "md_row": 2240
+  },
+  {
+   "status": "override",
+   "kd_hindi": "प्रभुसत्ता",
+   "kd_english": "sovereignty",
+   "md_english": "Supreme order",
+   "md_row": 817
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "साम्राज्य",
+   "kd_english": "dominion",
+   "md_english": "dominion",
+   "md_row": 2241
+  },
+  {
+   "status": "override",
+   "kd_hindi": "मानवेतर प्राणी",
+   "kd_english": "beings other than human",
+   "md_english": "nature other than human / non-human (nature)",
+   "md_row": 2147
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "विराग, वैराग्य",
+   "kd_english": "dispassion",
+   "md_english": "dispassion",
+   "md_row": 926
+  },
+  {
+   "status": "override",
+   "kd_hindi": "आत्म-दीपन",
+   "kd_english": "self-illumination",
+   "md_english": "atma-bodh",
+   "md_row": 1303
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "पाण्डित्य",
+   "kd_english": "scholarliness",
+   "md_english": "scholarliness",
+   "md_row": 2242
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "कासा, आकूति, मेधा (क्रिया/इच्छा/ज्ञान शक्ति के रूप में)",
+   "kd_english": "activity-power (kāsā), desire-power (ākūti), knowledge-power (medhā)",
+   "md_english": "Knowledge",
+   "md_row": 28
+  },
+  {
+   "status": "override",
+   "kd_hindi": "अवकाश",
+   "kd_english": "opportunity",
+   "md_english": "void",
+   "md_row": 16
+  }
+ ],
+ "glossary_status_counts": {
+  "aligned": 88,
+  "override": 64,
+  "md_missing_english": 1
+ },
+ "exceptions": [
+  {
+   "hindi": "ताप",
+   "md_english": "heat",
+   "kd_english": "temperature",
+   "reason": "KD 3.7 contrasts ताप=temperature with ऊष्मा=heat in the same passage."
+  },
+  {
+   "hindi": "वास्तविकता",
+   "md_english": "reality",
+   "kd_english": "actuality",
+   "reason": "KD lists reality/actuality/truth as three distinct terms (यथार्थता/वास्तविकता/सत्य)."
+  },
+  {
+   "hindi": "संस्कार",
+   "md_english": null,
+   "kd_english": "sanskar (transliterated)",
+   "reason": "KD keeps संस्कार transliterated, distinct from संस्कृति=culture."
+  },
+  {
+   "hindi": "काम",
+   "md_english": "lust",
+   "kd_english": "kama (transliterated)",
+   "reason": "KD keeps काम transliterated in moksha/dharma/kama/wealth list."
+  }
+ ],
+ "body_coverage": {
+  "english_glosses_checked": 1637,
+  "present_in_kd_body": 882,
+  "absent_from_kd_body": 755,
+  "present_sample": [
+   {
+    "row": 2,
+    "hindi": "अस्तित्व",
+    "english": "Existence"
+   },
+   {
+    "row": 3,
+    "hindi": "सहअस्तित्व",
+    "english": "Coexistence"
+   },
+   {
+    "row": 4,
+    "hindi": "वस्तु",
+    "english": "Entity, Object"
+   },
+   {
+    "row": 5,
+    "hindi": "सम्पृक्त, संपृक्त",
+    "english": "Saturated"
+   },
+   {
+    "row": 6,
+    "hindi": "डूबा",
+    "english": "submerged"
+   },
+   {
+    "row": 7,
+    "hindi": "भीगा",
+    "english": "soaked"
+   },
+   {
+    "row": 9,
+    "hindi": "सत्ता",
+    "english": "Omnipotence"
+   },
+   {
+    "row": 10,
+    "hindi": "व्यापक",
+    "english": "Omnipresent, Omnipresence"
+   },
+   {
+    "row": 11,
+    "hindi": "शुद्ध",
+    "english": "pure"
+   },
+   {
+    "row": 12,
+    "hindi": "बुद्ध",
+    "english": "enlightening"
+   },
+   {
+    "row": 13,
+    "hindi": "नित्य",
+    "english": "eternal"
+   },
+   {
+    "row": 14,
+    "hindi": "सत्तामयता",
+    "english": "Omnipotence"
+   },
+   {
+    "row": 15,
+    "hindi": "शून्य",
+    "english": "Space"
+   },
+   {
+    "row": 16,
+    "hindi": "आकाश, अवकाश",
+    "english": "void"
+   },
+   {
+    "row": 17,
+    "hindi": "लोकेश",
+    "english": "Supreme, Spiritual"
+   },
+   {
+    "row": 18,
+    "hindi": "पूर्ण",
+    "english": "Complete"
+   },
+   {
+    "row": 19,
+    "hindi": "पारगामी",
+    "english": "permeative"
+   },
+   {
+    "row": 21,
+    "hindi": "पारदर्शी",
+    "english": "Transparent"
+   },
+   {
+    "row": 23,
+    "hindi": "रिक्त",
+    "english": "devoid of"
+   },
+   {
+    "row": 24,
+    "hindi": "मुक्त",
+    "english": "free from"
+   },
+   {
+    "row": 25,
+    "hindi": "चेतना",
+    "english": "Consciousness"
+   },
+   {
+    "row": 28,
+    "hindi": "ज्ञान",
+    "english": "Knowledge"
+   },
+   {
+    "row": 30,
+    "hindi": "ऊर्जा",
+    "english": "Energy"
+   },
+   {
+    "row": 33,
+    "hindi": "साम्य ऊर्जा",
+    "english": "Uniform Energy"
+   },
+   {
+    "row": 36,
+    "hindi": "ब्रह्म",
+    "english": "Brahma"
+   },
+   {
+    "row": 38,
+    "hindi": "ऊर्जित",
+    "english": "Energised"
+   },
+   {
+    "row": 39,
+    "hindi": "मूल्य",
+    "english": "value"
+   },
+   {
+    "row": 40,
+    "hindi": "मौलिकता",
+    "english": "essentiality"
+   },
+   {
+    "row": 41,
+    "hindi": "धारणा",
+    "english": "innateness"
+   },
+   {
+    "row": 42,
+    "hindi": "गुण",
+    "english": "properties"
+   },
+   {
+    "row": 44,
+    "hindi": "प्रमाणीकरण",
+    "english": "evidencing"
+   },
+   {
+    "row": 46,
+    "hindi": "रूप",
+    "english": "form"
+   },
+   {
+    "row": 47,
+    "hindi": "आकार",
+    "english": "shape"
+   },
+   {
+    "row": 48,
+    "hindi": "आयतन",
+    "english": "volume"
+   },
+   {
+    "row": 49,
+    "hindi": "घन",
+    "english": "density"
+   },
+   {
+    "row": 51,
+    "hindi": "धर्म",
+    "english": "dharma"
+   },
+   {
+    "row": 53,
+    "hindi": "निरंतरता",
+    "english": "Continuity"
+   },
+   {
+    "row": 54,
+    "hindi": "स्थिरता",
+    "english": "Stability"
+   },
+   {
+    "row": 55,
+    "hindi": "बल",
+    "english": "Strength, Force"
+   },
+   {
+    "row": 56,
+    "hindi": "शक्ति",
+    "english": "Power"
+   }
+  ],
+  "absent_sample_high_value": [
+   {
+    "row": 52,
+    "hindi": "परम धर्म",
+    "english": "ultimate dharma"
+   },
+   {
+    "row": 97,
+    "hindi": "अरूपात्मक अस्तित्व",
+    "english": "Formless existence"
+   },
+   {
+    "row": 100,
+    "hindi": "रूपात्मक अस्तित्व",
+    "english": "Formful existence"
+   },
+   {
+    "row": 101,
+    "hindi": "स्थिति सत्य",
+    "english": "Absolute Truth"
+   },
+   {
+    "row": 102,
+    "hindi": "वस्तुगत सत्य",
+    "english": "Objective Truth"
+   },
+   {
+    "row": 103,
+    "hindi": "वस्तुस्थिति सत्य, वस्तु स्थिति सत्य",
+    "english": "Relative Truth"
+   },
+   {
+    "row": 182,
+    "hindi": "जागृतिशील",
+    "english": "Awakening-oriented"
+   },
+   {
+    "row": 183,
+    "hindi": "अजागृति",
+    "english": "unawakening"
+   },
+   {
+    "row": 199,
+    "hindi": "आशा धर्म",
+    "english": "hope to live dharma"
+   },
+   {
+    "row": 233,
+    "hindi": "स्वायत्त मानव",
+    "english": "autonomous human"
+   },
+   {
+    "row": 330,
+    "hindi": "सह-अस्तित्व दर्शन ज्ञान",
+    "english": "knowledge of holistic view of coexistence"
+   },
+   {
+    "row": 448,
+    "hindi": "न्याय-अन्याय",
+    "english": "justice-injustice"
+   },
+   {
+    "row": 449,
+    "hindi": "धर्म-अधर्म",
+    "english": "dharma-adharma"
+   },
+   {
+    "row": 450,
+    "hindi": "सत्य-असत्य",
+    "english": "truth-untruth"
+   },
+   {
+    "row": 477,
+    "hindi": "जीवन अपेक्षा, जीवनापेक्षा",
+    "english": "jeevan's expectation"
+   },
+   {
+    "row": 478,
+    "hindi": "मानवापेक्षा, मानव अपेक्षा",
+    "english": "human expectation"
+   },
+   {
+    "row": 479,
+    "hindi": "मानव लक्ष्य",
+    "english": "human goals"
+   },
+   {
+    "row": 484,
+    "hindi": "जीवन मूल्य",
+    "english": "jeevan values"
+   },
+   {
+    "row": 537,
+    "hindi": "समाधानात्मक भौतिकवाद",
+    "english": "Resolution centred Materialism"
+   },
+   {
+    "row": 540,
+    "hindi": "मानव अनुभव दर्शन",
+    "english": "Holistic view of Human Realisation"
+   },
+   {
+    "row": 541,
+    "hindi": "मानव व्यवहार दर्शन",
+    "english": "Holistic view of Human Behaviour"
+   },
+   {
+    "row": 542,
+    "hindi": "मानव कर्म दर्शन",
+    "english": "Holistic view of Human Action"
+   },
+   {
+    "row": 543,
+    "hindi": "मानव अभ्यास दर्शन",
+    "english": "Holistic view of Human Practice"
+   },
+   {
+    "row": 546,
+    "hindi": "मानव संचेतनावादी मनोविज्ञान",
+    "english": "Psychology of Humane Consciousness"
+   },
+   {
+    "row": 547,
+    "hindi": "जीवन विद्या - एक परिचय",
+    "english": "Jeevan Vidya - An Introduction"
+   },
+   {
+    "row": 548,
+    "hindi": "मानवीय आचार संहिता रूपी मानवीय संविधान सूत्र व्याख्या",
+    "english": "Humane Constitution as Code of Humane Conduct"
+   },
+   {
+    "row": 904,
+    "hindi": "न्याय-सुरक्षा",
+    "english": "Justice-Security"
+   },
+   {
+    "row": 981,
+    "hindi": "अस्तित्व मूलक मानव केंद्रित चिंतन",
+    "english": "existence based human centric contemplation"
+   },
+   {
+    "row": 1082,
+    "hindi": "हठधर्मिता",
+    "english": "stubbornness, adamancy"
+   },
+   {
+    "row": 1281,
+    "hindi": "धर्म गद्दी, धर्मगद्दी",
+    "english": "seat of religion, religious authority"
+   },
+   {
+    "row": 1312,
+    "hindi": "न्याय सम्मत",
+    "english": "aligned with justice"
+   },
+   {
+    "row": 1320,
+    "hindi": "शिक्षा का मानवीयकरण",
+    "english": "humanization of education"
+   },
+   {
+    "row": 1420,
+    "hindi": "न्याय सुलभता",
+    "english": "accessibility to justice"
+   },
+   {
+    "row": 1499,
+    "hindi": "जीवनी क्रम",
+    "english": "animal-order progression"
+   },
+   {
+    "row": 2104,
+    "hindi": "सहअस्तित्ववाद",
+    "english": "Coexistentialism"
+   },
+   {
+    "row": 2124,
+    "hindi": "न्यायान्याय",
+    "english": "justice-injustice"
+   },
+   {
+    "row": 2125,
+    "hindi": "धर्माधर्म",
+    "english": "dharma-adharma"
+   },
+   {
+    "row": 2126,
+    "hindi": "सत्यासत्य",
+    "english": "truth-untruth"
+   },
+   {
+    "row": 2136,
+    "hindi": "सत्यानुभूत",
+    "english": "truth-realised"
+   },
+   {
+    "row": 2147,
+    "hindi": "मानवेत्तर, मानवेतर, मनुष्येत्तर",
+    "english": "nature other than human / non-human (nature)"
+   }
+  ]
+ },
+ "italic_matches": [
+  {
+   "italic": "vastu",
+   "hindi": "वस्तु",
+   "english": "Entity, Object",
+   "md_row": 4
+  },
+  {
+   "italic": "samya oorja",
+   "hindi": "साम्य ऊर्जा",
+   "english": "Uniform Energy",
+   "md_row": 33
+  },
+  {
+   "italic": "dharana",
+   "hindi": "धारणा",
+   "english": "innateness",
+   "md_row": 41
+  },
+  {
+   "italic": "gunatmak parivartan",
+   "hindi": "गुणात्मक परिवर्तन",
+   "english": "qualitative transformation",
+   "md_row": 45
+  },
+  {
+   "italic": "bal",
+   "hindi": "बल",
+   "english": "Strength, Force",
+   "md_row": 55
+  },
+  {
+   "italic": "shakti",
+   "hindi": "शक्ति",
+   "english": "Power",
+   "md_row": 56
+  },
+  {
+   "italic": "jad",
+   "hindi": "जड़",
+   "english": "Insentient",
+   "md_row": 89
+  },
+  {
+   "italic": "jeevan",
+   "hindi": "जीवन",
+   "english": "jeevan",
+   "md_row": 94
+  },
+  {
+   "italic": "sanskar",
+   "hindi": "संस्कार",
+   "english": "Sanskar",
+   "md_row": 119
+  },
+  {
+   "italic": "pad",
+   "hindi": "पद",
+   "english": "Plane",
+   "md_row": 128
+  },
+  {
+   "italic": "gyanavastha",
+   "hindi": "ज्ञानावस्था",
+   "english": "Knowledge order",
+   "md_row": 189
+  },
+  {
+   "italic": "pushti",
+   "hindi": "पुष्टि",
+   "english": "growth, confirmation",
+   "md_row": 201
+  },
+  {
+   "italic": "tva",
+   "hindi": "त्व",
+   "english": "ness",
+   "md_row": 205
+  },
+  {
+   "italic": "svatva",
+   "hindi": "स्वत्व",
+   "english": "innateness",
+   "md_row": 239
+  },
+  {
+   "italic": "swarajya",
+   "hindi": "स्वराज्य",
+   "english": "self-governance",
+   "md_row": 240
+  },
+  {
+   "italic": "svabhav gati",
+   "hindi": "स्वभाव गति",
+   "english": "natural state",
+   "md_row": 241
+  },
+  {
+   "italic": "niyati",
+   "hindi": "नियति",
+   "english": "Destiny",
+   "md_row": 242
+  },
+  {
+   "italic": "bandhan",
+   "hindi": "बंधन",
+   "english": "bondage",
+   "md_row": 249
+  },
+  {
+   "italic": "pran",
+   "hindi": "प्राण",
+   "english": "Prana",
+   "md_row": 255
+  },
+  {
+   "italic": "tran",
+   "hindi": "त्राण",
+   "english": "saviour",
+   "md_row": 256
+  },
+  {
+   "italic": "yaugik",
+   "hindi": "यौगिक",
+   "english": "compound",
+   "md_row": 261
+  },
+  {
+   "italic": "andaj",
+   "hindi": "अंडज",
+   "english": "oviparous",
+   "md_row": 276
+  },
+  {
+   "italic": "pindaj",
+   "hindi": "पिण्डज",
+   "english": "viviparous",
+   "md_row": 277
+  },
+  {
+   "italic": "udbhij",
+   "hindi": "उद्भिज",
+   "english": "",
+   "md_row": 278
+  },
+  {
+   "italic": "manavatva",
+   "hindi": "मानवत्व",
+   "english": "human-ness",
+   "md_row": 302
+  },
+  {
+   "italic": "vivek",
+   "hindi": "विवेक",
+   "english": "wisdom",
+   "md_row": 332
+  },
+  {
+   "italic": "mun",
+   "hindi": "मन",
+   "english": "mun",
+   "md_row": 371
+  },
+  {
+   "italic": "vritti",
+   "hindi": "वृत्ति",
+   "english": "vritti",
+   "md_row": 372
+  },
+  {
+   "italic": "chitta",
+   "hindi": "चित्त",
+   "english": "chitta",
+   "md_row": 373
+  },
+  {
+   "italic": "buddhi",
+   "hindi": "बुद्धि",
+   "english": "buddhi",
+   "md_row": 374
+  },
+  {
+   "italic": "atma",
+   "hindi": "आत्मा",
+   "english": "atma",
+   "md_row": 375
+  },
+  {
+   "italic": "asha",
+   "hindi": "आशा",
+   "english": "hope",
+   "md_row": 382
+  },
+  {
+   "italic": "tulan",
+   "hindi": "तुलन",
+   "english": "deliberation",
+   "md_row": 383
+  },
+  {
+   "italic": "sakshatkar",
+   "hindi": "साक्षात्कार",
+   "english": "direct recognition",
+   "md_row": 391
+  },
+  {
+   "italic": "bodh",
+   "hindi": "बोध",
+   "english": "enlightenment",
+   "md_row": 393
+  },
+  {
+   "italic": "sankalp",
+   "hindi": "संकल्प",
+   "english": "resolve",
+   "md_row": 396
+  },
+  {
+   "italic": "anubhav",
+   "hindi": "अनुभव",
+   "english": "realisation",
+   "md_row": 398
+  },
+  {
+   "italic": "mun",
+   "hindi": "मन",
+   "english": "mind",
+   "md_row": 436
+  },
+  {
+   "italic": "akhand samaj",
+   "hindi": "अखंड समाज",
+   "english": "Undivided Society",
+   "md_row": 474
+  },
+  {
+   "italic": "upkar",
+   "hindi": "उपकार",
+   "english": "benevolence",
+   "md_row": 508
+  },
+  {
+   "italic": "patrata",
+   "hindi": "पात्रता",
+   "english": "receptivity",
+   "md_row": 512
+  },
+  {
+   "italic": "adhibhautikvad",
+   "hindi": "अधिभौतिकवाद",
+   "english": "adhi-bhautikvad",
+   "md_row": 531
+  },
+  {
+   "italic": "adarshvad",
+   "hindi": "आदर्शवाद",
+   "english": "Idealism",
+   "md_row": 532
+  },
+  {
+   "italic": "darshan",
+   "hindi": "दर्शन",
+   "english": "Holistic view, Worldview, Philosophy",
+   "md_row": 566
+  },
+  {
+   "italic": "shastra",
+   "hindi": "शास्त्र",
+   "english": "Scripture",
+   "md_row": 568
+  },
+  {
+   "italic": "dhyan",
+   "hindi": "ध्यान",
+   "english": "concentration",
+   "md_row": 574
+  },
+  {
+   "italic": "dhyeya",
+   "hindi": "ध्येय",
+   "english": "object of concentration",
+   "md_row": 575
+  },
+  {
+   "italic": "dhyata",
+   "hindi": "ध्याता",
+   "english": "the one who concentrates",
+   "md_row": 576
+  },
+  {
+   "italic": "sadhana",
+   "hindi": "साधना",
+   "english": "sadhana, practice",
+   "md_row": 579
+  },
+  {
+   "italic": "sadhya",
+   "hindi": "साध्य",
+   "english": "aim",
+   "md_row": 580
+  },
+  {
+   "italic": "sadhak",
+   "hindi": "साधक",
+   "english": "the seeker",
+   "md_row": 581
+  },
+  {
+   "italic": "sadhan",
+   "hindi": "साधन",
+   "english": "the means",
+   "md_row": 582
+  },
+  {
+   "italic": "drishya",
+   "hindi": "दृश्य",
+   "english": "scene",
+   "md_row": 587
+  },
+  {
+   "italic": "karta",
+   "hindi": "कर्ता",
+   "english": "doer",
+   "md_row": 588
+  },
+  {
+   "italic": "gunatmak parivartan",
+   "hindi": "गुणात्मक परिवर्तन",
+   "english": "Qualitative change",
+   "md_row": 630
+  },
+  {
+   "italic": "sadhan",
+   "hindi": "साधन",
+   "english": "resources",
+   "md_row": 646
+  },
+  {
+   "italic": "samaj gati",
+   "hindi": "समाज गति",
+   "english": "societal participation",
+   "md_row": 650
+  },
+  {
+   "italic": "manah svasthata",
+   "hindi": "मनः स्वस्थता",
+   "english": "mental wellbeing",
+   "md_row": 658
+  },
+  {
+   "italic": "shunyakarshan",
+   "hindi": "शून्याकर्षण",
+   "english": "zero-attraction",
+   "md_row": 713
+  },
+  {
+   "italic": "moksha",
+   "hindi": "मोक्ष",
+   "english": "moksha",
+   "md_row": 850
+  },
+  {
+   "italic": "jeeva",
+   "hindi": "जीव",
+   "english": "living beings, jeeva, animal",
+   "md_row": 858
+  },
+  {
+   "italic": "sutra",
+   "hindi": "सूत्र",
+   "english": "sutra, essence, maxim",
+   "md_row": 865
+  },
+  {
+   "italic": "karya",
+   "hindi": "कार्य",
+   "english": "work",
+   "md_row": 936
+  },
+  {
+   "italic": "anugaman",
+   "hindi": "अनुगमन",
+   "english": "Path to realisation",
+   "md_row": 960
+  },
+  {
+   "italic": "medhas",
+   "hindi": "मेधस",
+   "english": "brain",
+   "md_row": 1007
+  },
+  {
+   "italic": "vikalp",
+   "hindi": "विकल्प",
+   "english": "alternative",
+   "md_row": 1021
+  },
+  {
+   "italic": "abhyudaya",
+   "hindi": "अभ्युदय",
+   "english": "comprehensive resolution (Abhyudaya)",
+   "md_row": 1038
+  },
+  {
+   "italic": "kaal",
+   "hindi": "काल",
+   "english": "time",
+   "md_row": 1058
+  },
+  {
+   "italic": "urmi",
+   "hindi": "उर्मि",
+   "english": "resonance",
+   "md_row": 1116
+  },
+  {
+   "italic": "shruti",
+   "hindi": "श्रुति",
+   "english": "realised articulation",
+   "md_row": 1212
+  },
+  {
+   "italic": "vidya",
+   "hindi": "विद्या",
+   "english": "learning",
+   "md_row": 1219
+  },
+  {
+   "italic": "pushti",
+   "hindi": "पुष्टि",
+   "english": "growth",
+   "md_row": 1233
+  },
+  {
+   "italic": "guru",
+   "hindi": "गुरु",
+   "english": "guru",
+   "md_row": 1240
+  },
+  {
+   "italic": "manas",
+   "hindi": "मानस",
+   "english": "mindset",
+   "md_row": 1286
+  },
+  {
+   "italic": "pind",
+   "hindi": "पिण्ड, पिंड",
+   "english": "body",
+   "md_row": 1295
+  },
+  {
+   "italic": "gamya sthali",
+   "hindi": "गम्यस्थली",
+   "english": "destination",
+   "md_row": 1300
+  },
+  {
+   "italic": "tirobhav",
+   "hindi": "तिरोभाव",
+   "english": "disappearance, annihilation",
+   "md_row": 1305
+  },
+  {
+   "italic": "anumodit",
+   "hindi": "अनुमोदित",
+   "english": "consenting",
+   "md_row": 1339
+  },
+  {
+   "italic": "anumodan",
+   "hindi": "अनुमोदन",
+   "english": "consent, approval",
+   "md_row": 1340
+  },
+  {
+   "italic": "vinyas",
+   "hindi": "विन्यास",
+   "english": "demeanour, design",
+   "md_row": 1352
+  },
+  {
+   "italic": "kaai",
+   "hindi": "काई",
+   "english": "algae",
+   "md_row": 1364
+  },
+  {
+   "italic": "samadhi",
+   "hindi": "समाधि",
+   "english": "samadhi",
+   "md_row": 1366
+  },
+  {
+   "italic": "upasana",
+   "hindi": "उपासना",
+   "english": "worship, upasana",
+   "md_row": 1370
+  },
+  {
+   "italic": "aradhana",
+   "hindi": "आराधना",
+   "english": "adoration, aradhana",
+   "md_row": 1371
+  },
+  {
+   "italic": "archana",
+   "hindi": "अर्चना",
+   "english": "offering, archana",
+   "md_row": 1372
+  },
+  {
+   "italic": "shubh",
+   "hindi": "शुभ",
+   "english": "auspicious, noble, beneficial",
+   "md_row": 1405
+  },
+  {
+   "italic": "pran vayu",
+   "hindi": "प्राणवायु",
+   "english": "oxygen, prana air",
+   "md_row": 1432
+  },
+  {
+   "italic": "apan vayu",
+   "hindi": "अपान वायु",
+   "english": "carbon dioxide, apana air",
+   "md_row": 1433
+  },
+  {
+   "italic": "ansh",
+   "hindi": "अंश",
+   "english": "Particle",
+   "md_row": 2105
+  },
+  {
+   "italic": "bandhan",
+   "hindi": "बन्धन",
+   "english": "bondage",
+   "md_row": 2157
+  },
+  {
+   "italic": "vritti",
+   "hindi": "वृत्ति, वृति",
+   "english": "vritti",
+   "md_row": 2201
+  },
+  {
+   "italic": "madhyansh",
+   "hindi": "मध्यांश",
+   "english": "nucleus",
+   "md_row": 2208
+  },
+  {
+   "italic": "madhyasthiyakaran",
+   "hindi": "मध्यस्थीयकरण",
+   "english": "mediation",
+   "md_row": 2210
+  },
+  {
+   "italic": "saur vyuh",
+   "hindi": "सौर व्यूह",
+   "english": "solar system (solar array)",
+   "md_row": 2216
+  },
+  {
+   "italic": "chira-akanksha",
+   "hindi": "चिराकांक्षा, चिराकाँक्षा",
+   "english": "abiding aspiration",
+   "md_row": 2226
+  },
+  {
+   "italic": "sachesht",
+   "hindi": "सचेष्ट",
+   "english": "earnestly active",
+   "md_row": 2227
+  },
+  {
+   "italic": "udghata",
+   "hindi": "उद्घाता",
+   "english": "herald",
+   "md_row": 2229
+  }
+ ]
+}

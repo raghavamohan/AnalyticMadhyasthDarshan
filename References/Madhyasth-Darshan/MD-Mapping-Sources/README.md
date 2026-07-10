@@ -11,8 +11,14 @@ his established terminology.
   units, and pairs each Hindi unit with the English unit that immediately follows it.
 - `mvd_pairs.json` — 597 pairs from `MVD-Madhyasth-Darshan-Coexistentialism.pdf` (item/bullet granularity).
 - `sb_pairs.json` — 147 pairs from `SB-Samadhanatmak-Bhautikvad.pdf` (paragraph granularity).
+- `build_candidates.py` — Phase 4: uncovered tokens at freq ≥ 2 vs live `MD-Mapping.xlsx`.
+- `gather_new_term_evidence.py` — evidence packs for candidate tokens.
+- `phase4_apply_rows.py` / `phase4_new_rows.json` — apply curated Phase 4 rows.
+- `kd_missing35_rows.json` — 35 KD-Glossary-Additions lemmas formerly missing from MD-Mapping (rows 2208–2242).
+- `kd_verify_against_mapping.py` — KD glossary/body vs MD-Mapping report.
+- `phase4_review_cards.*` — remaining technical candidates for continued curation.
 
-Each entry: `{book, hi, en, hi_page, en_page}` — page numbers are PDF page numbers (1-indexed), not printed page numbers.
+Each pair entry: `{book, hi, en, hi_page, en_page}` — page numbers are PDF page numbers (1-indexed), not printed page numbers.
 
 ## Known limitations
 
@@ -47,3 +53,18 @@ appear, ताप and वास्तविकता, are correctly kept as cont
 the new global value; two stale documentation citations were fixed instead). Added 53 new
 `MD-Mapping.xlsx` rows (2095–2147) for terms frequent in MVD/SB but previously missing from the
 glossary entirely, including स्वभावगति, सहअस्तित्ववाद, and the six paired dṛṣṭi terms.
+
+## Phase 4 — done (2026-07-10)
+
+See [`PHASE4-CHANGELOG.md`](PHASE4-CHANGELOG.md). Summary: regenerated MVD/SB pairs; built **818**
+freq≥2 uncovered candidates with evidence; applied **60** curated high-confidence rows
+(2148–2207) after automated proposers proved too noisy on paragraph-aligned pairs; left **293**
+technical review cards for continued curation. KD verification report:
+[`KD-vs-MD-Mapping-report.md`](KD-vs-MD-Mapping-report.md).
+
+```powershell
+python build_candidates.py
+python gather_new_term_evidence.py candidates_freq2.json mvd_pairs.json sb_pairs.json phase4_evidence.json
+python phase4_apply_rows.py
+python kd_verify_against_mapping.py
+```

@@ -307,7 +307,7 @@ Awakening as realisation in truth (liberation from delusion).
 
 Omnipotence is mediating and all-pervasive. Nature in Omnipotence is generative-degenerative and mediating activity, and is limited; therefore Omnipotence is state-complete.
 
-Insentient–sentient nature in Omnipotence is state-dynamic; therefore nature is immersed in Omnipotence — nature is interwoven with Omnipotence. Because nature is saturated in Omnipotence, nature is fully energised; therefore nature is active. Hence nature is effort-, motion-, and result-bearing. As a result, nature itself is manifest in four orders. Therefore, in insentient–sentient nature saturated in Omnipotence, the sentient part affords appropriate opportunities for the capacities of experiencing in the knowledge order, and all four orders are bound to one another in the sense of completeness and wholeness.
+Insentient and sentient nature in Omnipotence is state-dynamic; therefore nature is immersed in Omnipotence — nature is interwoven with Omnipotence. Because nature is saturated in Omnipotence, nature is fully energised; therefore nature is active. Hence nature is effort-, motion-, and result-bearing. As a result, nature itself is manifest in four orders. Therefore, in insentient–sentient nature saturated in Omnipotence, the sentient part affords appropriate opportunities for the capacities of experiencing in the knowledge order, and all four orders are bound to one another in the sense of completeness and wholeness.
 
 Omnipotence is mediating; therefore nature saturated in mediating Omnipotence is controlled and protected. The nucleus (*madhyansh*) found in every atom is mediating activity; therefore generative-degenerative activities and relative forces are controlled and protected.
 
@@ -355,7 +355,7 @@ The conduct of one who bears gratitude is instructive and inspiring for the comi
 
 ## Foreword (*prāk-kathan*)
 
-This *Karm Darshan* is the expression of the glory or the dignity of the realization that existence is coexistence. In existence, coexistence; in coexistence, development progression; in development progression, development — the jeevan event is one actual state. Jeevan awakening itself is the expression, communication, and manifestation of the capacities, fitness, and receptivity fit for experience. In this sequence, the human being's being present indivisibly in existence is experienced. In existence, the possibility of jeevan awakening's expression remaining appropriate in the human being as an inseparable limb is ever-present. For every human being, experience-capacity is equally present — in, from, and for each — and on this truth the confirmation of experiential expression occurs universally. Thus, while expressing *Karm Darshan*, I experience authenticity. Authenticity itself is bliss and the spontaneous expression of experience.
+This *Karm Darshan* is the expression of the glory or dignity of the realization that existence is coexistence. In existence is coexistence; in coexistence is development progression; in development progression is the event of the development of jeevan; this is the actual situation. Jeevan awakening itself is the expression, communication, and manifestation of the capacities, ability, and receptivity fit for experience. In this sequence, the human being's being present indivisibly in existence is experienced. In existence, the possibility of jeevan awakening's expression remaining appropriate in the human being as an inseparable limb is ever-present. For every human being, experience-capacity is equally present — in, from, and for each — and on this truth the confirmation of experiential expression occurs universally. Thus, while expressing *Karm Darshan*, I experience authenticity. Authenticity itself is bliss and the spontaneous expression of experience.
 
 This itself is resolution in communication, justice in behaviour, and its continuity. Experience is the indicator of awakening in jeevan. Entire activity — whether insentient or sentient — is present as force in state and power in motion, because motion is not established without state. On this truth, experience itself is bliss in state — that is, authenticity; in expression itself — that is, in motion — evidence and resolution.
 
@@ -744,7 +744,7 @@ Every beholder is also the beheld for another beholder. Every unit is a beholder
 
 The programme and conduct, from beginning to end, of human jeevan are reckoned to be of three kinds: (1) truth-conduct, (2) popular-conduct, and (3) object-conduct. These are, in sequence, in the reckoning of the best, the middling, and the worst.
 
-Humane conduct is itself the natural evidence of ascertainment. Ascertainment itself is evidenced in disencumberance (*nivṛtti*). Disencumberance is itself impetus and wisdom; impetus and wisdom are themselves accordance and adherence; accordance and adherence are themselves unveiling; unveiling is itself manifestation; manifestation is itself the evident; the evident is itself evidence; evidence is itself experiencing; experiencing is itself capacity, merit, and worthiness; capacity, merit, and worthiness are themselves state-fullness; state-fullness is itself potency; potency is itself glory; and glory is itself conduct.
+Humane conduct is itself the natural evidence of ascertainment. Ascertainment itself is evidenced in disencumberance (*nivṛtti*). Disencumberance is itself impetus and wisdom; impetus and wisdom are themselves accordance and adherence; accordance and adherence are themselves unveiling; unveiling is itself manifestation; manifestation is itself the evident; the evident is itself evidence; evidence is itself experiencing; experiencing is itself capacity, ability, and receptivity; capacity, ability, and receptivity are themselves state-fullness; state-fullness is itself potency; potency is itself glory; and glory is itself conduct.
 
 The seer-status alone is the counterpart of the capacity for the holistic view, and behaviour is in accordance with it — which is well known. In the absence of thought, no work-behaviour is accomplished, or becomes evident, through the body. From this it becomes clear that it is thought alone that is at the root of the whole of the activities carried out through the body. The body is not thought. It is the medium for propagating thought. From this conclusion, thought is additional to the body, and this is a conscious activity.
 
@@ -1024,7 +1024,7 @@ Elemental souls are in a state of absolute-oneness (*tadatmya*) with adhibhautik
 
 In the adhibhautik domain, production-predominant behaviour [prevails]; in the adhidaivik domain, behaviour-predominant production; in a life filled with the Spirit, realisation-based thought, behaviour, and production occur in direct sequence. Therefore, behaviour and enterprise are found to be restrained and controlled in a life filled with the Spirit; orderly and disciplined in an adhidaivik life; and undisciplined and disorderly in a physical life. Therefore, it is only in a life filled with the Spirit that the integrality of the human being's four dimensions is found.
 
-For the sake of the "instincts-quad" (*vishaya-chatushtaya*), [absolute-oneness is found] in adhibhautik elements; for the sake of the "triad of desires" (*eshana-traya*), in adhidaivik (social and behavioural) values; and the divine human is found in a state of absolute-oneness with the Spirit — for which, respectively, attachment, upasana, and dedication are employed.
+For the sake of the "instincts-quad" (*vishaya-chatushtaya*), [absolute-oneness is found] in adhibhautik elements; for the sake of the "desires-trio" (*eshana-traya*), in adhidaivik (social and behavioural) values; and the divine human is found in a state of absolute-oneness with the Spirit — for which, respectively, attachment, upasana, and dedication are employed.
 
 The whole of insentient and sentient nature is saturated in Paramatma (Omnipotence); therefore these [three kinds of soul] are bound to awakening, culminating in realisation, in "this" [existence].
 
@@ -1093,7 +1093,7 @@ There is no pain in the progress of the process of awakening-progression. This i
 
 There are intellectual, behavioural, and physical pains. These pains are observable, respectively, in the form of problem, offence, incapacity, and wastage. This itself is the direct form of non-awakening.
 
-It is only deficiency in watchfulness and alertness that is the cause of all affliction. Watchfulness and alertness are seen to manifest only on the basis of the capacity, competence, and worthiness found in the human unit. Therefore —
+It is only deficiency in watchfulness and alertness that is the cause of all affliction. Watchfulness and alertness are seen to manifest only on the basis of the capacity, ability, and receptivity found in the human unit. Therefore —
 
 For powers not to be wasted through the sense-organs of sound, touch, form, taste, and smell, but rather to be well spent — this itself is the awakening of activity-power. The determination of good-use and wastage lies, within the domain of humaneness, in the form of the "rule-trio".
 
@@ -1125,9 +1125,9 @@ Without the authority-of-knowledge of the eternal-and-non-eternal, dedication to
 
 There is no unit without propriety. Just as, in animals, essential nature-propriety; in plants, property-propriety; and in substances, form-propriety, is not violated. This itself is their dignity. In the same way, in the human being, resolution-happiness is itself dharma; dharma is itself propriety. This itself is their dignity and trust. The direct form of propriety is itself trust.
 
-"There is no happiness in relationship and connection devoid of trust." There is no human being devoid of relationship and connection. This itself is the imperativeness for one's own-dharma. Whatever incapacity, incompetence, and unworthiness there is in its observance — that itself is sorrow, affliction, problem, and non-awakening.
+"There is no happiness in relationship and connection devoid of trust." There is no human being devoid of relationship and connection. This itself is the imperativeness for one's own-dharma. Whatever lack of capacity, ability, and receptivity there is in its observance — that itself is sorrow, affliction, problem, and non-awakening.
 
-Until one becomes fully complete with fullness in one's own-dharma and with the capacity, competence, and worthiness fit to observe it, there is no absence of upasana in the form of study, for the purpose of acquiring knowledge.
+Until one becomes fully complete with fullness in one's own-dharma and with the capacity, ability, and receptivity fit to observe it, there is no absence of upasana in the form of study, for the purpose of acquiring knowledge.
 
 It is in the human being's own-dharma alone that creed, sect, and class disappear. This itself is the direct dignity of capable upasana. "This itself is auspicious." It is indispensable for all three of these — the aim, the seeker, and the means — to remain contained within upasana. The integrality of these alone is the success of upasana; otherwise, it is failure. The proper use of whatever power and means are obtained in every state — that itself is its advance awakening. This itself is upasana.
 
