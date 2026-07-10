@@ -1,0 +1,599 @@
+TOKEN=योग्य FREQ=27 MVD p.165
+HI: ○ लक्ष्य :- क्षमता, योग्यता एवं पात्रता अनुसार योगानुभूति योग्य विकास के लिये किए गये
+EN: प्रयोग एवं प्रयास अनुभूति की लक्ष्य संज्ञा है ।    Goal (lakshya): - The assessment of experiment and endeavour for  realisation of yog according to capacity, ability and receptivity is  referred to as goal.    ● आलोक सहित (बोध पूर्वक) की गई दर्शन क्रिया की अवलोकन संज्ञा है ।    
+
+TOKEN=अध्याय FREQ=26 MVD p.32
+HI: अध्याय - एक
+EN: Chapter-1
+
+TOKEN=संभव FREQ=25 MVD p.172
+HI: के एकसूत्रात्मक अध्ययन से ही संभव है ।
+EN: The elimination of mysteries is possible only through unified study of spiritual
+
+TOKEN=प्रस्तुत FREQ=24 MVD p.188
+HI: मानवीय संस्कृति रूप, बल, धन एवं पद अनुभव प्रमाण रुप में प्रस्तुत होता है ।
+EN: Humane culture becomes apparent in the form of physical appearance, might, wealth  and societal status, as evidence of realisation.    ● प्राकृतिक साधन खनिज, वनस्पति तथा मानवेतर जीव के जाति-भेद से हैं ।    Natural resources are from the diversity of kinds among minerals, vegetati
+
+TOKEN=अखण्ड FREQ=23 MVD p.15
+HI: अखण्ड सामाजिकता सार्वभौम व्यवस्था (सहअस्तित्व) सहज प्रमाण परम्परा ।
+EN: The Refuge of Humans
+
+TOKEN=सम्पन्न FREQ=21 MVD p.273
+HI: समझ को प्रगट न करना या न कर सकना या समझ सम्पन्न नहीं हो पाना ही रहस्य है तथा इसके
+EN: लिए जो अक्षमता है उसे ‘रहस्यता’ संज्ञा है ।    Not revealing understanding or not being able to do so, or not being able to  attain it, is a mystery.  The incapacity for this is 'mysteriousness'.    ● मानव ही सहअस्तित्व में अनुभव मूलक विधि से संपूर्ण समझ संपन्न होता है । जागृत मा
+
+TOKEN=सुलभ FREQ=19 MVD p.290
+HI: अनन्तर सर्वतोमुखी समाधान व समझ सुलभ है ।
+EN: Buddhi has the potential for atma-bodh and enlightenment of the realisation in  omnipresence. Therefore, after its realisation, the comprehensive resolution  and understanding become accessible.
+
+TOKEN=यातु FREQ=18 MVD p.23
+HI: भूमि: स्वर्गताम् यातु, मानवो यातु देवताम् । धर्मो सफलताम् यातु, नित्यम् यातु शुभोदयम् ।
+EN: “May Earth be heaven, May humans be deities, May dharma prevail, May goodness be eternal.”
+
+TOKEN=स्थान FREQ=16 MVD p.192
+HI: स्वस्थ व्यवहार के लिए स्वस्थ शरीर का भी महत्वपूर्ण स्थान है, जो प्राण के विधिवत् नियन्त्रण से ही संभव है
+EN: ।    A healthy body holds a significant position in maintaining healthy behaviour, which is  possible only through due regulation of prana.    ● अन्न से प्राण-पोषण, व्यवसाय से समृद्धि, संयम से अपव्यय का निरोध, वैज्ञानिक समझ से भौतिक दर्शन, विवेकात्मक समझ से बौद्धिक दर्शन, व्यवहार
+
+TOKEN=संभावना FREQ=15 MVD p.166
+HI: सम्पूर्ण जड़ क्रिया मात्र अपूर्ण है । अर्पूण को पाकर अपूर्ण तृप्त नहीं हो सकता । तृप्ति की संभावना
+EN: केवल न्याय, धर्म एवं सत्यानुभूति से ही है ।    All insentient activities are inherently incomplete. One who is incomplete  cannot attain satisfaction by acquiring the incomplete. The possibility of
+
+TOKEN=दिशा FREQ=14 MVD p.170
+HI: ○ विज्ञान :- भौतिक समृद्धि एवं मानव लक्ष्य जीवन लक्ष्य की सफलता के लिए दिशा निर्धारण
+EN: ज्ञान ही विज्ञान है ।    Science (vigyan): - Science is the knowledge that determines the  direction for accomplishment of material prosperity, human goal and  jeevan goal.    ● अस्तु, अंतर्राष्ट्रीयता का मूल उद्देश्य बौद्धिक समाधान तथा भौतिक समृद्धि का संतुलन एवं संरक्षण बनाये र
+
+TOKEN=जंगल FREQ=13 SB p.23
+HI: दूसरा इतिहास जंगल युग के शिला युग, शिला युग से धातु युग, धातु युग से दास युग (आदर्शवादी विचार)  तथा दास युग से संघर्ष युग जो आज वर्तमान है।
+EN: The second historical perspective traces humankind's progression from the Jungle  Age to the Stone Age, from the Stone Age to the Iron Age, from the Iron Age to the  Submission Age (the Age of Idealism), and from the Submission Age to the Age of  Struggle, which is present till t
+
+TOKEN=तीनों FREQ=13 MVD p.232
+HI: उपरोक्त तीनों से कुल चार प्रकार से मानव भयभीत है :- (1) पद भय   (2) मान भय   (3) धन भय   (4) मृत्यु भय ।
+EN: Humans experience fear as a result of the aforementioned three causes in four ways: (1)Fear of societal status (2) Fear of prestige, (3) Fear of wealth, (4) Fear of life.
+
+TOKEN=पूरक FREQ=13 MVD p.102
+HI: ○ एकसूत्रता का अर्थ है, परस्पर जागृति के लिये पूरक तथा सहायक हो जाना ।
+EN: Integrality means being helpful and complementary for mutual awakening.    ○ उपरिवर्णित एकसूत्रता के अपेक्षाकृत अध्ययन के आधार पर मानव अपने ह्रास एवं जागृति के कारण भ्रांत, भ्रान्ताभ्रान्त तथा निर्भ्रान्त अवस्था में परिलक्षित होना समीचीन है ।    In the light of the above comparat
+
+TOKEN=स्वाभाविक FREQ=13 MVD p.250
+HI: भाई-बहन की पहचान एक निश्चित आयु में हो पाती है । पहचान होते ही परस्परता में सच्चाई, समझदारी  और परिवार सम्मत अथवा जागृत मानव परिवार सम्मत अपेक्षा के अनुसार, कौमार्य अवस्था में  आज्ञापालन सहयोग और अनुसरण जैसे कार्यों में परस्पर मूल्यांकन होना पाया जाता है । यही मित्रों के  साथ भी 
+EN: The recognition of the brother-sister relationship typically occurs at a certain age.  Once this recognition happens, there is mutual evaluation in the pre-adolescence  stage regarding truthfulness, understanding, and activities such as obedience, helpfulness, and following the e
+
+TOKEN=अवसर FREQ=12 MVD p.213
+HI: मानव समुदाय न्याय तथा अवसर भेद से प्रवृत्त रहना स्पष्ट है ।
+EN: It is evident that the human community remains inclined either towards justice or  towards opportunism.
+
+TOKEN=भाषा FREQ=12 MVD p.229
+HI: ○ न्याय, धर्म एवं सत्यानुभूति योग्य क्षमता से व्यवहार, भाव व भाषा संयमित और परिमार्जित होता है ।
+EN: Behaviour, sentiments, and language become restrained and refined by  attaining the capacity of realising justice, dharma, and truth.    ● पवित्र विचार ही मनोबल, मनोबल ही कर्त्तव्य निष्ठा, कर्त्तव्य निष्ठा ही समाधान-समृद्धि, समाधान-समृद्धि ही सहअस्तित्व तथा सहअस्तित्व ही पवित्र व
+
+TOKEN=सर्वाधिक FREQ=12 SB p.31
+HI: इन्हीं के साथ बहुत सारे विभाग समाहित हैं। हर विभाग में अधिकारी होता है । शिक्षा तंत्र भी एक विभाग है।  यह कार्यपालिका के अंतर्गत कार्य करता है। आज सर्वाधिक अधिकारी वर्ग संग्रह कार्य में व्यस्त है। विधायिका  राजनेताओं के हाथों में है और नेता जनादेश के आधार पर चुना जाता है जबकि राज
+EN: In addition to these, numerous other departments exist, each with its own  complement of officers. Education is also a department that operates under the  executive branch. Today, most officers are preoccupied with hoarding. Political  leaders, who helm the legislature, are elect
+
+TOKEN=स्वरुप FREQ=11 SB p.24
+HI: इतिहास का तीसरा चरण विचारधाराओं से शुरु होता है। यही अभी तक के प्राप्त विचारों के अनुसार ईश्वरवादी  विचार है, जो प्रकारान्तर से तीन स्वरुप में मानव के सम्मुख है :- 1. अध्यात्मवाद 2. अधिदैवीवाद 3. अधिभौतिकवाद।
+EN: The third stage of history commences with ideologies, the first being theism,  categorised under three headings: 1. Adhyatma-vada  2. Adhidaivika-vada  3. Adhibhautika-vada
+
+TOKEN=अस्तु FREQ=10 MVD p.209
+HI: मन: स्वस्थता सहित किया गया मनाकार साकार, सार्थक और प्रयोजनशील होना पाया जाता है । अस्तु
+EN: मनाकार भेद से प्रवृत्ति, प्रवृत्ति भेद से भ्रांत निर्भ्रांत अवस्था, अवस्था भेद से लक्ष्य, लक्ष्य भेद से नियंत्रण,  नियंत्रण भेद से नीति, नीति भेद से निष्ठा, निष्ठा भेद से आशय तथा आशय भेद से मन: स्वस्थता के आधार  पर मनाकार साकार होता है ।    The materialisation of ideas accompanie
+
+TOKEN=नारी FREQ=10 MVD p.189
+HI: सामाजिक संतुलन अथवा असंतुलन स्व-धन/पर-धन, स्व-नारी/पर-नारी तथा दया/ द्वेष-युक्त विचार सहित
+EN: किये गये व्यवहार से सिद्ध होता है ।    The societal balance or imbalance depends on the behaviour of righteous or  ill-gotten wealth, marital faithfulness or adultery, and behaviour based on kindness or  malice.
+
+TOKEN=पालन FREQ=10 MVD p.257
+HI: 5. व्यवस्था, न्यायपूर्ण नियम के समर्थन व पालन से ।
+EN: The orderliness becomes successful through endorsing and adhering  to the natural laws of justice.
+
+TOKEN=भूमि FREQ=10 MVD p.9
+HI: भूमि स्वर्ग हो, मनुष्य देवता हो धर्म सफल हो, नित्य शुभ हो।
+EN: May the Earth be heavenly, May humans be deities, May dharma prevail, May goodness be eternal. A. Nagraj
+
+TOKEN=भ्रमवश FREQ=10 MVD p.81
+HI: क्रिया व इनके घटने को विषम क्रिया के रूप में पहचाने रहते है । इस प्रकार जागृति क्रम में भ्रमवश सम व
+EN: मध्यस्थ क्रियाएं सभी को स्वीकार रहती हैं तथा विषम अस्वीकार रहती हैं, इसलिए क्लेश में रहते हैं ।  जागृत मानव परंपरा में ‘जीवन’ का वैभव एवं महत्ता प्राथमिक हो जाते हैं तथा भौतिकताएँ द्वितीय हो  जाते हैं तथा भौतिकता सहज सम, विषम, मध्यस्थ क्रियाएं नियंत्रित हो जाती हैं ।    In awaken
+
+TOKEN=आधारित FREQ=9 MVD p.269
+HI: 2. श्रम मूल्य और श्रम विनिमय आधारित विनिमय पद्धति को विकसित करना ।
+EN: Developing an exchange method based on evaluation and exchange of  human labour.
+
+TOKEN=पूर्ति FREQ=9 MVD p.171
+HI: दूरश्रवण तथा (3) दूर-दर्शन । इनकी पूर्ति हेतु भी मानव उत्पादन एवं उपयोग में व्यस्त है ।
+EN: The special aspirations of humans are classified as (1) transportation and (2)  telecommunication, and humans are engaged in production and use to satisfy  these as well.    ● सामान्य आकाँक्षा की अपूर्ति से असंतोष, पूर्ति से सशंकता तथा अधिकता से संतुष्टि होती है ।    The shortage
+
+TOKEN=युद्घ FREQ=9 SB p.28
+HI: आदर्शवाद के अनुसार पाप, अज्ञान, स्वार्थ दूर होने का आश्वासन जिनसे भी मिला उन्हें तीसरे प्रकार से बड़ा  आदमी माना गया। इनको प्राय: गुरु के नाम से इंगित व संबोधित करते रहे। इसके पहले के दो प्रजाति के  आदमी में से एक राजा के पद में आ गया जो बाहुबल और युद्घ का अधिकारी बना। दूसरा संग्र
+EN: According to idealism, those who offered the assurance of liberation from sin,  ignorance, and greed were regarded as "big people". They were commonly referred  to as gurus. Of the previous two types of "big people", one became the monarch,  possessing physical might and the capa
+
+TOKEN=वर्ग FREQ=9 MVD p.267
+HI: 5. अनेक जाति, वर्ग, मत, सम्प्रदायों एवम् पक्षात्मक विचारों से मुक्त समाधान पूर्ण मानवीयता सहज अखण्ड समाज नीति का विकास करना ।
+EN: Developing a policy for the undivided society based on humaneness, which is  completely resolved and free from the biassed ideas and notions of various  castes, classes, beliefs, and sects.
+
+TOKEN=विपरीत FREQ=9 MVD p.189
+HI: ‘दया’ है । इसके विपरीत में आचरण की ‘द्वेष’ संज्ञा है ।
+EN: Kindness (daya): - ‘Kindness’ refers to being as helpful as possible for the
+
+TOKEN=समुदायों FREQ=9 MVD p.20
+HI: शिष्टता की वैविध्यता, सम्पत्ति एवं स्वत्व की विस्तार-प्रवृत्ति की उत्कटता के अनुसार मानव में सीमाएं दृष्टव्य हैं ।  मानव में प्रत्येक सीमित संगठन, प्रधानत: भय-मुक्ति होने के उद्देश्य से हुआ है । सर्वप्रथम मानव ने जीव-भय एवं  प्राकृतिक भय से मुक्त होने के लिये साधारण (आहार, आवास, 
+EN: The divisions observed among humans are the result of diversity in their civilisations and an  intense expansionist tendency towards ownership and property.  Since time immemorial, the  formation of human communities has invariably centred around the pursuit of freedom from fear.
+
+TOKEN=अल्प FREQ=8 MVD p.274
+HI: पूर्ण चेतन, चेतन, अर्ध चेतन, अल्प चेतन तथा अचेतन के नाम से भी संबोधित किया गया है ।
+EN: Intellectual development is classified as completely awakened, awakened,  half-awakened, partially awakened, and unawakened. These are also  designated as completely conscious, conscious, half-conscious, partially  conscious, and unconscious, respectively.
+
+TOKEN=अविकसित FREQ=8 MVD p.290
+HI: विकसित इकाई अविकसित इकाई के अनुरूप व्यवहार और विचार से ह्रास की ओर गतित होती है जैसे  मानव जीवों से विकसित है पर जीवों के सदृश्य व्यवहार, विहार एवं आहार के प्रयास से ही ह्रास की  ओर गतित है ।
+EN: A developed unit moves towards decline by thinking and behaving like an undeveloped unit. For instance, humans, who are more developed than  animals, move towards decline when they try to adopt the behaviour, lifestyle,  and eating habits of animals.
+
+TOKEN=पिता FREQ=8 MVD p.257
+HI: 3. माता-पिता का जीवन व्यक्तित्व से ।
+EN: The life of a parent becomes successful through their personality.
+
+TOKEN=बन्धन FREQ=8 MVD p.140
+HI: ‘मृगतृष्णा’ तथा भ्रान्ति संज्ञा है, जो बन्धन है ।
+EN: That which cannot be fulfilled and is inherently incomplete, and the stubborn desires  to fulfil it and find completeness in it, are called 'mirage' and 'delusion,' which is  bondage.
+
+TOKEN=मार्ग FREQ=8 MVD p.243
+HI: अमानवीयता से मानवीयता की ओर गुणात्मक परिवर्तन का मार्ग प्रशस्त करने हेतु समाधान, साधन, अवसर
+EN: तथा व्यवस्था उपलब्ध कराना, जो अतिमानवीयता के लिये प्रोत्साहन एवं मार्गदर्शन देने में समर्थ हो ।    The goal of moral policy is to provide resolution, means, opportunities, and  orderliness to pave the path for a qualitative transformation from inhumaneness  towards humaneness, wh
+
+TOKEN=रचित FREQ=8 MVD p.8
+HI: संपूर्ण वन-वनस्पतियों के रूप में समृद्घ होने के उपरांत प्राणकोषाओं से ही जीव शरीरों का रचना रचित होना और  मनुष्य शरीर का भी रचना सम्पन्न होना व परंपरा होना समझ में आया।
+EN: In coexistence itself : - It is understood that on Earth, a physical form, the composition of  compounds, along with the process of chemical reactions, resulted in the emergence of  biological cells.  These biological cells eventually formed complex organisms and, as the  organis
+
+TOKEN=श्रेष्ठ FREQ=8 MVD p.185
+HI: ○ अभिमान :-   स्व-बल, बुद्धि, रूप, पद व धन को श्रेष्ठ तथा अन्य को नेष्ट मानने वाली प्रवृत्ति की
+EN: ‘अभिमान’ संज्ञा है । आरोपित मान ही अभिमान है ।    Conceit (abhiman): - The tendency to believe that one’s own might, intelligence, physical appearance, societal status, and wealth are superior,  while considering those of others as inferior, is referred to as ‘conceit’.  Imposed 
+
+TOKEN=समर्थन FREQ=8 MVD p.257
+HI: 5. व्यवस्था, न्यायपूर्ण नियम के समर्थन व पालन से ।
+EN: The orderliness becomes successful through endorsing and adhering  to the natural laws of justice.
+
+TOKEN=सर्वमानव FREQ=8 MVD p.300
+HI: जागृत मानव परम्परा ही सर्वमानव में, से, के लिए सर्वशुभ का स्त्रोत है ।
+EN: The awakened human tradition alone is the source of universal wellbeing in, by, and for all humans.
+
+TOKEN=सिद्घ FREQ=8 SB p.53
+HI: अस्तित्व में प्रकृति नित्य क्रियाशील होने के कारण प्रत्येक क्रिया में श्रम, गति, परिणाम अविभाज्य रूप में  वर्तमान रहता है। इसी सत्यतावश प्रकृति में परिणाम और विकास स्पष्ट है। विकासक्रम और विकास ही  अस्तित्व में विविधता के रूप में दिखाई पड़ता है। यही स्थिति अध्ययन की मूल वस्तु सिद्
+EN: Since nature is eternally active within existence, every activity has inseparable effort,  motion and result.  It is because of this truth that nature undergoes change and  development. The development progression and development itself is apparent as  diversity in existence. Thi
+
+TOKEN=अर्ध FREQ=7 MVD p.274
+HI: पूर्ण चेतन, चेतन, अर्ध चेतन, अल्प चेतन तथा अचेतन के नाम से भी संबोधित किया गया है ।
+EN: Intellectual development is classified as completely awakened, awakened,  half-awakened, partially awakened, and unawakened. These are also  designated as completely conscious, conscious, half-conscious, partially  conscious, and unconscious, respectively.
+
+TOKEN=अर्पित FREQ=7 MVD p.23
+HI: एक-   प्रत्येक मानव मानव मात्र को एक इकाई के रूप में जाने और उसके साथ तदनुसार निर्वाह कर सके - ऐसी क्षमता,  योग्यता और पात्रता सहज विकास के लिए, दो- सहअस्तित्व, सन्तुलन, समाधान, अभय और सुख सहज अक्षुण्णता के लिए, तीन-   स्वधन, स्वनारी/ स्व पुरुष तथा दया पूर्ण कार्य व्यवहार सम्पन्न
+EN: Further, we need to study the basic fundamentals of the following: (1) For developing the capacity, ability and receptivity in every human to know humans as a unit in existence, and to live thereby,  (2) For intactness of coexistence, balance, resolution, fearlessness and happine
+
+TOKEN=द्योतक FREQ=7 MVD p.176
+HI: स्वयं र्स्फूत जीवन मानवीयता का द्योतक है, जो एक स्वतंत्र जीवन है ।
+EN: Spontaneous living is indicative of humaneness, which is an independent
+
+TOKEN=नस्ल FREQ=7 SB p.22
+HI: दूसरी बार भिन्न-भिन्न रंगों के मानव देखने को मिले। उसी के आधार पर एक दूसरे को मारकाट करने वाले  मानकर झगड़़ा कर लिया। फलस्वरुप परिवारों में अथवा समुदायों में भिन्न-भिन्न रंग और नस्ल की दीवालें  पनपती आई। इस प्रकार ये दोनों (रंग और नस्ल) मान्यताएँ परंपरा में कटुता, द्रोह, विद्रोह प
+EN: On a subsequent occasion, human beings of different colours were encountered; on  that very basis, taking one another to be violent, they entered into conflict.  Consequently, walls based on colour and race continued to develop among families  and sects. Thus, these two accepted 
+
+TOKEN=नेता FREQ=7 SB p.31
+HI: इन्हीं के साथ बहुत सारे विभाग समाहित हैं। हर विभाग में अधिकारी होता है । शिक्षा तंत्र भी एक विभाग है।  यह कार्यपालिका के अंतर्गत कार्य करता है। आज सर्वाधिक अधिकारी वर्ग संग्रह कार्य में व्यस्त है। विधायिका  राजनेताओं के हाथों में है और नेता जनादेश के आधार पर चुना जाता है जबकि राज
+EN: In addition to these, numerous other departments exist, each with its own  complement of officers. Education is also a department that operates under the  executive branch. Today, most officers are preoccupied with hoarding. Political  leaders, who helm the legislature, are elect
+
+TOKEN=भिन्न FREQ=7 MVD p.235
+HI: इसकी भिन्न पद्धति से भी नीति निर्धारण होता है, जिससे कि मानव समाज के लिये व्यक्ति की महत्ता तथा व्यक्ति के लिए मानव समाज की महत्ता प्रतिपादित होती है । इसके साथ ही व्यक्ति से लेकर संपूर्ण मानव  समाज की एकसूत्रता का महत्व भी हृदयंगम होता है ।
+EN: The determination of policies is done in a different way from this as well, whereby  significance of the individual for the society is postulated alongside significance of the
+
+TOKEN=माता FREQ=7 MVD p.257
+HI: 3. माता-पिता का जीवन व्यक्तित्व से ।
+EN: The life of a parent becomes successful through their personality.
+
+TOKEN=मौलिक FREQ=7 MVD p.29
+HI: उन सभी सुपथ प्रदर्शकों के प्रति मैं कृतज्ञ हूँ जिनसे आज भी यथार्थता के स्रोत जीवित हैं। कृतज्ञता जागृति की ओर  प्रगति के लिये मौलिक मूल्य है। कृतज्ञता ही मूलत: संस्कृति व सभ्यता का आधारग्राही एवं संरक्षक मूल्य है।
+EN: I am grateful to all those guides of righteous path because of whom the sources of reality  are present even today.  Gratitude is a fundamental value that facilitates progress towards  awakening. It is the foundational and protective value of culture and civilisation.
+
+TOKEN=युक्त FREQ=7 MVD p.189
+HI: सामाजिक संतुलन अथवा असंतुलन स्व-धन/पर-धन, स्व-नारी/पर-नारी तथा दया/ द्वेष-युक्त विचार सहित
+EN: किये गये व्यवहार से सिद्ध होता है ।    The societal balance or imbalance depends on the behaviour of righteous or  ill-gotten wealth, marital faithfulness or adultery, and behaviour based on kindness or  malice.
+
+TOKEN=अनुरूप FREQ=6 MVD p.290
+HI: विकसित इकाई अविकसित इकाई के अनुरूप व्यवहार और विचार से ह्रास की ओर गतित होती है जैसे  मानव जीवों से विकसित है पर जीवों के सदृश्य व्यवहार, विहार एवं आहार के प्रयास से ही ह्रास की  ओर गतित है ।
+EN: A developed unit moves towards decline by thinking and behaving like an undeveloped unit. For instance, humans, who are more developed than  animals, move towards decline when they try to adopt the behaviour, lifestyle,  and eating habits of animals.
+
+TOKEN=अमानवीय FREQ=6 MVD p.58
+HI: ○ अमानवीय दृष्टि :- प्रियाप्रिय, हिताहित एवम् लाभालाभ ही अमानवीय दृष्टि है ।
+EN: Inhumane Perspective (amanveeya drishti): - Pleasant-unpleasant,  healthy-unhealthy and profit-loss only are the inhumane perspectives.    ○ प्रिय :- ऐन्द्रिय सुख सापेक्ष क्रिया की प्रिय संज्ञा है ।    Pleasant (priya): - The activity of seeking sensory gratification is referred 
+
+TOKEN=असंतुलन FREQ=6 MVD p.267
+HI: 7. हर परिवार में समाधान, समृद्धि सहज आधार पर अमीरी-गरीबी का असंतुलन समाप्त करना ।
+EN: Eliminating the disparity between the rich and the poor, based on resolution  and prosperity in every family.
+
+TOKEN=आरंभ FREQ=6 MVD p.280
+HI: ○ इस अध्ययन से साधक को यह स्पष्ट होता है कि अंतिम से अंतिम ह्रास एक सूक्ष्म परमाणु या इससे  भी सूक्ष्म हो सकता है । यह परिणाम कितना भी सूक्ष्म क्यों न हो, अंततोगत्वा क्रिया ही है । अब उससे  यह भी स्पष्ट होता है कि समस्त क्रियाएँ महावकाश में ओत-प्रोत हैं । यह महावकाश शून्य अर्थात्
+EN: The seeker becomes clear from this study that the extreme decline could be  an atom or even subtler.  However subtle this result may be, it is ultimately an  activity only.  Now it also becomes clear to the seeker that all the activities are  encompassed and filled in the Great V
+
+TOKEN=आर्थिक FREQ=6 MVD p.265
+HI: 2. आर्थिक सुरक्षा, परिवार सहज आवश्यकता से अधिक उत्पादन सिद्धान्त आवर्तनशील विधि से ।
+EN: Economic Security: Through the principle of producing more than the needs of  family by way of circularity.
+
+TOKEN=इंगित FREQ=6 MVD p.345
+HI: स्वीकृति:- अनुभव मूलक प्रभाव में इंगित होने वाले सम्पूर्ण संकेतों को यथावत् परावर्तन में प्रमाणित  करने
+EN: की क्रिया ।    Acceptance (sweekruti): - The activity of evidencing, in projection, all the signals as it  is received owing to realisation-based effect.    स्वागत :- अवधारणा अनुभव के लिए स्वीकृत क्रिया                :-  नियम, न्याय, समाधान, सत्य सहज स्वीकृतियों, के लिए तैयारिया
+
+TOKEN=इकाईयाँ FREQ=6 MVD p.34
+HI: व्यापक पूर्ण और इकाईयाँ अनंत हैं ।
+EN: Omnipresence is complete, while the units are countless.
+
+TOKEN=उपलब्ध FREQ=6 MVD p.268
+HI: 2. निपुण एवं कुशल व्यक्ति को साधन उपलब्ध कराना ।
+EN: Allocating resources to individuals with skills and proficiency.
+
+TOKEN=चारों FREQ=6 MVD p.149
+HI: ○ रूप, गुण परिवर्तनशील है, जबकि तत्व शाश्वतवादी है क्योंकि तत्व चारों अवस्थाओं  में पाया जाता है
+EN: । सभी वृहत इकाईयों के गठन का मूल तत्व परमाणु है । सभी तत्वों के परमाणु का गठन सिद्धांत  समान है । परमाणु का गठन भी मध्यांश तथा आश्रित अंशों से है । परमाणु में समाहित अंशों की  सक्रियता एवं विकास क्रम भेद से ही सभी अवस्थाएँ हैं ।    The form and properties have changing nature, wh
+
+TOKEN=नागराज FREQ=6 MVD p.29
+HI: “ज्ञानात्मनोर्विजयते ” ए. नागराज
+EN: Knowledge leads to the mind's victory. A. Nagraj
+
+TOKEN=नियंत्रित FREQ=6 MVD p.26
+HI: सत्ता मध्यस्थ है । इसलिये मध्यस्थ सत्ता में सम्पृक्त प्रकृति नियंत्रित एवं संरक्षित है । प्रत्येक परमाणु में पाये जाने  वाला मध्यांश (नाभिक) मध्यस्थ क्रिया है । इसलिये सम-विषमात्मक क्रियाएं एवं सापेक्ष शक्तियाँ नियंत्रित एवं  संरक्षित हैं ।
+EN: Omnipotence is mediative, therefore the nature saturated in it is regulated and conserved. The nucleus within every atom is the mediative activity, whereby the atom’s  generative-degenerative activities and relative powers are regulated and conserved.
+
+TOKEN=नियन्त्रण FREQ=6 MVD p.192
+HI: स्वस्थ व्यवहार के लिए स्वस्थ शरीर का भी महत्वपूर्ण स्थान है, जो प्राण के विधिवत् नियन्त्रण से ही संभव है
+EN: ।    A healthy body holds a significant position in maintaining healthy behaviour, which is  possible only through due regulation of prana.    ● अन्न से प्राण-पोषण, व्यवसाय से समृद्धि, संयम से अपव्यय का निरोध, वैज्ञानिक समझ से भौतिक दर्शन, विवेकात्मक समझ से बौद्धिक दर्शन, व्यवहार
+
+TOKEN=निर्भर FREQ=6 MVD p.104
+HI: सम्मत विज्ञान के अध्ययन पर निर्भर हैं।
+EN: The activity, process, method, and accomplishment of vocation, experimentation, behaviour, use, and right-use primarily depend on the study of wisdom aligned with  science.
+
+TOKEN=पर्यन्त FREQ=6 MVD p.279
+HI: आत्म बोध पर्यन्त, मानव के द्वारा जागृत, स्वप्न एवम् सुषुप्ति (निद्रा) अवस्था में कायिक, वाचिक तथा  मानसिक साधनों से सम्पन्न होने वाले समस्त क्रिया कलाप के मूल में अहंकार ही है । अर्थात् भ्रमित  मान्यताएँ ही हैं ।
+EN: Until the atma-bodh, ego—i.e., deluded beliefs—is the basis of all activities carried  out physically, verbally, and mentally by a human being in waking, dreaming, or  sleeping states.
+
+TOKEN=पाँच FREQ=6 MVD p.96
+HI: अध्याय - पाँच
+EN: Chapter-5
+
+TOKEN=पृथ्वी FREQ=6 MVD p.136
+HI: ○ भूगोल :- मानव और मानवीयता के अर्थ में पृथ्वी का सर्वेक्षण, निरीक्षणपूर्वक मानचित्र सहित  रचना
+EN: (ज्ञान पाने)  के  लिये सम्पादित अध्ययन की भूगोल संज्ञा है ।    Geography (bhugol): - Geography is the study of the Earth's structure and  mapping, accomplished through surveys and inspections, for the benefit of  humans and humaneness.    ○ सुसंस्कृत संस्कार :- विधि मानव चेतना, द
+
+TOKEN=प्रयुक्त FREQ=6 MVD p.83
+HI: डालने हेतु प्रयुक्त तरंग की प्रसारण (संकेत ग्रहण) संज्ञा है, जिसमें प्रत्याशा का होना आवश्यक है ।
+EN: Transmission (prasaran): - Transmission refers to the wave generated by jeevan  that carries signals of hope, thought, desire, resoluteness, and authenticity -  which is received by the brain (nervous system), from which jeevan has an  inherent anticipation of response.     ● ग्र
+
+TOKEN=पड़ता FREQ=6 MVD p.101
+HI: ○ सुख :- सत्यानुभूत आत्मा का मन पर जो प्रभाव पड़ता है इसे उल्लास या सुख संज्ञा है ।
+EN: Happiness (sukh): - The effect of atma realised in truth, on mun, is elation or happiness.
+
+TOKEN=भोगते FREQ=6 MVD p.27
+HI: भ्रमित मानव ही कर्म करते समय स्वतंत्र एवं फल भोगते समय परतंत्र है ।
+EN: Only deluded humans are independent while performing actions and dependent while  experiencing their consequences.
+
+TOKEN=रही। FREQ=6 SB p.22
+HI: दूसरी बार भिन्न-भिन्न रंगों के मानव देखने को मिले। उसी के आधार पर एक दूसरे को मारकाट करने वाले  मानकर झगड़़ा कर लिया। फलस्वरुप परिवारों में अथवा समुदायों में भिन्न-भिन्न रंग और नस्ल की दीवालें  पनपती आई। इस प्रकार ये दोनों (रंग और नस्ल) मान्यताएँ परंपरा में कटुता, द्रोह, विद्रोह प
+EN: On a subsequent occasion, human beings of different colours were encountered; on  that very basis, taking one another to be violent, they entered into conflict.  Consequently, walls based on colour and race continued to develop among families  and sects. Thus, these two accepted 
+
+TOKEN=वृति FREQ=6 MVD p.286
+HI: ○ मन से वृति, वृत्ति से चित्त,  चित्त से बुद्धि श्रेष्ठ प्रक्रिया है । अत: इसी क्रमिक अधिकार भेद से  उनका परस्पर नियंत्रण है ।
+EN: Vritti is superior to mun, chitta is superior to vritti, and buddhi is superior  to chitta in their functioning. Accordingly, their mutual regulation is  based on this hierarchical order of authority.
+
+TOKEN=व्यस्त FREQ=6 MVD p.171
+HI: दूरश्रवण तथा (3) दूर-दर्शन । इनकी पूर्ति हेतु भी मानव उत्पादन एवं उपयोग में व्यस्त है ।
+EN: The special aspirations of humans are classified as (1) transportation and (2)  telecommunication, and humans are engaged in production and use to satisfy  these as well.    ● सामान्य आकाँक्षा की अपूर्ति से असंतोष, पूर्ति से सशंकता तथा अधिकता से संतुष्टि होती है ।    The shortage
+
+TOKEN=शाकाहारी FREQ=6 SB p.17
+HI: “जीवों की सानुकूलता और स्वभाव गति प्रधानत: आहार, विहार व प्रजनन कार्य में प्रमाणित हो पाती है।” जीवों  में शाकाहारी और मांसाहारी प्रजातियाँ देखने को मिलती हैं। इन इनके अंग अवयव की संरचनाओं में विशेषताएँ  देखने को मिलती है। उदाहरण के रूप में मासांहारी और शाकाहारी पशुओं के हाथ, पैर
+EN: The conduciveness and natural state of the animal order become evident primarily in  their eating, living habits, and reproductive activities. Among animals, we observe  both herbivorous and carnivorous species, each with distinct bodily structures. For  instance, differences can
+
+TOKEN=शुभोदयम् FREQ=6 MVD p.23
+HI: भूमि: स्वर्गताम् यातु, मानवो यातु देवताम् । धर्मो सफलताम् यातु, नित्यम् यातु शुभोदयम् ।
+EN: “May Earth be heaven, May humans be deities, May dharma prevail, May goodness be eternal.”
+
+TOKEN=संदर्भ FREQ=6 MVD p.231
+HI: ○ इस अध्याय में शोषण एवं पोषण का अध्ययन मानव के संदर्भ में ही किया गया है । पोषण
+EN: सहअस्तित्व के अर्थ में, इसके विपरीत शोषण है ।    In this chapter, nurturing and exploitation has been studied only with respect  to humans. Nurturing is in the context of coexistence; else it is exploitation.    ○ वातावरण के प्रताड़ना तथा क्षोभ से मुक्त होकर स्वतंत्र अस्तित्व की अ
+
+TOKEN=सत्यतावश FREQ=6 SB p.53
+HI: अस्तित्व में प्रकृति नित्य क्रियाशील होने के कारण प्रत्येक क्रिया में श्रम, गति, परिणाम अविभाज्य रूप में  वर्तमान रहता है। इसी सत्यतावश प्रकृति में परिणाम और विकास स्पष्ट है। विकासक्रम और विकास ही  अस्तित्व में विविधता के रूप में दिखाई पड़ता है। यही स्थिति अध्ययन की मूल वस्तु सिद्
+EN: Since nature is eternally active within existence, every activity has inseparable effort,  motion and result.  It is because of this truth that nature undergoes change and  development. The development progression and development itself is apparent as  diversity in existence. Thi
+
+TOKEN=सम्पर्क FREQ=6 MVD p.242
+HI: ○ मानव की सार्वभौमिक साम्य कामना सुख की अनुभूति हेतु मानव के समस्त सम्पर्क एवं संबंध के
+EN: निर्वाह के लिए समाधान, समृद्धि, अभय व सहअस्तित्व सहज प्रमाण प्रस्तुत करने हेतु निश्चित  कार्यक्रम कीे ‘मानव धर्म नीति’ की संज्ञा है ।    The definitive program for realising the universal and uniform human wish of
+
+TOKEN=स्थित FREQ=6 MVD p.23
+HI: व्यापक शून्यावकाश में स्थित अनन्त ब्रम्हाण्डों में से एक ब्रम्हाण्ड में अंगभूत इस पृथ्वी पर वर्तमान में पाये जाने वाले  मानव अत्यन्त सौभाग्यशाली हैं, क्योंकि इनको ह्रास और विकास का अध्ययन एवम् प्रयोग करने का स्वर्णिम अवसर व  साधन प्राप्त है ।
+EN: Humans, found on Earth, which is a part of one cosmos among countless cosmoses in the  omnipresent Space, are incredibly fortunate to have the golden opportunity and means to  study and experiment with development and decline in existence.
+
+TOKEN=स्वर्ग FREQ=6 MVD p.9
+HI: भूमि स्वर्ग हो, मनुष्य देवता हो धर्म सफल हो, नित्य शुभ हो।
+EN: May the Earth be heavenly, May humans be deities, May dharma prevail, May goodness be eternal. A. Nagraj
+
+TOKEN=अंतिम FREQ=5 MVD p.280
+HI: ○ एक - अनुसंधान - जो आविष्कारात्मक अनुभूति है, उसका साधक पूरा अध्ययन करता है । पूरे  अध्ययन से तात्पर्य है क्रिया की आरंभिक स्थिति अर्थात् ह्रास की अंतिम  स्थिति और विकास व  जागृति तक अध्ययन करना ।
+EN: One - Exploration - This is an inventive realisation, which the seeker studies  comprehensively. The comprehensive study means to study starting from the  initial state of activity or the extreme state of decline, till the highest development and awakening.
+
+TOKEN=अधिकतम FREQ=5 MVD p.266
+HI: 4. उत्पादन हेतु अधिकतम श्रम व साधन व्यय करने हेतु प्रोत्साहन देने वाली नीति का विकास करना ।
+EN: Developing a policy that encourages the maximum effort and investing of resources for production activities.
+
+TOKEN=क्षतिग्रस्त FREQ=5 SB p.18
+HI: मानव ज्ञानावस्था की इकाई होते हुए इस बीसवीं शताब्दी के दसवीं दशक तक मनुष्येत्तर प्रकृति के साथ पूरक  होने के स्थान पर इन्हें सर्वाधिक क्षतिग्रस्त करने में लगा ही रहता है। इतना ही नहीं, मानव मानव के साथ  विद्रोहात्मक - द्रोहात्मक, शोषणात्मक और युद्घात्मक विधियों को अपनाता हुआ स्वय
+EN: Humans, despite being units of knowledge order, instead of being complementary to  the rest of nature have been causing its maximum destruction until the end of  twentieth century.  Not just that, adopting the ways of treachery, revolt, exploitation  and war - they keep harming t
+
+TOKEN=गण्य FREQ=5 MVD p.26
+HI: अनन्त क्रिया अथवा क्रिया-समूह ही प्रकृति है, जो जड़ और चैतन्य के रूप में गण्य है । जड़ प्रकृति ही विकास पूर्णता के  अनन्तर चैतन्य पद को पाती है यह नियति विधि से सम्पन्न रहता है । मानव जड़ एवं चैतन्य का संयुक्त रूप है साथ  ही प्रकृति का अंश भी है ।
+EN: Nature, in insentient and sentient forms, is the countless aggregation of all activities.   Insentient nature itself attains sentient status upon constitutional completeness, which is the  way of destiny.  Humans are joint forms of insentient and sentient nature, along with this 
+
+TOKEN=निरन्तरता FREQ=5 MVD p.29
+HI: संस्कृति, सभ्यता, विधि एवं व्यवस्था परस्पर पूरक हैं । इनके बिना अखण्ड समाज तथा सामाजिकता का निर्धारण  संभव नहीं है । अस्तु, कृतज्ञता के बिना गौरव, गौरव के बिना सरलता, सरलता के बिना सहअस्तित्व, सहअस्तित्व के  बिना कृतज्ञता की निरन्तरता नहीं है ।
+EN: Culture, civilisation, way, and orderliness are mutually complementary. It is impossible to  achieve undivided society and sociality without them. Therefore, without gratitude, there can  be no continuity of glory, and without glory, there can be no continuity of simplicity.  Wit
+
+TOKEN=पुरुष FREQ=5 MVD p.267
+HI: 6. स्वधन, स्वनारी/स्व पुरुष, दया पूर्ण कार्य-व्यवहार को स्थापित करने वाली नीति का विकास करना ।
+EN: Developing a policy that establishes righteous wealth, marital faithfulness, and  kindness in work and behaviour.
+
+TOKEN=पुस्तक FREQ=5 MVD p.30
+HI: पुस्तक में प्रयुक्त संकेत अनुभूतियाँ ❖ परिभाषाएँ ★ सम्बन्ध एवम् स्पष्टीकरण विश्लेषण अनुभूतियों अथवा परिभाषाओं का
+EN: The symbols used in the book Realisations  ❖ Definitions  ★ Context and Clarification Analysis of realisations and definitions
+
+TOKEN=प्रवृत्तियाँ FREQ=5 MVD p.211
+HI: ○ समाधान से तात्पर्य है विवेक विज्ञान सम्मत विचार व प्रवृत्तियाँ । विषमता सहित विचार समस्या है,
+EN: यही क्षोभ है । क्षोभ का तात्पर्य दूसरों के प्रभाव से क्षुब्ध हो जाना ही है अथवा अपने व्यवहार से दूसरों  को क्षुब्ध करना ही है ।    Resolution means thoughts and tendencies aligned with science and wisdom,  while thoughts with discords are problems.  Frustration means becoming  pe
+
+TOKEN=प्रशस्त FREQ=5 MVD p.168
+HI: एवं पतन के लिये प्रशस्त है ।
+EN: National life is shaped by the differentiation between just and opportunistic policies, and accordingly, its future trajectory towards rise or downfall is  determined.
+
+TOKEN=प्रसन्नता FREQ=5 MVD p.52
+HI: ○ उदारता :- अपनी सुख सुविधाओं को अर्थात् तन, मन, धन को प्रसन्नता पूर्वक दूसरों  के लिए  उपयोगिता, सद्उपयोगिता विधि से नियोजित करने की प्रवृत्ति ही उदारता है ।
+EN: Generosity (udaarta): - Generosity is the tendency to happily deploy one's  comforts and facilities, i.e. body, mind, and wealth, for others by way of use  and right-use.
+
+TOKEN=मनुष्य FREQ=5 MVD p.9
+HI: भूमि स्वर्ग हो, मनुष्य देवता हो धर्म सफल हो, नित्य शुभ हो।
+EN: May the Earth be heavenly, May humans be deities, May dharma prevail, May goodness be eternal. A. Nagraj
+
+TOKEN=मांसाहारी FREQ=5 SB p.17
+HI: “जीवों की सानुकूलता और स्वभाव गति प्रधानत: आहार, विहार व प्रजनन कार्य में प्रमाणित हो पाती है।” जीवों  में शाकाहारी और मांसाहारी प्रजातियाँ देखने को मिलती हैं। इन इनके अंग अवयव की संरचनाओं में विशेषताएँ  देखने को मिलती है। उदाहरण के रूप में मासांहारी और शाकाहारी पशुओं के हाथ, पैर
+EN: The conduciveness and natural state of the animal order become evident primarily in  their eating, living habits, and reproductive activities. Among animals, we observe  both herbivorous and carnivorous species, each with distinct bodily structures. For  instance, differences can
+
+TOKEN=रचनाएँ FREQ=5 SB p.52
+HI: रूपात्मक अस्तित्व :- प्रकृति की मूल इकाई परमाणु है। क्योंकि परमाणु में ही विकास होता है। प्रत्येक परमाणु गठनपूर्वक परमाणु है  । प्रत्येक गठन में एक से अधिक परमाणु अंशों का होना अनिवार्य है। परमाणु के पूर्व रूप (परमाणु अंश) में  विकास होता नहीं है। परमाणु के पररुप (अणु) रचनाएँ विक
+EN: Formful Existence: - The fundamental unit of nature is the atom, as development occurs within the atom  itself. Each atom has a constitution, and every such constitution must consist of  more than one atomic particle. The precursor to the atom (i.e., the atomic particle)  does no
+
+TOKEN=रहस्यमय FREQ=5 MVD p.295
+HI: कुछ इकाईयों का विकास (जागृति) तथा अन्यों का ह्रास (भ्रम) एक रहस्य सा लगता है । इस रहस्य के  मूल में प्रत्यावर्तन  क्रिया है । ह्रास की ओर गतित मानवों को अन्यों का विकासशील होना रहस्यमय  लगता है; जबकि इसमें कोई रहस्य नहीं है । ह्रास की ओर गतित मानव भी उन्हीं साधनों का उपयोग  कर ह्
+EN: The development (awakening) of some and the decline (delusion) of others seems like a mystery. The root of this mystery lies in the lack of reflection  activity.  To humans who are moving towards decline, the development of  others may seem mysterious, but in reality, there is no
+
+TOKEN=वनस्पतियाँ FREQ=5 MVD p.49
+HI: ○ प्राणावस्था की सृष्टि में तीन कोषों का प्रकाशन है, यह है - अन्नमय कोष, प्राणमय कोष और मनोमय  कोष । वनस्पतियों में पदार्थावस्था की सृष्टि की अपेक्षा चयनवादी क्रिया विशेष है, जो मनोमय-कोष की  क्रिया है । यह इससे स्पष्ट होता है कि एक ही भूमि पर स्थित विभिन्न वनस्पतियाँ अपनी-अपनी  
+EN: The biological order universe is characterised by the exposition of three koshas -  annamaya kosha, pranamaya kosha, and manomaya kosha. Unlike material  order, the differentiating feature in biological order is the activity of selection,  which is the activity of manomaya kosha.
+
+TOKEN=वांङ्गमय FREQ=5 SB p.25
+HI: इस बीच एक दूसरी विचारधारा आई, जिसको भौतिकवाद नाम दिया गया। जिसमें भौतिकता को कार्यकलाप  के रूप में द्वंद्वात्मक होना प्रतिपादित किए। उसके मूल में अनिश्चय, अस्थिरता को माना गया। इस प्रकार  अस्थिरता एवं अनिश्चयमूलक भौतिकवादी वांङ्गमय मानव को मिला, जो अपने प्रभाव के रूप में तर्क संग
+EN: In the meantime, another ideology arose, known as materialism, in which materiality  was propounded as dialectical in its activity, with uncertainty and instability taken as  its foundation. Thus, an uncertainty- and instability-based materialist body of thought  came to human be
+
+TOKEN=विविध FREQ=5 SB p.23
+HI: तीसरी बार पुन: मानव को पूजा, अर्चना, योग, साधना, उपासना के आधार पर पहचानने की कोशिश हुई। यह  भी पूववर्ती दो प्रकार के भूलों जैसी ही हुई। मतभेद वाद-विवाद के आधार पर पहले जैसे ही द्रोह-विद्रोह होते रहे।  चौथी बार पुन: वस्तु संग्रह, सुविधा और भोग के आधार पर एक दूसरे समुदायों को पहचा
+EN: A third attempt was made to identify human beings on the basis of worship, archana,  yoga, sadhana, and upasana; this too was of the same nature as the earlier two  errors, and differences leading to debate continued to give rise to treachery and  revolt as before. A fourth attem
+
+TOKEN=विहीन FREQ=5 MVD p.21
+HI: “वर्ग विहीन समाज को पाने के साथ ही प्रत्येक व्यक्ति में पाई जाने वाली न्याय पिपासा, समाधान एवं समृद्धि वांछा  एवं सहअस्तित्व में पूर्ण सम्मति को सफल बनाने की आप्त कामना के आधार पर मध्यस्थ दर्शन को प्रकट करने का  शुभ अवसर मुझे प्राप्त हुआ है ।”
+EN: I have got an auspicious opportunity to present Madhyasth Darshan, which is based on the  noble wish to quench the thirst for justice found in every person, satisfy the desire for  resolution and prosperity in every family, and attain complete acceptance in coexistence,  while al
+
+TOKEN=वैयक्तिक FREQ=5 MVD p.168
+HI: सुकर्म एवं दुष्कर्म के आशय भेद से वैयक्तिक जीवन व जीविका है, तदनुसार ही भावी घटनाएँ एवं
+EN: कार्य संपन्न होते हैं ।    The intent of righteous or unrighteous actions differentiates individual life and  livelihood, and the future events and activities occur according to that only.    ● सच्चरित्र एवं दुष्चरित्र के भेद से कुटुम्ब है तथा तदनुरुप ही अग्रिम प्राप्तियाँ हैं । 
+
+TOKEN=संरक्षित FREQ=5 MVD p.144
+HI: समस्त क्रियाएं सत्ता में नियन्त्रित तथा संरक्षित है । क्योंकि इकाई और इकाई के बीच सत्ता का अभाव नहीं है ।
+EN: इसलिये सत्ता ही नियम एवम् नियंत्रण का कारण सिद्ध हुआ है । इसी के भास, आभास, प्रतीति एवम् अनुभूति  के योग्य क्षमता, योग्यता एवम् पात्रता से सम्पन्न होने के लिए ही मानव ने अनवरत प्रयास विभिन्न स्तरों पर  किया है, कर रहा है और करता रहेगा ।    All activities are regulated and protect
+
+TOKEN=समाहित FREQ=5 MVD p.97
+HI: ○ जो जैसा है उसको वैसा जानने का तात्पर्य है शब्द द्वारा इकाई के रूप, गुण, स्वभाव व धर्म इंगित हो जाना । सत्ता में सम्पूर्ण एक-एक है, सत्य व्यापक में समाहित जड़-चैतन्य प्रकृति है । यही परम सत्य  है अत: सत्यता का ही- वस्तुस्थिति के रूप में अध्ययन है और इसी की समझ और प्रमाण उपलब्धि ह
+EN: "Knowing a thing as it is" means - the form, properties, essential nature, and  dharma of entities to get indicated through words. Omnipotence encompasses  the entire units of nature, and the insentient and sentient nature within  omnipresence is the ultimate truth. Hence, verity
+
+TOKEN=समृद्घ FREQ=5 MVD p.8
+HI: संपूर्ण वन-वनस्पतियों के रूप में समृद्घ होने के उपरांत प्राणकोषाओं से ही जीव शरीरों का रचना रचित होना और  मनुष्य शरीर का भी रचना सम्पन्न होना व परंपरा होना समझ में आया।
+EN: In coexistence itself : - It is understood that on Earth, a physical form, the composition of  compounds, along with the process of chemical reactions, resulted in the emergence of  biological cells.  These biological cells eventually formed complex organisms and, as the  organis
+
+TOKEN=सर्वप्रथम FREQ=5 MVD p.20
+HI: शिष्टता की वैविध्यता, सम्पत्ति एवं स्वत्व की विस्तार-प्रवृत्ति की उत्कटता के अनुसार मानव में सीमाएं दृष्टव्य हैं ।  मानव में प्रत्येक सीमित संगठन, प्रधानत: भय-मुक्ति होने के उद्देश्य से हुआ है । सर्वप्रथम मानव ने जीव-भय एवं  प्राकृतिक भय से मुक्त होने के लिये साधारण (आहार, आवास, 
+EN: The divisions observed among humans are the result of diversity in their civilisations and an  intense expansionist tendency towards ownership and property.  Since time immemorial, the  formation of human communities has invariably centred around the pursuit of freedom from fear.
+
+TOKEN=स्तर FREQ=5 MVD p.222
+HI: न्यायवादी व्यवहार से सामाजिक स्तर पर नैतिक मार्ग दर्शन, वैचारिक समाधान योग्य प्रेरणा तथा व्यापक
+EN: सत्तानुभूति योग्य अध्ययन से अर्थ की सुरक्षा तथा सदुपयोगात्मक नीति का उद्घाटन है । मानवीयता व  अतिमानवीयता को बोधगम्य कराने हेतु योग्य अध्यापन और सत्यानुभूति योग्य समाधान व समृद्धि योग्य  कर्माभ्यास व परंपरा के पालन हेतु निष्ठा के उद्भव व विकास से सामाजिक जीवन की सफलता का मार्ग  प
+
+TOKEN=स्वतंत्र FREQ=5 MVD p.176
+HI: स्वयं र्स्फूत जीवन मानवीयता का द्योतक है, जो एक स्वतंत्र जीवन है ।
+EN: Spontaneous living is indicative of humaneness, which is an independent
+
+TOKEN=स्वीकारा FREQ=5 MVD p.8
+HI: 15.नियति विधि :- सहअस्तित्व सहज विधि से ही :- (1) अस्तित्व में चार अवस्थाएँ ०   पदार्थ अवस्था ०   प्राण अवस्था ०   जीव अवस्था ०   ज्ञान अवस्था और (2) अस्तित्व में चार पद ०   प्राणपद ०   भ्रांति पद ०   देव पद ०   दिव्य पद (3) और ०   विकास क्रम, विकास ०   जागृति क्रम, जागृति है। तथ
+EN: The way of destiny : - through coexistence itself: - (i) Four orders in existence Material Order  ● Biological order  ● Animal Order  ● Knowledge Order    (ii) Four planes in existence Biological plane  ● Delusion plane  ● Deific plane  ● Divine plane    (iii) and Development pro
+
+TOKEN=स्वीकृत FREQ=5 MVD p.98
+HI: ○ अनुभवगामी बोध (अवधारणा) :- आत्मा अथवा अनुभव की साक्षी में स्मरण पूर्वक बुद्धि में होने  वाली स्वीकृति सहज क्रियाकलाप । गुरु द्वारा अनुभव मूलक विधि से कराये गये अध्ययन के फलस्वरूप शिष्य में न्याय, धर्म, सत्य का  साक्षात्कार पूर्वक बुद्धि में स्वीकृत होना ।
+EN: Realisation-oriented enlightenment (conception) :- The activity of
+
+TOKEN=अनवरत FREQ=4 MVD p.280
+HI: ○ इस अध्ययन से साधक को यह स्पष्ट होता है कि अंतिम से अंतिम ह्रास एक सूक्ष्म परमाणु या इससे  भी सूक्ष्म हो सकता है । यह परिणाम कितना भी सूक्ष्म क्यों न हो, अंततोगत्वा क्रिया ही है । अब उससे  यह भी स्पष्ट होता है कि समस्त क्रियाएँ महावकाश में ओत-प्रोत हैं । यह महावकाश शून्य अर्थात्
+EN: The seeker becomes clear from this study that the extreme decline could be  an atom or even subtler.  However subtle this result may be, it is ultimately an  activity only.  Now it also becomes clear to the seeker that all the activities are  encompassed and filled in the Great V
+
+TOKEN=अनुरुप FREQ=4 SB p.19
+HI: मानव स्वाभाविक रूप में ही सुख चाहता है भले ही सुख को वह नहीं जानता, इसके बावजूद वह सुख का पक्षधर  होता है। अधिकांश मानव सुख के लिए ही रुचियों, प्रलोभनों के पीछे दौड़ते रहते हैं। इस तथ्य के निरीक्षण  परीक्षण के उपरान्त यह निष्कर्ष निकलता है कि परंपरा जिन दिशा कोणों में प्रोत्साहित 
+EN: Humans naturally want happiness only, even if they do not know what happiness is;  they still favour it. Most people chase after pleasures and temptations in pursuit of  happiness. Upon observing and analysing this fact, it becomes evident that tradition  guides individuals or en
+
+TOKEN=अनेकानेक FREQ=4 SB p.109
+HI: 1. विकसित देश उन्हीं देशों को कहते है जो सर्वाधिक समर शक्तियों से संपन्न है।  2. विकसित देश उन्हीं को कहते है जिस देश में सर्वाधिक लोग सर्वाधिक आहार-विहार सुविधाओं को भोगते है और संग्रह करते है।  3. विकसित देश उन्हीं को कहते है जहाँ अधिक लोग भोग, अतिभोग, बहुभोग की ओर गतिशील है।  
+EN: व्यापार करते है।    कुल मिलाकर यही कहा जा सकता है कि जो देश अपने लाभोन्मादी व्यापार नीति, सामरिक शक्ति संपन्न  राजनीति, सर्वाधिक संग्रहवादी नीति में सफल हो गये है, साथ ही उनकी कोटि में और कोई पहुँच नहीं पा रहे है,  उन्हीं को आज विकसित देश कहते है।    The classification of nations
+
+TOKEN=अवस्थाएँ FREQ=4 MVD p.274
+HI: रहस्यता का उन्मूलन चैतन्य पक्ष (बौद्धिक) के जागृति के स्तर पर आधारित है । चैतन्य पक्ष (बौद्धिक) सहज जागृति स्तर भेद से उसकी अवस्थाएँ हैं  ।
+EN: The elimination of mysteriousness depends upon the level of awakening of the  sentient (intellectual) aspect. The various states of the sentient (intellectual)  aspect correspond to different levels of awakening.    ● बौद्धिक विकास : - पूर्ण जागृत, जागृत, अर्ध जागृत, अल्प जागृत त
+
+TOKEN=असफल FREQ=4 MVD p.61
+HI: न्याय व अन्याय सहित लक्ष्य भेद से संपर्क सफल एवं असफल सिद्ध होता है, जिससे सामाजिकता का विकास व  ह्रास सिद्ध होता है ।
+EN: An association succeeds or fails depending on whether its goal is with justice or  injustice, which leads to development or decline of sociality respectively.
+
+TOKEN=आदिकाल FREQ=4 SB p.28
+HI: सबसे पहले जंगल में (आदिकाल में) जंगल को ही अर्थ मानता रहा। इसकी गवाही यही है कि आदि मानव  जंगल में रहने तथा जंगल को खाने की वस्तुओं के रूप में पहचानते रहे है, चाहे शाकाहार करते रहे हों या  मांसाहार। शिलायुग आने के उपरान्त शिला और जंगल को उपयोगी वस्तु के रूप में पहचाना। मानव के लि
+EN: In the earliest times, the human being regarded the forest itself as a valuable  resource. This is evident from the fact that early humans lived in forests and  recognised them as sources of food, whether vegetarian or non-vegetarian. With the  advent of the Stone Age, both stone
+
+TOKEN=आवश्यकीय FREQ=4 MVD p.162
+HI: मानव के लिये आवश्यकीय नियम ही न्याय, न्याय ही धर्म, धर्म ही सत्य, सत्य ही सहअस्तित्व,
+EN: सहअस्तित्व में समझ ही आनंद, आनंद ही जागृत जीवन तथा जागृत मानव जीवन ही मानव परंपरा  के लिये आवश्यकीय नियम है, यह मानव जीवन का जागृत चक्र है । सर्व मानव जीवन के लिये यह  सुचक्र है।    The necessary law for humans is justice, justice itself is dharma, dharma itself  is truth, truth 
+
+TOKEN=उत्तर FREQ=4 SB p.20
+HI: उक्त समस्या के कारण तत्वों का निरीक्षण परीक्षण किया गया। इसका उत्तर यही मिला कि मानव ने मूलत:  मानव को पहचानने में सहअस्तित्व रूपी परम सत्य को समझने में ही भूल किया है।
+EN: Upon investigating the root cause of these problems, it was found that humankind  has erred in recognising true human nature and understanding the ultimate truth of  coexistence.
+
+TOKEN=उनकी FREQ=4 MVD p.266
+HI: 1. व्यवस्था द्वारा सभी व्यक्तियों में उनकी क्षमता, पात्रता एवम् योग्यता के आधार पर उत्पादन कार्य
+EN: में प्रवृत होने वाली नीति का विकास । इसका स्पष्ट स्वरूप परिवार की आवश्यकता से अधिक  उत्पादन से है एवं समाधान-समृद्धि हर परिवार में प्रमाणित होने से है ।    Development of a policy within the orderliness whereby all individuals are
+
+TOKEN=उससे FREQ=4 MVD p.280
+HI: ○ इस अध्ययन से साधक को यह स्पष्ट होता है कि अंतिम से अंतिम ह्रास एक सूक्ष्म परमाणु या इससे  भी सूक्ष्म हो सकता है । यह परिणाम कितना भी सूक्ष्म क्यों न हो, अंततोगत्वा क्रिया ही है । अब उससे  यह भी स्पष्ट होता है कि समस्त क्रियाएँ महावकाश में ओत-प्रोत हैं । यह महावकाश शून्य अर्थात्
+EN: The seeker becomes clear from this study that the extreme decline could be  an atom or even subtler.  However subtle this result may be, it is ultimately an  activity only.  Now it also becomes clear to the seeker that all the activities are  encompassed and filled in the Great V
+
+TOKEN=करेंगे। FREQ=4 SB p.122
+HI: 1. हम जीवन ज्ञान में पारंगत रहेंगे। स्वयं के प्रति विश्वास करेंगे श्रेष्ठता के प्रति सम्मान करेंगे।  2. अस्तित्व दर्शन में निर्भ्रम रहेंगे।  3. स्वधन, स्वनारी/स्वपुरुष, दयापूर्ण कार्य-व्यवहार करेंगे।  4. तन, मन, धन रुपी अर्थ का सदुपयोग एवं सुरक्षा करेंगे।  5. संबंधों को पहचानेंगे
+EN: यही मानवीयता को व्यवहार में प्रमाणित करने परस्पर तृप्ति और संतुलन का तात्पर्य है।     Manifesting "Humaneness" in behaviour means:
+
+TOKEN=कार्यकलाप FREQ=4 MVD p.334
+HI: तत्परता   :-  जागृति, जागृति क्रम में सक्रियता ।                 :-         उत्पादन कार्यकलाप में लगनशीलता ।                 :-         मानवीय व्यवहार-आचरण में निष्ठा ।
+EN: :-         व्यवस्था और समग्र व्यवस्था में भागीदारी सहज उदय की ओर परावर्तन क्रिया ।    Readiness (tatparta): - Activeness in awakening, awakening progression. : - Perseverance in production activity.  : - Dedication in humane behaviour and conduct.  : - Projection activity towards
+
+TOKEN=कितना FREQ=4 MVD p.280
+HI: ○ इस अध्ययन से साधक को यह स्पष्ट होता है कि अंतिम से अंतिम ह्रास एक सूक्ष्म परमाणु या इससे  भी सूक्ष्म हो सकता है । यह परिणाम कितना भी सूक्ष्म क्यों न हो, अंततोगत्वा क्रिया ही है । अब उससे  यह भी स्पष्ट होता है कि समस्त क्रियाएँ महावकाश में ओत-प्रोत हैं । यह महावकाश शून्य अर्थात्
+EN: The seeker becomes clear from this study that the extreme decline could be  an atom or even subtler.  However subtle this result may be, it is ultimately an  activity only.  Now it also becomes clear to the seeker that all the activities are  encompassed and filled in the Great V
+
+TOKEN=कृतज्ञ FREQ=4 MVD p.29
+HI: जो कृतज्ञ नहीं है, वह मानव संस्कृति व सभ्यता का वाहक बनने का प्रमाण प्रस्तुत नहीं कर सकता । जो मानव  संस्कृति व सभ्यता का वहन नहीं करेगा, वह विधि एवं व्यवस्था का पालन नहीं कर सकता ।
+EN: A person who is not grateful cannot provide evidence of being a bearer of culture and  civilisation. Without being a bearer of culture and civilisation, one cannot adhere to the way  and orderliness.
+
+TOKEN=क्षण FREQ=4 MVD p.254
+HI: मानव के लिए सुख ही धर्म है । सुख की आशा से ओतप्रोत मानव को एक क्षण के लिए भी इस कामना से  विमुख नहीं किया जा सकता । धर्म की परिभाषा ही इस प्रकार की गई है कि “जिससे जिसका वियोग न किया  जा सके, अथवा जिसका वियोग सम्भव न हो, वह उसका धर्म है ।” धर्म की इसी परिभाषा के आधार पर पदार्थ  क
+EN: For humans, happiness itself is dharma. Humans filled with an unwavering longing for happiness, cannot be alienated from it even for a moment. Dharma has been  defined as "that which cannot be separated, or that whose separation is not possible  from a unit, is their dharma".  Ac
+
+TOKEN=गतित FREQ=4 MVD p.290
+HI: विकसित इकाई अविकसित इकाई के अनुरूप व्यवहार और विचार से ह्रास की ओर गतित होती है जैसे  मानव जीवों से विकसित है पर जीवों के सदृश्य व्यवहार, विहार एवं आहार के प्रयास से ही ह्रास की  ओर गतित है ।
+EN: A developed unit moves towards decline by thinking and behaving like an undeveloped unit. For instance, humans, who are more developed than  animals, move towards decline when they try to adopt the behaviour, lifestyle,  and eating habits of animals.
+
+TOKEN=चक्र FREQ=4 MVD p.321
+HI: मानवीयता पूर्ण परंपरा सहज उद्देश्य से प्रयास, प्रयास भेद से साधनों का उपयोग, सदुपयोग; उपयोग,  सदुपयोग भेद से फल; फल से प्रयोजन; प्रयोजन से उद्देश्य सफल होना पाया जाता है । यही जागृति पूर्ण  जीवन परंपरा चक्र है ।
+EN: Ascertaining the objective of humane tradition leads to endeavours; endeavours lead  to use and right-use of resources; use and right-use of resources leads to  consequence (as resolution); consequence leads to realisation of human purpose;  and the realisation of human purpose l
+
+TOKEN=चाहता FREQ=4 MVD p.138
+HI: यह इससे सिद्ध होता है कि हर जीव जीना चाहता है ।
+EN: When an atom becomes sentient through development, it immediately acquires the
+
+TOKEN=चाहिए FREQ=4 MVD p.151
+HI: ○ अकर्तृत्व :- जो नहीं करना चाहिए उसे न करते हुए विधि विहित क्रियाकलापों को अपनाना ही अनावश्यक कार्यों से मुक्ति है । यही अकर्तृत्व हैं । भ्रमवश किये जाने वाले जितने भी क्रियाकलाप हैं,  यही बंधन हैं, क्लेश कारी हैं । इसका निराकरण अनुभव सहज जागृति पूर्वक किये जाने वाले सभी  क्रिया
+EN: Non-doership (akartritva): - Not engaging in unworthy actions and embracing
+
+TOKEN=चेतन FREQ=4 MVD p.274
+HI: पूर्ण चेतन, चेतन, अर्ध चेतन, अल्प चेतन तथा अचेतन के नाम से भी संबोधित किया गया है ।
+EN: Intellectual development is classified as completely awakened, awakened,  half-awakened, partially awakened, and unawakened. These are also  designated as completely conscious, conscious, half-conscious, partially  conscious, and unconscious, respectively.
+
+TOKEN=जाते FREQ=4 MVD p.238
+HI: दोनों के विकास से जिन तीसरे पक्ष का विकास हो सकता है वह सभी अवरूद्ध हो जाते हैं । विकास को  अवरूद्ध करना ही शोषण है ।
+EN: The unfulfillment of responsibilities hinders the development of oneself, the  development of those with whom the responsibilities were intended, and the  development of the third person that could have benefitted from the  development of these two.  This act of hindering develop
+
+TOKEN=तकनीकी FREQ=4 MVD p.19
+HI: 30. शिक्षा में पूर्णता चेतना विकास मूल्य शिक्षा ।  ● कारीगरी (तकनीकी) शिक्षा ।
+EN: Completeness in Education
+
+TOKEN=तत्काल FREQ=4 MVD p.116
+HI: (समूह बंधन) मुक्त हो जाता है  पर तत्काल ही आशा के बंधन से युक्त हो जाता है । यह आशा मात्र  जीने की ही रहती है ।
+EN: Further, as an atom irreversibly transitions into the sentient status upon
+
+TOKEN=तदनुसार FREQ=4 MVD p.168
+HI: सुकर्म एवं दुष्कर्म के आशय भेद से वैयक्तिक जीवन व जीविका है, तदनुसार ही भावी घटनाएँ एवं
+EN: कार्य संपन्न होते हैं ।    The intent of righteous or unrighteous actions differentiates individual life and  livelihood, and the future events and activities occur according to that only.    ● सच्चरित्र एवं दुष्चरित्र के भेद से कुटुम्ब है तथा तदनुरुप ही अग्रिम प्राप्तियाँ हैं । 
+
+TOKEN=दिया FREQ=4 SB p.25
+HI: इस बीच एक दूसरी विचारधारा आई, जिसको भौतिकवाद नाम दिया गया। जिसमें भौतिकता को कार्यकलाप  के रूप में द्वंद्वात्मक होना प्रतिपादित किए। उसके मूल में अनिश्चय, अस्थिरता को माना गया। इस प्रकार  अस्थिरता एवं अनिश्चयमूलक भौतिकवादी वांङ्गमय मानव को मिला, जो अपने प्रभाव के रूप में तर्क संग
+EN: In the meantime, another ideology arose, known as materialism, in which materiality  was propounded as dialectical in its activity, with uncertainty and instability taken as  its foundation. Thus, an uncertainty- and instability-based materialist body of thought  came to human be
+
+TOKEN=दृष्टव्य FREQ=4 MVD p.21
+HI: “सहअस्तित्व सूत्र व्याख्या ही स्वयं में सामरस्यता है।” सामरस्यता की स्थिति रूप, गुण, स्वभाव एवं धर्म की साम्यता  समाधान पर आधारित है, जो दृष्टव्य अर्थात् समझ में आता है, जैसे पदार्थावस्था की प्रकृति में रूप सामरस्यता,  वनस्पति अर्थात् प्राणावस्था की प्रकृति में गुण सामरस्यता, जीव
+EN: The essence and elaboration of coexistence itself is harmony.  This state of harmony is  based on uniformity of form, properties, essential nature, and dharma - which is apparent,  i.e. understandable - as harmony of form in the material order, harmony of properties in the biolog
+
+TOKEN=देता FREQ=4 MVD p.280
+HI: ○ इस अध्ययन से साधक को यह स्पष्ट होता है कि अंतिम से अंतिम ह्रास एक सूक्ष्म परमाणु या इससे  भी सूक्ष्म हो सकता है । यह परिणाम कितना भी सूक्ष्म क्यों न हो, अंततोगत्वा क्रिया ही है । अब उससे  यह भी स्पष्ट होता है कि समस्त क्रियाएँ महावकाश में ओत-प्रोत हैं । यह महावकाश शून्य अर्थात्
+EN: The seeker becomes clear from this study that the extreme decline could be  an atom or even subtler.  However subtle this result may be, it is ultimately an  activity only.  Now it also becomes clear to the seeker that all the activities are  encompassed and filled in the Great V
+
+TOKEN=देना FREQ=4 MVD p.266
+HI: 2. परिवार समृद्धि के लिये प्रोत्साहन देना तथा तदनुरूप साधन सुलभता करने की नीति को अपनाना ।
+EN: Embracing the policy that encourages prosperity of families and making the  necessary means accessible.
+
+TOKEN=देने FREQ=4 MVD p.266
+HI: 4. उत्पादन हेतु अधिकतम श्रम व साधन व्यय करने हेतु प्रोत्साहन देने वाली नीति का विकास करना ।
+EN: Developing a policy that encourages the maximum effort and investing of resources for production activities.
+
+TOKEN=देवताम् FREQ=4 MVD p.23
+HI: भूमि: स्वर्गताम् यातु, मानवो यातु देवताम् । धर्मो सफलताम् यातु, नित्यम् यातु शुभोदयम् ।
+EN: “May Earth be heaven, May humans be deities, May dharma prevail, May goodness be eternal.”
+
+TOKEN=देशों FREQ=4 SB p.109
+HI: 1. विकसित देश उन्हीं देशों को कहते है जो सर्वाधिक समर शक्तियों से संपन्न है।  2. विकसित देश उन्हीं को कहते है जिस देश में सर्वाधिक लोग सर्वाधिक आहार-विहार सुविधाओं को भोगते है और संग्रह करते है।  3. विकसित देश उन्हीं को कहते है जहाँ अधिक लोग भोग, अतिभोग, बहुभोग की ओर गतिशील है।  
+EN: व्यापार करते है।    कुल मिलाकर यही कहा जा सकता है कि जो देश अपने लाभोन्मादी व्यापार नीति, सामरिक शक्ति संपन्न  राजनीति, सर्वाधिक संग्रहवादी नीति में सफल हो गये है, साथ ही उनकी कोटि में और कोई पहुँच नहीं पा रहे है,  उन्हीं को आज विकसित देश कहते है।    The classification of nations
+
+TOKEN=नित्यम् FREQ=4 MVD p.23
+HI: भूमि: स्वर्गताम् यातु, मानवो यातु देवताम् । धर्मो सफलताम् यातु, नित्यम् यातु शुभोदयम् ।
+EN: “May Earth be heaven, May humans be deities, May dharma prevail, May goodness be eternal.”
+
+TOKEN=निम्न FREQ=4 MVD p.266
+HI: 2. आर्थिक सुरक्षा :- राष्ट्रीय अर्थ सुरक्षा का नीति निर्धारण निम्न बिन्दुओं के आधार पर किया जाना चाहिये:
+EN: Economic Security: - The economic security policy for a nation needs to be  determined based on the following points:
+
+TOKEN=नैतिक FREQ=4 MVD p.265
+HI: 6. नैतिक सुरक्षा, तन, मन, धन रूपी अर्थ का सदुपयोग सुरक्षा से ।
+EN: Ethical Security: Through right-use and security of resources in the form of  body, mind, and wealth.
+
+TOKEN=परिवर्तित FREQ=4 SB p.14
+HI: यह धरती अपने में व्यवस्था है। इसके साक्ष्य में इसी धरती पर चारों अवस्थाओं ने सहअस्तित्व को प्रमाणित  किया है। इसी धरती पर पदार्थावस्था, प्राणावस्था, जीवावस्था और ज्ञानावस्था देखने को मिला है। यह सब  देखने वाला अर्थात् समझने वाला ज्ञानावस्था का मानव ही है। ये सब प्रकार की अभिव्यक्
+EN: The Earth embodies orderliness in itself. As evidence of this, all four  orders—material order, biological order, animal order, and knowledge order—have  demonstrated coexistence on this Earth. It is the humans of the knowledge order  who perceive (i.e., understand) all this. The
+
+TOKEN=पहला FREQ=4 SB p.51
+HI: विकास और जागृति क्रम में स्वतंत्रता एक मौलिक प्रकाशन है। स्वतंत्रता के लिए इकाई इसीलिए प्रवर्त होती  गयी कि वातावरण और नैसर्गिकता के योगफल से प्रवर्तन होना एक अनिवार्य स्थिति रही। इसी क्रम में पूर्णता  का अभीष्ट इकाई में होना एक शाश्वत स्थिति रही है इसलिए पूर्णता क्रम में विकास स
+EN: The progression of development and awakening inherently accompanies greater  independence. The unit kept becoming inclined for further independence as it was  inevitable due to its environment and naturalness. Additionally, the directionality  towards completeness within the unit
+
+TOKEN=पाँचों FREQ=4 MVD p.18
+HI: 27. सर्व मांगल्य मानव के चारों आयाम (कार्य, व्यवहार, विचार व अनुभूति), पाँचों स्थिति (व्यक्ति, परिवार, समाज,  राष्ट्र व अन्तर्राष्ट्र) तथा दश सोपानीय परिवार मूलक स्वराज्य व्यवस्था में निर्विषमता (सामरस्यता)  एवं एकसूत्रता ।
+EN: Universal Auspiciousness
+
+TOKEN=पाते FREQ=4 MVD p.248
+HI: शिष्य का अर्थ बोध जब पूर्ण हो जाता है, उस समय गुरु पर्व मनाता है अर्थात् गुरु को प्रसन्नता की  अनुभूति होती है, यही वात्सल्य स्थिति है । तात्पर्य यह है कि हर एक बड़े अपने से छोटों में वांछित  गुणों की प्रसारण क्रिया में तत्पर रहते हैं । इसके बदले में जो तोष (उत्सवित होना) वे पाते 
+EN: When the disciple attains complete enlightenment, the guru celebrates.  The profound joy that the guru experiences is the realisation of guidance. Hence,  every elder remains eager to instil desired qualities in those who are younger  than them, and the satisfaction they derive f
+
+TOKEN=पारिवारिक FREQ=4 MVD p.235
+HI: सामाजिक नीति से पारिवारिक नीति को प्रेरणा व दिशा और पारिवारिक नीति से मानवीयतापूर्ण आचरण के  लिए प्रेरणा व दिशा प्राप्त होती है ।
+EN: The policies at the national, societal and familial level draw inspiration and guidance  from the policies at the international, national and societal levels respectively, and  individuals draw inspiration and guidance for humane conduct from the policy at the familial level.
+
+TOKEN=पीड़ित FREQ=4 MVD p.232
+HI: बौद्धिक समाधान के मार्ग में सब से बड़ा अवरोधक तत्व भय है । मानव कुल तीन प्रकार के भय से पीड़ित हुआ  है : - 1. प्राकृतिक भय,  2. पाशविक भय तथा  3. मानव में निहित अमानवीयता का भय ।
+EN: Fear poses the biggest obstacle on the way to intellectual resolution. Humans have  suffered from three types of fears: 1. Fear of natural events,  2. Fear of animals, and  3. Fear of inhumaneness in humans.
+
+TOKEN=पृष्ठभूमि FREQ=4 MVD p.34
+HI: ○ नियम:-    आचरण और क्रिया की नियंत्रण पृष्ठभूमि ही नियम है ।
+EN: Law (niyam): - The foundation for the regulation of conduct and activities itself  is the law.    ○ समाधान:-  क्यों और कैसे की पूर्ति (उत्तर) ही समाधान है ।    Resolution (samadhan): - The fulfilment (answer) of why and how itself is  resolution.    ○ आनंद :-          सहअस्तित्व 
+
+TOKEN=पैदा FREQ=4 SB p.48
+HI: अस्तित्व को अनादि काल से मानव स्पष्ट और प्रमाण रूप में समझने का प्रयास करता रहा है। इसी क्रम में  अधिभौतिकवादी विचारों के अनुसार चेतना से पदार्थ की उत्पत्ति होती है ऐसा माना जाता है।  भौतिकवादी  विचारों के अनुसार पदार्थ से चेतना निष्पन्न होती है।  ये दोनों विचारधारायें अपने-अपने 
+EN: Humans have, since beginning-less time, endeavoured to understand existence  clearly and with evidence. In this course, metaphysical thought has held that matter  arises from consciousness, whereas materialist thought has maintained that  consciousness emerges from matter. Both i
+
+TOKEN=प्रवृति FREQ=4 MVD p.329
+HI: धृति       :-  सहअस्तित्व सहज सत्य में निष्ठा और परावर्तित करने के लिए प्रवृति । सत्य बोध सहज परावर्तन में निष्ठा ।
+EN: भय का अभाव वर्तमान में विश्वास ही धृति है ।    Dhruti: -  Dedication in truth as coexistence, and tendency for projection.
+
+TOKEN=प्रवृत्त FREQ=4 MVD p.213
+HI: मानव समुदाय न्याय तथा अवसर भेद से प्रवृत्त रहना स्पष्ट है ।
+EN: It is evident that the human community remains inclined either towards justice or  towards opportunism.
+
+TOKEN=प्राप्ति FREQ=4 MVD p.335
+HI: कृतज्ञता :-  जिस किसी की भी सहायता से उन्नति (विकास और जागृति) की प्राप्ति में सहायता मिली  हो,
+EN: उसकी स्वीकृति ।    Gratitude (kritagyata): - The acceptance of help received from anyone for  advancement (development and awakening).    सौम्यता:-  स्वेच्छा से स्वयं का नियंत्रण ।  :-         स्वभावगति प्रतिष्ठा अर्थात् शिष्टता ।    Humility (saumyata): - Wilful self-restraint.
