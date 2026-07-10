@@ -60,11 +60,13 @@ Audit Studies bibliographies first: `python Scripts/_audit_references.py`. Agent
 
 ## Madhyasth-Darshan/
 
+For **MVD**, **SB**, and **JV**, Studies bibliographies and quote verification must link the **PDF**. The companion `.md` files are machine extracts of the PDF text layer for search and analysis only — do not edit them by hand, and do not cite or link them from Studies.
+
 | Tag | File | Notes |
 |-----|------|-------|
-| **MVD** | [MVD-Madhyasth-Darshan-Coexistentialism.pdf](Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf) | *Madhyasth Darshan — Co-existentialism*; English translation by Rakesh Gupta |
-| **SB** | [SB-Samadhanatmak-Bhautikvad.pdf](Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf) | *Samadhanatmak Bhautikvad*; English translation by Rakesh Gupta; [bilingual Hindi and English playlist on YouTube](https://www.youtube.com/playlist?list=PL69PCoz1OQW0dhshZ0Xv3KtZ7ajJOIpgv) |
-| **JV** | [JV-Jeevan-Vidya-An-Introduction.pdf](Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf) | *Jeevan Vidya: An Introduction*; English translation by Rakesh Gupta |
+| **MVD** | [MVD-Madhyasth-Darshan-Coexistentialism.pdf](Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf) · [`.md`](Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.md) | *Madhyasth Darshan — Co-existentialism*; English translation by Rakesh Gupta. Cite the PDF in Studies; `.md` is analysis-only (do not edit by hand). |
+| **SB** | [SB-Samadhanatmak-Bhautikvad.pdf](Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf) · [`.md`](Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.md) | *Samadhanatmak Bhautikvad*; English translation by Rakesh Gupta; [bilingual Hindi and English playlist on YouTube](https://www.youtube.com/playlist?list=PL69PCoz1OQW0dhshZ0Xv3KtZ7ajJOIpgv). Cite the PDF in Studies; `.md` is analysis-only (do not edit by hand). |
+| **JV** | [JV-Jeevan-Vidya-An-Introduction.pdf](Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf) · [`.md`](Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.md) | *Jeevan Vidya: An Introduction*; English translation by Rakesh Gupta. Cite the PDF in Studies; `.md` is analysis-only (do not edit by hand). |
 | **AVD** | [AVD-Adhyatmvad.docx.pdf](Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf) | *Realisation Centred Spiritualism* (Adhyatmvad); English WIP translation by Sanjeev Chopra |
 | **JVD** | [JVD-Janvad.pdf](Madhyasth-Darshan/JVD-Janvad.pdf) | *Behaviour Centred Public Discourse* (Janvad); English WIP translation by Sanjeev Chopra |
 | **MD** | [MD-Mapping.xlsx](Madhyasth-Darshan/MD-Mapping.xlsx) | Chapter/page mapping spreadsheet |
