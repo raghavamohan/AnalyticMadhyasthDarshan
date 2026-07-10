@@ -89,6 +89,48 @@ Do **not** rename only the directory without updating the proposal issue and reg
 
 ---
 
+## Study pull requests (labels, templates, and CI)
+
+Every change under `Studies/` or `Applications/` lands through a labeled pull request.
+CI (`study-pr` / `Scripts/_ci_study_pr.py`) reads the PR **label** and required **body fields**.
+Wrong label or a mistyped slug field fails the check before content review.
+
+### Choose the right template and label
+
+Open the matching template from [.github/pull_request_template.md](.github/pull_request_template.md)
+(do **not** leave the chooser text as the PR body):
+
+| Change | Template | Label | Required body field(s) |
+|--------|----------|-------|-------------------------|
+| First draft after `proposal-approved` | [new-study](.github/PULL_REQUEST_TEMPLATE/new-study.md) | `new-study` | `Proposal issue: #N` and `Slug: <Slug>` |
+| Edit study markdown **or** companion files under that folder (`.pptx`, research notes, figures) | [study-update](.github/PULL_REQUEST_TEMPLATE/study-update.md) | `study-update` | `Study slug: <Slug>` |
+| Draft ↔ Released | [status-change](.github/PULL_REQUEST_TEMPLATE/status-change.md) | `status-change` | `Study slug: <Slug>` and `Target status: draft` or `released` |
+
+Apply **exactly one** of those three labels. Changes that only touch `Scripts/`, `AGENTS.md`,
+`infra/`, etc. are ordinary PRs — **no** study label and **no** `Study slug:` field.
+
+### Fill required fields correctly
+
+Put each required field on its **own line**. The slug must be the **bare catalog directory name**
+(the folder under `Studies/`), with nothing else on that line:
+
+```text
+Study slug: The-Ontology-of-Coexistence
+```
+
+**Incorrect** (CI cannot look this up in the catalog):
+
+```text
+Study slug: The-Ontology-of-Coexistence (companion presentation deck, not the study markdown)
+```
+
+Put explanations under **Summary of changes**, not on the `Study slug:` / `Slug:` /
+`Target status:` lines. Companion-only PRs still use `study-update` and a bare
+`Study slug:`; mark Edited-on checklist items N/A when the study `.md` was not changed.
+
+The Web Submission Portal writes these fields for you. Hand-authored or agent PRs must follow
+the templates above. Full agent checklist: [AGENTS.md](AGENTS.md) §7.
+
 ## Before your PR is merged
 
 - Follow study format and intent in [Studies/README.md](Studies/README.md).
