@@ -61,10 +61,28 @@ non-authoritative for Studies citations.
 
 See [`KD-vs-MD-Mapping-report.md`](KD-vs-MD-Mapping-report.md) (machine JSON alongside).
 
-Snapshot after Phase 4:
+Snapshot after Phase 4 (MVD/SB rows only):
 
 - KD-Glossary-Additions vs MD-Mapping: **52 aligned**, **65 overrides**, **35 md_missing**, **1 md_missing_english**
 - Known deliberate exceptions recorded in the report (ताप, वास्तविकता, संस्कार, काम, …)
 - `KD-Translation-Glossary.xlsx` regenerated so Overrides reflect the expanded MD-Mapping
 
 No KD body text was changed in this phase (report only).
+
+## KD missing terms absorbed (2026-07-10)
+
+The **35** `md_missing` KD-Glossary-Additions lemmas were appended to `MD-Mapping.xlsx` as rows
+**2208–2242** from `kd_missing35_rows.json` (English/transliteration/notes taken from
+`KD-Glossary-Additions.md`, not invented).
+
+```powershell
+python phase4_apply_rows.py --rows kd_missing35_rows.json --start-row 2208
+python kd_verify_against_mapping.py
+python ..\..\..\Scripts\_kd_build_glossary_xlsx.py
+```
+
+Post-apply snapshot:
+
+- MD-Mapping nonempty Hindi rows: **1684**
+- Glossary compare: **87 aligned**, **65 overrides**, **0 md_missing**, **1 md_missing_english**
+- `KD-Translation-Glossary.xlsx` regenerated again

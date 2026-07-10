@@ -1,13 +1,13 @@
 {
- "md_mapping_rows": 1649,
+ "md_mapping_rows": 1684,
  "kd_glossary_rows": 153,
  "glossary_comparison": [
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "मध्यांश",
    "kd_english": "nucleus",
-   "md_english": null,
-   "md_row": null
+   "md_english": "nucleus",
+   "md_row": 2208
   },
   {
    "status": "override",
@@ -45,11 +45,11 @@
    "md_row": 75
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "अच्छी दूरी",
    "kd_english": "good distance",
-   "md_english": null,
-   "md_row": null
+   "md_english": "good distance",
+   "md_row": 2209
   },
   {
    "status": "override",
@@ -59,18 +59,18 @@
    "md_row": 1352
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "मध्यस्थीयकरण",
    "kd_english": "mediation",
-   "md_english": null,
-   "md_row": null
+   "md_english": "mediation",
+   "md_row": 2210
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "चुम्बकीय धारा",
    "kd_english": "magnetic current",
-   "md_english": null,
-   "md_row": null
+   "md_english": "magnetic current",
+   "md_row": 2211
   },
   {
    "status": "aligned",
@@ -80,11 +80,11 @@
    "md_row": 1394
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "विद्युतवाहिता",
    "kd_english": "electric conduction",
-   "md_english": null,
-   "md_row": null
+   "md_english": "electric conduction",
+   "md_row": 2212
   },
   {
    "status": "override",
@@ -101,11 +101,11 @@
    "md_row": 60
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "संकोचन प्रसारण",
    "kd_english": "contraction-expansion",
-   "md_english": null,
-   "md_row": null
+   "md_english": "contraction-expansion",
+   "md_row": 2213
   },
   {
    "status": "aligned",
@@ -122,32 +122,32 @@
    "md_row": 263
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "अण्डाकार",
    "kd_english": "elliptic",
-   "md_english": null,
-   "md_row": null
+   "md_english": "elliptic",
+   "md_row": 2214
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "ससम्मुखता",
    "kd_english": "facing-ness",
-   "md_english": null,
-   "md_row": null
+   "md_english": "facing-ness",
+   "md_row": 2215
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "सौर व्यूह",
    "kd_english": "solar system (solar array)",
-   "md_english": null,
-   "md_row": null
+   "md_english": "solar system (solar array)",
+   "md_row": 2216
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "ग्रह-गोल",
    "kd_english": "planet-orb",
-   "md_english": null,
-   "md_row": null
+   "md_english": "planet-orb",
+   "md_row": 2217
   },
   {
    "status": "override",
@@ -206,25 +206,25 @@
    "md_row": 528
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "संक्रमणीयता",
    "kd_english": "transition-ness",
-   "md_english": null,
-   "md_row": null
+   "md_english": "transition-ness",
+   "md_row": 2218
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "विकिरणीयता",
    "kd_english": "radiativeness",
-   "md_english": null,
-   "md_row": null
+   "md_english": "radiativeness",
+   "md_row": 2219
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "विकिरणीय द्रव्य",
    "kd_english": "radiant (radioactive) materials",
-   "md_english": null,
-   "md_row": null
+   "md_english": "radiant (radioactive) materials",
+   "md_row": 2220
   },
   {
    "status": "aligned",
@@ -241,25 +241,25 @@
    "md_row": 129
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "संतुलनीकरण",
    "kd_english": "equilibration",
-   "md_english": null,
-   "md_row": null
+   "md_english": "equilibration",
+   "md_row": 2221
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "आवर्तनशीलता",
    "kd_english": "cyclicality",
-   "md_english": null,
-   "md_row": null
+   "md_english": "cyclicality",
+   "md_row": 2222
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "तापोद्दीपन",
    "kd_english": "heat-stimulation",
-   "md_english": null,
-   "md_row": null
+   "md_english": "heat-stimulation",
+   "md_row": 2223
   },
   {
    "status": "aligned",
@@ -388,11 +388,11 @@
    "md_row": 879
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "समकेन्द्रीय रेखा",
    "kd_english": "concentric line",
-   "md_english": null,
-   "md_row": null
+   "md_english": "concentric line",
+   "md_row": 2224
   },
   {
    "status": "override",
@@ -402,11 +402,11 @@
    "md_row": 15
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "घटी, पल",
    "kd_english": "ghati, pal (time units)",
-   "md_english": null,
-   "md_row": null
+   "md_english": "ghati, pal (time units)",
+   "md_row": 2225
   },
   {
    "status": "override",
@@ -486,18 +486,18 @@
    "md_row": 235
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "चिराकांक्षा, चिराकाँक्षा",
    "kd_english": "abiding aspiration",
-   "md_english": null,
-   "md_row": null
+   "md_english": "abiding aspiration",
+   "md_row": 2226
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "सचेष्ट",
    "kd_english": "earnestly active",
-   "md_english": null,
-   "md_row": null
+   "md_english": "earnestly active",
+   "md_row": 2227
   },
   {
    "status": "override",
@@ -563,9 +563,9 @@
    "md_row": 160
   },
   {
-   "status": "override",
+   "status": "aligned",
    "kd_hindi": "पात्रता",
-   "kd_english": "worthiness",
+   "kd_english": "receptivity / worthiness (contextual)",
    "md_english": "receptivity",
    "md_row": 512
   },
@@ -633,18 +633,18 @@
    "md_row": 529
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "ब्रह्मवाद, आत्मवाद, जातिवाद, नस्लवाद, वंशवाद",
    "kd_english": "Brahma-doctrine, self-doctrine, casteism, racism, lineage-ism",
-   "md_english": null,
-   "md_row": null
+   "md_english": "Brahma-doctrine, self-doctrine, casteism, racism, lineage-ism",
+   "md_row": 2228
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "उद्घाता",
    "kd_english": "herald",
-   "md_english": null,
-   "md_row": null
+   "md_english": "herald",
+   "md_row": 2229
   },
   {
    "status": "override",
@@ -654,18 +654,18 @@
    "md_row": 421
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "औकात",
    "kd_english": "standing",
-   "md_english": null,
-   "md_row": null
+   "md_english": "standing",
+   "md_row": 2230
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "वेदना",
    "kd_english": "pain",
-   "md_english": null,
-   "md_row": null
+   "md_english": "pain",
+   "md_row": 2231
   },
   {
    "status": "override",
@@ -773,18 +773,18 @@
    "md_row": 1215
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "मति, सुमति, अनुमति",
    "kd_english": "left transliterated",
-   "md_english": null,
-   "md_row": null
+   "md_english": "mati, sumati, anumati (left transliterated)",
+   "md_row": 2232
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "अमति, कुमति, दुर्मति",
    "kd_english": "left transliterated",
-   "md_english": null,
-   "md_row": null
+   "md_english": "amati, kumati, durmati (left transliterated)",
+   "md_row": 2233
   },
   {
    "status": "aligned",
@@ -801,11 +801,11 @@
    "md_row": 700
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "पुण्यात्मा, पापात्मा",
    "kd_english": "the meritorious soul, the sinful soul",
-   "md_english": null,
-   "md_row": null
+   "md_english": "the meritorious soul, the sinful soul",
+   "md_row": 2234
   },
   {
    "status": "override",
@@ -815,11 +815,11 @@
    "md_row": 387
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "रजोगुण, तमोगुण, सत्वगुण",
    "kd_english": "left transliterated",
-   "md_english": null,
-   "md_row": null
+   "md_english": "rajoguna, tamoguna, sattvaguna (left transliterated)",
+   "md_row": 2235
   },
   {
    "status": "override",
@@ -829,11 +829,11 @@
    "md_row": 63
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "मानवीयतापूर्ण (X) / अतिमानवीयतापूर्ण (X)",
    "kd_english": "humane (X) / higher-humane (X)",
-   "md_english": null,
-   "md_row": null
+   "md_english": "humane (X) / higher-humane (X)",
+   "md_row": 2236
   },
   {
    "status": "aligned",
@@ -843,11 +843,11 @@
    "md_row": 329
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "गम्यता",
    "kd_english": "the destination",
-   "md_english": null,
-   "md_row": null
+   "md_english": "the destination",
+   "md_row": 2237
   },
   {
    "status": "override",
@@ -908,7 +908,7 @@
   {
    "status": "override",
    "kd_hindi": "ऐषणा-त्रय",
-   "kd_english": "the triad of desires",
+   "kd_english": "the \"desires-trio\"",
    "md_english": "motive-trio",
    "md_row": 507
   },
@@ -943,7 +943,7 @@
   {
    "status": "override",
    "kd_hindi": "ता-त्रय",
-   "kd_english": "the \"triad of *-tā*\"",
+   "kd_english": "the \"*-tā*-trio\"",
    "md_english": "motive-trio",
    "md_row": 507
   },
@@ -969,11 +969,11 @@
    "md_row": 211
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "सद्विवेक",
    "kd_english": "right-wisdom",
-   "md_english": null,
-   "md_row": null
+   "md_english": "right-wisdom",
+   "md_row": 2238
   },
   {
    "status": "aligned",
@@ -997,11 +997,11 @@
    "md_row": 2153
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "सर्वमंगल, मांगल्य",
    "kd_english": "universal welfare, welfare",
-   "md_english": null,
-   "md_row": null
+   "md_english": "universal welfare, welfare",
+   "md_row": 2239
   },
   {
    "status": "aligned",
@@ -1011,11 +1011,11 @@
    "md_row": 1038
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "न्यूनातिरेक",
    "kd_english": "deficiency-or-excess",
-   "md_english": null,
-   "md_row": null
+   "md_english": "deficiency-or-excess",
+   "md_row": 2240
   },
   {
    "status": "override",
@@ -1025,11 +1025,11 @@
    "md_row": 817
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "साम्राज्य",
    "kd_english": "dominion",
-   "md_english": null,
-   "md_row": null
+   "md_english": "dominion",
+   "md_row": 2241
   },
   {
    "status": "override",
@@ -1053,11 +1053,11 @@
    "md_row": 1303
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "पाण्डित्य",
    "kd_english": "scholarliness",
-   "md_english": null,
-   "md_row": null
+   "md_english": "scholarliness",
+   "md_row": 2242
   },
   {
    "status": "aligned",
@@ -1075,9 +1075,8 @@
   }
  ],
  "glossary_status_counts": {
-  "md_missing": 35,
-  "override": 65,
-  "aligned": 52,
+  "aligned": 88,
+  "override": 64,
   "md_missing_english": 1
  },
  "exceptions": [
@@ -1107,9 +1106,9 @@
   }
  ],
  "body_coverage": {
-  "english_glosses_checked": 1602,
-  "present_in_kd_body": 848,
-  "absent_from_kd_body": 754,
+  "english_glosses_checked": 1637,
+  "present_in_kd_body": 882,
+  "absent_from_kd_body": 755,
   "present_sample": [
    {
     "row": 2,
@@ -2061,6 +2060,42 @@
    "hindi": "वृत्ति, वृति",
    "english": "vritti",
    "md_row": 2201
+  },
+  {
+   "italic": "madhyansh",
+   "hindi": "मध्यांश",
+   "english": "nucleus",
+   "md_row": 2208
+  },
+  {
+   "italic": "madhyasthiyakaran",
+   "hindi": "मध्यस्थीयकरण",
+   "english": "mediation",
+   "md_row": 2210
+  },
+  {
+   "italic": "saur vyuh",
+   "hindi": "सौर व्यूह",
+   "english": "solar system (solar array)",
+   "md_row": 2216
+  },
+  {
+   "italic": "chira-akanksha",
+   "hindi": "चिराकांक्षा, चिराकाँक्षा",
+   "english": "abiding aspiration",
+   "md_row": 2226
+  },
+  {
+   "italic": "sachesht",
+   "hindi": "सचेष्ट",
+   "english": "earnestly active",
+   "md_row": 2227
+  },
+  {
+   "italic": "udghata",
+   "hindi": "उद्घाता",
+   "english": "herald",
+   "md_row": 2229
   }
  ]
 }
