@@ -698,7 +698,7 @@ It is only in order to obtain the three kinds of karma-result that the human bei
 
 The whole of karma is accomplished by the distinction of the goals of self-interest, others'-interest, and ultimate-interest.
 
-In the union of mediating-intellect, *sam*-intellect is found engaged in righteous action. The whole diversity of karma becomes free from a mutually-opposed condition in humaneness. The direct evidence of this is precisely the conduct of the "rule-trio."
+In the union of mediating-intellect, generative-intellect is found engaged in righteous action. The whole diversity of karma becomes free from a mutually-opposed condition in humaneness. The direct evidence of this is precisely the conduct of the "rule-trio."
 
 In every union and separation, the conviction and deployment of values is found.
 
@@ -710,9 +710,9 @@ It is precisely the capacity to determine and carry out social values that has m
 
 Activities of sentiment occur mutually by way of the high and the low kind, and it is precisely from these that acquaintance with their development comes about.
 
-A family full of high sentiment, a society full of *sam*-mediating union, an orderliness-system and behaviour full of mediating-*sam* union — this itself is the universal-wellbeing programme.
+A family full of high sentiment, a society full of generative-mediating union, an orderliness-system and behaviour full of mediating-generative union — this itself is the universal-wellbeing programme.
 
-There is no determination of righteous action without clear capacity for the holistic view. It is the capacity for the holistic view alone that decides *sam*, *visham*, and mediating, activity-process, and purpose. Along with this, it establishes completeness in conduct, behaviour, orderliness, and the education system.
+There is no determination of righteous action without clear capacity for the holistic view. It is the capacity for the holistic view alone that decides generative, degenerative, and mediating, activity-process, and purpose. Along with this, it establishes completeness in conduct, behaviour, orderliness, and the education system.
 
 For behaviour, knowledge, wisdom, and science; for production, wisdom endorsed by knowledge, and knowledge full of science endorsed by wisdom — these are essential. Such knowledge is found to be manifest and put into practice according to the capacity and necessity of every awakened individual.
 
@@ -904,9 +904,9 @@ Karma is result-bearing. The deluded human being is subject to it while undergoi
 
 It is to be seen that doubtfulness, apprehension, and ignorance occur with respect to karma performed by the human being in the deluded condition and its result — even though these are not desired in, from, or for the human being.
 
-The property deployed in potency is itself mediating; that deployed in dissolution is *visham*; that deployed in origination is *sam*. This itself, in sequence, is ultimate-interest, self-interest, and others'-interest karma. In the form of behaviour, it is evident in the conditions of the undeluded, the deluded, and the deluded-undeluded.
+The property deployed in potency is itself mediating; that deployed in dissolution is degenerative; that deployed in origination is generative. This itself, in sequence, is ultimate-interest, self-interest, and others'-interest karma. In the form of behaviour, it is evident in the conditions of the undeluded, the deluded, and the deluded-undeluded.
 
-The *sam*, *visham*, and mediating powers are, in sequence, *rajoguna*, *tamoguna*, and *sattvaguna*.
+The generative, degenerative, and mediating powers are, in sequence, *rajoguna*, *tamoguna*, and *sattvaguna*.
 
 The conduct of a person endowed with *sattvaguna* is, together with behaviour, full of the capacity for wisdom and science, together with values such as compassion, respect, and love.
 
