@@ -305,11 +305,11 @@ Awakening as realisation in truth (liberation from delusion).
 
 ## Main points propounded in Madhyasth Darshan
 
-Omnipotence is mediating and all-pervasive. Nature in Omnipotence is balanced–unbalanced and mediating activity, and is limited; therefore Omnipotence is state-complete.
+Omnipotence is mediating and all-pervasive. Nature in Omnipotence is generative-degenerative and mediating activity, and is limited; therefore Omnipotence is state-complete.
 
 Insentient–sentient nature in Omnipotence is state-dynamic; therefore nature is immersed in Omnipotence — nature is interwoven with Omnipotence. Because nature is saturated in Omnipotence, nature is fully energy-endowed; therefore nature is active. Hence nature is effort-, motion-, and result-bearing. As a result, nature itself is manifest in four orders. Therefore, in insentient–sentient nature saturated in Omnipotence, the sentient part affords appropriate opportunities for the capacities of experiencing in the knowledge order, and all four orders are bound to one another in the sense of completeness and wholeness.
 
-Omnipotence is mediating; therefore nature saturated in mediating Omnipotence is controlled and protected. The nucleus (*madhyansh*) found in every atom is mediating activity; therefore balanced–unbalanced activities and relative forces are controlled and protected.
+Omnipotence is mediating; therefore nature saturated in mediating Omnipotence is controlled and protected. The nucleus (*madhyansh*) found in every atom is mediating activity; therefore generative-degenerative activities and relative forces are controlled and protected.
 
 Infinite activity, or groups of activity, is nature — countable as insentient and sentient. Insentient nature, after completeness of development, attains the sentient stage by the natural-law method. The human being is the combined form of insentient and sentient, and is also a part of nature.
 
