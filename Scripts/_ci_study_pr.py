@@ -80,6 +80,43 @@ def parse_body_field(body: str, *patterns: str) -> str | None:
     return None
 
 
+def normalize_pr_slug(value: str) -> str:
+    """Return a bare catalog slug from a PR body field.
+
+    Accepts optional ``.md`` suffix. Strips trailing notes that authors sometimes
+    append on the same line (parentheticals, em dashes, commas), which otherwise
+    break catalog lookup — e.g. ``The-Ontology-of-Coexistence (companion deck)``.
+    """
+    cleaned = value.strip().removesuffix(".md").strip()
+    # Cut at the first space that begins a note, or at punctuation used as a note separator.
+    cleaned = re.split(r"\s+[\(\[—–\-]|[;,]", cleaned, maxsplit=1)[0].strip()
+    match = re.match(r"^([A-Za-z0-9][A-Za-z0-9._-]*)", cleaned)
+    if match:
+        return match.group(1)
+    return cleaned
+
+
+def resolve_pr_body(pull_request: dict) -> str:
+    """Prefer the live PR body from the API so body edits apply without a new commit.
+
+    ``GITHUB_EVENT_PATH`` freezes the body from the triggering event; ``gh pr edit``
+    alone does not re-run this workflow (``edited`` is intentionally omitted), and
+    ``gh run rerun`` reuses the stale event payload. Fetching the current body makes
+    a corrected ``Study slug:`` line take effect on the next pipeline run.
+    """
+    number = pull_request.get("number")
+    repo = os.environ.get("GITHUB_REPOSITORY")
+    if number and repo and os.environ.get("GITHUB_TOKEN"):
+        try:
+            data = gh_request(f"/repos/{repo}/pulls/{number}")
+            body = data.get("body")
+            if body is not None:
+                return body
+        except SystemExit:
+            pass
+    return pull_request.get("body") or ""
+
+
 def parse_issue_form_section(body: str, heading: str) -> str | None:
     pattern = rf"###\s*{re.escape(heading)}\s*\r?\n+(.+?)(?=\r?\n###|\Z)"
     match = re.search(pattern, body, re.DOTALL | re.IGNORECASE)
@@ -322,7 +359,7 @@ def handle_new_study(body: str, base_ref: str) -> None:
     slug = parse_body_field(body, r"^Slug:\s*(.+)$", r"Study slug:\s*(.+)$")
     changed = changed_study_slugs(base_ref)
     if slug:
-        slug = slug.strip().removesuffix(".md")
+        slug = normalize_pr_slug(slug)
     elif len(changed) == 1:
         slug = changed[0]
     else:
@@ -378,14 +415,15 @@ def handle_study_update(body: str, base_ref: str) -> None:
     slug = parse_body_field(body, r"^Study slug:\s*(.+)$", r"^Slug:\s*(.+)$")
     changed = changed_study_slugs(base_ref)
     if slug:
-        slug = slug.strip().removesuffix(".md")
+        slug = normalize_pr_slug(slug)
     elif rename:
         slug = rename[1]
     elif len(changed) == 1:
         slug = changed[0]
     else:
         raise SystemExit(
-            "Set `Study slug:` in the PR body or change exactly one "
+            "Set `Study slug: <Slug>` on its own line (bare catalog slug only — "
+            "no parenthetical notes) or change exactly one "
             "Studies/<Slug>/<Slug>.md (or Applications/<Slug>/<Slug>.md) file."
         )
 
@@ -447,11 +485,14 @@ def handle_status_change(body: str) -> None:
     slug = parse_body_field(body, r"^Study slug:\s*(.+)$", r"^Slug:\s*(.+)$")
     target = parse_body_field(body, r"^Target status:\s*(\w+)")
     if not slug:
-        raise SystemExit("PR body must include `Study slug: <Slug>`.")
+        raise SystemExit(
+            "PR body must include `Study slug: <Slug>` on its own line "
+            "(bare catalog slug only — no parenthetical notes)."
+        )
     if not target:
         raise SystemExit("PR body must include `Target status: draft` or `released`.")
 
-    slug = slug.strip().removesuffix(".md")
+    slug = normalize_pr_slug(slug)
     target = target.strip().lower()
     if target not in {"draft", "released"}:
         raise SystemExit("Target status must be `draft` or `released`.")
@@ -495,7 +536,7 @@ def main() -> None:
             "Apply one PR label: `new-study`, `study-update`, or `status-change`."
         )
 
-    body = pull_request.get("body") or ""
+    body = resolve_pr_body(pull_request)
     print(f"Study PR type: {label}")
 
     if label == "new-study":

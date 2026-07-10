@@ -1,14 +1,23 @@
 ## Study update
 
-Study slug: <!-- e.g. Aesthetics -->
+<!--
+REQUIRED — bare catalog slug only, on its own line.
+Copy the Studies/<Slug>/ directory name exactly (e.g. The-Ontology-of-Coexistence).
+Do NOT append notes, parentheticals, or em dashes on this line — CI looks up the
+entire remainder of the line in the catalog and will fail (see PR #146).
+Put context in "Summary of changes" below instead.
+-->
+Study slug: <!-- e.g. The-Ontology-of-Coexistence -->
 
 ### Summary of changes
 
-<!-- What you changed and why -->
+<!-- What you changed and why. Companion-only edits (pptx, research notes, SVGs)
+     still use this template and the study-update label; say so here. -->
 
 ### Checklist
 
-- [ ] Updated `**Edited on:**` in `Studies/<Slug>/<Slug>.md` to the current time (IST)
-- [ ] Updated [References/MANIFEST.md](../../References/MANIFEST.md) for any new citations
-- [ ] Ran `python Scripts\_quote_tool.py verify --study <Slug>` if quoting local sources (recommended)
-- [ ] Applied label **`study-update`** to this pull request
+- [ ] `Study slug:` is the **bare** catalog slug only (no notes on that line)
+- [ ] Applied label **`study-update`** to this pull request (exactly one study label)
+- [ ] Updated `**Edited on:**` in `Studies/<Slug>/<Slug>.md` to the current time (IST) — **required when the study `.md` changed**; N/A for companion-only files (pptx, research notes, figures) that do not edit the study markdown
+- [ ] Updated [References/MANIFEST.md](../../References/MANIFEST.md) for any new citations — N/A if citations unchanged
+- [ ] Ran `python Scripts/_quote_tool.py verify --study <Slug>` if quoting local sources (recommended)

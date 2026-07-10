@@ -109,7 +109,7 @@ Published studies carry `**Edited on:**` and `**Status:**` in the `.md` file. Re
 
 Recurring Hindi and darshan terms across studies belong in [Studies/glossary.json](Studies/glossary.json) (`python Scripts/_verify_glossary.py` after edits).
 
-Every change under `Studies/` — by a human contributor or an agent — goes through a feature branch and a pull request labeled `new-study`, `study-update`, or `status-change`, never a direct commit to `master`. Use the matching template in [`.github/PULL_REQUEST_TEMPLATE/`](.github/PULL_REQUEST_TEMPLATE/) and include the required PR body field (`Study slug:`, `Proposal issue: #N`, or `Target status:`). See [CONTRIBUTING.md](CONTRIBUTING.md) for the contributor-facing flow and [AGENTS.md](AGENTS.md) §7 for the full local checklist before pushing.
+Every change under `Studies/` — by a human contributor or an agent — goes through a feature branch and a pull request labeled `new-study`, `study-update`, or `status-change`, never a direct commit to `master`. That includes companion-only edits (`.pptx`, research notes, figures) under a study folder. Use the matching template in [`.github/PULL_REQUEST_TEMPLATE/`](.github/PULL_REQUEST_TEMPLATE/) (see the chooser [`.github/pull_request_template.md`](.github/pull_request_template.md)) and put the required body field on its own line with a **bare** catalog slug — e.g. `Study slug: The-Ontology-of-Coexistence` with no parenthetical notes on that line. See [CONTRIBUTING.md](CONTRIBUTING.md) for the contributor-facing flow and [AGENTS.md](AGENTS.md) §7 for the full local checklist before pushing.
 
 ### Scripts
 

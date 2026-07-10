@@ -98,6 +98,23 @@ they are companion files, not study body content.
 - [ ] Speaker notes present where intended
 - [ ] Footer shows `AnalyticMadhyasthDarshan.org` and slide numbers
 
+
+## Pull request
+
+Presentation decks live under `Studies/<Slug>/`, so updates go through a **`study-update`**
+PR (same as study markdown edits):
+
+1. Feature branch — never commit the deck directly to `master`/`main`.
+2. Open the [study-update template](../../.github/PULL_REQUEST_TEMPLATE/study-update.md).
+3. Set `Study slug: <Slug>` on its **own line** with the **bare** catalog slug only
+   (e.g. `Study slug: The-Ontology-of-Coexistence`). Do **not** append notes such as
+   "(companion presentation)" on that line — CI looks up the whole remainder of the line.
+4. Apply the `study-update` label. Mark Edited-on checklist items N/A when the study
+   `.md` was not changed.
+5. Describe the deck changes under Summary.
+
+See [AGENTS.md](../../AGENTS.md) §7 and [CONTRIBUTING.md](../../CONTRIBUTING.md).
+
 ## Rules
 
 - Do not auto-slice study markdown into slides — curated YAML is the source of truth.
