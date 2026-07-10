@@ -69,7 +69,7 @@ For **MVD**, **SB**, and **JV**, Studies bibliographies and quote verification m
 | **JV** | [JV-Jeevan-Vidya-An-Introduction.pdf](Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf) · [`.md`](Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.md) | *Jeevan Vidya: An Introduction*; English translation by Rakesh Gupta. Cite the PDF in Studies; `.md` is analysis-only (do not edit by hand). |
 | **AVD** | [AVD-Adhyatmvad.docx.pdf](Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf) | *Realisation Centred Spiritualism* (Adhyatmvad); English WIP translation by Sanjeev Chopra |
 | **JVD** | [JVD-Janvad.pdf](Madhyasth-Darshan/JVD-Janvad.pdf) | *Behaviour Centred Public Discourse* (Janvad); English WIP translation by Sanjeev Chopra |
-| **MD** | [MD-Mapping.xlsx](Madhyasth-Darshan/MD-Mapping.xlsx) | Chapter/page mapping spreadsheet |
+| **MD** | [MD-Mapping.xlsx](Madhyasth-Darshan/MD-Mapping.xlsx) | Hindi–English terminology glossary (chapter/page mapping heritage); exhaustively refreshed from MVD/SB pairs in Phase 4 (freq ≥ 2 candidates; see [`MD-Mapping-Sources/`](Madhyasth-Darshan/MD-Mapping-Sources/README.md)) |
 | **KD** | [KD-karm darshan v5.pdf](Madhyasth-Darshan/KD-karm%20darshan%20v5.pdf) | *Manav Karm Darshan* (Hindi, v5); cited via working translations in [KD-Karm-Darshan-English/](Madhyasth-Darshan/KD-Karm-Darshan-English/README.md) |
 | **KD-Karm-Darshan-English** | [KD-Karm-Darshan-English/](Madhyasth-Darshan/KD-Karm-Darshan-English/README.md) | Full-book working English translation (front matter + ch. 1–3); not a published translation |
 
