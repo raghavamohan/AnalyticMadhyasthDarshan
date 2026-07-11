@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="color-scheme" content="light dark"/>
+<title>Coexistence From First Principles</title>
+<link rel="canonical" href="https://analyticmadhyasthdarshan.org/Studies/Coexistence-From-First-Principles/Coexistence-From-First-Principles.html"/>
+<meta name="description" content="The complete formal statement of Madhyasth Darshan: three primitives (satta, units, saturation), two axioms, and one generative move — compound-closure, reflexive at constitutional completeness — generating the tier-neutral structure, a clause-by-clause recovery audit, and a single categorical spine"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="AnalyticMadhyasthDarshan.org"/>
+<meta property="og:title" content="Coexistence From First Principles"/>
+<meta property="og:description" content="The complete formal statement of Madhyasth Darshan: three primitives (satta, units, saturation), two axioms, and one generative move — compound-closure, reflexive at constitutional completeness — generating the tier-neutral structure, a clause-by-clause recovery audit, and a single categorical spine"/>
+<meta property="og:url" content="https://analyticmadhyasthdarshan.org/Studies/Coexistence-From-First-Principles/Coexistence-From-First-Principles.html"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Coexistence From First Principles"/>
+<meta name="twitter:description" content="The complete formal statement of Madhyasth Darshan: three primitives (satta, units, saturation), two axioms, and one generative move — compound-closure, reflexive at constitutional completeness — generating the tier-neutral structure, a clause-by-clause recovery audit, and a single categorical spine"/>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Coexistence From First Principles","description":"The complete formal statement of Madhyasth Darshan: three primitives (satta, units, saturation), two axioms, and one generative move — compound-closure, reflexive at constitutional completeness — generating the tier-neutral structure, a clause-by-clause recovery audit, and a single categorical spine","url":"https://analyticmadhyasthdarshan.org/Studies/Coexistence-From-First-Principles/Coexistence-From-First-Principles.html","inLanguage":"en","author":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"publisher":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"dateModified":"2026-07-11T15:42:00+05:30"}
+</script>
+<style>
+  @page {
+    size: A4;
+    margin: 2.2cm 2cm 2.2cm 2cm;
+  }
+  @media print {
+    body {
+      font-size: 11pt;
+      margin: 0;
+      padding: 0;
+      max-width: none;
+    }
+    h1 ~ p {
+      margin: 3pt 0;
+    }
+    h2 {
+      page-break-after: auto;
+      break-after: auto;
+    }
+    h2:first-of-type {
+      margin-top: 10pt;
+    }
+    h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+    h3, h4 { page-break-inside: avoid; break-inside: avoid; }
+    p { text-align: justify; text-justify: inter-word; hyphens: auto; }
+    li { text-align: left; }
+    table {
+      page-break-inside: auto;
+      break-inside: auto;
+    }
+    thead {
+      display: table-header-group;
+    }
+    tr {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    pre { page-break-inside: avoid; white-space: pre-wrap; overflow-wrap: anywhere; word-break: break-word; }
+    blockquote { page-break-inside: avoid; }
+    .page-marker {
+      page-break-before: always;
+      break-before: page;
+      visibility: hidden;
+      height: 0;
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+    .blank-page {
+      page-break-before: always;
+      break-before: page;
+      min-height: 1px;
+      margin: 0;
+      padding: 0;
+    }
+    .blank-page-label {
+      visibility: hidden;
+      height: 0;
+      margin: 0;
+      padding: 0;
+      border: none;
+      display: block;
+    }
+  }
+  .page-marker {
+    display: block;
+    font-family: Georgia, serif;
+    font-size: 9pt;
+    color: #888;
+    margin: 24pt 0 12pt 0;
+    border-top: 1px dashed #ddd;
+    padding-top: 6pt;
+    text-align: right;
+  }
+  body {
+    position: relative;
+    z-index: 1;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 11pt;
+    line-height: 1.55;
+    color: #1a1a1a;
+    max-width: 750px;
+    margin: 30px auto;
+    padding: 0 20px;
+  }
+  h1 {
+    font-size: 20pt;
+    margin-top: 0;
+    margin-bottom: 4pt;
+    color: #111;
+    border-bottom: 2px solid #333;
+    padding-bottom: 6pt;
+  }
+  h1 + p {
+    margin-top: 4pt;
+  }
+  h2 {
+    font-size: 15pt;
+    margin-top: 18pt;
+    margin-bottom: 6pt;
+    color: #222;
+    border-bottom: 1px solid #bbb;
+    padding-bottom: 4pt;
+  }
+  h3 {
+    font-size: 12.5pt;
+    margin-top: 16pt;
+    margin-bottom: 4pt;
+    color: #333;
+  }
+  h4 {
+    font-size: 11.5pt;
+    margin-top: 14pt;
+    margin-bottom: 4pt;
+    color: #333;
+    font-weight: bold;
+  }
+  p {
+    margin: 6pt 0;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+  }
+  a {
+    color: #1a5276;
+    text-decoration: underline;
+  }
+  blockquote {
+    margin: 10pt 0 10pt 16pt;
+    padding: 6pt 12pt;
+    border-left: 3pt solid #888;
+    background: #f7f7f5;
+    font-style: italic;
+    color: #333;
+  }
+  blockquote p {
+    margin: 0;
+    white-space: pre-line;
+  }
+  blockquote p + p {
+    margin-top: 6pt;
+  }
+  blockquote strong {
+    font-style: normal;
+  }
+  .quote-source {
+    font-style: normal;
+    font-size: 10pt;
+    color: #555;
+    margin-top: 4pt;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12pt 0;
+    font-size: 10pt;
+    page-break-inside: auto;
+    break-inside: auto;
+  }
+  thead {
+    display: table-header-group;
+  }
+  tr {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  th {
+    background: #e8e8e4;
+    border: 1px solid #aaa;
+    padding: 5pt 7pt;
+    text-align: left;
+    font-weight: bold;
+  }
+  td {
+    border: 1px solid #ccc;
+    padding: 5pt 7pt;
+    vertical-align: top;
+  }
+  tr:nth-child(even) {
+    background: #fafaf8;
+  }
+  code {
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 10pt;
+    background: #f0f0ec;
+    padding: 1pt 3pt;
+    border-radius: 2pt;
+  }
+  pre {
+    background: #f5f5f1;
+    padding: 10pt 14pt;
+    border-radius: 4pt;
+    overflow-x: auto;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    white-space: pre-wrap;
+    max-width: 100%;
+    font-size: 10pt;
+    line-height: 1.4;
+  }
+  pre code {
+    background: none;
+    padding: 0;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  ul, ol {
+    margin: 6pt 0;
+    padding-left: 24pt;
+  }
+  li {
+    margin: 3pt 0;
+  }
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 12pt auto;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  p:has(> img:only-child) {
+    text-align: center;
+    margin: 12pt 0;
+  }
+  .mermaid {
+    display: flex;
+    justify-content: center;
+    margin: 12pt auto;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .mermaid svg {
+    max-width: 100%;
+    height: auto;
+  }
+  .katex-display {
+    margin: 8pt 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 100;
+    padding: 8px 14px;
+    background: #1a5276;
+    color: #fff;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 0 0 8px 0;
+  }
+  .skip-link:focus {
+    left: 0;
+    outline: 2px solid #13405c;
+    outline-offset: 2px;
+  }
+  h2[id] {
+    scroll-margin-top: calc(var(--study-toolbar-height, 88px) + 10px);
+  }
+  .table-scroll {
+    overflow-x: auto;
+    margin: 12pt 0;
+    -webkit-overflow-scrolling: touch;
+  }
+  .table-scroll table {
+    margin: 0;
+  }
+  .term-tip-wrap {
+    position: relative;
+    display: inline;
+    white-space: normal;
+  }
+  .term-tip {
+    background: none;
+    border: none;
+    border-bottom: 1px dotted #1a5276;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: #1a5276;
+    cursor: help;
+    text-align: inherit;
+  }
+  .term-tip:focus-visible {
+    outline: 2px solid #1a5276;
+    outline-offset: 2px;
+    border-bottom-color: transparent;
+  }
+  .term-tip-panel {
+    display: none;
+    position: fixed;
+    z-index: 40;
+    min-width: 220px;
+    max-width: min(320px, 90vw);
+    padding: 8px 10px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    line-height: 1.45;
+    font-style: normal;
+    font-weight: 400;
+    color: #2a241c;
+    background: #fff;
+    border: 1px solid #c5d9e6;
+    border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(42, 36, 28, 0.12);
+    text-align: left;
+    pointer-events: none;
+  }
+  .term-tip-panel.is-visible {
+    display: block;
+  }
+  .study-toolbar {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 13px;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    margin: 0 0 22px;
+    padding: 10px 14px;
+    border: 1px solid #d8d2c8;
+    border-radius: 8px;
+    background: rgba(247, 244, 239, 0.92);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+  .study-toolbar-row {
+    display: grid;
+    align-items: center;
+    gap: 8px 14px;
+  }
+  .study-toolbar-row--primary {
+    grid-template-columns: minmax(0, 1fr) minmax(0, auto) minmax(0, 1fr);
+  }
+  .study-toolbar-actions {
+    grid-column: 3;
+    justify-self: end;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px 12px;
+    min-width: 0;
+    text-align: right;
+  }
+  .study-toolbar-feedback {
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .study-toolbar-row--sections {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .study-toolbar-back {
+    grid-column: 1;
+    justify-self: start;
+    min-width: 0;
+  }
+  .study-toolbar-download {
+    min-width: 0;
+    text-align: right;
+  }
+  .study-toolbar-title {
+    grid-column: 2;
+    justify-self: center;
+    text-align: center;
+    margin: 0;
+    min-width: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: #2c241c;
+    line-height: 1.35;
+  }
+  .study-toolbar-draft {
+    font-weight: 600;
+    color: #5c5348;
+  }
+  .study-toolbar-link {
+    color: #1a5276;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .study-toolbar-link:hover { color: #13405c; }
+  .study-toolbar-link:focus-visible {
+    outline: 2px solid #1a5276;
+    outline-offset: 2px;
+  }
+  .study-toolbar-section {
+    display: block;
+    min-width: 0;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .study-toolbar-section--prev { justify-self: start; }
+  .study-toolbar-section--next {
+    justify-self: end;
+    text-align: right;
+  }
+  .study-toolbar-section.is-disabled {
+    opacity: 0.45;
+    pointer-events: none;
+    color: #6f655a;
+  }
+  .study-toolbar-download::after {
+    content: " \2193";
+    font-weight: 700;
+  }
+  @media (max-width: 640px) {
+    .study-toolbar-row--primary {
+      grid-template-columns: 1fr 1fr;
+    }
+    .study-toolbar-back {
+      grid-column: 1;
+    }
+    .study-toolbar-actions {
+      grid-column: 1 / -1;
+      justify-self: stretch;
+      justify-content: flex-end;
+    }
+    .study-toolbar-title {
+      grid-column: 1 / -1;
+      white-space: normal;
+    }
+    .study-toolbar-section {
+      white-space: normal;
+    }
+  }
+  @media print {
+    .study-toolbar { display: none !important; }
+    .skip-link { display: none !important; }
+    .term-tip {
+      border-bottom: none;
+      color: inherit;
+      cursor: text;
+    }
+    .term-tip-panel { display: none !important; }
+  }
+
+  @media screen and (prefers-color-scheme: dark) {
+    body {
+      color: #e6dfd6;
+      background: #1a1815;
+    }
+    h1, h2, h3, h4 {
+      color: #f5f1ec;
+    }
+    h1 { border-bottom-color: #6f655a; }
+    h2 { border-bottom-color: #423b33; }
+    a { color: #7ebbed; }
+    a:visited { color: #9ec8e8; }
+    blockquote {
+      background: #26231e;
+      border-left-color: #6f655a;
+      color: #e6dfd6;
+    }
+    .quote-source { color: #aca194; }
+    th {
+      background: #2f2a24;
+      border-color: #423b33;
+      color: #f5f1ec;
+    }
+    td {
+      border-color: #423b33;
+      color: #e6dfd6;
+    }
+    tr:nth-child(even) { background: #1e1b18; }
+    code {
+      background: #2f2a24;
+      color: #f0e8dc;
+    }
+    pre {
+      background: #1e1b18;
+      color: #e6dfd6;
+    }
+    .study-toolbar {
+      background: rgba(26, 24, 21, 0.92);
+      border-color: #423b33;
+    }
+    .study-toolbar-link { color: #7ebbed; }
+    .study-toolbar-link:hover { color: #b8daf3; }
+    .study-toolbar-title { color: #f5f1ec; }
+    .study-toolbar-draft { color: #aca194; }
+    .study-toolbar-section.is-disabled { color: #6f655a; }
+    .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    .term-tip-panel {
+      color: #e6dfd6;
+      background: #26231e;
+      border-color: #423b33;
+    }
+  }
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav class="study-toolbar" aria-label="Study navigation">
+  <div class="study-toolbar-row study-toolbar-row--primary">
+    <a class="study-toolbar-link study-toolbar-back" href="../index.html#study-Coexistence-From-First-Principles">&larr; All studies</a>
+    <p class="study-toolbar-title">Coexistence From First Principles <span class="study-toolbar-draft">(Draft)</span></p>
+    <span class="study-toolbar-actions">
+      <a class="study-toolbar-link study-toolbar-discuss" href="discussion.html?dv=2">Discuss</a>
+      <a class="study-toolbar-link study-toolbar-download" href="Coexistence-From-First-Principles.pdf" download>Download PDF</a>
+      <a class="study-toolbar-link study-toolbar-feedback" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&title=Study%20feedback%3A%20Coexistence%20From%20First%20Principles">Suggest a correction</a>
+    </span>
+  </div>
+  <div class="study-toolbar-row study-toolbar-row--sections">
+    <a class="study-toolbar-link study-toolbar-section study-toolbar-section--prev" id="study-section-prev" href="#" aria-disabled="true">&larr; Previous section</a>
+    <a class="study-toolbar-link study-toolbar-section study-toolbar-section--next" id="study-section-next" href="#" aria-disabled="true">Next section &rarr;</a>
+  </div>
+</nav>
+<main id="main"><h1>Coexistence From First Principles</h1>
+<h2 id="the-kernel-and-generated-structure-of-madhyasth-darshan">The kernel and generated structure of Madhyasth Darshan</h2>
+<p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> — a group of people studying <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
+<p><strong>Edited on:</strong> July 11, 2026, 3:42 PM IST</p>
+<p><strong>The thesis:</strong> <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s entire ontology follows from a small kernel — <strong>three primitives</strong> (the omnipresent medium <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span></em>, real countable units, and their saturation), <strong>two axioms</strong> (endowment and completeness-orientation), and <strong>one generative move</strong> (complementary units close into a new unit, iterated up the tiers). Activeness — the inseparable triad of effort, motion, and result — is not a further primitive but the manifestation the first axiom confers, so the equation <em>Unit + energy-fullness = activeness</em> (SB p. 69) reads as a theorem, not a postulate. From this kernel the darshan&rsquo;s full structure is generated: relationships as definite couplings, value as what a coupling realises, composition as coupling that closes a new boundary, transmission as the recurrence of a composition method, and — at the fixed point where a compound atom reaches constitutional completeness — <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, whose activity takes activity as its object, switching on evaluation, justice, and the one tier of the structure that can fail. A recovery audit classifies every notion as <em>primitive</em>, <em>axiom</em>, <em>definition</em>, <em>theorem</em>, or explicitly-flagged <em>taught data</em>, and a single categorical spine — a carrier-behaviour reading downward and an inductive-generation reading upward — carries the parts mathematics can carry, naming exactly where it stops.</p>
+<h2 id="1-one-operation-run-twice">1. One operation, run twice</h2>
+<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> is usually read through its human programme — justice in relationships, family-based order, humane education. The texts support a stronger reading: the general structure is asserted first, and the human case is derived as its hardest instance. <em>Samadhanatmak Bhautikvad</em> opens in fully general terms —</p>
+<blockquote>
+<p><strong>&ldquo;Each unit is a whole along with its environment.&rdquo;</strong>
+— SB p. 13–14</p>
+<p><strong>&ldquo;Each unit is orderliness with its ness and participates in overall orderliness.&rdquo;</strong>
+— SB p. 13–14 (<em>ness</em> = <em>self-ness</em> in the bilingual edition; PDF extraction drops the prefix)</p>
+</blockquote>
+<p>— and <em>Manav Vyavahar Darshan</em> states the same universality: &ldquo;All units saturated in the Omnipresence (permeative and transparent) have form, properties, essential nature &amp; <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span>, and have inherent orderliness &amp; participate in overall orderliness&rdquo; (MVD p. 11). <em>Manav Karm Darshan</em>, whose title-page principle is simply &ldquo;Effort – Motion – Result&rdquo; (KD, Principle), develops the same ground as a science of activity from the atom upward.</p>
+<p>So the task is not extrapolation from humans to atoms but <strong>articulation</strong>: stating, in one structure, what the texts assert piecewise about atoms (MVD p. 8; JV p. 67), cells (JV p. 82), organisms (SB p. 16), and human collectives (MVD p. 55, p. 161). The whole of it can be held in one picture before any formalism:</p>
+<ul>
+<li><strong>Ground.</strong> There is one omnipresent, actionless medium, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span></em>, and there are countless real units. Every unit is <em>saturated</em> in the medium — soaked, submerged, surrounded. That saturation, and nothing added to it, makes each unit energy-replete and law-legible, so each unit is <strong>active</strong>: its activity is effort, motion, and result together.</li>
+<li><strong>Couple.</strong> A unit short of completeness and a unit in surplus are complementary; their activities couple, one&rsquo;s result entering the other as input. This is the only admissible coupling — complementarity of deficiency and surplus, never competition.</li>
+<li><strong>Close and recur.</strong> When a complementary coupling closes a new boundary, it <em>is</em> a new unit, one tier up, with its own signature. Because the output is again a unit, the same move applies to it — and iterating it builds the tiered world: particles into atoms, atoms into molecules and planets, cells into organisms, individuals into families and undivided society.</li>
+<li><strong>Run reflexively.</strong> At the fixed point where a composite atom reaches constitutional completeness, its activity can take <em>activity itself</em> as its object. That reflexive turn is <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, the sentient unit — and with it, uniquely, come evaluation, justice, and the possibility of failure.</li>
+</ul>
+<p>One move — complementary closure — generates the structure; run once more upon itself, it generates the knowledge order. A worked instance runs through the whole paper in miniature: two atoms, one hungry and one overfull (MVD p. 8), couple by complementarity, close into a molecule with a new conduct (MVD p. 42), which re-enters the same move toward the planetary and biological lines; carried up the development progression to constitutional completeness, the same activity turns reflexive and is <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> (SB p. 61).</p>
+<p>Precision earns its keep by letting the structure be <strong>carried to systems Shri Nagraj did not himself analyse</strong>. Forward, as design: an organisation, an economy, or an institution is stable exactly when it satisfies each generated clause — identifiable units, definite relationships with explicit expectation profiles, capacity sufficient for value to flow, composition by complementary need, persistence conditional on fulfilment, and an explicit carrier of transmission across member turnover. In reverse, as diagnosis: a failing system is walked clause by clause until the unmet one is found, and the knowledge-order discontinuity predicts that human-tier systems fail first at the understanding-dependent steps.</p>
+<p>Three cautions govern what follows. The texts <em>assert</em> piecewise; this paper <em>derives</em> — every derivation is this paper&rsquo;s construction, warranted by citations but not identical with them. The formalism is a <strong>lens for clarity</strong>, not a proof machine: it proves nothing about the reality of the medium or of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, which are exactly where the darshan parts from mainstream science. And a reduction can flatten: the kernel keeps units co-eternal with the medium — real carriers, not clusters distilled from activity — and refuses to derive what the texts present as taught content.</p>
+<h2 id="2-the-kernel">2. The kernel</h2>
+<h3>2.1 Three primitives</h3>
+<p><strong>O</strong> (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span></em>, Omnipresence) — one, real, all-pervasive, <strong>actionless</strong>, state-complete, and energy- and knowledge-natured (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="gyan" data-definition="Knowledge in several distinct senses in the texts — ontological given, intelligibility-ground, telos of fulfilled relationships, and unfolding through awakened *jeevan*.">gyan</button></span></em>): &ldquo;Space is uniform in all dimensions… this reality is omnipresent&rdquo; (JV p. 31); state-complete while everything else is state-dynamic (MVD p. 12). O is not a unit, and no statement quantifying over units applies to O.</p>
+<p><strong>U</strong> (units, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="ikai" data-definition="A countable, bounded entity in nature — insentient (*jada*) or sentient (*chaitanya*).">ikai</button></span></em>) — real, co-eternal, countable <strong>carriers</strong>: &ldquo;Nature is in the form of entities that can be counted&rdquo; (JV p. 45). A unit <em>bears</em> a state and an activity; it is never <em>built from</em> activity, occasions, or process. This carrier-primacy is a commitment, not a convenience: a unit is not identified with its behaviour (§6, §10).</p>
+<p><strong>Saturation</strong> — the one ground relation: every unit is soaked, submerged, and surrounded in the single O, with &ldquo;no provision in existence to separate units of nature from Omnipresence&rdquo; (JV p. 18). Saturation is constitutive co-location in a shared medium, the <em>first</em> ontological relation, distinct from any unit-to-unit relationship, and not a physical drawing from O (SB pp. 49, 62).</p>
+<p>Activeness is deliberately <strong>not</strong> a primitive. The texts state its status as an identity, &ldquo;Unit + Energy fullness = Activeness&rdquo; (SB p. 69) — a co-presence conferred by saturation, recovered below as a theorem (§2.4), not a fourth building block.</p>
+<h3>2.2 Two axioms</h3>
+<p><strong>A1 (Endowment — the <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span></em> firewall).</strong> Through saturation, O endows each unit&rsquo;s carrier with exactly two invariants: <strong>(a)</strong> <em>inexhaustible energy</em>, so the unit is active and its activity manifests as the triad of effort (<em>shram</em>), motion (<em>gati</em>), and result (<em>parinam</em>) — &ldquo;There is no unit or particle in nature which is not replete with energy… This activeness is seen in every unit in the form of effort, motion and result&rdquo; (SB p. 69; KD 3.1); and <strong>(b)</strong> <em>lawful intelligibility</em>, so the activity is determinate and unit-to-unit recognisable, &ldquo;there is provision in every unit for recognising one another based on law&rdquo; (SB p. 57). The firewall is part of the axiom: <strong>O is never an input to, nor a summand of, a unit&rsquo;s activity</strong> — it supplies determinacy and non-halting, contributing no push, no update term, and suffering no depletion. O energises and regulates by being-soaked-into, never by acting; the nucleus within each atom, and mediative <em>atma</em> within <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, localise this regulation without O ever becoming an agent (MVD p. 26).</p>
+<p><strong>A2 (Completeness-orientation).</strong> Every unit&rsquo;s activity is directed to the <strong>terminal</strong> completeness of its aspects — restfulness of effort, destination of motion, immortality of result (SB pp. 58, 71) — and never to the <strong>maximisation</strong> of any quantity. &ldquo;Every atom continues to undergo insertion and expulsion of particles until constitutional completeness… The result is meant to attain the goal of immortality, the effort the goal of restfulness, motion the goal of destination&rdquo; (SB p. 71). Completeness is an end-state, not a maximum; this single feature carries every anti-optimisation consequence in §8.</p>
+<h3>2.3 The generative move</h3>
+<p><strong>κ (compound-closure).</strong> Given saturated units whose ports are <strong>complementary</strong> — a deficiency met by a surplus, the only admissible coupling — their activities couple and, when the coupling closes a <em>new</em> motion-path, present one bounded whole: a new unit, one tier up, with a fresh signature whose components &ldquo;discard their own conducts, and present another kind of conduct&rdquo; (MVD p. 42). Written as a rule:</p>
+<pre><code class="language-text">  u₁, …, uₙ ∈ U saturated in O        ports complementary (deficiency ↔ surplus)        closure of a new motion-path
+  ─────────────────────────────────────────────────────────────────────────────────────────────────────────────
+                        κ(u₁, …, uₙ) ∈ U   —   a new unit, new signature, +1 tier
+</code></pre>
+<p>Because the conclusion is again a unit in U, A1, A2, and κ <strong>re-apply unchanged</strong>; the tiered hierarchy is the closure of this one rule (§4.10, P1). <strong>Mixture</strong> (<em>mishran</em>) is the companion combinator: coupling <em>without</em> closure, &ldquo;components all maintain their respective conducts&rdquo; (MVD p. 42). Its output is an aggregate typed into a sort that <strong>cannot re-enter κ</strong> — which is exactly why &ldquo;composition is not development&rdquo; (SB pp. 75–76): only compound-closure crosses an order plateau; mere enlargement never does.</p>
+<p><strong>The reflexive turn.</strong> κ iterated along the development progression (<em>vikas-kram</em>) — &ldquo;in the atom in the form of hungry and overfull atoms&rdquo; (MVD p. 8) — reaches a distinguished fixed point: a composite atom whose result-aspect attains its A2 terminal, <em>constitutional completeness</em>, after which &ldquo;both effort and motion become inexhaustible&rdquo; (SB p. 61). At that fixed point the unit&rsquo;s activity can take <em>activity itself</em> as its object. This reflexive re-application is <strong><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></strong>, and it is the sole locus of evaluation and of possible failure (§4.8). Reflexivity is a distinct move, not a second literal firing of κ; it is this paper&rsquo;s organising reading of the knowledge order, flagged as such in the audit.</p>
+<h3>2.4 Corollaries</h3>
+<p><strong>Activeness.</strong> By A1(a), every saturated unit is energy-replete and therefore active; its activity is the triad. &ldquo;Unit + Energy fullness = Activeness&rdquo; (SB p. 69) is thereby a theorem, and activeness is a <em>family indexed by units</em>, not a substrate they are built from. The triad&rsquo;s internal constitution is a joint form — each moment the outcome of the other two (MVD p. 105) — and its combined activity is basic impulsion (<em>mool cheshta</em>, MVD p. 40). KD states each aspect&rsquo;s sense directly: effort is the grandeur of the existent-state, motion the grandeur of spreading effect, result the grandeur of a different existent-state (KD 3.11).</p>
+<p><strong>Conservation.</strong> An inexhaustible, state-complete source (A1) adds no term to a unit&rsquo;s activity, and A2 orients that activity without annihilating it — so activeness is neither created nor destroyed, and &ldquo;Existence neither increases nor decreases&rdquo; (JV p. 127).</p>
+<p><strong>Coupling and non-isolation.</strong> Units share the one O and each is active (A1), so none is windowless: results enter results, and coupling holds — &ldquo;Nothing is isolated – that is the principle&rdquo; (JV p. 43). That coupling <em>occurs</em> is a theorem; that <em>every</em> unit couples with at least one other — the totality of the relation — is the one residual assumption the kernel still carries, and is flagged as such in the audit.</p>
+<h2 id="3-notation-category-theory-in-brief">3. Notation: category theory in brief</h2>
+<p>The formal spine of §6 uses category theory; this section gives the working vocabulary in plain language so the paper is self-contained, and readers at home with it can skip ahead.</p>
+<p>Category theory replaces &ldquo;what is each thing made of?&rdquo; with &ldquo;how does each thing relate to everything else?&rdquo;. An <strong>object</strong> is a thing to talk about; a <strong>morphism</strong> (arrow) is a relationship or a way from one object to another; <strong>composition</strong> chains arrows, and every object has an <strong>identity</strong> arrow. Two dual readings matter here. An <strong>algebra</strong> for a construction is a thing <em>built up</em> by a rule — the natural home of &ldquo;generated&rdquo;: the units of nature are the algebra freely generated by κ, so definitions over units become definitions by recursion on how a unit was built. A <strong>coalgebra</strong> is the dual — a carrier together with a map that <em>unfolds</em> its behaviour without identifying the carrier with that behaviour; it keeps a unit a substance that bears an activity rather than a bundle of relations. A <strong>colimit (gluing)</strong> joins pieces into one whole along what they share — the shape of families joining into one society. These three — the generating algebra upward, the carrier-coalgebra downward, and the gluing colimit sideways — are all the machinery the spine needs; the richer constructions are collected as optional annotations (§6.3).</p>
+<h2 id="4-the-generated-structure">4. The generated structure</h2>
+<p>Everything below is generated from §2: each notion is tagged <strong>[def]</strong> (a name for kernel structure), <strong>[thm]</strong> (a consequence), or <strong>[data]</strong> (taught content the kernel organises but cannot produce). The tags are collected in the audit (§5).</p>
+<h3>4.1 Units, activeness, and signature</h3>
+<p>A <strong>unit</strong> <strong>[def]</strong> is a saturated carrier in U, active as the triad (§2.4), disciplined along the motion-path that is at once its boundary and line of regulation. Insentient units are &ldquo;active within the bounds of their length, width and height&rdquo;; sentient units are &ldquo;active… beyond the bounds&rdquo; (MVD p. 33) — the motion-path bounds the activity&rsquo;s extent without bounding its reach. An <strong>atom</strong> (<em>parmanu</em>) is not the elementary particle of physics: its kind, state, and measure are fixed by the number of particles in its nucleus (<em>madhyansh</em>) and its orbiting particles (MVD p. 42; KD 3.1).</p>
+<p>Each unit carries a <strong>signature</strong> <strong>[def, with data]</strong> — the four-tuple form (<em>roop</em>), properties (<em>gun</em>), essential nature (<em>svabhav</em>), and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> (MVD p. 11) — minted fresh at each compound tier. The four-tuple <em>form</em> is definitional; the per-order values are taught data:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Order</th>
+<th>Essential nature (<em>svabhav</em>)</th>
+<th><em>Dharma</em> (cumulative)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Material (<em>padarth</em>)</td>
+<td>integration–disintegration</td>
+<td>existence (<em>astitva</em>)</td>
+</tr>
+<tr>
+<td>Bio (<em>pran</em>)</td>
+<td>vitalising–devitalising</td>
+<td>+ growth (<em>pushti</em>)</td>
+</tr>
+<tr>
+<td>Animal (<em>jeev</em>)</td>
+<td>cruel–uncruel</td>
+<td>+ hope to live</td>
+</tr>
+<tr>
+<td>Knowledge / human (<em>gyan</em>)</td>
+<td>fortitude, courage, generosity, kindness, grace, compassion</td>
+<td>+ happiness (<em>sukh</em>)</td>
+</tr>
+</tbody>
+</table></div>
+<h3>4.2 Relationships and value</h3>
+<p>A <strong>relationship</strong> <strong>[def]</strong> is a coupling whose expectation profile <strong>E(r)</strong> is fixed by the coupled units&rsquo; orders and signatures; an <strong>association</strong> is a coupling whose profile is adopted (MVD p. 61–62). The <strong>value</strong> of a unit in a relationship <strong>[thm-slot, with data]</strong> is what its coupling realises — its essentiality (<em>maulikta</em>), &ldquo;the essentiality of units in every plane and order… It is values that are reciprocated and mutually recognised&rdquo; (SB p. 50). That value is real at every tier because coupling is; <em>which</em> values fill the slot is taught data. The texts sort essentiality into six kinds — object values (utility and art) operating at all orders, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, human, established, and expression values operating only at the knowledge order and presupposing <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> (MVD p. 306; JV pp. 43, 138–139). The nine established values flow from <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> the moment a relationship is recognised — &ldquo;when a mother has recognised her child then motherly care starts surging by itself&rdquo; (JV p. 138) — in a generative order (gratitude → affection, love, trust; JV p. 108), so V carries a partial ordering.</p>
+<h3>4.3 Recognition, fulfilment, and capacity</h3>
+<p><strong>Recognition</strong> ρ <strong>[def]</strong> is A1(b) exercised between units — identification of a relationship and its profile. <strong>Fulfilment</strong> φ <strong>[def]</strong> is the coupling executing: &ldquo;Fulfilling is to evidence use, right-use and purposeful-use&rdquo; (MVD p. 27, p. 62). Fulfilment is modulated by <strong>capacity</strong> <strong>[data]</strong> — the intellectual means capacity (<em>kshamata</em>), ability (<em>yogyata</em>), and receptivity (<em>patrata</em>) (MVD p. 62): φ is realised at the level these permit, not by receptivity alone. In the material order the conversion of capacity and ability into effort is <em>ascending</em> (<em>agreshan</em>); its shortfall is frustration (<em>kshobh</em>), &ldquo;incompleteness of receptivity&rdquo; (MVD p. 79) — the triad failing to close toward restfulness, which at the human tier is &ldquo;their yearning for restfulness&rdquo; that drives awakening (MVD p. 104).</p>
+<h3>4.4 Composition: compound and mixture</h3>
+<p>Composition is the generative move κ (§2.3). <strong>Compound</strong> (<em>yaugik</em>) closes a new motion-path and mints a new unit with a new signature; <strong>mixture</strong> (<em>mishran</em>) does not, and yields a non-generating aggregate whose components &ldquo;all maintain their respective conducts&rdquo; (MVD p. 42) — so mere enlargement never crosses an order plateau (&ldquo;composition is not development&rdquo;, SB pp. 75–76).</p>
+<p>κ is <strong>not confined to insentient units</strong>: it operates at every order — atoms bond into molecules and planets, cells into organisms, and constitutionally complete humans into families, communities, and undivided society (MVD p. 55). What is confined is not κ but two things. The <strong>sentience-creating</strong> instance of κ — compound-closure reaching constitutional completeness (T1) — runs only along the atomic development progression (<em>vikas-kram</em>): new sentience is an atomic threshold (SB p. 92; KD 3.2–3.3), so composing <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> yields an <em>assembly</em> of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, never a larger <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>. And at the knowledge order κ changes character — composition becomes <strong>achieved</strong>: voluntary, understanding-mediated, and fallible, requiring shared cause, goal, and programme and a carrier of transmission (§4.5, §4.10), where the first three orders bond definitely. Whether a given social assembly is a fused compound or a coordinated mixture (a household of shared conduct versus cohabitation with separate conducts) is one of the boundary cases the audit leaves open (§10). Awakening Progression (<em>jagriti-kram</em>) is not κ at all: it runs <em>within</em> an already constitutionally complete <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> toward T2–T3 (§4.8).</p>
+<h3>4.5 State, persistence, and transmission</h3>
+<p>A unit is in its <strong>natural state</strong> <strong>[def]</strong> when its relationships are fulfilled within conducive conditions and in an <strong>excited state</strong> otherwise: &ldquo;Each unit moves towards development in its natural state and decline in its excited state&rdquo; (SB p. 14). In triad terms the excited state is the activity failing to close toward its A2 target. <strong>Persistence</strong> <strong>[thm]</strong> follows: an assembly persists exactly while its couplings stay fulfilled and decomposes when they do not — natural-state closure sustained. Conducive conditions are order-relative; in the material order even an excited state can be complementary (an expelled particle feeds a hungry atom, SB p. 15), while in the deluded knowledge order excitation harms both self and others (SB p. 16).</p>
+<p><strong>Transmission</strong> τ <strong>[def, with data]</strong> re-instantiates an assembly&rsquo;s method of composition (<em>rachna vidhi</em>) in new member-units, &ldquo;inherent in the pran sutra situated in the cell&rdquo; (JV p. 82). Its form — a result whose content is a method, recurring across member turnover — is generated; its carriers are taught data, ascending with the orders (constitution / seed / lineage / education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em>; JV p. 48; MVD p. 93). At the knowledge order τ carries <em>evidenced</em> understanding only: &ldquo;ignorance cannot flow in tradition&rdquo; (JV p. 49).</p>
+<h3>4.6 Orders and the regulation ladder</h3>
+<p>U is partitioned into four <strong>orders</strong> <strong>[def, with data]</strong> — material, pranic/bio, animal, knowledge (JV p. 47; MVD p. 9) — each a persistence regime differing in how a unit&rsquo;s method survives:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Order</th>
+<th>Added capability</th>
+<th>Regulation regime</th>
+<th>Mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Material</td>
+<td>recognising, fulfilling</td>
+<td>result-/structural-conformance</td>
+<td>definite</td>
+</tr>
+<tr>
+<td>Pranic / bio</td>
+<td>+ selection</td>
+<td>seed-conformance (<em>beej</em>)</td>
+<td>definite</td>
+</tr>
+<tr>
+<td>Animal</td>
+<td>+ sensation, hope</td>
+<td>species/lineage-conformance (<em>vansh</em>)</td>
+<td>definite</td>
+</tr>
+<tr>
+<td>Knowledge</td>
+<td>+ knowing, believing, evaluation, choice</td>
+<td><em>sanskar</em>-conformance</td>
+<td>achieved</td>
+</tr>
+</tbody>
+</table></div>
+<p>Grounding: &ldquo;The material order is regulated by structural conformity… the biological order by seed conformity… the animal order by species conformity… Humans achieve definite conduct through <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span>-conformity&rdquo; (JV p. 48; SB p. 236). The <strong>regulation ladder</strong> <strong>[def]</strong> is the reading order of A1 and the orders, not new axioms: saturation provisions regulation <em>in</em> the unit; regulation becomes evident as law (universal across orders); the same law appears as order-specific conformance (definite in the first three, achieved in the knowledge order); within constitutionally complete <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, mediative <em>atma</em> disciplines the faculties (§4.8); and justice is the knowledge-order closure (§4.9). Orderliness at the order level is self-regulation (<em>swatah-saspurt</em>), inherent in co-existing orders, not dispensed by O acting as governor.</p>
+<h3>4.7 Planes and completeness transitions</h3>
+<p>Alongside the orders, SB names four <strong>planes</strong> (<em>pad</em>) — physicochemical, delusional, deific, and divine — as stages in nature&rsquo;s progression toward completeness. The three completeness stages <strong>[thm-orientation, with data]</strong> are the fulfilled moments of the triad and map to plane transitions:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Transition</th>
+<th>Completeness</th>
+<th>From → to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>T1</strong></td>
+<td>Constitutional (<em>gathanpurnata</em>)</td>
+<td>Physicochemical → delusional</td>
+</tr>
+<tr>
+<td><strong>T2</strong></td>
+<td>Activity (<em>kriyapurnata</em>)</td>
+<td>Delusional → deific</td>
+</tr>
+<tr>
+<td><strong>T3</strong></td>
+<td>Conduct (<em>vyavaharpurnata</em>)</td>
+<td>Deific → divine</td>
+</tr>
+</tbody>
+</table></div>
+<p>T1 is the reflexive fixed point of §2.3 — irreversible at the atomic level (SB p. 92); T2 and T3 are awakening milestones within constitutionally complete <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>. Four progressions must not be collapsed: existential (<em>niyati-kram</em>, the fixed order emergence material → pranic → animal → knowledge), way of existence (<em>niyati-vidhi</em>, definiteness of each order&rsquo;s conduct), development (<em>vikas-kram</em>, through the physicochemical complex until T1), and awakening (<em>jagriti-kram</em>, within <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> toward T2–T3).</p>
+<p><em>Vikas-kram</em> and <em>jagriti-kram</em> are one engine in <strong>two regimes</strong>, divided by the reflexive turn. Below it, a unit&rsquo;s completeness is <strong>constitutional</strong> and its deficiency is met from outside — surplus particles supplied by complementary units through κ. At and above it, constitution is already complete, so the remaining deficiency is <strong>realizational</strong>: the faculties are not yet aligned and understanding is not yet attained, and this deficiency is met not by acquiring anything from without but by the <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>&rsquo;s own activity turning inward. The drive is the same completeness-orientation (A2) carried by the same triad — <em>kshobh</em>, the &ldquo;frustration of effort [that] itself is their yearning for restfulness&rdquo; (MVD p. 104), is what A2 feels like once the activity has become reflexive. What changes across the turn is only the currency: from particles-and-bonding to understanding-and-alignment. So &ldquo;the constitution is already complete, what develops?&rdquo; has a clean answer — <em>realization</em> develops, not constitution.</p>
+<h3>4.8 <em>Jeevan</em> and the reflexive turn</h3>
+<p><strong><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">Jeevan</button></span></strong> <strong>[def, with data]</strong> is the unit at the reflexive fixed point (§2.3): a constitutionally complete composite atom (<em>gathanpurna parmanu</em>) whose result-aspect has reached immortality, after which &ldquo;both effort and motion become inexhaustible&rdquo; (SB p. 61). Its constitution <em>is</em> the atom&rsquo;s nucleus-and-orbit structure — &ldquo;The nucleus of the sentient unit… is referred to as atma. The particles in its first orbit… <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="buddhi" data-definition="Discriminative faculty in *jeevan* — part of the sentient unit's orbital structure with *mun*, *vritti*, and *chitta*.">buddhi</button></span>, the second… <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery.">chitta</button></span>, the third… <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Modification or tendency in *jeevan* — one of the faculties whose alignment supports or obstructs understanding.">vritti</button></span>, the fourth… <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mun" data-definition="A faculty of *jeevan* — imagination and selection; part of the orbital structure with *buddhi*, *vritti*, and *chitta*.">mun</button></span>&rdquo; (MVD p. 78) — operating through the projection–reflection cycle (<em>paravartan</em>–<em>pratyavartan</em>; KD 3.12): selection and taste in <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mun" data-definition="A faculty of *jeevan* — imagination and selection; part of the orbital structure with *buddhi*, *vritti*, and *chitta*.">mun</button></span></em>, analysis and deliberation in <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Modification or tendency in *jeevan* — one of the faculties whose alignment supports or obstructs understanding.">vritti</button></span></em>, visualisation and contemplation in <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery.">chitta</button></span></em>, resolve and enlightenment in <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="buddhi" data-definition="Discriminative faculty in *jeevan* — part of the sentient unit's orbital structure with *mun*, *vritti*, and *chitta*.">buddhi</button></span></em>, authenticity and realisation in <em>atma</em> (JV p. 92; MVD p. 13). The faculty inventory is taught data; that <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> is where activity turns reflexive is the kernel&rsquo;s structural claim. Since <em>atma</em> is mediative, the faculties and body are naturally regulated by it, and effort resisting that regulation is discord (MVD pp. 77, 277) — inward regulation parallel to the atomic nucleus. A human (and an animal) is the joint form of body and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>: <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> acts through the body as instrument, is not dissolved at the body&rsquo;s death, and the body is provisioned to evidence understanding (JV p. 59; KD 3.16).</p>
+<p>What differs between an animal and a human is not the <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> but the <strong>body</strong> it operates. In an animal the sentient atom&rsquo;s outer orbits — <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery.">chitta</button></span></em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Modification or tendency in *jeevan* — one of the faculties whose alignment supports or obstructs understanding.">vritti</button></span></em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mun" data-definition="A faculty of *jeevan* — imagination and selection; part of the orbital structure with *buddhi*, *vritti*, and *chitta*.">mun</button></span></em> — are only partially active (MVD p. 79), so the body runs a narrow circuit: it senses, selects, and acts, but knowing and believing stay severed (MVD p. 278). Animal and deluded human alike run on four <em>koshas</em>; only the awakened human, in a fully developed <em>medhas</em>-body, opens the fifth — <em>vigyanmaya</em>, discernment (MVD pp. 49–50; KD 3.16). The body is thus an <strong>expression-gate</strong>: <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>&rsquo;s capability is intrinsic and complete, but how much of it can function is fixed by the body, and full expression waits on a human body. This is why the human tier is the unfinished one — not because <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> is incomplete, its constitution being already done, but because its realization is gated twice: by an understanding that can fail and by a body that must be human.</p>
+<p>The realizational development (§4.7) has a definite mechanism. Each activity, <strong>if it is justified</strong> — if the reflexive cycle closes as justice, ρ → φ → μ → mutual satisfaction (§4.9) — deposits the <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> values, happiness and peace; misjudged activity does not. Happiness is therefore not a substance <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> acquires but the result of justified conduct, and awakening is that result accumulated under the inward regulation of <em>atma</em>. Death and continuity are treated in the planned <em>Death, Continuity, and Rebirth</em> study; here the dyad enters only as the asymmetry that evaluation and evidence belong to <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, never to the body alone (JV p. 39).</p>
+<h3>4.9 Evaluation, justice, and the human goals</h3>
+<p><strong>Evaluation</strong> μ <strong>[thm]</strong> is the reflexive comparison of value delivered against value inherent in a relationship. Because only a reflexive activity can take a coupling as its object, μ is <em>automatically</em> confined to <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> — &ldquo;<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">Jeevan</button></span> evaluates the values that emanate from itself… No external instrument is needed&rdquo; (JV p. 139); &ldquo;Values and evaluation are processes of understanding; they are not bodily or mechanical&rdquo; (JV p. 39). That confinement is derived, not stipulated. Over-, under-, and mis-evaluation (MVD p. 38) are the failure modes the reflexive tier alone admits.</p>
+<p><strong>Justice</strong> (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="nyaya" data-definition="Justice — complete relational activity: recognise, fulfil, evaluate, mutual satisfaction.">nyaya</button></span></em>) <strong>[def]</strong> is the closed reflexive cycle — &ldquo;Recognising relationships, fulfilling values, evaluating, and achieving mutual satisfaction is justice&rdquo; (MVD p. 311; JV p. 55): the core cycle ρ → φ → μ → mutual satisfaction, an operator over value, not a member of it. <strong>Trust</strong> (<em>vishwas</em>) <strong>[data]</strong> is the value-name of a successful φ: &ldquo;Trust is the act of fulfilling the inherent expectation of values in mutuality&rdquo; (MVD p. 73). Justice is the operation; trust is the value it deposits (MVD p. 72). The knowledge order&rsquo;s telos <strong>[data]</strong> is fourfold: &ldquo;The goal of <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span> is happiness, and the human goal is resolution, prosperity, fearlessness, and coexistence&rdquo; (JV p. 165) — what the justice cycle <em>evidences</em> when it closes, scaled to humankind as undivided society (<em>akhand samaj</em>, SB pp. 246–247). These are provisions of coexistence, not automatic outcomes: delusion, accumulation detached from right-use, and fear-based sociality remain live failures (KD ch. 1).</p>
+<h3>4.10 Laws and propositions as theorems</h3>
+<p>The laws and propositions the texts also assert are consequences of the kernel:</p>
+<ul>
+<li><strong>Universal recognition-fulfilment</strong> — every unit recognises and fulfils at the level of its order (JV p. 69); definite and inerrant for the first three orders, achieved and fallible for <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>.</li>
+<li><strong>Complementarity, not struggle</strong> — the coupling engine is mutual offering and acceptance, &ldquo;there is no conflict in existence&rdquo; (JV p. 157). Under A2 competition is inexpressible: it would require a maximand, and A2 is terminal.</li>
+<li><strong>Assembly by complementary need</strong> — κ&rsquo;s trigger: hungry/overfull bonding (MVD p. 8), atoms into molecules into structures (JV p. 67), gravitation itself read as bonding participation (JV p. 150; KD 3.8).</li>
+<li><strong>Persistence ⇔ fulfilment</strong> — §4.5.</li>
+<li><strong>Transmission by order</strong> — §4.5.</li>
+<li><strong>Closure / iteration</strong> — κ&rsquo;s output is a unit, so the move re-applies; this generates the tiered hierarchy.</li>
+<li><strong>Self-evidencing closure</strong> — complete knowledge (<em>paripoorna <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="gyan" data-definition="Knowledge in several distinct senses in the texts — ontological given, intelligibility-ground, telos of fulfilled relationships, and unfolding through awakened *jeevan*.">gyan</button></span></em>, SB p. 116) requires the reflexive cycle to close in evidenced conduct and transmissible tradition (MVD p. 12).</li>
+</ul>
+<p>Four propositions the texts also assert follow. The <strong>tiered hierarchy</strong> (particles → atoms → molecules → planets; cells → organisms; individual → family → undivided society, MVD p. 161) is the free iteration of κ — a theorem, not a posit. <strong>Stability at the ends, dynamism between</strong> — O is state-complete and existence stable, while units develop definitely within that stability (MVD p. 5, p. 12). The <strong>knowledge-order discontinuity</strong> is derived: first-order operations execute by constitution and are inerrant, while the reflexive operations of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> route through a self-model and can misfire, so human assembly is the unique unfinished tier — &ldquo;This comprises only humans, who are yet to achieve orderliness&rdquo; (JV p. 47). <strong>Boundedness of extraction</strong> — a unit&rsquo;s relationships with lower-order units are governed by right-use bounded by regeneration (MVD p. 264; KD 3.13); extraction beyond regeneration is an unfulfilled relationship that destabilises the containing assembly (JV p. 77).</p>
+<h2 id="5-the-recovery-audit">5. The recovery audit</h2>
+<p>The kernel is adequate only if the generated structure recovers what the texts assert. Each notion carries one status:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Notion</th>
+<th>Status</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>O, U, saturation</td>
+<td>primitive</td>
+<td>The three-primitive base</td>
+</tr>
+<tr>
+<td>A1, A2</td>
+<td>axiom</td>
+<td>Endowment (with firewall); completeness-orientation</td>
+</tr>
+<tr>
+<td>κ, reflexive turn</td>
+<td>generative move</td>
+<td>Compound-closure; its fixed point is <em>jeevan</em></td>
+</tr>
+<tr>
+<td>Activeness / triad</td>
+<td>theorem + data</td>
+<td>Manifestation via A1(a); the triad&rsquo;s three-ness is data</td>
+</tr>
+<tr>
+<td>Conservation</td>
+<td>theorem</td>
+<td>Corollary of A1 + A2</td>
+</tr>
+<tr>
+<td>Coupling</td>
+<td>theorem</td>
+<td>From shared O + activity</td>
+</tr>
+<tr>
+<td>No-isolation (totality)</td>
+<td>assumption</td>
+<td>The one residual axiom the kernel still carries</td>
+</tr>
+<tr>
+<td>Signature</td>
+<td>definition + data</td>
+<td>Four-tuple form definitional; per-order values data</td>
+</tr>
+<tr>
+<td>Relationship, association</td>
+<td>definition</td>
+<td>Coupling with fixed vs adopted profile</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>theorem-slot + data</td>
+<td>Slot derived; the six kinds are data</td>
+</tr>
+<tr>
+<td>Recognition, fulfilment</td>
+<td>definition</td>
+<td>A1(b) + coupling execution</td>
+</tr>
+<tr>
+<td>Capacity</td>
+<td>data</td>
+<td>Its gating role is derived</td>
+</tr>
+<tr>
+<td>Composition (two modes)</td>
+<td>definition</td>
+<td>κ vs mixture, enforced by typing</td>
+</tr>
+<tr>
+<td>Natural/excited, persistence</td>
+<td>theorem</td>
+<td>Closure vs non-closure toward A2</td>
+</tr>
+<tr>
+<td>Transmission</td>
+<td>definition + data</td>
+<td>Form derived; carriers data</td>
+</tr>
+<tr>
+<td>Orders, regulation ladder</td>
+<td>definition + data</td>
+<td>Persistence regimes; the fourfold list is data</td>
+</tr>
+<tr>
+<td>Planes, T1–T3</td>
+<td>theorem-orientation + data</td>
+<td>Direction from A2; plane names and T1 irreversibility data</td>
+</tr>
+<tr>
+<td><em>Jeevan</em></td>
+<td>definition + data</td>
+<td>Reflexive fixed point derived; faculty inventory data</td>
+</tr>
+<tr>
+<td>Evaluation</td>
+<td>theorem</td>
+<td>Confinement to <em>jeevan</em> derived from reflexivity</td>
+</tr>
+<tr>
+<td>Justice</td>
+<td>definition</td>
+<td>The closed reflexive cycle</td>
+</tr>
+<tr>
+<td>Trust, human goals</td>
+<td>data</td>
+<td>Value-name of φ; the fourfold telos is taught</td>
+</tr>
+<tr>
+<td>Knowledge-order discontinuity</td>
+<td>theorem</td>
+<td>From reflexivity</td>
+</tr>
+<tr>
+<td>Tiered hierarchy, iteration</td>
+<td>theorem</td>
+<td>Free iteration of κ</td>
+</tr>
+</tbody>
+</table></div>
+<p>The <strong>irreducible remainder</strong> stays data and is named plainly, once: the triad&rsquo;s exactly-three aspects, the four order-signatures, the six value-kinds, the faculty inventory, the four transmission carriers, the four human goals, and the <em>selection predicate</em> that fixes which configuration reaches constitutional completeness. What the smaller kernel buys is not the elimination of this remainder but its <strong>localisation</strong> — it is now concentrated at two axioms and one rule rather than diffused across thirty-odd stipulations, and the boundary between structure and taught content runs through named clauses.</p>
+<h2 id="6-the-formal-spine">6. The formal spine</h2>
+<p>The template invites precise notation. Instead of a system of many categories, one dual-facing spine carries the load, with richer constructions kept as optional annotations.</p>
+<h3>6.1 Two readings: carrier-behaviour and generation</h3>
+<p><strong>Downward — carrier-coalgebra.</strong> A unit is a carrier <code>x</code> together with a behaviour map <code>x → F(x)</code> unfolding its activity (the triad and its couplings). The carrier is <em>not</em> quotiented by bisimulation and the theory does <em>not</em> pass to the final coalgebra — so the carrier exceeds its behaviour. This is the co-structuralist dual of the Yoneda principle, and it is what keeps a unit <strong>substantial</strong> and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> a real entity rather than a functional role, while letting O stay actionless: A1 grounds <em>that</em> the behaviour exists and is lawful, contributing no term to the unfolding.</p>
+<p><strong>Upward — generation as an initial algebra.</strong> The units of nature are the algebra freely generated by κ from the primitive units — an initial-algebra / W-type presentation in which &ldquo;generative&rdquo; is literal. Definitions over units (value, transmission, evaluation) become <strong>definitions by recursion</strong> on how a unit was built, and mixture is typed <em>off</em> the inductive sort, so &ldquo;composition is not development&rdquo; is a typing fact.</p>
+<h3>6.2 The two load-bearing constructs</h3>
+<p>Exactly two constructs do independent mathematical work. The <strong>closure operator</strong> κ (§6.1) generates the hierarchy and iterates by construction. The <strong>society gluing colimit</strong> models undivided society: families and communities with shared members glue along overlaps, and the gluing is coherent exactly when local value-structures agree on what they share — &ldquo;universal order is coherent when local value-structures agree on what they share.&rdquo; This is κ at the social tier, and it is the one place category theory contributes an independent result about compatibility rather than restating the darshan; it is a genuine descent condition, not a redescription, only if the compatibility of overlapping assignments is actually checked, which the applied study <a href="https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html">How Undivided Society Is Established</a> §4.6 supplies the textual bridge for.</p>
+<h3>6.3 Optional annotations</h3>
+<p>Beyond the spine, several richer categorical models sharpen specific clauses without carrying the theory, and are offered as annotations rather than foundations: reduction to physics as a non-faithful forgetful functor (value-distinct acts collapse); delusion as a retract mistaken for an isomorphism (comfort a genuine part of fulfilment, not the whole, MVD Ch. 4); right-use as a natural transformation uniform across domains; graded fulfilment as enrichment over a satisfaction preorder, fibred over capacity; the activity triad as a traced joint form and κ-bookkeeping as a Petri net; the faculty cycle as a projection–reflection sketch (KD 3.12); and the actualisation of sentience at T1 as a guarded partial morphism — the <em>Saturation-Reflector</em> reading whose selection predicate is taught data, developed in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §§1.2, 1.6.1 (open problems in §6.2.1). Each is conditional — a structural claim relative to a named Madhyasth premise — and none is a theorem about reality.</p>
+<h2 id="7-the-structure-at-every-tier">7. The structure at every tier</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Material</th>
+<th>Biological</th>
+<th>Animal</th>
+<th>Knowledge</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unit</td>
+<td>particle, atom, molecule</td>
+<td>cell, plant</td>
+<td>animal (body + jeevan)</td>
+<td>human (body + jeevan)</td>
+</tr>
+<tr>
+<td>Saturation (A1)</td>
+<td>inherent energy and regulation in unit through co-location</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+</tr>
+<tr>
+<td>Regulation</td>
+<td>law → structural conformance</td>
+<td>law → seed conformance</td>
+<td>law → species conformance</td>
+<td>law → <em>sanskar</em> conformance; inward regulation; justice</td>
+</tr>
+<tr>
+<td>Relationship</td>
+<td>bonding mutuality</td>
+<td>nutrient/season</td>
+<td>herd, lineage</td>
+<td>the definite human relations, with purposes (JV p. 109)</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>utility + art (constant)</td>
+<td>utility in food-chains</td>
+<td>utility + sensitivity</td>
+<td><em>jeevan</em>, human, established, expression; μ evaluates</td>
+</tr>
+<tr>
+<td>Recognition-fulfilment</td>
+<td>definite</td>
+<td>definite</td>
+<td>definite</td>
+<td>achieved; justice when the cycle closes</td>
+</tr>
+<tr>
+<td>Activity triad</td>
+<td>definite; excitation still complementary</td>
+<td>definite</td>
+<td>definite</td>
+<td>routes through understanding; <em>kshobh</em>, delusion possible; effort becomes labour</td>
+</tr>
+<tr>
+<td>Assembly (κ)</td>
+<td>hungry/overfull → molecules → structures</td>
+<td>cells → organisms</td>
+<td>bodies via lineage; herds</td>
+<td>family → self-governance → world-family order</td>
+</tr>
+<tr>
+<td>Persistence</td>
+<td>natural state</td>
+<td>climatic balance</td>
+<td>species conditions</td>
+<td>fulfilment; mutual satisfaction</td>
+</tr>
+<tr>
+<td>Transmission</td>
+<td>constitution</td>
+<td>seed (<em>rachna vidhi</em>)</td>
+<td>lineage/species</td>
+<td>education-<em>sanskar</em></td>
+</tr>
+<tr>
+<td>Failure mode</td>
+<td>(excitation still complementary)</td>
+<td>death/decomposition</td>
+<td>species stress</td>
+<td>delusion → exploitation, war, ecological overdraw</td>
+</tr>
+</tbody>
+</table></div>
+<p>The column-shape repeats four times — the precise sense in which the structure is universal, asserted for each order rather than carried by metaphor from human life. Each row is richer in the knowledge order but never absent below it: value is &ldquo;the essentiality of units in every plane and order&rdquo; (SB p. 50). What first appears with humans is <em>evaluation</em> of value — and with it, error.</p>
+<h2 id="8-what-the-structure-is-not">8. What the structure is not</h2>
+<p>The most natural modern glosses quietly replace the structure with something else. It is <strong>not optimisation</strong>: under A2 an end-state is not a maximum, so &ldquo;units organise to maximise value&rdquo; is not a paraphrase but a category error — conduct in the first three orders is definite (JV p. 113), object-usefulness is constant (JV p. 123), and &ldquo;more&rdquo; is the diagnosed pathology, not the principle (JV p. 41). It is <strong>not struggle or selection</strong>: the assembly engine is complementarity, explicitly opposed to conflict and survival-of-the-fittest (JV p. 157); decomposition is the <em>loss</em> of structure when relations go unfulfilled, not its designer. It is <strong>not bottom-up emergence alone</strong>: capacities are provisioned in existence and manifest when composition reaches the right tier (JV p. 59), and O energises every tier at once — a purely emergentist reading drops O and turns energisation into magic. And it is <strong>not value-as-epiphenomenon</strong>: value is the content of fulfilment at every tier (SB p. 50), and the human innovation is a second-order operation on it, located in <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, &ldquo;not bodily or mechanical&rdquo; (JV p. 39).</p>
+<h2 id="9-relation-to-other-frameworks-and-uses">9. Relation to other frameworks, and uses</h2>
+<p>Stated this generally, the structure invites comparison — useful chiefly for locating what is distinctive.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Framework</th>
+<th>Shared structure</th>
+<th>Where it differs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Holarchy</strong> (Koestler)</td>
+<td>every unit is whole and part</td>
+<td>no medium O, no value in relations, no transmission</td>
+</tr>
+<tr>
+<td><strong>Autopoiesis</strong> (Maturana &amp; Varela)</td>
+<td>persistence by continuous self-production</td>
+<td>living systems only; the structure runs from atoms to societies and grounds persistence in fulfilment</td>
+</tr>
+<tr>
+<td><strong>Multilevel selection</strong></td>
+<td>nested units persisting or failing as wholes</td>
+<td>selectionist engines are competitive and stochastic; here the engine is complementarity and definite</td>
+</tr>
+<tr>
+<td><strong>Thermodynamic self-organisation</strong></td>
+<td>larger structures from flows between non-equilibrium units</td>
+<td>dissipative structures need free-energy throughput; here units are energised constitutively by saturation</td>
+</tr>
+<tr>
+<td><strong>Category-theoretic composition</strong></td>
+<td>relationships as morphisms; assemblies as colimits; tiers as a partial order</td>
+<td>notation for κ and iteration, but silent on which compositions occur; complementarity is the selection rule the notation lacks</td>
+</tr>
+</tbody>
+</table></div>
+<p>Two commitments are genuinely distinctive: the medium O as a constitutive, energising, regulating presence at every tier at once — a precondition <em>of</em> physics, not an aether within it; and value as the universal content of relations, with evaluation appearing only at the top tier. Frameworks that drop the first must find energy and regulation inside the units; frameworks that drop the second must reconstruct value as preference or fitness.</p>
+<p>The uses follow the forward and reverse readings of §1. For <strong>human organisations</strong>, a deliberate assembly persists only if its relationships are recognised and their values actually fulfilled — not merely incentivised — and it transmits its understanding to incoming members; an organisation that fulfils values but does not transmit decays on turnover, one that transmits rules without fulfilment holds only as long as enforcement does (<a href="https://analyticmadhyasthdarshan.org/Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.html">How To Form Self-Sustaining Organizations</a>; <a href="https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html">How Undivided Society Is Established</a>). For <strong>ecology and economics</strong>, boundedness of extraction turns sustainability from an ethical add-on into a stability condition. For <strong>AI and value alignment</strong>, graded fulfilment is an argument for multi-level objectives over one scalar reward — optimising a single number maximises the wrong thing, which is the darshan&rsquo;s own diagnosis of &ldquo;more&rdquo;. And for the <strong>study of the darshan itself</strong>, the kernel is a checklist for reading any passage: identify the unit, the tier, the couplings, the expectation profile, the value, the conformance regime, and the transmission carrier, and much apparent repetition resolves into the same move at different tiers.</p>
+<h2 id="10-limitations-and-open-problems">10. Limitations and open problems</h2>
+<p><strong>Formalisation is interpretive.</strong> The symbols (O, U, A1, A2, κ, μ, τ) do not appear in the texts; they are this paper&rsquo;s compression, warranted by the citations. Every derivation is this paper&rsquo;s construction.</p>
+<p><strong>The heavy posits, named.</strong> The simplification concentrates the theory&rsquo;s contestable weight onto two places: A2&rsquo;s teleology — completeness as a terminal orientation — and the selection predicate that fixes which configuration reaches constitutional completeness. A physicist critic will press exactly there. That the reflexive turn at that fixed point <em>yields</em> evaluation is this paper&rsquo;s organising reading, not a quotation (§2.3, §4.8); it is offered because it explains with one device why evaluation exists only where constitutional completeness does.</p>
+<p><strong>The residual assumption.</strong> Coupling is derived; the <em>totality</em> of coupling — that every unit participates in at least one relationship — remains a mild assumption (§2.4), the one place the kernel is not yet minimal.</p>
+<p><strong>Substantiality and Yoneda.</strong> Category theory is structuralist by default, so a faithful categorical reading tends to re-describe <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> as a functional role. The carrier-coalgebra reading (§6.1), with carrier-primacy stipulated (§2.1) and the final coalgebra refused, holds the anti-structuralist line by commitment rather than leaving it open — but the tension with structuralist reduction is a boundary of the tools.</p>
+<p><strong>Translation risk.</strong> Quotations from MVD, SB, and JV follow the published English translations; several key terms (<em>vyavastha</em> as &ldquo;orderliness&rdquo;, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="samprikt" data-definition="The ever-present bond in which each unit is soaked in Omnipresence; inherent energy and regulation belong in the unit.">samprikt</button></span></em> as &ldquo;saturated&rdquo;) carry translators&rsquo; choices. Citations to <em>Manav Karm Darshan</em> (KD) are to a machine-assisted <strong>working</strong> translation, not a published one; they are given as corroboration only where MVD/SB/JV already carry the claim, and KD-only material should be verified against the Hindi page images before release. The corpus beyond these four — <em>Vyavaharatmak Janvad</em> and <em>Anubhavatmak Adhyatmvad</em> — is not yet cited.</p>
+<p><strong>No empirical contact.</strong> Nothing here yields a measurement or prediction of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, coexistence, or constitutional completeness. Elegant diagrams can create an illusion of proof; the conditional framing and this list are the safeguard.</p>
+<p><strong>Open problems.</strong> Formal countermodels establishing the independence of A1 and A2; discharging or confirming the no-isolation assumption; a mechanised recovery audit; sharpening the reflexive reading into a definition that <em>derives</em> the three evaluation failures from second-order coupling structure; checking the society-gluing descent condition; the mixture/compound boundary at the social tier, where real assemblies exhibit partial fusion; connecting the natural/excited derivation to the stationarity comparison of the planned <em>Restfulness and Least Action</em> study; and the selection predicate for constitutional completeness, which converts the emergence question into a selection question without discharging it.</p>
+<h2 id="11-conclusion">11. Conclusion</h2>
+<p>Read from first principles, <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s ground is coexistence itself: one actionless medium and countless real units, bound by saturation. From that ground two axioms — endowment and completeness-orientation — and one generative move — complementary closure — produce the entire structure: activeness as manifestation, value as what a coupling realises, composition as closure that mints a new unit, transmission as method recurring across turnover, and the tiered world as the free iteration of the one move. Run that move reflexively at the fixed point of constitutional completeness and the knowledge order appears — evaluation, justice, and the single tier of the structure that must pass through understanding, and can therefore fail. Three primitives, two axioms, one move: what the kernel generates it derives, and what it cannot generate it names, once and plainly, as the taught content of the darshan.</p>
+<h2 id="references">References</h2>
+<h3>Madhyasth Darshan (primary sources)</h3>
+<ul>
+<li><strong>MVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan (Manav Vyavahar Darshan)</em></a>. English version 4.0. Cited: state-complete/state-dynamic and the evidence chain (p. 12); <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="gyan" data-definition="Knowledge in several distinct senses in the texts — ontological given, intelligibility-ground, telos of fulfilled relationships, and unfolding through awakened *jeevan*.">gyan</button></span></em> as intelligibility-ground (p. 11); mediative Omnipotence and nucleus (p. 26); basic impulsion (p. 40); hungry/overfull atoms (p. 8); composite atoms, mixture and compound (p. 42); relationship vs association, capacity–ability–receptivity (pp. 61–62); joint form of the triad (p. 105); mutuality pressure in results (p. 114); <em>atma</em> and orbital faculties (p. 78); ascending/frustration (p. 79); frustration as yearning for restfulness (p. 104); justice as closure (pp. 311, 336); trust as fulfilment (pp. 72–73); evaluation failures (p. 38); insentient/sentient activity bounds (p. 33); inward regulation (pp. 77, 277); ten-tier orderliness (p. 161); regeneration bound (pp. 263–264). Page numbers refer to this edition.</li>
+<li><strong>SB</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf"><em>Samadhanatmak Bhautikvad</em> (Resolution Centred Materialism)</a>. English translation by Rakesh Gupta. Cited: unit as whole with environment, orderliness with <em>ness</em>, natural and excited state (pp. 13–14); motion-path as regulation line and boundary (p. 58); unit + energy fullness = activeness (p. 69); completeness goals of the triad (pp. 58, 71); regulation as law with recognition provision (p. 57); essentiality as value (p. 50); constitutional completeness and inexhaustibility (pp. 55, 59, 61); composition is not development (pp. 75–76); order conformance regimes (p. 236); planes and T1 irreversibility (pp. 51–52, 92); undivided society and human <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span> (pp. 246–247); complete knowledge (p. 116). Page numbers refer to this edition.</li>
+<li><strong>JV</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf"><em>Jeevan Vidya: An Introduction</em></a>. English translation, version 3.0. Cited: space uniform and omnipresent (p. 31); no provision to separate units from Omnipresence (p. 18); nothing isolated (p. 43); countable entities (p. 45); order conformance (p. 48); understanding flows in tradition (p. 49); <em>rachna vidhi</em> in the <em>pran sutra</em> (p. 82); no conflict in existence (p. 157); knowing and believing (p. 70); existence neither increases nor decreases (p. 127); universal recognition-fulfilment (p. 69); assembly inclination (p. 67); gravitation as bonding participation (p. 150); six-fold values and established values (pp. 43, 108, 138–139); <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> evaluates without external instrument (pp. 39, 139); ten activities across nucleus and orbits (p. 92); body provisioned to evidence understanding (p. 59); human goals (p. 165); definite conduct of the peepal tree (p. 113); commerce and &ldquo;more&rdquo; (p. 41); Earth-relationship overlooked (p. 77). Page numbers refer to this edition.</li>
+<li><strong>KD</strong> — Nagraj, A. <em>Manav Karm Darshan</em> (<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> — Part 2). <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf">working English translation</a> of chapter 3; Hindi source <code>KD-karm darshan v5.pdf</code>. <strong>Machine-assisted working translation — not a published translation; cited as corroboration only, and to be verified against the Hindi page images before release.</strong> Cited: the title-page principle Effort–Motion–Result; the saturation → energy-endowment → force-endowment → recognition → orderliness chain (3.1); the sense of the triad&rsquo;s three aspects (3.11); the two developments, compositional and atomic (3.2–3.3); hungry/undigested/satisfied atoms and the three completeness stages (3.3); the five state/motion faculties (3.6); force, weight, and gravitation as unit-mutuality (3.7–3.8); projection–reflection (3.12); extraction and regeneration (3.13); the human as body and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> (3.16); ninefold karma and result (ch. 1).</li>
+</ul>
+<h3>Related studies in this collection</h3>
+<ul>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html"><em>The Ontology of Coexistence</em></a> — ontological exposition of saturation, the regulation ladder, unit signature, the six-fold value taxonomy, orders, planes, and progressions; <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> faculty structure and inward regulation (§§1.7–1.8); four human goals and provisions vs achievements (§1.15); Saturation-Reflector reading and T1 latency (§§1.2, 1.6.1; open problems in §6.2.1)</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html"><em>How Undivided Society Is Established</em></a> — assembly composition from family through humankind, and the compatibility bridge for the society-gluing colimit (§4.6)</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.html"><em>Knowledge, Knower, and Known</em></a> — evidence chain, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="gyan-udghatan" data-definition="Unfolding of knowledge in thought and conduct — an activity exclusive to awakened *jeevan*, not Omnipresence or insentient matter.">gyan udghatan</button></span></em>, <em>pramana</em></li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.html"><em>Nature of Time</em></a> — <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em> as duration of unit-activity</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.html"><em>How To Form Self-Sustaining Organizations</em></a> — the forward use applied to deliberate assemblies</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html"><em>Why Humans Are Not Just Material</em></a> — human-tier anthropology</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.html"><em>Human Behavior and Society</em></a> — conduct and social order</li>
+</ul>
+<p>The planned <em>Restfulness and Least Action</em>, <em>Death, Continuity, and Rebirth</em>, and <em>Governance, Justice, and Undivided Society</em> studies are referenced above where their material is deferred.</p></main>
+<script>
+(() => {
+  const toolbar = document.querySelector(".study-toolbar");
+  const prev = document.getElementById("study-section-prev");
+  const next = document.getElementById("study-section-next");
+  if (!toolbar || !prev || !next) return;
+
+  const sections = Array.from(document.querySelectorAll("h2[id]"));
+  const syncToolbarHeight = () => {
+    document.documentElement.style.setProperty(
+      "--study-toolbar-height",
+      `${toolbar.offsetHeight}px`
+    );
+  };
+
+  const sectionLabel = el => el.textContent.replace(/\s+/g, " ").trim();
+
+  const marker = () => (toolbar.offsetHeight || 0) + 16;
+
+  const currentIndex = () => {
+    const y = window.scrollY + marker();
+    let idx = -1;
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop <= y) idx = i;
+      else break;
+    }
+    return idx;
+  };
+
+  const setDisabled = (link, disabled, fallback) => {
+    link.classList.toggle("is-disabled", disabled);
+    if (disabled) {
+      link.removeAttribute("href");
+      link.setAttribute("aria-disabled", "true");
+      link.textContent = fallback;
+    } else {
+      link.setAttribute("aria-disabled", "false");
+    }
+  };
+
+  const update = () => {
+    if (!sections.length) {
+      setDisabled(prev, true, "\u2190 Previous section");
+      setDisabled(next, true, "Next section \u2192");
+      return;
+    }
+
+    const idx = currentIndex();
+
+    if (idx <= 0) {
+      setDisabled(prev, true, "\u2190 Previous section");
+    } else {
+      prev.classList.remove("is-disabled");
+      prev.href = `#${sections[idx - 1].id}`;
+      prev.setAttribute("aria-disabled", "false");
+      prev.textContent = `\u2190 ${sectionLabel(sections[idx - 1])}`;
+    }
+
+    if (idx < 0 || idx >= sections.length - 1) {
+      setDisabled(next, true, "Next section \u2192");
+    } else {
+      next.classList.remove("is-disabled");
+      next.href = `#${sections[idx + 1].id}`;
+      next.setAttribute("aria-disabled", "false");
+      next.textContent = `${sectionLabel(sections[idx + 1])} \u2192`;
+    }
+  };
+
+  syncToolbarHeight();
+  update();
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", () => {
+    syncToolbarHeight();
+    update();
+  });
+  const scrollToSection = id => {
+    const target = document.getElementById(id);
+    if (!target) return;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+  };
+
+  prev.addEventListener("click", event => {
+    if (prev.classList.contains("is-disabled")) return;
+    const href = prev.getAttribute("href");
+    if (!href || !href.startsWith("#")) return;
+    event.preventDefault();
+    scrollToSection(href.slice(1));
+  });
+  next.addEventListener("click", event => {
+    if (next.classList.contains("is-disabled")) return;
+    const href = next.getAttribute("href");
+    if (!href || !href.startsWith("#")) return;
+    event.preventDefault();
+    scrollToSection(href.slice(1));
+  });
+})();
+</script>
+<script>
+(() => {
+  let floatPanel = document.getElementById("term-tip-float");
+  if (!floatPanel) {
+    floatPanel = document.createElement("div");
+    floatPanel.id = "term-tip-float";
+    floatPanel.className = "term-tip-panel";
+    floatPanel.setAttribute("role", "tooltip");
+    floatPanel.hidden = true;
+    document.body.appendChild(floatPanel);
+  }
+
+  const hide = () => {
+    floatPanel.classList.remove("is-visible");
+    floatPanel.hidden = true;
+    floatPanel.textContent = "";
+  };
+
+  const show = (button, text) => {
+    floatPanel.textContent = text;
+    floatPanel.hidden = false;
+    floatPanel.classList.add("is-visible");
+    const rect = button.getBoundingClientRect();
+    const margin = 8;
+    let top = rect.top - floatPanel.offsetHeight - margin;
+    if (top < margin) top = rect.bottom + margin;
+    let left = rect.left;
+    const maxLeft = window.innerWidth - floatPanel.offsetWidth - margin;
+    if (left > maxLeft) left = Math.max(margin, maxLeft);
+    floatPanel.style.top = `${Math.max(8, top)}px`;
+    floatPanel.style.left = `${Math.max(8, left)}px`;
+  };
+
+  document.querySelectorAll(".term-tip").forEach(button => {
+    const definition = button.getAttribute("data-definition");
+    if (!definition) return;
+    button.setAttribute("aria-describedby", "term-tip-float");
+    const reveal = () => show(button, definition);
+    button.addEventListener("mouseenter", reveal);
+    button.addEventListener("focus", reveal);
+    button.addEventListener("mouseleave", hide);
+    button.addEventListener("blur", hide);
+    button.addEventListener("click", event => {
+      event.stopPropagation();
+      if (floatPanel.hidden) reveal();
+      else hide();
+    });
+  });
+
+  document.addEventListener("click", hide);
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") hide();
+  });
+})();
+</script>
+
+</body>
+</html>
