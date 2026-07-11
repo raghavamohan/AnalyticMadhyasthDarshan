@@ -48,15 +48,8 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-19.
 | | Whitehead 1929, Russell 1921, Mach 1914 | present |
 | | Ashtekar and Singh 2011, Carroll 2010, Friston 2010, Guth 2007 | present |
 | | Metzinger 2003, Penrose 2010, Ishvarakrishna, Nagarjuna, Weinberg 1995 | external |
-
-
-
-
-
-
 | [How-Undivided-Society-Is-Established.pdf](../Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf) | MVD, SB, JV, JVD, AVD | TBD |
-
-
+| [Coexistence-From-First-Principles.pdf](../Studies/Coexistence-From-First-Principles/Coexistence-From-First-Principles.pdf) | MVD, SB, JV, KD | present |
 
 ## By tag
 
