@@ -18,6 +18,7 @@ body:
       description: Choose the study your comment is about.
       options:
         - Aesthetics
+        - Coexistence from First Principles
         - Ethics and Morals in Human Beings
         - How to Form Self-Sustaining Organizations
         - How Undivided Society Is Established

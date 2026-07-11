@@ -22,16 +22,6 @@
       "phase": "pre-catalog"
     },
     {
-      "slug": "Category-Theory-Explained",
-      "title": "Category Theory Explained",
-      "issueNumber": 39,
-      "submitter": "raghavamohan",
-      "category": "Formal structure",
-      "description": "A self-contained guide that uses category theory as a lens to make the structure and logic of Madhyasth Darshan precise \u2014 plain-language ideas first, then the formal theory \u2014 and shows where the notation stops",
-      "formal": true,
-      "phase": "published"
-    },
-    {
       "slug": "Chitta-Brain-And-Memory",
       "title": "Chitta, the Brain, and the Architecture of Memory",
       "issueNumber": 27,
@@ -58,7 +48,7 @@
       "issueNumber": 92,
       "submitter": "raghavamohan",
       "category": "Formal structure",
-      "description": "A generative re-founding of the coexistence template: three kernel primitives \u2014 satta, triadic activity, and saturation \u2014 from which units, relationships, values, composition, and transmission are constructed, with a recovery theorem against The Coexistence Template as the adequacy criterion.",
+      "description": "The complete formal statement of Madhyasth Darshan: three primitives (satta, units, saturation), two axioms, and one generative move \u2014 compound-closure, reflexive at constitutional completeness \u2014 from which the tier-neutral structure is generated and audited clause by clause, with a single categorical spine.",
       "formal": true,
       "phase": "pre-catalog"
     },
@@ -271,16 +261,6 @@
       "description": "Realization and awakening in Madhyasth Darshan: anubhav, practice, yoga, and liberation from mystery and suffering, compared with moksha traditions",
       "formal": false,
       "phase": "pre-catalog"
-    },
-    {
-      "slug": "The-Coexistence-Template",
-      "title": "The Coexistence Template",
-      "issueNumber": 40,
-      "submitter": "raghavamohan",
-      "category": "Formal structure",
-      "description": "The single structural template beneath Madhyasth Darshan \u2014 saturated units recognising and fulfilling relationships, exchanging value, composing into assemblies, and transmitting their method \u2014 stated formally for all four orders and usable to design or diagnose any assembly",
-      "formal": true,
-      "phase": "published"
     },
     {
       "slug": "The-Ontology-of-Coexistence",
