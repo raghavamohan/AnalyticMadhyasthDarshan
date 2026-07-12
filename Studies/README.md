@@ -63,7 +63,7 @@ These studies are more mathematical in nature. They represent the structure disc
 <!-- formal-studies-catalog -->
 | Document | Formal Focus | Description | Status |
 |----------|--------------|-------------|--------|
-| [Coexistence from First Principles](Coexistence-From-First-Principles/Coexistence-From-First-Principles.html) · [Discuss](Coexistence-From-First-Principles/discussion.html) | Formal structure | The complete formal statement of Madhyasth Darshan: three primitives (satta, units, saturation), two axioms, and one generative move — compound-closure, reflexive at constitutional completeness — generating the tier-neutral structure, a clause-by-clause recovery audit, and a single categorical spine | Draft<br>Last updated on: Jul 12, 2026, 2:41 PM IST |
+| [Coexistence from First Principles](Coexistence-From-First-Principles/Coexistence-From-First-Principles.html) · [Discuss](Coexistence-From-First-Principles/discussion.html) | Formal structure | The complete formal statement of Madhyasth Darshan: three primitives (satta, units, saturation), two axioms, and one generative move — compound-closure, reflexive at constitutional completeness — generating the tier-neutral structure, a clause-by-clause recovery audit, and a single categorical spine | Draft<br>Last updated on: Jul 12, 2026, 11:40 PM IST |
 <!-- /formal-studies-catalog -->
 
 ### Applied studies
