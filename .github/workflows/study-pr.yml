@@ -3,11 +3,20 @@ name: Study PR
 # Do not trigger on pull_request edited — body/checklist edits must not rerun
 # the full PDF pipeline (Puppeteer). Use synchronize (new commits) or labeled
 # (first application of new-study / study-update / status-change).
+#
+# `opened` is intentionally omitted. The job requires a study label (see `if`
+# below), so creating a PR with its label fires BOTH `opened` and `labeled`,
+# spawning two runs on the same commit. With cancel-in-progress that cancels
+# one; branch protection then keys the required `study-pr` check on the
+# cancelled run and blocks the merge — and because the successful run already
+# pushed a `[skip ci]` regen commit, no `synchronize` event re-runs it, so the
+# PR is stranded until the cancelled run is manually re-run. Triggering on
+# `labeled` alone yields exactly one run for the create-with-label flow;
+# `synchronize` and `reopened` cover later commits and reopens.
 
 on:
   pull_request:
     types:
-      - opened
       - synchronize
       - reopened
       - labeled
