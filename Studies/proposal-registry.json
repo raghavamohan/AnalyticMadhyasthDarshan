@@ -48,7 +48,7 @@
       "issueNumber": 92,
       "submitter": "raghavamohan",
       "category": "Formal structure",
-      "description": "The complete formal statement of Madhyasth Darshan: three primitives (satta, units, saturation), two axioms, and one generative move \u2014 compound-closure, reflexive at constitutional completeness \u2014 from which the tier-neutral structure is generated and audited clause by clause, with a single categorical spine.",
+      "description": "A formal reconstruction of Madhyasth Darshan using three primitives, two axioms, compound-closure, and an interpretive reflexive model, with a clause-by-clause recovery audit and categorical encoding",
       "formal": true,
       "phase": "pre-catalog"
     },
