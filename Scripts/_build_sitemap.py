@@ -16,7 +16,6 @@ from _study_catalog import (  # noqa: E402
     CATALOG_TABLES,
     StudyRow,
     StudyTable,
-    catalog_json_path,
     parse_catalog_json_file,
 )
 
@@ -99,10 +98,7 @@ def collect_sitemap_entries() -> list[tuple[str, str | None, str | None, str | N
     )
 
     for table in CATALOG_TABLES:
-        catalog_path = catalog_json_path(table)
-        if not catalog_path.is_file():
-            continue
-        for row in parse_catalog_json_file(catalog_path):
+        for row in parse_catalog_json_file(table):
             lastmod = _lastmod_from_row(row)
 
             html_site_path = _study_html_site_path(row.slug, table)
