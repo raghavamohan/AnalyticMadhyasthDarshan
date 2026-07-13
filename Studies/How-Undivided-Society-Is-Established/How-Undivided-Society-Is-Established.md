@@ -2,442 +2,364 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 3, 2026, 3:04 PM IST
+**Edited on:** July 13, 2026, 3:46 PM IST
 **Status:** Released
-**The question:** What is Madhyasth Darshan's grand vision of undivided society (*akhand samaj*), and how — according to the primary texts — is it established and evidenced?
+**The question:** What basis could make humankind an undivided society, why are influential contemporary alternatives insufficient by themselves, and how does Madhyasth Darshan propose that such a society be established and evidenced?
 
-This study gives the **consolidated architectural account**: one connected chain from coexistence through awakening to social evidence. It **builds on** the coexistence ontology, completeness transitions, and social-order exposition in [*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) and related studies in this collection (see References). It reads **Shri A. Nagraj's** primary works — *Madhyasth Darshan* (MVD), *Samadhanatmak Bhautikvad* (SB), *Jeevan Vidya* (JV), *Janvad* (JVD), and *Adhyatmvad* (AVD) — and states what the darshan itself teaches about establishment. Comparative treatment of other traditions is intentionally omitted; this paper expounds Madhyasth Darshan's vision only. Minute detail on statutory governance or cyclical-economics treatises appears in linked studies listed under References.
+Madhyasth Darshan does not use *akhand samaj*, undivided society, as a name for political uniformity, a world state, or the numerical enlargement of an existing community. It names humankind recognised as one field of relationships, living through mutually fulfilling conduct and participating in universal orderliness (*sarvabhaum vyavastha*). The claim is demanding: unity must be compatible with distinct persons and families, prosperity with non-accumulation, freedom with responsibility, and social continuity with understanding rather than coercion.
+
+This study asks what would make that claim more than an aspiration. It develops the Madhyasth Darshan account from coexistence, *jeevan*, relationship, justice, and awakening; compares that basis with science-only materialism, Advaita Vedanta, and religious authority within the diverse field called Hinduism; and follows establishment from the individual through family, institutions, and intergenerational tradition. The formal reconstruction in [*Coexistence From First Principles*](../Coexistence-From-First-Principles/Coexistence-From-First-Principles.pdf) informs several distinctions, but the present argument remains in ordinary philosophical prose.
 
 ## Standpoint and scope
 
-These studies are written from the standpoint of a **scientist and technologist** — someone trained to graduate-level **physics and mathematics**. That background informs how the atomic development account in §3.1 is read, but this paper does **not** perform parallel comparison with Advaita Vedanta, modern Western philosophy, or the natural sciences; those comparisons belong in other papers in this collection.
+These studies are written from the standpoint of a scientist and technologist trained to graduate-level physics and mathematics. From that background, matter-first explanation is familiar and indispensable: physical and natural sciences provide powerful accounts of bodies, ecosystems, production, communication, and institutional effects. The hard problem of consciousness, the status of the self, and the reality of value nevertheless remain contested. This study does not treat materialism as proven merely because material explanation is methodologically successful.
 
-The work reads the primary Madhyasth Darshan texts carefully and states what follows from the darshan itself on **how undivided society can be established**. The aim is a **self-contained architectural exposition** — rigorous, checkable prose that a reader can follow without opening other studies for the main chain. Formal mathematical treatment and institutional codification may follow or supplement elsewhere; this paper does not require them. Terms are defined in the essay where they first arise; a consolidated glossary appears in the Appendix.
+The method is to read the primary Madhyasth Darshan texts and first state the darshan's social argument in its own terms. That argument is then compared in parallel with physics and the natural sciences, Advaita Vedanta, modern Western philosophy where it bears on facts and values, and religious social authority. Physics and mathematics are one leg of the comparison, not the sole tribunal for questions of self, justice, value, or human purpose.
 
-## The human problem and the path
+The comparison is neither missionary nor dismissive. Science, Advaita, and Hindu traditions each preserve genuine achievements: public inquiry and causal knowledge; disciplined examination of self and attachment; moral formation, service, and durable communities. The narrower question is whether any one of them, taken by itself, supplies a universal and publicly examinable basis for humane conduct, material sufficiency, fulfilled relationships, non-sectarian social identity, and institutional continuity.
 
-Humans live in fear, conflict, and defensive groupings because they mistake the body for the self. Under that delusion, evaluation organises under pleasant-unpleasant, profit-loss, and comfort-accumulation — producing sectarian identity, exploitation, and recurring confrontation even when most people do not want war or disorder (JVD, pp. 16–18).
+The aim is rigorous comparative understanding rather than devotional endorsement. The prose therefore distinguishes what Madhyasth Darshan asserts, what can be reconstructed from its concepts, and what remains an open empirical or philosophical problem. Clear and checkable exposition comes first; formal mathematics may follow elsewhere, but this study does not require it.
 
-Realising coexistence — understanding *satta* and units, the sentient *jeevan* working through the body, and humane conduct under justice, dharma, and truth — closes the knowledge-order gate. When awakened humans evidence activity and conduct completeness, undivided society (*akhand samaj*) and universal orderliness (*sarvabhaum vyavastha*) become livable tradition rather than aspiration alone.
+## 1. What a universal social basis must explain
 
-The path runs from individual awakening through family order to universal orderliness — staged study and realisation at the person (§4.3), family council and education-*sanskar* at the micro scale (§5.5), assembly composition to humankind (§5.4), and public dialogue making the telos collectively accessible (§5.7). The architectural account below states how each layer connects.
+### 1.1 Undivided society and universal orderliness
 
-Madhyasth Darshan holds that *akhand samaj* is not an automatic scale-up of physical regulation. It is an **achieved telos** at the knowledge order — paired with **universal orderliness** when awakened humans close the justice cycle and compose assemblies from family through humankind. The fact that makes this telos reachable rather than utopian is that nature is **inherently complementary** (§1.2): division is the aberration of a blocked design, not the baseline, so establishing undivided society means un-blocking a complementarity already present at every order — not engineering harmony into a competitive substrate. Five layers and a telos structure the account: coexistence ground (§1), composition through orders (§2), the sentience threshold (§3), the knowledge-order gate (§4), and social establishment (§5); §6 and its figure render the whole.
+Madhyasth Darshan describes society as humane only when it is undivided. This does not erase families, languages, cultures, functions, or local institutions. Division in the relevant sense occurs when such differences become ultimate identities whose security or advantage is pursued against other human beings. Undividedness instead makes human identity primary and treats every smaller association as participation in the wellbeing of the whole.
 
-## 1. Coexistence ground (Layer 0)
+> **"Society is humane only when it is undivided. Societal functioning means participation for undivided society, in other words participation in universal orderliness."**
+> - JVD, p. 157
 
-Establishment rests first on what coexistence already provides: a ground that regulates without acting, units that carry their own energy and order, and relationships built toward completeness.
+Undivided society and universal orderliness name two aspects of one achievement. The first concerns recognition: humankind is one society, and every person enters an already present field of human relationships. The second concerns functioning: education, justice, health, production, and exchange must be organised so that this recognition can be lived. Recognition without institutions remains sentiment; institutions without recognition readily become systems of control, competition, or group advantage.
 
-### 1.1 Coexistence and saturation
+The human goal gives the achievement its evaluative content: resolution, prosperity, fearlessness, and coexistence. Resolution concerns clarity in the individual; prosperity is the family's assurance of more production than its needs; fearlessness is trust in society; coexistence is participation with the whole of nature. These are mutually supporting outcomes rather than four independent programmes. Material sufficiency without resolution can become accumulation, inward peace without just relationships can remain private, and social security purchased through fear cannot become fearlessness.
 
-Madhyasth Darshan defines **existence** as ever-present **coexistence** — formless Omnipresence (*satta*) and countless bounded **units** of nature, co-eternal, neither made from the other (SB, p. 48; MVD, p. 11). What changes is unit-activity, development, and awakening within saturation, not the ground itself.
+### 1.2 Criteria of adequacy
 
-**Saturation** (*samprikt*) names the bond: each unit is surrounded, submerged, and soaked in *satta*. Through that bond every unit has **inherent energy** and regulatory order **in** it — not extracted from a finite store by an outside push (SB, pp. 48, 57, 69).
+A basis capable of supporting this telos must answer several connected questions. It must say what a human being is, because a body-only organism, an immortal soul awaiting another world, and a *jeevan*-body joint form imply different accounts of need and fulfilment. It must explain whether values are objective, conventional, commanded, or selected. It must connect knowledge to conduct, since a social philosophy that can be affirmed without being lived cannot explain its own evidence. It must include production and ecology, because no society persists through inward realisation alone. It must also explain how understanding and institutions pass to new generations without depending permanently on force or charismatic authority.
 
-> **"Nature, saturated in Omnipotence, exists as countless units. Each unit, being saturated in Omnipotence, remains surrounded, submerged, and soaked in it."**
-> - SB, p. 48
+Universality adds a further constraint. A foundation for all humankind cannot require prior membership in one ancestry, scripture, deity, nation, or sect. Its claims must be available for study, examination, and practical evaluation by any human being. This does not require cultural sameness. It requires a common basis on which differences can meet without one community's inherited authority ruling everyone else.
 
-*Satta* is **actionless** (*kriya-shunya*): it performs no actions. It is nevertheless named **supreme cause** (*mahakaran*) in the **sustaining** sense — the ground through which unit-activity is energised and regulated, not the efficient trigger of particular change (MVD, pp. 288–289; SB, p. 62). The causal work of change is done by units themselves.
+These criteria make the question harder than choosing a desirable moral slogan. A viable basis must join ontology, philosophical anthropology, value, conduct, economy, ecology, education, and institutions in one intelligible account. Madhyasth Darshan's distinctive proposal is that this connection is already implicit in coexistence and becomes explicit in awakened human conduct.
 
-*Madhyasth* means **mediative**: *satta* regulates and conserves every unit without itself acting (MVD, p. 26). The same mediative pattern recurs within nature at the atomic nucleus and, in sentient *jeevan*, at *atma* (§3.1).
+## 2. The Madhyasth Darshan foundation
 
-### 1.2 Unit signature and relationships
+### 2.1 Coexistence without a collective super-being
 
-Every saturated unit carries the same four inseparable aspects — **form**, **properties**, **essential nature**, and ***dharma*** — regardless of order (MVD, pp. 50–51). **Properties** (*gun*) are generative, degenerative, and mediative: assisting creation, dissolution, and sustainment in mutuality.
+Madhyasth Darshan holds that existence is coexistence: formless Omnipresence (*satta*) and countless bounded units of nature are ever present together. Each unit is saturated in *satta* and thereby active, energised, and regulated in mutuality. Units remain real and distinct; coexistence is not their dissolution into one substance or consciousness. The social importance of this ontology is that unity need not mean sameness, absorption, or subordination to a whole.
 
-Nothing in nature is isolated:
+The four orders of material, pranic, animal, and knowledge-order nature display progressively different forms of organisation. Physical and biological units exhibit definite conduct according to their constitutions, seeds, and species. Human conduct is not definite in that way. A human being can understand, mis-evaluate, choose, and revise; humane definiteness must therefore be achieved through *sanskar*, understood disposition, rather than inherited as a biological programme.
 
-> **"Every entity of nature recognises another; that is why it fulfils. An atomic particle too recognises another, and as a result, these particles abide in orderliness."**
-> - JV, p. 69
+The darshan explains sentience through *jeevan*, the constitutionally complete unit that works through an animal or human body. Its detailed atomic account is a doctrinal claim, not an established result of contemporary physics or neuroscience. For the social argument, the load-bearing distinction is more modest: the body provides sensation and material action, while *jeevan* is said to desire happiness, evaluate, understand, and evidence conduct. The updated ontology and CFP study examine the stronger atomic and continuity claims in depth; this paper does not make social order depend on presenting them as settled natural science.
 
-A **relationship** is mutuality where expectations are predetermined toward completeness; an **association** is mutuality where expectations are voluntary (MVD, pp. 61–62). Fulfilment proceeds through **capacity** (*kshamata*), **ability** (*yogyata*), and **receptivity** (*patrata*). What units reciprocate is **value** — essentiality (*maulikta*) in every order (SB, p. 50).
+Human organisation must also not be mistaken for a literal physicochemical compound. A family or assembly does not become a larger *jeevan*, acquire a collective *atma*, or erase the agency of its members. The analogy with composition is limited but useful: an assembly becomes a coherent whole when its members recognise a shared purpose, fulfil relationships, evaluate outcomes, and carry the method across changes of membership. At the human order, that closure is voluntary, understanding-mediated, fallible, and corrigible.
 
-Madhyasth Darshan holds **complementarity** to be the essence of coexistence — value reciprocated and mutually recognised in mutuality, the whole structure by which units fulfil one another's essentiality, not merely physicochemical give and take (SB, pp. 50, 53). Because nothing in nature is isolated, the same design runs unbroken from atomic particles through molecules and bodies to human assemblies (JV, p. 43). This is the fact on which the whole establishment rests: undivided society is not harmony imposed on a competitive substrate but this inherent complementarity carried to the scale of humankind ([*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.6).
+### 2.2 Relationship, value, and justice
 
-In its **natural state**, a unit moves toward development, reciprocating in complementarity; in its **excited state**, complementarity falls short and the unit moves toward decline (SB, pp. 14–15). Participation means recognising and fulfilling built-in relationships — the completeness drive orienting unit-activity toward satisfaction (SB, p. 51).
+Lower orders exhibit mutuality, recognition, and fulfilment in definite conduct. Human relationship adds consciously recognisable expectations, responsibilities, values, and evaluation. A relationship is not merely contact or exchange. It is a mutuality in which expectations are oriented toward completeness: parent and child, partners, siblings, friends, teachers, and learners can ask what is to be fulfilled and whether mutual satisfaction has been achieved.
 
-### 1.3 Activity and regulation
-
-All change is **unit-activity** — the inseparable triad **effort, motion, and result** (*shram–gati–parinam*):
-
-> **"Every physical-chemical activity is an inseparable presence of effort, motion and result. Each of these is a joint form of the other two."**
-> - SB, p. 58
-
-**Regulation** becomes evident as **law**: orderliness with *ness*, expressed in order-specific conformance regimes (SB, p. 57). The **regulation ladder** reads upward:
-
-1. **Saturation** — inherent energy and order in each unit.
-2. **Law** — mutual-recognition provision structurally real in coexistence.
-3. **Order conformance** — definiteness of conduct at each order (*niyati-vidhi*; §2.1).
-4. **Inward regulation** — mediative *atma* disciplining faculties in *jeevan* (§4.3).
-5. **Justice** (*nyaya*) — evaluative closure of the relational cycle at the knowledge order (§4.2).
-6. **Assembly order** — human compositions persisting while relationships are fulfilled.
-
-Orderliness at the order level is **self-regulation** (*swatah-saspurt*): inherent in nature's orders, not dispensed by *satta* acting as governor (MVD, p. 26).
-
-### 1.4 Composition
-
-Complementary units **compose** into larger units when relationships are fulfilled:
-
-> **"Everywhere, there exists a natural inclination towards coexistence. This inclination is what leads atomic particles to assemble into atoms, atoms to combine into molecules, and molecules to combine into molecular forms."**
-> - JV, p. 67
-
-In a **mixture** (*mishran*), components retain separate conducts. In a **compound** (*yaugik*), components combine in definite proportion and present a new unified signature (MVD, p. 42). **Composition is not development** — crossing to sentience is constitutional completeness of the atom, not mere assembly size (SB, pp. 75–76).
-
-Assemblies **persist** in natural state while relationships are fulfilled and **decline** when they are not (SB, p. 14). Transmission of composition method (*rachna vidhi*) runs by constitution, seed, lineage, or education-*sanskar* according to order (JV, pp. 48, 82; MVD, pp. 92–93).
-
-## 2. Composition through orders (Layer 1)
-
-Saturated units compose through four orders, each conforming to its own definite way and reciprocating value to the others.
-
-### 2.1 Four orders and the way of existence
-
-Madhyasth Darshan names four **orders**: material (*padarth*), pranic/bio (*pran*), animal (*jeev*), and knowledge/human (*gyan*). Higher orders **include** lower *dharma*s cumulatively (SB, p. 179; MVD, p. 115). Material and pranic orders are **insentient** (*jada*); **hope to live** (*jeene ki aasha*) enters at the animal order — the sentient *jeevan* threshold (§3.1).
-
-**The way of existence** (*niyati-vidhi*) names definiteness in each order's conduct:
-
-| Order | Conformance mode | Definite or achieved |
-|---|---|---|
-| Material | Result- / structural-conformance | Definite |
-| Bio | Seed-conformance (via genetic code / seed-lineage) | Definite |
-| Animal | Species-conformance | Definite |
-| Knowledge / human | *Sanskar*-conformance | **Achieved** through knowing → believing → recognising → fulfilling |
-
-Macro **existential progression** (*niyati-kram*) — material → pranic → animal → knowledge on Earth — is the order-emergence chain named in *Paribhasha Samhita* and expounded in MVD/SB (MVD, pp. 8, 13). It must be kept distinct from atomic **development progression** (*vikas-kram*) and **awakening progression** (*jagriti-kram*) (§2.3).
-
-Because humans conform to *sanskar* (understanding and conditioning) rather than physical lineage or genetic codes, the method of composition for human society cannot be transmitted biologically. A stable human assembly must perpetuate itself through the generation-to-generation transmission of realized understanding. This makes education-*sanskar* not merely a social service, but the primary engine for conserving undivided society across generations.
-
-### 2.2 Six kinds of value
-
-Essentiality sorts into **six kinds** of value at the knowledge order (MVD p. 306; JV pp. 43, 138–139):
-
-| Value type | What it is |
-|---|---|
-| **Utility** (*upyogita*) | Usefulness of natural abundance through labour |
-| **Art** (*kala*) | Aesthetic enhancement layered on usefulness |
-| ***Jeevan* values** | Happiness, peace, contentment, bliss — harmonies within the sentient unit |
-| **Human values** | Humane living grasped through coexistence understanding |
-| **Established values** | Care, guidance, trust, affection, gratitude, glory, love, reverence, respect — flowing when relationships are recognised |
-| **Expression values** | Right-use of body, mind, and wealth; civic conduct in the social order |
-
-Justice (§4.2) is the **operation** on these values at the knowledge order — recognise, fulfil, evaluate, mutual satisfaction — not a member of the value set itself.
-
-### 2.3 Four progressions
-
-Four terms name progressions at different levels; they must not be collapsed (MVD, pp. 13–14):
-
-1. ***Niyati-kram*** — fixed order emergence: material → pranic → animal → knowledge.
-2. ***Niyati-vidhi*** — definiteness in each order's conduct (§2.1).
-3. ***Vikas-kram*** — through the physicochemical complex until an atom reaches **constitutional completeness** (*gathanpurnata*).
-4. ***Jagriti-kram*** — within constitutionally complete *jeevan*, toward **activity** and **conduct** completeness.
-
-*Vikas-kram* and *niyati-kram* **coincide** at animal life — the order-level chain supplies the body, the atomic-level development supplies sentient *jeevan* — but they remain distinct axes (MVD, pp. 8, 13, 91; SB, pp. 76–77).
-
-## 3. The sentience threshold (Layer 2)
-
-Within the atom, development crosses from insentient matter to sentient *jeevan* — the threshold on which every human layer depends.
-
-### 3.1 Constitutional completeness and the joint form
-
-**Development progression (*vikas-kram*).** T1 is not posited arbitrarily. MVD understands *vikas-kram* in the atom as hungry and overfull atoms complementary until the atom becomes satiated and constitutionally complete — *jeevan* in being and abiding (MVD, p. 8). On Earth, atomic types appear as a sequence of **hungry** atoms (deficient in particles) and **overfull** atoms (bearing excess): hungry atoms continually incorporate particles until they reach an overfull state; from overfull to maximum capacity, particle decay occurs, allowing hungry atoms to absorb expelled particles into their structure — incorporation and expulsion cycles until the elevation point is reached (MVD, p. 8; SB, pp. 55, 59, 71). When the required particle constitution closes, the atom becomes **satiated** — constitutionally complete (*gathanpurnata*) — with neither increase nor decrease in particle count; qualitative change without quantitative change (SB, pp. 55, 59). T1 is **irreversible** at the atomic level (SB, p. 92). This grounds Layer 2 in the darshan's own physicochemical account rather than in a bare assertion of sentience.
-
-An insentient atom reaches *gathanpurnata* through this particle incorporation and environmental mutuality. On crossing **T1**, it is liberated from molecular-bondage and weight-bondage; **hope-bondage** replaces them as the sentient mode's defining bondage (MVD, p. 91):
-
-> **"An evolving-constitution atom is with molecular-bondage and weight-bondage. However, when the contraction and expansion activity increases in this atom, it instantly breaks free from its group and attains constitutional completeness, becoming a jeevan atom."**
-> - MVD, p. 91
-
-At *gathanpurnata*, latent intelligibility in *satta* is **actualised** as active sentience — latency actualised, not strong emergence from dead substrate.
-
-An **animal** or **human** is the **joint form** of constitutionally complete *jeevan* working through a body of that order (MVD, pp. 13, 115). The **nucleus** of every atom is mediative activity regulating generative–degenerative orbiting particles (MVD, p. 26); in *jeevan*, **inward regulation** under mediative *atma* is the sentient-scale counterpart (MVD, pp. 77, 277) — identity at two scales, not mere analogy.
-
-## 4. The knowledge-order gate (Layer 3)
-
-Only at the knowledge order does evaluation enter, and with it both delusion and the possibility of awakening. Matter and regulation pass easily through the lower layers; undivided society requires every human unit to pass through this narrow gate — from the problem of mis-evaluation, through justice and the awakening path, to the completeness that sources social evidence.
-
-### 4.1 Delusion and the six perspectives
-
-Only *jeevan* at the knowledge order **evaluates** (JV, p. 70). Six built-in **perspectives** (*drishti*) structure evaluation:
-
-> **"All human behaviour is manifest in six perspectives: - (1) pleasant-unpleasant, (2) healthy-unhealthy, (3) profit-loss, (4) justice-injustice, (5) dharma-adharma, and (6) truth-untruth."**
-> - MVD, p. 67
-
-Inhumane refuge organises under *priya*, *hita*, and *labh* — instinct, body, and material gain. Humane refuge reorganises under *nyaya*, *dharma*, and *satya* — regulating **conduct**, **thought toward resolution**, and **realisation in existence** respectively (MVD, pp. 67, 137). The lower triad remains legitimate in its domain but is **not sufficient** as the organising standpoint of a knowledge-order being.
-
-Delusion — mistaking body for self — roots sectarian, defensive, and fear-bound sociality resembling animal collectivity under threat (MVD, Ch. 4; SB, pp. 91–92). This is **complementarity blocked at the knowledge order** — incompletely expressed where evaluation mis-reads relationships ([*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.10.5), not nature turning competitive. **Awakening** is the knowledge-order **gate** without which Layer 4 evidence cannot close.
-
-### 4.2 Justice, law, and evaluation
-
-Below the knowledge order, recognition and fulfilment are lawful and definite without bearing the name *justice*. Once *jeevan* must evaluate and can err, the texts name the full relational activity **justice**:
+Values are the essentiality fulfilled in such mutuality. Utility and art concern objects and production; *jeevan* values concern happiness, peace, contentment, and bliss; human, established, and expression values concern humane identity, trust, affection, care, gratitude, respect, and the right-use of body, mind, and wealth. Justice is not one value added to this list. It is the complete relational activity of recognising a relationship, fulfilling its values, evaluating the fulfilment, and reaching mutual satisfaction.
 
 > **"Recognising relationships, fulfilling values, evaluating, and achieving mutual satisfaction is justice."**
 > - MVD, p. 311
 
-Three registers must be kept apart:
+This makes justice prior to statutory legality in the order of explanation. Law can protect conditions for justice, settle disputes, and restrain harm, but compliance alone does not establish mutual satisfaction. Conversely, personal goodwill without public arrangements cannot secure education, production, health, exchange, or protection at scale. Humane policy must therefore preserve the relational purpose of justice while giving it dependable institutional form.
 
-| Register | Scope |
-|---|---|
-| **Regulation / law** | All four orders — inherent orderliness with *ness* |
-| **Justice** (*nyaya*) | Knowledge order — complete relational cycle with evaluation |
-| **Statutory / public law** | Human assemblies — codified order; may satisfy legality while violating justice |
+### 2.3 Rule, justice, resolution, and truth
 
-Statutory codification (*dharma-niti*, *rajya-niti*) belongs to institutional detail treated elsewhere; the **architectural** point is that justice names evaluative closure of values in relationships, not merely compliance with rules.
+Karm Darshan states the grounding sequence with unusual clarity. Omnipresence is the basis of balance in nature; rule is the basis of balanced activity; justice is the basis of balanced behaviour; resolution is the basis of balanced thought; and coexistence as supreme truth is the basis of realisation (KD, pp. 7-8). These are not interchangeable levels. A physical regularity does not by itself become a norm of human conduct, and a norm does not become socially effective merely by being written into law.
 
-### 4.3 The awakening path and Jeevan Vidya
+The sequence corrects two opposite reductions. Society cannot be derived by scaling physical regulation upward, because human beings evaluate and can depart from humane conduct. Nor can social order be produced from moral exhortation alone, because conduct occurs through bodies, resources, production, ecosystems, and institutions. Madhyasth Darshan proposes continuity without collapse: nature provisions order and mutuality; human understanding recognises their meaning; justice closes relationships; resolution stabilises thought; and conduct makes the understanding publicly evident.
 
-Knowledge-order fulfilment runs **knowing → believing → recognising → fulfilling** under justice, dharma, and truth, then evaluation and choice (JV, p. 48; MVD, p. 77; AVD, pp. 174–175). Outwardly, awakening proceeds through **study**, **experiment and practice**, and **realisation with evidence in conduct** — the third stage is accomplishment and success (MVD, p. 88; JV, pp. 48–49). Inwardly, the texts name ***shanka*–*swada*–*bodh*** (doubting or verifying within oneself, believing or tasting what study offers, understanding) as the epistemic rhythm running through those stages.
+Karm Darshan describes awakened tradition as doing after understanding, while deluded tradition learns only after acting and undergoing consequences (KD, p. 7). This distinction turns education into more than information transfer. Humane education must develop the capacity to anticipate relational and ecological consequences, examine desire, and act from understood purpose. Social continuity depends on making such understanding ordinarily available, not on waiting for exceptional saints or rulers.
 
-JV records the origin of **Jeevan Vidya** in that movement: exploring and verifying within oneself what delusion remains, then asking whether understanding of existence, *jeevan*, and humane conduct can be conveyed to others (JV, p. 19). The workshop program is the named **catalyst for T2 and T3** — not general coexistence education alone (JV, pp. 3, 19, 48). Humane education-*sanskar* nurtures the art of living and the strength of realisation together (AVD, pp. 172–173).
+### 2.4 Provision and achievement
 
-> **"The mode of channelling jeevan's energies towards development (awakening) is through curiosity in mun, enthusiasm in vritti, delight in chitta, elation and immersion in buddhi, and finally, realisation in atma. For this, inward regulation of jeevan energies is essential."**
-> - MVD, p. 77
+Coexistence provisions activity, mutuality, values, the possibility of recognition, and the human capacity to understand. It does not guarantee resolution, prosperity, trust, or undivided society independently of human conduct. At the knowledge order, the same freedom that makes awakening possible also permits mis-evaluation, accumulation, exploitation, and sectarian identity.
 
-Inward regulation — mediative *atma* disciplining *buddhi*, *chitta*, *vritti*, *mun*, and the body — stabilises humane evaluation through study and experiment into realisation-evidence, moving a human from the delusional plane through T2 to T3 (§4.5). **Janvad** (*behaviour-centred public discourse*) is the collective counterpart: structured dialogue on resolution, prosperity, fearlessness, coexistence, and participation (JVD, p. 76; §5.7).
+Undivided society therefore belongs to achievement, not automatic natural development. The first three orders exhibit definite conduct without moral deliberation; the human order must bring knowing, believing, recognising, fulfilling, and evaluating into agreement. Activity completeness and conduct completeness name the settlement of this process in awakened living. Their evidence is not a private state alone but humane work and behaviour that others can recognise and learn from.
 
-### 4.4 Planes and completeness transitions
+## 3. Why human society remains divided
 
-**Orders** name what a unit **is**; **planes** (*pad*) name where development has reached (SB, p. 52). Three completeness transitions structure awakening within the knowledge order:
+### 3.1 Delusion and incomplete evaluation
 
-| Transition | Completeness | What becomes evident |
-|---|---|---|
-| **T1** | Constitutional (*gathanpurnata*) | Sentient *jeevan*; hope to live |
-| **T2** | Activity (*kriyapurnata*) | Orderliness with *ness* in awakened humans |
-| **T3** | Conduct (*vyavaharpurnata*) | Living proof (*pramanikta*) |
+Madhyasth Darshan locates the root disorder in taking the body to be the whole self. Sensation, bodily security, and material facility then organise desire as if they exhausted human fulfilment. Evaluation remains dominated by pleasant and unpleasant, healthy and unhealthy, and profit and loss. These perspectives are necessary within their domains, but they cannot by themselves settle justice and injustice, dharma and adharma, or truth and untruth.
 
-**Completeness** (*purnata*) here names **structural saturation**, not moral perfection in a religious sense. T1 is structural saturation of the atom — constitutional closure at the sentience threshold. T2 is functional saturation of the human's activities — orderliness with *ness* evidenced in work. T3 is conduct saturation — humane behaviour others can recognise as living proof. Each transition closes a definite bondage mode (molecular and weight bondage at T1; picture-based faculty activity at T2/T3) rather than grading a soul against an ideal of flawlessness.
+The diagnosis should not be reduced to one psychological slogan. Body-identification becomes socially consequential through several mechanisms: desires expand without a criterion of sufficiency; wealth becomes accumulation rather than assurance; inherited affiliation becomes defensive identity; authority substitutes for understanding; and institutions reward short-term advantage while distributing consequences to others. Internal contradiction and external conflict reinforce one another.
 
-Pre-awakening humans occupy the **delusional** plane (body mistaken for self). Awakening moves through the **deific** plane toward the **divine** (complete) plane (MVD, p. 160; SB, pp. 137–138). Activity and conduct completeness belong to ***jagriti-kram*** within constitutionally complete *jeevan* — they **source and seed** assembly-scale *akhand samaj*, but do not automatically substitute for it (§4.6).
+Karm Darshan contrasts necessary tendencies of non-accumulation through prosperity, affection, learning, simplicity, and fearlessness with convenience, accumulation, hatred, ignorance, conceit, and fear (KD, p. 8). The contrast is not an attack on comfort, property, or knowledge. It asks whether they remain means within humane purpose or become organising ends that fragment relationships.
 
-In the sentient mode, SB's *shram–gati–parinam* framework, when mapped onto the three completeness stages, yields: **result** toward constitutional completeness; **effort** toward activity completeness; **motion** toward conduct completeness (SB, p. 58). SB states the developmental goals explicitly: result toward immortality, effort toward restfulness, motion toward destination (SB, p. 71). At the knowledge order, **restfulness of effort** and **destination of motion** name what T2 and T3 evidence in awakened humans — not private calm or mere movement, but orderliness with *ness* and conduct others can recognise.
+### 3.2 From difference to division
 
-### 4.5 Activity and conduct completeness — achievement
+Human diversity does not itself produce division. Division arises when colour, caste, creed, ideology, nationality, or economic position becomes a final boundary of responsibility. Communities then organise trust internally and fear externally. Cooperation may remain strong within the group while the human whole is treated as a field of rivals, converts, markets, subjects, or threats.
 
-MVD holds that in **awakening progression**, awakening in deluded humans itself **is** activity completeness and conduct completeness — the substance of *jagriti-kram*, not optional ornaments after private insight (MVD, p. 27). An awakened human nurtures right-use and purposeful-use through work with less developed nature; study, practice, and contemplation continue toward further awakening (MVD, p. 27). Realisation-evidence must embody humaneness in work and behaviour, becoming apparent within family order and world-family order (MVD, p. 88); the staged method and Jeevan Vidya catalyst are §4.3.
+Madhyasth Darshan distinguishes such sectarian organisation from community as a bearer of humane tradition. A community contributes to undivided society when its cause, goal, and programme are open to universal human participation and when its internal solidarity does not require another group's inferiority. Cultural plurality can then persist as expression rather than harden into competing accounts of who is fully human.
 
-**Activity completeness (T2).** Upon attaining realisation of orderliness, a person can become **evidence of living in orderliness**; this state, or the state of awakening itself, is activity completeness (AVD, p. 173). AVD observes that activity completeness — also meaning **doing everything worth doing in humane ways** — materialises through six modes: **physical**, **verbal**, **mental**, **doing**, **getting-done**, and **consenting** (AVD, p. 173). Living with justice and in orderliness is the meaningfulness of this stage; as a result, **universality of orderliness and undividedness in human society becomes defined, explained, and prevalent** (AVD, p. 173).
+### 3.3 Accumulation, coercion, and delayed understanding
 
-**Conduct completeness (T3).** Divine humans **produce evidence of conduct completeness** — named **awakening completeness** (*jagritipurnata*) (AVD, p. 173). Liberation from bondage is found **in humane conduct**; it must become **apparent in work and behaviour** (AVD, p. 173). *Pramanikta* — authentic conduct as living proof that understanding has taken hold — closes the evidence chain at this stage ([Knowledge, Knower, and Known](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) §1.6.1). AVD distinguishes projection and reflection **according to visualisation** versus **according to realisation** (AVD, p. 176). Conduct completeness belongs to the second — faculties aligned under realisation, not picture-based imagination alone.
+Material need is finite enough to assess at the family level, while desire under comparison and insecurity can become indefinite. When prosperity is confused with accumulation, production serves competitive advantage rather than assured sufficiency and right-use. Fear then appears to justify hoarding, military protection, exclusion, and central control; these arrangements reproduce the insecurity they promise to solve.
 
-Delusion-less **deific** humans evidence activity completeness; **divine** humans with complete awakening evidence conduct completeness (MVD, pp. 27, 160).
+Coercion can preserve an institution for a time, but endurance alone is not humane orderliness. An assembly sustained by fear, dependency, or information control has not internalised its own purpose. The relevant test is whether members can understand the cause and goal, participate in evaluation, fulfil responsibilities without permanent compulsion, and transmit the method to new members.
 
-### 4.6 Role in establishing *akhand samaj*
+## 4. Why influential alternatives are insufficient by themselves
 
-If T2 and T3 are individual milestones, how do they connect to society-scale undivided society? The texts name a ladder on which individual completeness sources assembly-scale telos while Layer 4 still evidences it in tradition — tightly coupled, not collapsed into one (MVD, p. 27):
+### 4.1 Science-only materialism
 
-> **"Delusionlessness is awakening; awakening is enlightenment; enlightenment is lordship; lordship is sovereignty; sovereignty is undivided society and universal orderliness."**
-> - MVD, p. 27 (translation from Hindi source text)
+Modern science is indispensable for an undivided society. It provides disciplined observation, causal explanation, technological capability, ecological measurement, medicine, and ways to test institutional consequences. Scientific findings about climate, cooperation, development, trauma, public health, and resource use can correct ideology and expose ineffective practice.
 
-Activity and conduct completeness sit **on** this ladder as the achievements of *jagriti-kram*; they are not a parallel track beside *akhand samaj*. AVD names humane, deific, and divine humans as those who **act as sources** of undivided society and universal orderliness (AVD, pp. 173, 175); **humaneness is the definition and description** of the telos, and the way of awakening is the only way to recognise it. MVD postulates that *jeevan* **evidences undivided society in human tradition upon awakening** (MVD, p. 14). Awakened humans at T2/T3 **source, seed, and exemplify** the telos; **assembly composition** at scale still **evidences** it — Layer 4 closure is not automatic scale-up of physical regulation alone (§4.8, §5.4).
+Science as an empirical method does not, however, determine its own ultimate ends. Measurements can compare outcomes after an aim has been selected; they cannot by measurement alone establish why universal wellbeing should outrank national advantage, why mutual satisfaction should outrank aggregate preference, or why a person must never be treated merely as a resource. Facts constrain action, but a description of what occurs does not by itself yield a complete account of what ought to be fulfilled.
 
-### 4.7 Five operational traditions post-awakening
+Science-only materialism adds a philosophical claim to scientific method: the human being is exhaustively a bodily system and values are products of biology, preference, or social construction. That claim remains contested by the hard problem of consciousness, first-person awareness, personal identity, and the apparent normativity of truth and justice. Even a sophisticated optimisation system must receive objectives, weights, and constraints from an account of the human good. Once justice, relationship, ecological responsibility, and universal human dignity enter the objective, value-neutral science is no longer the whole basis.
 
-AVD names what awakened humans **do** operationally — the bridge from individual completeness to social-scale orderliness:
+Science is therefore a necessary means and a continuing corrective, but not a sufficient social foundation by itself. Madhyasth Darshan's contrast is with scientism, not with careful empirical inquiry. Its own claims about *jeevan*, atomic development, education, and social effects must remain open to conceptual criticism and empirical examination wherever evidence is possible.
 
-> **"While in the state of awakening, all humans are naturally found to be working towards establishing the harmonious tradition of non-accumulation (by way of prosperity), of affection (by complementariness), of knowledge (by knowledge of jeevan), of simplicity (by holistic view of coexistence), and of fearlessness (by humane conduct)."**
-> - AVD, p. 14
+### 4.2 Advaita Vedanta
 
-These five *prathishtha* are not optional cultural ornaments after private insight. They operationalise individual completeness at social scale and align with JV's five orderliness dimensions (§5.5).
+Advaita Vedanta offers a profound challenge to egoic and bodily identification. It holds that the deepest Self is not separate from Brahman, treats liberation through knowledge as the highest aim, and can support equanimity, non-attachment, compassion, and a universal regard that crosses ordinary social boundaries. Any comparison that reduces Advaita to ritual obedience or sectarian belief misses its philosophical force.
 
-### 4.8 Provision versus achievement
+The difficulty concerns derivation of a social order. At the ultimate level, Advaita sublates plurality and treats the empirical world as *mithya*: dependently experienced and neither absolutely real nor simply nonexistent. Ethics, duty, family, production, and governance remain meaningful within *vyavahara*, but they do not have the same ultimate status as knowledge of Brahman. Non-dual realisation can transform conduct, yet the metaphysics does not by itself specify a necessary cycle of relationship-recognition, value-fulfilment, evaluation, mutual satisfaction, family prosperity, five social dimensions, or universal institutional participation.
 
-Coexistence **provisions** regulation, values, relationships, complementarity, and the six perspectives. It does **not guarantee** prosperity, trust, or undivided society regardless of conduct. Delusion, legality without justice, accumulation detached from right-use, false learning, and fear as lack of wisdom remain live failures at the knowledge order (MVD, pp. 263–264) — these are **failure modes of complementarity**, not its absence from the design.
+Madhyasth Darshan takes a different route. Persons, units, relationships, and the world remain real in coexistence; liberation from delusion is evidenced through conduct within those relationships rather than through the ultimate sublation of difference. The disagreement is not whether inward knowledge matters. It is whether social fulfilment follows as an explicit and indispensable completion of knowledge. For establishing the particular telos of undivided society, Advaita can contribute self-inquiry and freedom from possessive identity but is insufficient as the sole architectural basis.
 
-The architecture therefore has two sides at Layer 3–4: what is **built in** to coexistence, and what humans must **evidence** through awakening. *Akhand samaj* belongs to the second — as **telos and achievable evidence**, not as automatic ontological outcome.
+### 4.3 Hindu religious authority and social tradition
 
-## 5. Social establishment (Layer 4)
+"Hinduism" does not name one philosophy, scripture, deity, ritual system, or social programme. It includes Advaita and other Vedanta schools, devotional traditions, Yoga, Samkhya, Nyaya, temple communities, household practices, renunciant paths, and many competing accounts of dharma. Its plurality has supported remarkable philosophical inquiry, moral discipline, service, art, family continuity, and forms of ecological reverence.
 
-What awakened humans evidence does not stay private: it composes upward from family through community to humankind as undivided society with universal orderliness.
+That plurality is precisely why Hinduism as a general label cannot function as one determinate universal foundation. Appeals to revelation, deity, guru, caste duty, inherited custom, or sacred law do not command equal acceptance across Hindu traditions, much less across all humankind. Where moral authority rests finally on a community's scripture or lineage, disagreement between communities has no shared method of resolution except interpretation, conversion, accommodation, or power.
 
-### 5.1 The telos defined
+Karm Darshan's critique targets this authority structure rather than every religious insight. It argues that spiritualism, god-centred thought, and other idealisms have often retained mystery at both their basis and destination, while materialism removes the need for sacred authority without supplying a complete humane end (KD, pp. 146-151). The proposed alternative is not hostility to devotion. It is to make claims about self, relationship, justice, and social purpose available for study and verification in conduct, so that humane identity does not depend on accepting one community's revelation.
 
-Undivided society is humankind living as **one complementary whole** — every person resolved, families prosperous and trusting, relationships fulfilled from household to world family, with orderliness self-governed from understanding rather than imposed from above. It is the inherent complementarity of §1.2 **un-blocked across humankind** — relationships fulfilled toward completeness at every tier, emergent in tradition rather than unity imposed from above. **Undivided society** (*akhand samaj*) and **universal orderliness** (*sarvabhaum vyavastha*) are **paired evidence** in awakened human tradition:
+Religious traditions can therefore contribute practices of restraint, care, service, gratitude, and intergenerational meaning. They become inadequate as the sole basis when obedience replaces understanding, promised otherworldly outcomes displace present relationship-fulfilment, or inherited community identity limits universal responsibility.
 
-> **"More than one human coming together or becoming organised is referred to as a family, community, or undivided society. In the awakened human tradition, undivided society is evidenced along with the universal orderliness."**
-> - MVD, Ch. 4
+### 4.4 The contrast in social foundations
 
-> **"Society is humane only when it is undivided. Societal functioning means - participation for undivided society, in other words participation in universal orderliness."**
-> - JVD, p. 157
-
-Wealth exists within society, originates from society, and is meant for society; delusion alone drives 'mine' versus 'yours' individualism (MVD, p. 195). Undivided society is **orderliness evidenced among humans** — individuals living with understanding, connected through associations and relationships (MVD, p. 244). *Vyavastha* names inherent orderliness, not a top-down imposed apparatus; *akhand samaj* is emergent orderliness in tradition, not a planned state structure.
-
-AVD states that **unity and undividedness is the natural expression of awakening** — division appears only under delusion (AVD, p. 80). Humans alone evidence undivided society and serve as witness (*drishta pad*) to universal orderliness (MVD, p. 297; AVD, p. 214).
-
-### 5.2 Sociality, need, and *ichcha*
-
-Establishment at the social tier follows a definite **production–conduct chain** (MVD, Ch. 4). The chain begins with **sociality** and **needs** at the material level — but the knowledge-order engine that powers it psychologically is ***ichcha*** (desire, aspiration, thought) in *jeevan*, not physical need alone.
-
-MVD maps the inner means: hope (*aasha*) in *mun*, thought in *vritti*, **desire** (*ichcha*) in *chitta*, and resoluteness with realisation-evidence in *buddhi* (MVD, p. 84). In delusion, hope follows sensation, thought follows that hope, and desire follows thought (MVD, pp. 275–276); in awakening, benevolent desires in *chitta* become projection activities of realisation (MVD, p. 293). Reoriented ***ichcha* for happiness and resolution** — not physical need alone — drives the sociality–production chain toward undivided sociality and the four human goals (§5.3). MVD states the chain (Ch. 4):
-
-> **"Sociality gives rise to needs; needs give rise to experimentation and production; experimentation and production give rise to creation of wealth; creation of wealth gives rise to use, right-use and purposeful-use; use, right-use and purposeful-use give rise to practicality; practicality gives rise to humaneness, and humaneness gives rise to sociality. Sociality is meaningful when it is towards undivided sociality."**
-> - MVD, Ch. 4
-
-**Purposeful-use** (*prayojansheelta*) names utilisation of body, mind, and wealth **toward undivided society and universal orderliness upon awakening** (MVD, Ch. 4). Material prosperity requires **more production than needs**; awakening is evidenced only by *sadupyog* conduct — otherwise decline is inevitable (MVD, p. 106).
-
-At the material level, sectarian divisions and state borders are driven by fear of scarcity and group-level accumulation (*sangraha*). When families produce surplus beyond needs and dedicate it to right-use and purposeful-use, accumulation gives way to trust and mutual distribution (*a-sangraha*). Per *Avartansheel Arthshastra*, the exchange-reserve (*vinimay-kosh*) operates on value-equivalence rather than profit-extraction — neutralising the economic motive for defense, competition, and sectarian division.
-
-### 5.3 Four human goals jointly evidenced
-
-JV names *jeevan*'s goal and the human goal distinctly, then ties them:
-
-> **"The goal of jeevan is happiness, and the human goal is resolution, prosperity, fearlessness, and coexistence."**
-> - JV, p. 165
-
-> **"Resolution = Happiness. We realise happiness wherever we are resolved… We realise peace while evidencing resolution and prosperity in the family. We realise contentment by living orderly in society. We realise bliss in the course of evidencing our understanding."**
-> - JV, p. 61
-
-The four goals — *samadhan*, *samridhi*, *abhaya*, *saha-astitva* — are **joint** human telos, evidenced together when the justice cycle closes. They map to *jeevan* harmonies (happiness, peace, contentment, bliss) at individual, family, and societal levels — not one goal assigned to one tier alone. The table below is a **synthesis** from JV's separate statements of goals and harmonies (JV, pp. 61, 165); JV does not present this four-level mapping as a single table.
-
-| Level of Existence | Human Goal | Manifested Harmony (Jeevan Value) |
-|---|---|---|
-| **Individual** | Resolution (*Samadhan*) | Happiness (*Sukh*) |
-| **Family** | Prosperity (*Samridhi*) | Peace (*Shanti*) |
-| **Society** | Fearlessness / Trust (*Abhaya*) | Contentment (*Santosh*) |
-| **Nature / Existence** | Coexistence (*Saha-astitva*) — living with complementarity among humans and with nature | Bliss (*Anand*) |
-
-Awakened sociality contrasts with animal collectivity observed **only under fear** — never in study, production, or maintenance of orderliness (MVD, Ch. 4). **Resolution itself is restfulness** (*vishram* / *abhyudaya*) — comprehensive closure, not private calm alone.
-
-### 5.4 Assembly composition
-
-Human groupings compose upward: **individual → family → community → undivided society**. Organisation requires **commonness of cause, goal, and programme** for sustainment (MVD, Ch. 4).
-
-AVD distinguishes terminologies that the deluded and awakened traditions use for the same scale. **Sect** (*samaj* in the deluded sense) names groupings of more than one family built on assumptions of race, colour, caste, ideology, and creed — assumptions that produce divisions and sections in what is naturally one humankind. **Community** (*sampradaya* in the awakened sense) names human tradition with purpose of completeness, awakening, and guidance toward undivided society, completeness, and unity (AVD, p. 23).
-
-Establishing *akhand samaj* is **transmutation**, not replacement or abolition of existing groups. The texts do not advocate violent destruction of religions or political parties; as humans within a sect awaken, the **same human assembly** reorganises under humaneness — sect-based *samaj* becomes completeness-oriented *sampradaya* when consciousness shifts from fear-bound identity to awakening.
-
-Resource intention scales through **selfishness** (confined to one person or family), **altruism** (comfort of others), and **benevolence** (universal wellbeing through resolution, affectionate relationships, and shared access) (MVD, Ch. 4). The highest organisation makes humane living **available to all** — not welfare alone but resolution accessible in tradition.
-
-Fulfilling relationships and associations **is** sociality (MVD, Ch. 4). Assemblies persist while values in relationships are fulfilled; they decline when expectations toward completeness break down — the same composition rule as molecules and bodies (§1.4).
-
-### 5.5 Universal orderliness
-
-JV names **five dimensions** of orderliness for undivided society (JV, p. 110):
-
-1. Education-*sanskar*
-2. Justice-security
-3. Health-restraint
-4. Production-work
-5. Exchange-reserve
-
-MVD names **ten-tier family-based orderliness**, wherein **family is the first tier** and every individual takes responsibility from understanding (MVD, p. 161). Three recognitions of the same ladder appear in MVD: individual, family, society, state, nation, and inter-nation; individual, family, undivided society, and universal orderliness; and **ten family assemblies** from family through extended family, village, region, and upward to world family — each tier **self-governing** (*swarajya*) from understanding rather than governed from above (*shasan*). JVD extends the image from **family council to world family council** as meaningful dialogue content (JVD, p. 76).
-
-**Kutumb shiksha** (family education) is the micro-engine of those five dimensions — not merely cohabitation. JVD holds that the family itself functions as council in its grand form, and the council as family: in deliberation it is *sabha* (council); in implementation it is *parivar* (family); dialogue in council requires understanding of one another's mindset, goals, and expectations (JVD, p. 237). Daily family practice evaluates relationships, production, and conduct against all five dimensions.
-
-**Education-*sanskar*** carries evidenced understanding across generations — not rules without fulfilment (JV, p. 49). Individual awakening runs through Jeevan Vidya (§4.3); collective transition runs through *janvad* — structured public dialogue comparing fragmented state with undivided society and universal orderliness (JVD, pp. 76, 220). Awakening adds the fifth *kosha* — *vigyanmaya*, right knowledge — so humans function across five developmental envelopes (MVD, pp. 49–50).
-
-MVD posits **Manav Dharma-niti** (humane moral policy — right-use of body, mind, and wealth) and **Manav Rajya-niti** (humane state policy — security of the same) as twin policy frameworks that, when based on humane conduct, replace fragmented moral and state policies (JV; MVD, Ch. 4). They integrate utilisation and protection at every tier from family upward; minute statutory codification is deferred to the planned *Governance Justice and Undivided Society* study.
-
-### 5.6 Consciousness transformation and witness
-
-Establishment requires a shift of consciousness (MVD, p. 297):
-
-> **"In this sequence, transformation from community consciousness to human consciousness, and from human consciousness to society consciousness, is indeed the important event."**
-
-Only **humans** evidence undivided society and serve as witness (*drishta pad*) to universal orderliness (MVD, p. 297; AVD, p. 214). Humankind becomes one complementary whole when fear-bound groupings mature through comprehensive resolution accomplished by education-*sanskar*.
-
-### 5.7 Blockers and dialogue
-
-The texts contrast two engines — why undivided society has not closed at scale versus how establishment proceeds when the gate opens:
-
-| Engine | Chain |
-|---|---|
-| **Current (deluded)** | Fear + temptation → accumulation → conflict → destruction |
-| **Proposed (awakening)** | Understanding + desire for happiness → right-use → fulfilment → undivided society |
-
-The deluded engine is what JVD traces historically: sectarian structures, the four seats of state, religion, commerce, and education drifting toward comfort and accumulation, and public discourse dominated by profit and fear (JVD, pp. 16–27). The awakening engine is the sociality–production chain (§5.2) closed through reoriented *ichcha* and the five *prathishtha* (§4.7). *Janvad* makes the contrast publicly accessible — the collective parallel to individual study and practice — and poses whether humanity should live in undivided society and universal orderliness or remain in fragmented structures (JVD, pp. 76, 220).
-
-Establishment fails when evaluation stays in *priya–hita–labh* alone (Layer 3), fear-bound collectivity mimics social order without study or production (Layer 4), comfort-accumulation and devotion-detachment both collapse into individualism (Layers 3–4), or hoarding, legality without justice, false learning, and sectarian groupings persist (MVD, pp. 263–264; JVD, p. 76).
-
-## 6. The complete architecture
-
-The establishment of *akhand samaj* is one chain with five layers and a telos. The delusionlessness ladder (§4.6) is the structural spine: Layer 3 closes the knowledge-order gate (delusionlessness → awakening → enlightenment); Layer 4 evidences lordship and sovereignty in assemblies; the telos is undivided society with universal orderliness.
-
-![Five-layer architecture from coexistence ground through the narrow knowledge-order gate to undivided society and universal orderliness](1-undivided-society-architecture.svg)
-
-The diagram depicts five horizontal layers rising from coexistence ground at the bottom to *akhand samaj* at the top, with arrows showing how each layer depends on the one below and enables the one above. Matter and regulation flow relatively easily through Layers 0–2; **Layer 3 is a narrow gate**. Every human unit that would reach Layer 4 must pass through awakening — study, experiment, and realisation-evidence closing T2 and T3. A unit that fails at Layer 3 loops back to delusion (body-as-self, *priya*–*hita*–*labh* evaluation); the assembly cannot achieve the telos while that loop remains dominant. Layer 4 evidences what passes the gate in family, community, and world-family orderliness. The telos sits above Layer 4 as the culminating evidence.
-
-**Layer 0 — Coexistence ground.** *Satta* and units co-eternal; saturation provisions inherent energy and regulation in each unit; unit signature and relationships; complementarity as the essence of coexistence — value reciprocated in mutuality; *shram–gati–parinam*; regulation ladder from saturation through law.
-
-**Layer 1 — Composition through orders.** Mixtures and compounds; four orders with *niyati-vidhi* conformance; six value kinds; assemblies persist or decline with relationship-fulfilment.
-
-**Layer 2 — Sentience threshold and T1.** Four progressions kept distinct; *vikas-kram* through hungry–overfull–satiated atoms; constitutional completeness and *jeevan*–body joint form; mediative nucleus / mediative *atma* parallel.
-
-**Layer 3 — Knowledge-order narrow gate.** Six *drishti*; justice cycle; inward regulation; Jeevan Vidya catalyst; *shanka*–*swada*–*bodh* and study → experiment → realisation-evidence; planes and **T2 activity completeness** and **T3 conduct completeness** (*jagritipurnata*, *pramanikta*); *shram–gati–parinam* mapped to T1–T3; five operational *prathishtha* (§4.7); *ichcha* reoriented under understanding; knowing → believing → recognising → fulfilling; failure loops to delusion — awakening required.
-
-**Layer 4 — Social evidence.** Sociality–production chain powered by *ichcha*; four human goals jointly; assembly composition and sect-to-*sampradaya* transmutation; *kutumb shiksha* and family council; five orderliness dimensions and ten-tier family orderliness; *janvad*; *dharma-niti* and *rajya-niti*; education-*sanskar*; consciousness shift; current vs proposed engine (§5.7).
-
-**Telos.** *Akhand samaj* evidenced with *sarvabhaum vyavastha* — humankind as one complementary whole in awakened tradition; the inherent complementarity of Layer 0 un-blocked at the scale of humankind.
-
-| Layer | Sections | Key concept |
-|---|---|---|
-| Layer 0 | §1.1–1.4 | Coexistence ground, saturation, unit signature, composition |
-| Layer 1 | §2.1–2.3 | Four orders, six values, four progressions |
-| Layer 2 | §3.1 | Constitutional completeness (T1), *vikas-kram*, *jeevan*–body joint form |
-| Layer 3 | §4.1–4.8 | Knowledge-order gate, six perspectives, justice, awakening path, T2/T3, five *prathishtha*, provision vs. achievement |
-| Layer 4 | §5.1–5.7 | Telos, production chain, four goals, assembly composition, five dimensions, consciousness shift, blockers |
-| Telos | §5.1, §6 | *Akhand samaj* + *sarvabhaum vyavastha* as paired evidence |
-
-The exposition runs several ordered sequences, and they are not rivals but different views of one ascent. The delusionlessness ladder is the spine; the regulation ladder (§1.3), the four progressions (§2.3), the three completeness transitions (§4.4), and the five layers each read the same ascent from a different angle, as the crosswalk shows:
-
-| Spine (delusionlessness ladder) | Layer | Regulation ladder | Progression | Completeness |
+| Question | Madhyasth Darshan | Science-only materialism | Advaita Vedanta | Hindu authority as basis |
 |---|---|---|---|---|
-| Ground (pre-gate) | 0 | saturation, law | — | — |
-| Composition (pre-gate) | 1 | order conformance | *niyati-kram*, *niyati-vidhi* | — |
-| Sentience reached | 2 | — | *vikas-kram* | T1 constitutional |
-| Delusionlessness → awakening → enlightenment | 3 | inward regulation, justice | *jagriti-kram* | T2 activity, T3 conduct |
-| Lordship → sovereignty | 4 | assembly order | — | evidenced in tradition |
-| Undivided society + universal orderliness | Telos | — | — | — |
+| Human being | *Jeevan*-body joint form capable of understanding and humane conduct | Bodily organism or information-processing system | Self is ultimately Brahman; individuality belongs to empirical reality | Varies by school, scripture, and practice |
+| Status of the world | Real and perpetual coexistence of distinct units in *satta* | Physical world is fundamental | Empirical world is *mithya* relative to Brahman | Ranges from realism to qualified or non-dual accounts |
+| Source of value | Essentiality in relationships, known and evidenced through justice | Biological disposition, preference, convention, or selected objective | Dharma within *vyavahara*, informed by liberating knowledge | Revelation, dharma traditions, reason, custom, or devotion |
+| Evidence of fulfilment | Mutual satisfaction, humane conduct, four human goals, universal participation | Measurable outcomes relative to chosen aims | Liberating knowledge and its ethical expression | Fidelity, virtue, ritual, service, liberation, or divine relation |
+| Social completion | Family-based orderliness maturing into undivided society | Efficient and adaptive institutions; ends remain externally selected | No single necessary institutional programme follows from non-duality | Multiple community-specific social visions |
 
-Society is stabilised at sentient scale by **inward mediative *atma*** and the **justice cycle** closing in assemblies — parallel to the mediative nucleus at the atomic scale. *Satta* remains actionless ground; undivided society is what awakened humans **evidence** when the full chain closes (§4.6).
+Madhyasth Darshan is broader in architectural ambition, but breadth is not proof. Its advantage is the explicit linkage it proposes; its burden is to show that the links are coherent, teachable, non-coercive, and evidenced in actual living.
 
-## 7. Open problems
+## 5. The path of establishment
 
-Several points remain unsettled within the darshan's own terms and translation corpus:
+### 5.1 Individual understanding and awakening
 
-- **Evidential threshold at scale.** The texts describe undivided society as telos and evidence in tradition; what counts as sufficient evidence across diverse regions and institutions is not fully specified in the English translations alone.
-- **Translation corpus.** JVD and AVD are work-in-progress English translations; Hindi originals and fuller vocabulary in *Manav Vyavahar Darshan* and *Avartansheel Arthshastra* may extend the production–governance chain beyond what this study cites.
-- **Paribhasha definitions.** Formal terms (*niyati-kram*, *niyati-vidhi*, and related entries) are named in *Paribhasha Samhita* on [madhyasth.org](https://www.madhyasth.org/browse-texts/browse-topics/definitions); dynamic web presentation limits offline mirroring for quote verification.
-- **Statutory implementation.** The architecture includes law, justice, and assembly order conceptually; detailed *dharma-niti* and *rajya-niti* codification is minute institutional detail deferred to the planned *Governance Justice and Undivided Society* study.
+Establishment begins with a human being because institutions act only through persons, but it does not end in private transformation. Madhyasth Darshan describes the learning sequence as study, experiment or practice, and realisation evidenced in conduct. Knowing must become believing or accepting within oneself, then recognition and fulfilment in relationships. Doubt and verification are part of this process; mere repetition of doctrine is not awakening.
+
+Jeevan Vidya is presented as a programme for making this study available in dialogue. Its proper role is catalytic rather than ecclesiastical: participants examine whether the distinctions among body, *jeevan*, sensation, desire, relationship, and coexistence make sense in their own experience and conduct. A teacher can present a proposal and help inquiry, but cannot confer understanding by authority.
+
+Activity completeness names settled functioning under understanding; conduct completeness names its dependable evidence in work and behaviour. These concepts should not be read as claims of moral flawlessness. They identify the darshan's requirement that insight become stable enough to guide action, accept evaluation, and serve as a learnable example.
+
+### 5.2 Family as the first field of evidence
+
+The family is the first sustained field in which relationship, need, production, use, education, and evaluation meet. Trust cannot remain an abstraction there: care, guidance, affection, gratitude, respect, and responsibility must be fulfilled among recognisable persons. Justice becomes concrete when expectations are understood, values are fulfilled, and all parties can evaluate whether mutual satisfaction has been reached.
+
+Prosperity also becomes assessable at this scale. Madhyasth Darshan defines it as the feeling of having or producing more than the family's needs, not as indefinite possession. This requires competence in production, an agreed assessment of need, restraint in consumption, and confidence that relationships will not collapse when surplus is shared or put to purposeful use. Non-accumulation is therefore expected to arise from prosperity, not from glorifying deprivation.
+
+The family council joins deliberation and implementation. In deliberation the family functions as an assembly; in daily work it functions as a cooperative unit. Children and new members learn not only rules but how needs are assessed, disagreements heard, responsibilities accepted, resources used, and consequences evaluated. This is *kutumb shiksha*, family education, as the smallest reproducible form of humane orderliness.
+
+### 5.3 Assemblies through shared purpose
+
+Families do not scale into society merely by aggregation. A humane assembly requires commonness of cause, goal, and programme. Its cause is the unresolved human condition; its goal is the fourfold human aspiration; its programme comprises education, justice, health, production, exchange, and the practices through which members evaluate them. Commonness does not require identical opinions. It requires enough shared understanding to coordinate action and correct departures without making force the permanent source of unity.
+
+Human composition remains an analogy, not a new super-organism. The assembly is coherent when relationships and responsibilities are fulfilled, decisions remain answerable to justice, members experience mutual satisfaction, and the method survives turnover through education-*sanskar*. An institution can persist empirically through coercion while failing this humane criterion; persistence and orderliness must not be confused.
+
+The texts describe a family-based sequence extending through larger councils toward a world-family council. The philosophical point is subsidiarity with shared purpose: responsibility should be exercised at the most immediate competent level, while wider tiers address matters that cross local boundaries. Universal orderliness is not a command centre above humankind but coordinated participation among self-responsible tiers.
+
+### 5.4 Five dimensions of universal orderliness
+
+Jeevan Vidya names five dimensions through which social purpose becomes institutional practice:
+
+1. **Education-*sanskar*** makes understanding and humane competence available.
+2. **Justice-security** fulfils relationships, resolves disputes, and protects persons and resources.
+3. **Health-restraint** supports bodily health while keeping sensation and consumption within understood purpose.
+4. **Production-work** ensures material sufficiency through skilled and ecologically responsible labour.
+5. **Exchange-reserve** circulates surplus and maintains provision without making profit-extraction the organising aim.
+
+These dimensions constrain one another. Production without ecological and bodily restraint destroys its own conditions. Security without justice becomes domination. Education without productive competence becomes abstraction. Exchange without prosperity encourages debt and accumulation. Health without resolution can become another market in anxiety. Universal orderliness means their coordinated functioning toward the same human goal.
+
+Karm Darshan adds natural responsibility to the social account. Mineral, forest, water, and climatic balances must be understood, and use must remain proportionate to regenerative processes (KD, p. 7). Coexistence with nature is therefore not a ceremonial fifth goal after human prosperity; it is a condition of production and the wider test of right-use.
+
+### 5.5 Policy, protection, and public dialogue
+
+Madhyasth Darshan distinguishes humane moral policy (*manav dharma-niti*) from humane state policy (*manav rajya-niti*). The first concerns right-use of body, mind, and wealth; the second secures the conditions in which that right-use can continue. Neither is sufficient alone. Moral teaching without protection leaves humane conduct vulnerable to exploitation, while security detached from humane purpose protects existing power rather than justice.
+
+Public dialogue (*janvad*) is the bridge between private study and collective decision. It places resolution, prosperity, fearlessness, coexistence, and participation before citizens as matters to be examined rather than slogans to be imposed. Dialogue is meaningful when it can revise programmes in light of experience, include affected persons in evaluation, and distinguish disagreement from enmity.
+
+### 5.6 Transition in a mixed society
+
+No existing society begins with universal awakening, and the primary texts do not yet provide a detailed transition theory for contemporary plural states. A plausible Madhyasth Darshan transition must therefore work among people with unequal understanding, competing commitments, and inherited institutions. Requiring every person to complete awakening before any social improvement begins would make establishment circular.
+
+The process can begin with exemplars and small institutions that make limited claims and accept public evaluation. Families, schools, workplaces, and local councils can test whether explicit relationship expectations, transparent need assessment, shared production, restorative evaluation, and non-coercive dialogue increase resolution, sufficiency, and trust. Practices that work can be taught and federated; practices that fail must be revised rather than insulated by doctrinal authority.
+
+Law remains necessary during transition because understanding is incomplete and harms are real. Its legitimate role is protective and enabling: restraining violence and exploitation, preserving space for inquiry and participation, and making institutions answerable. The long-term movement is from external control toward self-regulation, but invoking self-regulation must never excuse the absence of safeguards for vulnerable persons.
+
+Pluralism also requires freedom of conscience. A person may contribute humane conduct from scientific, Advaitic, devotional, secular, or other convictions without first adopting Madhyasth Darshan's entire ontology. What the social programme can reasonably require is participation in just relationships and publicly assessable institutions. The darshan's stronger metaphysical claims must persuade through study and evidence, not become tests of citizenship.
+
+### 5.7 Evidence at each scale
+
+The four human goals provide a disciplined but still incomplete evidential frame. At the individual scale, resolution should appear as reduced contradiction and greater consistency between understanding and action. At the family scale, prosperity should appear as assured need-fulfilment, productive competence, and non-accumulative use of surplus. At the social scale, fearlessness should appear as trustworthy relationships, accessible justice, and declining dependence on threat. At the ecological and universal scale, coexistence should appear as responsible participation with other humans and the regenerative processes of nature.
+
+Evidence cannot be only self-certification. Claims of resolution or awakening must remain answerable to those affected by the claimant's conduct. Family members, co-workers, neighbours, and institutions must be able to evaluate whether values are actually fulfilled. Quantitative indicators can assist this evaluation, but no single metric substitutes for relational judgement; both first-person and public evidence are required.
+
+Education carries whatever has genuinely been evidenced. Karm Darshan calls education and orderliness the means of maintaining collective balance (KD, p. 8). A tradition becomes humane when each generation receives not merely conclusions but the capacity to investigate, understand, practise, evaluate, and improve them.
+
+## 6. The establishment architecture
+
+The full movement can now be stated without treating society as an enlarged atom. Coexistence provisions real plurality, mutuality, activity, and the possibility of value. The human being adds reflective evaluation and therefore the possibility of both delusion and justice. Understanding reorders desire; justice fulfils relationships; family life joins relationship with prosperity and education; assemblies coordinate shared purpose through five institutional dimensions; public dialogue and policy protect participation; education-*sanskar* carries evidenced understanding across generations. Undivided society is approached as these practices become universal in availability and orientation, while universal orderliness is their functioning form.
+
+![The establishment of undivided society: coexistence provisions mutuality; human understanding and justice establish fulfilled relationships; family, institutions, dialogue, and education carry humane orderliness toward humankind](1-undivided-society-architecture.svg)
+
+The existing figure should be read as dependency, not deterministic ascent. Ontology does not cause awakened society without human understanding, and individual awakening does not automatically create just institutions. Each passage has its own work: inquiry at the person, fulfilment in relationships, production and evaluation in family, coordination and safeguards in institutions, and transmission in tradition.
+
+The decisive reversal is from acting first and understanding only through consequences to understanding, acting, and evaluating in a continuing cycle. This is how the darshan proposes to replace fear-bound organisation without replacing it with doctrinal command. Its strongest claim is not that harmony will happen automatically, but that a non-coercive order has an intelligible basis and a reproducible path.
+
+## 7. Critical review
+
+### 7.1 Madhyasth Darshan — an integrated but demanding proposal
+
+**Strengths.**
+
+- It joins ontology, self, value, relationship, material production, ecology, education, and institutions instead of treating social harmony as moral sentiment alone.
+- It makes conduct and mutual satisfaction evidence of understanding, limiting the authority of private spiritual claims.
+- It distinguishes prosperity from accumulation and places material competence inside, rather than outside, humane life.
+- It preserves distinct persons and families within a universal human identity, avoiding both atomistic individualism and absorption into a collective self.
+
+**Weaknesses.**
+
+- The ontology of *jeevan* and the detailed atomic development account are not established by contemporary public evidence.
+- The transition from exemplary families to large, plural, technologically complex societies remains under-specified.
+- Terms such as awakening, resolution, and mutual satisfaction need operational criteria that resist self-certification and institutional capture.
+- A movement teaching universal human identity can itself become sectarian if textual loyalty replaces open inquiry or if metaphysical assent becomes a condition of participation.
+
+Madhyasth Darshan is strongest as an integrated research programme for humane living; it becomes weakest when its completeness is asserted in advance of social evidence.
+
+### 7.2 Advaita Vedanta — inward universality without a necessary social architecture
+
+**Strengths.**
+
+- It offers a rigorous critique of egoic identification and possessiveness.
+- Its non-dual vision can support universality, equanimity, compassion, and freedom from narrow identity.
+- It has developed sophisticated disciplines of inquiry, interpretation, and contemplative practice.
+
+**Weaknesses.**
+
+- The ultimate sublation of plurality weakens the derivation of permanent relational and institutional categories.
+- Liberation and ethical transformation do not by themselves specify production, prosperity, justice-security, exchange, or family-based governance.
+- Social consequences depend heavily on supplementary doctrines and historical institutions rather than following uniquely from non-duality.
+
+Advaita can deepen the inward critique of division, but it does not alone provide the full establishment programme examined here.
+
+### 7.3 Science and materialism — indispensable correction without self-sufficient ends
+
+**Strengths.**
+
+- Science supplies public methods, causal knowledge, measurement, and correction by evidence.
+- The natural and social sciences are indispensable for health, ecology, production, institutional design, and testing consequences.
+- Materialism resists explanations that are protected from criticism by mystery or authority.
+
+**Weaknesses.**
+
+- Empirical method does not choose its own ultimate values or derive obligation from description alone.
+- Reductionist accounts of consciousness, self, and normativity remain philosophically contested.
+- Technical optimisation can intensify exploitation when its objective is inherited from power, profit, or group advantage.
+
+Science is a necessary partner and evaluator of social practice. Scientism is insufficient as the sole account of humane purpose.
+
+### 7.4 Hindu religious traditions — moral resources without one universal authority
+
+**Strengths.**
+
+- Hindu traditions preserve extensive resources for duty, restraint, service, devotion, family life, contemplation, and reverence for nature.
+- Their plurality demonstrates many ways in which moral and spiritual meaning can be carried through culture.
+- Shared practices can sustain communities beyond contractual or economic interest.
+
+**Weaknesses.**
+
+- No single scripture, deity, lineage, caste order, or account of liberation is authoritative across the whole field.
+- Inherited authority can protect hierarchy and sectarian identity from examination.
+- Otherworldly or ritual fulfilment can become detached from present justice, production, and universal human participation.
+
+Hindu traditions can nourish humane life, but Hindu identity or scriptural authority cannot by itself be the universally examinable basis of undivided humankind.
+
+### 7.5 Open problems
+
+Several questions remain open for the study and practice of Madhyasth Darshan:
+
+- **Threshold of social evidence.** The sources name the four goals and awakened tradition but do not specify when a village, institution, region, or world society qualifies as sufficiently evidenced.
+- **Transition and pluralism.** The relation between family councils, existing constitutional states, markets, rights, and global institutions needs a detailed non-coercive transition account.
+- **Power and failure correction.** Consensus and self-regulation require safeguards against concealed domination, exclusion, abuse, and confident but mistaken claims of understanding.
+- **Measurement and interpretation.** Resolution, prosperity, fearlessness, and coexistence require mixed first-person, relational, ecological, and institutional evidence; their indicators remain to be developed.
+- **Textual scope.** JVD and AVD remain work-in-progress translations, while Karm Darshan's English translation is newly available. Fuller work on *Manav Vyavahar Darshan* and *Avartansheel Arthshastra* may alter the institutional account.
+- **Metaphysical burden.** It remains unsettled how much of the practical programme depends on accepting the full ontology of *satta* and *jeevan*, and how much can be tested as a social proposal across different metaphysical commitments.
+
+## 8. Conclusion
+
+Undivided society cannot be established by enlargement, decree, shared belief, or technical administration alone. Science can discipline means and consequences but does not choose a complete human end. Advaita can loosen egoic identity but does not necessarily derive a social architecture. Hindu traditions can sustain virtue and community but do not provide one authority available to all humankind. Each can contribute, yet none by itself satisfies the combined requirements of universal identity, value, material sufficiency, just relationship, institutional continuity, and publicly recognisable conduct.
+
+Madhyasth Darshan proposes coexistence as the common basis and awakened human conduct as its social evidence. Its path runs through understanding rather than conformity, justice rather than legality alone, prosperity rather than accumulation, family education rather than isolated moral instruction, coordinated institutions rather than central domination, and tradition as the transmission of examinable understanding. The proposal becomes credible only where those claims survive dialogue and appear in the lives of persons, families, institutions, and their relations with nature.
+
+Its central insight is therefore both philosophical and practical: humankind becomes undivided when universal human relationship is not merely affirmed but fulfilled, evaluated, protected, produced for, and taught. Whether Madhyasth Darshan can establish that at scale remains open. It has at least stated the test by which its vision should be judged.
 
 ## Appendix: Quick Glossary
 
-Key terms from the exposition are collected here for quick reference. Each term is also defined where it first appears.
-
 | Term | Plain meaning |
-|------|---------------|
-| ***Akhand samaj*** | Undivided society — defined in §5.1; humankind as one complementary whole evidenced with universal orderliness in awakened tradition. |
-| ***Sarvabhaum vyavastha*** | Universal orderliness — education-*sanskar*, justice-security, health-restraint, production-work, and exchange-reserve; paired with *akhand samaj* in tradition (§5.5). |
-| ***Sampradaya*** | Community in the awakened sense — human tradition with purpose of completeness, awakening, and guidance toward undivided society (AVD). |
-| ***Samaj*** | Sect in the deluded sense — groupings based on race, colour, caste, ideology, and creed that fragment what is naturally one humankind (AVD). |
-| ***Satta*** | Omnipresence — formless, all-pervasive ground in which all units are saturated. |
-| **Complementarity** | Reciprocal fulfilment of essentiality in mutuality — the essence of coexistence; definite below the knowledge order and achieved at it; scales from particles to *akhand samaj* (§1.2, §4.8, §5.1). |
-| ***Jeevan*** | The sentient self — constitutionally complete unit working through the body. |
-| ***Ichcha*** | Desire or aspiration in *chitta* — inner means (*antrang sadhan*) driving thought and conduct; reoriented under awakening from body-bound to benevolent desire (MVD, pp. 84, 293). |
-| ***Kutumb shiksha*** | Family education — daily family council evaluating relationships and production; micro-engine of the five orderliness dimensions (JVD, p. 237). |
-| ***Purnata*** | Completeness as structural saturation — constitutional (T1), activity (T2), or conduct (T3); not moral perfection (§4.4). |
-| ***Sadupyog*** | Right-use — use of body, mind, and wealth toward humane purpose, not hoarding or mere appetite. |
-| ***Prayojansheelta*** | Purposeful-use — utilisation toward undivided society and universal orderliness upon awakening. |
-| ***Kriyapurnata*** | Activity completeness — orderliness with *ness* evidenced in awakened human activity (T2; deific plane). |
-| ***Vyavaharpurnata*** | Conduct completeness — living proof (*pramanikta*) of awakening in work and behaviour (T3; divine plane). |
-| ***Jagritipurnata*** | Awakening completeness — conduct completeness as the fulfilled awakening milestone (AVD). |
-| ***Pramanikta*** | Authentic conduct — outward evidence that understanding has taken hold; transmissible in tradition. |
-| **MVD / SB / JV / JVD / AVD** | Primary texts cited in this study; full bibliographic entries under References. |
+|---|---|
+| ***Akhand samaj*** | Undivided society: humankind recognised and lived as one field of mutually fulfilling relationships. |
+| ***Sarvabhaum vyavastha*** | Universal orderliness through education-*sanskar*, justice-security, health-restraint, production-work, and exchange-reserve. |
+| ***Satta*** | Formless Omnipresence in which all bounded units are saturated. |
+| ***Jeevan*** | The sentient self, held by Madhyasth Darshan to work through the body while remaining distinct from it. |
+| **Complementarity** | Mutual participation through which units or persons fulfil essentiality; definite in lower-order conduct and consciously achieved in humane relationships. |
+| **Justice** | Recognition of relationship, fulfilment of values, evaluation, and mutual satisfaction. |
+| ***Sanskar*** | Understood disposition and its transmissible formation through education and living tradition. |
+| ***Kutumb shiksha*** | Family education through shared deliberation, work, relationship-fulfilment, and evaluation. |
+| ***Samadhan*** | Resolution: clarity and freedom from contradiction in thought and conduct. |
+| ***Samridhi*** | Prosperity: assurance of more production or available means than assessed family needs. |
+| ***Abhaya*** | Fearlessness: trust evidenced in social relationship and justice. |
+| ***Sadupyog*** | Right-use of body, mind, wealth, and natural abundance within humane purpose. |
+| ***Prayojansheelta*** | Purposeful-use directed toward undivided society and universal orderliness. |
+| ***Pramanikta*** | Authentic conduct that serves as publicly recognisable evidence of understanding. |
+| **MVD / SB / JV / JVD / AVD / KD** | Primary Madhyasth Darshan texts listed below. |
+
+## Editorial Notes
+
+### Science and scientism
+
+"Science" names empirical inquiry and its bodies of tested knowledge. "Scientism" or "science-only materialism" names the stronger philosophical claim that empirical and material explanation is sufficient to settle consciousness, value, and ultimate human ends. The criticism in §4.1 and §7.3 concerns the latter claim.
+
+### Hinduism as a comparison category
+
+Hinduism is internally plural and includes Advaita Vedanta. This paper therefore does not treat it as one doctrine. "Hindu religious authority" names attempts to ground universal social order finally in a particular scripture, deity, lineage, caste duty, ritual, or inherited community identity.
+
+### Composition at the human order
+
+Terms such as composition and closure are analogical when applied to families and assemblies. They do not imply a collective *jeevan*, a collective *atma*, or a literal *yaugik* compound. The analogy concerns coherent conduct, shared purpose, justice, persistence, and transmission.
 
 ## References
 
-### Madhyasth Darshan (definitions)
+### Madhyasth Darshan primary sources
 
-- **Paribhasha** — Nagraj, A. [*Paribhasha Samhita*](https://www.madhyasth.org/browse-texts/browse-topics/definitions) (Hindi, ed. 2008). English selection of definitions on madhyasth.org. Cited: *niyati-kram*, *niyati-vidhi* (§2.1, §2.3).
+- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: coexistence and the four orders; *jeevan* and the human joint form; six perspectives; relationship, value, justice, awakening, family order, undivided society, and universal orderliness.
+- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad*](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: saturation, complementarity, natural and excited states, composition and development, completeness, and societal evidence.
+- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: the study process, relationship values, justice, the human goals, prosperity, and five dimensions of orderliness.
+- **JVD** — Nagraj, A. [*Janvad* (*Behaviour Centred Public Discourse*)](../References/Madhyasth-Darshan/JVD-Janvad.pdf). English translation by Sanjeev Chopra (WIP). Cited: sectarian organisation, public dialogue, family council, participation, undivided society, and universal orderliness.
+- **AVD** — Nagraj, A. [*Adhyatmvad* (*Realisation Centred Spiritualism*)](../References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf). English translation by Sanjeev Chopra (WIP). Cited: awakening, activity and conduct completeness, humane tradition, community, and sources of undivided society.
+- **KD** — Nagraj, A. [*Karm Darshan*](../References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf). Working English translation. Cited: humane orderliness and universal wellbeing (introductory principles); rule, justice, resolution, truth, social and natural balance (pp. 7-8); knowledge, knower, known and the critique of idealist and materialist foundations (pp. 146-153).
 
-### Madhyasth Darshan (primary sources)
+### Comparative sources
 
-- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: coexistence and Realisation Knowledge (pp. 5, 11–14); hungry/overfull atoms and order emergence (pp. 8, 13); mediative Omnipotence and nucleus (p. 26); awakening progression and delusionlessness ladder (p. 27); mixture vs compound (p. 42); hope, thought, desire, resoluteness in faculties (p. 84); six *drishti* and humane refuge (pp. 67, 137); inward regulation (pp. 77, 277); delusion vs awakening faculty activity (pp. 275–276, 293); study–experiment–realisation-evidence (p. 88); constitutional completeness and hope-bondage (p. 91); relationship vs association and fulfilment (pp. 61–62); human typology on planes (p. 160); value taxonomy (p. 306); justice cycle (p. 311); sociality chain and undivided society (Ch. 4); production policy (p. 106); ten-tier orderliness (p. 161); wealth in society (p. 195); consciousness shift and witness (p. 297); live failures (pp. 263–264).
-- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad*](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: coexistence and saturation (pp. 48–49, 57); natural and excited state (pp. 14–15); essentiality as value and complementarity as essence of coexistence (pp. 50, 53); effort–motion–result and completeness mapping (pp. 58, 71); regulation as law (p. 57); composition not development (pp. 75–76); order *dharma*s (p. 179); hungry–overfull atom sequence and constitutional completeness (pp. 55, 59, 71, 92); perceiver status and planes (pp. 137–138).
-- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: Jeevan Vidya program origin and self-verification (pp. 3, 19); nothing isolated (p. 43); six value kinds (pp. 43, 138); recognition and fulfilment (p. 69); coexistence inclination (p. 67); justice in relationships (p. 55); five orderliness dimensions and desire for fearlessness (p. 110); human and *jeevan* goals and harmonies (pp. 61, 165); knowing and believing (p. 48).
-- **JVD** — Nagraj, A. [*Janvad* (*Behaviour Centred Public Discourse*)](../References/Madhyasth-Darshan/JVD-Janvad.pdf). English translation by Sanjeev Chopra (WIP). Cited: wish for undivided society (p. 13); historical formation of sectarian structures and generation-to-generation change (pp. 16–22); meaningfulness and dialogue content (p. 76); family and council inseparable (*kutumb shiksha*) (p. 237); tradition and understanding (p. 93); regulation through undivided society (p. 126); responsibilities and orderliness (p. 133); participation in universal orderliness (p. 157); self-motivated participation (p. 219); collective dialogue question (p. 220); comprehensive resolution (p. 274).
-- **AVD** — Nagraj, A. [*Adhyatmvad* (*Realisation Centred Spiritualism*)](../References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf). English translation by Sanjeev Chopra (WIP). Cited: knowing orderliness and undividedness (p. 31); unity as expression of awakening (p. 80); *samaj* vs *sampradaya* (p. 23); five operational traditions post-awakening (p. 14); universal needs for justice, dharma, truth (p. 156); education-*sanskar* and realisation method (pp. 172–173); activity and conduct completeness, six activity modes, sources of undivided society (p. 173); liberation from delusion and knowing chain (pp. 174–175); humaneness as definition of telos (p. 175); visualisation vs realisation in faculty activity (p. 176); witness and doer (p. 214); establishment through comprehensive resolution (p. 274).
+- **ChU** — [*Chandogya Upanishad*](../References/Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf). Cited for the Advaita tradition's non-dual identity claim as developed through later commentary.
+- **BSB** — Sankara. [*Brahma Sutra Bhashya*](../References/Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf). Cited for Advaita's account of Brahman, liberation through knowledge, and the status of empirical plurality.
+- **SEP-AV** — [*Advaita Vedanta*](https://plato.stanford.edu/entries/advaita-vedanta/), Stanford Encyclopedia of Philosophy. Cited for contemporary scholarly framing of non-duality, *mithya*, ethics, and liberation.
+- **SEP-SR** — [*Scientific Realism*](https://plato.stanford.edu/entries/scientific-realism/), Stanford Encyclopedia of Philosophy. Cited for the scope and philosophical interpretation of scientific knowledge.
+- **SEP-ME** — [*Metaethics*](https://plato.stanford.edu/entries/metaethics/), Stanford Encyclopedia of Philosophy. Cited for the distinction between empirical facts and accounts of normativity.
 
 ### Related studies in this collection
 
-- [*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — deep ontology, conservation, comparative philosophy.
-- [*Human Behavior and Society*](../Human-Behavior-And-Society/Human-Behavior-And-Society.pdf) — behaviour and organisation with tradition comparison.
-- [*Ethics and Morals in Human Beings*](../Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf) — faculty-level humane conduct.
-- [*How to Form Self-Sustaining Organizations*](../How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.pdf) — applied assembly design.
-- [*Knowledge, Knower, and Known*](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) — *pramanikta*, study–experiment–practice, false learning.
+- [*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — the full ontological account and detailed comparison with Advaita, modern philosophy, and science.
+- [*Coexistence From First Principles*](../Coexistence-From-First-Principles/Coexistence-From-First-Principles.pdf) — formal reconstruction and the boundaries between literal composition, analogy, and open posits.
+- [*Human Behavior and Society*](../Human-Behavior-And-Society/Human-Behavior-And-Society.pdf) — extended comparison of behaviour, science, religion, and Advaita.
+- [*How to Form Self-Sustaining Organizations*](../How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.pdf) — application of shared purpose, relationship-fulfilment, and transmission to organisations.
+- [*Knowledge, Knower, and Known*](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) — study, knowing, evidence, and *pramanikta*.
