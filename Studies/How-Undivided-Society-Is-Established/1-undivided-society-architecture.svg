@@ -1,44 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="820" height="620" viewBox="0 0 820 620" role="img" font-family="Helvetica, Arial, sans-serif">
-  <title>How Undivided Society Is Established &#8212; five-layer architecture</title>
-  <desc>Five layers from coexistence ground to social evidence: Layer 0 coexistence and regulation; Layer 1 composition and orders; Layer 2 progressions and T1; Layer 3 knowledge-order gate; Layer 4 undivided society and universal orderliness telos.</desc>
+  <title>How Undivided Society Is Established &#8212; a dependency chain</title>
+  <desc>Coexistence provisions mutuality; human understanding establishes justice; family, institutions, dialogue, and education carry humane orderliness toward undivided society.</desc>
   <defs>
     <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M0,0 L10,5 L0,10 z" fill="#4A6274"/>
     </marker>
   </defs>
+
   <text x="410" y="28" text-anchor="middle" font-size="20" font-weight="700" fill="#1F2D3A">How Undivided Society Is Established</text>
-  <text x="410" y="48" text-anchor="middle" font-size="11.5" fill="#5A6B78">Consolidated architecture &#8212; five layers to evidenced undivided society and universal orderliness</text>
+  <text x="410" y="48" text-anchor="middle" font-size="11.5" fill="#5A6B78">A dependency chain from coexistence to publicly evidenced humane orderliness</text>
 
   <rect x="30" y="68" width="760" height="72" rx="8" fill="#E9F0F4" stroke="#9DB4C2" stroke-width="1.2"/>
-  <text x="44" y="90" font-size="12" font-weight="700" fill="#2F5168">Layer 0 &#183; Coexistence ground</text>
-  <text x="44" y="108" font-size="10.2" fill="#3F4D57">satta + units &#183; saturation &#183; unit signature &#183; shram-gati-parinam &#183; regulation ladder</text>
-  <text x="44" y="124" font-size="10.2" fill="#3F4D57">satta = actionless mahakaran (sustaining ground, not efficient agent)</text>
+  <text x="44" y="90" font-size="12" font-weight="700" fill="#2F5168">Coexistence provisions the common basis</text>
+  <text x="44" y="108" font-size="10.2" fill="#3F4D57">real and distinct units &#183; mutuality &#183; activity and regulation &#183; material and ecological conditions</text>
+  <text x="44" y="124" font-size="10.2" fill="#3F4D57">provision makes humane order possible; it does not make human conduct automatic</text>
 
   <rect x="30" y="152" width="760" height="72" rx="8" fill="#E8EEE4" stroke="#A3B89A" stroke-width="1.2"/>
-  <text x="44" y="174" font-size="12" font-weight="700" fill="#2F4A32">Layer 1 &#183; Composition through orders</text>
-  <text x="44" y="192" font-size="10.2" fill="#3F4D57">mixtures / compounds &#183; four orders &#183; niyati-vidhi conformance &#183; six value kinds</text>
-  <text x="44" y="208" font-size="10.2" fill="#3F4D57">assemblies persist while relationships fulfilled; decline when not</text>
+  <text x="44" y="174" font-size="12" font-weight="700" fill="#2F4A32">Human understanding establishes justice</text>
+  <text x="44" y="192" font-size="10.2" fill="#3F4D57">jeevan and body &#183; knowing and evaluation &#183; relationship &#183; responsibility &#183; choice</text>
+  <text x="44" y="208" font-size="10.2" fill="#3F4D57">recognise relationship &#8594; fulfil value &#8594; evaluate &#8594; mutual satisfaction</text>
 
   <rect x="30" y="236" width="760" height="72" rx="8" fill="#F0EBE4" stroke="#C4B09A" stroke-width="1.2"/>
-  <text x="44" y="258" font-size="12" font-weight="700" fill="#5A4228">Layer 2 &#183; Progressions and sentience threshold</text>
-  <text x="44" y="276" font-size="10.2" fill="#3F4D57">niyati-kram &#183; vikas-kram (distinct axes) &#183; T1 gathanpurnata &#8212; constitutional completeness, sentient jeevan</text>
-  <text x="44" y="292" font-size="10.2" fill="#3F4D57">mediative nucleus at atom scale &#8594; mediative atma at sentient scale</text>
+  <text x="44" y="258" font-size="12" font-weight="700" fill="#5A4228">Family life joins relationships, prosperity, and education</text>
+  <text x="44" y="276" font-size="10.2" fill="#3F4D57">trust and other established values &#183; assessed need &#183; production &#183; right-use &#183; family council</text>
+  <text x="44" y="292" font-size="10.2" fill="#3F4D57">the first reproducible field of humane conduct and intergenerational sanskar</text>
 
   <rect x="30" y="320" width="760" height="72" rx="8" fill="#EDE8F4" stroke="#B0A3C8" stroke-width="1.2"/>
-  <text x="44" y="342" font-size="12" font-weight="700" fill="#4A3868">Layer 3 &#183; Knowledge-order narrow gate</text>
-  <text x="44" y="360" font-size="10.2" fill="#3F4D57">six drishti &#183; justice cycle &#183; Jeevan Vidya &#183; T2 kriyapurnata / T3 vyavaharpurnata (pramanikta) &#183; fail &#8594; delusion loop</text>
-  <text x="44" y="376" font-size="10.2" fill="#3F4D57">ichcha reoriented &#183; knowing &#8594; believing &#8594; recognising &#8594; fulfilling</text>
+  <text x="44" y="342" font-size="12" font-weight="700" fill="#4A3868">Assemblies coordinate shared purpose without becoming a collective self</text>
+  <text x="44" y="360" font-size="10.2" fill="#3F4D57">common cause, goal, and programme &#183; participation &#183; safeguards &#183; public dialogue</text>
+  <text x="44" y="376" font-size="10.2" fill="#3F4D57">coherence is achieved in conduct; no larger jeevan, collective atma, or literal compound is formed</text>
 
   <rect x="30" y="404" width="760" height="88" rx="8" fill="#E4F0EA" stroke="#8FBAA3" stroke-width="1.2"/>
-  <text x="44" y="426" font-size="12" font-weight="700" fill="#28543F">Layer 4 &#183; Social establishment (evidence)</text>
-  <text x="44" y="444" font-size="10.2" fill="#3F4D57">sociality &#8594; production &#8594; sadupyog &#8594; humaneness &#8594; undivided sociality</text>
-  <text x="44" y="460" font-size="10.2" fill="#3F4D57">four goals jointly evidenced &#183; family &#8594; community &#8594; undivided society</text>
-  <text x="44" y="476" font-size="10.2" fill="#3F4D57">five orderliness dimensions &#183; ten-tier family orderliness &#183; education-sanskar</text>
+  <text x="44" y="426" font-size="12" font-weight="700" fill="#28543F">Universal orderliness makes the purpose institutional and transmissible</text>
+  <text x="44" y="444" font-size="10.2" fill="#3F4D57">education-sanskar &#183; justice-security &#183; health-restraint &#183; production-work &#183; exchange-reserve</text>
+  <text x="44" y="460" font-size="10.2" fill="#3F4D57">family-based tiers coordinate wider responsibilities while preserving local participation</text>
+  <text x="44" y="476" font-size="10.2" fill="#3F4D57">evidence and correction carry what works across persons, places, and generations</text>
 
   <rect x="130" y="510" width="560" height="56" rx="10" fill="#2F5168" stroke="#1F3545" stroke-width="1.5"/>
-  <text x="410" y="534" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">Telos: Undivided Society + Universal Orderliness</text>
-  <text x="410" y="552" text-anchor="middle" font-size="10.5" fill="#D8E4EC">humankind as one complementary whole &#183; evidenced in awakened tradition</text>
+  <text x="410" y="534" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">Undivided Society + Universal Orderliness</text>
+  <text x="410" y="552" text-anchor="middle" font-size="10.5" fill="#D8E4EC">resolution &#183; prosperity &#183; fearlessness &#183; coexistence, evidenced together</text>
 
   <line x1="410" y1="140" x2="410" y2="152" stroke="#4A6274" stroke-width="2" marker-end="url(#arr)"/>
   <line x1="410" y1="224" x2="410" y2="236" stroke="#4A6274" stroke-width="2" marker-end="url(#arr)"/>
@@ -46,5 +47,5 @@
   <line x1="410" y1="392" x2="410" y2="404" stroke="#4A6274" stroke-width="2" marker-end="url(#arr)"/>
   <line x1="410" y1="492" x2="410" y2="510" stroke="#4A6274" stroke-width="2" marker-end="url(#arr)"/>
 
-  <text x="410" y="598" text-anchor="middle" font-size="9.8" fill="#6A7A86">Layers 0&#8211;2 flow easily; Layer 3 narrow gate &#8212; units that fail loop to delusion; Layer 4 evidences what passes</text>
+  <text x="410" y="598" text-anchor="middle" font-size="9.8" fill="#6A7A86">Each passage requires human work and remains open to evaluation; none follows mechanically from the one below.</text>
 </svg>
