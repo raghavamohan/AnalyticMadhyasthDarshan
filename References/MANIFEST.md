@@ -31,11 +31,12 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-19.
 | [Human-Behavior-And-Society.pdf](../Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.pdf) | MVD, SB, JV | present |
 
 | [Knowledge-Knower-And-Known.pdf](../Studies/Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) | MVD, SB, JV | present |
-| | CU, BG, BSB, DDV, VC | present |
+| | BG, BU, BSB, CU, DDV, MU, TU, VC | present |
+| | VP | external |
 | | Chalmers 1995, Nagel 1974, Strawson 2006 | present |
 | | Frankish 2016, Hashemi 2025, Limanowski and Blankenburg 2013, Melloni et al. 2025, Tufft et al. 2024 | present |
-| | Churchland 1986, Dennett 1991, Goff 2019, Kandel et al. 2021, Kim 2005, Popper 1959 | external |
-| | Gettier 1963, IEP Enactivism, Jarczewski and Riggs 2025, Kuhn 2024, Massimi 2022, Piredda 2024, Wiese 2024 | external |
+| | Churchland 1986, Dennett 1991, Fricker 2007, Gettier 1963, Goldman 1979, Goff 2019, IEP Enactivism, Jarczewski and Riggs 2025 | external |
+| | Kandel et al. 2021, Kim 2005, Kuhn 2024, Massimi 2022, Parfit 1984, Piredda 2024, Popper 1959, SEP Personal Identity, SEP Phenomenology, Sosa 2007, Wiese 2024 | external |
 | [Nature-Of-Time.pdf](../Studies/Nature-Of-Time/Nature-Of-Time.pdf) | MVD, SB, JVD | present |
 | | MU, BG, VC | present |
 | | Carroll 2010, Ashtekar and Singh 2011, McTaggart 1908 | present |
