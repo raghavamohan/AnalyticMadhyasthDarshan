@@ -54,14 +54,26 @@ Author-hosted copies kept for quote verification.
 | Tag | Full reference | Original location |
 |-----|----------------|-------------------|
 | **IEP Enactivism** | "Enactivism." *Internet Encyclopedia of Philosophy*. | https://iep.utm.edu/enactivism/ |
+| **Fricker 2007** | Fricker, M. *Epistemic Injustice: Power and the Ethics of Knowing*. Oxford University Press, 2007. | https://academic.oup.com/book/32817 |
 | **Gettier 1963** | Gettier, E. L. "Is Justified True Belief Knowledge?" *Analysis*, 23(6), 121?123, 1963. | https://doi.org/10.1093/analys/23.6.121 |
+| **Goldman 1979** | Goldman, A. I. "What Is Justified Belief?" In G. Pappas (ed.), *Justification and Knowledge*, 1–23, 1979. | https://doi.org/10.2307/2025679 |
 | **Jarczewski and Riggs 2025** | Jarczewski, D., and Riggs, W. D. "Socializing Virtue Epistemology." *Episteme*, First View, 1?19, 2025. Open access at Cambridge University Press; not mirrored here because automated fetch returns an HTML page instead of the PDF. | https://doi.org/10.1017/epi.2025.10 |
 | **Kuhn 2024** | Kuhn, R. L. "A Landscape of Consciousness: Toward a Taxonomy of Explanations and Implications." *Progress in Biophysics and Molecular Biology*, 190, 28?169, 2024. CC BY-NC-ND open access at publisher; not mirrored here because ScienceDirect blocks automated download from this environment. | https://doi.org/10.1016/j.pbiomolbio.2023.12.003 |
 | **Massimi 2022** | Massimi, M. *Perspectival Realism*. Oxford University Press, 2022. | https://global.oup.com/academic/product/perspectival-realism-9780197555620 |
 | **Metzinger 2003** | Metzinger, T. *Being No One: The Self-Model Theory of Subjectivity*. MIT Press, 2003. | https://mitpress.mit.edu/9780262632870/being-no-one/ |
+| **Parfit 1984** | Parfit, D. *Reasons and Persons*. Oxford University Press, 1984. | https://global.oup.com/academic/product/reasons-and-persons-9780198249085 |
 | **Penrose 2010** | Penrose, R. *Cycles of Time: An Extraordinary New View of the Universe*. Bodley Head, 2010. | https://www.penguinrandomhouse.com/books/311068/cycles-of-time-by-roger-penrose/ |
 | **Piredda 2024** | Piredda, G. "The Tacitly Situated Self: From Narration to Sedimentation and Projection." *Topoi*, 43, 607?615, 2024. CC BY open access at Springer; not mirrored here because automated fetch returns an HTML page instead of the PDF. | https://doi.org/10.1007/s11245-024-10044-9 |
+| **SEP Personal Identity** | Olson, E. "Personal Identity." *Stanford Encyclopedia of Philosophy*. | https://plato.stanford.edu/entries/identity-personal/ |
+| **SEP Phenomenology** | Smith, D. W. "Phenomenology." *Stanford Encyclopedia of Philosophy*. | https://plato.stanford.edu/entries/phenomenology/ |
+| **Sosa 2007** | Sosa, E. *A Virtue Epistemology: Apt Belief and Reflective Knowledge, Volume I*. Oxford University Press, 2007. | https://academic.oup.com/book/32531 |
 | **Wiese 2024** | Wiese, W. "Artificial consciousness: a perspective from the free energy principle." *Philosophical Studies*, 181, 1947?1970, 2024. CC BY open access at Springer; not mirrored here because automated fetch returns an HTML page instead of the PDF. | https://doi.org/10.1007/s11098-024-02182-y |
+
+## Advaita Vedanta — external only
+
+| Tag | Full reference | Original location |
+|-----|----------------|-------------------|
+| **VP** | Dharmaraja Adhvarindra. *Vedanta Paribhasa*. Later systematic manual of Advaita epistemology. | https://www.advaita-vedanta.org/texts/vedAntaparibhAshA_dharmarajavarIndrA.pdf |
 
 ## Philosophy of time (external only)
 
