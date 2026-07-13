@@ -81,6 +81,29 @@ slides:
 2. Run `python Scripts/_generate_study_presentation.py <Slug>`.
 3. Open the `.pptx` in PowerPoint and verify bullets, quotes, figures, and notes.
 
+### Hand-built decks (no YAML)
+
+Some decks are edited directly as `.pptx` (e.g. Ontology Deck A:
+`Studies/The-Ontology-of-Coexistence/The-Ontology-of-Existence-Madhyasth-Darshan.pptx`).
+For those, the `.pptx` is the source of truth — skip the YAML generator.
+
+### PPTX → PDF
+
+After regenerating or hand-editing a deck, export the companion PDF:
+
+```powershell
+python Scripts/_pptx_to_pdf.py Studies/<Slug>/<Deck>.pptx
+```
+
+Defaults to writing `<Deck>.pdf` beside the `.pptx`. Engine order: Microsoft
+PowerPoint COM (Windows + `pywin32`) then LibreOffice `soffice`. Force one with
+`--engine powerpoint` or `--engine libreoffice`.
+
+```powershell
+python Scripts/_pptx_to_pdf.py --study The-Ontology-of-Coexistence --deck The-Ontology-of-Existence-Madhyasth-Darshan.pptx
+python Scripts/_pptx_to_pdf.py path\to\deck.pptx -o path\to\out.pdf --engine libreoffice
+```
+
 Presentation artifacts do **not** update study `**Edited on:**` or catalog status —
 they are companion files, not study body content.
 
@@ -92,8 +115,9 @@ they are companion files, not study body content.
 
 ## Completion check
 
-- [ ] `Studies/<Slug>/<Slug>-ontology-slides.yaml` updated
-- [ ] `Studies/<Slug>/<Slug>-ontology.pptx` regenerated
+- [ ] `Studies/<Slug>/<Slug>-ontology-slides.yaml` updated (YAML-driven decks)
+- [ ] `Studies/<Slug>/<Slug>-ontology.pptx` regenerated (or hand-built `.pptx` edited)
+- [ ] Companion `.pdf` regenerated with `Scripts/_pptx_to_pdf.py` when publishing a deck PDF
 - [ ] All referenced `figure:` SVGs render in the deck
 - [ ] Speaker notes present where intended
 - [ ] Footer shows `AnalyticMadhyasthDarshan.org` and slide numbers
