@@ -869,11 +869,11 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     <h2>Start here</h2>
     <p class="start-here-intro">New to the collection? Read these in order to build a foundational understanding before the formal and applied lenses.</p>
     <ol>
-      <li data-slug="The-Ontology-of-Coexistence"><a href="The-Ontology-of-Coexistence/The-Ontology-of-Existence-Madhyasth-Darshan.pdf">The Ontology of Coexistence</a><span class="start-here-status"><span class="sh-status-word">Released</span> &mdash; core ontology, units, sentience</span></li>
       <li data-slug="Why-Humans-Are-Not-Just-Material"><a href="Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html">Why Humans Are Not Just Material</a><span class="start-here-status"><span class="sh-status-word">Released</span> &mdash; anthropology, consciousness, value</span></li>
-      <li data-slug="Knowledge-Knower-And-Known"><a href="Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.html">Knowledge Knower and Known</a><span class="start-here-status"><span class="sh-status-word">Released</span> &mdash; epistemology, knower, known</span></li>
-      <li data-slug="Coexistence-From-First-Principles"><a href="Coexistence-From-First-Principles/Coexistence-From-First-Principles-MD-Practitioner.pdf">Coexistence from First Principles</a><span class="start-here-status"><span class="sh-status-word">Draft</span> &mdash; presentation, first-principles kernel for practitioners</span></li>
+      <li data-slug="The-Ontology-of-Coexistence"><a href="The-Ontology-of-Coexistence/The-Ontology-of-Existence-Madhyasth-Darshan.pdf">The Ontology of Coexistence</a><span class="start-here-status"><span class="sh-status-word">Released</span> &mdash; core ontology, units, sentience</span></li>
+      <li data-slug="Knowledge-Knower-And-Known"><a href="Knowledge-Knower-And-Known/The-Epistemology-of-Coexistence-Madhyasth-Darshan.pdf">The Epistemology of Coexistence</a><span class="start-here-status"><span class="sh-status-word">Released</span> &mdash; presentation, epistemology, knower, known</span></li>
       <li data-slug="How-Undivided-Society-Is-Established"><a href="How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established-presentation.pdf">How undivided society is established</a><span class="start-here-status"><span class="sh-status-word">Draft</span> &mdash; presentation, *akhand samaj*, social architecture</span></li>
+      <li data-slug="Coexistence-From-First-Principles"><a href="Coexistence-From-First-Principles/Coexistence-From-First-Principles-MD-Practitioner.pdf">Coexistence from First Principles</a><span class="start-here-status"><span class="sh-status-word">Draft</span> &mdash; presentation, first-principles kernel for practitioners</span></li>
     </ol>
   </div>
 
