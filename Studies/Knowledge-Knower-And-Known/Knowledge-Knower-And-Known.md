@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 13, 2026, 5:30 PM IST
+**Edited on:** July 14, 2026, 8:12 AM IST
 **Status:** Released
 **The question:** What is knowledge, who is the knower, and what is it that one can know? How are these concepts grounded in experience, and how does the Co-existentialism of Shri A. Nagraj compare with Advaita Vedanta, modern Western philosophy, and the natural sciences?
 
@@ -35,7 +35,7 @@ The texts also call the omnipresent ground itself Knowledge or Space:
 > **“Knowledge itself is the omnipresent Omnipotence. This itself is referred to as Space.”**
 > — MVD, p. 35
 
-Omnipresence is actionless, non-transforming, and not a unit. Calling it Knowledge identifies the all-pervasive ground in which reality is orderly and intelligible; it does not make Omnipresence a subject that perceives or decides. SB lists Uniform Energy, Space, Knowledge, Consciousness, Omnipresence, Eternity, God, and Absolute Energy as English names for the same *satta* (SB, p. 48). These translations create a genuine interpretive tension, but Madhyasth Darshan consistently locates active sentience and knowing in *jeevan*, not in a universal mind.
+Omnipresence does not think: it is actionless, non-transforming, and not a unit. Calling it Knowledge identifies the all-pervasive ground in which reality is orderly and intelligible; it does not make Omnipresence a subject that perceives or decides. The active knower is *jeevan*, and what it knows is coexistence rather than Space in isolation. SB lists Uniform Energy, Space, Knowledge, Consciousness, Omnipresence, Eternity, God, and Absolute Energy as English names for the same *satta* (SB, p. 48). These translations create a genuine interpretive tension, but they do not turn *satta* into a universal mind.
 
 Human knowledge is the realisation of coexistence and its expression as knowledge, wisdom, and science. MVD distinguishes the omnipresence of knowledge from its **unfolding** (*gyan udghatan*): knowledge remains present everywhere, while its unfolding occurs through awakened humans (MVD, pp. 115–116), and only through the sentient aspect or thought (MVD, p. 289). Realisation in coexistence is complete knowledge; knowledge-unfolding is the awakened knower's expression of that realisation. [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §§1.1–1.2 and 1.13 develop the ontological background; the distinction needed here is simply that pervasive *gyan* is not itself a perceiving agent.
 
@@ -49,7 +49,7 @@ The **known** also has two connected senses in KD. The introductory *Alternative
 
 ### 1.3 Seeing, attention, action, and seeking
 
-KD §3.17 places the knowledge triad among several related structures. In the triad of seeing, the seer is *jeevan*, the seen is existence as coexistence, and *darshan* is the meaningful seeing or exposition of existence. MVD states the same relation from the side of perspective: the perceiver uses *drishti* to see the *drishya*, and the accomplishment of that process as *darshan* is understanding or knowledge (MVD, p. 84). These formulations should not be collapsed into a single English word. *Drishti* is the perspective exercised, *drishya* the scene, *drish* or seeing the activity, *drishta* the seer, and *darshan* the accomplished holistic view.
+KD §3.17 places the knowledge triad among several related structures. Its technical trio is *drish–drishya–darshan*: *drish* is assigned to *jeevan* as the subject or capacity of seeing, *drishya* to existence as coexistence as the seen, and *darshan* to the meaningful exposition of existence. This use of *drish* should not be confused with treating it merely as a separate act of seeing. MVD states a related structure from the side of perspective: the perceiver uses *drishti* to see the *drishya*, and the accomplishment of that process as *darshan* is understanding or knowledge (MVD, p. 84). *Drishti* is therefore the perspective exercised, while *drishta* names the realised status of the seer; neither is interchangeable with every term in KD's trio.
 
 MVD says that relativity (*sapekshata*) arises from distinctions among perspective, the observed, and worldview (MVD, p. 210). The source does not thereby make coexistence ontologically relative. It locates relativity in differentiated seeing: a sentient unit can view and evaluate through pleasure, health, and profit or through justice, *dharma*, and truth. The world remains real while human perspective may be incomplete or deluded.
 
@@ -65,6 +65,8 @@ The human body is the necessary medium for this evidence. The brain (*medhas*) r
 
 In delusion, only four and a half of the ten activities become effective: selection and taste, analysis, visualisation, and a restricted part of deliberation governed by pleasure, health, and profit (JV, pp. 92–93; KD §3.17, p. 147). The remaining activities do not become evident because the body is taken to be the self. The epistemic failure is therefore not mere absence of information. It is incomplete functioning of the knower's own capacities, producing self-contradiction between the aspiration for happiness and conduct governed principally by sensation.
 
+The two directions consequently form a different circuit in delusion and awakening. In delusion, reflection does not reach effective enlightenment and realisation, so projection remains organised by sensory criteria and the partial activities just named. In awakening, reflection reaches *buddhi* and *atma*; realisation and resolve then project through *chitta*, *vritti*, and *mun* as coherent visualisation, analysis, selection, and embodied conduct. Madhyasth Darshan thus treats self-contradiction as a break among aspiration, understanding, and action, not simply as a mistaken proposition.
+
 ### 1.5 Knowing, believing, recognising, fulfilling, and evaluating
 
 JV defines knowledge in the human process as knowing together with believing:
@@ -76,7 +78,7 @@ MVD compresses the discipline as “Believe what is known; know what is believed
 
 Knowing and believing must continue into recognising relationships and fulfilling their values. Fulfilment depends on capacity, ability, and receptivity (*kshamata*, *yogyata*, *patrata*), so correct conception does not guarantee completed conduct. At the knowledge order, evaluation then asks whether the relationship and value have actually been fulfilled. Recognition, fulfilment, evaluation, and mutual satisfaction together constitute justice (MVD, p. 311; JV, p. 55). Trust is not a substitute for that process but the value evidenced when a relationship's expectation is fulfilled.
 
-The first three orders recognise and fulfil through structural, seed, or species conformance. The human knowledge order adds knowing, believing, and explicit evaluation, and can therefore break the sequence at several points. A person may know without accepting, accept without recognising a present relationship, recognise without fulfilling it, or act without evaluating the result. CFP §4.13 usefully exposes these failure points, but the present account needs no formal notation: awakening is increasing coherence across the whole sequence, not success in only one of its activities.
+The first three orders recognise and fulfil through structural, seed, or species conformance; their orderliness does not depend on reflective choice. Human imagination and freedom of action loosen that automatic fit. The knowledge order must therefore add knowing and believing before action and explicit evaluation after it. A person may know without accepting, accept without recognising a present relationship, recognise without fulfilling it, or act without evaluating the result. Humane conduct is not an ethical supplement to this epistemology: it is what the complete sequence looks like in relationship. CFP §4.13 usefully exposes these failure points, but the present account needs no formal notation: awakening is increasing coherence across the whole sequence, not success in only one of its activities.
 
 Sensitivity and cognisance name the two sides of embodied engagement. Sensitivity responds through the body and senses; cognisance understands relationship, value, and orderliness through *jeevan*. The source calls for their balance, not the elimination of sensitivity:
 
@@ -108,6 +110,8 @@ MVD states the evidence chain directly:
 > — MVD, p. 12
 
 Realisation is the first term, behaviour the middle term, and experiment the practical extension in which understanding faces material and social result. Experiment here includes lived and productive participation, not only controlled laboratory testing. It does not follow that successful conduct proves every ontological assertion by scientific standards. Madhyasth Darshan proposes a broader evidence regime in which first-person realisation, second-person conveyance, and publicly observable work, behaviour, and social outcomes must cohere.
+
+This use of *pramana* shifts the centre of gravity from the inputs by which a cognition arises to the evidence by which realised understanding is confirmed. Perception, inference, and testimony retain roles in study (§1.8), but a verbal claim or private contemplative state does not complete the test. In Madhyasth Darshan, *pramana* culminates when realisation becomes evident through human behaviour, work, experiment, evaluation, conveyance, and an awakened tradition. This differs from the classical use of *pramana* for an instrument or source of valid cognition, examined in §2.6.
 
 JV locates realisation and authenticity (*pramanikta*) as activities of *atma* (JV, p. 92). Authenticity is therefore not identical to outward conduct. It is the knower's realisation-bearing capacity to evidence what is understood; conduct, teaching, and tradition are its outward manifestations. A person may repeat correct words or conform legally without this inner and outer coherence.
 
@@ -147,7 +151,7 @@ The known becomes meaningful when these contents guide relationship and particip
 The world known in this way is real and perpetual:
 
 > **“Brahma is truth, the world is perpetual.”**
-> — MVD, *The Alternative*, point 8
+> — MVD, “Fundamental Concepts,” point 8 (“Reality”), p. 13
 
 Awakening does not erase the knower–known distinction by absorbing both into one subject. At realisation, knowledge, knower, and known become coherent within coexistence: existence remains the known, *jeevan* remains the knower, and knowledge is the realised relation evidenced as wisdom, science, and humane conduct ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.13).
 
@@ -267,7 +271,7 @@ Liberating knowledge is not acquisition of a new property or merger of a formerl
 > **"There is neither death nor birth, neither a bound nor a struggling soul, neither a seeker after Liberation nor a liberated one – this is the ultimate truth."**
 > — VC, v. 574
 
-> **"The Supreme Brahman is, like the sky, pure, absolute, infinite, motionless and changeless, devoid of interior or exterior, the One Existence, without a second, and one's own Self."**
+> **"The Supreme Brahman is, like the sky, pure, absolute, infinite, motionless and changeless, devoid of interior or exterior, the One Existence, without a second, and is one's own Self."**
 > — VC, v. 393
 
 Advaita commonly distinguishes liberation while living (*jivanmukti*) from the final cessation of embodied appearance (*videhamukti*). Knowledge removes ignorance; the body-mind may continue through already-fructifying karma (*prarabdha*) without restoring the knower's former identification. Accounts differ on the exact explanatory status of *prarabdha*, but the important comparative point is stable: no eternally separate *jiva* persists as an independent knower after liberation. Madhyasth Darshan instead holds that each *jeevan* remains numerically distinct and active in coexistence even when awakened (§1.11).
@@ -589,7 +593,7 @@ Key terms from §§1–4 are collected here for quick reference. Each term is al
 | ***Gyan udghatan*** | The unfolding of knowledge through awakened humans or the sentient aspect, not cognition performed by Omnipresence (§1.1). |
 | ***Gyan-vivek-vigyan*** | Knowledge, wisdom/discrimination, and science/systematic know-how — the way understanding becomes evaluation and practical participation. |
 | **Knowledge–knower–known** | Knowledge of coexistence, *jeevan*, and humane conduct; *jeevan* as bearer of knowing; coexistence as object made meaningful in awakened living (§1.2). |
-| ***Darshan–drishya–drishti*** | Holistic view, scene, and perspective; related to but distinct from seeing, seer, and seen (§1.3). |
+| ***Drish–drishya–darshan / drishti*** | KD's technical trio assigns *drish* to *jeevan* as seeing subject, *drishya* to coexistence as the seen, and *darshan* to its meaningful exposition; MVD uses *drishti* for perspective (§1.3). |
 | ***Sapekshata* (Relativity)** | The differentiation that arises among perspective, observed scene, and worldview; not the unreality of coexistence (§1.3). |
 | ***Sanvedansheelta* / *sangyansheelta*** | Sensitivity (body- and sense-based responsiveness) and comprehension/cognisance (the understanding proper to *jeevan*) — the two modes of engaging the world. |
 | ***Pramana*** | Means or proof of valid knowledge; in Madhyasth Darshan, realization (*anubhav*) evidenced in conduct is the ultimate proof. |
@@ -639,7 +643,7 @@ Key terms from §§1–4 are collected here for quick reference. Each term is al
 
 ### Madhyasth Darshan (primary sources)
 
-- **MVD** — Nagraj, A. [*Madhyasth Darshan – Co-existentialism*, Part 1: *Holistic View of Human Behaviour*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: all units in Omnipresence (p. 11); evidence chain and "Believe what is known" (p. 12); "Only awakened humans" (p. 33); Space as knowledge and *gyan-vivek-vigyan* (pp. 35, 143, 155); threefold truth (p. 37); *medhas* and activities of *jeevan* (p. 83); *darshan-drishya-drishti* (p. 84); *sanskar* definition (p. 90); knowledge unfolding by awakened humans (p. 115); "Realisation in coexistence" (p. 116); brain and cognitive-organ signal pathway (p. 200); mystery and certitude (p. 209); false learning (pp. 263–264); Ch. 17 *Rahasy-mukti* — mystery, intellectual mystery, paths, four supports, and liberation as bliss (pp. 273–301); knowledge unfolding through *jeevan*/thoughts (p. 289); awakening–*sanskar* cycle (p. 290); "Realisation in knowledge" (p. 316); "delusion-less knowledge" (p. 317); "Brahma is truth, the world is perpetual" (*The Alternative*, point 8).
+- **MVD** — Nagraj, A. [*Madhyasth Darshan – Co-existentialism*, Part 1: *Holistic View of Human Behaviour*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: all units in Omnipresence (p. 11); evidence chain and "Believe what is known" (p. 12); "Only awakened humans" (p. 33); Space as knowledge and *gyan-vivek-vigyan* (pp. 35, 143, 155); threefold truth (p. 37); *medhas* and activities of *jeevan* (p. 83); *darshan-drishya-drishti* (p. 84); *sanskar* definition (p. 90); knowledge unfolding by awakened humans (p. 115); "Realisation in coexistence" (p. 116); brain and cognitive-organ signal pathway (p. 200); mystery and certitude (p. 209); false learning (pp. 263–264); Ch. 17 *Rahasy-mukti* — mystery, intellectual mystery, paths, four supports, and liberation as bliss (pp. 273–301); knowledge unfolding through *jeevan*/thoughts (p. 289); awakening–*sanskar* cycle (p. 290); "Realisation in knowledge" (p. 316); "delusion-less knowledge" (p. 317); "Brahma is truth, the world is perpetual" ("Fundamental Concepts," point 8, p. 13).
 - **KD** — Nagraj, A. *Manav Karm Darshan* (Madhyasth Darshan, Part 2). [Working English translation](../References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf); [Hindi–English review edition](../References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-Hindi-English.pdf). Cited by paraphrase: autobiographical *Alternative*; fundamental concepts; action, desire, and result (Ch. 1); physical, intellectual, and coexistential knowledge (pp. 3–4); direct perception, inference, and testimony-activity (pp. 20–21); projection–reflection (§3.12); human joint form (§3.16); knowledge–knower–known (§3.17); seer–doer–enjoyer (§3.18). The English text is a working translation; quoted formulations should be checked against the Hindi.
 - **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: Balance of cognisance and sensitivity (p. 64); Threefold knowledge (p. 116); *satta* naming (p. 48); conservation (p. 49); realisation in coexistence (p. 51); evidence through experimentation, behaviour, and experience (p. 44); Human as seer (p. 188); Seer-status in existence (p. 239).
 - **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: Proof by conveying understanding (p. 26); human body provisioned to evidence understanding (p. 59); birth, death, and *jeevan* continuity (p. 20); values and evaluation not bodily processes (p. 39); *jeevan* evaluates without external instrument (p. 139); ten activities of *jeevan* (p. 92); root of delusion and belief-vs-knowledge (p. 93); definition of knowledge (p. 165); purview of sensitivity (p. 166).
