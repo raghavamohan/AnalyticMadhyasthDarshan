@@ -1,10 +1,10 @@
 # Studies of Madhyasth Darshan
 
-Clear, carefully argued studies of **Madhyasth Darshan** (Co-existentialism) — the philosophy founded by **Shri A. Nagraj** — examined on its own terms and set in dialogue with the sciences and other traditions.
+An open and growing collection of comparative studies of **Madhyasth Darshan** (Co-existentialism), the philosophy founded by **Shri A. Nagraj**. The collection follows a personal path of inquiry while inviting others to examine its arguments, question its interpretations, and contribute to its development.
 
 Browse the published collection at **[analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org)** (or open [index.html](index.html) locally for search, filters, and card layout).
 
-**Want to contribute?** See [How to contribute](#contribute) — [comment on a study](#comments-and-corrections) or [propose a new paper](#propose-a-new-study).
+**Want to contribute?** See [How to contribute](#how-to-contribute) — [discuss or improve a study](#discuss-or-improve-a-study) or [write or substantially revise one](#write-or-substantially-revise-a-study).
 
 **On this page**
 
@@ -12,12 +12,12 @@ Browse the published collection at **[analyticmadhyasthdarshan.org](https://anal
 - [Formal studies](#formal-studies)
 - [Applied studies](#applied-studies)
 - [How we work](#how-we-work)
-- [How to contribute](#contribute)
+- [How to contribute](#how-to-contribute)
 - [About us](#about-us)
 
 ## The studies
 
-Each study reads the primary texts closely, then compares them with the sciences, Advaita Vedanta, and modern philosophy. Available studies open in the browser; use **Download PDF** on each page for printing or offline reading. Titles shown in italics are still in progress.
+Each study reads the primary texts closely, then compares them with the sciences, Advaita Vedanta, and modern philosophy. Released studies are stable versions, drafts are available for review, and titles shown in italics are in progress. Available studies open in the browser; use **Download PDF** on each page for printing or offline reading.
 
 ### Topical studies
 
@@ -32,7 +32,7 @@ Select any linked title to open the full study in your browser.
 | [Nature of Time](Nature-Of-Time/Nature-Of-Time.html) · [Discuss](Nature-Of-Time/discussion.html) | Ontology | What time (kaal) is: the duration of unit-activity against timeless satta, numerical reckoning, and the past–present–future structure — compared with Advaita Vedanta, the philosophy of time, and physics (spacetime, cosmology, entropy) | Released<br>Last updated on: Jun 28, 2026, 7:49 PM IST |
 | [Why Humans Are Not Just Material](Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html) · [Discuss](Why-Humans-Are-Not-Just-Material/discussion.html) | Philosophical Anthropology | Whether a human being is reducible to an insentient physicochemical body: Madhyasth Darshan's body-and-jeevan account compared with scientific evidence, its physicalist interpretation, and Advaita Vedanta, followed by a critical review of all three frameworks | Released<br>Last updated on: Jul 15, 2026, 5:23 AM IST |
 | [Philosophy of Mind and Jeevan](Philosophy-Of-Mind-And-Jeevan/Philosophy-Of-Mind-And-Jeevan.html) · [Discuss](Philosophy-Of-Mind-And-Jeevan/discussion.html) | Philosophy of Mind | How Madhyasth Darshan understands the inner life: jeevan and its faculties — mun, vritti, chitta, buddhi, and atma — and desire, imagination, selection, delusion, and awakening | Ongoing |
-| [Chitta, the Brain, and the Architecture of Memory](Chitta-Brain-And-Memory/Chitta-Brain-And-Memory.html) · [Discuss](Chitta-Brain-And-Memory/discussion.html) | Philosophy of Mind | Where memory lives in Madhyasth Darshan — chitta and jeevan versus the brain's biological memory — compared with neuroscience and philosophy of mind. | Ongoing |
+| [Chitta, the Brain, and the Architecture of Memory](Chitta-Brain-And-Memory/Chitta-Brain-And-Memory.html) · [Discuss](Chitta-Brain-And-Memory/discussion.html) | Philosophy of Mind | How Madhyasth Darshan and neuroscience account for memory: chitta and jeevan, the brain's biological memory, and the philosophical question of where remembering occurs | Ongoing |
 | [Knowledge Knower and Known](Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.html) · [Discuss](Knowledge-Knower-And-Known/discussion.html) | Epistemology | What knowledge is, who the knower is, and what can be known: coexistence, jeevan, humane conduct, evidence, and epistemic error — compared with Advaita Vedanta, modern Western philosophy, and natural science | Released<br>Last updated on: Jul 14, 2026, 8:25 AM IST |
 | [Methodology and Hermeneutics](Methodology-And-Hermeneutics/Methodology-And-Hermeneutics.html) · [Discuss](Methodology-And-Hermeneutics/discussion.html) | Methodology | The method behind these studies: reading the primary texts, translation issues, citation discipline, interpretation, and disciplined comparison across traditions | Ongoing |
 | [Axiology Value Theory](Axiology-Value-Theory/Axiology-Value-Theory.html) · [Discuss](Axiology-Value-Theory/discussion.html) | Axiology | Madhyasth Darshan's theory of value: what values are, how they are recognised and fulfilled, and how mutual satisfaction grounds a humane axiology | Ongoing |
@@ -40,8 +40,8 @@ Select any linked title to open the full study in your browser.
 | [Family Relationships and Values](Family-Relationships-And-Values/Family-Relationships-And-Values.html) · [Discuss](Family-Relationships-And-Values/discussion.html) | Relationships, Axiology | The family as the first site of values: recognising relationships and living trust, affection, gratitude, and mutual satisfaction | Ongoing |
 | [Education and Sanskar](Education-And-Sanskar/Education-And-Sanskar.html) · [Discuss](Education-And-Sanskar/discussion.html) | Education | How understanding is formed and carried forward: education, sanskar, study, awakening, and transmission across generations | Ongoing |
 | [Aesthetics](Aesthetics/Aesthetics.html) · [Discuss](Aesthetics/discussion.html) | Aesthetics, Axiology | What beauty and art are: Madhyasth Darshan's functional aesthetics of usefulness, harmony, and human purpose, compared with modern philosophical aesthetics and Advaita Vedanta | Draft<br>Last updated on: Jun 26, 2026, 10:28 AM IST |
-| [Human Behavior and Society](Human-Behavior-And-Society/Human-Behavior-And-Society.html) · [Discuss](Human-Behavior-And-Society/discussion.html) | Social Philosophy, Ethics, Axiology | How humans should behave and organise: Madhyasth Darshan on conduct, ethics, and social order, compared with the natural sciences, Advaita Vedanta, and religious and technocratic approaches | Draft<br>Last updated on: Jun 27, 2026, 10:52 PM IST |
-| [How to Form Self-Sustaining Organizations](How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.html) · [Discuss](How-To-Form-Self-Sustaining-Organizations/discussion.html) | Social Philosophy, Axiology | Why organisations built on fear or accumulation must extract from their members and dissolve, and how Madhyasth Darshan grounds organisations that sustain themselves without instrumentalising the people in them | Released<br>Last updated on: Jul 3, 2026, 3:04 PM IST |
+| [Human Behavior and Society](Human-Behavior-And-Society/Human-Behavior-And-Society.html) · [Discuss](Human-Behavior-And-Society/discussion.html) | Social Philosophy, Ethics, Axiology | Humane conduct and social organisation in Madhyasth Darshan, compared with the natural sciences, Advaita Vedanta, and religious and technocratic approaches | Draft<br>Last updated on: Jun 27, 2026, 10:52 PM IST |
+| [How to Form Self-Sustaining Organizations](How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.html) · [Discuss](How-To-Form-Self-Sustaining-Organizations/discussion.html) | Social Philosophy, Axiology | Examines Madhyasth Darshan's claim that organisations grounded in fear or accumulation become extractive, and its account of organisations that sustain themselves without instrumentalising their members | Released<br>Last updated on: Jul 3, 2026, 3:04 PM IST |
 | [Governance Justice and Undivided Society](Governance-Justice-And-Undivided-Society/Governance-Justice-And-Undivided-Society.html) · [Discuss](Governance-Justice-And-Undivided-Society/discussion.html) | Political Philosophy, Axiology | Justice, governance, and law in Madhyasth Darshan: fearlessness, public order, and the institutions of an undivided society | Ongoing |
 | [Prosperity Economics and Right Use](Prosperity-Economics-And-Right-Use/Prosperity-Economics-And-Right-Use.html) · [Discuss](Prosperity-Economics-And-Right-Use/discussion.html) | Economics, Axiology | Prosperity without accumulation: production, cyclical economics, right-use of wealth, and the limits of accumulation | Ongoing |
 | [Nature Ecology and Right Use](Nature-Ecology-And-Right-Use/Nature-Ecology-And-Right-Use.html) · [Discuss](Nature-Ecology-And-Right-Use/discussion.html) | Ecology, Axiology | Living with the other orders of nature: Earth, right-use, regeneration, and ecological balance within coexistence | Ongoing |
@@ -80,65 +80,65 @@ These papers apply the formal template and categorical architecture to concrete 
 
 ### Our approach
 
-These studies are written from the standpoint of a **scientist and technologist** — at home with contemporary cosmology, quantum theory, conservation laws, and formal models. From that background, consciousness easily looks like something the brain does. Yet the hard problem of consciousness, the status of the self, and the reality of value remain fiercely contested, and we do not treat those gaps as settled in favour of matter-only reductionism.
+These studies are written from the standpoint of a **scientist and technologist** trained in physics and mathematics. That starting point takes matter-first scientific explanations seriously, while recognising that consciousness, selfhood, and value remain contested and are not settled simply by assuming materialism.
 
-The work begins where that picture leaves open questions, and asks whether **Madhyasth Darshan** offers a coherent alternative worth examining seriously — testing its definitions, internal consistency, and fit with public knowledge, not persuading or endorsing.
+The project reads primary **Madhyasth Darshan** texts closely, reconstructs their claims as clearly as possible, and compares them with the natural sciences, Advaita Vedanta, and modern philosophy. The aim is rigorous comparative understanding: to test definitions, internal consistency, explanatory scope, and compatibility with evidence — not to persuade or offer devotional endorsement.
 
 ### What we keep separate
 
 Throughout, three things are held clearly apart:
 
-- **The philosophy** — Shri Nagraj's definitions and logic, presented faithfully as he gave them.
-- **Our comparison** — our own readings and parallels with physics, Advaita Vedanta, and modern philosophy.
-- **Open questions** — what remains genuinely unsettled and is flagged as such.
+- **The source position** — what the primary Madhyasth Darshan texts state, grounded in definitions and citations.
+- **Our analysis** — interpretation, comparison, criticism, and formal reconstruction undertaken by this project.
+- **Open questions** — claims that remain unclear, disputed, insufficiently supported, or in need of further study.
 
 See [AGENTS.md](../AGENTS.md) §4 for writing standards.
 
 ### Objectives
 
-1. Study each topic deeply so its principles, definitions, and arguments are understood clearly.
-2. Compare it objectively with other traditions — Advaita Vedanta, modern philosophy, and current science.
-3. Develop a formal mathematical framework so its structure can be expressed and compared with rigor.
+1. Understand each topic closely enough to state its definitions, claims, and arguments clearly.
+2. Compare traditions using explicit questions and consistent standards of evidence and reasoning.
+3. Develop formal representations where they clarify structure, without confusing mathematical analogy or reconstruction with source doctrine.
+4. Examine what these ideas imply for relationships, conduct, institutions, science, and technology.
 
 ### From study to understanding
 
-Reading the books and following the logic is necessary, but only the starting point. Understanding is fulfilled when what is studied becomes clear in one's own seeing, stable in conviction, and evident in conduct — in recognised relationships, fulfilled values, resolution in thought, and the ability to convey it to others.
+Reading and logical reconstruction are the beginning, not the endpoint. This path treats understanding as something to be tested in observation, relationships, decisions, and participation in family and society. Practice does not replace argument or evidence; it is where claims about value and conduct encounter lived consequences.
 
 ## How to contribute
 
-Two paths — pick the one that matches what you want to do.
+Contributions can improve an existing study or help create one that has not yet been written.
 
-### Comments and corrections
+### Discuss or improve a study
 
-Spot a typo, unclear terminology, a citation problem, or have a question about a published study? Use this path. You do **not** need to sign in to read, and you are **not** proposing a new paper.
+Open **Discuss** to ask a question, challenge an interpretation, suggest sources, or help shape an in-progress study. Use **Suggest a correction** when you can identify a specific factual, textual, citation, or presentation problem.
 
-1. Open **[Suggest a correction](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml)** on GitHub — choose the study from the dropdown and describe the change.
-2. Or click **Suggest a correction** in the toolbar while reading any study.
+1. Select **Discuss** on any study to join its ongoing inquiry.
+2. Select **[Suggest a correction](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml)** for a concrete change to a published study.
+3. For an in-progress study, contribute questions, sources, proposed structure, or comparative material through its discussion.
 
-No approval gate; maintainers triage into small updates. A GitHub account is required to file the issue.
+Corrections go directly to the maintainers for review; a separate study proposal is not required. A GitHub account is required to file a correction.
 
-### Propose a new study
+### Write or substantially revise a study
 
-Want to add a new analytic paper to the collection, or submit a full revision of an existing one? Use the Web Submission Portal.
+Use the Web Submission Portal if you want to take responsibility for a new analytic paper or a substantial revision.
 
 Before you start, read the study format in this document and in [CONTRIBUTING.md](../CONTRIBUTING.md).
 
 A free [GitHub account](https://github.com/signup) is required to propose or submit — it is how we track your proposal, pull request, and review history, and how you receive updates. Creating one takes a minute; reading studies never requires an account.
 
-1. **Sign in** on [My Submissions](submit.html) with GitHub (required to propose or submit; not required to read studies).
-2. **Propose** a new study and wait for maintainer approval. Opt in to email updates so you are notified without watching GitHub.
-3. When approved, click **Submit draft** — start from the built-in house-style template and paste your markdown.
-4. **Track** pull requests and CI checks on the same page.
-5. After merge, use **Update study** (loads the current content for editing) or change **Draft** ↔ **Released** as needed.
+1. Sign in to **[My Submissions](submit.html)** and submit a proposal.
+2. After approval, prepare the study using the provided template and submit the draft.
+3. Track review, checks, revisions, and release status from the same page.
 
 Full workflow details: [CONTRIBUTING.md](../CONTRIBUTING.md).
 
 ## About us
 
-We are a group of people studying **Madhyasth Darshan** and writing these studies together, published as **[AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan)** — collaborative, fully open, and independent analytic work, separate from the official institution.
+This collection began as one researcher's attempt to understand **Madhyasth Darshan** in dialogue with science, Advaita Vedanta, and modern philosophy. It is published openly so that others can follow the path, challenge its arguments, improve its sources, and contribute studies of their own.
 
-For official texts and lectures visit [madhyasth.org](https://www.madhyasth.org/) (Divya Path Sansthan). The studies on this site are our own comparative and analytic work, not institutional publications.
+**[AnalyticMadhyasthDarshan.org](https://analyticmadhyasthdarshan.org/)** is an independent collaborative project. It is not an official publication of Divya Path Sansthan. For official Madhyasth Darshan texts and lectures, visit [madhyasth.org](https://www.madhyasth.org/).
 
-Anyone is welcome to read the studies, check our sources, and contribute through our [GitHub repository](https://github.com/raghavamohan/AnalyticMadhyasthDarshan). Every study ends with a list of its sources, linking to the original texts wherever they are freely available.
+Anyone is welcome to read the studies, inspect their sources, join a discussion, or contribute through the project's [GitHub repository](https://github.com/raghavamohan/AnalyticMadhyasthDarshan). Every study ends with a list of its sources, linking to the original texts wherever they are freely available.
 
 **License:** [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) — attribution required. Cite **AnalyticMadhyasthDarshan.org** and link to the repository above.
