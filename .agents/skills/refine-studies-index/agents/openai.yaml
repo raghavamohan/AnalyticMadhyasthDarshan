@@ -1,0 +1,4 @@
+interface:
+  display_name: "Refine Studies Index"
+  short_description: "Review and improve the Studies landing page"
+  default_prompt: "Use $refine-studies-index to review and improve the Studies landing page while keeping generated artifacts synchronized."
