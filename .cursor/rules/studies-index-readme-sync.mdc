@@ -63,6 +63,8 @@ The **HTML/CSS/JS shell** — hero, card catalog UI, filters, sections, scroll-s
 lives in `Scripts/_build_studies_index.py` as `INDEX_TEMPLATE`. Do not edit
 `Studies/index.html` layout or styles in isolation.
 
+Agent skill: [refine-studies-index](.agents/skills/refine-studies-index/SKILL.md).
+
 When changing the landing page UI:
 
 1. Edit `INDEX_TEMPLATE` in `Scripts/_build_studies_index.py`.
