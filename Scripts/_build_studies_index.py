@@ -44,19 +44,19 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Studies of Madhyasth Darshan</title>
-<meta name="description" content="Studies of Madhyasth Darshan (Co-existentialism) from a scientist's point of view — graduate-level physics and mathematics brought to comparative analysis with Shri A. Nagraj's philosophy, Advaita Vedanta, and modern philosophy of mind."/>
+<meta name="description" content="An open comparative study of Madhyasth Darshan, following a path from the human question through existence, knowledge, value, lived participation, and formal synthesis."/>
 <meta name="color-scheme" content="light dark"/>
 <link rel="canonical" href="https://analyticmadhyasthdarshan.org/Studies/index.html"/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="AnalyticMadhyasthDarshan.org"/>
 <meta property="og:title" content="Studies of Madhyasth Darshan"/>
-<meta property="og:description" content="Clear, carefully argued studies of Madhyasth Darshan (Co-existentialism) — examined on its own terms and set in dialogue with physics, Advaita Vedanta, and modern philosophy of mind."/>
+<meta property="og:description" content="An open comparative study of Madhyasth Darshan, following a path through existence, knowledge, value, lived participation, and formal synthesis."/>
 <meta property="og:url" content="https://analyticmadhyasthdarshan.org/Studies/index.html"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Studies of Madhyasth Darshan"/>
-<meta name="twitter:description" content="Clear, carefully argued studies of Madhyasth Darshan (Co-existentialism), set in dialogue with physics, Advaita Vedanta, and modern philosophy of mind."/>
+<meta name="twitter:description" content="An open comparative study of Madhyasth Darshan, following a path through existence, knowledge, value, lived participation, and formal synthesis."/>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"CollectionPage","name":"Studies of Madhyasth Darshan","description":"Clear, carefully argued studies of Madhyasth Darshan (Co-existentialism), examined on its own terms and set in dialogue with the sciences, Advaita Vedanta, and modern philosophy of mind.","url":"https://analyticmadhyasthdarshan.org/Studies/index.html","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/"}
+{"@context":"https://schema.org","@type":"CollectionPage","name":"Studies of Madhyasth Darshan","description":"An open comparative study of Madhyasth Darshan, following a path from the human question through existence, knowledge, value, lived participation, and formal synthesis.","url":"https://analyticmadhyasthdarshan.org/Studies/index.html","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/"}
 </script>
 <script>
 (function(){try{var t=localStorage.getItem("amd-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","light");}})();
@@ -336,6 +336,20 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   .section-card li { margin: 5px 0; }
   .section-card li::marker { color: var(--warm); }
 
+  .browse-heading {
+    scroll-margin-top: 64px;
+    margin: 26px 0 12px;
+  }
+  .browse-heading h2 {
+    margin: 0 0 5px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .browse-heading p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 15px;
+  }
   .toolbar {
     display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
     background: var(--surface); border: 1px solid var(--border);
@@ -889,6 +903,9 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     margin: 0 0 0;
   }
   .contribute-path .path-action {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
     margin-top: auto;
     padding-top: 18px;
     margin-bottom: 0;
@@ -1009,6 +1026,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     .toc { flex-wrap: wrap; flex: 1 1 100%; min-width: 0; }
     .section { scroll-margin-top: calc(var(--page-nav-offset, 56px) + 12px); }
     .catalog-group { scroll-margin-top: calc(var(--page-nav-offset, 56px) + 12px); }
+    .browse-heading { scroll-margin-top: calc(var(--page-nav-offset, 56px) + 12px); }
     .card { scroll-margin-top: calc(var(--page-nav-offset, 56px) + 12px); }
     h1 { font-size: 30px; }
     .triad { grid-template-columns: 1fr; }
@@ -1041,13 +1059,13 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
 <header class="hero">
   <h1>Studies of Madhyasth Darshan</h1>
-  <p class="lead">Clear, carefully argued studies of <strong>Madhyasth Darshan</strong> (Co-existentialism) &mdash; the philosophy founded by <strong>Shri A. Nagraj</strong> &mdash; examined on its own terms and set in dialogue with the sciences and other traditions.</p>
+  <p class="lead">An open and growing collection of comparative studies of <strong>Madhyasth Darshan</strong> (Co-existentialism), the philosophy founded by <strong>Shri A. Nagraj</strong>. The collection follows a personal path of inquiry while inviting others to examine its arguments, question its interpretations, and contribute to its development.</p>
 
   <ul class="dialogue" aria-label="Each study is read in dialogue with">
     <li><span>Madhyasth Darshan</span></li>
-    <li><span>Physics &amp; mathematics</span></li>
+    <li><span>Sciences &amp; technology</span></li>
     <li><span>Advaita Vedanta</span></li>
-    <li><span>Modern philosophy of mind</span></li>
+    <li><span>Modern philosophy</span></li>
   </ul>
 
   <p class="scope" id="hero-scope"><!-- @hero-scope@ --></p>
@@ -1056,13 +1074,11 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 <nav class="page-nav" aria-label="On this page">
   <div class="page-nav-inner">
     <ul class="toc" id="toc">
-      <li><a href="#studies">Topical Studies</a></li>
       <li><a href="#start-here">Start here</a></li>
-      <li><a href="#formal-studies">Formal Studies</a></li>
-      <li><a href="#applied-studies">Applied Studies</a></li>
+      <li><a href="#browse-studies">Browse studies</a></li>
       <li><a href="#approach">How we work</a></li>
       <li><a href="#contribute">How to contribute</a></li>
-      <li><a href="#about">About us</a></li>
+      <li><a href="#about">About</a></li>
       <li><a href="submit.html">My Submissions</a></li>
     </ul>
     <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch color theme">
@@ -1101,9 +1117,9 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
         <details class="path-related">
           <summary>3 related studies</summary>
           <ul>
-            <li data-study-slug="Philosophy-Of-Mind-And-Jeevan"><a data-study-link href="Philosophy-Of-Mind-And-Jeevan/discussion.html">Philosophy of Mind and Jeevan</a><br><span class="path-status planned" data-study-status>Planned</span></li>
-            <li data-study-slug="Chitta-Brain-And-Memory"><a data-study-link href="Chitta-Brain-And-Memory/discussion.html">Chitta, Brain, and Memory</a><br><span class="path-status planned" data-study-status>Planned</span></li>
-            <li data-study-slug="Death-Continuity-And-Rebirth"><a data-study-link href="Death-Continuity-And-Rebirth/discussion.html">Death, Continuity, and Rebirth</a><br><span class="path-status planned" data-study-status>Planned</span></li>
+            <li data-study-slug="Philosophy-Of-Mind-And-Jeevan"><a data-study-link href="Philosophy-Of-Mind-And-Jeevan/discussion.html">Philosophy of Mind and Jeevan</a><br><span class="path-status planned" data-study-status>In progress</span></li>
+            <li data-study-slug="Chitta-Brain-And-Memory"><a data-study-link href="Chitta-Brain-And-Memory/discussion.html">Chitta, Brain, and Memory</a><br><span class="path-status planned" data-study-status>In progress</span></li>
+            <li data-study-slug="Death-Continuity-And-Rebirth"><a data-study-link href="Death-Continuity-And-Rebirth/discussion.html">Death, Continuity, and Rebirth</a><br><span class="path-status planned" data-study-status>In progress</span></li>
           </ul>
         </details>
       </li>
@@ -1123,8 +1139,8 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
           <summary>3 related studies</summary>
           <ul>
             <li data-study-slug="Nature-Of-Time"><a data-study-link href="Nature-Of-Time/Nature-Of-Time.html">Nature of Time</a><br><span class="path-status released" data-study-status>Released</span></li>
-            <li data-study-slug="Nature-Ecology-And-Right-Use"><a data-study-link href="Nature-Ecology-And-Right-Use/discussion.html">Nature, Ecology, and Right Use</a><br><span class="path-status planned" data-study-status>Planned</span></li>
-            <li data-study-slug="God-Divinity-And-The-Sacred"><a data-study-link href="God-Divinity-And-The-Sacred/discussion.html">God, Divinity, and the Sacred</a><br><span class="path-status planned" data-study-status>Planned</span></li>
+            <li data-study-slug="Nature-Ecology-And-Right-Use"><a data-study-link href="Nature-Ecology-And-Right-Use/discussion.html">Nature, Ecology, and Right Use</a><br><span class="path-status planned" data-study-status>In progress</span></li>
+            <li data-study-slug="God-Divinity-And-The-Sacred"><a data-study-link href="God-Divinity-And-The-Sacred/discussion.html">God, Divinity, and the Sacred</a><br><span class="path-status planned" data-study-status>In progress</span></li>
           </ul>
         </details>
       </li>
@@ -1143,10 +1159,10 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
         <details class="path-related">
           <summary>4 related studies</summary>
           <ul>
-            <li data-study-slug="Methodology-And-Hermeneutics"><a data-study-link href="Methodology-And-Hermeneutics/discussion.html">Methodology and Hermeneutics</a><br><span class="path-status planned" data-study-status>Planned</span></li>
-            <li data-study-slug="Work-Action-And-Karma"><a data-study-link href="Work-Action-And-Karma/discussion.html">Work, Action, and Karma</a><br><span class="path-status planned" data-study-status>Planned</span></li>
-            <li data-study-slug="Free-Will-Choice-And-Agency"><a data-study-link href="Free-Will-Choice-And-Agency/discussion.html">Free Will, Choice, and Agency</a><br><span class="path-status planned" data-study-status>Planned</span></li>
-            <li data-study-slug="Language-Meaning-And-Definition"><a data-study-link href="Language-Meaning-And-Definition/discussion.html">Language, Meaning, and Definition</a><br><span class="path-status planned" data-study-status>Planned</span></li>
+            <li data-study-slug="Methodology-And-Hermeneutics"><a data-study-link href="Methodology-And-Hermeneutics/discussion.html">Methodology and Hermeneutics</a><br><span class="path-status planned" data-study-status>In progress</span></li>
+            <li data-study-slug="Work-Action-And-Karma"><a data-study-link href="Work-Action-And-Karma/discussion.html">Work, Action, and Karma</a><br><span class="path-status planned" data-study-status>In progress</span></li>
+            <li data-study-slug="Free-Will-Choice-And-Agency"><a data-study-link href="Free-Will-Choice-And-Agency/discussion.html">Free Will, Choice, and Agency</a><br><span class="path-status planned" data-study-status>In progress</span></li>
+            <li data-study-slug="Language-Meaning-And-Definition"><a data-study-link href="Language-Meaning-And-Definition/discussion.html">Language, Meaning, and Definition</a><br><span class="path-status planned" data-study-status>In progress</span></li>
           </ul>
         </details>
       </li>
@@ -1158,7 +1174,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
         <div class="path-core" data-study-slug="Axiology-Value-Theory">
           <span class="path-core-label">Core study</span>
           <div class="path-study-line"><a data-study-link href="Axiology-Value-Theory/discussion.html">Axiology Value Theory</a></div>
-          <span class="path-status planned" data-study-status>Planned</span>
+          <span class="path-status planned" data-study-status>In progress</span>
           <span class="path-updated" data-study-updated></span>
           <a class="path-action" data-study-action href="Axiology-Value-Theory/discussion.html">Help develop this study</a>
         </div>
@@ -1166,7 +1182,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
           <summary>3 related studies</summary>
           <ul>
             <li data-study-slug="Ethics-And-Morals-In-Human-Beings"><a data-study-link href="Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.html">Ethics and Morals in Human Beings</a><br><span class="path-status draft" data-study-status>Draft</span></li>
-            <li data-study-slug="Family-Relationships-And-Values"><a data-study-link href="Family-Relationships-And-Values/discussion.html">Family Relationships and Values</a><br><span class="path-status planned" data-study-status>Planned</span></li>
+            <li data-study-slug="Family-Relationships-And-Values"><a data-study-link href="Family-Relationships-And-Values/discussion.html">Family Relationships and Values</a><br><span class="path-status planned" data-study-status>In progress</span></li>
             <li data-study-slug="Aesthetics"><a data-study-link href="Aesthetics/Aesthetics.html">Aesthetics</a><br><span class="path-status draft" data-study-status>Draft</span></li>
           </ul>
         </details>
@@ -1186,13 +1202,13 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
         <details class="path-related">
           <summary>8 related studies</summary>
           <ul>
-            <li data-study-slug="Family-Relationships-And-Values"><a data-study-link href="Family-Relationships-And-Values/discussion.html">Family Relationships and Values</a><br><span class="path-status planned" data-study-status>Planned</span></li>
-            <li data-study-slug="Education-And-Sanskar"><a data-study-link href="Education-And-Sanskar/discussion.html">Education and Sanskar</a><br><span class="path-status planned" data-study-status>Planned</span></li>
+            <li data-study-slug="Family-Relationships-And-Values"><a data-study-link href="Family-Relationships-And-Values/discussion.html">Family Relationships and Values</a><br><span class="path-status planned" data-study-status>In progress</span></li>
+            <li data-study-slug="Education-And-Sanskar"><a data-study-link href="Education-And-Sanskar/discussion.html">Education and Sanskar</a><br><span class="path-status planned" data-study-status>In progress</span></li>
             <li data-study-slug="Human-Behavior-And-Society"><a data-study-link href="Human-Behavior-And-Society/Human-Behavior-And-Society.html">Human Behavior and Society</a><br><span class="path-status draft" data-study-status>Draft</span></li>
-            <li data-study-slug="Governance-Justice-And-Undivided-Society"><a data-study-link href="Governance-Justice-And-Undivided-Society/discussion.html">Governance, Justice, and Undivided Society</a><br><span class="path-status planned" data-study-status>Planned</span></li>
-            <li data-study-slug="Prosperity-Economics-And-Right-Use"><a data-study-link href="Prosperity-Economics-And-Right-Use/discussion.html">Prosperity, Economics, and Right Use</a><br><span class="path-status planned" data-study-status>Planned</span></li>
-            <li data-study-slug="Nature-Ecology-And-Right-Use"><a data-study-link href="Nature-Ecology-And-Right-Use/discussion.html">Nature, Ecology, and Right Use</a><br><span class="path-status planned" data-study-status>Planned</span></li>
-            <li data-study-slug="Spiritual-Practice-And-Realization"><a data-study-link href="Spiritual-Practice-And-Realization/discussion.html">Spiritual Practice and Realization</a><br><span class="path-status planned" data-study-status>Planned</span></li>
+            <li data-study-slug="Governance-Justice-And-Undivided-Society"><a data-study-link href="Governance-Justice-And-Undivided-Society/discussion.html">Governance, Justice, and Undivided Society</a><br><span class="path-status planned" data-study-status>In progress</span></li>
+            <li data-study-slug="Prosperity-Economics-And-Right-Use"><a data-study-link href="Prosperity-Economics-And-Right-Use/discussion.html">Prosperity, Economics, and Right Use</a><br><span class="path-status planned" data-study-status>In progress</span></li>
+            <li data-study-slug="Nature-Ecology-And-Right-Use"><a data-study-link href="Nature-Ecology-And-Right-Use/discussion.html">Nature, Ecology, and Right Use</a><br><span class="path-status planned" data-study-status>In progress</span></li>
+            <li data-study-slug="Spiritual-Practice-And-Realization"><a data-study-link href="Spiritual-Practice-And-Realization/discussion.html">Spiritual Practice and Realization</a><br><span class="path-status planned" data-study-status>In progress</span></li>
             <li data-study-slug="How-To-Form-Self-Sustaining-Organizations"><a data-study-link href="How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.html">How to Form Self-Sustaining Organizations</a><br><span class="path-status released" data-study-status>Released</span></li>
           </ul>
         </details>
@@ -1207,17 +1223,22 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       </div>
       <div class="parallel-studies">
         <div class="parallel-study" data-study-slug="Coexistence-From-First-Principles"><a data-study-link href="Coexistence-From-First-Principles/Coexistence-From-First-Principles.html">Coexistence from First Principles</a><span class="path-status draft" data-study-status>Draft</span></div>
-        <div class="parallel-study" data-study-slug="Science-Technology-And-Human-Purpose"><a data-study-link href="Science-Technology-And-Human-Purpose/discussion.html">Science, Technology, and Human Purpose</a><span class="path-status planned" data-study-status>Planned</span></div>
+        <div class="parallel-study" data-study-slug="Science-Technology-And-Human-Purpose"><a data-study-link href="Science-Technology-And-Human-Purpose/discussion.html">Science, Technology, and Human Purpose</a><span class="path-status planned" data-study-status>In progress</span></div>
       </div>
     </div>
 
     <div class="path-invitation">
-      <p><strong>Follow the path, or help shape it.</strong> Status badges show where the work stands now. Use a study&rsquo;s discussion to question an argument, review a draft, suggest sources, or help develop a planned study.</p>
+      <p><strong>Follow the path, or help shape it.</strong> Status badges show where the work stands now. Use a study&rsquo;s discussion to question an argument, review a draft, suggest sources, or help develop an in-progress study.</p>
       <div class="path-invitation-actions">
         <a class="btn-secondary" href="?status=all&amp;sort=recent#topical-studies">Browse current work</a>
         <a class="btn-primary" href="#contribute">How to contribute</a>
       </div>
     </div>
+  </div>
+
+  <div class="browse-heading" id="browse-studies">
+    <h2>Browse all studies</h2>
+    <p>Search the complete collection by topic, status, or type. Released studies are stable versions, drafts are available for review, and in-progress studies are open for discussion and development.</p>
   </div>
 
   <div class="toolbar" role="search">
@@ -1236,7 +1257,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     <div class="seg" id="status-seg" role="group" aria-label="Filter by status">
       <button type="button" data-status="all" aria-pressed="false">All</button>
       <button type="button" data-status="available" aria-pressed="true">Available</button>
-      <button type="button" data-status="planned" aria-pressed="false">Planned</button>
+      <button type="button" data-status="planned" aria-pressed="false">In progress</button>
     </div>
     <label class="sr-only" for="sort">Sort</label>
     <select class="field" id="sort" aria-label="Sort studies">
@@ -1276,63 +1297,63 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   <h2>How we work</h2>
   <div class="section-card">
     <h3>Our approach</h3>
-    <p>These studies are written from the standpoint of a <strong>scientist and technologist</strong> &mdash; at home with contemporary cosmology, quantum theory, conservation laws, and formal models. From that background, consciousness easily looks like something the brain does. Yet the hard problem of consciousness, the status of the self, and the reality of value remain fiercely contested, and we do not treat those gaps as settled in favour of matter-only reductionism.</p>
-    <p>The work begins where that picture leaves open questions, and asks whether <strong>Madhyasth Darshan</strong> offers a coherent alternative worth examining seriously &mdash; testing its definitions, internal consistency, and fit with public knowledge, not persuading or endorsing.</p>
+    <p>These studies are written from the standpoint of a <strong>scientist and technologist</strong> trained in physics and mathematics. That starting point takes matter-first scientific explanations seriously, while recognising that consciousness, selfhood, and value remain contested and are not settled simply by assuming materialism.</p>
+    <p>The project reads primary <strong>Madhyasth Darshan</strong> texts closely, reconstructs their claims as clearly as possible, and compares them with the natural sciences, Advaita Vedanta, and modern philosophy. The aim is rigorous comparative understanding: to test definitions, internal consistency, explanatory scope, and compatibility with evidence &mdash; not to persuade or offer devotional endorsement.</p>
 
     <h3>What we keep separate</h3>
     <p class="section-intro" style="margin-bottom:4px;">Throughout, three things are held clearly apart:</p>
     <div class="triad">
       <div class="triad-item t1">
-        <p class="k">The philosophy</p>
-        <p class="v">Shri Nagraj&rsquo;s definitions and logic, presented faithfully as he gave them.</p>
+        <p class="k">The source position</p>
+        <p class="v">What the primary Madhyasth Darshan texts state, grounded in definitions and citations.</p>
       </div>
       <div class="triad-item t2">
-        <p class="k">Our comparison</p>
-        <p class="v">Our own readings and parallels with physics, Advaita Vedanta, and modern philosophy.</p>
+        <p class="k">Our analysis</p>
+        <p class="v">Interpretation, comparison, criticism, and formal reconstruction undertaken by this project.</p>
       </div>
       <div class="triad-item t3">
         <p class="k">Open questions</p>
-        <p class="v">What remains genuinely unsettled and is flagged as such.</p>
+        <p class="v">Claims that remain unclear, disputed, insufficiently supported, or in need of further study.</p>
       </div>
     </div>
 
     <h3>Objectives</h3>
     <ol>
-      <li>Study each topic deeply so its principles, definitions, and arguments are understood clearly.</li>
-      <li>Compare it objectively with other traditions &mdash; Advaita Vedanta, modern philosophy, and current science.</li>
-      <li>Develop a formal mathematical framework so its structure can be expressed and compared with rigor.</li>
+      <li>Understand each topic closely enough to state its definitions, claims, and arguments clearly.</li>
+      <li>Compare traditions using explicit questions and consistent standards of evidence and reasoning.</li>
+      <li>Develop formal representations where they clarify structure, without confusing mathematical analogy or reconstruction with source doctrine.</li>
+      <li>Examine what these ideas imply for relationships, conduct, institutions, science, and technology.</li>
     </ol>
 
     <h3>From study to understanding</h3>
-    <p>Reading the books and following the logic is necessary, but only the starting point. Understanding is fulfilled when what is studied becomes clear in one&rsquo;s own seeing, stable in conviction, and evident in conduct &mdash; in recognised relationships, fulfilled values, resolution in thought, and the ability to convey it to others.</p>
+    <p>Reading and logical reconstruction are the beginning, not the endpoint. This path treats understanding as something to be tested in observation, relationships, decisions, and participation in family and society. Practice does not replace argument or evidence; it is where claims about value and conduct encounter lived consequences.</p>
   </div>
 </section>
 
 <section class="section" id="contribute">
   <h2>How to contribute</h2>
   <div class="section-card">
-    <p class="section-intro">Two paths &mdash; pick the one that matches what you want to do.</p>
+    <p class="section-intro">Contributions can improve an existing study or help create one that has not yet been written.</p>
     <div class="contribute-paths">
       <div class="contribute-path contribute-path--feedback" id="comments-and-corrections">
-        <h3>Comments and corrections</h3>
-        <p class="path-lead">Spot a typo, unclear terminology, a citation problem, or have a question about a published study? Use this path. You do <strong>not</strong> need to sign in to read, and you are <strong>not</strong> proposing a new paper.</p>
+        <h3>Discuss or improve a study</h3>
+        <p class="path-lead">Open <strong>Discuss</strong> to ask a question, challenge an interpretation, suggest sources, or help shape an in-progress study. Use <strong>Suggest a correction</strong> when you can identify a specific factual, textual, citation, or presentation problem.</p>
         <ol>
-          <li>Open <strong>Suggest a correction</strong> on GitHub &mdash; choose the study from the dropdown and describe the change.</li>
-          <li>Or click <strong>Suggest a correction</strong> in the toolbar while reading any study.</li>
+          <li>Select <strong>Discuss</strong> on any study to join its ongoing inquiry.</li>
+          <li>Select <strong>Suggest a correction</strong> for a concrete change to a published study.</li>
+          <li>For an in-progress study, contribute questions, sources, proposed structure, or comparative material through its discussion.</li>
         </ol>
-        <p class="path-note">No approval gate; maintainers triage into small updates. A GitHub account is required to file the issue.</p>
-        <p class="path-action"><a class="btn-primary" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml">Suggest a correction</a></p>
+        <p class="path-note">Corrections go directly to the maintainers for review; a separate study proposal is not required. A GitHub account is required to file a correction.</p>
+        <p class="path-action"><a class="btn-secondary" href="?status=all&amp;sort=recent#browse-studies">Browse discussions</a> <a class="btn-primary" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml">Suggest a correction</a></p>
       </div>
       <div class="contribute-path contribute-path--study" id="propose-a-new-study">
-        <h3>Propose a new study</h3>
-        <p class="path-lead">Want to add a new analytic paper to the collection, or submit a full revision? Use the Web Submission Portal. Read the study format in <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/Studies/README.md">Studies/README.md</a> and <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a> before you start.</p>
+        <h3>Write or substantially revise a study</h3>
+        <p class="path-lead">Use the Web Submission Portal if you want to take responsibility for a new analytic paper or a substantial revision. Read the study format in <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/Studies/README.md">Studies/README.md</a> and <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a> before you start.</p>
         <p class="path-note">A free <a href="https://github.com/signup" target="_blank" rel="noopener">GitHub account</a> is required to propose or submit &mdash; it is how we track your proposal, pull request, and review history, and how you receive updates. Creating one takes a minute; reading studies never requires an account.</p>
         <ol>
-          <li><strong>Sign in</strong> on <a href="submit.html">My Submissions</a> with GitHub (required to propose or submit).</li>
-          <li><strong>Propose</strong> a new study and wait for maintainer approval. Opt in to email updates so you are notified without watching GitHub.</li>
-          <li>When approved, click <strong>Submit draft</strong> &mdash; start from the built-in house-style template and paste your markdown.</li>
-          <li><strong>Track</strong> pull requests and CI checks on the same page.</li>
-          <li>After merge, use <strong>Update study</strong> (loads the current content for editing) or change <strong>Draft</strong> &harr; <strong>Released</strong> as needed.</li>
+          <li>Sign in to <a href="submit.html"><strong>My Submissions</strong></a> and submit a proposal.</li>
+          <li>After approval, prepare the study using the provided template and submit the draft.</li>
+          <li>Track review, checks, revisions, and release status from the same page.</li>
         </ol>
         <p class="path-action"><a class="btn-primary" href="submit.html">Open My Submissions</a></p>
       </div>
@@ -1343,9 +1364,9 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 <section class="section" id="about">
   <h2>About us</h2>
   <div class="section-card">
-    <p>We are a group of people studying <strong>Madhyasth Darshan</strong> and writing these studies together, published as <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> &mdash; collaborative, fully open, and independent analytic work, separate from the official institution.</p>
-    <p>For official texts and lectures visit <a href="https://www.madhyasth.org/">madhyasth.org</a> (Divya Path Sansthan). The studies on this site are our own comparative and analytic work, not institutional publications.</p>
-    <p>Anyone is welcome to read the studies, check our sources, and contribute through our <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">GitHub repository</a>. Every study ends with a list of its sources, linking to the original texts wherever they are freely available.</p>
+    <p>This collection began as one researcher&rsquo;s attempt to understand <strong>Madhyasth Darshan</strong> in dialogue with science, Advaita Vedanta, and modern philosophy. It is published openly so that others can follow the path, challenge its arguments, improve its sources, and contribute studies of their own.</p>
+    <p><a href="https://analyticmadhyasthdarshan.org/"><strong>AnalyticMadhyasthDarshan.org</strong></a> is an independent collaborative project. It is not an official publication of Divya Path Sansthan. For official Madhyasth Darshan texts and lectures, visit <a href="https://www.madhyasth.org/">madhyasth.org</a>.</p>
+    <p>Anyone is welcome to read the studies, inspect their sources, join a discussion, or contribute through the project&rsquo;s <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">GitHub repository</a>. Every study ends with a list of its sources, linking to the original texts wherever they are freely available.</p>
     <p class="license-line"><strong>License:</strong> <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a> &mdash; attribution required. Cite <strong>AnalyticMadhyasthDarshan.org</strong> and link to the repository.</p>
   </div>
 </section>
@@ -1667,14 +1688,14 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       : `<a href="${discussHref}">${s.t}</a>`;
     const cardClass = !avail ? "is-planned" : (s.status === "released" ? "is-released is-available" : "is-draft is-available");
     const badgeClass = !avail ? "planned" : (s.status === "released" ? "released" : "draft");
-    const badgeLabel = !avail ? "Planned" : (s.status === "released" ? "Released" : "Draft");
+    const badgeLabel = !avail ? "In progress" : (s.status === "released" ? "Released" : "Draft");
     const draftTitle = s.status === "draft" ? ' title="Draft PDF includes a watermark"' : "";
     const readActions = readable
       ? `<a class="pdf-download" href="${pdfHref}" download title="Download PDF" aria-label="Download PDF for ${escAttr(s.t)}">${PDF_DOWNLOAD_ICON}</a>`
       : "";
     const foot = avail
       ? `<span class="badge ${badgeClass}"${draftTitle}><span class="badge-dot"></span>${badgeLabel}</span><span class="card-actions">${discussLinkHtml(s)}${readActions}</span>`
-      : `<span class="badge planned"><span class="badge-dot"></span>Planned</span><span class="card-actions">${discussLinkHtml(s)}${readActions}</span>`;
+      : `<span class="badge planned"><span class="badge-dot"></span>In progress</span><span class="card-actions">${discussLinkHtml(s)}${readActions}</span>`;
     const dateLine = avail && s.updated
       ? `<div class="card-foot" style="border:none;padding:6px 0 0;color:#9a8f80;">Updated ${s.updated}</div>`
       : "";
@@ -1686,13 +1707,20 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   };
 
   const renderCatalog = () => {
+    if (state.coll !== "all" && !STUDIES.some(s => s.coll === state.coll)) {
+      state.coll = "all";
+      syncControlsToState();
+    }
     buildCategoryList();
     updateResetButton();
 
     let shown = 0;
     ["topical", "formal", "applied"].forEach(coll => {
+      const total = STUDIES.filter(s => s.coll === coll).length;
+      const collButton = document.querySelector(`#coll-seg [data-coll="${coll}"]`);
+      if (collButton) collButton.hidden = total === 0;
       const group = document.getElementById(`${coll}-studies`);
-      const groupHidden = state.coll !== "all" && state.coll !== coll;
+      const groupHidden = total === 0 || (state.coll !== "all" && state.coll !== coll);
       if (group) group.classList.toggle("is-hidden", groupHidden);
       if (groupHidden) return;
 
@@ -1703,7 +1731,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       if (grid) grid.innerHTML = items.map(cardHTML).join("");
       const empty = document.getElementById(`empty-${coll}`);
       if (empty) empty.classList.toggle("is-hidden", items.length > 0);
-      const total = STUDIES.filter(s => s.coll === coll).length;
       const countEl = document.querySelector(`[data-count-for="${coll}"]`);
       if (countEl) countEl.textContent = `${items.length} of ${total} shown`;
     });
@@ -1812,7 +1839,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     b.addEventListener("click", resetFilters);
   });
 
-  const START_HERE_STATUS_WORDS = { released: "Released", draft: "Draft", planned: "Planned" };
+  const START_HERE_STATUS_WORDS = { released: "Released", draft: "Draft", planned: "In progress" };
   const START_HERE_ACTION_WORDS = {
     released: "Discuss this stage",
     draft: "Review the draft",
@@ -1930,7 +1957,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
 (() => {
   const tocLinks = Array.from(document.querySelectorAll("#toc a"));
-  const mainSpyIds = ["topical-studies", "formal-studies", "applied-studies", "approach", "contribute", "about"];
+  const mainSpyIds = ["start-here", "browse-studies", "approach", "contribute", "about"];
   let lockActiveUntil = 0;
   let lockedId = null;
 
