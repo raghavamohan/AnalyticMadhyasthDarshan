@@ -515,19 +515,28 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
   .start-here {
     margin: 0 0 20px;
-    padding: 18px 20px;
+    padding: 24px;
     background: var(--surface);
     border: 1px solid var(--border);
     border-left: 4px solid var(--accent);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
   }
+  .start-here-kicker {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--warm);
+    margin: 0 0 5px;
+  }
   .start-here h2 {
     font-family: inherit;
-    font-size: 20px;
+    font-size: 23px;
     font-weight: 600;
     color: var(--accent);
-    margin: 0 0 10px;
+    margin: 0 0 8px;
     border: none;
     padding: 0;
     letter-spacing: normal;
@@ -536,22 +545,211 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   .start-here-intro {
     font-size: 15px;
     color: var(--text-muted);
-    margin: 0 0 12px;
+    max-width: 920px;
+    margin: 0 0 20px;
   }
-  .start-here ol {
+  .study-path {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 12px;
     margin: 0;
-    padding-left: 22px;
-    font-size: 15px;
+    padding: 0;
+    list-style: none;
   }
-  .start-here li { margin: 6px 0; }
-  .start-here li a { font-weight: 600; }
-  .start-here-status {
+  .path-stage {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 15px 14px 13px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent);
+    border-radius: 10px;
+  }
+  .path-stage-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .path-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 26px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    color: #fff;
+    background: var(--accent);
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .path-domain {
     font-family: var(--sans);
     font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.02em;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
     color: var(--text-muted);
-    margin-left: 4px;
+  }
+  .path-stage h3 {
+    font-size: 17px;
+    line-height: 1.3;
+    margin: 0 0 8px;
+  }
+  .path-stage-desc {
+    font-size: 13px;
+    line-height: 1.48;
+    color: var(--text-muted);
+    margin: 0 0 14px;
+  }
+  .path-core {
+    margin-top: auto;
+    padding-top: 11px;
+    border-top: 1px solid var(--border);
+  }
+  .path-core-label {
+    display: block;
+    margin-bottom: 4px;
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .path-study-line {
+    line-height: 1.35;
+  }
+  .path-study-line a {
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .path-status {
+    display: inline-flex;
+    align-items: center;
+    margin: 5px 0 0;
+    border-radius: 999px;
+    padding: 2px 8px;
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .path-status.released { color: #1b4332; background: #d8f3dc; }
+  .path-status.draft { color: #92400e; background: #fef3c7; }
+  .path-status.planned { color: var(--warm); background: var(--warm-soft); }
+  .path-updated {
+    display: block;
+    min-height: 16px;
+    margin-top: 4px;
+    font-family: var(--sans);
+    font-size: 10px;
+    color: var(--text-muted);
+  }
+  .path-action {
+    display: inline-block;
+    margin-top: 8px;
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .path-related {
+    margin-top: 10px;
+    font-family: var(--sans);
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+  .path-related summary {
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .path-related ul {
+    margin: 8px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .path-related li {
+    padding: 6px 0;
+    border-top: 1px solid var(--border);
+    line-height: 1.3;
+  }
+  .path-related li a { font-weight: 600; }
+  .path-related .path-status {
+    margin: 3px 0 0;
+    padding: 1px 7px;
+    font-size: 9px;
+  }
+  .parallel-track {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 0.55fr);
+    gap: 18px;
+    align-items: center;
+    margin-top: 14px;
+    padding: 16px 18px;
+    background: var(--warm-soft);
+    border: 1px solid #e0d0be;
+    border-radius: 10px;
+  }
+  .parallel-track-label {
+    display: block;
+    margin-bottom: 4px;
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--warm);
+  }
+  .parallel-track h3 {
+    font-size: 17px;
+    margin: 0 0 5px;
+  }
+  .parallel-track p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .parallel-studies {
+    display: grid;
+    gap: 8px;
+    font-family: var(--sans);
+    font-size: 12px;
+  }
+  .parallel-study {
+    padding: 8px 10px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+  .parallel-study a { font-weight: 700; }
+  .parallel-study .path-status { margin-left: 5px; }
+  .path-invitation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+  .path-invitation p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .path-invitation strong { color: var(--text); }
+  .path-invitation-actions {
+    display: flex;
+    flex: 0 0 auto;
+    gap: 8px;
+  }
+  .path-invitation .btn-primary,
+  .path-invitation .btn-secondary {
+    padding: 8px 13px;
+    font-size: 12px;
   }
   .card-actions {
     display: inline-flex;
@@ -732,6 +930,11 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   }
   [data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3 { color: #f5f1ec; }
   [data-theme="dark"] .start-here h2 { color: var(--accent); }
+  [data-theme="dark"] .path-stage { background: #1e1b18; }
+  [data-theme="dark"] .path-status.released { color: #8fd4a8; background: #1a2e22; }
+  [data-theme="dark"] .path-status.draft { color: #f0c78a; background: #3a2818; }
+  [data-theme="dark"] .parallel-track { border-color: #5a4632; }
+  [data-theme="dark"] .parallel-study { background: #26231e; }
   [data-theme="dark"] .page-nav { background: rgba(26, 24, 21, 0.92); }
   [data-theme="dark"] .search input, [data-theme="dark"] .seg, [data-theme="dark"] .triad-item { background: #1e1b18; }
   [data-theme="dark"] .search input::placeholder { color: #6f655a; }
@@ -767,6 +970,10 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     html { scroll-behavior: auto; }
     * { transition: none !important; animation: none !important; }
     .card.is-available:hover { transform: none; }
+  }
+
+  @media (max-width: 1000px) {
+    .study-path { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   }
 
   @media (max-width: 820px) {
@@ -805,6 +1012,9 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     .card { scroll-margin-top: calc(var(--page-nav-offset, 56px) + 12px); }
     h1 { font-size: 30px; }
     .triad { grid-template-columns: 1fr; }
+    .study-path { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .parallel-track { grid-template-columns: 1fr; }
+    .path-invitation { align-items: flex-start; flex-direction: column; }
   }
 
   @media (max-width: 600px) {
@@ -817,6 +1027,12 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     .seg, .field { flex: 1 1 auto; }
     .seg { display: flex; }
     .seg button { flex: 1; }
+    .start-here { padding: 19px 16px; }
+    .start-here h2 { font-size: 21px; }
+    .study-path { grid-template-columns: 1fr; }
+    .path-stage { padding: 15px; }
+    .path-invitation-actions { width: 100%; flex-direction: column; }
+    .path-invitation .btn-primary, .path-invitation .btn-secondary { text-align: center; }
   }
 </style>
 </head>
@@ -866,15 +1082,142 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   </noscript>
 
   <div class="start-here" id="start-here">
-    <h2>Start here</h2>
-    <p class="start-here-intro">New to the collection? Read these in order to build a foundational understanding before the formal and applied lenses.</p>
-    <ol>
-      <li data-slug="Why-Humans-Are-Not-Just-Material"><a href="Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.pdf">Why Humans Are Not Just Material</a><span class="start-here-status"><span class="sh-status-word">Released</span> &mdash; anthropology, consciousness, value</span></li>
-      <li data-slug="The-Ontology-of-Coexistence"><a href="The-Ontology-of-Coexistence/The-Ontology-of-Existence-Madhyasth-Darshan.pdf">The Ontology of Coexistence</a><span class="start-here-status"><span class="sh-status-word">Released</span> &mdash; core ontology, units, sentience</span></li>
-      <li data-slug="Knowledge-Knower-And-Known"><a href="Knowledge-Knower-And-Known/The-Epistemology-of-Coexistence-Madhyasth-Darshan.pdf">The Epistemology of Coexistence</a><span class="start-here-status"><span class="sh-status-word">Released</span> &mdash; presentation, epistemology, knower, known</span></li>
-      <li data-slug="How-Undivided-Society-Is-Established"><a href="How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established-presentation.pdf">How undivided society is established</a><span class="start-here-status"><span class="sh-status-word">Draft</span> &mdash; presentation, *akhand samaj*, social architecture</span></li>
-      <li data-slug="Coexistence-From-First-Principles"><a href="Coexistence-From-First-Principles/Coexistence-From-First-Principles-MD-Practitioner.pdf">Coexistence from First Principles</a><span class="start-here-status"><span class="sh-status-word">Draft</span> &mdash; presentation, first-principles kernel for practitioners</span></li>
+    <p class="start-here-kicker">A guided path through the collection</p>
+    <h2>Start here: the study path I am following</h2>
+    <p class="start-here-intro">This collection records the path I am taking: beginning with the question of what a human is, then moving through existence, knowledge, value, and lived participation. You are welcome to follow the same sequence, question it, and contribute wherever the work is incomplete.</p>
+
+    <ol class="study-path" aria-label="Five stages in the study path">
+      <li class="path-stage">
+        <div class="path-stage-head"><span class="path-number">1</span><span class="path-domain">Human</span></div>
+        <h3>Is a human only a body?</h3>
+        <p class="path-stage-desc">Test whether a human is exhausted by the body by comparing scientific accounts and their physicalist interpretation with Advaita Vedanta and Madhyasth Darshan.</p>
+        <div class="path-core" data-study-slug="Why-Humans-Are-Not-Just-Material">
+          <span class="path-core-label">Core study</span>
+          <div class="path-study-line"><a data-study-link href="Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html">Why Humans Are Not Just Material</a></div>
+          <span class="path-status released" data-study-status>Released</span>
+          <span class="path-updated" data-study-updated></span>
+          <a class="path-action" data-study-action href="Why-Humans-Are-Not-Just-Material/discussion.html">Discuss this stage</a>
+        </div>
+        <details class="path-related">
+          <summary>3 related studies</summary>
+          <ul>
+            <li data-study-slug="Philosophy-Of-Mind-And-Jeevan"><a data-study-link href="Philosophy-Of-Mind-And-Jeevan/discussion.html">Philosophy of Mind and Jeevan</a><br><span class="path-status planned" data-study-status>Planned</span></li>
+            <li data-study-slug="Chitta-Brain-And-Memory"><a data-study-link href="Chitta-Brain-And-Memory/discussion.html">Chitta, Brain, and Memory</a><br><span class="path-status planned" data-study-status>Planned</span></li>
+            <li data-study-slug="Death-Continuity-And-Rebirth"><a data-study-link href="Death-Continuity-And-Rebirth/discussion.html">Death, Continuity, and Rebirth</a><br><span class="path-status planned" data-study-status>Planned</span></li>
+          </ul>
+        </details>
+      </li>
+
+      <li class="path-stage">
+        <div class="path-stage-head"><span class="path-number">2</span><span class="path-domain">Existence</span></div>
+        <h3>What exists&mdash;and what are we?</h3>
+        <p class="path-stage-desc">Examine coexistence, units, and nature&rsquo;s orders, including Madhyasth Darshan&rsquo;s claim that the human belongs to the knowledge order.</p>
+        <div class="path-core" data-study-slug="The-Ontology-of-Coexistence">
+          <span class="path-core-label">Core study</span>
+          <div class="path-study-line"><a data-study-link href="The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a></div>
+          <span class="path-status released" data-study-status>Released</span>
+          <span class="path-updated" data-study-updated></span>
+          <a class="path-action" data-study-action href="The-Ontology-of-Coexistence/discussion.html">Discuss this stage</a>
+        </div>
+        <details class="path-related">
+          <summary>3 related studies</summary>
+          <ul>
+            <li data-study-slug="Nature-Of-Time"><a data-study-link href="Nature-Of-Time/Nature-Of-Time.html">Nature of Time</a><br><span class="path-status released" data-study-status>Released</span></li>
+            <li data-study-slug="Nature-Ecology-And-Right-Use"><a data-study-link href="Nature-Ecology-And-Right-Use/discussion.html">Nature, Ecology, and Right Use</a><br><span class="path-status planned" data-study-status>Planned</span></li>
+            <li data-study-slug="God-Divinity-And-The-Sacred"><a data-study-link href="God-Divinity-And-The-Sacred/discussion.html">God, Divinity, and the Sacred</a><br><span class="path-status planned" data-study-status>Planned</span></li>
+          </ul>
+        </details>
+      </li>
+
+      <li class="path-stage">
+        <div class="path-stage-head"><span class="path-number">3</span><span class="path-domain">Knowledge</span></div>
+        <h3>What must the knower know?</h3>
+        <p class="path-stage-desc">Ask what knowledge is, what must be known, and how understanding of coexistence and humane conduct guides action toward lasting fulfilment.</p>
+        <div class="path-core" data-study-slug="Knowledge-Knower-And-Known">
+          <span class="path-core-label">Core study</span>
+          <div class="path-study-line"><a data-study-link href="Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.html">Knowledge Knower and Known</a></div>
+          <span class="path-status released" data-study-status>Released</span>
+          <span class="path-updated" data-study-updated></span>
+          <a class="path-action" data-study-action href="Knowledge-Knower-And-Known/discussion.html">Discuss this stage</a>
+        </div>
+        <details class="path-related">
+          <summary>4 related studies</summary>
+          <ul>
+            <li data-study-slug="Methodology-And-Hermeneutics"><a data-study-link href="Methodology-And-Hermeneutics/discussion.html">Methodology and Hermeneutics</a><br><span class="path-status planned" data-study-status>Planned</span></li>
+            <li data-study-slug="Work-Action-And-Karma"><a data-study-link href="Work-Action-And-Karma/discussion.html">Work, Action, and Karma</a><br><span class="path-status planned" data-study-status>Planned</span></li>
+            <li data-study-slug="Free-Will-Choice-And-Agency"><a data-study-link href="Free-Will-Choice-And-Agency/discussion.html">Free Will, Choice, and Agency</a><br><span class="path-status planned" data-study-status>Planned</span></li>
+            <li data-study-slug="Language-Meaning-And-Definition"><a data-study-link href="Language-Meaning-And-Definition/discussion.html">Language, Meaning, and Definition</a><br><span class="path-status planned" data-study-status>Planned</span></li>
+          </ul>
+        </details>
+      </li>
+
+      <li class="path-stage">
+        <div class="path-stage-head"><span class="path-number">4</span><span class="path-domain">Value</span></div>
+        <h3>What makes value and relationship definite?</h3>
+        <p class="path-stage-desc">Study whether values and relationships have a definite structure, and how understanding is tested and deepened through conduct.</p>
+        <div class="path-core" data-study-slug="Axiology-Value-Theory">
+          <span class="path-core-label">Core study</span>
+          <div class="path-study-line"><a data-study-link href="Axiology-Value-Theory/discussion.html">Axiology Value Theory</a></div>
+          <span class="path-status planned" data-study-status>Planned</span>
+          <span class="path-updated" data-study-updated></span>
+          <a class="path-action" data-study-action href="Axiology-Value-Theory/discussion.html">Help develop this study</a>
+        </div>
+        <details class="path-related">
+          <summary>3 related studies</summary>
+          <ul>
+            <li data-study-slug="Ethics-And-Morals-In-Human-Beings"><a data-study-link href="Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.html">Ethics and Morals in Human Beings</a><br><span class="path-status draft" data-study-status>Draft</span></li>
+            <li data-study-slug="Family-Relationships-And-Values"><a data-study-link href="Family-Relationships-And-Values/discussion.html">Family Relationships and Values</a><br><span class="path-status planned" data-study-status>Planned</span></li>
+            <li data-study-slug="Aesthetics"><a data-study-link href="Aesthetics/Aesthetics.html">Aesthetics</a><br><span class="path-status draft" data-study-status>Draft</span></li>
+          </ul>
+        </details>
+      </li>
+
+      <li class="path-stage">
+        <div class="path-stage-head"><span class="path-number">5</span><span class="path-domain">Living</span></div>
+        <h3>How is coexistence lived?</h3>
+        <p class="path-stage-desc">Begin with family and extend participation through education, society, governance, economy, ecology, and spiritual practice. This widening participation is where understanding is tested in living.</p>
+        <div class="path-core" data-study-slug="How-Undivided-Society-Is-Established">
+          <span class="path-core-label">Current anchor</span>
+          <div class="path-study-line"><a data-study-link href="How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html">How Undivided Society Is Established</a></div>
+          <span class="path-status released" data-study-status>Released</span>
+          <span class="path-updated" data-study-updated></span>
+          <a class="path-action" data-study-action href="How-Undivided-Society-Is-Established/discussion.html">Discuss this stage</a>
+        </div>
+        <details class="path-related">
+          <summary>8 related studies</summary>
+          <ul>
+            <li data-study-slug="Family-Relationships-And-Values"><a data-study-link href="Family-Relationships-And-Values/discussion.html">Family Relationships and Values</a><br><span class="path-status planned" data-study-status>Planned</span></li>
+            <li data-study-slug="Education-And-Sanskar"><a data-study-link href="Education-And-Sanskar/discussion.html">Education and Sanskar</a><br><span class="path-status planned" data-study-status>Planned</span></li>
+            <li data-study-slug="Human-Behavior-And-Society"><a data-study-link href="Human-Behavior-And-Society/Human-Behavior-And-Society.html">Human Behavior and Society</a><br><span class="path-status draft" data-study-status>Draft</span></li>
+            <li data-study-slug="Governance-Justice-And-Undivided-Society"><a data-study-link href="Governance-Justice-And-Undivided-Society/discussion.html">Governance, Justice, and Undivided Society</a><br><span class="path-status planned" data-study-status>Planned</span></li>
+            <li data-study-slug="Prosperity-Economics-And-Right-Use"><a data-study-link href="Prosperity-Economics-And-Right-Use/discussion.html">Prosperity, Economics, and Right Use</a><br><span class="path-status planned" data-study-status>Planned</span></li>
+            <li data-study-slug="Nature-Ecology-And-Right-Use"><a data-study-link href="Nature-Ecology-And-Right-Use/discussion.html">Nature, Ecology, and Right Use</a><br><span class="path-status planned" data-study-status>Planned</span></li>
+            <li data-study-slug="Spiritual-Practice-And-Realization"><a data-study-link href="Spiritual-Practice-And-Realization/discussion.html">Spiritual Practice and Realization</a><br><span class="path-status planned" data-study-status>Planned</span></li>
+            <li data-study-slug="How-To-Form-Self-Sustaining-Organizations"><a data-study-link href="How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.html">How to Form Self-Sustaining Organizations</a><br><span class="path-status released" data-study-status>Released</span></li>
+          </ul>
+        </details>
+      </li>
     </ol>
+
+    <div class="parallel-track">
+      <div>
+        <span class="parallel-track-label">Parallel track &middot; formal and contemporary synthesis</span>
+        <h3>Can the pieces form a coherent framework?</h3>
+        <p>Alongside every stage, I relate the framework to science, technology, and current developments, formalise its claims, and test whether it can grow into a coherent explanatory system.</p>
+      </div>
+      <div class="parallel-studies">
+        <div class="parallel-study" data-study-slug="Coexistence-From-First-Principles"><a data-study-link href="Coexistence-From-First-Principles/Coexistence-From-First-Principles.html">Coexistence from First Principles</a><span class="path-status draft" data-study-status>Draft</span></div>
+        <div class="parallel-study" data-study-slug="Science-Technology-And-Human-Purpose"><a data-study-link href="Science-Technology-And-Human-Purpose/discussion.html">Science, Technology, and Human Purpose</a><span class="path-status planned" data-study-status>Planned</span></div>
+      </div>
+    </div>
+
+    <div class="path-invitation">
+      <p><strong>Follow the path, or help shape it.</strong> Status badges show where the work stands now. Use a study&rsquo;s discussion to question an argument, review a draft, suggest sources, or help develop a planned study.</p>
+      <div class="path-invitation-actions">
+        <a class="btn-secondary" href="?status=all&amp;sort=recent#topical-studies">Browse current work</a>
+        <a class="btn-primary" href="#contribute">How to contribute</a>
+      </div>
+    </div>
   </div>
 
   <div class="toolbar" role="search">
@@ -1470,14 +1813,39 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   });
 
   const START_HERE_STATUS_WORDS = { released: "Released", draft: "Draft", planned: "Planned" };
+  const START_HERE_ACTION_WORDS = {
+    released: "Discuss this stage",
+    draft: "Review the draft",
+    planned: "Help develop this study"
+  };
   const syncStartHere = studies => {
-    const statusBySlug = {};
-    (studies || []).forEach(s => { if (s.slug) statusBySlug[s.slug] = s.status; });
-    document.querySelectorAll("#start-here li[data-slug]").forEach(li => {
-      const word = li.querySelector(".sh-status-word");
-      if (!word) return;
-      const label = START_HERE_STATUS_WORDS[statusBySlug[li.dataset.slug]];
-      if (label) word.textContent = label;
+    const studyBySlug = {};
+    (studies || []).forEach(s => { if (s.slug) studyBySlug[s.slug] = s; });
+    document.querySelectorAll("#start-here [data-study-slug]").forEach(item => {
+      const study = studyBySlug[item.dataset.studySlug];
+      if (!study) return;
+
+      const status = START_HERE_STATUS_WORDS[study.status] ? study.status : "planned";
+      const badge = item.querySelector("[data-study-status]");
+      if (badge) {
+        badge.classList.remove("released", "draft", "planned");
+        badge.classList.add(status);
+        badge.textContent = START_HERE_STATUS_WORDS[status];
+      }
+
+      const studyLink = item.querySelector("[data-study-link]");
+      if (studyLink) {
+        studyLink.href = hasReadLinks(study) ? studyHtmlHref(study) : studyDiscussionHref(study);
+      }
+
+      const updated = item.querySelector("[data-study-updated]");
+      if (updated) updated.textContent = study.updated ? `Updated ${study.updated}` : "Work not yet published";
+
+      const action = item.querySelector("[data-study-action]");
+      if (action) {
+        action.href = studyDiscussionHref(study);
+        action.textContent = START_HERE_ACTION_WORDS[status];
+      }
     });
   };
 
