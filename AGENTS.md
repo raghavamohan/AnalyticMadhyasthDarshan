@@ -26,7 +26,8 @@ ZCode** loads them through `.opencode/skills/`, a junction to `.agents/skills/`.
 Skills orchestrate `Scripts/_*.py`; they defer content and style rules to the sections below.
 
 Available skills: `manage-studies`, `add-study`, `remove-study`, `set-study-status`,
-`download-references`, `check-references`, `regenerate-study-pdf`.
+`download-references`, `check-references`, `regenerate-study-pdf`,
+`generate-study-presentation`, `refine-studies-index`.
 
 | Section | Topic | Cursor mirror |
 |---------|--------|---------------|
@@ -168,6 +169,8 @@ via `write_studies_catalog` and study lifecycle scripts (`_add_study.py`,
 The **HTML/CSS/JS shell** — hero, card catalog UI, filters, sections, scroll-spy —
 lives in `Scripts/_build_studies_index.py` as `INDEX_TEMPLATE`. Do not edit
 `Studies/index.html` layout or styles in isolation.
+
+Agent skill: [refine-studies-index](.agents/skills/refine-studies-index/SKILL.md).
 
 When changing the landing page UI:
 
