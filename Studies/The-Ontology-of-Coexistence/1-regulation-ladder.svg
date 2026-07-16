@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="420" viewBox="0 0 960 420" role="img">
-  <title>Regulation ladder from Omnipotence to higher orders</title>
-  <desc>How regulation by Omnipotence translates upward through law, order conformance, inward regulation, justice, and self-governance.</desc>
+  <title>Regulation ladder from Omnipresence to higher orders</title>
+  <desc>How regulation through saturation in Omnipresence becomes evident through law, order conformance, inward regulation, justice, and self-governance.</desc>
   <style>
     .bg { fill: #FCFBF8; }
     .box { fill: #FFFFFF; stroke: #C2CED6; }
@@ -45,10 +45,10 @@
     </marker>
   </defs>
   <rect class="bg" width="960" height="420"/>
-  <text class="title" x="480" y="28" text-anchor="middle" font-size="18" font-weight="700">Regulation ladder &#8212; Omnipotence to higher orders</text>
+  <text class="title" x="480" y="28" text-anchor="middle" font-size="18" font-weight="700">Regulation ladder &#8212; Omnipresence to higher orders</text>
   <text class="sub" x="480" y="48" text-anchor="middle" font-size="11">Law is universal; justice closes the bond evaluatively in the knowledge order</text>
   <rect class="box-ground" x="40" y="80" width="110" height="72" rx="8" stroke-width="1.2"/>
-  <text class="ink-blue" x="95" y="106" text-anchor="middle" font-size="10.5" font-weight="700">OMNIPOTENCE</text>
+  <text class="ink-blue" x="95" y="106" text-anchor="middle" font-size="10.5" font-weight="700">OMNIPRESENCE</text>
   <text class="ink" x="95" y="124" text-anchor="middle" font-size="9">satta &#8212; actionless</text>
   <text class="ink" x="95" y="140" text-anchor="middle" font-size="9">mediative ground</text>
   <line x1="150" y1="116" x2="178" y2="116" class="stroke-muted" stroke-width="1.8" marker-end="url(#ahLadder)"/>
@@ -82,7 +82,7 @@
   <text class="ink-green" x="910" y="132" text-anchor="middle" font-size="9" font-weight="700">gov</text>
   <rect class="box" x="40" y="200" width="880" height="180" rx="10" stroke-width="1.2"/>
   <text class="ink-blue" x="480" y="232" text-anchor="middle" font-size="13" font-weight="700">Reading the ladder</text>
-  <text class="ink" x="480" y="260" text-anchor="middle" font-size="11">Omnipotence does not issue statutory commands; saturation endows regulation in each unit.</text>
+  <text class="ink" x="480" y="260" text-anchor="middle" font-size="11">Omnipresence does not issue statutory commands; saturation endows regulation in each unit.</text>
   <text class="ink" x="480" y="284" text-anchor="middle" font-size="11">Below the knowledge order, recognition and fulfilment are definite without the name justice.</text>
   <text class="ink" x="480" y="308" text-anchor="middle" font-size="11">At the knowledge order, jeevan evaluates; justice closes the relational cycle.</text>
   <text class="ink" x="480" y="332" text-anchor="middle" font-size="11">Assembly self-governance and statute are institutional; they may diverge from justice.</text>
