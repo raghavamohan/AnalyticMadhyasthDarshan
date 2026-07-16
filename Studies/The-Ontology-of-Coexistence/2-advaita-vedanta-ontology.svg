@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="740" height="656" viewBox="0 0 740 656" role="img">
 <title>The structure of reality in Advaita Vedanta</title>
-<desc>Reality has three tiers. Absolutely real is Brahman alone — being, consciousness, bliss, one without a second. The empirical world of bodies, minds, Ishvara, laws and scripture is operationally valid but ultimately mithya, a dependent appearance. Private errors like a rope seen as a snake are sublated by correction. The world rests on Brahman through Maya, which conceals and projects. At liberation the apparent tiers are seen never to have been separate from Brahman; the individual self is recognised as Brahman itself.</desc>
+<desc>Reality is assessed through three orders. Absolutely real is Brahman alone — being, consciousness and limitless fullness without a second. The empirical world of bodies, minds, Ishvara, laws and scripture is operationally valid but ultimately mithya, without independent being. Private errors like a rope seen as a snake are sublated by correction. Later Advaita commonly analyses Maya through concealment and projection; the common commitment is that name-form has no being apart from Brahman. At liberation the apparent distinctions are known never to have been independent of Brahman.</desc>
 
 <style>
   .th { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 15px; fill: #1A1A18; }
@@ -101,8 +101,8 @@
   <rect x="40" y="515" width="290" height="118" rx="12" stroke-width="0.5"/>
   <text class="th" x="60" y="540">Maya / adhyasa</text>
   <text class="ts" x="60" y="560">The world is superimposed on Brahman</text>
-  <text class="ts" x="60" y="577">like a snake on a rope. Maya conceals</text>
-  <text class="ts" x="60" y="594">Brahman and projects multiplicity.</text>
+  <text class="ts" x="60" y="577">like a snake on a rope. Later Advaita</text>
+  <text class="ts" x="60" y="594">analyses Maya as concealment / projection.</text>
   <text class="ts" x="60" y="611">Causation: satkaryavada &#183; vivartavada (&#167;2.5)</text>
 </g>
 <g class="c-purple">
