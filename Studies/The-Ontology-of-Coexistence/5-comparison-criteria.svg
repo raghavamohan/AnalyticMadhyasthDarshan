@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1040 760" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>Criteria for comparison across ontology, philosophy, and science</title>
+<desc>Ten criteria organise comparison of Madhyasth Darshan, Advaita Vedanta, contemporary metaphysical families, and empirical science: primitives, individuation, dependence, world status, causation, self and survival, time, method, value, and exposure to correction. The diagram distinguishes comprehensive darshanas, rival metaphysics, and empirical models before any limited alignments are drawn.</desc>
+<style>
+  .bg { fill: #FCFBF8; }
+  .title { fill: #1A1A18; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 26px; font-weight: 700; }
+  .sub { fill: #56554F; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; }
+  .group { fill: #E7F0F9; stroke: #185FA5; stroke-width: 1.2; }
+  .axis { fill: #F2F1EC; stroke: #B7B5AC; stroke-width: 1; }
+  .method { fill: #E3F0EC; stroke: #0F6E56; stroke-width: 1; }
+  .warn { fill: #FBF0DA; stroke: #B8860B; stroke-width: 1.1; }
+  .h { fill: #1A1A18; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 15px; font-weight: 700; }
+  .t { fill: #56554F; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 12px; }
+  .line { stroke: #B7B5AC; stroke-width: 1.2; fill: none; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #1a1815; }
+    .title, .h { fill: #f5f1ec; }
+    .sub, .t { fill: #aca194; }
+    .group { fill: #1a2430; stroke: #4a7a9b; }
+    .axis { fill: #26231e; stroke: #6f655a; }
+    .method { fill: #1a2e22; stroke: #4a8a6a; }
+    .warn { fill: #2a2418; stroke: #c9a227; }
+    .line { stroke: #6f655a; }
+  }
+</style>
+<rect class="bg" width="1040" height="760"/>
+<text class="title" x="520" y="42" text-anchor="middle">Common criteria before comparison</text>
+<text class="sub" x="520" y="67" text-anchor="middle">Compare like with like, then state only question-specific agreements</text>
+
+<g>
+  <rect class="group" x="55" y="95" width="210" height="82" rx="12"/>
+  <text class="h" x="160" y="123" text-anchor="middle">Madhyasth Darshan</text>
+  <text class="t" x="160" y="146" text-anchor="middle">comprehensive darshan</text>
+  <text class="t" x="160" y="163" text-anchor="middle">ontology &#183; knowing &#183; conduct</text>
+
+  <rect class="group" x="295" y="95" width="210" height="82" rx="12"/>
+  <text class="h" x="400" y="123" text-anchor="middle">Advaita Vedanta</text>
+  <text class="t" x="400" y="146" text-anchor="middle">comprehensive darshan</text>
+  <text class="t" x="400" y="163" text-anchor="middle">ontology &#183; knowledge &#183; moksha</text>
+
+  <rect class="group" x="535" y="95" width="210" height="82" rx="12"/>
+  <text class="h" x="640" y="123" text-anchor="middle">Metaphysical families</text>
+  <text class="t" x="640" y="146" text-anchor="middle">physicalism &#183; panpsychism</text>
+  <text class="t" x="640" y="163" text-anchor="middle">hylomorphism &#183; process &#183; neutral</text>
+
+  <rect class="group" x="775" y="95" width="210" height="82" rx="12"/>
+  <text class="h" x="880" y="123" text-anchor="middle">Empirical science</text>
+  <text class="t" x="880" y="146" text-anchor="middle">models &#183; measurements</text>
+  <text class="t" x="880" y="163" text-anchor="middle">mechanisms &#183; histories &#183; tests</text>
+</g>
+
+<path class="line" d="M160 177V202H880V177"/>
+<path class="line" d="M400 177V202"/>
+<path class="line" d="M640 177V202"/>
+
+<g>
+  <rect class="axis" x="75" y="230" width="275" height="72" rx="10"/>
+  <text class="h" x="95" y="257">1. Ontological primitives</text>
+  <text class="t" x="95" y="280">What is fundamental?</text>
+
+  <rect class="axis" x="382" y="230" width="275" height="72" rx="10"/>
+  <text class="h" x="402" y="257">2. Individuation</text>
+  <text class="t" x="402" y="280">What makes one being distinct?</text>
+
+  <rect class="axis" x="689" y="230" width="275" height="72" rx="10"/>
+  <text class="h" x="709" y="257">3. Ground and dependence</text>
+  <text class="t" x="709" y="280">How do particulars depend?</text>
+
+  <rect class="axis" x="75" y="326" width="275" height="72" rx="10"/>
+  <text class="h" x="95" y="353">4. World status</text>
+  <text class="t" x="95" y="376">Real, dependent, perpetual, revisable?</text>
+
+  <rect class="axis" x="382" y="326" width="275" height="72" rx="10"/>
+  <text class="h" x="402" y="353">5. Causation and change</text>
+  <text class="t" x="402" y="376">What transforms and what persists?</text>
+
+  <rect class="axis" x="689" y="326" width="275" height="72" rx="10"/>
+  <text class="h" x="709" y="353">6. Self and survival</text>
+  <text class="t" x="709" y="376">What bears experience and endures?</text>
+
+  <rect class="axis" x="75" y="422" width="275" height="72" rx="10"/>
+  <text class="h" x="95" y="449">7. Time and cosmic history</text>
+  <text class="t" x="95" y="472">Beginning, duration, cycle, spacetime?</text>
+
+  <rect class="method" x="382" y="422" width="275" height="72" rx="10"/>
+  <text class="h" x="402" y="449">8. Method and evidence</text>
+  <text class="t" x="402" y="472">What warrants the claim?</text>
+
+  <rect class="method" x="689" y="422" width="275" height="72" rx="10"/>
+  <text class="h" x="709" y="449">9. Value and telos</text>
+  <text class="t" x="709" y="472">Function, obligation, liberation, fulfilment?</text>
+
+  <rect class="method" x="228" y="518" width="584" height="72" rx="10"/>
+  <text class="h" x="248" y="545">10. Exposure to correction</text>
+  <text class="t" x="248" y="568">What observation, argument, experience, or failure of conduct would count against the view?</text>
+</g>
+
+<g>
+  <rect class="warn" x="160" y="630" width="720" height="82" rx="12"/>
+  <text class="h" x="520" y="660" text-anchor="middle">Result: limited alignments, not stable coalitions</text>
+  <text class="t" x="520" y="684" text-anchor="middle">Agreement on one question does not imply a shared ground, method, self, causation, or purpose.</text>
+</g>
+</svg>

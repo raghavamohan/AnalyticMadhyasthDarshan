@@ -4,7 +4,7 @@ This study aid presents the ontological architecture of Madhyasth Darshan as a s
 
 The map distinguishes two lines that are easily conflated. **Compositional progression** produces molecules, cells, bodies, and environments. **Development in the atom** reaches constitutional completeness as *jeevan* and continues, in the human joint form, toward activity completeness and conduct completeness. A body does not become *jeevan* merely by becoming biologically complex.
 
-![Madhyasth Darshan ontology: coexistence as Omnipotence and units joined through saturation; the four orders of nature; compositional progression and development in the atom; constitutional, activity, and conduct completeness; and the relation of ontology to humane fulfilment](1-madhyasth-darshan-ontology.svg)
+![Madhyasth Darshan ontology: coexistence as Omnipresence and units joined through saturation; the four orders of nature; compositional progression and development in the atom; constitutional, activity, and conduct completeness; and the relation of ontology to humane fulfilment](1-madhyasth-darshan-ontology.svg)
 
 Section numbers printed in the figure point to the corresponding sections of [*The Ontology of Coexistence*](The-Ontology-of-Coexistence.pdf).
 
@@ -12,9 +12,9 @@ Section numbers printed in the figure point to the corresponding sections of [*T
 
 Read the figure from its ontological ground toward its lived evidence:
 
-1. **Existence is coexistence.** Formless Omnipotence (*satta*) and countless formful units (*ikai*) are eternally and inseparably present.
-2. **Saturation is the bond.** Units do not first exist independently and later enter Omnipotence; every unit is submerged, soaked, and surrounded in it.
-3. **Activity belongs to units.** Omnipotence is actionless and non-transforming. Units recognise, fulfil, combine, separate, develop, and participate in orderliness.
+1. **Existence is coexistence.** Formless Omnipresence (*satta*) and countless formful units (*ikai*) are eternally and inseparably present.
+2. **Saturation is the bond.** Units do not first exist independently and later enter Omnipresence; every unit is submerged, soaked, and surrounded in it.
+3. **Activity belongs to units.** Omnipresence is actionless and non-transforming. Units recognise, fulfil, combine, separate, develop, and participate in orderliness.
 4. **Nature has four orders.** Material and pranic orders are insentient. Animal and knowledge orders are joint expressions of an insentient body and sentient *jeevan*.
 5. **Development has two lines.** Compositional progression supplies bodies and environments. Development in the atom supplies constitutionally complete *jeevan*.
 6. **The first completeness is constitutional.** At *gathanpurnata* (T1), the atom's particle constitution closes and it becomes the sentient unit called *jeevan*.
@@ -27,19 +27,19 @@ Page numbers below refer to the printed page numbers represented in the local Ma
 
 ### 1. Existence as coexistence
 
-**Concept.** Existence is the eternal coexistence of Omnipotence and nature. Insentient and sentient units are inseparably present in the pervasive ground; neither pole is produced from the other.
+**Concept.** Existence is the eternal coexistence of Omnipresence and nature. Insentient and sentient units are inseparably present in the pervasive ground; neither pole is produced from the other.
 
 **Primary pointers.** SB, pp. 48–49; MVD, pp. 11, 32–34; JV, p. 18.
 
-**Read for.** The two-pole ontology, the claim that existence is eternally manifest as coexistence, and the inseparability of consciousness/matter terminology in the English translation without treating Omnipotence as a personal mind.
+**Read for.** The two-pole ontology, the claim that existence is eternally manifest as coexistence, and the inseparability of consciousness/matter terminology in the English translation without treating Omnipresence as a personal mind.
 
-### 2. Omnipotence (*satta* / *vyapak*)
+### 2. Omnipresence (*satta* / *vyapak*)
 
-**Concept.** Omnipotence is formless, all-pervasive, non-transforming, immeasurable, and actionless. The translations also call it Uniform Energy, Space, Knowledge, Consciousness, Omnipresence, Eternity, God, and Absolute Energy. Knowing as an activity belongs to *jeevan*, not to Omnipotence as a universal cognising subject.
+**Concept.** Omnipresence is formless, all-pervasive, non-transforming, immeasurable, and actionless. The translations also call it Omnipotence, Uniform Energy, Space, Knowledge, Consciousness, Eternity, God, and Absolute Energy. Knowing as an activity belongs to *jeevan*, not to Omnipresence as a universal cognising subject.
 
 **Primary pointers.** SB, pp. 48–50, 57, 68–70; MVD, pp. 26, 32–34, 40.
 
-**Read for.** State-completeness, actionlessness, permeation, the absence of an external ruler, and Omnipotence as sustaining condition rather than an efficient agent performing transformations.
+**Read for.** State-completeness, actionlessness, permeation, the absence of an external ruler, and Omnipresence as sustaining condition rather than an efficient agent performing transformations.
 
 ### 3. Units (*ikai*) and their four aspects
 
@@ -51,7 +51,7 @@ Page numbers below refer to the printed page numbers represented in the local Ma
 
 ### 4. Saturation (*sampriktata*)
 
-**Concept.** Saturation names the inseparable presence of every unit in Omnipotence: submerged, soaked, and surrounded. It is not a temporal event, a transfer of substance, or an intervention performed by Omnipotence.
+**Concept.** Saturation names the inseparable presence of every unit in Omnipresence: submerged, soaked, and surrounded. It is not a temporal event, a transfer of substance, or an intervention performed by Omnipresence.
 
 **Primary pointers.** SB, pp. 48–50, 57, 61–62, 69; MVD, pp. 32–33, 40; JV, p. 18.
 
@@ -160,7 +160,7 @@ Page numbers below refer to the printed page numbers represented in the local Ma
 
 ### 16. Regulation, law, justice, and orderliness
 
-**Concept.** Omnipotence does not command. Regulation is evident in saturated units through mediative organisation and order-specific conformance. Law is universal definite regulation; justice is the human completion of relationship through recognition, value-fulfilment, evaluation, and mutual satisfaction.
+**Concept.** Omnipresence does not command. Regulation is evident in saturated units through mediative organisation and order-specific conformance. Law is universal definite regulation; justice is the human completion of relationship through recognition, value-fulfilment, evaluation, and mutual satisfaction.
 
 **Primary pointers.** MVD, pp. 15, 26–27, 67, 137, 161–162, 311; SB, pp. 57, 62–63, 69.
 
@@ -176,7 +176,7 @@ Page numbers below refer to the printed page numbers represented in the local Ma
 
 ### 18. Perpetual world and persistence of *jeevan*
 
-**Concept.** Omnipotence and units do not arise from non-being or pass into non-being. Configurations change while existence remains. *Jeevan*'s individual persistence is additionally grounded in constitutional completeness, not merely in generic quantity conservation.
+**Concept.** Omnipresence and units do not arise from non-being or pass into non-being. Configurations change while existence remains. *Jeevan*'s individual persistence is additionally grounded in constitutional completeness, not merely in generic quantity conservation.
 
 **Primary pointers.** MVD, pp. 13, 91; JV, pp. 20, 54; SB, pp. 55, 57, 59, 114.
 
