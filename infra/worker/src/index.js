@@ -970,6 +970,15 @@ async function buildDashboard(session, env) {
       slugFromPrTitle(item.title);
     const stage = prStageFromSearchItem(item);
     const catalogStatus = slug ? (catalogMap.get(slug) || null) : null;
+    const registryRow = slug ? registryBySlug(proposalRegistry, slug) : null;
+    // After a slug rename, historical study-update PR bodies still say
+    // `Study slug: <Old-Slug>`. Those would otherwise appear as a second
+    // ghost row with no catalog status next to the renamed proposal.
+    // Keep open orphans (actionable); drop merged ones that match neither
+    // the live catalog nor the proposal registry.
+    if (stage === 'merged' && !catalogStatus && !registryRow) {
+      continue;
+    }
     const statusBlocked = slug ? openStatusChanges.has(slug) : false;
     const studyPrBlocked = slug ? openStudyPrs.has(slug) : false;
     const actions = buildActions(stage, slug, catalogStatus, statusBlocked, null, studyPrBlocked);
