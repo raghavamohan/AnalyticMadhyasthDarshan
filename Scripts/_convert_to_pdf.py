@@ -10,7 +10,16 @@ from urllib.parse import quote, unquote, urlparse
 import markdown
 
 from _build_discussion_pages import ASSET_VERSION as DISCUSS_ASSET_VERSION
-from _common import APPLICATIONS, BASE, REFERENCES, STUDIES, is_linkable_reference_file, site_base_url, study_md
+from _common import (
+    APPLICATIONS,
+    BASE,
+    REFERENCES,
+    STUDIES,
+    favicon_link_tags,
+    is_linkable_reference_file,
+    site_base_url,
+    study_md,
+)
 from _glossary_tooltips import apply_glossary_tooltips, load_glossary, wrap_tables_for_scroll
 from _study_catalog import STATUS_MD_RE, get_study_row, parse_edited_on, strip_status_for_pdf
 
@@ -898,7 +907,8 @@ def convert_to_html(
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="color-scheme" content="light dark"/>
-<title>{html_module.escape(title)}</title>{seo_head}
+<title>{html_module.escape(title)}</title>
+{favicon_link_tags()}{seo_head}
 <style>
   @page {{
     size: A4;

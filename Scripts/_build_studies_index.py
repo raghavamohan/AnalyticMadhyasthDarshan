@@ -15,7 +15,7 @@ if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
 from _build_discussion_pages import ASSET_VERSION as DISCUSS_ASSET_VERSION  # noqa: E402
-from _common import BASE, STUDIES  # noqa: E402
+from _common import BASE, STUDIES, favicon_link_tags  # noqa: E402
 from _study_catalog import (  # noqa: E402
     STUDY_FEEDBACK_TEMPLATE_PATH,
     StudyRow,
@@ -37,6 +37,7 @@ CATALOG_BOOTSTRAP_PLACEHOLDER = "<!-- @catalog-bootstrap@ -->"
 CATALOG_BUILD_ID_PLACEHOLDER = "@catalog-build-id@"
 DISCUSS_ASSET_VERSION_PLACEHOLDER = "@discuss-asset-version@"
 HERO_SCOPE_PLACEHOLDER = "<!-- @hero-scope@ -->"
+FAVICON_LINKS_PLACEHOLDER = "<!-- @favicon-links@ -->"
 
 INDEX_TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
@@ -47,6 +48,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 <meta name="description" content="An open comparative study of Madhyasth Darshan, following a path from the human question through existence, knowledge, value, lived participation, and formal synthesis."/>
 <meta name="color-scheme" content="light dark"/>
 <link rel="canonical" href="https://analyticmadhyasthdarshan.org/Studies/index.html"/>
+<!-- @favicon-links@ -->
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="AnalyticMadhyasthDarshan.org"/>
 <meta property="og:title" content="Studies of Madhyasth Darshan"/>
@@ -2349,6 +2351,9 @@ def catalog_build_id() -> str:
         pass
     ist = ZoneInfo("Asia/Kolkata")
     return datetime.now(ist).strftime("%Y%m%d%H%M")
+
+
+INDEX_TEMPLATE = INDEX_TEMPLATE.replace(FAVICON_LINKS_PLACEHOLDER, favicon_link_tags())
 
 
 def main() -> int:
