@@ -1,0 +1,28 @@
+{
+  "themes": [
+    {
+      "id": "akhand-samaj",
+      "label": "Akhand Samaj",
+      "description": "Inner harmony evidenced as resolution, prosperity, fearlessness, and coexistence in an undivided society.",
+      "assets": {
+        "badge": "akhand-samaj-badge.png",
+        "symbolLight": "akhand-samaj-symbol-light.svg",
+        "symbolDark": "akhand-samaj-symbol-dark.svg",
+        "compact": "akhand-samaj-compact.svg",
+        "favicon": "akhand-samaj-favicon.svg"
+      },
+      "primarySlugs": [
+        "How-Undivided-Society-Is-Established"
+      ],
+      "relatedSlugs": [
+        "Family-Relationships-And-Values",
+        "Education-And-Sanskar",
+        "Human-Behavior-And-Society",
+        "Governance-Justice-And-Undivided-Society",
+        "Prosperity-Economics-And-Right-Use",
+        "Nature-Ecology-And-Right-Use",
+        "How-To-Form-Self-Sustaining-Organizations"
+      ]
+    }
+  ]
+}
