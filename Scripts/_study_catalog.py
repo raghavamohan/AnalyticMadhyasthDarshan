@@ -135,7 +135,7 @@ TOPICAL_DISPLAY_ORDER = (
     "Why-Humans-Are-Not-Just-Material",
     "Philosophy-Of-Mind-And-Jeevan",
     "Chitta-Brain-And-Memory",
-    "Knowledge-Knower-And-Known",
+    "The-Epistemology-of-Coexistence",
     "Methodology-And-Hermeneutics",
     "Axiology-Value-Theory",
     "Ethics-And-Morals-In-Human-Beings",

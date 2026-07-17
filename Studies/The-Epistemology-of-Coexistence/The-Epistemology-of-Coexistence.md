@@ -1,8 +1,8 @@
-# Knowledge, Knower, and Known
+# The Epistemology of Coexistence
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 14, 2026, 8:25 AM IST
+**Edited on:** July 17, 2026, 2:19 PM IST
 **Status:** Released
 **The question:** What is knowledge, who is the knower, and what is it that one can know? How are these concepts grounded in experience, and how does the Co-existentialism of Shri A. Nagraj compare with Advaita Vedanta, modern Western philosophy, and the natural sciences?
 

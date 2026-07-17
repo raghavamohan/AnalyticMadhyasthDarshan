@@ -30,7 +30,7 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-19.
 | | ATR | external |
 | [Human-Behavior-And-Society.pdf](../Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.pdf) | MVD, SB, JV | present |
 
-| [Knowledge-Knower-And-Known.pdf](../Studies/Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) | MVD, SB, JV | present |
+| [The-Epistemology-of-Coexistence.pdf](../Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) | MVD, SB, JV | present |
 | | BG, BU, BSB, CU, DDV, MU, TU, VC | present |
 | | VP | external |
 | | Chalmers 1995, Nagel 1974, Strawson 2006 | present |
