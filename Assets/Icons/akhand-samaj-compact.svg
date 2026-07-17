@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="t d">
+  <title id="t">Compact Akhand Samaj icon</title>
+  <desc id="d">Compact form retaining atma, four faculty bands, four human-goal segments and their joints.</desc>
+  <defs><mask id="compact-goal-cups"><rect width="512" height="512" fill="white"/><circle cx="383.9863273947651" cy="128.01367260523492" r="21" fill="black"/><circle cx="383.9863273947651" cy="383.9863273947651" r="21" fill="black"/><circle cx="128.01367260523492" cy="383.9863273947651" r="21" fill="black"/><circle cx="128.0136726052349" cy="128.01367260523492" r="21" fill="black"/></mask></defs>
+  <rect x="12" y="12" width="488" height="488" rx="104" fill="#1A5276"/>
+  <circle cx="256" cy="256" r="72" fill="none" stroke="#F7F4EF" stroke-width="13" opacity="0.95"/>
+  <circle cx="256" cy="256" r="99" fill="none" stroke="#B8DAF3" stroke-width="11" opacity="0.82"/>
+  <circle cx="256" cy="256" r="126" fill="none" stroke="#F7F4EF" stroke-width="9" opacity="0.64"/>
+  <circle cx="256" cy="256" r="151" fill="none" stroke="#B8DAF3" stroke-width="8" opacity="0.48"/>
+  <g mask="url(#compact-goal-cups)">
+  <path d="M383.986 128.014 A181 181 0 0 1 383.986 383.986" fill="none" stroke="#E8BD92" stroke-width="25"/>
+  <path d="M383.986 383.986 A181 181 0 0 1 128.014 383.986" fill="none" stroke="#D5A477" stroke-width="25"/>
+  <path d="M128.014 383.986 A181 181 0 0 1 128.014 128.014" fill="none" stroke="#C18A5A" stroke-width="25"/>
+  <path d="M128.014 128.014 A181 181 0 0 1 383.986 128.014" fill="none" stroke="#A66E42" stroke-width="25"/>
+  </g>
+  <circle cx="383.9863273947651" cy="128.01367260523492" r="16" fill="#F7F4EF"/>
+  <circle cx="383.9863273947651" cy="383.9863273947651" r="16" fill="#F7F4EF"/>
+  <circle cx="128.01367260523492" cy="383.9863273947651" r="16" fill="#F7F4EF"/>
+  <circle cx="128.0136726052349" cy="128.01367260523492" r="16" fill="#F7F4EF"/>
+  <circle cx="256" cy="256" r="41" fill="#D5A477" stroke="#F7F4EF" stroke-width="6"/>
+</svg>
