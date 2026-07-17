@@ -25,8 +25,8 @@ ZCode** loads them through `.opencode/skills/`, a junction to `.agents/skills/`.
 **Cursor** also reads `.agents/skills/`; an identical copy is kept in `.cursor/skills/`.
 Skills orchestrate `Scripts/_*.py`; they defer content and style rules to the sections below.
 
-Available skills: `manage-studies`, `add-study`, `remove-study`, `set-study-status`,
-`download-references`, `check-references`, `regenerate-study-pdf`,
+Available skills: `manage-studies`, `add-study`, `remove-study`, `rename-study`,
+`set-study-status`, `download-references`, `check-references`, `regenerate-study-pdf`,
 `generate-study-presentation`, `refine-studies-index`.
 
 | Section | Topic | Cursor mirror |
@@ -658,6 +658,9 @@ Renaming is a **`study-update`** PR, not a silent directory move. When the diff 
 invokes `Scripts/_rename_study.py --metadata-only` to sync `proposal-registry.json`,
 `.proposal-meta.json`, and the linked GitHub proposal issue. The PR must set `Study slug: <New-Slug>`
 and include registry/meta updates (or let CI write them on the branch).
+
+Agent skill (full checklist, Start here, My Submissions):
+[rename-study](.agents/skills/rename-study/SKILL.md).
 
 For local/maintainer runs before opening the PR:
 

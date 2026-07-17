@@ -81,6 +81,9 @@ invokes `Scripts/_rename_study.py --metadata-only` to sync `proposal-registry.js
 `.proposal-meta.json`, and the linked GitHub proposal issue. The PR must set `Study slug: <New-Slug>`
 and include registry/meta updates (or let CI write them on the branch).
 
+Agent skill (full checklist, Start here, My Submissions):
+[rename-study](.agents/skills/rename-study/SKILL.md).
+
 For local/maintainer runs before opening the PR:
 
 ```powershell
