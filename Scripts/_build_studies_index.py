@@ -1151,12 +1151,12 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
         <div class="path-stage-head"><span class="path-number">3</span><span class="path-domain">Knowledge</span></div>
         <h3>What must the knower know?</h3>
         <p class="path-stage-desc">Ask what knowledge is, what must be known, and how understanding of coexistence and humane conduct guides action toward lasting fulfilment.</p>
-        <div class="path-core" data-study-slug="Knowledge-Knower-And-Known" data-presentation-pdf="Knowledge-Knower-And-Known/The-Epistemology-of-Coexistence-Madhyasth-Darshan.pdf">
+        <div class="path-core" data-study-slug="The-Epistemology-of-Coexistence" data-presentation-pdf="The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence-Madhyasth-Darshan.pdf">
           <span class="path-core-label">Core study</span>
-          <div class="path-study-line"><a data-study-link href="Knowledge-Knower-And-Known/The-Epistemology-of-Coexistence-Madhyasth-Darshan.pdf" title="Open presentation PDF">Knowledge Knower and Known</a></div>
+          <div class="path-study-line"><a data-study-link href="The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence-Madhyasth-Darshan.pdf" title="Open presentation PDF">The Epistemology of Coexistence</a></div>
           <span class="path-status released" data-study-status>Released</span>
           <span class="path-updated" data-study-updated></span>
-          <a class="path-action" data-study-action href="Knowledge-Knower-And-Known/discussion.html">Discuss this stage</a>
+          <a class="path-action" data-study-action href="The-Epistemology-of-Coexistence/discussion.html">Discuss this stage</a>
         </div>
         <details class="path-related">
           <summary>4 related studies</summary>

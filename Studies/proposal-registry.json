@@ -163,16 +163,6 @@
       "phase": "published"
     },
     {
-      "slug": "Knowledge-Knower-And-Known",
-      "title": "Knowledge Knower and Known",
-      "issueNumber": 33,
-      "submitter": "raghavamohan",
-      "category": "Epistemology",
-      "description": "What knowledge is, who the knower is, and what can be known: the four senses of gyan, the staged path to knowing, and conduct as evidence \u2014 compared with Advaita Vedanta and modern epistemology and science",
-      "formal": false,
-      "phase": "published"
-    },
-    {
       "slug": "Language-Meaning-And-Definition",
       "title": "Language Meaning and Definition",
       "issueNumber": 22,
@@ -261,6 +251,16 @@
       "description": "Realization and awakening in Madhyasth Darshan: anubhav, practice, yoga, and liberation from mystery and suffering, compared with moksha traditions",
       "formal": false,
       "phase": "pre-catalog"
+    },
+    {
+      "slug": "The-Epistemology-of-Coexistence",
+      "title": "The Epistemology of Coexistence",
+      "issueNumber": 33,
+      "submitter": "raghavamohan",
+      "category": "Epistemology",
+      "description": "What knowledge is, who the knower is, and what can be known: the four senses of gyan, the staged path to knowing, and conduct as evidence \u2014 compared with Advaita Vedanta and modern epistemology and science",
+      "formal": false,
+      "phase": "published"
     },
     {
       "slug": "The-Ontology-of-Coexistence",
