@@ -4,7 +4,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 13, 2026, 8:20 AM IST
+**Edited on:** July 17, 2026, 2:43 PM IST
 **Status:** Draft
 
 **The thesis.** This paper gives a layered formal reconstruction of Madhyasth Darshan's ontological core. Its minimal kernel contains three primitives — the omnipresent, actionless medium *satta*, real countable units, and their saturation in that medium — together with two organizing commitments. Saturation provisions every unit with activeness, mutual recognisability, and inherent regulation; every unit is also oriented toward development and completeness appropriate to its order. An order-indexed complementarity relation then describes how units couple, fulfil, and sometimes close into a new bounded whole. This kernel makes explicit a structure the primary texts state across many contexts without claiming that the texts themselves derive everything from these axioms.
@@ -391,7 +391,7 @@ Read from first principles, Madhyasth Darshan's ground is coexistence itself: on
 
 - [*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — ontological exposition of saturation, the regulation ladder, unit signature, the six-fold value taxonomy, orders, planes, and progressions; *jeevan* faculty structure and inward regulation (§§1.7–1.8); four human goals and provisions vs achievements (§1.15); Saturation-Reflector reading and T1 latency (§§1.2, 1.6.1; open problems in §6.2.1)
 - [*How Undivided Society Is Established*](../How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf) — assembly composition from family through humankind, and the compatibility bridge for the society-gluing colimit (§4.6)
-- [*Knowledge, Knower, and Known*](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) — evidence chain, *gyan udghatan*, *pramana*
+- [*The Epistemology of Coexistence*](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) — evidence chain, *gyan udghatan*, *pramana*
 - [*Nature of Time*](../Nature-Of-Time/Nature-Of-Time.pdf) — *kaal* as duration of unit-activity; the full treatment §4.11 builds on (present-primacy, timeless *satta*, the physics comparison)
 - [*How To Form Self-Sustaining Organizations*](../How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.pdf) — the forward use applied to deliberate assemblies
 - [*Why Humans Are Not Just Material*](../Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.pdf) — human-tier anthropology
