@@ -31,6 +31,32 @@ def site_base_url() -> str:
     return DEFAULT_SITE_BASE_URL
 
 
+# Site favicon — Akhand Samaj mark under Assets/Icons/ (see Assets/Icons/README.md).
+FAVICON_ICON_DIR = "/Assets/Icons"
+FAVICON_ICO = "akhand-samaj-favicon.ico"
+FAVICON_SVG = "akhand-samaj-favicon.svg"
+FAVICON_PNG_32 = "akhand-samaj-favicon-32.png"
+FAVICON_PNG_16 = "akhand-samaj-favicon-16.png"
+FAVICON_APPLE_TOUCH = "akhand-samaj-apple-touch-icon.png"
+
+
+def favicon_link_tags(*, icon_dir: str = FAVICON_ICON_DIR) -> str:
+    """Return <link> tags for the site favicon (Akhand Samaj mark).
+
+    Paths are root-absolute so every page depth resolves the same assets.
+    Root copies of favicon.ico and apple-touch-icon.png cover browsers that
+    request those well-known URLs without reading <link> tags.
+    """
+    base = icon_dir.rstrip("/")
+    return (
+        f'<link rel="icon" href="{base}/{FAVICON_ICO}" sizes="any"/>\n'
+        f'<link rel="icon" type="image/svg+xml" href="{base}/{FAVICON_SVG}"/>\n'
+        f'<link rel="icon" type="image/png" sizes="32x32" href="{base}/{FAVICON_PNG_32}"/>\n'
+        f'<link rel="icon" type="image/png" sizes="16x16" href="{base}/{FAVICON_PNG_16}"/>\n'
+        f'<link rel="apple-touch-icon" sizes="180x180" href="{base}/{FAVICON_APPLE_TOUCH}"/>'
+    )
+
+
 def is_linkable_reference_file(path: Path, *, min_html_bytes: int = 500) -> bool:
     """True when a References/ file has usable content for PDF or web links."""
     if not path.is_file():
