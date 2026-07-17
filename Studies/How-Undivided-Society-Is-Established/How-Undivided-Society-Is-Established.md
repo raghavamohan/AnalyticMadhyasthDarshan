@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 13, 2026, 3:46 PM IST
+**Edited on:** July 17, 2026, 2:43 PM IST
 **Status:** Released
 **The question:** What basis could make humankind an undivided society, why are influential contemporary alternatives insufficient by themselves, and how does Madhyasth Darshan propose that such a society be established and evidenced?
 
@@ -362,4 +362,4 @@ Terms such as composition and closure are analogical when applied to families an
 - [*Coexistence From First Principles*](../Coexistence-From-First-Principles/Coexistence-From-First-Principles.pdf) — formal reconstruction and the boundaries between literal composition, analogy, and open posits.
 - [*Human Behavior and Society*](../Human-Behavior-And-Society/Human-Behavior-And-Society.pdf) — extended comparison of behaviour, science, religion, and Advaita.
 - [*How to Form Self-Sustaining Organizations*](../How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.pdf) — application of shared purpose, relationship-fulfilment, and transmission to organisations.
-- [*Knowledge, Knower, and Known*](../Knowledge-Knower-And-Known/Knowledge-Knower-And-Known.pdf) — study, knowing, evidence, and *pramanikta*.
+- [*The Epistemology of Coexistence*](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) — study, knowing, evidence, and *pramanikta*.
