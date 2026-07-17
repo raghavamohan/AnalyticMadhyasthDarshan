@@ -22,6 +22,13 @@ conceptual set. The segmented ring represents the four human goals only.
 use primary assignments for visible identity marks; related assignments are reserved
 for future thematic grouping and do not automatically decorate every related study.
 
+**Site favicon.** The published website (studies index, study HTML, discussion pages,
+and submission portal) uses the **Akhand Samaj** favicon set:
+`akhand-samaj-favicon.ico` / `.svg` / `-16.png` / `-32.png` and
+`akhand-samaj-apple-touch-icon.png`. Root copies `favicon.ico` and
+`apple-touch-icon.png` cover browsers that request those well-known URLs.
+Link tags are emitted by `Scripts/_common.py` → `favicon_link_tags()`.
+
 ## Files and intended use
 
 | File | Use |

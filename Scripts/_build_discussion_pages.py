@@ -15,6 +15,7 @@ if str(SCRIPTS) not in sys.path:
 from _common import (  # noqa: E402
     APPLICATIONS,
     STUDIES,
+    favicon_link_tags,
     site_base_url,
 )
 from _study_catalog import (  # noqa: E402
@@ -1061,6 +1062,7 @@ def render_discussion_page(row: StudyRow) -> str:
 <title>Discussion &mdash; {html.escape(title)}</title>
 <meta name="description" content="{html.escape(description)}">
 <link rel="canonical" href="{html.escape(canonical)}">
+{favicon_link_tags()}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="AnalyticMadhyasthDarshan.org">
 <meta property="og:title" content="Discussion &mdash; {html.escape(title)}">
