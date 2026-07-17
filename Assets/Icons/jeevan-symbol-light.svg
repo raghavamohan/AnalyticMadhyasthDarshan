@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-labelledby="t d">
+  <title id="t">Jeevan symbol for light backgrounds</title>
+  <desc id="d">The jeevan unit: a central atma nucleus, four faculty nodes (mun, vritti, chitta and buddhi) on one orbit, and projection and reflection as a single continuous cycle.</desc>
+  <defs><marker id="sl-p" markerWidth="44" markerHeight="44" refX="37" refY="22" orient="auto" markerUnits="userSpaceOnUse"><path d="M6 6 L40 22 L6 38 Z" fill="#8B5E34"/></marker><marker id="sl-r" markerWidth="44" markerHeight="44" refX="37" refY="22" orient="auto" markerUnits="userSpaceOnUse"><path d="M6 6 L40 22 L6 38 Z" fill="#1A5276"/></marker></defs>
+  <circle cx="500" cy="500" r="290" fill="none" stroke="#2A241C" stroke-width="6" opacity="0.28"/>
+  <path d="M500 210 A290 290 0 0 1 790 500" fill="none" stroke="#8B5E34" stroke-width="33" stroke-linecap="round" opacity="1" marker-end="url(#sl-p)"/>
+  <path d="M500 790 A290 290 0 0 1 210 500" fill="none" stroke="#8B5E34" stroke-width="33" stroke-linecap="round" opacity="1" marker-end="url(#sl-p)"/>
+  <path d="M790 500 A290 290 0 0 1 500 790" fill="none" stroke="#1A5276" stroke-width="33" stroke-linecap="round" opacity="1" marker-end="url(#sl-r)"/>
+  <path d="M210 500 A290 290 0 0 1 500 210" fill="none" stroke="#1A5276" stroke-width="33" stroke-linecap="round" opacity="1" marker-end="url(#sl-r)"/>
+  <circle cx="500" cy="210" r="60" fill="#1A5276"/>
+  <circle cx="790" cy="500" r="60" fill="#1A5276"/>
+  <circle cx="500" cy="790" r="60" fill="#1A5276"/>
+  <circle cx="210" cy="500" r="60" fill="#1A5276"/>
+  <circle cx="500" cy="500" r="90" fill="#8B5E34"/>
+</svg>

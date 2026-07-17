@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-labelledby="t d">
+  <title id="t">Jeevan monochrome mark</title>
+  <desc id="d">Single-ink navy version for one-colour reproduction. The jeevan unit: a central atma nucleus, four faculty nodes (mun, vritti, chitta and buddhi) on one orbit, and projection and reflection as a single continuous cycle.</desc>
+  
+  <circle cx="500" cy="500" r="290" fill="none" stroke="#1A5276" stroke-width="6" opacity="0.28"/>
+  <path d="M500 210 A290 290 0 0 1 790 500" fill="none" stroke="#1A5276" stroke-width="33" stroke-linecap="round" opacity="1"/>
+  <path d="M500 790 A290 290 0 0 1 210 500" fill="none" stroke="#1A5276" stroke-width="33" stroke-linecap="round" opacity="1"/>
+  <path d="M790 500 A290 290 0 0 1 500 790" fill="none" stroke="#1A5276" stroke-width="33" stroke-linecap="round" opacity="0.55"/>
+  <path d="M210 500 A290 290 0 0 1 500 210" fill="none" stroke="#1A5276" stroke-width="33" stroke-linecap="round" opacity="0.55"/>
+  <circle cx="500" cy="210" r="60" fill="#1A5276"/>
+  <circle cx="790" cy="500" r="60" fill="#1A5276"/>
+  <circle cx="500" cy="790" r="60" fill="#1A5276"/>
+  <circle cx="210" cy="500" r="60" fill="#1A5276"/>
+  <circle cx="500" cy="500" r="90" fill="#1A5276"/>
+</svg>

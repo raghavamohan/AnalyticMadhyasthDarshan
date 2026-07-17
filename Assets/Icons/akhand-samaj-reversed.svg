@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-labelledby="t d">
+  <title id="t">Akhand Samaj reversed mark</title>
+  <desc id="d">One-colour ivory version for dark fields. Atma orders the concentric faculties of jeevan — buddhi, chitta, vritti and mun. Their harmony becomes outwardly evident as resolution, prosperity, fearlessness and coexistence, joined through relationship and complementarity.</desc>
+  <defs><mask id="goal-cups"><rect width="1000" height="1000" fill="white"/><circle cx="772.2361107568208" cy="227.76388924317922" r="39" fill="black"/><circle cx="772.2361107568208" cy="772.2361107568208" r="39" fill="black"/><circle cx="227.76388924317922" cy="772.2361107568208" r="39" fill="black"/><circle cx="227.76388924317916" cy="227.76388924317922" r="39" fill="black"/></mask></defs>
+  <circle cx="500" cy="500" r="125" fill="none" stroke="#F7F4EF" stroke-width="25" opacity="1"/>
+  <circle cx="500" cy="500" r="180" fill="none" stroke="#F7F4EF" stroke-width="22" opacity="0.82"/>
+  <circle cx="500" cy="500" r="235" fill="none" stroke="#F7F4EF" stroke-width="20" opacity="0.64"/>
+  <circle cx="500" cy="500" r="290" fill="none" stroke="#F7F4EF" stroke-width="18" opacity="0.46"/>
+  <g mask="url(#goal-cups)">
+  <path d="M772.236 227.764 A385 385 0 0 1 772.236 772.236" fill="none" stroke="#F7F4EF" stroke-width="42"/>
+  <path d="M772.236 772.236 A385 385 0 0 1 227.764 772.236" fill="none" stroke="#F7F4EF" stroke-width="42"/>
+  <path d="M227.764 772.236 A385 385 0 0 1 227.764 227.764" fill="none" stroke="#F7F4EF" stroke-width="42"/>
+  <path d="M227.764 227.764 A385 385 0 0 1 772.236 227.764" fill="none" stroke="#F7F4EF" stroke-width="42"/>
+  </g>
+  <circle cx="772.2361107568208" cy="227.76388924317922" r="31" fill="#F7F4EF"/>
+  <circle cx="772.2361107568208" cy="227.76388924317922" r="10" fill="#1A5276" opacity="0.82"/>
+  <circle cx="772.2361107568208" cy="772.2361107568208" r="31" fill="#F7F4EF"/>
+  <circle cx="772.2361107568208" cy="772.2361107568208" r="10" fill="#1A5276" opacity="0.82"/>
+  <circle cx="227.76388924317922" cy="772.2361107568208" r="31" fill="#F7F4EF"/>
+  <circle cx="227.76388924317922" cy="772.2361107568208" r="10" fill="#1A5276" opacity="0.82"/>
+  <circle cx="227.76388924317916" cy="227.76388924317922" r="31" fill="#F7F4EF"/>
+  <circle cx="227.76388924317916" cy="227.76388924317922" r="10" fill="#1A5276" opacity="0.82"/>
+  <circle cx="500" cy="500" r="64" fill="#F7F4EF"/>
+</svg>
