@@ -149,9 +149,9 @@ Realisation alone is the ultimate expression of awakening and of *jeevan*. Satia
 
 ## 8. Form, property, essential nature, dharma — and quantity
 
-KD 3.9–3.10: every unit expresses form, property, essential nature, and dharma in an indivisible way, together with quantity. The atom is the root quantity: a unit that is itself an orderliness and participates in overall orderliness. Even a lone particle or a deluded human shows a tendency toward that participation.
+KD 3.9–3.10: every unit expresses form, property, essential nature, and dharma in an indivisible way, together with quantity. The atom is the root quantity: a unit that is itself an orderliness and participates in overall orderliness. “Expresses” matters here. The four aspects are inseparable from the bearer, but their evidence is not a static list of context-free values: form is reflected, relative property becomes effective, essential nature is recognised as usefulness, and *dharma* is evidenced through order-specific participation. Even a lone particle or a deluded human shows a tendency toward such participation.
 
-Form is shape, volume, and bulk. Property is generative, degenerative, and mediating activity. Essential nature and dharma differ by state:
+Form is shape, volume, and bulk. Property is relative generative, degenerative, and mediating effect. Essential nature names the usefulness of those effects. Essential nature and *dharma* differ by state and order:
 
 | State / order | Essential nature | Dharma (cumulative) |
 |---|---|---|
@@ -162,9 +162,11 @@ Form is shape, volume, and bulk. Property is generative, degenerative, and media
 
 In conduct of humankind, dharma predominates; in animals, essential nature; in plants, property; in material things, form. Human dharma evidences resolution on the basis of happiness. Human necessity is resolution, prosperity, fearlessness, coexistence — evidenced as value, character, and ethics.
 
+The table names definite relational expressions. Combination–decomposition occurs among constituents; vitalising–devitalising is recognised relative to nourishment and protection of bodies; cruelty means causing suffering to another; humane essential nature is fulfilled in relationship and conduct. The context determines which definite expression occurs, not whether the actuality is real.
+
 Every substance is luminous: effort–motion–result in every atom manifests sound, heat, electricity, and wave; energy- and magnetic-force endowment keep the unit illumined. Mutual recognition rests on reflection of that luminosity, not only on sunlight to human eyes.
 
-**Reading for ontology:** the four aspects are what every unit *is* as a participant in coexistence. The four orders are stable plateaus of those aspects, not human typologies.
+**Reading for ontology:** every unit is a definite bearer of the four inseparable aspects as a participant in coexistence. The four orders are stable plateaus of their expression, not human typologies and not four collections of predetermined scalar properties.
 
 ---
 
