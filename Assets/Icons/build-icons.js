@@ -108,9 +108,9 @@ const FAV = `<?xml version="1.0" encoding="UTF-8"?>
   <title id="t">Jeevan favicon</title>
   <desc id="d">A compact navy tile with a gold projection arc, a light-blue reflection arc, and an ivory atma nucleus.</desc>
   <rect x="12" y="12" width="488" height="488" rx="104" fill="${COL.navy}"/>
-  <path d="M86 256 A170 170 0 0 1 426 256" fill="none" stroke="${COL.gold}" stroke-width="46" stroke-linecap="round"/>
-  <path d="M426 256 A170 170 0 0 1 86 256" fill="none" stroke="${COL.lightblue}" stroke-width="46" stroke-linecap="round"/>
-  <circle cx="256" cy="256" r="62" fill="${COL.ivory}"/>
+  <path d="M48 256 A208 208 0 0 1 464 256" fill="none" stroke="${COL.gold}" stroke-width="56" stroke-linecap="round"/>
+  <path d="M464 256 A208 208 0 0 1 48 256" fill="none" stroke="${COL.lightblue}" stroke-width="56" stroke-linecap="round"/>
+  <circle cx="256" cy="256" r="76" fill="${COL.ivory}"/>
 </svg>
 `;
 
