@@ -218,7 +218,18 @@ const COMPACT = compactMark();
 
 function faviconMark() {
   const cc = 256;
-  const goalR = 166;
+  // Keep only a narrow optical inset inside the navy tile. The previous
+  // radius made the emblem collapse to about 11 px in a 16 px browser tab.
+  const goalR = 219;
+  const goalW = 45;
+  const cupR = 28;
+  const jointR = 20;
+  const facultyRings = [
+    { r: 94, width: 16, color: COL.ivory, opacity: 0.96 },
+    { r: 122, width: 15, color: COL.lightblue, opacity: 0.84 },
+    { r: 150, width: 14, color: COL.ivory, opacity: 0.70 },
+    { r: 178, width: 13, color: COL.lightblue, opacity: 0.58 },
+  ];
   const arcs = JOINT_ANGLES.map((angle, i) => {
     const next = i === JOINT_ANGLES.length - 1 ? JOINT_ANGLES[0] + 360 : JOINT_ANGLES[i + 1];
     return arcPath(cc, cc, goalR, angle, next);
@@ -227,14 +238,15 @@ function faviconMark() {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="t d">
   <title id="t">Akhand Samaj favicon</title>
-  <desc id="d">Small-scale mark with atma and the four joined human-goal segments.</desc>
-  <defs><mask id="favicon-goal-cups"><rect width="512" height="512" fill="white"/>${joints.map(([x, y]) => `<circle cx="${x}" cy="${y}" r="21" fill="black"/>`).join('')}</mask></defs>
+  <desc id="d">Small-scale mark with atma, four faculty bands, and the four joined human-goal segments.</desc>
+  <defs><mask id="favicon-goal-cups"><rect width="512" height="512" fill="white"/>${joints.map(([x, y]) => `<circle cx="${x}" cy="${y}" r="${cupR}" fill="black"/>`).join('')}</mask></defs>
   <rect x="12" y="12" width="488" height="488" rx="104" fill="${COL.navy}"/>
+  ${facultyRings.map((ring) => `<circle cx="256" cy="256" r="${ring.r}" fill="none" stroke="${ring.color}" stroke-width="${ring.width}" opacity="${ring.opacity}"/>`).join('\n  ')}
   <g mask="url(#favicon-goal-cups)">
-  ${arcs.map((d, i) => `<path d="${d}" fill="none" stroke="${DARK_GOALS[i]}" stroke-width="34"/>`).join('\n  ')}
+  ${arcs.map((d, i) => `<path d="${d}" fill="none" stroke="${DARK_GOALS[i]}" stroke-width="${goalW}"/>`).join('\n  ')}
   </g>
-  ${joints.map(([x, y]) => `<circle cx="${x}" cy="${y}" r="15" fill="${COL.ivory}"/>`).join('\n  ')}
-  <circle cx="256" cy="256" r="50" fill="${COL.gold}" stroke="${COL.ivory}" stroke-width="8"/>
+  ${joints.map(([x, y]) => `<circle cx="${x}" cy="${y}" r="${jointR}" fill="${COL.ivory}"/>`).join('\n  ')}
+  <circle cx="256" cy="256" r="66" fill="${COL.gold}" stroke="${COL.ivory}" stroke-width="11"/>
 </svg>
 `;
 }

@@ -57,7 +57,7 @@ Link tags are emitted by `Scripts/_common.py` → `favicon_link_tags()`.
 | `akhand-samaj-watermark-blue.svg` / `.png` | Full-strength navy source for document automation |
 | `akhand-samaj-watermark-blue-10.png` | Ready-to-use 10% opacity document watermark |
 | `akhand-samaj-compact.svg` / `.png` | Simplified tile for placements around 48–96 px |
-| `akhand-samaj-favicon.svg` / `.png` | Simplified small-scale browser and interface mark |
+| `akhand-samaj-favicon.svg` / `.png` | Small-scale browser and interface mark with four optimized faculty bands |
 | `akhand-samaj-favicon-16.png`, `-32.png`, `-48.png`, `.ico` | Browser favicon assets |
 | `akhand-samaj-app-icon.svg` / `.png` | Full-bleed app icon master and 1024 px export |
 | `akhand-samaj-apple-touch-icon.png` | 180 px touch/home-screen icon |
@@ -87,8 +87,9 @@ four goals.
 - Framed badge: 72 px digital or 20 mm print.
 - Full Akhand Samaj symbol (four faculty bands legible): 96 px digital or 24 mm print.
 - Akhand Samaj compact tile: 48 px digital or 14 mm print.
-- Below 48 px, use `akhand-samaj-favicon.svg`; it retains atma, the four golden
-  goal segments, and their ball-and-cup joints while omitting the faculty bands.
+- Below 48 px, use `akhand-samaj-favicon.svg`; it retains atma, four slim faculty
+  bands, the four golden goal segments, and their ball-and-cup joints. At 16 px,
+  the faculty bands read as a concentric texture rather than four countable lines.
 - **Below 48 px**, the four nodes turn illegible, so `jeevan-favicon.svg` and the raster favicons use a deliberately *simplified* mark — the two-tone projection/reflection loop and the atma nucleus, without the faculty nodes. It reads as a faithful silhouette of the full symbol rather than a blurred copy.
 
 For watermarks, place the unframed navy mark behind content at roughly 8–12% opacity (`jeevan-watermark-blue-10.png` is pre-set to 10%). Use the unframed mark, not the filled badge, so no rectangular field shows through at low opacity.
