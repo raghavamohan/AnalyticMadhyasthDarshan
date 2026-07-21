@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="740" height="400" viewBox="0 0 740 400" role="img">
   <title>Orders and planes with T1&#8211;T3</title>
-  <desc>Orders name what a unit is; planes name where development has reached. T1 is the irreversible sentience threshold; T2 and T3 are awakening milestones within the knowledge order.</desc>
+  <desc>Orders name definite modes of participation; planes name where development has reached. Animal bodily limitation differs from human body-delusion. T1 is the irreversible sentience threshold; T2 and T3 are awakening milestones within the knowledge order.</desc>
   <style>
 
     .bg { fill: #FCFBF8; }
@@ -79,7 +79,7 @@
     </marker>
   </defs>
   <rect class="bg" x="8" y="8" width="724" height="384" rx="16" stroke="#D8D6CD" stroke-width="1.5"/>
-  <text class="title" x="40" y="40" font-size="14" font-weight="700">Orders &#8212; what a unit IS</text>
+  <text class="title" x="40" y="40" font-size="14" font-weight="700">Orders &#8212; mode of participation</text>
   <text class="title" x="400" y="40" font-size="14" font-weight="700">Planes &#8212; where it has REACHED</text>
   <rect class="panel-blue" x="40" y="58" width="200" height="48" rx="8" stroke-width="0.8"/>
   <text class="ink-blue" x="56" y="78" font-size="11" font-weight="700">Material (padarth)</text>
@@ -102,8 +102,8 @@
   <text class="ink-dim" x="434" y="132" font-size="9">compositional support, not awakening</text>
   <rect class="panel-green" x="400" y="174" width="300" height="48" rx="8" stroke-width="0.8"/>
   <circle cx="418" cy="192" r="8" class="mark-green"/><text x="418" y="196" text-anchor="middle" font-size="10" font-weight="700" fill="#FCFBF8">2</text>
-  <text class="ink-green" x="434" y="192" font-size="11" font-weight="700">Delusional plane</text>
-  <text class="ink" x="434" y="210" font-size="10">animal jeevan + pre-awakening humans</text>
+  <text class="ink-green" x="434" y="192" font-size="11" font-weight="700">Before awakening / delusional plane</text>
+  <text class="ink" x="434" y="210" font-size="9.5">animal: bodily limit &#183; human: body-delusion</text>
   <rect class="panel-purple" x="400" y="232" width="300" height="48" rx="8" stroke-width="0.8"/>
   <circle cx="418" cy="250" r="8" class="mark-purple"/><text x="418" y="254" text-anchor="middle" font-size="10" font-weight="700" fill="#FCFBF8">3</text>
   <text class="ink-purple" x="434" y="250" font-size="11" font-weight="700">Deific plane</text>
