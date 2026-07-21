@@ -63,7 +63,7 @@ These studies are more mathematical in nature. They represent the structure disc
 <!-- formal-studies-catalog -->
 | Document | Formal Focus | Description | Status |
 |----------|--------------|-------------|--------|
-| [Coexistence from First Principles](Coexistence-From-First-Principles/Coexistence-From-First-Principles.html) · [Discuss](Coexistence-From-First-Principles/discussion.html) | Formal structure | A layered reconstruction of Madhyasth Darshan's ontological core, activity-duration, order-relative stability, and knowledge-order cycles, with explicit boundaries between textual doctrine, formal organization, mathematical analogy, and open posits | Draft<br>Last updated on: Jul 21, 2026, 8:18 PM IST |
+| [Coexistence from First Principles](Coexistence-From-First-Principles/Coexistence-From-First-Principles.html) · [Discuss](Coexistence-From-First-Principles/discussion.html) | Formal structure | A layered reconstruction of Madhyasth Darshan's ontological core, activity-duration, order-relative stability, and knowledge-order cycles, with explicit boundaries between textual doctrine, formal organization, mathematical analogy, and open posits | Draft<br>Last updated on: Jul 21, 2026, 8:23 PM IST |
 <!-- /formal-studies-catalog -->
 
 ### Applied studies
