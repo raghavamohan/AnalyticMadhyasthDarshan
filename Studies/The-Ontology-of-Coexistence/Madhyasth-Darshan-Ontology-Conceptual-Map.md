@@ -14,7 +14,7 @@ Read the figure from its ontological ground toward its lived evidence:
 
 1. **Existence is coexistence.** Formless Omnipresence (*satta*) and countless formful units (*ikai*) are eternally and inseparably present.
 2. **Saturation is the bond.** Units do not first exist independently and later enter Omnipresence; every unit is submerged, soaked, and surrounded in it.
-3. **Activity belongs to units.** Omnipresence is actionless and non-transforming. Units recognise, fulfil, combine, separate, develop, and participate in orderliness.
+3. **Activity belongs to units in mutuality.** Omnipresence is actionless and non-transforming. Units are definite bearers, while form is reflected, relative properties become effective, essential nature is recognised as usefulness, and *dharma* is evidenced through order-specific participation.
 4. **Nature has four orders.** Material and pranic orders are insentient. Animal and knowledge orders are joint expressions of an insentient body and sentient *jeevan*.
 5. **Development has two lines.** Compositional progression supplies bodies and environments. Development in the atom supplies constitutionally complete *jeevan*.
 6. **The first completeness is constitutional.** At *gathanpurnata* (T1), the atom's particle constitution closes and it becomes the sentient unit called *jeevan*.
@@ -41,13 +41,13 @@ Page numbers below refer to the printed page numbers represented in the local Ma
 
 **Read for.** State-completeness, actionlessness, permeation, the absence of an external ruler, and Omnipresence as sustaining condition rather than an efficient agent performing transformations.
 
-### 3. Units (*ikai*) and their four aspects
+### 3. Units (*ikai*) and their four aspects in mutuality
 
-**Concept.** Units are bounded, countable, formful realities. Every unit has form (*roop*), properties (*gun*), essential nature (*svabhav*), and dharma. Each is a whole with its environment, is an orderliness with its own “ness,” and participates in overall orderliness.
+**Concept.** Units are bounded, countable, formful realities. Every unit has form (*roop*), properties (*guna*), essential nature (*svabhav*), and *dharma*, but these do not form a static inventory of observable values. Form is the unit's real boundary and configuration and is reflected in mutual facing. *Guna* is relative power, effective when units come together. *Svabhav* is the essentiality or usefulness of that effect in an order and context. *Dharma* is the unit's inseparable innateness and fulfilment. Each unit remains an identifiable bearer and a whole with its environment while participating in overall orderliness.
 
-**Primary pointers.** SB, pp. 13–15, 48, 50–54; MVD, pp. 11, 50–51, 112; KD §3.1 and §§3.9–3.10, printed pp. 54–102.
+**Primary pointers.** SB, pp. 13–15, 48, 50–54, 248–252; MVD, pp. 11, 47, 50–51, 112; KD §3.1 and §§3.9–3.10, printed pp. 54–102.
 
-**Read for.** Boundary and unitness; natural and excited states; form, property, essential nature, and dharma; and the atom as the root quantity of physical, chemical, and *jeevan* activity.
+**Read for.** Boundary and unitness; bearer and inseparable capacity; reflection and relative effect in definite mutuality; usefulness and value; natural and excited states; and the atom as the root quantity of physical, chemical, and *jeevan* activity.
 
 ### 4. Saturation (*sampriktata*)
 
@@ -59,7 +59,7 @@ Page numbers below refer to the printed page numbers represented in the local Ma
 
 ### 5. Recognition, fulfilment, and complementarity
 
-**Concept.** Units recognise and fulfil according to their constitution and order. Below the human order, recognition does not mean reflective cognition; it means definite response and conduct in mutuality. Complementarity becomes value in relationship.
+**Concept.** Units recognise and fulfil according to their constitution and order. In insentient nature, reflection, effect, recognition, and fulfilment are definite according to the participating units and conditions. Animal *jeevan* expresses hope-bound selection through a species-conformant bodily medium. Human evaluation can become mistaken only when deluded *jeevan* identifies itself with the body; the underlying mutuality does not thereby become indefinite. Complementarity becomes value in relationship.
 
 **Primary pointers.** SB, pp. 49–54, 57, 59, 61–62, 80–81, 123; MVD, pp. 61–62; JV, pp. 43, 67, 69.
 
@@ -75,16 +75,18 @@ Page numbers below refer to the printed page numbers represented in the local Ma
 
 ### 7. The four orders of nature
 
-**Concept.** Nature is organised as material, pranic or bio, animal, and knowledge or human orders. Their dharmas are cumulatively stated as existence, growth, hope to live, and happiness.
+**Concept.** Nature is organised as material, pranic or bio, animal, and knowledge or human orders. Their dharmas are cumulatively stated as existence, growth, hope to live, and happiness. Their essential natures name order-definite relational expressions, not context-free scalar properties.
 
 **Primary pointers.** SB, p. 179; MVD, p. 115; JV, p. 44.
 
-| Order | Principal manifestation | Essential nature | Cumulative dharma |
+| Order | Principal manifestation | Order-specific expression of essential nature | Cumulative dharma |
 |---|---|---|---|
 | Material | Atoms, molecules, physical and chemical compositions | integration–disintegration | existence |
 | Pranic / bio | Cells, vegetation, bodily compositions | vitalising–devitalising | existence and growth |
 | Animal | Body–*jeevan* joint form under species-conformance | cruel–uncruel | existence, growth, and hope to live |
 | Knowledge / human | Human body–*jeevan* joint form with knowing and believing | fortitude, courage, generosity, kindness, grace, compassion | existence, growth, hope to live, and happiness |
+
+Integration–disintegration occurs among material constituents; vitalising–devitalising is recognised relative to bodily nourishment and protection; cruelty means suffering caused to another; humane essential nature is evidenced through relationship and conduct. The relational context makes each expression definite rather than subjective.
 
 ### 8. Compositional progression
 
@@ -112,7 +114,7 @@ Page numbers below refer to the printed page numbers represented in the local Ma
 
 ### 11. *Jeevan* and the body–*jeevan* joint form
 
-**Concept.** *Jeevan* is the constitutionally complete sentient atom and the knower. The body is a pranic composition and the medium through which *jeevan* is expressed in animal and human orders.
+**Concept.** *Jeevan* is the constitutionally complete sentient atom and the knower. The body is a pranic composition and the medium through which *jeevan* is expressed in animal and human orders. Animal bodies constrain expression to hope-bound species-conformance. The fully enriched human nervous system provides for complete understanding, but does not guarantee it; human delusion begins when *jeevan* identifies itself with the body.
 
 **Primary pointers.** MVD, pp. 13, 78, 115; JV, pp. 54, 59, 79, 92–93; KD §3.16, printed pp. 136–145.
 
@@ -120,7 +122,7 @@ Page numbers below refer to the printed page numbers represented in the local Ma
 
 ### 12. The five faculties and ten activities of *jeevan*
 
-**Concept.** Atma is the nucleus; buddhi, chitta, vritti, and mun are associated with successive orbits. Each faculty has an outward projection and an inward reflection activity.
+**Concept.** Atma is the nucleus; buddhi, chitta, vritti, and mun are associated with successive orbits. Each faculty has an outward projection and an inward reflection activity. All ten activities belong to and continuously operate in *jeevan*; “four and a half” names their restricted effective organisation and bodily evidence in deluded human living, not absent faculties.
 
 **Primary pointers.** MVD, pp. 13, 77–78, 99–101, 126, 277–279; JV, pp. 73–74, 92, 138; KD §§3.6, 3.11–3.12, printed pp. 70–118.
 
@@ -132,7 +134,7 @@ Page numbers below refer to the printed page numbers represented in the local Ma
 | Buddhi | resolve | enlightenment |
 | Atma | authenticity | realisation |
 
-**Read for.** The orbital account, force and power, projection and reflection, four-and-a-half activities in deluded human living, and the regulation of the faculties from atma in awakening.
+**Read for.** The orbital account, force and power, projection and reflection, the distinction between inherent activity and effective bodily evidence, four-and-a-half activities in deluded human living, and the regulation of the faculties from atma in awakening.
 
 ### 13. Activity completeness (T2)
 
@@ -156,7 +158,7 @@ Page numbers below refer to the printed page numbers represented in the local Ma
 
 **Primary pointers.** SB, p. 52; MVD, pp. 49–50, 160.
 
-**Read for.** Why the knowledge order spans more than one plane, why animal *jeevan* and unawakened humans occupy the delusional plane, and how activity and conduct completeness define the deific and divine planes.
+**Read for.** Why the knowledge order spans more than one plane; why animal bodily limitation and human body-identification must not be treated as the same mechanism even where both stand before awakening; and how activity and conduct completeness define the deific and divine planes.
 
 ### 16. Regulation, law, justice, and orderliness
 
