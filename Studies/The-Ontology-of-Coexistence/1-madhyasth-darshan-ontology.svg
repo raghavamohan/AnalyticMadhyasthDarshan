@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="820" height="640" viewBox="0 0 820 640" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="700" viewBox="0 0 820 700" role="img">
   <title>Madhyasth Darshan &#8212; architecture of coexistence</title>
-  <desc>Overview: Omnipresence and units bound by saturation; four orders; two developments; T1 at sentience; T2/T3 and happiness to bliss on the knowledge path only.</desc>
+  <desc>Overview: Omnipresence and units bound by saturation; the ontological entailment from saturation to activity, for which no separate physical mechanism is stated; four orders that are not an individual transformation ladder; separate compositional and atomic-development paths; T1 as sentient jeevan; and T2 realisation followed by T3 authentic conduct evidenced in living.</desc>
   <style>
 
     .bg { fill: #FCFBF8; }
@@ -80,56 +80,68 @@
     <marker id="ahI2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
       <path d="M0,0 L10,5 L0,10 z" class="mark-purple"/>
     </marker>
+    <marker id="ahGold" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" class="mark-gold"/>
+    </marker>
   </defs>
-  <rect class="bg" width="820" height="640"/>
+  <rect class="bg" width="820" height="700"/>
   <text class="title" x="410" y="28" text-anchor="middle" font-size="20" font-weight="700">Madhyasth Darshan &#8212; architecture of coexistence</text>
-  <text class="sub" x="410" y="50" text-anchor="middle" font-size="12">Two poles, one bond; four orders; two developments; sentient path happiness &#8594; bliss</text>
-  <rect class="ground" x="22" y="68" width="776" height="430" rx="12" stroke-width="1.4"/>
+  <text class="sub" x="410" y="50" text-anchor="middle" font-size="12">Two poles, one bond; four orders; two developments; awakening evidenced in conduct</text>
+  <rect class="ground" x="22" y="68" width="776" height="482" rx="12" stroke-width="1.4"/>
   <text class="ink-blue" x="40" y="92" font-size="12" font-weight="700">OMNIPRESENCE &#183; satta (pole 1)</text>
   <text class="ink" x="40" y="110" font-size="10.5">formless &#183; actionless &#183; non-transforming &#183; saturation soaks every unit</text>
   <rect class="panel" x="40" y="128" width="300" height="70" rx="8"/>
   <text class="ink-blue" x="56" y="152" font-size="12" font-weight="700">UNITS &#183; ikai (pole 2)</text>
   <text class="ink" x="56" y="170" font-size="10.5">definite bearer &#183; bounded &#183; countable</text>
-  <text class="ink" x="56" y="186" font-size="9.5">form reflected &#183; guna effective &#183; svabhav recognised &#183; dharma evidenced</text>
+  <text class="ink" x="56" y="186" font-size="7.5">roop borne / reflected &#183; guna effective in mutuality &#183; svabhav useful &#183; dharma fulfilled</text>
   <rect class="panel" x="360" y="128" width="418" height="70" rx="8"/>
   <text class="ink-blue" x="376" y="152" font-size="12" font-weight="700">Two developments (do not collapse)</text>
-  <text class="ink" x="376" y="170" font-size="10.5">A. compositions &#8594; bodies / environments (no awakening)</text>
-  <text class="ink" x="376" y="186" font-size="10.5">B. atom &#8594; T1 jeevan &#8594; T2 / T3 (sentient path only)</text>
-  <line x1="55" y1="230" x2="765" y2="230" class="stroke-green" stroke-width="2.2" marker-end="url(#ahG2)"/>
-  <text class="ink-green" x="410" y="222" text-anchor="middle" font-size="10" font-weight="700">EXISTENTIAL PROGRESSION &#183; order emergence on Earth (&#167;1.5)</text>
-  <rect class="panel-blue" x="40" y="246" width="170" height="100" rx="8"/>
-  <text class="ink-blue" x="125" y="274" text-anchor="middle" font-size="12" font-weight="700">MATERIAL</text>
-  <text class="ink" x="125" y="294" text-anchor="middle" font-size="10">existence</text>
-  <text class="ink-dim" x="125" y="322" text-anchor="middle" font-size="10" font-style="italic">insentient</text>
-  <rect class="panel-green" x="226" y="246" width="170" height="100" rx="8"/>
-  <text class="ink-green" x="311" y="274" text-anchor="middle" font-size="12" font-weight="700">BIO / PRANIC</text>
-  <text class="ink" x="311" y="294" text-anchor="middle" font-size="10">+ growth</text>
-  <text class="ink-dim" x="311" y="322" text-anchor="middle" font-size="10" font-style="italic">insentient</text>
-  <line x1="410" y1="246" x2="410" y2="360" class="stroke-gold" stroke-width="2" stroke-dasharray="5 4"/>
-  <text class="ink-gold" x="410" y="380" text-anchor="middle" font-size="11" font-weight="700">T1 &#183; sentience</text>
-  <rect class="panel-warm" x="430" y="246" width="170" height="100" rx="8"/>
-  <text class="ink-warm" x="515" y="274" text-anchor="middle" font-size="12" font-weight="700">ANIMAL</text>
-  <text class="ink" x="515" y="294" text-anchor="middle" font-size="10">+ hope to live</text>
-  <text class="ink-dim" x="515" y="322" text-anchor="middle" font-size="10" font-style="italic">jeevan + body</text>
-  <rect class="panel-purple" x="616" y="246" width="170" height="100" rx="8"/>
-  <text class="ink-purple" x="701" y="270" text-anchor="middle" font-size="12" font-weight="700">KNOWLEDGE</text>
-  <text class="ink" x="701" y="290" text-anchor="middle" font-size="10">+ happiness</text>
-  <text class="ink" x="701" y="310" text-anchor="middle" font-size="10">T2 / T3</text>
-  <text class="ink-dim" x="701" y="330" text-anchor="middle" font-size="10" font-style="italic">happiness &#8594; bliss</text>
-  <line x1="620" y1="400" x2="780" y2="400" class="stroke-purple" stroke-width="2.2" marker-end="url(#ahI2)"/>
-  <text class="ink-purple" x="700" y="420" text-anchor="middle" font-size="10.5" font-weight="700">AWAKENING &#183; T2 &#8594; T3 &#8594; realisation</text>
-  <text class="ink" x="700" y="438" text-anchor="middle" font-size="10">knowledge-order face of the drive</text>
-  <text class="ink-blue" x="200" y="420" text-anchor="middle" font-size="10.5" font-weight="700">COMPOSITIONAL SUPPORT</text>
-  <text class="ink" x="200" y="438" text-anchor="middle" font-size="10">bodies / environments &#183; no T2/T3</text>
-  <text class="ink" x="410" y="470" text-anchor="middle" font-size="10.5" font-style="italic">composition &#8800; awakening &#183; hope &#8800; bliss &#183; design-span &#8800; every unit&#8217;s fate</text>
-  <rect class="panel-warm" x="22" y="520" width="379" height="96" rx="8"/>
-  <text class="ink-gold" x="38" y="544" font-size="11" font-weight="700">Beginningless and conserved</text>
-  <text class="ink" x="38" y="564" font-size="10">Nothing arises from, or vanishes into, non-being.</text>
-  <text class="ink" x="38" y="580" font-size="10">Configurations begin and end; units persist.</text>
-  <text class="ink-dim" x="38" y="598" font-size="10" font-style="italic">&#8220;Brahma is truth, the world is perpetual.&#8221;</text>
-  <rect class="panel-blue" x="419" y="520" width="379" height="96" rx="8"/>
-  <text class="ink-blue" x="435" y="544" font-size="11" font-weight="700">Causation and time</text>
-  <text class="ink" x="435" y="564" font-size="10">Satta sustains; units do the work of change.</text>
-  <text class="ink" x="435" y="580" font-size="10">Time = duration of unit-activity (&#167;1.6.4).</text>
-  <text class="ink" x="435" y="598" font-size="10">EMR owned in &#167;1.2; completeness in &#167;1.6.</text>
+  <text class="ink" x="376" y="170" font-size="10.5">A. compositions &#8594; bodies / environments (do not produce jeevan)</text>
+  <text class="ink" x="376" y="186" font-size="10.5">B. constitution-oriented atom &#8594; T1 jeevan &#8594; awakening</text>
+  <rect class="chip" x="98" y="208" width="624" height="28" rx="6"/>
+  <text class="ink-blue" x="410" y="220" text-anchor="middle" font-size="9.1" font-weight="700">SATURATION ENTAILS energy-fullness &#8594; forcefulness &#8594; recognition / regulation &#8594; effort&#8211;motion&#8211;result</text>
+  <text class="ink-dim" x="410" y="232" text-anchor="middle" font-size="7.6">ontological entailment; no separate physical mechanism is stated</text>
+  <line x1="55" y1="264" x2="765" y2="264" class="stroke-green" stroke-width="2.2" marker-end="url(#ahG2)"/>
+  <text class="ink-green" x="410" y="254" text-anchor="middle" font-size="9" font-weight="700">FOUR ORDERS &#183; existential ordering of manifestation (&#167;1.5) &#183; not an individual transformation ladder</text>
+  <rect class="panel-blue" x="40" y="280" width="170" height="100" rx="8"/>
+  <text class="ink-blue" x="125" y="308" text-anchor="middle" font-size="12" font-weight="700">MATERIAL</text>
+  <text class="ink" x="125" y="328" text-anchor="middle" font-size="10">existence</text>
+  <text class="ink-dim" x="125" y="356" text-anchor="middle" font-size="10" font-style="italic">insentient</text>
+  <rect class="panel-green" x="226" y="280" width="170" height="100" rx="8"/>
+  <text class="ink-green" x="311" y="308" text-anchor="middle" font-size="12" font-weight="700">BIO / PRANIC</text>
+  <text class="ink" x="311" y="328" text-anchor="middle" font-size="10">+ growth</text>
+  <text class="ink-dim" x="311" y="356" text-anchor="middle" font-size="10" font-style="italic">insentient</text>
+  <rect class="panel-warm" x="430" y="280" width="170" height="100" rx="8"/>
+  <text class="ink-warm" x="515" y="308" text-anchor="middle" font-size="12" font-weight="700">ANIMAL</text>
+  <text class="ink" x="515" y="328" text-anchor="middle" font-size="10">+ hope to live</text>
+  <text class="ink-dim" x="515" y="356" text-anchor="middle" font-size="10" font-style="italic">animal body + jeevan</text>
+  <rect class="panel-purple" x="616" y="280" width="170" height="100" rx="8"/>
+  <text class="ink-purple" x="701" y="304" text-anchor="middle" font-size="12" font-weight="700">KNOWLEDGE</text>
+  <text class="ink" x="701" y="324" text-anchor="middle" font-size="10">+ happiness</text>
+  <text class="ink-dim" x="701" y="342" text-anchor="middle" font-size="9.2" font-style="italic">human body + jeevan</text>
+  <text class="ink-dim" x="701" y="357" text-anchor="middle" font-size="8.3" font-style="italic">jeevan harmonies</text>
+  <text class="ink-dim" x="701" y="372" text-anchor="middle" font-size="8.3" font-style="italic">happiness &#8594; bliss (not T4)</text>
+  <text class="ink-blue" x="170" y="414" text-anchor="middle" font-size="10.5" font-weight="700">COMPOSITIONAL SUPPORT</text>
+  <text class="ink" x="170" y="432" text-anchor="middle" font-size="9.8">bodies / environments &#183; no T1, T2, or T3</text>
+  <path d="M425 446 V392 H515 V386" fill="none" class="stroke-gold" stroke-width="2.2" marker-end="url(#ahGold)"/>
+  <path d="M425 446 V392 H701 V386" fill="none" class="stroke-gold" stroke-width="2.2" marker-end="url(#ahGold)"/>
+  <text class="ink-gold" x="425" y="414" text-anchor="middle" font-size="10.2" font-weight="700">ATOMIC DEVELOPMENT</text>
+  <text class="ink-gold" x="425" y="430" text-anchor="middle" font-size="9.5">constitution-oriented atom &#8594; T1 jeevan</text>
+  <line x1="620" y1="402" x2="780" y2="402" class="stroke-purple" stroke-width="2.2" marker-end="url(#ahI2)"/>
+  <text class="ink-purple" x="700" y="422" text-anchor="middle" font-size="8.7" font-weight="700">AWAKENING IN THE HUMAN JOINT FORM</text>
+  <text class="ink-purple" x="700" y="438" text-anchor="middle" font-size="8.2">T2 realisation / resolution &#8594; T3 authentic conduct</text>
+  <text class="ink" x="410" y="466" text-anchor="middle" font-size="10" font-style="italic">composition &#8800; jeevan &#183; happiness-to-bliss &#8800; T4 &#183; orders &#8800; progressions or planes</text>
+  <rect class="panel" x="66" y="484" width="688" height="46" rx="7"/>
+  <text class="ink-blue" x="410" y="501" text-anchor="middle" font-size="9.5" font-weight="700">CONDUCT-EVIDENCE OF AWAKENING</text>
+  <text class="ink" x="410" y="518" text-anchor="middle" font-size="9.2">understanding &#8594; relationship and value &#8594; justice &#8594; resolution / prosperity / fearlessness / coexistence &#8594; universal orderliness</text>
+  <rect class="panel-warm" x="22" y="570" width="379" height="106" rx="8"/>
+  <text class="ink-gold" x="38" y="594" font-size="11" font-weight="700">Beginningless and conserved</text>
+  <text class="ink" x="38" y="614" font-size="10">Nothing arises from, or vanishes into, non-being.</text>
+  <text class="ink" x="38" y="630" font-size="9.6">Composite forms end; their constituent realities persist.</text>
+  <text class="ink-dim" x="38" y="650" font-size="10" font-style="italic">&#8220;Brahma is truth, the world is perpetual.&#8221;</text>
+  <rect class="panel-blue" x="419" y="570" width="379" height="106" rx="8"/>
+  <text class="ink-blue" x="435" y="594" font-size="11" font-weight="700">Causation and time</text>
+  <text class="ink" x="435" y="614" font-size="10">Satta sustains; units do the work of change.</text>
+  <text class="ink" x="435" y="630" font-size="10">Time = duration of unit-activity (&#167;1.6.4).</text>
+  <text class="ink" x="435" y="650" font-size="9.6">Effort&#8211;motion&#8211;result and T1&#8211;T3: &#167;&#167;1.2, 1.6.</text>
 </svg>
