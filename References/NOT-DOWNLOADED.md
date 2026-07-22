@@ -107,6 +107,18 @@ Scriptural passages cited for comparative examples are linked externally rather 
 | **Matthew 22:37-40** | Gospel of Matthew 22:37-40, King James Version. | https://www.christianity.com/bible/kjv/matthew/22-37-40 |
 | **Quran 16:90** | Qur'an, Surat An-Nahl 16:90. | https://legacy.quran.com/16/90 |
 
+## Computational universe and discrete physics — external only
+
+Works cited in [*Research Note: Wolfram Computational Universe and MD Kernel*](../Studies/Coexistence-From-First-Principles/Research-Note-Wolfram-Computational-Universe-And-MD-Kernel.md). Author-hosted writings and the free NKS online edition are linked rather than mirrored (print NKS remains a commercial book; HTML mirrors not added in this pass).
+
+| Tag | Full reference | Original location |
+|-----|----------------|-------------------|
+| **Wolfram NKS** | Wolfram, S. *A New Kind of Science*. Wolfram Media, 2002. Online edition. | https://www.wolframscience.com/nks/ |
+| **Wolfram 2020** | Wolfram, S. "Finally We May Have a Path to the Fundamental Theory of Physics… and It's Beautiful." *Stephen Wolfram Writings*, 14 Apr 2020. | https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/ |
+| **Wolfram Physics TI** | Wolfram, S. *A Class of Models with the Potential to Represent Fundamental Physics* (Technical Introduction), §8.2 Basic Concepts. Wolfram Physics Project. | https://www.wolframphysics.org/technical-introduction/potential-relation-to-physics/basic-concepts/ |
+| **Wolfram 2021** | Wolfram, S. "Why Does the Universe Exist? Some Perspectives from Our Physics Project." *Stephen Wolfram Writings*, 29 Apr 2021. | https://writings.stephenwolfram.com/2021/04/why-does-the-universe-exist-some-perspectives-from-our-physics-project/ |
+| **Wolfram 2026** | Wolfram, S. "What Ultimately Is There? Metaphysics and the Ruliad." *Stephen Wolfram Writings*, Feb 2026. | https://writings.stephenwolfram.com/2026/02/what-ultimately-is-there-metaphysics-and-the-ruliad/ |
+
 ## Physics, variational mechanics, and category theory — external only
 
 Works cited in [*Restfulness and Least Action*](../Studies/Restfulness-And-Least-Action/Restfulness-And-Least-Action.pdf) that are linked externally rather than mirrored locally.
