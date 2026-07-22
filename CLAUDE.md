@@ -67,7 +67,7 @@ Never use pandoc, VS Code export, or ad-hoc converters. One-time setup: `pip ins
 
 Skills in `.agents/skills/` orchestrate `Scripts/_*.py` and defer content/style rules to AGENTS.md:
 
-`manage-studies` · `add-study` · `remove-study` · `rename-study` · `set-study-status` · `download-references` · `check-references` · `regenerate-study-pdf` · `update-study-presentation`
+`manage-studies` · `add-study` · `remove-study` · `rename-study` · `set-study-status` · `download-references` · `check-references` · `regenerate-study-pdf` · `update-study-presentation` · `update-presenters-companion`
 
 ---
 
