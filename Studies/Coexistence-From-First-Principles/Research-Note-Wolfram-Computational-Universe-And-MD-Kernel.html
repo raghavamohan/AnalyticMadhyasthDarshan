@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="color-scheme" content="light dark"/>
+<title>Research Note: Stephen Wolfram&#x27;s Computational Universe and the Madhyasth Darshan Generative Kernel</title>
+<link rel="icon" href="/Assets/Icons/akhand-samaj-favicon.ico" sizes="any"/>
+<link rel="icon" type="image/svg+xml" href="/Assets/Icons/akhand-samaj-favicon.svg"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/Assets/Icons/akhand-samaj-favicon-32.png"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/Assets/Icons/akhand-samaj-favicon-16.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/Assets/Icons/akhand-samaj-apple-touch-icon.png"/>
+<link rel="canonical" href="https://analyticmadhyasthdarshan.org/Studies/Coexistence-From-First-Principles/Research-Note-Wolfram-Computational-Universe-And-MD-Kernel.html"/>
+<meta name="description" content="A layered reconstruction of Madhyasth Darshan&#x27;s ontological core, activity-duration, order-relative stability, and knowledge-order cycles, with explicit boundaries between textual doctrine, formal organization, mathematical analogy, and open posits"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="AnalyticMadhyasthDarshan.org"/>
+<meta property="og:title" content="Research Note: Stephen Wolfram&#x27;s Computational Universe and the Madhyasth Darshan Generative Kernel"/>
+<meta property="og:description" content="A layered reconstruction of Madhyasth Darshan&#x27;s ontological core, activity-duration, order-relative stability, and knowledge-order cycles, with explicit boundaries between textual doctrine, formal organization, mathematical analogy, and open posits"/>
+<meta property="og:url" content="https://analyticmadhyasthdarshan.org/Studies/Coexistence-From-First-Principles/Research-Note-Wolfram-Computational-Universe-And-MD-Kernel.html"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Research Note: Stephen Wolfram&#x27;s Computational Universe and the Madhyasth Darshan Generative Kernel"/>
+<meta name="twitter:description" content="A layered reconstruction of Madhyasth Darshan&#x27;s ontological core, activity-duration, order-relative stability, and knowledge-order cycles, with explicit boundaries between textual doctrine, formal organization, mathematical analogy, and open posits"/>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Research Note: Stephen Wolfram's Computational Universe and the Madhyasth Darshan Generative Kernel","description":"A layered reconstruction of Madhyasth Darshan's ontological core, activity-duration, order-relative stability, and knowledge-order cycles, with explicit boundaries between textual doctrine, formal organization, mathematical analogy, and open posits","url":"https://analyticmadhyasthdarshan.org/Studies/Coexistence-From-First-Principles/Research-Note-Wolfram-Computational-Universe-And-MD-Kernel.html","inLanguage":"en","author":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"publisher":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"dateModified":"2026-07-22T13:49:00+05:30"}
+</script>
+<style>
+  @page {
+    size: A4;
+    margin: 2.2cm 2cm 2.2cm 2cm;
+  }
+  @media print {
+    body {
+      font-size: 11pt;
+      margin: 0;
+      padding: 0;
+      max-width: none;
+    }
+    h1 ~ p {
+      margin: 3pt 0;
+    }
+    h2 {
+      page-break-after: auto;
+      break-after: auto;
+    }
+    h2:first-of-type {
+      margin-top: 10pt;
+    }
+    h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+    h3, h4 { page-break-inside: avoid; break-inside: avoid; }
+    p { text-align: justify; text-justify: inter-word; hyphens: auto; }
+    li { text-align: left; }
+    table {
+      page-break-inside: auto;
+      break-inside: auto;
+    }
+    thead {
+      display: table-header-group;
+    }
+    tr {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    pre { page-break-inside: avoid; white-space: pre-wrap; overflow-wrap: anywhere; word-break: break-word; }
+    blockquote { page-break-inside: avoid; }
+    .page-marker {
+      page-break-before: always;
+      break-before: page;
+      visibility: hidden;
+      height: 0;
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+    .blank-page {
+      page-break-before: always;
+      break-before: page;
+      min-height: 1px;
+      margin: 0;
+      padding: 0;
+    }
+    .blank-page-label {
+      visibility: hidden;
+      height: 0;
+      margin: 0;
+      padding: 0;
+      border: none;
+      display: block;
+    }
+  }
+  .page-marker {
+    display: block;
+    font-family: Georgia, serif;
+    font-size: 9pt;
+    color: #888;
+    margin: 24pt 0 12pt 0;
+    border-top: 1px dashed #ddd;
+    padding-top: 6pt;
+    text-align: right;
+  }
+  body {
+    position: relative;
+    z-index: 1;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 11pt;
+    line-height: 1.55;
+    color: #1a1a1a;
+    max-width: 750px;
+    margin: 30px auto;
+    padding: 0 20px;
+  }
+  h1 {
+    font-size: 20pt;
+    margin-top: 0;
+    margin-bottom: 4pt;
+    color: #111;
+    border-bottom: 2px solid #333;
+    padding-bottom: 6pt;
+  }
+  h1 + p {
+    margin-top: 4pt;
+  }
+  h2 {
+    font-size: 15pt;
+    margin-top: 18pt;
+    margin-bottom: 6pt;
+    color: #222;
+    border-bottom: 1px solid #bbb;
+    padding-bottom: 4pt;
+  }
+  h3 {
+    font-size: 12.5pt;
+    margin-top: 16pt;
+    margin-bottom: 4pt;
+    color: #333;
+  }
+  h4 {
+    font-size: 11.5pt;
+    margin-top: 14pt;
+    margin-bottom: 4pt;
+    color: #333;
+    font-weight: bold;
+  }
+  p {
+    margin: 6pt 0;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+  }
+  a {
+    color: #1a5276;
+    text-decoration: underline;
+  }
+  blockquote {
+    margin: 10pt 0 10pt 16pt;
+    padding: 6pt 12pt;
+    border-left: 3pt solid #888;
+    background: #f7f7f5;
+    font-style: italic;
+    color: #333;
+  }
+  blockquote p {
+    margin: 0;
+    white-space: pre-line;
+  }
+  blockquote p + p {
+    margin-top: 6pt;
+  }
+  blockquote strong {
+    font-style: normal;
+  }
+  .quote-source {
+    font-style: normal;
+    font-size: 10pt;
+    color: #555;
+    margin-top: 4pt;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12pt 0;
+    font-size: 10pt;
+    page-break-inside: auto;
+    break-inside: auto;
+  }
+  thead {
+    display: table-header-group;
+  }
+  tr {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  th {
+    background: #e8e8e4;
+    border: 1px solid #aaa;
+    padding: 5pt 7pt;
+    text-align: left;
+    font-weight: bold;
+  }
+  td {
+    border: 1px solid #ccc;
+    padding: 5pt 7pt;
+    vertical-align: top;
+  }
+  tr:nth-child(even) {
+    background: #fafaf8;
+  }
+  code {
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 10pt;
+    background: #f0f0ec;
+    padding: 1pt 3pt;
+    border-radius: 2pt;
+  }
+  pre {
+    background: #f5f5f1;
+    padding: 10pt 14pt;
+    border-radius: 4pt;
+    overflow-x: auto;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    white-space: pre-wrap;
+    max-width: 100%;
+    font-size: 10pt;
+    line-height: 1.4;
+  }
+  pre code {
+    background: none;
+    padding: 0;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  ul, ol {
+    margin: 6pt 0;
+    padding-left: 24pt;
+  }
+  li {
+    margin: 3pt 0;
+  }
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 12pt auto;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  p:has(> img:only-child) {
+    text-align: center;
+    margin: 12pt 0;
+  }
+  .mermaid {
+    display: flex;
+    justify-content: center;
+    margin: 12pt auto;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .mermaid svg {
+    max-width: 100%;
+    height: auto;
+  }
+  .katex-display {
+    margin: 8pt 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 100;
+    padding: 8px 14px;
+    background: #1a5276;
+    color: #fff;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 0 0 8px 0;
+  }
+  .skip-link:focus {
+    left: 0;
+    outline: 2px solid #13405c;
+    outline-offset: 2px;
+  }
+  h2[id] {
+    scroll-margin-top: calc(var(--study-toolbar-height, 88px) + 10px);
+  }
+  .table-scroll {
+    overflow-x: auto;
+    margin: 12pt 0;
+    -webkit-overflow-scrolling: touch;
+  }
+  .table-scroll table {
+    margin: 0;
+  }
+  .term-tip-wrap {
+    position: relative;
+    display: inline;
+    white-space: normal;
+  }
+  .term-tip {
+    background: none;
+    border: none;
+    border-bottom: 1px dotted #1a5276;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: #1a5276;
+    cursor: help;
+    text-align: inherit;
+  }
+  .term-tip:focus-visible {
+    outline: 2px solid #1a5276;
+    outline-offset: 2px;
+    border-bottom-color: transparent;
+  }
+  .term-tip-panel {
+    display: none;
+    position: fixed;
+    z-index: 40;
+    min-width: 220px;
+    max-width: min(320px, 90vw);
+    padding: 8px 10px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    line-height: 1.45;
+    font-style: normal;
+    font-weight: 400;
+    color: #2a241c;
+    background: #fff;
+    border: 1px solid #c5d9e6;
+    border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(42, 36, 28, 0.12);
+    text-align: left;
+    pointer-events: none;
+  }
+  .term-tip-panel.is-visible {
+    display: block;
+  }
+  .study-toolbar {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 13px;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    margin: 0 0 22px;
+    padding: 10px 14px;
+    border: 1px solid #d8d2c8;
+    border-radius: 8px;
+    background: rgba(247, 244, 239, 0.92);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+  .study-toolbar-row {
+    display: grid;
+    align-items: center;
+    gap: 8px 14px;
+  }
+  .study-toolbar-row--primary {
+    grid-template-columns: minmax(0, 1fr) minmax(0, auto) minmax(0, 1fr);
+  }
+  .study-toolbar-actions {
+    grid-column: 3;
+    justify-self: end;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px 12px;
+    min-width: 0;
+    text-align: right;
+  }
+  .study-toolbar-feedback {
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .study-toolbar-row--sections {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .study-toolbar-back {
+    grid-column: 1;
+    justify-self: start;
+    min-width: 0;
+  }
+  .study-toolbar-download {
+    min-width: 0;
+    text-align: right;
+  }
+  .study-toolbar-title {
+    grid-column: 2;
+    justify-self: center;
+    text-align: center;
+    margin: 0;
+    min-width: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: #2c241c;
+    line-height: 1.35;
+  }
+  .study-toolbar-draft {
+    font-weight: 600;
+    color: #5c5348;
+  }
+  .study-toolbar-link {
+    color: #1a5276;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .study-toolbar-link:hover { color: #13405c; }
+  .study-toolbar-link:focus-visible {
+    outline: 2px solid #1a5276;
+    outline-offset: 2px;
+  }
+  .study-toolbar-section {
+    display: block;
+    min-width: 0;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .study-toolbar-section--prev { justify-self: start; }
+  .study-toolbar-section--next {
+    justify-self: end;
+    text-align: right;
+  }
+  .study-toolbar-section.is-disabled {
+    opacity: 0.45;
+    pointer-events: none;
+    color: #6f655a;
+  }
+  .study-toolbar-download::after {
+    content: " \2193";
+    font-weight: 700;
+  }
+  @media (max-width: 640px) {
+    .study-toolbar-row--primary {
+      grid-template-columns: 1fr 1fr;
+    }
+    .study-toolbar-back {
+      grid-column: 1;
+    }
+    .study-toolbar-actions {
+      grid-column: 1 / -1;
+      justify-self: stretch;
+      justify-content: flex-end;
+    }
+    .study-toolbar-title {
+      grid-column: 1 / -1;
+      white-space: normal;
+    }
+    .study-toolbar-section {
+      white-space: normal;
+    }
+  }
+  @media print {
+    .study-toolbar { display: none !important; }
+    .skip-link { display: none !important; }
+    .term-tip {
+      border-bottom: none;
+      color: inherit;
+      cursor: text;
+    }
+    .term-tip-panel { display: none !important; }
+  }
+
+  @media screen and (prefers-color-scheme: dark) {
+    body {
+      color: #e6dfd6;
+      background: #1a1815;
+    }
+    h1, h2, h3, h4 {
+      color: #f5f1ec;
+    }
+    h1 { border-bottom-color: #6f655a; }
+    h2 { border-bottom-color: #423b33; }
+    a { color: #7ebbed; }
+    a:visited { color: #9ec8e8; }
+    blockquote {
+      background: #26231e;
+      border-left-color: #6f655a;
+      color: #e6dfd6;
+    }
+    .quote-source { color: #aca194; }
+    th {
+      background: #2f2a24;
+      border-color: #423b33;
+      color: #f5f1ec;
+    }
+    td {
+      border-color: #423b33;
+      color: #e6dfd6;
+    }
+    tr:nth-child(even) { background: #1e1b18; }
+    code {
+      background: #2f2a24;
+      color: #f0e8dc;
+    }
+    pre {
+      background: #1e1b18;
+      color: #e6dfd6;
+    }
+    .study-toolbar {
+      background: rgba(26, 24, 21, 0.92);
+      border-color: #423b33;
+    }
+    .study-toolbar-link { color: #7ebbed; }
+    .study-toolbar-link:hover { color: #b8daf3; }
+    .study-toolbar-title { color: #f5f1ec; }
+    .study-toolbar-draft { color: #aca194; }
+    .study-toolbar-section.is-disabled { color: #6f655a; }
+    .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    .term-tip-panel {
+      color: #e6dfd6;
+      background: #26231e;
+      border-color: #423b33;
+    }
+  }
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav class="study-toolbar" aria-label="Study navigation">
+  <div class="study-toolbar-row study-toolbar-row--primary">
+    <a class="study-toolbar-link study-toolbar-back" href="../index.html#study-Research-Note-Wolfram-Computational-Universe-And-MD-Kernel">&larr; All studies</a>
+    <p class="study-toolbar-title">Research Note: Stephen Wolfram&#x27;s Computational Universe and the Madhyasth Darshan Generative Kernel</p>
+    <span class="study-toolbar-actions">
+      <a class="study-toolbar-link study-toolbar-discuss" href="discussion.html?dv=2">Discuss</a>
+      <a class="study-toolbar-link study-toolbar-download" href="Research-Note-Wolfram-Computational-Universe-And-MD-Kernel.pdf" download>Download PDF</a>
+      <a class="study-toolbar-link study-toolbar-feedback" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&title=Study%20feedback%3A%20Research%20Note%3A%20Stephen%20Wolfram%27s%20Computational%20Universe%20and%20the%20Madhyasth%20Darshan%20Generative%20Kernel">Suggest a correction</a>
+    </span>
+  </div>
+  <div class="study-toolbar-row study-toolbar-row--sections">
+    <a class="study-toolbar-link study-toolbar-section study-toolbar-section--prev" id="study-section-prev" href="#" aria-disabled="true">&larr; Previous section</a>
+    <a class="study-toolbar-link study-toolbar-section study-toolbar-section--next" id="study-section-next" href="#" aria-disabled="true">Next section &rarr;</a>
+  </div>
+</nav>
+<main id="main"><h1>Research Note: Stephen Wolfram&rsquo;s Computational Universe and the Madhyasth Darshan Generative Kernel</h1>
+<p><strong>Author:</strong> Raghava Mohan Madhwapathi (<a href="https://analyticmadhyasthdarshan.org">analyticmadhyasthdarshan.org</a>)</p>
+<p><strong>Edited on:</strong> July 22, 2026, 1:49 PM IST</p>
+<p><strong>Status:</strong> Internal research note (not a catalog entry). Comparative working paper to support reading <em>Coexistence From First Principles</em> (§§2–6) beside <em>The Ontology of Coexistence</em>, and to test whether the reconstructed MD kernel can supply the kind of update rules Wolfram&rsquo;s programme seeks.</p>
+<p><strong>Scope.</strong> This note compares three pictures side by side:</p>
+<ol>
+<li><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s ontological core as stated in the primary texts and summarised in <a href="../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.md"><em>The Ontology of Coexistence</em></a>.</li>
+<li>The formal generative kernel of <a href="Coexistence-From-First-Principles.md"><em>Coexistence From First Principles</em></a> — primitives O, U, saturation; axioms A1–A2; generative move κ; coupling anatomy ρ → ε → φ; carrier-coalgebra and initial-algebra spine.</li>
+<li>Stephen Wolfram&rsquo;s computational-universe programme — elementary cellular automata and <em>A New Kind of Science</em> (NKS); the Wolfram Physics Project (hypergraph rewriting, multiway systems, causal graphs); and the later <em>ruliad</em> metaphysics.</li>
+</ol>
+<p>The central question is practical as well as comparative: <strong>can the MD kernel provide a basis on which to write Wolfram-style update rules?</strong> The answer developed below is a qualified yes for a <em>typed, attributed, complementarity-conditioned</em> rewrite system, and a firm no for an untyped reduction of existence to pattern substitution on identical atoms of space. Wolfram supplies a mature discrete-dynamics and multiway toolkit; MD supplies semantic constraints (carriers, medium, complementarity, fulfilment, completeness-orientation, order typing) that select <em>which</em> rewrites are admissible and what they mean. The productive research programme is therefore hybrid, not reductive.</p>
+<hr/>
+<h2 id="1-why-the-resemblance-is-real">1. Why the resemblance is real</h2>
+<p>Readers of the MD reconstruction often notice structural echoes of Wolfram&rsquo;s programme. The echoes are not accidental. Both pictures reject a purely continuum, field-first ontology as the deepest description; both treat large-scale order as generated by local rules on discrete structure; both make time closer to <em>update / activity</em> than to a pre-given background parameter; and both allow branching outcomes from local application of rules.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Shared motif</th>
+<th>MD (texts + kernel)</th>
+<th>Wolfram</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Discrete countable structure</td>
+<td>Units (<em>ikai</em>) are real, countable carriers (JV p. 45; kernel U)</td>
+<td>Discrete elements: cells (NKS) or atoms of space / hypergraph nodes (Physics Project)</td>
+</tr>
+<tr>
+<td>Local generative rule</td>
+<td>κ: complementary saturated units close into a new bounded bearer (+1 tier)</td>
+<td>Rewrite / substitution rules that replace a local pattern by another</td>
+</tr>
+<tr>
+<td>Hierarchy from iteration</td>
+<td>Particles → atoms → molecules → …; cells → organisms; families → society (organised by κ)</td>
+<td>Complex structures from simple programs; geometry and particles as large-scale features of evolving graphs</td>
+</tr>
+<tr>
+<td>Time from process</td>
+<td>Duration of unit-activity (<em>kaal</em>); O has no duration (MVD p. 34; kernel §4.11)</td>
+<td>Time as successive update events; no intrinsic continuum time</td>
+</tr>
+<tr>
+<td>Branching outcomes</td>
+<td>Compound (<em>yaugik</em>) vs mixture (<em>mishran</em>); multiway social / evaluation paths under <em>bhram</em></td>
+<td>Multiway systems: all admissible update orders / rule applications</td>
+</tr>
+<tr>
+<td>Irreducible complexity</td>
+<td>Human knowledge-order discontinuity; taught selection predicates (T1, pairing) left open</td>
+<td>Computational irreducibility: outcomes not shortcuttable in general</td>
+</tr>
+<tr>
+<td>Formal rewrite flavour</td>
+<td>Initial algebra generated by κ; optional Petri-net bookkeeping (kernel §6)</td>
+<td>Hypergraph / string rewriting; causal and branchial graphs</td>
+</tr>
+</tbody>
+</table></div>
+<p>These parallels justify a serious comparison. They do <strong>not</strong> justify identifying the two programmes. The divergences in §3 are load-bearing for <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>.</p>
+<hr/>
+<h2 id="2-wolframs-picture-in-brief-for-md-readers">2. Wolfram&rsquo;s picture in brief (for MD readers)</h2>
+<h3>2.1 From cellular automata to a computational universe (NKS)</h3>
+<p>In <em>A New Kind of Science</em>, Wolfram&rsquo;s central empirical claim is that extremely simple local update rules — for example elementary cellular automata whose next cell state depends only on a cell and its two neighbours — can generate behaviour of every complexity class, including behaviour that looks random and cannot be compressed by a shortcut formula (<strong>Wolfram NKS</strong>, esp. Chs. 2–3; rule formulas at <a href="https://www.wolframscience.com/nks/">wolframscience.com/nks</a>). The philosophical upshot is the <strong>Principle of Computational Equivalence</strong>: once a threshold of computational sophistication is crossed, almost all systems are equivalent in the computations they can perform, and irreducible computation is ubiquitous (<strong>Wolfram NKS</strong>, Ch. 12).</p>
+<p>For MD comparison, the relevant NKS move is not any particular rule number (Rule 30, Rule 110, …) but the <em>form</em> of explanation: specify discrete state, specify a local update rule, iterate, and read macroscopic structure as emergent.</p>
+<h3>2.2 Hypergraph rewriting (Wolfram Physics Project)</h3>
+<p>The Physics Project generalises the cellular-automaton intuition to a candidate ontology of physical space (<strong>Wolfram 2020</strong>; <strong>Wolfram Physics TI</strong> §8.2):</p>
+<ul>
+<li>The universe is represented as an evolving <strong>hypergraph</strong>: nodes are intrinsically identical &ldquo;atoms of space&rdquo;; hyperedges are relations among them.</li>
+<li>There is <strong>no intrinsic continuum space</strong>, no intrinsic matter distinct from the graph, and no intrinsic time: space, matter, and time are large-scale features of update history.</li>
+<li>An <strong>update rule</strong> is a local rewrite: whenever a piece of the hypergraph matches a left-hand pattern, replace it by a right-hand pattern.</li>
+<li>Many update orders are possible; the <strong>multiway system</strong> keeps all branches. <strong>Causal invariance</strong> (when present) makes different updating sequences causally equivalent, and is used to recover relativity-like and quantum-like features.</li>
+<li>Energy, particles, and geometry are proposed as measures of local evolution density and stable local features of the hypergraph (<strong>Wolfram Physics TI</strong> §8.2).</li>
+</ul>
+<h3>2.3 The ruliad</h3>
+<p>Later writings enlarge the picture from &ldquo;one rule for our universe&rdquo; to the <strong>ruliad</strong>: the entangled limit of <em>all</em> possible computational rules applied in all possible ways (<strong>Wolfram 2021</strong>; <strong>Wolfram 2026</strong>). Physical laws then become what a bounded observer samples from that limit, rather than a single privileged axiomatic law written into existence from outside.</p>
+<h3>2.4 What &ldquo;update rule&rdquo; means in Wolfram&rsquo;s vocabulary</h3>
+<p>For this note, a Wolfram-style update rule is a <strong>local, syntactic, pattern-to-pattern rewrite</strong> on a discrete relational structure, applied repeatedly (possibly in multiway fashion), from which spacetime, matter, and observers are to be recovered as emergent. The rule language itself is intentionally thin: identity of elements, adjacency / incidence, and substitution. Semantics beyond that must emerge.</p>
+<hr/>
+<h2 id="3-where-the-programmes-diverge">3. Where the programmes diverge</h2>
+<p>The similarities of §1 sit on incompatible ontological commitments. Ignoring those commitments produces a false identification (&ldquo;MD is just Wolfram with Sanskrit labels&rdquo;).</p>
+<h3>3.1 Carriers versus identical atoms of space</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th></th>
+<th>MD kernel</th>
+<th>Wolfram Physics Project</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Basic element</td>
+<td>Real <strong>unit</strong> with boundary, constitution, order, state, capacities <code>B(u)</code></td>
+<td>Intrinsically identical node; only relations distinguish nodes</td>
+</tr>
+<tr>
+<td>Ontological weight</td>
+<td>Carrier-primacy: the unit is not identified with its behaviour or with the sum of its relations (kernel §§2.1, 6.1)</td>
+<td>Relationism: the hypergraph <em>is</em> the content of the universe</td>
+</tr>
+<tr>
+<td>Aspects</td>
+<td>Form, <em>guna</em>, <em>svabhav</em>, <em>dharma</em> evidenced in mutuality via <code>M(u,c)</code></td>
+<td>No intrinsic aspect inventory; features emerge from rewrite history</td>
+</tr>
+</tbody>
+</table></div>
+<p>Wolfram&rsquo;s nodes are deliberately featureless so that <em>all</em> structure comes from connectivity and updates. MD&rsquo;s units are deliberately featureful so that mutuality has something definite to recognise and fulfil. The kernel&rsquo;s <strong>carrier-coalgebra</strong> reading refuses the final coalgebra precisely to block the reduction of a unit (especially <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>) to a pure relational role.</p>
+<h3>3.2 The medium O has no Wolfram counterpart</h3>
+<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s first ontological relation is <strong>saturation</strong> in actionless <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span></em> (O): every unit is soaked, submerged, surrounded; O endows activeness, recognition-capability, and inherent regulation without itself updating (A1; SB pp. 48–57, 69; JV p. 18). Wolfram&rsquo;s hypergraph is a closed computational world: there is no second pole that provisions energy and lawfulness without participating in the rewrite.</p>
+<p>Consequences:</p>
+<ul>
+<li>In MD, energisation is <strong>constitutive endowment</strong>, not a local density of update events.</li>
+<li>O never appears as a left- or right-hand pattern in κ. The <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span></em> firewall (A1) forbids treating O as an input summand or rewrite participant.</li>
+<li>Any Wolfram-style encoding of MD that represents <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span></em> as another node (or as &ldquo;space atoms&rdquo;) collapses the darshan&rsquo;s two-pole coexistence into one-pole computational monism.</li>
+</ul>
+<h3>3.3 Complementarity versus free pattern match</h3>
+<p>Wolfram rewrites fire whenever a syntactic pattern matches. MD&rsquo;s κ fires only when an <strong>order-indexed complementarity</strong> <code>C_o(u₁,…,uₙ;c)</code> holds, recognised and evaluated before fulfilment:</p>
+<pre><code class="language-text">κ_o(u₁,…,uₙ;c) = closure(φ_o(ρ_o(…), ε_o(…)))
+</code></pre>
+<p>Deficiency-met-by-surplus is the material instance (hungry / overfull atoms, MVD p. 8); higher orders use nutrient fit, species fit, or understood value-expectation (kernel §2.3, §7). Mixture is the same coupling when closure fails — φ delivers results, but no new boundary forms (MVD p. 42). That is a <strong>semantic</strong> branch, not merely an alternate update order.</p>
+<p>So MD does not authorise &ldquo;every local rewrite that the syntax allows.&rdquo; It authorises a narrow family of complementarity-conditioned closures, plus non-closing mixtures.</p>
+<h3>3.4 Completeness-orientation versus open rule-space / ruliad</h3>
+<p>A2 orients every unit&rsquo;s activity toward <strong>development and completeness</strong> appropriate to its order — not toward indefinite quantitative increase, and not toward exploring all formal rules (SB p. 51; kernel §2.2). Wolfram&rsquo;s NKS explores vast rule spaces; the ruliad <em>is</em> the space of all rules. MD&rsquo;s teleology is a selection principle <em>inside</em> nature, not an invitation to treat every computationally possible rewrite as ontic.</p>
+<p>The natural/excited distinction and the conditional Lyapunov family <code>K_o</code> (kernel §4.12) further bias dynamics toward order-relative natural regimes. That is closer to a constrained attractor story than to undirected multiway exploration — though still not a universal least-action law.</p>
+<h3>3.5 Value, recognition, and the knowledge-order discontinuity</h3>
+<p>Wolfram&rsquo;s programme recovers physics-like structure from computation; value and justice are not primitive. MD treats <strong>essentiality-as-value</strong> as the content of fulfilment at every tier (SB p. 50), and treats human justice as the closed cycle ρ → φ → μ → mutual satisfaction (MVD p. 311). Fallibility under <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="bhram" data-definition="Delusion — living by inherited belief rather than understanding, rooted in identifying *jeevan* with the body.">bhram</button></span></em> is a typed failure mode of human reflexive evaluation, not computational noise. No hypergraph rewrite language currently carries this content without grafting an external semantics.</p>
+<h3>3.6 Conservation and beginninglessness</h3>
+<p>MD asserts beginningless coexistence and that existence neither increases nor decreases (JV p. 127); composite organisations form and dissolve while participating realities persist (<em>Ontology</em> §1.10; kernel conservation postulate). Wolfram&rsquo;s models typically grow hypergraphs and treat cosmogenesis as computational evolution from simple initials; the ruliad is &ldquo;always already&rdquo; in a formal sense, but that is not the same two-pole beginningless saturation doctrine. Mapping requires care: MD conservation is closer to <strong>rearrangement within a fixed inventory of carriers</strong> than to unbounded node creation as fundamental ontology.</p>
+<h3>3.7 Summary of divergence</h3>
+<p>Wolfram offers a <strong>computational monism of relations and rewrites</strong>. MD offers a <strong>coexistential dualism of actionless medium and real units</strong>, with typed complementary closure as the generative engine and value-laden fulfilment as the content of mutuality. The shared discrete-generative <em>shape</em> is real; the ontological <em>filling</em> is not.</p>
+<hr/>
+<h2 id="4-can-the-md-kernel-ground-wolfram-style-update-rules">4. Can the MD kernel ground Wolfram-style update rules?</h2>
+<h3>4.1 Verdict in one paragraph</h3>
+<p><strong>Yes, as a constrained rewrite specification language; no, as a reduction of MD to the Wolfram Physics Project.</strong> The kernel already writes generative structure in rule form (κ). That form can be implemented as attributed hypergraph (or Petri-net) rewriting <em>provided</em> the rewrite engine is enriched with: (i) typed carriers bearing <code>B(u)</code>, (ii) saturation as a global lawfulness environment rather than a node, (iii) complementarity <code>C_o</code> as the match predicate, (iv) coupling anatomy ρ/ε/φ before closure, (v) compound vs mixture as alternate outcomes, (vi) A2 / natural-state bias as admissibility or preference over branches, and (vii) a separate reflexive layer for <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> that is not another literal κ firing. Strip those enrichments and the result is no longer <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>.</p>
+<h3>4.2 What the kernel already supplies as &ldquo;rules&rdquo;</h3>
+<p>The reconstruction already contains several rule-shaped objects:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Kernel object</th>
+<th>Rule-like reading</th>
+<th>Wolfram analogue (loose)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>κ</td>
+<td>Typed production: complementary units → new bearer (+1 tier)</td>
+<td>Hypergraph rewrite that merges / replaces a matched subgraph by a compound node with new incidence</td>
+</tr>
+<tr>
+<td>Mixture</td>
+<td>Same match, non-closing outcome</td>
+<td>Rewrite that updates edge labels / state without changing node inventory</td>
+</tr>
+<tr>
+<td><code>ρ → ε → φ</code></td>
+<td>Phased coupling protocol before κ</td>
+<td>Multi-stage event; not a single atomic substitution</td>
+</tr>
+<tr>
+<td>Triad effort–motion–result</td>
+<td>Joint activity form of every saturated unit</td>
+<td>Local evolution event; but MD denies reducing the unit to the event</td>
+</tr>
+<tr>
+<td>Natural / excited + <code>K_o</code></td>
+<td>Conditional relaxation dynamics</td>
+<td>Preferential updating toward a natural submanifold of state space</td>
+</tr>
+<tr>
+<td>T1 reflexive turn</td>
+<td>Guarded partial transition at constitutional completeness</td>
+<td>Not a generic rewrite; a typed regime change</td>
+</tr>
+<tr>
+<td>τ transmission</td>
+<td>Re-instantiation of composition method across member turnover</td>
+<td>Rule that copies a method-pattern into new carriers</td>
+</tr>
+<tr>
+<td>Society colimit</td>
+<td>Compatibility-conditioned gluing of overlapping assemblies</td>
+<td>Multiway / branch merge only when local value assignments agree</td>
+</tr>
+</tbody>
+</table></div>
+<p>κ is already written as an inference rule in the study:</p>
+<pre><code class="language-text">  u₁, …, uₙ ∈ U_o saturated in O        C_o(u₁, …, uₙ)        closure of a new motion-path
+  ─────────────────────────────────────────────────────────────────────────────────────────
+                        κ(u₁, …, uₙ) ∈ U   —   a new bearer and relational profile, +1 tier
+</code></pre>
+<p>That is the MD candidate for &ldquo;the&rdquo; generative update — but it is <strong>semantic and typed</strong>, not a bare pattern substitution.</p>
+<h3>4.3 A workable hybrid encoding (research proposal)</h3>
+<p>The following encoding preserves MD commitments while borrowing Wolfram&rsquo;s discrete multiway machinery. It is a <strong>formal research proposal</strong>, not a claim that the primary texts contain it.</p>
+<p><strong>State.</strong> An attributed hypergraph <code>G = (V, E, β, μ_c)</code> where:</p>
+<ul>
+<li><code>V</code> is a set of <strong>unit-nodes</strong> (never &ldquo;space atoms&rdquo;). Each <code>v ∈ V</code> carries bearer data <code>β(v) = B(u)</code> and order <code>o(v)</code>.</li>
+<li><code>E</code> contains <strong>coupling-hyperedges</strong> (recognised mutualities) and optional <strong>constitution-hyperedges</strong> (nucleus/orbit bookkeeping for atoms).</li>
+<li><code>μ_c</code> stores context-indexed manifestation caches for <code>M(u,c)</code> where needed for evaluation — evidence indexes, not substitutes for carriers.</li>
+<li><strong>O is not a vertex.</strong> Saturation is a global invariant: every <code>v</code> is marked saturated; A1 constraints are typing laws on admissible states and events. Implementing O as a ubiquitous ambient node is forbidden by the <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span></em> firewall.</li>
+</ul>
+<p><strong>Event sorts</strong> (update alphabet):</p>
+<ol>
+<li><strong>Recognise</strong> <code>ρ</code>: add or enable a coupling-hyperedge when <code>C_o</code> is candidate-true under conditions <code>c</code>.</li>
+<li><strong>Evaluate</strong> <code>ε</code>: attach an expectation / fit profile to that edge.</li>
+<li><strong>Fulfil</strong> <code>φ</code>: update capacities, states, and manifestation evidence along the profile (results flow).</li>
+<li><strong>Close</strong> <code>κ</code>: if the fulfilled coupling closes a new motion-path, replace the matched open assembly by a new compound node (or add a boundary wrapping the participants) and reattach external incidences; assign new <code>B(u')</code>.</li>
+<li><strong>Mix</strong>: if fulfilment occurs without closure, update states only; participants keep conducts (MVD p. 42).</li>
+<li><strong>Relax</strong>: order-local updates that decrease <code>K_o</code> under conducive conditions (excited → natural), without requiring κ.</li>
+<li><strong>Transmit</strong> <code>τ</code>: copy a method pattern into new member-nodes (order-specific carrier of <em>rachna vidhi</em>).</li>
+<li><strong>Reflexive layer</strong> (knowledge order only): events <code>ν, β, μ, π</code> acting on <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> coherence — <strong>not</strong> instances of κ.</li>
+</ol>
+<p><strong>Multiway structure.</strong> Concurrent couplings yield a multiway graph of event sequences. Causal graphs can be drawn exactly as in Wolfram&rsquo;s toolkit. <strong>Admissibility filters</strong> prune the ruliad-like explosion:</p>
+<ul>
+<li>Only events respecting A1 (no O participation; recognition/regulation intact).</li>
+<li>Only κ-candidates satisfying <code>C_o</code>.</li>
+<li>Preference or soft constraint toward decreasing <code>K_o</code> when unforced.</li>
+<li>Human branches may include <code>μ ≠ ε</code> only under <code>HumanBody ∧ Bhram</code>.</li>
+<li>Society gluing merges branches only under value-compatibility (kernel §6.2).</li>
+</ul>
+<p><strong>What this is good for.</strong></p>
+<ul>
+<li>Simulation experiments at the material tier: hungry/overfull bonding → molecule; mixture vs compound.</li>
+<li>Organisational diagnosis: walk unmet clauses (ρ/ε/φ/τ) as failed events in an assembly&rsquo;s rewrite trace (<a href="../How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.md">How To Form Self-Sustaining Organizations</a>).</li>
+<li>Clear interface to category spine: κ as initial-algebra constructor; society as colimit; carrier-coalgebra as the anti-reduction constraint on node identity.</li>
+</ul>
+<p><strong>What this is not.</strong></p>
+<ul>
+<li>Not a candidate fundamental theory of physics replacing GR/QFT.</li>
+<li>Not a derivation of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, O, or T1 from computational necessity.</li>
+<li>Not an endorsement of the ruliad as MD metaphysics.</li>
+</ul>
+<h3>4.4 Mapping table: kernel → rewrite ingredients</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>MD ingredient</th>
+<th>Role in update rules</th>
+<th>Must not be rewritten as</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>O / saturation</td>
+<td>Global typing + endowment axioms</td>
+<td>A node, token, or energy reservoir depleted by updates</td>
+</tr>
+<tr>
+<td>U / <code>B(u)</code></td>
+<td>Attributed node identity</td>
+<td>Anonymous relational vertex</td>
+</tr>
+<tr>
+<td>A1 activeness</td>
+<td>Every unit may host activity events</td>
+<td>Extra force term from O</td>
+</tr>
+<tr>
+<td>A1 recognition</td>
+<td>Enables <code>ρ</code> matches</td>
+<td>Omniscient global match without unit-legibility</td>
+</tr>
+<tr>
+<td>A1 regulation</td>
+<td>Constrains admissible local dynamics</td>
+<td>External controller process</td>
+</tr>
+<tr>
+<td>A2</td>
+<td>Soft/hard filter on development transitions</td>
+<td>Unbounded growth objective</td>
+</tr>
+<tr>
+<td><code>C_o</code></td>
+<td>Match predicate for κ</td>
+<td>Purely syntactic subgraph isomorphism</td>
+</tr>
+<tr>
+<td>φ without closure</td>
+<td>Mixture update</td>
+<td>Failed rule / no-op</td>
+</tr>
+<tr>
+<td>κ closure</td>
+<td>Compound production rule</td>
+<td>Mere aggregation or cluster label</td>
+</tr>
+<tr>
+<td>Reflexive turn</td>
+<td>Separate event sort after T1</td>
+<td>Another κ on the same signature</td>
+</tr>
+<tr>
+<td>Value / justice</td>
+<td>Edge content + closure test at knowledge order</td>
+<td>Scalar reward emergent from graph density</td>
+</tr>
+<tr>
+<td>Time <code>δ</code></td>
+<td>Duration grading of events</td>
+<td>Background integer tick identical with &ldquo;truth&rdquo;</td>
+</tr>
+</tbody>
+</table></div>
+<h3>4.5 What would count as success or failure of the hybrid</h3>
+<p><strong>Success (modest).</strong> A toy material-order simulator in which:</p>
+<ul>
+<li>stated hungry/overfull pairs produce compounds under <code>C_material</code>;</li>
+<li>non-complementary pairs do not;</li>
+<li>mixtures preserve component conducts;</li>
+<li>node identities persist across mixture updates;</li>
+<li>O never appears in the event log as a participant;</li>
+<li>duration can be graded on event sequences.</li>
+</ul>
+<p><strong>Success (stronger).</strong> The same engine hosts biological composition and human conduct-compound analogies with explicit order typing, and organisational failure localises to a missing event sort (ρ, φ, μ, or τ).</p>
+<p><strong>Failure modes that kill the proposal.</strong></p>
+<ul>
+<li>Implementing units as featureless nodes &ldquo;because Wolfram does&rdquo; — loses carrier-primacy.</li>
+<li>Implementing saturation as a rewriteable edge to an O-node — violates A1 firewall.</li>
+<li>Treating A2 as maximising a scalar (&ldquo;more nodes,&rdquo; &ldquo;more edges&rdquo;) — contradicts completeness-orientation.</li>
+<li>Generating <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> by ordinary κ iteration without the guarded reflexive fixed point — misreads T1.</li>
+<li>Claiming empirical physics predictions without new contact with measurement — repeats the kernel&rsquo;s own limitation (kernel §10).</li>
+</ul>
+<hr/>
+<h2 id="5-applicability-assessment">5. Applicability assessment</h2>
+<h3>5.1 Where Wolfram&rsquo;s approach is applicable to MD work</h3>
+<ol>
+<li><strong>Discrete generative intuition.</strong> NKS-level pedagogy helps readers see why κ-iteration can yield tiered hierarchy without continuum fields as primitives.</li>
+<li><strong>Multiway bookkeeping.</strong> Causal/branchial graphs are a useful notation for concurrent couplings, alternative update orders, and delusion-branching at the knowledge order.</li>
+<li><strong>Rewrite engineering.</strong> Double-pushout / hypergraph rewriting and Petri nets (already noted as optional annotation in kernel §6.3) are the right <em>implementation</em> class for κ and φ.</li>
+<li><strong>Irreducibility hygiene.</strong> Computational irreducibility is a useful warning against expecting a closed-form shortcut from A1–A2 to all taught data (faculty inventory, value kinds, T1 predicate).</li>
+<li><strong>Explorer mindset.</strong> Systematic enumeration of small typed rule variants under MD constraints could clarify which complementarity predicates <code>C_o</code> are stable — a research tool, not an ontology.</li>
+</ol>
+<h3>5.2 Where Wolfram&rsquo;s approach is not applicable (or is misleading)</h3>
+<ol>
+<li><strong>As MD&rsquo;s metaphysics.</strong> Ruliad / computational monism replaces coexistence&rsquo;s two poles with one formal limit of rules.</li>
+<li><strong>As a theory of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span></em>.</strong> Actionless omnipresent medium is not emergent geometry of a hypergraph.</li>
+<li><strong>As a theory of value and justice.</strong> Essentiality and mutual satisfaction are not graph-density observables.</li>
+<li><strong>As a complete physics of MD atoms.</strong> MD&rsquo;s atom (<em>parmanu</em> with nucleus and orbits) is not the Physics Project&rsquo;s atom of space; conflating them creates pseudo-agreement (<em>Ontology</em> research note on physics vocabulary; KD 3.1).</li>
+<li><strong>As unrestricted rule search.</strong> A2 and <code>C_o</code> forbid treating the space of all rewrites as the space of existence.</li>
+</ol>
+<h3>5.3 Relative to frameworks already compared in the kernel</h3>
+<p>Kernel §9 already situates MD against holarchy, autopoiesis, multilevel selection, thermodynamic self-organisation, and bare category-theoretic composition. Wolfram slots in as follows:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Framework</th>
+<th>Shared with MD</th>
+<th>Differs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wolfram NKS / Physics Project</td>
+<td>Discrete local generation; time-from-updates; multiway branching; irreducibility</td>
+<td>No O; relationist nodes; syntactic match; open/all-rules ethos; physics-from-computation ambition</td>
+</tr>
+<tr>
+<td>Category composition (already in kernel)</td>
+<td>κ, colimits, coalgebras</td>
+<td>Silent on which compositions occur — complementarity supplies the missing selection</td>
+</tr>
+<tr>
+<td>Autopoiesis</td>
+<td>Persistence by organised self-production</td>
+<td>Living systems only; MD runs from atoms upward and grounds persistence in fulfilment</td>
+</tr>
+<tr>
+<td>Thermodynamic self-organisation</td>
+<td>Structure from flows</td>
+<td>MD energisation is constitutive saturation, not free-energy throughput</td>
+</tr>
+</tbody>
+</table></div>
+<p>Wolfram is the closest <em>computational</em> neighbour; autopoiesis remains the closest <em>organisational</em> neighbour for living tiers; neither replaces O or value.</p>
+<hr/>
+<h2 id="6-open-problems-specific-to-this-comparison">6. Open problems specific to this comparison</h2>
+<ol>
+<li><strong>Specify <code>C_material</code> operationally</strong> enough to run a toy κ-rewriter (deficiency/surplus measures without pretending they are modern atomic numbers).</li>
+<li><strong>Choose a rewrite formalism</strong> (DPO hypergraph rewriting vs coloured Petri nets vs attributed graph transformation) and prove that mixture vs compound are distinct morphisms, not encoding accidents.</li>
+<li><strong>Express A1 as invariants</strong> preserved by every event sort (especially &ldquo;O ∉ participants&rdquo;).</li>
+<li><strong>Relate multiway causal graphs to duration grading <code>δ</code></strong> without smuggling background time.</li>
+<li><strong>Encode natural-state preference</strong> without collapsing A2 into a single Lyapunov function across orders.</li>
+<li><strong>Keep <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> non-emergent from κ</strong> while still allowing T1 as a guarded transition in the same simulator.</li>
+<li><strong>Avoid ruliad creep:</strong> document that exploring rule variants is methodological, not a claim that existence is the limit of all rules.</li>
+<li><strong>Empirical contact remains open</strong> — same limitation as kernel §10; Wolfram tools do not remove it.</li>
+</ol>
+<hr/>
+<h2 id="7-conclusion">7. Conclusion</h2>
+<p>The resemblance between <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s generative kernel and Wolfram&rsquo;s computational universe is genuine at the level of <strong>discrete local generation, process-time, branching, and hierarchical emergence</strong>. It stops at the level of <strong>ontology and selection</strong>. MD requires real carriers, an actionless saturating medium, complementarity-conditioned closure, fulfilment-with-value, and completeness-orientation. Wolfram requires featureless relational elements, syntactic rewrite universality, and — in the ruliad — the space of all possible rules.</p>
+<p>Therefore:</p>
+<ul>
+<li><strong>Do not</strong> rewrite MD as &ldquo;the universe is a hypergraph.&rdquo;</li>
+<li><strong>Do</strong> use Wolfram-style rewrite and multiway machinery as an <strong>implementation and exploration layer</strong> for the already rule-shaped MD kernel, under the hybrid encoding of §4.3.</li>
+<li><strong>Treat κ, not an arbitrary cellular-automaton rule, as the generative update</strong>, with <code>C_o</code> and ρ/ε/φ as its match-and-fire protocol, and with O held outside the rewrite alphabet.</li>
+</ul>
+<p>If a later formal study extends <em>Coexistence From First Principles</em>, the natural next artifact is a small <strong>material-order κ-rewriter</strong> with an explicit admissibility filter — a Wolfram-inspired engine running MD rules, not a Wolfram ontology wearing MD terms.</p>
+<hr/>
+<h2 id="references">References</h2>
+<h3>Madhyasth Darshan (primary sources)</h3>
+<ul>
+<li><strong>MVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan (Manav Vyavahar Darshan)</em></a>. Cited: hungry/overfull atoms (p. 8); mixture and compound (p. 42); time as duration of activity (p. 34); justice as closure (p. 311); capacity–ability–receptivity (pp. 61–62).</li>
+<li><strong>SB</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf"><em>Samadhanatmak Bhautikvad</em></a>. Cited: coexistence and saturation (pp. 48–57); unit + energy fullness = activeness (p. 69); completeness-orientation (p. 51); essentiality as value (p. 50); composition is not development (pp. 75–76).</li>
+<li><strong>JV</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf"><em>Jeevan Vidya: An Introduction</em></a>. Cited: countable units (p. 45); no separation from Omnipresence (p. 18); nothing isolated (p. 43); existence neither increases nor decreases (p. 127).</li>
+<li><strong>KD</strong> — Nagraj, A. <em>Manav Karm Darshan</em>, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf">working English</a> of ch. 3 — corroboration for effort–motion–result and atomic development (3.1–3.3); not a published translation.</li>
+</ul>
+<h3>Related studies in this collection</h3>
+<ul>
+<li><a href="Coexistence-From-First-Principles.md"><em>Coexistence From First Principles</em></a> — kernel O/U/saturation, A1–A2, κ, coupling anatomy, formal spine (§§2–6).</li>
+<li><a href="../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.md"><em>The Ontology of Coexistence</em></a> — saturation, units, orders, compound/mixture, regulation ladder.</li>
+<li><a href="../The-Ontology-of-Coexistence/Research-Note-Physics-Of-Satta-Unit-Interaction.md"><em>Research Note: The Physics of Coexistence</em></a> — force/charge/mass/time vocabulary and the <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span></em> firewall.</li>
+<li><a href="../Nature-Of-Time/Nature-Of-Time.md"><em>Nature of Time</em></a> — duration-of-activity treatment paralleling process-time.</li>
+<li><a href="../How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.md"><em>How To Form Self-Sustaining Organizations</em></a> — forward use of fulfilment and transmission clauses.</li>
+</ul>
+<h3>Stephen Wolfram and computational universe (external)</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Tag</th>
+<th>Full reference</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Wolfram NKS</strong></td>
+<td>Wolfram, S. <em>A New Kind of Science</em>. Wolfram Media, 2002. Online edition.</td>
+<td>https://www.wolframscience.com/nks/</td>
+</tr>
+<tr>
+<td><strong>Wolfram 2020</strong></td>
+<td>Wolfram, S. &ldquo;Finally We May Have a Path to the Fundamental Theory of Physics… and It&rsquo;s Beautiful.&rdquo; <em>Stephen Wolfram Writings</em>, 14 Apr 2020.</td>
+<td>https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/</td>
+</tr>
+<tr>
+<td><strong>Wolfram Physics TI</strong></td>
+<td>Wolfram, S. <em>A Class of Models with the Potential to Represent Fundamental Physics</em> (Technical Introduction), §8.2 Basic Concepts. Wolfram Physics Project.</td>
+<td>https://www.wolframphysics.org/technical-introduction/potential-relation-to-physics/basic-concepts/</td>
+</tr>
+<tr>
+<td><strong>Wolfram 2021</strong></td>
+<td>Wolfram, S. &ldquo;Why Does the Universe Exist? Some Perspectives from Our Physics Project.&rdquo; <em>Stephen Wolfram Writings</em>, 29 Apr 2021.</td>
+<td>https://writings.stephenwolfram.com/2021/04/why-does-the-universe-exist-some-perspectives-from-our-physics-project/</td>
+</tr>
+<tr>
+<td><strong>Wolfram 2026</strong></td>
+<td>Wolfram, S. &ldquo;What Ultimately Is There? Metaphysics and the Ruliad.&rdquo; <em>Stephen Wolfram Writings</em>, Feb 2026.</td>
+<td>https://writings.stephenwolfram.com/2026/02/what-ultimately-is-there-metaphysics-and-the-ruliad/</td>
+</tr>
+</tbody>
+</table></div>
+<p>These Wolfram works are author-hosted or project-hosted for free reading; they are linked externally and listed in <a href="../../References/NOT-DOWNLOADED.md"><code>References/NOT-DOWNLOADED.md</code></a> rather than mirrored under <code>References/</code> (commercial book rights for the print NKS; HTML writings not added as local mirrors in this pass).</p>
+<hr/>
+<h2 id="method-note">Method note</h2>
+<p>MD claims follow the published English of MVD/SB/JV and the kernel reconstruction in <em>Coexistence From First Principles</em>; KD is corroboration only. Wolfram claims follow the cited writings and technical introduction; this note does not re-derive Physics Project mathematics (causal invariance proofs, continuum limits). The hybrid encoding of §4.3 is this note&rsquo;s construction — a proposed interface between programmes, not text from either corpus.</p></main>
+<script>
+(() => {
+  const toolbar = document.querySelector(".study-toolbar");
+  const prev = document.getElementById("study-section-prev");
+  const next = document.getElementById("study-section-next");
+  if (!toolbar || !prev || !next) return;
+
+  const sections = Array.from(document.querySelectorAll("h2[id]"));
+  const syncToolbarHeight = () => {
+    document.documentElement.style.setProperty(
+      "--study-toolbar-height",
+      `${toolbar.offsetHeight}px`
+    );
+  };
+
+  const sectionLabel = el => el.textContent.replace(/\s+/g, " ").trim();
+
+  const marker = () => (toolbar.offsetHeight || 0) + 16;
+
+  const currentIndex = () => {
+    const y = window.scrollY + marker();
+    let idx = -1;
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop <= y) idx = i;
+      else break;
+    }
+    return idx;
+  };
+
+  const setDisabled = (link, disabled, fallback) => {
+    link.classList.toggle("is-disabled", disabled);
+    if (disabled) {
+      link.removeAttribute("href");
+      link.setAttribute("aria-disabled", "true");
+      link.textContent = fallback;
+    } else {
+      link.setAttribute("aria-disabled", "false");
+    }
+  };
+
+  const update = () => {
+    if (!sections.length) {
+      setDisabled(prev, true, "\u2190 Previous section");
+      setDisabled(next, true, "Next section \u2192");
+      return;
+    }
+
+    const idx = currentIndex();
+
+    if (idx <= 0) {
+      setDisabled(prev, true, "\u2190 Previous section");
+    } else {
+      prev.classList.remove("is-disabled");
+      prev.href = `#${sections[idx - 1].id}`;
+      prev.setAttribute("aria-disabled", "false");
+      prev.textContent = `\u2190 ${sectionLabel(sections[idx - 1])}`;
+    }
+
+    if (idx < 0 || idx >= sections.length - 1) {
+      setDisabled(next, true, "Next section \u2192");
+    } else {
+      next.classList.remove("is-disabled");
+      next.href = `#${sections[idx + 1].id}`;
+      next.setAttribute("aria-disabled", "false");
+      next.textContent = `${sectionLabel(sections[idx + 1])} \u2192`;
+    }
+  };
+
+  syncToolbarHeight();
+  update();
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", () => {
+    syncToolbarHeight();
+    update();
+  });
+  const scrollToSection = id => {
+    const target = document.getElementById(id);
+    if (!target) return;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+  };
+
+  prev.addEventListener("click", event => {
+    if (prev.classList.contains("is-disabled")) return;
+    const href = prev.getAttribute("href");
+    if (!href || !href.startsWith("#")) return;
+    event.preventDefault();
+    scrollToSection(href.slice(1));
+  });
+  next.addEventListener("click", event => {
+    if (next.classList.contains("is-disabled")) return;
+    const href = next.getAttribute("href");
+    if (!href || !href.startsWith("#")) return;
+    event.preventDefault();
+    scrollToSection(href.slice(1));
+  });
+})();
+</script>
+<script>
+(() => {
+  let floatPanel = document.getElementById("term-tip-float");
+  if (!floatPanel) {
+    floatPanel = document.createElement("div");
+    floatPanel.id = "term-tip-float";
+    floatPanel.className = "term-tip-panel";
+    floatPanel.setAttribute("role", "tooltip");
+    floatPanel.hidden = true;
+    document.body.appendChild(floatPanel);
+  }
+
+  const hide = () => {
+    floatPanel.classList.remove("is-visible");
+    floatPanel.hidden = true;
+    floatPanel.textContent = "";
+  };
+
+  const show = (button, text) => {
+    floatPanel.textContent = text;
+    floatPanel.hidden = false;
+    floatPanel.classList.add("is-visible");
+    const rect = button.getBoundingClientRect();
+    const margin = 8;
+    let top = rect.top - floatPanel.offsetHeight - margin;
+    if (top < margin) top = rect.bottom + margin;
+    let left = rect.left;
+    const maxLeft = window.innerWidth - floatPanel.offsetWidth - margin;
+    if (left > maxLeft) left = Math.max(margin, maxLeft);
+    floatPanel.style.top = `${Math.max(8, top)}px`;
+    floatPanel.style.left = `${Math.max(8, left)}px`;
+  };
+
+  document.querySelectorAll(".term-tip").forEach(button => {
+    const definition = button.getAttribute("data-definition");
+    if (!definition) return;
+    button.setAttribute("aria-describedby", "term-tip-float");
+    const reveal = () => show(button, definition);
+    button.addEventListener("mouseenter", reveal);
+    button.addEventListener("focus", reveal);
+    button.addEventListener("mouseleave", hide);
+    button.addEventListener("blur", hide);
+    button.addEventListener("click", event => {
+      event.stopPropagation();
+      if (floatPanel.hidden) reveal();
+      else hide();
+    });
+  });
+
+  document.addEventListener("click", hide);
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") hide();
+  });
+})();
+</script>
+
+</body>
+</html>
