@@ -4,6 +4,9 @@
 .dev.vars
 .claude/settings.local.json
 
+# Office lock / temp files
+~$*
+
 node_modules/
 __pycache__/
 Scripts/_pdf_cache/
