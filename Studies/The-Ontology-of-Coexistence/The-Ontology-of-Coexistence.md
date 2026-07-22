@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 22, 2026, 7:26 AM IST
+**Edited on:** July 22, 2026, 8:46 AM IST
 **Status:** Released
 
 **The question:** What is Existence? What exists? Does what exists begin at some time? Does the individual self (*jeevan*) begin or end with the body? Is the world finally real?
@@ -133,7 +133,7 @@ The table is an analytical consolidation of statements distributed across MVD, S
 
 ![Two developments that must not be collapsed: compositional progression builds bodies and environments as support for jeevan; atomic development alone reaches constitutional completeness (T1) and continues through activity and conduct completeness (T2, T3)](1-two-developments.svg)
 
-![Madhyasth Darshan architecture of coexistence: Omnipresence and units as co-eternal poles bound by saturation; four orders labelled insentient (material, pranic) and sentient (animal, knowledge) with a sentience boundary at the pranic-to-animal junction; existential progression and the completeness transitions T1–T3](1-madhyasth-darshan-ontology.svg)
+![Madhyasth Darshan architecture of coexistence: Omnipresence and units as co-eternal poles bound by saturation; four orders with material and pranic as insentient and animal and knowledge as body–jeevan joint forms; separate compositional and atomic-development lines meeting in animal and human forms; and constitutional, activity, and conduct completeness T1–T3](1-madhyasth-darshan-ontology.svg)
 
 ### 1.6.1 Constitutional completeness (T1)
 
