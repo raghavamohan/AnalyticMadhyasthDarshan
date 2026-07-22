@@ -1,6 +1,6 @@
-# Madhyasth Darshan Ontology: A Conceptual Map and Primary-Text Guide
+# Madhyasth Darshan Ontology: A Core Conceptual Map and Primary-Text Guide
 
-This study aid presents the ontological architecture of Madhyasth Darshan as a single map. It is intended for repeated study: first follow the large structure in the figure, then use the numbered reading guide to locate each concept in the primary texts.
+This study aid presents the core ontological architecture of Madhyasth Darshan as a single map. It is intended for repeated study: first follow the large structure in the figure, then use the numbered reading guide to locate each concept in the primary texts. The figure follows the shortest path from coexistence to humane fulfilment; a final classification key explicitly maps the value families, karma, progressions, planes, human types, evaluative perspectives, social dimensions, and evidence standards that would overload one diagram.
 
 The map distinguishes two lines that are easily conflated. **Compositional progression** produces molecules, cells, bodies, and environments. **Development in the atom** reaches constitutional completeness as *jeevan* and continues, in the human joint form, toward activity completeness and conduct completeness. A body does not become *jeevan* merely by becoming biologically complex.
 
@@ -14,9 +14,9 @@ Read the figure from its ontological ground toward its lived evidence:
 
 1. **Existence is coexistence.** Formless Omnipresence (*satta*) and countless formful units (*ikai*) are eternally and inseparably present.
 2. **Saturation is the bond.** Units do not first exist independently and later enter Omnipresence; every unit is submerged, soaked, and surrounded in it.
-3. **Activity belongs to units in mutuality.** Omnipresence is actionless and non-transforming. Units are definite bearers, while form is reflected, relative properties become effective, essential nature is recognised as usefulness, and *dharma* is evidenced through order-specific participation.
+3. **Activity belongs to units in mutuality.** Omnipresence is actionless and non-transforming. Saturation ontologically entails energy-fullness, forcefulness, recognition, regulation, and activity as effort–motion–result; the texts do not supply a separate physical mechanism for this entailment. Units are definite bearers, while form is reflected, relative properties become effective, essential nature is recognised as usefulness, and *dharma* is evidenced through order-specific participation.
 4. **Nature has four orders.** Material and pranic orders are insentient. Animal and knowledge orders are joint expressions of an insentient body and sentient *jeevan*.
-5. **Development has two lines.** Compositional progression supplies bodies and environments. Development in the atom supplies constitutionally complete *jeevan*.
+5. **Development has two lines.** Compositional progression supplies bodies and environments but does not produce T1, T2, or T3. Development in a constitution-oriented atom supplies constitutionally complete *jeevan* at T1; awakening within the human joint form proceeds through T2 and T3.
 6. **The first completeness is constitutional.** At *gathanpurnata* (T1), the atom's particle constitution closes and it becomes the sentient unit called *jeevan*.
 7. **The next two completions concern awakening.** Activity completeness (T2) is realisation and resolution; conduct completeness (T3) is their continuity as authentic conduct and living proof.
 8. **Ontology culminates in participation.** Understanding is evidenced through resolution, prosperity, fearlessness, coexistence, undivided society, and universal orderliness.
@@ -43,7 +43,7 @@ Page numbers below refer to the printed page numbers represented in the local Ma
 
 ### 3. Units (*ikai*) and their four aspects in mutuality
 
-**Concept.** Units are bounded, countable, formful realities. Every unit has form (*roop*), properties (*guna*), essential nature (*svabhav*), and *dharma*, but these do not form a static inventory of observable values. Form is the unit's real boundary and configuration and is reflected in mutual facing. *Guna* is relative power, effective when units come together. *Svabhav* is the essentiality or usefulness of that effect in an order and context. *Dharma* is the unit's inseparable innateness and fulfilment. Each unit remains an identifiable bearer and a whole with its environment while participating in overall orderliness.
+**Concept.** Units are bounded, countable, formful realities. Every unit has form (*roop*), properties (*guna*), essential nature (*svabhav*), and *dharma*, but these do not form a static inventory of observable values. Form is the unit's real boundary and configuration and is reflected in mutual facing. *Guna* is relative power, effective when units come together. *Svabhav* is the essentiality or usefulness of that effect in an order and context. *Dharma* is the unit's inseparable innateness and fulfilment. Each unit remains an identifiable bearer and a whole with its environment while participating in overall orderliness. The peepal-tree example in the main study follows all four aspects through one pranic composition and distinguishes growth as *dharma* from seed-conformance as its mode of conduct.
 
 **Primary pointers.** SB, pp. 13–15, 48, 50–54, 248–252; MVD, pp. 11, 47, 50–51, 112; KD §3.1 and §§3.9–3.10, printed pp. 54–102.
 
@@ -51,7 +51,7 @@ Page numbers below refer to the printed page numbers represented in the local Ma
 
 ### 4. Saturation (*sampriktata*)
 
-**Concept.** Saturation names the inseparable presence of every unit in Omnipresence: submerged, soaked, and surrounded. It is not a temporal event, a transfer of substance, or an intervention performed by Omnipresence.
+**Concept.** Saturation names the inseparable presence of every unit in Omnipresence: submerged, soaked, and surrounded. It is not a temporal event, a transfer of substance, or an intervention performed by Omnipresence. Madhyasth Darshan treats energy-fullness, forcefulness, recognition, and regulation as ontological entailments of saturated unithood; the primary texts do not supply a separate physical mechanism for that entailment.
 
 **Primary pointers.** SB, pp. 48–50, 57, 61–62, 69; MVD, pp. 32–33, 40; JV, p. 18.
 
@@ -191,6 +191,112 @@ Integration–disintegration occurs among material constituents; vitalising–de
 **Primary pointers.** MVD, pp. 77, 101, 160–163; JV, pp. 61, 138.
 
 **Read for.** Mun–vritti, vritti–chitta, chitta–buddhi, and buddhi–atma harmony; the four stages of happiness; and their public evidence in person, family, society, and universal orderliness.
+
+## Classification key for the full ontology
+
+The figure and numbered guide show the core dependency structure. The following compact keys make the remaining classifications explicit without forcing them into the central diagram.
+
+### Units, relations, composition, and action
+
+| Distinction | Meaning | Main-study location |
+|---|---|---|
+| Levels of unithood | The atom is the root unit; a molecule, cell, body, or planet is a composite unit while its organisation persists; a body–*jeevan* joint form coordinates two distinct units; a human assembly is a relationally achieved whole | §§1.1, 1.10, 1.14 |
+| Natural and excited states | The natural state accords with definite conduct; the excited state is activity displaced from that accord by pressure and therefore liable to decline | §1.3 |
+| Relationship and association | A relationship carries expectations inherent in fulfilment; an association carries voluntarily adopted expectations | §1.4 |
+| Mixture, compound, biological composition, and assembly | A mixture retains component conducts; a compound establishes a new bounded composition; a biological composition transmits its method through seed and lineage; a humane assembly is sustained through recognised relationships and values | §1.10 |
+| Time and causation | Time is the duration of unit-activity. *Satta* sustains coexistence but does not perform transformations; units are the efficient actors in mutuality | §1.6.4 |
+| Karma | Aspiration joined to activity becomes karma. Its five limbs are doer, cause, objective, result, and wider effect. Freedom in action does not cancel causal consequences; awakening removes unresolved dependence while undergoing them | §1.7.1 |
+
+When a composite form disintegrates, that organisation ends while its constituent realities persist in other relations. This is why conservation must not be expressed as the permanence of every composite unit.
+
+### Five value families and six individual value types
+
+MVD presents five value families. Its object-value family contains two distinguishable values—utility and art—so separating them yields six individual value types.
+
+| Value family | Content |
+|---|---|
+| Object values | Utility: definite usefulness of an object; art: meaningful aesthetic enhancement of usefulness |
+| *Jeevan* values | Happiness, peace, contentment, and bliss—the four harmonies among the faculties of *jeevan* |
+| Human values | The value-domain through which humaneness becomes evident; closely related humane and higher-humane essential natures include fortitude, courage, generosity, kindness, grace, and compassion |
+| Established values | Relationship values such as trust, respect, affection, care, guidance, reverence, gratitude, and love |
+| Civic values (*shishta-mulya*) | Right-use and purposeful-use of body, mind, and wealth in social participation; “expression values” is an explanatory alternative, not another family |
+
+Relationship supplies the recognised mutuality, value identifies what fulfils it, evaluation checks the fulfilment, and mutual satisfaction completes justice (§§1.4, 1.12).
+
+### Four progressions, four planes, and five human types
+
+These classifications answer different questions and must not be collapsed into one ladder.
+
+| Progression | What it tracks |
+|---|---|
+| Existential progression (*niyati-kram*) | Definite manifestation of the four orders under conducive conditions; not a deterministic historical timetable |
+| Way of existence (*niyati-vidhi*) | Order-specific conformance: result-, seed-, species-, and sanskar-conformance |
+| Development progression (*vikas-kram*) | Physicochemical and constitution-oriented atomic development up to T1 |
+| Awakening progression (*jagriti-kram*) | Qualitative development within constitutionally complete *jeevan* toward T2 and T3 |
+
+| Plane | Developmental standing |
+|---|---|
+| Physicochemical | Insentient constitution and composition before T1 |
+| Delusional | Constitutionally complete *jeevan* without realisation; in humans, the body is taken as self |
+| Deific | T2 activity completeness: realisation and resolution |
+| Divine or complete | T3 conduct completeness: authentic conduct and its continuity |
+
+The five human types classify consciousness and conduct, not biological species or permanent social classes:
+
+| Human type | Standing in the ontology |
+|---|---|
+| Animalistic-human | Delusional plane; T1 only; conduct organised around bodily sensitivity |
+| Demonic-human | Delusional plane; T1 only; grouped with the animalistic type at this level because both remain body-identified |
+| Humane or discerning human | Awakening progression is becoming established; knowing and believing increasingly guide conduct |
+| Deific-human | T2; realisation and resolution |
+| Divine-human | T3; authentic conduct and living proof in humane tradition |
+
+An animal's hope-bound species-conformant expression is a limitation of its bodily medium, not the specifically human error of body-identification (§1.9).
+
+### Six evaluative perspectives and the dual role of justice
+
+| Perspective | Principal domain |
+|---|---|
+| Pleasant–unpleasant | Sensation and instinct |
+| Healthy–unhealthy | Bodily condition |
+| Profit–loss | Material production and exchange |
+| Justice–injustice | Human relationship and behaviour |
+| Dharma–adharma | Thought and resolution |
+| Truth–untruth | Existence as coexistence |
+
+The first three perspectives remain valid in their proper domains but cannot serve as the final standpoint for humane conduct. Justice is both the perspective that evaluates behaviour and the completed relational activity of recognition, value-fulfilment, evaluation, and mutual satisfaction. The law–justice–dharma–truth chain widens the field of evaluation rather than transforming one entity literally into another (§1.12).
+
+### Four human goals and five social dimensions
+
+| Human goal | Principal field of evidence |
+|---|---|
+| Resolution | Clarity and freedom from unresolved contradiction in the person |
+| Prosperity | Assurance of producing more physical goods than assessed family needs and using them appropriately |
+| Fearlessness | Trust in human mutuality and society |
+| Coexistence | Complementary living among humans and with the rest of nature |
+
+| Social dimension | Function |
+|---|---|
+| Education–sanskar | Transmits right understanding and the disposition to live by it |
+| Justice–preservation | Fulfils relationships and protects humaneness |
+| Health–restraint | Maintains the bodily condition and discipline needed to evidence awakening |
+| Production–work | Produces more than assessed physical needs through labour and skill |
+| Exchange–storage | Organises exchange through labour value and maintains reserves for continuity |
+
+The four goals describe widening evidence in person, family, society, and coexistence. The five dimensions are the public structures that make this evidence continuous as humane tradition (§1.15).
+
+### Method and evidence
+
+| Mode | What it can establish within the account |
+|---|---|
+| Logical exposition | Coherence of definitions and relations |
+| Study and self-examination | Intelligibility and first-person recognition of the proposed account |
+| Experiment and practice | Whether understanding regulates work, behaviour, and relationship |
+| Realisation | MD's claimed completion of knowing coexistence, *jeevan*, and humane conduct |
+| Conduct-evidence | Intersubjectively visible resolution, values, mutual satisfaction, and participation |
+| Instrument-based scientific inquiry | Publicly measurable confirmation or criticism of physical claims |
+
+The primary-text account does not provide an accepted measurement procedure for constitutional completeness, the *jeevan*–body interface, or post-death reassociation. Conduct-evidence therefore does not by itself convert every ontological claim into a contemporary scientific measurement (§1.16).
 
 ## Suggested reading paths
 
