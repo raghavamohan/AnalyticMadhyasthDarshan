@@ -27,7 +27,7 @@ Skills orchestrate `Scripts/_*.py`; they defer content and style rules to the se
 
 Available skills: `manage-studies`, `add-study`, `remove-study`, `rename-study`,
 `set-study-status`, `download-references`, `check-references`, `regenerate-study-pdf`,
-`generate-study-presentation`, `refine-studies-index`.
+`update-study-presentation`, `refine-studies-index`.
 
 | Section | Topic | Cursor mirror |
 |---------|--------|---------------|
