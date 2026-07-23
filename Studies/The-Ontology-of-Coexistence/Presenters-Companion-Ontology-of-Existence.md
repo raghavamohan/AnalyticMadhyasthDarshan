@@ -689,17 +689,17 @@ Because ontology can still be examined for definitions, entailments, and lived t
 
 Every jeevan bears the same five faculties and ten activities. In human living they answer one question — what makes me happy? — by organising in one of two ways.
 
-Under delusion, jeevan mistakes the body for the self. Its present faculties organise around accumulation, comfort, and safety, and mis-evaluation follows.
+Under delusion, body-identification leaves sensitivity unguided by cognisance. Selection and evaluation remain organised around pleasure, health, and profit.
 
-Under awakening, jeevan knows its true nature and coexistence. Resolve, desire, thought, and hope align around the core self — toward undivided society and universal orderliness.
+Under awakening, cognisance regulates sensitivity. Knowing and believing guide recognition and fulfilment toward justice, dharma, truth, and coexistence.
 
-No faculty is absent. Delusion directs evaluation toward the body; awakening aligns it with coexistence. Study supplies understanding; practice evidences and stabilises that alignment.
+No faculty is absent, and sensitivity is not rejected. Delusion lets sensory criteria rule; awakening balances sensitivity with cognisance, so understanding guides conduct.
 
 When the same fork is resolved in the individual and sustained across a tradition, it is evidenced as resolution, prosperity, fearlessness, and coexistence.
 
 ## Primary-text background
 
-JV, p. 93 (root of delusion); MVD Ch. 17 (ego → stubbornness → delusion); JV, p. 61; MVD, p. 13; study §§1.7–1.8, 1.10, 1.12, 1.15.
+SB, p. 64 (cognisance–sensitivity balance); JV, pp. 73–74, 92–94 (four-and-a-half activities); MVD, pp. 274–275; study §§1.7–1.8, 1.10, 1.12, 1.15.
 
 ## Likely questions from the audience
 
@@ -716,19 +716,19 @@ Awakening progression is graded (planes and human types). The slide's fork names
 
 This is where the completeness drive terminates: realisation in coexistence.
 
-The drive comes to rest when relationships across nature are fulfilled and made evident in coexistence — not because Omnipresence becomes a knower, but because awakened jeevan realises and evidences the coexistence in which it has always existed. Recognising and fulfilling become its living proof.
+Realisation coordinates three distinct roles: jeevan remains the knower, existence as coexistence remains the known, and threefold knowledge becomes evident through humane conduct.
 
 Realisation is bliss. Truth itself is abundance — coexistence; realisation of abundance itself is bliss; bliss itself is jeevan. And realisation is knowledge itself, because what is realised is the ground the unit was always soaked in.
 
-In projection, realisation is authenticity — knowledge, wisdom, and science unfolding into conduct. In reflection, the knower is jeevan filled with realisation. When resolve turns inward to the core self, self-realisation and realisation in coexistence arrive together.
+Threefold knowledge comprises the holistic view of coexistence, knowledge of jeevan, and knowledge of humane conduct. Projection makes that understanding evident as authenticity.
 
-What is known is existence itself — nature saturated in Omnipresence. Knowledge, knower, and known become uniform as roles in one bond. This is not merger. The knower remains a distinct jeevan. That guardrail is decisive against reading satta as a universal knowing Self.
+Jeevan remains the knower and seer. Realisation clarifies its own nature and the coexistence in which it participates; it does not dissolve the individual unit. The known is existence as coexistence: Omnipresence and real units in mutuality. Knowledge, knower, and known become coherent without becoming identical. That guardrail is decisive against reading satta as a universal knowing Self.
 
 ## Primary-text background
 
 “The goal of development is for nature, saturated in Omnipotence, to be realised in Omnipotence…” — SB, p. 81
 
-AVD, p. 217 (uniformity in knowledge, knowable & knower in the form of coexistence). MVD, pp. 14–15, 286–287. Study §1.13.
+SB, p. 116 and MVD, p. 126 (threefold knowledge); KD §§3.17–3.18 (knowledge, knower, and known); MVD, pp. 14–15, 286–287. Study §1.13.
 
 ## Likely questions from the audience
 
