@@ -60,3 +60,6 @@ Before finishing, confirm:
 - [ ] Companion PDF regenerated and changed pages visually verified
 - [ ] PPTX slide count equals PDF page count
 - [ ] `study-update` PR uses `Study slug: <Slug>` with the bare slug; Edited-on items are marked N/A for companion-only changes
+
+When the Presenter's Companion markdown or notes JSON also needs to track the
+deck, use [update-presenters-companion](../update-presenters-companion/SKILL.md).
