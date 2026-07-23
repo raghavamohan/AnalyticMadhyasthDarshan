@@ -19,6 +19,8 @@ Orchestration skill for the study lifecycle. Read the focused skill for your tas
 | Draft ↔ Released | [set-study-status](../set-study-status/SKILL.md) |
 | Rename slug / sync proposal metadata | [rename-study](../rename-study/SKILL.md) |
 | Regenerate PDF / fix diagrams | [regenerate-study-pdf](../regenerate-study-pdf/SKILL.md) |
+| Update teaching deck (PPTX) | [update-study-presentation](../update-study-presentation/SKILL.md) |
+| Update Presenter's Companion notes | [update-presenters-companion](../update-presenters-companion/SKILL.md) |
 | Audit / download references | [download-references](../download-references/SKILL.md) |
 
 ## Repository model
