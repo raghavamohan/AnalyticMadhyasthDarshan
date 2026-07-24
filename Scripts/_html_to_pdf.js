@@ -151,6 +151,29 @@ const outputPath = args[2]
   ? path.resolve(process.cwd(), args[2])
   : inputPath.replace(/\.html$/, '.pdf');
 
+/** Working English translations under References/ — not Studies/ catalog PDFs. */
+function isTranslationDocument(filePath) {
+  const normalized = filePath.replace(/\\/g, '/').toLowerCase();
+  const base = path.basename(normalized);
+  return (
+    base === 'kd-karm-darshan-english.html' ||
+    normalized.includes('/kd-karm-darshan-english/')
+  );
+}
+
+function buildFooterTemplate(editedOnDate) {
+  const datePart = editedOnDate
+    ? '<span>Edited on: ' + editedOnDate + '</span>'
+    : '';
+  return (
+    '<div style="width:100%;font-size:9pt;font-family:Georgia,serif;color:#666;padding:0 2cm;display:flex;justify-content:space-between;align-items:center;">' +
+    '<span>AnalyticMadhyasthDarshan.org</span>' +
+    datePart +
+    '<span>Page <span class="pageNumber"></span> of <span class="totalPages"></span></span>' +
+    '</div>'
+  );
+}
+
 (async () => {
   const executablePath = resolveChromeExecutable();
   if (!executablePath) {
@@ -170,6 +193,16 @@ const outputPath = args[2]
 
   await renderMermaidDiagrams(page);
 
+  let editedOnDate = '';
+  if (isTranslationDocument(inputPath)) {
+    editedOnDate = await page.evaluate(() => {
+      const bodyText = document.body.innerText || '';
+      const match = bodyText.match(/\*\*Edited on:\*\*\s*([^\n\r]+)/i) ||
+                    bodyText.match(/Edited on:\s*([^\n\r]+)/i);
+      return match && match[1] ? match[1].trim() : '';
+    });
+  }
+
   await page.pdf({
     path: outputPath,
     format: 'A4',
@@ -178,11 +211,7 @@ const outputPath = args[2]
     displayHeaderFooter: true,
     outline: true,
     headerTemplate: '<span></span>',
-    footerTemplate:
-      '<div style="width:100%;font-size:9pt;font-family:Georgia,serif;color:#666;padding:0 2cm;display:flex;justify-content:space-between;align-items:center;">' +
-      '<span>AnalyticMadhyasthDarshan.org</span>' +
-      '<span>Page <span class="pageNumber"></span> of <span class="totalPages"></span></span>' +
-      '</div>',
+    footerTemplate: buildFooterTemplate(editedOnDate),
   });
 
   await browser.close();
