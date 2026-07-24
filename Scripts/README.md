@@ -39,6 +39,8 @@ what to run **on that branch** before opening the PR.
 | Read one PDF page (cleaned) | `python Scripts/_quote_tool.py page <tag-or-path> <n> [--keyword kw]` |
 | Locate phrase in tagged source | `python Scripts/_quote_tool.py snippet <tag> "<phrase>"` |
 | Download / audit references | `python Scripts/_check_references.py` (full); `_audit_references.py` (bibliography only); `_download_references.py` (mirrors) |
+| Extract & audit KD Hindi root terms | `python Scripts/_extract_kd_hindi_terms.py` |
+| Review Rakesh Gupta translation alignment | `python Scripts/_review_rakesh_translations.py` |
 | Verify studies index | `python Scripts/_verify_studies_index.py` |
 | Rebuild index.html shell | `python Scripts/_build_studies_index.py` |
 | Cloudflare performance setup | `python Scripts/_cloudflare_performance.py` (`--apply-redirect`, `--apply-api`, `--apply-edge-security`, `--check-edge-security`; token in `.env`) |
