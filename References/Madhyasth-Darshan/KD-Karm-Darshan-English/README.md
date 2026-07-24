@@ -41,6 +41,12 @@ python Scripts/_kd_render_page_images.py
 # Rebuild KD-Translation-Glossary.xlsx from MD-Mapping + KD-Glossary-Additions.md
 python Scripts/_kd_build_glossary_xlsx.py
 
+# Extract Hindi root terms and perform terminology gap audit
+python Scripts/_extract_kd_hindi_terms.py
+
+# Audit mapped terms against Rakesh Gupta's MVD / SB / JV translations
+python Scripts/_review_rakesh_translations.py
+
 # Regenerate English PDF
 python Scripts/_convert_to_pdf.py "References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.md"
 node Scripts/_html_to_pdf.js "References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.html"
