@@ -12,6 +12,10 @@ Natural / Madhyasth Darshan — Coexistence-ism
 
 **Propounder and author:** A. Nagraj
 
+**Working English translation** (unpublished draft for study use)
+
+**Edited on:** July 24, 2026, 6:18 AM IST
+
 Shri Bhajanashram, Amarkantak
 
 District — Anuppur, M.P. (India) — 484886
