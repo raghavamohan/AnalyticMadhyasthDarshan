@@ -170,6 +170,29 @@ const outputPath = args[2]
 
   await renderMermaidDiagrams(page);
 
+  const docDate = await page.evaluate(() => {
+    const metaDate = document.querySelector('meta[name="dcterms.modified"]')?.content ||
+                     document.querySelector('meta[name="date"]')?.content;
+    if (metaDate) return metaDate;
+
+    const jsonLd = document.querySelector('script[type="application/ld+json"]');
+    if (jsonLd) {
+      try {
+        const data = JSON.parse(jsonLd.textContent);
+        if (data.dateModified) return data.dateModified;
+      } catch (_) {}
+    }
+
+    const bodyText = document.body.innerText || '';
+    const match = bodyText.match(/(?:Edited|Last updated|Translated) on:\s*([^\n\r<]+)/i);
+    if (match && match[1]) {
+      return match[1].trim();
+    }
+    return '';
+  });
+
+  const dateSpan = docDate ? docDate : '<span class="date"></span>';
+
   await page.pdf({
     path: outputPath,
     format: 'A4',
@@ -179,8 +202,9 @@ const outputPath = args[2]
     outline: true,
     headerTemplate: '<span></span>',
     footerTemplate:
-      '<div style="width:100%;font-size:9pt;font-family:Georgia,serif;color:#666;padding:0 2cm;display:flex;justify-content:space-between;align-items:center;">' +
+      '<div style="width:100%;font-size:8.5pt;font-family:Georgia,serif;color:#666;padding:0 2cm;display:flex;justify-content:space-between;align-items:center;">' +
       '<span>AnalyticMadhyasthDarshan.org</span>' +
+      '<span>Translated / Updated: ' + dateSpan + '</span>' +
       '<span>Page <span class="pageNumber"></span> of <span class="totalPages"></span></span>' +
       '</div>',
   });
