@@ -649,6 +649,13 @@ def proposal_stub_hrefs(slug: str) -> tuple[str | None, str | None]:
 
 
 def row_pdf_href(row: StudyRow) -> str | None:
+    # Planned studies are listed without a document link (AGENTS.md §2). An
+    # approved proposal stub on disk carries a rendered .html/.pdf, and
+    # sync_pre_catalog_proposals_to_catalog stores those on the row; they must
+    # not surface publicly, since the stub itself says it is not listed until a
+    # draft pull request lands.
+    if row.status == StudyStatus.ONGOING:
+        return None
     # Only honor a stored href when it actually points at a PDF. Older catalog
     # rows and README links stored the HTML "read" link here, which made the
     # index "download" control fetch HTML instead of the PDF.
@@ -662,6 +669,9 @@ def row_pdf_href(row: StudyRow) -> str | None:
 
 
 def row_html_href(row: StudyRow) -> str | None:
+    # Same rule as row_pdf_href: a planned study gets no public document link.
+    if row.status == StudyStatus.ONGOING:
+        return None
     if row.html_href:
         return row.html_href
     if not row.has_pdf:
@@ -1062,10 +1072,36 @@ def verify_catalog_json_sync(table: StudyTable) -> list[str]:
     return errors
 
 
+def verify_ongoing_document_links() -> list[str]:
+    """Planned studies must not advertise a document link (AGENTS.md §2).
+
+    An approved proposal stub leaves a rendered .html/.pdf in the study
+    directory. Those are pre-catalog artefacts and must stay unlinked until a
+    draft lands, or the catalogs publish a proposal as if it were a study.
+    """
+    errors: list[str] = []
+    for table in CATALOG_TABLES:
+        path = catalog_json_path(table)
+        if not path.is_file():
+            continue
+        for entry in json.loads(path.read_text(encoding="utf-8")):
+            if entry.get("status") != StudyStatus.ONGOING.value:
+                continue
+            offending = sorted(key for key in ("pdf", "html") if entry.get(key))
+            if offending:
+                errors.append(
+                    f"{entry.get('slug')}: ongoing study carries "
+                    f"{', '.join(offending)} in {path.name}; planned studies are "
+                    "listed without a document link."
+                )
+    return errors
+
+
 def verify_all_catalog_sync() -> list[str]:
     errors: list[str] = []
     for table in CATALOG_TABLES:
         errors.extend(verify_catalog_json_sync(table))
+    errors.extend(verify_ongoing_document_links())
     return errors
 
 
