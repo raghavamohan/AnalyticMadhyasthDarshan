@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import sys
-from datetime import datetime
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
@@ -11,7 +10,7 @@ SCRIPTS = Path(__file__).resolve().parent
 if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
-from _common import BASE, STUDIES, site_base_url  # noqa: E402
+from _common import BASE, site_base_url  # noqa: E402
 from _study_catalog import (  # noqa: E402
     CATALOG_TABLES,
     StudyRow,
@@ -32,13 +31,6 @@ def _lastmod_from_row(row: StudyRow) -> str | None:
     if row.edited_at is not None:
         return row.edited_at.strftime("%Y-%m-%d")
     return None
-
-
-def _lastmod_from_file(path: Path) -> str | None:
-    if not path.is_file():
-        return None
-    mtime = datetime.fromtimestamp(path.stat().st_mtime)
-    return mtime.strftime("%Y-%m-%d")
 
 
 def _study_html_site_path(slug: str, table: StudyTable) -> str:
@@ -89,16 +81,31 @@ def collect_sitemap_entries() -> list[tuple[str, str | None, str | None, str | N
         seen.add(loc)
         entries.append((loc, lastmod, changefreq, priority))
 
-    index_path = STUDIES / "index.html"
+    rows_by_table = {table: parse_catalog_json_file(table) for table in CATALOG_TABLES}
+
+    # The landing page changes when the catalog changes. Its file mtime tracked
+    # the last local rebuild instead, so this entry moved to the current date on
+    # every run; the newest study timestamp is stable across machines.
+    catalog_lastmods = [
+        stamp
+        for rows in rows_by_table.values()
+        for stamp in (_lastmod_from_row(row) for row in rows)
+        if stamp
+    ]
     add(
         "Studies/index.html",
-        lastmod=_lastmod_from_file(index_path),
+        lastmod=max(catalog_lastmods, default=None),
         changefreq="weekly",
         priority="1.0",
     )
 
     for table in CATALOG_TABLES:
-        for row in parse_catalog_json_file(table):
+        for row in rows_by_table[table]:
+            # Planned studies carry no catalog timestamp. Falling back to file
+            # mtime made lastmod track the last local regeneration rather than
+            # the last content change, so every rebuild rewrote those entries
+            # to the current date. lastmod is optional in the sitemap schema;
+            # omitting it is stabler than publishing a build artefact's mtime.
             lastmod = _lastmod_from_row(row)
 
             html_site_path = _study_html_site_path(row.slug, table)
@@ -106,7 +113,7 @@ def collect_sitemap_entries() -> list[tuple[str, str | None, str | None, str | N
             if html_repo_path.is_file():
                 add(
                     html_site_path,
-                    lastmod=lastmod or _lastmod_from_file(html_repo_path),
+                    lastmod=lastmod,
                     changefreq="monthly",
                     priority="0.8",
                 )
@@ -116,7 +123,7 @@ def collect_sitemap_entries() -> list[tuple[str, str | None, str | None, str | N
             if discuss_repo_path.is_file():
                 add(
                     discuss_site_path,
-                    lastmod=lastmod or _lastmod_from_file(discuss_repo_path),
+                    lastmod=lastmod,
                     changefreq="weekly",
                     priority="0.5",
                 )

@@ -10,7 +10,10 @@ SCRIPTS = Path(__file__).resolve().parent
 if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
-from _build_studies_index import verify_index_shell_sync  # noqa: E402
+from _build_studies_index import (  # noqa: E402
+    verify_catalog_bootstrap_sync,
+    verify_index_shell_sync,
+)
 from _build_discussion_pages import verify_discussion_pages  # noqa: E402
 from _study_catalog import verify_all_catalog_sync  # noqa: E402
 
@@ -36,6 +39,7 @@ def main() -> int:
         errors.extend(verify_all_catalog_sync())
     if not args.catalog_only:
         errors.extend(verify_index_shell_sync())
+        errors.extend(verify_catalog_bootstrap_sync())
         errors.extend(verify_discussion_pages())
 
     if errors:

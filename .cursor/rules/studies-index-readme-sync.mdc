@@ -92,9 +92,16 @@ After editing catalog **data** or the index **shell**, from repo root:
 python Scripts/_verify_studies_index.py
 ```
 
-This checks JSON ↔ README sync and that `Studies/index.html` matches
-`INDEX_TEMPLATE` (catalog blocks excluded). Study lifecycle scripts call
-`write_studies_catalog`, which updates both catalog files together. If you add or
-remove a study, also update `References/README.md` and `References/MANIFEST.md`.
+This checks JSON ↔ README sync; that `Studies/index.html` matches
+`INDEX_TEMPLATE` (catalog blocks excluded); that the inlined catalog bootstrap in
+`Studies/index.html` matches the `catalog-*.json` fetched at runtime, so first
+paint and rehydration cannot disagree; and that no `ongoing` row carries a `pdf`
+or `html` link. Study lifecycle scripts call `write_studies_catalog`, which
+updates both catalog files together. If you add or remove a study, also update
+`References/README.md` and `References/MANIFEST.md`.
+
+Regenerating with no content change must produce no diff. If
+`python Scripts/_build_studies_index.py` rewrites files on a clean tree, that is
+a generator bug, not something to commit.
 
 ---

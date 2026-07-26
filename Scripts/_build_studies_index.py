@@ -2309,6 +2309,39 @@ def strip_catalog_blocks(content: str) -> str:
     return result
 
 
+def verify_catalog_bootstrap_sync() -> list[str]:
+    """Ensure the inlined bootstrap matches the catalog JSON fetched at runtime.
+
+    index.html paints its cards from the inlined island and then rehydrates from
+    catalog-*.json. verify_index_shell_sync deliberately strips the island, so
+    nothing else compares the two: they drifted apart once already, and a
+    planned study rendered with a PDF link until rehydration removed it.
+    """
+    index_path = STUDIES / "index.html"
+    if not index_path.exists():
+        return ["Studies/index.html is missing."]
+
+    match = re.search(
+        r'<script type="application/json" id="catalog-bootstrap">\s*(.*?)\s*</script>',
+        index_path.read_text(encoding="utf-8"),
+        flags=re.DOTALL,
+    )
+    if match is None:
+        return ["Studies/index.html: catalog bootstrap island not found."]
+
+    expected = serialize_catalog_bootstrap_json(
+        parse_catalog_json_file(StudyTable.TOPICAL),
+        parse_catalog_json_file(StudyTable.FORMAL),
+        parse_catalog_json_file(StudyTable.APPLIED),
+    ).replace("</", "<\\/")
+    if match.group(1) != expected:
+        return [
+            "Studies/index.html: inlined catalog bootstrap does not match "
+            "catalog-*.json. Run python Scripts/_build_studies_index.py."
+        ]
+    return []
+
+
 def verify_index_shell_sync() -> list[str]:
     """Ensure Studies/index.html shell matches INDEX_TEMPLATE (catalog JSON excluded)."""
     index_path = STUDIES / "index.html"
