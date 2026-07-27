@@ -466,7 +466,7 @@ The texts compress the engine this way: saturation is forcefulness; forcefulness
 
 Each term has a goal: restfulness of effort, destination of motion, immortality of result. Development pervades nature; awakening occurs in the sentient. Non-sentient units participate by composing bodies and environments without each individually completing the drive.
 
-The next slide shows why the composing line, however far it goes, never gets there on its own.
+The next slide follows both paths through their convergence in animal and human living.
 
 ## Primary-text background
 
@@ -484,40 +484,43 @@ No. Natural-state ease is insentient complementarity reinstating *svabhav gati*.
 
 # Slide 13
 
-# Composition Never Exceeds Its Constituents
+# Two Paths Meet in the Animal Order
 
 ## Delivering the slide
 
-I have now told you twice that the composing line and the atomic line are different. This slide is where I owe you the reason.
+The completeness drive unfolds along two parallel paths.
 
-Start with what is true, and notice it is complementarity doing the work: there is a natural inclination toward coexistence everywhere. That inclination is what leads particles into atoms, atoms into molecules, molecules into cells and bodies. It is real, and it builds a great deal.
+The first is the compositional path, *rachna*. Atoms and molecules form material-order structures. Under appropriate chemical and environmental conditions, pranic cells and biological formations appear. This is the material-to-biological order change, and both orders remain insentient.
 
-Now the constraint. Whatever a thing is constituted of, it remains of the order of that constituent — however vast the formation. Three of the texts' own examples. Objects made from soil remain soil, no matter how elaborate the object. A body built from living cells remains of the order of the living cell. And the Earth entire is of the order of the atoms, molecules, and cells composing it.
+The second is the atomic path, *gathan*. A developing atom integrates the particle constitution required for completeness. At constitutional completeness, the texts classify that atom as sentient *jeevan*.
 
-So change of composition is recognised as development or decline *within* an order. It is never passage beyond the order. Compositional progression can give you an atom, then a molecule, then a cell, then a body of extraordinary complexity — and every one of those is still of the order of what it is made from.
+The two paths meet in the animal order as a joint form: a biological body plus sentient *jeevan*. One does not manufacture the other; they work together.
 
-That is the argument. Composition supplies bodies and environments, and it never reaches constitutional completeness, because reaching it would mean exceeding the order of your own constituents. Which is exactly why development in the atom has to be kept as a separate line.
+Development then continues along both aspects of the joint form. Bodily lineages develop through species-conforming biological organisation, while *jeevan*’s expression widens through those bodily media. In the animal order that expression remains limited by the body.
 
-Two smaller distinctions while we are here. In a mixture, components stay side by side and each keeps its own conduct — no new unit is formed. In a compound, definite proportion yields a genuinely new bounded unit, with its own form and its own capacities in mutuality. A compound is a real new unit; it is still not a step toward sentience.
+The human body, in the knowledge order, is described as capable of evidencing all ten activities of *jeevan*. That does not mean the body owns those activities. It means the bodily medium is adequate for their expression. Once that capacity is present, the remaining development is awakening in *jeevan*, evidenced through understanding and conduct.
 
 ## Primary-text background
 
-“Whatever a basic entity is constituted of, it remains equal to that basic entity.” — SB, p. 260, with the soil example and “Change alone is recognised as development or decline” on the same page. The human body as of the order of the pranic cell: SB, p. 262; restated for formations however vast: SB, p. 264; the Earth entire as of the order of its constituent atoms, molecules, and cells: SB, p. 265.
+MVD, p. 13 traces chemical and physical composition into biological cells and bodily formations. MVD, p. 26 distinguishes the constitutional-completeness path from compositional formation and identifies human beings as joint forms of insentient and sentient nature.
 
-JV, p. 67 (inclination toward coexistence); MVD, p. 42 (mixture & compound); SB, p. 14 (persist or decline). Compositional vs atomic development: study §1.6, §1.10.
+MVD, p. 79 gives the developmental sequence used on the slide. Animal-order bodies are composed of biological cells while the sentient atom advances toward fuller expression. Knowledge-order bodies remain biological compositions, but the human body is capable of evidencing all ten activities of *jeevan*. The activities belong to *jeevan*; bodily organisation supplies the medium of expression. MVD, p. 80 restates the categorical distinction: the body is physicochemical composition, while *jeevan* is the constitutionally complete sentient atom.
 
-Note for the presenter: this slide sits before the transitions deliberately. In the earlier running order it came nine slides later, so the deck asserted the two-line fork three times before justifying it.
+SB, p. 55 places constitutional completeness in the atom; SB, pp. 76–77 classify material and biological compositions as insentient and animal and knowledge orders as joint expressions. Study §§1.5–1.6, 1.9.
 
 ## Likely questions from the audience
 
-**Q: Doesn't this contradict emergence? Complex systems do acquire new properties.**
-MD grants that composition establishes new bounded units with new conduct — a compound is not its ingredients. What it denies is that composing ever moves a thing out of the order of its constituents, and specifically that it produces sentience. Whether that denial can be sustained against emergentist accounts is a live comparison, taken up in §3.3 and §6.2.
+**Q: Does development really continue in both body and *jeevan* in the animal order?**
+Yes, but in different senses. Bodily development is development of species-conforming biological media and lineages. The sentient side advances toward wider expression through those media. The distinction between composition and awakening remains intact.
 
-**Q: Can composition produce jeevan?**
-No. Composition builds media and environments; T1 is atomic constitutional completeness, and it is reached in the atom or not at all.
+**Q: Does the human body possess all ten activities?**
+No. MVD says that the human body is capable of evidencing all ten activities. The activities belong to *jeevan*; the body is their adequate medium of expression.
 
-**Q: Is society just a bigger compound?**
-No — human families and societies are relational achievements, not a further compositional tier. They persist humanely while relationships are recognised, values fulfilled, and mutual satisfaction achieved. That half of §1.10 returns on slide 26.
+**Q: Are the two paths fused when they meet?**
+No. Animal and human living are joint forms. The biological body remains decomposable, while *jeevan* is treated as the constitutionally complete sentient unit.
+
+**Q: Why call the animal order the point of meeting?**
+Because it is the first order described as requiring a joint expression of a biological body and a sentient unit. The material-to-biological transition occurs on the compositional path; the animal order brings that bodily formation into conjunction with *jeevan*.
 
 # Slide 14
 
@@ -598,27 +601,25 @@ No, and it is worth saying so. It is the technical name for sentient standing be
 
 # Slide 16
 
-# T1 — The Irreversible Sentience Threshold
+# Sentience — The Constitutional Threshold
 
 ## Delivering the slide
 
-T1 is the hinge: where sentience enters.
+This is the claimed sentience threshold. The technical transitions slide names it T1; here the audience-facing question is how the texts say sentience enters.
 
-It is constitutional completeness at the atomic level — not neural complexity, not molecular size, and not merely climbing the order chain.
+According to the primary texts, sentience appears when one developing atom reaches constitutional completeness — not through neural complexity, molecular size, or the material-to-biological order change.
 
-And complementarity is doing the work here too, which is worth saying out loud because it is the same principle as the composing line, not a different mechanism. The texts describe a developing atom that incorporates particles — “hungry” atoms and “overfull” atoms completing each other — in a suitable environment. Two incompletenesses fulfil one another. When the required constitution closes, particle count no longer increases or decreases.
+The described process begins with particle exchange. Hungry atoms can incorporate particles; overfull or undigested atoms seek to expel them. Under suitable mutuality, a developing atom integrates the full count required by its constitution. When that requirement is satisfied, the constitution closes and particle count no longer increases or decreases.
 
-Here is the criterion, and it is sharper than it first looks. In matter, qualitative change does not happen without quantitative change: an atom's kind and capacity track its particle number. Change what it can do and you have changed how many particles it has. Those two kinds of change are tied together — right up to completeness. Completeness is where they come apart. After it, qualitative activity continues while the particle count is fixed. That separation is the criterion.
+The slide shows the before and after. Before sentience, the constitution remains open: particles are absorbed or expelled, molecular and weight bondage continue, and kind, capacity, and qualitative change track particle count. At the sentience threshold, all required particles are integrated. The count becomes fixed, molecular and weight bondage end, and qualitative activity continues. The texts classify that closed unit as sentient *jeevan*.
 
-So: before T1, still changing structure and particle count; non-sentient radiance and projection. After T1, released from molecular and weight bondage, carried by hope; qualitative change without quantitative change; a finer mode of recognition as the sentient unit.
+That separation of qualitative from quantitative change is the stated criterion. MVD adds the visible signs of release from the molecular group, liberation from molecular- and weight-bondage, and establishment in hope-bondage.
 
-T1 is irreversible because the completed constitution no longer decomposes. That is also the textual basis for continuity of the knower beyond a particular body — the constitution has closed, so the death of a body is not the end of the sentient unit. JV goes further and describes its subsequent association with another body. I will flag now what I will repeat under method and evidence: these are claims of the primary texts, grounded in constitutional completeness, and no accepted procedure measures any of it.
-
-I want to be plain: this is an ontological account. No accepted empirical procedure currently identifies the threshold. We will return to that honesty under method and evidence.
+The transition to sentience is therefore a claim of reclassification at atomic closure: one atom becomes *jeevan*; a body does not become conscious by becoming more complex. The texts give a process and a criterion, but not an accepted physical measurement of this threshold or a causal explanation of why closure is sentience. We will return to that open bridge under method and evidence.
 
 ## Primary-text background
 
-MVD, p. 91 (bondage shift). Closed particle constitution: SB, p. 55. Qualitative change tied to quantitative change in matter, and the separation of the two at completeness: SB, p. 86 — this is the criterion stated in the script. Irreversibility: SB, p. 92. Not neural/molecular size: SB, p. 52. Particle incorporation: MVD, p. 8; SB, pp. 58, 71, 80–81. AVD on hope-bondage and powers/strengths always present in *jeevan*.
+MVD, p. 91 (increased contraction-expansion, release from the molecular group, and the bondage shift). Closed particle constitution: SB, p. 55. Particle inclusion and expulsion as the route to completeness: SB, pp. 58, 71; KD 3.3. Qualitative change tied to quantitative change in matter, and the separation of the two at completeness: SB, p. 86 — this is the criterion stated in the script. Irreversibility: SB, p. 92. Not neural/molecular size: SB, p. 52.
 
 Continuity beyond the body and later association with another body: study §1.8, §1.14; JV as cited there. The study keeps this apart from general indestructibility (slide 7): constitutional completeness is MD's *additional* reason for identifying *jeevan* as a persistent individual, not a corollary of quantity conservation.
 
@@ -628,7 +629,10 @@ Continuity beyond the body and later association with another body: study §1.8,
 No — identifying *gathanpurna parmanu* with chemistry's elements is a category error (study).
 
 **Q: Can science detect constitutional completeness?**
-Not presently — say so plainly (§6.2.5). Realisation and conduct are warrants within the darshan; public science needs operational criteria that do not yet exist.
+Not presently — say so plainly (§6.2.1). Realisation and conduct are warrants within the darshan; public science needs operational criteria that do not yet exist.
+
+**Q: Does the text explain why closure creates sentience?**
+It identifies closure with the sentient status and describes the before/after criteria. It does not derive sentience from a particle configuration in a way that supplies a contemporary causal model. Calling the sentience threshold a textual transition criterion is more accurate than calling it an empirically established mechanism.
 
 **Q: Isn't this just panpsychism?**
 Close but distinct: panpsychism makes every particle a subject; MD does not. Active sentience belongs only to constitutionally complete atoms; what is pervasive is intelligibility in *satta*, not micro-minds.
@@ -961,11 +965,11 @@ Logical exposition can show internal coherence. It cannot by itself prove empiri
 
 Study and self-examination can show intelligibility and first-person recognition. They cannot by themselves physically identify the sentient unit.
 
-Practice and conduct-evidence can show effects in work, behaviour, and mutual satisfaction. They cannot by themselves measure T1 or the unit–body interface.
+Practice and conduct-evidence can show effects in work, behaviour, and mutual satisfaction. They cannot by themselves measure the sentience threshold or the unit–body interface.
 
 Realisation is this tradition’s claimed completion of knowing. It does not force agreement from other methods.
 
-Publicly measurable physical claims remain answerable to instrument-based science. No accepted measurement currently identifies T1, the unit–body interface, or post-body reassociation — the last of those being the claim I flagged on slide 16, that the sentient unit continues when a body ends and may later associate with another. Stating that plainly is part of responsible presentation.
+Publicly measurable physical claims remain answerable to instrument-based science. No accepted measurement currently identifies the sentience threshold, the unit–body interface, or post-body reassociation — the last of those being the claim I flagged on slide 16, that the sentient unit continues when a body ends and may later associate with another. Stating that plainly is part of responsible presentation.
 
 ## Primary-text background
 
@@ -999,7 +1003,7 @@ What is the self? The constitutionally complete sentient unit working through th
 
 Is the world real? Yes. Units, mutual relationships, and definite material fulfilment are real within perpetual coexistence.
 
-How is it known? Through logical exposition, study and self-examination, practice, realisation, and conduct-evidence — without conflating those with instrument measurement of T1. The lived test is evidence in humane conduct.
+How is it known? Through logical exposition, study and self-examination, practice, realisation, and conduct-evidence — without conflating those with instrument measurement of the sentience threshold. The lived test is evidence in humane conduct.
 
 If we continue later, the natural next step is comparison with other traditions and with science — including open problems this study names for Madhyasth Darshan itself. Thank you.
 
