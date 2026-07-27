@@ -250,12 +250,33 @@ Reads **Status:** from the markdown and applies the Draft watermark when appropr
    with web navigation chrome and in-browser Mermaid when applicable.
 2. **`Scripts/_html_to_pdf.js`** — loads Mermaid from `Scripts/node_modules`, renders
    `.mermaid` divs to SVG, then HTML → PDF via Puppeteer (footer, A4 margins).
-3. **`Scripts/_verify_pdf_diagrams.py`** — after PDF generation, fails if markdown
+3. **`Scripts/_pdf_metadata.py`** — pins `/CreationDate` and `/ModDate` from the study's
+   `**Edited on:**` line so the output is reproducible.
+4. **`Scripts/_verify_pdf_diagrams.py`** — after PDF generation, fails if markdown
    contains Mermaid but raw diagram syntax (e.g. `flowchart TD`) still appears in the PDF.
-4. **`Scripts/_verify_pdf_fenced_code.py`** — fails if fenced ` ```text ` / code-block
+5. **`Scripts/_verify_pdf_fenced_code.py`** — fails if fenced ` ```text ` / code-block
    content is clipped in the PDF (e.g. `[compound]` truncated to `[c`).
-5. **`Scripts/_verify_pdf_outline.py`** — fails if the PDF has no document outline
+6. **`Scripts/_verify_pdf_outline.py`** — fails if the PDF has no document outline
    (sidebar bookmarks) when the markdown has two or more `##` headings.
+
+### Reproducible output, and when CI rebuilds
+
+Re-running the pipeline on unchanged markdown produces a **byte-identical** PDF.
+Chrome and pdf-lib both stamp wall-clock `/CreationDate` and `/ModDate`, so before
+this was pinned every run emitted a different file and CI pushed a fresh
+multi-megabyte blob on every commit to every study PR. Never reintroduce a
+wall-clock timestamp into a generated artifact.
+
+Reproducibility is scoped to a fixed Chrome and Node toolchain: a Chrome upgrade
+legitimately changes glyph rendering, so the first regeneration after one will
+show a real diff.
+
+On a `study-update` PR, CI rebuilds the study PDF only when something that affects
+it changed — the study markdown, a figure inside that study's own directory, the
+PDF pipeline itself, or a missing PDF. A PR that touches only companion files (a
+deck, research notes, figures the study does not embed) **skips** regeneration and
+logs why. `Scripts/_ci_study_pr.py` holds that rule as `pdf_regeneration_reason()`;
+`Scripts/_test_ci_study_pr.py` covers every branch of it.
 
 Regenerate all studies:
 

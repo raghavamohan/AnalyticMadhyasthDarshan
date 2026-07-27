@@ -48,8 +48,15 @@ jobs:
       - name: Fetch base branch
         run: git fetch origin ${{ github.event.pull_request.base.ref }}:refs/remotes/origin/${{ github.event.pull_request.base.ref }}
 
+      # Referenced by owner/repo/path@ref rather than `./`, because the checkout
+      # above deliberately targets the PR head — which for a fork PR is the
+      # fork's tree. A relative `uses:` would look for the action there and fail
+      # with "Can't find 'action.yml'" on any fork whose branch predates it.
+      # Resolving from master also stops a study PR from altering the toolchain
+      # its own required check runs on. Pipeline changes to these actions are
+      # still exercised by studies-index-check.yml, which uses the local path.
       - name: Set up study toolchain
-        uses: ./.github/actions/setup-study-env
+        uses: raghavamohan/AnalyticMadhyasthDarshan/.github/actions/setup-study-env@master
 
       - name: Check study PR router
         run: python Scripts/_test_ci_study_pr.py
@@ -60,7 +67,7 @@ jobs:
         run: python Scripts/_ci_study_pr.py --base-ref origin/${{ github.event.pull_request.base.ref }}
 
       - name: Commit regenerated artifacts
-        uses: ./.github/actions/commit-artifacts
+        uses: raghavamohan/AnalyticMadhyasthDarshan/.github/actions/commit-artifacts@master
         with:
           paths: Studies References Applications
           message: "ci: regenerate study artifacts"
