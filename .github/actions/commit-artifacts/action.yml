@@ -1,0 +1,48 @@
+name: Commit generated artifacts
+description: >-
+  Stage the given paths as github-actions[bot], commit with [skip ci] and push —
+  skipping cleanly when nothing changed. Shared by study-pr.yml and
+  proposal-approved.yml, which previously carried identical copies of this block.
+
+inputs:
+  paths:
+    description: >-
+      Space-separated paths to stage. Paths that do not exist are ignored, so a
+      caller can list optional directories such as Applications.
+    required: true
+  message:
+    description: Commit message. '[skip ci]' is appended automatically.
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Commit and push
+      shell: bash
+      run: |
+        set -euo pipefail
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+        staged=0
+        for path in ${{ inputs.paths }}; do
+          if [ -e "$path" ]; then
+            git add "$path"
+            staged=1
+          else
+            echo "Skipping absent path: $path"
+          fi
+        done
+
+        if [ "$staged" -eq 0 ]; then
+          echo "None of the requested paths exist; nothing to commit."
+          exit 0
+        fi
+
+        if git diff --staged --quiet; then
+          echo "No generated file changes to commit."
+          exit 0
+        fi
+
+        git commit -m "${{ inputs.message }} [skip ci]"
+        git push

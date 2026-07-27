@@ -72,9 +72,48 @@ function puppeteerLaunchOptions(executablePath) {
   return options;
 }
 
-async function addPageWatermark(pdfPath, label) {
+const MONTHS = {
+  january: 0, february: 1, march: 2, april: 3, may: 4, june: 5,
+  july: 6, august: 7, september: 8, october: 9, november: 10, december: 11,
+};
+
+// Used when a document has no parseable `**Edited on:**` line. Must match
+// FALLBACK_STAMP in Scripts/_pdf_metadata.py.
+const FALLBACK_PDF_DATE = new Date(Date.UTC(2020, 0, 1, 0, 0, 0));
+
+/**
+ * Parse `**Edited on:**` text such as "June 30, 2026, 11:33 AM IST".
+ *
+ * The digits are treated as UTC deliberately: reading them as local time would
+ * make the bytes depend on the build machine's timezone, so a developer in IST
+ * and a CI runner in UTC would disagree on the same markdown. Returns null when
+ * the text does not match.
+ */
+function parseEditedOn(text) {
+  if (!text) return null;
+  const match = /^([A-Za-z]+)\s+(\d{1,2}),\s*(\d{4}),\s*(\d{1,2}):(\d{2})\s*([AaPp])\.?[Mm]/
+    .exec(String(text).trim());
+  if (!match) return null;
+  const month = MONTHS[match[1].toLowerCase()];
+  if (month === undefined) return null;
+  let hour = Number(match[4]) % 12;
+  if (match[6].toLowerCase() === 'p') hour += 12;
+  const parsed = new Date(Date.UTC(
+    Number(match[3]), month, Number(match[2]), hour, Number(match[5]), 0));
+  return Number.isNaN(parsed.getTime()) ? null : parsed;
+}
+
+// Draft PDFs go through pdf-lib for the watermark, which rewrites the info dict
+// into a compressed object stream where Python's equal-length byte patch cannot
+// reach. Pinning the dates here keeps Draft output reproducible without adding a
+// second rewrite. Released PDFs never enter this function and are pinned by
+// Scripts/_pdf_metadata.py instead.
+async function addPageWatermark(pdfPath, label, editedOnText) {
   const pdfBytes = fs.readFileSync(pdfPath);
   const pdfDoc = await PDFDocument.load(pdfBytes);
+  const stamp = parseEditedOn(editedOnText) ?? FALLBACK_PDF_DATE;
+  pdfDoc.setCreationDate(stamp);
+  pdfDoc.setModificationDate(stamp);
   const font = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
   const text = label.toUpperCase();
   const fontSize = 108;
@@ -193,15 +232,16 @@ function buildFooterTemplate(editedOnDate) {
 
   await renderMermaidDiagrams(page);
 
-  let editedOnDate = '';
-  if (isTranslationDocument(inputPath)) {
-    editedOnDate = await page.evaluate(() => {
-      const bodyText = document.body.innerText || '';
-      const match = bodyText.match(/\*\*Edited on:\*\*\s*([^\n\r]+)/i) ||
-                    bodyText.match(/Edited on:\s*([^\n\r]+)/i);
-      return match && match[1] ? match[1].trim() : '';
-    });
-  }
+  // Read `**Edited on:**` for every document: Draft PDFs use it to pin their
+  // metadata dates. It is only *printed* in the footer for translation
+  // documents, which is the pre-existing behaviour.
+  const editedOnText = await page.evaluate(() => {
+    const bodyText = document.body.innerText || '';
+    const match = bodyText.match(/\*\*Edited on:\*\*\s*([^\n\r]+)/i) ||
+                  bodyText.match(/Edited on:\s*([^\n\r]+)/i);
+    return match && match[1] ? match[1].trim() : '';
+  });
+  const editedOnDate = isTranslationDocument(inputPath) ? editedOnText : '';
 
   await page.pdf({
     path: outputPath,
@@ -217,7 +257,7 @@ function buildFooterTemplate(editedOnDate) {
   await browser.close();
 
   if (watermarkLabel) {
-    await addPageWatermark(outputPath, watermarkLabel);
+    await addPageWatermark(outputPath, watermarkLabel, editedOnText);
   }
 
   console.log('PDF written to:', outputPath);
