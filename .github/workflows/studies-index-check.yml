@@ -9,6 +9,8 @@ on:
       - "Scripts/_study_catalog.py"
       - "Scripts/_verify_studies_index.py"
       - "Scripts/_ci_study_pr.py"
+      - "Scripts/_test_ci_study_pr.py"
+      - "Scripts/_pdf_metadata.py"
       - ".github/workflows/studies-index-check.yml"
   push:
     branches:
@@ -21,6 +23,8 @@ on:
       - "Scripts/_study_catalog.py"
       - "Scripts/_verify_studies_index.py"
       - "Scripts/_ci_study_pr.py"
+      - "Scripts/_test_ci_study_pr.py"
+      - "Scripts/_pdf_metadata.py"
       - ".github/workflows/studies-index-check.yml"
 
 jobs:
@@ -30,13 +34,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      # Verification only — no PDF rendering, so Node and Chrome are not installed.
+      - name: Set up study toolchain
+        uses: ./.github/actions/setup-study-env
         with:
-          python-version: "3.12"
-
-      - name: Install Python dependencies
-        run: pip install -r requirements.txt
+          node: 'false'
 
       - name: Verify catalog JSON and index shell
         run: python Scripts/_verify_studies_index.py
+
+      - name: Check study PR router
+        run: python Scripts/_test_ci_study_pr.py
