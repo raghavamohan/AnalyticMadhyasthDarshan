@@ -26,7 +26,8 @@ what to run **on that branch** before opening the PR.
 | Remove a study | `python Scripts/_remove_study.py <Slug> --yes` |
 | Draft ↔ Released | `python Scripts/_set_study_status.py <Slug> --status released` |
 | Regenerate PDF | `python Scripts/_regenerate_pdf.py <Slug>` |
-| Companion PPTX → PDF | `python Scripts/_pptx_to_pdf.py path/to/deck.pptx` (PowerPoint COM, else LibreOffice) |
+| Companion PPTX → slides PDF | `python Scripts/_pptx_to_pdf.py path/to/deck.pptx` (PowerPoint COM, else LibreOffice) |
+| Deck → read-aloud notes PDF | `python Scripts/_build_deck_notes_pdf.py path/to/deck.pptx` (slide + speaker script per page; run after the slides PDF) |
 | PDF → study markdown (maintainer) | `python Scripts/_pdf_to_study_md.py path/to/paper.pdf --slug <Slug> --title "..."` |
 | PDF import with catalog register | `python Scripts/_add_study.py path/to/paper.pdf --convert --slug <Slug> --title "..." --category "..." --description "..." --tags "MVD, SB" --status draft` |
 | Test PDF conversion | `python Scripts/_test_pdf_to_md.py` |

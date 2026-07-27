@@ -27,6 +27,7 @@ Orchestration skill for the study lifecycle. Read the focused skill for your tas
 
 - **Source of truth:** `Studies/<Slug>/<Slug>.md`
 - **Published output:** `Studies/<Slug>.pdf` (generated; never edit by hand)
+- **Companion deck artifacts** (generated; a study folder may hold more than one deck): `<Deck>.pptx` is the source of truth, and it produces `<Deck>.pdf` (slides only — what the index links), `<Deck>-notes.pdf` (slide plus read-aloud script per page, for the presenter), and alongside them `Presenters-Companion-<Name>.md` → `.notes.json` / `.docx` / `.pdf` (script plus background and Q&A). Deck-only changes never touch `**Edited on:**` or catalog timestamps.
 - **Catalogs:** `Studies/index.html` (JSON + card UI shell), `Studies/README.md` (markdown tables; updated by scripts)
 - **Index shell source:** `Scripts/_build_studies_index.py` (`INDEX_TEMPLATE`) — edit template, run `python Scripts/_build_studies_index.py`, verify with `python Scripts/_verify_studies_index.py`
 - **Citations:** `References/README.md`, `References/MANIFEST.md` (add/remove only)
@@ -62,6 +63,8 @@ Delete study entirely?          → _remove_study.py
 Finalize or revert draft?       → _set_study_status.py
 Rename slug (directory move)?   → [rename-study](../rename-study/SKILL.md) (`_rename_study.py`; study-update PR)
 Edit body text only?            → edit .md, then [regenerate-study-pdf](../regenerate-study-pdf/SKILL.md)
+Edit slides or slide order?     → [update-study-presentation](../update-study-presentation/SKILL.md); regenerate `<Deck>.pdf` then `<Deck>-notes.pdf`
+Edit read-aloud scripts only?   → [update-presenters-companion](../update-presenters-companion/SKILL.md); re-sync notes, then rebuild `<Deck>-notes.pdf`
 Quote check before PR?          → `python Scripts/_quote_tool.py verify --study <Slug>`
 ```
 

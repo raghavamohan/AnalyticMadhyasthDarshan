@@ -9,12 +9,28 @@ description: >-
 
 # Regenerate a study PDF
 
+## Scope — this skill is study markdown only
+
+This covers `Studies/<Slug>/<Slug>.md` → `<Slug>.pdf` via `_regenerate_pdf.py`, the
+pipeline governed by [AGENTS.md](../../../AGENTS.md) §3. Companion deck PDFs are a
+**separate pipeline** and are not produced by `_regenerate_pdf.py`:
+
+| Want | Use |
+|------|-----|
+| Study PDF from the study markdown | this skill |
+| Deck slides PDF (`<Deck>.pdf`) | [update-study-presentation](../update-study-presentation/SKILL.md) — `_pptx_to_pdf.py` |
+| Deck read-aloud notes PDF (`<Deck>-notes.pdf`) | [update-study-presentation](../update-study-presentation/SKILL.md) — `_build_deck_notes_pdf.py` |
+| Presenter's Companion DOCX/PDF | [update-presenters-companion](../update-presenters-companion/SKILL.md) |
+
+Deck and companion artifacts do **not** refresh the study's `**Edited on:**` or
+catalog timestamps; a study PDF regeneration after content edits does.
+
 ## Before you start
 
 1. Confirm you are on a **feature branch**, not the default branch — study changes always
-   go through a branch + labeled pull request per [AGENTS.md](../../AGENTS.md) §7.
+   go through a branch + labeled pull request per [AGENTS.md](../../../AGENTS.md) §7.
 2. If you edited study **content**, refresh `**Edited on:**` and catalog **Status**
-   dates per [AGENTS.md](../../AGENTS.md) §1 (run `Get-Date`, never guess).
+   dates per [AGENTS.md](../../../AGENTS.md) §1 (run `Get-Date`, never guess).
 3. Ensure one-time setup is done (repo root):
 
 ```powershell
@@ -66,7 +82,7 @@ Do not delete `Studies/<Slug>/<Slug>.html` — it is the published read view.
 - Save as **UTF-8**; use numeric XML entities in `<text>` for § (`&#167;`), · (`&#183;`), — (`&#8212;`), → (`&#8594;`).
 - Never paste section refs with raw Windows-1252 bytes — breaks the PDF figure.
 - Verify after editing: `python Scripts/_verify_study_svgs.py Studies/<Slug>/<Slug>.md`
-- Full rules: [AGENTS.md](../../AGENTS.md) §3 — Study SVG figures
+- Full rules: [AGENTS.md](../../../AGENTS.md) §3 — Study SVG figures
 
 ## Mermaid in studies
 
@@ -97,8 +113,8 @@ flowchart TD
 
 ## Rules
 
-- [AGENTS.md](../../AGENTS.md) §3 — Markdown to PDF (source of truth)
-- [AGENTS.md](../../AGENTS.md) §7 — Study submission process: branches, PR labels, templates
+- [AGENTS.md](../../../AGENTS.md) §3 — Markdown to PDF (source of truth)
+- [AGENTS.md](../../../AGENTS.md) §7 — Study submission process: branches, PR labels, templates
 - `.cursor/rules/md-to-pdf.mdc` — Cursor mirror
 - `.cursor/rules/study-edited-on.mdc` — timestamps when content changed
 - `.cursor/rules/study-submission-process.mdc` — Cursor mirror of §7
