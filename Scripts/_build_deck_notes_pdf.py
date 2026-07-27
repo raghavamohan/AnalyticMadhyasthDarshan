@@ -21,9 +21,16 @@ on demand if it is missing or stale.
 
 Examples (from repo root):
 
-  python Scripts/_build_deck_notes_pdf.py --study The-Ontology-of-Coexistence
   python Scripts/_build_deck_notes_pdf.py Studies/<Slug>/Deck.pptx
+  python Scripts/_build_deck_notes_pdf.py --study <Slug> --deck Deck.pptx
   python Scripts/_build_deck_notes_pdf.py Studies/<Slug>/Deck.pptx -o /tmp/notes.pdf
+
+``--study`` on its own only works when the study folder holds exactly one
+``.pptx``. Several hold more than one — The-Ontology-of-Coexistence has both the
+Ontology deck and the comparison deck — so name the deck as well:
+
+  python Scripts/_build_deck_notes_pdf.py --study The-Ontology-of-Coexistence \
+      --deck The-Ontology-of-Existence-Madhyasth-Darshan.pptx
 """
 from __future__ import annotations
 
