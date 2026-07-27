@@ -53,8 +53,25 @@ must use the **current** deck numbering.
 | `Scripts/_build_presenters_companion.py` | Markdown → DOCX; optional PDF; optional PPTX notes sync |
 | `Scripts/_docx_to_pdf.py` | DOCX → PDF via Word COM (Windows) |
 | `Scripts/_sync_pptx_speaker_notes.py` | Write notes JSON into a `.pptx` notes pane |
+| `Scripts/_build_deck_notes_pdf.py` | Deck → `<Deck>-notes.pdf`: slide image plus that slide's read-aloud script, one page per slide |
 
-Dependencies: `python-docx`, `python-pptx`, and on Windows `pywin32` for Word/PowerPoint COM.
+Dependencies: `python-docx`, `python-pptx`, `pymupdf`, and on Windows `pywin32` for Word/PowerPoint COM.
+
+Three PDFs serve different purposes; do not conflate them:
+
+| PDF | Contains | Audience |
+|-----|----------|----------|
+| `<Deck>.pdf` | Slides only | Projecting; linked from `Studies/index.html` |
+| `<Deck>-notes.pdf` | Slide + read-aloud script per page | The presenter, while delivering |
+| `Presenters-Companion-<Name>.pdf` | Script **plus** primary-text background and Q&A | Pre-session study |
+
+`_build_deck_notes_pdf.py` reads notes from the `.pptx` (so it always reflects the
+deck) and slide images from `<Deck>.pdf`, regenerating that PDF if it is missing or
+older than the deck. It composes pages rather than using PowerPoint's notes-pages
+export because `ExportAsFixedFormat` — the only API accepting
+`ppPrintOutputNotesPages` — is unavailable in this environment, and native notes
+pages silently clip scripts that overflow the placeholder. Long scripts continue
+onto a `CONTINUED` page instead of being truncated.
 
 ## Workflow
 
@@ -87,13 +104,19 @@ Dependencies: `python-docx`, `python-pptx`, and on Windows `pywin32` for Word/Po
    python Scripts/_sync_pptx_speaker_notes.py Studies/<Slug>/<Deck>.pptx Studies/<Slug>/Presenters-Companion-<Name>.notes.json
    ```
 
-5. If the `.pptx` changed (including notes-only), regenerate the deck PDF:
+5. If the `.pptx` changed (including notes-only), regenerate the deck PDF and the
+   read-aloud notes PDF:
 
    ```powershell
    python Scripts/_pptx_to_pdf.py Studies/<Slug>/<Deck>.pptx
    ```
 
-   Confirm PPTX slide count equals PDF page count.
+   ```powershell
+   python Scripts/_build_deck_notes_pdf.py Studies/<Slug>/<Deck>.pptx
+   ```
+
+   Confirm PPTX slide count equals deck-PDF page count. Run the notes PDF **after**
+   the deck PDF, since it takes its slide images from it.
 
 6. Companion-only edits do **not** refresh the study's `**Edited on:**` or catalog
    timestamps. Mark Edited-on checklist items N/A in the PR when the study `.md`
@@ -116,5 +139,7 @@ Dependencies: `python-docx`, `python-pptx`, and on Windows `pywin32` for Word/Po
 - [ ] DOCX and PDF regenerated from the markdown
 - [ ] PPTX speaker notes synced when `--pptx` / notes sync was in scope
 - [ ] Deck PDF regenerated if the PPTX changed; page count matches
+- [ ] `<Deck>-notes.pdf` regenerated after the deck PDF; every slide's script
+      present in full (no clipped tail)
 - [ ] `study-update` PR uses `Study slug: <Slug>` (bare slug); Edited-on N/A when
       the study markdown was not changed
