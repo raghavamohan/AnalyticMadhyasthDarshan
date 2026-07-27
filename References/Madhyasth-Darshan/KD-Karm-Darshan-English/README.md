@@ -11,6 +11,31 @@ Working English translation of *Manav Karm Darshan* (v5) by Shri A. Nagaraj, pro
 | [`KD-Karm-Darshan-Hindi-English.pdf`](KD-Karm-Darshan-Hindi-English.pdf) | Interleaved Hindi-then-English PDF for side-by-side reading | 364 pages (182 × 2) |
 | [`_page-images/`](_page-images/) | Hindi source page renders for side-by-side verification | 182 PNGs (`p{pdf}_print{printed}.png`) |
 
+### Never translate or verify from the PDF's text layer
+
+Translate and quote-check from `_page-images/` (or a fresh PyMuPDF render), never from
+text extracted out of `../KD-karm darshan v5.pdf`. Its embedded text layer is
+systematically corrupt, and the corruption is silent — the output looks like ordinary
+Hindi rather than mojibake, so a bad excerpt will pass unnoticed into a translation or
+a quotation.
+
+Re-verified 2026-07-27 with PyMuPDF: 24 of the first 120 pages carry the malformed
+`पिमाणु` where the source reads `परमाणु`, against only 3 pages with the correct form.
+Page 6 extracts as `सहअस्तित्व में ही :- पिमाणु में स्वकासक्रम…`.
+
+This matters most for the repo's **`pdf-mcp`** server (configured in both
+`.cursor/mcp.json` and `opencode.json` as `python -m pdf_mcp.server`), because it is
+present, it works, and it looks authoritative:
+
+| Tool | Use for KD? | Why |
+|---|---|---|
+| `pdf_read_pages`, `pdf_search`, `pdf_read_all` | **No** | Faithfully return the corrupt text layer. Headings are sometimes clean; body paragraphs are not. |
+| `pdf_read_pages` with `ocr=true` | **No** | OCR is not installed on this server (`server_info` reports `ocr.available: false`), and the pages already carry a native text layer, so OCR would not auto-trigger anyway. |
+| `pdf_search` | Page numbers only | Useful to locate a section, but treat the returned excerpts as unusable wording. |
+| `pdf_render_pages` | Spot checks only | Correct visual Hindi, but capped at 5 pages per call and returns large inline PNGs. Prefer `_page-images/`. |
+
+Its `pages` argument must be a comma-separated **string** (`"88,89"`), not a JSON array.
+
 ## Section index (in `KD-Karm-Darshan-English.md`)
 
 | Section | Printed pages |
