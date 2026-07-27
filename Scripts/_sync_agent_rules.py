@@ -55,8 +55,9 @@ MDC_CONFIG: dict[int, dict[str, str]] = {
         "description": "Convert study markdown to PDF using the repo's internal scripts only",
         "globs": (
             "Studies/*/*.md,Scripts/_regenerate_pdf.py,Scripts/_convert_to_pdf.py,"
-            "Scripts/_html_to_pdf.js,Scripts/_verify_pdf_diagrams.py,"
-            "Scripts/_verify_pdf_fenced_code.py,"
+            "Scripts/_html_to_pdf.js,Scripts/_pdf_metadata.py,"
+            "Scripts/_verify_pdf_diagrams.py,"
+            "Scripts/_verify_pdf_fenced_code.py,Scripts/_verify_pdf_outline.py,"
             "Studies/*/*.pptx,Applications/*/*.pptx,"
             "Scripts/_pptx_to_pdf.py,Scripts/_build_deck_notes_pdf.py,"
             "Scripts/_build_presenters_companion.py,Scripts/_sync_pptx_speaker_notes.py"
