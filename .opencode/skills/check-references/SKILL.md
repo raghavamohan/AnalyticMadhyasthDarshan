@@ -22,7 +22,7 @@ Works with **Cursor**, **OpenCode**, and **ZCode** (skills live in
 - After editing `## References` or any `../References/...` link in a study
 - After `download-references` or manual adds under `References/`
 - Before committing bibliography or reference-file changes
-- CI runs this automatically on labeled study PRs (see [AGENTS.md](../../AGENTS.md) §6)
+- CI runs this automatically on labeled study PRs (see [AGENTS.md](../../../AGENTS.md) §6)
 
 ## Quick command
 
@@ -64,7 +64,7 @@ with `<!DOCTYPE` (publisher bot-wall HTML saved as `.pdf`).
 
 ## If checks fail
 
-1. **Empty or corrupt local file** — re-download via [download-references](../download-references/SKILL.md), or remove the local path and link the external DOI/URL only; document in [References/NOT-DOWNLOADED.md](../../References/NOT-DOWNLOADED.md).
+1. **Empty or corrupt local file** — re-download via [download-references](../download-references/SKILL.md), or remove the local path and link the external DOI/URL only; document in [References/NOT-DOWNLOADED.md](../../../References/NOT-DOWNLOADED.md).
 2. **Missing file** — add to `Scripts/_reference_downloads.py` and download, or switch the study entry to an external link.
 3. **PDF link mismatch** — regenerate the study PDF after fixing markdown or mirror files: [regenerate-study-pdf](../regenerate-study-pdf/SKILL.md).
 
@@ -83,10 +83,10 @@ with `<!DOCTYPE` (publisher bot-wall HTML saved as `.pdf`).
 - [ ] Broken locals fixed or switched to external-only links + `NOT-DOWNLOADED.md`
 - [ ] `References/README.md` and `MANIFEST.md` updated when local vs external status changes
 - [ ] Affected study PDFs regenerated when bibliography links changed
-- [ ] `**Edited on:**` and catalogs updated if study `.md` references changed ([AGENTS.md](../../AGENTS.md) §1)
+- [ ] `**Edited on:**` and catalogs updated if study `.md` references changed ([AGENTS.md](../../../AGENTS.md) §1)
 
 ## Related
 
 - Download workflow: [download-references](../download-references/SKILL.md)
-- Agent rules: [AGENTS.md](../../AGENTS.md) §6
-- Scripts overview: [Scripts/README.md](../../Scripts/README.md)
+- Agent rules: [AGENTS.md](../../../AGENTS.md) §6
+- Scripts overview: [Scripts/README.md](../../../Scripts/README.md)

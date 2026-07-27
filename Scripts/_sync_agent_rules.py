@@ -56,7 +56,10 @@ MDC_CONFIG: dict[int, dict[str, str]] = {
         "globs": (
             "Studies/*/*.md,Scripts/_regenerate_pdf.py,Scripts/_convert_to_pdf.py,"
             "Scripts/_html_to_pdf.js,Scripts/_verify_pdf_diagrams.py,"
-            "Scripts/_verify_pdf_fenced_code.py"
+            "Scripts/_verify_pdf_fenced_code.py,"
+            "Studies/*/*.pptx,Applications/*/*.pptx,"
+            "Scripts/_pptx_to_pdf.py,Scripts/_build_deck_notes_pdf.py,"
+            "Scripts/_build_presenters_companion.py,Scripts/_sync_pptx_speaker_notes.py"
         ),
         "alwaysApply": "false",
         "title": "Markdown to PDF — use internal scripts only",

@@ -11,8 +11,8 @@ description: >-
 
 ## Before you start
 
-1. Read [Studies/README.md](../../Studies/README.md) for study format and intent.
-2. Follow [AGENTS.md](../../AGENTS.md) §4 (prose style) and §5 (Standpoint and scope).
+1. Read [Studies/README.md](../../../Studies/README.md) for study format and intent.
+2. Follow [AGENTS.md](../../../AGENTS.md) §4 (prose style) and §5 (Standpoint and scope).
    Reference implementations: `Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.md` (ontology, open problems);
    `Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.md` (comparative anthropology, critique closings).
 3. Write `Studies/<Slug>/<Slug>.md` with author block, or prepare an external PDF for maintainer conversion (`--convert`).
@@ -99,8 +99,8 @@ Or use `_set_study_status.py` / `_add_study.py --force --skip-pdf` only for meta
 - [ ] Study appears in correct catalog (topical or formal)
 - [ ] `verify_timestamp_sync` passes (default after add)
 - [ ] `References/MANIFEST.md` TBD rows refined if needed
-- [ ] Prose passes [AGENTS.md](../../AGENTS.md) §4 checklist (no scaffold tags, Verdict labels, or honesty qualifiers)
-- [ ] `## Standpoint and scope` present per [AGENTS.md](../../AGENTS.md) §5
+- [ ] Prose passes [AGENTS.md](../../../AGENTS.md) §4 checklist (no scaffold tags, Verdict labels, or honesty qualifiers)
+- [ ] `## Standpoint and scope` present per [AGENTS.md](../../../AGENTS.md) §5
 - [ ] PR describes question, primary texts, new references
 
 ## Related
