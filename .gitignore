@@ -25,3 +25,6 @@ infra/worker/.wrangler/
 infra/worker/.turnstile-secret.tmp
 infra/discussions-worker/.wrangler/
 infra/google-verification-worker/.wrangler/
+
+# Cygwin/Git-Bash crash dumps
+*.stackdump
