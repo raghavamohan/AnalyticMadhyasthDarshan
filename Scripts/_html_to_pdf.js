@@ -72,34 +72,26 @@ function puppeteerLaunchOptions(executablePath) {
   return options;
 }
 
-const MONTHS = {
-  january: 0, february: 1, march: 2, april: 3, may: 4, june: 5,
-  july: 6, august: 7, september: 8, october: 9, november: 10, december: 11,
-};
-
-// Used when a document has no parseable `**Edited on:**` line. Must match
-// FALLBACK_STAMP in Scripts/_pdf_metadata.py.
+// Used when no stamp is supplied on the command line. Must match FALLBACK_STAMP
+// in Scripts/_pdf_metadata.py.
 const FALLBACK_PDF_DATE = new Date(Date.UTC(2020, 0, 1, 0, 0, 0));
 
 /**
- * Parse `**Edited on:**` text such as "June 30, 2026, 11:33 AM IST".
+ * Parse a PDF date string — `D:YYYYMMDDHHMMSS` with an optional offset — as
+ * produced by Scripts/_pdf_metadata.py.
  *
- * The digits are treated as UTC deliberately: reading them as local time would
- * make the bytes depend on the build machine's timezone, so a developer in IST
- * and a CI runner in UTC would disagree on the same markdown. Returns null when
- * the text does not match.
+ * The caller supplies this rather than it being scraped from the rendered page:
+ * the DOM read was timing-sensitive and could come back empty on a loaded
+ * runner, silently substituting a different date and making two renders of the
+ * same markdown disagree. Fixed field positions mean no locale or timezone
+ * ambiguity here.
  */
-function parseEditedOn(text) {
-  if (!text) return null;
-  const match = /^([A-Za-z]+)\s+(\d{1,2}),\s*(\d{4}),\s*(\d{1,2}):(\d{2})\s*([AaPp])\.?[Mm]/
-    .exec(String(text).trim());
+function parsePdfDateStamp(stamp) {
+  if (!stamp) return null;
+  const match = /^D:(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/.exec(String(stamp).trim());
   if (!match) return null;
-  const month = MONTHS[match[1].toLowerCase()];
-  if (month === undefined) return null;
-  let hour = Number(match[4]) % 12;
-  if (match[6].toLowerCase() === 'p') hour += 12;
-  const parsed = new Date(Date.UTC(
-    Number(match[3]), month, Number(match[2]), hour, Number(match[5]), 0));
+  const [, year, month, day, hour, minute, second] = match.map(Number);
+  const parsed = new Date(Date.UTC(year, month - 1, day, hour, minute, second));
   return Number.isNaN(parsed.getTime()) ? null : parsed;
 }
 
@@ -108,10 +100,10 @@ function parseEditedOn(text) {
 // reach. Pinning the dates here keeps Draft output reproducible without adding a
 // second rewrite. Released PDFs never enter this function and are pinned by
 // Scripts/_pdf_metadata.py instead.
-async function addPageWatermark(pdfPath, label, editedOnText) {
+async function addPageWatermark(pdfPath, label, dateStamp) {
   const pdfBytes = fs.readFileSync(pdfPath);
   const pdfDoc = await PDFDocument.load(pdfBytes);
-  const stamp = parseEditedOn(editedOnText) ?? FALLBACK_PDF_DATE;
+  const stamp = parsePdfDateStamp(dateStamp) ?? FALLBACK_PDF_DATE;
   pdfDoc.setCreationDate(stamp);
   pdfDoc.setModificationDate(stamp);
   const font = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
@@ -189,6 +181,9 @@ const watermarkLabel = args[1] ?? '';
 const outputPath = args[2]
   ? path.resolve(process.cwd(), args[2])
   : inputPath.replace(/\.html$/, '.pdf');
+// Optional pinned PDF date (`D:YYYYMMDDHHMMSS+00'00'`), supplied by
+// _study_catalog.regenerate_pdf via Scripts/_pdf_metadata.py.
+const pdfDateStamp = args[3] ?? '';
 
 /** Working English translations under References/ — not Studies/ catalog PDFs. */
 function isTranslationDocument(filePath) {
@@ -232,16 +227,17 @@ function buildFooterTemplate(editedOnDate) {
 
   await renderMermaidDiagrams(page);
 
-  // Read `**Edited on:**` for every document: Draft PDFs use it to pin their
-  // metadata dates. It is only *printed* in the footer for translation
-  // documents, which is the pre-existing behaviour.
-  const editedOnText = await page.evaluate(() => {
-    const bodyText = document.body.innerText || '';
-    const match = bodyText.match(/\*\*Edited on:\*\*\s*([^\n\r]+)/i) ||
-                  bodyText.match(/Edited on:\s*([^\n\r]+)/i);
-    return match && match[1] ? match[1].trim() : '';
-  });
-  const editedOnDate = isTranslationDocument(inputPath) ? editedOnText : '';
+  // Only translation documents print the date in their footer, so only they need
+  // it read from the page. The PDF's metadata date no longer comes from here.
+  let editedOnDate = '';
+  if (isTranslationDocument(inputPath)) {
+    editedOnDate = await page.evaluate(() => {
+      const bodyText = document.body.innerText || '';
+      const match = bodyText.match(/\*\*Edited on:\*\*\s*([^\n\r]+)/i) ||
+                    bodyText.match(/Edited on:\s*([^\n\r]+)/i);
+      return match && match[1] ? match[1].trim() : '';
+    });
+  }
 
   await page.pdf({
     path: outputPath,
@@ -257,7 +253,7 @@ function buildFooterTemplate(editedOnDate) {
   await browser.close();
 
   if (watermarkLabel) {
-    await addPageWatermark(outputPath, watermarkLabel, editedOnText);
+    await addPageWatermark(outputPath, watermarkLabel, pdfDateStamp);
   }
 
   console.log('PDF written to:', outputPath);

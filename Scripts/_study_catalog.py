@@ -1181,12 +1181,20 @@ def regenerate_pdf(md_path: Path, status: StudyStatus) -> None:
         is_draft=status == StudyStatus.DRAFT,
         include_web_chrome=True,
     )
+    from _pdf_metadata import stamp_for_markdown
+
     html_to_pdf_cmd = ["node", str(SCRIPTS / "_html_to_pdf.js"), str(html_path)]
     if status == StudyStatus.DRAFT:
         html_to_pdf_cmd.append("Draft")
     else:
         html_to_pdf_cmd.append("")
     html_to_pdf_cmd.append(str(build_pdf_path))
+    # Pass the pinned date explicitly. The Draft branch used to scrape
+    # `**Edited on:**` out of the rendered DOM, which is timing-sensitive: on a
+    # loaded runner the read could come back empty and silently fall back to a
+    # different date, so two renders of the same markdown disagreed. Reading it
+    # from the markdown here is authoritative and keeps one parser, in Python.
+    html_to_pdf_cmd.append(stamp_for_markdown(md_path))
     subprocess.run(
         html_to_pdf_cmd,
         check=True,
