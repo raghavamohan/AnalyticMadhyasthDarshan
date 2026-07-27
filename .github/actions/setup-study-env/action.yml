@@ -1,0 +1,63 @@
+name: Set up study toolchain
+description: >-
+  Python (and optionally Node + Puppeteer Chrome) for the study pipelines, with
+  pip, npm and Chrome all cached. Replaces the setup block that was duplicated
+  verbatim across study-pr.yml, proposal-approved.yml and studies-index-check.yml.
+
+inputs:
+  node:
+    description: >-
+      Install Node, Scripts/ npm dependencies and Puppeteer Chrome. Only needed
+      by jobs that render PDFs; set to 'false' for verification-only jobs.
+    required: false
+    default: 'true'
+  python-version:
+    required: false
+    default: '3.12'
+  node-version:
+    required: false
+    default: '20'
+
+runs:
+  using: composite
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.python-version }}
+        cache: pip
+        cache-dependency-path: requirements.txt
+
+    - name: Install Python dependencies
+      shell: bash
+      run: pip install -r requirements.txt
+
+    - name: Set up Node
+      if: inputs.node == 'true'
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ inputs.node-version }}
+        cache: npm
+        cache-dependency-path: Scripts/package-lock.json
+
+    - name: Install Node dependencies
+      if: inputs.node == 'true'
+      shell: bash
+      working-directory: Scripts
+      run: npm ci
+
+    # Chrome is ~150 MB and was re-downloaded on every single run. Keyed on the
+    # lockfile so a Puppeteer version bump naturally invalidates it.
+    - name: Restore Puppeteer Chrome
+      if: inputs.node == 'true'
+      id: chrome-cache
+      uses: actions/cache@v4
+      with:
+        path: ~/.cache/puppeteer
+        key: puppeteer-chrome-${{ runner.os }}-${{ hashFiles('Scripts/package-lock.json') }}
+
+    - name: Install Puppeteer Chrome
+      if: inputs.node == 'true' && steps.chrome-cache.outputs.cache-hit != 'true'
+      shell: bash
+      working-directory: Scripts
+      run: npx puppeteer browsers install chrome
