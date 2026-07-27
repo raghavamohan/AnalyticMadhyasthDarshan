@@ -29,7 +29,7 @@ Works with **Cursor**, **OpenCode**, and **ZCode** (skills live in
 | Madhyasth Darshan, Advaita, open-access papers, author preprints, public-domain texts, existing SEP/HTML snapshots used for quote verification | Commercial books, paywalled journals, IEP articles (no reposting), unclear translation rights |
 
 **Never** upload restricted publisher PDFs. Document external-only works in
-[References/NOT-DOWNLOADED.md](../../References/NOT-DOWNLOADED.md).
+[References/NOT-DOWNLOADED.md](../../../References/NOT-DOWNLOADED.md).
 
 ## Workflow
 
@@ -63,7 +63,7 @@ When in doubt, keep the external URL and add or keep a row in `NOT-DOWNLOADED.md
 
 ### 3. Add to download manifest (if newly mirrorable)
 
-Edit [Scripts/_reference_downloads.py](../../Scripts/_reference_downloads.py):
+Edit [Scripts/_reference_downloads.py](../../../Scripts/_reference_downloads.py):
 
 ```python
 DownloadEntry(
@@ -100,7 +100,7 @@ After a successful local mirror:
 2. **References/MANIFEST.md** — move tag from external to present; refresh summary counts
 3. **References/NOT-DOWNLOADED.md** — remove tag if it was external-only; keep publisher URL in study as `Also at …` when helpful
 4. **Study `.md` References section** — primary link `../References/...`; external URL optional
-5. Refresh `**Edited on:**` + catalogs if study References changed ([AGENTS.md](../../AGENTS.md) §1)
+5. Refresh `**Edited on:**` + catalogs if study References changed ([AGENTS.md](../../../AGENTS.md) §1)
 6. Regenerate affected PDFs: `python Scripts/_regenerate_pdf.py <Slug>`
 
 ### 6. Verify quotes and cache
@@ -149,4 +149,4 @@ External-only tags are skipped during verify. HTML snapshots are not PDF-cached.
 - Full checks: [check-references](../check-references/SKILL.md)
 - Quote verification: `python Scripts/_quote_tool.py verify`
 - Study lifecycle: [manage-studies](../manage-studies/SKILL.md)
-- Agent rules: [AGENTS.md](../../AGENTS.md); contributor overview [References/README.md](../../References/README.md)
+- Agent rules: [AGENTS.md](../../../AGENTS.md); contributor overview [References/README.md](../../../References/README.md)

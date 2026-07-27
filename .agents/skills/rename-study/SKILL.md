@@ -72,7 +72,7 @@ Complete these on the same feature branch before opening the PR:
    Set it to the new display title when the title changes.
 2. **`**Edited on:**`** — refresh with real IST time
    (`Get-Date -Format "MMMM d, yyyy, h:mm tt"` + ` IST`), then sync catalog
-   **Last updated on** (abbreviated month). See [AGENTS.md](../../AGENTS.md) §1.
+   **Last updated on** (abbreviated month). See [AGENTS.md](../../../AGENTS.md) §1.
 3. **Display order** — if the slug appears in
    `TOPICAL_DISPLAY_ORDER` in `Scripts/_study_catalog.py`, replace the old slug.
 4. **Start here path** — if the study is a core stage in
@@ -87,7 +87,7 @@ Complete these on the same feature branch before opening the PR:
 6. **References link text** — script rewrites paths; if the markdown link label
    still shows `<Old-Slug>.pdf`, rename the label to match.
 7. **Cross-study links** — other studies’ `.md` files that point at the old
-   slug are **out of scope for this PR**. [AGENTS.md](../../AGENTS.md) §7:
+   slug are **out of scope for this PR**. [AGENTS.md](../../../AGENTS.md) §7:
    one study slug per `study-update` PR. Open follow-up PRs per linked study.
 
 ## My Submissions (portal)
@@ -129,7 +129,7 @@ python Scripts/_verify_studies_index.py
 ```
 
 2. Open a **`study-update`** PR (template
-   [.github/PULL_REQUEST_TEMPLATE/study-update.md](../../.github/PULL_REQUEST_TEMPLATE/study-update.md)):
+   [.github/PULL_REQUEST_TEMPLATE/study-update.md](../../../.github/PULL_REQUEST_TEMPLATE/study-update.md)):
 
 ```text
 Study slug: New-Slug
@@ -159,4 +159,4 @@ added and can run `_rename_study.py --metadata-only` on the branch.
 - Overview: [manage-studies](../manage-studies/SKILL.md)
 - PDF regen: [regenerate-study-pdf](../regenerate-study-pdf/SKILL.md)
 - Index / Start here: [refine-studies-index](../refine-studies-index/SKILL.md)
-- Rules: [AGENTS.md](../../AGENTS.md) §1, §2, §3, §7; [CONTRIBUTING.md](../../CONTRIBUTING.md) (slug rename)
+- Rules: [AGENTS.md](../../../AGENTS.md) §1, §2, §3, §7; [CONTRIBUTING.md](../../../CONTRIBUTING.md) (slug rename)
