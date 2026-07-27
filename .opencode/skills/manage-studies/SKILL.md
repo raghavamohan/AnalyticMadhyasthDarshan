@@ -43,7 +43,7 @@ Orchestration skill for the study lifecycle. Read the focused skill for your tas
 ## Before you start
 
 Create a feature branch before touching anything under `Studies/` — never commit study
-changes directly to the default branch. See [AGENTS.md](../../AGENTS.md) §7 for the full
+changes directly to the default branch. See [AGENTS.md](../../../AGENTS.md) §7 for the full
 branch/PR-label/template workflow; this skill covers file-level correctness only.
 
 ## Prerequisites
@@ -81,17 +81,17 @@ Confirm before finishing:
 - [ ] After landing-page UI changes: `INDEX_TEMPLATE` updated in `_build_studies_index.py`, shell rebuilt, `python Scripts/_verify_studies_index.py` passes
 - [ ] Change is on a feature branch (not the default branch); the PR to open carries exactly one
   of `new-study` / `study-update` / `status-change` and the body field that label requires —
-  [AGENTS.md](../../AGENTS.md) §7
+  [AGENTS.md](../../../AGENTS.md) §7
 
-**Agent rules:** [AGENTS.md](../../AGENTS.md) — §1 (Edited on), §2 (catalog sync), §3 (PDF pipeline), §7 (submission process: branches, PR labels, templates).
+**Agent rules:** [AGENTS.md](../../../AGENTS.md) — §1 (Edited on), §2 (catalog sync), §3 (PDF pipeline), §7 (submission process: branches, PR labels, templates).
 
 ## Study writing standards
 
-When editing study **body text**, follow [AGENTS.md](../../AGENTS.md):
+When editing study **body text**, follow [AGENTS.md](../../../AGENTS.md):
 
 - §4 — prose style (no `[Text]` tags, `**Step N —**`, `**Verdict:**`, or honesty qualifiers)
 - §5 — `## Standpoint and scope` on every topical study
 
 Reference implementations: `Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.md`, `Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.md`.
 
-Contributor overview: [Studies/README.md](../../Studies/README.md), [CONTRIBUTING.md](../../CONTRIBUTING.md)
+Contributor overview: [Studies/README.md](../../../Studies/README.md), [CONTRIBUTING.md](../../../CONTRIBUTING.md)

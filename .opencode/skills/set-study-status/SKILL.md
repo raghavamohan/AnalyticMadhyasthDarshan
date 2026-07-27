@@ -70,4 +70,4 @@ See [regenerate-study-pdf](../regenerate-study-pdf/SKILL.md) (`python Scripts/_r
 - Overview: [manage-studies](../manage-studies/SKILL.md)
 - Add new study: [add-study](../add-study/SKILL.md)
 - Regenerate PDF: [regenerate-study-pdf](../regenerate-study-pdf/SKILL.md)
-- Rules: [AGENTS.md](../../AGENTS.md) §1 (Edited on), §2 (catalog sync), §3 (PDF pipeline)
+- Rules: [AGENTS.md](../../../AGENTS.md) §1 (Edited on), §2 (catalog sync), §3 (PDF pipeline)
