@@ -27,7 +27,9 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import re
 import sys
+import zlib
 from pathlib import Path
 
 SCRIPTS = Path(__file__).resolve().parent
@@ -45,10 +47,6 @@ from _study_catalog import (  # noqa: E402
 DEFAULT_SLUGS = ("Nature-Of-Time", "Human-Behavior-And-Society")
 
 
-def digest(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
-
-
 def resolve_status(slug: str) -> StudyStatus:
     md_path = study_md(slug)
     md_status = parse_status_md(md_path.read_text(encoding="utf-8"))
@@ -58,6 +56,47 @@ def resolve_status(slug: str) -> StudyStatus:
     if located is None:
         raise SystemExit(f"{slug}: no **Status:** line and no catalog row.")
     return located[0].status
+
+
+ISO_TIMESTAMP_RE = re.compile(rb"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}")
+PDF_DATE_RE = re.compile(rb"D:\d{14}")
+
+
+def describe_difference(first: bytes, second: bytes) -> str:
+    """Explain where two runs diverge, so a failure is actionable from the log."""
+    lines = [f"    sizes: {len(first)} vs {len(second)}"]
+
+    offsets = [i for i in range(min(len(first), len(second))) if first[i] != second[i]]
+    if not offsets:
+        lines.append("    common prefix identical; one file is longer")
+        return "\n".join(lines)
+
+    lines.append(f"    {len(offsets)} differing byte(s), first at offset {offsets[0]}")
+    start = max(0, offsets[0] - 110)
+    end = offsets[0] + 60
+    lines.append(f"    run 1 context: {first[start:end]!r}")
+    lines.append(f"    run 2 context: {second[start:end]!r}")
+
+    # Timestamps are the usual culprit. Report every form we can spot, in both the
+    # plain bytes and any decompressed object stream, so a compressed-away date
+    # does not hide.
+    for label, buf in (("run 1", first), ("run 2", second)):
+        plain_pdf = sorted(set(PDF_DATE_RE.findall(buf)))
+        plain_iso = sorted(set(ISO_TIMESTAMP_RE.findall(buf)))
+        inflated_pdf: set[bytes] = set()
+        inflated_iso: set[bytes] = set()
+        for chunk in re.findall(rb"stream\r?\n(.*?)endstream", buf, re.S):
+            try:
+                raw = zlib.decompress(chunk)
+            except zlib.error:
+                continue
+            inflated_pdf |= set(PDF_DATE_RE.findall(raw))
+            inflated_iso |= set(ISO_TIMESTAMP_RE.findall(raw))
+        lines.append(
+            f"    {label} dates — plain: {plain_pdf + plain_iso} "
+            f"in-stream: {sorted(inflated_pdf | inflated_iso)}"
+        )
+    return "\n".join(lines)
 
 
 def check_slug(slug: str) -> tuple[bool, str]:
@@ -70,17 +109,20 @@ def check_slug(slug: str) -> tuple[bool, str]:
         return True, f"{slug}: skipped (Ongoing studies have no PDF)"
 
     regenerate_pdf(md_path, status)
-    first = digest(pdf_path)
+    first_bytes = pdf_path.read_bytes()
+    first = hashlib.sha256(first_bytes).hexdigest()
     regenerate_pdf(md_path, status)
-    second = digest(pdf_path)
+    second_bytes = pdf_path.read_bytes()
+    second = hashlib.sha256(second_bytes).hexdigest()
 
     label = f"{slug} ({status.value})"
     if first == second:
-        return True, f"{label}: reproducible — {first[:16]}… ({pdf_path.stat().st_size} bytes)"
+        return True, f"{label}: reproducible — {first[:16]}… ({len(first_bytes)} bytes)"
     return False, (
         f"{label}: NOT reproducible\n"
         f"    run 1 {first}\n"
         f"    run 2 {second}\n"
+        f"{describe_difference(first_bytes, second_bytes)}\n"
         "    Something in the pipeline is stamping non-deterministic data. See "
         "Scripts/_pdf_metadata.py."
     )
