@@ -1195,6 +1195,12 @@ def regenerate_pdf(md_path: Path, status: StudyStatus) -> None:
     build_pdf_path.replace(pdf_path)
     if build_pdf_path.exists():
         build_pdf_path.unlink()
+    # Pin the PDF's dates before verification so re-running on unchanged markdown
+    # produces byte-identical output (see _pdf_metadata for why this is an
+    # incremental rewrite rather than a full re-save).
+    from _pdf_metadata import normalize_study_pdf
+
+    normalize_study_pdf(md_path, pdf_path)
     verify_study_pdf_diagrams(md_path, pdf_path)
     verify_study_pdf_fenced_code(md_path, pdf_path)
     verify_study_pdf_outline(md_path, pdf_path)

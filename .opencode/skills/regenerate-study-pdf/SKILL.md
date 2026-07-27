@@ -41,9 +41,15 @@ watermark when appropriate, and **verifies Mermaid diagrams** in the output PDF.
 0. `_verify_study_svgs.py` — fail if referenced SVG figures are missing, not UTF-8, or malformed XML
 1. `_convert_to_pdf.py` — markdown → HTML; ` ```mermaid ` → `<div class="mermaid">`
 2. `_html_to_pdf.js` — render Mermaid to SVG, then Puppeteer → PDF
-3. `_verify_pdf_diagrams.py` — fail if raw Mermaid syntax remains in the PDF
-4. `_verify_pdf_fenced_code.py` — fail if fenced ` ```text ` / code lines are clipped in the PDF
-5. `_verify_pdf_outline.py` — fail if the PDF has no sidebar bookmarks when the markdown has two or more `##` headings
+3. `_pdf_metadata.py` — pin `/CreationDate` and `/ModDate` from the study's `**Edited on:**` so identical markdown yields byte-identical output
+4. `_verify_pdf_diagrams.py` — fail if raw Mermaid syntax remains in the PDF
+5. `_verify_pdf_fenced_code.py` — fail if fenced ` ```text ` / code lines are clipped in the PDF
+6. `_verify_pdf_outline.py` — fail if the PDF has no sidebar bookmarks when the markdown has two or more `##` headings
+
+Output is **reproducible**: re-running on unchanged markdown produces a byte-identical
+PDF, so a no-op regeneration leaves nothing to commit. In CI, a `study-update` PR that
+touches only companion files (a deck, research notes, figures the study does not embed)
+skips PDF regeneration entirely.
 
 The pipeline **keeps** the companion `.html` (web read view with toolbar and Mermaid);
 it is not deleted after PDF generation.

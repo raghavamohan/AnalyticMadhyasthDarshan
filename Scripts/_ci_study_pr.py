@@ -13,7 +13,9 @@ import subprocess
 import sys
 import urllib.error
 import urllib.request
+from collections.abc import Callable
 from dataclasses import replace
+from functools import lru_cache
 from pathlib import Path
 
 from _common import BASE, STUDIES, slug_from_repo_relative_path, study_md
@@ -130,37 +132,92 @@ SCRIPTS = Path(__file__).resolve().parent
 
 def run_reference_checks(*, study: str | None = None, full_repo: bool = False) -> None:
     """Run Scripts/_check_references.py; fail CI when references are broken."""
-    if full_repo or study is None:
-        report = run_checks(study=None, skip_pdf=False)
-        code = print_report(report, study=None)
-    else:
-        report = run_checks(study=study, skip_pdf=False)
-        code = print_report(report, study=study)
-    if code != 0:
+    target = None if full_repo else study
+    report = run_checks(study=target, skip_pdf=False)
+    if print_report(report, study=target) != 0:
         raise SystemExit("Reference checks failed. Run: python Scripts/_check_references.py")
 
 
-def references_changed(base_ref: str) -> bool:
+def _git(*args: str) -> str:
     result = subprocess.run(
-        ["git", "diff", "--name-only", base_ref, "HEAD", "--", "References/"],
+        ["git", *args],
         capture_output=True,
         text=True,
         cwd=BASE,
         check=False,
     )
-    return bool(result.stdout.strip())
+    return result.stdout
+
+
+@lru_cache(maxsize=None)
+def changed_paths(base_ref: str) -> tuple[tuple[str, str], ...]:
+    """``((status, path), ...)`` for the PR range, read once per base ref.
+
+    Renames are flattened to a ``D`` for the old path and an ``A`` for the new
+    one so callers can treat every entry uniformly; ``detect_study_rename`` reads
+    the raw ``R`` records separately.
+    """
+    entries: list[tuple[str, str]] = []
+    for line in _git("diff", "--name-status", f"{base_ref}...HEAD").splitlines():
+        parts = line.split("\t")
+        if len(parts) < 2:
+            continue
+        status = parts[0]
+        if status.startswith("R") and len(parts) >= 3:
+            entries.append(("D", parts[1]))
+            entries.append(("A", parts[2]))
+        else:
+            entries.append((status, parts[1]))
+    return tuple(entries)
+
+
+def references_changed(base_ref: str) -> bool:
+    return any(path.startswith("References/") for _status, path in changed_paths(base_ref))
+
+
+# Touching any of these changes how every PDF is rendered, so the study PDF has to
+# be rebuilt even when the markdown itself is untouched.
+PDF_PIPELINE_PATHS = (
+    "Scripts/_convert_to_pdf.py",
+    "Scripts/_html_to_pdf.js",
+    "Scripts/_pdf_metadata.py",
+    "Scripts/_regenerate_pdf.py",
+    "Scripts/_study_catalog.py",
+    "Scripts/package.json",
+    "Scripts/package-lock.json",
+)
+
+
+def pdf_regeneration_reason(base_ref: str, slug: str) -> str | None:
+    """Why ``slug``'s PDF needs rebuilding, or None when it can be skipped.
+
+    A study-update PR often touches only companion files — a deck, research
+    notes, figures that the study does not embed — and rebuilding the PDF then
+    costs a full Puppeteer render and (before the output was made reproducible)
+    pushed a fresh multi-megabyte blob for no change in content.
+    """
+    md_path = study_md(slug)
+    if not md_path.with_suffix(".pdf").is_file():
+        return "the PDF is missing"
+
+    changed = changed_paths(base_ref)
+    md_rel = md_path.relative_to(BASE).as_posix()
+    study_dir = md_path.parent.relative_to(BASE).as_posix()
+
+    for _status, path in changed:
+        if path == md_rel:
+            return "the study markdown changed"
+        # Only figures inside the study's own directory can appear in its PDF.
+        if path.startswith(f"{study_dir}/") and path.lower().endswith((".svg", ".png", ".jpg", ".jpeg")):
+            return f"a figure changed ({path})"
+        if path in PDF_PIPELINE_PATHS:
+            return f"the PDF pipeline changed ({path})"
+    return None
 
 
 def study_references_changed(base_ref: str, slug: str) -> bool:
     md_path = study_md(slug).relative_to(BASE).as_posix()
-    result = subprocess.run(
-        ["git", "diff", base_ref, "HEAD", "--", md_path],
-        capture_output=True,
-        text=True,
-        cwd=BASE,
-        check=False,
-    )
-    diff = result.stdout
+    diff = _git("diff", base_ref, "HEAD", "--", md_path)
     if not diff:
         return False
     return "../References/" in diff or "## References" in diff
@@ -199,54 +256,60 @@ def proposal_metadata_from_issue(issue_number: int) -> tuple[str, str, bool]:
 
 
 def changed_study_slugs(base_ref: str) -> list[str]:
-    result = subprocess.run(
-        ["git", "diff", "--name-only", f"{base_ref}...HEAD"],
-        capture_output=True,
-        text=True,
-        check=True,
-        cwd=BASE,
-    )
     slugs: list[str] = []
     seen: set[str] = set()
-    for line in result.stdout.splitlines():
-        path = Path(line.strip())
-        slug = slug_from_repo_relative_path(path)
+    for _status, path in changed_paths(base_ref):
+        slug = slug_from_repo_relative_path(Path(path))
         if slug and slug not in seen:
             seen.add(slug)
             slugs.append(slug)
     return slugs
 
 
+STUDY_ROOTS = ("Studies", "Applications")
+
+
+def slug_from_path_lexical(path: Path) -> str | None:
+    """Slug from a repo-relative study path *without* requiring it on disk.
+
+    ``_common.slug_from_repo_relative_path`` only resolves paths that still exist,
+    which is right for "which studies did this PR touch" but wrong for rename
+    detection: the old side of a rename has by definition been moved away, so it
+    always resolved to None and no rename was ever detected.
+    """
+    parts = path.parts
+    if len(parts) < 2 or parts[0] not in STUDY_ROOTS:
+        return None
+    return parts[1] or None
+
+
 def detect_study_rename(base_ref: str) -> tuple[str, str] | None:
-    result = subprocess.run(
-        ["git", "diff", "--name-status", f"{base_ref}...HEAD"],
-        capture_output=True,
-        text=True,
-        check=True,
-        cwd=BASE,
-    )
-    removed_slugs: set[str] = set()
-    added_slugs: set[str] = set()
-    for line in result.stdout.splitlines():
+    # A git-detected rename is authoritative, so check the raw R records first.
+    for line in _git("diff", "--name-status", f"{base_ref}...HEAD").splitlines():
         parts = line.split("\t")
-        if len(parts) < 2:
-            continue
-        status = parts[0]
-        if status.startswith("R") and len(parts) >= 3:
-            old_slug = slug_from_repo_relative_path(Path(parts[1]))
-            new_slug = slug_from_repo_relative_path(Path(parts[2]))
+        if len(parts) >= 3 and parts[0].startswith("R"):
+            old_slug = slug_from_path_lexical(Path(parts[1]))
+            new_slug = slug_from_path_lexical(Path(parts[2]))
             if old_slug and new_slug and old_slug != new_slug:
                 return old_slug, new_slug
+
+    # Otherwise infer it from exactly one slug disappearing and one appearing.
+    removed_slugs: set[str] = set()
+    added_slugs: set[str] = set()
+    for status, path in changed_paths(base_ref):
+        slug = slug_from_path_lexical(Path(path))
+        if not slug:
+            continue
         if status == "D":
-            slug = slug_from_repo_relative_path(Path(parts[1]))
-            if slug:
-                removed_slugs.add(slug)
+            removed_slugs.add(slug)
         elif status.startswith("A"):
-            slug = slug_from_repo_relative_path(Path(parts[1]))
-            if slug:
-                added_slugs.add(slug)
-    if len(removed_slugs) == 1 and len(added_slugs) == 1:
-        return removed_slugs.pop(), added_slugs.pop()
+            added_slugs.add(slug)
+    # Only a clean one-out/one-in pair is unambiguous; ignore slugs that appear on
+    # both sides, which just means files were added and removed within one study.
+    removed_only = removed_slugs - added_slugs
+    added_only = added_slugs - removed_slugs
+    if len(removed_only) == 1 and len(added_only) == 1:
+        return removed_only.pop(), added_only.pop()
     return None
 
 
@@ -277,6 +340,42 @@ def verify_rename_metadata(old_slug: str, new_slug: str) -> None:
         errors.append(f"Missing .proposal-meta.json under {new_slug}.")
     if errors:
         raise SystemExit("Rename metadata verification failed:\n  - " + "\n  - ".join(errors))
+
+
+SLUG_PATTERNS = (r"^Study slug:\s*(.+)$", r"^Slug:\s*(.+)$")
+
+
+def resolve_slug(
+    body: str,
+    base_ref: str | None = None,
+    *,
+    rename: tuple[str, str] | None = None,
+    allow_changed: bool = False,
+) -> str:
+    """Resolve the target slug from the PR body, with optional fallbacks.
+
+    All three PR types accept the same two body keys; they differ only in which
+    fallbacks apply when the body omits them.
+    """
+    raw = parse_body_field(body, *SLUG_PATTERNS)
+    if raw:
+        return normalize_pr_slug(raw)
+    if rename:
+        return rename[1]
+    if allow_changed and base_ref is not None:
+        changed = changed_study_slugs(base_ref)
+        if len(changed) == 1:
+            return changed[0]
+    hint = (
+        " or change exactly one Studies/<Slug>/<Slug>.md "
+        "(or Applications/<Slug>/<Slug>.md) file"
+        if allow_changed
+        else ""
+    )
+    raise SystemExit(
+        "Set `Study slug: <Slug>` on its own line (bare catalog slug only — "
+        f"no parenthetical notes){hint}."
+    )
 
 
 def active_pr_label(labels: list[dict]) -> str | None:
@@ -356,18 +455,7 @@ def handle_new_study(body: str, base_ref: str) -> None:
     issue_number = int(issue_text)
     issue_is_approved(issue_number)
 
-    slug = parse_body_field(body, r"^Slug:\s*(.+)$", r"Study slug:\s*(.+)$")
-    changed = changed_study_slugs(base_ref)
-    if slug:
-        slug = normalize_pr_slug(slug)
-    elif len(changed) == 1:
-        slug = changed[0]
-    else:
-        raise SystemExit(
-            "Set `Slug:` in the PR body or change exactly one "
-            "Studies/<Slug>/<Slug>.md (or Applications/<Slug>/<Slug>.md) file."
-        )
-
+    slug = resolve_slug(body, base_ref, allow_changed=True)
     md_path = study_md(slug)
     if not md_path.exists():
         raise SystemExit(f"Expected study markdown at {md_path}")
@@ -404,6 +492,8 @@ def handle_new_study(body: str, base_ref: str) -> None:
     subprocess.run(command, check=True, cwd=BASE)
     mark_registry_in_catalog(slug)
     sync_study_reference_cache(slug)
+    # A brand-new study gets a full audit regardless of what the diff touched;
+    # study-update only re-checks when references actually changed.
     if references_changed(base_ref):
         run_reference_checks(full_repo=True)
     else:
@@ -412,20 +502,7 @@ def handle_new_study(body: str, base_ref: str) -> None:
 
 def handle_study_update(body: str, base_ref: str) -> None:
     rename = detect_study_rename(base_ref)
-    slug = parse_body_field(body, r"^Study slug:\s*(.+)$", r"^Slug:\s*(.+)$")
-    changed = changed_study_slugs(base_ref)
-    if slug:
-        slug = normalize_pr_slug(slug)
-    elif rename:
-        slug = rename[1]
-    elif len(changed) == 1:
-        slug = changed[0]
-    else:
-        raise SystemExit(
-            "Set `Study slug: <Slug>` on its own line (bare catalog slug only — "
-            "no parenthetical notes) or change exactly one "
-            "Studies/<Slug>/<Slug>.md (or Applications/<Slug>/<Slug>.md) file."
-        )
+    slug = resolve_slug(body, base_ref, rename=rename, allow_changed=True)
 
     if rename:
         old_slug, new_slug = rename
@@ -466,33 +543,33 @@ def handle_study_update(body: str, base_ref: str) -> None:
     row, _table = located
 
     md_path = study_md(slug)
-    print(f"Regenerating PDF for {slug} ({row.status.value})")
     sync_study_reference_cache(slug)
-    regenerate_pdf(md_path, row.status)
+    reason = pdf_regeneration_reason(base_ref, slug)
+    if reason:
+        print(f"Regenerating PDF for {slug} ({row.status.value}): {reason}")
+        regenerate_pdf(md_path, row.status)
+    else:
+        print(
+            f"Skipping PDF regeneration for {slug}: no change to the markdown, "
+            "its figures, or the PDF pipeline."
+        )
 
-    if references_changed(base_ref) or study_references_changed(base_ref, slug):
-        if references_changed(base_ref):
-            run_reference_checks(full_repo=True)
-        else:
-            run_reference_checks(study=slug)
+    if references_changed(base_ref):
+        run_reference_checks(full_repo=True)
+    elif study_references_changed(base_ref, slug):
+        run_reference_checks(study=slug)
 
     errors = verify_timestamp_sync(slug)
     if errors:
         raise SystemExit("Timestamp verification failed:\n  - " + "\n  - ".join(errors))
 
 
-def handle_status_change(body: str) -> None:
-    slug = parse_body_field(body, r"^Study slug:\s*(.+)$", r"^Slug:\s*(.+)$")
+def handle_status_change(body: str, base_ref: str) -> None:  # noqa: ARG001 - uniform signature
+    slug = resolve_slug(body)
     target = parse_body_field(body, r"^Target status:\s*(\w+)")
-    if not slug:
-        raise SystemExit(
-            "PR body must include `Study slug: <Slug>` on its own line "
-            "(bare catalog slug only — no parenthetical notes)."
-        )
     if not target:
         raise SystemExit("PR body must include `Target status: draft` or `released`.")
 
-    slug = normalize_pr_slug(slug)
     target = target.strip().lower()
     if target not in {"draft", "released"}:
         raise SystemExit("Target status must be `draft` or `released`.")
@@ -514,6 +591,16 @@ def verify_studies_index() -> None:
         raise SystemExit(
             "Studies index verification failed:\n  - " + "\n  - ".join(errors)
         )
+
+
+# Label → handler. active_pr_label() guarantees the key exists, and adding a
+# fourth PR type means one entry here plus a body template.
+HANDLERS: dict[str, Callable[[str, str], None]] = {
+    "new-study": handle_new_study,
+    "study-update": handle_study_update,
+    "status-change": handle_status_change,
+}
+assert set(HANDLERS) == set(PR_LABELS), "HANDLERS must cover exactly PR_LABELS"
 
 
 def main() -> None:
@@ -539,14 +626,7 @@ def main() -> None:
     body = resolve_pr_body(pull_request)
     print(f"Study PR type: {label}")
 
-    if label == "new-study":
-        handle_new_study(body, args.base_ref)
-    elif label == "study-update":
-        handle_study_update(body, args.base_ref)
-    elif label == "status-change":
-        handle_status_change(body)
-    else:
-        raise SystemExit(f"Unsupported label: {label}")
+    HANDLERS[label](body, args.base_ref)
 
     verify_studies_index()
     print("Study PR pipeline completed successfully.")
