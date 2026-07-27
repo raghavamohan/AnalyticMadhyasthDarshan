@@ -99,7 +99,7 @@ def describe_difference(first: bytes, second: bytes) -> str:
     return "\n".join(lines)
 
 
-def check_slug(slug: str) -> tuple[bool, str]:
+def check_slug(slug: str, runs: int = 2) -> tuple[bool, str]:
     md_path = study_md(slug)
     if not md_path.is_file():
         raise SystemExit(f"Study markdown not found: {md_path}")
@@ -108,21 +108,28 @@ def check_slug(slug: str) -> tuple[bool, str]:
     if status == StudyStatus.ONGOING:
         return True, f"{slug}: skipped (Ongoing studies have no PDF)"
 
-    regenerate_pdf(md_path, status)
-    first_bytes = pdf_path.read_bytes()
-    first = hashlib.sha256(first_bytes).hexdigest()
-    regenerate_pdf(md_path, status)
-    second_bytes = pdf_path.read_bytes()
-    second = hashlib.sha256(second_bytes).hexdigest()
+    outputs: list[bytes] = []
+    for _ in range(max(2, runs)):
+        regenerate_pdf(md_path, status)
+        outputs.append(pdf_path.read_bytes())
 
+    digests = [hashlib.sha256(buf).hexdigest() for buf in outputs]
     label = f"{slug} ({status.value})"
-    if first == second:
-        return True, f"{label}: reproducible — {first[:16]}… ({len(first_bytes)} bytes)"
+    if len(set(digests)) == 1:
+        return True, (
+            f"{label}: reproducible across {len(outputs)} runs — "
+            f"{digests[0][:16]}… ({len(outputs[0])} bytes)"
+        )
+
+    # Report against the first run that disagrees, not just run 2 — the divergence
+    # may be intermittent and appear only on a later pass.
+    odd = next(i for i, d in enumerate(digests) if d != digests[0])
+    listing = "\n".join(f"    run {i + 1} {d}" for i, d in enumerate(digests))
     return False, (
-        f"{label}: NOT reproducible\n"
-        f"    run 1 {first}\n"
-        f"    run 2 {second}\n"
-        f"{describe_difference(first_bytes, second_bytes)}\n"
+        f"{label}: NOT reproducible ({len(set(digests))} distinct outputs in "
+        f"{len(outputs)} runs)\n"
+        f"{listing}\n"
+        f"{describe_difference(outputs[0], outputs[odd])}\n"
         "    Something in the pipeline is stamping non-deterministic data. See "
         "Scripts/_pdf_metadata.py."
     )
@@ -133,6 +140,11 @@ def main(argv: list[str] | None = None) -> int:
         description="Regenerate each study twice and assert the PDF bytes match.",
     )
     parser.add_argument("slugs", nargs="*", help=f"Study slugs (default: {' '.join(DEFAULT_SLUGS)})")
+    parser.add_argument(
+        "--runs", type=int, default=2, metavar="N",
+        help="Regenerations per study (minimum 2). Raise it to hunt an intermittent "
+             "divergence.",
+    )
     parser.add_argument(
         "--list-defaults", action="store_true",
         help="Print the default slugs and exit",
@@ -146,7 +158,7 @@ def main(argv: list[str] | None = None) -> int:
     slugs = args.slugs or list(DEFAULT_SLUGS)
     failures = 0
     for slug in slugs:
-        ok, message = check_slug(slug)
+        ok, message = check_slug(slug, args.runs)
         print(("ok   " if ok else "FAIL ") + message)
         if not ok:
             failures += 1
