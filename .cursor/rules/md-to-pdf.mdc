@@ -1,6 +1,6 @@
 ---
 description: Convert study markdown to PDF using the repo's internal scripts only
-globs: Studies/*/*.md,Scripts/_regenerate_pdf.py,Scripts/_convert_to_pdf.py,Scripts/_html_to_pdf.js,Scripts/_verify_pdf_diagrams.py,Scripts/_verify_pdf_fenced_code.py
+globs: Studies/*/*.md,Scripts/_regenerate_pdf.py,Scripts/_convert_to_pdf.py,Scripts/_html_to_pdf.js,Scripts/_verify_pdf_diagrams.py,Scripts/_verify_pdf_fenced_code.py,Studies/*/*.pptx,Applications/*/*.pptx,Scripts/_pptx_to_pdf.py,Scripts/_build_deck_notes_pdf.py,Scripts/_build_presenters_companion.py,Scripts/_sync_pptx_speaker_notes.py
 alwaysApply: false
 ---
 
@@ -194,5 +194,43 @@ converted `.md` (headings, tables, citations, Standpoint and scope, References),
 regenerate the PDF with `_regenerate_pdf.py` before opening a study PR. Diagrams,
 math, and glossary tooltips are not recovered from PDF — re-add them in markdown.
 Scanned or image-only PDFs fail fast; do not commit placeholder extractions.
+
+## Companion deck PDFs — a separate pipeline
+
+`_regenerate_pdf.py` does **not** produce deck PDFs. A study folder may hold one or
+more teaching decks; each `<Deck>.pptx` is hand-built and is the source of truth
+(there is no slides-YAML generation workflow). A deck with a Presenter's Companion
+yields three PDFs, which are **not interchangeable**:
+
+| PDF | Contains | Audience |
+|-----|----------|----------|
+| `<Deck>.pdf` | Slides only | Projecting; the filename `Studies/index.html` links as the presentation PDF |
+| `<Deck>-notes.pdf` | Slide plus that slide's read-aloud script, one page per slide | The presenter, while delivering |
+| `Presenters-Companion-<Name>.pdf` | Script **plus** primary-text background and Q&A | Pre-session study |
+
+Regenerate in this order whenever the deck changes at all — including notes-only and
+reorder-only edits, since slide images, numbering and scripts all live in the notes PDF:
+
+```powershell
+python Scripts/_pptx_to_pdf.py Studies/<Slug>/<Deck>.pptx
+python Scripts/_build_deck_notes_pdf.py Studies/<Slug>/<Deck>.pptx
+```
+
+The second command takes its slide images from `<Deck>.pdf`, so it must run after the
+first. Both accept `--study <Slug>`, but that form resolves only when the folder holds
+exactly one `.pptx`; otherwise pass `--deck <file>` or a full path.
+
+Read-aloud scripts flow one way: `Presenters-Companion-<Name>.md` (source of truth) →
+`.notes.json` → `Scripts/_sync_pptx_speaker_notes.py` → the `.pptx` notes pane →
+`<Deck>-notes.pdf`. Edit the markdown, never the notes pane directly. Rebuild the
+companion DOCX/PDF with `Scripts/_build_presenters_companion.py`.
+
+Keep `<Deck>.pdf` slides-only. Its filename is referenced from
+`Scripts/_build_studies_index.py` and the generated `Studies/index.html`
+(`data-presentation-pdf`, `data-study-link`), so renaming it means editing the
+generator and the generated index together. Never write the notes PDF over that path.
+
+Deck and companion edits are companion-only changes: they use the `study-update` label
+but do **not** refresh the study's `**Edited on:**` or catalog timestamps (§1, §7).
 
 ---

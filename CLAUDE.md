@@ -28,7 +28,7 @@ Companion files (research notes, figures) may live under `Studies/<Slug>/` witho
 |---|--------|-----------------|
 | §1 | `**Edited on:**`, catalog timestamps, PDF regeneration | Every topical study content edit |
 | §2 | `Studies/index.html` ↔ `Studies/README.md` ↔ `catalog-*.json` sync | Catalog or index shell changes |
-| §3 | Markdown → PDF pipeline (`Scripts/_regenerate_pdf.py` only) | Generating or refreshing study PDFs |
+| §3 | Markdown → PDF pipeline (`Scripts/_regenerate_pdf.py` only), plus the separate companion-deck PDF pipeline | Generating or refreshing study PDFs, or any deck PDF |
 | §4 | Study prose style — scholarly essay, not AI scaffold | All topical studies |
 | §5 | `## Standpoint and scope` section | All topical studies |
 | §6 | Reference checks (`Scripts/_check_references.py`) | Bibliography or `References/` changes |
@@ -60,6 +60,8 @@ Contributor-facing flow: [CONTRIBUTING.md](CONTRIBUTING.md). Study format and to
 ### PDF pipeline
 
 Never use pandoc, VS Code export, or ad-hoc converters. One-time setup: `pip install -r requirements.txt`; `cd Scripts; npm install`.
+
+Companion decks are a **separate** pipeline — `_regenerate_pdf.py` does not touch them. Each `<Deck>.pptx` is hand-built and authoritative, and yields three non-interchangeable PDFs: `<Deck>.pdf` (slides only — what `Studies/index.html` links), `<Deck>-notes.pdf` (slide plus read-aloud script per page), and `Presenters-Companion-<Name>.pdf` (script plus background and Q&A). After any deck change run `_pptx_to_pdf.py` then `_build_deck_notes_pdf.py`, in that order. Full rules: [AGENTS.md](AGENTS.md) §3 — Companion deck PDFs.
 
 ---
 
