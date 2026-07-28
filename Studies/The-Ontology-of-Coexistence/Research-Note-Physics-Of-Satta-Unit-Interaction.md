@@ -2,6 +2,8 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
+**Edited on:** July 28, 2026, 9:16 AM IST
+
 **Status:** Internal research note (not a catalog entry). Compiled to support drafting on *The Ontology of Coexistence* §1.2 and related studies.
 
 **Scope:** Every explicit statement located in the primary texts (SB, MVD, JV, AVD, JVD, KD) that uses physics vocabulary — pressure, motion, force, magnetism, electricity, heat, charge/excitation (*āvesh* — context-dependent, see §8), mass, weight, gravitation, atomic structure (nucleus, orbits, elements), states of matter, density, radioactivity, indestructibility/conservation, cosmogony, time — to describe either (a) how *satta* (Omnipotence/Omnipresence) and units (*ikai*) relate, or (b) how units relate to one another. Citations use the project's tag system (SB = *Samadhanatmak Bhautikvad* / "Resolution Centred Materialism"; MVD = *Madhyasth Darshan Coexistentialism*; JV = *Jeevan Vidya: An Introduction*; AVD = *Adhyatmvad*; JVD = *Janvad*; KD = *Manav Karm Darshan*, Hindi-only — KD quotes are our working translations; full working translation in `References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.md`, see Method note) with page numbers verified directly against the source PDFs (see Method note at the end).
@@ -34,7 +36,7 @@ This is the texts' own starting point for physical vocabulary — not an inferen
 
 "Formless existence in itself is the grandeur of absolute energy. It is in an eternally present state, without motion, wave, or pressure." — SB, p. 50
 
-**Reading:** pressure, attraction, and repulsion — the vocabulary of physical force — are placed explicitly at the level of unit-to-unit mutuality ("arising under environmental influence"), never as something *satta* does to a unit. This is the texts' own firewall between the ground and physical action.
+**Reading:** pressure, attraction, and repulsion — the vocabulary of physical force — are placed explicitly at the level of unit-to-unit mutuality ("arising under environmental influence"), never as something *satta* does to a unit. This is the texts' own firewall between the ground and physical activity.
 
 **2.1 The same firewall applied to cosmogony: the Big Bang is rejected by name.** JV contains the corpus's one direct engagement with a named theory of modern cosmology, and it deploys exactly the §2 doctrine against it:
 
@@ -187,7 +189,7 @@ This is the most direct material for "atomic number and orbital shells," and it 
 
 "Every unit is **force-endowed in state, and evidences power in motion.**" — KD, p. 103
 
-**Reading:** *bal* (force) is what a unit *has* by virtue of being (its endowed, standing side — §4's saturation-forcefulness); *shakti* (power) is what shows up when it *moves/acts* (the expressed, relational side — §3's relative energy). The pair maps onto sthiti/gati exactly as absolute/relative energy maps onto satta/mutuality. KD's critique sentence is the corpus's most precise indictment of physics in physics' own terms: its instruments and formalisms only ever register *excited* motion (disturbances, differences, §8 — SB's "charged motion," *āveshit gati*), so its inventory of forces omits whatever holds in the *natural* state — which is where the darshan locates the mediative. Note also KD p. 75 closes the definitional circle from the heat side: "**normal temperature means being in natural-state motion**" — the unexcited state is simultaneously the thermally ordinary one.
+**Reading:** *bal* (force) is what a unit *has* by virtue of being (its endowed, standing side — §4's saturation-forcefulness); *shakti* (power) is what becomes evident when it is active or in motion (the expressed, relational side — §3's relative energy). The pair maps onto sthiti/gati exactly as absolute/relative energy maps onto satta/mutuality. KD's critique sentence is the corpus's most precise indictment of physics in physics' own terms: its instruments and formalisms only ever register *excited* motion (disturbances, differences, §8 — SB's "charged motion," *āveshit gati*), so its inventory of forces omits whatever holds in the *natural* state — which is where the darshan locates the mediative. Note also KD p. 75 closes the definitional circle from the heat side: "**normal temperature means being in natural-state motion**" — the unexcited state is simultaneously the thermally ordinary one.
 
 ---
 
@@ -207,7 +209,7 @@ A terminology note first: the Hindi root *āvesh/āveshit* is used **contextuall
 
 KD corroborates and extends the excitation doctrine on three independent pages (our translations): heat-side — "an object that has become more excited is always heated; that is, its temperature rises" (KD, p. 74; cf. SB p. 252's heat = excitation, §9); process-side — an atom must already be excited before it can shed a particle (KD, p. 57; §6.4b); and pressure-side — "**pressure (*dabāv*) is the compulsions received for generative-degenerative (*sam–viṣam*) excitation, as distinct from natural-state motion**" (KD, p. 118), which folds SB p. 49's pressure definition (§2) explicitly into excitation vocabulary.
 
-KD p. 103 also gives the nucleus's §6.2-style regulation an explicitly *two-directional* dynamical form: "If, within that definite good distance, the distance increases, then the mediating activity working as the nucleus (*madhyansh*) applies its force and calls the particles near. If a particle begins to approach the nucleus, then too the nucleus, applying its force, fixes the particle at the good distance. **This is the control activity occurring in the atom.**" (our translation) — i.e., the mediative acts as a restoring influence toward a set-point separation, against displacement in *either* direction. See §14.3 for what this does to the mediative-as-primitive claim.
+KD p. 103 also gives the nucleus's §6.2-style regulation an explicitly *two-directional* dynamical form: "If, within that definite good distance, the distance increases, then the mediating activity working as the nucleus (*madhyansh*) applies its force and calls the particles near. If a particle begins to approach the nucleus, then too the nucleus, applying its force, fixes the particle at the good distance. **This is the control activity occurring in the atom.**" (our translation) — i.e., mediative activity functions as a restoring influence toward a set-point separation, against displacement in *either* direction. See §14.3 for what this does to the mediative-as-primitive claim.
 
 KD p. 77 (KD-Karm-Darshan-English 3.7) further embeds excitation in a universal directional chain: "**every excitation is understood to be working toward... natural-state motion; natural-state motion toward development progression; development progression toward evidencing development; development toward evidencing awakening progression; awakening progression toward evidencing awakening**, and toward evidencing the continuity of awakening." De-excitation is thus not merely local relaxation but the first step of a cosmic monotone — the darshan's arrow of change (taken up in §14.3).
 
