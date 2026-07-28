@@ -238,8 +238,8 @@ Saturation endows forcefulness, basic impulsion, and regulatory order (SB, p. 57
 
 ## Likely questions from the audience
 
-**Q: Does satta cause units to act?**
-Not as an efficient cause. *Satta* is *mahakaran* — supreme cause in the sustaining sense (MVD, pp. 288–289; SB, pp. 49, 62). The causal work of change is done by units. Slide 7 develops this.
+**Q: Does satta cause unit-activity?**
+Not as an efficient cause. *Satta* is *mahakaran* — supreme cause in the sustaining sense (MVD, pp. 288–289; SB, pp. 49, 62). Particular changes occur through unit-activity in mutuality. Slide 7 develops this.
 
 **Q: Is “inherent energy” measurable physical energy?**
 The texts treat it as ontological endowment. Relative energy — what physics measures — appears in mutuality of units. Do not identify *satta*'s uniform energy with a physical field.
@@ -265,7 +265,7 @@ If no division of a unit can put any fragment outside the ground, then nothing t
 
 Notice carefully what that does and does not claim. A compound decomposes. A body dies. Those organisations genuinely end. What continues is their constituents, in other relations. Perpetuity belongs to coexistence, not to any particular configuration.
 
-Second point, and this one matters for how you hear the rest of the session. The texts call Omnipresence the supreme cause, and that phrase invites a misreading. It is cause only in the sustaining sense — no activity exists apart from nature saturated in it. It starts no particular change. Composition, decomposition, development, conduct: all of that is the work of units acting on one another. So there is no creator in this account, and no ruler issuing instructions.
+Second point, and this one matters for how you hear the rest of the session. The texts call Omnipresence the supreme cause, and that phrase invites a misreading. It is cause only in the sustaining sense — no activity exists apart from nature saturated in it. It starts no particular change. Composition, decomposition, and development occur as unit-activity in mutuality. Karma and humane conduct belong to the human joint form. So there is no creator in this account, and no ruler issuing instructions.
 
 Third, time. Time here is not a container existing alongside the ground and the units. Time is the duration of activity, reckoned from recurrent activities — a rotation, a year. The ground does not transform, so it is not temporal in the way unit-activity is measured.
 
@@ -729,7 +729,7 @@ Comforts and accumulation aim at happiness but carry momentariness and fragility
 
 Every sentient unit bears the same five faculties and the same ten activities. What differs is the medium and what the unit does with it.
 
-Take the animal case first, because it sets up the human one. An animal *jeevan* is complete — it has all five faculties. But its bodily medium is limited, so it acts for sensory satisfaction under species-conformance, and it reaches the first harmony and stops. Peace, contentment, and bliss are not failures on its part; they are simply not available through that body.
+Take the animal case first, because it sets up the human one. An animal *jeevan* is complete — it has all five faculties. But its bodily medium is limited, so its activity remains within sensory satisfaction under species-conformance, and it reaches the first harmony and stops. Peace, contentment, and bliss are not failures on its part; they are simply not available through that body.
 
 Now the human case. The human body *can* express all ten activities — that is what the developed nervous system is for. And yet, by default, human *jeevan* goes on evaluating by exactly the same sensory criteria the animal used. The equipment changed; the habit did not. That is the fork this slide names, and it answers one practical question — what makes me happy?
 
@@ -771,17 +771,17 @@ The human order is the one place where complementarity has to be fulfilled *know
 
 What delivers them is performed action — specifically, action that fulfils relationships. Recognise the higher faculties; study until you understand; then act so that what you owe in each relationship is actually fulfilled. That third step is not optional decoration on the first two. It is where the harmony happens.
 
-That is why the text bothers with the anatomy of action at all. Every activity done with desire has five limbs: doer, cause, objective, result, and effect. Effect means the act's reach or consequence — not a separate ledger of destiny. Desire is the aspiration; karma is the doing, activity together with aspiration; result is the fruit. And the text's own criterion: desire, doing, and result must *balance* for the desire to be truly accomplished. Wanting without doing is not accomplishment. Doing that misses the result is not accomplishment either.
+That is why the text bothers with the anatomy of action at all. *Kriyā* names activity throughout nature; it is not thereby *karma*. Human activity joined to aspiration has five limbs: doer, cause, objective, result, and effect. Effect means the act's reach or consequence — not a separate ledger of destiny. Desire is the aspiration; karma is the doing, activity together with aspiration; result is the fruit. And the text's own criterion: desire, doing, and result must *balance* for the desire to be truly accomplished. Wanting without doing is not accomplishment. Doing that misses the result is not accomplishment either.
 
 So: understanding alone changes nothing. It is the doing that yields the fruit. Book knowledge is half the work — the other half is conduct that fulfils relationships.
 
-Hold this beside the earlier triad of effort, motion, and result. This is the desire-laden framing of the same activity ontology in sentient living. The next slides show how desire and doing get reorganised under justice, innateness, and truth.
+Hold this beside the earlier triad of effort, motion, and result. This is the desire-laden human framing of the same activity ontology. The next slides show how desire and doing get reorganised under justice, innateness, and truth.
 
 ## Primary-text background
 
 “Activity together with aspiration is karma itself … it is the balance of desire, karma, and result that is the accomplishment of the desire.” — KD Ch. 1, pp. 1–2
 
-Five limbs as on the slide. Relate to effort–motion–result (slide 12) without collapsing the vocabularies — karma is the desire-laden human/sentient framing of activity.
+Five limbs as on the slide. Relate to effort–motion–result (slide 12) without collapsing the vocabularies — *kriyā* names activity throughout nature, while karma names human activity together with aspiration.
 
 Why this slide sits here: the four harmonies are *jeevan* values (study §1.8), and the study is explicit that they correspond to widening fields of *evidence* — resolution in the person, peace tested in family prosperity, contentment in fearless social participation, bliss in the living and communicating of coexistence. Evidence requires projection, and projection is conduct. Hence KD's insistence that book knowledge is not the completion of the process: “Study, practice, work, behaviour, result, and purpose must become coherent” (study §1.8). Definite fulfilment below the human order: study §§1.4, 1.11 — recognition and fulfilment are definite according to structural, seed, and species conformance.
 
@@ -793,7 +793,7 @@ Also relevant: “Living proof requires understanding to become conduct; insight
 KD here analyses the structure of intentional activity. Post-body continuity is argued from T1 elsewhere; do not smuggle a popular karma-punishment story into this slide.
 
 **Q: How does this relate to effort–motion–result?**
-Same underlying activity ontology; karma names activity-with-aspiration and its fruit in the desire register. Keep the five limbs available for Q&A on responsibility and result.
+Same underlying activity ontology; karma names human activity-with-aspiration and its fruit in the desire register. Keep the five limbs available for Q&A on responsibility and result.
 
 **Q: If action is what matters, why spend so long on the ontology?**
 Because action without truthful understanding reproduces the confusion it came from — the study's phrase is that projection without truthful understanding can reproduce delusion (§1.6.3). The claim is not that study is unnecessary. It is that study is half. Reflection without projection remains unevidenced; projection without reflection goes wrong.
