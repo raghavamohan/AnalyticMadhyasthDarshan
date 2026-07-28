@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 28, 2026, 4:06 PM IST
+**Edited on:** July 28, 2026, 4:20 PM IST
 **Status:** Draft
 **The question:** What is a family in Madhyasth Darshan, why is it the first place where values become livable, and how are its relationships recognised and their values fulfilled?
 
@@ -196,7 +196,34 @@ The family is where understanding is transmitted before any institution reaches 
 
 In the family this cuts both ways, and the darshan's own logic requires saying so. A household whose conduct is ordered by fear and temptation transmits *kusanskar* by exactly the mechanism that would otherwise transmit *susanskar*, and it does so more effectively than any curriculum, because the family's conduct is what the child has to emulate. That is why value education cannot be delivered by schools alone, and also why families reproduce their own errors across generations.
 
-### 1.13 The family as first tier
+### 1.13 The natal family as the first field of practice
+
+Nothing in §§1.4–1.8 says where a person's own capacity for recognition, fulfilment, and evaluation is first exercised. The account fixes it nonetheless, and at the family one is born into. Gratitude stands first in the value sequence (§1.7), and gratitude is acceptance of support received (MVD, p. 37) — which means the first link of the chain can only be located where a person has received before being able to give. *Sanskar* formation begins in the same place and by the same mechanism (§1.12). And MVD's definition of satiation states the order explicitly: the six merits after the understanding, resolution and prosperity in the family, and then participation in undivided society and universal orderliness (MVD, p. 339). MVD elsewhere describes the movement as progressive — the wise family living with resolution and prosperity is what leads to recognising the whole of humankind as one unit (MVD, p. 253).
+
+The competence at issue is therefore transferable rather than innate. The same four-step activity is exercised on whichever relationships are at hand, and the ones at hand first are parents, siblings, and first teachers. What is practised there is later exercised on master and associate, on friendship, and on orderliness itself. This is also why the darshan can hold that evaluation improves: refinement in *susanskar* follows enlightenment about the human goal and the *jeevan* values (MVD, p. 187), and capacity, ability, and receptivity are conditions that develop rather than fixed endowments (§1.8). Someone who has not recognised the relationships they were born into has not merely neglected those relationships; they have not yet exercised the capacity that recognising any other relationship requires.
+
+Whether this makes family living a spiritual practice needs care with the darshan's vocabulary, because two of its terms pull in opposite directions. MVD and JV use *sadhana* biographically, for the practice Shri A. Nagraj pursued at Amarkantak from 1950 and then moved beyond (MVD, pp. 4, 7; JV, pp. 12, 15), and they gloss *upasana* in its traditional sense as devotional practices towards deities, or ritual (MVD, p. 4; JV, p. 9). Describing family living as *sadhana* in the darshan's own voice would therefore misuse its vocabulary — that word names what the darshan's founder found insufficient.
+
+*Manav Karm Darshan* redefines the other term, and its redefinition is exactly to the point. Chapter 2 treats *upasana* not as ritual directed at a deity but as the transformation of tendency:
+
+> **“Upasana itself is the process of refining and transforming the root tendencies. This very study is also the transformation of sanskar and essential nature.”**
+> — KD, p. 30
+
+> **“Wisdom — that is, the human goal — and jeevan-value — that is, resolution [and] prosperity — is itself the direct result of upasana, in which sociality remains naturally contained.”**
+> — KD, p. 37
+
+The chapter is consistent about the consequences. *Upasana* is in its own nature education and orderliness (KD, p. 42); its chief utility lies in immersion in universal values (KD, p. 35); at the root of all *upasanas* the aim is undivided society and universal orderliness (KD, p. 35); *upasanas* exist only for capacity-for-awakening, not for decline (KD, p. 36); and symbol-directed *upasana* is judged secondary and unsociable to the extent of its incompleteness, because in it the human goal is neither clarified nor attained (KD, p. 42).
+
+Taken with the rest of §1, this leaves no practice standing apart from recognising, fulfilling, and evaluating relationships. If *upasana* is the refinement of root tendencies and *sanskar*, if sociality remains naturally contained in it, and if the first sociality available to anyone is the family they are born into, then the natal family is where *upasana* is performed rather than a domain it is performed alongside. JV makes the displacement explicit by rejecting the substitution it replaces:
+
+> **“…declares the world to be an illusion and advocates seeking refuge in God as the real father and mother. Yet, no tangible good comes from it. After seeking refuge in the 'real mother and father,' no human is found.”**
+> — JV, p. 57
+
+The passage continues that purpose is inherent in all relationships, and that the purpose is resolution, prosperity, fearlessness, and coexistence (JV, p. 57). The literal mother and father, recognised through their purposes, take the place the metaphorical divine ones were given. JV's parallel verdict on the alternative is that idealism organised around renunciation, non-accumulation, detachment, and devotion has drawn immense courage and dedication and has not produced an undivided society (JV, p. 105).
+
+Two qualifications keep this from overreaching. The sources do not state in any one place that recognition begins in the natal family, nor that family living is *upasana*; both are assembled here from the value sequence, the *sanskar* mechanism, the satiation ordering, and KD's redefinition, and the Editorial Notes record that. And the ordinal claim sharpens rather than softens the difficulty in §2.8: if the capacity for recognising any relationship is first exercised where one is born, then a natal family transmitting *kusanskar* does not merely fail its own members — it withholds the entry point to everything the darshan asks of them later.
+
+### 1.14 The family as first tier
 
 The family is not a stage the darshan leaves behind on the way to society. It is the first tier of orderliness and remains a tier:
 
@@ -207,7 +234,7 @@ MVD lists the ten-tier family-based self-governance orderliness alongside the fi
 
 Two things follow. Responsibility is not delegated upward — every individual takes responsibility based on understanding, at every tier. And the family is not a private sphere that public institutions may either protect or intrude upon, because it is already the first public institution in the series. [How Undivided Society Is Established](../How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf) §5.2 and [Human Behavior and Society](../Human-Behavior-And-Society/Human-Behavior-And-Society.pdf) §1.4.3 develop the outward argument; what belongs here is that the outward argument has no separate premises.
 
-### 1.14 What the darshan does not claim
+### 1.15 What the darshan does not claim
 
 Three misreadings are worth closing off, since each is easy to fall into from the language of "family order".
 
@@ -217,7 +244,7 @@ The family is not the seat of a separate domestic morality. The same seven relat
 
 And the family is not an affectionate arrangement whose worth lies in the feelings of its members. The definitions in §1.6 are activities and acceptances, mutual satisfaction is a result rather than a mood, and a family in which everyone feels warmly toward each other while expectations go unfulfilled has not, on this account, achieved value-fulfilment at all.
 
-### 1.15 Method, evidence, and what Madhyasth Darshan establishes
+### 1.16 Method, evidence, and what Madhyasth Darshan establishes
 
 The claims in §1 do not all warrant the same kind of assent, and separating them matters before §2.
 
@@ -261,7 +288,7 @@ Nurturing is attached to mother and protection to father (JV, pp. 56, 84), and t
 
 ### 2.8 The transmission circuit and the family already going wrong
 
-§1.12 gives the darshan a strong explanation of how families entrench error: conduct transmits *kusanskar* by the same mechanism that transmits *susanskar*, and more effectively than instruction. The corollary is that a family already ordered by fear and temptation is the hardest case for the darshan's own remedy, since the child's material for emulation is exactly what needs correcting. The available resources are the natural attraction of lower value toward higher value and glory as emulation without resistance, both of which require a higher value to be visible somewhere. How that visibility is secured for a child inside such a household — and whether it must come from outside the family, which would qualify §1.13's claim that responsibility is not delegated upward — is not worked out.
+§1.12 gives the darshan a strong explanation of how families entrench error: conduct transmits *kusanskar* by the same mechanism that transmits *susanskar*, and more effectively than instruction. The corollary is that a family already ordered by fear and temptation is the hardest case for the darshan's own remedy, since the child's material for emulation is exactly what needs correcting. The available resources are the natural attraction of lower value toward higher value and glory as emulation without resistance, both of which require a higher value to be visible somewhere. How that visibility is secured for a child inside such a household — and whether it must come from outside the family, which would qualify §1.14's claim that responsibility is not delegated upward — is not worked out. §1.13 makes the problem harder rather than easier: if the natal family is where the capacity for recognising any relationship is first exercised, a household transmitting *kusanskar* withholds the entry point itself, and the darshan owes an account of how anyone enters from there.
 
 ## 3. Conclusion
 
@@ -290,6 +317,8 @@ What this study has not attempted is comparison. The darshan's account of the fa
 - ***Sanskar*** — acceptances towards completeness, and the tendencies carried forward for evidencing; the cause of awakening of the sentient aspect (MVD, p. 90).
 - ***Susanskar* / *kusanskar*** — *sanskar* under awakening and under delusion (MVD, pp. 94, 315).
 - ***Apradh*** — crime. Ill-gotten wealth, adultery, and hurtful work and behaviour to others (MVD, p. 60).
+- ***Upasana*** — in KD's redefinition, the process of refining and transforming the root tendencies, and the transformation of *sanskar* and essential nature, with sociality naturally contained in it (KD, pp. 30, 37); not devotional ritual, which is the traditional sense the darshan reports and sets aside (MVD, p. 4; JV, p. 9).
+- ***Sadhana*** — used biographically in these sources for the practice pursued at Amarkantak and moved beyond (MVD, pp. 4, 7; JV, pp. 12, 15); not a term the darshan applies to its own account of conduct.
 - ***Ubhaya tripti*** — mutual satisfaction. The terminus of the four-step justice sequence; one-sided satisfaction does not complete it.
 
 ## Editorial Notes
@@ -310,6 +339,12 @@ JV, p. 84 identifies mother by nurturing and father by protection. This study re
 
 MVD defines prosperity both as the lack of the sentiment of lacking (p. 72) and as production more than needs (p. 342). This study treats the first as the state and the second as its condition, which is the reading that makes them consistent and is supported by SB, p. 223. The sources do not themselves say that the two definitions are related in this way.
 
+### Where the practice begins, and calling it *upasana*
+
+No single passage in the sources reviewed states that recognition, fulfilment, and evaluation begin in the family one is born into, or that family living is *upasana*. §1.13 assembles both from four things the sources do state: gratitude's place at the head of the value sequence (JV, p. 108; MVD, pp. 37–38), the formation of *sanskar* in the household (JV, p. 60; MVD, p. 90), the ordering in MVD's definition of satiation (MVD, p. 339), and KD's redefinition of *upasana* as the refinement of root tendencies with sociality naturally contained (KD, pp. 30, 37). The reading is offered as a reading. *Sadhana* is deliberately not used for this, because MVD and JV use it for the practice the darshan's founder moved beyond.
+
+The depth treatment of *upasana*, realisation, and practice belongs to *Spiritual Practice and Realization*; this study takes only what bears on the family.
+
 ### *Sanskar* and its citation
 
 The account of *sanskar* in §1.12 is compressed from [Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) §1.16, which sets out the circuit and its sources in full. Where this study needs only the family-scale consequence, it cites that study rather than restating the argument.
@@ -318,10 +353,10 @@ The account of *sanskar* in §1.12 is compressed from [Axiology Value Theory](..
 
 ### Madhyasth Darshan (primary sources)
 
-- **MVD** — Nagraj, A. [*Madhyasth Darshan – Co-existentialism*, Part 1: *Holistic View of Human Behaviour*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: five statuses and the ten-tier family-based self-governance orderliness (p. 18); behaviour as effort in mutuality (p. 33); gratitude defined (p. 37); the gratitude-to-coexistence chain and ingratitude (p. 38); family, community, and undivided society (p. 55); needs determined by a wise family (p. 56); crime as ill-gotten wealth, adultery, and hurtful behaviour (p. 60); association as voluntary-expectation mutuality (p. 61); relationship as predetermined-expectation mutuality (p. 62); prosperity as the lack of the sentiment of lacking (p. 72); trust and affection (p. 73); the four senses of *sanskar* and *sanskar* as cause of awakening (p. 90); *susanskar* (p. 94); just behaviour as righteous wealth, marital faithfulness, and kindness (p. 102); family as the first tier of the ten-tier orderliness (p. 161); societal balance and the three behaviours (p. 189); the seven forms of relationship (p. 190); social responsibility evidenced in the wise family, and family order to world family order (p. 253); education-*sanskar* requiring procedure, teachers, parents, and study aligned (p. 270); *susanskar* and *kusanskar* (p. 315); love (p. 317); reverence, guidance, love, and glory in the appendix (pp. 326, 331–332, 335); trust and justice as the four-step sequence (p. 336); care (p. 339); respect and affection (p. 340); prosperity as production more than needs, and self-reliance (p. 342).
-- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: values realised through recognition of relationships, humane conduct as values, character, and ethics, and character as righteous wealth, marital faithfulness, and kindness (p. 55); relationships studied through their purposes, and nurturing and protection as the mother-child and father-child purposes (p. 56); *sanskar* in children transforming homes and families (p. 60); recognition of mother, father, *guru*, and disciple by purpose (p. 84); the nine established values, the seven relationships, the six purposes of relationship, and the rejection of power, wealth, intelligence, and age (p. 108); authenticity as highest priority, and fear and temptation as non-values (p. 109); values inherent in *jeevan* and the mother's recognition of her child (p. 138).
+- **MVD** — Nagraj, A. [*Madhyasth Darshan – Co-existentialism*, Part 1: *Holistic View of Human Behaviour*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: *sadhana*, *samadhi*, and *samyama* undertaken and moved beyond, and *upasana* glossed as devotional practices towards deities (pp. 4, 7); five statuses and the ten-tier family-based self-governance orderliness (p. 18); behaviour as effort in mutuality (p. 33); gratitude defined (p. 37); the gratitude-to-coexistence chain and ingratitude (p. 38); family, community, and undivided society (p. 55); needs determined by a wise family (p. 56); crime as ill-gotten wealth, adultery, and hurtful behaviour (p. 60); association as voluntary-expectation mutuality (p. 61); relationship as predetermined-expectation mutuality (p. 62); prosperity as the lack of the sentiment of lacking (p. 72); trust and affection (p. 73); the four senses of *sanskar* and *sanskar* as cause of awakening (p. 90); *susanskar* (p. 94); just behaviour as righteous wealth, marital faithfulness, and kindness (p. 102); family as the first tier of the ten-tier orderliness (p. 161); refinement in *susanskar* following enlightenment about the human goal and *jeevan* values (p. 187); societal balance and the three behaviours (p. 189); the seven forms of relationship (p. 190); social responsibility evidenced in the wise family, and family order to world family order (p. 253); education-*sanskar* requiring procedure, teachers, parents, and study aligned (p. 270); *susanskar* and *kusanskar* (p. 315); love (p. 317); reverence, guidance, love, and glory in the appendix (pp. 326, 331–332, 335); trust and justice as the four-step sequence (p. 336); satiation and its ordering of understanding, resolution and prosperity in the family, and participation in undivided society, and care (p. 339); respect and affection (p. 340); prosperity as production more than needs, and self-reliance (p. 342).
+- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: *upasana* as rituals in the traditional sense (p. 9); *sadhana* at Amarkantak and its limits (pp. 12, 15); refuge in God as the real father and mother yielding no human, and purpose inherent in all relationships (p. 57); idealism of renunciation, non-accumulation, detachment, and devotion producing no undivided society (p. 105); values realised through recognition of relationships, humane conduct as values, character, and ethics, and character as righteous wealth, marital faithfulness, and kindness (p. 55); relationships studied through their purposes, and nurturing and protection as the mother-child and father-child purposes (p. 56); *sanskar* in children transforming homes and families (p. 60); recognition of mother, father, *guru*, and disciple by purpose (p. 84); the nine established values, the seven relationships, the six purposes of relationship, and the rejection of power, wealth, intelligence, and age (p. 108); authenticity as highest priority, and fear and temptation as non-values (p. 109); values inherent in *jeevan* and the mother's recognition of her child (p. 138).
 - **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: prosperity through production in excess of needs within a wise family, among the four human goals (p. 223).
-- **KD** — Nagraj, A. *Manav Karm Darshan* (Madhyasth Darshan, Part 2). [Working English translation](../References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf); [Hindi–English review edition](../References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-Hindi-English.pdf). Cited: no contact or relationship devoid of value (p. 20). The English text is a working translation; quoted formulations should be checked against the Hindi.
+- **KD** — Nagraj, A. *Manav Karm Darshan* (Madhyasth Darshan, Part 2). [Working English translation](../References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf); [Hindi–English review edition](../References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-Hindi-English.pdf). Cited: no contact or relationship devoid of value (p. 20); Ch. 2 on *upasana* — refinement and transformation of the root tendencies and of *sanskar* (p. 30), aim of all *upasanas* as undivided society and universal orderliness, and immersion in universal values (p. 35), *upasanas* only for capacity-for-awakening (p. 36), wisdom and *jeevan*-value as the direct result of *upasana* with sociality naturally contained (p. 37), *upasana* as education and orderliness in its own nature and symbol-directed *upasana* as secondary and unsociable (p. 42). The translation covers front matter and chapters 1–3 (see its README). The English text is a working translation; quoted formulations — particularly the Ch. 2 material, which carries the argument in §1.13 — should be checked against the Hindi.
 
 ### Related studies in this collection
 
@@ -329,6 +364,7 @@ The account of *sanskar* in §1.12 is compressed from [Axiology Value Theory](..
 - [How Undivided Society Is Established](../How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf) — the family as the first field of evidence and the argument outward to undivided society (§5.2).
 - [Human Behavior and Society](../Human-Behavior-And-Society/Human-Behavior-And-Society.pdf) — family-based self-organising orderliness and the progression from person to undivided society (§§1.4.2–1.4.3).
 - [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — the four human goals and the five dimensions of social orderliness (§1.15).
-- *Education and Sanskar* (Ongoing) — consciousness-development value education, developing §1.12.
+- *Spiritual Practice and Realization* (Ongoing) — *upasana*, realisation, and the practice path; §1.13 draws only the family-scale consequence of KD's redefinition.
+- *Education and Sanskar* (Ongoing) — consciousness-development value education, developing §§1.12–1.13.
 - *Prosperity Economics and Right Use* (Ongoing) — production, exchange, and right-use built on the family-scale assessment of need in §§1.10–1.11.
-- *Governance Justice and Undivided Society* (Ongoing) — the ten-tier orderliness whose first tier is set out in §1.13.
+- *Governance Justice and Undivided Society* (Ongoing) — the ten-tier orderliness whose first tier is set out in §1.14.
