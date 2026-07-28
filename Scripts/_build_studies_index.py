@@ -1173,12 +1173,12 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
         <div class="path-stage-head"><span class="path-number">4</span><span class="path-domain">Value</span></div>
         <h3>What makes value and relationship definite?</h3>
         <p class="path-stage-desc">Study whether values and relationships have a definite structure, and how understanding is tested and deepened through conduct.</p>
-        <div class="path-core" data-study-slug="Axiology-Value-Theory">
+        <div class="path-core" data-study-slug="Axiology-Value-Theory" data-study-pdf="true">
           <span class="path-core-label">Core study</span>
-          <div class="path-study-line"><a data-study-link href="Axiology-Value-Theory/discussion.html">Axiology Value Theory</a></div>
-          <span class="path-status planned" data-study-status>In progress</span>
+          <div class="path-study-line"><a data-study-link href="Axiology-Value-Theory/Axiology-Value-Theory.pdf" title="Open study PDF">Axiology Value Theory</a></div>
+          <span class="path-status draft" data-study-status>Draft</span>
           <span class="path-updated" data-study-updated></span>
-          <a class="path-action" data-study-action href="Axiology-Value-Theory/discussion.html">Help develop this study</a>
+          <a class="path-action" data-study-action href="Axiology-Value-Theory/discussion.html">Review the draft</a>
         </div>
         <details class="path-related">
           <summary>3 related studies</summary>
@@ -1868,6 +1868,11 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
         if (presentationPdf) {
           studyLink.href = `${presentationPdf}?cb=${CATALOG_BUILD_ID}`;
           studyLink.title = "Open presentation PDF";
+        } else if (item.dataset.studyPdf === "true" && hasReadLinks(study)) {
+          // Stages with no companion deck yet can open the study PDF itself;
+          // adding data-presentation-pdf later takes precedence over this.
+          studyLink.href = studyPdfHref(study);
+          studyLink.title = "Open study PDF";
         } else {
           studyLink.href = hasReadLinks(study) ? studyHtmlHref(study) : studyDiscussionHref(study);
         }
