@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** July 9, 2026, 11:20 AM IST
+**Edited on:** July 28, 2026, 9:16 AM IST
 
 **Status:** Internal research note (not a catalog entry). Compiled to support reading and drafting on *The Ontology of Coexistence*, especially §§1.1–1.11, from the working English translation of *Manav Karm Darshan*.
 
@@ -68,7 +68,7 @@ The book's principle is the form in which all unit-activity appears. KD 3.11 sta
 
 Every result is arrayed in a quantitative and qualitative chain. Fixed and long-enduring results mark the stability or instability of existent-states. Complementarity and usefulness thread the chain; all stages remain joined — physical with chemical, chemical with living, physico-chemical with human.
 
-In chapter 1, the same triad appears at the human scale: activity together with aspiration is karma; motion together with awareness is complete activity. Every karma has result. Desire, karma, and result in balance is the accomplishment of desire.
+In chapter 1, the same triad appears at the human scale: human activity together with aspiration is karma; motion together with awareness is complete activity. Every karma has result. Desire, karma, and result in balance is the accomplishment of desire. The distinction is categorical: *kriyā* names activity throughout nature, whereas *karma* names human activity joined to aspiration, not action attributed to insentient units.
 
 **Reading for ontology:** Omnipotence is state-complete (no motion, wave, or pressure of its own). Nature saturated in it is state-dynamic. All change is unit-activity as this inseparable triad — not three sequential steps, but three joint aspects of one activity.
 
