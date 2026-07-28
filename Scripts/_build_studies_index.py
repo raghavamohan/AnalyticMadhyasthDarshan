@@ -638,6 +638,10 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   }
   .path-study-line {
     line-height: 1.35;
+    /* Reserve two lines so a short study title does not shift the "Core study" /
+       "Current anchor" label out of line with the other stages in its grid row —
+       .path-core is bottom-anchored, so its top moves with its own height. */
+    min-height: 2.7em;
   }
   .path-study-line a {
     font-size: 13px;
