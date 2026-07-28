@@ -14,7 +14,7 @@ Read the figure from its ontological ground toward its lived evidence:
 
 1. **Existence is coexistence.** Formless Omnipresence (*satta*) and countless formful units (*ikai*) are eternally and inseparably present.
 2. **Saturation is the bond.** Units do not first exist independently and later enter Omnipresence; every unit is submerged, soaked, and surrounded in it.
-3. **Activity belongs to units in mutuality.** Omnipresence is actionless and non-transforming. Saturation ontologically entails energy-fullness, forcefulness, recognition, regulation, and activity as effort–motion–result; the texts do not supply a separate physical mechanism for this entailment. Units are definite bearers, while form is reflected, relative properties become effective, essential nature is recognised as usefulness, and *dharma* is evidenced through order-specific participation.
+3. **Activity belongs to units in mutuality.** Omnipresence is actionless and non-transforming. Saturation ontologically entails energy-fullness, forcefulness, recognition, regulation, and activity as effort–motion–result; the texts do not supply a separate physical mechanism for this entailment. This is *kriyā*, or activity, throughout nature — not *karma*, or human action. Units are definite bearers, while form is reflected, relative properties become effective, essential nature is recognised as usefulness, and *dharma* is evidenced through order-specific participation.
 4. **Nature has four orders.** Material and pranic orders are insentient. Animal and knowledge orders are joint expressions of an insentient body and sentient *jeevan*.
 5. **Development has two lines.** Compositional progression supplies bodies and environments but does not produce T1, T2, or T3. Development in a constitution-oriented atom supplies constitutionally complete *jeevan* at T1; awakening within the human joint form proceeds through T2 and T3.
 6. **The first completeness is constitutional.** At *gathanpurnata* (T1), the atom's particle constitution closes and it becomes the sentient unit called *jeevan*.
@@ -196,7 +196,7 @@ Integration–disintegration occurs among material constituents; vitalising–de
 
 The figure and numbered guide show the core dependency structure. The following compact keys make the remaining classifications explicit without forcing them into the central diagram.
 
-### Units, relations, composition, and action
+### Units, relations, composition, and activity
 
 | Distinction | Meaning | Main-study location |
 |---|---|---|
@@ -204,8 +204,8 @@ The figure and numbered guide show the core dependency structure. The following 
 | Natural and excited states | The natural state accords with definite conduct; the excited state is activity displaced from that accord by pressure and therefore liable to decline | §1.3 |
 | Relationship and association | A relationship carries expectations inherent in fulfilment; an association carries voluntarily adopted expectations | §1.4 |
 | Mixture, compound, biological composition, and assembly | A mixture retains component conducts; a compound establishes a new bounded composition; a biological composition transmits its method through seed and lineage; a humane assembly is sustained through recognised relationships and values | §1.10 |
-| Time and causation | Time is the duration of unit-activity. *Satta* sustains coexistence but does not perform transformations; units are the efficient actors in mutuality | §1.6.4 |
-| Karma | Aspiration joined to activity becomes karma. Its five limbs are doer, cause, objective, result, and wider effect. Freedom in action does not cancel causal consequences; awakening removes unresolved dependence while undergoing them | §1.7.1 |
+| Time and causation | Time is the duration of unit-activity. *Satta* sustains coexistence but does not perform transformations; composition, decomposition, and development occur through unit-activity in mutuality | §1.6.4 |
+| Karma | Human activity joined to aspiration is karma. Its five limbs are doer, cause, objective, result, and wider effect. Karma is not attributed to insentient units. Freedom in action does not cancel causal consequences; awakening removes unresolved dependence while undergoing them | §1.7.1 |
 
 When a composite form disintegrates, that organisation ends while its constituent realities persist in other relations. This is why conservation must not be expressed as the permanence of every composite unit.
 
