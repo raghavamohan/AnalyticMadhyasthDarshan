@@ -52,6 +52,7 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-19.
 | [How-Undivided-Society-Is-Established.pdf](../Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf) | MVD, SB, JV, JVD, AVD | TBD |
 | [Coexistence-From-First-Principles.pdf](../Studies/Coexistence-From-First-Principles/Coexistence-From-First-Principles.pdf) | MVD, SB, JV, KD | present |
 | [Axiology-Value-Theory.pdf](../Studies/Axiology-Value-Theory/Axiology-Value-Theory.pdf) | MVD, SB, JV, KD | present |
+| [Family-Relationships-And-Values.pdf](../Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.pdf) | MVD, JV, SB, KD | present |
 
 ## By tag
 
