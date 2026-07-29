@@ -24,13 +24,13 @@ These topical studies state the philosophy in clear, checkable prose first. A se
 
 Madhyasth Darshan holds that a family is not primarily a household, a lineage, or an affectionate arrangement. It is the first grouping in which relationships with predetermined expectations are lived continuously, and therefore the first place where values can be recognised, fulfilled, evaluated, and found mutually satisfying. Everything the darshan says about society is built from that, which is why it treats the family as the first tier of orderliness rather than as a private matter preceding public life.
 
-Section 1 is organized into four thematic pillars:
+Section 1 sets out the Madhyasth Darshan account of the family in four parts:
 1. **Ontological and Social Definition of the Family** (§1.1) — What a family is, relationship (*sambandh*) versus contact (*sampark*), and the seven constituent relationships.
 2. **Relational Values, Purpose, and Expressed Conduct** (§1.2) — Recognition by purpose, what recognition replaces, the nine established and nine expressed values, the gratitude succession chain, and the justice sequence.
 3. **Domestic Character, Economics, and Need Determination** (§1.3) — Character in domestic life (righteous wealth, marital faithfulness, kindness versus crime), determination of need by a wise family, family-scale prosperity, and physical effort in domestic work.
-4. ***Sanskar*, Behaviour, and Generational Transmission** (§1.4) — Education and *sanskar* in the home, the natal family as the first field of relational behaviour (*vyavahar*), the family as the first tier of universal self-governance, what the darshan does not claim, and epistemic status.
+4. ***Sanskar*, Behaviour, and Generational Transmission** (§1.4) — Education and *sanskar* in the home, the interplay of internal refinement (*upasana*) and external behaviour (*vyavahar*), the family as the first tier of universal self-governance, what the darshan does not claim, and epistemic status.
 
-### 1.1 Pillar I: Ontological and Social Definition of the Family
+### 1.1 Ontological and social definition of the family
 
 #### 1.1.1 What a family is
 
@@ -72,7 +72,7 @@ Four of the seven are ordinarily internal to a family, and the remaining three r
 
 That one seven-fold set covers relations inside and outside the family is itself the darshan's position: the family is not governed by a separate morality of intimacy. The values inherent in a relationship do not change because the relationship happens to be domestic.
 
-### 1.2 Pillar II: Relational Values, Purpose, and Expressed Conduct
+### 1.2 Relational values, purpose, and expressed conduct
 
 #### 1.2.1 Recognition by purpose
 
@@ -155,7 +155,7 @@ Each step can fail on its own. A member may not recognise that a relationship is
 
 Mutual satisfaction (*ubhaya tripti*) is the terminus, and its mutuality does real work. Satisfaction on one side is not a partial result but a failure of the sequence, which is what blocks reading the darshan's account of family as an ethic of self-sacrifice. A member who fulfils values while remaining unsatisfied has not completed justice in the family, on this account, and neither has the family.
 
-### 1.3 Pillar III: Domestic Character, Economics, and Need Determination
+### 1.3 Domestic character, economics, and need determination
 
 #### 1.3.1 Character in the family
 
@@ -201,7 +201,7 @@ Family living is not only an intellectual or evaluative enterprise; it requires 
 
 KD emphasizes that when physical work is carried out in alignment with nature's cyclic orderliness (*nisarga-swabhav*), human labor produces a genuine surplus without depleting the environment (KD, p. 25). Domestic work (cooking, cleaning, agriculture, craftsmanship, child-care) is thus not inferior labor to be minimized or outsourced; it is the concrete physical evidence of care (*mamta*) and guidance (*vatsalya*). Unfulfilled expectations or uncoordinated domestic effort yield emotional friction (*kshobh* / *avesh*), whereas physical effort aligned with relationship values deposits family restfulness (*tripti*).
 
-### 1.4 Pillar IV: *Sanskar*, Behaviour, and Generational Transmission
+### 1.4 *Sanskar*, behaviour, and generational transmission
 
 #### 1.4.1 Education and *sanskar* begin in the family
 
@@ -396,9 +396,9 @@ The weakest joint is the qualifier. Almost everything consequential is asserted 
 
 ## Editorial Notes
 
-### Four-Pillar Structure and Comparative Integration
+### Four-Part Structure and Comparative Integration
 
-Earlier drafts of this study presented the expository material in a single un-pillarized list of sixteen subsections, and explicitly deferred comparative analysis. This revised version organizes the exposition into four thematic pillars (§1.1–§1.4) matching the design of [Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf), incorporates the 9 expressed values (*shishta mulya*), expands on domestic physical effort (KD Ch. 2), and integrates a 4-way comparative analysis (§2) and matrix table (§3) alongside Advaita Vedanta, Confucianism, Ethics of Care, and Household Economics.
+Earlier drafts of this study presented the expository material in a single un-pillarized list of sixteen subsections, and explicitly deferred comparative analysis. This revised version organizes the exposition into four thematic parts (§1.1–§1.4) matching the design of [Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf), incorporates the 9 expressed values (*shishta mulya*), expands on domestic physical effort (KD Ch. 2), and integrates a 4-way comparative analysis (§2) and matrix tables (§3) alongside Advaita Vedanta, Confucianism, Ethics of Care, and Household Economics.
 
 ### Distinction Between *Vyavahar* and *Upasana*
 
