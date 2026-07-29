@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 29, 2026, 6:25 AM IST
+**Edited on:** July 29, 2026, 6:35 AM IST
 **Status:** Draft
 **The question:** What is a family in Madhyasth Darshan, why is it the first place where values become livable, and how are its relationships recognised and their values fulfilled?
 
@@ -28,7 +28,7 @@ Section 1 is organized into four thematic pillars:
 1. **Ontological and Social Definition of the Family** (§1.1) — What a family is, relationship (*sambandh*) versus contact (*sampark*), and the seven constituent relationships.
 2. **Relational Values, Purpose, and Expressed Conduct** (§1.2) — Recognition by purpose, what recognition replaces, the nine established and nine expressed values, the gratitude succession chain, and the justice sequence.
 3. **Domestic Character, Economics, and Need Determination** (§1.3) — Character in domestic life (righteous wealth, marital faithfulness, kindness versus crime), determination of need by a wise family, family-scale prosperity, and physical effort in domestic work.
-4. ***Sanskar*, *Upasana*, and Generational Transmission** (§1.4) — Education and *sanskar* in the home, the natal family as the first field of practice (*upasana* redefined), the family as the first tier of universal self-governance, what the darshan does not claim, and epistemic status.
+4. ***Sanskar*, Behaviour, and Generational Transmission** (§1.4) — Education and *sanskar* in the home, the natal family as the first field of relational behaviour (*vyavahar*), the family as the first tier of universal self-governance, what the darshan does not claim, and epistemic status.
 
 ### 1.1 Pillar I: Ontological and Social Definition of the Family
 
@@ -201,7 +201,7 @@ Family living is not only an intellectual or evaluative enterprise; it requires 
 
 KD emphasizes that when physical work is carried out in alignment with nature's cyclic orderliness (*nisarga-swabhav*), human labor produces a genuine surplus without depleting the environment (KD, p. 25). Domestic work (cooking, cleaning, agriculture, craftsmanship, child-care) is thus not inferior labor to be minimized or outsourced; it is the concrete physical evidence of care (*mamta*) and guidance (*vatsalya*). Unfulfilled expectations or uncoordinated domestic effort yield emotional friction (*kshobh* / *avesh*), whereas physical effort aligned with relationship values deposits family restfulness (*tripti*).
 
-### 1.4 Pillar IV: *Sanskar*, *Upasana*, and Generational Transmission
+### 1.4 Pillar IV: *Sanskar*, Behaviour, and Generational Transmission
 
 #### 1.4.1 Education and *sanskar* begin in the family
 
@@ -214,32 +214,15 @@ The family is where understanding is transmitted before any institution reaches 
 
 In the family this cuts both ways, and the darshan's own logic requires saying so. A household whose conduct is ordered by fear and temptation transmits *kusanskar* by exactly the mechanism that would otherwise transmit *susanskar*, and it does so more effectively than any curriculum, because the family's conduct is what the child has to emulate. That is why value education cannot be delivered by schools alone, and also why families reproduce their own errors across generations.
 
-#### 1.4.2 The natal family as the first field of practice
+#### 1.4.2 The interplay of internal refinement (*upasana*) and external behaviour (*vyavahar*)
 
-Nothing in §§1.2.1–1.2.5 says where a person's own capacity for recognition, fulfilment, and evaluation is first exercised. The account fixes it nonetheless, and at the family one is born into. Gratitude stands first in the value sequence (§1.2.4), and gratitude is acceptance of support received (MVD, p. 37) — which means the first link of the chain can only be located where a person has received before being able to give. *Sanskar* formation begins in the same place and by the same mechanism (§1.4.1). And MVD's definition of satiation states the order explicitly: the six merits after the understanding, resolution and prosperity in the family, and then participation in undivided society and universal orderliness (MVD, p. 339). MVD elsewhere describes the movement as progressive — the wise family living with resolution and prosperity is what leads to recognising the whole of humankind as one unit (MVD, p. 253).
+Madhyasth Darshan maintains a precise structural distinction between the internal process of cognitive refinement and its external relational expression, while demonstrating their necessary interdependence:
+- ***Upasana*** (internal refinement) is defined in *Manav Karm Darshan* Chapter 2 as **the internal process of refining root tendencies (*mool-vritti parimarjan*) and transforming acceptances (*sanskar-parivartan*) towards complete awakening** (KD, pp. 30, 37).
+- ***Vyavahar*** (humane behaviour) is defined as **the utilization of effort in mutuality where more than one human comes together** (MVD, p. 33), with domestic living categorized under relational fulfilment (*mulya nirvah*) and justice (*nyaya*) (MVD, p. 55; JV, p. 55).
 
-The competence at issue is therefore transferable rather than innate. The same four-step activity is exercised on whichever relationships are at hand, and the ones at hand first are parents, siblings, and first teachers. What is practised there is later exercised on master and associate, on friendship, and on orderliness itself. This is also why the darshan can hold that evaluation improves: refinement in *susanskar* follows enlightenment about the human goal and the *jeevan* values (MVD, p. 187), and capacity, ability, and receptivity are conditions that develop rather than fixed endowments (§1.2.5). Someone who has not recognised the relationships they were born into has not merely neglected those relationships; they have not yet exercised the capacity that recognising any other relationship requires.
+Though structurally distinct, the two operate in an unbreakable feedback circuit. Fulfilling external mutuality (*vyavahar*) in family relationships directly **requires internal refinement (*upasana*)**. If a person's internal tendencies remain dominated by delusion (*bram*), fear, or expectation of personal advantage, external behaviour in the family becomes reactive, manipulative, or unstable, preventing mutual satisfaction (*ubhaya tripti*).
 
-Whether this makes family living a spiritual practice needs care with the darshan's vocabulary, because two of its terms pull in opposite directions. MVD and JV use *sadhana* biographically, for the practice Shri A. Nagraj pursued at Amarkantak from 1950 and then moved beyond (MVD, pp. 4, 7; JV, pp. 12, 15), and they gloss *upasana* in its traditional sense as devotional practices towards deities, or ritual (MVD, p. 4; JV, p. 9). Describing family living as *sadhana* in the darshan's own voice would therefore misuse its vocabulary — that word names what the darshan's founder found insufficient.
-
-*Manav Karm Darshan* redefines the other term, and its redefinition is exactly to the point. Chapter 2 treats *upasana* not as ritual directed at a deity but as the transformation of tendency:
-
-> **“Upasana itself is the process of refining and transforming the root tendencies. This very study is also the transformation of sanskar and essential nature.”**
-> — KD, p. 30
-
-> **“Wisdom — that is, the human goal — and jeevan-value — that is, resolution [and] prosperity — is itself the direct result of upasana, in which sociality remains naturally contained.”**
-> — KD, p. 37
-
-The chapter is consistent about the consequences. *Upasana* is in its own nature education and orderliness (KD, p. 42); its chief utility lies in immersion in universal values (KD, p. 35); at the root of all *upasanas* the aim is undivided society and universal orderliness (KD, p. 35); *upasanas* exist only for capacity-for-awakening, not for decline (KD, p. 36); and symbol-directed *upasana* is judged secondary and unsociable to the extent of its incompleteness, because in it the human goal is neither clarified nor attained (KD, p. 42).
-
-Taken with the rest of §1, this leaves no practice standing apart from recognising, fulfilling, and evaluating relationships. If *upasana* is the refinement of root tendencies and *sanskar*, if sociality remains naturally contained in it, and if the first sociality available to anyone is the family they are born into, then the natal family is where *upasana* is performed rather than a domain it is performed alongside. JV makes the displacement explicit by rejecting the substitution it replaces:
-
-> **“…declares the world to be an illusion and advocates seeking refuge in God as the real father and mother. Yet, no tangible good comes from it. After seeking refuge in the 'real mother and father,' no human is found.”**
-> — JV, p. 57
-
-The passage continues that purpose is inherent in all relationships, and that the purpose is resolution, prosperity, fearlessness, and coexistence (JV, p. 57). The literal mother and father, recognised through their purposes, take the place the metaphorical divine ones were given. JV's parallel verdict on the alternative is that idealism organised around renunciation, non-accumulation, detachment, and devotion has drawn immense courage and dedication and has not produced an undivided society (JV, p. 105).
-
-Two qualifications keep this from overreaching. The sources do not state in any one place that recognition begins in the natal family, nor that family living is *upasana*; both are assembled here from the value sequence, the *sanskar* mechanism, the satiation ordering, and KD's redefinition, and the Editorial Notes record that. And the ordinal claim sharpens rather than softens the difficulty in §4.2.8: if the capacity for recognising any relationship is first exercised where one is born, then a natal family transmitting *kusanskar* does not merely fail its own members — it withholds the entry point to everything the darshan asks of them later.
+It is in this precise sense that the natal family is where *upasana* (internal refinement) is initiated. The family is the first setting where human mutuality is experienced and where relational friction or unmet expectations force the individual *jeevan* to look inward, examine its acceptances (*sanskar*), and refine its root tendencies (*mool-vritti parimarjan*). As KD Chapter 2 emphasizes, wisdom, resolution, and prosperity are the direct result of *upasana*, "in which sociality remains naturally contained" (KD, p. 37). Because sociality is naturally contained in *upasana*, the natal family is the initial ground where internal tendential refinement is called forth by relational living and where its evidence — resolution, trust, and mutual satisfaction — is verified in conduct.
 
 #### 1.4.3 The family as the first tier of 10-tier universal self-governance
 
@@ -393,7 +376,8 @@ The weakest joint is the qualifier. Almost everything consequential is asserted 
 - ***Sanskar*** — acceptances towards completeness, and the tendencies carried forward for evidencing; the cause of awakening of the sentient aspect (MVD, p. 90).
 - ***Susanskar* / *kusanskar*** — *sanskar* under awakening and under delusion (MVD, pp. 94, 315).
 - ***Apradh*** — crime. Ill-gotten wealth, adultery, and hurtful work and behaviour to others (MVD, p. 60).
-- ***Upasana*** — in KD's redefinition, the process of refining and transforming the root tendencies, and the transformation of *sanskar* and essential nature, with sociality naturally contained in it (KD, pp. 30, 37); not devotional ritual, which is the traditional sense the darshan reports and sets aside (MVD, p. 4; JV, p. 9).
+- ***Vyavahar*** — behaviour. Effort in mutuality where more than one human comes together (MVD, p. 33); domestic living is categorized under humane behaviour (*manaviy vyavahar*) and relational fulfilment.
+- ***Upasana*** — in KD's redefinition, the internal process of refining root tendencies (*mool-vritti parimarjan*) and transforming *sanskar* towards awakening (KD, pp. 30, 37); distinct from external relational behaviour (*vyavahar*), and not traditional devotional ritual (MVD, p. 4; JV, p. 9).
 - ***Sadhana*** — used biographically in these sources for the practice pursued at Amarkantak and moved beyond (MVD, pp. 4, 7; JV, pp. 12, 15); not a term the darshan applies to its own account of conduct.
 - ***Ubhaya tripti*** — mutual satisfaction. The terminus of the four-step justice sequence; one-sided satisfaction does not complete it.
 - ***Xiao*** — filial piety in classical Confucianism; respect and devotion to parents and ancestors as the root of humaneness (*ren*).
@@ -404,6 +388,10 @@ The weakest joint is the qualifier. Almost everything consequential is asserted 
 ### Four-Pillar Structure and Comparative Integration
 
 Earlier drafts of this study presented the expository material in a single un-pillarized list of sixteen subsections, and explicitly deferred comparative analysis. This revised version organizes the exposition into four thematic pillars (§1.1–§1.4) matching the design of [Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf), incorporates the 9 expressed values (*shishta mulya*), expands on domestic physical effort (KD Ch. 2), and integrates a 4-way comparative analysis (§2) and matrix table (§3) alongside Advaita Vedanta, Confucianism, Ethics of Care, and Household Economics.
+
+### Distinction Between *Vyavahar* and *Upasana*
+
+Section 1.4.2 explicitly clarifies that Madhyasth Darshan categorizes family living under **humane behaviour (*manaviy vyavahar*)**, **justice (*nyaya*)**, and **relational fulfilment (*mulya nirvah*)** (MVD, pp. 33, 55; JV, p. 55). It explicitly rejects conflating family living with *upasana*. In *Manav Karm Darshan* (Chapter 2), *upasana* is defined strictly as the **internal refinement of root tendencies (*mool-vritti parimarjan*)**, whereas family living is the external social field of behaviour (*vyavahar*).
 
 ### Which relationships are "family" relationships
 
@@ -416,10 +404,6 @@ JV, p. 84 identifies mother by nurturing and father by protection. This study re
 ### Two definitions of prosperity
 
 MVD defines prosperity both as the lack of the sentiment of lacking (p. 72) and as production more than needs (p. 342). This study treats the first as the state and the second as its condition, which is the reading that makes them consistent and is supported by SB, p. 223. The sources do not themselves say that the two definitions are related in this way.
-
-### Where the practice begins, and calling it *upasana*
-
-No single passage in the sources reviewed states that recognition, fulfilment, and evaluation begin in the family one is born into, or that family living is *upasana*. §1.4.2 assembles both from four things the sources do state: gratitude's place at the head of the value sequence (JV, p. 108; MVD, pp. 37–38), the formation of *sanskar* in the household (JV, p. 60; MVD, p. 90), the ordering in MVD's definition of satiation (MVD, p. 339), and KD's redefinition of *upasana* as the refinement of root tendencies with sociality naturally contained (KD, pp. 30, 37). The reading is offered as a reading. *Sadhana* is deliberately not used for this, because MVD and JV use it for the practice the darshan's founder moved beyond.
 
 ## References
 
