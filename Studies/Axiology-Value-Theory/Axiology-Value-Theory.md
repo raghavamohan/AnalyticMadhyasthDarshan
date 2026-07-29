@@ -2,8 +2,8 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 29, 2026, 10:02 AM IST
-**Status:** Draft
+**Edited on:** July 29, 2026, 10:09 AM IST
+**Status:** Released
 **The question:** What is a value, where does value reside, how is value recognised and fulfilled, and what makes one evaluation correct and another mistaken? How does the Co-existentialism of Shri A. Nagraj compare with Advaita Vedanta, modern Western value theory, and the natural and social sciences?
 
 This study examines value, evaluation, and the ordering of values in **Madhyasth Darshan** (Co-existentialism), as presented by **Shri A. Nagraj**, and compares its answers with **Advaita Vedanta**, **modern Western axiology and metaethics**, and **the natural and social sciences**.
