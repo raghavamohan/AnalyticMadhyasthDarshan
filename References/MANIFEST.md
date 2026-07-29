@@ -53,6 +53,7 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-19.
 | [Coexistence-From-First-Principles.pdf](../Studies/Coexistence-From-First-Principles/Coexistence-From-First-Principles.pdf) | MVD, SB, JV, KD | present |
 | [Axiology-Value-Theory.pdf](../Studies/Axiology-Value-Theory/Axiology-Value-Theory.pdf) | MVD, SB, JV, KD | present |
 | [Family-Relationships-And-Values.pdf](../Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.pdf) | MVD, JV, SB, KD | present |
+| [Spiritual-Practice-And-Realization.pdf](../Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.pdf) | MVD, JV, KD | present |
 
 ## By tag
 
