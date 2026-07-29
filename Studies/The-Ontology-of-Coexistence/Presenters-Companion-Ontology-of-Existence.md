@@ -389,7 +389,7 @@ The complementarity we just established becomes evident through relationships am
 
 In the material, plant, and animal orders its expression is definite: recognition happens, fulfilment happens. At the human order alone it has to be recognised, evaluated, and fulfilled — so at the human order alone it can be got wrong, and it is got wrong when the body is mistaken for the self.
 
-Two kinds of mutuality matter. A relationship is mutuality whose expectations are definite in the completeness of the bond — parent and child. An association or contact is mutuality where expectations are voluntary — neighbours who share a wall.
+Two kinds of mutuality matter. A relationship is mutuality whose expectations are definite in the completeness of the bond — parent and child. A contact (*sampark*) is mutuality where expectations are voluntary — neighbours who share a wall.
 
 The slide names five value families: object, *jeevan*, human, established, and civic — the last is *shishta-mulya* in the source. Object values are two, utility and art, so the same list is often counted as six types: utility, art, *jeevan*, human, established, and civic. Established values are the ones that become evident when human relationships are recognised and fulfilled — trust, respect, affection, care, and so on. Civic values are how all of that is expressed in social participation.
 

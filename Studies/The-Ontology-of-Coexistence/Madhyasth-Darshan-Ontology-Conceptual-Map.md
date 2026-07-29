@@ -63,7 +63,7 @@ Page numbers below refer to the printed page numbers represented in the local Ma
 
 **Primary pointers.** SB, pp. 49–54, 57, 59, 61–62, 80–81, 123; MVD, pp. 61–62; JV, pp. 43, 67, 69.
 
-**Read for.** Definite recognition among particles and atoms, seed- and species-conformant fulfilment, capacity–ability–receptivity, relationship versus association, and the statement that nothing exists in isolation.
+**Read for.** Definite recognition among particles and atoms, seed- and species-conformant fulfilment, capacity–ability–receptivity, relationship versus contact, and the statement that nothing exists in isolation.
 
 ### 6. Effort–motion–result (*shram–gati–parinam*)
 
@@ -202,7 +202,7 @@ The figure and numbered guide show the core dependency structure. The following 
 |---|---|---|
 | Levels of unithood | The atom is the root unit; a molecule, cell, body, or planet is a composite unit while its organisation persists; a body–*jeevan* joint form coordinates two distinct units; a human assembly is a relationally achieved whole | §§1.1, 1.10, 1.14 |
 | Natural and excited states | The natural state accords with definite conduct; the excited state is activity displaced from that accord by pressure and therefore liable to decline | §1.3 |
-| Relationship and association | A relationship carries expectations inherent in fulfilment; an association carries voluntarily adopted expectations | §1.4 |
+| Relationship and contact | A relationship carries expectations inherent in fulfilment; a contact carries voluntarily adopted expectations | §1.4 |
 | Mixture, compound, biological composition, and assembly | A mixture retains component conducts; a compound establishes a new bounded composition; a biological composition transmits its method through seed and lineage; a humane assembly is sustained through recognised relationships and values | §1.10 |
 | Time and causation | Time is the duration of unit-activity. *Satta* sustains coexistence but does not perform transformations; composition, decomposition, and development occur through unit-activity in mutuality | §1.6.4 |
 | Karma | Human activity joined to aspiration is karma. Its five limbs are doer, cause, objective, result, and wider effect. Karma is not attributed to insentient units. Freedom in action does not cancel causal consequences; awakening removes unresolved dependence while undergoing them | §1.7.1 |
