@@ -18,7 +18,7 @@ body:
       description: Choose the study your comment is about.
       options:
         - Aesthetics
-        - Axiology Value Theory
+        - "Axiology: Value Theory"
         - Coexistence from First Principles
         - Ethics and Morals in Human Beings
         - Family Relationships and Values
