@@ -55,6 +55,7 @@ not use `---` horizontal rules between sections within the study body.
   numbered `## N. References` — use `## References`; per-entry `Linked
   externally; not stored locally` (the link shows this)
 - Formulaic bridges: `Having examined…`, `To map these divergent models…`
+- Horizontal divider lines (`---`): Do not insert `---` lines between sections, pillars, or headings in study markdown — `---` translates to HTML `<hr>` elements which render as unwanted full-width separator lines across pages in the generated PDF.
 
 ## Use instead
 

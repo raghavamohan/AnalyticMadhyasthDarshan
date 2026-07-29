@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) - a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 26, 2026, 10:28 AM IST
+**Edited on:** July 29, 2026, 5:40 AM IST
 **Status:** Draft
 
 **The question:** What are ethics and morals in human beings? Are they divine commands, social conventions, evolutionary adaptations, rational principles, neural/emotional mechanisms, or evidence of correct understanding? How does **Madhyasth Darshan** answer these questions, and how does its answer compare with **Advaita Vedanta** and **modern scientific approaches**?
@@ -145,7 +145,7 @@ Madhyasth Darshan therefore does not treat ethics as only external conduct. Beha
 
 MVD defines sociality as value-fulfilment:
 
-> **"Sociality (samajikta): - Fulfilling the values inherent in relationships and associations itself is sociality."**  
+> **"Sociality (samajikta): - Fulfilling the values inherent in relationships and contacts itself is sociality."**  
 > - MVD, p. 56
 
 This has major implications. The primary site of ethics is neither the isolated individual nor the state. It is the human being in relationship.
