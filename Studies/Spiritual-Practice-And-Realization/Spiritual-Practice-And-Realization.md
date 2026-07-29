@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 29, 2026, 11:30 AM IST
+**Edited on:** July 29, 2026, 11:45 AM IST
 **Status:** Draft
 **The question:** What is realisation, what practice leads to it, and how would anyone know it had occurred? How does Madhyasth Darshan's answer compare with Advaita Vedanta's path of knowledge, and with what modern philosophy and contemplative science have established about practice and religious experience?
 
@@ -94,7 +94,7 @@ The one traditional practice term the darshan keeps and rebuilds is *upasana*. M
 
 The chapter is consistent about what follows. *Upasana* is education and orderliness in its own nature (KD, p. 42); its chief utility lies in immersion in universal values (KD, p. 35); at the root of all *upasanas* the aim is undivided society and universal orderliness (KD, p. 35); *upasanas* exist only for capacity-for-awakening, not for decline (KD, p. 36); and symbol-directed *upasana* is judged secondary and unsociable to the extent of its incompleteness, because in it the human goal is neither clarified nor attained (KD, p. 42).
 
-The consequence is that practice in this darshan has no private phase. Because sociality remains naturally contained in *upasana*, there is no stage at which the practitioner withdraws from relationship in order to advance and returns afterwards. [Family Relationships and Values](../Family-Relationships-And-Values/Family-Relationships-And-Values.pdf) §1.13 draws the family-scale consequence: the practice begins in the relationships one is born into.
+The consequence is that practice in this darshan has no private phase. Because sociality remains naturally contained in *upasana*, there is no stage at which the practitioner withdraws from relationship in order to advance and returns afterwards. [Family Relationships and Values](../Family-Relationships-And-Values/Family-Relationships-And-Values.pdf) §1.4.2 draws the family-scale consequence: the practice begins in the relationships one is born into.
 
 ### 1.7 *Yog* is not a discipline in this vocabulary
 
@@ -117,7 +117,7 @@ The second path is what almost every practitioner is on, and it is where the dar
 
 The darshan locates the defect practice addresses with unusual precision. *Jeevan* has five indivisible strengths — *mun*, *vritti*, *chitta*, *buddhi*, and *atma* — corresponding to hope, thought, desire, resolve, and realisation (MVD, p. 275). Under delusion, hope in *mun* is based on sensation, thought in *vritti* follows that hope, desire in *chitta* follows that thought, and the alienation of *buddhi* from *atma* produces deluded visualisation and desire (MVD, p. 275).
 
-Practice therefore is not the accumulation of states but the repair of a circuit: reflection reaching *buddhi* and *atma* so that realisation and resolve can project outward as coherent visualisation, analysis, selection, and conduct ([The Epistemology of Coexistence](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) §1.4). Bliss is named as the harmony of *buddhi* and *atma* — not a reward for practice but the name of the repaired relation ([Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) §1.4). Cognisance or realisation in coexistence becomes evident as resolution, which manifests as the taste of values, evidencing continuous happiness and regulation of the senses through cognisance (MVD, p. 274).
+Practice therefore is not the accumulation of states but the repair of a circuit: reflection reaching *buddhi* and *atma* so that realisation and resolve can project outward as coherent visualisation, analysis, selection, and conduct ([The Epistemology of Coexistence](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) §1.4). Bliss is named as the harmony of *buddhi* and *atma* — not a reward for practice but the name of the repaired relation ([Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) §1.2.2). Cognisance or realisation in coexistence becomes evident as resolution, which manifests as the taste of values, evidencing continuous happiness and regulation of the senses through cognisance (MVD, p. 274).
 
 ### 1.10 How realisation is evidenced
 
@@ -132,7 +132,7 @@ MVD sets out the dependencies of realisation without concealing that they close:
 > **“The ability of realisation in knowledge depends on human awakening; human awakening depends on sanskars; development of sanskars depends on environment, study & endeavour; environment, study & endeavour depend on humaneness and higher humaneness; humaneness and higher humaneness depend on the ability of realisation in knowledge.”**
 > — MVD, p. 290
 
-Read as a chain of justification this is circular. Read as the darshan appears to intend it, it describes a system whose parts rise or fall together, in which no single member can be secured first and progress is the coherent improvement of all of them. The second reading is available and is consistent with the account of *sanskar* as the cause of awakening ([Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) §1.16). What it does not provide is an entry point for someone in whom none of the members is yet functioning, and §6.2 pursues that.
+Read as a chain of justification this is circular. Read as the darshan appears to intend it, it describes a system whose parts rise or fall together, in which no single member can be secured first and progress is the coherent improvement of all of them. The second reading is available and is consistent with the account of *sanskar* as the cause of awakening ([Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) §1.5.2). What it does not provide is an entry point for someone in whom none of the members is yet functioning, and §6.2 pursues that.
 
 ### 1.12 What the darshan rejects
 
@@ -260,7 +260,7 @@ This is not a reason to prefer Advaita's internal criterion, which distinguishes
 
 Paul's analysis (§3.4) applies unevenly across the three, and the unevenness is illuminating. Advaita handles the problem by qualification: the *sadhana-chatushtaya* screens for those already disposed, so the appraisal question is not put to the unprepared. Hadot's ancients handle it by making the exercises continuous with ordinary life, so each step is appraisable from the one before. Madhyasth Darshan takes the second route and pushes it further, requiring that understanding be conveyable to the unawakened at every stage — its strongest anti-esoteric commitment.
 
-The residual difficulty is that the darshan also asks for a disciplined relation to a realised teacher (§1.8) and holds that only awakening yields correct evaluation ([Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) §1.14). Those two commitments reintroduce from the other side the asymmetry conveyability was meant to remove.
+The residual difficulty is that the darshan also asks for a disciplined relation to a realised teacher (§1.8) and holds that only awakening yields correct evaluation ([Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) §1.4.6). Those two commitments reintroduce from the other side the asymmetry conveyability was meant to remove.
 
 ### 4.6 Practice as private or social
 
@@ -449,8 +449,8 @@ KD Chapter 2 is available in this repository only as a machine-assisted working 
 
 - [The Epistemology of Coexistence](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) — study, realisation, and transmission (§1.8), the active knower (§1.4), and the evidential open problems (§§7.1–7.5).
 - [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — realisation in coexistence as an activity of *jeevan* (§1.13) and *jeevan*'s faculties (§1.7).
-- [Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) — bliss as the harmony of *buddhi* and *atma* (§1.4), correct evaluation and awakening (§1.14), and *sanskar* as the circuit by which conduct deepens understanding (§1.16).
-- [Family Relationships and Values](../Family-Relationships-And-Values/Family-Relationships-And-Values.pdf) — the natal family as the first field of practice, drawing the family-scale consequence of KD's redefinition of *upasana* (§1.13).
+- [Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) — bliss as the harmony of *buddhi* and *atma* (§1.2.2), correct evaluation and awakening (§1.4.6), and *sanskar* as the circuit by which conduct deepens understanding (§1.5.2).
+- [Family Relationships and Values](../Family-Relationships-And-Values/Family-Relationships-And-Values.pdf) — the natal family as where *upasana* is initiated, and its feedback circuit with external behaviour (*vyavahar*) (§1.4.2).
 - *God, Divinity, and the Sacred* (Ongoing) — divinity, theism, and the sacred, which §3 deliberately leaves aside.
 
 ### Modern Western philosophy
