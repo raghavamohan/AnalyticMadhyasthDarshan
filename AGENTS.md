@@ -412,6 +412,7 @@ foreach ($s in $studies) {
 - Edit PDFs directly or commit hand-built HTML as the source of truth.
 - Change conversion behavior inline in chat without updating these scripts when
   the change should apply to all future PDFs (footer, watermark, styling).
+- Insert `---` (horizontal rule) lines between sections or headings in study markdown — `---` translates to HTML `<hr>` elements which render as unwanted full-width separator lines across the page in generated PDFs.
 
 ### PDF → markdown (maintainers only)
 
@@ -513,6 +514,7 @@ not use `---` horizontal rules between sections within the study body.
   numbered `## N. References` — use `## References`; per-entry `Linked
   externally; not stored locally` (the link shows this)
 - Formulaic bridges: `Having examined…`, `To map these divergent models…`
+- Horizontal divider lines (`---`): Do not insert `---` lines between sections, pillars, or headings in study markdown — `---` translates to HTML `<hr>` elements which render as unwanted full-width separator lines across pages in the generated PDF.
 
 ### Use instead
 
@@ -663,11 +665,7 @@ addition, edit, or status change lands through a pull request that CI
 
 1. **Create a feature branch** before touching any file under `Studies/`. Do not commit study
    changes on `master`/`main`.
-2. **Scope one study slug per pull request** for `study-update` and `status-change` changes —
-   `Scripts/_ci_study_pr.py` resolves the slug from the PR body (or from the single changed
-   `Studies/<Slug>/<Slug>.md`) and will fail if more than one slug changed without a `Study slug:`
-   field naming which one to process. If you must touch two studies (e.g. adding a cross-link in
-   both directions), open **two** PRs, one per slug.
+2. **Single or multi-study pull requests supported** — `Scripts/_ci_study_pr.py` automatically resolves and processes all changed study slugs in the PR diff (or reads the primary `Study slug:` field from the PR body). When a PR touches multiple studies (e.g. cross-study terminology updates, shared reference updates, or multi-study reviews), CI validates timestamp sync, rebuilds PDFs, and runs reference checks for every changed study.
 3. **Run local verification before pushing** — the same checks CI runs, so the PR is expected to
    pass on first push:
    - `python Scripts/_quote_tool.py verify --study <Slug>` if you quoted a local source

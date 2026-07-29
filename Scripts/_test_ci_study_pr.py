@@ -263,6 +263,16 @@ def test_date_patch_preserves_spacing_variants() -> None:
         assert result.startswith(b"/CreationDate(D:2026063")
 
 
+def test_handle_study_update_multi_study() -> None:
+    """handle_study_update must process all changed study slugs when multiple studies are in the diff."""
+    entries = [
+        ("M", f"Studies/{REAL_SLUG}/{REAL_SLUG}.md"),
+        ("M", "Studies/Nature-Of-Time/Nature-Of-Time.md"),
+    ]
+    slugs = _with_diff(entries, lambda: ci.changed_study_slugs("origin/master"))
+    assert set(slugs) == {REAL_SLUG, "Nature-Of-Time"}
+
+
 def main() -> int:
     tests = [obj for name, obj in sorted(globals().items())
              if name.startswith("test_") and callable(obj)]
