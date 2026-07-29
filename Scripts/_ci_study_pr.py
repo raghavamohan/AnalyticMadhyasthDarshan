@@ -502,11 +502,10 @@ def handle_new_study(body: str, base_ref: str) -> None:
 
 def handle_study_update(body: str, base_ref: str) -> None:
     rename = detect_study_rename(base_ref)
-    slug = resolve_slug(body, base_ref, rename=rename, allow_changed=True)
-
     if rename:
         old_slug, new_slug = rename
-        if slug != new_slug:
+        primary_slug = resolve_slug(body, base_ref, rename=rename, allow_changed=True)
+        if primary_slug != new_slug:
             raise SystemExit(
                 f"Directory rename {old_slug} -> {new_slug} requires "
                 f"`Study slug: {new_slug}` in the PR body."
@@ -526,42 +525,65 @@ def handle_study_update(body: str, base_ref: str) -> None:
         subprocess.run(command, check=True, cwd=BASE)
         verify_rename_metadata(old_slug, new_slug)
 
-    located = get_study_row(slug)
-    if located is None:
-        raise SystemExit(f"Study not found in catalog: {slug}")
+    changed_slugs = changed_study_slugs(base_ref) if base_ref else []
+    body_slug = None
+    raw = parse_body_field(body, *SLUG_PATTERNS)
+    if raw:
+        body_slug = normalize_pr_slug(raw)
 
-    row, _table = located
-    if row.status == StudyStatus.ONGOING:
-        raise SystemExit(
-            f"{slug} is a pre-catalog proposal placeholder. Submit a new-study PR to register the draft."
-        )
-
-    sync_catalog_timestamp_from_md(slug)
-    located = get_study_row(slug)
-    if located is None:
-        raise SystemExit(f"Study not found after catalog sync: {slug}")
-    row, _table = located
-
-    md_path = study_md(slug)
-    sync_study_reference_cache(slug)
-    reason = pdf_regeneration_reason(base_ref, slug)
-    if reason:
-        print(f"Regenerating PDF for {slug} ({row.status.value}): {reason}")
-        regenerate_pdf(md_path, row.status)
+    target_slugs: list[str] = []
+    if changed_slugs:
+        target_slugs = list(changed_slugs)
+        if body_slug and body_slug not in target_slugs:
+            target_slugs.append(body_slug)
+    elif body_slug:
+        target_slugs = [body_slug]
+    elif rename:
+        target_slugs = [rename[1]]
     else:
-        print(
-            f"Skipping PDF regeneration for {slug}: no change to the markdown, "
-            "its figures, or the PDF pipeline."
-        )
+        target_slugs = [resolve_slug(body, base_ref, rename=rename, allow_changed=True)]
+
+    print(f"Processing study update for {len(target_slugs)} study slug(s): {', '.join(target_slugs)}")
+
+    for slug in target_slugs:
+        located = get_study_row(slug)
+        if located is None:
+            raise SystemExit(f"Study not found in catalog: {slug}")
+
+        row, _table = located
+        if row.status == StudyStatus.ONGOING:
+            raise SystemExit(
+                f"{slug} is a pre-catalog proposal placeholder. Submit a new-study PR to register the draft."
+            )
+
+        sync_catalog_timestamp_from_md(slug)
+        located = get_study_row(slug)
+        if located is None:
+            raise SystemExit(f"Study not found after catalog sync: {slug}")
+        row, _table = located
+
+        md_path = study_md(slug)
+        sync_study_reference_cache(slug)
+        reason = pdf_regeneration_reason(base_ref, slug)
+        if reason:
+            print(f"Regenerating PDF for {slug} ({row.status.value}): {reason}")
+            regenerate_pdf(md_path, row.status)
+        else:
+            print(
+                f"Skipping PDF regeneration for {slug}: no change to the markdown, "
+                "its figures, or the PDF pipeline."
+            )
+
+        errors = verify_timestamp_sync(slug)
+        if errors:
+            raise SystemExit(f"Timestamp verification failed for {slug}:\n  - " + "\n  - ".join(errors))
 
     if references_changed(base_ref):
         run_reference_checks(full_repo=True)
-    elif study_references_changed(base_ref, slug):
-        run_reference_checks(study=slug)
-
-    errors = verify_timestamp_sync(slug)
-    if errors:
-        raise SystemExit("Timestamp verification failed:\n  - " + "\n  - ".join(errors))
+    else:
+        for slug in target_slugs:
+            if study_references_changed(base_ref, slug):
+                run_reference_checks(study=slug)
 
 
 def handle_status_change(body: str, base_ref: str) -> None:  # noqa: ARG001 - uniform signature

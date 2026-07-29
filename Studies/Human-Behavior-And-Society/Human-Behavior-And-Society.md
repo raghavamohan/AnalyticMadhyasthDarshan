@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 27, 2026, 10:52 PM IST
+**Edited on:** July 29, 2026, 5:40 AM IST
 **Status:** Draft
 
 **The question:** How should humans behave and organise themselves? Can science alone, or religion alone, define correct ethical behaviour and the right form of society?
@@ -46,7 +46,7 @@ The behavioural argument rests on a chain of premises, from coexistence to pract
 | 4 | **Every human seeks satisfaction, happiness, and restfulness.** Even deluded behaviour is an attempt to solve suffering. | Ethics is not external punishment; it is the correct route to fulfilment. |
 | 5 | **The root human problem is delusion.** Humans mistake partial satisfactions for complete fulfilment and confuse body-needs with *jeevan*-needs. | Social disorder is a symptom of wrong understanding. |
 | 6 | **Humane conduct is studyable and livable.** It is not merely a sermon or private mystical state. | Behaviour can be taught, learned, verified, and embodied. |
-| 7 | **Relationships contain values.** Sociality means fulfilling values inherent in relationships and associations. | Society is not just a contract or herd; it is value-fulfilment in mutuality. |
+| 7 | **Relationships contain values.** Sociality means fulfilling values inherent in relationships and contacts. | Society is not just a contract or herd; it is value-fulfilment in mutuality. |
 | 8 | **Resolution and prosperity are both required.** Thought must be resolved; material life must be adequately provided for. | Ethics cannot be only spiritual renunciation or only material production. |
 | 9 | **Organisation requires shared cause, goal, and programme.** | Families, communities, and society need a common purpose to remain coherent. |
 | 10 | **Coercive power and religious command have failed to produce universal ethical conduct.** | Neither state-force nor religious law is sufficient without understanding. |
@@ -122,7 +122,7 @@ This moves behaviour from mere justice toward active benevolence: helping others
 
 MVD defines sociality as value-fulfilment:
 
-> **"Fulfilling the values inherent in relationships and associations itself is sociality."**  
+> **"Fulfilling the values inherent in relationships and contacts itself is sociality."**  
 > - MVD, Ch. 4
 
 SB similarly says complementarity is realised through relationships:
@@ -494,7 +494,7 @@ Religion often provides values, community, restraint, and discipline, but it can
 
 ## 5. Practical principles for behaviour
 
-Ethical conduct must be based on understanding rather than blind rule-following. One should live by justice, dharma, and truth — not remain limited to pleasant-unpleasant, health-unhealth, and profit-loss. Sociality is value-fulfilment in relationships, not mere association. Body, mind, and wealth should move from selfish use toward benevolent use. Prosperity is necessary, but hoarding and profit-obsession are disorder. Betrayal, exploitation, violence, and retaliation cannot establish orderliness. Social order requires shared cause, goal, and programme; the family is the first site of education, production, conduct, and responsibility; sectarian identity must mature into undivided society; human use of nature must become right-use rather than domination. The test of knowledge is not belief but lived proof.
+Ethical conduct must be based on understanding rather than blind rule-following. One should live by justice, dharma, and truth — not remain limited to pleasant-unpleasant, health-unhealth, and profit-loss. Sociality is value-fulfilment in relationships, not mere contact. Body, mind, and wealth should move from selfish use toward benevolent use. Prosperity is necessary, but hoarding and profit-obsession are disorder. Betrayal, exploitation, violence, and retaliation cannot establish orderliness. Social order requires shared cause, goal, and programme; the family is the first site of education, production, conduct, and responsibility; sectarian identity must mature into undivided society; human use of nature must become right-use rather than domination. The test of knowledge is not belief but lived proof.
 
 ## 6. Conclusion
 

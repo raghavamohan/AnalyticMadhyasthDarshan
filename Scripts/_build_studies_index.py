@@ -1179,7 +1179,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
         <p class="path-stage-desc">Study whether values and relationships have a definite structure, and how understanding is tested and deepened through conduct.</p>
         <div class="path-core" data-study-slug="Axiology-Value-Theory" data-study-pdf="true">
           <span class="path-core-label">Core study</span>
-          <div class="path-study-line"><a data-study-link href="Axiology-Value-Theory/Axiology-Value-Theory.pdf" title="Open study PDF">Axiology Value Theory</a></div>
+          <div class="path-study-line"><a data-study-link href="Axiology-Value-Theory/Axiology-Value-Theory.pdf" title="Open study PDF">Axiology: Value Theory</a></div>
           <span class="path-status draft" data-study-status>Draft</span>
           <span class="path-updated" data-study-updated></span>
           <a class="path-action" data-study-action href="Axiology-Value-Theory/discussion.html">Review the draft</a>
