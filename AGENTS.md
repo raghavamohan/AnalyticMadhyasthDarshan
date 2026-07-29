@@ -412,6 +412,7 @@ foreach ($s in $studies) {
 - Edit PDFs directly or commit hand-built HTML as the source of truth.
 - Change conversion behavior inline in chat without updating these scripts when
   the change should apply to all future PDFs (footer, watermark, styling).
+- Insert `---` (horizontal rule) lines between sections or headings in study markdown — `---` translates to HTML `<hr>` elements which render as unwanted full-width separator lines across the page in generated PDFs.
 
 ### PDF → markdown (maintainers only)
 
@@ -513,6 +514,7 @@ not use `---` horizontal rules between sections within the study body.
   numbered `## N. References` — use `## References`; per-entry `Linked
   externally; not stored locally` (the link shows this)
 - Formulaic bridges: `Having examined…`, `To map these divergent models…`
+- Horizontal divider lines (`---`): Do not insert `---` lines between sections, pillars, or headings in study markdown — `---` translates to HTML `<hr>` elements which render as unwanted full-width separator lines across pages in the generated PDF.
 
 ### Use instead
 

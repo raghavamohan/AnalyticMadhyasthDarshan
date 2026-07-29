@@ -3,7 +3,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 3, 2026, 3:04 PM IST
+**Edited on:** July 29, 2026, 5:40 AM IST
 **Status:** Released
 **The question:** must organisations be built on fear or accumulation, or is there a basis on which they sustain *and* their members are not used as instruments?
 
@@ -101,7 +101,7 @@ Exploitation **subtracts** from the other; nurturing **adds**. And:
 > **"No human wants their own exploitation."**
 > - MVD, Ch. 16
 
-In the template of coexistence these are not loose metaphors. Every unit stands in **relationships** — mutualities whose expectations are *predetermined* toward completeness — and in looser **associations**, whose expectations are *voluntary* (MVD, Ch. 4; MVD, pp. 61–62). Formally an organisation is mostly an **association**: people join and leave by choice. But it is built out of, and imposes demands on, real **relationships**, and the value (*mulya*) owed in any relationship is its **essentiality** — what the parties reciprocate and mutually recognise ([*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.6). To *disregard* that value is, by the definition above, exploitation. This is exactly why a purely voluntary, contractual association can still instrumentalise its members: consenting to join does not license disregard of the relationship-values the association carries.
+In the template of coexistence these are not loose metaphors. Every unit stands in **relationships** — mutualities whose expectations are *predetermined* toward completeness — and in looser **contacts**, whose expectations are *voluntary* (MVD, Ch. 4; MVD, pp. 61–62). Formally an organisation is mostly a **contact**: people join and leave by choice. But it is built out of, and imposes demands on, real **relationships**, and the value (*mulya*) owed in any relationship is its **essentiality** — what the parties reciprocate and mutually recognise ([*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.6). To *disregard* that value is, by the definition above, exploitation. This is exactly why a purely voluntary, contractual contact can still instrumentalise its members: consenting to join does not license disregard of the relationship-values the contact carries.
 
 Profit-bound organisations must extract more from members than they return, because profit is defined as that very imbalance — "Getting higher value in exchange for lower value itself is profit" (MVD, Ch. 4) — and "No one is happy from earning obtained through exploitation" (MVD, Ch. 13). The political form of instrumentalisation is rule itself:
 
