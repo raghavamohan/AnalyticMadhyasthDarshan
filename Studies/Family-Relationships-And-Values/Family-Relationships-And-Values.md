@@ -293,16 +293,27 @@ Madhyasth Darshan presents a fundamentally different economic anthropology:
 
 ## 3. Comparison
 
-The five approaches to family and relational value are summarized below:
+The five approaches to family and relational value are summarized below in two complementary tables comparing ontological, ethical, economic, and teleological dimensions.
 
-| Dimension | Madhyasth Darshan | Advaita Vedanta | Confucianism | Ethics of Care | Household Economics / Capability |
-|---|---|---|---|---|---|
-| **Ontological Status of Family** | First real tier of universal orderliness in perpetual existence | Empirical (*vyavaharic*) stage; ultimately superimposition (*mithya*) | Foundational natural order (*tian*) and root of virtue (*ren*) | Interdependent relational reality; critique of atomism | Contingent social/economic unit or preference-bundling coalition |
-| **Ground of Relational Duty** | Predetermined expectations in coexistence (*sambandh*) | Duty (*dharma*) for mental purification (*chitta-shuddhi*) | Filial piety (*xiao*), elder deference, ritual decorum (*li*) | Relational empathy, care responsiveness, historical context | Negotiated contract, mutual utility, or capability expansion |
-| **Primary Basis of Recognition** | Functional purpose (nurturing, protection, guidance) | Role duty assigned by *varna-ashrama dharma* | Seniority, age, kinship status, and social position | Affective attachment and particular relational vulnerability | Mutual preference satisfaction or resource sharing |
-| **Rejection of Seniority/Power** | Explicitly rejects power, wealth, age, and fear as non-values | Subordinates social hierarchy to ultimate non-dual realization | Upholds elder authority and patriarchal hierarchy via ritual | Rejects dominance; emphasizes responsiveness to vulnerability | Rejects non-economic hierarchy; assumes bargaining power |
-| **Economic Role of Family** | Assessing unit of need and locus of prosperity (*samriddhi*) | Field of restrained consumption; renunciation idealized | Field of ancestral support and generational stewardship | Site of unpaid care work and social reproduction | Unit of utility maximization, resource allocation, or capability |
-| **Ultimate Telos** | Mutual satisfaction (*ubhaya tripti*) & undivided society | Individual liberation (*moksha*) beyond domestic bonds | Social harmony (*he*) and ethical state governance | Sustained caring relationships and human flourishing | Individual preference satisfaction or expanded capabilities |
+### Table 3.1: Ontological, Ethical, and Relational Comparison
+
+| Tradition | Ontological Status of Family | Ground of Relational Duty | Primary Basis of Recognition |
+|---|---|---|---|
+| **Madhyasth Darshan** | First real tier of universal orderliness in perpetual existence | Predetermined expectations in coexistence (*sambandh*) | Functional purpose (nurturing, protection, guidance) |
+| **Advaita Vedanta** | Empirical (*vyavaharic*) stage; ultimately superimposition (*mithya*) | Duty (*dharma*) for mental purification (*chitta-shuddhi*) | Role duty assigned by *varna-ashrama dharma* |
+| **Confucianism** | Foundational natural order (*tian*) and root of virtue (*ren*) | Filial piety (*xiao*), elder deference, ritual decorum (*li*) | Seniority, age, kinship status, and social position |
+| **Ethics of Care** | Interdependent relational reality; critique of atomism | Relational empathy, care responsiveness, historical context | Affective attachment and relational vulnerability |
+| **Household Economics** | Contingent social/economic unit or preference-bundling coalition | Negotiated contract, mutual utility, or capability expansion | Mutual preference satisfaction or resource sharing |
+
+### Table 3.2: Authority, Economic Role, and Ultimate Telos
+
+| Tradition | Rejection of Seniority & Power | Economic Role of Family | Ultimate Telos |
+|---|---|---|---|
+| **Madhyasth Darshan** | Explicitly rejects power, wealth, age, and fear as non-values | Locus of need determination and family-scale prosperity (*samriddhi*) | Mutual satisfaction (*ubhaya tripti*) & undivided society |
+| **Advaita Vedanta** | Subordinates social hierarchy to ultimate non-dual realization | Field of restrained consumption; renunciation idealized | Individual liberation (*moksha*) beyond domestic bonds |
+| **Confucianism** | Upholds elder authority and patriarchal hierarchy via ritual | Field of ancestral support and generational stewardship | Social harmony (*he*) and ethical state governance |
+| **Ethics of Care** | Rejects dominance; emphasizes responsiveness to vulnerability | Site of unpaid care work and social reproduction | Sustained caring relationships and human flourishing |
+| **Household Economics** | Rejects non-economic hierarchy; assumes bargaining power | Unit of utility maximization, resource allocation, or capability | Individual preference satisfaction or expanded capabilities |
 
 ## 4. Critical Review and Open Problems
 
