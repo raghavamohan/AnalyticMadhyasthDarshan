@@ -54,6 +54,91 @@ description: >-
 8. Verify that the slides-PDF page count matches the PPTX slide count and visually
    inspect changed pages in both PDFs.
 
+## Layout rules
+
+Run this before regenerating anything, and again before you call the deck done:
+
+```powershell
+python Scripts/_check_deck_layout.py Studies/<Slug>/<Deck>.pptx
+python Scripts/_check_deck_layout.py --all
+```
+
+It fails on rendered text colliding with other rendered text, text spilling off
+the canvas, wrong `N / M` footer numbering, and out-of-range slide
+cross-references. Everything it is less sure about — hairline overlaps, boxes
+holding more lines than they were sized for, single lines at ≥95% of box
+width — it prints as a note for you to eyeball. Notes are not noise to be
+ignored; they are the cases where the model defers to your eyes.
+
+### A too-long title reads as *overlap*, not as overflow
+
+PowerPoint never clips overflowing text, so a box's declared height does not
+constrain what renders. On these decks the title box is one line tall and
+**centre-anchored**, so a title that wraps to two lines grows in *both*
+directions and its first line rides up through the eyebrow above it. The
+symptom on screen is a struck-through eyebrow; the cause is a title four words
+too long. Fix the length, not the eyebrow.
+
+The same mechanic makes a wrapped one-line footer orphan its page number below
+the footer band.
+
+### Keep single-line boxes to one line
+
+Measure, do not eyeball: the string in its own font and size against the box
+width, minus insets. `_check_deck_layout.py` does this. Targets:
+
+| Fill of box width | Verdict |
+|---|---|
+| ≤ 90% | Safe. Aim here. |
+| 90–95% | Fine, no headroom for later edits. |
+| 95–100% | Renderer-dependent — PIL and PowerPoint disagree by up to ~1%. A title measured at 100.2% still rendered on one line. |
+| > 100% | Wraps. On a one-line box, that is a collision. |
+
+### The 10 × 5.625in grid
+
+Four decks share it: both Epistemology decks and both Ontology decks. Match
+these exactly rather than inventing a variant — an outlier box is the likelier
+bug, and correcting it to the grid beats rewriting copy to fit a wrong box.
+
+| Band | L | T | W | H | Type |
+|---|---|---|---|---|---|
+| Eyebrow | 1.05 | 0.28 | 8.40 | 0.26 | Calibri 10.5 bold |
+| Title | 1.05 | 0.50 | 8.45 | 0.62 | Cambria 30 bold, anchor `ctr` |
+| Footer | 0.55 | 5.28 | 8.90 | 0.28 | Calibri 9.5 |
+| Section title | 0.70 | 1.72 | 6.10 | 1.50 | Cambria 44 bold — two lines by design |
+| Section footer (two boxes) | 0.70 | 4.55 / 4.85 | 5.80 | 0.30 | Calibri 11.5 |
+
+At Cambria 30 bold in the 8.45in title box, one line holds roughly 40
+characters. Past that, check the measurement rather than guessing.
+
+The three 13.33 × 7.5in decks — `Coexistence-From-First-Principles`,
+`How-Undivided-Society-Is-Established`, `Why-Humans-Are-Not-Just-Material` —
+each carry their own geometry. Read the deck you are editing; do not port
+numbers from the table above into one of them.
+
+### Adding, removing, or reordering a slide
+
+Renumbering is not optional and not confined to the slides you touched:
+
+- Every slide in a numbered deck carries an `N / M` footer. Removing one slide
+  invalidates all of them. Only the Epistemology decks number their slides
+  today; check before assuming.
+- Hard-coded `slide N` references live in **shape text and speaker notes
+  alike** — a phrase like "the failure modes return at slide 32" silently
+  repoints at the wrong slide. Re-confirm each target by its title, not by
+  arithmetic.
+- A removed slide can leave a speaker note referring to it ("the drish term
+  from the earlier triad"). Read the notes on the neighbours.
+
+### Where the deck's speaker notes come from
+
+Notes flow one way *only where a Presenter's Companion exists*:
+`Presenters-Companion-<Name>.md` → `.notes.json` →
+`Scripts/_sync_pptx_speaker_notes.py` → the `.pptx` notes pane. Today only
+`The-Ontology-of-Coexistence` has one, so for every other deck the notes pane
+in the `.pptx` is itself the source of truth and is edited directly. Check
+which case you are in before editing a note — see [AGENTS.md](../../../AGENTS.md) §3.
+
 ## The three deck PDFs
 
 A deck with a Presenter's Companion produces three PDFs. They are not
@@ -108,6 +193,10 @@ Companion-only presentation edits do not update the study's `**Edited on:**` fie
 Before finishing, confirm:
 
 - [ ] Canonical PPTX updated and all slides visually reviewed
+- [ ] `python Scripts/_check_deck_layout.py <deck>` reports no failures, and each
+      note was looked at rather than assumed harmless
+- [ ] Footer numbering and every `slide N` cross-reference still correct after any
+      add, removal, or reorder
 - [ ] No unintended clipping, overlap, or unresolved placeholders
 - [ ] Speaker notes and source footers preserved where intended
 - [ ] Slides PDF regenerated and changed pages visually verified
