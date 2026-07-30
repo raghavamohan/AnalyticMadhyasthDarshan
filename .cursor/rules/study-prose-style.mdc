@@ -31,6 +31,57 @@ review with a plain closing sentence naming the tradition, not `**Verdict:**`
 or `### Critical assessment`. Cross-reference with `§2.3`, not `Section 2`. Do
 not use `---` horizontal rules between sections within the study body.
 
+## Source attribution in exposition
+
+Exposition states the darshan's own positions in continuous prose. Do **not** make
+a source sigil the grammatical subject of an expository sentence — `MVD
+describes…`, `KD says…`, `SB extends…`, `JV defines…`, `*Manav Karm Darshan*
+gives the most direct account…` — and do not use source possessives for doctrine
+(`MVD's account`, `in KD's view`, `KD's linked triads`). The reader should meet
+the philosophy, not the study's familiarity with the books.
+
+Attribution stays in the parenthetical citation and in the `## References` entry.
+Parentheticals are kept — they are ordinary scholarly apparatus, not
+text-as-speaker — and each cited page in a References entry carries the section
+that uses it: `the sequence from knowledge through law, regulation, and balance
+(p. 174; §1.4)`. Naming **Shri A. Nagraj** as author is correct where the point
+is his (`Nagraj's founding questions ask…`); naming a book as a speaker is not.
+
+## Textual variants and interpretive choices
+
+Exposition presents what the texts establish, not the study's reading of them.
+Keep the following out of the exposition sections:
+
+- Enumeration reconciliation: `the three-content formulation… the four-content
+  formulation`, `the two enumerations answer different questions`, `these
+  formulations are not one mechanical ladder`
+- Cross-text variant notes: `KD sometimes renders…`, `Elsewhere MVD says…`,
+  `describes the same ten a second way`, `The common point is…`
+- Meta-commentary on the sources: `the source therefore supports…`, `a
+  source-faithful exposition can…`, `performs argumentative work in the darshan`
+- Defensive clarification of what a term is *not* (`not a fourth *eshana*`, `not
+  nine independent activities`, `more precise than "five *samvedanas*"`)
+
+State the chosen content positively in the exposition and record the choice in
+`## Editorial Notes` (`### <topic>` subsections, placed after the glossary and
+before `## References`). **Never assert a harmonisation the sources do not
+state** — if one passage lists four constituents and another three, present the
+content and let the Editorial Note carry the enumeration; do not write that one
+of them is "not a separate fourth content."
+
+Comparison with other traditions belongs in the comparison sections (typically
+§§2–5). Criticism, contestable inferences, testability, and open problems belong
+in critical review and open problems (typically §§6–7), cross-referenced from the
+exposition with `§6.1` or `§7.4` rather than argued in place.
+
+## Block quotes
+
+Quote the primary text for a section's **most important point**, not for each
+claim it supports — a block quote per paragraph breaks the argument's flow, and
+a point already stated in the sentence before it does not need quoting. Ordinary
+support is carried by prose plus a parenthetical citation. Verify what remains:
+`python Scripts/_quote_tool.py verify --study <Slug>`.
+
 ## Avoid
 
 - Reader guides: `## How to read this study` and tag-legend blocks
@@ -46,6 +97,10 @@ not use `---` horizontal rules between sections within the study body.
 - Distancing fillers: `According to this darshan` (when stating the darshan's
   own position), `Therefore, the most balanced reading is:` before a closing
   blockquote — name the tradition or state the conclusion directly
+- Source-as-speaker attribution: `MVD says`, `KD describes`, `SB extends`,
+  `MVD's account`, `in KD's view` — state the position, cite in parentheses
+- Enumeration reconciliation, cross-text variant notes, and meta-commentary on
+  the sources inside exposition — move them to `## Editorial Notes`
 - Elimination filters: bold `**Not constitution.**` / `**Proposed reading:**`
   headers — weave rejections into prose
 - Document signposting: `primary reference`, `prepares its rows`, `not
@@ -69,10 +124,14 @@ not use `---` horizontal rules between sections within the study body.
 - Cross-refs only for argument (`§6.2`, `§3.3`), not for cataloguing the outline
 - One running English term per source concept in analytical prose (glossary +
   Editorial Notes); block quotes keep translation wording
+- Doctrine stated in the darshan's voice with the page in parentheses: *Complete
+  knowledge comprises… (KD §3.5, p. 69)* — not *KD lists four contents of
+  complete knowledge*
 - **References:** `## References` then tradition subsections — no preamble;
   optional `### Related studies in this collection`; `**TAG** —` author, linked
-  title, `Cited:`; local `../References/...` or external URL in the link; no
-  `Linked externally; not stored locally`
+  title, `Cited:` with a `§`-tag on each cited page or range so every section's
+  sources are recoverable from the entry; local `../References/...` or external
+  URL in the link; no `Linked externally; not stored locally`
 
 ## Check before finishing
 
@@ -88,7 +147,18 @@ not use `---` horizontal rules between sections within the study body.
 - [ ] No navigation-only meta-sentences or `### Comparative Matrix` labels
 - [ ] Comparison recaps not duplicated outside the comparison section
 - [ ] Cross-refs use `§`, not `Section`
+- [ ] No source sigil as the subject of an expository sentence (`MVD says`, `KD
+  describes`, `SB extends`) and no source possessives for doctrine (`MVD's
+  account`, `in KD's view`)
+- [ ] No enumeration reconciliation, cross-text variant notes, or
+  meta-commentary on the sources in exposition — recorded in
+  `## Editorial Notes` instead
+- [ ] No harmonisation asserted that the sources do not state
+- [ ] Comparison confined to the comparison sections and criticism to critical
+  review / open problems, not argued inside the exposition
+- [ ] Block quotes reserved for a section's most important point;
+  `python Scripts/_quote_tool.py verify --study <Slug>` passes
 - [ ] References: `## References` (unnumbered), no section preamble, no
-  external-storage notes on entries
+  external-storage notes on entries, `§`-tag on each cited page or range
 
 ---
