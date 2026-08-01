@@ -906,7 +906,7 @@ Six of six were in the corpus all along. Two of my glosses were right but unsour
 
 ## Related files
 
-- Analysis and integration plan: [`Studies/Spiritual-Practice-And-Realization/Research-Note-Sakshatkar-Bodh-Anubhav-Praman-Session.md`](../../../Studies/Spiritual-Practice-And-Realization/Research-Note-Sakshatkar-Bodh-Anubhav-Praman-Session.md)
-- Study this supports: [`Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.md`](../../../Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.md)
+- Analysis and integration plan: [`Studies/Spiritual-Practice-And-Realization/Research-Note-Sakshatkar-Bodh-Anubhav-Praman-Session.md`](../../../../Studies/Spiritual-Practice-And-Realization/Research-Note-Sakshatkar-Bodh-Anubhav-Praman-Session.md)
+- Study this supports: [`Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.md`](../../../../Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.md)
 - Raw ASR before normalisation: [`Sakshatkar-Bodh-Anubhav-Praman-2010-raw-asr.txt`](Sakshatkar-Bodh-Anubhav-Praman-2010-raw-asr.txt)
-- Folder conventions: [`README.md`](README.md)
+- Folder conventions: [`README.md`](../README.md)
