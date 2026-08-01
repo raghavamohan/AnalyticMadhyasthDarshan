@@ -1,6 +1,6 @@
 # Transcription programme — recorded sessions of Shri A. Nagraj
 
-**Started:** August 1, 2026 · **Status:** Phase 1 in progress
+**Started:** August 1, 2026 · **Status:** Phase 1 raw ASR complete (60/60, 2026-08-02); promotion to References artefacts not started
 **Maintainer note:** this is a living document. Update the status table and the decision log as recordings land; record reversals as reversals rather than editing the earlier reasoning away.
 
 Companion: [`README.md`](README.md) sets out the folder conventions and how far machine-transcribed oral material may be relied on. That document governs *use*; this one records *scope, decisions, and progress*.
@@ -77,7 +77,9 @@ Measured on Ryzen 9 7950X (16c/32t), 5-minute slices, real audio:
 | **4 × 4** | **3.25×** | **7.2 h** |
 | 8 × 2 | 2.91× | 8.0 h |
 
-CTranslate2's int8 beam search does not scale past roughly 4 threads, and eight copies of large-v3 contend for memory bandwidth. **4 × 4 is the measured optimum.** Caveat: the 8 × 2 rung overlapped with the fetch competing for the machine, so its figure is mildly pessimistic; the shape of the curve is what the choice rests on.
+CTranslate2's int8 beam search does not scale past roughly 4 threads, and eight copies of large-v3 contend for memory bandwidth. 4 × 4 was chosen on this basis. Caveat noted at the time: the 8 × 2 rung overlapped with the fetch competing for the machine, so its figure is mildly pessimistic.
+
+**Partly superseded by the Phase 1 run — do not treat 4 × 4 as settled.** The real batch achieved **2.98×**, not 3.25×, so slices overstate throughput by roughly 10%. More importantly the 3-file straggler pass, run at 3 × 5 threads, recorded per-worker rates of 1.01–1.27× against 0.69–0.97× throughout the 4 × 4 batch. Five threads per worker looks better than four, which is the opposite of what the slice benchmark indicated. Untested at four workers; see the Phase 1 status section.
 
 ### D5 — Batch ordering and resumability
 
@@ -103,6 +105,7 @@ Deliberately **not** committed to this repository — it is a throwaway environm
 
 ### Pitfalls that cost real time
 
+- **YouTube throttles a long sequential fetch.** Three of 60 returned `HTTP 403 Forbidden` late in the run and all three succeeded on immediate retry with the same format. Budget a retry pass rather than treating a 403 as unavailability.
 - **Anaconda's `onnxruntime` is broken here** (`WinMLDeployMainPackage failed … 0x80073d06`). It silently forces VAD off, which costs roughly 10× in throughput. A clean venv has a working one.
 - **OpenMP duplication** between Anaconda MKL and CTranslate2 — same fix.
 - **Console encoding**: Windows cp1252 crashes on Devanagari output. Set `PYTHONIOENCODING=utf-8`.
@@ -116,13 +119,42 @@ Deliberately **not** committed to this repository — it is a throwaway environm
 
 | Study | Videos | Hours | Fetched | Transcribed | In References |
 |---|---|---|---|---|---|
-| Spiritual Practice | 16 | 7.48 | — | — | 1 (the 2010 session) |
-| Epistemology | 16 | 6.15 | — | — | 0 |
-| Axiology | 14 | 5.67 | — | — | 0 |
-| Ontology | 14 | 4.13 | — | — | 0 |
-| **Total** | **60** | **23.43** | **in progress** | **0** | **1** |
+| Spiritual Practice | 16 | 7.48 | 16 | 16 | 1 (the 2010 session) |
+| Epistemology | 16 | 6.15 | 16 | 16 | 0 |
+| Axiology | 14 | 5.67 | 14 | 14 | 0 |
+| Ontology | 14 | 4.13 | 14 | 14 | 0 |
+| **Total** | **60** | **23.43** | **60** | **60** | **1** |
 
-Manifest: `E:\MD-Transcription\manifest-tier1.tsv` (study, duration, video ID, title).
+**Raw ASR for all 60 completed 2026-08-02, zero failures.** Manifest: `E:\MD-Transcription\manifest-tier1.tsv` (study, duration, video ID, title); transcripts and per-segment JSON in `E:\MD-Transcription\transcripts\`. None has yet been promoted to a References artefact — see the standard below.
+
+### What the run actually cost
+
+| | |
+|---|---|
+| Wall time | 7.67 h (57 files) + 0.21 h (3 stragglers) |
+| Aggregate throughput | **2.98×** realtime |
+| Mean `avg_logprob` | **-0.116**, range -0.076 (*अनुसन्धान और शोध*) to -0.179 |
+| Failures | 0 |
+
+**The synthetic benchmark overstated throughput by about 10%** — 3.25× on 5-minute slices against 2.98× on real recordings. Slices under-represent model-load amortisation and over-represent dense speech. Quote the real figure when planning Phase 2.
+
+### Two findings from the run
+
+**Fetch 403s are rate-limiting, not unavailability.** Three of 60 failed with `HTTP Error 403: Forbidden` after 57 sequential downloads. All three succeeded on retry **with the identical format**, so a retry pass — or a longer delay between requests — is all that is needed. `retry_failed.py` walks four format/client combinations but never got past the first.
+
+**Five threads per worker may beat four, contradicting D4.** The 3-straggler pass ran 3 × 5 threads and recorded per-worker rates of **1.01×, 1.22×, 1.27×**, against 0.69–0.97× throughout the 4 × 4 main batch. If four workers at five threads sustain even 1.0× each, that is 4.0× aggregate against the 2.98× achieved. **Not yet a conclusion** — those were short files and 15 threads contends less than 16 — but it is a cheap experiment and it points away from the optimum the synthetic benchmark picked. Test before Phase 2.
+
+### Known ASR failure mode
+
+`K7KNzk3uX0k` at 01:11 collapses into a repetition loop (`वो वो वो वो …`) across roughly 30 seconds — the classic Whisper behaviour on a low-information stretch. It is visible in the text and in a depressed `avg_logprob`, so it does not corrupt anything silently, but **check for it when promoting a transcript**: `no_speech_prob` and `avg_logprob` are recorded per segment in the sibling `.json` precisely so loops and dropouts can be found without re-listening to everything.
+
+### Content worth reading first
+
+Three recordings already look consequential for live studies, on a first skim of raw output:
+
+- **`8WNTuXNtawg` न्याय - धर्म - सत्य** (56 min) — at 04:35, that language points at *nyaya, dharma, satya* and at nothing else, everything else remaining in *kalpana*; and that whatever is to be evidenced is these three. Bears on §1.1's evaluation triad and on §1.10's word–meaning–*vastu* analysis.
+- **`QgqtqALvMLw` अनुसन्धान और शोध** (53 min, the corpus's most confident transcript at -0.076) — distinguishes *anusandhan* driven by an *apeksha* present in the person but absent from the *parampara*. Bears on §1.8 and §6.2, where the study currently rests on a single oral remark.
+- **`K7KNzk3uX0k`** (16 min) — a questioner presses on what was actually seen in *samadhi*, and the answer is that it was **neither *drishti gochar* nor *gyan gochar***. The study records only that *samadhi* was contentless; this is a positive characterisation of what was there and why it does not count as knowing. Bears on §1.2. *(The title is English; the dialogue is Hindi.)*
 
 ### What "transcribed" does and does not mean
 
