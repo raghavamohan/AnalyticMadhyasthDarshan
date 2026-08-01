@@ -18,7 +18,7 @@ Because verification of a transcript segment means listening to the recording, t
 
 | Tag | Full reference | Original location |
 |-----|----------------|-------------------|
-| **Nagraj 2010 Sakshatkar** | Nagraj, A. *Sakshatkar ? Bodh ? Anubhav ? Praman* (Hindi). Dialogue at *Anubhav Shivir*, January 2010, Amarkantak; 45:00. Posted by Rakesh Gupta. Transcript: [`Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.md`](Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.md). Audio `sha256:61be0537960ca72aa64c9cebe02b11acdd0878cd0dfeec3ae55bfbc9061558d6`. | https://youtu.be/gIvVme-Sa5s |
+| **Nagraj 2010 Sakshatkar** | Nagraj, A. *Sakshatkar ? Bodh ? Anubhav ? Praman* (Hindi). Dialogue at *Anubhav Shivir*, January 2010, Amarkantak; 45:00. Posted by Rakesh Gupta. Transcript: [`Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.md`](Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.md). Audio `sha256:61be0537960ca72aa64c9cebe02b11acdd0878cd0dfeec3ae55bfbc9061558d6`. | https://youtu.be/gIvVme-Sa5s |
 
 ## Science ? open-access papers (stored locally)
 
