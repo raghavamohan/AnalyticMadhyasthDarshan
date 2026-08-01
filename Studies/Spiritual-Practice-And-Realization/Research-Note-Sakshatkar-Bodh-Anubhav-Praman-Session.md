@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 1, 2026, 7:27 PM IST
+**Edited on:** August 1, 2026, 8:56 PM IST
 
 **Status:** Internal research note (not a catalog entry). Compiled to support [*Spiritual Practice and Realization*](Spiritual-Practice-And-Realization.md), especially §§1.1–1.13, §4.2, and the open problems in §6.
 
@@ -23,7 +23,7 @@ This is an **oral source**, machine-transcribed. Nothing here has the standing o
 
 Where the two passes overlap (03:00–06:00) the wording is identical, which is the basis for trusting the batched span.
 
-**The full transcript and translation live in References**, not here: [`References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.md`](../../References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.md) — all 130 segments, normalised Hindi with English, per-segment reliability marks, and cross-references to the printed corpus. Raw ASR before normalisation: [`…-raw-asr.txt`](../../References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-raw-asr.txt). Folder conventions and the constraints on citing oral material: [`Nagraj-Recorded-Sessions/README.md`](../../References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/README.md). This note quotes only the load-bearing passages; the transcript is the source of record.
+**The full transcript and translation live in References**, not here: [`References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.md`](../../References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.md) — all 130 segments, normalised Hindi with English, per-segment reliability marks, and cross-references to the printed corpus. Raw ASR before normalisation: [`…-raw-asr.txt`](../../References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-raw-asr.txt). Folder conventions and the constraints on citing oral material: [`Nagraj-Recorded-Sessions/README.md`](../../References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/README.md). This note quotes only the load-bearing passages; the transcript is the source of record.
 
 **Three classes of reliability, marked throughout.**
 

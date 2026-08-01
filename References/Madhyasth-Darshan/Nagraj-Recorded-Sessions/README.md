@@ -19,17 +19,36 @@ Consequences, and they are not optional:
 
 Studies citing this material should attribute it as a **recorded session with date and timestamp**, never as though it were MVD/JV/KD, and should say in an Editorial Note that the source is oral and machine-transcribed.
 
+## One directory per recording
+
+Each recording gets its own directory holding all of its artefacts:
+
+```
+Nagraj-Recorded-Sessions/
+├── README.md                                  ← this file: conventions
+├── TRANSCRIPTION-PROGRAM.md                   ← the running programme log
+└── <Slug>[--<videoId>]/
+    ├── <Slug>.md                              ← source of truth
+    ├── <Slug>.html                             ← generated
+    ├── <Slug>.pdf                              ← generated
+    └── <Slug>-raw-asr.txt                      ← raw ASR, pre-normalisation
+```
+
+**Append the video ID to the directory name.** Slug-only names collide on this channel, and not rarely: *प्रत्यावर्तन - परावर्तन* exists twice under different IDs, and *Jeevan Vidya - Madhyasth Darshan* is the title of roughly ten separate uploads. The ID is the only stable identifier. The first transcript predates this rule and keeps its plain slug (`Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak`, video `gIvVme-Sa5s`); everything added from 2026-08-01 onward carries the ID.
+
 ## Contents
 
 | Session | Date, place | Duration | Subject | Files |
 |---|---|---|---|---|
-| *Sakshatkar – Bodh – Anubhav – Praman* | Jan 2010, Amarkantak (*Anubhav Shivir*) | 45:00 | The four-stage cognitive sequence; *samadhi* and what was not found in it; study as the general method | [transcript + translation](Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.md) · [PDF](Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.pdf) (34 pp.) · [raw ASR](Sakshatkar-Bodh-Anubhav-Praman-2010-raw-asr.txt) |
+| *Sakshatkar – Bodh – Anubhav – Praman* | Jan 2010, Amarkantak (*Anubhav Shivir*) | 45:00 | The four-stage cognitive sequence; *samadhi* and what was not found in it; study as the general method | [transcript + translation](Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.md) · [PDF](Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.pdf) (34 pp.) · [raw ASR](Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-raw-asr.txt) |
+
+A larger batch is in progress — see [`TRANSCRIPTION-PROGRAM.md`](TRANSCRIPTION-PROGRAM.md) for scope, selection rationale, and status.
 
 The `.md` is the source of truth; `.html` and `.pdf` are generated. Regenerate with the sanctioned pipeline (AGENTS.md §3 — never pandoc or an ad-hoc converter):
 
 ```powershell
-python Scripts/_convert_to_pdf.py "References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.md"
-node Scripts/_html_to_pdf.js "References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.html"
+python Scripts/_convert_to_pdf.py "References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.md"
+node Scripts/_html_to_pdf.js "References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.html"
 ```
 
 **Devanagari in the PDF** renders through Windows' **Nirmala UI**, picked up by Chromium's font fallback — no font is declared for it in the pipeline stylesheet. Two consequences. Nirmala UI has no italic face, so `_convert_to_pdf.py` sets `font-synthesis-style: none` to stop Chromium faking one inside blockquotes (a synthetic oblique distorts matras and makes editorial `[brackets]` read as vowel marks); Latin text is unaffected because Georgia ships a true italic. And on a machine without a Devanagari system font, the Hindi will render as tofu — check a page of output, not just that the command succeeded.
