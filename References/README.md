@@ -4,7 +4,7 @@ Local copies of source texts cited across `Studies/`. See [MANIFEST.md](MANIFEST
 
 **What we store locally**
 
-- **Madhyasth Darshan** primary texts (MVD, SB, JV, AVD, JVD, KD Hindi source) and the MD mapping spreadsheet; full-book working English translation (front matter + ch. 1–3) under `Madhyasth-Darshan/KD-Karm-Darshan-English/`.
+- **Madhyasth Darshan** primary texts (MVD, SB, JV, AVD, JVD, KD Hindi source) and the MD mapping spreadsheet; full-book working English translation (front matter + ch. 1–3) under `Madhyasth-Darshan/KD-Karm-Darshan-English/`; working transcripts and translations of **recorded sessions** under `Madhyasth-Darshan/Nagraj-Recorded-Sessions/` (machine-transcribed oral material — weaker evidence than the printed texts; recordings themselves stay external; see that folder's README before citing).
 - **Advaita Vedanta** translations under `Advaita-Vedanta/`.
 - **Comparative philosophy, Indian aesthetics, and religious ethics** (AV, SV, SEP snapshots, rasa material) under `Comparative-Philosophy/`.
 - **Open-access science papers** (Chalmers 1995, Nagel 1974, Strawson 2006, Crockett 2013, Ashtekar and Singh 2011, Carroll 2010, Friston 2010, Guth 2007) under `Science/`.
@@ -24,7 +24,7 @@ References/
 ├── README.md
 ├── MANIFEST.md                 Citation audit: Studies tags → files or external
 ├── NOT-DOWNLOADED.md           External works with original URLs
-├── Madhyasth-Darshan/          MVD, SB, JV, AVD, JVD, KD + MD-Mapping.xlsx; KD-Karm-Darshan-English/
+├── Madhyasth-Darshan/          MVD, SB, JV, AVD, JVD, KD + MD-Mapping.xlsx; KD-Karm-Darshan-English/; Nagraj-Recorded-Sessions/
 ├── Advaita-Vedanta/            Upanishads, Gita, BSB, prakarana texts
 ├── Comparative-Philosophy/     AV (SEP), SV (Vivekananda)
 ├── Science/                    Chalmers, Nagel, Strawson, cosmology & physics papers
