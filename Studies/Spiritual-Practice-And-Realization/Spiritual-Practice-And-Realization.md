@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 29, 2026, 11:45 AM IST
+**Edited on:** August 1, 2026, 7:27 PM IST
 **Status:** Draft
 **The question:** What is realisation, what practice leads to it, and how would anyone know it had occurred? How does Madhyasth Darshan's answer compare with Advaita Vedanta's path of knowledge, and with what modern philosophy and contemplative science have established about practice and religious experience?
 
@@ -28,9 +28,26 @@ Madhyasth Darshan holds that realisation is the understanding of existence as co
 
 ### 1.1 What realisation is
 
-Realisation has a definite object and a definite location. MVD's glossary gives it as realisation in the ultimate truth which is in the form of coexistence, and distinguishes contemplation as the awareness of truth (MVD, p. 316). Realisation is an activity of *jeevan* in the harmony of *buddhi* and *atma*, not a state of the body and not an event befalling a person from outside ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.13).
+Realisation has a definite object and a definite location. It is realisation in the ultimate truth which is in the form of coexistence, and it is distinguished from contemplation, the awareness of truth (MVD, p. 316). Realisation is an activity of *jeevan* in the harmony of *buddhi* and *atma*, not a state of the body and not an event befalling a person from outside ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.13).
+
+Put that way the definition is thin, and it invites the misreading that realisation is an inner condition with no determinate content. It has determinate content, specified as three capacities, each seated in a different faculty of *jeevan* (§1.9).
+
+The first is **recognition of what anything is**. Every existing thing has *rup*, *gun*, *swabhav*, and *dharma* — form, property, essential nature, and *dharma* — present in it inseparably, and to recognise a thing together with all four is what *sakshatkar* means (§1.10). The terms are technical rather than vague: *rup* is shape, volume, and solidity; *gun* is the generative, degenerative, and mediative; *swabhav* differs across the four states of existence; and *dharma* is cumulative across them — existence in the material order, growth along with existence in the biological, the hope of living along with both in the animal, and happiness along with all three in the knowledge order (MVD, p. 51). Visualisation of these four, together with generative, degenerative, and mediative knowledge, is the innateness of *chitta* (MVD, p. 203) — the same faculty in which *sakshatkar* is located (MVD, p. 126).
+
+The second is **correct evaluation**. Decision of justice and injustice, *dharma* and *adharma*, truth and untruth is the innateness of *vritti* (MVD, p. 203). *Nyaya*, *dharma*, and *satya* are therefore not ideals held in view but the standard by which anything is actually weighed, and evaluation is internal to cognition rather than a separate moral appendage: seeing, understanding, recognising, and evaluating realities is what *drishti* means (MVD, p. 33).
+
+The third is **the capacity to act lawfully**, and here the same terms are derived rather than assumed:
+
+> **“Knowledge itself is law; law itself is regulation; regulation itself is balance; balanced living itself is justice in humans; living within the universal orderliness with justice itself is dharma, i.e., resolution; realisation in coexistence itself is dharma and truth.”**
+> — MVD, p. 174
+
+*Niyam*, *niyantran*, and *santulan* — law, regulation, balance — are thus what knowledge becomes when it reaches conduct, and the chain closes the gap between evaluating and acting: justice is not a verdict passed on behaviour but *balanced living itself*, and *dharma* is not a rule obeyed but living justly within universal orderliness, which is resolution. Evaluation and conduct are two descriptions of one competence, not two stages.
+
+Realisation, then, is the condition in which all three hold together — a thing recognised in its *rup*, *gun*, *swabhav*, and *dharma*; weighed correctly by *nyaya*, *dharma*, and *satya*; and lived out under *niyam*, *niyantran*, and *santulan*. The six of *niyam*, *niyantran*, *santulan*, *nyaya*, *dharma*, and *satya* are named as a set and said to be evidenced in the fruition of realisation (MVD, p. 80); their arrival at the first rung of the sequence, and the sense in which *anubhav* only makes them firm, is §1.10's subject. What follows from this is that a person cannot have realised and still misjudge, or have realised and still live unregulated. The claim is strong, and it is what makes the darshan's account testable in principle: realisation shows in what someone recognises, how they evaluate, and how they live, or it has not occurred.
 
 What is realised is not private. The darshan holds that study is oriented to realisation from the start — "The study is in, by and for realisation in coexistence" (MVD, p. 35) — and that what is realised can be stated, taught, and lived. This is why the darshan has no category of the ineffable: whatever cannot be conveyed has not, on its account, been realised.
+
+One qualification belongs here rather than later, because it governs how the word is used through the rest of §1. *Anubhav* is not the whole of the cognitive process but one stage of four, and on the account set out in §1.10 it is the stage at which what was already recognised becomes firm rather than one at which anything new is grasped. Where this study says "realisation" without qualification it means the *anubhav* of the glossary definition; where the distinction between the stages matters, the Hindi terms are used.
 
 ### 1.2 *Samadhi* without knowing
 
@@ -39,7 +56,7 @@ The account of practice begins with a negative finding reported in the first per
 > **“In 1970, I accepted that I had attained samadhi. In this state, my hopes, thoughts, and desires were silent, and it was clear that the event of ‘knowing the unknown’ did not occur.”**
 > — MVD, p. 7
 
-JV gives the fuller version and the reasoning that followed:
+The reasoning that followed is stated more fully:
 
 > **“I did not get answers from understanding Vedanta, and I did not get answers after achieving samadhi.”**
 > — JV, p. 13
@@ -51,17 +68,17 @@ Two distinct claims are being made, and they should not be run together. The fir
 
 ### 1.3 *Samyama*, and an inverted ladder
 
-What Nagraj reports as productive is *samyama*, and he is explicit that his *samyama* is not the received one. JV cites Patanjali's definition — *dharana*, *dhyana*, and *samadhi* practised on one object — and then departs from it:
+What Nagraj reports as productive is *samyama*, and he is explicit that his *samyama* is not the received one. Patanjali's definition — *dharana*, *dhyana*, and *samadhi* practised on one object — is cited and then departed from (JV, p. 13):
 
 > **“I could not agree with what was written about samyama. Hence, I devised my own design and method of samyama and subsequently carried it out.”**
 > — JV, p. 13
 
-MVD states the design, and its order is the striking part:
+The design he adopted inverts that order:
 
 > **“Of my own accord, I accepted the sequence of samadhi, dhyan, and dharana as the process for samyama. Two years later, having accomplished samyama, I accepted the evidence of having attained samadhi.”**
 > — MVD, p. 7
 
-Patanjali's sequence ascends from holding to absorption; this one runs the other way, from absorption back through attention to holding. The reversal fits the diagnosis in §1.2: if the absorbed state is silent and contentless, it cannot be the terminus, and what is needed is a return from it into directed attention where something can be examined and stated. MVD reports the outcome as realisation that all existence is in the form of coexistence, presented in literary form for study (MVD, p. 7), and JV reports it as reaching a state where the understanding can be imparted, together with seeing the *jeevan* atom and the three stages of wanting to live, to be happy, and to evidence oneself (JV, p. 14).
+Patanjali's sequence ascends from holding to absorption; this one runs the other way, from absorption back through attention to holding. The reversal fits the diagnosis in §1.2: if the absorbed state is silent and contentless, it cannot be the terminus, and what is needed is a return from it into directed attention where something can be examined and stated. The reported outcome is realisation that all existence is in the form of coexistence, presented in literary form for study (MVD, p. 7) — a state in which the understanding can be imparted, together with sight of the *jeevan* atom and of the three stages of wanting to live, to be happy, and to evidence oneself (JV, p. 14).
 
 Whether the inversion is a methodological discovery or a redescription of what happened to one person cannot be settled from the texts, and §6.1 returns to it. What can be said is that the darshan does not present *samyama* as traditional authority: it presents it as a method its author devised because the received one did not satisfy him.
 
@@ -72,19 +89,19 @@ The darshan names its target *rahasya*, mystery, and defines it as a deficiency 
 > **“Not revealing understanding or not being able to do so, or not being able to attain it, is a mystery. The incapacity for this is ‘mysteriousness’.”**
 > — MVD, p. 273
 
-MVD elsewhere puts it as the incompleteness in understanding the absolute state and the activity, and states the remedy in the same place: eradication of mystery is only through the holistic view of reality, which leads to certitude, in whose absence doubt persists through indecisive tendency (MVD, p. 209).
+Mystery is also the incompleteness in understanding the absolute state and the activity, and its eradication comes only through the holistic view of reality, which yields certitude; absent that, doubt persists as indecisive tendency (MVD, p. 209).
 
 This is a substantive commitment about the goal of practice, and it is not the goal most contemplative traditions state. The aim is not union, not dissolution of the self, not the cessation of suffering as such, and not an encounter. It is the removal of a cognitive deficit — with the further claim that removing it is what makes continuous happiness possible, since a deluded *jeevan* keeps yearning for a happiness the five senses cannot supply (MVD, p. 274).
 
 ### 1.5 Study, experiment, and practice
 
-The positive method is stated in ordinary terms. Chapter 17 holds that humans alone have the capacity to attain complete understanding through the realisation-based way in coexistence, and that an awakened human evidences their awakening by paving the path for deluded humans (MVD, p. 273). MVD reports that humans have undertaken studies, experiments, explorations, and practices for realisation, reflected in humaneness and higher humaneness (MVD, p. 302), and that the study and practice of mediative activity — *atma* — as presented by this darshan leads to integrality, integrality being justice, *dharma*, and truth-based behaviour, thought, and realisation (MVD, p. 303).
+The positive method is stated in ordinary terms. Humans alone have the capacity to attain complete understanding through the realisation-based way in coexistence, and an awakened human evidences that awakening by paving the path for deluded humans (MVD, p. 273). Humans have undertaken studies, experiments, explorations, and practices for realisation, reflected in humaneness and higher humaneness (MVD, p. 302); and the study and practice of mediative activity — *atma* — leads to integrality, which is justice, *dharma*, and truth-based behaviour, thought, and realisation together (MVD, p. 303).
 
 Experimentation is defined as the endeavour continued until success is achieved (MVD, p. 56), which places practice under an ordinary success condition rather than a devotional one. The vocabulary throughout is that of study and trial, and the criterion is integrality across behaviour, thought, and realisation together — not any one of the three.
 
 ### 1.6 *Upasana* redefined
 
-The one traditional practice term the darshan keeps and rebuilds is *upasana*. MVD and JV report its inherited sense as devotional practice towards deities, or ritual (MVD, p. 4; JV, p. 9). *Manav Karm Darshan* Chapter 2 assigns it a different content altogether:
+The one traditional practice term the darshan keeps and rebuilds is *upasana*. Its inherited sense is devotional practice towards deities, or ritual (MVD, p. 4; JV, p. 9). In this darshan its content is different altogether:
 
 > **“Upasana itself is the process of refining and transforming the root tendencies. This very study is also the transformation of sanskar and essential nature.”**
 > — KD, p. 30
@@ -92,7 +109,7 @@ The one traditional practice term the darshan keeps and rebuilds is *upasana*. M
 > **“Wisdom — that is, the human goal — and jeevan-value — that is, resolution [and] prosperity — is itself the direct result of upasana, in which sociality remains naturally contained.”**
 > — KD, p. 37
 
-The chapter is consistent about what follows. *Upasana* is education and orderliness in its own nature (KD, p. 42); its chief utility lies in immersion in universal values (KD, p. 35); at the root of all *upasanas* the aim is undivided society and universal orderliness (KD, p. 35); *upasanas* exist only for capacity-for-awakening, not for decline (KD, p. 36); and symbol-directed *upasana* is judged secondary and unsociable to the extent of its incompleteness, because in it the human goal is neither clarified nor attained (KD, p. 42).
+*Upasana* is education and orderliness in its own nature (KD, p. 42); its chief utility lies in immersion in universal values (KD, p. 35); at the root of all *upasanas* the aim is undivided society and universal orderliness (KD, p. 35); *upasanas* exist only for capacity-for-awakening, not for decline (KD, p. 36); and symbol-directed *upasana* is judged secondary and unsociable to the extent of its incompleteness, because in it the human goal is neither clarified nor attained (KD, p. 42).
 
 The consequence is that practice in this darshan has no private phase. Because sociality remains naturally contained in *upasana*, there is no stage at which the practitioner withdraws from relationship in order to advance and returns afterwards. [Family Relationships and Values](../Family-Relationships-And-Values/Family-Relationships-And-Values.pdf) §1.4.2 draws the family-scale consequence: the practice begins in the relationships one is born into.
 
@@ -104,43 +121,64 @@ So when this darshan uses *yog*, it is describing how units come together, not p
 
 ### 1.8 Two paths
 
-For a person who is not the discoverer, MVD states the alternatives:
+For a person who is not the discoverer there are two alternatives:
 
 > **“Such a process is of two kinds: One - Exploration. Two - Following, Emulation, Study.”**
 > — MVD, p. 280
 
-Exploration is described as an inventive realisation which the seeker studies comprehensively — from the initial state of activity or the extreme of decline through to the highest development and awakening (MVD, p. 280). The second path is the ordinary one: following an awakened person, emulating conduct, and studying. [The Epistemology of Coexistence](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) §1.8 notes that MVD further requires delusion-less knowledge, just behaviour, resolved thought, and a disciplined relation to a realised teacher (MVD, pp. 273–285, 317).
+Exploration is described as an inventive realisation which the seeker studies comprehensively — from the initial state of activity or the extreme of decline through to the highest development and awakening (MVD, p. 280). The second path is the ordinary one: following an awakened person, emulating conduct, and studying. [The Epistemology of Coexistence](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) §1.8 records the further requirements: delusion-less knowledge, just behaviour, resolved thought, and a disciplined relation to a realised teacher (MVD, pp. 273–285, 317).
 
 The second path is what almost every practitioner is on, and it is where the darshan's epistemology is most exposed. Emulation transmits conduct efficiently; it does not by itself establish that what is emulated is true. The darshan's own resource here is that understanding must be conveyable and testable in one's own living, not that the teacher is authoritative — but the requirement of a disciplined relation to a realised teacher sits uneasily beside that, and §6.4 takes it up.
 
+Which path is for whom is not settled in writing. Exploration is *anusandhan* (MVD, p. 280), and Nagraj identifies it as the route running through *samadhi–samyama* carried out as prescribed (28:43, 29:15). Of expecting that generally he is blunt: for everyone to do *samadhi–samyama* and *anusandhan* is impractical, and the method by which everyone can arrive is study (34:07). *Samadhi* has come to a great many people without having come by the realisation-based way (33:40). *Anusandhan* is therefore the discoverer's route and *adhyayan* the general one. This allocation is oral testimony rather than written doctrine, and §6.2 takes up what it does and does not settle.
+
 ### 1.9 What practice repairs
 
-The darshan locates the defect practice addresses with unusual precision. *Jeevan* has five indivisible strengths — *mun*, *vritti*, *chitta*, *buddhi*, and *atma* — corresponding to hope, thought, desire, resolve, and realisation (MVD, p. 275). Under delusion, hope in *mun* is based on sensation, thought in *vritti* follows that hope, desire in *chitta* follows that thought, and the alienation of *buddhi* from *atma* produces deluded visualisation and desire (MVD, p. 275).
+The darshan locates the defect practice addresses with unusual precision. *Jeevan* has five indivisible strengths — *mun*, *vritti*, *chitta*, *buddhi*, and *atma* — corresponding to hope, thought, desire, resolve, and realisation (MVD, p. 275); in Hindi, *asha*, *vichar*, *iccha*, ***ritambhara***, and *praman* (MVD, pp. 75, 83). *Ritambhara* is the entire ground for expressing the natural glory of truth, resolve filled with truth (MVD, p. 76) — which is what "resolve" translates. Under delusion, hope in *mun* is based on sensation, thought in *vritti* follows that hope, desire in *chitta* follows that thought, and the alienation of *buddhi* from *atma* produces deluded visualisation and desire (MVD, p. 275).
 
 Practice therefore is not the accumulation of states but the repair of a circuit: reflection reaching *buddhi* and *atma* so that realisation and resolve can project outward as coherent visualisation, analysis, selection, and conduct ([The Epistemology of Coexistence](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) §1.4). Bliss is named as the harmony of *buddhi* and *atma* — not a reward for practice but the name of the repaired relation ([Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) §1.2.2). Cognisance or realisation in coexistence becomes evident as resolution, which manifests as the taste of values, evidencing continuous happiness and regulation of the senses through cognisance (MVD, p. 274).
 
-### 1.10 How realisation is evidenced
+### 1.10 The ladder: *sakshatkar*, *bodh*, *anubhav*, *praman*
+
+Realisation is not a single act in this darshan. It is the third rung of a four-stage sequence — *sakshatkar*, *bodh*, *anubhav*, *praman* — whose members are linked so tightly that each is said to *be* the next: realisation is the ultimate evidence, evidence is understanding, understanding is manifest, the manifest is resolution and work and behaviour, work and behaviour is evidence, evidence is awakened tradition, and awakened tradition is coexistence (MVD, p. 12). The stages fall on the faculties of §1.9: affirmation of truth in the form of coexistence through study is *manan* in *mun*, *tulan* in *vritti* by the qualitative method, ***sakshatkar* in *chitta***, and ***bodh* in *buddhi*** (MVD, p. 126). Realisation-based *bodh* issues in resolve, *sakshatkar*, realisation-based contemplation and thought, and finally evidence (MVD, p. 99). Nagraj describes the same order in the first person: realisation attained after revelation (*sakshatkar*) and definitive understanding (*avdharna bodh*), contemplation following from that enlightenment (JV, p. 62).
+
+Two of the four carry second names that change how they should be read. *Anubhav* is *drashtapad*, the seat of the Seer — establishment in the seer status in coexistence (MVD, p. 80). *Praman* considered as activity is *jagriti* — awakening itself. So the fourth term is not a report issued to an audience after the fact. It names the awakened condition, which is why §1.11's three external marks are not extraneous to realisation but its own final stage.
+
+The sequence as a whole is *tadroop-tadakar vidhi*, and its definition forecloses a question that would otherwise stand open:
+
+> **“Realisation in coexistence itself is the way of absolute-accordance and absolute-resonance (tadakar), because law, regulation, balance, justice, dharma, and truth become evident as a result of realisation.”**
+> — MVD, p. 80
+
+The method is therefore not a technique that produces realisation — it *is* realisation in coexistence. That is a strong claim about method, and it is analytic rather than empirical: nothing could count as a rival method, because a rival would have to be some other way of being in coexistence. The six named there — *niyam*, *niyantran*, *santulan*, *nyaya*, *dharma*, *satya* — form a chain in which rule is regulation, regulation is balance, and living by balance is justice in the human (MVD, pp. 32, 174).
+
+The mechanism of the sequence is stated only orally, and three points bear on it. Asked what further is understood at *anubhav* that was not already understood at *bodh*, Nagraj answers: nothing — what occurs in *sakshatkar* becomes firm, and apart from that nothing occurs (22:28). Only the first rung is worked at: if *sakshatkar* succeeds, the remaining three follow of themselves, as acceptance or rejection follows ordinary seeing (03:03–03:30). And *praman* has an operational sense — the power to bring about *bodh* in another (04:43).
+
+If that is right, the later stages add no content. *Anubhav* is the consolidation of what *sakshatkar* delivered rather than a further cognition — and the six are evidenced *in the fruition of realisation* (MVD, p. 80), which places their arrival earlier and leaves *anubhav* the work of making them firm. What §1.1 calls realisation is then a stage within a process, not the process entire — and the practical weight shifts to *sakshatkar*, which §1.5 and §6.6 identify with the success of study.
+
+### 1.11 How realisation is evidenced
 
 Because the darshan refuses to let an inner state serve as its own credential (§1.2), it needs external marks, and it names three. Understanding must be conveyable: "The proof of our comprehension lies in our ability to convey it to others" (JV, p. 26). Conduct must change: integrality is justice, *dharma*, and truth-based behaviour, thought, and realisation together (MVD, p. 303). And the change must be reproducible in tradition — an awakened human evidences awakening by paving the path for others (MVD, p. 273).
 
 This is a demanding standard and the darshan's strongest methodological asset. It rules out the private certainty on which most first-person contemplative claims rest. It also creates the study's central difficulty, since conveyability and conduct are evidence of *something* without being evidence that the content conveyed is true — a person may teach coherently and live well on a false ontology.
 
-### 1.11 The circle the darshan states itself
+But the three marks are not, on the darshan's own architecture, external tests bolted onto an inner event, and describing them that way concedes too much. *Praman* is the fourth rung of the ladder (§1.10), its activity is *jagriti*, and the chain runs from evidence directly to awakened tradition (MVD, p. 12); operationally, *praman* is the power to bring about *bodh* in another (04:43). On this reading conveyability is constitutive of realisation rather than a check applied to it — which strengthens the position against the charge of privacy and weakens it against the charge in §6.3, since a criterion internal to the process cannot also serve as independent confirmation of it.
 
-MVD sets out the dependencies of realisation without concealing that they close:
+### 1.12 The circle the darshan states itself
+
+The dependencies of realisation are set out without concealing that they close:
 
 > **“The ability of realisation in knowledge depends on human awakening; human awakening depends on sanskars; development of sanskars depends on environment, study & endeavour; environment, study & endeavour depend on humaneness and higher humaneness; humaneness and higher humaneness depend on the ability of realisation in knowledge.”**
 > — MVD, p. 290
 
 Read as a chain of justification this is circular. Read as the darshan appears to intend it, it describes a system whose parts rise or fall together, in which no single member can be secured first and progress is the coherent improvement of all of them. The second reading is available and is consistent with the account of *sanskar* as the cause of awakening ([Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) §1.5.2). What it does not provide is an entry point for someone in whom none of the members is yet functioning, and §6.2 pursues that.
 
-### 1.12 What the darshan rejects
+### 1.13 What the darshan rejects
 
 The account is defined as much by exclusion as by prescription, and the exclusions are stated plainly. Mystery-based idealistic contemplation failed to accomplish the study of the human being, as did materialism-centred ideology (MVD, p. 3). Renunciation, non-accumulation, detachment, and devotion have drawn immense courage and dedication and produced no undivided society (JV, p. 105). Seeking refuge in God as the real father and mother yields no tangible good — "After seeking refuge in the 'real mother and father,' no human is found" (JV, p. 57). Symbol-directed *upasana* is secondary and unsociable to the extent of its incompleteness (KD, p. 42). And the absorbed state itself yields no knowing (§1.2).
 
 Taken together these leave a narrow path: study of a stated system, experiment and practice, refinement of tendency, repair of the faculties, and evidence in relationship and conduct. The darshan removes almost every traditional shortcut, including the one its founder was told was the only way.
 
-### 1.13 Method, evidence, and what Madhyasth Darshan establishes
+### 1.14 Method, evidence, and what Madhyasth Darshan establishes
 
 Separating the kinds of claim matters here more than in most of these studies, because the founder's report does evidential work throughout.
 
@@ -151,6 +189,8 @@ Some are **definitional within the system**: realisation as realisation in the u
 Some are **methodological prescriptions** that could be followed and reported on: the two paths (MVD, p. 280), study and practice of mediative activity (MVD, p. 303), experimentation continued to success (MVD, p. 56).
 
 And one is a **negative epistemic claim of general force**: that a contentless absorbed state cannot serve as evidence. This is the darshan's most transferable contribution, and it does not depend on accepting anything else in the system.
+
+A fifth class enters with §§1.8 and 1.10: **recorded oral teaching**. A 2010 session at Amarkantak states mechanism the printed texts leave implicit — that the stages after *sakshatkar* follow automatically, that *anubhav* adds no content, that *anusandhan* is impractical as a general route. This is testimony of the same kind as the autobiographical passages, with two further discounts: it is machine-transcribed from audio no one has authenticated, and it is occasion-bound teaching answering the people in the room rather than composed doctrine. Where such material is used above it is timestamped and attributed as oral, and where it conflicts with a printed text the printed text governs. The Editorial Notes set out the convention and its limits.
 
 ## 2. The Advaita Vedanta Answer
 
@@ -238,9 +278,9 @@ The three positions are compared on seven questions: what the goal is; whether p
 |---|---|---|---|
 | The goal | Realisation of existence as coexistence; eradication of mystery | *Moksha* — recognition of what is eternally the case | No settled goal; transformation of the practitioner is the studied phenomenon |
 | Does practice produce it | Yes — study, experiment, practice, and *samyama* lead to it | No — practice removes ignorance; the goal is unproduced | Practice produces measurable change; whether it produces knowledge is untouched |
-| Decisive means | Redesigned *samyama*, then study and practice of mediative activity | *Sruti*-mediated knowledge made immediate by contemplation | Spiritual exercises (Hadot); no consensus on epistemic means |
+| Decisive means | Study, whose success is *sakshatkar*, after which *bodh*, *anubhav*, *praman* follow; *tadroop-tadakar vidhi* is realisation in coexistence itself, not a technique | *Sruti*-mediated knowledge made immediate by contemplation | Spiritual exercises (Hadot); no consensus on epistemic means |
 | Absorbed states | Silent and contentless; cannot serve as evidence | Steadying at most; Shankara subordinates them to knowledge, later texts warmer | Contested between perennialist and constructivist readings |
-| Evidence of attainment | Conveyability, integrality of conduct, reproducibility in tradition | Internal; no public criteria offered | Behavioural and neural measures of change; no measure of truth |
+| Evidence of attainment | Conveyability, integrality of conduct, reproducibility in tradition — constitutive of realisation (*praman* is the ladder's last rung), not external checks | Internal; no public criteria offered | Behavioural and neural measures of change; no measure of truth |
 | Conduct and relationship | Constitutive — sociality naturally contained in *upasana* | Expressive — *loka-sangraha*, neither cause nor evidence | Central for Hadot's ancients; peripheral in contemplative science |
 | The world afterwards | Real; to be ordered through undivided society | *Mithya* at the final level; engagement continues without ultimate standing | Not addressed |
 
@@ -264,7 +304,7 @@ The residual difficulty is that the darshan also asks for a disciplined relation
 
 ### 4.6 Practice as private or social
 
-On this the darshan is the outlier, and it is a genuine contribution. Advaita's path is compatible with solitude and its qualification list is a list of personal virtues. Contemplative science studies individuals and measures individual outcomes. KD's redefinition makes sociality naturally contained in *upasana* (KD, p. 37) and treats *upasana* as education and orderliness in its own nature (KD, p. 42), so relationship is not a field of application but the medium of the practice. Hadot's ancients are the nearest analogue — philosophy practised in the city, with the school as its setting — though even there the exercises are individual and the community supports them rather than constituting them.
+On this the darshan is the outlier, and it is a genuine contribution. Advaita's path is compatible with solitude and its qualification list is a list of personal virtues. Contemplative science studies individuals and measures individual outcomes. Here sociality remains naturally contained in *upasana* (KD, p. 37), which is education and orderliness in its own nature (KD, p. 42), so relationship is not a field of application but the medium of the practice. Hadot's ancients are the nearest analogue — philosophy practised in the city, with the school as its setting — though even there the exercises are individual and the community supports them rather than constituting them.
 
 ## 5. Critical Review
 
@@ -329,27 +369,39 @@ Modern work states the problems in this area more clearly than either tradition 
 
 ### 6.1 The inverted sequence
 
-MVD reports the *samadhi*–*dhyan*–*dharana* order as the process for *samyama* (MVD, p. 7) without saying why that order should work. Three readings are possible: that the absorbed state quiets the sensory circuit so directed attention can operate without interference; that the descent is incidental and the work was done by sustained attention regardless of order; or that the sequence records one person's route without general significance. The first would be a substantive methodological claim and is nowhere argued in the texts reviewed.
+The *samadhi*–*dhyan*–*dharana* order is given as the process for *samyama* (MVD, p. 7) without any statement of why that order should work. Three readings are possible: that the absorbed state quiets the sensory circuit so directed attention can operate without interference; that the descent is incidental and the work was done by sustained attention regardless of order; or that the sequence records one person's route without general significance. The first would be a substantive methodological claim and is nowhere argued in the texts reviewed.
 
 ### 6.2 Entry into the circle
 
 MVD, p. 290 states the mutual dependence of realisation, awakening, *sanskar*, environment, study, and humaneness. For someone in whom none is yet functioning, the texts do not say which member can be moved first. The available answer is the second path — following, emulation, and study (MVD, p. 280) — which locates the entry in someone else's already-achieved awakening and therefore does not explain how the first entry occurred, other than by the founder's exploration.
 
+Oral testimony narrows this without closing it. Study is the member that can be moved — *sakshatkar* is the success of study (§6.6), and study is the method by which everyone can arrive (34:07) — a determinate answer where the texts give none. What it does not supply is the regress-stopper. Study on this account is study of a stated system, and the system is stated by someone who reached it by *anusandhan*; so the first entry still rests on the founder's exploration, and the session makes that dependence sharper by declaring the exploratory route impractical for everyone else. The circle is entered through study, but the thing studied has one author.
+
 ### 6.3 What conveyability establishes
 
 The strongest evidential requirement is that understanding be conveyable (JV, p. 26). Conveyability establishes coherence, communicability, and pedagogical competence. It does not establish correspondence, and the texts do not distinguish the two. A supplementary criterion is needed if the evidence is to bear the weight placed on it, and §4.4 argues that conduct and tradition do not supply it either.
+
+§1.10 makes the difficulty worse rather than better, and this is the sharpest form of the problem. Conveyability is not an independent test the darshan applies to realisation; *praman* is the ladder's own terminal rung, and its operational sense is the power to produce *bodh* in another. A criterion internal to a process cannot confirm that process from outside it. So the darshan is in this position: it rightly refuses private certainty, and the public marks it substitutes are entailed by realisation rather than evidence for it. Someone who has reached *sakshatkar* on a false ontology would, by the same cascade, acquire the power to produce *bodh* of that ontology in others — and nothing in the account distinguishes that case from the true one. What would be needed is a criterion the darshan does not have and, on its own architecture, cannot generate: a check on the content of *sakshatkar* that is not itself a further stage of the same sequence.
 
 ### 6.4 Teacher-dependence against anti-esotericism
 
 The requirement of a disciplined relation to a realised teacher (MVD, pp. 273–285, 317) coexists with the claim that understanding must be conveyable to anyone and testable in one's own living. These are consistent only if the teacher's role is entirely pedagogical and carries no evidential weight. The texts do not say that, and the practical difficulty is that a student cannot assess whether a teacher is realised without the understanding the teacher is supposed to impart.
 
+Nagraj says it, though only in passing and only orally. He describes his own presentation as proceeding by goodwill and friendship, with no *dadagiri* — no bullying — the bullying in question being the older way of saying "you will ask nothing" (26:50). Of his critical method: he reviewed ideas and did not go about reviewing persons (41:14). Both point the way §6.4 requires: authority attaches to what can be examined, not to who says it. That is evidence about the founder's stance rather than a doctrinal statement about the teacher's role, and the practical difficulty above survives it intact — a student still cannot certify the teacher without the understanding at issue. But the tension is now between the texts and a requirement the founder himself appears not to have pressed, which is a different and lesser problem than an inconsistency in the position.
+
 ### 6.5 Failure has no diagnosis
 
 Nothing in the sources reviewed addresses what follows when practice does not produce realisation. Without an account of failure the claim that the method works is not exposed to disconfirmation, and the difference between a method that works for the diligent and one that works for no one is not marked.
 
+§1.10's cascade sharpens this into something closer to unfalsifiability. If *bodh*, *anubhav*, and *praman* follow automatically once *sakshatkar* succeeds, then every failure anywhere downstream must be redescribed as a failure of *sakshatkar*, and therefore as study not yet having succeeded. No possible outcome counts against the sequence: a practitioner who studies for decades without conveyable understanding has, by construction, not yet reached the first rung. The claim that the remaining three follow of themselves is thus protected from disconfirmation by the same move that makes it explanatory. This is a cost of the automatic reading. The printed texts do not assert the automaticity; it is stated only orally (03:03), which is one reason §1.10 reports it as testimony rather than adopting it.
+
 ### 6.6 The absence of practice detail
 
-For a study of spiritual practice the surprising feature of the corpus is how little procedural instruction it contains. *Samyama* is named and its sequence given but not described in a way another person could follow. Study, experiment, and practice are prescribed without a curriculum. This may be deliberate — the darshan's point may be that there is no technique beyond study and conduct — but the texts reviewed do not say so, and a reader wanting to do what Nagraj did has little to go on.
+For a study of spiritual practice the surprising feature of the corpus is how little procedural instruction it contains. *Samyama* is named and its sequence given but not described in a way another person could follow. Study, experiment, and practice are prescribed without a curriculum.
+
+There is oral evidence that this is deliberate, and it is strong enough to change how the gap should be described. *Sakshatkar* is the success of study — the *vastu* standing as a word's meaning is found in existence, and that is what the success of study is called (12:54) — and study is named repeatedly as what one actually does, its background and its whole means (05:13, 06:12, 06:20). Taken with §1.10's *tadroop-tadakar vidhi*, which makes the method realisation in coexistence rather than a technique, the silence looks principled: there is no procedure beyond study and conduct to describe, so none is given.
+
+Two things follow, and they pull opposite ways. The charge that the corpus withholds instruction is largely answered: what a reader should do is study the stated system and live by it, and *sakshatkar* is the name of that succeeding. But the answer relocates the problem rather than dissolving it. Nothing in the texts or the session says what distinguishes study that succeeds from study that does not, how long it should take, or what a practitioner should conclude from years of study without *sakshatkar*. A curriculum is not needed if study is the whole method; a success condition is, and the corpus supplies the name of one without its criteria. That is the residue, and §6.5 compounds it.
 
 ### 6.7 Adverse effects are not considered
 
@@ -367,18 +419,30 @@ Against Advaita the disagreement is narrower and deeper than it first appears. B
 
 Modern philosophy turns out to have a great deal to say. Hadot shows that transformation-oriented practice is philosophy's own inheritance rather than something outside it. The perennialist–constructivist dispute shows that the founder's report of a silent contentless state can be read as evidence for either view, which is a caution about how much any such report can settle. Alston shows that the demand for cross-checking needs defending rather than assuming. Paul explains why a call to practice cannot be appraised on the appraiser's present values — the difficulty the darshan's conveyability requirement is designed to escape and does not entirely escape. And contemplative science establishes that practice measurably changes people while being structurally unable to establish that the change is a knowing.
 
-The darshan's distinctive contribution is the negative claim, and it is transferable: a contemplative state with nothing describable in it cannot serve as evidence, including of itself. That claim is made from inside the practice by someone who had done it, which is the strongest position from which to make it. Its cost is that the system's positive foundation rests on a single unexaminable report and a method its author devised for himself, and that the external criteria it substitutes for private certainty — conveyability and conduct — establish coherence and competence without reaching truth. The darshan asks for more evidence than its rivals and does not yet have evidence of the kind it asks for.
+The darshan's distinctive contribution is the negative claim, and it is transferable: a contemplative state with nothing describable in it cannot serve as evidence, including of itself. That claim is made from inside the practice by someone who had done it, which is the strongest position from which to make it. Its cost is that the system's positive foundation rests on a single unexaminable report and a method its author devised for himself.
+
+The cost is in fact heavier than that, and §1.10 is what shows it. Conveyability and conduct are not external criteria the darshan substitutes for private certainty; they are the terminal rung of the same cognitive sequence, entailed by *sakshatkar* rather than evidence for it. A false *sakshatkar* would propagate through the identical cascade and issue in the identical marks. So the darshan asks for more evidence than its rivals, and what it offers in place of private certainty is not independent of the thing to be certified. That is a real defect, and it is the defect of a position serious enough to have one — Advaita, by declining to offer public criteria at all, never incurs it, and the modern literature, by measuring change without touching truth, never reaches it.
+
+What the ladder does supply is a clear account of where the weight falls. Practice is study; study succeeds or does not, and its succeeding is called *sakshatkar*; everything the darshan claims about realisation, evidence, and awakened tradition follows from that one point. A reader who wants to test this darshan should test it there — which is a more tractable demand than the traditions it emerged from make, and the study's remaining objections (§§6.3, 6.5, 6.6) are all objections about what the texts fail to say concerning that single point.
 
 ## Appendix: Quick Glossary
 
 ### Terms in §1
 
-- ***Anubhav*** — realisation. Realisation in the ultimate truth which is in the form of coexistence (MVD, p. 316); an activity of *jeevan* in the harmony of *buddhi* and *atma*.
+- ***Sakshatkar*** — direct recognition, in *chitta* (MVD, p. 126); also rendered "revelation" (JV, p. 62). Recognition of a *vastu* together with its *rup*, *gun*, *swabhav*, and *dharma*; the success condition of study (§§1.10, 6.6).
+- ***Bodh*** — enlightenment; the stage in *buddhi* following *sakshatkar* (MVD, p. 126).
+- ***Anubhav*** — realisation. Realisation in the ultimate truth which is in the form of coexistence (MVD, p. 316); an activity of *jeevan* in the harmony of *buddhi* and *atma*. On §1.10's account it is the consolidation of what *sakshatkar* delivered, not a further cognition. Its second name is *drashtapad*.
+- ***Praman*** — evidence; the fourth rung, whose activity is *jagriti*, awakening. Evidence is awakened tradition, and awakened tradition is coexistence (MVD, p. 12).
+- ***Drashtapad*** — the seat of the Seer; the second name for *anubhav*. Establishment in the seer status in coexistence (MVD, p. 80).
+- ***Ritambhara*** — the fourth of *jeevan*'s five powers (*asha*, *vichar*, *iccha*, *ritambhara*, *praman*), rendered "resolve" in this study; defined as the entire ground for expressing the natural glory of truth, resolve filled with truth (MVD, p. 76; list at pp. 75, 83).
+- ***Tadroop*, *tadakar*** — absolute-accordance and absolute-resonance. *Tadroop-tadakar vidhi* is realisation in coexistence itself, not a technique for reaching it (MVD, p. 80); the *tat-* prefix denotes *jagriti*.
+- ***Manan*, *tulan*** — ratiocination in *mun* and deliberation in *vritti*, the two stages preceding *sakshatkar* (MVD, p. 126).
+- ***Anusandhan*** — exploration; the first of the two paths (MVD, p. 280), identified with the *samadhi–samyama* route and, on oral testimony, impractical as a general method (§1.8).
 - ***Gyan-anubhuti*** — realisation in knowledge; the same realisation considered as the knowing of coexistence (MVD, pp. 290, 316).
 - ***Rahasya*** — mystery. Not revealing understanding, not being able to, or not being able to attain it (MVD, p. 273); incompleteness in understanding the absolute state and activity (MVD, p. 209).
 - ***Samadhi*** — reported as the state in which hope, thought, and desire fall silent and in which no knowing event occurs (MVD, p. 7; JV, p. 13).
 - ***Samyama*** — in this darshan, the method Nagraj devised after rejecting Patanjali's, run as *samadhi*, *dhyan*, *dharana* (MVD, p. 7; JV, p. 13).
-- ***Upasana*** — in KD's redefinition, the refining and transforming of root tendencies and of *sanskar*, with sociality naturally contained (KD, pp. 30, 37); education and orderliness in its own nature (KD, p. 42).
+- ***Upasana*** — the refining and transforming of root tendencies and of *sanskar*, with sociality naturally contained (KD, pp. 30, 37); education and orderliness in its own nature (KD, p. 42).
 - ***Yog*** — union, of two kinds, unification and togetherness (MVD, p. 42); an ontological term, not a discipline.
 - ***Prayog*** — experimentation. The endeavour continued until success is achieved (MVD, p. 56).
 - ***Chintan*** — contemplation. The awareness of truth (MVD, p. 316).
@@ -410,7 +474,11 @@ The darshan's distinctive contribution is the negative claim, and it is transfer
 
 ### The founder's report as evidence
 
-§§1.2–1.3 rest on autobiographical passages in MVD and JV. This study treats them as first-person historical testimony about how the darshan arose — strong evidence of what one practitioner found, no evidence that others would find the same — and says so in §1.13 and §5.1 rather than letting them function as demonstration. The Epistemology study takes the same line at its §1.8.
+§§1.2–1.3 rest on autobiographical passages in MVD and JV. This study treats them as first-person historical testimony about how the darshan arose — strong evidence of what one practitioner found, no evidence that others would find the same — and says so in §1.14 and §5.1 rather than letting them function as demonstration. The Epistemology study takes the same line at its §1.8.
+
+### Recorded oral teaching as a source
+
+§§1.8, 1.10, 6.2, 6.4, 6.5, and 6.6 draw on a recorded session of January 2010 at Amarkantak, *Sakshatkar – Bodh – Anubhav – Praman*. It is used because it states mechanism the printed corpus leaves implicit, and it is used under four constraints. It never outweighs a printed text; where the two differ the text governs. It is cited by timestamp and marked as oral, so a reader can tell at a glance which claims rest on it — items in §§6.4 and 6.6 do, whereas §1.10's ladder and §1.8's two-path vocabulary are printed doctrine with the session as corroboration. It is machine-transcribed Hindi that no Hindi speaker has yet checked against the audio, and the transcript records per-segment which passages are secure. And it is occasion-bound teaching, answering the people in the room rather than composed for publication, which makes it good evidence of what the founder thought and weaker evidence of settled doctrine than a book would be. The transcript, translation, and per-segment reliability marks are published as [*Sakshatkar – Bodh – Anubhav – Praman* (2010, Amarkantak)](../References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.pdf), with folder conventions in that directory's README; the analysis behind these sections is in the companion research note alongside this file.
 
 ### *Samadhi* in three vocabularies
 
@@ -432,9 +500,13 @@ KD Chapter 2 is available in this repository only as a machine-assisted working 
 
 ### Madhyasth Darshan (primary sources)
 
-- **MVD** — Nagraj, A. [*Madhyasth Darshan – Co-existentialism*, Part 1: *Holistic View of Human Behaviour*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: failure of mystery-based idealistic contemplation and of materialism-centred ideology (p. 3); *sadhana*, *samadhi*, and *samyama* resolved upon, and *upasana* as devotional practices towards deities (p. 4); *samadhi* attained in 1970 without the event of knowing, the *samadhi*–*dhyan*–*dharana* sequence for *samyama*, and realisation of coexistence (p. 7); chapter list including *Yog*, Liberation from Suffering, and Liberation from Mystery (p. 31); study in, by, and for realisation (p. 35); *yog* as union, unification and togetherness (p. 42); *sanyog* and impetus (p. 43); experimentation as endeavour until success (p. 56); teaching through the realisation-based way (p. 71); ten activities evidenced through the realisation-based way (p. 79); mystery as incompleteness of understanding, eradication through the holistic view, and certitude (p. 209); Ch. 17 *Liberation from Mystery* — mystery and mysteriousness, the capacity for complete understanding, and the awakened human paving the path (p. 273); the deluded *jeevan*'s yearning, and cognisance as resolution (p. 274); five strengths of *jeevan* and the alienation of *buddhi* from *atma* (p. 275); the two kinds of process, exploration and following-emulation-study (p. 280); requirements for realisation in knowledge (pp. 273–285); the dependency circle of realisation, awakening, *sanskar*, environment, study, and humaneness (p. 290); studies, experiments, explorations, and practices for realisation (p. 302); study and practice of mediative activity leading to integrality (p. 303); contemplation and realisation in knowledge defined (p. 316); realisation in knowledge and its conditions (p. 317).
-- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: *upasana* as rituals in the traditional sense (p. 9); *sadhana* at Amarkantak (p. 12); no answers from Vedanta or from *samadhi*, nothing to describe in *samadhi*, Patanjali's *samyama* cited and rejected, and *samyama* redesigned (p. 13); the outcome — capacity to impart the understanding, the *jeevan* atom, and the three stages of living, being happy, and evidencing (p. 14); proof of comprehension as the ability to convey (p. 26); refuge in God as the real father and mother yielding no human (p. 57); idealism of renunciation, detachment, and devotion producing no undivided society (p. 105).
+- **MVD** — Nagraj, A. [*Madhyasth Darshan – Co-existentialism*, Part 1: *Holistic View of Human Behaviour*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: failure of mystery-based idealistic contemplation and of materialism-centred ideology (p. 3); *sadhana*, *samadhi*, and *samyama* resolved upon, and *upasana* as devotional practices towards deities (p. 4); *samadhi* attained in 1970 without the event of knowing, the *samadhi*–*dhyan*–*dharana* sequence for *samyama*, and realisation of coexistence (p. 7); chapter list including *Yog*, Liberation from Suffering, and Liberation from Mystery (p. 31); study in, by, and for realisation (p. 35); *yog* as union, unification and togetherness (p. 42); *dharma* cumulative across the four orders — existence, growth, the hope of living, happiness (p. 51); *drishti* as seeing, understanding, recognising, and evaluating realities (p. 33); *sanyog* and impetus (p. 43); experimentation as endeavour until success (p. 56); teaching through the realisation-based way (p. 71); *ritambhara* defined, and the five-fold *asha–vichar–iccha–ritambhara–praman* set (pp. 75, 76, 83); ten activities evidenced through the realisation-based way (p. 79); *tadatmya*, *tadroop*, *tatsannidhya*, *tadavlokan* and the definition of *tadroop-tadakar vidhi* as realisation in coexistence, with the six of *niyam*, *niyantran*, *santulan*, *nyaya*, *dharma*, *satya* evidenced in the fruition of realisation (p. 80); realisation-based *bodh* issuing in resolve, *sakshatkar*, contemplation, thought, and evidence (p. 99); affirmation through study as *manan* in *mun*, *tulan* in *vritti*, *sakshatkar* in *chitta*, *bodh* in *buddhi* (p. 126); the six derived as a chain (pp. 32, 174); mystery as incompleteness of understanding, eradication through the holistic view, and certitude (p. 209); Ch. 17 *Liberation from Mystery* — mystery and mysteriousness, the capacity for complete understanding, and the awakened human paving the path (p. 273); the deluded *jeevan*'s yearning, and cognisance as resolution (p. 274); the derivation of law, regulation, balance, justice, *dharma*, and truth from knowledge (p. 174); the innateness of heart, *mun*, *vritti*, *chitta*, *buddhi*, and *atma* — including *nyaya-dharma-satya* decision in *vritti* and *rup-gun-swabhav-dharma* visualisation in *chitta* (p. 203); five strengths of *jeevan* and the alienation of *buddhi* from *atma* (p. 275); the two kinds of process, exploration and following-emulation-study (p. 280); requirements for realisation in knowledge (pp. 273–285); the dependency circle of realisation, awakening, *sanskar*, environment, study, and humaneness (p. 290); studies, experiments, explorations, and practices for realisation (p. 302); study and practice of mediative activity leading to integrality (p. 303); contemplation and realisation in knowledge defined (p. 316); realisation in knowledge and its conditions (p. 317).
+- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: *upasana* as rituals in the traditional sense (p. 9); *sadhana* at Amarkantak (p. 12); no answers from Vedanta or from *samadhi*, nothing to describe in *samadhi*, Patanjali's *samyama* cited and rejected, and *samyama* redesigned (p. 13); the outcome — capacity to impart the understanding, the *jeevan* atom, and the three stages of living, being happy, and evidencing (p. 14); proof of comprehension as the ability to convey (p. 26); realisation attained after revelation (*sakshatkar*) and definitive understanding (*avdharna bodh*), and contemplation from that enlightenment (p. 62); refuge in God as the real father and mother yielding no human (p. 57); idealism of renunciation, detachment, and devotion producing no undivided society (p. 105).
 - **KD** — Nagraj, A. *Manav Karm Darshan* (Madhyasth Darshan, Part 2). [Working English translation](../References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf); [Hindi–English review edition](../References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-Hindi-English.pdf). Cited: Ch. 2 on *upasana* — refining and transforming the root tendencies and *sanskar* (p. 30), the aim of all *upasanas* and immersion in universal values (p. 35), *upasanas* only for capacity-for-awakening (p. 36), wisdom and *jeevan*-value as the direct result of *upasana* with sociality naturally contained (p. 37), *upasana* as education and orderliness and symbol-directed *upasana* as secondary and unsociable (p. 42). The translation covers front matter and chapters 1–3 (see its README). The English text is a working translation; the Ch. 2 material carrying §1.6 should be checked against the Hindi.
+
+### Madhyasth Darshan (recorded session)
+
+- **Nagraj 2010 Sakshatkar** — Nagraj, A. *साक्षात्कार – बोध – अनुभव – प्रमाण* (Hindi). Dialogue at *Anubhav Shivir*, January 2010, Amarkantak; 45:00. Recording posted by Rakesh Gupta, <https://youtu.be/gIvVme-Sa5s>; the recording is not stored in this repository (see `References/NOT-DOWNLOADED.md`). Working transcript and translation with per-segment reliability marks: [*Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak*](../References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.pdf). Cited by timestamp: the four-stage chain and its automaticity (03:03–03:30); *praman* as the power to bring about *bodh* in another (04:43); *sakshatkar* as the success of study (12:54); the stage-names *drashtapad* and *jagriti* (13:09, 21:13); *samadhi* containing no knowledge (16:36); *anubhav* adding nothing beyond *sakshatkar* (22:28); presentation by goodwill rather than *dadagiri* (26:50); *anusandhan* as the second route, requiring *samadhi–samyama* (28:43, 29:15); *samadhi–samyama* as impractical in general and study as the method for all (33:40, 34:07); review of ideas rather than persons (41:14). **Machine-transcribed oral testimony — see the Editorial Note on recorded oral teaching for the constraints on its use.**
 
 ### Advaita Vedanta (primary texts)
 
