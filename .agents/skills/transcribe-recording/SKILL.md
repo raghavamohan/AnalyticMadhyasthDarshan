@@ -110,25 +110,30 @@ here) and **2 workers** (95% of available GPU throughput; 4 adds ~5%). Add
 
 1. Give it a directory: `<Slug>--<videoId>/`. **Include the video ID** — channel
    titles collide (one title covers ten separate uploads).
-2. Normalise Devanagari only where the intended word is unambiguous. **Never
+2. **Repair broken UTF-8 first.** whisper.cpp emits a partial codepoint where a
+   multi-byte character splits across tokens — about one per 12,000 characters,
+   in both `-otxt` and `-oj`, deterministic and not fixed by re-running.
+   Count them with `python -c "import sys;print(open(sys.argv[1],'rb').read().decode('utf-8','replace').count(chr(0xFFFD)))" <file>`,
+   **Do not let a `U+FFFD` be silently normalised into a plausible character.**
+3. Normalise Devanagari only where the intended word is unambiguous. **Never
    supply words the ASR did not carry**; bracket anything a printed text fixes,
    and say which text fixed it.
-3. Translate against `MD-Mapping.xlsx` and the published MVD/SB/JV English.
+4. Translate against `MD-Mapping.xlsx` and the published MVD/SB/JV English.
    Flag terms with no mapping row as working glosses — but **search MVD *and*
    SB space-insensitively before inventing English.** Six of six terms once
    flagged as "no mapping found" were in the corpus all along.
-4. Mark every segment **[R]** reliable / **[P]** probable / **[U]** uncertain,
+5. Mark every segment **[R]** reliable / **[P]** probable / **[U]** uncertain,
    and tabulate the passages needing audio verification.
-5. Cross-reference the printed corpus. A systematic pass recovered seven
+6. Cross-reference the printed corpus. A systematic pass recovered seven
    uncertain segments and corrected six terms on the first transcript.
-6. Generate the PDF ([AGENTS.md](../../../AGENTS.md) §3 — never pandoc):
+7. Generate the PDF ([AGENTS.md](../../../AGENTS.md) §3 — never pandoc):
 
 ```powershell
 python Scripts/_convert_to_pdf.py "References/.../<Slug>/<Slug>.md"
 node Scripts/_html_to_pdf.js "References/.../<Slug>/<Slug>.html"
 ```
 
-7. Add rows to the folder `README.md`, `References/MANIFEST.md`, and
+8. Add rows to the folder `README.md`, `References/MANIFEST.md`, and
    `NOT-DOWNLOADED.md` (recordings stay external; transcripts are local).
 
 ## Citing page numbers — two traps
@@ -153,6 +158,7 @@ Find wording in the extract; **confirm the page in the PDF** before citing.
 | Devanagari italic looks mangled in PDF | Nirmala UI has no italic face. `_convert_to_pdf.py` sets `font-synthesis-style: none`; keep it. |
 | Devanagari renders as tofu | No Devanagari system font. **Check a page of output, not just the exit code.** |
 | `vswhere` says nothing installed | Needs `-all` to see BuildTools-only machines. |
+| `U+FFFD` in GPU output | whisper.cpp splits a multi-byte char across tokens. ~0.008% of text, both output formats, deterministic. Repair, do not re-run. |
 
 ## Method warning
 
@@ -166,6 +172,7 @@ And validating a change by checking a single phrase is not validation.
 - [ ] Manifest has video IDs; directory names include them
 - [ ] Fetch reports 0 failures (re-run to clear throttling 403s)
 - [ ] Transcribed with **VAD off**
+- [ ] `U+FFFD` count is zero, or every occurrence repaired from context/audio (not smoothed away)
 - [ ] Raw ASR kept alongside the normalised text so corrections stay auditable
 - [ ] Every segment carries [R]/[P]/[U]; verification table present
 - [ ] Page citations confirmed against the **PDF**, not the `.md` extract
