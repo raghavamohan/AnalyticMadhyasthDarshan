@@ -303,6 +303,60 @@ are other insertion classes not yet looked for.
 
 ---
 
+### D12 — ROCm/HIP builds and works, and is not worth switching to
+
+Built 2026-08-02 to test whether the Vulkan backend was implicated in the
+machine's resets. It is not, and HIP is not faster either.
+
+`whisper.cpp` carries a HIP backend (`ggml/src/ggml-hip`, `-DGGML_HIP=ON`) that
+needs neither PyTorch nor CTranslate2, so it sidesteps the dead ends in D3 —
+those assessed ROCm only through frameworks that still have no Windows GPU path.
+AMD's HIP SDK for Windows supports gfx1100 directly.
+
+Measured on an identical 5-minute slice, same model, same flags:
+
+| Backend | Wall | Realtime | Words |
+|---|---|---|---|
+| Vulkan | 61.0 s | **4.92×** | 439 |
+| HIP / ROCm 7.2 | 63.3 s | 4.74× | 457 |
+
+**Neither difference is meaningful at n=1.** 2.3 s out of 61 is noise, and which
+of the 18 disputed words are correct is unknown without listening. The usable
+conclusion is negative: there is no throughput reason to switch, so Vulkan stays
+the default and HIP is kept as a second opinion — useful mainly as an
+independent decoder for the two-model disagreement idea, where the point is that
+the backends differ.
+
+**Three traps, in the order they cost time.**
+
+*No OpenMP runtime.* ROCm 7.2 for Windows ships no `libomp` and no `omp.h`
+anywhere in its tree, but CMake's `FindOpenMP` probe passes regardless, because
+clang accepts `-fopenmp=libomp` as a flag whether or not it can link it. The
+build then compiles for twenty minutes and fails linking `ggml-base.dll` on
+`__kmpc_fork_call`. `-DGGML_OPENMP=OFF` is required, not optional, and costs
+nothing here — ggml falls back to its own thread pool and the work is on the GPU.
+
+*The integrated GPU breaks the HIP build, and `-dev` does not save you.* This
+machine exposes two ROCm devices: the 7950X's iGPU as gfx1036, and the W7900 as
+gfx1100. A build targeting `gfx1100` alone dies with **`ROCm error: device
+kernel image is invalid`** on the first kernel. Selecting the right device with
+`-dev 1` does *not* fix it — ggml loads modules across all visible devices, and
+the gfx1100-only image cannot load on gfx1036. The fix is to hide the iGPU
+entirely: **`HIP_VISIBLE_DEVICES=1`**. Vulkan never had this problem, which is
+worth knowing before reading any backend comparison as a like-for-like test.
+
+*`AMDGPU_TARGETS` is deprecated* as of ROCm 7; use `GPU_TARGETS`.
+
+Build script, outside the repo with the rest of the toolchain:
+`E:\Tools\whisper.cpp\build-hip.ps1`. It leaves the Vulkan build untouched so
+the two remain comparable.
+
+**This settles the question it was built to answer.** The resets are not a
+Vulkan fault. Both backends drive the same silicon at the same power, and a
+reset carrying `BugcheckCode 0` is not something any user-mode API can cause.
+
+---
+
 ## Hardware, and where the bottleneck actually is
 
 The machine this programme runs on, and what each resource was doing mid-GPU-run (2026-08-02, 24 of 60 files in):
