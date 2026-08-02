@@ -104,7 +104,33 @@ Defaults are measured, not guessed: **beam 5** (faster *and* better than greedy
 here) and **2 workers** (95% of available GPU throughput; 4 adds ~5%). Add
 `--backend cpu` only if no GPU is available — it is correct but ~28x slower.
 
-### 4. Promote to a References artefact
+The GPU path also forces **`--max-context 0`**, which is not optional and is not
+a flag. `whisper.cpp` defaults to unbounded context, which turns any repeated
+phrase into a self-sustaining loop: 36 of 60 transcripts were affected before
+this was found. See [D10](../../../References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/TRANSCRIPTION-PROGRAM.md).
+
+### 4. Review the batch before promoting anything
+
+```powershell
+python Scripts/_transcribe_review.py --manifest work\manifest.tsv `
+    --transcripts work	ranscripts
+```
+
+Mechanical, cheap, and it catches faults that are systematic rather than
+per-file. It reports **words per minute against duration**, **longest
+consecutive repeated token**, **most frequent 3-gram**, Devanagari share and
+`U+FFFD` count, and exits non-zero if anything is flagged. **Read the
+distribution, not the individual files.**
+
+A words-per-minute spread of 31–153 around a median of 111 is what exposed D10 —
+no one talks at a third of the median rate. Two cautions when reading flags:
+
+- **Consecutive repetition is the sharp signal.** A common phrase appearing 20
+  times in 5,000 words is ordinary language, not a defect.
+- **A fault that hits most of the corpus is a configuration fault.** Do not
+  start repairing files one at a time until you know it is not the decoder.
+
+### 5. Promote to a References artefact
 
 **This is the real work, and raw ASR is not it.** For each recording:
 
@@ -136,6 +162,10 @@ node Scripts/_html_to_pdf.js "References/.../<Slug>/<Slug>.html"
 8. Add rows to the folder `README.md`, `References/MANIFEST.md`, and
    `NOT-DOWNLOADED.md` (recordings stay external; transcripts are local).
 
+**Nothing is promoted from statistics alone.** Every quality judgement above is
+made over the text. Deciding which decode configuration to use that way is fine;
+signing off a transcript is not. Listen to the flagged passages.
+
 ## Citing page numbers — two traps
 
 Recovering a garbled passage means citing the printed text, and the `.md`
@@ -159,6 +189,7 @@ Find wording in the extract; **confirm the page in the PDF** before citing.
 | Devanagari renders as tofu | No Devanagari system font. **Check a page of output, not just the exit code.** |
 | `vswhere` says nothing installed | Needs `-all` to see BuildTools-only machines. |
 | `U+FFFD` in GPU output | whisper.cpp splits a multi-byte char across tokens. ~0.008% of text, both output formats, deterministic. Repair, do not re-run. |
+| Phrase repeats for 30s; low words/min | `whisper.cpp` default `--max-context -1` conditions the loop on itself. `-mc 0` is forced in the script; do not remove it. |
 
 ## Method warning
 
@@ -167,11 +198,16 @@ moved two variables at once — blaming batching for a VAD loss, and reporting 2
 GPU workers as slower than 1. **Vary one thing; hold the workload identical.**
 And validating a change by checking a single phrase is not validation.
 
+A third came from asserting which decoder guards were active without checking:
+`whisper.cpp`'s entropy, logprob and temperature-fallback defaults were set all
+along, and the real difference was the context window. **Read the defaults.**
+
 ## Completion checklist
 
 - [ ] Manifest has video IDs; directory names include them
 - [ ] Fetch reports 0 failures (re-run to clear throttling 403s)
-- [ ] Transcribed with **VAD off**
+- [ ] Transcribed with **VAD off** and `--max-context 0`
+- [ ] `python Scripts/_transcribe_review.py` run; flags understood, not just counted
 - [ ] `U+FFFD` count is zero, or every occurrence repaired from context/audio (not smoothed away)
 - [ ] Raw ASR kept alongside the normalised text so corrections stay auditable
 - [ ] Every segment carries [R]/[P]/[U]; verification table present
@@ -182,7 +218,7 @@ And validating a change by checking a single phrase is not validation.
 
 ## Related
 
-- Programme log, decisions D1–D8: [TRANSCRIPTION-PROGRAM.md](../../../References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/TRANSCRIPTION-PROGRAM.md)
+- Programme log, decisions D1–D10: [TRANSCRIPTION-PROGRAM.md](../../../References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/TRANSCRIPTION-PROGRAM.md)
 - Folder conventions and evidential standing: [Nagraj-Recorded-Sessions/README.md](../../../References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/README.md)
 - Reference checks: [check-references](../check-references/SKILL.md)
 - PDF pipeline: [regenerate-study-pdf](../regenerate-study-pdf/SKILL.md), [AGENTS.md](../../../AGENTS.md) §3

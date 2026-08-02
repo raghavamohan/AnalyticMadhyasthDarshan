@@ -1,6 +1,6 @@
 # Transcription programme — recorded sessions of Shri A. Nagraj
 
-**Started:** August 1, 2026 · **Status:** Phase 1 CPU pass complete (60/60); **GPU re-run in progress** to replace it with no-VAD output (D7, D8); promotion to References artefacts not started
+**Started:** August 1, 2026 · **Status:** Phase 1 raw ASR complete on both backends (60/60); the GPU corpus **needs re-running under D10** before promotion, which has not started
 **Maintainer note:** this is a living document. Update the status table and the decision log as recordings land; record reversals as reversals rather than editing the earlier reasoning away.
 
 Companion: [`README.md`](README.md) sets out the folder conventions and how far machine-transcribed oral material may be relied on. That document governs *use*; this one records *scope, decisions, and progress*.
@@ -209,6 +209,60 @@ disproves it. Check the second format before blaming the first.
 
 ---
 
+### D10 — `--max-context 0` is mandatory on the GPU path; the default produces repetition loops
+
+A quality review of all 60 GPU transcripts flagged **36 of them**. The worst
+carried a single 3-gram 214 times; another repeated *बहुत बहुत बहुत* 36 times
+consecutively. Words-per-minute ranged from **31 to 153** against a median of
+111 — a spread far too wide to be speaking-rate variation.
+
+The cause is `whisper.cpp`'s default **`--max-context -1`**, which feeds
+unbounded prior text into each decode window. Once a phrase repeats, it
+conditions its own reproduction, and the window fills with the loop instead of
+the audio. `-mc 0` cuts that feedback. It is the exact equivalent of
+`faster-whisper`'s `condition_on_previous_text=False` — **which the CPU path
+already set**, and which is why the CPU output never looped despite being the
+weaker configuration in every other respect.
+
+Measured on `kZ6qdNflDWA` (*भाषा - अर्थ - वस्तु*, 36.3 min), which had a verified
+tail loop:
+
+| Decode | Words | wpm | Top 3-gram | Longest run |
+|---|---|---|---|---|
+| GPU default (`-mc -1`) | 2,893 | 80 | **×119** *रूप में क्रियाएं* | 2 |
+| **GPU `-mc 0`** | **3,521** | **97** | ×7 *के रूप में* | 4 |
+| CPU (VAD, for reference) | 3,248 | 89 | ×9 | 6 |
+
+The loop collapses from 119 occurrences to 7 — normal frequency for a common
+Hindi phrase, matching the CPU run's 9 — and **word count rises 22%**, because
+the looped span was overwriting real speech. The corrected GPU output now
+carries **more** words than the CPU run (3,521 against 3,248), consistent with
+recovering both the loop and VAD's losses.
+
+**No throughput cost.** 429 s for 36.3 min of audio is 5.1× realtime, marginally
+*better* than the ~4.4× the same file managed with the default, since the model
+is no longer re-processing a growing context.
+
+`-mc 0` is now hardcoded in `_transcribe_batch.py` rather than exposed as a flag.
+A configuration that silently degrades output should not be reachable by
+forgetting an argument.
+
+**Two things this corrects.** First, an earlier claim here that no anti-loop
+guards were set was wrong: `-et 2.40`, `-lpt -1.00`, `-tpi 0.20` and temperature
+fallback are all `whisper.cpp` defaults and were active throughout. They limit
+*intra-window* degeneration and cannot see a loop sustained across windows by the
+context itself. Second, the failure recorded below as a one-file curiosity
+(`K7KNzk3uX0k` at 01:11) was never file-specific — it was the default
+configuration, visible wherever the audio gave it an opening.
+
+**Reading the flags needs care.** Not every flagged file was looping. *के रूप में*
+("in the form of") at ×15–29 across a 5,000-word transcript is ordinary Hindi,
+not a defect. The sharp detector is **consecutive** repetition (`maxrun`) and
+3-gram counts that are wildly out of proportion to length; raw frequency of a
+common phrase is not evidence of anything.
+
+---
+
 ## Hardware, and where the bottleneck actually is
 
 The machine this programme runs on, and what each resource was doing mid-GPU-run (2026-08-02, 24 of 60 files in):
@@ -230,12 +284,26 @@ The machine this programme runs on, and what each resource was doing mid-GPU-run
 
 **Phase 2 sizing.** The full 176.7 h channel needs roughly 10 GB of source audio and ~20 GB of intermediate WAV — negligible against 824 GB free on `E:`.
 
-**Temperatures could not be read.** `MSAcpi_ThermalZoneTemperature` returns "Not supported" on this board (normal for desktop Ryzen), AMD exposes no thermal WMI class, and no vendor monitoring tool is installed. Thermal behaviour under multi-hour GPU load is therefore **unmeasured** — if that matters for longer Phase 2 runs, install HWiNFO64 or LibreHardwareMonitor first.
+**Temperatures could not be read** until HWiNFO64 was installed mid-programme. `MSAcpi_ThermalZoneTemperature` returns "Not supported" on this board (normal for desktop Ryzen) and AMD exposes no thermal WMI class, so WMI alone will not do it. With HWiNFO64 logging, temperatures under sustained GPU load are unremarkable.
+
+### Unresolved: the machine hard-reboots
+
+**This is an operational risk for Phase 2 and is not understood.** The Windows event log records **8 unexpected restarts in 90 days**, three of them on 2026-08-02 (09:05, 10:31, 12:40). All are Kernel-Power **Event 41 with `BugcheckCode 0`** — meaning Windows was not the thing that stopped. There is no crash dump because there was no crash: power was cut or the board reset. No WHEA errors and no TDR 4101 anywhere in the log.
+
+Three explanations were proposed and each was falsified:
+
+- *Coincidence with the transcription run* — the reboots predate the programme.
+- *SMU contention from vendor monitoring software* — reboots continued unchanged after it was removed.
+- *GPU load* — an unbroken 8-hour GPU batch completed cleanly, and the 12:40 reboot happened at idle.
+
+The 12:40 event preceded a **grey screen with three green vertical lines**, which is display-output corruption, not a software fault. Together with Event 41 and normal temperatures, that points at hardware: PSU delivery under transient load, GPU seating or auxiliary power connectors, or memory. **No software change will fix this**, and long unattended Phase 2 runs should be assumed to be interruptible until it is diagnosed. The pipeline's resumability (D5) is what has made the interruptions survivable so far.
+
+**HWiNFO64 logging did not capture the moment.** It buffers, and the last 8 minutes before the 12:40 reset — the interesting part — were lost. Enable flush-on-write and auto-start at boot before relying on it as evidence.
 
 ---
 ## Phase 1 status
 
-**Scope:** 60 recordings, 23.43 h. **Fetch:** in progress. **Transcription:** chained to start on fetch completion.
+**Scope:** 60 recordings, 23.43 h. **Fetch:** complete. **Transcription:** complete on both backends, but the GPU corpus needs re-running under D10 before anything is promoted.
 
 | Study | Videos | Hours | Fetched | Transcribed | In References |
 |---|---|---|---|---|---|
@@ -245,7 +313,37 @@ The machine this programme runs on, and what each resource was doing mid-GPU-run
 | Ontology | 14 | 4.13 | 14 | 14 | 0 |
 | **Total** | **60** | **23.43** | **60** | **60** | **1** |
 
-**Raw ASR for all 60 completed 2026-08-02, zero failures.** Manifest: `E:\MD-Transcription\manifest-tier1.tsv` (study, duration, video ID, title); transcripts and per-segment JSON in `E:\MD-Transcription\transcripts\`. None has yet been promoted to a References artefact — see the standard below.
+**Raw ASR for all 60 completed 2026-08-02, zero failures on both backends.** Manifest: `E:\MD-Transcription\manifest-tier1.tsv` (study, duration, video ID, title); CPU output with per-segment JSON in `transcripts\`, GPU output in `transcripts-gpu\`. None has yet been promoted to a References artefact — see the standard below.
+
+### Corpus quality review, and why nothing has moved into References yet
+
+The 60 GPU transcripts were reviewed mechanically before any promotion was
+considered — word density against duration, longest consecutive token run, most
+frequent 3-gram, Devanagari share, and `U+FFFD` count.
+
+| | |
+|---|---|
+| Present | 60/60, 136,188 words over 23.43 h |
+| Words per minute | median 111, **range 31–153** |
+| Devanagari share | 99–100% (script detection is not a problem) |
+| `U+FFFD` | 47 across 26 files — consistent with D9 |
+| **Flagged** | **36 of 60** |
+
+The density range is the finding. A transcript running at 31 wpm against a
+median of 111 is not a slower talk; it is a decode that spent its windows
+repeating itself. That review is what produced D10, and the corpus **must be
+re-run with `-mc 0`** before promotion begins. The flagged files are certainly
+affected; the rest are re-run too, so the corpus has one provenance rather than
+two.
+
+`Scripts/_transcribe_review.py` is that review, and it exits non-zero when
+anything is flagged. Run it after every batch — the alternative is discovering a
+systematic decode fault during translation, one recording at a time.
+
+**Nobody has listened to any of this audio.** Every quality claim here rests on
+statistics over the text, and the two backends' disagreements have been resolved
+by argument rather than by ear. That is adequate for deciding which decode
+configuration to use; it is not adequate for promoting a transcript.
 
 ### What the run actually cost
 
@@ -267,6 +365,8 @@ The machine this programme runs on, and what each resource was doing mid-GPU-run
 ### Known ASR failure mode
 
 `K7KNzk3uX0k` at 01:11 collapses into a repetition loop (`वो वो वो वो …`) across roughly 30 seconds — the classic Whisper behaviour on a low-information stretch. It is visible in the text and in a depressed `avg_logprob`, so it does not corrupt anything silently, but **check for it when promoting a transcript**: `no_speech_prob` and `avg_logprob` are recorded per segment in the sibling `.json` precisely so loops and dropouts can be found without re-listening to everything.
+
+**Read as file-specific, this was wrong.** The review above found the same collapse in 36 of 60 GPU transcripts, and D10 identifies the cause as the decoder's context setting rather than anything in the audio. Low-information stretches are only where it becomes visible. The advice to check per-segment confidence stands; the diagnosis it was attached to does not.
 
 ### Content worth reading first
 
