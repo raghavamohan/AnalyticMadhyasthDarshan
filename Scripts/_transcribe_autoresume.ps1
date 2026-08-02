@@ -28,6 +28,13 @@
     Execute a resume pass. This is what the scheduled task invokes; you rarely
     want it by hand.
 
+.PARAMETER PollMinutes
+    How often the safety-net trigger re-checks, in minutes (default 15). A
+    logon trigger alone is not enough: it fires on a logon EVENT, so a reset
+    with nobody present to log in leaves the batch stopped. Firing often is
+    cheap -- the run refuses to start beside a live batch and exits at once
+    when there is nothing to do.
+
 .PARAMETER KeepEnabled
     Do not disable the task once the corpus is complete. By default a run that
     finds nothing left to do disables the task, so a finished job does not leave
@@ -72,6 +79,7 @@ param(
     [Parameter(ParameterSetName = 'Run')][string]$Python = 'python',
 
     [Parameter(ParameterSetName = 'Install')][int]$DelayMinutes = 3,
+    [Parameter(ParameterSetName = 'Install')][int]$PollMinutes = 15,
     [Parameter(ParameterSetName = 'Run')][switch]$KeepEnabled
 )
 
@@ -120,8 +128,29 @@ if ($Install) {
 
     $action = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument $argline `
         -WorkingDirectory $RepoRoot
-    $trigger = New-ScheduledTaskTrigger -AtLogOn -User "$env:USERDOMAIN\$env:USERNAME"
-    $trigger.Delay = "PT${DelayMinutes}M"      # let the display driver settle first
+
+    # Two triggers, because one is not enough on a machine that resets.
+    #
+    # The logon trigger is the fast path -- it resumes a few minutes after
+    # someone logs back in. On its own it is fragile: it fires on a logon
+    # EVENT, so a session restored without one, or a reset at 05:00 with
+    # nobody there to log in, leaves the batch stopped indefinitely. That was
+    # observed: a reset at 14:21 did not resume.
+    #
+    # The repeating trigger is the safety net -- every $PollMinutes, forever.
+    # It is safe to fire constantly because the run path refuses to start when
+    # a batch is already going, and exits immediately when there is nothing
+    # left to do. Cost of a spurious wake is one process spawn.
+    #
+    # Neither covers a reset with no user session at all. A GPU job needs an
+    # interactive session; running as SYSTEM in session 0 cannot enumerate the
+    # adapter. Genuinely unattended boot-resume would need auto-logon or a
+    # stored password, which is a decision for whoever owns the machine.
+    $logon = New-ScheduledTaskTrigger -AtLogOn -User "$env:USERDOMAIN\$env:USERNAME"
+    $logon.Delay = "PT${DelayMinutes}M"        # let the display driver settle first
+    $poll = New-ScheduledTaskTrigger -Once -At (Get-Date).Date `
+        -RepetitionInterval (New-TimeSpan -Minutes $PollMinutes)
+    $trigger = @($logon, $poll)
     $settings = New-ScheduledTaskSettingsSet `
         -MultipleInstances IgnoreNew `
         -ExecutionTimeLimit (New-TimeSpan -Hours 24) `
@@ -138,9 +167,9 @@ if ($Install) {
         -Description 'Resume the Nagraj transcription batch after an unexpected reboot.' | Out-Null
 
     $j = Get-Journal $Out
-    Write-Journal $j "INSTALL  task=$TaskName delay=${DelayMinutes}m workers=$Workers out=$Out"
+    Write-Journal $j "INSTALL  task=$TaskName delay=${DelayMinutes}m poll=${PollMinutes}m workers=$Workers out=$Out"
     Write-Host ""
-    Write-Host "Registered '$TaskName'. It fires $DelayMinutes minutes after logon."
+    Write-Host "Registered '$TaskName'. Fires $DelayMinutes min after logon, and every $PollMinutes min thereafter."
     Write-Host "It will NOT start a run now. Journal: $j"
     Write-Host "Remove it with:  .\Scripts\_transcribe_autoresume.ps1 -Uninstall"
     return

@@ -64,6 +64,12 @@ cmake --build build --config Release -j 16
 Point the scripts at it with `WHISPER_CPP_CLI` and `WHISPER_CPP_MODEL`, or accept
 the `E:\Tools\whisper.cpp` defaults.
 
+**Vulkan, not ROCm/HIP.** A HIP backend exists (`-DGGML_HIP=ON`) and works, but
+it measured no faster on this hardware — 4.74× against Vulkan's 4.92× on an
+identical slice — and brings extra traps. Read D12 in the programme log before
+spending a day on it. Vulkan also needs no SDK beyond the runtime and is
+unbothered by a second GPU in the machine.
+
 **The Build Tools install needs an approved UAC prompt.** It returns installer
 exit **1602** and installs nothing if elevation is declined, and cannot be driven
 from an unelevated non-interactive shell.
@@ -208,6 +214,8 @@ Find wording in the extract; **confirm the page in the PDF** before citing.
 | Devanagari italic looks mangled in PDF | Nirmala UI has no italic face. `_convert_to_pdf.py` sets `font-synthesis-style: none`; keep it. |
 | Devanagari renders as tofu | No Devanagari system font. **Check a page of output, not just the exit code.** |
 | `vswhere` says nothing installed | Needs `-all` to see BuildTools-only machines. |
+| HIP build: `device kernel image is invalid` | An iGPU is visible as a second ROCm device with a different arch. `-dev N` does **not** help — ggml loads modules on every visible device. Set `HIP_VISIBLE_DEVICES` to the discrete card. |
+| HIP build: link fails on `__kmpc_fork_call` | ROCm for Windows ships no OpenMP runtime, but CMake's probe passes anyway. Build with `-DGGML_OPENMP=OFF`. |
 | `U+FFFD` in GPU output | whisper.cpp splits a multi-byte char across tokens. ~0.008% of text, both output formats, deterministic. Repair, do not re-run. |
 | "सब्सक्राइब" / "subscribe" in the text | Whisper injects YouTube caption boilerplate into noise. **Never spoken.** No decoder setting removes it; delete by hand. D11. |
 | Phrase repeats for 30s; low words/min | `whisper.cpp` default `--max-context -1` conditions the loop on itself. `-mc 0` is forced in the script; do not remove it. |
@@ -240,7 +248,7 @@ along, and the real difference was the context window. **Read the defaults.**
 
 ## Related
 
-- Programme log, decisions D1–D11: [TRANSCRIPTION-PROGRAM.md](../../../References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/TRANSCRIPTION-PROGRAM.md)
+- Programme log, decisions D1–D12: [TRANSCRIPTION-PROGRAM.md](../../../References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/TRANSCRIPTION-PROGRAM.md)
 - Folder conventions and evidential standing: [Nagraj-Recorded-Sessions/README.md](../../../References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/README.md)
 - Reference checks: [check-references](../check-references/SKILL.md)
 - PDF pipeline: [regenerate-study-pdf](../regenerate-study-pdf/SKILL.md), [AGENTS.md](../../../AGENTS.md) §3
