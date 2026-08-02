@@ -136,7 +136,7 @@ D7 concluded there was no fast complete mode. **There is one — it is just not 
 
 *Two concurrent workers, not four.* Over a fixed 720 s workload: 1 worker 3.81×, **2 workers 5.52×**, 4 workers 5.82×. The second worker fills the GPU's idle gaps during sequential token generation; by four the device is saturated and jobs merely queue. N=2 takes 95% of the available gain at half the blast radius if a worker dies. (An earlier version of this also cited VRAM; see the hardware section — VRAM was never the constraint.)
 
-**Consequences.** Tier-1's 23.4 h re-runs in ~4.2 h against ~117 h on CPU; the full 176.7 h channel becomes ~32 h rather than ~880 h. Phase 2 moves from implausible to an unattended weekend, and the VAD-lossy Phase 1 corpus is superseded rather than patched.
+**Consequences** (and see D9 for the one defect this path has). Tier-1's 23.4 h re-runs in ~4.2 h against ~117 h on CPU; the full 176.7 h channel becomes ~32 h rather than ~880 h. Phase 2 moves from implausible to an unattended weekend, and the VAD-lossy Phase 1 corpus is superseded rather than patched.
 
 **Method warning — the same mistake twice.** The first concurrency table showed 2 workers *below* 1 worker. That was an artefact: each N processed a different subset of slices, and slices differ in speech density. Fixing the workload removed it. This is the same error as the first VAD comparison, which changed decoding mode and VAD together. **Vary one thing; hold the workload identical.** Both wrong answers were stated confidently before being caught.
 
@@ -166,6 +166,46 @@ Deliberately **not** committed to this repository — it is a throwaway environm
 - **OpenMP duplication** between Anaconda MKL and CTranslate2 — same fix.
 - **Console encoding**: Windows cp1252 crashes on Devanagari output. Set `PYTHONIOENCODING=utf-8`.
 - **Page numbers in the `.md` extracts are not what they look like.** MVD marks pages with a `page-N` *footer*, so content following the marker is on page N+1; JV's extract has only eight stray bare numbers and no pagination at all. Recovering a passage means citing the PDF, not the extract. This produced ~20 wrong citations before it was caught.
+
+---
+
+### D9 — whisper.cpp emits occasional broken UTF-8; accept it, but flag it
+
+The GPU path has one defect the CPU path does not. **whisper.cpp emits partial
+UTF-8 when a multi-byte Devanagari character's bytes split across token
+boundaries**, leaving a truncated codepoint in the output.
+
+Measured across the first 31 GPU transcripts: **39 broken characters in 473,638
+— 0.008% of the text**, about one per 12,000 characters. 13 of the 31 files are
+entirely clean; the worst has 7.
+
+Three things establish what this is:
+
+- It affects **both `-otxt` and `-oj`**, so it is upstream of the writer, in the
+  token→text conversion. `faster-whisper` does not show it because the Python
+  tokenizer buffers incomplete sequences before decoding.
+- It is **deterministic** — a fresh re-run of an affected file was byte-identical
+  to the original, same offset. Not a concurrency artefact, not caused by the
+  batch being killed, and **re-running will not fix it**.
+- It appears only on longer files. A 3-minute control slice came out clean;
+  30-minute recordings do not.
+
+**Accepted, because the alternative is worse and this one is visible.** VAD was
+silently deleting ~20% of words with no trace; this leaves a `U+FFFD` at every
+affected position, findable with one grep. Against a promotion workflow that
+already normalises the Hindi character by character against the printed corpus,
+39 flagged positions across 60 recordings is noise.
+
+**But it must be repaired, not normalised away.** Promotion now includes:
+`grep -c $'�'` each transcript, and reconstruct each from context or the
+audio. A `U+FFFD` silently smoothed into a plausible character is exactly the
+kind of error this programme's reliability marking exists to prevent.
+
+**Two false alarms on the way to this, both mine.** A "0% coverage" report came
+from a regex expecting timestamps in `-otxt` output, which has none. And the
+first reading of the broken bytes blamed the text writer for splitting
+characters at line breaks — the JSON output has the same corruption, which
+disproves it. Check the second format before blaming the first.
 
 ---
 
