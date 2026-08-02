@@ -89,16 +89,17 @@ Longest-first, so the 90-minute file does not strand three idle workers at the e
 
 See [`README.md`](README.md). The channel has genuine title collisions, so the ID is the only stable identifier. The first transcript predates the rule and keeps its plain slug.
 
-### D7 — Batched output is for triage; promotion requires a sequential re-run
+### D7 — VAD is what drops text; only no-VAD decoding is complete
 
-**The batched VAD pipeline drops roughly 17% of the words, and the loss is biased toward doctrine.** Measured 2026-08-02 on the 03:00–06:00 control slice of the 2010 session, same model and beam size, sequential no-VAD against the exact configuration all 60 Phase 1 transcripts used:
+**Voice-activity detection drops roughly a fifth of the words, and the loss is biased toward doctrine.** Measured 2026-08-02 on the 03:00–06:00 control slice of the 2010 session, same model and beam size throughout:
 
-| | Sequential, no VAD | Batched VAD |
-|---|---|---|
-| Words | 328 | **272 (−17%)** |
-| Segments | 19 | 6 |
-| Speed | 0.20× | 2.07× (**10.6× faster**) |
-| Word-level similarity | — | 0.670 |
+| Config | VAD | Words | Segments | Speed |
+|---|---|---|---|---|
+| **A** Sequential | no | **328** (reference) | 19 | 0.20× |
+| **B** Batched (Phase 1 config) | yes | 272 (**−17%**) | 6 | 2.07× |
+| **C** Sequential | yes | 259 (**−21%**) | 7 | slow |
+
+**The first reading of this was wrong and is corrected here.** A and B differ in *two* variables — decoding mode and VAD — so the initial conclusion blamed the batched pipeline. Adding cell C isolates it: sequential **with** VAD is *worse* than batched with VAD (259 against 272). Batching is therefore essentially innocent; **VAD is the cause**. Word-level similarity A↔B is 0.670.
 
 What the batched pass lost on those three minutes was not filler:
 
@@ -109,9 +110,13 @@ What the batched pass lost on those three minutes was not filler:
 
 The bias has an obvious mechanism: VAD cuts at pauses, and this speaker pauses for emphasis around exactly the statements that carry weight. **Expect the loss to concentrate on what you most want.**
 
-**Consequence — a two-tier corpus.** Batched output is for search, routing and triage (D1's purpose), and is adequate for deciding what deserves attention. Anything being promoted to a References artefact gets a sequential re-run first. Sequential for all 23.4 h would be ~29 h at four workers, which is affordable but wasteful when most recordings will never be promoted; on-demand is the better trade.
+**Consequence — a two-tier corpus, and an awkward one.** Batched output serves search, routing and triage (D1's purpose) and is adequate for deciding what deserves attention. Anything promoted to a References artefact must first be re-decoded **without VAD**.
 
-**This was caught late.** The batched pipeline was validated by comparing a single phrase across the two passes, finding it identical, and generalising. One phrase is not a validation. The 2010 transcript's doctrinal core survived only because 00:00–18:08 happened to be run sequentially before the switch; its 18:08–44:32 tail is batched output and is being re-run.
+There is no fast complete mode. The batched pipeline forms its batches *from* VAD segments, so batched-without-VAD does not exist; the only complete configuration is sequential no-VAD at **0.20×**. That is ~117 h single-worker for Tier-1's 23.4 h, or ~29 h at four workers — the reason a working GPU path stops being a convenience and becomes the thing that decides whether Phase 2 is feasible at all.
+
+**Untested and worth trying before accepting 0.20×:** the measurement used aggressive VAD (`threshold=0.25`, `speech_pad_ms=500`). A gentler setting — cutting only on long silences, with generous padding — might retain nearly everything while still skipping the music gaps, recovering most of the speed. Cheap to test; do it before concluding the GPU is mandatory.
+
+**Two method failures produced this, both worth remembering.** The batched pipeline was originally validated by comparing a *single phrase* across two passes, finding it identical, and generalising — one phrase is not a validation. Then the first proper comparison changed two variables at once and produced a confidently-stated wrong cause. The 2010 transcript's doctrinal core survived only because 00:00–18:08 happened to be decoded without VAD before the switch; its 18:08–44:32 tail is VAD output and is being re-run.
 
 ---
 
