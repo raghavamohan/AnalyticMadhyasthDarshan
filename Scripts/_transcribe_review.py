@@ -18,6 +18,8 @@ Two cautions when reading the flags:
     appearing 20 times in 5,000 words is ordinary language, not a defect.
   * U+FFFD is expected at roughly one per 12,000 characters on the GPU path
     (D9). It must be repaired during promotion, not re-run.
+  * Every boilerplate hit is a fabrication and must be deleted by hand. No
+    decoder setting removes it, and it is fluent enough to read as speech.
 
     python Scripts/_transcribe_review.py --manifest work/manifest.tsv \
         --transcripts work/transcripts
@@ -32,9 +34,21 @@ import argparse
 import collections
 import io
 import os
+import re
 import sys
 
 DEVANAGARI = ("ऀ", "ॿ")
+
+# Whisper was trained on YouTube captions and injects their boilerplate into
+# noise and silence. It is NOT in the audio. Unlike a repetition loop this is
+# fluent and can sit inside a real sentence -- "कि सब्सक्राइब करना चाहिए कि यह
+# जो हम समझा है" -- so it must be searched for, not noticed. Found in 30 of 60
+# recordings on both backends, never in the opening 5%, which is what rules out
+# a genuine channel intro. See D11.
+BOILERPLATE = re.compile(
+    r"सब्स्?क्राइब|subscribe|लाइक\s*(और|कर)|चैनल\s*(को|पर)"
+    r"|देखने\s*के\s*लिए\s*धन्यवाद|thanks\s*for\s*watching",
+    re.IGNORECASE)
 
 
 def read_manifest(path):
@@ -70,13 +84,14 @@ def measure(path, duration_s):
     tri = collections.Counter(tuple(words[i:i + 3]) for i in range(len(words) - 2))
     top, top_n = tri.most_common(1)[0] if tri else ((), 0)
 
+    boiler = len(BOILERPLATE.findall(text))
     dev = sum(1 for c in text if DEVANAGARI[0] <= c <= DEVANAGARI[1])
     latin = sum(1 for c in text if c.isascii() and c.isalpha())
     minutes = duration_s / 60
 
     return dict(words=len(words), dur_min=minutes,
                 wpm=len(words) / minutes if minutes else 0,
-                fffd=text.count("�"),
+                fffd=text.count("�"), boiler=boiler,
                 dev_pct=100 * dev / max(1, dev + latin),
                 maxrun=best, top_tri_n=top_n, top_tri=" ".join(top)[:28])
 
@@ -115,6 +130,8 @@ def main():
     print(f"Devanagari: min {dev[0]:.0f}%, median {dev[len(dev) // 2]:.0f}%")
     print(f"U+FFFD:     {sum(r['fffd'] for r in rows)} across "
           f"{sum(1 for r in rows if r['fffd'])} files  (expected; see D9)")
+    print(f"boilerplate:{sum(r['boiler'] for r in rows):4d} across "
+          f"{sum(1 for r in rows if r['boiler'])} files  (hallucinated, not spoken; see D11)")
 
     flagged = []
     for r in rows:
@@ -129,6 +146,8 @@ def main():
             why.append(f"only {r['dev_pct']:.0f}% Devanagari")
         if r["words"] < 50:
             why.append("very short")
+        if r["boiler"]:
+            why.append(f"boilerplate x{r['boiler']}")
         if why:
             flagged.append((r, why))
 
