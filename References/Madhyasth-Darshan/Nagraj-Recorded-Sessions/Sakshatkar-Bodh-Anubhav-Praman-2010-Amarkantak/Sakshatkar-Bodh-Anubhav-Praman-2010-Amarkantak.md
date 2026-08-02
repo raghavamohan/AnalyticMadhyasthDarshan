@@ -31,7 +31,7 @@ Whisper `large-v3` (int8, CPU, 16 kHz, `language=hi`, `beam_size=5`), in two pas
 | Span | Pass | Character |
 |---|---|---|
 | 00:00–18:08 | Sequential, no VAD, temperature fallback | Short segments, finer timestamps. **The doctrinal core falls here.** |
-| 18:20–44:32 | Batched pipeline, VAD-segmented | Longer merged segments; short utterances at VAD boundaries can be clipped |
+| 18:20–44:32 | Batched pipeline, VAD-segmented | Longer merged segments. **Measured 2026-08-02: VAD drops ~20% of words**, biased toward the emphasis-flanked statements that carry doctrine, because VAD cuts at pauses and this speaker pauses for emphasis. The cause is VAD rather than batching. A no-VAD re-run of this span is in progress; treat conclusions drawn from it as provisional until replaced |
 
 The two passes were run over the same 03:00–06:00 span as a control and produced identical wording, which is the basis for trusting the batched span. Raw output before normalisation: [`Sakshatkar-Bodh-Anubhav-Praman-2010-raw-asr.txt`](Sakshatkar-Bodh-Anubhav-Praman-2010-raw-asr.txt).
 
