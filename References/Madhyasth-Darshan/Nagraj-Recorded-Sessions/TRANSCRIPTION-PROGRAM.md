@@ -1,6 +1,6 @@
 # Transcription programme — recorded sessions of Shri A. Nagraj
 
-**Started:** August 1, 2026 · **Status:** Phase 1 raw ASR complete on both backends (60/60); the GPU corpus **needs re-running under D10** before promotion, which has not started
+**Started:** August 1, 2026 · **Status:** Phase 1 D10 GPU re-run complete (60/60, `-mc 0`, no VAD); **staged as raw ASR** under this folder ([`RAW-ASR-TIER1.md`](RAW-ASR-TIER1.md)) — not yet promoted
 **Maintainer note:** this is a living document. Update the status table and the decision log as recordings land; record reversals as reversals rather than editing the earlier reasoning away.
 
 Companion: [`README.md`](README.md) sets out the folder conventions and how far machine-transcribed oral material may be relied on. That document governs *use*; this one records *scope, decisions, and progress*.
@@ -426,47 +426,36 @@ The 12:40 event preceded a **grey screen with three green vertical lines**, whic
 ---
 ## Phase 1 status
 
-**Scope:** 60 recordings, 23.43 h. **Fetch:** complete. **Transcription:** complete on both backends, but the GPU corpus needs re-running under D10 before anything is promoted.
+**Scope:** 60 recordings, 23.43 h. **Fetch:** complete. **Transcription:** CPU and pre-D10 GPU complete; **D10 GPU re-run complete** (60/60, zero failures, aggregate 5.12× realtime). **Staged** as raw ASR under this folder — see [`RAW-ASR-TIER1.md`](RAW-ASR-TIER1.md). **Promoted:** still only the 2010 Sakshatkar session.
 
-| Study | Videos | Hours | Fetched | Transcribed | In References |
-|---|---|---|---|---|---|
-| Spiritual Practice | 16 | 7.48 | 16 | 16 | 1 (the 2010 session) |
-| Epistemology | 16 | 6.15 | 16 | 16 | 0 |
-| Axiology | 14 | 5.67 | 14 | 14 | 0 |
-| Ontology | 14 | 4.13 | 14 | 14 | 0 |
-| **Total** | **60** | **23.43** | **60** | **60** | **1** |
+| Study | Videos | Hours | Fetched | Transcribed | Staged raw ASR | Promoted |
+|---|---|---|---|---|---|---|
+| Spiritual Practice | 16 | 7.48 | 16 | 16 | 16 | 1 (2010 session; not in Tier-1 manifest) |
+| Epistemology | 16 | 6.15 | 16 | 16 | 16 | 0 |
+| Axiology | 14 | 5.67 | 14 | 14 | 14 | 0 |
+| Ontology | 14 | 4.13 | 14 | 14 | 14 | 0 |
+| **Total** | **60** | **23.43** | **60** | **60** | **60** | **1** |
 
-**Raw ASR for all 60 completed 2026-08-02, zero failures on both backends.** Manifest: `E:\MD-Transcription\manifest-tier1.tsv` (study, duration, video ID, title); CPU output with per-segment JSON in `transcripts\`, GPU output in `transcripts-gpu\`. None has yet been promoted to a References artefact — see the standard below.
+**D10 re-run finished 2026-08-02** into `E:\MD-Transcription\transcripts-gpu-mc0`, then copied into this folder by `Scripts/_stage_tier1_raw_asr.py`. Manifest: `E:\MD-Transcription\manifest-tier1.tsv`. Pre-D10 GPU output remains in `transcripts-gpu\` for comparison only; do not promote from it.
 
-### Corpus quality review, and why nothing has moved into References yet
+### Corpus quality review (D10 re-run)
 
-The 60 GPU transcripts were reviewed mechanically before any promotion was
-considered — word density against duration, longest consecutive token run, most
-frequent 3-gram, Devanagari share, and `U+FFFD` count.
+Mechanical review of the `-mc 0` corpus — word density against duration, longest consecutive token run, most frequent 3-gram, Devanagari share, and `U+FFFD` count. Full table: [`RAW-ASR-TIER1.md`](RAW-ASR-TIER1.md).
 
-| | |
-|---|---|
-| Present | 60/60, 136,188 words over 23.43 h |
-| Words per minute | median 111, **range 31–153** |
-| Devanagari share | 99–100% (script detection is not a problem) |
-| `U+FFFD` | 47 across 26 files — consistent with D9 |
-| **Flagged** | **36 of 60** |
+| | Pre-D10 GPU | D10 (`-mc 0`) staged |
+|---|---|---|
+| Present | 60/60, 136,188 words | 60/60, 154,094 words |
+| Words per minute | median 111, **range 31–153** | median **108**, **range 88–137** |
+| Devanagari share | 99–100% | 98–100% |
+| `U+FFFD` | 47 across 26 files | 131 across 47 files (D9) |
+| Boilerplate | ~94 / 30 files | 354 across 54 files (D11) |
+| Severe `maxrun` ≥ 15 | (loops were widespread) | **7 files** (listed in the index) |
 
-The density range is the finding. A transcript running at 31 wpm against a
-median of 111 is not a slower talk; it is a decode that spent its windows
-repeating itself. That review is what produced D10, and the corpus **must be
-re-run with `-mc 0`** before promotion begins. The flagged files are certainly
-affected; the rest are re-run too, so the corpus has one provenance rather than
-two.
+**Density is fixed.** Staging into References is triage and search material, not promotion. Seven files still carry serious consecutive loops and need audio-checked repair before trust; every file still needs D11 boilerplate deleted by hand and D9 `U+FFFD` repaired from context or audio.
 
-`Scripts/_transcribe_review.py` is that review, and it exits non-zero when
-anything is flagged. Run it after every batch — the alternative is discovering a
-systematic decode fault during translation, one recording at a time.
+`Scripts/_transcribe_review.py` exits non-zero when anything is flagged. Run it after every batch.
 
-**Nobody has listened to any of this audio.** Every quality claim here rests on
-statistics over the text, and the two backends' disagreements have been resolved
-by argument rather than by ear. That is adequate for deciding which decode
-configuration to use; it is not adequate for promoting a transcript.
+**Nobody has listened to the Tier-1 audio for promotion.** Statistics decided the decode configuration; listening decides what may be cited.
 
 ### What the run actually cost
 
