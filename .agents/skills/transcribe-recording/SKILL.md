@@ -48,27 +48,51 @@ python -m venv E:\Tools\asr-venv
 E:\Tools\asr-venv\Scripts\pip install faster-whisper yt-dlp
 ```
 
-GPU (strongly preferred — 28x faster than the only correct CPU mode):
+GPU (strongly preferred — 28x faster than the only correct CPU mode). Two
+backends work; the scripts default to **ROCm/HIP**.
 
 ```powershell
-winget install KhronosGroup.VulkanSDK
 winget install Microsoft.VisualStudio.2022.BuildTools --override `
   "--quiet --wait --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended"
 git clone --depth 1 https://github.com/ggml-org/whisper.cpp E:\Tools\whisper.cpp
-cd E:\Tools\whisper.cpp
-cmake -B build -G "Visual Studio 17 2022" -A x64 -DGGML_VULKAN=ON
-cmake --build build --config Release -j 16
 # ggml-large-v3.bin (~2.9 GB) from huggingface.co/ggerganov/whisper.cpp -> models/
 ```
 
-Point the scripts at it with `WHISPER_CPP_CLI` and `WHISPER_CPP_MODEL`, or accept
-the `E:\Tools\whisper.cpp` defaults.
+**ROCm/HIP — the default.** Install AMD's HIP SDK for Windows by hand: it is not
+in winget, and its installer needs an approved UAC prompt, so it cannot be
+driven from a non-interactive shell.
 
-**Vulkan, not ROCm/HIP.** A HIP backend exists (`-DGGML_HIP=ON`) and works, but
-it measured no faster on this hardware — 4.74× against Vulkan's 4.92× on an
-identical slice — and brings extra traps. Read D12 in the programme log before
-spending a day on it. Vulkan also needs no SDK beyond the runtime and is
-unbothered by a second GPU in the machine.
+```powershell
+pip install --user ninja      # the VS generator cannot drive the HIP toolchain
+cmake -S . -B build-hip -G Ninja -DCMAKE_BUILD_TYPE=Release `
+  -DCMAKE_C_COMPILER="$env:HIP_PATH/bin/clang.exe" `
+  -DCMAKE_CXX_COMPILER="$env:HIP_PATH/bin/clang++.exe" `
+  -DGGML_HIP=ON -DGPU_TARGETS=gfx1100 -DGGML_OPENMP=OFF
+cmake --build build-hip -j 16
+```
+
+`GGML_OPENMP=OFF` is **required**, not preference — see the pitfalls table.
+`GPU_TARGETS` replaces the deprecated `AMDGPU_TARGETS` as of ROCm 7. Set
+`gfx1100` to your card's architecture, which `whisper-cli --help` prints.
+
+`_transcribe_batch.py` handles the two runtime requirements itself: it puts the
+SDK's `bin` on `PATH` (`hipblas.dll` is not in System32) and hides any secondary
+GPU. Neither is optional; both fail obscurely.
+
+**Vulkan — fallback, and no SDK to install.**
+
+```powershell
+winget install KhronosGroup.VulkanSDK
+cmake -B build -G "Visual Studio 17 2022" -A x64 -DGGML_VULKAN=ON
+cmake --build build --config Release -j 16
+```
+
+Point the scripts at either with `WHISPER_CPP_CLI` (and `WHISPER_CPP_MODEL`), or
+accept the `E:\Tools\whisper.cpp\build-hip` default. On the reference machine
+Vulkan measured *marginally faster* — 4.92× against HIP's 4.74× on an identical
+slice, a gap too small to resolve at n=1 (D12). Neither backend's output has
+been verified against the audio, and **they do not produce identical text**, so
+treat a backend switch as a change to the corpus, not a free optimisation.
 
 **The Build Tools install needs an approved UAC prompt.** It returns installer
 exit **1602** and installs nothing if elevation is declined, and cannot be driven
