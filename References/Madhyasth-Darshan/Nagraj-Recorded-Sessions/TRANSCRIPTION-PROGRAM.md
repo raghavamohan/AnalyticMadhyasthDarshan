@@ -1,6 +1,6 @@
 # Transcription programme — recorded sessions of Shri A. Nagraj
 
-**Started:** August 1, 2026 · **Status:** Phase 1 raw ASR complete (60/60, 2026-08-02); promotion to References artefacts not started
+**Started:** August 1, 2026 · **Status:** Phase 1 CPU pass complete (60/60); **GPU re-run in progress** to replace it with no-VAD output (D7, D8); promotion to References artefacts not started
 **Maintainer note:** this is a living document. Update the status table and the decision log as recordings land; record reversals as reversals rather than editing the earlier reasoning away.
 
 Companion: [`README.md`](README.md) sets out the folder conventions and how far machine-transcribed oral material may be relied on. That document governs *use*; this one records *scope, decisions, and progress*.
@@ -65,7 +65,7 @@ Whisper `large-v3` via CTranslate2, `compute_type=int8`, batched VAD pipeline, `
 | torch-directml | `No matching distribution found` for this Python. Dead end. |
 | onnxruntime-directml | Available (1.24.4) — the only pip-only route, but needs an ONNX Whisper export via `optimum`, and DirectML's Whisper op coverage is the weak point. |
 
-**Deferred, not dismissed.** Phase 1 is ~7 h on CPU either way; the remaining ~150 hours would be ~46 h, which is where a Vulkan build earns its install cost.
+**Superseded by D8 (2026-08-02): the Vulkan build was done and it works.** The table above stands as the state of play before that, and two of its rows were confirmed the hard way — **DirectML was actually tested and is 3–5× slower than this CPU** (294–359 GFLOP/s flat across matrix sizes, roughly 0.6% of the W7900's fp32 peak; flat scaling rules out transfer overhead as the excuse). The whisper.cpp Vulkan row was the only one worth the toolchain cost, and it was.
 
 ### D4 — Four worker processes, not one wide one
 
@@ -118,6 +118,28 @@ There is no fast complete mode. The batched pipeline forms its batches *from* VA
 
 **Two method failures produced this, both worth remembering.** The batched pipeline was originally validated by comparing a *single phrase* across two passes, finding it identical, and generalising — one phrase is not a validation. Then the first proper comparison changed two variables at once and produced a confidently-stated wrong cause. The 2010 transcript's doctrinal core survived only because 00:00–18:08 happened to be decoded without VAD before the switch; its 18:08–44:32 tail is VAD output and is being re-run.
 
+### D8 — GPU via whisper.cpp + Vulkan; it makes the complete mode the fast one
+
+D7 concluded there was no fast complete mode. **There is one — it is just not on the CPU.** Built 2026-08-02 and measured on the same 03:00–06:00 control slice:
+
+| Config | VAD | Words | Speed | The four passages VAD drops |
+|---|---|---|---|---|
+| CPU sequential | no | 328 (reference) | 0.20× | present |
+| CPU batched (Phase 1) | yes | 272 | 2.07× | **all four missing** |
+| **whisper.cpp Vulkan** | **no** | **337** | **4.28× single / 5.52× at 2 workers** | **all four present** |
+
+**28× faster than the only complete CPU mode, and faster than the lossy one.** It recovers the eye-seeing analogy, the *rup-gun-swabhav* chain, the knowledge identification and the *praman* definition — every passage VAD was eating — and picks up *ऋतम्भरा* as well.
+
+**Settings, both measured rather than assumed.**
+
+*Beam size 5, not greedy.* `-bs 1` came out **slower** (45 s against 42 s) and produced 14 more words; neither output shows repetition (longest same-token run is 2 in both), so the extra words are real rather than a loop. Beam 5 being simultaneously faster and the higher-quality setting leaves greedy with no case.
+
+*Two concurrent workers, not four.* Over a fixed 720 s workload: 1 worker 3.81×, **2 workers 5.52×**, 4 workers 5.82×. The second worker fills the GPU's idle gaps during sequential token generation; by four the device is saturated and jobs merely queue. N=2 takes 95% of the available gain at half the VRAM and half the blast radius if a worker dies.
+
+**Consequences.** Tier-1's 23.4 h re-runs in ~4.2 h against ~117 h on CPU; the full 176.7 h channel becomes ~32 h rather than ~880 h. Phase 2 moves from implausible to an unattended weekend, and the VAD-lossy Phase 1 corpus is superseded rather than patched.
+
+**Method warning — the same mistake twice.** The first concurrency table showed 2 workers *below* 1 worker. That was an artefact: each N processed a different subset of slices, and slices differ in speech density. Fixing the workload removed it. This is the same error as the first VAD comparison, which changed decoding mode and VAD together. **Vary one thing; hold the workload identical.** Both wrong answers were stated confidently before being caught.
+
 ---
 
 ## Toolchain
@@ -130,10 +152,15 @@ Deliberately **not** committed to this repository — it is a throwaway environm
 | ASR | `faster-whisper` 1.2.1 / CTranslate2 4.8.1 | Batched pipeline gives ~10× over sequential decoding |
 | Fetch | `yt-dlp` 2026.07.04, audio-only | `bestaudio[ext=m4a]/bestaudio`, no re-encoding |
 | Decode | PyAV, bundled with faster-whisper | Reads m4a/webm/opus natively — **no ffmpeg needed anywhere** |
-| Working area | `E:\MD-Transcription\` (outside the repo) | Audio and intermediates are not repository content |
+| **GPU ASR** | **whisper.cpp @ 2ca53bb, `-DGGML_VULKAN=ON`** | The complete (no-VAD) mode at 5.52× — see D8. Built with MSVC 14.44 + Vulkan SDK 1.4.350.0; `KHR_coopmat` matrix cores active on the W7900 |
+| GPU model | `ggml-large-v3.bin` (2952 MB) | HuggingFace `ggerganov/whisper.cpp`; not the CTranslate2 model, a separate download |
+| Working area | `E:\MD-Transcription\` (outside the repo); toolchain in `E:\Tools\whisper.cpp` | Audio and intermediates are not repository content |
 
 ### Pitfalls that cost real time
 
+- **`whisper-cli` cannot read m4a.** Its miniaudio reader handles wav/mp3/flac/ogg but not AAC, so fetched audio must be decoded to 16 kHz mono PCM WAV first (PyAV does it; still no ffmpeg needed). Budget ~2.7 GB of WAV for Tier-1.
+- **Build Tools needs an approved UAC prompt.** `winget install` of the VS C++ workload returns installer exit **1602** — "user cancelled" — and installs nothing if elevation is declined. It cannot be driven from an unelevated non-interactive shell.
+- **`vswhere` hides BuildTools instances without `-all`.** `vswhere -products *` returns empty for a Build Tools–only machine and reads as "nothing installed" when the toolchain is in fact present.
 - **YouTube throttles a long sequential fetch.** Three of 60 returned `HTTP 403 Forbidden` late in the run and all three succeeded on immediate retry with the same format. Budget a retry pass rather than treating a 403 as unavailability.
 - **Anaconda's `onnxruntime` is broken here** (`WinMLDeployMainPackage failed … 0x80073d06`). It silently forces VAD off, which costs roughly 10× in throughput. A clean venv has a working one.
 - **OpenMP duplication** between Anaconda MKL and CTranslate2 — same fix.
@@ -193,7 +220,7 @@ A raw ASR pass is **not** a References artefact. Promoting one means: normalisin
 
 ## Phase 2 candidates (not started)
 
-1. **The सहअस्तित्ववादी विज्ञान series** — 17 parts, 20.1 h, the systematic ontology exposition. Largest single coherent block on the channel and the obvious next target for the Ontology study.
-2. **Full-channel transcription** — the remaining ~150 h, so that routing by transcript search (D1) becomes possible across the whole corpus rather than a curated slice.
-3. **GPU revisit** — worth the toolchain cost only at Phase 2 scale; see D3.
-4. **Engine accuracy comparison** — still outstanding. Both engines should be run on the 03:00–06:00 control slice of the 2010 session, where known-good wording exists to diff against, before any decision to switch. Needs a quiet machine to be meaningful.
+1. **The सहअस्तित्ववादी विज्ञान series** — 17 parts, 20.1 h, the systematic ontology exposition. Largest single coherent block on the channel and the obvious next target for the Ontology study. ~3.6 h on GPU.
+2. **Full-channel transcription** — the remaining ~150 h, so that routing by transcript search (D1) becomes possible across the whole corpus rather than a curated slice. **~32 h on GPU at 5.52×**, against ~880 h on CPU. This is what D8 unlocks.
+3. ~~GPU revisit~~ — **done, see D8.** DirectML tested and rejected; Vulkan built and adopted.
+4. ~~Engine accuracy comparison~~ — **done.** Superseded by D7 and D8: the meaningful variable turned out to be VAD, not the engine, and whisper.cpp Vulkan is both more complete and faster than either CPU configuration.
