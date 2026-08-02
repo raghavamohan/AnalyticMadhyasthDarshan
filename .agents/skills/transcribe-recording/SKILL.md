@@ -109,6 +109,21 @@ a flag. `whisper.cpp` defaults to unbounded context, which turns any repeated
 phrase into a self-sustaining loop: 36 of 60 transcripts were affected before
 this was found. See [D10](../../../References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/TRANSCRIPTION-PROGRAM.md).
 
+#### Surviving an unreliable machine
+
+If the box resets during long runs, register the auto-resume task once:
+
+```powershell
+.\Scripts\_transcribe_autoresume.ps1 -Install `
+    -Manifest work\manifest.tsv -Audio workudio -Out work	ranscripts -Workers 1
+.\Scripts\_transcribe_autoresume.ps1 -Status      # task state + journal + recent resets
+```
+
+A reset then costs only the recording in flight. It triggers at **logon, not
+startup** — a task in session 0 cannot enumerate the GPU — and refuses to start
+if a batch is already running, so it cannot double GPU load or race two writers
+onto one file. It disables itself when the corpus is complete.
+
 ### 4. Review the batch before promoting anything
 
 ```powershell

@@ -89,9 +89,19 @@ def run_cpu(src, out_stem, beam, threads):
     m = WhisperModel("large-v3", device="cpu", compute_type="int8", cpu_threads=threads)
     segs, _ = m.transcribe(a, language="hi", beam_size=beam, vad_filter=False,
                            condition_on_previous_text=False)
-    with io.open(out_stem + ".txt", "w", encoding="utf-8", newline="\n") as f:
+    # Write to .partial and rename only once the generator is exhausted.
+    # faster_whisper yields lazily, so streaming into the final .txt would leave
+    # a truncated file if the process is killed mid-decode -- and the resume
+    # check skips any .txt that exists, so the truncation would be permanent and
+    # silent. It would read as a short recording, not a broken one. The GPU path
+    # is safe because whisper-cli writes once at the end; this makes the CPU
+    # path match. Matters most under _transcribe_autoresume.ps1, where restarts
+    # are unattended.
+    tmp = out_stem + ".partial"
+    with io.open(tmp, "w", encoding="utf-8", newline="\n") as f:
         for s in segs:
             f.write(f"[{int(s.start//60):02d}:{int(s.start%60):02d}] {s.text.strip()}\n")
+    os.replace(tmp, out_stem + ".txt")
     return True, ""
 
 
