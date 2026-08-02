@@ -72,7 +72,7 @@ Two decoding configurations are in use, and each transcript records which span u
 | Configuration | Speed | Trade-off |
 |---|---|---|
 | Sequential, no VAD, temperature fallback | ~0.2× realtime | Short segments, fine timestamps; slow |
-| Batched pipeline, VAD-segmented | ~2.4× realtime | ~10× faster; merges into longer segments and can clip short utterances at VAD boundaries |
+| Batched pipeline, VAD-segmented | ~2.4× realtime | ~10× faster, but **drops ~17% of words**, biased toward emphasis-flanked statements — VAD cuts at pauses. Triage only; see D7 in the programme note |
 
 Where both were run over the same span as a control they produced identical wording. Prefer the sequential configuration for doctrinally dense passages and the batched one for surrounding material.
 

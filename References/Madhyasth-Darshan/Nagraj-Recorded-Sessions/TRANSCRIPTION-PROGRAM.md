@@ -89,6 +89,30 @@ Longest-first, so the 90-minute file does not strand three idle workers at the e
 
 See [`README.md`](README.md). The channel has genuine title collisions, so the ID is the only stable identifier. The first transcript predates the rule and keeps its plain slug.
 
+### D7 — Batched output is for triage; promotion requires a sequential re-run
+
+**The batched VAD pipeline drops roughly 17% of the words, and the loss is biased toward doctrine.** Measured 2026-08-02 on the 03:00–06:00 control slice of the 2010 session, same model and beam size, sequential no-VAD against the exact configuration all 60 Phase 1 transcripts used:
+
+| | Sequential, no VAD | Batched VAD |
+|---|---|---|
+| Words | 328 | **272 (−17%)** |
+| Segments | 19 | 6 |
+| Speed | 0.20× | 2.07× (**10.6× faster**) |
+| Word-level similarity | — | 0.670 |
+
+What the batched pass lost on those three minutes was not filler:
+
+- *…ठीक है जैसा **आँखों से देखने के बाद स्वीकार होना*** — the perception analogy the study quotes at §1.10
+- *जो **साक्षात्कार का महिमा** यह है … **बोध होता है, बोध होने पर अनुभव होता है*** — the ladder statement itself
+- *जिस वस्तु का हमें ज्ञान हुआ … माने अनुभव हुआ। उसका नाम है ज्ञान।*
+- ***रूप के साथ गुण, गुण के साथ स्वभाव*** — the chain §1.1 is built on
+
+The bias has an obvious mechanism: VAD cuts at pauses, and this speaker pauses for emphasis around exactly the statements that carry weight. **Expect the loss to concentrate on what you most want.**
+
+**Consequence — a two-tier corpus.** Batched output is for search, routing and triage (D1's purpose), and is adequate for deciding what deserves attention. Anything being promoted to a References artefact gets a sequential re-run first. Sequential for all 23.4 h would be ~29 h at four workers, which is affordable but wasteful when most recordings will never be promoted; on-demand is the better trade.
+
+**This was caught late.** The batched pipeline was validated by comparing a single phrase across the two passes, finding it identical, and generalising. One phrase is not a validation. The 2010 transcript's doctrinal core survived only because 00:00–18:08 happened to be run sequentially before the switch; its 18:08–44:32 tail is batched output and is being re-run.
+
 ---
 
 ## Toolchain
@@ -158,7 +182,7 @@ Three recordings already look consequential for live studies, on a first skim of
 
 ### What "transcribed" does and does not mean
 
-A raw ASR pass is **not** a References artefact. Promoting one means: normalising the Devanagari without supplying words the ASR did not carry; translating against `MD-Mapping.xlsx` and the published MVD/SB/JV English; marking every segment **[R]/[P]/[U]**; cross-referencing the printed corpus; and tabulating the passages that need the audio checked. The 2010 session took several passes to reach that standard, and a corpus pass over the printed texts later recovered seven of its uncertain segments and corrected six terms. **Expect the same per recording — bulk ASR is the cheap part.**
+A raw ASR pass is **not** a References artefact. Promoting one means: normalising the Devanagari without supplying words the ASR did not carry; translating against `MD-Mapping.xlsx` and the published MVD/SB/JV English; marking every segment **[R]/[P]/[U]**; cross-referencing the printed corpus; and tabulating the passages that need the audio checked. The 2010 session took several passes to reach that standard, and a corpus pass over the printed texts later recovered seven of its uncertain segments and corrected six terms. **Expect the same per recording — bulk ASR is the cheap part.** And per D7, promotion starts from a *sequential* re-run, not from the batched Phase 1 output.
 
 ---
 
