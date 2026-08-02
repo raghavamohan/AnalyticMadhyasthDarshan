@@ -27,22 +27,25 @@ Each recording gets its own directory holding all of its artefacts:
 Nagraj-Recorded-Sessions/
 ├── README.md                                  ← this file: conventions
 ├── TRANSCRIPTION-PROGRAM.md                   ← the running programme log
-└── <Slug>[--<videoId>]/
-    ├── <Slug>.md                              ← source of truth
-    ├── <Slug>.html                             ← generated
-    ├── <Slug>.pdf                              ← generated
-    └── <Slug>-raw-asr.txt                      ← raw ASR, pre-normalisation
+├── RAW-ASR-TIER1.md                           ← Tier-1 raw-ASR index (not promoted)
+├── <Slug>/                                    ← promoted session (md/html/pdf + raw ASR)
+└── <Slug>--<videoId>/                         ← staged raw ASR only
+    └── <Slug>--<videoId>-raw-asr.txt
 ```
 
 **Append the video ID to the directory name.** Slug-only names collide on this channel, and not rarely: *प्रत्यावर्तन - परावर्तन* exists twice under different IDs, and *Jeevan Vidya - Madhyasth Darshan* is the title of roughly ten separate uploads. The ID is the only stable identifier. The first transcript predates this rule and keeps its plain slug (`Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak`, video `gIvVme-Sa5s`); everything added from 2026-08-01 onward carries the ID.
 
 ## Contents
 
+### Promoted (citable after listening)
+
 | Session | Date, place | Duration | Subject | Files |
 |---|---|---|---|---|
 | *Sakshatkar – Bodh – Anubhav – Praman* | Jan 2010, Amarkantak (*Anubhav Shivir*) | 45:00 | The four-stage cognitive sequence; *samadhi* and what was not found in it; study as the general method | [transcript + translation](Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.md) · [PDF](Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.pdf) (34 pp.) · [raw ASR](Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-raw-asr.txt) |
 
-A larger batch is in progress — see [`TRANSCRIPTION-PROGRAM.md`](TRANSCRIPTION-PROGRAM.md) for scope, selection rationale, and status.
+### Tier-1 raw ASR (staged — not promoted)
+
+Sixty further recordings from Rakesh Gupta's channel are staged under this folder as **decoder dumps only** — one directory each, `<Slug>--<videoId>/<Slug>--<videoId>-raw-asr.txt`. They are **not** normalised, translated, or reliability-marked, and must **not** be cited in a released study until promoted. Index, provenance, and mechanical review: [`RAW-ASR-TIER1.md`](RAW-ASR-TIER1.md). Programme log: [`TRANSCRIPTION-PROGRAM.md`](TRANSCRIPTION-PROGRAM.md).
 
 The `.md` is the source of truth; `.html` and `.pdf` are generated. Regenerate with the sanctioned pipeline (AGENTS.md §3 — never pandoc or an ad-hoc converter):
 
