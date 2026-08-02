@@ -263,6 +263,46 @@ common phrase is not evidence of anything.
 
 ---
 
+### D11 — Whisper inserts YouTube caption boilerplate that was never spoken
+
+Found 2026-08-02 while checking D10's first corrected file. The word
+**सब्सक्राइब** ("subscribe") appears **94 times across 30 of the 60 recordings**
+on the GPU pass, and 85 times across 23 on the CPU pass. Nagraj does not say it.
+
+The model was trained on YouTube captions, which are saturated with
+subscribe-and-like requests, and it emits them into noise, silence and unclear
+speech. Position settles what these are:
+
+| Position in recording | Hits |
+|---|---|
+| First 5% | **0** |
+| Mid 5–95% | 31 |
+| Last 5% | 3 |
+
+A genuine channel intro would cluster at the start and an outro at the end.
+There are **none** at the start; the hits land at 54%, 61%, 72%, 87% — the middle
+of philosophical exposition.
+
+**This is worse than the repetition loops, and it survives their fix.** A loop is
+self-evident on sight. Boilerplate is fluent, and it can sit inside an otherwise
+real sentence:
+
+> कि **सब्सक्राइब** करना चाहिए कि यह जो हम समझा है यह हमारा स्वयंत हमारे पर
+
+One fabricated word in a grammatical Hindi clause, in a corpus whose purpose is
+to be quoted. Nothing in the decoder configuration removes it — it is present in
+both backends and in `-mc 0` output — so it must be **searched for and deleted by
+hand during promotion**. `_transcribe_review.py` now counts it and flags any file
+containing it.
+
+**The general lesson is the one that matters.** D9 and D10 are defects that
+*degrade* text — visible as corruption or as a density anomaly. This one *adds*
+plausible text. Reviewing raw ASR by reading it for sense will not catch a
+fabrication that reads perfectly well; only a targeted search will. Assume there
+are other insertion classes not yet looked for.
+
+---
+
 ## Hardware, and where the bottleneck actually is
 
 The machine this programme runs on, and what each resource was doing mid-GPU-run (2026-08-02, 24 of 60 files in):

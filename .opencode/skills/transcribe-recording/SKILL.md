@@ -130,6 +130,11 @@ no one talks at a third of the median rate. Two cautions when reading flags:
 - **A fault that hits most of the corpus is a configuration fault.** Do not
   start repairing files one at a time until you know it is not the decoder.
 
+Some defects *degrade* text and show as anomalies. Others *add* fluent text that
+reads perfectly well — D11's caption boilerplate sits inside grammatical
+sentences in half the corpus. **Reading raw ASR for sense will not catch those.**
+Search for them explicitly, and assume classes you have not looked for exist.
+
 ### 5. Promote to a References artefact
 
 **This is the real work, and raw ASR is not it.** For each recording:
@@ -189,6 +194,7 @@ Find wording in the extract; **confirm the page in the PDF** before citing.
 | Devanagari renders as tofu | No Devanagari system font. **Check a page of output, not just the exit code.** |
 | `vswhere` says nothing installed | Needs `-all` to see BuildTools-only machines. |
 | `U+FFFD` in GPU output | whisper.cpp splits a multi-byte char across tokens. ~0.008% of text, both output formats, deterministic. Repair, do not re-run. |
+| "सब्सक्राइब" / "subscribe" in the text | Whisper injects YouTube caption boilerplate into noise. **Never spoken.** No decoder setting removes it; delete by hand. D11. |
 | Phrase repeats for 30s; low words/min | `whisper.cpp` default `--max-context -1` conditions the loop on itself. `-mc 0` is forced in the script; do not remove it. |
 
 ## Method warning
@@ -208,6 +214,7 @@ along, and the real difference was the context window. **Read the defaults.**
 - [ ] Fetch reports 0 failures (re-run to clear throttling 403s)
 - [ ] Transcribed with **VAD off** and `--max-context 0`
 - [ ] `python Scripts/_transcribe_review.py` run; flags understood, not just counted
+- [ ] Every boilerplate hit deleted — it is fabricated text, not a transcription error
 - [ ] `U+FFFD` count is zero, or every occurrence repaired from context/audio (not smoothed away)
 - [ ] Raw ASR kept alongside the normalised text so corrections stay auditable
 - [ ] Every segment carries [R]/[P]/[U]; verification table present
@@ -218,7 +225,7 @@ along, and the real difference was the context window. **Read the defaults.**
 
 ## Related
 
-- Programme log, decisions D1–D10: [TRANSCRIPTION-PROGRAM.md](../../../References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/TRANSCRIPTION-PROGRAM.md)
+- Programme log, decisions D1–D11: [TRANSCRIPTION-PROGRAM.md](../../../References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/TRANSCRIPTION-PROGRAM.md)
 - Folder conventions and evidential standing: [Nagraj-Recorded-Sessions/README.md](../../../References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/README.md)
 - Reference checks: [check-references](../check-references/SKILL.md)
 - PDF pipeline: [regenerate-study-pdf](../regenerate-study-pdf/SKILL.md), [AGENTS.md](../../../AGENTS.md) §3
