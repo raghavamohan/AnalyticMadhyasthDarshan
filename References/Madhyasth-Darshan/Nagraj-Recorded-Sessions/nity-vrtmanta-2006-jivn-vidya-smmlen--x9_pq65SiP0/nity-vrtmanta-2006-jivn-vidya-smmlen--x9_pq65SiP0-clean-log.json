@@ -1,0 +1,50 @@
+{
+  "boilerplate_hits": 0,
+  "boilerplate_spans": [],
+  "repeat_collapses": [],
+  "fffd_offsets": [
+    2453,
+    4817,
+    6903,
+    7594,
+    11138,
+    12955,
+    17768,
+    18737,
+    20438,
+    20859,
+    23463
+  ],
+  "normalisations": [
+    {
+      "pattern": "अध्येन|अध्यान|अधेन",
+      "replacement": "अध्ययन",
+      "count": 1
+    },
+    {
+      "pattern": "स्विकार",
+      "replacement": "स्वीकार",
+      "count": 5
+    },
+    {
+      "pattern": "वस्तो",
+      "replacement": "वस्तु",
+      "count": 9
+    },
+    {
+      "pattern": "समाधी",
+      "replacement": "समाधि",
+      "count": 2
+    },
+    {
+      "pattern": "वस्ता",
+      "replacement": "अवस्था",
+      "count": 6
+    },
+    {
+      "pattern": "सहास्तित्व|सहअस्तित्व",
+      "replacement": "सह-अस्तित्व",
+      "count": 4
+    }
+  ]
+}

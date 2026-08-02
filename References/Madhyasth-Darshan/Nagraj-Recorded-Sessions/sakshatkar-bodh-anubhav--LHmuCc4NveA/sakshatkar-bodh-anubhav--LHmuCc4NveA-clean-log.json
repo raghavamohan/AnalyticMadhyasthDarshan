@@ -1,0 +1,163 @@
+{
+  "boilerplate_hits": 12,
+  "boilerplate_spans": [
+    {
+      "start": 4502,
+      "end": 4512,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 11370,
+      "end": 11380,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 19425,
+      "end": 19435,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 19456,
+      "end": 19466,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 24413,
+      "end": 24423,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 25014,
+      "end": 25024,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 27855,
+      "end": 27865,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 31847,
+      "end": 31857,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 31892,
+      "end": 31902,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 36755,
+      "end": 36765,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 42251,
+      "end": 42261,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 42461,
+      "end": 42471,
+      "text": "सब्सक्राइब"
+    }
+  ],
+  "repeat_collapses": [
+    {
+      "token": "कार्टिसोन",
+      "run": 5,
+      "at_word": 8927
+    },
+    {
+      "token": "करना",
+      "run": 12,
+      "at_word": 8960
+    }
+  ],
+  "fffd_offsets": [
+    10720,
+    13032,
+    15981,
+    21031,
+    23439,
+    28193,
+    39077
+  ],
+  "normalisations": [
+    {
+      "pattern": "साक्षात\\s*कार|सक्षात\\s*कर|साक्षातकार",
+      "replacement": "साक्षात्कार",
+      "count": 19
+    },
+    {
+      "pattern": "अन्भव|अनुभव़",
+      "replacement": "अनुभव",
+      "count": 23
+    },
+    {
+      "pattern": "अध्येन|अध्यान|अधेन",
+      "replacement": "अध्ययन",
+      "count": 40
+    },
+    {
+      "pattern": "स्विकार",
+      "replacement": "स्वीकार",
+      "count": 2
+    },
+    {
+      "pattern": "सुभाव",
+      "replacement": "स्वभाव",
+      "count": 10
+    },
+    {
+      "pattern": "वस्तो",
+      "replacement": "वस्तु",
+      "count": 9
+    },
+    {
+      "pattern": "दृष्टापत|दर्श्टापद|दर्श्टा",
+      "replacement": "दृष्टापद",
+      "count": 4
+    },
+    {
+      "pattern": "सायम",
+      "replacement": "संयम",
+      "count": 1
+    },
+    {
+      "pattern": "समाधी",
+      "replacement": "समाधि",
+      "count": 14
+    },
+    {
+      "pattern": "जिग्यासा",
+      "replacement": "जिज्ञासा",
+      "count": 1
+    },
+    {
+      "pattern": "अन्संधान|अनुसन्धान",
+      "replacement": "अनुसंधान",
+      "count": 3
+    },
+    {
+      "pattern": "तिब्रता",
+      "replacement": "तीव्रता",
+      "count": 3
+    },
+    {
+      "pattern": "वस्ता",
+      "replacement": "अवस्था",
+      "count": 8
+    },
+    {
+      "pattern": "सहास्तित्व|सहअस्तित्व",
+      "replacement": "सह-अस्तित्व",
+      "count": 2
+    },
+    {
+      "pattern": "ज्ञानगोचर|ग्‍यानगोचर",
+      "replacement": "ज्ञान-गोचर",
+      "count": 1
+    }
+  ]
+}

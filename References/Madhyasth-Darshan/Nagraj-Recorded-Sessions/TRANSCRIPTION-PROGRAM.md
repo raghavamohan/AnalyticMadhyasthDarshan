@@ -1,6 +1,6 @@
 # Transcription programme — recorded sessions of Shri A. Nagraj
 
-**Started:** August 1, 2026 · **Status:** Phase 1 D10 GPU re-run complete (60/60, `-mc 0`, no VAD); **staged as raw ASR** under this folder ([`RAW-ASR-TIER1.md`](RAW-ASR-TIER1.md)) — not yet promoted
+**Started:** August 1, 2026 · **Status:** Phase 1 D10 GPU re-run complete (60/60); staged + Layer-A cleaned; **cohort 1 (8/60) working-promoted** ([`RAW-ASR-TIER1.md`](RAW-ASR-TIER1.md), [`TERMINOLOGY.md`](TERMINOLOGY.md)) — 52 remain raw/cleaned only
 **Maintainer note:** this is a living document. Update the status table and the decision log as recordings land; record reversals as reversals rather than editing the earlier reasoning away.
 
 Companion: [`README.md`](README.md) sets out the folder conventions and how far machine-transcribed oral material may be relied on. That document governs *use*; this one records *scope, decisions, and progress*.
