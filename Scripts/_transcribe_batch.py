@@ -71,8 +71,14 @@ def to_wav(src, dst):
 
 
 def run_gpu(wav, out_stem, beam):
+    # -mc 0 is not optional. whisper.cpp defaults to --max-context -1, feeding
+    # unlimited prior text into each window, so a repeated phrase reinforces
+    # itself into a degenerate loop. Measured on a 36-minute file: the top
+    # 3-gram went from 119 occurrences to 7 and word count rose 22% once the
+    # context was cut. It is the equivalent of faster-whisper's
+    # condition_on_previous_text=False, which is why the CPU pass never looped.
     r = subprocess.run([WHISPER_CLI, "-m", GGML_MODEL, "-f", wav, "-l", "hi",
-                        "-bs", str(beam), "-otxt", "-of", out_stem],
+                        "-bs", str(beam), "-mc", "0", "-otxt", "-of", out_stem],
                        capture_output=True, text=True, encoding="utf-8", errors="replace")
     return r.returncode == 0, (r.stderr or "")[-200:]
 
