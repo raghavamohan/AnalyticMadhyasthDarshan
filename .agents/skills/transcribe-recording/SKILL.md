@@ -48,21 +48,51 @@ python -m venv E:\Tools\asr-venv
 E:\Tools\asr-venv\Scripts\pip install faster-whisper yt-dlp
 ```
 
-GPU (strongly preferred — 28x faster than the only correct CPU mode):
+GPU (strongly preferred — 28x faster than the only correct CPU mode). Two
+backends work; the scripts default to **ROCm/HIP**.
 
 ```powershell
-winget install KhronosGroup.VulkanSDK
 winget install Microsoft.VisualStudio.2022.BuildTools --override `
   "--quiet --wait --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended"
 git clone --depth 1 https://github.com/ggml-org/whisper.cpp E:\Tools\whisper.cpp
-cd E:\Tools\whisper.cpp
-cmake -B build -G "Visual Studio 17 2022" -A x64 -DGGML_VULKAN=ON
-cmake --build build --config Release -j 16
 # ggml-large-v3.bin (~2.9 GB) from huggingface.co/ggerganov/whisper.cpp -> models/
 ```
 
-Point the scripts at it with `WHISPER_CPP_CLI` and `WHISPER_CPP_MODEL`, or accept
-the `E:\Tools\whisper.cpp` defaults.
+**ROCm/HIP — the default.** Install AMD's HIP SDK for Windows by hand: it is not
+in winget, and its installer needs an approved UAC prompt, so it cannot be
+driven from a non-interactive shell.
+
+```powershell
+pip install --user ninja      # the VS generator cannot drive the HIP toolchain
+cmake -S . -B build-hip -G Ninja -DCMAKE_BUILD_TYPE=Release `
+  -DCMAKE_C_COMPILER="$env:HIP_PATH/bin/clang.exe" `
+  -DCMAKE_CXX_COMPILER="$env:HIP_PATH/bin/clang++.exe" `
+  -DGGML_HIP=ON -DGPU_TARGETS=gfx1100 -DGGML_OPENMP=OFF
+cmake --build build-hip -j 16
+```
+
+`GGML_OPENMP=OFF` is **required**, not preference — see the pitfalls table.
+`GPU_TARGETS` replaces the deprecated `AMDGPU_TARGETS` as of ROCm 7. Set
+`gfx1100` to your card's architecture, which `whisper-cli --help` prints.
+
+`_transcribe_batch.py` handles the two runtime requirements itself: it puts the
+SDK's `bin` on `PATH` (`hipblas.dll` is not in System32) and hides any secondary
+GPU. Neither is optional; both fail obscurely.
+
+**Vulkan — fallback, and no SDK to install.**
+
+```powershell
+winget install KhronosGroup.VulkanSDK
+cmake -B build -G "Visual Studio 17 2022" -A x64 -DGGML_VULKAN=ON
+cmake --build build --config Release -j 16
+```
+
+Point the scripts at either with `WHISPER_CPP_CLI` (and `WHISPER_CPP_MODEL`), or
+accept the `E:\Tools\whisper.cpp\build-hip` default. On the reference machine
+Vulkan measured *marginally faster* — 4.92× against HIP's 4.74× on an identical
+slice, a gap too small to resolve at n=1 (D12). Neither backend's output has
+been verified against the audio, and **they do not produce identical text**, so
+treat a backend switch as a change to the corpus, not a free optimisation.
 
 **The Build Tools install needs an approved UAC prompt.** It returns installer
 exit **1602** and installs nothing if elevation is declined, and cannot be driven
@@ -115,8 +145,8 @@ If the box resets during long runs, register the auto-resume task once:
 
 ```powershell
 .\Scripts\_transcribe_autoresume.ps1 -Install `
-    -Manifest work\manifest.tsv -Audio workudio -Out work	ranscripts -Workers 1
-.\Scripts\_transcribe_autoresume.ps1 -Status      # task state + journal + recent resets
+    -Manifest work\manifest.tsv -Audio work\audio -Out work\transcripts -Workers 1
+.\Scripts\_transcribe_autoresume.ps1 -Status
 ```
 
 A reset then costs only the recording in flight. It triggers at **logon, not
@@ -128,7 +158,7 @@ onto one file. It disables itself when the corpus is complete.
 
 ```powershell
 python Scripts/_transcribe_review.py --manifest work\manifest.tsv `
-    --transcripts work	ranscripts
+    --transcripts work\transcripts
 ```
 
 Mechanical, cheap, and it catches faults that are systematic rather than
@@ -208,6 +238,8 @@ Find wording in the extract; **confirm the page in the PDF** before citing.
 | Devanagari italic looks mangled in PDF | Nirmala UI has no italic face. `_convert_to_pdf.py` sets `font-synthesis-style: none`; keep it. |
 | Devanagari renders as tofu | No Devanagari system font. **Check a page of output, not just the exit code.** |
 | `vswhere` says nothing installed | Needs `-all` to see BuildTools-only machines. |
+| HIP build: `device kernel image is invalid` | An iGPU is visible as a second ROCm device with a different arch. `-dev N` does **not** help — ggml loads modules on every visible device. Set `HIP_VISIBLE_DEVICES` to the discrete card. |
+| HIP build: link fails on `__kmpc_fork_call` | ROCm for Windows ships no OpenMP runtime, but CMake's probe passes anyway. Build with `-DGGML_OPENMP=OFF`. |
 | `U+FFFD` in GPU output | whisper.cpp splits a multi-byte char across tokens. ~0.008% of text, both output formats, deterministic. Repair, do not re-run. |
 | "सब्सक्राइब" / "subscribe" in the text | Whisper injects YouTube caption boilerplate into noise. **Never spoken.** No decoder setting removes it; delete by hand. D11. |
 | Phrase repeats for 30s; low words/min | `whisper.cpp` default `--max-context -1` conditions the loop on itself. `-mc 0` is forced in the script; do not remove it. |
@@ -240,7 +272,7 @@ along, and the real difference was the context window. **Read the defaults.**
 
 ## Related
 
-- Programme log, decisions D1–D11: [TRANSCRIPTION-PROGRAM.md](../../../References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/TRANSCRIPTION-PROGRAM.md)
+- Programme log, decisions D1–D12: [TRANSCRIPTION-PROGRAM.md](../../../References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/TRANSCRIPTION-PROGRAM.md)
 - Folder conventions and evidential standing: [Nagraj-Recorded-Sessions/README.md](../../../References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/README.md)
 - Reference checks: [check-references](../check-references/SKILL.md)
 - PDF pipeline: [regenerate-study-pdf](../regenerate-study-pdf/SKILL.md), [AGENTS.md](../../../AGENTS.md) §3

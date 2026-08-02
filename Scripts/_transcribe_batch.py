@@ -9,8 +9,11 @@ References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/TRANSCRIPTION-PROGRAM.md.
 
 Two backends:
 
-  --backend gpu   whisper.cpp + Vulkan. ~5.5x realtime at 2 workers, no VAD.
-                  Needs a whisper.cpp build and a ggml model; see the skill.
+  --backend gpu   whisper.cpp + ROCm/HIP. ~5x realtime, no VAD. Needs the AMD
+                  HIP SDK and a whisper.cpp built with -DGGML_HIP=ON; see the
+                  skill. Set WHISPER_CPP_CLI to a Vulkan build to use that
+                  instead -- it measured marginally faster (D12) and needs no
+                  SDK, so it remains a sound fallback.
   --backend cpu   faster-whisper sequential, no VAD. ~0.2x realtime. Correct
                   but 28x slower — a fallback, not a plan.
 
@@ -23,15 +26,78 @@ from __future__ import annotations
 
 import argparse
 import concurrent.futures as cf
+import glob
 import io
 import os
+import re
 import subprocess
 import sys
 import time
 import wave
 
-WHISPER_CLI = os.environ.get("WHISPER_CPP_CLI", r"E:\Tools\whisper.cpp\build\bin\Release\whisper-cli.exe")
+WHISPER_CLI = os.environ.get("WHISPER_CPP_CLI", r"E:\Tools\whisper.cpp\build-hip\bin\whisper-cli.exe")
 GGML_MODEL = os.environ.get("WHISPER_CPP_MODEL", r"E:\Tools\whisper.cpp\models\ggml-large-v3.bin")
+
+_gpu_env_cache = None
+
+
+def rocm_root():
+    """Locate the HIP SDK. Returns None if this is not a ROCm build."""
+    p = os.environ.get("HIP_PATH")
+    if p and os.path.isdir(p):
+        return p.rstrip("\\/")
+    roots = sorted(glob.glob(r"C:\Program Files\AMD\ROCm\*"), reverse=True)
+    return roots[0] if roots else None
+
+
+def pick_hip_device(env):
+    """Choose the discrete GPU when more than one ROCm device is visible.
+
+    Necessary because ggml loads its kernel modules onto *every* visible ROCm
+    device, not just the one selected with -dev. On a Ryzen desktop the CPU's
+    integrated graphics shows up as a second device with a different
+    architecture, and a build targeting only the discrete card dies with
+    "device kernel image is invalid" on the first kernel. Hiding the iGPU is
+    the fix; -dev is not. See D12.
+
+    Heuristic is largest VRAM, because an iGPU reports a slice of system RAM
+    and the discrete card reports its own. Set HIP_VISIBLE_DEVICES yourself if
+    that is wrong for your machine.
+    """
+    try:
+        out = subprocess.run([WHISPER_CLI, "--help"], capture_output=True, text=True,
+                             encoding="utf-8", errors="replace", env=env, timeout=60)
+    except Exception:                                             # noqa: BLE001
+        return None
+    devs = re.findall(r"Device (\d+): (.+?),\s*(gfx\w+).*?VRAM:\s*(\d+)\s*MiB",
+                      (out.stdout or "") + (out.stderr or ""))
+    if len(devs) < 2:
+        return None
+    best = max(devs, key=lambda d: int(d[3]))
+    print(f"  {len(devs)} ROCm devices visible; using device {best[0]} "
+          f"({best[1]}, {best[2]}, {int(best[3])//1024} GB). "
+          f"Override with HIP_VISIBLE_DEVICES.", flush=True)
+    return best[0]
+
+
+def gpu_env():
+    """Environment for whisper-cli: ROCm on PATH, iGPU hidden. Computed once."""
+    global _gpu_env_cache
+    if _gpu_env_cache is not None:
+        return _gpu_env_cache
+    env = dict(os.environ)
+    root = rocm_root()
+    if root:
+        # hipblas.dll and rocBLAS's Tensile libraries live only under the SDK;
+        # only amdhip64 is copied to System32. Without this the process dies
+        # with 0xC0000135 (DLL not found) before printing anything useful.
+        env["PATH"] = os.path.join(root, "bin") + os.pathsep + env.get("PATH", "")
+    if "HIP_VISIBLE_DEVICES" not in env:
+        dev = pick_hip_device(env)
+        if dev is not None:
+            env["HIP_VISIBLE_DEVICES"] = dev
+    _gpu_env_cache = env
+    return env
 
 
 def read_manifest(path):
@@ -79,7 +145,8 @@ def run_gpu(wav, out_stem, beam):
     # condition_on_previous_text=False, which is why the CPU pass never looped.
     r = subprocess.run([WHISPER_CLI, "-m", GGML_MODEL, "-f", wav, "-l", "hi",
                         "-bs", str(beam), "-mc", "0", "-otxt", "-of", out_stem],
-                       capture_output=True, text=True, encoding="utf-8", errors="replace")
+                       capture_output=True, text=True, encoding="utf-8", errors="replace",
+                       env=gpu_env())
     return r.returncode == 0, (r.stderr or "")[-200:]
 
 
