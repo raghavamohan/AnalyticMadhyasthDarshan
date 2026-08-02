@@ -74,6 +74,8 @@ Windows wrappers: `.\Scripts\_add_study.ps1`, `.\Scripts\_remove_study.ps1`, `.\
 | `_test_pdf_to_md.py` | Round-trip and failure tests for PDF import |
 | `_ci_study_pr.py` | GitHub Actions study PR pipeline |
 | `_sync_agent_rules.py` | Sync AGENTS.md → `.cursor/rules/*.mdc`; `.agents/skills/` → `.cursor/skills/` |
+| `_transcribe_fetch.py` | Fetch audio for a transcription manifest (yt-dlp, audio-only, resumable) |
+| `_transcribe_batch.py` | Transcribe a manifest **without VAD** — GPU (whisper.cpp+Vulkan) or CPU fallback |
 
 PDF reference text is cached under `Scripts/_pdf_cache/` (gitignored, format `v2`). The cache rebuilds automatically when a PDF is newer than its cache file; empty extractions (e.g. scanned PDFs) are not cached. Run `cache sync` after downloading references or adding new PDFs under `References/`.
 
