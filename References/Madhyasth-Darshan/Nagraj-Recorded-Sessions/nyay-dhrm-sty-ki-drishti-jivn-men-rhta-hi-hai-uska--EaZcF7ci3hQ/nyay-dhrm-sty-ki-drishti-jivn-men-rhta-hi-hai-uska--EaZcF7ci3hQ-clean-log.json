@@ -1,0 +1,48 @@
+{
+  "boilerplate_hits": 3,
+  "boilerplate_spans": [
+    {
+      "start": 1938,
+      "end": 1948,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 6462,
+      "end": 6472,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 6478,
+      "end": 6488,
+      "text": "सब्सक्राइब"
+    }
+  ],
+  "repeat_collapses": [
+    {
+      "token": "बहुत",
+      "run": 11,
+      "at_word": 522
+    },
+    {
+      "token": "इंपोर्टेंट",
+      "run": 6,
+      "at_word": 1260
+    }
+  ],
+  "fffd_offsets": [
+    592,
+    1143
+  ],
+  "normalisations": [
+    {
+      "pattern": "साक्षात\\s*कार|सक्षात\\s*कर|साक्षातकार",
+      "replacement": "साक्षात्कार",
+      "count": 2
+    },
+    {
+      "pattern": "अध्येन|अध्यान|अधेन",
+      "replacement": "अध्ययन",
+      "count": 9
+    }
+  ]
+}

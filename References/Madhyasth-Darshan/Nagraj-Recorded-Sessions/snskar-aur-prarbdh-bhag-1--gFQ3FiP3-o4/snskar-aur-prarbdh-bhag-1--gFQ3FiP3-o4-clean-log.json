@@ -1,0 +1,43 @@
+{
+  "boilerplate_hits": 4,
+  "boilerplate_spans": [
+    {
+      "start": 3490,
+      "end": 3500,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 3771,
+      "end": 3781,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 4456,
+      "end": 4466,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 5146,
+      "end": 5156,
+      "text": "सब्सक्राइब"
+    }
+  ],
+  "repeat_collapses": [
+    {
+      "token": "अच्छा",
+      "run": 8,
+      "at_word": 855
+    }
+  ],
+  "fffd_offsets": [
+    4051,
+    4697
+  ],
+  "normalisations": [
+    {
+      "pattern": "वस्ता",
+      "replacement": "अवस्था",
+      "count": 2
+    }
+  ]
+}

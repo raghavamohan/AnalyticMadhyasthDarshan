@@ -1,6 +1,6 @@
 # Tier-1 raw ASR — staged corpus
 
-**Status:** staged as raw ASR only — **not promoted**. Do not cite in a released study until a session has been normalised, boilerplate-stripped, reliability-marked, and listened to. See [README.md](README.md) for evidential standing.
+**Status:** all 60 staged as raw ASR; **Layer-A cleaned** (`*-cleaned.txt` sidecars); **cohort 1 (8 sessions) working-promoted** to bilingual `.md` — still not citable in a released study until listened to. See [README.md](README.md) and [TERMINOLOGY.md](TERMINOLOGY.md).
 
 ## Provenance
 
@@ -24,11 +24,11 @@ Run: `python Scripts/_transcribe_review.py --manifest … --transcripts …`
 | `U+FFFD` | ~47 | **131 across 47 files** (D9 — repair on promote) |
 | Boilerplate | ~94 / 30 files | **354 across 54 files** (D11 — delete by hand) |
 
-**Density is fixed** — the old 31 wpm loop failure mode is gone. Files are still **not promotion-ready**: expected D11 boilerplate, D9 `U+FFFD`, and the severe consecutive-repeat cases below.
+**Density is fixed** — the old 31 wpm loop failure mode is gone. Layer A (`Scripts/_clean_tier1_raw_asr.py`) removed **354** boilerplate hits and collapsed **37** repeat runs across the 60 files; `U+FFFD` offsets are logged, not guessed. Cohort 1 working promotions: `LHmuCc4NveA`, `8WNTuXNtawg`, `kZ6qdNflDWA`, `Di8YkI5Olzo`, `BbfnTJtpQb8`, `QgqtqALvMLw`, `QA1WhtS2Gzo`, `MeFEslxQ1XU` (`Scripts/_promote_tier1_cohort.py`). The other **52** remain cleaned raw ASR only.
 
-### Severe consecutive loops (`maxrun` ≥ 15)
+### Severe consecutive loops (`maxrun` ≥ 15) — pre-clean review
 
-These need audio-checked repair before trust:
+These need audio-checked repair before trust (Layer A collapses runs ≥5; residual neighbourhoods stay `[U]` in promoted files):
 
 | Video ID | maxrun | top 3-gram | Title |
 |---|---|---|---|
@@ -42,7 +42,7 @@ These need audio-checked repair before trust:
 
 ## Index
 
-Each directory holds only the decoder dump `<Slug>--<videoId>-raw-asr.txt`. URL form: `https://youtu.be/<id>`.
+Each directory holds the decoder dump `<Slug>--<videoId>-raw-asr.txt` (unchanged audit trail), plus Layer-A sidecars `*-cleaned.txt` and `*-clean-log.json`. Cohort-1 directories also hold working-promoted `.md` / `.html` / `.pdf`. URL form: `https://youtu.be/<id>`.
 
 | Study | Duration | Directory | Title | URL | wpm | FFFD | boiler | maxrun |
 |---|---|---|---|---|---|---|---|---|

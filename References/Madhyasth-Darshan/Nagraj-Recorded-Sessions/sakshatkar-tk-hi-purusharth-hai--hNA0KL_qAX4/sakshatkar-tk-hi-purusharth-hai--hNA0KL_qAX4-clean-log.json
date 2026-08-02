@@ -1,0 +1,29 @@
+{
+  "boilerplate_hits": 1,
+  "boilerplate_spans": [
+    {
+      "start": 1572,
+      "end": 1582,
+      "text": "सब्सक्राइब"
+    }
+  ],
+  "repeat_collapses": [],
+  "fffd_offsets": [],
+  "normalisations": [
+    {
+      "pattern": "साक्षात\\s*कार|सक्षात\\s*कर|साक्षातकार",
+      "replacement": "साक्षात्कार",
+      "count": 5
+    },
+    {
+      "pattern": "अन्भव|अनुभव़",
+      "replacement": "अनुभव",
+      "count": 1
+    },
+    {
+      "pattern": "वस्तो",
+      "replacement": "वस्तु",
+      "count": 3
+    }
+  ]
+}

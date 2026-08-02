@@ -1,0 +1,21 @@
+{
+  "boilerplate_hits": 1,
+  "boilerplate_spans": [
+    {
+      "start": 3765,
+      "end": 3775,
+      "text": "सब्सक्राइब"
+    }
+  ],
+  "repeat_collapses": [],
+  "fffd_offsets": [
+    6643
+  ],
+  "normalisations": [
+    {
+      "pattern": "स्विकार",
+      "replacement": "स्वीकार",
+      "count": 1
+    }
+  ]
+}

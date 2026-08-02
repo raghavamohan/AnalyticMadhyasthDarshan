@@ -1,0 +1,81 @@
+{
+  "boilerplate_hits": 11,
+  "boilerplate_spans": [
+    {
+      "start": 1295,
+      "end": 1305,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 1342,
+      "end": 1352,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 1380,
+      "end": 1390,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 3646,
+      "end": 3656,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 3685,
+      "end": 3695,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 3778,
+      "end": 3788,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 6618,
+      "end": 6628,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 8139,
+      "end": 8149,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 8157,
+      "end": 8167,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 8347,
+      "end": 8354,
+      "text": "लाइक और"
+    },
+    {
+      "start": 8355,
+      "end": 8365,
+      "text": "सब्सक्राइब"
+    }
+  ],
+  "repeat_collapses": [],
+  "fffd_offsets": [
+    6237
+  ],
+  "normalisations": [
+    {
+      "pattern": "वस्तो",
+      "replacement": "वस्तु",
+      "count": 10
+    },
+    {
+      "pattern": "वस्ता",
+      "replacement": "अवस्था",
+      "count": 2
+    },
+    {
+      "pattern": "सहास्तित्व|सहअस्तित्व",
+      "replacement": "सह-अस्तित्व",
+      "count": 1
+    }
+  ]
+}
