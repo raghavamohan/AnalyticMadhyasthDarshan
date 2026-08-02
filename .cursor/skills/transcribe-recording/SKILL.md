@@ -115,8 +115,8 @@ If the box resets during long runs, register the auto-resume task once:
 
 ```powershell
 .\Scripts\_transcribe_autoresume.ps1 -Install `
-    -Manifest work\manifest.tsv -Audio workudio -Out work	ranscripts -Workers 1
-.\Scripts\_transcribe_autoresume.ps1 -Status      # task state + journal + recent resets
+    -Manifest work\manifest.tsv -Audio work\audio -Out work\transcripts -Workers 1
+.\Scripts\_transcribe_autoresume.ps1 -Status
 ```
 
 A reset then costs only the recording in flight. It triggers at **logon, not
@@ -128,7 +128,7 @@ onto one file. It disables itself when the corpus is complete.
 
 ```powershell
 python Scripts/_transcribe_review.py --manifest work\manifest.tsv `
-    --transcripts work	ranscripts
+    --transcripts work\transcripts
 ```
 
 Mechanical, cheap, and it catches faults that are systematic rather than
