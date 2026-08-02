@@ -134,7 +134,7 @@ D7 concluded there was no fast complete mode. **There is one — it is just not 
 
 *Beam size 5, not greedy.* `-bs 1` came out **slower** (45 s against 42 s) and produced 14 more words; neither output shows repetition (longest same-token run is 2 in both), so the extra words are real rather than a loop. Beam 5 being simultaneously faster and the higher-quality setting leaves greedy with no case.
 
-*Two concurrent workers, not four.* Over a fixed 720 s workload: 1 worker 3.81×, **2 workers 5.52×**, 4 workers 5.82×. The second worker fills the GPU's idle gaps during sequential token generation; by four the device is saturated and jobs merely queue. N=2 takes 95% of the available gain at half the VRAM and half the blast radius if a worker dies.
+*Two concurrent workers, not four.* Over a fixed 720 s workload: 1 worker 3.81×, **2 workers 5.52×**, 4 workers 5.82×. The second worker fills the GPU's idle gaps during sequential token generation; by four the device is saturated and jobs merely queue. N=2 takes 95% of the available gain at half the blast radius if a worker dies. (An earlier version of this also cited VRAM; see the hardware section — VRAM was never the constraint.)
 
 **Consequences.** Tier-1's 23.4 h re-runs in ~4.2 h against ~117 h on CPU; the full 176.7 h channel becomes ~32 h rather than ~880 h. Phase 2 moves from implausible to an unattended weekend, and the VAD-lossy Phase 1 corpus is superseded rather than patched.
 
@@ -169,6 +169,30 @@ Deliberately **not** committed to this repository — it is a throwaway environm
 
 ---
 
+## Hardware, and where the bottleneck actually is
+
+The machine this programme runs on, and what each resource was doing mid-GPU-run (2026-08-02, 24 of 60 files in):
+
+| Resource | Spec | In use during the GPU run |
+|---|---|---|
+| CPU | Ryzen 9 7950X, 16c/32t | **49%** — roughly half idle |
+| RAM | 63.2 GB | 17.3 GB used, **45.9 GB free** |
+| GPU | Radeon PRO W7900, 45 GB usable | both compute queues saturated |
+| VRAM | 45 GB | **3.94 GB per worker, 7.9 GB for the pair**; ~31 GB free |
+| Disk | 4 SSDs (3 NVMe, 1 SATA) | **0.1% busy, sub-millisecond latency** |
+| Free space | `C:` 422 GB · `E:` 824 GB | corpus + WAV ≈ 4 GB |
+
+**Only the GPU is saturated. Nothing else is close.** For contrast, the CPU pipeline ran at 97% CPU; the GPU run leaves half the machine idle.
+
+**Disk is not and will not be a bottleneck.** Each worker reads its WAV once at startup — a 30-minute recording is ~58 MB, read in a fraction of a second — then computes for 6–10 minutes and writes ~50 KB of text. The only I/O-heavy moment is the one-off WAV conversion at the start of a batch (~2.7 GB for Tier-1), which takes a couple of minutes. The `wav/` directory is disposable and can be deleted after a run.
+
+**This corrects part of D8's reasoning.** N=2 was chosen partly to conserve VRAM. VRAM was never the constraint — two workers use 7.9 GB of 45, and four would fit trivially at ~16 GB. The decision stands, but **on compute saturation alone**: the GPU's queues are already full at two workers, so more workers only queue. The ~31 GB of headroom does mean a larger model or higher-precision inference would fit comfortably, should either ever look worthwhile.
+
+**Phase 2 sizing.** The full 176.7 h channel needs roughly 10 GB of source audio and ~20 GB of intermediate WAV — negligible against 824 GB free on `E:`.
+
+**Temperatures could not be read.** `MSAcpi_ThermalZoneTemperature` returns "Not supported" on this board (normal for desktop Ryzen), AMD exposes no thermal WMI class, and no vendor monitoring tool is installed. Thermal behaviour under multi-hour GPU load is therefore **unmeasured** — if that matters for longer Phase 2 runs, install HWiNFO64 or LibreHardwareMonitor first.
+
+---
 ## Phase 1 status
 
 **Scope:** 60 recordings, 23.43 h. **Fetch:** in progress. **Transcription:** chained to start on fetch completion.
