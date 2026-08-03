@@ -26,7 +26,8 @@ except ImportError:  # pragma: no cover
     GoogleTranslator = None  # type: ignore
 
 BASE = Path(__file__).resolve().parent.parent
-SESSIONS = BASE / "References" / "Madhyasth-Darshan" / "Nagraj-Recorded-Sessions"
+# Unpromoted Tier-1 corpus lives outside the repo.
+SESSIONS = Path(r"E:\MD-Transcription\Nagraj-Recorded-Sessions")
 TERMINOLOGY = SESSIONS / "TERMINOLOGY.md"
 
 COHORT = {

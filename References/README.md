@@ -4,7 +4,7 @@ Local copies of source texts cited across `Studies/`. See [MANIFEST.md](MANIFEST
 
 **What we store locally**
 
-- **Madhyasth Darshan** primary texts (MVD, SB, JV, AVD, JVD, KD Hindi source) and the MD mapping spreadsheet; full-book working English translation (front matter + ch. 1–3) under `Madhyasth-Darshan/KD-Karm-Darshan-English/`; working transcripts and translations of **recorded sessions** under `Madhyasth-Darshan/Nagraj-Recorded-Sessions/` (machine-transcribed oral material — weaker evidence than the printed texts; recordings themselves stay external; see that folder's README before citing).
+- **Madhyasth Darshan** primary texts (MVD, SB, JV, AVD, JVD, KD Hindi source) and the MD mapping spreadsheet; full-book working English translation (front matter + ch. 1–3) under `Madhyasth-Darshan/KD-Karm-Darshan-English/`; the promoted **2010 Sakshatkar** recorded-session transcript under `Madhyasth-Darshan/Nagraj-Recorded-Sessions/` (machine-transcribed oral material — weaker evidence than the printed texts; recordings stay external; see that folder's README before citing).
 - **Advaita Vedanta** translations under `Advaita-Vedanta/`.
 - **Comparative philosophy, Indian aesthetics, and religious ethics** (AV, SV, SEP snapshots, rasa material) under `Comparative-Philosophy/`.
 - **Open-access science papers** (Chalmers 1995, Nagel 1974, Strawson 2006, Crockett 2013, Ashtekar and Singh 2011, Carroll 2010, Friston 2010, Guth 2007) under `Science/`.
