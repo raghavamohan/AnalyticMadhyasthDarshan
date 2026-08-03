@@ -1,0 +1,28 @@
+{
+  "boilerplate_hits": 2,
+  "boilerplate_spans": [
+    {
+      "start": 2431,
+      "end": 2441,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 6732,
+      "end": 6742,
+      "text": "सब्सक्राइब"
+    }
+  ],
+  "repeat_collapses": [],
+  "fffd_offsets": [
+    202,
+    6001,
+    9685
+  ],
+  "normalisations": [
+    {
+      "pattern": "वस्ता",
+      "replacement": "अवस्था",
+      "count": 6
+    }
+  ]
+}

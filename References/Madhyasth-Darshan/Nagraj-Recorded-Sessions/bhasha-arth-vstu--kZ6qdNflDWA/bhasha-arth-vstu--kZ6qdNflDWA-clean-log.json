@@ -1,0 +1,82 @@
+{
+  "boilerplate_hits": 7,
+  "boilerplate_spans": [
+    {
+      "start": 1497,
+      "end": 1507,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 10190,
+      "end": 10200,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 12203,
+      "end": 12213,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 12230,
+      "end": 12240,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 12958,
+      "end": 12968,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 13048,
+      "end": 13058,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 13137,
+      "end": 13147,
+      "text": "सब्सक्राइब"
+    }
+  ],
+  "repeat_collapses": [],
+  "fffd_offsets": [
+    2370,
+    2997,
+    3374,
+    4746,
+    6148,
+    7411,
+    11810
+  ],
+  "normalisations": [
+    {
+      "pattern": "साक्षात\\s*कार|सक्षात\\s*कर|साक्षातकार",
+      "replacement": "साक्षात्कार",
+      "count": 13
+    },
+    {
+      "pattern": "अन्भव|अनुभव़",
+      "replacement": "अनुभव",
+      "count": 3
+    },
+    {
+      "pattern": "अध्येन|अध्यान|अधेन",
+      "replacement": "अध्ययन",
+      "count": 11
+    },
+    {
+      "pattern": "स्विकार",
+      "replacement": "स्वीकार",
+      "count": 1
+    },
+    {
+      "pattern": "वस्तो",
+      "replacement": "वस्तु",
+      "count": 1
+    },
+    {
+      "pattern": "वस्ता",
+      "replacement": "अवस्था",
+      "count": 2
+    }
+  ]
+}

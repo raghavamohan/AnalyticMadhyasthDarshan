@@ -1,0 +1,47 @@
+{
+  "boilerplate_hits": 2,
+  "boilerplate_spans": [
+    {
+      "start": 6566,
+      "end": 6576,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 6776,
+      "end": 6786,
+      "text": "सब्सक्राइब"
+    }
+  ],
+  "repeat_collapses": [],
+  "fffd_offsets": [
+    573,
+    2716
+  ],
+  "normalisations": [
+    {
+      "pattern": "अन्भव|अनुभव़",
+      "replacement": "अनुभव",
+      "count": 3
+    },
+    {
+      "pattern": "अध्येन|अध्यान|अधेन",
+      "replacement": "अध्ययन",
+      "count": 9
+    },
+    {
+      "pattern": "स्विकार",
+      "replacement": "स्वीकार",
+      "count": 3
+    },
+    {
+      "pattern": "वस्तो",
+      "replacement": "वस्तु",
+      "count": 4
+    },
+    {
+      "pattern": "ज्ञानगोचर|ग्‍यानगोचर",
+      "replacement": "ज्ञान-गोचर",
+      "count": 6
+    }
+  ]
+}

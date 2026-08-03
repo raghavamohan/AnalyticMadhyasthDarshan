@@ -1,0 +1,61 @@
+{
+  "boilerplate_hits": 8,
+  "boilerplate_spans": [
+    {
+      "start": 940,
+      "end": 950,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 1628,
+      "end": 1638,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 3634,
+      "end": 3644,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 4027,
+      "end": 4037,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 7664,
+      "end": 7674,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 7684,
+      "end": 7694,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 8140,
+      "end": 8150,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 8162,
+      "end": 8172,
+      "text": "सब्सक्राइब"
+    }
+  ],
+  "repeat_collapses": [],
+  "fffd_offsets": [
+    427
+  ],
+  "normalisations": [
+    {
+      "pattern": "जिग्यासा",
+      "replacement": "जिज्ञासा",
+      "count": 1
+    },
+    {
+      "pattern": "वस्ता",
+      "replacement": "अवस्था",
+      "count": 1
+    }
+  ]
+}
