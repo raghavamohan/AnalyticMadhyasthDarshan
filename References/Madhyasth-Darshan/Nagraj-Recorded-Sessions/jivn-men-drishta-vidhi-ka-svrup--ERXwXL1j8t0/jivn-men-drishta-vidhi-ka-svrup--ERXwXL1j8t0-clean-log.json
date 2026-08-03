@@ -1,0 +1,61 @@
+{
+  "boilerplate_hits": 1,
+  "boilerplate_spans": [
+    {
+      "start": 3844,
+      "end": 3854,
+      "text": "सब्सक्राइब"
+    }
+  ],
+  "repeat_collapses": [
+    {
+      "token": "बहुत",
+      "run": 8,
+      "at_word": 3028
+    },
+    {
+      "token": "अवधारणा",
+      "run": 6,
+      "at_word": 3069
+    }
+  ],
+  "fffd_offsets": [
+    2923,
+    6838,
+    10270,
+    10761,
+    13525
+  ],
+  "normalisations": [
+    {
+      "pattern": "अन्भव|अनुभव़",
+      "replacement": "अनुभव",
+      "count": 12
+    },
+    {
+      "pattern": "अध्येन|अध्यान|अधेन",
+      "replacement": "अध्ययन",
+      "count": 13
+    },
+    {
+      "pattern": "स्विकार",
+      "replacement": "स्वीकार",
+      "count": 1
+    },
+    {
+      "pattern": "वस्तो",
+      "replacement": "वस्तु",
+      "count": 1
+    },
+    {
+      "pattern": "वस्ता",
+      "replacement": "अवस्था",
+      "count": 6
+    },
+    {
+      "pattern": "सहास्तित्व|सहअस्तित्व",
+      "replacement": "सह-अस्तित्व",
+      "count": 6
+    }
+  ]
+}

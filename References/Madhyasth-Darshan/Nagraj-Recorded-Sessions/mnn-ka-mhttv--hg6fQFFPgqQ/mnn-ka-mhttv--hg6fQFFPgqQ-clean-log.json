@@ -1,0 +1,60 @@
+{
+  "boilerplate_hits": 1,
+  "boilerplate_spans": [
+    {
+      "start": 3016,
+      "end": 3026,
+      "text": "सब्सक्राइब"
+    }
+  ],
+  "repeat_collapses": [
+    {
+      "token": "वहीं",
+      "run": 5,
+      "at_word": 3314
+    }
+  ],
+  "fffd_offsets": [
+    1719,
+    3151,
+    17272,
+    17875
+  ],
+  "normalisations": [
+    {
+      "pattern": "साक्षात\\s*कार|सक्षात\\s*कर|साक्षातकार",
+      "replacement": "साक्षात्कार",
+      "count": 26
+    },
+    {
+      "pattern": "अन्भव|अनुभव़",
+      "replacement": "अनुभव",
+      "count": 3
+    },
+    {
+      "pattern": "अध्येन|अध्यान|अधेन",
+      "replacement": "अध्ययन",
+      "count": 17
+    },
+    {
+      "pattern": "स्विकार",
+      "replacement": "स्वीकार",
+      "count": 5
+    },
+    {
+      "pattern": "सुभाव",
+      "replacement": "स्वभाव",
+      "count": 6
+    },
+    {
+      "pattern": "वस्ता",
+      "replacement": "अवस्था",
+      "count": 5
+    },
+    {
+      "pattern": "सहास्तित्व|सहअस्तित्व",
+      "replacement": "सह-अस्तित्व",
+      "count": 1
+    }
+  ]
+}

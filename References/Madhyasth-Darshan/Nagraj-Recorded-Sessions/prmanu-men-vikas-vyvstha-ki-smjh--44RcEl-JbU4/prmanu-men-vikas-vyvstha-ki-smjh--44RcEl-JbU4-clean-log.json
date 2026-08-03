@@ -1,0 +1,27 @@
+{
+  "boilerplate_hits": 1,
+  "boilerplate_spans": [
+    {
+      "start": 7406,
+      "end": 7416,
+      "text": "सब्सक्राइब"
+    }
+  ],
+  "repeat_collapses": [],
+  "fffd_offsets": [
+    2746,
+    4670
+  ],
+  "normalisations": [
+    {
+      "pattern": "साक्षात\\s*कार|सक्षात\\s*कर|साक्षातकार",
+      "replacement": "साक्षात्कार",
+      "count": 1
+    },
+    {
+      "pattern": "वस्ता",
+      "replacement": "अवस्था",
+      "count": 5
+    }
+  ]
+}

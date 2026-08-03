@@ -1,0 +1,46 @@
+{
+  "boilerplate_hits": 3,
+  "boilerplate_spans": [
+    {
+      "start": 5267,
+      "end": 5277,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 12833,
+      "end": 12843,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 13154,
+      "end": 13164,
+      "text": "सब्सक्राइब"
+    }
+  ],
+  "repeat_collapses": [],
+  "fffd_offsets": [
+    13868
+  ],
+  "normalisations": [
+    {
+      "pattern": "अध्येन|अध्यान|अधेन",
+      "replacement": "अध्ययन",
+      "count": 6
+    },
+    {
+      "pattern": "वस्तो",
+      "replacement": "वस्तु",
+      "count": 1
+    },
+    {
+      "pattern": "वस्ता",
+      "replacement": "अवस्था",
+      "count": 7
+    },
+    {
+      "pattern": "सहास्तित्व|सहअस्तित्व",
+      "replacement": "सह-अस्तित्व",
+      "count": 1
+    }
+  ]
+}

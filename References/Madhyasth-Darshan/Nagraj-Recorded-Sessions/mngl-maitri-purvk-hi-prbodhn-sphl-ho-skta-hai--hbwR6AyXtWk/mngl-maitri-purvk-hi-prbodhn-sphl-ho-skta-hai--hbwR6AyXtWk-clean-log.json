@@ -1,0 +1,65 @@
+{
+  "boilerplate_hits": 7,
+  "boilerplate_spans": [
+    {
+      "start": 3652,
+      "end": 3662,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 8858,
+      "end": 8868,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 8889,
+      "end": 8899,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 9054,
+      "end": 9064,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 10363,
+      "end": 10373,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 13115,
+      "end": 13125,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 13150,
+      "end": 13160,
+      "text": "सब्सक्राइब"
+    }
+  ],
+  "repeat_collapses": [
+    {
+      "token": "व्यापार",
+      "run": 11,
+      "at_word": 2210
+    }
+  ],
+  "fffd_offsets": [],
+  "normalisations": [
+    {
+      "pattern": "अन्भव|अनुभव़",
+      "replacement": "अनुभव",
+      "count": 13
+    },
+    {
+      "pattern": "स्विकार",
+      "replacement": "स्वीकार",
+      "count": 2
+    },
+    {
+      "pattern": "वस्तो",
+      "replacement": "वस्तु",
+      "count": 1
+    }
+  ]
+}

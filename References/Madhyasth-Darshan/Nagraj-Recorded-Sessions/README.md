@@ -27,25 +27,39 @@ Each recording gets its own directory holding all of its artefacts:
 Nagraj-Recorded-Sessions/
 ├── README.md                                  ← this file: conventions
 ├── TRANSCRIPTION-PROGRAM.md                   ← the running programme log
-├── RAW-ASR-TIER1.md                           ← Tier-1 raw-ASR index (not promoted)
-├── <Slug>/                                    ← promoted session (md/html/pdf + raw ASR)
-└── <Slug>--<videoId>/                         ← staged raw ASR only
-    └── <Slug>--<videoId>-raw-asr.txt
+├── TERMINOLOGY.md                             ← shared MD-Mapping / MVD·SB·JV English
+├── RAW-ASR-TIER1.md                           ← Tier-1 index (52 raw/cleaned; 8 cohort)
+├── <Slug>/                                    ← legacy promoted session (2010)
+└── <Slug>--<videoId>/                         ← Tier-1 (raw + Layer-A; cohort also md/pdf)
+    ├── <Slug>--<videoId>-raw-asr.txt          ← decoder dump (never overwritten)
+    ├── <Slug>--<videoId>-cleaned.txt          ← Layer-A sidecar
+    ├── <Slug>--<videoId>-clean-log.json
+    └── <Slug>--<videoId>.md|.html|.pdf        ← cohort-1 working promotion only
 ```
 
 **Append the video ID to the directory name.** Slug-only names collide on this channel, and not rarely: *प्रत्यावर्तन - परावर्तन* exists twice under different IDs, and *Jeevan Vidya - Madhyasth Darshan* is the title of roughly ten separate uploads. The ID is the only stable identifier. The first transcript predates this rule and keeps its plain slug (`Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak`, video `gIvVme-Sa5s`); everything added from 2026-08-01 onward carries the ID.
 
 ## Contents
 
-### Promoted (citable after listening)
+### Promoted / working-promoted (listen before citing)
 
-| Session | Date, place | Duration | Subject | Files |
-|---|---|---|---|---|
-| *Sakshatkar – Bodh – Anubhav – Praman* | Jan 2010, Amarkantak (*Anubhav Shivir*) | 45:00 | The four-stage cognitive sequence; *samadhi* and what was not found in it; study as the general method | [transcript + translation](Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.md) · [PDF](Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.pdf) (34 pp.) · [raw ASR](Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-raw-asr.txt) |
+| Session | Duration | Subject | Files |
+|---|---|---|---|
+| *Sakshatkar – Bodh – Anubhav – Praman* (2010 Amarkantak) | 45:00 | Four-stage cognitive sequence | [md](Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.md) · [PDF](Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.pdf) · [raw](Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-raw-asr.txt) |
+| *Sakshatkar – Bodh – Anubhav* (`LHmuCc4NveA`) | 1:30:20 | Same theme (Tier-1 cohort 1, working) | [md](sakshatkar-bodh-anubhav--LHmuCc4NveA/sakshatkar-bodh-anubhav--LHmuCc4NveA.md) · [PDF](sakshatkar-bodh-anubhav--LHmuCc4NveA/sakshatkar-bodh-anubhav--LHmuCc4NveA.pdf) · [raw](sakshatkar-bodh-anubhav--LHmuCc4NveA/sakshatkar-bodh-anubhav--LHmuCc4NveA-raw-asr.txt) |
+| *न्याय – धर्म – सत्य* (`8WNTuXNtawg`) | 56:22 | Justice–dharma–truth (cohort 1) | [md](nyay-dhrm-sty--8WNTuXNtawg/nyay-dhrm-sty--8WNTuXNtawg.md) · [PDF](nyay-dhrm-sty--8WNTuXNtawg/nyay-dhrm-sty--8WNTuXNtawg.pdf) · [raw](nyay-dhrm-sty--8WNTuXNtawg/nyay-dhrm-sty--8WNTuXNtawg-raw-asr.txt) |
+| *भाषा – अर्थ – वस्तु* (`kZ6qdNflDWA`) | 36:20 | Language–meaning–*vastu* (cohort 1) | [md](bhasha-arth-vstu--kZ6qdNflDWA/bhasha-arth-vstu--kZ6qdNflDWA.md) · [PDF](bhasha-arth-vstu--kZ6qdNflDWA/bhasha-arth-vstu--kZ6qdNflDWA.pdf) · [raw](bhasha-arth-vstu--kZ6qdNflDWA/bhasha-arth-vstu--kZ6qdNflDWA-raw-asr.txt) |
+| *समाधि-संयम / गठनपूर्णता…* (`Di8YkI5Olzo`) | 44:29 | Completeness exploration (cohort 1) | [md](smadhi-snym-purvk-gthnpurnta-kriyapurnta-aachrn-pu--Di8YkI5Olzo/smadhi-snym-purvk-gthnpurnta-kriyapurnta-aachrn-pu--Di8YkI5Olzo.md) · [PDF](smadhi-snym-purvk-gthnpurnta-kriyapurnta-aachrn-pu--Di8YkI5Olzo/smadhi-snym-purvk-gthnpurnta-kriyapurnta-aachrn-pu--Di8YkI5Olzo.pdf) · [raw](smadhi-snym-purvk-gthnpurnta-kriyapurnta-aachrn-pu--Di8YkI5Olzo/smadhi-snym-purvk-gthnpurnta-kriyapurnta-aachrn-pu--Di8YkI5Olzo-raw-asr.txt) |
+| *स्वत्व – स्वतंत्रता – स्वराज्य* (`BbfnTJtpQb8`) | 1:02:30 | Selfhood–freedom–self-rule (cohort 1) | [md](svtv-svtntrta-svrajy--BbfnTJtpQb8/svtv-svtntrta-svrajy--BbfnTJtpQb8.md) · [PDF](svtv-svtntrta-svrajy--BbfnTJtpQb8/svtv-svtntrta-svrajy--BbfnTJtpQb8.pdf) · [raw](svtv-svtntrta-svrajy--BbfnTJtpQb8/svtv-svtntrta-svrajy--BbfnTJtpQb8-raw-asr.txt) |
+| *अनुसंधान और शोध* (`QgqtqALvMLw`) | 53:05 | Exploration and research (cohort 1) | [md](anusndhan-aur-shodh--QgqtqALvMLw/anusndhan-aur-shodh--QgqtqALvMLw.md) · [PDF](anusndhan-aur-shodh--QgqtqALvMLw/anusndhan-aur-shodh--QgqtqALvMLw.pdf) · [raw](anusndhan-aur-shodh--QgqtqALvMLw/anusndhan-aur-shodh--QgqtqALvMLw-raw-asr.txt) |
+| *पुनः अनुसंधान…* (`QA1WhtS2Gzo`) | 36:12 | Need for further exploration (cohort 1; severe loop cleaned) | [md](punah-anusandhan-ya-adhyayan-kee-aavashyakta--QA1WhtS2Gzo/punah-anusandhan-ya-adhyayan-kee-aavashyakta--QA1WhtS2Gzo.md) · [PDF](punah-anusandhan-ya-adhyayan-kee-aavashyakta--QA1WhtS2Gzo/punah-anusandhan-ya-adhyayan-kee-aavashyakta--QA1WhtS2Gzo.pdf) · [raw](punah-anusandhan-ya-adhyayan-kee-aavashyakta--QA1WhtS2Gzo/punah-anusandhan-ya-adhyayan-kee-aavashyakta--QA1WhtS2Gzo-raw-asr.txt) |
+| *साम्य ऊर्जा – कार्य ऊर्जा* (`MeFEslxQ1XU`) | 18:14 | *Saamya* / activity energy (cohort 1; severe loop cleaned) | [md](samy-uurja-kary-uurja--MeFEslxQ1XU/samy-uurja-kary-uurja--MeFEslxQ1XU.md) · [PDF](samy-uurja-kary-uurja--MeFEslxQ1XU/samy-uurja-kary-uurja--MeFEslxQ1XU.pdf) · [raw](samy-uurja-kary-uurja--MeFEslxQ1XU/samy-uurja-kary-uurja--MeFEslxQ1XU-raw-asr.txt) |
 
-### Tier-1 raw ASR (staged — not promoted)
+Shared English authorities: [`TERMINOLOGY.md`](TERMINOLOGY.md). Cohort-1 English is **working MT** with those terms protected — post-edit before quoting.
 
-Sixty further recordings from Rakesh Gupta's channel are staged under this folder as **decoder dumps only** — one directory each, `<Slug>--<videoId>/<Slug>--<videoId>-raw-asr.txt`. They are **not** normalised, translated, or reliability-marked, and must **not** be cited in a released study until promoted. Index, provenance, and mechanical review: [`RAW-ASR-TIER1.md`](RAW-ASR-TIER1.md). Programme log: [`TRANSCRIPTION-PROGRAM.md`](TRANSCRIPTION-PROGRAM.md).
+### Tier-1 raw ASR (52 still not promoted)
+
+Sixty recordings were staged; eight are working-promoted above. The remaining **52** keep `<Slug>--<videoId>-raw-asr.txt` plus Layer-A `*-cleaned.txt` sidecars. Index and review: [`RAW-ASR-TIER1.md`](RAW-ASR-TIER1.md). Programme log: [`TRANSCRIPTION-PROGRAM.md`](TRANSCRIPTION-PROGRAM.md).
 
 The `.md` is the source of truth; `.html` and `.pdf` are generated. Regenerate with the sanctioned pipeline (AGENTS.md §3 — never pandoc or an ad-hoc converter):
 

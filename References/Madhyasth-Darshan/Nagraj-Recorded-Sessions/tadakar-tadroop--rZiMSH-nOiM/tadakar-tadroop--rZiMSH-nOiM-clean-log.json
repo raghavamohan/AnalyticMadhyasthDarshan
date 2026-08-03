@@ -1,0 +1,66 @@
+{
+  "boilerplate_hits": 4,
+  "boilerplate_spans": [
+    {
+      "start": 3131,
+      "end": 3141,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 8535,
+      "end": 8545,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 8563,
+      "end": 8573,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 8588,
+      "end": 8598,
+      "text": "सब्सक्राइब"
+    }
+  ],
+  "repeat_collapses": [],
+  "fffd_offsets": [
+    3129
+  ],
+  "normalisations": [
+    {
+      "pattern": "अन्भव|अनुभव़",
+      "replacement": "अनुभव",
+      "count": 5
+    },
+    {
+      "pattern": "अध्येन|अध्यान|अधेन",
+      "replacement": "अध्ययन",
+      "count": 20
+    },
+    {
+      "pattern": "वस्तो",
+      "replacement": "वस्तु",
+      "count": 1
+    },
+    {
+      "pattern": "दृष्टापत|दर्श्टापद|दर्श्टा",
+      "replacement": "दृष्टापद",
+      "count": 1
+    },
+    {
+      "pattern": "जिग्यासा",
+      "replacement": "जिज्ञासा",
+      "count": 1
+    },
+    {
+      "pattern": "वस्ता",
+      "replacement": "अवस्था",
+      "count": 4
+    },
+    {
+      "pattern": "सहास्तित्व|सहअस्तित्व",
+      "replacement": "सह-अस्तित्व",
+      "count": 1
+    }
+  ]
+}

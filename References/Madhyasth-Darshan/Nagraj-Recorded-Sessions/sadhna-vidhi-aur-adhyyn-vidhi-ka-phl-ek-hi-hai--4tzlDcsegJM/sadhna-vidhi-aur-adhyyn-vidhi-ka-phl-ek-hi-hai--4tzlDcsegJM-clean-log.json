@@ -1,0 +1,73 @@
+{
+  "boilerplate_hits": 7,
+  "boilerplate_spans": [
+    {
+      "start": 12630,
+      "end": 12640,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 12676,
+      "end": 12686,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 13676,
+      "end": 13686,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 13888,
+      "end": 13898,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 13908,
+      "end": 13918,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 13928,
+      "end": 13938,
+      "text": "सब्सक्राइब"
+    },
+    {
+      "start": 14020,
+      "end": 14030,
+      "text": "सब्सक्राइब"
+    }
+  ],
+  "repeat_collapses": [
+    {
+      "token": "अच्छे",
+      "run": 5,
+      "at_word": 3113
+    }
+  ],
+  "fffd_offsets": [
+    2560,
+    8478
+  ],
+  "normalisations": [
+    {
+      "pattern": "साक्षात\\s*कार|सक्षात\\s*कर|साक्षातकार",
+      "replacement": "साक्षात्कार",
+      "count": 9
+    },
+    {
+      "pattern": "अध्येन|अध्यान|अधेन",
+      "replacement": "अध्ययन",
+      "count": 10
+    },
+    {
+      "pattern": "स्विकार",
+      "replacement": "स्वीकार",
+      "count": 1
+    },
+    {
+      "pattern": "समाधी",
+      "replacement": "समाधि",
+      "count": 1
+    }
+  ]
+}
