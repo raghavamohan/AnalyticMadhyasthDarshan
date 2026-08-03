@@ -14,7 +14,7 @@ Fixes (deterministic):
   4. Context-free ASR normalisations from the 2010 Conventions list
 
     python Scripts/_clean_tier1_raw_asr.py
-    python Scripts/_clean_tier1_raw_asr.py --root References/Madhyasth-Darshan/Nagraj-Recorded-Sessions
+    python Scripts/_clean_tier1_raw_asr.py --root E:\\MD-Transcription\\Nagraj-Recorded-Sessions
 """
 from __future__ import annotations
 
@@ -28,7 +28,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _transcribe_review import BOILERPLATE  # noqa: E402
 
 BASE = Path(__file__).resolve().parent.parent
-DEFAULT_ROOT = BASE / "References" / "Madhyasth-Darshan" / "Nagraj-Recorded-Sessions"
+# Unpromoted Tier-1 corpus lives outside the repo (promoted 2010 session stays in References).
+DEFAULT_ROOT = Path(r"E:\MD-Transcription\Nagraj-Recorded-Sessions")
 REPEAT_N = 5
 
 # Context-free only — same list as the 2010 session Conventions (unambiguous).

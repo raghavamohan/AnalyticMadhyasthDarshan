@@ -6,6 +6,8 @@ Transcripts of **recorded talks and dialogues** with Shri A. Nagraj, with workin
 
 Oral material. Nagraj taught in dialogue for decades, and recordings survive that state mechanism the printed books leave implicit. Where a session bears on a study's argument, it is transcribed here so the study can cite something stable instead of a video timestamp.
 
+**Only promoted References artefacts live in this folder.** Unpromoted Tier-1 ASR and working cohort drafts are kept outside the repository at `E:\MD-Transcription\Nagraj-Recorded-Sessions\` (see that folder's README and [`TRANSCRIPTION-PROGRAM.md`](TRANSCRIPTION-PROGRAM.md)).
+
 ## Standing as evidence — the constraint that governs this folder
 
 Every file here is **two removes from the source**: a machine transcription of speech, then a working translation of that transcription. Neither step has been checked by a Hindi speaker against the audio unless a file says so explicitly.
@@ -19,47 +21,24 @@ Consequences, and they are not optional:
 
 Studies citing this material should attribute it as a **recorded session with date and timestamp**, never as though it were MVD/JV/KD, and should say in an Editorial Note that the source is oral and machine-transcribed.
 
-## One directory per recording
-
-Each recording gets its own directory holding all of its artefacts:
+## Layout
 
 ```
 Nagraj-Recorded-Sessions/
 ├── README.md                                  ← this file: conventions
-├── TRANSCRIPTION-PROGRAM.md                   ← the running programme log
-├── TERMINOLOGY.md                             ← shared MD-Mapping / MVD·SB·JV English
-├── RAW-ASR-TIER1.md                           ← Tier-1 index (52 raw/cleaned; 8 cohort)
-├── <Slug>/                                    ← legacy promoted session (2010)
-└── <Slug>--<videoId>/                         ← Tier-1 (raw + Layer-A; cohort also md/pdf)
-    ├── <Slug>--<videoId>-raw-asr.txt          ← decoder dump (never overwritten)
-    ├── <Slug>--<videoId>-cleaned.txt          ← Layer-A sidecar
-    ├── <Slug>--<videoId>-clean-log.json
-    └── <Slug>--<videoId>.md|.html|.pdf        ← cohort-1 working promotion only
+├── TRANSCRIPTION-PROGRAM.md                   ← programme log (D1–D12)
+└── Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/
+    ├── …-2010-Amarkantak.md|.html|.pdf
+    └── …-2010-raw-asr.txt
 ```
 
-**Append the video ID to the directory name.** Slug-only names collide on this channel, and not rarely: *प्रत्यावर्तन - परावर्तन* exists twice under different IDs, and *Jeevan Vidya - Madhyasth Darshan* is the title of roughly ten separate uploads. The ID is the only stable identifier. The first transcript predates this rule and keeps its plain slug (`Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak`, video `gIvVme-Sa5s`); everything added from 2026-08-01 onward carries the ID.
+**Append the video ID to the directory name** for any new session. Slug-only names collide on this channel. The 2010 transcript predates that rule and keeps its plain slug (`Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak`, video `gIvVme-Sa5s`).
 
 ## Contents
-
-### Promoted / working-promoted (listen before citing)
 
 | Session | Duration | Subject | Files |
 |---|---|---|---|
 | *Sakshatkar – Bodh – Anubhav – Praman* (2010 Amarkantak) | 45:00 | Four-stage cognitive sequence | [md](Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.md) · [PDF](Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.pdf) · [raw](Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-raw-asr.txt) |
-| *Sakshatkar – Bodh – Anubhav* (`LHmuCc4NveA`) | 1:30:20 | Same theme (Tier-1 cohort 1, working) | [md](sakshatkar-bodh-anubhav--LHmuCc4NveA/sakshatkar-bodh-anubhav--LHmuCc4NveA.md) · [PDF](sakshatkar-bodh-anubhav--LHmuCc4NveA/sakshatkar-bodh-anubhav--LHmuCc4NveA.pdf) · [raw](sakshatkar-bodh-anubhav--LHmuCc4NveA/sakshatkar-bodh-anubhav--LHmuCc4NveA-raw-asr.txt) |
-| *न्याय – धर्म – सत्य* (`8WNTuXNtawg`) | 56:22 | Justice–dharma–truth (cohort 1) | [md](nyay-dhrm-sty--8WNTuXNtawg/nyay-dhrm-sty--8WNTuXNtawg.md) · [PDF](nyay-dhrm-sty--8WNTuXNtawg/nyay-dhrm-sty--8WNTuXNtawg.pdf) · [raw](nyay-dhrm-sty--8WNTuXNtawg/nyay-dhrm-sty--8WNTuXNtawg-raw-asr.txt) |
-| *भाषा – अर्थ – वस्तु* (`kZ6qdNflDWA`) | 36:20 | Language–meaning–*vastu* (cohort 1) | [md](bhasha-arth-vstu--kZ6qdNflDWA/bhasha-arth-vstu--kZ6qdNflDWA.md) · [PDF](bhasha-arth-vstu--kZ6qdNflDWA/bhasha-arth-vstu--kZ6qdNflDWA.pdf) · [raw](bhasha-arth-vstu--kZ6qdNflDWA/bhasha-arth-vstu--kZ6qdNflDWA-raw-asr.txt) |
-| *समाधि-संयम / गठनपूर्णता…* (`Di8YkI5Olzo`) | 44:29 | Completeness exploration (cohort 1) | [md](smadhi-snym-purvk-gthnpurnta-kriyapurnta-aachrn-pu--Di8YkI5Olzo/smadhi-snym-purvk-gthnpurnta-kriyapurnta-aachrn-pu--Di8YkI5Olzo.md) · [PDF](smadhi-snym-purvk-gthnpurnta-kriyapurnta-aachrn-pu--Di8YkI5Olzo/smadhi-snym-purvk-gthnpurnta-kriyapurnta-aachrn-pu--Di8YkI5Olzo.pdf) · [raw](smadhi-snym-purvk-gthnpurnta-kriyapurnta-aachrn-pu--Di8YkI5Olzo/smadhi-snym-purvk-gthnpurnta-kriyapurnta-aachrn-pu--Di8YkI5Olzo-raw-asr.txt) |
-| *स्वत्व – स्वतंत्रता – स्वराज्य* (`BbfnTJtpQb8`) | 1:02:30 | Selfhood–freedom–self-rule (cohort 1) | [md](svtv-svtntrta-svrajy--BbfnTJtpQb8/svtv-svtntrta-svrajy--BbfnTJtpQb8.md) · [PDF](svtv-svtntrta-svrajy--BbfnTJtpQb8/svtv-svtntrta-svrajy--BbfnTJtpQb8.pdf) · [raw](svtv-svtntrta-svrajy--BbfnTJtpQb8/svtv-svtntrta-svrajy--BbfnTJtpQb8-raw-asr.txt) |
-| *अनुसंधान और शोध* (`QgqtqALvMLw`) | 53:05 | Exploration and research (cohort 1) | [md](anusndhan-aur-shodh--QgqtqALvMLw/anusndhan-aur-shodh--QgqtqALvMLw.md) · [PDF](anusndhan-aur-shodh--QgqtqALvMLw/anusndhan-aur-shodh--QgqtqALvMLw.pdf) · [raw](anusndhan-aur-shodh--QgqtqALvMLw/anusndhan-aur-shodh--QgqtqALvMLw-raw-asr.txt) |
-| *पुनः अनुसंधान…* (`QA1WhtS2Gzo`) | 36:12 | Need for further exploration (cohort 1; severe loop cleaned) | [md](punah-anusandhan-ya-adhyayan-kee-aavashyakta--QA1WhtS2Gzo/punah-anusandhan-ya-adhyayan-kee-aavashyakta--QA1WhtS2Gzo.md) · [PDF](punah-anusandhan-ya-adhyayan-kee-aavashyakta--QA1WhtS2Gzo/punah-anusandhan-ya-adhyayan-kee-aavashyakta--QA1WhtS2Gzo.pdf) · [raw](punah-anusandhan-ya-adhyayan-kee-aavashyakta--QA1WhtS2Gzo/punah-anusandhan-ya-adhyayan-kee-aavashyakta--QA1WhtS2Gzo-raw-asr.txt) |
-| *साम्य ऊर्जा – कार्य ऊर्जा* (`MeFEslxQ1XU`) | 18:14 | *Saamya* / activity energy (cohort 1; severe loop cleaned) | [md](samy-uurja-kary-uurja--MeFEslxQ1XU/samy-uurja-kary-uurja--MeFEslxQ1XU.md) · [PDF](samy-uurja-kary-uurja--MeFEslxQ1XU/samy-uurja-kary-uurja--MeFEslxQ1XU.pdf) · [raw](samy-uurja-kary-uurja--MeFEslxQ1XU/samy-uurja-kary-uurja--MeFEslxQ1XU-raw-asr.txt) |
-
-Shared English authorities: [`TERMINOLOGY.md`](TERMINOLOGY.md). Cohort-1 English is **working MT** with those terms protected — post-edit before quoting.
-
-### Tier-1 raw ASR (52 still not promoted)
-
-Sixty recordings were staged; eight are working-promoted above. The remaining **52** keep `<Slug>--<videoId>-raw-asr.txt` plus Layer-A `*-cleaned.txt` sidecars. Index and review: [`RAW-ASR-TIER1.md`](RAW-ASR-TIER1.md). Programme log: [`TRANSCRIPTION-PROGRAM.md`](TRANSCRIPTION-PROGRAM.md).
 
 The `.md` is the source of truth; `.html` and `.pdf` are generated. Regenerate with the sanctioned pipeline (AGENTS.md §3 — never pandoc or an ad-hoc converter):
 
@@ -82,16 +61,9 @@ This has a direct cost, and it should be understood rather than worked around: t
 
 ## Method
 
-Transcription uses **Whisper `large-v3`** (int8, CPU, 16 kHz, `language=hi`, `beam_size=5`). YouTube's own Hindi auto-captions have proved unusable for this material — for the 2010 session they carried roughly a third of the text with multi-minute gaps and corrupted the key terms outright (*बोध* → "वोट").
+Transcription uses **Whisper `large-v3`**. YouTube's own Hindi auto-captions have proved unusable for this material — for the 2010 session they carried roughly a third of the text with multi-minute gaps and corrupted the key terms outright (*बोध* → "वोट").
 
-Two decoding configurations are in use, and each transcript records which span used which:
-
-| Configuration | Speed | Trade-off |
-|---|---|---|
-| Sequential, no VAD, temperature fallback | ~0.2× realtime | Short segments, fine timestamps; slow |
-| Batched pipeline, VAD-segmented | ~2.4× realtime | ~10× faster, but **VAD drops ~20% of words**, biased toward emphasis-flanked statements. The cause is VAD, not batching — sequential decoding with VAD is *worse*. Triage only; only no-VAD decoding is complete. See D7 in the programme note |
-
-Where both were run over the same span as a control they produced identical wording. Prefer the sequential configuration for doctrinally dense passages and the batched one for surrounding material.
+Only **no-VAD** decoding is complete for this material. See D7 in [`TRANSCRIPTION-PROGRAM.md`](TRANSCRIPTION-PROGRAM.md). Prefer sequential no-VAD for doctrinally dense passages.
 
 ### Citing page numbers from the `.md` extracts — read this first
 
@@ -109,11 +81,11 @@ python -c "import fitz,re; d=fitz.open(r'References/Madhyasth-Darshan/MVD-Madhya
 
 Use the extract to *find* wording (it is searchable and the PDF's Devanagari sometimes is not), then confirm the page in the PDF before citing it.
 
-**Practical note.** The transcription environment is not committed to this repository. `faster-whisper` needs a working `onnxruntime` for VAD; a broken one in the ambient Python install will silently force VAD off and cost roughly 10× in throughput. A clean virtual environment is the reliable route.
+**Practical note.** The transcription environment is not committed to this repository. Work audio and unpromoted ASR live under `E:\MD-Transcription\`.
 
 ## Adding a session
 
-1. Transcribe with the method above from a local copy of the audio; keep the raw ASR output as a separate `-raw-asr.txt` file so normalisations stay auditable. Do not commit the audio.
+1. Transcribe with the method above from a local copy of the audio; keep the raw ASR output as a separate `-raw-asr.txt` file so normalisations stay auditable. Do not commit the audio. Keep unpromoted drafts under `E:\MD-Transcription\Nagraj-Recorded-Sessions\` until ready for References.
 2. Normalise Devanagari **only where the intended word is unambiguous**, and never supply words the ASR did not carry. List the normalisations in the file.
 3. Translate following `../MD-Mapping.xlsx` and Rakesh Gupta's published MVD/SB/JV wherever they have a reading. Flag terms with no mapping row as working glosses rather than inventing an authority for them.
 4. Mark every segment **[R]** reliable / **[P]** probable / **[U]** uncertain, and add a table of passages needing audio verification.
