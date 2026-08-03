@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Stage Tier-1 GPU raw ASR into Nagraj-Recorded-Sessions/.
+"""Stage Tier-1 GPU raw ASR into the private work corpus.
 
 Copies decoder output from a work directory into one folder per recording
 (<Slug>--<videoId>/) and writes RAW-ASR-TIER1.md with provenance, mechanical
 review summary, and a full index. Does not promote (no translation, reliability
-marks, or PDF).
+marks, or PDF). Default destination is outside the git repo.
 
     python Scripts/_stage_tier1_raw_asr.py \\
         --manifest E:\\MD-Transcription\\manifest-tier1.tsv \\
@@ -27,7 +27,7 @@ from _transcribe_review import measure, read_manifest, secs  # noqa: E402
 
 from _common import BASE  # noqa: E402
 
-DEST_ROOT = BASE / "References" / "Madhyasth-Darshan" / "Nagraj-Recorded-Sessions"
+DEST_ROOT = Path(r"E:\MD-Transcription\Nagraj-Recorded-Sessions")
 INDEX_NAME = "RAW-ASR-TIER1.md"
 
 # Already-promoted session; not in Tier-1 manifest today, but never create a
@@ -203,7 +203,7 @@ def main() -> None:
     ap.add_argument("--transcripts",
                     default=r"E:\MD-Transcription\transcripts-gpu-mc0")
     ap.add_argument("--dest", type=Path, default=DEST_ROOT,
-                    help="Nagraj-Recorded-Sessions root")
+                    help="Work-area Nagraj-Recorded-Sessions root (default: E:\\MD-Transcription\\...)")
     args = ap.parse_args()
 
     man = read_manifest(args.manifest)

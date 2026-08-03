@@ -1,6 +1,6 @@
 # Transcription programme — recorded sessions of Shri A. Nagraj
 
-**Started:** August 1, 2026 · **Status:** Phase 1 D10 GPU re-run complete (60/60); staged + Layer-A cleaned; **cohort 1 (8/60) working-promoted** ([`RAW-ASR-TIER1.md`](RAW-ASR-TIER1.md), [`TERMINOLOGY.md`](TERMINOLOGY.md)) — 52 remain raw/cleaned only
+**Started:** August 1, 2026 · **Status:** Phase 1 D10 GPU re-run complete (60/60); Layer-A cleaned; cohort 1 (8/60) working-drafted. **References holds only the 2010 Sakshatkar session.** Tier-1 corpus lives outside the repo at `E:\MD-Transcription\Nagraj-Recorded-Sessions\` (`RAW-ASR-TIER1.md`, `TERMINOLOGY.md`, 60 session dirs).
 **Maintainer note:** this is a living document. Update the status table and the decision log as recordings land; record reversals as reversals rather than editing the earlier reasoning away.
 
 Companion: [`README.md`](README.md) sets out the folder conventions and how far machine-transcribed oral material may be relied on. That document governs *use*; this one records *scope, decisions, and progress*.
@@ -426,7 +426,7 @@ The 12:40 event preceded a **grey screen with three green vertical lines**, whic
 ---
 ## Phase 1 status
 
-**Scope:** 60 recordings, 23.43 h. **Fetch:** complete. **Transcription:** CPU and pre-D10 GPU complete; **D10 GPU re-run complete** (60/60, zero failures, aggregate 5.12× realtime). **Staged** as raw ASR under this folder — see [`RAW-ASR-TIER1.md`](RAW-ASR-TIER1.md). **Promoted:** still only the 2010 Sakshatkar session.
+**Scope:** 60 recordings, 23.43 h. **Fetch:** complete. **Transcription:** CPU and pre-D10 GPU complete; **D10 GPU re-run complete** (60/60, zero failures, aggregate 5.12× realtime). **Work corpus:** `E:\MD-Transcription\Nagraj-Recorded-Sessions\` (moved out of References 2026-08-03) — see that folder's `RAW-ASR-TIER1.md`. **In References / promoted:** still only the 2010 Sakshatkar session.
 
 | Study | Videos | Hours | Fetched | Transcribed | Staged raw ASR | Promoted |
 |---|---|---|---|---|---|---|
@@ -436,11 +436,11 @@ The 12:40 event preceded a **grey screen with three green vertical lines**, whic
 | Ontology | 14 | 4.13 | 14 | 14 | 14 | 0 |
 | **Total** | **60** | **23.43** | **60** | **60** | **60** | **1** |
 
-**D10 re-run finished 2026-08-02** into `E:\MD-Transcription\transcripts-gpu-mc0`, then copied into this folder by `Scripts/_stage_tier1_raw_asr.py`. Manifest: `E:\MD-Transcription\manifest-tier1.tsv`. Pre-D10 GPU output remains in `transcripts-gpu\` for comparison only; do not promote from it.
+**D10 re-run finished 2026-08-02** into `E:\MD-Transcription\transcripts-gpu-mc0`, then staged by `Scripts/_stage_tier1_raw_asr.py`. Manifest: `E:\MD-Transcription\manifest-tier1.tsv`. The staged tree was later moved to `E:\MD-Transcription\Nagraj-Recorded-Sessions\` (not committed). Pre-D10 GPU output remains in `transcripts-gpu\` for comparison only; do not promote from it.
 
 ### Corpus quality review (D10 re-run)
 
-Mechanical review of the `-mc 0` corpus — word density against duration, longest consecutive token run, most frequent 3-gram, Devanagari share, and `U+FFFD` count. Full table: [`RAW-ASR-TIER1.md`](RAW-ASR-TIER1.md).
+Mechanical review of the `-mc 0` corpus — word density against duration, longest consecutive token run, most frequent 3-gram, Devanagari share, and `U+FFFD` count. Full table: `E:\MD-Transcription\Nagraj-Recorded-Sessions\RAW-ASR-TIER1.md`.
 
 | | Pre-D10 GPU | D10 (`-mc 0`) staged |
 |---|---|---|

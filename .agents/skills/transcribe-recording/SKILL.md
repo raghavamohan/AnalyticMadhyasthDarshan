@@ -19,9 +19,10 @@ Works with **Cursor**, **OpenCode**, and **ZCode** (skills live in
 
 ## When to use
 
-- Adding a recorded session under `References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/`
+- Adding a **promoted** recorded session under `References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/` (only citable artefacts belong there; today: the 2010 Sakshatkar session)
+- Drafting / cleaning Tier-1 ASR under the private work area `E:\MD-Transcription\Nagraj-Recorded-Sessions\` (not committed)
 - A user asks to transcribe a talk, a playlist, or a channel
-- Promoting an existing raw ASR pass to a citable artefact
+- Promoting an existing raw ASR pass to a citable References artefact
 - Extending the corpus for a study that needs oral material the printed texts lack
 
 ## The rule that governs everything
