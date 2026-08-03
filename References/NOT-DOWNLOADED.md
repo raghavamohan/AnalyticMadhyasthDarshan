@@ -12,14 +12,14 @@ Works cited in `Studies/` that are **not** copied into `References/`. Each paper
 
 ## Madhyasth Darshan ? recorded sessions (recordings external; transcripts stored locally)
 
-Audio and video of Nagraj's talks are **not** copied into this repository. Working transcripts and translations are kept under [`Madhyasth-Darshan/Nagraj-Recorded-Sessions/`](Madhyasth-Darshan/Nagraj-Recorded-Sessions/README.md); that folder's README states how far they can be relied on ? they are machine-produced from oral material and are **weaker evidence than the printed texts**. Cite them as recorded sessions with date and timestamp, never as printed primary texts.
+Audio and video of Nagraj's talks are **not** copied into this repository. The one promoted working transcript lives under [`Madhyasth-Darshan/Nagraj-Recorded-Sessions/`](Madhyasth-Darshan/Nagraj-Recorded-Sessions/README.md); that folder's README states how far it can be relied on — machine-produced oral material, **weaker evidence than the printed texts**. Cite as a recorded session with date and timestamp, never as a printed primary text.
 
 Because verification of a transcript segment means listening to the recording, these URLs are load-bearing: if one goes dead, the uncertain segments of its transcript become unverifiable.
 
 | Tag | Full reference | Original location |
 |-----|----------------|-------------------|
-| **Nagraj 2010 Sakshatkar** | Nagraj, A. *Sakshatkar ? Bodh ? Anubhav ? Praman* (Hindi). Dialogue at *Anubhav Shivir*, January 2010, Amarkantak; 45:00. Posted by Rakesh Gupta. Transcript: [`Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.md`](Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.md). Audio `sha256:61be0537960ca72aa64c9cebe02b11acdd0878cd0dfeec3ae55bfbc9061558d6`. | https://youtu.be/gIvVme-Sa5s |
-| **Nagraj Tier-1 (Rakesh channel)** | Sixty further talks posted by Rakesh Gupta (Tier-1 selection; 23.43 h). **Raw ASR only** staged under [`Nagraj-Recorded-Sessions/`](Madhyasth-Darshan/Nagraj-Recorded-Sessions/README.md) — index [`RAW-ASR-TIER1.md`](Madhyasth-Darshan/Nagraj-Recorded-Sessions/RAW-ASR-TIER1.md). Not promoted; not citable. Each row in that index has its `youtu.be` URL. | https://www.youtube.com/@RakeshGuptamadhyasth-darshan/videos |
+| **Nagraj 2010 Sakshatkar** | Nagraj, A. *Sakshatkar – Bodh – Anubhav – Praman* (Hindi). Dialogue at *Anubhav Shivir*, January 2010, Amarkantak; 45:00. Posted by Rakesh Gupta. Transcript: [`Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.md`](Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.md). Audio `sha256:61be0537960ca72aa64c9cebe02b11acdd0878cd0dfeec3ae55bfbc9061558d6`. | https://youtu.be/gIvVme-Sa5s |
+| **Nagraj Tier-1 (Rakesh channel)** | Sixty further talks (Tier-1; 23.43 h). Working ASR / cohort drafts are **not** in this repository — private work area `E:\MD-Transcription\Nagraj-Recorded-Sessions\` (index `RAW-ASR-TIER1.md`). Not citable until promoted. Channel: | https://www.youtube.com/@RakeshGuptamadhyasth-darshan/videos |
 
 ## Science ? open-access papers (stored locally)
 

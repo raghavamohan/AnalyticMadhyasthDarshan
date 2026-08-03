@@ -55,7 +55,6 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-19.
 | [Family-Relationships-And-Values.pdf](../Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.pdf) | MVD, JV, SB, KD | present |
 | [Spiritual-Practice-And-Realization.pdf](../Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.pdf) | MVD, JV, KD | present |
 | | Nagraj 2010 Sakshatkar | transcript present; recording external |
-| | Nagraj Tier-1 raw ASR (60) | staged + Layer-A cleaned; 8 cohort working-promoted; recordings external |
 
 ## By tag
 
@@ -72,7 +71,6 @@ For **MVD**, **SB**, and **JV**, the PDF is the file Studies must cite and that 
 | **KD** | [Madhyasth-Darshan/KD-karm darshan v5.pdf](Madhyasth-Darshan/KD-karm%20darshan%20v5.pdf) | The-Ontology-of-Coexistence; Research-Note-Physics-Of-Satta-Unit-Interaction (internal) |
 | **KD-Karm-Darshan-English** | [Madhyasth-Darshan/KD-Karm-Darshan-English/](Madhyasth-Darshan/KD-Karm-Darshan-English/README.md) | The-Ontology-of-Coexistence; Research-Note-Physics-Of-Satta-Unit-Interaction (internal); full-book working translation (front matter + ch. 1–3) |
 | **Nagraj 2010 Sakshatkar** | [Madhyasth-Darshan/Nagraj-Recorded-Sessions/](Madhyasth-Darshan/Nagraj-Recorded-Sessions/README.md) — [transcript + translation](Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.md) · [raw ASR](Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-raw-asr.txt) present; recording **external** ([NOT-DOWNLOADED.md](NOT-DOWNLOADED.md)) | Research-Note-Sakshatkar-Bodh-Anubhav-Praman-Session (internal). **Not yet cited by any released study** — oral, machine-transcribed; see folder README before citing |
-| **Nagraj Tier-1 raw ASR** | [Madhyasth-Darshan/Nagraj-Recorded-Sessions/RAW-ASR-TIER1.md](Madhyasth-Darshan/Nagraj-Recorded-Sessions/RAW-ASR-TIER1.md) — 60 decoder dumps + Layer-A `*-cleaned.txt`; **8 cohort-1 working `.md`/`.html`/`.pdf`** (see folder README); terminology [`TERMINOLOGY.md`](Madhyasth-Darshan/Nagraj-Recorded-Sessions/TERMINOLOGY.md); recordings **external** ([NOT-DOWNLOADED.md](NOT-DOWNLOADED.md)) | *(none)* — working oral ASR; listen before citing; 52 remain unpromoted |
 | **BU** | [Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf](Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf) | Why-Humans, Aesthetics |
 | **TU** | [Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf](Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf) | Why-Humans, The-Ontology-of-Coexistence, Aesthetics (Gambhirananda 2-vol. set; TU at p. 237) |
 | **KU** | same as TU | Why-Humans (Katha at p. 97) |
