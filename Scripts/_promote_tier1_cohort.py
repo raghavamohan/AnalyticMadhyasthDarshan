@@ -3,7 +3,8 @@
 
 Uses:
   - *-cleaned.txt (Layer A) as Hindi source — never overwrites *-raw-asr.txt
-  - TERMINOLOGY.md + MD-Mapping.xlsx for English authorities
+  - accepted TERMINOLOGY-REGISTRY.json entries + curated phrase overrides for
+    English authorities; provisional/disputed entries remain review-only
   - deep-translator (Google) for continuous working English, with technical
     terms protected by placeholders so MT cannot rename dharma→religion etc.
 
@@ -29,6 +30,7 @@ BASE = Path(__file__).resolve().parent.parent
 # Unpromoted Tier-1 corpus lives outside the repo.
 SESSIONS = Path(r"E:\MD-Transcription\Nagraj-Recorded-Sessions")
 TERMINOLOGY = SESSIONS / "TERMINOLOGY.md"
+TERMINOLOGY_REGISTRY = SESSIONS / "TERMINOLOGY-REGISTRY.json"
 
 COHORT = {
     "LHmuCc4NveA": {
@@ -148,14 +150,31 @@ def dur_secs(d: str) -> int:
     return p[0] * 3600 + p[1] * 60 + p[2] if len(p) == 3 else p[0] * 60 + p[1]
 
 
-def load_mapping_terms() -> list[tuple[str, str]]:
-    """Curated EXTRA_TERMS only for MT protection.
+def load_mapping_terms(
+    registry_path: Path = TERMINOLOGY_REGISTRY,
+) -> list[tuple[str, str]]:
+    """Curated phrase overrides plus accepted registry terms for MT protection.
 
-    Dumping all of MD-Mapping into placeholders shreds the Hindi and leaves
-    orphan ZX codes after MT. Mapping remains the authority table in
-    TERMINOLOGY.md; continuous prose relies on the curated set.
+    Dumping all of MD-Mapping into placeholders shreds Hindi and leaves orphan
+    ZX codes after MT. The controlled registry is deliberately narrower and
+    sense-governed. Provisional/disputed/working-gloss entries are excluded so
+    an automatic cohort draft cannot silently turn them into settled English.
     """
-    return sorted(EXTRA_TERMS, key=lambda kv: -len(kv[0]))
+    terms = dict(EXTRA_TERMS)
+    if registry_path.is_file():
+        registry = json.loads(registry_path.read_text(encoding="utf-8"))
+        for entry in registry.get("entries", []):
+            if entry.get("status") != "accepted":
+                continue
+            english = str(entry.get("canonical_english", "")).strip()
+            if not english:
+                continue
+            for hindi in [entry.get("hindi"), *entry.get("accepted_variants", [])]:
+                if hindi:
+                    # Curated overrides deliberately win where transliteration
+                    # is safer in an automatic continuous-prose draft.
+                    terms.setdefault(str(hindi), english)
+    return sorted(terms.items(), key=lambda kv: -len(kv[0]))
 
 
 def find_dir(vid: str) -> Path:
@@ -319,8 +338,10 @@ def build_md(vid: str, meta: dict, folder: Path, terms: list[tuple[str, str]],
         "(D11 boilerplate removed, consecutive-token loops collapsed, unambiguous ASR "
         "normalisations). It has **not** been checked against the audio by a Hindi speaker.",
         "- **The English is a working translation** of that reconstruction (MT with "
-        "technical terms protected from [`TERMINOLOGY.md`](../TERMINOLOGY.md) and "
-        "`MD-Mapping.xlsx`). Post-edit against the printed corpus before quoting in a "
+        "accepted technical terms protected from "
+        "[`TERMINOLOGY-REGISTRY.json`](../TERMINOLOGY-REGISTRY.json); curated "
+        "transliteration overrides remain in the cohort script). Post-edit against "
+        "the printed corpus before quoting in a "
         "released study.",
         "",
         "**Before quoting any line of this file in a released study, listen to the audio "
@@ -343,9 +364,11 @@ def build_md(vid: str, meta: dict, folder: Path, terms: list[tuple[str, str]],
         "**Hindi normalisation.** Same context-free list as the 2010 Sakshatkar session "
         "(see Layer-A clean log). Words the ASR did not carry are not supplied.",
         "",
-        "**Terminology.** English technical terms follow "
-        "[`TERMINOLOGY.md`](../TERMINOLOGY.md) and `MD-Mapping.xlsx` / published MVD·SB·JV "
-        "English. Continuous prose is working MT with those terms protected.",
+        "**Terminology.** English technical terms follow accepted entries in "
+        "[`TERMINOLOGY-REGISTRY.json`](../TERMINOLOGY-REGISTRY.json), which traces "
+        "to `MD-Mapping.xlsx` / published MVD·SB·JV·KD English. Provisional entries "
+        "are not auto-protected. Continuous prose is working MT with accepted "
+        "terms protected.",
         "",
         "**Timestamps** are approximate. They are proportional to cumulative word count "
         f"over {meta['dur']} and are for navigation only.",
