@@ -1,6 +1,6 @@
 # Transcription programme — recorded sessions of Shri A. Nagraj
 
-**Started:** August 1, 2026 · **Status:** Phase 1 D10 GPU re-run complete (60/60); Layer-A cleaned; cohort 1 (8/60) working-drafted. **References holds only the 2010 Sakshatkar session.** Tier-1 corpus lives outside the repo at `E:\MD-Transcription\Nagraj-Recorded-Sessions\` (`RAW-ASR-TIER1.md`, `TERMINOLOGY.md`, 60 session dirs).
+**Started:** August 1, 2026 · **Status:** Phases 1-3 complete; Phase 4's five-video native-timestamp Excel review workspace is prepared (394 segments), but all segments remain unreviewed pending complete listening. Cohort 1 (8/60) remains working-drafted. **References holds only the 2010 Sakshatkar session.** Tier-1 corpus lives outside the repo at `E:\MD-Transcription\Nagraj-Recorded-Sessions\` (`RAW-ASR-TIER1.md`, `TERMINOLOGY-REGISTRY.json`, 60 session dirs).
 **Maintainer note:** this is a living document. Update the status table and the decision log as recordings land; record reversals as reversals rather than editing the earlier reasoning away.
 
 Companion: [`README.md`](README.md) sets out the folder conventions and how far machine-transcribed oral material may be relied on. That document governs *use*; this one records *scope, decisions, and progress*.
@@ -380,6 +380,111 @@ uncertain passages than either is alone.
 
 ---
 
+### D13 — Phase 4 automation prepares evidence; it never awards reliability
+
+The fixed five-video pilot was timestamp-rerun on August 3, 2026: 83:27 of
+audio, five successes, zero failures, no VAD, beam 5, `--max-context 0`, and
+9.52× aggregate realtime on two HIP workers. Every rerun matched the frozen
+canonical text, so the batch published native JSON and the exact decoder JSON
+without a timestamp conflict. The Phase-1 baseline still verifies at 181
+entries because timestamp evidence is additive and the frozen inputs were not
+changed.
+
+The Phase-4 preparation pipeline converted that evidence into **394 native
+segments** under `E:\MD-Transcription`:
+136 for `KTeH3rM2qK8`, 59 for `OIkSW7QYry4`, 68 for `vuTOjdF6a3k`, 18 for
+`a1ARueeihmA`, and 113 for `pk3UxjDkhiE`. The aggregate queue isolates four
+segments carrying `U+FFFD`, seventeen containing boilerplate candidates, four
+with consecutive repetition runs, 206 containing controlled terminology, and
+two containing `चुम्बकीयता`. Deterministic Layer A proposes changes in 78
+segments; those proposals are not reviewed Hindi.
+
+On August 9, 2026, the reviewer interface moved from TSV to one
+`*-phase4-review.xlsx` workbook beside each session's evidence. The workbooks
+use a Devanagari-capable Excel font and contain `Instructions`, `Segments`,
+`Corrections`, and `Provenance` sheets. `Scripts/_build_transcription_review_xlsx.ps1`
+builds them with the bundled spreadsheet runtime;
+`Scripts/_sync_transcription_review_xlsx.py` reads Excel directly, validates the
+review gates, and exports UTF-8-with-BOM TSV only when `--sync-tsv` is requested.
+The Excel workbook is now the reviewer-facing source of truth; the aggregate
+TSV remains migration and audit input rather than the file reviewers edit.
+
+The governing decision is negative: **automation may never turn an unflagged
+segment into `[P]` or `[R]`.** Every segment begins `UNREVIEWED`; reviewed Hindi,
+English, evidence, reviewer and review date stay blank until a listener fills
+them. `--check` fails while any segment remains unreviewed, while a Level-3
+target lacks English, or when evidence hashes drift. Packet preparation is an
+implemented Phase-4 prerequisite, not completed audio review and not promotion.
+
+---
+
+## Phase 1-3 quality implementation (2026-08-03)
+
+### Immutable Phase-1 baseline
+
+`Scripts/_freeze_transcription_baseline.py` freezes and verifies the manifest,
+audio, canonical D10 GPU transcripts, and staged raw-ASR sidecars. The current
+baseline at `E:\MD-Transcription\BASELINE-SHA256.tsv` has **181 SHA-256
+entries**: one manifest and 60 files in each of the other three classes.
+`--check` recomputes the corpus and exits non-zero on any drift without
+rewriting the baseline. A normal freeze refuses to replace existing baseline
+files; replacement requires the explicit `--force` flag.
+
+All 60 staged raw sidecars equal the canonical D10 text after decoding known
+D9 invalid UTF-8 with replacement markers and normalising line endings. None
+is byte-identical because whisper.cpp emitted CRLF on Windows while the staged
+working copies passed through the repository's LF normalisation. Both byte
+forms are preserved and independently hashed; the baseline records that
+distinction instead of pretending they are identical.
+
+The pre-D10 `transcripts-gpu\` directory now carries an explicit obsolete
+marker. It remains comparison evidence and is never a promotion source.
+
+### Native timestamp output
+
+The GPU path now emits a safe three-file set: `.txt`, valid UTF-8 full `.json`,
+and exact decoder `.raw.json`. Full JSON supplies native segment offsets and
+token metadata. Because whisper.cpp still writes occasional invalid UTF-8 in
+full JSON, the raw bytes are preserved while the valid JSON represents each
+bad sequence as `U+FFFD` and records every original byte offset under
+`_transcription_pipeline`.
+
+Publishing is atomic. When an older canonical `.txt` exists without JSON, the
+rerun text must be byte-identical before timestamp files are accepted. A
+difference leaves the old text untouched and preserves all rerun outputs under
+`.timestamp-conflict.*`.
+
+Control `hITrFtQsUac` (2:20) passed on the HIP/W7900 path: the timestamp rerun
+was byte-identical to the frozen text (SHA-256
+`1c2dcc6777a4378f13f6b0928a9a2cca23e56df6843d4d200798a341732c1ee9`),
+produced seven native segments through 134.66 s, and logged four invalid raw
+JSON byte offsets. The result and all three outputs live under
+`E:\MD-Transcription\validation\timestamp-control\`.
+
+### Controlled term-sense registry
+
+`Scripts/_transcription_terminology_registry.py` seeds, validates, queries, and
+renders the private work registry. The registry has **60 accepted entries**. It
+carries accepted variants, observed ASR
+confusions, transliteration, canonical and source-specific English, sense,
+authority/locator, decision status, and notes. Candidate ASR confusions are
+review prompts, never global replacements.
+
+By user decision on August 3, 2026, `चुम्बकीयता` → “magnetism” and
+`चुम्बकीय धारा` → “magnetic current” are accepted for transcript cleanup and
+automatic translation protection. Their exact published contexts should still
+be checked when a source passage is cited; that citation check does not make
+their registry status provisional.
+The registry also encodes source-specific distinctions such as MVD's “direct
+recognition” and JV's “revelation” for `साक्षात्कार`, and forbids automatic
+`धर्म` → “religion” and technical `अनुभव` → “experience”.
+
+These three phases establish provenance, timestamps, and terminology control.
+They do **not** make any Tier-1 transcript citable; the five-video audio-checked
+pilot is next.
+
+---
+
 ## Hardware, and where the bottleneck actually is
 
 The machine this programme runs on, and what each resource was doing mid-GPU-run (2026-08-02, 24 of 60 files in):
@@ -428,6 +533,10 @@ The 12:40 event preceded a **grey screen with three green vertical lines**, whic
 
 **Scope:** 60 recordings, 23.43 h. **Fetch:** complete. **Transcription:** CPU and pre-D10 GPU complete; **D10 GPU re-run complete** (60/60, zero failures, aggregate 5.12× realtime). **Work corpus:** `E:\MD-Transcription\Nagraj-Recorded-Sessions\` (moved out of References 2026-08-03) — see that folder's `RAW-ASR-TIER1.md`. **In References / promoted:** still only the 2010 Sakshatkar session.
 
+**Quality infrastructure:** Phase-1 baseline frozen and verified (181 hashes);
+native timestamp JSON control passed; controlled terminology registry valid at
+60 entries. These are infrastructure milestones, not promotions.
+
 | Study | Videos | Hours | Fetched | Transcribed | Staged raw ASR | Promoted |
 |---|---|---|---|---|---|---|
 | Spiritual Practice | 16 | 7.48 | 16 | 16 | 16 | 1 (2010 session; not in Tier-1 manifest) |
@@ -451,7 +560,11 @@ Mechanical review of the `-mc 0` corpus — word density against duration, longe
 | Boilerplate | ~94 / 30 files | 354 across 54 files (D11) |
 | Severe `maxrun` ≥ 15 | (loops were widespread) | **7 files** (listed in the index) |
 
-**Density is fixed.** Staging into References is triage and search material, not promotion. Seven files still carry serious consecutive loops and need audio-checked repair before trust; every file still needs D11 boilerplate deleted by hand and D9 `U+FFFD` repaired from context or audio.
+**Density is fixed.** Staging is triage and search material, not promotion.
+Layer A removed all 354 detected D11 boilerplate hits and collapsed 37 repeat
+runs, with every event logged. Seven files still carry serious loop
+neighbourhoods, every boilerplate-deletion neighbourhood needs audio review,
+and all 131 D9 `U+FFFD` positions require repair from context or audio.
 
 `Scripts/_transcribe_review.py` exits non-zero when anything is flagged. Run it after every batch.
 
@@ -476,7 +589,13 @@ Mechanical review of the `-mc 0` corpus — word density against duration, longe
 
 ### Known ASR failure mode
 
-`K7KNzk3uX0k` at 01:11 collapses into a repetition loop (`वो वो वो वो …`) across roughly 30 seconds — the classic Whisper behaviour on a low-information stretch. It is visible in the text and in a depressed `avg_logprob`, so it does not corrupt anything silently, but **check for it when promoting a transcript**: `no_speech_prob` and `avg_logprob` are recorded per segment in the sibling `.json` precisely so loops and dropouts can be found without re-listening to everything.
+`K7KNzk3uX0k` at 01:11 collapses into a repetition loop (`वो वो वो वो …`)
+across roughly 30 seconds — the classic Whisper behaviour on a low-information
+stretch. It is visible in the text and in a depressed `avg_logprob`, so it does
+not corrupt anything silently. The original D10 GPU corpus was text-only; the
+new full timestamp JSON records native offsets and token probabilities for
+future pilot and promotion reruns. These signals locate review targets but do
+not replace listening.
 
 **Read as file-specific, this was wrong.** The review above found the same collapse in 36 of 60 GPU transcripts, and D10 identifies the cause as the decoder's context setting rather than anything in the audio. Low-information stretches are only where it becomes visible. The advice to check per-segment confidence stands; the diagnosis it was attached to does not.
 
@@ -494,7 +613,7 @@ A raw ASR pass is **not** a References artefact. Promoting one means: normalisin
 
 ---
 
-## Phase 2 candidates (not started)
+## Further expansion candidates (not started)
 
 1. **The सहअस्तित्ववादी विज्ञान series** — 17 parts, 20.1 h, the systematic ontology exposition. Largest single coherent block on the channel and the obvious next target for the Ontology study. ~3.6 h on GPU.
 2. **Full-channel transcription** — the remaining ~150 h, so that routing by transcript search (D1) becomes possible across the whole corpus rather than a curated slice. **~32 h on GPU at 5.52×**, against ~880 h on CPU. This is what D8 unlocks.

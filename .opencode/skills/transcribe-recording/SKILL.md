@@ -19,9 +19,10 @@ Works with **Cursor**, **OpenCode**, and **ZCode** (skills live in
 
 ## When to use
 
-- Adding a recorded session under `References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/`
+- Adding a **promoted** recorded session under `References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/` (only citable artefacts belong there; today: the 2010 Sakshatkar session)
+- Drafting / cleaning Tier-1 ASR under the private work area `E:\MD-Transcription\Nagraj-Recorded-Sessions\` (not committed)
 - A user asks to transcribe a talk, a playlist, or a channel
-- Promoting an existing raw ASR pass to a citable artefact
+- Promoting an existing raw ASR pass to a citable References artefact
 - Extending the corpus for a study that needs oral material the printed texts lack
 
 ## The rule that governs everything
@@ -48,27 +49,51 @@ python -m venv E:\Tools\asr-venv
 E:\Tools\asr-venv\Scripts\pip install faster-whisper yt-dlp
 ```
 
-GPU (strongly preferred — 28x faster than the only correct CPU mode):
+GPU (strongly preferred — 28x faster than the only correct CPU mode). Two
+backends work; the scripts default to **ROCm/HIP**.
 
 ```powershell
-winget install KhronosGroup.VulkanSDK
 winget install Microsoft.VisualStudio.2022.BuildTools --override `
   "--quiet --wait --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended"
 git clone --depth 1 https://github.com/ggml-org/whisper.cpp E:\Tools\whisper.cpp
-cd E:\Tools\whisper.cpp
-cmake -B build -G "Visual Studio 17 2022" -A x64 -DGGML_VULKAN=ON
-cmake --build build --config Release -j 16
 # ggml-large-v3.bin (~2.9 GB) from huggingface.co/ggerganov/whisper.cpp -> models/
 ```
 
-Point the scripts at it with `WHISPER_CPP_CLI` and `WHISPER_CPP_MODEL`, or accept
-the `E:\Tools\whisper.cpp` defaults.
+**ROCm/HIP — the default.** Install AMD's HIP SDK for Windows by hand: it is not
+in winget, and its installer needs an approved UAC prompt, so it cannot be
+driven from a non-interactive shell.
 
-**Vulkan, not ROCm/HIP.** A HIP backend exists (`-DGGML_HIP=ON`) and works, but
-it measured no faster on this hardware — 4.74× against Vulkan's 4.92× on an
-identical slice — and brings extra traps. Read D12 in the programme log before
-spending a day on it. Vulkan also needs no SDK beyond the runtime and is
-unbothered by a second GPU in the machine.
+```powershell
+pip install --user ninja      # the VS generator cannot drive the HIP toolchain
+cmake -S . -B build-hip -G Ninja -DCMAKE_BUILD_TYPE=Release `
+  -DCMAKE_C_COMPILER="$env:HIP_PATH/bin/clang.exe" `
+  -DCMAKE_CXX_COMPILER="$env:HIP_PATH/bin/clang++.exe" `
+  -DGGML_HIP=ON -DGPU_TARGETS=gfx1100 -DGGML_OPENMP=OFF
+cmake --build build-hip -j 16
+```
+
+`GGML_OPENMP=OFF` is **required**, not preference — see the pitfalls table.
+`GPU_TARGETS` replaces the deprecated `AMDGPU_TARGETS` as of ROCm 7. Set
+`gfx1100` to your card's architecture, which `whisper-cli --help` prints.
+
+`_transcribe_batch.py` handles the two runtime requirements itself: it puts the
+SDK's `bin` on `PATH` (`hipblas.dll` is not in System32) and hides any secondary
+GPU. Neither is optional; both fail obscurely.
+
+**Vulkan — fallback, and no SDK to install.**
+
+```powershell
+winget install KhronosGroup.VulkanSDK
+cmake -B build -G "Visual Studio 17 2022" -A x64 -DGGML_VULKAN=ON
+cmake --build build --config Release -j 16
+```
+
+Point the scripts at either with `WHISPER_CPP_CLI` (and `WHISPER_CPP_MODEL`), or
+accept the `E:\Tools\whisper.cpp\build-hip` default. On the reference machine
+Vulkan measured *marginally faster* — 4.92× against HIP's 4.74× on an identical
+slice, a gap too small to resolve at n=1 (D12). Neither backend's output has
+been verified against the audio, and **they do not produce identical text**, so
+treat a backend switch as a change to the corpus, not a free optimisation.
 
 **The Build Tools install needs an approved UAC prompt.** It returns installer
 exit **1602** and installs nothing if elevation is declined, and cannot be driven
@@ -115,6 +140,16 @@ a flag. `whisper.cpp` defaults to unbounded context, which turns any repeated
 phrase into a self-sustaining loop: 36 of 60 transcripts were affected before
 this was found. See [D10](../../../References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/TRANSCRIPTION-PROGRAM.md).
 
+The GPU path writes a safe three-file timestamp set: `<id>.txt`, valid UTF-8
+full `<id>.json`, and the decoder's exact `<id>.raw.json`. Use the JSON's native
+segment offsets for cleanup and citation navigation; never estimate timestamps
+from cumulative word count. Full whisper.cpp JSON can contain the same D9
+broken UTF-8 as text output, so the script preserves the raw bytes and records
+every replaced byte offset under `_transcription_pipeline`. If an older `.txt`
+exists without JSON, a timestamp rerun is accepted only when its text is
+byte-identical; otherwise the canonical text is untouched and all rerun outputs
+are preserved as `.timestamp-conflict.*`.
+
 #### Surviving an unreliable machine
 
 If the box resets during long runs, register the auto-resume task once:
@@ -156,6 +191,30 @@ reads perfectly well — D11's caption boilerplate sits inside grammatical
 sentences in half the corpus. **Reading raw ASR for sense will not catch those.**
 Search for them explicitly, and assume classes you have not looked for exist.
 
+For the fixed five-video Tier-1 quality pilot, prepare native review workbooks
+after the timestamp rerun. Load the bundled workspace dependencies first and
+pass the returned Node executable and `node_modules` paths:
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File Scripts\_build_transcription_review_xlsx.ps1 `
+  -Work E:\MD-Transcription `
+  -NodeExe <bundled-node.exe> `
+  -NodeModules <bundled-node_modules>
+python Scripts/_sync_transcription_review_xlsx.py --work E:\MD-Transcription --check
+```
+
+The builder reads the frozen native segments, correction ledger and provenance,
+then creates one `*-phase4-review.xlsx` beside each session's evidence. The
+workbook is the reviewer-facing source of truth: edit only the yellow cells in
+`Segments` and the correction rows in `Corrections`; do not change raw ASR or
+Layer-A candidate Hindi. The `Review` column accepts only `UNREVIEWED`, `R`,
+`P`, or `U` (the reliability classes usually written `[R]`, `[P]`, and `[U]`).
+The checker reads Excel directly and is expected to fail until
+listening and review are complete. Use `--sync-tsv` only when legacy downstream
+tools need UTF-8-with-BOM TSV exports. Never change this into automatic `[P]`
+or `[R]` assignment: absence of a detected defect is not evidence that the
+audio was heard correctly.
+
 ### 5. Promote to a References artefact
 
 **This is the real work, and raw ASR is not it.** For each recording:
@@ -164,28 +223,34 @@ Search for them explicitly, and assume classes you have not looked for exist.
    titles collide (one title covers ten separate uploads).
 2. **Repair broken UTF-8 first.** whisper.cpp emits a partial codepoint where a
    multi-byte character splits across tokens — about one per 12,000 characters,
-   in both `-otxt` and `-oj`, deterministic and not fixed by re-running.
+   in both `-otxt` and raw full JSON, deterministic and not fixed by re-running.
    Count them with `python -c "import sys;print(open(sys.argv[1],'rb').read().decode('utf-8','replace').count(chr(0xFFFD)))" <file>`,
    **Do not let a `U+FFFD` be silently normalised into a plausible character.**
-3. Normalise Devanagari only where the intended word is unambiguous. **Never
+3. Segment from native JSON timestamps. **Never use word-rate-derived
+   timestamps** in a promoted transcript; retain the exact raw JSON beside the
+   valid JSON so every repaired token remains auditable.
+4. Normalise Devanagari only where the intended word is unambiguous. **Never
    supply words the ASR did not carry**; bracket anything a printed text fixes,
    and say which text fixed it.
-4. Translate against `MD-Mapping.xlsx` and the published MVD/SB/JV English.
-   Flag terms with no mapping row as working glosses — but **search MVD *and*
-   SB space-insensitively before inventing English.** Six of six terms once
-   flagged as "no mapping found" were in the corpus all along.
-5. Mark every segment **[R]** reliable / **[P]** probable / **[U]** uncertain,
+5. Translate against the private work area's controlled
+   `TERMINOLOGY-REGISTRY.json`, `MD-Mapping.xlsx`, and the published MVD/SB/JV/KD
+   English. Automatic draft protection may use only registry entries marked
+   `accepted`; `provisional`, `disputed`, and `working-gloss` entries require
+   explicit review. Flag terms with no mapping row as working glosses — but
+   **search MVD *and* SB space-insensitively before inventing English.** Six of
+   six terms once flagged as "no mapping found" were in the corpus all along.
+6. Mark every segment **[R]** reliable / **[P]** probable / **[U]** uncertain,
    and tabulate the passages needing audio verification.
-6. Cross-reference the printed corpus. A systematic pass recovered seven
+7. Cross-reference the printed corpus. A systematic pass recovered seven
    uncertain segments and corrected six terms on the first transcript.
-7. Generate the PDF ([AGENTS.md](../../../AGENTS.md) §3 — never pandoc):
+8. Generate the PDF ([AGENTS.md](../../../AGENTS.md) §3 — never pandoc):
 
 ```powershell
 python Scripts/_convert_to_pdf.py "References/.../<Slug>/<Slug>.md"
 node Scripts/_html_to_pdf.js "References/.../<Slug>/<Slug>.html"
 ```
 
-8. Add rows to the folder `README.md`, `References/MANIFEST.md`, and
+9. Add rows to the folder `README.md`, `References/MANIFEST.md`, and
    `NOT-DOWNLOADED.md` (recordings stay external; transcripts are local).
 
 **Nothing is promoted from statistics alone.** Every quality judgement above is
@@ -240,6 +305,8 @@ along, and the real difference was the context window. **Read the defaults.**
 - [ ] Every boilerplate hit deleted — it is fabricated text, not a transcription error
 - [ ] `U+FFFD` count is zero, or every occurrence repaired from context/audio (not smoothed away)
 - [ ] Raw ASR kept alongside the normalised text so corrections stay auditable
+- [ ] Native timestamp JSON used; exact raw decoder JSON preserved; no estimated word-rate timestamps
+- [ ] Every technical English term is accepted in the controlled registry or explicitly labelled provisional/working gloss
 - [ ] Every segment carries [R]/[P]/[U]; verification table present
 - [ ] Page citations confirmed against the **PDF**, not the `.md` extract
 - [ ] PDF regenerated; `python Scripts/_check_references.py` exits 0

@@ -16,6 +16,7 @@ existing identical files are left alone; content changes are overwritten.
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import shutil
 import sys
@@ -100,16 +101,45 @@ def stage_one(vid: str, title: str, src: Path, dest_root: Path) -> tuple[str, Pa
     return slug, dest
 
 
+def layer_a_summary(rows: list[dict]) -> dict[str, int]:
+    summary = {
+        "cleaned": 0, "logs": 0, "boiler": 0, "collapses": 0,
+        "fffd": 0, "normalisations": 0, "working_md": 0,
+    }
+    for row in rows:
+        raw = Path(row["dest"])
+        stem = raw.name[: -len("-raw-asr.txt")]
+        cleaned = raw.with_name(f"{stem}-cleaned.txt")
+        log_path = raw.with_name(f"{stem}-clean-log.json")
+        draft = raw.with_name(f"{stem}.md")
+        summary["cleaned"] += int(cleaned.is_file())
+        summary["working_md"] += int(draft.is_file())
+        if not log_path.is_file():
+            continue
+        summary["logs"] += 1
+        log = json.loads(log_path.read_text(encoding="utf-8"))
+        summary["boiler"] += int(log.get("boilerplate_hits", 0))
+        summary["collapses"] += len(log.get("repeat_collapses", []))
+        summary["fffd"] += len(log.get("fffd_offsets", []))
+        summary["normalisations"] += sum(
+            int(item.get("count", 0)) for item in log.get("normalisations", [])
+        )
+    return summary
+
+
 def write_index(path: Path, rows: list[dict], provenance: dict) -> None:
     severe = [r for r in rows if r["maxrun"] >= SEVERE_MAXRUN]
     wpm = sorted(r["wpm"] for r in rows)
     med = wpm[len(wpm) // 2]
+    layer_a = layer_a_summary(rows)
     lines = [
         "# Tier-1 raw ASR — staged corpus",
         "",
-        "**Status:** staged as raw ASR only — **not promoted**. Do not cite in a "
-        "released study until a session has been normalised, boilerplate-stripped, "
-        "reliability-marked, and listened to. See "
+        f"**Status:** {len(rows)} raw ASR files staged; Layer-A cleaned "
+        f"{layer_a['cleaned']}/{len(rows)}; working bilingual drafts "
+        f"{layer_a['working_md']}/{len(rows)} — **not promoted**. Do not cite in a "
+        "released study until a session has been audio-checked, terminology-reviewed, "
+        "reliability-marked, and promoted. See "
         "[README.md](README.md) for evidential standing.",
         "",
         "## Provenance",
@@ -141,8 +171,11 @@ def write_index(path: Path, rows: list[dict], provenance: dict) -> None:
         f"{sum(1 for r in rows if r['boiler'])} files** (D11 — delete by hand) |",
         "",
         "**Density is fixed** — the old 31 wpm loop failure mode is gone. "
-        "Files are still **not promotion-ready**: expected D11 boilerplate, "
-        "D9 `U+FFFD`, and the severe consecutive-repeat cases below.",
+        f"Layer A removed {layer_a['boiler']} detected boilerplate hits, collapsed "
+        f"{layer_a['collapses']} repeat runs, logged {layer_a['fffd']} `U+FFFD` "
+        f"positions, and applied {layer_a['normalisations']} context-free "
+        "normalisations. Files remain **not promotion-ready** until those event "
+        "neighbourhoods and the severe cases below are checked against audio.",
         "",
         f"### Severe consecutive loops (`maxrun` ≥ {SEVERE_MAXRUN})",
         "",
@@ -162,8 +195,8 @@ def write_index(path: Path, rows: list[dict], provenance: dict) -> None:
         "",
         "## Index",
         "",
-        "Each directory holds only the decoder dump "
-        "`<Slug>--<videoId>-raw-asr.txt`. "
+        "Each directory holds the decoder dump `<Slug>--<videoId>-raw-asr.txt`; "
+        "Layer-A sidecars and working drafts coexist where produced. "
         "URL form: `https://youtu.be/<id>`.",
         "",
         "| Study | Duration | Directory | Title | URL | wpm | FFFD | boiler | maxrun |",
@@ -181,11 +214,11 @@ def write_index(path: Path, rows: list[dict], provenance: dict) -> None:
 
     lines += [
         "",
-        "## Out of scope for this staging",
+        "## Remaining beyond raw staging and Layer A",
         "",
-        "- Hindi normalisation, English translation, `[R]`/`[P]`/`[U]` marks, PDF",
-        "- Bulk deletion of subscribe/boilerplate tokens",
-        "- Re-decode of the severe loop files",
+        "- Audio-checked Hindi and repair of logged `U+FFFD` positions",
+        "- Review of boilerplate-deletion and repeat-collapse neighbourhoods",
+        "- Locked Hindi, post-edited English, evidence-based `[R]`/`[P]`/`[U]` marks, PDF",
         "",
         "Promotion remains per-session work under the "
         "[transcribe-recording](../../../.agents/skills/transcribe-recording/SKILL.md) "
