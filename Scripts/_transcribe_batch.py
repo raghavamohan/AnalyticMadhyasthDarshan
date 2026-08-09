@@ -17,7 +17,17 @@ Two backends:
   --backend cpu   faster-whisper sequential, no VAD. ~0.2x realtime. Correct
                   but 28x slower — a fallback, not a plan.
 
-Resumable: a recording whose .txt already exists is skipped.
+The GPU backend writes ``<id>.txt``, valid UTF-8 ``<id>.json``, and the exact
+decoder bytes in ``<id>.raw.json``. The JSON is full whisper.cpp output with
+native segment offsets and token metadata; promotion must use those timestamps
+rather than estimating them from word position. Invalid UTF-8 byte offsets from
+the decoder are recorded in the valid JSON, never guessed away.
+
+Resumable: a GPU recording whose text, valid JSON, and raw JSON all exist is
+skipped. If an older .txt exists without JSON, the file is re-decoded to a
+temporary stem. Its text must be byte-identical before the new JSON is
+published; otherwise all rerun outputs are preserved as
+``.timestamp-conflict.*`` and the old text is left untouched.
 
     python Scripts/_transcribe_batch.py --manifest work/manifest.tsv \
         --audio work/audio --out work/transcripts --workers 2
@@ -26,8 +36,10 @@ from __future__ import annotations
 
 import argparse
 import concurrent.futures as cf
+import filecmp
 import glob
 import io
+import json
 import os
 import re
 import subprocess
@@ -136,6 +148,66 @@ def to_wav(src, dst):
         f.writeframes(pcm.tobytes())
 
 
+def _remove_if_present(path):
+    try:
+        os.remove(path)
+    except FileNotFoundError:
+        pass
+
+
+def expected_outputs(out_stem, backend):
+    suffixes = (".txt", ".json", ".raw.json") if backend == "gpu" else (".txt",)
+    return [out_stem + suffix for suffix in suffixes]
+
+
+def outputs_complete(out_stem, backend):
+    return all(os.path.exists(path) for path in expected_outputs(out_stem, backend))
+
+
+def decode_utf8_with_invalid_offsets(raw):
+    """Decode like errors='replace', while retaining each invalid byte offset."""
+    parts, offsets = [], []
+    cursor = 0
+    while cursor < len(raw):
+        try:
+            parts.append(raw[cursor:].decode("utf-8"))
+            cursor = len(raw)
+        except UnicodeDecodeError as error:
+            start = cursor + error.start
+            end = cursor + error.end
+            parts.append(raw[cursor:start].decode("utf-8"))
+            parts.append("\ufffd")
+            offsets.append(start)
+            cursor = end
+    return "".join(parts), offsets
+
+
+def sanitize_whisper_json(raw_path, clean_path, raw_name):
+    """Write parseable UTF-8 JSON and record any broken decoder byte offsets."""
+    with open(raw_path, "rb") as stream:
+        raw = stream.read()
+    text, offsets = decode_utf8_with_invalid_offsets(raw)
+    data = json.loads(text)
+    segments = data.get("transcription")
+    if not isinstance(segments, list) or not segments:
+        raise ValueError("whisper JSON has no transcription segments")
+    for n, segment in enumerate(segments):
+        if not isinstance(segment, dict) or not {
+            "timestamps", "offsets", "text"
+        }.issubset(segment):
+            raise ValueError(f"whisper JSON segment {n} lacks native timestamps")
+    data["_transcription_pipeline"] = {
+        "raw_decoder_json": raw_name,
+        "raw_json_invalid_utf8_count": len(offsets),
+        "raw_json_invalid_utf8_byte_offsets": offsets,
+        "repair": "decoded with U+FFFD at logged byte offsets; raw bytes preserved",
+    }
+    with io.open(clean_path, "w", encoding="utf-8", newline="\n") as stream:
+        json.dump(data, stream, ensure_ascii=False, indent=2)
+        stream.write("\n")
+    return len(offsets), len(segments)
+
+
 def run_gpu(wav, out_stem, beam):
     # -mc 0 is not optional. whisper.cpp defaults to --max-context -1, feeding
     # unlimited prior text into each window, so a repeated phrase reinforces
@@ -143,11 +215,64 @@ def run_gpu(wav, out_stem, beam):
     # 3-gram went from 119 occurrences to 7 and word count rose 22% once the
     # context was cut. It is the equivalent of faster-whisper's
     # condition_on_previous_text=False, which is why the CPU pass never looped.
+    # Publish from a temporary stem. This protects an existing canonical .txt
+    # when adding timestamps to an older text-only run and keeps resets from
+    # leaving either member of the output pair looking complete.
+    tmp_stem = out_stem + ".partial"
+    tmp_txt, tmp_json = tmp_stem + ".txt", tmp_stem + ".json"
+    tmp_raw_json = tmp_stem + ".raw.json"
+    for path in (tmp_txt, tmp_json, tmp_raw_json):
+        _remove_if_present(path)
+
     r = subprocess.run([WHISPER_CLI, "-m", GGML_MODEL, "-f", wav, "-l", "hi",
-                        "-bs", str(beam), "-mc", "0", "-otxt", "-of", out_stem],
+                        "-bs", str(beam), "-mc", "0", "-otxt", "-ojf",
+                        "-of", tmp_stem],
                        capture_output=True, text=True, encoding="utf-8", errors="replace",
                        env=gpu_env())
-    return r.returncode == 0, (r.stderr or "")[-200:]
+    err = (r.stderr or "")[-200:]
+    if r.returncode != 0 or not os.path.exists(tmp_txt) or not os.path.exists(tmp_json):
+        for path in (tmp_txt, tmp_json, tmp_raw_json):
+            _remove_if_present(path)
+        missing = [p for p in (tmp_txt, tmp_json) if not os.path.exists(p)]
+        detail = f"; missing output: {', '.join(missing)}" if missing else ""
+        return False, (err + detail)[-400:]
+
+    # Preserve the decoder's exact bytes before producing parseable UTF-8 JSON.
+    os.replace(tmp_json, tmp_raw_json)
+    try:
+        invalid_count, segment_count = sanitize_whisper_json(
+            tmp_raw_json, tmp_json, os.path.basename(out_stem) + ".raw.json"
+        )
+    except (OSError, UnicodeError, json.JSONDecodeError, ValueError) as error:
+        invalid_raw = out_stem + ".timestamp-invalid.raw.json"
+        os.replace(tmp_raw_json, invalid_raw)
+        _remove_if_present(tmp_txt)
+        _remove_if_present(tmp_json)
+        return False, f"invalid timestamp JSON preserved as {invalid_raw}: {error}"
+
+    final_txt = out_stem + ".txt"
+    final_json = out_stem + ".json"
+    final_raw_json = out_stem + ".raw.json"
+    if os.path.exists(final_txt):
+        if not filecmp.cmp(tmp_txt, final_txt, shallow=False):
+            conflict_txt = out_stem + ".timestamp-conflict.txt"
+            conflict_json = out_stem + ".timestamp-conflict.json"
+            conflict_raw_json = out_stem + ".timestamp-conflict.raw.json"
+            os.replace(tmp_txt, conflict_txt)
+            os.replace(tmp_json, conflict_json)
+            os.replace(tmp_raw_json, conflict_raw_json)
+            return False, (
+                "timestamp rerun text differs from existing canonical text; "
+                f"preserved rerun as {conflict_txt}, {conflict_json}, and "
+                f"{conflict_raw_json}"
+            )
+        _remove_if_present(tmp_txt)
+    else:
+        os.replace(tmp_txt, final_txt)
+    os.replace(tmp_json, final_json)
+    os.replace(tmp_raw_json, final_raw_json)
+    audit = f"native JSON: {segment_count} segments, invalid UTF-8 offsets={invalid_count}"
+    return True, (err + "\n" + audit)[-400:]
 
 
 def run_cpu(src, out_stem, beam, threads):
@@ -200,7 +325,7 @@ def main():
 
     todo = []
     for study, dur, vid, title in read_manifest(args.manifest):
-        if os.path.exists(os.path.join(args.out, f"{vid}.txt")):
+        if outputs_complete(os.path.join(args.out, vid), args.backend):
             continue
         src = audio_for(args.audio, vid)
         if not src:
@@ -234,7 +359,7 @@ def main():
                 ok, err = run_cpu(src, stem, args.beam, args.threads)
         except Exception as e:                                    # noqa: BLE001
             ok, err = False, f"{type(e).__name__}: {e}"
-        return vid, ok and os.path.exists(stem + ".txt"), time.time() - t0, sec, err
+        return vid, ok and outputs_complete(stem, args.backend), time.time() - t0, sec, err
 
     t0 = time.time(); done = fail = 0
     workers = args.workers if args.backend == "gpu" else 1
