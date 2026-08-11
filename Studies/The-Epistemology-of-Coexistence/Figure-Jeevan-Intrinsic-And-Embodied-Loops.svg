@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="870" viewBox="0 0 1200 870" role="img" aria-labelledby="title desc">
+  <title id="title">Intrinsic and embodied control loops of jeevan</title>
+  <desc id="desc">Projection and reflection form a complete internal cycle among the five faculties of jeevan. Bodily execution and bodily feedback form a conditional additional branch.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
+    </marker>
+    <style>
+      .heading { font: 700 25px Arial, Helvetica, sans-serif; fill: #172033; }
+      .body { font: 20px Arial, Helvetica, sans-serif; fill: #27364b; }
+      .small { font: 18px Arial, Helvetica, sans-serif; fill: #34445b; }
+      .label { font: 700 17px Arial, Helvetica, sans-serif; fill: #334155; }
+      .boundary-label { font: 700 19px Arial, Helvetica, sans-serif; letter-spacing: 0.7px; fill: #92400e; }
+      .arrow { fill: none; stroke: #334155; stroke-width: 3.2; marker-end: url(#arrow); }
+      .conditional { fill: none; stroke: #52677c; stroke-width: 3.2; stroke-dasharray: 10 8; marker-end: url(#arrow); }
+      .reference { fill: none; stroke: #527059; stroke-width: 3.2; stroke-dasharray: 10 8; marker-end: url(#arrow); }
+      .label-bg { fill: #ffffff; fill-opacity: 0.95; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="870" fill="#ffffff"/>
+
+  <rect x="340" y="25" width="520" height="110" rx="17" fill="#edf8f0" stroke="#527059" stroke-width="3"/>
+  <text x="600" y="62" text-anchor="middle" class="heading">Knowledge reference</text>
+  <text x="600" y="94" text-anchor="middle" class="body">Satta and coexistence: facts, rules, and relations</text>
+  <text x="600" y="121" text-anchor="middle" class="small">available for realisation - not a command input</text>
+
+  <rect x="50" y="185" width="1100" height="350" rx="22" fill="#fffaf0" stroke="#b45309" stroke-width="5"/>
+  <text x="600" y="220" text-anchor="middle" class="boundary-label">JEEVAN - INTRINSIC ACTIVITY</text>
+
+  <rect x="90" y="290" width="280" height="130" rx="14" fill="#f3e8ff" stroke="#7e57a3" stroke-width="2.5"/>
+  <text x="230" y="329" text-anchor="middle" class="heading">Internal state</text>
+  <text x="230" y="362" text-anchor="middle" class="body">persistent sanskar</text>
+  <text x="230" y="391" text-anchor="middle" class="small">and active content</text>
+
+  <rect x="460" y="290" width="280" height="130" rx="14" fill="#e9f5ff" stroke="#2773a5" stroke-width="2.5"/>
+  <text x="600" y="329" text-anchor="middle" class="heading">Projection</text>
+  <text x="600" y="362" text-anchor="middle" class="body">between faculties</text>
+  <text x="600" y="392" text-anchor="middle" class="small">atma &#8594; buddhi &#8594; chitta &#8594; vritti &#8594; mun</text>
+
+  <rect x="830" y="290" width="280" height="130" rx="14" fill="#fff2d6" stroke="#c77b16" stroke-width="2.5"/>
+  <text x="970" y="329" text-anchor="middle" class="heading">Reflection</text>
+  <text x="970" y="362" text-anchor="middle" class="body">between faculties</text>
+  <text x="970" y="392" text-anchor="middle" class="small">mun &#8594; vritti &#8594; chitta &#8594; buddhi &#8594; atma</text>
+
+  <path class="arrow" d="M 370 355 H 460"/>
+  <rect x="386" y="326" width="62" height="24" rx="4" class="label-bg"/>
+  <text x="417" y="345" text-anchor="middle" class="label">governs</text>
+
+  <path class="arrow" d="M 740 355 H 830"/>
+  <rect x="744" y="316" width="82" height="48" rx="5" class="label-bg"/>
+  <text x="785" y="336" text-anchor="middle" class="label">internal</text>
+  <text x="785" y="357" text-anchor="middle" class="label">return</text>
+
+  <path class="arrow" d="M 970 290 V 255 H 230 V 290"/>
+  <rect x="506" y="239" width="188" height="25" rx="4" class="label-bg"/>
+  <text x="600" y="258" text-anchor="middle" class="label">establishes or refines state</text>
+
+  <path class="reference" d="M 340 80 H 24 V 355 H 90"/>
+  <rect x="31" y="145" width="191" height="26" rx="4" class="label-bg"/>
+  <text x="126" y="165" text-anchor="middle" class="label">reference for realisation</text>
+
+  <rect x="100" y="650" width="430" height="110" rx="16" fill="#eef4fa" stroke="#4f6b85" stroke-width="3"/>
+  <text x="315" y="691" text-anchor="middle" class="heading">Conditional embodiment</text>
+  <text x="315" y="724" text-anchor="middle" class="body">medhas and body: speech, action, and work</text>
+
+  <rect x="690" y="650" width="410" height="110" rx="16" fill="#f1f0ff" stroke="#6557a5" stroke-width="3"/>
+  <text x="895" y="691" text-anchor="middle" class="heading">Embodied result</text>
+  <text x="895" y="724" text-anchor="middle" class="body">bodily, material, and relational consequence</text>
+
+  <path class="conditional" d="M 600 420 V 595 H 315 V 650"/>
+  <rect x="373" y="565" width="225" height="26" rx="4" class="label-bg"/>
+  <text x="485" y="585" text-anchor="middle" class="label">when selection is embodied</text>
+
+  <path class="arrow" d="M 530 705 H 690"/>
+  <rect x="557" y="676" width="106" height="24" rx="4" class="label-bg"/>
+  <text x="610" y="695" text-anchor="middle" class="label">produces</text>
+
+  <path class="conditional" d="M 895 650 V 580 H 1175 V 355 H 1110"/>
+  <rect x="921" y="548" width="247" height="47" rx="5" class="label-bg"/>
+  <text x="1044" y="568" text-anchor="middle" class="label">additional bodily and</text>
+  <text x="1044" y="589" text-anchor="middle" class="label">sensory feedback</text>
+
+  <line x1="345" y1="820" x2="415" y2="820" class="arrow"/>
+  <text x="430" y="826" class="small">intrinsic activity</text>
+  <line x1="665" y1="820" x2="735" y2="820" class="conditional"/>
+  <text x="750" y="826" class="small">conditional coupling</text>
+  <text x="600" y="505" text-anchor="middle" class="body">Projection and reflection can recur without bodily execution or new bodily feedback.</text>
+</svg>
