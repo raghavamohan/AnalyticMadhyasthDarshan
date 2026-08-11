@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1080" viewBox="0 0 1200 1080" role="img" aria-labelledby="title desc">
+  <title id="title">Jeevan control-system boundary</title>
+  <desc id="desc">A block diagram identifying jeevan as the sentient controller and bearer of sanskar, coupled to Satta and coexistence, a temporary embodied interface, and the controlled field.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
+    </marker>
+    <style>
+      .title { font: 700 27px Arial, Helvetica, sans-serif; fill: #172033; }
+      .heading { font: 700 24px Arial, Helvetica, sans-serif; fill: #172033; }
+      .body { font: 20px Arial, Helvetica, sans-serif; fill: #27364b; }
+      .small { font: 18px Arial, Helvetica, sans-serif; fill: #34445b; }
+      .label { font: 700 17px Arial, Helvetica, sans-serif; fill: #334155; }
+      .boundary-label { font: 700 19px Arial, Helvetica, sans-serif; letter-spacing: 0.7px; fill: #92400e; }
+      .arrow { fill: none; stroke: #334155; stroke-width: 3.2; marker-end: url(#arrow); }
+      .reference-arrow { fill: none; stroke: #527059; stroke-width: 3.2; stroke-dasharray: 10 8; marker-end: url(#arrow); }
+      .label-bg { fill: #ffffff; fill-opacity: 0.94; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="1080" fill="#ffffff"/>
+
+  <!-- Knowledge reference outside the modelled system -->
+  <rect x="260" y="25" width="680" height="120" rx="18" fill="#edf8f0" stroke="#527059" stroke-width="3"/>
+  <text x="600" y="62" text-anchor="middle" class="heading">Satta and coexistence</text>
+  <text x="600" y="94" text-anchor="middle" class="body">Knowledge: facts, rules, and relations</text>
+  <text x="600" y="124" text-anchor="middle" class="small">Reality-reference - not an acting controller</text>
+
+  <!-- Human joint form -->
+  <rect x="35" y="185" width="1130" height="660" rx="22" fill="#f6faff" stroke="#3b6ea8" stroke-width="3"/>
+  <rect x="58" y="169" width="205" height="35" rx="7" fill="#ffffff"/>
+  <text x="72" y="194" class="heading">Human joint form</text>
+
+  <!-- The system being modelled -->
+  <rect x="75" y="245" width="1050" height="345" rx="20" fill="#fffaf0" stroke="#b45309" stroke-width="5"/>
+  <text x="600" y="283" text-anchor="middle" class="boundary-label">SYSTEM BEING MODELLED: JEEVAN</text>
+  <text x="600" y="314" text-anchor="middle" class="body">sentient controller and bearer of sanskar</text>
+
+  <rect x="110" y="355" width="280" height="145" rx="14" fill="#fff2d6" stroke="#c77b16" stroke-width="2.5"/>
+  <text x="250" y="390" text-anchor="middle" class="heading">Bal-side reflection</text>
+  <text x="250" y="423" text-anchor="middle" class="small">tasting and comparison</text>
+  <text x="250" y="450" text-anchor="middle" class="small">meaning and definiteness</text>
+  <text x="250" y="477" text-anchor="middle" class="small">realisation</text>
+
+  <rect x="460" y="355" width="280" height="145" rx="14" fill="#f3e8ff" stroke="#7e57a3" stroke-width="2.5"/>
+  <text x="600" y="390" text-anchor="middle" class="heading">Internal state</text>
+  <text x="600" y="423" text-anchor="middle" class="small">persistent sanskar</text>
+  <text x="600" y="450" text-anchor="middle" class="small">plus active content across</text>
+  <text x="600" y="477" text-anchor="middle" class="small">the five faculties</text>
+
+  <rect x="810" y="355" width="280" height="145" rx="14" fill="#e9f5ff" stroke="#2773a5" stroke-width="2.5"/>
+  <text x="950" y="390" text-anchor="middle" class="heading">Shakti-side projection</text>
+  <text x="950" y="423" text-anchor="middle" class="small">authenticity and resolve</text>
+  <text x="950" y="450" text-anchor="middle" class="small">image and analysis</text>
+  <text x="950" y="477" text-anchor="middle" class="small">selection</text>
+
+  <!-- State formation and projection within jeevan -->
+  <path class="arrow" d="M 390 427 H 460"/>
+  <rect x="386" y="399" width="78" height="23" rx="4" class="label-bg"/>
+  <text x="425" y="417" text-anchor="middle" class="label">refines</text>
+
+  <path class="arrow" d="M 740 427 H 810"/>
+  <rect x="741" y="399" width="68" height="23" rx="4" class="label-bg"/>
+  <text x="775" y="417" text-anchor="middle" class="label">governs</text>
+
+  <!-- Satta is a reference, not a command source -->
+  <path class="reference-arrow" d="M 940 85 H 1142 V 328 H 600 V 355"/>
+  <rect x="938" y="205" width="201" height="53" rx="7" class="label-bg"/>
+  <text x="1038" y="226" text-anchor="middle" class="label">available for anubhav</text>
+  <text x="1038" y="248" text-anchor="middle" class="small">not a command input</text>
+
+  <!-- Temporary embodied interface, outside jeevan but within the human joint form -->
+  <rect x="350" y="665" width="500" height="105" rx="15" fill="#eef4fa" stroke="#4f6b85" stroke-width="3"/>
+  <text x="600" y="704" text-anchor="middle" class="heading">Medhas, senses, and body</text>
+  <text x="600" y="736" text-anchor="middle" class="body">temporary embodied interface</text>
+  <text x="600" y="761" text-anchor="middle" class="small">not the bearer of sanskar</text>
+
+  <path class="arrow" d="M 950 500 V 620 H 730 V 665"/>
+  <rect x="790" y="596" width="179" height="25" rx="4" class="label-bg"/>
+  <text x="879" y="615" text-anchor="middle" class="label">selected orientation</text>
+
+  <path class="arrow" d="M 350 717 H 82 V 428 H 110"/>
+  <rect x="50" y="572" width="226" height="53" rx="7" class="label-bg"/>
+  <text x="163" y="593" text-anchor="middle" class="label">sensory and embodied</text>
+  <text x="163" y="615" text-anchor="middle" class="label">feedback</text>
+
+  <!-- Field in which embodied action has consequences -->
+  <rect x="250" y="920" width="700" height="120" rx="18" fill="#f1f0ff" stroke="#6557a5" stroke-width="3"/>
+  <text x="600" y="958" text-anchor="middle" class="heading">Controlled field</text>
+  <text x="600" y="991" text-anchor="middle" class="body">body, relationship, work, exchange, and society</text>
+  <text x="600" y="1021" text-anchor="middle" class="small">participation in nature</text>
+
+  <path class="arrow" d="M 490 770 V 920"/>
+  <rect x="282" y="827" width="202" height="26" rx="4" class="label-bg"/>
+  <text x="383" y="847" text-anchor="middle" class="label">speech, action, and work</text>
+
+  <path class="arrow" d="M 710 920 V 770"/>
+  <rect x="721" y="820" width="263" height="52" rx="7" class="label-bg"/>
+  <text x="852" y="841" text-anchor="middle" class="label">bodily condition, result,</text>
+  <text x="852" y="863" text-anchor="middle" class="label">and another's response</text>
+</svg>
