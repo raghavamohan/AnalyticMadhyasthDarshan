@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="940" viewBox="0 0 1200 940" role="img" aria-labelledby="title desc">
+  <title id="title">Proposed layered architecture for a CFP classifying semantics</title>
+  <desc id="desc">Primary sources constrain a provenance audit, the CFP kernel, a typed coherent theory, its syntactic site, and its classifying topos. The topos supports observation ledgers, modalities, semantic slices, proof tools, and concrete models.</desc>
+  <defs>
+    <linearGradient id="header" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#173c52"/>
+      <stop offset="1" stop-color="#276b73"/>
+    </linearGradient>
+    <linearGradient id="core" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eaf4f1"/>
+      <stop offset="1" stop-color="#d9ebe6"/>
+    </linearGradient>
+    <linearGradient id="semantic" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff6df"/>
+      <stop offset="1" stop-color="#f5e2b5"/>
+    </linearGradient>
+    <linearGradient id="application" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f2eef8"/>
+      <stop offset="1" stop-color="#dfd5ee"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-15%" width="120%" height="135%">
+      <feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#173c52" flood-opacity="0.16"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#496874"/>
+    </marker>
+    <style>
+      .title { font: 700 32px 'Segoe UI', Arial, sans-serif; fill: #ffffff; }
+      .subtitle { font: 400 19px 'Segoe UI', Arial, sans-serif; fill: #dcecef; }
+      .box-title { font: 700 21px 'Segoe UI', Arial, sans-serif; fill: #173c52; }
+      .box-copy { font: 400 17px 'Segoe UI', Arial, sans-serif; fill: #304d58; }
+      .small-title { font: 700 19px 'Segoe UI', Arial, sans-serif; fill: #173c52; }
+      .small-copy { font: 400 15.5px 'Segoe UI', Arial, sans-serif; fill: #304d58; }
+      .stage { font: 700 14px 'Segoe UI', Arial, sans-serif; fill: #55727d; letter-spacing: 1.2px; }
+      .arrow { fill: none; stroke: #496874; stroke-width: 3; marker-end: url(#arrow); }
+      .branch { fill: none; stroke: #6b7c8a; stroke-width: 2.5; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect width="1200" height="940" rx="28" fill="#f8fafb"/>
+  <rect x="0" y="0" width="1200" height="112" rx="28" fill="url(#header)"/>
+  <path d="M0 84 Q300 132 600 92 T1200 88 L1200 112 L0 112 Z" fill="#ffffff" opacity="0.08"/>
+  <text x="60" y="52" class="title">CFP classifying-semantics architecture</text>
+  <text x="60" y="82" class="subtitle">Ontology first; observational and modal structure derived downstream</text>
+
+  <text x="56" y="152" class="stage">SOURCE AND RECOVERY</text>
+  <rect x="55" y="170" width="500" height="92" rx="15" fill="url(#core)" stroke="#83aea4" stroke-width="2" filter="url(#shadow)"/>
+  <text x="80" y="205" class="box-title">Primary Madhyasth Darshan texts</text>
+  <text x="80" y="232" class="box-copy">Doctrinal source, terminology, and textual constraints</text>
+
+  <rect x="645" y="170" width="500" height="92" rx="15" fill="url(#core)" stroke="#83aea4" stroke-width="2" filter="url(#shadow)"/>
+  <text x="670" y="205" class="box-title">CFP provenance and recovery audit</text>
+  <text x="670" y="232" class="box-copy">Assertion, reconstruction, analogy, datum, or open posit</text>
+  <path class="arrow" d="M555 216 H630"/>
+
+  <text x="56" y="306" class="stage">ONTOLOGICAL AND GENERATIVE CORE</text>
+  <rect x="150" y="324" width="900" height="108" rx="18" fill="url(#core)" stroke="#5d9c92" stroke-width="2.5" filter="url(#shadow)"/>
+  <text x="190" y="361" class="box-title">CFP kernel</text>
+  <text x="190" y="389" class="box-copy">O, real units, saturation, A1-A2, typed complementarity, recognition-evaluation-fulfilment, closure and kappa</text>
+  <text x="190" y="414" class="small-copy">Defines what exists, what a unit bears, and how a new bounded whole can form</text>
+  <path class="arrow" d="M895 262 V296 H600 V310"/>
+
+  <text x="56" y="476" class="stage">FORMAL THEORY AND UNIVERSAL SEMANTICS</text>
+  <rect x="70" y="494" width="320" height="104" rx="16" fill="url(#semantic)" stroke="#caa657" stroke-width="2" filter="url(#shadow)"/>
+  <text x="96" y="531" class="box-title">Typed coherent theory</text>
+  <text x="96" y="558" class="box-copy">Modular signature and axioms</text>
+  <text x="96" y="582" class="small-copy">with explicit imports and statuses</text>
+
+  <rect x="440" y="494" width="320" height="104" rx="16" fill="url(#semantic)" stroke="#caa657" stroke-width="2" filter="url(#shadow)"/>
+  <text x="466" y="531" class="box-title">Syntactic site</text>
+  <text x="466" y="558" class="box-copy">Definable contexts and arrows</text>
+  <text x="466" y="582" class="small-copy">with philosophically justified covers</text>
+
+  <rect x="810" y="494" width="320" height="104" rx="16" fill="url(#semantic)" stroke="#caa657" stroke-width="2" filter="url(#shadow)"/>
+  <text x="836" y="531" class="box-title">Classifying topos</text>
+  <text x="836" y="558" class="box-copy">Universal semantics for models</text>
+  <text x="836" y="582" class="small-copy">and structure-preserving translations</text>
+  <path class="arrow" d="M600 432 V462 H230 V480"/>
+  <path class="arrow" d="M390 546 H426"/>
+  <path class="arrow" d="M760 546 H796"/>
+
+  <text x="56" y="648" class="stage">DERIVED INTERFACES</text>
+  <rect x="55" y="666" width="335" height="105" rx="16" fill="url(#application)" stroke="#9a84b8" stroke-width="2" filter="url(#shadow)"/>
+  <text x="80" y="703" class="small-title">Observation ledgers</text>
+  <text x="80" y="730" class="small-copy">Finite, typed, and locally decidable</text>
+  <text x="80" y="753" class="small-copy">only where a partition or procedure is proved</text>
+
+  <rect x="432" y="666" width="335" height="105" rx="16" fill="url(#application)" stroke="#9a84b8" stroke-width="2" filter="url(#shadow)"/>
+  <text x="457" y="703" class="small-title">Context modalities</text>
+  <text x="457" y="730" class="small-copy">Order, standpoint, evidence,</text>
+  <text x="457" y="753" class="small-copy">fulfilment, and stabilization</text>
+
+  <rect x="810" y="666" width="335" height="105" rx="16" fill="url(#application)" stroke="#9a84b8" stroke-width="2" filter="url(#shadow)"/>
+  <text x="835" y="703" class="small-title">Semantic slices</text>
+  <text x="835" y="730" class="small-copy">Material, life, animal, human,</text>
+  <text x="835" y="753" class="small-copy">conduct, and social reducts/expansions</text>
+  <path class="branch" d="M970 598 V630 H222 V652"/>
+  <path class="branch" d="M970 598 V630 H600 V652"/>
+  <path class="branch" d="M970 598 V652"/>
+
+  <text x="56" y="817" class="stage">REALIZATIONS</text>
+  <rect x="120" y="835" width="420" height="72" rx="15" fill="#ffffff" stroke="#7097a8" stroke-width="2" filter="url(#shadow)"/>
+  <text x="150" y="866" class="small-title">Proof assistants and consistency checks</text>
+  <text x="150" y="891" class="small-copy">Derivations, countermodels, conservative extensions</text>
+
+  <rect x="660" y="835" width="420" height="72" rx="15" fill="#ffffff" stroke="#7097a8" stroke-width="2" filter="url(#shadow)"/>
+  <text x="690" y="866" class="small-title">Simulations and concrete models</text>
+  <text x="690" y="891" class="small-copy">Graphs, sheaves, databases, and institutional models</text>
+  <path class="branch" d="M222 771 V803 H330 V821"/>
+  <path class="branch" d="M600 771 V803 H330 V821"/>
+  <path class="branch" d="M600 771 V803 H870 V821"/>
+  <path class="branch" d="M978 771 V803 H870 V821"/>
+</svg>
