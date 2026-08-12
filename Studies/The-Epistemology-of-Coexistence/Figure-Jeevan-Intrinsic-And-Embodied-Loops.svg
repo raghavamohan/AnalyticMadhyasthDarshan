@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="870" viewBox="0 0 1200 870" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="990" viewBox="0 0 1200 990" role="img" aria-labelledby="title desc">
   <title id="title">Intrinsic and embodied control loops of jeevan</title>
-  <desc id="desc">Projection as paravartan and reflection as pratyavartan together form avartan, a complete internal cycle among the five faculties of jeevan. Signal travels inner to outer and inquiry travels outer to inner, so the two directions are not mirror images. Bodily execution and bodily feedback form a conditional additional branch that occasions inquiry.</desc>
+  <desc id="desc">Projection as paravartan and reflection as pratyavartan together form avartan, a complete internal cycle among the five faculties of jeevan. Signal travels inner to outer and inquiry travels outer to inner, so the two directions are not mirror images. Bodily execution and bodily feedback form a conditional additional branch that occasions inquiry. Two relations shown here are hypotheses of the control model rather than source statements: the pairing of sambodhan with samvahan as request and response between adjoining faculties, and recurrence at full depth with no embodied occasion.</desc>
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
       <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
@@ -19,7 +19,7 @@
     </style>
   </defs>
 
-  <rect width="1200" height="870" fill="#ffffff"/>
+  <rect width="1200" height="990" fill="#ffffff"/>
 
   <rect x="340" y="25" width="520" height="110" rx="17" fill="#edf8f0" stroke="#527059" stroke-width="3"/>
   <text x="600" y="62" text-anchor="middle" class="heading">Knowledge reference</text>
@@ -88,6 +88,9 @@
   <text x="430" y="826" class="small">intrinsic activity</text>
   <line x1="665" y1="820" x2="735" y2="820" class="conditional"/>
   <text x="750" y="826" class="small">conditional coupling</text>
-  <text x="600" y="479" text-anchor="middle" class="body">Projection and reflection can recur without bodily execution or new bodily feedback.</text>
-  <text x="600" y="508" text-anchor="middle" class="small">Signal travels inner to outer; inquiry travels outer to inner. The two directions are not mirror images.</text>
+
+  <text x="600" y="884" text-anchor="middle" class="body">Projection and reflection can recur without bodily execution or new bodily feedback.</text>
+  <text x="600" y="912" text-anchor="middle" class="small">Signal travels inner to outer; inquiry travels outer to inner. The two directions are not mirror images.</text>
+  <text x="600" y="943" text-anchor="middle" class="small">Model hypotheses (&#167;&#167;6.1, 7.3): sambodhan and samvahan as a request-and-response pairing,</text>
+  <text x="600" y="967" text-anchor="middle" class="small">and full-depth recurrence with no embodied occasion.</text>
 </svg>
