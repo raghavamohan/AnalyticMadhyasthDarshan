@@ -35,6 +35,10 @@ _INLINE_MATH_CAPTURE = re.compile(
 )
 _DISPLAY_MATH_CAPTURE = re.compile(r"\$\$([\s\S]+?)\$\$")
 _MATH_PLACEHOLDER = "\x00MATH_{idx}\x00"
+_CODE_FENCE = re.compile(r"^```[\s\S]*?^```[^\n]*$", re.MULTILINE)
+_INLINE_CODE = re.compile(r"(`+)(?:(?!\1).)+?\1")
+_CODE_PLACEHOLDER = "\x00CODE_{idx}\x00"
+_CODE_PLACEHOLDER_RE = re.compile(r"\x00CODE_(\d+)\x00")
 _ORG_NAME = "AnalyticMadhyasthDarshan.org"
 _CC_LICENSE = "https://creativecommons.org/licenses/by/4.0/"
 _THE_QUESTION_RE = re.compile(
@@ -60,6 +64,30 @@ def protect_latex_math(html_body: str) -> tuple[str, list[str]]:
     protected = _DISPLAY_MATH_CAPTURE.sub(stash, html_body)
     protected = _INLINE_MATH_CAPTURE.sub(stash, protected)
     return protected, segments
+
+
+def protect_latex_math_in_markdown(md_text: str) -> tuple[str, list[str]]:
+    """Stash math out of the markdown source before Markdown eats LaTeX backslashes.
+
+    Python-Markdown treats ``\\{``, ``\\}``, ``\\_`` and friends as escaped
+    punctuation, so set notation and subscripts silently lose their backslashes
+    if math is only protected after conversion. Code spans and fences are
+    stashed first so a stray ``$`` in sample code is not read as math.
+    """
+    code_segments: list[str] = []
+
+    def stash_code(match: re.Match[str]) -> str:
+        code_segments.append(match.group(0))
+        return _CODE_PLACEHOLDER.format(idx=len(code_segments) - 1)
+
+    guarded = _CODE_FENCE.sub(stash_code, md_text)
+    guarded = _INLINE_CODE.sub(stash_code, guarded)
+    protected, math_segments = protect_latex_math(guarded)
+    protected = _CODE_PLACEHOLDER_RE.sub(
+        lambda match: code_segments[int(match.group(1))],
+        protected,
+    )
+    return protected, math_segments
 
 
 def restore_latex_math(html_body: str, segments: list[str]) -> str:
@@ -612,8 +640,14 @@ def convert_to_html(
     h1 = next((line[2:].strip() for line in md_text.splitlines() if line.startswith("# ")), None)
     title = h1 or input_path.stem
 
+    has_latex_math = contains_latex_math(md_text)
+    math_segments: list[str] = []
+    md_for_html = md_text
+    if has_latex_math:
+        md_for_html, math_segments = protect_latex_math_in_markdown(md_text)
+
     html_body = markdown.markdown(
-        md_text,
+        md_for_html,
         extensions=["tables", "fenced_code", "smarty"],
     )
     html_body = re.sub(
@@ -633,10 +667,6 @@ def convert_to_html(
         output_path,
         study_links_as_html=include_web_chrome,
     )
-    has_latex_math = contains_latex_math(md_text)
-    math_segments: list[str] = []
-    if has_latex_math:
-        html_body, math_segments = protect_latex_math(html_body)
     if include_web_chrome:
         html_body = add_section_ids(html_body)
         html_body = wrap_tables_for_scroll(html_body)
