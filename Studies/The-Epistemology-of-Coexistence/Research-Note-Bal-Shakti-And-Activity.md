@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 12, 2026, 10:57 PM IST
+**Edited on:** August 13, 2026, 12:00 AM IST
 
 **Status:** Internal research note (not a catalog entry). Compiled to support [*The Epistemology of Coexistence*](The-Epistemology-of-Coexistence.md), especially its account of *jeevan*, knowing, reflection, projection, regulation, and evidence.
 
@@ -23,8 +23,8 @@ This is an interpretive functional model. It does not reduce *jeevan* to a compu
 | Slow state | *Sanskar*, the acquired organisation of *mun*, *vritti*, *chitta*, and *buddhi* | A memory store in one faculty, or a fifth deposit at *atma* |
 | Plant of *mun* | The body, reached through *prana*, heart, and *medhas* | The bearer of *sanskar* |
 | Plant of the joint form | Relationship, work, society, and participation in nature | An inert external world |
-| Modes | Delusion: four and a half activities, outer end sets the terms. Awakening: all ten, inner end sets the terms | Two different controllers |
-| Inward jobs | Receptivity; *pratyavartan* as conformance; inquiry borne inward | One reverse copy of projection |
+| Modes and depths | Delusion: four and a half activities, outer end sets the terms. Partially and half-awakened states reconnect progressively deeper stages. Awakening: all ten, inner end sets the terms | Different controllers or an all-at-once installation |
+| Inward-side roles | Receptivity enables reflection; *pratyavartan* is reflection as conformance; unresolved content may raise inquiry | One reverse copy of projection, or three kinds of reflection |
 | Closure | Three of four receptivity conditions are social | A loop closed inside a single *jeevan* |
 
 Four layers sit on one another. Mixing them is the usual way the architecture is misread.
@@ -44,8 +44,9 @@ Four layers sit on one another. Mixing them is the usual way the architecture is
 | *Satta* | Omnipresence as actionless Knowledge; the reality-reference |
 | *Bal* | Activity in state: what a faculty has established in itself |
 | *Shakti* | Activity in motion: that establishment becoming effective toward an adjoining activity or the body |
+| Plant | Control-theory term for what an operation acts on: the next outer faculty, the body for *mun*, and the relational or material field for the human joint form |
 | *Paravartan* | Projection: signal and evidencing outward from *atma* toward *mun* and the body |
-| *Pratyavartan* | The outer faculty's orientation coming to be governed by the inner; not returned data |
+| *Pratyavartan* | Reflection: the outer faculty's orientation coming to be governed by the inner; not returned data |
 | Awakened *jeevan* cycle | The combined form of projection and reflection (MVD, p. 275). Hindi *avartan kriya* names that combined form; at p. 291 the same word is paired against *pratyavartan* as one of two directions (Editorial Notes) |
 | *Sanskar* | Acquired organisation of the four outer faculties, held to realisation at *atma* |
 | *Sanket* | Signal, used inner to outer |
@@ -65,9 +66,9 @@ Four layers sit on one another. Mixing them is the usual way the architecture is
 
 *Jeevan* is a constitutionally complete atom whose nucleus is named *atma*, the particles of its first orbit *buddhi*, of its second *chitta*, of its third *vritti*, and of its fourth *mun* (MVD, p. 78; AVD, p. 87). *Atma* at that centre is the mediative activity, unaffected by generative or degenerative force. Every one of those five groupings is active, and the faculties take their names from them (AVD, p. 87). Constitutional completeness is evident in the atom's release from molecular and weight bondage together with its retention of the bondage of hope (MVD, p. 91). The five faculties are therefore orbital groupings within one unit rather than five components assembled into a system, and their ordering—*atma* innermost, *mun* outermost—is constitutional rather than a convenience of the model.
 
-![Five-stage cascade from atma to the body, with signal outward, inquiry inward, and a gate at each coupling](Figure-Jeevan-Five-Stage-Cascade.svg)
+![Five-stage cascade from atma to the body, with signal outward, reflection inward, and a gate at each coupling](Figure-Jeevan-Five-Stage-Cascade.svg)
 
-Two directional movements run through the ordered faculties. **Projection**, *paravartan*, carries realised orientation outward: *atma* bears authenticity, *buddhi* forms resolve, *chitta* forms an image or plan, *vritti* analyses alternatives and consequences, *mun* selects, and *prana*, heart, *medhas*, and the body express the selection in action and observable result. **Reflection**, *pratyavartan*, is the movement of awakening: each outer faculty's orientation comes to be governed by the faculty inward of it. Inquiry raised at the outer levels is a third job, borne inward; it is not *pratyavartan* itself. These are not separate systems but the recurrent operation of one *jeevan*, and their combined form carries a name of its own:
+Two directional movements run through the ordered faculties. **Projection**, *paravartan*, carries realised orientation outward: *atma* bears authenticity, *buddhi* forms resolve, *chitta* forms an image or plan, *vritti* analyses alternatives and consequences, *mun* selects, and *prana*, heart, *medhas*, and the body express the selection in action and observable result. **Reflection**, *pratyavartan*, is the movement of awakening: each outer faculty's orientation comes to be governed by the faculty inward of it. Receptivity is the condition that enables reflection at a coupling. When unresolved content or an embodied consequence prompts a question, inquiry may be borne inward; inquiry is neither the consequence itself nor another name for *pratyavartan*. These are not separate systems but the recurrent operation of one *jeevan*, and the combined form of reflection and projection carries a name of its own:
 
 > In awakening, hope in *mun* is according to *vritti*, thoughts in *vritti* are according to *chitta*, desires in *chitta* are according to enlightenment of *buddhi*, and enlightenment in *buddhi* is according to *atma*'s realisation in existence. As a result, all the activities of reflection and projection are accomplished. The combined form of reflection and projection is referred to as the cognisance-sensitivity cycle. This itself is the awakened *jeevan* cycle. (MVD, p. 275)
 
@@ -75,9 +76,9 @@ The Hindi of that sentence names the combined form *avartan kriya*. This note us
 
 The two movements do not create *jeevan*'s basic capacity. *Jeevan* is constitutionally complete and its strength and power inexhaustible; awakening changes the quality, coordination, governing criteria, and evidence of its activity without increasing its constitution quantitatively (MVD, p. 199; SB, Ch. 4). The activities themselves are inherent and are not acquired through practice. What is acquired is understood content and its coherent organisation as *sanskar*. Bodily death ends the current channel of expression and feedback, not the sentient regulator or the acquired organisation it bears.
 
-Read as a control architecture, this is a five-stage cascade with gated outer loops, a slow learning state, and a mode switch. Each inner faculty's established state is the reference for the next outer faculty; that outer faculty's state activity is how it comes into agreement with that reference; its motion activity is the control action toward the next plant. *Mun*'s plant is the body; the joint form's plant is the field. Immersion at every level is an invariant to be reached, not a trajectory to be tracked. *Sanskar* changes, on a slower time scale, what the fast cascade will do next. Delusion is the inner stages disconnected, so that four and a half activities remain effective; awakening is the full cascade. Three of the four gates depend on orderliness, societal conduct, and study, so the unit's loop is not closed inside the unit being modelled (§6.4).
+Read as a control architecture, this is a five-stage cascade with gated outer loops, a slow learning state, and a regime change with intermediate depths. Each inner faculty's established state is the reference for the next outer faculty; that outer faculty's state activity is how it comes into agreement with that reference; its motion activity is the control action toward the next plant. *Mun*'s plant is the body; the joint form's plant is the field. Immersion at every level is an invariant to be reached, not a trajectory to be tracked. *Sanskar* changes, on a slower time scale, what the fast cascade will do next. Delusion is the inner stages disconnected, so that four and a half activities remain effective; partially and half-awakened states reconnect deeper stages; awakening is the full cascade. Three of the four gates depend on orderliness, societal conduct, and study, so the unit's loop is not closed inside the unit being modelled (§§4.1, 6.4).
 
-*Bal* establishes content as a qualitative internal organisation; *shakti* makes the organisation effective toward an adjoining activity or the body. Through *mun*, the organisation selects embodied action. Bodily, relational, and natural consequences then occasion inquiry. The loop is complete when Knowledge governs action, the result provides evidence of mutual fulfilment, and evaluation refines the organisation that will govern later projection.
+*Bal* establishes content as a qualitative internal organisation; *shakti* makes the organisation effective toward an adjoining activity or the body. Through *mun*, the organisation selects embodied action. Bodily, relational, and natural consequences may then occasion inquiry. The loop is complete when Knowledge governs action, the result provides evidence of mutual fulfilment, and evaluation refines the organisation that will govern later projection.
 
 ### 1.1 Distinctions the model rests on
 
@@ -87,8 +88,8 @@ Collapsing any of the following changes what the model claims rather than merely
 |---|---|---|
 | *Bal* and *shakti*, which are state and motion within a faculty | Projection and reflection, which are directions through the ordered faculties | Every faculty holds state and every faculty acts on its neighbour in both directions; treating projection as *shakti* alone makes reflection a passive return (§4). AVD Table 1 places state activities under *pratyavartan* and motion activities under *paravartan*; that column layout is not taken here as identifying state with reflection (§9.1) |
 | The realisation-based way, which runs the state activities outward | The motion activities, which are the control action toward the next plant | MVD pp. 276–277: *anubhav* → *bodh* → *chintan* → *tulan* → *asvadan*. If state were reflection, that cascade would be reflection going outward (§6.2) |
-| Receptivity, *pratyavartan*, and inquiry | One inward movement | Receptivity is the ability to receive; *pratyavartan* is conformance of orientation; inquiry is a question borne inward. They are three jobs (§6.3–§6.5) |
-| Bodily and sensory feedback crossing the interface | *Pratyavartan* | Feedback occasions inquiry; it is not itself borne inward, and awakening is not a consequence arriving from outside |
+| Receptivity, *pratyavartan*, and inquiry | Three kinds of reflection | Receptivity is the condition that enables reflection; *pratyavartan* is reflection as conformance of orientation; inquiry is a question that may be borne inward when something remains unresolved (§6.3–§6.5) |
+| Bodily and sensory feedback crossing the interface | *Pratyavartan* | Feedback may occasion inquiry; it is not itself borne inward, and awakening is not a consequence arriving from outside |
 | Continuity of *jeevan* and of attained understanding | Preservation of every coordinate of a modelled state | The first is stated by the sources; the second belongs to the formalism and behaviour cannot distinguish them (§4.3; Appendix A.7) |
 | A successful *bodh*, which cannot be false | The condition of *buddhi*, which can be alienated, expectational, or unenlightened | Without the distinction, either *buddhi* becomes a fallible belief register or its attested disorders become invisible (§§5.2, 10) |
 
@@ -106,7 +107,7 @@ A control model first requires a clear boundary. The controller is not *satta*, 
 
 ![Block diagram identifying jeevan as the control system being modelled](Figure-Jeevan-Control-System-Boundary.svg)
 
-The solid boundary encloses *jeevan*: its five-faculty state established as *bal*, and its motion as *shakti*, which is set outward in projection and inward as receptivity. *Satta* supplies the reality-reference without acting on the controller. *Prana*, the heart, *medhas*, and the body belong to the temporary embodied interface, while body, relationship, work, society, and nature form the field in which projection produces consequences. Feedback crosses the interface, but it does not itself become internal content: it occasions the inquiry that is borne inward (§6.5). Three of the four conditions under which an outer faculty becomes able to receive the inner one's orientation are social and educative rather than introspective (§6.4), so the unit's loop is not closed inside the unit being modelled.
+The solid boundary encloses *jeevan*: its five-faculty state established as *bal*, and its motion as *shakti*, which is set outward in projection and inward as receptivity. *Satta* supplies the reality-reference without acting on the controller. *Prana*, the heart, *medhas*, and the body belong to the temporary embodied interface, while relationship, work, exchange, society, and participation in nature form the field in which projection produces consequences. Feedback crosses the interface, but it does not itself become internal content: it may occasion inquiry, which is borne inward when raised (§6.5). Three of the four conditions under which an outer faculty becomes able to receive the inner one's orientation are social and educative rather than introspective (§6.4), so the unit's loop is not closed inside the unit being modelled.
 
 | Model element | Madhyasth Darshan referent | Function in the model | Boundary condition |
 |---|---|---|---|
@@ -116,7 +117,7 @@ The solid boundary encloses *jeevan*: its five-faculty state established as *bal
 | Realised reference-centre | *Atma* | *Anubhav* in coexistence and projection as *pramanikta* | Faculty of *jeevan*, not an independent homunculus |
 | Persistent acquired state | *Sanskar* in *jeevan* | Qualitative organisation of understanding, acceptance, criteria, valuation, and readiness for projection | Borne by *jeevan*; not genetic inheritance, a bodily trace, or a separate memory store |
 | Embodied interface | *Prana*, heart, *medhas*, nervous system, senses, and body | Ordered bidirectional medium between *jeevan* and bodily activity: *prana* bears upon the heart, the heart upon the cognitive and work organs, and those organs upon behaviour and gratification (MVD, p. 204) | Temporary medium of evidence, not the originating knower or bearer of *sanskar* |
-| Controlled field | Body, relationship, work, exchange, society, and participation in nature | Where selection becomes action and produces consequences | The human joint form acts within mutuality, not on an inert external world |
+| Controlled field | Relationship, work, exchange, society, and participation in nature | Where embodied selection produces relational, social, and material consequences | The human joint form acts within mutuality, not on an inert external world |
 | Feedback | Bodily condition, sensory information, material result, another person's response, and evaluation | Returns consequences for tasting, comparison, recognition, definiteness, and correction | Feedback is interpreted through the current organisation of *jeevan* |
 
 The boundary yields an essential division. The controller and its acquired qualitative state belong to *jeevan*; the body is the current interface through which that state becomes behaviour and receives consequences. Formation and decomposition belong to the body. Persistence, carried orientation, and the possibility of further awakening belong to *jeevan*.
@@ -223,7 +224,7 @@ Two meanings of capacity must remain distinct.
 
 Awakening therefore does not install more power. The provision is complete with constitutional completeness itself: on release from weight and molecular bondage the atom is endowed with inexhaustible strength and power (AVD, p. 84). What awakening changes is which activities become effective, what contents and criteria organise them, how well adjoining faculties communicate, and whether projection agrees with realisation.
 
-Effective capacity is not left as a matter of degree. In the knowledge order, *buddhi* is described in three statuses, each identified by which faculty is actually driving the others:
+Effective capacity is not one undifferentiated magnitude. In the knowledge order, *buddhi* is described in three statuses, each identified by which faculty is actually driving the others:
 
 | Status | Tendency of desire, thought, and hope | Which faculty governs |
 |---|---|---|
@@ -317,7 +318,7 @@ The orientations in the last column are located at the faculties. The sources al
 
 *Bodh* says "yes, this is so" only when a meaning recognised in *chitta* is correctly understood. This is stronger than *manyata*, assent or belief accepted on authority. Subjective certainty, firmness, or commitment does not turn an incorrect interpretation into *bodh*; such content remains assumption, judgment, or unresolved meaning. For any particular content, *buddhi* either establishes reality-concurrent definiteness or *bodh* concerning that content is not yet effective. Its reach may be incomplete across the contents required for living, but an established *bodh* is not itself incorrect. *Sankalp* converts definiteness into governing commitment.
 
-That an established *bodh* cannot be false says nothing about the condition of *buddhi* where *bodh* is not effective. Non-alignment with *atma* perturbs *buddhi*, and the lack of the enlightenment of truth is that perturbation: delusion, ignorance, conceit, and ingratitude are its named forms, and holding its own knowledge superior is ego (MVD, pp. 216–217, 279). In delusion *buddhi* is reduced to expectation in support of desire (MVD, p. 276). The gate can therefore be alienated, expectational, or unenlightened; what it cannot do is issue a definiteness that reality does not bear out (§10).
+That an established *bodh* cannot be false says nothing about the condition of *buddhi* where *bodh* is not effective. Non-alignment with *atma* perturbs *buddhi*, and the lack of the enlightenment of truth is that perturbation: delusion, ignorance, conceit, and ingratitude are its named forms, and holding its own knowledge superior is ego (MVD, pp. 216–217, 279). In delusion *buddhi* is reduced to expectation in support of desire (MVD, p. 276). *Buddhi* can therefore remain perturbed, expectational, or unenlightened; where *bodh* becomes effective, however, it cannot establish a definiteness that reality does not bear out (§10).
 
 The sequence is:
 
@@ -350,15 +351,15 @@ The first three are read against conditions that vary; the last three against be
 
 *Asvadan* receives and tastes the acceptability of a possibility or result. *Chayan* selects according to that valuation, choosing what is pleasing to *mun* in expectation of taste (MVD, p. 327). Happiness and unhappiness from what is received and tasted through the organs of sound, touch, sight, taste, and smell is the innateness of *mun* (MVD, p. 204), which is why valuation is proprietary to it rather than delegated from *vritti*.
 
-*Mun* is the final sentient gate toward bodily execution and the first *sentient* faculty to receive interpreted bodily and sensory feedback—not the first recipient outright. Below it the gross body has its own ordered stages: the four instincts of eating, sleeping, defending, and mating are the innateness of the heart, *prana*'s domain is the heart, the heart's domain is the cognitive and work organs, and their domain is behaviour and gratification (MVD, p. 204). The outermost interface is therefore *prana*–heart–organs rather than *medhas* alone (§2.1). Selection reflects the whole current organisation of *jeevan*: what is understood, imagined, deliberated, expected, and valued, and the complete development of *mun* is receptivity for just behaviour on accepting the signals of *vritti* (MVD, p. 323).
+*Mun* is the final sentient stage toward bodily execution and the first *sentient* faculty to receive interpreted bodily and sensory feedback—not the first recipient outright. Below it the gross body has its own ordered stages: the four instincts of eating, sleeping, defending, and mating are the innateness of the heart, *prana*'s domain is the heart, the heart's domain is the cognitive and work organs, and their domain is behaviour and gratification (MVD, p. 204). The outermost interface is therefore *prana*–heart–organs rather than *medhas* alone (§2.1). Selection reflects the whole current organisation of *jeevan*: what is understood, imagined, deliberated, expected, and valued, and the complete development of *mun* is receptivity for just behaviour on accepting the signals of *vritti* (MVD, p. 323).
 
-## 6. The closed reflection–projection loop
+## 6. The reflection–projection cycle
 
 ![Intrinsic cycle within jeevan and the conditional embodied branch](Figure-Jeevan-Intrinsic-And-Embodied-Loops.svg)
 
-The diagram separates two coupled recurrences. The intrinsic cycle belongs to *jeevan*: projection and the three inward jobs continue among the five faculties, and recurrence without bodily execution is attested at its shallowest, where the union of *vritti* and *mun* alone yields dreams, "imaginations that do not become evident in work and behaviour" (MVD, p. 279; §8). The embodied branch begins when a selection is made available to *prana*, heart, *medhas*, and the body; its consequences can then occasion further inquiry. *Jeevan* remains the persistent controller. Practical knowledge is governing content within *sanskar* rather than additional signal blocks, and the diagram in §4.3 places the embodied branch within the longer continuity across bodily couplings.
+The diagram separates two coupled recurrences. The intrinsic cycle belongs to *jeevan*: projection and reflection continue among the five faculties, receptivity conditions reflective conformance, and unresolved content may occasion inquiry. Recurrence without bodily execution is attested at its shallowest, where the union of *vritti* and *mun* alone yields dreams, "imaginations that do not become evident in work and behaviour" (MVD, p. 279; §8). The embodied branch begins when a selection is made available to *prana*, heart, *medhas*, and the body; its consequences can then occasion further inquiry. *Jeevan* remains the persistent controller. Practical knowledge is governing content within *sanskar* rather than additional signal blocks, and the diagram in §4.3 places the embodied branch within the longer continuity across bodily couplings.
 
-The two directions are not mirror images. *Sanket*, signal, is the vocabulary of the inner-to-outer direction. What moves outer-to-inner is named differently—inquiry, as *jigyasa*, *kautuhal*, or *prashna*—and its arrival at an inner faculty is described as effect and immersion rather than as signal reception. Treating reflection as projection run backwards, with the same content interpreted at each stage in reverse, would import a symmetry the sources do not have.
+The two directions are not mirror images. *Sanket*, signal, is the vocabulary of the inner-to-outer direction. *Pratyavartan* is reflection as inward governance: an outer orientation comes under the faculty inward of it rather than receiving a returned copy of projection. When unresolved content prompts a question, inquiry—as *jigyasa*, *kautuhal*, or *prashna*—may be borne inward; it is neither a third direction nor a synonym for reflection. Bodily feedback may occasion such inquiry, but it does not itself become *pratyavartan*. Treating reflection as projection run backwards, with the same content interpreted at each stage in reverse, would import a symmetry the sources do not have.
 
 ### 6.1 What the cycle explains
 
@@ -400,7 +401,7 @@ The body is not a passive actuator. Health, fatigue, skill, sensory condition, a
 
 ### 6.3 *Pratyavartan*: conformance
 
-*Pratyavartan* is the motion of awakening (MVD, p. 314), and it is reflection in the strict sense of the sources: not the return of a consequence, and not the state activities run in reverse, but the outer faculty's orientation coming to be governed by the faculty inward of it. Hope in *mun* becomes according to the thoughts arising in *vritti*; desire in *chitta* is given action-form through those thoughts; the resolve of *buddhi* is aimed at *atma*'s realisation—and it is this regulation that constitutes the activity (MVD, p. 277). Its order runs inward the whole way: the reflection of *mun* occurs in *vritti*, of *vritti* in *chitta*, of *chitta* in *buddhi*, of *buddhi* in *atma*, and of *atma* in Omnipresence; *atma* realises in coexistence, and only then does the reflection of *buddhi* become possible (MVD, p. 307). Reflection itself is the cause of awakening (MVD, p. 307). What travels that path has content: justice, *dharma*, and truth become active in *vritti* and course inward through *chitta* and *buddhi* to realisation in *atma* (AVD, p. 86).
+*Pratyavartan* is the motion of awakening (MVD, p. 314), and it is reflection in the strict sense of the sources: not the return of a consequence, and not the state activities run in reverse, but the outer faculty's orientation coming to be governed by the faculty inward of it. Hope in *mun* becomes according to the thoughts arising in *vritti*; desire in *chitta* is given action-form through those thoughts; the resolve of *buddhi* is aimed at *atma*'s realisation—and it is this regulation that constitutes the activity (MVD, p. 277). Its order runs inward the whole way: the reflection of *mun* occurs in *vritti*, of *vritti* in *chitta*, of *chitta* in *buddhi*, of *buddhi* in *atma*, and of *atma* in Omnipresence; *atma* realises in coexistence, and only then does the reflection of *buddhi* become possible (MVD, p. 307). Reflection itself is the cause of awakening (MVD, p. 307). Its governing content is not empty: justice, *dharma*, and truth become active in *vritti* and course inward through *chitta* and *buddhi* to realisation in *atma* (AVD, p. 86).
 
 ### 6.4 Receptivity: internal regulation of the powers
 
@@ -423,7 +424,7 @@ The formulation is threshold-like throughout—*mun* becomes capable of receivin
 
 ### 6.5 Inquiry borne inward
 
-What travels inward as content is inquiry, not a copy of the embodied result. The inward-facing movement is named at every level:
+When an embodied result occasions reflection, inquiry—not the result itself—is what may be borne inward. Inquiry is one content-bearing occurrence within the inward-facing process, not the definition of *pratyavartan* as a whole. The motivational sequence associated with this movement is named at every level:
 
 | Faculty | Inward-facing activity | What it is |
 |---|---|---|
@@ -435,7 +436,7 @@ What travels inward as content is inquiry, not a copy of the embodied result. Th
 
 This series is the mode of channelling *jeevan*'s energies toward development, and inward regulation of those energies is essential to it (MVD, pp. 77–78). The movement is motivational before it is informational: curiosity in *mun* is not a report about a result but an impetus toward what is not yet known. *Vritti*'s own *samvedna* is described partly in the same register, as movement for completeness and as the pain toward development and awakening—quest, expectation, and hope. The same entry also gives it the grasping of external signals through all the cognitive organs, so the register is not exclusively motivational (MVD, p. 337; Editorial Notes).
 
-When an embodied consequence occasions the movement, the internal order **mun → vritti → chitta → buddhi → atma** is preceded by **result → bodily and sensory signal → mun**. The result does not travel inward as a message. It raises an inquiry, and what returns is the understanding of reality, which the outer faculty then follows. The stages below describe what each faculty establishes when this happens, not what is relayed through it. The first row details the embodied branch; the rows from *mun* through *atma* also apply when the movement begins from internally projected or retained content.
+When an embodied consequence occasions the movement, the internal order **mun → vritti → chitta → buddhi → atma** is preceded by **result → bodily and sensory signal → mun**. The result does not travel inward as a message. It may raise an inquiry; when it does, what returns is the understanding of reality, which the outer faculty then follows. The stages below describe what each faculty establishes when this happens, not what is relayed through it. The first row details the embodied branch; the rows from *mun* through *atma* also apply when the movement begins from internally projected or retained content.
 
 | Stage | Occasion at this level | Establishing activity, *bal* | What becomes established | Motion activity, *shakti* |
 |---|---|---|---|---|
@@ -458,7 +459,7 @@ The causal direction here is unusually explicit, and it runs from outer conduct 
 
 > 1. Following or emulating the just behaviour. 2. Being and abiding in resolved thoughts (*dharma*-based thoughts). The firmness and dedication in the above two programs leads to the authority for realisation of verity, as a result *buddhi* becomes immersed. (MVD, p. 282)
 
-Two outward practices held with firmness and dedication yield the authority for realisation, and the consequence stated is that *buddhi* becomes immersed. They work in both registers at once: the immersion is a positive attainment, and the same two practices are what secure the privative conditions of §6.4, since reflection of hope, thought, desire, and resolve requires the absence of crime, injustice, attachment, and ignorance, and those absences are secured through the enforcement of orderliness, the influence of societal conduct, study and *sanskar*, and *antarniyaman* (MVD, p. 284). The receptivity conditions of §6.4 are met in the same way: *mun* becomes capable of receiving *vritti*'s signal and turns to just behaviour; *vritti* becomes capable of receiving *chitta*'s and peace is realised; *chitta* becomes capable of receiving *buddhi*'s and contentment is realised; *buddhi* becomes capable of receiving *atma*'s and *atma-bodh* occurs (MVD, pp. 282–283). The loop closes when *buddhi*'s reflection toward *atma* takes place, at which point *atma-bodh* and realisation in Omnipresence become effective together and keep *buddhi* immersed (MVD, p. 286). Practice is thus not merely how the outer levels are trained; it is how the inner levels become receivable at all, which is why the model treats conduct as load-bearing rather than as the mere output of understanding.
+Two outward practices held with firmness and dedication yield the authority for realisation, and the consequence stated is that *buddhi* becomes immersed. They work in both registers at once: the immersion is a positive attainment, and the same two practices are what secure the privative conditions of §6.4, since reflection of hope, thought, desire, and resolve requires the absence of crime, injustice, attachment, and ignorance, and those absences are secured through the enforcement of orderliness, the influence of societal conduct, study and *sanskar*, and *antarniyaman* (MVD, p. 284). The receptivity conditions of §6.4 are met in the same way: *mun* becomes capable of receiving *vritti*'s signal and turns to just behaviour; *vritti* becomes capable of receiving *chitta*'s and peace is realised; *chitta* becomes capable of receiving *buddhi*'s and contentment is realised; *buddhi* becomes capable of receiving *atma*'s and *atma-bodh* occurs (MVD, pp. 282–283). The reflection chain reaches its innermost closure when *buddhi*'s reflection toward *atma* takes place, at which point *atma-bodh* and realisation in Omnipresence become effective together and keep *buddhi* immersed (MVD, p. 286). Practice is thus not merely how the outer levels are trained; it is how the inner levels become receivable at all, which is why the model treats conduct as load-bearing rather than as the mere output of understanding.
 
 Assimilation is complete only when the content becomes effective in all five dimensions. Information remembered in *chitta* but not validated in *buddhi* remains uncertain; a principle accepted in *buddhi* but not organised through *vritti* and *mun* remains unevidenced; and an action repeated through the body without correct reference may strengthen habit without establishing Knowledge.
 
@@ -510,6 +511,8 @@ Sensory and bodily information is necessary. Error occurs when it becomes the fi
 The same constitutional architecture can operate in two qualitatively different regimes, and what distinguishes them is which end of the stack supplies the reference. In delusion the outer end sets the terms: hope in *mun* rests on sensation, thought in *vritti* follows that hope, desire in *chitta* follows that thought, and *buddhi* is reduced to expectation in support of the desire—the sense-rooted sensitivity system, with *buddhi*'s alienation from *atma* producing deluded visualisation and desire (MVD, pp. 275–276). In awakening the direction inverts: *mun* is immersed by *vritti*, *vritti* by *chitta*, *chitta* by *buddhi*, and *buddhi* by *atma* (MVD, p. 277).
 
 The two regimes are therefore one architecture under opposite governance, and the inversion is what a control abstraction exists to express. It also explains why they differ in satisfaction rather than in capability. Outward-set governance asks a more developed faculty to conform to a less developed one, which the gradient forbids, so discord and frustration persist however skilful the loop becomes (§§3.2, 5). Inward-set governance asks each faculty to conform to the one whose development exceeds it, which it can do, and full effective capacity follows from the resulting satisfaction.
+
+The partially awakened and half-awakened statuses of §4.1 are intermediate depths in this regime change. They reconnect progressively deeper references without adding another controller or requiring all four couplings to change in one event.
 
 The effective depth of the deluded loop is stated exactly, and the arithmetic is worth following because it locates the shortfall precisely. Deluded humans of the knowledge order have selection and taste in *mun*; analysis and deliberation towards pleasure, health, and profit in *vritti*; and visualisation in *chitta*—and these constitute the four and a half activities by way of delusion (MVD, p. 89). The half is deliberation: the four and a half are selection, taste, analysis, visualisation, and half of deliberation, deliberation based on sensitivity operating from the perspective of pleasure, health, and profit (JV, p. 73). *Tulan* counts as half because it runs under only the first three of the six evaluative perspectives, leaving justice, *dharma*, and truth unused (§5.4). *Chitta* contributes one activity, visualisation, with contemplation absent altogether; *buddhi* and *atma* contribute none. This matches the constitutional description, in which *jeevan* expresses its four and a half activities with activeness in the fourth, third, and second orbits—*mun*, *vritti*, and *chitta*—through the body-based way (MVD, p. 79).
 
@@ -590,7 +593,7 @@ The control formulation exposes several distinct ways activity can fail.
 | Missing or misclassified knowledge content | One of the twelve domains is ignored, confused with another, or known only as a name without purpose, procedure, rule, or evidential result | Action operates on incomplete content even when reasoning appears consistent |
 | Information without *sanskar* | Content is remembered or repeated but is not made definite, deliberated, selected, practised, and evidenced across all five dimensions | Verbal knowledge remains disconnected from conduct |
 | Repetition without correct reference | An activity is practised repeatedly while sensory satisfaction, social approval, or assumption remains its governing criterion | Habit and skill become stronger without qualitative awakening |
-| Shallow reflection | Feedback reaches valuation and analysis but not definitive understanding or realisation | Technically effective action with unresolved contradiction |
+| Shallow reflective uptake | An inquiry occasioned by feedback is taken up at valuation and analysis, but reflective conformance does not become effective through definitive understanding or realisation | Technically effective action with unresolved contradiction |
 | Criterion inversion | Pleasure, health, or profit governs justice, *dharma*, and truth | Efficient exploitation or rationalised injustice |
 | Semantic error | *Chitta* forms an image that does not accord with the recognised meaning of relationship or purpose | Attractive plans that cannot fulfil the relationship |
 | Validation without commitment | A principle is verbally accepted, but *sankalp* does not follow *bodh* | Persistent gap between stated understanding and conduct |
@@ -634,7 +637,7 @@ The control-system vocabulary is useful only within explicit limits.
 - **Re-embodiment is not yet a coupling theory.** The same *jeevan* continues and later associates with another body, and the sources place that association in the womb from about the fourth or fifth month of pregnancy (JV, p. 94). What the model cannot specify is why a particular *jeevan* becomes coupled with a particular developing body.
 - **Behaviour is not a unique provenance test.** Behaviour can manifest carried *sanskar*, but observation of an act alone cannot separate earlier-embodiment organisation from present education, bodily condition, social circumstances, and current selection.
 - **Appendix A is the model's own construction.** Its typed spaces, composed operators, gating predicates, inquiry protocol, Boolean value predicates, and carriage relation make the reading definite; the sources neither state nor exclude them, and rejecting the appendix leaves the body intact.
-- **The architecture is a qualitative cascade, not a quantitative identification.** §1 names it as a five-stage cascade with gated outer loops, a slow *sanskar* state, a delusion/awakening mode switch, two errors, and a loop not closed inside the unit. Relating that reading further to contemporary control theory, predictive processing, or cognitive architecture is not required for the model and is not left open below.
+- **The architecture is a qualitative cascade, not a quantitative identification.** §1 names it as a five-stage cascade with gated outer loops, a slow *sanskar* state, a delusion/awakening regime change with intermediate depths, two errors, and a loop not closed inside the unit. Relating that reading further to contemporary control theory, predictive processing, or cognitive architecture is not required for the model and is not left open below.
 
 The model is therefore a qualitative architecture and a research programme. It clarifies components, directions, dependencies, criteria, persistence, and possible failure points. It does not provide a quantitative dynamical system, an empirically discriminating theory of the *jeevan–body* interface, or a public procedure for identifying the earlier-embodiment contribution to present behaviour.
 
@@ -657,7 +660,7 @@ These six questions bound what the architecture can presently claim. Further res
 
 Everything in this appendix is the model's construction rather than the sources' statement. The body of the note states what the primary texts establish; the machinery below makes that reading definite enough to reason with, and in doing so commits to structure the sources neither assert nor exclude. Each section names the commitment it introduces. The appendix can be rejected in whole or in part without disturbing the body. §11.2 keeps the six questions that bound the model; Appendix B keeps the remainder.
 
-The architecture being formalised is the one named in §1: a five-stage cascade; gated outer loops; a slow *sanskar* state; a delusion/awakening mode switch; two errors, structural discord and operational evaluation of the embodied result; and a loop not closed inside the unit, because three of the four receptivity conditions are social.
+The architecture being formalised is the one named in §1: a five-stage cascade; gated outer loops; a slow *sanskar* state; a delusion/awakening regime change with intermediate depths; two errors, structural discord and operational evaluation of the embodied result; and a loop not closed inside the unit, because three of the four receptivity conditions are social.
 
 The formalism uses typed sets, ordered transformations, partial functions, and qualitative predicates. It does not assume a metric on understanding, a numerical quantity of *bal* or *shakti*, a scalar reward, or an experimentally identified transfer function. The time index $t$ orders successive embodied cycles; it is not a claim that the activities of *jeevan* are clocked computations.
 
@@ -684,15 +687,26 @@ $$
 X(J,t)=\bigl(x(a,t),x(b,t),x(c,t),x(v,t),x(m,t)\bigr).
 $$
 
-The coordinates are typed contents, not real-valued variables. Each $x(f,t)$ has a persistent aspect $s(f,t)$, carried as *sanskar*, and a presently active aspect $q(f,t)$:
+Let $\mathcal{F}_{\mathrm{acq}}=\{b,c,v,m\}$ be the four faculties in which the sources locate acquired *sanskar*. Each outer coordinate $x(f,t)$ for $f\in\mathcal{F}_{\mathrm{acq}}$ has a persistent aspect $s(f,t)$, carried as *sanskar*, and a presently active aspect $q(f,t)$. *Atma* has the realised-reference coordinate $q(a,t)$ rather than a fifth acquired deposit:
 
 $$
-x(f,t)=\bigl(s(f,t),q(f,t)\bigr),
+x(f,t)=\bigl(s(f,t),q(f,t)\bigr)
+\quad(f\in\mathcal{F}_{\mathrm{acq}}),
 \qquad
+x(a,t)=q(a,t).
+$$
+
+$$
+S(J,t)=\bigl(s(b,t),s(c,t),s(v,t),s(m,t)\bigr),
+\qquad
+Q(J,t)=\bigl(q(a,t),q(b,t),q(c,t),q(v,t),q(m,t)\bigr),
+$$
+
+$$
 X(J,t)=\bigl(S(J,t),Q(J,t)\bigr).
 $$
 
-The decomposition is analytical rather than spatial: $S(J,t)$ and $Q(J,t)$ are not two stores inside *jeevan*. $S(J,t)$ is the durable cross-faculty organisation through which $Q(J,t)$ is interpreted and projected. The content space may be partitioned as:
+The decomposition is analytical rather than spatial: $S(J,t)$ and $Q(J,t)$ are not two stores inside *jeevan*. $S(J,t)$ is the durable four-faculty acquired organisation through which $Q(J,t)$ is interpreted and projected, while $q(a,t)$ supplies the realised reference with which that organisation agrees. The content space may be partitioned as:
 
 $$
 \mathcal{D}
@@ -700,7 +714,7 @@ $$
 \mathcal{D}(P)\cup\mathcal{D}(E),
 $$
 
-where $\mathcal{D}(O)$ concerns coexistence, identity, and the *jeevan–body* distinction; $\mathcal{D}(R)$ concerns relationship, purpose, value, *niyam, niyantran,* and *santulan*; $\mathcal{D}(P)$ contains practical content attested in print—the four bodily propensities, the three *eshanas*, and *upakar*—together with whatever further practical content study supplies; and $\mathcal{D}(E)$ contains retained meanings, prior results, expectations, and tendencies. The oral twelvefold of §7 may be used as an index of $\mathcal{D}(P)$; the product $\mathcal{X}(J)$ does not depend on that index. A content $d\in\mathcal{D}$ becomes operative *sanskar* only through its distributed organisation across the five state dimensions.
+where $\mathcal{D}(O)$ concerns coexistence, identity, and the *jeevan–body* distinction; $\mathcal{D}(R)$ concerns relationship, purpose, value, *niyam, niyantran,* and *santulan*; $\mathcal{D}(P)$ contains practical content attested in print—the four bodily propensities, the three *eshanas*, and *upakar*—together with whatever further practical content study supplies; and $\mathcal{D}(E)$ contains retained meanings, prior results, expectations, and tendencies. The oral twelvefold of §7 may be used as an index of $\mathcal{D}(P)$; the product $\mathcal{X}(J)$ does not depend on that index. A content $d\in\mathcal{D}$ becomes operative *sanskar* only through its distributed organisation across the four acquired dimensions, held to the realised reference at *atma*.
 
 ### A.3 Two outward cascades, motion's direction, and embodied dynamics
 
@@ -739,7 +753,7 @@ $$
 
 so that $\mathcal{S}(f,\mathrm{out})$ carries the established state of $f$ toward $\operatorname{out}(f)$, while $\mathcal{S}(f,\mathrm{in})$ carries no content and instead raises the receptivity of $f$ to $\operatorname{in}(f)$.
 
-Let $\kappa(f,t)$ be the condition attaching to level $f$—absence of crime at $m$, of injustice at $v$, of attachment at $c$, of ignorance at $b$—and let:
+For $f\in\mathcal{F}_{\mathrm{acq}}$, let $\kappa(f,t)$ be the condition attaching to level $f$—absence of crime at $m$, of injustice at $v$, of attachment at $c$, of ignorance at $b$—and let:
 
 $$
 r(f,t)=\mathcal{S}(f,\mathrm{in})\bigl(x(f,t),\kappa(f,t)\bigr)\in\{\top,\bot\}.
@@ -786,17 +800,28 @@ $\mathcal{G}$ includes bodily execution, speech, work, interaction, and material
 
 ### A.4 Inquiry, conformance, and state update
 
-*Commitment: that inquiry raised at an outer level is borne to the adjoining inward level, answered there from that level's state, and taken up by the outer faculty as a separate event; that every embodied result is converted into an inquiry; and that pratyavartan is conformance of orientation, not this protocol. The sources name inquiry as what moves inward and sanket as what moves outward, but no consulted passage gives the protocol (§§6.1, 6.5).*
+*Commitment: that an inquiry raised at an outer level is borne to the adjoining inward level, answered there from that level's state, and taken up by the outer faculty as a separate event; that an embodied result may occasion inquiry but need not do so; and that pratyavartan is reflection as conformance of orientation, not this protocol. The sources name inquiry as an inward-facing occurrence and sanket as moving outward, but no consulted passage gives the protocol (§§6.1, 6.5).*
 
-Feedback $y(t+1)$ is not copied unchanged into the internal state, and it is not carried inward as content at all. It occasions an inquiry. Let $\mathcal{I}(f)$ be the inquiries that can be raised at level $f$, and let:
+Feedback $y(t+1)$ is not copied unchanged into the internal state, and it is not carried inward as the content of reflection. It may occasion an inquiry. Let $\mathcal{I}(f)$ be the inquiries that can be raised at level $f$, and let the occasioning operation be partial:
 
 $$
-\mathsf{Occ}:\mathcal{Y}\times\mathcal{X}(J)\longrightarrow\mathcal{I}(m),
-\qquad
+\mathsf{Occ}:\mathcal{Y}\times\mathcal{X}(J)\rightharpoonup\mathcal{I}(m).
+$$
+
+$$
+\begin{aligned}
+&
+\mathsf{Occ}\bigl(y(t+1),X(J,t)\bigr)\downarrow
+\\
+&\qquad
+\Longrightarrow
 \iota(t+1)=\mathsf{Occ}\bigl(y(t+1),X(J,t)\bigr).
+\end{aligned}
 $$
 
-An inquiry is borne to the adjoining inward level, and what returns is the understanding that level's state can supply:
+Here $\downarrow$ means that the result has raised an actual inquiry. When $\mathsf{Occ}$ is undefined, no inquiry pass follows from that result; this is the failure mode "Inquiry not raised" in §10.
+
+For $f\in\mathcal{F}_{\mathrm{acq}}$, an inquiry is borne to the adjoining inward level, and what returns is the understanding that level's state can supply:
 
 $$
 \mathsf{Bear}(f):\mathcal{I}(f)\longrightarrow\mathcal{I}(\operatorname{in}(f)),
@@ -808,10 +833,10 @@ $$
 \rightharpoonup\mathcal{C}(f),
 $$
 
-where $\mathcal{C}(f)$ is the content that becomes available at $f$. Both are gated by receptivity: $\mathsf{Answer}(f)$ is defined only where $r(f,t)=\top$. An inquiry may therefore be borne inward and go unanswered at a level whose receptivity condition fails, which is the formal counterpart of §6.4 and has no analogue in a scheme where reflection is projection reversed. The outer faculty's own uptake of what returns is a further operation:
+where $\mathcal{C}(f)$ is the content that becomes available at $f$. The answer and the outer faculty's uptake are conditioned by receptivity: $\mathsf{Answer}(f)$ is defined only where $r(f,t)=\top$. An inquiry may therefore be borne inward and go unanswered at a level whose receptivity condition fails, which is the formal counterpart of §6.4 and has no analogue in a scheme where reflection is projection reversed. The outer faculty's own uptake of what returns is a further operation:
 
 $$
-\mathsf{Uptake}(f):\mathcal{X}(f)\times\mathcal{C}(f)\longrightarrow\mathcal{X}(f).
+\mathsf{Uptake}(f):\mathcal{X}(f)\times\mathcal{C}(f)\rightharpoonup\mathcal{X}(f).
 $$
 
 Reception and change are thus separate events. The composite inward pass of inquiry over the effectively participating levels is the reverse ordered composition of $\mathsf{Bear}$, $\mathsf{Answer}$, and $\mathsf{Uptake}$, written $\mathcal{Q}(t)$:
@@ -820,9 +845,9 @@ $$
 z(t+1)=\mathcal{Q}(t)\bigl(\iota(t+1);X(J,t)\bigr).
 $$
 
-$\mathcal{Q}(t)$ is not the reverse of $\mathcal{P}$, and it is not the composition of the $\mathcal{B}(f)$. The realisation-based way already runs those state activities outward. In a shallower cycle the inquiry terminates at the highest effectively participating faculty, so that for $\mathcal{F}^{\mathrm{eff}}(t)=\{c,v,m\}$ feedback can alter valuation, judgment, and representation without reaching definiteness or realisation.
+$\mathcal{Q}(t)$ is not the reverse of $\mathcal{P}$, and it is not the composition of the $\mathcal{B}(f)$. The realisation-based way already runs those state activities outward. In a shallower cycle the inquiry terminates at the highest effectively participating faculty, so that for $\mathcal{F}^{\mathrm{eff}}(t)=\{c,v,m\}$ its uptake can alter valuation, judgment, and representation without reaching definiteness or realisation.
 
-*Pratyavartan* is a third job: conformance of orientation, not returned data and not the inquiry pass. Let $C(f,t)$ be the orientation at $f$—hope, thought, desire, resolve, or evidence—and let:
+*Pratyavartan* is reflection: conformance of orientation, not returned data and not the inquiry pass. For $f\in\mathcal{F}_{\mathrm{acq}}$, let $C(f,t)$ be the orientation at $f$—hope, thought, desire, or resolve—with $C(a,t)$ as realisational evidence, and let:
 
 $$
 \Pi(f,t)=\top
@@ -830,7 +855,7 @@ $$
 C(f,t)\text{ is according to }C(\operatorname{in}(f),t),
 $$
 
-defined only where $r(f,t)=\top$. Awakening is $\Pi(f,t)=\top$ along the chain, not a successful $\mathcal{Q}(t)$ alone.
+defined only where $r(f,t)=\top$. Awakening is $\Pi(f,t)=\top$ along the four-coupling chain, not a successful $\mathcal{Q}(t)$ alone.
 
 No stage of $\mathcal{Q}$ relays the feedback itself. The state update may be represented as:
 
