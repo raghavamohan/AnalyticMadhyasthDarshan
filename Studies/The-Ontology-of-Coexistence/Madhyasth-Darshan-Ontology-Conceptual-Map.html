@@ -104,6 +104,13 @@
     font-size: 11pt;
     line-height: 1.55;
     color: #1a1a1a;
+    /* Never fake an italic for a font that has no italic face. Georgia, Times
+       and Consolas all ship true italics, so Latin text is unaffected. Scripts
+       with no italic tradition -- Devanagari via Nirmala UI, in the Hindi
+       transcripts under References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/
+       -- would otherwise be slanted synthetically inside blockquotes, which
+       distorts matras and makes editorial [brackets] read as vowel marks. */
+    font-synthesis-style: none;
     max-width: 750px;
     margin: 30px auto;
     padding: 0 20px;
@@ -585,7 +592,7 @@
 <h3>5. Recognition, fulfilment, and complementarity</h3>
 <p><strong>Concept.</strong> Units recognise and fulfil according to their constitution and order. In insentient nature, reflection, effect, recognition, and fulfilment are definite according to the participating units and conditions. Animal <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> expresses hope-bound selection through a species-conformant bodily medium. Human evaluation can become mistaken only when deluded <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> identifies itself with the body; the underlying mutuality does not thereby become indefinite. Complementarity becomes value in relationship.</p>
 <p><strong>Primary pointers.</strong> SB, pp. 49–54, 57, 59, 61–62, 80–81, 123; MVD, pp. 61–62; JV, pp. 43, 67, 69.</p>
-<p><strong>Read for.</strong> Definite recognition among particles and atoms, seed- and species-conformant fulfilment, capacity–ability–receptivity, relationship versus association, and the statement that nothing exists in isolation.</p>
+<p><strong>Read for.</strong> Definite recognition among particles and atoms, seed- and species-conformant fulfilment, capacity–ability–receptivity, relationship versus contact, and the statement that nothing exists in isolation.</p>
 <h3>6. Effort–motion–result (<em>shram–gati–parinam</em>)</h3>
 <p><strong>Concept.</strong> Every activity bears effort, motion, and result inseparably. These are joint aspects of one activity, not three independent events. Force is recognised in state and power in motion.</p>
 <p><strong>Primary pointers.</strong> SB, pp. 53, 58, 62, 69, 71; MVD, pp. 40, 104; KD §§3.11–3.12, printed pp. 102–118.</p>
@@ -707,7 +714,7 @@
 <p><strong>Primary pointers.</strong> SB, p. 81; MVD, pp. 14–15, 115, 126, 286–287; KD §§3.17–3.18, printed pp. 145–153.</p>
 <p><strong>Read for.</strong> The distinction of knowledge, knower, and known; seer, seen, and seeing; realisation in coexistence; authenticity; and knowledge made meaningful through participation.</p>
 <h3>18. Perpetual world and persistence of <em>jeevan</em></h3>
-<p><strong>Concept.</strong> Omnipresence and units do not arise from non-being or pass into non-being. Configurations change while existence remains. <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">Jeevan</button></span></em>&lsquo;s individual persistence is additionally grounded in constitutional completeness, not merely in generic quantity conservation.</p>
+<p><strong>Concept.</strong> Omnipresence and units do not arise from non-being or pass into non-being. Configurations change while existence remains. <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">Jeevan</button></span></em>&rsquo;s individual persistence is additionally grounded in constitutional completeness, not merely in generic quantity conservation.</p>
 <p><strong>Primary pointers.</strong> MVD, pp. 13, 91; JV, pp. 20, 54; SB, pp. 55, 57, 59, 114.</p>
 <p><strong>Read for.</strong> “Brahma is truth, the world is perpetual,” non-annihilation, particle closure, freedom from molecular and weight bondage, continuation after bodily death, and reassociation with another body.</p>
 <h3>19. Happiness, bliss, and human fulfilment</h3>
@@ -737,8 +744,8 @@
 <td>§1.3</td>
 </tr>
 <tr>
-<td>Relationship and association</td>
-<td>A relationship carries expectations inherent in fulfilment; an association carries voluntarily adopted expectations</td>
+<td>Relationship and contact</td>
+<td>A relationship carries expectations inherent in fulfilment; a contact carries voluntarily adopted expectations</td>
 <td>§1.4</td>
 </tr>
 <tr>

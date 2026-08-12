@@ -104,6 +104,13 @@
     font-size: 11pt;
     line-height: 1.55;
     color: #1a1a1a;
+    /* Never fake an italic for a font that has no italic face. Georgia, Times
+       and Consolas all ship true italics, so Latin text is unaffected. Scripts
+       with no italic tradition -- Devanagari via Nirmala UI, in the Hindi
+       transcripts under References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/
+       -- would otherwise be slanted synthetically inside blockquotes, which
+       distorts matras and makes editorial [brackets] read as vowel marks. */
+    font-synthesis-style: none;
     max-width: 750px;
     margin: 30px auto;
     padding: 0 20px;
