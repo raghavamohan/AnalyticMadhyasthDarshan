@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1080" viewBox="0 0 1200 1080" role="img" aria-labelledby="title desc">
   <title id="title">Jeevan control-system boundary</title>
-  <desc id="desc">A block diagram identifying jeevan as the sentient controller and bearer of sanskar, coupled to Satta and coexistence, a temporary embodied interface, and the controlled field.</desc>
+  <desc id="desc">A block diagram identifying jeevan as the sentient controller and bearer of sanskar, coupled to Satta and coexistence, a temporary embodied interface of prana, heart, medhas, senses, and body, and the controlled field. Bal is activity in state and shakti is activity in motion, whose direction may be set outward as conduct or inward as receptivity.</desc>
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
       <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
@@ -38,7 +38,7 @@
   <text x="600" y="314" text-anchor="middle" class="body">sentient controller and bearer of sanskar</text>
 
   <rect x="110" y="355" width="280" height="145" rx="14" fill="#fff2d6" stroke="#c77b16" stroke-width="2.5"/>
-  <text x="250" y="390" text-anchor="middle" class="heading">Bal-side reflection</text>
+  <text x="250" y="390" text-anchor="middle" class="heading">Bal &#8212; state</text>
   <text x="250" y="423" text-anchor="middle" class="small">tasting and comparison</text>
   <text x="250" y="450" text-anchor="middle" class="small">meaning and definiteness</text>
   <text x="250" y="477" text-anchor="middle" class="small">realisation</text>
@@ -50,7 +50,7 @@
   <text x="600" y="477" text-anchor="middle" class="small">the five faculties</text>
 
   <rect x="810" y="355" width="280" height="145" rx="14" fill="#e9f5ff" stroke="#2773a5" stroke-width="2.5"/>
-  <text x="950" y="390" text-anchor="middle" class="heading">Shakti-side projection</text>
+  <text x="950" y="390" text-anchor="middle" class="heading">Shakti &#8212; motion</text>
   <text x="950" y="423" text-anchor="middle" class="small">authenticity and resolve</text>
   <text x="950" y="450" text-anchor="middle" class="small">image and analysis</text>
   <text x="950" y="477" text-anchor="middle" class="small">selection</text>
@@ -64,6 +64,9 @@
   <rect x="741" y="399" width="68" height="23" rx="4" class="label-bg"/>
   <text x="775" y="417" text-anchor="middle" class="label">governs</text>
 
+  <text x="600" y="533" text-anchor="middle" class="small">Motion carries a direction: set outward it evidences as conduct; set inward,</text>
+  <text x="600" y="559" text-anchor="middle" class="small">by antarniyaman, it produces receptivity to the faculty inward of it.</text>
+
   <!-- Satta is a reference, not a command source -->
   <path class="reference-arrow" d="M 940 85 H 1142 V 328 H 600 V 355"/>
   <rect x="938" y="205" width="201" height="53" rx="7" class="label-bg"/>
@@ -71,19 +74,21 @@
   <text x="1038" y="248" text-anchor="middle" class="small">not a command input</text>
 
   <!-- Temporary embodied interface, outside jeevan but within the human joint form -->
-  <rect x="350" y="665" width="500" height="105" rx="15" fill="#eef4fa" stroke="#4f6b85" stroke-width="3"/>
-  <text x="600" y="704" text-anchor="middle" class="heading">Medhas, senses, and body</text>
-  <text x="600" y="736" text-anchor="middle" class="body">temporary embodied interface</text>
-  <text x="600" y="761" text-anchor="middle" class="small">not the bearer of sanskar</text>
+  <rect x="350" y="655" width="500" height="140" rx="15" fill="#eef4fa" stroke="#4f6b85" stroke-width="3"/>
+  <text x="600" y="694" text-anchor="middle" class="heading">Medhas, senses, and body</text>
+  <text x="600" y="726" text-anchor="middle" class="body">temporary embodied interface</text>
+  <text x="600" y="753" text-anchor="middle" class="small">prana and heart are the ordered inner stages</text>
+  <text x="600" y="779" text-anchor="middle" class="small">not the bearer of sanskar</text>
 
-  <path class="arrow" d="M 950 500 V 620 H 730 V 665"/>
+  <path class="arrow" d="M 950 500 V 620 H 730 V 655"/>
   <rect x="790" y="596" width="179" height="25" rx="4" class="label-bg"/>
   <text x="879" y="615" text-anchor="middle" class="label">selected orientation</text>
 
-  <path class="arrow" d="M 350 717 H 82 V 428 H 110"/>
-  <rect x="50" y="572" width="226" height="53" rx="7" class="label-bg"/>
-  <text x="163" y="593" text-anchor="middle" class="label">sensory and embodied</text>
-  <text x="163" y="615" text-anchor="middle" class="label">feedback</text>
+  <path class="arrow" d="M 350 725 H 82 V 428 H 110"/>
+  <rect x="46" y="566" width="234" height="78" rx="7" class="label-bg"/>
+  <text x="163" y="586" text-anchor="middle" class="label">sensory and embodied</text>
+  <text x="163" y="608" text-anchor="middle" class="label">feedback, which</text>
+  <text x="163" y="630" text-anchor="middle" class="label">occasions inquiry</text>
 
   <!-- Field in which embodied action has consequences -->
   <rect x="250" y="920" width="700" height="120" rx="18" fill="#f1f0ff" stroke="#6557a5" stroke-width="3"/>
@@ -91,11 +96,11 @@
   <text x="600" y="991" text-anchor="middle" class="body">body, relationship, work, exchange, and society</text>
   <text x="600" y="1021" text-anchor="middle" class="small">participation in nature</text>
 
-  <path class="arrow" d="M 490 770 V 920"/>
+  <path class="arrow" d="M 490 795 V 920"/>
   <rect x="282" y="827" width="202" height="26" rx="4" class="label-bg"/>
   <text x="383" y="847" text-anchor="middle" class="label">speech, action, and work</text>
 
-  <path class="arrow" d="M 710 920 V 770"/>
+  <path class="arrow" d="M 710 920 V 795"/>
   <rect x="721" y="820" width="263" height="52" rx="7" class="label-bg"/>
   <text x="852" y="841" text-anchor="middle" class="label">bodily condition, result,</text>
   <text x="852" y="863" text-anchor="middle" class="label">and another's response</text>
