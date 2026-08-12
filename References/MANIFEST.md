@@ -65,7 +65,7 @@ For **MVD**, **SB**, and **JV**, the PDF is the file Studies must cite and that 
 | **MVD** | [Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf](Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf) · [`.md` analysis extract](Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.md) | all Studies papers above |
 | **SB** | [Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf](Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf) · [`.md` analysis extract](Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.md) | all Studies papers above |
 | **JV** | [Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf](Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf) · [`.md` analysis extract](Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.md) | all Studies papers above |
-| **AVD** | [Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf](Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf) | The-Ontology-of-Coexistence |
+| **AVD** | [Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf](Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf) | The-Ontology-of-Coexistence; Research-Note-Bal-Shakti-And-Activity (internal) |
 | **JVD** | [Madhyasth-Darshan/JVD-Janvad.pdf](Madhyasth-Darshan/JVD-Janvad.pdf) | Nature-Of-Time |
 | **MD** | [Madhyasth-Darshan/MD-Mapping.xlsx](Madhyasth-Darshan/MD-Mapping.xlsx) | terminology glossary; Phase 4 MVD/SB refresh (see MD-Mapping-Sources/) |
 | **KD** | [Madhyasth-Darshan/KD-karm darshan v5.pdf](Madhyasth-Darshan/KD-karm%20darshan%20v5.pdf) | The-Ontology-of-Coexistence; Research-Note-Physics-Of-Satta-Unit-Interaction (internal) |
