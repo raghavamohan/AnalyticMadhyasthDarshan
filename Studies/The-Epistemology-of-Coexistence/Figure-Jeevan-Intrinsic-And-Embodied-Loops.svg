@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="990" viewBox="0 0 1200 990" role="img" aria-labelledby="title desc">
-  <title id="title">Intrinsic and embodied control loops of jeevan</title>
-  <desc id="desc">Projection as paravartan and reflection as pratyavartan together form avartan, a complete internal cycle among the five faculties of jeevan. Each faculty contributes one of its two paired activities to each direction: authenticity, resolve, visualisation, analysis, and selection outward; realisation, enlightenment, contemplation, deliberation, and taste inward. Signal travels inner to outer and inquiry travels outer to inner, so the two directions are not mirror images. Bodily execution and bodily feedback form a conditional additional branch that occasions inquiry. Two relations shown here belong to Appendix A rather than to the sources: the pairing of sambodhan with samvahan as request and response between adjoining faculties, and recurrence at full depth with no embodied occasion.</desc>
+  <title id="title">Intrinsic and embodied loops of jeevan</title>
+  <desc id="desc">The awakened jeevan cycle combines paravartan and pratyavartan among the five faculties. Signal travels inner to outer. Inquiry is borne outer to inner. Pratyavartan is the outer orientation coming under the inner, not returned data. Receptivity is a separate accomplishment. Bodily execution is a conditional branch whose consequences occasion inquiry. Recurrence without bodily execution is attested at its shallowest as dream.</desc>
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
       <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
@@ -24,10 +24,10 @@
   <rect x="340" y="25" width="520" height="110" rx="17" fill="#edf8f0" stroke="#527059" stroke-width="3"/>
   <text x="600" y="62" text-anchor="middle" class="heading">Knowledge reference</text>
   <text x="600" y="94" text-anchor="middle" class="body">Satta and coexistence: facts, rules, and relations</text>
-  <text x="600" y="121" text-anchor="middle" class="small">available for realisation - not a command input</text>
+  <text x="600" y="121" text-anchor="middle" class="small">available for realisation &#8212; not a command input</text>
 
   <rect x="50" y="185" width="1100" height="360" rx="22" fill="#fffaf0" stroke="#b45309" stroke-width="5"/>
-  <text x="600" y="220" text-anchor="middle" class="boundary-label">JEEVAN &#8212; INTRINSIC ACTIVITY (AVARTAN)</text>
+  <text x="600" y="220" text-anchor="middle" class="boundary-label">JEEVAN &#8212; AWAKENED CYCLE</text>
 
   <rect x="80" y="285" width="300" height="225" rx="14" fill="#f3e8ff" stroke="#7e57a3" stroke-width="2.5"/>
   <text x="230" y="330" text-anchor="middle" class="heading">Internal state</text>
@@ -38,21 +38,21 @@
 
   <rect x="450" y="285" width="300" height="225" rx="14" fill="#e9f5ff" stroke="#2773a5" stroke-width="2.5"/>
   <text x="600" y="322" text-anchor="middle" class="heading">Projection</text>
-  <text x="600" y="352" text-anchor="middle" class="body">paravartan &#183; sambodhan</text>
-  <text x="600" y="390" text-anchor="middle" class="small">atma &#8594; authenticity</text>
-  <text x="600" y="418" text-anchor="middle" class="small">buddhi &#8594; resolve</text>
-  <text x="600" y="446" text-anchor="middle" class="small">chitta &#8594; visualisation</text>
-  <text x="600" y="474" text-anchor="middle" class="small">vritti &#8594; analysis</text>
-  <text x="600" y="502" text-anchor="middle" class="small">mun &#8594; selection</text>
+  <text x="600" y="352" text-anchor="middle" class="body">paravartan &#183; signal outward</text>
+  <text x="600" y="390" text-anchor="middle" class="small">inner state is the reference</text>
+  <text x="600" y="418" text-anchor="middle" class="small">motion acts on the next plant</text>
+  <text x="600" y="446" text-anchor="middle" class="small">orientations become evidenced</text>
+  <text x="600" y="474" text-anchor="middle" class="small">selection may reach the body</text>
+  <text x="600" y="502" text-anchor="middle" class="small">atma &#8594; mun &#8594; body</text>
 
   <rect x="820" y="285" width="300" height="225" rx="14" fill="#fff2d6" stroke="#c77b16" stroke-width="2.5"/>
-  <text x="970" y="322" text-anchor="middle" class="heading">Reflection</text>
-  <text x="970" y="352" text-anchor="middle" class="body">pratyavartan &#183; samvahan</text>
-  <text x="970" y="390" text-anchor="middle" class="small">mun &#8594; taste</text>
-  <text x="970" y="418" text-anchor="middle" class="small">vritti &#8594; deliberation</text>
-  <text x="970" y="446" text-anchor="middle" class="small">chitta &#8594; contemplation</text>
-  <text x="970" y="474" text-anchor="middle" class="small">buddhi &#8594; enlightenment</text>
-  <text x="970" y="502" text-anchor="middle" class="small">atma &#8594; realisation</text>
+  <text x="970" y="322" text-anchor="middle" class="heading">Inward mechanisms</text>
+  <text x="970" y="358" text-anchor="middle" class="small">receptivity: ability to receive</text>
+  <text x="970" y="386" text-anchor="middle" class="small">pratyavartan: outer comes</text>
+  <text x="970" y="414" text-anchor="middle" class="small">under the inner</text>
+  <text x="970" y="448" text-anchor="middle" class="small">inquiry: a question is borne</text>
+  <text x="970" y="476" text-anchor="middle" class="small">inward, not a copy of the result</text>
+  <text x="970" y="504" text-anchor="middle" class="small">mun &#8594; atma</text>
 
   <path class="arrow" d="M 380 355 H 450"/>
   <rect x="384" y="326" width="62" height="24" rx="4" class="label-bg"/>
@@ -73,7 +73,7 @@
 
   <rect x="100" y="650" width="430" height="110" rx="16" fill="#eef4fa" stroke="#4f6b85" stroke-width="3"/>
   <text x="315" y="691" text-anchor="middle" class="heading">Conditional embodiment</text>
-  <text x="315" y="724" text-anchor="middle" class="body">medhas and body: speech, action, and work</text>
+  <text x="315" y="724" text-anchor="middle" class="body">prana, heart, medhas, and body</text>
 
   <rect x="690" y="650" width="410" height="110" rx="16" fill="#f1f0ff" stroke="#6557a5" stroke-width="3"/>
   <text x="895" y="691" text-anchor="middle" class="heading">Embodied result</text>
@@ -97,8 +97,8 @@
   <line x1="665" y1="820" x2="735" y2="820" class="conditional"/>
   <text x="750" y="826" class="small">conditional coupling</text>
 
-  <text x="600" y="884" text-anchor="middle" class="body">Projection and reflection can recur without bodily execution or new bodily feedback.</text>
+  <text x="600" y="884" text-anchor="middle" class="body">Projection and the inward mechanisms can recur without bodily execution.</text>
   <text x="600" y="912" text-anchor="middle" class="small">Signal travels inner to outer; inquiry travels outer to inner. The two directions are not mirror images.</text>
-  <text x="600" y="943" text-anchor="middle" class="small">Appendix A holds what the model adds to this: samvahan and sambodhan as a request-and-response</text>
-  <text x="600" y="967" text-anchor="middle" class="small">pairing between adjoining faculties, and full-depth recurrence with no embodied occasion.</text>
+  <text x="600" y="943" text-anchor="middle" class="small">Receptivity, conformance, and inquiry are three inward jobs, not one reverse cascade of the state activities.</text>
+  <text x="600" y="967" text-anchor="middle" class="small">Appendix A formalises inquiry as a request the inner level answers from its state.</text>
 </svg>
