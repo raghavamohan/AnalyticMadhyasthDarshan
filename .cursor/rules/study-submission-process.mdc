@@ -40,6 +40,14 @@ addition, edit, or status change lands through a pull request that CI
    | Rename slug (directory + metadata) | `study-update.md` | `study-update` | `Study slug: <New-Slug>` (CI runs `_rename_study.py` when one slug is removed and another added) |
    | Change Draft ↔ Released | `status-change.md` | `status-change` | `Study slug: <Slug>` and `Target status: draft`/`released` |
 
+   **Study state is not pull-request state.** `Draft`, `Target status: draft`,
+   "submit draft", and "draft submission" describe the study's lifecycle status
+   (catalog status and PDF watermark). They do **not** request GitHub's draft-PR
+   state. Open study PRs as ready for review by default, including PRs that add or
+   restore a Draft study. Use a GitHub draft PR (`gh pr create --draft`) only when
+   the user explicitly asks for a **GitHub draft PR** because the PR work itself is
+   incomplete; never infer it from the study's status.
+
    **Bare slug only.** Put `Study slug:`, `Slug:`, and `Target status:` each on its **own
    line**. The value must be the catalog directory name alone — e.g.
    `Study slug: The-Ontology-of-Coexistence`. Do **not** append parentheticals, em dashes,
@@ -104,6 +112,8 @@ drift out of sync with the source `.md`.
   `Target status:`) — bare slug / status value only, no notes on that line
 - [ ] One study slug per PR for `study-update` / `status-change` (open a second PR for a second
   slug)
+- [ ] Study status and GitHub PR readiness were handled independently; the PR is ready for
+  review unless a GitHub draft PR was explicitly requested for incomplete PR work
 - [ ] Local verification (`_quote_tool.py verify`, `_check_references.py`, `_regenerate_pdf.py`,
   `_verify_studies_index.py` as applicable) run and passing before push
 - [ ] Non-study changes (Scripts/, rules, skills, infra) are not carrying a study label

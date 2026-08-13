@@ -1,5 +1,13 @@
 Choose a template when opening your pull request. **Do not** use this default chooser body as the PR description — open the matching template link so the required fields are present.
 
+### Pull request readiness
+
+Open study pull requests as **ready for review** by default. A study whose status
+is `Draft` still uses a normal, ready-for-review GitHub pull request: `Draft`,
+`Target status: draft`, and "submit draft" describe the study's catalog/PDF
+lifecycle, not GitHub's draft-PR state. Use a GitHub draft PR only when it is
+explicitly requested because the pull-request work itself is incomplete.
+
 | Change | Template | Label | Required body field(s) |
 |--------|----------|-------|-------------------------|
 | Add a new study (after `proposal-approved`) | [new-study](?expand=1&template=new-study.md) | `new-study` | `Proposal issue: #N` and `Slug: <Slug>` |
