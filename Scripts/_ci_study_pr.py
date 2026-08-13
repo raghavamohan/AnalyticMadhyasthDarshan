@@ -22,7 +22,6 @@ from _common import BASE, STUDIES, slug_from_repo_relative_path, study_md
 
 from _build_studies_index import verify_index_shell_sync  # noqa: E402
 from _check_references import run_checks, print_report  # noqa: E402
-from _pdf_cache_sync import pdfs_for_study, sync_pdf_cache  # noqa: E402
 from _study_catalog import (  # noqa: E402
     StudyStatus,
     get_study_row,
@@ -415,13 +414,14 @@ def sync_catalog_timestamp_from_md(slug: str) -> None:
     write_studies_catalog(rows, table, rebuild_discussion=False, rebuild_feedback_template=False)
 
 
-def sync_study_reference_cache(slug: str) -> None:
-    paths = pdfs_for_study(slug)
-    if not paths:
-        print(f"No local PDF references to cache for {slug}.")
-        return
-    print(f"Syncing PDF cache for {slug} ({len(paths)} file(s))...")
-    sync_pdf_cache(paths, prune=False)
+# No PDF text cache is built here. Extracting the page text of a study's cited
+# references took roughly ten of every twelve minutes of this job, and nothing in
+# the run ever read the result: the cache feeds quote verification, which CI does
+# not run, while _check_references.py only resolves link targets. Scripts/_pdf_cache/
+# is gitignored and outside the commit-artifacts paths, so the runner discarded it.
+# Authors still build it locally, on demand, through the tool that needs it:
+# `python Scripts/_quote_tool.py verify --study <Slug>`, which AGENTS.md §7 already
+# requires before pushing.
 
 
 def mark_registry_in_catalog(slug: str) -> None:
@@ -491,7 +491,6 @@ def handle_new_study(body: str, base_ref: str) -> None:
     print("Running:", " ".join(command))
     subprocess.run(command, check=True, cwd=BASE)
     mark_registry_in_catalog(slug)
-    sync_study_reference_cache(slug)
     # A brand-new study gets a full audit regardless of what the diff touched;
     # study-update only re-checks when references actually changed.
     if references_changed(base_ref):
@@ -563,7 +562,6 @@ def handle_study_update(body: str, base_ref: str) -> None:
         row, _table = located
 
         md_path = study_md(slug)
-        sync_study_reference_cache(slug)
         reason = pdf_regeneration_reason(base_ref, slug)
         if reason:
             print(f"Regenerating PDF for {slug} ({row.status.value}): {reason}")
