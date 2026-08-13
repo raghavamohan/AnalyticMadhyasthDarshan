@@ -26,8 +26,9 @@ what to run **on that branch** before opening the PR.
 | Remove a study | `python Scripts/_remove_study.py <Slug> --yes` |
 | Draft ↔ Released | `python Scripts/_set_study_status.py <Slug> --status released` |
 | Regenerate PDF | `python Scripts/_regenerate_pdf.py <Slug>` |
-| Pin PDF dates (reproducible bytes) | `python Scripts/_pdf_metadata.py Studies/<Slug>/<Slug>.md` (called automatically by `regenerate_pdf`) |
+| Pin PDF dates and node IDs (reproducible bytes) | `python Scripts/_pdf_metadata.py Studies/<Slug>/<Slug>.md` (called automatically by `regenerate_pdf`) |
 | Test the study-PR CI router | `python Scripts/_test_ci_study_pr.py` |
+| Test the PDF reproducibility patches | `python Scripts/_test_pdf_metadata.py` |
 | Companion PPTX → slides PDF | `python Scripts/_pptx_to_pdf.py path/to/deck.pptx` (PowerPoint COM, else LibreOffice) |
 | Deck → read-aloud notes PDF | `python Scripts/_build_deck_notes_pdf.py path/to/deck.pptx` → `<Deck>-notes.pdf` (slide + speaker script per page; run after the slides PDF) |
 | PDF → study markdown (maintainer) | `python Scripts/_pdf_to_study_md.py path/to/paper.pdf --slug <Slug> --title "..."` |
