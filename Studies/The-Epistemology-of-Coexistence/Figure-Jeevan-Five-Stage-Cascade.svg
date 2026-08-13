@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1320" viewBox="0 0 1200 1320" role="img" aria-labelledby="title desc">
-  <title id="title">Five-stage cascade of jeevan</title>
-  <desc id="desc">Satta is an actionless reference available for realisation, not a command. Five faculties form a cascade from atma innermost to mun outermost. At each stage a state activity establishes content and a motion activity acts toward the next outer plant. Signal travels inner to outer. Pratyavartan is reflection inward, enabled by receptivity at each coupling. Unresolved content may raise inquiry, but inquiry is not itself pratyavartan. The body is mun's plant, reached through prana, heart, and medhas. The field is the joint form's plant.</desc>
+  <title id="title">Five faculties of jeevan and embodied expression</title>
+  <desc id="desc">Satta is actionless Knowledge available for realisation, not a command. Five faculties are ordered from atma innermost to mun outermost. Each has an activity in state and a paired activity in motion. Indication proceeds outward, while pratyavartan names reflective accord of the outer with the inner, enabled by receptivity. Selection becomes embodied through prana, heart, medhas, and the body, and conduct takes place in relationship, work, society, and nature.</desc>
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
       <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
@@ -17,8 +17,8 @@
       .faculty { font: 700 20px Arial, Helvetica, sans-serif; fill: #172033; }
       .boundary-label { font: 700 17px Arial, Helvetica, sans-serif; letter-spacing: 0.6px; fill: #92400e; }
       .arrow { fill: none; stroke: #334155; stroke-width: 2.8; marker-end: url(#arrow); }
-      .signal { fill: none; stroke: #2773a5; stroke-width: 2.8; marker-end: url(#arrow); }
-      .reflection { fill: none; stroke: #c77b16; stroke-width: 2.8; marker-end: url(#arrow); }
+      .indication { fill: none; stroke: #2773a5; stroke-width: 2.8; marker-end: url(#arrow); }
+      .accord { fill: none; stroke: #c77b16; stroke-width: 2.8; marker-end: url(#arrow); }
       .bidirectional { fill: none; stroke: #4f6b85; stroke-width: 2.4; marker-start: url(#arrow); marker-end: url(#arrow); }
       .reference { fill: none; stroke: #527059; stroke-width: 2.8; stroke-dasharray: 9 7; marker-end: url(#arrow-green); }
       .label-bg { fill: #ffffff; fill-opacity: 0.95; }
@@ -36,8 +36,8 @@
   <text x="600" y="129" text-anchor="middle" class="label">reference for anubhav</text>
 
   <rect x="70" y="148" width="1060" height="718" rx="20" fill="#fffaf0" stroke="#b45309" stroke-width="5"/>
-  <text x="600" y="178" text-anchor="middle" class="boundary-label">JEEVAN &#8212; FIVE-STAGE CASCADE</text>
-  <text x="600" y="202" text-anchor="middle" class="small">each inner faculty is the reference for the next outer one</text>
+  <text x="600" y="178" text-anchor="middle" class="boundary-label">JEEVAN &#8212; FIVE FACULTIES</text>
+  <text x="600" y="202" text-anchor="middle" class="small">each outer faculty becomes consonant with the orientation inward of it</text>
 
   <!-- Atma -->
   <rect x="220" y="220" width="760" height="88" rx="12" fill="#f3e8ff" stroke="#7e57a3" stroke-width="2.4"/>
@@ -48,14 +48,14 @@
   <text x="780" y="255" class="body">motion: authenticity</text>
   <text x="780" y="282" class="small">pramanikta &#183; evidence</text>
 
-  <path class="signal" d="M 360 308 V 348"/>
+  <path class="indication" d="M 360 308 V 348"/>
   <rect x="248" y="314" width="92" height="20" rx="4" class="label-bg"/>
-  <text x="294" y="329" text-anchor="middle" class="label">signal</text>
-  <path class="reflection" d="M 840 348 V 308"/>
+  <text x="294" y="329" text-anchor="middle" class="label">indication</text>
+  <path class="accord" d="M 840 348 V 308"/>
   <rect x="798" y="314" width="92" height="20" rx="4" class="label-bg"/>
-  <text x="844" y="329" text-anchor="middle" class="label">reflection</text>
+  <text x="844" y="329" text-anchor="middle" class="label">accord</text>
   <rect x="548" y="318" width="104" height="22" rx="8" fill="#fff7ed" stroke="#c77b16" stroke-width="1.6"/>
-  <text x="600" y="334" text-anchor="middle" class="label">gate</text>
+  <text x="600" y="334" text-anchor="middle" class="label">receptivity</text>
 
   <!-- Buddhi -->
   <rect x="220" y="348" width="760" height="88" rx="12" fill="#e9f5ff" stroke="#2773a5" stroke-width="2.4"/>
@@ -66,14 +66,14 @@
   <text x="780" y="383" class="body">motion: resolve</text>
   <text x="780" y="410" class="small">sankalp &#183; resoluteness</text>
 
-  <path class="signal" d="M 360 436 V 476"/>
+  <path class="indication" d="M 360 436 V 476"/>
   <rect x="248" y="442" width="92" height="20" rx="4" class="label-bg"/>
-  <text x="294" y="457" text-anchor="middle" class="label">signal</text>
-  <path class="reflection" d="M 840 476 V 436"/>
+  <text x="294" y="457" text-anchor="middle" class="label">indication</text>
+  <path class="accord" d="M 840 476 V 436"/>
   <rect x="798" y="442" width="92" height="20" rx="4" class="label-bg"/>
-  <text x="844" y="457" text-anchor="middle" class="label">reflection</text>
+  <text x="844" y="457" text-anchor="middle" class="label">accord</text>
   <rect x="548" y="446" width="104" height="22" rx="8" fill="#fff7ed" stroke="#c77b16" stroke-width="1.6"/>
-  <text x="600" y="462" text-anchor="middle" class="label">gate</text>
+  <text x="600" y="462" text-anchor="middle" class="label">receptivity</text>
 
   <!-- Chitta -->
   <rect x="220" y="476" width="760" height="88" rx="12" fill="#fff2d6" stroke="#c77b16" stroke-width="2.4"/>
@@ -84,14 +84,14 @@
   <text x="780" y="511" class="body">motion: visualisation</text>
   <text x="780" y="538" class="small">chitran &#183; desire</text>
 
-  <path class="signal" d="M 360 564 V 604"/>
+  <path class="indication" d="M 360 564 V 604"/>
   <rect x="248" y="570" width="92" height="20" rx="4" class="label-bg"/>
-  <text x="294" y="585" text-anchor="middle" class="label">signal</text>
-  <path class="reflection" d="M 840 604 V 564"/>
+  <text x="294" y="585" text-anchor="middle" class="label">indication</text>
+  <path class="accord" d="M 840 604 V 564"/>
   <rect x="798" y="570" width="92" height="20" rx="4" class="label-bg"/>
-  <text x="844" y="585" text-anchor="middle" class="label">reflection</text>
+  <text x="844" y="585" text-anchor="middle" class="label">accord</text>
   <rect x="548" y="574" width="104" height="22" rx="8" fill="#fff7ed" stroke="#c77b16" stroke-width="1.6"/>
-  <text x="600" y="590" text-anchor="middle" class="label">gate</text>
+  <text x="600" y="590" text-anchor="middle" class="label">receptivity</text>
 
   <!-- Vritti -->
   <rect x="220" y="604" width="760" height="88" rx="12" fill="#eef4fa" stroke="#4f6b85" stroke-width="2.4"/>
@@ -102,14 +102,14 @@
   <text x="780" y="639" class="body">motion: analysis</text>
   <text x="780" y="666" class="small">vishleshan &#183; thought</text>
 
-  <path class="signal" d="M 360 692 V 732"/>
+  <path class="indication" d="M 360 692 V 732"/>
   <rect x="248" y="698" width="92" height="20" rx="4" class="label-bg"/>
-  <text x="294" y="713" text-anchor="middle" class="label">signal</text>
-  <path class="reflection" d="M 840 732 V 692"/>
+  <text x="294" y="713" text-anchor="middle" class="label">indication</text>
+  <path class="accord" d="M 840 732 V 692"/>
   <rect x="798" y="698" width="92" height="20" rx="4" class="label-bg"/>
-  <text x="844" y="713" text-anchor="middle" class="label">reflection</text>
+  <text x="844" y="713" text-anchor="middle" class="label">accord</text>
   <rect x="548" y="702" width="104" height="22" rx="8" fill="#fff7ed" stroke="#c77b16" stroke-width="1.6"/>
-  <text x="600" y="718" text-anchor="middle" class="label">gate</text>
+  <text x="600" y="718" text-anchor="middle" class="label">receptivity</text>
 
   <!-- Mun -->
   <rect x="220" y="732" width="760" height="88" rx="12" fill="#f1f0ff" stroke="#6557a5" stroke-width="2.4"/>
@@ -122,24 +122,24 @@
 
   <text x="130" y="430" text-anchor="middle" class="label" transform="rotate(-90 130 430)">inner</text>
   <text x="1070" y="430" text-anchor="middle" class="label" transform="rotate(90 1070 430)">outer</text>
-  <text x="130" y="620" text-anchor="middle" class="small" transform="rotate(-90 130 620)">realised reference-centre</text>
+  <text x="130" y="620" text-anchor="middle" class="small" transform="rotate(-90 130 620)">realised orientation</text>
   <text x="1070" y="620" text-anchor="middle" class="small" transform="rotate(90 1070 620)">nearest the body</text>
 
   <path class="arrow" d="M 600 820 V 868"/>
   <rect x="508" y="828" width="184" height="22" rx="4" class="label-bg"/>
-  <text x="600" y="845" text-anchor="middle" class="label">mun's plant</text>
+  <text x="600" y="845" text-anchor="middle" class="label">toward embodied activity</text>
 
-  <!-- Embodied interface stages -->
+  <!-- Embodied means -->
   <rect x="70" y="868" width="1060" height="150" rx="16" fill="#eef4fa" stroke="#4f6b85" stroke-width="3"/>
-  <text x="600" y="896" text-anchor="middle" class="heading">Embodied interface &#8212; not the bearer of sanskar</text>
+  <text x="600" y="896" text-anchor="middle" class="heading">Embodied means &#8212; not the bearer of sanskar</text>
 
   <rect x="110" y="916" width="300" height="78" rx="10" fill="#ffffff" stroke="#4f6b85" stroke-width="2"/>
   <text x="260" y="948" text-anchor="middle" class="faculty">Prana</text>
-  <text x="260" y="974" text-anchor="middle" class="small">gross&#8211;subtle coupling</text>
+  <text x="260" y="974" text-anchor="middle" class="small">joins gross and subtle activity</text>
 
   <rect x="450" y="916" width="300" height="78" rx="10" fill="#ffffff" stroke="#4f6b85" stroke-width="2"/>
   <text x="600" y="948" text-anchor="middle" class="faculty">Heart</text>
-  <text x="600" y="974" text-anchor="middle" class="small">four instincts as innateness</text>
+  <text x="600" y="974" text-anchor="middle" class="small">four bodily propensities</text>
 
   <rect x="790" y="916" width="300" height="78" rx="10" fill="#ffffff" stroke="#4f6b85" stroke-width="2"/>
   <text x="940" y="948" text-anchor="middle" class="faculty">Medhas and body</text>
@@ -150,14 +150,14 @@
 
   <path class="arrow" d="M 600 1018 V 1068"/>
   <rect x="478" y="1026" width="244" height="22" rx="4" class="label-bg"/>
-  <text x="600" y="1043" text-anchor="middle" class="label">joint form's plant</text>
+  <text x="600" y="1043" text-anchor="middle" class="label">conduct and participation</text>
 
   <rect x="200" y="1068" width="800" height="88" rx="16" fill="#f1f0ff" stroke="#6557a5" stroke-width="3"/>
-  <text x="600" y="1102" text-anchor="middle" class="heading">Controlled field</text>
+  <text x="600" y="1102" text-anchor="middle" class="heading">Field of participation</text>
   <text x="600" y="1134" text-anchor="middle" class="body">relationship, work, exchange, society, participation in nature</text>
 
-  <text x="600" y="1198" text-anchor="middle" class="body">A gate is receptivity at that coupling: success or failure, not a gain.</text>
-  <text x="600" y="1228" text-anchor="middle" class="small">Signal projects outward; pratyavartan is reflection inward. Feedback may occasion inquiry but is not itself reflection.</text>
-  <text x="600" y="1256" text-anchor="middle" class="small">Delusion leaves four and a half activities effective; intermediate depths reconnect stages; awakening is the full cascade.</text>
-  <text x="600" y="1284" text-anchor="middle" class="small">Three of four gates depend on orderliness, societal conduct, and study &#8212; the unit's loop is not closed inside the unit.</text>
+  <text x="600" y="1198" text-anchor="middle" class="body">Receptivity is the stated condition for an outer faculty to receive the inward orientation.</text>
+  <text x="600" y="1228" text-anchor="middle" class="small">Indication proceeds outward; pratyavartan names accord of the outer orientation with the inner.</text>
+  <text x="600" y="1256" text-anchor="middle" class="small">Delusion leaves four and a half activities effective; awakening brings all ten into consonance.</text>
+  <text x="600" y="1284" text-anchor="middle" class="small">Orderliness, societal conduct, and study support three of the four reception conditions.</text>
 </svg>
