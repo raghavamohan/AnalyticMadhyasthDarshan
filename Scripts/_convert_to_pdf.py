@@ -1198,7 +1198,7 @@ def convert_to_html(
 </body>
 </html>"""
 
-    output_path.write_text(full_html, encoding="utf-8")
+    output_path.write_bytes(full_html.encode("utf-8"))
     return output_path
 
 
