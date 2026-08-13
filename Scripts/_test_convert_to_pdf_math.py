@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import sys
+import tempfile
 from pathlib import Path
 
 SCRIPTS = Path(__file__).resolve().parent
@@ -9,7 +10,11 @@ sys.path.insert(0, str(SCRIPTS))
 
 import markdown
 
-from _convert_to_pdf import protect_latex_math_in_markdown, restore_latex_math
+from _convert_to_pdf import (
+    convert_to_html,
+    protect_latex_math_in_markdown,
+    restore_latex_math,
+)
 
 
 def _round_trip(md_text: str) -> str:
@@ -42,12 +47,21 @@ def test_dollars_in_code_are_not_math() -> None:
     assert r"$x\_1$" in html, html
 
 
+def test_generated_html_uses_lf_line_endings() -> None:
+    with tempfile.TemporaryDirectory() as temp_dir:
+        md_path = Path(temp_dir) / "note.md"
+        md_path.write_bytes(b"# Title\r\n\r\nParagraph.\r\n")
+        html_path = convert_to_html(md_path)
+        assert b"\r\n" not in html_path.read_bytes()
+
+
 def main() -> int:
     tests = [
         test_set_braces_survive,
         test_asterisks_and_underscores_survive,
         test_display_math_becomes_its_own_paragraph,
         test_dollars_in_code_are_not_math,
+        test_generated_html_uses_lf_line_endings,
     ]
     failed = 0
     for test in tests:
