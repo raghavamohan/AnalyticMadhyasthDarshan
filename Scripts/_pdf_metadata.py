@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Pin study PDF metadata dates so identical markdown yields identical bytes.
+"""Pin study PDF metadata so identical markdown yields identical bytes.
+
+Two things in the output vary between runs on unchanged input: wall-clock dates
+and Chrome's tagged-PDF structure node IDs.
 
 Both branches of the PDF pipeline stamp wall-clock timestamps: Chrome writes
 ``/CreationDate`` and ``/ModDate`` into the info dict for Released studies, and
@@ -31,6 +34,19 @@ stay meaningful and change exactly when the study does. Months are matched from
 an explicit table rather than ``%B`` because ``strptime`` month names are
 locale-dependent, and the digits are treated as UTC because interpreting them in
 local time would make the bytes depend on the build machine's timezone.
+
+The second source of drift is the accessibility structure tree. When a document
+contains a table, Chrome tags it and labels each structure element with an ID
+drawn from a counter that is global to the browser session, not to the document
+(``/ID (node00000155)``, ``/Headers [(node00000219)]``, and the ``/Names`` tree
+that indexes them). The counter's starting value depends on what the renderer
+did beforehand, so two builds of the same markdown emitted the same 39 IDs
+shifted by a constant — hundreds of differing bytes describing an identical
+document. Renumbering them from 1 in ascending order restores reproducibility.
+Ascending order matters twice over: it keeps the byte length fixed, and because
+the IDs are zero-padded to a fixed width their lexical order matches their
+numeric order, so the ``/Names`` tree stays sorted and its ``/Limits`` stay
+valid for binary search.
 """
 from __future__ import annotations
 
@@ -112,10 +128,47 @@ def normalize_pdf_dates(pdf_path: Path, stamp: str) -> int:
     return patched
 
 
+# Matched with the enclosing string delimiters so the pattern cannot fire on
+# coincidental bytes inside a font or image stream: Chrome only ever writes these
+# as complete PDF strings — `/ID (node00000219)`, `/Headers [(node00000219)]`,
+# and the `/Names` and `/Limits` arrays of the structure-tree name tree.
+STRUCT_NODE_RE = re.compile(rb"\(node(\d{8})\)")
+STRUCT_NODE_DIGITS = 8
+
+
+def normalize_struct_node_ids(pdf_path: Path) -> int:
+    """Renumber tagged-PDF structure node IDs from 1. Returns how many were renamed.
+
+    Rewrites in place at equal byte length, like ``normalize_pdf_dates``, so no
+    xref offset moves. Returns 0 when the document has no structure IDs (it has
+    no tables) or when they are already canonical.
+    """
+    raw = pdf_path.read_bytes()
+    old_ids = sorted({int(value) for value in STRUCT_NODE_RE.findall(raw)})
+    # The upper bound keeps the replacement inside the fixed width; a document
+    # with 10^8 structure elements would widen the field and shift every offset.
+    if not old_ids or len(old_ids) >= 10**STRUCT_NODE_DIGITS:
+        return 0
+
+    renumbered = {old: new for new, old in enumerate(old_ids, start=1) if old != new}
+    if not renumbered:
+        return 0
+
+    def substitute(match: re.Match[bytes]) -> bytes:
+        old = int(match.group(1))
+        return b"(node%0*d)" % (STRUCT_NODE_DIGITS, renumbered.get(old, old))
+
+    updated = STRUCT_NODE_RE.sub(substitute, raw)
+    assert len(updated) == len(raw), "node renumbering must not change file length"
+    pdf_path.write_bytes(updated)
+    return len(renumbered)
+
+
 def normalize_study_pdf(md_path: Path, pdf_path: Path) -> str:
-    """Pin ``pdf_path``'s dates from ``md_path``'s Edited-on. Returns the stamp."""
+    """Make ``pdf_path`` reproducible; dates come from ``md_path``. Returns the stamp."""
     stamp = stamp_for_markdown(md_path)
     normalize_pdf_dates(pdf_path, stamp)
+    normalize_struct_node_ids(pdf_path)
     return stamp
 
 
@@ -123,7 +176,7 @@ def main(argv: list[str] | None = None) -> int:
     import argparse
 
     parser = argparse.ArgumentParser(
-        description="Pin a study PDF's /CreationDate and /ModDate for reproducible output.",
+        description="Pin a study PDF's dates and structure node IDs for reproducible output.",
     )
     parser.add_argument("markdown", type=Path, help="Study markdown (source of the date)")
     parser.add_argument(
@@ -137,8 +190,10 @@ def main(argv: list[str] | None = None) -> int:
     if not pdf_path.is_file():
         raise SystemExit(f"PDF not found: {pdf_path}")
 
-    stamp = normalize_study_pdf(md_path, pdf_path)
-    print(f"Pinned {pdf_path.name} dates to {stamp}")
+    stamp = stamp_for_markdown(md_path)
+    dates = normalize_pdf_dates(pdf_path, stamp)
+    nodes = normalize_struct_node_ids(pdf_path)
+    print(f"Pinned {pdf_path.name}: {dates} date field(s) set to {stamp}, {nodes} node ID(s) renumbered")
     return 0
 
 
