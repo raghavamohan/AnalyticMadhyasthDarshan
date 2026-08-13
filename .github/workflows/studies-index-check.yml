@@ -45,3 +45,6 @@ jobs:
 
       - name: Check study PR router
         run: python Scripts/_test_ci_study_pr.py
+
+      - name: Check PDF reproducibility patches
+        run: python Scripts/_test_pdf_metadata.py
