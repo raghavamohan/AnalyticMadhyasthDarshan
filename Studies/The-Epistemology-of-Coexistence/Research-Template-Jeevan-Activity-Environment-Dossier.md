@@ -6,7 +6,7 @@
 
 > activity → proper field → internal and embodied conditions → external affordances → recurring social function → possible institutional form
 
-Use this template with [*The Sixty-One Activity Pairs of Jeevan*](Research-Note-Activity-Pair-Inventory.md), [*The Activity Architecture of Jeevan*](Research-Note-Bal-Shakti-And-Activity.md), [*A Functional Model of Jeevan*](Research-Note-Jeevan-Functional-Model.md), and [*From the Activity Architecture of Jeevan to Universal Human Order*](Research-Note-Jeevan-To-Universal-Human-Order.md).
+Use this template with [*The Sixty-One Activity Pairs of Jeevan*](Research-Note-Activity-Pair-Inventory.md), [*Jeevan Architecture*](Research-Note-Jeevan-Architecture.md), [*A Functional Model of Jeevan*](Research-Note-Jeevan-Functional-Model.md), and [*From the Activity Architecture of Jeevan to Universal Human Order*](Research-Note-Jeevan-To-Universal-Human-Order.md).
 
 ## Coding conventions
 
