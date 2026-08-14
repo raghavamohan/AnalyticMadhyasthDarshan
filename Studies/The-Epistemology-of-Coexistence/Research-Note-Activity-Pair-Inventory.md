@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 13, 2026, 6:56 PM IST
+**Edited on:** August 14, 2026, 6:43 AM IST
 
 **Status:** Internal research note (not a catalog entry). Compiled as the source inventory behind §6 of [*The Activity Architecture of Jeevan*](Research-Note-Bal-Shakti-And-Activity.md).
 
@@ -43,7 +43,7 @@ The middle three columns carry the faculty-level naming and the outer two the ac
 | Fourth orbit | *Mun* | *Asha*, hope | *Asvadan*, taste | *Chayan*, selection | 32 | 64 |
 | | | | | | **61** | **122** |
 
-Every pair below occupies one position at one of these loci. The numbering within each faculty is the source's own (AVD, pp. 91–94).
+Every pair below occupies one position at one of these loci. The numbering within each faculty is the source's own (AVD, pp. 91–94). The numbered rows are contents of the generic pair named in this table, not a second set of faculties and not dimensions of it. The sources use “eight dimensions” for visualisation in *chitta*, and they do not map those dimensions onto the eight *chitta* pairs (§4.3). For *mun*, *asha* names the orientation—hope toward tasting—while *asvadan* and *chayan* are the two activities; the thirty-two pairs are what that tasting and selecting are over.
 
 ## 4. The sixty-one pairs
 
@@ -106,7 +106,7 @@ Visualisation in *chitta* is separately described through eight dimensions: form
 
 ### 4.5 *Mun* — thirty-two pairs
 
-The first twenty-two are relational and dispositional; the last ten are the activities of the cognitive and work organs, set out under their own sub-heading (MVD, p. 347).
+The left-hand column belongs to *asvadan*; the right-hand column to *chayan*. A row places both members at one position in *mun*. It does not state that the *shakti* member is the selection of that taste. The first twenty-two are relational and dispositional; the last ten are the activities of the cognitive and work organs, set out under their own sub-heading (MVD, p. 347).
 
 | # | *Bal* entry | Condensed MVD definition | *Shakti* entry | Condensed MVD definition |
 |---:|---|---|---|---|
@@ -143,7 +143,7 @@ The first twenty-two are relational and dispositional; the last ten are the acti
 | 31 | *sugandh, durgandh* — pleasant, unpleasant smell | What is received through smell | *shvasan, nihshvasan* — inhalation, exhalation | Respiratory movement associated with smell |
 | 32 | *suroop, kuroop* — beautiful, ugly | What is received through visible form | *swagat, aswagat* — affinity, otherness | Affinity or otherness in response to visible form |
 
-The purpose of the sensory group is stated with it: every awakened human recognises that the purpose of sensations is maintaining the health of the body, and nourishing is defined as unit plus conducive unit against depleting as unit lacking a conducive unit or joined with an unconducive unit (MVD, pp. 347–348).
+The purpose of the sensory group is stated with it: every awakened human recognises that the purpose of sensations is maintaining the health of the body, and nourishing is defined as unit plus conducive unit against depleting as unit lacking a conducive unit or joined with an unconducive unit (MVD, pp. 347–348). In delusion, taste and selection already operate over this sensory and instinctual field; the thirty-two pairs as defined are the awakened inventory of *mun*'s two generic activities, not a further set that remains unused from lack of need ([the architecture note](Research-Note-Bal-Shakti-And-Activity.md) §4.2, §6).
 
 The repeated *poshan* label follows the *shakti* column in the AVD table (pp. 93–94). The fuller MVD definitions render cold, heat, and each taste through nourishing/depleting and then define both terms (p. 348). The table preserves the enumerated activity name while its final column records the fuller semantic contrast.
 
@@ -196,11 +196,11 @@ This inventory does not sort those relations into a functional taxonomy. A propo
 
 ### Madhyasth Darshan
 
-- **MVD** — A. Nagraj, [*Madhyasth Darshan — Co-existentialism*](../../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.md), tr. Rakesh Gupta. Cited: each orbit holding one or more particles (p. 78; §8); the unpaired glossary of activity definitions, including *ichchha*, *kalpana*, and the alternate *medha* wording (pp. 323–326; §8); the 122 activities in the form of strength and power, that is, state and motion, with the per-faculty counts (p. 323; §§2–3); the eight dimensions of visualisation (p. 327; §4.3); the definitions of the 122 activities with their block headings and two-name pair headings (pp. 328–348; §§2, 4–8); the state and motion of awakening as bliss and *dhee* (p. 328; §4.2); *medha* as the carrier-bearer activity of memory (p. 330; §4.3); satiation and its dissemination as confirmation (p. 339; §4.4); the *shruti* wording in *sauhardta* (p. 340; §8); the five organs named in *priya* (p. 343; §8); the activities of the cognitive and work organs and the definitions of nourishing and depleting (pp. 347–348; §§4.5, 7–8).
+- **MVD** — A. Nagraj, [*Madhyasth Darshan — Co-existentialism*](../../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.md), tr. Rakesh Gupta. Cited: each orbit holding one or more particles (p. 78; §8); the unpaired glossary of activity definitions, including *ichchha*, *kalpana*, and the alternate *medha* wording (pp. 323–326; §8); the 122 activities in the form of strength and power, that is, state and motion, with the per-faculty counts (p. 323; §§2–3); the eight dimensions of visualisation (p. 327; §§3, 4.3); the definitions of the 122 activities with their block headings and two-name pair headings (pp. 328–348; §§2, 4–8); the state and motion of awakening as bliss and *dhee* (p. 328; §4.2); *medha* as the carrier-bearer activity of memory (p. 330; §4.3); satiation and its dissemination as confirmation (p. 339; §4.4); the *shruti* wording in *sauhardta* (p. 340; §8); the five organs named in *priya* (p. 343; §8); the activities of the cognitive and work organs and the definitions of nourishing and depleting (pp. 347–348; §§4.5, 7–8).
 - **AVD** — A. Nagraj, [*Adhyatmvad*](../../References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf), tr. Sanjeev Chopra (work in progress). Cited: Table 1, the 122 conducts of awakened *jeevan*, its five columns, the faculty and orientation names, and the numbered *bal* and *shakti* activities of each locus, including closing-name variants (pp. 91–94; §§2–5, 8).
 
 ### Related studies and research notes
 
-- [*The Activity Architecture of Jeevan*](Research-Note-Bal-Shakti-And-Activity.md), especially §6 on the 122 activities.
+- [*The Activity Architecture of Jeevan*](Research-Note-Bal-Shakti-And-Activity.md), especially §4.2 and §6 on the 122 activities and the awakened inventory of *mun*.
 - [*A Functional Model of Jeevan*](Research-Note-Jeevan-Functional-Model.md), especially §8 on pair-level semantics.
 - [*The Epistemology of Coexistence*](The-Epistemology-of-Coexistence.md).
