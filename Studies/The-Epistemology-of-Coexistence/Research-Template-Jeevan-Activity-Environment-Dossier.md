@@ -51,6 +51,7 @@ Codes are indexing aids, not conclusions. Explain every **N**, **P**, or dispute
 | Pair position | `[1–1 / 1–2 / 1–8 / 1–18 / 1–32, as applicable]` |
 | *Bal* activity | `[Hindi term — working English gloss]` |
 | *Shakti* activity | `[Hindi term — working English gloss]` |
+| Entry forms and bearers | `[For each member: inner success, orientation, relation, role, act, object, quality, bodily correlate, material condition, evidential result, or other; identify who or what bears it]` |
 | Primary source locations | `[source sigil, page or section]` |
 | Analyst | `[name]` |
 | Analysis date | `[date]` |
@@ -112,6 +113,7 @@ Mark every applicable family. More than one may apply.
 
 | Question | Analysis |
 |---|---|
+| What kind of entry is each member, and who or what can bear it? | `[answer]` |
 | What reality, relationship, bodily condition, material object, or result is involved? | `[answer]` |
 | What criterion governs correct operation? | `[answer or not stated]` |
 | What would count as fulfilment? | `[answer]` |
@@ -143,16 +145,16 @@ Mark every applicable family. More than one may apply.
 
 ### 3.4 External conditions
 
-| Requirement class | Concrete affordance or protection | Strength | Reason |
-|---|---|---|---|
-| Epistemic | `[study, truthful information, inquiry, dialogue, exemplar, feedback]` | `[N/S/C/U/—]` | `[reason]` |
-| Relational | `[stable relationship, recognition, reciprocity, trust, non-coercion]` | `[N/S/C/U/—]` | `[reason]` |
-| Bodily | `[nutrition, health, rest, safety, sensory integrity, practice]` | `[N/S/C/U/—]` | `[reason]` |
-| Material | `[tools, land, technology, access, infrastructure, provision]` | `[N/S/C/U/—]` | `[reason]` |
-| Organisational | `[participation, responsibility, transparency, distributed competence]` | `[N/S/C/U/—]` | `[reason]` |
-| Protective | `[absence of ignorance, attachment, injustice, crime, domination]` | `[N/S/C/U/—]` | `[reason]` |
-| Ecological | `[regeneration, limits, consequence visibility, right use]` | `[N/S/C/U/—]` | `[reason]` |
-| Intergenerational | `[care, education-sanskar, continuity, reserve, tradition]` | `[N/S/C/U/—]` | `[reason]` |
+| Requirement class | Concrete affordance or protection | Stage served | Strength | Reason |
+|---|---|---|---|---|
+| Epistemic | `[study, truthful information, inquiry, dialogue, exemplar, feedback]` | `[development / expression / evidence / correction / continuity]` | `[N/S/C/U/—]` | `[reason]` |
+| Relational | `[stable relationship, recognition, reciprocity, trust, non-coercion]` | `[stage or stages]` | `[N/S/C/U/—]` | `[reason]` |
+| Bodily | `[nutrition, health, rest, safety, sensory integrity, practice]` | `[stage or stages]` | `[N/S/C/U/—]` | `[reason]` |
+| Material | `[tools, land, technology, access, infrastructure, provision]` | `[stage or stages]` | `[N/S/C/U/—]` | `[reason]` |
+| Organisational | `[participation, responsibility, transparency, distributed competence]` | `[stage or stages]` | `[N/S/C/U/—]` | `[reason]` |
+| Protective | `[absence of ignorance, attachment, injustice, crime, domination]` | `[stage or stages]` | `[N/S/C/U/—]` | `[reason]` |
+| Ecological | `[regeneration, limits, consequence visibility, right use]` | `[stage or stages]` | `[N/S/C/U/—]` | `[reason]` |
+| Intergenerational | `[care, education-sanskar, continuity, reserve, tradition]` | `[stage or stages]` | `[N/S/C/U/—]` | `[reason]` |
 
 ### 3.5 Evidence and correction
 
@@ -193,16 +195,16 @@ Repeat the full analysis independently. Do not fill this section by mechanically
 
 ### 4.4 External conditions
 
-| Requirement class | Concrete affordance or protection | Strength | Reason |
-|---|---|---|---|
-| Epistemic | `[study, truthful information, inquiry, dialogue, exemplar, feedback]` | `[N/S/C/U/—]` | `[reason]` |
-| Relational | `[stable relationship, recognition, reciprocity, trust, non-coercion]` | `[N/S/C/U/—]` | `[reason]` |
-| Bodily | `[nutrition, health, rest, safety, sensory integrity, practice]` | `[N/S/C/U/—]` | `[reason]` |
-| Material | `[tools, land, technology, access, infrastructure, provision]` | `[N/S/C/U/—]` | `[reason]` |
-| Organisational | `[participation, responsibility, transparency, distributed competence]` | `[N/S/C/U/—]` | `[reason]` |
-| Protective | `[absence of ignorance, attachment, injustice, crime, domination]` | `[N/S/C/U/—]` | `[reason]` |
-| Ecological | `[regeneration, limits, consequence visibility, right use]` | `[N/S/C/U/—]` | `[reason]` |
-| Intergenerational | `[care, education-sanskar, continuity, reserve, tradition]` | `[N/S/C/U/—]` | `[reason]` |
+| Requirement class | Concrete affordance or protection | Stage served | Strength | Reason |
+|---|---|---|---|---|
+| Epistemic | `[study, truthful information, inquiry, dialogue, exemplar, feedback]` | `[development / expression / evidence / correction / continuity]` | `[N/S/C/U/—]` | `[reason]` |
+| Relational | `[stable relationship, recognition, reciprocity, trust, non-coercion]` | `[stage or stages]` | `[N/S/C/U/—]` | `[reason]` |
+| Bodily | `[nutrition, health, rest, safety, sensory integrity, practice]` | `[stage or stages]` | `[N/S/C/U/—]` | `[reason]` |
+| Material | `[tools, land, technology, access, infrastructure, provision]` | `[stage or stages]` | `[N/S/C/U/—]` | `[reason]` |
+| Organisational | `[participation, responsibility, transparency, distributed competence]` | `[stage or stages]` | `[N/S/C/U/—]` | `[reason]` |
+| Protective | `[absence of ignorance, attachment, injustice, crime, domination]` | `[stage or stages]` | `[N/S/C/U/—]` | `[reason]` |
+| Ecological | `[regeneration, limits, consequence visibility, right use]` | `[stage or stages]` | `[N/S/C/U/—]` | `[reason]` |
+| Intergenerational | `[care, education-sanskar, continuity, reserve, tradition]` | `[stage or stages]` | `[N/S/C/U/—]` | `[reason]` |
 
 ### 4.5 Evidence and correction
 
@@ -323,11 +325,13 @@ Copy the completed row into the cross-pair matrix.
 
 - [ ] Both source definitions were checked against the primary-text locations.
 - [ ] Translation variants and documentary uncertainties were recorded.
+- [ ] The entry form and bearer were identified before assigning functional meaning.
 - [ ] The two activities were analysed separately.
 - [ ] The pair relation was not assumed from the English glosses.
 - [ ] Internal conditions were distinguished from bodily and external conditions.
 - [ ] Necessary conditions were distinguished from merely supportive conditions.
 - [ ] Development, expression, evidence, correction, and *sanskar* were all considered.
+- [ ] Each external requirement was assigned to the stage or stages it actually serves.
 - [ ] Family was analysed as a functional relational field before prescribing a household form.
 - [ ] No one-to-one faculty–institution correspondence was assumed.
 - [ ] Direct statements, structural inferences, proposals, and open questions were labelled.
