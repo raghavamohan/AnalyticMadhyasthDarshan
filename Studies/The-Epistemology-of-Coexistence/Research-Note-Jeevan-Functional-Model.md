@@ -2,11 +2,11 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 13, 2026, 6:56 PM IST
+**Edited on:** August 14, 2026, 12:02 PM IST
 
 **Status:** Internal technical companion (not a catalog entry).
 
-**Scope:** This companion formalises the interpretation developed in [*The Activity Architecture of Jeevan*](Research-Note-Bal-Shakti-And-Activity.md). It represents the five faculties, their paired activities, acquired organisation, embodied expression, evaluation, and continuity in a precise qualitative notation. The primary texts do not state this formalism. Their direct claims, the cross-text synthesis built from them, and the remaining textual variants are kept distinct below.
+**Scope:** This companion formalises the interpretation developed in [*Jeevan Architecture*](Research-Note-Jeevan-Architecture.md). It represents the five faculties, their paired activities, acquired organisation, embodied expression, evaluation, and continuity in a precise qualitative notation. The primary texts do not state this formalism. Their direct claims, the cross-text synthesis built from them, and the remaining textual variants are kept distinct below.
 
 The formalism is optional. It can be rejected without changing the primary-text account in the reader note or the documentary assignment of the sixty-one pairs in [*The Sixty-One Activity Pairs of Jeevan*](Research-Note-Activity-Pair-Inventory.md).
 
@@ -143,7 +143,7 @@ Let $T$ be the set of time indices within an embodied life. For $f\in\mathcal{F}
 
 ## 3. Receptivity and reflective accord
 
-An outer faculty does not become consonant with the one inward of it merely because an indication is available. The four reception conditions and their social or educative supports are set out in the [reader note](Research-Note-Bal-Shakti-And-Activity.md) §3.2 (MVD, pp. 282–286).
+An outer faculty does not become consonant with the one inward of it merely because an indication is available. The four reception conditions and their social or educative supports are set out in the [reader note](Research-Note-Jeevan-Architecture.md) §3.2 (MVD, pp. 282–286).
 
 For $f\in\mathcal{F}_{\mathrm{out}}$, define
 
@@ -385,7 +385,7 @@ $$
 \mathcal{F}^{\mathrm{eff}}(t)=\{c,v,m\}.
 $$
 
-Partially awakened, half-awakened, and awakened statuses are represented by progressively deeper effective participation. Their source-given faculty relations are tabulated in the [reader note](Research-Note-Bal-Shakti-And-Activity.md) §4.2; representing them as one formal transition sequence would go beyond the passages (MVD, pp. 278–279).
+Partially awakened, half-awakened, and awakened statuses are represented by progressively deeper effective participation. Their source-given faculty relations are tabulated in the [reader note](Research-Note-Jeevan-Architecture.md) §4.2; representing them as one formal transition sequence would go beyond the passages (MVD, pp. 278–279).
 
 The union of *vritti* and *mun* alone is associated with sleep or dream, where imagination is not evidenced in work and behaviour (MVD, p. 279). It supplies a directly stated shallow case of recurrent activity without present bodily execution; extending that possibility to a complete five-faculty recurrence is a model hypothesis.
 
@@ -444,7 +444,7 @@ This caution is strengthened by the unresolved *sanskar* variant. One passage ca
 
 ## 10. Worked example: a family-resource decision
 
-The [reader note](Research-Note-Bal-Shakti-And-Activity.md) §3.3 describes disagreement over the use of family resources. In the formal notation, $\chi(t)$ includes the relationship, competing needs, bodily conditions, available means, and the criterion of just fulfilment. The current organisation of the five faculties and that context may yield a bodily possibility:
+The [reader note](Research-Note-Jeevan-Architecture.md) §3.3 describes disagreement over the use of family resources. In the formal notation, $\chi(t)$ includes the relationship, competing needs, bodily conditions, available means, and the criterion of just fulfilment. The current organisation of the five faculties and that context may yield a bodily possibility:
 
 $$
 p(t)=\mathsf{Express}\bigl(X(J,t),\chi(t)\bigr).
@@ -526,6 +526,6 @@ The flat glossary at MVD, pp. 323–326, and the paired definitions at pp. 328�
 
 ### Related notes
 
-- [*The Activity Architecture of Jeevan*](Research-Note-Bal-Shakti-And-Activity.md) — reader-facing account and source-status audit.
+- [*Jeevan Architecture*](Research-Note-Jeevan-Architecture.md) — reader-facing account and source-status audit.
 - [*The Sixty-One Activity Pairs of Jeevan*](Research-Note-Activity-Pair-Inventory.md) — pair-by-pair documentary inventory.
 - [*The Epistemology of Coexistence*](The-Epistemology-of-Coexistence.md) — broader epistemological study.

@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 14, 2026, 9:11 AM IST
+**Edited on:** August 14, 2026, 12:02 PM IST
 
 **Status:** Internal research note (not a catalog entry). First completed use of the [activity-to-environment dossier template](Research-Template-Jeevan-Activity-Environment-Dossier.md).
 
@@ -790,7 +790,7 @@ The next wave should apply the revised form to the remaining *atma* and *buddhi*
 
 ### Related research notes
 
-- [*The Activity Architecture of Jeevan*](Research-Note-Bal-Shakti-And-Activity.md) — the reader account of faculties, receptivity, embodiment, complete functioning, and *sanskar*.
+- [*Jeevan Architecture*](Research-Note-Jeevan-Architecture.md) — the reader account of faculties, receptivity, embodiment, complete functioning, and *sanskar*.
 - [*The Sixty-One Activity Pairs of Jeevan*](Research-Note-Activity-Pair-Inventory.md) — the documentary inventory and textual variants governing the pair assignments.
 - [*A Functional Model of Jeevan*](Research-Note-Jeevan-Functional-Model.md) — the separation of orientation, expression, consequence, evaluation, inquiry, and lasting organisation.
 - [*From the Activity Architecture of Jeevan to Universal Human Order*](Research-Note-Jeevan-To-Universal-Human-Order.md) — the five-function hypothesis tested by the dossiers.
