@@ -2,9 +2,9 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 14, 2026, 6:43 AM IST
+**Edited on:** August 14, 2026, 12:02 PM IST
 
-**Status:** Internal research note (not a catalog entry). Compiled as the source inventory behind §6 of [*The Activity Architecture of Jeevan*](Research-Note-Bal-Shakti-And-Activity.md).
+**Status:** Internal research note (not a catalog entry). Compiled as the source inventory behind §6 of [*Jeevan Architecture*](Research-Note-Jeevan-Architecture.md).
 
 **Scope:** This note sets out all sixty-one activity pairs of *jeevan* as the primary texts give them, pair by pair, with the *bal* and *shakti* member of each named from the tabulated enumeration and defined from the detailed definitions. It records what the two sources agree on, where the definitional language cuts against the tabulated assignment, and which variants or pair-relations the texts leave unsettled.
 
@@ -143,7 +143,7 @@ The left-hand column belongs to *asvadan*; the right-hand column to *chayan*. A 
 | 31 | *sugandh, durgandh* — pleasant, unpleasant smell | What is received through smell | *shvasan, nihshvasan* — inhalation, exhalation | Respiratory movement associated with smell |
 | 32 | *suroop, kuroop* — beautiful, ugly | What is received through visible form | *swagat, aswagat* — affinity, otherness | Affinity or otherness in response to visible form |
 
-The purpose of the sensory group is stated with it: every awakened human recognises that the purpose of sensations is maintaining the health of the body, and nourishing is defined as unit plus conducive unit against depleting as unit lacking a conducive unit or joined with an unconducive unit (MVD, pp. 347–348). In delusion, taste and selection already operate over this sensory and instinctual field; the thirty-two pairs as defined are the awakened inventory of *mun*'s two generic activities, not a further set that remains unused from lack of need ([the architecture note](Research-Note-Bal-Shakti-And-Activity.md) §4.2, §6).
+The purpose of the sensory group is stated with it: every awakened human recognises that the purpose of sensations is maintaining the health of the body, and nourishing is defined as unit plus conducive unit against depleting as unit lacking a conducive unit or joined with an unconducive unit (MVD, pp. 347–348). In delusion, taste and selection already operate over this sensory and instinctual field; the thirty-two pairs as defined are the awakened inventory of *mun*'s two generic activities, not a further set that remains unused from lack of need ([the architecture note](Research-Note-Jeevan-Architecture.md) §4.2, §6).
 
 The repeated *poshan* label follows the *shakti* column in the AVD table (pp. 93–94). The fuller MVD definitions render cold, heat, and each taste through nourishing/depleting and then define both terms (p. 348). The table preserves the enumerated activity name while its final column records the fuller semantic contrast.
 
@@ -201,6 +201,6 @@ This inventory does not sort those relations into a functional taxonomy. A propo
 
 ### Related studies and research notes
 
-- [*The Activity Architecture of Jeevan*](Research-Note-Bal-Shakti-And-Activity.md), especially §4.2 and §6 on the 122 activities and the awakened inventory of *mun*.
+- [*Jeevan Architecture*](Research-Note-Jeevan-Architecture.md), especially §4.2 and §6 on the 122 activities and the awakened inventory of *mun*.
 - [*A Functional Model of Jeevan*](Research-Note-Jeevan-Functional-Model.md), especially §8 on pair-level semantics.
 - [*The Epistemology of Coexistence*](The-Epistemology-of-Coexistence.md).

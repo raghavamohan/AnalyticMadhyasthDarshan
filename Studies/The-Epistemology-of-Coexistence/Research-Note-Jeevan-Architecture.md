@@ -1,8 +1,8 @@
-# Research Note: The Activity Architecture of *Jeevan*
+# Research Note: *Jeevan* Architecture
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 14, 2026, 6:43 AM IST
+**Edited on:** August 14, 2026, 12:02 PM IST
 
 **Status:** Internal research note (not a catalog entry). Compiled to support [*The Epistemology of Coexistence*](The-Epistemology-of-Coexistence.md).
 

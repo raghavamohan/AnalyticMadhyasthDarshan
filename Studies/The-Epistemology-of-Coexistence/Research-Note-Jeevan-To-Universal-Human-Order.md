@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 14, 2026, 7:55 AM IST
+**Edited on:** August 14, 2026, 12:02 PM IST
 
 **Status:** Internal research note (not a catalog entry). Compiled to support [*The Epistemology of Coexistence*](The-Epistemology-of-Coexistence.md).
 
@@ -278,7 +278,7 @@ Universality concerns the common constitution of *jeevan*, the human goal, the f
 
 ### Related studies and research notes
 
-- [*The Activity Architecture of Jeevan*](Research-Note-Bal-Shakti-And-Activity.md) — the reader account of the five faculties, ten activities, 122 detailed activities, embodiment, receptivity, restfulness, and *sanskar*.
+- [*Jeevan Architecture*](Research-Note-Jeevan-Architecture.md) — the reader account of the five faculties, ten activities, 122 detailed activities, embodiment, receptivity, restfulness, and *sanskar*.
 - [*The Sixty-One Activity Pairs of Jeevan*](Research-Note-Activity-Pair-Inventory.md) — the pair-by-pair documentary inventory and unresolved semantics needed for a later institutional mapping.
 - [*A Functional Model of Jeevan*](Research-Note-Jeevan-Functional-Model.md) — the technical model of state, expression, consequence, evaluation, inquiry, and lasting change.
 - [*The Epistemology of Coexistence*](The-Epistemology-of-Coexistence.md) — knowledge, knower, error, evidence, and comparison.
