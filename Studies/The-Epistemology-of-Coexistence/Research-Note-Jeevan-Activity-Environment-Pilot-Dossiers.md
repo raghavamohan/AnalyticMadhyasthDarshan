@@ -1,796 +1,535 @@
-# Research Note: Pilot Dossiers for *Jeevan*, Environment, and Institution
+# Research Note: Bottom-Up Pilot Derivation of *Jeevan* Activity Spheres
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 14, 2026, 12:02 PM IST
+**Edited on:** August 16, 2026, 6:37 AM IST
 
-**Status:** Internal research note (not a catalog entry). First completed use of the [activity-to-environment dossier template](Research-Template-Jeevan-Activity-Environment-Dossier.md).
+**Status:** Internal research note (not a catalog entry). First completed use of the institution-neutral [activity-to-sphere dossier template](Research-Template-Jeevan-Activity-Environment-Dossier.md).
 
-**Scope:** This note applies the dossier method to eight contrasting *bal–shakti* pairs before the remaining fifty-three pairs are analysed. The pilots cover realisation and evidence, acceptance and readiness, an act and its object, justice and participation, social fulfilment and confirmation, prosperity, education, and sensory–bodily discernment. The purpose is both substantive and methodological: to identify defensible external requirements for these activities and to test whether one analytical form can accommodate the nonuniform semantics of the sixty-one-pair inventory.
+**Scope:** This note re-analyses eight contrasting *bal/shakti* pairs as sixteen activity-members. It does not begin with family, the five institutional functions, or any other social taxonomy. For each member it identifies the bearer, object, participant topology, endpoint of fulfilment, governing criterion, and the conditions required for development, orientation, performance, consequence visibility, evaluation, correction, sustaining, and transmission. These records yield provisional micro-spheres. Only after that derivation does the note ask whether any sphere requires durable organisation.
 
-The analysis does not assume that an institution activates *jeevan*. Each activity is constitutionally present. “Complete functioning” here means that it is effectively available, ordered by realisation and understanding, embodied with adequate competence and means, evidenced in conduct or consequence, mutually evaluable, and capable of correction and continuity. External arrangements can support or obstruct those conditions without becoming the cause of realisation.
+The environment does not create a constitutional activity of *jeevan*. “Fully active” cannot therefore mean switched on from outside. It means effectively available, rightly oriented by realisation and understanding, competently embodied, evident in the relevant field, open to correction, and capable of continuity in *sanskar*. External arrangements can support or obstruct these conditions without becoming the cause of realisation.
 
 ## 1. Method and pilot selection
 
-The source-given pair remains the documentary unit, while each member receives a separate functional analysis. Four evidential statuses are used: **D**, directly stated; **I**, structurally inferred; **P**, institutionally proposed; and **O**, open. External requirements are marked **N**, necessary; **S**, strongly supportive; **C**, context-dependent; **U**, unclear; or **—**, no material relation identified. Institutional relations are marked **P**, primary; **E**, enabling; **X**, cross-cutting; **?**, unresolved candidate; or **—**.
+### 1.1 The activity-member is the analytic unit
 
-The pilots were chosen to test different semantic forms rather than to represent each faculty proportionally.
+The sixty-one source-given pairs remain the documentary units, but their 122 members are the primary units of environmental analysis. This distinction is necessary because the entries are not semantically uniform. A member may name an inner success, a readiness, an act, an object, a relation, a person-role, a sensory quality, a bodily correlate, a material condition, or an evidential result. The environment appropriate to an act cannot be copied mechanically to its object, and the conditions for a relationship-role cannot be inferred from the conditions for a private state.
 
-| Dossier | Pair | Faculty | Principal semantic problem tested |
+The coding uses **D** for direct textual support, **I** for structural inference, **H** for a provisional sphere or organisational hypothesis, and **O** for an open question. External requirements are **N**, necessary; **S**, strongly supportive; **C**, context-dependent; or **U**, unclear. Participation topologies are **J**, intra-*jeevan*; **B**, embodied personal; **D**, dyadic or small-group; **R**, durable close or intergenerational relation; **C**, collective or public; **E**, material or ecological; and **T**, historical or intergenerational transmission.
+
+### 1.2 Derivation protocol
+
+Each activity-member passes through the same sequence:
+
+1. establish the source definition, entry form, and bearer;
+2. identify its object or counterpart, endpoint, and criterion of correct operation;
+3. code the participant topology without naming an institution;
+4. specify lifecycle conditions from development through transmission;
+5. identify convergent evidence, competent evaluators, and false positives;
+6. state a neutral micro-sphere in one sentence;
+7. cluster similar micro-spheres by recurring topology, endpoint, criterion, lifecycle conditions, and evidence;
+8. test whether a cluster requires durable roles, norms, resources, safeguards, and correction; and
+9. only then compare the result with family or the proposed five functions.
+
+A **sphere of activity** is a recurrent configuration of bearer, participants, object, endpoint, means, evidence, and lifecycle conditions. An **institution** is a durable arrangement of roles, norms, resources, decision rights, safeguards, and correction that maintains one or more spheres beyond episodic personal action. The two are not synonymous. A sphere may remain principally personal, several institutions may sustain one sphere, or one institution may sustain several spheres.
+
+### 1.3 Pilot set
+
+The pilots test different semantic forms rather than representing each faculty proportionally.
+
+| Dossier | Members | Faculty | Semantic problem tested |
 |---|---|---|---|
-| A-01 | *anubhav–pramanikta* | *Atma* | Realisation and its communicable evidence |
-| B-02 | *astitva–dhruti* | *Buddhi* | Definite acceptance and readiness for projection |
-| C-04 | *nireekshan–guna* | *Chitta* | An inspecting activity paired with its object |
-| V-12 | *nyaya–samvedna* | *Vritti* | Justice paired with a hybrid of sensitivity, reception, and participation |
-| V-18 | *tushti–pushti* | *Vritti* | Fulfilment paired with continuing evaluation and transmission |
-| M-08 | *svayatta–samriddhi* | *Mun* | Experienced prosperity and its material evidence |
-| M-13 | *guru–pramanik* | *Mun* | A teaching relationship paired with the bearer of evidence |
-| M-24 | *sheet–ushna / poshan* | *Mun* | Sensory qualities paired with a bodily-material correlate |
+| A-01 | *anubhav / pramanikta* | *Atma* | Realisation and communicable evidence |
+| B-02 | *astitva / dhruti* | *Buddhi* | Definite acceptance and readiness for projection |
+| C-04 | *nireekshan / guna* | *Chitta* | An inspecting activity paired with an object or content |
+| V-12 | *nyaya / samvedna* | *Vritti* | Relational evaluation paired with responsive participation |
+| V-18 | *tushti / pushti* | *Vritti* | Multi-level fulfilment paired with continuing evaluation and transmission |
+| M-08 | *svayatta / samriddhi* | *Mun* | Experienced sufficiency and material evidence |
+| M-13 | *guru / pramanik* | *Mun* | A teaching relationship paired with the bearer of evidence |
+| M-24 | *sheet-ushna / poshan* | *Mun* | Sensory qualities paired with bodily-material conduciveness |
 
-The full source inventory and its textual cautions remain in [*The Sixty-One Activity Pairs of Jeevan*](Research-Note-Activity-Pair-Inventory.md). The functional distinctions used below follow [*A Functional Model of Jeevan*](Research-Note-Jeevan-Functional-Model.md), especially the separation of orientation, expression, consequence, evaluation, inquiry, and *sanskar*.
+The source inventory and its textual cautions remain in [*The Sixty-One Activity Pairs of Jeevan*](Research-Note-Activity-Pair-Inventory.md). The distinction between orientation, expression, consequence, evaluation, inquiry, and *sanskar* follows [*A Functional Model of Jeevan*](Research-Note-Jeevan-Functional-Model.md).
 
-## 2. A-01 — *Anubhav–pramanikta*
+## 2. A-01 - *Anubhav / pramanikta*
 
-### 2.1 Identity and source record
+### 2.1 Source record and pair semantics
 
 | Field | Entry |
 |---|---|
-| Faculty and generic pair | *Atma*: realisation–authenticity |
+| Faculty and generic pair | *Atma*: realisation/authenticity |
 | Pair position | 1 of 1 |
-| *Bal* member | *Anubhav* — realisation in existence |
-| *Shakti* member | *Pramanikta* — authenticity associated with ultimate bliss |
-| Entry form | Success condition of knowing / evidential orientation and expression |
+| Member A | A-01a, *anubhav* - realisation in existence |
+| Member B | A-01b, *pramanikta* - authenticity associated with ultimate bliss |
+| Entry forms | Success condition of knowing / evidential orientation and expression |
 | Primary locations | AVD, p. 91; MVD, pp. 323, 328 |
-| Review state | Analysed; primary wording checked; interpretive review pending |
 
-Realisation is defined through the eternal presence of nature saturated in Omnipotence. Authenticity is defined through realisation-based expression, communication, and exposition. The pair therefore gives the clearest instance in the pilot set of inward success joined to the orientation by which that success becomes evidence. This relation is directly present in the definitions, although the claim that every authentic expression is an “output” mechanically generated by realisation would go beyond them.
+Realisation is defined through the eternal presence of nature saturated in Omnipotence. Authenticity is defined through realisation-based expression, communication, and exposition. The pairing therefore supports an inward-to-evidential relation, but not a mechanical claim that every authentic act is generated automatically by realisation. The relation is **D** in its definitions and **I** in its functional interpretation.
 
-**Working semantic family:** held success and outward evidence. **Status:** D for the two definitions; I for treating their conjunction as an inward-to-public evidential relation.
+### 2.2 Activity anatomy
 
-### 2.2 Separate activity records
-
-| Field | *Anubhav* | *Pramanikta* |
+| Field | A-01a - *anubhav* | A-01b - *pramanikta* |
 |---|---|---|
-| Internal role | Complete acceptance or realisation of coexistence in *atma* | Orientation to live, communicate, and expound from realisation |
-| Proper field | Existence as coexistence | Human conduct and communication as evidence of realised knowledge |
-| Governing criterion | Agreement with reality, not private conviction | Fidelity between realised content, speech, behaviour, and result |
-| Inward dependency | No more inward faculty is named | Realisation in *atma* |
-| Outward dependency | Must become effective in *buddhi* and the outer faculties to guide conduct | Requires the full outward sequence and bodily mediation |
-| Embodied expression | Not reducible to bodily behaviour, though its presence is tested through the later evidence-chain | Truthful explanation, just behaviour, purposeful work, and reproducible experiment where applicable |
-| Principal evidence | Continuing absence of contradiction in realised content; restfulness | Coherence of explanation with conduct, mutual fulfilment, and material consequence |
-| False positive | Certainty, altered state, or inherited belief mistaken for realisation | Eloquence, charisma, institutional office, or moral reputation mistaken for authenticity |
+| Entry form and bearer | Success of knowing in *atma*; borne by *jeevan* | Orientation and evidence-bearing expression; borne by the realised human being |
+| Object or counterpart | Existence as coexistence; no interpersonal counterpart is constitutive to the inward event | Other persons, relationships, work, and nature before which realised knowledge becomes evident |
+| Participation topology | **J** constitutive; **B/C/E/T** relevant only to evidence and continuity | **J/B/C/E/T**; **D/R** where evidence occurs in sustained relationship |
+| Endpoint | Undivided realisation and restfulness | Fidelity between realised content, explanation, conduct, and consequence |
+| Criterion | Agreement with reality rather than intensity of conviction | Coherence across speech, behaviour, relationship, and result |
+| Characteristic distortion | Certainty, altered state, or inherited belief mistaken for realisation | Eloquence, status, charisma, or reputation mistaken for authenticity |
 
-The external environment cannot supply *anubhav*. It can, however, provide study, inquiry, examples, freedom from coercive belief, and conditions in which claimed realisation must answer to behaviour and consequence. *Pramanikta* is unintelligible as purely private authenticity because expression, communication, exposition, behaviour, and tradition require other persons and bodily means (MVD, pp. 12, 275–286, 328).
+### 2.3 Lifecycle conditions
 
-### 2.3 External requirements
+| Stage | A-01a - *anubhav* | A-01b - *pramanikta* |
+|---|---|---|
+| Development and receptivity | Coherent proposal, study, inquiry, dialogue, and freedom to examine are **S**; none causes realisation | Encounter with evidence-bearing persons, study, dialogue, and opportunities to explain are **S** |
+| Right orientation | Reality itself is the **N** criterion; social assent is insufficient | Grounding in *anubhav* is **N**; recognition or office is insufficient |
+| Embodied performance | Not constitutive of the inward event; bodily availability is **S** for examination and later evidence | Health, language, practical competence, time, and material means are **N/S** according to the form of evidence |
+| Consequence visibility | Later agreement or contradiction across faculties, conduct, and restfulness is **N** for a warranted claim | Access to persons and natural systems bearing consequences is **N** for public evidence |
+| Evaluation | First-person absence of contradiction is necessary but not sufficient for others; outer evidence is **S** | Bearer, counterparts, affected persons, and skilled peers must compare claim, conduct, and result; convergent evaluation is **N** |
+| Correction | Renewed inquiry when explanation, conduct, or consequence contradicts the claim is **S** | Question, dialogue, restitution for harm, retraining, and correction of expression are **N/S** |
+| Sustaining | Continuing availability of realised content cannot be assigned to an external structure; protected inquiry is **S** | Repeated congruence across settings and freedom from incentives to perform a role are **S** |
+| Transmission | *Anubhav* itself is not transferred; proposals and methods of inquiry are transmitted **S** | Communication, exposition, exemplarity, and learner verification are **N** for continuity |
 
-| Requirement class | Concrete affordance or protection | Strength | Reason |
-|---|---|---:|---|
-| Epistemic | Access to coherent proposals, sustained study, inquiry, dialogue, and correction | S | These prepare receptivity and test understanding but do not cause realisation |
-| Relational | Persons before whom understanding can be explained and lived without pretence | S | Authenticity becomes evidence in mutuality |
-| Bodily | Health, language, communication, and practical competence | S for evidence; C for realisation itself | The body mediates expression, not the existence of *atma* |
-| Material | Sufficient time, learning materials, and means for experiment or work | C | Different forms of evidence require different means |
-| Organisational | Freedom to question claims and compare them with conduct and consequence | S | Unaccountable authority can preserve verbal doctrine without evidence |
-| Protective | Freedom from fear, indoctrination, retaliation, and enforced assent | S | Coercion can produce conformity while concealing non-understanding |
-| Ecological | Visibility of the effects of conduct upon the rest of nature | C | Claims of coexistence must not be insulated from material consequences |
-| Intergenerational | An evidence-bearing tradition capable of transmitting method without freezing conclusions into belief | S | *Pramanikta* includes communication and continuity |
+### 2.4 Derived micro-spheres and tests
 
-### 2.4 Complete functioning, evidence, and correction
+> For *anubhav* to function effectively, *jeevan* must be able to realise coexistence under the criterion of reality, with its claim examined through continuing non-contradiction and later evidence, while inquiry remains free from coercive substitution of belief for knowing.
 
-Complete functioning requires more than a report of inner certainty. Realisation must orient the outer faculties; bodily competence must allow expression; conduct must remain open to the responses of other persons and nature; contradiction must be capable of occasioning renewed inquiry. First-person resolution, consistency over time, just relationship, useful work, and communicable explanation are convergent but non-interchangeable evidence. None alone proves *anubhav*.
+> For *pramanikta* to function effectively, the realised person must be able to express knowledge before other persons and nature through competent conduct, under the criterion of fidelity between realisation and consequence, with plural evaluation and transmissible methods of inquiry.
 
-The principal correction mechanism is not administrative judgment about another person's inner state. It is the exposure of explanations and conduct to questions, relationship-purpose, practical consequence, and the possibility of revision. An institution can protect that process; it cannot certify realisation by title.
+The first statement yields a micro-sphere of **realised knowing and protected inquiry**; the second yields **authentic public evidence**. Every external condition could be present without *anubhav*, and a person may realise under adverse conditions. The external derivation therefore concerns receptivity, evidence, protection, correction, and transmission, not institutional production or certification of realisation.
 
-### 2.5 Family and institutional mapping
+## 3. B-02 - *Astitva / dhruti*
 
-| Field | Relation | Minimum requirement implied by the pair |
-|---|---:|---|
-| Family or durable close relationship | E | A sustained field in which claimed understanding and actual conduct can be compared |
-| Education–*sanskar* | P | Study, inquiry, dialogue, exemplars, and transition from information to understanding |
-| Justice–security | E | Protection of inquiry and accountability for harm or deception |
-| Health–restraint | E | A body capable of sustained learning and expression |
-| Production–work | E | A field in which understanding becomes competent material evidence |
-| Exchange–reserve | C | Material support for learning and evidence; not intrinsic to the pair |
-| Science and disciplined inquiry | X | Methods for public testing of empirical claims and consequences |
-| Governance and public coordination | X | Protection of open inquiry without licensing an authority to declare realisation |
-| Culture and communication | X | Language and forms through which evidence can be carried |
-| Ecological correctness | X | A check that proclaimed coexistence agrees with treatment of nature |
-| Possible sixth function | — | The irreducibly first-person act of realisation is not another institutional function |
-
-### 2.6 Claim ledger and counter-tests
-
-| Claim | Status | Reason and possible revision |
-|---|---:|---|
-| Authenticity requires a social field of communication and evidence | I | Follows from the definition; revise if *pramanikta* is shown to have a wholly non-relational use here |
-| Open inquiry and accountable conduct support authenticity | I | Follows from the evidence chain; they remain enabling rather than sufficient |
-| A public office can certify realisation | O, rejected as unsupported | Neither the pair nor the evidence chain supplies such a rule |
-
-All proposed conditions could exist while a person remains without realisation. Conversely, realisation may arise under adverse arrangements, although its safe expression and transmission may be obstructed. The pair therefore supports institutions of opportunity, testing, and protection—not an institutional manufacture of knowledge.
-
-| Master-matrix field | Entry |
-|---|---|
-| ID | A-01 |
-| Pair | *anubhav / pramanikta* |
-| Semantic family | Success and evidence |
-| Proper field | Coexistence; public expression |
-| Necessary or strong external affordances | Study, inquiry, freedom from coercion, embodied opportunity, accountable consequence |
-| Primary social field | Education–*sanskar* |
-| Characteristic obstruction | Belief or authority substituted for realisation |
-| Principal evidence | Convergence of explanation, conduct, relationship, and result |
-| Residual need | None institutional; realisation remains personal |
-| Confidence | Medium-high |
-
-## 3. B-02 — *Astitva–dhruti*
-
-### 3.1 Identity and source record
+### 3.1 Source record and pair semantics
 
 | Field | Entry |
 |---|---|
-| Faculty and generic pair | *Buddhi*: enlightenment–resolve |
+| Faculty and generic pair | *Buddhi*: enlightenment/resolve |
 | Pair position | 2 of 2 |
-| *Bal* member | *Astitva* — enlightenment or acceptance of existence |
-| *Shakti* member | *Dhruti* — dedication, fearlessness, and readiness for projection |
-| Entry form | Definite acceptance / stable readiness and resolve |
-| Primary locations | AVD, p. 91; MVD, pp. 323, 328–329 |
-| Review state | Analysed; primary wording checked; interpretive review pending |
+| Member A | B-02a, *astitva* - enlightenment or acceptance of existence |
+| Member B | B-02b, *dhruti* - dedication, fearlessness, and readiness for projection |
+| Entry forms | Definite acceptance / stable readiness and resolve |
+| Primary locations | AVD, p. 91; MVD, pp. 323, 328-329 |
 
-The *astitva* definition concerns acceptance free from delusion of state, motion, development, awakening, and the present. *Dhruti* concerns dedication in truth as coexistence, readiness for projection, absence of fear, and trust in the present. The pair directly supports the working classification “accepted content and readiness for projection.” It does not establish that fearlessness means absence of prudent risk-recognition.
+*Astitva* concerns acceptance free from delusion of state, motion, development, awakening, and the present. *Dhruti* concerns dedication in truth as coexistence, readiness for projection, absence of fear, and trust in the present. Their relation as accepted content and readiness for projection is **D**. Fearlessness does not imply disregard of risk.
 
-### 3.2 Separate activity records
+### 3.2 Activity anatomy
 
-| Field | *Astitva* | *Dhruti* |
+| Field | B-02a - *astitva* | B-02b - *dhruti* |
 |---|---|---|
-| Internal role | Definite acceptance in *buddhi* of existence and its processes | Continuity and readiness of resolve in accordance with that acceptance |
-| Proper field | Existence, development, awakening, and the present | Decision and projection under understood truth |
-| Governing criterion | Freedom from delusion and agreement with realisation | Steadfastness without fear, stubbornness, or denial of consequence |
-| Inward dependency | Reception of *atma*'s indication in absence of ignorance | The accepted content of *buddhi* and its grounding in *atma* |
-| Outward dependency | Requires *chitta* to carry definite meaning | Requires planning, deliberation, selection, and bodily competence |
-| Embodied expression | Clear explanation and decisions that preserve the recognised whole | Responsible action under difficulty or uncertainty |
-| Principal evidence | Stable, intelligible definiteness rather than borrowed formula | Continuity between decision and conduct without coercive rigidity |
-| False positive | Dogmatic certainty mistaken for enlightenment | Fearlessness confused with recklessness; obedience or fanaticism confused with resolve |
+| Entry form and bearer | Definite acceptance in *buddhi* | Stable resolve and readiness in *buddhi* |
+| Object or counterpart | Existence, development, awakening, and the present | A course of action or projection under understood truth; affected persons and conditions become counterparts in expression |
+| Participation topology | **J** constitutive; **B/C/E** enter through evidence | **J/B** constitutive for action; **D/C/E** according to affected field; **T** for learned continuity |
+| Endpoint | Definite understanding free from delusion | Responsible, fearless projection consistent with that understanding |
+| Criterion | Agreement with realisation and intelligible definiteness | Steadfastness without coercion, stubbornness, or denial of consequence |
+| Characteristic distortion | Borrowed formula or dogmatic certainty mistaken for enlightenment | Obedience, aggression, recklessness, or fanaticism mistaken for resolve |
 
-### 3.3 External requirements
+### 3.3 Lifecycle conditions
 
-| Requirement class | Concrete affordance or protection | Strength | Reason |
-|---|---|---:|---|
-| Epistemic | Study that connects claims, reasons, experience, and consequence | N for reliable development | Borrowed conclusions do not constitute definite understanding |
-| Relational | Trustworthy dialogue in which uncertainty and disagreement can be expressed | S | Fear and status pressure can imitate acceptance |
-| Bodily | Capacity for attention, communication, and sustained action | S for expression | Resolve requires a usable bodily means |
-| Material | Sufficient security and means to act without every decision being captured by immediate survival pressure | S | Chronic precarity can narrow the practical field of resolve |
-| Organisational | Real responsibility, discretion, and visibility of consequences | N for public evidence | Resolve cannot be tested where persons are denied meaningful agency |
-| Protective | Absence of coercion, arbitrary punishment, and manufactured fear | N for trustworthy evidence | Forced compliance is not *dhruti* |
-| Ecological | Access to the long consequences of decisions | C | Required when resolve concerns production or natural systems |
-| Intergenerational | Practices that cultivate inquiry, courage, and responsible commitment rather than submission | S | Repeated educational relations shape receptivity and *sanskar* |
+| Stage | B-02a - *astitva* | B-02b - *dhruti* |
+|---|---|---|
+| Development and receptivity | Study connecting proposal, reason, experience, and consequence is **N/S**; trustworthy dialogue is **S** | Practice in making and explaining responsible decisions is **S**; meaningful rather than simulated agency is **N** for development |
+| Right orientation | Reception of *atma*'s indication without ignorance is **N** | Accepted truth and an understood purpose are **N** |
+| Embodied performance | Language, attention, and the ability to explain are **S** | Bodily capability, discretion, skill, time, and means are **N/S** |
+| Consequence visibility | Opportunities to compare accepted meaning with actual processes are **S** | Visibility of intended and unintended consequences is **N** for responsible resolve |
+| Evaluation | The bearer and interlocutors test definiteness, reasons, and consistency; authority cannot substitute | Bearer, affected persons, and competent peers assess reasons, freedom, persistence, and consequence |
+| Correction | Distinguish error in understanding from error in observation or formulation | Distinguish principle from failures of planning, skill, means, or timing; revise accordingly |
+| Sustaining | Continued inquiry without status pressure or manufactured fear is **S** | Freedom from coercion, stable responsibility, and material sufficiency are **S**, not causes of inward fearlessness |
+| Transmission | Dialogical study and exemplars transmit the possibility of definite understanding **S** | Learners need real responsibility, feedback, and courage without punishment for reasoned dissent **S** |
 
-### 3.4 Complete functioning, evidence, and correction
+### 3.4 Derived micro-spheres and tests
 
-Effective *astitva* requires ignorance-free reception from *atma*; *dhruti* requires that definiteness remain available for outward activity. External freedom is not the same as inward freedom from fear, but conditions of intimidation make the evidence ambiguous. Adequate organisation therefore protects dissent and supplies real responsibility, while evaluating decisions by their reasons and consequences rather than by confidence alone.
+> For *astitva* to function effectively, *jeevan* must be able to form definite acceptance of existence through reality-grounded inquiry, with its claim evaluated through reasons, consistency, and consequence rather than assent or confidence alone.
 
-Correction requires a setting in which a person can distinguish a failure of principle from a failure of planning, skill, means, or timing. Otherwise adverse results may harden into dogma or just resolve may be abandoned because embodiment was incompetent.
+> For *dhruti* to function effectively, the person must be able to undertake responsible projection under understood truth, with meaningful agency, adequate means, visible consequences, protected correction, and opportunities to transmit courageous responsibility.
 
-### 3.5 Family and institutional mapping
+The provisional micro-spheres are **definite understanding** and **responsible agency**. Authoritarian arrangements can produce decisive speech without either activity. Adverse conditions do not make correct resolve impossible, but they make its expression costly and its evidence ambiguous. The invariant is not comfort; it is inquiry joined to real responsibility, non-coercion, and consequence-sensitive correction.
 
-| Field | Relation | Minimum requirement implied by the pair |
-|---|---:|---|
-| Family or durable close relationship | E | Trust, responsibility, and room to give reasons without fear |
-| Education–*sanskar* | P | Development of definite understanding, inquiry, and responsible resolve |
-| Justice–security | E | Protection from coercion and arbitrary consequence |
-| Health–restraint | E | Bodily and mental availability for sustained attention and action |
-| Production–work | E | Real decisions through which resolve becomes practical evidence |
-| Exchange–reserve | C | Reduction of dependency that can make assent economically coerced |
-| Science and disciplined inquiry | X | Testing of factual beliefs and consequences |
-| Governance and public coordination | X | Distribution of responsibility and protection of reasoned dissent |
-| Culture and communication | X | Norms that distinguish courage from aggression and resolve from rigidity |
-| Possible sixth function | — | No residual institutional function is yet required |
+## 4. C-04 - *Nireekshan / guna*
 
-### 3.6 Claim ledger and counter-tests
-
-| Claim | Status | Reason and possible revision |
-|---|---:|---|
-| Meaningful agency is necessary for *dhruti* to become publicly evident | I | Without choice, observed compliance underdetermines resolve |
-| Material security strongly supports fearless decision | I | It removes one source of compulsion but cannot remove inward fear by itself |
-| Fearlessness licenses disregard for risk | O, rejected as inconsistent | The pair concerns truth-grounded dedication, not impulsiveness |
-
-An authoritarian school may produce decisive speech without *astitva* or *dhruti*. A person may retain resolve under danger, showing that safety is enabling rather than sufficient. The universal requirement is therefore not comfort but protected inquiry, meaningful responsibility, and evaluation of consequence.
-
-| Master-matrix field | Entry |
-|---|---|
-| ID | B-02 |
-| Pair | *astitva / dhruti* |
-| Semantic family | Acceptance and readiness |
-| Proper field | Existence; responsible decision |
-| Necessary or strong external affordances | Study, non-coercion, meaningful agency, consequence visibility |
-| Primary social field | Education–*sanskar* |
-| Characteristic obstruction | Dogma, fear, or obedience presented as resolve |
-| Principal evidence | Reasoned definiteness sustained in responsible action |
-| Residual need | None |
-| Confidence | High |
-
-## 4. C-04 — *Nireekshan–guna*
-
-### 4.1 Identity and source record
+### 4.1 Source record and pair semantics
 
 | Field | Entry |
 |---|---|
-| Faculty and generic pair | *Chitta*: contemplation–visualisation |
+| Faculty and generic pair | *Chitta*: contemplation/visualisation |
 | Pair position | 4 of 8 |
-| *Bal* member | *Nireekshan* — inspection |
-| *Shakti* member | *Guna* — properties or relative motions |
-| Entry form | Cognitive act / object or content of assessment |
+| Member A | C-04a, *nireekshan* - inspection |
+| Member B | C-04b, *guna* - properties or relative motions |
+| Entry forms | Cognitive act / object or assessed content |
 | Primary locations | AVD, p. 92; MVD, pp. 327, 330 |
-| Review state | Analysed; pair relation remains partly open |
 
-Inspection is a realisation-based holistic view manifesting as a conjunction of contemplation and visualisation. *Guna* is defined through relative motions and their assessment as generative, degenerative, or mediative. The source columns place the two together but do not explain *guna* as a motion generated by *nireekshan*. The narrowest defensible relation is act and object: inspection considers properties or relative motions. **Status:** D for position and definitions; I for the act–object classification; O for any stronger directional semantics.
+Inspection is a realisation-based holistic view manifesting as a conjunction of contemplation and visualisation. *Guna* is defined through relative motions assessed as generative, degenerative, or mediative. The source places the entries together but does not make *guna* a motion generated by inspection. Act and object is the narrowest defensible relation: **D** for definitions and pairing, **I** for that classification, and **O** for stronger directionality.
 
-### 4.2 Separate activity records
+### 4.2 Activity anatomy
 
-| Field | *Nireekshan* | *Guna* |
+| Field | C-04a - *nireekshan* | C-04b - *guna* |
 |---|---|---|
-| Internal role | Holistic inspection in which understood reality informs contemplation and visualisation | The properties or relative motions made available for assessment |
-| Proper field | Units, processes, relationships, and their place in a whole | Generative, degenerative, and mediative motion or effect |
-| Governing criterion | Completeness of view, fidelity to the object, and connection between meaning and observation | Accurate discrimination of the relevant relative motions |
-| Inward dependency | *Buddhi*'s definite understanding | The classification must remain governed by the meaning sought in inspection |
-| Outward dependency | *Vritti* must analyse and *mun* must select appropriate observation or action | Requires sensory contact, measurement, comparison, and language for public use |
-| Embodied expression | Observation, modelling, design review, diagnosis, and explanation | Recorded property, measured pattern, or defensible qualitative classification |
-| Principal evidence | Relevant features are neither omitted nor detached from the whole | Independent observations and consequences agree with the property judgment |
-| False positive | Accumulation of data mistaken for holistic inspection | A label or metric mistaken for the property itself |
+| Entry form and bearer | Act of holistic inspection in *chitta* | Object or content assessed by *jeevan*; properties or relative motions belong to the units or relations inspected |
+| Object or counterpart | Units, processes, relationships, and their place in a whole | Generative, degenerative, and mediative motion or effect |
+| Participation topology | **J** for contemplation; **B/E** for observation; **D/C/T** where evidence is collaborative or cumulative | **E** commonly constitutive; **B/C/T** for access, record, and public use |
+| Endpoint | A whole-sensitive account of the object | Accurate discrimination of a relevant property or motion |
+| Criterion | Fidelity to object, relevant completeness, and connection between meaning and observation | Classification agreeing with observation, relation, and consequence |
+| Characteristic distortion | Data accumulation or a narrow model mistaken for holistic inspection | Label, metric, or projection mistaken for the property itself |
 
-### 4.3 External requirements
+### 4.3 Lifecycle conditions
 
-| Requirement class | Concrete affordance or protection | Strength | Reason |
-|---|---|---:|---|
-| Epistemic | Access to objects, observations, rival explanations, records, and methods of comparison | N | Inspection cannot operate responsibly on concealed or fabricated information |
-| Relational | Collaboration across different skills and perspectives | S | Holistic assessment often exceeds one observer's competence |
-| Bodily | Sensory access, attention, mobility where needed, and usable instruments | N or S by field | Embodied observation mediates most public evidence |
-| Material | Instruments, laboratories, field access, archives, and design tools | C | Required according to the object under inspection |
-| Organisational | Transparency, reproducibility, conflict-of-interest controls, and time for review | S | Incentives can narrow the question or suppress unwelcome properties |
-| Protective | Freedom to report degenerative effects without retaliation | S | Property assessment becomes unreliable when results are selected by power |
-| Ecological | Observation across material cycles and delayed consequences | N for ecological objects | Short boundaries can misclassify extractive activity as generative |
-| Intergenerational | Preservation of observations, methods, failures, and conceptual distinctions | S | Inspection improves through cumulative correction |
+| Stage | C-04a - *nireekshan* | C-04b - *guna* |
+|---|---|---|
+| Development and receptivity | Training in observation, comparison, modelling, conceptual integration, and intellectual honesty is **S** | Access to varied exemplars, records, and discriminating concepts is **S** |
+| Right orientation | Definite understanding and the purpose of the inquiry are **N** | The classification must answer to the meaning sought and not to convenience alone **N** |
+| Embodied performance | Sensory access, attention, instruments, field access, time, and skill are **N/C** by object | Contact, measurement, comparison, and representation are **N/C** by object |
+| Consequence visibility | Access to delayed, distributed, and adverse effects is **N** where those effects define the whole | Observation across relevant material cycles and timescales is **N** |
+| Evaluation | Independent observations, rival explanations, reproducibility, and affected expertise are **S/N** | Skilled observers compare classification with measurements and consequences **N** |
+| Correction | Revise viewpoint, model, boundary, instrument, or classification under contradiction | Reclassify when repeated observation or wider consequence fails to agree |
+| Sustaining | Transparent records, preserved failures, conflict-of-interest controls, and time for review are **S** | Stable access to objects, methods, calibration, and records is **S** |
+| Transmission | Demonstration, apprenticeship, documented methods, and conceptual distinctions are **S** | Shared standards, samples, records, and teachable discriminations are **S** |
 
-### 4.4 Complete functioning, evidence, and correction
+### 4.4 Derived micro-spheres and tests
 
-The pair requires both an understood purpose and disciplined contact with the object. A holistic intention without empirical competence produces speculation; measurement without the meaning of the whole produces fragmentation. Correction comes from repeated observation, independent scrutiny, comparison with prediction and consequence, and revision of the model or classification.
+> For *nireekshan* to function effectively, the inspecting person and relevant collaborators must be able to examine an object as part of a whole, under a reality-grounded purpose, with adequate access, skill, rival perspectives, reproducible evidence, and correction across consequences.
 
-The pair also exposes a limit in the word “activity.” *Nireekshan* names an act of *jeevan*, whereas *guna* in the definition names what is inspected. The dossier must therefore record the bearer of a term before assigning psychological or institutional requirements to it.
+> For *guna* to function effectively as assessed content, relevant properties and relative motions must be accessible to observation and comparison under clear criteria, with classifications corrected by repeated and long-horizon consequence.
 
-### 4.5 Family and institutional mapping
+The pair yields **whole-sensitive inquiry and property evidence**. It cannot yet establish a distinct institution called science, but it does establish a recurring public ecology of access, disciplined observation, records, criticism, reproducibility, and protection against suppression. Whether those requirements warrant a distinct durable organisation is a later question.
 
-| Field | Relation | Minimum requirement implied by the pair |
-|---|---:|---|
-| Family or durable close relationship | C | Everyday observation and evaluation, without making the household sufficient for specialised inquiry |
-| Education–*sanskar* | P | Training in observation, meaning, comparison, and intellectual honesty |
-| Justice–security | E | Protection against concealment and retaliation; standards of evidence in disputes |
-| Health–restraint | E | Diagnostic observation and access to bodily evidence |
-| Production–work | E | Design, quality, safety, and evaluation of material effects |
-| Exchange–reserve | C | Traceability and information about qualities of circulated goods |
-| Science and disciplined inquiry | X | A primary cross-cutting method for observation, measurement, and correction |
-| Governance and public coordination | X | Disclosure requirements and stewardship of shared evidence |
-| Culture and communication | X | Language and representations adequate to observed properties |
-| Ecological correctness | X | Expansion of the field to delayed and distributed consequences |
-| Possible sixth function | ? | Test whether organised knowledge-production is fully cross-cutting or warrants a distinct function |
+## 5. V-12 - *Nyaya / samvedna*
 
-### 4.6 Claim ledger and counter-tests
-
-| Claim | Status | Reason and possible revision |
-|---|---:|---|
-| The pair is best read as act and object | I | Fits both definitions but is not named as a source category |
-| Open, reproducible inquiry strongly supports complete inspection | I | It supplies correction without making method alone sufficient for holistic meaning |
-| Science is necessarily a sixth institution | O | The pilot shows an irreducible method; it does not yet show an irreducible social function |
-
-A well-equipped laboratory can still inspect under a narrow or destructive purpose. A careful observer with minimal equipment may recognise important properties. Therefore tools are conditional, while access to the object, honesty about consequence, and corrigibility are more general requirements.
-
-| Master-matrix field | Entry |
-|---|---|
-| ID | C-04 |
-| Pair | *nireekshan / guna* |
-| Semantic family | Act and object |
-| Proper field | Holistic inspection of relative motions |
-| Necessary or strong external affordances | Object access, empirical competence, transparency, reproducibility, long consequence horizon |
-| Primary social field | Education with science as a cross-cutting method |
-| Characteristic obstruction | Fragmentation, data suppression, or metric substitution |
-| Principal evidence | Repeatable observation integrated with meaning and consequence |
-| Residual need | Status of organised science remains open |
-| Confidence | Medium-high |
-
-## 5. V-12 — *Nyaya–samvedna*
-
-### 5.1 Identity and source record
+### 5.1 Source record and pair semantics
 
 | Field | Entry |
 |---|---|
-| Faculty and generic pair | *Vritti*: deliberation–analysis |
+| Faculty and generic pair | *Vritti*: deliberation/analysis |
 | Pair position | 12 of 18 |
-| *Bal* member | *Nyaya* — justice |
-| *Shakti* member | *Samvedna* — sensitivity |
-| Entry form | Relational evaluation / hybrid readiness, reception, and participation |
-| Primary locations | AVD, p. 92; MVD, pp. 335–336 |
-| Review state | Analysed; pair relation remains nonuniform |
+| Member A | V-12a, *nyaya* - justice |
+| Member B | V-12b, *samvedna* - sensitivity |
+| Entry forms | Relational evaluation / hybrid reception, readiness, and participation |
+| Primary locations | AVD, p. 92; MVD, pp. 335-336 |
 
-Justice comprises recognition of relationships, fulfilment of their values, evaluation, and mutual satisfaction. Sensitivity is defined through movement towards completeness, work, behaviour, and thought under law, inquiry and expectation toward awakening, reception of external indications through the cognitive organs, and readiness for participation in orderliness. The pair does not reduce to justice followed by an emotional response. Its second member joins sensory reception, motivated participation, and responsiveness to a recognised whole.
+Justice comprises recognition of relationships, fulfilment of their values, evaluation, and mutual satisfaction. Sensitivity includes movement toward completeness, work, behaviour, and thought under law; inquiry and expectation toward awakening; reception of external indications through the cognitive organs; and readiness for participation in orderliness. The pair does not reduce to justice followed by emotion. Its functional grouping as relational evaluation and responsive participation is **I**; a single relation covering every clause of *samvedna* remains **O**.
 
-**Working semantic family:** relationship and evaluative participation, with a residual sensory-receptive clause. **Status:** D for the definitions; I for the functional grouping; O for a single relation covering every clause of *samvedna*.
+### 5.2 Activity anatomy
 
-### 5.2 Separate activity records
-
-| Field | *Nyaya* | *Samvedna* |
+| Field | V-12a - *nyaya* | V-12b - *samvedna* |
 |---|---|---|
-| Internal role | Deliberative recognition of relationship, value, evaluation, and mutual fulfilment | Responsiveness and readiness to participate on the basis of received indications and the movement toward completeness |
-| Proper field | Human relationships and associations | Persons, bodily indications, public conditions, and orderliness |
-| Governing criterion | Relationship-purpose, value-fulfilment, mutual satisfaction, and freedom from harm | Cognisance rather than sensation alone; participation ordered toward completeness |
-| Inward dependency | Meaning supplied by *chitta* and ultimately by understanding | Justice and other *vritti* criteria must govern received indications |
-| Outward dependency | *Mun* must taste values and select just conduct | Requires sensory access, communication, motivation, and bodily action |
-| Embodied expression | Recognition, fulfilment, evaluation, protection, and restoration | Attention, inquiry, response, participation, and willingness to act |
-| Principal evidence | Both parties can recognise value-fulfilment without coercion; third parties are not harmed | Relevant indications are noticed and produce responsible participation |
-| False positive | Silence, obedience, legal form, or unilateral benefit mistaken for mutual satisfaction | Emotional reactivity, surveillance, or sensory stimulation mistaken for sensitivity |
+| Entry form and bearer | Relational-evaluative activity in *vritti* | Reception and responsive readiness in *vritti*, embodied through cognitive organs and participation |
+| Object or counterpart | Another person in a recognised relationship; affected third parties also matter | Persons, bodily indications, public conditions, and the prospect of orderliness |
+| Participation topology | **D** constitutive; **R/C** according to relationship; **B/E/T** for participation and wider consequence | **J/B** for reception; **D/C** for response and participation; **R/E/T** according to field |
+| Endpoint | Recognition, value-fulfilment, evaluation, and mutual satisfaction | Cognisant and responsible participation toward completeness |
+| Criterion | Relationship-purpose, mutuality, non-harm, and freedom from coercion | Indications understood under right criteria rather than sensation or reaction alone |
+| Characteristic distortion | Legal form, silence, obedience, or unilateral benefit mistaken for justice | Emotional reactivity, surveillance, stimulation, or conformity mistaken for sensitivity |
 
-### 5.3 External requirements
+### 5.3 Lifecycle conditions
 
-| Requirement class | Concrete affordance or protection | Strength | Reason |
-|---|---|---:|---|
-| Epistemic | Shared understanding of relationships, values, procedures, facts, and consequences | N | Evaluation cannot be just when parties lack intelligible grounds |
-| Relational | Durable recognition, reciprocal voice, and opportunity to fulfil responsibilities | N | Justice exists only in relationship and association |
-| Bodily | Safety, communication access, and capacity to participate | N for public evidence | Threat or incapacity can turn apparent agreement into silence |
-| Material | Access to the means needed to fulfil a relationship's legitimate expectations | S | Formal recognition without practical means may remain empty |
-| Organisational | Accessible evaluation, transparent reasons, participation of affected persons, appeal, and correction | N at social scale | Mutual evaluation requires more than unilateral judgment |
-| Protective | Freedom from crime, injustice, retaliation, domination, and concealed conflicts of interest | N | The reception conditions explicitly connect outer accord with crime-free and just conditions |
-| Ecological | Inclusion of affected persons and natural systems beyond the immediate parties | C or N by case | Local satisfaction can externalise harm |
-| Intergenerational | Education in relationship-recognition and preservation of fair procedures without rigidifying them | S | Just practice must be carried and corrected across generations |
+| Stage | V-12a - *nyaya* | V-12b - *samvedna* |
+|---|---|---|
+| Development and receptivity | Lived relations, understanding of values, dialogue, and examples of fair correction are **N/S** | Bodily sensory access, language, inquiry, and opportunities for non-coerced participation are **N/S** |
+| Right orientation | Understanding of relationship and value is **N** | Justice, *dharma*, and truth must govern received indications and motivation **N** |
+| Embodied performance | Communication, safety, practical means, and the ability to fulfil responsibility are **N/S** | Attention, communication, mobility, skill, and real opportunity to act are **N/S** |
+| Consequence visibility | Both parties and affected third parties must be able to disclose effects **N** | Access to consequences of response, non-response, and collective action is **N** |
+| Evaluation | Both participants require voice; independent evaluation is **N** where power or harm blocks reciprocity | Bearer, affected persons, and collaborators assess whether indications produced responsible participation |
+| Correction | Direct dialogue where safe; mediation, restoration, appeal, or protective separation where needed | Feedback, renewed inquiry, changed response, repair, and protection from manipulation |
+| Sustaining | Durable recognition, predictable protection, remembered commitments, and accessible correction are **N/S** | Repeated opportunities for meaningful participation and freedom from overload or coercion are **S** |
+| Transmission | Participation in fair relationships, exemplarity, and teachable correction are **S** | Practice in noticing, inquiring, responding, and evaluating is **S** |
 
-### 5.4 Complete functioning, evidence, and correction
+### 5.4 Derived micro-spheres and tests
 
-Mutual satisfaction is necessary but not reducible to reported contentment. Habituation, dependency, intimidation, and unequal access to information can produce assent. Adequate evidence combines first-person report with freedom from coercion, recognition of relationship-purpose, fulfilment of values, material consequence, third-party effects, and a real possibility of revision.
+> For *nyaya* to function effectively, persons in relationship must be able to recognise one another, fulfil values, evaluate consequences, and reach mutual satisfaction under freedom from coercion, with safe dialogue, appeal, restoration, and protection where reciprocity fails.
 
-Correction requires a graded ecology: direct dialogue where safe, family or community mediation where appropriate, and impartial protection or adjudication where power or harm prevents mutual evaluation. Restorative arrangements are desirable when they restore relationship and responsibility; protective separation remains necessary where restoration would expose a person to continuing harm.
+> For *samvedna* to function effectively, the person must be able to receive relevant indications and participate responsibly with others under the criteria of justice, *dharma*, and truth, with feedback from affected persons and correction of both inattention and reactive response.
 
-### 5.5 Family and institutional mapping
+The members jointly yield **reciprocal relationship and protected participation**. A dyadic field is constitutive to *nyaya*; a durable close relation becomes required only where the relationship itself is continuous, intergenerational, or care-bearing. Public procedures become required when direct reciprocity cannot protect voice or correct concentrated power. This is a derivation from the activity topology, not an assumption that all justice begins in one household form.
 
-| Field | Relation | Minimum requirement implied by the pair |
-|---|---:|---|
-| Family or durable close relationship | P | The first sustained field of recognition, value-fulfilment, evaluation, and care |
-| Education–*sanskar* | E | Understanding relationships, values, inquiry, and non-coercive disagreement |
-| Justice–security | P | Accessible evaluation, protection, restoration, appeal, and accountability |
-| Health–restraint | E | Bodily safety and capacity to participate |
-| Production–work | E | Just roles, safe conditions, responsibility for material consequences |
-| Exchange–reserve | E | Non-exploitative terms and access necessary for genuine participation |
-| Science and disciplined inquiry | X | Reliable factual evidence, including evidence of harm |
-| Governance and public coordination | X | Procedures for conflicts that exceed immediate relationships |
-| Culture and communication | X | Public norms of respect, truthful speech, and civil disagreement |
-| Ecological correctness | X | Protection against agreement that shifts cost to nature or future persons |
-| Possible sixth function | — | Adjudication and public protection remain within justice–security; governance coordinates them |
+## 6. V-18 - *Tushti / pushti*
 
-### 5.6 Claim ledger and counter-tests
-
-| Claim | Status | Reason and possible revision |
-|---|---:|---|
-| Justice requires a social field, not private intention alone | D/I | Recognition, fulfilment, evaluation, and mutual satisfaction are relational by definition |
-| Participants require protected voice and access to correction | I | Without them mutual satisfaction is evidentially underdetermined |
-| Every just outcome must preserve an existing relationship | O, rejected as too strong | Protection may require distance or termination of a harmful association |
-
-A benevolent hierarchy can provide material benefit while denying recognition and evaluation. A procedurally equal forum can still be unjust if parties lack bodily safety, information, or means. The pair therefore derives both relational culture and protective public structure.
-
-| Master-matrix field | Entry |
-|---|---|
-| ID | V-12 |
-| Pair | *nyaya / samvedna* |
-| Semantic family | Relationship and evaluative participation |
-| Proper field | Human relationship and orderliness |
-| Necessary or strong external affordances | Recognition, protected voice, material means, mutual evaluation, appeal, third-party review |
-| Primary social field | Family and justice–security |
-| Characteristic obstruction | Coercion, unilateral judgment, formalism, or externalised harm |
-| Principal evidence | Mutual satisfaction plus freedom, value-fulfilment, and consequence |
-| Residual need | None |
-| Confidence | High |
-
-## 6. V-18 — *Tushti–pushti*
-
-### 6.1 Identity and source record
+### 6.1 Source record and pair semantics
 
 | Field | Entry |
 |---|---|
-| Faculty and generic pair | *Vritti*: deliberation–analysis |
+| Faculty and generic pair | *Vritti*: deliberation/analysis |
 | Pair position | 18 of 18 |
-| *Bal* member | *Tushti* — satiation or fulfilment |
-| *Shakti* member | *Pushti* — confirmation |
-| Entry form | Achieved social condition / continuing evaluation and dissemination |
-| Primary locations | AVD, p. 92; MVD, pp. 338–339 |
-| Review state | Analysed; primary wording checked; interpretive review pending |
+| Member A | V-18a, *tushti* - satiation or fulfilment |
+| Member B | V-18b, *pushti* - confirmation |
+| Entry forms | Achieved multi-level condition / continuing evaluation and dissemination |
+| Primary locations | AVD, p. 92; MVD, pp. 338-339 |
 
-*Tushti* is defined through the six merits after understanding, evidence of resolution and prosperity in the family, and participation in undivided society and universal orderliness. *Pushti* is continuous evaluation of that satiation through inspection and examination, continuity of completeness, and dissemination in the human tradition. The pair therefore explicitly joins achievement, evaluation, continuity, and social transmission. It is the strongest pilot evidence that complete activity requires an environment of correction and not merely an environment of initial expression.
+*Tushti* is defined through the six merits after understanding, evidence of resolution and prosperity in the family, and participation in undivided society and universal orderliness. *Pushti* is continuous evaluation of that fulfilment through inspection and examination, continuity of completeness, and dissemination in the human tradition. The conjunction of achievement, evaluation, continuity, and transmission is **D**.
 
-**Working semantic family:** fulfilled condition and its continuing confirmation or transmission. **Status:** D.
+### 6.2 Activity anatomy
 
-### 6.2 Separate activity records
-
-| Field | *Tushti* | *Pushti* |
+| Field | V-18a - *tushti* | V-18b - *pushti* |
 |---|---|---|
-| Internal role | Deliberative recognition of fulfilled resolution, prosperity, merit, and participation | Continued inspection, examination, confirmation, and dissemination of fulfilment |
-| Proper field | Person, family, society, and universal orderliness together | The continuity and public reproducibility of that fulfilment |
-| Governing criterion | Understanding expressed as resolution, prosperity, participation, and completeness | Continuing agreement under evaluation, not preservation of a claim by authority |
-| Inward dependency | Meaning and purpose from *chitta*, definiteness from *buddhi*, and realisation | The content of *tushti* and the criteria by which it is examined |
-| Outward dependency | Must organise selection, relationship, work, and participation | Requires communication, institutions of evaluation, and human tradition |
-| Embodied expression | Resolved family conduct, assessed sufficiency, and participation in wider order | Inspection, transparent evaluation, teaching, replication, and correction |
-| Principal evidence | Convergence of resolution, prosperity, and social participation | The achievement persists under examination and becomes available beyond its originators |
-| False positive | Private contentment or affluence mistaken for social fulfilment | Propaganda, ritual repetition, or institutional longevity mistaken for confirmation |
+| Entry form and bearer | Deliberative recognition of a fulfilled condition across person, close relations, provision, and wider participation | Continuing inspection, confirmation, and dissemination of that condition |
+| Object or counterpart | The person's resolution, durable shared life, material sufficiency, and wider social participation | The persistence and reproducibility of fulfilment across persons, places, and generations |
+| Participation topology | **J/R/C/E** constitutive in the definition; **B/T** for performance and continuity | **J/B/R/C/E/T**; multiple evaluators and generations are constitutive |
+| Endpoint | Convergence of resolution, prosperity, and participation in orderliness | Fulfilment that survives examination and becomes available in human tradition |
+| Criterion | Understanding evident across all named levels, not private satisfaction | Continuing agreement under inspection rather than institutional self-assertion |
+| Characteristic distortion | Contentment or affluence mistaken for whole fulfilment | Propaganda, ritual repetition, longevity, or dissemination mistaken for confirmation |
 
-### 6.3 External requirements
+### 6.3 Lifecycle conditions
 
-| Requirement class | Concrete affordance or protection | Strength | Reason |
-|---|---|---:|---|
-| Epistemic | Shared criteria for resolution, prosperity, participation, inspection, and examination | N | Confirmation requires intelligible public evaluation |
-| Relational | Stable family and social relations in which fulfilment can persist and be mutually assessed | N | The definition itself spans family and society |
-| Bodily | Health and practical capacity for continuing participation | S | A merely verbal tradition cannot preserve embodied fulfilment |
-| Material | Reliable access to necessities and productive means sufficient for prosperity | N | Family prosperity is explicit in *tushti* |
-| Organisational | Transparent records, periodic review, participation, feedback, and revision | N | *Pushti* is continuous evaluation rather than a one-time declaration |
-| Protective | Freedom to report contradiction, exclusion, deprivation, or failure | N | Confirmation loses meaning if dissent is punished |
-| Ecological | Evidence that present prosperity preserves later material possibility | N for continuity | A depleting arrangement cannot establish durable completeness |
-| Intergenerational | Transmission through lived practice, education, and institutions that can be corrected | N | Dissemination in human tradition is explicit in *pushti* |
+| Stage | V-18a - *tushti* | V-18b - *pushti* |
+|---|---|---|
+| Development and receptivity | Understanding, value-fulfilling close relations, productive competence, and real participation are **N** across the definition | Shared criteria, inspection skills, records, learner participation, and freedom to question are **N** |
+| Right orientation | Resolution and prosperity must remain ordered by completeness and universal participation **N** | Evaluation must seek continuing completeness rather than preservation of an organisation **N** |
+| Embodied performance | Daily conduct, shared provision, useful work, and public participation are **N** | Inspection, examination, communication, teaching, and replication are **N/S** |
+| Consequence visibility | Evidence must span person, close relations, material provision, society, nature, and time **N** | Access to contradiction, exclusion, depletion, and delayed effects is **N** |
+| Evaluation | Bearer, close participants, affected persons, competent investigators, and later participants all contribute **N** | Independent and participatory review against public criteria is **N** |
+| Correction | Revise conduct, relationship, production, participation, or criteria wherever convergence fails | Dissent, transparent records, redesign, restitution, and re-teaching must remain normal **N** |
+| Sustaining | Durable relations, material reserve, role continuity, maintenance, and public participation are **N/S** | Repeated review, preserved evidence, succession of competent participants, and ecological continuity are **N** |
+| Transmission | Living participation and *sanskar*, not verbal dissemination alone, are **N** | Dissemination joined to learner verification and reproduced fulfilment is **N** |
 
-### 6.4 Complete functioning, evidence, and correction
+### 6.4 Derived micro-spheres and tests
 
-This pair resists individualistic evidence. A person cannot establish *tushti* solely by reporting satisfaction when family relationships remain unresolved, material provision is insecure, or social participation is blocked. Nor can an institution establish *pushti* by repeating a founding claim. The activity requires longitudinal, multi-level evidence: first-person resolution, mutual family evaluation, material sufficiency, participation beyond the family, public inspection, and intergenerational reproducibility.
+> For *tushti* to function effectively, the person and participants in durable shared life must be able to realise resolution, dependable sufficiency, and wider participation under a criterion of completeness, with evidence across relationship, provision, society, and nature.
 
-Correction must be structurally normal rather than treated as disloyalty. Participants need access to the criteria, records, affected persons, and consequences being examined. A tradition remains living when it can distinguish its purpose from a particular procedure and revise the latter while retaining the former.
+> For *pushti* to function effectively, present and later participants must be able to inspect, correct, reproduce, and transmit that fulfilment under shared criteria, with access to records, dissent, consequences, and living evidence.
 
-### 6.5 Family and institutional mapping
+These members yield **multi-scale fulfilment and living continuity**. The activity itself names a durable close and intergenerational field, but it does not settle household size, residence, inheritance, authority, or gendered work. It also requires collective and ecological evidence that no close group can provide alone. The sphere therefore crosses scales before any institution is named.
 
-| Field | Relation | Minimum requirement implied by the pair |
-|---|---:|---|
-| Family or durable close relationship | P | Evidence of resolution and prosperity in sustained daily life |
-| Education–*sanskar* | P | Transmission of understanding, evaluative criteria, and learned correction |
-| Justice–security | P | Conditions for participation, mutual evaluation, dissent, and protection |
-| Health–restraint | E | Continuing bodily capability and disciplined need |
-| Production–work | P | Material evidence of sufficiency and useful participation |
-| Exchange–reserve | P | Continuity of provision across families, places, and time |
-| Science and disciplined inquiry | X | Inspection, examination, longitudinal evidence, and detection of unintended effects |
-| Governance and public coordination | X | Participation and correction across scales |
-| Culture and communication | X | Dissemination without reducing understanding to slogans |
-| Ecological correctness | X | Durability of prosperity and production |
-| Possible sixth function | — | All five functions are jointly implicated; evaluation and transmission cross them |
+## 7. M-08 - *Svayatta / samriddhi*
 
-### 6.6 Claim ledger and counter-tests
-
-| Claim | Status | Reason and possible revision |
-|---|---:|---|
-| *Tushti–pushti* requires all five institutional functions in joint operation | I | Family resolution, prosperity, participation, evaluation, and tradition jointly invoke them |
-| Institutional self-report is insufficient evidence of confirmation | I | Continuous inspection and examination require independent access to consequence |
-| Dissemination requires one uniform organisational form | O, rejected as unsupported | The content and criteria may be universal while institutional forms vary |
-
-A small family may embody resolution and prosperity without participating adequately in wider order; a large public system may disseminate terminology without family-level evidence. Neither satisfies the whole definition. No sixth function is yet required, but the pair makes cross-institutional evaluation indispensable.
-
-| Master-matrix field | Entry |
-|---|---|
-| ID | V-18 |
-| Pair | *tushti / pushti* |
-| Semantic family | Fulfilment and confirmation |
-| Proper field | Family-to-universal continuity |
-| Necessary or strong external affordances | Shared criteria, prosperity, participation, transparent review, dissent, intergenerational transmission |
-| Primary social field | Joint operation of all five functions |
-| Characteristic obstruction | Private satisfaction, propaganda, or uncorrectable tradition |
-| Principal evidence | Longitudinal convergence across person, family, society, material provision, and ecology |
-| Residual need | None yet |
-| Confidence | High |
-
-## 7. M-08 — *Svayatta–samriddhi*
-
-### 7.1 Identity and source record
+### 7.1 Source record and pair semantics
 
 | Field | Entry |
 |---|---|
-| Faculty and generic pair | *Mun*: taste–selection |
+| Faculty and generic pair | *Mun*: taste/selection |
 | Pair position | 8 of 32 |
-| *Bal* member | *Svayatta* — self-reliance or the realisation of prosperity |
-| *Shakti* member | *Samriddhi* — prosperity as production more than needs |
-| Entry form | Experienced sufficiency / material and productive evidence |
+| Member A | M-08a, *svayatta* - self-reliance or realisation of prosperity |
+| Member B | M-08b, *samriddhi* - prosperity as production more than needs |
+| Entry forms | Experienced sufficiency / material and productive evidence |
 | Primary locations | AVD, p. 93; MVD, p. 341 |
-| Review state | Analysed; translation of *svayatta* requires continued review |
 
-*Svayatta* is defined as the realisation or experience of prosperity; *samriddhi* as production more than needs. The first term is commonly glossed “self-reliance,” but its definition here is narrower and should govern: the experienced certainty of material sufficiency. The second member supplies a material criterion, yet “more than needs” cannot be evaluated without a prior understanding of need. It does not by itself license indefinite production, accumulation, or disposal.
+*Svayatta* is defined here as the realisation or experience of prosperity; *samriddhi* as production more than needs. The definition rather than the broad English gloss governs the analysis. “More than needs” requires an account of need, usefulness, access, and continuity; it does not license indefinite output, accumulation, or waste. The definitions are **D**; experienced and produced sufficiency as their functional relation is **I**.
 
-**Working semantic family:** held condition and material evidence. **Status:** D for the definitions; I for interpreting the pair as experienced and produced sufficiency; O for the full semantic range of *svayatta*.
+### 7.2 Activity anatomy
 
-### 7.2 Separate activity records
-
-| Field | *Svayatta* | *Samriddhi* |
+| Field | M-08a - *svayatta* | M-08b - *samriddhi* |
 |---|---|---|
-| Internal role | Taste or acceptance of dependable sufficiency | Selection and organisation of production beyond assessed need |
-| Proper field | Family confidence regarding material provision | Useful material production in relation to finite need |
-| Governing criterion | Absence of experienced lack grounded in actual capability and provision | Quantity, quality, usefulness, accessibility, and regeneration relative to assessed need |
-| Inward dependency | Justice, *dharma*, truth, and understood purpose must govern the taste of sufficiency | Deliberation must distinguish need from indulgence, prestige, and accumulation |
-| Outward dependency | Bodily and family participation make sufficiency concrete | Skill, labour, tools, natural resources, storage, and circulation are required |
-| Embodied expression | Confident use and sharing without fear-driven accumulation | Competent, useful, regenerative production with an available surplus |
-| Principal evidence | Needs are met with dependable capability, not merely temporary possession | Useful provision exceeds assessed family need and remains available without exploitation |
-| False positive | Wealth, stockpiles, income, dependency on fragile supply, or status mistaken for self-reliance | Gross output, waste, forced labour, ecological depletion, or unsold surplus mistaken for prosperity |
+| Entry form and bearer | Experienced certainty of dependable sufficiency, borne by the person in a shared provisioning relation | Material condition and evidence arising from organised production relative to assessed need |
+| Object or counterpart | Needs, capabilities, provision, and other persons sharing use and responsibility | Bodies, tools, land or inputs, labour, useful outputs, users, and natural systems |
+| Participation topology | **J/B/R/E**; **C/T** where provision depends on distributed capacities and continuity | **B/R/C/E/T**; production and surplus commonly exceed isolated personal action |
+| Endpoint | Freedom from experienced lack grounded in actual capability and provision | Useful, accessible, durable output beyond assessed need |
+| Criterion | Dependable sufficiency without fear-driven accumulation or hidden dependence | Need, quality, usefulness, just access, safe work, and regeneration |
+| Characteristic distortion | Wealth, stocks, income, status, or fragile dependency mistaken for sufficiency | Gross output, waste, forced labour, exclusion, or depletion counted as prosperity |
 
-### 7.3 External requirements
+### 7.3 Lifecycle conditions
 
-| Requirement class | Concrete affordance or protection | Strength | Reason |
-|---|---|---:|---|
-| Epistemic | Shared methods for assessing need, production, use, stocks, and consequences | N | Neither sufficiency nor surplus is intelligible without assessment |
-| Relational | Family cooperation, fair responsibility, and confidence that vulnerability will not lead to abandonment | N for family prosperity | Individual holdings do not establish shared sufficiency |
-| Bodily | Health, skill, rest, safety, and opportunity for useful work | N | Production is embodied evidence |
-| Material | Secure access to appropriate tools, land or inputs, infrastructure, and useful outputs | N | The pair explicitly includes production |
-| Organisational | Participation in need assessment, work allocation, quality control, and decisions about surplus | S | Unilateral control can produce output while preserving dependency |
-| Protective | Freedom from dispossession, exploitative exchange, artificial scarcity, and forced work | N for trustworthy evidence | Surplus obtained through another's deprivation contradicts wider prosperity |
-| Ecological | Regeneration of soils, water, energy, materials, and waste-absorbing capacity | N for continuity | Depletion converts present surplus into future lack |
-| Intergenerational | Transmission of productive knowledge, maintenance, reserve, and access to means | S or N by field | Prosperity must survive changes of persons and seasons |
+| Stage | M-08a - *svayatta* | M-08b - *samriddhi* |
+|---|---|---|
+| Development and receptivity | Learning to assess finite need, capability, use, maintenance, sharing, and reserve is **N/S** | Productive knowledge, apprenticeship, design, safety, and resource literacy are **N** |
+| Right orientation | Justice, *dharma*, truth, and disciplined need govern the taste of sufficiency **N** | Need and right use must govern production and surplus **N** |
+| Embodied performance | Health, skill, time, shared responsibility, and access to useful goods are **N** | Labour, skill, tools, inputs, infrastructure, coordination, and safe conditions are **N** |
+| Consequence visibility | Participants must see fragility, dependency, workload, exclusion, and ecological cost **N** | Users, workers, affected communities, waste paths, and regenerative cycles must remain visible **N** |
+| Evaluation | Persons sharing need and provision evaluate sufficiency with practical records and consequences | Producers, users, workers, skilled peers, and affected persons assess quantity, quality, access, safety, and regeneration |
+| Correction | Revise need estimate, access, workload, use, maintenance, sharing, or reserve | Redesign product or process; repair harm; retrain; reallocate work and outputs; restore resources |
+| Sustaining | Maintenance, stored competence, reserve, assured access, and diversified capability are **N/S** | Maintenance, replacement, seed or input continuity, reserve, and ecological regeneration are **N** |
+| Transmission | Participation in need assessment and productive competence is **S** | Apprenticeship, records, shared tools, and transfer of responsibility are **N/S** |
 
-### 7.4 Complete functioning, evidence, and correction
+### 7.4 Derived micro-spheres and tests
 
-The pair becomes fully operative when the taste of sufficiency corresponds to actual, competent, and durable provision. Subjective confidence without material capability is fragile; output without shared confidence, right use, or access is not prosperity in the relevant sense. Correction therefore joins household need assessment, production records, health and workload, distribution, reserve, and ecological consequence.
+> For *svayatta* to function effectively, persons sharing provision must be able to assess and meet finite needs through dependable capability and fair access, under the criterion of sufficiency without exploitation or fear-driven accumulation, with evidence from use, workload, reserve, and continuity.
 
-The appropriate unit of assessment is initially the family because needs, care, work, and provision are lived together there. Wider structures remain necessary because skills, materials, seasons, risks, and productive capacities are distributed across families.
+> For *samriddhi* to function effectively, producers, users, and affected persons must be able to create and assess useful output beyond need under criteria of quality, safety, access, and regeneration, with correction across the full material cycle and transmission of competence.
 
-### 7.5 Family and institutional mapping
+The provisional sphere is **sufficiency and regenerative provision**. The close shared-life field is strongly implicated because need, care, use, work, and confidence are jointly experienced there, but the pair alone does not prove one family form. Distributed skill, materials, risk, infrastructure, and ecological consequence require wider coordination. The derived requirement is shared need-assessment and productive capability, not a preselected economic institution.
 
-| Field | Relation | Minimum requirement implied by the pair |
-|---|---:|---|
-| Family or durable close relationship | P | Joint assessment of need, capability, work, use, and surplus |
-| Education–*sanskar* | E | Productive competence, need-discipline, right use, and ecological understanding |
-| Justice–security | E | Secure access, fair responsibility, and protection from exploitation or dispossession |
-| Health–restraint | E | Bodily capability and limitation of need without neglect |
-| Production–work | P | Creation, maintenance, and evaluation of useful provision |
-| Exchange–reserve | P | Circulation and preservation of surplus across place, skill, and time |
-| Science and disciplined inquiry | X | Measurement, design, safety, productivity, and ecological evaluation |
-| Governance and public coordination | X | Shared infrastructure, resource stewardship, and correction of concentrated control |
-| Culture and communication | X | Norms of sufficiency, competence, contribution, and non-accumulation |
-| Ecological correctness | X | Regeneration as a condition of continuing prosperity |
-| Possible sixth function | — | Infrastructure and resource stewardship can be coordinated across production, exchange, justice, and governance |
+## 8. M-13 - *Guru / pramanik*
 
-### 7.6 Claim ledger and counter-tests
-
-| Claim | Status | Reason and possible revision |
-|---|---:|---|
-| Prosperity requires production assessed against finite need | D/I | Both elements are explicit; the method of need assessment remains open |
-| Family is the first unit of prosperity assessment | I | Supported by the wider account and by the relation of need and shared provision; not uniquely entailed by this pair alone |
-| More production is always more prosperity | O, rejected as inconsistent | Usefulness, need, access, and continuity constrain the quantitative clause |
-
-A wealthy person surrounded by deprivation does not establish social prosperity. A low-output family with reliably met needs may experience sufficiency but lacks the source-defined surplus needed for *samriddhi*. The pair therefore requires both qualitative need-assessment and material capability.
-
-| Master-matrix field | Entry |
-|---|---|
-| ID | M-08 |
-| Pair | *svayatta / samriddhi* |
-| Semantic family | Experienced condition and material evidence |
-| Proper field | Family sufficiency and production |
-| Necessary or strong external affordances | Need assessment, productive means, skill, fair access, reserve, regenerative limits |
-| Primary social field | Family, production–work, and exchange–reserve |
-| Characteristic obstruction | Accumulation, dependency, exploitation, waste, or depletion counted as prosperity |
-| Principal evidence | Needs met plus useful, accessible, durable surplus |
-| Residual need | None |
-| Confidence | High on function; medium on translation |
-
-## 8. M-13 — *Guru–pramanik*
-
-### 8.1 Identity and source record
+### 8.1 Source record and pair semantics
 
 | Field | Entry |
 |---|---|
-| Faculty and generic pair | *Mun*: taste–selection |
+| Faculty and generic pair | *Mun*: taste/selection |
 | Pair position | 13 of 32 |
-| *Bal* member | *Guru* — the person who establishes conception as resolution of inquiries through education–*sanskar* |
-| *Shakti* member | *Pramanik* — authentic bearer and carrier of evidence |
-| Entry form | Relationship-role / qualification of the evidence-bearing person |
+| Member A | M-13a, *guru* - one who establishes conception as resolution of inquiries through education-*sanskar* |
+| Member B | M-13b, *pramanik* - authentic bearer and carrier of evidence |
+| Entry forms | Relationship-role / qualification of an evidence-bearing person |
 | Primary locations | AVD, p. 93; MVD, p. 343 |
-| Review state | Analysed; pair relation inferred from adjoining definitions |
 
-The entry *guru* denotes a person in a relationship, not merely an inner event. The role is defined by resolving inquiries and questions through education–*sanskar*. *Pramanik* denotes the bearer and carrier of evidence who lives the holistic view of existence, knowledge of *jeevan*, and humane conduct through experiment, behaviour, and realisation. Their pairing places teaching beside lived evidence. It does not make every person holding a teaching office authentic.
+*Guru* denotes a person in a relationship rather than a private event. The role is defined through resolution of inquiries by education-*sanskar*. *Pramanik* denotes a bearer and carrier of evidence who lives the holistic view of existence, knowledge of *jeevan*, and humane conduct through experiment, behaviour, and realisation. Teaching beside lived evidence is **I** as the pair relation; the definitions and assignment are **D**.
 
-**Working semantic family:** relationship-role and evidential qualification. **Status:** D for definitions and assignment; I for treating *pramanik* as a necessary qualification of the teaching relation.
+### 8.2 Activity anatomy
 
-### 8.2 Separate activity records
-
-| Field | *Guru* | *Pramanik* |
+| Field | M-13a - *guru* | M-13b - *pramanik* |
 |---|---|---|
-| Internal role | Recognition and fulfilment of the teaching relationship in response to inquiry | Taste and selection ordered by responsibility to live as evidence |
-| Proper field | Teacher–learner relationship, questions, conception, and resolution | Experiment, behaviour, realisation, and communicable humane conduct |
-| Governing criterion | The learner's movement from question to understood resolution | Agreement among explanation, experiment, behaviour, and realisation |
-| Inward dependency | Understanding, contemplation, deliberation, justice, and kindness | The full inner-to-outer evidence chain |
-| Outward dependency | Language, listening, teaching skill, time, learner receptivity, and bodily presence or mediation | Repeated conduct across family, work, relationship, and public life |
-| Embodied expression | Dialogue, demonstration, responding to questions, and adapting presentation without altering truth | Living the proposed knowledge in observable work and behaviour |
-| Principal evidence | The learner can understand, question, apply, and explain rather than merely repeat | Claims remain coherent across teaching, relationship, experiment, and consequence |
-| False positive | Status, age, lineage, fluency, control of a school, or learner obedience mistaken for being a guru | Reputation, performance, or selective public conduct mistaken for authenticity |
+| Entry form and bearer | Teacher-role borne by a person in relation to an inquiring learner | Evidential qualification borne by a person whose life carries the proposed knowledge |
+| Object or counterpart | Learner, questions, conception, and resolution | Learners and other persons who can compare explanation with experiment, behaviour, and realisation |
+| Participation topology | **D** constitutive; **B/R/T** for sustained teaching; **C/E** where evidence or safeguards extend outward | **J/B/D/R/C/E/T** because evidence spans the person, relationships, work, nature, and continuity |
+| Endpoint | Learner moves from inquiry to understood resolution | Coherence of teaching, conduct, experiment, and realised knowledge |
+| Criterion | Learner understanding with freedom to question and apply | Lived agreement rather than title, lineage, or public image |
+| Characteristic distortion | Status, age, fluency, control, or learner obedience mistaken for being a teacher | Reputation, performance, selective conduct, or certification mistaken for authenticity |
 
-### 8.3 External requirements
+### 8.3 Lifecycle conditions
 
-| Requirement class | Concrete affordance or protection | Strength | Reason |
-|---|---|---:|---|
-| Epistemic | A coherent body of study, learner questions, dialogue, demonstration, and access to evidence | N | The role is constituted through resolution of inquiry |
-| Relational | Voluntary recognition, trust, responsibility, patience, and reciprocity between teacher and learner | N | Office alone does not establish the relationship |
-| Bodily | Health, communication access, teaching skill, and practical demonstration | S | Education and evidence are embodied |
-| Material | Time, learning spaces, texts, tools, and support not conditioned on intellectual submission | S | Dependence can corrupt inquiry |
-| Organisational | Teacher accountability, learner voice, plural access to evidence, and separation of guidance from unchecked control | N for durable practice | Authority can convert education into conformity |
-| Protective | Safeguards against coercion, exploitation, secrecy, retaliation, and personality cults | N | These can counterfeit trust and authenticity |
-| Ecological | Opportunity to test claims of right use and coexistence in actual material practice | C | Relevant to the practical evidence of the teaching |
-| Intergenerational | Preparation of new competent teachers through understanding and evidence rather than succession by status | N | Education–*sanskar* is a continuity relation |
+| Stage | M-13a - *guru* | M-13b - *pramanik* |
+|---|---|---|
+| Development and receptivity | Teacher understanding, listening, pedagogy, learner questions, and practical competence are **N** | Realisation, understanding, repeated practice, and exposure to consequences are **N** |
+| Right orientation | Responsibility to resolve inquiry without domination is **N** | Fidelity to realised knowledge across contexts is **N** |
+| Embodied performance | Language, communication access, time, learning materials, demonstration, patience, and adaptation are **N/S** | Bodily health, practical skill, opportunities for work and relationship, and communicability are **N/S** |
+| Consequence visibility | The learner's comprehension, freedom, application, and later evidence must be visible **N** | Counterparts and affected persons must be able to report congruence or contradiction **N** |
+| Evaluation | Learner, teacher, peers, and affected persons evaluate content, pedagogy, freedom, and result | Self, learners, close counterparts, coworkers, and affected persons contribute convergent evidence |
+| Correction | Questions about content and conduct; pedagogical revision; outside protection where authority is misused | Admission of contradiction, restitution, renewed inquiry, changed conduct, and independent scrutiny |
+| Sustaining | Trust without dependency, protected learner voice, material support without intellectual submission, and teacher accountability are **N/S** | Repeated evidence across roles and freedom from image-management incentives are **S** |
+| Transmission | Learners become competent to inquire, understand, live, and teach without succession by status **N** | Methods and criteria of evidence are transmitted with living demonstration **N** |
 
-### 8.4 Complete functioning, evidence, and correction
+### 8.4 Derived micro-spheres and tests
 
-The teacher's evidence and the learner's understanding must remain distinguishable. A learner's failure does not by itself disprove the teacher; a teacher's eloquence does not establish learning. Adequate evaluation examines the intelligibility of the proposal, responsiveness to inquiry, the teacher's conduct, the learner's freedom, actual assimilation, and subsequent evidence.
+> For *guru* to function effectively, a competent teacher and free learner must be able to sustain inquiry toward understood resolution, with dialogue, demonstration, learner voice, evidence of assimilation, correction of content and conduct, and preparation of future competent participants.
 
-Correction requires that the relationship permit questions about both content and conduct. Complaints about harm or misuse of authority need access to persons outside the immediate teaching relation. At the same time, public procedure should not replace the learner's own inquiry with credentialing or majority opinion.
+> For *pramanik* to function effectively, the evidence-bearing person must be able to live and communicate realised knowledge across relationship, experiment, behaviour, and material consequence, with plural scrutiny, restitution for contradiction, and transmission without reliance on status.
 
-### 8.5 Family and institutional mapping
+The pair yields **inquiry-led teaching and lived credibility**. A durable teaching relation, learning materials, continuity of competence, and safeguards against concentrated authority are not optional for reliable transmission. These requirements may warrant organised maintenance, but they do not by themselves determine a school system, credential regime, lineage, residential form, or central authority.
 
-| Field | Relation | Minimum requirement implied by the pair |
-|---|---:|---|
-| Family or durable close relationship | E | Early inquiry, care, exemplarity, and protection of the learner's dignity |
-| Education–*sanskar* | P | The primary organised field of the pair |
-| Justice–security | E | Protection against abuse of authority and access to fair correction |
-| Health–restraint | E | Bodily availability and care within demanding study or practice |
-| Production–work | E | Practical demonstration and competence rather than verbal instruction alone |
-| Exchange–reserve | E | Material support for education without exploitative dependency |
-| Science and disciplined inquiry | X | Public evidence and methods for testing empirical instruction |
-| Governance and public coordination | X | Safeguards, access, and accountability without declaring doctrinal truth by office |
-| Culture and communication | X | Language, memory, arts, and norms of respectful inquiry |
-| Ecological correctness | C | A practical test where teaching concerns coexistence with nature |
-| Possible sixth function | — | The teacher–learner relation lies within education; public safeguards lie within justice and governance |
+## 9. M-24 - *Sheet-ushna / poshan*
 
-### 8.6 Claim ledger and counter-tests
-
-| Claim | Status | Reason and possible revision |
-|---|---:|---|
-| Lived evidence is integral to the qualification of a guru | I | Strongly supported by the pairing and definition of *pramanik*; the exact logical force remains unstated |
-| Learner freedom and teacher accountability are necessary institutional safeguards | I/P | They follow from the need to distinguish understanding from coercive conformity |
-| Certification alone can establish a guru | O, rejected as unsupported | The definition is functional and evidential, not titular |
-
-A humane school structure can contain teachers who lack understanding; an authentic teacher may teach under poor institutional conditions. The structure is therefore neither sufficient nor irrelevant. It must protect inquiry, expose teaching to evidence, and prevent relational dependence from becoming domination.
-
-| Master-matrix field | Entry |
-|---|---|
-| ID | M-13 |
-| Pair | *guru / pramanik* |
-| Semantic family | Relationship-role and evidential qualification |
-| Proper field | Education and lived evidence |
-| Necessary or strong external affordances | Inquiry, trust, learner freedom, teacher accountability, demonstration, intergenerational preparation |
-| Primary social field | Education–*sanskar* |
-| Characteristic obstruction | Status, obedience, secrecy, or charisma replacing understanding |
-| Principal evidence | Learner assimilation joined to coherence of teaching, conduct, experiment, and realisation |
-| Residual need | None |
-| Confidence | Medium-high |
-
-## 9. M-24 — *Sheet–ushna / poshan*
-
-### 9.1 Identity and source record
+### 9.1 Source record and pair semantics
 
 | Field | Entry |
 |---|---|
-| Faculty and generic pair | *Mun*: taste–selection |
-| Pair position | 24 of 32; second in the sensory and work-organ subgroup |
-| *Bal* member | *Sheet–ushna* — cold and hot |
-| *Shakti* member | *Poshan* in the table — nourishing; the detailed definition contrasts nourishing and depleting |
-| Entry form | Sensory-material qualities / bodily-material relation and result |
-| Primary locations | AVD, pp. 93–94; MVD, pp. 347–348 |
-| Review state | Analysed; table-to-definition relation retained as a textual variant |
+| Faculty and generic pair | *Mun*: taste/selection |
+| Pair position | 24 of 32; sensory and work-organ subgroup |
+| Member A | M-24a, *sheet-ushna* - cold and hot |
+| Member B | M-24b, *poshan* - nourishing; the detailed definition contrasts nourishing and depleting |
+| Entry forms | Sensory-material qualities / bodily-material relation and result |
+| Primary locations | AVD, pp. 93-94; MVD, pp. 347-348 |
 
-Cold and hot are defined through nurturing or depriving contact. The sensory group further states that sensations serve the maintenance of bodily health, and defines nourishing as a unit joined with a conducive unit, against depletion as lack of a conducive unit or conjunction with an unconducive one. The AVD table gives *poshan* in the *shakti* column, while the detailed passage works with a *poshan–shoshan* contrast. The source therefore supports a relation between thermal discrimination and bodily-material conduciveness without reducing it to a fixed temperature preference.
+Cold and hot are defined through nurturing or depriving contact. Sensations serve maintenance of bodily health. Nourishing is defined as a unit joined with a conducive unit, against depletion as lack of a conducive unit or conjunction with an unconducive one. The AVD table gives *poshan* while the detailed passage uses a *poshan/shoshan* contrast. Thermal discrimination and bodily-material conduciveness are related **I**; a more exact *bal/shakti* direction remains **O**.
 
-**Working semantic family:** sensory quality and bodily-material correlate. **Status:** D for the entries and health-purpose; I for treating thermal discrimination as information for selecting nourishing conditions; O for a more exact *bal–shakti* direction.
+### 9.2 Activity anatomy
 
-### 9.2 Separate activity records
-
-| Field | *Sheet–ushna* | *Poshan* |
+| Field | M-24a - *sheet-ushna* | M-24b - *poshan* |
 |---|---|---|
-| Internal role | Taste and discrimination of thermal contact through bodily sensation | Selection or recognition of a conducive relation that supports bodily function |
-| Proper field | Temperature and thermal interaction among body, objects, food, air, and surroundings | The relation between a unit and conducive or unconducive units |
-| Governing criterion | Bodily health under cognisance, not pleasantness alone | Nourishment and continuing bodily capability rather than immediate comfort |
-| Inward dependency | *Vritti* must evaluate sensation through health, justice, *dharma*, and truth in the relevant case | Need, health, purpose, and knowledge of material consequence must govern selection |
-| Outward dependency | Sensory organs, nervous and bodily response, attention, and opportunity to act | Clothing, shelter, food preparation, tools, care, and environmental control where needed |
-| Embodied expression | Recognition and communication of cold, heat, thermal risk, and suitability | Selection or creation of a conducive condition; avoidance or correction of depletion |
-| Principal evidence | Sensory report agrees sufficiently with measured condition and bodily response | Stable bodily function, recovery, safety, and absence of preventable thermal harm |
-| False positive | Immediate pleasantness or cultural preference treated as health | Temporary comfort, over-control of environment, or energy-intensive consumption treated as nourishment |
+| Entry form and bearer | Sensory-material quality known through the human joint form; the temperature belongs to the contact field and its sensation to the body/*jeevan* relation | Conducive bodily-material relation or result selected and recognised by the person |
+| Object or counterpart | Body, air, food, water, surfaces, clothing, tools, and surroundings in thermal contact | Body and the material units whose conjunction supports or depletes its functioning |
+| Participation topology | **B/E** constitutive; **D/R/C/T** where dependent care, imposed exposure, public provision, or learned practice matters | **J/B/E**; **D/R** for care; **C/T** for safe provision and continuity |
+| Endpoint | Usable discrimination of thermal condition for bodily health | A conducive relation sustaining bodily capability |
+| Criterion | Health and understood purpose rather than pleasantness alone | Continuing bodily function without displaced social or ecological harm |
+| Characteristic distortion | Preference, habituation, or immediate comfort mistaken for safe discrimination | Temporary comfort, over-control, neglect, or resource-intensive consumption counted as nourishment |
 
-### 9.3 External requirements
+### 9.3 Lifecycle conditions
 
-| Requirement class | Concrete affordance or protection | Strength | Reason |
-|---|---|---:|---|
-| Epistemic | Knowledge of bodily variation, climate, thermal risk, materials, food preparation, and first aid | S or N by risk | Sensation alone may be delayed, impaired, or misread |
-| Relational | Care for children, elders, ill persons, workers, and others unable to regulate exposure alone | N for dependent persons | Bodily vulnerability is relationally distributed |
-| Bodily | Functional sensation, thermoregulation, hydration, nutrition, rest, and access to care | N | The field is explicitly bodily |
-| Material | Shelter, clothing, ventilation, shade, heating or cooling where necessary, safe tools, and suitable food | N by climate and task | Conducive contact requires material means |
-| Organisational | Occupational exposure limits, emergency response, maintenance, and access independent of wealth or status | S or N by setting | Work and public environments can impose unavoidable exposure |
-| Protective | Prevention of forced exposure, unsafe housing or work, neglect, and concealment of risk | N | Apparent choice may be produced by dependence |
-| Ecological | Climate-responsive design and energy use that do not create wider or future thermal harm | N at social scale | Local comfort can externalise heat, pollution, or depletion |
-| Intergenerational | Transmission of practical knowledge about climate, clothing, food, housing, and bodily warning signs | S | Competence is learned and locally adapted |
+| Stage | M-24a - *sheet-ushna* | M-24b - *poshan* |
+|---|---|---|
+| Development and receptivity | Functional sensation, attention to bodily signs, climate knowledge, and experience with materials are **N/S** | Knowledge of health, bodily variation, food, shelter, clothing, tools, and local climate is **N/S** |
+| Right orientation | Sensation must serve bodily health under cognisance **N** | Need, health, purpose, and wider material consequence govern selection **N** |
+| Embodied performance | Sensory integrity, communication, mobility, and means to alter exposure are **N/C** | Access to food, water, rest, clothing, shelter, care, and suitable tools is **N** by circumstance |
+| Consequence visibility | Bodily response, task demands, humidity, duration, and delayed injury must be visible **N** | Health, recovery, workload, energy use, waste, and ecological effects must be visible **N** |
+| Evaluation | The person's report is indispensable; bodily observation, measurement, and skilled care correct impairment or hidden risk | Person, caregiver, health competence, and affected public or ecological evidence jointly assess conduciveness |
+| Correction | Change exposure, clothing, hydration, workload, shelter, or care; seek skilled assistance where needed | Supply missing conducive units, remove harmful conjunctions, treat injury, repair design, and prevent recurrence |
+| Sustaining | Maintained shelter, safe work, emergency response, and continuing ability to report need are **N/S** | Reliable provision, maintenance, access independent of domination, and regenerative energy/material use are **N/S** |
+| Transmission | Practical climate, safety, bodily-warning, and first-aid knowledge are **S** | Care practices, food and housing competence, maintenance, and locally adapted knowledge are **S** |
 
-### 9.4 Complete functioning, evidence, and correction
+### 9.4 Derived micro-spheres and tests
 
-Complete operation does not require maximising a preferred temperature. It requires recognising thermal information for the purpose of bodily health, selecting or creating conducive conditions, and correcting the choice through bodily and material consequences. Subjective sensation remains indispensable but not sufficient: illness, habituation, age, medication, workload, humidity, and other conditions can change either perception or risk.
+> For *sheet-ushna* to function effectively, the embodied person must be able to discriminate thermal contact for bodily health, with access to relevant knowledge, measurement, communication, protection from imposed exposure, and correction through bodily response and material change.
 
-Correction therefore combines the person's report, observed bodily function, empirical measurement, medical knowledge where needed, and the consequences of the material intervention. Universal structure appears here as assured capability—care, shelter, knowledge, safe work, and access to appropriate means—while the concrete temperature, building form, clothing, and technology remain variable.
+> For *poshan* to function effectively, persons and caregivers must be able to establish conducive bodily-material relations under criteria of health, agency, and ecological continuity, with reliable provision, maintenance, skilled correction, and transmission of practical competence.
 
-### 9.5 Family and institutional mapping
+The pair yields **bodily-material conduciveness and protective care**. Direct care is necessary for children and others who cannot regulate exposure or provision independently; public coordination becomes necessary where workplaces, housing, infrastructure, or climate impose shared risks. Neither observation proves one domestic form or technology. The universal requirement is capability for health-serving material adjustment within wider continuity.
 
-| Field | Relation | Minimum requirement implied by the pair |
-|---|---:|---|
-| Family or durable close relationship | P for dependent care; E otherwise | Attention to bodily signals and provision of clothing, shelter, food, and care |
-| Education–*sanskar* | E | Practical health, climate, material, and safety knowledge |
-| Justice–security | E | Protection against neglect, forced exposure, and unsafe work or housing |
-| Health–restraint | P | Bodily assessment, prevention, care, and subordination of sensation to health |
-| Production–work | P | Creation and maintenance of safe clothing, shelter, tools, food systems, and workplaces |
-| Exchange–reserve | E | Availability of seasonal goods, emergency provision, energy, and materials |
-| Science and disciplined inquiry | X | Measurement, physiology, material design, and evaluation of interventions |
-| Governance and public coordination | X | Building, workplace, public-health, and emergency standards |
-| Culture and communication | X | Locally accumulated practices and communication of warning or need |
-| Ecological correctness | X | Climate-responsive provision within regenerative energy and material limits |
-| Possible sixth function | — | Housing and infrastructure are outputs of production coordinated with health, justice, and exchange |
+## 10. Cross-pilot sphere model
 
-### 9.6 Claim ledger and counter-tests
+### 10.1 What the sixteen records establish
 
-| Claim | Status | Reason and possible revision |
-|---|---:|---|
-| The purpose of thermal sensation is bodily health rather than pleasure alone | D | Stated for the sensory group |
-| Safe thermal provision is a universal function with locally variable forms | I | The need arises from the common joint form; climatic and technological implementations vary |
-| One comfort standard can define nourishment for everyone | O, rejected as unsupported | Bodies, tasks, climates, and conditions differ |
+The recoding confirms that the proper field of an activity must be separated into three locations. The **ontological locus** is where the activity occurs in *jeevan*. The **field of operation** is the content, body, person, object, relation, or process with which it deals. The **field of fulfilment and evidence** is where correct operation becomes demonstrable. *Anubhav* is inward in locus but its claim becomes socially significant through outward evidence; *nyaya* is inward in locus but relational in operation and fulfilment; *guna* may name the content inspected rather than a second psychological operation; *samriddhi* and *poshan* name material conditions or results that must be assessed by *jeevan*.
 
-A person may endure heat or cold under understanding and purpose; this does not justify imposed exposure. A technically conditioned building may be comfortable while imposing ecological costs elsewhere. Adequate evidence therefore includes agency, bodily outcome, and wider material consequence.
+No pilot yields a complete social form directly from an activity name. Each yields a bundle of invariants: who must participate, what must be accessible, which result counts, who can evaluate it, how contradiction is corrected, and what must persist. This bundle is the appropriate input to sphere clustering.
 
-| Master-matrix field | Entry |
-|---|---|
-| ID | M-24 |
-| Pair | *sheet–ushna / poshan* |
-| Semantic family | Sensory quality and bodily correlate |
-| Proper field | Thermal contact and bodily-material conduciveness |
-| Necessary or strong external affordances | Care, bodily competence, shelter, safe work, empirical knowledge, ecological design |
-| Primary social field | Health–restraint and production–work |
-| Characteristic obstruction | Pleasure-only criterion, imposed exposure, neglect, or externalised ecological cost |
-| Principal evidence | Agreement among sensory report, bodily function, measurement, and wider consequence |
-| Residual need | None |
-| Confidence | Medium-high |
+### 10.2 Provisional sphere atlas
 
-## 10. Cross-pilot findings
+At this stage the pilot supports eight provisional clusters. Their number follows the contrasts deliberately chosen for the pilot and has no claim to finality.
 
-### 10.1 The template works only when the kind of entry is recorded
+| Sphere | Member records | Recurring topology and endpoint | Constitutive lifecycle requirements |
+|---|---|---|---|
+| S1 Realised knowing and authentic evidence | A-01a, A-01b | **J** joined to **B/D/C/E/T** evidence; reality-grounded knowing made congruent in life | Free inquiry, plural evidence, correction of contradiction, transmission without certification of realisation |
+| S2 Definite understanding and responsible agency | B-02a, B-02b | **J/B** with affected **D/C/E** fields; definite acceptance carried into fearless responsibility | Meaningful agency, non-coercion, consequence visibility, distinction of principle from performance failure |
+| S3 Whole-sensitive inquiry and property evidence | C-04a, C-04b | **J/B/E**, often **C/T**; relevant completeness and accurate discrimination | Object access, skill, rival views, records, reproducibility, long-horizon correction |
+| S4 Reciprocal relationship and protected participation | V-12a, V-12b | **D** constitutive, extending to **R/C/E/T**; mutual value-fulfilment and responsive participation | Voice, safety, reciprocity, evaluation, appeal, restoration, protection from concentrated power |
+| S5 Multi-scale fulfilment and living continuity | V-18a, V-18b | **J/R/C/E/T**; resolution, sufficiency, participation, examination, and reproduction | Durable shared life, transparent review, dissent, records, reserve, intergenerational learning |
+| S6 Sufficiency and regenerative provision | M-08a, M-08b | **B/R/C/E/T**; dependable provision and useful surplus relative to need | Need assessment, skill, means, fair access, safe work, maintenance, reserve, regeneration |
+| S7 Inquiry-led teaching and lived credibility | M-13a, M-13b | **D/R/T**, tested through **B/C/E** evidence; learner resolution joined to lived congruence | Learner freedom, teacher competence, demonstration, accountability, safeguarding, succession by competence |
+| S8 Bodily-material conduciveness and protective care | M-24a, M-24b | **B/E**, with **D/R/C/T** where care or shared risk matters; bodily capability | Health knowledge, material access, care, measurement, safe environments, maintenance, ecological correction |
 
-The eight pilots confirm that the source list is not a catalogue of 122 psychologically uniform operations. *Anubhav* names a success of knowing; *dhruti* a readiness and dedication; *nireekshan* an act; *guna* its object or assessed content; *nyaya* a relational-evaluative activity; *guru* a person in a relationship-role; *samriddhi* a material condition; and *sheet–ushna* sensory-material qualities. Every future dossier must therefore record the **entry form and bearer** before asking what environment supports it. Otherwise the analysis will attribute agency to an object, reduce a relationship to an inner state, or mistake an evidential result for a separate faculty.
+These clusters should be treated as an initial atlas, not eight institutions. Later records may split S1, merge S1 with S7, place parts of S3 across every material sphere, or reveal entirely new configurations.
 
-### 10.2 External requirements enter at different stages
+### 10.3 Dependencies among spheres
 
-The pilots distinguish at least five sites of environmental relevance:
+The spheres are interdependent without becoming one undifferentiated whole. S1 supplies the standard that propositions and conduct answer to realised knowledge rather than authority. S2 carries understood content into responsible action. S3 makes material and empirical consequence inspectable. S4 supplies reciprocal recognition, protected voice, and correction when power disrupts mutuality. S5 tests whether fulfilment persists across close relations, society, nature, and generations. S6 supplies material capability and reserve. S7 reproduces inquiry, understanding, evidence, and competence. S8 maintains the embodied availability through which every outward activity is performed.
 
-1. **Development and receptivity:** study, relationship, inquiry, exemplars, and freedom from ignorance-producing conditions.
-2. **Embodied expression:** bodily health, language, skill, tools, time, and material access.
-3. **Consequence visibility:** access to the persons and natural systems bearing the result.
-4. **Evaluation and correction:** mutual voice, transparent criteria, independent evidence, appeal, and revision.
-5. **Continuity:** education–*sanskar*, records, reserve, maintenance, and preparation of new participants.
+This pattern already rules out a simple mapping from five faculties to five institutions. The same sphere draws on several faculties, and one faculty contributes to multiple spheres. It also rules out treating science, governance, culture, or ecology as optional decorations. Disciplined inquiry, public coordination, communication, and ecological consequence appear as recurrent methods or interfaces even before their eventual organisational status is settled.
 
-No pilot supports the proposition that an adequate environment is sufficient for awakening. All support the weaker and more defensible proposition that complete public functioning and continuity are impossible or unreliable when key fields of expression, evidence, and correction are systematically absent.
+### 10.4 How a family-like field begins to emerge
 
-### 10.3 Family is strongly derived for some activities and indirectly relevant to others
+Family was not a coding category, yet a durable close and intergenerational configuration recurs in V-12, V-18, M-08, M-13, and M-24. The recurring requirements are:
 
-Family is a primary field for *nyaya*, *tushti*, *svayatta–samriddhi*, dependent bodily care, and the early formation of inquiry and trust. It is an enabling rather than logically necessary field for specialised inspection, and it cannot cause *anubhav*. The derivation should therefore not state that every activity requires family in the same way. It should show that the complete set includes activities whose definitions explicitly require durable, intergenerational, and mutually accountable relationships; those requirements jointly establish a family-like functional field.
+- continuing recognition rather than episodic contact;
+- responsibility for care across unequal bodily capability;
+- shared assessment of need, work, use, and provision;
+- daily visibility of congruence between claim and conduct;
+- generation, learner development, and transmission of *sanskar*; and
+- mutual evaluation with access to outside protection when intimacy conceals harm.
 
-This finding supports functional invariants—durable care, generation, shared provision, relationship-recognition, mutual evaluation, and education—without yet proving one household size, residence pattern, inheritance rule, or gendered division of work.
+This convergence supports a **durable shared-life sphere**. Calling one institutional form “family” is a plausible later interpretation because generation, care, provision, value-fulfilment, and *sanskar* meet there. The analysis does not yet derive a particular household size, marriage rule, residence pattern, property regime, authority structure, or gendered division of work. The invariant is stronger than individual preference but less specific than a prescribed family form.
 
-### 10.4 The five institutional functions cover the pilots without mapping one-to-one
+### 10.5 Criteria for institutionalisation
 
-Education–*sanskar* is primary for the development and transmission of understanding; justice–security for recognition, participation, non-coercion, and correction; health–restraint for bodily capability and the right purpose of sensation; production–work for the material evidence of prosperity and safe provision; exchange–reserve for circulation and continuity beyond one family. Each pilot nevertheless draws upon several functions.
+A sphere warrants durable organisation when five conditions converge: its endpoint is recurrent rather than episodic; its lifecycle exceeds one person's unaided capacity; roles or resources must persist through turnover; failure exposes other persons or nature to serious harm; and legitimate correction requires rights, records, or procedures that cannot depend on goodwill alone. On that test, the pilots give the following preliminary result.
 
-Science, governance, culture, communication, and ecological evaluation remain indispensable. In these pilots they operate as cross-cutting methods, coordination, or correctness conditions rather than as uncovered sixth functions. The status of organised knowledge-production remains open because *nireekshan–guna* requires a durable public ecology of evidence. The full sixty-one-pair matrix must test whether treating science as cross-cutting preserves every requirement or conceals a distinct institutional continuity.
+| Sphere | Durable structure indicated? | Reason, without naming an institution |
+|---|---|---|
+| S1 Realised knowing and authentic evidence | Conditional | Realisation remains personal; open inquiry, public evidence, and transmission require durable protections and learning relations |
+| S2 Definite understanding and responsible agency | Conditional | Understanding is personal; repeated opportunities for responsibility, dissent, and consequence-sensitive correction require maintained practices |
+| S3 Whole-sensitive inquiry and property evidence | Yes for cumulative or high-stakes fields | Instruments, records, peer correction, independence, and long-horizon observation exceed episodic individual inquiry |
+| S4 Reciprocal relationship and protected participation | Yes where power, duration, or public harm is present | Voice, appeal, impartial protection, restoration, and enforceable safeguards must survive individual goodwill |
+| S5 Multi-scale fulfilment and living continuity | Yes | The endpoint explicitly spans durable shared life, wider participation, evaluation, and intergenerational transmission |
+| S6 Sufficiency and regenerative provision | Yes | Distributed skill, tools, infrastructure, reserve, access, maintenance, and ecological cycles require persistent coordination |
+| S7 Inquiry-led teaching and lived credibility | Yes for reliable transmission | Teacher preparation, learner access, safeguards, evidence, and succession must persist beyond one teacher |
+| S8 Bodily-material conduciveness and protective care | Yes where dependence or shared risk is present | Continuous care, housing, work safety, infrastructure, emergency response, and access cannot rest on isolated choice |
 
-### 10.5 Evidence must be plural and convergent
+The result is a set of institutional requirements, not a settled institutional count. One durable arrangement may sustain several spheres, while one sphere may require several mutually correcting arrangements.
 
-The most recurrent institutional danger is false evidence: certainty mistaken for realisation, obedience for resolve, data for holistic inspection, silence for mutual satisfaction, affluence for prosperity, status for a teacher, dissemination for confirmation, and comfort for nourishment. No single measure can establish full activity. Evidence must combine the relevant first-person, relational, bodily, material, public, and ecological consequences while retaining the possibility of correction.
+### 10.6 The five-function hypothesis remains a later comparison
 
-## 11. Method revisions before the next wave
+The proposed functions of education-*sanskar*, justice-security, health-restraint, production-work, and exchange-reserve must now be treated as a hypothesis about how derived spheres could be bundled. The pilot is too small and deliberately contrastive to confirm that exactly five bundles are exhaustive or irreducible. The full analysis must ask:
 
-The pilot recommends two small additions to the reusable template:
+- whether every derived sphere is maintained by at least one function;
+- whether any function merely combines unrelated spheres for convenience;
+- whether disciplined inquiry, public coordination, communication, or ecological stewardship has lifecycle requirements not preserved by the five;
+- whether the durable shared-life sphere is a foundational relation, an institution, or both; and
+- whether different organisational forms can realise the same invariant bundle without loss.
 
-- record the **entry form and bearer**—inner success, orientation, relation, role, act, object, quality, bodily correlate, material condition, or evidential result;
-- distinguish an external condition needed for the activity's **development**, **expression**, **evidence**, **correction**, or **continuity**.
+Only after all 122 records are clustered should the five functions be scored as covering, splitting, combining, or leaving residual requirements. This preserves the possibility that the five are strongly supported while preventing the method from manufacturing that conclusion.
 
-The next wave should apply the revised form to the remaining *atma* and *buddhi* pair and all eight *chitta* pairs before proceeding through *vritti* and *mun*. The possible sixth-function flag should remain open until every pair has been classified.
+## 11. Protocol for the remaining 106 activity-members
+
+The next wave should be implemented in four passes.
+
+### 11.1 Pass one - source and activity anatomy
+
+Complete source checks, entry form, bearer, object, counterpart, endpoint, criterion, and pair semantics for every remaining member. Do not code any institution. Preserve uncertainty where a term names an object or result rather than an operation.
+
+### 11.2 Pass two - lifecycle and evidence
+
+For every member, code development, orientation, performance, consequence visibility, evaluation, correction, sustaining, and transmission. Record who is competent to evaluate, what a false positive looks like, and which requirements are necessary rather than supportive.
+
+### 11.3 Pass three - blind sphere clustering
+
+Cluster the 122 micro-sphere statements without showing the five-function labels to the first-pass coders. Similarity should depend on topology, endpoint, governing criterion, lifecycle conditions, evidence, and correction. Record borderline assignments and allow a member to participate in more than one sphere where the reasons are explicit.
+
+### 11.4 Pass four - institutional comparison
+
+For each sphere, test whether durable organisation is required and derive the minimum roles, norms, resources, decision rights, safeguards, and correction mechanisms. Only then compare the result with family and the five proposed functions. A credible universal structure will consist of invariant requirements derived from the common architecture of *jeevan*; its household, legal, technological, and organisational forms may vary with context so long as they preserve those invariants.
 
 ## References
 
 ### Madhyasth Darshan
 
-- **AVD** — A. Nagraj, [*Adhyatmvad*](../../References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf), tr. Sanjeev Chopra (work in progress). Cited: the tabulated *bal–shakti* assignments and counts (pp. 91–94; §§1–9).
-- **MVD** — A. Nagraj, [*Madhyasth Darshan — Co-existentialism*](../../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.md), tr. Rakesh Gupta. Cited: the evidence chain (p. 12; §2); environment, study, production, and receptivity (pp. 129–134; §§2–9); the human joint form and bodily mediation (pp. 199–205; §§2–9); inner-to-outer activity, reception conditions, values, and awakening (pp. 275–291, 307; §§2–9); the 122-activity enumeration (p. 323; §1); and the detailed pilot definitions (pp. 328–348; §§2–9).
+- **AVD** - A. Nagraj, [*Adhyatmvad*](../../References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf), tr. Sanjeev Chopra (work in progress). Cited: the tabulated *bal/shakti* assignments and counts (pp. 91-94; §§1-9).
+- **MVD** - A. Nagraj, [*Madhyasth Darshan - Co-existentialism*](../../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.md), tr. Rakesh Gupta. Cited: the evidence chain (p. 12; §§2-9); environment, study, production, and receptivity (pp. 129-134; §§2-9); the human joint form and bodily mediation (pp. 199-205; §§2-9); inner-to-outer activity, reception conditions, values, and awakening (pp. 275-291, 307; §§2-9); the 122-activity enumeration (p. 323; §1); and the detailed pilot definitions (pp. 328-348; §§2-9).
 
 ### Related research notes
 
-- [*Jeevan Architecture*](Research-Note-Jeevan-Architecture.md) — the reader account of faculties, receptivity, embodiment, complete functioning, and *sanskar*.
-- [*The Sixty-One Activity Pairs of Jeevan*](Research-Note-Activity-Pair-Inventory.md) — the documentary inventory and textual variants governing the pair assignments.
-- [*A Functional Model of Jeevan*](Research-Note-Jeevan-Functional-Model.md) — the separation of orientation, expression, consequence, evaluation, inquiry, and lasting organisation.
-- [*From the Activity Architecture of Jeevan to Universal Human Order*](Research-Note-Jeevan-To-Universal-Human-Order.md) — the five-function hypothesis tested by the dossiers.
+- [*Jeevan Architecture*](Research-Note-Jeevan-Architecture.md) - the account of faculties, receptivity, embodiment, complete functioning, and *sanskar*.
+- [*The Sixty-One Activity Pairs of Jeevan*](Research-Note-Activity-Pair-Inventory.md) - the documentary inventory and textual variants governing the pair assignments.
+- [*A Functional Model of Jeevan*](Research-Note-Jeevan-Functional-Model.md) - the separation of orientation, expression, consequence, evaluation, inquiry, and lasting organisation.
+- [*From the Activity Architecture of Jeevan to Universal Human Order*](Research-Note-Jeevan-To-Universal-Human-Order.md) - the five-function hypothesis to be compared with the bottom-up result only after full sphere clustering.
