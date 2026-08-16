@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 16, 2026, 9:00 AM IST
+**Edited on:** August 16, 2026, 6:31 PM IST
 
 **Status:** Internal research note (not a catalog entry). Pass One of the activity-to-sphere analysis.
 
@@ -15,6 +15,8 @@ The AVD table governs which member occupies the *bal* and *shakti* columns (AVD,
 The fields have deliberately narrow meanings. **Entry form** asks what kind of item the source has placed in the activity slot. **Bearer** asks whether the item is borne by *jeevan*, a human role, a relationship, the body, a material unit, or a result. **Object** is what the member concerns. **Counterpart** is another participant or entity required by the definition; “none stated” does not deny later outward evidence. **Endpoint** is the nearest fulfilment named or implied by the definition. **Criterion** distinguishes fulfilment from a plausible imitation. Where the definition does not supply such a distinction, the field remains open rather than being filled from a preferred social model.
 
 The codes retain the pilot convention: **D** is directly stated, **I** is a structural inference from stated content, and **O** marks an unresolved documentary or interpretive question. Pair semantics are always narrower than the mere fact of pairing. No record assumes that the *shakti* member is an outward performance caused by its *bal* partner. Because these compact records sometimes place direct source content and interpretation in one row, the normalization gate must assign provenance to each field separately before comparison.
+
+Throughout the five-pass analysis, **voice** has a precise operational meaning: the effective, supported opportunity of a person, counterpart, or affected party to express understanding, needs, expectations, agreement, and disagreement; to participate in deliberation and decisions that affect them; to have what they express considered and answered with reasons; and to refuse, challenge, or appeal without retaliation. It means neither mere permission to speak nor equal authority in every decision. Pass One does not yet code voice as an environmental condition, but its counterpart, endpoint, and criterion fields supply the activity anatomy from which later passes derive this requirement.
 
 The completed corpus is:
 
