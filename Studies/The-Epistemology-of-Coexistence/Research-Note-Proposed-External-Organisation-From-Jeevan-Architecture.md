@@ -2,13 +2,13 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 16, 2026, 11:12 AM IST
+**Edited on:** August 16, 2026, 12:15 PM IST
 
 **Status:** Internal research note (not a catalog entry). Synthesis of the five-pass activity-to-sphere analysis.
 
 **Scope:** This paper presents an external social organisation derived from the five-pass analysis of the 122 activity positions of *jeevan*. Part I states the proposed structure, its organisations, their functions, and the reasons for their inclusion. Part II explains the method, consolidates the principal findings, identifies limitations and unresolved design questions, and proposes the next stage of research. The paper uses “organisation” for a concrete bearer of responsibility and “function” for the continuity that must be maintained even when several functions share one organisation.
 
-The proposed order is a polycentric organisation of human life. A durable shared-life organisation integrates care, learning, relationship, health, work, need assessment, and provision. Five function systems maintain education-*sanskar*, justice-security, health-restraint, production-work, and exchange-reserve. Local cooperative organisations carry these functions where affected people can participate directly. Specialised and wider organisations supply advanced competence, coordination, protection, reserve, and long-horizon responsibility. Independent scientific, ecological, governing, care, communication, and review bodies preserve evidence and correction across the five systems.
+The proposed order begins with **family as the first organisation of human order**. Family is the durable shared-life organisation in which care, learning, relationship, health, work, need assessment, and provision are first integrated. Five function systems maintain education-*sanskar*, justice-security, health-restraint, production-work, and exchange-reserve. Local cooperative organisations extend these functions where affected people can participate directly. Specialised and wider organisations supply advanced competence, coordination, protection, reserve, and long-horizon responsibility. Independent scientific, ecological, governing, care, communication, and review bodies preserve evidence and correction across the five systems.
 
 The organising purpose is to make the full embodied and social lifecycle of every person's *jeevan* activities continuously available: development, right orientation, competent performance, visible consequence, evaluation, correction, sustaining, and transmission. The structure is centred on participation by every person rather than administration by a permanent competent minority.
 
@@ -29,7 +29,7 @@ These objects establish five core functions: education-*sanskar*, justice-securi
 ```mermaid
 flowchart TB
     P["Every person<br/>understanding, voice, bodily capability,<br/>skill, contribution, and correction"]
-    F["Durable shared-life organisations<br/>care, learning, relationship, work,<br/>need assessment, provision, and appeal"]
+    F["Family - the first organisation<br/>durable shared life integrating care, learning,<br/>relationship, work, need, provision, and appeal"]
     L["Local cooperative organisations<br/>accessible competence, production, health,<br/>exchange, justice, records, and reserve"]
     W["Specialised and wider organisations<br/>advanced knowledge, major protection,<br/>distributed resources, mobility, and long-horizon coordination"]
     C["Five continuity systems<br/>education-sanskar | justice-security | health-restraint<br/>production-work | exchange-reserve"]
@@ -48,9 +48,9 @@ The direction from person to wider society shows expanding coordination, not a h
 
 ## 2. Organisations and their functions
 
-### 2.1 Durable shared-life organisations
+### 2.1 Family: the first organisation
 
-The first integrative organisation is the durable shared-life field: the family or any functionally equivalent arrangement that sustains continuing responsibility among persons. It carries eight responsibilities:
+Family is the first organisation of human order. It is the durable shared-life field in which persons sustain continuing responsibility for one another and in which the five social functions are first experienced as one way of living. It carries eight responsibilities:
 
 1. stable membership and accountability;
 2. intergenerational learning;
@@ -63,7 +63,7 @@ The first integrative organisation is the durable shared-life field: the family 
 
 This organisation integrates all five functions in daily life. Education begins through language, example, inquiry, participation, and *sanskar*. Justice begins through recognition and fulfilment of relationship-values. Health is maintained through food, rest, care, restraint, sanitation, and attention to bodily condition. Production becomes familiar through participation in useful work and maintenance. Exchange and reserve begin through the assessment of need, sharing, stewardship, and continuity of provision.
 
-The five-pass analysis recovered this field without using family as an input category. Ninety-nine activity rows require a durable care or intergenerational scale. Twenty-nine meet a stricter integrative signature joining durable relationship with at least one meaning, bodily, material, or distributive channel. The shared-life organisation is therefore the first place where the five functions are lived together rather than separately administered.
+The five-pass analysis recovered this field without using family as an input category. Ninety-nine activity rows require a durable care or intergenerational scale. Twenty-nine meet a stricter integrative signature joining durable relationship with at least one meaning, bodily, material, or distributive channel. Family is therefore the first organisation and the first place where the five functions are lived together rather than separately administered. A materially different shared-life arrangement belongs to the family function when it maintains the same durable responsibilities.
 
 ### 2.2 Education-*sanskar* organisations
 
@@ -308,9 +308,9 @@ The five faculties describe the internal architecture of *jeevan*. External orga
 
 The most important institutional result is the distinction among understood orientation, relational claims, bodily capability, material transformation, and distributed availability. Each has different evidence, failure mechanisms, conflicts of interest, and correction paths. Their restoration to education-*sanskar*, justice-security, health-restraint, production-work, and exchange-reserve explains why those five functions form a coherent basis.
 
-### 6.3 Family is an integrative function field
+### 6.3 Family is the first organisation and integrative function field
 
-Family is recovered as the durable shared-life organisation in which learning, relationship, dependency, bodily care, work, need, provision, and mutual evidence meet. The analysis establishes its functions more strongly than any specific genealogy or residence pattern. A non-kin or multi-local arrangement can fulfil the invariant; a biological household can fail it.
+Family is recovered as the first organisation: the durable shared-life field in which learning, relationship, dependency, bodily care, work, need, provision, and mutual evidence meet. It is prior in lived integration, not merely one specialised institution alongside the other five functions. The analysis establishes its functions more strongly than any specific genealogy or residence pattern. A non-kin or multi-local arrangement can fulfil the invariant; a biological household can fail it.
 
 ### 6.4 More organisations than functions are expected
 
@@ -418,7 +418,7 @@ Maintain the activity register, sphere matrix, function model, case set, and evi
 
 ## 9. Conclusion
 
-The five-pass analysis yields a coherent proposed external organisation from the activity architecture of *jeevan*. Its foundation is the person as an embodied, relational, learning, working, and evaluative participant. Its first integrative field is durable shared life. Its horizontal structure consists of education-*sanskar*, justice-security, health-restraint, production-work, and exchange-reserve. Its vertical structure connects personal, shared-life, local, specialised, and wider scales. Its cross-cutting safeguards are inquiry, protected participation, usable means, continuity, ecological evidence, and correction.
+The five-pass analysis yields a coherent proposed external organisation from the activity architecture of *jeevan*. Its foundation is the person as an embodied, relational, learning, working, and evaluative participant. Its first organisation is family, the durable shared-life field in which all five functions are integrated. Its horizontal structure consists of education-*sanskar*, justice-security, health-restraint, production-work, and exchange-reserve. Its vertical structure connects personal, family, local, specialised, and wider scales. Its cross-cutting safeguards are inquiry, protected participation, usable means, continuity, ecological evidence, and correction.
 
 The proposal directs family, education, science, work, trade, health, justice, ecology, and governance toward one common task: enabling every person to understand, participate, fulfil relationships, maintain bodily capability, contribute through useful work, receive dependable provision, observe consequences, and correct failure. Organisations are justified by the continuity they maintain and remain legitimate through evidence available to the people and fields they affect.
 
