@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 16, 2026, 12:15 PM IST
+**Edited on:** August 16, 2026, 6:31 PM IST
 
 **Status:** Internal research note (not a catalog entry). Synthesis of the five-pass activity-to-sphere analysis.
 
@@ -11,6 +11,8 @@
 The proposed order begins with **family as the first organisation of human order**. Family is the durable shared-life organisation in which care, learning, relationship, health, work, need assessment, and provision are first integrated. Five function systems maintain education-*sanskar*, justice-security, health-restraint, production-work, and exchange-reserve. Local cooperative organisations extend these functions where affected people can participate directly. Specialised and wider organisations supply advanced competence, coordination, protection, reserve, and long-horizon responsibility. Independent scientific, ecological, governing, care, communication, and review bodies preserve evidence and correction across the five systems.
 
 The organising purpose is to make the full embodied and social lifecycle of every person's *jeevan* activities continuously available: development, right orientation, competent performance, visible consequence, evaluation, correction, sustaining, and transmission. The structure is centred on participation by every person rather than administration by a permanent competent minority.
+
+Throughout this paper, **voice** means the effective, supported opportunity of a person, counterpart, or affected party to express understanding, needs, expectations, agreement, and disagreement; to participate in deliberation and decisions that affect them; to have what they express considered and answered with reasons; and to refuse, challenge, or appeal without retaliation. It does not mean merely being permitted to speak, nor does it imply equal authority in every decision. Voice is meaningful when it can inform a decision, receive a reasoned response, and activate protection or correction where necessary.
 
 ## Part I. The proposed external organisation
 
@@ -55,7 +57,7 @@ Family is the first organisation of human order. It is the durable shared-life f
 1. stable membership and accountability;
 2. intergenerational learning;
 3. care through dependency;
-4. reciprocal recognition and voice;
+4. reciprocal recognition and meaningful participation in deliberation and decisions;
 5. daily bodily care;
 6. participation in useful work;
 7. need assessment and dependable access to provision; and

@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 16, 2026, 11:16 AM IST
+**Edited on:** August 16, 2026, 6:31 PM IST
 
 **Status:** Internal research note (not a catalog entry). Pass Five of the activity-to-sphere analysis.
 
@@ -11,6 +11,8 @@
 The validation narrows the social thesis without dissolving it. A durable shared-life field remains necessary, but biological kinship, co-residence, and one household form are neither sufficient nor uniquely necessary. The five functions remain a complete basis for classifying the continuity responsibilities exposed by the test cases, but exactly five organisations is not derived. Production and exchange may share an administration only when their purposes, records, affected-party rights, and correction paths remain distinguishable. Separate scientific, governing, ecological, or care organisations may be required as safeguards or specialised bearers without introducing a sixth human continuity object.
 
 Pass Five therefore supports a universal architecture of responsibilities and evidence, not a uniform institutional diagram. It also adds a stricter universality test: each person must have supported access to understanding, voice, bodily and material means, contribution, and correction. High aggregate performance by a competent minority does not satisfy the common capacity of *jeevan*.
+
+Throughout this analysis, **voice** has a precise operational meaning: the effective, supported opportunity of a person, counterpart, or affected party to express understanding, needs, expectations, agreement, and disagreement; to participate in deliberation and decisions that affect them; to have what they express considered and answered with reasons; and to refuse, challenge, or appeal without retaliation. It means neither mere permission to speak nor equal authority in every decision. A validation case therefore counts voice only when participation can affect deliberation, receive a reasoned response, and reach protection or correction where direct reciprocity fails.
 
 ## 1. What Pass Five can validate
 
@@ -87,7 +89,7 @@ The family-like field consists of eight jointly durable conditions:
 1. membership stable enough for responsibility to continue;
 2. intergenerational learning;
 3. care through dependency;
-4. reciprocal recognition and voice;
+4. reciprocal recognition and meaningful participation in deliberation and decisions;
 5. daily bodily care;
 6. participation in useful work;
 7. need assessment and dependable access to provision; and

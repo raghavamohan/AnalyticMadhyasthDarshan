@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 16, 2026, 10:09 AM IST
+**Edited on:** August 16, 2026, 6:31 PM IST
 
 **Status:** Internal research note (not a catalog entry). Pass Two of the activity-to-sphere analysis.
 
@@ -25,6 +25,8 @@ Source anatomy retains the Pass-One provenance: **D** for direct textual content
 External classifications have four parts. Relation types are **CONST** (constitutive), **ENAB** (enabling), **EVID** (evidential), **PROT** (protective), **CORR** (corrective or restorative), **SUST** (sustaining), and **TRANS** (transmissive). Strength is **N**, **S**, **C**, or **U**, scoped to occurrence (**OCC**), expression (**EXP**), evidence (**EVD**), correction (**COR**), or continuity (**CON**). Universality is **U-J** when constitutional to common *jeevan*, **U-H** when it follows from embodied-human or relational dependence, and **V-C** when the arrangement remains contextual. Thus `EVID; N-EVD; U-H; I` means that an external field is structurally necessary for valid embodied-human evidence, not for the inward occurrence of the activity.
 
 The topology codes remain **J** (intra-*jeevan*), **B** (embodied personal), **D** (dyadic or small-group), **R** (durable close or intergenerational), **C** (collective or public), **E** (material or ecological), and **T** (historical or intergenerational transmission). Source-embedded role or social vocabulary is retained in the anatomy but flagged in the open-field row; it cannot count as an independent institutional discovery.
+
+Throughout this analysis, **voice** has a precise operational meaning: the effective, supported opportunity of a person, counterpart, or affected party to express understanding, needs, expectations, agreement, and disagreement; to participate in deliberation and decisions that affect them; to have what they express considered and answered with reasons; and to refuse, challenge, or appeal without retaliation. It means neither mere permission to speak nor equal authority in every decision. A lifecycle row therefore treats voice as effective participation whose evidence includes consideration, response, and non-retaliatory correction, not speech alone.
 
 ## 2. *Atma* and *buddhi*: six member records
 
