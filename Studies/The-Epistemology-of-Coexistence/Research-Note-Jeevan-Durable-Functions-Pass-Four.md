@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 16, 2026, 10:16 AM IST
+**Edited on:** August 16, 2026, 6:31 PM IST
 
 **Status:** Internal research note (not a catalog entry). Pass Four of the activity-to-sphere analysis.
 
@@ -11,6 +11,8 @@
 The analysis finds five non-substitutable objects of durable responsibility: understood orientation, claims between persons, bodily capability, transformed material means, and access to provision across persons and time. All 122 activity rows enter at least one of these channels; seventy-two enter one, thirty-eight enter two, eleven enter three, and one enters four. A five-function bundle covers all 185 member-channel obligations without combining causally distinct channels or splitting one channel without a derived need. Three- and four-function alternatives either leave requirements without a durable bearer or concentrate performance and correction in the same function. A seven-function alternative preserves coverage and correction but introduces two subdivisions not required by the activity evidence.
 
 This supplies a plausible activity-based reason for five **institutional functions**. It does not prove that society must contain exactly five organisations. Each function may require several organisations; one organisation may responsibly serve more than one function when decision rights, evidence, and correction remain distinct. The result establishes functional closure and practical minimality at the chosen analytical grain, not numerical uniqueness across every possible social design.
+
+Throughout this analysis, **voice** has a precise operational meaning: the effective, supported opportunity of a person, counterpart, or affected party to express understanding, needs, expectations, agreement, and disagreement; to participate in deliberation and decisions that affect them; to have what they express considered and answered with reasons; and to refuse, challenge, or appeal without retaliation. It means neither mere permission to speak nor equal authority in every decision. As a durable requirement, voice must be protected by decision procedures, records, response, review, and correction rather than left to goodwill.
 
 ## 1. The Pass-Four question
 
@@ -26,7 +28,7 @@ The first implication is negative. The five faculties do not become five institu
 
 The second implication concerns causal modesty. An external arrangement does not produce *anubhav*, understanding, resolve, or right evaluation inside *jeevan*. It can protect inquiry, supply bodily and material means, make consequences visible, preserve reciprocal voice, correct harm, and maintain transmission. The institutional claim therefore concerns the complete embodied and social lifecycle of an activity, not the constitutional occurrence of activity in the sentient unit.
 
-The third implication is a stopping rule. Pass Four may establish that a function is necessary for closure, that a tested bundle is sufficient for the coded requirements, or that a smaller bundle creates unacceptable combinations. It may not call one household form, administrative design, property regime, or organisational count uniquely necessary unless alternatives have been excluded by further evidence. That counterfactual work remains Pass Five.
+The third implication is a stopping rule. Pass Four may establish that a function is necessary for closure, that a tested bundle is sufficient for the coded requirements, or that a smaller bundle creates unacceptable combinations. It may not call one household form, administrative design, property regime, or organisational count uniquely necessary merely from this comparison. The [Pass-Five counterfactual validation](Research-Note-Jeevan-Counterfactual-Validation-Pass-Five.md) tests those stronger claims and narrows them accordingly.
 
 ## 2. Anonymous derivation method
 
@@ -108,7 +110,7 @@ U01 is distinct from justice because a correct adjudication cannot substitute fo
 
 ### 3.2 U02 - justice and security
 
-U02 maintains the validity of claims between persons. Its object includes recognition, expectation, responsibility, consent, mutual value-fulfilment, protected voice, repair, and the continuity of relationship through changing circumstances. The bearer's good intention is insufficient evidence because the counterpart or affected party is a non-substitutable evaluator.
+U02 maintains the validity of claims between persons. Its object includes recognition, expectation, responsibility, consent, mutual value-fulfilment, protected participation in deliberation and decisions, repair, and the continuity of relationship through changing circumstances. This protected participation is the operational meaning of voice. The bearer's good intention is insufficient evidence because the counterpart or affected party is a non-substitutable evaluator.
 
 After restoration, U02 corresponds to justice-security. Justice identifies and fulfils relationship-values, evaluates mutual satisfaction, and corrects contradiction. Security preserves the conditions under which participation, bodily integrity, appeal, and repair remain possible when direct reciprocity is defeated by force, dependency, secrecy, or concentrated power (MVD, pp. 310–311, 336).
 
@@ -214,7 +216,7 @@ The field is characterised by six jointly recurring conditions:
 
 This configuration provides a reason for family to be the first integrative field of human order. It combines all five functions in lived form: education through intergenerational learning, justice through value-fulfilment, health through daily care and restraint, production through participation in useful work, and exchange-reserve through shared need, access, and provision. Wider institutions do not replace this field; they extend capabilities that a close group cannot independently maintain and provide correction when the group fails.
 
-The derivation is functional rather than genealogical. It does not prove one household size, residence pattern, marriage rule, gender division, property system, or authority hierarchy. A biologically related household that lacks care, learning, mutual evaluation, shared provision, and protection does not fulfil the invariant merely by carrying the name family. A materially different arrangement could qualify if it reliably sustains the same durable shared-life responsibilities. Pass Five must test those equivalents and adverse cases.
+The derivation is functional rather than genealogical. It does not prove one household size, residence pattern, marriage rule, gender division, property system, or authority hierarchy. A biologically related household that lacks care, learning, mutual evaluation, shared provision, and protection does not fulfil the invariant merely by carrying the name family. A materially different arrangement can qualify if it reliably sustains the same durable shared-life responsibilities. Pass Five confirms this analytical equivalence for non-kin and multi-local cases while adding portable continuity and outside appeal to the explicit test.
 
 ## 6. Comparative institutional bundles
 
@@ -294,7 +296,7 @@ This architecture constrains work, trade, science, education, and governance.
 
 The universality claim follows from common *jeevan* architecture only at the level of these functions and constraints. If every human has the same activity architecture and every embodied activity requires the same classes of evidence, relationship, bodily means, material consequence, correction, and continuity, then every person must have access to all five functions and their safeguards. Uniform administration does not follow. Different cultures and material conditions may realise the invariant through different but testably equivalent arrangements.
 
-## 9. Limits and handoff to Pass Five
+## 9. Limits and Pass-Five result
 
 The Pass-Four result is a formalisation of the Pass-Two lifecycle coding and Pass-Three sphere result. It is not independent empirical confirmation of the source ontology. Channel rules, the seventy-per-cent overlap threshold, durability tests, and conflict pairs contain interpretive judgement. An independent recoding could alter marginal memberships, especially among the thirty-four Pass-Three residual members.
 
@@ -302,14 +304,11 @@ The comparative table tests five deliberately contrasting bundles, not every pos
 
 The family result derives a durable shared-life invariant more strongly than a particular kinship form. The five-function result derives durable responsibilities more strongly than five organisations. The ten-scale social proposal in the source remains a concrete design to be examined, not a numerical consequence of the activity count.
 
-Pass Five should now test the complete model under counterfactual and adverse conditions:
+The [Pass-Five counterfactual validation](Research-Note-Jeevan-Counterfactual-Validation-Pass-Five.md) specifies nineteen cases across family equivalence, function boundaries, adverse conditions, universal access, and false positives. Non-kin and multi-local arrangements can meet the shared-life invariant, while a coercive biological household fails it. Production and exchange may be administratively combined only when their purposes, records, affected-party rights, health and ecological evidence, and appeal remain distinct. Separate scientific, governing, ecological, and care organisations protect methods or interfaces without disclosing a sixth continuity object.
 
-1. Can a non-kin shared-life arrangement meet the family invariant across generation, dependency, work, provision, and appeal?
-2. Can production and exchange be administratively combined while preserving transparent stocks, affected-party voice, health evidence, and independent correction?
-3. Does a separate science, ecological, care, or governance organisation disclose a sixth continuity object, or only protect an interface already present?
-4. Do scarcity, disability, coercion, disagreement, migration, technological concentration, and ecological delay expose uncovered activity requirements?
-5. Can an arrangement display compliance, output, reputation, prosperity, or immediate satisfaction while failing the activity's governing criterion?
-6. What observable evidence would show that every person, rather than only a competent minority, can participate in all five functions?
+Scarcity, disability, coercion, disagreement, migration, technological concentration, and ecological delay do not add a sixth function in the specified cases. They refine priority rules, accommodation, portable continuity, plural evidence, long-horizon representation, and independent correction. Compliance, output, reputation, prosperity, immediate satisfaction, and low complaint rates are rejected as sufficient evidence. Each function now carries a person-level test of capability, voice, access, contribution, and correction so that performance by a competent minority cannot count as universal fulfilment.
+
+These are analytical results, not observed social outcomes. The case set does not establish numerical uniqueness, causal effectiveness, or the adequacy of any actual arrangement. Independent recoding, additional bundles, field observation, and longitudinal evidence remain necessary.
 
 Pass Four is complete when read as a derivation of functional responsibility. It supports the five-function proposal more strongly than Pass Three could: five arises from five distinct objects that must remain continuous in human living, and the proposed source functions match those objects after restoration. It stops short of proving five organisations, one family form, or a unique administrative order.
 
@@ -332,3 +331,4 @@ Pass Four is complete when read as a derivation of functional responsibility. It
 - [*Pass-Four Anonymous Requirement Register*](Research-Data-Jeevan-Pass-Four-Anonymous-Requirements.csv) - durability, unnamed-channel, interface, and scale codes for every member.
 - [*Pass-Four Restored Coverage Register*](Research-Data-Jeevan-Pass-Four-Restored-Coverage.csv) - source names and named-function memberships restored after anonymous derivation.
 - [*Pass-Four Bundle Diagnostics*](Research-Data-Jeevan-Pass-Four-Bundle-Comparison.json) - counts, comparison metrics, selected bundle, and interpretive limit.
+- [*Pass-Five Counterfactual Validation of the Jeevan Social Model*](Research-Note-Jeevan-Counterfactual-Validation-Pass-Five.md) - the completed equivalence, boundary, adverse-case, false-positive, and person-level validation of this result.

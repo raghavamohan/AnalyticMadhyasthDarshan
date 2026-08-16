@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 16, 2026, 10:09 AM IST
+**Edited on:** August 16, 2026, 10:42 AM IST
 
 **Status:** Internal research note (not a catalog entry). First completed use of the institution-neutral [activity-to-sphere dossier template](Research-Template-Jeevan-Activity-Environment-Dossier.md).
 
@@ -507,7 +507,7 @@ The [Pass-Four durable-function analysis](Research-Note-Jeevan-Durable-Functions
 
 ## 11. Refined pass sequence for the full 122-member analysis
 
-The pilot and anatomy register together cover all 122 members. Normalization, lifecycle coding, anonymized multi-resolution clustering, and durable-function comparison are now complete. The remaining work is counterfactual and practical validation.
+The pilot and anatomy register together cover all 122 members. Normalization, lifecycle coding, anonymized multi-resolution clustering, durable-function comparison, and structured counterfactual validation are now complete.
 
 ### 11.1 Pass one - source and activity anatomy completed
 
@@ -529,9 +529,11 @@ The [Pass-Three Activity-Sphere Derivation](Research-Note-Jeevan-Activity-Sphere
 
 The [Pass-Four durable-function analysis](Research-Note-Jeevan-Durable-Functions-Pass-Four.md) applies five durability tests to every anonymous member, derives minimum roles, norms, resources, decision rights, safeguards, records, and correction paths for each resulting function, and compares five bundles. The selected five-continuity basis provides complete coverage with no forced merge or unsupported split and preserves independent correction. A family-like integrative field is recovered from durable relational, intergenerational, bodily, material, and distributive requirements without prescribing one household form.
 
-### 11.6 Pass Five - counterfactual and practical validation
+### 11.6 Pass Five - counterfactual and practical validation completed
 
-Test whether materially different arrangements can fulfil the same invariant. Stress the model under scarcity, coercion, dependency, disagreement, disability, ecological delay, and concentrated technology. Search for compliance, output, prosperity, reputation, or immediate satisfaction that imitates fulfilment while hiding distortion or displaced harm. Require independent access to evidence and a feasible correction path. A surviving counterexample must revise the member coding, sphere boundary, invariant, or institutional bundle rather than being dismissed because it conflicts with the proposal.
+The [Pass-Five counterfactual validation](Research-Note-Jeevan-Counterfactual-Validation-Pass-Five.md) specifies nineteen materially different, adverse, universal-access, and false-positive cases. The family-like result survives as an eight-condition durable shared-life invariant, while biological kinship and co-residence are rejected as necessary and sufficient criteria. The five continuity responsibilities remain jointly adequate for the tested cases, but exactly five organisations is rejected. Administrative combination remains possible only with distinct purposes, evidence, rights, and correction.
+
+Scarcity, disability, coercion, disagreement, migration, technological concentration, and ecological delay refine the scale and safeguard requirements without disclosing a sixth continuity object. The pass adds a minimum-evidence protocol and a person-level availability test for every function. Its result is analytical rather than empirical: real-case observation, longitudinal evidence, independent recoding, and additional institutional comparisons remain open.
 
 The strongest conclusion this method can establish is not that one concrete social arrangement follows uniquely from the number 122. It is that common *jeevan* architecture yields universal functional and relational invariants that every adequate family, educational, productive, scientific, economic, legal, and coordinative arrangement must satisfy. Concrete arrangements form a context-sensitive equivalence class unless further argument rules alternatives out.
 
@@ -551,4 +553,5 @@ The strongest conclusion this method can establish is not that one concrete soci
 - [*Pass-Two Lifecycle and Evidence Coding of All 122 Jeevan Members*](Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.md) - the completed normalization, internal-dependency, lifecycle, evaluation, correction, and continuity matrix and the frozen handoff to Pass Three.
 - [*Pass-Three Derivation of Jeevan Activity Spheres*](Research-Note-Jeevan-Activity-Spheres-Pass-Three.md) - the completed anonymous matrix, multi-resolution clustering, stable sphere cores, bridge fields, residuals, and post-restoration tests.
 - [*Pass-Four Derivation of Durable Social Functions from Jeevan*](Research-Note-Jeevan-Durable-Functions-Pass-Four.md) - the completed durability, family-field, and institutional-bundle comparison.
+- [*Pass-Five Counterfactual Validation of the Jeevan Social Model*](Research-Note-Jeevan-Counterfactual-Validation-Pass-Five.md) - the completed family-equivalence, function-boundary, adverse-case, false-positive, and person-level validation.
 - [*From the Activity Architecture of Jeevan to Universal Human Order*](Research-Note-Jeevan-To-Universal-Human-Order.md) - the five-function hypothesis now compared with the bottom-up result in Pass Four.
