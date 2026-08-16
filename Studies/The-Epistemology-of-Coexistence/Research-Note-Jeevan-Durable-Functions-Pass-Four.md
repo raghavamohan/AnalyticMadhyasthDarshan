@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 16, 2026, 10:42 AM IST
+**Edited on:** August 16, 2026, 6:31 PM IST
 
 **Status:** Internal research note (not a catalog entry). Pass Four of the activity-to-sphere analysis.
 
@@ -11,6 +11,8 @@
 The analysis finds five non-substitutable objects of durable responsibility: understood orientation, claims between persons, bodily capability, transformed material means, and access to provision across persons and time. All 122 activity rows enter at least one of these channels; seventy-two enter one, thirty-eight enter two, eleven enter three, and one enters four. A five-function bundle covers all 185 member-channel obligations without combining causally distinct channels or splitting one channel without a derived need. Three- and four-function alternatives either leave requirements without a durable bearer or concentrate performance and correction in the same function. A seven-function alternative preserves coverage and correction but introduces two subdivisions not required by the activity evidence.
 
 This supplies a plausible activity-based reason for five **institutional functions**. It does not prove that society must contain exactly five organisations. Each function may require several organisations; one organisation may responsibly serve more than one function when decision rights, evidence, and correction remain distinct. The result establishes functional closure and practical minimality at the chosen analytical grain, not numerical uniqueness across every possible social design.
+
+Throughout this analysis, **voice** has a precise operational meaning: the effective, supported opportunity of a person, counterpart, or affected party to express understanding, needs, expectations, agreement, and disagreement; to participate in deliberation and decisions that affect them; to have what they express considered and answered with reasons; and to refuse, challenge, or appeal without retaliation. It means neither mere permission to speak nor equal authority in every decision. As a durable requirement, voice must be protected by decision procedures, records, response, review, and correction rather than left to goodwill.
 
 ## 1. The Pass-Four question
 
@@ -108,7 +110,7 @@ U01 is distinct from justice because a correct adjudication cannot substitute fo
 
 ### 3.2 U02 - justice and security
 
-U02 maintains the validity of claims between persons. Its object includes recognition, expectation, responsibility, consent, mutual value-fulfilment, protected voice, repair, and the continuity of relationship through changing circumstances. The bearer's good intention is insufficient evidence because the counterpart or affected party is a non-substitutable evaluator.
+U02 maintains the validity of claims between persons. Its object includes recognition, expectation, responsibility, consent, mutual value-fulfilment, protected participation in deliberation and decisions, repair, and the continuity of relationship through changing circumstances. This protected participation is the operational meaning of voice. The bearer's good intention is insufficient evidence because the counterpart or affected party is a non-substitutable evaluator.
 
 After restoration, U02 corresponds to justice-security. Justice identifies and fulfils relationship-values, evaluates mutual satisfaction, and corrects contradiction. Security preserves the conditions under which participation, bodily integrity, appeal, and repair remain possible when direct reciprocity is defeated by force, dependency, secrecy, or concentrated power (MVD, pp. 310–311, 336).
 

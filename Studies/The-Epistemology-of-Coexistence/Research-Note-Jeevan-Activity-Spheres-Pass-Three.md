@@ -2,13 +2,15 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 16, 2026, 10:09 AM IST
+**Edited on:** August 16, 2026, 6:31 PM IST
 
 **Status:** Internal research note (not a catalog entry). Pass Three of the activity-to-sphere analysis.
 
 **Scope:** This note implements the institution-neutral clustering prescribed by the [Pass-Two lifecycle register](Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.md). It exports one frozen sixteen-position vector for each of the 122 *jeevan* members, replaces names, faculties, pair positions, role terms, family vocabulary, and institution vocabulary with anonymous structural tokens, and compares coarse, middle, and fine partitions under three treatments of unresolved fields. Only after the blind partitions are fixed does it restore the source labels and interpret recurring fields as candidate spheres, bridges, or residuals. It does not itself decide which spheres require durable organisation or test the family and five-function proposal; those questions are completed in the [Pass-Four durable-function analysis](Research-Note-Jeevan-Durable-Functions-Pass-Four.md).
 
 The result is a constrained sphere architecture rather than an institutional blueprint. Three broad domains are stable at coarse resolution. At the selected middle resolution, four clusters remain stable under both sensitivity tests, two operate primarily as cross-domain bridges, and two are produced by unresolved or weakly specified records and cannot yet be treated as spheres. The four stable cores concern realised orientation and congruent agency, developmental care under unequal capability, reciprocal recognition and justice, and bodily-material conduciveness. Their number does not imply four institutions: a sphere is a recurring field of fulfilment and evidence, while an institution is one possible durable arrangement for maintaining one or several spheres.
+
+Throughout this analysis, **voice** has a precise operational meaning: the effective, supported opportunity of a person, counterpart, or affected party to express understanding, needs, expectations, agreement, and disagreement; to participate in deliberation and decisions that affect them; to have what they express considered and answered with reasons; and to refuse, challenge, or appeal without retaliation. It means neither mere permission to speak nor equal authority in every decision. In the sphere model, voice is therefore evidence-bearing participation in a relationship or shared decision, not a synonym for speech.
 
 ## 1. The Pass-Three question
 
@@ -152,7 +154,7 @@ This sphere is compatible with family-like and teaching relations after labels a
 
 M06 contains *dhairya*, *kritagyata*, *vishwas*, *nyaya*, *bhav*, *sneha*, *anurag*, *kartavya*, *bhai-mitra*, and *bahan*. Its members require a counterpart who can evaluate whether recognition, expectation, responsibility, value-fulfilment, consent, and repair are actually present. The relation cannot be evidenced solely from the bearer's intention.
 
-The recurrent invariants are reciprocal recognition, truthful expectation, mutual evidence, protected voice, repair after contradiction, and continuity of value-fulfilment through changing circumstances. Where power defeats direct reciprocity, appeal and independent protection become necessary. Gratitude, trust, affection, duty, and justice cluster together not as a list of sentiments but because their correctness becomes available through shared conduct and counterpart evaluation.
+The recurrent invariants are reciprocal recognition, truthful expectation, mutual evidence, protected participation in deliberation and decisions, repair after contradiction, and continuity of value-fulfilment through changing circumstances. This protected participation is the operational meaning of voice. Where power defeats direct reciprocity, appeal and independent protection become necessary. Gratitude, trust, affection, duty, and justice cluster together not as a list of sentiments but because their correctness becomes available through shared conduct and counterpart evaluation.
 
 This sphere is distinct from developmental care because the endpoint is reciprocal fulfilment rather than the capable party's responsibility for another's development. The two overlap in seven members because real relationships can contain both reciprocity and temporary asymmetry.
 
