@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 16, 2026, 8:23 AM IST
+**Edited on:** August 16, 2026, 9:00 AM IST
 
 **Status:** Internal research note (not a catalog entry). Pass One of the activity-to-sphere analysis.
 
@@ -916,7 +916,7 @@ The normalized feature matrix then becomes the fixed input to Pass Two. Normaliz
 
 Pass One is complete at the declared grain. The eight pilots supply sixteen checked anatomy records; this register supplies 106. All sixty-one AVD positions and all 122 column assignments now have an identified entry form, bearer, object, counterpart, endpoint, criterion, and pair-semantics statement or an explicit open field.
 
-The immediate handoff is the normalization gate in §7, followed by Pass Two. Pass Two may then ask, member by member, what is required for development and receptivity, right orientation, embodied performance, consequence visibility, evaluation, correction, sustaining, and transmission. It should first record dependencies among activities of *jeevan*, then external conditions. It should not yet cluster members into spheres, and it should not use family or the five institutional functions as coding categories.
+The normalization gate and Pass Two are now completed in the [Pass-Two Lifecycle and Evidence Register](Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.md). That register asks, member by member, what is required for development and receptivity, right orientation, embodied performance, consequence visibility, evaluation, correction, sustaining, and transmission. It records dependencies among activities of *jeevan* before external conditions and retains the institutional neutrality established here.
 
 ## References
 
@@ -930,3 +930,4 @@ The immediate handoff is the normalization gate in §7, followed by Pass Two. Pa
 - [*Bottom-Up Pilot Derivation of Jeevan Activity Spheres*](Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers.md) - the sixteen pilot member records, method, and later-pass protocol.
 - [*The Sixty-One Activity Pairs of Jeevan*](Research-Note-Activity-Pair-Inventory.md) - bilingual source record, column assignments, and documentary variants.
 - [*Jeevan Activity-to-Sphere Dossier Template*](Research-Template-Jeevan-Activity-Environment-Dossier.md) - fields governing this pass and the later lifecycle analysis.
+- [*Pass-Two Lifecycle and Evidence Coding of All 122 Jeevan Members*](Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.md) - the completed normalization and lifecycle extension of all records in this register and the pilot.
