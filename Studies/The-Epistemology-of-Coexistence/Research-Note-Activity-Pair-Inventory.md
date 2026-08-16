@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 14, 2026, 12:02 PM IST
+**Edited on:** August 16, 2026, 7:08 AM IST
 
 **Status:** Internal research note (not a catalog entry). Compiled as the source inventory behind §6 of [*Jeevan Architecture*](Research-Note-Jeevan-Architecture.md).
 
@@ -47,13 +47,13 @@ Every pair below occupies one position at one of these loci. The numbering withi
 
 ## 4. The sixty-one pairs
 
-The Hindi activity names and their *bal–shakti* column assignments follow the AVD table. English glosses follow AVD where its rendering is stable and MVD where the detailed definition supplies the clearer term; §8 records material differences. The two definition columns condense MVD, retaining only the governing clauses where a definition runs longer.
+The Hindi activity names and their *bal–shakti* column assignments follow the AVD table. English glosses follow AVD where its rendering is stable and MVD where the detailed definition supplies the clearer term; §8 records material differences. The two definition columns condense MVD, retaining only the governing clauses where a definition runs longer. Each cell gives that clause first in Hindi as printed, then in the published English, so the translation can be checked against the source wording rather than inferred from the English alone. Temperature and the six tastes require two parallel documentary views because the AVD assignments and MVD definition headings do not divide the content in the same way (§4.5).
 
 ### 4.1 *Atma* — one pair
 
 | # | *Bal* entry | Condensed MVD definition | *Shakti* entry | Condensed MVD definition |
 |---:|---|---|---|---|
-| 1 | *anubhav* — realisation, in *astitva* | Eternal presence in the form of nature saturated in Omnipotence | *pramanikta* — authenticity, of *paramanand* | Realisation-based expression, communication and exposition |
+| 1 | *anubhav* — realisation, in *astitva* | सत्ता में संपृक्त प्रकृति के रूप में नित्य वर्तमान।<br>Eternal presence in the form of nature saturated in Omnipotence | *pramanikta* — authenticity, of *paramanand* | अनुभव संपन्न अभिव्यक्ति, संप्रेषणा, प्रकाशन।<br>Realisation-based expression, communication and exposition |
 
 *Atma*'s pair is named twice over. The tabulated enumeration gives the modes, realisation and authenticity; the definitions give their contents, existence and ultimate bliss, under the sub-heading "Realisation in existence / Authenticity of ultimate bliss" (MVD, p. 328).
 
@@ -61,8 +61,8 @@ The Hindi activity names and their *bal–shakti* column assignments follow the 
 
 | # | *Bal* entry | Condensed MVD definition | *Shakti* entry | Condensed MVD definition |
 |---:|---|---|---|---|
-| 1 | *anand* — bliss | Endless, uninterrupted celebration activity | *dhee* | The inclination activity of celebration, readiness for projection |
-| 2 | *astitva* — existence | Acceptance free from delusion of state, motion, development, awakening, and the present | *dhruti* | Dedication in truth as coexistence and tendency for projection; absence of fear, trust in the present |
+| 1 | *anand* — bliss | अंतविहीन (बिना रूकावट) उत्सव क्रिया।<br>Endless, uninterrupted celebration activity | *dhee* | उत्सवशीलता का प्रवर्तन क्रिया (परावर्तन के लिए तत्परता)।<br>The inclination activity of celebration, readiness for projection |
+| 2 | *astitva* — existence | स्थिति, गति, विकास, जागृति और वर्तमान सहज निर्भ्रम स्वीकृति।<br>Acceptance free from delusion of state, motion, development, awakening, and the present | *dhruti* | सहअस्तित्व सहज सत्य में निष्ठा और परावर्तित करने के लिए प्रवृति; भय का अभाव, वर्तमान में विश्वास।<br>Dedication in truth as coexistence and tendency for projection; absence of fear, trust in the present |
 
 *Buddhi*'s block carries the one sentence in the whole enumeration that names the partition of a pair outright: the pinnacle of acceptance of the state and motion of awakening is bliss and *dhee* (MVD, p. 328). Both of its pairs place an acceptance against a readiness for projection.
 
@@ -70,14 +70,14 @@ The Hindi activity names and their *bal–shakti* column assignments follow the 
 
 | # | *Bal* entry | Condensed MVD definition | *Shakti* entry | Condensed MVD definition |
 |---:|---|---|---|---|
-| 1 | *shruti* — revelation | Articulation of understanding of reality; the expression of knowledge of *jeevan* and holistic view of existence | *smriti* — memory | Presentation of understanding through language as many times as necessary |
-| 2 | *medha* — intellect | The carrier-bearer activity of memory | *kala* — art | Beautification activity along with usefulness |
-| 3 | *kanti* — radiance | Light as the clarity of meaning as possibility | *roop* — form | Shape, volume, and density |
-| 4 | *nireekshan* — inspection | Realisation-based holistic view, manifesting as contemplation combined with visualisation | *guna* — properties | Relative motions; assessment of generative, degenerative, and mediative motion |
-| 5 | *santosh* — contentment | The lack of the sentiment of lacking | *shree* — abundance | Prosperity, or acceptance of continuity of prosperity |
-| 6 | *prem* — love | Realisation of the complete; devotion in completeness and its continuity | *ananyata* — non-otherness | Complementary activity in mutuality of humans and with the rest of nature |
-| 7 | *vatsalya* — guidance | The continuity of nurturing and protection for comprehensive resolution | *sahajta* — effortlessness | Clarity and authenticity; integrality of behaviour, norm, thought and realisation |
-| 8 | *shraddha* — reverence | Movement towards righteousness, qualitative transformation towards conduct completeness | *pujyata* — devoutness | Activeness for qualitative development and awakening |
+| 1 | *shruti* — revelation | यथार्थ समझदारी का भाषाकरण; यथार्थ जीवन व दर्शन पूर्ण अभिव्यक्ति।<br>Articulation of understanding of reality; the expression of knowledge of *jeevan* and holistic view of existence | *smriti* — memory | बार-बार आवश्यकतानुसार भाषा पूर्वक समझ का प्रस्तुतीकरण।<br>Presentation of understanding through language as many times as necessary |
+| 2 | *medha* — intellect | स्मृति का धारक-वाहक क्रिया।<br>The carrier-bearer activity of memory | *kala* — art | उपयोगिता योग्य सुंदर क्रिया।<br>Beautification activity along with usefulness |
+| 3 | *kanti* — radiance | सार्थकता संभावना के अर्थ में स्पष्ट होना प्रकाश है।<br>Light as the clarity of meaning as possibility | *roop* — form | आकार, आयतन, धन।<br>Shape, volume, and density |
+| 4 | *nireekshan* — inspection | अनुभव मूलक दर्शन व उसके प्रकटन की संयुक्त चिंतन चित्रण क्रिया।<br>Realisation-based holistic view, manifesting as contemplation combined with visualisation | *guna* — properties | सापेक्ष गतियाँ; सम-विषम-मध्यस्थ गतियाँ, गतियों का आंकलन।<br>Relative motions; assessment of generative, degenerative, and mediative motion |
+| 5 | *santosh* — contentment | अभाव का अभाव।<br>The lack of the sentiment of lacking | *shree* — abundance | समृद्धि या समृद्धि की निरंतरता सहज स्वीकृति।<br>Prosperity, or acceptance of continuity of prosperity |
+| 6 | *prem* — love | पूर्णानुभूति; पूर्णता में रति व उसकी निरंतरता।<br>Realisation of the complete; devotion in completeness and its continuity | *ananyata* — non-otherness | मानव की परस्परता व नैसर्गिकता में पूरक क्रिया-कलाप।<br>Complementary activity in mutuality of humans and with the rest of nature |
+| 7 | *vatsalya* — guidance | अभ्युदय के अर्थ में पोषण, संरक्षण की निरंतरता।<br>The continuity of nurturing and protection for comprehensive resolution | *sahajta* — effortlessness | स्पष्टता व प्रामाणिकता; व्यवहार, रीति, विचार एवं अनुभव की एकसूत्रता।<br>Clarity and authenticity; integrality of behaviour, norm, thought and realisation |
+| 8 | *shraddha* — reverence | श्रेय की ओर गतिशीलता अर्थात् आचरण पूर्णता की ओर गुणात्मक परिवर्तन।<br>Movement towards righteousness, qualitative transformation towards conduct completeness | *pujyata* — devoutness | गुणात्मक विकास और जागृति के लिए सक्रियता।<br>Activeness for qualitative development and awakening |
 
 Visualisation in *chitta* is separately described through eight dimensions: form, property, count, time, expanse, effort, motion, and result (MVD, p. 327). The source does not map those dimensions one-to-one onto the eight *bal–shakti* pairs in this block.
 
@@ -85,24 +85,24 @@ Visualisation in *chitta* is separately described through eight dimensions: form
 
 | # | *Bal* entry | Condensed MVD definition | *Shakti* entry | Condensed MVD definition |
 |---:|---|---|---|---|
-| 1 | *vidya* — learning | Systematically knowing, believing and accepting something as it is, i.e. the purpose of its being | *pragya* — intelligence | Completely refined human consciousness; manifestation of conception of objective and relative truth |
-| 2 | *keerti* — repute | The activeness for awakening | *vichar* — thought | Unfolding of verity with exuberance; the exposition and communication of coexistence |
-| 3 | *nishchaya* — certitude | Continuity of thought of verity | *dhairya* — patience | Continuity of just thoughts |
-| 4 | *shanti* — peace | Consequence of resolved thoughts; absence of resistance in desire and thought | *daya* — kindness | Not interfering in others' awakening; instilling content and ability according to their receptivity |
-| 5 | *krupa* — grace | Being capable of helping another's awakening or acquiring of receptivity | *karuna* — compassion | Inspiring others for awakening; being helpful to their acquiring ability and receptivity |
-| 6 | *dum* — uprightness | The act of ending attachment towards decline; liberation from delusion, fear and wastefulness | *kshama* — forgiveness | Remaining unaffected from another's aspect of decline while helping them for awakening |
-| 7 | *tatparta* — readiness | Activeness in awakening; perseverance in production; dedication in humane behaviour | *utsah* — enthusiasm | Intrepidity for rising; awareness of the orderliness |
-| 8 | *kritagyata* — gratitude | The acceptance of help received from anyone for advancement | *saumyata* — humility | Wilful self-restraint; being established in the natural state, i.e. civility |
-| 9 | *gaurav* — glory | Embracing to emulate without resistance | *saralta* — simplicity | Demeanour devoid of complexity and tension |
-| 10 | *vishwas* — trust | Fulfilment of values inherent in mutuality | *saujanyata* — concordance | Collaboration, co-participation, cooperation, complementariness |
-| 11 | *satya* — truth | That which is uniformly perceivable, existent and realisable at all times | *dharma* | Innateness itself; that from which its separation does not happen |
-| 12 | *nyaya* — justice | Recognition of relationships, fulfilling of values, evaluation, and mutual satisfaction | *samvedna* — sensitivity | Movement for completeness; grasping external sensory indications through all cognitive organs; readiness for participation in the orderliness |
-| 13 | *tadatmayata* — absolute-oneness | The decision made along with acceptance towards eternalness | *sahas* — intrepidity | Work and behaviour performed with happiness along with endurance |
-| 14 | *samyama* — restraint | Being regulated in humane thought, behaviour and vocation | *niyam* — law | The tendency and evidence of participating in the overall orderliness while self-regulated |
-| 15 | *veerta* — courage | Utilising one's powers to ensure delivery of justice to others | *dheerta* — fortitude | Dedication and firmness towards justice |
-| 16 | *bhav* — sentiment, value | Essentiality, value, responsibility, participation | *samveg* — impetus | The momentum acquired from meaningful union |
-| 17 | *jati* — kind | The uniqueness of form, properties, essential nature and *dharma* | *kaal* — time | Duration of activity |
-| 18 | *tushti* — satiation | Accomplishment of the six merits, resolution and prosperity in the family, participation in the undivided society | *pushti* — confirmation | Continuous evaluation of satiation; its dissemination in the form of human tradition |
+| 1 | *vidya* — learning | जो जैसा है, अर्थात् जिस प्रयोजनार्थ है उसे वैसा ही विधिवत् जानने, मानने, स्वीकार करने की क्रिया।<br>Systematically knowing, believing and accepting something as it is, i.e. the purpose of its being | *pragya* — intelligence | परिष्कृति पूर्ण संचेतना; वस्तुगत सत्य, वस्तु स्थिति सत्य के प्रति अवधारणा।<br>Completely refined human consciousness; manifestation of conception of objective and relative truth |
+| 2 | *keerti* — repute | जागृति की ओर सक्रियता।<br>The activeness for awakening | *vichar* — thought | स्फुरण पूर्वक सत्यता को उद्घाटित करने हेतु की गई क्रिया; सहअस्तित्व सहज प्रकाशन, संप्रेषणा।<br>Unfolding of verity with exuberance; the exposition and communication of coexistence |
+| 3 | *nishchaya* — certitude | सत्यतापूर्ण विचार की निरंतरता।<br>Continuity of thought of verity | *dhairya* — patience | न्यायपूर्ण विचार की निरंतरता।<br>Continuity of just thoughts |
+| 4 | *shanti* — peace | समाधान पूर्ण विचार का फलन; इच्छा एवं विचार की निर्विरोधिता।<br>Consequence of resolved thoughts; absence of resistance in desire and thought | *daya* — kindness | दूसरे के विकास में हस्तक्षेप न करना; पात्रता के अनुरूप वस्तु, योग्यता प्रदायी क्षमता।<br>Not interfering in others' awakening; instilling content and ability according to their receptivity |
+| 5 | *krupa* — grace | दूसरे के विकास के लिए सहायता अथवा पात्रता अर्जित करने में सहायक होने में अर्हता सम्पन्न रहना।<br>Being capable of helping another's awakening or acquiring of receptivity | *karuna* — compassion | विकास के लिए उत्प्रेरित करना; योग्यता और पात्रता अर्जित करने में सहायक होना।<br>Inspiring others for awakening; being helpful to their acquiring ability and receptivity |
+| 6 | *dum* — uprightness | ह्रास की ओर जो आसक्ति है, उसकी समापन क्रिया; भ्रम, भय और अपव्ययता से मुक्ति।<br>The act of ending attachment towards decline; liberation from delusion, fear and wastefulness | *kshama* — forgiveness | विकास के लिए की जाने वाली सहायता के समय उसके ह्रास पक्ष से अप्रभावित रहना।<br>Remaining unaffected from another's aspect of decline while helping them for awakening |
+| 7 | *tatparta* — readiness | जागृति क्रम में सक्रियता; उत्पादन में लगनशीलता; मानवीय व्यवहार-आचरण में निष्ठा।<br>Activeness in awakening; perseverance in production; dedication in humane behaviour | *utsah* — enthusiasm | उत्थान के लिए साहस; व्यवस्था सहज सजगता।<br>Intrepidity for rising; awareness of the orderliness |
+| 8 | *kritagyata* — gratitude | जिस किसी की भी सहायता से उन्नति की प्राप्ति में सहायता मिली हो, उसकी स्वीकृति।<br>The acceptance of help received from anyone for advancement | *saumyata* — humility | स्वेच्छा से स्वयं का नियंत्रण; स्वभावगति प्रतिष्ठा अर्थात् शिष्टता।<br>Wilful self-restraint; being established in the natural state, i.e. civility |
+| 9 | *gaurav* — glory | निर्विरोध पूर्वक अंगीकार किये गये अनुकरण।<br>Embracing to emulate without resistance | *saralta* — simplicity | ग्रन्थि व तनाव रहित अगंहार।<br>Demeanour devoid of complexity and tension |
+| 10 | *vishwas* — trust | परस्परता में निहित मूल्य निर्वाह।<br>Fulfilment of values inherent in mutuality | *saujanyata* — concordance | सहकारिता, सहभागिता, सहयोगिता, पूरकता।<br>Collaboration, co-participation, cooperation, complementariness |
+| 11 | *satya* — truth | जो तीनों काल में एक सा भासमान, विद्यमान एवं अनुभव गम्य है।<br>That which is uniformly perceivable, existent and realisable at all times | *dharma* | धारणा ही धर्म है; जिससे जिसका विलगीकरण न हो।<br>Innateness itself; that from which its separation does not happen |
+| 12 | *nyaya* — justice | संबंधों व मूल्यों की पहचान व निर्वाह तथा मूल्यांकन व उभयतृप्ति क्रिया।<br>Recognition of relationships, fulfilling of values, evaluation, and mutual satisfaction | *samvedna* — sensitivity | पूर्णता के अर्थ में वेगित होना; सभी ज्ञानेन्द्रियों द्वारा बाह्य संकेतों को ग्रहण करना; व्यवस्था के प्रति तत्परता।<br>Movement for completeness; grasping external sensory indications through all cognitive organs; readiness for participation in the orderliness |
+| 13 | *tadatmayata* — absolute-oneness | नित्यता के अर्थ में स्वीकार सहित किया गया निर्णय।<br>The decision made along with acceptance towards eternalness | *sahas* — intrepidity | सहनशीलता समेत प्रसन्नता सहित किया गया व्यवहार क्रिया कलाप।<br>Work and behaviour performed with happiness along with endurance |
+| 14 | *samyama* — restraint | मानवीयता पूर्ण विचार, व्यवहार एवम् व्यवसाय में नियंत्रित होना।<br>Being regulated in humane thought, behaviour and vocation | *niyam* — law | नियंत्रण पूर्ण स्वयंस्फूर्त विधि से समग्र व्यवस्था में भागीदारी करने की प्रवृत्ति और प्रमाण।<br>The tendency and evidence of participating in the overall orderliness while self-regulated |
+| 15 | *veerta* — courage | अन्य को न्याय दिलाने में स्व-शक्तियों का नियोजन।<br>Utilising one's powers to ensure delivery of justice to others | *dheerta* — fortitude | न्याय के प्रति निष्ठा एवं दृढ़ता।<br>Dedication and firmness towards justice |
+| 16 | *bhav* — sentiment, value | मौलिकता = मूल्य = जिम्मेदारी, भागीदारी।<br>Essentiality, value, responsibility, participation | *samveg* — impetus | संयोग से प्राप्त गति।<br>The momentum acquired from meaningful union |
+| 17 | *jati* — kind | रूप, गुण, स्वभाव व धर्म की विशिष्टता।<br>The uniqueness of form, properties, essential nature and *dharma* | *kaal* — time | क्रिया की अवधि।<br>Duration of activity |
+| 18 | *tushti* — satiation | समझदारी पूर्वक छ: सद्गुणों से संपन्न होना, परिवार में समाधान-समृद्धि; अखंड समाज में भागीदारी।<br>Accomplishment of the six merits, resolution and prosperity in the family, participation in the undivided society | *pushti* — confirmation | तुष्टि का निरंतर मूल्यांकन; मानव परंपरा के रूप में उसका लोकव्यापीकरण।<br>Continuous evaluation of satiation; its dissemination in the form of human tradition |
 
 ### 4.5 *Mun* — thirty-two pairs
 
@@ -110,46 +110,73 @@ The left-hand column belongs to *asvadan*; the right-hand column to *chayan*. A 
 
 | # | *Bal* entry | Condensed MVD definition | *Shakti* entry | Condensed MVD definition |
 |---:|---|---|---|---|
-| 1 | *bhakti* — devotion | Becoming liberated from fear and delusion; total dedication | *tanmayata* — immersion | Being enthralled in the effect of awakening, with definite goal and direction |
-| 2 | *mamta* — care | Nurturing and protecting with the pinnacle of affinity; accepting the other as an image of oneself | *udarta* — generosity | Offering body, mind and wealth as needed for another's awakening, health and prosperity |
-| 3 | *samman* — respect | The acceptance of personality and talent | *sauhardta* — cordiality | Presenting conception, realisation, memory, and *shruti* (realised articulation) as accepted |
-| 4 | *sneha* — affection | Absence of resistance in just behaviour | *nishtha* — dedication | Continuous endeavour of attaining and evidencing the goal of complete awakening |
-| 5 | *putra-putri* — son, daughter | Acceptance of parents as having given birth and being complementary for awakening | *anurag* — devotedness | Immersion obtained in absence of delusion; success in fulfilling the values inherent in relationships |
-| 6 | *swami, sathi* — master | One who has attained comprehensive resolution and fulfils relationships upon knowing the self | *dayitva* — responsibility | Civilised behaviour with realisation of values in behaviour, vocation and orderliness |
-| 7 | *sevak, sahyogi* — associate | One who moves with acceptance behind the guide for comprehensive resolution; helpful in production | *kartavya* — duty | Fulfilling values inherent in relationships and associations at every level |
-| 8 | *svayatta* — self-reliance | The realisation of prosperity | *samriddhi* — prosperity | Production more than needs |
-| 9 | *hita* — health | Usefulness within purview of the body | *svasthya* — wellness | Cognitive and work organs able to work according to *mun* and the tendencies |
-| 10 | *priya* — pleasant | Conduciveness of the five sensory organs with respect to bodily wellness | *pravrittiyan* — tendencies | Hope, thought, desire, resolve and authenticity taking place in *jeevan* for projection |
-| 11 | *ullas* — elation | Articulation; transparent presentation | *haas* — merriness | Movement towards humane goal and direction with resolution and joyousness |
-| 12 | *sheel* — modesty | Identifying the grandeur of awakening in all dimensions with authenticity as civility | *sankoch* — politeness | Expressing disagreement in a civilised way |
-| 13 | *guru* | One who imparts conception as resolution of inquiries through education-*sanskar* | *pramanik* — authentic | Bearer and carrier of evidence; living as evidence through experiment, behaviour, and realisation |
-| 14 | *shishya* — disciple | One ready to accept education-*sanskar*, in whom the relationship of guru is accepted | *jigyasu* — inquirer | Demonstration of strong desire for delusion-free education |
-| 15 | *bhai-mitra* — brother, friend | One born of the same womb; brother-like acceptance | *pragati* — progress | Participation in the overall orderliness, with emphasis on resolution |
-| 16 | *bahan* — sister | One born of the same womb; sister-like acceptance | *unnati* — advancement | Expectation, process and evidence of prosperity; movement towards awakening |
-| 17 | *sweekruti* — acceptance | Evidencing in projection what has been received owing to realisation-based effect | *swagat* — reception | The preparations for evidencing the acceptances of law, justice, resolution, truth |
-| 18 | *ruchi* — interest | Recognition of results from the contact of conducive physicochemical things with the senses | *pehchan* — recognition | Identification of necessary elements in sensory contact; acceptance of the result of *yog-sanyog* |
-| 19 | *sukh* — happiness | Resolution | *sfoorti* — motivation | The tendency in, by, for evidence of resolution |
-| 20 | *pati, patni* — husband, wife | The spousal relationship | *yatitva, satitva* — diligence, steadfastness | Work and behaviour performed effortfully, and truthfully with resolve, for emancipation and awakening |
-| 21 | *mata* — mother | Acceptance of having given birth and being complementary for awakening | *poshan* — nurturing | Unit plus conducive unit |
-| 22 | *pita* — father | Acceptance of providing nurturing and protection | *sanrakshan* — protection | Removing obstacles, for ease |
-| 23 | *mridu, kathor* — soft, hard | What bears less or more weight or pressure than touch | *vahan, samvahan* — bearability | A shared bearing passage; the two terms are not defined separately |
-| 24 | *sheet, ushna* — cold, hot | Nurturing or depriving contact | *poshan* — nourishing | Conducive or unconducive relation between units |
-| 25 | *khatta* — sour | Taste recognised on contact of the tongue | *poshan* — nourishing | Conducive or unconducive relation between units |
-| 26 | *meetha* — sweet | Taste recognised on contact of the tongue | *poshan* — nourishing | Conducive or unconducive relation between units |
-| 27 | *chirchira* — pungent | Taste recognised on contact of the tongue | *poshan* — nourishing | Conducive or unconducive relation between units |
-| 28 | *kadua* — bitter | Taste recognised on contact of the tongue | *poshan* — nourishing | Conducive or unconducive relation between units |
-| 29 | *kasaila* — astringent | Taste recognised on contact of the tongue | *poshan* — nourishing | Conducive or unconducive relation between units |
-| 30 | *khara* — salty | Taste recognised on contact of the tongue | *poshan* — nourishing | Conducive or unconducive relation between units |
-| 31 | *sugandh, durgandh* — pleasant, unpleasant smell | What is received through smell | *shvasan, nihshvasan* — inhalation, exhalation | Respiratory movement associated with smell |
-| 32 | *suroop, kuroop* — beautiful, ugly | What is received through visible form | *swagat, aswagat* — affinity, otherness | Affinity or otherness in response to visible form |
+| 1 | *bhakti* — devotion | भय से मुक्त होने का क्रियाकलाप और भ्रम मुक्ति; भक्ति संपूर्ण निष्ठा की अभिव्यक्ति है।<br>Becoming liberated from fear and delusion; total dedication | *tanmayata* — immersion | जागृति सहज प्रभाव में अभिभूत होना, निश्चित लक्ष्य एवं दिशा हेतु।<br>Being enthralled in the effect of awakening, with definite goal and direction |
+| 2 | *mamta* — care | अपनत्व की पराकाष्ठा पूर्वक पोषण संरक्षण; स्वयं की प्रतिरूपता की स्वीकृति।<br>Nurturing and protecting with the pinnacle of affinity; accepting the other as an image of oneself | *udarta* — generosity | दूसरों की जीवन जागृति, शरीर स्वस्थता व समृद्धि के लिए तन, मन, धन का अर्पण-समर्पण।<br>Offering body, mind and wealth as needed for another's awakening, health and prosperity |
+| 3 | *samman* — respect | व्यक्तित्व, प्रतिभा की स्वीकृति।<br>The acceptance of personality and talent | *sauhardta* — cordiality | अवधारणा, अनुभव, स्मृति और श्रुति को यथावत् प्रस्तुत करने का क्रियाकलाप।<br>Presenting conception, realisation, memory, and *shruti* (realised articulation) as accepted |
+| 4 | *sneha* — affection | न्यायपूर्ण व्यवहार में निर्विरोधिता।<br>Absence of resistance in just behaviour | *nishtha* — dedication | जागृति पूर्ण लक्ष्य को प्राप्त करने व प्रमाणित करने का निरंतर प्रयास।<br>Continuous endeavour of attaining and evidencing the goal of complete awakening |
+| 5 | *putra-putri* — son, daughter | शरीर रचना की कारकता सहज स्वीकृति और जीवन जागृति में पूरकता निर्वाह करने वाली मानव इकाई ही पिता है।<br>Acceptance of parents as having given birth and being complementary for awakening | *anurag* — devotedness | निर्भ्रमता में प्राप्त आप्लावन; संबंधों में निहित मूल्यों का निर्वाह करने में सफलता।<br>Immersion obtained in absence of delusion; success in fulfilling the values inherent in relationships |
+| 6 | *swami, sathi* — master | सर्वतोमुखी समाधान प्राप्त व्यक्ति; स्वयं को जानकर निर्वाह करने के क्रम में साथी।<br>One who has attained comprehensive resolution and fulfils relationships upon knowing the self | *dayitva* — responsibility | व्यवहार, व्यवसाय एवं व्यवस्थात्मक संबंधों में मूल्यानुभूति सहित शिष्टतापूर्ण व्यवहार।<br>Civilised behaviour with realisation of values in behaviour, vocation and orderliness |
+| 7 | *sevak, sahyogi* — associate | अभ्युदय के अर्थ में मार्गदर्शक के साथ-साथ अनुगमन करना; उत्पादन में सहयोगी होना।<br>One who moves with acceptance behind the guide for comprehensive resolution; helpful in production | *kartavya* — duty | प्रत्येक स्तर में प्राप्त संबंधों एवं सम्पर्कों में निहित मूल्यों का निर्वाह।<br>Fulfilling values inherent in relationships and associations at every level |
+| 8 | *svayatta* — self-reliance | समृद्धि का अनुभव ही स्वायत्त है।<br>The realisation of prosperity | *samriddhi* — prosperity | आवश्यकता से अधिक उत्पादन समृद्धि है।<br>Production more than needs |
+| 9 | *hita* — health | शरीर सीमान्तवर्तीय उपयोगिता।<br>Usefulness within purview of the body | *svasthya* — wellness | मन एवं प्रवृत्तियों के अनुसार कर्मेन्द्रिय व ज्ञानेन्द्रियों का कार्य करने योग्य स्थिति।<br>Cognitive and work organs able to work according to *mun* and the tendencies |
+| 10 | *priya* — pleasant | ज्ञानेन्द्रियों के लिए शरीर स्वस्थता के अर्थ में अनुकूल योग संयोग।<br>Conduciveness of the five sensory organs with respect to bodily wellness | *pravrittiyan* — tendencies | परावर्तन हेतु जीवन में होने वाली आशा, विचार, इच्छा, संकल्प एवं प्रामाणिकता।<br>Hope, thought, desire, resolve and authenticity taking place in *jeevan* for projection |
+| 11 | *ullas* — elation | मुखरण; उत्थान की ओर पारदर्शक प्रस्तुति।<br>Articulation; transparent presentation | *haas* — merriness | समाधान सहित प्रसन्नता व मुस्कान सहित मानवीय लक्ष्य व दिशा की ओर गति।<br>Movement towards humane goal and direction with resolution and joyousness |
+| 12 | *sheel* — modesty | जागृति सहज वैभव को शिष्टता के रूप में प्रामाणिकता को इंगित कर लेना।<br>Identifying the grandeur of awakening in all dimensions with authenticity as civility | *sankoch* — politeness | अस्वीकृति को शिष्टता से प्रस्तुत करना।<br>Expressing disagreement in a civilised way |
+| 13 | *guru* | शिक्षा-संस्कार से जिज्ञासाओं को समाधान के रूप में अवधारणा में प्रस्थापित करने वाला मानव।<br>One who imparts conception as resolution of inquiries through education-*sanskar* | *pramanik* — authentic | प्रमाणों का धारक वाहक; प्रयोग, व्यवहार, अनुभवपूर्ण विधि से प्रमाणों के रूप में जीना।<br>Bearer and carrier of evidence; living as evidence through experiment, behaviour, and realisation |
+| 14 | *shishya* — disciple | शिक्षा-संस्कार ग्रहण-स्वीकार के लिए प्रस्तुत व्यक्ति, जिसमें गुरु का सम्बन्ध स्वीकृत हो।<br>One ready to accept education-*sanskar*, in whom the relationship of guru is accepted | *jigyasu* — inquirer | निर्भ्रम शिक्षा ग्रहण करने के लिए तीव्र इच्छा का प्रकाशन।<br>Demonstration of strong desire for delusion-free education |
+| 15 | *bhai-mitra* — brother, friend | एकोदर को भाई का संबोधन; भाईवत् स्वीकृतियाँ या मित्र।<br>One born of the same womb; brother-like acceptance | *pragati* — progress | समग्र व्यवस्था में भागीदारी; समाधान प्रधान अपेक्षा, प्रक्रिया और प्रमाण।<br>Participation in the overall orderliness, with emphasis on resolution |
+| 16 | *bahan* — sister | एकोदरीय अथवा एकोदरवत् बहनें।<br>One born of the same womb; sister-like acceptance | *unnati* — advancement | समृद्धि प्रधान अपेक्षा, प्रक्रिया व प्रमाण; जागृति की ओर गति।<br>Expectation, process and evidence of prosperity; movement towards awakening |
+| 17 | *sweekruti* — acceptance | अनुभव मूलक प्रभाव में इंगित संकेतों को यथावत् परावर्तन में प्रमाणित करने की क्रिया।<br>Evidencing in projection what has been received owing to realisation-based effect | *swagat* — reception | नियम, न्याय, समाधान, सत्य सहज स्वीकृतियों के लिए तैयारियाँ।<br>The preparations for evidencing the acceptances of law, justice, resolution, truth |
+| 18 | *ruchi* — interest | अनुकूल भौतिक-रासायनिक वस्तुओं के योग-संयोग से प्राप्त परिणामों की पहचान।<br>Recognition of results from the contact of conducive physicochemical things with the senses | *pehchan* — recognition | इन्द्रिय सन्निकर्ष में आवश्यक तत्व; योग-संयोग से प्राप्त कुल परिणाम की स्वीकृति।<br>Identification of necessary elements in sensory contact; acceptance of the result of *yog-sanyog* |
+| 19 | *sukh* — happiness | समाधान।<br>Resolution | *sfoorti* — motivation | समाधान सहज प्रमाणों में, से, के लिए प्रवृत्ति।<br>The tendency in, by, for evidence of resolution |
+| 20 | *pati, patni* — husband, wife | पति-पत्नी।<br>The spousal relationship | *yatitva, satitva* — diligence, steadfastness | यत्न पूर्वक तथा सत्व (संकल्प) पूर्वक तरने-जागृति के लिए किया गया कार्य-व्यवहार।<br>Work and behaviour performed effortfully, and truthfully with resolve, for emancipation and awakening |
+| 21 | *mata* — mother | शरीर रचना की कारकता सहज स्वीकृति और जीवन जागृति में पूरकता निर्वाह।<br>Acceptance of having given birth and being complementary for awakening | *poshan* — nurturing | इकाई + अनुकूल इकाई।<br>Unit plus conducive unit |
+| 22 | *pita* — father | पोषण, सुरक्षा की स्वीकृति।<br>Acceptance of providing nurturing and protection | *sanrakshan* — protection | निर्बाधता; सुगमता के अर्थ में।<br>Removing obstacles, for ease |
 
-The purpose of the sensory group is stated with it: every awakened human recognises that the purpose of sensations is maintaining the health of the body, and nourishing is defined as unit plus conducive unit against depleting as unit lacking a conducive unit or joined with an unconducive unit (MVD, pp. 347–348). In delusion, taste and selection already operate over this sensory and instinctual field; the thirty-two pairs as defined are the awakened inventory of *mun*'s two generic activities, not a further set that remains unused from lack of need ([the architecture note](Research-Note-Jeevan-Architecture.md) §4.2, §6).
+The sensory block opens with touch, named on both sides in both presentations.
 
-The repeated *poshan* label follows the *shakti* column in the AVD table (pp. 93–94). The fuller MVD definitions render cold, heat, and each taste through nourishing/depleting and then define both terms (p. 348). The table preserves the enumerated activity name while its final column records the fuller semantic contrast.
+| # | *Bal* entry | Condensed MVD definition | *Shakti* entry | Condensed MVD definition |
+|---:|---|---|---|---|
+| 23 | *mridu, kathor* — soft, hard | स्पर्शेंद्रिय से कम या अधिक भार व दबाव को सहने वाली वस्तुएँ।<br>What bears less or more weight or pressure than touch | *vahan, samvahan* — bearability | संवहन-मृदु: संकुचन पूर्वक वहन करने वाली वस्तुएँ।<br>A shared bearing passage; the two terms are not defined separately |
+
+Temperature and the six tastes require two parallel records. AVD assigns each sensory entry to the *bal* column and repeats *poshan* in the *shakti* column. This preserves seven of the thirty-two tabulated pair positions.
+
+| # | AVD *bal* assignment | AVD *shakti* assignment |
+|---:|---|---|
+| 24 | *sheet, ushna* — cold, hot | *poshan* — nourishing |
+| 25 | *khatta* — sour | *poshan* — nourishing |
+| 26 | *meetha* — sweet | *poshan* — nourishing |
+| 27 | *chirchira* — pungent | *poshan* — nourishing |
+| 28 | *kadua* — bitter | *poshan* — nourishing |
+| 29 | *kasaila* — astringent | *poshan* — nourishing |
+| 30 | *khara* — salty | *poshan* — nourishing |
+
+MVD instead heads each position by the sensory quality and defines it through the shared contrast *poshan / shoshan* — nourishing / depleting — without separately defining a second member at each position (pp. 347–348).
+
+| # | MVD sensory heading | MVD defining contrast |
+|---:|---|---|
+| 24 | *sheet, ushna* — cold, hot | पोषण/शोषण।<br>Nurturing or depriving contact |
+| 25 | *khatta* — sour | पोषण/शोषण।<br>Taste recognised on contact of the tongue |
+| 26 | *meetha* — sweet | पोषण/शोषण।<br>Taste recognised on contact of the tongue |
+| 27 | *charpara* — pungent | पोषण/शोषण।<br>Taste recognised on contact of the tongue |
+| 28 | *kadua* — bitter | पोषण/शोषण।<br>Taste recognised on contact of the tongue |
+| 29 | *kasaila* — astringent | पोषण/शोषण।<br>Taste recognised on contact of the tongue |
+| 30 | *khara* — salty | पोषण/शोषण।<br>Taste recognised on contact of the tongue |
+
+MVD defines the shared contrast as: *poshan*, इकाई + अनुकूल इकाई; *shoshan*, इकाई − अनुकूल इकाई अथवा इकाई + प्रतिकूल इकाई — unit plus a conducive unit, against a unit lacking a conducive unit or joined with an unconducive unit (p. 348). AVD therefore establishes seven repeated *shakti* assignments, while MVD supplies one recurring criterion or correlate. The sources do not settle whether the seven repetitions denote seven distinct activities, one recurrent activity applied to seven sensory fields, or tabular shorthand. The inventory retains both views rather than converting either into the other.
+
+Smell and visible form are again two-name pairs.
+
+| # | *Bal* entry | Condensed MVD definition | *Shakti* entry | Condensed MVD definition |
+|---:|---|---|---|---|
+| 31 | *sugandh, durgandh* — pleasant, unpleasant smell | सुगन्ध/दुर्गन्ध।<br>What is received through smell | *shvasan, nihshvasan* — inhalation, exhalation | प्रश्वसन/विश्वसन।<br>Respiratory movement associated with smell |
+| 32 | *suroop, kuroop* — beautiful, ugly | सुरूप/कुरूप।<br>What is received through visible form | *swagat, aswagat* — affinity, otherness | अपनापन/परायापन।<br>Affinity or otherness in response to visible form |
+
+The purpose of the sensory group is stated with it: every awakened human recognises that the purpose of sensations is maintaining the health of the body (MVD, pp. 347–348). In delusion, taste and selection already operate over this sensory and instinctual field; the thirty-two pairs as defined are the awakened inventory of *mun*'s two generic activities, not a further set that remains unused from lack of need ([the architecture note](Research-Note-Jeevan-Architecture.md) §4.2, §6).
 
 ## 5. What the two presentations agree on
 
-The left–right order is the same in both. Each detailed heading places the member corresponding to the *bal* column first and the member corresponding to the *shakti* column second. The agreement extends to compound entries, where *mridu-kathor* stands against *vahan-samvahan* in the definitions exactly as the columns place them (MVD, p. 347; AVD, p. 93). Three closing entries differ in their actual names, so their agreement is positional rather than lexical (§8).
+The left–right order is the same where both presentations supply two names. Each detailed heading places the member corresponding to the *bal* column first and the member corresponding to the *shakti* column second. The agreement extends to compound entries, where *mridu-kathor* stands against *vahan-samvahan* in the definitions exactly as the columns place them (MVD, p. 347; AVD, p. 93). Temperature and the six tastes are the exception: AVD supplies two columns and repeats *poshan*, whereas MVD heads each sensory quality and defines it through *poshan/shoshan* without a separately defined second member (§4.5, §8). Three closing entries also differ in their actual names, so their agreement is positional rather than lexical (§8).
 
 That agreement is worth stating because the two presentations are otherwise independent: one is a table of names with no definitions, the other a run of definitions with no columns. Their concurrence on ordering is what allows either to be read against the other, and it means the *bal* member of any pair can be identified from the definitions alone by position, though not by content (§6).
 
@@ -182,6 +209,8 @@ This inventory does not sort those relations into a functional taxonomy. A propo
 
 **Closing names differ between the table and definitions.** The AVD table gives *chirchira*, *shvasan–nihshvasan*, and *swagat–aswagat* (pp. 93–94). The detailed MVD definitions instead give *charpara*, *prashvasan–vishvasan*, and *apanapan–parayapan* (p. 348). The inventory rows retain the AVD activity names because that table governs column assignment; their condensed definitions follow MVD. The variants are recorded rather than silently normalised.
 
+**AVD repeats *poshan* against temperature and the six tastes.** Table 1 prints *poshan* (nourishing) as the *shakti* member of rows 24–30, and the English WIP copies the gloss "(nourishing)" onto row 31, whose Hindi is *shvasan/nihshvasan*, inhalation and exhalation (pp. 93–94). MVD does not name a second activity in rows 24–30. It defines cold, heat, and each taste through *poshan/shoshan*, then defines nourishing as unit plus conducive unit and depleting as unit minus a conducive unit or plus an unconducive unit (p. 348). The inventory retains the AVD pair assignments and presents the MVD definition view beside them. It does not decide whether repeated *poshan* denotes seven distinct activities, one recurrent activity, or tabular shorthand. Named *poshan* also occurs independently at row 21 with *mata*.
+
 ***Shruti* is mistranslated once.** The Hindi definition of *sauhardta* includes *smriti aur shruti*, memory and *shruti* (MVD, p. 340). The accompanying English renders the latter “direct recognition,” a term used elsewhere for *sakshatkar*. The inventory retains *shruti* and uses its definition as realised articulation from the same activity list (MVD, p. 329).
 
 **Saujanyata twice.** In the detailed definitions the twelfth *vritti* heading reads "*Nyaya* (*saujanyata*), *Samvedna*", giving *saujanyata* parenthetically at *nyaya* although it is already the *shakti* member of the tenth pair (MVD, pp. 335–336). The tabulated enumeration has *nyaya* alone at position twelve.
@@ -197,7 +226,7 @@ This inventory does not sort those relations into a functional taxonomy. A propo
 ### Madhyasth Darshan
 
 - **MVD** — A. Nagraj, [*Madhyasth Darshan — Co-existentialism*](../../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.md), tr. Rakesh Gupta. Cited: each orbit holding one or more particles (p. 78; §8); the unpaired glossary of activity definitions, including *ichchha*, *kalpana*, and the alternate *medha* wording (pp. 323–326; §8); the 122 activities in the form of strength and power, that is, state and motion, with the per-faculty counts (p. 323; §§2–3); the eight dimensions of visualisation (p. 327; §§3, 4.3); the definitions of the 122 activities with their block headings and two-name pair headings (pp. 328–348; §§2, 4–8); the state and motion of awakening as bliss and *dhee* (p. 328; §4.2); *medha* as the carrier-bearer activity of memory (p. 330; §4.3); satiation and its dissemination as confirmation (p. 339; §4.4); the *shruti* wording in *sauhardta* (p. 340; §8); the five organs named in *priya* (p. 343; §8); the activities of the cognitive and work organs and the definitions of nourishing and depleting (pp. 347–348; §§4.5, 7–8).
-- **AVD** — A. Nagraj, [*Adhyatmvad*](../../References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf), tr. Sanjeev Chopra (work in progress). Cited: Table 1, the 122 conducts of awakened *jeevan*, its five columns, the faculty and orientation names, and the numbered *bal* and *shakti* activities of each locus, including closing-name variants (pp. 91–94; §§2–5, 8).
+- **AVD** — A. Nagraj, [*Adhyatmvad*](../../References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf), tr. Sanjeev Chopra (work in progress). Cited: Table 1, the 122 conducts of awakened *jeevan*, its five columns, the faculty and orientation names, and the numbered *bal* and *shakti* activities of each locus, including closing-name variants and the repeated *poshan* in the sensory *shakti* column (pp. 91–94; §§2–5, 8).
 
 ### Related studies and research notes
 

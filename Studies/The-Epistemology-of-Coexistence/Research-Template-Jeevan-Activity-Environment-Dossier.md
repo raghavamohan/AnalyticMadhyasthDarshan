@@ -1,6 +1,6 @@
 # Template: *Jeevan* Activity-to-Sphere Dossier
 
-**Purpose:** Use this template once for each of the sixty-one *bal/shakti* pairs, while completing one independent record for each member. The full study will therefore contain 122 activity-member analyses. Its first task is to derive the fields in which the activities of *jeevan* can develop, be performed, become evident, be evaluated and corrected, remain available, and be transmitted. Only after these fields have been derived should they be clustered into spheres and compared with family or any proposed institutional system.
+**Purpose:** Use this template once for each of the sixty-one AVD *bal/shakti* positions, while completing one independent record for each of the 122 column assignments. A record normally concerns an activity-member, but it may instead preserve a disputed slot where MVD supplies an object, quality, correlate, or shared criterion rather than an independently named operation. The method must not settle that documentary question in advance. Its first task is to derive the fields in which the assigned content can develop, be performed, become evident, be evaluated and corrected, remain available, and be transmitted. Only after these fields have been derived should they be clustered into spheres and compared with family or any proposed institutional system.
 
 **Methodological boundary:** The environment does not create or activate a constitutional activity of *jeevan*. It can support or obstruct receptivity, right orientation, embodied performance, public evidence, correction, continuity, and *sanskar*. Institution names must not be used as input categories. Follow the chain:
 
@@ -116,7 +116,7 @@ Mark every applicable family. More than one may apply.
 
 | Question | Analysis |
 |---|---|
-| Does each term name an activity of *jeevan*, or does one name an object, quality, role, relation, bodily correlate, condition, or result? | `[answer]` |
+| Does each term name an activity of *jeevan*, or does one name an object, quality, role, relation, bodily correlate, condition, result, repeated criterion, or disputed documentary slot? | `[answer]` |
 | Who or what bears each entry? | `[answer]` |
 | What can be inferred from the pairing? | `[answer]` |
 | What must not be inferred from the pairing? | `[answer]` |
