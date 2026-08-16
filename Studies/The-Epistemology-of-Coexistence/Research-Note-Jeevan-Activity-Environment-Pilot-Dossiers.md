@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 16, 2026, 6:37 AM IST
+**Edited on:** August 16, 2026, 7:30 AM IST
 
 **Status:** Internal research note (not a catalog entry). First completed use of the institution-neutral [activity-to-sphere dossier template](Research-Template-Jeevan-Activity-Environment-Dossier.md).
 
@@ -500,13 +500,13 @@ The proposed functions of education-*sanskar*, justice-security, health-restrain
 
 Only after all 122 records are clustered should the five functions be scored as covering, splitting, combining, or leaving residual requirements. This preserves the possibility that the five are strongly supported while preventing the method from manufacturing that conclusion.
 
-## 11. Protocol for the remaining 106 activity-members
+## 11. Pass status for the remaining 106 activity-members
 
-The next wave should be implemented in four passes.
+The extension from the eight pilots to the remaining members proceeds in four passes.
 
-### 11.1 Pass one - source and activity anatomy
+### 11.1 Pass one - source and activity anatomy completed
 
-Complete source checks, entry form, bearer, object, counterpart, endpoint, criterion, and pair semantics for every remaining member. Do not code any institution. Preserve uncertainty where a term names an object or result rather than an operation.
+The [Pass-One Anatomy Register](Research-Note-Jeevan-Activity-Anatomy-Pass-One.md) completes source checks, entry form, bearer, object, counterpart, endpoint, criterion, pair semantics, and documentary limits for the remaining 106 members. Together with the sixteen pilot records, all 122 column assignments now have activity-anatomy records. Institution names were not used as coding categories, and terms naming roles, relationships, objects, bodily processes, properties, conditions, or results were preserved in those forms rather than forced into an operation schema.
 
 ### 11.2 Pass two - lifecycle and evidence
 
@@ -532,4 +532,5 @@ For each sphere, test whether durable organisation is required and derive the mi
 - [*Jeevan Architecture*](Research-Note-Jeevan-Architecture.md) - the account of faculties, receptivity, embodiment, complete functioning, and *sanskar*.
 - [*The Sixty-One Activity Pairs of Jeevan*](Research-Note-Activity-Pair-Inventory.md) - the documentary inventory and textual variants governing the pair assignments.
 - [*A Functional Model of Jeevan*](Research-Note-Jeevan-Functional-Model.md) - the separation of orientation, expression, consequence, evaluation, inquiry, and lasting organisation.
+- [*Pass-One Anatomy of the Remaining Jeevan Activities*](Research-Note-Jeevan-Activity-Anatomy-Pass-One.md) - source and activity-anatomy records for the 106 non-pilot members.
 - [*From the Activity Architecture of Jeevan to Universal Human Order*](Research-Note-Jeevan-To-Universal-Human-Order.md) - the five-function hypothesis to be compared with the bottom-up result only after full sphere clustering.
