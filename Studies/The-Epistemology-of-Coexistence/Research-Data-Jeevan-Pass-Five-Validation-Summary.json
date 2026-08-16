@@ -1,0 +1,60 @@
+{
+  "method": "pass-five-structured-counterfactual-and-adverse-case-validation",
+  "empirical_status": "analytical-only; no field observations or causal outcome estimates",
+  "pass_four_source": "Research-Data-Jeevan-Pass-Four-Restored-Coverage.csv",
+  "pass_four_member_count": 122,
+  "pass_four_selected_bundle": "B04",
+  "case_count": 19,
+  "challenge_class_counts": {
+    "adverse-condition": 7,
+    "false-positive": 2,
+    "family-equivalence": 2,
+    "family-false-positive": 1,
+    "function-boundary": 6,
+    "universal-access": 1
+  },
+  "analytical_result_counts": {
+    "arrangement-rejected": 2,
+    "combined-delivery-conditionally-adequate": 1,
+    "equal-availability-refined": 1,
+    "equivalent-arrangement": 1,
+    "equivalent-with-portability": 1,
+    "false-positive-rejected": 2,
+    "functions-remain-priority-rules-refined": 1,
+    "long-horizon-evidence-strengthened": 1,
+    "outside-correction-required": 1,
+    "plural-evidence-required": 1,
+    "power-safeguards-strengthened": 1,
+    "scale-and-portability-refined": 1,
+    "specialised-organisation-no-new-function": 4,
+    "universality-test-failed": 1
+  },
+  "model_effect_counts": {
+    "survives": 4,
+    "survives-with-refinement": 15
+  },
+  "functions_tested": [
+    "U01",
+    "U02",
+    "U03",
+    "U04",
+    "U05"
+  ],
+  "safeguards_tested": [
+    "X01",
+    "X02",
+    "X03",
+    "X04",
+    "X05"
+  ],
+  "family_invariant_condition_count": 8,
+  "new_continuity_object_found": false,
+  "family_conclusion": "The family-like requirement survives as a durable shared-life invariant, but biological kinship and co-residence are neither sufficient nor uniquely necessary.",
+  "function_conclusion": "The five continuity responsibilities remain jointly adequate for the tested cases; administrative combination is conditional on distinct evidence, rights, and correction.",
+  "organization_conclusion": "Exactly five organizations is rejected. Specialized scientific, governing, ecological, or care bodies may protect interfaces without adding a sixth continuity object.",
+  "universality_conclusion": "Universal availability requires person-level capability, voice, access, contribution, and correction with accommodation; aggregate performance by a competent minority is insufficient.",
+  "remaining_validation": "Independent recoding, real-case observation, longitudinal evidence, threshold calibration, and comparison with additional institutional bundles remain open.",
+  "pass_four_coverage_sha256": "f5e421ad86be8b8c16b0f861f66598bb42bce96a22d8dbb53b0379de544fc36c",
+  "cases_sha256": "c1a9445197e9b3a65e541d0dbb5d57c192e1972fd3b8342507ea542da1354fc5",
+  "evidence_protocol_sha256": "f30fb574add0e37a46d90dc23c63fb4356d02fba97cb678f9da372aa6d39078c"
+}
