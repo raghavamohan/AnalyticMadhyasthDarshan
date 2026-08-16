@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 16, 2026, 9:32 AM IST
+**Edited on:** August 16, 2026, 10:09 AM IST
 
 **Status:** Internal research note (not a catalog entry). First completed use of the institution-neutral [activity-to-sphere dossier template](Research-Template-Jeevan-Activity-Environment-Dossier.md).
 
@@ -493,7 +493,7 @@ A sphere warrants durable organisation when five conditions converge: its endpoi
 
 The result is a set of institutional requirements, not a settled institutional count. One durable arrangement may sustain several spheres, while one sphere may require several mutually correcting arrangements.
 
-### 10.6 The five-function hypothesis remains a later comparison
+### 10.6 The five-function hypothesis is tested in Pass Four
 
 The proposed functions of education-*sanskar*, justice-security, health-restraint, production-work, and exchange-reserve must now be treated as a hypothesis about how derived spheres could be bundled. The pilot is too small and deliberately contrastive to confirm that exactly five bundles are exhaustive or irreducible. The full analysis must ask:
 
@@ -503,11 +503,11 @@ The proposed functions of education-*sanskar*, justice-security, health-restrain
 - whether the durable shared-life sphere is a foundational relation, an institution, or both; and
 - whether different organisational forms can realise the same invariant bundle without loss.
 
-Only after all 122 records are clustered should the five functions be scored as covering, splitting, combining, duplicating, or leaving residual requirements. They must also be compared with other plausible bundles. This preserves the possibility that the five are strongly supported while preventing the method from manufacturing that conclusion or confusing minimality with numerical uniqueness.
+The [Pass-Four durable-function analysis](Research-Note-Jeevan-Durable-Functions-Pass-Four.md) completes that comparison after anonymous clustering. It derives five unnamed continuity channels from all 122 records and only then restores the proposed social labels. The five-function basis covers all 185 member-channel obligations without forced combination or unsupported splitting. Three- and four-function alternatives either leave bridge requirements without a durable bearer or concentrate performance and correction; a seven-function alternative remains possible but adds two subdivisions not required at this grain. The result supports sufficiency and practical minimality of five functions, not exactly five organisations or numerical uniqueness.
 
 ## 11. Refined pass sequence for the full 122-member analysis
 
-The pilot and anatomy register together cover all 122 members, but coverage is not yet a derived social model. The normalization gate, lifecycle pass, and anonymized multi-resolution clustering are now complete. The remaining work begins with durable-function and comparative institutional analysis and ends with counterfactual and practical validation.
+The pilot and anatomy register together cover all 122 members. Normalization, lifecycle coding, anonymized multi-resolution clustering, and durable-function comparison are now complete. The remaining work is counterfactual and practical validation.
 
 ### 11.1 Pass one - source and activity anatomy completed
 
@@ -525,9 +525,9 @@ All 122 members now have independently coded internal dependencies, development 
 
 The [Pass-Three Activity-Sphere Derivation](Research-Note-Jeevan-Activity-Spheres-Pass-Three.md) freezes the sixteen-position vector, anonymizes all 122 records, and tests three coarse, eight middle, and fourteen fine clusters under include-open, drop-open, and residual-holdout treatments. Four middle cores survive both sensitivity tests; two recurrent fields remain bridges and two remain residuals. Fifty-three members have overlapping membership. Restored comparison shows that the partition does not reproduce the faculties or source pairs and only partly recovers the pilot atlas.
 
-### 11.5 Pass Four - durable functions and comparative institutional bundling
+### 11.5 Pass Four - durable functions and comparative institutional bundling completed
 
-For each stable sphere, test whether durable organisation is required and derive the minimum roles, norms, resources, decision rights, safeguards, and correction mechanisms before assigning an institution name. Compare more than one bundling wherever possible. Score the family and five-function proposal for coverage, residuals, redundancy, forced combination, unnecessary splitting, incompatible purposes, concentrated power, and loss of independent correction. Establish sufficiency and practical minimality separately; neither establishes uniqueness.
+The [Pass-Four durable-function analysis](Research-Note-Jeevan-Durable-Functions-Pass-Four.md) applies five durability tests to every anonymous member, derives minimum roles, norms, resources, decision rights, safeguards, records, and correction paths for each resulting function, and compares five bundles. The selected five-continuity basis provides complete coverage with no forced merge or unsupported split and preserves independent correction. A family-like integrative field is recovered from durable relational, intergenerational, bodily, material, and distributive requirements without prescribing one household form.
 
 ### 11.6 Pass Five - counterfactual and practical validation
 
@@ -550,4 +550,5 @@ The strongest conclusion this method can establish is not that one concrete soci
 - [*Pass-One Anatomy of the Remaining Jeevan Activities*](Research-Note-Jeevan-Activity-Anatomy-Pass-One.md) - source and activity-anatomy records for the 106 non-pilot members.
 - [*Pass-Two Lifecycle and Evidence Coding of All 122 Jeevan Members*](Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.md) - the completed normalization, internal-dependency, lifecycle, evaluation, correction, and continuity matrix and the frozen handoff to Pass Three.
 - [*Pass-Three Derivation of Jeevan Activity Spheres*](Research-Note-Jeevan-Activity-Spheres-Pass-Three.md) - the completed anonymous matrix, multi-resolution clustering, stable sphere cores, bridge fields, residuals, and post-restoration tests.
-- [*From the Activity Architecture of Jeevan to Universal Human Order*](Research-Note-Jeevan-To-Universal-Human-Order.md) - the five-function hypothesis to be compared with the bottom-up result only after full sphere clustering.
+- [*Pass-Four Derivation of Durable Social Functions from Jeevan*](Research-Note-Jeevan-Durable-Functions-Pass-Four.md) - the completed durability, family-field, and institutional-bundle comparison.
+- [*From the Activity Architecture of Jeevan to Universal Human Order*](Research-Note-Jeevan-To-Universal-Human-Order.md) - the five-function hypothesis now compared with the bottom-up result in Pass Four.
