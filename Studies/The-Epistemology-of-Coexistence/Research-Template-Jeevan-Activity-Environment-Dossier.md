@@ -19,7 +19,23 @@ Use this template with [*The Sixty-One Activity Pairs of Jeevan*](Research-Note-
 | **H** | Provisional hypothesis about a sphere, arrangement, or institution |
 | **O** | Open question or unresolved interpretation |
 
-### Strength of an external requirement
+Apply these codes to every derived field, not only to the pair relation or the final claim. In particular, the bearer, object, counterpart, endpoint, criterion, required condition, evaluator, and universality claim each need their own status. A directly stated term does not make every interpretation of that term direct.
+
+### Type of external relation
+
+| Code | Meaning |
+|---|---|
+| **CONST** | Constitutive: the activity or relation cannot be the kind of fulfilment claimed without this relation |
+| **ENAB** | Enabling: supplies capacity, access, skill, means, or opportunity for operation |
+| **EVID** | Evidential: makes correct operation or its consequence available for assessment |
+| **PROT** | Protective: prevents coercion, injury, exclusion, or distortion from disabling operation |
+| **CORR** | Corrective or restorative: enables disagreement, error recognition, repair, appeal, or revision |
+| **SUST** | Sustaining: maintains the activity's conditions through time, recurrence, reserve, or maintenance |
+| **TRANS** | Transmissive: carries understanding, competence, practice, records, or *sanskar* across persons or generations |
+
+One condition may have more than one relation type. Explain each code instead of treating the code as the argument.
+
+### Strength and lifecycle scope of an external requirement
 
 | Code | Meaning |
 |---|---|
@@ -28,6 +44,28 @@ Use this template with [*The Sixty-One Activity Pairs of Jeevan*](Research-Note-
 | **C** | Context-dependent: required for some embodiments, objects, persons, or scales |
 | **U** | Unclear: the sources or analysis do not settle the relation |
 | **-** | No material relation identified |
+
+Attach strength to the precise lifecycle claim rather than to the activity in general:
+
+| Scope code | Question |
+|---|---|
+| **OCC** | Is the condition required for the entry to occur or be instantiated at all? |
+| **EXP** | Is it required for embodied or relational expression? |
+| **EVD** | Is it required for valid evidence or competent evaluation? |
+| **COR** | Is it required for correction, restoration, or protection against persistent distortion? |
+| **CON** | Is it required for reliable continuity, sustaining, or transmission? |
+
+Write combined codes such as **N-EVD**, **S-CON**, or **C-EXP**. This prevents a condition necessary for public evidence from being overstated as necessary for the inward occurrence of an activity.
+
+### Level of universality
+
+| Code | Meaning |
+|---|---|
+| **U-J** | Constitutional universal: follows from the common architecture or goal of *jeevan* |
+| **U-H** | Embodied-human universal: follows when that architecture operates through a body, relationships, material means, and consequence |
+| **V-C** | Contextual design variable: depends on culture, ecology, technology, scale, history, or a chosen organisational form |
+
+The strongest defensible result is normally an invariant at **U-J** or **U-H**, together with an equivalence class of **V-C** arrangements that could satisfy it. Do not infer one unique institution where several arrangements remain compatible with the invariant.
 
 ### Participation topology
 
@@ -91,6 +129,10 @@ Record the source-given left and right assignments. Do not infer the assignment 
 
 `[Missing definition, divergent name, unclear syntax, absent pair relation, or none identified.]`
 
+**Source-embedded social vocabulary:**
+
+`[Record any directly named relation, role, family form, social function, or order - for example teacher, parent, family, production, education-sanskar, or universal order. Mark it D as a textual commitment, but do not count it as an independent bottom-up discovery.]`
+
 ## 2. Pair semantics
 
 ### 2.1 Working classification
@@ -128,13 +170,28 @@ Mark every applicable family. More than one may apply.
 | Field | Analysis |
 |---|---|
 | Activity member | `[term and gloss]` |
-| Entry form and bearer | `[inner operation / orientation / act / relation / role / object / quality / bodily correlate / material condition / result / other; bearer]` |
+| Entry form | `[inner operation or orientation / role or relation / material or sensory property / bodily process or state / criterion or result / other]` |
+| Ontological locus | `[jeevan / body / relationship / material unit or process / result field / disputed]` |
+| Immediate bearer | `[who or what bears the entry]` |
 | Internal function | `[what is established, recognised, accepted, held, evaluated, selected, or undertaken]` |
 | Object or content | `[what it is about]` |
-| Counterpart or participant | `[the other person, body, object, collective, nature, or none]` |
+| Constitutive counterpart | `[the other person, body, object, collective, nature, or none without which the entry is not the kind of relation claimed]` |
+| Performance participants | `[who must participate for expression, if anyone beyond the bearer]` |
+| Consequence or affected field | `[persons, relationships, bodies, collectives, material units, nature, future participants, or inward only]` |
+| Evidence and evaluation field | `[where and to whom correctness can become evident]` |
 | Endpoint of fulfilment | `[the relation or result toward which correct operation tends]` |
 | Governing criterion | `[what distinguishes correct from distorted operation]` |
 | Characteristic distortion | `[what can imitate or obstruct it]` |
+
+**Field-level provenance ledger:**
+
+| Field | Claim | Status | Source or inference |
+|---|---|---|---|
+| Entry form and locus | `[claim]` | `[D/I/H/O]` | `[citation or reasoning]` |
+| Bearer and object | `[claim]` | `[D/I/H/O]` | `[citation or reasoning]` |
+| Counterpart and participants | `[claim]` | `[D/I/H/O]` | `[citation or reasoning]` |
+| Consequence and evidence fields | `[claim]` | `[D/I/H/O]` | `[citation or reasoning]` |
+| Endpoint and criterion | `[claim]` | `[D/I/H/O]` | `[citation or reasoning]` |
 
 ### 3.2 Dependencies within *jeevan*
 
@@ -161,16 +218,28 @@ Mark every applicable family. More than one may apply.
 
 Do not ask merely where the activity is located. Ask what is needed for its entire effective life.
 
-| Stage | Required condition or affordance | Strength | Evidence or rationale |
-|---|---|---:|---|
-| Development and receptivity | `[study, experience, dialogue, care, practice, bodily availability, other]` | `[N/S/C/U/-]` | `[reason]` |
-| Right orientation | `[realisation, understanding, recognised criterion, freedom from distortion]` | `[N/S/C/U/-]` | `[reason]` |
-| Embodied performance | `[skill, health, communication, tools, time, material access, cooperation]` | `[N/S/C/U/-]` | `[reason]` |
-| Consequence visibility | `[access to affected persons, objects, records, natural cycles, delayed effects]` | `[N/S/C/U/-]` | `[reason]` |
-| Evaluation | `[who evaluates, by what criterion, using what evidence]` | `[N/S/C/U/-]` | `[reason]` |
-| Correction and restoration | `[dialogue, retraining, appeal, redesign, repair, protective separation, other]` | `[N/S/C/U/-]` | `[reason]` |
-| Sustaining | `[repetition, maintenance, role continuity, material reserve, protection]` | `[N/S/C/U/-]` | `[reason]` |
-| Transmission | `[teaching, exemplarity, participation, records, succession, sanskar]` | `[N/S/C/U/-]` | `[reason]` |
+First select the path appropriate to the entry form. The common stages below remain a checklist, but they must not convert an object, property, body state, role, or result into a private mental operation.
+
+| Entry form | Primary lifecycle question |
+|---|---|
+| Inner operation or orientation | What makes right orientation, expression, evidence, correction, and continuity possible? |
+| Role or relation | What recognisable counterpart, responsibilities, reciprocity, protection, and succession constitute the relation? |
+| Material or sensory property | What access, discrimination, measurement, use, consequence, and correction make the property relevant? |
+| Bodily process or state | What bodily conditions, care, competence, observation, and restoration maintain capability? |
+| Criterion or result | What operation produces it, who is affected, what evidence distinguishes it from an imitation, and how is it sustained? |
+
+Use one compact classification of the form `{relation type}; {strength-scope}; {universality}; {status}`, for example `EVID; N-EVD; U-H; I`.
+
+| Stage | Required condition or affordance | Classification | Evidence or rationale |
+|---|---|---|---|
+| Development and receptivity | `[study, experience, dialogue, care, practice, bodily availability, other]` | `[type; strength-scope; universality; status]` | `[reason]` |
+| Right orientation | `[realisation, understanding, recognised criterion, freedom from distortion]` | `[type; strength-scope; universality; status]` | `[reason]` |
+| Embodied performance | `[skill, health, communication, tools, time, material access, cooperation]` | `[type; strength-scope; universality; status]` | `[reason]` |
+| Consequence visibility | `[access to affected persons, objects, records, natural cycles, delayed effects]` | `[type; strength-scope; universality; status]` | `[reason]` |
+| Evaluation | `[who evaluates, by what criterion, using what evidence]` | `[type; strength-scope; universality; status]` | `[reason]` |
+| Correction and restoration | `[dialogue, retraining, appeal, redesign, repair, protective separation, other]` | `[type; strength-scope; universality; status]` | `[reason]` |
+| Sustaining | `[repetition, maintenance, role continuity, material reserve, protection]` | `[type; strength-scope; universality; status]` | `[reason]` |
+| Transmission | `[teaching, exemplarity, participation, records, succession, sanskar]` | `[type; strength-scope; universality; status]` | `[reason]` |
 
 ### 3.5 Evidence profile
 
@@ -182,6 +251,9 @@ Do not ask merely where the activity is located. Ask what is needed for its enti
 | Collective evidence | `[participation, public trust, correct procedure, distribution, other]` |
 | Ecological or long-horizon evidence | `[regeneration, absence of displaced harm, continuity, other]` |
 | Who is competent to evaluate? | `[bearer / counterpart / affected persons / skilled peer / public body / multiple]` |
+| What does each evaluator know directly? | `[standpoint-specific access and limits]` |
+| How are disagreements adjudicated? | `[dialogue, repeat observation, appeal, independent review, multiple evidence fields, other]` |
+| What correction follows a negative evaluation? | `[learning, restoration, redesign, protection, repair, withdrawal, other]` |
 | Risk of false positive | `[compliance, habit, status, charisma, profit, unilateral satisfaction, output, other]` |
 
 ### 3.6 Micro-sphere statement
@@ -266,6 +338,14 @@ Assess both members without treating the rows as a mechanical sequence.
 
 `[Identify arrangements that systematically obstruct the activity and state the mechanism. Do not reject a form merely because it differs from a preferred model.]`
 
+### 6.5 Structured feature vector for clustering
+
+Before comparing cases, freeze a common feature vector for all 122 records:
+
+`[entry form; ontological locus; object; constitutive counterpart; performance participants; affected field; evidence field; endpoint; criterion; topology; relation types; strength-scope codes; evaluator standpoints; correction path; universality levels]`
+
+Cluster from this vector after replacing activity names, faculties, pair labels, sphere names, and institution terms with anonymous IDs. Permit overlapping membership and residual cases. Repeat clustering at coarse, middle, and fine granularities, then test whether assignments remain stable when uncertain fields or provisional weights change. The eight-pilot atlas is a hypothesis to compare with the result, not a seed that later members must enter. Overlay names, faculties, pair positions, and source-embedded social vocabulary only after the blind structure is recorded.
+
 ## 7. Scale and interfaces
 
 | Scale | What must be available here? | Why can it or can it not be handled at a more immediate scale? |
@@ -324,19 +404,23 @@ Copy one record for each member into the 122-member matrix. A vertical record is
 |---|---|---|
 | Activity ID | `[ID-A]` | `[ID-B]` |
 | Entry form and bearer | `[entry]` | `[entry]` |
-| Object or counterpart | `[entry]` | `[entry]` |
+| Ontological locus | `[entry]` | `[entry]` |
+| Object and constitutive counterpart | `[entry]` | `[entry]` |
+| Performance participants | `[entry]` | `[entry]` |
+| Consequence and evidence fields | `[entry]` | `[entry]` |
 | Participation topology | `[codes]` | `[codes]` |
 | Endpoint of fulfilment | `[entry]` | `[entry]` |
 | Governing criterion | `[entry]` | `[entry]` |
-| Necessary lifecycle conditions | `[short list]` | `[short list]` |
+| Lifecycle classifications | `[type; strength-scope; universality]` | `[type; strength-scope; universality]` |
 | Principal evidence | `[entry]` | `[entry]` |
+| Evaluator and correction path | `[entry]` | `[entry]` |
 | Provisional micro-sphere | `[name]` | `[name]` |
 | Characteristic obstruction | `[failure]` | `[failure]` |
 | Confidence | `[high / medium / low]` | `[high / medium / low]` |
 
 ## 12. Later institution test - do not complete during first-pass coding
 
-Complete this section only after all 122 member records have been clustered without institution labels.
+Complete this section only after all 122 member records have passed normalization and have been clustered without activity names, faculty labels, pair labels, sphere names, or institution labels.
 
 | Question | Analysis |
 |---|---|
@@ -344,22 +428,45 @@ Complete this section only after all 122 member records have been clustered with
 | What roles, norms, resources, decision rights, safeguards, and correction mechanisms must persist? | `[answer]` |
 | Can one arrangement maintain this sphere together with others? | `[answer]` |
 | Does the arrangement require a distinct institution, a cross-cutting method, a household or relationship form, or only personal competence? | `[answer]` |
-| How does the result compare with the proposed five functions? | `[covered / split / combined / residual / premature]` |
+| Which substantially different bundles could maintain the same invariants? | `[at least two alternatives where plausible]` |
+| Does bundling create incompatible purposes, concentrated power, or the loss of independent correction? | `[answer]` |
+| How does each result compare with the proposed five functions? | `[covered / split / combined / redundant / residual / incompatible / premature]` |
+| Is the proposed bundle sufficient, minimal, and stable? | `[separate answers; do not infer uniqueness from minimality]` |
+
+## 13. Validation pass - complete only after institutional comparison
+
+Test the derived invariants and proposed arrangements against alternatives and adverse cases:
+
+1. Can a materially different household, organisational, legal, or technological arrangement satisfy the same invariant?
+2. Does the model still work under scarcity, coercion, dependency, disagreement, disability, ecological delay, and concentrated technical power?
+3. Can compliant behaviour or short-term output create a false positive while the activity remains distorted?
+4. Can immediate participants report fulfilment while costs are displaced to third parties, nature, or future generations?
+5. Does an independent evaluator retain access to evidence and a practical route to correction?
+6. Do surviving counterexamples require revision of the feature coding, sphere boundary, invariant, or institutional bundle?
+
+The validated conclusion should distinguish what is derived from what is merely compatible. The architecture of *jeevan* may derive universal functional and relational invariants without uniquely deriving one concrete society.
 
 ## Completion checklist
 
 - [ ] Both source definitions were checked against the primary-text locations.
 - [ ] Translation variants and documentary uncertainties were recorded.
 - [ ] Each member's entry form and bearer were identified before assigning functional meaning.
+- [ ] Ontological locus, operation field, consequence field, and evidence field were kept separate.
+- [ ] Every endpoint, criterion, evaluator, requirement, and universality claim has its own D/I/H/O status.
+- [ ] Source-embedded social vocabulary was tagged as textual input rather than bottom-up discovery.
 - [ ] The two members were analysed separately; the pair relation was not assumed from the English glosses.
 - [ ] The object, counterpart, endpoint, governing criterion, and false positive were recorded for each member.
 - [ ] Participation topology was derived from the activity rather than from an assumed household or institution.
 - [ ] Development, orientation, performance, consequence visibility, evaluation, correction, sustaining, and transmission were all considered.
-- [ ] Necessary conditions were distinguished from supportive and context-dependent conditions.
+- [ ] External conditions were classified by relation type, lifecycle scope, strength, and universality level.
+- [ ] The lifecycle path matched the entry form instead of treating every slot as a mental operation.
 - [ ] First-person, relational, bodily, material, collective, ecological, and long-horizon evidence were considered where relevant.
 - [ ] Each member has an institution-neutral micro-sphere statement.
 - [ ] Similarity with other members was based on recurring configurations, endpoints, criteria, and lifecycle conditions.
+- [ ] Clustering used anonymized feature vectors, allowed overlap and residuals, and was tested at more than one granularity.
 - [ ] Alternative arrangements, false positives, third-party effects, residuals, and universality were tested.
 - [ ] No family form, institution, or set of five functions was used as a premise.
 - [ ] Institution mapping was deferred until after bottom-up clustering.
+- [ ] More than one institutional bundling was compared where plausible; sufficiency, minimality, and uniqueness were not conflated.
+- [ ] Adverse-case and counterfactual validation was completed before treating an institutional model as established.
 - [ ] Two master-matrix records were completed.

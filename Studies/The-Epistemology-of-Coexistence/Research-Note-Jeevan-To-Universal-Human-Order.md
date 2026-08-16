@@ -2,15 +2,15 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 14, 2026, 12:02 PM IST
+**Edited on:** August 16, 2026, 8:23 AM IST
 
 **Status:** Internal research note (not a catalog entry). Compiled to support [*The Epistemology of Coexistence*](The-Epistemology-of-Coexistence.md).
 
-**Scope:** This note asks what follows for family, society, education, science, work, production, exchange, and governance if Madhyasth Darshan's account of *jeevan* is accepted. It begins with the five faculties, ten generic activities, and sixty-one pairs or 122 detailed activities; identifies the embodied and social conditions under which they can become effectively ordered; and derives the functional requirements of a universal human order. It distinguishes those requirements from particular household forms, technologies, property systems, or administrative designs that the activity architecture does not by itself determine.
+**Scope:** This note asks what follows for family, society, education, science, work, production, exchange, and governance if Madhyasth Darshan's account of *jeevan* is accepted. It begins with the five faculties, ten generic activities, and sixty-one pairs or 122 detailed activity positions; identifies the embodied and social conditions under which they can become effectively ordered; and states a provisional derivation of the functional requirements of a universal human order. It distinguishes direct textual commitments from bottom-up inference and distinguishes universal functional invariants from particular household forms, technologies, property systems, institutional counts, or administrative designs that the activity architecture does not by itself determine.
 
 Madhyasth Darshan holds that every human being is the joint form of a constitutionally complete sentient *jeevan* and a physicochemical body. The constitution of *jeevan* is the same in every human: *atma*, *buddhi*, *chitta*, *vritti*, and *mun*, with their ten generic and 122 detailed activities. Bodies, skills, languages, circumstances, and acquired *sanskar* differ, but the capacity for realisation, understanding, contemplation, deliberation, valuation, choice, relationship, and evidence does not belong to one culture or class of humans alone.
 
-This common architecture supports a universal social conclusion, but not by a direct move from five faculties to one prescribed institution. The architecture first establishes the human aim and the form of awakened activity. The human joint form then establishes the need for bodily means, work, and material consequence. Relationship and evaluation establish the need for mutuality and public evidence. Learning and *sanskar* establish the need for an intergenerational environment. From these together follows an ecology of awakening: family as the first sustained field of relationship, need, education, work, and evaluation; society as the wider coordination of education, justice, health, production, and exchange; and universal orderliness as participation open to every human on the same basis.
+This common architecture supports a universal social conclusion, but not by a direct move from five faculties to one prescribed institution. The architecture first establishes the human aim and the form of awakened activity. The human joint form then establishes the need for bodily means, work, and material consequence. Relationship and evaluation establish the need for mutuality and public evidence. Learning and *sanskar* establish the need for an intergenerational environment. These yield universal functional and relational constraints on any adequate environment. Family as the first sustained field of relationship, need, education, work, and evaluation, and society as the wider coordination of education, justice, health, production, and exchange, are both directly present in the textual social proposal and provisionally supported by this functional argument. Their exact form and bundling remain conclusions to test rather than premises of the 122-member analysis.
 
 ## 1. The form and limit of the derivation
 
@@ -22,6 +22,8 @@ The activity architecture consequently supports three necessities. It requires a
 
 Family and society enter through these necessities. They are not additional organs of *jeevan*, and a family or institution does not become a larger sentient unit. They are durable arrangements among persons through which the activities of each *jeevan* can be educated, expressed, evaluated, corrected, and carried into tradition. The derivation is therefore functional and conditional: if restfulness is the aim, if its evidence is complete conduct, and if every human has the same activity architecture, then the arrangements that make complete conduct possible must be universally available.
 
+This inference underdetermines concrete form. It can establish that certain relationships, capabilities, evidence channels, protections, correction paths, and continuities must be available; it cannot establish one household composition, one technology, one legal mechanism, or exactly one institutional partition merely from the number or names of the activities. The target of derivation is therefore an invariant plus an equivalence class of arrangements capable of satisfying it. A stronger claim requires showing that alternatives fail the invariant under comparison and adverse-case testing.
+
 ## 2. The 122 activities and the meaning of complete functioning
 
 The five faculties bear ten generic activities. Their detailed contents are enumerated as sixty-one pairs and 122 activities:
@@ -30,7 +32,7 @@ $$
 2\times(1+2+8+18+32)=122.
 $$
 
-| Faculty | Generic pair | Pairs | Activities | Institutional significance |
+| Faculty | Generic pair | Pairs | Activities | Provisional external implication |
 |---|---|---:|---:|---|
 | *Atma* | Realisation–authenticity | 1 | 2 | Understanding must be allowed to become truthful evidence rather than remain a private assertion. |
 | *Buddhi* | Enlightenment–resolve | 2 | 4 | Education and decision must cultivate definiteness and responsible resolve rather than obedience, fear, or borrowed belief. |
@@ -38,7 +40,7 @@ $$
 | *Vritti* | Deliberation–analysis | 18 | 36 | Alternatives and consequences must be assessed through justice, *dharma*, and truth while retaining the subordinate tests of pleasure, health, and material result. |
 | *Mun* | Taste–selection | 32 | 64 | Daily choices in sensation, relationship, consumption, work, and use must have humane possibilities available for selection and fulfilment. |
 
-The counts and the assignment to activity in state and activity in motion are directly tabulated in the corpus (MVD, p. 323; AVD, pp. 91–94). The sixty-one definitions do not all express one uniform relation, so the table gives a faculty-level institutional reading rather than claiming that a separate institution corresponds to every pair. The detailed inventory remains necessary before stronger pair-by-pair conclusions can be defended.
+The counts and the assignment to activity in state and activity in motion are directly tabulated in the corpus (MVD, p. 323; AVD, pp. 91–94). The sixty-one definitions do not all express one uniform relation, so the last column gives a faculty-level hypothesis about outward implication rather than a derived institutional mapping. The detailed anatomy, lifecycle, evidence, and clustering analysis remains necessary before stronger conclusions can be defended.
 
 The phrase “all 122 activities functioning” also needs precision. The constitutional provision of activity is complete; awakening does not add another quantity of power. Under delusion, taste, selection, analysis, pleasure–health–profit deliberation, and visualisation already support sensation, bodily life, technical skill, imagination, and social success. What is incomplete is the effective depth, criterion, coordination, and evidential reach of activity. Complete functioning means that all 122 can become effectively ordered by realisation and understanding, operate in their proper fields, and become evident in humane conduct (MVD, pp. 79, 275–279, 323; AVD, pp. 91–94; JV, pp. 73–74).
 
@@ -105,7 +107,7 @@ Human organisation requires commonness of cause, goal, and programme. The cause 
 
 ### 5.1 A five-part functional closure
 
-The plausibility of exactly five institutional functions does not arise from repeating the number of *jeevan*'s faculties at the social scale. It arises from five distinguishable interfaces or continuities that the human activity cycle must maintain. Understanding must continue between persons and generations; present relationships must remain just and protected; the *jeevan*–body joint form must remain bodily capable; material provision must be created through work with nature; and provision must circulate among families and across time. These yield the five functions at a common level of abstraction.
+The plausibility of exactly five institutional functions does not arise from repeating the number of *jeevan*'s faculties at the social scale. The texts directly propose five dimensions, while the functional argument identifies five distinguishable interfaces or continuities that could explain that proposal. Understanding must continue between persons and generations; present relationships must remain just and protected; the *jeevan*–body joint form must remain bodily capable; material provision must be created through work with nature; and provision must circulate among families and across time. These support the five functions at a common level of abstraction, subject to the full activity-to-sphere comparison.
 
 | Interface or continuity | Institutional question | Function |
 |---|---|---|
@@ -119,7 +121,7 @@ The five form a plausible minimal closure because removing any one leaves the cy
 
 Several apparent additional functions can be placed across this basis without disappearing. Science is a method of inquiry used in education, health, production, justice, and ecological evaluation. Governance coordinates and protects all five. Ecology supplies a correctness condition on health, production, exchange, and right-use. Culture and communication carry meaning and *sanskar*; care operates through family, education, health, and justice. These may warrant separate organisations, but they do not necessarily introduce a sixth kind of institutional problem.
 
-This is an argument for sufficiency and practical minimality at the chosen grain, not a proof of numerical uniqueness. The five can be subdivided or regrouped, and the detailed sixty-one-pair inventory has not yet been classified by institutional field. A stronger claim that the five are exhaustive would require showing that every one of the 122 activities finds an adequate field of development, expression, and correction within their joint operation, and that no activity requires a sixth irreducible function.
+This is an argument for provisional sufficiency and practical minimality at the chosen grain, not a proof of numerical uniqueness. The five can be subdivided or regrouped, and their purposes may require independently correcting organisations even when they remain five functions. A stronger claim that the five are exhaustive would require showing that every one of the 122 members finds an adequate field of development, expression, evidence, correction, and continuity within their joint operation; that no member requires a residual function; and that competing bundles do not preserve the same invariants as well or better.
 
 ### 5.2 Requirements placed on the five dimensions
 
@@ -227,12 +229,14 @@ The derivation has several evidential levels.
 
 | Level | Claims |
 |---|---|
-| Directly stated | The common constitution of *jeevan*; five faculties; ten and 122 activities; restfulness as the aim; inner-to-outer accord; social and educative conditions of receptivity; work and behaviour as evidence; the four values and four human goals; the family and five dimensions of orderliness. |
-| Structural inference | Awakening requires an ecology of development, expression, and correction; stable relationships are necessary for mutual evidence; institutions always shape criteria through their conduct; complete functioning means correct depth and coordination rather than added power; and the five dimensions form a plausible minimal closure of the human activity cycle at the chosen level of abstraction. |
+| Directly stated | The common constitution of *jeevan*; five faculties; ten and 122 activity positions; restfulness as the aim; inner-to-outer accord; social and educative conditions of receptivity; work and behaviour as evidence; the four values and four human goals; and the textual proposal of family and five dimensions of orderliness. |
+| Structural inference | Awakening requires an ecology of development, expression, evidence, correction, and continuity; stable relationships are necessary for some forms of mutual evidence; institutions shape the practical criteria available through their ordinary conduct; complete functioning means correct depth and coordination rather than added power; and the five dimensions form one plausible minimal closure of the human activity cycle at the chosen level of abstraction. |
 | Institutional proposal | Wise-family need assessment; production beyond family need; family-based self-governance; a ten-tier sequence; organisation of education, justice, health, production, and exchange under one universal programme. |
-| Open design and evidence | Household forms; public criteria for a wise family and mutual satisfaction; the exhaustiveness of the five-function partition; mapping of all sixty-one pairs to social fields; exact governance procedures; property and exchange mechanisms; division of labour; transition under unequal power; and empirical evaluation of institutional outcomes. |
+| Open design and evidence | Household forms; public criteria for a wise family and mutual satisfaction; normalization and lifecycle coding of all 122 members; the number and stability of bottom-up spheres; the exhaustiveness and uniqueness of the five-function partition; exact governance procedures; property and exchange mechanisms; division of labour; transition under unequal power; and empirical evaluation of institutional outcomes. |
 
-The largest unresolved question is whether the 122 detailed activities can support a more discriminating institutional analysis. Their definitions include values, relationships, readiness for expression, acts and objects, sensory qualities, and varied correlates. Treating them as 122 identical capacities would erase precisely the content needed for derivation. A future phase should classify which pairs concern relationship, knowledge, bodily use, production, evaluation, communication, and evidence, then test whether the five social dimensions jointly provide fields for each without forcing a one-to-one mapping.
+The first-pass anatomy of all 122 members is now complete in the [pilot dossiers](Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers.md) and [Pass-One register](Research-Note-Jeevan-Activity-Anatomy-Pass-One.md). It confirms that the entries include values, relationships, readiness for expression, acts, roles, objects, sensory qualities, bodily processes, criteria, and results. Treating them as 122 identical capacities would erase precisely the content needed for derivation. The next stages normalize field-level provenance; separate ontological locus, operation, consequence, and evidence; identify internal dependencies; code entry-form-specific lifecycle requirements; and cluster anonymized feature vectors before any institutional comparison.
+
+The social vocabulary in the primary texts requires a second discipline. Named relations, family, education-*sanskar*, production, exchange, and universal orderliness are direct textual commitments, but their presence cannot count as an independent bottom-up discovery. They must be tagged and hidden during structural clustering, then restored to test whether the source proposal converges with the institution-neutral result.
 
 The second unresolved question concerns circular evidence. A wise family determines need, while wisdom is evidenced through the conduct that need assessment helps organise. Mutual satisfaction evidences justice, while habituation or unequal power may distort what people report as satisfaction. Public criteria must combine first-person report with relationship purpose, material consequence, freedom from coercion, third-party effects, and the possibility of revision.
 
@@ -240,7 +244,9 @@ The third concerns transition. Institutions populated by partially awakened peop
 
 ## 11. Conclusion
 
-Knowledge of *jeevan* yields a social architecture when the entire human process is retained. The five faculties and 122 activities establish a universal capacity for understanding and conduct. The body establishes material need, skill, work, and consequence. Relationship establishes justice and mutual evidence. *Sanskar* establishes the need for an intergenerational environment. Ecological participation establishes limits on production and use. The five institutional functions close these requirements by maintaining the continuity of understanding, present relational justice, bodily capability, creation of material provision, and circulation of provision across families and time. Together they require stable family life, humane education, purpose-governed science, competent and regenerative work, non-exploitative exchange, accessible justice, bodily care, and institutions open to public correction.
+Knowledge of *jeevan* yields constraints on social architecture when the entire human process is retained. The five faculties and 122 activity positions establish a universal capacity for understanding and conduct. The body establishes material need, skill, work, and consequence. Relationship establishes fields of justice and mutual evidence. *Sanskar* establishes the need for intergenerational continuity. Ecological participation establishes limits on production and use. Together these support the requirement for durable relational life, humane education, purpose-governed science, competent and regenerative work, non-exploitative exchange, accessible justice, bodily care, and institutions open to evidence and correction.
+
+The architecture does not yet uniquely derive one concrete society. It derives universal functional and relational invariants that any adequate family, social, educational, productive, scientific, economic, and coordinative arrangement must satisfy. The five proposed institutional functions form a strong textual and provisional functional bundling of those requirements. Whether they are exhaustive, minimal at the best grain, or uniquely preferable remains to be tested through all 122 members, alternative bundles, and adverse cases.
 
 The universal result is not one culture enlarged to world scale. It is a shared functional order in which every human can develop and evidence the same constitutional possibility: resolution in the individual, prosperity in the family, fearlessness in society, coexistence in universal orderliness, and the inward happiness, peace, contentment, and bliss that these fields allow awakened conduct to complete.
 
@@ -254,6 +260,10 @@ The note uses “all 122 activities functioning” to mean their effective awake
 
 Family and society are derived as enabling and evidentiary conditions of embodied awakening, not as additional constituents of *jeevan*. The exact ten-tier design is treated as a textually proposed implementation rather than a numerical consequence of the five faculties or sixty-one pairs.
 
+### Source-embedded social vocabulary
+
+Family, education-*sanskar*, justice-security, health-restraint, production-work, exchange-reserve, and universal orderliness are directly present in the source corpus. The note treats them as textual commitments whose functional intelligibility can be analysed. The bottom-up activity study must hide these labels during clustering so that later convergence is not produced by the coding vocabulary itself.
+
 ### Family
 
 The derivation establishes a stable relational, intergenerational, educative, productive, and evaluative unit. The relation between those functions and particular kinship or household forms remains open.
@@ -264,7 +274,7 @@ Science is treated as a cross-cutting method of inquiry, measurement, causal exp
 
 ### Universality
 
-Universality concerns the common constitution of *jeevan*, the human goal, the five institutional functions, and equal availability of participation. It does not entail cultural or administrative uniformity.
+Universality has two derived levels. Constitutional universals follow from the common architecture and goal of *jeevan*. Embodied-human universals follow when that architecture operates through bodies, relationships, material dependence, consequence, and transmission. Household composition, technology, law, organisational boundaries, and institutional bundling remain contextual design variables unless further argument rules alternatives out. Universality therefore concerns equal availability of the invariant functions, not cultural or administrative uniformity.
 
 ## References
 
@@ -281,6 +291,9 @@ Universality concerns the common constitution of *jeevan*, the human goal, the f
 - [*Jeevan Architecture*](Research-Note-Jeevan-Architecture.md) — the reader account of the five faculties, ten activities, 122 detailed activities, embodiment, receptivity, restfulness, and *sanskar*.
 - [*The Sixty-One Activity Pairs of Jeevan*](Research-Note-Activity-Pair-Inventory.md) — the pair-by-pair documentary inventory and unresolved semantics needed for a later institutional mapping.
 - [*A Functional Model of Jeevan*](Research-Note-Jeevan-Functional-Model.md) — the technical model of state, expression, consequence, evaluation, inquiry, and lasting change.
+- [*Bottom-Up Pilot Derivation of Jeevan Activity Spheres*](Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers.md) — the institution-neutral pilot, provisional sphere atlas, and refined pass sequence for the 122-member analysis.
+- [*Pass-One Anatomy of the Remaining Jeevan Activities*](Research-Note-Jeevan-Activity-Anatomy-Pass-One.md) — the completed documentary anatomy and normalization gate before lifecycle coding.
+- [*Jeevan Activity-to-Sphere Dossier Template*](Research-Template-Jeevan-Activity-Environment-Dossier.md) — the field-level provenance, lifecycle, universality, clustering, institution-comparison, and validation schema.
 - [*The Epistemology of Coexistence*](The-Epistemology-of-Coexistence.md) — knowledge, knower, error, evidence, and comparison.
 - [*Axiology: Value Theory*](../Axiology-Value-Theory/Axiology-Value-Theory.md) — the four harmonies, relationship-values, justice, evaluation, and public-evidence problems.
 - [*Family Relationships and Values*](../Family-Relationships-And-Values/Family-Relationships-And-Values.md) — family, need, prosperity, work, education-*sanskar*, and the limits of the family account.

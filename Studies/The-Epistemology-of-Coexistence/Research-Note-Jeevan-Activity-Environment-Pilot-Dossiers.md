@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 16, 2026, 7:30 AM IST
+**Edited on:** August 16, 2026, 8:23 AM IST
 
 **Status:** Internal research note (not a catalog entry). First completed use of the institution-neutral [activity-to-sphere dossier template](Research-Template-Jeevan-Activity-Environment-Dossier.md).
 
@@ -18,19 +18,24 @@ The sixty-one source-given pairs remain the documentary units, but their 122 mem
 
 The coding uses **D** for direct textual support, **I** for structural inference, **H** for a provisional sphere or organisational hypothesis, and **O** for an open question. External requirements are **N**, necessary; **S**, strongly supportive; **C**, context-dependent; or **U**, unclear. Participation topologies are **J**, intra-*jeevan*; **B**, embodied personal; **D**, dyadic or small-group; **R**, durable close or intergenerational relation; **C**, collective or public; **E**, material or ecological; and **T**, historical or intergenerational transmission.
 
+The full extension refines these codes in three ways. Every anatomy and lifecycle field receives its own evidential status. External conditions are classified as constitutive, enabling, evidential, protective, corrective, sustaining, or transmissive, with necessity scoped separately to occurrence, expression, evidence, correction, or continuity. Universality is also separated into what follows from common *jeevan* architecture, what follows from universal embodied-human dependence, and what remains a contextual design variable. The [dossier template](Research-Template-Jeevan-Activity-Environment-Dossier.md) defines the compact codes.
+
 ### 1.2 Derivation protocol
 
 Each activity-member passes through the same sequence:
 
 1. establish the source definition, entry form, and bearer;
-2. identify its object or counterpart, endpoint, and criterion of correct operation;
-3. code the participant topology without naming an institution;
-4. specify lifecycle conditions from development through transmission;
-5. identify convergent evidence, competent evaluators, and false positives;
-6. state a neutral micro-sphere in one sentence;
-7. cluster similar micro-spheres by recurring topology, endpoint, criterion, lifecycle conditions, and evidence;
-8. test whether a cluster requires durable roles, norms, resources, safeguards, and correction; and
-9. only then compare the result with family or the proposed five functions.
+2. normalize field-level provenance and separate locus, operation, consequence, and evidence;
+3. identify its object, constitutive counterpart, endpoint, and criterion of correct operation;
+4. record dependencies within *jeevan* before proposing an external requirement;
+5. code participant topology and entry-form-specific lifecycle conditions without naming an institution;
+6. identify convergent evidence, evaluator standpoints, disagreement paths, correction, and false positives;
+7. state a neutral micro-sphere and freeze a structured feature vector;
+8. cluster anonymous feature vectors at several granularities, allowing overlaps and residuals;
+9. test cluster stability before restoring names, faculties, pair labels, and source-embedded social vocabulary;
+10. derive the minimum durable roles, norms, resources, decision rights, safeguards, and correction mechanisms;
+11. compare several possible institutional bundles, including but not limited to the proposed five functions; and
+12. validate the result against alternative arrangements, adverse cases, displaced harms, and surviving counterexamples.
 
 A **sphere of activity** is a recurrent configuration of bearer, participants, object, endpoint, means, evidence, and lifecycle conditions. An **institution** is a durable arrangement of roles, norms, resources, decision rights, safeguards, and correction that maintains one or more spheres beyond episodic personal action. The two are not synonymous. A sphere may remain principally personal, several institutions may sustain one sphere, or one institution may sustain several spheres.
 
@@ -431,7 +436,7 @@ The pair yields **bodily-material conduciveness and protective care**. Direct ca
 
 ### 10.1 What the sixteen records establish
 
-The recoding confirms that the proper field of an activity must be separated into three locations. The **ontological locus** is where the activity occurs in *jeevan*. The **field of operation** is the content, body, person, object, relation, or process with which it deals. The **field of fulfilment and evidence** is where correct operation becomes demonstrable. *Anubhav* is inward in locus but its claim becomes socially significant through outward evidence; *nyaya* is inward in locus but relational in operation and fulfilment; *guna* may name the content inspected rather than a second psychological operation; *samriddhi* and *poshan* name material conditions or results that must be assessed by *jeevan*.
+The recoding confirms that the proper field of an activity must be separated into four locations. The **ontological locus** is where the entry is borne. The **field of operation** is the content, body, person, object, relation, or process with which it deals. The **field of consequence** contains the persons, relationships, bodies, collectives, material systems, or future participants affected by its expression. The **field of evidence and evaluation** is where correct operation becomes demonstrable and which standpoints can assess it. *Anubhav* is inward in locus but its claim becomes socially significant through outward evidence; *nyaya* is inward in locus but relational in operation, consequence, and evaluation; *guna* may name the content inspected rather than a second psychological operation; *samriddhi* and *poshan* name material conditions or results that must be assessed by *jeevan*.
 
 No pilot yields a complete social form directly from an activity name. Each yields a bundle of invariants: who must participate, what must be accessible, which result counts, who can evaluate it, how contradiction is corrected, and what must persist. This bundle is the appropriate input to sphere clustering.
 
@@ -450,7 +455,7 @@ At this stage the pilot supports eight provisional clusters. Their number follow
 | S7 Inquiry-led teaching and lived credibility | M-13a, M-13b | **D/R/T**, tested through **B/C/E** evidence; learner resolution joined to lived congruence | Learner freedom, teacher competence, demonstration, accountability, safeguarding, succession by competence |
 | S8 Bodily-material conduciveness and protective care | M-24a, M-24b | **B/E**, with **D/R/C/T** where care or shared risk matters; bodily capability | Health knowledge, material access, care, measurement, safe environments, maintenance, ecological correction |
 
-These clusters should be treated as an initial atlas, not eight institutions. Later records may split S1, merge S1 with S7, place parts of S3 across every material sphere, or reveal entirely new configurations.
+These clusters should be treated as an initial atlas, not eight institutions and not starting centroids for the full analysis. Later records may split S1, merge S1 with S7, place parts of S3 across every material sphere, or reveal entirely new configurations. The atlas will be compared with the anonymized result only after cluster boundaries have been recorded.
 
 ### 10.3 Dependencies among spheres
 
@@ -498,27 +503,37 @@ The proposed functions of education-*sanskar*, justice-security, health-restrain
 - whether the durable shared-life sphere is a foundational relation, an institution, or both; and
 - whether different organisational forms can realise the same invariant bundle without loss.
 
-Only after all 122 records are clustered should the five functions be scored as covering, splitting, combining, or leaving residual requirements. This preserves the possibility that the five are strongly supported while preventing the method from manufacturing that conclusion.
+Only after all 122 records are clustered should the five functions be scored as covering, splitting, combining, duplicating, or leaving residual requirements. They must also be compared with other plausible bundles. This preserves the possibility that the five are strongly supported while preventing the method from manufacturing that conclusion or confusing minimality with numerical uniqueness.
 
-## 11. Pass status for the remaining 106 activity-members
+## 11. Refined pass sequence for the full 122-member analysis
 
-The extension from the eight pilots to the remaining members proceeds in four passes.
+The pilot and anatomy register together cover all 122 members, but coverage is not yet a derived social model. The remaining work proceeds through a normalization gate and four further passes.
 
 ### 11.1 Pass one - source and activity anatomy completed
 
 The [Pass-One Anatomy Register](Research-Note-Jeevan-Activity-Anatomy-Pass-One.md) completes source checks, entry form, bearer, object, counterpart, endpoint, criterion, pair semantics, and documentary limits for the remaining 106 members. Together with the sixteen pilot records, all 122 column assignments now have activity-anatomy records. Institution names were not used as coding categories, and terms naming roles, relationships, objects, bodily processes, properties, conditions, or results were preserved in those forms rather than forced into an operation schema.
 
-### 11.2 Pass two - lifecycle and evidence
+### 11.2 Normalization gate before Pass Two
 
-For every member, code development, orientation, performance, consequence visibility, evaluation, correction, sustaining, and transmission. Record who is competent to evaluate, what a false positive looks like, and which requirements are necessary rather than supportive.
+Convert the 122 records into one stable feature schema. Separate ontological locus, field of operation, field of consequence, and field of evidence. Give each bearer, object, counterpart, endpoint, and criterion its own **D/I/H/O** status. Tag directly named roles, relationships, family terms, and social functions as source-embedded vocabulary so they can be hidden during clustering. Route each member through the lifecycle questions appropriate to its entry form. No new institution claim is made at this gate.
 
-### 11.3 Pass three - blind sphere clustering
+### 11.3 Pass Two - internal dependencies, lifecycle, and evidence
 
-Cluster the 122 micro-sphere statements without showing the five-function labels to the first-pass coders. Similarity should depend on topology, endpoint, governing criterion, lifecycle conditions, evidence, and correction. Record borderline assignments and allow a member to participate in more than one sphere where the reasons are explicit.
+For every member, first identify which activities or faculties within *jeevan* orient, inform, carry, evaluate, or correct it. Then code development, orientation, performance, consequence visibility, evaluation, correction, sustaining, and transmission according to the member's entry form. Every external condition must state its relation type, lifecycle scope, strength, universality level, and evidential status. Record which evaluators are competent from which standpoints, how disagreement is handled, what correction is available, and what a false positive looks like.
 
-### 11.4 Pass four - institutional comparison
+### 11.4 Pass Three - anonymized, multi-resolution sphere clustering
 
-For each sphere, test whether durable organisation is required and derive the minimum roles, norms, resources, decision rights, safeguards, and correction mechanisms. Only then compare the result with family and the five proposed functions. A credible universal structure will consist of invariant requirements derived from the common architecture of *jeevan*; its household, legal, technological, and organisational forms may vary with context so long as they preserve those invariants.
+Freeze the structured feature vector before comparison. Replace member names, faculties, pair positions, pilot sphere names, and institution labels with anonymous IDs. Cluster by recurring locus, topology, endpoint, criterion, lifecycle relation, evidence, evaluator, and correction path. Permit overlapping membership, borderline cases, and outliers. Repeat the analysis at coarse, middle, and fine granularities, vary uncertain fields or weights, and record which clusters remain stable. Restore the hidden labels only after the structural result is fixed, then compare it with faculty structure, pair structure, and the provisional pilot atlas.
+
+### 11.5 Pass Four - durable functions and comparative institutional bundling
+
+For each stable sphere, test whether durable organisation is required and derive the minimum roles, norms, resources, decision rights, safeguards, and correction mechanisms before assigning an institution name. Compare more than one bundling wherever possible. Score the family and five-function proposal for coverage, residuals, redundancy, forced combination, unnecessary splitting, incompatible purposes, concentrated power, and loss of independent correction. Establish sufficiency and practical minimality separately; neither establishes uniqueness.
+
+### 11.6 Pass Five - counterfactual and practical validation
+
+Test whether materially different arrangements can fulfil the same invariant. Stress the model under scarcity, coercion, dependency, disagreement, disability, ecological delay, and concentrated technology. Search for compliance, output, prosperity, reputation, or immediate satisfaction that imitates fulfilment while hiding distortion or displaced harm. Require independent access to evidence and a feasible correction path. A surviving counterexample must revise the member coding, sphere boundary, invariant, or institutional bundle rather than being dismissed because it conflicts with the proposal.
+
+The strongest conclusion this method can establish is not that one concrete social arrangement follows uniquely from the number 122. It is that common *jeevan* architecture yields universal functional and relational invariants that every adequate family, educational, productive, scientific, economic, legal, and coordinative arrangement must satisfy. Concrete arrangements form a context-sensitive equivalence class unless further argument rules alternatives out.
 
 ## References
 
