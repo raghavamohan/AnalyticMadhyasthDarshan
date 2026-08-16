@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 16, 2026, 10:42 AM IST
+**Edited on:** August 16, 2026, 11:16 AM IST
 
 **Status:** Internal research note (not a catalog entry). Pass Five of the activity-to-sphere analysis.
 
@@ -237,3 +237,4 @@ The justified conclusion after five passes is therefore conditional but substant
 - [*Pass-Five Validation Cases*](Research-Data-Jeevan-Pass-Five-Validation-Cases.csv) - the complete case specifications, observables, results, and revision routes.
 - [*Pass-Five Evidence Protocol*](Research-Data-Jeevan-Pass-Five-Evidence-Protocol.csv) - minimum observables, evaluator standpoints, false proxies, correction tests, and person-level tests for the five functions.
 - [*Pass-Five Validation Summary*](Research-Data-Jeevan-Pass-Five-Validation-Summary.json) - reproducible counts, scope limits, and conclusions.
+- [*A Proposed External Organisation from the Activity Architecture of Jeevan*](Research-Note-Proposed-External-Organisation-From-Jeevan-Architecture.md) - the organisational synthesis of all five passes, including the proposed structure, method issues, and next steps.
