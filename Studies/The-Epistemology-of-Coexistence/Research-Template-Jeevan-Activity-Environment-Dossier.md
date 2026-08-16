@@ -6,7 +6,7 @@
 
 > activity member -> bearer and object -> participant topology -> endpoint of fulfilment -> lifecycle conditions -> evidence and correction -> micro-sphere -> cross-activity sphere -> possible institutional form
 
-Use this template with [*The Sixty-One Activity Pairs of Jeevan*](Research-Note-Activity-Pair-Inventory.md), [*Jeevan Architecture*](Research-Note-Jeevan-Architecture.md), [*A Functional Model of Jeevan*](Research-Note-Jeevan-Functional-Model.md), [*Pass-Two Lifecycle and Evidence Coding of All 122 Jeevan Members*](Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.md), and [*Pass-Three Derivation of Jeevan Activity Spheres*](Research-Note-Jeevan-Activity-Spheres-Pass-Three.md). [*From the Activity Architecture of Jeevan to Universal Human Order*](Research-Note-Jeevan-To-Universal-Human-Order.md) supplies a hypothesis for Pass Four; it does not supply the coding scheme.
+Use this template with [*The Sixty-One Activity Pairs of Jeevan*](Research-Note-Activity-Pair-Inventory.md), [*Jeevan Architecture*](Research-Note-Jeevan-Architecture.md), [*A Functional Model of Jeevan*](Research-Note-Jeevan-Functional-Model.md), [*Pass-Two Lifecycle and Evidence Coding of All 122 Jeevan Members*](Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.md), [*Pass-Three Derivation of Jeevan Activity Spheres*](Research-Note-Jeevan-Activity-Spheres-Pass-Three.md), and [*Pass-Four Derivation of Durable Social Functions from Jeevan*](Research-Note-Jeevan-Durable-Functions-Pass-Four.md). [*From the Activity Architecture of Jeevan to Universal Human Order*](Research-Note-Jeevan-To-Universal-Human-Order.md) supplied the social hypothesis tested only after the institution-neutral coding and clustering were frozen.
 
 ## Coding conventions
 
@@ -418,9 +418,9 @@ Copy one record for each member into the 122-member matrix. A vertical record is
 | Characteristic obstruction | `[failure]` | `[failure]` |
 | Confidence | `[high / medium / low]` | `[high / medium / low]` |
 
-## 12. Later institution test - do not complete during first-pass coding
+## 12. Later institution test - completed for the master register in Pass Four
 
-Complete this section in Pass Four. All 122 member records have now passed normalization and institution-neutral clustering in the Pass-Three note. Apply the questions to the four stable cores and the two bridge requirements; do not promote the two residual groupings to spheres merely to obtain a preferred institutional count.
+The [Pass-Four durable-function analysis](Research-Note-Jeevan-Durable-Functions-Pass-Four.md) completes this section for the 122-member master register. It derives five unnamed continuity channels, tests five alternative bundles, and restores the proposed function names only after the anonymous requirement file is frozen. When applying this template to a revised member coding or a new domain, answer the questions below afresh; do not inherit the five-function result as a premise.
 
 | Question | Analysis |
 |---|---|
