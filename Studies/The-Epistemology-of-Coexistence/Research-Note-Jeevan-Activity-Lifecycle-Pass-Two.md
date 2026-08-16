@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 16, 2026, 9:00 AM IST
+**Edited on:** August 16, 2026, 9:32 AM IST
 
 **Status:** Internal research note (not a catalog entry). Pass Two of the activity-to-sphere analysis.
 
@@ -928,6 +928,8 @@ Pass Three must export one feature vector per member in the following frozen ord
 
 Before clustering, replace member names, faculties, pair numbers, source-embedded role terms, and all family or institutional vocabulary with anonymous IDs. Do not use the pilot sphere atlas as starting centroids. Permit overlap and residual membership, compare coarse, middle, and fine granularities, and test stability under the alternate treatments in §7. Names and source structure may be restored only after the blind cluster result is recorded.
 
+This handoff is now completed in the [Pass-Three Activity-Sphere Derivation](Research-Note-Jeevan-Activity-Spheres-Pass-Three.md). The blind analysis selects three coarse domains, eight middle clusters, and fourteen fine clusters. Four middle clusters remain stable under both residual treatments, two operate as boundary-sensitive bridges, and two remain residual groupings. The next task is Pass Four: testing durable functions and alternative institutional bundles against that result.
+
 ## References
 
 ### Madhyasth Darshan
@@ -944,3 +946,4 @@ Before clustering, replace member names, faculties, pair numbers, source-embedde
 - [*Jeevan Architecture*](Research-Note-Jeevan-Architecture.md) - the five faculties, ten generic activities, 122 detailed positions, embodiment, and restfulness.
 - [*A Functional Model of Jeevan*](Research-Note-Jeevan-Functional-Model.md) - orientation, expression, consequence, evaluation, correction, and lasting change.
 - [*From the Activity Architecture of Jeevan to Universal Human Order*](Research-Note-Jeevan-To-Universal-Human-Order.md) - the provisional social thesis to be tested only after bottom-up clustering and validation.
+- [*Pass-Three Derivation of Jeevan Activity Spheres*](Research-Note-Jeevan-Activity-Spheres-Pass-Three.md) - the completed anonymous feature matrix, multi-resolution partitions, residual sensitivity tests, stable cores, bridges, and restored comparison.
