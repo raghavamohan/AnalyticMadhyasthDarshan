@@ -6,7 +6,7 @@
 
 > activity member -> bearer and object -> participant topology -> endpoint of fulfilment -> lifecycle conditions -> evidence and correction -> micro-sphere -> cross-activity sphere -> possible institutional form
 
-Use this template with [*The Sixty-One Activity Pairs of Jeevan*](Research-Note-Activity-Pair-Inventory.md), [*Jeevan Architecture*](Research-Note-Jeevan-Architecture.md), [*A Functional Model of Jeevan*](Research-Note-Jeevan-Functional-Model.md), [*Pass-Two Lifecycle and Evidence Coding of All 122 Jeevan Members*](Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.md), [*Pass-Three Derivation of Jeevan Activity Spheres*](Research-Note-Jeevan-Activity-Spheres-Pass-Three.md), and [*Pass-Four Derivation of Durable Social Functions from Jeevan*](Research-Note-Jeevan-Durable-Functions-Pass-Four.md). [*From the Activity Architecture of Jeevan to Universal Human Order*](Research-Note-Jeevan-To-Universal-Human-Order.md) supplied the social hypothesis tested only after the institution-neutral coding and clustering were frozen.
+Use this template with [*The Sixty-One Activity Pairs of Jeevan*](Research-Note-Activity-Pair-Inventory.md), [*Jeevan Architecture*](Research-Note-Jeevan-Architecture.md), [*A Functional Model of Jeevan*](Research-Note-Jeevan-Functional-Model.md), [*Pass-Two Lifecycle and Evidence Coding of All 122 Jeevan Members*](Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.md), [*Pass-Three Derivation of Jeevan Activity Spheres*](Research-Note-Jeevan-Activity-Spheres-Pass-Three.md), [*Pass-Four Derivation of Durable Social Functions from Jeevan*](Research-Note-Jeevan-Durable-Functions-Pass-Four.md), and [*Pass-Five Counterfactual Validation of the Jeevan Social Model*](Research-Note-Jeevan-Counterfactual-Validation-Pass-Five.md). [*From the Activity Architecture of Jeevan to Universal Human Order*](Research-Note-Jeevan-To-Universal-Human-Order.md) supplied the social hypothesis tested only after the institution-neutral coding and clustering were frozen.
 
 ## Coding conventions
 
@@ -433,7 +433,9 @@ The [Pass-Four durable-function analysis](Research-Note-Jeevan-Durable-Functions
 | How does each result compare with the proposed five functions? | `[covered / split / combined / redundant / residual / incompatible / premature]` |
 | Is the proposed bundle sufficient, minimal, and stable? | `[separate answers; do not infer uniqueness from minimality]` |
 
-## 13. Validation pass - complete only after institutional comparison
+## 13. Validation pass - completed for the master register in Pass Five
+
+The [Pass-Five counterfactual validation](Research-Note-Jeevan-Counterfactual-Validation-Pass-Five.md) completes this section for the 122-member master register through eighteen family-equivalence, function-boundary, adverse, universal-access, and false-positive cases. It also supplies a five-function evidence protocol. When applying this template to a revised coding or concrete arrangement, repeat the tests rather than inheriting those analytical outcomes.
 
 Test the derived invariants and proposed arrangements against alternatives and adverse cases:
 
