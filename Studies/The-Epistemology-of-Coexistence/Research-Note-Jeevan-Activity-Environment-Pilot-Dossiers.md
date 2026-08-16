@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 16, 2026, 8:23 AM IST
+**Edited on:** August 16, 2026, 9:05 AM IST
 
 **Status:** Internal research note (not a catalog entry). First completed use of the institution-neutral [activity-to-sphere dossier template](Research-Template-Jeevan-Activity-Environment-Dossier.md).
 
@@ -507,19 +507,19 @@ Only after all 122 records are clustered should the five functions be scored as 
 
 ## 11. Refined pass sequence for the full 122-member analysis
 
-The pilot and anatomy register together cover all 122 members, but coverage is not yet a derived social model. The remaining work proceeds through a normalization gate and four further passes.
+The pilot and anatomy register together cover all 122 members, but coverage is not yet a derived social model. The normalization gate and lifecycle pass are now complete; the remaining work begins with anonymized, multi-resolution sphere clustering and proceeds through institutional comparison and validation.
 
 ### 11.1 Pass one - source and activity anatomy completed
 
 The [Pass-One Anatomy Register](Research-Note-Jeevan-Activity-Anatomy-Pass-One.md) completes source checks, entry form, bearer, object, counterpart, endpoint, criterion, pair semantics, and documentary limits for the remaining 106 members. Together with the sixteen pilot records, all 122 column assignments now have activity-anatomy records. Institution names were not used as coding categories, and terms naming roles, relationships, objects, bodily processes, properties, conditions, or results were preserved in those forms rather than forced into an operation schema.
 
-### 11.2 Normalization gate before Pass Two
+### 11.2 Normalization gate completed
 
-Convert the 122 records into one stable feature schema. Separate ontological locus, field of operation, field of consequence, and field of evidence. Give each bearer, object, counterpart, endpoint, and criterion its own **D/I/H/O** status. Tag directly named roles, relationships, family terms, and social functions as source-embedded vocabulary so they can be hidden during clustering. Route each member through the lifecycle questions appropriate to its entry form. No new institution claim is made at this gate.
+The [Pass-Two Lifecycle and Evidence Register](Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.md) converts the 122 records into one stable schema. It separates ontological locus, operation, consequence, and evidence; carries field-level **D/I/H/O** provenance; tags source-embedded social vocabulary; and routes each member through the lifecycle appropriate to its entry form. The normalization changes no documentary assignment and makes no institutional claim.
 
-### 11.3 Pass Two - internal dependencies, lifecycle, and evidence
+### 11.3 Pass Two - internal dependencies, lifecycle, and evidence completed
 
-For every member, first identify which activities or faculties within *jeevan* orient, inform, carry, evaluate, or correct it. Then code development, orientation, performance, consequence visibility, evaluation, correction, sustaining, and transmission according to the member's entry form. Every external condition must state its relation type, lifecycle scope, strength, universality level, and evidential status. Record which evaluators are competent from which standpoints, how disagreement is handled, what correction is available, and what a false positive looks like.
+All 122 members now have independently coded internal dependencies, development and orientation conditions, expression and consequence fields, evaluator standpoints, correction paths, continuity and transmission requirements, scoped external classifications, universality levels, false positives, and explicit residuals. The register closes Pass Two at the declared analytical grain and freezes the sixteen-feature export order for Pass Three.
 
 ### 11.4 Pass Three - anonymized, multi-resolution sphere clustering
 
@@ -548,4 +548,5 @@ The strongest conclusion this method can establish is not that one concrete soci
 - [*The Sixty-One Activity Pairs of Jeevan*](Research-Note-Activity-Pair-Inventory.md) - the documentary inventory and textual variants governing the pair assignments.
 - [*A Functional Model of Jeevan*](Research-Note-Jeevan-Functional-Model.md) - the separation of orientation, expression, consequence, evaluation, inquiry, and lasting organisation.
 - [*Pass-One Anatomy of the Remaining Jeevan Activities*](Research-Note-Jeevan-Activity-Anatomy-Pass-One.md) - source and activity-anatomy records for the 106 non-pilot members.
+- [*Pass-Two Lifecycle and Evidence Coding of All 122 Jeevan Members*](Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.md) - the completed normalization, internal-dependency, lifecycle, evaluation, correction, and continuity matrix and the frozen handoff to Pass Three.
 - [*From the Activity Architecture of Jeevan to Universal Human Order*](Research-Note-Jeevan-To-Universal-Human-Order.md) - the five-function hypothesis to be compared with the bottom-up result only after full sphere clustering.

@@ -6,7 +6,7 @@
 
 > activity member -> bearer and object -> participant topology -> endpoint of fulfilment -> lifecycle conditions -> evidence and correction -> micro-sphere -> cross-activity sphere -> possible institutional form
 
-Use this template with [*The Sixty-One Activity Pairs of Jeevan*](Research-Note-Activity-Pair-Inventory.md), [*Jeevan Architecture*](Research-Note-Jeevan-Architecture.md), [*A Functional Model of Jeevan*](Research-Note-Jeevan-Functional-Model.md), and [*From the Activity Architecture of Jeevan to Universal Human Order*](Research-Note-Jeevan-To-Universal-Human-Order.md). The last note supplies a hypothesis to test after sphere derivation; it does not supply the coding scheme.
+Use this template with [*The Sixty-One Activity Pairs of Jeevan*](Research-Note-Activity-Pair-Inventory.md), [*Jeevan Architecture*](Research-Note-Jeevan-Architecture.md), [*A Functional Model of Jeevan*](Research-Note-Jeevan-Functional-Model.md), and [*Pass-Two Lifecycle and Evidence Coding of All 122 Jeevan Members*](Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.md). [*From the Activity Architecture of Jeevan to Universal Human Order*](Research-Note-Jeevan-To-Universal-Human-Order.md) supplies a hypothesis to test after sphere derivation; it does not supply the coding scheme.
 
 ## Coding conventions
 
