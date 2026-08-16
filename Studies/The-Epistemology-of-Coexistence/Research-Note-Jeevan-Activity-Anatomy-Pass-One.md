@@ -2,11 +2,11 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 16, 2026, 7:33 AM IST
+**Edited on:** August 16, 2026, 8:23 AM IST
 
 **Status:** Internal research note (not a catalog entry). Pass One of the activity-to-sphere analysis.
 
-**Scope:** This register completes source and activity-anatomy coding for the 106 activity-members not already analysed in the eight [pilot dossiers](Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers.md). Together, the pilot's sixteen records and this register's 106 records cover all 122 tabulated positions. This pass records source assignment, entry form, bearer, object, counterpart, endpoint, governing criterion, pair semantics, and documentary uncertainty. It does not code lifecycle conditions, spheres, family forms, or institutions.
+**Scope:** This register completes source and activity-anatomy coding for the 106 activity-members not already analysed in the eight [pilot dossiers](Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers.md). Together, the pilot's sixteen records and this register's 106 records cover all 122 tabulated positions. This pass records source assignment, entry form, bearer, object, counterpart, endpoint, governing criterion, pair semantics, and documentary uncertainty. It does not code lifecycle conditions, spheres, family forms, or institutions. Section 7 specifies the normalization gate required before those 122 anatomy records become a comparable Pass-Two dataset.
 
 ## 1. Method and limits
 
@@ -14,7 +14,7 @@ The AVD table governs which member occupies the *bal* and *shakti* columns (AVD,
 
 The fields have deliberately narrow meanings. **Entry form** asks what kind of item the source has placed in the activity slot. **Bearer** asks whether the item is borne by *jeevan*, a human role, a relationship, the body, a material unit, or a result. **Object** is what the member concerns. **Counterpart** is another participant or entity required by the definition; “none stated” does not deny later outward evidence. **Endpoint** is the nearest fulfilment named or implied by the definition. **Criterion** distinguishes fulfilment from a plausible imitation. Where the definition does not supply such a distinction, the field remains open rather than being filled from a preferred social model.
 
-The codes retain the pilot convention: **D** is directly stated, **I** is a structural inference from stated content, and **O** marks an unresolved documentary or interpretive question. Pair semantics are always narrower than the mere fact of pairing. No record assumes that the *shakti* member is an outward performance caused by its *bal* partner.
+The codes retain the pilot convention: **D** is directly stated, **I** is a structural inference from stated content, and **O** marks an unresolved documentary or interpretive question. Pair semantics are always narrower than the mere fact of pairing. No record assumes that the *shakti* member is an outward performance caused by its *bal* partner. Because these compact records sometimes place direct source content and interpretation in one row, the normalization gate must assign provenance to each field separately before comparison.
 
 The completed corpus is:
 
@@ -860,11 +860,63 @@ Five residual classes must remain visible in Pass Two:
 
 None prevents lifecycle analysis. Each prevents false precision.
 
-## 7. Completion statement and handoff to Pass Two
+## 7. Normalization gate before Pass Two
+
+Pass One need not be redone. It has established the documentary identity and narrow anatomy of every slot. The next task is to normalize those records into a common 122-member feature matrix before adding lifecycle requirements. Normalization is necessary because a direct source term can coexist with an inferred bearer, endpoint, or criterion in the same compact row, and because apparently similar words can occupy different ontological and evidential locations.
+
+### 7.1 Field-level provenance
+
+Each member must receive a separate **D**, **I**, **H**, or **O** code for its entry form, ontological locus, bearer, object, constitutive counterpart, endpoint, and governing criterion. **H** is added for a provisional environmental, sphere, or organisational hypothesis. A direct definition of a role or result does not make the analyst's account of its endpoint or social condition direct. Open endpoints and criteria remain open through clustering unless later source evidence or an explicit argument resolves them.
+
+### 7.2 Four locations that must not be collapsed
+
+The normalized record separates four fields:
+
+1. **Ontological locus** - where the entry is borne: *jeevan*, body, relationship, material unit or process, result field, or disputed location.
+2. **Field of operation** - the content, person, body, relation, object, or process with which it deals.
+3. **Field of consequence** - the persons, relationships, bodies, collectives, material systems, or future participants affected by expression.
+4. **Field of evidence and evaluation** - where correctness becomes observable and which standpoints can assess it.
+
+An inward locus can therefore have relational or ecological consequences and public evidence. Conversely, a material property or bodily process can occupy a source activity slot without becoming a second private operation of *jeevan*.
+
+### 7.3 Entry-form-specific lifecycle paths
+
+Each normalized member enters one primary path: inner operation or orientation; role or relation; material or sensory property; bodily process or state; criterion or result; or a documented residual. Pass Two will still examine development, orientation, performance, consequence, evaluation, correction, sustaining, and transmission, but the question changes with the entry form. A role requires a counterpart, responsibilities, protection, and succession; a property requires access, discrimination, use, and consequence; a bodily process requires conditions of capability and restoration; a result requires the operations, evidence, and affected parties through which it is achieved. This branching prevents semantic objects and results from being redescribed as unobserved mental acts.
+
+### 7.4 External relation, necessity scope, and universality
+
+Every proposed external condition will be classified by three independent dimensions.
+
+| Dimension | Codes | Question answered |
+|---|---|---|
+| Relation type | **CONST**, **ENAB**, **EVID**, **PROT**, **CORR**, **SUST**, **TRANS** | Is the condition constitutive, enabling, evidential, protective, corrective, sustaining, or transmissive? |
+| Strength and scope | **N/S/C/U** joined to **OCC/EXP/EVD/COR/CON** | Is it necessary, supportive, contextual, or unclear for occurrence, expression, evidence, correction, or continuity? |
+| Universality | **U-J**, **U-H**, **V-C** | Does it follow from common *jeevan* architecture, from universal embodied-human dependence, or from contextual design? |
+
+Thus a protected opportunity for a counterpart to speak may be `PROT; N-EVD; U-H; I` without being declared necessary for the inward occurrence of the bearer's deliberation. A particular court procedure may be `CORR; C-COR; V-C; H` even if access to independent correction is a universal functional requirement.
+
+### 7.5 Textual social vocabulary is input, not an independent discovery
+
+The source directly names roles, relationships, family, education-*sanskar*, production, exchange, and universal orderliness in some passages and member definitions. The normalized matrix will retain these as **D** textual commitments and tag them as source-embedded social vocabulary. Later clustering must hide those labels. If a role or social function reappears after institution-neutral feature comparison, that convergence strengthens the proposed structure; if it appears only because its name was visible to the coder, it cannot count as a bottom-up derivation.
+
+### 7.6 Normalization completion criteria
+
+The gate is complete only when all 122 records have:
+
+- one primary entry form and an explicit residual flag where needed;
+- separate locus, operation, consequence, and evidence fields;
+- field-level provenance for endpoint and criterion as well as bearer and object;
+- source-embedded social terms identified and removable for blind comparison;
+- a stable anonymous activity ID; and
+- unresolved alternatives preserved rather than resolved by institutional preference.
+
+The normalized feature matrix then becomes the fixed input to Pass Two. Normalization may clarify wording or split a mixed field, but it must not silently change the documentary assignment established here.
+
+## 8. Completion statement and handoff to Pass Two
 
 Pass One is complete at the declared grain. The eight pilots supply sixteen checked anatomy records; this register supplies 106. All sixty-one AVD positions and all 122 column assignments now have an identified entry form, bearer, object, counterpart, endpoint, criterion, and pair-semantics statement or an explicit open field.
 
-The next pass may therefore ask, member by member, what is required for development and receptivity, right orientation, embodied performance, consequence visibility, evaluation, correction, sustaining, and transmission. It should not yet cluster members into spheres, and it should not use family or the five institutional functions as coding categories.
+The immediate handoff is the normalization gate in §7, followed by Pass Two. Pass Two may then ask, member by member, what is required for development and receptivity, right orientation, embodied performance, consequence visibility, evaluation, correction, sustaining, and transmission. It should first record dependencies among activities of *jeevan*, then external conditions. It should not yet cluster members into spheres, and it should not use family or the five institutional functions as coding categories.
 
 ## References
 
