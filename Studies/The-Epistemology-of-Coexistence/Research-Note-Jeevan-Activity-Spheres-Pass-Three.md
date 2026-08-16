@@ -2,11 +2,11 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 16, 2026, 9:36 AM IST
+**Edited on:** August 16, 2026, 10:09 AM IST
 
 **Status:** Internal research note (not a catalog entry). Pass Three of the activity-to-sphere analysis.
 
-**Scope:** This note implements the institution-neutral clustering prescribed by the [Pass-Two lifecycle register](Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.md). It exports one frozen sixteen-position vector for each of the 122 *jeevan* members, replaces names, faculties, pair positions, role terms, family vocabulary, and institution vocabulary with anonymous structural tokens, and compares coarse, middle, and fine partitions under three treatments of unresolved fields. Only after the blind partitions are fixed does it restore the source labels and interpret recurring fields as candidate spheres, bridges, or residuals. It does not decide which spheres require durable organisation and does not test the family or five-function proposal; those are Pass-Four questions.
+**Scope:** This note implements the institution-neutral clustering prescribed by the [Pass-Two lifecycle register](Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.md). It exports one frozen sixteen-position vector for each of the 122 *jeevan* members, replaces names, faculties, pair positions, role terms, family vocabulary, and institution vocabulary with anonymous structural tokens, and compares coarse, middle, and fine partitions under three treatments of unresolved fields. Only after the blind partitions are fixed does it restore the source labels and interpret recurring fields as candidate spheres, bridges, or residuals. It does not itself decide which spheres require durable organisation or test the family and five-function proposal; those questions are completed in the [Pass-Four durable-function analysis](Research-Note-Jeevan-Durable-Functions-Pass-Four.md).
 
 The result is a constrained sphere architecture rather than an institutional blueprint. Three broad domains are stable at coarse resolution. At the selected middle resolution, four clusters remain stable under both sensitivity tests, two operate primarily as cross-domain bridges, and two are produced by unresolved or weakly specified records and cannot yet be treated as spheres. The four stable cores concern realised orientation and congruent agency, developmental care under unequal capability, reciprocal recognition and justice, and bodily-material conduciveness. Their number does not imply four institutions: a sphere is a recurring field of fulfilment and evidence, while an institution is one possible durable arrangement for maintaining one or several spheres.
 
@@ -257,7 +257,7 @@ Fifth, overlap thresholds are methodological choices. The complete similarity an
 
 Finally, universality remains conditional on the underlying account of common *jeevan* architecture and on the adequacy of the Pass-One and Pass-Two readings. Pass Three derives common functional and relational constraints within that standpoint. It does not establish their truth independently of the primary ontology and epistemology.
 
-## 9. Completion statement and handoff to Pass Four
+## 9. Completion statement and completed handoff to Pass Four
 
 Pass Three is complete at the declared analytical grain. It has produced a leakage-checked anonymous matrix, deterministic coarse, middle, and fine partitions, three residual treatments, overlapping memberships, member and cluster stability measures, restored interpretations, and post-restoration comparisons with faculties, source pairs, and the pilot atlas.
 
@@ -269,7 +269,7 @@ The strongest result is a layered architecture:
 - two residual groupings that cannot yet support a sphere claim; and
 - cross-cutting interfaces of inquiry, protected participation, embodiment and means, continuity, and ecological consequence.
 
-Pass Four must now ask, for each stable core and bridge requirement, whether persistence beyond episodic action is necessary; which roles, norms, resources, decision rights, safeguards, records, and correction paths must endure; and which different bundles could maintain them. Only then may the family and proposed five functions be compared for coverage, residuals, redundancy, forced combination, unnecessary splitting, incompatible purposes, concentrated power, and loss of independent correction. Sufficiency, practical minimality, and numerical uniqueness must remain separate questions.
+The [Pass-Four durable-function analysis](Research-Note-Jeevan-Durable-Functions-Pass-Four.md) has now completed this handoff. It translates every anonymous lifecycle vector into durability tests, unnamed continuity channels, cross-cutting safeguards, and arrangement scales before restoring social labels. The result contains 185 channel memberships across all 122 members. Five non-substitutable continuity objects align after restoration with education-*sanskar*, justice-security, health-restraint, production-work, and exchange-reserve. Among five tested bundles, the five-function basis alone obtains full coverage without forced combination or unsupported splitting while preserving independent correction. This establishes sufficiency and practical minimality at the selected grain, not five organisations or numerical uniqueness.
 
 ## References
 
@@ -285,7 +285,8 @@ Pass Four must now ask, for each stable core and bridge requirement, whether per
 - [*Bottom-Up Pilot Derivation of Jeevan Activity Spheres*](Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers.md) - the sixteen pilot records and the multi-pass protocol.
 - [*Pass-Two Lifecycle and Evidence Coding of All 122 Jeevan Members*](Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.md) - the normalized lifecycle matrix and frozen feature order used here.
 - [*Jeevan Activity-to-Sphere Dossier Template*](Research-Template-Jeevan-Activity-Environment-Dossier.md) - the provenance, lifecycle, clustering, institution-comparison, and validation schema.
-- [*From the Activity Architecture of Jeevan to Universal Human Order*](Research-Note-Jeevan-To-Universal-Human-Order.md) - the social hypothesis to be tested in Pass Four rather than used as a clustering input.
+- [*Pass-Four Derivation of Durable Social Functions from Jeevan*](Research-Note-Jeevan-Durable-Functions-Pass-Four.md) - the completed durability tests, five continuity channels, family-like field, and comparative institutional bundles.
+- [*From the Activity Architecture of Jeevan to Universal Human Order*](Research-Note-Jeevan-To-Universal-Human-Order.md) - the social hypothesis withheld from this clustering input and subsequently tested in Pass Four.
 - [Anonymous feature matrix](Research-Data-Jeevan-Pass-Three-Anonymous-Matrix.csv) - the frozen sixteen-position vectors for `X001`-`X122`.
 - [Restored membership register](Research-Data-Jeevan-Pass-Three-Restored-Memberships.csv) - source names and positions restored after partition formation, including primary, overlapping, and sensitivity assignments.
 - [Diagnostics](Research-Data-Jeevan-Pass-Three-Diagnostics.json) - resolution scores, cluster signatures, stability comparisons, overlap interfaces, and post-restoration tests.

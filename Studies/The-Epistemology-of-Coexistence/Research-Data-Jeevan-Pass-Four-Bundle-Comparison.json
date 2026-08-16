@@ -1,0 +1,190 @@
+{
+  "method": "pass-four-rule-based-anonymous-durable-function-derivation",
+  "anonymous_source": "Research-Data-Jeevan-Pass-Three-Anonymous-Matrix.csv",
+  "restored_source": "Research-Data-Jeevan-Pass-Three-Restored-Memberships.csv",
+  "member_count": 122,
+  "channel_obligation_count": 185,
+  "channel_member_counts": {
+    "U01": 59,
+    "U02": 61,
+    "U03": 23,
+    "U04": 30,
+    "U05": 12
+  },
+  "durable_channel_member_counts": {
+    "U01": 57,
+    "U02": 60,
+    "U03": 22,
+    "U04": 30,
+    "U05": 12
+  },
+  "durability_class_counts": {
+    "D1": 2,
+    "D2": 2,
+    "D3": 118
+  },
+  "interface_member_counts": {
+    "X01": 105,
+    "X02": 100,
+    "X03": 91,
+    "X04": 115,
+    "X05": 32
+  },
+  "arrangement_scale_member_counts": {
+    "S01": 98,
+    "S02": 97,
+    "S03": 99,
+    "S04": 105,
+    "S05": 41
+  },
+  "durable_relational_integrative_member_count": 29,
+  "membership_threshold_sensitivity": {
+    "0.65": {
+      "channel_obligation_count": 201,
+      "channel_member_counts": {
+        "U01": 65,
+        "U02": 64,
+        "U03": 24,
+        "U04": 34,
+        "U05": 14
+      },
+      "all_five_channels_present": true
+    },
+    "0.70": {
+      "channel_obligation_count": 185,
+      "channel_member_counts": {
+        "U01": 59,
+        "U02": 61,
+        "U03": 23,
+        "U04": 30,
+        "U05": 12
+      },
+      "all_five_channels_present": true
+    },
+    "0.75": {
+      "channel_obligation_count": 175,
+      "channel_member_counts": {
+        "U01": 56,
+        "U02": 61,
+        "U03": 23,
+        "U04": 26,
+        "U05": 9
+      },
+      "all_five_channels_present": true
+    }
+  },
+  "bundle_comparisons": [
+    {
+      "id": "B01",
+      "name": "stable-core-only",
+      "claim": "Treat only the four stable middle cores as durable bearers; leave both bridges unassigned.",
+      "nominal_function_count": 4,
+      "covered_channels": [
+        "U01",
+        "U02",
+        "U03"
+      ],
+      "coverage_percent": 77.3,
+      "residual_member_count": 36,
+      "forced_combination_count": 0,
+      "high_conflict_combination_count": 0,
+      "unnecessary_split_count": 1,
+      "independent_correction_structurally_available": true,
+      "full_coverage": false,
+      "practical_minimal_at_selected_grain": false,
+      "numerical_uniqueness_established": false
+    },
+    {
+      "id": "B02",
+      "name": "three-domain-compression",
+      "claim": "Make the three stable coarse domains the durable functional partition.",
+      "nominal_function_count": 3,
+      "covered_channels": [
+        "U01",
+        "U02",
+        "U03",
+        "U04",
+        "U05"
+      ],
+      "coverage_percent": 100.0,
+      "residual_member_count": 0,
+      "forced_combination_count": 3,
+      "high_conflict_combination_count": 3,
+      "unnecessary_split_count": 0,
+      "independent_correction_structurally_available": false,
+      "full_coverage": true,
+      "practical_minimal_at_selected_grain": false,
+      "numerical_uniqueness_established": false
+    },
+    {
+      "id": "B03",
+      "name": "integrated-provision-four",
+      "claim": "Separate body from material provision but combine making with allocation and reserve.",
+      "nominal_function_count": 4,
+      "covered_channels": [
+        "U01",
+        "U02",
+        "U03",
+        "U04",
+        "U05"
+      ],
+      "coverage_percent": 100.0,
+      "residual_member_count": 0,
+      "forced_combination_count": 1,
+      "high_conflict_combination_count": 1,
+      "unnecessary_split_count": 0,
+      "independent_correction_structurally_available": false,
+      "full_coverage": true,
+      "practical_minimal_at_selected_grain": false,
+      "numerical_uniqueness_established": false
+    },
+    {
+      "id": "B04",
+      "name": "five-continuity-basis",
+      "claim": "Assign one durable responsibility to each irreducible continuity channel.",
+      "nominal_function_count": 5,
+      "covered_channels": [
+        "U01",
+        "U02",
+        "U03",
+        "U04",
+        "U05"
+      ],
+      "coverage_percent": 100.0,
+      "residual_member_count": 0,
+      "forced_combination_count": 0,
+      "high_conflict_combination_count": 0,
+      "unnecessary_split_count": 0,
+      "independent_correction_structurally_available": true,
+      "full_coverage": true,
+      "practical_minimal_at_selected_grain": true,
+      "numerical_uniqueness_established": false
+    },
+    {
+      "id": "B05",
+      "name": "seven-specialized",
+      "claim": "Split formation from inquiry and care from adjudication while retaining the other three channels.",
+      "nominal_function_count": 7,
+      "covered_channels": [
+        "U01",
+        "U02",
+        "U03",
+        "U04",
+        "U05"
+      ],
+      "coverage_percent": 100.0,
+      "residual_member_count": 0,
+      "forced_combination_count": 0,
+      "high_conflict_combination_count": 0,
+      "unnecessary_split_count": 2,
+      "independent_correction_structurally_available": true,
+      "full_coverage": true,
+      "practical_minimal_at_selected_grain": false,
+      "numerical_uniqueness_established": false
+    }
+  ],
+  "selected_bundle": "B04",
+  "selected_bundle_reason": "Only tested bundle with full member-channel coverage, no forced channel combination, and no unnecessary channel split at the selected grain.",
+  "interpretive_limit": "Selection establishes practical minimality of five functional responsibilities at this grain, not five organizations and not numerical uniqueness across all possible decompositions.",
+  "anonymous_matrix_sha256": "cce1247e38c75f69f4d83a0d14c9e164dffaa11f738295425fc9c8e22f73e4c7"
+}
