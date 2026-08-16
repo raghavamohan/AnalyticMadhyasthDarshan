@@ -1,0 +1,1449 @@
+{
+  "source": "Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.md",
+  "member_count": 122,
+  "residual_member_count": 34,
+  "selected_resolutions": {
+    "coarse": 3,
+    "middle": 8,
+    "fine": 14
+  },
+  "diagnostics": [
+    {
+      "k": 2,
+      "silhouette": 0.11432954481793624,
+      "stability_drop_open": 0.7409081335670219,
+      "stability_holdout": 0.8534031130550435,
+      "composite": 0.42160128013982967
+    },
+    {
+      "k": 3,
+      "silhouette": 0.13287468321859525,
+      "stability_drop_open": 0.7508577076402244,
+      "stability_holdout": 0.9205493290139423,
+      "composite": 0.44914765901741494
+    },
+    {
+      "k": 4,
+      "silhouette": 0.12920062244890107,
+      "stability_drop_open": 0.6727342693452648,
+      "stability_holdout": 0.8826630012970762,
+      "composite": 0.42102472824142234
+    },
+    {
+      "k": 5,
+      "silhouette": 0.13386305950491506,
+      "stability_drop_open": 0.6462875715416985,
+      "stability_holdout": 0.864465837942472,
+      "composite": 0.41354419986164165
+    },
+    {
+      "k": 6,
+      "silhouette": 0.12540518257103128,
+      "stability_drop_open": 0.6479996242931196,
+      "stability_holdout": 0.8712134859433747,
+      "composite": 0.41079580021727846
+    },
+    {
+      "k": 7,
+      "silhouette": 0.13180159491954718,
+      "stability_drop_open": 0.6473114891386073,
+      "stability_holdout": 0.8356081489291997,
+      "composite": 0.4061477957710075
+    },
+    {
+      "k": 8,
+      "silhouette": 0.1273144062432162,
+      "stability_drop_open": 0.6943429462383509,
+      "stability_holdout": 0.9100632625975864,
+      "composite": 0.43101432042185484
+    },
+    {
+      "k": 9,
+      "silhouette": 0.12430280334461263,
+      "stability_drop_open": 0.5951725108545048,
+      "stability_holdout": 0.9012738135497689,
+      "composite": 0.40506696483049853
+    },
+    {
+      "k": 10,
+      "silhouette": 0.1289246141224884,
+      "stability_drop_open": 0.6462881857700538,
+      "stability_holdout": 0.6418062012005235,
+      "composite": 0.36072977483574853
+    },
+    {
+      "k": 11,
+      "silhouette": 0.12381784865795188,
+      "stability_drop_open": 0.6480401479868779,
+      "stability_holdout": 0.7661680841128108,
+      "composite": 0.3862966689843035
+    },
+    {
+      "k": 12,
+      "silhouette": 0.12199785079371936,
+      "stability_drop_open": 0.5947892548410098,
+      "stability_holdout": 0.7953703703703704,
+      "composite": 0.3798847336091062
+    },
+    {
+      "k": 13,
+      "silhouette": 0.12163251561324621,
+      "stability_drop_open": 0.5902143825892467,
+      "stability_holdout": 0.7794542659948844,
+      "composite": 0.37507332951871497
+    },
+    {
+      "k": 14,
+      "silhouette": 0.11612648966120448,
+      "stability_drop_open": 0.6599763053510631,
+      "stability_holdout": 0.79005592625333,
+      "composite": 0.39012682142465094
+    },
+    {
+      "k": 15,
+      "silhouette": 0.11902023420049887,
+      "stability_drop_open": 0.6155436315050247,
+      "stability_holdout": 0.7788551526869987,
+      "composite": 0.3792008552534797
+    },
+    {
+      "k": 16,
+      "silhouette": 0.11430330010858038,
+      "stability_drop_open": 0.6144004094190335,
+      "stability_holdout": 0.729232318325531,
+      "composite": 0.36518417880224624
+    }
+  ],
+  "clusters": {
+    "coarse": [
+      {
+        "cluster_id": "C01",
+        "size": 60,
+        "anonymous_members": [
+          "X001",
+          "X002",
+          "X003",
+          "X004",
+          "X005",
+          "X006",
+          "X007",
+          "X008",
+          "X009",
+          "X011",
+          "X012",
+          "X013",
+          "X014",
+          "X015",
+          "X017",
+          "X020",
+          "X021",
+          "X022",
+          "X023",
+          "X024",
+          "X025",
+          "X026",
+          "X027",
+          "X029",
+          "X033",
+          "X035",
+          "X036",
+          "X038",
+          "X039",
+          "X040",
+          "X043",
+          "X044",
+          "X046",
+          "X047",
+          "X048",
+          "X049",
+          "X050",
+          "X052",
+          "X055",
+          "X056",
+          "X057",
+          "X058",
+          "X059",
+          "X060",
+          "X064",
+          "X066",
+          "X070",
+          "X078",
+          "X079",
+          "X080",
+          "X081",
+          "X084",
+          "X086",
+          "X091",
+          "X092",
+          "X094",
+          "X095",
+          "X096",
+          "X102",
+          "X122"
+        ],
+        "top_tokens": [
+          "counterpart:direct",
+          "topology:d",
+          "universality:u_h",
+          "entry:inward_operation_orientation",
+          "topology:b",
+          "topology:j",
+          "counterpart:collective",
+          "topology:c",
+          "relation:evid",
+          "topology:t",
+          "locus:sentient_inward",
+          "scope:n_evd",
+          "evaluator:first_person",
+          "evidence_req:self_noncontradiction",
+          "counterpart:material_ecological",
+          "topology:e",
+          "dependency:selection_embodiment",
+          "endpoint:collective_public"
+        ],
+        "drop_open_best_jaccard": 0.8805970149253731,
+        "holdout_best_jaccard": 0.9782608695652174
+      },
+      {
+        "cluster_id": "C02",
+        "size": 36,
+        "anonymous_members": [
+          "X010",
+          "X016",
+          "X018",
+          "X042",
+          "X054",
+          "X062",
+          "X071",
+          "X073",
+          "X074",
+          "X075",
+          "X076",
+          "X077",
+          "X088",
+          "X090",
+          "X093",
+          "X098",
+          "X100",
+          "X103",
+          "X104",
+          "X105",
+          "X106",
+          "X107",
+          "X108",
+          "X109",
+          "X110",
+          "X111",
+          "X112",
+          "X113",
+          "X114",
+          "X115",
+          "X116",
+          "X117",
+          "X118",
+          "X119",
+          "X120",
+          "X121"
+        ],
+        "top_tokens": [
+          "counterpart:direct",
+          "counterpart:collective",
+          "topology:t",
+          "counterpart:material_ecological",
+          "topology:c",
+          "topology:d",
+          "topology:e",
+          "universality:u_h",
+          "topology:b",
+          "scope:n_exp",
+          "relation:const",
+          "relation:evid",
+          "scope:n_evd",
+          "consequence:material_provision",
+          "endpoint:material_provision",
+          "dependency:selection_embodiment",
+          "expression:material_means",
+          "locus:embodied_person"
+        ],
+        "drop_open_best_jaccard": 0.7777777777777778,
+        "holdout_best_jaccard": 0.8571428571428571
+      },
+      {
+        "cluster_id": "C03",
+        "size": 26,
+        "anonymous_members": [
+          "X019",
+          "X028",
+          "X030",
+          "X031",
+          "X032",
+          "X034",
+          "X037",
+          "X041",
+          "X045",
+          "X051",
+          "X053",
+          "X061",
+          "X063",
+          "X065",
+          "X067",
+          "X068",
+          "X069",
+          "X072",
+          "X082",
+          "X083",
+          "X085",
+          "X087",
+          "X089",
+          "X097",
+          "X099",
+          "X101"
+        ],
+        "top_tokens": [
+          "consequence:reciprocal_relation",
+          "counterpart:direct",
+          "topology:t",
+          "topology:d",
+          "endpoint:reciprocal_relation",
+          "universality:u_h",
+          "topology:r",
+          "counterpart:durable",
+          "relation:const",
+          "locus:relational",
+          "scope:n_occ",
+          "counterpart:collective",
+          "topology:c",
+          "dependency:selection_embodiment",
+          "entry:role_relation",
+          "dependency:relational_feedback",
+          "continuity:intergenerational_transmission",
+          "correction:protection_appeal"
+        ],
+        "drop_open_best_jaccard": 0.8,
+        "holdout_best_jaccard": 0.9166666666666666
+      }
+    ],
+    "middle": [
+      {
+        "cluster_id": "M01",
+        "size": 46,
+        "anonymous_members": [
+          "X001",
+          "X002",
+          "X003",
+          "X004",
+          "X005",
+          "X006",
+          "X007",
+          "X008",
+          "X011",
+          "X012",
+          "X013",
+          "X015",
+          "X017",
+          "X020",
+          "X021",
+          "X023",
+          "X024",
+          "X025",
+          "X026",
+          "X027",
+          "X029",
+          "X033",
+          "X035",
+          "X036",
+          "X038",
+          "X040",
+          "X046",
+          "X047",
+          "X048",
+          "X049",
+          "X050",
+          "X057",
+          "X059",
+          "X060",
+          "X064",
+          "X066",
+          "X070",
+          "X078",
+          "X079",
+          "X081",
+          "X084",
+          "X086",
+          "X091",
+          "X094",
+          "X095",
+          "X096"
+        ],
+        "top_tokens": [
+          "entry:inward_operation_orientation",
+          "counterpart:direct",
+          "topology:d",
+          "universality:u_h",
+          "topology:j",
+          "topology:b",
+          "counterpart:collective",
+          "topology:c",
+          "locus:sentient_inward",
+          "relation:evid",
+          "topology:t",
+          "scope:n_evd",
+          "evaluator:first_person",
+          "evidence_req:self_noncontradiction",
+          "dependency:selection_embodiment",
+          "counterpart:material_ecological",
+          "topology:e",
+          "endpoint:collective_public"
+        ],
+        "drop_open_best_jaccard": 0.8035714285714286,
+        "holdout_best_jaccard": 0.9534883720930233,
+        "mean_member_stability": 0.8423395445134575
+      },
+      {
+        "cluster_id": "M02",
+        "size": 9,
+        "anonymous_members": [
+          "X009",
+          "X014",
+          "X039",
+          "X043",
+          "X044",
+          "X055",
+          "X056",
+          "X092",
+          "X122"
+        ],
+        "top_tokens": [
+          "residual:open",
+          "counterpart:direct",
+          "counterpart:collective",
+          "topology:t",
+          "topology:c",
+          "topology:d",
+          "relation:evid",
+          "universality:u_h",
+          "open:yes",
+          "entry:inward_operation_orientation",
+          "locus:sentient_inward",
+          "topology:b",
+          "counterpart:material_ecological",
+          "topology:e",
+          "topology:j",
+          "scope:n_evd",
+          "consequence:inquiry_discrimination",
+          "evaluator:affected_party"
+        ],
+        "drop_open_best_jaccard": 0.3333333333333333,
+        "holdout_best_jaccard": 0.0,
+        "mean_member_stability": 0.13232323232323231
+      },
+      {
+        "cluster_id": "M03",
+        "size": 14,
+        "anonymous_members": [
+          "X010",
+          "X016",
+          "X018",
+          "X042",
+          "X054",
+          "X062",
+          "X071",
+          "X073",
+          "X074",
+          "X088",
+          "X090",
+          "X098",
+          "X100",
+          "X104"
+        ],
+        "top_tokens": [
+          "counterpart:direct",
+          "counterpart:collective",
+          "topology:t",
+          "counterpart:material_ecological",
+          "topology:c",
+          "topology:d",
+          "topology:e",
+          "universality:u_h",
+          "evaluator:affected_party",
+          "topology:b",
+          "evidence_req:affected_party_voice",
+          "dependency:selection_embodiment",
+          "continuity:skill_tools_maintenance",
+          "scope:n_exp",
+          "correction:repair_restitution",
+          "relation:evid",
+          "scope:n_evd",
+          "relation:const"
+        ],
+        "drop_open_best_jaccard": 0.16666666666666666,
+        "holdout_best_jaccard": 0.6666666666666666,
+        "mean_member_stability": 0.20155895691609976
+      },
+      {
+        "cluster_id": "M04",
+        "size": 16,
+        "anonymous_members": [
+          "X019",
+          "X030",
+          "X031",
+          "X032",
+          "X034",
+          "X051",
+          "X061",
+          "X063",
+          "X067",
+          "X069",
+          "X082",
+          "X083",
+          "X085",
+          "X097",
+          "X099",
+          "X101"
+        ],
+        "top_tokens": [
+          "entry:role_relation",
+          "locus:relational",
+          "consequence:reciprocal_relation",
+          "counterpart:direct",
+          "topology:t",
+          "topology:d",
+          "endpoint:reciprocal_relation",
+          "relation:const",
+          "universality:u_h",
+          "topology:r",
+          "counterpart:durable",
+          "scope:n_occ",
+          "topology:b",
+          "counterpart:collective",
+          "topology:c",
+          "dependency:selection_embodiment",
+          "continuity:intergenerational_transmission",
+          "consequence:care_development"
+        ],
+        "drop_open_best_jaccard": 0.7894736842105263,
+        "holdout_best_jaccard": 0.8571428571428571,
+        "mean_member_stability": 0.7791132478632479
+      },
+      {
+        "cluster_id": "M05",
+        "size": 2,
+        "anonymous_members": [
+          "X022",
+          "X080"
+        ],
+        "top_tokens": [
+          "entry:inward_operation_orientation",
+          "residual:open",
+          "locus:sentient_inward",
+          "operation:meaning_truth",
+          "consequence:meaning_truth",
+          "evaluator:first_person",
+          "topology:j",
+          "counterpart:direct",
+          "topology:t",
+          "topology:c",
+          "topology:b",
+          "topology:d",
+          "counterpart:collective",
+          "dependency:unspecified",
+          "endpoint:meaning_truth",
+          "evidence_req:self_noncontradiction",
+          "scope:n_evd",
+          "relation:enab"
+        ],
+        "drop_open_best_jaccard": 0.03636363636363636,
+        "holdout_best_jaccard": 0.0,
+        "mean_member_stability": 0.018518518518518517
+      },
+      {
+        "cluster_id": "M06",
+        "size": 10,
+        "anonymous_members": [
+          "X028",
+          "X037",
+          "X041",
+          "X045",
+          "X053",
+          "X065",
+          "X068",
+          "X072",
+          "X087",
+          "X089"
+        ],
+        "top_tokens": [
+          "consequence:reciprocal_relation",
+          "evidence:reciprocal_relation",
+          "counterpart:direct",
+          "topology:r",
+          "topology:t",
+          "topology:d",
+          "counterpart:durable",
+          "endpoint:reciprocal_relation",
+          "scope:n_evd",
+          "universality:u_h",
+          "evaluator:counterpart",
+          "relation:const",
+          "continuity:relational_memory_repair",
+          "relation:evid",
+          "evaluator:affected_party",
+          "counterpart:collective",
+          "topology:c",
+          "dependency:relational_feedback"
+        ],
+        "drop_open_best_jaccard": 0.8,
+        "holdout_best_jaccard": 1.0,
+        "mean_member_stability": 0.8182539682539682
+      },
+      {
+        "cluster_id": "M07",
+        "size": 3,
+        "anonymous_members": [
+          "X052",
+          "X058",
+          "X102"
+        ],
+        "top_tokens": [
+          "entry:inward_operation_orientation",
+          "evidence:care_development",
+          "counterpart:direct",
+          "topology:r",
+          "topology:b",
+          "counterpart:collective",
+          "topology:t",
+          "topology:c",
+          "topology:d",
+          "counterpart:durable",
+          "dependency:selection_embodiment",
+          "endpoint:agency_action",
+          "endpoint:care_development",
+          "continuity:public_review_dissent",
+          "continuity:care_succession_agency",
+          "scope:n_cor",
+          "universality:u_h",
+          "consequence:agency_action"
+        ],
+        "drop_open_best_jaccard": 0.6666666666666666,
+        "holdout_best_jaccard": 0.6666666666666666,
+        "mean_member_stability": 0.3333333333333333
+      },
+      {
+        "cluster_id": "M08",
+        "size": 22,
+        "anonymous_members": [
+          "X075",
+          "X076",
+          "X077",
+          "X093",
+          "X103",
+          "X105",
+          "X106",
+          "X107",
+          "X108",
+          "X109",
+          "X110",
+          "X111",
+          "X112",
+          "X113",
+          "X114",
+          "X115",
+          "X116",
+          "X117",
+          "X118",
+          "X119",
+          "X120",
+          "X121"
+        ],
+        "top_tokens": [
+          "consequence:bodily_health",
+          "counterpart:direct",
+          "topology:b",
+          "counterpart:collective",
+          "counterpart:material_ecological",
+          "topology:t",
+          "topology:e",
+          "topology:c",
+          "topology:d",
+          "endpoint:bodily_health",
+          "universality:u_h",
+          "evidence:bodily_health",
+          "development:bodily_capability",
+          "scope:n_exp",
+          "evidence_req:bodily_material_effect",
+          "correction:treatment_accommodation",
+          "relation:const",
+          "consequence:material_provision"
+        ],
+        "drop_open_best_jaccard": 0.7857142857142857,
+        "holdout_best_jaccard": 0.9166666666666666,
+        "mean_member_stability": 0.8106060606060606
+      }
+    ],
+    "fine": [
+      {
+        "cluster_id": "F01",
+        "size": 14,
+        "anonymous_members": [
+          "X001",
+          "X003",
+          "X005",
+          "X007",
+          "X008",
+          "X011",
+          "X024",
+          "X026",
+          "X029",
+          "X033",
+          "X060",
+          "X064",
+          "X086",
+          "X095"
+        ],
+        "top_tokens": [
+          "entry:inward_operation_orientation",
+          "counterpart:direct",
+          "topology:j",
+          "topology:d",
+          "universality:u_h",
+          "locus:sentient_inward",
+          "topology:b",
+          "development:open_inquiry",
+          "relation:enab",
+          "relation:evid",
+          "operation:meaning_truth",
+          "evaluator:first_person",
+          "evidence:meaning_truth",
+          "evidence_req:self_noncontradiction",
+          "scope:s_con",
+          "endpoint:meaning_truth",
+          "correction:renewed_inquiry",
+          "dependency:accepted_meaning"
+        ],
+        "drop_open_best_jaccard": 0.6,
+        "holdout_best_jaccard": 0.5714285714285714
+      },
+      {
+        "cluster_id": "F02",
+        "size": 29,
+        "anonymous_members": [
+          "X002",
+          "X004",
+          "X006",
+          "X012",
+          "X013",
+          "X015",
+          "X017",
+          "X020",
+          "X021",
+          "X023",
+          "X027",
+          "X035",
+          "X036",
+          "X038",
+          "X040",
+          "X046",
+          "X047",
+          "X048",
+          "X049",
+          "X050",
+          "X057",
+          "X059",
+          "X066",
+          "X070",
+          "X078",
+          "X081",
+          "X084",
+          "X094",
+          "X096"
+        ],
+        "top_tokens": [
+          "entry:inward_operation_orientation",
+          "counterpart:direct",
+          "counterpart:collective",
+          "topology:c",
+          "topology:d",
+          "universality:u_h",
+          "topology:b",
+          "topology:j",
+          "scope:n_evd",
+          "topology:t",
+          "relation:evid",
+          "evidence:collective_public",
+          "evaluator:affected_party",
+          "endpoint:collective_public",
+          "evidence_req:affected_party_voice",
+          "locus:sentient_inward",
+          "evaluator:first_person",
+          "dependency:selection_embodiment"
+        ],
+        "drop_open_best_jaccard": 0.7142857142857143,
+        "holdout_best_jaccard": 0.8387096774193549
+      },
+      {
+        "cluster_id": "F03",
+        "size": 4,
+        "anonymous_members": [
+          "X009",
+          "X043",
+          "X056",
+          "X092"
+        ],
+        "top_tokens": [
+          "entry:inward_operation_orientation",
+          "residual:open",
+          "locus:sentient_inward",
+          "counterpart:direct",
+          "topology:b",
+          "counterpart:collective",
+          "counterpart:material_ecological",
+          "topology:t",
+          "topology:e",
+          "topology:c",
+          "topology:j",
+          "topology:d",
+          "scope:s_con",
+          "relation:evid",
+          "universality:u_h",
+          "open:yes",
+          "consequence:inquiry_discrimination",
+          "evaluator:first_person"
+        ],
+        "drop_open_best_jaccard": 0.2,
+        "holdout_best_jaccard": 0.0
+      },
+      {
+        "cluster_id": "F04",
+        "size": 9,
+        "anonymous_members": [
+          "X010",
+          "X042",
+          "X054",
+          "X071",
+          "X074",
+          "X088",
+          "X090",
+          "X098",
+          "X104"
+        ],
+        "top_tokens": [
+          "evidence:collective_public",
+          "evaluator:affected_party",
+          "counterpart:direct",
+          "topology:b",
+          "counterpart:collective",
+          "topology:t",
+          "counterpart:material_ecological",
+          "topology:c",
+          "topology:d",
+          "topology:e",
+          "endpoint:collective_public",
+          "evidence_req:affected_party_voice",
+          "continuity:skill_tools_maintenance",
+          "scope:n_exp",
+          "universality:u_h",
+          "dependency:selection_embodiment",
+          "correction:repair_restitution",
+          "locus:embodied_person"
+        ],
+        "drop_open_best_jaccard": 0.14285714285714285,
+        "holdout_best_jaccard": 1.0
+      },
+      {
+        "cluster_id": "F05",
+        "size": 5,
+        "anonymous_members": [
+          "X014",
+          "X039",
+          "X044",
+          "X055",
+          "X122"
+        ],
+        "top_tokens": [
+          "residual:open",
+          "evaluator:affected_party",
+          "counterpart:direct",
+          "counterpart:collective",
+          "topology:t",
+          "topology:c",
+          "topology:d",
+          "evidence_req:affected_party_voice",
+          "scope:n_evd",
+          "scope:n_cor",
+          "relation:evid",
+          "universality:u_h",
+          "open:yes",
+          "evaluator:skilled_peer",
+          "topology:b",
+          "counterpart:material_ecological",
+          "topology:e",
+          "evidence_req:competence_peer_review"
+        ],
+        "drop_open_best_jaccard": 0.5,
+        "holdout_best_jaccard": 0.0
+      },
+      {
+        "cluster_id": "F06",
+        "size": 2,
+        "anonymous_members": [
+          "X016",
+          "X073"
+        ],
+        "top_tokens": [
+          "entry:criterion_result",
+          "locus:relational",
+          "operation:material_provision",
+          "consequence:reciprocal_relation",
+          "consequence:material_provision",
+          "evidence:material_provision",
+          "evaluator:future_ecological",
+          "evidence:ecological_continuity",
+          "counterpart:direct",
+          "topology:r",
+          "topology:b",
+          "counterpart:collective",
+          "counterpart:material_ecological",
+          "topology:t",
+          "topology:e",
+          "topology:c",
+          "topology:j",
+          "topology:d"
+        ],
+        "drop_open_best_jaccard": 0.07142857142857142,
+        "holdout_best_jaccard": 1.0
+      },
+      {
+        "cluster_id": "F07",
+        "size": 3,
+        "anonymous_members": [
+          "X018",
+          "X062",
+          "X100"
+        ],
+        "top_tokens": [
+          "consequence:reciprocal_relation",
+          "evaluator:affected_party",
+          "counterpart:direct",
+          "topology:r",
+          "counterpart:collective",
+          "counterpart:material_ecological",
+          "topology:t",
+          "topology:e",
+          "topology:c",
+          "topology:d",
+          "counterpart:durable",
+          "endpoint:reciprocal_relation",
+          "endpoint:care_development",
+          "evidence_req:affected_party_voice",
+          "scope:n_evd",
+          "relation:const",
+          "scope:n_exp",
+          "relation:sust"
+        ],
+        "drop_open_best_jaccard": 0.10526315789473684,
+        "holdout_best_jaccard": 0.3333333333333333
+      },
+      {
+        "cluster_id": "F08",
+        "size": 16,
+        "anonymous_members": [
+          "X019",
+          "X030",
+          "X031",
+          "X032",
+          "X034",
+          "X051",
+          "X061",
+          "X063",
+          "X067",
+          "X069",
+          "X082",
+          "X083",
+          "X085",
+          "X097",
+          "X099",
+          "X101"
+        ],
+        "top_tokens": [
+          "entry:role_relation",
+          "locus:relational",
+          "consequence:reciprocal_relation",
+          "counterpart:direct",
+          "topology:t",
+          "topology:d",
+          "endpoint:reciprocal_relation",
+          "relation:const",
+          "universality:u_h",
+          "topology:r",
+          "counterpart:durable",
+          "scope:n_occ",
+          "topology:b",
+          "counterpart:collective",
+          "topology:c",
+          "dependency:selection_embodiment",
+          "continuity:intergenerational_transmission",
+          "consequence:care_development"
+        ],
+        "drop_open_best_jaccard": 0.7894736842105263,
+        "holdout_best_jaccard": 0.9230769230769231
+      },
+      {
+        "cluster_id": "F09",
+        "size": 2,
+        "anonymous_members": [
+          "X022",
+          "X080"
+        ],
+        "top_tokens": [
+          "entry:inward_operation_orientation",
+          "residual:open",
+          "locus:sentient_inward",
+          "operation:meaning_truth",
+          "consequence:meaning_truth",
+          "evaluator:first_person",
+          "topology:j",
+          "counterpart:direct",
+          "topology:t",
+          "topology:c",
+          "topology:b",
+          "topology:d",
+          "counterpart:collective",
+          "dependency:unspecified",
+          "endpoint:meaning_truth",
+          "evidence_req:self_noncontradiction",
+          "scope:n_evd",
+          "relation:enab"
+        ],
+        "drop_open_best_jaccard": 1.0,
+        "holdout_best_jaccard": 0.0
+      },
+      {
+        "cluster_id": "F10",
+        "size": 3,
+        "anonymous_members": [
+          "X025",
+          "X079",
+          "X091"
+        ],
+        "top_tokens": [
+          "entry:inward_operation_orientation",
+          "locus:embodied_person",
+          "locus:sentient_inward",
+          "consequence:communication_representation",
+          "evidence:communication_representation",
+          "evaluator:counterpart",
+          "topology:j",
+          "counterpart:direct",
+          "topology:t",
+          "topology:c",
+          "topology:b",
+          "topology:d",
+          "counterpart:collective",
+          "dependency:realised_orientation",
+          "dependency:contemplative_design",
+          "endpoint:communication_representation",
+          "expression:language_representation",
+          "expression:material_means"
+        ],
+        "drop_open_best_jaccard": 0.375,
+        "holdout_best_jaccard": 0.25
+      },
+      {
+        "cluster_id": "F11",
+        "size": 10,
+        "anonymous_members": [
+          "X028",
+          "X037",
+          "X041",
+          "X045",
+          "X053",
+          "X065",
+          "X068",
+          "X072",
+          "X087",
+          "X089"
+        ],
+        "top_tokens": [
+          "consequence:reciprocal_relation",
+          "evidence:reciprocal_relation",
+          "counterpart:direct",
+          "topology:r",
+          "topology:t",
+          "topology:d",
+          "counterpart:durable",
+          "endpoint:reciprocal_relation",
+          "scope:n_evd",
+          "universality:u_h",
+          "evaluator:counterpart",
+          "relation:const",
+          "continuity:relational_memory_repair",
+          "relation:evid",
+          "evaluator:affected_party",
+          "counterpart:collective",
+          "topology:c",
+          "dependency:relational_feedback"
+        ],
+        "drop_open_best_jaccard": 0.8,
+        "holdout_best_jaccard": 0.8
+      },
+      {
+        "cluster_id": "F12",
+        "size": 2,
+        "anonymous_members": [
+          "X052",
+          "X102"
+        ],
+        "top_tokens": [
+          "entry:inward_operation_orientation",
+          "consequence:agency_action",
+          "consequence:justice_protection",
+          "evidence:collective_public",
+          "evaluator:affected_party",
+          "evidence:justice_protection",
+          "evidence:care_development",
+          "counterpart:direct",
+          "topology:r",
+          "topology:b",
+          "counterpart:collective",
+          "topology:t",
+          "topology:c",
+          "topology:d",
+          "counterpart:durable",
+          "dependency:selection_embodiment",
+          "endpoint:agency_action",
+          "endpoint:care_development"
+        ],
+        "drop_open_best_jaccard": 1.0,
+        "holdout_best_jaccard": 1.0
+      },
+      {
+        "cluster_id": "F13",
+        "size": 1,
+        "anonymous_members": [
+          "X058"
+        ],
+        "top_tokens": [
+          "entry:inward_operation_orientation",
+          "locus:unspecified",
+          "operation:inquiry_discrimination",
+          "operation:continuity_transmission",
+          "consequence:continuity_transmission",
+          "consequence:inquiry_discrimination",
+          "evidence:material_provision",
+          "evaluator:body_material",
+          "evidence:care_development",
+          "evidence:bodily_health",
+          "evidence:agency_action",
+          "counterpart:direct",
+          "topology:r",
+          "topology:b",
+          "counterpart:collective",
+          "counterpart:material_ecological",
+          "topology:t",
+          "topology:e"
+        ],
+        "drop_open_best_jaccard": 0.5,
+        "holdout_best_jaccard": 1.0
+      },
+      {
+        "cluster_id": "F14",
+        "size": 22,
+        "anonymous_members": [
+          "X075",
+          "X076",
+          "X077",
+          "X093",
+          "X103",
+          "X105",
+          "X106",
+          "X107",
+          "X108",
+          "X109",
+          "X110",
+          "X111",
+          "X112",
+          "X113",
+          "X114",
+          "X115",
+          "X116",
+          "X117",
+          "X118",
+          "X119",
+          "X120",
+          "X121"
+        ],
+        "top_tokens": [
+          "consequence:bodily_health",
+          "counterpart:direct",
+          "topology:b",
+          "counterpart:collective",
+          "counterpart:material_ecological",
+          "topology:t",
+          "topology:e",
+          "topology:c",
+          "topology:d",
+          "endpoint:bodily_health",
+          "universality:u_h",
+          "evidence:bodily_health",
+          "development:bodily_capability",
+          "scope:n_exp",
+          "evidence_req:bodily_material_effect",
+          "correction:treatment_accommodation",
+          "relation:const",
+          "consequence:material_provision"
+        ],
+        "drop_open_best_jaccard": 0.7857142857142857,
+        "holdout_best_jaccard": 1.0
+      }
+    ]
+  },
+  "posthoc_comparison": {
+    "faculty_adjusted_rand_middle": 0.02667574306318013,
+    "pair_same_primary": 25,
+    "pair_shared_overlap": 40,
+    "pair_count": 61,
+    "pilot_same_primary": 4,
+    "pilot_shared_overlap": 6,
+    "pilot_pair_count": 8,
+    "middle_overlap_member_count": 53,
+    "middle_overlap_edges": [
+      {
+        "clusters": [
+          "M01",
+          "M07"
+        ],
+        "member_count": 21
+      },
+      {
+        "clusters": [
+          "M01",
+          "M06"
+        ],
+        "member_count": 14
+      },
+      {
+        "clusters": [
+          "M01",
+          "M03"
+        ],
+        "member_count": 11
+      },
+      {
+        "clusters": [
+          "M03",
+          "M07"
+        ],
+        "member_count": 8
+      },
+      {
+        "clusters": [
+          "M06",
+          "M07"
+        ],
+        "member_count": 8
+      },
+      {
+        "clusters": [
+          "M03",
+          "M06"
+        ],
+        "member_count": 7
+      },
+      {
+        "clusters": [
+          "M03",
+          "M08"
+        ],
+        "member_count": 7
+      },
+      {
+        "clusters": [
+          "M04",
+          "M06"
+        ],
+        "member_count": 7
+      },
+      {
+        "clusters": [
+          "M01",
+          "M02"
+        ],
+        "member_count": 5
+      },
+      {
+        "clusters": [
+          "M01",
+          "M05"
+        ],
+        "member_count": 5
+      },
+      {
+        "clusters": [
+          "M02",
+          "M05"
+        ],
+        "member_count": 5
+      },
+      {
+        "clusters": [
+          "M03",
+          "M04"
+        ],
+        "member_count": 5
+      },
+      {
+        "clusters": [
+          "M02",
+          "M03"
+        ],
+        "member_count": 4
+      },
+      {
+        "clusters": [
+          "M02",
+          "M08"
+        ],
+        "member_count": 4
+      },
+      {
+        "clusters": [
+          "M07",
+          "M08"
+        ],
+        "member_count": 4
+      },
+      {
+        "clusters": [
+          "M02",
+          "M07"
+        ],
+        "member_count": 3
+      },
+      {
+        "clusters": [
+          "M01",
+          "M04"
+        ],
+        "member_count": 2
+      },
+      {
+        "clusters": [
+          "M01",
+          "M08"
+        ],
+        "member_count": 2
+      },
+      {
+        "clusters": [
+          "M02",
+          "M04"
+        ],
+        "member_count": 1
+      },
+      {
+        "clusters": [
+          "M03",
+          "M05"
+        ],
+        "member_count": 1
+      },
+      {
+        "clusters": [
+          "M04",
+          "M05"
+        ],
+        "member_count": 1
+      },
+      {
+        "clusters": [
+          "M04",
+          "M07"
+        ],
+        "member_count": 1
+      },
+      {
+        "clusters": [
+          "M04",
+          "M08"
+        ],
+        "member_count": 1
+      },
+      {
+        "clusters": [
+          "M05",
+          "M06"
+        ],
+        "member_count": 1
+      },
+      {
+        "clusters": [
+          "M06",
+          "M08"
+        ],
+        "member_count": 1
+      }
+    ],
+    "middle_faculty_counts": {
+      "M01": {
+        "atma": 2,
+        "buddhi": 4,
+        "chitta": 9,
+        "mun": 14,
+        "vritti": 17
+      },
+      "M02": {
+        "chitta": 2,
+        "mun": 2,
+        "vritti": 5
+      },
+      "M03": {
+        "chitta": 3,
+        "mun": 9,
+        "vritti": 2
+      },
+      "M04": {
+        "chitta": 1,
+        "mun": 10,
+        "vritti": 5
+      },
+      "M05": {
+        "chitta": 1,
+        "mun": 1
+      },
+      "M06": {
+        "mun": 5,
+        "vritti": 5
+      },
+      "M07": {
+        "mun": 1,
+        "vritti": 2
+      },
+      "M08": {
+        "mun": 22
+      }
+    }
+  },
+  "method": {
+    "similarity": "equal-weight mean of sixteen field-wise Jaccard scores",
+    "partition": "deterministic average-link agglomeration",
+    "overlap_rule": "similarity >= 0.20, >= 86% of best, and within 0.06 of best",
+    "sensitivity_treatments": [
+      "include_open",
+      "drop_open",
+      "residual_holdout"
+    ],
+    "selection_bands": {
+      "coarse": [
+        3,
+        5
+      ],
+      "middle": [
+        6,
+        11
+      ],
+      "fine": [
+        12,
+        16
+      ]
+    }
+  }
+}

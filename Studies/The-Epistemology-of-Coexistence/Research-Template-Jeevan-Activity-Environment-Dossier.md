@@ -6,7 +6,7 @@
 
 > activity member -> bearer and object -> participant topology -> endpoint of fulfilment -> lifecycle conditions -> evidence and correction -> micro-sphere -> cross-activity sphere -> possible institutional form
 
-Use this template with [*The Sixty-One Activity Pairs of Jeevan*](Research-Note-Activity-Pair-Inventory.md), [*Jeevan Architecture*](Research-Note-Jeevan-Architecture.md), [*A Functional Model of Jeevan*](Research-Note-Jeevan-Functional-Model.md), and [*Pass-Two Lifecycle and Evidence Coding of All 122 Jeevan Members*](Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.md). [*From the Activity Architecture of Jeevan to Universal Human Order*](Research-Note-Jeevan-To-Universal-Human-Order.md) supplies a hypothesis to test after sphere derivation; it does not supply the coding scheme.
+Use this template with [*The Sixty-One Activity Pairs of Jeevan*](Research-Note-Activity-Pair-Inventory.md), [*Jeevan Architecture*](Research-Note-Jeevan-Architecture.md), [*A Functional Model of Jeevan*](Research-Note-Jeevan-Functional-Model.md), [*Pass-Two Lifecycle and Evidence Coding of All 122 Jeevan Members*](Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.md), and [*Pass-Three Derivation of Jeevan Activity Spheres*](Research-Note-Jeevan-Activity-Spheres-Pass-Three.md). [*From the Activity Architecture of Jeevan to Universal Human Order*](Research-Note-Jeevan-To-Universal-Human-Order.md) supplies a hypothesis for Pass Four; it does not supply the coding scheme.
 
 ## Coding conventions
 
@@ -420,7 +420,7 @@ Copy one record for each member into the 122-member matrix. A vertical record is
 
 ## 12. Later institution test - do not complete during first-pass coding
 
-Complete this section only after all 122 member records have passed normalization and have been clustered without activity names, faculty labels, pair labels, sphere names, or institution labels.
+Complete this section in Pass Four. All 122 member records have now passed normalization and institution-neutral clustering in the Pass-Three note. Apply the questions to the four stable cores and the two bridge requirements; do not promote the two residual groupings to spheres merely to obtain a preferred institutional count.
 
 | Question | Analysis |
 |---|---|
