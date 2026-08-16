@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 16, 2026, 9:05 AM IST
+**Edited on:** August 16, 2026, 9:32 AM IST
 
 **Status:** Internal research note (not a catalog entry). First completed use of the institution-neutral [activity-to-sphere dossier template](Research-Template-Jeevan-Activity-Environment-Dossier.md).
 
@@ -507,7 +507,7 @@ Only after all 122 records are clustered should the five functions be scored as 
 
 ## 11. Refined pass sequence for the full 122-member analysis
 
-The pilot and anatomy register together cover all 122 members, but coverage is not yet a derived social model. The normalization gate and lifecycle pass are now complete; the remaining work begins with anonymized, multi-resolution sphere clustering and proceeds through institutional comparison and validation.
+The pilot and anatomy register together cover all 122 members, but coverage is not yet a derived social model. The normalization gate, lifecycle pass, and anonymized multi-resolution clustering are now complete. The remaining work begins with durable-function and comparative institutional analysis and ends with counterfactual and practical validation.
 
 ### 11.1 Pass one - source and activity anatomy completed
 
@@ -521,9 +521,9 @@ The [Pass-Two Lifecycle and Evidence Register](Research-Note-Jeevan-Activity-Lif
 
 All 122 members now have independently coded internal dependencies, development and orientation conditions, expression and consequence fields, evaluator standpoints, correction paths, continuity and transmission requirements, scoped external classifications, universality levels, false positives, and explicit residuals. The register closes Pass Two at the declared analytical grain and freezes the sixteen-feature export order for Pass Three.
 
-### 11.4 Pass Three - anonymized, multi-resolution sphere clustering
+### 11.4 Pass Three - anonymized, multi-resolution sphere clustering completed
 
-Freeze the structured feature vector before comparison. Replace member names, faculties, pair positions, pilot sphere names, and institution labels with anonymous IDs. Cluster by recurring locus, topology, endpoint, criterion, lifecycle relation, evidence, evaluator, and correction path. Permit overlapping membership, borderline cases, and outliers. Repeat the analysis at coarse, middle, and fine granularities, vary uncertain fields or weights, and record which clusters remain stable. Restore the hidden labels only after the structural result is fixed, then compare it with faculty structure, pair structure, and the provisional pilot atlas.
+The [Pass-Three Activity-Sphere Derivation](Research-Note-Jeevan-Activity-Spheres-Pass-Three.md) freezes the sixteen-position vector, anonymizes all 122 records, and tests three coarse, eight middle, and fourteen fine clusters under include-open, drop-open, and residual-holdout treatments. Four middle cores survive both sensitivity tests; two recurrent fields remain bridges and two remain residuals. Fifty-three members have overlapping membership. Restored comparison shows that the partition does not reproduce the faculties or source pairs and only partly recovers the pilot atlas.
 
 ### 11.5 Pass Four - durable functions and comparative institutional bundling
 
@@ -549,4 +549,5 @@ The strongest conclusion this method can establish is not that one concrete soci
 - [*A Functional Model of Jeevan*](Research-Note-Jeevan-Functional-Model.md) - the separation of orientation, expression, consequence, evaluation, inquiry, and lasting organisation.
 - [*Pass-One Anatomy of the Remaining Jeevan Activities*](Research-Note-Jeevan-Activity-Anatomy-Pass-One.md) - source and activity-anatomy records for the 106 non-pilot members.
 - [*Pass-Two Lifecycle and Evidence Coding of All 122 Jeevan Members*](Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.md) - the completed normalization, internal-dependency, lifecycle, evaluation, correction, and continuity matrix and the frozen handoff to Pass Three.
+- [*Pass-Three Derivation of Jeevan Activity Spheres*](Research-Note-Jeevan-Activity-Spheres-Pass-Three.md) - the completed anonymous matrix, multi-resolution clustering, stable sphere cores, bridge fields, residuals, and post-restoration tests.
 - [*From the Activity Architecture of Jeevan to Universal Human Order*](Research-Note-Jeevan-To-Universal-Human-Order.md) - the five-function hypothesis to be compared with the bottom-up result only after full sphere clustering.
