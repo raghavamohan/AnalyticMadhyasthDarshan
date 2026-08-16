@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 16, 2026, 10:42 AM IST
+**Edited on:** August 16, 2026, 11:16 AM IST
 
 **Status:** Internal research note (not a catalog entry). Compiled to support [*The Epistemology of Coexistence*](The-Epistemology-of-Coexistence.md).
 
@@ -297,6 +297,7 @@ Universality has two derived levels. Constitutional universals follow from the c
 - [*Pass-Three Derivation of Jeevan Activity Spheres*](Research-Note-Jeevan-Activity-Spheres-Pass-Three.md) — the completed anonymous matrix, multi-resolution sphere analysis, sensitivity tests, stable cores, bridges, and residuals that constrain the later institutional comparison.
 - [*Pass-Four Derivation of Durable Social Functions from Jeevan*](Research-Note-Jeevan-Durable-Functions-Pass-Four.md) — the completed durability tests, five continuity channels, family-like field, and comparative institutional-bundle result.
 - [*Pass-Five Counterfactual Validation of the Jeevan Social Model*](Research-Note-Jeevan-Counterfactual-Validation-Pass-Five.md) — the completed family-equivalence, boundary, adverse-case, false-positive, and person-level tests that refine the social conclusion.
+- [*A Proposed External Organisation from the Activity Architecture of Jeevan*](Research-Note-Proposed-External-Organisation-From-Jeevan-Architecture.md) — the consolidated organisational proposal, five-pass method, findings, methodological issues, and next steps.
 - [*Jeevan Activity-to-Sphere Dossier Template*](Research-Template-Jeevan-Activity-Environment-Dossier.md) — the field-level provenance, lifecycle, universality, clustering, institution-comparison, and validation schema.
 - [*The Epistemology of Coexistence*](The-Epistemology-of-Coexistence.md) — knowledge, knower, error, evidence, and comparison.
 - [*Axiology: Value Theory*](../Axiology-Value-Theory/Axiology-Value-Theory.md) — the four harmonies, relationship-values, justice, evaluation, and public-evidence problems.
