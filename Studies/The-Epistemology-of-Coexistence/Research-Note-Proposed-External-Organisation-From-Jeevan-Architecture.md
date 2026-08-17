@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 17, 2026, 5:30 AM IST
+**Edited on:** August 17, 2026, 5:40 AM IST
 
 **Status:** Internal research note (not a catalog entry). Synthesis of the five-pass activity-to-sphere analysis.
 
@@ -11,8 +11,6 @@
 The proposed order begins with **family as the first organisation of human order**. Family is the durable shared-life organisation in which care, learning, relationship, health, work, need assessment, and provision are first integrated. Five function systems maintain education-*sanskar*, justice-security, health-restraint, production-work, and exchange-reserve. Local cooperative organisations extend these functions where affected people can participate directly. Specialised and wider organisations supply advanced competence, coordination, protection, reserve, and long-horizon responsibility. Independent scientific, ecological, governing, care, communication, and review bodies preserve evidence and correction across the five systems.
 
 The governing purpose is complete human happiness grounded in knowledge. The human being belongs to the knowledge order, whose *dharma* is stated generally as *sukh*, or happiness. The architecture of *jeevan* differentiates this fulfilment as *sukh* (happiness), *shanti* (peace), *santosh* (contentment), and *anand* (bliss), grounded in *anubhav* or *anubhuti* (realisation) in *atma*. Family and society are therefore organised to support satisfaction at every level: bodily need and capability, thought, visualisation and planning, definite understanding, and finally realisation of coexistence. They do not produce *anubhav* inside *jeevan*; they make inquiry, relationship, bodily and material means, visible consequence, correction, and transmission continuously available. The structure is centred on the development and participation of every person rather than administration by a permanent competent minority.
-
-Throughout this paper, **voice** means the effective, supported opportunity of a person, counterpart, or affected party to express understanding, needs, expectations, agreement, and disagreement; to participate in deliberation and decisions that affect them; to have what they express considered and answered with reasons; and to refuse, challenge, or appeal without retaliation. It does not mean merely being permitted to speak, nor does it imply equal authority in every decision. Voice is meaningful when it can inform a decision, receive a reasoned response, and activate protection or correction where necessary.
 
 ## Part I. The proposed external organisation
 
@@ -74,7 +72,7 @@ These objects establish five core functions: education-*sanskar*, justice-securi
 flowchart TB
     H["Governing human purpose<br/>sukh | shanti | santosh | anand<br/>grounded in anubhav of coexistence"]
     G["Human goal in lived order<br/>resolution | prosperity | fearlessness | coexistence"]
-    P["Every person<br/>understanding, voice, bodily capability,<br/>skill, contribution, and correction"]
+    P["Every person<br/>understanding, protected participation<br/>in affected decisions, bodily capability,<br/>skill, contribution, and correction"]
     F["Family - the first organisation<br/>durable shared life integrating care, learning,<br/>relationship, work, need, provision, and appeal"]
     L["Local cooperative organisations<br/>accessible competence, production, health,<br/>exchange, justice, records, and reserve"]
     S["Specialised organisations<br/>advanced knowledge, care, protection,<br/>science, records, and independent review"]
@@ -191,7 +189,7 @@ Their functions are to:
 - circulate useful provision beyond the producing unit;
 - protect access against exploitation, exclusion, hoarding, and manufactured scarcity;
 - maintain reserves for dependency, emergency, interruption, and future need;
-- give affected persons voice in priorities and terms; and
+- enable affected persons to participate in setting priorities and terms, receive reasons for allocation, and challenge or appeal without retaliation; and
 - correct allocation through re-release, reallocation, restitution, changed terms, and reserve restoration.
 
 Twelve activity members enter the distributed-availability channel. Its smaller membership does not reduce its necessity: every member in the channel requires durable responsibility, and omission leaves provision without a bearer across persons and time. Exchange-reserve remains distinct from production because the authority that creates output has an interest in allocation, price, scarcity information, and reserve. One organisation may perform both functions only with transparent separate accounts, affected-party rights, independent health and ecological evidence, and appeal.
@@ -210,7 +208,7 @@ Their functions are to:
 
 - allocate authority to capable bearers;
 - make the reasons and limits of decisions public;
-- protect affected-party participation and minority or dependent voice;
+- protect participation by affected persons and ensure that minorities and dependent persons can express needs, question decisions, receive reasons, and appeal without retaliation;
 - coordinate resources when consequences cross local boundaries;
 - maintain appeal outside the unit being reviewed; and
 - revise rules and structures when evidence discloses recurring failure.
@@ -238,7 +236,7 @@ Care organisations sustain persons through childhood, illness, disability, agein
 
 Their functions are to:
 
-- preserve the cared-for person's bodily capability, agency, relationship, and voice;
+- preserve the cared-for person's bodily capability, agency, relationships, and supported ability to express needs, agree or disagree, and participate in decisions affecting their care;
 - support learning and participation rather than custodial dependence;
 - maintain continuity across caregivers and organisations;
 - provide accommodation and supported decision-making;
@@ -257,7 +255,7 @@ Independent review bodies use this infrastructure to test whether an organisatio
 
 ### 3.1 Every person is a participant
 
-The organisation exists to make available the conditions through which the common capacity of *jeevan* can become rightly oriented and expressed in every human. Each person must have access to understanding, language, inquiry, relationship, bodily means, useful skill, provision, contribution, and correction. Disability or dependency changes the form of participation through accommodation and support; it does not remove the person's standing. Aggregate performance by experts cannot substitute for person-level capability and voice.
+The organisation exists to make available the conditions through which the common capacity of *jeevan* can become rightly oriented and expressed in every human. Each person must have access to understanding, language, inquiry, relationship, bodily means, useful skill, provision, contribution, and correction. Disability or dependency changes the form of participation through accommodation and support; it does not remove the person's standing. Aggregate performance by experts cannot substitute for each person's capability to express understanding and needs, participate in decisions that affect them, receive reasoned answers, and challenge or appeal without retaliation.
 
 ### 3.2 Responsibility is nested and polycentric
 
@@ -312,7 +310,7 @@ Science is organised as open, reproducible, and corrigible inquiry into means an
 
 Work is organised as both useful material participation and evidence of understanding in conduct. It begins from assessed need and proceeds through right-use, competence, safe participation, maintainability, and regeneration. Workers participate in purpose and method; users evaluate usefulness; health and ecological bodies evaluate consequences; records connect inputs, labour conditions, outputs, maintenance, waste, and restoration. Labour that requires ignorance of purpose, inability to question method, unsafe dependence, or extraction without learning contradicts the human end even when output rises.
 
-Trade and other forms of exchange are organised for dependable access without exploitation, not for the indefinite multiplication of desire or accumulation. Terms, stocks, unmet need, reserve, obligations, and future commitments remain inspectable. Scarcity invokes declared priorities, protection of minimum capability, affected-party voice, review, and restoration of provision rather than secrecy or permanent emergency power. Exchange succeeds when it supports prosperity and participation across persons and time without converting need, scarcity, or information asymmetry into domination.
+Trade and other forms of exchange are organised for dependable access without exploitation, not for the indefinite multiplication of desire or accumulation. Terms, stocks, unmet need, reserve, obligations, and future commitments remain inspectable. Under scarcity, affected persons participate in setting declared priorities, receive reasons for allocation, and can challenge or appeal decisions; minimum capability is protected, allocation is reviewed, and provision is restored without secrecy or permanent emergency power. Exchange succeeds when it supports prosperity and participation across persons and time without converting need, scarcity, or information asymmetry into domination.
 
 The result is a society in which family, education, science, work, health, justice, exchange, ecology, and governance are not separate worlds. They are mutually supporting bearers of a common human lifecycle, with enough functional distinction to preserve evidence and correction.
 
@@ -485,7 +483,7 @@ Study contrasting arrangements that perform the same function: kin and non-kin s
 
 ### 8.6 Run adverse-condition pilots
 
-Test scarcity, disability, migration, coercion, technological concentration, and ecological delay in actual organisational settings or carefully designed simulations. Examine whether affected people retain voice, minimum capability, access to records, appeal, and effective correction when the system is under pressure.
+Test scarcity, disability, migration, coercion, technological concentration, and ecological delay in actual organisational settings or carefully designed simulations. Examine whether affected people retain minimum capability and access to records; can express needs and disagreement, participate in affected decisions, receive reasons, and appeal without retaliation; and obtain effective correction when the system is under pressure.
 
 ### 8.7 Design the interfaces explicitly
 
