@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 16, 2026, 7:04 PM IST
+**Edited on:** August 17, 2026, 5:40 AM IST
 
 **Status:** Internal research note (not a catalog entry). Synthesis of the five-pass activity-to-sphere analysis.
 
@@ -10,9 +10,7 @@
 
 The proposed order begins with **family as the first organisation of human order**. Family is the durable shared-life organisation in which care, learning, relationship, health, work, need assessment, and provision are first integrated. Five function systems maintain education-*sanskar*, justice-security, health-restraint, production-work, and exchange-reserve. Local cooperative organisations extend these functions where affected people can participate directly. Specialised and wider organisations supply advanced competence, coordination, protection, reserve, and long-horizon responsibility. Independent scientific, ecological, governing, care, communication, and review bodies preserve evidence and correction across the five systems.
 
-The governing purpose is comprehensive human happiness grounded in knowledge. The human being belongs to the knowledge order, whose *dharma* is happiness. Family and society are therefore organised to support each person's movement from delusion toward understanding, realisation, and awakened participation. They do not produce *anubhav* inside *jeevan*; they make inquiry, relationship, bodily and material means, visible consequence, correction, and transmission continuously available. The structure is centred on the development and participation of every person rather than administration by a permanent competent minority.
-
-Throughout this paper, **voice** means the effective, supported opportunity of a person, counterpart, or affected party to express understanding, needs, expectations, agreement, and disagreement; to participate in deliberation and decisions that affect them; to have what they express considered and answered with reasons; and to refuse, challenge, or appeal without retaliation. It does not mean merely being permitted to speak, nor does it imply equal authority in every decision. Voice is meaningful when it can inform a decision, receive a reasoned response, and activate protection or correction where necessary.
+The governing purpose is complete human happiness grounded in knowledge. The human being belongs to the knowledge order, whose *dharma* is stated generally as *sukh*, or happiness. The architecture of *jeevan* differentiates this fulfilment as *sukh* (happiness), *shanti* (peace), *santosh* (contentment), and *anand* (bliss), grounded in *anubhav* or *anubhuti* (realisation) in *atma*. Family and society are therefore organised to support satisfaction at every level: bodily need and capability, thought, visualisation and planning, definite understanding, and finally realisation of coexistence. They do not produce *anubhav* inside *jeevan*; they make inquiry, relationship, bodily and material means, visible consequence, correction, and transmission continuously available. The structure is centred on the development and participation of every person rather than administration by a permanent competent minority.
 
 ## Part I. The proposed external organisation
 
@@ -22,13 +20,23 @@ Throughout this paper, **voice** means the effective, supported opportunity of a
 
 The human being is the joint form of *jeevan* and body and belongs to the knowledge order. Happiness is the *dharma* of this order: it is the inseparable human aspiration for which understanding supplies the adequate basis and direction (MVD, p. 115). Human effort can therefore be read as a search for happiness and restfulness, but the presence of that aspiration does not establish that its object or means has been correctly understood.
 
-In delusion, the body is taken to be the self and pleasant sensation, bodily condition, profit, or material gain is allowed to set the final terms of conduct. Such activity may be imaginative, technically skilled, productive, and socially approved while remaining unable to resolve the contradiction within *jeevan*. Bodily comfort and material provision are indispensable means of human participation, but they are not *sukh* and cannot serve as a complete criterion of happiness. Restfulness requires that sensation and material result be evaluated through health, justice, *dharma*, and truth rather than governing them (MVD, pp. 68, 78-79, 91, 276; JV, pp. 73-74).
+In delusion, the body is taken to be the self and pleasant sensation, bodily condition, profit, or material gain is allowed to set the final terms of conduct. This reduces *sukh* to sensory pleasure or possession. Adequate fulfilment of correctly assessed bodily needs is the indispensable embodied basis of *sukh*, but comfort or consumption alone is not complete happiness. Bodily provision belongs to *sukh* when it supports health and participation and when *mun*'s taste and selection accord with *vritti*'s evaluation rather than being governed by sensation. Restfulness therefore requires bodily need to be fulfilled while sensation and material result remain evaluated through health, justice, *dharma*, and truth (MVD, pp. 68, 78-79, 91, 207-208, 276, 327; JV, pp. 73-74, 138).
 
-*Anubhav* is realisation in *atma* of coexistence: nature saturated in *satta*, or Omnipresence, and eternally present in coexistence. It is not a fifth quantity added after four degrees of pleasure. *Sukh*, *shanti*, *santosh*, and *anand* name the harmonies of *mun* with *vritti*, *vritti* with *chitta*, *chitta* with *buddhi*, and *buddhi* with *atma*. Realisation provides the innermost orientation through which those harmonies become stable; the concurrence of *atma* with Omnipresence bears *paramanand*, or ultimate bliss (MVD, pp. 207-208, 307, 327; JV, p. 138).
+The human *dharma* first named generally as happiness is differentiated through the architecture of *jeevan*:
+
+| Level of fulfilment | English term used here | Internal concurrence | Embodied meaning for organisation |
+|---|---|---|---|
+| *Sukh* | Happiness | *Mun* accords with *vritti* | Bodily needs are correctly assessed and adequately fulfilled; sensation, taste, and choice remain guided by considered evaluation. |
+| *Shanti* | Peace | *Vritti* accords with *chitta* | Thought and deliberation are free from unresolved contradiction and accord with recognised meaning and purpose. |
+| *Santosh* | Contentment | *Chitta* accords with *buddhi* | Desire, visualisation, and planning accord with definite understanding rather than assumption or appearance. |
+| *Anand* | Bliss | *Buddhi* accords with *atma* | Enlightenment and resolve accord with realisation, so understanding is not divided from the realised nature of coexistence. |
+| *Anubhav* or *anubhuti* | Realisation | *Atma* realises coexistence and its ever-present concurrence with *satta*, or Omnipresence | The human being knows coexistence as it is; this is the ultimate orientation and goal of *jeevan*. |
+
+This paper therefore uses **happiness**, **peace**, **contentment**, **bliss**, and **realisation** consistently for these five terms. “Resolution” remains the English term for *samadhan* and is not used as a substitute for *shanti*. *Paramanand* means ultimate bliss: the fruition and evidence of realisation in coexistence, not a sixth level alongside the five above. *Anubhav* is not one more pleasure added after four lesser pleasures. In the complete human state, realisation and satisfaction throughout the embodied and inward sequence belong together: bodily provision without inward accord is incomplete, while an inward claim contradicted by bodily neglect, confused thought, defective planning, or conduct cannot count as complete human fulfilment (MVD, pp. 207-208, 276, 307, 327; JV, p. 138).
 
 These inward harmonies become publicly meaningful in the comprehensive human goal: resolution in the person, prosperity in family, fearlessness in society, and coexistence in universal order. Resolution is understanding expressed in conduct. Prosperity is assured physical provision beyond correctly assessed need, not accumulation without limit. Fearlessness rests on trust, justice, and freedom from exploitation. Coexistence is participation without contradiction in society and nature (KD, pp. 112, 150; JV, pp. 61, 165).
 
-The purpose of organisation is therefore not to administer happiness, manufacture realisation, or certify an inner claim. It is to maintain the external conditions in which every person can inquire, understand, develop receptivity, participate competently, observe consequences, correct error, and evidence understanding in relationship, work, and coexistence. The person realises; organisation supports, protects, and carries the conditions of that possibility.
+The purpose of organisation is therefore not to administer happiness, manufacture realisation, or certify an inner claim. It is to maintain the external conditions in which every level of human fulfilment can become active together: adequate bodily means, uncoerced inquiry, coherent thought, plans answerable to understanding, development of receptivity, competent participation, visible consequences, correction, and evidence in relationship, work, and coexistence. The person realises; organisation supports, protects, and carries the conditions of that possibility.
 
 ### 1.2 What this principle requires of organisation
 
@@ -36,17 +44,17 @@ Human organisation is not a neutral container for whatever desires happen to pre
 
 Compulsory doctrine is not the remedy. Authority cannot substitute for understanding, and institutional agreement cannot establish *anubhav*. An organisation ordered toward knowledge must protect inquiry, make reasons and consequences available, permit disagreement and revision, and remain answerable to the people, relationships, bodies, material processes, and ecological fields affected by its decisions.
 
-The governing standard is therefore exact. A human organisation is fit for human beings when it enlarges every person's supported capacity to understand and participate rightly, while sustaining resolution, prosperity, fearlessness, and coexistence. It fails when its outputs depend upon ignorance, coercion, exclusion, bodily depletion, relationship failure, concealed consequence, or ecological contradiction.
+The governing standard is therefore exact. A human organisation is fit for human beings when it supports satisfaction at every level from bodily need through thought, planning, understanding, and realisation, while sustaining resolution, prosperity, fearlessness, and coexistence. It fails when material comfort is purchased through confusion or coercion, when thought and planning are detached from understanding, when authority substitutes for *anubhav*, or when its outputs depend upon exclusion, bodily depletion, relationship failure, concealed consequence, or ecological contradiction.
 
 This principle requires that:
 
 1. every person be approached as a potential knower, evaluator, and responsible participant rather than merely a dependent, worker, consumer, voter, or recipient of services;
 2. understanding, reasons, and lived evidence take priority over compliance, credentials, status, publicity, or institutional self-description;
-3. bodily comfort, production, exchange, and technology remain means for human participation and never become self-justifying ends;
+3. correctly assessed bodily needs be dependably fulfilled, while comfort, production, exchange, and technology remain means for human participation and never become self-justifying ends;
 4. family provide the first integrated field of *sanskar*, inquiry, relationship, care, work, need, provision, and correction without becoming the final authority over its members;
 5. every organisation carry an educative responsibility by making its purpose, method, consequences, and failures available for learning and revision;
 6. power remain limited by affected-party participation, independent evidence, appeal, remedy, and succession; and
-7. success be evaluated together at personal, family, social, and natural scales, since gain at one scale cannot justify contradiction at another.
+7. success be evaluated through both the five levels of human fulfilment and the personal, family, social, and natural scales of the human goal, since gain at one level or scale cannot justify contradiction at another.
 
 ### 1.3 From human purpose to five continuity functions
 
@@ -62,9 +70,9 @@ These objects establish five core functions: education-*sanskar*, justice-securi
 
 ```mermaid
 flowchart TB
-    H["Governing human purpose<br/>anubhav of coexistence; sukh, shanti,<br/>santosh, anand, and humane conduct"]
+    H["Governing human purpose<br/>sukh | shanti | santosh | anand<br/>grounded in anubhav of coexistence"]
     G["Human goal in lived order<br/>resolution | prosperity | fearlessness | coexistence"]
-    P["Every person<br/>understanding, voice, bodily capability,<br/>skill, contribution, and correction"]
+    P["Every person<br/>understanding, protected participation<br/>in affected decisions, bodily capability,<br/>skill, contribution, and correction"]
     F["Family - the first organisation<br/>durable shared life integrating care, learning,<br/>relationship, work, need, provision, and appeal"]
     L["Local cooperative organisations<br/>accessible competence, production, health,<br/>exchange, justice, records, and reserve"]
     S["Specialised organisations<br/>advanced knowledge, care, protection,<br/>science, records, and independent review"]
@@ -181,7 +189,7 @@ Their functions are to:
 - circulate useful provision beyond the producing unit;
 - protect access against exploitation, exclusion, hoarding, and manufactured scarcity;
 - maintain reserves for dependency, emergency, interruption, and future need;
-- give affected persons voice in priorities and terms; and
+- enable affected persons to participate in setting priorities and terms, receive reasons for allocation, and challenge or appeal without retaliation; and
 - correct allocation through re-release, reallocation, restitution, changed terms, and reserve restoration.
 
 Twelve activity members enter the distributed-availability channel. Its smaller membership does not reduce its necessity: every member in the channel requires durable responsibility, and omission leaves provision without a bearer across persons and time. Exchange-reserve remains distinct from production because the authority that creates output has an interest in allocation, price, scarcity information, and reserve. One organisation may perform both functions only with transparent separate accounts, affected-party rights, independent health and ecological evidence, and appeal.
@@ -200,7 +208,7 @@ Their functions are to:
 
 - allocate authority to capable bearers;
 - make the reasons and limits of decisions public;
-- protect affected-party participation and minority or dependent voice;
+- protect participation by affected persons and ensure that minorities and dependent persons can express needs, question decisions, receive reasons, and appeal without retaliation;
 - coordinate resources when consequences cross local boundaries;
 - maintain appeal outside the unit being reviewed; and
 - revise rules and structures when evidence discloses recurring failure.
@@ -228,7 +236,7 @@ Care organisations sustain persons through childhood, illness, disability, agein
 
 Their functions are to:
 
-- preserve the cared-for person's bodily capability, agency, relationship, and voice;
+- preserve the cared-for person's bodily capability, agency, relationships, and supported ability to express needs, agree or disagree, and participate in decisions affecting their care;
 - support learning and participation rather than custodial dependence;
 - maintain continuity across caregivers and organisations;
 - provide accommodation and supported decision-making;
@@ -247,7 +255,7 @@ Independent review bodies use this infrastructure to test whether an organisatio
 
 ### 3.1 Every person is a participant
 
-The organisation exists to make available the conditions through which the common capacity of *jeevan* can become rightly oriented and expressed in every human. Each person must have access to understanding, language, inquiry, relationship, bodily means, useful skill, provision, contribution, and correction. Disability or dependency changes the form of participation through accommodation and support; it does not remove the person's standing. Aggregate performance by experts cannot substitute for person-level capability and voice.
+The organisation exists to make available the conditions through which the common capacity of *jeevan* can become rightly oriented and expressed in every human. Each person must have access to understanding, language, inquiry, relationship, bodily means, useful skill, provision, contribution, and correction. Disability or dependency changes the form of participation through accommodation and support; it does not remove the person's standing. Aggregate performance by experts cannot substitute for each person's capability to express understanding and needs, participate in decisions that affect them, receive reasoned answers, and challenge or appeal without retaliation.
 
 ### 3.2 Responsibility is nested and polycentric
 
@@ -271,7 +279,17 @@ Every function preserves competence, memory, records, succession, maintenance, r
 
 ### 3.7 Success is tested by the comprehensive human goal
 
-No organisation can certify another person's *anubhav*. Organisational evidence must therefore remain convergent and public enough for correction: comprehension and reasons, congruent conduct, counterpart evaluation, bodily and material consequence, responsible participation, and continuity over time. The four scales of the human goal provide an irreducible test:
+The five levels of fulfilment provide the person-centred test of organisation. They cannot be replaced by one measure of satisfaction, income, output, compliance, or self-report:
+
+| Human level | Organisational obligation | Characteristic failure |
+|---|---|---|
+| *Sukh* - happiness | Assure access to what is needed for bodily health and capable participation; enable informed evaluation and responsible choice. | Deprivation, bodily depletion, or stimulation and consumption treated as happiness. |
+| *Shanti* - peace | Make truthful information, reasons, inquiry, reflection, dialogue, and correction available so thought can become coherent. | Fear, propaganda, overload, secrecy, or incompatible demands that keep thought divided. |
+| *Santosh* - contentment | Require plans, designs, goals, and resource commitments to answer to definite understanding, relationships, means, and foreseeable consequence. | Planning governed by appearance, status, targets, or desire while contradicting what is understood. |
+| *Anand* - bliss | Protect the person's movement from definite understanding toward realised coherence; prevent office, doctrine, or credential from replacing inquiry. | Buddhi is required to conform to authority or assumption rather than being oriented toward *atma*. |
+| *Anubhav/anubhuti* - realisation | Sustain study, receptivity, dialogue, evidence-bearing conduct, and an awakened tradition while leaving realisation with the person. | An institution claims to confer, compel, monopolise, or certify realisation. |
+
+No organisation can directly inspect or certify another person's *anubhav*. Its responsibility is to ensure that none of these levels is disabled by deprivation, coercion, misinformation, fragmented activity, or preventable contradiction. Organisational evidence must therefore remain convergent and public enough for correction: comprehension and reasons, congruent conduct, counterpart evaluation, bodily and material consequence, responsible participation, and continuity over time. The four scales of the human goal provide the corresponding public test:
 
 | Scale | Required evidence | Insufficient proxy |
 |---|---|---|
@@ -280,7 +298,7 @@ No organisation can certify another person's *anubhav*. Organisational evidence 
 | Society - fearlessness | Trust, justice, protected participation, absence of exploitation, feasible appeal, and effective remedy | Administrative order, force, majority approval, reputation, or low complaint rates |
 | Universal order - coexistence | Mutually fulfilling participation among persons and regenerative balance with material and ecological processes | Present output, legal compliance, technological efficiency, or environmental claims without long-horizon evidence |
 
-An arrangement that improves one row by degrading another has not achieved the human goal. Prosperity obtained through bodily depletion, fear, unjust relationship, or ecological damage is not prosperity in the required sense. Social order obtained through silenced disagreement is not fearlessness. Personal calm sustained by dependency or ignorance is not resolution. The organisational system must keep all four scales visible and correct the function or authority that externalises contradiction onto another person, place, or generation.
+An arrangement that improves one level or scale by degrading another has not achieved the human goal. Prosperity obtained through bodily depletion, fear, unjust relationship, or ecological damage is not prosperity in the required sense. Bodily comfort accompanied by confused thought is not complete *sukh*. Peace imposed by silenced disagreement is not *shanti* or fearlessness. A successful plan detached from definite understanding is not *santosh*. Institutional assent is not *anand* or *anubhav*. The organisational system must keep all five levels and all four scales visible and correct the function or authority that externalises contradiction onto another faculty, person, place, or generation.
 
 ## 4. What this structure means for education, science, work, and trade
 
@@ -292,7 +310,7 @@ Science is organised as open, reproducible, and corrigible inquiry into means an
 
 Work is organised as both useful material participation and evidence of understanding in conduct. It begins from assessed need and proceeds through right-use, competence, safe participation, maintainability, and regeneration. Workers participate in purpose and method; users evaluate usefulness; health and ecological bodies evaluate consequences; records connect inputs, labour conditions, outputs, maintenance, waste, and restoration. Labour that requires ignorance of purpose, inability to question method, unsafe dependence, or extraction without learning contradicts the human end even when output rises.
 
-Trade and other forms of exchange are organised for dependable access without exploitation, not for the indefinite multiplication of desire or accumulation. Terms, stocks, unmet need, reserve, obligations, and future commitments remain inspectable. Scarcity invokes declared priorities, protection of minimum capability, affected-party voice, review, and restoration of provision rather than secrecy or permanent emergency power. Exchange succeeds when it supports prosperity and participation across persons and time without converting need, scarcity, or information asymmetry into domination.
+Trade and other forms of exchange are organised for dependable access without exploitation, not for the indefinite multiplication of desire or accumulation. Terms, stocks, unmet need, reserve, obligations, and future commitments remain inspectable. Under scarcity, affected persons participate in setting declared priorities, receive reasons for allocation, and can challenge or appeal decisions; minimum capability is protected, allocation is reviewed, and provision is restored without secrecy or permanent emergency power. Exchange succeeds when it supports prosperity and participation across persons and time without converting need, scarcity, or information asymmetry into domination.
 
 The result is a society in which family, education, science, work, health, justice, exchange, ecology, and governance are not separate worlds. They are mutually supporting bearers of a common human lifecycle, with enough functional distinction to preserve evidence and correction.
 
@@ -306,7 +324,7 @@ The study began with a question: what external structures and environments are r
 
 “Fully active” was defined as complete functioning in embodied human life, not activation by the environment. External arrangements do not create realisation, understanding, resolve, or sentient activity. They can make inquiry, relationship, bodily and material means, consequence, evaluation, correction, and transmission available or obstruct them.
 
-The human purpose stated in §1 is a source premise, not a result produced by clustering. The five-pass analysis begins from the account of the human being as knowledge order, happiness as human *dharma*, and the comprehensive goal of resolution, prosperity, fearlessness, and coexistence. It then tests what external responsibilities follow from the detailed activity architecture without presupposing family or the five institutional functions. This distinction prevents the method from presenting its normative end as a statistical discovery while still requiring every proposed organisation to answer to that end.
+The human purpose stated in §1 is a source premise, not a result produced by clustering. The five-pass analysis begins from the account of the human being as knowledge order; happiness as human *dharma*; its differentiation as *sukh*, *shanti*, *santosh*, and *anand* grounded in *anubhav*; and the comprehensive goal of resolution, prosperity, fearlessness, and coexistence. It then tests what external responsibilities follow from the detailed activity architecture without presupposing family or the five institutional functions. This distinction prevents the method from presenting its normative end as a statistical discovery while still requiring every proposed organisation to answer to that end.
 
 ### 5.2 Pass One: source and activity anatomy
 
@@ -365,7 +383,7 @@ The family invariant survived while kinship and co-residence failed as necessary
 
 ### 6.1 Human purpose governs institutional form
 
-The proposal has two joined foundations. The account of the human being as knowledge order supplies the governing end: happiness grounded in understanding and evidenced as resolution, prosperity, fearlessness, and coexistence. The activity analysis supplies the durable responsibilities and organisational tests required to support that end. Institutional form is therefore neither deduced from an abstract ideal alone nor obtained from clustering without a criterion of human fulfilment. An arrangement remains justified only while its functions, authority, means, and consequences serve the human end without claiming to manufacture or certify *anubhav*.
+The proposal has two joined foundations. The account of the human being as knowledge order supplies the governing end: complete human fulfilment in which rightly met bodily need and *mun-vritti* harmony bear *sukh*, *vritti-chitta* harmony bears *shanti*, *chitta-buddhi* harmony bears *santosh*, *buddhi-atma* harmony bears *anand*, and *atma* realises coexistence in *anubhav*. This fulfilment is evidenced publicly as resolution, prosperity, fearlessness, and coexistence. The activity analysis supplies the durable responsibilities and organisational tests required to support that end. Institutional form is therefore neither deduced from an abstract ideal alone nor obtained from clustering without a criterion of human fulfilment. An arrangement remains justified only while its functions, authority, means, and consequences support the complete sequence without claiming to manufacture or certify *anubhav*.
 
 ### 6.2 External organisation follows from lifecycle, not faculty count
 
@@ -465,7 +483,7 @@ Study contrasting arrangements that perform the same function: kin and non-kin s
 
 ### 8.6 Run adverse-condition pilots
 
-Test scarcity, disability, migration, coercion, technological concentration, and ecological delay in actual organisational settings or carefully designed simulations. Examine whether affected people retain voice, minimum capability, access to records, appeal, and effective correction when the system is under pressure.
+Test scarcity, disability, migration, coercion, technological concentration, and ecological delay in actual organisational settings or carefully designed simulations. Examine whether affected people retain minimum capability and access to records; can express needs and disagreement, participate in affected decisions, receive reasons, and appeal without retaliation; and obtain effective correction when the system is under pressure.
 
 ### 8.7 Design the interfaces explicitly
 
@@ -485,9 +503,9 @@ Maintain the activity register, sphere matrix, function model, case set, and evi
 
 ## 9. Conclusion
 
-The five-pass analysis yields a coherent proposed external organisation from the activity architecture of *jeevan*. Its governing purpose is comprehensive happiness grounded in knowledge: *anubhav* of coexistence orienting *sukh*, *shanti*, *santosh*, and *anand*, and becoming publicly meaningful as resolution, prosperity, fearlessness, and coexistence. Its foundation is the person as an embodied, relational, learning, working, and evaluative participant. Its first organisation is family, the durable shared-life field in which all five functions are integrated. Its horizontal structure consists of education-*sanskar*, justice-security, health-restraint, production-work, and exchange-reserve. Its vertical structure connects personal, family, local, specialised, and wider scales. Its cross-cutting safeguards are inquiry, protected participation, usable means, continuity, ecological evidence, and correction.
+The five-pass analysis yields a coherent proposed external organisation from the activity architecture of *jeevan*. Its governing purpose is complete human fulfilment. Happiness is the general human *dharma* and is differentiated as *sukh* (happiness), *shanti* (peace), *santosh* (contentment), and *anand* (bliss), grounded in *anubhav/anubhuti* (realisation) of coexistence. *Paramanand* names the ultimate bliss of this realisation. Complete fulfilment joins rightly met bodily need, coherent thought, planning aligned with definite understanding, *buddhi* aligned with *atma*, and realisation in *atma*; it becomes publicly meaningful as resolution, prosperity, fearlessness, and coexistence. The proposal's foundation is the person as an embodied, relational, learning, working, and evaluative participant. Its first organisation is family, the durable shared-life field in which all five functions are integrated. Its horizontal structure consists of education-*sanskar*, justice-security, health-restraint, production-work, and exchange-reserve. Its vertical structure connects personal, family, local, specialised, and wider scales. Its cross-cutting safeguards are inquiry, protected participation, usable means, continuity, ecological evidence, and correction.
 
-The proposal's strongest claim is not that one administrative diagram is ideal. It is that every organisation fit for human beings must be ordered toward the same human end. Family, education, science, work, trade, health, justice, ecology, and governance must enable every person to inquire, understand, participate, fulfil relationships, maintain bodily capability, contribute through useful work, receive dependable provision, observe consequences, and correct failure. Organisations are justified by the continuity they maintain and remain legitimate only while their means and results remain consonant with the comprehensive human goal and answerable to the people and fields they affect.
+The proposal's strongest claim is not that one administrative diagram is ideal. It is that every organisation fit for human beings must be ordered toward the same human end and must not optimise one level of fulfilment by disabling another. Family, education, science, work, trade, health, justice, ecology, and governance must enable every person to meet bodily need without reduction to consumption, think without coercion, plan in accordance with understanding, deepen the coherence of *buddhi* and *atma*, and pursue *anubhav* through inquiry and evidence-bearing life. They must also enable relationship fulfilment, useful work, dependable provision, observation of consequences, and correction of failure. Organisations are justified by the continuity they maintain and remain legitimate only while their means and results remain consonant with all five levels of human fulfilment, the four scales of the human goal, and the people and fields they affect.
 
 The method supplies a reason for this structure and a disciplined account of its present limits. The next stage is independent recoding, broader organisational comparison, operational evidence, field observation, adverse-condition testing, and transition design. That work will determine which concrete arrangements most reliably realise the derived functions and where the model itself must change.
 
@@ -498,7 +516,7 @@ The method supplies a reason for this structure and a disciplined account of its
 - **AVD** - A. Nagraj, [*Adhyatmvad*](../../References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf), tr. Sanjeev Chopra (work in progress). Cited: the five-column table and sixty-one *bal/shakti* positions supplying the 122-member documentary inventory (pp. 91-94; §5.1).
 - **JV** - A. Nagraj, [*Jeevan Vidya: An Introduction*](../../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.md), tr. Rakesh Gupta. Cited: the comprehensive human goal (pp. 61, 165; §§1, 3, 4, 9); delusion, awakened activity, and the four *jeevan* values (pp. 73-74, 138; §1); family relations and education-*sanskar* (pp. 55-60, 84, 108; §§1-4); the five dimensions of orderliness (pp. 109-110, 140; §§1-4); science in consonance with wisdom (pp. 151, 157-158; §§2.7, 4); and production and right-use of surplus (pp. 152-153; §§2.5-2.6, 4).
 - **KD** - A. Nagraj, [*Manav Karm Darshan*, working English rendering](../../References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf). Cited: the relation of resolution, prosperity, fearlessness, and coexistence to happiness, peace, contentment, and bliss (pp. 112, 150; §§1, 3, 4, 9); bodily effort, motion, and result in work (p. 12; §§2.5, 4); and production in accord with nature's cyclic order (p. 25; §§2.5, 4).
-- **MVD** - A. Nagraj, [*Madhyasth Darshan - Co-existentialism*](../../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.md), tr. Rakesh Gupta. Cited: restfulness, delusion, and happiness as the *dharma* of the knowledge order (pp. 68, 78-79, 91, 115, 276; §§1, 9); the four *jeevan* values, realisation, and ultimate bliss (pp. 207-208, 307, 327; §§1, 9); family, need, relationship, and organisation (pp. 55-62; §§1-4); the human joint form and bodily mediation (pp. 199-205; §§1-4); education-*sanskar*, teaching, and inquiry (pp. 248, 270, 313-315, 344; §§2.2, 4); inner-to-outer activity and reception conditions (pp. 275-291; §§1-4); justice and mutual satisfaction (pp. 310-311, 336; §§2.3, 4); and the 122 activities (p. 323; §5.1).
+- **MVD** - A. Nagraj, [*Madhyasth Darshan - Co-existentialism*](../../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.md), tr. Rakesh Gupta. Cited: restfulness, delusion, and happiness as the *dharma* of the knowledge order (pp. 68, 78-79, 91, 115, 276; §§1, 9); bodily satisfaction, the four *jeevan* values and their faculty relations, realisation, and ultimate bliss (pp. 207-208, 307, 327; §§1, 3, 9); family, need, relationship, and organisation (pp. 55-62; §§1-4); the human joint form and bodily mediation (pp. 199-205; §§1-4); education-*sanskar*, teaching, and inquiry (pp. 248, 270, 313-315, 344; §§2.2, 4); inner-to-outer activity and reception conditions (pp. 275-291; §§1-4); justice and mutual satisfaction (pp. 310-311, 336; §§2.3, 4); and the 122 activities (p. 323; §5.1).
 
 ### Five-pass analysis and supporting research notes
 
