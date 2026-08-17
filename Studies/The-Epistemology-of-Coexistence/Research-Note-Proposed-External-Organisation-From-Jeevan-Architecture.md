@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 17, 2026, 5:40 AM IST
+**Edited on:** August 17, 2026, 6:14 AM IST
 
 **Status:** Internal research note (not a catalog entry). Synthesis of the five-pass activity-to-sphere analysis.
 
@@ -11,6 +11,8 @@
 The proposed order begins with **family as the first organisation of human order**. Family is the durable shared-life organisation in which care, learning, relationship, health, work, need assessment, and provision are first integrated. Five function systems maintain education-*sanskar*, justice-security, health-restraint, production-work, and exchange-reserve. Local cooperative organisations extend these functions where affected people can participate directly. Specialised and wider organisations supply advanced competence, coordination, protection, reserve, and long-horizon responsibility. Independent scientific, ecological, governing, care, communication, and review bodies preserve evidence and correction across the five systems.
 
 The governing purpose is complete human happiness grounded in knowledge. The human being belongs to the knowledge order, whose *dharma* is stated generally as *sukh*, or happiness. The architecture of *jeevan* differentiates this fulfilment as *sukh* (happiness), *shanti* (peace), *santosh* (contentment), and *anand* (bliss), grounded in *anubhav* or *anubhuti* (realisation) in *atma*. Family and society are therefore organised to support satisfaction at every level: bodily need and capability, thought, visualisation and planning, definite understanding, and finally realisation of coexistence. They do not produce *anubhav* inside *jeevan*; they make inquiry, relationship, bodily and material means, visible consequence, correction, and transmission continuously available. The structure is centred on the development and participation of every person rather than administration by a permanent competent minority.
+
+Knowledge supplies the central organising principle. Knowledge is Omnipresence itself, realised as coexistence, and its operative order is evident as *niyam* (law), *niyantran* (regulation), *santulan* (balance), *nyaya* (justice), *dharma*, and *satya* (truth). Every organisation must discover the law of the activity it carries, regulate its operation accordingly, preserve balance among all affected parts, and evaluate conduct through justice, *dharma*, and truth. Procedures alone cannot establish this order. Realised humans are its necessary bearers, while family, education, work, and society must preserve the conditions in which every person and the next generation can advance toward realisation.
 
 ## Part I. The proposed external organisation
 
@@ -38,7 +40,28 @@ These inward harmonies become publicly meaningful in the comprehensive human goa
 
 The purpose of organisation is therefore not to administer happiness, manufacture realisation, or certify an inner claim. It is to maintain the external conditions in which every level of human fulfilment can become active together: adequate bodily means, uncoerced inquiry, coherent thought, plans answerable to understanding, development of receptivity, competent participation, visible consequences, correction, and evidence in relationship, work, and coexistence. The person realises; organisation supports, protects, and carries the conditions of that possibility.
 
-### 1.2 What this principle requires of organisation
+### 1.2 Knowledge as the organising principle
+
+Knowledge is not information possessed by an institution. Omnipresence is identified with knowledge, and coexistence - nature saturated in Omnipresence - is the reality realised in *atma*. Law, regulation, balance, justice, *dharma*, and truth are evident within coexistence. Realisation in coexistence is the unfolding of this universally present knowledge in the human being; its expression in understanding, work, behaviour, and participation is its evidence (MVD, pp. 32-35, 115-116, 174).
+
+The six terms give organisation an operative grammar:
+
+| Knowledge content | Meaning | Requirement for organisation |
+|---|---|---|
+| *Niyam* - law | The inherent definition, protection, and discipline of an activity | State the human or material object being maintained, its rightful purpose, and the limits that must not be violated. |
+| *Niyantran* - regulation | Continuous alignment of activity with its law | Arrange responsibility, competence, feedback, restraint, review, and correction so ordinary operation remains aligned with purpose; regulation is not arbitrary command. |
+| *Santulan* - balance | Complementarity sustained through regulation | Demonstrate that persons, relationships, functions, material processes, and nature remain mutually fulfilling rather than transferring contradiction or harm elsewhere. |
+| *Nyaya* - justice | Evaluation of behaviour and relationship | Recognise relationships, fulfil their values, evaluate the result with affected persons, and establish mutual satisfaction without exploitation. |
+| *Dharma* | Evaluation of thought, resolution, and participation in orderliness | Test whether purpose, policy, and action sustain human happiness, resolution, and responsible participation in the wider order. |
+| *Satya* - truth | The ultimate perspective grounded in realisation of coexistence | Require claims, explanations, and results to accord with coexistence and disclosed consequence rather than authority, belief, appearance, or convenience. |
+
+The six occupy successive roles within one progression. Knowledge is evident as law; law becomes effective as regulation; regulation sustains balance; balanced human living becomes justice; just participation in universal orderliness becomes *dharma* or resolution; and realisation in coexistence is *dharma* and truth. *Niyam-niyantran-santulan* describe the order, regulation, and balance of activity. *Nyaya-dharma-satya* supply the governing perspectives through which free human thought and conduct recognise, evaluate, and fulfil that order (MVD, pp. 66-70, 136-137, 174).
+
+This ordering is present constitutionally in material nature: atomic structures and larger material systems exhibit definite activity, regulation, and balance without having to understand them. A human organisation is different because it has no *jeevan* apart from the persons who constitute and conduct it. Its charter, procedure, database, or authority cannot realise knowledge. Only human beings can realise, understand, evaluate, and evidence the six in conduct. Without realised human bearers, *niyam* can be reduced to an imposed rule, *niyantran* to command, *santulan* to a favourable aggregate, *nyaya* to procedure, *dharma* to doctrine, and *satya* to an authorised claim.
+
+Realised humans are therefore necessary for the full establishment and continuity of the fourfold human goal. Resolution requires knowledge in the person; prosperity requires need and production regulated by that resolution; fearlessness requires justice in relationship and society; coexistence requires truthful participation in the whole order. Organisation has a double responsibility: its own operation must be constituted by this knowledge, and it must maintain the family, educative, relational, material, and social conditions through which every participant and the next generation can study, realise, and evidence the same knowledge. Institutional status cannot substitute for realisation; a person's authority must remain answerable to understanding, conduct, consequence, and correction (MVD, pp. 70-71, 115-116, 173-175, 317-318).
+
+### 1.3 What this principle requires of organisation
 
 Human organisation is not a neutral container for whatever desires happen to prevail. Every family, school, workplace, market, scientific body, and government shapes *sanskar* through what it teaches, rewards, permits, measures, and makes possible. An arrangement that treats obedience, consumption, output, profit, status, or reported satisfaction as sufficient success gives durable social form to the very confusion it should help resolve.
 
@@ -56,7 +79,7 @@ This principle requires that:
 6. power remain limited by affected-party participation, independent evidence, appeal, remedy, and succession; and
 7. success be evaluated through both the five levels of human fulfilment and the personal, family, social, and natural scales of the human goal, since gain at one level or scale cannot justify contradiction at another.
 
-### 1.3 From human purpose to five continuity functions
+### 1.4 From human purpose to five continuity functions
 
 The human end supplies the purpose of organisation; the 122-activity analysis supplies its durable structure. The activity evidence does not derive happiness as human *dharma*. It asks what must remain available in embodied and social life if the common capacity of *jeevan* is to become rightly oriented, competently expressed, evaluated, corrected, sustained, and transmitted. The answer is that human organisation must maintain five objects through time:
 
@@ -71,6 +94,7 @@ These objects establish five core functions: education-*sanskar*, justice-securi
 ```mermaid
 flowchart TB
     H["Governing human purpose<br/>sukh | shanti | santosh | anand<br/>grounded in anubhav of coexistence"]
+    K["Knowledge-based organising principle<br/>niyam | niyantran | santulan<br/>evaluated through nyaya | dharma | satya"]
     G["Human goal in lived order<br/>resolution | prosperity | fearlessness | coexistence"]
     P["Every person<br/>understanding, protected participation<br/>in affected decisions, bodily capability,<br/>skill, contribution, and correction"]
     F["Family - the first organisation<br/>durable shared life integrating care, learning,<br/>relationship, work, need, provision, and appeal"]
@@ -80,8 +104,9 @@ flowchart TB
     C["Five continuity systems<br/>education-sanskar | justice-security | health-restraint<br/>production-work | exchange-reserve"]
     X["Independent cross-cutting bodies<br/>science, governance, ecology, care,<br/>communication, records, and review"]
 
-    H --> G
-    H -. "orients every person and function" .-> P
+    H --> K --> G
+    G -. "orients every person and function" .-> P
+    K -. "constitutes and evaluates every function" .-> C
     G -. "tests the order as a whole" .-> C
     P --> F --> L --> S --> W
     F --- C
@@ -123,13 +148,16 @@ Education-*sanskar* organisations maintain understood orientation. They include 
 
 Education-*sanskar* is the orienting responsibility of the whole order without becoming an administratively supreme institution. Family, work, health, justice, science, exchange, and governance must all remain fields in which persons can understand purpose, examine method, observe consequence, and improve competence. Specialised educational organisations preserve depth, method, and transmission, but no educational authority may replace the learner's inquiry with status or compulsory assent.
 
+The central intergenerational task is the continuity of realised knowledge rather than the transmission of six terms as doctrine. Texts, records, examples, and methods can preserve access, but knowledge unfolds and becomes communicable through awakened human beings. A living tradition therefore requires realised human guidance whose authority is evidenced through explanation, conduct, work, relationship, and participation, together with learners who can inquire and verify rather than merely conform. Education must enable each generation to understand *niyam*, participate through *niyantran*, evaluate *santulan* through *nyaya-dharma-satya*, and advance toward *anubhav* in its own members (MVD, pp. 70-71, 115-116, 317-318).
+
 Their functions are to:
 
 - make knowledge, reasons, language, and methods available;
+- enable study of *niyam-niyantran-santulan* and evaluation through *nyaya-dharma-satya* in concrete conduct, work, and organisation;
 - develop each person's ability to inquire, verify, apply, and revise;
 - join learning with conduct and lived evidence;
 - preserve source material, demonstrations, criticism, and correction;
-- prepare competent guides without creating a permanent knower-follower division; and
+- prepare competent guides and sustain realised human guidance without creating a permanent knower-follower division; and
 - carry learning and *sanskar* across generations and organisational turnover.
 
 This function exists because understood meaning cannot be replaced by correct orders, bodily treatment, successful output, or access to goods. The analysis assigns fifty-nine activity members to the understood-orientation channel. Inquiry and evidence recur across 105 rows, and continuity or succession across 115. Education must therefore be present in family, work, health, justice, science, and public coordination, while specialised educational organisations maintain the depth and continuity that no one household or workplace can provide alone.
@@ -257,27 +285,40 @@ Independent review bodies use this infrastructure to test whether an organisatio
 
 The organisation exists to make available the conditions through which the common capacity of *jeevan* can become rightly oriented and expressed in every human. Each person must have access to understanding, language, inquiry, relationship, bodily means, useful skill, provision, contribution, and correction. Disability or dependency changes the form of participation through accommodation and support; it does not remove the person's standing. Aggregate performance by experts cannot substitute for each person's capability to express understanding and needs, participate in decisions that affect them, receive reasoned answers, and challenge or appeal without retaliation.
 
-### 3.2 Responsibility is nested and polycentric
+### 3.2 Every organisation is constituted and evaluated by knowledge
+
+Every family, school, workplace, exchange network, health organisation, scientific body, and governing institution must make the sixfold knowledge principle operational:
+
+1. **Identify *niyam*.** State the object or relationship being maintained, its rightful activity, its purpose, and the boundary beyond which it is damaged or contradicted.
+2. **Establish *niyantran*.** Place competence, authority, feedback, restraint, records, and correction so that actual operation remains aligned with the identified law.
+3. **Evidence *santulan*.** Test whether the parts remain mutually sustaining across persons, functions, material processes, places, generations, and nature.
+4. **Evaluate through *nyaya*.** Determine whether relationships are recognised, values fulfilled, affected persons included in evaluation, and mutual satisfaction achieved without exploitation.
+5. **Evaluate through *dharma*.** Determine whether the organisation's thought, policy, and conduct support resolution, human happiness, and participation in the wider order.
+6. **Evaluate through *satya*.** Determine whether its claims and conclusions accord with coexistence and with the disclosed consequences of its activity.
+
+These are not six departments. They form the constitutional cycle of every organisation. The five continuity functions have different objects and therefore different specific laws: education maintains understood orientation; justice maintains rightful claims; health maintains bodily capability; production maintains useful material transformation; exchange maintains dependable availability. Each function must nevertheless identify its law, regulate itself toward that law, demonstrate balance, and remain answerable to justice, *dharma*, and truth. An organisation that cannot state and evidence this cycle is not yet organised on the basis of knowledge.
+
+### 3.3 Responsibility is nested and polycentric
 
 Daily fulfilment begins with the person and durable shared life. Local organisations carry work, care, learning, health, exchange, and relational correction close to those affected. Specialised and wider bodies enter when competence, resource distribution, migration, major harm, or ecological time exceeds local capability. The scale of responsibility follows the scale of consequence.
 
-### 3.3 Performance and correction remain distinguishable
+### 3.4 Performance and correction remain distinguishable
 
 No organisation is the final judge of its own harms. The authority that teaches cannot use status as proof of understanding. The authority that produces cannot control health and ecological evidence. The authority that allocates provision cannot conceal stock or deny appeal. The family or care organisation cannot silence a dependent member. Governance itself remains subject to reasons, review, and correction.
 
-### 3.4 Functions may share organisations without losing their identity
+### 3.5 Functions may share organisations without losing their identity
 
 The five functions do not require exactly five organisations. A shared-life group carries all five. A cooperative may combine production and exchange. A local centre may combine education, health support, mediation, and records. Combination is sound when purposes, evidence, accounts, decision rights, conflicts of interest, and correction paths remain visible and independently reviewable.
 
-### 3.5 Evidence is plural and convergent
+### 3.6 Evidence is plural and convergent
 
 Evidence is matched to the object being maintained. Understanding requires the learner's articulation, application, and capacity for revision. Justice requires counterpart and affected-party evidence. Health requires bodily report and competent material evidence. Production requires worker, user, maintenance, safety, and ecological evidence. Exchange requires transparent need, stock, access, reserve, and exclusion evidence. Agreement among relevant standpoints strengthens a conclusion; divergence initiates inquiry and correction.
 
-### 3.6 Continuity is designed into ordinary operation
+### 3.7 Continuity is designed into ordinary operation
 
 Every function preserves competence, memory, records, succession, maintenance, reserve, and the capacity to learn from failure. Continuity is not mere organisational survival. An organisation continues legitimately only while it maintains the human and material object for which it exists.
 
-### 3.7 Success is tested by the comprehensive human goal
+### 3.8 Success is tested by the comprehensive human goal
 
 The five levels of fulfilment provide the person-centred test of organisation. They cannot be replaced by one measure of satisfaction, income, output, compliance, or self-report:
 
@@ -302,15 +343,15 @@ An arrangement that improves one level or scale by degrading another has not ach
 
 ## 4. What this structure means for education, science, work, and trade
 
-No major organisation is humanly neutral under this principle. Each one either supports the movement from assumption toward understanding and responsible participation or reinforces dependence on sensation, authority, status, and material proxy. Its specialised function remains distinct, but its purpose and method must remain educative, participatory, evidential, and correctable.
+No major organisation is humanly neutral under this principle. Each one either embodies the movement from knowledge through law, regulation, balance, justice, *dharma*, and truth or reinforces dependence on sensation, authority, status, and material proxy. Every specialised function must answer the six questions in §3.2. Procedure and measurement support realised human judgement; they cannot replace the human being who understands the law, evaluates the consequence, and corrects the organisation.
 
-Education is organised for verified understanding and lived competence. Learners question, compare, practise, observe consequences, and become capable of teaching and correction. Certification, attendance, recitation, or institutional reputation do not replace this evidence. Education succeeds when a learner becomes increasingly able to understand and participate without permanent dependence on the teacher.
+Education is organised for verified understanding and lived competence. It carries the meaning and application of the sixfold knowledge principle across generations. Learners question, compare, practise, observe consequences, and become capable of teaching and correction. Certification, attendance, recitation, or institutional reputation do not replace this evidence. Education succeeds when a learner becomes increasingly able to understand and participate without permanent dependence on the teacher and when realised human guidance remains available without becoming doctrinal authority.
 
-Science is organised as open, reproducible, and corrigible inquiry into means and consequence. Research agendas, funding, application, and risk review are publicly answerable to the comprehensive human goal, affected relationships, bodily conditions, and ecological continuity. Technical power is not self-justifying; adverse results remain publishable and capable of changing institutional decisions.
+Science is organised as open, reproducible, and corrigible inquiry into the law, process, means, result, and consequence of activities. It helps disclose *niyam*, tests whether regulation produces the stated balance, and supplies evidence needed for evaluation, while justice, *dharma*, and truth govern its human purpose and application. Research agendas, funding, application, and risk review are publicly answerable to the comprehensive human goal, affected relationships, bodily conditions, and ecological continuity. Technical power is not self-justifying; adverse results remain publishable and capable of changing institutional decisions.
 
-Work is organised as both useful material participation and evidence of understanding in conduct. It begins from assessed need and proceeds through right-use, competence, safe participation, maintainability, and regeneration. Workers participate in purpose and method; users evaluate usefulness; health and ecological bodies evaluate consequences; records connect inputs, labour conditions, outputs, maintenance, waste, and restoration. Labour that requires ignorance of purpose, inability to question method, unsafe dependence, or extraction without learning contradicts the human end even when output rises.
+Work is organised as both useful material participation and evidence of understanding in conduct. Its *niyam* arises from the material process and human need being served; *niyantran* keeps skill, means, safety, and use aligned with that law; *santulan* appears as useful output without bodily, relational, or ecological contradiction. Workers participate in purpose and method; users evaluate usefulness; health and ecological bodies evaluate consequences; records connect inputs, labour conditions, outputs, maintenance, waste, and restoration. Labour that requires ignorance of purpose, inability to question method, unsafe dependence, or extraction without learning contradicts the human end even when output rises.
 
-Trade and other forms of exchange are organised for dependable access without exploitation, not for the indefinite multiplication of desire or accumulation. Terms, stocks, unmet need, reserve, obligations, and future commitments remain inspectable. Under scarcity, affected persons participate in setting declared priorities, receive reasons for allocation, and can challenge or appeal decisions; minimum capability is protected, allocation is reviewed, and provision is restored without secrecy or permanent emergency power. Exchange succeeds when it supports prosperity and participation across persons and time without converting need, scarcity, or information asymmetry into domination.
+Trade and other forms of exchange are organised for dependable access without exploitation, not for the indefinite multiplication of desire or accumulation. Its law is the availability and right use of provision across persons and time; regulation maintains truthful terms, stocks, priorities, obligations, and reserve; balance is tested by access, continuity, and absence of displaced harm. Under scarcity, affected persons participate in setting declared priorities, receive reasons for allocation, and can challenge or appeal decisions; minimum capability is protected, allocation is reviewed, and provision is restored without secrecy or permanent emergency power. Justice, *dharma*, and truth determine whether an exchange is humane even when it is profitable.
 
 The result is a society in which family, education, science, work, health, justice, exchange, ecology, and governance are not separate worlds. They are mutually supporting bearers of a common human lifecycle, with enough functional distinction to preserve evidence and correction.
 
@@ -324,7 +365,9 @@ The study began with a question: what external structures and environments are r
 
 “Fully active” was defined as complete functioning in embodied human life, not activation by the environment. External arrangements do not create realisation, understanding, resolve, or sentient activity. They can make inquiry, relationship, bodily and material means, consequence, evaluation, correction, and transmission available or obstruct them.
 
-The human purpose stated in §1 is a source premise, not a result produced by clustering. The five-pass analysis begins from the account of the human being as knowledge order; happiness as human *dharma*; its differentiation as *sukh*, *shanti*, *santosh*, and *anand* grounded in *anubhav*; and the comprehensive goal of resolution, prosperity, fearlessness, and coexistence. It then tests what external responsibilities follow from the detailed activity architecture without presupposing family or the five institutional functions. This distinction prevents the method from presenting its normative end as a statistical discovery while still requiring every proposed organisation to answer to that end.
+The human purpose and knowledge principle stated in §1 are source premises, not results produced by clustering. The five-pass analysis begins from the account of the human being as knowledge order; happiness as human *dharma*; its differentiation as *sukh*, *shanti*, *santosh*, and *anand* grounded in *anubhav*; knowledge as Omnipresence; its operative expression as *niyam-niyantran-santulan-nyaya-dharma-satya*; and the comprehensive goal of resolution, prosperity, fearlessness, and coexistence. It then tests what external responsibilities follow from the detailed activity architecture without presupposing family or the five institutional functions. The sixfold principle and the five derived functions answer different questions: the six govern how every activity and organisation is constituted and evaluated, while the five name the distinct objects whose continuity the activity analysis requires. This distinction prevents the method from presenting its normative premises as statistical discoveries while still requiring every proposed organisation to answer to them.
+
+“Operative expression of knowledge” is used deliberately. A broader source enumeration describes complete knowledge through the holistic view of coexistence, knowledge of *jeevan*, knowledge of humane conduct, and knowledge of participation in overall orderliness (KD §3.5, p. 69). This paper does not reduce those known domains to six words. It uses the sixfold progression as the cross-cutting organisational grammar because the sources locate all six within coexistence and connect them from knowledge and law through human justice, *dharma*, and truth.
 
 ### 5.2 Pass One: source and activity anatomy
 
@@ -381,9 +424,11 @@ The family invariant survived while kinship and co-residence failed as necessary
 
 ## 6. Consolidated findings and insights
 
-### 6.1 Human purpose governs institutional form
+### 6.1 Human purpose and realised knowledge govern institutional form
 
-The proposal has two joined foundations. The account of the human being as knowledge order supplies the governing end: complete human fulfilment in which rightly met bodily need and *mun-vritti* harmony bear *sukh*, *vritti-chitta* harmony bears *shanti*, *chitta-buddhi* harmony bears *santosh*, *buddhi-atma* harmony bears *anand*, and *atma* realises coexistence in *anubhav*. This fulfilment is evidenced publicly as resolution, prosperity, fearlessness, and coexistence. The activity analysis supplies the durable responsibilities and organisational tests required to support that end. Institutional form is therefore neither deduced from an abstract ideal alone nor obtained from clustering without a criterion of human fulfilment. An arrangement remains justified only while its functions, authority, means, and consequences support the complete sequence without claiming to manufacture or certify *anubhav*.
+The proposal has two joined foundations. The account of the human being as knowledge order supplies the governing end: complete human fulfilment in which rightly met bodily need and *mun-vritti* harmony bear *sukh*, *vritti-chitta* harmony bears *shanti*, *chitta-buddhi* harmony bears *santosh*, *buddhi-atma* harmony bears *anand*, and *atma* realises coexistence in *anubhav*. Realised knowledge supplies the organising principle: activity is understood through *niyam*, maintained through *niyantran*, fulfilled in *santulan*, and evaluated through *nyaya*, *dharma*, and *satya*. This fulfilment is evidenced publicly as resolution, prosperity, fearlessness, and coexistence. The activity analysis supplies the durable responsibilities and organisational tests required to support that end.
+
+Institutional form is therefore neither a self-sufficient mechanism nor an arrangement justified by output alone. The fourfold human goal requires realised humans who can understand and evidence the knowledge on which organisation rests. The organisation's own responsibility is to embody the sixfold principle in its purpose and operation and to reproduce the conditions for realised human bearers across generations. The five functions distribute this responsibility without replacing it: education carries understood orientation, justice carries rightful relationship, health carries bodily capability, production carries useful transformation, and exchange carries dependable availability. An arrangement remains justified only while its functions, authority, means, and consequences support realisation and remain governed by law, regulation, balance, justice, *dharma*, and truth.
 
 ### 6.2 External organisation follows from lifecycle, not faculty count
 
@@ -428,6 +473,8 @@ Institutional vocabulary was hidden during sphere clustering and continuity-chan
 ### 7.2 Dependence on the source ontology
 
 The analysis is conditional on the Madhyasth Darshan account of a common *jeevan* architecture and on the accuracy of the source inventory and translations. It does not independently establish the existence, number, or internal organisation of the faculties and activities. A change in the primary ontology would require the external derivation to be rerun.
+
+The extension of *niyam-niyantran-santulan* from atomic and natural organisation to human institutions preserves a common ordering vocabulary but not an identical mechanism. Material units participate constitutionally; human beings possess imagination and freedom of action and must understand the order in which they participate. The sources state the sixfold progression and its human evaluations, while the specific organisational questions in §§1.2 and 3.2 are this proposal's application of that progression. Field research must test whether the application distinguishes knowledge-based organisation from mere regulatory compliance.
 
 ### 7.3 Interpretive coding and recoder dependence
 
@@ -501,11 +548,15 @@ Treat the source's ten-tier social order as a proposed implementation. Map its u
 
 Maintain the activity register, sphere matrix, function model, case set, and evidence protocol as revisable research artifacts. A real case should revise the organisational design when it exposes a missing safeguard. It should revise the function model when it satisfies the stated conditions yet requires a non-substitutable continuity object outside the five. The next version of the proposal should report both kinds of revision.
 
+### 8.11 Test the sixfold knowledge principle
+
+Apply the constitutional cycle in §3.2 to contrasting families, schools, workplaces, health bodies, exchange networks, scientific organisations, and governing institutions. For each case, identify the proposed *niyam*, the actual mechanism of *niyantran*, the evidence of *santulan*, and the judgments made through *nyaya-dharma-satya*. Test the characteristic substitutions directly: imposed rule for law, command for regulation, aggregate stability for balance, procedure for justice, doctrine for *dharma*, and authorised assertion for truth. Examine whether realised human guidance remains available, whether participants become more capable of understanding the six, and whether the organisation can transmit that capacity to a next generation.
+
 ## 9. Conclusion
 
-The five-pass analysis yields a coherent proposed external organisation from the activity architecture of *jeevan*. Its governing purpose is complete human fulfilment. Happiness is the general human *dharma* and is differentiated as *sukh* (happiness), *shanti* (peace), *santosh* (contentment), and *anand* (bliss), grounded in *anubhav/anubhuti* (realisation) of coexistence. *Paramanand* names the ultimate bliss of this realisation. Complete fulfilment joins rightly met bodily need, coherent thought, planning aligned with definite understanding, *buddhi* aligned with *atma*, and realisation in *atma*; it becomes publicly meaningful as resolution, prosperity, fearlessness, and coexistence. The proposal's foundation is the person as an embodied, relational, learning, working, and evaluative participant. Its first organisation is family, the durable shared-life field in which all five functions are integrated. Its horizontal structure consists of education-*sanskar*, justice-security, health-restraint, production-work, and exchange-reserve. Its vertical structure connects personal, family, local, specialised, and wider scales. Its cross-cutting safeguards are inquiry, protected participation, usable means, continuity, ecological evidence, and correction.
+The five-pass analysis yields a coherent proposed external organisation from the activity architecture of *jeevan*. Its governing purpose is complete human fulfilment. Happiness is the general human *dharma* and is differentiated as *sukh* (happiness), *shanti* (peace), *santosh* (contentment), and *anand* (bliss), grounded in *anubhav/anubhuti* (realisation) of coexistence. *Paramanand* names the ultimate bliss of this realisation. Its governing knowledge is Omnipresence itself, realised as coexistence and expressed organisationally through *niyam*, *niyantran*, *santulan*, *nyaya*, *dharma*, and *satya*. Complete fulfilment becomes publicly meaningful as resolution, prosperity, fearlessness, and coexistence. The proposal's foundation is the realised and realisation-capable person as an embodied, relational, learning, working, and evaluative participant. Its first organisation is family, the durable shared-life field in which all five functions are integrated. Its horizontal structure consists of education-*sanskar*, justice-security, health-restraint, production-work, and exchange-reserve. Its vertical structure connects personal, family, local, specialised, and wider scales. Its cross-cutting constitution is the sixfold knowledge principle; its safeguards are inquiry, protected participation, usable means, continuity, ecological evidence, and correction.
 
-The proposal's strongest claim is not that one administrative diagram is ideal. It is that every organisation fit for human beings must be ordered toward the same human end and must not optimise one level of fulfilment by disabling another. Family, education, science, work, trade, health, justice, ecology, and governance must enable every person to meet bodily need without reduction to consumption, think without coercion, plan in accordance with understanding, deepen the coherence of *buddhi* and *atma*, and pursue *anubhav* through inquiry and evidence-bearing life. They must also enable relationship fulfilment, useful work, dependable provision, observation of consequences, and correction of failure. Organisations are justified by the continuity they maintain and remain legitimate only while their means and results remain consonant with all five levels of human fulfilment, the four scales of the human goal, and the people and fields they affect.
+The proposal's strongest claim is not that one administrative diagram is ideal. It is that every organisation fit for human beings must be based on realised knowledge and ordered toward the same human end. A charter, incentive, procedure, expert body, or computational system cannot substitute for realised human bearers. Family, education, science, work, trade, health, justice, ecology, and governance must operate according to *niyam*, regulate themselves through *niyantran*, demonstrate *santulan*, and remain answerable to *nyaya-dharma-satya*. They must enable every person to meet bodily need without reduction to consumption, think without coercion, plan in accordance with understanding, deepen the coherence of *buddhi* and *atma*, and pursue *anubhav* through inquiry and evidence-bearing life. Their continuity includes enabling the next generation to realise, live, and transmit the same knowledge. Organisations remain legitimate only while their operation is consonant with the sixfold knowledge principle, all levels of human fulfilment, the four scales of the human goal, and the people and fields they affect.
 
 The method supplies a reason for this structure and a disciplined account of its present limits. The next stage is independent recoding, broader organisational comparison, operational evidence, field observation, adverse-condition testing, and transition design. That work will determine which concrete arrangements most reliably realise the derived functions and where the model itself must change.
 
@@ -515,8 +566,8 @@ The method supplies a reason for this structure and a disciplined account of its
 
 - **AVD** - A. Nagraj, [*Adhyatmvad*](../../References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf), tr. Sanjeev Chopra (work in progress). Cited: the five-column table and sixty-one *bal/shakti* positions supplying the 122-member documentary inventory (pp. 91-94; §5.1).
 - **JV** - A. Nagraj, [*Jeevan Vidya: An Introduction*](../../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.md), tr. Rakesh Gupta. Cited: the comprehensive human goal (pp. 61, 165; §§1, 3, 4, 9); delusion, awakened activity, and the four *jeevan* values (pp. 73-74, 138; §1); family relations and education-*sanskar* (pp. 55-60, 84, 108; §§1-4); the five dimensions of orderliness (pp. 109-110, 140; §§1-4); science in consonance with wisdom (pp. 151, 157-158; §§2.7, 4); and production and right-use of surplus (pp. 152-153; §§2.5-2.6, 4).
-- **KD** - A. Nagraj, [*Manav Karm Darshan*, working English rendering](../../References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf). Cited: the relation of resolution, prosperity, fearlessness, and coexistence to happiness, peace, contentment, and bliss (pp. 112, 150; §§1, 3, 4, 9); bodily effort, motion, and result in work (p. 12; §§2.5, 4); and production in accord with nature's cyclic order (p. 25; §§2.5, 4).
-- **MVD** - A. Nagraj, [*Madhyasth Darshan - Co-existentialism*](../../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.md), tr. Rakesh Gupta. Cited: restfulness, delusion, and happiness as the *dharma* of the knowledge order (pp. 68, 78-79, 91, 115, 276; §§1, 9); bodily satisfaction, the four *jeevan* values and their faculty relations, realisation, and ultimate bliss (pp. 207-208, 307, 327; §§1, 3, 9); family, need, relationship, and organisation (pp. 55-62; §§1-4); the human joint form and bodily mediation (pp. 199-205; §§1-4); education-*sanskar*, teaching, and inquiry (pp. 248, 270, 313-315, 344; §§2.2, 4); inner-to-outer activity and reception conditions (pp. 275-291; §§1-4); justice and mutual satisfaction (pp. 310-311, 336; §§2.3, 4); and the 122 activities (p. 323; §5.1).
+- **KD** - A. Nagraj, [*Manav Karm Darshan*, working English rendering](../../References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf). Cited: the broader enumeration of complete knowledge (p. 69; §5.1); the relation of resolution, prosperity, fearlessness, and coexistence to happiness, peace, contentment, and bliss (pp. 112, 150; §§1, 3, 4, 9); bodily effort, motion, and result in work (p. 12; §§2.5, 4); and production in accord with nature's cyclic order (p. 25; §§2.5, 4).
+- **MVD** - A. Nagraj, [*Madhyasth Darshan - Co-existentialism*](../../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.md), tr. Rakesh Gupta. Cited: knowledge as Omnipresence, the sixfold progression from law through truth, and realised humans as bearers of knowledge and awakening (pp. 32-35, 66-71, 115-116, 136-137, 173-175, 317-318; §§1.2-1.3, 2.2, 3.2, 4, 5.1, 6.1, 7.2, 8.11, 9); restfulness, delusion, and happiness as the *dharma* of the knowledge order (pp. 68, 78-79, 91, 115, 276; §§1, 9); bodily satisfaction, the four *jeevan* values and their faculty relations, realisation, and ultimate bliss (pp. 207-208, 307, 327; §§1, 3, 9); family, need, relationship, and organisation (pp. 55-62; §§1-4); the human joint form and bodily mediation (pp. 199-205; §§1-4); education-*sanskar*, teaching, and inquiry (pp. 248, 270, 313-315, 344; §§2.2, 4); inner-to-outer activity and reception conditions (pp. 275-291; §§1-4); justice and mutual satisfaction (pp. 310-311, 336; §§2.3, 4); and the 122 activities (p. 323; §5.1).
 
 ### Five-pass analysis and supporting research notes
 
