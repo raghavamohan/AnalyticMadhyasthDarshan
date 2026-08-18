@@ -57,6 +57,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Studies of Madhyasth Darshan"/>
 <meta name="twitter:description" content="An open comparative study of Madhyasth Darshan, following a path through existence, knowledge, value, lived participation, and formal synthesis."/>
+<script src="/webmcp.js"></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"CollectionPage","name":"Studies of Madhyasth Darshan","description":"An open comparative study of Madhyasth Darshan, following a path from the human question through existence, knowledge, value, lived participation, and formal synthesis.","url":"https://analyticmadhyasthdarshan.org/Studies/index.html","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/"}
 </script>

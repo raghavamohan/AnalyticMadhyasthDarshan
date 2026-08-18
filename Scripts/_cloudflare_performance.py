@@ -141,6 +141,7 @@ HOMEPAGE_LINK = (
     '</.well-known/agent-skills/index.json>; rel="describedby"; type="application/json", '
     '</.well-known/mcp/server-card.json>; rel="describedby"; type="application/json", '
     '</.well-known/http-message-signatures-directory>; rel="describedby"; type="application/http-message-signatures-directory+json", '
+    '</webmcp.js>; rel="describedby"; type="text/javascript", '
     '</auth.md>; rel="describedby"; type="text/markdown", '
     '</.well-known/oauth-protected-resource>; rel="describedby"; type="application/json", '
     '</Studies/catalog-topical.json>; rel="describedby"; type="application/json", '

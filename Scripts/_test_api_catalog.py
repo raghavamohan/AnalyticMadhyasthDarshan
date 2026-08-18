@@ -35,6 +35,7 @@ MCP_SERVER_CARD_HREF = (
 WEB_BOT_AUTH_HREF = (
     "https://analyticmadhyasthdarshan.org/.well-known/http-message-signatures-directory"
 )
+WEBMCP_HREF = "https://analyticmadhyasthdarshan.org/webmcp.js"
 STUDIES_CATALOG_HREFS = (
     "https://analyticmadhyasthdarshan.org/Studies/catalog-topical.json",
     "https://analyticmadhyasthdarshan.org/Studies/catalog-formal.json",
@@ -47,6 +48,7 @@ HOMEPAGE_LINK_HREFS = (
     "/.well-known/agent-skills/index.json",
     "/.well-known/mcp/server-card.json",
     "/.well-known/http-message-signatures-directory",
+    "/webmcp.js",
     "/auth.md",
     "/.well-known/oauth-protected-resource",
     "/Studies/catalog-topical.json",
@@ -175,7 +177,7 @@ def check_sitemap_discovery() -> None:
         fail(f"sitemap is missing discovery URLs: {missing}")
     print(
         "OK: sitemap lists Auth.md, OpenAPI, api-catalog, Agent Card, "
-        "Agent Skills, MCP Server Card, Web Bot Auth, and OAuth well-known URIs."
+        "Agent Skills, MCP Server Card, Web Bot Auth, WebMCP, and OAuth well-known URIs."
     )
 
 
@@ -310,6 +312,8 @@ def main() -> None:
         fail("api-catalog is missing the MCP Server Card describedby link")
     if WEB_BOT_AUTH_HREF not in described:
         fail("api-catalog is missing the Web Bot Auth directory describedby link")
+    if WEBMCP_HREF not in described:
+        fail("api-catalog is missing the WebMCP script describedby link")
 
     for spec in (BASE / "openapi" / "submissions.json", BASE / "openapi" / "discussions.json"):
         data = load_json(spec)

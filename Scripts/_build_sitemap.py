@@ -33,6 +33,7 @@ DISCOVERY_PAGES = (
     ".well-known/agent-skills/index.json",
     ".well-known/mcp/server-card.json",
     ".well-known/http-message-signatures-directory",
+    "webmcp.js",
     ".well-known/oauth-protected-resource",
     ".well-known/oauth-authorization-server",
 )
