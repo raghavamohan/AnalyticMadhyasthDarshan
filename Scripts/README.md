@@ -52,6 +52,7 @@ what to run **on that branch** before opening the PR.
 | A2A Agent Card | `python Scripts/_test_agent_card.py` (`--live`); `python Scripts/_publish_agent_card_snippet.py` |
 | Agent Skills Discovery | `python Scripts/_build_agent_skills_index.py` (`--check`); `python Scripts/_test_agent_skills.py` (`--live`); `python Scripts/_publish_agent_skills_snippet.py` |
 | MCP Server Card | `python Scripts/_test_mcp_server_card.py` (`--live`); `python Scripts/_publish_mcp_server_card.py` |
+| Web Bot Auth | `python Scripts/_test_web_bot_auth.py` (`--live`); `python Scripts/_publish_web_bot_auth.py` |
 | Sync agent rules and skills | `python Scripts/_sync_agent_rules.py` then `python Scripts/_sync_agent_rules.py --check` |
 
 Windows wrappers: `.\Scripts\_add_study.ps1`, `.\Scripts\_remove_study.ps1`, `.\Scripts\_set_study_status.ps1`, `.\Scripts\_download_references.ps1`.
