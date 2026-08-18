@@ -43,12 +43,17 @@ EDGE_API_RATE_LIMIT_REF = "amd_rl_edge_api"
 WAF_CUSTOM_MANAGED_REFS = (PROBE_BLOCK_REF, NOTIFY_SKIP_REF)
 EDGE_API_RATE_LIMIT_REFS = (EDGE_API_RATE_LIMIT_REF,)
 HSTS_MAX_AGE_SEC = 31536000
-CSP_REPORT_ONLY = (
+# Enforcing CSP for static pages. Allow Turnstile, in-browser Mermaid (jsDelivr),
+# and Cloudflare Web Analytics (beacon). Study HTML still uses inline scripts.
+CSP = (
     "default-src 'self'; "
-    "script-src 'self' https://challenges.cloudflare.com 'unsafe-inline'; "
+    "script-src 'self' https://challenges.cloudflare.com https://cdn.jsdelivr.net "
+    "https://static.cloudflareinsights.com 'unsafe-inline'; "
     "style-src 'self' 'unsafe-inline'; "
     "img-src 'self' data:; "
-    "connect-src 'self' https://api.analyticmadhyasthdarshan.org https://challenges.cloudflare.com; "
+    "connect-src 'self' https://api.analyticmadhyasthdarshan.org "
+    "https://challenges.cloudflare.com https://cloudflareinsights.com "
+    "https://static.cloudflareinsights.com; "
     "frame-src https://challenges.cloudflare.com; "
     "base-uri 'self'; "
     "form-action 'self'"
@@ -482,7 +487,7 @@ def security_header_hsts_spec() -> dict:
             "enabled": True,
             "max_age": HSTS_MAX_AGE_SEC,
             "include_subdomains": True,
-            "preload": False,
+            "preload": True,
             "nosniff": False,
         },
     }
@@ -505,7 +510,7 @@ def apply_security_baseline(token: str, zone_id: str | None) -> None:
         print("HSTS already configured.")
     else:
         apply_zone_setting(token, zone, "security_header", hsts_spec)
-        print("HSTS enabled (preload=false).")
+        print("HSTS enabled (preload=true).")
 
 
 def check_security_baseline(token: str, zone_id: str | None) -> tuple[bool, list[str]]:
@@ -835,7 +840,8 @@ def security_headers_rule_body() -> dict:
                 "X-Frame-Options": _header_set("SAMEORIGIN"),
                 "Referrer-Policy": _header_set("strict-origin-when-cross-origin"),
                 "Permissions-Policy": _header_set("camera=(), microphone=(), geolocation=()"),
-                "Content-Security-Policy-Report-Only": _header_set(CSP_REPORT_ONLY),
+                "Content-Security-Policy": _header_set(CSP),
+                "Content-Security-Policy-Report-Only": {"operation": "remove"},
             },
         },
     }
@@ -1656,10 +1662,10 @@ Cloudflare dashboard steps for {SITE_HOST} (GitHub Pages origin, orange-cloud pr
    python Scripts/_cloudflare_performance.py --check-portal-edge-security
 
 7. Full edge security hardening (TLS, HSTS, probe block, discussion rate limits,
-   response headers with CSP report-only):
+   response headers with enforcing CSP):
    python Scripts/_cloudflare_performance.py --apply-edge-security
    python Scripts/_cloudflare_performance.py --check-edge-security
-   Operator next steps (CSP enforce, HSTS preload): infra/worker/README.md
+   Optional remaining steps (HSTS preload list, human smoke tests): infra/worker/README.md
 
 8. Re-check RUM after 7 days against infra/cloudflare-rum-baseline.json
    Targets: LCP P99 < 2500 ms, LCP poor % near 0.
@@ -1736,7 +1742,7 @@ def main() -> int:
         "--apply-security-headers",
         action="store_true",
         help=(
-            "Add response security headers (CSP report-only), homepage RFC 8288 "
+            "Add response security headers (enforcing CSP), homepage RFC 8288 "
             "Link headers, Auth.md / OAuth metadata Content-Type, and RFC 9727 "
             "api-catalog Content-Type."
         ),
