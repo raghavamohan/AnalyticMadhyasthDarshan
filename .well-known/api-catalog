@@ -34,6 +34,10 @@
         {
           "href": "https://analyticmadhyasthdarshan.org/.well-known/mcp/server-card.json",
           "type": "application/json"
+        },
+        {
+          "href": "https://analyticmadhyasthdarshan.org/.well-known/http-message-signatures-directory",
+          "type": "application/http-message-signatures-directory+json"
         }
       ]
     },
