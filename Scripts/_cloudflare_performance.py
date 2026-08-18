@@ -37,6 +37,8 @@ PROBE_BLOCK_REF = "amd_block_common_probes"
 SECURITY_HEADERS_REF = "amd_security_headers_static"
 HOMEPAGE_LINK_HEADERS_REF = "amd_homepage_link_headers"
 API_CATALOG_HEADERS_REF = "amd_api_catalog_content_type"
+AUTH_MD_HEADERS_REF = "amd_auth_md_content_type"
+OAUTH_METADATA_HEADERS_REF = "amd_oauth_metadata_content_type"
 EDGE_API_RATE_LIMIT_REF = "amd_rl_edge_api"
 WAF_CUSTOM_MANAGED_REFS = (PROBE_BLOCK_REF, NOTIFY_SKIP_REF)
 EDGE_API_RATE_LIMIT_REFS = (EDGE_API_RATE_LIMIT_REF,)
@@ -68,6 +70,25 @@ SECURITY_HEADERS_EXPRESSION = (
 API_CATALOG_HEADERS_EXPRESSION = (
     f'(http.host eq "{SITE_HOST}" and http.request.uri.path eq "/.well-known/api-catalog")'
 )
+AUTH_MD_HEADERS_EXPRESSION = (
+    f'(http.host eq "{SITE_HOST}" and http.request.uri.path eq "/auth.md")'
+)
+OAUTH_METADATA_HEADERS_EXPRESSION = (
+    f'(http.host eq "{SITE_HOST}" and ('
+    'http.request.uri.path eq "/.well-known/oauth-protected-resource" or '
+    'http.request.uri.path eq "/.well-known/oauth-authorization-server"))'
+)
+AUTH_MD_SNIPPET_EXPRESSION = (
+    f'(http.host eq "{SITE_HOST}" and ('
+    'http.request.uri.path eq "/auth.md" or '
+    'http.request.uri.path eq "/.well-known/oauth-protected-resource" or '
+    'http.request.uri.path eq "/.well-known/oauth-authorization-server" or '
+    'http.request.uri.path eq "/agent/auth" or '
+    'http.request.uri.path eq "/agent/auth/claim" or '
+    'http.request.uri.path eq "/oauth2/token"))'
+)
+AUTH_MD_CONTENT_TYPE = "text/markdown; charset=utf-8"
+OAUTH_METADATA_CONTENT_TYPE = "application/json"
 HOMEPAGE_LINK_HEADERS_EXPRESSION = (
     f'(http.host eq "{SITE_HOST}" and ('
     'http.request.uri.path eq "/" or '
@@ -847,12 +868,44 @@ def homepage_link_headers_rule_body() -> dict:
     }
 
 
+def auth_md_headers_rule_body() -> dict:
+    return {
+        "ref": AUTH_MD_HEADERS_REF,
+        "expression": AUTH_MD_HEADERS_EXPRESSION,
+        "description": "Auth.md Markdown Content-Type.",
+        "action": "rewrite",
+        "enabled": True,
+        "action_parameters": {
+            "headers": {
+                "Content-Type": _header_set(AUTH_MD_CONTENT_TYPE),
+            },
+        },
+    }
+
+
+def oauth_metadata_headers_rule_body() -> dict:
+    return {
+        "ref": OAUTH_METADATA_HEADERS_REF,
+        "expression": OAUTH_METADATA_HEADERS_EXPRESSION,
+        "description": "RFC 8414 / RFC 9728 OAuth metadata Content-Type.",
+        "action": "rewrite",
+        "enabled": True,
+        "action_parameters": {
+            "headers": {
+                "Content-Type": _header_set(OAUTH_METADATA_CONTENT_TYPE),
+            },
+        },
+    }
+
+
 def managed_response_header_rules() -> list[dict]:
     # Catalog rule last so its Link header wins on /.well-known/api-catalog
     # if expressions ever overlap.
     return [
         security_headers_rule_body(),
         homepage_link_headers_rule_body(),
+        auth_md_headers_rule_body(),
+        oauth_metadata_headers_rule_body(),
         api_catalog_headers_rule_body(),
     ]
 
@@ -883,6 +936,14 @@ def _api_catalog_headers_rule_is_correct(rule: dict) -> bool:
 
 def _homepage_link_headers_rule_is_correct(rule: dict) -> bool:
     return _header_rule_is_correct(rule, homepage_link_headers_rule_body())
+
+
+def _auth_md_headers_rule_is_correct(rule: dict) -> bool:
+    return _header_rule_is_correct(rule, auth_md_headers_rule_body())
+
+
+def _oauth_metadata_headers_rule_is_correct(rule: dict) -> bool:
+    return _header_rule_is_correct(rule, oauth_metadata_headers_rule_body())
 
 
 def get_response_headers_entrypoint_ruleset(token: str, zone_id: str) -> dict | None:
@@ -979,6 +1040,8 @@ def check_security_headers(token: str, zone_id: str | None) -> tuple[bool, list[
     for expected, correct in (
         (security_headers_rule_body(), _security_headers_rule_is_correct),
         (homepage_link_headers_rule_body(), _homepage_link_headers_rule_is_correct),
+        (auth_md_headers_rule_body(), _auth_md_headers_rule_is_correct),
+        (oauth_metadata_headers_rule_body(), _oauth_metadata_headers_rule_is_correct),
         (api_catalog_headers_rule_body(), _api_catalog_headers_rule_is_correct),
     ):
         ref = expected["ref"]
@@ -1004,7 +1067,7 @@ def print_check_security_headers(token: str, zone_id: str | None) -> bool:
     if ok:
         print(
             "  OK: static-site security headers, homepage RFC 8288 Link, "
-            "RFC 9727 catalog Content-Type."
+            "Auth.md / OAuth metadata Content-Type, RFC 9727 catalog Content-Type."
         )
         return True
     for issue in issues:
@@ -1670,7 +1733,8 @@ def main() -> int:
         action="store_true",
         help=(
             "Add response security headers (CSP report-only), homepage RFC 8288 "
-            "Link headers, and RFC 9727 api-catalog Content-Type."
+            "Link headers, Auth.md / OAuth metadata Content-Type, and RFC 9727 "
+            "api-catalog Content-Type."
         ),
     )
     parser.add_argument(

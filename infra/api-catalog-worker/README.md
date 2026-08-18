@@ -37,8 +37,10 @@ header rules:
 
 ```powershell
 python Scripts/_publish_api_catalog_snippet.py
+python Scripts/_publish_auth_md_snippet.py
 python Scripts/_cloudflare_performance.py --apply-security-headers
 python Scripts/_test_api_catalog.py --live
+python Scripts/_test_auth_md.py --live
 ```
 
 When a Cloudflare token with **Workers Scripts Edit** is available, you can
