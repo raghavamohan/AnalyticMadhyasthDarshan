@@ -13,7 +13,7 @@ Maintained by **[AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/A
 | Resource | What you will find |
 |----------|-------------------|
 | **[Studies catalog](Studies/index.html)** | Published papers (PDF): topical, formal, and applied studies, plus topics in progress |
-| **[Site APIs](api-docs.html)** | Submission portal and discussion board APIs (OpenAPI, [RFC 9727](https://www.rfc-editor.org/rfc/rfc9727) catalog) |
+| **[Site APIs](api-docs.html)** | Studies catalog JSON for agents, plus submission and discussion APIs ([RFC 9727](https://www.rfc-editor.org/rfc/rfc9727)) |
 | **[My Submissions](Studies/submit.html)** | Web Submission Portal — sign in with GitHub to propose, submit, update, and track studies (reading the catalog needs no account) |
 | **[About the studies](Studies/README.md)** | Our approach, objectives, and how to read the collection |
 | **[Official source materials](https://www.madhyasth.org/)** | Primary texts and institutional resources from **Divya Path Sansthan** — the authoritative source for Madhyasth Darshan |

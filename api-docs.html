@@ -40,11 +40,50 @@
 <body>
 <h1>Site APIs</h1>
 <p>
-  Analytic Madhyasth Darshan publishes two HTTP APIs: the
-  <a href="Studies/submit.html">Web Submission Portal</a> backend and the
-  per-study discussion boards. Agents can discover them from the
-  <a href="/.well-known/api-catalog">RFC 9727 API catalog</a>
-  at <code>/.well-known/api-catalog</code>.
+  Agents should start at
+  <a href="/.well-known/api-catalog"><code>/.well-known/api-catalog</code></a>
+  (RFC 9727). That linkset points at the published
+  <strong>studies catalog JSON</strong> for reading papers, and at the
+  submission and discussion HTTP APIs for writes.
+</p>
+
+<h2>Studies catalog</h2>
+<p class="muted">
+  There is no studies REST API. The public collection is three JSON arrays
+  the studies landing page already fetches. Each row has
+  <code>slug</code>, <code>title</code>, <code>status</code>
+  (<code>ongoing</code>, <code>draft</code>, or <code>released</code>),
+  and, when a document exists, relative <code>html</code> and <code>pdf</code>
+  paths. Resolve those paths against
+  <code>https://analyticmadhyasthdarshan.org/Studies/</code>
+  (applied studies use <code>../Applications/&lt;Slug&gt;/</code>).
+</p>
+<table>
+  <thead>
+    <tr><th>Resource</th><th>URL</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Topical studies</td>
+      <td><a href="Studies/catalog-topical.json"><code>/Studies/catalog-topical.json</code></a></td>
+    </tr>
+    <tr>
+      <td>Formal studies</td>
+      <td><a href="Studies/catalog-formal.json"><code>/Studies/catalog-formal.json</code></a></td>
+    </tr>
+    <tr>
+      <td>Applied studies</td>
+      <td><a href="Studies/catalog-applied.json"><code>/Studies/catalog-applied.json</code></a></td>
+    </tr>
+    <tr>
+      <td>Human catalog</td>
+      <td><a href="Studies/index.html"><code>/Studies/index.html</code></a></td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  Companion research notes are not catalog rows. Only curated technical notes
+  listed in <a href="sitemap.xml">sitemap.xml</a> are published as public pages.
 </p>
 
 <h2>Submission portal</h2>
@@ -108,9 +147,10 @@
   <code>GET</code> and <code>HEAD</code>
   <a href="/.well-known/api-catalog"><code>/.well-known/api-catalog</code></a>
   return an RFC 9264 linkset
-  (<code>Content-Type: application/linkset+json</code>) listing each API’s
-  <code>service-desc</code>, <code>service-doc</code>, and <code>status</code>
-  links, following
+  (<code>Content-Type: application/linkset+json</code>) listing the studies
+  catalog JSON and each write API’s
+  <code>service-desc</code>, <code>service-doc</code>, and optional
+  <code>status</code> links, following
   <a href="https://www.rfc-editor.org/rfc/rfc9727">RFC 9727</a>.
 </p>
 <p><a href="Studies/index.html">Back to the studies catalog</a></p>
