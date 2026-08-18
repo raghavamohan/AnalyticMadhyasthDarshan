@@ -117,6 +117,25 @@ def check_live() -> None:
         fail(f"live Agent Card Content-Type is {content_type!r}")
     payload = json.loads(body)
     check_card(payload)
+    repo = load_card()
+    if payload.get("version") != repo.get("version"):
+        fail(
+            f"live Agent Card version is {payload.get('version')!r}, "
+            f"git has {repo.get('version')!r}"
+        )
+    live_urls = {
+        interface.get("url")
+        for interface in payload.get("supportedInterfaces") or []
+        if interface.get("url")
+    }
+    repo_urls = {
+        interface.get("url")
+        for interface in repo.get("supportedInterfaces") or []
+        if interface.get("url")
+    }
+    missing_urls = sorted(repo_urls - live_urls)
+    if missing_urls:
+        fail(f"live Agent Card is missing interfaces: {missing_urls}")
     print("OK: live /.well-known/agent-card.json is A2A Agent Card JSON.")
     first_url = payload["supportedInterfaces"][0]["url"]
     iface_request = urllib.request.Request(

@@ -7,15 +7,9 @@ Canonical files stay in [`.well-known/agent-skills/`](../../.well-known/agent-sk
 The Worker embeds those files so the index and `SKILL.md` artifacts return HTTP 200
 with `application/json` / `text/markdown`.
 
-The zone API token can upload this Worker but cannot create a Workers Route, so
-production currently 302-redirects `/.well-known/agent-skills/*` to
-`https://amd-agent-skills.raghavamohan.workers.dev` (managed by
-`python Scripts/_cloudflare_performance.py --apply-redirect`). When a token with
-Workers Routes Edit is available, attach
-
-`analyticmadhyasthdarshan.org/.well-known/agent-skills/*` → `amd-agent-skills`
-
-and remove that redirect.
+Production attaches the zone Workers Route
+`analyticmadhyasthdarshan.org/.well-known/agent-skills/*` → `amd-agent-skills`.
+`--apply-redirect` binds that route and does not 302 to workers.dev.
 
 ## Deploy
 

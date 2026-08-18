@@ -6,42 +6,31 @@ Canonical [RFC 9727](https://www.rfc-editor.org/rfc/rfc9727) linkset for
 [`.well-known/api-catalog`](../../.well-known/api-catalog).
 `python Scripts/_test_api_catalog.py` checks that they match.
 
-**Production does not run this Worker.** GitHub Pages can host the JSON but
-cannot set `Content-Type: application/linkset+json` on the extensionless path,
-so live serving uses a Snippet plus a Transform Rule (see **Live serving**
-below). Deploy this Worker only when replacing that Snippet.
+GitHub Pages can host the JSON but cannot set
+`Content-Type: application/linkset+json` on the extensionless path. Production
+attaches the zone Workers Route
+`analyticmadhyasthdarshan.org/.well-known/api-catalog*` → `amd-api-catalog`.
 
 ## Deploy
 
-From this directory (requires a Cloudflare token with Workers deploy permission):
+From the repository root:
 
 ```powershell
-npx wrangler deploy
+python Scripts/_publish_api_catalog_snippet.py
+python Scripts/_test_api_catalog.py --live
 ```
 
-Route: `https://analyticmadhyasthdarshan.org/.well-known/api-catalog`
+The publish script uploads Worker `amd-api-catalog` from a self-contained
+module generated in memory (it does not overwrite committed `src/index.js`),
+enables the workers.dev host, and binds the zone route.
 
-## Live serving
+## Homepage Link headers
 
-GitHub Pages cannot set `Content-Type: application/linkset+json` on this
-extensionless path. Production currently serves the catalog with:
-
-1. A Cloudflare Snippet (`amd_api_catalog`) that returns the linkset with HTTP 200
-2. A Transform Rule that sets the RFC 9727 Content-Type and `Link` header
-3. A homepage Transform Rule that advertises `api-catalog`, `service-desc`,
-   `service-doc`, and `describedby` on `/` and `/Studies/index.html`
-   ([RFC 8288](https://www.rfc-editor.org/rfc/rfc8288),
-   [RFC 9727 §3](https://www.rfc-editor.org/rfc/rfc9727#section-3)), including
-   the A2A Agent Card at `/.well-known/agent-card.json`, the Agent Skills
-   Discovery index at `/.well-known/agent-skills/index.json`, the MCP
-   Server Card at `/.well-known/mcp/server-card.json`, and the Web Bot Auth
-   directory at `/.well-known/http-message-signatures-directory`, and WebMCP
-   tools at `/webmcp.js`
-
-After changing `.well-known/api-catalog`, `.well-known/agent-card.json`,
-`.well-known/agent-skills/`, `.well-known/mcp/`, or
-`.well-known/http-message-signatures-directory`, re-publish the snippets and confirm the header
-rules:
+A Transform Rule advertises `api-catalog`, `service-desc`, `service-doc`, and
+`describedby` on `/` and `/Studies/index.html`
+([RFC 8288](https://www.rfc-editor.org/rfc/rfc8288),
+[RFC 9727 §3](https://www.rfc-editor.org/rfc/rfc9727#section-3)). After changing
+`.well-known/api-catalog` or related discovery documents:
 
 ```powershell
 python Scripts/_publish_api_catalog_snippet.py
@@ -58,9 +47,5 @@ python Scripts/_test_mcp_server_card.py --live
 python Scripts/_test_web_bot_auth.py --live
 python Scripts/_test_auth_md.py --live
 ```
-
-When a Cloudflare token with **Workers Scripts Edit** is available, you can
-`npx wrangler deploy` this worker instead. Remove the snippet rule first so the
-two do not both handle the same path.
 
 Human documentation: [api-docs.html](../../api-docs.html).
