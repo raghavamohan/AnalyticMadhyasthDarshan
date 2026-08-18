@@ -35,7 +35,8 @@ extensionless path. Production currently serves the catalog with:
    the A2A Agent Card at `/.well-known/agent-card.json`, the Agent Skills
    Discovery index at `/.well-known/agent-skills/index.json`, the MCP
    Server Card at `/.well-known/mcp/server-card.json`, and the Web Bot Auth
-   directory at `/.well-known/http-message-signatures-directory`
+   directory at `/.well-known/http-message-signatures-directory`, and WebMCP
+   tools at `/webmcp.js`
 
 After changing `.well-known/api-catalog`, `.well-known/agent-card.json`,
 `.well-known/agent-skills/`, `.well-known/mcp/`, or

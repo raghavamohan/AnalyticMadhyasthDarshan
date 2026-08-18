@@ -35,6 +35,11 @@ It is a JWKS of Ed25519 public keys. Outbound signed requests use
 `Signature-Agent` and `Signature-Input`. This site does not crawl other
 origins as a verified bot.
 
+Browser agents can call catalog tools through
+[WebMCP](https://webmachinelearning.github.io/webmcp/). The page script is
+https://analyticmadhyasthdarshan.org/webmcp.js
+and registers tools with `navigator.modelContext.registerTool` on load.
+
 ## Audience
 
 **Readers and agents fetching studies do not register.** The studies catalog
