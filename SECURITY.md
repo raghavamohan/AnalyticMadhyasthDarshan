@@ -82,7 +82,7 @@ purge it as needed.
 Production edge security (Super Bot Fight Mode, WAF rules, TLS/HSTS, response headers) is applied
 via [`Scripts/_cloudflare_performance.py`](Scripts/_cloudflare_performance.py) and documented in
 [`infra/worker/README.md`](infra/worker/README.md) under **Cloudflare edge configuration** —
-including what is live today and **operator next steps** (CSP enforce, HSTS preload, smoke tests).
+including what is live today (enforcing CSP, HSTS with preload) and **operator next steps** (HSTS preload list, human smoke tests).
 Verify with `python Scripts/_cloudflare_performance.py --check-edge-security`.
 
 ## Safe harbor
