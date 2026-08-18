@@ -82,6 +82,8 @@ def check_as_metadata() -> dict:
     as_doc = load_json(AS_PATH)
     if as_doc.get("issuer") != ISSUER:
         fail(f"AS issuer is {as_doc.get('issuer')!r}")
+    if as_doc.get("service_documentation") != f"{SITE}/auth.md":
+        fail("AS metadata service_documentation must point at /auth.md")
     if not as_doc.get("token_endpoint"):
         fail("AS metadata is missing token_endpoint")
     agent_auth = as_doc.get("agent_auth")
@@ -156,6 +158,8 @@ def check_live() -> None:
     as_doc = json.loads(body)
     if as_doc.get("issuer") != ISSUER:
         fail("live AS issuer mismatch")
+    if as_doc.get("service_documentation") != f"{SITE}/auth.md":
+        fail("live AS metadata is missing service_documentation")
     if not as_doc.get("agent_auth", {}).get("register_uri"):
         fail("live AS metadata is missing agent_auth.register_uri")
     print("OK: live auth.md, PRM, and Authorization Server metadata.")

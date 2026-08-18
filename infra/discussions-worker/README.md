@@ -70,6 +70,8 @@ Magic-link responses then include `verifyUrl` in JSON (never enable in productio
 npx wrangler deploy
 ```
 
+`CLOUDFLARE_API_TOKEN` must include **Account → Workers Scripts → Edit**. A zone-only token can attach routes (`--apply-discussions-api`) but `wrangler deploy` fails with API error 10000.
+
 Default worker URL: `https://amd-discussions.<account>.workers.dev`
 
 Discussion pages use same-origin `/api/...` when Worker routes are configured on `analyticmadhyasthdarshan.org`; otherwise they fall back to the workers.dev URL.
@@ -91,8 +93,8 @@ Or manually in Cloudflare dashboard → Workers Routes:
 
 | Route | Auth | Purpose |
 |-------|------|---------|
-| `GET /api/discussions/health` | — | Liveness `{ status: "ok" }` |
-| `GET /api/discussions/stats` | — | Comment counts and latest activity per study slug |
+| `GET /api/discussions/health` | — | Liveness `{ status: "ok" }` (`health` is not a study slug) |
+| `GET /api/discussions/stats` | — | Comment counts and latest activity per study slug (`stats` is reserved) |
 | `GET /api/discussions/:slug` | — | List visible comments for a study |
 | `POST /api/discussions/:slug/comments` | cookie | Post a comment (session required; Turnstile not repeated per post) |
 | `POST /api/discussions/:slug/comments/:id/hide` | admin cookie | Soft-hide another user's comment |
@@ -102,7 +104,7 @@ Or manually in Cloudflare dashboard → Workers Routes:
 | `GET /api/discuss-auth/me` | cookie | `{ loggedIn, email, displayName, isAdmin }` |
 | `POST /api/discuss-auth/logout` | cookie | Clear session |
 
-Auth routes use the **`/api/discuss-auth/`** prefix so they do not clash with the submissions worker (`/api/auth/github`, etc.).
+Auth routes use the **`/api/discuss-auth/`** prefix so they do not clash with the submissions worker (`/api/auth/github`, etc.). `health` and `stats` are reserved slugs so `GET /api/discussions/:slug` cannot swallow the liveness or stats routes. Unauthenticated JSON `401` responses include `WWW-Authenticate` pointing at the apex [RFC 9728](https://www.rfc-editor.org/rfc/rfc9728) Protected Resource Metadata.
 
 ## Cloudflare edge limits (apex domain)
 

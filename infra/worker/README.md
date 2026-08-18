@@ -83,6 +83,8 @@ The worker verifies `turnstileToken` on every write request before calling GitHu
 npx wrangler deploy
 ```
 
+`CLOUDFLARE_API_TOKEN` must include **Account → Workers Scripts → Edit**. A zone-only token can apply Transform Rules and Snippets but `wrangler deploy` fails with API error 10000.
+
 The worker is served from the same-site custom domain `https://api.analyticmadhyasthdarshan.org` (configured via `routes` in [`wrangler.toml`](wrangler.toml)). Serving the API on a subdomain of the site keeps the session cookie **first-party**, so it is not blocked by Safari ITP or Firefox Total Cookie Protection. The cookie uses `SameSite=Lax` (`COOKIE_SAMESITE` in `wrangler.toml`).
 
 The portal reads this URL from the `API_BASE` constant in [`Studies/submit.html`](../../Studies/submit.html) — update it if the domain changes. For cross-site (`*.workers.dev`) deployments, set `COOKIE_SAMESITE = "None"` instead, but note third-party-cookie blocking will break sign-in in some browsers.
@@ -148,7 +150,7 @@ Response includes `meta.timingMs`, `meta.githubRequests`, and optional `meta.tru
 ## Cloudflare edge configuration (not in this repo)
 
 - **Custom domain:** submissions worker at `api.analyticmadhyasthdarshan.org` via [`wrangler.toml`](wrangler.toml) (`SameSite=Lax` cookie with the portal).
-- **API catalog:** [RFC 9727](https://www.rfc-editor.org/rfc/rfc9727) discovery at `/.well-known/api-catalog` is served by [`infra/api-catalog-worker`](../api-catalog-worker/README.md). The homepage advertises that catalog plus OpenAPI and docs via RFC 8288 `Link` headers. Identity discovery: [`/auth.md`](../../auth.md) and [RFC 9728](https://www.rfc-editor.org/rfc/rfc9728) Protected Resource Metadata. Human docs: [`api-docs.html`](../../api-docs.html).
+- **API catalog:** [RFC 9727](https://www.rfc-editor.org/rfc/rfc9727) discovery at `/.well-known/api-catalog` is served live by Cloudflare Snippet `amd_api_catalog` plus a Transform Rule. The optional Worker in [`infra/api-catalog-worker`](../api-catalog-worker/README.md) is unused until it is deployed in place of that snippet. The homepage advertises the catalog, Auth.md, OAuth metadata, catalog JSON, OpenAPI, and docs via RFC 8288 `Link` headers. Identity discovery: [`/auth.md`](../../auth.md) and [RFC 9728](https://www.rfc-editor.org/rfc/rfc9728) Protected Resource Metadata. Human docs: [`api-docs.html`](../../api-docs.html). Unauthenticated JSON `401` responses include `WWW-Authenticate` pointing at the apex Protected Resource Metadata.
 
 Zone settings live on `analyticmadhyasthdarshan.org` in Cloudflare, not in git. Scripts in [`Scripts/_cloudflare_performance.py`](../../Scripts/_cloudflare_performance.py) apply and verify the stack; [`infra/discussions-worker/README.md`](../discussions-worker/README.md) notes discussion-specific limits and CSP/Turnstile interaction.
 
