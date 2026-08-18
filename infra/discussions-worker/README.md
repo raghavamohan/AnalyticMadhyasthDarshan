@@ -110,7 +110,7 @@ Auth routes use the **`/api/discuss-auth/`** prefix so they do not clash with th
 
 Discussion routes run on `analyticmadhyasthdarshan.org/api/...` (not the `api.` subdomain). **Pro plan allows only two WAF rate-limit rules** in the zone; the repo uses one for leaked-credential checks and one combined rule (`amd_rl_edge_api`: **40 req / 10 s per IP** on portal `api.*` paths plus apex `/api/discussions/*` and `/api/discuss-auth/magic-link`). Worker-side magic-link limit remains 5/hour per email. Apply or verify via [`infra/worker/README.md`](../worker/README.md) (`--apply-discussions-rate-limits` / `--check-edge-security`).
 
-Static discussion pages receive **CSP report-only** and other security headers from zone Transform Rules. Turnstile needs `https://challenges.cloudflare.com` in `script-src`, `connect-src`, and `frame-src` — included in the repo CSP spec. **Next step:** enforce CSP after console smoke tests (see operator next steps in [`infra/worker/README.md`](../worker/README.md)).
+Static discussion pages receive **enforcing CSP** and other security headers from zone Transform Rules. Turnstile needs `https://challenges.cloudflare.com` in `script-src`, `connect-src`, and `frame-src`; study Mermaid loads from `https://cdn.jsdelivr.net`; Cloudflare Web Analytics uses `static.cloudflareinsights.com` — all included in the repo CSP spec.
 
 `GET /api/discuss-auth/verify` is intentionally not rate-limited at the edge (email link retries).
 

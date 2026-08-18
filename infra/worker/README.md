@@ -164,18 +164,17 @@ Zone settings live on `analyticmadhyasthdarshan.org` in Cloudflare, not in git. 
 | Notify SBFM skip | `amd_skip_sbfm_portal_notify` → `http_request_sbfm` skip for `/api/notify` only | `--apply-portal-edge-security` |
 | Probe-path block | `amd_block_common_probes` (`/wp-*`, `/.env`, `/.git`, …) | `--apply-edge-security` |
 | API rate limit | `amd_rl_edge_api` — 40 req / 10 s per IP (portal `api.*` + apex discussion routes); plus leaked-credential rule (Pro max **2** rate-limit rules) | `--apply-discussions-rate-limits` |
-| TLS / transport | min TLS 1.2, HSTS 1y + includeSubDomains (preload **off**), HTTPS rewrites on, `browser_check` off, SSL **full** (GitHub Pages) | `--apply-security-baseline` |
-| Response headers | `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`, **CSP report-only** on static pages (not `/api/*`); RFC 8288 `Link` on `/` and `/Studies/index.html`; `text/markdown` on `/auth.md`; `application/json` on OAuth well-known URIs; RFC 9727 `application/linkset+json` on `/.well-known/api-catalog` | `--apply-security-headers` |
+| TLS / transport | min TLS 1.2, HSTS 1y + includeSubDomains + **preload**, HTTPS rewrites on, `browser_check` off, SSL **full** (GitHub Pages) | `--apply-security-baseline` |
+| Response headers | `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`, **enforcing CSP** on static pages (not `/api/*`); RFC 8288 `Link` on `/` and `/Studies/index.html`; `text/markdown` on `/auth.md`; `application/json` on OAuth well-known URIs; RFC 9727 `application/linkset+json` on `/.well-known/api-catalog` | `--apply-security-headers` |
 
 **Re-apply full stack after drift or zone changes:** `python Scripts/_cloudflare_performance.py --apply-edge-security`
 
 ### Operator next steps (not done yet)
 
-1. **CSP enforce** — CSP is **report-only** today. Browse `Studies/index.html`, `Studies/submit.html`, and a discussion page; confirm the browser console shows no unexpected violations for 1–2 weeks. Then change `security_headers_rule_body()` in `_cloudflare_performance.py` to set `Content-Security-Policy` (enforcing) instead of `Content-Security-Policy-Report-Only`, run `--apply-security-headers`, and re-check pages.
-2. **HSTS preload** — only after ~30 days of stable HSTS with no HTTPS regressions. Set `preload: true` in `security_header_hsts_spec()`, re-run `--apply-security-baseline`, then submit the domain to the [HSTS preload list](https://hstspreload.org/) if desired. Preload is hard to undo.
-3. **Manual smoke tests** — portal GitHub OAuth sign-in + submit flow; discussion magic-link request + email verify link; optional [SSL Labs](https://www.ssllabs.com/ssltest/) check (TLS 1.2+ only, HSTS present).
-4. **Optional: `content_bots_protection`** — can enable in Super Bot Fight Mode after confirming Google/Bing indexing in Search Console (verified bots remain allowed). Not enabled by default.
-5. **Rate-limit tuning** — if users behind a shared office IP hit `amd_rl_edge_api`, raise `requests_per_period` in `edge_api_rate_limit_rules_spec()` (e.g. 50–60) and re-run `--apply-discussions-rate-limits`.
+1. **HSTS preload list** — the HSTS header now includes `preload` (stable since July 2026). Submitting `analyticmadhyasthdarshan.org` to the [HSTS preload list](https://hstspreload.org/) is still optional and hard to undo. Do that only if you want Chrome/Firefox/Safari to hard-code HTTPS for this domain and every subdomain.
+2. **Manual smoke tests** — automated checks cover TLS/HSTS, portal page load, GitHub OAuth start (`302` to GitHub), and discussion page load. Still do a signed-in pass: portal GitHub OAuth through submit, and a discussion magic-link request plus email verify. Optional [SSL Labs](https://www.ssllabs.com/ssltest/) check (TLS 1.2+ only, HSTS present).
+3. **Optional: `content_bots_protection`** — can enable in Super Bot Fight Mode after confirming Google/Bing indexing in Search Console (verified bots remain allowed). Not enabled by default. `crawler_protection` is already on.
+4. **Rate-limit tuning** — if users behind a shared office IP hit `amd_rl_edge_api`, raise `requests_per_period` in `edge_api_rate_limit_rules_spec()` (e.g. 50–60) and re-run `--apply-discussions-rate-limits`.
 
 Items **not** planned: SSL Full (Strict) on GitHub Pages origin; separate per-route rate limits beyond Pro’s two-rule cap (worker-side limits cover magic-link abuse).
 
