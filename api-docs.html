@@ -70,12 +70,14 @@
 
 <h2>Studies catalog</h2>
 <p class="muted">
-  There is no studies REST API. The public collection is three JSON arrays
-  the studies landing page already fetches. Each row has
+  The public collection is JSON arrays the studies landing page already fetches,
+  plus a unified file and an HTTP search that matches WebMCP
+  <code>search_studies</code>. Each row has
   <code>slug</code>, <code>title</code>, <code>status</code>
   (<code>ongoing</code>, <code>draft</code>, or <code>released</code>),
-  and, when a document exists, relative <code>html</code> and <code>pdf</code>
-  paths. Resolve those paths against
+  and, when a document exists, relative <code>html</code>, <code>pdf</code>,
+  and <code>md</code> paths. Markdown is the source of truth. Resolve those
+  paths against
   <code>https://analyticmadhyasthdarshan.org/Studies/</code>
   (applied studies use <code>../Applications/&lt;Slug&gt;/</code>).
 </p>
@@ -84,6 +86,10 @@
     <tr><th>Resource</th><th>URL</th></tr>
   </thead>
   <tbody>
+    <tr>
+      <td>Unified catalog</td>
+      <td><a href="Studies/catalog-all.json"><code>/Studies/catalog-all.json</code></a></td>
+    </tr>
     <tr>
       <td>Topical studies</td>
       <td><a href="Studies/catalog-topical.json"><code>/Studies/catalog-topical.json</code></a></td>
@@ -95,6 +101,26 @@
     <tr>
       <td>Applied studies</td>
       <td><a href="Studies/catalog-applied.json"><code>/Studies/catalog-applied.json</code></a></td>
+    </tr>
+    <tr>
+      <td>Glossary</td>
+      <td><a href="Studies/glossary.json"><code>/Studies/glossary.json</code></a></td>
+    </tr>
+    <tr>
+      <td>Change feed</td>
+      <td><a href="Studies/feed.json"><code>/Studies/feed.json</code></a></td>
+    </tr>
+    <tr>
+      <td>HTTP search</td>
+      <td><a href="/api/studies?q="><code>GET /api/studies?q=</code></a></td>
+    </tr>
+    <tr>
+      <td>OpenAPI</td>
+      <td><a href="/openapi/studies.json"><code>/openapi/studies.json</code></a></td>
+    </tr>
+    <tr>
+      <td><code>llms.txt</code></td>
+      <td><a href="/llms.txt"><code>/llms.txt</code></a></td>
     </tr>
     <tr>
       <td>Human catalog</td>
@@ -219,8 +245,9 @@
   The zone is DNSSEC-signed. Experimental parameters use numeric
   <code>keyNNNNN</code> names until IANA registers them
   (<code>key65400</code> is the capability URI).
-  This site does not publish <code>_mcp._agents</code> because it has no MCP
-  session runtime.
+  This site does not publish <code>_mcp._agents</code> under DNS-AID.
+  Discover MCP over HTTP at
+  <a href="/.well-known/mcp/server-card.json"><code>/.well-known/mcp/server-card.json</code></a>.
 </p>
 <table>
   <thead>
@@ -242,6 +269,19 @@
   </tbody>
 </table>
 
+<h2>MCP</h2>
+<p class="muted">
+  <code>POST</code>
+  <a href="/mcp"><code>/mcp</code></a>
+  is Streamable HTTP JSON-RPC (read-only). Tools:
+  <code>search_studies</code>, <code>list_studies</code>, <code>get_study</code>.
+  Resources: <code>studies://catalog-all</code>,
+  <code>studies://glossary</code>, <code>studies://feed</code>.
+  The Server Card is
+  <a href="/.well-known/mcp/server-card.json"><code>/.well-known/mcp/server-card.json</code></a>.
+  There are no write tools.
+</p>
+
 <h2>Agent Skills Discovery</h2>
 <p class="muted">
   <code>GET</code> and <code>HEAD</code>
@@ -250,7 +290,10 @@
   <a href="https://github.com/cloudflare/agent-skills-discovery-rfc">Agent Skills Discovery</a>
   index (<code>Content-Type: application/json</code>, schema
   <code>https://schemas.agentskills.io/discovery/0.2.0/schema.json</code>).
-  Each entry is a repo skill from <code>.agents/skills/</code>, served as
+  Entries include maintainer skills from <code>.agents/skills/</code> and
+  reader skills from <code>infra/reader-skills/</code>
+  (<code>start-here</code>, <code>cite-study</code>,
+  <code>compare-traditions</code>), each served as
   <code>SKILL.md</code> with a SHA-256 digest.
 </p>
 

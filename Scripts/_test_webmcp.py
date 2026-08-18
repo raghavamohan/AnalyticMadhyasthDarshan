@@ -45,8 +45,8 @@ def check_script() -> str:
     if not SCRIPT_PATH.is_file():
         fail("missing webmcp.js")
     text = SCRIPT_PATH.read_text(encoding="utf-8")
-    if "navigator.modelContext.registerTool" not in text:
-        fail("webmcp.js must call navigator.modelContext.registerTool")
+    if "copy.mdUrl = absoluteFromStudies(row.md)" not in text:
+        fail("webmcp.js must expose mdUrl from catalog rows")
     if "setInterval" not in text or "tryRegister" not in text:
         fail("webmcp.js must retry until navigator.modelContext is available")
     if "AbortController" not in text:

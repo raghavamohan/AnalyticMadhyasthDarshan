@@ -1,0 +1,141 @@
+# Analytic Madhyasth Darshan — full catalog
+
+> Each study's markdown is the source of truth. HTML and PDF are generated. In-progress studies are omitted here; they appear in catalog-all.json.
+
+## The Ontology of Coexistence
+
+Madhyasth Darshan's account of existence as the coexistence of satta and units — saturation, the four orders, sentience, causation, conservation, and the reality of the world — compared in depth with Advaita Vedanta and modern physics and philosophy
+
+- Collection: topical · Status: released
+- Edited on: Jul 29, 2026, 5:43 AM IST
+- HTML: https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html
+- Markdown: https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.md
+- PDF: https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf
+
+## Nature of Time
+
+What time (kaal) is: the duration of unit-activity against timeless satta, numerical reckoning, and the past–present–future structure — compared with Advaita Vedanta, the philosophy of time, and physics (spacetime, cosmology, entropy)
+
+- Collection: topical · Status: released
+- Edited on: Jun 28, 2026, 7:49 PM IST
+- HTML: https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.html
+- Markdown: https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.md
+- PDF: https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.pdf
+
+## Why Humans Are Not Just Material
+
+Whether a human being is reducible to an insentient physicochemical body: Madhyasth Darshan's body-and-jeevan account compared with scientific evidence, its physicalist interpretation, and Advaita Vedanta, followed by a critical review of all three frameworks
+
+- Collection: topical · Status: released
+- Edited on: Jul 17, 2026, 2:41 PM IST
+- HTML: https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html
+- Markdown: https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.md
+- PDF: https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.pdf
+
+## The Epistemology of Coexistence
+
+What knowledge is, who the knower is, and what can be known: coexistence, jeevan, humane conduct, evidence, and epistemic error — compared with Advaita Vedanta, modern Western philosophy, and natural science
+
+- Collection: topical · Status: released
+- Edited on: Jul 30, 2026, 12:26 PM IST
+- HTML: https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html
+- Markdown: https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.md
+- PDF: https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf
+
+## Axiology: Value Theory
+
+Madhyasth Darshan's theory of value: what values are, how they are recognised and fulfilled, and how mutual satisfaction grounds a humane axiology
+
+- Collection: topical · Status: released
+- Edited on: Jul 29, 2026, 10:09 AM IST
+- HTML: https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html
+- Markdown: https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.md
+- PDF: https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.pdf
+
+## Ethics and Morals in Human Beings
+
+Whether ethics is divine command, convention, evolution, reason, or evidence of understanding: Madhyasth Darshan's account of humane conduct through justice, dharma, truth, and right-use, compared with Advaita Vedanta and modern moral science
+
+- Collection: topical · Status: draft
+- Edited on: Jul 29, 2026, 5:40 AM IST
+- HTML: https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.html
+- Markdown: https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.md
+- PDF: https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf
+
+## Family Relationships and Values
+
+The family as the first site of values: recognising relationships and living trust, affection, gratitude, and mutual satisfaction
+
+- Collection: topical · Status: draft
+- Edited on: Jul 29, 2026, 6:35 AM IST
+- HTML: https://analyticmadhyasthdarshan.org/Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.html
+- Markdown: https://analyticmadhyasthdarshan.org/Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.md
+- PDF: https://analyticmadhyasthdarshan.org/Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.pdf
+
+## Aesthetics
+
+What beauty and art are: Madhyasth Darshan's functional aesthetics of usefulness, harmony, and human purpose, compared with modern philosophical aesthetics and Advaita Vedanta
+
+- Collection: topical · Status: draft
+- Edited on: Jun 26, 2026, 10:28 AM IST
+- HTML: https://analyticmadhyasthdarshan.org/Studies/Aesthetics/Aesthetics.html
+- Markdown: https://analyticmadhyasthdarshan.org/Studies/Aesthetics/Aesthetics.md
+- PDF: https://analyticmadhyasthdarshan.org/Studies/Aesthetics/Aesthetics.pdf
+
+## Human Behavior and Society
+
+Humane conduct and social organisation in Madhyasth Darshan, compared with the natural sciences, Advaita Vedanta, and religious and technocratic approaches
+
+- Collection: topical · Status: draft
+- Edited on: Jul 29, 2026, 5:40 AM IST
+- HTML: https://analyticmadhyasthdarshan.org/Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.html
+- Markdown: https://analyticmadhyasthdarshan.org/Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.md
+- PDF: https://analyticmadhyasthdarshan.org/Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.pdf
+
+## How to Form Self-Sustaining Organizations
+
+Examines Madhyasth Darshan's claim that organisations grounded in fear or accumulation become extractive, and its account of organisations that sustain themselves without instrumentalising their members
+
+- Collection: topical · Status: released
+- Edited on: Jul 29, 2026, 5:40 AM IST
+- HTML: https://analyticmadhyasthdarshan.org/Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.html
+- Markdown: https://analyticmadhyasthdarshan.org/Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.md
+- PDF: https://analyticmadhyasthdarshan.org/Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.pdf
+
+## Spiritual Practice and Realization
+
+Realization and awakening in Madhyasth Darshan: anubhav, samyama, upasana, and liberation from mystery, compared with Advaita Vedanta and with modern philosophy of religious experience and contemplative science
+
+- Collection: topical · Status: draft
+- Edited on: Aug 1, 2026, 8:56 PM IST
+- HTML: https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.html
+- Markdown: https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.md
+- PDF: https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.pdf
+
+## How Undivided Society Is Established
+
+Madhyasth Darshan's account of how undivided society is established through coexistence, justice, family, institutions, and education — compared with science-only materialism, Advaita Vedanta, and Hindu religious authority
+
+- Collection: topical · Status: released
+- Edited on: Jul 17, 2026, 2:43 PM IST
+- HTML: https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html
+- Markdown: https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.md
+- PDF: https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf
+
+## Coexistence from First Principles
+
+A layered reconstruction of Madhyasth Darshan's ontological core, activity-duration, order-relative stability, and knowledge-order cycles, with explicit boundaries between textual doctrine, formal organization, mathematical analogy, and open posits
+
+- Collection: formal · Status: draft
+- Edited on: Jul 29, 2026, 5:40 AM IST
+- HTML: https://analyticmadhyasthdarshan.org/Studies/Coexistence-From-First-Principles/Coexistence-From-First-Principles.html
+- Markdown: https://analyticmadhyasthdarshan.org/Studies/Coexistence-From-First-Principles/Coexistence-From-First-Principles.md
+- PDF: https://analyticmadhyasthdarshan.org/Studies/Coexistence-From-First-Principles/Coexistence-From-First-Principles.pdf
+
+## Discovery
+
+- https://analyticmadhyasthdarshan.org/Studies/catalog-all.json
+- https://analyticmadhyasthdarshan.org/Studies/feed.json
+- https://analyticmadhyasthdarshan.org/Studies/glossary.json
+- https://analyticmadhyasthdarshan.org/.well-known/api-catalog
+- https://analyticmadhyasthdarshan.org/mcp

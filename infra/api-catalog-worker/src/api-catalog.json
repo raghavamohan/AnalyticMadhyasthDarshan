@@ -14,11 +14,23 @@
         {
           "href": "https://analyticmadhyasthdarshan.org/Studies/catalog-applied.json",
           "type": "application/json"
+        },
+        {
+          "href": "https://analyticmadhyasthdarshan.org/Studies/catalog-all.json",
+          "type": "application/json"
+        },
+        {
+          "href": "https://analyticmadhyasthdarshan.org/openapi/studies.json",
+          "type": "application/json"
         }
       ],
       "service-doc": [
         {
           "href": "https://analyticmadhyasthdarshan.org/Studies/index.html",
+          "type": "text/html"
+        },
+        {
+          "href": "https://analyticmadhyasthdarshan.org/api-docs.html",
           "type": "text/html"
         }
       ],
@@ -42,6 +54,26 @@
         {
           "href": "https://analyticmadhyasthdarshan.org/webmcp.js",
           "type": "text/javascript"
+        },
+        {
+          "href": "https://analyticmadhyasthdarshan.org/Studies/glossary.json",
+          "type": "application/json"
+        },
+        {
+          "href": "https://analyticmadhyasthdarshan.org/Studies/feed.json",
+          "type": "application/feed+json"
+        },
+        {
+          "href": "https://analyticmadhyasthdarshan.org/llms.txt",
+          "type": "text/plain"
+        },
+        {
+          "href": "https://analyticmadhyasthdarshan.org/api/studies",
+          "type": "application/json"
+        },
+        {
+          "href": "https://analyticmadhyasthdarshan.org/mcp",
+          "type": "application/json"
         }
       ]
     },

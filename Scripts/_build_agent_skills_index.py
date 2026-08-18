@@ -1,18 +1,15 @@
 #!/usr/bin/env python3
 """Publish Agent Skills Discovery index and SKILL.md copies.
 
-Canonical skills live in `.agents/skills/<name>/SKILL.md`. This writes:
+Canonical maintainer skills live in `.agents/skills/<name>/SKILL.md`.
+Reader skills for catalog agents live in `infra/reader-skills/<name>/SKILL.md`
+and are not copied into `.cursor/skills/`. This writes:
 
   .well-known/agent-skills/index.json
   .well-known/agent-skills/<name>/SKILL.md
 
 per the Agent Skills Discovery RFC v0.2.0
 (https://github.com/cloudflare/agent-skills-discovery-rfc).
-
-Run from the repository root:
-
-    python Scripts/_build_agent_skills_index.py
-    python Scripts/_build_agent_skills_index.py --check
 """
 from __future__ import annotations
 
@@ -30,6 +27,8 @@ from _common import BASE  # noqa: E402
 
 SCHEMA_URI = "https://schemas.agentskills.io/discovery/0.2.0/schema.json"
 SKILLS_SOURCE = BASE / ".agents" / "skills"
+READER_SKILLS_SOURCE = BASE / "infra" / "reader-skills"
+SKILLS_SOURCE_DIRS = (SKILLS_SOURCE, READER_SKILLS_SOURCE)
 PUBLISH_ROOT = BASE / ".well-known" / "agent-skills"
 INDEX_PATH = PUBLISH_ROOT / "index.json"
 INDEX_SITE_PATH = "/.well-known/agent-skills/index.json"
@@ -106,17 +105,28 @@ def validate_description(description: str) -> None:
 
 
 def iter_source_skills() -> list[Path]:
-    if not SKILLS_SOURCE.is_dir():
-        raise SystemExit(f"Missing skills directory: {SKILLS_SOURCE}")
-    skills = []
-    for skill_dir in sorted(SKILLS_SOURCE.iterdir()):
-        if not skill_dir.is_dir():
+    skills: list[Path] = []
+    seen: set[str] = set()
+    for source in SKILLS_SOURCE_DIRS:
+        if not source.is_dir():
             continue
-        skill_file = skill_dir / "SKILL.md"
-        if skill_file.is_file():
+        for skill_dir in sorted(source.iterdir()):
+            if not skill_dir.is_dir():
+                continue
+            skill_file = skill_dir / "SKILL.md"
+            if not skill_file.is_file():
+                continue
+            name = skill_dir.name
+            if name in seen:
+                raise SystemExit(
+                    f"Duplicate skill name {name!r} under {source} and an earlier source"
+                )
+            seen.add(name)
             skills.append(skill_file)
     if not skills:
-        raise SystemExit(f"No SKILL.md files under {SKILLS_SOURCE}")
+        raise SystemExit(
+            "No SKILL.md files under " + ", ".join(str(path) for path in SKILLS_SOURCE_DIRS)
+        )
     return skills
 
 

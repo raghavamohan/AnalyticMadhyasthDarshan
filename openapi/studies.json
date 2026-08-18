@@ -1,0 +1,263 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Analytic Madhyasth Darshan public study catalog",
+    "version": "1.1.0",
+    "description": "Read-only catalog of topical, formal, and applied studies. Markdown is the source of truth; HTML and PDF are generated. Write APIs (submissions, discussions) are separate and for humans; see /auth.md."
+  },
+  "servers": [
+    {
+      "url": "https://analyticmadhyasthdarshan.org"
+    }
+  ],
+  "tags": [
+    { "name": "catalog" },
+    { "name": "search" },
+    { "name": "discovery" }
+  ],
+  "paths": {
+    "/Studies/catalog-all.json": {
+      "get": {
+        "tags": ["catalog"],
+        "summary": "Unified catalog",
+        "operationId": "getCatalogAll",
+        "description": "All topical, formal, and applied rows in one array. Each row includes a collection field.",
+        "responses": {
+          "200": {
+            "description": "Catalog rows.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/CatalogRow" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Studies/catalog-topical.json": {
+      "get": {
+        "tags": ["catalog"],
+        "summary": "Topical catalog",
+        "operationId": "getCatalogTopical",
+        "responses": {
+          "200": {
+            "description": "Topical catalog rows.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/CatalogRow" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Studies/catalog-formal.json": {
+      "get": {
+        "tags": ["catalog"],
+        "summary": "Formal catalog",
+        "operationId": "getCatalogFormal",
+        "responses": {
+          "200": {
+            "description": "Formal catalog rows.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/CatalogRow" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Studies/catalog-applied.json": {
+      "get": {
+        "tags": ["catalog"],
+        "summary": "Applied catalog",
+        "operationId": "getCatalogApplied",
+        "responses": {
+          "200": {
+            "description": "Applied catalog rows.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/CatalogRow" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Studies/feed.json": {
+      "get": {
+        "tags": ["catalog"],
+        "summary": "Change feed",
+        "operationId": "getStudiesFeed",
+        "description": "JSON Feed 1.1 of draft and released studies, newest Edited-on first. Ongoing rows are omitted.",
+        "responses": {
+          "200": {
+            "description": "JSON Feed.",
+            "content": {
+              "application/feed+json": {
+                "schema": { "type": "object" }
+              },
+              "application/json": {
+                "schema": { "type": "object" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Studies/glossary.json": {
+      "get": {
+        "tags": ["catalog"],
+        "summary": "Shared glossary",
+        "operationId": "getGlossary",
+        "responses": {
+          "200": {
+            "description": "Glossary terms used across studies.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Glossary" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/studies": {
+      "get": {
+        "tags": ["search"],
+        "summary": "Search catalog rows",
+        "operationId": "searchStudies",
+        "description": "Same matching as WebMCP search_studies: substring match on title, slug, description, and category.",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "schema": { "type": "string" },
+            "description": "Search text. Alias: query."
+          },
+          {
+            "name": "collection",
+            "in": "query",
+            "schema": { "type": "string", "enum": ["topical", "formal", "applied"] }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "schema": { "type": "string", "enum": ["ongoing", "draft", "released"] }
+          },
+          {
+            "name": "slug",
+            "in": "query",
+            "schema": { "type": "string" },
+            "description": "Exact catalog directory name."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Matching studies with absolute HTML, PDF, and Markdown URLs.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/SearchResponse" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CatalogRow": {
+        "type": "object",
+        "required": ["slug", "title", "status"],
+        "properties": {
+          "slug": { "type": "string" },
+          "title": { "type": "string" },
+          "category": { "type": "string" },
+          "categories": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "description": { "type": "string" },
+          "status": {
+            "type": "string",
+            "enum": ["ongoing", "draft", "released"]
+          },
+          "updated": { "type": "string" },
+          "collection": {
+            "type": "string",
+            "enum": ["topical", "formal", "applied"],
+            "description": "Present on catalog-all.json rows."
+          },
+          "html": { "type": "string", "description": "Relative to /Studies/. Omitted for ongoing rows." },
+          "pdf": { "type": "string" },
+          "md": { "type": "string", "description": "Canonical markdown source. Omitted for ongoing rows." },
+          "discussion": { "type": "string" }
+        }
+      },
+      "SearchStudy": {
+        "type": "object",
+        "properties": {
+          "slug": { "type": "string" },
+          "title": { "type": "string" },
+          "collection": { "type": "string" },
+          "status": { "type": "string" },
+          "category": { "type": "string" },
+          "description": { "type": "string" },
+          "updated": { "type": ["string", "null"] },
+          "htmlUrl": { "type": ["string", "null"] },
+          "pdfUrl": { "type": ["string", "null"] },
+          "mdUrl": { "type": ["string", "null"] }
+        }
+      },
+      "SearchResponse": {
+        "type": "object",
+        "required": ["count", "studies"],
+        "properties": {
+          "query": { "type": "string" },
+          "collection": { "type": "string" },
+          "status": { "type": "string" },
+          "slug": { "type": ["string", "null"] },
+          "count": { "type": "integer" },
+          "studies": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/SearchStudy" }
+          }
+        }
+      },
+      "Glossary": {
+        "type": "object",
+        "properties": {
+          "terms": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": { "type": "string" },
+                "match": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                },
+                "display": { "type": "string" },
+                "definition": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

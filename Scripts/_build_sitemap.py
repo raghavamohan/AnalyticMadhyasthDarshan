@@ -26,8 +26,11 @@ SITEMAP_NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
 DISCOVERY_PAGES = (
     "auth.md",
     "api-docs.html",
+    "llms.txt",
+    "llms-full.txt",
     "openapi/submissions.json",
     "openapi/discussions.json",
+    "openapi/studies.json",
     ".well-known/api-catalog",
     ".well-known/agent-card.json",
     ".well-known/agent-skills/index.json",
@@ -36,6 +39,9 @@ DISCOVERY_PAGES = (
     "webmcp.js",
     ".well-known/oauth-protected-resource",
     ".well-known/oauth-authorization-server",
+    "Studies/catalog-all.json",
+    "Studies/feed.json",
+    "Studies/glossary.json",
 )
 
 # Published companion pages that intentionally remain outside the study catalog.
