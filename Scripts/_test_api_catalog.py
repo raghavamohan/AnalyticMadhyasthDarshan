@@ -17,6 +17,7 @@ SCRIPTS = Path(__file__).resolve().parent
 sys.path.insert(0, str(SCRIPTS))
 
 from _common import BASE
+from _cloudflare_performance import HOMEPAGE_LINK
 
 CATALOG_PATH = BASE / ".well-known" / "api-catalog"
 WORKER_CATALOG_PATH = BASE / "infra" / "api-catalog-worker" / "src" / "api-catalog.json"
@@ -26,6 +27,11 @@ STUDIES_CATALOG_HREFS = (
     "https://analyticmadhyasthdarshan.org/Studies/catalog-topical.json",
     "https://analyticmadhyasthdarshan.org/Studies/catalog-formal.json",
     "https://analyticmadhyasthdarshan.org/Studies/catalog-applied.json",
+)
+HOMEPAGE_LINK_RELS = ("api-catalog", "describedby", "service-desc", "service-doc")
+HOMEPAGE_LINK_URLS = (
+    "https://analyticmadhyasthdarshan.org/",
+    "https://analyticmadhyasthdarshan.org/Studies/index.html",
 )
 
 
@@ -87,6 +93,34 @@ def check_live_catalog() -> None:
     print("OK: live /.well-known/api-catalog is RFC 9727 linkset JSON.")
 
 
+class _NoRedirectHandler(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        return None
+
+
+def check_live_homepage_link_headers() -> None:
+    opener = urllib.request.build_opener(_NoRedirectHandler())
+    for url in HOMEPAGE_LINK_URLS:
+        request = urllib.request.Request(
+            url,
+            method="GET",
+            headers={"User-Agent": "AnalyticMadhyasthDarshan-api-catalog-test/1.0"},
+        )
+        try:
+            with opener.open(request, timeout=20) as response:
+                status = response.status
+                link = response.headers.get("Link") or ""
+        except urllib.error.HTTPError as exc:
+            status = exc.code
+            link = (exc.headers.get("Link") if exc.headers else "") or ""
+        except urllib.error.URLError as exc:
+            fail(f"homepage Link check failed for {url}: {exc}")
+        missing = [rel for rel in HOMEPAGE_LINK_RELS if f'rel="{rel}"' not in link]
+        if missing:
+            fail(f"{url} HTTP {status} is missing Link rels {missing}; Link={link!r}")
+    print("OK: homepage Link headers advertise api-catalog, describedby, service-desc, service-doc.")
+
+
 def main() -> None:
     catalog = load_json(CATALOG_PATH)
     worker_catalog = load_json(WORKER_CATALOG_PATH)
@@ -124,8 +158,13 @@ def main() -> None:
             fail(f"{spec.name} has no paths")
 
     print("OK: RFC 9727 api-catalog and OpenAPI files.")
+    missing_rels = [rel for rel in HOMEPAGE_LINK_RELS if f'rel="{rel}"' not in HOMEPAGE_LINK]
+    if missing_rels:
+        fail(f"HOMEPAGE_LINK is missing rels {missing_rels}")
+    print("OK: homepage Link header lists api-catalog, describedby, service-desc, service-doc.")
     if "--live" in sys.argv:
         check_live_catalog()
+        check_live_homepage_link_headers()
 
 
 if __name__ == "__main__":

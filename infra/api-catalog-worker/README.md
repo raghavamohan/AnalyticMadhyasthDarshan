@@ -27,9 +27,13 @@ extensionless path. Production currently serves the catalog with:
 
 1. A Cloudflare Snippet (`amd_api_catalog`) that returns the linkset with HTTP 200
 2. A Transform Rule that sets the RFC 9727 Content-Type and `Link` header
+3. A homepage Transform Rule that advertises `api-catalog`, `service-desc`,
+   `service-doc`, and `describedby` on `/` and `/Studies/index.html`
+   ([RFC 8288](https://www.rfc-editor.org/rfc/rfc8288),
+   [RFC 9727 §3](https://www.rfc-editor.org/rfc/rfc9727#section-3))
 
 After changing `.well-known/api-catalog`, re-publish the snippet and confirm the
-header rule:
+header rules:
 
 ```powershell
 python Scripts/_publish_api_catalog_snippet.py
