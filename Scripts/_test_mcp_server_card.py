@@ -65,7 +65,16 @@ def check_card(card: dict) -> None:
 def check_homepage_link() -> None:
     if CARD_SITE_PATH not in HOMEPAGE_LINK:
         fail("HOMEPAGE_LINK does not advertise /.well-known/mcp/server-card.json")
-    print("OK: homepage Link header advertises the MCP Server Card.")
+    if '</mcp>; rel="describedby"' not in HOMEPAGE_LINK:
+        fail("HOMEPAGE_LINK does not advertise /mcp")
+    runtime = BASE / "infra" / "mcp-worker" / "src" / "runtime.js"
+    if not runtime.is_file():
+        fail("missing infra/mcp-worker/src/runtime.js")
+    text = runtime.read_text(encoding="utf-8")
+    for needle in ("search_studies", "list_studies", "get_study", "/api/studies"):
+        if needle not in text:
+            fail(f"MCP runtime is missing {needle!r}")
+    print("OK: homepage Link header advertises the MCP Server Card and /mcp.")
 
 
 def check_live() -> None:

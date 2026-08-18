@@ -40,7 +40,13 @@ STUDIES_CATALOG_HREFS = (
     "https://analyticmadhyasthdarshan.org/Studies/catalog-topical.json",
     "https://analyticmadhyasthdarshan.org/Studies/catalog-formal.json",
     "https://analyticmadhyasthdarshan.org/Studies/catalog-applied.json",
+    "https://analyticmadhyasthdarshan.org/Studies/catalog-all.json",
+    "https://analyticmadhyasthdarshan.org/openapi/studies.json",
 )
+DYNAMIC_CATALOG_HREFS = {
+    "https://analyticmadhyasthdarshan.org/mcp",
+    "https://analyticmadhyasthdarshan.org/api/studies",
+}
 HOMEPAGE_LINK_RELS = ("api-catalog", "describedby", "service-desc", "service-doc")
 HOMEPAGE_LINK_HREFS = (
     "/.well-known/api-catalog",
@@ -54,8 +60,15 @@ HOMEPAGE_LINK_HREFS = (
     "/Studies/catalog-topical.json",
     "/Studies/catalog-formal.json",
     "/Studies/catalog-applied.json",
+    "/Studies/catalog-all.json",
+    "/Studies/feed.json",
+    "/Studies/glossary.json",
+    "/llms.txt",
+    "/mcp",
+    "/api/studies",
     "/openapi/submissions.json",
     "/openapi/discussions.json",
+    "/openapi/studies.json",
     "/api-docs.html",
 )
 HOMEPAGE_LINK_URLS = (
@@ -100,6 +113,8 @@ def check_link_array(entry: dict, rel: str, *, required: bool, check_local: bool
         if not href or not isinstance(href, str):
             fail(f"{rel} link on {entry.get('anchor')!r} is missing href")
         if not check_local:
+            continue
+        if href in DYNAMIC_CATALOG_HREFS:
             continue
         local = site_path(href)
         if local is not None and not local.is_file():

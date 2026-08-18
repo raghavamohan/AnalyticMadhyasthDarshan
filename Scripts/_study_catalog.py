@@ -20,12 +20,15 @@ from _common import (
     STUDIES,
     application_discussion_href,
     application_html_href,
+    application_md_href,
     application_pdf_href,
     iter_study_md_paths,
     known_study_slugs,
+    site_base_url,
     study_discussion_href,
     study_html_href,
     study_md,
+    study_md_href,
     study_pdf_href,
     study_pdf_ref_path,
 )
@@ -413,6 +416,9 @@ def row_to_catalog_entry(row: StudyRow) -> dict:
     html_href = row_html_href(row)
     if html_href:
         entry["html"] = html_href
+    md_href = row_md_href(row)
+    if md_href:
+        entry["md"] = md_href
     discussion_href = row_discussion_href(row)
     if discussion_href:
         entry["discussion"] = discussion_href
@@ -479,6 +485,221 @@ def write_catalog_json_file(rows: list[StudyRow], table: StudyTable) -> None:
     catalog_json_path(table).write_text(
         serialize_catalog_json_text(rows),
         encoding="utf-8",
+        newline="\n",
+    )
+
+
+CATALOG_ALL_PATH = STUDIES / "catalog-all.json"
+STUDIES_FEED_PATH = STUDIES / "feed.json"
+LLMS_TXT_PATH = BASE / "llms.txt"
+LLMS_FULL_TXT_PATH = BASE / "llms-full.txt"
+
+
+def catalog_collection_name(table: StudyTable) -> str:
+    return table.value
+
+
+def _absolute_from_studies(href: str | None) -> str | None:
+    if not href:
+        return None
+    origin = site_base_url().rstrip("/")
+    if href.startswith("../"):
+        return origin + "/" + href[3:]
+    return f"{origin}/Studies/{href}"
+
+
+def _parse_catalog_updated(updated: str | None) -> datetime | None:
+    if not updated:
+        return None
+    return parse_timestamp_text(str(updated).replace(" IST", ""))
+
+
+def _load_combined_catalog_entries() -> list[dict]:
+    combined: list[dict] = []
+    for table in CATALOG_TABLES:
+        path = catalog_json_path(table)
+        if not path.is_file():
+            continue
+        entries = json.loads(path.read_text(encoding="utf-8"))
+        if not isinstance(entries, list):
+            raise ValueError(f"{path.name} must be a JSON array.")
+        collection = catalog_collection_name(table)
+        for entry in entries:
+            if not isinstance(entry, dict):
+                raise ValueError(f"{path.name} entries must be objects.")
+            row = dict(entry)
+            row["collection"] = collection
+            combined.append(row)
+    return combined
+
+
+def serialize_catalog_all_text(entries: list[dict] | None = None) -> str:
+    payload = entries if entries is not None else _load_combined_catalog_entries()
+    return json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n"
+
+
+def serialize_studies_feed_text(entries: list[dict] | None = None) -> str:
+    origin = site_base_url().rstrip("/")
+    rows = entries if entries is not None else _load_combined_catalog_entries()
+    items: list[dict] = []
+    for entry in rows:
+        if entry.get("status") == StudyStatus.ONGOING.value:
+            continue
+        dt = _parse_catalog_updated(entry.get("updated"))
+        item: dict = {
+            "id": f"{origin}/Studies/{entry['slug']}/",
+            "url": _absolute_from_studies(entry.get("html"))
+            or f"{origin}/Studies/{entry['slug']}/{entry['slug']}.html",
+            "title": entry.get("title") or entry["slug"],
+            "content_text": entry.get("description") or "",
+            "tags": [
+                tag
+                for tag in (entry.get("collection"), entry.get("status"))
+                if tag
+            ],
+        }
+        if dt is not None:
+            item["date_modified"] = dt.isoformat()
+        attachments = []
+        md_url = _absolute_from_studies(entry.get("md"))
+        pdf_url = _absolute_from_studies(entry.get("pdf"))
+        if md_url:
+            attachments.append({"url": md_url, "mime_type": "text/markdown"})
+        if pdf_url:
+            attachments.append({"url": pdf_url, "mime_type": "application/pdf"})
+        if attachments:
+            item["attachments"] = attachments
+        items.append(item)
+    items.sort(
+        key=lambda item: (item.get("date_modified") or "", item["title"]),
+        reverse=True,
+    )
+    feed = {
+        "version": "https://jsonfeed.org/version/1.1",
+        "title": "Analytic Madhyasth Darshan studies",
+        "home_page_url": f"{origin}/Studies/index.html",
+        "feed_url": f"{origin}/Studies/feed.json",
+        "description": (
+            "Draft and released studies, newest Edited-on timestamp first. "
+            "In-progress (ongoing) rows are omitted."
+        ),
+        "items": items,
+    }
+    return json.dumps(feed, ensure_ascii=False, indent=2) + "\n"
+
+
+def _llms_study_url(entry: dict) -> str:
+    return _absolute_from_studies(entry.get("html")) or (
+        f"{site_base_url().rstrip('/')}/Studies/{entry['slug']}/{entry['slug']}.html"
+    )
+
+
+def serialize_llms_txt(entries: list[dict] | None = None) -> str:
+    origin = site_base_url().rstrip("/")
+    rows = entries if entries is not None else _load_combined_catalog_entries()
+    published = [row for row in rows if row.get("status") != StudyStatus.ONGOING.value]
+    lines = [
+        "# Analytic Madhyasth Darshan",
+        "",
+        (
+            "> Rigorous analytic studies of Madhyasth Darshan (Co-existentialism). "
+            "Catalog reads are public. Write APIs are for humans; see /auth.md."
+        ),
+        "",
+        "## Start here",
+        "",
+        f"- [Studies catalog]({origin}/Studies/index.html): topical, formal, and applied papers",
+        f"- [Unified catalog JSON]({origin}/Studies/catalog-all.json): all rows with a collection tag",
+        f"- [Change feed]({origin}/Studies/feed.json): JSON Feed of draft and released Edited-on dates",
+        f"- [Glossary]({origin}/Studies/glossary.json): shared terms used across studies",
+        f"- [API catalog]({origin}/.well-known/api-catalog): RFC 9727 linkset",
+        f"- [MCP Server Card]({origin}/.well-known/mcp/server-card.json): Streamable HTTP at /mcp",
+        f"- [Auth]({origin}/auth.md): identity policy for agents",
+        "",
+        "## Studies",
+        "",
+    ]
+    for entry in published:
+        title = entry.get("title") or entry["slug"]
+        desc = (entry.get("description") or "").strip()
+        collection = entry.get("collection") or "topical"
+        line = f"- [{title}]({_llms_study_url(entry)}): {desc}" if desc else (
+            f"- [{title}]({_llms_study_url(entry)})"
+        )
+        lines.append(f"{line} ({collection}, {entry.get('status')})")
+    lines.extend(
+        [
+            "",
+            "## Optional",
+            "",
+            f"- [Full text index]({origin}/llms-full.txt): the same list with markdown source links",
+            f"- [OpenAPI for catalog reads]({origin}/openapi/studies.json)",
+            f"- [Agent skills]({origin}/.well-known/agent-skills/index.json)",
+            "",
+        ]
+    )
+    return "\n".join(lines)
+
+
+def serialize_llms_full_txt(entries: list[dict] | None = None) -> str:
+    origin = site_base_url().rstrip("/")
+    rows = entries if entries is not None else _load_combined_catalog_entries()
+    published = [row for row in rows if row.get("status") != StudyStatus.ONGOING.value]
+    lines = [
+        "# Analytic Madhyasth Darshan — full catalog",
+        "",
+        (
+            "> Each study's markdown is the source of truth. HTML and PDF are generated. "
+            "In-progress studies are omitted here; they appear in catalog-all.json."
+        ),
+        "",
+    ]
+    for entry in published:
+        title = entry.get("title") or entry["slug"]
+        html_url = _llms_study_url(entry)
+        md_url = _absolute_from_studies(entry.get("md"))
+        pdf_url = _absolute_from_studies(entry.get("pdf"))
+        lines.append(f"## {title}")
+        lines.append("")
+        lines.append(entry.get("description") or "")
+        lines.append("")
+        lines.append(
+            f"- Collection: {entry.get('collection')} · Status: {entry.get('status')}"
+        )
+        if entry.get("updated"):
+            lines.append(f"- Edited on: {entry['updated']}")
+        lines.append(f"- HTML: {html_url}")
+        if md_url:
+            lines.append(f"- Markdown: {md_url}")
+        if pdf_url:
+            lines.append(f"- PDF: {pdf_url}")
+        lines.append("")
+    lines.extend(
+        [
+            "## Discovery",
+            "",
+            f"- {origin}/Studies/catalog-all.json",
+            f"- {origin}/Studies/feed.json",
+            f"- {origin}/Studies/glossary.json",
+            f"- {origin}/.well-known/api-catalog",
+            f"- {origin}/mcp",
+            "",
+        ]
+    )
+    return "\n".join(lines)
+
+
+def write_derived_catalogs() -> None:
+    entries = _load_combined_catalog_entries()
+    CATALOG_ALL_PATH.write_text(
+        serialize_catalog_all_text(entries), encoding="utf-8", newline="\n"
+    )
+    STUDIES_FEED_PATH.write_text(
+        serialize_studies_feed_text(entries), encoding="utf-8", newline="\n"
+    )
+    LLMS_TXT_PATH.write_text(serialize_llms_txt(entries), encoding="utf-8", newline="\n")
+    LLMS_FULL_TXT_PATH.write_text(
+        serialize_llms_full_txt(entries), encoding="utf-8", newline="\n"
     )
 
 
@@ -681,6 +902,15 @@ def row_html_href(row: StudyRow) -> str | None:
     return study_html_href(row.slug)
 
 
+def row_md_href(row: StudyRow) -> str | None:
+    """Relative href from Studies/ to the canonical markdown source."""
+    if row_html_href(row) is None:
+        return None
+    if row.table == StudyTable.APPLIED:
+        return application_md_href(row.slug)
+    return study_md_href(row.slug)
+
+
 def row_discussion_href(row: StudyRow) -> str | None:
     if row.table == StudyTable.APPLIED:
         return application_discussion_href(row.slug)
@@ -825,6 +1055,7 @@ def write_studies_catalog(
     rebuild_feedback_template: bool = True,
 ) -> None:
     write_catalog_json_file(rows, table)
+    write_derived_catalogs()
 
     readme_path = STUDIES / "README.md"
     readme_text = readme_path.read_text(encoding="utf-8")
@@ -1087,7 +1318,7 @@ def verify_ongoing_document_links() -> list[str]:
         for entry in json.loads(path.read_text(encoding="utf-8")):
             if entry.get("status") != StudyStatus.ONGOING.value:
                 continue
-            offending = sorted(key for key in ("pdf", "html") if entry.get(key))
+            offending = sorted(key for key in ("pdf", "html", "md") if entry.get(key))
             if offending:
                 errors.append(
                     f"{entry.get('slug')}: ongoing study carries "

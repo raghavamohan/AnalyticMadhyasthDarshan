@@ -51,7 +51,7 @@ what to run **on that branch** before opening the PR.
 | Auth.md / OAuth discovery | `python Scripts/_test_auth_md.py` (`--live`); `python Scripts/_publish_auth_md_snippet.py` |
 | A2A Agent Card | `python Scripts/_test_agent_card.py` (`--live`); `python Scripts/_publish_agent_card_snippet.py` |
 | Agent Skills Discovery | `python Scripts/_build_agent_skills_index.py` (`--check`); `python Scripts/_test_agent_skills.py` (`--live`); `python Scripts/_publish_agent_skills_snippet.py` |
-| MCP Server Card | `python Scripts/_test_mcp_server_card.py` (`--live`); `python Scripts/_publish_mcp_server_card.py` |
+| MCP runtime / Server Card | `python Scripts/_test_mcp_server_card.py` (`--live`); `python Scripts/_test_studies_api.py` (`--live`); `python Scripts/_publish_mcp_server_card.py` |
 | Web Bot Auth | `python Scripts/_test_web_bot_auth.py` (`--live`); `python Scripts/_publish_web_bot_auth.py` |
 | WebMCP | `python Scripts/_test_webmcp.py` (`--live`) |
 | DNS-AID | `python Scripts/_test_dns_aid.py` (`--live`); `python Scripts/_publish_dns_aid.py` (`--check`) |

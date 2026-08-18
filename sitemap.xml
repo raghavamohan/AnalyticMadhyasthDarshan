@@ -17,12 +17,27 @@
     <priority>0.4</priority>
   </url>
   <url>
+    <loc>https://analyticmadhyasthdarshan.org/llms.txt</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://analyticmadhyasthdarshan.org/llms-full.txt</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://analyticmadhyasthdarshan.org/openapi/submissions.json</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://analyticmadhyasthdarshan.org/openapi/discussions.json</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://analyticmadhyasthdarshan.org/openapi/studies.json</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
@@ -63,6 +78,21 @@
   </url>
   <url>
     <loc>https://analyticmadhyasthdarshan.org/.well-known/oauth-authorization-server</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://analyticmadhyasthdarshan.org/Studies/catalog-all.json</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://analyticmadhyasthdarshan.org/Studies/feed.json</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://analyticmadhyasthdarshan.org/Studies/glossary.json</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
