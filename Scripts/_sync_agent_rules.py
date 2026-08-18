@@ -3,6 +3,7 @@
 Source of truth:
   - Rules: AGENTS.md sections 1–7 → .cursor/rules/*.mdc (OpenCode via opencode.json)
   - Skills: .agents/skills/ → .cursor/skills/ (.opencode/skills/ is a junction to .agents/skills/)
+  - Discovery: .agents/skills/ → .well-known/agent-skills/ (RFC v0.2.0 index + SKILL.md)
 
 Run from repo root after editing AGENTS.md or .agents/skills/:
 
@@ -14,6 +15,12 @@ from __future__ import annotations
 import re
 import sys
 from pathlib import Path
+
+SCRIPTS = Path(__file__).resolve().parent
+if str(SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS))
+
+from _build_agent_skills_index import check_publish_files, publish as publish_agent_skills
 
 REPO = Path(__file__).resolve().parent.parent
 AGENTS = REPO / "AGENTS.md"
@@ -293,7 +300,7 @@ def check_skills() -> list[str]:
 
 
 def check_sync() -> None:
-    errors = check_rules() + check_skills()
+    errors = check_rules() + check_skills() + check_publish_files()
     if errors:
         raise SystemExit(
             "Agent rules/skills mirrors are out of sync:\n"
@@ -310,6 +317,7 @@ def main() -> None:
 
     rules = sync_rules()
     skills = sync_skills()
+    discovery = publish_agent_skills()
     print("Synced rules:")
     for path in rules:
         print(f"  {path}")
@@ -317,6 +325,9 @@ def main() -> None:
     for path in skills:
         print(f"  {path}/")
     print("  (.opencode/skills/ junction -> .agents/skills/ - no copy needed)")
+    print("Published Agent Skills Discovery:")
+    for path in discovery:
+        print(f"  {path}")
     check_sync()
     print("OK: verify passed")
 

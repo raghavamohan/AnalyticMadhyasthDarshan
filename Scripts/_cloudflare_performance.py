@@ -38,6 +38,9 @@ SECURITY_HEADERS_REF = "amd_security_headers_static"
 HOMEPAGE_LINK_HEADERS_REF = "amd_homepage_link_headers"
 API_CATALOG_HEADERS_REF = "amd_api_catalog_content_type"
 AGENT_CARD_HEADERS_REF = "amd_agent_card_content_type"
+AGENT_SKILLS_INDEX_HEADERS_REF = "amd_agent_skills_content_type"
+AGENT_SKILLS_MD_HEADERS_REF = "amd_agent_skills_md_content_type"
+MCP_SERVER_CARD_HEADERS_REF = "amd_mcp_server_card_content_type"
 AUTH_MD_HEADERS_REF = "amd_auth_md_content_type"
 OAUTH_METADATA_HEADERS_REF = "amd_oauth_metadata_content_type"
 EDGE_API_RATE_LIMIT_REF = "amd_rl_edge_api"
@@ -79,6 +82,16 @@ API_CATALOG_HEADERS_EXPRESSION = (
 AGENT_CARD_HEADERS_EXPRESSION = (
     f'(http.host eq "{SITE_HOST}" and http.request.uri.path eq "/.well-known/agent-card.json")'
 )
+AGENT_SKILLS_INDEX_HEADERS_EXPRESSION = (
+    f'(http.host eq "{SITE_HOST}" and http.request.uri.path eq "/.well-known/agent-skills/index.json")'
+)
+AGENT_SKILLS_MD_HEADERS_EXPRESSION = (
+    f'(http.host eq "{SITE_HOST}" and starts_with(http.request.uri.path, "/.well-known/agent-skills/") '
+    'and ends_with(http.request.uri.path, "/SKILL.md"))'
+)
+MCP_SERVER_CARD_HEADERS_EXPRESSION = (
+    f'(http.host eq "{SITE_HOST}" and http.request.uri.path eq "/.well-known/mcp/server-card.json")'
+)
 AUTH_MD_HEADERS_EXPRESSION = (
     f'(http.host eq "{SITE_HOST}" and http.request.uri.path eq "/auth.md")'
 )
@@ -110,6 +123,8 @@ API_CATALOG_CONTENT_TYPE = (
     'application/linkset+json; profile="https://www.rfc-editor.org/rfc/rfc9727"'
 )
 AGENT_CARD_CONTENT_TYPE = "application/a2a+json"
+AGENT_SKILLS_INDEX_CONTENT_TYPE = "application/json"
+MCP_SERVER_CARD_CONTENT_TYPE = "application/json"
 API_CATALOG_LINK = (
     '</.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"'
 )
@@ -118,6 +133,8 @@ API_CATALOG_LINK = (
 HOMEPAGE_LINK = (
     '</.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json", '
     '</.well-known/agent-card.json>; rel="describedby"; type="application/a2a+json", '
+    '</.well-known/agent-skills/index.json>; rel="describedby"; type="application/json", '
+    '</.well-known/mcp/server-card.json>; rel="describedby"; type="application/json", '
     '</auth.md>; rel="describedby"; type="text/markdown", '
     '</.well-known/oauth-protected-resource>; rel="describedby"; type="application/json", '
     '</Studies/catalog-topical.json>; rel="describedby"; type="application/json", '
@@ -135,6 +152,10 @@ HOMEPAGE_LINK_REQUIRED_RELS = (
 )
 HOMEPAGE_LINK_URLS = (ROOT_URL, CATALOG_URL)
 ROOT_REDIRECT_REF = "analyticmadhyasth_root_to_catalog"
+AGENT_SKILLS_REDIRECT_REF = "amd_agent_skills_redirect"
+AGENT_SKILLS_WORKER_HOST = "amd-agent-skills.raghavamohan.workers.dev"
+MCP_SERVER_CARD_REDIRECT_REF = "amd_mcp_server_card_redirect"
+MCP_SERVER_CARD_WORKER_HOST = "amd-mcp.raghavamohan.workers.dev"
 CACHE_RULE_REFS = (
     "amd_cache_pdfs",
     "amd_cache_images",
@@ -884,6 +905,51 @@ def agent_card_headers_rule_body() -> dict:
     }
 
 
+def agent_skills_index_headers_rule_body() -> dict:
+    return {
+        "ref": AGENT_SKILLS_INDEX_HEADERS_REF,
+        "expression": AGENT_SKILLS_INDEX_HEADERS_EXPRESSION,
+        "description": "Agent Skills Discovery index Content-Type.",
+        "action": "rewrite",
+        "enabled": True,
+        "action_parameters": {
+            "headers": {
+                "Content-Type": _header_set(AGENT_SKILLS_INDEX_CONTENT_TYPE),
+            },
+        },
+    }
+
+
+def agent_skills_md_headers_rule_body() -> dict:
+    return {
+        "ref": AGENT_SKILLS_MD_HEADERS_REF,
+        "expression": AGENT_SKILLS_MD_HEADERS_EXPRESSION,
+        "description": "Agent Skills SKILL.md Content-Type.",
+        "action": "rewrite",
+        "enabled": True,
+        "action_parameters": {
+            "headers": {
+                "Content-Type": _header_set(AUTH_MD_CONTENT_TYPE),
+            },
+        },
+    }
+
+
+def mcp_server_card_headers_rule_body() -> dict:
+    return {
+        "ref": MCP_SERVER_CARD_HEADERS_REF,
+        "expression": MCP_SERVER_CARD_HEADERS_EXPRESSION,
+        "description": "MCP Server Card Content-Type.",
+        "action": "rewrite",
+        "enabled": True,
+        "action_parameters": {
+            "headers": {
+                "Content-Type": _header_set(MCP_SERVER_CARD_CONTENT_TYPE),
+            },
+        },
+    }
+
+
 def homepage_link_headers_rule_body() -> dict:
     return {
         "ref": HOMEPAGE_LINK_HEADERS_REF,
@@ -938,6 +1004,9 @@ def managed_response_header_rules() -> list[dict]:
         auth_md_headers_rule_body(),
         oauth_metadata_headers_rule_body(),
         agent_card_headers_rule_body(),
+        agent_skills_index_headers_rule_body(),
+        agent_skills_md_headers_rule_body(),
+        mcp_server_card_headers_rule_body(),
         api_catalog_headers_rule_body(),
     ]
 
@@ -980,6 +1049,18 @@ def _oauth_metadata_headers_rule_is_correct(rule: dict) -> bool:
 
 def _agent_card_headers_rule_is_correct(rule: dict) -> bool:
     return _header_rule_is_correct(rule, agent_card_headers_rule_body())
+
+
+def _agent_skills_index_headers_rule_is_correct(rule: dict) -> bool:
+    return _header_rule_is_correct(rule, agent_skills_index_headers_rule_body())
+
+
+def _agent_skills_md_headers_rule_is_correct(rule: dict) -> bool:
+    return _header_rule_is_correct(rule, agent_skills_md_headers_rule_body())
+
+
+def _mcp_server_card_headers_rule_is_correct(rule: dict) -> bool:
+    return _header_rule_is_correct(rule, mcp_server_card_headers_rule_body())
 
 
 def get_response_headers_entrypoint_ruleset(token: str, zone_id: str) -> dict | None:
@@ -1079,6 +1160,9 @@ def check_security_headers(token: str, zone_id: str | None) -> tuple[bool, list[
         (auth_md_headers_rule_body(), _auth_md_headers_rule_is_correct),
         (oauth_metadata_headers_rule_body(), _oauth_metadata_headers_rule_is_correct),
         (agent_card_headers_rule_body(), _agent_card_headers_rule_is_correct),
+        (agent_skills_index_headers_rule_body(), _agent_skills_index_headers_rule_is_correct),
+        (agent_skills_md_headers_rule_body(), _agent_skills_md_headers_rule_is_correct),
+        (mcp_server_card_headers_rule_body(), _mcp_server_card_headers_rule_is_correct),
         (api_catalog_headers_rule_body(), _api_catalog_headers_rule_is_correct),
     ):
         ref = expected["ref"]
@@ -1105,7 +1189,7 @@ def print_check_security_headers(token: str, zone_id: str | None) -> bool:
         print(
             "  OK: static-site security headers, homepage RFC 8288 Link, "
             "Auth.md / OAuth metadata Content-Type, A2A Agent Card Content-Type, "
-            "RFC 9727 catalog Content-Type."
+            "Agent Skills Discovery Content-Type, RFC 9727 catalog Content-Type."
         )
         return True
     for issue in issues:
@@ -1195,6 +1279,54 @@ def root_redirect_rule_body() -> dict:
                 "target_url": {"value": CATALOG_URL},
                 "status_code": 301,
                 "preserve_query_string": True,
+            }
+        },
+    }
+
+
+def agent_skills_redirect_rule_body() -> dict:
+    return {
+        "ref": AGENT_SKILLS_REDIRECT_REF,
+        "expression": (
+            f'(http.host eq "{SITE_HOST}" and '
+            'starts_with(http.request.uri.path, "/.well-known/agent-skills/"))'
+        ),
+        "description": "Serve Agent Skills Discovery from the amd-agent-skills Worker.",
+        "action": "redirect",
+        "enabled": True,
+        "action_parameters": {
+            "from_value": {
+                "status_code": 302,
+                "preserve_query_string": True,
+                "target_url": {
+                    "expression": (
+                        f'concat("https://{AGENT_SKILLS_WORKER_HOST}", http.request.uri.path)'
+                    )
+                },
+            }
+        },
+    }
+
+
+def mcp_server_card_redirect_rule_body() -> dict:
+    return {
+        "ref": MCP_SERVER_CARD_REDIRECT_REF,
+        "expression": (
+            f'(http.host eq "{SITE_HOST}" and '
+            'starts_with(http.request.uri.path, "/.well-known/mcp/"))'
+        ),
+        "description": "Serve the MCP Server Card from the amd-mcp Worker.",
+        "action": "redirect",
+        "enabled": True,
+        "action_parameters": {
+            "from_value": {
+                "status_code": 302,
+                "preserve_query_string": True,
+                "target_url": {
+                    "expression": (
+                        f'concat("https://{MCP_SERVER_CARD_WORKER_HOST}", http.request.uri.path)'
+                    )
+                },
             }
         },
     }
@@ -1477,6 +1609,101 @@ def print_check_cache_rules(token: str, zone_id: str | None) -> bool:
     for issue in issues:
         print(f"  {issue}")
     return False
+
+
+def apply_agent_skills_redirect(token: str, zone_id: str | None) -> None:
+    """Ensure /.well-known/agent-skills/* redirects to the amd-agent-skills Worker."""
+    zone = resolve_zone_id(token, zone_id)
+    ruleset = get_redirect_entrypoint_ruleset(token, zone)
+    rule_body = agent_skills_redirect_rule_body()
+    if ruleset is None:
+        _api_request(
+            "POST",
+            f"/zones/{zone}/rulesets",
+            token,
+            {
+                "name": "AnalyticMadhyasthDarshan redirect rules",
+                "kind": "zone",
+                "phase": REDIRECT_PHASE,
+                "rules": [rule_body, root_redirect_rule_body()],
+            },
+        )
+        print("Created redirect ruleset with Agent Skills and root redirects.")
+        return
+
+    rules = [_sanitize_rule_for_put(rule) for rule in ruleset.get("rules", [])]
+    existing = next((rule for rule in rules if rule.get("ref") == AGENT_SKILLS_REDIRECT_REF), None)
+    if existing and existing.get("expression") == rule_body["expression"]:
+        target = (existing.get("action_parameters") or {}).get("from_value", {}).get("target_url", {})
+        if target.get("expression") == rule_body["action_parameters"]["from_value"]["target_url"]["expression"]:
+            print("Agent Skills redirect rule already configured.")
+            return
+    kept = [rule for rule in rules if rule.get("ref") != AGENT_SKILLS_REDIRECT_REF]
+    _api_request(
+        "PUT",
+        f"/zones/{zone}/rulesets/{ruleset['id']}",
+        token,
+        {
+            "name": ruleset.get("name", "Redirect rules"),
+            "kind": "zone",
+            "phase": REDIRECT_PHASE,
+            "rules": [rule_body] + kept,
+        },
+    )
+    print("Updated Agent Skills Discovery redirect rule.")
+
+
+def apply_mcp_server_card_redirect(token: str, zone_id: str | None) -> None:
+    """Ensure /.well-known/mcp/* redirects to the amd-mcp Worker."""
+    zone = resolve_zone_id(token, zone_id)
+    ruleset = get_redirect_entrypoint_ruleset(token, zone)
+    rule_body = mcp_server_card_redirect_rule_body()
+    if ruleset is None:
+        _api_request(
+            "POST",
+            f"/zones/{zone}/rulesets",
+            token,
+            {
+                "name": "AnalyticMadhyasthDarshan redirect rules",
+                "kind": "zone",
+                "phase": REDIRECT_PHASE,
+                "rules": [
+                    rule_body,
+                    agent_skills_redirect_rule_body(),
+                    root_redirect_rule_body(),
+                ],
+            },
+        )
+        print("Created redirect ruleset with MCP Server Card, Agent Skills, and root redirects.")
+        return
+
+    rules = [_sanitize_rule_for_put(rule) for rule in ruleset.get("rules", [])]
+    existing = next(
+        (rule for rule in rules if rule.get("ref") == MCP_SERVER_CARD_REDIRECT_REF), None
+    )
+    if existing and existing.get("expression") == rule_body["expression"]:
+        target = (existing.get("action_parameters") or {}).get("from_value", {}).get(
+            "target_url", {}
+        )
+        if (
+            target.get("expression")
+            == rule_body["action_parameters"]["from_value"]["target_url"]["expression"]
+        ):
+            print("MCP Server Card redirect rule already configured.")
+            return
+    kept = [rule for rule in rules if rule.get("ref") != MCP_SERVER_CARD_REDIRECT_REF]
+    _api_request(
+        "PUT",
+        f"/zones/{zone}/rulesets/{ruleset['id']}",
+        token,
+        {
+            "name": ruleset.get("name", "Redirect rules"),
+            "kind": "zone",
+            "phase": REDIRECT_PHASE,
+            "rules": [rule_body] + kept,
+        },
+    )
+    print("Updated MCP Server Card redirect rule.")
 
 
 def apply_root_redirect(token: str, zone_id: str | None) -> None:
@@ -1772,7 +1999,8 @@ def main() -> int:
         help=(
             "Add response security headers (enforcing CSP), homepage RFC 8288 "
             "Link headers, Auth.md / OAuth metadata Content-Type, A2A Agent Card "
-            "Content-Type, and RFC 9727 api-catalog Content-Type."
+            "Content-Type, Agent Skills Discovery Content-Type, and RFC 9727 "
+            "api-catalog Content-Type."
         ),
     )
     parser.add_argument(
@@ -2000,6 +2228,8 @@ def main() -> int:
             return 1
         try:
             apply_root_redirect(token, zone_id)
+            apply_agent_skills_redirect(token, zone_id)
+            apply_mcp_server_card_redirect(token, zone_id)
         except (urllib.error.URLError, RuntimeError) as exc:
             print(f"API error: {exc}", file=sys.stderr)
             api_error = True
@@ -2029,6 +2259,8 @@ def main() -> int:
         try:
             apply_api_settings(token, zone_id)
             apply_root_redirect(token, zone_id)
+            apply_agent_skills_redirect(token, zone_id)
+            apply_mcp_server_card_redirect(token, zone_id)
         except (urllib.error.URLError, RuntimeError) as exc:
             print(f"API error: {exc}", file=sys.stderr)
             api_error = True

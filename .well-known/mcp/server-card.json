@@ -1,0 +1,17 @@
+{
+  "serverInfo": {
+    "name": "Analytic Madhyasth Darshan",
+    "version": "1.0.0"
+  },
+  "description": "Public catalog of analytic studies of Madhyasth Darshan (Co-existentialism). Agents can list and read papers as JSON, HTML, and PDF. Write APIs are for humans; see /auth.md.",
+  "url": "https://analyticmadhyasthdarshan.org/mcp",
+  "transport": {
+    "type": "streamable-http",
+    "endpoint": "/mcp"
+  },
+  "capabilities": {
+    "tools": true,
+    "resources": true,
+    "prompts": false
+  }
+}
