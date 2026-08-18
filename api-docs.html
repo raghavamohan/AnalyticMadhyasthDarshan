@@ -115,6 +115,22 @@
       <td><a href="/api/studies?q="><code>GET /api/studies?q=</code></a></td>
     </tr>
     <tr>
+      <td>One study + outline</td>
+      <td><a href="/api/studies/The-Ontology-of-Coexistence"><code>GET /api/studies/{slug}</code></a></td>
+    </tr>
+    <tr>
+      <td>Glossary search</td>
+      <td><a href="/api/glossary?q=jeevan"><code>GET /api/glossary?q=</code></a></td>
+    </tr>
+    <tr>
+      <td>Start here path</td>
+      <td><a href="/api/start-here"><code>GET /api/start-here</code></a></td>
+    </tr>
+    <tr>
+      <td>Citation</td>
+      <td><a href="/api/cite/The-Ontology-of-Coexistence"><code>GET /api/cite/{slug}</code></a></td>
+    </tr>
+    <tr>
       <td>OpenAPI</td>
       <td><a href="/openapi/studies.json"><code>/openapi/studies.json</code></a></td>
     </tr>
@@ -274,9 +290,13 @@
   <code>POST</code>
   <a href="/mcp"><code>/mcp</code></a>
   is Streamable HTTP JSON-RPC (read-only). Tools:
-  <code>search_studies</code>, <code>list_studies</code>, <code>get_study</code>.
+  <code>search_studies</code>, <code>list_studies</code>, <code>get_study</code>,
+  <code>get_study_outline</code>, <code>get_glossary</code>,
+  <code>get_start_here</code>, <code>get_cite</code>.
   Resources: <code>studies://catalog-all</code>,
-  <code>studies://glossary</code>, <code>studies://feed</code>.
+  <code>studies://glossary</code>, <code>studies://feed</code>,
+  <code>studies://start-here</code>, and
+  <code>studies://study/{slug}</code> for canonical markdown.
   The Server Card is
   <a href="/.well-known/mcp/server-card.json"><code>/.well-known/mcp/server-card.json</code></a>.
   There are no write tools.
@@ -288,12 +308,12 @@
   <a href="/.well-known/agent-skills/index.json"><code>/.well-known/agent-skills/index.json</code></a>
   return the
   <a href="https://github.com/cloudflare/agent-skills-discovery-rfc">Agent Skills Discovery</a>
-  index (<code>Content-Type: application/json</code>, schema
-  <code>https://schemas.agentskills.io/discovery/0.2.0/schema.json</code>).
-  Entries include maintainer skills from <code>.agents/skills/</code> and
-  reader skills from <code>infra/reader-skills/</code>
+  index of <strong>public reader skills</strong>
   (<code>start-here</code>, <code>cite-study</code>,
-  <code>compare-traditions</code>), each served as
+  <code>compare-traditions</code>). Maintainer skills that need a git clone
+  live in
+  <a href="/.well-known/agent-skills/index-maintainer.json"><code>/.well-known/agent-skills/index-maintainer.json</code></a>.
+  Each entry is a
   <code>SKILL.md</code> with a SHA-256 digest.
 </p>
 

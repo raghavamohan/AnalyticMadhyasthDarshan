@@ -5,10 +5,13 @@ Canonical maintainer skills live in `.agents/skills/<name>/SKILL.md`.
 Reader skills for catalog agents live in `infra/reader-skills/<name>/SKILL.md`
 and are not copied into `.cursor/skills/`. This writes:
 
-  .well-known/agent-skills/index.json
+  .well-known/agent-skills/index.json          (public reader skills)
+  .well-known/agent-skills/index-maintainer.json (repo maintainer skills)
   .well-known/agent-skills/<name>/SKILL.md
 
-per the Agent Skills Discovery RFC v0.2.0
+The public index is what crawlers and catalog agents should load. Maintainer
+skills stay published as SKILL.md files and in the maintainer index so clone-
+based agents can still find them. Per the Agent Skills Discovery RFC v0.2.0
 (https://github.com/cloudflare/agent-skills-discovery-rfc).
 """
 from __future__ import annotations
@@ -31,7 +34,11 @@ READER_SKILLS_SOURCE = BASE / "infra" / "reader-skills"
 SKILLS_SOURCE_DIRS = (SKILLS_SOURCE, READER_SKILLS_SOURCE)
 PUBLISH_ROOT = BASE / ".well-known" / "agent-skills"
 INDEX_PATH = PUBLISH_ROOT / "index.json"
+MAINTAINER_INDEX_PATH = PUBLISH_ROOT / "index-maintainer.json"
 INDEX_SITE_PATH = "/.well-known/agent-skills/index.json"
+MAINTAINER_INDEX_SITE_PATH = "/.well-known/agent-skills/index-maintainer.json"
+PUBLIC_AUDIENCE = "public"
+MAINTAINER_AUDIENCE = "maintainer"
 NAME_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 FRONTMATTER_RE = re.compile(r"\A---\n(.*?\n)---\n", re.DOTALL)
 BLOCK_INDICATORS = {">", ">-", "|", "|-"}
@@ -104,10 +111,14 @@ def validate_description(description: str) -> None:
         raise ValueError("skill description exceeds 1024 characters")
 
 
-def iter_source_skills() -> list[Path]:
-    skills: list[Path] = []
+def iter_source_skills() -> list[tuple[str, Path]]:
+    skills: list[tuple[str, Path]] = []
     seen: set[str] = set()
-    for source in SKILLS_SOURCE_DIRS:
+    sources = (
+        (READER_SKILLS_SOURCE, PUBLIC_AUDIENCE),
+        (SKILLS_SOURCE, MAINTAINER_AUDIENCE),
+    )
+    for source, audience in sources:
         if not source.is_dir():
             continue
         for skill_dir in sorted(source.iterdir()):
@@ -122,7 +133,7 @@ def iter_source_skills() -> list[Path]:
                     f"Duplicate skill name {name!r} under {source} and an earlier source"
                 )
             seen.add(name)
-            skills.append(skill_file)
+            skills.append((audience, skill_file))
     if not skills:
         raise SystemExit(
             "No SKILL.md files under " + ", ".join(str(path) for path in SKILLS_SOURCE_DIRS)
@@ -130,36 +141,43 @@ def iter_source_skills() -> list[Path]:
     return skills
 
 
-def collect_skills() -> tuple[list[dict[str, str]], dict[str, str]]:
-    entries: list[dict[str, str]] = []
+def skill_entry(skill_file: Path, text: str) -> dict[str, str]:
+    fields = parse_frontmatter(text)
+    name = fields.get("name") or skill_file.parent.name
+    description = fields.get("description") or ""
+    validate_name(name)
+    validate_description(description)
+    if name != skill_file.parent.name:
+        raise ValueError(
+            f"{skill_file.relative_to(BASE)} frontmatter name {name!r} "
+            f"does not match directory {skill_file.parent.name!r}"
+        )
+    return {
+        "name": name,
+        "type": "skill-md",
+        "description": description,
+        "url": f"/.well-known/agent-skills/{name}/SKILL.md",
+        "digest": sha256_digest(text.encode("utf-8")),
+    }
+
+
+def collect_skills() -> tuple[list[dict[str, str]], list[dict[str, str]], dict[str, str]]:
+    public_entries: list[dict[str, str]] = []
+    maintainer_entries: list[dict[str, str]] = []
     artifacts: dict[str, str] = {}
-    for skill_file in iter_source_skills():
+    for audience, skill_file in iter_source_skills():
         text = normalize_text(skill_file.read_text(encoding="utf-8"))
         if not text.endswith("\n"):
             text += "\n"
-        fields = parse_frontmatter(text)
-        name = fields.get("name") or skill_file.parent.name
-        description = fields.get("description") or ""
-        validate_name(name)
-        validate_description(description)
-        if name != skill_file.parent.name:
-            raise ValueError(
-                f"{skill_file.relative_to(BASE)} frontmatter name {name!r} "
-                f"does not match directory {skill_file.parent.name!r}"
-            )
-        relative_url = f"/.well-known/agent-skills/{name}/SKILL.md"
-        entries.append(
-            {
-                "name": name,
-                "type": "skill-md",
-                "description": description,
-                "url": relative_url,
-                "digest": sha256_digest(text.encode("utf-8")),
-            }
-        )
-        artifacts[name] = text
-    entries.sort(key=lambda item: item["name"])
-    return entries, artifacts
+        entry = skill_entry(skill_file, text)
+        artifacts[entry["name"]] = text
+        if audience == PUBLIC_AUDIENCE:
+            public_entries.append(entry)
+        else:
+            maintainer_entries.append(entry)
+    public_entries.sort(key=lambda item: item["name"])
+    maintainer_entries.sort(key=lambda item: item["name"])
+    return public_entries, maintainer_entries, artifacts
 
 
 def render_index(entries: list[dict[str, str]]) -> str:
@@ -168,8 +186,11 @@ def render_index(entries: list[dict[str, str]]) -> str:
 
 
 def expected_publish_files() -> dict[Path, str]:
-    entries, artifacts = collect_skills()
-    files = {INDEX_PATH: render_index(entries)}
+    public_entries, maintainer_entries, artifacts = collect_skills()
+    files = {
+        INDEX_PATH: render_index(public_entries),
+        MAINTAINER_INDEX_PATH: render_index(maintainer_entries),
+    }
     for name, text in artifacts.items():
         files[PUBLISH_ROOT / name / "SKILL.md"] = text
     return files
@@ -209,8 +230,9 @@ def check_publish_files(files: dict[Path, str] | None = None) -> list[str]:
         name = extra.parent.name
         if (PUBLISH_ROOT / name / "SKILL.md") not in expected:
             errors.append(f"orphan {extra.relative_to(BASE)}")
-    if INDEX_PATH.is_file() and INDEX_PATH not in expected:
-        errors.append(f"orphan {INDEX_PATH.relative_to(BASE)}")
+    for index_path in (INDEX_PATH, MAINTAINER_INDEX_PATH):
+        if index_path.is_file() and index_path not in expected:
+            errors.append(f"orphan {index_path.relative_to(BASE)}")
     return errors
 
 

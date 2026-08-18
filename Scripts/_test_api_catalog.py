@@ -46,6 +46,8 @@ STUDIES_CATALOG_HREFS = (
 DYNAMIC_CATALOG_HREFS = {
     "https://analyticmadhyasthdarshan.org/mcp",
     "https://analyticmadhyasthdarshan.org/api/studies",
+    "https://analyticmadhyasthdarshan.org/api/glossary",
+    "https://analyticmadhyasthdarshan.org/api/start-here",
 }
 HOMEPAGE_LINK_RELS = ("api-catalog", "describedby", "service-desc", "service-doc")
 HOMEPAGE_LINK_HREFS = (
@@ -66,6 +68,8 @@ HOMEPAGE_LINK_HREFS = (
     "/llms.txt",
     "/mcp",
     "/api/studies",
+    "/api/glossary",
+    "/api/start-here",
     "/openapi/submissions.json",
     "/openapi/discussions.json",
     "/openapi/studies.json",
@@ -342,6 +346,9 @@ def main() -> None:
         fail("api-catalog is missing the Web Bot Auth directory describedby link")
     if WEBMCP_HREF not in described:
         fail("api-catalog is missing the WebMCP script describedby link")
+    missing_dynamic = [href for href in sorted(DYNAMIC_CATALOG_HREFS) if href not in described]
+    if missing_dynamic:
+        fail(f"api-catalog is missing describedby hrefs: {missing_dynamic}")
 
     for spec in (BASE / "openapi" / "submissions.json", BASE / "openapi" / "discussions.json"):
         data = load_json(spec)

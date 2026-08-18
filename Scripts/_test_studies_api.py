@@ -140,7 +140,48 @@ def check_llms(rows: list[dict]) -> None:
     ):
         if needle not in text:
             fail(f"llms.txt should link {needle}")
+    for row in published:
+        md_url = row.get("md")
+        if not md_url:
+            fail(f"published study {row['slug']} is missing md")
+        if not md_url.endswith(".md"):
+            fail(f"published study {row['slug']} md is {md_url!r}")
+        if f"{row['slug']}/{row['slug']}.md" not in text:
+            fail(f"llms.txt should link markdown for {row['slug']}")
+        html_link = f"{row['slug']}/{row['slug']}.html)"
+        if html_link in text.split("## Studies", 1)[-1].split("## Optional", 1)[0]:
+            fail(f"llms.txt Studies section still links HTML for {row['slug']}")
     print("OK: llms.txt and llms-full.txt list published studies.")
+
+
+def check_start_here(rows: list[dict]) -> None:
+    path = STUDIES / "start-here.json"
+    payload = load_json(path)
+    if not isinstance(payload, dict):
+        fail("start-here.json must be an object")
+    stages = payload.get("stages")
+    if not isinstance(stages, list) or len(stages) < 5:
+        fail("start-here.json must list the five path stages")
+    catalog_slugs = {row["slug"] for row in rows}
+    slugs: set[str] = set()
+    for stage in stages:
+        core = (stage or {}).get("core") or {}
+        if not core.get("slug") or not stage.get("reason"):
+            fail("each start-here stage needs a core slug and reason")
+        slugs.add(core["slug"])
+        for related in stage.get("related") or []:
+            slugs.add(related["slug"])
+    parallel = payload.get("parallelTrack") or {}
+    for item in parallel.get("studies") or []:
+        slugs.add(item["slug"])
+    missing = sorted(slugs - catalog_slugs)
+    if missing:
+        fail(f"start-here.json slugs missing from catalog-all.json: {missing}")
+    template = (SCRIPTS / "_build_studies_index.py").read_text(encoding="utf-8")
+    for slug in slugs:
+        if slug not in template:
+            fail(f"Start here landing-page template is missing slug {slug}")
+    print("OK: Studies/start-here.json matches catalog slugs and the landing-page path.")
 
 
 def check_search(rows: list[dict]) -> None:
@@ -151,6 +192,23 @@ def check_search(rows: list[dict]) -> None:
     if len(by_slug) != 1:
         fail("expected exactly one The-Ontology-of-Coexistence row")
     print("OK: catalog search matching agrees with WebMCP substring rules.")
+
+
+def check_openapi() -> None:
+    spec = load_json(BASE / "openapi" / "studies.json")
+    if not isinstance(spec, dict) or spec.get("openapi") != "3.1.0":
+        fail("openapi/studies.json must declare OpenAPI 3.1.0")
+    paths = spec.get("paths") or {}
+    for path in (
+        "/api/studies",
+        "/api/studies/{slug}",
+        "/api/glossary",
+        "/api/start-here",
+        "/api/cite/{slug}",
+    ):
+        if path not in paths:
+            fail(f"openapi/studies.json is missing {path}")
+    print("OK: openapi/studies.json documents catalog read endpoints.")
 
 
 def fetch_live(url: str, *, method: str = "GET", data: bytes | None = None) -> tuple[int, dict, str]:
@@ -207,7 +265,15 @@ def check_live() -> None:
     if status != 200:
         fail(f"MCP tools/list returned HTTP {status}: {body[:300]}")
     names = {tool.get("name") for tool in ((json.loads(body).get("result") or {}).get("tools") or [])}
-    missing = {"search_studies", "list_studies", "get_study"} - names
+    missing = {
+        "search_studies",
+        "list_studies",
+        "get_study",
+        "get_study_outline",
+        "get_glossary",
+        "get_start_here",
+        "get_cite",
+    } - names
     if missing:
         fail(f"MCP tools/list missing {missing}")
     print("OK: live MCP tools/list exposes catalog read tools.")
@@ -222,12 +288,60 @@ def check_live() -> None:
         fail(f"GET /api/studies?q=ontology returned no hits: {body[:300]}")
     print("OK: live GET /api/studies?q=ontology returns catalog hits.")
 
+    slug = "The-Ontology-of-Coexistence"
+    status, _headers, body = fetch_live(f"{SITE}/api/studies/{slug}")
+    if status != 200:
+        status, _headers, body = fetch_live(f"{WORKER}/api/studies/{slug}")
+    if status != 200:
+        fail(f"GET /api/studies/{slug} returned HTTP {status}: {body[:300]}")
+    detail = json.loads(body)
+    if detail.get("slug") != slug or not detail.get("outline"):
+        fail(f"GET /api/studies/{slug} missing slug or outline: {body[:300]}")
+    headings = [item.get("heading") for item in detail.get("outline") or []]
+    if "Standpoint and scope" not in headings:
+        fail(f"GET /api/studies/{slug} outline is missing Standpoint and scope")
+    print(f"OK: live GET /api/studies/{slug} returns a heading outline.")
+
+    status, _headers, body = fetch_live(f"{SITE}/api/glossary?q=jeevan")
+    if status != 200:
+        status, _headers, body = fetch_live(f"{WORKER}/api/glossary?q=jeevan")
+    if status != 200:
+        fail(f"GET /api/glossary returned HTTP {status}: {body[:300]}")
+    glossary_hits = json.loads(body)
+    ids = {term.get("id") for term in glossary_hits.get("terms") or []}
+    if "jeevan" not in ids:
+        fail(f"GET /api/glossary?q=jeevan missed jeevan: {body[:300]}")
+    print("OK: live GET /api/glossary?q=jeevan returns glossary terms.")
+
+    status, _headers, body = fetch_live(f"{SITE}/api/start-here")
+    if status != 200:
+        status, _headers, body = fetch_live(f"{WORKER}/api/start-here")
+    if status != 200:
+        fail(f"GET /api/start-here returned HTTP {status}: {body[:300]}")
+    path = json.loads(body)
+    cores = [stage.get("core", {}).get("slug") for stage in path.get("stages") or []]
+    if "The-Ontology-of-Coexistence" not in cores:
+        fail(f"GET /api/start-here missing ontology core: {body[:400]}")
+    print("OK: live GET /api/start-here returns the reading path.")
+
+    status, _headers, body = fetch_live(f"{SITE}/api/cite/{slug}")
+    if status != 200:
+        status, _headers, body = fetch_live(f"{WORKER}/api/cite/{slug}")
+    if status != 200:
+        fail(f"GET /api/cite/{slug} returned HTTP {status}: {body[:300]}")
+    cite = json.loads(body)
+    if slug not in (cite.get("citation") or "") or not cite.get("mdUrl"):
+        fail(f"GET /api/cite/{slug} citation is incomplete: {body[:300]}")
+    print(f"OK: live GET /api/cite/{slug} returns a citation line.")
+
 
 def main() -> None:
     rows = check_catalog_all()
     check_feed(rows)
     check_llms(rows)
+    check_start_here(rows)
     check_search(rows)
+    check_openapi()
     glossary = STUDIES / "glossary.json"
     if not glossary.is_file():
         fail("missing Studies/glossary.json")

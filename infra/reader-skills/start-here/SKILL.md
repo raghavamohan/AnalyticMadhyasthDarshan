@@ -18,7 +18,11 @@ This site publishes analytic studies of **Madhyasth Darshan** (Co-existentialism
 | Human catalog | https://analyticmadhyasthdarshan.org/Studies/index.html |
 | Unified JSON | https://analyticmadhyasthdarshan.org/Studies/catalog-all.json |
 | Search | https://analyticmadhyasthdarshan.org/api/studies?q= |
-| Glossary | https://analyticmadhyasthdarshan.org/Studies/glossary.json |
+| One study + outline | https://analyticmadhyasthdarshan.org/api/studies/The-Ontology-of-Coexistence |
+| Glossary search | https://analyticmadhyasthdarshan.org/api/glossary?q=jeevan |
+| Start here path | https://analyticmadhyasthdarshan.org/api/start-here |
+| Citation | https://analyticmadhyasthdarshan.org/api/cite/The-Ontology-of-Coexistence |
+| Glossary blob | https://analyticmadhyasthdarshan.org/Studies/glossary.json |
 | Change feed | https://analyticmadhyasthdarshan.org/Studies/feed.json |
 | `llms.txt` | https://analyticmadhyasthdarshan.org/llms.txt |
 
@@ -32,8 +36,11 @@ Every topical study includes **Standpoint and scope**: the author writes as a sc
 
 ## Tools
 
-- MCP Streamable HTTP: `POST https://analyticmadhyasthdarshan.org/mcp` (`search_studies`, `list_studies`, `get_study`)
+- MCP Streamable HTTP: `POST https://analyticmadhyasthdarshan.org/mcp` (`search_studies`, `list_studies`, `get_study`, `get_study_outline`, `get_glossary`, `get_start_here`, `get_cite`)
+- Study markdown resource: `studies://study/{slug}`
 - WebMCP in the browser: https://analyticmadhyasthdarshan.org/webmcp.js
 - OpenAPI: https://analyticmadhyasthdarshan.org/openapi/studies.json
+- Public skills: https://analyticmadhyasthdarshan.org/.well-known/agent-skills/index.json
+- Maintainer skills (git clone): https://analyticmadhyasthdarshan.org/.well-known/agent-skills/index-maintainer.json
 
 Do not call discussion magic-link or GitHub OAuth routes from a passive scan.
