@@ -13,6 +13,7 @@ Maintained by **[AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/A
 | Resource | What you will find |
 |----------|-------------------|
 | **[Studies catalog](Studies/index.html)** | Published papers (PDF): topical, formal, and applied studies, plus topics in progress |
+| **[Site APIs](api-docs.html)** | Studies catalog JSON for agents, plus submission and discussion APIs ([RFC 9727](https://www.rfc-editor.org/rfc/rfc9727)) |
 | **[My Submissions](Studies/submit.html)** | Web Submission Portal — sign in with GitHub to propose, submit, update, and track studies (reading the catalog needs no account) |
 | **[About the studies](Studies/README.md)** | Our approach, objectives, and how to read the collection |
 | **[Official source materials](https://www.madhyasth.org/)** | Primary texts and institutional resources from **Divya Path Sansthan** — the authoritative source for Madhyasth Darshan |
@@ -34,7 +35,8 @@ Studies/          Papers (.md source; companion .html and .pdf output; discussio
 Applications/     Applied studies — concrete instantiations of formal templates
 References/       Local copies of cited sources; citation audit (MANIFEST.md)
 Scripts/          Tools to add, remove, convert, verify, and publish studies
-infra/            Cloudflare Workers (submissions portal, per-study discussions),
+infra/            Cloudflare Workers (submissions portal, per-study discussions,
+                  RFC 9727 API catalog, Google Search Console verification),
                   performance baselines (cloudflare-rum-baseline.json), audit notes
 AGENTS.md         Standing rules for agents and local maintainers (§1–§8)
 .github/          CI workflows and study pull request templates

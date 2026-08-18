@@ -1082,6 +1082,8 @@ function assertStatusChangeAllowed(slug, targetStatus, catalogMap, prItems) {
 
 router.options('*', (request, env) => new Response(null, { headers: corsHeaders(request, env) }));
 
+router.get('/api/health', (request, env) => jsonResponse(request, env, { status: 'ok' }));
+
 router.get('/api/auth/github', (request, env) => {
   if (!env.GITHUB_CLIENT_ID || !env.GITHUB_CLIENT_SECRET || !env.SESSION_SECRET) {
     return jsonResponse(request, env, { success: false, error: 'GitHub sign-in is not configured.' }, 503);
