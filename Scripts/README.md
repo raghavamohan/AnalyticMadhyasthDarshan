@@ -50,6 +50,8 @@ what to run **on that branch** before opening the PR.
 | Cloudflare performance setup | `python Scripts/_cloudflare_performance.py` (`--apply-redirect`, `--apply-api`, `--apply-edge-security`, `--check-edge-security`; token in `.env`) |
 | Auth.md / OAuth discovery | `python Scripts/_test_auth_md.py` (`--live`); `python Scripts/_publish_auth_md_snippet.py` |
 | A2A Agent Card | `python Scripts/_test_agent_card.py` (`--live`); `python Scripts/_publish_agent_card_snippet.py` |
+| Agent Skills Discovery | `python Scripts/_build_agent_skills_index.py` (`--check`); `python Scripts/_test_agent_skills.py` (`--live`); `python Scripts/_publish_agent_skills_snippet.py` |
+| MCP Server Card | `python Scripts/_test_mcp_server_card.py` (`--live`); `python Scripts/_publish_mcp_server_card.py` |
 | Sync agent rules and skills | `python Scripts/_sync_agent_rules.py` then `python Scripts/_sync_agent_rules.py --check` |
 
 Windows wrappers: `.\Scripts\_add_study.ps1`, `.\Scripts\_remove_study.ps1`, `.\Scripts\_set_study_status.ps1`, `.\Scripts\_download_references.ps1`.
@@ -76,7 +78,8 @@ Windows wrappers: `.\Scripts\_add_study.ps1`, `.\Scripts\_remove_study.ps1`, `.\
 | `_pdf_to_study_md.py` | Maintainer CLI: PDF → `Studies/<Slug>/<Slug>.md` with metadata |
 | `_test_pdf_to_md.py` | Round-trip and failure tests for PDF import |
 | `_ci_study_pr.py` | GitHub Actions study PR pipeline |
-| `_sync_agent_rules.py` | Sync AGENTS.md → `.cursor/rules/*.mdc`; `.agents/skills/` → `.cursor/skills/` |
+| `_sync_agent_rules.py` | Sync AGENTS.md → `.cursor/rules/*.mdc`; `.agents/skills/` → `.cursor/skills/` and `.well-known/agent-skills/` |
+| `_build_agent_skills_index.py` | Publish Agent Skills Discovery index and SKILL.md copies under `.well-known/agent-skills/` |
 | `_transcribe_fetch.py` | Fetch audio for a transcription manifest (yt-dlp, audio-only, resumable) |
 | `_transcribe_batch.py` | Transcribe a manifest **without VAD** — GPU (whisper.cpp+Vulkan) or CPU fallback |
 

@@ -26,6 +26,14 @@
         {
           "href": "https://analyticmadhyasthdarshan.org/.well-known/agent-card.json",
           "type": "application/a2a+json"
+        },
+        {
+          "href": "https://analyticmadhyasthdarshan.org/.well-known/agent-skills/index.json",
+          "type": "application/json"
+        },
+        {
+          "href": "https://analyticmadhyasthdarshan.org/.well-known/mcp/server-card.json",
+          "type": "application/json"
         }
       ]
     },
