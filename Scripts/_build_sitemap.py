@@ -16,10 +16,20 @@ from _study_catalog import (  # noqa: E402
     StudyRow,
     StudyTable,
     parse_catalog_json_file,
+    parse_edited_on,
 )
 
 SITEMAP_PATH = BASE / "sitemap.xml"
 SITEMAP_NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
+
+# Published companion pages that intentionally remain outside the study catalog.
+# Keep this list curated: internal research notes are not sitemap entries by default.
+SUPPLEMENTAL_PAGES = (
+    (
+        "Studies/The-Ontology-of-Coexistence/Technical-Note-Roop-Guna-Svabhava-Dharma.html",
+        "Studies/The-Ontology-of-Coexistence/Technical-Note-Roop-Guna-Svabhava-Dharma.md",
+    ),
+)
 
 
 def _absolute_url(path: str) -> str:
@@ -30,6 +40,15 @@ def _absolute_url(path: str) -> str:
 def _lastmod_from_row(row: StudyRow) -> str | None:
     if row.edited_at is not None:
         return row.edited_at.strftime("%Y-%m-%d")
+    return None
+
+
+def _lastmod_from_markdown(path: Path) -> str | None:
+    if not path.is_file():
+        return None
+    edited_at = parse_edited_on(path.read_text(encoding="utf-8"))
+    if edited_at is not None:
+        return edited_at.strftime("%Y-%m-%d")
     return None
 
 
@@ -128,6 +147,16 @@ def collect_sitemap_entries() -> list[tuple[str, str | None, str | None, str | N
                     priority="0.5",
                 )
 
+    for html_site_path, markdown_site_path in SUPPLEMENTAL_PAGES:
+        if not (BASE / Path(html_site_path)).is_file():
+            continue
+        add(
+            html_site_path,
+            lastmod=_lastmod_from_markdown(BASE / Path(markdown_site_path)),
+            changefreq="monthly",
+            priority="0.6",
+        )
+
     return entries
 
 
@@ -142,7 +171,9 @@ def render_sitemap_xml(entries: list[tuple[str, str | None, str | None, str | No
 
 def write_sitemap() -> Path:
     entries = collect_sitemap_entries()
-    SITEMAP_PATH.write_text(render_sitemap_xml(entries), encoding="utf-8")
+    SITEMAP_PATH.write_text(
+        render_sitemap_xml(entries), encoding="utf-8", newline="\n"
+    )
     return SITEMAP_PATH
 
 
