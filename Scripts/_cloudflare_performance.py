@@ -33,6 +33,7 @@ WAF_CUSTOM_PHASE = "http_request_firewall_custom"
 RATE_LIMIT_PHASE = "http_ratelimit"
 RESPONSE_HEADERS_PHASE = "http_response_headers_transform"
 NOTIFY_SKIP_REF = "amd_skip_sbfm_portal_notify"
+WEBMCP_SKIP_REF = "amd_skip_sbfm_webmcp"
 PROBE_BLOCK_REF = "amd_block_common_probes"
 SECURITY_HEADERS_REF = "amd_security_headers_static"
 HOMEPAGE_LINK_HEADERS_REF = "amd_homepage_link_headers"
@@ -45,7 +46,7 @@ WEB_BOT_AUTH_HEADERS_REF = "amd_web_bot_auth_content_type"
 AUTH_MD_HEADERS_REF = "amd_auth_md_content_type"
 OAUTH_METADATA_HEADERS_REF = "amd_oauth_metadata_content_type"
 EDGE_API_RATE_LIMIT_REF = "amd_rl_edge_api"
-WAF_CUSTOM_MANAGED_REFS = (PROBE_BLOCK_REF, NOTIFY_SKIP_REF)
+WAF_CUSTOM_MANAGED_REFS = (PROBE_BLOCK_REF, NOTIFY_SKIP_REF, WEBMCP_SKIP_REF)
 EDGE_API_RATE_LIMIT_REFS = (EDGE_API_RATE_LIMIT_REF,)
 HSTS_MAX_AGE_SEC = 31536000
 # Enforcing CSP for static pages. Allow Turnstile, in-browser Mermaid (jsDelivr),
@@ -65,6 +66,16 @@ CSP = (
 )
 NOTIFY_SKIP_EXPRESSION = (
     f'(http.host eq "{API_HOST}" and starts_with(http.request.uri.path, "/api/notify"))'
+)
+WEBMCP_SKIP_EXPRESSION = (
+    f'(http.host eq "{SITE_HOST}" and ('
+    'http.request.uri.path eq "/" or '
+    'http.request.uri.path eq "/index.html" or '
+    'http.request.uri.path eq "/Studies" or '
+    'http.request.uri.path eq "/Studies/" or '
+    'http.request.uri.path eq "/Studies/index.html" or '
+    'http.request.uri.path eq "/webmcp.js" or '
+    'http.request.uri.path eq "/api-docs.html"))'
 )
 PROBE_BLOCK_EXPRESSION = (
     f'(http.host in {{"{SITE_HOST}" "{API_HOST}"}}) '
@@ -357,6 +368,31 @@ def _notify_skip_rule_is_correct(rule: dict) -> bool:
     return "http_request_sbfm" in phases
 
 
+def webmcp_skip_rule_body() -> dict:
+    return {
+        "ref": WEBMCP_SKIP_REF,
+        "expression": WEBMCP_SKIP_EXPRESSION,
+        "description": (
+            "Skip Super Bot Fight Mode for WebMCP catalog pages so in-browser "
+            "agent scanners can execute navigator.modelContext.registerTool."
+        ),
+        "action": "skip",
+        "enabled": True,
+        "action_parameters": {
+            "phases": ["http_request_sbfm"],
+        },
+    }
+
+
+def _webmcp_skip_rule_is_correct(rule: dict) -> bool:
+    if rule.get("action") != "skip":
+        return False
+    if rule.get("expression") != WEBMCP_SKIP_EXPRESSION:
+        return False
+    phases = rule.get("action_parameters", {}).get("phases", [])
+    return "http_request_sbfm" in phases
+
+
 def get_waf_custom_entrypoint_ruleset(token: str, zone_id: str) -> dict | None:
     return get_phase_entrypoint_ruleset(token, zone_id, WAF_CUSTOM_PHASE)
 
@@ -603,8 +639,8 @@ def _probe_block_rule_is_correct(rule: dict) -> bool:
 
 
 def waf_custom_security_rules_spec() -> list[dict]:
-    """Custom WAF rules in evaluation order (block probes before notify skip)."""
-    return [probe_block_rule_body(), notify_skip_rule_body()]
+    """Custom WAF rules in evaluation order (block probes, then SBFM skips)."""
+    return [probe_block_rule_body(), notify_skip_rule_body(), webmcp_skip_rule_body()]
 
 
 def _waf_custom_rule_is_correct(rule: dict, expected: dict) -> bool:
@@ -615,11 +651,13 @@ def _waf_custom_rule_is_correct(rule: dict, expected: dict) -> bool:
         return _probe_block_rule_is_correct(rule)
     if ref == NOTIFY_SKIP_REF:
         return _notify_skip_rule_is_correct(rule)
+    if ref == WEBMCP_SKIP_REF:
+        return _webmcp_skip_rule_is_correct(rule)
     return False
 
 
 def apply_waf_custom_security_rules(token: str, zone_id: str | None) -> None:
-    """Upsert probe-path block and portal notify SBFM skip rules."""
+    """Upsert probe-path block, portal notify SBFM skip, and WebMCP SBFM skip."""
     zone = resolve_zone_id(token, zone_id)
     print(f"Zone ID: {zone}")
     expected_rules = waf_custom_security_rules_spec()
@@ -875,7 +913,9 @@ def security_headers_rule_body() -> dict:
                 "X-Content-Type-Options": _header_set("nosniff"),
                 "X-Frame-Options": _header_set("SAMEORIGIN"),
                 "Referrer-Policy": _header_set("strict-origin-when-cross-origin"),
-                "Permissions-Policy": _header_set("camera=(), microphone=(), geolocation=()"),
+                "Permissions-Policy": _header_set(
+                    "camera=(), microphone=(), geolocation=(), tools=(self)"
+                ),
                 "Content-Security-Policy": _header_set(CSP),
                 "Content-Security-Policy-Report-Only": {"operation": "remove"},
             },
@@ -1257,7 +1297,7 @@ def print_check_waf_custom_security(token: str, zone_id: str | None) -> bool:
         print(f"  ERROR: {exc}")
         return False
     if ok:
-        print("  OK: probe-path block and portal notify SBFM skip configured.")
+        print("  OK: probe-path block, portal notify SBFM skip, and WebMCP SBFM skip configured.")
         return True
     for issue in issues:
         print(f"  {issue}")
@@ -2169,6 +2209,9 @@ def main() -> int:
                 zone_id,
                 [
                     CATALOG_URL,
+                    f"https://{SITE_HOST}/webmcp.js",
+                    f"https://{SITE_HOST}/api-docs.html",
+                    f"https://{SITE_HOST}/index.html",
                     f"https://{SITE_HOST}/Studies/catalog-topical.json",
                     f"https://{SITE_HOST}/Studies/catalog-formal.json",
                     f"https://{SITE_HOST}/Studies/catalog-applied.json",
