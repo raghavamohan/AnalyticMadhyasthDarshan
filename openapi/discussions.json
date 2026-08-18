@@ -1,0 +1,280 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Analytic Madhyasth Darshan discussions API",
+    "version": "1.0.0",
+    "description": "Per-study discussion boards on https://analyticmadhyasthdarshan.org. Readers sign in with an email magic link (no GitHub account required) to post comments. Structured corrections still use GitHub Issues."
+  },
+  "servers": [
+    {
+      "url": "https://analyticmadhyasthdarshan.org"
+    }
+  ],
+  "tags": [
+    { "name": "health" },
+    { "name": "threads" },
+    { "name": "auth" }
+  ],
+  "paths": {
+    "/api/discussions/health": {
+      "get": {
+        "tags": ["health"],
+        "summary": "Liveness",
+        "operationId": "getDiscussionsHealth",
+        "responses": {
+          "200": {
+            "description": "Worker is serving requests.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Health" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/discussions/stats": {
+      "get": {
+        "tags": ["threads"],
+        "summary": "Comment counts per study slug",
+        "operationId": "listDiscussionStats",
+        "responses": {
+          "200": {
+            "description": "Thread stats.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/StatsResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/discussions/{slug}": {
+      "get": {
+        "tags": ["threads"],
+        "summary": "Visible comments for a study",
+        "operationId": "listComments",
+        "parameters": [
+          { "$ref": "#/components/parameters/Slug" },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": { "type": "integer", "minimum": 1, "maximum": 100, "default": 50 }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": { "type": "integer", "minimum": 0, "default": 0 }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Comment list." },
+          "400": { "description": "Invalid slug." }
+        }
+      }
+    },
+    "/api/discussions/{slug}/comments": {
+      "post": {
+        "tags": ["threads"],
+        "summary": "Post a comment",
+        "operationId": "postComment",
+        "security": [{ "sessionCookie": [] }],
+        "parameters": [
+          { "$ref": "#/components/parameters/Slug" }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/PostCommentRequest" }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Comment created." },
+          "401": { "description": "Not signed in." }
+        }
+      }
+    },
+    "/api/discussions/{slug}/comments/{commentId}/hide": {
+      "post": {
+        "tags": ["threads"],
+        "summary": "Hide another user's comment (admin)",
+        "operationId": "hideComment",
+        "security": [{ "sessionCookie": [] }],
+        "parameters": [
+          { "$ref": "#/components/parameters/Slug" },
+          { "$ref": "#/components/parameters/CommentId" }
+        ],
+        "responses": {
+          "200": { "description": "Hidden." },
+          "403": { "description": "Admin access required." },
+          "404": { "description": "Comment not found." }
+        }
+      }
+    },
+    "/api/discussions/{slug}/comments/{commentId}/delete": {
+      "post": {
+        "tags": ["threads"],
+        "summary": "Hide your own comment",
+        "operationId": "deleteComment",
+        "security": [{ "sessionCookie": [] }],
+        "parameters": [
+          { "$ref": "#/components/parameters/Slug" },
+          { "$ref": "#/components/parameters/CommentId" }
+        ],
+        "responses": {
+          "200": { "description": "Hidden." },
+          "403": { "description": "Not the author." },
+          "404": { "description": "Comment not found." }
+        }
+      }
+    },
+    "/api/discuss-auth/magic-link": {
+      "post": {
+        "tags": ["auth"],
+        "summary": "Send a sign-in email",
+        "operationId": "requestMagicLink",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/MagicLinkRequest" }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Email sent (or verifyUrl in local dev)." }
+        }
+      }
+    },
+    "/api/discuss-auth/verify": {
+      "get": {
+        "tags": ["auth"],
+        "summary": "Consume a magic-link token and set the session cookie",
+        "operationId": "verifyMagicLink",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "return_to",
+            "in": "query",
+            "schema": { "type": "string", "format": "uri" }
+          }
+        ],
+        "responses": {
+          "302": { "description": "Redirect back to the discussion page." }
+        }
+      }
+    },
+    "/api/discuss-auth/me": {
+      "get": {
+        "tags": ["auth"],
+        "summary": "Current discussion session",
+        "operationId": "getDiscussAuthMe",
+        "responses": {
+          "200": {
+            "description": "Signed-in state.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/DiscussAuthMe" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/discuss-auth/logout": {
+      "post": {
+        "tags": ["auth"],
+        "summary": "Clear session",
+        "operationId": "discussLogout",
+        "responses": {
+          "200": { "description": "Session cookie cleared." }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "sessionCookie": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "amd_discuss_session"
+      }
+    },
+    "parameters": {
+      "Slug": {
+        "name": "slug",
+        "in": "path",
+        "required": true,
+        "schema": { "type": "string" }
+      },
+      "CommentId": {
+        "name": "commentId",
+        "in": "path",
+        "required": true,
+        "schema": { "type": "string", "format": "uuid" }
+      }
+    },
+    "schemas": {
+      "Health": {
+        "type": "object",
+        "required": ["status"],
+        "properties": {
+          "status": { "type": "string", "const": "ok" }
+        }
+      },
+      "StatsResponse": {
+        "type": "object",
+        "properties": {
+          "threads": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "slug": { "type": "string" },
+                "count": { "type": "integer" },
+                "latestAt": { "type": "integer" }
+              }
+            }
+          }
+        }
+      },
+      "PostCommentRequest": {
+        "type": "object",
+        "required": ["body"],
+        "properties": {
+          "body": { "type": "string", "maxLength": 8192 },
+          "title": { "type": "string" },
+          "parentId": { "type": "string", "format": "uuid" }
+        }
+      },
+      "MagicLinkRequest": {
+        "type": "object",
+        "required": ["email", "displayName", "turnstileToken"],
+        "properties": {
+          "email": { "type": "string", "format": "email" },
+          "displayName": { "type": "string", "maxLength": 80 },
+          "returnTo": { "type": "string", "format": "uri" },
+          "turnstileToken": { "type": "string" }
+        }
+      },
+      "DiscussAuthMe": {
+        "type": "object",
+        "required": ["loggedIn"],
+        "properties": {
+          "loggedIn": { "type": "boolean" },
+          "email": { "type": "string" },
+          "displayName": { "type": "string" },
+          "isAdmin": { "type": "boolean" }
+        }
+      }
+    }
+  }
+}

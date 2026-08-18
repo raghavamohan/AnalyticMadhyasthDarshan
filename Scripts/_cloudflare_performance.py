@@ -35,6 +35,7 @@ RESPONSE_HEADERS_PHASE = "http_response_headers_transform"
 NOTIFY_SKIP_REF = "amd_skip_sbfm_portal_notify"
 PROBE_BLOCK_REF = "amd_block_common_probes"
 SECURITY_HEADERS_REF = "amd_security_headers_static"
+API_CATALOG_HEADERS_REF = "amd_api_catalog_content_type"
 EDGE_API_RATE_LIMIT_REF = "amd_rl_edge_api"
 WAF_CUSTOM_MANAGED_REFS = (PROBE_BLOCK_REF, NOTIFY_SKIP_REF)
 EDGE_API_RATE_LIMIT_REFS = (EDGE_API_RATE_LIMIT_REF,)
@@ -62,6 +63,15 @@ PROBE_BLOCK_EXPRESSION = (
 )
 SECURITY_HEADERS_EXPRESSION = (
     f'(http.host eq "{SITE_HOST}" and not starts_with(http.request.uri.path, "/api/"))'
+)
+API_CATALOG_HEADERS_EXPRESSION = (
+    f'(http.host eq "{SITE_HOST}" and http.request.uri.path eq "/.well-known/api-catalog")'
+)
+API_CATALOG_CONTENT_TYPE = (
+    'application/linkset+json; profile="https://www.rfc-editor.org/rfc/rfc9727"'
+)
+API_CATALOG_LINK = (
+    '</.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"'
 )
 ROOT_REDIRECT_REF = "analyticmadhyasth_root_to_catalog"
 CACHE_RULE_REFS = (
@@ -781,65 +791,103 @@ def security_headers_rule_body() -> dict:
     }
 
 
-def _security_headers_rule_is_correct(rule: dict) -> bool:
-    if rule.get("action") != "rewrite":
+def api_catalog_headers_rule_body() -> dict:
+    return {
+        "ref": API_CATALOG_HEADERS_REF,
+        "expression": API_CATALOG_HEADERS_EXPRESSION,
+        "description": "RFC 9727 api-catalog Content-Type and Link header.",
+        "action": "rewrite",
+        "enabled": True,
+        "action_parameters": {
+            "headers": {
+                "Content-Type": _header_set(API_CATALOG_CONTENT_TYPE),
+                "Link": _header_set(API_CATALOG_LINK),
+            },
+        },
+    }
+
+
+def _header_rule_is_correct(rule: dict, expected: dict) -> bool:
+    if rule.get("action") != expected.get("action"):
         return False
-    if rule.get("expression") != SECURITY_HEADERS_EXPRESSION:
+    if rule.get("expression") != expected.get("expression"):
         return False
     headers = rule.get("action_parameters", {}).get("headers", {})
-    expected = security_headers_rule_body()["action_parameters"]["headers"]
-    for name, spec in expected.items():
+    expected_headers = expected.get("action_parameters", {}).get("headers", {})
+    for name, spec in expected_headers.items():
         actual = headers.get(name, {})
-        if actual.get("operation") != "set" or actual.get("value") != spec["value"]:
+        if actual.get("operation") != spec.get("operation") or actual.get("value") != spec.get(
+            "value"
+        ):
             return False
     return True
+
+
+def _security_headers_rule_is_correct(rule: dict) -> bool:
+    return _header_rule_is_correct(rule, security_headers_rule_body())
+
+
+def _api_catalog_headers_rule_is_correct(rule: dict) -> bool:
+    return _header_rule_is_correct(rule, api_catalog_headers_rule_body())
 
 
 def get_response_headers_entrypoint_ruleset(token: str, zone_id: str) -> dict | None:
     return get_phase_entrypoint_ruleset(token, zone_id, RESPONSE_HEADERS_PHASE)
 
 
-def apply_security_headers(token: str, zone_id: str | None) -> None:
-    zone = resolve_zone_id(token, zone_id)
-    print(f"Zone ID: {zone}")
-    rule_body = security_headers_rule_body()
-    ruleset = get_response_headers_entrypoint_ruleset(token, zone)
+def _upsert_response_header_rules(
+    token: str,
+    zone_id: str,
+    managed_rules: list[dict],
+) -> None:
+    """Create or update managed response-header transform rules, preserving others."""
+    managed_refs = {rule["ref"] for rule in managed_rules}
+    ruleset = get_response_headers_entrypoint_ruleset(token, zone_id)
 
     if ruleset is None:
         _api_request(
             "POST",
-            f"/zones/{zone}/rulesets",
+            f"/zones/{zone_id}/rulesets",
             token,
             {
                 "name": "AnalyticMadhyasthDarshan response security headers",
                 "kind": "zone",
                 "phase": RESPONSE_HEADERS_PHASE,
-                "rules": [rule_body],
+                "rules": managed_rules,
             },
         )
-        print(f"Created {RESPONSE_HEADERS_PHASE} ruleset with CSP report-only headers.")
+        print(
+            f"Created {RESPONSE_HEADERS_PHASE} ruleset with {len(managed_rules)} header rules."
+        )
         return
 
-    ruleset_id = ruleset["id"]
-    rules = ruleset.get("rules", [])
-    existing = next((rule for rule in rules if rule.get("ref") == SECURITY_HEADERS_REF), None)
-    if existing and _security_headers_rule_is_correct(existing):
-        print("Response security headers already configured.")
+    existing_by_ref = {
+        rule.get("ref"): rule for rule in ruleset.get("rules", []) if rule.get("ref")
+    }
+    foreign_rules = [
+        _sanitize_rule_for_put(rule)
+        for rule in ruleset.get("rules", [])
+        if rule.get("ref") not in managed_refs
+    ]
+    if all(
+        ref in existing_by_ref and _header_rule_is_correct(existing_by_ref[ref], expected)
+        for expected in managed_rules
+        for ref in (expected["ref"],)
+    ):
+        print("Response header transform rules already configured.")
         return
 
-    if existing:
-        updated_rules: list[dict] = []
-        for rule in rules:
-            if rule.get("ref") == SECURITY_HEADERS_REF:
-                updated_rules.append(rule_body)
-            else:
-                updated_rules.append(_sanitize_rule_for_put(rule))
-    else:
-        updated_rules = [_sanitize_rule_for_put(rule) for rule in rules] + [rule_body]
+    updated_managed: list[dict] = []
+    for expected in managed_rules:
+        existing = existing_by_ref.get(expected["ref"])
+        if existing and _header_rule_is_correct(existing, expected):
+            updated_managed.append(_sanitize_rule_for_put(existing))
+        else:
+            updated_managed.append(expected)
 
     _api_request(
         "PUT",
-        f"/zones/{zone}/rulesets/{ruleset_id}",
+        f"/zones/{zone_id}/rulesets/{ruleset['id']}",
         token,
         {
             "name": ruleset.get(
@@ -847,10 +895,22 @@ def apply_security_headers(token: str, zone_id: str | None) -> None:
             ),
             "kind": "zone",
             "phase": RESPONSE_HEADERS_PHASE,
-            "rules": updated_rules,
+            "rules": updated_managed + foreign_rules,
         },
     )
-    print("Updated response security headers (CSP report-only).")
+    print(
+        f"Updated response header rules ({len(updated_managed)} managed + {len(foreign_rules)} other)."
+    )
+
+
+def apply_security_headers(token: str, zone_id: str | None) -> None:
+    zone = resolve_zone_id(token, zone_id)
+    print(f"Zone ID: {zone}")
+    _upsert_response_header_rules(
+        token,
+        zone,
+        [security_headers_rule_body(), api_catalog_headers_rule_body()],
+    )
 
 
 def check_security_headers(token: str, zone_id: str | None) -> tuple[bool, list[str]]:
@@ -858,17 +918,25 @@ def check_security_headers(token: str, zone_id: str | None) -> tuple[bool, list[
     ruleset = get_response_headers_entrypoint_ruleset(token, zone)
     if ruleset is None:
         return False, [f"No {RESPONSE_HEADERS_PHASE} ruleset found."]
-    rule = next(
-        (item for item in ruleset.get("rules", []) if item.get("ref") == SECURITY_HEADERS_REF),
-        None,
-    )
-    if rule is None:
-        return False, [f"Missing response header rule ref {SECURITY_HEADERS_REF!r}."]
-    if not rule.get("enabled", True):
-        return False, [f"Response header rule {SECURITY_HEADERS_REF!r} is disabled."]
-    if not _security_headers_rule_is_correct(rule):
-        return False, [f"Response header rule {SECURITY_HEADERS_REF!r} does not match spec."]
-    return True, []
+    existing_by_ref = {
+        rule.get("ref"): rule for rule in ruleset.get("rules", []) if rule.get("ref")
+    }
+    issues: list[str] = []
+    for expected, correct in (
+        (security_headers_rule_body(), _security_headers_rule_is_correct),
+        (api_catalog_headers_rule_body(), _api_catalog_headers_rule_is_correct),
+    ):
+        ref = expected["ref"]
+        rule = existing_by_ref.get(ref)
+        if rule is None:
+            issues.append(f"Missing response header rule ref {ref!r}.")
+            continue
+        if not rule.get("enabled", True):
+            issues.append(f"Response header rule {ref!r} is disabled.")
+            continue
+        if not correct(rule):
+            issues.append(f"Response header rule {ref!r} does not match spec.")
+    return not issues, issues
 
 
 def print_check_security_headers(token: str, zone_id: str | None) -> bool:
@@ -879,7 +947,7 @@ def print_check_security_headers(token: str, zone_id: str | None) -> bool:
         print(f"  ERROR: {exc}")
         return False
     if ok:
-        print("  OK: static-site security headers with CSP report-only.")
+        print("  OK: static-site security headers, CSP report-only, RFC 9727 catalog Content-Type.")
         return True
     for issue in issues:
         print(f"  {issue}")
@@ -1498,7 +1566,7 @@ def main() -> int:
     parser.add_argument(
         "--apply-security-headers",
         action="store_true",
-        help="Add response security headers (CSP report-only) for static site pages.",
+        help="Add response security headers (CSP report-only) and RFC 9727 api-catalog Content-Type.",
     )
     parser.add_argument(
         "--apply-waf-probe-block",

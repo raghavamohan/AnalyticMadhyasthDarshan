@@ -1,0 +1,9 @@
+name = "amd-api-catalog"
+main = "src/index.js"
+compatibility_date = "2024-03-01"
+
+# GitHub Pages cannot set Content-Type application/linkset+json on the
+# extensionless RFC 9727 well-known URI. This worker serves that path.
+routes = [
+  { pattern = "analyticmadhyasthdarshan.org/.well-known/api-catalog", zone_name = "analyticmadhyasthdarshan.org" },
+]

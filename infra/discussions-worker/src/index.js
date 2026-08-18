@@ -128,6 +128,8 @@ function mapCommentRow(row, session, env) {
 
 router.options('*', (request, env) => new Response(null, { headers: corsHeaders(request, env) }));
 
+router.get('/api/discussions/health', (request, env) => jsonResponse(request, env, { status: 'ok' }));
+
 router.get('/api/discussions/stats', async (request, env) => {
   try {
     const db = requireDb(env);
