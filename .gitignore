@@ -35,6 +35,8 @@ infra/mcp-worker/.wrangler/
 infra/mcp-worker/src/index.js
 infra/web-bot-auth-worker/.wrangler/
 infra/web-bot-auth-worker/src/index.js
+infra/auth-md-worker/.wrangler/
+infra/auth-md-worker/src/index.js
 
 # Cygwin/Git-Bash crash dumps
 *.stackdump
