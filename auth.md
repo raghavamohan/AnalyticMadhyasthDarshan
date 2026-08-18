@@ -40,6 +40,12 @@ Browser agents can call catalog tools through
 https://analyticmadhyasthdarshan.org/webmcp.js
 and registers tools with `navigator.modelContext.registerTool` on load.
 
+DNS for AI Discovery ([DNS-AID](https://datatracker.ietf.org/doc/html/draft-mozleywilliams-dnsop-dnsaid))
+publishes ServiceMode HTTPS records under the `_agents` namespace. The zone is
+DNSSEC-signed; Cloudflare Registrar publishes the parent DS from CDS/CDNSKEY.
+Query `_index._agents.analyticmadhyasthdarshan.org` for the site index
+and `_a2a._agents.analyticmadhyasthdarshan.org` for the Agent Card endpoint.
+
 ## Audience
 
 **Readers and agents fetching studies do not register.** The studies catalog

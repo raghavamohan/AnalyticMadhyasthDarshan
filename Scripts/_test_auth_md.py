@@ -57,6 +57,8 @@ def check_auth_md() -> str:
         "https://analyticmadhyasthdarshan.org/.well-known/mcp/server-card.json",
         "https://analyticmadhyasthdarshan.org/.well-known/http-message-signatures-directory",
         "https://analyticmadhyasthdarshan.org/webmcp.js",
+        "_index._agents.analyticmadhyasthdarshan.org",
+        "_a2a._agents.analyticmadhyasthdarshan.org",
     ):
         if needle not in text:
             fail(f"auth.md should document {needle!r}")
