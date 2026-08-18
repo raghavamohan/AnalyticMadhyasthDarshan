@@ -21,21 +21,33 @@ A2A JSON-RPC Worker and does not accept `message/send` tasks.
 Repo agent skills are listed at
 https://analyticmadhyasthdarshan.org/.well-known/agent-skills/index.json
 ([Agent Skills Discovery](https://github.com/cloudflare/agent-skills-discovery-rfc)).
+That index is **reader skills only**. Maintainer skills that need a git clone
+are at
+https://analyticmadhyasthdarshan.org/.well-known/agent-skills/index-maintainer.json
 
 The MCP Server Card is at
 https://analyticmadhyasthdarshan.org/.well-known/mcp/server-card.json
 ([SEP-1649](https://github.com/modelcontextprotocol/modelcontextprotocol/issues/1649)).
 It advertises Streamable HTTP at `/mcp`. `POST /mcp` exposes read-only catalog
-tools (`search_studies`, `list_studies`, `get_study`) and resources
-(`studies://catalog-all`, `studies://glossary`, `studies://feed`). There are
+tools (`search_studies`, `list_studies`, `get_study`, `get_study_outline`,
+`get_glossary`, `get_start_here`, `get_cite`) and resources
+(`studies://catalog-all`, `studies://glossary`, `studies://feed`,
+`studies://start-here`, `studies://study/{slug}`). There are
 no write tools.
 
 The shared glossary is at
 https://analyticmadhyasthdarshan.org/Studies/glossary.json
+(`GET https://analyticmadhyasthdarshan.org/api/glossary?q=` searches it).
 The unified catalog is at
 https://analyticmadhyasthdarshan.org/Studies/catalog-all.json
 Catalog search is `GET https://analyticmadhyasthdarshan.org/api/studies`
 (query parameters `q`, `collection`, `status`, `slug`).
+One published study plus its heading outline is
+`GET https://analyticmadhyasthdarshan.org/api/studies/{slug}`.
+The recommended reading path is
+`GET https://analyticmadhyasthdarshan.org/api/start-here`.
+A suggested citation line is
+`GET https://analyticmadhyasthdarshan.org/api/cite/{slug}`.
 
 The Web Bot Auth directory is at
 https://analyticmadhyasthdarshan.org/.well-known/http-message-signatures-directory

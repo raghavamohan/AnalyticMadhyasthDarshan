@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Analytic Madhyasth Darshan public study catalog",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "Read-only catalog of topical, formal, and applied studies. Markdown is the source of truth; HTML and PDF are generated. Write APIs (submissions, discussions) are separate and for humans; see /auth.md."
   },
   "servers": [
@@ -13,7 +13,8 @@
   "tags": [
     { "name": "catalog" },
     { "name": "search" },
-    { "name": "discovery" }
+    { "name": "discovery" },
+    { "name": "cite" }
   ],
   "paths": {
     "/Studies/catalog-all.json": {
@@ -176,6 +177,109 @@
           }
         }
       }
+    },
+    "/api/studies/{slug}": {
+      "get": {
+        "tags": ["search"],
+        "summary": "One study with heading outline",
+        "operationId": "getStudyBySlug",
+        "description": "Catalog row plus ## and ### headings from the canonical markdown. Markdown itself is not inlined; use mdUrl or MCP resource studies://study/{slug}.",
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "Catalog directory name, for example The-Ontology-of-Coexistence."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Study metadata and heading outline.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/StudyDetail" }
+              }
+            }
+          },
+          "404": {
+            "description": "Unknown slug."
+          }
+        }
+      }
+    },
+    "/api/glossary": {
+      "get": {
+        "tags": ["catalog"],
+        "summary": "Search glossary terms",
+        "operationId": "searchGlossary",
+        "description": "Substring match on id, display form, match aliases, and definition. Omit q to return every term.",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "schema": { "type": "string" },
+            "description": "Search text. Alias: query."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Matching glossary terms.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/GlossarySearchResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/start-here": {
+      "get": {
+        "tags": ["catalog"],
+        "summary": "Recommended reading path",
+        "operationId": "getStartHere",
+        "description": "Ordered Start here stages with core and related slugs, one-line reasons, and catalog URLs. Aligns with the studies landing page.",
+        "responses": {
+          "200": {
+            "description": "Reading path.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/StartHere" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/cite/{slug}": {
+      "get": {
+        "tags": ["cite"],
+        "summary": "Suggested citation for one study",
+        "operationId": "getStudyCitation",
+        "description": "Title, slug, status, Edited-on, markdown URL, and a suggested citation line. Do not invent timestamps.",
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Citation payload.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/CiteResponse" }
+              }
+            }
+          },
+          "404": {
+            "description": "Unknown slug."
+          }
+        }
+      }
     }
   },
   "components": {
@@ -257,6 +361,73 @@
             }
           }
         }
+      },
+      "Heading": {
+        "type": "object",
+        "properties": {
+          "level": { "type": "integer", "enum": [2, 3] },
+          "heading": { "type": "string" }
+        }
+      },
+      "StudyDetail": {
+        "allOf": [
+          { "$ref": "#/components/schemas/SearchStudy" },
+          {
+            "type": "object",
+            "properties": {
+              "outline": {
+                "type": "array",
+                "items": { "$ref": "#/components/schemas/Heading" }
+              }
+            }
+          }
+        ]
+      },
+      "GlossarySearchResponse": {
+        "type": "object",
+        "required": ["count", "terms"],
+        "properties": {
+          "query": { "type": "string" },
+          "count": { "type": "integer" },
+          "terms": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": { "type": "string" },
+                "match": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                },
+                "display": { "type": "string" },
+                "definition": { "type": "string" }
+              }
+            }
+          }
+        }
+      },
+      "StartHere": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "intro": { "type": "string" },
+          "stages": { "type": "array", "items": { "type": "object" } },
+          "parallelTrack": { "type": "object" }
+        }
+      },
+      "CiteResponse": {
+        "allOf": [
+          { "$ref": "#/components/schemas/SearchStudy" },
+          {
+            "type": "object",
+            "properties": {
+              "author": { "type": "string" },
+              "editedOn": { "type": ["string", "null"] },
+              "url": { "type": "string" },
+              "citation": { "type": "string" }
+            }
+          }
+        ]
       }
     }
   }

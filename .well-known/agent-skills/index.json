@@ -2,25 +2,11 @@
   "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
   "skills": [
     {
-      "name": "add-study",
-      "type": "skill-md",
-      "description": "Register a new study in Studies/ using Scripts/_add_study.py or _add_study.ps1 — sets metadata, updates catalogs, and generates PDF. Use when adding a study, registering a paper, creating an Ongoing placeholder, importing a PDF, or adding a Formal study.",
-      "url": "/.well-known/agent-skills/add-study/SKILL.md",
-      "digest": "sha256:3ed736e4df18324cc8101469221f6ed5b301fbebcd6ce7d5a983042e1bd581d5"
-    },
-    {
-      "name": "check-references",
-      "type": "skill-md",
-      "description": "Run full reference integrity checks on Studies/ bibliographies, local ../References/ links, References/ mirror files, and study PDF links using Scripts/_check_references.py. Use when adding or editing study references, after downloading references, before committing bibliography changes, or when a user asks to verify reference links work.",
-      "url": "/.well-known/agent-skills/check-references/SKILL.md",
-      "digest": "sha256:2ebc1c194f4211077487782bf50bd6123d6f05129035d445f6052510eadd8aa0"
-    },
-    {
       "name": "cite-study",
       "type": "skill-md",
       "description": "Cite Analytic Madhyasth Darshan studies from the canonical markdown, using catalog slugs, Edited-on timestamps, and glossary terms. Use when quoting, referencing, or attributing a paper from this collection.",
       "url": "/.well-known/agent-skills/cite-study/SKILL.md",
-      "digest": "sha256:15127aac78246f38cd5ab5cf79023cbf04137ce5ebb01651a4dd088dfdd545a1"
+      "digest": "sha256:7c3ff1620368d2ce06c307e6953087ce796968fcdd1b7c2af57dc88eb8792419"
     },
     {
       "name": "compare-traditions",
@@ -30,81 +16,11 @@
       "digest": "sha256:882e6fbf1885fe339ee9a7c135578dcb8dfce3e5bce6f1c415613719d4402cc2"
     },
     {
-      "name": "download-references",
-      "type": "skill-md",
-      "description": "Audit Studies/ bibliographies and download redistributable references into References/ using Scripts/_audit_references.py and _download_references.py. Use when reviewing study citations, mirroring open-access papers, refreshing local reference files, or updating NOT-DOWNLOADED.md and study reference links.",
-      "url": "/.well-known/agent-skills/download-references/SKILL.md",
-      "digest": "sha256:90872c26648273782260ecf10e28f01478897403408e8bda09683ccdc352b049"
-    },
-    {
-      "name": "manage-studies",
-      "type": "skill-md",
-      "description": "Add, remove, or change Draft/Released status of studies in this repo using Scripts/_add_study.py, _remove_study.py, and _set_study_status.py. Use when registering a new study, retiring a study, releasing or reverting draft status, updating study catalogs, or when the user asks to manage studies in Studies/.",
-      "url": "/.well-known/agent-skills/manage-studies/SKILL.md",
-      "digest": "sha256:4c7c6f3bebc42472817a2cc3b9756b4df5736cf99d6bea2252b7104d1d549faf"
-    },
-    {
-      "name": "refine-studies-index",
-      "type": "skill-md",
-      "description": "Review and refine the Studies landing page, including the guided Start here path, hero and methodology copy, navigation, status language, catalog descriptions, contribution flow, and About section. Use when auditing or updating Studies/index.html through Scripts/_build_studies_index.py while keeping Studies/README.md, catalog JSON, proposal metadata, and generated artifacts synchronized.",
-      "url": "/.well-known/agent-skills/refine-studies-index/SKILL.md",
-      "digest": "sha256:f63cb66d2c7c3650602229363a7a14ed52b0ced3be7c0023447df43934dfba55"
-    },
-    {
-      "name": "regenerate-study-pdf",
-      "type": "skill-md",
-      "description": "Regenerate a study PDF from markdown using Scripts/_regenerate_pdf.py — internal pipeline only. Use when updating a study PDF, fixing diagram rendering, applying Draft/Released watermark, or after editing Studies/*/*.md content. Verifies Mermaid diagrams rendered; requires npm install in Scripts/.",
-      "url": "/.well-known/agent-skills/regenerate-study-pdf/SKILL.md",
-      "digest": "sha256:91a7f592f03edc672beecafcafa39ef57ea8fa469c96be271fd553868ab907e0"
-    },
-    {
-      "name": "remove-study",
-      "type": "skill-md",
-      "description": "Remove a study from Studies/ using Scripts/_remove_study.py or _remove_study.ps1 — deletes files and updates catalogs and References. Use when retiring a study, deleting a paper, removing an Ongoing placeholder, or cleaning up a study slug.",
-      "url": "/.well-known/agent-skills/remove-study/SKILL.md",
-      "digest": "sha256:7cb94cad306c579a33504eb2c6ed6ee88c83547089605e489495c9892aaea3f4"
-    },
-    {
-      "name": "rename-study",
-      "type": "skill-md",
-      "description": "Rename a study slug and/or display title using Scripts/_rename_study.py — moves the study directory, syncs catalogs, proposal-registry, GitHub proposal issue, References paths, Start here links, and regenerated PDF/HTML. Use when renaming a study, changing a catalog slug, fixing a too-long slug, or updating My Submissions after a rename.",
-      "url": "/.well-known/agent-skills/rename-study/SKILL.md",
-      "digest": "sha256:8c4e311a0ff0b9aa01a27bdceccbaed48ca11300a0f08e32b586b3fbeddcae5d"
-    },
-    {
-      "name": "set-study-status",
-      "type": "skill-md",
-      "description": "Change a study between Draft and Released using Scripts/_set_study_status.py or _set_study_status.ps1 — syncs markdown Status, Edited on, catalogs, and PDF watermark. Use when releasing a study, reverting to draft, finalizing a paper, or updating draft/released status.",
-      "url": "/.well-known/agent-skills/set-study-status/SKILL.md",
-      "digest": "sha256:8a3dbe025776e3e7f93eab66f48ba63cf125ffe814b3cc383e138b150c4ec118"
-    },
-    {
       "name": "start-here",
       "type": "skill-md",
       "description": "Orient a reader or agent to Analytic Madhyasth Darshan: public catalogs, the recommended reading path, standpoint and scope, and where write APIs stay human-only. Use when an agent first lands on the site or asks how to begin reading the studies.",
       "url": "/.well-known/agent-skills/start-here/SKILL.md",
-      "digest": "sha256:23e8e27a0bc5c7a1b0bd1d6b4b83e1c6fe807630dcc9d7e8461b3dc341012fa1"
-    },
-    {
-      "name": "transcribe-recording",
-      "type": "skill-md",
-      "description": "Fetch and transcribe recorded talks (YouTube or local audio) into working Hindi transcripts with English translation, using Scripts/_transcribe_fetch.py and Scripts/_transcribe_batch.py. Use when adding a recorded session of Shri A. Nagraj to References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/, when a user asks to transcribe a talk or a channel, or when promoting raw ASR to a citable References artefact.",
-      "url": "/.well-known/agent-skills/transcribe-recording/SKILL.md",
-      "digest": "sha256:cf25d450e10e76989c2d75fb749f9ff349cef81e1fd84185441735cb7c3d0450"
-    },
-    {
-      "name": "update-presenters-companion",
-      "type": "skill-md",
-      "description": "Update a study Presenter's Companion (slide-by-slide delivery notes) under Studies/ or Applications/: keep the companion markdown as source of truth, rebuild DOCX/PDF, and sync PowerPoint speaker notes from a JSON map. Use when the teaching deck gains/loses slides, companion notes drift from the deck, or regenerating Presenters-Companion-*.docx/.pdf/.notes.json.",
-      "url": "/.well-known/agent-skills/update-presenters-companion/SKILL.md",
-      "digest": "sha256:8ac9820faf01c448ab47f5a16d55a5b81faf77493078ba1449a683d9e8e3bdc8"
-    },
-    {
-      "name": "update-study-presentation",
-      "type": "skill-md",
-      "description": "Update an existing study companion PowerPoint deck under Studies/ or Applications/, preserve its established design, regenerate its slides PDF and read-aloud notes PDF, and verify every format. Use for PPTX content edits, figure replacements, slide additions or removals, slide reordering, presentation reviews that require fixes, and PPTX-to-PDF refreshes. The PPTX is the source of truth; this repository does not use a slides-YAML generation workflow.",
-      "url": "/.well-known/agent-skills/update-study-presentation/SKILL.md",
-      "digest": "sha256:585e952546b520018ff1b123a95d9b1c72205c81ccd55cbaf949c5bafb94c775"
+      "digest": "sha256:791e0fb320261b42aa27fdcf36860ea5ea3f8a7ea86d8009207dcc8665866c3a"
     }
   ]
 }

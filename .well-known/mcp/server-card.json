@@ -1,9 +1,9 @@
 {
   "serverInfo": {
     "name": "Analytic Madhyasth Darshan",
-    "version": "1.1.0"
+    "version": "1.2.0"
   },
-  "description": "Public catalog of analytic studies of Madhyasth Darshan (Co-existentialism). Streamable HTTP at /mcp exposes read-only catalog tools (search_studies, list_studies, get_study) and resources. Write APIs are for humans; see /auth.md.",
+  "description": "Public catalog of analytic studies of Madhyasth Darshan (Co-existentialism). Streamable HTTP at /mcp exposes read-only catalog tools (search_studies, list_studies, get_study, get_study_outline, get_glossary, get_start_here, get_cite) and resources. Markdown bodies are studies://study/{slug}. Write APIs are for humans; see /auth.md.",
   "url": "https://analyticmadhyasthdarshan.org/mcp",
   "transport": {
     "type": "streamable-http",

@@ -8,7 +8,7 @@ Madhyasth Darshan's account of existence as the coexistence of satta and units �
 
 - Collection: topical · Status: released
 - Edited on: Jul 29, 2026, 5:43 AM IST
-- HTML: https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html
+- HTML: https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.md
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf
 
@@ -18,7 +18,7 @@ What time (kaal) is: the duration of unit-activity against timeless satta, numer
 
 - Collection: topical · Status: released
 - Edited on: Jun 28, 2026, 7:49 PM IST
-- HTML: https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.html
+- HTML: https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.md
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.pdf
 
@@ -28,7 +28,7 @@ Whether a human being is reducible to an insentient physicochemical body: Madhya
 
 - Collection: topical · Status: released
 - Edited on: Jul 17, 2026, 2:41 PM IST
-- HTML: https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html
+- HTML: https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.md
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.pdf
 
@@ -38,7 +38,7 @@ What knowledge is, who the knower is, and what can be known: coexistence, jeevan
 
 - Collection: topical · Status: released
 - Edited on: Jul 30, 2026, 12:26 PM IST
-- HTML: https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html
+- HTML: https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.md
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf
 
@@ -48,7 +48,7 @@ Madhyasth Darshan's theory of value: what values are, how they are recognised an
 
 - Collection: topical · Status: released
 - Edited on: Jul 29, 2026, 10:09 AM IST
-- HTML: https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html
+- HTML: https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.md
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.pdf
 
@@ -58,7 +58,7 @@ Whether ethics is divine command, convention, evolution, reason, or evidence of 
 
 - Collection: topical · Status: draft
 - Edited on: Jul 29, 2026, 5:40 AM IST
-- HTML: https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.html
+- HTML: https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.md
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf
 
@@ -68,7 +68,7 @@ The family as the first site of values: recognising relationships and living tru
 
 - Collection: topical · Status: draft
 - Edited on: Jul 29, 2026, 6:35 AM IST
-- HTML: https://analyticmadhyasthdarshan.org/Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.html
+- HTML: https://analyticmadhyasthdarshan.org/Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.md
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.pdf
 
@@ -78,7 +78,7 @@ What beauty and art are: Madhyasth Darshan's functional aesthetics of usefulness
 
 - Collection: topical · Status: draft
 - Edited on: Jun 26, 2026, 10:28 AM IST
-- HTML: https://analyticmadhyasthdarshan.org/Studies/Aesthetics/Aesthetics.html
+- HTML: https://analyticmadhyasthdarshan.org/Studies/Aesthetics/Aesthetics.md
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/Aesthetics/Aesthetics.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/Aesthetics/Aesthetics.pdf
 
@@ -88,7 +88,7 @@ Humane conduct and social organisation in Madhyasth Darshan, compared with the n
 
 - Collection: topical · Status: draft
 - Edited on: Jul 29, 2026, 5:40 AM IST
-- HTML: https://analyticmadhyasthdarshan.org/Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.html
+- HTML: https://analyticmadhyasthdarshan.org/Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.md
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.pdf
 
@@ -98,7 +98,7 @@ Examines Madhyasth Darshan's claim that organisations grounded in fear or accumu
 
 - Collection: topical · Status: released
 - Edited on: Jul 29, 2026, 5:40 AM IST
-- HTML: https://analyticmadhyasthdarshan.org/Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.html
+- HTML: https://analyticmadhyasthdarshan.org/Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.md
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.pdf
 
@@ -108,7 +108,7 @@ Realization and awakening in Madhyasth Darshan: anubhav, samyama, upasana, and l
 
 - Collection: topical · Status: draft
 - Edited on: Aug 1, 2026, 8:56 PM IST
-- HTML: https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.html
+- HTML: https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.md
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.pdf
 
@@ -118,7 +118,7 @@ Madhyasth Darshan's account of how undivided society is established through coex
 
 - Collection: topical · Status: released
 - Edited on: Jul 17, 2026, 2:43 PM IST
-- HTML: https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html
+- HTML: https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.md
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf
 
@@ -128,7 +128,7 @@ A layered reconstruction of Madhyasth Darshan's ontological core, activity-durat
 
 - Collection: formal · Status: draft
 - Edited on: Jul 29, 2026, 5:40 AM IST
-- HTML: https://analyticmadhyasthdarshan.org/Studies/Coexistence-From-First-Principles/Coexistence-From-First-Principles.html
+- HTML: https://analyticmadhyasthdarshan.org/Studies/Coexistence-From-First-Principles/Coexistence-From-First-Principles.md
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/Coexistence-From-First-Principles/Coexistence-From-First-Principles.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/Coexistence-From-First-Principles/Coexistence-From-First-Principles.pdf
 

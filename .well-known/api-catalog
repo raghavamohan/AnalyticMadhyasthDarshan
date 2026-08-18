@@ -72,6 +72,14 @@
           "type": "application/json"
         },
         {
+          "href": "https://analyticmadhyasthdarshan.org/api/glossary",
+          "type": "application/json"
+        },
+        {
+          "href": "https://analyticmadhyasthdarshan.org/api/start-here",
+          "type": "application/json"
+        },
+        {
           "href": "https://analyticmadhyasthdarshan.org/mcp",
           "type": "application/json"
         }
