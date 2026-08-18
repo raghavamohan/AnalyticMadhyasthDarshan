@@ -85,6 +85,12 @@ def check_card(card: dict) -> None:
         tags = skill.get("tags")
         if not isinstance(tags, list) or not tags:
             fail(f"skill {skill.get('id')!r} tags must be a non-empty array")
+    mcp_listed = any(
+        str(interface.get("url") or "").rstrip("/").endswith("/mcp")
+        for interface in card.get("supportedInterfaces") or []
+    )
+    if not mcp_listed:
+        fail("supportedInterfaces must include POST /mcp Streamable HTTP")
     print("OK: A2A Agent Card has name, version, interfaces, capabilities, and skills.")
 
 

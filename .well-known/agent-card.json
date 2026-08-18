@@ -1,7 +1,7 @@
 {
   "name": "Analytic Madhyasth Darshan",
   "description": "Public catalog of analytic studies of Madhyasth Darshan (Co-existentialism). Agents can list and read papers as JSON, HTML, Markdown, and PDF. Write APIs are for humans; see /auth.md.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "documentationUrl": "https://analyticmadhyasthdarshan.org/api-docs.html",
   "iconUrl": "https://analyticmadhyasthdarshan.org/Assets/Icons/akhand-samaj-favicon.svg",
   "provider": {
@@ -38,6 +38,11 @@
       "url": "https://analyticmadhyasthdarshan.org/api/studies",
       "protocolBinding": "HTTP+JSON",
       "protocolVersion": "1.0"
+    },
+    {
+      "url": "https://analyticmadhyasthdarshan.org/mcp",
+      "protocolBinding": "HTTP+JSON",
+      "protocolVersion": "2025-06-18"
     }
   ],
   "capabilities": {
@@ -135,6 +140,26 @@
       ],
       "outputModes": [
         "application/linkset+json",
+        "application/json"
+      ]
+    },
+    {
+      "id": "mcp-catalog",
+      "name": "MCP catalog tools",
+      "description": "Call read-only MCP Streamable HTTP at POST /mcp: search_studies, list_studies, get_study, get_study_outline, get_glossary, get_start_here, get_cite. Paper bodies are the studies://study/{slug} resource, not tool JSON.",
+      "tags": [
+        "mcp",
+        "catalog",
+        "studies"
+      ],
+      "examples": [
+        "Search studies about jeevan over MCP.",
+        "POST https://analyticmadhyasthdarshan.org/mcp"
+      ],
+      "inputModes": [
+        "application/json"
+      ],
+      "outputModes": [
         "application/json"
       ]
     }

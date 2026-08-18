@@ -1,0 +1,96 @@
+{
+  "title": "Start here: the study path I am following",
+  "intro": "This collection records the path I am taking: beginning with the question of what a human is, then moving through existence, knowledge, value, and lived participation. You are welcome to follow the same sequence, question it, and contribute wherever the work is incomplete.",
+  "stages": [
+    {
+      "number": 1,
+      "domain": "Human",
+      "question": "Is a human only a body?",
+      "reason": "Test whether a human is exhausted by the body by comparing scientific accounts and their physicalist interpretation with Advaita Vedanta and Madhyasth Darshan.",
+      "core": {
+        "slug": "Why-Humans-Are-Not-Just-Material",
+        "role": "Core study"
+      },
+      "related": [
+        { "slug": "Philosophy-Of-Mind-And-Jeevan" },
+        { "slug": "Chitta-Brain-And-Memory" },
+        { "slug": "Death-Continuity-And-Rebirth" }
+      ]
+    },
+    {
+      "number": 2,
+      "domain": "Existence",
+      "question": "What exists—and what are we?",
+      "reason": "Examine coexistence, units, and nature's orders, including Madhyasth Darshan's claim that the human belongs to the knowledge order.",
+      "core": {
+        "slug": "The-Ontology-of-Coexistence",
+        "role": "Core study"
+      },
+      "related": [
+        { "slug": "Nature-Of-Time" },
+        { "slug": "Nature-Ecology-And-Right-Use" },
+        { "slug": "God-Divinity-And-The-Sacred" }
+      ]
+    },
+    {
+      "number": 3,
+      "domain": "Knowledge",
+      "question": "What must the knower know?",
+      "reason": "Ask what knowledge is, what must be known, and how understanding of coexistence and humane conduct guides action toward lasting fulfilment.",
+      "core": {
+        "slug": "The-Epistemology-of-Coexistence",
+        "role": "Core study"
+      },
+      "related": [
+        { "slug": "Methodology-And-Hermeneutics" },
+        { "slug": "Work-Action-And-Karma" },
+        { "slug": "Free-Will-Choice-And-Agency" },
+        { "slug": "Language-Meaning-And-Definition" }
+      ]
+    },
+    {
+      "number": 4,
+      "domain": "Value",
+      "question": "What makes value and relationship definite?",
+      "reason": "Study whether values and relationships have a definite structure, and how understanding is tested and deepened through conduct.",
+      "core": {
+        "slug": "Axiology-Value-Theory",
+        "role": "Core study"
+      },
+      "related": [
+        { "slug": "Ethics-And-Morals-In-Human-Beings" },
+        { "slug": "Family-Relationships-And-Values" },
+        { "slug": "Aesthetics" }
+      ]
+    },
+    {
+      "number": 5,
+      "domain": "Living",
+      "question": "How is coexistence lived?",
+      "reason": "Begin with family and extend participation through education, society, governance, economy, ecology, and spiritual practice. This widening participation is where understanding is tested in living.",
+      "core": {
+        "slug": "How-Undivided-Society-Is-Established",
+        "role": "Current anchor"
+      },
+      "related": [
+        { "slug": "Family-Relationships-And-Values" },
+        { "slug": "Education-And-Sanskar" },
+        { "slug": "Human-Behavior-And-Society" },
+        { "slug": "Governance-Justice-And-Undivided-Society" },
+        { "slug": "Prosperity-Economics-And-Right-Use" },
+        { "slug": "Nature-Ecology-And-Right-Use" },
+        { "slug": "Spiritual-Practice-And-Realization" },
+        { "slug": "How-To-Form-Self-Sustaining-Organizations" }
+      ]
+    }
+  ],
+  "parallelTrack": {
+    "label": "Parallel track · formal and contemporary synthesis",
+    "question": "Can the pieces form a coherent framework?",
+    "reason": "Alongside every stage, I relate the framework to science, technology, and current developments, formalise its claims, and test whether it can grow into a coherent explanatory system.",
+    "studies": [
+      { "slug": "Coexistence-From-First-Principles" },
+      { "slug": "Science-Technology-And-Human-Purpose" }
+    ]
+  }
+}

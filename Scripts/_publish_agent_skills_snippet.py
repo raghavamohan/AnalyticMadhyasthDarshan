@@ -18,7 +18,7 @@ from urllib.request import Request, urlopen
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import _cloudflare_performance as cf
 
-from _build_agent_skills_index import INDEX_PATH, PUBLISH_ROOT
+from _build_agent_skills_index import INDEX_PATH, MAINTAINER_INDEX_PATH, PUBLISH_ROOT
 
 WORKER_NAME = "amd-agent-skills"
 WORKER_ROUTE = f"{cf.SITE_HOST}/.well-known/agent-skills/*"
@@ -26,15 +26,20 @@ WORKER_SRC = cf.BASE / "infra" / "agent-skills-worker" / "src" / "index.js"
 COMPATIBILITY_DATE = "2024-03-01"
 
 
-def worker_js(index: dict, skills: dict[str, str]) -> str:
+def worker_js(index: dict, maintainer_index: dict, skills: dict[str, str]) -> str:
     body = json.dumps(index, separators=(",", ":"), ensure_ascii=False)
+    maintainer_body = json.dumps(
+        maintainer_index, separators=(",", ":"), ensure_ascii=False
+    )
     etag = hashlib.sha256(body.encode("utf-8")).hexdigest()[:16]
+    maintainer_etag = hashlib.sha256(maintainer_body.encode("utf-8")).hexdigest()[:16]
     skill_entries = ",\n".join(
         f"  {json.dumps(name)}: {json.dumps(text)}"
         for name, text in sorted(skills.items())
     )
     return f"""\
 const INDEX = {json.dumps(body)};
+const MAINTAINER_INDEX = {json.dumps(maintainer_body)};
 const SKILLS = {{
 {skill_entries}
 }};
@@ -42,6 +47,13 @@ const INDEX_HEADERS = {{
   "content-type": {json.dumps(cf.AGENT_SKILLS_INDEX_CONTENT_TYPE)},
   "cache-control": "public, max-age=3600",
   "etag": {json.dumps(f'"{etag}"')},
+  "access-control-allow-origin": "*",
+  "access-control-allow-methods": "GET, HEAD, OPTIONS"
+}};
+const MAINTAINER_INDEX_HEADERS = {{
+  "content-type": {json.dumps(cf.AGENT_SKILLS_INDEX_CONTENT_TYPE)},
+  "cache-control": "public, max-age=3600",
+  "etag": {json.dumps(f'"{maintainer_etag}"')},
   "access-control-allow-origin": "*",
   "access-control-allow-methods": "GET, HEAD, OPTIONS"
 }};
@@ -67,6 +79,9 @@ export default {{
     const path = new URL(request.url).pathname.replace(/\\/+$/, "") || "/";
     if (path === "/.well-known/agent-skills/index.json") {{
       return respond(request, INDEX, INDEX_HEADERS);
+    }}
+    if (path === "/.well-known/agent-skills/index-maintainer.json") {{
+      return respond(request, MAINTAINER_INDEX, MAINTAINER_INDEX_HEADERS);
     }}
     const match = path.match(/^\\/.well-known\\/agent-skills\\/([a-z0-9-]+)\\/SKILL\\.md$/);
     if (match && Object.prototype.hasOwnProperty.call(SKILLS, match[1])) {{
@@ -160,17 +175,18 @@ def main() -> int:
     if not token:
         print("CLOUDFLARE_API_TOKEN is required.", file=sys.stderr)
         return 1
-    if not INDEX_PATH.is_file():
+    if not INDEX_PATH.is_file() or not MAINTAINER_INDEX_PATH.is_file():
         print("Run python Scripts/_build_agent_skills_index.py first.", file=sys.stderr)
         return 1
     zone = cf.resolve_zone_id(token, cf.cloudflare_zone_id())
     account = resolve_account_id(token)
     index = json.loads(INDEX_PATH.read_text(encoding="utf-8"))
+    maintainer_index = json.loads(MAINTAINER_INDEX_PATH.read_text(encoding="utf-8"))
     skills = load_published_skills()
     if not skills:
         print("No published SKILL.md files under .well-known/agent-skills/.", file=sys.stderr)
         return 1
-    js = worker_js(index, skills)
+    js = worker_js(index, maintainer_index, skills)
     WORKER_SRC.parent.mkdir(parents=True, exist_ok=True)
     WORKER_SRC.write_text(js, encoding="utf-8", newline="\n")
     print(f"Wrote {WORKER_SRC.relative_to(cf.BASE)}")

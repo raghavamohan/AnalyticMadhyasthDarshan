@@ -8,7 +8,7 @@ description: >-
 
 # Cite a study
 
-Prefer the study **markdown** over HTML or PDF. Catalog rows expose `md` (relative to `/Studies/`) or `mdUrl` from `GET /api/studies` and MCP `get_study`.
+Prefer the study **markdown** over HTML or PDF. Catalog rows expose `md` (relative to `/Studies/`) or `mdUrl` from `GET /api/studies/{slug}` and MCP `get_study`. Use `GET /api/cite/{slug}` for a suggested citation line that already includes title, status, Edited-on, and the markdown URL.
 
 ## What to record
 
@@ -31,6 +31,7 @@ Shared terms (`jeevan`, `satta`, `saha-astitva`, …) are defined in https://ana
 ## Lookups
 
 ```
-GET https://analyticmadhyasthdarshan.org/api/studies?slug=The-Ontology-of-Coexistence
+GET https://analyticmadhyasthdarshan.org/api/cite/The-Ontology-of-Coexistence
+GET https://analyticmadhyasthdarshan.org/api/studies/The-Ontology-of-Coexistence
 GET https://analyticmadhyasthdarshan.org/Studies/catalog-all.json
 ```

@@ -57,6 +57,11 @@
     <priority>0.4</priority>
   </url>
   <url>
+    <loc>https://analyticmadhyasthdarshan.org/.well-known/agent-skills/index-maintainer.json</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://analyticmadhyasthdarshan.org/.well-known/mcp/server-card.json</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
@@ -93,6 +98,11 @@
   </url>
   <url>
     <loc>https://analyticmadhyasthdarshan.org/Studies/glossary.json</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://analyticmadhyasthdarshan.org/Studies/start-here.json</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>

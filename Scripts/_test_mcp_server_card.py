@@ -71,7 +71,21 @@ def check_homepage_link() -> None:
     if not runtime.is_file():
         fail("missing infra/mcp-worker/src/runtime.js")
     text = runtime.read_text(encoding="utf-8")
-    for needle in ("search_studies", "list_studies", "get_study", "/api/studies"):
+    for needle in (
+        "search_studies",
+        "list_studies",
+        "get_study",
+        "get_study_outline",
+        "get_glossary",
+        "get_start_here",
+        "get_cite",
+        "/api/studies",
+        "/api/glossary",
+        "/api/start-here",
+        "handleCite",
+        "loadStartHere",
+        "studies://study/",
+    ):
         if needle not in text:
             fail(f"MCP runtime is missing {needle!r}")
     print("OK: homepage Link header advertises the MCP Server Card and /mcp.")
