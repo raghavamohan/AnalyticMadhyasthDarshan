@@ -42,7 +42,10 @@
 <p>
   Agents should start at
   <a href="/.well-known/api-catalog"><code>/.well-known/api-catalog</code></a>
-  (RFC 9727). That linkset points at the published
+  (RFC 9727) or the
+  <a href="/.well-known/agent-card.json">A2A Agent Card</a>
+  at <code>/.well-known/agent-card.json</code>.
+  The catalog linkset points at the published
   <strong>studies catalog JSON</strong> for reading papers, and at the
   submission and discussion HTTP APIs for writes. Identity discovery is at
   <a href="/auth.md"><code>/auth.md</code></a>
@@ -158,6 +161,10 @@
   </thead>
   <tbody>
     <tr>
+      <td>A2A Agent Card</td>
+      <td><a href="/.well-known/agent-card.json"><code>/.well-known/agent-card.json</code></a></td>
+    </tr>
+    <tr>
       <td>Auth.md</td>
       <td><a href="/auth.md"><code>/auth.md</code></a></td>
     </tr>
@@ -171,6 +178,18 @@
     </tr>
   </tbody>
 </table>
+
+<h2>A2A Agent Card</h2>
+<p class="muted">
+  <code>GET</code> and <code>HEAD</code>
+  <a href="/.well-known/agent-card.json"><code>/.well-known/agent-card.json</code></a>
+  return an
+  <a href="https://a2a-protocol.org/latest/specification/">A2A</a>
+  Agent Card (<code>Content-Type: application/a2a+json</code>).
+  Skills cover listing and reading studies. The advertised
+  <code>supportedInterfaces</code> are existing HTTP+JSON catalog URLs.
+  This site does not run an A2A JSON-RPC runtime.
+</p>
 
 <h2>Catalog document</h2>
 <p>

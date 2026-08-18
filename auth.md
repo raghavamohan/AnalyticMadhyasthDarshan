@@ -12,6 +12,12 @@ The public API catalog is at
 https://analyticmadhyasthdarshan.org/.well-known/api-catalog
 ([RFC 9727](https://www.rfc-editor.org/rfc/rfc9727)).
 
+The A2A Agent Card is at
+https://analyticmadhyasthdarshan.org/.well-known/agent-card.json
+([A2A Protocol](https://a2a-protocol.org/latest/specification/)).
+It describes public catalog reads over HTTP+JSON. This site does not run an
+A2A JSON-RPC Worker and does not accept `message/send` tasks.
+
 ## Audience
 
 **Readers and agents fetching studies do not register.** The studies catalog
