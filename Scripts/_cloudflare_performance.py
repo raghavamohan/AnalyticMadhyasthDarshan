@@ -188,11 +188,45 @@ HOMEPAGE_LINK_URLS = (ROOT_URL, CATALOG_URL)
 ROOT_REDIRECT_REF = "analyticmadhyasth_root_to_catalog"
 AGENT_SKILLS_REDIRECT_REF = "amd_agent_skills_redirect"
 AGENT_SKILLS_WORKER_HOST = "amd-agent-skills.raghavamohan.workers.dev"
+API_CATALOG_REDIRECT_REF = "amd_api_catalog_redirect"
+API_CATALOG_WORKER_HOST = "amd-api-catalog.raghavamohan.workers.dev"
+AGENT_CARD_REDIRECT_REF = "amd_agent_card_redirect"
+AGENT_CARD_WORKER_HOST = "amd-agent-card.raghavamohan.workers.dev"
 MCP_SERVER_CARD_REDIRECT_REF = "amd_mcp_server_card_redirect"
 MCP_RUNTIME_REDIRECT_REF = "amd_mcp_runtime_redirect"
 MCP_SERVER_CARD_WORKER_HOST = "amd-mcp.raghavamohan.workers.dev"
 WEB_BOT_AUTH_REDIRECT_REF = "amd_web_bot_auth_redirect"
 WEB_BOT_AUTH_WORKER_HOST = "amd-web-bot-auth.raghavamohan.workers.dev"
+DISCOVERY_WORKER_ROUTES = (
+    (f"{SITE_HOST}/.well-known/api-catalog*", "amd-api-catalog"),
+    (f"{SITE_HOST}/.well-known/agent-card.json", "amd-agent-card"),
+    (f"{SITE_HOST}/.well-known/agent-skills/*", "amd-agent-skills"),
+    (f"{SITE_HOST}/.well-known/mcp/*", "amd-mcp"),
+    (f"{SITE_HOST}/mcp*", "amd-mcp"),
+    (f"{SITE_HOST}/api/studies*", "amd-mcp"),
+    (f"{SITE_HOST}/.well-known/http-message-signatures-directory", "amd-web-bot-auth"),
+)
+WORKER_DEV_REDIRECT_REFS = (
+    AGENT_SKILLS_REDIRECT_REF,
+    MCP_SERVER_CARD_REDIRECT_REF,
+    MCP_RUNTIME_REDIRECT_REF,
+    API_CATALOG_REDIRECT_REF,
+    AGENT_CARD_REDIRECT_REF,
+    WEB_BOT_AUTH_REDIRECT_REF,
+)
+# Leftover Snippets return HTTP 200 before Workers Routes. Unbind these
+# before deleting the workers.dev 302s or the stale documents come back.
+STALE_DISCOVERY_SNIPPETS = (
+    "amd_api_catalog",
+    "amd_agent_card",
+    "amd_agent_skills",
+    "amd_mcp",
+    "amd_mcp_server_card",
+    "amd_web_bot_auth",
+)
+SNIPPET_GUARDED_REDIRECT_REFS = frozenset(
+    {API_CATALOG_REDIRECT_REF, AGENT_CARD_REDIRECT_REF}
+)
 CACHE_RULE_REFS = (
     "amd_cache_pdfs",
     "amd_cache_images",
@@ -358,6 +392,127 @@ def apply_discussions_api_routes(token: str, zone_id: str | None) -> None:
     for pattern in DISCUSSIONS_ROUTE_PATTERNS:
         ensure_worker_route(token, zone, pattern, DISCUSSIONS_WORKER)
     print("Discussions worker routes applied.")
+
+
+def apply_discovery_worker_routes(token: str, zone_id: str | None) -> None:
+    """Bind apex discovery paths to Workers so workers.dev 302s can be removed."""
+    zone = resolve_zone_id(token, zone_id)
+    for pattern, script in DISCOVERY_WORKER_ROUTES:
+        ensure_worker_route(token, zone, pattern, script)
+    print("Discovery worker routes applied.")
+
+
+def _snippet_rules_list(payload: dict | None) -> list[dict]:
+    if not payload:
+        return []
+    result = payload.get("result")
+    if isinstance(result, list):
+        return result
+    if isinstance(result, dict):
+        return list(result.get("rules") or [])
+    return []
+
+
+def unbind_stale_discovery_snippets(token: str, zone_id: str | None) -> bool:
+    """Drop leftover Snippet rules that would win over Workers Routes.
+
+    Returns True when no guarded Snippet remains bound (or none existed).
+    """
+    zone = resolve_zone_id(token, zone_id)
+    try:
+        existing = _api_request(
+            "GET", f"/zones/{zone}/snippets/snippet_rules", token, allow_404=True
+        )
+    except RuntimeError as exc:
+        print(f"Could not list Snippet rules: {exc}")
+        return False
+    rules = _snippet_rules_list(existing)
+    stale = set(STALE_DISCOVERY_SNIPPETS)
+    active_stale = [
+        rule.get("snippet_name")
+        for rule in rules
+        if rule.get("snippet_name") in stale and rule.get("enabled", True)
+    ]
+    if not active_stale:
+        print("No enabled stale discovery Snippet rules bound.")
+        return True
+    kept = [
+        rule
+        for rule in rules
+        if rule.get("snippet_name") not in stale
+    ]
+    try:
+        _api_request(
+            "PUT",
+            f"/zones/{zone}/snippets/snippet_rules",
+            token,
+            {"rules": kept},
+        )
+        print(f"Unbound stale discovery Snippet rules: {active_stale}")
+        return True
+    except RuntimeError as exc:
+        print(f"Could not unbind discovery Snippets (token may lack Snippets Edit): {exc}")
+        return False
+
+
+def remove_discovery_worker_redirects(
+    token: str,
+    zone_id: str | None,
+    refs: tuple[str, ...] | None = None,
+) -> None:
+    """Remove workers.dev Redirect Rules after zone Workers Routes exist."""
+    zone = resolve_zone_id(token, zone_id)
+    ruleset = get_redirect_entrypoint_ruleset(token, zone)
+    if ruleset is None:
+        print("No redirect ruleset; nothing to remove.")
+        return
+    drop = set(refs or WORKER_DEV_REDIRECT_REFS)
+    rules = [_sanitize_rule_for_put(rule) for rule in ruleset.get("rules", [])]
+    kept = [rule for rule in rules if rule.get("ref") not in drop]
+    removed = [rule.get("ref") for rule in rules if rule.get("ref") in drop]
+    if not removed:
+        print("Discovery workers.dev redirects already absent.")
+        return
+    _api_request(
+        "PUT",
+        f"/zones/{zone}/rulesets/{ruleset['id']}",
+        token,
+        {
+            "name": ruleset.get("name", "Redirect rules"),
+            "kind": "zone",
+            "phase": REDIRECT_PHASE,
+            "rules": kept,
+        },
+    )
+    print(f"Removed workers.dev redirects: {removed}")
+
+
+def serve_discovery_from_workers(token: str, zone_id: str | None) -> None:
+    """Prefer zone Workers Routes over workers.dev Redirect Rules."""
+    apply_discovery_worker_routes(token, zone_id)
+    snippets_cleared = unbind_stale_discovery_snippets(token, zone_id)
+    drop = list(WORKER_DEV_REDIRECT_REFS)
+    if not snippets_cleared:
+        drop = [ref for ref in drop if ref not in SNIPPET_GUARDED_REDIRECT_REFS]
+        print(
+            "Keeping api-catalog and Agent Card 302s until leftover Snippets "
+            "can be unbound (Snippets Edit)."
+        )
+    remove_discovery_worker_redirects(token, zone_id, tuple(drop))
+    purge_urls = [
+        f"https://{SITE_HOST}/.well-known/api-catalog",
+        f"https://{SITE_HOST}/.well-known/api-catalog/",
+        f"https://{SITE_HOST}/.well-known/agent-card.json",
+        f"https://{SITE_HOST}/.well-known/agent-skills/index.json",
+        f"https://{SITE_HOST}/.well-known/mcp/server-card.json",
+        f"https://{SITE_HOST}/mcp",
+        f"https://{SITE_HOST}/api/studies",
+        f"https://{SITE_HOST}/.well-known/http-message-signatures-directory",
+    ]
+    try:
+        purge_cache_files(token, zone_id, purge_urls)
+    except RuntimeError as exc:
+        print(f"Cache purge skipped: {exc}")
 
 
 def notify_skip_rule_body() -> dict:
@@ -1420,6 +1575,61 @@ def mcp_server_card_redirect_rule_body() -> dict:
     }
 
 
+def api_catalog_redirect_rule_body() -> dict:
+    return {
+        "ref": API_CATALOG_REDIRECT_REF,
+        "expression": (
+            f'(http.host eq "{SITE_HOST}" and ('
+            'http.request.uri.path eq "/.well-known/api-catalog" or '
+            'http.request.uri.path eq "/.well-known/api-catalog/"))'
+        ),
+        "description": (
+            "Serve RFC 9727 api-catalog from the amd-api-catalog Worker. "
+            "302 skips the stale Snippet this token cannot update."
+        ),
+        "action": "redirect",
+        "enabled": True,
+        "action_parameters": {
+            "from_value": {
+                "status_code": 302,
+                "preserve_query_string": True,
+                "target_url": {
+                    "expression": (
+                        f'concat("https://{API_CATALOG_WORKER_HOST}", http.request.uri.path)'
+                    )
+                },
+            }
+        },
+    }
+
+
+def agent_card_redirect_rule_body() -> dict:
+    return {
+        "ref": AGENT_CARD_REDIRECT_REF,
+        "expression": (
+            f'(http.host eq "{SITE_HOST}" and '
+            'http.request.uri.path eq "/.well-known/agent-card.json")'
+        ),
+        "description": (
+            "Serve the A2A Agent Card from the amd-agent-card Worker. "
+            "302 skips the stale Snippet this token cannot update."
+        ),
+        "action": "redirect",
+        "enabled": True,
+        "action_parameters": {
+            "from_value": {
+                "status_code": 302,
+                "preserve_query_string": True,
+                "target_url": {
+                    "expression": (
+                        f'concat("https://{AGENT_CARD_WORKER_HOST}", http.request.uri.path)'
+                    )
+                },
+            }
+        },
+    }
+
+
 def mcp_runtime_redirect_rule_body() -> dict:
     return {
         "ref": MCP_RUNTIME_REDIRECT_REF,
@@ -1772,147 +1982,28 @@ def print_check_cache_rules(token: str, zone_id: str | None) -> bool:
 
 
 def apply_agent_skills_redirect(token: str, zone_id: str | None) -> None:
-    """Ensure /.well-known/agent-skills/* redirects to the amd-agent-skills Worker."""
-    zone = resolve_zone_id(token, zone_id)
-    ruleset = get_redirect_entrypoint_ruleset(token, zone)
-    rule_body = agent_skills_redirect_rule_body()
-    if ruleset is None:
-        _api_request(
-            "POST",
-            f"/zones/{zone}/rulesets",
-            token,
-            {
-                "name": "AnalyticMadhyasthDarshan redirect rules",
-                "kind": "zone",
-                "phase": REDIRECT_PHASE,
-                "rules": [rule_body, root_redirect_rule_body()],
-            },
-        )
-        print("Created redirect ruleset with Agent Skills and root redirects.")
-        return
-
-    rules = [_sanitize_rule_for_put(rule) for rule in ruleset.get("rules", [])]
-    existing = next((rule for rule in rules if rule.get("ref") == AGENT_SKILLS_REDIRECT_REF), None)
-    if existing and existing.get("expression") == rule_body["expression"]:
-        target = (existing.get("action_parameters") or {}).get("from_value", {}).get("target_url", {})
-        if target.get("expression") == rule_body["action_parameters"]["from_value"]["target_url"]["expression"]:
-            print("Agent Skills redirect rule already configured.")
-            return
-    kept = [rule for rule in rules if rule.get("ref") != AGENT_SKILLS_REDIRECT_REF]
-    _api_request(
-        "PUT",
-        f"/zones/{zone}/rulesets/{ruleset['id']}",
-        token,
-        {
-            "name": ruleset.get("name", "Redirect rules"),
-            "kind": "zone",
-            "phase": REDIRECT_PHASE,
-            "rules": [rule_body] + kept,
-        },
-    )
-    print("Updated Agent Skills Discovery redirect rule.")
+    """Bind discovery Workers on the apex; drop workers.dev redirects."""
+    serve_discovery_from_workers(token, zone_id)
 
 
 def apply_mcp_server_card_redirect(token: str, zone_id: str | None) -> None:
-    """Ensure MCP card, /mcp, and /api/studies redirect to the amd-mcp Worker."""
-    zone = resolve_zone_id(token, zone_id)
-    ruleset = get_redirect_entrypoint_ruleset(token, zone)
-    wanted = [
-        mcp_runtime_redirect_rule_body(),
-        mcp_server_card_redirect_rule_body(),
-    ]
-    if ruleset is None:
-        _api_request(
-            "POST",
-            f"/zones/{zone}/rulesets",
-            token,
-            {
-                "name": "AnalyticMadhyasthDarshan redirect rules",
-                "kind": "zone",
-                "phase": REDIRECT_PHASE,
-                "rules": [
-                    *wanted,
-                    agent_skills_redirect_rule_body(),
-                    root_redirect_rule_body(),
-                ],
-            },
-        )
-        print("Created redirect ruleset with MCP runtime, Server Card, Agent Skills, and root redirects.")
-        return
+    """Bind discovery Workers on the apex; drop workers.dev redirects."""
+    serve_discovery_from_workers(token, zone_id)
 
-    rules = [_sanitize_rule_for_put(rule) for rule in ruleset.get("rules", [])]
-    by_ref = {rule.get("ref"): rule for rule in rules}
-    if all(_redirect_rule_matches(by_ref.get(rule["ref"]), rule) for rule in wanted):
-        print("MCP Server Card and runtime redirect rules already configured.")
-        return
-    wanted_refs = {rule["ref"] for rule in wanted}
-    kept = [rule for rule in rules if rule.get("ref") not in wanted_refs]
-    _api_request(
-        "PUT",
-        f"/zones/{zone}/rulesets/{ruleset['id']}",
-        token,
-        {
-            "name": ruleset.get("name", "Redirect rules"),
-            "kind": "zone",
-            "phase": REDIRECT_PHASE,
-            "rules": wanted + kept,
-        },
-    )
-    print("Updated MCP Server Card and runtime redirect rules.")
+
+def apply_api_catalog_redirect(token: str, zone_id: str | None) -> None:
+    """Bind discovery Workers on the apex; drop workers.dev redirects."""
+    serve_discovery_from_workers(token, zone_id)
+
+
+def apply_agent_card_redirect(token: str, zone_id: str | None) -> None:
+    """Bind discovery Workers on the apex; drop workers.dev redirects."""
+    serve_discovery_from_workers(token, zone_id)
 
 
 def apply_web_bot_auth_redirect(token: str, zone_id: str | None) -> None:
-    """Ensure the Web Bot Auth directory redirects to the amd-web-bot-auth Worker."""
-    zone = resolve_zone_id(token, zone_id)
-    ruleset = get_redirect_entrypoint_ruleset(token, zone)
-    rule_body = web_bot_auth_redirect_rule_body()
-    if ruleset is None:
-        _api_request(
-            "POST",
-            f"/zones/{zone}/rulesets",
-            token,
-            {
-                "name": "AnalyticMadhyasthDarshan redirect rules",
-                "kind": "zone",
-                "phase": REDIRECT_PHASE,
-                "rules": [
-                    rule_body,
-                    mcp_server_card_redirect_rule_body(),
-                    agent_skills_redirect_rule_body(),
-                    root_redirect_rule_body(),
-                ],
-            },
-        )
-        print("Created redirect ruleset with Web Bot Auth, MCP, Agent Skills, and root redirects.")
-        return
-
-    rules = [_sanitize_rule_for_put(rule) for rule in ruleset.get("rules", [])]
-    existing = next(
-        (rule for rule in rules if rule.get("ref") == WEB_BOT_AUTH_REDIRECT_REF), None
-    )
-    if existing and existing.get("expression") == rule_body["expression"]:
-        target = (existing.get("action_parameters") or {}).get("from_value", {}).get(
-            "target_url", {}
-        )
-        if (
-            target.get("expression")
-            == rule_body["action_parameters"]["from_value"]["target_url"]["expression"]
-        ):
-            print("Web Bot Auth redirect rule already configured.")
-            return
-    kept = [rule for rule in rules if rule.get("ref") != WEB_BOT_AUTH_REDIRECT_REF]
-    _api_request(
-        "PUT",
-        f"/zones/{zone}/rulesets/{ruleset['id']}",
-        token,
-        {
-            "name": ruleset.get("name", "Redirect rules"),
-            "kind": "zone",
-            "phase": REDIRECT_PHASE,
-            "rules": [rule_body] + kept,
-        },
-    )
-    print("Updated Web Bot Auth directory redirect rule.")
+    """Bind discovery Workers on the apex; drop workers.dev redirects."""
+    serve_discovery_from_workers(token, zone_id)
 
 
 def apply_root_redirect(token: str, zone_id: str | None) -> None:
@@ -2445,9 +2536,7 @@ def main() -> int:
             return 1
         try:
             apply_root_redirect(token, zone_id)
-            apply_agent_skills_redirect(token, zone_id)
-            apply_mcp_server_card_redirect(token, zone_id)
-            apply_web_bot_auth_redirect(token, zone_id)
+            serve_discovery_from_workers(token, zone_id)
         except (urllib.error.URLError, RuntimeError) as exc:
             print(f"API error: {exc}", file=sys.stderr)
             api_error = True
@@ -2477,9 +2566,7 @@ def main() -> int:
         try:
             apply_api_settings(token, zone_id)
             apply_root_redirect(token, zone_id)
-            apply_agent_skills_redirect(token, zone_id)
-            apply_mcp_server_card_redirect(token, zone_id)
-            apply_web_bot_auth_redirect(token, zone_id)
+            serve_discovery_from_workers(token, zone_id)
         except (urllib.error.URLError, RuntimeError) as exc:
             print(f"API error: {exc}", file=sys.stderr)
             api_error = True
