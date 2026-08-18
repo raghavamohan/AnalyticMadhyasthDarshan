@@ -44,7 +44,11 @@
   <a href="/.well-known/api-catalog"><code>/.well-known/api-catalog</code></a>
   (RFC 9727). That linkset points at the published
   <strong>studies catalog JSON</strong> for reading papers, and at the
-  submission and discussion HTTP APIs for writes.
+  submission and discussion HTTP APIs for writes. Identity discovery is at
+  <a href="/auth.md"><code>/auth.md</code></a>
+  (Auth.md) plus
+  <a href="/.well-known/oauth-protected-resource"><code>/.well-known/oauth-protected-resource</code></a>
+  (RFC 9728).
 </p>
 
 <h2>Studies catalog</h2>
@@ -138,6 +142,32 @@
     <tr>
       <td>Maintainer notes</td>
       <td><a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/infra/discussions-worker/README.md">infra/discussions-worker/README.md</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Identity</h2>
+<p class="muted">
+  Reading studies needs no account. Write APIs use human GitHub OAuth
+  (submissions) or a verified-email magic link (discussions). This site does
+  not issue OAuth access tokens to agents.
+</p>
+<table>
+  <thead>
+    <tr><th>Resource</th><th>URL</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Auth.md</td>
+      <td><a href="/auth.md"><code>/auth.md</code></a></td>
+    </tr>
+    <tr>
+      <td>Protected resource metadata</td>
+      <td><a href="/.well-known/oauth-protected-resource"><code>/.well-known/oauth-protected-resource</code></a></td>
+    </tr>
+    <tr>
+      <td>Authorization server metadata</td>
+      <td><a href="/.well-known/oauth-authorization-server"><code>/.well-known/oauth-authorization-server</code></a></td>
     </tr>
   </tbody>
 </table>
