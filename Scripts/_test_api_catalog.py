@@ -24,7 +24,8 @@ CATALOG_PATH = BASE / ".well-known" / "api-catalog"
 WORKER_CATALOG_PATH = BASE / "infra" / "api-catalog-worker" / "src" / "api-catalog.json"
 WORKER_INDEX_PATH = BASE / "infra" / "api-catalog-worker" / "src" / "index.js"
 REQUIRED_RELS = ("service-desc", "service-doc")
-OPTIONAL_RELS = ("status",)
+OPTIONAL_RELS = ("status", "describedby")
+AGENT_CARD_HREF = "https://analyticmadhyasthdarshan.org/.well-known/agent-card.json"
 STUDIES_CATALOG_HREFS = (
     "https://analyticmadhyasthdarshan.org/Studies/catalog-topical.json",
     "https://analyticmadhyasthdarshan.org/Studies/catalog-formal.json",
@@ -33,6 +34,7 @@ STUDIES_CATALOG_HREFS = (
 HOMEPAGE_LINK_RELS = ("api-catalog", "describedby", "service-desc", "service-doc")
 HOMEPAGE_LINK_HREFS = (
     "/.well-known/api-catalog",
+    "/.well-known/agent-card.json",
     "/auth.md",
     "/.well-known/oauth-protected-resource",
     "/Studies/catalog-topical.json",
@@ -159,7 +161,7 @@ def check_sitemap_discovery() -> None:
             missing.append(f"{loc} (not in sitemap.xml; run Scripts/_build_sitemap.py)")
     if missing:
         fail(f"sitemap is missing discovery URLs: {missing}")
-    print("OK: sitemap lists Auth.md, OpenAPI, api-catalog, and OAuth well-known URIs.")
+    print("OK: sitemap lists Auth.md, OpenAPI, api-catalog, Agent Card, and OAuth well-known URIs.")
 
 
 def check_live_catalog() -> dict:
@@ -280,6 +282,13 @@ def main() -> None:
     missing = [href for href in STUDIES_CATALOG_HREFS if href not in desc_hrefs]
     if missing:
         fail(f"api-catalog is missing studies catalog JSON: {missing}")
+    described = {
+        link.get("href")
+        for entry in linkset
+        for link in entry.get("describedby") or []
+    }
+    if AGENT_CARD_HREF not in described:
+        fail("api-catalog is missing the A2A Agent Card describedby link")
 
     for spec in (BASE / "openapi" / "submissions.json", BASE / "openapi" / "discussions.json"):
         data = load_json(spec)

@@ -29,6 +29,7 @@ DISCOVERY_PAGES = (
     "openapi/submissions.json",
     "openapi/discussions.json",
     ".well-known/api-catalog",
+    ".well-known/agent-card.json",
     ".well-known/oauth-protected-resource",
     ".well-known/oauth-authorization-server",
 )
