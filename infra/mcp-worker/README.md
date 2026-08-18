@@ -13,13 +13,10 @@ Read-only tools: `search_studies`, `list_studies`, `get_study`.
 Resources: `studies://catalog-all`, `studies://glossary`, `studies://feed`.
 There are no write tools. DNS-AID does not publish `_mcp._agents`.
 
-The zone API token can upload this Worker but cannot create a Workers Route, so
-production currently:
-
-- 302-redirects `/.well-known/mcp/*` to `https://amd-mcp.raghavamohan.workers.dev`
-- 308-redirects `/mcp` and `/api/studies` (308 keeps POST bodies for JSON-RPC)
-
-managed by `python Scripts/_cloudflare_performance.py --apply-redirect`.
+The zone API token can upload this Worker. Production attaches zone Workers
+Routes (`/.well-known/mcp/*`, `/mcp*`, `/api/studies*`) so apex requests run
+the Worker without a workers.dev redirect. `--apply-redirect` now binds those
+routes and keeps only the homepage 301.
 
 ## Deploy
 

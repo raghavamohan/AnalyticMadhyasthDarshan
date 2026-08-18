@@ -8,15 +8,10 @@ The public JWKS is [`.well-known/http-message-signatures-directory`](../../.well
 The Worker embeds that JWKS and signs the HTTP response with the matching
 Ed25519 private key (`WEB_BOT_AUTH_PRIVATE_JWK` in `.env`, never committed).
 
-The zone API token can upload this Worker but cannot create a Workers Route, so
-production currently 302-redirects the well-known URI to
-`https://amd-web-bot-auth.raghavamohan.workers.dev` (managed by
-`python Scripts/_cloudflare_performance.py --apply-redirect`). When a token with
-Workers Routes Edit is available, attach
-
-`analyticmadhyasthdarshan.org/.well-known/http-message-signatures-directory` → `amd-web-bot-auth`
-
-and remove that redirect.
+Production attaches the zone Workers Route
+`analyticmadhyasthdarshan.org/.well-known/http-message-signatures-directory` →
+`amd-web-bot-auth`. `--apply-redirect` binds that route and does not 302 to
+workers.dev.
 
 Outbound site automation signs requests with `Signature-Agent` and
 `Signature-Input` via `Scripts/_web_bot_auth.py`. This site does not crawl other
