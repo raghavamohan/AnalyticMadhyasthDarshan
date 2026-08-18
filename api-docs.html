@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Site APIs — Analytic Madhyasth Darshan</title>
+<link rel="icon" href="/Assets/Icons/akhand-samaj-favicon.ico" sizes="any"/>
+<link rel="icon" type="image/svg+xml" href="/Assets/Icons/akhand-samaj-favicon.svg"/>
+<link rel="canonical" href="https://analyticmadhyasthdarshan.org/api-docs.html"/>
+<style>
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    color: #1a1a1a;
+    max-width: 760px;
+    margin: 48px auto;
+    padding: 0 20px 64px;
+    line-height: 1.55;
+  }
+  h1, h2 { font-weight: normal; }
+  a { color: #1a5276; }
+  code, pre {
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.92em;
+  }
+  pre {
+    background: #f6f4ef;
+    padding: 12px 16px;
+    overflow-x: auto;
+  }
+  table { border-collapse: collapse; width: 100%; }
+  th, td {
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    padding: 8px 6px;
+    vertical-align: top;
+  }
+  .muted { color: #555; }
+</style>
+</head>
+<body>
+<h1>Site APIs</h1>
+<p>
+  Analytic Madhyasth Darshan publishes two HTTP APIs: the
+  <a href="Studies/submit.html">Web Submission Portal</a> backend and the
+  per-study discussion boards. Agents can discover them from the
+  <a href="/.well-known/api-catalog">RFC 9727 API catalog</a>
+  at <code>/.well-known/api-catalog</code>.
+</p>
+
+<h2>Submission portal</h2>
+<p class="muted">
+  Base URL: <code>https://api.analyticmadhyasthdarshan.org</code>.
+  Contributors sign in with GitHub to propose studies, submit drafts, and
+  change Draft/Released status. Reading published studies does not use this API.
+</p>
+<table>
+  <thead>
+    <tr><th>Resource</th><th>URL</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>OpenAPI description</td>
+      <td><a href="/openapi/submissions.json"><code>/openapi/submissions.json</code></a></td>
+    </tr>
+    <tr>
+      <td>Health</td>
+      <td><a href="https://api.analyticmadhyasthdarshan.org/api/health"><code>GET /api/health</code></a></td>
+    </tr>
+    <tr>
+      <td>Maintainer notes</td>
+      <td><a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/infra/worker/README.md">infra/worker/README.md</a></td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  Write routes require a first-party session cookie from GitHub OAuth and a
+  Cloudflare Turnstile token. <code>POST /api/notify</code> is a server-to-server
+  hook authenticated with a shared secret, not a public client.
+</p>
+
+<h2>Discussions</h2>
+<p class="muted">
+  Base URL: <code>https://analyticmadhyasthdarshan.org</code>.
+  Readers sign in with an email magic link to comment on a study.
+</p>
+<table>
+  <thead>
+    <tr><th>Resource</th><th>URL</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>OpenAPI description</td>
+      <td><a href="/openapi/discussions.json"><code>/openapi/discussions.json</code></a></td>
+    </tr>
+    <tr>
+      <td>Health</td>
+      <td><a href="/api/discussions/health"><code>GET /api/discussions/health</code></a></td>
+    </tr>
+    <tr>
+      <td>Maintainer notes</td>
+      <td><a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/infra/discussions-worker/README.md">infra/discussions-worker/README.md</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Catalog document</h2>
+<p>
+  <code>GET</code> and <code>HEAD</code>
+  <a href="/.well-known/api-catalog"><code>/.well-known/api-catalog</code></a>
+  return an RFC 9264 linkset
+  (<code>Content-Type: application/linkset+json</code>) listing each API’s
+  <code>service-desc</code>, <code>service-doc</code>, and <code>status</code>
+  links, following
+  <a href="https://www.rfc-editor.org/rfc/rfc9727">RFC 9727</a>.
+</p>
+<p><a href="Studies/index.html">Back to the studies catalog</a></p>
+</body>
+</html>

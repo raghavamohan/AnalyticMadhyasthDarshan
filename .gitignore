@@ -19,12 +19,14 @@ Scripts/_pdf_cache/
 !Studies/*/*.html
 !Applications/*/*.html
 !/index.html
+!/api-docs.html
 !google*.html
 
 infra/worker/.wrangler/
 infra/worker/.turnstile-secret.tmp
 infra/discussions-worker/.wrangler/
 infra/google-verification-worker/.wrangler/
+infra/api-catalog-worker/.wrangler/
 
 # Cygwin/Git-Bash crash dumps
 *.stackdump
