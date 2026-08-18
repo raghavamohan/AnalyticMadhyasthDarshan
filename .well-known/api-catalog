@@ -38,6 +38,10 @@
         {
           "href": "https://analyticmadhyasthdarshan.org/.well-known/http-message-signatures-directory",
           "type": "application/http-message-signatures-directory+json"
+        },
+        {
+          "href": "https://analyticmadhyasthdarshan.org/webmcp.js",
+          "type": "text/javascript"
         }
       ]
     },

@@ -52,6 +52,11 @@
     <priority>0.4</priority>
   </url>
   <url>
+    <loc>https://analyticmadhyasthdarshan.org/webmcp.js</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://analyticmadhyasthdarshan.org/.well-known/oauth-protected-resource</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
