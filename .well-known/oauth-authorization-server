@@ -1,0 +1,36 @@
+{
+  "issuer": "https://analyticmadhyasthdarshan.org",
+  "resource": "https://analyticmadhyasthdarshan.org/",
+  "authorization_endpoint": "https://api.analyticmadhyasthdarshan.org/api/auth/github",
+  "token_endpoint": "https://analyticmadhyasthdarshan.org/oauth2/token",
+  "grant_types_supported": [
+    "urn:ietf:params:oauth:grant-type:jwt-bearer"
+  ],
+  "response_types_supported": [
+    "code"
+  ],
+  "scopes_supported": [
+    "studies.read"
+  ],
+  "bearer_methods_supported": [
+    "header"
+  ],
+  "agent_auth": {
+    "skill": "https://analyticmadhyasthdarshan.org/auth.md",
+    "register_uri": "https://analyticmadhyasthdarshan.org/agent/auth",
+    "identity_endpoint": "https://analyticmadhyasthdarshan.org/agent/auth",
+    "claim_uri": "https://analyticmadhyasthdarshan.org/agent/auth/claim",
+    "claim_endpoint": "https://analyticmadhyasthdarshan.org/agent/auth/claim",
+    "identity_types_supported": [
+      "identity_assertion"
+    ],
+    "identity_assertion": {
+      "assertion_types_supported": [
+        "verified_email"
+      ],
+      "credential_types_supported": [
+        "access_token"
+      ]
+    }
+  }
+}

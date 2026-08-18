@@ -148,7 +148,7 @@ Response includes `meta.timingMs`, `meta.githubRequests`, and optional `meta.tru
 ## Cloudflare edge configuration (not in this repo)
 
 - **Custom domain:** submissions worker at `api.analyticmadhyasthdarshan.org` via [`wrangler.toml`](wrangler.toml) (`SameSite=Lax` cookie with the portal).
-- **API catalog:** [RFC 9727](https://www.rfc-editor.org/rfc/rfc9727) discovery at `/.well-known/api-catalog` is served by [`infra/api-catalog-worker`](../api-catalog-worker/README.md). The homepage advertises that catalog plus OpenAPI and docs via RFC 8288 `Link` headers. Human docs: [`api-docs.html`](../../api-docs.html).
+- **API catalog:** [RFC 9727](https://www.rfc-editor.org/rfc/rfc9727) discovery at `/.well-known/api-catalog` is served by [`infra/api-catalog-worker`](../api-catalog-worker/README.md). The homepage advertises that catalog plus OpenAPI and docs via RFC 8288 `Link` headers. Identity discovery: [`/auth.md`](../../auth.md) and [RFC 9728](https://www.rfc-editor.org/rfc/rfc9728) Protected Resource Metadata. Human docs: [`api-docs.html`](../../api-docs.html).
 
 Zone settings live on `analyticmadhyasthdarshan.org` in Cloudflare, not in git. Scripts in [`Scripts/_cloudflare_performance.py`](../../Scripts/_cloudflare_performance.py) apply and verify the stack; [`infra/discussions-worker/README.md`](../discussions-worker/README.md) notes discussion-specific limits and CSP/Turnstile interaction.
 
@@ -163,7 +163,7 @@ Zone settings live on `analyticmadhyasthdarshan.org` in Cloudflare, not in git. 
 | Probe-path block | `amd_block_common_probes` (`/wp-*`, `/.env`, `/.git`, …) | `--apply-edge-security` |
 | API rate limit | `amd_rl_edge_api` — 40 req / 10 s per IP (portal `api.*` + apex discussion routes); plus leaked-credential rule (Pro max **2** rate-limit rules) | `--apply-discussions-rate-limits` |
 | TLS / transport | min TLS 1.2, HSTS 1y + includeSubDomains (preload **off**), HTTPS rewrites on, `browser_check` off, SSL **full** (GitHub Pages) | `--apply-security-baseline` |
-| Response headers | `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`, **CSP report-only** on static pages (not `/api/*`); RFC 8288 `Link` on `/` and `/Studies/index.html`; RFC 9727 `application/linkset+json` on `/.well-known/api-catalog` | `--apply-security-headers` |
+| Response headers | `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`, **CSP report-only** on static pages (not `/api/*`); RFC 8288 `Link` on `/` and `/Studies/index.html`; `text/markdown` on `/auth.md`; `application/json` on OAuth well-known URIs; RFC 9727 `application/linkset+json` on `/.well-known/api-catalog` | `--apply-security-headers` |
 
 **Re-apply full stack after drift or zone changes:** `python Scripts/_cloudflare_performance.py --apply-edge-security`
 

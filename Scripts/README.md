@@ -48,6 +48,7 @@ what to run **on that branch** before opening the PR.
 | Verify studies index | `python Scripts/_verify_studies_index.py` |
 | Rebuild index.html shell | `python Scripts/_build_studies_index.py` |
 | Cloudflare performance setup | `python Scripts/_cloudflare_performance.py` (`--apply-redirect`, `--apply-api`, `--apply-edge-security`, `--check-edge-security`; token in `.env`) |
+| Auth.md / OAuth discovery | `python Scripts/_test_auth_md.py` (`--live`); `python Scripts/_publish_auth_md_snippet.py` |
 | Sync agent rules and skills | `python Scripts/_sync_agent_rules.py` then `python Scripts/_sync_agent_rules.py --check` |
 
 Windows wrappers: `.\Scripts\_add_study.ps1`, `.\Scripts\_remove_study.ps1`, `.\Scripts\_set_study_status.ps1`, `.\Scripts\_download_references.ps1`.
