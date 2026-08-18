@@ -21,6 +21,12 @@
           "href": "https://analyticmadhyasthdarshan.org/Studies/index.html",
           "type": "text/html"
         }
+      ],
+      "describedby": [
+        {
+          "href": "https://analyticmadhyasthdarshan.org/.well-known/agent-card.json",
+          "type": "application/a2a+json"
+        }
       ]
     },
     {

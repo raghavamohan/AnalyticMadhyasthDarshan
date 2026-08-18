@@ -37,6 +37,7 @@ PROBE_BLOCK_REF = "amd_block_common_probes"
 SECURITY_HEADERS_REF = "amd_security_headers_static"
 HOMEPAGE_LINK_HEADERS_REF = "amd_homepage_link_headers"
 API_CATALOG_HEADERS_REF = "amd_api_catalog_content_type"
+AGENT_CARD_HEADERS_REF = "amd_agent_card_content_type"
 AUTH_MD_HEADERS_REF = "amd_auth_md_content_type"
 OAUTH_METADATA_HEADERS_REF = "amd_oauth_metadata_content_type"
 EDGE_API_RATE_LIMIT_REF = "amd_rl_edge_api"
@@ -75,6 +76,9 @@ SECURITY_HEADERS_EXPRESSION = (
 API_CATALOG_HEADERS_EXPRESSION = (
     f'(http.host eq "{SITE_HOST}" and http.request.uri.path eq "/.well-known/api-catalog")'
 )
+AGENT_CARD_HEADERS_EXPRESSION = (
+    f'(http.host eq "{SITE_HOST}" and http.request.uri.path eq "/.well-known/agent-card.json")'
+)
 AUTH_MD_HEADERS_EXPRESSION = (
     f'(http.host eq "{SITE_HOST}" and http.request.uri.path eq "/auth.md")'
 )
@@ -105,6 +109,7 @@ HOMEPAGE_LINK_HEADERS_EXPRESSION = (
 API_CATALOG_CONTENT_TYPE = (
     'application/linkset+json; profile="https://www.rfc-editor.org/rfc/rfc9727"'
 )
+AGENT_CARD_CONTENT_TYPE = "application/a2a+json"
 API_CATALOG_LINK = (
     '</.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"'
 )
@@ -112,6 +117,7 @@ API_CATALOG_LINK = (
 # Comma-separated values in one Link header are valid (so is multiple Link headers).
 HOMEPAGE_LINK = (
     '</.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json", '
+    '</.well-known/agent-card.json>; rel="describedby"; type="application/a2a+json", '
     '</auth.md>; rel="describedby"; type="text/markdown", '
     '</.well-known/oauth-protected-resource>; rel="describedby"; type="application/json", '
     '</Studies/catalog-topical.json>; rel="describedby"; type="application/json", '
@@ -863,6 +869,21 @@ def api_catalog_headers_rule_body() -> dict:
     }
 
 
+def agent_card_headers_rule_body() -> dict:
+    return {
+        "ref": AGENT_CARD_HEADERS_REF,
+        "expression": AGENT_CARD_HEADERS_EXPRESSION,
+        "description": "A2A Agent Card Content-Type.",
+        "action": "rewrite",
+        "enabled": True,
+        "action_parameters": {
+            "headers": {
+                "Content-Type": _header_set(AGENT_CARD_CONTENT_TYPE),
+            },
+        },
+    }
+
+
 def homepage_link_headers_rule_body() -> dict:
     return {
         "ref": HOMEPAGE_LINK_HEADERS_REF,
@@ -916,6 +937,7 @@ def managed_response_header_rules() -> list[dict]:
         homepage_link_headers_rule_body(),
         auth_md_headers_rule_body(),
         oauth_metadata_headers_rule_body(),
+        agent_card_headers_rule_body(),
         api_catalog_headers_rule_body(),
     ]
 
@@ -954,6 +976,10 @@ def _auth_md_headers_rule_is_correct(rule: dict) -> bool:
 
 def _oauth_metadata_headers_rule_is_correct(rule: dict) -> bool:
     return _header_rule_is_correct(rule, oauth_metadata_headers_rule_body())
+
+
+def _agent_card_headers_rule_is_correct(rule: dict) -> bool:
+    return _header_rule_is_correct(rule, agent_card_headers_rule_body())
 
 
 def get_response_headers_entrypoint_ruleset(token: str, zone_id: str) -> dict | None:
@@ -1052,6 +1078,7 @@ def check_security_headers(token: str, zone_id: str | None) -> tuple[bool, list[
         (homepage_link_headers_rule_body(), _homepage_link_headers_rule_is_correct),
         (auth_md_headers_rule_body(), _auth_md_headers_rule_is_correct),
         (oauth_metadata_headers_rule_body(), _oauth_metadata_headers_rule_is_correct),
+        (agent_card_headers_rule_body(), _agent_card_headers_rule_is_correct),
         (api_catalog_headers_rule_body(), _api_catalog_headers_rule_is_correct),
     ):
         ref = expected["ref"]
@@ -1077,7 +1104,8 @@ def print_check_security_headers(token: str, zone_id: str | None) -> bool:
     if ok:
         print(
             "  OK: static-site security headers, homepage RFC 8288 Link, "
-            "Auth.md / OAuth metadata Content-Type, RFC 9727 catalog Content-Type."
+            "Auth.md / OAuth metadata Content-Type, A2A Agent Card Content-Type, "
+            "RFC 9727 catalog Content-Type."
         )
         return True
     for issue in issues:
@@ -1743,8 +1771,8 @@ def main() -> int:
         action="store_true",
         help=(
             "Add response security headers (enforcing CSP), homepage RFC 8288 "
-            "Link headers, Auth.md / OAuth metadata Content-Type, and RFC 9727 "
-            "api-catalog Content-Type."
+            "Link headers, Auth.md / OAuth metadata Content-Type, A2A Agent Card "
+            "Content-Type, and RFC 9727 api-catalog Content-Type."
         ),
     )
     parser.add_argument(

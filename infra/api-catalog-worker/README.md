@@ -31,16 +31,19 @@ extensionless path. Production currently serves the catalog with:
 3. A homepage Transform Rule that advertises `api-catalog`, `service-desc`,
    `service-doc`, and `describedby` on `/` and `/Studies/index.html`
    ([RFC 8288](https://www.rfc-editor.org/rfc/rfc8288),
-   [RFC 9727 §3](https://www.rfc-editor.org/rfc/rfc9727#section-3))
+   [RFC 9727 §3](https://www.rfc-editor.org/rfc/rfc9727#section-3)), including
+   the A2A Agent Card at `/.well-known/agent-card.json`
 
-After changing `.well-known/api-catalog`, re-publish the snippet and confirm the
-header rules:
+After changing `.well-known/api-catalog` or `.well-known/agent-card.json`,
+re-publish the snippets and confirm the header rules:
 
 ```powershell
 python Scripts/_publish_api_catalog_snippet.py
+python Scripts/_publish_agent_card_snippet.py
 python Scripts/_publish_auth_md_snippet.py
 python Scripts/_cloudflare_performance.py --apply-security-headers
 python Scripts/_test_api_catalog.py --live
+python Scripts/_test_agent_card.py --live
 python Scripts/_test_auth_md.py --live
 ```
 
