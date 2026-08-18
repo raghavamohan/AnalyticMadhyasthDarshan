@@ -1,7 +1,7 @@
 {
   "name": "Analytic Madhyasth Darshan",
-  "description": "Public catalog of analytic studies of Madhyasth Darshan (Co-existentialism). Agents can list and read papers as JSON, HTML, and PDF. Write APIs are for humans; see /auth.md.",
-  "version": "1.0.0",
+  "description": "Public catalog of analytic studies of Madhyasth Darshan (Co-existentialism). Agents can list and read papers as JSON, HTML, Markdown, and PDF. Write APIs are for humans; see /auth.md.",
+  "version": "1.1.0",
   "documentationUrl": "https://analyticmadhyasthdarshan.org/api-docs.html",
   "iconUrl": "https://analyticmadhyasthdarshan.org/Assets/Icons/akhand-samaj-favicon.svg",
   "provider": {
@@ -15,7 +15,27 @@
       "protocolVersion": "1.0"
     },
     {
+      "url": "https://analyticmadhyasthdarshan.org/Studies/catalog-all.json",
+      "protocolBinding": "HTTP+JSON",
+      "protocolVersion": "1.0"
+    },
+    {
       "url": "https://analyticmadhyasthdarshan.org/Studies/catalog-topical.json",
+      "protocolBinding": "HTTP+JSON",
+      "protocolVersion": "1.0"
+    },
+    {
+      "url": "https://analyticmadhyasthdarshan.org/Studies/catalog-formal.json",
+      "protocolBinding": "HTTP+JSON",
+      "protocolVersion": "1.0"
+    },
+    {
+      "url": "https://analyticmadhyasthdarshan.org/Studies/catalog-applied.json",
+      "protocolBinding": "HTTP+JSON",
+      "protocolVersion": "1.0"
+    },
+    {
+      "url": "https://analyticmadhyasthdarshan.org/api/studies",
       "protocolBinding": "HTTP+JSON",
       "protocolVersion": "1.0"
     }
@@ -32,13 +52,14 @@
   "defaultOutputModes": [
     "application/json",
     "text/html",
+    "text/markdown",
     "application/pdf"
   ],
   "skills": [
     {
       "id": "list-studies",
       "name": "List studies",
-      "description": "Return the public topical, formal, and applied study catalogs as JSON arrays. Each row includes slug, title, status, and html/pdf paths when a document exists.",
+      "description": "Return the public topical, formal, and applied study catalogs as JSON arrays, or the unified catalog-all.json with a collection tag on each row. Each published row includes slug, title, status, and html/pdf/md paths.",
       "tags": [
         "catalog",
         "studies",
@@ -46,7 +67,27 @@
       ],
       "examples": [
         "List released topical studies.",
-        "GET https://analyticmadhyasthdarshan.org/Studies/catalog-topical.json"
+        "GET https://analyticmadhyasthdarshan.org/Studies/catalog-all.json"
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json"
+      ]
+    },
+    {
+      "id": "search-studies",
+      "name": "Search studies",
+      "description": "Filter catalog rows by title, slug, description, or category. Same matching as WebMCP search_studies.",
+      "tags": [
+        "catalog",
+        "search",
+        "studies"
+      ],
+      "examples": [
+        "Find studies about jeevan.",
+        "GET https://analyticmadhyasthdarshan.org/api/studies?q=jeevan"
       ],
       "inputModes": [
         "text/plain"
@@ -58,19 +99,20 @@
     {
       "id": "read-study",
       "name": "Read a study",
-      "description": "Fetch a published study as HTML or PDF from the path in the catalog row. Reading needs no credential.",
+      "description": "Fetch a published study as Markdown (source of truth), HTML, or PDF from the path in the catalog row. Reading needs no credential.",
       "tags": [
         "studies",
         "read"
       ],
       "examples": [
         "Read The Ontology of Coexistence.",
-        "GET https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html"
+        "GET https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.md"
       ],
       "inputModes": [
         "text/plain"
       ],
       "outputModes": [
+        "text/markdown",
         "text/html",
         "application/pdf"
       ]
@@ -78,14 +120,14 @@
     {
       "id": "discover-apis",
       "name": "Discover site APIs",
-      "description": "Return the RFC 9727 API catalog linkset that points at the studies JSON, OpenAPI for submissions and discussions, and human docs.",
+      "description": "Return the RFC 9727 API catalog linkset that points at the studies JSON, OpenAPI for catalog reads, submissions, and discussions, and human docs.",
       "tags": [
         "discovery",
         "openapi",
         "rfc9727"
       ],
       "examples": [
-        "Where is the submissions OpenAPI?",
+        "Where is the studies OpenAPI?",
         "GET https://analyticmadhyasthdarshan.org/.well-known/api-catalog"
       ],
       "inputModes": [

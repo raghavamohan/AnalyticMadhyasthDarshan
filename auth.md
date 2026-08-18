@@ -25,8 +25,17 @@ https://analyticmadhyasthdarshan.org/.well-known/agent-skills/index.json
 The MCP Server Card is at
 https://analyticmadhyasthdarshan.org/.well-known/mcp/server-card.json
 ([SEP-1649](https://github.com/modelcontextprotocol/modelcontextprotocol/issues/1649)).
-It advertises Streamable HTTP at `/mcp`. This site publishes the discovery
-card; it does not yet run an MCP session runtime.
+It advertises Streamable HTTP at `/mcp`. `POST /mcp` exposes read-only catalog
+tools (`search_studies`, `list_studies`, `get_study`) and resources
+(`studies://catalog-all`, `studies://glossary`, `studies://feed`). There are
+no write tools.
+
+The shared glossary is at
+https://analyticmadhyasthdarshan.org/Studies/glossary.json
+The unified catalog is at
+https://analyticmadhyasthdarshan.org/Studies/catalog-all.json
+Catalog search is `GET https://analyticmadhyasthdarshan.org/api/studies`
+(query parameters `q`, `collection`, `status`, `slug`).
 
 The Web Bot Auth directory is at
 https://analyticmadhyasthdarshan.org/.well-known/http-message-signatures-directory
@@ -49,8 +58,9 @@ and `_a2a._agents.analyticmadhyasthdarshan.org` for the Agent Card endpoint.
 ## Audience
 
 **Readers and agents fetching studies do not register.** The studies catalog
-JSON, HTML, and PDFs are public. Start at
-[Studies/index.html](Studies/index.html) or
+JSON, HTML, Markdown, and PDFs are public. Start at
+[Studies/index.html](Studies/index.html),
+[Studies/catalog-all.json](Studies/catalog-all.json), or
 [Studies/catalog-topical.json](Studies/catalog-topical.json).
 
 **Write APIs are for humans.** This site does not mint OAuth access tokens for

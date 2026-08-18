@@ -122,6 +122,7 @@
               copy.collection = source.collection;
               copy.htmlUrl = absoluteFromStudies(row.html);
               copy.pdfUrl = absoluteFromStudies(row.pdf);
+              copy.mdUrl = absoluteFromStudies(row.md);
               return copy;
             });
           })
@@ -140,7 +141,7 @@
       name: "search_studies",
       description:
         "Search Analytic Madhyasth Darshan studies by title, slug, description, or category. " +
-        "Returns matching catalog rows with HTML and PDF URLs. On the studies catalog page, also applies the search box.",
+        "Returns matching catalog rows with HTML, PDF, and Markdown URLs. On the studies catalog page, also applies the search box.",
       inputSchema: {
         type: "object",
         properties: {
@@ -227,6 +228,7 @@
                 category: row.category,
                 htmlUrl: row.htmlUrl,
                 pdfUrl: row.pdfUrl,
+                mdUrl: row.mdUrl,
               };
             }),
           });
@@ -238,7 +240,7 @@
       name: "get_study",
       description:
         "Retrieve one study from the public catalogs by slug, including title, status, " +
-        "description, and absolute HTML/PDF URLs when a document exists.",
+        "description, and absolute HTML/PDF/Markdown URLs when a document exists.",
       inputSchema: {
         type: "object",
         properties: {
@@ -281,7 +283,7 @@
           },
           format: {
             type: "string",
-            enum: ["html", "pdf"],
+            enum: ["html", "pdf", "md"],
             description: "Document to open. Defaults to html.",
           },
         },
@@ -299,7 +301,8 @@
           if (!study) {
             return textResult({ error: "study not found", slug: slug });
           }
-          var href = format === "pdf" ? study.pdfUrl : study.htmlUrl;
+          var href =
+            format === "pdf" ? study.pdfUrl : format === "md" ? study.mdUrl : study.htmlUrl;
           if (!href) {
             return textResult({
               error: "no " + format + " document for this study",

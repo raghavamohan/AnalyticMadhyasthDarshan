@@ -108,6 +108,11 @@ def study_html_href(slug: str) -> str:
     return f"{slug}/{slug}.html"
 
 
+def study_md_href(slug: str) -> str:
+    """Relative href from Studies/index.html to a study markdown source."""
+    return f"{slug}/{slug}.md"
+
+
 def study_discussion_href(slug: str) -> str:
     """Relative href from Studies/index.html to a study discussion page."""
     return f"{slug}/discussion.html"
@@ -121,6 +126,11 @@ def application_pdf_href(slug: str) -> str:
 def application_html_href(slug: str) -> str:
     """Relative href from Studies/index.html to an applied study HTML page."""
     return f"../Applications/{slug}/{slug}.html"
+
+
+def application_md_href(slug: str) -> str:
+    """Relative href from Studies/index.html to an applied study markdown source."""
+    return f"../Applications/{slug}/{slug}.md"
 
 
 def application_discussion_href(slug: str) -> str:
