@@ -78,13 +78,17 @@ WEBMCP_SKIP_EXPRESSION = (
     'http.request.uri.path eq "/api-docs.html" or '
     'http.request.uri.path eq "/mcp" or '
     'http.request.uri.path eq "/mcp/" or '
-    'http.request.uri.path eq "/api/studies" or '
+    'starts_with(http.request.uri.path, "/api/studies") or '
+    'starts_with(http.request.uri.path, "/api/glossary") or '
+    'http.request.uri.path eq "/api/start-here" or '
+    'starts_with(http.request.uri.path, "/api/cite") or '
     'http.request.uri.path eq "/Studies/catalog-topical.json" or '
     'http.request.uri.path eq "/Studies/catalog-formal.json" or '
     'http.request.uri.path eq "/Studies/catalog-applied.json" or '
     'http.request.uri.path eq "/Studies/catalog-all.json" or '
     'http.request.uri.path eq "/Studies/feed.json" or '
-    'http.request.uri.path eq "/Studies/glossary.json"))'
+    'http.request.uri.path eq "/Studies/glossary.json" or '
+    'http.request.uri.path eq "/Studies/start-here.json"))'
 )
 PROBE_BLOCK_EXPRESSION = (
     f'(http.host in {{"{SITE_HOST}" "{API_HOST}"}}) '
@@ -104,7 +108,9 @@ AGENT_CARD_HEADERS_EXPRESSION = (
     f'(http.host eq "{SITE_HOST}" and http.request.uri.path eq "/.well-known/agent-card.json")'
 )
 AGENT_SKILLS_INDEX_HEADERS_EXPRESSION = (
-    f'(http.host eq "{SITE_HOST}" and http.request.uri.path eq "/.well-known/agent-skills/index.json")'
+    f'(http.host eq "{SITE_HOST}" and ('
+    'http.request.uri.path eq "/.well-known/agent-skills/index.json" or '
+    'http.request.uri.path eq "/.well-known/agent-skills/index-maintainer.json"))'
 )
 AGENT_SKILLS_MD_HEADERS_EXPRESSION = (
     f'(http.host eq "{SITE_HOST}" and starts_with(http.request.uri.path, "/.well-known/agent-skills/") '
@@ -173,6 +179,8 @@ HOMEPAGE_LINK = (
     '</llms.txt>; rel="describedby"; type="text/plain", '
     '</mcp>; rel="describedby"; type="application/json", '
     '</api/studies>; rel="describedby"; type="application/json", '
+    '</api/glossary>; rel="describedby"; type="application/json", '
+    '</api/start-here>; rel="describedby"; type="application/json", '
     '</openapi/submissions.json>; rel="service-desc"; type="application/json", '
     '</openapi/discussions.json>; rel="service-desc"; type="application/json", '
     '</openapi/studies.json>; rel="service-desc"; type="application/json", '
@@ -204,6 +212,9 @@ DISCOVERY_WORKER_ROUTES = (
     (f"{SITE_HOST}/.well-known/mcp/*", "amd-mcp"),
     (f"{SITE_HOST}/mcp*", "amd-mcp"),
     (f"{SITE_HOST}/api/studies*", "amd-mcp"),
+    (f"{SITE_HOST}/api/glossary*", "amd-mcp"),
+    (f"{SITE_HOST}/api/start-here*", "amd-mcp"),
+    (f"{SITE_HOST}/api/cite*", "amd-mcp"),
     (f"{SITE_HOST}/.well-known/http-message-signatures-directory", "amd-web-bot-auth"),
 )
 WORKER_DEV_REDIRECT_REFS = (
@@ -546,8 +557,9 @@ def webmcp_skip_rule_body() -> dict:
         "expression": WEBMCP_SKIP_EXPRESSION,
         "description": (
             "Skip Super Bot Fight Mode for WebMCP catalog pages, MCP Streamable "
-            "HTTP at /mcp, and GET /api/studies so agent scanners can call the "
-            "read tools without a managed challenge."
+            "HTTP at /mcp, and GET /api/studies, /api/glossary, /api/start-here, "
+            "and /api/cite so agent scanners can call the read tools without a "
+            "managed challenge."
         ),
         "action": "skip",
         "enabled": True,

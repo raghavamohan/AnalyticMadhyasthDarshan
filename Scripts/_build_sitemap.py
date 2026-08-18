@@ -34,6 +34,7 @@ DISCOVERY_PAGES = (
     ".well-known/api-catalog",
     ".well-known/agent-card.json",
     ".well-known/agent-skills/index.json",
+    ".well-known/agent-skills/index-maintainer.json",
     ".well-known/mcp/server-card.json",
     ".well-known/http-message-signatures-directory",
     "webmcp.js",
@@ -42,6 +43,7 @@ DISCOVERY_PAGES = (
     "Studies/catalog-all.json",
     "Studies/feed.json",
     "Studies/glossary.json",
+    "Studies/start-here.json",
 )
 
 # Published companion pages that intentionally remain outside the study catalog.

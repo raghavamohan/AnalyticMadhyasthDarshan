@@ -589,8 +589,10 @@ def serialize_studies_feed_text(entries: list[dict] | None = None) -> str:
 
 
 def _llms_study_url(entry: dict) -> str:
-    return _absolute_from_studies(entry.get("html")) or (
-        f"{site_base_url().rstrip('/')}/Studies/{entry['slug']}/{entry['slug']}.html"
+    return _absolute_from_studies(entry.get("md")) or _absolute_from_studies(
+        entry.get("html")
+    ) or (
+        f"{site_base_url().rstrip('/')}/Studies/{entry['slug']}/{entry['slug']}.md"
     )
 
 
@@ -632,7 +634,7 @@ def serialize_llms_txt(entries: list[dict] | None = None) -> str:
             "",
             "## Optional",
             "",
-            f"- [Full text index]({origin}/llms-full.txt): the same list with markdown source links",
+            f"- [Full text index]({origin}/llms-full.txt): the same list with HTML, markdown, and PDF links",
             f"- [OpenAPI for catalog reads]({origin}/openapi/studies.json)",
             f"- [Agent skills]({origin}/.well-known/agent-skills/index.json)",
             "",

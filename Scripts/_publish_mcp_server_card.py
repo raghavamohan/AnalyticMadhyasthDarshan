@@ -22,6 +22,7 @@ WORKER_ROUTE = f"{cf.SITE_HOST}/.well-known/mcp/*"
 WORKER_SRC = cf.BASE / "infra" / "mcp-worker" / "src" / "index.js"
 RUNTIME_SRC = cf.BASE / "infra" / "mcp-worker" / "src" / "runtime.js"
 CARD_PATH = cf.BASE / ".well-known" / "mcp" / "server-card.json"
+START_HERE_PATH = cf.BASE / "Studies" / "start-here.json"
 COMPATIBILITY_DATE = "2024-03-01"
 
 
@@ -30,11 +31,15 @@ def worker_js(card: dict) -> str:
     etag = hashlib.sha256(body.encode("utf-8")).hexdigest()[:16]
     if not RUNTIME_SRC.is_file():
         raise FileNotFoundError(RUNTIME_SRC)
+    if not START_HERE_PATH.is_file():
+        raise FileNotFoundError(START_HERE_PATH)
     runtime = RUNTIME_SRC.read_text(encoding="utf-8").replace("\r\n", "\n")
+    start_here = json.loads(START_HERE_PATH.read_text(encoding="utf-8"))
     preamble = (
         f"const CARD = {json.dumps(card, ensure_ascii=False)};\n"
         f"const CARD_BODY = {json.dumps(body)};\n"
         f"const CARD_ETAG = {json.dumps(etag)};\n"
+        f"const START_HERE = {json.dumps(start_here, ensure_ascii=False)};\n"
     )
     return preamble + runtime
 

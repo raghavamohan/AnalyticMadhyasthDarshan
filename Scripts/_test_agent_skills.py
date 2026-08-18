@@ -21,9 +21,13 @@ sys.path.insert(0, str(SCRIPTS))
 from _build_agent_skills_index import (
     INDEX_PATH,
     INDEX_SITE_PATH,
+    MAINTAINER_INDEX_PATH,
+    MAINTAINER_INDEX_SITE_PATH,
     NAME_RE,
     PUBLISH_ROOT,
+    READER_SKILLS_SOURCE,
     SCHEMA_URI,
+    SKILLS_SOURCE,
     check_publish_files,
     expected_publish_files,
     sha256_digest,
@@ -41,13 +45,27 @@ def fail(message: str) -> None:
     raise SystemExit(1)
 
 
-def load_index() -> dict:
-    if not INDEX_PATH.is_file():
-        fail("missing .well-known/agent-skills/index.json")
-    data = json.loads(INDEX_PATH.read_text(encoding="utf-8"))
+def skill_names_from_source(source: Path) -> set[str]:
+    names: set[str] = set()
+    if not source.is_dir():
+        return names
+    for skill_dir in source.iterdir():
+        if skill_dir.is_dir() and (skill_dir / "SKILL.md").is_file():
+            names.add(skill_dir.name)
+    return names
+
+
+def load_index_file(path: Path) -> dict:
+    if not path.is_file():
+        fail(f"missing {path}")
+    data = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(data, dict):
-        fail("index.json must be a JSON object")
+        fail(f"{path.name} must be a JSON object")
     return data
+
+
+def load_index() -> dict:
+    return load_index_file(INDEX_PATH)
 
 
 def artifact_path(url: str) -> Path | None:
@@ -101,6 +119,32 @@ def check_index(index: dict) -> None:
     if names != sorted(names):
         fail("skills array must be sorted by name")
     print("OK: Agent Skills Discovery index has $schema, skills, urls, and digests.")
+
+
+def check_audience_split() -> None:
+    public = load_index_file(INDEX_PATH)
+    maintainer = load_index_file(MAINTAINER_INDEX_PATH)
+    check_index(public)
+    check_index(maintainer)
+    public_names = {skill["name"] for skill in public["skills"]}
+    maintainer_names = {skill["name"] for skill in maintainer["skills"]}
+    expected_public = skill_names_from_source(READER_SKILLS_SOURCE)
+    expected_maintainer = skill_names_from_source(SKILLS_SOURCE)
+    if public_names != expected_public:
+        fail(f"public index skills are {sorted(public_names)}, expected {sorted(expected_public)}")
+    if maintainer_names != expected_maintainer:
+        fail(
+            f"maintainer index skills are {sorted(maintainer_names)}, "
+            f"expected {sorted(expected_maintainer)}"
+        )
+    overlap = public_names & maintainer_names
+    if overlap:
+        fail(f"public and maintainer indexes overlap: {sorted(overlap)}")
+    if "add-study" in public_names:
+        fail("public index must not list maintainer skills such as add-study")
+    if "start-here" not in public_names:
+        fail("public index must list start-here")
+    print("OK: public index is reader skills; maintainer index is repo skills.")
 
 
 def check_published_copies() -> None:
@@ -160,11 +204,26 @@ def check_live() -> None:
         if digest != skill["digest"]:
             fail(f"live digest mismatch for skill {skill['name']!r}")
     print("OK: live skill artifacts match advertised digests.")
+    maintainer_url = f"{SITE}{MAINTAINER_INDEX_SITE_PATH}"
+    status, content_type, body = fetch(maintainer_url, "application/json")
+    if status != 200:
+        fail(f"live maintainer skills index returned HTTP {status}")
+    if "json" not in content_type.lower():
+        fail(f"live maintainer skills index Content-Type is {content_type!r}")
+    maintainer = json.loads(body.decode("utf-8"))
+    check_index(maintainer)
+    maintainer_names = {skill["name"] for skill in maintainer["skills"]}
+    public_names = {skill["name"] for skill in payload["skills"]}
+    if "add-study" in public_names:
+        fail("live public index lists add-study")
+    if "add-study" not in maintainer_names:
+        fail("live maintainer index is missing add-study")
+    print("OK: live public index is reader-only; maintainer index is separate.")
 
 
 def main() -> None:
     check_published_copies()
-    check_index(load_index())
+    check_audience_split()
     check_homepage_link()
     if "--live" in sys.argv:
         check_live()

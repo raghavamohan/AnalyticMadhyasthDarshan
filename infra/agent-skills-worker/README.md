@@ -4,8 +4,10 @@ Serves [Agent Skills Discovery](https://github.com/cloudflare/agent-skills-disco
 v0.2.0 for `https://analyticmadhyasthdarshan.org/.well-known/agent-skills/*`.
 
 Canonical files stay in [`.well-known/agent-skills/`](../../.well-known/agent-skills/).
-The Worker embeds those files so the index and `SKILL.md` artifacts return HTTP 200
-with `application/json` / `text/markdown`.
+The Worker embeds those files so the public index, the maintainer index, and
+`SKILL.md` artifacts return HTTP 200 with `application/json` / `text/markdown`.
+Crawlers should load `index.json` (reader skills only). Clone-based agents can
+load `index-maintainer.json` for repo lifecycle skills.
 
 Production attaches the zone Workers Route
 `analyticmadhyasthdarshan.org/.well-known/agent-skills/*` → `amd-agent-skills`.
