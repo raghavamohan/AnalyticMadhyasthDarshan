@@ -13,7 +13,7 @@ Maintained by **[AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/A
 | Resource | What you will find |
 |----------|-------------------|
 | **[Studies catalog](Studies/index.html)** | Published papers (PDF): topical, formal, and applied studies, plus topics in progress |
-| **[Site APIs](api-docs.html)** | Studies catalog JSON for agents, plus submission and discussion APIs ([RFC 9727](https://www.rfc-editor.org/rfc/rfc9727)). Identity: [`/auth.md`](auth.md). A2A: [`/.well-known/agent-card.json`](.well-known/agent-card.json). Skills: [`/.well-known/agent-skills/index.json`](.well-known/agent-skills/index.json) |
+| **[Site APIs](api-docs.html)** | Studies catalog JSON for agents, plus submission and discussion APIs ([RFC 9727](https://www.rfc-editor.org/rfc/rfc9727)). Identity: [`/auth.md`](auth.md). A2A: [`/.well-known/agent-card.json`](.well-known/agent-card.json). Skills: [`/.well-known/agent-skills/index.json`](.well-known/agent-skills/index.json). MCP: [`/.well-known/mcp/server-card.json`](.well-known/mcp/server-card.json) |
 | **[My Submissions](Studies/submit.html)** | Web Submission Portal — sign in with GitHub to propose, submit, update, and track studies (reading the catalog needs no account) |
 | **[About the studies](Studies/README.md)** | Our approach, objectives, and how to read the collection |
 | **[Official source materials](https://www.madhyasth.org/)** | Primary texts and institutional resources from **Divya Path Sansthan** — the authoritative source for Madhyasth Darshan |
@@ -36,7 +36,8 @@ Applications/     Applied studies — concrete instantiations of formal template
 References/       Local copies of cited sources; citation audit (MANIFEST.md)
 Scripts/          Tools to add, remove, convert, verify, and publish studies
 infra/            Cloudflare Workers (submissions portal, per-study discussions,
-                  RFC 9727 API catalog, Google Search Console verification),
+                  RFC 9727 API catalog, A2A Agent Card, Agent Skills, MCP Server Card,
+                  Google Search Console verification),
                   performance baselines (cloudflare-rum-baseline.json), audit notes
 AGENTS.md         Standing rules for agents and local maintainers (§1–§8)
 .github/          CI workflows and study pull request templates

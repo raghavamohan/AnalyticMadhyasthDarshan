@@ -30,6 +30,10 @@
         {
           "href": "https://analyticmadhyasthdarshan.org/.well-known/agent-skills/index.json",
           "type": "application/json"
+        },
+        {
+          "href": "https://analyticmadhyasthdarshan.org/.well-known/mcp/server-card.json",
+          "type": "application/json"
         }
       ]
     },
