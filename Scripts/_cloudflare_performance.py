@@ -35,6 +35,7 @@ RESPONSE_HEADERS_PHASE = "http_response_headers_transform"
 NOTIFY_SKIP_REF = "amd_skip_sbfm_portal_notify"
 PROBE_BLOCK_REF = "amd_block_common_probes"
 SECURITY_HEADERS_REF = "amd_security_headers_static"
+HOMEPAGE_LINK_HEADERS_REF = "amd_homepage_link_headers"
 API_CATALOG_HEADERS_REF = "amd_api_catalog_content_type"
 EDGE_API_RATE_LIMIT_REF = "amd_rl_edge_api"
 WAF_CUSTOM_MANAGED_REFS = (PROBE_BLOCK_REF, NOTIFY_SKIP_REF)
@@ -67,12 +68,36 @@ SECURITY_HEADERS_EXPRESSION = (
 API_CATALOG_HEADERS_EXPRESSION = (
     f'(http.host eq "{SITE_HOST}" and http.request.uri.path eq "/.well-known/api-catalog")'
 )
+HOMEPAGE_LINK_HEADERS_EXPRESSION = (
+    f'(http.host eq "{SITE_HOST}" and ('
+    'http.request.uri.path eq "/" or '
+    'http.request.uri.path eq "/index.html" or '
+    'http.request.uri.path eq "/Studies" or '
+    'http.request.uri.path eq "/Studies/" or '
+    'http.request.uri.path eq "/Studies/index.html"))'
+)
 API_CATALOG_CONTENT_TYPE = (
     'application/linkset+json; profile="https://www.rfc-editor.org/rfc/rfc9727"'
 )
 API_CATALOG_LINK = (
     '</.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"'
 )
+# RFC 8288 + RFC 9727 §3: advertise machine-readable surfaces on the homepage.
+# Comma-separated values in one Link header are valid (so is multiple Link headers).
+HOMEPAGE_LINK = (
+    '</.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json", '
+    '</Studies/catalog-topical.json>; rel="describedby"; type="application/json", '
+    '</openapi/submissions.json>; rel="service-desc"; type="application/json", '
+    '</openapi/discussions.json>; rel="service-desc"; type="application/json", '
+    '</api-docs.html>; rel="service-doc"; type="text/html"'
+)
+HOMEPAGE_LINK_REQUIRED_RELS = (
+    "api-catalog",
+    "describedby",
+    "service-desc",
+    "service-doc",
+)
+HOMEPAGE_LINK_URLS = (ROOT_URL, CATALOG_URL)
 ROOT_REDIRECT_REF = "analyticmadhyasth_root_to_catalog"
 CACHE_RULE_REFS = (
     "amd_cache_pdfs",
@@ -807,6 +832,31 @@ def api_catalog_headers_rule_body() -> dict:
     }
 
 
+def homepage_link_headers_rule_body() -> dict:
+    return {
+        "ref": HOMEPAGE_LINK_HEADERS_REF,
+        "expression": HOMEPAGE_LINK_HEADERS_EXPRESSION,
+        "description": "RFC 8288 Link headers on the homepage for agent discovery.",
+        "action": "rewrite",
+        "enabled": True,
+        "action_parameters": {
+            "headers": {
+                "Link": _header_set(HOMEPAGE_LINK),
+            },
+        },
+    }
+
+
+def managed_response_header_rules() -> list[dict]:
+    # Catalog rule last so its Link header wins on /.well-known/api-catalog
+    # if expressions ever overlap.
+    return [
+        security_headers_rule_body(),
+        homepage_link_headers_rule_body(),
+        api_catalog_headers_rule_body(),
+    ]
+
+
 def _header_rule_is_correct(rule: dict, expected: dict) -> bool:
     if rule.get("action") != expected.get("action"):
         return False
@@ -829,6 +879,10 @@ def _security_headers_rule_is_correct(rule: dict) -> bool:
 
 def _api_catalog_headers_rule_is_correct(rule: dict) -> bool:
     return _header_rule_is_correct(rule, api_catalog_headers_rule_body())
+
+
+def _homepage_link_headers_rule_is_correct(rule: dict) -> bool:
+    return _header_rule_is_correct(rule, homepage_link_headers_rule_body())
 
 
 def get_response_headers_entrypoint_ruleset(token: str, zone_id: str) -> dict | None:
@@ -909,7 +963,7 @@ def apply_security_headers(token: str, zone_id: str | None) -> None:
     _upsert_response_header_rules(
         token,
         zone,
-        [security_headers_rule_body(), api_catalog_headers_rule_body()],
+        managed_response_header_rules(),
     )
 
 
@@ -924,6 +978,7 @@ def check_security_headers(token: str, zone_id: str | None) -> tuple[bool, list[
     issues: list[str] = []
     for expected, correct in (
         (security_headers_rule_body(), _security_headers_rule_is_correct),
+        (homepage_link_headers_rule_body(), _homepage_link_headers_rule_is_correct),
         (api_catalog_headers_rule_body(), _api_catalog_headers_rule_is_correct),
     ):
         ref = expected["ref"]
@@ -947,7 +1002,10 @@ def print_check_security_headers(token: str, zone_id: str | None) -> bool:
         print(f"  ERROR: {exc}")
         return False
     if ok:
-        print("  OK: static-site security headers, CSP report-only, RFC 9727 catalog Content-Type.")
+        print(
+            "  OK: static-site security headers, homepage RFC 8288 Link, "
+            "RFC 9727 catalog Content-Type."
+        )
         return True
     for issue in issues:
         print(f"  {issue}")
@@ -1379,16 +1437,24 @@ def apply_root_redirect(token: str, zone_id: str | None) -> None:
 
 
 def _header_lookup(headers: Mapping[str, str], name: str) -> str:
+    getter = getattr(headers, "get", None)
+    if callable(getter):
+        value = getter(name)
+        if value:
+            return value
     for key, value in headers.items():
         if key.lower() == name.lower():
             return value
     return ""
 
 
-def _fetch_root_without_redirect(url: str) -> tuple[int, Mapping[str, str]]:
+def _fetch_root_without_redirect(
+    url: str,
+    methods: tuple[str, ...] = ("HEAD", "GET"),
+) -> tuple[int, Mapping[str, str]]:
     opener = urllib.request.build_opener(_NoRedirectHandler())
     headers = {"User-Agent": VERIFY_USER_AGENT}
-    for method in ("HEAD", "GET"):
+    for method in methods:
         req = urllib.request.Request(url, method=method, headers=headers)
         try:
             with opener.open(req, timeout=30) as resp:
@@ -1407,6 +1473,42 @@ def _location_targets_catalog(location: str) -> bool:
         return False
     lower = location.lower()
     return "studies/index.html" in lower
+
+
+def _missing_link_rels(link_header: str) -> list[str]:
+    return [rel for rel in HOMEPAGE_LINK_REQUIRED_RELS if f'rel="{rel}"' not in link_header]
+
+
+def verify_homepage_link_headers() -> tuple[bool, list[str]]:
+    """Check that homepage responses advertise RFC 8288 / RFC 9727 Link relations."""
+    issues: list[str] = []
+    for url in HOMEPAGE_LINK_URLS:
+        try:
+            status, headers = _fetch_root_without_redirect(url, methods=("GET", "HEAD"))
+        except RuntimeError as exc:
+            issues.append(f"{url}: {exc}")
+            continue
+        link = _header_lookup(headers, "Link")
+        missing = _missing_link_rels(link)
+        if missing:
+            issues.append(
+                f"{url} HTTP {status} is missing Link rels {missing}; Link={link!r}"
+            )
+    return not issues, issues
+
+
+def print_verify_homepage_link_headers() -> bool:
+    print("Homepage Link header check:")
+    ok, issues = verify_homepage_link_headers()
+    if ok:
+        print(
+            "  OK: homepage advertises api-catalog, describedby, service-desc, "
+            "and service-doc."
+        )
+        return True
+    for issue in issues:
+        print(f"  {issue}")
+    return False
 
 
 def verify_root_redirect() -> tuple[bool, str]:
@@ -1566,7 +1668,10 @@ def main() -> int:
     parser.add_argument(
         "--apply-security-headers",
         action="store_true",
-        help="Add response security headers (CSP report-only) and RFC 9727 api-catalog Content-Type.",
+        help=(
+            "Add response security headers (CSP report-only), homepage RFC 8288 "
+            "Link headers, and RFC 9727 api-catalog Content-Type."
+        ),
     )
     parser.add_argument(
         "--apply-waf-probe-block",
@@ -1849,6 +1954,8 @@ def main() -> int:
         verify_ok = print_verify_root_redirect()
         if token and (args.apply_cache_rules or args.apply_api):
             verify_ok = print_check_cache_rules(token, zone_id) and verify_ok
+        if args.apply_security_headers or args.apply_edge_security:
+            verify_ok = print_verify_homepage_link_headers() and verify_ok
         if args.apply_edge_security:
             verify_ok = print_check_edge_security(token, zone_id) and verify_ok
         elif args.apply_portal_edge_security:
