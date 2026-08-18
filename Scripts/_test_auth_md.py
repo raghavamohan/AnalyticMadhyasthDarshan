@@ -60,7 +60,11 @@ def check_auth_md() -> str:
         "https://analyticmadhyasthdarshan.org/Studies/glossary.json",
         "https://analyticmadhyasthdarshan.org/Studies/catalog-all.json",
         "https://analyticmadhyasthdarshan.org/api/studies",
+        "https://analyticmadhyasthdarshan.org/api/start-here",
+        "https://analyticmadhyasthdarshan.org/api/cite/{slug}",
+        "https://analyticmadhyasthdarshan.org/.well-known/agent-skills/index-maintainer.json",
         "/mcp",
+        "get_cite",
         "_index._agents.analyticmadhyasthdarshan.org",
         "_a2a._agents.analyticmadhyasthdarshan.org",
     ):
@@ -151,6 +155,14 @@ def check_live() -> None:
         fail(f"live /auth.md Content-Type is {content_type!r}")
     if "auth.md" not in body.splitlines()[0].lower():
         fail("live /auth.md heading does not contain auth.md")
+    for needle in (
+        "/api/start-here",
+        "/api/cite/{slug}",
+        "index-maintainer.json",
+        "get_cite",
+    ):
+        if needle not in body:
+            fail(f"live /auth.md is stale; missing {needle!r}")
 
     status, content_type, body = fetch(f"{SITE}/.well-known/oauth-protected-resource")
     if status != 200:

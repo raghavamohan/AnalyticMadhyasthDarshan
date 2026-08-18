@@ -48,7 +48,7 @@ what to run **on that branch** before opening the PR.
 | Verify studies index | `python Scripts/_verify_studies_index.py` |
 | Rebuild index.html shell | `python Scripts/_build_studies_index.py` |
 | Cloudflare performance setup | `python Scripts/_cloudflare_performance.py` (`--apply-redirect`, `--apply-api`, `--apply-edge-security`, `--check-edge-security`; token in `.env`) |
-| Auth.md / OAuth discovery | `python Scripts/_test_auth_md.py` (`--live`); `python Scripts/_publish_auth_md_snippet.py` |
+| Auth.md / OAuth discovery | `python Scripts/_test_auth_md.py` (`--live`); `python Scripts/_publish_auth_md_snippet.py` (Worker `amd-auth-md`) |
 | RFC 9727 api-catalog | `python Scripts/_test_api_catalog.py` (`--live`); `python Scripts/_publish_api_catalog_snippet.py` |
 | A2A Agent Card | `python Scripts/_test_agent_card.py` (`--live`); `python Scripts/_publish_agent_card_snippet.py` |
 | Agent Skills Discovery | `python Scripts/_build_agent_skills_index.py` (`--check`); `python Scripts/_test_agent_skills.py` (`--live`); `python Scripts/_publish_agent_skills_snippet.py` |

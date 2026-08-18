@@ -200,6 +200,8 @@ API_CATALOG_REDIRECT_REF = "amd_api_catalog_redirect"
 API_CATALOG_WORKER_HOST = "amd-api-catalog.raghavamohan.workers.dev"
 AGENT_CARD_REDIRECT_REF = "amd_agent_card_redirect"
 AGENT_CARD_WORKER_HOST = "amd-agent-card.raghavamohan.workers.dev"
+AUTH_MD_REDIRECT_REF = "amd_auth_md_redirect"
+AUTH_MD_WORKER_HOST = "amd-auth-md.raghavamohan.workers.dev"
 MCP_SERVER_CARD_REDIRECT_REF = "amd_mcp_server_card_redirect"
 MCP_RUNTIME_REDIRECT_REF = "amd_mcp_runtime_redirect"
 MCP_SERVER_CARD_WORKER_HOST = "amd-mcp.raghavamohan.workers.dev"
@@ -216,6 +218,11 @@ DISCOVERY_WORKER_ROUTES = (
     (f"{SITE_HOST}/api/start-here*", "amd-mcp"),
     (f"{SITE_HOST}/api/cite*", "amd-mcp"),
     (f"{SITE_HOST}/.well-known/http-message-signatures-directory", "amd-web-bot-auth"),
+    (f"{SITE_HOST}/auth.md*", "amd-auth-md"),
+    (f"{SITE_HOST}/.well-known/oauth-protected-resource*", "amd-auth-md"),
+    (f"{SITE_HOST}/.well-known/oauth-authorization-server*", "amd-auth-md"),
+    (f"{SITE_HOST}/agent/auth*", "amd-auth-md"),
+    (f"{SITE_HOST}/oauth2/token", "amd-auth-md"),
 )
 WORKER_DEV_REDIRECT_REFS = (
     AGENT_SKILLS_REDIRECT_REF,
@@ -223,6 +230,7 @@ WORKER_DEV_REDIRECT_REFS = (
     MCP_RUNTIME_REDIRECT_REF,
     API_CATALOG_REDIRECT_REF,
     AGENT_CARD_REDIRECT_REF,
+    AUTH_MD_REDIRECT_REF,
     WEB_BOT_AUTH_REDIRECT_REF,
 )
 # Leftover Snippets return HTTP 200 before Workers Routes. Unbind these
@@ -234,9 +242,10 @@ STALE_DISCOVERY_SNIPPETS = (
     "amd_mcp",
     "amd_mcp_server_card",
     "amd_web_bot_auth",
+    "amd_auth_md",
 )
 SNIPPET_GUARDED_REDIRECT_REFS = frozenset(
-    {API_CATALOG_REDIRECT_REF, AGENT_CARD_REDIRECT_REF}
+    {API_CATALOG_REDIRECT_REF, AGENT_CARD_REDIRECT_REF, AUTH_MD_REDIRECT_REF}
 )
 CACHE_RULE_REFS = (
     "amd_cache_pdfs",
@@ -504,10 +513,16 @@ def serve_discovery_from_workers(token: str, zone_id: str | None) -> None:
     snippets_cleared = unbind_stale_discovery_snippets(token, zone_id)
     drop = list(WORKER_DEV_REDIRECT_REFS)
     if not snippets_cleared:
+        for body in (
+            api_catalog_redirect_rule_body(),
+            agent_card_redirect_rule_body(),
+            auth_md_redirect_rule_body(),
+        ):
+            ensure_redirect_rule(token, zone_id, body)
         drop = [ref for ref in drop if ref not in SNIPPET_GUARDED_REDIRECT_REFS]
         print(
-            "Keeping api-catalog and Agent Card 302s until leftover Snippets "
-            "can be unbound (Snippets Edit)."
+            "Keeping api-catalog, Agent Card, and Auth.md 302s until leftover "
+            "Snippets can be unbound (Snippets Edit)."
         )
     remove_discovery_worker_redirects(token, zone_id, tuple(drop))
     purge_urls = [
@@ -519,6 +534,9 @@ def serve_discovery_from_workers(token: str, zone_id: str | None) -> None:
         f"https://{SITE_HOST}/mcp",
         f"https://{SITE_HOST}/api/studies",
         f"https://{SITE_HOST}/.well-known/http-message-signatures-directory",
+        f"https://{SITE_HOST}/auth.md",
+        f"https://{SITE_HOST}/.well-known/oauth-protected-resource",
+        f"https://{SITE_HOST}/.well-known/oauth-authorization-server",
     ]
     try:
         purge_cache_files(token, zone_id, purge_urls)
@@ -1642,6 +1660,30 @@ def agent_card_redirect_rule_body() -> dict:
     }
 
 
+def auth_md_redirect_rule_body() -> dict:
+    return {
+        "ref": AUTH_MD_REDIRECT_REF,
+        "expression": AUTH_MD_SNIPPET_EXPRESSION,
+        "description": (
+            "Serve Auth.md and OAuth discovery from the amd-auth-md Worker. "
+            "302 skips the stale Snippet this token cannot update."
+        ),
+        "action": "redirect",
+        "enabled": True,
+        "action_parameters": {
+            "from_value": {
+                "status_code": 302,
+                "preserve_query_string": True,
+                "target_url": {
+                    "expression": (
+                        f'concat("https://{AUTH_MD_WORKER_HOST}", http.request.uri.path)'
+                    )
+                },
+            }
+        },
+    }
+
+
 def mcp_runtime_redirect_rule_body() -> dict:
     return {
         "ref": MCP_RUNTIME_REDIRECT_REF,
@@ -1770,6 +1812,63 @@ def get_phase_entrypoint_ruleset(token: str, zone_id: str, phase: str) -> dict |
 
 def get_redirect_entrypoint_ruleset(token: str, zone_id: str) -> dict | None:
     return get_phase_entrypoint_ruleset(token, zone_id, REDIRECT_PHASE)
+
+
+def ensure_redirect_rule(token: str, zone_id: str | None, rule_body: dict) -> None:
+    """Insert or update one Redirect Rule by ref without dropping other rules."""
+    zone = resolve_zone_id(token, zone_id)
+    ruleset = get_redirect_entrypoint_ruleset(token, zone)
+    ref = rule_body["ref"]
+    if ruleset is None:
+        rules = [root_redirect_rule_body()]
+        if ref != ROOT_REDIRECT_REF:
+            rules.append(rule_body)
+        _api_request(
+            "POST",
+            f"/zones/{zone}/rulesets",
+            token,
+            {
+                "name": "AnalyticMadhyasthDarshan redirect rules",
+                "kind": "zone",
+                "phase": REDIRECT_PHASE,
+                "rules": rules,
+            },
+        )
+        print(f"Created redirect ruleset including {ref}.")
+        return
+
+    rules = ruleset.get("rules") or []
+    existing = next((rule for rule in rules if rule.get("ref") == ref), None)
+    if (
+        existing
+        and existing.get("enabled", True)
+        and _redirect_rule_matches(existing, rule_body)
+    ):
+        print(f"Redirect rule already configured: {ref}")
+        return
+
+    updated: list[dict] = []
+    found = False
+    for rule in rules:
+        if rule.get("ref") == ref:
+            updated.append(rule_body)
+            found = True
+        else:
+            updated.append(_sanitize_rule_for_put(rule))
+    if not found:
+        updated.append(rule_body)
+    _api_request(
+        "PUT",
+        f"/zones/{zone}/rulesets/{ruleset['id']}",
+        token,
+        {
+            "name": ruleset.get("name", "AnalyticMadhyasthDarshan redirect rules"),
+            "kind": "zone",
+            "phase": REDIRECT_PHASE,
+            "rules": updated,
+        },
+    )
+    print(f"Updated redirect rule {ref}.")
 
 
 def get_cache_entrypoint_ruleset(token: str, zone_id: str) -> dict | None:
@@ -2010,6 +2109,11 @@ def apply_api_catalog_redirect(token: str, zone_id: str | None) -> None:
 
 def apply_agent_card_redirect(token: str, zone_id: str | None) -> None:
     """Bind discovery Workers on the apex; drop workers.dev redirects."""
+    serve_discovery_from_workers(token, zone_id)
+
+
+def apply_auth_md_redirect(token: str, zone_id: str | None) -> None:
+    """Bind Auth.md Worker routes; keep a 302 while the leftover Snippet wins."""
     serve_discovery_from_workers(token, zone_id)
 
 
