@@ -45,6 +45,8 @@
   (RFC 9727) or the
   <a href="/.well-known/agent-card.json">A2A Agent Card</a>
   at <code>/.well-known/agent-card.json</code>.
+  Repo skills are listed at
+  <a href="/.well-known/agent-skills/index.json"><code>/.well-known/agent-skills/index.json</code></a>.
   The catalog linkset points at the published
   <strong>studies catalog JSON</strong> for reading papers, and at the
   submission and discussion HTTP APIs for writes. Identity discovery is at
@@ -165,6 +167,10 @@
       <td><a href="/.well-known/agent-card.json"><code>/.well-known/agent-card.json</code></a></td>
     </tr>
     <tr>
+      <td>Agent Skills Discovery</td>
+      <td><a href="/.well-known/agent-skills/index.json"><code>/.well-known/agent-skills/index.json</code></a></td>
+    </tr>
+    <tr>
       <td>Auth.md</td>
       <td><a href="/auth.md"><code>/auth.md</code></a></td>
     </tr>
@@ -189,6 +195,18 @@
   Skills cover listing and reading studies. The advertised
   <code>supportedInterfaces</code> are existing HTTP+JSON catalog URLs.
   This site does not run an A2A JSON-RPC runtime.
+</p>
+
+<h2>Agent Skills Discovery</h2>
+<p class="muted">
+  <code>GET</code> and <code>HEAD</code>
+  <a href="/.well-known/agent-skills/index.json"><code>/.well-known/agent-skills/index.json</code></a>
+  return the
+  <a href="https://github.com/cloudflare/agent-skills-discovery-rfc">Agent Skills Discovery</a>
+  index (<code>Content-Type: application/json</code>, schema
+  <code>https://schemas.agentskills.io/discovery/0.2.0/schema.json</code>).
+  Each entry is a repo skill from <code>.agents/skills/</code>, served as
+  <code>SKILL.md</code> with a SHA-256 digest.
 </p>
 
 <h2>Catalog document</h2>
