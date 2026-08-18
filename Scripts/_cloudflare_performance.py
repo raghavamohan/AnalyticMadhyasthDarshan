@@ -75,7 +75,16 @@ WEBMCP_SKIP_EXPRESSION = (
     'http.request.uri.path eq "/Studies/" or '
     'http.request.uri.path eq "/Studies/index.html" or '
     'http.request.uri.path eq "/webmcp.js" or '
-    'http.request.uri.path eq "/api-docs.html"))'
+    'http.request.uri.path eq "/api-docs.html" or '
+    'http.request.uri.path eq "/mcp" or '
+    'http.request.uri.path eq "/mcp/" or '
+    'http.request.uri.path eq "/api/studies" or '
+    'http.request.uri.path eq "/Studies/catalog-topical.json" or '
+    'http.request.uri.path eq "/Studies/catalog-formal.json" or '
+    'http.request.uri.path eq "/Studies/catalog-applied.json" or '
+    'http.request.uri.path eq "/Studies/catalog-all.json" or '
+    'http.request.uri.path eq "/Studies/feed.json" or '
+    'http.request.uri.path eq "/Studies/glossary.json"))'
 )
 PROBE_BLOCK_EXPRESSION = (
     f'(http.host in {{"{SITE_HOST}" "{API_HOST}"}}) '
@@ -158,8 +167,15 @@ HOMEPAGE_LINK = (
     '</Studies/catalog-topical.json>; rel="describedby"; type="application/json", '
     '</Studies/catalog-formal.json>; rel="describedby"; type="application/json", '
     '</Studies/catalog-applied.json>; rel="describedby"; type="application/json", '
+    '</Studies/catalog-all.json>; rel="describedby"; type="application/json", '
+    '</Studies/feed.json>; rel="describedby"; type="application/feed+json", '
+    '</Studies/glossary.json>; rel="describedby"; type="application/json", '
+    '</llms.txt>; rel="describedby"; type="text/plain", '
+    '</mcp>; rel="describedby"; type="application/json", '
+    '</api/studies>; rel="describedby"; type="application/json", '
     '</openapi/submissions.json>; rel="service-desc"; type="application/json", '
     '</openapi/discussions.json>; rel="service-desc"; type="application/json", '
+    '</openapi/studies.json>; rel="service-desc"; type="application/json", '
     '</api-docs.html>; rel="service-doc"; type="text/html"'
 )
 HOMEPAGE_LINK_REQUIRED_RELS = (
@@ -173,6 +189,7 @@ ROOT_REDIRECT_REF = "analyticmadhyasth_root_to_catalog"
 AGENT_SKILLS_REDIRECT_REF = "amd_agent_skills_redirect"
 AGENT_SKILLS_WORKER_HOST = "amd-agent-skills.raghavamohan.workers.dev"
 MCP_SERVER_CARD_REDIRECT_REF = "amd_mcp_server_card_redirect"
+MCP_RUNTIME_REDIRECT_REF = "amd_mcp_runtime_redirect"
 MCP_SERVER_CARD_WORKER_HOST = "amd-mcp.raghavamohan.workers.dev"
 WEB_BOT_AUTH_REDIRECT_REF = "amd_web_bot_auth_redirect"
 WEB_BOT_AUTH_WORKER_HOST = "amd-web-bot-auth.raghavamohan.workers.dev"
@@ -373,8 +390,9 @@ def webmcp_skip_rule_body() -> dict:
         "ref": WEBMCP_SKIP_REF,
         "expression": WEBMCP_SKIP_EXPRESSION,
         "description": (
-            "Skip Super Bot Fight Mode for WebMCP catalog pages so in-browser "
-            "agent scanners can execute navigator.modelContext.registerTool."
+            "Skip Super Bot Fight Mode for WebMCP catalog pages, MCP Streamable "
+            "HTTP at /mcp, and GET /api/studies so agent scanners can call the "
+            "read tools without a managed challenge."
         ),
         "action": "skip",
         "enabled": True,
@@ -1402,6 +1420,35 @@ def mcp_server_card_redirect_rule_body() -> dict:
     }
 
 
+def mcp_runtime_redirect_rule_body() -> dict:
+    return {
+        "ref": MCP_RUNTIME_REDIRECT_REF,
+        "expression": (
+            f'(http.host eq "{SITE_HOST}" and ('
+            'http.request.uri.path eq "/mcp" or '
+            'http.request.uri.path eq "/mcp/" or '
+            'http.request.uri.path eq "/api/studies"))'
+        ),
+        "description": (
+            "Serve MCP Streamable HTTP and GET /api/studies from the amd-mcp "
+            "Worker. 308 keeps POST bodies for JSON-RPC."
+        ),
+        "action": "redirect",
+        "enabled": True,
+        "action_parameters": {
+            "from_value": {
+                "status_code": 308,
+                "preserve_query_string": True,
+                "target_url": {
+                    "expression": (
+                        f'concat("https://{MCP_SERVER_CARD_WORKER_HOST}", http.request.uri.path)'
+                    )
+                },
+            }
+        },
+    }
+
+
 def web_bot_auth_redirect_rule_body() -> dict:
     return {
         "ref": WEB_BOT_AUTH_REDIRECT_REF,
@@ -1450,6 +1497,22 @@ def _redirect_target_url(rule: dict) -> str:
     if isinstance(target, dict):
         return str(target.get("value") or target.get("expression") or "")
     return ""
+
+
+def _redirect_rule_matches(existing: dict | None, expected: dict) -> bool:
+    if not existing:
+        return False
+    if existing.get("expression") != expected.get("expression"):
+        return False
+    existing_from = (existing.get("action_parameters") or {}).get("from_value", {})
+    expected_from = (expected.get("action_parameters") or {}).get("from_value", {})
+    if existing_from.get("status_code") != expected_from.get("status_code"):
+        return False
+    existing_target = existing_from.get("target_url") or {}
+    expected_target = expected_from.get("target_url") or {}
+    if not isinstance(existing_target, dict) or not isinstance(expected_target, dict):
+        return existing_target == expected_target
+    return existing_target.get("expression") == expected_target.get("expression")
 
 
 def _root_redirect_rule_is_correct(rule: dict) -> bool:
@@ -1551,7 +1614,10 @@ def cache_rules_spec() -> list[dict]:
                 f"({host} and ("
                 'http.request.uri.path eq "/Studies/catalog-topical.json" or '
                 'http.request.uri.path eq "/Studies/catalog-formal.json" or '
-                'http.request.uri.path eq "/Studies/catalog-applied.json"))'
+                'http.request.uri.path eq "/Studies/catalog-applied.json" or '
+                'http.request.uri.path eq "/Studies/catalog-all.json" or '
+                'http.request.uri.path eq "/Studies/feed.json" or '
+                'http.request.uri.path eq "/Studies/glossary.json"))'
             ),
             edge_ttl_seconds=SECONDS_PER_HOUR,
             browser_ttl_seconds=5 * 60,
@@ -1748,10 +1814,13 @@ def apply_agent_skills_redirect(token: str, zone_id: str | None) -> None:
 
 
 def apply_mcp_server_card_redirect(token: str, zone_id: str | None) -> None:
-    """Ensure /.well-known/mcp/* redirects to the amd-mcp Worker."""
+    """Ensure MCP card, /mcp, and /api/studies redirect to the amd-mcp Worker."""
     zone = resolve_zone_id(token, zone_id)
     ruleset = get_redirect_entrypoint_ruleset(token, zone)
-    rule_body = mcp_server_card_redirect_rule_body()
+    wanted = [
+        mcp_runtime_redirect_rule_body(),
+        mcp_server_card_redirect_rule_body(),
+    ]
     if ruleset is None:
         _api_request(
             "POST",
@@ -1762,30 +1831,22 @@ def apply_mcp_server_card_redirect(token: str, zone_id: str | None) -> None:
                 "kind": "zone",
                 "phase": REDIRECT_PHASE,
                 "rules": [
-                    rule_body,
+                    *wanted,
                     agent_skills_redirect_rule_body(),
                     root_redirect_rule_body(),
                 ],
             },
         )
-        print("Created redirect ruleset with MCP Server Card, Agent Skills, and root redirects.")
+        print("Created redirect ruleset with MCP runtime, Server Card, Agent Skills, and root redirects.")
         return
 
     rules = [_sanitize_rule_for_put(rule) for rule in ruleset.get("rules", [])]
-    existing = next(
-        (rule for rule in rules if rule.get("ref") == MCP_SERVER_CARD_REDIRECT_REF), None
-    )
-    if existing and existing.get("expression") == rule_body["expression"]:
-        target = (existing.get("action_parameters") or {}).get("from_value", {}).get(
-            "target_url", {}
-        )
-        if (
-            target.get("expression")
-            == rule_body["action_parameters"]["from_value"]["target_url"]["expression"]
-        ):
-            print("MCP Server Card redirect rule already configured.")
-            return
-    kept = [rule for rule in rules if rule.get("ref") != MCP_SERVER_CARD_REDIRECT_REF]
+    by_ref = {rule.get("ref"): rule for rule in rules}
+    if all(_redirect_rule_matches(by_ref.get(rule["ref"]), rule) for rule in wanted):
+        print("MCP Server Card and runtime redirect rules already configured.")
+        return
+    wanted_refs = {rule["ref"] for rule in wanted}
+    kept = [rule for rule in rules if rule.get("ref") not in wanted_refs]
     _api_request(
         "PUT",
         f"/zones/{zone}/rulesets/{ruleset['id']}",
@@ -1794,10 +1855,10 @@ def apply_mcp_server_card_redirect(token: str, zone_id: str | None) -> None:
             "name": ruleset.get("name", "Redirect rules"),
             "kind": "zone",
             "phase": REDIRECT_PHASE,
-            "rules": [rule_body] + kept,
+            "rules": wanted + kept,
         },
     )
-    print("Updated MCP Server Card redirect rule.")
+    print("Updated MCP Server Card and runtime redirect rules.")
 
 
 def apply_web_bot_auth_redirect(token: str, zone_id: str | None) -> None:
@@ -2215,6 +2276,11 @@ def main() -> int:
                     f"https://{SITE_HOST}/Studies/catalog-topical.json",
                     f"https://{SITE_HOST}/Studies/catalog-formal.json",
                     f"https://{SITE_HOST}/Studies/catalog-applied.json",
+                    f"https://{SITE_HOST}/Studies/catalog-all.json",
+                    f"https://{SITE_HOST}/Studies/feed.json",
+                    f"https://{SITE_HOST}/Studies/glossary.json",
+                    f"https://{SITE_HOST}/llms.txt",
+                    f"https://{SITE_HOST}/llms-full.txt",
                 ],
             )
         except (urllib.error.URLError, RuntimeError) as exc:

@@ -16,6 +16,20 @@
       "digest": "sha256:2ebc1c194f4211077487782bf50bd6123d6f05129035d445f6052510eadd8aa0"
     },
     {
+      "name": "cite-study",
+      "type": "skill-md",
+      "description": "Cite Analytic Madhyasth Darshan studies from the canonical markdown, using catalog slugs, Edited-on timestamps, and glossary terms. Use when quoting, referencing, or attributing a paper from this collection.",
+      "url": "/.well-known/agent-skills/cite-study/SKILL.md",
+      "digest": "sha256:15127aac78246f38cd5ab5cf79023cbf04137ce5ebb01651a4dd088dfdd545a1"
+    },
+    {
+      "name": "compare-traditions",
+      "type": "skill-md",
+      "description": "Compare Madhyasth Darshan claims in these studies with physics and natural sciences, Advaita Vedanta, and modern Western philosophy without missionary tone. Use when an agent is asked to set the darshan next to another tradition.",
+      "url": "/.well-known/agent-skills/compare-traditions/SKILL.md",
+      "digest": "sha256:882e6fbf1885fe339ee9a7c135578dcb8dfce3e5bce6f1c415613719d4402cc2"
+    },
+    {
       "name": "download-references",
       "type": "skill-md",
       "description": "Audit Studies/ bibliographies and download redistributable references into References/ using Scripts/_audit_references.py and _download_references.py. Use when reviewing study citations, mirroring open-access papers, refreshing local reference files, or updating NOT-DOWNLOADED.md and study reference links.",
@@ -63,6 +77,13 @@
       "description": "Change a study between Draft and Released using Scripts/_set_study_status.py or _set_study_status.ps1 — syncs markdown Status, Edited on, catalogs, and PDF watermark. Use when releasing a study, reverting to draft, finalizing a paper, or updating draft/released status.",
       "url": "/.well-known/agent-skills/set-study-status/SKILL.md",
       "digest": "sha256:8a3dbe025776e3e7f93eab66f48ba63cf125ffe814b3cc383e138b150c4ec118"
+    },
+    {
+      "name": "start-here",
+      "type": "skill-md",
+      "description": "Orient a reader or agent to Analytic Madhyasth Darshan: public catalogs, the recommended reading path, standpoint and scope, and where write APIs stay human-only. Use when an agent first lands on the site or asks how to begin reading the studies.",
+      "url": "/.well-known/agent-skills/start-here/SKILL.md",
+      "digest": "sha256:23e8e27a0bc5c7a1b0bd1d6b4b83e1c6fe807630dcc9d7e8461b3dc341012fa1"
     },
     {
       "name": "transcribe-recording",

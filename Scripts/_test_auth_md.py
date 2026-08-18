@@ -57,6 +57,10 @@ def check_auth_md() -> str:
         "https://analyticmadhyasthdarshan.org/.well-known/mcp/server-card.json",
         "https://analyticmadhyasthdarshan.org/.well-known/http-message-signatures-directory",
         "https://analyticmadhyasthdarshan.org/webmcp.js",
+        "https://analyticmadhyasthdarshan.org/Studies/glossary.json",
+        "https://analyticmadhyasthdarshan.org/Studies/catalog-all.json",
+        "https://analyticmadhyasthdarshan.org/api/studies",
+        "/mcp",
         "_index._agents.analyticmadhyasthdarshan.org",
         "_a2a._agents.analyticmadhyasthdarshan.org",
     ):

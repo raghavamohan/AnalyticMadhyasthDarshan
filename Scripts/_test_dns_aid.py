@@ -48,7 +48,7 @@ def check_records_spec() -> None:
     if A2A_NAME not in names:
         fail(f"RECORDS must include {A2A_NAME}")
     if any("_mcp._agents" in record["name"] for record in RECORDS):
-        fail("do not advertise _mcp._agents; this site has no MCP session runtime")
+        fail("do not advertise _mcp._agents under DNS-AID")
     for record in RECORDS:
         if record["type"] not in {"HTTPS", "SVCB"}:
             fail(f"{record['name']} must be HTTPS or SVCB, got {record['type']}")

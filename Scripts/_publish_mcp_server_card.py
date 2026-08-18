@@ -20,6 +20,7 @@ import _cloudflare_performance as cf
 WORKER_NAME = "amd-mcp"
 WORKER_ROUTE = f"{cf.SITE_HOST}/.well-known/mcp/*"
 WORKER_SRC = cf.BASE / "infra" / "mcp-worker" / "src" / "index.js"
+RUNTIME_SRC = cf.BASE / "infra" / "mcp-worker" / "src" / "runtime.js"
 CARD_PATH = cf.BASE / ".well-known" / "mcp" / "server-card.json"
 COMPATIBILITY_DATE = "2024-03-01"
 
@@ -27,36 +28,15 @@ COMPATIBILITY_DATE = "2024-03-01"
 def worker_js(card: dict) -> str:
     body = json.dumps(card, separators=(",", ":"), ensure_ascii=False)
     etag = hashlib.sha256(body.encode("utf-8")).hexdigest()[:16]
-    return f"""\
-const BODY = {json.dumps(body)};
-const HEADERS = {{
-  "content-type": {json.dumps(cf.MCP_SERVER_CARD_CONTENT_TYPE)},
-  "cache-control": "public, max-age=3600",
-  "etag": {json.dumps(f'"{etag}"')},
-  "access-control-allow-origin": "*",
-  "access-control-allow-methods": "GET, HEAD, OPTIONS"
-}};
-
-function respond(request) {{
-  if (request.method === "OPTIONS") {{
-    return new Response(null, {{ status: 204, headers: HEADERS }});
-  }}
-  if (request.method === "HEAD") {{
-    return new Response(null, {{ status: 200, headers: HEADERS }});
-  }}
-  return new Response(BODY, {{ status: 200, headers: HEADERS }});
-}}
-
-export default {{
-  async fetch(request) {{
-    const path = new URL(request.url).pathname.replace(/\\/+$/, "") || "/";
-    if (path === "/.well-known/mcp/server-card.json" || path === "/.well-known/mcp.json") {{
-      return respond(request);
-    }}
-    return new Response("Not Found", {{ status: 404 }});
-  }}
-}};
-"""
+    if not RUNTIME_SRC.is_file():
+        raise FileNotFoundError(RUNTIME_SRC)
+    runtime = RUNTIME_SRC.read_text(encoding="utf-8").replace("\r\n", "\n")
+    preamble = (
+        f"const CARD = {json.dumps(card, ensure_ascii=False)};\n"
+        f"const CARD_BODY = {json.dumps(body)};\n"
+        f"const CARD_ETAG = {json.dumps(etag)};\n"
+    )
+    return preamble + runtime
 
 
 def multipart_put(url: str, token: str, filename: str, content: str, metadata: dict) -> dict:

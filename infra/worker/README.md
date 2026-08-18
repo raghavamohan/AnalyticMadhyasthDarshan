@@ -160,7 +160,7 @@ Zone settings live on `analyticmadhyasthdarshan.org` in Cloudflare, not in git. 
 
 | Control | Rule / setting | Script ref |
 |---------|----------------|------------|
-| Super Bot Fight Mode | `managed_challenge` on definitely automated; AI bots blocked; WAF skip on catalog/`webmcp.js` so in-browser WebMCP scans can run | `--apply-portal-edge-security` |
+| Super Bot Fight Mode | `managed_challenge` on definitely automated; AI bots blocked; WAF skip on catalog/`webmcp.js`/`/mcp`/`/api/studies` so agent scanners can run | `--apply-portal-edge-security` |
 | Notify SBFM skip | `amd_skip_sbfm_portal_notify` → `http_request_sbfm` skip for `/api/notify` only | `--apply-portal-edge-security` |
 | Probe-path block | `amd_block_common_probes` (`/wp-*`, `/.env`, `/.git`, …) | `--apply-edge-security` |
 | API rate limit | `amd_rl_edge_api` — 40 req / 10 s per IP (portal `api.*` + apex discussion routes); plus leaked-credential rule (Pro max **2** rate-limit rules) | `--apply-discussions-rate-limits` |
