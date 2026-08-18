@@ -207,6 +207,19 @@ def check_live_catalog() -> dict:
     payload = json.loads(body)
     if len(payload.get("linkset") or []) < 3:
         fail("live catalog should list studies catalogs plus the two write APIs")
+    hrefs = {
+        link.get("href")
+        for entry in payload.get("linkset") or []
+        for rel in ("service-desc", "describedby")
+        for link in entry.get(rel) or []
+        if link.get("href")
+    }
+    missing = [href for href in STUDIES_CATALOG_HREFS if href not in hrefs]
+    if missing:
+        fail(f"live catalog is missing service-desc hrefs: {missing}")
+    missing_dynamic = [href for href in sorted(DYNAMIC_CATALOG_HREFS) if href not in hrefs]
+    if missing_dynamic:
+        fail(f"live catalog is missing describedby hrefs: {missing_dynamic}")
     print("OK: live /.well-known/api-catalog is RFC 9727 linkset JSON.")
     return payload
 

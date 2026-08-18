@@ -2,8 +2,10 @@ name = "amd-api-catalog"
 main = "src/index.js"
 compatibility_date = "2024-03-01"
 
-# GitHub Pages cannot set Content-Type application/linkset+json on the
-# extensionless RFC 9727 well-known URI. This worker serves that path.
-routes = [
-  { pattern = "analyticmadhyasthdarshan.org/.well-known/api-catalog", zone_name = "analyticmadhyasthdarshan.org" },
-]
+# Canonical JSON lives in src/api-catalog.json (kept identical to
+# .well-known/api-catalog). The committed src/index.js is the local/dev
+# module. Production upload is a self-contained module generated in memory by
+# Scripts/_publish_api_catalog_snippet.py.
+# A zone Workers Route needs Workers Routes Edit. Until then --apply-redirect
+# sends /.well-known/api-catalog to workers.dev.
+workers_dev = true
