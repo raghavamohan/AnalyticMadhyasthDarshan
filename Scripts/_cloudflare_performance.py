@@ -107,7 +107,11 @@ API_CATALOG_LINK = (
 # Comma-separated values in one Link header are valid (so is multiple Link headers).
 HOMEPAGE_LINK = (
     '</.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json", '
+    '</auth.md>; rel="describedby"; type="text/markdown", '
+    '</.well-known/oauth-protected-resource>; rel="describedby"; type="application/json", '
     '</Studies/catalog-topical.json>; rel="describedby"; type="application/json", '
+    '</Studies/catalog-formal.json>; rel="describedby"; type="application/json", '
+    '</Studies/catalog-applied.json>; rel="describedby"; type="application/json", '
     '</openapi/submissions.json>; rel="service-desc"; type="application/json", '
     '</openapi/discussions.json>; rel="service-desc"; type="application/json", '
     '</api-docs.html>; rel="service-doc"; type="text/html"'

@@ -1,14 +1,15 @@
 # API catalog worker (`amd-api-catalog`)
 
-Serves [RFC 9727](https://www.rfc-editor.org/rfc/rfc9727) discovery at
-`https://analyticmadhyasthdarshan.org/.well-known/api-catalog` with
-`Content-Type: application/linkset+json`. GitHub Pages can host the same JSON
-at [`.well-known/api-catalog`](../../.well-known/api-catalog) but cannot set
-that media type on an extensionless path.
+Canonical [RFC 9727](https://www.rfc-editor.org/rfc/rfc9727) linkset for
+`https://analyticmadhyasthdarshan.org/.well-known/api-catalog`. Keep
+[`src/api-catalog.json`](src/api-catalog.json) identical to
+[`.well-known/api-catalog`](../../.well-known/api-catalog).
+`python Scripts/_test_api_catalog.py` checks that they match.
 
-Keep [`src/api-catalog.json`](src/api-catalog.json) identical to the repo-root
-`.well-known/api-catalog` file. `python Scripts/_test_api_catalog.py` checks
-that they match.
+**Production does not run this Worker.** GitHub Pages can host the JSON but
+cannot set `Content-Type: application/linkset+json` on the extensionless path,
+so live serving uses a Snippet plus a Transform Rule (see **Live serving**
+below). Deploy this Worker only when replacing that Snippet.
 
 ## Deploy
 
