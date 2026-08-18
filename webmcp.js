@@ -4,19 +4,18 @@
  *
  * Feature-detects document.modelContext (current spec) and
  * navigator.modelContext (earlier drafts / Chrome EPP). Registers catalog
- * search, retrieval, and navigation tools on page load. Abort the controller
- * to unregister — WebMCP has no unregisterTool().
+ * search, retrieval, and navigation tools on page load, retrying until the
+ * API appears. Abort the controller to unregister — WebMCP has no unregisterTool().
  */
 (function registerAmdWebMcp() {
   "use strict";
 
-  var modelContext = document.modelContext || navigator.modelContext;
-  if (!modelContext || typeof modelContext.registerTool !== "function") {
-    return;
-  }
-
   var controller = new AbortController();
   var registerOpts = { signal: controller.signal };
+  var registered = false;
+  var retryTimer = null;
+  var RETRY_MS = 250;
+  var RETRY_LIMIT = 40;
   var SITE = "https://analyticmadhyasthdarshan.org";
   var CATALOGS = [
     { collection: "topical", url: "/Studies/catalog-topical.json" },
@@ -33,11 +32,21 @@
   };
   var catalogCache = null;
 
+  function modelContext() {
+    if (navigator.modelContext && typeof navigator.modelContext.registerTool === "function") {
+      return navigator.modelContext;
+    }
+    if (document.modelContext && typeof document.modelContext.registerTool === "function") {
+      return document.modelContext;
+    }
+    return null;
+  }
+
   function registerTool(tool) {
     if (navigator.modelContext && typeof navigator.modelContext.registerTool === "function") {
       return navigator.modelContext.registerTool(tool, registerOpts);
     }
-    return modelContext.registerTool(tool, registerOpts);
+    return document.modelContext.registerTool(tool, registerOpts);
   }
 
   function textResult(value) {
@@ -333,15 +342,49 @@
     });
   }
 
-  try {
-    registerAll();
-  } catch (err) {
-    console.warn("WebMCP registration failed", err);
+  function stopRetry() {
+    if (retryTimer !== null) {
+      clearInterval(retryTimer);
+      retryTimer = null;
+    }
   }
+
+  function tryRegister() {
+    if (registered || controller.signal.aborted) {
+      return true;
+    }
+    if (!modelContext()) {
+      return false;
+    }
+    try {
+      registerAll();
+      registered = true;
+      stopRetry();
+      return true;
+    } catch (err) {
+      console.warn("WebMCP registration failed", err);
+      return false;
+    }
+  }
+
+  if (!tryRegister()) {
+    var attempts = 0;
+    retryTimer = setInterval(function () {
+      attempts += 1;
+      if (tryRegister() || attempts >= RETRY_LIMIT) {
+        stopRetry();
+      }
+    }, RETRY_MS);
+  }
+
+  window.addEventListener("pageshow", function () {
+    tryRegister();
+  });
 
   window.addEventListener(
     "pagehide",
     function () {
+      stopRetry();
       controller.abort();
     },
     { once: true }

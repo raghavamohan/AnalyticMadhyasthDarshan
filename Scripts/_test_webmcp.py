@@ -47,6 +47,8 @@ def check_script() -> str:
     text = SCRIPT_PATH.read_text(encoding="utf-8")
     if "navigator.modelContext.registerTool" not in text:
         fail("webmcp.js must call navigator.modelContext.registerTool")
+    if "setInterval" not in text or "tryRegister" not in text:
+        fail("webmcp.js must retry until navigator.modelContext is available")
     if "AbortController" not in text:
         fail("webmcp.js must use AbortController to unregister tools")
     if "inputSchema" not in text:
