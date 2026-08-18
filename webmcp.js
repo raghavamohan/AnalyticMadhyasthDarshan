@@ -43,8 +43,14 @@
   }
 
   function registerTool(tool) {
+    // Chrome 146 (isitagentready / Browser Run lab) exposes navigator.modelContext
+    // and may reject the AbortSignal options bag. Prefer navigator, then document.
     if (navigator.modelContext && typeof navigator.modelContext.registerTool === "function") {
-      return navigator.modelContext.registerTool(tool, registerOpts);
+      try {
+        return navigator.modelContext.registerTool(tool, registerOpts);
+      } catch (err) {
+        return navigator.modelContext.registerTool(tool);
+      }
     }
     return document.modelContext.registerTool(tool, registerOpts);
   }
