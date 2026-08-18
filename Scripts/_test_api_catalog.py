@@ -22,6 +22,11 @@ CATALOG_PATH = BASE / ".well-known" / "api-catalog"
 WORKER_CATALOG_PATH = BASE / "infra" / "api-catalog-worker" / "src" / "api-catalog.json"
 REQUIRED_RELS = ("service-desc", "service-doc")
 OPTIONAL_RELS = ("status",)
+STUDIES_CATALOG_HREFS = (
+    "https://analyticmadhyasthdarshan.org/Studies/catalog-topical.json",
+    "https://analyticmadhyasthdarshan.org/Studies/catalog-formal.json",
+    "https://analyticmadhyasthdarshan.org/Studies/catalog-applied.json",
+)
 
 
 def fail(message: str) -> None:
@@ -77,8 +82,8 @@ def check_live_catalog() -> None:
         fail(f"live catalog returned HTTP {status}")
     if "application/linkset+json" not in content_type:
         fail(f"live catalog Content-Type is {content_type!r}")
-    if not payload.get("linkset"):
-        fail("live catalog JSON has no linkset")
+    if len(payload.get("linkset") or []) < 3:
+        fail("live catalog should list studies catalogs plus the two write APIs")
     print("OK: live /.well-known/api-catalog is RFC 9727 linkset JSON.")
 
 
@@ -101,6 +106,15 @@ def main() -> None:
             check_link_array(entry, rel, required=True)
         for rel in OPTIONAL_RELS:
             check_link_array(entry, rel, required=False, check_local=False)
+
+    desc_hrefs = {
+        link.get("href")
+        for entry in linkset
+        for link in entry.get("service-desc") or []
+    }
+    missing = [href for href in STUDIES_CATALOG_HREFS if href not in desc_hrefs]
+    if missing:
+        fail(f"api-catalog is missing studies catalog JSON: {missing}")
 
     for spec in (BASE / "openapi" / "submissions.json", BASE / "openapi" / "discussions.json"):
         data = load_json(spec)
