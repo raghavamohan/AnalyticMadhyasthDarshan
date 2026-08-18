@@ -18,6 +18,10 @@ https://analyticmadhyasthdarshan.org/.well-known/agent-card.json
 It describes public catalog reads over HTTP+JSON. This site does not run an
 A2A JSON-RPC Worker and does not accept `message/send` tasks.
 
+Repo agent skills are listed at
+https://analyticmadhyasthdarshan.org/.well-known/agent-skills/index.json
+([Agent Skills Discovery](https://github.com/cloudflare/agent-skills-discovery-rfc)).
+
 ## Audience
 
 **Readers and agents fetching studies do not register.** The studies catalog

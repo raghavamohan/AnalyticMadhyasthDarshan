@@ -53,6 +53,7 @@ def check_auth_md() -> str:
         "https://analyticmadhyasthdarshan.org/.well-known/oauth-protected-resource",
         "https://analyticmadhyasthdarshan.org/.well-known/oauth-authorization-server",
         "https://analyticmadhyasthdarshan.org/.well-known/agent-card.json",
+        "https://analyticmadhyasthdarshan.org/.well-known/agent-skills/index.json",
     ):
         if needle not in text:
             fail(f"auth.md should document {needle!r}")
