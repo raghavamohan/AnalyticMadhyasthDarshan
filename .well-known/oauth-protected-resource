@@ -1,0 +1,13 @@
+{
+  "resource": "https://analyticmadhyasthdarshan.org/",
+  "resource_name": "Analytic Madhyasth Darshan",
+  "authorization_servers": [
+    "https://analyticmadhyasthdarshan.org"
+  ],
+  "scopes_supported": [
+    "studies.read"
+  ],
+  "bearer_methods_supported": [
+    "header"
+  ]
+}
