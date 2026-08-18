@@ -28,6 +28,13 @@ https://analyticmadhyasthdarshan.org/.well-known/mcp/server-card.json
 It advertises Streamable HTTP at `/mcp`. This site publishes the discovery
 card; it does not yet run an MCP session runtime.
 
+The Web Bot Auth directory is at
+https://analyticmadhyasthdarshan.org/.well-known/http-message-signatures-directory
+([IETF WebBotAuth](https://datatracker.ietf.org/wg/webbotauth/about/)).
+It is a JWKS of Ed25519 public keys. Outbound signed requests use
+`Signature-Agent` and `Signature-Input`. This site does not crawl other
+origins as a verified bot.
+
 ## Audience
 
 **Readers and agents fetching studies do not register.** The studies catalog

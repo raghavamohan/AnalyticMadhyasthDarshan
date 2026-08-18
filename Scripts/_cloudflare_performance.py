@@ -41,6 +41,7 @@ AGENT_CARD_HEADERS_REF = "amd_agent_card_content_type"
 AGENT_SKILLS_INDEX_HEADERS_REF = "amd_agent_skills_content_type"
 AGENT_SKILLS_MD_HEADERS_REF = "amd_agent_skills_md_content_type"
 MCP_SERVER_CARD_HEADERS_REF = "amd_mcp_server_card_content_type"
+WEB_BOT_AUTH_HEADERS_REF = "amd_web_bot_auth_content_type"
 AUTH_MD_HEADERS_REF = "amd_auth_md_content_type"
 OAUTH_METADATA_HEADERS_REF = "amd_oauth_metadata_content_type"
 EDGE_API_RATE_LIMIT_REF = "amd_rl_edge_api"
@@ -92,6 +93,9 @@ AGENT_SKILLS_MD_HEADERS_EXPRESSION = (
 MCP_SERVER_CARD_HEADERS_EXPRESSION = (
     f'(http.host eq "{SITE_HOST}" and http.request.uri.path eq "/.well-known/mcp/server-card.json")'
 )
+WEB_BOT_AUTH_HEADERS_EXPRESSION = (
+    f'(http.host eq "{SITE_HOST}" and http.request.uri.path eq "/.well-known/http-message-signatures-directory")'
+)
 AUTH_MD_HEADERS_EXPRESSION = (
     f'(http.host eq "{SITE_HOST}" and http.request.uri.path eq "/auth.md")'
 )
@@ -125,6 +129,7 @@ API_CATALOG_CONTENT_TYPE = (
 AGENT_CARD_CONTENT_TYPE = "application/a2a+json"
 AGENT_SKILLS_INDEX_CONTENT_TYPE = "application/json"
 MCP_SERVER_CARD_CONTENT_TYPE = "application/json"
+WEB_BOT_AUTH_CONTENT_TYPE = "application/http-message-signatures-directory+json"
 API_CATALOG_LINK = (
     '</.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"'
 )
@@ -135,6 +140,7 @@ HOMEPAGE_LINK = (
     '</.well-known/agent-card.json>; rel="describedby"; type="application/a2a+json", '
     '</.well-known/agent-skills/index.json>; rel="describedby"; type="application/json", '
     '</.well-known/mcp/server-card.json>; rel="describedby"; type="application/json", '
+    '</.well-known/http-message-signatures-directory>; rel="describedby"; type="application/http-message-signatures-directory+json", '
     '</auth.md>; rel="describedby"; type="text/markdown", '
     '</.well-known/oauth-protected-resource>; rel="describedby"; type="application/json", '
     '</Studies/catalog-topical.json>; rel="describedby"; type="application/json", '
@@ -156,6 +162,8 @@ AGENT_SKILLS_REDIRECT_REF = "amd_agent_skills_redirect"
 AGENT_SKILLS_WORKER_HOST = "amd-agent-skills.raghavamohan.workers.dev"
 MCP_SERVER_CARD_REDIRECT_REF = "amd_mcp_server_card_redirect"
 MCP_SERVER_CARD_WORKER_HOST = "amd-mcp.raghavamohan.workers.dev"
+WEB_BOT_AUTH_REDIRECT_REF = "amd_web_bot_auth_redirect"
+WEB_BOT_AUTH_WORKER_HOST = "amd-web-bot-auth.raghavamohan.workers.dev"
 CACHE_RULE_REFS = (
     "amd_cache_pdfs",
     "amd_cache_images",
@@ -950,6 +958,21 @@ def mcp_server_card_headers_rule_body() -> dict:
     }
 
 
+def web_bot_auth_headers_rule_body() -> dict:
+    return {
+        "ref": WEB_BOT_AUTH_HEADERS_REF,
+        "expression": WEB_BOT_AUTH_HEADERS_EXPRESSION,
+        "description": "Web Bot Auth directory Content-Type.",
+        "action": "rewrite",
+        "enabled": True,
+        "action_parameters": {
+            "headers": {
+                "Content-Type": _header_set(WEB_BOT_AUTH_CONTENT_TYPE),
+            },
+        },
+    }
+
+
 def homepage_link_headers_rule_body() -> dict:
     return {
         "ref": HOMEPAGE_LINK_HEADERS_REF,
@@ -1007,6 +1030,7 @@ def managed_response_header_rules() -> list[dict]:
         agent_skills_index_headers_rule_body(),
         agent_skills_md_headers_rule_body(),
         mcp_server_card_headers_rule_body(),
+        web_bot_auth_headers_rule_body(),
         api_catalog_headers_rule_body(),
     ]
 
@@ -1061,6 +1085,10 @@ def _agent_skills_md_headers_rule_is_correct(rule: dict) -> bool:
 
 def _mcp_server_card_headers_rule_is_correct(rule: dict) -> bool:
     return _header_rule_is_correct(rule, mcp_server_card_headers_rule_body())
+
+
+def _web_bot_auth_headers_rule_is_correct(rule: dict) -> bool:
+    return _header_rule_is_correct(rule, web_bot_auth_headers_rule_body())
 
 
 def get_response_headers_entrypoint_ruleset(token: str, zone_id: str) -> dict | None:
@@ -1163,6 +1191,7 @@ def check_security_headers(token: str, zone_id: str | None) -> tuple[bool, list[
         (agent_skills_index_headers_rule_body(), _agent_skills_index_headers_rule_is_correct),
         (agent_skills_md_headers_rule_body(), _agent_skills_md_headers_rule_is_correct),
         (mcp_server_card_headers_rule_body(), _mcp_server_card_headers_rule_is_correct),
+        (web_bot_auth_headers_rule_body(), _web_bot_auth_headers_rule_is_correct),
         (api_catalog_headers_rule_body(), _api_catalog_headers_rule_is_correct),
     ):
         ref = expected["ref"]
@@ -1325,6 +1354,30 @@ def mcp_server_card_redirect_rule_body() -> dict:
                 "target_url": {
                     "expression": (
                         f'concat("https://{MCP_SERVER_CARD_WORKER_HOST}", http.request.uri.path)'
+                    )
+                },
+            }
+        },
+    }
+
+
+def web_bot_auth_redirect_rule_body() -> dict:
+    return {
+        "ref": WEB_BOT_AUTH_REDIRECT_REF,
+        "expression": (
+            f'(http.host eq "{SITE_HOST}" and '
+            'http.request.uri.path eq "/.well-known/http-message-signatures-directory")'
+        ),
+        "description": "Serve the Web Bot Auth directory from the amd-web-bot-auth Worker.",
+        "action": "redirect",
+        "enabled": True,
+        "action_parameters": {
+            "from_value": {
+                "status_code": 302,
+                "preserve_query_string": True,
+                "target_url": {
+                    "expression": (
+                        f'concat("https://{WEB_BOT_AUTH_WORKER_HOST}", http.request.uri.path)'
                     )
                 },
             }
@@ -1704,6 +1757,60 @@ def apply_mcp_server_card_redirect(token: str, zone_id: str | None) -> None:
         },
     )
     print("Updated MCP Server Card redirect rule.")
+
+
+def apply_web_bot_auth_redirect(token: str, zone_id: str | None) -> None:
+    """Ensure the Web Bot Auth directory redirects to the amd-web-bot-auth Worker."""
+    zone = resolve_zone_id(token, zone_id)
+    ruleset = get_redirect_entrypoint_ruleset(token, zone)
+    rule_body = web_bot_auth_redirect_rule_body()
+    if ruleset is None:
+        _api_request(
+            "POST",
+            f"/zones/{zone}/rulesets",
+            token,
+            {
+                "name": "AnalyticMadhyasthDarshan redirect rules",
+                "kind": "zone",
+                "phase": REDIRECT_PHASE,
+                "rules": [
+                    rule_body,
+                    mcp_server_card_redirect_rule_body(),
+                    agent_skills_redirect_rule_body(),
+                    root_redirect_rule_body(),
+                ],
+            },
+        )
+        print("Created redirect ruleset with Web Bot Auth, MCP, Agent Skills, and root redirects.")
+        return
+
+    rules = [_sanitize_rule_for_put(rule) for rule in ruleset.get("rules", [])]
+    existing = next(
+        (rule for rule in rules if rule.get("ref") == WEB_BOT_AUTH_REDIRECT_REF), None
+    )
+    if existing and existing.get("expression") == rule_body["expression"]:
+        target = (existing.get("action_parameters") or {}).get("from_value", {}).get(
+            "target_url", {}
+        )
+        if (
+            target.get("expression")
+            == rule_body["action_parameters"]["from_value"]["target_url"]["expression"]
+        ):
+            print("Web Bot Auth redirect rule already configured.")
+            return
+    kept = [rule for rule in rules if rule.get("ref") != WEB_BOT_AUTH_REDIRECT_REF]
+    _api_request(
+        "PUT",
+        f"/zones/{zone}/rulesets/{ruleset['id']}",
+        token,
+        {
+            "name": ruleset.get("name", "Redirect rules"),
+            "kind": "zone",
+            "phase": REDIRECT_PHASE,
+            "rules": [rule_body] + kept,
+        },
+    )
+    print("Updated Web Bot Auth directory redirect rule.")
 
 
 def apply_root_redirect(token: str, zone_id: str | None) -> None:
@@ -2230,6 +2337,7 @@ def main() -> int:
             apply_root_redirect(token, zone_id)
             apply_agent_skills_redirect(token, zone_id)
             apply_mcp_server_card_redirect(token, zone_id)
+            apply_web_bot_auth_redirect(token, zone_id)
         except (urllib.error.URLError, RuntimeError) as exc:
             print(f"API error: {exc}", file=sys.stderr)
             api_error = True
@@ -2261,6 +2369,7 @@ def main() -> int:
             apply_root_redirect(token, zone_id)
             apply_agent_skills_redirect(token, zone_id)
             apply_mcp_server_card_redirect(token, zone_id)
+            apply_web_bot_auth_redirect(token, zone_id)
         except (urllib.error.URLError, RuntimeError) as exc:
             print(f"API error: {exc}", file=sys.stderr)
             api_error = True
