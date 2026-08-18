@@ -1,0 +1,46 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://api.analyticmadhyasthdarshan.org/",
+      "service-desc": [
+        {
+          "href": "https://analyticmadhyasthdarshan.org/openapi/submissions.json",
+          "type": "application/json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://analyticmadhyasthdarshan.org/api-docs.html",
+          "type": "text/html"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://api.analyticmadhyasthdarshan.org/api/health",
+          "type": "application/json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://analyticmadhyasthdarshan.org/api/discussions",
+      "service-desc": [
+        {
+          "href": "https://analyticmadhyasthdarshan.org/openapi/discussions.json",
+          "type": "application/json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://analyticmadhyasthdarshan.org/api-docs.html",
+          "type": "text/html"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://analyticmadhyasthdarshan.org/api/discussions/health",
+          "type": "application/json"
+        }
+      ]
+    }
+  ]
+}

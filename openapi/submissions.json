@@ -1,0 +1,318 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Analytic Madhyasth Darshan submission portal API",
+    "version": "1.0.0",
+    "description": "GitHub-authenticated API that backs the Web Submission Portal at https://analyticmadhyasthdarshan.org/Studies/submit.html. Contributors propose studies, submit drafts, update published markdown, and request Draft/Released status changes. Most write routes require a first-party session cookie plus a Cloudflare Turnstile token."
+  },
+  "servers": [
+    {
+      "url": "https://api.analyticmadhyasthdarshan.org"
+    }
+  ],
+  "tags": [
+    { "name": "health" },
+    { "name": "auth" },
+    { "name": "submissions" },
+    { "name": "notify" }
+  ],
+  "paths": {
+    "/api/health": {
+      "get": {
+        "tags": ["health"],
+        "summary": "Liveness",
+        "operationId": "getHealth",
+        "responses": {
+          "200": {
+            "description": "Worker is serving requests.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Health" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/github": {
+      "get": {
+        "tags": ["auth"],
+        "summary": "Start GitHub OAuth",
+        "operationId": "startGitHubOAuth",
+        "parameters": [
+          {
+            "name": "return_to",
+            "in": "query",
+            "schema": { "type": "string", "format": "uri" }
+          }
+        ],
+        "responses": {
+          "302": { "description": "Redirect to GitHub authorize." },
+          "503": { "description": "OAuth is not configured." }
+        }
+      }
+    },
+    "/api/auth/callback": {
+      "get": {
+        "tags": ["auth"],
+        "summary": "GitHub OAuth callback",
+        "operationId": "githubOAuthCallback",
+        "responses": {
+          "302": { "description": "Sets the session cookie and returns to the portal." }
+        }
+      }
+    },
+    "/api/auth/me": {
+      "get": {
+        "tags": ["auth"],
+        "summary": "Current session",
+        "operationId": "getAuthMe",
+        "responses": {
+          "200": {
+            "description": "Signed-in state.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/AuthMe" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/logout": {
+      "post": {
+        "tags": ["auth"],
+        "summary": "Clear session",
+        "operationId": "logout",
+        "responses": {
+          "200": {
+            "description": "Session cookie cleared.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Ok" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/me/submissions": {
+      "get": {
+        "tags": ["submissions"],
+        "summary": "Dashboard of the signed-in contributor's proposals and study PRs",
+        "operationId": "listMySubmissions",
+        "security": [{ "sessionCookie": [] }],
+        "responses": {
+          "200": { "description": "Dashboard payload." },
+          "401": { "description": "Not signed in." }
+        }
+      }
+    },
+    "/api/me/notifications": {
+      "get": {
+        "tags": ["submissions"],
+        "summary": "Email notification preferences",
+        "operationId": "getNotificationPrefs",
+        "security": [{ "sessionCookie": [] }],
+        "responses": {
+          "200": { "description": "Current preferences." },
+          "401": { "description": "Not signed in." }
+        }
+      },
+      "post": {
+        "tags": ["submissions"],
+        "summary": "Update email notification preferences",
+        "operationId": "setNotificationPrefs",
+        "security": [{ "sessionCookie": [] }],
+        "responses": {
+          "200": { "description": "Updated preferences." },
+          "401": { "description": "Not signed in." }
+        }
+      }
+    },
+    "/api/propose": {
+      "post": {
+        "tags": ["submissions"],
+        "summary": "Open a study-proposal GitHub issue",
+        "operationId": "proposeStudy",
+        "security": [{ "sessionCookie": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/ProposeRequest" }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Issue created." },
+          "401": { "description": "Not signed in." }
+        }
+      }
+    },
+    "/api/proposal-status": {
+      "get": {
+        "tags": ["submissions"],
+        "summary": "Approval state of a proposal issue",
+        "operationId": "getProposalStatus",
+        "parameters": [
+          {
+            "name": "issue",
+            "in": "query",
+            "required": true,
+            "schema": { "type": "integer", "minimum": 1 }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Proposal status." },
+          "400": { "description": "Missing or invalid issue number." }
+        }
+      }
+    },
+    "/api/study-source": {
+      "get": {
+        "tags": ["submissions"],
+        "summary": "Published study markdown",
+        "operationId": "getStudySource",
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "query",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Markdown source." },
+          "404": { "description": "No published markdown for that slug." }
+        }
+      }
+    },
+    "/api/submit": {
+      "post": {
+        "tags": ["submissions"],
+        "summary": "Open a new-study or study-update pull request",
+        "operationId": "submitStudy",
+        "security": [{ "sessionCookie": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/SubmitRequest" }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Pull request opened." },
+          "401": { "description": "Not signed in." }
+        }
+      }
+    },
+    "/api/status-change": {
+      "post": {
+        "tags": ["submissions"],
+        "summary": "Open a status-change pull request (Draft ↔ Released)",
+        "operationId": "changeStudyStatus",
+        "security": [{ "sessionCookie": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/StatusChangeRequest" }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Pull request opened." },
+          "401": { "description": "Not signed in." }
+        }
+      }
+    },
+    "/api/notify": {
+      "post": {
+        "tags": ["notify"],
+        "summary": "Send an approval, decline, or merge email (CI hook)",
+        "operationId": "notifyContributor",
+        "security": [{ "notifySecret": [] }],
+        "responses": {
+          "200": { "description": "Sent or skipped (no opt-in)." },
+          "401": { "description": "Missing or wrong X-Notify-Secret." },
+          "503": { "description": "Notifications are not configured." }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "sessionCookie": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "amd_session"
+      },
+      "notifySecret": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Notify-Secret"
+      }
+    },
+    "schemas": {
+      "Health": {
+        "type": "object",
+        "required": ["status"],
+        "properties": {
+          "status": { "type": "string", "const": "ok" }
+        }
+      },
+      "Ok": {
+        "type": "object",
+        "properties": {
+          "success": { "type": "boolean" }
+        }
+      },
+      "AuthMe": {
+        "type": "object",
+        "required": ["loggedIn"],
+        "properties": {
+          "loggedIn": { "type": "boolean" },
+          "login": { "type": "string" },
+          "userId": { "type": "integer" }
+        }
+      },
+      "ProposeRequest": {
+        "type": "object",
+        "required": ["title", "category", "description", "summary", "turnstileToken"],
+        "properties": {
+          "title": { "type": "string" },
+          "category": { "type": "string" },
+          "description": { "type": "string" },
+          "summary": { "type": "string" },
+          "formal": { "type": "boolean" },
+          "familiarity": { "type": "string" },
+          "turnstileToken": { "type": "string" }
+        }
+      },
+      "SubmitRequest": {
+        "type": "object",
+        "required": ["slug", "author", "content", "turnstileToken"],
+        "properties": {
+          "slug": { "type": "string" },
+          "author": { "type": "string" },
+          "content": { "type": "string" },
+          "isNew": { "type": "boolean" },
+          "proposalIssue": { "type": "integer" },
+          "turnstileToken": { "type": "string" }
+        }
+      },
+      "StatusChangeRequest": {
+        "type": "object",
+        "required": ["slug", "targetStatus", "turnstileToken"],
+        "properties": {
+          "slug": { "type": "string" },
+          "targetStatus": { "type": "string", "enum": ["draft", "released"] },
+          "reason": { "type": "string" },
+          "turnstileToken": { "type": "string" }
+        }
+      }
+    }
+  }
+}

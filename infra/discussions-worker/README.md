@@ -91,6 +91,7 @@ Or manually in Cloudflare dashboard → Workers Routes:
 
 | Route | Auth | Purpose |
 |-------|------|---------|
+| `GET /api/discussions/health` | — | Liveness `{ status: "ok" }` |
 | `GET /api/discussions/stats` | — | Comment counts and latest activity per study slug |
 | `GET /api/discussions/:slug` | — | List visible comments for a study |
 | `POST /api/discussions/:slug/comments` | cookie | Post a comment (session required; Turnstile not repeated per post) |
