@@ -22,6 +22,17 @@ from _study_catalog import (  # noqa: E402
 SITEMAP_PATH = BASE / "sitemap.xml"
 SITEMAP_NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
 
+# Agent and API discovery documents. Omit lastmod so regenerations stay stable.
+DISCOVERY_PAGES = (
+    "auth.md",
+    "api-docs.html",
+    "openapi/submissions.json",
+    "openapi/discussions.json",
+    ".well-known/api-catalog",
+    ".well-known/oauth-protected-resource",
+    ".well-known/oauth-authorization-server",
+)
+
 # Published companion pages that intentionally remain outside the study catalog.
 # Keep this list curated: internal research notes are not sitemap entries by default.
 SUPPLEMENTAL_PAGES = (
@@ -117,6 +128,9 @@ def collect_sitemap_entries() -> list[tuple[str, str | None, str | None, str | N
         changefreq="weekly",
         priority="1.0",
     )
+
+    for path in DISCOVERY_PAGES:
+        add(path, changefreq="monthly", priority="0.4")
 
     for table in CATALOG_TABLES:
         for row in rows_by_table[table]:

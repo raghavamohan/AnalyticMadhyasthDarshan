@@ -42,11 +42,22 @@ const APPLIED_SLUGS_CACHE_KEY = 'https://amd-submissions.internal/applied-slugs'
 const PROPOSAL_REGISTRY_PATH = 'Studies/proposal-registry.json';
 const PROPOSAL_REGISTRY_CACHE_KEY = 'https://amd-submissions.internal/proposal-registry';
 const CHECK_POOL_SIZE = 5;
+const RESOURCE_METADATA_URL =
+  'https://analyticmadhyasthdarshan.org/.well-known/oauth-protected-resource';
 
 function jsonResponse(request, env, payload, status = 200, extraHeaders = {}) {
+  const headers = {
+    ...corsHeaders(request, env),
+    'Content-Type': 'application/json',
+  };
+  if (status === 401) {
+    headers['WWW-Authenticate'] =
+      `Bearer realm="Analytic Madhyasth Darshan", resource_metadata="${RESOURCE_METADATA_URL}"`;
+  }
+  Object.assign(headers, extraHeaders);
   return new Response(JSON.stringify(payload), {
     status,
-    headers: { ...corsHeaders(request, env), 'Content-Type': 'application/json', ...extraHeaders },
+    headers,
   });
 }
 

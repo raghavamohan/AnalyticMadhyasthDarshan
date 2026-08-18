@@ -1,6 +1,7 @@
 {
   "issuer": "https://analyticmadhyasthdarshan.org",
   "resource": "https://analyticmadhyasthdarshan.org/",
+  "service_documentation": "https://analyticmadhyasthdarshan.org/auth.md",
   "authorization_endpoint": "https://api.analyticmadhyasthdarshan.org/api/auth/github",
   "token_endpoint": "https://analyticmadhyasthdarshan.org/oauth2/token",
   "grant_types_supported": [
