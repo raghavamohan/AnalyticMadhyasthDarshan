@@ -30,11 +30,23 @@ const MAGIC_LINK_TTL_MS = 15 * 60 * 1000;
 const MAX_BODY_LENGTH = 8192;
 const MAX_DISPLAY_NAME_LENGTH = 80;
 const SLUG_RE = /^[A-Za-z0-9][A-Za-z0-9-]*$/;
+const RESERVED_SLUGS = new Set(['health', 'stats']);
+const RESOURCE_METADATA_URL =
+  'https://analyticmadhyasthdarshan.org/.well-known/oauth-protected-resource';
 
 function jsonResponse(request, env, payload, status = 200, extraHeaders = {}) {
+  const headers = {
+    ...corsHeaders(request, env),
+    'Content-Type': 'application/json',
+  };
+  if (status === 401) {
+    headers['WWW-Authenticate'] =
+      `Bearer realm="Analytic Madhyasth Darshan", resource_metadata="${RESOURCE_METADATA_URL}"`;
+  }
+  Object.assign(headers, extraHeaders);
   return new Response(JSON.stringify(payload), {
     status,
-    headers: { ...corsHeaders(request, env), 'Content-Type': 'application/json', ...extraHeaders },
+    headers,
   });
 }
 
@@ -92,7 +104,7 @@ function sanitizeBody(body) {
 
 function validateSlug(slug) {
   const value = String(slug || '').trim();
-  if (!value || !SLUG_RE.test(value)) {
+  if (!value || !SLUG_RE.test(value) || RESERVED_SLUGS.has(value.toLowerCase())) {
     throw new Error('Invalid study slug.');
   }
   return value;

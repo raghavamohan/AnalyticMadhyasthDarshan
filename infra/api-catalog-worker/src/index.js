@@ -1,7 +1,7 @@
 import catalog from './api-catalog.json';
 
 const CATALOG_CONTENT_TYPE =
-  'application/linkset+json; profile="https://www.rfc-editor.org/info/rfc9727"';
+  'application/linkset+json; profile="https://www.rfc-editor.org/rfc/rfc9727"';
 const CATALOG_LINK =
   '</.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"';
 
