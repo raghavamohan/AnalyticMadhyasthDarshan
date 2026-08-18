@@ -131,7 +131,7 @@ Contributors manage their address and opt-out from the notification bar on **My 
 
 > **GitHub Actions must reach `/api/notify`.** The runner uses a datacenter IP; without the WAF skip below, Super Bot Fight Mode returns `403 "Just a moment…"` and email is never sent (the workflow may still show `success`, with `Notify request failed (403)` in the logs).
 >
-> **Pro (current):** Super Bot Fight Mode is on; WAF skip rule `amd_skip_sbfm_portal_notify` exempts only `/api/notify`. Verify with `python Scripts/_cloudflare_performance.py --check-edge-security` (notify reachability check). Re-apply with `--apply-portal-edge-security` if the skip rule was removed.
+> **Pro (current):** Super Bot Fight Mode is on; WAF skip `amd_skip_sbfm_portal_notify` exempts `/api/notify`, and `amd_skip_sbfm_webmcp` exempts the studies catalog and `/webmcp.js` so in-browser agent scans can register tools. Verify with `python Scripts/_cloudflare_performance.py --check-edge-security`. Re-apply with `--apply-portal-edge-security` if a skip rule was removed.
 >
 > **Free plan fallback:** turn Bot Fight Mode off (Security → Bots) — the worker still enforces `X-Notify-Secret`, Turnstile on writes, and signed sessions.
 >
@@ -160,7 +160,7 @@ Zone settings live on `analyticmadhyasthdarshan.org` in Cloudflare, not in git. 
 
 | Control | Rule / setting | Script ref |
 |---------|----------------|------------|
-| Super Bot Fight Mode | `managed_challenge` on definitely automated; AI bots blocked | `--apply-portal-edge-security` |
+| Super Bot Fight Mode | `managed_challenge` on definitely automated; AI bots blocked; WAF skip on catalog/`webmcp.js` so in-browser WebMCP scans can run | `--apply-portal-edge-security` |
 | Notify SBFM skip | `amd_skip_sbfm_portal_notify` → `http_request_sbfm` skip for `/api/notify` only | `--apply-portal-edge-security` |
 | Probe-path block | `amd_block_common_probes` (`/wp-*`, `/.env`, `/.git`, …) | `--apply-edge-security` |
 | API rate limit | `amd_rl_edge_api` — 40 req / 10 s per IP (portal `api.*` + apex discussion routes); plus leaked-credential rule (Pro max **2** rate-limit rules) | `--apply-discussions-rate-limits` |
