@@ -22,6 +22,12 @@ Repo agent skills are listed at
 https://analyticmadhyasthdarshan.org/.well-known/agent-skills/index.json
 ([Agent Skills Discovery](https://github.com/cloudflare/agent-skills-discovery-rfc)).
 
+The MCP Server Card is at
+https://analyticmadhyasthdarshan.org/.well-known/mcp/server-card.json
+([SEP-1649](https://github.com/modelcontextprotocol/modelcontextprotocol/issues/1649)).
+It advertises Streamable HTTP at `/mcp`. This site publishes the discovery
+card; it does not yet run an MCP session runtime.
+
 ## Audience
 
 **Readers and agents fetching studies do not register.** The studies catalog

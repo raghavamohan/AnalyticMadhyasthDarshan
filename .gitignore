@@ -29,6 +29,8 @@ infra/google-verification-worker/.wrangler/
 infra/api-catalog-worker/.wrangler/
 infra/agent-skills-worker/.wrangler/
 infra/agent-skills-worker/src/index.js
+infra/mcp-worker/.wrangler/
+infra/mcp-worker/src/index.js
 
 # Cygwin/Git-Bash crash dumps
 *.stackdump
