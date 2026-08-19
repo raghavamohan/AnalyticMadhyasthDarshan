@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** August 19, 2026, 3:41 PM IST
+**Edited on:** August 19, 2026, 3:51 PM IST
 **Status:** Draft
 
 **The question:** Can the effort–motion–result triad and the four aspects of a unit be stated as one state-dynamic model that keeps nested compositional plateaus, the atomic completeness thresholds T1–T3, and the coupled activity of many units of different orders in view at once?
@@ -40,11 +40,12 @@ Clear and checkable prose remains the series priority. This paper is a formal re
 | Compositional plateau | A closed unit-form — molecule, compound, mineral, cell, or body — whose bounded conduct persists while complementary couplings hold. |
 | Existential progression | The definite order in which material, pranic, animal, and knowledge orders become manifest under conducive conditions. |
 | Coupling | Mutual facing in which form is reflected and property becomes effect; not isolation. |
+| Containing unit | A closed bearer — compound, cell, or body — that organises lower-order constituents while remaining one unit with its own *roop*, *guna*, *svabhav*, and *dharma*. |
 | Complementary mutuality | Need met by need across units — hungry with overfull, nourishment with eater — without converting one order into another. |
 | Relationship (*sambandh*) | Knowledge-order mutuality whose expectations are predetermined in the sense of completeness. |
 | Contact (*sampark*) | Mutuality whose expectations are voluntary; not the full relational expectation of *sambandh*. |
 | State vector *x*(*t*) | This paper's symbol for one unit's instantaneous configuration (*parinam*) in a reconstructed phase space *X*. |
-| Φ | This paper's symbol for the internal potential associated with effort (*shram*) and order-specific *dharma*. |
+| Φ | This paper's symbol for the internal potential associated with effort (*shram*) and that unit's *dharma* — including Φ<sub>c</sub> of a containing unit, which is not a sum of the constituents' potentials. |
 
 ## 1. Ontological foundations
 
@@ -91,7 +92,7 @@ State and motion are locked at every infinitesimal instant of the model. One can
 
 ## 3. The tetrad in the state-dynamic model
 
-Every unit has four inseparable aspects: form (*roop*), property (*guna*), essential nature (*svabhav*), and *dharma* (MVD, p. 47). They are not four detachable components and not four successive stages. They are simultaneous aspects of one activity-whole, mapping onto the reconstructed triad as follows.
+Every unit has four inseparable aspects: form (*roop*), property (*guna*), essential nature (*svabhav*), and *dharma* (MVD, p. 47). They are not four detachable components and not four successive stages. They are simultaneous aspects of one activity-whole, mapping onto the reconstructed triad as follows. The same four attach to every closed bearer — an atom, a molecule, a cell, a body, or a joint form — and are not inherited as a sum from the units it contains (§5.4).
 
 ```mermaid
 flowchart TD
@@ -142,7 +143,7 @@ already depends on the neighbouring units *N* with which it collides and exchang
 
 **lim<sub>t → ∞</sub> x<sub>physical</sub>(t) ≠ constant**
 
-That limit statement is a reconstruction of openness, not a theorem of physics and not a sentence in the primary texts. It must not be read as a claim that matter has no stable existents. When complementary units close a new motion-path, a **compound** (*yaugik*) presents a new definite bearer with its own constitution and bounded conduct; a **mixture** does not, and the components keep their respective conducts (MVD, p. 42; SB, pp. 75–76). The closed bearer occupies a relatively invariant region of *X* while its couplings remain complementary. Disintegration returns constituents to a lower plateau. Composition is not development: a new compound may close a new bounded conduct while the atomic development progression toward constitutional completeness remains a distinct line (SB, pp. 75–76; KD 3.2–3.3).
+That limit statement is a reconstruction of openness, not a theorem of physics and not a sentence in the primary texts. It must not be read as a claim that matter has no stable existents. When complementary units close a new motion-path, a **compound** (*yaugik*) presents a new definite bearer with its own constitution, bounded conduct, and therefore its own *roop*, *guna*, *svabhav*, and *dharma*; a **mixture** does not, and the components keep their respective conducts (MVD, p. 42; SB, pp. 75–76). The closed bearer occupies a relatively invariant region of *X* while its couplings remain complementary. How that new tetrad enters the coupled field is written in §5.4. Disintegration returns constituents to a lower plateau. Composition is not development: a new compound may close a new bounded conduct while the atomic development progression toward constitutional completeness remains a distinct line (SB, pp. 75–76; KD 3.2–3.3).
 
 ### 4.3 Nested compositional plateaus
 
@@ -201,7 +202,7 @@ Write *N*(*i*) for the units actually in mutual facing with *i*, not for a mean 
 
 **ẋ<sub>i</sub> = F<sub>o(i)</sub>(x<sub>i</sub>, x<sub>N(i)</sub>; Φ<sub>o(i)</sub>)**
 
-The vector field on *i* depends on its own order-potential and on the states of the units it actually meets. Empty *N*(*i*) would recover the isolated equation of §2.3; coexistence does not supply that case.
+The vector field on *i* depends on its own order-potential and on the states of the units it actually meets. When *i* is a constituent of a closed unit *c*, that neighbourhood includes *c* as a containing bearer with its own tetrad, not as a fused sum of the constituents (§5.4). Empty *N*(*i*) would recover the isolated equation of §2.3; coexistence does not supply that case.
 
 ### 5.2 Three kinds of coupling
 
@@ -209,7 +210,7 @@ The texts distinguish how units come together. This paper groups those distincti
 
 **Complementary need** is offering and acceptance among units whose hungers or overfullness meet. Hungry and overfull atoms bond; the same schema organises later composition when the required kinds are already present (MVD, p. 8; JV, p. 67). The coupling may close a new unit (a compound) or restore natural-state motion without closing (an expelled particle absorbed by a hungry atom). It does not convert every contact into a new order.
 
-**Containment and organisation** is the way a higher-order body includes and regulates lower-order compositions: cells in a plant or animal body, minerals and water in the earth to which the plant remains joined, the human body as the richest such composition (KD 3.2, pp. 58–60). Higher-order *dharma* includes the lower-order *dharmas* while adding a further one (SB, p. 179). Containment does not rewrite the order of the constituent. Whatever a thing is constituted of, it remains of the order of that constituent: soil remains soil in a pot; pranic cells remain of the pranic order in a body (SB, p. 260). The body's *x* constrains the cells' couplings; it does not replace their plateaus with a single fused state.
+**Containment and organisation** is the way a higher-order body includes and regulates lower-order compositions: cells in a plant or animal body, minerals and water in the earth to which the plant remains joined, the human body as the richest such composition (KD 3.2, pp. 58–60). Higher-order *dharma* includes the lower-order *dharmas* while adding a further one (SB, p. 179). Containment does not rewrite the order of the constituent. Whatever a thing is constituted of, it remains of the order of that constituent: soil remains soil in a pot; pranic cells remain of the pranic order in a body (SB, p. 260). The containing unit is nevertheless itself a unit, with its own four aspects. Those aspects organise the constituents without replacing their plateaus (§5.4).
 
 **Use, nourishment, and participation** is fulfilment across orders without identity of order. The texts state a living use-ladder, distinct from the constitutive sequence of §4. A knowledge-order unit makes use, right-use, or misuse of many animal-order units; an animal-order unit is complementary to many biological units; a biological unit is complementary to many material units (MVD, p. 105). Pranic units take material compositions as nourishment-element and composition-element under seed-conformance. Animals select and taste through a species-limited body. Humans can know, believe, recognise, evaluate, and fulfil with material, pranic, animal, and human units (JV, pp. 47–48, 69). Apart from humans, the first three orders are already mutually complementary; humans have still to evidence that complementarity (JV, p. 59). Knowledge-order use of lower orders is bounded by right-use and regeneration; extraction beyond regeneration is an unfulfilled coupling that destabilises the containing assembly (MVD, p. 264; JV, p. 77).
 
@@ -236,6 +237,44 @@ Cross-order coupling does not impose one force-law on every pair. Essential natu
 This paper therefore types *F* by the pair of orders in mutuality. A human does not interact with a mineral by the same map as two atoms, does not interact with an animal by the same map as an animal with a plant, and an animal does not evaluate a plant by the human circuit of knowing and believing. The coupling can nourish, constrain, compose, or — under human delusion — deplete. It does not turn a mineral into a cell or a cell into *jeevan*. Those transitions, when they occur, remain the compositional and atomic lines of §4–§6.
 
 Natural-state motion in each order continues while couplings remain complementary. Adverse environment, over-extraction, or human mis-evaluation can excite a unit without changing its order. Material, pranic, and animal recognition and fulfilment remain definite through structure-, seed-, and species-conformance. The knowledge order is the fallible coupling: reflexive evaluation can agree with or diverge from the definite mutuality actually present (§7.1, §9).
+
+### 5.4 The tetrad of a containing unit
+
+A closed unit that contains others is a further bearer, not a bag of their states. In a compound, the participating entities give up exhibiting their respective conducts as the public motion of the whole and exhibit a new kind of conduct; in a mixture they do not (MVD, p. 42). That new conduct is the containing unit's own *roop*, *guna*, *svabhav*, and *dharma*. The constituents remain of their order (SB, p. 260). The reconstruction therefore assigns two tetrads, not one fused tetrad.
+
+Write *c* for a closed containing unit on plateau *P<sub>ℓ</sub>*, and *i* for a constituent on a lower plateau. This paper writes
+
+**ẋ<sub>c</sub> = F<sub>o(c)</sub>(x<sub>c</sub>, x<sub>N(c)</sub>; Φ<sub>c</sub>)**
+
+**ẋ<sub>i</sub> = F<sub>o(i)</sub>(x<sub>i</sub>, x<sub>N(i)</sub>, x<sub>c</sub>; Φ<sub>i</sub>)**
+
+Φ<sub>c</sub> is the *dharma* of *c*, not an aggregate of the Φ<sub>i</sub>. *N*(*c*) is the neighbourhood of the **whole** — the units that meet *c* as one bounded form — not the union of every constituent's private meetings. *x<sub>c</sub>* enters the constituent equation as organisation: it admits, bounds, or excites the couplings of *i* without rewriting *o*(*i*). If *c* disintegrates, the extra argument drops and the constituents return to lower-plateau couplings (§4.2).
+
+| Aspect of *c* | In this reconstruction | Effect on the dynamics |
+|---------------|------------------------|------------------------|
+| Form (*roop*) | *x<sub>c</sub>* as the closed bounded configuration | Sets which constituent couplings are inside the motion-path of *c*; other units meet *c* by this reflected form, not by inspecting each cell |
+| Property (*guna*) | ẋ<sub>c</sub> as the relative power of the whole | The assembly acts as one generative, degenerative, or mediative influence in mutuality; mediative power in *c* can hold the constituents' generative and degenerative motions in a definite organisation |
+| Essential nature (*svabhav*) | The qualitative character of *F<sub>o(c)</sub>* | A plant-body as a unit is vitalising or devitalising in context; a molecule integrates or disintegrates as that compound, not as a list of atomic hungers |
+| *Dharma* | Φ<sub>c</sub> | Orients *F<sub>o(c)</sub>* by the innateness of *c*'s order — existence, and where the order adds them, growth, hope to live, and happiness — while the constituents continue to fulfil the *dharma* of their own order (SB, p. 179) |
+
+A mixture has no such *c*. Each *F<sub>o(i)</sub>* continues with the constituents' own tetrads; results flow, but no new bounded *x<sub>c</sub>* appears. A compound, a cell, and a body are the cases in which a new *x<sub>c</sub>* and Φ<sub>c</sub> do appear. The human joint form does not collapse those levels: the body remains a pranic containing unit with a pranic tetrad; *jeevan* is the sentient atom whose knowledge-order tetrad is evidenced through that body, not a sum of cellular *dharmas* (§7). Composing *jeevan* yields an organised assembly of *jeevan*, never a larger *jeevan*.
+
+```mermaid
+flowchart TB
+    subgraph container["Containing unit c"]
+      RC["roop: x_c"]
+      GC["guna: F_c in mutuality"]
+      SC["svabhav: character of F_c"]
+      DC["dharma: Phi_c"]
+    end
+    subgraph parts["Constituents i, still of their order"]
+      RI["own roop, guna, svabhav, dharma"]
+    end
+    RC -->|"organises couplings"| RI
+    DC -->|"orients F_c, not a sum of Phi_i"| GC
+    SC --> GC
+    GC -->|"meets other units as one whole"| OUT["N(c)"]
+```
 
 ## 6. Constitutional completeness
 
@@ -307,7 +346,7 @@ Let *V* be a reconstructed verification operator on an individual human system *
 |----------|-------------|
 | *V*<sub>thought</sub>(*x*) | Internal harmony (ẋ<sub>cognitive</sub> = 0) |
 | *V*<sub>behavior</sub>(*x*, *y*) | Mutual satisfaction (*ubhaya-tripti* for any interlocutor *y*) |
-| *V*<sub>work</sub>(*x*, *x<sub>N</sub>*) | Cyclical enrichment of the coupled natural units (*avartanashilata*); right-use bounded by regeneration (§5.2–§5.3) |
+| *V*<sub>work</sub>(*x*, *x<sub>N</sub>*) | Cyclical enrichment of the coupled natural units (*avartanashilata*); right-use bounded by regeneration (§5.2–§5.4) |
 | *V*<sub>experience</sub>(*x*) | Absolute alignment with truth (*pramanikta*) |
 
 Authentic conduct requires simultaneous success across all four criteria. If an individual claims internal enlightenment (T2) but their outward trajectory produces exploitation in society (*V*<sub>behavior</sub> &lt; 0) or extraction beyond regeneration in the coupled natural units (*V*<sub>work</sub> &lt; 0), the system remains deluded. *V*<sub>behavior</sub> is the human–human coupling of §5; *V*<sub>work</sub> is the knowledge-order coupling with material, pranic, and animal units. The inequalities are qualitative markers in this reconstruction, not measured scores.
@@ -334,13 +373,13 @@ Fourth, T1 is a metaphysical and textual threshold. Contemporary physics has no 
 
 Fifth, the nested plateaus are this paper's reconstruction of compositional progression and existential order. They organise what the texts state about closed units and conducive conditions. They do not supply a mapping onto evolutionary phylogeny, origin-of-life chemistry, or laboratory phase diagrams. Relating *niyati-kram* to those sciences remains an open comparison, as in the related ontology study.
 
-Sixth, the coupled field *F*<sub>o(i)</sub> is typed by order-pairs and by the three kinds of mutuality in §5. The texts state complementarity, containment, recognition–fulfilment, and right-use; they do not supply a quantitative cross-order force, a universal interaction kernel, or an N-body reduction of *jeevan*. Writing those couplings as one vector field is this paper's reconstruction. Specifying *F* in laboratory coordinates remains open.
+Sixth, the coupled field *F*<sub>o(i)</sub> is typed by order-pairs and by the three kinds of mutuality in §5. The containing unit's tetrad (Φ<sub>c</sub>, *F<sub>o(c)</sub>*) is this paper's reconstruction of new conduct in a compound. The texts state complementarity, containment, recognition–fulfilment, and right-use; they do not supply a quantitative cross-order force, a universal interaction kernel, or an N-body reduction of *jeevan*. Writing those couplings as one vector field is this paper's reconstruction. Specifying *F* in laboratory coordinates remains open.
 
 ## Editorial Notes
 
 ### Formal status of the equations
 
-The state vector *x*(*t*), derivative ẋ(*t*), potential Φ, composite physical–cognitive coordinates, plateau regions *P<sub>ℓ</sub>*, neighbourhood *N*(*i*), order-typed field *F*<sub>o(i)</sub>, joint configuration *x<sub>U</sub>*, and verification operator *V* are this paper's constructions. They organise what the primary texts state about the triad, the four aspects, compositional sequence, mutuality across orders, the completeness stages, and public evidence. They are not quotations, and they are not additional doctrine. Where the exposition says “this paper writes” or “the reconstruction,” the claim is formal, not textual.
+The state vector *x*(*t*), derivative ẋ(*t*), potential Φ, composite physical–cognitive coordinates, plateau regions *P<sub>ℓ</sub>*, neighbourhood *N*(*i*), order-typed field *F*<sub>o(i)</sub>, containing-unit field *F*<sub>o(c)</sub>, joint configuration *x<sub>U</sub>*, and verification operator *V* are this paper's constructions. They organise what the primary texts state about the triad, the four aspects, compositional sequence, mutuality across orders, the completeness stages, and public evidence. They are not quotations, and they are not additional doctrine. Where the exposition says “this paper writes” or “the reconstruction,” the claim is formal, not textual.
 
 ### Running terms
 
@@ -364,14 +403,14 @@ The mermaid in §4.3 records constitutive conditions for closed units. The merma
 
 ### Coupled dynamics are not N-body physics
 
-The isolated equation of §2.3 is a factor. The coupled form in §5 reconstructs mutuality: complementary need, containment, and use/nourishment/participation, typed by the orders of the units that actually meet. It is not a universal force, not a mean-field over all of nature, and not a reduction of *jeevan* to a material ODE. Cross-order coupling does not convert a mineral into a cell or a cell into *jeevan*. Those remain the compositional and atomic lines of §4 and §6.
+The isolated equation of §2.3 is a factor. The coupled form in §5 reconstructs mutuality: complementary need, containment, and use/nourishment/participation, typed by the orders of the units that actually meet. A containing unit *c* is assigned its own Φ<sub>c</sub> and *F<sub>o(c)</sub>*; constituents keep Φ<sub>i</sub> and *o*(*i*). That split is this paper's reconstruction of MVD p. 42 together with SB p. 260. It is not a universal force, not a mean-field over all of nature, and not a reduction of *jeevan* to a material ODE. Cross-order coupling does not convert a mineral into a cell or a cell into *jeevan*. Those remain the compositional and atomic lines of §4 and §6.
 
 ## References
 
 ### Madhyasth Darshan (primary sources)
 
-- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: coexistence and the four aspects (pp. 11, 34, 47; §1, §3); mediative regulation (p. 26; §1); hungry and overfull atoms, existential order (pp. 8, 13; §4.1, §4.4, §5.2); atomic constitution and change of form (pp. 42, 49–50; §3.1, §4.2, §5.1); *sam–visam–madhyastha* (pp. 26, 49–50; §3.2); order-specific *svabhav* and *dharma* (pp. 50–51, 115; §3.3–§3.4, §5.3); relationship and contact (pp. 61–62; §5.2); the use-ladder across orders (p. 105; §5.2–§5.3); T1 evidence, molecular-bondage and weight-bondage (p. 91; §6.1); *atma* and orbital faculties (p. 78; §7); delusion as body-identification (p. 78; §7.1); restfulness of effort (Ch. 5; §8.1); authentic conduct (p. 80; §8.2); expenditure of natural abundance in proportion to regeneration (p. 264; §5.2).
-- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: coexistence and saturation (pp. 48–49; §1); recognition and regulation (p. 57; §1); unit and energy-fullness as activeness (p. 69; §1); inseparable effort–motion–result (pp. 53, 58; §1–§2); complementarity in mutuality (p. 53; §5); state and motion, force and power (pp. 58–62, 248–252; §2.2, §3); completeness goals of the triad (pp. 58, 71; §8); composition is not development (pp. 75–76; §4.2); four orders (p. 179; §3.4, §4.3, §5.2–§5.3); T1 and inexhaustibility (pp. 55, 61, 92; §6); order-specific *dharma* (p. 179; §3.4); a composition remains of the order of its constituent (p. 260; §5.2); delusion and the body (pp. 91–92; §7.1); undivided society (pp. 246–247; §10).
+- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: coexistence and the four aspects (pp. 11, 34, 47; §1, §3); mediative regulation (p. 26; §1); hungry and overfull atoms, existential order (pp. 8, 13; §4.1, §4.4, §5.2); atomic constitution and change of form (pp. 42, 49–50; §3.1, §4.2, §5.1, §5.4); *sam–visam–madhyastha* (pp. 26, 49–50; §3.2, §5.4); order-specific *svabhav* and *dharma* (pp. 50–51, 115; §3.3–§3.4, §5.3); relationship and contact (pp. 61–62; §5.2); the use-ladder across orders (p. 105; §5.2–§5.3); T1 evidence, molecular-bondage and weight-bondage (p. 91; §6.1); *atma* and orbital faculties (p. 78; §7); delusion as body-identification (p. 78; §7.1); restfulness of effort (Ch. 5; §8.1); authentic conduct (p. 80; §8.2); expenditure of natural abundance in proportion to regeneration (p. 264; §5.2).
+- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: coexistence and saturation (pp. 48–49; §1); recognition and regulation (p. 57; §1); unit and energy-fullness as activeness (p. 69; §1); inseparable effort–motion–result (pp. 53, 58; §1–§2); complementarity in mutuality (p. 53; §5); state and motion, force and power (pp. 58–62, 248–252; §2.2, §3); completeness goals of the triad (pp. 58, 71; §8); composition is not development (pp. 75–76; §4.2); four orders (p. 179; §3.4, §4.3, §5.2–§5.3); T1 and inexhaustibility (pp. 55, 61, 92; §6); order-specific *dharma* (p. 179; §3.4); a composition remains of the order of its constituent (p. 260; §5.2, §5.4); delusion and the body (pp. 91–92; §7.1); undivided society (pp. 246–247; §10).
 - **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: nothing isolated, complementarity in mutuality (pp. 43, 69; §2.3, §5); four orders, animal order excluding humans, and conformance (pp. 47–48; §4.3–§4.4, §5.2); inclination toward coexistence (p. 67; §5.2); relationship with the Earth (p. 77; §5.2); human bodily medium, lineage of the body, and complementarity of the first three orders (p. 59; §4.4, §5.2, §7); ten activities (pp. 92–94; §7); delusion and four-and-a-half effective activities (pp. 93–94; §7); human goals (p. 61; §10).
 - **KD** — Nagraj, A. *Manav Karm Darshan*. [Working English translation](../References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf) of chapter 3; Hindi source `KD-karm darshan v5.pdf`. Machine-assisted working translation — not a published translation; cited as corroboration only. Cited: compositional sequence from atom and molecule through cell, plant, animal body, and human *medhas* (3.2, pp. 58–60; §4.3–§4.4, §5.2, §7); development in the atom as T1, distinct from composition (3.3, pp. 60–61; §4.2, §6).
 
