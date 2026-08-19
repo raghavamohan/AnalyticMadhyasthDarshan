@@ -137,7 +137,7 @@ A layered reconstruction of Madhyasth Darshan's ontological core, activity-durat
 This document presents a rigorous, state-dynamic formalisation of the foundational process triad of Effort–Motion–Result (śram–gati–pariṇām) and the ontological tetrad of Form, Property, Essential Nature, and Dharma (rūpa–guṇa–svabhāva–dharma) from Madhyasth Darshan (Co-existentialism).
 
 - Collection: formal · Status: draft
-- Edited on: Aug 19, 2026, 2:31 PM IST
+- Edited on: Aug 19, 2026, 3:51 PM IST
 - HTML: https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.md
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf
