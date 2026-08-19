@@ -4,6 +4,7 @@
 
 **Edited on:** August 19, 2026, 8:52 AM IST
 
+**Status:** Draft
 
 Author: AnalyticMadhyasthDarshan.org — a group of people studying Madhyasth Darshan philosophy. Source repository: raghavamohan/AnalyticMadhyasthDarshan.
 Edited on: August 19, 2026, 8:47 AM IST

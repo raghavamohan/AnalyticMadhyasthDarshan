@@ -6,6 +6,27 @@
   "description": "Draft and released studies, newest Edited-on timestamp first. In-progress (ongoing) rows are omitted.",
   "items": [
     {
+      "id": "https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/",
+      "url": "https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html",
+      "title": "A State Dynamic Model of Coexistence",
+      "content_text": "This document presents a rigorous, state-dynamic formalisation of the foundational process triad of Effort–Motion–Result (śram–gati–pariṇām) and the ontological tetrad of Form, Property, Essential Nature, and Dharma (rūpa–guṇa–svabhāva–dharma) from Madhyasth Darshan (Co-existentialism).",
+      "tags": [
+        "formal",
+        "draft"
+      ],
+      "date_modified": "2026-08-19T08:52:00+05:30",
+      "attachments": [
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.md",
+          "mime_type": "text/markdown"
+        },
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf",
+          "mime_type": "application/pdf"
+        }
+      ]
+    },
+    {
       "id": "https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/",
       "url": "https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.html",
       "title": "Spiritual Practice and Realization",
