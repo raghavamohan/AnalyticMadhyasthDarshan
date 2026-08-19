@@ -17,6 +17,7 @@ body:
       label: Which study?
       description: Choose the study your comment is about.
       options:
+        - A State Dynamic Model of Coexistence
         - Aesthetics
         - "Axiology: Value Theory"
         - Coexistence from First Principles
