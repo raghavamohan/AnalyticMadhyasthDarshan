@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** August 19, 2026, 3:51 PM IST
+**Edited on:** August 21, 2026, 4:03 PM IST
 **Status:** Draft
 
 **The question:** Can the effort–motion–result triad and the four aspects of a unit be stated as one state-dynamic model that keeps nested compositional plateaus, the atomic completeness thresholds T1–T3, and the coupled activity of many units of different orders in view at once?
@@ -31,7 +31,7 @@ Clear and checkable prose remains the series priority. This paper is a formal re
 | Effort–motion–result (*shram–gati–parinam*) | The inseparable triad of unit-activity; not three successive moments. |
 | Form (*roop*) | Shape, volume, density: the real bounded configuration of the unit, reflected in mutual facing. |
 | Property (*guna*) | Relative power, effective as generative, degenerative, or mediative influence when units come together. |
-| Essential nature (*svabhav*) | The order-specific usefulness or characteristic conduct of those effects. |
+| Essential nature (*svabhav*) | The order-specific usefulness or characteristic conducts of those effects — a set, not one conduct. |
 | *Dharma* | What is innately borne and fulfilled according to order: existence, with growth, hope to live, and happiness stated cumulatively in the higher orders. |
 | *Jeevan* | The constitutionally complete sentient atom; the knower that works through the body. |
 | Constitutional completeness (T1) | The atomic threshold at which a developing atom becomes *jeevan* and is free of molecular-bondage and weight-bondage. |
@@ -46,6 +46,7 @@ Clear and checkable prose remains the series priority. This paper is a formal re
 | Contact (*sampark*) | Mutuality whose expectations are voluntary; not the full relational expectation of *sambandh*. |
 | State vector *x*(*t*) | This paper's symbol for one unit's instantaneous configuration (*parinam*) in a reconstructed phase space *X*. |
 | Φ | This paper's symbol for the internal potential associated with effort (*shram*) and that unit's *dharma* — including Φ<sub>c</sub> of a containing unit, which is not a sum of the constituents' potentials. |
+| *F*<sub>o,s</sub> | This paper's reconstruction of motion as a family of maps: order *o* and essential nature *s*, not one vector field whose character is *svabhav*. |
 
 ## 1. Ontological foundations
 
@@ -78,7 +79,7 @@ The derivative notation must not be read as a claim that motion is later than re
 
 ### 2.3 Effort (*shram*) as the system potential
 
-*Shram* is the inherent structural tension, particle-deficit, or developmental drive that powers the vector field. This paper writes it as an internal potential:
+*Shram* is the inherent structural tension, particle-deficit, or developmental drive that powers motion. This paper writes it as an internal potential:
 
 **Φ(x)**
 
@@ -86,7 +87,7 @@ The complete reconstructed activity of **one** bearer, written as if it were alo
 
 **ẋ(t) = F(x(t); Φ)**
 
-Nothing in coexistence is isolated (JV, p. 43). Property is relative power, the effect that arises when units come together (MVD, p. 47). The isolated equation is therefore only a factor of the dynamics. The coupled form, typed by the orders of the units in mutual facing, is written in §5.
+That isolated *F* is a factor. It does not yet distinguish essential natures, which are recognised in mutuality (§3.3, §5). Nothing in coexistence is isolated (JV, p. 43). Property is relative power, the effect that arises when units come together (MVD, p. 47). The coupled form, typed by order and by the essential nature evidenced in that facing, is written in §5.
 
 State and motion are locked at every infinitesimal instant of the model. One cannot alter *parinam* without an immediate manifestation in *gati*, and the trajectory remains bounded by the unit's internal potential, structural constraints, and the units with which it is actually coupled. That locking is the formal counterpart of the triad's joint form, not an additional physical law.
 
@@ -101,7 +102,7 @@ flowchart TD
     DHARMA -->|"Effort / shram"| GUNA["Guna: derivative / motion"]
     DHARMA -->|"Effort / shram"| RUPA["Roop: state vector / result"]
     GUNA <--> RUPA
-    GUNA --> SVABHAV["Svabhav: characteristic conduct"]
+    GUNA --> SVABHAV["Svabhav: family of characteristic conducts"]
     RUPA --> SVABHAV
 ```
 
@@ -115,11 +116,11 @@ flowchart TD
 
 ### 3.3 Essential nature (*svabhav*): functional character
 
-*Svabhav* is fundamental character (*maulikata*) and the usefulness (*upayogita*) of properties (MVD, p. 47). Usefulness here is order-specific functional significance, not benefit to a human observer: the same texts include devitalising and cruel essential natures. In the reconstruction, *svabhav* spans both **effort (*shram*)** and **motion (*gati*)**. It names the qualitative character of *F*(*x*(*t*); Φ). Unlike *guna*, whose directional modes remain the same triad, *svabhav* changes with order: integration–disintegration in matter, vitalising–devitalising in the pranic order, cruel–non-cruel in the animal order, and humane or inhumane dispositions in the knowledge order (MVD, pp. 50–51, 115; SB, p. 179).
+*Svabhav* is fundamental character (*maulikata*) and the usefulness (*upayogita*) of properties (MVD, p. 47). Usefulness here is order-specific functional significance, not benefit to a human observer: the same texts include devitalising and cruel essential natures. In the reconstruction, *svabhav* spans both **effort (*shram*)** and **motion (*gati*)**. Each order has a finite set of essential natures, evidenced as characteristic conducts in mutuality: integration and disintegration in matter, vitalising and devitalising in the pranic order, cruel and non-cruel in the animal order, and humane or inhumane dispositions in the knowledge order (MVD, pp. 50–51, 115; SB, pp. 179–180). This paper writes those conducts as a **family of maps** *F<sub>o,s</sub>*, one map for each essential nature *s* of order *o*. Unlike *guna*, whose directional modes remain the same triad in every order, the set of *s* changes with order. A given facing evidences one *s*; motion is not a sum or blend of the whole family. Isolated *F*(*x*; Φ) in §2.3 does not yet distinguish them, because essential nature is recognised in mutuality.
 
 ### 3.4 *Dharma*: innateness and invariant orientation
 
-*Dharma* is innateness (*dharana*): what is innately borne, maintained, and characteristic of an entire order (MVD, p. 47). It maps fundamentally to **effort (*shram*)**. In the reconstruction it is the potential Φ together with the order-specific orientation toward fulfilment — existence, growth, hope to live, and happiness, stated cumulatively (SB, p. 179). The word “attractor” in what follows is this paper's dynamical-systems analogy for that orientation. The texts speak of development and completeness, not of basins of attraction.
+*Dharma* is innateness (*dharana*): what is innately borne, maintained, and characteristic of an entire order (MVD, p. 47). It maps fundamentally to **effort (*shram*)**. In the reconstruction it is the potential Φ together with the order-specific orientation toward fulfilment — existence, growth, hope to live, and happiness, stated cumulatively (SB, p. 179). Φ orients the family of maps of that order; it does not reduce them to one *F*. The word “attractor” in what follows is this paper's dynamical-systems analogy for that orientation. The texts speak of development and completeness, not of basins of attraction.
 
 ## 4. The material order: phase-space boundedness
 
@@ -137,9 +138,9 @@ The material potential Φ<sub>material</sub> is defined, in the darshan's terms,
 
 The reconstructed material trajectory of a constitution-oriented atom
 
-**ẋ<sub>physical</sub> = F(x<sub>physical</sub>, x<sub>N</sub>; Φ<sub>material</sub>)**
+**ẋ<sub>physical</sub> = F<sub>s</sub>(x<sub>physical</sub>, x<sub>N</sub>; Φ<sub>material</sub>)**
 
-already depends on the neighbouring units *N* with which it collides and exchanges particles (§5). Written without those neighbours it is only a factor. The motion represents continuous composition and decomposition (*gathana-vigathana*). Hungry and overfull atoms remain open to particle exchange. For those open bearers the model does not treat *parinam* as a terminal constant:
+already depends on the neighbouring units *N* with which it collides and exchanges particles, and on whether that facing evidences integration or disintegration (§3.3, §5). Written without those neighbours and without *s* it is only a factor. The motion represents continuous composition and decomposition (*gathana-vigathana*). Hungry and overfull atoms remain open to particle exchange. For those open bearers the model does not treat *parinam* as a terminal constant:
 
 **lim<sub>t → ∞</sub> x<sub>physical</sub>(t) ≠ constant**
 
@@ -147,7 +148,7 @@ That limit statement is a reconstruction of openness, not a theorem of physics a
 
 ### 4.3 Nested compositional plateaus
 
-The qualitative attributes of *x*(*t*) therefore include more than particle-count and bondage. They include the **kind of closed unit** presently evidenced. This paper writes those kinds as nested plateaus *P<sub>ℓ</sub> ⊂ X*. Each plateau is a region in which a unit's *roop*, *guna*, *svabhav*, and *dharma* remain recognisable as one order-specific conduct. The unit is still in effort–motion–result: ẋ is not required to vanish. What remains relatively invariant is the closed form, not an idle point.
+The qualitative attributes of *x*(*t*) therefore include more than particle-count and bondage. They include the **kind of closed unit** presently evidenced. This paper writes those kinds as nested plateaus *P<sub>ℓ</sub> ⊂ X*. Each plateau is a region in which a unit's *roop*, *guna*, *svabhav*, and *dharma* remain recognisable as that order's closed form. The unit is still in effort–motion–result: ẋ is not required to vanish, and more than one essential nature of the order can still be evidenced in different facings. What remains relatively invariant is the closed form, not an idle point and not a single map *F*.
 
 The compositional sequence the texts set out on this earth runs, under conducive conditions, from constitution-oriented atoms through molecules and molecule-composed solids, liquids, and rarefied states, through compounds and minerals, through chemical resonance that yields nourishment- and composition-elements, through pranic cells, through plant-order bodies, through animal bodies, and as far as the human body whose *medhas* composition is the richest compositional plateau (KD 3.2, pp. 58–60). Four orders are perceivable in that sequence: the material state in soil and stone; the pranic state in the plant-order; the *jeevan* state and the knowledge state as joint forms of body and *jeevan* (KD 3.2, p. 59; SB, p. 179).
 
@@ -200,9 +201,9 @@ Let a situation comprise a finite collection of units *U*. Each unit *i* has an 
 
 Write *N*(*i*) for the units actually in mutual facing with *i*, not for a mean field over all of nature. Form is reflected in that facing; property becomes effect there (MVD, pp. 47, 49–50). This paper writes the motion of each bearer as
 
-**ẋ<sub>i</sub> = F<sub>o(i)</sub>(x<sub>i</sub>, x<sub>N(i)</sub>; Φ<sub>o(i)</sub>)**
+**ẋ<sub>i</sub> = F<sub>o(i), s</sub>(x<sub>i</sub>, x<sub>N(i)</sub>; Φ<sub>o(i)</sub>)**
 
-The vector field on *i* depends on its own order-potential and on the states of the units it actually meets. When *i* is a constituent of a closed unit *c*, that neighbourhood includes *c* as a containing bearer with its own tetrad, not as a fused sum of the constituents (§5.4). Empty *N*(*i*) would recover the isolated equation of §2.3; coexistence does not supply that case.
+where *s* belongs to the set of essential natures of order *o*(*i*). The map is not unique for that order. A material unit integrates or disintegrates; a plant vitalises or devitalises; the same *o*(*i*) and Φ do not yield one *F*. Neighbourhood and constitution select which *s* is evidenced. When *i* is a constituent of a closed unit *c*, that neighbourhood includes *c* as a containing bearer with its own tetrad and its own family of maps, not as a fused sum of the constituents (§5.4). Empty *N*(*i*) would recover the isolated factor of §2.3, in which that selection is not yet disclosed; coexistence does not supply that case.
 
 ### 5.2 Three kinds of coupling
 
@@ -234,7 +235,7 @@ flowchart LR
 
 Cross-order coupling does not impose one force-law on every pair. Essential nature is order-specific, and it is evidenced **in the coupling**, not as a private scalar of an isolated *x* (MVD, pp. 50–51; SB, p. 179). Two material units meet as integration or disintegration. A chemical or pranic composition meets a body as vitalising or devitalising in that context. Animals meet as cruel or non-cruel, and they meet plants as complementarity. Humans meet as humane or inhumane; they meet animals as use, right-use, or misuse; they meet vegetation and minerals as cyclical enrichment or as depletion.
 
-This paper therefore types *F* by the pair of orders in mutuality. A human does not interact with a mineral by the same map as two atoms, does not interact with an animal by the same map as an animal with a plant, and an animal does not evaluate a plant by the human circuit of knowing and believing. The coupling can nourish, constrain, compose, or — under human delusion — deplete. It does not turn a mineral into a cell or a cell into *jeevan*. Those transitions, when they occur, remain the compositional and atomic lines of §4–§6.
+Those are distinct maps, not variants of one order-typed field. This paper therefore types *F* by the pair of orders in mutuality **and** by the essential nature *s* evidenced there. Generative, degenerative, and mediative power can accompany more than one *s*: a generative motion is not already vitalising, and a degenerative motion is not already cruel. A human does not interact with a mineral by the same map as two atoms, does not interact with an animal by the same map as an animal with a plant, and an animal does not evaluate a plant by the human circuit of knowing and believing. In the first three orders, constitution and neighbourhood select *s* without option. In the knowledge order, option can select which *s* is evidenced. The coupling can nourish, constrain, compose, or — under human delusion — deplete. It does not turn a mineral into a cell or a cell into *jeevan*. Those transitions, when they occur, remain the compositional and atomic lines of §4–§6.
 
 Natural-state motion in each order continues while couplings remain complementary. Adverse environment, over-extraction, or human mis-evaluation can excite a unit without changing its order. Material, pranic, and animal recognition and fulfilment remain definite through structure-, seed-, and species-conformance. The knowledge order is the fallible coupling: reflexive evaluation can agree with or diverge from the definite mutuality actually present (§7.1, §9).
 
@@ -244,35 +245,35 @@ A closed unit that contains others is a further bearer, not a bag of their state
 
 Write *c* for a closed containing unit on plateau *P<sub>ℓ</sub>*, and *i* for a constituent on a lower plateau. This paper writes
 
-**ẋ<sub>c</sub> = F<sub>o(c)</sub>(x<sub>c</sub>, x<sub>N(c)</sub>; Φ<sub>c</sub>)**
+**ẋ<sub>c</sub> = F<sub>o(c), s<sub>c</sub></sub>(x<sub>c</sub>, x<sub>N(c)</sub>; Φ<sub>c</sub>)**
 
-**ẋ<sub>i</sub> = F<sub>o(i)</sub>(x<sub>i</sub>, x<sub>N(i)</sub>, x<sub>c</sub>; Φ<sub>i</sub>)**
+**ẋ<sub>i</sub> = F<sub>o(i), s<sub>i</sub></sub>(x<sub>i</sub>, x<sub>N(i)</sub>, x<sub>c</sub>; Φ<sub>i</sub>)**
 
-Φ<sub>c</sub> is the *dharma* of *c*, not an aggregate of the Φ<sub>i</sub>. *N*(*c*) is the neighbourhood of the **whole** — the units that meet *c* as one bounded form — not the union of every constituent's private meetings. *x<sub>c</sub>* enters the constituent equation as organisation: it admits, bounds, or excites the couplings of *i* without rewriting *o*(*i*). If *c* disintegrates, the extra argument drops and the constituents return to lower-plateau couplings (§4.2).
+Φ<sub>c</sub> is the *dharma* of *c*, not an aggregate of the Φ<sub>i</sub>. It orients the family of maps of *c*; it does not collapse that family into one *F*. *N*(*c*) is the neighbourhood of the **whole** — the units that meet *c* as one bounded form — not the union of every constituent's private meetings. *x<sub>c</sub>* enters the constituent equation as organisation: it admits, bounds, or excites the couplings of *i* without rewriting *o*(*i*) or replacing the constituent's own set of essential natures. If *c* disintegrates, the extra argument drops and the constituents return to lower-plateau couplings (§4.2).
 
 | Aspect of *c* | In this reconstruction | Effect on the dynamics |
 |---------------|------------------------|------------------------|
 | Form (*roop*) | *x<sub>c</sub>* as the closed bounded configuration | Sets which constituent couplings are inside the motion-path of *c*; other units meet *c* by this reflected form, not by inspecting each cell |
-| Property (*guna*) | ẋ<sub>c</sub> as the relative power of the whole | The assembly acts as one generative, degenerative, or mediative influence in mutuality; mediative power in *c* can hold the constituents' generative and degenerative motions in a definite organisation |
-| Essential nature (*svabhav*) | The qualitative character of *F<sub>o(c)</sub>* | A plant-body as a unit is vitalising or devitalising in context; a molecule integrates or disintegrates as that compound, not as a list of atomic hungers |
-| *Dharma* | Φ<sub>c</sub> | Orients *F<sub>o(c)</sub>* by the innateness of *c*'s order — existence, and where the order adds them, growth, hope to live, and happiness — while the constituents continue to fulfil the *dharma* of their own order (SB, p. 179) |
+| Property (*guna*) | ẋ<sub>c</sub> as the relative power of the whole | The assembly acts as one generative, degenerative, or mediative influence in mutuality; mediative power in *c* can hold the constituents' generative and degenerative motions in a definite organisation. Those modes can accompany more than one essential nature of *c* |
+| Essential nature (*svabhav*) | The family *F<sub>o(c), s<sub>c</sub></sub>* | A plant-body as a unit vitalises or devitalises according to the facing; a molecule integrates or disintegrates as that compound, not as a list of atomic hungers |
+| *Dharma* | Φ<sub>c</sub> | Orients the family of maps of *c* by the innateness of *c*'s order — existence, and where the order adds them, growth, hope to live, and happiness — while the constituents continue to fulfil the *dharma* of their own order (SB, p. 179) |
 
-A mixture has no such *c*. Each *F<sub>o(i)</sub>* continues with the constituents' own tetrads; results flow, but no new bounded *x<sub>c</sub>* appears. A compound, a cell, and a body are the cases in which a new *x<sub>c</sub>* and Φ<sub>c</sub> do appear. The human joint form does not collapse those levels: the body remains a pranic containing unit with a pranic tetrad; *jeevan* is the sentient atom whose knowledge-order tetrad is evidenced through that body, not a sum of cellular *dharmas* (§7). Composing *jeevan* yields an organised assembly of *jeevan*, never a larger *jeevan*.
+A mixture has no such *c*. Each *F<sub>o(i), s<sub>i</sub></sub>* continues with the constituents' own tetrads; results flow, but no new bounded *x<sub>c</sub>* appears. A compound, a cell, and a body are the cases in which a new *x<sub>c</sub>*, Φ<sub>c</sub>, and family of maps of *c* do appear. The human joint form does not collapse those levels: the body remains a pranic containing unit with a pranic tetrad; *jeevan* is the sentient atom whose knowledge-order tetrad is evidenced through that body, not a sum of cellular *dharmas* (§7). Composing *jeevan* yields an organised assembly of *jeevan*, never a larger *jeevan*.
 
 ```mermaid
 flowchart TB
     subgraph container["Containing unit c"]
       RC["roop: x_c"]
-      GC["guna: F_c in mutuality"]
-      SC["svabhav: character of F_c"]
+      GC["guna: modes of the evidenced F"]
+      SC["svabhav: family F_c,s"]
       DC["dharma: Phi_c"]
     end
     subgraph parts["Constituents i, still of their order"]
       RI["own roop, guna, svabhav, dharma"]
     end
     RC -->|"organises couplings"| RI
-    DC -->|"orients F_c, not a sum of Phi_i"| GC
-    SC --> GC
+    DC -->|"orients the family, not a sum of Phi_i"| GC
+    SC -->|"selects F_c,s in the facing"| GC
     GC -->|"meets other units as one whole"| OUT["N(c)"]
 ```
 
@@ -373,13 +374,13 @@ Fourth, T1 is a metaphysical and textual threshold. Contemporary physics has no 
 
 Fifth, the nested plateaus are this paper's reconstruction of compositional progression and existential order. They organise what the texts state about closed units and conducive conditions. They do not supply a mapping onto evolutionary phylogeny, origin-of-life chemistry, or laboratory phase diagrams. Relating *niyati-kram* to those sciences remains an open comparison, as in the related ontology study.
 
-Sixth, the coupled field *F*<sub>o(i)</sub> is typed by order-pairs and by the three kinds of mutuality in §5. The containing unit's tetrad (Φ<sub>c</sub>, *F<sub>o(c)</sub>*) is this paper's reconstruction of new conduct in a compound. The texts state complementarity, containment, recognition–fulfilment, and right-use; they do not supply a quantitative cross-order force, a universal interaction kernel, or an N-body reduction of *jeevan*. Writing those couplings as one vector field is this paper's reconstruction. Specifying *F* in laboratory coordinates remains open.
+Sixth, the coupled maps *F*<sub>o(i), s</sub> are typed by order-pairs, by the essential nature evidenced in the facing, and by the three kinds of mutuality in §5. The containing unit's tetrad (Φ<sub>c</sub>, family *F<sub>o(c), s<sub>c</sub></sub>*) is this paper's reconstruction of new conduct in a compound. The texts state complementarity, containment, recognition–fulfilment, and right-use; they do not supply a quantitative cross-order force, a universal interaction kernel, or an N-body reduction of *jeevan*. Writing those couplings as a family of maps is this paper's reconstruction. Specifying the maps in laboratory coordinates remains open.
 
 ## Editorial Notes
 
 ### Formal status of the equations
 
-The state vector *x*(*t*), derivative ẋ(*t*), potential Φ, composite physical–cognitive coordinates, plateau regions *P<sub>ℓ</sub>*, neighbourhood *N*(*i*), order-typed field *F*<sub>o(i)</sub>, containing-unit field *F*<sub>o(c)</sub>, joint configuration *x<sub>U</sub>*, and verification operator *V* are this paper's constructions. They organise what the primary texts state about the triad, the four aspects, compositional sequence, mutuality across orders, the completeness stages, and public evidence. They are not quotations, and they are not additional doctrine. Where the exposition says “this paper writes” or “the reconstruction,” the claim is formal, not textual.
+The state vector *x*(*t*), derivative ẋ(*t*), potential Φ, composite physical–cognitive coordinates, plateau regions *P<sub>ℓ</sub>*, neighbourhood *N*(*i*), family of maps *F*<sub>o,s</sub>, containing-unit maps *F*<sub>o(c), s<sub>c</sub></sub>, joint configuration *x<sub>U</sub>*, and verification operator *V* are this paper's constructions. They organise what the primary texts state about the triad, the four aspects, compositional sequence, mutuality across orders, the completeness stages, and public evidence. They are not quotations, and they are not additional doctrine. Where the exposition says “this paper writes” or “the reconstruction,” the claim is formal, not textual.
 
 ### Running terms
 
@@ -401,16 +402,20 @@ The nested regions *P<sub>ℓ</sub>* and the table in §4.3 reconstruct composit
 
 The mermaid in §4.3 records constitutive conditions for closed units. The mermaid in §5.2 records living complementarity and use. Existential progression names the order in which the four orders become manifest on this earth; the use-ladder of MVD p. 105 names how a knowledge-order unit relates to animal, pranic, and material units already present. Those are not one diagram.
 
+### Family of maps, not one *F*
+
+The texts name more than one essential nature in each order. Collapsing those names into the qualitative character of a single vector field would treat *svabhav* as a mood of one *F*. This paper therefore indexes motion as *F<sub>o,s</sub>*. Instantaneous activity in a facing is one member of the family, not a superposition. Which member is evidenced is definite in the first three orders given constitution and neighbourhood, and optional in the knowledge order. That indexing is reconstruction; the sources list the conducts, they do not write a family of maps.
+
 ### Coupled dynamics are not N-body physics
 
-The isolated equation of §2.3 is a factor. The coupled form in §5 reconstructs mutuality: complementary need, containment, and use/nourishment/participation, typed by the orders of the units that actually meet. A containing unit *c* is assigned its own Φ<sub>c</sub> and *F<sub>o(c)</sub>*; constituents keep Φ<sub>i</sub> and *o*(*i*). That split is this paper's reconstruction of MVD p. 42 together with SB p. 260. It is not a universal force, not a mean-field over all of nature, and not a reduction of *jeevan* to a material ODE. Cross-order coupling does not convert a mineral into a cell or a cell into *jeevan*. Those remain the compositional and atomic lines of §4 and §6.
+The isolated equation of §2.3 is a factor. The coupled form in §5 reconstructs mutuality: complementary need, containment, and use/nourishment/participation, typed by the orders of the units that actually meet and by the essential nature evidenced in that facing. A containing unit *c* is assigned its own Φ<sub>c</sub> and family *F<sub>o(c), s<sub>c</sub></sub>*; constituents keep Φ<sub>i</sub>, *o*(*i*), and their own set of essential natures. That split is this paper's reconstruction of MVD p. 42 together with SB p. 260. It is not a universal force, not a mean-field over all of nature, and not a reduction of *jeevan* to a material ODE. Cross-order coupling does not convert a mineral into a cell or a cell into *jeevan*. Those remain the compositional and atomic lines of §4 and §6.
 
 ## References
 
 ### Madhyasth Darshan (primary sources)
 
 - **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: coexistence and the four aspects (pp. 11, 34, 47; §1, §3); mediative regulation (p. 26; §1); hungry and overfull atoms, existential order (pp. 8, 13; §4.1, §4.4, §5.2); atomic constitution and change of form (pp. 42, 49–50; §3.1, §4.2, §5.1, §5.4); *sam–visam–madhyastha* (pp. 26, 49–50; §3.2, §5.4); order-specific *svabhav* and *dharma* (pp. 50–51, 115; §3.3–§3.4, §5.3); relationship and contact (pp. 61–62; §5.2); the use-ladder across orders (p. 105; §5.2–§5.3); T1 evidence, molecular-bondage and weight-bondage (p. 91; §6.1); *atma* and orbital faculties (p. 78; §7); delusion as body-identification (p. 78; §7.1); restfulness of effort (Ch. 5; §8.1); authentic conduct (p. 80; §8.2); expenditure of natural abundance in proportion to regeneration (p. 264; §5.2).
-- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: coexistence and saturation (pp. 48–49; §1); recognition and regulation (p. 57; §1); unit and energy-fullness as activeness (p. 69; §1); inseparable effort–motion–result (pp. 53, 58; §1–§2); complementarity in mutuality (p. 53; §5); state and motion, force and power (pp. 58–62, 248–252; §2.2, §3); completeness goals of the triad (pp. 58, 71; §8); composition is not development (pp. 75–76; §4.2); four orders (p. 179; §3.4, §4.3, §5.2–§5.3); T1 and inexhaustibility (pp. 55, 61, 92; §6); order-specific *dharma* (p. 179; §3.4); a composition remains of the order of its constituent (p. 260; §5.2, §5.4); delusion and the body (pp. 91–92; §7.1); undivided society (pp. 246–247; §10).
+- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: coexistence and saturation (pp. 48–49; §1); recognition and regulation (p. 57; §1); unit and energy-fullness as activeness (p. 69; §1); inseparable effort–motion–result (pp. 53, 58; §1–§2); complementarity in mutuality (p. 53; §5); state and motion, force and power (pp. 58–62, 248–252; §2.2, §3); completeness goals of the triad (pp. 58, 71; §8); composition is not development (pp. 75–76; §4.2); four orders (p. 179; §3.4, §4.3, §5.2–§5.3); T1 and inexhaustibility (pp. 55, 61, 92; §6); order-specific *dharma* (p. 179; §3.4); order-specific *svabhav* (pp. 179–180; §3.3, §5.3); a composition remains of the order of its constituent (p. 260; §5.2, §5.4); delusion and the body (pp. 91–92; §7.1); undivided society (pp. 246–247; §10).
 - **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: nothing isolated, complementarity in mutuality (pp. 43, 69; §2.3, §5); four orders, animal order excluding humans, and conformance (pp. 47–48; §4.3–§4.4, §5.2); inclination toward coexistence (p. 67; §5.2); relationship with the Earth (p. 77; §5.2); human bodily medium, lineage of the body, and complementarity of the first three orders (p. 59; §4.4, §5.2, §7); ten activities (pp. 92–94; §7); delusion and four-and-a-half effective activities (pp. 93–94; §7); human goals (p. 61; §10).
 - **KD** — Nagraj, A. *Manav Karm Darshan*. [Working English translation](../References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf) of chapter 3; Hindi source `KD-karm darshan v5.pdf`. Machine-assisted working translation — not a published translation; cited as corroboration only. Cited: compositional sequence from atom and molecule through cell, plant, animal body, and human *medhas* (3.2, pp. 58–60; §4.3–§4.4, §5.2, §7); development in the atom as T1, distinct from composition (3.3, pp. 60–61; §4.2, §6).
 
