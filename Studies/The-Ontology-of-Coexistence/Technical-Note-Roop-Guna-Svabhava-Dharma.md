@@ -2,11 +2,11 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy.
 
-**Edited on:** August 21, 2026, 12:33 PM IST
+**Edited on:** August 21, 2026, 12:46 PM IST
 
 **Status:** Internal technical note; not a catalog entry and not part of the released text of *The Ontology of Coexistence*.
 
-**Scope:** This note clarifies the four inseparable aspects attributed to every unit (*ikai*) in Madhyasth Darshan: form (*rūpa*), property or relative power (*guṇa*), essential nature (*svabhāva*), and *dharma*. Its central question is whether a unit can consistently be understood as a process or activity at the fundamental level. The same four aspects are then asked of a compound or further organisation as a containing unit, without collapsing the constituents into that whole. The process-language below is an analytical reconstruction of the primary texts, not a claim that those texts explicitly adopt a modern school of process philosophy.
+**Scope:** This note clarifies the four inseparable aspects attributed to every unit (*ikai*) in Madhyasth Darshan: form (*rūpa*), property or relative power (*guṇa*), essential nature (*svabhāva*), and *dharma*. Its central question is whether a unit can consistently be understood as a process or activity at the fundamental level. The same four aspects are then asked of a compound or further organisation as a containing unit, without collapsing the constituents into that whole. They are also assembled as one process-dynamic: present configuration, order-typed potential, and coupled motion. The process-language below is an analytical reconstruction of the primary texts, not a claim that those texts explicitly adopt a modern school of process philosophy.
 
 ## 1. The interpretive problem
 
@@ -42,6 +42,8 @@ The resulting process-picture is therefore:
 | Effort or force | Present as *dharma* and *svabhāva*: the innateness borne, and the essential nature through which force appears as conduct |
 | Motion or power | Present as *svabhāva* and *guṇa*: the operative influence of power, characterised as essential nature |
 | Result | Present as *rūpa* and immortality (*amaratva*): determinate configuration, oriented toward non-decomposable result at constitutional completeness |
+
+The same alignment is written as one process-dynamic of the unit in §9.
 
 ## 4. Why *rūpa* is not an absolute effect
 
@@ -124,7 +126,53 @@ A mixture has no such containing unit. Results can still flow: collision and mix
 
 The same two-tetrad pattern continues where organisation is biological rather than physicochemical. A cell and a body are further containing units: each has its own bounded form, public relative power, order-specific conduct, and innateness, while the cells of a body remain of the pranic order. Those organisations are not themselves *yaugik* in the atomic or molecular sense. Sentience of an animal or human joint form belongs to the *jeevan* joined with the body, not to the composition of cells. Composing *jeevan* yields an organised assembly of *jeevan*, never a larger *jeevan*. Human families and social assemblies are not compounds in the physicochemical sense; their continuity is achieved through relationship-fulfilment rather than chemically definite proportion (*The Ontology of Coexistence*, §1.10; *A State-Dynamic Model of Coexistence*, §5.4).
 
-## 9. Human relationships: where usefulness becomes explicitly normative
+## 9. Process dynamics of the unit
+
+The four aspects and the triad can be read together as one process-picture of how a unit continues. Configuration, innateness, relative power, and characteristic conduct then occupy definite roles in the same activity-whole, rather than remaining a list beside a separate set of equations.
+
+### 9.1 Present configuration as *rūpa*
+
+Each unit is presently a bounded configuration: shape, volume, density, and the motion-path that keeps it one definite bearer. That present state is *rūpa*. In the reconstruction it is the state vector *x*(*t*): the result (*pariṇām*) already attained or being maintained, not an effect in the same sense as *guṇa*. The unit is never a bare point that later acquires form. Form is the configuration from which activity is read.
+
+### 9.2 Order-typed potential as *dharma*
+
+The unit does not drift in an empty field. It bears an order-specific innateness — existence, and in the higher orders growth, hope to live, and happiness — and that innateness orients its activity. *Dharma* is that orientation, mapped on the effort/force side. In the reconstruction it is the potential Φ.
+
+“Cumulative” here is the order-table of §7: a higher-order unit bears the lower *dharmas* as well. It is not a global potential formed by adding every unit’s *dharma*. Each bearer has its own Φ typed by its order. A containing unit’s Φ<sub>c</sub> is not the sum of the constituents’ Φ<sub>i</sub> (§8). Saturation in *satta* is the common condition of existence for every unit; *satta* remains actionless, and is not a potential that units fall down.
+
+The “overall” setup in which a unit moves is therefore the coupled field of the units it actually meets, together with its own Φ, and together with a containing unit’s organisation when one is present. Property is relative power; the neighbourhood *N* is those mutual facings, not a mean field over all of nature.
+
+### 9.3 Motion as *guṇa* and *svabhāva*
+
+Motion (*gati*) is the unit’s activity as change of that present configuration. The reconstruction writes
+
+**ẋ(*t*) = *F*(*x*(*t*), *x*<sub>*N*</sub>; Φ)**
+
+State and motion are locked at every duration. The unit does not first occupy a form, then consult a potential, then begin to move. Effort, motion, and result remain a joint form.
+
+*Guṇa* names the directional modes of that motion as relative power in mutuality: generative, degenerative, or mediative. *Svabhāva* names the order-specific character of the same motion: integration–disintegration in matter, vitalising–devitalising in the pranic order, cruel–uncruel in the animal order, humane or inhumane in the knowledge order. The two are not two successive reactions. They are two aspects of one *F*: how the power operates, and what characteristic conduct that operation expresses. Neighbours enter *F* because *guṇa* is the effect that arises when units come together; *svabhāva* is recognised in that same mutuality.
+
+| Dynamical role | Aspect | Reconstruction |
+|---|---|---|
+| Present bounded state | Form (*rūpa*) | *x*(*t*) |
+| Order-typed innateness orienting activity | *Dharma* | Φ, cumulative across orders in that unit, not a sum across units |
+| Directional relative power | Property (*guṇa*) | Modes of *F*: *sam*, *viṣam*, *madhyastha* |
+| Order-specific character of that power | Essential nature (*svabhāva*) | Qualitative character of *F* |
+| Instantaneous activity as a joint form | Effort–motion–result | ẋ = *F*(*x*, *x*<sub>*N*</sub>; Φ) |
+
+### 9.4 Why motion is not a second rate of change
+
+A Newtonian reading would take *rūpa* as position, Φ as a scalar potential *V*, and motion as the acceleration produced by that potential: ẍ = −∇*V*. That reading captures one intended insight — the unit’s activity is a response to innateness in a field of other units, not an arbitrary velocity. It does not match the triad.
+
+Force (*bal*) is identified with state, and power (*śakti*) with motion. Effort, motion, and result are simultaneous, each a joint form of the other two. A second-order equation would give velocity an independent inertia and identify force with the change of motion. The reconstruction therefore keeps first-order locking: ẋ is determined together with *x* and Φ. Gradient-flow language — motion as the immediate reaction of the present configuration to the potential — can illustrate that orientation. Inertial second-order language cannot be read back as a fifth aspect, and it is not a second definition of *guṇa* or *svabhāva* (SB, pp. 58–62, 248–252).
+
+### 9.5 Relatively stable kinds
+
+Units occupy relatively stable kinds of closed conduct while complementary couplings hold. Those kinds are not idle points at which ẋ vanishes. The closed form remains recognisable; activity continues. The state-dynamic model writes them as nested plateaus of *X*. The kinds named in the texts, under conducive conditions on this earth, include constitution-oriented atoms, molecules, compounds and minerals, pranic cells, plant bodies, animal and human bodies, constitutionally complete *jeevan*, and the animal and human joint forms (*A State-Dynamic Model of Coexistence*, §4.3).
+
+Those kinds are not one ladder that a single *x*(*t*) climbs. Composition closes a new bounded unit; development in the atom reaches constitutional completeness. A plant body is a pranic composition, not *jeevan*. Animal and human beings are joint forms: the compositional line supplies that order’s body, the atomic line supplies *jeevan*. *Jeevan* is not produced by composing cells, and composing *jeevan* never yields a larger *jeevan*. Families and assemblies are not physicochemical compounds (§8).
+
+## 10. Human relationships: where usefulness becomes explicitly normative
 
 In human relationships, understanding adds a normative dimension that is not present in the same way in material mutuality. Understanding the relationship reveals its inherent value; the value makes appropriate conduct recognisable; humane *svabhāva* enables that value to be expressed; and fulfilment contributes to resolution and happiness. An action may be effective as *guṇa* while expressing an inhumane *svabhāva* and failing to evidence human *dharma*. Manipulation can successfully influence another person, but causal effectiveness does not make the conduct just or mutually fulfilling.
 
@@ -134,9 +182,9 @@ It is consequently too narrow to define *svabhāva* universally as “what susta
 
 This is a knowledge-order articulation of how innateness becomes evident in relationship. It does not replace *dhāraṇā* as the generic definition, and it does not apply as a substitute definition in material, biological, or animal nature.
 
-## 10. Limits of the process interpretation
+## 11. Limits of the process interpretation
 
-A process-oriented reading is consistent with the primary texts under five constraints.
+A process-oriented reading is consistent with the primary texts under six constraints.
 
 First, “process” must mean persistent organised activity, not a momentary event. Units retain definite boundaries, constitutions, and identifiable continuity while remaining active.
 
@@ -148,7 +196,9 @@ Fourth, the unit must not be reduced to its current relations. Madhyasth Darshan
 
 Fifth, the four aspects of a containing unit must not be treated as a sum or replacement of the constituents' four aspects. Mixture retains the participants' conducts and supplies no further tetrad; compound, cell, and body each add a containing tetrad while the constituents remain of their order (§8).
 
-## 11. Compact formulation
+Sixth, motion must not be rewritten as a Newtonian second rate of change. First-order locking of *x* and ẋ is the reconstruction of the triad’s joint form; inertial acceleration is not a further aspect, and Φ is not a global sum of *dharmas* (§9).
+
+## 12. Compact formulation
 
 > *Rūpa* is how the unit is configured and bounded: shape, volume, and density.<br>
 > *Guṇa* is how its power operates and affects mutuality.<br>
@@ -161,6 +211,8 @@ The four can be compressed into one sentence without collapsing their difference
 
 When the unit is a compound or a further organisation, that sentence applies twice: to each constituent, and to the containing unit as a further bounded activity-whole.
 
+In process-dynamic terms: the present configuration is *rūpa*, the order-typed potential is *dharma*, and the motion by which the unit continues is *guṇa* characterised as *svabhāva*, written ẋ = *F*(*x*, *x*<sub>*N*</sub>; Φ).
+
 ## References
 
 ### Madhyasth Darshan primary texts
@@ -172,4 +224,4 @@ When the unit is a compound or a further organisation, that sentence applies twi
 ### Related studies
 
 - [*The Ontology of Coexistence*](The-Ontology-of-Coexistence.pdf), especially §1.3, “The unit and its four aspects in mutuality,” and §1.10, “Composition and assemblies.”
-- [*A State-Dynamic Model of Coexistence*](../A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf), especially §5.4, “The tetrad of a containing unit.”
+- [*A State-Dynamic Model of Coexistence*](../A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf), especially §2–§3 (state, derivative, and potential), §4.3 (nested compositional plateaus), and §5.4 (the tetrad of a containing unit).
