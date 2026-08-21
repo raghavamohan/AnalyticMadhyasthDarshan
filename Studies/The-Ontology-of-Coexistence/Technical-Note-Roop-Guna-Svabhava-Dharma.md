@@ -2,11 +2,11 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy.
 
-**Edited on:** August 21, 2026, 12:46 PM IST
+**Edited on:** August 21, 2026, 3:25 PM IST
 
 **Status:** Internal technical note; not a catalog entry and not part of the released text of *The Ontology of Coexistence*.
 
-**Scope:** This note clarifies the four inseparable aspects attributed to every unit (*ikai*) in Madhyasth Darshan: form (*rūpa*), property or relative power (*guṇa*), essential nature (*svabhāva*), and *dharma*. Its central question is whether a unit can consistently be understood as a process or activity at the fundamental level. The same four aspects are then asked of a compound or further organisation as a containing unit, without collapsing the constituents into that whole. They are also assembled as one process-dynamic: present configuration, order-typed potential, and coupled motion. The process-language below is an analytical reconstruction of the primary texts, not a claim that those texts explicitly adopt a modern school of process philosophy.
+**Scope:** This note clarifies the four inseparable aspects attributed to every unit (*ikai*) in Madhyasth Darshan: form (*rūpa*), property or relative power (*guṇa*), essential nature (*svabhāva*), and *dharma*. Its central question is whether a unit can consistently be understood as a process or activity at the fundamental level. The same four aspects are then asked of a compound or further organisation as a containing unit, without collapsing the constituents into that whole. They are also assembled as one process-dynamic: present configuration, order-typed potential, and coupled motion. *Nyāya*, *dharma*, and *satya* name universal truths of that dynamic: followed by default, with no option, in insentient (*jada*) units, and followed through understanding where sentience has option. The process-language below is an analytical reconstruction of the primary texts, not a claim that those texts explicitly adopt a modern school of process philosophy.
 
 ## 1. The interpretive problem
 
@@ -170,21 +170,76 @@ Force (*bal*) is identified with state, and power (*śakti*) with motion. Effort
 
 Units occupy relatively stable kinds of closed conduct while complementary couplings hold. Those kinds are not idle points at which ẋ vanishes. The closed form remains recognisable; activity continues. The state-dynamic model writes them as nested plateaus of *X*. The kinds named in the texts, under conducive conditions on this earth, include constitution-oriented atoms, molecules, compounds and minerals, pranic cells, plant bodies, animal and human bodies, constitutionally complete *jeevan*, and the animal and human joint forms (*A State-Dynamic Model of Coexistence*, §4.3).
 
-Those kinds are not one ladder that a single *x*(*t*) climbs. Composition closes a new bounded unit; development in the atom reaches constitutional completeness. A plant body is a pranic composition, not *jeevan*. Animal and human beings are joint forms: the compositional line supplies that order’s body, the atomic line supplies *jeevan*. *Jeevan* is not produced by composing cells, and composing *jeevan* never yields a larger *jeevan*. Families and assemblies are not physicochemical compounds (§8).
+Those kinds are not one ladder that a single *x*(*t*) climbs. Composition closes a new bounded unit; development in the atom reaches constitutional completeness. A plant body is a pranic composition, not *jeevan*. Animal and human beings are joint forms: the compositional line supplies that order’s body, the atomic line supplies *jeevan*. *Jeevan* is not produced by composing cells, and composing *jeevan* never yields a larger *jeevan*. Families and assemblies are not physicochemical compounds (§8). How *nyāya*, *dharma*, and *satya* sit in that dynamic — by default in *jada*, through understanding where there is option — is taken up in §10.
 
-## 10. Human relationships: where usefulness becomes explicitly normative
+## 10. How *nyāya*, *dharma*, and *satya* are established in the process-dynamic
 
-In human relationships, understanding adds a normative dimension that is not present in the same way in material mutuality. Understanding the relationship reveals its inherent value; the value makes appropriate conduct recognisable; humane *svabhāva* enables that value to be expressed; and fulfilment contributes to resolution and happiness. An action may be effective as *guṇa* while expressing an inhumane *svabhāva* and failing to evidence human *dharma*. Manipulation can successfully influence another person, but causal effectiveness does not make the conduct just or mutually fulfilling.
+*Nyāya*, *dharma*, and *satya* name universal truths of coexistence: definite fulfilment in relationship, orderliness of innateness, and existence as coexistence. They are not human inventions added after the tetrad, and they are not absent from insentient nature. Every unit's *rūpa*, *guṇa*, *svabhāva*, and *dharma* already participate in those truths. What changes at sentience is not the truths but whether the unit has option with respect to them.
 
-It is consequently too narrow to define *svabhāva* universally as “what sustains a relationship.” Sustaining and balancing belong most directly to the mediative mode of *guṇa*, while human relationship-fulfilment additionally requires recognition of values, justice, and appropriate conduct. The human sequence can be stated as:
+### 10.1 Default following and optional understanding
 
-> understanding of relationship → recognition of value → conduct expressing *svabhāva* → fulfilment evidencing human *dharma* as resolution and happiness
+In insentient (*jada*) nature — the material and pranic orders — there is no option. Recognition and fulfilment are definite given constitution, distance, state, motion, and environment. Different mutualities yield different definite effects; no unit mis-evaluates what occurs (*The Ontology of Coexistence*, §1.3). The vector field *F* is constitutionally locked to complementary fulfilment. *Nyāya*, *dharma*, and *satya* are therefore already the dynamics: a mineral or a cell follows them by default as the law of its activity, not by judging just or unjust, resolved or unresolved, true or untrue. Conduct in the first three orders is definite (JV, p. 113). Apart from humans, those orders are already mutually complementary (JV, p. 59).
 
-This is a knowledge-order articulation of how innateness becomes evident in relationship. It does not replace *dhāraṇā* as the generic definition, and it does not apply as a substitute definition in material, biological, or animal nature.
+The animal joint form is sentient, but its expression remains species-conformant. Selection and taste operate through a limited bodily medium without the human perspective-fork. Species-conformance keeps *F* definite; animal sentience does not introduce *nyāya–anyāya* as a live alternative.
+
+The knowledge-order human has option. Knowing and believing may disconnect from recognition and fulfilment. Delusion identifies *jeevan* with the body and takes pleasant–unpleasant, healthy–unhealthy, and profit–loss as exhaustive refuge; humane living takes *nyāya–dharma–satya* as governing (MVD, p. 67). The same universal truths must then be followed through understanding. Behaviour is regulated through justice, thought through *dharma*, realisation through truth (MVD, p. 137) because those are the names under which the already-operative order is knowingly evidenced — not because *jada* lacked them.
+
+*Dharma* as unit-innateness (*dhāraṇā*, Φ) is borne in every order. The *dharma–adharma* perspective appears only where there is option: thought can support resolution or fail it. *Nyāya* likewise names both the definite complementary fulfilment already present in *jada* couplings and, in the human, the completed activity of recognising relationships, fulfilling values, evaluating, and achieving mutual satisfaction (MVD, p. 311).
+
+*Niyam*, *niyantran*, and *santulan* name law, regulation, and balance of activity in every order. In *jada* they are the definite activity-form of the same universal truths. They are not a second set of laws that humans later replace with *nyāya*, *dharma*, and *satya*. The widening sequence from knowledge through law to justice, *dharma*, and truth (MVD, p. 174) is how that one order becomes understood, not a term-by-term equation of *niyam* with *nyāya*.
+
+### 10.2 How the four aspects are established
+
+The tetrad is established as the definition of the unit, not as a later score. In the process-dynamic:
+
+| Aspect | What is established | In the dynamics |
+|---|---|---|
+| Form (*rūpa*) | The bounded configuration presently maintained | *x*(*t*), the result already in place |
+| Property (*guṇa*) | Relative power as generative, degenerative, or mediative effect | Directional modes of *F* in mutuality |
+| Essential nature (*svabhāva*) | Order-specific characteristic conduct | Qualitative character of the same *F* |
+| *Dharma* (innateness) | What the unit bears according to its order | Φ; in the knowledge order evidenced as happiness |
+
+In *jada*, these four already run inside the universal truths: configuration, relative power, definite conduct, and innateness have no alternative branch. False learning is failure to understand a thing's form, properties, essential nature, and *dharma* as they are (MVD, pp. 184, 263–264). Understanding does not create the aspects or the truths; it establishes them as known where option exists.
+
+### 10.3 How *nyāya* is established
+
+Justice is understood on the basis of relationships (JV, p. 120). In *jada*, relationship is definite complementarity: hungry and overfull, nourishment and composition, containment and organisation. *Nyāya* is established there by default as the closing of recognition and fulfilment in *F*. The mineral does not compute justice; its couplings already fulfil or fail as constitution, not as a chosen verdict.
+
+In the human, the same truth must be established through understanding. Form is reflected and the relationship recognised; *guṇa* operates as fulfilment of the relationship's values, not as mere influence; *svabhāva* is the humane or inhumane character of that conduct; unit-*dharma* is evidenced as resolution and happiness when fulfilment holds.
+
+The cycle can be stated as:
+
+> understanding of relationship → recognition of value → conduct expressing *svabhāva* → evaluation → mutual satisfaction
+
+*Nyāya* is established in the knowledge order when that cycle closes as mutual satisfaction. Option makes failure possible: causal effectiveness of *guṇa* does not establish justice; manipulation can influence another person while remaining unjust. Statutory law may or may not embody justice; legality alone does not close the cycle (*The Ontology of Coexistence*, §1.11–§1.12.1). The related reconstructions write the human closure as a behavioural verification constraint on *F*, and as recognition, fulfilment, and reflexive evaluation reaching mutual satisfaction (*A State-Dynamic Model of Coexistence*, §9; *Coexistence from First Principles*, §4.9). Reflexive evaluation can agree with or diverge from the definite mutuality already present. That divergence is the option; it is not available to *jada*.
+
+### 10.4 How *dharma* is established
+
+Unit-*dharma* is borne in every order as Φ. In *jada*, existence and growth orient *F* without an *adharma* alternative. The cell does not choose decline as a perspective; excited-state motion can displace it under pressure, but that is disturbance of definite conduct, not optional evaluation.
+
+Where there is option, thought is disciplined through *dharma* (MVD, p. 137), understood on the basis of orderliness (JV, p. 120). Evaluative *dharma* is the alignment of the knowledge-order potential: whether Φ<sub>cognitive</sub> orients *F* toward resolution rather than toward unresolved sensory, bodily, or material refuge. Inner friction — cognitive motion that cannot rest in understanding — is the failure of this alignment, not a second definition of unit-*dharma* (*A State-Dynamic Model of Coexistence*, §7.1, §8.1). Evaluative *dharma* is established when thought is resolved: knowing, believing, recognising, and fulfilling no longer contradict one another, and human *dharma* as happiness is evidenced. Activity completeness (T2) is restfulness of effort in that sense, not the vanishing of the unit.
+
+### 10.5 How *satya* is established
+
+*Satya* is understood on the basis of existence (JV, p. 120). In *jada*, existence as coexistence is already how the unit is: saturated, bounded, and active in definite mutuality. Truth is followed by default as the actuality of that coexistence; the unit does not verify or deny it.
+
+Realisation takes place through truth (MVD, p. 137) because the human can take *asatya* as refuge. The *satya–asatya* perspective asks whether understanding accords with coexistence as it is. A motion may succeed as *guṇa*, express a plausible *svabhāva*, and even produce temporary mutual agreement, and still fail *satya* if the understanding from which *F* was selected does not accord with existence. *Satya* is established in the knowledge order when realisation knows coexistence, knows *jeevan* as the knower, and projects that knowing as authenticity in conduct. Truth in the widening sequence is realised as coexistence; realisation in coexistence is bliss (MVD, p. 174; *The Ontology of Coexistence*, §1.13).
+
+### 10.6 One picture: same truths, two modes
+
+| Term | Universal content | In *jada* (no option) | In human sentience (option) |
+|---|---|---|---|
+| *Rūpa*, *guṇa*, *svabhāva*, unit-*dharma* | The unit as activity-whole | *x*, *F*, Φ locked to definite conduct | Same tetrad; *F* can be selected from understanding or from delusion |
+| *Niyam*, *niyantran*, *santulan* | Law, regulation, and balance of activity | Definite conformance of *F* | Must be understood and kept; otherwise procedure replaces law |
+| *Nyāya* | Definite fulfilment in relationship | Followed by default as complementary closing of *F* | Established through understanding as mutual satisfaction; *anyāya* is a live alternative |
+| *Dharma* | Orderliness of innateness | Φ orients *F* with no *adharma* fork | Unit-*dharma* still borne; evaluative *dharma* is resolved thought |
+| *Satya* | Existence as coexistence | Already the actuality of saturated unithood | Must be realised; *asatya* is a live alternative |
+
+Sustaining and balancing belong most directly to the mediative mode of *guṇa* and to *santulan* in activity. In *jada* that is already *nyāya* as default fulfilment. Human relationship-fulfilment additionally requires understanding, because option can break the cycle. It is consequently too narrow to define *svabhāva* universally as “what sustains a relationship,” and too narrow to treat *nyāya* or *satya* as human-only coordinates of *x*.
 
 ## 11. Limits of the process interpretation
 
-A process-oriented reading is consistent with the primary texts under six constraints.
+A process-oriented reading is consistent with the primary texts under seven constraints.
 
 First, “process” must mean persistent organised activity, not a momentary event. Units retain definite boundaries, constitutions, and identifiable continuity while remaining active.
 
@@ -197,6 +252,8 @@ Fourth, the unit must not be reduced to its current relations. Madhyasth Darshan
 Fifth, the four aspects of a containing unit must not be treated as a sum or replacement of the constituents' four aspects. Mixture retains the participants' conducts and supplies no further tetrad; compound, cell, and body each add a containing tetrad while the constituents remain of their order (§8).
 
 Sixth, motion must not be rewritten as a Newtonian second rate of change. First-order locking of *x* and ẋ is the reconstruction of the triad’s joint form; inertial acceleration is not a further aspect, and Φ is not a global sum of *dharmas* (§9).
+
+Seventh, *nyāya*, *dharma*, and *satya* must not be treated as human-only coordinates, and they must not be treated as optional in *jada*. They are universal truths of the dynamic: followed by default, with no option, in insentient units, and followed through understanding where sentience has option. Unit-*dharma* must not be collapsed into the *dharma–adharma* perspective; that perspective appears only with option (§10).
 
 ## 12. Compact formulation
 
@@ -211,17 +268,19 @@ The four can be compressed into one sentence without collapsing their difference
 
 When the unit is a compound or a further organisation, that sentence applies twice: to each constituent, and to the containing unit as a further bounded activity-whole.
 
-In process-dynamic terms: the present configuration is *rūpa*, the order-typed potential is *dharma*, and the motion by which the unit continues is *guṇa* characterised as *svabhāva*, written ẋ = *F*(*x*, *x*<sub>*N*</sub>; Φ).
+In process-dynamic terms: the present configuration is *rūpa*, the order-typed potential is *dharma*, and the motion by which the unit continues is *guṇa* characterised as *svabhāva*, written ẋ = *F*(*x*, *x*<sub>*N*</sub>; Φ). *Nyāya*, *dharma*, and *satya* are universal truths of that motion: in *jada* they are followed by default as definite *F*; in human sentience they are established through understanding, because option can take *anyāya*, *adharma*, or *asatya* as refuge.
 
 ## References
 
 ### Madhyasth Darshan primary texts
 
-- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: definitions of the four aspects (p. 47); form and the *sam–viṣam–madhyastha* distinction (pp. 50–51); order-specific *svabhāva* and *dharma* (pp. 50–51, 115); mediative regulation (p. 26); atomic constitution, mixture (*mishran*), and compound (*yaugik*) (p. 42); inhumane essential nature (p. 58); conduct as expression of essentiality (p. 77).
+- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: definitions of the four aspects (p. 47); form and the *sam–viṣam–madhyastha* distinction (pp. 50–51); order-specific *svabhāva* and *dharma* (pp. 50–51, 115); mediative regulation (p. 26); atomic constitution, mixture (*mishran*), and compound (*yaugik*) (p. 42); inhumane essential nature (p. 58); conduct as expression of essentiality (p. 77); humane and inhumane perspectives (p. 67); behaviour, thought, and realisation (p. 137); the sequence from knowledge through law to justice, *dharma*, and truth (p. 174); false learning as failure to understand the four aspects (pp. 184, 263–264); justice as relationship, fulfilment, evaluation, and mutual satisfaction (p. 311).
 - **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: effort–motion–result and state–motion (pp. 58–62); change of form and properties with development (p. 55); composition is not development (pp. 75–76); order-specific *dharma* and the body/*jeevan* split (pp. 179–180); force, power, form, reflection, influence, recognition, and evaluation (pp. 248–252); bearer and property (pp. 256–257); a composition remains of the order of its constituents (p. 260).
-- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Consulted for the peepal-tree illustration of form, properties, essential nature, and *dharma* (p. 113).
+- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: first three orders already complementary (p. 59); peepal-tree illustration of the four aspects, and definite conduct in those orders (p. 113); justice on the basis of relationships, *dharma* on the basis of orderliness, truth on the basis of existence (p. 120).
 
 ### Related studies
 
-- [*The Ontology of Coexistence*](The-Ontology-of-Coexistence.pdf), especially §1.3, “The unit and its four aspects in mutuality,” and §1.10, “Composition and assemblies.”
-- [*A State-Dynamic Model of Coexistence*](../A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf), especially §2–§3 (state, derivative, and potential), §4.3 (nested compositional plateaus), and §5.4 (the tetrad of a containing unit).
+- [*The Ontology of Coexistence*](The-Ontology-of-Coexistence.pdf), especially §1.3 (definite insentient mutuality), §1.10, “Composition and assemblies,” and §1.11–§1.13 (regulation, evaluative perspectives, justice, and realisation).
+- [*A State-Dynamic Model of Coexistence*](../A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf), especially §2–§3 (state, derivative, and potential), §4.3 (nested compositional plateaus), §5.4 (the tetrad of a containing unit), and §7–§9 (delusion, completeness, and verification).
+- [*The Epistemology of Coexistence*](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf), especially §1.4 on the six perspectives and on *niyam–niyantran–santulan* with *nyāya–dharma–satya*.
+- [*Coexistence from First Principles*](../Coexistence-From-First-Principles/Coexistence-From-First-Principles.pdf), especially §4.9 on reflexive evaluation and justice as mutual satisfaction.
