@@ -1,4 +1,6 @@
 {
+  "status": "legacy_unreliable_do_not_use",
+  "warning": "Generated from the Hindi PDF's corrupt embedded text layer before the extractor was disabled on 2026-08-23. Counts and mappings are not current; verify Hindi from rendered source-page images.",
   "summary": {
     "total_terms": 4260,
     "mapped_terms": 535,

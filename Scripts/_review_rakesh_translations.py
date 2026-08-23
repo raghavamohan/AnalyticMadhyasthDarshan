@@ -1,180 +1,112 @@
 #!/usr/bin/env python3
-"""
-Review all mapped Hindi terms from Karma Darshan against Rakesh Gupta's translations
-in MD (MD-Mapping.xlsx), SB (Samadhanatmak Bhautikvad), JV (Jeevan Vidya), and MVD
-(Madhyasth Darshan Coexistentialism), ensuring consistent English terminology.
-
-Usage:
-    python Scripts/_review_rakesh_translations.py
-"""
+"""Build an honest, reproducible KD terminology-alignment status report."""
 from __future__ import annotations
 
-import json
 import sys
 from pathlib import Path
 
 from _common import BASE
+from _verify_kd_translation_alignment import EXPECTED_TERMS, count_literal
 
 KD_DIR = BASE / "References" / "Madhyasth-Darshan" / "KD-Karm-Darshan-English"
-MD_DIR = BASE / "References" / "Madhyasth-Darshan"
-
-KD_TERMS_JSON = KD_DIR / "KD-Hindi-Terms-Mapping.json"
-
-MVD_MD = MD_DIR / "MVD-Madhyasth-Darshan-Coexistentialism.md"
-SB_MD = MD_DIR / "SB-Samadhanatmak-Bhautikvad.md"
-JV_MD = MD_DIR / "JV-Jeevan-Vidya-An-Introduction.md"
-
-MVD_PAIRS_JSON = MD_DIR / "MD-Mapping-Sources" / "mvd_pairs.json"
-SB_PAIRS_JSON = MD_DIR / "MD-Mapping-Sources" / "sb_pairs.json"
-
+KD_MD = KD_DIR / "KD-Karm-Darshan-English.md"
 ALIGNMENT_MD_OUTPUT = KD_DIR / "KD-Rakesh-Gupta-Alignment-Audit.md"
 
-
-def load_rakesh_sources():
-    """Load text contents of Rakesh Gupta's translations and pair databases."""
-    mvd_text = MVD_MD.read_text(encoding="utf-8") if MVD_MD.is_file() else ""
-    sb_text = SB_MD.read_text(encoding="utf-8") if SB_MD.is_file() else ""
-    jv_text = JV_MD.read_text(encoding="utf-8") if JV_MD.is_file() else ""
-
-    mvd_pairs = json.loads(MVD_PAIRS_JSON.read_text(encoding="utf-8")) if MVD_PAIRS_JSON.is_file() else []
-    sb_pairs = json.loads(SB_PAIRS_JSON.read_text(encoding="utf-8")) if SB_PAIRS_JSON.is_file() else []
-
-    return {
-        "mvd_text": mvd_text,
-        "sb_text": sb_text,
-        "jv_text": jv_text,
-        "mvd_pairs": mvd_pairs,
-        "sb_pairs": sb_pairs,
-    }
+# These require source-page/image review because the appropriate English choice is
+# contextual; they are not asserted to be errors.
+MANUAL_CANDIDATES = [
+    ("मात्रा", "quantity / measure", "Confirm quantitative amount versus existential measure."),
+]
 
 
-def find_rakesh_evidence(term: str, sources: dict) -> dict[str, list[str]]:
-    """Search for a Hindi term across Rakesh Gupta's pair databases and texts."""
-    evidence = {
-        "md_mapping": [],
-        "mvd_pairs": [],
-        "sb_pairs": [],
-        "jv_matches": [],
-    }
-
-    # Search MVD pairs
-    for p in sources["mvd_pairs"]:
-        hi = p.get("hi", "")
-        en = p.get("en", "")
-        if term in hi and en:
-            evidence["mvd_pairs"].append(f"MVD (p.{p.get('hi_page','')}): {hi[:80]} -> {en[:80]}")
-            if len(evidence["mvd_pairs"]) >= 3:
-                break
-
-    # Search SB pairs
-    for p in sources["sb_pairs"]:
-        hi = p.get("hi", "")
-        en = p.get("en", "")
-        if term in hi and en:
-            evidence["sb_pairs"].append(f"SB (p.{p.get('hi_page','')}): {hi[:80]} -> {en[:80]}")
-            if len(evidence["sb_pairs"]) >= 3:
-                break
-
-    return evidence
+def escape_cell(value: str) -> str:
+    return value.replace("|", "\\|").replace("\n", " ")
 
 
 def main() -> int:
-    print("=== Reviewing Karma Darshan Mapped Terms against Rakesh Gupta's MD/SB/JV Translations ===")
-
-    if not KD_TERMS_JSON.is_file():
-        print(f"Error: {KD_TERMS_JSON} not found. Run _extract_kd_hindi_terms.py first.")
+    print("=== Building KD / Rakesh terminology alignment report ===")
+    if not KD_MD.is_file():
+        print(f"Error: KD body not found: {KD_MD}", file=sys.stderr)
         return 1
 
-    kd_data = json.loads(KD_TERMS_JSON.read_text(encoding="utf-8"))
-    mapped_records = kd_data.get("mapped_records", [])
+    body = KD_MD.read_text(encoding="utf-8")
+    rows: list[tuple[str, str, str, int, str]] = []
+    total_hits = 0
+    for hindi, standard, deprecated in EXPECTED_TERMS:
+        hit_count = sum(count_literal(body, variant) for variant in deprecated)
+        total_hits += hit_count
+        variants = ", ".join(f"`{variant}`" for variant in deprecated)
+        status = "PASS" if hit_count == 0 else "FIX REQUIRED"
+        rows.append((hindi, standard, variants, hit_count, status))
 
-    sources = load_rakesh_sources()
-    print(f"Loaded {len(sources['mvd_pairs'])} MVD pairs and {len(sources['sb_pairs'])} SB pairs.")
-
-    review_results = []
-    aligned_count = 0
-    overridden_count = 0
-
-    for rec in mapped_records:
-        hi = rec["hindi"]
-        en_used = rec["english"]
-        src = rec["source"]
-        root_stem = rec.get("root_stem", hi)
-
-        evidence = find_rakesh_evidence(hi, sources)
-        
-        # Check alignment against Rakesh Gupta's standard
-        aligned_en = en_used
-        alignment_note = "Matches standard Rakesh Gupta translation"
-        status = "ALIGNED"
-
-        # Highlight key established Rakesh Gupta terms
-        if "MD-Mapping" in src or "KD-Glossary-Additions" in src:
-            aligned_count += 1
-        else:
-            status = "REVIEW_NEEDED"
-
-        review_results.append({
-            "hindi": hi,
-            "root_stem": root_stem,
-            "kd_english": en_used,
-            "rakesh_standard": aligned_en,
-            "source": src,
-            "occurrences": rec.get("occurrences", 1),
-            "evidence": evidence,
-            "status": status,
-            "note": rec.get("note", alignment_note),
-        })
-
-    print(f"\nReviewed {len(mapped_records)} mapped terms.")
-    print(f"Aligned with Rakesh Gupta MD/SB/JV standards: {aligned_count}")
-
-    # Generate Markdown Report
-    report_lines = [
-        "# Rakesh Gupta (MD / SB / JV) Alignment Review for Karma Darshan Terms",
+    lines = [
+        "# Rakesh Gupta (MVD / SB / JV) Alignment Status for Karma Darshan",
         "",
-        "This report audits all mapped Hindi technical terms in *Karma Darshan* against Rakesh Gupta's canonical translations in **Madhyasth Darshan Coexistentialism (MVD)**, **Samadhanatmak Bhautikvad (SB)**, **Jeevan Vidya (JV)**, and the **MD-Mapping.xlsx** baseline.",
+        "**Updated:** August 23, 2026",
         "",
-        "## 1. Terminology Alignment Table",
+        "This is a deterministic body-level terminology guardrail for the working English translation. It checks known deprecated English variants against the standards established from Rakesh Gupta's MVD, SB, JV, and `MD-Mapping.xlsx`. It does **not** certify every lexical choice. The Hindi source PDF's embedded text layer is corrupt, so contextual Hindi verification must use rendered source-page images.",
         "",
-        "| Hindi Term | Root Stem | Current KD English | Rakesh Gupta MD/SB/JV Standard | Mapping Source | Occurrences | Alignment Status |",
-        "| :--- | :--- | :--- | :--- | :--- | :--- | :--- |",
+        "## Confirmed alignment checks",
+        "",
+        "| Hindi concept | Current KD / Rakesh standard | Deprecated variants checked | Remaining hits | Status |",
+        "| :--- | :--- | :--- | ---: | :--- |",
     ]
-
-    for r in review_results[:80]:
-        report_lines.append(
-            f"| {r['hindi']} | {r['root_stem']} | {r['kd_english']} | {r['rakesh_standard']} | {r['source']} | {r['occurrences']} | {r['status']} |"
+    for hindi, standard, variants, hits, status in rows:
+        lines.append(
+            f"| {escape_cell(hindi)} | {escape_cell(standard)} | {variants} | {hits} | **{status}** |"
         )
 
-    report_lines.extend([
-        "",
-        "## 2. Sample Translation Evidence from Rakesh Gupta Texts",
-        "",
-    ])
+    lines.extend(
+        [
+            "",
+            f"**Configured deprecated variants remaining:** {total_hits}",
+            "",
+            "## Approved deviations from Rakesh / MD-Mapping",
+            "",
+            "The default remains Rakesh Gupta's MVD/SB/JV terminology and `MD-Mapping.xlsx`. Raghava has explicitly approved these limited KD choices:",
+            "",
+            "- Bare/general/ontological **बल** is **strength**, instead of Rakesh's usual **force**. Named physical/interaction categories remain **force**; बल सम्पन्न / बल सम्पन्नता remain **forceful / forcefulness**.",
+            "- **पोषण** is **nourishment**, where MD-Mapping's bare row has **nurturing**.",
+            "- **प्रयोग** is **application / apply**, where Rakesh frequently uses **experiment / experimentation**.",
+            "- Bare **भोग** is **enjoyment**, where MVD often uses **indulgence / sensory enjoyments**. Contextual फल भोगना remains **experience consequences/results**, भोक्ता is **enjoyer**, and उपभोग is **consumption**.",
+            "",
+            "## Follow-up decisions now resolved",
+            "",
+            "The August 23 follow-up also settled **अनुकूल = aligned** in relational faculty/activity chains (while environmental अनुकूल remains **favourable**), **प्रयास / प्रयत्न = endeavour** with **effort** reserved for श्रम, **द्वेष = malice** following MVD's direct definition, and the three अन्वेषण compounds as **truth- / motive- / instincts-oriented exploration**. The exact compounds are absent from MVD/JV; the last choice is compositional from their established base vocabulary. ऐषणा-त्रय is now **motive-trio**.",
+            "",
+            "## Items still requiring contextual alignment review",
+            "",
+            "These are review candidates, not confirmed errors:",
+            "",
+            "| Hindi term | Current candidate range | What remains to verify |",
+            "| :--- | :--- | :--- |",
+        ]
+    )
+    for hindi, choices, note in MANUAL_CANDIDATES:
+        lines.append(f"| {hindi} | {choices} | {note} |")
 
-    sample_with_ev = [r for r in review_results if r['evidence']['mvd_pairs'] or r['evidence']['sb_pairs']][:15]
-    for r in sample_with_ev:
-        report_lines.append(f"### Term: `{r['hindi']}` ({r['kd_english']})")
-        report_lines.append(f"- **Source in KD:** `{r['source']}`")
-        if r['evidence']['mvd_pairs']:
-            report_lines.append("- **MVD Evidence:**")
-            for ev in r['evidence']['mvd_pairs']:
-                report_lines.append(f"  - `{ev}`")
-        if r['evidence']['sb_pairs']:
-            report_lines.append("- **SB Evidence:**")
-            for ev in r['evidence']['sb_pairs']:
-                report_lines.append(f"  - `{ev}`")
-        report_lines.append("")
+    lines.extend(
+        [
+            "",
+            "## Reproduce",
+            "",
+            "```powershell",
+            "python Scripts/_verify_kd_translation_alignment.py",
+            "python Scripts/_review_rakesh_translations.py",
+            "```",
+            "",
+            "The review corpus is `MVD-Madhyasth-Darshan-Coexistentialism.md`, `SB-Samadhanatmak-Bhautikvad.md`, `JV-Jeevan-Vidya-An-Introduction.md`, and `MD-Mapping.xlsx` under `References/Madhyasth-Darshan/`.",
+            "",
+            "*Report generated by `Scripts/_review_rakesh_translations.py`.*",
+        ]
+    )
 
-    report_lines.extend([
-        "---",
-        "*Report auto-generated by `Scripts/_review_rakesh_translations.py`.*",
-    ])
-
-    ALIGNMENT_MD_OUTPUT.write_text("\n".join(report_lines), encoding="utf-8")
-    print(f"Wrote alignment audit report to: {ALIGNMENT_MD_OUTPUT.resolve()}")
-
-    return 0
+    ALIGNMENT_MD_OUTPUT.write_text(
+        "\n".join(lines) + "\n", encoding="utf-8", newline="\n"
+    )
+    print(f"Wrote: {ALIGNMENT_MD_OUTPUT}")
+    print(f"Configured deprecated variants remaining: {total_hits}")
+    return 1 if total_hits else 0
 
 
 if __name__ == "__main__":

@@ -1,5 +1,7 @@
 # Karma Darshan Hindi Root Words & Terminology Mapping Audit
 
+> **Legacy, unreliable artifact — do not use for translation decisions.** This report was generated from the Hindi PDF's corrupt embedded text layer before the extractor was disabled on August 23, 2026. Its token counts, mappings, and gap list are not current. Verify Hindi against rendered source-page images and use `KD-Rakesh-Gupta-Alignment-Audit.md` for the maintained English-body guardrail.
+
 This audit extracts all Hindi root words, technical terms, and core concepts from *Karma Darshan* (source text & working translation), maps them against current translation glossaries (`MD-Mapping.xlsx` and `KD-Glossary-Additions.md`), and identifies terminology coverage and gaps.
 
 ## 1. Summary Statistics
