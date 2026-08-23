@@ -137,6 +137,11 @@ _OL_SPLIT_BY_PAGE_MARKER = re.compile(
     re.DOTALL,
 )
 
+_KD_CHAPTER_HEADING_RE = re.compile(
+    r"<p>(Chapter (?:One|Two|Three))</p>\s*<p>(.*?)</p>",
+    re.DOTALL,
+)
+
 
 def _continue_ordered_list_numbering(html_body: str) -> str:
     """Set start= on <ol> blocks split only by page markers so numbering continues."""
@@ -155,6 +160,24 @@ def _continue_ordered_list_numbering(html_body: str) -> str:
             + html_body[match.end() :]
         )
     return html_body
+
+
+def _wrap_kd_chapter_headings(html_body: str) -> str:
+    """Give the three KD chapter openings a stable, separately styled structure."""
+
+    def repl(match: re.Match[str]) -> str:
+        label, title = match.groups()
+        return (
+            '<header class="kd-chapter-heading">\n'
+            f'  <p class="kd-chapter-label">{label}</p>\n'
+            f'  <p class="kd-chapter-title">{title}</p>\n'
+            "</header>"
+        )
+
+    wrapped, count = _KD_CHAPTER_HEADING_RE.subn(repl, html_body)
+    if count != 3:
+        raise ValueError(f"Expected 3 KD chapter headings, found {count}")
+    return wrapped
 
 
 def convert_mermaid_blocks(html_body: str) -> str:
@@ -660,6 +683,8 @@ def convert_to_html(
         r'<span class="page-marker">[p. \1]</span>',
         html_body,
     )
+    if input_path.name == "KD-Karm-Darshan-English.md":
+        html_body = _wrap_kd_chapter_headings(html_body)
     html_body = _continue_ordered_list_numbering(html_body)
     html_body = convert_mermaid_blocks(html_body)
     html_body = rewrite_local_links_for_site(
@@ -690,10 +715,36 @@ def convert_to_html(
     screen_dark_css = _study_screen_dark_css() if include_web_chrome else ""
     katex_css = _load_katex_css() if has_latex_math else ""
 
+    kd_document_css = ""
     kd_print_css = ""
     page_margin = "2.2cm 2cm 2.2cm 2cm"
     if input_path.name == "KD-Karm-Darshan-English.md":
         page_margin = "1.6cm 1.5cm 1.6cm 1.5cm"
+        kd_document_css = """
+  .kd-chapter-heading {
+    margin: 20pt 0 14pt 0;
+    text-align: center;
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+  .kd-chapter-heading .kd-chapter-label {
+    margin: 0;
+    font-size: 17pt;
+    line-height: 1.15;
+    font-weight: 700;
+    text-align: center;
+  }
+  .kd-chapter-heading .kd-chapter-title {
+    margin: 6pt 0 0 0;
+    font-size: 23pt;
+    line-height: 1.18;
+    font-weight: 700;
+    text-align: center;
+  }
+  .kd-chapter-heading + p {
+    margin-top: 8pt;
+  }
+"""
         kd_print_css = """
     body { font-size: 10pt; line-height: 1.34; }
     h2 { margin: 8pt 0 4pt 0; }
@@ -1063,6 +1114,7 @@ def convert_to_html(
     color: #333;
     font-weight: bold;
   }}
+{kd_document_css}
   p {{
     margin: 6pt 0;
     text-align: justify;

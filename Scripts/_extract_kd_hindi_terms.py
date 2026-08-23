@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """
-Extract all Hindi root words and technical terms from Karma Darshan Hindi text
-and English translation, map them against current English translations, and audit
-mapping completeness/gaps across MD-Mapping.xlsx and KD-Glossary-Additions.md.
+Legacy extractor retained only to explain why the old audit artifacts are unsafe.
+
+The Karma Darshan Hindi PDF's embedded text layer is corrupt. Automated extraction
+from it produced false Hindi tokens even after heuristic repair, so this command is
+intentionally disabled. Use rendered source-page images for Hindi verification.
 
 Usage:
     python Scripts/_extract_kd_hindi_terms.py
@@ -321,6 +323,15 @@ def extract_hindi_terms_from_md() -> Counter[str]:
 
 
 def main() -> int:
+    print(
+        "DISABLED: the Karma Darshan Hindi PDF has a corrupt embedded text layer.\n"
+        "Use rendered source-page images for Hindi verification; do not regenerate "
+        "KD-Hindi-Terms-Mapping.* from this script.",
+        file=sys.stderr,
+    )
+    return 2
+
+    # Historical implementation retained below for provenance only.
     parser = argparse.ArgumentParser(
         description="Extract and map Karma Darshan Hindi root words against current translation glossaries."
     )
