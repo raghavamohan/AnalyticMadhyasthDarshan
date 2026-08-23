@@ -16,6 +16,12 @@ ALIGNMENT_MD_OUTPUT = KD_DIR / "KD-Rakesh-Gupta-Alignment-Audit.md"
 # contextual; they are not asserted to be errors.
 MANUAL_CANDIDATES = [
     ("मात्रा", "quantity / measure", "Confirm quantitative amount versus existential measure."),
+    ("आवेश", "excitation / charge (contextual)", "Confirm the boundary between physical charge and disturbed/excited state usages."),
+    ("विन्यास", "arrangement", "Confirm whether the technical physical sense needs a more specific Rakesh-aligned rendering."),
+    ("अनुभूति", "experiencing / realisation", "Current 'experiencing' distinguishes it from अनुभव; reconsider explicitly against MVD/JV usage."),
+    ("काम", "kama (desire) / lust", "Current classical life-aim context is broader than 'lust'; settle the running English term explicitly."),
+    ("अर्थ", "wealth / resources / meaning (contextual)", "Settle the economic and epistemic contextual rule explicitly."),
+    ("कासा / आकूति / मेधा", "transliteration with contextual glosses", "Verify the obscure technical triad lexically before replacing its current glosses."),
 ]
 
 
@@ -72,7 +78,13 @@ def main() -> int:
             "",
             "## Follow-up decisions now resolved",
             "",
-            "The August 23 follow-up also settled **अनुकूल = aligned** in relational faculty/activity chains (while environmental अनुकूल remains **favourable**), **प्रयास / प्रयत्न = endeavour** with **effort** reserved for श्रम, **द्वेष = malice** following MVD's direct definition, and the three अन्वेषण compounds as **truth- / motive- / instincts-oriented exploration**. The exact compounds are absent from MVD/JV; the last choice is compositional from their established base vocabulary. ऐषणा-त्रय is now **motive-trio**.",
+            "The August 23 follow-up settled **अनुकूल = aligned** in relational faculty/activity chains (while environmental अनुकूल remains **favourable**), **प्रयास / प्रयत्न = endeavour** with **effort** reserved for श्रम, **द्वेष = malice** following MVD's direct definition, **तदाकार = absolute-resonance** following MVD p.80 and Hindi p.149 / English p.150, and the three अन्वेषण compounds as **truth- / motive- / instincts-oriented exploration**. The exact अन्वेषण compounds are absent from MVD/JV; that choice is compositional from their established base vocabulary. ऐषणा-त्रय is now **motive-trio**.",
+            "",
+            "A further alignment pass corrected **मेधस = brain**, **चुम्बकीयता = magnetism**, **प्रभाव क्षेत्र = field**, **संक्रमण / संक्रमणीयता = irreversible transition / irreversibility**, **विस्तार = expanse**, **फलन = outcome**, **यथास्थिति = existent state**, **तृप्ति = satisfaction**, **सारक / मारक = vitalising / devitalising**, **ज्ञेय = object of knowledge**, **दृश / दृश्य / दर्शन = seer / scene / worldview**, **ध्यान / ध्याता / ध्येय = concentration / one who concentrates / object of concentration**, the three classical vada names as transliterations, **नश्वरत्व = mortality**, **देवात्मा / भूतात्मा / दिव्यात्मा = deific / elemental / divine self**, **प्रभुसत्ता = supreme order**, and **विराग / वैराग्य / पर-वैराग्य = dispassion / detachment / supreme-detachment**.",
+            "",
+            "By explicit project decision, KD 3.13 uses **अनुप्राणित = propagated** in its molecule-to-molecule wave context, where MVD's 'invigorated/inspired' does not fit. The technical **क्षमता / योग्यता / पात्रता = capacity / ability / receptivity** trio is preserved because those qualities underlie recognition of relationships and evaluation; **पात्रता = worthiness** is confined to KD 3.10's reciprocal kindness/grace/compassion definition.",
+            "",
+            "KD 2 p.31 now follows MVD's explicit **जीवन-पुंज = jeevan-cloud**, replacing the former KD-specific **jeevan-cluster**. By explicit project decision, **प्राण वायु / प्राणवायु** is retained as ***pranavayu*** in KD rather than translated as **life-breath** or separated as *pran vayu*; MVD's different published rendering is **prana-air**.",
             "",
             "## Items still requiring contextual alignment review",
             "",

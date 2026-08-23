@@ -1,6 +1,6 @@
 {
  "md_mapping_rows": 1684,
- "kd_glossary_rows": 153,
+ "kd_glossary_rows": 171,
  "glossary_comparison": [
   {
    "status": "aligned",
@@ -25,6 +25,20 @@
   },
   {
    "status": "override",
+   "kd_hindi": "सत्यता",
+   "kd_english": "truthfulness",
+   "md_english": "verity",
+   "md_row": 622
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "प्रसन्नता",
+   "kd_english": "happiness",
+   "md_english": "happiness / gladly",
+   "md_row": 2188
+  },
+  {
+   "status": "override",
    "kd_hindi": "आवेशित",
    "kd_english": "excited / charged (contextual)",
    "md_english": "agitated state, excited state",
@@ -43,6 +57,62 @@
    "kd_english": "effort",
    "md_english": "effort, physical labour",
    "md_row": 75
+  },
+  {
+   "status": "override",
+   "kd_hindi": "पोषण",
+   "kd_english": "nourishment",
+   "md_english": "nurturing",
+   "md_row": 162
+  },
+  {
+   "status": "override",
+   "kd_hindi": "अनुकूल",
+   "kd_english": "aligned / favourable (contextual)",
+   "md_english": "conducive",
+   "md_row": 829
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "प्रयास, प्रयत्न",
+   "kd_english": "endeavour",
+   "md_english": "endeavour",
+   "md_row": 674
+  },
+  {
+   "status": "override",
+   "kd_hindi": "प्रयोग",
+   "kd_english": "application / apply",
+   "md_english": "experimentation",
+   "md_row": 647
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "द्वेष",
+   "kd_english": "malice",
+   "md_english": "malice",
+   "md_row": 927
+  },
+  {
+   "status": "override",
+   "kd_hindi": "भोग",
+   "kd_english": "enjoyment",
+   "md_english": "indulgence",
+   "md_row": 559
+  },
+  {
+   "status": "md_missing",
+   "kd_hindi": "योगाभ्यास, योग्याभ्यास",
+   "kd_english": "study of yoga",
+   "md_english": null,
+   "md_row": null
+  },
+  {
+   "status": "md_missing",
+   "kd_hindi": "सत्यान्वेषण, ऐषणान्वेषण, विषयान्वेषण",
+   "kd_english": "truth-oriented exploration, motive-oriented exploration, instincts-oriented exploration",
+   "md_english": null,
+   "md_row": null
   },
   {
    "status": "aligned",
@@ -89,14 +159,14 @@
   {
    "status": "override",
    "kd_hindi": "चुम्बकीयता",
-   "kd_english": "magneticness",
+   "kd_english": "magnetism",
    "md_english": "magnestism",
    "md_row": 1363
   },
   {
    "status": "aligned",
    "kd_hindi": "प्रभाव क्षेत्र",
-   "kd_english": "field of effect",
+   "kd_english": "field",
    "md_english": "Field",
    "md_row": 60
   },
@@ -199,16 +269,16 @@
    "md_row": 91
   },
   {
-   "status": "aligned",
+   "status": "override",
    "kd_hindi": "संक्रमण",
-   "kd_english": "transition",
+   "kd_english": "irreversible transition",
    "md_english": "irrversible transition",
    "md_row": 528
   },
   {
-   "status": "aligned",
+   "status": "override",
    "kd_hindi": "संक्रमणीयता",
-   "kd_english": "transition-ness",
+   "kd_english": "irreversibility",
    "md_english": "transition-ness",
    "md_row": 2218
   },
@@ -285,7 +355,7 @@
   {
    "status": "override",
    "kd_hindi": "अनुप्राणित",
-   "kd_english": "animated onward",
+   "kd_english": "propagated",
    "md_english": "invigorated, inspired",
    "md_row": 1049
   },
@@ -339,6 +409,13 @@
    "md_row": 55
   },
   {
+   "status": "override",
+   "kd_hindi": "बल (bare, general/ontological sense)",
+   "kd_english": "strength (inherent strength; \"capacity to apply force\")",
+   "md_english": "Strength, Force",
+   "md_row": 55
+  },
+  {
    "status": "aligned",
    "kd_hindi": "ग्राही",
    "kd_english": "receptive",
@@ -353,9 +430,9 @@
    "md_row": 1060
   },
   {
-   "status": "override",
+   "status": "aligned",
    "kd_hindi": "विस्तार",
-   "kd_english": "extension (span)",
+   "kd_english": "expanse",
    "md_english": "expanse",
    "md_row": 1060
   },
@@ -409,9 +486,9 @@
    "md_row": 2225
   },
   {
-   "status": "override",
+   "status": "aligned",
    "kd_hindi": "फलन",
-   "kd_english": "fruition",
+   "kd_english": "outcome",
    "md_english": "function/outcome",
    "md_row": 2134
   },
@@ -425,7 +502,7 @@
   {
    "status": "aligned",
    "kd_hindi": "मेधस",
-   "kd_english": "brain / medhas",
+   "kd_english": "brain",
    "md_english": "brain",
    "md_row": 1007
   },
@@ -500,16 +577,16 @@
    "md_row": 2227
   },
   {
-   "status": "override",
+   "status": "aligned",
    "kd_hindi": "यथास्थिति",
-   "kd_english": "actual condition",
+   "kd_english": "existent state",
    "md_english": "existent state",
    "md_row": 214
   },
   {
-   "status": "override",
+   "status": "aligned",
    "kd_hindi": "तृप्ति",
-   "kd_english": "satiation",
+   "kd_english": "satisfaction",
    "md_english": "Satisfaction",
    "md_row": 313
   },
@@ -556,9 +633,51 @@
    "md_row": 178
   },
   {
+   "status": "aligned",
+   "kd_hindi": "सदुपयोग",
+   "kd_english": "right-use",
+   "md_english": "right-use",
+   "md_row": 321
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "पदार्थावस्था, प्राणावस्था, जीवावस्था, ज्ञानावस्था",
+   "kd_english": "material order, biological order, animal order, knowledge order",
+   "md_english": "Material order",
+   "md_row": 186
+  },
+  {
+   "status": "md_missing",
+   "kd_hindi": "प्राणकोष",
+   "kd_english": "biological cell",
+   "md_english": null,
+   "md_row": null
+  },
+  {
    "status": "override",
+   "kd_hindi": "व्यापक, व्यापक वस्तु",
+   "kd_english": "Omnipresence; omnipresent reality",
+   "md_english": "Omnipresent, Omnipresence",
+   "md_row": 10
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "व्यवसाय",
+   "kd_english": "vocation",
+   "md_english": "vocation",
+   "md_row": 655
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "दया, कृपा, करुणा",
+   "kd_english": "kindness, grace, compassion",
+   "md_english": "kindness",
+   "md_row": 493
+  },
+  {
+   "status": "aligned",
    "kd_hindi": "सारक, मारक",
-   "kd_english": "essential(ity), destructive(ness)",
+   "kd_english": "vitalising, devitalising",
    "md_english": "Vitalising",
    "md_row": 160
   },
@@ -570,9 +689,9 @@
    "md_row": 512
   },
   {
-   "status": "override",
+   "status": "aligned",
    "kd_hindi": "देव मानव, दिव्य मानव",
-   "kd_english": "god-human, divine human",
+   "kd_english": "deific human, divine human",
    "md_english": "deific human",
    "md_row": 110
   },
@@ -593,7 +712,7 @@
   {
    "status": "aligned",
    "kd_hindi": "दृष्टा, ज्ञाता, ज्ञेय",
-   "kd_english": "seer, knower, known",
+   "kd_english": "seer, knower, object of knowledge",
    "md_english": "Seer",
    "md_row": 584
   },
@@ -607,14 +726,14 @@
   {
    "status": "override",
    "kd_hindi": "दृश, दृश्य, दर्शन",
-   "kd_english": "the seeing, the seen, seeing/philosophy",
+   "kd_english": "seer, scene, worldview",
    "md_english": "knowledge of holistic view of coexistence",
    "md_row": 330
   },
   {
-   "status": "override",
+   "status": "aligned",
    "kd_hindi": "ध्यान, ध्याता, ध्येय",
-   "kd_english": "attention, attender, object of attention",
+   "kd_english": "concentration, one who concentrates, object of concentration",
    "md_english": "concentration",
    "md_row": 574
   },
@@ -628,7 +747,7 @@
   {
    "status": "override",
    "kd_hindi": "अध्यात्मवाद, अधिदैवीवाद, अधिभौतिकवाद",
-   "kd_english": "spiritualism, god-centred-ism, materialism-of-the-beyond",
+   "kd_english": "*Adhyatma-vada*, *Adhidaivika-vada*, *Adhibhautika-vada*",
    "md_english": "spiritualism, adhyatma-vada",
    "md_row": 529
   },
@@ -824,7 +943,7 @@
   {
    "status": "override",
    "kd_hindi": "नियम-त्रय, व्यवहार-त्रय, अन्वेषण-त्रय",
-   "kd_english": "triad of rule, triad of behaviour, triad of investigation",
+   "kd_english": "rule-trio, behaviour-trio, exploration-trio",
    "md_english": "Law",
    "md_row": 63
   },
@@ -871,9 +990,9 @@
    "md_row": 332
   },
   {
-   "status": "override",
+   "status": "aligned",
    "kd_hindi": "नश्वरत्व",
-   "kd_english": "perishability",
+   "kd_english": "mortality",
    "md_english": "mortality",
    "md_row": 1044
   },
@@ -887,16 +1006,23 @@
   {
    "status": "override",
    "kd_hindi": "देवात्मा, भूतात्मा, दिव्यात्मा",
-   "kd_english": "the deific soul, the elemental soul, the divine soul",
+   "kd_english": "deific self, elemental self, divine self",
    "md_english": "deific-self",
    "md_row": 971
   },
   {
    "status": "aligned",
    "kd_hindi": "जीवन-पुंज",
-   "kd_english": "jeevan-cluster",
+   "kd_english": "jeevan-cloud",
    "md_english": "jeevan",
    "md_row": 94
+  },
+  {
+   "status": "override",
+   "kd_hindi": "प्राण वायु, प्राणवायु",
+   "kd_english": "*pranavayu* (left transliterated)",
+   "md_english": "Biological plane",
+   "md_row": 129
   },
   {
    "status": "override",
@@ -906,9 +1032,9 @@
    "md_row": 451
   },
   {
-   "status": "override",
+   "status": "aligned",
    "kd_hindi": "ऐषणा-त्रय",
-   "kd_english": "the \"desires-trio\"",
+   "kd_english": "the \"motive-trio\"",
    "md_english": "motive-trio",
    "md_row": 507
   },
@@ -922,14 +1048,14 @@
   {
    "status": "override",
    "kd_hindi": "नियम-त्रय",
-   "kd_english": "the \"triad of rule\"",
+   "kd_english": "the \"rule-trio\"",
    "md_english": "Law",
    "md_row": 63
   },
   {
    "status": "aligned",
    "kd_hindi": "जागृति-त्रय, शक्ति-त्रय",
-   "kd_english": "the \"triad of awakening\", the \"triad of powers\"",
+   "kd_english": "the \"awakening-trio\", the \"powers-trio\"",
    "md_english": "Power",
    "md_row": 56
   },
@@ -955,9 +1081,9 @@
    "md_row": 372
   },
   {
-   "status": "override",
+   "status": "aligned",
    "kd_hindi": "तदाकार",
-   "kd_english": "taking-the-form-of",
+   "kd_english": "absolute-resonance",
    "md_english": "absolute-resonance",
    "md_row": 929
   },
@@ -1018,9 +1144,9 @@
    "md_row": 2240
   },
   {
-   "status": "override",
+   "status": "aligned",
    "kd_hindi": "प्रभुसत्ता",
-   "kd_english": "sovereignty",
+   "kd_english": "supreme order",
    "md_english": "Supreme order",
    "md_row": 817
   },
@@ -1041,7 +1167,7 @@
   {
    "status": "aligned",
    "kd_hindi": "विराग, वैराग्य",
-   "kd_english": "dispassion",
+   "kd_english": "dispassion / detachment",
    "md_english": "dispassion",
    "md_row": 926
   },
@@ -1075,8 +1201,9 @@
   }
  ],
  "glossary_status_counts": {
-  "aligned": 88,
-  "override": 64,
+  "aligned": 104,
+  "override": 63,
+  "md_missing": 3,
   "md_missing_english": 1
  },
  "exceptions": [
@@ -1107,8 +1234,8 @@
  ],
  "body_coverage": {
   "english_glosses_checked": 1637,
-  "present_in_kd_body": 882,
-  "absent_from_kd_body": 755,
+  "present_in_kd_body": 876,
+  "absent_from_kd_body": 761,
   "present_sample": [
    {
     "row": 2,
@@ -1134,11 +1261,6 @@
     "row": 6,
     "hindi": "डूबा",
     "english": "submerged"
-   },
-   {
-    "row": 7,
-    "hindi": "भीगा",
-    "english": "soaked"
    },
    {
     "row": 9,
@@ -1309,6 +1431,11 @@
     "row": 56,
     "hindi": "शक्ति",
     "english": "Power"
+   },
+   {
+    "row": 57,
+    "hindi": "बल संपन्नता",
+    "english": "Forcefulness"
    }
   ],
   "absent_sample_high_value": [
@@ -1393,11 +1520,6 @@
     "english": "human expectation"
    },
    {
-    "row": 479,
-    "hindi": "मानव लक्ष्य",
-    "english": "human goals"
-   },
-   {
     "row": 484,
     "hindi": "जीवन मूल्य",
     "english": "jeevan values"
@@ -1443,6 +1565,11 @@
     "english": "Humane Constitution as Code of Humane Conduct"
    },
    {
+    "row": 622,
+    "hindi": "सत्यता",
+    "english": "verity"
+   },
+   {
     "row": 904,
     "hindi": "न्याय-सुरक्षा",
     "english": "Justice-Security"
@@ -1483,11 +1610,6 @@
     "english": "animal-order progression"
    },
    {
-    "row": 2104,
-    "hindi": "सहअस्तित्ववाद",
-    "english": "Coexistentialism"
-   },
-   {
     "row": 2124,
     "hindi": "न्यायान्याय",
     "english": "justice-injustice"
@@ -1511,6 +1633,11 @@
     "row": 2147,
     "hindi": "मानवेत्तर, मानवेतर, मनुष्येत्तर",
     "english": "nature other than human / non-human (nature)"
+   },
+   {
+    "row": 2174,
+    "hindi": "अमानवीय दृष्टि",
+    "english": "inhumane perspective"
    }
   ]
  },
@@ -1760,12 +1887,6 @@
    "hindi": "पात्रता",
    "english": "receptivity",
    "md_row": 512
-  },
-  {
-   "italic": "adhibhautikvad",
-   "hindi": "अधिभौतिकवाद",
-   "english": "adhi-bhautikvad",
-   "md_row": 531
   },
   {
    "italic": "adarshvad",
@@ -2030,12 +2151,6 @@
    "hindi": "शुभ",
    "english": "auspicious, noble, beneficial",
    "md_row": 1405
-  },
-  {
-   "italic": "pran vayu",
-   "hindi": "प्राणवायु",
-   "english": "oxygen, prana air",
-   "md_row": 1432
   },
   {
    "italic": "apan vayu",
