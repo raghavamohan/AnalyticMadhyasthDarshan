@@ -1,286 +1,230 @@
-# Technical Note: *Rūpa*, *Guṇa*, *Svabhāva*, and *Dharma* in a State-Dynamic Unit
+# Technical Note: Four Aspects of the Active Unit - Rūpa, Guṇa, Svabhāva, and Dharma
 
-**Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy.
+**Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) - a group of people studying Madhyasth Darshan philosophy.
 
-**Edited on:** August 21, 2026, 4:03 PM IST
+**Edited on:** August 23, 2026, 5:53 PM IST
 
 **Status:** Internal technical note; not a catalog entry and not part of the released text of *The Ontology of Coexistence*.
 
-**Scope:** This note clarifies the four inseparable aspects attributed to every unit (*ikai*) in Madhyasth Darshan: form (*rūpa*), property or relative power (*guṇa*), essential nature (*svabhāva*), and *dharma*. Its central question is whether a unit can consistently be understood as a process or activity at the fundamental level. The same four aspects are then asked of a compound or further organisation as a containing unit, without collapsing the constituents into that whole. They are also assembled as one process-dynamic: present configuration, order-typed potential, and coupled motion. *Nyāya*, *dharma*, and *satya* name universal truths of that dynamic: followed by default, with no option, in insentient (*jada*) units, and followed through understanding where sentience has option. The process-language below is an analytical reconstruction of the primary texts, not a claim that those texts explicitly adopt a modern school of process philosophy.
+**Scope:** This note clarifies four inseparable aspects attributed to every unit (*ikai*) in Madhyasth Darshan: form (*rūpa*), property or relative power (*guṇa*), essential nature (*svabhāva*), and *dharma*. Its immediate question is whether *guṇa* should be understood as a static quality or as operative power, and how it differs from the other three aspects. Process-language is used as an analytical aid, not as a claim that the primary texts adopt a modern school of process philosophy.
 
-## 1. The interpretive problem
+## 1. The question and central thesis
 
-The four terms can initially look like a list of attributes attached to an otherwise passive thing. That reading becomes difficult once the same texts describe nature as countless activities, place effort, motion, and result inseparably in every activity, and state that force belongs to state while power belongs to motion. A purely static interpretation of the unit therefore misses the texts' insistence on continuous activeness. Yet a pure process interpretation can also mislead if it dissolves the unit into events or relations, because the unit remains a definite, bounded bearer with constitution, continuity, and its own “ness.”
+The ordinary English word “property” can suggest a static predicate: an item on a list that describes what a thing is while leaving the thing itself inactive. That suggestion is misleading here. The same primary texts that define *guṇa* describe units as continuously active, identify power with motion, and present effort, motion, and result as inseparable in every activity. Yet replacing the unit with an unbounded stream of events would be equally misleading. The unit remains a definite bearer with configuration, constitution, and continuity.
 
-The more adequate interpretation is that a unit is a **bounded, state-dynamic activity-whole**. “State-dynamic” preserves the inseparability of state and motion; “activity-whole” preserves the unit as an identifiable bearer rather than a passing event. The four terms then name four irreducible aspects of this one active whole, not four separable components and not four successive stages.
+The four terms also appear to overlap. If *guṇa* is the unit's power, why is *svabhāva* separately fundamental? If *svabhāva* is essential nature, what further work remains for *dharma*? If all four are dynamic, what distinguishes *rūpa* from the effects of activity?
 
-> Every unit is a bounded, state-dynamic activity-whole. As determinate configuration it is *rūpa*; as power in motion and mutual influence it is *guṇa*; as order-specific characteristic conduct it is *svabhāva*; and as the innateness it bears it is *dharma*.
+The central thesis of this note is:
 
-When the unit is itself a compound or a further organisation, the same four aspects apply twice: once to the constituents, once to the containing unit (§8).
+> Every *ikai* is a bounded, active bearer. *Rūpa* names its determinate configuration; *guṇa* its relative power in operation; *svabhāva* the order-specific characteristic conduct through which that power acquires functional significance; and *dharma* the order-specific innateness the unit bears. These are four co-present aspects of one unit, not four components or successive stages.
 
-## 2. Four questions asked of one unit
+All four are grounded in the unit, but they become evident differently. *Rūpa* is relationally encountered, *guṇa* relationally actualised, *svabhāva* relationally disclosed as characteristic conduct, and *dharma* evidenced through the unit's order-specific continuity and fulfilment. Relation reveals or actualises these aspects; it does not arbitrarily create them.
 
-| Aspect | Question answered | Primary-text emphasis | Process-compatible reading |
-|---|---|---|---|
-| Form (*rūpa*) | What determinate configuration is present? | Shape, volume, density, boundary-framework and reflected image | The bounded configuration to which result is connected; not an effect in the same sense as *guṇa* |
-| Property (*guṇa*) | How does the unit's power operate? | Relative power; generative, degenerative, or mediative motion and effect in mutuality | The unit's operative power in motion and its definite influence when units come together |
-| Essential nature (*svabhāva*) | What characteristic conduct or functional significance does that operation express? | Essentiality; usefulness of properties; conduct through which essentiality is expressed | The recurring, order-specific functional character displayed through the unit's powers |
-| *Dharma* | What innateness does the unit bear according to its order? | *Dhāraṇā* or innateness; existence, growth, hope to live, and happiness, cumulatively across the four orders | The order-specific innateness borne on the effort/force side; in the knowledge order its evidence and evaluation is happiness and resolution |
+## 2. Textual basis and interpretive status
 
-The table is analytical rather than sequential. A unit does not first acquire form, then activate property, then develop essential nature, and finally reach *dharma*. The four are simultaneous aspects of the same unit. Nor does “fundamental aspect” mean ontological independence: *svabhāva* depends on powers for its expression, but it cannot be reduced to a list of powers; *dharma* is evidenced through conduct, but it cannot be reduced to one episode of conduct.
+### 2.1 The unit as an active bearer
 
-## 3. The process basis: state, motion, and result
+Madhyasth Darshan treats a unit as both state and motion. Force (*bal*) is identified on the side of state and power (*śakti*) on the side of motion, while state and motion remain inseparable. Every activity is correspondingly presented as the inseparable presence of effort, motion, and result (*śram-gati-pariṇām*). These are not three chronological moments. They distinguish the active tendency present, its motion, and the determinate condition attained or maintained within one activity (SB, pp. 58-62, 248-252).
 
-Madhyasth Darshan treats the unit as both a state and a motion. Force (*bal*) is identified on the side of state, power (*śakti*) on the side of motion, while state and motion remain inseparable. Every activity is correspondingly presented as the inseparable presence of effort, motion, and result (*śram–gati–pariṇām*). These are not three chronological moments. Effort names the active tendency already present, motion its dynamic expression, and result the determinate condition being attained or maintained (SB, pp. 58–62, 248–252).
+One passage relates that triad directly to the four aspects: effort or force is present as *dharma* and *svabhāva*; motion as *svabhāva* and *guṇa*; and result as *rūpa* and immortality (*amaratva*). The crossing of *svabhāva* between effort and motion prevents a one-to-one derivation. Nor does the reference to immortality mean that every current shape is indestructible; it belongs to the account of constitutional completeness. The passage nevertheless rules out a static bundle-of-attributes reading. Form belongs with determinate result, property with power in motion, essential nature with characteristic conduct across effort and motion, and *dharma* with what the unit innately bears (SB, pp. 60-62).
 
-One passage relates this triad directly to the four aspects: effort or force is present as *dharma* and *svabhāva*; motion as *svabhāva* and *guṇa*; and result as *rūpa* and immortality (*amaratva*). This does not establish a one-to-one derivation, because *svabhāva* crosses both effort and motion. It does, however, make a static bundle-of-properties reading implausible. Form is connected to determinate result, property to motion, essential nature to the characteristic continuity of effort in motion, and *dharma* to the innateness borne as force or effort. Immortality of result is the goal of constitutional completeness for the sentient atom; it is not a claim that every present shape is indestructible (SB, pp. 60–62).
+The phrase **bounded, active bearer** is an analytical synthesis of these claims. “Bounded” preserves the unit as one identifiable entity; “active” preserves the inseparability of state and motion; “bearer” preserves the distinction between the unit as *guṇī* and its relative power as *guṇa*.
 
-The resulting process-picture is therefore:
+### 2.2 Claim-to-source audit
 
-| Activity-side | Ontological expression |
-|---|---|
-| Effort or force | Present as *dharma* and *svabhāva*: the innateness borne, and the essential nature through which force appears as conduct |
-| Motion or power | Present as *svabhāva* and *guṇa*: the operative influence of power, characterised as essential nature |
-| Result | Present as *rūpa* and immortality (*amaratva*): determinate configuration, oriented toward non-decomposable result at constitutional completeness |
+The following audit distinguishes direct textual definitions from the reconstruction developed in this note.
 
-The same alignment is written as one process-dynamic of the unit in §9.
+| Claim used in the note | Primary-text basis | Status in this note |
+|---|---|---|
+| Every unit is described through *rūpa*, *guṇa*, *svabhāva*, and *dharma* | MVD, p. 47 | Direct textual classification |
+| *Rūpa* includes shape, volume, density, boundary-framework, and reflected image | MVD, pp. 42, 50-51; SB, pp. 249-250 | Direct textual description |
+| *Guṇa* is relative power and the effect evident when entities come together | MVD, p. 47; SB, pp. 248-252, 256-257 | Direct textual definition and analysis |
+| *Sam*, *viṣam*, and *madhyastha* name generative, degenerative, and mediative directions of power | MVD, pp. 26, 50-51 | Direct textual classification |
+| *Svabhāva* is essentiality and the usefulness of properties, expressed as conduct | MVD, pp. 47, 77 | Direct textual definition and description |
+| *Dharma* is *dhāraṇā*, the innateness borne according to order | MVD, pp. 47, 50-51, 115; SB, pp. 179-180 | Direct textual definition and order-wise classification |
+| The four are co-present aspects rather than chronological stages | SB, pp. 58-62, read with the four-aspect mapping | Interpretive conclusion |
+| The aspects are unit-grounded but differently encountered, actualised, disclosed, and evidenced in relation | MVD, p. 47; SB, pp. 248-252 | Analytical distinction |
+| The four questions can be asked again of a containing compound | MVD, p. 42; SB, pp. 75-76, 260 | Analytical reconstruction from the distinction between retained and new conduct |
 
-## 4. Why *rūpa* is not an absolute effect
+## 3. Four distinctions within one active unit
 
-Form and property must not be separated as “absolute effect” and “relative effect.” *Rūpa* is not an effect in the same sense as *guṇa*. It is the real configuration by which the unit is bounded and individuated: shape, volume, and density. Its motion-path and constitution provide a framework within which the unit remains one definite unit. A developing atom can change in form as its constitution changes, so form is neither an immaterial essence nor an eternally immutable shape (MVD, pp. 42, 50–51; SB, pp. 55, 249–250).
+### 3.1 *Rūpa*: determinate configuration
 
-Form is nevertheless relationally encountered. In mutual facing, the unit's form is reflected or imaged to another unit, and its dimensions are measured only in comparison with another measure. Reflection does not create the form; it is the manner in which an already bounded unit becomes present across mutuality. The distinction is consequently between **unit-grounded configuration** and **relationally operative power**, not between absolute and relative effects.
+*Rūpa* names the configuration by which the unit is one definite unit: shape, volume, density, and the boundary-framework associated with its constitution and motion-path. It is not an “absolute effect” opposed to the relative effect of *guṇa*. Form and effect answer different questions. Form answers what configuration is present; property answers how the unit's power operates (MVD, pp. 42, 50-51; SB, pp. 249-250).
 
-The word “absolute” is especially unsuitable here because the texts reserve absolute truth for coexistence as nature saturated in *satta*. Form, properties, essential nature, and *dharma* together belong to the objective truth of units. A useful formulation is therefore:
+Form is real without being eternally fixed. A developing atom can change in form as its constitution changes. A compound can form and disintegrate. The persistence of a unit therefore does not require one immutable visible shape, but it does require determinacy: there must be some bounded configuration through which this unit is distinguished from another.
 
-> *Rūpa* is objectively unit-grounded but relationally encountered; *guṇa* is unit-grounded as power and relationally actualised as effect.
+Form is also relationally encountered. A unit's form may be reflected or imaged to another unit, and dimensions are measured comparatively. Reflection does not create the form. It is the manner in which an already configured unit becomes present across mutuality. *Rūpa* is therefore objectively unit-grounded and relationally encountered.
 
-## 5. *Guṇa*: relative power rather than a static quality
+### 3.2 *Guṇa*: relative power in operation
 
-The primary definition calls *guṇa* relative power (*sāpekṣa śakti*) and also the effect that arises when more than one entity comes together. A later analysis identifies the force-bearing unit as *guṇī* and its power as *guṇa*: the bearer and the property are inseparable, while the property's operation is evident as motion, influence, and field of influence (MVD, p. 47; SB, pp. 248–252, 256–257). That meeting of entities is still a relative-power fact. It is not, by itself, the appearance of a new bounded unit. Mixture and compound are distinguished in §8.
+The primary definition calls *guṇa* relative power (*sāpekṣa śakti*) and associates it with the effect evident when more than one entity comes together. The force-bearing unit is *guṇī* and its operative power is *guṇa*. Bearer and power are inseparable, but they are not identical descriptions: one names the unit, the other what its motion can do in mutuality (MVD, p. 47; SB, pp. 248-252, 256-257).
 
-The three modes specify the direction of that operation:
+This is the correct sense in which *guṇa* is process-like. It is not a process floating free of a bearer, and it is not merely a static label. It is a unit-grounded power whose definite influence becomes actual in relation. A unit can possess a power without every possible effect being presently expressed; the actual effect depends on the other unit, distance, configuration, and the mutuality in which they meet.
 
-| Mode of *guṇa* | Definition | Direction of effect |
+The three modes describe the direction of that operation:
+
+| Mode | Textual orientation | Direction of effect |
 |---|---|---|
 | *Sam* | Power assisting *sṛjan* | Generative, formative, or developmental |
 | *Viṣam* | Power assisting *visarjan* | Degenerative, dissolutive, or declining |
-| *Madhyastha* | Power assisting *vibhava* | Mediative, sustaining, balancing, and conserving |
+| *Madhyastha* | Power assisting *vibhava* | Mediative, sustaining, balancing, or conserving |
 
-“Regenerative” is narrower than *sam*, because *sṛjan* need not restore a former state; “generative” is the safer general rendering. *Viṣam* is dissolutive rather than generative. *Madhyastha* does not mean inactivity or an average between two extremes. It names active regulation by which generative and degenerative movements remain balanced and a definite organisation is sustained (MVD, pp. 26, 50–51).
+“Regenerative” is too narrow as a general translation of *sam*, because *sṛjan* need not restore a former state. “Generative” is safer. *Madhyastha* does not mean inactivity or an average between extremes. It is active regulation through which generative and degenerative movements remain balanced and a definite organisation is sustained (MVD, pp. 26, 50-51).
 
-These modes are not moral categories. Formation and dissolution both participate in material and biological cycles. The triad names the directional character of power before any specifically biological, animal, or human evaluation of that power has been made.
+These modes are not moral categories. Formation and dissolution both participate in material and biological cycles. The triad identifies directional efficacy before the order-specific significance of that efficacy has been determined.
 
-## 6. *Svabhāva*: essentiality and the usefulness of properties
+### 3.3 *Svabhāva*: order-specific characteristic conduct
 
-The primary text places two definitions together: essentiality or fundamental character (*maulikata*) is *svabhāva*, and the usefulness (*upayogitā*) of properties is *svabhāva* (MVD, p. 47). “Usefulness” cannot mean merely beneficial, agreeable, or useful to a human observer, because the same text includes devitalising and cruel essential natures. The term is better read here as **functional significance**, **operative relevance**, or **the kind of conduct in which the unit's powers become meaningful within an order**.
+The primary definition places two formulations together: essentiality or fundamental character (*maulikata*) is *svabhāva*, and the usefulness (*upayogitā*) of properties is *svabhāva* (MVD, p. 47). “Usefulness” here cannot mean whatever pleases a human observer, nor can it mean moral benefit, because the order-wise account includes devitalising, cruel, and inhumane conduct. It is better understood as **functional significance**: what the unit's powers amount to as characteristic conduct within its order.
 
-This explains why *svabhāva* is not merely another classification of *guṇa*. The generic classification of property remains *sam–viṣam–madhyastha* across all four orders, whereas the classification of essential nature changes with the order. Each row of the table is a **set** of conducts, not one character of a single motion-map:
+This gives *svabhāva* a purposive direction without imposing an external designer or observer-selected purpose. The direction is internal to the order and the unit's participation in definite conduct. A power has an effect; *svabhāva* identifies the characteristic kind of conduct expressed through that effect.
 
-| Order | Generic power-modes (*guṇa*) | Order-specific essential nature (*svabhāva*) |
-|---|---|---|
-| Material | Generative, degenerative, mediative | Integration–disintegration and their continuity |
-| Biological or pranic | Generative, degenerative, mediative | Vitalising–devitalising |
-| Animal | Generative, degenerative, mediative | Cruel–uncruel |
-| Knowledge or human | Generative, degenerative, mediative | Fortitude, courage, generosity, kindness, grace, and compassion |
+*Svabhāva* is therefore not merely a second classification of *guṇa*. The generic modes *sam-viṣam-madhyastha* recur across the orders, while the classifications of essential nature change with the order. Material essential nature concerns integration and disintegration; pranic essential nature vitalising and devitalising conduct; animal essential nature cruel and uncruel conduct; and knowledge-order essential nature the humane conducts of fortitude, courage, generosity, kindness, grace, and compassion (MVD, pp. 50-51, 58; SB, p. 180).
 
-The knowledge-order cell records that order's defining essential nature, not a paired opposite-set of the kind *cruel–uncruel* is for the animal order. Unawakened human essential nature is named separately as servility, perfidy, and cruelty (MVD, p. 58). In the progression of awakening it appears as that inhumane triad before awakening, as fortitude, courage, and generosity with awakening, and as kindness, grace, and compassion in the completeness of awakening (SB, p. 180). Those are states of the human unit, not a second definition of knowledge-order *svabhāva*.
+At the material level the distinction can appear thin because generative and degenerative power closely track integration and disintegration. It becomes clearer in higher orders. A generative effect alone does not tell whether a biological composition nourishes or debilitates, whether animal conduct causes or avoids suffering, or whether human conduct manifests humane or inhumane essential nature. Those are order-specific determinations of what the operation means as conduct.
 
-At the material level the distinction between *guṇa* and *svabhāva* is thin: generative–degenerative motion and integration–disintegration conduct closely track one another. It becomes clearer in the higher orders. Generative activity alone does not tell whether a biological composition nourishes or debilitates a body, whether animal conduct causes or avoids suffering, or whether a human unit is in the inhumane or the awakened appearance of essential nature. Those are further, order-specific determinations of what the powers amount to in conduct.
+The texts identify conduct as the activity through which essentiality is expressed and also identify conduct with *svabhāva* (MVD, p. 77). Essential nature is thus unit-grounded as fundamental character but disclosed in definite conduct. Recognition does not invent it; relation is where it becomes evident.
 
-The texts therefore describe conduct as the activity through which essentiality is expressed and identify conduct itself with *svabhāva* (MVD, p. 77). Essential nature is unit-grounded as fundamental character but relation-disclosed in its expression. Recognition does not create it. A plant's vitalising or devitalising character, an animal's friendliness or opposition, and a human's generosity or cruelty become evident only in definite mutualities, yet they are not arbitrary projections by an observer.
+### 3.4 *Dharma*: order-specific innateness
 
-## 7. *Dharma*: the innateness borne by an order
+The definition *dhāraṇā hi dharma* presents *dharma* as what is innately borne or maintained. In this technical use it does not initially mean a religious affiliation, statutory command, or externally imposed moral duty. Nor is it merely the long-term effect of *guṇa*. It names the innateness of the unit according to its order (MVD, p. 47; SB, pp. 60-61).
 
-The primary definition, *dhāraṇā hi dharma*, presents *dharma* as what is innately borne or maintained. In this technical use it does not initially mean religious affiliation, a statutory command, or an externally imposed moral duty. It names the order-specific innateness of the unit, mapped on the effort/force side of the triad rather than as a later effect of *guṇa* (MVD, p. 47; SB, pp. 60–61).
+The order-wise *dharmas* are cumulative:
 
-The texts state the order-specific *dharmas* cumulatively:
-
-| Order | *Dharma* |
+| Order | *Dharma* borne by the unit |
 |---|---|
 | Material | Existence |
-| Biological or pranic | Existence and growth |
+| Pranic | Existence and growth |
 | Animal | Existence, growth, and hope to live |
 | Knowledge or human | Existence, growth, hope to live, and happiness |
 
-The higher order does not lose the *dharma* of the lower. A biological unit remains existent while evidencing growth; an animal joint form evidences both and additionally the hope to live; the knowledge order bears the further possibility and requirement of happiness. The order-table must be read with the body/*jeevan* split: existence and growth are evident in the body, whereas hope to live is observed only in *jeevan*; existence and growth are evident in the human body, while *sanskar* and happiness must be realised in *jeevan* for that *dharma* to be meaningful (SB, pp. 179–180; MVD, pp. 50–51, 115). The table does not imply that every composite organisation is indestructible. Existence belongs to the realities participating in composition, while particular compositions can form and disintegrate. How the four aspects then sit on both the constituents and the containing unit is taken up in §8.
+A higher order does not lose what is borne in the lower. A pranic unit remains existent while evidencing growth; an animal joint form evidences both and additionally the hope to live; the knowledge order bears the further requirement and possibility of happiness. The table must be read with the body and *jeevan* distinction: existence and growth are evident in the body, whereas hope to live belongs to *jeevan*; in the human, happiness must be realised in *jeevan* for knowledge-order *dharma* to be fulfilled (MVD, pp. 50-51, 115; SB, pp. 179-180).
 
-*Dharma* is therefore not simply the long-term effect of *guṇa*, nor a synonym for whatever continuity a present form happens to maintain. It names what the unit innately bears. Conduct can accord with that innateness or fail it. In the knowledge order the further *dharma* is happiness, and its evaluation in mutuality is resolution. Fulfilment in that human sense is the evidence of innateness, not a second generic definition of *dharma*.
+Conduct can accord with this innateness or fail to evidence it fully. In the knowledge order, happiness is the further *dharma* and resolution is its evidence in understanding and conduct. That human evaluative use should not be projected backwards as a second generic definition of *dharma* for all units.
 
-## 8. Compound, mixture, and a containing unit's four aspects
+## 4. How the four aspects relate
 
-The four aspects were stated for a generic unit. Composition raises a further question: when several units come together, does one tetrad cover both the parts and the whole, or must the same four questions be asked twice?
+The four aspects answer irreducible questions about one active bearer. The distinctions can be stated once in a common frame:
 
-Mixture (*mishran*) and compound (*yaugik*) are distinguished by conduct, not by mere proximity. In a mixture the participating units keep their respective conducts. In a compound they combine in definite proportion, give up exhibiting those respective conducts as the public motion of the whole, and exhibit a new kind of conduct (MVD, p. 42). That new conduct is the containing unit's own form, property, essential nature, and *dharma*. The constituents nevertheless remain of their order: whatever a thing is constituted of, it remains equal to that basic entity; soil in a pot stays soil, and pranic cells in a body stay of the pranic order (SB, p. 260). Composition is not development: a new compound may close a new bounded conduct while the atomic progression toward constitutional completeness remains a distinct line (SB, pp. 75–76).
+| Aspect | Basic meaning | Dynamic role | Relational status | Not to be confused with |
+|---|---|---|---|---|
+| *Rūpa* | Determinate configuration | Present bounded state or result | Relationally encountered | An absolute, immutable effect |
+| *Guṇa* | Relative power | Operation and influence | Relationally actualised | A static descriptive quality |
+| *Svabhāva* | Order-specific characteristic conduct | Functional character of operation | Disclosed through conduct | A mere list of powers |
+| *Dharma* | Order-specific innateness | What the unit bears | Evidenced in continuity and fulfilment | A temporary outcome or external duty |
 
-The reconstruction therefore assigns **two tetrads**, not one fused list. The texts state the new-versus-retained conduct distinction and the order-of-constituent claim; they do not write “two tetrads.” The two-tetrad assignment is this note's way of keeping those two facts together.
+This is not a causal ladder. *Dharma* does not first produce *svabhāva*, which then produces *guṇa*, which finally produces *rūpa*. The effort-motion-result mapping shows overlap and simultaneity: *svabhāva* crosses effort and motion, and the other aspects qualify the same ongoing unit from different standpoints.
 
-| Aspect | Constituents | Containing compound as a unit |
-|---|---|---|
-| Form (*rūpa*) | Own shape, volume, density, and boundary | New bounded configuration of the whole |
-| Property (*guṇa*) | Relative powers continue under the organisation | Public effect of the whole as one relative power, not a sum of the constituents' effects |
-| Essential nature (*svabhāva*) | Order-specific conduct of each part remains | The compound's own essentiality as that new conduct |
-| *Dharma* | Existence, and the innateness of each constituent's own order | The compound's own innateness as that organisation; disintegration ends the organisation, not the existence of the constituents |
+Nor is the distinction one between intrinsic and relational aspects in a simple binary sense. All four belong to the unit. Their manifestations differ. Form can be present without being reflected to this observer; power can be borne without every possible effect being actual; characteristic conduct requires a definite situation in which it is displayed; innateness is evidenced through continuity and fulfilment. Relational manifestation does not entail relational construction.
 
-A mixture has no such containing unit. Results can still flow: collision and mixture can produce mutual *guṇa*-effect without a new bearer. The definition of *guṇa* as the effect that arises when more than one entity comes together (§5) therefore covers interaction as such; it does not by itself decide whether a new unit has appeared.
+## 5. Worked examples across the four orders
 
-The same two-tetrad pattern continues where organisation is biological rather than physicochemical. A cell and a body are further containing units: each has its own bounded form, public relative power, order-specific conduct, and innateness, while the cells of a body remain of the pranic order. Those organisations are not themselves *yaugik* in the atomic or molecular sense. Sentience of an animal or human joint form belongs to the *jeevan* joined with the body, not to the composition of cells. Composing *jeevan* yields an organised assembly of *jeevan*, never a larger *jeevan*. Human families and social assemblies are not compounds in the physicochemical sense; their continuity is achieved through relationship-fulfilment rather than chemically definite proportion (*The Ontology of Coexistence*, §1.10; *A State-Dynamic Model of Coexistence*, §5.4).
+The order-wise cases test whether the distinction remains intelligible outside a purely abstract definition. They are illustrations of the framework, not claims that the cited texts provide these exact four-paragraph analyses.
 
-## 9. Process dynamics of the unit
+### 5.1 A material compound
 
-The four aspects and the triad can be read together as one process-picture of how a unit continues. Configuration, innateness, relative power, and characteristic conduct then occupy definite roles in the same activity-whole, rather than remaining a list beside a separate set of equations.
+A material compound treated as one bounded unit has a determinate shape, volume, density, constitution, and boundary: this is its *rūpa*. Its powers operate in definite mutualities, producing generative, degenerative, or mediative effects: this is its *guṇa*. The integration, disintegration, or continuity displayed through those operations is its material-order *svabhāva*. Its *dharma* is existence.
 
-### 9.1 Present configuration as *rūpa*
+The example shows why the four cannot be collapsed. The same compound may participate in different effects without acquiring a new essential nature on each occasion. Its present shape is not identical with any one effect, while the fact that it exists is not a summary of its present integration or disintegration.
 
-Each unit is presently a bounded configuration: shape, volume, density, and the motion-path that keeps it one definite bearer. That present state is *rūpa*. In the reconstruction it is the state vector *x*(*t*): the result (*pariṇām*) already attained or being maintained, not an effect in the same sense as *guṇa*. The unit is never a bare point that later acquires form. Form is the configuration from which activity is read.
+### 5.2 A pranic unit
 
-### 9.2 Order-typed potential as *dharma*
+A plant or living cell has a bounded pranic configuration as *rūpa*. Its active powers participate in formation, decline, and regulation as *guṇa*. The order-specific significance of those powers appears as vitalising or devitalising conduct, its *svabhāva*. It bears existence and growth as *dharma*.
 
-The unit does not drift in an empty field. It bears an order-specific innateness — existence, and in the higher orders growth, hope to live, and happiness — and that innateness orients its activity. *Dharma* is that orientation, mapped on the effort/force side. In the reconstruction it is the potential Φ.
+“Useful” in this case does not mean useful to a gardener or observer. It asks what the operation amounts to within pranic order: whether it nourishes and sustains vital organisation or contributes to its debilitation. The same generic power-mode therefore does not exhaust the order-specific description.
 
-“Cumulative” here is the order-table of §7: a higher-order unit bears the lower *dharmas* as well. It is not a global potential formed by adding every unit’s *dharma*. Each bearer has its own Φ typed by its order. A containing unit’s Φ<sub>c</sub> is not the sum of the constituents’ Φ<sub>i</sub> (§8). Saturation in *satta* is the common condition of existence for every unit; *satta* remains actionless, and is not a potential that units fall down.
+### 5.3 An animal joint form
 
-The “overall” setup in which a unit moves is therefore the coupled field of the units it actually meets, together with its own Φ, and together with a containing unit’s organisation when one is present. Property is relative power; the neighbourhood *N* is those mutual facings, not a mean field over all of nature.
+An animal is a joint form of body and *jeevan*, not merely a more complicated material compound. Its bodily configuration supplies the visible *rūpa* of the joint form. Its operative capacities in sensing, selection, movement, and interaction are expressions of *guṇa*. Their animal-order character appears as cruel or uncruel conduct, *svabhāva*. The animal bears existence and growth through the body and hope to live through *jeevan* as *dharma*.
 
-### 9.3 Motion as *guṇa* and *svabhāva*
+This example also shows why evaluation cannot be reduced to causal effect. An action can be causally effective while its characteristic significance differs as opposition, protection, cruelty, or non-cruelty. *Guṇa* concerns efficacy; *svabhāva* concerns what kind of animal conduct that efficacy expresses.
 
-Motion (*gati*) is the unit’s activity as change of that present configuration. The reconstruction does not write one map for an order. Each order has a finite set of essential natures (the table in §6). Instantaneous motion in a facing is one member of that family:
+### 5.4 A human in relationship
 
-**ẋ(*t*) = *F*<sub>*o,s*</sub>(*x*(*t*), *x*<sub>*N*</sub>; Φ)**
+A human being is likewise a body-*jeevan* joint form with determinate bodily *rūpa*. Power is evident through speech, bodily action, imagination, selection, and influence in relationship as *guṇa*. The character of that conduct discloses humane or inhumane *svabhāva*. The human bears existence, growth, hope to live, and happiness as *dharma*.
 
-where *s* belongs to the essential natures of order *o*. State and motion are locked at every duration. The unit does not first occupy a form, then consult a potential, then begin to move. Effort, motion, and result remain a joint form.
+Relationship makes the distinctions especially clear. Effective influence alone does not establish right conduct: manipulation can have powerful effects. Humane *svabhāva* concerns the character expressed through the operation, while happiness and resolution evidence the fulfilment of knowledge-order *dharma*. Usefulness is therefore not whatever sustains an existing relationship. It is order-specific functional significance under the requirements of humane conduct and mutual fulfilment.
 
-*Guṇa* names the directional modes of that motion as relative power in mutuality: generative, degenerative, or mediative. Those modes can accompany more than one *s*: generative power is not already vitalising, and degenerative power is not already cruel. *Svabhāva* names the order-specific conducts themselves: integration and disintegration in matter, vitalising and devitalising in the pranic order, cruel and uncruel in the animal order, humane or inhumane in the knowledge order. *Guṇa* and *svabhāva* therefore occupy different indices: how the power operates, and which map of the family is evidenced. Neighbours enter the evidenced map because *guṇa* is the effect that arises when units come together; which *s* is recognised is disclosed in that same mutuality. Isolated *F*(*x*; Φ) is only a factor: it does not yet distinguish essential natures.
+## 6. Constituents and containing units
 
-| Dynamical role | Aspect | Reconstruction |
-|---|---|---|
-| Present bounded state | Form (*rūpa*) | *x*(*t*) |
-| Order-typed innateness orienting activity | *Dharma* | Φ, cumulative across orders in that unit, not a sum across units; orients the family, does not collapse it |
-| Directional relative power | Property (*guṇa*) | Modes that can appear in more than one *F*<sub>*o,s*</sub>: *sam*, *viṣam*, *madhyastha* |
-| Order-specific characteristic conducts | Essential nature (*svabhāva*) | The family *F*<sub>*o,s*</sub>; one member evidenced in a given facing, not a superposition |
-| Instantaneous activity as a joint form | Effort–motion–result | ẋ = *F*<sub>*o,s*</sub>(*x*, *x*<sub>*N*</sub>; Φ) |
+Composition raises a boundary question: when several units meet, do they remain interacting units, or does a further bounded bearer appear? *Guṇa*-effect alone does not answer this question. Collision, proximity, and mixture can produce definite mutual effects without forming a new unit.
 
-### 9.4 Why motion is not a second rate of change
+Mixture (*mishran*) and compound (*yaugik*) are distinguished by conduct. In a mixture the participating units retain their respective public conducts. In a compound they combine in definite proportion and exhibit a new kind of conduct as a whole (MVD, p. 42). The constituents nevertheless remain of their order; a further composition does not convert them into a different basic entity (SB, p. 260). Composition must also be distinguished from atomic development toward constitutional completeness (SB, pp. 75-76).
 
-A Newtonian reading would take *rūpa* as position, Φ as a scalar potential *V*, and motion as the acceleration produced by that potential: ẍ = −∇*V*. That reading captures one intended insight — the unit’s activity is a response to innateness in a field of other units, not an arbitrary velocity. It does not match the triad.
+The four questions can therefore be asked at two levels when a further bounded unit is established. Each constituent retains its own configuration, powers, essential nature, and order-specific innateness. The containing compound has a further bounded configuration, a public efficacy as one whole, a characteristic new conduct, and the innateness of that organisation. Calling these “two tetrads” is an analytical convenience, not terminology used by the primary texts.
 
-Force (*bal*) is identified with state, and power (*śakti*) with motion. Effort, motion, and result are simultaneous, each a joint form of the other two. A second-order equation would give velocity an independent inertia and identify force with the change of motion. The reconstruction therefore keeps first-order locking: ẋ is determined together with *x* and Φ. Gradient-flow language — motion as the immediate reaction of the present configuration to the potential — can illustrate that orientation. Inertial second-order language cannot be read back as a fifth aspect, and it is not a second definition of *guṇa* or *svabhāva* (SB, pp. 58–62, 248–252).
+This reconstruction should not be extended mechanically. A biological body is a further pranic organisation, but animal and human sentience belongs to *jeevan* joined with the body, not to a sum of cells. A family or social assembly is not a physicochemical compound merely because it has continuity and organisation. The unresolved criterion is what degree of boundary, definite proportion, and new public conduct is sufficient to establish a further unit rather than an organised relationship among units.
 
-### 9.5 Relatively stable kinds
+## 7. In what sense the interpretation is process-compatible
 
-Units occupy relatively stable kinds of closed conduct while complementary couplings hold. Those kinds are not idle points at which ẋ vanishes. The closed form remains recognisable; activity continues. The state-dynamic model writes them as nested plateaus of *X*. The kinds named in the texts, under conducive conditions on this earth, include constitution-oriented atoms, molecules, compounds and minerals, pranic cells, plant bodies, animal and human bodies, constitutionally complete *jeevan*, and the animal and human joint forms (*A State-Dynamic Model of Coexistence*, §4.3).
+The four-aspect account is process-compatible if “process” means persistent organised activity. It is not process-compatible if process means a momentary event without a bearer or if every aspect is reduced to current external relations.
 
-Those kinds are not one ladder that a single *x*(*t*) climbs. Composition closes a new bounded unit; development in the atom reaches constitutional completeness. A plant body is a pranic composition, not *jeevan*. Animal and human beings are joint forms: the compositional line supplies that order’s body, the atomic line supplies *jeevan*. *Jeevan* is not produced by composing cells, and composing *jeevan* never yields a larger *jeevan*. Families and assemblies are not physicochemical compounds (§8). How *nyāya*, *dharma*, and *satya* sit in that dynamic — by default in *jada*, through understanding where there is option — is taken up in §10.
+First, the unit remains identifiable while active. Configuration, constitution, and boundary prevent activity from becoming an unowned flow. Second, the aspects are co-present rather than chronological stages. Effort, motion, and result are joint aspects of activity, and the four ontological terms cross that triad rather than forming a sequence. Third, relational manifestation must not be confused with observer-construction. Relation is where form is encountered, power actualised, essential nature disclosed, and *dharma* evidenced; it does not invent the unit. Fourth, process-language must preserve the distinction between bearer and power. *Guṇī* is not dissolved into *guṇa*.
 
-## 10. How *nyāya*, *dharma*, and *satya* are established in the process-dynamic
+A mathematical state-dynamic reconstruction can explore these commitments, but it is not required to define the terms. Treating *rūpa* as a state variable, *dharma* as a potential, and *guṇa-svabhāva* as a family of motion maps adds assumptions about state spaces, potentials, and laws of change that the primary definitions do not supply. Those proposals belong in a formal study where their explanatory value and limits can be assessed independently (*A State-Dynamic Model of Coexistence*, §§2-5).
 
-*Nyāya*, *dharma*, and *satya* name universal truths of coexistence: definite fulfilment in relationship, orderliness of innateness, and existence as coexistence. They are not human inventions added after the tetrad, and they are not absent from insentient nature. Every unit's *rūpa*, *guṇa*, *svabhāva*, and *dharma* already participate in those truths. What changes at sentience is not the truths but whether the unit has option with respect to them.
+The more modest conclusion is sufficient here: *guṇa* should be read dynamically as relative power in operation, while the unit should be understood as an activity-whole rather than as nothing but a process.
 
-### 10.1 Default following and optional understanding
+## 8. Limits and open questions
 
-In insentient (*jada*) nature — the material and pranic orders — there is no option. Recognition and fulfilment are definite given constitution, distance, state, motion, and environment. Different mutualities yield different definite effects; no unit mis-evaluates what occurs (*The Ontology of Coexistence*, §1.3). Which member of the family *F*<sub>*o,s*</sub> is evidenced is constitutionally locked to complementary fulfilment. *Nyāya*, *dharma*, and *satya* are therefore already the dynamics: a mineral or a cell follows them by default as the law of its activity, not by judging just or unjust, resolved or unresolved, true or untrue. Conduct in the first three orders is definite (JV, p. 113). Apart from humans, those orders are already mutually complementary (JV, p. 59).
+### 8.1 One conduct or a range of conducts
 
-The animal joint form is sentient, but its expression remains species-conformant. Selection and taste operate through a limited bodily medium without the human perspective-fork. Species-conformance keeps which *s* is evidenced definite; animal sentience does not introduce *nyāya–anyāya* as a live alternative.
+The order-wise lists do not by themselves decide whether *svabhāva* names one conduct presently expressed, a stable disposition, or a structured range of possible characteristic conducts. The distinction matters most in the animal and knowledge orders, where opposite or developmental expressions are described. The safe claim is that *svabhāva* identifies order-specific characteristic conduct; a complete modal theory of which conducts are possible in which states remains to be developed.
 
-The knowledge-order human has option. Knowing and believing may disconnect from recognition and fulfilment. Delusion identifies *jeevan* with the body and takes pleasant–unpleasant, healthy–unhealthy, and profit–loss as exhaustive refuge; humane living takes *nyāya–dharma–satya* as governing (MVD, p. 67). The same universal truths must then be followed through understanding. Behaviour is regulated through justice, thought through *dharma*, realisation through truth (MVD, p. 137) because those are the names under which the already-operative order is knowingly evidenced — not because *jada* lacked them.
+### 8.2 The boundary of a containing unit
 
-*Dharma* as unit-innateness (*dhāraṇā*, Φ) is borne in every order. The *dharma–adharma* perspective appears only where there is option: thought can support resolution or fail it. *Nyāya* likewise names both the definite complementary fulfilment already present in *jada* couplings and, in the human, the completed activity of recognising relationships, fulfilling values, evaluating, and achieving mutual satisfaction (MVD, p. 311).
+The mixture-compound distinction establishes that new public conduct matters, but it does not yet provide a general criterion covering molecule, cell, organism, body-*jeevan* joint form, family, and society. “Two tetrads” should remain a proposed diagnostic: ask whether a new bounded bearer exists before assigning the four aspects at the containing level.
 
-*Niyam*, *niyantran*, and *santulan* name law, regulation, and balance of activity in every order. In *jada* they are the definite activity-form of the same universal truths. They are not a second set of laws that humans later replace with *nyāya*, *dharma*, and *satya*. The widening sequence from knowledge through law to justice, *dharma*, and truth (MVD, p. 174) is how that one order becomes understood, not a term-by-term equation of *niyam* with *nyāya*.
+### 8.3 Two uses of *dharma*
 
-### 10.2 How the four aspects are established
+Unit-*dharma* names *dhāraṇā*, the innateness borne in every order. In human analysis, *dharma-adharma* also names an evaluative perspective in thought, and resolved thought evidences human *dharma* as happiness. These uses are related but not interchangeable. The first is ontological and order-wide; the second appears where the knowledge-order unit has option and must understand orderliness. A fuller account belongs with the theory of *nyāya*, *dharma*, and *satya*, rather than inside the definition of the four aspects (MVD, pp. 67, 137, 174; JV, p. 120).
 
-The tetrad is established as the definition of the unit, not as a later score. In the process-dynamic:
+### 8.4 The limits of formalisation
 
-| Aspect | What is established | In the dynamics |
-|---|---|---|
-| Form (*rūpa*) | The bounded configuration presently maintained | *x*(*t*), the result already in place |
-| Property (*guṇa*) | Relative power as generative, degenerative, or mediative effect | Directional modes that can appear in more than one *F*<sub>*o,s*</sub> |
-| Essential nature (*svabhāva*) | Order-specific characteristic conducts | The family *F*<sub>*o,s*</sub>; one member evidenced in the facing |
-| *Dharma* (innateness) | What the unit bears according to its order | Φ; in the knowledge order evidenced as happiness |
+No equation follows directly from the four definitions. A formal model must specify what counts as state, neighbourhood, power, characteristic conduct, and order-specific continuity, and must show that the model does not treat *dharma* as a global physical potential or *svabhāva* as a superposition of every possible conduct. Formalisation is valuable only if these added commitments remain visible as reconstruction.
 
-In *jada*, these four already run inside the universal truths: configuration, relative power, definite conduct, and innateness have no alternative branch. False learning is failure to understand a thing's form, properties, essential nature, and *dharma* as they are (MVD, pp. 184, 263–264). Understanding does not create the aspects or the truths; it establishes them as known where option exists.
+### 8.5 Textual questions
 
-### 10.3 How *nyāya* is established
+The primary-text passages used here support the principal distinctions, but several interpretive questions remain. The sense of “usefulness” needs comparison across Hindi editions and translations; the relation between essentiality and conduct requires closer comparison of MVD p. 47 and p. 77; and the effort-motion-result mapping should be checked against the full context of constitutional completeness. These are priorities for a subsequent source-language audit.
 
-Justice is understood on the basis of relationships (JV, p. 120). In *jada*, relationship is definite complementarity: hungry and overfull, nourishment and composition, containment and organisation. *Nyāya* is established there by default as the closing of recognition and fulfilment in the evidenced *F*<sub>*o,s*</sub>. The mineral does not compute justice; its couplings already fulfil or fail as constitution, not as a chosen verdict.
+## 9. Conclusion
 
-In the human, the same truth must be established through understanding. Form is reflected and the relationship recognised; *guṇa* operates as fulfilment of the relationship's values, not as mere influence; *svabhāva* is the humane or inhumane character of that conduct; unit-*dharma* is evidenced as resolution and happiness when fulfilment holds.
+The four aspects do not describe four layers added to a passive thing. They distinguish four questions about one bounded active bearer. *Rūpa* is the unit as configured; *guṇa* is its relative power in operation; *svabhāva* is the order-specific character and functional significance of that operation; and *dharma* is the innateness the unit bears. Form is not an absolute effect, property is not a static quality, essential nature is not merely a classification of property, and *dharma* is not a temporary result or externally assigned purpose.
 
-The cycle can be stated as:
+This formulation permits a process-oriented understanding without dissolving the unit:
 
-> understanding of relationship → recognition of value → conduct expressing *svabhāva* → evaluation → mutual satisfaction
+> A unit is a bounded activity-whole whose configuration is *rūpa*, whose relative causal efficacy is *guṇa*, whose characteristic order-specific conduct is *svabhāva*, and whose order-specific innateness is *dharma*.
 
-*Nyāya* is established in the knowledge order when that cycle closes as mutual satisfaction. Option makes failure possible: causal effectiveness of *guṇa* does not establish justice; manipulation can influence another person while remaining unjust. Statutory law may or may not embody justice; legality alone does not close the cycle (*The Ontology of Coexistence*, §1.11–§1.12.1). The related reconstructions write the human closure as a behavioural verification constraint on *F*, and as recognition, fulfilment, and reflexive evaluation reaching mutual satisfaction (*A State-Dynamic Model of Coexistence*, §9; *Coexistence from First Principles*, §4.9). Reflexive evaluation can agree with or diverge from the definite mutuality already present. That divergence is the option; it is not available to *jada*.
+## Editorial Notes
 
-### 10.4 How *dharma* is established
+### Translation of *guṇa*
 
-Unit-*dharma* is borne in every order as Φ. In *jada*, existence and growth orient the family of maps without an *adharma* alternative. The cell does not choose decline as a perspective; excited-state motion can displace it under pressure, but that is disturbance of definite conduct, not optional evaluation.
+“Property” is retained because it is familiar in the existing English translations, but “relative power” is the governing analytical sense. “Quality” should not be read as an inert predicate.
 
-Where there is option, thought is disciplined through *dharma* (MVD, p. 137), understood on the basis of orderliness (JV, p. 120). Evaluative *dharma* is the alignment of the knowledge-order potential: whether Φ<sub>cognitive</sub> orients which *F*<sub>*o,s*</sub> is evidenced toward resolution rather than toward unresolved sensory, bodily, or material refuge. Inner friction — cognitive motion that cannot rest in understanding — is the failure of this alignment, not a second definition of unit-*dharma* (*A State-Dynamic Model of Coexistence*, §7.1, §8.1). Evaluative *dharma* is established when thought is resolved: knowing, believing, recognising, and fulfilling no longer contradict one another, and human *dharma* as happiness is evidenced. Activity completeness (T2) is restfulness of effort in that sense, not the vanishing of the unit.
+### Translation of *svabhāva*
 
-### 10.5 How *satya* is established
+“Essential nature” is retained, while “usefulness of properties” is rendered analytically as functional significance. This does not assert utility to an observer, moral goodness, or an externally imposed purpose.
 
-*Satya* is understood on the basis of existence (JV, p. 120). In *jada*, existence as coexistence is already how the unit is: saturated, bounded, and active in definite mutuality. Truth is followed by default as the actuality of that coexistence; the unit does not verify or deny it.
+### Analytical vocabulary
 
-Realisation takes place through truth (MVD, p. 137) because the human can take *asatya* as refuge. The *satya–asatya* perspective asks whether understanding accords with coexistence as it is. A motion may succeed as *guṇa*, express a plausible *svabhāva*, and even produce temporary mutual agreement, and still fail *satya* if the understanding from which *F*<sub>*o,s*</sub> was selected does not accord with existence. *Satya* is established in the knowledge order when realisation knows coexistence, knows *jeevan* as the knower, and projects that knowing as authenticity in conduct. Truth in the widening sequence is realised as coexistence; realisation in coexistence is bliss (MVD, p. 174; *The Ontology of Coexistence*, §1.13).
+“Bounded, active bearer,” “unit-grounded,” “relationally actualised,” and “two tetrads” are reconstructions used to organise textual claims. They are not presented as translations of primary-text terms.
 
-### 10.6 One picture: same truths, two modes
+### Material removed from the core argument
 
-| Term | Universal content | In *jada* (no option) | In human sentience (option) |
-|---|---|---|---|
-| *Rūpa*, *guṇa*, *svabhāva*, unit-*dharma* | The unit as activity-whole | *x*, family *F*<sub>*o,s*</sub>, Φ locked to definite conduct | Same tetrad; which *s* is evidenced can be selected from understanding or from delusion |
-| *Niyam*, *niyantran*, *santulan* | Law, regulation, and balance of activity | Definite conformance of the evidenced map | Must be understood and kept; otherwise procedure replaces law |
-| *Nyāya* | Definite fulfilment in relationship | Followed by default as complementary closing of the evidenced map | Established through understanding as mutual satisfaction; *anyāya* is a live alternative |
-| *Dharma* | Orderliness of innateness | Φ orients the family with no *adharma* fork | Unit-*dharma* still borne; evaluative *dharma* is resolved thought |
-| *Satya* | Existence as coexistence | Already the actuality of saturated unithood | Must be realised; *asatya* is a live alternative |
-
-Sustaining and balancing belong most directly to the mediative mode of *guṇa* and to *santulan* in activity. In *jada* that is already *nyāya* as default fulfilment. Human relationship-fulfilment additionally requires understanding, because option can break the cycle. It is consequently too narrow to define *svabhāva* universally as “what sustains a relationship,” and too narrow to treat *nyāya* or *satya* as human-only coordinates of *x*.
-
-## 11. Limits of the process interpretation
-
-A process-oriented reading is consistent with the primary texts under seven constraints.
-
-First, “process” must mean persistent organised activity, not a momentary event. Units retain definite boundaries, constitutions, and identifiable continuity while remaining active.
-
-Second, the four aspects must not be treated as chronological stages. Effort, motion, and result are inseparable in every activity; correspondingly, *rūpa*, *guṇa*, *svabhāva*, and *dharma* are co-present aspects of the unit.
-
-Third, relational manifestation must not be confused with observer-construction. Form is reflected, property exerts influence, essential nature is recognised, and *dharma* is evidenced — and in the knowledge order evaluated as resolution — in mutuality; none is invented by the observer.
-
-Fourth, the unit must not be reduced to its current relations. Madhyasth Darshan is process-compatible but not relation-only. The bearer (*guṇī*), its boundary, its constitution, its “ness,” and its order-specific *dharma* remain real. “Activity-whole” is therefore more faithful than saying that the unit is nothing but a process.
-
-Fifth, the four aspects of a containing unit must not be treated as a sum or replacement of the constituents' four aspects. Mixture retains the participants' conducts and supplies no further tetrad; compound, cell, and body each add a containing tetrad while the constituents remain of their order (§8).
-
-Sixth, motion must not be rewritten as a Newtonian second rate of change. First-order locking of *x* and ẋ is the reconstruction of the triad’s joint form; inertial acceleration is not a further aspect, and Φ is not a global sum of *dharmas* (§9).
-
-Seventh, *nyāya*, *dharma*, and *satya* must not be treated as human-only coordinates, and they must not be treated as optional in *jada*. They are universal truths of the dynamic: followed by default, with no option, in insentient units, and followed through understanding where sentience has option. Unit-*dharma* must not be collapsed into the *dharma–adharma* perspective; that perspective appears only with option (§10).
-
-## 12. Compact formulation
-
-> *Rūpa* is how the unit is configured and bounded: shape, volume, and density.<br>
-> *Guṇa* is how its power operates and affects mutuality.<br>
-> *Svabhāva* is which of that order's characteristic conducts the operation expresses.<br>
-> *Dharma* is the innateness the unit bears (*dhāraṇā*); in the knowledge order this is evidenced as happiness and evaluated as resolution.
-
-The four can be compressed into one sentence without collapsing their differences:
-
-> A unit is a bounded activity-whole whose configuration is *rūpa*, whose relative causal efficacy is *guṇa*, whose characteristic functional conduct is *svabhāva*, and whose order-specific innateness is *dharma*.
-
-When the unit is a compound or a further organisation, that sentence applies twice: to each constituent, and to the containing unit as a further bounded activity-whole.
-
-In process-dynamic terms: the present configuration is *rūpa*, the order-typed potential is *dharma*, and the motion by which the unit continues is *guṇa* together with one evidenced member of the *svabhāva* family, written ẋ = *F*<sub>*o,s*</sub>(*x*, *x*<sub>*N*</sub>; Φ). *Nyāya*, *dharma*, and *satya* are universal truths of that motion: in *jada* they are followed by default as a definite *F*<sub>*o,s*</sub>; in human sentience they are established through understanding, because option can take *anyāya*, *adharma*, or *asatya* as refuge.
+The earlier version developed a mathematical process-picture using a state variable, an order-typed potential, and a family of motion maps. It also extended the model into a theory of *nyāya*, *dharma*, and *satya* as universal truths followed by default in *jada* and through understanding in the human. Both extensions introduce independent claims and have been removed from the core exposition. The formal questions are routed to *A State-Dynamic Model of Coexistence*; the universal-truth thesis remains an open subject for a separate technical note.
 
 ## References
 
 ### Madhyasth Darshan primary texts
 
-- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: definitions of the four aspects (p. 47); form and the *sam–viṣam–madhyastha* distinction (pp. 50–51); order-specific *svabhāva* and *dharma* (pp. 50–51, 115); mediative regulation (p. 26); atomic constitution, mixture (*mishran*), and compound (*yaugik*) (p. 42); inhumane essential nature (p. 58); conduct as expression of essentiality (p. 77); humane and inhumane perspectives (p. 67); behaviour, thought, and realisation (p. 137); the sequence from knowledge through law to justice, *dharma*, and truth (p. 174); false learning as failure to understand the four aspects (pp. 184, 263–264); justice as relationship, fulfilment, evaluation, and mutual satisfaction (p. 311).
-- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: effort–motion–result and state–motion (pp. 58–62); change of form and properties with development (p. 55); composition is not development (pp. 75–76); order-specific *dharma* and the body/*jeevan* split (pp. 179–180); force, power, form, reflection, influence, recognition, and evaluation (pp. 248–252); bearer and property (pp. 256–257); a composition remains of the order of its constituents (p. 260).
-- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: first three orders already complementary (p. 59); peepal-tree illustration of the four aspects, and definite conduct in those orders (p. 113); justice on the basis of relationships, *dharma* on the basis of orderliness, truth on the basis of existence (p. 120).
+- **MVD** - Nagraj, A. [*Madhyasth Darshan - Co-existentialism*](../../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: mediative regulation (p. 26; §3.2); atomic constitution, mixture, and compound (p. 42; §§2.2, 3.1, 6); definitions of the four aspects (p. 47; §§2.2, 3); form and the *sam-viṣam-madhyastha* distinction (pp. 50-51; §§2.2, 3.1-3.4); inhumane essential nature (p. 58; §3.3); humane and inhumane perspectives (p. 67; §8.3); conduct as expression of essentiality (p. 77; §§2.2, 3.3, 8.5); order-specific *dharma* (p. 115; §§2.2, 3.4); behaviour, thought, and realisation (p. 137; §8.3); the sequence from knowledge through law to justice, *dharma*, and truth (p. 174; §8.3).
+- **SB** - Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: effort-motion-result and state-motion (pp. 58-62; §§2.1, 3.4, 4, 7, 8.5); composition is not development (pp. 75-76; §§2.2, 6); order-specific *dharma* and the body-*jeevan* distinction (pp. 179-180; §§2.2, 3.3-3.4); force, power, form, reflection, influence, recognition, and evaluation (pp. 248-252; §§2.1-2.2, 3.1-3.2); bearer and property (pp. 256-257; §§2.2, 3.2); order of constituents in a composition (p. 260; §§2.2, 6).
+- **JV** - Nagraj, A. [*Jeevan Vidya: An Introduction*](../../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: peepal-tree illustration of the four aspects and definite conduct in the first three orders (p. 113; §5); justice on the basis of relationships, *dharma* on the basis of orderliness, and truth on the basis of existence (p. 120; §8.3).
 
 ### Related studies
 
-- [*The Ontology of Coexistence*](The-Ontology-of-Coexistence.pdf), especially §1.3 (definite insentient mutuality), §1.10, “Composition and assemblies,” and §1.11–§1.13 (regulation, evaluative perspectives, justice, and realisation).
-- [*A State-Dynamic Model of Coexistence*](../A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf), especially §2–§3 (state, derivative, potential, and the family *F*<sub>*o,s*</sub>), §4.3 (nested compositional plateaus), §5.4 (the tetrad of a containing unit), and §7–§9 (delusion, completeness, and verification).
-- [*The Epistemology of Coexistence*](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf), especially §1.4 on the six perspectives and on *niyam–niyantran–santulan* with *nyāya–dharma–satya*.
+- [*The Ontology of Coexistence*](The-Ontology-of-Coexistence.pdf), especially §1.3 on definite insentient mutuality and §1.10 on composition and assemblies.
+- [*A State-Dynamic Model of Coexistence*](../A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf), especially §§2-5 on state, derivative, potential, and nested compositional plateaus.
+- [*The Epistemology of Coexistence*](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf), especially §1.4 on the six perspectives and on *niyam-niyantran-santulan* with *nyāya-dharma-satya*.
 - [*Coexistence from First Principles*](../Coexistence-From-First-Principles/Coexistence-From-First-Principles.pdf), especially §4.9 on reflexive evaluation and justice as mutual satisfaction.
