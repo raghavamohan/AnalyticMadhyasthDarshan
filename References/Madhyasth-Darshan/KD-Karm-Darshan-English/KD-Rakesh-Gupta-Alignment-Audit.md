@@ -21,6 +21,7 @@ This is a deterministic body-level terminology guardrail for the working English
 | सदुपयोग | right-use | `proper use`, `good-use`, `good use`, `right use` | 0 | **PASS** |
 | पदार्थावस्था / प्राणावस्था / जीवावस्था / ज्ञानावस्था | material / biological / animal / knowledge order | `material state`, `prana state`, `prana-state`, `prana order`, `jeevan state`, `knowledge state`, `knowledge-state`, `four states` | 0 | **PASS** |
 | प्राणकोष | biological cell | `prana cell`, `prana-cell` | 0 | **PASS** |
+| बल (bare/general, paired with शक्ति) | strength (named physical/interaction बल remains force) | `force (*bal*) and power`, `where do force and power go` | 0 | **PASS** |
 | विवेक | wisdom | `discretion` | 0 | **PASS** |
 | व्यवसाय | vocation | `occupation` | 0 | **PASS** |
 | दया / कृपा / करुणा | kindness / grace / compassion | `compassion, grace, and mercy`, `compassion/grace/mercy`, `mercy`, `compassionate work-behaviour` | 0 | **PASS** |
@@ -33,6 +34,7 @@ This is a deterministic body-level terminology guardrail for the working English
 | द्वेष | malice | `accumulation, hatred`, `attachment, hatred`, `envy, hatred, conceit`, `attachment and aversion`, `envy, aversion, hatred`, `hatred by affection` | 0 | **PASS** |
 | तदाकार | absolute-resonance | `take-the-form-of`, `taking-the-form-of` | 0 | **PASS** |
 | भोग | enjoyment (contextual) | `indulgence`, `over-indulgence` | 0 | **PASS** |
+| योगाभ्यास / योग्याभ्यास | study of yoga | `yoga-practice`, `union-worthy practice`, `practice of meeting/union` | 0 | **PASS** |
 | सत्यान्वेषण / ऐषणान्वेषण / विषयान्वेषण | truth- / motive- / instincts-oriented exploration | `truth-investigation`, `desire-investigation`, `object-investigation`, `truth-investigative`, `desire-investigative`, `object-investigative`, `investigation-trio` | 0 | **PASS** |
 | ऐषणा-त्रय | motive-trio | `desires-trio`, `desire-trio` | 0 | **PASS** |
 | मेधस | brain | `medhas-system`, `medhas composition`, `medhas-composition`, `the medhas` | 0 | **PASS** |
