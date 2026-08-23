@@ -30,7 +30,7 @@ EXPECTED_TERMS: list[tuple[str, str, list[str]]] = [
     ("श्रम-गति-परिणाम", "Effort – Motion – Result", ["effort-motion-consequence"]),
     ("जागृति क्रम", "awakening progression", ["awakening sequence"]),
     ("विकास क्रम", "development progression", ["developmental sequence"]),
-    ("सत्ता में संपृक्त", "saturated in Omnipotence", ["endowed with omnipotence", "soaked in omnipotence"]),
+    ("सत्ता में संपृक्त", "saturated in Omnipresence", ["endowed with omnipotence", "soaked in omnipotence"]),
     ("पाण्डित्य", "scholarliness", ["erudition"]),
     ("प्रसन्नता", "happiness", ["gladness"]),
     ("सदुपयोग", "right-use", ["proper use", "good-use", "good use", "right use"]),
@@ -88,6 +88,11 @@ EXPECTED_TERMS: list[tuple[str, str, list[str]]] = [
             "attachment and aversion", "envy, aversion, hatred", "hatred by affection",
         ],
     ),
+    (
+        "तदाकार",
+        "absolute-resonance",
+        ["take-the-form-of", "taking-the-form-of"],
+    ),
     ("भोग", "enjoyment (contextual)", ["indulgence", "over-indulgence"]),
     (
         "सत्यान्वेषण / ऐषणान्वेषण / विषयान्वेषण",
@@ -99,6 +104,66 @@ EXPECTED_TERMS: list[tuple[str, str, list[str]]] = [
         ],
     ),
     ("ऐषणा-त्रय", "motive-trio", ["desires-trio", "desire-trio"]),
+    (
+        "मेधस",
+        "brain",
+        ["medhas-system", "medhas composition", "medhas-composition", "the medhas"],
+    ),
+    ("चुम्बकीयता", "magnetism", ["magneticness"]),
+    ("प्रभाव क्षेत्र", "field", ["field of effect", "fields of effect"]),
+    (
+        "संक्रमण / संक्रमणीयता",
+        "irreversible transition / irreversibility",
+        ["event of transition", "transition-ness"],
+    ),
+    ("विस्तार", "expanse", ["extension"]),
+    ("फलन", "outcome", ["fruition"]),
+    ("यथास्थिति", "existent state", ["actual condition", "actual-condition"]),
+    ("तृप्ति", "satisfaction", ["satiation"]),
+    (
+        "सारक / मारक",
+        "vitalising / devitalising",
+        ["essentiality (*sarakta*)", "destructiveness (*marakta*)"],
+    ),
+    (
+        "ज्ञेय",
+        "object of knowledge",
+        ["Knowledge, Knower, Known", "the known becoming meaningful"],
+    ),
+    (
+        "दृश / दृश्य / दर्शन",
+        "seer / scene / worldview",
+        ["[the seeing]", "[the seen]", "seeing/philosophy", "seen, seer, and seeing"],
+    ),
+    (
+        "ध्यान / ध्याता / ध्येय",
+        "concentration / one who concentrates / object of concentration",
+        ["[attention]", "[the attender]", "[the object of attention]", "attention, attender, and object of attention"],
+    ),
+    (
+        "अध्यात्मवाद / अधिदैवीवाद / अधिभौतिकवाद",
+        "Adhyatma-vada / Adhidaivika-vada / Adhibhautika-vada",
+        ["spiritualism (*adhyatmavad*)", "god-centred-ism (*adhidaivikvad*)", "materialism-of-the-beyond (*adhibhautikvad*)"],
+    ),
+    ("नश्वरत्व", "mortality", ["perishability"]),
+    (
+        "देवात्मा / भूतात्मा / दिव्यात्मा",
+        "deific / elemental / divine self",
+        ["deific soul", "deific souls", "elemental soul", "elemental souls", "divine soul", "divine souls"],
+    ),
+    ("प्रभुसत्ता", "supreme order", ["lordly existence"]),
+    (
+        "विराग / वैराग्य / पर-वैराग्य",
+        "dispassion / detachment / supreme-detachment",
+        ["dispassion-toward-other", "further-detachment"],
+    ),
+    ("अनुप्राणित", "propagated (KD wave context)", ["animated onward"]),
+    ("जीवन-पुंज", "jeevan-cloud", ["jeevan-cluster"]),
+    (
+        "प्राण वायु / प्राणवायु",
+        "pranavayu (left transliterated)",
+        ["life-breath (*pran vayu*)", "pran vayu"],
+    ),
     (
         "सम्मत",
         "aligned",
@@ -130,6 +195,8 @@ def audit_kd_text(kd_text: str) -> list[str]:
 
 
 def main() -> int:
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8")
     print("=== KD configured terminology guardrail ===")
     if not KD_MD_PATH.is_file():
         print(f"Error: KD text file not found: {KD_MD_PATH}", file=sys.stderr)
