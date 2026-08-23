@@ -18,6 +18,9 @@ This is a deterministic body-level terminology guardrail for the working English
 | सत्ता में संपृक्त | saturated in Omnipresence | `endowed with omnipotence`, `soaked in omnipotence` | 0 | **PASS** |
 | पाण्डित्य | scholarliness | `erudition` | 0 | **PASS** |
 | प्रसन्नता | happiness | `gladness` | 0 | **PASS** |
+| मात्रा | measure (राशि remains quantity; मात्रात्मक remains quantitative) | `3.9 Quantity`, `root quantity`, `unit-quantity`, `principle of quantity`, `every quantity`, `as mere quantity`, `treated as one quantity`, `one quantity`, `with quantity`, `quantities found`, `quantities complementary`, `method of pressure, flow, and quantity`, `evaluates solely by quantity`, `sufficient quantity`, `necessary quantity`, `the quantity of` | 0 | **PASS** |
+| आवेश / आवेशित | excitation / excited (चार्ज remains charge in the battery passage) | `charge (*āvesh*)`, `charged (*āveshit*)` | 0 | **PASS** |
+| अनुभूति | experiencing (distinct from अनुभव = realisation) | `realisation (*anubhūti*)`, `realization (*anubhūti*)` | 0 | **PASS** |
 | सदुपयोग | right-use | `proper use`, `good-use`, `good use`, `right use` | 0 | **PASS** |
 | पदार्थावस्था / प्राणावस्था / जीवावस्था / ज्ञानावस्था | material / biological / animal / knowledge order | `material state`, `prana state`, `prana-state`, `prana order`, `jeevan state`, `knowledge state`, `knowledge-state`, `four states` | 0 | **PASS** |
 | प्राणकोष | biological cell | `prana cell`, `prana-cell` | 0 | **PASS** |
@@ -77,6 +80,8 @@ The August 23 follow-up settled **अनुकूल = aligned** in relational f
 
 A further alignment pass corrected **मेधस = brain**, **चुम्बकीयता = magnetism**, **प्रभाव क्षेत्र = field**, **संक्रमण / संक्रमणीयता = irreversible transition / irreversibility**, **विस्तार = expanse**, **फलन = outcome**, **यथास्थिति = existent state**, **तृप्ति = satisfaction**, **सारक / मारक = vitalising / devitalising**, **ज्ञेय = object of knowledge**, **दृश / दृश्य / दर्शन = seer / scene / worldview**, **ध्यान / ध्याता / ध्येय = concentration / one who concentrates / object of concentration**, the three classical vada names as transliterations, **नश्वरत्व = mortality**, **देवात्मा / भूतात्मा / दिव्यात्मा = deific / elemental / divine self**, **प्रभुसत्ता = supreme order**, and **विराग / वैराग्य / पर-वैराग्य = dispassion / detachment / supreme-detachment**.
 
+The later August 23 review settled **मात्रा = measure**, while राशि remains **quantity** and मात्रात्मक remains **quantitative**; **आवेश / आवेशित = excitation / excited**, with the literal Hindi loanword चार्ज retained as **charge** in KD p.124; and **अनुभूति = experiencing**, distinct from अनुभव = **realisation** because अनुभूति belongs to the lower-faculty / *chitta* level while अनुभव is established in *atma*. **अर्थ** now follows an explicit contextual rule: **wealth** in acquisition/economic contexts, **resources** for means available as body, mind, and wealth, and **meaning** for the sense of a concept. **Lust** remains acceptable for unambiguous काम, but the current KD occurrences remain ***kama*** because all occur in the classical life-aim listing, where 'lust' would be too narrow.
+
 By explicit project decision, KD 3.13 uses **अनुप्राणित = propagated** in its molecule-to-molecule wave context, where MVD's 'invigorated/inspired' does not fit. The technical **क्षमता / योग्यता / पात्रता = capacity / ability / receptivity** trio is preserved because those qualities underlie recognition of relationships and evaluation; **पात्रता = worthiness** is confined to KD 3.10's reciprocal kindness/grace/compassion definition.
 
 KD 2 p.31 now follows MVD's explicit **जीवन-पुंज = jeevan-cloud**, replacing the former KD-specific **jeevan-cluster**. By explicit project decision, **प्राण वायु / प्राणवायु** is retained as ***pranavayu*** in KD rather than translated as **life-breath** or separated as *pran vayu*; MVD's different published rendering is **prana-air**.
@@ -87,13 +92,9 @@ These are review candidates, not confirmed errors:
 
 | Hindi term | Current candidate range | What remains to verify |
 | :--- | :--- | :--- |
-| मात्रा | quantity / measure | Confirm quantitative amount versus existential measure. |
-| आवेश | excitation / charge (contextual) | Confirm the boundary between physical charge and disturbed/excited state usages. |
-| विन्यास | arrangement | Confirm whether the technical physical sense needs a more specific Rakesh-aligned rendering. |
-| अनुभूति | experiencing / realisation | Current 'experiencing' distinguishes it from अनुभव; reconsider explicitly against MVD/JV usage. |
-| काम | kama (desire) / lust | Current classical life-aim context is broader than 'lust'; settle the running English term explicitly. |
-| अर्थ | wealth / resources / meaning (contextual) | Settle the economic and epistemic contextual rule explicitly. |
+| विन्यास | transliteration with contextual gloss 'arrangement' | Keep *vinyas* visible and confirm whether its technical physical sense needs a more specific Rakesh-aligned rendering. |
 | कासा / आकूति / मेधा | transliteration with contextual glosses | Verify the obscure technical triad lexically before replacing its current glosses. |
+| ता-त्रय | transliteration | The source does not explicitly identify which three -tā terms the compound denotes. |
 
 ## Reproduce
 

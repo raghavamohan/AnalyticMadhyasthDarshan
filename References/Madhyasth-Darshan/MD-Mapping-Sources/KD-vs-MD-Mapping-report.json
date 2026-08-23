@@ -1,6 +1,6 @@
 {
- "md_mapping_rows": 1684,
- "kd_glossary_rows": 171,
+ "md_mapping_rows": 1687,
+ "kd_glossary_rows": 172,
  "glossary_comparison": [
   {
    "status": "aligned",
@@ -38,18 +38,25 @@
    "md_row": 2188
   },
   {
-   "status": "override",
+   "status": "aligned",
    "kd_hindi": "आवेशित",
-   "kd_english": "excited / charged (contextual)",
-   "md_english": "agitated state, excited state",
+   "kd_english": "excited",
+   "md_english": "excited motion, excited state",
    "md_row": 1085
   },
   {
-   "status": "override",
+   "status": "aligned",
    "kd_hindi": "आवेश",
-   "kd_english": "excitation / charge (contextual)",
-   "md_english": "agitation, charge, excitement",
+   "kd_english": "excitation",
+   "md_english": "excitation",
    "md_row": 1084
+  },
+  {
+   "status": "aligned",
+   "kd_hindi": "मात्रा",
+   "kd_english": "measure",
+   "md_english": "measure",
+   "md_row": 1462
   },
   {
    "status": "aligned",
@@ -101,18 +108,18 @@
    "md_row": 559
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "योगाभ्यास, योग्याभ्यास",
    "kd_english": "study of yoga",
-   "md_english": null,
-   "md_row": null
+   "md_english": "study of yoga",
+   "md_row": 2243
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "सत्यान्वेषण, ऐषणान्वेषण, विषयान्वेषण",
    "kd_english": "truth-oriented exploration, motive-oriented exploration, instincts-oriented exploration",
-   "md_english": null,
-   "md_row": null
+   "md_english": "truth-oriented exploration, motive-oriented exploration, instincts-oriented exploration",
+   "md_row": 2244
   },
   {
    "status": "aligned",
@@ -124,7 +131,7 @@
   {
    "status": "override",
    "kd_hindi": "विन्यास",
-   "kd_english": "arrangement",
+   "kd_english": "*vinyas* (contextual gloss: arrangement; unresolved)",
    "md_english": "demeanour, design",
    "md_row": 1352
   },
@@ -341,7 +348,7 @@
   {
    "status": "override",
    "kd_hindi": "त्राण-प्राण",
-   "kd_english": "succour and life-breath",
+   "kd_english": "succour and *pran*",
    "md_english": "Biological plane",
    "md_row": 129
   },
@@ -647,11 +654,11 @@
    "md_row": 186
   },
   {
-   "status": "md_missing",
+   "status": "aligned",
    "kd_hindi": "प्राणकोष",
    "kd_english": "biological cell",
-   "md_english": null,
-   "md_row": null
+   "md_english": "biological cell",
+   "md_row": 2245
   },
   {
    "status": "override",
@@ -829,10 +836,10 @@
    "md_row": 1027
   },
   {
-   "status": "override",
+   "status": "aligned",
    "kd_hindi": "अनुभूति",
    "kd_english": "experiencing",
-   "md_english": "realisation",
+   "md_english": "experiencing",
    "md_row": 209
   },
   {
@@ -871,16 +878,16 @@
    "md_row": 803
   },
   {
-   "status": "override",
+   "status": "aligned",
    "kd_hindi": "काम",
-   "kd_english": "*kama* (desire)",
+   "kd_english": "lust / *kama* (contextual)",
    "md_english": "lust",
    "md_row": 1073
   },
   {
-   "status": "override",
+   "status": "aligned",
    "kd_hindi": "अर्थ",
-   "kd_english": "wealth (contextual)",
+   "kd_english": "wealth / resources / meaning (contextual)",
    "md_english": "resources",
    "md_row": 434
   },
@@ -1201,9 +1208,8 @@
   }
  ],
  "glossary_status_counts": {
-  "aligned": 104,
-  "override": 63,
-  "md_missing": 3,
+  "aligned": 113,
+  "override": 58,
   "md_missing_english": 1
  },
  "exceptions": [
@@ -1233,9 +1239,9 @@
   }
  ],
  "body_coverage": {
-  "english_glosses_checked": 1637,
-  "present_in_kd_body": 876,
-  "absent_from_kd_body": 761,
+  "english_glosses_checked": 1640,
+  "present_in_kd_body": 883,
+  "absent_from_kd_body": 757,
   "present_sample": [
    {
     "row": 2,
@@ -1873,7 +1879,7 @@
   {
    "italic": "akhand samaj",
    "hindi": "अखंड समाज",
-   "english": "Undivided Society",
+   "english": "undivided society",
    "md_row": 474
   },
   {

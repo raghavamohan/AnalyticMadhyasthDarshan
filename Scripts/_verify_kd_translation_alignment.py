@@ -33,6 +33,28 @@ EXPECTED_TERMS: list[tuple[str, str, list[str]]] = [
     ("सत्ता में संपृक्त", "saturated in Omnipresence", ["endowed with omnipotence", "soaked in omnipotence"]),
     ("पाण्डित्य", "scholarliness", ["erudition"]),
     ("प्रसन्नता", "happiness", ["gladness"]),
+    (
+        "मात्रा",
+        "measure (राशि remains quantity; मात्रात्मक remains quantitative)",
+        [
+            "3.9 Quantity", "root quantity", "unit-quantity",
+            "principle of quantity", "every quantity", "as mere quantity",
+            "treated as one quantity", "one quantity", "with quantity",
+            "quantities found", "quantities complementary",
+            "method of pressure, flow, and quantity", "evaluates solely by quantity",
+            "sufficient quantity", "necessary quantity", "the quantity of",
+        ],
+    ),
+    (
+        "आवेश / आवेशित",
+        "excitation / excited (चार्ज remains charge in the battery passage)",
+        ["charge (*āvesh*)", "charged (*āveshit*)"],
+    ),
+    (
+        "अनुभूति",
+        "experiencing (distinct from अनुभव = realisation)",
+        ["realisation (*anubhūti*)", "realization (*anubhūti*)"],
+    ),
     ("सदुपयोग", "right-use", ["proper use", "good-use", "good use", "right use"]),
     (
         "पदार्थावस्था / प्राणावस्था / जीवावस्था / ज्ञानावस्था",
