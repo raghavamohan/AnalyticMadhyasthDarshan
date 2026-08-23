@@ -43,6 +43,11 @@ EXPECTED_TERMS: list[tuple[str, str, list[str]]] = [
         ],
     ),
     ("प्राणकोष", "biological cell", ["prana cell", "prana-cell"]),
+    (
+        "बल (bare/general, paired with शक्ति)",
+        "strength (named physical/interaction बल remains force)",
+        ["force (*bal*) and power", "where do force and power go"],
+    ),
     ("विवेक", "wisdom", ["discretion"]),
     ("व्यवसाय", "vocation", ["occupation"]),
     (
@@ -94,6 +99,11 @@ EXPECTED_TERMS: list[tuple[str, str, list[str]]] = [
         ["take-the-form-of", "taking-the-form-of"],
     ),
     ("भोग", "enjoyment (contextual)", ["indulgence", "over-indulgence"]),
+    (
+        "योगाभ्यास / योग्याभ्यास",
+        "study of yoga",
+        ["yoga-practice", "union-worthy practice", "practice of meeting/union"],
+    ),
     (
         "सत्यान्वेषण / ऐषणान्वेषण / विषयान्वेषण",
         "truth- / motive- / instincts-oriented exploration",

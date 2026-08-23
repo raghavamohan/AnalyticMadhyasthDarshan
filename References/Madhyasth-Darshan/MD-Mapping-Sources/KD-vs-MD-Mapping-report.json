@@ -1,6 +1,6 @@
 {
  "md_mapping_rows": 1684,
- "kd_glossary_rows": 170,
+ "kd_glossary_rows": 171,
  "glossary_comparison": [
   {
    "status": "aligned",
@@ -99,6 +99,13 @@
    "kd_english": "enjoyment",
    "md_english": "indulgence",
    "md_row": 559
+  },
+  {
+   "status": "md_missing",
+   "kd_hindi": "योगाभ्यास, योग्याभ्यास",
+   "kd_english": "study of yoga",
+   "md_english": null,
+   "md_row": null
   },
   {
    "status": "md_missing",
@@ -1196,7 +1203,7 @@
  "glossary_status_counts": {
   "aligned": 104,
   "override": 63,
-  "md_missing": 2,
+  "md_missing": 3,
   "md_missing_english": 1
  },
  "exceptions": [
@@ -1227,8 +1234,8 @@
  ],
  "body_coverage": {
   "english_glosses_checked": 1637,
-  "present_in_kd_body": 892,
-  "absent_from_kd_body": 745,
+  "present_in_kd_body": 876,
+  "absent_from_kd_body": 761,
   "present_sample": [
    {
     "row": 2,
@@ -1254,11 +1261,6 @@
     "row": 6,
     "hindi": "डूबा",
     "english": "submerged"
-   },
-   {
-    "row": 7,
-    "hindi": "भीगा",
-    "english": "soaked"
    },
    {
     "row": 9,
@@ -1429,6 +1431,11 @@
     "row": 56,
     "hindi": "शक्ति",
     "english": "Power"
+   },
+   {
+    "row": 57,
+    "hindi": "बल संपन्नता",
+    "english": "Forcefulness"
    }
   ],
   "absent_sample_high_value": [
@@ -1511,11 +1518,6 @@
     "row": 478,
     "hindi": "मानवापेक्षा, मानव अपेक्षा",
     "english": "human expectation"
-   },
-   {
-    "row": 479,
-    "hindi": "मानव लक्ष्य",
-    "english": "human goals"
    },
    {
     "row": 484,
@@ -1631,6 +1633,11 @@
     "row": 2147,
     "hindi": "मानवेत्तर, मानवेतर, मनुष्येत्तर",
     "english": "nature other than human / non-human (nature)"
+   },
+   {
+    "row": 2174,
+    "hindi": "अमानवीय दृष्टि",
+    "english": "inhumane perspective"
    }
   ]
  },
