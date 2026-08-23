@@ -200,7 +200,7 @@ function buildFooterTemplate(editedOnDate) {
     ? '<span>Edited on: ' + editedOnDate + '</span>'
     : '';
   return (
-    '<div style="width:100%;font-size:9pt;font-family:Georgia,serif;color:#666;padding:0 2cm;display:flex;justify-content:space-between;align-items:center;">' +
+    '<div style="box-sizing:border-box;width:100%;font-size:9pt;font-family:Georgia,serif;color:#666;padding:0 2cm;display:flex;justify-content:space-between;align-items:center;">' +
     '<span>AnalyticMadhyasthDarshan.org</span>' +
     datePart +
     '<span>Page <span class="pageNumber"></span> of <span class="totalPages"></span></span>' +
