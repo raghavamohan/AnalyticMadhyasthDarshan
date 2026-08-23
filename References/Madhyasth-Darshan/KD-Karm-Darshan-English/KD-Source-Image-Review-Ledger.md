@@ -13,7 +13,7 @@ This ledger records direct comparisons between the English translation and the r
 
 The editorial pilot directly reviewed printed pages **8, 15, 31, 39, 43, 70, 102, 119, 133, and 147**.
 
-The subsequent terminology and high-density fidelity pass directly reviewed printed pages **2, 4, 14, 31, 56, 63, 68, 70, 73, 76–77, 86, 88, 90, 99–100, 105–112, 123–125, 130, and 134**. These pages cover the principal high-risk passages on the contextual senses of *artha*, jeevan-cloud and *pranavayu*, development and earth-balance, measure, property/essential nature/dharma, strength–power, projection–reflection, electricity, distance, and time.
+The subsequent terminology and high-density fidelity pass directly reviewed printed pages **2, 4, 14, 19, 21–22, 31, 56, 63, 68, 70, 73, 76–77, 86, 88, 90, 99–100, 105–112, 123–125, 130, and 134**. These pages cover the Gratitude and Foreword sections and the principal high-risk passages on the contextual senses of *artha*, jeevan-cloud and *pranavayu*, development and earth-balance, measure, property/essential nature/dharma, strength–power, projection–reflection, electricity, distance, and time.
 
 Clear corrections from this pass include **worldly grandeur** for दुनियावी वैभव, **measure** for मात्रा while retaining **quantity** for राशि, **excitation / excited** for आवेश / आवेशित, *pranavayu* for प्राण वायु, and the restored **realisation-based** faculty sequence on printed page 63. Mechanical English syntax was also revised where the Hindi meaning remained unchanged.
 
