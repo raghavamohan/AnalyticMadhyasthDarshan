@@ -14,7 +14,7 @@ Natural / Madhyasth Darshan — Coexistentialism
 
 **Working English translation** (unpublished draft for study use)
 
-**Edited on:** August 23, 2026, 6:50 AM IST
+**Edited on:** August 23, 2026, 10:51 PM IST
 
 Shri Bhajanashram, Amarkantak
 
@@ -341,13 +341,13 @@ Freedom from delusion itself is awakening; awakening itself is enlightenment; en
 
 ## Gratitude
 
-I am grateful to all those guides on the good path from whom sources of reality remain alive even today. Gratitude is a fundamental value for progress toward awakening. Gratitude is fundamentally the supporting and protecting value of culture and civilisation.
+I am grateful to all those who have shown the right path and kept the sources of reality alive to this day. Gratitude is a fundamental value in the progress toward awakening. At its root, gratitude is the foundational and protective value of culture and civilisation.
 
-One who is not grateful cannot present the evidence of becoming a bearer of human culture and civilisation. One who does not bear human culture and civilisation cannot follow law and orderliness.
+Those who lack gratitude cannot demonstrate that they are bearers of human culture and civilisation. Those who do not carry human culture and civilisation cannot uphold law and orderliness.
 
-Culture, civilisation, law, and orderliness are mutually complementary. Without these, the determination of undivided society and sociality is not possible. Without gratitude there is no glory; without glory, no simplicity; without simplicity, no coexistence; without coexistence, no continuity of gratitude.
+Culture, civilisation, law, and orderliness are mutually complementary. Without them, undivided society and sociality cannot be established. Thus, without gratitude there is no glory; without glory, no simplicity; without simplicity, no coexistence; and without coexistence, no continuity of gratitude.
 
-The conduct of one who bears gratitude is instructive and inspiring for the coming generation. This succeeds in humaneness alone. Gratitude to all who have spontaneously assisted consciousness-development value education by whatever method.
+The conduct of a person who embodies gratitude is instructive and inspiring for future generations. Such conduct finds fulfilment only in humaneness. I am grateful to everyone who, in whatever way, has readily supported consciousness-development value education.
 
 *Jñānātmanorvijayate*
 
@@ -359,11 +359,11 @@ The conduct of one who bears gratitude is instructive and inspiring for the comi
 
 ## Foreword (*prāk-kathan*)
 
-This *Karm Darshan* is the expression of the glory or dignity of the realisation that existence is coexistence. In existence is coexistence; in coexistence is development progression; in development progression is the event of the development of jeevan; this is the actual situation. Jeevan awakening itself is the expression, communication, and manifestation of the capacity, ability, and receptivity fit for realisation. In this sequence, the human being's indivisible presence in existence is realised. In existence, the possibility of jeevan awakening's expression remaining appropriate in the human being as an inseparable limb is ever-present. Every human being has equal capacity for realisation — in, from, and for each — and on this truth, realisation-based expression is confirmed universally. Thus, while expressing *Karm Darshan*, I realise authenticity. Authenticity itself is bliss and the spontaneous expression of realisation.
+*Karm Darshan* expresses the realisation of existence as coexistence, together with the glory and dignity of that realisation. Within existence is coexistence; within coexistence is development progression; and within development progression, development itself is the event of jeevan. This is an actual state of affairs. Jeevan awakening is the expression, communication, and manifestation of the capacity, ability, and worthiness for realisation. In this sequence, the human being is realised as indivisibly present in existence. The possibility of jeevan awakening being expressed in the human being, an indivisible constituent of existence, remains ever valid. Every human being equally possesses the capacity for realisation: it exists in every human being, proceeds from every human being, and is for every human being. On this truth, the expression of realisation is universally affirmed. Thus, in giving expression to *Karm Darshan*, I experience authenticity. Authenticity is itself bliss and the spontaneous expression of realisation.
 
-This itself is resolution in communication, justice in behaviour, and its continuity. Realisation is the indicator of awakening in jeevan. Every activity — insentient or sentient — is present as strength in state and power in motion, because motion is not established without state. On this truth, realisation itself is bliss in state — that is, authenticity; in expression, or motion, it is evidence and resolution.
+This becomes resolution in communication and justice in behaviour, together with their continuity. Realisation signifies awakening in jeevan. Every activity, whether insentient or sentient, exists as strength in state and power in motion, because motion cannot be established without state. On the basis of this truth, realisation in state is bliss, or authenticity; in expression, or motion, it is evidence and resolution.
 
-Thus! Through study, this expression in the sense of awakening, or the strength of realisation, has become natural and accessible. While offering it to the human being, I realise supreme happiness.
+Thus, through study, this expression of jeevan awakening and the strength of realisation has become readily accessible. I experience profound happiness in offering it to humankind.
 
 [p. 22]
 
