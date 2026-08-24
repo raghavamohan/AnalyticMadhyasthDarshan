@@ -14,7 +14,7 @@ Natural / Madhyasth Darshan — Coexistentialism
 
 **Working English translation** (unpublished draft for study use)
 
-**Edited on:** August 23, 2026, 10:51 PM IST
+**Edited on:** August 24, 2026, 6:13 AM IST
 
 Shri Bhajanashram, Amarkantak
 
@@ -327,7 +327,7 @@ On this earth the human being is in the awakening progression; he has the opport
 
 From the material order the biological order develops; from the biological order the animal order develops; and from the animal order the animalistic human of the deluded knowledge order develops. From the animalistic human develops the deluded demonic human; from him the humane human; from him the delusion-free deific human; and from the deific human, development and awakening are complete in the divine human.
 
-The unit of the knowledge order is endowed with holistic-view capacity. The holistic view is in reference to insentient–sentient nature situated in Omnipresence.
+Every unit in the knowledge order has the capacity for a holistic view of insentient and sentient nature situated in Omnipresence.
 
 Realisation knowledge and the holistic view are complete only in the state free from delusion. Therefore —
 
@@ -361,9 +361,9 @@ The conduct of a person who embodies gratitude is instructive and inspiring for 
 
 *Karm Darshan* expresses the realisation of existence as coexistence, together with the glory and dignity of that realisation. Within existence is coexistence; within coexistence is development progression; and within development progression, development itself is the event of jeevan. This is an actual state of affairs. Jeevan awakening is the expression, communication, and manifestation of the capacity, ability, and worthiness for realisation. In this sequence, the human being is realised as indivisibly present in existence. The possibility of jeevan awakening being expressed in the human being, an indivisible constituent of existence, remains ever valid. Every human being equally possesses the capacity for realisation: it exists in every human being, proceeds from every human being, and is for every human being. On this truth, the expression of realisation is universally affirmed. Thus, in giving expression to *Karm Darshan*, I experience authenticity. Authenticity is itself bliss and the spontaneous expression of realisation.
 
-This becomes resolution in communication and justice in behaviour, together with their continuity. Realisation signifies awakening in jeevan. Every activity, whether insentient or sentient, exists as strength in state and power in motion, because motion cannot be established without state. On the basis of this truth, realisation in state is bliss, or authenticity; in expression, or motion, it is evidence and resolution.
+This becomes resolution in communication and justice in behaviour, together with their continuity. Realisation signifies awakening in jeevan. Every activity, whether insentient or sentient, exists as strength in state and power in motion, because motion cannot be established without state. On the basis of this truth, realisation is bliss in state; its expression is authenticity, which, in motion, becomes evidence and resolution.
 
-Thus, through study, this expression of jeevan awakening and the strength of realisation has become readily accessible. I experience profound happiness in offering it to humankind.
+Thus, through study, the expression of awakening of jeevan, as the strength in realisation, has become readily accessible. I experience profound happiness in offering it to humankind.
 
 [p. 22]
 
@@ -401,7 +401,7 @@ Through the physical, vocal, and mental modes, and through the distinctions of a
 
 Physical, vocal, and mental karma are well known in the human being across all three times. Together with the distinctions of done, caused, and intended, they constitute nine evident kinds. The human field of action encompasses only the natural, the social, and the intellectual, and its desired end (*abhīṣṭa*) is happiness—neither more nor less. Without this, the restfulness of effort does not manifest. Activity together with aspiration is therefore karma; motion together with awareness is complete activity.
 
-The pressure involved in accepting the unacceptable is pain (*vedanā*). The environment is the pressure-giving factor, and relativity is evident. Relativity influences both decline and development.
+The pressure involved in accepting the unacceptable is pain (*vedanā*). It is evident that the environment, as relativity with respect to the unit, is itself the factor that exerts this pressure. Relativity influences both decline and development.
 
 Every karma contains five limbs: doer, cause, objective, result, and effect. Contact and relationship arise only for the fulfilment of necessity. Necessity is desire, rooted in society and sociality, their observance and upholding, and in conduct, following, and cultivation.
 
