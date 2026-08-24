@@ -2,16 +2,18 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** August 24, 2026, 3:47 PM IST
+**Edited on:** August 24, 2026, 5:13 PM IST
 **Status:** Draft
 
-**The question:** Can state-complete Omnipresence, countlessly many saturated state-dynamic units, absolute and relative energy, the effort–motion–result triad, and the four aspects of a unit be stated as one model that also keeps nested compositional plateaus, the completeness thresholds T1–T3, and coupled activity across orders in view?
+**The question:** Can state-complete Omnipresence, countlessly many saturated state-dynamic units, absolute and relative energy, the effort–motion–result triad, and the four aspects of a unit be stated as one model that preserves definite activity in the insentient orders while also explaining how knowledge, evaluation, and *sanskar* refine the internal orientation of *jeevan* in the human knowledge order?
 
-This paper reconstructs those claims from Madhyasth Darshan (Co-existentialism), as presented by Shri A. Nagraj, in the language of a continuous state space. Omnipresence (*satta*) is state-complete: unbounded, non-transforming, and without motion or pressure. Nature is state-dynamic: countlessly many bounded units, each saturated in Omnipresence and therefore energy-endowed, forceful, and active. Within a unit, **effort–motion–result** (*shram–gati–parinam*) is one inseparable activity. Effort is represented as the strength (*bal*) borne in the current state, motion as the power (*shakti*) expressed in mutuality, and result as the configuration thereby present and changing. The four aspects specify the same activity: *dharma* and essential nature (*svabhav*) are present with effort, *svabhav* and property (*guna*) with motion, and form (*roop*) with result. The three modes of *guna* — generative (*sam*), degenerative (*visam*), and mediative (*madhyastha*) — therefore belong to the unit's own power in motion. Pressure is not another power beside them; it is the received or observable expression of force–power in an excited mutuality.
+This paper reconstructs those claims from Madhyasth Darshan (Co-existentialism), as presented by Shri A. Nagraj, in the language of a continuous state space. Omnipresence (*satta*) is state-complete: unbounded, non-transforming, and without motion or pressure. Nature is state-dynamic: countlessly many bounded units, each saturated in Omnipresence and therefore energy-endowed, forceful, and active. Within every unit, **effort–motion–result** (*shram–gati–parinam*) is one inseparable activity. Effort is represented as the strength (*bal*) borne in the current state, motion as the power (*shakti*) expressed in mutuality, and result as the configuration thereby present and changing. The four aspects specify the same activity: *dharma* and essential nature (*svabhav*) are present with effort, *svabhav* and property (*guna*) with motion, and form (*roop*) with result. The three modes of *guna* - generative (*sam*), degenerative (*visam*), and mediative (*madhyastha*) - therefore belong to the unit's own power in motion. Pressure is not another power beside them; it is the received or observable expression of force-power in an excited mutuality.
 
-Effort–motion–result already closes relatively stable existents in the material world: molecules, compounds, and minerals, then pranic cells and the plant, animal, and human bodies composed from them. Those plateaus are the constitutive conditions for later units. A distinct atomic line reaches constitutional completeness (T1), after which *jeevan* works through a body. The animal and human joint forms are parallel meetings of those two lines, not one body-line that turns into the next order. Units of every order remain in mutuality: minerals, cells, plants, animals, and humans do not occupy separate universes. The reconstruction therefore couples many bearers, typed by order, rather than evolving a single isolated *x*(*t*). It then follows both developmental lines into activity completeness (T2) and conduct completeness (T3), and into the public verification of humane conduct in undivided society (*akhanda samaja*).
+In the material, pranic, and animal orders, result becomes the configuration in which definite activity continues through structure-, seed-, or species-conformance. These orders do not add reflective evaluation to the triad. A distinct atomic line reaches constitutional completeness (T1), after which the immortal sentient unit, *jeevan*, works through a body. The human is therefore a joint form: the body continues under pranic and material activity, while *jeevan* can know, evaluate, and refine the internal alignment of *mun, vritti, chitta, buddhi,* and *atma*. Its current understanding and *sanskar* shape the *svabhav* and *guna*-mode expressed in conduct. The result of knowledge-order activity includes that changed internal orientation together with bodily, relational, and natural consequences. Evaluation of the result belongs to a further sentient activity; it is not a fourth term added to effort–motion–result.
 
-The equations below are this paper's analytical reconstruction. The primary texts do not write state vectors, derivatives, state-functions for strength, or quantitative pressure maps. They state coexistence, saturation, state-completeness and state-dynamism, absolute and relative energy, force and power, the inseparable triad, the four aspects, and the completeness stages in ordinary philosophical prose. The formalism is a lens for keeping those claims simultaneous and checkable; it is not a proof that the darshan is a dynamical system. In particular, it must not turn pressure into an energy source or a fourth property-mode alongside *sam–visam–madhyastha*.
+The knowledge-order recursion explains both persistence in delusion and awakening. When bodily pleasure, health, and profit remain the criteria of evaluation, dissatisfaction may be followed by repetition of the same unresolved pattern. Recognition of that non-fulfilment can instead lead to study, enlightenment (*bodh*), realisation (*anubhav*), and evaluation through justice (*nyaya*), *dharma*, and truth (*satya*). Realisation-oriented acceptance stabilises as humane *sanskar*, and the nested harmonies of *jeevan* become evident as happiness (*sukh*), peace (*shanti*), contentment (*santosh*), bliss (*anand*), and the ultimate bliss (*paramanand*) of *atma*. Activity completeness (T2) is this inner restfulness within continuing activity; conduct completeness (T3) is its evidence through the body in humane conduct and participation in orderliness.
+
+The equations below are this paper's analytical reconstruction. The primary texts do not write state vectors, derivatives, state-functions for strength, quantitative pressure maps, learning operators, or value scores. They state coexistence, saturation, state-completeness and state-dynamism, absolute and relative energy, force and power, the inseparable triad, the four aspects, the activities of *jeevan*, the completeness stages, and evidence in conduct in ordinary philosophical prose. The formalism is a lens for keeping those claims simultaneous and checkable; it is not a proof that the darshan is a dynamical system. It must neither turn pressure into an energy source nor turn evaluation into a fourth member of the triad.
 
 ## Standpoint and scope
 
@@ -41,6 +43,13 @@ Clear and checkable prose remains the series priority. This paper is a formal re
 | Essential nature (*svabhav*) | The order-specific usefulness or characteristic conducts of those effects — a set, not one conduct. |
 | *Dharma* | What is innately borne and fulfilled according to order: existence, with growth, hope to live, and happiness stated cumulatively in the higher orders. |
 | *Jeevan* | The constitutionally complete sentient atom; the knower that works through the body. |
+| Knowledge (*gyan*) | The determinate content of coexistence, *jeevan*, and humane conduct, realised by *jeevan* and evidenced through understanding and conduct. |
+| Human joint form | The conjunction of a pranic human body and constitutionally complete *jeevan*; bodily and sentient activities remain distinguishable while operating together. |
+| Internal orientation | The current organisation of *atma, buddhi, chitta, vritti,* and *mun*, including the acceptances by which *jeevan* evaluates and acts. |
+| *Sanskar* | Realisation-oriented acceptance and disposition toward understanding, honesty, responsibility, and participation; not a passive store of action records. |
+| Evaluation | A knowledge-order activity by which *jeevan* examines recognised relationship, value-fulfilment, work, and result; not a fourth member of effort-motion-result. |
+| Jeevan values | Internal harmonies evidenced as *sukh, shanti, santosh,* and *anand*, grounded in the *paramanand* of realised *atma*. |
+| Dissatisfaction | The sentient evidence of unresolved internal alignment or unfulfilled value; not excitation-pressure and not an independent force. |
 | Constitutional completeness (T1) | The atomic threshold at which a developing atom becomes *jeevan* and is free of molecular-bondage and weight-bondage. |
 | Activity completeness (T2) | Restfulness of effort: realisation (*anubhav*) resolves the inner seeking of *jeevan*. |
 | Conduct completeness (T3) | Destination of motion: realised understanding evidenced as humane conduct. |
@@ -52,12 +61,16 @@ Clear and checkable prose remains the series priority. This paper is a formal re
 | Relationship (*sambandh*) | Knowledge-order mutuality whose expectations are predetermined in the sense of completeness. |
 | Contact (*sampark*) | Mutuality whose expectations are voluntary; not the full relational expectation of *sambandh*. |
 | State vector *x*(*t*) | This paper's symbol for one unit's instantaneous configuration (*parinam*) in a reconstructed phase space *X*. |
+| *x*<sub>H</sub>, *c*<sub>J</sub>, *z*<sub>J</sub> | The reconstructed human joint-state, invariant post-T1 *jeevan* constitution, and refinable internal orientation. |
+| *K*<sup>*</sup>, *k*(*t*) | The determinate content of Knowledge and its currently realised availability in *jeevan*. |
 | *D*<sub>o</sub> | This paper's symbol for the invariant *dharma*-orientation of order *o*; it constrains the model rather than acting as an applied force. |
+| D̂<sub>H</sub>(*t*) | Current human understanding and evidence of invariant human *dharma*. |
 | *B*<sub>i</sub> | This paper's state-function for the effort or strength borne by unit *i* in its current configuration, with *dharma* and *svabhav* present. |
 | *R*<sub>i</sub> | This paper's order-typed representation of the recognised mutuality and complementarity between unit *i* and its actual neighbourhood. |
 | *g*<sub>i</sub> | The *guna*-mode evidenced in a facing: *sam*, *visam*, or *madhyastha*. |
 | Π<sup>exc</sup><sub>i</sub> | This paper's derived marker for excitation-pressure in a facing; it is read from *bal–shakti–guna* in recognised mutuality and is not an independent input to motion. |
 | *S*<sub>i</sub>, *F*<sub>o,s,g</sub> | *S*<sub>i</sub> is power in motion, written as ẋ<sub>i</sub>; *F*<sub>o,s,g</sub> is the family of motion maps typed by order *o*, essential nature *s*, and *guna*-mode *g*. |
+| 𝓔, 𝓤, *H*<sub>J</sub> | Reconstructed human evaluation, orientation update, and non-scalar *jeevan*-value harmony. |
 
 ## 1. Ontological foundations
 
@@ -135,6 +148,8 @@ Over a duration Δ*t*, motion is evident as a changed result:
 
 The changed configuration is immediately the state in which strength is borne and the next mutuality is recognised. Effort is the grandeur of the existent state, motion the spreading of effect, and result a different existent state in a quantitative and qualitative chain (KD 3.11, p. 107). The finite-difference expression reconstructs that continuing chain without making effort, motion, and result three successive events inside one activity. State and motion remain locked at every duration; any pressure evidenced in the facing is a manifestation within this loop, not a prior power that starts it (MVD, pp. 40, 46, 114; SB, pp. 58–62, 248, 256–257; KD 3.8, p. 84).
 
+For an insentient bearer, this result-to-configuration recursion closes the model. Constitution and mutuality determine the next expression according to result-, structure-, or seed-conformance. No deliberative comparison of the result with an inward value, no dissatisfaction, and no revision of *sanskar* are added to the unit. The knowledge-order feedback introduced in §7–§9 belongs to *jeevan* and leaves this universal triad intact.
+
 ## 3. The tetrad in the state-dynamic model
 
 Every unit has four inseparable aspects: form (*roop*), property (*guna*), essential nature (*svabhav*), and *dharma* (MVD, p. 47). They are not four detachable components and not four successive stages. They specify one activity-whole: effort or strength is present as *dharma–svabhav*, motion or power as *svabhav–guna*, and result as *roop* (SB, pp. 60–62). *Svabhav* crosses effort and motion; *guna* is the mode of the unit's power, and pressure is that force–power relationally received when excitation is present. The same tetrad attaches to every closed bearer — an atom, a molecule, a cell, a body, or a joint form — and is not inherited as a sum from the units it contains (§5.4).
@@ -164,21 +179,27 @@ flowchart TB
 
 *Guna* is relative power (*sapeksha shakti*), the effect and influence that arise when units come into mutuality (MVD, pp. 40, 47; SB, pp. 248–252, 256–257). It maps to **motion (*gati*)**: *S*<sub>i</sub> = ẋ<sub>i</sub>. Strength belongs to the property-endowed bearer in its state; power is that bearer's property in motion, spreading effect and participating in the overall orderliness (KD 3.8, p. 84; KD 3.11, pp. 102, 106–107). Its modes are generative (*sam*), degenerative (*visam*), and mediative (*madhyastha*) across the four orders (MVD, pp. 26, 49–50; SB, p. 248; KD 3.10, pp. 100–101). Pressure is not a fourth mode. Force may be recognised as pressure and power as flow, so pressure names an encountered expression of the same property-endowed unit and its power (SB, p. 256). Under *sam–visam* excitation, the reconstruction records that expression as Π<sup>exc</sup>; it does not add it back as an independent cause of *S*.
 
+In the first three orders, constitution and neighbourhood determine the evidenced mode without reflective option. In the human knowledge order, all three modes remain powers of *jeevan*, but their expression in conduct is answerable to understanding and freedom of action. Delusion can express degenerative property in treachery, exploitation, and war; awakening frees conduct from degenerative property and establishes the mediative mode (KD 3.10, pp. 100–101). Knowledge therefore changes the mode expressed by the human unit without creating the power that the mode qualifies.
+
 ### 3.3 Essential nature (*svabhav*): functional character
 
 *Svabhav* is fundamental character (*maulikata*) and the usefulness (*upayogita*) of properties (MVD, p. 47). Usefulness here is order-specific functional significance, not benefit to a human observer: the same texts include devitalising and cruel essential natures. *Svabhav* spans both **effort (*shram*)** and **motion (*gati*)**, making it the bridge between strength and the order-specific expression of power. The same *guna*-mode receives different functional content by order: material units integrate or disintegrate, pranic units vitalise or devitalise, animal units evidence cruel or non-cruel conduct, and knowledge-order units evidence humane or inhumane dispositions (MVD, pp. 50–51, 115; SB, pp. 60–61, 179–180; KD 3.10, pp. 100–102). This paper therefore writes motion as a **family of maps** *F<sub>o,s,g</sub>*, indexed both by essential nature *s* and *guna*-mode *g*. A given facing evidences a definite pair (*s*, *g*); motion is not a sum or blend of the whole family.
 
+Knowledge-order essential nature is explicitly refinable. Human-opposing expression appears as baseness, wretchedness, cruelty, covetousness, and causing pain; humane and higher-humane expression appears as fortitude, valour, generosity, kindness, grace, and compassion. Education, study, and the qualitative development of *sanskar* make transformation from the former toward the latter possible (KD, pp. 8–9, 26–27; KD 3.9, pp. 98–99). This transformability belongs to the human joint form. It does not make the constitution-governed *svabhav* of a mineral or plant into a voluntary choice.
+
 ### 3.4 *Dharma*: innateness and invariant orientation
 
-*Dharma* is innateness (*dharana*): what is innately borne, maintained, and characteristic of an entire order (MVD, p. 47). It is present on the side of **effort (*shram*)** together with *svabhav* (SB, pp. 60–61). This paper writes its order-specific orientation as *D*<sub>o</sub>: existence, growth, hope to live, and happiness, stated cumulatively across the four orders (SB, p. 179; KD 3.9–3.10, pp. 95, 100–102). Saturation grounds the universal *dharma* of existence and the directionality of completeness; the order qualifies the further content borne by a unit (SB, pp. 49–51). *D*<sub>o</sub> constrains the strength function and family of motion maps and, in that limited formal sense, modulates which order-compatible (*s*, *g*) expression can be evidenced. It is not a moment-to-moment control signal, physical potential, separate force, exact instruction for the next state, or attractor basin supplied by the texts.
+*Dharma* is innateness (*dharana*): what is innately borne, maintained, and characteristic of an entire order (MVD, p. 47). It is present on the side of **effort (*shram*)** together with *svabhav* (SB, pp. 60–61). This paper writes its order-specific orientation as *D*<sub>o</sub>: existence, growth, hope to live, and happiness, stated cumulatively across the four orders (SB, p. 179; KD 3.9–3.10, pp. 95, 100–102). Saturation grounds the universal *dharma* of existence and the directionality of completeness; the order qualifies the further content borne by a unit (SB, pp. 49–51). Human *dharma* remains happiness through resolution and orderliness, even while a deluded human misunderstands how it is fulfilled (JV, pp. 110, 121–123; KD 3.5, p. 69). Knowledge modifies its understanding and evidence, not the *dharma* itself. *D*<sub>o</sub> constrains the strength function and family of motion maps and, in that limited formal sense, modulates which order-compatible (*s*, *g*) expression can be evidenced. It is not a moment-to-moment control signal, physical potential, separate force, exact instruction for the next state, or attractor basin supplied by the texts.
 
-## 4. The material order: phase-space boundedness
+## 4. The insentient line: definite state-dynamic recursion
 
 In the insentient line (*jada*), spanning the physical order and the bio-growth order, the reconstructed state vector of a constitution-oriented atom is confined to physical-chemical parameters:
 
 **x(t) = x<sub>physical</sub>(t) ∈ X<sub>physical</sub>**
 
 That confinement describes one bearer. It does not flatten every later composition into the same undifferentiated field. Effort–motion–result already closes new bounded units from those parameters, and those units occupy nested plateaus of *X* (§4.3).
+
+Definiteness in this line does not mean immobility. *Roop* and result change, particles exchange, compositions form and disintegrate, and pranic bodies grow. What remains definite is that recognition and fulfilment occur according to constitution, structure, or seed rather than through a knower's deliberative evaluation. The four aspects are therefore constitution-governed in *jada* even while their unit is continuously state-dynamic.
 
 ### 4.1 Constraints of the material field
 
@@ -293,7 +314,7 @@ Cross-order coupling does not impose one force-law on every pair. Essential natu
 
 Those are distinct maps, not variants of one order-typed field. This paper therefore types *F* by the pair of orders in mutuality, by the essential nature *s*, and by the *guna*-mode *g* evidenced there. The same *g* can accompany more than one *s*: generative power is not already vitalising, and degenerative power is not already cruel. *Svabhav* specifies what that property-mode means for the order and facing. A human does not interact with a mineral by the same map as two atoms, does not interact with an animal by the same map as an animal with a plant, and an animal does not evaluate a plant by the human circuit of knowing and believing. In the first three orders, constitution and neighbourhood determine the evidenced pair without reflective option. In the knowledge order, option can alter the *svabhav–guna* expressed in conduct. The coupling can nourish, constrain, compose, or — under human delusion — deplete. It does not turn a mineral into a cell or a cell into *jeevan*. Those transitions, when they occur, remain the compositional and atomic lines of §4–§6.
 
-Natural-state motion in each order continues when couplings are complementary. Complementarity therefore does not mean ẋ = 0 or the disappearance of *guna*; it means that power expresses the unit's order and participates in the overall orderliness under mediative regulation. *Sam* and *visam* remain modes and tendencies of property, while pressure becomes evident where their expression is received as excitation (KD 3.5, p. 70; KD 3.10, pp. 100–101; KD 3.11, pp. 103–109; KD 3.13, p. 118). Adverse environment, over-extraction, or human mis-evaluation can excite a unit without changing its *dharma* or order. Material, pranic, and animal recognition and fulfilment remain definite through structure-, seed-, and species-conformance. The knowledge order is the fallible coupling: reflexive evaluation can agree with or diverge from the definite mutuality actually present (§7.1, §9).
+Natural-state motion in each order continues when couplings are complementary. Complementarity therefore does not mean ẋ = 0 or the disappearance of *guna*; it means that power expresses the unit's order and participates in the overall orderliness under mediative regulation. *Sam* and *visam* remain modes and tendencies of property, while pressure becomes evident where their expression is received as excitation (KD 3.5, p. 70; KD 3.10, pp. 100–101; KD 3.11, pp. 103–109; KD 3.13, p. 118). Adverse environment, over-extraction, or human mis-evaluation can excite a unit without changing its *dharma* or order. Material, pranic, and animal recognition and fulfilment remain definite through structure-, seed-, and species-conformance. The knowledge order is the fallible coupling: reflexive evaluation can agree with or diverge from the definite mutuality actually present (§7.3, §8.3).
 
 ### 5.4 The tetrad of a containing unit
 
@@ -344,84 +365,195 @@ flowchart TB
 
 The transition from the insentient constitution-oriented atom to the sentient cognitive line is **constitutional completeness** (*gathanpurnata*, T1). It is not a further compositional plateau. When a developing atom achieves complete subatomic particle balance in its nucleus and orbits, particle hunger drops to zero and the atom crosses an irreversible threshold (SB, pp. 55, 61, 92; KD 3.3, pp. 60–61). The compositional sequence can already have produced minerals, cells, and bodies; those remain of the order of what constitutes them. Only the atom reaches T1.
 
-### 6.1 The T1 bifurcation
+### 6.1 The T1 bifurcation and invariant constitution
 
 At that threshold the atom is no longer available to molecular-bondage and weight-bondage. It cannot be split, fused, or degraded by the physical-chemical forces that bound it as a developing constitution.
 
 > "An evolving-constitution atom is with molecular-bondage and weight-bondage. However, when the contraction and expansion activity increases in this atom, it instantly breaks free from its group and attains constitutional completeness, becoming a jeevan atom. The evidence of constitutional completeness is the jeevan atom's liberation from molecular-bondage and weight-bondage, and its having the hope-bondage."
 > — MVD, p. 91
 
-In the reconstructed state space, the continuous physical coordinates of particle-exchange collapse into an invariant structural core, and a further set of **cognitive coordinates** x<sub>cognitive</sub> becomes the relevant description of activity. The unit is now *jeevan*: a constitutionally complete, immortal, sentient atom that operates through a physical body and is not reducible to the laws of molecular and weight bondage. The body through which it operates is still a compositional plateau (§4.3). Whether and how that threshold is to be identified in contemporary physics remains an open problem (§11).
+In the reconstructed state space, the continuous physical coordinates of particle-exchange collapse into an invariant structural core. The unit is now *jeevan*: a constitutionally complete, immortal, sentient atom that is not reducible to the laws of molecular and weight bondage. T1 is not repeated when understanding changes. The later progression is refinement in *jeevan* activity toward awakening and completeness of awakening, while the constitutional core remains attained (KD, pp. 26–27; KD 3.16, pp. 142–145). Whether and how T1 is to be identified in contemporary physics remains an open problem (§11).
 
-## 7. The cognitive order: the ten-activity circuit
+### 6.2 The joint form and the boundary of evaluation
 
-Upon crossing T1, *jeevan* still requires a body composed along the other line. Animal and human beings are joint forms: compositional progression supplies the body, atomic development supplies *jeevan* (§4.4). The reconstructed state vector is therefore composite:
+The human requires a body composed along the insentient line. Its body remains a closed pranic unit whose physical and biological activity continues through the universal effort-motion-result triad. Constitutionally complete *jeevan* is the sentient bearer that operates the body, evaluates, and can refine its own activity. Joining does not fuse these two descriptions: bodily change does not become knowledge, and cognitive refinement does not reconstruct the immortal constitution of *jeevan* (KD 3.16, pp. 141–145; JV, pp. 47–49, 59).
 
-**x(t) = [ x<sub>physical</sub>(t) , x<sub>cognitive</sub>(t) ]<sup>T</sup>**
+The distinction can be stated as two recursions. Every bearer, including the body and *jeevan*, remains active through effort-motion-result. Only the knowledge-order bearer also evaluates the present result and carries that evaluation into the internal orientation from which further activity is expressed.
 
-The product notation does not divide *jeevan* into two substances. The body remains the expression medium, itself a closed pranic composition; *jeevan* is the sentient unit. The cognitive coordinates track the five faculties and ten activities named in the texts (MVD, p. 78; JV, pp. 92–94). Animal bodies restrict their expression; a developed human body, whose *medhas* composition is the highest compositional plateau, provides for their full exercise (KD 3.2, p. 60; JV, p. 59). Delusion (*bhram*) can still misdirect evaluation by identifying *jeevan* with the body (JV, pp. 93–94).
+```mermaid
+flowchart TB
+    subgraph UNIVERSAL["Universal activity of every unit"]
+      direction LR
+      UACT["Effort / bal + motion / shakti"]
+      UACT --> URESULT["Result: changed configuration"]
+      URESULT --> UNEXT["Next configuration"]
+    end
+    subgraph HUMAN["Additional feedback between jeevan activities"]
+      direction LR
+      JRESULT["Result of one activity"]
+      JRESULT --> JEVAL["Evaluation by jeevan<br/>(itself effort-motion-result)"]
+      JEVAL --> JNEXT["Revised or repeated orientation<br/>for subsequent activity"]
+    end
+    UNEXT ~~~ JRESULT
+```
 
-| Faculty | Activities |
-|---------|------------|
-| *Mun* | Selection / tasting (*chayana* / *asvadana*) |
-| *Vritti* | Analysis / weighing (*vishleshana* / *tulana*) |
-| *Chitta* | Imaging / contemplation (*chitrana* / *chintana*) |
-| *Buddhi* | Discrimination / verification (*sankalpa* / *bodha*) |
-| *Atma* | Realisation / authentication (*anubhava* / *pramanyata*) |
+The lower cycle is not a fourth-member extension of the upper triad. It is a relation among successive sentient activities, each of which is itself effort, motion, and result together.
 
-### 7.1 The deluded human state
+## 7. Knowledge and the internal configuration of *jeevan*
 
-In the unawakened human state, knowledge-order *dharma* and the forcefulness of *jeevan* remain present; they do not become a misaligned potential. What is misdirected is evaluation in mutuality. The upper faculties (*buddhi* and *atma*) remain unevidenced, while cognitive motion is organised by feedback from the body's sensory inputs and seeks happiness through sensory pleasure, profit, and temporary comfort (SB, pp. 91–92; MVD, p. 78).
+Knowledge (*gyan*) is presented both as the determinate ground in which insentient and sentient nature are contained and as content realised by the knower. *Jeevan* is the knower; the content comprises the holistic view of coexistence, knowledge of *jeevan*, and knowledge of humane conduct. Its purpose is the meaningful evidence of *jeevan*-aspiration and human-aspiration in undivided society and universal orderliness (KD, pp. 3–4; KD 3.17, pp. 145–148). Knowledge is thus state-complete in its content, while its realisation and evidence in a human can be incomplete or complete.
 
-Because *jeevan* is an infinite cognitive unit in the darshan's terms, attempting to stabilise it on finite, transient sensory inputs yields an unstable inner trajectory. This paper writes that instability as
+This paper represents the human joint form as
 
-**r<sub>confusion</sub>(x<sub>cognitive</sub>) ≠ 0 ⇒ psychological division / suffering**
+**x<sub>H</sub>(t) = [ x<sub>B</sub>(t), c<sub>J</sub>, z<sub>J</sub>(t) ]<sup>T</sup>**
 
-The residual *r*<sub>confusion</sub> is this paper's reconstruction of delusion as unresolved cognitive motion, not a clinical diagnosis and not a quantitative psychology. It avoids treating all cognitive activity as a defect: *jeevan* remains active in both deluded and awakened states.
+Here *x*<sub>B</sub> is the state of the pranic body, *c*<sub>J</sub> is the invariant constitutionally complete core of *jeevan*, and *z*<sub>J</sub> is its refinable internal orientation. The last coordinate gathers the five faculties, present *sanskar*, realised understanding, and the standpoint from which results are evaluated. This product notation records the joint form without making *jeevan* and body one substance or making *jeevan* a product of the body.
 
-## 8. Activity completeness and conduct completeness
+### 7.1 Five state-motion pairs
 
-Resolution requires that the upper cognitive loop become active, so that evaluation of mutuality is no longer organised from sensory input outward but from realisation outward into conduct.
+The five faculties each have an activity in state, expressed as strength, and a paired activity in motion, expressed as power. In awakened activity, realisation is evidenced outward through these pairs (KD 3.6, pp. 71–72; KD 3.16, p. 145; MVD, p. 78; JV, pp. 92–94).
 
-### 8.1 Activity completeness (T2 — *kriyapurnata*)
+| Faculty | State / strength activity | Motion / power activity |
+|---------|---------------------------|-------------------------|
+| *Atma* | Realisation (*anubhav*) | Evidence or authentication (*pramanyata*) |
+| *Buddhi* | Enlightenment (*bodh*) | Resolve (*sankalp*) |
+| *Chitta* | Contemplation or direct recognition (*chintan* / *sakshatkar*) | Imaging (*chitran*) |
+| *Vritti* | Comparison or weighing (*tulana*) | Analysis (*vishleshan*) |
+| *Mun* | Tasting (*asvadan*) | Selection (*chayan*) |
 
-Activity completeness is reached when *atma* directly perceives coexistence (*anubhav*). That realisation is the restfulness of effort (*shram ka vishram*): the restless search for certainty stabilises into knowing (SB, p. 58; MVD, Ch. 5). In the reconstruction, T2 is the resolved condition *r*<sub>confusion</sub> = 0, not ẋ<sub>cognitive</sub> = 0. Cognitive and bodily activity continue; unresolved seeking does not.
+Each row gives paired descriptions of the forceful and projective sides of *jeevan* activity. State and motion remain indivisible as realisation and evidence, enlightenment and resolve, contemplation and imaging, comparison and analysis, and tasting and selection. A developed human body provides the medium through which all ten can be evidenced; in delusion, their full exercise remains unavailable (KD 3.16–3.17, pp. 145–147; JV, pp. 92–94).
 
-### 8.2 Conduct completeness (T3 — *acharanpurnata*)
+### 7.2 Realised knowledge as orientation
 
-Conduct completeness is the lived evidence of T2 in physical reality through humane conduct (*manaviya acharan*). It is the destination of motion (*gati ka gantavya*): invariant behavioural output aligned across the modes of interaction (MVD, p. 80; SB, p. 58). Humane conduct is stated as an integrated structure of character (*charitra*), ethics (*niti*), and values (*mulya*). Character locks external action into rightfully owned wealth (*sva-dhana*), marital faithfulness (*sva-nari* / *sva-purusha*), and kindness in action (*dayapurna karya*). Ethics bounds the use of body, mind, and wealth (*tan-man-dhana*) by right-use (*sadupyoga*) and protection (*suraksha*). Values are recognised and fulfilled in relationship — trust, respect, gratitude, and the remaining established values — producing mutual satisfaction (*ubhaya-tripti*).
+Let *K*<sup>*</sup> denote the determinate content
 
-## 9. Verification of conduct
+***K*<sup>*</sup> = (*K*<sub>coexistence</sub>, *K*<sub>jeevan</sub>, *K*<sub>humane conduct</sub>)**
 
-Madhyasth Darshan does not treat human rightness as a private taste or a relativistic convention. Rightness is to be evidenced in experience, behaviour, work, and thought. This paper writes that fourfold demand as a single reconstructed protocol:
+and let *k*(*t*) record the degree to which that content is understood, realised, and available as evidence in the current human activity. *K*<sup>*</sup> does not evolve in the model. The variable is the organisation of *jeevan* with respect to it: study makes enlightenment possible, enlightenment culminates in realisation, and realisation is projected as evidence through resolve, imaging, analysis, and selection (KD 3.6, pp. 71–72; KD 3.17, pp. 145–148). Knowledge therefore orients conduct without becoming an external force or an energy input.
 
-| Verification protocol |
-|-----------------------|
-| Anubhav (experience) |
-| Vyavahar (behaviour) |
-| Karya (work) |
-| Vichara (thought) |
+### 7.3 Initial *sanskar* and deluded evaluation
 
-### 9.1 The verification matrix
+Every human acts on the basis of present acceptance. Environment, study, and *sanskar* contribute to the orientation from which thought and conduct are expressed, while the human body supplies the sensory and motor medium (KD, pp. 6–9; KD 3.16, pp. 141–145). This paper writes that operative orientation as
 
-Let *V* be a reconstructed verification operator on an individual human system *x*. The conduct is valid if and only if it satisfies the simultaneous system constraints:
+***z*<sub>J</sub>(t) = (*a, b, c, v, m*, σ, *k, q*)**
 
-| Operator | Implication |
-|----------|-------------|
-| *V*<sub>thought</sub>(*x*) | Internal harmony (*r*<sub>confusion</sub> = 0) |
-| *V*<sub>behavior</sub>(*x*, *y*) | Mutual satisfaction (*ubhaya-tripti* for any interlocutor *y*) |
-| *V*<sub>work</sub>(*x*, *x<sub>N</sub>*) | Cyclical enrichment of the coupled natural units (*avartanashilata*); right-use bounded by regeneration (§5.2–§5.4) |
-| *V*<sub>experience</sub>(*x*) | Absolute alignment with truth (*pramanikta*) |
+where the first five coordinates name *atma, buddhi, chitta, vritti,* and *mun*; σ records the present acceptance or *sanskar*-orientation; *k* records realised understanding; and *q* records the organisation of evaluation. These are qualitative coordinates, not neurological measurements.
 
-Authentic conduct requires simultaneous success across all four criteria. If an individual claims internal enlightenment (T2) but their outward trajectory produces exploitation in society (*V*<sub>behavior</sub> &lt; 0) or extraction beyond regeneration in the coupled natural units (*V*<sub>work</sub> &lt; 0), the system remains deluded. *V*<sub>behavior</sub> is the human–human coupling of §5; *V*<sub>work</sub> is the knowledge-order coupling with material, pranic, and animal units. The inequalities are qualitative markers in this reconstruction, not measured scores.
+In delusion (*bhram*), identification of *jeevan* with the body leaves the upper activities unevidenced and organises comparison from sensory input. Pleasure, health, and profit then become the prevailing perspectives of deliberation (MVD, p. 78; SB, pp. 91–92; JV, pp. 93–94, 97–98). Human *dharma* nevertheless remains happiness. The error lies in the accepted account of what fulfils it, not in a change of *dharma*. Because freedom of action remains available, this mis-evaluation can express human-opposing *svabhav* and generative or degenerative *guna* even while the possibility of mediative, humane conduct remains.
 
-## 10. Undivided society
+## 8. Human effort-motion-result and internal refinement
 
-When the verification protocol is satisfied across a population, individual trajectories are described in the darshan as synchronising from individual resolution to universal harmony: resolved individual, prosperous family, fearless society, universal coexistence (JV, p. 61; SB, pp. 246–247). This paper writes that chain as
+The universal triad applies without exception to *jeevan*. Knowledge-order activity differs from insentient recursion because the current state includes realised understanding, acceptance, and an orientation of evaluation. These do not supply strength from outside. They qualify how the inherent strength and power of *jeevan* are expressed through its faculties and body.
+
+### 8.1 The knowledge-mediated tetrad
+
+Write *D*<sub>H</sub> for invariant human *dharma*: happiness through resolution and participation in orderliness. Write D̂<sub>H</sub>(*t*) for the present understanding and evidence of that *dharma*. The distinction allows a human to remain oriented toward happiness while misunderstanding its fulfilment. This paper represents the operative human aspects as
+
+**D̂<sub>H</sub>(t) = 𝓐<sub>D</sub>(k(t), σ(t))**
+
+***s*<sub>H</sub>(t) = 𝓐<sub>s</sub>(k(t), σ(t), R<sub>H</sub>(t))**
+
+***g*<sub>H</sub>(t) = 𝓐<sub>g</sub>(k(t), σ(t), R<sub>H</sub>(t))**
+
+The first expression is current comprehension of *dharma*; the second is expressed essential nature; the third is the *guna*-mode evidenced in the facing. The human-opposing and humane sets of *svabhav* and the three modes of *guna* remain textually named possibilities. Knowledge and *sanskar* alter which expression becomes conduct: human-opposing essential nature can be transformed toward fortitude, valour, generosity, kindness, grace, and compassion, while awakened property becomes mediative (KD, pp. 26–27; KD 3.9–3.10, pp. 98–101).
+
+Effort and motion can then be reconstructed as
+
+**B<sub>J</sub>(t) = 𝓑<sub>H,s</sub>(z<sub>J</sub>(t); D<sub>H</sub>, D̂<sub>H</sub>(t))**
+
+**S<sub>J</sub>(t) = F<sub>H,s,g</sub>(z<sub>J</sub>(t), x<sub>B</sub>(t), x<sub>N</sub>(t); B<sub>J</sub>(t), R<sub>H</sub>(t), k(t), D̂<sub>H</sub>(t))**
+
+*B*<sub>J</sub> is the strength borne in the present internal state. *S*<sub>J</sub> is the corresponding power in selection, analysis, imaging, resolve, evidence, and body-mediated conduct. Knowledge does not replace *bal–shakti*; it makes their knowledge-order expression determinate through understood purpose. The constitutionally complete core *c*<sub>J</sub> remains invariant throughout this refinement.
+
+### 8.2 Result in the knowledge order
+
+Every human action has a result, and the hope within action is happiness. The knowledge order advances through refinement toward awakening and complete awakening; the body is the medium, while the refinement occurs in the imaginativeness, freedom of action, and activities of *jeevan* (KD, pp. 1–4, 26–27; KD 3.16, pp. 142–145). This paper therefore gives the human result four coupled aspects:
+
+| Result aspect | What changes |
+|---------------|--------------|
+| Internal | The alignment and operative orientation of *atma, buddhi, chitta, vritti,* and *mun* |
+| Bodily | Speech, bodily action, production, use, and the body's physical condition |
+| Relational | Recognition, value-fulfilment, trust, satisfaction, or contradiction in human mutuality |
+| Natural | Nourishment, right-use, protection, regeneration, imbalance, or depletion in couplings with the other orders |
+
+For the specifically knowledge-order question, the primary result is the changed internal orientation *z*<sub>J</sub>. This does not erase outward consequence. Thought and freedom of action are expressed through the body; their bodily, relational, and natural results return as content for further experience, inference, and reflection (KD 3.17, p. 147). The result is thus internal refinement or continued non-refinement together with its public effects.
+
+### 8.3 Evaluation links successive activities
+
+Evaluation belongs only to sentient activity. It does not enter effort-motion-result as a fourth member. Instead, one result becomes the object of a further activity of tasting, comparison, contemplation, enlightenment, or realisation, and the result of that evaluative activity contributes to the state from which later conduct is expressed. For successive human activity-occurrences *n*, this paper writes
+
+***p*<sub>n</sub> = EMR<sub>H</sub>(z<sub>J,n</sub>, x<sub>B,n</sub>, R<sub>H,n</sub>)**
+
+***e*<sub>n</sub> = 𝓔<sub>q(n)</sub>(p<sub>n</sub>, R<sub>H,n</sub>; k<sub>n</sub>, σ<sub>n</sub>)**
+
+**(z<sub>J,n+1</sub>, σ<sub>n+1</sub>) = 𝓤(z<sub>J,n</sub>, σ<sub>n</sub>, e<sub>n</sub>)**
+
+Each displayed map abbreviates complete activity; the notation does not divide a single triad into consecutive causal pieces. Under delusion, 𝓔 is organised by pleasure, health, and profit. With humane consciousness, justice, *dharma*, and truth provide the reference points. Justice is evidenced through recognition of relationship, fulfilment of its values, evaluation, and mutual satisfaction (JV, pp. 97–98, 137–139).
+
+The update 𝓤 stands for a transition in accepted conception. Realisation-oriented conceptions in *buddhi* manifest in thought and action; thought arising from action is again settled as conception through inference (MVD, p. 217). In its completed humane sense, *sanskar* is understanding, honesty, responsibility, and participation, and wrongs that remain unacceptable do not become that *sanskar* (JV, p. 49). Evaluated action can therefore stabilise realised acceptance, while mistaken evaluation can preserve a deluded orientation without turning error into knowledge.
+
+### 8.4 Dissatisfaction, recurrence, and inquiry
+
+The non-attainment of *jeevan* values is experienced as dissatisfaction or unresolved internal contradiction. This paper marks it qualitatively as δ<sub>J</sub>(*z*<sub>J</sub>) ≠ 0. The symbol is not a measured error, an excitation-pressure, or a force applied to *jeevan*. Strength and motion remain *jeevan*'s own *bal–shakti*. Dissatisfaction is the experienced result that happiness has not become continuous.
+
+Two continuations are possible. If the same acceptance and the same pleasure-health-profit criteria organise the next activity, the human can repeat the same pattern while seeking a different outcome. Action then nourishes the unresolved orientation and again yields uncertainty or dissatisfaction. If the contradiction is recognised as a need for understanding, inquiry and study can begin. Study opens enlightenment; enlightenment becomes realisation; and realisation reorganises comparison, contemplation, selection, and conduct through justice, *dharma*, and truth (KD, pp. 1–4; KD 3.6, pp. 71–72; KD 3.17, pp. 147–148). The branch is not mechanically forced by dissatisfaction, because freedom of action remains part of the knowledge order.
+
+## 9. *Jeevan* values and completeness
+
+The destination of this refinement is harmony within *jeevan*. Happiness, peace, contentment, and bliss are names for harmony among adjacent faculties, while realisation in coexistence at *atma* is ultimate bliss. The effect of realised *atma* reaches the remaining faculties as a nested order (MVD, pp. 100–101; JV, pp. 60, 137–138; KD 3.6, pp. 71–72).
+
+### 9.1 Nested internal harmony
+
+| Site of harmony | Evidence in *jeevan* |
+|-----------------|----------------------|
+| *Atma* realised in coexistence | Ultimate bliss (*paramanand*) |
+| *Buddhi–atma* | Bliss (*anand*) |
+| *Chitta–buddhi* | Contentment (*santosh*) |
+| *Vritti–chitta* | Peace (*shanti*) |
+| *Mun–vritti* | Happiness (*sukh*) |
+
+This paper writes the fulfilled orientation as the non-scalar vector
+
+***H*<sub>J</sub>(z<sub>J</sub>) = (*sukh, shanti, santosh, anand, paramanand*)**
+
+The entries are neither rewards nor interchangeable magnitudes. They name a nested coherence in which realisation is accepted in *buddhi*, contemplated in *chitta*, compared in *vritti*, and tasted in *mun*. These internal values differ from the established relational values treated in §10.1; they name the harmony from which relational conduct can remain stable (JV, pp. 137–139).
+
+### 9.2 Activity completeness (T2 - *kriyapurnata*)
+
+Activity completeness is reached when *atma* realises coexistence and that realisation becomes the stable basis of the five state-motion pairs. It is the restfulness of effort (*shram ka vishram*): the search for certainty resolves into knowing (SB, p. 58; MVD, Ch. 5; KD 3.6, pp. 71–72). In the reconstruction, T2 is fulfilled *H*<sub>J</sub> and δ<sub>J</sub> = 0, not the cessation of cognitive or bodily motion. Activity continues; unresolved seeking does not.
+
+### 9.3 Conduct completeness (T3 - *acharanpurnata*)
+
+Conduct completeness is the lived evidence of T2 through humane conduct (*manaviya acharan*). It is the destination of motion (*gati ka gantavya*): realised internal orientation is expressed consistently through the body across interaction (MVD, p. 80; SB, p. 58). Humane conduct integrates character (*charitra*), ethics (*niti*), and values (*mulya*). Character is evidenced through rightfully owned wealth (*sva-dhana*), marital faithfulness (*sva-nari* / *sva-purusha*), and kindness in action (*dayapurna karya*). Ethics directs body, mind, and wealth (*tan-man-dhana*) toward right-use (*sadupyoga*) and protection (*suraksha*). Values are recognised and fulfilled in relationship. T3 is therefore the repeatable outward evidence of the internal refinement described in §8, not another change in the constitution of *jeevan*.
+
+## 10. Verification in relationship, work, and society
+
+Madhyasth Darshan does not treat human rightness as private taste. Knowledge is to be evidenced in experience, behaviour, work, and thought. These domains test different effects of one internal orientation without reducing them to one numerical score.
+
+### 10.1 Relationship, value, and mutual satisfaction
+
+Human-human justice follows a definite relational sequence: relationship is recognised, its inherent values are recognised and fulfilled, the fulfilment is evaluated, and mutual satisfaction becomes the evidence (JV, pp. 97–98, 137–139). Value is therefore not identical with satisfaction. Trust, respect, affection, gratitude, and the remaining established values belong to relationship; satisfaction or dissatisfaction is the experienced result of their fulfilment or non-fulfilment. That result enters the sentient feedback of §8.3.
+
+### 10.2 Fourfold verification and work with *jada*
+
+Let *V* be a reconstructed verification operator on a human joint form. Knowledge-based conduct satisfies four simultaneous qualitative constraints:
+
+| Operator | Evidence |
+|----------|----------|
+| *V*<sub>thought</sub>(*x*<sub>H</sub>) | Deliberation organised through justice, *dharma*, and truth; internal value harmony |
+| *V*<sub>behavior</sub>(*x*<sub>H</sub>, *y*<sub>H</sub>) | Relationship recognition, value-fulfilment, evaluation, and mutual satisfaction |
+| *V*<sub>work</sub>(*x*<sub>H</sub>, *x*<sub>N</sub>) | Law (*niyam*), regulation (*niyantran*), balance (*santulan*), protection, right-use, and regeneration in work with the other orders |
+| *V*<sub>experience</sub>(*x*<sub>H</sub>) | Realisation in coexistence and its evidence through the remaining faculties |
+
+The human does not add evaluation to the material unit being used. The mineral, plant, animal body, or other bearer continues through its own order-typed effort-motion-result. Evaluation occurs in *jeevan* and governs the human's selection, work, use, and restraint with those units. Education and *sanskar* concern law, regulation, balance, and justice; natural use is bounded by right-use, protection, and expenditure in proportion to regeneration (JV, pp. 58, 138–139; MVD, p. 264). A claim of inner realisation that yields exploitation in relationship or depletion in work fails the joint verification even if it is privately asserted.
+
+### 10.3 Undivided society
+
+When the verification protocol is satisfied across a population, individual resolution becomes evident through the linked human goals: resolved individual, prosperous family, fearless society, and universal coexistence (JV, pp. 60–61; SB, pp. 246–247). This paper writes that chain as
 
 **Resolved individual → prosperous family → fearless society → universal coexistence**
 
-That state is the realisation of undivided society (*akhanda samaja*) and universal orderliness (*sarvabhauma vyavastha*). It is not a collection of isolated human trajectories. The resolved population is a coupled human system — family, society, and the remaining human–human relations of §5 — whose *V*<sub>behavior</sub> constraints succeed together, and whose *V*<sub>work</sub> couplings with material, pranic, and animal units remain within regeneration. Social stability is not produced by external legal coercion. It is the public evidence of units that have crossed T1 as *jeevan*, reached T2 as realised understanding, and manifested T3 as verified conduct in those couplings. The reconstruction does not claim that the chain is a dynamical theorem; it records the darshan's own social completion of the same triad.
+These public goals and the internal *jeevan* values evidence one another: resolution is lived as happiness, prosperity supports peace in family, fearlessness supports contentment in social order, and understanding is evidenced as bliss in participation (JV, pp. 60–61). Undivided society (*akhanda samaja*) and universal orderliness (*sarvabhauma vyavastha*) are therefore not collections of isolated trajectories. They are the coupled evidence of T1 *jeevan* whose activity has reached T2 and whose conduct has reached T3 in human-human and human-nature mutuality. The reconstruction does not claim that this social chain is a dynamical theorem.
 
 ## 11. Open problems
 
@@ -431,19 +563,21 @@ First, the texts insist that effort, motion, and result are simultaneous. Writin
 
 Second, *R*<sub>i</sub> represents recognised mutuality, while Π<sup>exc</sup><sub>i</sub> is only a derived marker read from strength, motion, *guna*, and that mutuality when excitation is evidenced. Neither has a quantitative scale. The texts do not state that unfulfilled complementarity always produces pressure, that complementarity minimises one scalar, or that motion follows the gradient of a potential. Whether defensible order-specific measures of relational configuration and excitation can be constructed remains open.
 
-Third, the operator *V* names four public constraints. It does not yet supply a quantitative, observer-independent scoring of mutual satisfaction or cyclical balance. Those remain qualitative evidences, as in the related studies of family values and undivided society.
+Third, the knowledge-order coordinates *k*, σ, and *q*, the comprehension map D̂<sub>H</sub>, and the evaluation and update maps 𝓔 and 𝓤 have no quantitative scale in the texts. They organise the stated relations among acceptance, action, result, inference, *sanskar*, and awakening. They do not establish a learning algorithm, a probability of awakening, or an automatic transition from dissatisfaction to inquiry. How to operationalise any part of that transition without reducing realisation to behavioural reinforcement remains open.
 
-Fourth, T1 is a metaphysical and textual threshold. Contemporary physics has no accepted counterpart for an atom that leaves molecular and gravitational bondage while remaining a countable unit. The reconstruction records the claim; it does not close the empirical question.
+Fourth, *H*<sub>J</sub> and *V* name internal and public constraints, not commensurable scores. The reconstruction does not supply an observer-independent measurement of *sukh, shanti, santosh, anand,* or *paramanand*, nor a numerical aggregation of mutual satisfaction and cyclical balance. Those remain qualitative evidences, as in the related studies of epistemology, family values, and undivided society.
 
-Fifth, the nested plateaus are this paper's reconstruction of compositional progression and existential order. They organise what the texts state about closed units and conducive conditions. They do not supply a mapping onto evolutionary phylogeny, origin-of-life chemistry, or laboratory phase diagrams. Relating *niyati-kram* to those sciences remains an open comparison, as in the related ontology study.
+Fifth, T1 is a metaphysical and textual threshold. Contemporary physics has no accepted counterpart for an atom that leaves molecular and gravitational bondage while remaining a countable unit. The reconstruction records the claim; it does not close the empirical question. The further distinction between invariant constitution *c*<sub>J</sub> and refinable orientation *z*<sub>J</sub> is analytically useful but likewise lacks an accepted physical correlate.
 
-Sixth, the coupled maps *F*<sub>o(i),s,g</sub> are typed by order-pairs, by the essential nature and *guna*-mode evidenced in the facing, and by the three kinds of mutuality in §5. The containing unit's state, strength, *dharma*-orientation, recognised relational configuration, and family *F*<sub>o(c),s<sub>c</sub>,g<sub>c</sub></sub> are this paper's reconstruction of new conduct in a compound. Excitation-pressure, where evidenced, is derived from those dynamics rather than supplied as another input. The texts state complementarity, containment, recognition–fulfilment, and right-use; they do not supply a quantitative cross-order force, a universal interaction kernel, or an N-body reduction of *jeevan*. Writing those couplings as a family of maps is this paper's reconstruction. Specifying the maps in laboratory coordinates remains open.
+Sixth, the nested plateaus and coupled maps are this paper's reconstruction of compositional progression, existential order, and order-typed mutuality. They do not supply a mapping onto evolutionary phylogeny, origin-of-life chemistry, laboratory phase diagrams, a quantitative cross-order force, a universal interaction kernel, or an N-body reduction of *jeevan*. Specifying the maps in empirical coordinates remains open.
 
 ## Editorial Notes
 
 ### Formal status of the equations
 
-The state vector *x*(*t*), derivative ẋ(*t*), strength function *B*<sub>i</sub>, relational-configuration map *R*<sub>i</sub>, *guna*-mode index *g*<sub>i</sub>, derived excitation-pressure marker Π<sup>exc</sup><sub>i</sub>, *dharma*-orientation *D*<sub>o</sub>, power variable *S*<sub>i</sub>, composite physical–cognitive coordinates, plateau regions *P*<sub>ℓ</sub>, neighbourhood *N*(*i*), family of maps *F*<sub>o,s,g</sub>, containing-unit maps *F*<sub>o(c),s<sub>c</sub>,g<sub>c</sub></sub>, joint configuration *x*<sub>U</sub>, confusion residual *r*<sub>confusion</sub>, and verification operator *V* are this paper's constructions. They organise what the primary texts state about the triad, the four aspects, compositional sequence, mutuality across orders, the completeness stages, and public evidence. They are not quotations, and they are not additional doctrine. Where the exposition says “this paper writes” or “the reconstruction,” the claim is formal, not textual.
+The state vector *x*(*t*), derivative ẋ(*t*), strength function *B*<sub>i</sub>, relational-configuration map *R*<sub>i</sub>, *guna*-mode index *g*<sub>i</sub>, derived excitation-pressure marker Π<sup>exc</sup><sub>i</sub>, *dharma*-orientation *D*<sub>o</sub>, power variable *S*<sub>i</sub>, plateau regions *P*<sub>ℓ</sub>, neighbourhood *N*(*i*), family of maps *F*<sub>o,s,g</sub>, containing-unit maps, and joint configuration *x*<sub>U</sub> are this paper's constructions for the universal and coupled-unit model.
+
+The human joint-state *x*<sub>H</sub>, body state *x*<sub>B</sub>, invariant *jeevan* core *c*<sub>J</sub>, internal orientation *z*<sub>J</sub>, determinate content *K*<sup>*</sup>, realised-understanding coordinate *k*, *sanskar*-orientation σ, evaluation orientation *q*, current comprehension D̂<sub>H</sub>, selection maps 𝓐, human strength and motion functions *B*<sub>J</sub> and *S*<sub>J</sub>, result *p*, evaluation *e*, update map 𝓤, dissatisfaction marker δ<sub>J</sub>, value-harmony vector *H*<sub>J</sub>, and verification operator *V* are likewise reconstructions. They organise textual claims; they are not quotations or additional doctrine.
 
 ### Running terms
 
@@ -456,6 +590,26 @@ The English primary texts variously render *satta* as “Omnipresence” and “
 ### Mapping of the tetrad to the triad
 
 One passage relates effort or strength to *dharma* and *svabhav*, motion or power to *svabhav* and *guna*, and result to *roop* (SB, pp. 60–62). Strength is independently aligned with state, power with motion, and result with a different existent state, while their indivisibility is preserved (KD 3.8, p. 84; KD 3.11, pp. 106–107). This paper follows those alignments. It does not claim a one-to-one derivation, because *svabhav* crosses both effort and motion. The mermaid figure is an aid to that reconstruction, not a source diagram.
+
+### Universal triad and sentient feedback
+
+The primary texts state effort-motion-result as the activity principle and separately state the ten activities by which *jeevan* knows, projects, evaluates, and evidences. This paper places evaluation between reconstructed descriptions of successive human activities. Evaluation is itself an activity of *jeevan* and therefore also has effort, motion, and result; it is never a fourth member of the triad. No corresponding evaluative loop is assigned to material or pranic units. Their result is simply the configuration of continuing definite activity.
+
+### Knowledge as ground and realised content
+
+The opening postulate names the omnipresence of knowledge, and the early exposition says that insentient and sentient nature are contained within Knowledge or Omnipotence (KD, pp. 1–4). Later passages enumerate complete knowledge as the holistic view of coexistence, knowledge of *jeevan*, knowledge of humane conduct, and, in one formulation, participation in overall orderliness (KD 3.5, p. 69; KD 3.17, p. 148). The exposition uses the three-content formulation for *K*<sup>*</sup> and treats participation as its purpose and evidence. It does not represent Knowledge as a signal transmitted from Omnipresence into *jeevan*.
+
+### Human *dharma* and modifiable expression
+
+Human *dharma* is stated as happiness, resolution, and living in orderliness; it remains one across humankind (JV, pp. 110, 121–123; KD 3.5, p. 69). The texts also state that human-opposing essential nature can be transformed into humane essential nature and that awakening frees conduct from degenerative property (KD 3.9–3.10, pp. 98–101). The model therefore keeps *D*<sub>H</sub> invariant while allowing D̂<sub>H</sub>, expressed *svabhav*, and the operative *guna*-mode to vary with understanding and *sanskar*. This is the analytical sense in which knowledge modifies the human tetrad's expression.
+
+### *Sanskar* and action-result feedback
+
+The translations use *sanskar* for the knowledge order's conformance and for realisation-oriented acceptance expressed through understanding, honesty, responsibility, and participation (MVD, p. 217; JV, pp. 49, 137–139). The texts also describe conceptions in *buddhi* becoming thought and action, and thought obtained from action becoming conception again through inference (MVD, p. 217). The update map 𝓤 reconstructs that feedback. It does not treat every behavioural trace, mistake, or bodily memory as completed humane *sanskar*.
+
+### Four *jeevan* values and *paramanand*
+
+One common enumeration names four *jeevan* values: *sukh, shanti, santosh,* and *anand*, each as harmony between adjacent faculties (JV, pp. 137–138). The faculty-level account also names *paramanand* as the lasting effect when *atma* realises coexistence, with *anand, santosh, shanti,* and *sukh* as its effects in the remaining faculties (MVD, pp. 100–101). The five-entry vector *H*<sub>J</sub> records that nested faculty account; it does not introduce a fifth reward alongside the four commonly enumerated values.
 
 ### Pressure, complementarity, and basic impulsion
 
@@ -474,12 +628,19 @@ The reconstruction therefore gives *R*<sub>i</sub> and Π<sup>exc</sup><sub>i</s
 | *Sam*, *visam*, and *madhyastha* are modes or tendencies of the unit's property and power | Direct textual claim | SB p. 248; KD pp. 100–102 |
 | Recognised mutuality and natural-state motion occur at definite good distance | Direct textual claim | KD pp. 70, 100, 103–109; SB pp. 49–51 |
 | Force is recognised as pressure and power as flow; excitation-pressure is received compulsion when *sam* or *visam* is excited | Direct textual claim | SB p. 256; KD p. 118 |
+| The first three orders evidence definite conduct through conformance; the knowledge order advances through refinement toward awakening | Direct textual claim | JV pp. 47–49; KD pp. 26–27 |
+| Human *dharma* is happiness/orderliness; human-opposing *svabhav* can transform toward humane *svabhav*; awakened property is mediative | Direct textual claim | JV pp. 110, 121–123; KD pp. 98–101 |
+| *Jeevan* is the knower; knowledge comprises coexistence, *jeevan*, and humane conduct | Direct textual claim | KD pp. 145–148 |
+| Five state activities are strengths and five motion activities are powers of *jeevan* | Direct textual claim | KD pp. 71–72, 145 |
+| Results prompt further thought and reflection; realisation-oriented conception manifests in action and is settled again through inference | Direct textual claim | KD p. 147; MVD p. 217 |
+| *Sukh, shanti, santosh,* and *anand* are internal harmonies, grounded in realisation at *atma* | Direct textual claim | MVD pp. 100–101; JV pp. 137–138 |
 | *R*<sub>i</sub> may encode order-specific unfulfilled complementarity; Π<sup>exc</sup><sub>i</sub> is derived from *B*<sub>i</sub>, *S*<sub>i</sub>, *g*<sub>i</sub>, and *R*<sub>i</sub> rather than supplied as a separate cause | Analytical reconstruction | The texts supply the qualitative relation, not quantitative maps |
 | *B*<sub>i</sub>, *F*<sub>o,s,g</sub>, and the duration update form a recursive state-dynamic loop | Mathematical reconstruction | KD p. 107 supplies the conceptual effort–motion–result sequence, not these equations |
+| *x*<sub>H</sub>, *z*<sub>J</sub>, D̂<sub>H</sub>, 𝓔, 𝓤, δ<sub>J</sub>, and *H*<sub>J</sub> model knowledge-mediated orientation, evaluation, recurrence, and refinement | Mathematical reconstruction | The texts supply the qualitative activities and relations, not these variables or maps |
 
 ### Composite state vector
 
-Writing *x* as a pair of physical and cognitive coordinates is a modelling convenience. It must not be read as a Cartesian dualism of two substances. *Jeevan* is one constitutionally complete atom; the body is its expression medium, itself a closed pranic composition. The pair records two descriptions of one joint form.
+Writing *x*<sub>H</sub> as body state *x*<sub>B</sub>, invariant *jeevan* constitution *c*<sub>J</sub>, and refinable orientation *z*<sub>J</sub> is a modelling convenience. It must not be read as a Cartesian dualism, three substances, or a claim that the faculties are spatial parts. *Jeevan* is one constitutionally complete atom; the body is its expression medium, itself a closed pranic composition. The coordinates distinguish bodily change, constitutional invariance, and awakening-oriented refinement within one joint form.
 
 ### Plateaus are not completeness thresholds
 
@@ -501,10 +662,10 @@ The single-unit expression of §2.4 is a factor. The coupled form in §5 reconst
 
 ### Madhyasth Darshan (primary sources)
 
-- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: coexistence and the four aspects (pp. 11, 34, 47; §1, §3); state-complete Omnipresence and state-dynamic nature (p. 26; §1); absolute and relative energy, basic impulsion, and activity independent of environmental pressure (pp. 40–41, 46; §1–§2, §5); hungry and overfull atoms, existential order (pp. 8, 13; §4.1, §4.4, §5.2); atomic constitution and change of form (pp. 42, 49–50; §3.1, §4.2, §5.1, §5.4); *sam–visam–madhyastha* (pp. 26, 49–50; §3.2, §5.4); order-specific *svabhav* and *dharma* (pp. 50–51, 115; §3.3–§3.4, §5.3); material motion, effort, and mutual pressure (p. 114; §1–§2, §5); relationship and contact (pp. 61–62; §5.2); the use-ladder across orders (p. 105; §5.2–§5.3); environmental pressure and mutual influence (pp. 230–231; §1); T1 evidence, molecular-bondage and weight-bondage (p. 91; §6.1); *atma* and orbital faculties (p. 78; §7); delusion as body-identification (p. 78; §7.1); restfulness of effort (Ch. 5; §8.1); authentic conduct (p. 80; §8.2); expenditure of natural abundance in proportion to regeneration (p. 264; §5.2).
-- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: coexistence, saturation, state-completeness, state-dynamism, recognition, pressure, and directionality toward completeness (pp. 48–51; §1–§3, §5); recognition and regulation (p. 57; §1); unit and energy-fullness as activeness (p. 69; §1); inseparable effort–motion–result, effort as strength, and the mapping to *dharma–svabhav–guna–roop* (pp. 53, 58–62; §1–§3, §5); force in state, power in motion, *sam–visam–madhyastha*, force recognised as pressure, power recognised as flow, reflection, effect, relative power, and the force-bearing unit (pp. 248–252, 256–257; §1–§3, §5); completeness goals of the triad (pp. 58, 71; §8); composition is not development (pp. 75–76; §4.2); four orders (p. 179; §3.4, §4.3, §5.2–§5.3); T1 and inexhaustibility (pp. 55, 61, 92; §6); order-specific *dharma* (p. 179; §3.4); order-specific *svabhav* (pp. 179–180; §3.3, §5.3); a composition remains of the order of its constituent (p. 260; §5.2, §5.4); delusion and the body (pp. 91–92; §7.1); undivided society (pp. 246–247; §10).
-- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: nothing isolated, complementarity in mutuality (pp. 43, 69; §2.3, §5); Omnipresence between units, unit distinction and joining, and the denial that Omnipresence applies force (p. 149; §1, §5); inherent strength, non-conflict, and progress through mutual offering and acceptance (pp. 157–158; §1, §5); four orders, animal order excluding humans, and conformance (pp. 47–48; §4.3–§4.4, §5.2); inclination toward coexistence (p. 67; §5.2); relationship with the Earth (p. 77; §5.2); human bodily medium, lineage of the body, and complementarity of the first three orders (p. 59; §4.4, §5.2, §7); ten activities (pp. 92–94; §7); delusion and four-and-a-half effective activities (pp. 93–94; §7); human goals (p. 61; §10).
-- **KD** — Nagraj, A. *Manav Karm Darshan*. [Working English translation](../References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf) of chapter 3; Hindi source `KD-karm darshan v5.pdf`. Machine-assisted working translation — not a published translation; cited as corroboration only. Cited: overfull-atom excitation, particle displacement, absorption, and restoration of natural-state motion (3.1, p. 57; §4.2); saturation, forcefulness, mutual recognition, and orderliness (3.5, p. 70; 3.9, p. 88; 3.13, p. 122; §1–§2, §5); state–motion indivisibility and strength–power (3.8, p. 84; 3.11, pp. 102–109; §1–§3, §5); effort–motion–result and result as a different existent state (3.9, p. 94; 3.11, p. 107; §2–§3); property, essential nature, *dharma*, and *sam–visam–madhyastha* propensity in mutual recognition (3.10, pp. 100–102; §2–§3, §5); excitation-pressure as the received expression of *sam–visam* excitation, distinct from natural-state motion (3.13, p. 118; §1–§2, §5); compositional sequence from atom and molecule through cell, plant, animal body, and human *medhas* (3.2, pp. 58–60; §4.3–§4.4, §5.2, §7); development in the atom as T1, distinct from composition (3.3, pp. 60–61; §4.2, §6).
+- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: coexistence and the four aspects (pp. 11, 34, 47; §1, §3); state-complete Omnipresence and state-dynamic nature (p. 26; §1); absolute and relative energy, basic impulsion, and activity independent of environmental pressure (pp. 40–41, 46; §1–§2, §5); hungry and overfull atoms, existential order (pp. 8, 13; §4.1, §4.4, §5.2); atomic constitution and change of form (pp. 42, 49–50; §3.1, §4.2, §5.1, §5.4); *sam–visam–madhyastha* (pp. 26, 49–50; §3.2, §5.4); order-specific *svabhav* and *dharma* (pp. 50–51, 115; §3.3–§3.4, §5.3); material motion, effort, and mutual pressure (p. 114; §1–§2, §5); relationship and contact (pp. 61–62; §5.2); the use-ladder across orders (p. 105; §5.2–§5.3); T1 evidence and bondage (p. 91; §6.1); *atma*, faculties, and body-identification (p. 78; §7.1, §7.3); faculty-level *paramanand, anand, santosh, shanti,* and *sukh* (pp. 100–101; §9.1); action-to-conception *sanskar* feedback (p. 217; §8.3); authentic conduct (p. 80; §9.3); regeneration in use of natural abundance (p. 264; §5.2, §10.2).
+- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: coexistence, saturation, state-completeness, state-dynamism, recognition, pressure, and directionality toward completeness (pp. 48–51; §1–§3, §5); recognition and regulation (p. 57; §1); unit and energy-fullness as activeness (p. 69; §1); inseparable effort–motion–result, effort as strength, and the mapping to *dharma–svabhav–guna–roop* (pp. 53, 58–62; §1–§3, §5, §9); force in state, power in motion, *sam–visam–madhyastha*, pressure, flow, reflection, effect, and relative power (pp. 248–252, 256–257; §1–§3, §5); composition is not development (pp. 75–76; §4.2); four orders and order-specific *dharma* and *svabhav* (pp. 179–180; §3.3–§3.4, §4.3, §5.2–§5.3); T1 and inexhaustibility (pp. 55, 61, 92; §6); a composition remains of its constituent's order (p. 260; §5.2, §5.4); delusion and body-identification (pp. 91–92; §7.3); undivided society (pp. 246–247; §10.3).
+- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: nothing isolated and complementarity in mutuality (pp. 43, 69; §2.3, §5); Omnipresence between units and the denial that it applies force (p. 149; §1, §5); inherent strength and progress through mutual offering and acceptance (pp. 157–158; §1, §5); four orders, conformance, and *sanskar* as understanding, honesty, responsibility, and participation (pp. 47–49; §4.3–§4.4, §5.2, §6.2, §7.3, §8.3); human body, lineage, and complementarity of the first three orders (p. 59; §4.4, §5.2, §6.2); right-use and protection (p. 58; §10.2); *jeevan* values and human goals (pp. 60–61; §9, §10.3); ten activities and delusion (pp. 92–94; §7.1, §7.3); justice, relationship, value-fulfilment, evaluation, and mutual satisfaction (pp. 97–98; §8.3, §10.1); human *dharma* as happiness and orderliness (pp. 110, 121–123; §3.4, §8.1); internal harmony, inherent values, and humane evaluation (pp. 137–139; §8.3, §9.1, §10.1–§10.2).
+- **KD** — Nagraj, A. *Manav Karm Darshan*. [Working English translation](../References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf); Hindi source `KD-karm darshan v5.pdf`. Machine-assisted working translation — not a published translation; cited as corroboration only. Cited: the omnipresence of knowledge, action and result, hope for happiness, experience and inference, and absolute knowledge (pp. 1–4; §7–§8); environment, study, *sanskar*, and the transformation of human essential nature (pp. 6–9; §3.3, §7.3, §8.1); *guna* in human conduct and knowledge-order refinement toward awakening (pp. 25–27; §3.2–§3.3, §6, §8); overfull-atom excitation and restored natural-state motion (3.1, p. 57; §4.2); compositional sequence through the human *medhas* (3.2, pp. 58–60; §4.3–§4.4, §5.2, §7); T1 as development in the atom (3.3, pp. 60–61; §4.2, §6); complete knowledge and the five state and five motion activities (3.5–3.6, pp. 69–72; §3.4, §7–§9); saturation, forcefulness, and state–motion indivisibility (3.8–3.9, pp. 84, 88, 94; §1–§3, §5); order-specific *svabhav*, *dharma*, and *sam–visam–madhyastha* (3.9–3.10, pp. 98–102; §2–§3, §5, §8); strength–power and result as a different existent state (3.11, pp. 102–109; §1–§3, §5); excitation-pressure (3.13, pp. 118, 122; §1–§2, §5); the body–*jeevan* joint form, internal refinement, result-to-reflection, knowledge, knower, and object of knowledge (3.16–3.17, pp. 141–148; §6–§8).
 
 ### Related studies in this collection
 
