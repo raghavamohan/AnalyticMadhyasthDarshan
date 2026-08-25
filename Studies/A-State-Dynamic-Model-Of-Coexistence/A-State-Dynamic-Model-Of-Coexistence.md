@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** August 24, 2026, 10:01 PM IST
+**Edited on:** August 25, 2026, 6:05 AM IST
 **Status:** Draft
 
 **The question:** Madhyasth Darshan describes existence as coexistence: countlessly many active units saturated in one unbounded, motionless Omnipresence. Within that description, the material, pranic, and animal orders continue in definite activity, while the human knowledge order can know, evaluate, and refine its own conduct. Can those claims be stated as one model — one account of state, activity, and relationship that holds from the atom to human conduct without breaking the texts' own commitments?
@@ -80,6 +80,10 @@ This contract governs every symbol and diagram. A formal object may organise a t
 | Unit (*ikai*) | A bounded, countable bearer whose activity is effort, motion, and result together. |
 | Effort–motion–result (*shram–gati–parinam*) | Three simultaneous aspects of one unit-activity. |
 | Tetrad | Form (*roop*), property (*guna*), essential nature (*svabhav*), and *dharma* as four aspects of one unit. |
+| Form (*roop*) | The bearer's present bounded configuration and the result-side of its activity, not its complete typed state. |
+| Property (*guna*) | Relative power evident in mutuality as generative, degenerative, and mediative tendencies. |
+| Essential nature (*svabhav*) | The order-specific functional character through which strength and power operate; not a separate *shakti*. |
+| *Dharma* | The invariant innateness of an order: what its fulfilment and orderliness mean, rather than knowledge, encoded instructions, or an additional force. |
 | Mutuality | The actual facing among units and the order-specific recognition through which complementarity or contradiction is evidenced. |
 | Pressure | Force recognised in state; excitation-pressure is the received compulsion evident in an excited facing. Neither is an external energy reservoir. |
 | Closed bearer | An atom, molecule, compound, cell, body, or joint form with its own bounded conduct and tetrad. |
@@ -119,7 +123,7 @@ The reconstruction uses continuous change only within a fixed bearer type and gu
 
 ### 2.2 Effort (*shram*) as strength in the state
 
-Effort is strength or force (*bal*) borne by the unit. The state is the force-bearing side of activity, while power is present in motion; effort is explicitly aligned with *dharma* and *svabhav* (SB, pp. 60–61, 248, 256–257). State and motion are indivisible, and their meanings as strength and power apply across units from atoms to planetary bodies (KD 3.8, p. 84; KD 3.11, pp. 102–109). The model represents effort by a qualitative strength description *B*<sub>i</sub>, not a scalar magnitude, potential, or stored quantity. The bearer's type already carries its order-specific *dharma*; *dharma* is therefore an invariant of the admissible state and transition family, not a moment-to-moment control input. Forcefulness remains present in every state, and effort persists until its stated restfulness in completeness (SB, pp. 60–61).
+Effort is strength or force (*bal*) borne by the unit. The state is the force-bearing side of activity, while power is present in motion; effort is explicitly aligned with *dharma* and *svabhav* (SB, pp. 60–61, 248, 256–257). This alignment does not identify *dharma* with strength. *Dharma* names the unit's inseparable order-orientation, while *bal* names the strength borne in effort; *shakti* names its expression in motion. State and motion are indivisible, and their meanings as strength and power apply across units from atoms to planetary bodies (KD 3.8, p. 84; KD 3.11, pp. 102–109). The model represents effort by a qualitative strength description *B*<sub>i</sub>, not a scalar magnitude, potential, or stored quantity. The bearer's type already carries its order-specific *dharma*; *dharma* is therefore an invariant of the admissible state and transition family, not a moment-to-moment control input. Forcefulness remains present in every state, and effort persists until its stated restfulness in completeness (SB, pp. 60–61).
 
 > **"Strength in state evidences orderliness in oneself; power in motion evidences participation in the overall orderliness."**
 > — KD 3.11, p. 106
@@ -146,7 +150,7 @@ For material and pranic bearers, constitution, structure, seed, and mutuality de
 
 ## 3. The tetrad in the state-dynamic model
 
-Every unit has four inseparable aspects: form (*roop*), property (*guna*), essential nature (*svabhav*), and *dharma* (MVD, p. 47). They specify one activity-whole: effort or strength is present as *dharma–svabhav*, motion or power as *svabhav–guna*, and result as *roop* (SB, pp. 60–62). *Svabhav* crosses effort and motion; *guna* describes the relative power expressed in mutuality. The same tetrad attaches to every closed bearer — atom, molecule, cell, body, or joint form — rather than being inherited as a sum from its constituents (§5.4).
+Every unit has four inseparable aspects: form (*roop*), property (*guna*), essential nature (*svabhav*), and *dharma* (MVD, p. 47). They specify one activity-whole: effort or strength is present as *dharma–svabhav*, motion or power as *svabhav–guna*, and result as *roop* (SB, pp. 60–62). The alignment is not a causal ladder. *Dharma* names invariant order-orientation; *svabhav* names order-specific functional character; *guna* names relative power or tendency in mutuality; and *roop* names the bounded configuration present on the result side. *Svabhav* crosses effort and motion, while the other three terms mark different aspects joined through it. The same tetrad attaches to every closed bearer — atom, molecule, cell, body, or joint form — rather than being inherited as a sum from its constituents (§5.4).
 
 ```mermaid
 flowchart TB
@@ -173,23 +177,43 @@ Undirected spokes mark co-present aspects of one activity. Directed arrows mark 
 
 ### 3.1 Form (*roop*): bounded configuration
 
-*Roop* is the spatial configuration, boundary-framework (*rachna*), shape, volume, and density of the unit (MVD, p. 50; SB, pp. 249–250). It maps to configurational result *r*<sub>i</sub>, the different existent state present after motion spreads effect (KD 3.11, p. 107). The modeller's full state *x*<sub>i</sub> may contain further non-spatial and relational fields and is therefore not identical with *roop*. Form is unit-grounded; reflection presents it in mutuality without creating it (MVD, pp. 42, 49–50; KD 3.9, p. 94).
+*Roop* is the spatial configuration and boundary-framework (*rachna*) of a unit, differentiated through shape, volume, and density or mass (MVD, pp. 49–50; SB, pp. 249–250; KD 3.10, pp. 100–101). It is the bounded way in which the unit is presently formed and available for reflection and recognition in mutuality. Form is unit-grounded; reflection presents it to another unit without creating it (MVD, pp. 42, 49–50; KD 3.9, p. 94).
+
+The alignment of result with *roop* does not make form a passive shell. Motion spreads effect, and *parinam* is the different existent configuration realised in that activity (KD 3.11, p. 107). The same realised configuration can therefore be read as *P*<sub>i,n</sub>, the result-aspect of one complete activity-occurrence, and as φ<sub>i,n</sub>, the form-coordinate of the bearer's state. These are two analytical roles for the configuration, not two additional constituents of the unit.
+
+Nor is *roop* the unit's entire state, essential nature, or order. A bearer can retain identity, constitutional kind, and *dharma* while its configuration changes. Conversely, similarity of shape or size does not by itself establish the same constitution, *svabhav*, or mutuality. The model therefore writes the fuller typed state as *x*<sub>i,n</sub> = (φ<sub>i,n</sub>, χ<sub>i,n</sub>), where χ records relevant non-spatial and internal conditions. *Roop* remains real and indispensable without being asked to carry every feature needed for a dynamic description.
 
 ### 3.2 Property (*guna*): relative power in motion
 
-*Guna* is relative power (*sapeksha shakti*), the effect and influence that arise when units come into mutuality (MVD, pp. 40, 47; SB, pp. 248–252, 256–257). It aligns with motion or power, which spreads effect and participates in overall orderliness (KD 3.8, p. 84; KD 3.11, pp. 102, 106–107). Generative, degenerative, and mediative activities occur across the four orders, with mediative activity regulating the generative and degenerative tendencies (MVD, p. 26; SB, p. 248; KD 3.10–3.11, pp. 100–104). The model records their qualitative profile γ without assigning weights or requiring mutual exclusivity. State-pressure and excitation-pressure describe force–power encountered in mutuality; neither is a fourth *guna*.
+*Guna* is relative power (*sapeksha shakti*): effect and influence evident when units come into mutuality (MVD, pp. 40, 47, 49–50; SB, pp. 248–252, 256–257). It aligns with motion or power, which spreads effect and participates in overall orderliness (KD 3.8, p. 84; KD 3.11, pp. 102, 106–107). The primary classification is generative (*sam*), degenerative (*visam*), and mediative (*madhyastha*). Generative tendency assists formation, degenerative tendency assists dissolution, and mediative tendency maintains or regulates what is formed (MVD, pp. 49–50; KD 3.10, pp. 100–101).
 
-In the first three orders, constitution, conformance, and neighbourhood determine the expressed profile without human reflective option. In the knowledge order, the same three tendencies remain powers of *jeevan*, while their expression in conduct is answerable to understanding and freedom of action. Delusion can express degenerative property in treachery, exploitation, and war; awakening establishes mediative conduct (KD 3.10, pp. 100–101). Knowledge reorganises expression without creating the underlying power.
+Property is therefore not a static descriptive label stored inside an otherwise inactive thing. It is the qualitative profile of relative power becoming effective in a facing. The model records that profile as γ, without assigning numerical weights or treating the three tendencies as mutually exclusive. Mediative regulation may remain present while generative or degenerative activity is evident (MVD, p. 26; SB, p. 248; KD 3.10–3.11, pp. 100–104). State-pressure and excitation-pressure describe how force–power is encountered under particular relational conditions; neither is an additional *guna*.
+
+*Guna* and *svabhav* must nevertheless remain distinct. *Guna* gives the general tendency and relative effect of power; *svabhav* gives that activity its order-specific functional character. Integration and disintegration, vitalising and devitalising, cruel and non-cruel conduct, and humane or human-opposing conduct are not four further *gunas*. They are the functional meanings through which property is evidenced in the respective orders. The reconstruction does not impose a deterministic one-to-one conversion from each *guna* to each *svabhav* and therefore retains separate γ and *s* fields.
+
+In the first three orders, constitution, conformance, and neighbourhood determine the expressed profile without human reflective option. In the knowledge order, the same three tendencies remain powers of *jeevan*, while their expression in conduct is answerable to understanding and freedom of action. Delusion can express degenerative property in treachery, exploitation, and war; awakening establishes mediative conduct (KD 3.10, pp. 100–101). Knowledge reorganises the expression of power without creating the underlying *guna* or *shakti*.
 
 ### 3.3 Essential nature (*svabhav*): functional character
 
-*Svabhav* is fundamental character (*maulikata*) and the usefulness (*upayogita*) of properties (MVD, p. 47). Usefulness here is order-specific functional significance, not benefit to a human observer: the same texts include devitalising and cruel essential natures. *Svabhav* spans effort and motion, bridging strength and the order-specific expression of power. Material units integrate or disintegrate, pranic units vitalise or devitalise, animal units evidence cruel or non-cruel conduct, and knowledge-order units evidence humane or inhumane dispositions (MVD, pp. 50–51, 57–58; SB, pp. 60–61, 179–180; KD 3.9–3.10, pp. 98–102). The transition relation is therefore typed by an admissible essential nature *s* and *guna*-profile γ. Multiple tendencies may be concurrently regulated; the source lists do not establish a one-hot selection rule.
+*Svabhav* is fundamental character (*maulikata*) and the usefulness (*upayogita*) of properties (MVD, p. 47). Usefulness here means order-specific functional significance, not benefit to a human observer or moral approval: the same texts include disintegration, devitalising activity, and cruelty among the essential natures of their respective orders. Material units integrate or disintegrate; pranic units vitalise or devitalise; animal units evidence cruel or non-cruel conduct; and knowledge-order units can evidence humane or human-opposing dispositions (MVD, pp. 50–51, 57–58; SB, pp. 60–61, 179–180; KD 3.9–3.10, pp. 98–102).
 
-Knowledge-order essential nature is explicitly refinable. Human-opposing expression appears as baseness, wretchedness, cruelty, covetousness, and causing pain; humane and higher-humane expression appears as fortitude, valour, generosity, kindness, grace, and compassion. Education, study, and the qualitative development of *sanskar* make transformation from the former toward the latter possible (KD, pp. 8–9, 26–27; KD 3.9, pp. 98–99). This transformability belongs to the human joint form. It does not make the constitution-governed *svabhav* of a mineral or plant into a voluntary choice.
+*Svabhav* is thus a form of expression only if expression is understood functionally rather than as appearance. It is not itself *shakti*: relative power belongs to *guna*, and operative power appears in motion. *Svabhav* specifies what the unit's strength and power do as activity of this order. Its presence in both *dharma–svabhav* on the effort side and *svabhav–guna* on the motion side makes it the shared functional character spanning state and motion (SB, pp. 60–62). The transition relation is therefore typed separately by an admissible essential nature *s* and a *guna*-profile γ.
+
+The relation to *dharma* is likewise not an automatic alignment mechanism. In the first three orders, constitution, seed-conformance, and species-conformance make the order-specific functional repertoire definite. In humans, *dharma* remains happiness while present essential nature can be human-opposing. Human-opposing expression appears as baseness, wretchedness, cruelty, covetousness, and causing pain; humane and higher-humane expression appears as fortitude, valour, generosity, kindness, grace, and compassion. Education, study, and qualitative development of *sanskar* make transformation toward humane essential nature possible (MVD, p. 124; KD, pp. 8–9, 26–27; KD 3.9, pp. 98–99).
+
+This transformability belongs to the human joint form; it does not make the constitution-governed repertoire of a mineral or plant into a voluntary choice. Human *svabhav* can therefore support or obstruct conscious fulfilment of human *dharma*. Knowledge does not supply a new power called *svabhav*; it refines the functional character through which existing strength, power, and property are expressed in conduct. Read together, *dharma* gives the invariant orientation, *svabhav* the order-specific way of functioning, *guna* the relative-power profile, and *roop* the configuration present as result.
 
 ### 3.4 *Dharma*: innateness and invariant orientation
 
-*Dharma* is innateness (*dharana*): what is borne, maintained, and characteristic of an entire order (MVD, p. 47). It is present on the side of effort with *svabhav* (SB, pp. 60–61). Existence, growth, hope to live, and happiness are stated cumulatively across the four orders (MVD, p. 115; SB, p. 179; KD 3.9–3.10, pp. 95, 100–102). Human *dharma* remains happiness through resolution and orderliness even while a deluded human misunderstands its fulfilment (JV, pp. 110, 121–123; KD 3.5, p. 69). The model treats *D*<sub>o</sub> as an invariant attached to the order type and uses a separate `fulfils_dharma` predicate for particular conduct. This preserves *dharma* on the effort side without turning it into a causal signal or physical potential.
+*Dharma* is innateness (*dharana*): what is borne, maintained, and cannot be separated from a unit of an entire order (MVD, p. 47). Existence, growth, hope to live, and happiness are stated cumulatively across the four orders (MVD, p. 115; SB, p. 179; KD 3.9–3.10, pp. 95, 100–102). Material *dharma* is existence; pranic *dharma* includes growth; animal *dharma* includes hope to live; human *dharma* includes happiness. The later order does not discard the earlier constituents of this orientation.
+
+This definition rules out treating *dharma* itself as knowledge or data. A material unit does not need a cognitive representation of existence, a plant does not consult encoded instructions called growth, and an animal does not first formulate hope as a proposition. Constitution, seed-conformance, and species-conformance are the respective conditions through which those orders continue. A formal model may store *D*<sub>o</sub> as a symbol attached to an order type, but the symbol is data in the model; the *dharma* it represents is not an information packet, program, or algorithm inside the unit.
+
+Nor is *dharma* an additional strength or power. Effort or strength is present as *dharma–svabhav*, while motion or power is present as *svabhav–guna* (SB, pp. 60–62). The first alignment places *dharma* on the state-and-effort side of activity without equating it with *bal*. Strength is what the unit bears in state; power is its operative expression in motion; *svabhav* supplies order-specific functional character; and *guna* names relative power evident in mutuality. *Dharma* specifies the invariant orientation whose fulfilment is at issue. It does not push the unit, supply energy, calculate the next state, or act alongside strength and power as a third causal quantity.
+
+Calling *dharma* an organising principle is therefore appropriate only in a constitutive sense. It states what continuing orderliness and fulfilment mean for a bearer of that order; it is not an external organiser imposing order upon otherwise inert material. The texts relate strength in state to being an orderliness and power in motion to participation in overall orderliness (KD 3.11, p. 106). They do not state a causal sequence in which *dharma* applies force and thereby produces order. Orderliness is the condition in which the unit's order-specific innateness is fulfilled and evidenced through its activity and mutuality.
+
+In the human order, *dharma* additionally becomes an object of knowledge. Human *dharma* remains happiness even while a deluded human misunderstands how happiness is fulfilled. Understanding makes resolution possible, and resolution can be evidenced as orderly conduct in relationship, work, and participation (JV, pp. 110, 121–123; KD 3.5, p. 69). Knowledge does not create human *dharma*: it enables conscious comprehension and fulfilment of an orientation already present. The model accordingly separates the invariant *D*<sub>o</sub>, the occurrence-level predicate `fulfils_dharma`, and the human epistemic predicate `comprehends_dharma`. This preserves the textual connection between *dharma* and effort without reducing *dharma* to force, information, or an automatic transition rule.
 
 ### 3.5 The four orders
 
@@ -647,6 +671,16 @@ $$
 
 Human *dharma* can remain happiness while an occurrence fails to fulfil it. $D_i$ is neither an applied force nor an instruction determining the next state.
 
+For a human joint form $H$, comprehension is represented separately:
+
+$$
+\operatorname{ComprehendsDharma}(H,n)
+\in
+\{\mathrm{true},\mathrm{false},\mathrm{undetermined}\}.
+$$
+
+This is an epistemic relation to human *dharma*, not the source of *dharma*. Comprehension makes deliberate fulfilment possible but does not mechanically determine conduct; its evidence remains assessable through the occurrence-level fulfilment predicate. Conversely, failure to comprehend or fulfil *dharma* does not remove $D_H$ from the human order type. Strength and power remain the effort and motion variables introduced in §A.4, not alternate names for $D_i$.
+
 ### A.3 A bounded situation as a dynamic typed graph
 
 A bounded situation at occurrence $n$ is
@@ -695,6 +729,8 @@ $$
 
 where $\phi_i$ is bounded form or configuration and $\chi_i$ is the order-specific internal condition. Examples of $\chi_i$ include atomic constitution, bondages, seed-pattern, respiration and growth condition, and sentient orientation. The fields remain qualitative unless a separate empirical submodel supplies measurements.
 
+$\phi_{i,n}$ represents *roop*, not the complete bearer. It records the configuration as a coordinate of model state. $P_{i,n}$ below records the same realised configuration in its role as the *parinam* of the occurrence. This role distinction prevents the formalism from multiplying entities while preserving the textual alignment of result with form.
+
 One complete unit-activity is
 
 $$
@@ -734,6 +770,8 @@ $$
 $$
 
 is the expressed *guna*-profile. Set notation permits mediative regulation to remain present with a generative or degenerative tendency; it does not assign numerical weights. $\operatorname{Act}$ is an admissibility schema rather than a deterministic vector field. It states that state, strength, motion, result, *dharma*, essential nature, property, and mutuality form one order-compatible activity-whole.
+
+$s_{i,n}$ and $\Gamma_{i,n}$ are not interchangeable. The first records the order-specific functional character evidenced in activity; the second records the relative-power tendencies expressed in mutuality. The sources do not give a universal conversion function between them, so both type the admissible activity without either being calculated mechanically from the other.
 
 Recurrence between complete occurrences is written
 
@@ -1223,10 +1261,12 @@ Population-level goals are not derived by aggregating $V_H$. Family prosperity, 
 | Power (*shakti*) | Motion or operative expression of a force-bearing unit in mutuality. |
 | State-pressure | Force relationally encountered in state; neither an additional force nor external source of activity. |
 | Excitation-pressure | Received compulsion when *sam–visam* excitation is present. |
-| Form (*roop*) | The real bounded configuration, shape, volume, and density of a bearer. |
-| Property (*guna*) | Relative power expressed through generative, degenerative, and mediative tendencies. |
-| Essential nature (*svabhav*) | Order-specific functional character or usefulness of property. |
-| *Dharma* | Invariant innateness borne by an order; distinct from whether a particular activity fulfils it. |
+| Form (*roop*) | The real bounded configuration, shape, volume, and density of a bearer; the result-side of activity, but not the full typed state. |
+| Property (*guna*) | Relative power or effect in mutuality, expressed through generative, degenerative, and mediative tendencies; not a static attribute or a synonym for *svabhav*. |
+| Essential nature (*svabhav*) | Order-specific functional character or usefulness of property: how strength and power function in that order, not an additional *shakti* and not a guarantee of *dharma*-fulfilment. |
+| *Dharma* | Invariant innateness borne by an order: the orientation that defines its fulfilment and orderliness, not knowledge, encoded instructions, force, power, or a transition rule. |
+| Knowledge of *dharma* | The human epistemic relation of comprehending *dharma*; it does not create the invariant it knows. |
+| Fulfilment of *dharma* | The occurrence-level evidence that activity and mutuality accord with the order's invariant orientation. |
 | Constitutional kind | What a bearer is constituted as: atom, composition, pranic body, or T1 *jeevan*. |
 | Manifested order | The role in which a bearer or joint form operates: material, pranic, animal, or knowledge. |
 | Containing bearer | A closed compound, cell, or body with its own conduct and tetrad, realised through parts that retain identities and orders. |
@@ -1252,11 +1292,13 @@ Population-level goals are not derived by aggregating $V_H$. Family prosperity, 
 | $U_n,\partial U_n$ | Active bearers in the local scenario and relevant external couplings |
 | $\operatorname{id}(i)$ | Persistent identity of bearer $i$ |
 | $\kappa_i,o_i$ | Constitutional kind and manifested order or role |
-| $x_i=(\phi_i,\chi_i)$ | Full typed state: form plus order-specific internal condition |
+| $x_i=(\phi_i,\chi_i)$ | Full typed state: *roop* or form plus order-specific internal condition |
+| $\phi_{i,n},P_{i,n}$ | The realised configuration as state-coordinate and as occurrence-result respectively |
 | $D_i$ | Invariant order-specific *dharma* |
 | $\operatorname{FulfilsDharma}(i,n)$ | Qualitative fulfilment status in one occurrence |
 | $\operatorname{ComprehendsDharma}(H,n)$ | Human comprehension and evidence of invariant human *dharma* |
-| $s_{i,n},\Gamma_{i,n}$ | Essential nature and non-empty qualitative *guna*-profile |
+| $s_{i,n}$ | Order-specific functional character or *svabhav* evidenced in activity |
+| $\Gamma_{i,n}$ | Non-empty qualitative *guna*-profile of relative-power tendencies |
 | $\alpha_{i,n}=\langle B_{i,n},S_{i,n},P_{i,n}\rangle$ | One complete effort–motion–result activity |
 | $Y_{H,n}$ | Human consequence profile: internal, bodily, relational, and natural |
 | $E_n,e,\lambda_e,\rho^{\mathrm{actual}}_e$ | Typed graph, edge, coupling kind, and actual relational condition |
@@ -1340,7 +1382,7 @@ Restfulness of effort, destination of motion, internal harmonies, ten effective 
 
 ### Madhyasth Darshan (primary sources)
 
-- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: coexistence, state-completeness, state-dynamism, saturation, energy, and the tetrad (pp. 11, 26, 34, 40–47; §1–§3); existential progression and material hunger (pp. 8, 13; §4); compound conduct and reflected form (pp. 42, 49–50; §3.1, §4.2, §5.4); *guna, svabhav,* and *dharma* across orders (pp. 26, 49–51, 57–58, 115; §1, §3, §5); mutual pressure in material development (p. 114; §1–§2); relationship, contact, and the use-ladder (pp. 61–62, 105; §5); T1, two liberations, and hope-bondage (p. 91; §6.1); the four human dimensions (p. 18; §10.2); study, enlightenment, realisation, internal values, and completeness (pp. 100–103; §7.2, §9); faculties and delusion (pp. 58, 78, 80–81; §7); humane conduct (pp. 80, 101; §9.3); action-to-conception feedback (p. 218; §8.2–§8.3); right-use and regeneration (p. 264; §5.2, §10.2).
+- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: coexistence, state-completeness, state-dynamism, saturation, energy, and the tetrad (pp. 11, 26, 34, 40–47; §1–§3); existential progression and material hunger (pp. 8, 13; §4); compound conduct and reflected form (pp. 42, 49–50; §3.1, §4.2, §5.4); *guna, svabhav,* and *dharma* across orders (pp. 26, 49–51, 57–58, 115, 124; §1, §3, §5); mutual pressure in material development (p. 114; §1–§2); relationship, contact, and the use-ladder (pp. 61–62, 105; §5); T1, two liberations, and hope-bondage (p. 91; §6.1); the four human dimensions (p. 18; §10.2); study, enlightenment, realisation, internal values, and completeness (pp. 100–103; §7.2, §9); faculties and delusion (pp. 58, 78, 80–81; §7); humane conduct (pp. 80, 101; §9.3); action-to-conception feedback (p. 218; §8.2–§8.3); right-use and regeneration (p. 264; §5.2, §10.2).
 - **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: coexistence, saturation, recognition, pressure, environmental excitation, directionality, and the effort–motion–result/tetrad alignment (pp. 48–61; §1–§3); energy-fullness and activeness (p. 69; §1); composition distinguished from development (pp. 75–76; §4); four orders and their *svabhav* and *dharma* (pp. 179–180; §3–§5); property, reflection, effect, state-pressure, flow, and relative power (pp. 248–257; §1–§3, §5); animal and knowledge orders as joint forms and animal evaluation of essential nature (pp. 55, 249; §6.3, §A.9); T1, atomic stability, and inexhaustible effort and motion (pp. 55, 61, 92, 144–145; §6.1); constituent order in composition (p. 260; §5.4); delusion (pp. 91–92; §7.3); undivided society (pp. 246–247; §10.3).
 - **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: coexistence, mutuality, inherent strength, and the absence of applied force from Omnipresence (pp. 43, 69, 149, 157–158; §1–§2, §5); four orders, conformance, animal hope, *sanskar*, body lineage, and complementarity (pp. 47–49, 59; §4–§7); values, character, ethics, right-use, protection, and human goals (pp. 54–61; §5, §9–§10); knowing, believing, recognising, and fulfilling (pp. 69–70; §5.2, §7.4); dissatisfaction under delusion and satisfaction through understanding (p. 76; §8.4); ten activities and the four-and-a-half account (pp. 73–74, 92–94; §7, §9.2); justice, relationship, values, evaluation, and mutual satisfaction (pp. 97–98, 137–139; §8–§10); human *dharma* as happiness and orderliness (pp. 110, 121–123; §3.4, §8.1).
 - **KD** — Nagraj, A. *Manav Karm Darshan*. [Working English translation](../References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf); Hindi source `KD-karm darshan v5.pdf`. Machine-assisted working translation — not a published translation; cited as corroboration only. Cited: knowledge, action, human consequence, hope for happiness, experience, inference, and absolute knowledge (pp. 1–4; §7–§8); environment, study, *sanskar*, and transformable human essential nature (pp. 6–9, 25–27; §3.3, §7–§8); humane values, character, and ethics (p. 67; §9.3); particle exchange and molecular joining (3.1, pp. 56–58; 3.11, pp. 103–104; §4–§5); compositional sequence and T1 (3.2–3.3, pp. 58–62; §4, §6); complete knowledge and five state–motion pairs (3.5–3.6, pp. 69–72; §3.4, §7–§9); state–motion indivisibility, forcefulness, and reflection (3.8–3.9, pp. 84, 88, 94; §1–§3, §5); order-specific *svabhav, dharma,* and *guna* (3.9–3.10, pp. 98–102; §2–§3, §5, §8); strength, power, result, pressure, and flow (3.11, pp. 102–109; §1–§3, §5); study and the realisation-oriented method (3.12, p. 112; §7.2, §8.4); excitation-pressure and uniform energy (3.13, pp. 118, 122; §1–§2); body–*jeevan*, faculties, result-to-reflection, knower, and object of knowledge (3.16–3.17, pp. 141–148; §6–§8).
