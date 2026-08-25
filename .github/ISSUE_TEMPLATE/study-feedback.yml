@@ -17,12 +17,12 @@ body:
       label: Which study?
       description: Choose the study your comment is about.
       options:
-        - A State Dynamic Model of Coexistence
         - Aesthetics
         - "Axiology: Value Theory"
         - Coexistence from First Principles
         - Ethics and Morals in Human Beings
         - Family Relationships and Values
+        - "From Unit Activity to Human Orderliness: A State-Dynamic Reconstruction of Coexistence"
         - How to Form Self-Sustaining Organizations
         - How Undivided Society Is Established
         - Human Behavior and Society
