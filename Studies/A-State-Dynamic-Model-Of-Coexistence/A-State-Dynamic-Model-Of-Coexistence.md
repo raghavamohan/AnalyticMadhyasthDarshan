@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** August 24, 2026, 10:01 PM IST
+**Edited on:** August 25, 2026, 5:45 AM IST
 **Status:** Draft
 
 **The question:** Madhyasth Darshan describes existence as coexistence: countlessly many active units saturated in one unbounded, motionless Omnipresence. Within that description, the material, pranic, and animal orders continue in definite activity, while the human knowledge order can know, evaluate, and refine its own conduct. Can those claims be stated as one model — one account of state, activity, and relationship that holds from the atom to human conduct without breaking the texts' own commitments?
@@ -80,6 +80,7 @@ This contract governs every symbol and diagram. A formal object may organise a t
 | Unit (*ikai*) | A bounded, countable bearer whose activity is effort, motion, and result together. |
 | Effort–motion–result (*shram–gati–parinam*) | Three simultaneous aspects of one unit-activity. |
 | Tetrad | Form (*roop*), property (*guna*), essential nature (*svabhav*), and *dharma* as four aspects of one unit. |
+| *Dharma* | The invariant innateness of an order: what its fulfilment and orderliness mean, rather than knowledge, encoded instructions, or an additional force. |
 | Mutuality | The actual facing among units and the order-specific recognition through which complementarity or contradiction is evidenced. |
 | Pressure | Force recognised in state; excitation-pressure is the received compulsion evident in an excited facing. Neither is an external energy reservoir. |
 | Closed bearer | An atom, molecule, compound, cell, body, or joint form with its own bounded conduct and tetrad. |
@@ -119,7 +120,7 @@ The reconstruction uses continuous change only within a fixed bearer type and gu
 
 ### 2.2 Effort (*shram*) as strength in the state
 
-Effort is strength or force (*bal*) borne by the unit. The state is the force-bearing side of activity, while power is present in motion; effort is explicitly aligned with *dharma* and *svabhav* (SB, pp. 60–61, 248, 256–257). State and motion are indivisible, and their meanings as strength and power apply across units from atoms to planetary bodies (KD 3.8, p. 84; KD 3.11, pp. 102–109). The model represents effort by a qualitative strength description *B*<sub>i</sub>, not a scalar magnitude, potential, or stored quantity. The bearer's type already carries its order-specific *dharma*; *dharma* is therefore an invariant of the admissible state and transition family, not a moment-to-moment control input. Forcefulness remains present in every state, and effort persists until its stated restfulness in completeness (SB, pp. 60–61).
+Effort is strength or force (*bal*) borne by the unit. The state is the force-bearing side of activity, while power is present in motion; effort is explicitly aligned with *dharma* and *svabhav* (SB, pp. 60–61, 248, 256–257). This alignment does not identify *dharma* with strength. *Dharma* names the unit's inseparable order-orientation, while *bal* names the strength borne in effort; *shakti* names its expression in motion. State and motion are indivisible, and their meanings as strength and power apply across units from atoms to planetary bodies (KD 3.8, p. 84; KD 3.11, pp. 102–109). The model represents effort by a qualitative strength description *B*<sub>i</sub>, not a scalar magnitude, potential, or stored quantity. The bearer's type already carries its order-specific *dharma*; *dharma* is therefore an invariant of the admissible state and transition family, not a moment-to-moment control input. Forcefulness remains present in every state, and effort persists until its stated restfulness in completeness (SB, pp. 60–61).
 
 > **"Strength in state evidences orderliness in oneself; power in motion evidences participation in the overall orderliness."**
 > — KD 3.11, p. 106
@@ -189,7 +190,15 @@ Knowledge-order essential nature is explicitly refinable. Human-opposing express
 
 ### 3.4 *Dharma*: innateness and invariant orientation
 
-*Dharma* is innateness (*dharana*): what is borne, maintained, and characteristic of an entire order (MVD, p. 47). It is present on the side of effort with *svabhav* (SB, pp. 60–61). Existence, growth, hope to live, and happiness are stated cumulatively across the four orders (MVD, p. 115; SB, p. 179; KD 3.9–3.10, pp. 95, 100–102). Human *dharma* remains happiness through resolution and orderliness even while a deluded human misunderstands its fulfilment (JV, pp. 110, 121–123; KD 3.5, p. 69). The model treats *D*<sub>o</sub> as an invariant attached to the order type and uses a separate `fulfils_dharma` predicate for particular conduct. This preserves *dharma* on the effort side without turning it into a causal signal or physical potential.
+*Dharma* is innateness (*dharana*): what is borne, maintained, and cannot be separated from a unit of an entire order (MVD, p. 47). Existence, growth, hope to live, and happiness are stated cumulatively across the four orders (MVD, p. 115; SB, p. 179; KD 3.9–3.10, pp. 95, 100–102). Material *dharma* is existence; pranic *dharma* includes growth; animal *dharma* includes hope to live; human *dharma* includes happiness. The later order does not discard the earlier constituents of this orientation.
+
+This definition rules out treating *dharma* itself as knowledge or data. A material unit does not need a cognitive representation of existence, a plant does not consult encoded instructions called growth, and an animal does not first formulate hope as a proposition. Constitution, seed-conformance, and species-conformance are the respective conditions through which those orders continue. A formal model may store *D*<sub>o</sub> as a symbol attached to an order type, but the symbol is data in the model; the *dharma* it represents is not an information packet, program, or algorithm inside the unit.
+
+Nor is *dharma* an additional strength or power. Effort or strength is present as *dharma–svabhav*, while motion or power is present as *svabhav–guna* (SB, pp. 60–62). The first alignment places *dharma* on the state-and-effort side of activity without equating it with *bal*. Strength is what the unit bears in state; power is its operative expression in motion; *svabhav* supplies order-specific functional character; and *guna* names relative power evident in mutuality. *Dharma* specifies the invariant orientation whose fulfilment is at issue. It does not push the unit, supply energy, calculate the next state, or act alongside strength and power as a third causal quantity.
+
+Calling *dharma* an organising principle is therefore appropriate only in a constitutive sense. It states what continuing orderliness and fulfilment mean for a bearer of that order; it is not an external organiser imposing order upon otherwise inert material. The texts relate strength in state to being an orderliness and power in motion to participation in overall orderliness (KD 3.11, p. 106). They do not state a causal sequence in which *dharma* applies force and thereby produces order. Orderliness is the condition in which the unit's order-specific innateness is fulfilled and evidenced through its activity and mutuality.
+
+In the human order, *dharma* additionally becomes an object of knowledge. Human *dharma* remains happiness even while a deluded human misunderstands how happiness is fulfilled. Understanding makes resolution possible, and resolution can be evidenced as orderly conduct in relationship, work, and participation (JV, pp. 110, 121–123; KD 3.5, p. 69). Knowledge does not create human *dharma*: it enables conscious comprehension and fulfilment of an orientation already present. The model accordingly separates the invariant *D*<sub>o</sub>, the occurrence-level predicate `fulfils_dharma`, and the human epistemic predicate `comprehends_dharma`. This preserves the textual connection between *dharma* and effort without reducing *dharma* to force, information, or an automatic transition rule.
 
 ### 3.5 The four orders
 
@@ -646,6 +655,16 @@ D_i=D_{o_i},
 $$
 
 Human *dharma* can remain happiness while an occurrence fails to fulfil it. $D_i$ is neither an applied force nor an instruction determining the next state.
+
+For a human joint form $H$, comprehension is represented separately:
+
+$$
+\operatorname{ComprehendsDharma}(H,n)
+\in
+\{\mathrm{true},\mathrm{false},\mathrm{undetermined}\}.
+$$
+
+This is an epistemic relation to human *dharma*, not the source of *dharma*. Comprehension makes deliberate fulfilment possible but does not mechanically determine conduct; its evidence remains assessable through the occurrence-level fulfilment predicate. Conversely, failure to comprehend or fulfil *dharma* does not remove $D_H$ from the human order type. Strength and power remain the effort and motion variables introduced in §A.4, not alternate names for $D_i$.
 
 ### A.3 A bounded situation as a dynamic typed graph
 
@@ -1226,7 +1245,9 @@ Population-level goals are not derived by aggregating $V_H$. Family prosperity, 
 | Form (*roop*) | The real bounded configuration, shape, volume, and density of a bearer. |
 | Property (*guna*) | Relative power expressed through generative, degenerative, and mediative tendencies. |
 | Essential nature (*svabhav*) | Order-specific functional character or usefulness of property. |
-| *Dharma* | Invariant innateness borne by an order; distinct from whether a particular activity fulfils it. |
+| *Dharma* | Invariant innateness borne by an order: the orientation that defines its fulfilment and orderliness, not knowledge, encoded instructions, force, power, or a transition rule. |
+| Knowledge of *dharma* | The human epistemic relation of comprehending *dharma*; it does not create the invariant it knows. |
+| Fulfilment of *dharma* | The occurrence-level evidence that activity and mutuality accord with the order's invariant orientation. |
 | Constitutional kind | What a bearer is constituted as: atom, composition, pranic body, or T1 *jeevan*. |
 | Manifested order | The role in which a bearer or joint form operates: material, pranic, animal, or knowledge. |
 | Containing bearer | A closed compound, cell, or body with its own conduct and tetrad, realised through parts that retain identities and orders. |
