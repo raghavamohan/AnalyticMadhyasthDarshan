@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** August 25, 2026, 6:05 AM IST
+**Edited on:** August 25, 2026, 6:56 AM IST
 **Status:** Draft
 
 **The question:** Madhyasth Darshan describes existence as coexistence: countlessly many active units saturated in one unbounded, motionless Omnipresence. Within that description, the material, pranic, and animal orders continue in definite activity, while the human knowledge order can know, evaluate, and refine its own conduct. Can those claims be stated as one model — one account of state, activity, and relationship that holds from the atom to human conduct without breaking the texts' own commitments?
@@ -89,6 +89,7 @@ This contract governs every symbol and diagram. A formal object may organise a t
 | Closed bearer | An atom, molecule, compound, cell, body, or joint form with its own bounded conduct and tetrad. |
 | Constitutional completeness (T1) | The irreversible atomic threshold at which *jeevan* is free of molecular- and weight-bondage and bears hope-bondage. |
 | *Jeevan* | The constitutionally complete sentient atom that operates through an animal or human body. |
+| Auxiliary sentient role $J$ | The model's role for T1 *jeevan* when no body association is active in the bounded situation; not a fifth order or *dharma* profile. |
 | Animal joint form | Animal body with *jeevan*, evidencing hope to live, species-conformant recognition and limited evaluation. |
 | Human joint form | Human body with *jeevan*, capable of knowing, believing, reflexive evaluation, refinement and humane conduct. |
 | Activity completeness (T2) | Restfulness of effort through realised inner resolution. |
@@ -205,7 +206,9 @@ This transformability belongs to the human joint form; it does not make the cons
 
 ### 3.4 *Dharma*: innateness and invariant orientation
 
-*Dharma* is innateness (*dharana*): what is borne, maintained, and cannot be separated from a unit of an entire order (MVD, p. 47). Existence, growth, hope to live, and happiness are stated cumulatively across the four orders (MVD, p. 115; SB, p. 179; KD 3.9–3.10, pp. 95, 100–102). Material *dharma* is existence; pranic *dharma* includes growth; animal *dharma* includes hope to live; human *dharma* includes happiness. The later order does not discard the earlier constituents of this orientation.
+*Dharma* is innateness (*dharana*): what is borne, maintained, and cannot be separated from a unit of an entire order (MVD, p. 47). Existence, growth, hope to live, and happiness are stated cumulatively across the four orders (MVD, pp. 50, 115; SB, p. 179; KD 3.9–3.10, pp. 95, 100–102). Material *dharma* is existence; pranic *dharma* includes growth; animal *dharma* includes hope to live; human *dharma* includes happiness. These are four cumulative order-profiles built from four contents, not four forces or independently acting objects. The later order does not discard the earlier constituents of its profile.
+
+The invariance is order-relative. Continuing activity, growth, configuration change, and human refinement do not manufacture or revise the *dharma* of an established bearer in the same order. Compositional closure can establish a new containing bearer whose order carries another cumulative profile while its constituents retain their own profiles. T1 is different from compositional closure: the developing atom retains identity but irreversibly changes constitutional kind, becomes *jeevan*, and immediately bears hope-bondage (MVD, p. 91). Progression therefore manifests a bearer or joint form to which an order-profile applies; it does not gradually append new *dharma* contents to an unchanged order-type.
 
 This definition rules out treating *dharma* itself as knowledge or data. A material unit does not need a cognitive representation of existence, a plant does not consult encoded instructions called growth, and an animal does not first formulate hope as a proposition. Constitution, seed-conformance, and species-conformance are the respective conditions through which those orders continue. A formal model may store *D*<sub>o</sub> as a symbol attached to an order type, but the symbol is data in the model; the *dharma* it represents is not an information packet, program, or algorithm inside the unit.
 
@@ -292,6 +295,8 @@ The upper arrows express constitutive dependency among bearer types, not one uni
 Each bearer type supplies a **constitutive condition** for later closure. Molecules require atoms of the relevant kinds; compounds and minerals require molecular constituents; pranic cells require chemical substances, definite heat, and the composition-method of the *prana sutra*. Plant, animal, and human bodies require cells. The animal joint form requires an animal body and T1 *jeevan*; the human joint form requires the developed human bodily medium and T1 *jeevan* (KD 3.2, pp. 58–60; JV, pp. 47–48, 59, 69–70). The human body follows lineage tradition, whereas *jeevan* is not produced by that lineage (JV, p. 59).
 
 Existential progression (*niyati-kram*) is the definite order in which the four orders become manifest on this earth under conducive conditions — material, pranic, animal, and knowledge (MVD, pp. 8, 13). The way of existence (*niyati-vidhi*) is the conformance by which a formed bearer maintains definite conduct. Constitutional completeness is development in the atom; compositional development closes new bearers. The two lines meet in animal and human joint forms without implying that a human is constituted from an animal joint form.
+
+Definiteness does not mean that effort–motion–result is a teleological force pulling every atom through all four orders. The triad states the completeness of each activity, while *niyati-kram* constrains the sequence in which order-types can become manifest. Most atoms continue in physical and chemical activity; some compositions close as new material or pranic bearers; constitutional completeness occurs on the distinct atomic line. The four *dharma* profiles are consequently a fixed repertoire of order-relative fulfilment criteria, not four dynamical attractors toward which every trajectory must converge. Treating them as attractors would add a convergence law beyond the qualitative transition structure adopted here.
 
 ## 5. Coupled units across orders
 
@@ -404,7 +409,7 @@ At constitutional completeness, the atom becomes free of molecular- and weight-b
 
 The model records that invariance as a persistent core *c*<sub>J</sub>: no further particle increase or decrease and no reversal to constitution-oriented status. The primary texts do not formulate T1 in the modern vocabulary of splitting, fusion, or degradation, so those possible physical interpretations remain open rather than being included in the definition. T1 is not repeated when understanding changes; later development concerns *jeevan* activity and awakening while its constitution remains complete (KD, pp. 26–27; KD 3.16, pp. 142–145).
 
-The same sentence that states the two liberations states what T1 adds: **hope-bondage** (*asha-bandhan*). *Jeevan* is not released into indifference. Bound to the hope for happiness, it seeks the continuity of happiness, and that seeking is what drives a body and makes the knowledge-order recursion of §7–§9 run: every human action carries the hope for happiness within it, and the evaluation of results against that hope is where delusion persists or awakening begins (MVD, p. 91; KD, pp. 1–4). Hope-bondage is therefore the sentient counterpart of the structural bondages it replaces — an orientation borne in the constitution of *jeevan*, not a physical constraint on a trajectory.
+The same sentence that states the two liberations states what becomes invariant at T1: **hope-bondage** (*asha-bandhan*). *Jeevan* is not released into indifference. The invariant is kept generic at the T1 level: an animal joint form expresses it as hope to live, while a human joint form seeks happiness and evaluates results against that orientation. In the human recursion of §7–§9, this is where delusion persists or awakening begins (MVD, p. 91; KD, pp. 1–4). Hope-bondage is therefore the sentient counterpart of the structural bondages it replaces — an orientation borne in the constitution of *jeevan*, not a physical constraint on a trajectory.
 
 ### 6.2 Pranic bodies as living media
 
@@ -488,7 +493,7 @@ The universal triad applies to *jeevan*. Human activity differs because its orie
 
 ### 8.1 The knowledge-mediated tetrad
 
-Human *dharma* *D*<sub>H</sub> remains happiness through resolution and participation in orderliness. The qualitative predicate `ComprehendsDharma(H,n)` records its present comprehension and evidence. Present *sanskar*, knowledge profile, operative recognition, and freedom of action condition the humane or human-opposing *svabhav* and *guna*-profile expressed in conduct. Human-opposing expression can be transformed toward fortitude, valour, generosity, kindness, grace, and compassion, while awakened conduct becomes mediative (KD, pp. 26–27; KD 3.9–3.10, pp. 98–101).
+Human *dharma* *D*<sub>H,n</sub> remains happiness through resolution and participation in orderliness while the knowledge-order joint form is active. The qualitative predicate `ComprehendsDharma(H,n)` records its present comprehension and evidence. Present *sanskar*, knowledge profile, operative recognition, and freedom of action condition the humane or human-opposing *svabhav* and *guna*-profile expressed in conduct. Human-opposing expression can be transformed toward fortitude, valour, generosity, kindness, grace, and compassion, while awakened conduct becomes mediative (KD, pp. 26–27; KD 3.9–3.10, pp. 98–101).
 
 The invariant constitutional capacity *C*<sub>J</sub> is distinguished from its current expression *B*<sub>H,n</sub>. Power appears in selection, analysis, imaging, resolve, evidence, and body-mediated conduct. Knowledge does not replace *bal–shakti*; it qualifies its knowledge-order expression through understood purpose. The T1 core *c*<sub>J</sub> remains invariant throughout refinement.
 
@@ -637,10 +642,25 @@ Let $\mathbb{S}$ denote state-complete Omnipresence (*satta*), and let $i,j,c,b$
 
 | Type axis | Symbol | Values used here |
 |-----------|--------|------------------|
-| Constitutional kind | $\kappa_i$ | Developing atom, T1 *jeevan*, molecule, compound or mineral, pranic cell, pranic body, joint-form handle |
-| Manifested order or role | $o_i$ | Material $M$, pranic $P$, animal $A$, knowledge $K$, or unjoined sentient $J$ |
+| Constitutional kind | $\kappa_{i,n}$ | Developing atom, T1 *jeevan*, molecule, compound or mineral, pranic cell, pranic body, joint-form handle |
+| Manifested order or role | $o_{i,n}$ | Material $M$, pranic $P$, animal $A$, knowledge $K$, or auxiliary unjoined-sentient role $J$ |
 
-T1 *jeevan* retains its constitutional kind whether associated with an animal body, a human body, or no body in the bounded situation. Animal and knowledge order name joint-form roles rather than different constitutions of *jeevan*. A joint-form handle refers to the coupled body–*jeevan* unit of analysis without introducing a third substance.
+The indices matter only at guarded boundaries. Constitutional kind and manifested role remain stable across continuing occurrences, but T1 changes the same atom from developing constitution to T1 *jeevan*, while body–*jeevan* association activates an animal- or knowledge-order joint-form handle. T1 *jeevan* retains its constitution whether associated with an animal body, a human body, or no body in the bounded situation. Animal and knowledge order name joint-form roles rather than different constitutions of *jeevan*. A joint-form handle refers to the coupled body–*jeevan* unit of analysis without introducing a third substance.
+
+$J$ is an auxiliary role, not a fifth order. It marks a T1 *jeevan* for which no body–*jeevan* association is active in the bounded situation. The four-order *dharma* map is therefore defined only for $M$, $P$, $A$, and $K$. The model does not infer a fifth cumulative profile for $J$; it records the narrower source-stated T1 orientation as the invariant predicate $\operatorname{HopeBondage}(j)$.
+
+The generic activity schema uses a standing orientation input
+
+$$
+\mathcal{I}_{i,n}
+=
+\begin{cases}
+D_{o_{i,n}}, & o_{i,n}\in\{M,P,A,K\},\\
+\operatorname{HopeBondage}(i), & o_{i,n}=J.
+\end{cases}
+$$
+
+The second branch is not a fifth $D_o$. It keeps the source-stated sentient invariant available when the four-order cumulative profile is inapplicable because no animal or human joint form is active.
 
 The standing constraints are
 
@@ -659,17 +679,27 @@ $$
 
 No transition changes $\mathbb{S}$, assigns motion or pressure to it, or treats saturation as an applied input. Every bearer has persistent identity $\operatorname{id}(i)$. Composition activates a containing bearer without annihilating its constituents. Disintegration deactivates that closure while constituent identities continue. T1 preserves atomic identity while irreversibly changing constitutional kind.
 
-The order-specific *dharma* and its fulfilment are separate:
+The order-specific *dharma* and its fulfilment are separate. For an order-manifesting bearer or joint-form handle,
 
 $$
-D_i=D_{o_i},
+D_{i,n}=D_{o_{i,n}},
+\qquad
+o_{i,n}\in\{M,P,A,K\},
 \qquad
 \operatorname{FulfilsDharma}(i,n)
 \in
 \{\mathrm{true},\mathrm{false},\mathrm{undetermined}\}.
 $$
 
-Human *dharma* can remain happiness while an occurrence fails to fulfil it. $D_i$ is neither an applied force nor an instruction determining the next state.
+Across an established order interval,
+
+$$
+o_{i,n+1}=o_{i,n}
+\Longrightarrow
+D_{i,n+1}=D_{i,n}.
+$$
+
+Human *dharma* can remain happiness while an occurrence fails to fulfil it. $D_{i,n}$ is neither an applied force nor an instruction determining the next state. Compositional closure assigns the applicable profile to the newly active containing bearer while its constituents retain theirs. T1 does not calculate a new profile from the material one: it changes constitutional kind and activates the source-stated hope-bondage invariant in the persistent *jeevan* identity. Animal- or knowledge-order *dharma* belongs to the corresponding joint-form handle when body association makes that order manifest.
 
 For a human joint form $H$, comprehension is represented separately:
 
@@ -679,7 +709,7 @@ $$
 \{\mathrm{true},\mathrm{false},\mathrm{undetermined}\}.
 $$
 
-This is an epistemic relation to human *dharma*, not the source of *dharma*. Comprehension makes deliberate fulfilment possible but does not mechanically determine conduct; its evidence remains assessable through the occurrence-level fulfilment predicate. Conversely, failure to comprehend or fulfil *dharma* does not remove $D_H$ from the human order type. Strength and power remain the effort and motion variables introduced in §A.4, not alternate names for $D_i$.
+This is an epistemic relation to human *dharma*, not the source of *dharma*. Comprehension makes deliberate fulfilment possible but does not mechanically determine conduct; its evidence remains assessable through the occurrence-level fulfilment predicate. Conversely, failure to comprehend or fulfil *dharma* does not remove $D_{H,n}$ while the human joint form is active. Strength and power remain the effort and motion variables introduced in §A.4, not alternate names for $D_{i,n}$.
 
 ### A.3 A bounded situation as a dynamic typed graph
 
@@ -746,12 +776,12 @@ $$
 where $B$ is effort or strength borne in state, $S$ is motion or power in expression, and $P$ is the presently realised configurational *parinam*. They are co-present in the typed admissibility relation
 
 $$
-\operatorname{Act}_{\kappa_i,o_i}
+\operatorname{Act}_{\kappa_{i,n},o_{i,n}}
 \left(
 x_{i,n},\,
 R^{\mathrm{actual}}_{i,n},\,
 \widehat R_{i,n},\,
-D_i,\,
+\mathcal{I}_{i,n},\,
 s_{i,n},\,
 \Gamma_{i,n};\,
 \alpha_{i,n}
@@ -763,13 +793,13 @@ Here $s_{i,n}$ is essential nature evidenced in the facing, and
 $$
 \Gamma_{i,n}
 \in
-\mathcal{G}_{o_i}
+\mathcal{G}_{o_{i,n}}
 \subseteq
 2^{\{\textit{sam},\textit{visam},\textit{madhyastha}\}}
 \setminus\{\varnothing\}
 $$
 
-is the expressed *guna*-profile. Set notation permits mediative regulation to remain present with a generative or degenerative tendency; it does not assign numerical weights. $\operatorname{Act}$ is an admissibility schema rather than a deterministic vector field. It states that state, strength, motion, result, *dharma*, essential nature, property, and mutuality form one order-compatible activity-whole.
+is the expressed *guna*-profile. Set notation permits mediative regulation to remain present with a generative or degenerative tendency; it does not assign numerical weights. $\operatorname{Act}$ is an admissibility schema rather than a deterministic vector field. It states that state, strength, motion, result, standing order-or-T1 orientation, essential nature, property, and mutuality form one compatible activity-whole.
 
 $s_{i,n}$ and $\Gamma_{i,n}$ are not interchangeable. The first records the order-specific functional character evidenced in activity; the second records the relative-power tendencies expressed in mutuality. The sources do not give a universal conversion function between them, so both type the admissible activity without either being calculated mechanically from the other.
 
@@ -820,7 +850,7 @@ while operative recognition is
 $$
 \widehat R_{i,n}
 \in
-\operatorname{Recognise}_{\kappa_i,o_i}
+\operatorname{Recognise}_{\kappa_{i,n},o_{i,n}}
 \left(
 x_{i,n},R^{\mathrm{actual}}_{i,n}
 \right).
@@ -907,14 +937,14 @@ $$
 
 | Transition | What changes | Identity and order constraint |
 |------------|--------------|-------------------------------|
-| Continuing activity | Configuration and actual facings within an established kind | Same bearer; no order conversion |
+| Continuing activity | Configuration and actual facings within an established kind | Same bearer and order-role; *dharma* profile invariant |
 | Atomic exchange | Particle constitution, hunger or overfullness, and relevant couplings | Developing atom identities persist |
 | Mixture formation or separation | Actual facing edges | No containing bearer |
-| Compositional closure | Compound, cell, or body and part relations become active | New containing bearer; constituents retain identity and order |
+| Compositional closure | Compound, cell, or body and part relations become active | New containing bearer receives its order-profile; constituents retain identity, order, and profiles |
 | Disintegration | A containing bearer and its part relations cease | Constituents continue in lower-level couplings |
 | Pranic growth or reproduction | Seed-conformant cells or bodies close, grow, or reproduce | The resulting body remains pranic |
-| T1 constitutional completeness | A developing atom becomes constitutionally complete *jeevan* | Same atomic identity; irreversible constitutional change |
-| Body–*jeevan* association or separation | The joint relation becomes active or ceases | Body and *jeevan* remain distinct |
+| T1 constitutional completeness | A developing atom becomes constitutionally complete *jeevan* and bears hope-bondage | Same atomic identity; constitutional kind changes irreversibly; auxiliary role $J$ is not a fifth order |
+| Body–*jeevan* association or separation | An animal- or knowledge-order joint handle becomes active or ceases | Body and *jeevan* remain distinct; their persistent kinds survive the role change |
 | Animal evaluation | Species-conformant recognition of essential nature and bodily response | No human knowing–believing or justice criterion is inferred |
 | Human evaluation and refinement | Operative recognition, conception, evaluation profile, or *sanskar* changes | T1 core and human *dharma* remain invariant |
 
@@ -927,6 +957,8 @@ No transition receives a probability. Dissatisfaction does not force inquiry, st
 | Pranic | Material composition, seed or *prana-sutra* pattern, respiration, reproduction, nourishment, growth, bodily integrity | Seed-conformance; growth, nourishment, reproduction, decline and return to material constituents |
 | Animal joint form | Pranic animal body, invariant T1 core, species-conditioned sentient orientation | Species-conformance; hope to live, sensitivity, tasting, selection, friendliness/opposition and evaluation |
 | Human joint form | Pranic human body, invariant T1 core, refinable knowledge-order orientation | *Sanskar*-conformance; knowing, believing, recognising, fulfilling, reflexive evaluation and possible refinement |
+
+$J$ is deliberately absent from this four-order table. It is the auxiliary role of the persistent T1 *jeevan* when no joint-form association is active, not another order alongside material, pranic, animal, and knowledge. Its constitution and hope-bondage remain explicit in §A.10; animal hope to live and human orientation toward happiness are expressed only through their respective joint forms.
 
 The animal and human joint states are
 
@@ -954,10 +986,14 @@ $$
 \begin{aligned}
 &\kappa^-_j=\text{developing atom},
 \qquad
+o^-_j=M,
+\qquad
 \operatorname{Guard}_{T1}(x^-_j),\\
 &\kappa^+_j=\text{T1 jeevan},
 \qquad
-\operatorname{id}(j^+)=\operatorname{id}(j^-).
+\operatorname{id}(j^+)=\operatorname{id}(j^-),
+\qquad
+o^+_j=J.
 \end{aligned}
 $$
 
@@ -972,10 +1008,10 @@ $$
 $$
 \operatorname{ConstitutionInvariant}(c_J),
 \qquad
-\operatorname{HopeForHappiness}(j).
+\operatorname{HopeBondage}(j).
 $$
 
-The sources supply these qualitative postconditions but no empirically accepted guard.
+The sources supply these qualitative postconditions but no empirically accepted guard. $J$ records the post-T1 sentient bearer without extending the four-order taxonomy. Hope-bondage is kept generic at this level: in an animal joint form it is expressed as hope to live, while in a human joint form the applicable knowledge-order *dharma* is happiness.
 
 For joint-form handle $h$,
 
@@ -984,8 +1020,12 @@ $$
 \Longleftrightarrow
 j\bowtie_n b
 \land
-\operatorname{Components}(h)=\{j,b\}.
+\operatorname{Components}(h)=\{j,b\}
+\land
+o_{h,n}\in\{A,K\}.
 $$
+
+Activating $h$ assigns the cumulative *dharma* profile of its manifested order without altering $c_J$ or the pranic body's profile. Separation deactivates the joint handle and its order-role; the body and *jeevan* remain distinct persistent bearers, and *jeevan* is again represented by the auxiliary role $J$.
 
 The interface has two typed directions:
 
@@ -1109,7 +1149,7 @@ $$
 x_{H,n},
 R^{\mathrm{actual}}_{H,n},
 \widehat R_{H,n},
-D_H,
+D_{H,n},
 s_{H,n},
 \Gamma_{H,n};
 \alpha^{\mathrm{conduct}}_{H,n}
@@ -1124,7 +1164,7 @@ $$
 z_{H,n},
 \operatorname{Observe}(Y_{H,n}),
 \widehat R_{H,n},
-D_H,
+D_{H,n},
 s^{\mathrm{eval}}_{H,n},
 \Gamma^{\mathrm{eval}}_{H,n};
 \alpha^{\mathrm{eval}}_{H,n}
@@ -1264,11 +1304,12 @@ Population-level goals are not derived by aggregating $V_H$. Family prosperity, 
 | Form (*roop*) | The real bounded configuration, shape, volume, and density of a bearer; the result-side of activity, but not the full typed state. |
 | Property (*guna*) | Relative power or effect in mutuality, expressed through generative, degenerative, and mediative tendencies; not a static attribute or a synonym for *svabhav*. |
 | Essential nature (*svabhav*) | Order-specific functional character or usefulness of property: how strength and power function in that order, not an additional *shakti* and not a guarantee of *dharma*-fulfilment. |
-| *Dharma* | Invariant innateness borne by an order: the orientation that defines its fulfilment and orderliness, not knowledge, encoded instructions, force, power, or a transition rule. |
+| *Dharma* | Order-relative invariant innateness: the orientation that defines fulfilment and orderliness for a bearer of that order, not knowledge, encoded instructions, force, power, or a transition rule. |
 | Knowledge of *dharma* | The human epistemic relation of comprehending *dharma*; it does not create the invariant it knows. |
 | Fulfilment of *dharma* | The occurrence-level evidence that activity and mutuality accord with the order's invariant orientation. |
 | Constitutional kind | What a bearer is constituted as: atom, composition, pranic body, or T1 *jeevan*. |
 | Manifested order | The role in which a bearer or joint form operates: material, pranic, animal, or knowledge. |
+| Auxiliary sentient role $J$ | T1 *jeevan* without an active body association in the bounded situation; not a fifth order and not a fifth *dharma* profile. |
 | Containing bearer | A closed compound, cell, or body with its own conduct and tetrad, realised through parts that retain identities and orders. |
 | Complementarity | Order-appropriate reciprocity in structural need, nourishment, use, relationship, or participation. |
 | Relationship (*sambandh*) | Human mutuality with inherent roles, expectations, and values. |
@@ -1276,7 +1317,7 @@ Population-level goals are not derived by aggregating $V_H$. Family prosperity, 
 | Evaluation | Sentient recognition of essential nature or fulfilment; species-conformant in animals and reflexive in humans. |
 | Internal orientation | Human faculty, acceptance, knowledge, evaluation, and recognition profile. |
 | *Sanskar* | Realisation-oriented acceptance evidenced as understanding, honesty, responsibility, and participation. |
-| Hope-bondage (*asha-bandhan*) | The hope for happiness borne by constitutionally complete *jeevan*. |
+| Hope-bondage (*asha-bandhan*) | The sentient orientation borne by constitutionally complete *jeevan*, expressed as hope to live in an animal joint form and as orientation toward happiness in a human joint form. |
 | *Jeevan* values | *Sukh, shanti, santosh,* and *anand*, grounded in *paramanand* at realised *atma*. |
 | Dissatisfaction | Experienced non-fulfilment or internal contradiction; neither physical pressure nor applied force. |
 | Existential progression | Definite manifestation of material, pranic, animal, and knowledge orders under conducive conditions. |
@@ -1291,10 +1332,11 @@ Population-level goals are not derived by aggregating $V_H$. Family prosperity, 
 | $\mathcal{Q}_n$ | Complete bounded situation at occurrence $n$ |
 | $U_n,\partial U_n$ | Active bearers in the local scenario and relevant external couplings |
 | $\operatorname{id}(i)$ | Persistent identity of bearer $i$ |
-| $\kappa_i,o_i$ | Constitutional kind and manifested order or role |
-| $x_i=(\phi_i,\chi_i)$ | Full typed state: *roop* or form plus order-specific internal condition |
+| $\kappa_{i,n},o_{i,n}$ | Occurrence-indexed constitutional kind and manifested order or auxiliary role |
+| $x_{i,n}=(\phi_{i,n},\chi_{i,n})$ | Full typed state: *roop* or form plus order-specific internal condition |
 | $\phi_{i,n},P_{i,n}$ | The realised configuration as state-coordinate and as occurrence-result respectively |
-| $D_i$ | Invariant order-specific *dharma* |
+| $D_{i,n}=D_{o_{i,n}}$ | Order-relative *dharma* profile for material, pranic, animal, or knowledge bearers; invariant while the order-role is fixed |
+| $\mathcal{I}_{i,n}$ | Standing activity orientation: the applicable four-order *dharma* profile, or `HopeBondage` for auxiliary role $J$ |
 | $\operatorname{FulfilsDharma}(i,n)$ | Qualitative fulfilment status in one occurrence |
 | $\operatorname{ComprehendsDharma}(H,n)$ | Human comprehension and evidence of invariant human *dharma* |
 | $s_{i,n}$ | Order-specific functional character or *svabhav* evidenced in activity |
@@ -1304,8 +1346,8 @@ Population-level goals are not derived by aggregating $V_H$. Family prosperity, 
 | $E_n,e,\lambda_e,\rho^{\mathrm{actual}}_e$ | Typed graph, edge, coupling kind, and actual relational condition |
 | $R^{\mathrm{actual}}_i,\widehat R_i$ | Actual relational neighbourhood and operative recognition |
 | $i\prec c,\operatorname{Parts}(c),N^{\mathrm{ext}}(c)$ | Part relation, constituents, and external neighbours of a containing bearer |
-| $j\bowtie b$ | Body–*jeevan* association; not material containment or fusion |
-| $c_J$ | Invariant constitutionally complete core of *jeevan* |
+| $j\bowtie_n b$ | Body–*jeevan* association at occurrence $n$; not material containment or fusion |
+| $c_J$ | Invariant constitutionally complete core and hope-bondage of *jeevan*; $J$ is auxiliary, not a fifth order |
 | $x_A,x_H$ | Animal and human joint states |
 | $u^{B\to J},u^{J\to B}$ | Bodily presentation to *jeevan* and sentient expression through the body |
 | $K^{*}$ | Fixed content: coexistence, *jeevan*, and humane conduct |
@@ -1355,6 +1397,10 @@ Animal evaluation is recognition of essential nature under species-conformance, 
 
 Composition closes a new public conduct while constituents retain their own orders (MVD, p. 42; SB, p. 260). Atomic development reaches T1 instead (SB, pp. 75–76; KD 3.2–3.3). The dynamic graph and constitutive-consistency predicate are analytical devices for keeping these claims together. The sources do not formulate part relations, bearer creation events, or two simultaneous tetrads mathematically.
 
+### Auxiliary sentient role $J$
+
+The four-order enumeration remains material, pranic, animal, and knowledge. T1 passages separately describe the persistent constitutionally complete *jeevan*, its freedom from molecular- and weight-bondage, and its hope-bondage; animal and human order appear through body–*jeevan* joint forms. $J$ is therefore introduced only as an analytical role for T1 *jeevan* when no joint-form association is active. The formalism assigns it no fifth cumulative $D_o$ profile: $\mathcal{I}_{i,n}$ carries `HopeBondage` at $J$, while animal and knowledge joint handles receive their respective four-order profiles.
+
 ### Operational status of T2 and T3
 
 Restfulness of effort, destination of motion, internal harmonies, ten effective activities, and humane conduct are separately supported (MVD, p. 103; SB, p. 58; JV, pp. 73–74, 137–139). $T2^{*}$ and $T3^{*}$ combine them into proposed operational predicates. The asterisk marks that the conjunction is a reconstruction rather than a source equation.
@@ -1371,6 +1417,7 @@ Restfulness of effort, destination of motion, internal harmonies, ten effective 
 | Material, pranic, animal, and knowledge orders continue through their respective conformances | Direct textual claim | MVD pp. 8, 13; JV pp. 47–49 |
 | Animal *jeevan* evaluates essential nature through species-conformant friendliness or opposition | Direct textual claim | SB pp. 55, 249; JV pp. 49, 69–70 |
 | T1 *jeevan* is free of molecular- and weight-bondage and bears hope-bondage | Direct textual claim | MVD p. 91; SB pp. 55, 58, 61; KD pp. 61–62 |
+| Auxiliary role $J$ and the standing-orientation split between `HopeBondage` and four-order $D_o$ profiles | Analytical reconstruction grounded in direct claims | The texts state four orders, T1 hope-bondage, and body–*jeevan* joint forms, not this role symbol or case distinction |
 | Five state and five motion activities belong to *jeevan* | Direct textual claim | JV pp. 92–94; KD pp. 71–72, 145 |
 | Justice relates relationship recognition, value-fulfilment, evaluation, and mutual satisfaction | Direct textual claim | JV pp. 97–98, 137–139 |
 | Constitutional kind, manifested order, typed graph, actual/recognised relation, pressure predicates, and guarded events | Analytical reconstruction | The sources supply qualitative distinctions, not these formalisms |
@@ -1382,7 +1429,7 @@ Restfulness of effort, destination of motion, internal harmonies, ten effective 
 
 ### Madhyasth Darshan (primary sources)
 
-- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: coexistence, state-completeness, state-dynamism, saturation, energy, and the tetrad (pp. 11, 26, 34, 40–47; §1–§3); existential progression and material hunger (pp. 8, 13; §4); compound conduct and reflected form (pp. 42, 49–50; §3.1, §4.2, §5.4); *guna, svabhav,* and *dharma* across orders (pp. 26, 49–51, 57–58, 115, 124; §1, §3, §5); mutual pressure in material development (p. 114; §1–§2); relationship, contact, and the use-ladder (pp. 61–62, 105; §5); T1, two liberations, and hope-bondage (p. 91; §6.1); the four human dimensions (p. 18; §10.2); study, enlightenment, realisation, internal values, and completeness (pp. 100–103; §7.2, §9); faculties and delusion (pp. 58, 78, 80–81; §7); humane conduct (pp. 80, 101; §9.3); action-to-conception feedback (p. 218; §8.2–§8.3); right-use and regeneration (p. 264; §5.2, §10.2).
+- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: coexistence, state-completeness, state-dynamism, saturation, energy, and the tetrad (pp. 11, 26, 34, 40–47; §1–§3); existential progression and material hunger (pp. 8, 13; §4); compound conduct and reflected form (pp. 42, 49–50; §3.1, §4.2, §5.4); *guna, svabhav,* and *dharma* across orders (pp. 26, 49–51, 57–58, 115, 124; §1, §3, §5); mutual pressure in material development (p. 114; §1–§2); relationship, contact, and the use-ladder (pp. 61–62, 105; §5); T1, two liberations, and hope-bondage (p. 91; §3.4, §6.1); the four human dimensions (p. 18; §10.2); study, enlightenment, realisation, internal values, and completeness (pp. 100–103; §7.2, §9); faculties and delusion (pp. 58, 78, 80–81; §7); humane conduct (pp. 80, 101; §9.3); action-to-conception feedback (p. 218; §8.2–§8.3); right-use and regeneration (p. 264; §5.2, §10.2).
 - **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: coexistence, saturation, recognition, pressure, environmental excitation, directionality, and the effort–motion–result/tetrad alignment (pp. 48–61; §1–§3); energy-fullness and activeness (p. 69; §1); composition distinguished from development (pp. 75–76; §4); four orders and their *svabhav* and *dharma* (pp. 179–180; §3–§5); property, reflection, effect, state-pressure, flow, and relative power (pp. 248–257; §1–§3, §5); animal and knowledge orders as joint forms and animal evaluation of essential nature (pp. 55, 249; §6.3, §A.9); T1, atomic stability, and inexhaustible effort and motion (pp. 55, 61, 92, 144–145; §6.1); constituent order in composition (p. 260; §5.4); delusion (pp. 91–92; §7.3); undivided society (pp. 246–247; §10.3).
 - **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: coexistence, mutuality, inherent strength, and the absence of applied force from Omnipresence (pp. 43, 69, 149, 157–158; §1–§2, §5); four orders, conformance, animal hope, *sanskar*, body lineage, and complementarity (pp. 47–49, 59; §4–§7); values, character, ethics, right-use, protection, and human goals (pp. 54–61; §5, §9–§10); knowing, believing, recognising, and fulfilling (pp. 69–70; §5.2, §7.4); dissatisfaction under delusion and satisfaction through understanding (p. 76; §8.4); ten activities and the four-and-a-half account (pp. 73–74, 92–94; §7, §9.2); justice, relationship, values, evaluation, and mutual satisfaction (pp. 97–98, 137–139; §8–§10); human *dharma* as happiness and orderliness (pp. 110, 121–123; §3.4, §8.1).
 - **KD** — Nagraj, A. *Manav Karm Darshan*. [Working English translation](../References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf); Hindi source `KD-karm darshan v5.pdf`. Machine-assisted working translation — not a published translation; cited as corroboration only. Cited: knowledge, action, human consequence, hope for happiness, experience, inference, and absolute knowledge (pp. 1–4; §7–§8); environment, study, *sanskar*, and transformable human essential nature (pp. 6–9, 25–27; §3.3, §7–§8); humane values, character, and ethics (p. 67; §9.3); particle exchange and molecular joining (3.1, pp. 56–58; 3.11, pp. 103–104; §4–§5); compositional sequence and T1 (3.2–3.3, pp. 58–62; §4, §6); complete knowledge and five state–motion pairs (3.5–3.6, pp. 69–72; §3.4, §7–§9); state–motion indivisibility, forcefulness, and reflection (3.8–3.9, pp. 84, 88, 94; §1–§3, §5); order-specific *svabhav, dharma,* and *guna* (3.9–3.10, pp. 98–102; §2–§3, §5, §8); strength, power, result, pressure, and flow (3.11, pp. 102–109; §1–§3, §5); study and the realisation-oriented method (3.12, p. 112; §7.2, §8.4); excitation-pressure and uniform energy (3.13, pp. 118, 122; §1–§2); body–*jeevan*, faculties, result-to-reflection, knower, and object of knowledge (3.16–3.17, pp. 141–148; §6–§8).
