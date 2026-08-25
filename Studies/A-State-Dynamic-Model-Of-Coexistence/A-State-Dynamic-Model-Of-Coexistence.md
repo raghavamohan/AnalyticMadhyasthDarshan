@@ -2,18 +2,18 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** August 25, 2026, 7:31 AM IST
+**Edited on:** August 25, 2026, 1:55 PM IST
 **Status:** Draft
 
 **The question:** What causal and relational architecture connects intrinsic unit activity to material formation, sentient evaluation, and human orderliness in Madhyasth Darshan — and how far can that architecture be formalised without turning Omnipresence, *dharma*, or *niyati-kram* into hidden forces, collapsing composition into atomic development, or presenting analytical formalism as source doctrine?
 
 This paper develops a source-bounded causal architecture from unit activity to human orderliness. Its central achievement is to reconstruct one connected account of material change, compositional closure, sentient participation, reflexive evaluation, and public conduct while preserving the different kinds of bearer and evidence involved. The result is a typed qualitative hybrid model, not a quantitative theory that predicts physical trajectories or proves every ontological claim.
 
-At its ontological base, state-complete Omnipresence (*satta*) coexists with countlessly many state-dynamic units. Every unit bears form (*roop*), property (*guna*), essential nature (*svabhav*), and *dharma*; every activity is effort, motion, and result together. The reconstruction separates the roles that make such activity intelligible: saturation grounds energy-fullness and intrinsic activeness; actual mutuality supplies the proximate conditions of change; constitution and conformance constrain the available response; *guna* and *svabhav* characterise its power and function; *niyati-kram* restricts the sequence of manifested orders; and *dharma* specifies order-relative fulfilment without acting as an additional force.
+At its ontological base, state-complete Omnipresence (*satta*) coexists with countlessly many state-dynamic units. The same *satta* is also named Knowledge or Space: actionless ground and source of inspiration, with inspiration inherent through saturation (MVD, pp. 35–36, 174). Every unit bears form (*roop*), property (*guna*), essential nature (*svabhav*), and *dharma*; every activity is effort, motion, and result together. The reconstruction separates the roles that make such activity intelligible: saturation grounds energy-fullness and intrinsic activeness; actual mutuality supplies the proximate conditions of change; constitution and conformance constrain the available response; *guna* and *svabhav* characterise its power and function; *niyati-kram* restricts the sequence of manifested orders; and *dharma* specifies order-relative fulfilment without acting as an additional force.
 
 At the structural level, the model distinguishes two development lines. Compositional closure establishes molecules, compounds, cells, and bodies as new bounded bearers whose constituents persist. Atomic development instead reaches constitutional completeness (T1), yielding *jeevan* with invariant hope-bondage. The auxiliary role $J$ represents unjoined T1 *jeevan* without adding a fifth order. Animal and human orders become manifest only through body–*jeevan* joint forms, so the human is neither a later animal composition nor a body that produces sentience.
 
-At the human level, the same architecture extends from the five faculties and ten activities of *jeevan* into knowing, believing, recognising, fulfilling, action, consequence, and reflexive evaluation. It can represent both deluded recurrence and refinement through study, understanding, and realisation. Activity completeness (T2) names inner resolution; conduct completeness (T3) names its repeatable public evidence in relationship, work, family, society, and participation in orderliness.
+At the human level, the same architecture extends from the five faculties and ten activities of *jeevan* into knowing, believing, recognising, fulfilling, action, consequence, and reflexive evaluation. This is unfolding of already-present knowledge rather than acquisition of a new power. It can represent both deluded recurrence and refinement through study, direct recognition (*sakshatkar*), enlightenment (*bodh*), and realisation (*anubhav*). Activity completeness (T2) names inner resolution; conduct completeness (T3) names its repeatable public evidence in relationship, work, family, society, and participation in orderliness.
 
 Formally, the study contributes typed states, a dynamic relation graph, actual and operative recognition, order-relative invariants, guarded transitions, joint-form interfaces, qualitative human traces, and observation predicates. It also marks its limits: the physical identification of T1, the body–*jeevan* interface, quantitative calibration, and social-scale dynamics remain unresolved. Direct textual claims, translation choices, analytical reconstructions, proposed operational criteria, and open empirical questions are kept visibly distinct throughout.
 
@@ -31,37 +31,36 @@ Clear and checkable prose remains the series priority. This paper is a formal re
 
 ```mermaid
 flowchart TD
-    E["Existence as coexistence"] --> O["State-complete satta"]
-    E --> U["Countlessly many state-dynamic units"]
-    O -. "saturation" .-> U
+    E["Existence as coexistence"] --> O["satta: Omnipresence / Knowledge-ground"]
+    E --> U["State-dynamic units"]
+    O -.->|"saturation"| U
     U --> ONE["Each unit: roop · guna · svabhav · dharma"]
     ONE --> EMR["One activity: effort · motion · result"]
-    EMR --> MUT["Actual mutuality, recognition, complementarity and pressure"]
+    EMR --> MUT["Mutuality, recognition, complementarity, pressure"]
 
     U --> CL["Compositional development"]
-    CL --> MAT["Atoms → molecules → compounds"]
-    MAT --> BIO["Cells → plant, animal and human bodies"]
-
+    CL --> BIO["Cells and bodies"]
     U --> AL["Atomic development"]
-    AL --> T1["T1: constitutionally complete jeevan"]
+    AL --> T1["T1 jeevan: knower-capacity"]
     BIO --> AB["Animal body"]
-    T1 --> AJ["Animal joint form"]
-    AB --> AJ
-    AJ --> AE["Species-conformant recognition, hope and evaluation"]
-
     BIO --> HB["Human body"]
+    T1 --> AJ["Animal joint form"]
     T1 --> HJ["Human joint form"]
+    AB --> AJ
     HB --> HJ
-    HJ --> HF["Five faculties / ten activities"]
-    HF --> REC["Recognition → action → consequence → evaluation"]
+
+    AJ --> AE["Species-conformant hope and evaluation"]
+
+    HJ --> COG["Cognisance regulates sensitivity"]
+    COG --> HF["Ten activities"]
+    HF --> REC["KBRF · action · consequence · evaluation"]
     REC --> DEL["Deluded recurrence"]
-    REC --> AW["Study → bodh → anubhav"]
-    AW --> T2["T2: activity completeness"]
-    T2 --> T3["T3: conduct completeness"]
-    T3 --> PUB["Relationship, work, family, society and orderliness"]
+    REC --> AW["Unfolding: study · sakshatkar · bodh · anubhav"]
+    AW --> T2["T2 activity completeness"]
+    T2 --> T3["T3 conduct completeness"]
 ```
 
-The diagram shows two joints that organise the whole paper. First, the four aspects and the effort–motion–result triad describe the same active unit. Second, compositional development supplies bodies while atomic development supplies T1 *jeevan*; animal and human joint forms arise where those lines meet. The human is not a later animal composition, and *jeevan* is not produced by a body.
+The diagram shows three joints that organise the whole paper. The four aspects and the effort–motion–result triad describe the same active unit. Compositional development supplies bodies while atomic development supplies T1 *jeevan*; animal and human joint forms arise where those lines meet, so the human is not a later animal composition and *jeevan* is not produced by a body. *Satta* is also Knowledge-ground and remains actionless: the glance therefore keeps a single saturation arrow rather than a second Knowledge-force. Animal sentience is species-conformant evaluation, not unfolding of determinate content $K^{*}$. Human unfolding proceeds through study, *sakshatkar*, *bodh*, and *anubhav*; it reorganises existing strength and power and does not add a force to the triad.
 
 ### Model contract
 
@@ -81,6 +80,10 @@ This contract governs every symbol and diagram. A formal object may organise a t
 |------|---------------|
 | Coexistence (*saha-astitva*) | The inseparable presentness of state-complete *satta* and countlessly many state-dynamic units. |
 | Saturation (*samprikt*) | Every unit is soaked, submerged, and surrounded in *satta*, the basis of its energy-fullness and activity. |
+| Knowledge-ground | *Satta* named as Knowledge or Space: actionless availability for realisation, not a second force or transmitted content. |
+| Unfolding (*gyan udghatan*) | Human realisation and evidence of already-present knowledge through *jeevan*, proceeding through study, direct recognition (*sakshatkar*) in *chitta*, enlightenment (*bodh*) in *buddhi*, and realisation (*anubhav*) in *atma*; not a transfer of energy or information into the knower. |
+| Cognisance / sensitivity | *Jeevan*'s knowing-and-accepting capacity (*sangyansheelta*) and embodied sensory responsiveness (*sanvedansheelta*); in the human joint form, cognisance regulates sensitivity. |
+| Higher- / lower-conformance | Governance of *mun* by inspiration from *vritti*, *chitta*, *buddhi*, and *atma*, against governance by pressure from vitality, senses, body, and established behaviour. |
 | Unit (*ikai*) | A bounded, countable bearer whose activity is effort, motion, and result together. |
 | Effort–motion–result (*shram–gati–parinam*) | Three simultaneous aspects of one unit-activity. |
 | Tetrad | Form (*roop*), property (*guna*), essential nature (*svabhav*), and *dharma* as four aspects of one unit. |
@@ -108,6 +111,8 @@ Madhyasth Darshan holds that existence is neither a collection of static materia
 Every unit is saturated (*samprikt*) in Omnipresence: soaked, submerged, and surrounded in it. Omnipresence is permeative through units and present between them. That between-ness makes their boundaries and mutual distances possible; the same condition permits joining and separation without ever separating a unit from Omnipresence (SB, pp. 48–50, 249–250; JV, p. 149). Saturation is not a transfer from a finite store and Omnipresence does not push units by an applied force. It is the ontological basis on which each unit is energised, forceful, self-regulated, and active (MVD, pp. 40–41, 46; SB, pp. 57, 61, 69, 248; JV, p. 149; KD 3.9, p. 88; KD 3.13, p. 122).
 
 This distinction is also stated as **absolute energy** and **relative energy**. Absolute energy is Omnipresence itself: everywhere present, non-active in itself, and the basis of basic impulsion. Relative energy is the unit's power made evident in mutuality; pressure, waves, fields, heat, sound, electricity, and related effects are physical-chemical expressions of that relative power (MVD, pp. 40–41). Omnipresence is also named fundamental uniform energy, while the perpetual activity of molecules, atoms, and atomic particles evidences that each is energised (KD 3.13, p. 122). Pressure does not supply a second stock of activity or stand beside *bal* and *shakti* as an additional power. It is the unit's force recognised in state and, in the narrower excitation sense, the compulsion received in an excited mutuality; such mutual pressure can condition change without becoming an external energy source (MVD, pp. 46, 114; SB, pp. 49, 59, 256; KD 3.11, pp. 105–106; KD 3.13, p. 118).
+
+The same ground is also named Knowledge or Space. Knowledge in this sense is actionless and non-transforming: neither an activity nor an agent performing activities, while serving as their ground and source of inspiration, with inspiration inherent through saturation (MVD, pp. 32–36, 174). Units act; Omnipresence does not. Availability of this ground for realisation is therefore not a transition rule, an applied force, or a second energy beside saturation. How that availability unfolds as realised content in the human joint form is taken up in §7.
 
 Mutuality is inherent in coexistence. Units recognise one another according to their order, and complementarity becomes evident through offering, acceptance, influence, composition, nourishment, use, and fulfilment. Recognition in the first three orders names definite response according to constitution, seed, or species. Necessary propensity leads to recognition and mutual recognition, while natural-state motion evidences determinate conduct at a good mutual distance (KD 3.5, p. 70; KD 3.10, p. 100).
 
@@ -433,7 +438,7 @@ The model therefore gives every pranic body a seed or lineage pattern, a nourish
 
 ### 6.3 The animal joint form
 
-The animal and knowledge orders are joint forms of a pranic body and constitutionally complete *jeevan* (SB, p. 55). In an animal joint form, *jeevan* expresses the hope to live through species-conformance. Evaluation appears as recognition of essential nature, including friendliness and opposition, together with animal tasting, selection, sensitivity, and bodily fulfilment (SB, p. 249; JV, pp. 49, 69–70). This sentient evaluation is definite through species-conformance; it does not include the specifically human circuit of knowing, believing, evaluation through justice–*dharma*–truth, or refinement through realised knowledge.
+The animal and knowledge orders are joint forms of a pranic body and constitutionally complete *jeevan* (SB, p. 55). In an animal joint form, *jeevan* expresses the hope to live through species-conformance. Evaluation appears as recognition of essential nature, including friendliness and opposition, together with animal tasting, selection, sensitivity, and bodily fulfilment (SB, p. 249; JV, pp. 49, 69–70). This sentient evaluation is definite through species-conformance; it does not include the specifically human circuit of knowing, believing, evaluation through justice–*dharma*–truth, or refinement through realised knowledge. Animal evaluation is therefore sentient without being unfolding of determinate content $K^{*}$, knowing and believing, or revision of *sanskar*.
 
 ```mermaid
 flowchart LR
@@ -450,12 +455,12 @@ The consequence of one animal activity alters the bodily and relational situatio
 
 ### 6.4 The human joint form and its interface
 
-The human body remains a pranic bearer while T1 *jeevan* operates through it. The interface is bidirectional. Sensory and bodily conditions are presented to *jeevan*; selection, imaging, analysis, resolve, and evidence are expressed through the body. Bodily activity does not become knowledge, and refinement in *jeevan* does not reconstruct its invariant constitution (KD 3.16, pp. 141–145; JV, pp. 47–49, 59).
+The human body remains a pranic bearer while T1 *jeevan* operates through it. The interface is bidirectional. The body presents sensitivity through sound, touch, sight, taste, and smell; *jeevan* cognises, accepts, and expresses through selection, imaging, analysis, resolve, and evidence. Cognisance regulates sensitivity in the human joint form; bodily activity still does not become knowledge, and refinement in *jeevan* does not reconstruct its invariant constitution (KD 3.16, pp. 141–145; JV, pp. 47–49, 59; SB, p. 64).
 
 ```mermaid
 flowchart LR
     WORLD["Actual relational and natural situation"] --> BODY["Pranic human body"]
-    BODY -->|"sensory / bodily presentation"| J["T1 jeevan<br/>refinable orientation"]
+    BODY -->|"sensitivity"| J["T1 jeevan<br/>cognisance, refinable orientation"]
     J -->|"selection · resolve · expression"| BODY
     BODY --> CONSEQ["Internal, bodily, relational and natural consequences"]
     CONSEQ --> WORLD
@@ -467,11 +472,21 @@ Every body and *jeevan* activity remains effort–motion–result. Animal evalua
 
 ## 7. Knowledge and the internal configuration of *jeevan*
 
-The opening passages name an omnipresent ground of Knowledge or Omnipotence in which insentient and sentient nature are contained, while the later epistemic account names the content realised by *jeevan*. This paper keeps those uses distinct. *Jeevan* is the knower; its determinate content comprises the holistic view of coexistence, knowledge of *jeevan*, and knowledge of humane conduct. Participation in undivided society and universal orderliness is its purpose and evidence (KD, pp. 3–4; KD 3.17, pp. 145–148). The content is not made variable by one person's ignorance, but its study, enlightenment, realisation, and evidence can remain incomplete.
-
 The human joint state is written [*x*<sub>B</sub>, *c*<sub>J</sub>, *z*<sub>H</sub>] in Appendix A: the pranic body, invariant T1 core, and refinable human orientation. The brackets record a coupled unit of analysis without making body and *jeevan* one substance. Orientation *z*<sub>H</sub> contains a faculty profile, present *sanskar*, qualitative knowledge profile, evaluation references, and operative recognition.
 
-### 7.1 Five state-motion pairs
+### 7.1 Two uses of Knowledge
+
+Madhyasth Darshan names Knowledge in two registers that this reconstruction must not collapse. The omnipresent ground within coexistence is itself Knowledge or Space: actionless and non-transforming, neither an activity nor an agent, while remaining the ground and source of inspiration for unit-activity (MVD, pp. 32–36, 174). That ground is *satta* under another name. Saturation already states its energy-role; the Knowledge-name states its intelligibility and availability for realisation. It does not drive constitutional completeness, animal evaluation, or awakening, and it is not added as a second force beside effort and motion.
+
+The determinate content realised by *jeevan* is coexistence, *jeevan*, and humane conduct. Participation in undivided society and universal orderliness is its purpose and evidence rather than a transmitted fourth substance (KD, pp. 3–4; KD 3.17, pp. 145–148). The content is not made variable by one person's ignorance. What varies is unfolding (*gyan udghatan*): knowledge is present throughout coexistence, while its unfolding occurs through awakened human beings and through the sentient aspect or thought (MVD, pp. 115–116, 289). In the human joint form that unfolding proceeds through study, *sakshatkar*, *bodh*, and *anubhav* (§7.4). *Jeevan* is the knower; the human joint form presents the evidence. The epistemological setting of knower, known, and evidence is developed in [*The Epistemology of Coexistence*](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) §§1.1–1.5; this section records only the causal roles required by the state-dynamic architecture.
+
+### 7.2 Sensitivity, cognisance, and conformance
+
+The body–*jeevan* interface of §6.4 has two sides. Sensitivity (*sanvedansheelta*) is embodied responsiveness through sound, touch, sight, taste, and smell. Cognisance (*sangyansheelta*) is the knowing-and-accepting capacity through which *jeevan* understands relationship, value, purpose, and orderliness (SB, p. 64). Sensory contact is required for bodily interaction; it does not by repetition yield the continuous satisfaction sought by *jeevan*. In the human joint form, cognisance regulates sensitivity while both remain in balance. The animal joint form remains species-conformant in recognition, tasting, and selection without this knowing-and-believing circuit, and therefore without unfolding of $K^{*}$.
+
+Inspiration reaching *mun* from *vritti*, *chitta*, *buddhi*, and *atma* is higher-conformance, aligned with justice; pressure from vitality, senses, body, and established behaviour is lower-conformance (MVD, p. 208). Lower-conformance is necessary to bodily maintenance. Error arises when it defines *jeevan*'s final purpose rather than remaining the body's contribution to the joint form. Higher-conformance is the path by which realised content reaches tasting and selection. It is not an applied force from *satta*, and it does not add a faculty that T1 *jeevan* lacked.
+
+### 7.3 Five state-motion pairs
 
 The five faculties each have an activity in state, expressed as strength, and a paired activity in motion, expressed as power. In awakened activity, realisation is evidenced outward through these pairs (KD 3.6, pp. 71–72; KD 3.16, p. 145; MVD, p. 78; JV, pp. 92–94).
 
@@ -483,23 +498,28 @@ The five faculties each have an activity in state, expressed as strength, and a 
 | *Vritti* | Comparison or weighing (*tulana*) | Analysis (*vishleshan*) |
 | *Mun* | Tasting (*asvadan*) | Selection (*chayan*) |
 
-Each row gives paired descriptions of the forceful and projective sides of *jeevan* activity. State and motion remain indivisible as realisation and evidence, enlightenment and resolve, contemplation and imaging, comparison and analysis, and tasting and selection. A developed human body provides the medium through which all ten can be evidenced; in delusion, their full exercise remains unavailable (KD 3.16–3.17, pp. 145–147; JV, pp. 92–94).
+Each row gives paired descriptions of the forceful and projective sides of *jeevan* activity. State and motion remain indivisible as realisation and evidence, enlightenment and resolve, contemplation and imaging, comparison and analysis, and tasting and selection. A developed human body provides the medium through which all ten can be evidenced; in delusion, their full exercise remains unavailable (KD 3.16–3.17, pp. 145–147; JV, pp. 92–94). In the unfolding sequence of §7.4, *chitta*'s contemplation is accomplished as direct recognition (*sakshatkar*) of justice, *dharma*, and truth. Realisation does not add faculties. It makes the upper pairs effective so that inspiration from *atma* and *buddhi* can govern comparison, tasting, and selection — the higher-conformance of §7.2. In delusion those pairs remain unevidenced, and *mun* is organised from below.
 
-### 7.2 Realised knowledge as orientation
+### 7.4 Realised knowledge as orientation
 
-Let *K*<sup>*</sup> denote the determinate content — coexistence, *jeevan*, and humane conduct. A qualitative profile *k*<sub>H</sub> records which parts have been studied, enlightened in *buddhi*, realised in *atma*, and made available as evidence. It is not a scalar degree. Enlightenment is the culmination of study, and realisation follows that enlightenment; realised content is projected through resolve, imaging, analysis, and selection (MVD, p. 100; KD 3.6, pp. 71–72; KD 3.12, p. 112; KD 3.17, pp. 145–148). No transition rule makes study automatically produce enlightenment or realisation.
+Let *K*<sup>*</sup> denote the determinate content — coexistence, *jeevan*, and humane conduct. A qualitative profile *k*<sub>H</sub> records which parts have been studied, directly recognised in *chitta* (*sakshatkar*), enlightened in *buddhi*, realised in *atma*, and made available as evidence. It is not a scalar degree, and it does not treat knowledge as a possessed quantity. The profile records incomplete unfolding of already-present $K^{*}$.
 
-### 7.3 Initial *sanskar* and deluded evaluation
+> **"Affirmation of truth in the form of coexistence through the way of study is referred to as ratiocination in mun (in the form of acceptance), deliberation in vritti (by way of qualitative analysis), direct recognition in chitta, and enlightenment in buddhi."**
+> — MVD, p. 126
+
+Study is the work of that sequence. Direct recognition in *chitta* is its accomplishment at meaning; enlightenment in *buddhi* is its culmination; realisation in *atma* follows that enlightenment. Realisation is attained after revelation (*sakshatkar*) and definitive understanding (*avdharna bodh*) (JV, p. 62; MVD, pp. 99–100). Realised content is then projected through resolve, imaging, analysis, and selection (MVD, p. 100; KD 3.6, pp. 71–72; KD 3.12, p. 112; KD 3.17, pp. 145–148). No transition rule makes study automatically produce *sakshatkar*, enlightenment, or realisation.
+
+### 7.5 Initial *sanskar* and deluded evaluation
 
 Every human acts from present acceptance. Environment, study, and *sanskar* contribute to the orientation from which thought and conduct are expressed, while the body provides the sensory and motor medium (KD, pp. 6–9; KD 3.16, pp. 141–145). The faculty, knowledge, acceptance, evaluation, and recognition fields of *z*<sub>H</sub> are qualitative predicates rather than neurological measurements.
 
 In delusion (*bhram*), identification of *jeevan* with the body leaves the upper activities unevidenced and organises comparison from sensory input. Of the ten activities, only four and a half are then effective — selection, tasting, analysis, imaging, and half of comparison — while pleasure, health, and profit become its prevailing perspectives (MVD, pp. 58, 78, 80–81; SB, pp. 91–92; JV, pp. 73–74, 93–94, 97–98). Human *dharma* remains happiness; the error lies in what is accepted as its fulfilment. Freedom of action leaves both human-opposing and humane expression possible.
 
-### 7.4 Knowing, believing, recognising, and fulfilling
+### 7.6 Knowing, believing, recognising, and fulfilling
 
 Human evidence joins four distinguishable aspects: knowing and believing organise the internal orientation; recognising relates that orientation to actual mutuality; fulfilling becomes bodily and public conduct (JV, pp. 69–70). Their agreement cannot be assumed. A person may know a proposition verbally yet misrecognise a relationship, or recognise a responsibility yet fail to fulfil it. The model therefore records a qualitative KBRF profile rather than treating knowledge as possession of information.
 
-Study enters through typed human–human relations involving teacher, learner, language, tradition, projection, and reflection. These relations can present content for attention and evaluation, while understanding and realisation remain activities of the learner's *jeevan*. Knowledge is neither copied as a state variable nor transmitted as energy. This representation supplies an explicit route by which study can alter the material available to later reflection without predetermining awakening.
+Study enters through typed human–human relations involving teacher, learner, language, tradition, projection, and reflection. These relations can present content for attention and evaluation, while *sakshatkar*, enlightenment, and realisation remain activities of the learner's *jeevan*. Knowledge is neither copied as a state variable nor transmitted as energy. This representation supplies an explicit route by which study can alter the material available to later reflection without predetermining *sakshatkar*, enlightenment, or realisation.
 
 ## 8. Human effort-motion-result and internal refinement
 
@@ -509,7 +529,7 @@ The universal triad applies to *jeevan*. Human activity differs because its orie
 
 Human *dharma* *D*<sub>H,n</sub> remains happiness through resolution and participation in orderliness while the knowledge-order joint form is active. The qualitative predicate `ComprehendsDharma(H,n)` records its present comprehension and evidence. Present *sanskar*, knowledge profile, operative recognition, and freedom of action condition the humane or human-opposing *svabhav* and *guna*-profile expressed in conduct. Human-opposing expression can be transformed toward fortitude, valour, generosity, kindness, grace, and compassion, while awakened conduct becomes mediative (KD, pp. 26–27; KD 3.9–3.10, pp. 98–101).
 
-The invariant constitutional capacity *C*<sub>J</sub> is distinguished from its current expression *B*<sub>H,n</sub>. Power appears in selection, analysis, imaging, resolve, evidence, and body-mediated conduct. Knowledge does not replace *bal–shakti*; it qualifies its knowledge-order expression through understood purpose. The T1 core *c*<sub>J</sub> remains invariant throughout refinement.
+The invariant constitutional capacity *C*<sub>J</sub> is distinguished from its current expression *B*<sub>H,n</sub>. Power appears in selection, analysis, imaging, resolve, evidence, and body-mediated conduct. Knowledge does not replace *bal–shakti*; it qualifies its knowledge-order expression through understood purpose. The same loop is named as *karan–karta–karya*: the knowledge-state as cause, the human being as doer, and participation in universality as effect (KD 3.17, pp. 145–150). It does not add a mechanism beyond that qualification of existing strength and power. The T1 core *c*<sub>J</sub> remains invariant throughout refinement.
 
 ### 8.2 Result in the knowledge order
 
@@ -528,7 +548,7 @@ The four aspects form one consequence profile; the sources do not assign the int
 
 One consequence can become the object of a later complete activity of tasting, comparison, contemplation, enlightenment, or realisation. The model relates the consequence profile, its observation from the present standpoint, and an admissible orientation update. Evaluation itself remains effort–motion–result.
 
-In delusion, pleasure, health, and profit organise evaluation. In humane consciousness, justice, *dharma*, and truth supply the reference points. Justice becomes evident when a relationship is recognised, its values are fulfilled, that fulfilment is evaluated, and mutual satisfaction results (JV, pp. 97–98, 137–139). Because the actual relationship and the human's operative recognition are separate fields, the model can represent error and correction without changing the relationship that was objectively present.
+In delusion, pleasure, health, and profit organise evaluation. In humane consciousness, justice, *dharma*, and truth supply the reference points. The evaluation-reference profile *q*<sub>H</sub> records which of these sets presently governs comparison; the six named perspectives of pleasant–unpleasant, healthy–unhealthy, profitable–unprofitable, justice, *dharma*, and truth are set out in [*The Epistemology of Coexistence*](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) §1.4. Justice becomes evident when a relationship is recognised, its values are fulfilled, that fulfilment is evaluated, and mutual satisfaction results (JV, pp. 97–98, 137–139). Because the actual relationship and the human's operative recognition are separate fields, the model can represent error and correction without changing the relationship that was objectively present.
 
 An update can preserve an acceptance, correct recognition, refine evaluation, or stabilise realised *sanskar*. Realisation-oriented conceptions in *buddhi* manifest in thought and action; thought arising from action is settled again as conception through inference (MVD, p. 218). Completed humane *sanskar* is understanding, honesty, responsibility, and participation (JV, p. 49). The update relation is non-deterministic: repetition does not turn error into knowledge, and one corrected act does not establish completeness.
 
@@ -536,7 +556,7 @@ An update can preserve an acceptance, correct recognition, refine evaluation, or
 
 The non-attainment of *jeevan* values is experienced as dissatisfaction or internal contradiction. Deluded sensory living leaves the human dissatisfied, while satisfaction becomes possible through understanding (JV, p. 76). The model records this as a qualitative predicate, not a measured error, excitation-pressure, or force applied to *jeevan*.
 
-If the same acceptance and pleasure–health–profit references organise the next activity, the pattern can recur. If contradiction is recognised as a need for understanding, inquiry and study can begin. Study may open enlightenment; enlightenment may become realisation; realised orientation reorganises comparison, contemplation, selection, and conduct through justice, *dharma*, and truth (MVD, p. 100; KD, pp. 1–4; KD 3.6, pp. 71–72; KD 3.12, p. 112; KD 3.17, pp. 147–148). Dissatisfaction does not mechanically force this branch because freedom of action remains.
+If the same acceptance and pleasure–health–profit references organise the next activity, the pattern can recur. If contradiction is recognised as a need for understanding, inquiry and study can begin. Study may reach *sakshatkar* in *chitta*; *sakshatkar* may open enlightenment in *buddhi*; enlightenment may become realisation in *atma*; realised orientation reorganises comparison, contemplation, selection, and conduct through justice, *dharma*, and truth (MVD, pp. 99–100, 126; JV, p. 62; KD, pp. 1–4; KD 3.6, pp. 71–72; KD 3.12, p. 112; KD 3.17, pp. 147–148). Dissatisfaction does not mechanically force this branch because freedom of action remains.
 
 ### 8.5 A human trace: one consequence, two evaluations
 
@@ -1087,7 +1107,7 @@ $$
 
 ### A.11 Human knowledge and orientation
 
-The determinate knowledge-content remains fixed:
+Knowledge-ground is $\mathbb{S}$ and is not a bearer variable. The determinate knowledge-content remains fixed:
 
 $$
 K^{*}
@@ -1098,6 +1118,8 @@ K_{\mathrm{jeevan}},
 K_{\mathrm{humane\ conduct}}
 \right\}.
 $$
+
+Presence of that content is written $\operatorname{Present}(K^{*})$. Unfolding in a human occurrence is the qualitative predicate $\operatorname{Unfolding}(H,n)$, which records incomplete study, direct recognition, enlightenment, realisation, and evidence rather than a transfer of energy. The body–*jeevan* interface of §A.10 is further typed by $\operatorname{Sensitivity}$ on the bodily presentation side and $\operatorname{Cognisance}$ on the sentient side. $\operatorname{HigherConformance}(H,n)$ records whether *mun* is governed by inspiration from the upper faculties rather than by lower-conformance pressure from vitality, senses, body, and established behaviour. These predicates add no force, energy, or learning rate. Optional faculty-level product spaces are developed in [*A Functional Model of Jeevan*](../The-Epistemology-of-Coexistence/Research-Note-Jeevan-Functional-Model.pdf); they are not source doctrine and are not required by the present reconstruction.
 
 Human orientation is
 
@@ -1121,6 +1143,7 @@ $$
 k_H=
 \left(
 k^{\mathrm{studied}},
+k^{\mathrm{sakshatkar}},
 k^{\mathrm{bodh}},
 k^{\mathrm{anubhav}},
 k^{\mathrm{evidence}}
@@ -1136,10 +1159,14 @@ k^{\mathrm{anubhav}}
 \subseteq
 k^{\mathrm{bodh}}
 \subseteq
+k^{\mathrm{sakshatkar}}
+\subseteq
+k^{\mathrm{studied}}
+\subseteq
 K^*.
 $$
 
-These inclusions express logical dependence rather than automatic progression. $\operatorname{Effective}_{10}(f_H)$ means that all five state and five motion activities are effective. In delusion the profile is limited to the stated four and a half activities and $q_H$ is organised principally by pleasure, health, and profit.
+These inclusions express logical dependence rather than automatic progression. The profile $k_H$ is incomplete unfolding of already-present $K^{*}$, not a possessed scalar. $\operatorname{Effective}_{10}(f_H)$ means that all five state and five motion activities are effective. In delusion the profile is limited to the stated four and a half activities and $q_H$ is organised principally by pleasure, health, and profit.
 
 Knowing, believing, recognising, and fulfilling are represented by
 
@@ -1155,6 +1182,7 @@ $$
 $$
 
 Knowing and believing concern internal orientation; recognising relates it to actual mutuality; fulfilling is evidenced through body-mediated conduct. Teaching and study are typed edges in $E_n$. Projection and reflection may change what is available to evaluation, but knowledge is realised by the learner's *jeevan* rather than transmitted as energy.
+
 ### A.12 Consequence, evaluation, and refinement
 
 A human conduct occurrence is
@@ -1311,7 +1339,11 @@ Population-level goals are not derived by aggregating $V_H$. Family prosperity, 
 
 | Term | Meaning in this reconstruction |
 |------|--------------------------------|
-| Omnipresence / absolute energy (*satta* / *nirpeksha urja*) | The unbounded, non-transforming reality in which every unit is saturated; no motion, pressure, or applied force is assigned to it. |
+| Omnipresence / absolute energy (*satta* / *nirpeksha urja*) | The unbounded, non-transforming reality in which every unit is saturated; no motion, pressure, or applied force is assigned to it. Also named Knowledge or Space when its actionless availability for realisation is at issue. |
+| Knowledge-ground | The same *satta* under the Knowledge-name; not a second causal quantity beside saturation. |
+| Unfolding (*gyan udghatan*) | Human realisation and evidence of already-present $K^{*}$; not a transfer of energy or a third development line. |
+| Cognisance / sensitivity | Knowing-and-accepting capacity of *jeevan*, and embodied sensory responsiveness; cognisance regulates sensitivity in the human joint form. |
+| Higher- / lower-conformance | Governance of *mun* from the upper faculties versus from vitality, senses, body, and established behaviour. |
 | Relative energy (*sapeksha urja*) | Unit power evident in mutuality as pressure, flow, waves, fields, heat, sound, electricity, and related effects. |
 | Strength / force (*bal*) | Effort borne in a unit's state; represented qualitatively rather than as a scalar store. |
 | Power (*shakti*) | Motion or operative expression of a force-bearing unit in mutuality. |
@@ -1343,7 +1375,11 @@ Population-level goals are not derived by aggregating $V_H$. Family prosperity, 
 
 | Symbol | Meaning |
 |--------|---------|
-| $\mathbb{S}$ | State-complete Omnipresence; not a bearer or transition variable |
+| $\mathbb{S}$ | State-complete Omnipresence / Knowledge-ground; not a bearer or transition variable |
+| $\operatorname{Present}(K^{*})$ | Standing presence of determinate knowledge-content; not a human state variable |
+| $\operatorname{Unfolding}(H,n)$ | Qualitative predicate for incomplete study, enlightenment, realisation, and evidence |
+| $\operatorname{Cognisance},\operatorname{Sensitivity}$ | Sentient knowing-and-accepting and bodily sensory presentation |
+| $\operatorname{HigherConformance}(H,n)$ | Governance of *mun* by inspiration from the upper faculties |
 | $n,\Delta t_n$ | Activity-occurrence index and considered duration |
 | $\mathcal{Q}_n$ | Complete bounded situation at occurrence $n$ |
 | $U_n,\partial U_n$ | Active bearers in the local scenario and relevant external couplings |
@@ -1368,7 +1404,7 @@ Population-level goals are not derived by aggregating $V_H$. Family prosperity, 
 | $u^{B\to J},u^{J\to B}$ | Bodily presentation to *jeevan* and sentient expression through the body |
 | $K^{*}$ | Fixed content: coexistence, *jeevan*, and humane conduct |
 | $z_H=(f_H,\sigma_H,k_H,q_H,\widehat R_H)$ | Refinable human orientation |
-| $k_H$ | Qualitative study, enlightenment, realisation, and evidence profile |
+| $k_H$ | Qualitative study, *sakshatkar*, enlightenment, realisation, and evidence profile |
 | $\operatorname{KBRF}_H$ | Knowing, believing, recognising, and fulfilling profile |
 | $\operatorname{Update}_H$ | Non-deterministic admissibility relation for orientation refinement |
 | $\operatorname{Pr}^{\mathrm{state}},\Pi^{\mathrm{exc}}$ | General state-pressure description and narrow excitation-pressure predicate |
@@ -1391,11 +1427,11 @@ One passage aligns effort or strength with *dharma–svabhav*, motion or power w
 
 ### *Chintan* and *sakshatkar* in *chitta*
 
-The paired-activity enumerations name *chitta*'s state activity as contemplation (*chintan*) and its motion activity as imaging (*chitran*) (JV, p. 73; KD 3.6, pp. 71–72). The awakened account describes contemplation as direct recognition (*sakshatkar*) of justice, *dharma*, and truth, while a later summary abbreviates *chitta*'s strength as direct recognition (KD 3.8, p. 84; KD 3.16, p. 145). This paper uses **contemplation** for the activity-name and **direct recognition** for its awakened content or accomplishment.
+The paired-activity enumerations name *chitta*'s state activity as contemplation (*chintan*) and its motion activity as imaging (*chitran*) (JV, p. 73; KD 3.6, pp. 71–72). The awakened account describes contemplation as direct recognition (*sakshatkar*) of justice, *dharma*, and truth, while a later summary abbreviates *chitta*'s strength as direct recognition (KD 3.8, p. 84; KD 3.16, p. 145). This paper uses **contemplation** for the activity-name and **direct recognition** for its awakened content or accomplishment. Unfolding therefore proceeds through study, *sakshatkar*, *bodh*, and *anubhav* without adding a sixth faculty: *sakshatkar* is *chitta*'s accomplishment in that sequence, not a separate coordinate of $f_H$ (MVD, p. 126; JV, p. 62). Realisation-based *sakshatkar* after enlightenment names the outward contemplation of already-realised content rather than a second inward rung (MVD, p. 99). The $k_H$ inclusions record logical dependence along the inward sequence; they do not assert that successful *sakshatkar* automatically produces *bodh* and *anubhav*.
 
 ### Knowledge as ground and realised content
 
-The opening postulate names an omnipresent ground of Knowledge or Omnipotence containing insentient and sentient nature (KD, pp. 1–4). Later passages enumerate complete knowledge as coexistence, *jeevan*, and humane conduct, with participation in orderliness included in one formulation (KD 3.5, p. 69; KD 3.17, p. 148). $K^{*}$ represents the three-content epistemic formulation; participation is treated as purpose and evidence rather than a transmitted fourth substance.
+The opening postulate names an omnipresent ground of Knowledge or Omnipotence containing insentient and sentient nature (KD, pp. 1–4). The same ground is named Knowledge or Space in the coexistence account, where it remains actionless while serving as inspiration inherent through saturation (MVD, pp. 32–36, 174). Later passages enumerate complete knowledge as coexistence, *jeevan*, and humane conduct, with participation in orderliness included in one formulation (KD 3.5, p. 69; KD 3.17, p. 148). $K^{*}$ represents the three-content epistemic formulation; participation is treated as purpose and evidence rather than a transmitted fourth substance. Presence of that content is distinct from unfolding through the sentient aspect (MVD, pp. 115–116, 289). The knowledge profile records studied, *sakshatkar*, *bodh*, *anubhav*, and evidence of already-present $K^{*}$. The glance diagram therefore keeps a single saturation arrow from *satta* to units: a second Knowledge-force arrow would present unfolding as an applied driver, which the sources do not state.
 
 ### Four *jeevan* values and *paramanand*
 
@@ -1407,7 +1443,7 @@ Force in state is recognised as pressure and power in motion as flow; nature and
 
 ### Animal and human evaluation
 
-Animal evaluation is recognition of essential nature under species-conformance, including friendliness and opposition (SB, pp. 55, 249). Human evaluation can additionally involve knowing, believing, justice, *dharma*, truth, value-fulfilment, and revision of accepted orientation (JV, pp. 69–70, 97–98). The formal model therefore supplies both an animal evaluation occurrence and a distinct human reflexive update relation.
+Animal evaluation is recognition of essential nature under species-conformance, including friendliness and opposition (SB, pp. 55, 249). Human evaluation can additionally involve knowing, believing, justice, *dharma*, truth, value-fulfilment, and revision of accepted orientation (JV, pp. 69–70, 97–98). Animal evaluation is therefore sentient without being unfolding of $K^{*}$. The formal model supplies both an animal evaluation occurrence and a distinct human reflexive update relation, together with cognisance, sensitivity, and higher-conformance as qualitative predicates rather than additional forces.
 
 ### Composition, T1, and the containing bearer
 
@@ -1431,6 +1467,11 @@ Restfulness of effort, destination of motion, internal harmonies, ten effective 
 |-------------|--------|---------------|
 | Omnipresence is state-complete; nature is countlessly unitised and state-dynamic | Direct textual claim | MVD p. 26; SB pp. 49–50, 248; KD p. 70 |
 | Saturation is the basis of unit energy-fullness, forcefulness, regulation, and activity | Direct textual claim | MVD pp. 40–41, 46; SB pp. 57, 61, 69, 248; KD pp. 88, 122 |
+| Omnipresence is also Knowledge or Space, actionless ground and source of inspiration | Direct textual claim | MVD pp. 32–36, 174 |
+| Presence of knowledge is distinct from unfolding through the sentient aspect | Direct textual claim | MVD pp. 115–116, 289 |
+| Unfolding of $K^{*}$ proceeds through study, *sakshatkar* in *chitta*, *bodh* in *buddhi*, and *anubhav* in *atma* | Direct textual claim | MVD pp. 99–100, 126; JV p. 62 |
+| Cognisance regulates sensitivity in the human joint form | Direct textual claim | SB p. 64 |
+| Higher-conformance is inspiration from the upper faculties; lower-conformance is pressure from vitality, senses, body, and behaviour | Direct textual claim | MVD p. 208 |
 | Effort, motion, and result are one inseparable activity | Direct textual claim | SB p. 58 |
 | Effort aligns with *dharma–svabhav*, motion with *svabhav–guna*, result with *roop* | Direct textual alignment | SB pp. 60–62; KD pp. 84, 106–107 |
 | Force in state is pressure; excitation-pressure is received compulsion under *sam–visam* excitation | Direct textual claim | SB pp. 49, 59, 256; KD pp. 105–106, 118 |
@@ -1446,6 +1487,7 @@ Restfulness of effort, destination of motion, internal harmonies, ten effective 
 | Justice relates relationship recognition, value-fulfilment, evaluation, and mutual satisfaction | Direct textual claim | JV pp. 97–98, 137–139 |
 | Constitutional kind, manifested order, typed graph, actual/recognised relation, pressure predicates, and guarded events | Analytical reconstruction | The sources supply qualitative distinctions, not these formalisms |
 | Pranic, animal, body–*jeevan*, KBRF, evaluation, and observation modules | Analytical reconstruction grounded in direct claims | The sources supply activities and relations, not state schemas |
+| $\operatorname{Present}(K^{*})$, $\operatorname{Unfolding}$, $\operatorname{Cognisance}$, $\operatorname{Sensitivity}$, and $\operatorname{HigherConformance}$ | Analytical reconstruction grounded in direct claims | The sources name presence, unfolding, cognisance, sensitivity, and conformance; they do not supply these predicates |
 | $T2^{*}$, $T3^{*}$, and four-status verification | Proposed operational criteria | The sources supply completeness and evidence claims, not formal equivalences |
 | A contemporary physical identification of T1 | Open empirical question | No accepted scientific counterpart is assumed |
 
@@ -1453,16 +1495,16 @@ Restfulness of effort, destination of motion, internal harmonies, ten effective 
 
 ### Madhyasth Darshan (primary sources)
 
-- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: coexistence, state-completeness, state-dynamism, saturation, energy, and the tetrad (pp. 11, 26, 34, 40–47; §1–§3); existential progression and material hunger (pp. 8, 13; §4); compound conduct and reflected form (pp. 42, 49–50; §3.1, §4.2, §5.4); *guna, svabhav,* and *dharma* across orders (pp. 26, 49–51, 57–58, 115, 124; §1, §3, §5); mutual pressure in material development (p. 114; §1–§2, §4.5); development and awakening as goal and purposive impulsion (p. 230; §4.5, Editorial Notes); relationship, contact, and the use-ladder (pp. 61–62, 105; §5); T1, two liberations, and hope-bondage (p. 91; §3.4, §6.1); the four human dimensions (p. 18; §10.2); study, enlightenment, realisation, internal values, and completeness (pp. 100–103; §7.2, §9); faculties and delusion (pp. 58, 78, 80–81; §7); humane conduct (pp. 80, 101; §9.3); action-to-conception feedback (p. 218; §8.2–§8.3); right-use and regeneration (p. 264; §5.2, §10.2).
-- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: coexistence, saturation, recognition, pressure, environmental excitation, directionality, and the effort–motion–result/tetrad alignment (pp. 48–61; §1–§3, §4.5); energy-fullness, basic impulsion, and activeness (pp. 62, 69; §1, §4.5); composition distinguished from development (pp. 75–76; §4); four orders and their *svabhav* and *dharma* (pp. 179–180; §3–§5); property, reflection, effect, state-pressure, flow, and relative power (pp. 248–257; §1–§3, §5); animal and knowledge orders as joint forms and animal evaluation of essential nature (pp. 55, 249; §6.3, §A.9); T1, atomic stability, and inexhaustible effort and motion (pp. 55, 61, 92, 144–145; §6.1); constituent order in composition (p. 260; §5.4); delusion (pp. 91–92; §7.3); undivided society (pp. 246–247; §10.3).
-- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: coexistence, mutuality, inherent strength, and the absence of applied force from Omnipresence (pp. 43, 69, 149, 157–158; §1–§2, §5); four orders, conformance, animal hope, *sanskar*, body lineage, and complementarity (pp. 47–49, 59; §4–§7); values, character, ethics, right-use, protection, and human goals (pp. 54–61; §5, §9–§10); knowing, believing, recognising, and fulfilling (pp. 69–70; §5.2, §7.4); dissatisfaction under delusion and satisfaction through understanding (p. 76; §8.4); ten activities and the four-and-a-half account (pp. 73–74, 92–94; §7, §9.2); justice, relationship, values, evaluation, and mutual satisfaction (pp. 97–98, 137–139; §8–§10); human *dharma* as happiness and orderliness (pp. 110, 121–123; §3.4, §8.1).
-- **KD** — Nagraj, A. *Manav Karm Darshan*. [Working English translation](../References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf); Hindi source `KD-karm darshan v5.pdf`. Machine-assisted working translation — not a published translation; cited as corroboration only. Cited: knowledge, action, human consequence, hope for happiness, experience, inference, and absolute knowledge (pp. 1–4; §7–§8); environment, study, *sanskar*, and transformable human essential nature (pp. 6–9, 25–27; §3.3, §7–§8); humane values, character, and ethics (p. 67; §9.3); particle exchange and molecular joining (3.1, pp. 56–58; 3.11, pp. 103–104; §4–§5); compositional sequence and T1 (3.2–3.3, pp. 58–62; §4, §6); complete knowledge and five state–motion pairs (3.5–3.6, pp. 69–72; §3.4, §7–§9); state–motion indivisibility, forcefulness, and reflection (3.8–3.9, pp. 84, 88, 94; §1–§3, §5); order-specific *svabhav, dharma,* and *guna* (3.9–3.10, pp. 98–102; §2–§3, §5, §8); strength, power, result, pressure, and flow (3.11, pp. 102–109; §1–§3, §4.5, §5); study and the realisation-oriented method (3.12, p. 112; §7.2, §8.4); excitation-pressure and uniform energy (3.13, pp. 118, 122; §1–§2, §4.5); body–*jeevan*, faculties, result-to-reflection, knower, and object of knowledge (3.16–3.17, pp. 141–148; §6–§8).
+- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: coexistence, state-completeness, state-dynamism, saturation, energy, and the tetrad (pp. 11, 26, 34, 40–47; §1–§3); Knowledge-ground, unfolding, and inspiration (pp. 32–36, 115–116, 174, 289; §1, §7.1); existential progression and material hunger (pp. 8, 13; §4); compound conduct and reflected form (pp. 42, 49–50; §3.1, §4.2, §5.4); *guna, svabhav,* and *dharma* across orders (pp. 26, 49–51, 57–58, 115, 124; §1, §3, §5); mutual pressure in material development (p. 114; §1–§2, §4.5); development and awakening as goal and purposive impulsion (p. 230; §4.5, Editorial Notes); relationship, contact, and the use-ladder (pp. 61–62, 105; §5); T1, two liberations, and hope-bondage (p. 91; §3.4, §6.1); the four human dimensions (p. 18; §10.2); study, *sakshatkar*, enlightenment, realisation, internal values, and completeness (pp. 99–103, 126; §7.4, §8.4, §9); faculties and delusion (pp. 58, 78, 80–81; §7.3, §7.5); higher- and lower-conformance (p. 208; §7.2); humane conduct (pp. 80, 101; §9.3); action-to-conception feedback (p. 218; §8.2–§8.3); right-use and regeneration (p. 264; §5.2, §10.2).
+- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: coexistence, saturation, recognition, pressure, environmental excitation, directionality, and the effort–motion–result/tetrad alignment (pp. 48–61; §1–§3, §4.5); energy-fullness, basic impulsion, and activeness (pp. 62, 69; §1, §4.5); composition distinguished from development (pp. 75–76; §4); four orders and their *svabhav* and *dharma* (pp. 179–180; §3–§5); property, reflection, effect, state-pressure, flow, and relative power (pp. 248–257; §1–§3, §5); animal and knowledge orders as joint forms and animal evaluation of essential nature (pp. 55, 249; §6.3, §A.9); T1, atomic stability, and inexhaustible effort and motion (pp. 55, 61, 92, 144–145; §6.1); constituent order in composition (p. 260; §5.4); cognisance and sensitivity (p. 64; §6.4, §7.2); delusion (pp. 91–92; §7.5); undivided society (pp. 246–247; §10.3).
+- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: coexistence, mutuality, inherent strength, and the absence of applied force from Omnipresence (pp. 43, 69, 149, 157–158; §1–§2, §5); four orders, conformance, animal hope, *sanskar*, body lineage, and complementarity (pp. 47–49, 59; §4–§7); values, character, ethics, right-use, protection, and human goals (pp. 54–61; §5, §9–§10); realisation after *sakshatkar* and *avdharna bodh* (p. 62; §7.4, §8.4); knowing, believing, recognising, and fulfilling (pp. 69–70; §5.2, §7.6); dissatisfaction under delusion and satisfaction through understanding (p. 76; §8.4); ten activities and the four-and-a-half account (pp. 73–74, 92–94; §7.3, §7.5, §9.2); justice, relationship, values, evaluation, and mutual satisfaction (pp. 97–98, 137–139; §8–§10); human *dharma* as happiness and orderliness (pp. 110, 121–123; §3.4, §8.1).
+- **KD** — Nagraj, A. *Manav Karm Darshan*. [Working English translation](../References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf); Hindi source `KD-karm darshan v5.pdf`. Machine-assisted working translation — not a published translation; cited as corroboration only. Cited: knowledge, action, human consequence, hope for happiness, experience, inference, and absolute knowledge (pp. 1–4; §7–§8); environment, study, *sanskar*, and transformable human essential nature (pp. 6–9, 25–27; §3.3, §7–§8); humane values, character, and ethics (p. 67; §9.3); particle exchange and molecular joining (3.1, pp. 56–58; 3.11, pp. 103–104; §4–§5); compositional sequence and T1 (3.2–3.3, pp. 58–62; §4, §6); complete knowledge and five state–motion pairs (3.5–3.6, pp. 69–72; §3.4, §7–§9); state–motion indivisibility, forcefulness, and reflection (3.8–3.9, pp. 84, 88, 94; §1–§3, §5); order-specific *svabhav, dharma,* and *guna* (3.9–3.10, pp. 98–102; §2–§3, §5, §8); strength, power, result, pressure, and flow (3.11, pp. 102–109; §1–§3, §4.5, §5); study and the realisation-oriented method (3.12, p. 112; §7.4, §8.4); excitation-pressure and uniform energy (3.13, pp. 118, 122; §1–§2, §4.5); body–*jeevan*, faculties, result-to-reflection, knower, object of knowledge, and *karan–karta–karya* (3.16–3.17, pp. 141–150; §6–§8).
 
 ### Related studies in this collection
 
 - [*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — saturation, four orders, compositional versus atomic development, T1–T3, and *jeevan* (§§1.2–1.7); companion technical note [*Rūpa, Guṇa, Svabhāva, and Dharma in a State-Dynamic Unit*](../The-Ontology-of-Coexistence/Technical-Note-Roop-Guna-Svabhava-Dharma.pdf)
 - [*Coexistence from First Principles*](../Coexistence-From-First-Principles/Coexistence-From-First-Principles.pdf) — compound-closure, order-relative stability, four progressions, order-typed coupling, and the guarded status of T1
-- [*The Epistemology of Coexistence*](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) — knowing, evidence, and the faculty architecture; companion [*A Functional Model of Jeevan*](../The-Epistemology-of-Coexistence/Research-Note-Jeevan-Functional-Model.pdf)
+- [*The Epistemology of Coexistence*](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) — knowing, evidence, presence versus unfolding, cognisance and sensitivity, higher-conformance, *sakshatkar*, and the faculty architecture (§§1.1–1.6); companion [*A Functional Model of Jeevan*](../The-Epistemology-of-Coexistence/Research-Note-Jeevan-Functional-Model.pdf)
 - [*Nature of Time*](../Nature-Of-Time/Nature-Of-Time.pdf) — *kaal* as duration of unit-activity
 - [*Human Behavior and Society*](../Human-Behavior-And-Society/Human-Behavior-And-Society.pdf) — humane conduct and social organisation
 - [*Family Relationships and Values*](../Family-Relationships-And-Values/Family-Relationships-And-Values.pdf) — established values and mutual satisfaction
