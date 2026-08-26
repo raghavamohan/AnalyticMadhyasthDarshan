@@ -1,14 +1,14 @@
-# Technical Note: The Activity-Procedure of a Unit
+# Technical Note: The Occurrence-Cycle of a Unit
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** August 25, 2026, 5:12 PM IST
+**Edited on:** August 26, 2026, 3:53 PM IST
 
-**Status:** Internal technical companion; not a catalog entry. Written for review before possible integration into the parent study.
+**Status:** Internal technical companion; not a catalog entry. Reviewed; retained as a companion while the parent study keeps its current architecture.
 
 **Parent study:** [*From Unit Activity to Human Orderliness: A State-Dynamic Reconstruction of Coexistence*](A-State-Dynamic-Model-Of-Coexistence.md)
 
-**Scope:** This note restates the formal reconstruction as an **activity-procedure of a unit** in a neighbourhood. It is written in ordinary English: no symbols, no quantitative laws, and no claim that the primary texts already present a procedure or a program. The parent study remains the source of the architecture. This note is an exhibit of that architecture as something a unit **does**.
+**Scope:** This note restates the formal reconstruction as an **occurrence-cycle of a unit** in a neighbourhood. It is written in ordinary English: no symbols, no quantitative laws, and no claim that the primary texts already present a procedure or a program. The parent study remains the source of the architecture. This note is an exhibit of that architecture as something a unit **does**.
 
 ## 1. Purpose and thesis
 
@@ -16,11 +16,11 @@ Appendix A of the parent study inventories types, invariants, and predicates. A 
 
 The thesis of this note is:
 
-> The reconstruction is most clearly stated as an activity-procedure of a unit in a neighbourhood. Standing conditions are never computed as outputs. One complete occurrence has effort, motion, and result co-present. Guarded events are the only way kind or relation may change. Order-modules specialise that kernel; they do not replace it with a second engine. Omnipresence, *dharma*, and the sequence of manifested orders are standing conditions, not routines.
+> The reconstruction is most clearly stated as an occurrence-cycle of a unit in a neighbourhood. Standing conditions are never computed as outputs. One complete occurrence has effort, motion, and result co-present. Guarded events are the only way kind or relation may change. Order-modules specialise that kernel; they do not replace it with a second engine. Omnipresence, *dharma*, and the sequence of manifested orders are standing conditions, not routines.
 
 This is an analytical reconstruction. It organises claims already developed in the parent study. It is not source doctrine, not a stored program inside the unit, and not a learning algorithm.
 
-Call it an **activity-procedure**, **occurrence-cycle**, or **process of the unit**. Do not call it the unit's program. *Dharma* is innateness, not instructions. Omnipresence is actionless ground, not a scheduler. The sequence of manifested orders restricts what can appear; it does not pull every atom through every order.
+The exhibit-name adopted here is the **occurrence-cycle**; **activity-procedure** and **process of the unit** remain acceptable alternatives. Do not call it the unit's program. *Dharma* is innateness, not instructions. Omnipresence is actionless ground, not a scheduler. The sequence of manifested orders restricts what can appear; it does not pull every atom through every order.
 
 ## 2. Claim status
 
@@ -29,12 +29,12 @@ The same contract as the parent study governs every sentence here.
 | Kind of statement | Meaning in this note | Example |
 |-------------------|----------------------|---------|
 | Direct textual claim | Stated in the primary texts in ordinary philosophical prose | Coexistence, saturation, the triad, the tetrad, four orders, constitutional completeness, ten activities |
-| Translation choice | One English running term selected where translations vary | Omnipresence for *satta*; activity-procedure for this reconstruction; justice-natural for *nyaya-sahaj* |
+| Translation choice | One English running term selected where translations vary | Omnipresence for *satta*; occurrence-cycle for this reconstruction; justice-natural for *nyaya-sahaj* |
 | Analytical reconstruction | A structure introduced to keep the claims explicit and mutually consistent | Situation cycle, unit occurrence, modules, guarded-event table |
 | Proposed operational criterion | A checkable reading whose exact equivalence is not stated by the texts | Activity completeness and conduct completeness as trace-checks |
 | Open empirical question | A source claim without an accepted contemporary scientific counterpart | Physical identification of constitutional completeness; the body–*jeevan* interface |
 
-The procedure itself is an analytical reconstruction. Rejecting the procedure-form does not by itself reject the textual claims it organises.
+The occurrence-cycle itself is an analytical reconstruction. Rejecting the cycle-form does not by itself reject the textual claims it organises.
 
 ## 3. Standing conditions
 
@@ -54,9 +54,9 @@ These are true throughout. They are never an output of a cycle.
 
 ## 4. Two layers
 
-A unit procedure cannot be written in isolation. Facing, composition, and joint forms are relations among bearers. Two layers are therefore required.
+A unit's cycle cannot be written in isolation. Facing, composition, and joint forms are relations among bearers. Two layers are therefore required.
 
-**The situation cycle** is the outer procedure: a finite neighbourhood under study, with an explicit boundary to the rest of nature. It holds the bearers, their actual facings, which bearers are parts of which containing wholes, and which *jeevans* are associated with which bodies.
+**The situation cycle** is the outer layer: a finite neighbourhood under study, with an explicit boundary to the rest of nature. It holds the bearers, their actual facings, which bearers are parts of which containing wholes, and which *jeevans* are associated with which bodies.
 
 **The unit occurrence** is the kernel: what one bearer does in its actual neighbourhood during one complete activity-occurrence.
 
@@ -267,7 +267,7 @@ Specialises the constitutional-completeness event.
 - Most atoms never take this event. The situation must not treat it as the default next step of the material or containing-whole modules.
 - After this event, unjoined *jeevan* is represented by the auxiliary role until a body association is active.
 
-The physical identification of the guard remains open. The procedure records postconditions; it does not supply a laboratory test.
+The physical identification of the guard remains open. The cycle records postconditions; it does not supply a laboratory test.
 
 ### 8.8 Joint form
 
@@ -325,16 +325,20 @@ Specialises two successive uses of the kernel.
 
 **Dissatisfaction.** Experienced non-attainment of *jeevan* values. Not excitation-pressure, not a force on *jeevan*. If the same references organise the next conduct, the pattern can recur. If contradiction is recognised as a need for understanding, inquiry and study can begin. Freedom of action keeps both branches open.
 
-### 8.12 Completeness
+## 9. Trace-level checks
 
-These are proposed checks on a **trace**, not steps inside one occurrence.
+These two are not modules. They are not part of the unit and are never steps inside an occurrence: they inspect a completed trace, and they never fire events.
+
+### 9.1 Completeness
+
+Proposed checks on a **trace**.
 
 - **Activity completeness:** realisation of the determinate content; all ten activities effective; nested internal harmony (happiness, peace, contentment, bliss, ultimate bliss); restfulness of effort. Absence of reported dissatisfaction may accompany this; it is not enough to define it (SB, p. 58; MVD, p. 103).
 - **Conduct completeness:** that inner resolution lived as stable humane conduct — character, ethics, values — across a relevant diversity of relationship and work. “Stable” is qualitative and sustained, not a duration fixed by the sources (MVD, pp. 80, 101, 103; JV, pp. 54–55).
 
-### 8.13 Observation
+### 9.2 Observation
 
-This module is not part of the unit. It records how different verifiers may assess a trace without collapsing access:
+Records how different verifiers may assess a trace without collapsing access:
 
 - first-person report;
 - those involved in the relationship;
@@ -345,9 +349,9 @@ This module is not part of the unit. It records how different verifiers may asse
 
 Each domain is supported, contradicted, undetermined, or not assessed. The four human domains — thought, behaviour, work, realisation — are not aggregated. Behaviour is assessed through justice, thought through *dharma*, and realisation through truth (MVD, p. 137). Contradiction in relationship or work defeats a present claim of complete public evidence.
 
-The chain resolved individual → prosperous family → fearless society → universal coexistence is a source-stated direction of evidence (JV, pp. 60–61). This procedure stops at individual and relational traces. Family, institution, and population are not yet modules.
+The chain resolved individual → prosperous family → fearless society → universal coexistence is a source-stated direction of evidence (JV, pp. 60–61). This cycle stops at individual and relational traces. Family, institution, and population are not yet modules.
 
-## 9. How the modules compose
+## 10. How the modules compose
 
 Call order, not causal ladder:
 
@@ -356,7 +360,7 @@ Call order, not causal ladder:
 3. The unit occurrence always uses mutuality, recognition, and tetrad expression, then writes a result.
 4. Material, pranic, animal, or human modules fill in expression according to kind and order. The containing-whole module is used when the bearer is a whole or a part.
 5. After all current occurrences, the event table may call material, containing-whole, pranic, atomic-development, joint-form, animal, or human-evaluation modules.
-6. Completeness and observation inspect traces; they never fire events.
+6. The trace-level checks of §9 inspect traces; they never fire events.
 
 Invariants that the composition must preserve:
 
@@ -366,11 +370,11 @@ Invariants that the composition must preserve:
 - Human evaluation does not add a force, a fourth triad-member, or an automatic update.
 - Instruments do not decide constitutional completeness, and first-person report does not decide work.
 
-## 10. Two executions
+## 11. Three executions
 
 These are the same kernel, not new machinery.
 
-### 10.1 Material exchange
+### 11.1 Material exchange
 
 An overfull atom, a hungry atom, and a displaced particle are in mutual facing.
 
@@ -383,7 +387,20 @@ An overfull atom, a hungry atom, and a displaced particle are in mutual facing.
 
 If participation closes a compound, the containing-whole module fires and a new bearer appears. If it forms a mixture, only the facing edges change.
 
-### 10.2 Human evaluation
+### 11.2 Animal evaluation
+
+An animal joint form meets another bearer in its situation. This is an analytical example, not a case narrated in the primary texts.
+
+| Occurrence | What happens | Which modules |
+|------------|--------------|---------------|
+| Mutual facing | The joint form and another bearer meet in a definite bodily and relational situation. | Mutuality, recognition |
+| Species-conformant recognition | Essential nature is recognised as friendly or opposed; recognition is definite through species. | Joint form, animal evaluation |
+| Tasting, selection, bodily activity | Tasting and selection organise a body-mediated activity toward bodily fulfilment. | Tetrad expression, pranic |
+| Bodily and relational consequence | The consequence alters the bodily and relational situation of the next occurrence. | Result written into the situation |
+
+No knowing-and-believing circuit is used, no determinate content is unfolded, and no *sanskar* is revised. The recurrence is a changed situation, not a learning law.
+
+### 11.3 Human evaluation
 
 A person accepts responsibility in a recognised relationship but abandons it for immediate profit. This is an analytical example, not a case narrated in the primary texts.
 
@@ -397,39 +414,39 @@ A person accepts responsibility in a recognised relationship but abandons it for
 
 The trace makes the distinction between dissatisfaction and excitation-pressure concrete. The former is a sentient consequence of unresolved value; the latter belongs to an excited force–power relation.
 
-## 11. Relation to other documents
+## 12. Relation to other documents
 
-- **Parent study.** This note is a reading of that study's architecture as a procedure. If the note is accepted, the parent study would be re-cut so that standing conditions, the situation cycle, and the unit occurrence become the main exhibit, with the present Appendix A retained as a type-contract. Until then, the parent study is unchanged.
+- **Parent study.** This note is a reading of that study's architecture as a cycle. Review resolved in favour of keeping the parent study's current architecture, so its structure is unchanged. The re-cut — standing conditions, the situation cycle, and the unit occurrence as the main exhibit, with Appendix A retained as a type-contract — remains available as a later option.
 - **Jeevan functional companion.** [*A Functional Model of Jeevan*](../The-Epistemology-of-Coexistence/Research-Note-Jeevan-Functional-Model.md) is the inner specialisation of human orientation: faculties, reception, inquiry, and embodied consequence. This note owns the outer process — unit and situation — of which that companion is one module.
 - **Tetrad technical note.** [*Four Aspects of the Active Unit*](../The-Ontology-of-Coexistence/Technical-Note-Roop-Guna-Svabhava-Dharma.md) supplies the aspect-definitions used in tetrad expression. This note does not reopen those definitions.
 
-## 12. Questions for review before integration
+## 13. Review decisions
 
-These are the decisions this note is meant to settle.
+These are the decisions this note was written to settle. The integration question was resolved in favour of keeping the parent study's current architecture; the re-cut described in §12 remains available as a later option.
 
-1. **Naming.** Is “activity-procedure of a unit” the right exhibit-name, or is “occurrence-cycle” / “process of the unit” clearer for a reader of the darshan?
-2. **Placement.** If integrated, should the kernel sit immediately after “Model at a glance,” replacing the present walk through triad and tetrad as the first formal section?
-3. **Appendix A.** Keep it as a type-contract behind the procedure, shorten it, or drop symbols from the published study and retain them only in a companion?
-4. **Module grain.** Are the thirteen modules the right cuts, or should mutuality and recognition be one module, and completeness and observation be left in the parent study's later sections?
-5. **Human inner protocol.** Keep faculty-level unfolding in the jeevan companion, or lift a shorter version into this procedure?
-6. **Traces.** Are the two executions sufficient, or is a pranic-growth execution also required before integration?
-7. **Language.** Does any sentence still sound as if *dharma*, Omnipresence, or the sequence of orders were a routine?
+1. **Naming.** Resolved: **occurrence-cycle**. "Activity-procedure" invited the reading this note spends §1 denying, and a title is what a skimming reader retains. The alternatives remain acceptable in prose.
+2. **Placement.** Deferred. The kernel does not yet displace the parent study's walk through triad and tetrad. If it later does, it sits immediately after "Model at a glance".
+3. **Appendix A.** Resolved: keep it as the type-contract behind the cycle. The parent study's topical sections still use inline qualitative notation (*K*<sup>*</sup>, R̂, *z*<sub>H</sub>, and the rest); the appendix remains the place where that notation is collected as a type-contract, not a claim that the body is now prose-only.
+4. **Module grain.** Resolved both ways. Mutuality and recognition stay separate — the actual/recognised distinction is what makes misrecognition, correction, and justice in relationship representable, and merging them blurs that seam. Completeness and observation are no longer modules; they are trace-level checks in §9.
+5. **Human inner protocol.** Resolved: faculty-level unfolding stays in the *jeevan* companion. §8.10 carries only enough to make the step legible.
+6. **Traces.** Resolved: an animal execution was added (§11.2), chosen over a pranic-growth execution because the animal rung is where the sentient boundary is hardest and where what animal evaluation *excludes* most needs showing. A pranic-growth execution remains optional.
+7. **Language.** Resolved for present scope: no sentence asserts that *dharma*, Omnipresence, or the order-sequence is a routine, and every such reading is explicitly denied. The residue is the governing vocabulary rather than any sentence, which is acceptable while this note remains an internal companion for a technical reader. If the cycle is ever integrated into the published study, rename "modules" to "specialisations" (the verb already used throughout), replace "dispatch by kind and order" with "expression differs by kind and order", and soften "runnable cycle" and "second engine".
 
 ## References
 
 ### Madhyasth Darshan (primary sources)
 
-- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: four orders and progression (pp. 8, 13; §§3, 7); coexistence (pp. 11, 34; §3); Knowledge or Space (pp. 32–36, 174; §§3, 8.10); saturation and relative energy (pp. 40–41, 46; §3); mixture and compound (p. 42; §8.4); the tetrad (p. 47; §§3, 8.3); relationship and contact (pp. 61–62; §8.1); six perspectives and the assignment of justice, *dharma*, and truth to behaviour, thought, and realisation (pp. 66–67, 137; §§8.10, 8.11, 8.13); delusion and effective activities (pp. 58, 78, 80–81; §8.10); humane conduct and completeness (pp. 80, 101, 103; §8.12); constitutional completeness and hope-bondage (p. 91; §8.7); realisation sequence (pp. 99–100, 126; §8.10); justice as realisation in behaviour, *dharma* in thought, and coexistence in *atma* (p. 155; §8.10); higher- and lower-conformance as justice-natural direction at *mun* (p. 208; §8.10).
-- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: coexistence and saturation (pp. 48–50, 57, 61, 69, 248; §3); joint form (p. 55; §8.8); effort–motion–result (p. 58; §§3, 6.3, 8.12); constitutional completeness (pp. 55, 61; §8.7); cognisance and sensitivity (p. 64; §8.8); composition is not development (pp. 75–76; §3); animal recognition (p. 249; §8.9).
-- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: four orders and bodies (pp. 47–49, 59; §§3, 8.6); humane conduct (pp. 54–55; §8.12); human goals (pp. 60–61; §8.13); realisation sequence (p. 62; §8.10); knowing, believing, recognising, fulfilling (pp. 69–70; §§8.9, 8.10); delusion (pp. 73–74, 93–94; §8.10); justice, relationship, values, evaluation, and mutual satisfaction (pp. 97–98, 137–139; §§8.11, 10.2); *dharma* and resolution (pp. 110, 121–123; §3).
-- **KD** — Nagraj, A. [*Manav Karm Darshan*](../../References/Madhyasth-Darshan/Manav-Karm-Darshan.pdf). Hindi source, v5. Cited: hungry and overfull atoms (3.1, pp. 57–58; §§8.4, 10.1); pranic sequence (3.2, pp. 58–60; §8.6); constitutional completeness (3.3, pp. 60–62; §8.7); molecular joining (3.11, pp. 103–104; §8.4).
+- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: four orders and progression (pp. 8, 13; §§3, 7); coexistence (pp. 11, 34; §3); Knowledge or Space (pp. 32–36, 174; §§3, 8.10); saturation and relative energy (pp. 40–41, 46; §3); mixture and compound (p. 42; §8.4); the tetrad (p. 47; §§3, 8.3); relationship and contact (pp. 61–62; §8.1); six perspectives and the assignment of justice, *dharma*, and truth to behaviour, thought, and realisation (pp. 66–67, 137; §§8.10, 8.11, 9.2); delusion and effective activities (pp. 58, 78, 80–81; §8.10); humane conduct and completeness (pp. 80, 101, 103; §9.1); constitutional completeness and hope-bondage (p. 91; §8.7); realisation sequence (pp. 99–100, 126; §8.10); justice as realisation in behaviour, *dharma* in thought, and coexistence in *atma* (p. 155; §8.10); higher- and lower-conformance as justice-natural direction at *mun* (p. 208; §8.10).
+- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: coexistence and saturation (pp. 48–50, 57, 61, 69, 248; §3); joint form (p. 55; §8.8); effort–motion–result (p. 58; §§3, 6.3, 9.1); constitutional completeness (pp. 55, 61; §8.7); cognisance and sensitivity (p. 64; §8.8); composition is not development (pp. 75–76; §3); animal recognition (p. 249; §8.9).
+- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: four orders and bodies (pp. 47–49, 59; §§3, 8.6); humane conduct (pp. 54–55; §9.1); human goals (pp. 60–61; §9.2); realisation sequence (p. 62; §8.10); knowing, believing, recognising, fulfilling (pp. 69–70; §§8.9, 8.10); delusion (pp. 73–74, 93–94; §8.10); justice, relationship, values, evaluation, and mutual satisfaction (pp. 97–98, 137–139; §§8.11, 11.3); *dharma* and resolution (pp. 110, 121–123; §3).
+- **KD** — Nagraj, A. [*Manav Karm Darshan*](../../References/Madhyasth-Darshan/Manav-Karm-Darshan.pdf). Hindi source, v5. Cited: hungry and overfull atoms (3.1, pp. 57–58; §§8.4, 11.1); pranic sequence (3.2, pp. 58–60; §8.6); constitutional completeness (3.3, pp. 60–62; §8.7); molecular joining (3.11, pp. 103–104; §8.4).
 
 ### Related studies and notes in this collection
 
-- [*From Unit Activity to Human Orderliness: A State-Dynamic Reconstruction of Coexistence*](A-State-Dynamic-Model-Of-Coexistence.md) — parent study; this note is a procedure-reading of its architecture.
+- [*From Unit Activity to Human Orderliness: A State-Dynamic Reconstruction of Coexistence*](A-State-Dynamic-Model-Of-Coexistence.md) — parent study; this note is a cycle-reading of its architecture.
 - [*Four Aspects of the Active Unit*](../The-Ontology-of-Coexistence/Technical-Note-Roop-Guna-Svabhava-Dharma.md) — tetrad definitions used in §8.3.
 - [*A Functional Model of Jeevan*](../The-Epistemology-of-Coexistence/Research-Note-Jeevan-Functional-Model.md) — inner specialisation of §8.10.
 - [*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.md) — coexistence, saturation, composition, and constitutional completeness.
 - [*The Epistemology of Coexistence*](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.md) — knowing, evaluation-references, and evidence.
 - [*Nature of Time*](../Nature-Of-Time/Nature-Of-Time.md) — duration of unit-activity rather than a container.
-- [*Death, Continuity, and Rebirth*](../Death-Continuity-And-Rebirth/Death-Continuity-And-Rebirth.md) — persistence of *jeevan* across bodies, excluded from this procedure's span.
+- [*Death, Continuity, and Rebirth*](../Death-Continuity-And-Rebirth/Death-Continuity-And-Rebirth.md) — persistence of *jeevan* across bodies, excluded from this cycle's span.
