@@ -10,10 +10,12 @@ sys.path.insert(0, str(SCRIPTS))
 
 import markdown
 
+from _common import BASE, site_base_url
 from _convert_to_pdf import (
     convert_to_html,
     protect_latex_math_in_markdown,
     restore_latex_math,
+    rewrite_local_links_for_site,
 )
 
 
@@ -55,6 +57,25 @@ def test_generated_html_uses_lf_line_endings() -> None:
         assert b"\r\n" not in html_path.read_bytes()
 
 
+def test_study_folder_md_companion_rewrites_to_site_html() -> None:
+    html_path = (
+        BASE
+        / "Studies"
+        / "The-Ontology-of-Coexistence"
+        / "The-Ontology-of-Coexistence.html"
+    )
+    body = (
+        '<p><a href="Technical-Note-Roop-Guna-Svabhava-Dharma.md">'
+        "tetrad note</a></p>"
+    )
+    rewritten = rewrite_local_links_for_site(body, html_path)
+    expected = (
+        f"{site_base_url().rstrip('/')}/Studies/The-Ontology-of-Coexistence/"
+        "Technical-Note-Roop-Guna-Svabhava-Dharma.html"
+    )
+    assert expected in rewritten, rewritten
+
+
 def main() -> int:
     tests = [
         test_set_braces_survive,
@@ -62,6 +83,7 @@ def main() -> int:
         test_display_math_becomes_its_own_paragraph,
         test_dollars_in_code_are_not_math,
         test_generated_html_uses_lf_line_endings,
+        test_study_folder_md_companion_rewrites_to_site_html,
     ]
     failed = 0
     for test in tests:
