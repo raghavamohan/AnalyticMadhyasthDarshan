@@ -196,7 +196,11 @@ def convert_mermaid_blocks(html_body: str) -> str:
 
 
 def _resolve_repo_link(href: str, source_dir: Path) -> Path | None:
-    """Resolve a relative href to a downloadable file under References/ or Studies/."""
+    """Resolve a relative href to a published file under References/, Studies/, or Applications/.
+
+    Study-folder ``.md`` companions resolve to a sibling ``.html`` or ``.pdf`` when
+    one exists, so PDF output can use a site URL instead of a local ``file://`` link.
+    """
     if not href or href.startswith("#"):
         return None
     parsed = urlparse(href)
@@ -219,14 +223,24 @@ def _resolve_repo_link(href: str, source_dir: Path) -> Path | None:
         try:
             if not candidate.is_file() or not candidate.is_relative_to(BASE):
                 continue
-            if not is_linkable_reference_file(candidate):
-                continue
             if candidate.is_relative_to(REFERENCES):
-                return candidate
-            if candidate.suffix.lower() == ".pdf" and (
+                if is_linkable_reference_file(candidate):
+                    return candidate
+                continue
+            if not (
                 candidate.is_relative_to(studies) or candidate.is_relative_to(applications)
             ):
-                return candidate
+                continue
+            suffix = candidate.suffix.lower()
+            if suffix in {".pdf", ".html"}:
+                if is_linkable_reference_file(candidate):
+                    return candidate
+                continue
+            if suffix == ".md":
+                for sibling_suffix in (".html", ".pdf"):
+                    sibling = candidate.with_suffix(sibling_suffix)
+                    if sibling.is_file() and is_linkable_reference_file(sibling):
+                        return sibling
         except ValueError:
             continue
     return None

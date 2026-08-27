@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** August 26, 2026, 3:53 PM IST
+**Edited on:** August 27, 2026, 7:29 AM IST
 
 **Status:** Internal technical companion; not a catalog entry. Reviewed; retained as a companion while the parent study keeps its current architecture.
 
@@ -287,7 +287,7 @@ Specialises recognition, expression, and result for the animal joint form.
 
 - Hope to live through species-conformance.
 - Recognition of essential nature, including friendliness and opposition.
-- Tasting, selection, sensitivity, bodily fulfilment (SB, p. 249; JV, pp. 49, 69–70).
+- Tasting, selection, sensitivity, and body-mediated activity (SB, p. 249; JV, pp. 38–39, 49, 69–70).
 - Consequence of one activity alters the next bodily and relational situation.
 - No unfolding of determinate knowledge-content, no knowing-and-believing circuit, no *sanskar*-revision law.
 
@@ -438,8 +438,8 @@ These are the decisions this note was written to settle. The integration questio
 
 - **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: four orders and progression (pp. 8, 13; §§3, 7); coexistence (pp. 11, 34; §3); Knowledge or Space (pp. 32–36, 174; §§3, 8.10); saturation and relative energy (pp. 40–41, 46; §3); mixture and compound (p. 42; §8.4); the tetrad (p. 47; §§3, 8.3); relationship and contact (pp. 61–62; §8.1); six perspectives and the assignment of justice, *dharma*, and truth to behaviour, thought, and realisation (pp. 66–67, 137; §§8.10, 8.11, 9.2); delusion and effective activities (pp. 58, 78, 80–81; §8.10); humane conduct and completeness (pp. 80, 101, 103; §9.1); constitutional completeness and hope-bondage (p. 91; §8.7); realisation sequence (pp. 99–100, 126; §8.10); justice as realisation in behaviour, *dharma* in thought, and coexistence in *atma* (p. 155; §8.10); higher- and lower-conformance as justice-natural direction at *mun* (p. 208; §8.10).
 - **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: coexistence and saturation (pp. 48–50, 57, 61, 69, 248; §3); joint form (p. 55; §8.8); effort–motion–result (p. 58; §§3, 6.3, 9.1); constitutional completeness (pp. 55, 61; §8.7); cognisance and sensitivity (p. 64; §8.8); composition is not development (pp. 75–76; §3); animal recognition (p. 249; §8.9).
-- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: four orders and bodies (pp. 47–49, 59; §§3, 8.6); humane conduct (pp. 54–55; §9.1); human goals (pp. 60–61; §9.2); realisation sequence (p. 62; §8.10); knowing, believing, recognising, fulfilling (pp. 69–70; §§8.9, 8.10); delusion (pp. 73–74, 93–94; §8.10); justice, relationship, values, evaluation, and mutual satisfaction (pp. 97–98, 137–139; §§8.11, 11.3); *dharma* and resolution (pp. 110, 121–123; §3).
-- **KD** — Nagraj, A. [*Manav Karm Darshan*](../../References/Madhyasth-Darshan/Manav-Karm-Darshan.pdf). Hindi source, v5. Cited: hungry and overfull atoms (3.1, pp. 57–58; §§8.4, 11.1); pranic sequence (3.2, pp. 58–60; §8.6); constitutional completeness (3.3, pp. 60–62; §8.7); molecular joining (3.11, pp. 103–104; §8.4).
+- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: animal-order sensitivity (pp. 38–39; §8.9); four orders and bodies (pp. 47–49, 59; §§3, 8.6); humane conduct (pp. 54–55; §9.1); human goals (pp. 60–61; §9.2); realisation sequence (p. 62; §8.10); knowing, believing, recognising, fulfilling (pp. 69–70; §§8.9, 8.10); delusion (pp. 73–74, 93–94; §8.10); justice, relationship, values, evaluation, and mutual satisfaction (pp. 97–98, 137–139; §§8.11, 11.3); *dharma* and resolution (pp. 110, 121–123; §3).
+- **KD** — Nagraj, A. *Manav Karm Darshan*. [Working English translation](../../References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf); Hindi source `KD-karm darshan v5.pdf`. Machine-assisted working translation — not a published translation; cited as corroboration only. Cited: hungry and overfull atoms (3.1, pp. 57–58; §§8.4, 11.1); pranic sequence (3.2, pp. 58–60; §8.6); constitutional completeness (3.3, pp. 60–62; §8.7); molecular joining (3.11, pp. 103–104; §8.4).
 
 ### Related studies and notes in this collection
 
