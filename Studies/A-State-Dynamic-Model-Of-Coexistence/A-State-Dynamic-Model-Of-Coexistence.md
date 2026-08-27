@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** August 27, 2026, 8:53 AM IST
+**Edited on:** August 27, 2026, 2:30 PM IST
 **Status:** Draft
 
 This paper develops a source-bounded causal architecture from unit activity to human orderliness. It reconstructs one connected account of material change, compositional closure, sentient participation, reflexive evaluation, and public conduct while preserving the different kinds of bearer and evidence involved. The result is a typed qualitative hybrid model, not a quantitative theory that predicts physical trajectories or proves every ontological claim.
@@ -11,7 +11,7 @@ At its ontological base, state-complete Omnipresence (*satta*) coexists with cou
 
 At the structural level, the model distinguishes two development lines. Compositional closure establishes molecules, compounds, cells, and bodies as new bounded bearers whose constituents persist. Atomic development instead reaches constitutional completeness (T1), yielding *jeevan* with invariant hope-bondage. The auxiliary role *J* represents unjoined T1 *jeevan* without adding a fifth order. Animal and human orders become manifest only through body–*jeevan* joint forms, so the human is neither a later animal composition nor a body that produces sentience.
 
-At the human level, the same architecture extends from the five faculties and ten activities of *jeevan* into knowing, believing, recognising, fulfilling, action, consequence, and reflexive evaluation. This is unfolding of already-present knowledge rather than acquisition of a new power. It can represent both deluded recurrence and refinement through study, direct recognition (*sakshatkar*), enlightenment (*bodh*), and realisation (*anubhav*). Activity completeness (T2) names inner resolution; conduct completeness (T3) names its repeatable public evidence in relationship, work, family, society, and participation in orderliness.
+At the human level, the same architecture extends from the five faculties and ten activities of *jeevan* into knowing, believing, recognising, fulfilling, karma, consequence, and reflexive evaluation. Complete knowledge comprises coexistence, *jeevan*, and humane conduct. Study of coexistence, *jeevan*, and truth unfolds the capacity to recognise actual relationships; karma is activity together with aspiration; *mun* tastes the associated value in work and behaviour only when the relationship is recognised; later evaluation tests whether that value was achieved. This is unfolding of already-present knowledge rather than acquisition of a new power. It can represent both deluded recurrence under *priya–hita–labh* and refinement through study, direct recognition (*sakshatkar*), enlightenment (*bodh*), realisation (*anubhav*), and practised karma. Activity completeness (T2) names inner resolution once all three contents have reached the faculties; conduct completeness (T3) names its repeatable public evidence in relationship, work, family, society, and participation in orderliness.
 
 Formally, the study contributes typed states, a dynamic relation graph, actual and operative recognition, order-relative invariants, guarded transitions, joint-form interfaces, qualitative human traces, and observation predicates. It also marks its limits: the physical identification of T1, the body–*jeevan* interface, quantitative calibration, and social-scale dynamics remain unresolved. Direct textual claims, translation choices, analytical reconstructions, proposed operational criteria, and open empirical questions are kept visibly distinct throughout.
 
@@ -41,14 +41,21 @@ flowchart TD
 
     HJ --> COG["Cognisance governs sensitivity"]
     COG --> HF["Ten activities"]
-    HF --> REC["KBRF · action · consequence · evaluation"]
-    REC --> DEL["Deluded recurrence"]
-    REC --> AW["Unfolding: study · sakshatkar · bodh · anubhav"]
-    AW --> T2["T2 activity completeness"]
+    HF --> REC["KBRF"]
+    REC --> STUDY["Study: coexistence, jeevan, truth"]
+    STUDY --> CAP["Capacity to recognise relationship"]
+    CAP --> KARMA["Karma: activity plus aspiration"]
+    KARMA --> TASTE["Mun tastes the associated value"]
+    TASTE --> EVALN["Later evaluation"]
+    EVALN -->|"recognition missing"| STUDY
+    EVALN -->|"value not achieved"| KARMA
+    EVALN --> DEL["Deluded recurrence under priya-hita-labh"]
+    EVALN -->|"closed evidence"| ALIGN["Ten activities effective"]
+    ALIGN --> T2["T2 activity completeness"]
     T2 --> T3["T3 conduct completeness"]
 ```
 
-The diagram shows three joints that organise the whole paper. Form, property, essential nature, and *dharma* describe the same active unit as effort–motion–result. Compositional development supplies bodies while atomic development supplies T1 *jeevan*; animal and human joint forms arise where those lines meet, so the human is not a later animal composition and *jeevan* is not produced by a body. *Satta* is also Knowledge-ground and remains actionless: the glance therefore keeps a single saturation arrow rather than a second Knowledge-force. Animal sentience expresses species-conformant hope to live, not knowledge-grounded evaluation or unfolding of determinate content *K*<sup>*</sup>. Human unfolding proceeds through study, *sakshatkar*, *bodh*, and *anubhav*; it reorganises existing strength and power and does not add a force to effort–motion–result. Read against the paper: ground and units are §1, effort–motion–result §2, form, property, essential nature, and *dharma* §3, composition and coupling §4–§5, T1 and joint forms §6, human knowledge and refinement §7–§8, and completeness and verification §9–§10.
+The diagram shows three joints that organise the whole paper. Form, property, essential nature, and *dharma* describe the same active unit as effort–motion–result. Compositional development supplies bodies while atomic development supplies T1 *jeevan*; animal and human joint forms arise where those lines meet, so the human is not a later animal composition and *jeevan* is not produced by a body. *Satta* is also Knowledge-ground and remains actionless: the glance therefore keeps a single saturation arrow rather than a second Knowledge-force. Animal sentience expresses species-conformant hope to live, not knowledge-grounded evaluation or unfolding of determinate content *K*<sup>*</sup>. Human unfolding proceeds through study of coexistence, *jeevan*, and truth, then through karma with aspiration, taste of value in *mun*, and later evaluation; it reorganises existing strength and power and does not add a force to effort–motion–result. T2 and T3 remain trace-checks on a completed path, not additional forces. Read against the paper: ground and units are §1, effort–motion–result §2, form, property, essential nature, and *dharma* §3, composition and coupling §4–§5, T1 and joint forms §6, human knowledge, humane conduct, and refinement §7–§8, and completeness and verification §9–§10.
 
 ### Model contract
 
@@ -87,8 +94,12 @@ This contract governs every symbol and diagram. A formal object may organise a t
 | Auxiliary sentient role *J* | The model's role for T1 *jeevan* when no body association is active in the bounded situation; not a fifth order or *dharma* profile. |
 | Animal joint form | Animal body with *jeevan*, evidencing hope to live through species-conformant recognition, tasting, and selection. |
 | Human joint form | Human body with *jeevan*, capable of knowing, believing, reflexive evaluation, refinement and humane conduct. |
-| Evaluation-references | The set presently governing human comparison: pleasure–health–profit in delusion, or justice, *dharma*, and truth in humane consciousness. The humane members work in distinct fields: justice in behaviour, *dharma* in thought, truth in realisation. |
-| Activity completeness (T2) | Restfulness of effort through realised inner resolution. |
+| Evaluation-references | The set presently governing human comparison: *priya–hita–labh* (pleasant, healthy, profitable) in delusion, or justice, *dharma*, and truth in humane consciousness. The humane members work in distinct fields: justice in behaviour, *dharma* in thought, truth in realisation. |
+| Humane conduct | The combined form of values, character, and ethics; the third constituent of determinate knowledge-content *K*<sup>*</sup>. |
+| Value families | Object (usefulness and aesthetic), *jeevan*, human, established, and civic (*shishta*) values; content of humane conduct, not additional *gunas*. |
+| Karma | Human activity together with aspiration (intent toward a value or *abhīṣṭa*); not bare motion. |
+| Taste of value | *Mun*'s *asvadan* of value, character, and ethics in work and behaviour; possible only when the relationship is recognised. Not a sixth faculty. |
+| Activity completeness (T2) | Restfulness of effort through realised inner resolution, once all three contents of *K*<sup>*</sup> have reached the faculties. |
 | Conduct completeness (T3) | Destination of motion through repeatable humane conduct. |
 
 The expanded terminology and every model symbol are collected in Appendix B.
@@ -504,24 +515,49 @@ Each row gives paired descriptions of the forceful and projective sides of *jeev
 
 ### 7.4 Realised knowledge as orientation
 
-Let *K*<sup>*</sup> denote the determinate content — coexistence, *jeevan*, and humane conduct. A qualitative profile *k*<sub>H</sub> records which parts have been studied, directly recognised in *chitta* (*sakshatkar*), enlightened in *buddhi*, realised in *atma*, and made available as evidence. It is not a scalar degree, and it does not treat knowledge as a possessed quantity. The profile records incomplete unfolding of already-present *K*<sup>*</sup>.
+Let *K*<sup>*</sup> denote the determinate content — coexistence, *jeevan*, and humane conduct. A qualitative profile *k*<sub>H</sub> records unfolding **per constituent**: which of coexistence, *jeevan*, and humane conduct have been studied, directly recognised in *chitta* (*sakshatkar*), enlightened in *buddhi*, realised in *atma*, and made available as evidence. It is not a scalar degree, and it does not treat knowledge as a possessed quantity. The profile records incomplete unfolding of already-present *K*<sup>*</sup>.
 
 > **"Affirmation of truth in the form of coexistence through the way of study is referred to as ratiocination in mun (in the form of acceptance), deliberation in vritti (by way of qualitative analysis), direct recognition in chitta, and enlightenment in buddhi."**
 > — MVD, p. 126
 
 Study is the work of that sequence. Direct recognition in *chitta* is its accomplishment at meaning; enlightenment in *buddhi* is its culmination; realisation in *atma* follows that enlightenment. Realisation is attained after revelation (*sakshatkar*) and definitive understanding (*avdharna bodh*) (JV, p. 62; MVD, pp. 99–100). Realised content is then projected through resolve, imaging, analysis, and selection (MVD, p. 100; KD 3.6, pp. 71–72; KD 3.12, p. 112; KD 3.17, pp. 145–148). No transition rule makes study automatically produce *sakshatkar*, enlightenment, or realisation.
 
+The three constituents do not evidence in the same way. Study of coexistence and of *jeevan*, together with truth as evaluation-reference, is what first makes recognition of an actual relationship admissible. Without that unfolding, capacity, ability, and receptivity may not yet pick out the relationship whose value is at issue (KD, pp. 3–4, 17–18, 69–70). Evidence of humane-conduct content is then knowing, believing, recognising, and fulfilling together: karma with aspiration, taste of the value in *mun*, and a later evaluative occurrence. Verbal study of humane conduct without practised karma leaves *mun* without that value to taste. Practised karma without recognised relationship is also incomplete: *mun* may taste *priya*, *hita*, or *labh*, not the relationship's value.
+
 ### 7.5 Initial *sanskar* and deluded evaluation
 
 Every human acts from present acceptance. Environment, study, and *sanskar* contribute to the orientation from which thought and conduct are expressed, while the body provides the sensory and motor medium (KD, pp. 6–9; KD 3.16, pp. 141–145). The faculty, knowledge, acceptance, evaluation, and recognition fields of *z*<sub>H</sub> are qualitative predicates rather than neurological measurements.
 
-In delusion (*bhram*), identification of *jeevan* with the body leaves the upper activities unevidenced and organises comparison from sensory input. Of the ten activities, only four and a half are then effective — selection, tasting, analysis, imaging, and half of comparison — while pleasure, health, and profit become its prevailing perspectives (MVD, pp. 58, 78, 80–81; SB, pp. 91–92; JV, pp. 73–74, 93–94, 97–98). Human *dharma* remains happiness; the error lies in what is accepted as its fulfilment. Freedom of action leaves both human-opposing and humane expression possible.
+In delusion (*bhram*), identification of *jeevan* with the body leaves the upper activities unevidenced and organises comparison from sensory input. Of the ten activities, only four and a half are then effective — selection, tasting, analysis, imaging, and half of comparison — while *priya–hita–labh* (pleasant, healthy, profitable) become its prevailing perspectives (MVD, pp. 58, 66–67, 78, 80–81; SB, pp. 91–92; JV, pp. 73–74, 93–94, 97–98). Human *dharma* remains happiness; the error lies in what is accepted as its fulfilment. Freedom of action leaves both human-opposing and humane expression possible.
 
 ### 7.6 Knowing, believing, recognising, and fulfilling
 
-Human evidence joins four distinguishable aspects: knowing and believing organise the internal orientation; recognising relates that orientation to actual mutuality; fulfilling becomes bodily and public conduct (JV, pp. 69–70). Their agreement cannot be assumed. A person may know a proposition verbally yet misrecognise a relationship, or recognise a responsibility yet fail to fulfil it. The model therefore records a qualitative KBRF profile rather than treating knowledge as possession of information.
+Human evidence joins four distinguishable aspects: knowing and believing organise the internal orientation; recognising relates that orientation to actual mutuality; fulfilling becomes bodily and public conduct (JV, pp. 69–70). Their agreement cannot be assumed. A person may know a proposition verbally yet lack the capacity to recognise a relationship, or recognise a responsibility yet fail to fulfil it. Recognition is independently failable from knowing and believing. The model therefore records a qualitative KBRF profile rather than treating knowledge as possession of information.
 
-Study enters through typed human–human relations involving teacher, learner, language, tradition, projection, and reflection. These relations can present content for attention and evaluation, while *sakshatkar*, enlightenment, and realisation remain activities of the learner's *jeevan*. Knowledge is neither copied as a state variable nor transmitted as energy. This representation supplies an explicit route by which study can alter the material available to later reflection without predetermining *sakshatkar*, enlightenment, or realisation.
+Study enters through typed human–human relations involving teacher, learner, language, tradition, projection, and reflection. These relations can present content for attention and evaluation, while *sakshatkar*, enlightenment, and realisation remain activities of the learner's *jeevan*. Knowledge is neither copied as a state variable nor transmitted as energy. This representation supplies an explicit route by which study can alter the material available to later reflection without predetermining *sakshatkar*, enlightenment, or realisation. Study of coexistence, *jeevan*, and truth is the source of recognition-capacity; it is not a substitute for practised karma.
+
+### 7.7 Humane conduct as knowledge-content
+
+Humane conduct is the third constituent of *K*<sup>*</sup>. It is the combined form of values, character, and ethics, not a private inner mark and not a new force beside effort and motion (JV, pp. 54–55; KD, p. 67). Character is evidenced through rightfully owned wealth, marital faithfulness, and kindness in work and behaviour. Ethics directs body, mind, and wealth toward right-use and protection. Values are recognised and fulfilled in relationship, evaluated to mutual satisfaction.
+
+The primary texts name five value families for human living (MVD, p. 305; JV, pp. 43, 137–139). The families answer different evaluative questions; they are not interchangeable magnitudes.
+
+| Family | Principal content and field |
+|---|---|
+| Object values | Usefulness of a material object, with aesthetic value added as convenience and beauty in produced things. |
+| *Jeevan* values | Happiness, peace, contentment, and bliss as nested faculty harmonies (§9.1). |
+| Human values | Happiness as human *dharma*, and fortitude, courage, generosity, kindness, grace, and compassion as essential nature. |
+| Established values | Values inherent in recognised relationships — trust, respect, affection, care, guidance, reverence, gratitude, glory, and love. |
+| Civic (*shishta*) values | The civilised expression of established values in behaviour and participation. |
+
+*Jeevan*, human, and established values are inherent to *jeevan* and evaluated by *jeevan*; object value is spread in units. Civic values are the civilised expression of established values, not a second independent list. [*Axiology: Value Theory*](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) §§1.2–1.3 gives the nine established and expressed pairs; [*Ethics and Morals in Human Beings*](../Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf) develops character and ethics as the other two limbs of humane conduct. This section records only the content required by the state-dynamic architecture.
+
+Karma is activity together with aspiration; motion together with awareness is complete activity (KD, pp. 1–3). After realisation is enlightened in *buddhi*, contemplated in *chitta*, and weighed in *vritti*, *mun* tastes their values. *Mun* expects or tastes the entirety of value, character, and ethics (KD, p. 63; KD 3.6, p. 71).
+
+> **"Values can be tasted in work and behaviour only when relationships are accepted and recognised; only then are those values carried out."**
+> — KD, p. 63
+
+Where relationships are not recognised, values do not flow (JV, p. 55). Putting recognised justice, *dharma*, and truth into purpose and practice is resoluteness; the testing of this has to be carried out by every human being, both within himself and within every other human being (KD, pp. 65, 71). One intended act does not settle whether the value was achieved. Faculty alignment is not a separate inner engine: higher-conformance at *mun* is how realised humane-conduct content reaches tasting and selection. If that content is not practised as karma, tasted, and evaluated, the upper pairs remain unevidenced and the four-and-a-half deluded profile continues.
 
 ## 8. Human effort-motion-result and internal refinement
 
@@ -531,7 +567,7 @@ Effort–motion–result applies to *jeevan* as it does to every unit. Human act
 
 Human *dharma* *D*<sub>H,n</sub> remains happiness through resolution and participation in orderliness while the knowledge-order joint form is active. The qualitative predicate `ComprehendsDharma(H,n)` records its present comprehension and evidence. Present *sanskar*, knowledge profile, operative recognition, and freedom of action condition the humane or human-opposing *svabhav* and *guna*-profile expressed in conduct. Human-opposing expression can be transformed toward fortitude, valour, generosity, kindness, grace, and compassion, while awakened conduct becomes mediative (KD, pp. 26–27; KD 3.9–3.10, pp. 98–101).
 
-The invariant constitution *c*<sub>J</sub>, with its inexhaustible strength and power, is distinguished from the current expression *B*<sub>H,n</sub>. Power appears in selection, analysis, imaging, resolve, evidence, and body-mediated conduct. Knowledge does not replace *bal–shakti*; it qualifies its knowledge-order expression through understood purpose. The same loop is named as *karan–karta–karya*: the knowledge-state as cause, the human being as doer, and participation in universality as effect (KD 3.17, pp. 145–150). It does not add a mechanism beyond that qualification of existing strength and power. The T1 core *c*<sub>J</sub> remains invariant throughout refinement.
+The invariant constitution *c*<sub>J</sub>, with its inexhaustible strength and power, is distinguished from the current expression *B*<sub>H,n</sub>. Power appears in selection, analysis, imaging, resolve, evidence, and body-mediated conduct. Knowledge does not replace *bal–shakti*; it qualifies its knowledge-order expression through understood purpose. The human conduct occurrence is karma: activity together with aspiration, intent toward a value or *abhīṣṭa*, not bare motion (KD, pp. 1–3). Resoluteness is putting justice, *dharma*, and truth into purpose and practice (KD 3.6, p. 71). The same loop is named as *karan–karta–karya*: the knowledge-state as cause, the human being as doer, and participation in universality as effect (KD 3.17, pp. 145–150). It does not add a mechanism beyond that qualification of existing strength and power. The T1 core *c*<sub>J</sub> remains invariant throughout refinement.
 
 ### 8.2 Result in the knowledge order
 
@@ -539,42 +575,50 @@ Every human action carries the hope for happiness and yields a coupled consequen
 
 | Result aspect | What changes |
 |---------------|--------------|
-| Internal | The alignment and operative orientation of *atma, buddhi, chitta, vritti,* and *mun* |
+| Internal | Alignment of the faculties; *mun*'s taste of value, character, and ethics when the relationship was recognised, or of *priya–hita–labh* when it was not; nested *jeevan*-value harmony as a later completeness mark rather than a synonym for that taste |
 | Bodily | Speech, bodily action, production, use, and the body's physical condition |
-| Relational | Recognition, value-fulfilment, trust, satisfaction, or contradiction in human mutuality |
-| Natural | Nourishment, right-use, protection, regeneration, imbalance, or depletion in couplings with the other orders |
+| Relational | Recognition, fulfilment of established and civic values, trust, mutual satisfaction, or contradiction; intention alone is not counterpart evidence |
+| Natural | Object values in nourishment, right-use, protection, regeneration, imbalance, or depletion |
 
-The four aspects form one consequence profile; the sources do not assign the internal aspect exclusive priority. For the narrower question of how one activity conditions another, its internal consequence can be carried in *z*<sub>H</sub>, while bodily, relational, and natural states are updated in the actual graph. Results expressed through the body prompt further thought and reflection; thought arising from action can be settled again as conception through inference (KD, p. 3; KD 3.17, p. 147; MVD, p. 218).
+The four aspects form one consequence profile; the sources do not assign the internal aspect exclusive priority. For the narrower question of how one activity conditions another, its internal consequence can be carried in *z*<sub>H</sub>, while bodily, relational, and natural states are updated in the actual graph. Every karma carries a sequence of experiencing and inference that continues until realisation (KD, p. 3). Results expressed through the body prompt further thought and reflection; thought arising from action can be settled again as conception through inference (KD, p. 3; KD 3.17, p. 147; MVD, p. 218).
 
 ### 8.3 Evaluation links successive activities
 
 One consequence can become the object of a later complete activity of tasting, comparison, contemplation, enlightenment, or realisation. The model relates the consequence profile, its observation from the present standpoint, and an admissible orientation update. Evaluation itself remains effort–motion–result.
 
-In delusion, pleasure, health, and profit organise evaluation. In humane consciousness, justice, *dharma*, and truth supply the reference points as one governing set. The evaluation-reference profile *q*<sub>H</sub> records which of these sets presently governs comparison; the six named perspectives of pleasant–unpleasant, healthy–unhealthy, profitable–unprofitable, justice, *dharma*, and truth are set out in [*The Epistemology of Coexistence*](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) §1.4.
+In delusion, *priya–hita–labh* organise evaluation. In humane consciousness, justice, *dharma*, and truth supply the reference points as one governing set. The evaluation-reference profile *q*<sub>H</sub> records which of these sets presently governs comparison; the six named perspectives of pleasant–unpleasant, healthy–unhealthy, profitable–unprofitable, justice, *dharma*, and truth are set out in [*The Epistemology of Coexistence*](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) §1.4. Pleasure, health, and material gain remain relevant information; they do not authorise an act that fails justice, *dharma*, or truth.
 
-Each member of the humane set has a distinct field of work. Behaviour is regulated through justice: a relationship is recognised, its values are fulfilled, that fulfilment is evaluated, and mutual satisfaction is the evidence (JV, pp. 97–98, 137–139). Thought is disciplined through *dharma*: comparison is oriented toward resolution and orderly participation. Realisation takes place only through truth: understanding is tested against existence itself (MVD, p. 137). The profile *q*<sub>H</sub> therefore records the governing set, while later evidence still distinguishes the three fields. Because the actual relationship and the human's operative recognition are separate fields, the model can represent error and correction in the justice sequence without changing the relationship that was objectively present. The same update relation can refine thought under *dharma* or open inquiry toward truth.
+Each member of the humane set has a distinct field of work. Behaviour is regulated through justice: a relationship is recognised, its values are fulfilled, that fulfilment is evaluated, and mutual satisfaction is the evidence (JV, pp. 97–98, 137–139). Thought is disciplined through *dharma*: comparison is oriented toward resolution and orderly participation. Realisation takes place only through truth: understanding is tested against existence itself (MVD, p. 137). The profile *q*<sub>H</sub> therefore records the governing set, while later evidence still distinguishes the three fields. Because the actual relationship and the human's operative recognition are separate fields, the model can represent error and correction in the justice sequence without changing the relationship that was objectively present. The same update relation can refine thought under *dharma* or open inquiry toward truth. If recognition is missing, the admissible update is renewed study of coexistence, *jeevan*, and truth, not repetition of the same act.
 
-An update can preserve an acceptance, correct recognition, refine evaluation, or stabilise realised *sanskar*. Realisation-oriented conceptions in *buddhi* manifest in thought and action; thought arising from action is settled again as conception through inference (MVD, p. 218). Completed humane *sanskar* is understanding, honesty, responsibility, and participation (JV, p. 49). The update relation is non-deterministic: repetition does not turn error into knowledge, and one corrected act does not establish completeness.
+An update can preserve an acceptance, correct recognition, refine evaluation, or stabilise realised *sanskar*. Realisation-oriented conceptions in *buddhi* manifest in thought and action; thought arising from action is settled again as conception through inference (MVD, p. 218). Completed humane *sanskar* is understanding, honesty, responsibility, and participation (JV, p. 49). The update relation is non-deterministic: repetition does not turn error into knowledge, and one corrected act does not establish completeness. Practice across the relevant actions is the operational test (KD, p. 65).
 
 ### 8.4 Dissatisfaction, recurrence, and inquiry
 
 The non-attainment of *jeevan* values is experienced as dissatisfaction or internal contradiction. Deluded sensory living leaves the human dissatisfied, while satisfaction becomes possible through understanding (JV, p. 77). The model records this as a qualitative predicate, not a measured error, excitation-pressure, or force applied to *jeevan*.
 
-If the same acceptance and pleasure–health–profit references organise the next activity, the pattern can recur. If contradiction is recognised as a need for understanding, inquiry and study can begin. Study may reach *sakshatkar* in *chitta*; *sakshatkar* may open enlightenment in *buddhi*; enlightenment may become realisation in *atma*; realised orientation reorganises comparison, contemplation, selection, and conduct through justice, *dharma*, and truth (MVD, pp. 99–100, 126; JV, p. 62; KD, pp. 1–4; KD 3.6, pp. 71–72; KD 3.12, p. 112; KD 3.17, pp. 147–148). Dissatisfaction does not mechanically force this branch because freedom of action remains.
+If the same acceptance and *priya–hita–labh* references organise the next activity, the pattern can recur. If contradiction is recognised as a need for understanding, inquiry and study can begin. Study may reach *sakshatkar* in *chitta*; *sakshatkar* may open enlightenment in *buddhi*; enlightenment may become realisation in *atma*; realised orientation reorganises comparison, contemplation, selection, and conduct through justice, *dharma*, and truth (MVD, pp. 99–100, 126; JV, p. 62; KD, pp. 1–4; KD 3.6, pp. 71–72; KD 3.12, p. 112; KD 3.17, pp. 147–148). Dissatisfaction does not mechanically force this branch because freedom of action remains.
 
-### 8.5 A human trace: one consequence, two evaluations
+### 8.5 Deluded-evaluation failure
 
-Suppose a person accepts responsibility in a recognised relationship but abandons it for immediate profit. This analytical example illustrates the transition schema rather than a case narrated in the primary texts.
+Suppose a person accepts responsibility in a recognised relationship but abandons it because comparison is organised by *priya–hita–labh*. The illustration below uses immediate *labh*; *priya* or *hita* can occupy the same role. This analytical example illustrates the transition schema rather than a case narrated in the primary texts.
 
 | Moment | Activity and consequence | Reconstructed reading |
 |--------|--------------------------|-----------------------|
-| Present orientation | Profit organises comparison; the responsibility is recognised but not fulfilled. | *z*<sub>H,n</sub>, R̂<sub>H,n</sub>, and *q*<sub>H,n</sub> condition the expressed activity. |
+| Present orientation | *Labh* organises comparison; the responsibility is recognised but not fulfilled. | *z*<sub>H,n</sub>, R̂<sub>H,n</sub>, and *q*<sub>H,n</sub> condition the expressed activity. |
 | Consequence | The act produces internal contradiction, a work consequence, and diminished relational trust or satisfaction. | *Y*<sub>H,n</sub> updates internal, bodily, relational, and natural fields. |
-| Recurrent evaluation | Profit remains decisive and the act is justified. | The update preserves the prior evaluation profile; dissatisfaction may recur. |
+| Recurrent evaluation | *Priya–hita–labh* remain decisive and the act is justified. | The update preserves the prior evaluation profile; dissatisfaction may recur. |
 | Inquiry-oriented evaluation | Non-fulfilment is recognised as a question of justice, *dharma*, and truth, beginning in the unfulfilled relationship. | Study and reflection may correct R̂ and refine accepted conception. |
 | Later evidence | Responsibility is fulfilled and assessed through mutual satisfaction. | Changed orientation becomes publicly testable; one act alone does not establish T2 or T3. |
 
-The trace makes the distinction between dissatisfaction and excitation-pressure concrete. The former is a sentient consequence of unresolved value or orientation; the latter belongs to an excited force–power relation.
+The trace makes the distinction between dissatisfaction and excitation-pressure concrete. The former is a sentient consequence of unresolved value or orientation; the latter belongs to an excited force–power relation. The failure-shape is: the relationship is recognised, the value is not fulfilled, because *q*<sub>H</sub> is *priya–hita–labh* rather than justice–*dharma*–truth.
+
+### 8.6 Recognition-capacity failure
+
+A second analytical example isolates recognition. A person intends a good outcome but does not recognise the actual relationship: study of coexistence, *jeevan*, and truth has not yet unfolded the capacity, ability, and receptivity that pick out *R*<sup>actual</sup>. Operative recognition therefore diverges from the relationship that is present. *Mun* cannot taste that relationship's value in work and behaviour (KD, p. 63). What is tasted, if anything, belongs to *priya–hita–labh*. Inquiry returns to study, not to more of the same act. Knowing a proposition about humane conduct does not by itself repair this failure.
+
+### 8.7 Closed practice trace
+
+A third analytical example closes the cycle. Coexistence, *jeevan*, and truth have been studied enough that the actual relationship is recognised. Karma with aspiration fulfils the recognised value; character and right-use condition the act. *Mun* tastes the value in work and behaviour. Counterpart evaluation reaches mutual satisfaction; work does not deplete the other orders. Comparison, tasting, and selection remain higher-conformant. Nested harmony may become reportable. One closed act still does not establish T2 or T3; practice across the relevant actions is the operational test (KD, p. 65).
 
 ## 9. *Jeevan* values and completeness
 
@@ -590,15 +634,15 @@ The destination of this refinement is harmony within *jeevan*. Happiness, peace,
 | *Vritti–chitta* | Peace (*shanti*) |
 | *Mun–vritti* | Happiness (*sukh*) |
 
-The model records a qualitative harmony profile drawn from *sukh, shanti, santosh, anand,* and *paramanand*. These are nested relations among faculties, not interchangeable magnitudes. Realisation is accepted in *buddhi*, contemplated in *chitta*, compared in *vritti*, and tasted in *mun*. The internal harmonies differ from the established relational values of §10.1 while supplying the orientation from which relational conduct can remain stable (JV, pp. 137–139).
+The model records a qualitative harmony profile drawn from *sukh, shanti, santosh, anand,* and *paramanand*. These are nested relations among faculties, not interchangeable magnitudes. Realisation is accepted in *buddhi*, contemplated in *chitta*, compared in *vritti*, and tasted in *mun*. The internal harmonies differ from the established relational values of §10.1 while supplying the orientation from which relational conduct can remain stable (JV, pp. 137–139). They become reportable as the inner demonstration that unfolding of *K*<sup>*</sup>, including practised humane-conduct content, has reached the faculties.
 
 ### 9.2 Activity completeness (T2 - *kriyapurnata*)
 
-Activity completeness is the restfulness of effort (*shram ka vishram*) in realised activity (SB, p. 58; MVD, p. 104; KD 3.6, pp. 71–72). The model proposes four mutually supporting criteria: realisation of *K*<sup>*</sup>, all ten activities effective, full internal harmony, and restfulness of effort. Their conjunction is an operational reconstruction rather than an exact equivalence stated in one passage. Absence of reported dissatisfaction may accompany T2 but is not sufficient to define it.
+Activity completeness is the restfulness of effort (*shram ka vishram*) in realised activity (SB, p. 58; MVD, p. 104; KD 3.6, pp. 71–72). The model proposes four mutually supporting criteria: realisation of all three constituents of *K*<sup>*</sup>, all ten activities effective, full internal harmony, and restfulness of effort. Realisation of humane-conduct content includes practised karma, taste of values in *mun*, and closed conduct–evaluation occurrences; verbal study of humane conduct is not sufficient. Their conjunction is an operational reconstruction rather than an exact equivalence stated in one passage. Absence of reported dissatisfaction may accompany T2 but is not sufficient to define it.
 
 ### 9.3 Conduct completeness (T3 - *acharanpurnata*)
 
-Conduct completeness is the lived evidence of T2 through humane conduct (*manaviya acharan*) and is named the destination of motion (*gati ka gantavya*). Humane conduct integrates character (*charitra*), ethics (*niti*), and values (*mulya*). Character is evidenced through rightfully owned wealth, marital faithfulness, and kindness in action. Ethics directs body, mind, and wealth toward right-use and protection; values are recognised and fulfilled in relationship (MVD, pp. 80, 102, 104; SB, p. 58; JV, pp. 54–55; KD, p. 67). The model treats T3 as T2 together with stable humane conduct across a relevant diversity of relationship and work contexts. “Stable” is qualitative and sustained, not a universal duration supplied by the sources.
+Conduct completeness is the lived evidence of T2 through humane conduct (*manaviya acharan*) and is named the destination of motion (*gati ka gantavya*). Humane conduct integrates character (*charitra*), ethics (*niti*), and values (*mulya*). Character is evidenced through rightfully owned wealth, marital faithfulness, and kindness in action. Ethics directs body, mind, and wealth toward right-use and protection; values are recognised and fulfilled in relationship across the five families of §7.7 (MVD, pp. 80, 102, 104, 305; SB, p. 58; JV, pp. 54–55; KD, p. 67). The *jeevan* values remain the inner side already required by T2. The model treats T3 as T2 together with stable humane conduct — values, character, and ethics — across a relevant diversity of relationship and work contexts. “Stable” is qualitative and sustained, not a universal duration supplied by the sources.
 
 ## 10. Verification in relationship, work, and society
 
@@ -606,11 +650,11 @@ Madhyasth Darshan seeks harmony and integrality across the human dimensions of w
 
 ### 10.1 Relationship, value, and mutual satisfaction
 
-Human–human justice follows a definite relational sequence: actual relationship and role are present; the person operatively recognises them; inherent values are recognised and fulfilled; fulfilment is evaluated; mutual satisfaction becomes evidence (JV, pp. 97–98, 137–139). Trust, respect, affection, gratitude, and the remaining values belong to relationship, while satisfaction or dissatisfaction is the experienced consequence of their fulfilment or non-fulfilment. Separating *R*<sup>actual</sup> from R̂ makes both misrecognition and correction explicit. That sequence is justice in relationship; the thought and realisation domains of §10.2 carry the other two fields of §8.3.
+Human–human justice follows a definite relational sequence: actual relationship and role are present; the person operatively recognises them; inherent values are recognised and fulfilled; fulfilment is evaluated; mutual satisfaction becomes evidence (JV, pp. 97–98, 137–139). Trust, respect, affection, gratitude, and the remaining established values belong to relationship, while civic values are their expression in conduct; satisfaction or dissatisfaction is the experienced consequence of their fulfilment or non-fulfilment. Separating *R*<sup>actual</sup> from R̂ makes both misrecognition and correction explicit. That sequence is justice in relationship; the thought and realisation domains of §10.2 carry the other two fields of §8.3.
 
 ### 10.2 Fourfold verification and work with *jada*
 
-The reconstruction assigns each domain one of four statuses: supported, contradicted, undetermined, or not assessed. It does not aggregate them. The four domains record the three fields of §8.3 together with work in nature (MVD, p. 137).
+The reconstruction assigns each domain one of four statuses: supported, contradicted, undetermined, or not assessed. It does not aggregate them. The four domains record the three fields of §8.3 together with work in nature (MVD, p. 137). Behaviour tests established and civic values; work tests object values and right-use; thought and realisation test human values and the *jeevan* values.
 
 | Domain | Evidence and access |
 |--------|---------------------|
@@ -1127,7 +1171,21 @@ K_{\mathrm{humane\ conduct}}
 \right\}.
 $$
 
-Presence of that content is written $\operatorname{Present}(K^{*})$. Unfolding in a human occurrence is the qualitative predicate $\operatorname{Unfolding}(H,n)$, which records incomplete study, direct recognition, enlightenment, realisation, and evidence rather than a transfer of energy. The body–*jeevan* interface of §A.10 is further typed by $\operatorname{Sensitivity}$ on the bodily presentation side and $\operatorname{Cognisance}$ on the sentient side. $\operatorname{HigherConformance}(H,n)$ records whether *mun* is governed by inspiration from the upper faculties rather than by lower-conformance pressure from vitality, senses, body, and established behaviour. These predicates add no force, energy, or learning rate. Optional faculty-level product spaces are developed in [*A Functional Model of Jeevan*](../The-Epistemology-of-Coexistence/Research-Note-Jeevan-Functional-Model.pdf); they are not source doctrine and are not required by the present reconstruction.
+$K_{\mathrm{humane\ conduct}}$ is the combined form of values, character, and ethics. Values are recorded as a qualitative family-profile, not a scalar:
+
+$$
+V^{\mathrm{fam}}
+=
+\left\{
+V_{\mathrm{object}},
+V_{\mathrm{jeevan}},
+V_{\mathrm{human}},
+V_{\mathrm{established}},
+V_{\mathrm{civic}}
+\right\}.
+$$
+
+Object value includes usefulness and aesthetic addition as two types within one family. Civic value is the expression of established value, not a sixth independent family. Presence of that content is written $\operatorname{Present}(K^{*})$. Unfolding in a human occurrence is the qualitative predicate $\operatorname{Unfolding}(H,n)$, which records incomplete study, direct recognition, enlightenment, realisation, and evidence rather than a transfer of energy. The body–*jeevan* interface of §A.10 is further typed by $\operatorname{Sensitivity}$ on the bodily presentation side and $\operatorname{Cognisance}$ on the sentient side. $\operatorname{HigherConformance}(H,n)$ records whether *mun* is governed by inspiration from the upper faculties rather than by lower-conformance pressure from vitality, senses, body, and established behaviour. These predicates add no force, energy, or learning rate. Optional faculty-level product spaces are developed in [*A Functional Model of Jeevan*](../The-Epistemology-of-Coexistence/Research-Note-Jeevan-Functional-Model.pdf); they are not source doctrine and are not required by the present reconstruction.
 
 Human orientation is
 
@@ -1143,38 +1201,38 @@ q_{H,n},
 \right).
 $$
 
-Here $f_H$ is the qualitative faculty and effective-activity profile; $\sigma_H$ is present acceptance and *sanskar*-orientation; $k_H$ is a qualitative knowledge profile; $q_H$ is the evaluation-reference profile, recording whether pleasure–health–profit or justice–*dharma*–truth presently governs comparison; and $\widehat R_H$ is operative recognition. Each symbol has one role, so *sanskar* is no longer duplicated inside and outside the orientation state.
+Here $f_H$ is the qualitative faculty and effective-activity profile; $\sigma_H$ is present acceptance and *sanskar*-orientation; $k_H$ is a qualitative knowledge profile over the three constituents of $K^{*}$; $q_H$ is the evaluation-reference profile, recording whether *priya–hita–labh* or justice–*dharma*–truth presently governs comparison; and $\widehat R_H$ is operative recognition. Each symbol has one role, so *sanskar* is no longer duplicated inside and outside the orientation state.
 
-The knowledge profile is
+The knowledge profile is indexed by constituent $c\in K^{*}$:
 
 $$
-k_H=
+k_H(c)=
 \left(
-k^{\mathrm{studied}},
-k^{\mathrm{sakshatkar}},
-k^{\mathrm{bodh}},
-k^{\mathrm{anubhav}},
-k^{\mathrm{evidence}}
+k^{\mathrm{studied}}_c,
+k^{\mathrm{sakshatkar}}_c,
+k^{\mathrm{bodh}}_c,
+k^{\mathrm{anubhav}}_c,
+k^{\mathrm{evidence}}_c
 \right),
 $$
 
-with the source-aligned dependency
+with the source-aligned dependency, for each $c$,
 
 $$
-k^{\mathrm{evidence}}
+k^{\mathrm{evidence}}_c
 \subseteq
-k^{\mathrm{anubhav}}
+k^{\mathrm{anubhav}}_c
 \subseteq
-k^{\mathrm{bodh}}
+k^{\mathrm{bodh}}_c
 \subseteq
-k^{\mathrm{sakshatkar}}
+k^{\mathrm{sakshatkar}}_c
 \subseteq
-k^{\mathrm{studied}}
+k^{\mathrm{studied}}_c
 \subseteq
-K^*.
+\{c\}.
 $$
 
-These inclusions express logical dependence rather than automatic progression. The profile $k_H$ is incomplete unfolding of already-present $K^{*}$, not a possessed scalar. $\operatorname{Effective}_{10}(f_H)$ means that all five state and five motion activities are effective. In delusion the profile is limited to the stated four and a half activities and $q_H$ is organised principally by pleasure, health, and profit. In humane consciousness $q_H$ is organised by justice, *dharma*, and truth together, each later evidenced in its own field (§8.3).
+These inclusions express logical dependence rather than automatic progression. The profile $k_H$ is incomplete unfolding of already-present $K^{*}$, not a possessed scalar. Study of $K_{\mathrm{coexistence}}$ and $K_{\mathrm{jeevan}}$, together with truth as evaluation-reference, is a precondition for $\operatorname{Recognise}$; it does not by itself evidence $K_{\mathrm{humane\ conduct}}$. $\operatorname{Effective}_{10}(f_H)$ means that all five state and five motion activities are effective. In delusion the profile is limited to the stated four and a half activities and $q_H$ is organised principally by *priya–hita–labh*. In humane consciousness $q_H$ is organised by justice, *dharma*, and truth together, each later evidenced in its own field (§8.3).
 
 Knowing, believing, recognising, and fulfilling are represented by
 
@@ -1189,11 +1247,27 @@ $$
 \right).
 $$
 
-Knowing and believing concern internal orientation; recognising relates it to actual mutuality; fulfilling is evidenced through body-mediated conduct. Teaching and study are typed edges in $E_n$. Projection and reflection may change what is available to evaluation, but knowledge is realised by the learner's *jeevan* rather than transmitted as energy.
+Knowing and believing concern internal orientation; recognising relates it to actual mutuality; fulfilling is evidenced through body-mediated conduct. $\operatorname{Recognise}$ is independently failable from $\operatorname{Know}$ and $\operatorname{Believe}$. Missing capacity — study of coexistence, *jeevan*, and truth not yet unfolded — is an admissible cause of that failure. Teaching and study are typed edges in $E_n$. Projection and reflection may change what is available to evaluation, but knowledge is realised by the learner's *jeevan* rather than transmitted as energy.
+
+Evidence of humane-conduct content is not identical to realisation at *atma*:
+
+$$
+\begin{aligned}
+\operatorname{Evidence}(K_{\mathrm{humane\ conduct}},H,n)
+\Longleftrightarrow\;&
+\operatorname{Recognise}_{H,n}\\
+&\land\operatorname{KarmaWithAspiration}(H,n)\\
+&\land\operatorname{TasteOfValue}(H,n)\\
+&\land\operatorname{Fulfil}_{H,n}\\
+&\land\text{later evaluation in the relevant field}.
+\end{aligned}
+$$
+
+$\operatorname{TasteOfValue}$ is *mun*'s *asvadan* of value, character, and ethics. It requires accepted and recognised relationship; otherwise the taste, if present, is organised by *priya–hita–labh*. $\operatorname{KarmaWithAspiration}$ marks the conduct occurrence as activity together with intent toward a value, not bare motion. These are proposed operational predicates.
 
 ### A.12 Consequence, evaluation, and refinement
 
-A human conduct occurrence is
+A human conduct occurrence is karma
 
 $$
 \operatorname{Act}_H
@@ -1205,10 +1279,10 @@ D_{H,n},
 s_{H,n},
 \Gamma_{H,n};
 \alpha^{\mathrm{conduct}}_{H,n}
-\right).
+\right)
 $$
 
-It yields $Y_{H,n}$. A later evaluative occurrence is
+when aspiration is co-present. It yields $Y_{H,n}$, whose internal coordinate includes $\operatorname{TasteOfValue}$ or its *priya–hita–labh* substitute. A later evaluative occurrence is
 
 $$
 \operatorname{Act}_H
@@ -1276,14 +1350,16 @@ $$
 \begin{aligned}
 T2^{*}(H)
 \Longleftrightarrow\;&
-\operatorname{Realised}(K^{*},H)\\
+\operatorname{Realised}(K_{\mathrm{coexistence}},H)\\
+&\land\operatorname{Realised}(K_{\mathrm{jeevan}},H)\\
+&\land\operatorname{Evidence}(K_{\mathrm{humane\ conduct}},H)\\
 &\land\operatorname{Effective}_{10}(f_H)\\
 &\land\mathcal{H}_H(z_H)=\mathcal{H}^{*}\\
 &\land\operatorname{RestfulnessOfEffort}(H).
 \end{aligned}
 $$
 
-Absence of presently reported dissatisfaction is expected but insufficient.
+$\operatorname{Realised}(K^{*},H)$ is this conjunction of the three contents. Absence of presently reported dissatisfaction is expected but insufficient. The asterisk marks an operational reconstruction rather than a source equation.
 
 The proposed conduct-completeness predicate is
 
@@ -1295,7 +1371,7 @@ T2^{*}(H)
 \operatorname{StableHumaneConduct}(H,\mathcal{C},I),
 $$
 
-where $\mathcal{C}$ is a relevant diversity of relationship and work contexts and $I$ is a sustained trace. No universal duration is assigned. T2 concerns internal realisation and restfulness; T3 concerns repeatable public evidence. The asterisks mark operational reconstructions rather than source equations.
+where $\mathcal{C}$ is a relevant diversity of relationship and work contexts and $I$ is a sustained trace. $\operatorname{StableHumaneConduct}$ unpacks to stable values across $V^{\mathrm{fam}}$, character, and ethics. No universal duration is assigned. T2 concerns internal realisation and restfulness once humane-conduct content has been practised, tasted, and evaluated; T3 concerns repeatable public evidence. The asterisks mark operational reconstructions rather than source equations.
 
 ### A.14 Observation and verification
 
@@ -1370,10 +1446,13 @@ Population-level goals are not derived by aggregating $V_H$. Family prosperity, 
 | Complementarity | Order-appropriate reciprocity in structural need, nourishment, use, relationship, or participation. |
 | Relationship (*sambandh*) | Human mutuality with inherent roles, expectations, and values. |
 | Contact (*sampark*) | Human mutuality whose expectations are voluntary. |
-| Evaluation | Reflexive human comparison of recognition and fulfilment, governed either by pleasure–health–profit or by justice–*dharma*–truth. |
+| Evaluation | Reflexive human comparison of recognition and fulfilment, governed either by *priya–hita–labh* or by justice–*dharma*–truth. |
 | Internal orientation | Human faculty, acceptance, knowledge, evaluation, and recognition profile. |
 | *Sanskar* | Realisation-oriented acceptance evidenced as understanding, honesty, responsibility, and participation. |
 | Hope-bondage (*asha-bandhan*) | The sentient orientation borne by constitutionally complete *jeevan*, expressed as hope to live in an animal joint form and as orientation toward happiness in a human joint form. |
+| Humane conduct | Values, character, and ethics together; the third constituent of *K*<sup>*</sup>. |
+| Karma | Activity together with aspiration; not bare motion. |
+| Taste of value | *Mun*'s *asvadan* of value, character, and ethics when the relationship is recognised. |
 | *Jeevan* values | *Sukh, shanti, santosh,* and *anand*, grounded in *paramanand* at realised *atma*. |
 | Dissatisfaction | Experienced non-fulfilment or internal contradiction; neither physical pressure nor applied force. |
 | Existential progression | Definite manifestation of material, pranic, animal, and knowledge orders under conducive conditions. |
@@ -1411,10 +1490,13 @@ Population-level goals are not derived by aggregating $V_H$. Family prosperity, 
 | $x_A,x_H$ | Animal and human joint states |
 | $u^{B\to J},u^{J\to B}$ | Bodily presentation to *jeevan* and sentient expression through the body |
 | $K^{*}$ | Fixed content: coexistence, *jeevan*, and humane conduct |
+| $V^{\mathrm{fam}}$ | Qualitative value-family profile: object, *jeevan*, human, established, civic |
 | $z_H=(f_H,\sigma_H,k_H,q_H,\widehat R_H)$ | Refinable human orientation |
-| $k_H$ | Qualitative study, *sakshatkar*, enlightenment, realisation, and evidence profile |
-| $q_H$ | Evaluation-reference profile: pleasure–health–profit, or justice–*dharma*–truth |
+| $k_H(c)$ | Unfolding profile of constituent $c\in K^{*}$: studied, *sakshatkar*, enlightenment, realisation, evidence |
+| $q_H$ | Evaluation-reference profile: *priya–hita–labh*, or justice–*dharma*–truth |
 | $\operatorname{KBRF}_H$ | Knowing, believing, recognising, and fulfilling profile |
+| $\operatorname{KarmaWithAspiration},\operatorname{TasteOfValue}$ | Human conduct as activity-plus-intent; *mun*'s taste of the associated value |
+| $\operatorname{Evidence}(K_{\mathrm{humane\ conduct}},H)$ | Proposed evidence of humane-conduct content through recognised relationship, karma, taste, fulfilment, and later evaluation |
 | $\operatorname{Update}_H$ | Non-deterministic admissibility relation for orientation refinement |
 | $\Pi^{\mathrm{state}},\Pi^{\mathrm{exc}}$ | General state-pressure description and narrow excitation-pressure predicate |
 | $\mathcal{H}^{*},\mathcal{H}_H$ | Full named harmony set and presently evidenced harmonies |
@@ -1440,7 +1522,11 @@ The paired-activity enumerations name *chitta*'s state activity as contemplation
 
 ### Knowledge as ground and realised content
 
-The opening postulate names an omnipresent ground of Knowledge or Omnipotence containing insentient and sentient nature (KD, pp. 1–4). The same ground is named Knowledge or Space in the coexistence account, where it remains actionless while serving as inspiration inherent through saturation (MVD, pp. 32–36, 174). Later passages enumerate complete knowledge as coexistence, *jeevan*, and humane conduct, with participation in orderliness included in one formulation (KD 3.5, p. 69; KD 3.17, p. 148). $K^{*}$ represents the three-content epistemic formulation; participation is treated as purpose and evidence rather than a transmitted fourth substance. Presence of that content is distinct from unfolding through the sentient aspect (MVD, pp. 115–116, 289). The knowledge profile records studied, *sakshatkar*, *bodh*, *anubhav*, and evidence of already-present $K^{*}$. The glance diagram therefore keeps a single saturation arrow from *satta* to units: a second Knowledge-force arrow would present unfolding as an applied driver, which the sources do not state.
+The opening postulate names an omnipresent ground of Knowledge or Omnipotence containing insentient and sentient nature (KD, pp. 1–4). The same ground is named Knowledge or Space in the coexistence account, where it remains actionless while serving as inspiration inherent through saturation (MVD, pp. 32–36, 174). Later passages enumerate complete knowledge as coexistence, *jeevan*, and humane conduct, with participation in orderliness included in one formulation (KD 3.5, p. 69; KD 3.17, p. 148). $K^{*}$ represents the three-content epistemic formulation; participation is treated as purpose and evidence rather than a transmitted fourth substance. Presence of that content is distinct from unfolding through the sentient aspect (MVD, pp. 115–116, 289). The knowledge profile is indexed by constituent: studied, *sakshatkar*, *bodh*, *anubhav*, and evidence of already-present coexistence, *jeevan*, or humane conduct. Evidence of humane-conduct content is practised karma, taste of value, and later evaluation, not identical to *anubhav*. The glance diagram therefore keeps a single saturation arrow from *satta* to units: a second Knowledge-force arrow would present unfolding as an applied driver, which the sources do not state.
+
+### Value families, civic values, and taste of value
+
+MVD p. 305 names *jeevan*, human, established, *shishta*, and usefulness–aesthetic families; splitting usefulness and art yields six types. JV p. 43 names human, *jeevan*, established, and civic values, then usefulness. This paper treats civic and expressed values as two English names for *shishta mulya*, and usefulness with aesthetic addition as two object values in one family. Ordinary speech that a person “feels” a value is *mun*'s taste (*asvadan*), not a sixth faculty. Karma as activity together with aspiration is KD's definition (KD, pp. 1–3), not an additional force.
 
 ### Four *jeevan* values and *paramanand*
 
@@ -1460,7 +1546,7 @@ The translation renders the deluded profile as selection, taste, analysis, visua
 
 ### Justice, *dharma*, and truth
 
-The six perspectives are one governing set: pleasure–health–profit in delusion, justice–*dharma*–truth in humane consciousness (MVD, pp. 66–67). A later passage assigns the humane members different work: behaviour is regulated through justice, thought is disciplined through *dharma*, and realisation takes place only through truth (MVD, p. 137). The paper therefore records one evaluation-reference profile *q*<sub>H</sub> for which set presently governs comparison, while verification still distinguishes the three fields. Justice in relationship is the exhibit for which the actual/recognised split is indispensable; it is not a stand-in for the whole humane set. Evaluative *dharma* (*dharma–adharma*) is a perspective of thought and resolution. It is not the unit's order-innateness, which remains the invariant *D*<sub>o</sub>.
+The six perspectives are one governing set: *priya–hita–labh* in delusion, justice–*dharma*–truth in humane consciousness (MVD, pp. 66–67). A later passage assigns the humane members different work: behaviour is regulated through justice, thought is disciplined through *dharma*, and realisation takes place only through truth (MVD, p. 137). The paper therefore records one evaluation-reference profile *q*<sub>H</sub> for which set presently governs comparison, while verification still distinguishes the three fields. Justice in relationship is the exhibit for which the actual/recognised split is indispensable; it is not a stand-in for the whole humane set. Evaluative *dharma* (*dharma–adharma*) is a perspective of thought and resolution. It is not the unit's order-innateness, which remains the invariant *D*<sub>o</sub>. The existing §8.5 illustration uses immediate *labh*; *priya* or *hita* can occupy the same role. Pleasure, health, and profit remain relevant information; they do not authorise the act.
 
 Higher-conformance answers a different question: from which side *mun* is governed. The definition at MVD p. 208 names that direction justice-natural because tasting and selection become behaviour. *Dharma* and truth belong to the source of the inspiration — resolution in *buddhi* and *chitta*, realisation in *atma* — as the faculty-awakening passage also states (MVD, p. 156). Expanding the p. 208 definition into “aligned with justice, *dharma*, and truth” would mix the conformance-direction with the evaluation-reference set. A later developmental scale treats thought and behaviour aligned with justice only as partial development, justice and *dharma* as half-developed, and realised truth together with both as awakened (MVD, p. 160). Justice at *mun* is therefore the outward, first-evidenced layer of higher-conformance, not the whole of unfolding.
 
@@ -1486,7 +1572,7 @@ The language of goal and impulsion in MVD p. 230 supports a purposive interpreta
 
 ### Operational status of T2 and T3
 
-Restfulness of effort, destination of motion, internal harmonies, ten effective activities, and humane conduct are separately supported (MVD, p. 104; SB, p. 58; JV, pp. 73–74, 137–139). $T2^{*}$ and $T3^{*}$ combine them into proposed operational predicates. The asterisk marks that the conjunction is a reconstruction rather than a source equation.
+Restfulness of effort, destination of motion, internal harmonies, ten effective activities, taste of values in recognised relationship, and humane conduct are separately supported (MVD, p. 104; SB, p. 58; JV, pp. 73–74, 137–139; KD, pp. 1–3, 63, 65, 71). $T2^{*}$ and $T3^{*}$ combine them into proposed operational predicates. The asterisk marks that the conjunction is a reconstruction rather than a source equation. $T2^{*}$ now requires $\operatorname{Evidence}(K_{\mathrm{humane\ conduct}})$ rather than treating realisation of *K*<sup>*</sup> as an undifferentiated inner mark.
 
 ### Source boundary of the core mechanism
 
@@ -1513,21 +1599,23 @@ Restfulness of effort, destination of motion, internal harmonies, ten effective 
 | The purposive orientation of development is not represented as a four-attractor convergence law | Analytical boundary | The texts use goal and impulsion language but supply no common state space, basin, or convergence dynamics |
 | Five state and five motion activities belong to *jeevan* | Direct textual claim | JV pp. 92–94; KD pp. 71–72, 145 |
 | Justice relates relationship recognition, value-fulfilment, evaluation, and mutual satisfaction | Direct textual claim | JV pp. 97–98, 137–139 |
+| Values can be tasted in work and behaviour only when relationships are recognised | Direct textual claim | KD p. 63 |
+| Karma is activity together with aspiration | Direct textual claim | KD pp. 1–3 |
 | Behaviour is regulated through justice, thought is disciplined through *dharma*, and realisation takes place only through truth | Direct textual claim | MVD p. 137 |
 | Constitutional kind, manifested order, typed graph, actual/recognised relation, pressure predicates, and guarded events | Analytical reconstruction | The sources supply qualitative distinctions, not these formalisms |
 | Pranic, animal, body–*jeevan*, KBRF, evaluation, and observation modules | Analytical reconstruction grounded in direct claims | The sources supply activities and relations, not state schemas |
 | $\operatorname{Present}(K^{*})$, $\operatorname{Unfolding}$, $\operatorname{Cognisance}$, $\operatorname{Sensitivity}$, and $\operatorname{HigherConformance}$ | Analytical reconstruction grounded in direct claims | The sources name presence, unfolding, cognisance, sensitivity, and conformance; they do not supply these predicates |
-| $T2^{*}$, $T3^{*}$, and four-status verification | Proposed operational criteria | The sources supply completeness and evidence claims, not formal equivalences |
+| $T2^{*}$, $T3^{*}$, $\operatorname{Evidence}(K_{\mathrm{humane\ conduct}})$, and four-status verification | Proposed operational criteria | The sources supply completeness and evidence claims, not formal equivalences |
 | A contemporary physical identification of T1 | Open empirical question | No accepted scientific counterpart is assumed |
 
 ## References
 
 ### Madhyasth Darshan (primary sources)
 
-- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: coexistence, state-completeness, state-dynamism, saturation, energy, and the four aspects of a unit (pp. 11, 26, 34, 40–47; §1–§3); Knowledge-ground, unfolding, and inspiration (pp. 32–36, 115–116, 174, 289; §1, §7.1); existential progression and material hunger (pp. 8, 13; §4); compound conduct and reflected form (pp. 42, 49–50; §3.1, §4.2, §5.4); *guna, svabhav,* and *dharma* across orders (pp. 26, 49–51, 57–58, 115, 124; §1, §3, §5); mutual pressure in material development (p. 114; §1–§2, §4.5); development and awakening as goal and purposive impulsion (p. 230; §4.5, Editorial Notes); relationship, contact, and the use-ladder (pp. 61–62, 105; §5); six perspectives and the assignment of justice, *dharma*, and truth to behaviour, thought, and realisation (pp. 66–67, 137; §8.3, §10.2); T1, two liberations, hope-bondage, and its evidence as hope of living (pp. 77, 91; §3.4, §6.1, Editorial Notes); the four human dimensions (p. 18; §10.2); study, *sakshatkar*, enlightenment, realisation, internal values, restfulness of effort, and destination of motion (pp. 99–104, 126; §7.4, §8.4, §9); faculties and delusion (pp. 58, 78, 80–81; §7.3, §7.5); justice as realisation in behaviour, *dharma* in thought, and coexistence in *atma*, with the faculty-awakening ladder (pp. 155–156; §7.2); higher- and lower-conformance as justice-natural direction at *mun* (p. 208; §7.2); justice-only as partial development (p. 160; Editorial Notes); humane conduct (pp. 80, 102; §9.3); action-to-conception feedback (p. 218; §8.2–§8.3); right-use and regeneration (p. 264; §5.2, §10.2).
+- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: coexistence, state-completeness, state-dynamism, saturation, energy, and the four aspects of a unit (pp. 11, 26, 34, 40–47; §1–§3); Knowledge-ground, unfolding, and inspiration (pp. 32–36, 115–116, 174, 289; §1, §7.1); existential progression and material hunger (pp. 8, 13; §4); compound conduct and reflected form (pp. 42, 49–50; §3.1, §4.2, §5.4); *guna, svabhav,* and *dharma* across orders (pp. 26, 49–51, 57–58, 115, 124; §1, §3, §5); mutual pressure in material development (p. 114; §1–§2, §4.5); development and awakening as goal and purposive impulsion (p. 230; §4.5, Editorial Notes); relationship, contact, and the use-ladder (pp. 61–62, 105; §5); six perspectives and the assignment of justice, *dharma*, and truth to behaviour, thought, and realisation (pp. 66–67, 137; §8.3, §10.2); T1, two liberations, hope-bondage, and its evidence as hope of living (pp. 77, 91; §3.4, §6.1, Editorial Notes); the four human dimensions (p. 18; §10.2); study, *sakshatkar*, enlightenment, realisation, internal values, restfulness of effort, and destination of motion (pp. 99–104, 126; §7.4, §8.4, §9); faculties and delusion (pp. 58, 78, 80–81; §7.3, §7.5); justice as realisation in behaviour, *dharma* in thought, and coexistence in *atma*, with the faculty-awakening ladder (pp. 155–156; §7.2); higher- and lower-conformance as justice-natural direction at *mun* (p. 208; §7.2); justice-only as partial development (p. 160; Editorial Notes); humane conduct (pp. 80, 102; §9.3); five value families (p. 305; §7.7); action-to-conception feedback (p. 218; §8.2–§8.3); right-use and regeneration (p. 264; §5.2, §10.2).
 - **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: coexistence, saturation, recognition, pressure, environmental excitation, directionality, and the alignment of effort–motion–result with form, property, essential nature, and *dharma* (pp. 48–61; §1–§3, §4.5); energy-fullness, basic impulsion, and activeness (pp. 62, 69; §1, §4.5); composition distinguished from development (pp. 75–76; §4); four orders and their *svabhav* and *dharma* (pp. 179–180; §3–§5); property, reflection, effect, state-pressure, flow, and relative power (pp. 248–257; §1–§3, §5); animal and knowledge orders as joint forms and animal recognition of essential nature (pp. 55, 249; §6.3, §A.9); T1, atomic stability, and inexhaustible effort and motion (pp. 55, 61, 92, 144–145; §6.1); constituent order in composition (p. 260; §5.4); the balanced method of cognisance and sensitivity (pp. 63–64; §6.4, §7.2); delusion (pp. 91–92; §7.5); undivided society (pp. 246–247; §10.3).
-- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: coexistence, mutuality, inherent strength, and the absence of applied force from Omnipresence (pp. 43, 69, 149, 157–158; §1–§2, §5); animal-order sensitivity (pp. 38–39; §6.3); four orders, conformance, animal hope, *sanskar*, body lineage, and complementarity (pp. 47–49, 59; §4–§7); values, character, ethics, right-use, protection, and human goals (pp. 54–61; §5, §9–§10); realisation after *sakshatkar* and *avdharna bodh* (p. 62; §7.4, §8.4); knowing, believing, recognising, and fulfilling (pp. 69–70; §5.2, §7.6); dissatisfaction under delusion and satisfaction through understanding (p. 77; §8.4); ten activities and the four-and-a-half account (pp. 73–74, 92–94; §7.3, §7.5, §9.2); justice, relationship, values, evaluation, and mutual satisfaction (pp. 97–98, 137–139; §8–§10); human *dharma* as happiness and orderliness (pp. 110, 121–123; §3.4, §8.1).
-- **KD** — Nagraj, A. *Manav Karm Darshan*. [Working English translation](../References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf); Hindi source `KD-karm darshan v5.pdf`. Machine-assisted working translation — not a published translation; cited as corroboration only. Cited: knowledge, action, human consequence, hope for happiness, experience, inference, and absolute knowledge (pp. 1–4; §7–§8); environment, study, *sanskar*, and transformable human essential nature (pp. 6–9, 25–27; §3.3, §7–§8); humane values, character, and ethics (p. 67; §9.3); particle exchange and molecular joining (3.1, pp. 56–58; 3.11, pp. 103–104; §4–§5); compositional sequence and T1 (3.2–3.3, pp. 58–62; §4, §6); complete knowledge and five state–motion pairs (3.5–3.6, pp. 69–72; §3.4, §7–§9); state–motion indivisibility, forcefulness, and reflection (3.8–3.9, pp. 84, 88, 94; §1–§3, §5); order-specific *svabhav, dharma,* and *guna* (3.9–3.10, pp. 98–102; §2–§3, §5, §8); cognisance governing sensitivity (3.10, p. 102; §6.4, §7.2); strength, power, result, pressure, and flow (3.11, pp. 102–109; §1–§3, §4.5, §5); study and the realisation-oriented method (3.12, p. 112; §7.4, §8.4); excitation-pressure and uniform energy (3.13, pp. 118, 122; §1–§2, §4.5); body–*jeevan*, faculties, result-to-reflection, knower, object of knowledge, and *karan–karta–karya* (3.16–3.17, pp. 141–150; §6–§8).
+- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: coexistence, mutuality, inherent strength, and the absence of applied force from Omnipresence (pp. 43, 69, 149, 157–158; §1–§2, §5); value classes to be comprehended (p. 43; §7.7); animal-order sensitivity (pp. 38–39; §6.3); four orders, conformance, animal hope, *sanskar*, body lineage, and complementarity (pp. 47–49, 59; §4–§7); values, character, ethics, right-use, protection, and human goals (pp. 54–61; §5, §7.7, §9–§10); realisation after *sakshatkar* and *avdharna bodh* (p. 62; §7.4, §8.4); knowing, believing, recognising, and fulfilling (pp. 69–70; §5.2, §7.6); dissatisfaction under delusion and satisfaction through understanding (p. 77; §8.4); ten activities and the four-and-a-half account (pp. 73–74, 92–94; §7.3, §7.5, §9.2); justice, relationship, values, evaluation, and mutual satisfaction (pp. 97–98, 137–139; §8–§10); human *dharma* as happiness and orderliness (pp. 110, 121–123; §3.4, §8.1).
+- **KD** — Nagraj, A. *Manav Karm Darshan*. [Working English translation](../References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf); Hindi source `KD-karm darshan v5.pdf`. Machine-assisted working translation — not a published translation; cited as corroboration only. Cited: knowledge, action, karma as activity with aspiration, human consequence, hope for happiness, experience, inference, and absolute knowledge (pp. 1–4; §7–§8); capacity, ability, and receptivity (pp. 17–18; §7.4, §8.6); environment, study, *sanskar*, and transformable human essential nature (pp. 6–9, 25–27; §3.3, §7–§8); humane values, character, and ethics (p. 67; §7.7, §9.3); taste of values only when relationships are recognised, and testing in oneself and others (pp. 63, 65; §7.7, §8.6–§8.7); particle exchange and molecular joining (3.1, pp. 56–58; 3.11, pp. 103–104; §4–§5); compositional sequence and T1 (3.2–3.3, pp. 58–62; §4, §6); complete knowledge and five state–motion pairs, including *mun*'s taste of value, character, and ethics, and resoluteness as putting justice, *dharma*, and truth into practice (3.5–3.6, pp. 69–72; §3.4, §7–§9); state–motion indivisibility, forcefulness, and reflection (3.8–3.9, pp. 84, 88, 94; §1–§3, §5); order-specific *svabhav, dharma,* and *guna* (3.9–3.10, pp. 98–102; §2–§3, §5, §8); cognisance governing sensitivity (3.10, p. 102; §6.4, §7.2); strength, power, result, pressure, and flow (3.11, pp. 102–109; §1–§3, §4.5, §5); study and the realisation-oriented method (3.12, p. 112; §7.4, §8.4); excitation-pressure and uniform energy (3.13, pp. 118, 122; §1–§2, §4.5); body–*jeevan*, faculties, result-to-reflection, knower, object of knowledge, and *karan–karta–karya* (3.16–3.17, pp. 141–150; §6–§8).
 
 ### Related studies in this collection
 
@@ -1535,6 +1623,8 @@ Restfulness of effort, destination of motion, internal harmonies, ten effective 
 - [*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — saturation, four orders, compositional versus atomic development, T1–T3, and *jeevan* (§§1.2–1.7); companion technical note [*Rūpa, Guṇa, Svabhāva, and Dharma in a State-Dynamic Unit*](../The-Ontology-of-Coexistence/Technical-Note-Roop-Guna-Svabhava-Dharma.pdf)
 - [*Coexistence from First Principles*](../Coexistence-From-First-Principles/Coexistence-From-First-Principles.pdf) — compound-closure, order-relative stability, four progressions, order-typed coupling, and the guarded status of T1
 - [*The Epistemology of Coexistence*](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) — knowing, evidence, presence versus unfolding, cognisance and sensitivity, higher-conformance, *sakshatkar*, and the faculty architecture (§§1.1–1.6); companion [*A Functional Model of Jeevan*](../The-Epistemology-of-Coexistence/Research-Note-Jeevan-Functional-Model.pdf)
+- [*Axiology: Value Theory*](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) — value families, established and civic pairs, and evaluation (§§1.2–1.3)
+- [*Ethics and Morals in Human Beings*](../Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf) — humane conduct as values, character, and ethics
 - [*Nature of Time*](../Nature-Of-Time/Nature-Of-Time.pdf) — *kaal* as duration of unit-activity
 - [*Human Behavior and Society*](../Human-Behavior-And-Society/Human-Behavior-And-Society.pdf) — humane conduct and social organisation
 - [*Family Relationships and Values*](../Family-Relationships-And-Values/Family-Relationships-And-Values.pdf) — established values and mutual satisfaction
