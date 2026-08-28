@@ -2,9 +2,9 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** August 27, 2026, 2:30 PM IST
+**Edited on:** August 28, 2026, 2:23 PM IST
 
-**Status:** Internal technical companion; not a catalog entry. Reviewed; retained as a companion while the parent study keeps its current architecture.
+**Status:** Internal technical companion; not a catalog entry. Retained as the detailed cycle-reading behind the parent study's §9, which now carries a compressed four-order exhibit of the same cycle.
 
 **Parent study:** [*From Unit Activity to Human Orderliness: A State-Dynamic Reconstruction of Coexistence*](A-State-Dynamic-Model-Of-Coexistence.md)
 
@@ -12,7 +12,7 @@
 
 ## 1. Purpose and thesis
 
-Appendix A of the parent study inventories types, invariants, and predicates. A reader can see what must not be mixed, but cannot easily see what a unit does. The topical sections already contain the architecture. They do not yet present it as one runnable cycle.
+Appendix A of the parent study inventories types, invariants, and predicates. A reader can see what must not be mixed, but cannot easily see what a unit does. The parent study's §9 now states the cycle in compressed form and exhibits it at four orders. This note remains the detailed version: the standing conditions, the situation layer, the step-by-step unit occurrence, the guarded-event table, and the order-modules that the parent's §9 summarises in a single four-order table.
 
 The thesis of this note is:
 
@@ -24,7 +24,7 @@ The exhibit-name adopted here is the **occurrence-cycle**; **activity-procedure*
 
 ## 2. Claim status
 
-The same contract as the parent study governs every sentence here.
+The same five claim-kinds that govern the parent study govern every sentence here.
 
 | Kind of statement | Meaning in this note | Example |
 |-------------------|----------------------|---------|
@@ -42,10 +42,10 @@ These are true throughout. They are never an output of a cycle.
 
 1. Existence is coexistence: state-complete Omnipresence together with countlessly many state-dynamic units (SB, pp. 48–50; MVD, pp. 11, 34).
 2. Every unit in a bounded situation is bounded, has persistent identity, and is saturated in Omnipresence. Saturation is the ground of energy-fullness and activeness. It is not an applied input and is not selected per event (MVD, pp. 40–41, 46; SB, pp. 57, 61, 69, 248).
-3. Omnipresence does not move, press, or become a bearer in the situation. The same ground is also named Knowledge or Space: actionless availability for realisation, not a second force (MVD, pp. 32–36, 174).
+3. Omnipresence does not move, press, or become a unit in the situation. The same ground is also named Knowledge or Space: actionless availability for realisation, not a second force (MVD, pp. 32–36, 174).
 4. Every unit bears form (*roop*), property (*guna*), essential nature (*svabhav*), and *dharma* as four aspects of one unit (MVD, p. 47).
 5. Every activity is effort, motion, and result together. These are not three successive moments (SB, p. 58).
-6. A bearer has two axes that must not be fused:
+6. A unit has two axes that must not be fused:
    - **Constitutional kind:** developing atom, constitutionally complete *jeevan*, molecule, compound or mineral, pranic cell, pranic body, or a joint-form handle used only as a unit of analysis.
    - **Manifested order or role:** material, pranic, animal, or knowledge. For *jeevan* with no body association in this situation, an auxiliary unjoined-sentient role is used. That role is not a fifth order.
 7. While the manifested order-role is unchanged, *dharma* does not change. Fulfilment of *dharma* is occurrence-level evidence, not the engine of the next state. In the human, comprehension of *dharma* is a further epistemic relation; it does not create *dharma* (MVD, p. 47; JV, pp. 110, 121–123).
@@ -54,13 +54,13 @@ These are true throughout. They are never an output of a cycle.
 
 ## 4. Two layers
 
-A unit's cycle cannot be written in isolation. Facing, composition, and joint forms are relations among bearers. Two layers are therefore required.
+A unit's cycle cannot be written in isolation. Facing, composition, and joint forms are relations among units. Two layers are therefore required.
 
-**The situation cycle** is the outer layer: a finite neighbourhood under study, with an explicit boundary to the rest of nature. It holds the bearers, their actual facings, which bearers are parts of which containing wholes, and which *jeevans* are associated with which bodies.
+**The situation cycle** is the outer layer: a finite neighbourhood under study, with an explicit boundary to the rest of nature. It holds the units, their actual facings, which units are parts of which containing wholes, and which *jeevans* are associated with which bodies.
 
-**The unit occurrence** is the kernel: what one bearer does in its actual neighbourhood during one complete activity-occurrence.
+**The unit occurrence** is the kernel: what one unit does in its actual neighbourhood during one complete activity-occurrence.
 
-Many units proceed at once. Mutuality is shared. There is no global brain and no mean-field summary of nature. A bearer meets only what it actually faces, contains, or is contained in.
+Many units proceed at once. Mutuality is shared. There is no global brain and no mean-field summary of nature. A unit meets only what it actually faces, contains, or is contained in.
 
 ```mermaid
 flowchart TD
@@ -82,14 +82,14 @@ flowchart TD
 
 ## 5. The situation cycle
 
-**Given** a bounded situation: a finite set of bearers; each with a present form and internal condition; the actual facings among them; part-relations of containing wholes; body–*jeevan* associations; and the relevant edges across the analytical boundary.
+**Given** a bounded situation: a finite set of units; each with a present form and internal condition; the actual facings among them; part-relations of containing wholes; body–*jeevan* associations; and the relevant edges across the analytical boundary.
 
 **Then, for one occurrence of the situation:**
 
-1. Each bearer undergoes one unit-occurrence, concurrently, in its actual neighbourhood.
+1. Each unit undergoes one unit-occurrence, concurrently, in its actual neighbourhood.
 2. Results are written back into the situation. Forms, facings, internal conditions, and consequences are those of this occurrence.
 3. Guards are then inspected. If a typed event is admissible, that event may fire. If none is admissible, activity continues in the same kinds and relations.
-4. Identity rules are enforced. Closure adds a containing bearer without annihilating constituents. Disintegration removes the closure while constituents continue. Constitutional completeness preserves atomic identity while changing kind irreversibly. Association activates a joint-form role without fusing body and *jeevan* into one substance.
+4. Identity rules are enforced. Closure adds a containing activity without annihilating constituents. Disintegration removes the closure while constituents continue. Constitutional completeness preserves atomic identity while changing kind irreversibly. Association activates a joint-form role without fusing body and *jeevan* into one substance.
 5. The next situation-occurrence begins from that updated situation.
 
 The situation cycle does not assign probabilities. It does not force dissatisfaction into inquiry, study into realisation, or individual change into a social theorem.
@@ -102,7 +102,7 @@ The numbered steps below describe **what is co-present** in one occurrence, then
 
 ### 6.1 Read the neighbourhood
 
-Collect the actual relations incident on this bearer:
+Collect the actual relations incident on this unit:
 
 - mutual facing;
 - complementary need;
@@ -116,10 +116,10 @@ Record, without a number, the relevant facing conditions: distance, role, comple
 
 Keep two dimensions separate:
 
-- **How** the bearers are related: facing, closure, containment, association.
+- **How** the units are related: facing, closure, containment, association.
 - **What fulfilment is at issue** in that facing: exchange, nourishment, species mutuality, human relationship, right-use or depletion.
 
-If this bearer is a part, its neighbourhood includes the whole and the other parts it actually faces. If it is a containing whole, its external neighbourhood is not the same as its internal organisation.
+If this unit is a part, its neighbourhood includes the whole and the other parts it actually faces. If it is a containing whole, its external neighbourhood is not the same as its internal organisation.
 
 ### 6.2 Recognise
 
@@ -155,7 +155,7 @@ Dispatch by kind and order — this is the first modular break:
 | Pranic | Vitalising or devitalising; nourishment, respiration, growth, decline | Seed and lineage |
 | Animal joint form | Hope to live; tasting, selection; friendliness or opposition | Species |
 | Human joint form | Knowing, believing, recognising, fulfilling; humane or human-opposing conduct | Present *sanskar* |
-| Unjoined *jeevan* | Sentient bearer with hope-bondage; no animal or knowledge-order *dharma*-profile until a joint form is active | Constitutional completeness already attained |
+| Unjoined *jeevan* | Sentient unit with hope-bondage; no animal or knowledge-order *dharma*-profile until a joint form is active | Constitutional completeness already attained |
 
 Natural-state motion can continue under complementary mutuality and mediative regulation. It need not be static.
 
@@ -187,9 +187,9 @@ After unit-occurrences have written their results, the situation inspects guards
 |-------------------------|--------------|----------------------|
 | Continuing activity | Form and facings within the same kind | Identity, kind, order-role, *dharma*-profile |
 | Atomic exchange | Particle constitution, hunger or overfullness, relevant couplings | Developing-atom identities |
-| Mixture formation or separation | Facing edges among existing bearers | No new containing bearer |
+| Mixture formation or separation | Facing edges among existing units | No new containing activity |
 | Compositional closure | A compound, cell, or body and part-relations become active | New whole receives its own order-profile; parts keep identity, order, and profiles |
-| Disintegration | Containing bearer and part-relations cease | Constituents continue in lower-level couplings |
+| Disintegration | Containing activity and part-relations cease | Constituents continue in lower-level couplings |
 | Pranic growth or reproduction | Seed-conformant cells or bodies close, grow, or reproduce | Resulting body remains pranic |
 | Constitutional completeness | A developing atom becomes *jeevan* and bears hope-bondage | Same atomic identity; kind changes irreversibly; no fifth order |
 | Body–*jeevan* association or separation | Animal or knowledge joint-form becomes active or ceases | Body remains pranic; *jeevan* remains one sentient atom |
@@ -236,13 +236,13 @@ Specialises expression and the exchange, mixture, and closure events.
 - Atomic constitution, molecular-bondage, weight-bondage.
 - Hungry and overfull atoms; displacement and absorption; then restored natural-state motion (KD 3.1, pp. 57–58).
 - Joining at a definite good distance, related to exchange but not identical with it (KD 3.11, pp. 103–104).
-- Mixture: no new public conduct. Compound: a new bearer with its own tetrad (MVD, p. 42).
+- Mixture: no new public conduct. Compound: a new closed activity with its own tetrad (MVD, p. 42).
 
 ### 8.5 Containing whole
 
 Specialises closure, disintegration, and nested neighbourhood.
 
-- The whole is a further bearer, not a bag of parts.
+- The whole is a further activity, not a bag of parts.
 - Parts keep their own tetrads.
 - The whole organises which part-couplings are admitted, bounded, nourished, or excited.
 - Constitutive consistency: parts realise and sustain the closed conduct without the whole being a sum.
@@ -358,9 +358,9 @@ The chain resolved individual → prosperous family → fearless society → uni
 Call order, not causal ladder:
 
 1. Standing conditions always hold.
-2. The situation cycle calls a unit occurrence for every bearer.
+2. The situation cycle calls a unit occurrence for every unit.
 3. The unit occurrence always uses mutuality, recognition, and tetrad expression, then writes a result.
-4. Material, pranic, animal, or human modules fill in expression according to kind and order. The containing-whole module is used when the bearer is a whole or a part.
+4. Material, pranic, animal, or human modules fill in expression according to kind and order. The containing-whole module is used when the unit is a whole or a part.
 5. After all current occurrences, the event table may call material, containing-whole, pranic, atomic-development, joint-form, animal, or human-evaluation modules.
 6. The trace-level checks of §9 inspect traces; they never fire events.
 
@@ -387,15 +387,15 @@ An overfull atom, a hungry atom, and a displaced particle are in mutual facing.
 | Changed configuration | A particle is displaced and may be absorbed. | Guarded event: atomic exchange |
 | Restored facing | The new constitutions continue in definite natural-state motion. | Continuing activity |
 
-If participation closes a compound, the containing-whole module fires and a new bearer appears. If it forms a mixture, only the facing edges change.
+If participation closes a compound, the containing-whole module fires and a new closed activity appears. If it forms a mixture, only the facing edges change.
 
 ### 11.2 Animal evaluation
 
-An animal joint form meets another bearer in its situation. This is an analytical example, not a case narrated in the primary texts.
+An animal joint form meets another unit in its situation. This is an analytical example, not a case narrated in the primary texts.
 
 | Occurrence | What happens | Which modules |
 |------------|--------------|---------------|
-| Mutual facing | The joint form and another bearer meet in a definite bodily and relational situation. | Mutuality, recognition |
+| Mutual facing | The joint form and another unit meet in a definite bodily and relational situation. | Mutuality, recognition |
 | Species-conformant recognition | Essential nature is recognised as friendly or opposed; recognition is definite through species. | Joint form, animal evaluation |
 | Tasting, selection, bodily activity | Tasting and selection organise a body-mediated activity toward bodily fulfilment. | Tetrad expression, pranic |
 | Bodily and relational consequence | The consequence alters the bodily and relational situation of the next occurrence. | Result written into the situation |
@@ -444,17 +444,17 @@ Coexistence, *jeevan*, and truth have been studied enough that the actual relati
 
 ## 12. Relation to other documents
 
-- **Parent study.** This note is a reading of that study's architecture as a cycle. Review resolved in favour of keeping the parent study's current architecture, so its structure is unchanged. The re-cut — standing conditions, the situation cycle, and the unit occurrence as the main exhibit, with Appendix A retained as a type-contract — remains available as a later option. Humane-conduct content, karma, taste of value, and the three human traces are now in the parent study's §7.7 and §8.5–§8.7; this note specialises them as cycle roles.
+- **Parent study.** This note is a reading of that study's architecture as a cycle. The parent study now carries a compressed form of that reading at §9 — the cycle diagram, the four-order table, and the closure-principle contrast — while this note keeps the full version: standing conditions, the situation layer, the unit occurrence step by step, the guarded-event table, and the order-modules. Appendix A remains the type-contract behind both. Humane-conduct content, karma, taste of value, and the three human shapes are in the parent study's §7.7 and §8.5; this note specialises them as cycle roles.
 - **Jeevan functional companion.** [*A Functional Model of Jeevan*](../The-Epistemology-of-Coexistence/Research-Note-Jeevan-Functional-Model.md) is the inner specialisation of human orientation: faculties, reception, inquiry, and embodied consequence. This note owns the outer process — unit and situation — of which that companion is one module.
 - **Tetrad technical note.** [*Four Aspects of the Active Unit*](../The-Ontology-of-Coexistence/Technical-Note-Roop-Guna-Svabhava-Dharma.md) supplies the aspect-definitions used in tetrad expression. This note does not reopen those definitions.
 - **Axiology and ethics.** [*Axiology: Value Theory*](../Axiology-Value-Theory/Axiology-Value-Theory.md) and [*Ethics and Morals in Human Beings*](../Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.md) supply the taxonomy of value families and the three limbs of humane conduct. This note owns only the cycle roles.
 
 ## 13. Review decisions
 
-These are the decisions this note was written to settle. The integration question was resolved in favour of keeping the parent study's current architecture; the re-cut described in §12 remains available as a later option.
+These are the decisions this note was written to settle. The integration question has since been reopened and partly resolved the other way: the parent study now carries a compressed cycle exhibit at §9, while the full re-cut described in §12 stays in this note.
 
 1. **Naming.** Resolved: **occurrence-cycle**. "Activity-procedure" invited the reading this note spends §1 denying, and a title is what a skimming reader retains. The alternatives remain acceptable in prose.
-2. **Placement.** Deferred. The kernel does not yet displace the parent study's walk through triad and tetrad. If it later does, it sits immediately after "Model at a glance".
+2. **Placement.** Resolved. The parent study states the kernel at §1.3, walks it through triad and tetrad at §§2–3, carries it up the orders at §§4–8, and exhibits the cycle at §9 after the orders it ranges over are defined. A placement in the front matter was rejected: the four-order table cannot be read before the orders exist for the reader.
 3. **Appendix A.** Resolved: keep it as the type-contract behind the cycle. The parent study's topical sections still use inline qualitative notation (*K*<sup>*</sup>, R̂, *z*<sub>H</sub>, and the rest); the appendix remains the place where that notation is collected as a type-contract, not a claim that the body is now prose-only.
 4. **Module grain.** Resolved both ways. Mutuality and recognition stay separate — the actual/recognised distinction is what makes misrecognition, correction, and justice in relationship representable, and merging them blurs that seam. Completeness and observation are no longer modules; they are trace-level checks in §9.
 5. **Human inner protocol.** Resolved: faculty-level unfolding stays in the *jeevan* companion. §8.10 carries only enough to make the step legible.
