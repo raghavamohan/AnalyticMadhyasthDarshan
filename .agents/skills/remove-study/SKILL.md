@@ -45,7 +45,12 @@ Ongoing placeholders (italic, no PDF) are supported — only the catalog row is 
 
 1. **Search cross-links** — grep other `Studies/*/*.md` for links to the removed slug
 2. **Review** `References/MANIFEST.md` summary counts if needed
-3. **Commit** deletions and catalog updates
+3. **Verify** catalogs and references with `python Scripts/_verify_studies_index.py`
+   and `python Scripts/_check_references.py`
+4. **Commit** deletions and catalog updates on a feature branch
+5. **Open a ready-for-review pull request** with the `study-update` template and
+   label. Keep the retired directory name as the bare `Study slug: <Slug>` value;
+   mark Edited-on and quote-verification checklist items N/A.
 
 ## Do not
 
