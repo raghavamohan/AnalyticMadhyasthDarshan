@@ -1229,7 +1229,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
         <p>Alongside every stage, I relate the framework to science, technology, and current developments, formalise its claims, and test whether it can grow into a coherent explanatory system.</p>
       </div>
       <div class="parallel-studies">
-        <div class="parallel-study" data-study-slug="Coexistence-From-First-Principles" data-presentation-pdf="Coexistence-From-First-Principles/Coexistence-From-First-Principles-MD-Practitioner.pdf"><a data-study-link href="Coexistence-From-First-Principles/Coexistence-From-First-Principles-MD-Practitioner.pdf" title="Open presentation PDF">Coexistence from First Principles</a><span class="path-status draft" data-study-status>Draft</span></div>
+        <div class="parallel-study" data-study-slug="A-State-Dynamic-Model-Of-Coexistence" data-study-pdf="true"><a data-study-link href="A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf" title="Open study PDF">From Unit Activity to Human Orderliness</a><span class="path-status draft" data-study-status>Draft</span></div>
         <div class="parallel-study" data-study-slug="Science-Technology-And-Human-Purpose"><a data-study-link href="Science-Technology-And-Human-Purpose/discussion.html">Science, Technology, and Human Purpose</a><span class="path-status planned" data-study-status>In progress</span></div>
       </div>
     </div>
