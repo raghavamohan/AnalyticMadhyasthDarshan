@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** August 30, 2026, 2:52 AM IST
+**Edited on:** August 30, 2026, 3:31 AM IST
 **Status:** Draft
 
 This paper develops a source-bounded process architecture from unit activity to human orderliness. Its main line has six parts. State-complete Omnipresence coexists with saturated, state-dynamic units; each unit expresses one complete effort–motion–result; actual mutuality, complementarity, and mediative activity make natural orderliness evident; that orderliness is described through *niyam–niyantran–santulan*; the human threshold makes recognition and fulfilment consciously answerable and therefore failable; and realised Knowledge projected through the faculties makes *satya–dharma–nyaya* available in thought, relationship, conduct, work, and maintained social arrangements. The result is a qualitative reconstruction, not a quantitative theory that predicts physical trajectories or proves every ontological claim. Appendix A gives a typed process schema, while Appendix C keeps proposed operational criteria separate from the process.
@@ -1798,6 +1798,7 @@ The Status column uses six kinds. A **direct textual claim** is stated in the pr
 ### Related studies in this collection
 
 - [*Technical Note: MD-TOPOS and the State-Dynamic Model of Coexistence*](Technical-Note-MD-TOPOS-And-The-State-Dynamic-Model.pdf) — proposed classifying semantics, typed observation ledgers, defects in the published 26+1 construction, and a first material-closure pilot
+- [*Technical Note: EMR and Wolfram's Computational Universe*](Technical-Note-Wolfram-Computational-Universe-And-EMR.pdf) — typed causal multiway execution of complete effort-motion-result occurrences, schedule invariance, branch semantics, and the limits of computational reduction
 - [*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — saturation, four orders, compositional versus atomic development, T1–T3, and *jeevan* (§§1.2–1.7); companion technical note [*Rūpa, Guṇa, Svabhāva, and Dharma in a State-Dynamic Unit*](../The-Ontology-of-Coexistence/Technical-Note-Roop-Guna-Svabhava-Dharma.pdf)
 - [*The Epistemology of Coexistence*](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) — knowing, evidence, presence versus unfolding, cognisance and sensitivity, higher-conformance, *sakshatkar*, and the faculty architecture (§§1.1–1.6); companion [*A Functional Model of Jeevan*](../The-Epistemology-of-Coexistence/Research-Note-Jeevan-Functional-Model.pdf); related organisational proposal [*A Proposed External Organisation from the Activity Architecture of Jeevan*](../The-Epistemology-of-Coexistence/Research-Note-Proposed-External-Organisation-From-Jeevan-Architecture.md)
 - [*Axiology: Value Theory*](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) — value families, established and civic pairs, and evaluation (§§1.2–1.3)
