@@ -725,11 +725,11 @@ under `References/`.
 
 ## 7. Study submission process — branches, PR labels, and templates *(always applies)*
 
-Applies to any change under `Studies/` (adding, editing, or changing the status of a study).
+Applies to any change under `Studies/` (adding, editing, removing, or changing the status of a study).
 Human contributors follow the Web Submission Portal flow in [CONTRIBUTING.md](CONTRIBUTING.md).
 Agents and other direct-repo contributors must follow the same underlying shape as a plain git
 workflow: **never commit a `Studies/` change directly to the default branch.** Every study
-addition, edit, or status change lands through a pull request that CI
+addition, edit, removal, or status change lands through a pull request that CI
 (`.github/workflows/study-pr.yml` → `Scripts/_ci_study_pr.py`) can process.
 
 ### Mandatory workflow
@@ -754,6 +754,7 @@ addition, edit, or status change lands through a pull request that CI
    |--------|----------|-------|-------------------------|
    | Add a new study (after `proposal-approved`) | `new-study.md` | `new-study` | `Proposal issue: #N` and `Slug: <Slug>` |
    | Edit an existing study's content **or companion files** under that study folder (`.pptx`, research notes, SVGs, etc.) | `study-update.md` | `study-update` | `Study slug: <Slug>` |
+   | Remove an existing study | `study-update.md` | `study-update` | `Study slug: <Removed-Slug>` |
    | Rename slug (directory + metadata) | `study-update.md` | `study-update` | `Study slug: <New-Slug>` (CI runs `_rename_study.py` when one slug is removed and another added) |
    | Change Draft ↔ Released | `status-change.md` | `status-change` | `Study slug: <Slug>` and `Target status: draft`/`released` |
 
@@ -777,6 +778,12 @@ addition, edit, or status change lands through a pull request that CI
    `.md` — needs a study-labeled PR and the matching template. Companion-only PRs still
    set `Study slug: <Slug>`; mark Edited-on checklist items N/A in the PR body when the
    study markdown was not changed.
+
+   A removal PR keeps the retired directory name in `Study slug:` even though the
+   catalog entry and directory are gone. CI accepts it only when every changed path
+   under that slug is deleted, the study directory is absent, and the proposal
+   registry no longer contains the slug. Mark Edited-on and quote-verification
+   checklist items N/A.
 
    A change that only touches non-study files (`Scripts/`, `AGENTS.md`, `.agents/skills/`,
    infra, etc.) is **not** a study PR — do not apply a study label to it, and it does not

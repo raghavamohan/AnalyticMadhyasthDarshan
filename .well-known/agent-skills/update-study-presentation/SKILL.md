@@ -111,8 +111,8 @@ bug, and correcting it to the grid beats rewriting copy to fit a wrong box.
 At Cambria 30 bold in the 8.45in title box, one line holds roughly 40
 characters. Past that, check the measurement rather than guessing.
 
-The three 13.33 × 7.5in decks — `Coexistence-From-First-Principles`,
-`How-Undivided-Society-Is-Established`, `Why-Humans-Are-Not-Just-Material` —
+The two 13.33 × 7.5in decks — `How-Undivided-Society-Is-Established` and
+`Why-Humans-Are-Not-Just-Material` —
 each carry their own geometry. Read the deck you are editing; do not port
 numbers from the table above into one of them.
 

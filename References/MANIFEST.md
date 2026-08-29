@@ -50,7 +50,6 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-19.
 | | Ashtekar and Singh 2011, Carroll 2010, Friston 2010, Guth 2007 | present |
 | | Metzinger 2003, Penrose 2010, Ishvarakrishna, Nagarjuna, Weinberg 1995 | external |
 | [How-Undivided-Society-Is-Established.pdf](../Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf) | MVD, SB, JV, JVD, AVD | TBD |
-| [Coexistence-From-First-Principles.pdf](../Studies/Coexistence-From-First-Principles/Coexistence-From-First-Principles.pdf) | MVD, SB, JV, KD | present |
 | [Axiology-Value-Theory.pdf](../Studies/Axiology-Value-Theory/Axiology-Value-Theory.pdf) | MVD, SB, JV, KD | present |
 | [Family-Relationships-And-Values.pdf](../Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.pdf) | MVD, JV, SB, KD | present |
 | [Spiritual-Practice-And-Realization.pdf](../Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.pdf) | MVD, JV, KD | present |
