@@ -6,6 +6,27 @@
   "description": "Draft and released studies, newest Edited-on timestamp first. In-progress (ongoing) rows are omitted.",
   "items": [
     {
+      "id": "https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/",
+      "url": "https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html",
+      "title": "From Unit Activity to Human Orderliness: A State-Dynamic Reconstruction of Coexistence",
+      "content_text": "A source-bounded qualitative reconstruction linking intrinsic unit activity, compositional closure, constitutionally complete jeevan, animal and human joint forms, reflexive evaluation, and public orderliness. It distinguishes dharma and niyati-kram from causal forces, preserves composition and atomic development as separate lines, and keeps unresolved empirical mechanisms explicit.",
+      "tags": [
+        "formal",
+        "draft"
+      ],
+      "date_modified": "2026-08-30T03:31:00+05:30",
+      "attachments": [
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.md",
+          "mime_type": "text/markdown"
+        },
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf",
+          "mime_type": "application/pdf"
+        }
+      ]
+    },
+    {
       "id": "https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/",
       "url": "https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html",
       "title": "The Epistemology of Coexistence",
@@ -43,27 +64,6 @@
         },
         {
           "url": "https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf",
-          "mime_type": "application/pdf"
-        }
-      ]
-    },
-    {
-      "id": "https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/",
-      "url": "https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html",
-      "title": "From Unit Activity to Human Orderliness: A State-Dynamic Reconstruction of Coexistence",
-      "content_text": "A source-bounded qualitative reconstruction linking intrinsic unit activity, compositional closure, constitutionally complete jeevan, animal and human joint forms, reflexive evaluation, and public orderliness. It distinguishes dharma and niyati-kram from causal forces, preserves composition and atomic development as separate lines, and keeps unresolved empirical mechanisms explicit.",
-      "tags": [
-        "formal",
-        "draft"
-      ],
-      "date_modified": "2026-08-30T02:52:00+05:30",
-      "attachments": [
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.md",
-          "mime_type": "text/markdown"
-        },
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf",
           "mime_type": "application/pdf"
         }
       ]
