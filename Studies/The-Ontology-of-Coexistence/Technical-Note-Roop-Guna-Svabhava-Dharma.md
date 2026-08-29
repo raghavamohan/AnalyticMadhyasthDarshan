@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) - a group of people studying Madhyasth Darshan philosophy.
 
-**Edited on:** August 23, 2026, 5:53 PM IST
+**Edited on:** August 29, 2026, 5:38 PM IST
 
 **Status:** Internal technical note; not a catalog entry and not part of the released text of *The Ontology of Coexistence*.
 
@@ -225,6 +225,5 @@ The earlier version developed a mathematical process-picture using a state varia
 ### Related studies
 
 - [*The Ontology of Coexistence*](The-Ontology-of-Coexistence.pdf), especially §1.3 on definite insentient mutuality and §1.10 on composition and assemblies.
-- [*A State-Dynamic Model of Coexistence*](../A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf), especially §§2-5 on state, derivative, potential, and nested compositional plateaus.
+- [*From Unit Activity to Human Orderliness*](../A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf), especially §§2–5 on effort–motion–result, the four aspects, and compositional closure, and §8.3 and §11.1 on evaluation and justice as mutual satisfaction.
 - [*The Epistemology of Coexistence*](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf), especially §1.4 on the six perspectives and on *niyam-niyantran-santulan* with *nyāya-dharma-satya*.
-- [*Coexistence from First Principles*](../Coexistence-From-First-Principles/Coexistence-From-First-Principles.pdf), especially §4.9 on reflexive evaluation and justice as mutual satisfaction.
