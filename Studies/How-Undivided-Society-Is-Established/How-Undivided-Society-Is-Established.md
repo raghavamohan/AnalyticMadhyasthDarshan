@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** August 29, 2026, 5:38 PM IST
+**Edited on:** August 30, 2026, 2:52 AM IST
 **Status:** Released
 **The question:** What basis could make humankind an undivided society, why are influential contemporary alternatives insufficient by themselves, and how does Madhyasth Darshan propose that such a society be established and evidenced?
 
@@ -49,7 +49,7 @@ Madhyasth Darshan holds that existence is coexistence: formless Omnipresence (*s
 
 The four orders of material, pranic, animal, and knowledge-order nature display progressively different forms of organisation. Physical and biological units exhibit definite conduct according to their constitutions, seeds, and species. Human conduct is not definite in that way. A human being can understand, mis-evaluate, choose, and revise; humane definiteness must therefore be achieved through *sanskar*, understood disposition, rather than inherited as a biological programme.
 
-The darshan explains sentience through *jeevan*, the constitutionally complete unit that works through an animal or human body. Its detailed atomic account is a doctrinal claim, not an established result of contemporary physics or neuroscience. For the social argument, the load-bearing distinction is more modest: the body provides sensation and material action, while *jeevan* is said to desire happiness, evaluate, understand, and evidence conduct. The updated ontology and CFP study examine the stronger atomic and continuity claims in depth; this paper does not make social order depend on presenting them as settled natural science.
+The darshan explains sentience through *jeevan*, the constitutionally complete unit that works through an animal or human body. Its detailed atomic account is a doctrinal claim, not an established result of contemporary physics or neuroscience. For the social argument, the load-bearing distinction is more modest: the body provides sensation and material action, while *jeevan* is said to desire happiness, evaluate, understand, and evidence conduct. The updated ontology and state-dynamic study examine the stronger atomic and continuity claims in depth; this paper does not make social order depend on presenting them as settled natural science.
 
 Human organisation must also not be mistaken for a literal physicochemical compound. A family or assembly does not become a larger *jeevan*, acquire a collective *atma*, or erase the agency of its members. The analogy with composition is limited but useful: an assembly becomes a coherent whole when its members recognise a shared purpose, fulfil relationships, evaluate outcomes, and carry the method across changes of membership. At the human order, that closure is voluntary, understanding-mediated, fallible, and corrigible.
 
@@ -359,7 +359,7 @@ Terms such as composition and closure are analogical when applied to families an
 ### Related studies in this collection
 
 - [*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — the full ontological account and detailed comparison with Advaita, modern philosophy, and science.
-- [*From Unit Activity to Human Orderliness*](../A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf) — three maintained forms (§3.6) and the recovery audit of composition, association, and open posits (Appendix D).
+- [*From Unit Activity to Human Orderliness*](../A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf) — three maintained forms (§3.6), their typed representation (Appendix A), and the source/model-status audit (Editorial Notes).
 - [*Human Behavior and Society*](../Human-Behavior-And-Society/Human-Behavior-And-Society.pdf) — extended comparison of behaviour, science, religion, and Advaita.
 - [*How to Form Self-Sustaining Organizations*](../How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.pdf) — application of shared purpose, relationship-fulfilment, and transmission to organisations.
 - [*The Epistemology of Coexistence*](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) — study, knowing, evidence, and *pramanikta*.
