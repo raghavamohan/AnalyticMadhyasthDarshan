@@ -122,16 +122,6 @@ Madhyasth Darshan's account of how undivided society is established through coex
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf
 
-## Coexistence from First Principles
-
-A layered reconstruction of Madhyasth Darshan's ontological core, activity-duration, order-relative stability, and knowledge-order cycles, with explicit boundaries between textual doctrine, formal organization, mathematical analogy, and open posits
-
-- Collection: formal · Status: draft
-- Edited on: Jul 29, 2026, 5:40 AM IST
-- HTML: https://analyticmadhyasthdarshan.org/Studies/Coexistence-From-First-Principles/Coexistence-From-First-Principles.md
-- Markdown: https://analyticmadhyasthdarshan.org/Studies/Coexistence-From-First-Principles/Coexistence-From-First-Principles.md
-- PDF: https://analyticmadhyasthdarshan.org/Studies/Coexistence-From-First-Principles/Coexistence-From-First-Principles.pdf
-
 ## From Unit Activity to Human Orderliness: A State-Dynamic Reconstruction of Coexistence
 
 A source-bounded qualitative reconstruction linking intrinsic unit activity, compositional closure, constitutionally complete jeevan, animal and human joint forms, reflexive evaluation, and public orderliness. It distinguishes dharma and niyati-kram from causal forces, preserves composition and atomic development as separate lines, and keeps unresolved empirical mechanisms explicit.

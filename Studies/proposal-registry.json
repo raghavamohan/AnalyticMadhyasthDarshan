@@ -43,16 +43,6 @@
       "applied": true
     },
     {
-      "slug": "Coexistence-From-First-Principles",
-      "title": "Coexistence From First Principles",
-      "issueNumber": 92,
-      "submitter": "raghavamohan",
-      "category": "Formal structure",
-      "description": "A formal reconstruction of Madhyasth Darshan using three primitives, two axioms, compound-closure, and an interpretive reflexive model, with a clause-by-clause recovery audit and categorical encoding",
-      "formal": true,
-      "phase": "pre-catalog"
-    },
-    {
       "slug": "Death-Continuity-And-Rebirth",
       "title": "Death Continuity and Rebirth",
       "issueNumber": 21,

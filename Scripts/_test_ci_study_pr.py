@@ -150,6 +150,22 @@ def test_detect_study_rename_inferred_from_add_delete() -> None:
     assert got == ("Old-Slug", "New-Slug")
 
 
+def test_study_was_removed_requires_a_complete_deletion() -> None:
+    slug = "Removed-Study-For-CI-Test"
+    deleted = [
+        ("D", f"Studies/{slug}/{slug}.md"),
+        ("D", f"Studies/{slug}/{slug}.pdf"),
+    ]
+    assert _with_diff(deleted, lambda: ci.study_was_removed("origin/master", slug)) is True
+
+    mixed = deleted + [("A", f"Studies/{slug}/replacement.md")]
+    assert _with_diff(mixed, lambda: ci.study_was_removed("origin/master", slug)) is False
+    assert _with_diff(
+        [("M", "Studies/README.md")],
+        lambda: ci.study_was_removed("origin/master", slug),
+    ) is False
+
+
 def test_references_changed() -> None:
     assert _with_diff([("M", "References/MANIFEST.md")],
                       lambda: ci.references_changed("origin/master")) is True
