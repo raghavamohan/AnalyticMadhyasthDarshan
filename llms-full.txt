@@ -37,7 +37,7 @@ Whether a human being is reducible to an insentient physicochemical body: Madhya
 What knowledge is, who the knower is, and what can be known: coexistence, jeevan, humane conduct, evidence, and epistemic error — compared with Advaita Vedanta, modern Western philosophy, and natural science
 
 - Collection: topical · Status: released
-- Edited on: Aug 29, 2026, 5:38 PM IST
+- Edited on: Aug 30, 2026, 2:52 AM IST
 - HTML: https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.md
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf
@@ -117,7 +117,7 @@ Realization and awakening in Madhyasth Darshan: anubhav, samyama, upasana, and l
 Madhyasth Darshan's account of how undivided society is established through coexistence, justice, family, institutions, and education — compared with science-only materialism, Advaita Vedanta, and Hindu religious authority
 
 - Collection: topical · Status: released
-- Edited on: Aug 29, 2026, 5:38 PM IST
+- Edited on: Aug 30, 2026, 2:52 AM IST
 - HTML: https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.md
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf
@@ -137,7 +137,7 @@ A layered reconstruction of Madhyasth Darshan's ontological core, activity-durat
 A source-bounded qualitative reconstruction linking intrinsic unit activity, compositional closure, constitutionally complete jeevan, animal and human joint forms, reflexive evaluation, and public orderliness. It distinguishes dharma and niyati-kram from causal forces, preserves composition and atomic development as separate lines, and keeps unresolved empirical mechanisms explicit.
 
 - Collection: formal · Status: draft
-- Edited on: Aug 29, 2026, 5:38 PM IST
+- Edited on: Aug 30, 2026, 2:52 AM IST
 - HTML: https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.md
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf
