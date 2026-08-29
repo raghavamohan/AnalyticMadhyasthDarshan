@@ -48,7 +48,7 @@
       "type": "skill-md",
       "description": "Remove a study from Studies/ using Scripts/_remove_study.py or _remove_study.ps1 — deletes files and updates catalogs and References. Use when retiring a study, deleting a paper, removing an Ongoing placeholder, or cleaning up a study slug.",
       "url": "/.well-known/agent-skills/remove-study/SKILL.md",
-      "digest": "sha256:7cb94cad306c579a33504eb2c6ed6ee88c83547089605e489495c9892aaea3f4"
+      "digest": "sha256:ad08bad724087f8079bc8e766f5c4ef79b53332d780c85161f18f8bfde70e458"
     },
     {
       "name": "rename-study",
@@ -83,7 +83,7 @@
       "type": "skill-md",
       "description": "Update an existing study companion PowerPoint deck under Studies/ or Applications/, preserve its established design, regenerate its slides PDF and read-aloud notes PDF, and verify every format. Use for PPTX content edits, figure replacements, slide additions or removals, slide reordering, presentation reviews that require fixes, and PPTX-to-PDF refreshes. The PPTX is the source of truth; this repository does not use a slides-YAML generation workflow.",
       "url": "/.well-known/agent-skills/update-study-presentation/SKILL.md",
-      "digest": "sha256:585e952546b520018ff1b123a95d9b1c72205c81ccd55cbaf949c5bafb94c775"
+      "digest": "sha256:e6d6531c92aa58d45c90c2f917e0ec59db3878e8793b8af2822b015e6550c901"
     }
   ]
 }

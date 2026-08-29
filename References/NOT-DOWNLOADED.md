@@ -120,13 +120,11 @@ Scriptural passages cited for comparative examples are linked externally rather 
 
 ## Computational universe and discrete physics — external only
 
-Works cited in [*Research Note: Wolfram Computational Universe and MD Kernel*](../Studies/Coexistence-From-First-Principles/Research-Note-Wolfram-Computational-Universe-And-MD-Kernel.md) and [*Technical Note: EMR and Wolfram's Computational Universe*](../Studies/A-State-Dynamic-Model-Of-Coexistence/Technical-Note-Wolfram-Computational-Universe-And-EMR.md). Author-hosted writings and the free NKS online edition are linked rather than mirrored (print NKS remains a commercial book; HTML sources are not mirrored).
+Works cited in [*Technical Note: EMR and Wolfram's Computational Universe*](../Studies/A-State-Dynamic-Model-Of-Coexistence/Technical-Note-Wolfram-Computational-Universe-And-EMR.md). Author-hosted writings and the free NKS online edition are linked rather than mirrored (print NKS remains a commercial book; HTML sources are not mirrored).
 
 | Tag | Full reference | Original location |
 |-----|----------------|-------------------|
 | **Wolfram NKS** | Wolfram, S. *A New Kind of Science*. Wolfram Media, 2002. Online edition. | https://www.wolframscience.com/nks/ |
-| **Wolfram 2020** | Wolfram, S. "Finally We May Have a Path to the Fundamental Theory of Physics… and It's Beautiful." *Stephen Wolfram Writings*, 14 Apr 2020. | https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/ |
-| **Wolfram Physics TI** | Wolfram, S. *A Class of Models with the Potential to Represent Fundamental Physics* (Technical Introduction), §8.2 Basic Concepts. Wolfram Physics Project. | https://www.wolframphysics.org/technical-introduction/potential-relation-to-physics/basic-concepts/ |
 | **Wolfram Physics Basic Structure** | Wolfram Physics Project. *A Class of Models with the Potential to Represent Fundamental Physics*, Basic Structure. | https://www.wolframphysics.org/technical-introduction/basic-form-of-models/basic-structure/ |
 | **Wolfram Physics Time** | Wolfram Physics Project. *A Class of Models with the Potential to Represent Fundamental Physics*, Time and Spacetime. | https://www.wolframphysics.org/technical-introduction/potential-relation-to-physics/time-and-spacetime/ |
 | **Wolfram Physics Graph Types** | Wolfram Physics Project. *A Class of Models with the Potential to Represent Fundamental Physics*, Appendix: Graph Types. | https://www.wolframphysics.org/technical-introduction/notes-and-further-references/appendix-graph-types/ |
@@ -134,8 +132,6 @@ Works cited in [*Research Note: Wolfram Computational Universe and MD Kernel*](.
 | **Wolfram Physics Causal Graphs** | Wolfram Physics Project. *A Class of Models with the Potential to Represent Fundamental Physics*, Causal Graphs for Causal-Invariant Rules. | https://www.wolframphysics.org/technical-introduction/the-updating-process-in-our-models/causal-graphs-for-causal-invariant-rules/index.html |
 | **Piskunov 2020** | Piskunov, M. "Confluence and Causal Invariance." *Wolfram Physics Project Bulletin*, 16 Nov 2020. | https://bulletins.wolframphysics.org/2020/11/confluence-and-causal-invariance/ |
 | **Wolfram Observer Theory** | Wolfram, S. "Observer Theory." *Stephen Wolfram Writings*, 29 Dec 2023. | https://writings.stephenwolfram.com/2023/12/observer-theory/ |
-| **Wolfram 2021** | Wolfram, S. "Why Does the Universe Exist? Some Perspectives from Our Physics Project." *Stephen Wolfram Writings*, 29 Apr 2021. | https://writings.stephenwolfram.com/2021/04/why-does-the-universe-exist-some-perspectives-from-our-physics-project/ |
-| **Wolfram 2026** | Wolfram, S. "What Ultimately Is There? Metaphysics and the Ruliad." *Stephen Wolfram Writings*, Feb 2026. | https://writings.stephenwolfram.com/2026/02/what-ultimately-is-there-metaphysics-and-the-ruliad/ |
 
 ## Physics, variational mechanics, and category theory — external only
 

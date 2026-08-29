@@ -323,6 +323,36 @@ def registry_row_for_slug(slug: str) -> dict | None:
     return None
 
 
+def study_was_removed(base_ref: str, slug: str) -> bool:
+    """Whether the PR completely deletes one study tree.
+
+    A removed study no longer resolves through ``get_study_row`` or
+    ``slug_from_repo_relative_path``.  Recognize it lexically, but only when every
+    changed path for that slug is a deletion and neither possible study directory
+    remains on disk.  This keeps a misspelled PR-body slug from being accepted as
+    a removal.
+    """
+    touched = [
+        status
+        for status, path in changed_paths(base_ref)
+        if slug_from_path_lexical(Path(path)) == slug
+    ]
+    if not touched or any(status != "D" for status in touched):
+        return False
+    return not (STUDIES / slug).exists() and not (BASE / "Applications" / slug).exists()
+
+
+def verify_removal_metadata(slug: str) -> None:
+    """Reject a removal that leaves proposal metadata capable of recreating it."""
+    errors: list[str] = []
+    if registry_row_for_slug(slug):
+        errors.append(
+            f"proposal-registry.json still lists removed slug {slug}; remove its proposal entry."
+        )
+    if errors:
+        raise SystemExit("Study removal verification failed:\n  - " + "\n  - ".join(errors))
+
+
 def verify_rename_metadata(old_slug: str, new_slug: str) -> None:
     errors: list[str] = []
     if registry_row_for_slug(old_slug):
@@ -547,6 +577,10 @@ def handle_study_update(body: str, base_ref: str) -> None:
     for slug in target_slugs:
         located = get_study_row(slug)
         if located is None:
+            if study_was_removed(base_ref, slug):
+                verify_removal_metadata(slug)
+                print(f"Validated complete study removal: {slug}")
+                continue
             raise SystemExit(f"Study not found in catalog: {slug}")
 
         row, _table = located
