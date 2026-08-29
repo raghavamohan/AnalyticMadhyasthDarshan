@@ -2,13 +2,13 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 17, 2026, 2:43 PM IST
+**Edited on:** August 29, 2026, 5:38 PM IST
 **Status:** Released
 **The question:** What basis could make humankind an undivided society, why are influential contemporary alternatives insufficient by themselves, and how does Madhyasth Darshan propose that such a society be established and evidenced?
 
 Madhyasth Darshan does not use *akhand samaj*, undivided society, as a name for political uniformity, a world state, or the numerical enlargement of an existing community. It names humankind recognised as one field of relationships, living through mutually fulfilling conduct and participating in universal orderliness (*sarvabhaum vyavastha*). The claim is demanding: unity must be compatible with distinct persons and families, prosperity with non-accumulation, freedom with responsibility, and social continuity with understanding rather than coercion.
 
-This study asks what would make that claim more than an aspiration. It develops the Madhyasth Darshan account from coexistence, *jeevan*, relationship, justice, and awakening; compares that basis with science-only materialism, Advaita Vedanta, and religious authority within the diverse field called Hinduism; and follows establishment from the individual through family, institutions, and intergenerational tradition. The formal reconstruction in [*Coexistence From First Principles*](../Coexistence-From-First-Principles/Coexistence-From-First-Principles.pdf) informs several distinctions, but the present argument remains in ordinary philosophical prose.
+This study asks what would make that claim more than an aspiration. It develops the Madhyasth Darshan account from coexistence, *jeevan*, relationship, justice, and awakening; compares that basis with science-only materialism, Advaita Vedanta, and religious authority within the diverse field called Hinduism; and follows establishment from the individual through family, institutions, and intergenerational tradition. The process reconstruction in [*From Unit Activity to Human Orderliness*](../A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf) informs the distinction between structural closure, body–*jeevan* association, and maintained relational order, but the present argument remains in ordinary philosophical prose.
 
 ## Standpoint and scope
 
@@ -359,7 +359,7 @@ Terms such as composition and closure are analogical when applied to families an
 ### Related studies in this collection
 
 - [*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — the full ontological account and detailed comparison with Advaita, modern philosophy, and science.
-- [*Coexistence From First Principles*](../Coexistence-From-First-Principles/Coexistence-From-First-Principles.pdf) — formal reconstruction and the boundaries between literal composition, analogy, and open posits.
+- [*From Unit Activity to Human Orderliness*](../A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf) — three maintained forms (§3.6) and the recovery audit of composition, association, and open posits (Appendix D).
 - [*Human Behavior and Society*](../Human-Behavior-And-Society/Human-Behavior-And-Society.pdf) — extended comparison of behaviour, science, religion, and Advaita.
 - [*How to Form Self-Sustaining Organizations*](../How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.pdf) — application of shared purpose, relationship-fulfilment, and transmission to organisations.
 - [*The Epistemology of Coexistence*](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) — study, knowing, evidence, and *pramanikta*.

@@ -2,13 +2,13 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 30, 2026, 12:26 PM IST
+**Edited on:** August 29, 2026, 5:38 PM IST
 **Status:** Released
 **The question:** What is knowledge, who is the knower, and what is it that one can know? How are these concepts grounded in experience, and how does the Co-existentialism of Shri A. Nagraj compare with Advaita Vedanta, modern Western philosophy, and the natural sciences?
 
 This study examines knowledge, the knower, and the knowable in **Madhyasth Darshan** (Co-existentialism), as presented by **Shri A. Nagraj**, and compares its answers with **Advaita Vedanta** and **modern science and philosophy**.
 
-[The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) supplies the ontological setting: Omnipresence, saturated units, the four orders, constitutional completeness, and the active structure of *jeevan*. The present study asks the specifically epistemological questions the primary texts develop: what knowledge is, what makes *jeevan* the knower, how coexistence becomes the known, and why understanding must become evident in action, relationship, evaluation, and humane tradition. [Coexistence From First Principles](../Coexistence-From-First-Principles/Coexistence-From-First-Principles.pdf) is used as an interpretive audit of these connections, not as a primary source and not as a source of notation for this paper.
+[The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) supplies the ontological setting: Omnipresence, saturated units, the four orders, constitutional completeness, and the active structure of *jeevan*. The present study asks the specifically epistemological questions the primary texts develop: what knowledge is, what makes *jeevan* the knower, how coexistence becomes the known, and why understanding must become evident in action, relationship, evaluation, and humane tradition. [From Unit Activity to Human Orderliness](../A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf) is used as an interpretive audit of these connections, not as a primary source and not as a source of notation for this paper.
 
 ## Standpoint and scope
 
@@ -563,7 +563,7 @@ Madhyasth Darshan requires guidance from a realised human and treats successful 
 
 ### 7.6 Non-substitutable evidence across domains
 
-The darshan expects coherence across realisation, thought, relationship, work, result, and social participation (§1.6). Admirable conduct does not thereby prove every ontological assertion by scientific standards: a person may behave well while holding a mistaken cosmology, and a successful production method may not verify the proposed constitution of *jeevan*. Conduct-evidence is strongest for claims about resolution, relationship, and humane participation, while claims about physical process, neural causation, or post-death continuity require domain-appropriate public tests (§§7.2–7.4). The darshan does not yet state a public rule for cases in which the domains diverge: sound conduct with disputed metaphysics, contemplative certitude with failed prediction, or successful production with unjust relationships. The recovery audit in [Coexistence From First Principles](../Coexistence-From-First-Principles/Coexistence-From-First-Principles.pdf) suggests the right discipline — success in one domain must not silently substitute for failure in another — but the criteria for adjudicating such mixed cases remain to be developed in ordinary prose and practice.
+The darshan expects coherence across realisation, thought, relationship, work, result, and social participation (§1.6). Admirable conduct does not thereby prove every ontological assertion by scientific standards: a person may behave well while holding a mistaken cosmology, and a successful production method may not verify the proposed constitution of *jeevan*. Conduct-evidence is strongest for claims about resolution, relationship, and humane participation, while claims about physical process, neural causation, or post-death continuity require domain-appropriate public tests (§§7.2–7.4). The darshan does not yet state a public rule for cases in which the domains diverge: sound conduct with disputed metaphysics, contemplative certitude with failed prediction, or successful production with unjust relationships. The recovery audit in [From Unit Activity to Human Orderliness](../A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf) Appendix D suggests the right discipline — success in one domain must not silently substitute for failure in another — but the criteria for adjudicating such mixed cases remain to be developed in ordinary prose and practice.
 
 ### 7.7 From regulation to *jeevan* values
 
@@ -709,7 +709,7 @@ Section 1 states the darshan's own positions in continuous prose, with page-leve
 ### Related studies in this collection
 
 - [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — Omnipresence and saturation (§§1.1–1.2), *jeevan* faculties and projection–reflection (§1.7), realisation and the knowledge–knower–known relation (§1.13), Sat-Chit-Ananda contrast (§5.6), and open evidence problems (§6.2).
-- [Coexistence From First Principles](../Coexistence-From-First-Principles/Coexistence-From-First-Principles.pdf) — interpretive reconstruction of the knowledge-order cycle, karma and conduct-evidence, and non-substitutable human goals (§§4.13–4.15); used conceptually here without its notation.
+- [From Unit Activity to Human Orderliness](../A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf) — process reconstruction of knowing, karma, and conduct-evidence, and the notion-level recovery audit (Appendix D); used conceptually here without its notation.
 - [Human Behavior and Society](../Human-Behavior-And-Society/Human-Behavior-And-Society.pdf) — manifest, effable knowledge versus mystery-based ineffability (§3).
 - *Spiritual-Practice-And-Realization* (Ongoing) — *dhyan*, yoga, six flaws, and the detailed practice path related to §1.6.
 
