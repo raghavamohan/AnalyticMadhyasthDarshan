@@ -1,40 +1,192 @@
 {
   "site": "analyticmadhyasthdarshan.org",
-  "captured_from": "Cloudflare Web Analytics export",
+  "captured_from": "Cloudflare GraphQL rumWebVitalsEventsAdaptiveGroups",
+  "captured_at": "2026-08-30T00:50:11Z",
+  "account_id": "04965e67bdd14748e755e19f40dbacbf",
   "period": {
-    "start": "2026-06-24T05:20:00+05:30",
-    "end": "2026-06-25T05:20:00+05:30"
+    "start": "2026-08-23T00:50:11Z",
+    "end": "2026-08-30T00:50:11Z"
   },
   "filters": {
-    "exclude_bots": true
+    "exclude_bots": true,
+    "note": "RUM beacons only. GraphQL groups have no extra bot-filter dimension."
+  },
+  "sample": {
+    "pageviews": 45,
+    "catalog_pageviews": 34,
+    "note": "n is small; do not treat this week as a confirmed regression against the June dashboard export."
   },
   "core_web_vitals": {
     "lcp": {
-      "good_pct": 98,
-      "needs_improvement_pct": 0,
-      "poor_pct": 2,
-      "p50_ms": 132,
-      "p75_ms": 304,
-      "p90_ms": 496,
-      "p99_ms": 5116
+      "good_pct": null,
+      "needs_improvement_pct": null,
+      "poor_pct": null,
+      "p50_ms": 1007.0,
+      "p75_ms": 2304.0,
+      "p90_ms": 3000.0,
+      "p99_ms": 8304.0
     },
     "inp": {
-      "good_pct": 100,
-      "needs_improvement_pct": 0,
-      "poor_pct": 0
+      "good_pct": null,
+      "needs_improvement_pct": null,
+      "poor_pct": null,
+      "p75_ms": 0.0
     },
     "cls": {
-      "good_pct": 100,
-      "needs_improvement_pct": 0,
-      "poor_pct": 0
+      "good_pct": 76.0,
+      "needs_improvement_pct": 0.0,
+      "poor_pct": 24.0,
+      "p75": 1.0
+    },
+    "ttfb": {
+      "p75_ms": 1296.0
     }
   },
+  "catalog": {
+    "request_path": "/Studies/index.html",
+    "lcp_p75_ms": 2600.0,
+    "inp_p75_ms": 0.0,
+    "cls_p75": 1.0,
+    "ttfb_p75_ms": 1296.0
+  },
+  "by_path": [
+    {
+      "request_path": "/Studies/index.html",
+      "pageviews": 34,
+      "lcp_p75_ms": 2600.0,
+      "inp_p75_ms": 0.0,
+      "cls_p75": 1.0,
+      "ttfb_p75_ms": 1296.0
+    },
+    {
+      "request_path": "/Studies/Coexistence-From-First-Principles/Coexistence-From-First-Principles.html",
+      "pageviews": 2,
+      "lcp_p75_ms": 1044.0,
+      "inp_p75_ms": null,
+      "cls_p75": 0.0,
+      "ttfb_p75_ms": 889.6
+    },
+    {
+      "request_path": "/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html",
+      "pageviews": 1,
+      "lcp_p75_ms": 3000.0,
+      "inp_p75_ms": null,
+      "cls_p75": 0.0,
+      "ttfb_p75_ms": 1849.9
+    },
+    {
+      "request_path": "/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html",
+      "pageviews": 1,
+      "lcp_p75_ms": 4664.0,
+      "inp_p75_ms": null,
+      "cls_p75": 0.0,
+      "ttfb_p75_ms": 1522.8
+    },
+    {
+      "request_path": "/Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.html",
+      "pageviews": 1,
+      "lcp_p75_ms": 2216.0,
+      "inp_p75_ms": null,
+      "cls_p75": 0.0,
+      "ttfb_p75_ms": 1661.1
+    },
+    {
+      "request_path": "/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html",
+      "pageviews": 1,
+      "lcp_p75_ms": 556.0,
+      "inp_p75_ms": null,
+      "cls_p75": 0.001,
+      "ttfb_p75_ms": 512.8
+    },
+    {
+      "request_path": "/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Functional-Model.html",
+      "pageviews": 1,
+      "lcp_p75_ms": 448.0,
+      "inp_p75_ms": null,
+      "cls_p75": 1.0,
+      "ttfb_p75_ms": 354.0
+    },
+    {
+      "request_path": "/Studies/How-To-Form-Self-Sustaining-Organizations/discussion.html",
+      "pageviews": 1,
+      "lcp_p75_ms": 1068.0,
+      "inp_p75_ms": null,
+      "cls_p75": 0.0,
+      "ttfb_p75_ms": 675.0
+    },
+    {
+      "request_path": "/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html",
+      "pageviews": 1,
+      "lcp_p75_ms": 1168.0,
+      "inp_p75_ms": null,
+      "cls_p75": null,
+      "ttfb_p75_ms": 344.0
+    },
+    {
+      "request_path": "/Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.html",
+      "pageviews": 1,
+      "lcp_p75_ms": 904.0,
+      "inp_p75_ms": null,
+      "cls_p75": 0.0,
+      "ttfb_p75_ms": 724.8
+    },
+    {
+      "request_path": "/References/Comparative-Philosophy/Poorvam-Sadharanikarana-Rasa.html",
+      "pageviews": 1,
+      "lcp_p75_ms": 869.0,
+      "inp_p75_ms": 24.0,
+      "cls_p75": null,
+      "ttfb_p75_ms": 437.0
+    }
+  ],
+  "rating_method": "LCP/INP good/needs/poor % are not in GraphQL (no per-event LCP and no rating dimension). CLS % is computed from rumWebVitalsEventsAdaptive samples using thresholds 0.1 / 0.25. The June dashboard LCP/INP/CLS percentages remain under previous. Sample is small; treat percentages as directional.",
   "verification": {
     "recheck_after_days": 7,
     "targets": {
       "lcp_p99_ms_max": 2500,
-      "lcp_poor_pct_max": 0
+      "lcp_poor_pct_max": 0,
+      "cls_p75_max": 0.1
     },
-    "notes": "Re-export Cloudflare Web Analytics with the same filters and compare LCP P75/P90/P99 and poor %."
+    "notes": "Re-run python Scripts/_cloudflare_performance.py --export-rum-baseline after the landing-page changes have been cached at the edge for a week. Compare LCP P75/P90/P99, CLS p75, and rating percentages when event samples exist."
+  },
+  "previous": {
+    "site": "analyticmadhyasthdarshan.org",
+    "captured_from": "Cloudflare Web Analytics export",
+    "period": {
+      "start": "2026-06-24T05:20:00+05:30",
+      "end": "2026-06-25T05:20:00+05:30"
+    },
+    "filters": {
+      "exclude_bots": true
+    },
+    "core_web_vitals": {
+      "lcp": {
+        "good_pct": 98,
+        "needs_improvement_pct": 0,
+        "poor_pct": 2,
+        "p50_ms": 132,
+        "p75_ms": 304,
+        "p90_ms": 496,
+        "p99_ms": 5116
+      },
+      "inp": {
+        "good_pct": 100,
+        "needs_improvement_pct": 0,
+        "poor_pct": 0
+      },
+      "cls": {
+        "good_pct": 100,
+        "needs_improvement_pct": 0,
+        "poor_pct": 0
+      }
+    },
+    "verification": {
+      "recheck_after_days": 7,
+      "targets": {
+        "lcp_p99_ms_max": 2500,
+        "lcp_poor_pct_max": 0
+      },
+      "notes": "Re-export Cloudflare Web Analytics with the same filters and compare LCP P75/P90/P99 and poor %."
+    }
   }
 }

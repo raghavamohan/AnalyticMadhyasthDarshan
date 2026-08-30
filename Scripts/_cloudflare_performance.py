@@ -11,9 +11,11 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import stat
 import sys
 import urllib.error
 import urllib.request
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Mapping
 
@@ -304,6 +306,10 @@ def cloudflare_api_token() -> str | None:
 
 def cloudflare_zone_id() -> str | None:
     return os.environ.get("CLOUDFLARE_ZONE_ID")
+
+
+def cloudflare_account_id() -> str | None:
+    return os.environ.get("CLOUDFLARE_ACCOUNT_ID")
 
 
 def _api_request(
@@ -1945,10 +1951,10 @@ def cache_rules_spec() -> list[dict]:
         ),
         _cache_rule_body(
             CACHE_RULE_REFS[3],
-            "Short cache for studies catalog shell",
+            "Cache studies catalog shell",
             f'({host} and http.request.uri.path eq "/Studies/index.html")',
-            edge_ttl_seconds=5 * 60,
-            browser_ttl_seconds=2 * 60,
+            edge_ttl_seconds=2 * SECONDS_PER_HOUR,
+            browser_ttl_seconds=10 * 60,
         ),
         _cache_rule_body(
             CACHE_RULE_REFS[4],
@@ -2307,6 +2313,294 @@ def print_verify_root_redirect() -> bool:
     return ok
 
 
+def _graphql(token: str, query: str, variables: dict | None = None) -> dict:
+    """POST to Cloudflare GraphQL. Unlike REST, the body has data/errors, not success."""
+    payload = {"query": query, "variables": variables or {}}
+    req = urllib.request.Request(
+        f"{API_BASE}/graphql",
+        data=json.dumps(payload).encode("utf-8"),
+        method="POST",
+        headers={
+            "Authorization": f"Bearer {token}",
+            "Content-Type": "application/json",
+        },
+    )
+    with urllib.request.urlopen(req, timeout=60) as resp:
+        body = json.loads(resp.read().decode("utf-8"))
+    errors = body.get("errors")
+    if errors:
+        raise RuntimeError(json.dumps(errors, indent=2))
+    return body.get("data") or {}
+
+
+def resolve_account_id(token: str, zone_id: str | None) -> str:
+    account = cloudflare_account_id()
+    if account:
+        return account
+    zone = resolve_zone_id(token, zone_id)
+    body = _api_request("GET", f"/zones/{zone}", token)
+    account_id = ((body or {}).get("result") or {}).get("account", {}).get("id")
+    if not account_id:
+        raise RuntimeError("Could not resolve Cloudflare account ID from the zone.")
+    return account_id
+
+
+def _us_to_ms(value) -> float | None:
+    if value is None:
+        return None
+    numeric = float(value)
+    if numeric < 0:
+        return None
+    return round(numeric / 1000.0, 1)
+
+
+def _cls_value(value) -> float | None:
+    if value is None:
+        return None
+    numeric = float(value)
+    if numeric < 0:
+        return None
+    return round(numeric, 4)
+
+
+def _rating_counts(values: list[float], good: float, needs: float) -> dict:
+    total = len(values)
+    if not total:
+        return {
+            "good_pct": None,
+            "needs_improvement_pct": None,
+            "poor_pct": None,
+            "n": 0,
+        }
+    good_n = sum(1 for v in values if v <= good)
+    needs_n = sum(1 for v in values if good < v <= needs)
+    poor_n = total - good_n - needs_n
+    return {
+        "good_pct": round(100 * good_n / total, 1),
+        "needs_improvement_pct": round(100 * needs_n / total, 1),
+        "poor_pct": round(100 * poor_n / total, 1),
+        "n": total,
+    }
+
+
+def _quantiles_to_vitals(quantiles: dict | None) -> dict:
+    q = quantiles or {}
+    return {
+        "lcp_p75_ms": _us_to_ms(q.get("largestContentfulPaintP75")),
+        "inp_p75_ms": _us_to_ms(q.get("interactionToNextPaintP75")),
+        "cls_p75": _cls_value(q.get("cumulativeLayoutShiftP75")),
+        "ttfb_p75_ms": _us_to_ms(q.get("timeToFirstByteP75")),
+    }
+
+
+def export_rum_baseline(token: str, zone_id: str | None) -> Path:
+    """Re-export Web Analytics Core Web Vitals into infra/cloudflare-rum-baseline.json."""
+    account_id = resolve_account_id(token, zone_id)
+    end = datetime.now(timezone.utc).replace(microsecond=0)
+    start = end - timedelta(days=7)
+    start_iso = start.strftime("%Y-%m-%dT%H:%M:%SZ")
+    end_iso = end.strftime("%Y-%m-%dT%H:%M:%SZ")
+    variables = {
+        "accountTag": account_id,
+        "start": start_iso,
+        "end": end_iso,
+    }
+
+    groups_query = """
+query ($accountTag: string, $start: Time, $end: Time) {
+  viewer {
+    accounts(filter: {accountTag: $accountTag}) {
+      overall: rumWebVitalsEventsAdaptiveGroups(
+        filter: {datetime_geq: $start, datetime_leq: $end}
+        limit: 1
+      ) {
+        count
+        quantiles {
+          largestContentfulPaintP50
+          largestContentfulPaintP75
+          largestContentfulPaintP90
+          largestContentfulPaintP99
+          interactionToNextPaintP75
+          cumulativeLayoutShiftP75
+          timeToFirstByteP75
+        }
+      }
+      byPath: rumWebVitalsEventsAdaptiveGroups(
+        filter: {datetime_geq: $start, datetime_leq: $end}
+        limit: 20
+        orderBy: [count_DESC]
+      ) {
+        count
+        dimensions { requestPath }
+        quantiles {
+          largestContentfulPaintP75
+          interactionToNextPaintP75
+          cumulativeLayoutShiftP75
+          timeToFirstByteP75
+        }
+      }
+    }
+  }
+}
+"""
+    data = _graphql(token, groups_query, variables)
+    accounts = ((data.get("viewer") or {}).get("accounts") or [])
+    if not accounts:
+        raise RuntimeError("GraphQL returned no accounts for RUM export.")
+    account = accounts[0]
+    overall_rows = account.get("overall") or []
+    overall = overall_rows[0] if overall_rows else {}
+    overall_q = _quantiles_to_vitals(overall.get("quantiles"))
+    sample_n = int(overall.get("count") or 0)
+
+    by_path = []
+    catalog_n = 0
+    catalog_vitals = {}
+    for row in account.get("byPath") or []:
+        path = ((row.get("dimensions") or {}).get("requestPath")) or ""
+        vitals = _quantiles_to_vitals(row.get("quantiles"))
+        count = int(row.get("count") or 0)
+        entry = {"request_path": path, "pageviews": count, **vitals}
+        by_path.append(entry)
+        if path in ("/Studies/index.html", "/Studies/", "/Studies"):
+            catalog_n += count
+            if path == "/Studies/index.html":
+                catalog_vitals = vitals
+
+    ratings: dict[str, dict] = {}
+    rating_note = (
+        "Cloudflare GraphQL has no LCP/INP per-event fields and no lcpRating "
+        "dimension, so LCP/INP good/needs/poor % cannot be recomputed from the "
+        "API. The June dashboard export remains under previous."
+    )
+    events_query = """
+query ($accountTag: string, $start: Time, $end: Time) {
+  viewer {
+    accounts(filter: {accountTag: $accountTag}) {
+      rumWebVitalsEventsAdaptive(
+        filter: {datetime_geq: $start, datetime_leq: $end}
+        limit: 5000
+      ) {
+        cumulativeLayoutShift
+        requestPath
+      }
+    }
+  }
+}
+"""
+    try:
+        events_data = _graphql(token, events_query, variables)
+        events_accounts = ((events_data.get("viewer") or {}).get("accounts") or [])
+        events = (
+            (events_accounts[0].get("rumWebVitalsEventsAdaptive") or [])
+            if events_accounts
+            else []
+        )
+        cls_vals = [
+            v
+            for v in (_cls_value(e.get("cumulativeLayoutShift")) for e in events)
+            if v is not None
+        ]
+        if cls_vals:
+            ratings["cls"] = _rating_counts(cls_vals, 0.1, 0.25)
+            rating_note = (
+                "LCP/INP good/needs/poor % are not in GraphQL (no per-event LCP "
+                "and no rating dimension). CLS % is computed from "
+                "rumWebVitalsEventsAdaptive samples using thresholds 0.1 / 0.25. "
+                "The June dashboard LCP/INP/CLS percentages remain under previous. "
+                "Sample is small; treat percentages as directional."
+            )
+    except (RuntimeError, urllib.error.URLError) as exc:
+        rating_note = (
+            "GraphQL has no LCP/INP rating buckets. Event CLS query failed "
+            f"({exc}). June dashboard good/needs/poor % remain under previous."
+        )
+
+    existing: dict = {}
+    if BASELINE_PATH.is_file():
+        existing = json.loads(BASELINE_PATH.read_text(encoding="utf-8"))
+    previous = existing.get("previous")
+    if previous is None and existing.get("period", {}).get("start", "").startswith("2026-06-24"):
+        previous = {k: v for k, v in existing.items() if k != "previous"}
+    elif previous is None and existing.get("core_web_vitals"):
+        previous = {k: v for k, v in existing.items() if k != "previous"}
+
+    lcp_block = {
+        "good_pct": (ratings.get("lcp") or {}).get("good_pct"),
+        "needs_improvement_pct": (ratings.get("lcp") or {}).get("needs_improvement_pct"),
+        "poor_pct": (ratings.get("lcp") or {}).get("poor_pct"),
+        "p50_ms": _us_to_ms((overall.get("quantiles") or {}).get("largestContentfulPaintP50")),
+        "p75_ms": overall_q["lcp_p75_ms"],
+        "p90_ms": _us_to_ms((overall.get("quantiles") or {}).get("largestContentfulPaintP90")),
+        "p99_ms": _us_to_ms((overall.get("quantiles") or {}).get("largestContentfulPaintP99")),
+    }
+    payload = {
+        "site": SITE_HOST,
+        "captured_from": "Cloudflare GraphQL rumWebVitalsEventsAdaptiveGroups",
+        "captured_at": end_iso,
+        "account_id": account_id,
+        "period": {"start": start_iso, "end": end_iso},
+        "filters": {
+            "exclude_bots": True,
+            "note": "RUM beacons only. GraphQL groups have no extra bot-filter dimension.",
+        },
+        "sample": {
+            "pageviews": sample_n,
+            "catalog_pageviews": catalog_n,
+            "note": (
+                "n is small; do not treat this week as a confirmed regression "
+                "against the June dashboard export."
+            ),
+        },
+        "core_web_vitals": {
+            "lcp": lcp_block,
+            "inp": {
+                "good_pct": (ratings.get("inp") or {}).get("good_pct"),
+                "needs_improvement_pct": (ratings.get("inp") or {}).get("needs_improvement_pct"),
+                "poor_pct": (ratings.get("inp") or {}).get("poor_pct"),
+                "p75_ms": overall_q["inp_p75_ms"],
+            },
+            "cls": {
+                "good_pct": (ratings.get("cls") or {}).get("good_pct"),
+                "needs_improvement_pct": (ratings.get("cls") or {}).get("needs_improvement_pct"),
+                "poor_pct": (ratings.get("cls") or {}).get("poor_pct"),
+                "p75": overall_q["cls_p75"],
+            },
+            "ttfb": {"p75_ms": overall_q["ttfb_p75_ms"]},
+        },
+        "catalog": {
+            "request_path": "/Studies/index.html",
+            **catalog_vitals,
+        },
+        "by_path": by_path,
+        "rating_method": rating_note,
+        "verification": {
+            "recheck_after_days": 7,
+            "targets": {
+                "lcp_p99_ms_max": 2500,
+                "lcp_poor_pct_max": 0,
+                "cls_p75_max": 0.1,
+            },
+            "notes": (
+                "Re-run python Scripts/_cloudflare_performance.py "
+                "--export-rum-baseline after the landing-page changes have been "
+                "cached at the edge for a week. Compare LCP P75/P90/P99, CLS p75, "
+                "and rating percentages when event samples exist."
+            ),
+        },
+    }
+    if previous:
+        payload["previous"] = previous
+
+    if BASELINE_PATH.exists():
+        BASELINE_PATH.chmod(stat.S_IWRITE | stat.S_IREAD)
+    with BASELINE_PATH.open("w", encoding="utf-8", newline="\n") as fh:
+        json.dump(payload, fh, indent=2, ensure_ascii=False)
+        fh.write("\n")
+    print(f"Wrote RUM baseline to {BASELINE_PATH.relative_to(BASE)} ({sample_n} pageviews).")
+    return BASELINE_PATH
+
+
 def print_dashboard_steps() -> None:
     print(
         f"""
@@ -2317,9 +2611,11 @@ Cloudflare dashboard steps for {SITE_HOST} (GitHub Pages origin, orange-cloud pr
 2. Rules -> Redirect Rules (or run: python Scripts/_cloudflare_performance.py --apply-redirect)
    Root 301 to https://{SITE_HOST}/Studies/index.html (API uses ref {ROOT_REDIRECT_REF})
 
-3. Caching -> Cache Rules (or run: python Scripts/_cloudflare_performance.py --apply-cache-rules)
-   Order matters; more specific rules first — PDFs, images, catalog JSON, HTML.
-   The script applies the same TTLs documented here via API when a token is set.
+   3. Caching -> Cache Rules (or run: python Scripts/_cloudflare_performance.py --apply-cache-rules)
+   Order matters; more specific rules first — PDFs, images, catalog JSON,
+   catalog shell, then other HTML. The catalog shell
+   (/Studies/index.html) uses a 2-hour edge TTL and a 10-minute browser TTL
+   (same as other HTML); purge the catalog URL on deploy.
 
 4. Speed -> Optimization - Brotli and HTTP/3 (run: python Scripts/_cloudflare_performance.py --apply-api).
    Auto Minify was deprecated by Cloudflare in 2024 and is not applied via API.
@@ -2338,8 +2634,9 @@ Cloudflare dashboard steps for {SITE_HOST} (GitHub Pages origin, orange-cloud pr
    python Scripts/_cloudflare_performance.py --check-edge-security
    Optional remaining steps (HSTS preload list, human smoke tests): infra/worker/README.md
 
-8. Re-check RUM after 7 days against infra/cloudflare-rum-baseline.json
-   Targets: LCP P99 < 2500 ms, LCP poor % near 0.
+8. Re-check RUM after 7 days:
+   python Scripts/_cloudflare_performance.py --export-rum-baseline
+   Targets: LCP P99 < 2500 ms, LCP poor % near 0, CLS p75 <= 0.1.
 """
     )
 
@@ -2350,11 +2647,30 @@ def print_baseline_summary() -> None:
         return
     data = json.loads(BASELINE_PATH.read_text(encoding="utf-8"))
     lcp = data.get("core_web_vitals", {}).get("lcp", {})
-    print("RUM baseline (pre-optimization):")
-    print(
-        f"  LCP good {lcp.get('good_pct')}% | poor {lcp.get('poor_pct')}% | "
-        f"P50 {lcp.get('p50_ms')}ms P99 {lcp.get('p99_ms')}ms"
-    )
+    sample = data.get("sample") or {}
+    print("RUM baseline:")
+    source = data.get("captured_from")
+    if source:
+        print(f"  source: {source}")
+    pageviews = sample.get("pageviews")
+    if pageviews is not None:
+        print(f"  sample: {pageviews} pageviews")
+    parts = []
+    if lcp.get("good_pct") is not None:
+        parts.append(f"good {lcp.get('good_pct')}%")
+    if lcp.get("poor_pct") is not None:
+        parts.append(f"poor {lcp.get('poor_pct')}%")
+    if lcp.get("p75_ms") is not None:
+        parts.append(f"P75 {lcp.get('p75_ms')}ms")
+    if lcp.get("p50_ms") is not None:
+        parts.append(f"P50 {lcp.get('p50_ms')}ms")
+    if lcp.get("p99_ms") is not None:
+        parts.append(f"P99 {lcp.get('p99_ms')}ms")
+    if parts:
+        print("  LCP " + " | ".join(parts))
+    cls = data.get("core_web_vitals", {}).get("cls", {})
+    if cls.get("p75") is not None:
+        print(f"  CLS p75 {cls.get('p75')}")
 
 
 def main() -> int:
@@ -2375,6 +2691,11 @@ def main() -> int:
         "--check-cache-rules",
         action="store_true",
         help="Verify Cache Rules match the repository spec.",
+    )
+    parser.add_argument(
+        "--export-rum-baseline",
+        action="store_true",
+        help="Re-export Web Analytics Core Web Vitals into infra/cloudflare-rum-baseline.json.",
     )
     parser.add_argument(
         "--apply-discussions-api",
@@ -2507,6 +2828,22 @@ def main() -> int:
             return 1
         ok = print_check_cache_rules(token, zone_id)
         return 0 if ok else 1
+
+    if args.export_rum_baseline:
+        if not token:
+            print(
+                "CLOUDFLARE_API_TOKEN is required for --export-rum-baseline "
+                "(set in .env or the process environment).",
+                file=sys.stderr,
+            )
+            return 1
+        try:
+            export_rum_baseline(token, zone_id)
+        except (urllib.error.URLError, RuntimeError, json.JSONDecodeError) as exc:
+            print(f"API error: {exc}", file=sys.stderr)
+            return 1
+        print_baseline_summary()
+        return 0
 
     if args.check_edge_security:
         if not token:
