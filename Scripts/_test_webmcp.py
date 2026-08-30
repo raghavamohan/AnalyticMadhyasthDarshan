@@ -25,7 +25,7 @@ INDEX_HTML = BASE / "index.html"
 API_DOCS = BASE / "api-docs.html"
 STUDIES_INDEX = BASE / "Studies" / "index.html"
 INDEX_TEMPLATE = BASE / "Scripts" / "_build_studies_index.py"
-SCRIPT_SRC = '<script src="/webmcp.js"></script>'
+SCRIPT_SRC = '<script src="/webmcp.js" defer></script>'
 REQUIRED_TOOLS = (
     "search_studies",
     "list_studies",
