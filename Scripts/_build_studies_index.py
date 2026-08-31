@@ -1343,7 +1343,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
 <header class="hero">
   <h1>Studies of Madhyasth Darshan</h1>
-  <p class="lead">An open and growing collection of comparative studies of <strong>Madhyasth Darshan</strong> (Co-existentialism), the philosophy founded by <strong>Shri A. Nagraj</strong>. The collection follows a personal path of inquiry while inviting others to examine its arguments, question its interpretations, and contribute to its development.</p>
+  <p class="lead">An open and growing collection of comparative studies of <strong>Madhyasth Darshan</strong> (Co-existentialism), the philosophy founded by <strong>Shri A. Nagraj</strong>. The collection follows a single line of inquiry while inviting others to examine its arguments, question its interpretations, and contribute to its development.</p>
 
   <div class="dialogue-row">
     <p class="dialogue-label" id="dialogue-label">Each study is read in dialogue with</p>
@@ -1388,8 +1388,8 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
   <div class="start-here" id="start-here">
     <p class="start-here-kicker">A guided path through the collection</p>
-    <h2>Start here: the study path I am following</h2>
-    <p class="start-here-intro">I start by asking whether a human is just matter, rather than assuming that the body already answers it. The questions that remain are what require an understanding of existence, then of how knowledge enters the picture, then of how values come about, and only then how we should live and how social structures should be designed. Each stage below is the question the one before it could not close &mdash; which is why the order is what it is. Follow the same sequence, question it, or contribute where the work is incomplete.</p>
+    <h2>Start here: the study path we are following</h2>
+    <p class="start-here-intro">We start by asking whether a human is just matter, rather than assuming that the body already answers it. The questions that remain require an understanding of existence, then of how knowledge enters the picture, then of how values come about, and only then of how a human should live and how social structures should be designed. Each stage below is the question the one before it could not close, which is why they run in this order. Follow the same sequence, question it, or contribute where the work is incomplete.</p>
 
     <div class="study-path">
       <div class="path-rail" role="radiogroup" aria-label="Five stages in the study path">
