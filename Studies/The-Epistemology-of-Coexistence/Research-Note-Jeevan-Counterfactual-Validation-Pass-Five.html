@@ -324,13 +324,17 @@
   .term-tip {
     background: none;
     border: none;
-    border-bottom: 1px dotted #1a5276;
+    border-bottom: 1px dotted #8a6d3b;
     padding: 0;
     margin: 0;
     font: inherit;
-    color: #1a5276;
+    color: inherit;
     cursor: help;
     text-align: inherit;
+  }
+  .term-tip:hover {
+    background: #f6f0e7;
+    border-radius: 2px;
   }
   .term-tip:focus-visible {
     outline: 2px solid #1a5276;
@@ -363,14 +367,14 @@
   .study-toolbar {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
     font-family: 'Segoe UI', system-ui, sans-serif;
     font-size: 13px;
     position: sticky;
     top: 0;
     z-index: 20;
-    margin: 0 0 22px;
-    padding: 10px 14px;
+    margin: 0 0 18px;
+    padding: 6px 10px;
     border: 1px solid #d8d2c8;
     border-radius: 8px;
     background: rgba(247, 244, 239, 0.92);
@@ -380,20 +384,21 @@
   .study-toolbar-row {
     display: grid;
     align-items: center;
-    gap: 8px 14px;
+    gap: 10px;
   }
   .study-toolbar-row--primary {
-    grid-template-columns: minmax(0, 1fr) minmax(0, auto) minmax(0, 1fr);
+    grid-template-columns: auto minmax(0, 1fr);
   }
   .study-toolbar-actions {
-    grid-column: 3;
+    grid-column: 2;
     justify-self: end;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     justify-content: flex-end;
-    gap: 8px 12px;
+    gap: 6px;
     min-width: 0;
+    white-space: nowrap;
     text-align: right;
   }
   .study-toolbar-feedback {
@@ -412,21 +417,6 @@
   .study-toolbar-download {
     min-width: 0;
     text-align: right;
-  }
-  .study-toolbar-title {
-    grid-column: 2;
-    justify-self: center;
-    text-align: center;
-    margin: 0;
-    min-width: 0;
-    font-size: 14px;
-    font-weight: 700;
-    color: #2c241c;
-    line-height: 1.35;
-  }
-  .study-toolbar-draft {
-    font-weight: 600;
-    color: #5c5348;
   }
   .study-toolbar-link {
     color: #1a5276;
@@ -468,7 +458,7 @@
     background: #fdfcfa;
     border: 1px solid #d9d2c7;
     border-radius: 999px;
-    padding: 3px 11px;
+    padding: 2px 8px;
     cursor: pointer;
     white-space: nowrap;
   }
@@ -540,6 +530,23 @@
   .study-toc-l1 > a { font-weight: 700; color: #2c241c; }
   .study-toc-l2 > a { padding-left: 15px; }
   .study-toc-l3 > a { padding-left: 30px; font-size: 12.5px; color: #4d6f86; }
+  .study-toc--with-key { margin-bottom: 0.55em; }
+  .study-reading-key {
+    margin: 0 0 2.2em;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    line-height: 1.45;
+    color: #6b6357;
+  }
+  .study-reading-key > span[aria-hidden="true"] { padding: 0 5px; }
+  .study-reading-key-term {
+    color: #2c241c;
+    border-bottom: 1px dotted #8a6d3b;
+  }
+  .study-reading-key-link {
+    color: #1a5276;
+    text-decoration: underline;
+  }
   @media (prefers-reduced-motion: reduce) {
     .study-toc-summary::before { transition: none; }
   }
@@ -556,11 +563,15 @@
       margin: 32px auto 88px;
       padding: 0 22px;
     }
-    /* Roughly 68 characters. The container stays wide enough for tables and
-       figures while running text keeps a measure the eye can track back. */
-    p, ul, ol, blockquote, .quote-source, dl {
-      max-width: 37rem;
+    /* Add a subtle one point of breathing room above and below quotations on
+       screen without changing the print/PDF layout. */
+    blockquote {
+      margin-top: 11pt;
+      margin-bottom: 11pt;
     }
+    /* Running text uses the full reading column. Tables and figures share the
+       same 46rem container, so paragraphs no longer collapse into a visibly
+       narrower strip inside the page. */
     p {
       margin: 0.72em 0;
       text-align: left;
@@ -583,34 +594,18 @@
   }
 
   @media (max-width: 640px) {
-    .study-toolbar-row--primary {
-      grid-template-columns: minmax(0, auto) minmax(0, 1fr);
-      row-gap: 6px;
-    }
-    /* Back and title share the first line and the actions take the second, so
-       the reader reaches the heading in two rows rather than four. */
-    .study-toolbar-back { grid-column: 1; justify-self: start; }
-    .study-toolbar-title {
-      grid-column: 2;
-      justify-self: end;
-      text-align: right;
-      font-size: 13px;
-      white-space: normal;
-    }
     .study-toolbar-actions {
-      grid-column: 1 / -1;
-      justify-self: stretch;
-      justify-content: space-between;
-      gap: 8px;
+      gap: 5px;
     }
     .study-toolbar-feedback { font-size: 11px; }
-    .study-toolbar-section { white-space: normal; }
+    .study-toolbar-section { font-size: 11px; }
     .study-toc-nav { max-height: 52vh; }
   }
   @media print {
     .study-toolbar { display: none !important; }
     .study-theme-toggle { display: none !important; }
     .study-toc { display: none !important; }
+    .study-reading-key { display: none !important; }
     .skip-link { display: none !important; }
     .term-tip {
       border-bottom: none;
@@ -637,10 +632,9 @@
     html[data-theme="dark"] .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
     html[data-theme="dark"] .study-toolbar-link { color: #7ebbed; }
     html[data-theme="dark"] .study-toolbar-link:hover { color: #b8daf3; }
-    html[data-theme="dark"] .study-toolbar-title { color: #f5f1ec; }
-    html[data-theme="dark"] .study-toolbar-draft { color: #aca194; }
     html[data-theme="dark"] .study-toolbar-section.is-disabled { color: #6f655a; }
-    html[data-theme="dark"] .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    html[data-theme="dark"] .term-tip { color: inherit; border-bottom-color: #c9a66b; }
+    html[data-theme="dark"] .term-tip:hover { background: #2f2a24; }
     html[data-theme="dark"] .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
     html[data-theme="dark"] .study-toc { border-color: #423b33; }
     html[data-theme="dark"] .study-toc-summary:hover { background: #1e1b18; }
@@ -648,6 +642,9 @@
     html[data-theme="dark"] .study-toc-meta { color: #aca194; }
     html[data-theme="dark"] .study-toc-list a { color: #7ebbed; }
     html[data-theme="dark"] .study-toc-l1 > a { color: #f5f1ec; }
+    html[data-theme="dark"] .study-reading-key { color: #aca194; }
+    html[data-theme="dark"] .study-reading-key-term { color: #e6dfd6; border-bottom-color: #c9a66b; }
+    html[data-theme="dark"] .study-reading-key-link { color: #7ebbed; }
     html[data-theme="dark"] .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
     html[data-theme="dark"] .study-theme-toggle:hover { border-color: #7ebbed; }
   }
@@ -668,10 +665,9 @@
     html:not([data-theme="light"]) .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
     html:not([data-theme="light"]) .study-toolbar-link { color: #7ebbed; }
     html:not([data-theme="light"]) .study-toolbar-link:hover { color: #b8daf3; }
-    html:not([data-theme="light"]) .study-toolbar-title { color: #f5f1ec; }
-    html:not([data-theme="light"]) .study-toolbar-draft { color: #aca194; }
     html:not([data-theme="light"]) .study-toolbar-section.is-disabled { color: #6f655a; }
-    html:not([data-theme="light"]) .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    html:not([data-theme="light"]) .term-tip { color: inherit; border-bottom-color: #c9a66b; }
+    html:not([data-theme="light"]) .term-tip:hover { background: #2f2a24; }
     html:not([data-theme="light"]) .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
     html:not([data-theme="light"]) .study-toc { border-color: #423b33; }
     html:not([data-theme="light"]) .study-toc-summary:hover { background: #1e1b18; }
@@ -679,6 +675,9 @@
     html:not([data-theme="light"]) .study-toc-meta { color: #aca194; }
     html:not([data-theme="light"]) .study-toc-list a { color: #7ebbed; }
     html:not([data-theme="light"]) .study-toc-l1 > a { color: #f5f1ec; }
+    html:not([data-theme="light"]) .study-reading-key { color: #aca194; }
+    html:not([data-theme="light"]) .study-reading-key-term { color: #e6dfd6; border-bottom-color: #c9a66b; }
+    html:not([data-theme="light"]) .study-reading-key-link { color: #7ebbed; }
     html:not([data-theme="light"]) .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
     html:not([data-theme="light"]) .study-theme-toggle:hover { border-color: #7ebbed; }
   }
@@ -689,12 +688,11 @@
 <a class="skip-link" href="#main">Skip to content</a>
 <nav class="study-toolbar" aria-label="Study navigation">
   <div class="study-toolbar-row study-toolbar-row--primary">
-    <a class="study-toolbar-link study-toolbar-back" href="../index.html#study-Research-Note-Jeevan-Counterfactual-Validation-Pass-Five">&larr; All studies</a>
-    <p class="study-toolbar-title">Research Note: Pass-Five Counterfactual Validation of the *Jeevan* Social Model</p>
+    <a class="study-toolbar-link study-toolbar-back" href="../index.html#study-Research-Note-Jeevan-Counterfactual-Validation-Pass-Five" aria-label="Back to all studies">&larr; Studies</a>
     <span class="study-toolbar-actions">
       <a class="study-toolbar-link study-toolbar-discuss" href="discussion.html?dv=3">Discuss</a>
-      <a class="study-toolbar-link study-toolbar-download" href="Research-Note-Jeevan-Counterfactual-Validation-Pass-Five.pdf" download>Download PDF</a>
-      <a class="study-toolbar-link study-toolbar-feedback" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&title=Study%20feedback%3A%20Research%20Note%3A%20Pass-Five%20Counterfactual%20Validation%20of%20the%20%2AJeevan%2A%20Social%20Model">Suggest a correction</a>
+      <a class="study-toolbar-link study-toolbar-download" href="Research-Note-Jeevan-Counterfactual-Validation-Pass-Five.pdf" download aria-label="Download PDF">PDF</a>
+      <a class="study-toolbar-link study-toolbar-feedback" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&title=Study%20feedback%3A%20Research%20Note%3A%20Pass-Five%20Counterfactual%20Validation%20of%20the%20%2AJeevan%2A%20Social%20Model" aria-label="Suggest a correction">Suggest edit</a>
       <button type="button" class="study-theme-toggle" id="study-theme-toggle" aria-label="Switch color theme">
         <span class="study-theme-toggle-label">Dark</span>
       </button>
@@ -711,9 +709,9 @@
 <p><strong>Status:</strong> Internal research note (not a catalog entry). Pass Five of the activity-to-sphere analysis.</p>
 <p><strong>Scope:</strong> This note stress-tests the family-like field and the five durable functions derived in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Durable-Functions-Pass-Four.html">Pass Four</a>. It asks whether materially different arrangements can satisfy the same invariants, whether familiar arrangements can display false signs of fulfilment while failing them, and whether scarcity, disability, coercion, disagreement, migration, technological concentration, or ecological delay disclose a requirement outside the five-function basis. The cases are structured counterfactuals, not observations of actual communities. They test the coherence and discriminating power of the model; empirical validation remains a separate task.</p>
 <p>The validation narrows the social thesis without dissolving it. A durable shared-life field remains necessary, but biological kinship, co-residence, and one household form are neither sufficient nor uniquely necessary. The five functions remain a complete basis for classifying the continuity responsibilities exposed by the test cases, but exactly five organisations is not derived. Production and exchange may share an administration only when their purposes, records, affected-party rights, and correction paths remain distinguishable. Separate scientific, governing, ecological, or care organisations may be required as safeguards or specialised bearers without introducing a sixth human continuity object.</p>
-<p>Pass Five therefore supports a universal architecture of responsibilities and evidence, not a uniform institutional diagram. It also adds a stricter universality test: each person must have supported access to understanding, voice, bodily and material means, contribution, and correction. High aggregate performance by a competent minority does not satisfy the common capacity of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>.</p>
+<p>Pass Five therefore supports a universal architecture of responsibilities and evidence, not a uniform institutional diagram. It also adds a stricter universality test: each person must have supported access to understanding, voice, bodily and material means, contribution, and correction. High aggregate performance by a competent minority does not satisfy the common capacity of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>.</p>
 <p>Throughout this analysis, <strong>voice</strong> has a precise operational meaning: the effective, supported opportunity of a person, counterpart, or affected party to express understanding, needs, expectations, agreement, and disagreement; to participate in deliberation and decisions that affect them; to have what they express considered and answered with reasons; and to refuse, challenge, or appeal without retaliation. It means neither mere permission to speak nor equal authority in every decision. A validation case therefore counts voice only when participation can affect deliberation, receive a reasoned response, and reach protection or correction where direct reciprocity fails.</p>
-<details class="study-toc" id="study-contents">
+<details class="study-toc study-toc--with-key" id="study-contents">
   <summary class="study-toc-summary">
     <span class="study-toc-label">Contents</span>
     <span class="study-toc-meta">10 sections &middot; 24 headings</span>
@@ -747,10 +745,15 @@
     </ol>
   </nav>
 </details>
+<p class="study-reading-key" aria-label="Reading key">
+  <span class="study-reading-key-term">Dotted underline</span>: definition
+  <span aria-hidden="true">&middot;</span>
+  <span class="study-reading-key-link">Blue underline</span>: link
+</p>
 <h2 id="1-what-pass-five-can-validate">1. What Pass Five can validate</h2>
-<p>Pass Four started from the anonymous activity matrix and recovered five objects that must remain continuous in embodied social life: understood orientation, claims between persons, bodily capability, transformed material means, and access to provision across persons and time. Those objects were restored as education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em>, justice-security, health-restraint, production-work, and exchange-reserve. The selected bundle covered all 185 channel memberships of the 122 activity records at the chosen grain.</p>
+<p>Pass Four started from the anonymous activity matrix and recovered five objects that must remain continuous in embodied social life: understood orientation, claims between persons, bodily capability, transformed material means, and access to provision across persons and time. Those objects were restored as education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Sanskar — accepted qualitative establishments; in education–sanskar, the establishment and transmission of understanding through human tradition.">sanskar</button></span></em>, justice-security, health-restraint, production-work, and exchange-reserve. The selected bundle covered all 185 channel memberships of the 122 activity records at the chosen grain.</p>
 <p>That result left three distinct claims open. The first concerned <strong>equivalence</strong>: a materially different family or organisational form might preserve the same activity lifecycle. The second concerned <strong>robustness</strong>: scarcity, concentrated power, delay, or dependency might reveal a condition not captured by the five functions and their cross-cutting safeguards. The third concerned <strong>evidence</strong>: a system might look orderly, prosperous, consensual, or productive while obstructing the activity criterion it purports to maintain.</p>
-<p>Pass Five tests those claims analytically. It does not show that any actual arrangement fulfils the invariants, determine causal effects, or independently confirm the ontology of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>. A counterfactual case can show that a stronger institutional claim is unnecessary, that a proposed arrangement is internally unsafe, or that the model needs another condition. Observation is still required to determine whether people can exercise the relevant capacities in practice.</p>
+<p>Pass Five tests those claims analytically. It does not show that any actual arrangement fulfils the invariants, determine causal effects, or independently confirm the ontology of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>. A counterfactual case can show that a stronger institutional claim is unnecessary, that a proposed arrangement is internally unsafe, or that the model needs another condition. Observation is still required to determine whether people can exercise the relevant capacities in practice.</p>
 <h3 id="11-the-validation-rule" data-depth="2">1.1 The validation rule</h3>
 <p>Each case records the arrangement or adverse condition, functions placed under stress, safeguards required, invariant under test, available and missing conditions, false-positive risk, observable evidence, analytical result, and revision route. The rule is:</p>
 <pre><code class="language-text">materially different form + all relevant invariants + effective correction
@@ -918,7 +921,7 @@ adverse case + non-substitutable continuity object outside U01-U05
 </ol>
 <p>FAM-01 shows that these conditions can be specified without kinship. FAM-03 shows that they can persist without continuous co-residence when commitments, records, care, provision, voice, and appeal remain portable. These are counterexamples to the stronger proposition that one genealogical or residential form is necessary. They are not counterexamples to the durable shared-life invariant.</p>
 <p>FAM-02 applies the reverse test. A biologically related household may provide food, shelter, work, and visible unity while obstructing learning, voice, care, and appeal. The family label is therefore not evidence of fulfilment. The model recognises as family-like whatever arrangement reliably carries the shared-life invariant and rejects as inadequate any named family that does not.</p>
-<p>This is a genuine refinement of the original thesis. Knowledge of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> and its embodied lifecycle can support the need for a durable, intimate, intergenerational, productive, caring, and evaluative field. It does not by itself derive descent rules, marriage rules, household size, gendered roles, property form, continuous co-residence, or a single authority structure.</p>
+<p>This is a genuine refinement of the original thesis. Knowledge of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> and its embodied lifecycle can support the need for a durable, intimate, intergenerational, productive, caring, and evaluative field. It does not by itself derive descent rules, marriage rules, household size, gendered roles, property form, continuous co-residence, or a single authority structure.</p>
 <h3 id="32-why-outside-appeal-belongs-to-the-invariant" data-depth="2">3.2 Why outside appeal belongs to the invariant</h3>
 <p>A close relationship provides evidence unavailable to a distant administration, but closeness also concentrates dependency and may hide coercion. The same group cannot be assumed both to exercise power and to judge every complaint against that power. A family-like field is therefore not complete by self-sufficiency alone. Confidential voice, protection, and feasible appeal must cross its boundary, while repair returns to the relationship where safe and possible.</p>
 <p>This condition does not turn the family into a branch of one central institution. It establishes nested responsibility: fulfilment remains as close to the relationship as competence and safety permit, while evidence and correction extend beyond the unit when its own processes fail.</p>
@@ -939,7 +942,7 @@ adverse case + non-substitutable continuity object outside U01-U05
 <p>Scarcity can make simultaneous satisfaction of all stated needs impossible. It does not suspend justice, health, production, or reserve. It increases the importance of transparent information about stock and need, minimum protection, participatory priority rules, burden visibility, appeal, and a plan to restore capability. Aggregate output or formally equal rations can remain unjust when needs and dependency differ.</p>
 <p>The refinement is procedural and evidentiary. A scarcity decision is evaluated by avoidable harm, distribution of burdens, reserve use, stated reasons, revision, and recovery over time. “Emergency” cannot become an indefinite exemption from voice or correction.</p>
 <h3 id="52-disability-changes-the-form-of-participation-not-its-universality" data-depth="2">5.2 Disability changes the form of participation, not its universality</h3>
-<p>The common architecture of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> does not imply identical bodies, communication modes, skills, or independent role performance. Disability and dependency require accessible communication, accommodation, supported choice, role adaptation, care, and review of representation. Equal availability means that each person can develop and exercise capability, express a standpoint, receive provision, contribute in an appropriate form, and invoke correction. It does not mean that every person performs every task without support.</p>
+<p>The common architecture of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> does not imply identical bodies, communication modes, skills, or independent role performance. Disability and dependency require accessible communication, accommodation, supported choice, role adaptation, care, and review of representation. Equal availability means that each person can develop and exercise capability, express a standpoint, receive provision, contribute in an appropriate form, and invoke correction. It does not mean that every person performs every task without support.</p>
 <p>This refinement prevents a formal equality test from excluding the very persons whose dependency makes durable social responsibility most visible.</p>
 <h3 id="53-coercion-and-disagreement-require-evidence-outside-power" data-depth="2">5.3 Coercion and disagreement require evidence outside power</h3>
 <p>Coercive households, workplaces, and technical systems often generate the appearance of agreement. Low complaint rates, compliance, retention, or reported loyalty can be consequences of dependence and retaliation rather than evidence of fulfilment. Effective validation therefore requires confidential testimony, safe dissent, access to reasons and counterevidence, feasible exit or protection, independent review, and observable remedy.</p>
@@ -1018,7 +1021,7 @@ adverse case + non-substitutable continuity object outside U01-U05
 <li>Compliance, consensus, reputation, prosperity, output, efficiency, immediate satisfaction, or low complaint rates are sufficient evidence of fulfilment.</li>
 <li>Performance by a competent minority establishes universal availability for all persons.</li>
 </ul>
-<p>These rejections make the central thesis more precise. The common architecture of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> supports universal access to a functional and relational order. It does not license a universal social blueprint whose names count as their own evidence.</p>
+<p>These rejections make the central thesis more precise. The common architecture of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> supports universal access to a functional and relational order. It does not license a universal social blueprint whose names count as their own evidence.</p>
 <h2 id="8-the-external-architecture-after-pass-five">8. The external architecture after Pass Five</h2>
 <p>The resulting environment can now be stated as nested requirements rather than predetermined institutions.</p>
 <p>At the <strong>personal and embodied scale</strong>, every person needs time and freedom for inquiry, language and skill, bodily means, access to consequences, supported participation where needed, and a feasible path to correction.</p>
@@ -1031,7 +1034,7 @@ adverse case + non-substitutable continuity object outside U01-U05
 <p>Pass Five completes the planned counterfactual and adverse-case analysis. It does not complete empirical validation. The nineteen cases were designed from known vulnerabilities in the model and therefore cannot estimate how often arrangements succeed, how safeguards interact under real pressure, or what thresholds distinguish nominal from effective access.</p>
 <p>The next research stage should apply the case and evidence protocol to contrasting actual arrangements. It should include people with different authority, dependency, bodily capability, work roles, and access to resources; gather first-person, counterpart, material, institutional, and long-horizon evidence; trace whether a complaint changes the condition; and observe continuity through turnover or time. Independent analysts should also recode a sample of the 122 activities and propose additional function bundles or candidate continuity objects.</p>
 <p>A case revises the model if a real arrangement satisfies the stated evidence and correction conditions yet cannot sustain an activity lifecycle, or if a necessary continuity object cannot be represented by U01-U05 without forced combination. A case revises an arrangement, rather than the model, when the invariant identifies a missing condition and an alternative supplies it. This distinction must be preserved in later field work.</p>
-<p>The justified conclusion after five passes is therefore conditional but substantial: the activity architecture of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, considered in embodied relationship and material consequence, supports a universal requirement for a durable shared-life field and five non-substitutable social functions. It does not uniquely derive kinship form, administrative scale, property system, technology, or organisational count. Those remain design variables within an evidence-bound and correctable equivalence class.</p>
+<p>The justified conclusion after five passes is therefore conditional but substantial: the activity architecture of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>, considered in embodied relationship and material consequence, supports a universal requirement for a durable shared-life field and five non-substitutable social functions. It does not uniquely derive kinship form, administrative scale, property system, technology, or organisational count. Those remain design variables within an evidence-bound and correctable equivalence class.</p>
 <h2 id="references">References</h2>
 <h3 id="related-research-notes-and-artifacts">Related research notes and artifacts</h3>
 <ul>
@@ -1155,14 +1158,23 @@ adverse case + non-substitutable continuity object outside U01-U05
     floatPanel.hidden = true;
     document.body.appendChild(floatPanel);
   }
+  let activeButton = null;
+  let pinnedButton = null;
 
   const hide = () => {
+    if (activeButton) activeButton.setAttribute("aria-expanded", "false");
+    activeButton = null;
     floatPanel.classList.remove("is-visible");
     floatPanel.hidden = true;
     floatPanel.textContent = "";
   };
 
   const show = (button, text) => {
+    if (activeButton && activeButton !== button) {
+      activeButton.setAttribute("aria-expanded", "false");
+    }
+    activeButton = button;
+    button.setAttribute("aria-expanded", "true");
     floatPanel.textContent = text;
     floatPanel.hidden = false;
     floatPanel.classList.add("is-visible");
@@ -1181,21 +1193,41 @@ adverse case + non-substitutable continuity object outside U01-U05
     const definition = button.getAttribute("data-definition");
     if (!definition) return;
     button.setAttribute("aria-describedby", "term-tip-float");
+    button.setAttribute("aria-expanded", "false");
     const reveal = () => show(button, definition);
-    button.addEventListener("mouseenter", reveal);
-    button.addEventListener("focus", reveal);
-    button.addEventListener("mouseleave", hide);
-    button.addEventListener("blur", hide);
+    button.addEventListener("mouseenter", () => {
+      if (!pinnedButton) reveal();
+    });
+    button.addEventListener("focus", () => {
+      if (!pinnedButton || pinnedButton === button) reveal();
+    });
+    button.addEventListener("mouseleave", () => {
+      if (!pinnedButton) hide();
+    });
+    button.addEventListener("blur", () => {
+      if (!pinnedButton) hide();
+    });
     button.addEventListener("click", event => {
       event.stopPropagation();
-      if (floatPanel.hidden) reveal();
-      else hide();
+      if (pinnedButton === button) {
+        pinnedButton = null;
+        hide();
+      } else {
+        pinnedButton = button;
+        reveal();
+      }
     });
   });
 
-  document.addEventListener("click", hide);
+  document.addEventListener("click", () => {
+    pinnedButton = null;
+    hide();
+  });
   document.addEventListener("keydown", event => {
-    if (event.key === "Escape") hide();
+    if (event.key === "Escape") {
+      pinnedButton = null;
+      hide();
+    }
   });
 })();
 </script>

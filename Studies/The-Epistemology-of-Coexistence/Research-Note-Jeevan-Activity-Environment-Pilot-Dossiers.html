@@ -324,13 +324,17 @@
   .term-tip {
     background: none;
     border: none;
-    border-bottom: 1px dotted #1a5276;
+    border-bottom: 1px dotted #8a6d3b;
     padding: 0;
     margin: 0;
     font: inherit;
-    color: #1a5276;
+    color: inherit;
     cursor: help;
     text-align: inherit;
+  }
+  .term-tip:hover {
+    background: #f6f0e7;
+    border-radius: 2px;
   }
   .term-tip:focus-visible {
     outline: 2px solid #1a5276;
@@ -363,14 +367,14 @@
   .study-toolbar {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
     font-family: 'Segoe UI', system-ui, sans-serif;
     font-size: 13px;
     position: sticky;
     top: 0;
     z-index: 20;
-    margin: 0 0 22px;
-    padding: 10px 14px;
+    margin: 0 0 18px;
+    padding: 6px 10px;
     border: 1px solid #d8d2c8;
     border-radius: 8px;
     background: rgba(247, 244, 239, 0.92);
@@ -380,20 +384,21 @@
   .study-toolbar-row {
     display: grid;
     align-items: center;
-    gap: 8px 14px;
+    gap: 10px;
   }
   .study-toolbar-row--primary {
-    grid-template-columns: minmax(0, 1fr) minmax(0, auto) minmax(0, 1fr);
+    grid-template-columns: auto minmax(0, 1fr);
   }
   .study-toolbar-actions {
-    grid-column: 3;
+    grid-column: 2;
     justify-self: end;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     justify-content: flex-end;
-    gap: 8px 12px;
+    gap: 6px;
     min-width: 0;
+    white-space: nowrap;
     text-align: right;
   }
   .study-toolbar-feedback {
@@ -412,21 +417,6 @@
   .study-toolbar-download {
     min-width: 0;
     text-align: right;
-  }
-  .study-toolbar-title {
-    grid-column: 2;
-    justify-self: center;
-    text-align: center;
-    margin: 0;
-    min-width: 0;
-    font-size: 14px;
-    font-weight: 700;
-    color: #2c241c;
-    line-height: 1.35;
-  }
-  .study-toolbar-draft {
-    font-weight: 600;
-    color: #5c5348;
   }
   .study-toolbar-link {
     color: #1a5276;
@@ -468,7 +458,7 @@
     background: #fdfcfa;
     border: 1px solid #d9d2c7;
     border-radius: 999px;
-    padding: 3px 11px;
+    padding: 2px 8px;
     cursor: pointer;
     white-space: nowrap;
   }
@@ -540,6 +530,23 @@
   .study-toc-l1 > a { font-weight: 700; color: #2c241c; }
   .study-toc-l2 > a { padding-left: 15px; }
   .study-toc-l3 > a { padding-left: 30px; font-size: 12.5px; color: #4d6f86; }
+  .study-toc--with-key { margin-bottom: 0.55em; }
+  .study-reading-key {
+    margin: 0 0 2.2em;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    line-height: 1.45;
+    color: #6b6357;
+  }
+  .study-reading-key > span[aria-hidden="true"] { padding: 0 5px; }
+  .study-reading-key-term {
+    color: #2c241c;
+    border-bottom: 1px dotted #8a6d3b;
+  }
+  .study-reading-key-link {
+    color: #1a5276;
+    text-decoration: underline;
+  }
   @media (prefers-reduced-motion: reduce) {
     .study-toc-summary::before { transition: none; }
   }
@@ -556,11 +563,15 @@
       margin: 32px auto 88px;
       padding: 0 22px;
     }
-    /* Roughly 68 characters. The container stays wide enough for tables and
-       figures while running text keeps a measure the eye can track back. */
-    p, ul, ol, blockquote, .quote-source, dl {
-      max-width: 37rem;
+    /* Add a subtle one point of breathing room above and below quotations on
+       screen without changing the print/PDF layout. */
+    blockquote {
+      margin-top: 11pt;
+      margin-bottom: 11pt;
     }
+    /* Running text uses the full reading column. Tables and figures share the
+       same 46rem container, so paragraphs no longer collapse into a visibly
+       narrower strip inside the page. */
     p {
       margin: 0.72em 0;
       text-align: left;
@@ -583,34 +594,18 @@
   }
 
   @media (max-width: 640px) {
-    .study-toolbar-row--primary {
-      grid-template-columns: minmax(0, auto) minmax(0, 1fr);
-      row-gap: 6px;
-    }
-    /* Back and title share the first line and the actions take the second, so
-       the reader reaches the heading in two rows rather than four. */
-    .study-toolbar-back { grid-column: 1; justify-self: start; }
-    .study-toolbar-title {
-      grid-column: 2;
-      justify-self: end;
-      text-align: right;
-      font-size: 13px;
-      white-space: normal;
-    }
     .study-toolbar-actions {
-      grid-column: 1 / -1;
-      justify-self: stretch;
-      justify-content: space-between;
-      gap: 8px;
+      gap: 5px;
     }
     .study-toolbar-feedback { font-size: 11px; }
-    .study-toolbar-section { white-space: normal; }
+    .study-toolbar-section { font-size: 11px; }
     .study-toc-nav { max-height: 52vh; }
   }
   @media print {
     .study-toolbar { display: none !important; }
     .study-theme-toggle { display: none !important; }
     .study-toc { display: none !important; }
+    .study-reading-key { display: none !important; }
     .skip-link { display: none !important; }
     .term-tip {
       border-bottom: none;
@@ -637,10 +632,9 @@
     html[data-theme="dark"] .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
     html[data-theme="dark"] .study-toolbar-link { color: #7ebbed; }
     html[data-theme="dark"] .study-toolbar-link:hover { color: #b8daf3; }
-    html[data-theme="dark"] .study-toolbar-title { color: #f5f1ec; }
-    html[data-theme="dark"] .study-toolbar-draft { color: #aca194; }
     html[data-theme="dark"] .study-toolbar-section.is-disabled { color: #6f655a; }
-    html[data-theme="dark"] .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    html[data-theme="dark"] .term-tip { color: inherit; border-bottom-color: #c9a66b; }
+    html[data-theme="dark"] .term-tip:hover { background: #2f2a24; }
     html[data-theme="dark"] .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
     html[data-theme="dark"] .study-toc { border-color: #423b33; }
     html[data-theme="dark"] .study-toc-summary:hover { background: #1e1b18; }
@@ -648,6 +642,9 @@
     html[data-theme="dark"] .study-toc-meta { color: #aca194; }
     html[data-theme="dark"] .study-toc-list a { color: #7ebbed; }
     html[data-theme="dark"] .study-toc-l1 > a { color: #f5f1ec; }
+    html[data-theme="dark"] .study-reading-key { color: #aca194; }
+    html[data-theme="dark"] .study-reading-key-term { color: #e6dfd6; border-bottom-color: #c9a66b; }
+    html[data-theme="dark"] .study-reading-key-link { color: #7ebbed; }
     html[data-theme="dark"] .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
     html[data-theme="dark"] .study-theme-toggle:hover { border-color: #7ebbed; }
   }
@@ -668,10 +665,9 @@
     html:not([data-theme="light"]) .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
     html:not([data-theme="light"]) .study-toolbar-link { color: #7ebbed; }
     html:not([data-theme="light"]) .study-toolbar-link:hover { color: #b8daf3; }
-    html:not([data-theme="light"]) .study-toolbar-title { color: #f5f1ec; }
-    html:not([data-theme="light"]) .study-toolbar-draft { color: #aca194; }
     html:not([data-theme="light"]) .study-toolbar-section.is-disabled { color: #6f655a; }
-    html:not([data-theme="light"]) .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    html:not([data-theme="light"]) .term-tip { color: inherit; border-bottom-color: #c9a66b; }
+    html:not([data-theme="light"]) .term-tip:hover { background: #2f2a24; }
     html:not([data-theme="light"]) .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
     html:not([data-theme="light"]) .study-toc { border-color: #423b33; }
     html:not([data-theme="light"]) .study-toc-summary:hover { background: #1e1b18; }
@@ -679,6 +675,9 @@
     html:not([data-theme="light"]) .study-toc-meta { color: #aca194; }
     html:not([data-theme="light"]) .study-toc-list a { color: #7ebbed; }
     html:not([data-theme="light"]) .study-toc-l1 > a { color: #f5f1ec; }
+    html:not([data-theme="light"]) .study-reading-key { color: #aca194; }
+    html:not([data-theme="light"]) .study-reading-key-term { color: #e6dfd6; border-bottom-color: #c9a66b; }
+    html:not([data-theme="light"]) .study-reading-key-link { color: #7ebbed; }
     html:not([data-theme="light"]) .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
     html:not([data-theme="light"]) .study-theme-toggle:hover { border-color: #7ebbed; }
   }
@@ -689,12 +688,11 @@
 <a class="skip-link" href="#main">Skip to content</a>
 <nav class="study-toolbar" aria-label="Study navigation">
   <div class="study-toolbar-row study-toolbar-row--primary">
-    <a class="study-toolbar-link study-toolbar-back" href="../index.html#study-Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers">&larr; All studies</a>
-    <p class="study-toolbar-title">Research Note: Bottom-Up Pilot Derivation of *Jeevan* Activity Spheres</p>
+    <a class="study-toolbar-link study-toolbar-back" href="../index.html#study-Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers" aria-label="Back to all studies">&larr; Studies</a>
     <span class="study-toolbar-actions">
       <a class="study-toolbar-link study-toolbar-discuss" href="discussion.html?dv=3">Discuss</a>
-      <a class="study-toolbar-link study-toolbar-download" href="Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers.pdf" download>Download PDF</a>
-      <a class="study-toolbar-link study-toolbar-feedback" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&title=Study%20feedback%3A%20Research%20Note%3A%20Bottom-Up%20Pilot%20Derivation%20of%20%2AJeevan%2A%20Activity%20Spheres">Suggest a correction</a>
+      <a class="study-toolbar-link study-toolbar-download" href="Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers.pdf" download aria-label="Download PDF">PDF</a>
+      <a class="study-toolbar-link study-toolbar-feedback" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&title=Study%20feedback%3A%20Research%20Note%3A%20Bottom-Up%20Pilot%20Derivation%20of%20%2AJeevan%2A%20Activity%20Spheres" aria-label="Suggest a correction">Suggest edit</a>
       <button type="button" class="study-theme-toggle" id="study-theme-toggle" aria-label="Switch color theme">
         <span class="study-theme-toggle-label">Dark</span>
       </button>
@@ -710,8 +708,8 @@
 <p><strong>Edited on:</strong> August 16, 2026, 10:42 AM IST</p>
 <p><strong>Status:</strong> Internal research note (not a catalog entry). First completed use of the institution-neutral <a href="Research-Template-Jeevan-Activity-Environment-Dossier.md">activity-to-sphere dossier template</a>.</p>
 <p><strong>Scope:</strong> This note re-analyses eight contrasting <em>bal/shakti</em> pairs as sixteen activity-members. It does not begin with family, the five institutional functions, or any other social taxonomy. For each member it identifies the bearer, object, participant topology, endpoint of fulfilment, governing criterion, and the conditions required for development, orientation, performance, consequence visibility, evaluation, correction, sustaining, and transmission. These records yield provisional micro-spheres. Only after that derivation does the note ask whether any sphere requires durable organisation.</p>
-<p>The environment does not create a constitutional activity of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>. “Fully active” cannot therefore mean switched on from outside. It means effectively available, rightly oriented by realisation and understanding, competently embodied, evident in the relevant field, open to correction, and capable of continuity in <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em>. External arrangements can support or obstruct these conditions without becoming the cause of realisation.</p>
-<details class="study-toc" id="study-contents">
+<p>The environment does not create a constitutional activity of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>. “Fully active” cannot therefore mean switched on from outside. It means effectively available, rightly oriented by realisation and understanding, competently embodied, evident in the relevant field, open to correction, and capable of continuity in <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Sanskar — accepted qualitative establishments; in education–sanskar, the establishment and transmission of understanding through human tradition.">sanskar</button></span></em>. External arrangements can support or obstruct these conditions without becoming the cause of realisation.</p>
+<details class="study-toc study-toc--with-key" id="study-contents">
   <summary class="study-toc-summary">
     <span class="study-toc-label">Contents</span>
     <span class="study-toc-meta">12 sections &middot; 61 headings</span>
@@ -782,18 +780,23 @@
     </ol>
   </nav>
 </details>
+<p class="study-reading-key" aria-label="Reading key">
+  <span class="study-reading-key-term">Dotted underline</span>: definition
+  <span aria-hidden="true">&middot;</span>
+  <span class="study-reading-key-link">Blue underline</span>: link
+</p>
 <h2 id="1-method-and-pilot-selection">1. Method and pilot selection</h2>
 <h3 id="11-the-activity-member-is-the-analytic-unit" data-depth="2">1.1 The activity-member is the analytic unit</h3>
 <p>The sixty-one source-given pairs remain the documentary units, but their 122 members are the primary units of environmental analysis. This distinction is necessary because the entries are not semantically uniform. A member may name an inner success, a readiness, an act, an object, a relation, a person-role, a sensory quality, a bodily correlate, a material condition, or an evidential result. The environment appropriate to an act cannot be copied mechanically to its object, and the conditions for a relationship-role cannot be inferred from the conditions for a private state.</p>
-<p>The coding uses <strong>D</strong> for direct textual support, <strong>I</strong> for structural inference, <strong>H</strong> for a provisional sphere or organisational hypothesis, and <strong>O</strong> for an open question. External requirements are <strong>N</strong>, necessary; <strong>S</strong>, strongly supportive; <strong>C</strong>, context-dependent; or <strong>U</strong>, unclear. Participation topologies are <strong>J</strong>, intra-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>; <strong>B</strong>, embodied personal; <strong>D</strong>, dyadic or small-group; <strong>R</strong>, durable close or intergenerational relation; <strong>C</strong>, collective or public; <strong>E</strong>, material or ecological; and <strong>T</strong>, historical or intergenerational transmission.</p>
-<p>The full extension refines these codes in three ways. Every anatomy and lifecycle field receives its own evidential status. External conditions are classified as constitutive, enabling, evidential, protective, corrective, sustaining, or transmissive, with necessity scoped separately to occurrence, expression, evidence, correction, or continuity. Universality is also separated into what follows from common <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> architecture, what follows from universal embodied-human dependence, and what remains a contextual design variable. The <a href="Research-Template-Jeevan-Activity-Environment-Dossier.md">dossier template</a> defines the compact codes.</p>
+<p>The coding uses <strong>D</strong> for direct textual support, <strong>I</strong> for structural inference, <strong>H</strong> for a provisional sphere or organisational hypothesis, and <strong>O</strong> for an open question. External requirements are <strong>N</strong>, necessary; <strong>S</strong>, strongly supportive; <strong>C</strong>, context-dependent; or <strong>U</strong>, unclear. Participation topologies are <strong>J</strong>, intra-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>; <strong>B</strong>, embodied personal; <strong>D</strong>, dyadic or small-group; <strong>R</strong>, durable close or intergenerational relation; <strong>C</strong>, collective or public; <strong>E</strong>, material or ecological; and <strong>T</strong>, historical or intergenerational transmission.</p>
+<p>The full extension refines these codes in three ways. Every anatomy and lifecycle field receives its own evidential status. External conditions are classified as constitutive, enabling, evidential, protective, corrective, sustaining, or transmissive, with necessity scoped separately to occurrence, expression, evidence, correction, or continuity. Universality is also separated into what follows from common <em>jeevan</em> architecture, what follows from universal embodied-human dependence, and what remains a contextual design variable. The <a href="Research-Template-Jeevan-Activity-Environment-Dossier.md">dossier template</a> defines the compact codes.</p>
 <h3 id="12-derivation-protocol" data-depth="2">1.2 Derivation protocol</h3>
 <p>Each activity-member passes through the same sequence:</p>
 <ol>
 <li>establish the source definition, entry form, and bearer;</li>
 <li>normalize field-level provenance and separate locus, operation, consequence, and evidence;</li>
 <li>identify its object, constitutive counterpart, endpoint, and criterion of correct operation;</li>
-<li>record dependencies within <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> before proposing an external requirement;</li>
+<li>record dependencies within <em>jeevan</em> before proposing an external requirement;</li>
 <li>code participant topology and entry-form-specific lifecycle conditions without naming an institution;</li>
 <li>identify convergent evidence, evaluator standpoints, disagreement paths, correction, and false positives;</li>
 <li>state a neutral micro-sphere and freeze a structured feature vector;</li>
@@ -866,7 +869,7 @@
 </tr>
 </tbody>
 </table></div>
-<p>The source inventory and its textual cautions remain in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Activity-Pair-Inventory.html"><em>The Sixty-One Activity Pairs of Jeevan</em></a>. The distinction between orientation, expression, consequence, evaluation, inquiry, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> follows <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Functional-Model.html"><em>A Functional Model of Jeevan</em></a>.</p>
+<p>The source inventory and its textual cautions remain in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Activity-Pair-Inventory.html"><em>The Sixty-One Activity Pairs of Jeevan</em></a>. The distinction between orientation, expression, consequence, evaluation, inquiry, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Sanskar — accepted qualitative establishments; in education–sanskar, the establishment and transmission of understanding through human tradition.">sanskar</button></span></em> follows <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Functional-Model.html"><em>A Functional Model of Jeevan</em></a>.</p>
 <h2 id="2-a-01-anubhav-pramanikta">2. A-01 - <em>Anubhav / pramanikta</em></h2>
 <h3 id="21-source-record-and-pair-semantics" data-depth="2">2.1 Source record and pair semantics</h3>
 <div class="table-scroll"><table>
@@ -1000,8 +1003,8 @@
 </table></div>
 <h3 id="24-derived-micro-spheres-and-tests" data-depth="2">2.4 Derived micro-spheres and tests</h3>
 <blockquote>
-<p>For <em>anubhav</em> to function effectively, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> must be able to realise coexistence under the criterion of reality, with its claim examined through continuing non-contradiction and later evidence, while inquiry remains free from coercive substitution of belief for knowing.</p>
-<p>For <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="pramanikta" data-definition="Authentic conduct as living proof that understanding has taken hold — the outward test of complete knowing.">pramanikta</button></span></em> to function effectively, the realised person must be able to express knowledge before other persons and nature through competent conduct, under the criterion of fidelity between realisation and consequence, with plural evaluation and transmissible methods of inquiry.</p>
+<p>For <em>anubhav</em> to function effectively, <em>jeevan</em> must be able to realise coexistence under the criterion of reality, with its claim examined through continuing non-contradiction and later evidence, while inquiry remains free from coercive substitution of belief for knowing.</p>
+<p>For <em>pramanikta</em> to function effectively, the realised person must be able to express knowledge before other persons and nature through competent conduct, under the criterion of fidelity between realisation and consequence, with plural evaluation and transmissible methods of inquiry.</p>
 </blockquote>
 <p>The first statement yields a micro-sphere of <strong>realised knowing and protected inquiry</strong>; the second yields <strong>authentic public evidence</strong>. Every external condition could be present without <em>anubhav</em>, and a person may realise under adverse conditions. The external derivation therefore concerns receptivity, evidence, protection, correction, and transmission, not institutional production or certification of realisation.</p>
 <h2 id="3-b-02-astitva-dhruti">3. B-02 - <em>Astitva / dhruti</em></h2>
@@ -1040,7 +1043,7 @@
 </tr>
 </tbody>
 </table></div>
-<p><em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="astitva" data-definition="Existence as coexistence of formless *satta* and active units — beginningless and endless.">Astitva</button></span></em> concerns acceptance free from delusion of state, motion, development, awakening, and the present. <em>Dhruti</em> concerns dedication in truth as coexistence, readiness for projection, absence of fear, and trust in the present. Their relation as accepted content and readiness for projection is <strong>D</strong>. Fearlessness does not imply disregard of risk.</p>
+<p><em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="astitva" data-definition="Existence — infinite sentient and insentient units saturated in Omnipotence: what is, present through development, awakening, and orderliness.">Astitva</button></span></em> concerns acceptance free from delusion of state, motion, development, awakening, and the present. <em>Dhruti</em> concerns dedication in truth as coexistence, readiness for projection, absence of fear, and trust in the present. Their relation as accepted content and readiness for projection is <strong>D</strong>. Fearlessness does not imply disregard of risk.</p>
 <h3 id="32-activity-anatomy" data-depth="2">3.2 Activity anatomy</h3>
 <div class="table-scroll"><table>
 <thead>
@@ -1137,7 +1140,7 @@
 </table></div>
 <h3 id="34-derived-micro-spheres-and-tests" data-depth="2">3.4 Derived micro-spheres and tests</h3>
 <blockquote>
-<p>For <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="astitva" data-definition="Existence as coexistence of formless *satta* and active units — beginningless and endless.">astitva</button></span></em> to function effectively, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> must be able to form definite acceptance of existence through reality-grounded inquiry, with its claim evaluated through reasons, consistency, and consequence rather than assent or confidence alone.</p>
+<p>For <em>astitva</em> to function effectively, <em>jeevan</em> must be able to form definite acceptance of existence through reality-grounded inquiry, with its claim evaluated through reasons, consistency, and consequence rather than assent or confidence alone.</p>
 <p>For <em>dhruti</em> to function effectively, the person must be able to undertake responsible projection under understood truth, with meaningful agency, adequate means, visible consequences, protected correction, and opportunities to transmit courageous responsibility.</p>
 </blockquote>
 <p>The provisional micro-spheres are <strong>definite understanding</strong> and <strong>responsible agency</strong>. Authoritarian arrangements can produce decisive speech without either activity. Adverse conditions do not make correct resolve impossible, but they make its expression costly and its evidence ambiguous. The invariant is not comfort; it is inquiry joined to real responsibility, non-coercion, and consequence-sensitive correction.</p>
@@ -1411,10 +1414,10 @@
 </table></div>
 <h3 id="54-derived-micro-spheres-and-tests" data-depth="2">5.4 Derived micro-spheres and tests</h3>
 <blockquote>
-<p>For <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="nyaya" data-definition="Justice — complete relational activity: recognise, fulfil, evaluate, mutual satisfaction.">nyaya</button></span></em> to function effectively, persons in relationship must be able to recognise one another, fulfil values, evaluate consequences, and reach mutual satisfaction under freedom from coercion, with safe dialogue, appeal, restoration, and protection where reciprocity fails.</p>
-<p>For <em>samvedna</em> to function effectively, the person must be able to receive relevant indications and participate responsibly with others under the criteria of justice, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, and truth, with feedback from affected persons and correction of both inattention and reactive response.</p>
+<p>For <em>nyaya</em> to function effectively, persons in relationship must be able to recognise one another, fulfil values, evaluate consequences, and reach mutual satisfaction under freedom from coercion, with safe dialogue, appeal, restoration, and protection where reciprocity fails.</p>
+<p>For <em>samvedna</em> to function effectively, the person must be able to receive relevant indications and participate responsibly with others under the criteria of justice, <em>dharma</em>, and truth, with feedback from affected persons and correction of both inattention and reactive response.</p>
 </blockquote>
-<p>The members jointly yield <strong>reciprocal relationship and protected participation</strong>. A dyadic field is constitutive to <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="nyaya" data-definition="Justice — complete relational activity: recognise, fulfil, evaluate, mutual satisfaction.">nyaya</button></span></em>; a durable close relation becomes required only where the relationship itself is continuous, intergenerational, or care-bearing. Public procedures become required when direct reciprocity cannot protect voice or correct concentrated power. This is a derivation from the activity topology, not an assumption that all justice begins in one household form.</p>
+<p>The members jointly yield <strong>reciprocal relationship and protected participation</strong>. A dyadic field is constitutive to <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="nyaya" data-definition="Justice — recognising relationships, fulfilling and evaluating their values, and attaining mutual satisfaction.">nyaya</button></span></em>; a durable close relation becomes required only where the relationship itself is continuous, intergenerational, or care-bearing. Public procedures become required when direct reciprocity cannot protect voice or correct concentrated power. This is a derivation from the activity topology, not an assumption that all justice begins in one household form.</p>
 <h2 id="6-v-18-tushti-pushti">6. V-18 - <em>Tushti / pushti</em></h2>
 <h3 id="61-source-record-and-pair-semantics" data-depth="2">6.1 Source record and pair semantics</h3>
 <div class="table-scroll"><table>
@@ -1725,7 +1728,7 @@
 </tr>
 </tbody>
 </table></div>
-<p><em>Guru</em> denotes a person in a relationship rather than a private event. The role is defined through resolution of inquiries by education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em>. <em>Pramanik</em> denotes a bearer and carrier of evidence who lives the holistic view of existence, knowledge of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, and humane conduct through experiment, behaviour, and realisation. Teaching beside lived evidence is <strong>I</strong> as the pair relation; the definitions and assignment are <strong>D</strong>.</p>
+<p><em>Guru</em> denotes a person in a relationship rather than a private event. The role is defined through resolution of inquiries by education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Sanskar — accepted qualitative establishments; in education–sanskar, the establishment and transmission of understanding through human tradition.">sanskar</button></span></em>. <em>Pramanik</em> denotes a bearer and carrier of evidence who lives the holistic view of existence, knowledge of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>, and humane conduct through experiment, behaviour, and realisation. Teaching beside lived evidence is <strong>I</strong> as the pair relation; the definitions and assignment are <strong>D</strong>.</p>
 <h3 id="82-activity-anatomy" data-depth="2">8.2 Activity anatomy</h3>
 <div class="table-scroll"><table>
 <thead>
@@ -1965,7 +1968,7 @@
 <p>The pair yields <strong>bodily-material conduciveness and protective care</strong>. Direct care is necessary for children and others who cannot regulate exposure or provision independently; public coordination becomes necessary where workplaces, housing, infrastructure, or climate impose shared risks. Neither observation proves one domestic form or technology. The universal requirement is capability for health-serving material adjustment within wider continuity.</p>
 <h2 id="10-cross-pilot-sphere-model">10. Cross-pilot sphere model</h2>
 <h3 id="101-what-the-sixteen-records-establish" data-depth="2">10.1 What the sixteen records establish</h3>
-<p>The recoding confirms that the proper field of an activity must be separated into four locations. The <strong>ontological locus</strong> is where the entry is borne. The <strong>field of operation</strong> is the content, body, person, object, relation, or process with which it deals. The <strong>field of consequence</strong> contains the persons, relationships, bodies, collectives, material systems, or future participants affected by its expression. The <strong>field of evidence and evaluation</strong> is where correct operation becomes demonstrable and which standpoints can assess it. <em>Anubhav</em> is inward in locus but its claim becomes socially significant through outward evidence; <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="nyaya" data-definition="Justice — complete relational activity: recognise, fulfil, evaluate, mutual satisfaction.">nyaya</button></span></em> is inward in locus but relational in operation, consequence, and evaluation; <em>guna</em> may name the content inspected rather than a second psychological operation; <em>samriddhi</em> and <em>poshan</em> name material conditions or results that must be assessed by <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>.</p>
+<p>The recoding confirms that the proper field of an activity must be separated into four locations. The <strong>ontological locus</strong> is where the entry is borne. The <strong>field of operation</strong> is the content, body, person, object, relation, or process with which it deals. The <strong>field of consequence</strong> contains the persons, relationships, bodies, collectives, material systems, or future participants affected by its expression. The <strong>field of evidence and evaluation</strong> is where correct operation becomes demonstrable and which standpoints can assess it. <em>Anubhav</em> is inward in locus but its claim becomes socially significant through outward evidence; <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="nyaya" data-definition="Justice — recognising relationships, fulfilling and evaluating their values, and attaining mutual satisfaction.">nyaya</button></span></em> is inward in locus but relational in operation, consequence, and evaluation; <em>guna</em> may name the content inspected rather than a second psychological operation; <em>samriddhi</em> and <em>poshan</em> name material conditions or results that must be assessed by <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>.</p>
 <p>No pilot yields a complete social form directly from an activity name. Each yields a bundle of invariants: who must participate, what must be accessible, which result counts, who can evaluate it, how contradiction is corrected, and what must persist. This bundle is the appropriate input to sphere clustering.</p>
 <h3 id="102-provisional-sphere-atlas" data-depth="2">10.2 Provisional sphere atlas</h3>
 <p>At this stage the pilot supports eight provisional clusters. Their number follows the contrasts deliberately chosen for the pilot and has no claim to finality.</p>
@@ -2040,10 +2043,10 @@
 <li>responsibility for care across unequal bodily capability;</li>
 <li>shared assessment of need, work, use, and provision;</li>
 <li>daily visibility of congruence between claim and conduct;</li>
-<li>generation, learner development, and transmission of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em>; and</li>
+<li>generation, learner development, and transmission of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Sanskar — accepted qualitative establishments; in education–sanskar, the establishment and transmission of understanding through human tradition.">sanskar</button></span></em>; and</li>
 <li>mutual evaluation with access to outside protection when intimacy conceals harm.</li>
 </ul>
-<p>This convergence supports a <strong>durable shared-life sphere</strong>. Calling one institutional form “family” is a plausible later interpretation because generation, care, provision, value-fulfilment, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> meet there. The analysis does not yet derive a particular household size, marriage rule, residence pattern, property regime, authority structure, or gendered division of work. The invariant is stronger than individual preference but less specific than a prescribed family form.</p>
+<p>This convergence supports a <strong>durable shared-life sphere</strong>. Calling one institutional form “family” is a plausible later interpretation because generation, care, provision, value-fulfilment, and <em>sanskar</em> meet there. The analysis does not yet derive a particular household size, marriage rule, residence pattern, property regime, authority structure, or gendered division of work. The invariant is stronger than individual preference but less specific than a prescribed family form.</p>
 <h3 id="105-criteria-for-institutionalisation" data-depth="2">10.5 Criteria for institutionalisation</h3>
 <p>A sphere warrants durable organisation when five conditions converge: its endpoint is recurrent rather than episodic; its lifecycle exceeds one person&rsquo;s unaided capacity; roles or resources must persist through turnover; failure exposes other persons or nature to serious harm; and legitimate correction requires rights, records, or procedures that cannot depend on goodwill alone. On that test, the pilots give the following preliminary result.</p>
 <div class="table-scroll"><table>
@@ -2099,7 +2102,7 @@
 </table></div>
 <p>The result is a set of institutional requirements, not a settled institutional count. One durable arrangement may sustain several spheres, while one sphere may require several mutually correcting arrangements.</p>
 <h3 id="106-the-five-function-hypothesis-is-tested-in-pass-four" data-depth="2">10.6 The five-function hypothesis is tested in Pass Four</h3>
-<p>The proposed functions of education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em>, justice-security, health-restraint, production-work, and exchange-reserve must now be treated as a hypothesis about how derived spheres could be bundled. The pilot is too small and deliberately contrastive to confirm that exactly five bundles are exhaustive or irreducible. The full analysis must ask:</p>
+<p>The proposed functions of education-<em>sanskar</em>, justice-security, health-restraint, production-work, and exchange-reserve must now be treated as a hypothesis about how derived spheres could be bundled. The pilot is too small and deliberately contrastive to confirm that exactly five bundles are exhaustive or irreducible. The full analysis must ask:</p>
 <ul>
 <li>whether every derived sphere is maintained by at least one function;</li>
 <li>whether any function merely combines unrelated spheres for convenience;</li>
@@ -2123,7 +2126,7 @@
 <h3 id="116-pass-five-counterfactual-and-practical-validation-completed" data-depth="2">11.6 Pass Five - counterfactual and practical validation completed</h3>
 <p>The <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Counterfactual-Validation-Pass-Five.html">Pass-Five counterfactual validation</a> specifies nineteen materially different, adverse, universal-access, and false-positive cases. The family-like result survives as an eight-condition durable shared-life invariant, while biological kinship and co-residence are rejected as necessary and sufficient criteria. The five continuity responsibilities remain jointly adequate for the tested cases, but exactly five organisations is rejected. Administrative combination remains possible only with distinct purposes, evidence, rights, and correction.</p>
 <p>Scarcity, disability, coercion, disagreement, migration, technological concentration, and ecological delay refine the scale and safeguard requirements without disclosing a sixth continuity object. The pass adds a minimum-evidence protocol and a person-level availability test for every function. Its result is analytical rather than empirical: real-case observation, longitudinal evidence, independent recoding, and additional institutional comparisons remain open.</p>
-<p>The strongest conclusion this method can establish is not that one concrete social arrangement follows uniquely from the number 122. It is that common <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> architecture yields universal functional and relational invariants that every adequate family, educational, productive, scientific, economic, legal, and coordinative arrangement must satisfy. Concrete arrangements form a context-sensitive equivalence class unless further argument rules alternatives out.</p>
+<p>The strongest conclusion this method can establish is not that one concrete social arrangement follows uniquely from the number 122. It is that common <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> architecture yields universal functional and relational invariants that every adequate family, educational, productive, scientific, economic, legal, and coordinative arrangement must satisfy. Concrete arrangements form a context-sensitive equivalence class unless further argument rules alternatives out.</p>
 <h2 id="references">References</h2>
 <h3 id="madhyasth-darshan">Madhyasth Darshan</h3>
 <ul>
@@ -2132,7 +2135,7 @@
 </ul>
 <h3 id="related-research-notes">Related research notes</h3>
 <ul>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Architecture.html"><em>Jeevan Architecture</em></a> - the account of faculties, receptivity, embodiment, complete functioning, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em>.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Architecture.html"><em>Jeevan Architecture</em></a> - the account of faculties, receptivity, embodiment, complete functioning, and <em>sanskar</em>.</li>
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Activity-Pair-Inventory.html"><em>The Sixty-One Activity Pairs of Jeevan</em></a> - the documentary inventory and textual variants governing the pair assignments.</li>
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Functional-Model.html"><em>A Functional Model of Jeevan</em></a> - the separation of orientation, expression, consequence, evaluation, inquiry, and lasting organisation.</li>
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Anatomy-Pass-One.html"><em>Pass-One Anatomy of the Remaining Jeevan Activities</em></a> - source and activity-anatomy records for the 106 non-pilot members.</li>
@@ -2251,14 +2254,23 @@
     floatPanel.hidden = true;
     document.body.appendChild(floatPanel);
   }
+  let activeButton = null;
+  let pinnedButton = null;
 
   const hide = () => {
+    if (activeButton) activeButton.setAttribute("aria-expanded", "false");
+    activeButton = null;
     floatPanel.classList.remove("is-visible");
     floatPanel.hidden = true;
     floatPanel.textContent = "";
   };
 
   const show = (button, text) => {
+    if (activeButton && activeButton !== button) {
+      activeButton.setAttribute("aria-expanded", "false");
+    }
+    activeButton = button;
+    button.setAttribute("aria-expanded", "true");
     floatPanel.textContent = text;
     floatPanel.hidden = false;
     floatPanel.classList.add("is-visible");
@@ -2277,21 +2289,41 @@
     const definition = button.getAttribute("data-definition");
     if (!definition) return;
     button.setAttribute("aria-describedby", "term-tip-float");
+    button.setAttribute("aria-expanded", "false");
     const reveal = () => show(button, definition);
-    button.addEventListener("mouseenter", reveal);
-    button.addEventListener("focus", reveal);
-    button.addEventListener("mouseleave", hide);
-    button.addEventListener("blur", hide);
+    button.addEventListener("mouseenter", () => {
+      if (!pinnedButton) reveal();
+    });
+    button.addEventListener("focus", () => {
+      if (!pinnedButton || pinnedButton === button) reveal();
+    });
+    button.addEventListener("mouseleave", () => {
+      if (!pinnedButton) hide();
+    });
+    button.addEventListener("blur", () => {
+      if (!pinnedButton) hide();
+    });
     button.addEventListener("click", event => {
       event.stopPropagation();
-      if (floatPanel.hidden) reveal();
-      else hide();
+      if (pinnedButton === button) {
+        pinnedButton = null;
+        hide();
+      } else {
+        pinnedButton = button;
+        reveal();
+      }
     });
   });
 
-  document.addEventListener("click", hide);
+  document.addEventListener("click", () => {
+    pinnedButton = null;
+    hide();
+  });
   document.addEventListener("keydown", event => {
-    if (event.key === "Escape") hide();
+    if (event.key === "Escape") {
+      pinnedButton = null;
+      hide();
+    }
   });
 })();
 </script>
