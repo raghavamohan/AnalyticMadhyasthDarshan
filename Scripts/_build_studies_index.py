@@ -792,6 +792,10 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   }
   .parallel-study a { font-weight: 700; }
   .parallel-study .path-status { margin-left: 5px; }
+  .parallel-study .path-slides {
+    margin-top: 0;
+    margin-left: 10px;
+  }
   .path-invitation {
     display: flex;
     align-items: center;
@@ -1287,7 +1291,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
         <p>Alongside every stage, I relate the framework to science, technology, and current developments, formalise its claims, and test whether it can grow into a coherent explanatory system.</p>
       </div>
       <div class="parallel-studies">
-        <div class="parallel-study" data-study-slug="A-State-Dynamic-Model-Of-Coexistence"><a data-study-link href="A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html" title="Read the study">From Unit Activity to Human Orderliness</a><span class="path-status draft" data-study-status>Draft</span></div>
+        <div class="parallel-study" data-study-slug="A-State-Dynamic-Model-Of-Coexistence" data-presentation-pdf="A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence-Madhyasth-Darshan.pdf"><a data-study-link href="A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html" title="Read the study">From Unit Activity to Human Orderliness</a><span class="path-status draft" data-study-status>Draft</span><a class="path-slides" data-study-slides href="A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence-Madhyasth-Darshan.pdf" title="Open presentation slides">Slides</a></div>
         <div class="parallel-study" data-study-slug="Science-Technology-And-Human-Purpose"><a data-study-link href="Science-Technology-And-Human-Purpose/discussion.html">Science, Technology, and Human Purpose</a><span class="path-status planned" data-study-status>In progress</span></div>
       </div>
     </div>
