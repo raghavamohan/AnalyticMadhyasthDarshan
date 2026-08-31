@@ -17,11 +17,19 @@
 <meta property="og:title" content="Research Note: Pass-One Anatomy of the Remaining *Jeevan* Activities"/>
 <meta property="og:description" content="What knowledge is, who the knower is, and what can be known: coexistence, jeevan, humane conduct, evidence, and epistemic error — compared with Advaita Vedanta, modern Western philosophy, and natural science"/>
 <meta property="og:url" content="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Anatomy-Pass-One.html"/>
-<meta name="twitter:card" content="summary"/>
+<meta property="og:image" content="https://analyticmadhyasthdarshan.org/Assets/Social/og-default.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Research Note: Pass-One Anatomy of the Remaining *Jeevan* Activities"/>
+<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Research Note: Pass-One Anatomy of the Remaining *Jeevan* Activities"/>
 <meta name="twitter:description" content="What knowledge is, who the knower is, and what can be known: coexistence, jeevan, humane conduct, evidence, and epistemic error — compared with Advaita Vedanta, modern Western philosophy, and natural science"/>
+<meta name="twitter:image" content="https://analyticmadhyasthdarshan.org/Assets/Social/og-default.png"/>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Research Note: Pass-One Anatomy of the Remaining *Jeevan* Activities","description":"What knowledge is, who the knower is, and what can be known: coexistence, jeevan, humane conduct, evidence, and epistemic error — compared with Advaita Vedanta, modern Western philosophy, and natural science","url":"https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Anatomy-Pass-One.html","inLanguage":"en","author":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"publisher":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"dateModified":"2026-08-16T18:31:00+05:30"}
+{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Research Note: Pass-One Anatomy of the Remaining *Jeevan* Activities","description":"What knowledge is, who the knower is, and what can be known: coexistence, jeevan, humane conduct, evidence, and epistemic error — compared with Advaita Vedanta, modern Western philosophy, and natural science","url":"https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Anatomy-Pass-One.html","inLanguage":"en","author":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"publisher":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"image":"https://analyticmadhyasthdarshan.org/Assets/Social/og-default.png","dateModified":"2026-08-16T18:31:00+05:30"}
+</script>
+<script>
+(function(){try{var t=localStorage.getItem("amd-theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();
 </script>
 <style>
   @page {
@@ -147,6 +155,7 @@
     color: #333;
     font-weight: bold;
   }
+
   p {
     margin: 6pt 0;
     text-align: justify;
@@ -451,28 +460,157 @@
     content: " \2193";
     font-weight: 700;
   }
+  .study-theme-toggle {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #1a5276;
+    background: #fdfcfa;
+    border: 1px solid #d9d2c7;
+    border-radius: 999px;
+    padding: 3px 11px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .study-theme-toggle:hover { border-color: #1a5276; }
+  .study-theme-toggle:focus-visible {
+    outline: 2px solid #1a5276;
+    outline-offset: 2px;
+  }
+
+  /* Contents ---------------------------------------------------------------
+     Studies run past 30,000 words, so the sequential previous/next pair is not
+     enough to move around one. Closed by default so it costs no height; the
+     script below opens it where there is room. */
+  .study-toc {
+    max-width: 37rem;
+    margin: 1.6em 0 2.2em;
+    border: 1px solid #ddd6cc;
+    border-radius: 10px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+  }
+  .study-toc-summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 10px 15px;
+    cursor: pointer;
+    list-style: none;
+  }
+  .study-toc-summary::-webkit-details-marker { display: none; }
+  .study-toc-summary::before {
+    content: "";
+    flex: 0 0 auto;
+    width: 6px;
+    height: 6px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(-45deg);
+    transition: transform 0.15s ease;
+  }
+  .study-toc[open] > .study-toc-summary::before { transform: rotate(45deg); }
+  .study-toc-summary:hover { background: #faf7f2; }
+  .study-toc-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #2c241c;
+  }
+  .study-toc-meta { font-size: 12px; color: #6b6357; }
+  .study-toc-nav {
+    max-height: 58vh;
+    overflow-y: auto;
+    padding: 2px 15px 13px;
+  }
+  .study-toc-list { list-style: none; margin: 0; padding: 0; }
+  .study-toc-item { margin: 0; }
+  .study-toc-item > a {
+    display: block;
+    padding: 3px 0;
+    font-size: 13.5px;
+    line-height: 1.35;
+    color: #1a5276;
+    text-decoration: none;
+  }
+  .study-toc-item > a:hover { text-decoration: underline; }
+  .study-toc-l1 { margin-top: 9px; }
+  .study-toc-l1:first-child { margin-top: 0; }
+  .study-toc-l1 > a { font-weight: 700; color: #2c241c; }
+  .study-toc-l2 > a { padding-left: 15px; }
+  .study-toc-l3 > a { padding-left: 30px; font-size: 12.5px; color: #4d6f86; }
+  @media (prefers-reduced-motion: reduce) {
+    .study-toc-summary::before { transition: none; }
+  }
+
+  /* Reading measure --------------------------------------------------------
+     The PDF is rendered from this same HTML, so anything that governs reading
+     on screen is confined to @media screen. The bare rules and the @media
+     print block above remain the print baseline and are left alone. */
+  @media screen {
+    body {
+      font-size: 17px;
+      line-height: 1.62;
+      max-width: 46rem;
+      margin: 32px auto 88px;
+      padding: 0 22px;
+    }
+    /* Roughly 68 characters. The container stays wide enough for tables and
+       figures while running text keeps a measure the eye can track back. */
+    p, ul, ol, blockquote, .quote-source, dl {
+      max-width: 37rem;
+    }
+    p {
+      margin: 0.72em 0;
+      text-align: left;
+      hyphens: auto;
+    }
+    h1 { font-size: 2.05rem; line-height: 1.16; }
+    h2 { font-size: 1.5rem; margin-top: 2.3em; }
+    h3 { font-size: 1.18rem; margin-top: 1.85em; }
+    /* "1.2.1" is a sub-subsection but has to stay an h3 for the PDF outline,
+       so the distinction from "1.2" is carried here. */
+    h3[data-depth="3"] {
+      font-size: 1.0rem;
+      font-weight: 600;
+      margin-top: 1.45em;
+    }
+    h4 { font-size: 1.0rem; }
+  }
+  @media screen and (min-width: 760px) {
+    .study-toc { max-width: 46rem; }
+  }
+
   @media (max-width: 640px) {
     .study-toolbar-row--primary {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+      row-gap: 6px;
     }
-    .study-toolbar-back {
-      grid-column: 1;
+    /* Back and title share the first line and the actions take the second, so
+       the reader reaches the heading in two rows rather than four. */
+    .study-toolbar-back { grid-column: 1; justify-self: start; }
+    .study-toolbar-title {
+      grid-column: 2;
+      justify-self: end;
+      text-align: right;
+      font-size: 13px;
+      white-space: normal;
     }
     .study-toolbar-actions {
       grid-column: 1 / -1;
       justify-self: stretch;
-      justify-content: flex-end;
+      justify-content: space-between;
+      gap: 8px;
     }
-    .study-toolbar-title {
-      grid-column: 1 / -1;
-      white-space: normal;
-    }
-    .study-toolbar-section {
-      white-space: normal;
-    }
+    .study-toolbar-feedback { font-size: 11px; }
+    .study-toolbar-section { white-space: normal; }
+    .study-toc-nav { max-height: 52vh; }
   }
   @media print {
     .study-toolbar { display: none !important; }
+    .study-theme-toggle { display: none !important; }
+    .study-toc { display: none !important; }
     .skip-link { display: none !important; }
     .term-tip {
       border-bottom: none;
@@ -482,57 +620,67 @@
     .term-tip-panel { display: none !important; }
   }
 
+  @media screen {
+    html[data-theme="dark"] body { color: #e6dfd6; background: #1a1815; }
+    html[data-theme="dark"] h1, html[data-theme="dark"] h2, html[data-theme="dark"] h3, html[data-theme="dark"] h4 { color: #f5f1ec; }
+    html[data-theme="dark"] h1 { border-bottom-color: #6f655a; }
+    html[data-theme="dark"] h2 { border-bottom-color: #423b33; }
+    html[data-theme="dark"] a { color: #7ebbed; }
+    html[data-theme="dark"] a:visited { color: #9ec8e8; }
+    html[data-theme="dark"] blockquote { background: #26231e; border-left-color: #6f655a; color: #e6dfd6; }
+    html[data-theme="dark"] .quote-source { color: #aca194; }
+    html[data-theme="dark"] th { background: #2f2a24; border-color: #423b33; color: #f5f1ec; }
+    html[data-theme="dark"] td { border-color: #423b33; color: #e6dfd6; }
+    html[data-theme="dark"] tr:nth-child(even) { background: #1e1b18; }
+    html[data-theme="dark"] code { background: #2f2a24; color: #f0e8dc; }
+    html[data-theme="dark"] pre { background: #1e1b18; color: #e6dfd6; }
+    html[data-theme="dark"] .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
+    html[data-theme="dark"] .study-toolbar-link { color: #7ebbed; }
+    html[data-theme="dark"] .study-toolbar-link:hover { color: #b8daf3; }
+    html[data-theme="dark"] .study-toolbar-title { color: #f5f1ec; }
+    html[data-theme="dark"] .study-toolbar-draft { color: #aca194; }
+    html[data-theme="dark"] .study-toolbar-section.is-disabled { color: #6f655a; }
+    html[data-theme="dark"] .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    html[data-theme="dark"] .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
+    html[data-theme="dark"] .study-toc { border-color: #423b33; }
+    html[data-theme="dark"] .study-toc-summary:hover { background: #1e1b18; }
+    html[data-theme="dark"] .study-toc-label { color: #f5f1ec; }
+    html[data-theme="dark"] .study-toc-meta { color: #aca194; }
+    html[data-theme="dark"] .study-toc-list a { color: #7ebbed; }
+    html[data-theme="dark"] .study-toc-l1 > a { color: #f5f1ec; }
+    html[data-theme="dark"] .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
+    html[data-theme="dark"] .study-theme-toggle:hover { border-color: #7ebbed; }
+  }
   @media screen and (prefers-color-scheme: dark) {
-    body {
-      color: #e6dfd6;
-      background: #1a1815;
-    }
-    h1, h2, h3, h4 {
-      color: #f5f1ec;
-    }
-    h1 { border-bottom-color: #6f655a; }
-    h2 { border-bottom-color: #423b33; }
-    a { color: #7ebbed; }
-    a:visited { color: #9ec8e8; }
-    blockquote {
-      background: #26231e;
-      border-left-color: #6f655a;
-      color: #e6dfd6;
-    }
-    .quote-source { color: #aca194; }
-    th {
-      background: #2f2a24;
-      border-color: #423b33;
-      color: #f5f1ec;
-    }
-    td {
-      border-color: #423b33;
-      color: #e6dfd6;
-    }
-    tr:nth-child(even) { background: #1e1b18; }
-    code {
-      background: #2f2a24;
-      color: #f0e8dc;
-    }
-    pre {
-      background: #1e1b18;
-      color: #e6dfd6;
-    }
-    .study-toolbar {
-      background: rgba(26, 24, 21, 0.92);
-      border-color: #423b33;
-    }
-    .study-toolbar-link { color: #7ebbed; }
-    .study-toolbar-link:hover { color: #b8daf3; }
-    .study-toolbar-title { color: #f5f1ec; }
-    .study-toolbar-draft { color: #aca194; }
-    .study-toolbar-section.is-disabled { color: #6f655a; }
-    .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
-    .term-tip-panel {
-      color: #e6dfd6;
-      background: #26231e;
-      border-color: #423b33;
-    }
+    html:not([data-theme="light"]) body { color: #e6dfd6; background: #1a1815; }
+    html:not([data-theme="light"]) h1, html:not([data-theme="light"]) h2, html:not([data-theme="light"]) h3, html:not([data-theme="light"]) h4 { color: #f5f1ec; }
+    html:not([data-theme="light"]) h1 { border-bottom-color: #6f655a; }
+    html:not([data-theme="light"]) h2 { border-bottom-color: #423b33; }
+    html:not([data-theme="light"]) a { color: #7ebbed; }
+    html:not([data-theme="light"]) a:visited { color: #9ec8e8; }
+    html:not([data-theme="light"]) blockquote { background: #26231e; border-left-color: #6f655a; color: #e6dfd6; }
+    html:not([data-theme="light"]) .quote-source { color: #aca194; }
+    html:not([data-theme="light"]) th { background: #2f2a24; border-color: #423b33; color: #f5f1ec; }
+    html:not([data-theme="light"]) td { border-color: #423b33; color: #e6dfd6; }
+    html:not([data-theme="light"]) tr:nth-child(even) { background: #1e1b18; }
+    html:not([data-theme="light"]) code { background: #2f2a24; color: #f0e8dc; }
+    html:not([data-theme="light"]) pre { background: #1e1b18; color: #e6dfd6; }
+    html:not([data-theme="light"]) .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
+    html:not([data-theme="light"]) .study-toolbar-link { color: #7ebbed; }
+    html:not([data-theme="light"]) .study-toolbar-link:hover { color: #b8daf3; }
+    html:not([data-theme="light"]) .study-toolbar-title { color: #f5f1ec; }
+    html:not([data-theme="light"]) .study-toolbar-draft { color: #aca194; }
+    html:not([data-theme="light"]) .study-toolbar-section.is-disabled { color: #6f655a; }
+    html:not([data-theme="light"]) .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    html:not([data-theme="light"]) .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
+    html:not([data-theme="light"]) .study-toc { border-color: #423b33; }
+    html:not([data-theme="light"]) .study-toc-summary:hover { background: #1e1b18; }
+    html:not([data-theme="light"]) .study-toc-label { color: #f5f1ec; }
+    html:not([data-theme="light"]) .study-toc-meta { color: #aca194; }
+    html:not([data-theme="light"]) .study-toc-list a { color: #7ebbed; }
+    html:not([data-theme="light"]) .study-toc-l1 > a { color: #f5f1ec; }
+    html:not([data-theme="light"]) .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
+    html:not([data-theme="light"]) .study-theme-toggle:hover { border-color: #7ebbed; }
   }
 
 </style>
@@ -544,9 +692,12 @@
     <a class="study-toolbar-link study-toolbar-back" href="../index.html#study-Research-Note-Jeevan-Activity-Anatomy-Pass-One">&larr; All studies</a>
     <p class="study-toolbar-title">Research Note: Pass-One Anatomy of the Remaining *Jeevan* Activities</p>
     <span class="study-toolbar-actions">
-      <a class="study-toolbar-link study-toolbar-discuss" href="discussion.html?dv=2">Discuss</a>
+      <a class="study-toolbar-link study-toolbar-discuss" href="discussion.html?dv=3">Discuss</a>
       <a class="study-toolbar-link study-toolbar-download" href="Research-Note-Jeevan-Activity-Anatomy-Pass-One.pdf" download>Download PDF</a>
       <a class="study-toolbar-link study-toolbar-feedback" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&title=Study%20feedback%3A%20Research%20Note%3A%20Pass-One%20Anatomy%20of%20the%20Remaining%20%2AJeevan%2A%20Activities">Suggest a correction</a>
+      <button type="button" class="study-theme-toggle" id="study-theme-toggle" aria-label="Switch color theme">
+        <span class="study-theme-toggle-label">Dark</span>
+      </button>
     </span>
   </div>
   <div class="study-toolbar-row study-toolbar-row--sections">
@@ -558,9 +709,94 @@
 <p><strong>Author:</strong> Raghava Mohan Madhwapathi (<a href="https://analyticmadhyasthdarshan.org">analyticmadhyasthdarshan.org</a>)</p>
 <p><strong>Edited on:</strong> August 16, 2026, 6:31 PM IST</p>
 <p><strong>Status:</strong> Internal research note (not a catalog entry). Pass One of the activity-to-sphere analysis.</p>
-<p><strong>Scope:</strong> This register completes source and activity-anatomy coding for the 106 activity-members not already analysed in the eight <a href="Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers.md">pilot dossiers</a>. Together, the pilot&rsquo;s sixteen records and this register&rsquo;s 106 records cover all 122 tabulated positions. This pass records source assignment, entry form, bearer, object, counterpart, endpoint, governing criterion, pair semantics, and documentary uncertainty. It does not code lifecycle conditions, spheres, family forms, or institutions. Section 7 specifies the normalization gate required before those 122 anatomy records become a comparable Pass-Two dataset.</p>
+<p><strong>Scope:</strong> This register completes source and activity-anatomy coding for the 106 activity-members not already analysed in the eight <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers.html">pilot dossiers</a>. Together, the pilot&rsquo;s sixteen records and this register&rsquo;s 106 records cover all 122 tabulated positions. This pass records source assignment, entry form, bearer, object, counterpart, endpoint, governing criterion, pair semantics, and documentary uncertainty. It does not code lifecycle conditions, spheres, family forms, or institutions. Section 7 specifies the normalization gate required before those 122 anatomy records become a comparable Pass-Two dataset.</p>
+<details class="study-toc" id="study-contents">
+  <summary class="study-toc-summary">
+    <span class="study-toc-label">Contents</span>
+    <span class="study-toc-meta">9 sections &middot; 75 headings</span>
+  </summary>
+  <nav class="study-toc-nav" aria-label="Contents">
+    <ol class="study-toc-list">
+      <li class="study-toc-item study-toc-l1"><a href="#1-method-and-limits">1. Method and limits</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#2-buddhi-one-remaining-pair">2. Buddhi: one remaining pair</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#b-01-anand-dhee">B-01 - Anand / dhee</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#3-chitta-seven-remaining-pairs">3. Chitta: seven remaining pairs</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#c-01-shruti-smriti">C-01 - Shruti / smriti</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#c-02-medha-kala">C-02 - Medha / kala</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#c-03-kanti-roop">C-03 - Kanti / roop</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#c-05-santosh-shree">C-05 - Santosh / shree</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#c-06-prem-ananyata">C-06 - Prem / ananyata</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#c-07-vatsalya-sahajta">C-07 - Vatsalya / sahajta</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#c-08-shraddha-pujyata">C-08 - Shraddha / pujyata</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#4-vritti-sixteen-remaining-pairs">4. Vritti: sixteen remaining pairs</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#v-01-vidya-pragya">V-01 - Vidya / pragya</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#v-02-keerti-vichar">V-02 - Keerti / vichar</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#v-03-nishchaya-dhairya">V-03 - Nishchaya / dhairya</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#v-04-shanti-daya">V-04 - Shanti / daya</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#v-05-krupa-karuna">V-05 - Krupa / karuna</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#v-06-dum-kshama">V-06 - Dum / kshama</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#v-07-tatparta-utsah">V-07 - Tatparta / utsah</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#v-08-kritagyata-saumyata">V-08 - Kritagyata / saumyata</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#v-09-gaurav-saralta">V-09 - Gaurav / saralta</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#v-10-vishwas-saujanyata">V-10 - Vishwas / saujanyata</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#v-11-satya-dharma">V-11 - Satya / dharma</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#v-13-tadatmayata-sahas">V-13 - Tadatmayata / sahas</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#v-14-samyama-niyam">V-14 - Samyama / niyam</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#v-15-veerta-dheerta">V-15 - Veerta / dheerta</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#v-16-bhav-samveg">V-16 - Bhav / samveg</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#v-17-jati-kaal">V-17 - Jati / kaal</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#5-mun-twenty-nine-remaining-pairs">5. Mun: twenty-nine remaining pairs</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#m-01-bhakti-tanmayata">M-01 - Bhakti / tanmayata</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#m-02-mamta-udarta">M-02 - Mamta / udarta</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#m-03-samman-sauhardta">M-03 - Samman / sauhardta</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#m-04-sneha-nishtha">M-04 - Sneha / nishtha</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#m-05-putra-putri-anurag">M-05 - Putra-putri / anurag</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#m-06-sathi-dayitva">M-06 - Sathi / dayitva</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#m-07-sahyogi-kartavya">M-07 - Sahyogi / kartavya</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#m-09-hita-svasthya">M-09 - Hita / svasthya</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#m-10-priya-pravrittiyan">M-10 - Priya / pravrittiyan</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#m-11-ullas-haas">M-11 - Ullas / haas</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#m-12-sheel-sankoch">M-12 - Sheel / sankoch</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#m-14-shishya-jigyasu">M-14 - Shishya / jigyasu</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#m-15-bhai-mitra-pragati">M-15 - Bhai-mitra / pragati</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#m-16-bahan-unnati">M-16 - Bahan / unnati</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#m-17-sweekruti-swagat">M-17 - Sweekruti / swagat</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#m-18-ruchi-pehchan">M-18 - Ruchi / pehchan</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#m-19-sukh-sfoorti">M-19 - Sukh / sfoorti</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#m-20-pati-patni-yatitva-satitva">M-20 - Pati-patni / yatitva-satitva</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#m-21-mata-poshan">M-21 - Mata / poshan</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#m-22-pita-sanrakshan">M-22 - Pita / sanrakshan</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#m-23-mridu-kathor-vahan-samvahan">M-23 - Mridu-kathor / vahan-samvahan</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#m-25-khatta-poshan">M-25 - Khatta / poshan</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#m-26-meetha-poshan">M-26 - Meetha / poshan</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#m-27-chirchira-charpara-poshan">M-27 - Chirchira-charpara / poshan</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#m-28-kadua-poshan">M-28 - Kadua / poshan</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#m-29-kasaila-poshan">M-29 - Kasaila / poshan</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#m-30-khara-poshan">M-30 - Khara / poshan</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#m-31-sugandh-durgandh-shvasan-nihshvasan">M-31 - Sugandh-durgandh / shvasan-nihshvasan</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#m-32-suroop-kuroop-swagat-aswagat">M-32 - Suroop-kuroop / swagat-aswagat</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#6-pass-one-findings-across-the-106-records">6. Pass-One findings across the 106 records</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#61-entry-forms-are-irreducibly-heterogeneous">6.1 Entry forms are irreducibly heterogeneous</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#62-counterparts-arise-from-definitions-not-from-a-social-taxonomy">6.2 Counterparts arise from definitions, not from a social taxonomy</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#63-endpoints-and-criteria-are-not-equally-explicit">6.3 Endpoints and criteria are not equally explicit</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#64-pair-semantics-remain-plural">6.4 Pair semantics remain plural</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#65-documentary-residuals-carried-forward">6.5 Documentary residuals carried forward</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#7-normalization-gate-before-pass-two">7. Normalization gate before Pass Two</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#71-field-level-provenance">7.1 Field-level provenance</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#72-four-locations-that-must-not-be-collapsed">7.2 Four locations that must not be collapsed</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#73-entry-form-specific-lifecycle-paths">7.3 Entry-form-specific lifecycle paths</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#74-external-relation-necessity-scope-and-universality">7.4 External relation, necessity scope, and universality</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#75-textual-social-vocabulary-is-input-not-an-independent-discovery">7.5 Textual social vocabulary is input, not an independent discovery</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#76-normalization-completion-criteria">7.6 Normalization completion criteria</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#8-completion-statement-and-handoff-to-pass-two">8. Completion statement and handoff to Pass Two</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#references">References</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#madhyasth-darshan">Madhyasth Darshan</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#related-research-notes">Related research notes</a></li>
+    </ol>
+  </nav>
+</details>
 <h2 id="1-method-and-limits">1. Method and limits</h2>
-<p>The AVD table governs which member occupies the <em>bal</em> and <em>shakti</em> columns (AVD, pp. 91-94). The detailed MVD definitions govern the content assigned to those names (MVD, pp. 328-348). Every record below was checked against both presentations through <a href="Research-Note-Activity-Pair-Inventory.md"><em>The Sixty-One Activity Pairs of Jeevan</em></a>, which preserves the Hindi wording, English rendering, translation variants, and the cases in which a definition does not behave like the name of an operation.</p>
+<p>The AVD table governs which member occupies the <em>bal</em> and <em>shakti</em> columns (AVD, pp. 91-94). The detailed MVD definitions govern the content assigned to those names (MVD, pp. 328-348). Every record below was checked against both presentations through <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Activity-Pair-Inventory.html"><em>The Sixty-One Activity Pairs of Jeevan</em></a>, which preserves the Hindi wording, English rendering, translation variants, and the cases in which a definition does not behave like the name of an operation.</p>
 <p>The fields have deliberately narrow meanings. <strong>Entry form</strong> asks what kind of item the source has placed in the activity slot. <strong>Bearer</strong> asks whether the item is borne by <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, a human role, a relationship, the body, a material unit, or a result. <strong>Object</strong> is what the member concerns. <strong>Counterpart</strong> is another participant or entity required by the definition; “none stated” does not deny later outward evidence. <strong>Endpoint</strong> is the nearest fulfilment named or implied by the definition. <strong>Criterion</strong> distinguishes fulfilment from a plausible imitation. Where the definition does not supply such a distinction, the field remains open rather than being filled from a preferred social model.</p>
 <p>The codes retain the pilot convention: <strong>D</strong> is directly stated, <strong>I</strong> is a structural inference from stated content, and <strong>O</strong> marks an unresolved documentary or interpretive question. Pair semantics are always narrower than the mere fact of pairing. No record assumes that the <em>shakti</em> member is an outward performance caused by its <em>bal</em> partner. Because these compact records sometimes place direct source content and interpretation in one row, the normalization gate must assign provenance to each field separately before comparison.</p>
 <p>Throughout the five-pass analysis, <strong>voice</strong> has a precise operational meaning: the effective, supported opportunity of a person, counterpart, or affected party to express understanding, needs, expectations, agreement, and disagreement; to participate in deliberation and decisions that affect them; to have what they express considered and answered with reasons; and to refuse, challenge, or appeal without retaliation. It means neither mere permission to speak nor equal authority in every decision. Pass One does not yet code voice as an environmental condition, but its counterpart, endpoint, and criterion fields supply the activity anatomy from which later passes derive this requirement.</p>
@@ -614,7 +850,7 @@
 </tbody>
 </table></div>
 <h2 id="2-buddhi-one-remaining-pair">2. <em>Buddhi</em>: one remaining pair</h2>
-<h3>B-01 - <em>Anand / dhee</em></h3>
+<h3 id="b-01-anand-dhee">B-01 - <em>Anand / dhee</em></h3>
 <p><strong>Source check:</strong> AVD, p. 91; MVD, pp. 327-328. The detailed passage explicitly names bliss and <em>dhee</em> as the pinnacle of acceptance of the state and motion of awakening.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -659,7 +895,7 @@
 </table></div>
 <p><strong>Pair semantics and limit:</strong> The source directly distinguishes the accepted state and motion of awakening as <em>anand</em> and <em>dhee</em> (<strong>D</strong>). Treating <em>dhee</em> as a general executive power, or treating bodily festivity as sufficient evidence of either member, would exceed this definition (<strong>O</strong>).</p>
 <h2 id="3-chitta-seven-remaining-pairs">3. <em>Chitta</em>: seven remaining pairs</h2>
-<h3>C-01 - <em>Shruti / smriti</em></h3>
+<h3 id="c-01-shruti-smriti">C-01 - <em>Shruti / smriti</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 91-92; MVD, pp. 328-329.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -703,7 +939,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> The pair joins first articulation with repeatable presentation of understood content (<strong>I</strong>). It does not establish that <em>smriti</em> is bodily memory storage or that repetition alone is evidence of understanding (<strong>O</strong>).</p>
-<h3>C-02 - <em>Medha / kala</em></h3>
+<h3 id="c-02-medha-kala">C-02 - <em>Medha / kala</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 91-92; MVD, p. 329. The earlier unpaired glossary calls <em>medha</em> the bearer of <em>kala</em>; the paired definition calls it the carrier-bearer of memory and also connects it with direct recognition of art.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -747,7 +983,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> The definitions support a relation between a capacity that carries and recognises art and the activity of artful beautification (<strong>I</strong>). The two formulations of <em>medha</em> are not identical, so no single causal sequence is asserted (<strong>O</strong>).</p>
-<h3>C-03 - <em>Kanti / roop</em></h3>
+<h3 id="c-03-kanti-roop">C-03 - <em>Kanti / roop</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 91-92; MVD, p. 329.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -791,7 +1027,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> The source pairs cognitive illumination with form as visualised content, but gives no explicit rule connecting them (<strong>O</strong>). <em>Roop</em> is treated as an object or property, not silently converted into a second private operation.</p>
-<h3>C-05 - <em>Santosh / shree</em></h3>
+<h3 id="c-05-santosh-shree">C-05 - <em>Santosh / shree</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 91-92; MVD, p. 330.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -835,7 +1071,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> The pair joins experienced contentment with accepted continuity of prosperity (<strong>I</strong>). The definition does not specify a household, property regime, quantity of surplus, or distribution rule (<strong>O</strong>).</p>
-<h3>C-06 - <em>Prem / ananyata</em></h3>
+<h3 id="c-06-prem-ananyata">C-06 - <em>Prem / ananyata</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 91-92; MVD, p. 330.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -879,7 +1115,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> Realisation of completeness and non-other complementary participation form a coherent relation (<strong>I</strong>), but the text does not say that one member temporally produces the other.</p>
-<h3>C-07 - <em>Vatsalya / sahajta</em></h3>
+<h3 id="c-07-vatsalya-sahajta">C-07 - <em>Vatsalya / sahajta</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 91-92; MVD, pp. 330-331.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -923,7 +1159,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> The pairing places sustained guidance beside effortless congruence, but the source does not state whether the second is the result, manner, or independent companion of the first (<strong>O</strong>).</p>
-<h3>C-08 - <em>Shraddha / pujyata</em></h3>
+<h3 id="c-08-shraddha-pujyata">C-08 - <em>Shraddha / pujyata</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 91-92; MVD, p. 331.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -968,7 +1204,7 @@
 </table></div>
 <p><strong>Pair semantics and limit:</strong> Both definitions name movement or activeness toward awakening (<strong>D</strong>); they do not supply a stable distinction between the two slots beyond their names and wording (<strong>O</strong>).</p>
 <h2 id="4-vritti-sixteen-remaining-pairs">4. <em>Vritti</em>: sixteen remaining pairs</h2>
-<h3>V-01 - <em>Vidya / pragya</em></h3>
+<h3 id="v-01-vidya-pragya">V-01 - <em>Vidya / pragya</em></h3>
 <p><strong>Source check:</strong> AVD, p. 92; MVD, pp. 331-332.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -1012,7 +1248,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> The pair relates systematic reality-acceptance to refined, truth-differentiating consciousness (<strong>I</strong>). The source does not define a curricular sequence between them.</p>
-<h3>V-02 - <em>Keerti / vichar</em></h3>
+<h3 id="v-02-keerti-vichar">V-02 - <em>Keerti / vichar</em></h3>
 <p><strong>Source check:</strong> AVD, p. 92; MVD, p. 332.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -1056,7 +1292,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> Both members contain activeness and presentation (<strong>D</strong>). Their narrower distinction - awakening-oriented repute versus truth-unfolding thought - is defensible, but a state-to-motion relation is not (<strong>O</strong>).</p>
-<h3>V-03 - <em>Nishchaya / dhairya</em></h3>
+<h3 id="v-03-nishchaya-dhairya">V-03 - <em>Nishchaya / dhairya</em></h3>
 <p><strong>Source check:</strong> AVD, p. 92; MVD, p. 332.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -1100,7 +1336,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> The pair presents two continuities, one governed by truth and purpose and the other by justice (<strong>D</strong>). No temporal or causal ordering is stated.</p>
-<h3>V-04 - <em>Shanti / daya</em></h3>
+<h3 id="v-04-shanti-daya">V-04 - <em>Shanti / daya</em></h3>
 <p><strong>Source check:</strong> AVD, p. 92; MVD, pp. 332-333.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -1144,7 +1380,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> The source pairs inward peace with other-regarding kindness but does not state their functional interface (<strong>O</strong>).</p>
-<h3>V-05 - <em>Krupa / karuna</em></h3>
+<h3 id="v-05-krupa-karuna">V-05 - <em>Krupa / karuna</em></h3>
 <p><strong>Source check:</strong> AVD, p. 92; MVD, p. 333.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -1188,7 +1424,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> A capacity to provide fitting help and the activity of inspiring and helping form a close relational pair (<strong>I</strong>). The definitions overlap, so a strict division of labour remains open (<strong>O</strong>).</p>
-<h3>V-06 - <em>Dum / kshama</em></h3>
+<h3 id="v-06-dum-kshama">V-06 - <em>Dum / kshama</em></h3>
 <p><strong>Source check:</strong> AVD, p. 92; MVD, p. 333.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -1232,7 +1468,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> Self-release from decline and resilience while helping another against decline are structurally related (<strong>I</strong>). The definition of forgiveness here should not be replaced by a general legal or interpersonal theory of pardon.</p>
-<h3>V-07 - <em>Tatparta / utsah</em></h3>
+<h3 id="v-07-tatparta-utsah">V-07 - <em>Tatparta / utsah</em></h3>
 <p><strong>Source check:</strong> AVD, p. 92; MVD, pp. 333-334.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -1276,7 +1512,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> Readiness and the courage-awareness that sustains it form a plausible dispositional relation (<strong>I</strong>), but the text does not make enthusiasm the cause of readiness.</p>
-<h3>V-08 - <em>Kritagyata / saumyata</em></h3>
+<h3 id="v-08-kritagyata-saumyata">V-08 - <em>Kritagyata / saumyata</em></h3>
 <p><strong>Source check:</strong> AVD, p. 92; MVD, p. 334.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -1320,7 +1556,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> The members are paired virtues but the source states no general relation between gratitude and humility (<strong>O</strong>).</p>
-<h3>V-09 - <em>Gaurav / saralta</em></h3>
+<h3 id="v-09-gaurav-saralta">V-09 - <em>Gaurav / saralta</em></h3>
 <p><strong>Source check:</strong> AVD, p. 92; MVD, p. 334.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -1364,7 +1600,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> A connection between emulation and simplicity is not supplied beyond their paired position (<strong>O</strong>). The record therefore does not turn <em>gaurav</em> into status deference.</p>
-<h3>V-10 - <em>Vishwas / saujanyata</em></h3>
+<h3 id="v-10-vishwas-saujanyata">V-10 - <em>Vishwas / saujanyata</em></h3>
 <p><strong>Source check:</strong> AVD, p. 92; MVD, pp. 334-335.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -1408,7 +1644,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> Trust as value-fulfilment and concordance as cooperative participation form a direct relational interface (<strong>I</strong>), without specifying an organisational form.</p>
-<h3>V-11 - <em>Satya / dharma</em></h3>
+<h3 id="v-11-satya-dharma">V-11 - <em>Satya / dharma</em></h3>
 <p><strong>Source check:</strong> AVD, p. 92; MVD, p. 335.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -1452,7 +1688,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> Both slots contain objects or criteria for <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Modification or tendency in *jeevan* — one of the faculties whose alignment supports or obstructs understanding.">vritti</button></span></em>, not unambiguously named mental operations (<strong>O</strong>). Their pairing connects truth with the innate nature by which units are understood (<strong>I</strong>), but the precise activity grammar remains unstated.</p>
-<h3>V-13 - <em>Tadatmayata / sahas</em></h3>
+<h3 id="v-13-tadatmayata-sahas">V-13 - <em>Tadatmayata / sahas</em></h3>
 <p><strong>Source check:</strong> AVD, p. 92; MVD, p. 336.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -1496,7 +1732,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> Inner decision toward eternalness and its possible expression in enduring conduct form a plausible interface (<strong>I</strong>). The text does not state that all courageous acts evidence <em>tadatmayata</em>.</p>
-<h3>V-14 - <em>Samyama / niyam</em></h3>
+<h3 id="v-14-samyama-niyam">V-14 - <em>Samyama / niyam</em></h3>
 <p><strong>Source check:</strong> AVD, p. 92; MVD, pp. 336-337.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -1540,7 +1776,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> The definitions support a held self-regulation and its participatory evidence (<strong>I</strong>). <em>Niyam</em> here should not be reduced to enacted law or administrative regulation.</p>
-<h3>V-15 - <em>Veerta / dheerta</em></h3>
+<h3 id="v-15-veerta-dheerta">V-15 - <em>Veerta / dheerta</em></h3>
 <p><strong>Source check:</strong> AVD, p. 92; MVD, p. 337.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -1584,7 +1820,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> The pair joins deployed capability with the firmness that sustains justice (<strong>I</strong>), while reversing any simple assumption that <em>bal</em> is inwardly static and <em>shakti</em> outwardly active.</p>
-<h3>V-16 - <em>Bhav / samveg</em></h3>
+<h3 id="v-16-bhav-samveg">V-16 - <em>Bhav / samveg</em></h3>
 <p><strong>Source check:</strong> AVD, p. 92; MVD, p. 337.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -1628,7 +1864,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> Value-responsibility and conjunction-derived impetus may connect orientation with mobilised participation (<strong>I</strong>), but the definition does not identify which conjunction or direction makes the momentum correct (<strong>O</strong>).</p>
-<h3>V-17 - <em>Jati / kaal</em></h3>
+<h3 id="v-17-jati-kaal">V-17 - <em>Jati / kaal</em></h3>
 <p><strong>Source check:</strong> AVD, p. 92; MVD, p. 337.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -1673,7 +1909,7 @@
 </table></div>
 <p><strong>Pair semantics and limit:</strong> These slots name dimensions of what is analysed rather than two clearly specified operations (<strong>O</strong>). The source gives no rule explaining why kind and duration form one pair.</p>
 <h2 id="5-mun-twenty-nine-remaining-pairs">5. <em>Mun</em>: twenty-nine remaining pairs</h2>
-<h3>M-01 - <em>Bhakti / tanmayata</em></h3>
+<h3 id="m-01-bhakti-tanmayata">M-01 - <em>Bhakti / tanmayata</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 92-94; MVD, p. 338.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -1717,7 +1953,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> Devotion and immersion share complete dedication toward awakening (<strong>I</strong>). The definition does not authorise identification of devotion with obedience to a person or organisation.</p>
-<h3>M-02 - <em>Mamta / udarta</em></h3>
+<h3 id="m-02-mamta-udarta">M-02 - <em>Mamta / udarta</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 92-94; MVD, pp. 338-339.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -1761,7 +1997,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> Affinitive care and the wider offering of capability and means form a relation of care and generous provision (<strong>I</strong>). The definitions do not limit the counterpart to a particular kinship form.</p>
-<h3>M-03 - <em>Samman / sauhardta</em></h3>
+<h3 id="m-03-samman-sauhardta">M-03 - <em>Samman / sauhardta</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 92-94; MVD, p. 339. The Hindi definition of <em>sauhardta</em> names <em>shruti</em>; the English source mistranslates it once as direct recognition.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -1805,7 +2041,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> The source pairs recognition of the other with faithful presentation of one&rsquo;s accepted content, suggesting transparent mutual regard (<strong>I</strong>). It does not state a uniform causal relation (<strong>O</strong>).</p>
-<h3>M-04 - <em>Sneha / nishtha</em></h3>
+<h3 id="m-04-sneha-nishtha">M-04 - <em>Sneha / nishtha</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 92-94; MVD, pp. 339-340.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -1849,7 +2085,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> Affection in just mutuality and dedication to awakened evidence are compatible orientations, but their exact pair relation is not stated (<strong>O</strong>).</p>
-<h3>M-05 - <em>Putra-putri / anurag</em></h3>
+<h3 id="m-05-putra-putri-anurag">M-05 - <em>Putra-putri / anurag</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 92-94; MVD, p. 340. The detailed <em>putra-putri</em> passage is syntactically irregular: its first Hindi clause ends by naming the father, and subsequent clauses describe recognition of parental contributions.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -1893,7 +2129,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> A named child-parent relation and success in fulfilling relationship-values form a plausible role-to-value relation (<strong>I</strong>). The mixed syntax prevents a stronger allocation of every parental responsibility to this member (<strong>O</strong>).</p>
-<h3>M-06 - <em>Sathi / dayitva</em></h3>
+<h3 id="m-06-sathi-dayitva">M-06 - <em>Sathi / dayitva</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 92-94; MVD, pp. 340-341. AVD and translations vary among <em>swami</em>, master, and <em>sathi</em>, companion; the detailed heading and definition use <em>sathi</em> while the English rendering says “master.”</p>
 <div class="table-scroll"><table>
 <thead>
@@ -1937,7 +2173,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> The pair places an evidence-bearing relational person-role beside responsible conduct (<strong>I</strong>). The lexical variant prevents deriving a fixed authority relation from the name (<strong>O</strong>).</p>
-<h3>M-07 - <em>Sahyogi / kartavya</em></h3>
+<h3 id="m-07-sahyogi-kartavya">M-07 - <em>Sahyogi / kartavya</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 92-94; MVD, p. 341.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -1981,7 +2217,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> A cooperative role and the value-fulfilling duties arising in relationships connect participation with responsibility (<strong>I</strong>). The source does not define permanent hierarchy or organisational rank.</p>
-<h3>M-09 - <em>Hita / svasthya</em></h3>
+<h3 id="m-09-hita-svasthya">M-09 - <em>Hita / svasthya</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 92-94; MVD, pp. 341-342.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -2025,7 +2261,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> Body-relative usefulness and bodily functional availability form a direct condition-capability relation (<strong>I</strong>). Neither definition supplies a complete theory of health or treatment.</p>
-<h3>M-10 - <em>Priya / pravrittiyan</em></h3>
+<h3 id="m-10-priya-pravrittiyan">M-10 - <em>Priya / pravrittiyan</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 92-94; MVD, p. 342.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -2069,7 +2305,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> The source pairs bodily-sensory conduciveness with the tendencies through which <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> projects, but supplies no narrower interface (<strong>O</strong>). The record therefore does not infer that pleasantness selects or causes the tendencies.</p>
-<h3>M-11 - <em>Ullas / haas</em></h3>
+<h3 id="m-11-ullas-haas">M-11 - <em>Ullas / haas</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 92-94; MVD, p. 342. The Hindi line appears as <em>hras</em> while its definition and English rendering concern joyousness or merriness; the tabulated assignment governs the retained name <em>haas</em>.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -2113,7 +2349,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> Both members concern the expression and motion of resolved uplift (<strong>I</strong>). The naming irregularity and semantic overlap prevent a sharper division (<strong>O</strong>).</p>
-<h3>M-12 - <em>Sheel / sankoch</em></h3>
+<h3 id="m-12-sheel-sankoch">M-12 - <em>Sheel / sankoch</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 92-94; MVD, pp. 342-343.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -2157,7 +2393,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> General civil authenticity and its difficult case - civil disagreement - form a credible relation (<strong>I</strong>). Neither member entails deference or suppression of dissent.</p>
-<h3>M-14 - <em>Shishya / jigyasu</em></h3>
+<h3 id="m-14-shishya-jigyasu">M-14 - <em>Shishya / jigyasu</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 92-94; MVD, pp. 343-344.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -2201,7 +2437,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> An accepted learner-role and active inquiry are complementary aspects of receptivity (<strong>I</strong>). The pair does not establish unilateral teaching authority or the truth of a teacher&rsquo;s claim by role.</p>
-<h3>M-15 - <em>Bhai-mitra / pragati</em></h3>
+<h3 id="m-15-bhai-mitra-pragati">M-15 - <em>Bhai-mitra / pragati</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 92-94; MVD, p. 344.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -2245,7 +2481,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> A close horizontal relation is paired with resolution-centred progress in wider participation, but the source does not explain the pairing (<strong>O</strong>). No institutional conclusion is coded.</p>
-<h3>M-16 - <em>Bahan / unnati</em></h3>
+<h3 id="m-16-bahan-unnati">M-16 - <em>Bahan / unnati</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 92-94; MVD, p. 344.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -2289,7 +2525,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> A close sibling relation is paired with prosperity-centred advancement, but the functional interface is not stated (<strong>O</strong>). The definition does not prescribe a gendered division of work.</p>
-<h3>M-17 - <em>Sweekruti / swagat</em></h3>
+<h3 id="m-17-sweekruti-swagat">M-17 - <em>Sweekruti / swagat</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 92-94; MVD, pp. 344-345. The <em>bal</em> definition itself uses the language of projection and evidencing, so the column assignment cannot be reconstructed from a static-versus-dynamic gloss.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -2333,7 +2569,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> The definitions support accepted content in evidential projection beside preparation for such evidence (<strong>I</strong>). Their order does not match a simple held-state/outward-motion schema, and the exact distinction remains partly open (<strong>O</strong>).</p>
-<h3>M-18 - <em>Ruchi / pehchan</em></h3>
+<h3 id="m-18-ruchi-pehchan">M-18 - <em>Ruchi / pehchan</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 92-94; MVD, p. 345.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -2377,7 +2613,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> The definitions overlap in recognition of a sensory-material result; the second makes elements and total conjunction explicit (<strong>I</strong>). A sharper taste-versus-selection distinction is not stated (<strong>O</strong>).</p>
-<h3>M-19 - <em>Sukh / sfoorti</em></h3>
+<h3 id="m-19-sukh-sfoorti">M-19 - <em>Sukh / sfoorti</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 92-94; MVD, p. 345.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -2421,7 +2657,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> This is a relatively direct resolved-condition and evidential-tendency pairing (<strong>I</strong>). The brief definitions do not specify the domain in which resolution is to be evidenced.</p>
-<h3>M-20 - <em>Pati-patni / yatitva-satitva</em></h3>
+<h3 id="m-20-pati-patni-yatitva-satitva">M-20 - <em>Pati-patni / yatitva-satitva</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 92-94; MVD, pp. 345-346. The detailed passage names the spousal relation but defines the right-hand slot at length; it does not separately define the values or endpoint of the spousal role.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -2465,7 +2701,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> The source pairs a spousal relation with disciplined work and conduct for awakening, but does not explain whether the discipline is the relation&rsquo;s value, evidence, or an independent companion (<strong>O</strong>). No marriage form or authority rule follows at Pass One.</p>
-<h3>M-21 - <em>Mata / poshan</em></h3>
+<h3 id="m-21-mata-poshan">M-21 - <em>Mata / poshan</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 92-94; MVD, p. 346. The MVD prose treats mother and father together before defining <em>poshan</em>.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -2509,7 +2745,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> A named caregiving relation is paired with the general structure of nurturing as conducive conjunction (<strong>I</strong>). The shared mother-father wording prevents assigning every listed responsibility exclusively to the mother (<strong>O</strong>).</p>
-<h3>M-22 - <em>Pita / sanrakshan</em></h3>
+<h3 id="m-22-pita-sanrakshan">M-22 - <em>Pita / sanrakshan</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 92-94; MVD, p. 346. The parent-role clauses are shared with the preceding passage; <em>sanrakshan</em> is separately defined.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -2553,7 +2789,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> A named protective parent-role and protection as removal of obstacles form a direct role-function relation (<strong>I</strong>). The text does not establish exclusive paternal control or a fixed parental division of labour.</p>
-<h3>M-23 - <em>Mridu-kathor / vahan-samvahan</em></h3>
+<h3 id="m-23-mridu-kathor-vahan-samvahan">M-23 - <em>Mridu-kathor / vahan-samvahan</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 93-94; MVD, pp. 346-347. The detailed wording interweaves softness, hardness, bearing, and contraction rather than defining four terms separately.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -2597,7 +2833,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> The pair concerns tactile quality and bearing behaviour (<strong>I</strong>), but MVD&rsquo;s compound syntax does not establish a one-to-one mapping among its subterms (<strong>O</strong>).</p>
-<h3>M-25 - <em>Khatta / poshan</em></h3>
+<h3 id="m-25-khatta-poshan">M-25 - <em>Khatta / poshan</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 93-94; MVD, p. 347. The AVD table assigns <em>poshan</em> to the <em>shakti</em> column; the MVD definition presents sour through the recurring <em>poshan/shoshan</em> contrast without a separate second activity.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -2641,7 +2877,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> The sensory quality is assessed under a nourishing/depleting criterion (<strong>I</strong>). It is unresolved whether this <em>poshan</em> is one of six distinct activities, one repeated activity, or tabular shorthand (<strong>O</strong>).</p>
-<h3>M-26 - <em>Meetha / poshan</em></h3>
+<h3 id="m-26-meetha-poshan">M-26 - <em>Meetha / poshan</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 93-94; MVD, p. 347. The same column-definition mismatch as M-25 applies.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -2685,7 +2921,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> Sweetness does not equal nourishment; the pair places a sensory quality under a conducive/depleting assessment (<strong>I</strong>). The repeated-slot status of <em>poshan</em> remains <strong>O</strong>.</p>
-<h3>M-27 - <em>Chirchira-charpara / poshan</em></h3>
+<h3 id="m-27-chirchira-charpara-poshan">M-27 - <em>Chirchira-charpara / poshan</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 93-94; MVD, p. 347. The AVD table gives <em>chirchira</em> and the MVD heading gives <em>charpara</em>. Both are retained as a lexical variant for pungency.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -2729,7 +2965,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> The member-name variant and the recurring <em>poshan</em> slot are documentary facts; the nourishing/depleting assessment is the narrowest functional relation (<strong>I/O</strong>).</p>
-<h3>M-28 - <em>Kadua / poshan</em></h3>
+<h3 id="m-28-kadua-poshan">M-28 - <em>Kadua / poshan</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 93-94; MVD, p. 347. The same column-definition mismatch as M-25 applies.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -2773,7 +3009,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> Bitterness does not equal depletion; it is a sensory quality whose consequence must be assessed (<strong>I</strong>). The ontological status of the repeated <em>poshan</em> record remains <strong>O</strong>.</p>
-<h3>M-29 - <em>Kasaila / poshan</em></h3>
+<h3 id="m-29-kasaila-poshan">M-29 - <em>Kasaila / poshan</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 93-94; MVD, p. 347. The same column-definition mismatch as M-25 applies.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -2817,7 +3053,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> The pair supports sensory discrimination under a bodily-conduciveness criterion (<strong>I</strong>), while leaving the repeated <em>poshan</em> slot unresolved (<strong>O</strong>).</p>
-<h3>M-30 - <em>Khara / poshan</em></h3>
+<h3 id="m-30-khara-poshan">M-30 - <em>Khara / poshan</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 93-94; MVD, p. 347. The same column-definition mismatch as M-25 applies.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -2861,7 +3097,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> Saltiness and nourishment are not synonyms; bodily consequence governs the inferred relation (<strong>I</strong>). Whether six repeated <em>poshan</em> assignments are six members in more than a tabular sense remains <strong>O</strong>.</p>
-<h3>M-31 - <em>Sugandh-durgandh / shvasan-nihshvasan</em></h3>
+<h3 id="m-31-sugandh-durgandh-shvasan-nihshvasan">M-31 - <em>Sugandh-durgandh / shvasan-nihshvasan</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 93-94; MVD, pp. 347-348. The AVD table gives <em>shvasan/nihshvasan</em>; the MVD defining line gives <em>prashvasan/vishvasan</em>.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -2905,7 +3141,7 @@
 </tbody>
 </table></div>
 <p><strong>Pair semantics and limit:</strong> Sensory quality and its bodily respiratory correlate form the narrowest defensible relation (<strong>I</strong>). The lexical variants and absence of separate definitions for the subterms remain <strong>O</strong>.</p>
-<h3>M-32 - <em>Suroop-kuroop / swagat-aswagat</em></h3>
+<h3 id="m-32-suroop-kuroop-swagat-aswagat">M-32 - <em>Suroop-kuroop / swagat-aswagat</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 93-94; MVD, pp. 347-348. The AVD table names <em>swagat/aswagat</em>; the MVD definition presents the response as <em>apanapan/parayapan</em>, affinity and otherness.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -2950,15 +3186,15 @@
 </table></div>
 <p><strong>Pair semantics and limit:</strong> Visible form and an affinity/otherness response are directly paired (<strong>D</strong>), but the correctness of that response is underdetermined. Pass Two must not treat immediate attraction, exclusion, or cultural appearance standards as fulfilment.</p>
 <h2 id="6-pass-one-findings-across-the-106-records">6. Pass-One findings across the 106 records</h2>
-<h3>6.1 Entry forms are irreducibly heterogeneous</h3>
+<h3 id="61-entry-forms-are-irreducibly-heterogeneous" data-depth="2">6.1 Entry forms are irreducibly heterogeneous</h3>
 <p>The remaining members confirm the methodological decision made in the pilots. They include inward successes (<em>anand</em>, <em>shanti</em>, <em>sukh</em>), readinesses (<em>dhee</em>, <em>tatparta</em>, <em>swagat</em>), cognitive or expressive operations (<em>shruti</em>, <em>vidya</em>, <em>vichar</em>), relational values and acts (<em>vishwas</em>, <em>daya</em>, <em>mamta</em>), named person-roles (<em>shishya</em>, <em>mata</em>, <em>pita</em>), relationships (<em>pati-patni</em>, <em>bhai-mitra</em>, <em>bahan</em>), material properties (<em>roop</em>, <em>jati</em>, the sensory qualities), bodily states or processes (<em>svasthya</em>, <em>shvasan-nihshvasan</em>), and criteria or results (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satya" data-definition="Realisation perspective — whether assessment is grounded in coexistence as it is.">satya</button></span></em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, <em>poshan</em>). A uniform question such as “which institution activates this activity?” would therefore misclassify the source before social analysis begins.</p>
-<h3>6.2 Counterparts arise from definitions, not from a social taxonomy</h3>
+<h3 id="62-counterparts-arise-from-definitions-not-from-a-social-taxonomy" data-depth="2">6.2 Counterparts arise from definitions, not from a social taxonomy</h3>
 <p>Direct interpersonal counterparts are unavoidable in the definitions of kindness, grace, compassion, trust, generosity, learnerhood, cooperation, kinship, parenthood, and protection. Bodies and material objects are unavoidable in health, sensory contact, form, kind, and nourishing conjunction. Other members remain inward in their immediate bearer while implying later expression or evidence. These topologies have been recorded without deciding that a recurrent counterpart must be housed in family, school, court, workplace, market, or any other institution.</p>
-<h3>6.3 Endpoints and criteria are not equally explicit</h3>
+<h3 id="63-endpoints-and-criteria-are-not-equally-explicit" data-depth="2">6.3 Endpoints and criteria are not equally explicit</h3>
 <p>Many definitions supply their own criterion: truth for <em>nishchaya</em>, justice for <em>dhairya</em> and <em>veerta</em>, receptivity for <em>daya</em> and <em>krupa</em>, bodily wellness for <em>priya</em>, humaneness for <em>samyama</em>, and conduciveness for <em>poshan</em>. Others name a content but not its correctness condition. The relation of <em>gaurav</em> to a worthy exemplar, the criterion governing affinity or otherness after visible form, the values specific to the spousal slot, and the functional reason for pairing kind with time remain open. Pass Two must preserve these gaps rather than filling them with conventional norms.</p>
-<h3>6.4 Pair semantics remain plural</h3>
+<h3 id="64-pair-semantics-remain-plural" data-depth="2">6.4 Pair semantics remain plural</h3>
 <p>The records disclose several recurring but non-exhaustive relations: held condition and readiness (<em>anand/dhee</em>), articulation and repeatability (<em>shruti/smriti</em>), capacity and artful activity (<em>medha/kala</em>), inner regulation and outward participation (<em>samyama/niyam</em>), relational role and value-bearing conduct (<em>sathi/dayitva</em>), sensory quality and bodily correlate (<em>sugandh-durgandh/shvasan-nihshvasan</em>), and property paired with another analytic property (<em>jati/<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em>). Some pairs remain connected only by the source position. This plurality rules out reversing or extending the first member&rsquo;s analysis to fill the second.</p>
-<h3>6.5 Documentary residuals carried forward</h3>
+<h3 id="65-documentary-residuals-carried-forward" data-depth="2">6.5 Documentary residuals carried forward</h3>
 <p>Five residual classes must remain visible in Pass Two:</p>
 <ul>
 <li>the alternate definitions of <em>medha</em>;</li>
@@ -2970,9 +3206,9 @@
 <p>None prevents lifecycle analysis. Each prevents false precision.</p>
 <h2 id="7-normalization-gate-before-pass-two">7. Normalization gate before Pass Two</h2>
 <p>Pass One need not be redone. It has established the documentary identity and narrow anatomy of every slot. The next task is to normalize those records into a common 122-member feature matrix before adding lifecycle requirements. Normalization is necessary because a direct source term can coexist with an inferred bearer, endpoint, or criterion in the same compact row, and because apparently similar words can occupy different ontological and evidential locations.</p>
-<h3>7.1 Field-level provenance</h3>
+<h3 id="71-field-level-provenance" data-depth="2">7.1 Field-level provenance</h3>
 <p>Each member must receive a separate <strong>D</strong>, <strong>I</strong>, <strong>H</strong>, or <strong>O</strong> code for its entry form, ontological locus, bearer, object, constitutive counterpart, endpoint, and governing criterion. <strong>H</strong> is added for a provisional environmental, sphere, or organisational hypothesis. A direct definition of a role or result does not make the analyst&rsquo;s account of its endpoint or social condition direct. Open endpoints and criteria remain open through clustering unless later source evidence or an explicit argument resolves them.</p>
-<h3>7.2 Four locations that must not be collapsed</h3>
+<h3 id="72-four-locations-that-must-not-be-collapsed" data-depth="2">7.2 Four locations that must not be collapsed</h3>
 <p>The normalized record separates four fields:</p>
 <ol>
 <li><strong>Ontological locus</strong> - where the entry is borne: <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, body, relationship, material unit or process, result field, or disputed location.</li>
@@ -2981,9 +3217,9 @@
 <li><strong>Field of evidence and evaluation</strong> - where correctness becomes observable and which standpoints can assess it.</li>
 </ol>
 <p>An inward locus can therefore have relational or ecological consequences and public evidence. Conversely, a material property or bodily process can occupy a source activity slot without becoming a second private operation of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>.</p>
-<h3>7.3 Entry-form-specific lifecycle paths</h3>
+<h3 id="73-entry-form-specific-lifecycle-paths" data-depth="2">7.3 Entry-form-specific lifecycle paths</h3>
 <p>Each normalized member enters one primary path: inner operation or orientation; role or relation; material or sensory property; bodily process or state; criterion or result; or a documented residual. Pass Two will still examine development, orientation, performance, consequence, evaluation, correction, sustaining, and transmission, but the question changes with the entry form. A role requires a counterpart, responsibilities, protection, and succession; a property requires access, discrimination, use, and consequence; a bodily process requires conditions of capability and restoration; a result requires the operations, evidence, and affected parties through which it is achieved. This branching prevents semantic objects and results from being redescribed as unobserved mental acts.</p>
-<h3>7.4 External relation, necessity scope, and universality</h3>
+<h3 id="74-external-relation-necessity-scope-and-universality" data-depth="2">7.4 External relation, necessity scope, and universality</h3>
 <p>Every proposed external condition will be classified by three independent dimensions.</p>
 <div class="table-scroll"><table>
 <thead>
@@ -3012,9 +3248,9 @@
 </tbody>
 </table></div>
 <p>Thus a protected opportunity for a counterpart to speak may be <code>PROT; N-EVD; U-H; I</code> without being declared necessary for the inward occurrence of the bearer&rsquo;s deliberation. A particular court procedure may be <code>CORR; C-COR; V-C; H</code> even if access to independent correction is a universal functional requirement.</p>
-<h3>7.5 Textual social vocabulary is input, not an independent discovery</h3>
+<h3 id="75-textual-social-vocabulary-is-input-not-an-independent-discovery" data-depth="2">7.5 Textual social vocabulary is input, not an independent discovery</h3>
 <p>The source directly names roles, relationships, family, education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em>, production, exchange, and universal orderliness in some passages and member definitions. The normalized matrix will retain these as <strong>D</strong> textual commitments and tag them as source-embedded social vocabulary. Later clustering must hide those labels. If a role or social function reappears after institution-neutral feature comparison, that convergence strengthens the proposed structure; if it appears only because its name was visible to the coder, it cannot count as a bottom-up derivation.</p>
-<h3>7.6 Normalization completion criteria</h3>
+<h3 id="76-normalization-completion-criteria" data-depth="2">7.6 Normalization completion criteria</h3>
 <p>The gate is complete only when all 122 records have:</p>
 <ul>
 <li>one primary entry form and an explicit residual flag where needed;</li>
@@ -3027,19 +3263,19 @@
 <p>The normalized feature matrix then becomes the fixed input to Pass Two. Normalization may clarify wording or split a mixed field, but it must not silently change the documentary assignment established here.</p>
 <h2 id="8-completion-statement-and-handoff-to-pass-two">8. Completion statement and handoff to Pass Two</h2>
 <p>Pass One is complete at the declared grain. The eight pilots supply sixteen checked anatomy records; this register supplies 106. All sixty-one AVD positions and all 122 column assignments now have an identified entry form, bearer, object, counterpart, endpoint, criterion, and pair-semantics statement or an explicit open field.</p>
-<p>The normalization gate and Pass Two are now completed in the <a href="Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.md">Pass-Two Lifecycle and Evidence Register</a>. That register asks, member by member, what is required for development and receptivity, right orientation, embodied performance, consequence visibility, evaluation, correction, sustaining, and transmission. It records dependencies among activities of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> before external conditions and retains the institutional neutrality established here.</p>
+<p>The normalization gate and Pass Two are now completed in the <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.html">Pass-Two Lifecycle and Evidence Register</a>. That register asks, member by member, what is required for development and receptivity, right orientation, embodied performance, consequence visibility, evaluation, correction, sustaining, and transmission. It records dependencies among activities of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> before external conditions and retains the institutional neutrality established here.</p>
 <h2 id="references">References</h2>
-<h3>Madhyasth Darshan</h3>
+<h3 id="madhyasth-darshan">Madhyasth Darshan</h3>
 <ul>
 <li><strong>AVD</strong> - A. Nagraj, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf"><em>Adhyatmvad</em></a>, tr. Sanjeev Chopra (work in progress). Cited: the five-column table, faculty allocation, and all sixty-one numbered <em>bal/shakti</em> assignments, including the repeated <em>poshan</em> positions and closing-name variants (pp. 91-94; §§1-5).</li>
 <li><strong>MVD</strong> - A. Nagraj, <a href="../../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.md"><em>Madhyasth Darshan - Co-existentialism</em></a>, tr. Rakesh Gupta. Cited: the state and motion of awakening as <em>anand/dhee</em> and the detailed definitions of the <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="buddhi" data-definition="Discriminative faculty in *jeevan* — part of the sentient unit's orbital structure with *mun*, *vritti*, and *chitta*.">buddhi</button></span></em> and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery.">chitta</button></span></em> members (pp. 327-331; §§2-3); the thirty-six <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Modification or tendency in *jeevan* — one of the faculties whose alignment supports or obstructs understanding.">vritti</button></span></em> definitions (pp. 331-338; §4); the sixty-four <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mun" data-definition="A faculty of *jeevan* — imagination and selection; part of the orbital structure with *buddhi*, *vritti*, and *chitta*.">mun</button></span></em> definitions, named relationships, bodily states, sensory qualities, bodily correlates, and nourishing/depleting contrast (pp. 338-348; §§5-6).</li>
 </ul>
-<h3>Related research notes</h3>
+<h3 id="related-research-notes">Related research notes</h3>
 <ul>
-<li><a href="Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers.md"><em>Bottom-Up Pilot Derivation of Jeevan Activity Spheres</em></a> - the sixteen pilot member records, method, and later-pass protocol.</li>
-<li><a href="Research-Note-Activity-Pair-Inventory.md"><em>The Sixty-One Activity Pairs of Jeevan</em></a> - bilingual source record, column assignments, and documentary variants.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers.html"><em>Bottom-Up Pilot Derivation of Jeevan Activity Spheres</em></a> - the sixteen pilot member records, method, and later-pass protocol.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Activity-Pair-Inventory.html"><em>The Sixty-One Activity Pairs of Jeevan</em></a> - bilingual source record, column assignments, and documentary variants.</li>
 <li><a href="Research-Template-Jeevan-Activity-Environment-Dossier.md"><em>Jeevan Activity-to-Sphere Dossier Template</em></a> - fields governing this pass and the later lifecycle analysis.</li>
-<li><a href="Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.md"><em>Pass-Two Lifecycle and Evidence Coding of All 122 Jeevan Members</em></a> - the completed normalization and lifecycle extension of all records in this register and the pilot.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.html"><em>Pass-Two Lifecycle and Evidence Coding of All 122 Jeevan Members</em></a> - the completed normalization and lifecycle extension of all records in this register and the pilot.</li>
 </ul></main>
 <script>
 (() => {
@@ -3192,6 +3428,39 @@
   document.addEventListener("keydown", event => {
     if (event.key === "Escape") hide();
   });
+})();
+</script>
+<script>
+(() => {
+  const toggle = document.getElementById("study-theme-toggle");
+  if (!toggle) return;
+  const label = toggle.querySelector(".study-theme-toggle-label");
+  const root = document.documentElement;
+  const system = window.matchMedia("(prefers-color-scheme: dark)");
+  const active = () => root.getAttribute("data-theme") || (system.matches ? "dark" : "light");
+  const paint = () => {
+    const next = active() === "dark" ? "Light" : "Dark";
+    if (label) label.textContent = next;
+    toggle.setAttribute("aria-label", `Switch to ${next.toLowerCase()} theme`);
+  };
+  toggle.addEventListener("click", () => {
+    const next = active() === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("amd-theme", next); } catch (e) {}
+    paint();
+  });
+  system.addEventListener("change", paint);
+  paint();
+})();
+</script>
+<script>
+(() => {
+  const toc = document.getElementById("study-contents");
+  if (!toc) return;
+  // Open where there is room to show it without pushing the study off screen.
+  if (window.matchMedia("(min-width: 760px)").matches && window.innerHeight >= 640) {
+    toc.open = true;
+  }
 })();
 </script>
 

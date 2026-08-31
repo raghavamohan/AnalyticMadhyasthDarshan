@@ -5,6 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>My Submissions - Analytic Madhyasth Darshan</title>
 <meta name="description" content="Track study proposals, submit drafts, and manage your contributions to the Analytic Madhyasth Darshan collection."/>
+<meta name="robots" content="noindex, follow"/>
+<link rel="canonical" href="https://analyticmadhyasthdarshan.org/Studies/submit.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="AnalyticMadhyasthDarshan.org"/>
+<meta property="og:title" content="My Submissions"/>
+<meta property="og:description" content="Propose a study, submit a draft, and follow its review through to release."/>
+<meta property="og:url" content="https://analyticmadhyasthdarshan.org/Studies/submit.html"/>
+<meta property="og:image" content="https://analyticmadhyasthdarshan.org/Assets/Social/og-default.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="My Submissions"/>
+<meta name="twitter:description" content="Propose a study, submit a draft, and follow its review through to release."/>
+<meta name="twitter:image" content="https://analyticmadhyasthdarshan.org/Assets/Social/og-default.png"/>
+<script>
+(function(){try{var t=localStorage.getItem("amd-theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();
+</script>
 <link rel="icon" href="/Assets/Icons/akhand-samaj-favicon.ico" sizes="any"/>
 <link rel="icon" type="image/svg+xml" href="/Assets/Icons/akhand-samaj-favicon.svg"/>
 <link rel="icon" type="image/png" sizes="32x32" href="/Assets/Icons/akhand-samaj-favicon-32.png"/>
@@ -56,6 +71,10 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
 .auth-btn:hover{opacity:0.92;}
 .login-gate{background:var(--warm-soft);border:1px solid #e0d0be;border-radius:8px;padding:14px 16px;margin-bottom:20px;font-family:var(--sans);font-size:14px;display:none;}
 .login-gate.visible{display:block;}
+.signed-out-lead{font-family:var(--sans);font-size:14px;line-height:1.55;color:var(--text-muted);margin:0 0 12px;max-width:62ch;}
+.signed-out-steps{font-family:var(--sans);font-size:14px;line-height:1.5;color:var(--text-muted);margin:0;padding-left:22px;max-width:62ch;}
+.signed-out-steps li{margin:0 0 6px;}
+.signed-out-steps li:last-child{margin-bottom:0;}
 .hub-toolbar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:12px;align-items:center;}
 .hub-toolbar .auth-btn.primary{padding:10px 16px;}
 .hub-toolbar-spacer{flex:1;min-width:12px;}
@@ -120,23 +139,28 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
 .md-preview hr{border:none;border-top:1px solid var(--border);margin:14px 0;}
 .md-preview a{color:var(--accent);}
 .dashboard-poll-note{font-family:var(--sans);font-size:12px;color:var(--text-muted);margin:8px 0 0;}
-@media (prefers-color-scheme:dark){:root{--bg:#1a1815;--surface:#26231e;--text:#e6dfd6;--text-muted:#aca194;--accent:#5ba3d3;--accent-soft:#233e52;--accent-hover:#7ebbed;--warm:#d5a477;--warm-soft:#423020;--border:#423b33;}h1,h2,label{color:#f5f1ec;}.submission-card-title{color:#f5f1ec;}.submission-card-actions{border-top-color:var(--border);}input[type="text"],select,textarea,input[type="number"]{background:#1e1b18;color:var(--text);}button.submit-btn,.action-btn.primary{color:#1a1815;}.alert.success,.proposal-status.approved,.stage-merged,.catalog-released,.ci-success{background:#133a20;color:#81c995;border-color:#1b5e33;}.alert.error,.proposal-status.error,.ci-failure{background:#471815;color:#f28b82;border-color:#712b26;}.step-strip .step.done{background:#133a20;color:#81c995;}.md-preview{background:#1e1b18;}.md-preview h1,.md-preview h2,.md-preview h3{color:#f5f1ec;}.fmt-checklist{background:#1e1b18;}}
+/* A reader who chose Dark elsewhere on the site arrives with data-theme
+   already stamped by the head script; anyone who chose nothing follows
+   their OS, and an explicit Light choice wins over a dark OS. */
+html[data-theme="dark"]{--bg:#1a1815;--surface:#26231e;--text:#e6dfd6;--text-muted:#aca194;--accent:#5ba3d3;--accent-soft:#233e52;--accent-hover:#7ebbed;--warm:#d5a477;--warm-soft:#423020;--border:#423b33;}html[data-theme="dark"] h1,html[data-theme="dark"] h2,html[data-theme="dark"] label{color:#f5f1ec;}html[data-theme="dark"] .submission-card-title{color:#f5f1ec;}html[data-theme="dark"] .submission-card-actions{border-top-color:var(--border);}html[data-theme="dark"] input[type="text"],html[data-theme="dark"] select,html[data-theme="dark"] textarea,html[data-theme="dark"] input[type="number"]{background:#1e1b18;color:var(--text);}html[data-theme="dark"] button.submit-btn,html[data-theme="dark"] .action-btn.primary{color:#1a1815;}html[data-theme="dark"] .alert.success,html[data-theme="dark"] .proposal-status.approved,html[data-theme="dark"] .stage-merged,html[data-theme="dark"] .catalog-released,html[data-theme="dark"] .ci-success{background:#133a20;color:#81c995;border-color:#1b5e33;}html[data-theme="dark"] .alert.error,html[data-theme="dark"] .proposal-status.error,html[data-theme="dark"] .ci-failure{background:#471815;color:#f28b82;border-color:#712b26;}html[data-theme="dark"] .step-strip .step.done{background:#133a20;color:#81c995;}html[data-theme="dark"] .md-preview{background:#1e1b18;}html[data-theme="dark"] .md-preview h1,html[data-theme="dark"] .md-preview h2,html[data-theme="dark"] .md-preview h3{color:#f5f1ec;}html[data-theme="dark"] .fmt-checklist{background:#1e1b18;}
+@media (prefers-color-scheme:dark){html:not([data-theme="light"]){--bg:#1a1815;--surface:#26231e;--text:#e6dfd6;--text-muted:#aca194;--accent:#5ba3d3;--accent-soft:#233e52;--accent-hover:#7ebbed;--warm:#d5a477;--warm-soft:#423020;--border:#423b33;}html:not([data-theme="light"]) h1,html:not([data-theme="light"]) h2,html:not([data-theme="light"]) label{color:#f5f1ec;}html:not([data-theme="light"]) .submission-card-title{color:#f5f1ec;}html:not([data-theme="light"]) .submission-card-actions{border-top-color:var(--border);}html:not([data-theme="light"]) input[type="text"],html:not([data-theme="light"]) select,html:not([data-theme="light"]) textarea,html:not([data-theme="light"]) input[type="number"]{background:#1e1b18;color:var(--text);}html:not([data-theme="light"]) button.submit-btn,html:not([data-theme="light"]) .action-btn.primary{color:#1a1815;}html:not([data-theme="light"]) .alert.success,html:not([data-theme="light"]) .proposal-status.approved,html:not([data-theme="light"]) .stage-merged,html:not([data-theme="light"]) .catalog-released,html:not([data-theme="light"]) .ci-success{background:#133a20;color:#81c995;border-color:#1b5e33;}html:not([data-theme="light"]) .alert.error,html:not([data-theme="light"]) .proposal-status.error,html:not([data-theme="light"]) .ci-failure{background:#471815;color:#f28b82;border-color:#712b26;}html:not([data-theme="light"]) .step-strip .step.done{background:#133a20;color:#81c995;}html:not([data-theme="light"]) .md-preview{background:#1e1b18;}html:not([data-theme="light"]) .md-preview h1,html:not([data-theme="light"]) .md-preview h2,html:not([data-theme="light"]) .md-preview h3{color:#f5f1ec;}html:not([data-theme="light"]) .fmt-checklist{background:#1e1b18;}}
 </style>
 </head>
 <body>
 <div class="page">
   <header class="page-header">
-    <p class="back-link" id="hub-back-link"><a href="index.html">&larr; Back to studies</a></p>
+    <p class="back-link" id="hub-back-link"><a href="index.html">&larr; All studies</a></p>
     <div class="hero-row">
       <h1>My Submissions</h1>
+      <button type="button" class="auth-btn" id="theme-toggle" aria-label="Switch color theme">Dark</button>
       <button type="button" class="auth-btn primary" id="auth-action-btn">Sign in with GitHub</button>
     </div>
+    <p class="lead" id="hub-lead">Propose a study, submit a draft, and track review, checks, revisions, and release status.</p>
     <p class="auth-user-line" id="auth-user">Sign in with GitHub to manage your submissions.</p>
     <div class="notify-compact" id="notify-bar" hidden>
       <label class="checkbox-group" style="gap:6px;"><input type="checkbox" id="notify-enabled"> Email me on approval &amp; merge</label>
       <button type="button" class="auth-btn" id="notify-email-btn">Set email</button>
     </div>
-    <p class="lead" id="hub-lead">Propose studies, submit drafts, and track pull requests and CI checks.</p>
   </header>
 
   <div class="step-strip hidden" id="step-strip" aria-label="Submission workflow">
@@ -157,6 +181,16 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
       </div>
 
       <div id="dashboard-alert" class="alert"></div>
+
+      <div id="dashboard-signed-out">
+        <p class="signed-out-lead">Sign in to propose a study, submit a draft, and follow it through review. A free GitHub account is how we track your proposal, pull request, and review history, and how you receive updates. Reading studies never requires an account.</p>
+        <ol class="signed-out-steps">
+          <li>Propose a study and wait for maintainer approval.</li>
+          <li>Prepare the study from the provided template and submit the draft.</li>
+          <li>Track review, checks, revisions, and release status from this page.</li>
+        </ol>
+      </div>
+
       <div id="dashboard-content" hidden>
         <ul class="submission-grid" id="dashboard-cards" aria-label="Your submissions"></ul>
         <p class="dashboard-empty" id="dashboard-empty" hidden>No submissions yet. <a href="?tab=propose">Propose a new study</a> to get started.</p>
@@ -406,6 +440,8 @@ function updateAuthUi(loggedIn) {
   document.getElementById('propose-login-gate').classList.toggle('visible', !loggedIn);
   document.getElementById('submit-login-gate').classList.toggle('visible', !loggedIn);
   document.getElementById('dashboard-content').hidden = !loggedIn;
+  const signedOut = document.getElementById('dashboard-signed-out');
+  if (signedOut) signedOut.hidden = loggedIn;
   const authBtn = document.getElementById('auth-action-btn');
   if (loggedIn) {
     authBtn.textContent = 'Sign out';
@@ -1487,6 +1523,28 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
   }
 });
 
+</script>
+<script>
+(() => {
+  const toggle = document.getElementById("theme-toggle");
+  if (!toggle) return;
+  const root = document.documentElement;
+  const system = window.matchMedia("(prefers-color-scheme: dark)");
+  const active = () => root.getAttribute("data-theme") || (system.matches ? "dark" : "light");
+  const paint = () => {
+    const next = active() === "dark" ? "Light" : "Dark";
+    toggle.textContent = next;
+    toggle.setAttribute("aria-label", `Switch to ${next.toLowerCase()} theme`);
+  };
+  toggle.addEventListener("click", () => {
+    const next = active() === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("amd-theme", next); } catch (e) {}
+    paint();
+  });
+  system.addEventListener("change", paint);
+  paint();
+})();
 </script>
 </body>
 </html>

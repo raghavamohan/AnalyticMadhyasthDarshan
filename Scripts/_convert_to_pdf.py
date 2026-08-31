@@ -27,6 +27,11 @@ FEEDBACK_ISSUES_URL = "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/
 
 SCRIPTS_DIR = Path(__file__).resolve().parent
 KATEX_CSS_PATH = SCRIPTS_DIR / "node_modules" / "katex" / "dist" / "katex.min.css"
+# Vendored so published pages do not reference node_modules. Studies and
+# applications both sit two levels below the repo root, so one relative href
+# resolves for the site and for the file:// render that produces the PDF.
+KATEX_WEB_FONTS = SCRIPTS_DIR.parent / "Assets" / "KaTeX" / "fonts"
+KATEX_WEB_FONT_HREF = "../../Assets/KaTeX/fonts"
 KATEX_RENDER_SCRIPT = SCRIPTS_DIR / "_render_katex_math.js"
 _INLINE_MATH = re.compile(r"(?<!\\)\$(?!\$).+?(?<!\\)\$(?!\$)", re.DOTALL)
 _DISPLAY_MATH = re.compile(r"\$\$.+?\$\$", re.DOTALL)
@@ -98,14 +103,34 @@ def restore_latex_math(html_body: str, segments: list[str]) -> str:
 
 
 def _load_katex_css() -> str:
+    """Inline KaTeX's stylesheet with font URLs that resolve in both places.
+
+    The PDF is rendered from the published HTML through a file:// URL, so these
+    references have to work on the site and on disk alike, which a page-relative
+    path does. The absolute local path this used to write worked only for the
+    PDF: on the site it could not resolve, so every formula fell back to a plain
+    serif, and it shipped the maintainer's home directory into public HTML.
+    """
     if not KATEX_CSS_PATH.is_file():
         raise FileNotFoundError(
             "KaTeX CSS not found. Run once from the repo root:\n"
             "  cd Scripts; npm install"
         )
+    if not KATEX_WEB_FONTS.is_dir():
+        raise FileNotFoundError(
+            f"Vendored KaTeX fonts missing at {KATEX_WEB_FONTS}. Restore with:\n"
+            "  cp Scripts/node_modules/katex/dist/fonts/*.woff2 Assets/KaTeX/fonts/"
+        )
     css = KATEX_CSS_PATH.read_text(encoding="utf-8")
-    fonts_dir = (KATEX_CSS_PATH.parent / "fonts").resolve().as_posix()
-    return css.replace("url(fonts/", f"url({fonts_dir}/")
+    # Only woff2 is vendored -- supported everywhere, including by the Chrome
+    # that renders the PDF -- so the woff and truetype alternatives are dropped
+    # rather than left pointing at files the site does not serve.
+    css = re.sub(
+        r',\s*url\(fonts/[^)]+\)\s*format\("(?:woff|truetype)"\)',
+        "",
+        css,
+    )
+    return css.replace("url(fonts/", f"url({KATEX_WEB_FONT_HREF}/")
 
 
 def render_latex_math(html_body: str) -> str:
@@ -293,21 +318,99 @@ def _slugify_heading(text: str) -> str:
     return slug or "section"
 
 
+_HEADING_NUMBER_RE = re.compile(r"^\s*(\d+(?:\.\d+)*)[\s.]")
+
+
+def _heading_depth(inner_html: str) -> int | None:
+    """Depth implied by a leading section number: "1.2" -> 2, "1.2.1" -> 3."""
+    text = re.sub(r"<[^>]+>", "", inner_html)
+    match = _HEADING_NUMBER_RE.match(html_module.unescape(text))
+    if not match:
+        return None
+    return match.group(1).count(".") + 1
+
+
 def add_section_ids(html_body: str) -> str:
-    """Add stable fragment ids to h2 headings for in-page section navigation."""
+    """Add stable fragment ids to h2 and h3 headings for in-page navigation.
+
+    An h3 also carries data-depth -- 2 for "1.2", 3 for "1.2.1" -- so the screen
+    stylesheet and the contents list can tell a subsection from a
+    sub-subsection. The element stays an h3 rather than becoming an h4, because
+    the PDF is rendered from this same HTML and its outline is asserted by
+    _verify_pdf_outline; the distinction is presentational on screen only.
+    """
     seen: dict[str, int] = {}
 
     def repl(match: re.Match[str]) -> str:
-        if match.group(0).startswith("<h2 id="):
+        tag, attrs, inner = match.group(1), match.group(2), match.group(3)
+        if "id=" in attrs:
             return match.group(0)
-        inner = match.group(1)
         base = _slugify_heading(inner)
         count = seen.get(base, 0)
         seen[base] = count + 1
         slug = base if count == 0 else f"{base}-{count + 1}"
-        return f'<h2 id="{slug}">{inner}</h2>'
+        depth = _heading_depth(inner) if tag == "h3" else None
+        depth_attr = f' data-depth="{depth}"' if depth else ""
+        return f'<{tag} id="{slug}"{depth_attr}{attrs}>{inner}</{tag}>'
 
-    return re.sub(r"<h2>(.*?)</h2>", repl, html_body, flags=re.DOTALL)
+    return re.sub(r"<(h2|h3)([^>]*)>(.*?)</\1>", repl, html_body, flags=re.DOTALL)
+
+
+_TOC_MIN_ENTRIES = 6
+
+
+def _study_contents_html(html_body: str) -> str:
+    """Build a contents list from the ids add_section_ids has just written.
+
+    Studies run to 34,000 words with as many as 57 headings, and the only other
+    way through them is the sequential previous/next section pair. Rendered
+    server-side so it works without JavaScript and is crawlable; hidden in
+    print, where the PDF outline already serves this purpose.
+    """
+    entries: list[tuple[int, str, str]] = []
+    pattern = re.compile(r'<(h2|h3) id="([^"]+)"([^>]*)>(.*?)</\1>', re.DOTALL)
+    for match in pattern.finditer(html_body):
+        tag, slug, attrs, inner = match.groups()
+        if tag == "h2":
+            level = 1
+        else:
+            depth_match = re.search(r'data-depth="(\d+)"', attrs)
+            level = min(int(depth_match.group(1)), 3) if depth_match else 2
+        text = " ".join(html_module.unescape(re.sub(r"<[^>]+>", "", inner)).split())
+        if text:
+            entries.append((level, slug, text))
+    if len(entries) < _TOC_MIN_ENTRIES:
+        return ""
+    items = "\n".join(
+        f'      <li class="study-toc-item study-toc-l{level}">'
+        f'<a href="#{slug}">{html_module.escape(text)}</a></li>'
+        for level, slug, text in entries
+    )
+    sections = sum(1 for level, _, _ in entries if level == 1)
+    return f"""<details class="study-toc" id="study-contents">
+  <summary class="study-toc-summary">
+    <span class="study-toc-label">Contents</span>
+    <span class="study-toc-meta">{sections} sections &middot; {len(entries)} headings</span>
+  </summary>
+  <nav class="study-toc-nav" aria-label="Contents">
+    <ol class="study-toc-list">
+{items}
+    </ol>
+  </nav>
+</details>
+"""
+
+
+def insert_study_contents(html_body: str) -> str:
+    """Place the contents list after the opening matter, before the first section."""
+    contents = _study_contents_html(html_body)
+    if not contents:
+        return html_body
+    first_section = re.search(r'<h2 id="', html_body)
+    if not first_section:
+        return html_body
+    cut = first_section.start()
+    return f"{html_body[:cut]}{contents}{html_body[cut:]}"
 
 
 def _format_toolbar_title(title: str, *, is_draft: bool) -> str:
@@ -345,6 +448,9 @@ def _study_toolbar_html(md_path: Path, *, is_draft: bool, title: str) -> str:
       <a class="study-toolbar-link study-toolbar-discuss" href="{discuss_href}">Discuss</a>
       <a class="study-toolbar-link study-toolbar-download" href="{pdf_href}" download>Download PDF</a>
       <a class="study-toolbar-link study-toolbar-feedback" href="{feedback_href}">Suggest a correction</a>
+      <button type="button" class="study-theme-toggle" id="study-theme-toggle" aria-label="Switch color theme">
+        <span class="study-theme-toggle-label">Dark</span>
+      </button>
     </span>
   </div>
   <div class="study-toolbar-row study-toolbar-row--sections">
@@ -532,9 +638,7 @@ mermaid.initialize({
 """
 
 
-def _study_screen_dark_css() -> str:
-    return """
-  @media screen and (prefers-color-scheme: dark) {
+_STUDY_DARK_DECLARATIONS = """
     body {
       color: #e6dfd6;
       background: #1a1815;
@@ -585,7 +689,110 @@ def _study_screen_dark_css() -> str:
       background: #26231e;
       border-color: #423b33;
     }
+    .study-toc { border-color: #423b33; }
+    .study-toc-summary:hover { background: #1e1b18; }
+    .study-toc-label { color: #f5f1ec; }
+    .study-toc-meta { color: #aca194; }
+    .study-toc-list a { color: #7ebbed; }
+    .study-toc-l1 > a { color: #f5f1ec; }
+    .study-theme-toggle {
+      color: #7ebbed;
+      border-color: #423b33;
+      background: #1e1b18;
+    }
+    .study-theme-toggle:hover { border-color: #7ebbed; }
+"""
+
+
+def _study_theme_bootstrap_html() -> str:
+    """Apply a theme chosen on the studies index before first paint.
+
+    Only stamps data-theme when the reader actually made a choice, so anyone who
+    has not stays on prefers-color-scheme and keeps following their OS.
+    """
+    return """<script>
+(function(){try{var t=localStorage.getItem("amd-theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();
+</script>
+"""
+
+
+def _study_theme_toggle_js() -> str:
+    return """<script>
+(() => {
+  const toggle = document.getElementById("study-theme-toggle");
+  if (!toggle) return;
+  const label = toggle.querySelector(".study-theme-toggle-label");
+  const root = document.documentElement;
+  const system = window.matchMedia("(prefers-color-scheme: dark)");
+  const active = () => root.getAttribute("data-theme") || (system.matches ? "dark" : "light");
+  const paint = () => {
+    const next = active() === "dark" ? "Light" : "Dark";
+    if (label) label.textContent = next;
+    toggle.setAttribute("aria-label", `Switch to ${next.toLowerCase()} theme`);
+  };
+  toggle.addEventListener("click", () => {
+    const next = active() === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("amd-theme", next); } catch (e) {}
+    paint();
+  });
+  system.addEventListener("change", paint);
+  paint();
+})();
+</script>
+"""
+
+
+def _study_contents_js() -> str:
+    return """<script>
+(() => {
+  const toc = document.getElementById("study-contents");
+  if (!toc) return;
+  // Open where there is room to show it without pushing the study off screen.
+  if (window.matchMedia("(min-width: 760px)").matches && window.innerHeight >= 640) {
+    toc.open = true;
   }
+})();
+</script>
+"""
+
+
+def _prefix_selectors(css: str, prefix: str) -> str:
+    """Scope every rule in a flat CSS block under `prefix`.
+
+    Native CSS nesting would express this in one line but is not available to
+    every reader's browser, so the selectors are rewritten instead. The block is
+    flat -- no nested at-rules -- which makes the rule split safe.
+    """
+    rules = []
+    for selectors, declarations in re.findall(r"([^{}]+)\{([^{}]*)\}", css):
+        scoped = ", ".join(
+            f"{prefix} {part.strip()}" for part in selectors.split(",") if part.strip()
+        )
+        body = " ".join(declarations.split())
+        rules.append(f"    {scoped} {{ {body} }}")
+    return "\n".join(rules)
+
+
+def _study_screen_dark_css() -> str:
+    """Dark palette for the study page, keyed to both theme signals.
+
+    A reader who picks Dark on the studies index has "amd-theme" in
+    localStorage, which the head script stamps onto data-theme. Anyone who has
+    made no choice falls through to prefers-color-scheme. Both routes get the
+    same declarations, and an explicit Light choice beats a dark OS.
+    """
+    chosen = _prefix_selectors(_STUDY_DARK_DECLARATIONS, 'html[data-theme="dark"]')
+    inherited = _prefix_selectors(
+        _STUDY_DARK_DECLARATIONS, 'html:not([data-theme="light"])'
+    )
+    return f"""
+  @media screen {{
+{chosen}
+  }}
+  @media screen and (prefers-color-scheme: dark) {{
+{inherited}
+  }}
 """
 
 
@@ -621,17 +828,33 @@ def _study_description(md_text: str, slug: str) -> str:
     return _truncate_description(slug.replace("-", " "))
 
 
+def _social_card_url(slug: str) -> str:
+    """Absolute URL of a study's share card, falling back to the site card.
+
+    Cards are committed by Scripts/_build_social_cards.py. A study with no card
+    yet -- one added since that last ran -- points at the site card rather than
+    at a 404, so a shared link still renders.
+    """
+    base = site_base_url().rstrip("/")
+    if (BASE / "Assets" / "Social" / f"{slug}.png").is_file():
+        return f"{base}/Assets/Social/{quote(slug)}.png"
+    return f"{base}/Assets/Social/og-default.png"
+
+
 def _study_seo_head_html(
     *,
     title: str,
     description: str,
     canonical_url: str,
     date_modified_iso: str | None,
+    slug: str,
 ) -> str:
     site_url = site_base_url().rstrip("/") + "/"
     esc_title = html_module.escape(title)
     esc_desc = html_module.escape(description)
     esc_canonical = html_module.escape(canonical_url)
+    image_url = _social_card_url(slug)
+    esc_image = html_module.escape(image_url)
     og_bits = f"""
 <link rel="canonical" href="{esc_canonical}"/>
 <meta name="description" content="{esc_desc}"/>
@@ -640,9 +863,14 @@ def _study_seo_head_html(
 <meta property="og:title" content="{esc_title}"/>
 <meta property="og:description" content="{esc_desc}"/>
 <meta property="og:url" content="{esc_canonical}"/>
-<meta name="twitter:card" content="summary"/>
+<meta property="og:image" content="{esc_image}"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="{esc_title}"/>
+<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="{esc_title}"/>
-<meta name="twitter:description" content="{esc_desc}"/>"""
+<meta name="twitter:description" content="{esc_desc}"/>
+<meta name="twitter:image" content="{esc_image}"/>"""
     schema: dict = {
         "@context": "https://schema.org",
         "@type": "ScholarlyArticle",
@@ -654,6 +882,7 @@ def _study_seo_head_html(
         "publisher": {"@type": "Organization", "name": _ORG_NAME, "url": site_url},
         "license": _CC_LICENSE,
         "isPartOf": {"@type": "WebSite", "name": _ORG_NAME, "url": site_url},
+        "image": image_url,
     }
     if date_modified_iso:
         schema["dateModified"] = date_modified_iso
@@ -708,6 +937,7 @@ def convert_to_html(
     )
     if include_web_chrome:
         html_body = add_section_ids(html_body)
+        html_body = insert_study_contents(html_body)
         html_body = wrap_tables_for_scroll(html_body)
         try:
             glossary_terms = load_glossary()
@@ -727,6 +957,9 @@ def convert_to_html(
     section_nav_js = _study_section_nav_js() if include_web_chrome else ""
     term_tip_js = _term_tip_js() if include_web_chrome else ""
     screen_dark_css = _study_screen_dark_css() if include_web_chrome else ""
+    theme_bootstrap = _study_theme_bootstrap_html() if include_web_chrome else ""
+    theme_toggle_js = _study_theme_toggle_js() if include_web_chrome else ""
+    contents_js = _study_contents_js() if include_web_chrome else ""
     katex_css = _load_katex_css() if has_latex_math else ""
 
     kd_document_css = ""
@@ -781,6 +1014,7 @@ def convert_to_html(
             description=description,
             canonical_url=canonical_url,
             date_modified_iso=date_modified_iso,
+            slug=input_path.stem,
         )
 
     web_chrome_css = ""
@@ -964,28 +1198,157 @@ def convert_to_html(
     content: " \\2193";
     font-weight: 700;
   }
+  .study-theme-toggle {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #1a5276;
+    background: #fdfcfa;
+    border: 1px solid #d9d2c7;
+    border-radius: 999px;
+    padding: 3px 11px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .study-theme-toggle:hover { border-color: #1a5276; }
+  .study-theme-toggle:focus-visible {
+    outline: 2px solid #1a5276;
+    outline-offset: 2px;
+  }
+
+  /* Contents ---------------------------------------------------------------
+     Studies run past 30,000 words, so the sequential previous/next pair is not
+     enough to move around one. Closed by default so it costs no height; the
+     script below opens it where there is room. */
+  .study-toc {
+    max-width: 37rem;
+    margin: 1.6em 0 2.2em;
+    border: 1px solid #ddd6cc;
+    border-radius: 10px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+  }
+  .study-toc-summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 10px 15px;
+    cursor: pointer;
+    list-style: none;
+  }
+  .study-toc-summary::-webkit-details-marker { display: none; }
+  .study-toc-summary::before {
+    content: "";
+    flex: 0 0 auto;
+    width: 6px;
+    height: 6px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(-45deg);
+    transition: transform 0.15s ease;
+  }
+  .study-toc[open] > .study-toc-summary::before { transform: rotate(45deg); }
+  .study-toc-summary:hover { background: #faf7f2; }
+  .study-toc-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #2c241c;
+  }
+  .study-toc-meta { font-size: 12px; color: #6b6357; }
+  .study-toc-nav {
+    max-height: 58vh;
+    overflow-y: auto;
+    padding: 2px 15px 13px;
+  }
+  .study-toc-list { list-style: none; margin: 0; padding: 0; }
+  .study-toc-item { margin: 0; }
+  .study-toc-item > a {
+    display: block;
+    padding: 3px 0;
+    font-size: 13.5px;
+    line-height: 1.35;
+    color: #1a5276;
+    text-decoration: none;
+  }
+  .study-toc-item > a:hover { text-decoration: underline; }
+  .study-toc-l1 { margin-top: 9px; }
+  .study-toc-l1:first-child { margin-top: 0; }
+  .study-toc-l1 > a { font-weight: 700; color: #2c241c; }
+  .study-toc-l2 > a { padding-left: 15px; }
+  .study-toc-l3 > a { padding-left: 30px; font-size: 12.5px; color: #4d6f86; }
+  @media (prefers-reduced-motion: reduce) {
+    .study-toc-summary::before { transition: none; }
+  }
+
+  /* Reading measure --------------------------------------------------------
+     The PDF is rendered from this same HTML, so anything that governs reading
+     on screen is confined to @media screen. The bare rules and the @media
+     print block above remain the print baseline and are left alone. */
+  @media screen {
+    body {
+      font-size: 17px;
+      line-height: 1.62;
+      max-width: 46rem;
+      margin: 32px auto 88px;
+      padding: 0 22px;
+    }
+    /* Roughly 68 characters. The container stays wide enough for tables and
+       figures while running text keeps a measure the eye can track back. */
+    p, ul, ol, blockquote, .quote-source, dl {
+      max-width: 37rem;
+    }
+    p {
+      margin: 0.72em 0;
+      text-align: left;
+      hyphens: auto;
+    }
+    h1 { font-size: 2.05rem; line-height: 1.16; }
+    h2 { font-size: 1.5rem; margin-top: 2.3em; }
+    h3 { font-size: 1.18rem; margin-top: 1.85em; }
+    /* "1.2.1" is a sub-subsection but has to stay an h3 for the PDF outline,
+       so the distinction from "1.2" is carried here. */
+    h3[data-depth="3"] {
+      font-size: 1.0rem;
+      font-weight: 600;
+      margin-top: 1.45em;
+    }
+    h4 { font-size: 1.0rem; }
+  }
+  @media screen and (min-width: 760px) {
+    .study-toc { max-width: 46rem; }
+  }
+
   @media (max-width: 640px) {
     .study-toolbar-row--primary {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+      row-gap: 6px;
     }
-    .study-toolbar-back {
-      grid-column: 1;
+    /* Back and title share the first line and the actions take the second, so
+       the reader reaches the heading in two rows rather than four. */
+    .study-toolbar-back { grid-column: 1; justify-self: start; }
+    .study-toolbar-title {
+      grid-column: 2;
+      justify-self: end;
+      text-align: right;
+      font-size: 13px;
+      white-space: normal;
     }
     .study-toolbar-actions {
       grid-column: 1 / -1;
       justify-self: stretch;
-      justify-content: flex-end;
+      justify-content: space-between;
+      gap: 8px;
     }
-    .study-toolbar-title {
-      grid-column: 1 / -1;
-      white-space: normal;
-    }
-    .study-toolbar-section {
-      white-space: normal;
-    }
+    .study-toolbar-feedback { font-size: 11px; }
+    .study-toolbar-section { white-space: normal; }
+    .study-toc-nav { max-height: 52vh; }
   }
   @media print {
     .study-toolbar { display: none !important; }
+    .study-theme-toggle { display: none !important; }
+    .study-toc { display: none !important; }
     .skip-link { display: none !important; }
     .term-tip {
       border-bottom: none;
@@ -1004,7 +1367,7 @@ def convert_to_html(
 <meta name="color-scheme" content="light dark"/>
 <title>{html_module.escape(title)}</title>
 {favicon_link_tags()}{seo_head}
-<style>
+{theme_bootstrap}<style>
   @page {{
     size: A4;
     margin: {page_margin};
@@ -1260,7 +1623,7 @@ def convert_to_html(
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 {toolbar}<main id="main">{html_body}</main>
-{mermaid_loader}{section_nav_js}{term_tip_js}
+{mermaid_loader}{section_nav_js}{term_tip_js}{theme_toggle_js}{contents_js}
 </body>
 </html>"""
 

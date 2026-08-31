@@ -17,11 +17,19 @@
 <meta property="og:title" content="The Epistemology of Coexistence"/>
 <meta property="og:description" content="What knowledge is, who the knower is, and what can be known: coexistence, jeevan, humane conduct, evidence, and epistemic error — compared with Advaita Vedanta, modern Western philosophy, and natural science"/>
 <meta property="og:url" content="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html"/>
-<meta name="twitter:card" content="summary"/>
+<meta property="og:image" content="https://analyticmadhyasthdarshan.org/Assets/Social/The-Epistemology-of-Coexistence.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="The Epistemology of Coexistence"/>
+<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="The Epistemology of Coexistence"/>
 <meta name="twitter:description" content="What knowledge is, who the knower is, and what can be known: coexistence, jeevan, humane conduct, evidence, and epistemic error — compared with Advaita Vedanta, modern Western philosophy, and natural science"/>
+<meta name="twitter:image" content="https://analyticmadhyasthdarshan.org/Assets/Social/The-Epistemology-of-Coexistence.png"/>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"The Epistemology of Coexistence","description":"What knowledge is, who the knower is, and what can be known: coexistence, jeevan, humane conduct, evidence, and epistemic error — compared with Advaita Vedanta, modern Western philosophy, and natural science","url":"https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html","inLanguage":"en","author":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"publisher":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"dateModified":"2026-08-30T02:52:00+05:30"}
+{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"The Epistemology of Coexistence","description":"What knowledge is, who the knower is, and what can be known: coexistence, jeevan, humane conduct, evidence, and epistemic error — compared with Advaita Vedanta, modern Western philosophy, and natural science","url":"https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html","inLanguage":"en","author":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"publisher":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"image":"https://analyticmadhyasthdarshan.org/Assets/Social/The-Epistemology-of-Coexistence.png","dateModified":"2026-08-30T02:52:00+05:30"}
+</script>
+<script>
+(function(){try{var t=localStorage.getItem("amd-theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();
 </script>
 <style>
   @page {
@@ -452,28 +460,157 @@
     content: " \2193";
     font-weight: 700;
   }
+  .study-theme-toggle {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #1a5276;
+    background: #fdfcfa;
+    border: 1px solid #d9d2c7;
+    border-radius: 999px;
+    padding: 3px 11px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .study-theme-toggle:hover { border-color: #1a5276; }
+  .study-theme-toggle:focus-visible {
+    outline: 2px solid #1a5276;
+    outline-offset: 2px;
+  }
+
+  /* Contents ---------------------------------------------------------------
+     Studies run past 30,000 words, so the sequential previous/next pair is not
+     enough to move around one. Closed by default so it costs no height; the
+     script below opens it where there is room. */
+  .study-toc {
+    max-width: 37rem;
+    margin: 1.6em 0 2.2em;
+    border: 1px solid #ddd6cc;
+    border-radius: 10px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+  }
+  .study-toc-summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 10px 15px;
+    cursor: pointer;
+    list-style: none;
+  }
+  .study-toc-summary::-webkit-details-marker { display: none; }
+  .study-toc-summary::before {
+    content: "";
+    flex: 0 0 auto;
+    width: 6px;
+    height: 6px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(-45deg);
+    transition: transform 0.15s ease;
+  }
+  .study-toc[open] > .study-toc-summary::before { transform: rotate(45deg); }
+  .study-toc-summary:hover { background: #faf7f2; }
+  .study-toc-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #2c241c;
+  }
+  .study-toc-meta { font-size: 12px; color: #6b6357; }
+  .study-toc-nav {
+    max-height: 58vh;
+    overflow-y: auto;
+    padding: 2px 15px 13px;
+  }
+  .study-toc-list { list-style: none; margin: 0; padding: 0; }
+  .study-toc-item { margin: 0; }
+  .study-toc-item > a {
+    display: block;
+    padding: 3px 0;
+    font-size: 13.5px;
+    line-height: 1.35;
+    color: #1a5276;
+    text-decoration: none;
+  }
+  .study-toc-item > a:hover { text-decoration: underline; }
+  .study-toc-l1 { margin-top: 9px; }
+  .study-toc-l1:first-child { margin-top: 0; }
+  .study-toc-l1 > a { font-weight: 700; color: #2c241c; }
+  .study-toc-l2 > a { padding-left: 15px; }
+  .study-toc-l3 > a { padding-left: 30px; font-size: 12.5px; color: #4d6f86; }
+  @media (prefers-reduced-motion: reduce) {
+    .study-toc-summary::before { transition: none; }
+  }
+
+  /* Reading measure --------------------------------------------------------
+     The PDF is rendered from this same HTML, so anything that governs reading
+     on screen is confined to @media screen. The bare rules and the @media
+     print block above remain the print baseline and are left alone. */
+  @media screen {
+    body {
+      font-size: 17px;
+      line-height: 1.62;
+      max-width: 46rem;
+      margin: 32px auto 88px;
+      padding: 0 22px;
+    }
+    /* Roughly 68 characters. The container stays wide enough for tables and
+       figures while running text keeps a measure the eye can track back. */
+    p, ul, ol, blockquote, .quote-source, dl {
+      max-width: 37rem;
+    }
+    p {
+      margin: 0.72em 0;
+      text-align: left;
+      hyphens: auto;
+    }
+    h1 { font-size: 2.05rem; line-height: 1.16; }
+    h2 { font-size: 1.5rem; margin-top: 2.3em; }
+    h3 { font-size: 1.18rem; margin-top: 1.85em; }
+    /* "1.2.1" is a sub-subsection but has to stay an h3 for the PDF outline,
+       so the distinction from "1.2" is carried here. */
+    h3[data-depth="3"] {
+      font-size: 1.0rem;
+      font-weight: 600;
+      margin-top: 1.45em;
+    }
+    h4 { font-size: 1.0rem; }
+  }
+  @media screen and (min-width: 760px) {
+    .study-toc { max-width: 46rem; }
+  }
+
   @media (max-width: 640px) {
     .study-toolbar-row--primary {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+      row-gap: 6px;
     }
-    .study-toolbar-back {
-      grid-column: 1;
+    /* Back and title share the first line and the actions take the second, so
+       the reader reaches the heading in two rows rather than four. */
+    .study-toolbar-back { grid-column: 1; justify-self: start; }
+    .study-toolbar-title {
+      grid-column: 2;
+      justify-self: end;
+      text-align: right;
+      font-size: 13px;
+      white-space: normal;
     }
     .study-toolbar-actions {
       grid-column: 1 / -1;
       justify-self: stretch;
-      justify-content: flex-end;
+      justify-content: space-between;
+      gap: 8px;
     }
-    .study-toolbar-title {
-      grid-column: 1 / -1;
-      white-space: normal;
-    }
-    .study-toolbar-section {
-      white-space: normal;
-    }
+    .study-toolbar-feedback { font-size: 11px; }
+    .study-toolbar-section { white-space: normal; }
+    .study-toc-nav { max-height: 52vh; }
   }
   @media print {
     .study-toolbar { display: none !important; }
+    .study-theme-toggle { display: none !important; }
+    .study-toc { display: none !important; }
     .skip-link { display: none !important; }
     .term-tip {
       border-bottom: none;
@@ -483,57 +620,67 @@
     .term-tip-panel { display: none !important; }
   }
 
+  @media screen {
+    html[data-theme="dark"] body { color: #e6dfd6; background: #1a1815; }
+    html[data-theme="dark"] h1, html[data-theme="dark"] h2, html[data-theme="dark"] h3, html[data-theme="dark"] h4 { color: #f5f1ec; }
+    html[data-theme="dark"] h1 { border-bottom-color: #6f655a; }
+    html[data-theme="dark"] h2 { border-bottom-color: #423b33; }
+    html[data-theme="dark"] a { color: #7ebbed; }
+    html[data-theme="dark"] a:visited { color: #9ec8e8; }
+    html[data-theme="dark"] blockquote { background: #26231e; border-left-color: #6f655a; color: #e6dfd6; }
+    html[data-theme="dark"] .quote-source { color: #aca194; }
+    html[data-theme="dark"] th { background: #2f2a24; border-color: #423b33; color: #f5f1ec; }
+    html[data-theme="dark"] td { border-color: #423b33; color: #e6dfd6; }
+    html[data-theme="dark"] tr:nth-child(even) { background: #1e1b18; }
+    html[data-theme="dark"] code { background: #2f2a24; color: #f0e8dc; }
+    html[data-theme="dark"] pre { background: #1e1b18; color: #e6dfd6; }
+    html[data-theme="dark"] .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
+    html[data-theme="dark"] .study-toolbar-link { color: #7ebbed; }
+    html[data-theme="dark"] .study-toolbar-link:hover { color: #b8daf3; }
+    html[data-theme="dark"] .study-toolbar-title { color: #f5f1ec; }
+    html[data-theme="dark"] .study-toolbar-draft { color: #aca194; }
+    html[data-theme="dark"] .study-toolbar-section.is-disabled { color: #6f655a; }
+    html[data-theme="dark"] .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    html[data-theme="dark"] .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
+    html[data-theme="dark"] .study-toc { border-color: #423b33; }
+    html[data-theme="dark"] .study-toc-summary:hover { background: #1e1b18; }
+    html[data-theme="dark"] .study-toc-label { color: #f5f1ec; }
+    html[data-theme="dark"] .study-toc-meta { color: #aca194; }
+    html[data-theme="dark"] .study-toc-list a { color: #7ebbed; }
+    html[data-theme="dark"] .study-toc-l1 > a { color: #f5f1ec; }
+    html[data-theme="dark"] .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
+    html[data-theme="dark"] .study-theme-toggle:hover { border-color: #7ebbed; }
+  }
   @media screen and (prefers-color-scheme: dark) {
-    body {
-      color: #e6dfd6;
-      background: #1a1815;
-    }
-    h1, h2, h3, h4 {
-      color: #f5f1ec;
-    }
-    h1 { border-bottom-color: #6f655a; }
-    h2 { border-bottom-color: #423b33; }
-    a { color: #7ebbed; }
-    a:visited { color: #9ec8e8; }
-    blockquote {
-      background: #26231e;
-      border-left-color: #6f655a;
-      color: #e6dfd6;
-    }
-    .quote-source { color: #aca194; }
-    th {
-      background: #2f2a24;
-      border-color: #423b33;
-      color: #f5f1ec;
-    }
-    td {
-      border-color: #423b33;
-      color: #e6dfd6;
-    }
-    tr:nth-child(even) { background: #1e1b18; }
-    code {
-      background: #2f2a24;
-      color: #f0e8dc;
-    }
-    pre {
-      background: #1e1b18;
-      color: #e6dfd6;
-    }
-    .study-toolbar {
-      background: rgba(26, 24, 21, 0.92);
-      border-color: #423b33;
-    }
-    .study-toolbar-link { color: #7ebbed; }
-    .study-toolbar-link:hover { color: #b8daf3; }
-    .study-toolbar-title { color: #f5f1ec; }
-    .study-toolbar-draft { color: #aca194; }
-    .study-toolbar-section.is-disabled { color: #6f655a; }
-    .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
-    .term-tip-panel {
-      color: #e6dfd6;
-      background: #26231e;
-      border-color: #423b33;
-    }
+    html:not([data-theme="light"]) body { color: #e6dfd6; background: #1a1815; }
+    html:not([data-theme="light"]) h1, html:not([data-theme="light"]) h2, html:not([data-theme="light"]) h3, html:not([data-theme="light"]) h4 { color: #f5f1ec; }
+    html:not([data-theme="light"]) h1 { border-bottom-color: #6f655a; }
+    html:not([data-theme="light"]) h2 { border-bottom-color: #423b33; }
+    html:not([data-theme="light"]) a { color: #7ebbed; }
+    html:not([data-theme="light"]) a:visited { color: #9ec8e8; }
+    html:not([data-theme="light"]) blockquote { background: #26231e; border-left-color: #6f655a; color: #e6dfd6; }
+    html:not([data-theme="light"]) .quote-source { color: #aca194; }
+    html:not([data-theme="light"]) th { background: #2f2a24; border-color: #423b33; color: #f5f1ec; }
+    html:not([data-theme="light"]) td { border-color: #423b33; color: #e6dfd6; }
+    html:not([data-theme="light"]) tr:nth-child(even) { background: #1e1b18; }
+    html:not([data-theme="light"]) code { background: #2f2a24; color: #f0e8dc; }
+    html:not([data-theme="light"]) pre { background: #1e1b18; color: #e6dfd6; }
+    html:not([data-theme="light"]) .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
+    html:not([data-theme="light"]) .study-toolbar-link { color: #7ebbed; }
+    html:not([data-theme="light"]) .study-toolbar-link:hover { color: #b8daf3; }
+    html:not([data-theme="light"]) .study-toolbar-title { color: #f5f1ec; }
+    html:not([data-theme="light"]) .study-toolbar-draft { color: #aca194; }
+    html:not([data-theme="light"]) .study-toolbar-section.is-disabled { color: #6f655a; }
+    html:not([data-theme="light"]) .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    html:not([data-theme="light"]) .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
+    html:not([data-theme="light"]) .study-toc { border-color: #423b33; }
+    html:not([data-theme="light"]) .study-toc-summary:hover { background: #1e1b18; }
+    html:not([data-theme="light"]) .study-toc-label { color: #f5f1ec; }
+    html:not([data-theme="light"]) .study-toc-meta { color: #aca194; }
+    html:not([data-theme="light"]) .study-toc-list a { color: #7ebbed; }
+    html:not([data-theme="light"]) .study-toc-l1 > a { color: #f5f1ec; }
+    html:not([data-theme="light"]) .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
+    html:not([data-theme="light"]) .study-theme-toggle:hover { border-color: #7ebbed; }
   }
 
 </style>
@@ -545,9 +692,12 @@
     <a class="study-toolbar-link study-toolbar-back" href="../index.html#study-The-Epistemology-of-Coexistence">&larr; All studies</a>
     <p class="study-toolbar-title">The Epistemology of Coexistence</p>
     <span class="study-toolbar-actions">
-      <a class="study-toolbar-link study-toolbar-discuss" href="discussion.html?dv=2">Discuss</a>
+      <a class="study-toolbar-link study-toolbar-discuss" href="discussion.html?dv=3">Discuss</a>
       <a class="study-toolbar-link study-toolbar-download" href="The-Epistemology-of-Coexistence.pdf" download>Download PDF</a>
       <a class="study-toolbar-link study-toolbar-feedback" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&title=Study%20feedback%3A%20The%20Epistemology%20of%20Coexistence">Suggest a correction</a>
+      <button type="button" class="study-theme-toggle" id="study-theme-toggle" aria-label="Switch color theme">
+        <span class="study-theme-toggle-label">Dark</span>
+      </button>
     </span>
   </div>
   <div class="study-toolbar-row study-toolbar-row--sections">
@@ -561,6 +711,85 @@
 <p><strong>The question:</strong> What is knowledge, who is the knower, and what is it that one can know? How are these concepts grounded in experience, and how does the Co-existentialism of Shri A. Nagraj compare with Advaita Vedanta, modern Western philosophy, and the natural sciences?</p>
 <p>This study examines knowledge, the knower, and the knowable in <strong><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span></strong> (Co-existentialism), as presented by <strong>Shri A. Nagraj</strong>, and compares its answers with <strong>Advaita Vedanta</strong> and <strong>modern science and philosophy</strong>.</p>
 <p><a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> supplies the ontological setting: Omnipresence, saturated units, the four orders, constitutional completeness, and the active structure of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>. The present study asks the specifically epistemological questions the primary texts develop: what knowledge is, what makes <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> the knower, how coexistence becomes the known, and why understanding must become evident in action, relationship, evaluation, and humane tradition. <a href="https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html">From Unit Activity to Human Orderliness</a> is used as an interpretive audit of these connections, not as a primary source and not as a source of notation for this paper.</p>
+<details class="study-toc" id="study-contents">
+  <summary class="study-toc-summary">
+    <span class="study-toc-label">Contents</span>
+    <span class="study-toc-meta">12 sections &middot; 69 headings</span>
+  </summary>
+  <nav class="study-toc-nav" aria-label="Contents">
+    <ol class="study-toc-list">
+      <li class="study-toc-item study-toc-l1"><a href="#standpoint-and-scope">Standpoint and scope</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#1-the-madhyasth-darshan-answer">1. The Madhyasth Darshan Answer</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#11-knowledge-knower-and-known">1.1 Knowledge, knower, and known</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#12-why-knowledge-matters-awakening-and-the-human-goal">1.2 Why knowledge matters: awakening and the human goal</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#13-jeevan-body-and-the-activities-of-knowing">1.3 Jeevan, body, and the activities of knowing</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#14-from-sensory-activity-to-universal-orderliness">1.4 From sensory activity to universal orderliness</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#15-knowing-action-and-evaluation">1.5 Knowing, action, and evaluation</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#16-evidence-study-and-transmission">1.6 Evidence, study, and transmission</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#2-the-advaita-vedanta-answer">2. The Advaita Vedanta Answer</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#21-empirical-knower-and-witnessing-consciousness">2.1 Empirical knower and witnessing consciousness</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#22-empirical-knowledge-and-liberating-knowledge">2.2 Empirical knowledge and liberating knowledge</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#23-error-sublation-and-levels-of-reality">2.3 Error, sublation, and levels of reality</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#24-the-nature-of-the-knower">2.4 The nature of the knower</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#25-the-nature-of-the-known">2.5 The nature of the known</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#26-means-of-knowledge-and-liberating-instruction">2.6 Means of knowledge and liberating instruction</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#27-liberation-and-complete-knowledge">2.7 Liberation and complete knowledge</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#28-ethics-loka-sangraha-and-what-realization-evidences">2.8 Ethics, loka-sangraha, and what realization evidences</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#29-scope-within-indian-epistemology">2.9 Scope within Indian epistemology</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#3-modern-western-epistemology-and-philosophy-of-mind">3. Modern Western Epistemology and Philosophy of Mind</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#31-what-is-knowledge">3.1 What is knowledge?</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#32-naturalistic-accounts-of-the-knower">3.2 Naturalistic accounts of the knower</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#33-scientific-realism-and-the-scope-of-the-known">3.3 Scientific realism and the scope of the known</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#34-the-hard-problem-mystery-and-first-person-evidence">3.4 The hard problem, mystery, and first-person evidence</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#35-error-bias-and-epistemic-correction">3.5 Error, bias, and epistemic correction</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#36-personal-identity-and-brain-death">3.6 Personal identity and brain death</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#37-social-embodied-and-perspectival-knowing">3.7 Social, embodied, and perspectival knowing</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#4-modern-scientific-approaches">4. Modern Scientific Approaches</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#41-method-and-means-of-knowing">4.1 Method and means of knowing</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#42-brain-organism-and-conscious-report">4.2 Brain, organism, and conscious report</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#43-consciousness-science-and-unresolved-theory">4.3 Consciousness science and unresolved theory</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#44-error-control-and-public-evidence">4.4 Error control and public evidence</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#45-ethics-value-and-lifes-purpose">4.5 Ethics, value, and life’s purpose</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#46-beyond-simple-brain-reduction">4.6 Beyond simple brain reduction</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#5-comparison">5. Comparison</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#51-key-contrasts">5.1 Key contrasts</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#52-sat-chit-ananda-versus-distributed-coexistence">5.2 Sat-Chit-Ananda versus distributed coexistence</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#53-partially-incommensurable-epistemic-criteria">5.3 Partially incommensurable epistemic criteria</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#6-critical-review">6. Critical Review</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#61-madhyasth-darshan-integrated-inside-unproven-outside">6.1 Madhyasth Darshan — integrated inside, unproven outside</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#62-advaita-vedanta-disciplined-self-inquiry-disputed-non-duality">6.2 Advaita Vedanta — disciplined self-inquiry, disputed non-duality</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#63-modern-western-philosophy-plural-resources-no-settled-knower">6.3 Modern Western philosophy — plural resources, no settled knower</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#64-natural-sciences-powerful-correction-bounded-scope">6.4 Natural sciences — powerful correction, bounded scope</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#7-open-problems-for-madhyasth-darshan-epistemology">7. Open problems for Madhyasth Darshan epistemology</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#71-holistic-knowability-versus-fallibilism">7.1 Holistic knowability versus fallibilism</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#72-conduct-evidence-and-public-testability">7.2 Conduct-evidence and public testability</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#73-jeevanbody-interaction-and-physical-causation">7.3 Jeevan–body interaction and physical causation</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#74-post-death-continuity-as-inference-not-measurement">7.4 Post-death continuity as inference, not measurement</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#75-teacher-tradition-and-circular-validation">7.5 Teacher, tradition, and circular validation</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#76-non-substitutable-evidence-across-domains">7.6 Non-substitutable evidence across domains</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#77-from-regulation-to-jeevan-values">7.7 From regulation to jeevan values</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#8-conclusion">8. Conclusion</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#appendix-quick-glossary">Appendix: Quick Glossary</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#terms-in-1">Terms in §1</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#terms-in-2">Terms in §2</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#terms-in-3">Terms in §3</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#terms-in-4">Terms in §4</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#editorial-notes">Editorial Notes</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#the-contents-of-complete-knowledge">The contents of complete knowledge</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#fields-of-conduct-and-the-contents-of-knowledge">Fields of conduct and the contents of knowledge</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#five-sensory-modalities-rather-than-five-samvedanas">“Five sensory modalities” rather than “five samvedanas“</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#niyamniyantransantulan-and-nyayadharmasatya">Niyam–niyantran–santulan and nyaya–dharma–satya</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#seer-in-the-two-triads">Seer in the two triads</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#the-receptive-activity-of-chitta">The receptive activity of chitta</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#attribution-of-sources">Attribution of sources</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#references">References</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#madhyasth-darshan-primary-sources">Madhyasth Darshan (primary sources)</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#advaita-vedanta-primary-texts">Advaita Vedanta (primary texts)</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#related-studies-in-this-collection">Related studies in this collection</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#modern-western-philosophy-and-science">Modern Western philosophy and science</a></li>
+    </ol>
+  </nav>
+</details>
 <h2 id="standpoint-and-scope">Standpoint and scope</h2>
 <p>These studies are written from the standpoint of a <strong>scientist and technologist</strong> — someone trained to graduate-level <strong>physics and mathematics</strong>, at home with contemporary cosmology, quantum theory, conservation laws, and the logic of formal models.</p>
 <p>From that background, a familiar picture of nature is hard to avoid: <strong>consciousness appears as something the brain does</strong> — an epiphenomenon, functional outcome, or emergent property of particular configurations of very large numbers of physical particles. Modern physics and cognitive science are powerful on mechanism, prediction, and public evidence; yet the hard problem of consciousness, the status of the self, and the reality of value remain fiercely contested. The standpoint taken here does not treat those gaps as settled in favour of matter-only reductionism.</p>
@@ -568,7 +797,7 @@
 <p>These topical studies state the philosophy in clear, checkable prose first. A separate formal mathematical treatment may follow once the definitions and relations are stable across the studies; this paper does not assume or require that treatment.</p>
 <h2 id="1-the-madhyasth-darshan-answer">1. The Madhyasth Darshan Answer</h2>
 <p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> holds that knowledge is realised understanding of coexistence, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, and humane conduct. The knower is the sentient <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, whose knowing becomes evident through the human joint form; the known is existence as coexistence, including the relationships and orderliness in which human beings participate. Knowledge is therefore neither accumulated information nor private certitude. It must guide deliberation before action, become evident in behaviour and work, and remain answerable to evaluation after the result appears.</p>
-<h3>1.1 Knowledge, knower, and known</h3>
+<h3 id="11-knowledge-knower-and-known" data-depth="2">1.1 Knowledge, knower, and known</h3>
 <p>Complete knowledge comprises the holistic view of existence as coexistence, knowledge of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, knowledge of humane conduct, and knowledge of participation in overall orderliness (KD §3.5, p. 69; KD §3.17, pp. 145–150; SB, p. 116). Knowledge is not factual representation. What exists, who knows it, how the knower conducts human life, and how that conduct enters the larger order belong together, and participation is the constituent in which the other three become evident.</p>
 <p><em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="gyan" data-definition="Knowledge in several distinct senses in the texts — ontological given, intelligibility-ground, telos of fulfilled relationships, and unfolding through awakened *jeevan*.">Gyan</button></span></em> also carries a wider ontological sense. Insentient and sentient nature saturated in Omnipresence is coexistence, called <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="anubhav-jnan" data-definition="Realisation Knowledge — the ontological given in saturated units: form, properties, essential nature, *dharma*, and orderliness.">Realisation Knowledge</button></span> (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="anubhav-jnan" data-definition="Realisation Knowledge — the ontological given in saturated units: form, properties, essential nature, *dharma*, and orderliness.">anubhav jnan</button></span></em>), since every unit within it has form, properties, essential nature, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, and has inherent orderliness while participating in overall orderliness (MVD, p. 11). The omnipresent ground within coexistence is itself Knowledge or Space, and law, regulation, balance, justice, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, and ultimate truth are evident within coexistence (MVD, pp. 32–33). Knowledge in this sense is actionless and non-transforming: neither an activity nor an agent performing activities, while serving as their ground and source of inspiration (MVD, p. 35). Units act; Omnipresence does not, and sentience is predicated of units rather than of the ground. Reality is thereby orderly, intelligible, and available for realisation.</p>
 <p>The universal availability of knowledge follows from happiness as the <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> of the knowledge order: knowledge is its foundation, and what is absent cannot be attained, so knowledge must already be universally available (MVD, p. 115).</p>
@@ -579,7 +808,7 @@
 <p>The triad is stated against idealist and god-centred systems that collapse knowledge, knower, and known into mystery, and against materialism&rsquo;s derivation of differences in consciousness from composition without demonstrating the relation (KD §3.17, pp. 146–147). The objection to both is that they obscure the human bearer of evidence, which is why <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> requires knowledge to be borne and evidenced by the human joint form. Whether that requirement meets the strongest Advaita and physicalist arguments is taken up in §§2–4 and §6.1.</p>
 <p>Four parallel triads stand beside knowledge, knower, and known, and together they keep the account from becoming detached spectatorship. <em>Darshan–drish–drishya</em> assigns seeing to justice, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, and truth, the seer to human <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, and the seen to coexistence. <em>Dhyan–dhyata–dhyeya</em> names awakening, the human attender, and freedom from delusion together with the <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> values. <em>Karan–karta–karya</em> gives the knowledge-state as cause, the human being as doer, and participation in universality as effect. <em>Sadhya–sadhak–sadhan</em> gives awakening as aim, the human being as seeker, and body together with <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> as means (KD §3.17, pp. 145–150). A fifth triad names seer, doer, and enjoyer, where the seer is established seer-status (<em>drishta-pad</em>) (KD §3.18, pp. 151–152). Knowing therefore involves perspective, attention, purpose, embodiment, action, and consequence, and the knower is active without being reducible to action alone.</p>
 <p><em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">Jeevan</button></span></em> is constitutionally complete and therefore persistent across bodily birth and death (JV, p. 20). That persistence follows from the indestructibility of a constitutionally complete sentient unit and from the conservation of what exists; the evidential standing of the proposition is examined in §7.4.</p>
-<h3>1.2 Why knowledge matters: awakening and the human goal</h3>
+<h3 id="12-why-knowledge-matters-awakening-and-the-human-goal" data-depth="2">1.2 Why knowledge matters: awakening and the human goal</h3>
 <p>Knowledge matters because the knowledge order has happiness as its <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> yet possesses imagination and freedom of action without automatically possessing the understanding needed to direct them. Humans inherit a body continuous with orders whose composition, growth, and instinct exhibit definite patterns, but human conduct is not constitutionally fixed in the same way. People can accept incompatible beliefs, choose alternatives, organise production and institutions, and alter their environment. Knowledge is needed to bring that freedom into agreement with coexistence.</p>
 <p>The immediate epistemic goal is freedom from delusion and comprehensive resolution. Delusion begins when the body is taken to be the self and sensory satisfaction is expected to fulfil <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>. Resolution is not merely the cessation of anxious thought. It is understanding the relevant realities together with adequate answers to why and how in activity (MVD, pp. 33, 311). Awakening is the condition in which reflection reaches understanding and understanding consistently governs projection into thought, choice, work, behaviour, and communication.</p>
 <p>The four <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> values name the inward harmonies of this condition. They are stated as relations between the activity-centres of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> — <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mun" data-definition="A faculty of *jeevan* — imagination and selection; part of the orbital structure with *buddhi*, *vritti*, and *chitta*.">mun</button></span></em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Modification or tendency in *jeevan* — one of the faculties whose alignment supports or obstructs understanding.">vritti</button></span></em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery.">chitta</button></span></em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="buddhi" data-definition="Discriminative faculty in *jeevan* — part of the sentient unit's orbital structure with *mun*, *vritti*, and *chitta*.">buddhi</button></span></em>, and <em>atma</em>, set out in §1.3: happiness between <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mun" data-definition="A faculty of *jeevan* — imagination and selection; part of the orbital structure with *buddhi*, *vritti*, and *chitta*.">mun</button></span></em> and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Modification or tendency in *jeevan* — one of the faculties whose alignment supports or obstructs understanding.">vritti</button></span></em>, peace between <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Modification or tendency in *jeevan* — one of the faculties whose alignment supports or obstructs understanding.">vritti</button></span></em> and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery.">chitta</button></span></em>, contentment between <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery.">chitta</button></span></em> and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="buddhi" data-definition="Discriminative faculty in *jeevan* — part of the sentient unit's orbital structure with *mun*, *vritti*, and *chitta*.">buddhi</button></span></em>, and bliss between <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="buddhi" data-definition="Discriminative faculty in *jeevan* — part of the sentient unit's orbital structure with *mun*, *vritti*, and *chitta*.">buddhi</button></span></em> and <em>atma</em> (MVD, pp. 207–208; JV, p. 138). They are relations among activities of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, not quantities on one scale. Material success cannot compensate for unresolved understanding, and private calm cannot substitute for unjust relationship. Their realisation is mental well-being, and a further concurrence of <em>atma</em> with Omnipresence is ultimate bliss (MVD, pp. 208, 327).</p>
@@ -587,7 +816,7 @@
 <p>Resolution bears happiness, resolution with prosperity bears peace, the addition of fearlessness bears contentment, and participation in coexistence bears bliss (KD, p. 112). The classical human ends are correspondingly reinterpreted through all-round resolution, realisation, and freedom from delusion (KD, pp. 3–4). The requirement throughout is that inward understanding, bodily sufficiency, just relationship, social confidence, and universal participation be mutually consistent, rather than attained in a fixed order.</p>
 <p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> distinguishes three functions within this movement. Knowledge (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="gyan" data-definition="Knowledge in several distinct senses in the texts — ontological given, intelligibility-ground, telos of fulfilled relationships, and unfolding through awakened *jeevan*.">gyan</button></span></em>) establishes realised understanding of coexistence, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, and humane conduct. Wisdom (<em>vivek</em>) recognises the human goal. Science (<em>vigyan</em>) supplies direction for accomplishing material prosperity together with the human and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> goals (MVD, p. 170). Science in this sense is broader than modern natural science. Knowledge establishes what is real, wisdom identifies the human goal, and science determines how activity can move toward material sufficiency and those goals.</p>
 <p>Constitutional completeness establishes <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> as a sentient unit; activity and conduct completeness concern awakening. Activity completeness is the restfulness of internal effort when understanding is no longer divided by delusion, and conduct completeness is its stable expression in work, relationship, behaviour, and participation. Knowledge is sought neither for speculative possession nor private release alone, but for an evidence-bearing life in which inward resolution and outward participation agree.</p>
-<h3>1.3 <em>Jeevan</em>, body, and the activities of knowing</h3>
+<h3 id="13-jeevan-body-and-the-activities-of-knowing" data-depth="2">1.3 <em>Jeevan</em>, body, and the activities of knowing</h3>
 <p>The active knower is <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, a constitutionally complete sentient unit whose ten activities are distributed across <em>atma</em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="buddhi" data-definition="Discriminative faculty in *jeevan* — part of the sentient unit's orbital structure with *mun*, *vritti*, and *chitta*.">buddhi</button></span></em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery.">chitta</button></span></em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Modification or tendency in *jeevan* — one of the faculties whose alignment supports or obstructs understanding.">vritti</button></span></em>, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mun" data-definition="A faculty of *jeevan* — imagination and selection; part of the orbital structure with *buddhi*, *vritti*, and *chitta*.">mun</button></span></em>: realisation and authenticity in <em>atma</em>; enlightenment and resolve in <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="buddhi" data-definition="Discriminative faculty in *jeevan* — part of the sentient unit's orbital structure with *mun*, *vritti*, and *chitta*.">buddhi</button></span></em>; contemplation and visualisation in <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery.">chitta</button></span></em>; deliberation and analysis in <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Modification or tendency in *jeevan* — one of the faculties whose alignment supports or obstructs understanding.">vritti</button></span></em>; and taste and selection in <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mun" data-definition="A faculty of *jeevan* — imagination and selection; part of the orbital structure with *buddhi*, *vritti*, and *chitta*.">mun</button></span></em> (JV, pp. 72–73, 92–93). The receptive activity of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery.">chitta</button></span></em> is direct recognition (<em>sakshatkar</em>) — the recognition and formation of meaning rather than bodily sensation alone.</p>
 <p>The same ten activities divide again into force and power, and that division matters for evidence. Five are activities of state expressed as force — taste, comparison, contemplation, enlightenment, and realisation — and five are activities of motion expressed as power — selection, analysis, desire, resoluteness, and evidence (KD §3.6, pp. 70–71). Named from what becomes observable in a living person, the projected five are hope, thought, desire, resoluteness, and authenticity, which <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> alone expresses, communicates, and manifests (KD §3.16, p. 145). The activities of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> are therefore legible in a person&rsquo;s hopes, thoughts, desires, resolves, and authenticity, and this is what connects the faculty account to the darshan&rsquo;s claims about behaviour.</p>
 <p>The activities have two coordinated directions. Reflection is the movement in which sensation, behaviour, thought, desire, and resolve are examined toward enlightenment and realisation. Projection is the movement in which realised understanding and resolve take form as visualisation, analysis, selection, bodily action, work, behaviour, and communication (KD §§3.12, 3.16–3.17). Knowing and acting are therefore recurrent phases of one active <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>. Projection gives reflection material to evaluate; corrected reflection guides subsequent projection.</p>
@@ -596,7 +825,7 @@
 <p>In delusion, four and a half of the ten activities are said to become effective: selection and taste, analysis, visualisation, and the part of deliberation governed by pleasure, health, and profit (JV, pp. 72–74; KD §3.17, p. 147). The remaining activities do not become evident because the body is taken as the self and reflection does not reach effective enlightenment and realisation. Projection consequently remains governed by sensory and material criteria. Awakening does not add another body or abolish sensory activity. Reflection reaches <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="buddhi" data-definition="Discriminative faculty in *jeevan* — part of the sentient unit's orbital structure with *mun*, *vritti*, and *chitta*.">buddhi</button></span></em> and <em>atma</em>, and realisation then informs visualisation, analysis, selection, and conduct through the full organisation of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>.</p>
 <p>Inspiration reaching <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mun" data-definition="A faculty of *jeevan* — imagination and selection; part of the orbital structure with *buddhi*, *vritti*, and *chitta*.">mun</button></span></em> from <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Modification or tendency in *jeevan* — one of the faculties whose alignment supports or obstructs understanding.">vritti</button></span></em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery.">chitta</button></span></em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="buddhi" data-definition="Discriminative faculty in *jeevan* — part of the sentient unit's orbital structure with *mun*, *vritti*, and *chitta*.">buddhi</button></span></em>, and <em>atma</em> is higher-conformance, aligned with justice; pressure from vitality, senses, body, and established behaviour is lower-conformance (MVD, p. 208). The latter is necessary to bodily maintenance; error arises when it defines <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>&rsquo;s final purpose. The question is which perspective governs bodily signals, material outcomes, and the selection that follows.</p>
 <p>The darshan&rsquo;s own name marks a further feature of this structure. <em>Atma</em> is mediative (<em>madhyasth</em>): by its centrality the mediative activity attains the touch of knowledge in every dimension, and its mediativeness becomes evident only through integrality of behaviour and thought (MVD, p. 211). Mediativeness is therefore neither neutrality between options nor compromise between doctrines. It names the central, non-partisan situation from which realisation is held to be possible at all, and its test is again coherence between what is understood and what is done.</p>
-<h3>1.4 From sensory activity to universal orderliness</h3>
+<h3 id="14-from-sensory-activity-to-universal-orderliness" data-depth="2">1.4 From sensory activity to universal orderliness</h3>
 <p>Knowledge of humane conduct becomes operational across bodily, sensory, social, and higher-human activity. These are connected fields rather than equivalent sets of drives. The four <em>vishayas</em> identify bodily propensities; the five sensory modalities identify the body&rsquo;s interfaces with its surroundings; and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="samadhan" data-definition="Resolution — understanding and relational closure without residue; joint evidence of complete happiness.">samadhan</button></span></em> with the three <em>eshanas</em> identifies intellectual and social fulfilment. Sensory satisfaction is temporary, intellectual satisfaction longer-lasting, and satisfaction in realisation non-transforming (MVD, pp. 64–65). <em>Upakar</em> belongs to a separate higher-human field of help and inspiration.</p>
 <p>Within each field, the human being must understand what activity is occurring, what criteria should govern the decision, what law protects and regulates the activity, what balance it must sustain, and how its result participates in overall orderliness.</p>
 <p>The four bodily <em>vishayas</em> are eating, sleeping, protection or defence, and mating (MVD, p. 58). They characterise animal living, and the human body retains rather than transcends its need for nourishment, rest, protection, and continuity. These propensities operate through the sensory fields of sound, touch, visible form, taste, and smell (MVD, p. 65). The four name which bodily propensity is being served; the five name the mode of bodily contact and information through which it is engaged.</p>
@@ -613,13 +842,13 @@
 <p>This practical organisation gives humane conduct its definite content. Humane conduct comprises value, character, and ethics. Value includes recognising relationship, fulfilling its values, evaluating the result, and attaining mutual satisfaction. Character includes fidelity and compassionate work and behaviour. Ethics includes the protection and right use of body, mind, and material wealth across personal, economic, and political participation (KD §3.4, p. 67). Humane behaviour has an essential nature of fortitude, courage, generosity, kindness, grace, and compassion; perspectives of justice, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, and truth; and behaviour bearing the three <em>eshanas</em> (MVD, p. 35). Humane conduct is thus neither a private disposition nor a list of prohibitions. It is the organisation of motive, deliberation, relationship, resources, and action under understood order.</p>
 <p>The full movement begins from understood reality. <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">Jeevan</button></span></em> then deliberates through the applicable perspectives, decides what is to be done, recognises the relationship involved, and fulfils its value through embodied action. The result is evaluated for actual fulfilment and mutual satisfaction. Evaluation may confirm the original understanding, expose inadequate ability or resources, or reveal an error in conception, recognition, or choice. Corrected understanding then enters the next cycle. Knowledge is therefore active before, during, and after conduct: as understanding before decision, regulation during activity, and evaluation after result.</p>
 <p>Across bodily propensities, sensory contact, the <em>eshanas</em>, relationship, production, and <em>upakar</em>, knowledge of the activity, its governing perspectives, relevant law and regulation, expected balance, and contribution to the human goal enables conscious participation in universal orderliness rather than the imposition of a human design upon nature.</p>
-<h3>1.5 Knowing, action, and evaluation</h3>
+<h3 id="15-knowing-action-and-evaluation" data-depth="2">1.5 Knowing, action, and evaluation</h3>
 <p>Knowledge in the human process is knowing together with believing or accepting (JV, p. 165) — a discipline stated as believing what is known and knowing what is believed (MVD, p. 12). Acceptance here is not assent without inquiry. It is the establishment of understood meaning as a basis for one&rsquo;s own activity. Knowing without acceptance remains verbally available but practically ineffective; acceptance without knowing remains inherited belief and can sustain delusion.</p>
 <p>Activity together with aspiration is karma, and every karma has a result. Intentional activity is analysed through doer, cause, objective, result, and effect, so that desire, action, and consequence are examined together rather than good intention being treated as sufficient (KD Ch. 1). Bodily capacity, knowledge, skill, other persons, material means, and environmental conditions all mediate the result. An awakened decision does not guarantee control over every external event. It seeks non-contradiction between the accepted aim, the chosen means, the relationships involved, and the foreseeable result.</p>
 <p>Result returns to the knower through evaluation. In relationship, recognition, fulfilment, evaluation, and mutual satisfaction together constitute justice (MVD, pp. 310–311; JV, p. 55). A person may know a stated value yet fail to recognise the present relationship, recognise it but lack the ability to fulfil it, act without adequate means, or claim fulfilment without examining the other person&rsquo;s experience. Evaluation is therefore not a final score added after conduct. It tests the entire movement from conception to consequence.</p>
 <p>Over-evaluation, under-evaluation, and mis-evaluation are the characteristic failures. Over-evaluation attributes more value, capacity, or fulfilment than is present. Under-evaluation recognises less. Mis-evaluation applies the wrong value or criterion. Any of the three may distort the object, the accepted purpose, the relationship, one&rsquo;s own ability, the action, or the result. Repeated evaluation and action shape <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em>, which influences later projection without making human conduct mechanically fixed. The feedback movement is epistemic: consequence supplies material for corrected understanding.</p>
 <p>False learning is more than an isolated false proposition: it is failure to understand a thing&rsquo;s form, properties, essential nature, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> as they are, and is connected with doubt and distorted evaluation (MVD, pp. 184, 263–264). Information, argumentative skill, or institutional authority may therefore coexist with unresolved desire and unjust conduct. Awakening requires coherence across knowing, accepting, recognising, fulfilling, and evaluating.</p>
-<h3>1.6 Evidence, study, and transmission</h3>
+<h3 id="16-evidence-study-and-transmission" data-depth="2">1.6 Evidence, study, and transmission</h3>
 <p>The evidence chain is stated directly:</p>
 <blockquote>
 <p><strong>“Realisation itself is the ultimate evidence, Evidence itself is the understanding or knowledge, Understanding itself is manifest, The manifest itself is resolution, work and behaviour, Work and behaviour itself is evidence, Evidence itself is awakened tradition, Awakened tradition itself is coexistence.”</strong>
@@ -637,7 +866,7 @@
 <p>On this account, whatever is called knowledge must become intelligible in the knower, directive in action, examinable in consequence, communicable to another, and non-contradictory with the coexistence it claims to understand.</p>
 <h2 id="2-the-advaita-vedanta-answer">2. The Advaita Vedanta Answer</h2>
 <p>Advaita Vedanta gives two answers to the question of the knower, and comparison becomes distorted if they are collapsed. Within empirical life (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vyavahara" data-definition="Advaita: shared empirical order — bodies, law, ethics, scripture; robust but sublated at highest realization.">vyavahara</button></span></em>), an embodied person cognizes through perception, inference, testimony, and the other accepted means of knowledge. From the absolute standpoint (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="paramartha" data-definition="Advaita: absolute level of truth; Brahman alone is absolutely real.">paramartha</button></span></em>), the witnessing Self is not one individual knower among others: it is non-dual consciousness, identical with <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span>, in which the distinction between knower, known, and knowing does not finally apply. The world is consequently valid for empirical cognition while remaining <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mithya" data-definition="Advaita: dependent appearance — neither absolutely real nor sheer nothing; valid at *vyavahara*, sublated at *paramartha*.">mithya</button></span></em>, dependent rather than independently absolute.</p>
-<h3>2.1 Empirical knower and witnessing consciousness</h3>
+<h3 id="21-empirical-knower-and-witnessing-consciousness" data-depth="2">2.1 Empirical knower and witnessing consciousness</h3>
 <p>Classical Indian epistemology analyses a cognition through a subject or knower (<em>pramatr</em>), a means of knowledge (<em>pramana</em>), an object (<em>prameya</em>), and the resulting valid cognition (<em>prama</em>). Advaita accepts this structure at the empirical level. The embodied <em>jiva</em>, equipped with body, senses, and the internal organ (<em>antahkarana</em>), is the person who sees, infers, remembers, deliberates, and acts. <em>Ahamkara</em>, the appropriating “I”-notion, is one function in this empirical complex; it is not simply a synonym for the whole <em>jiva</em>.</p>
 <p>Later Advaita manuals commonly describe cognition through a modification of the internal organ (<em>antahkarana-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Modification or tendency in *jeevan* — one of the faculties whose alignment supports or obstructs understanding.">vritti</button></span></em>) that takes the form of an object and is illumined by consciousness reflected in the mind (<em>chidabhasa</em>). The actionless witness (<em>sakshin</em>) does not perform an epistemic operation alongside perception or inference. It is that by whose presence the changing cognitions of the empirical subject are manifest. The seer–seen discrimination makes this distinction vivid: whatever can itself be observed cannot be the final witness.</p>
 <blockquote>
@@ -647,7 +876,7 @@
 <p>The physical body, senses, emotions, and thoughts are all available as objects of awareness; Advaita therefore denies that any one of them is the ultimate seer. Bhagavad Gita 13.1–3 distinguishes the body as “field” from its knower and then identifies the one knower in all fields. At the empirical level, however, different persons remain accountable agents and knowers. The text does not license replacing every ordinary act of knowing with an actionless transcendental observer.</p>
 <p>The <em>Mandukya Upanishad</em> (MU, vv. 3–7) analyses waking, dream, and deep sleep before indicating <em>turiya</em>. Deep sleep is not simply a blank witnessed as another object: <em>prajna</em> is described as undifferentiated, a mass of consciousness and a causal condition in which distinct objects are not cognized, while ignorance remains. <em>Turiya</em> is neither an additional experiential state nor the deep-sleep condition; it is the non-dual Self that is not exhausted by any of the three.</p>
 <p>The five-sheath analysis associated with the <em>Taittiriya Upanishad</em> (TU, 2.1–2.5), and developed explicitly as a method of discrimination in later works such as the <em>Vivekachudamani</em> (VC, vv. 154–212), similarly refuses to identify the Self with food-body, vitality, mind, intellect, or causal bliss. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> reuses some of the same <em>kosha</em> vocabulary but assigns it a different role: its layers are activities and powers of an enduring <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> to be understood in awakened participation, not coverings whose discrimination culminates in the unreality of individual separateness (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §5.7.2).</p>
-<h3>2.2 Empirical knowledge and liberating knowledge</h3>
+<h3 id="22-empirical-knowledge-and-liberating-knowledge" data-depth="2">2.2 Empirical knowledge and liberating knowledge</h3>
 <p>Advaita does not reduce every instance of knowledge to mystical realization. Perceptual and inferential cognitions can be valid within empirical life: a person may know a pot, a medical fact, or another person&rsquo;s testimony without thereby knowing <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span>. Liberating knowledge (<em>brahma-jnana</em>) is different in scope. It removes the basic superimposition by which the non-objectifiable Self is taken to be a limited body-mind and reveals the identity indicated by the Upanishadic great sayings.</p>
 <blockquote>
 <p><strong>“<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span> is truth, knowledge, infinite.”</strong>
@@ -659,7 +888,7 @@
 — VC, v. 152</p>
 </blockquote>
 <p>Ordinary knowledge preserves the knower–means–known relation. Liberating knowledge removes the ignorance that made this relation appear finally independent. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span> is consequently not a supreme object known by a surviving individual subject, nor an “absolute knower-known ground” in which both terms retain their ordinary meanings. At <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="paramartha" data-definition="Advaita: absolute level of truth; Brahman alone is absolutely real.">paramartha</button></span></em>, the relational triad no longer applies.</p>
-<h3>2.3 Error, sublation, and levels of reality</h3>
+<h3 id="23-error-sublation-and-levels-of-reality" data-depth="2">2.3 Error, sublation, and levels of reality</h3>
 <p>Shankara opens the <em>Brahma Sutra Bhashya</em> by diagnosing mutual superimposition (<em>adhyasa</em>): the properties of body and mind are attributed to the Self, while consciousness and selfhood are attributed to the body-mind complex. Ordinary perceptual error, such as mistaking a rope for a snake, illustrates correction by sublation (<em>badha</em>): what appeared is cancelled by a cognition that discloses its substrate. Later Advaita develops this into the technical account of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mithya" data-definition="Advaita: dependent appearance — neither absolutely real nor sheer nothing; valid at *vyavahara*, sublated at *paramartha*.">mithya</button></span></em> as neither independently real nor sheer non-being.</p>
 <p>The familiar three-level scheme is a useful later systematization rather than a single doctrine laid out as a table by Shankara. It distinguishes private or apparent error (<em>pratibhasika</em>), shared empirical order (<em>vyavaharika</em>), and the non-dual absolute (<em>paramarthika</em>).</p>
 <div class="table-scroll"><table>
@@ -689,7 +918,7 @@
 </tbody>
 </table></div>
 <p>At <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vyavahara" data-definition="Advaita: shared empirical order — bodies, law, ethics, scripture; robust but sublated at highest realization.">vyavahara</button></span></em>, the world is not unreal in the way a hallucination is. It is the common field in which evidence, error, causal order, duty, and instruction operate. Its dependence is disclosed only relative to <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span>. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> rejects this final sublation: error is removable misidentification within a fully real coexistence, not an epistemic condition whose removal cancels the ultimate independence of plurality (§1.5).</p>
-<h3>2.4 The nature of the knower</h3>
+<h3 id="24-the-nature-of-the-knower" data-depth="2">2.4 The nature of the knower</h3>
 <p>At <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vyavahara" data-definition="Advaita: shared empirical order — bodies, law, ethics, scripture; robust but sublated at highest realization.">vyavahara</button></span></em>, the knower is the embodied <em>jiva</em>: the Self apparently delimited by body, senses, internal organ, ignorance, and agency. This empirical subject is neither identical with <em>ahamkara</em> alone nor dismissed as a hallucination. It is the bearer of responsibility, qualification, inquiry, and liberating instruction so long as ignorance persists. The witness is actionless, but the empirical knower performs cognition and action.</p>
 <p>At <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="paramartha" data-definition="Advaita: absolute level of truth; Brahman alone is absolutely real.">paramartha</button></span></em>, <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span> is one without a second (<em>ekamevaditiyam</em>, CU 6.2.1). Separate knowers cannot therefore be finally independent entities. The language of limiting adjuncts (<em>upadhi</em>), reflection, and superimposition explains how one consciousness appears as many knowers without undergoing real division. These explanatory models are pedagogically related but should not be treated as a single literal mechanism accepted identically by every Advaita author.</p>
 <p>Ishvara is <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span> associated with Maya and functions within <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vyavahara" data-definition="Advaita: shared empirical order — bodies, law, ethics, scripture; robust but sublated at highest realization.">vyavahara</button></span></em> as the omniscient source and governor of ordered name-form manifestation. Advaita commonly treats Ishvara as both material and efficient cause of the empirical universe, not merely an external operative cause and not a creator <em>ex nihilo</em>. The individual <em>jiva</em> is conditioned by individual ignorance; later pedagogical texts distinguish this from cosmic Maya, although terminology varies across authors. Both distinctions cease at <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="paramartha" data-definition="Advaita: absolute level of truth; Brahman alone is absolutely real.">paramartha</button></span></em>:</p>
@@ -698,7 +927,7 @@
 — VC, v. 244</p>
 </blockquote>
 <p>The <em>Vivekachudamani</em> passage is useful evidence for a later pedagogical presentation, but its attribution to Shankara is disputed. The same caution applies to the <em>Drig-Drishya-Viveka</em>. They illuminate the received Advaita tradition without replacing the Upanishads, Bhagavad Gita, and Shankara&rsquo;s securely attributed commentaries as primary anchors. Full causal and cosmological comparison appears in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §§2.4–2.5.</p>
-<h3>2.5 The nature of the known</h3>
+<h3 id="25-the-nature-of-the-known" data-depth="2">2.5 The nature of the known</h3>
 <p>Empirical objects, persons, space, time, and causal relations are knowable within the shared world. Their empirical validity is not denied whenever one sees or names them correctly. Advaita denies that their differentiated forms possess self-sufficient reality apart from <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span>. CU 6.1.4 presents the clay analogy: transformations are names grounded in speech, while clay is the material reality through which the transformations are understood.</p>
 <blockquote>
 <p><strong>&ldquo;A firm conviction of the mind to the effect that <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span> is real and the universe unreal, is designated as discrimination (Viveka) between the Real and the unreal.&rdquo;</strong>
@@ -707,7 +936,7 @@
 — VC, v. 216</p>
 </blockquote>
 <p>The analogy does not make <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span> one more substance among substances. Nor does realization physically destroy the experienced world. It removes the claim that plurality exists independently and absolutely. The liberated person&rsquo;s continued experience belongs to <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vyavahara" data-definition="Advaita: shared empirical order — bodies, law, ethics, scripture; robust but sublated at highest realization.">vyavahara</button></span></em>; the non-dual standpoint denies that this field establishes a second reality beside <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span>.</p>
-<h3>2.6 Means of knowledge and liberating instruction</h3>
+<h3 id="26-means-of-knowledge-and-liberating-instruction" data-depth="2">2.6 Means of knowledge and liberating instruction</h3>
 <p>Later systematic Advaita, represented by works such as Dharmaraja&rsquo;s <em>Vedanta Paribhasa</em>, normally accepts six means of valid cognition: perception (<em>pratyaksha</em>), inference (<em>anumana</em>), comparison (<em>upamana</em>), postulation (<em>arthapatti</em>), non-apprehension (<em>anupalabdhi</em>), and verbal testimony (<em>shabda</em>). Earlier Advaita presentations do not always enumerate or analyse them in exactly the same way. This historical qualification matters because the sixfold list is a mature scholastic account, not a verbatim scheme in every foundational text.</p>
 <p>The word <em>pramana</em> is also a false friend in this comparison. In Advaita and other classical Indian epistemologies it means an instrument or source that generates valid cognition. In <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s English translations, “evidence” or <em>pramana</em> often names the lived confirmation of realization in conduct, work, participation, and conveyance. The two uses overlap around warrant but are not equivalent.</p>
 <div class="table-scroll"><table>
@@ -753,7 +982,7 @@
 — BU, 2.4.5</p>
 </blockquote>
 <p>First-person discrimination and <em>neti neti</em> (BU, 2.3.6) work within this teaching by withdrawing mistaken identifications. The comparison with <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s awakened tradition is therefore structural but limited. Both value an accomplished teacher and assimilated understanding; Advaita treats Upanishadic testimony as the decisive means for non-dual Self-knowledge, whereas <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> asks realization to become publicly legible in humane conduct and successful conveyance (§1.6).</p>
-<h3>2.7 Liberation and complete knowledge</h3>
+<h3 id="27-liberation-and-complete-knowledge" data-depth="2">2.7 Liberation and complete knowledge</h3>
 <p>Liberating knowledge is not acquisition of a new property or merger of a formerly separate substance into <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span>. It is recognition of the identity taught by <em>tat tvam asi</em>, “That thou art” (CU, 6.8.7), through which ignorance of the ever-free Self is removed. BSB 1.1.2 should not be cited as the locus of this identity: it defines <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span> through the origin, continuance, and dissolution of the universe. Shankara&rsquo;s treatment of Upanishadic identity statements occurs across his commentaries and in the later sections of the <em>Brahma Sutra Bhashya</em>.</p>
 <blockquote>
 <p><strong>&ldquo;There is neither death nor birth, neither a bound nor a struggling soul, neither a seeker after Liberation nor a liberated one – this is the ultimate truth.&rdquo;</strong>
@@ -762,7 +991,7 @@
 — VC, v. 393</p>
 </blockquote>
 <p>Advaita commonly distinguishes liberation while living (<em>jivanmukti</em>) from the final cessation of embodied appearance (<em>videhamukti</em>). Knowledge removes ignorance; the body-mind may continue through already-fructifying karma (<em>prarabdha</em>) without restoring the knower&rsquo;s former identification. Accounts differ on the exact explanatory status of <em>prarabdha</em>, but the important comparative point is stable: no eternally separate <em>jiva</em> persists as an independent knower after liberation. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> instead holds that each <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> remains numerically distinct and active in coexistence even when awakened (§1.1).</p>
-<h3>2.8 Ethics, <em>loka-sangraha</em>, and what realization evidences</h3>
+<h3 id="28-ethics-loka-sangraha-and-what-realization-evidences" data-depth="2">2.8 Ethics, <em>loka-sangraha</em>, and what realization evidences</h3>
 <p>Advaita does not treat ethical indifference as evidence of realization. The fourfold qualification (<em>sadhana-catushtaya</em>) requires discrimination, dispassion, disciplined virtues, and desire for liberation; the Bhagavad Gita&rsquo;s disciplines of action and devotion purify the mind for knowledge. In Shankara&rsquo;s account, action does not directly produce liberation, because an action cannot create the already existent Self. Ethical and contemplative disciplines prepare the knower, while knowledge removes ignorance.</p>
 <p>The Bhagavad Gita&rsquo;s explicit discussion of <em>loka-sangraha</em>, sustaining or protecting the world&rsquo;s order, occurs at 3.20 and 3.25–26. Shankara allows that one who has no personal end left to gain may nevertheless act for the welfare and guidance of others. BG 3.8 establishes the necessity of prescribed action for the unliberated agent, but it should not carry the whole claim about enlightened social responsibility.</p>
 <div class="table-scroll"><table>
@@ -802,23 +1031,23 @@
 </tbody>
 </table></div>
 <p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s objection is therefore not that Advaita lacks ethical discipline or compassionate exemplars. It is that ethical action has a different epistemic and ontological place. In <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>, mutually fulfilling conduct is constitutive public evidence of understanding in a perpetually real coexistence. In Advaita, ethical fitness prepares the mind and compassionate action may express freedom, but neither produces Self-knowledge nor makes relationships ultimately independent realities. The dispute concerns what conduct proves and what final weight the world retains.</p>
-<h3>2.9 Scope within Indian epistemology</h3>
+<h3 id="29-scope-within-indian-epistemology" data-depth="2">2.9 Scope within Indian epistemology</h3>
 <p>Advaita is one major Indian answer, not a proxy for Indian epistemology as a whole. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="nyaya" data-definition="Justice — complete relational activity: recognise, fulfil, evaluate, mutual satisfaction.">Nyaya</button></span> defends enduring individual selves, a realist world, and a highly articulated theory of inference and testimony. Mimamsa develops distinctive accounts of linguistic authority and the intrinsic or extrinsic validity of cognition. Buddhist epistemologists analyse perception, inference, momentariness, and no-self without accepting Advaita&rsquo;s <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span>. A comprehensive cross-Indian comparison would therefore require a separate study. Advaita is retained here because its witness analysis, non-dual absolute, and theory of liberating knowledge create the sharpest contrast with <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s enduring plural knowers in coexistence.</p>
 <h2 id="3-modern-western-epistemology-and-philosophy-of-mind">3. Modern Western Epistemology and Philosophy of Mind</h2>
 <p>Modern Western philosophy offers no single answer to knowledge, knower, and known. Analytic epistemology asks what turns true belief into knowledge; philosophy of mind disputes whether the knower is wholly physical, emergent, embodied, socially constituted, or grounded in consciousness; phenomenological and perspectival approaches begin from lived experience rather than treating it as an afterthought. Physicalism is influential, but it is a contested philosophical position rather than the unanimous conclusion of analytic philosophy.</p>
-<h3>3.1 What is knowledge?</h3>
+<h3 id="31-what-is-knowledge" data-depth="2">3.1 What is knowledge?</h3>
 <p>Analytic epistemology usually distinguishes <strong>propositional knowledge</strong>—knowing that something is the case—from knowledge-how, acquaintance, and understanding. The traditional justified-true-belief framework concerns propositional knowledge. Gettier (1963) showed that a belief may be justified and true through epistemic luck without amounting to knowledge, so contemporary accounts add or replace conditions involving reliability, safety, proper function, evidence, or intellectual competence.</p>
 <p>Reliabilism locates warrant partly in dependable belief-forming processes rather than only in reasons accessible to reflection (Goldman 1979). Virtue epistemology treats knowledge as a success attributable to the knower&rsquo;s intellectual competence (Sosa 2007). Social epistemology examines testimony, trust, disagreement, institutions, and epistemic injustice, showing why an isolated individual is not the sole unit of assessment (Fricker 2007; Jarczewski and Riggs 2025). These theories compete; “modern Western epistemology” has no single accepted criterion.</p>
 <p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="gyan" data-definition="Knowledge in several distinct senses in the texts — ontological given, intelligibility-ground, telos of fulfilled relationships, and unfolding through awakened *jeevan*.">gyan</button></span></em> does not map neatly onto any one of these categories. It includes understanding of coexistence and the human being, realization by the knower, and confirmation in conduct (§§1.1–1.6). Analytic epistemology can ask whether its claims are true, warranted, reliably formed, communicable, and socially responsible, but it will not ordinarily define humane conduct as part of what makes a proposition known. Scientific method, meanwhile, is an institutional way of producing and correcting empirical knowledge; it belongs to §4 rather than serving as the definition of knowledge in analytic epistemology.</p>
-<h3>3.2 Naturalistic accounts of the knower</h3>
+<h3 id="32-naturalistic-accounts-of-the-knower" data-depth="2">3.2 Naturalistic accounts of the knower</h3>
 <p>Physicalist and naturalistic accounts identify knowing with capacities of embodied organisms or with cognitive processes realized by them (Churchland 1986; Dennett 1991). Some theories reduce mental states to physical or functional states; others treat consciousness and selfhood as emergent, embodied, enacted, or distributed across organism and environment. They agree less about consciousness than the label “naturalism” can suggest.</p>
 <p>Many physicalists reject a Cartesian inner observer. On representational accounts, the self is a dynamically maintained self-model integrating perception, memory, bodily regulation, action, and social recognition. Enactive and embodied accounts resist the picture of a brain constructing an inner replica for a detached spectator; they locate cognition in skilled organism–environment engagement. Both differ from an indivisible <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, though for different reasons.</p>
 <p>The causal closure of the physical is a philosophical thesis used in arguments for physicalism (Kim 2005), not a separately measured law stating that every event already has a sufficient physical cause. Conservation laws constrain physical quantities, but by themselves do not settle the metaphysics of mind or show that intention would have to “inject energy.” The sharper challenge to <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> is explanatory: if <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> is distinct from the body yet affects neural action, the account needs a publicly assessable relation between its activities and measured brain processes. Without such criteria, physicalism remains contestable while <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> remains empirically underdetermined.</p>
-<h3>3.3 Scientific realism and the scope of the known</h3>
+<h3 id="33-scientific-realism-and-the-scope-of-the-known" data-depth="2">3.3 Scientific realism and the scope of the known</h3>
 <p>Scientific realism is a philosophical interpretation of successful science: well-confirmed theories aim to describe a mind-independent world, including unobservable entities supported by explanatory and predictive success. Instrumentalists and constructive empiricists grant the practical and empirical success of theories without making the same commitment to their unobservable ontology. Science itself does not decide this dispute by methodological fiat.</p>
 <p>The scientifically investigated world includes physical, biological, psychological, and social phenomena insofar as claims about them can be made publicly answerable to evidence. Public does not mean directly visible or purely quantitative: scientists infer unobservables, use models and instruments, and can treat disciplined first-person reports as data when collection and interpretation are calibrated. Spacetime in physics remains a mathematically articulated dynamical structure, not omnipresent knowledge-energy (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §4.5; <a href="https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.html"><em>Nature of Time</em></a>).</p>
 <p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> expands the known to include relationship, value, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, and humane order as objective dimensions of coexistence (§1.1). Western philosophy contains realist and anti-realist accounts of value, while psychology and social science investigate moral cognition and institutions. Descriptive findings alone do not entail prescriptive conclusions without normative premises. The comparison should therefore oppose neither “physical facts” to “values” nor science to all normativity; it should ask what kind of evidence supports claims that values are features of reality rather than human responses, practices, or constructions.</p>
-<h3>3.4 The hard problem, mystery, and first-person evidence</h3>
+<h3 id="34-the-hard-problem-mystery-and-first-person-evidence" data-depth="2">3.4 The hard problem, mystery, and first-person evidence</h3>
 <p>Philosophy of mind distinguishes explanatory questions from the analysis of knowledge. Third-person accounts are powerful on mechanism and prediction, yet Chalmers&rsquo;s <strong>hard problem</strong> asks why and how physical processing is accompanied by subjective experience (Chalmers 1995; Nagel 1974):</p>
 <blockquote>
 <p><strong>&ldquo;The really hard problem of consciousness is the problem of experience.&rdquo;</strong>
@@ -828,21 +1057,21 @@
 </blockquote>
 <p>The argument begins from the reality of experience, but its conclusion is disputed. Reductive physicalists expect a functional or neuroscientific explanation; illusionists argue that the apparently ineffable properties attributed to consciousness are products of introspective representation (Frankish 2016); non-reductive physicalists treat experience as irreducible without making it a separate substance; panpsychists or Russellian monists assign experience or proto-experiential character a fundamental role (Strawson 2006; Goff 2019; Hashemi 2025). These are philosophical positions constrained by science, not established findings of consciousness science.</p>
 <p>The hard problem does not prove an extra-physical <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, and neural correlation does not by itself solve the hard problem. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> makes a stronger proposal: mystery (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="rahasyata" data-definition="Mysteriousness — removable deficit in the knower's reflection, not a permanent opacity of nature.">rahasyata</button></span></em>) is a removable deficit in the knower&rsquo;s reflection, and disciplined realization can disclose the constitution and activity of the knower (§1.6). Comparative evaluation must therefore ask what such realization predicts, how it is distinguished from introspective error, and how first-person discrimination is coordinated with public evidence.</p>
-<h3>3.5 Error, bias, and epistemic correction</h3>
+<h3 id="35-error-bias-and-epistemic-correction" data-depth="2">3.5 Error, bias, and epistemic correction</h3>
 <p>Western epistemology distinguishes several failures that should not be merged. A belief may be false, accidentally true, irresponsibly held, produced by an unreliable process, distorted by bias, or defeated by evidence the believer ignores. Testimonial injustice and institutional exclusion add social failures that cannot be located only inside an individual&rsquo;s reasoning. Gettier cases concern epistemic luck even when belief is justified and true; they are not examples of experimental non-replication.</p>
 <p>Scientific practices address a subset of these failures through calibration, controls, statistical criticism, replication, adversarial testing, and revision. Phenomenology addresses another subset by examining how objects and selfhood are given in experience; psychotherapy, contemplative disciplines, and moral education address still others. None supplies an infallible correction regime.</p>
 <p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> foregrounds false learning, delusion, and contradiction between claimed understanding and conduct (§1.5). Advaita foregrounds superimposition and ignorance of Self (§2.3). Analytic epistemology asks whether belief is warranted and non-accidental, while science asks whether empirical claims survive public tests. The live comparison is not first-person against third-person correction, but how different kinds of error are diagnosed and how their proposed corrections become independently assessable.</p>
-<h3>3.6 Personal identity and brain death</h3>
+<h3 id="36-personal-identity-and-brain-death" data-depth="2">3.6 Personal identity and brain death</h3>
 <p>Physicalism&rsquo;s answer to post-mortem persistence is typically negative: if personal capacities are realized by a living brain and organism, their irreversible destruction ends the person. Clinical criteria of death serve medical and legal decisions; they are not themselves a complete philosophical theory of personal identity. No reproducible public evidence has established the continued agency of an individual knower after bodily death.</p>
 <p><strong>Personal identity</strong> theory asks what, if anything, makes a person the same individual over time. Locke tied identity to <strong>psychological continuity</strong> — memory and connectedness of consciousness — rather than sameness of material particles. Parfit (1984) argued that what matters in survival is psychological connectedness, not a further fact of deep identity beyond the stream of mental states. On reductionist readings, the question &ldquo;is this the same knower after death?&rdquo; has no fact of the matter beyond causal and psychological links — which bodily death breaks (SEP Personal Identity).</p>
 <p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> (§1.1) and Advaita&rsquo;s eternal <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="atman" data-definition="Advaita: the innermost Self; in Madhyasth Darshan the sentient nucleus within constitutionally complete *jeevan*.">Atman</button></span></em> (§§2.4 and 2.7) both reject this outcome on different grounds. Physicalism sets a high evidential bar: without operational criteria for a non-neural knower or independent post-death evidence, immortal <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> remains a metaphysical posit, while the hard problem (§3.4) exposes the incompleteness of current physical explanation without proving either rival view.</p>
-<h3>3.7 Social, embodied, and perspectival knowing</h3>
+<h3 id="37-social-embodied-and-perspectival-knowing" data-depth="2">3.7 Social, embodied, and perspectival knowing</h3>
 <p>Phenomenology begins from intentionality: consciousness is consciousness <em>of</em> something, and objects are disclosed through embodied, temporal, and perspectival experience. Husserl&rsquo;s suspension of the natural attitude is a methodological refusal to settle metaphysics before describing experience, not the Advaita conclusion that the experienced world is <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mithya" data-definition="Advaita: dependent appearance — neither absolutely real nor sheer nothing; valid at *vyavahara*, sublated at *paramartha*.">mithya</button></span></em>. Merleau-Ponty&rsquo;s embodied subject is not a detached witness behind the body; bodily orientation is constitutive of perceptual access to a shared world (SEP Phenomenology).</p>
 <p>Embodied and enactive approaches carry part of this insight into cognitive science by treating cognition as skilled activity of organism and environment rather than passive construction of an inner picture. Perspectival realism holds that scientific knowledge is historically, instrumentally, and conceptually situated while remaining capable of truth about a mind-independent world (Massimi 2022). These positions give the knower&rsquo;s standpoint a constructive role without making truth merely private.</p>
 <p>Social epistemology adds that testimony, trust, expertise, institutions, and relations of power affect what people can responsibly know. It comes closer to <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s emphasis on tradition and conveyance, but it evaluates testimonial competence and social conditions rather than presupposing an awakened lineage. The comparison is therefore not exhausted by “matter versus soul.” It also concerns whether knowledge is belief, reliable competence, lived disclosure, social achievement, understanding, or conduct-evidenced realization—and how first-person and public evidence constrain one another.</p>
 <h2 id="4-modern-scientific-approaches">4. Modern Scientific Approaches</h2>
 <p>The natural sciences operationalise knowledge through observation, measurement, modelling, prediction, experiment, and replication. They do not ordinarily define a metaphysical knower. They investigate organisms, brains, behaviour, reports, and environments, while adopting methodological naturalism: explanations are sought in publicly testable processes rather than in unmeasured sentient units.</p>
-<h3>4.1 Method and means of knowing</h3>
+<h3 id="41-method-and-means-of-knowing" data-depth="2">4.1 Method and means of knowing</h3>
 <p>Natural science adopts methodological naturalism: it seeks explanations through publicly testable processes without requiring a prior proof that only natural entities exist. Measurement, formal models, experiment, and institutional criticism extend ordinary perception and inference (Popper 1959). Science can constrain philosophical accounts of mind, but an experimental result does not by itself select a complete metaphysics. SB likewise records that humans seek to live with evidence through experimentation, behaviour, and experience (SB, p. 44); <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> extends that demand into realization and conduct (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §4).</p>
 <p>The principal scientific practices do not map one-to-one onto Indian <em>pramana</em> lists, although some functions are comparable:</p>
 <div class="table-scroll"><table>
@@ -882,20 +1111,20 @@
 </tbody>
 </table></div>
 <p>Public accountability, rather than a ban on first-person evidence, is the governing standard. Pain ratings, perceptual reports, introspective confidence, and phenomenological interviews can enter research as data, but their elicitation and interpretation must be open to calibration and criticism. First-person experience is indispensable to consciousness research; it is not by itself evidence for immortal units or sufficient warrant for a metaphysical theory.</p>
-<h3>4.2 Brain, organism, and conscious report</h3>
+<h3 id="42-brain-organism-and-conscious-report" data-depth="2">4.2 Brain, organism, and conscious report</h3>
 <p>Neuroscience establishes systematic dependence between brain activity and perception, memory, language, decision, and conscious report (Kandel et al. 2021). Injury, stimulation, anaesthesia, development, and degeneration alter the capacities attributed to a knower. These findings support brain-based accounts, but dependence does not by itself settle whether consciousness is identical with neural activity, emerges from it, or accompanies it under a deeper ontology.</p>
 <p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> accepts the brain as the body&rsquo;s enriched signal-processing organ while assigning understanding and evaluation to <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> (§1.3). The scientific question is whether that distinction predicts anything beyond brain–behaviour models. A viable empirical programme would need operational markers of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, not only philosophical dissatisfaction with physicalism.</p>
-<h3>4.3 Consciousness science and unresolved theory</h3>
+<h3 id="43-consciousness-science-and-unresolved-theory" data-depth="2">4.3 Consciousness science and unresolved theory</h3>
 <p>Consciousness science contains competing research programmes, including global neuronal workspace, integrated information, higher-order, recurrent-processing, and predictive-processing accounts. Illusionism and panpsychism are broader philosophical interpretations, not programmes of the same experimental kind. Adversarial testing of IIT and GNWT has challenged distinctive predictions of both rather than selecting an uncontested winner (Melloni et al. 2025). This pluralism shows an unfinished explanatory field, not positive evidence for <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>.</p>
 <p>The hard problem remains the philosophical question of why physical processing should have a first-person aspect at all (§3.4). Experimental science can map neural correlates, behavioural capacities, and report conditions without resolving that metaphysical question. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> offers <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> as its answer, but the existence and interaction of such a unit remain to be independently established.</p>
-<h3>4.4 Error control and public evidence</h3>
+<h3 id="44-error-control-and-public-evidence" data-depth="2">4.4 Error control and public evidence</h3>
 <p>Scientific error correction depends on calibrated instruments, statistical discipline, replication, peer review, and adversarial testing. Its strength is that results need not depend on the moral or contemplative attainment of a particular observer. Its limits are equally clear: institutional procedures can reproduce shared assumptions, and third-person measures do not exhaust the first-person character of experience or the normative question of how knowledge should guide conduct.</p>
 <p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s evidence chain and scientific replication therefore overlap only partly. Both require claims to face consequence and correction. Science privileges methodologically reproducible observations; <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> additionally requires coherence among realisation, behaviour, work, relationship, and transmission (§1.6). The latter is broader, but breadth does not automatically supply the controls against suggestion, authority, and confirmation bias that science has developed.</p>
-<h3>4.5 Ethics, value, and life&rsquo;s purpose</h3>
+<h3 id="45-ethics-value-and-lifes-purpose" data-depth="2">4.5 Ethics, value, and life&rsquo;s purpose</h3>
 <p>Evolutionary biology can explain how cooperation, kin concern, punishment, and norm sensitivity developed; psychology and social science investigate empathy, reasoning, institutions, and cultural variation. These are explanations of capacities and practices, not by themselves proofs that a moral norm is true. Philosophical naturalists consequently divide among moral realism, constructivism, contractualism, expressivism, and error theory.</p>
 <p>Survival and reproduction describe central consequences of natural selection, not a scientifically prescribed purpose for a human life. Purposes involving relationship, vocation, inquiry, justice, or flourishing require practical and ethical judgment. Science can illuminate their conditions and consequences but does not establish a single cosmic telos of awakening, liberation, or realization in coexistence.</p>
 <p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> makes a stronger unity claim: value, humane purpose, knowledge, and conduct belong to the objective order of coexistence and confirm one another (§§1.2 and 1.6). The scientific and philosophical challenge is to show how this normative order is known, how disagreement is corrected, and why successful conduct supports its ontology rather than only its practical usefulness.</p>
-<h3>4.6 Beyond simple brain reduction</h3>
+<h3 id="46-beyond-simple-brain-reduction" data-depth="2">4.6 Beyond simple brain reduction</h3>
 <p>Cognitive science is not restricted to a passive input–computation–output picture. Predictive-processing and active-inference approaches model an organism as anticipating sensory causes and acting to maintain viable states (Limanowski and Blankenburg 2013; Wiese 2024; Tufft et al. 2024). Embodied and enactive research instead emphasizes sensorimotor skill, bodily regulation, and environmental coupling (IEP Enactivism; Piredda 2024). Both make agency more distributed than a brain-only slogan suggests, while remaining compatible with naturalistic investigation.</p>
 <p>Research that coordinates careful experiential reports with neural and behavioural measures offers a possible bridge between first-person and public evidence. Such work does not treat introspection as infallible: reports are trained, sampled, compared, and related to independently measured processes. This is methodologically closer to <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s demand that inner realization meet observable consequences, although it does not presuppose <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> or humane conduct as the ontology and criterion of consciousness.</p>
 <p>These developments leave open whether cognition is best described as representational or enactive, brain-bound or organism–environmental, and reducible or irreducible. They do not remove the principal scientific objection to <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>: a distinct <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> has no agreed operational marker that discriminates its contribution from brain–body dynamics.</p>
@@ -991,12 +1220,12 @@
 </tr>
 </tbody>
 </table></div>
-<h3>5.1 Key contrasts</h3>
+<h3 id="51-key-contrasts" data-depth="2">5.1 Key contrasts</h3>
 <p>The deepest ontological contrast is between perpetual plurality and non-dual dependence. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> holds Space and every material and sentient unit to be real in coexistence: <em>Brahma <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satya" data-definition="Realisation perspective — whether assessment is grounded in coexistence as it is.">satya</button></span> hai, jagat satat hai</em> — Brahma is truth, the world is perpetual (§1.1). Advaita grants the world empirical validity but denies it independent absolute reality. Science investigates a stable public order without, by method alone, deciding between every realist and anti-realist interpretation; it offers no evidence that physical spacetime is omnipresent knowledge.</p>
 <p>The accounts of the knower must be compared at matching levels. Advaita&rsquo;s empirical <em>jiva</em> perceives, reasons, acts, and bears responsibility; the witness is actionless and illumines these activities; at <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="paramartha" data-definition="Advaita: absolute level of truth; Brahman alone is absolutely real.">paramartha</button></span></em>, no separate knower remains. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> remains a distinct active sentient unit in both ignorance and awakening. Naturalistic approaches locate activity in brain, body, environment, and social practice. The contrast is therefore not simply an active knower against a passive one, but enduring plural agency against empirically operative agency whose separateness is finally sublated.</p>
 <p>Knowledge and conduct also occupy different logical roles. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> places humane conduct within complete knowledge and treats its expression in behaviour, work, relationship, and conveyance as evidence (§§1.1 and 1.6). Advaita requires ethical qualification and permits liberated action for <em>loka-sangraha</em>, but conduct neither produces nor constitutes <em>brahma-jnana</em>. Western virtue and social epistemology connect knowing with competence and responsibility, while natural science evaluates claims through publicly corrigible methods rather than the moral attainment of a claimant.</p>
 <p>The four approaches diagnose different primary errors. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> identifies incomplete or misdirected activity of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> and contradiction between realization and conduct. Advaita identifies superimposition of body-mind and Self, removed by Upanishadic knowledge. Analytic epistemology distinguishes falsehood, luck, unreliable formation, and social distortion; science institutionalizes controls against measurement error, confounding, bias, and failed prediction. A comparative test must ask whether each method can detect the errors to which its own practitioners are vulnerable.</p>
-<h3>5.2 Sat-Chit-Ananda versus distributed coexistence</h3>
+<h3 id="52-sat-chit-ananda-versus-distributed-coexistence" data-depth="2">5.2 Sat-Chit-Ananda versus distributed coexistence</h3>
 <p>Advaita&rsquo;s Sat-Chit-Ananda and <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s coexistence can sound alike — both speak of being, consciousness, and fulfilment. The contrast is over what those words name and whether the world survives them (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §5.6).</p>
 <div class="table-scroll"><table>
 <thead>
@@ -1025,7 +1254,7 @@
 </tbody>
 </table></div>
 <p>Modern philosophy has no parallel formula: it may treat experience as physical, fundamental, or illusory, but it does not name existence as Sat-Chit-Ananda or as coexistence.</p>
-<h3>5.3 Partially incommensurable epistemic criteria</h3>
+<h3 id="53-partially-incommensurable-epistemic-criteria" data-depth="2">5.3 Partially incommensurable epistemic criteria</h3>
 <p>The four approaches do not merely give different answers; they use different criteria for what counts as knowing:</p>
 <div class="table-scroll"><table>
 <thead>
@@ -1061,7 +1290,7 @@
 <p>They are partially incommensurable because each includes standards the others do not fully recognise. Comparison can nevertheless test internal consistency, fidelity to experience, fit with public knowledge, explanatory reach, and whether a claimed method controls its own characteristic errors. The remaining disputes are collected in §7.</p>
 <h2 id="6-critical-review">6. Critical Review</h2>
 <p>No view escapes serious objections. Here is where each is strong and where each is vulnerable.</p>
-<h3>6.1 Madhyasth Darshan — integrated inside, unproven outside</h3>
+<h3 id="61-madhyasth-darshan-integrated-inside-unproven-outside" data-depth="2">6.1 Madhyasth Darshan — integrated inside, unproven outside</h3>
 <p><strong>Strengths.</strong></p>
 <ul>
 <li>It integrates ontology, active selfhood, knowledge, action, value, and social evidence rather than treating epistemology as belief assessment alone.</li>
@@ -1081,7 +1310,7 @@
 <li>The method needs safeguards against circularity when awakening validates the teaching and the teaching identifies awakening, as well as a clearer boundary between structural certitude and corrigible empirical knowledge (§§7.1 and 7.5).</li>
 </ul>
 <p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> is best read as an internally integrated epistemology whose decisive tests remain conduct-based and publicly contestable, not as a demonstrated ontology.</p>
-<h3>6.2 Advaita Vedanta — disciplined self-inquiry, disputed non-duality</h3>
+<h3 id="62-advaita-vedanta-disciplined-self-inquiry-disputed-non-duality" data-depth="2">6.2 Advaita Vedanta — disciplined self-inquiry, disputed non-duality</h3>
 <p><strong>Strengths.</strong></p>
 <ul>
 <li>Advaita distinguishes ordinary cognition from the consciousness in whose presence cognition is manifest, preventing a simple identification of the knower with any passing mental state.</li>
@@ -1097,7 +1326,7 @@
 <li>Later Advaita models of <em>jiva</em>, reflection, Maya, and levels of reality are not uniform; comparison must not treat one scholastic formulation as the uncontested view of the entire tradition.</li>
 </ul>
 <p>Advaita offers a rigorous account of liberating Self-knowledge when its empirical and absolute levels are kept distinct. Its central comparative vulnerability is not ethical incapacity but the additional argument needed to move from witness analysis to non-dual metaphysics, together with the final dependence it assigns to the plural world.</p>
-<h3>6.3 Modern Western philosophy — plural resources, no settled knower</h3>
+<h3 id="63-modern-western-philosophy-plural-resources-no-settled-knower" data-depth="2">6.3 Modern Western philosophy — plural resources, no settled knower</h3>
 <p><strong>Strengths.</strong></p>
 <ul>
 <li>Analytic epistemology supplies precise tools for justification, reliability, testimony, intellectual competence, epistemic luck, and social error.</li>
@@ -1111,7 +1340,7 @@
 <li>Physicalist, phenomenological, enactive, idealist, and social accounts can share vocabulary while disagreeing about what the knower and known ultimately are.</li>
 </ul>
 <p>Modern Western philosophy makes the conceptual alternatives explicit but does not deliver a single replacement for the integrated <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> triad.</p>
-<h3>6.4 Natural sciences — powerful correction, bounded scope</h3>
+<h3 id="64-natural-sciences-powerful-correction-bounded-scope" data-depth="2">6.4 Natural sciences — powerful correction, bounded scope</h3>
 <p><strong>Strengths.</strong></p>
 <ul>
 <li>Measurement, intervention, prediction, replication, and adversarial testing provide powerful controls against individual conviction being mistaken for public knowledge.</li>
@@ -1127,9 +1356,9 @@
 </ul>
 <p>The natural sciences offer the strongest method for public correction, but the claim that their current ontology is the complete account of knowledge and the knower remains philosophical rather than an experimental result.</p>
 <h2 id="7-open-problems-for-madhyasth-darshan-epistemology">7. Open problems for Madhyasth Darshan epistemology</h2>
-<h3>7.1 Holistic knowability versus fallibilism</h3>
+<h3 id="71-holistic-knowability-versus-fallibilism" data-depth="2">7.1 Holistic knowability versus fallibilism</h3>
 <p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> holds that the structure of coexistence, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, and humane conduct can be understood without ontological mystery (§1.6). It does not follow that an awakened person knows every contingent fact. The system needs a clearer account of which claims are held with final certitude, which remain open to empirical correction, and how mistaken certainty would be diagnosed from within the method.</p>
-<h3>7.2 Conduct-evidence and public testability</h3>
+<h3 id="72-conduct-evidence-and-public-testability" data-depth="2">7.2 Conduct-evidence and public testability</h3>
 <p>Realisation, authenticity, behaviour, experiment, and transmission form <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s evidence regime (§1.6). Science requires operational and reproducible discrimination among competing explanations. Public evaluation of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> would require at minimum:</p>
 <ol>
 <li><strong>Operational criteria</strong> for constitutional completeness independent of the philosophy.</li>
@@ -1137,15 +1366,15 @@
 <li><strong>Independent evidence</strong> for post-death continuity of a sentient unit.</li>
 </ol>
 <p>Until then, immortal <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> remains a metaphysical commitment not validated by current science. Realisation as <em>pramana</em> is an epistemic criterion, not itself a metaphysical entity; the open question is whether its conduct and transmission tests can distinguish <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s ontology from rival paths that also produce resolution or ethical conduct. The explanatory gap in consciousness is not by itself evidence for <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>.</p>
-<h3>7.3 <em>Jeevan</em>–body interaction and physical causation</h3>
+<h3 id="73-jeevanbody-interaction-and-physical-causation" data-depth="2">7.3 <em>Jeevan</em>–body interaction and physical causation</h3>
 <p>If <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> coordinates the body through the joint form (§1.3), either it makes a measurable difference to neural activity or “driving” names a non-mechanical relation that still requires specification. The texts&rsquo; signal language is more precise than a crude Cartesian push, but it does not yet answer the closure-based objection or show what observations would differ if <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> were absent.</p>
-<h3>7.4 Post-death continuity as inference, not measurement</h3>
+<h3 id="74-post-death-continuity-as-inference-not-measurement" data-depth="2">7.4 Post-death continuity as inference, not measurement</h3>
 <p>Post-death survival of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> is inferred from constitutional completeness and conservation (§1.1), not established by third-person observation. Quantity conservation alone does not guarantee entity identity. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s account of liberation from molecular- and weight-bondage must therefore carry the argument and remains an open point of contact with physics and mereology (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §6.2.3).</p>
-<h3>7.5 Teacher, tradition, and circular validation</h3>
+<h3 id="75-teacher-tradition-and-circular-validation" data-depth="2">7.5 Teacher, tradition, and circular validation</h3>
 <p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> requires guidance from a realised human and treats successful conveyance as evidence (§1.6). This creates a productive second-person discipline but also a circularity risk: the teacher may be recognised as realised through the doctrine, while the doctrine is trusted through the teacher. The tradition needs explicit safeguards for disagreement, failed transmission, authority error, and correction of a respected teacher.</p>
-<h3>7.6 Non-substitutable evidence across domains</h3>
+<h3 id="76-non-substitutable-evidence-across-domains" data-depth="2">7.6 Non-substitutable evidence across domains</h3>
 <p>The darshan expects coherence across realisation, thought, relationship, work, result, and social participation (§1.6). Admirable conduct does not thereby prove every ontological assertion by scientific standards: a person may behave well while holding a mistaken cosmology, and a successful production method may not verify the proposed constitution of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>. Conduct-evidence is strongest for claims about resolution, relationship, and humane participation, while claims about physical process, neural causation, or post-death continuity require domain-appropriate public tests (§§7.2–7.4). The darshan does not yet state a public rule for cases in which the domains diverge: sound conduct with disputed metaphysics, contemplative certitude with failed prediction, or successful production with unjust relationships. The evidence framework in <a href="https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html">From Unit Activity to Human Orderliness</a> §12.6 and Appendix C suggests the right discipline — success in one domain must not silently substitute for failure in another — but the criteria for adjudicating such mixed cases remain to be developed in ordinary prose and practice.</p>
-<h3>7.7 From regulation to <em>jeevan</em> values</h3>
+<h3 id="77-from-regulation-to-jeevan-values" data-depth="2">7.7 From regulation to <em>jeevan</em> values</h3>
 <p>The primary texts give a strong conceptual bridge from knowledge through regulation and just relationship to happiness, peace, contentment, and bliss (§§1.2 and 1.4). They give less detail about how an observer or community should assess that bridge in difficult cases. A practical epistemology still needs criteria for distinguishing restraint from repression, prosperity from accumulation, public participation from reputation-seeking, beneficence from dependency-making, mutual satisfaction from mere agreement, and stable faculty-harmony from temporary positive affect. It also needs an account of cases in which correct intention and competent effort meet refusal, material scarcity, illness, or conflict beyond one person&rsquo;s control. These questions do not negate the value structure; they identify the next work required to make its claimed evidence intersubjectively discriminating.</p>
 <h2 id="8-conclusion">8. Conclusion</h2>
 <p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s distinctive contribution to comparative epistemology is not merely an additional definition of knowledge. It joins the intelligibility of coexistence, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> as the active knower, humane conduct as part of what must be known, and the consequences of action as evidence that returns to the knower. Because the human being is a unit of the knowledge order whose <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> is happiness, this understanding must govern bodily propensities, sensory engagement, social motives, relationship, production, and participation in nature. Knowledge, knower, and known become complete together when knowledge, wisdom, and science are stable across realisation, thought, relationship, work, evaluation, and transmission. This gives epistemology an ethical, ecological, and civilisational reach that neither belief-centred analysis nor mechanism-centred science ordinarily claims.</p>
@@ -1153,7 +1382,7 @@
 <p>The primary texts thus support a layered epistemic structure. Knowledge has coexistence, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, and humane conduct as its canonical contents; it governs bodily propensities through sensory engagement, resolution and the three <em>eshanas</em> in social life, and <em>upakar</em> as higher-human participation. Deliberation considers pleasantness, bodily well-being, and material gain under the governing perspectives of justice, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, and truth, while law, regulation, and balance connect understanding to orderly activity. Knowing and accepting continue through recognition, fulfilment, result, evaluation, correction, and transmission. This structure explains the framework&rsquo;s coherence without removing its open problems: its claims still require clearer public tests, intersubjective safeguards, and dialogue with the sciences.</p>
 <h2 id="appendix-quick-glossary">Appendix: Quick Glossary</h2>
 <p>Key terms from §§1–4 are collected here for quick reference. Most are defined where they first appear; the glossary also preserves compact technical structures that the exposition does not develop at length.</p>
-<h3>Terms in §1</h3>
+<h3 id="terms-in-1">Terms in §1</h3>
 <div class="table-scroll"><table>
 <thead>
 <tr>
@@ -1320,7 +1549,7 @@
 </tr>
 </tbody>
 </table></div>
-<h3>Terms in §2</h3>
+<h3 id="terms-in-2">Terms in §2</h3>
 <div class="table-scroll"><table>
 <thead>
 <tr>
@@ -1371,7 +1600,7 @@
 </tr>
 </tbody>
 </table></div>
-<h3>Terms in §3</h3>
+<h3 id="terms-in-3">Terms in §3</h3>
 <div class="table-scroll"><table>
 <thead>
 <tr>
@@ -1390,7 +1619,7 @@
 </tr>
 </tbody>
 </table></div>
-<h3>Terms in §4</h3>
+<h3 id="terms-in-4">Terms in §4</h3>
 <div class="table-scroll"><table>
 <thead>
 <tr>
@@ -1414,29 +1643,29 @@
 </tbody>
 </table></div>
 <h2 id="editorial-notes">Editorial Notes</h2>
-<h3>The contents of complete knowledge</h3>
+<h3 id="the-contents-of-complete-knowledge">The contents of complete knowledge</h3>
 <p>Complete knowledge is enumerated with four constituents at KD §3.5, p. 69 — the holistic view of existence as coexistence, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, humane conduct, and participation in overall orderliness — and with three at KD, p. 30 and KD §3.17, p. 148, where participation is not listed separately. This study states the four and treats participation as the constituent in which the other three become evident, rather than as an independent object of knowledge. Nothing in the exposition of §1 depends on which enumeration is preferred.</p>
-<h3>Fields of conduct and the contents of knowledge</h3>
+<h3 id="fields-of-conduct-and-the-contents-of-knowledge">Fields of conduct and the contents of knowledge</h3>
 <p>The four <em>vishayas</em>, the five sensory modalities, the three <em>eshanas</em>, and <em>upakar</em> identify where knowledge of humane conduct becomes operational (§1.4). They are not further objects of knowledge on the level of coexistence and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, and the four propensities and five modalities are not nine independent activities: the four name the propensity being served, the five the mode of bodily contact through which it is engaged. <em>Upakar</em> is likewise not a fourth <em>eshana</em>, and mutual satisfaction (<em>ubhay-trupti</em>) is the relational outcome of justice rather than a fifth <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> value.</p>
-<h3>&ldquo;Five sensory modalities&rdquo; rather than &ldquo;five <em>samvedanas</em>&ldquo;</h3>
+<h3 id="five-sensory-modalities-rather-than-five-samvedanas">&ldquo;Five sensory modalities&rdquo; rather than &ldquo;five <em>samvedanas</em>&ldquo;</h3>
 <p><em>Samvedana</em> is used broadly in the sources for sensing, for knowledge of the cognitive and work organs, and for a tendency toward development (MVD, p. 313). No stable five-member category of <em>samvedanas</em> parallels the four <em>vishayas</em>, so this study uses &ldquo;five sensory modalities&rdquo; as its running term for sound, touch, visible form, taste, and smell (MVD, p. 65).</p>
-<h3><em>Niyam–niyantran–santulan</em> and <em>nyaya–dharma–satya</em></h3>
+<h3 id="niyamniyantransantulan-and-nyayadharmasatya"><em>Niyam–niyantran–santulan</em> and <em>nyaya–dharma–satya</em></h3>
 <p>The sequence at MVD, p. 174 runs from knowledge through law, regulation, and balance to justice, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, and truth, while MVD, p. 137 states that behaviour is regulated through justice, thought is disciplined through <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, realisation occurs through truth, and regulation proceeds through law. This study reads the relation between the two triads as a functional progression, not as three term-by-term equations of <em>niyam</em> with <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="nyaya" data-definition="Justice — complete relational activity: recognise, fulfil, evaluate, mutual satisfaction.">nyaya</button></span></em>, <em>niyantran</em> with <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, and <em>santulan</em> with <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satya" data-definition="Realisation perspective — whether assessment is grounded in coexistence as it is.">satya</button></span></em> (§1.4).</p>
-<h3>Seer in the two triads</h3>
+<h3 id="seer-in-the-two-triads">Seer in the two triads</h3>
 <p><em>Drish</em> in <em>darshan–drish–drishya</em> (KD §3.17, pp. 145–150) names the seeing capacity of human <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>; the seer in seer–doer–enjoyer (KD §3.18, pp. 151–152) names established seer-status (<em>drishta-pad</em>). The study keeps the two senses distinct (§1.1).</p>
-<h3>The receptive activity of <em>chitta</em></h3>
+<h3 id="the-receptive-activity-of-chitta">The receptive activity of <em>chitta</em></h3>
 <p>The receptive activity of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery.">chitta</button></span></em> appears both as contemplation and as direct recognition (<em>sakshatkar</em>). Both name the recognition and formation of meaning rather than bodily sensation, and this study uses &ldquo;direct recognition&rdquo; where the contrast with sensory contact is at issue (§1.3).</p>
-<h3>Attribution of sources</h3>
+<h3 id="attribution-of-sources">Attribution of sources</h3>
 <p>Section 1 states the darshan&rsquo;s own positions in continuous prose, with page-level attribution carried in the parenthetical citations and collected by section in the References below. Where this study has chosen among source formulations or supplied a reading the texts do not state in those words, the choice is recorded in these notes rather than in the exposition. Comparison with other traditions is confined to §§2–5, and critical assessment to §§6–7.</p>
 <h2 id="references">References</h2>
-<h3>Madhyasth Darshan (primary sources)</h3>
+<h3 id="madhyasth-darshan-primary-sources">Madhyasth Darshan (primary sources)</h3>
 <ul>
 <li><strong>MVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan – Co-existentialism</em>, Part 1: <em>Holistic View of Human Behaviour</em></a>. English translation by Rakesh Gupta. Cited: all units in Omnipresence (p. 11; §1.1); the evidence chain, quoted in §1.6, and the knowing-and-believing discipline (p. 12; §§1.5–1.6); the world as perpetual (p. 13; §1.1); the four registers of the omnipresent ground and the definition of resolution (p. 33; §§1.1–1.2); Space as knowledge, knowledge as neither activity nor performing activity, and humane behaviour as essential nature, perspective, and motives (p. 35; §§1.1, 1.4, 1.6); four bodily propensities (p. 58; §1.4); sensory and intellectual satisfaction and the three <em>eshanas</em> (pp. 64–65; §1.4); six evaluative perspectives (pp. 66–67; §1.4); law and the activities of thought (pp. 70–71; §1.4); <em>upakar</em> as help and inspiration for prosperity and awakening (p. 73; §1.4); <em>medhas</em>, the <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> activities, and <em>darshan-drishya-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="drishti" data-definition="Perspective or evaluative lens — in *jeevan*, six built-in perspectives from lower *priya*/*hita*/*labh* to humane *nyaya*/*dharma*/*satya*.">drishti</button></span></em> (pp. 83–84; §1.3); <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> definition (p. 90; §1.6); the universality argument for knowledge and &ldquo;Realisation in coexistence&rdquo; (pp. 115–116; §1.1); balanced and unbalanced deliberation (pp. 126–127; §1.4); regulation through justice, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, truth, and law (p. 137; §1.4); <em>vivek</em> and <em>vigyan</em> definitions (p. 170; §1.2); the sequence from knowledge through law, regulation, balance, justice, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, and truth (p. 174; §1.4); false learning (p. 184; §1.5); the brain and cognitive-organ signal pathway (p. 200; §1.3); higher- and lower-conformance, the four <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> values, and mental well-being (pp. 207–208; §§1.2–1.3); mystery and its removal by holistic view (p. 209; §1.6); relativity in differentiated seeing (p. 210; §1.4); mediativeness of <em>atma</em> (p. 211; §1.3); the permanence contrast between the two sets of perspectives (p. 212; §1.4); doubt and distorted evaluation (pp. 263–264; §1.5); Ch. 17 <em>Rahasy-mukti</em> — mystery, exploration, study, and an awakened tradition (pp. 273–301; §1.6); knowledge unfolding through <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>/thought (p. 289; §1.1); the awakening–<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> cycle (p. 290; §1.6); justice, mutual satisfaction, and resolution (pp. 310–311; §§1.2 and 1.5); <em>samvedana</em> usages (p. 313; Editorial Notes); delusion-less knowledge (p. 317; §1.6); and <em>atma</em>–Omnipresence concurrence and ultimate bliss (p. 327; §1.2).</li>
 <li><strong>KD</strong> — Nagraj, A. <em>Manav Karm Darshan</em> (<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>, Part 2). <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf">Working English translation</a>; <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-Hindi-English.pdf">Hindi–English review edition</a>. Cited by paraphrase: autobiographical <em>Alternative</em> (points 1, 5, 10, and 11), including the founding questions on Brahma and the world and on what counts as evidence (§1.6); action, desire, result, and the reinterpreted human ends (Ch. 1, pp. 2–4; §§1.1–1.2 and 1.5); direct perception, inference, and testimony-activity (pp. 20–21; §1.6); the three-constituent statement of knowledge (p. 30; Editorial Notes); humane conduct as value, character, and ethics (§3.4, p. 67; §1.4); four contents of complete knowledge (§3.5, p. 69; §1.1 and Editorial Notes); five activities of state and five of motion as force and power (§3.6, pp. 70–71; §1.3); <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> expressing hope, thought, desire, resoluteness, and evidence (p. 65; §1.3); the relation between the human goal and the <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> values (p. 112; §1.2); projection–reflection (§§3.12, 3.16–3.17; §1.3); body–<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> dependence and the projected activities in the <em>medhas</em> setting (§3.16, pp. 141, 143, 145; §1.3); the knowledge–knower–known argument, the known as awakened meaning, ten activities, and the knowledge, attention, cause, and aim triads (§3.17, pp. 145–150; §§1.1 and 1.3); and seer–doer–enjoyer (§3.18, pp. 151–152; §1.1). The English text is a working translation; quoted formulations should be checked against the Hindi.</li>
 <li><strong>SB</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf"><em>Samadhanatmak Bhautikvad</em> (<em>Resolution Centred Materialism</em>)</a>. English translation by Rakesh Gupta. Cited: evidence through experimentation, behaviour, and experience (p. 44; §1.6); balance of cognisance and sensitivity (p. 64; §1.3); material and ecological complementarity and cyclic economic participation (pp. 111, 121, 149; §1.1); and threefold knowledge (p. 116; §1.1).</li>
 <li><strong>JV</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf"><em>Jeevan Vidya: An Introduction</em></a>. English translation by Rakesh Gupta. Cited: birth, death, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> continuity (p. 20; §1.1); proof by conveying understanding (p. 26; §1.6); recognition, fulfilment, evaluation, and mutual satisfaction in justice (p. 55; §1.5); the human goal (pp. 61, 165; §1.2); ten activities and the four-and-a-half activities effective in delusion (pp. 72–74, 92–93; §1.3); the root of delusion and the governance of pleasure, health, and profit by justice, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, and truth (pp. 93–98, 139; §1.4); the four <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> values (p. 138; §1.2); and the definition of knowledge (p. 165; §1.5).</li>
 </ul>
-<h3>Advaita Vedanta (primary texts)</h3>
+<h3 id="advaita-vedanta-primary-texts">Advaita Vedanta (primary texts)</h3>
 <ul>
 <li><strong>BG</strong> — <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf"><em>Bhagavad Gita</em></a>. Cited: field and knower of the field (13.1–13.3); prescribed action (3.8); <em>loka-sangraha</em> and action by the enlightened (3.20, 3.25–26).</li>
 <li><strong>BU</strong> — <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf"><em>Brihadaranyaka Upanishad</em></a>. Cited: <em>neti neti</em> (2.3.6); <em>shravana–manana–nididhyasana</em> (2.4.5).</li>
@@ -1448,14 +1677,14 @@
 <li><strong>VC</strong> — <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf"><em>Vivekachudamani</em></a> (traditionally attributed to Shankara; authorship disputed). Cited as a later pedagogical witness: qualification (vv. 17–20); five sheaths (vv. 154–212); Existence-Knowledge-Bliss (v. 152); Maya, Ishvara, and <em>jiva</em> (vv. 243–244); <em>jiva</em> as <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span> (v. 216); <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span> as one&rsquo;s own Self (v. 393); liberation without seeker or bound soul (v. 574).</li>
 <li><strong>VP</strong> — Dharmaraja Adhvarindra. <a href="https://www.advaita-vedanta.org/texts/vedAntaparibhAshA_dharmarajavarIndrA.pdf"><em>Vedanta Paribhasa</em></a>. Later systematic manual cited for the sixfold <em>pramana</em> account and empirical cognition (§2.6).</li>
 </ul>
-<h3>Related studies in this collection</h3>
+<h3 id="related-studies-in-this-collection">Related studies in this collection</h3>
 <ul>
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> — Omnipresence and saturation (§§1.1–1.2), <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> faculties and projection–reflection (§1.7), realisation and the knowledge–knower–known relation (§1.13), Sat-Chit-Ananda contrast (§5.6), and open evidence problems (§6.2).</li>
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html">From Unit Activity to Human Orderliness</a> — process reconstruction of knowing, karma, conduct-evidence, domain-specific verification (§12.6 and Appendix C), and source/model boundaries (Editorial Notes); used conceptually here without its notation.</li>
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.html">Human Behavior and Society</a> — manifest, effable knowledge versus mystery-based ineffability (§3).</li>
 <li><em>Spiritual-Practice-And-Realization</em> (Ongoing) — <em>dhyan</em>, yoga, six flaws, and the detailed practice path related to §1.6.</li>
 </ul>
-<h3>Modern Western philosophy and science</h3>
+<h3 id="modern-western-philosophy-and-science">Modern Western philosophy and science</h3>
 <ul>
 <li><strong>Chalmers 1995</strong> — Chalmers, D. <a href="https://analyticmadhyasthdarshan.org/References/Science/Chalmers-1995-Facing-Up-to-the-Problem-of-Consciousness.pdf">&ldquo;Facing Up to the Problem of Consciousness.&rdquo;</a> <em>Journal of Consciousness Studies</em>, 2(3), 200–219. Cited: hard problem of experience (§3.4).</li>
 <li><strong>Churchland 1986</strong> — Churchland, P. S. <a href="https://mitpress.mit.edu/9780262530853/neurophilosophy/"><em>Neurophilosophy: Toward a Unified Science of the Mind-Brain</em></a>. MIT Press.</li>
@@ -1636,6 +1865,39 @@
   document.addEventListener("keydown", event => {
     if (event.key === "Escape") hide();
   });
+})();
+</script>
+<script>
+(() => {
+  const toggle = document.getElementById("study-theme-toggle");
+  if (!toggle) return;
+  const label = toggle.querySelector(".study-theme-toggle-label");
+  const root = document.documentElement;
+  const system = window.matchMedia("(prefers-color-scheme: dark)");
+  const active = () => root.getAttribute("data-theme") || (system.matches ? "dark" : "light");
+  const paint = () => {
+    const next = active() === "dark" ? "Light" : "Dark";
+    if (label) label.textContent = next;
+    toggle.setAttribute("aria-label", `Switch to ${next.toLowerCase()} theme`);
+  };
+  toggle.addEventListener("click", () => {
+    const next = active() === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("amd-theme", next); } catch (e) {}
+    paint();
+  });
+  system.addEventListener("change", paint);
+  paint();
+})();
+</script>
+<script>
+(() => {
+  const toc = document.getElementById("study-contents");
+  if (!toc) return;
+  // Open where there is room to show it without pushing the study off screen.
+  if (window.matchMedia("(min-width: 760px)").matches && window.innerHeight >= 640) {
+    toc.open = true;
+  }
 })();
 </script>
 

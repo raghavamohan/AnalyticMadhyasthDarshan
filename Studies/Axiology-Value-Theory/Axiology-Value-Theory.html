@@ -17,11 +17,19 @@
 <meta property="og:title" content="Axiology: Value Theory"/>
 <meta property="og:description" content="Madhyasth Darshan&#x27;s theory of value: what values are, how they are recognised and fulfilled, and how mutual satisfaction grounds a humane axiology"/>
 <meta property="og:url" content="https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html"/>
-<meta name="twitter:card" content="summary"/>
+<meta property="og:image" content="https://analyticmadhyasthdarshan.org/Assets/Social/Axiology-Value-Theory.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Axiology: Value Theory"/>
+<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Axiology: Value Theory"/>
 <meta name="twitter:description" content="Madhyasth Darshan&#x27;s theory of value: what values are, how they are recognised and fulfilled, and how mutual satisfaction grounds a humane axiology"/>
+<meta name="twitter:image" content="https://analyticmadhyasthdarshan.org/Assets/Social/Axiology-Value-Theory.png"/>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Axiology: Value Theory","description":"Madhyasth Darshan's theory of value: what values are, how they are recognised and fulfilled, and how mutual satisfaction grounds a humane axiology","url":"https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html","inLanguage":"en","author":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"publisher":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"dateModified":"2026-07-29T10:09:00+05:30"}
+{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Axiology: Value Theory","description":"Madhyasth Darshan's theory of value: what values are, how they are recognised and fulfilled, and how mutual satisfaction grounds a humane axiology","url":"https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html","inLanguage":"en","author":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"publisher":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"image":"https://analyticmadhyasthdarshan.org/Assets/Social/Axiology-Value-Theory.png","dateModified":"2026-07-29T10:09:00+05:30"}
+</script>
+<script>
+(function(){try{var t=localStorage.getItem("amd-theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();
 </script>
 <style>
   @page {
@@ -147,6 +155,7 @@
     color: #333;
     font-weight: bold;
   }
+
   p {
     margin: 6pt 0;
     text-align: justify;
@@ -451,28 +460,157 @@
     content: " \2193";
     font-weight: 700;
   }
+  .study-theme-toggle {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #1a5276;
+    background: #fdfcfa;
+    border: 1px solid #d9d2c7;
+    border-radius: 999px;
+    padding: 3px 11px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .study-theme-toggle:hover { border-color: #1a5276; }
+  .study-theme-toggle:focus-visible {
+    outline: 2px solid #1a5276;
+    outline-offset: 2px;
+  }
+
+  /* Contents ---------------------------------------------------------------
+     Studies run past 30,000 words, so the sequential previous/next pair is not
+     enough to move around one. Closed by default so it costs no height; the
+     script below opens it where there is room. */
+  .study-toc {
+    max-width: 37rem;
+    margin: 1.6em 0 2.2em;
+    border: 1px solid #ddd6cc;
+    border-radius: 10px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+  }
+  .study-toc-summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 10px 15px;
+    cursor: pointer;
+    list-style: none;
+  }
+  .study-toc-summary::-webkit-details-marker { display: none; }
+  .study-toc-summary::before {
+    content: "";
+    flex: 0 0 auto;
+    width: 6px;
+    height: 6px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(-45deg);
+    transition: transform 0.15s ease;
+  }
+  .study-toc[open] > .study-toc-summary::before { transform: rotate(45deg); }
+  .study-toc-summary:hover { background: #faf7f2; }
+  .study-toc-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #2c241c;
+  }
+  .study-toc-meta { font-size: 12px; color: #6b6357; }
+  .study-toc-nav {
+    max-height: 58vh;
+    overflow-y: auto;
+    padding: 2px 15px 13px;
+  }
+  .study-toc-list { list-style: none; margin: 0; padding: 0; }
+  .study-toc-item { margin: 0; }
+  .study-toc-item > a {
+    display: block;
+    padding: 3px 0;
+    font-size: 13.5px;
+    line-height: 1.35;
+    color: #1a5276;
+    text-decoration: none;
+  }
+  .study-toc-item > a:hover { text-decoration: underline; }
+  .study-toc-l1 { margin-top: 9px; }
+  .study-toc-l1:first-child { margin-top: 0; }
+  .study-toc-l1 > a { font-weight: 700; color: #2c241c; }
+  .study-toc-l2 > a { padding-left: 15px; }
+  .study-toc-l3 > a { padding-left: 30px; font-size: 12.5px; color: #4d6f86; }
+  @media (prefers-reduced-motion: reduce) {
+    .study-toc-summary::before { transition: none; }
+  }
+
+  /* Reading measure --------------------------------------------------------
+     The PDF is rendered from this same HTML, so anything that governs reading
+     on screen is confined to @media screen. The bare rules and the @media
+     print block above remain the print baseline and are left alone. */
+  @media screen {
+    body {
+      font-size: 17px;
+      line-height: 1.62;
+      max-width: 46rem;
+      margin: 32px auto 88px;
+      padding: 0 22px;
+    }
+    /* Roughly 68 characters. The container stays wide enough for tables and
+       figures while running text keeps a measure the eye can track back. */
+    p, ul, ol, blockquote, .quote-source, dl {
+      max-width: 37rem;
+    }
+    p {
+      margin: 0.72em 0;
+      text-align: left;
+      hyphens: auto;
+    }
+    h1 { font-size: 2.05rem; line-height: 1.16; }
+    h2 { font-size: 1.5rem; margin-top: 2.3em; }
+    h3 { font-size: 1.18rem; margin-top: 1.85em; }
+    /* "1.2.1" is a sub-subsection but has to stay an h3 for the PDF outline,
+       so the distinction from "1.2" is carried here. */
+    h3[data-depth="3"] {
+      font-size: 1.0rem;
+      font-weight: 600;
+      margin-top: 1.45em;
+    }
+    h4 { font-size: 1.0rem; }
+  }
+  @media screen and (min-width: 760px) {
+    .study-toc { max-width: 46rem; }
+  }
+
   @media (max-width: 640px) {
     .study-toolbar-row--primary {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+      row-gap: 6px;
     }
-    .study-toolbar-back {
-      grid-column: 1;
+    /* Back and title share the first line and the actions take the second, so
+       the reader reaches the heading in two rows rather than four. */
+    .study-toolbar-back { grid-column: 1; justify-self: start; }
+    .study-toolbar-title {
+      grid-column: 2;
+      justify-self: end;
+      text-align: right;
+      font-size: 13px;
+      white-space: normal;
     }
     .study-toolbar-actions {
       grid-column: 1 / -1;
       justify-self: stretch;
-      justify-content: flex-end;
+      justify-content: space-between;
+      gap: 8px;
     }
-    .study-toolbar-title {
-      grid-column: 1 / -1;
-      white-space: normal;
-    }
-    .study-toolbar-section {
-      white-space: normal;
-    }
+    .study-toolbar-feedback { font-size: 11px; }
+    .study-toolbar-section { white-space: normal; }
+    .study-toc-nav { max-height: 52vh; }
   }
   @media print {
     .study-toolbar { display: none !important; }
+    .study-theme-toggle { display: none !important; }
+    .study-toc { display: none !important; }
     .skip-link { display: none !important; }
     .term-tip {
       border-bottom: none;
@@ -482,57 +620,67 @@
     .term-tip-panel { display: none !important; }
   }
 
+  @media screen {
+    html[data-theme="dark"] body { color: #e6dfd6; background: #1a1815; }
+    html[data-theme="dark"] h1, html[data-theme="dark"] h2, html[data-theme="dark"] h3, html[data-theme="dark"] h4 { color: #f5f1ec; }
+    html[data-theme="dark"] h1 { border-bottom-color: #6f655a; }
+    html[data-theme="dark"] h2 { border-bottom-color: #423b33; }
+    html[data-theme="dark"] a { color: #7ebbed; }
+    html[data-theme="dark"] a:visited { color: #9ec8e8; }
+    html[data-theme="dark"] blockquote { background: #26231e; border-left-color: #6f655a; color: #e6dfd6; }
+    html[data-theme="dark"] .quote-source { color: #aca194; }
+    html[data-theme="dark"] th { background: #2f2a24; border-color: #423b33; color: #f5f1ec; }
+    html[data-theme="dark"] td { border-color: #423b33; color: #e6dfd6; }
+    html[data-theme="dark"] tr:nth-child(even) { background: #1e1b18; }
+    html[data-theme="dark"] code { background: #2f2a24; color: #f0e8dc; }
+    html[data-theme="dark"] pre { background: #1e1b18; color: #e6dfd6; }
+    html[data-theme="dark"] .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
+    html[data-theme="dark"] .study-toolbar-link { color: #7ebbed; }
+    html[data-theme="dark"] .study-toolbar-link:hover { color: #b8daf3; }
+    html[data-theme="dark"] .study-toolbar-title { color: #f5f1ec; }
+    html[data-theme="dark"] .study-toolbar-draft { color: #aca194; }
+    html[data-theme="dark"] .study-toolbar-section.is-disabled { color: #6f655a; }
+    html[data-theme="dark"] .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    html[data-theme="dark"] .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
+    html[data-theme="dark"] .study-toc { border-color: #423b33; }
+    html[data-theme="dark"] .study-toc-summary:hover { background: #1e1b18; }
+    html[data-theme="dark"] .study-toc-label { color: #f5f1ec; }
+    html[data-theme="dark"] .study-toc-meta { color: #aca194; }
+    html[data-theme="dark"] .study-toc-list a { color: #7ebbed; }
+    html[data-theme="dark"] .study-toc-l1 > a { color: #f5f1ec; }
+    html[data-theme="dark"] .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
+    html[data-theme="dark"] .study-theme-toggle:hover { border-color: #7ebbed; }
+  }
   @media screen and (prefers-color-scheme: dark) {
-    body {
-      color: #e6dfd6;
-      background: #1a1815;
-    }
-    h1, h2, h3, h4 {
-      color: #f5f1ec;
-    }
-    h1 { border-bottom-color: #6f655a; }
-    h2 { border-bottom-color: #423b33; }
-    a { color: #7ebbed; }
-    a:visited { color: #9ec8e8; }
-    blockquote {
-      background: #26231e;
-      border-left-color: #6f655a;
-      color: #e6dfd6;
-    }
-    .quote-source { color: #aca194; }
-    th {
-      background: #2f2a24;
-      border-color: #423b33;
-      color: #f5f1ec;
-    }
-    td {
-      border-color: #423b33;
-      color: #e6dfd6;
-    }
-    tr:nth-child(even) { background: #1e1b18; }
-    code {
-      background: #2f2a24;
-      color: #f0e8dc;
-    }
-    pre {
-      background: #1e1b18;
-      color: #e6dfd6;
-    }
-    .study-toolbar {
-      background: rgba(26, 24, 21, 0.92);
-      border-color: #423b33;
-    }
-    .study-toolbar-link { color: #7ebbed; }
-    .study-toolbar-link:hover { color: #b8daf3; }
-    .study-toolbar-title { color: #f5f1ec; }
-    .study-toolbar-draft { color: #aca194; }
-    .study-toolbar-section.is-disabled { color: #6f655a; }
-    .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
-    .term-tip-panel {
-      color: #e6dfd6;
-      background: #26231e;
-      border-color: #423b33;
-    }
+    html:not([data-theme="light"]) body { color: #e6dfd6; background: #1a1815; }
+    html:not([data-theme="light"]) h1, html:not([data-theme="light"]) h2, html:not([data-theme="light"]) h3, html:not([data-theme="light"]) h4 { color: #f5f1ec; }
+    html:not([data-theme="light"]) h1 { border-bottom-color: #6f655a; }
+    html:not([data-theme="light"]) h2 { border-bottom-color: #423b33; }
+    html:not([data-theme="light"]) a { color: #7ebbed; }
+    html:not([data-theme="light"]) a:visited { color: #9ec8e8; }
+    html:not([data-theme="light"]) blockquote { background: #26231e; border-left-color: #6f655a; color: #e6dfd6; }
+    html:not([data-theme="light"]) .quote-source { color: #aca194; }
+    html:not([data-theme="light"]) th { background: #2f2a24; border-color: #423b33; color: #f5f1ec; }
+    html:not([data-theme="light"]) td { border-color: #423b33; color: #e6dfd6; }
+    html:not([data-theme="light"]) tr:nth-child(even) { background: #1e1b18; }
+    html:not([data-theme="light"]) code { background: #2f2a24; color: #f0e8dc; }
+    html:not([data-theme="light"]) pre { background: #1e1b18; color: #e6dfd6; }
+    html:not([data-theme="light"]) .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
+    html:not([data-theme="light"]) .study-toolbar-link { color: #7ebbed; }
+    html:not([data-theme="light"]) .study-toolbar-link:hover { color: #b8daf3; }
+    html:not([data-theme="light"]) .study-toolbar-title { color: #f5f1ec; }
+    html:not([data-theme="light"]) .study-toolbar-draft { color: #aca194; }
+    html:not([data-theme="light"]) .study-toolbar-section.is-disabled { color: #6f655a; }
+    html:not([data-theme="light"]) .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    html:not([data-theme="light"]) .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
+    html:not([data-theme="light"]) .study-toc { border-color: #423b33; }
+    html:not([data-theme="light"]) .study-toc-summary:hover { background: #1e1b18; }
+    html:not([data-theme="light"]) .study-toc-label { color: #f5f1ec; }
+    html:not([data-theme="light"]) .study-toc-meta { color: #aca194; }
+    html:not([data-theme="light"]) .study-toc-list a { color: #7ebbed; }
+    html:not([data-theme="light"]) .study-toc-l1 > a { color: #f5f1ec; }
+    html:not([data-theme="light"]) .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
+    html:not([data-theme="light"]) .study-theme-toggle:hover { border-color: #7ebbed; }
   }
 
 </style>
@@ -544,9 +692,12 @@
     <a class="study-toolbar-link study-toolbar-back" href="../index.html#study-Axiology-Value-Theory">&larr; All studies</a>
     <p class="study-toolbar-title">Axiology: Value Theory</p>
     <span class="study-toolbar-actions">
-      <a class="study-toolbar-link study-toolbar-discuss" href="discussion.html?dv=2">Discuss</a>
+      <a class="study-toolbar-link study-toolbar-discuss" href="discussion.html?dv=3">Discuss</a>
       <a class="study-toolbar-link study-toolbar-download" href="Axiology-Value-Theory.pdf" download>Download PDF</a>
       <a class="study-toolbar-link study-toolbar-feedback" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&title=Study%20feedback%3A%20Axiology%3A%20Value%20Theory">Suggest a correction</a>
+      <button type="button" class="study-theme-toggle" id="study-theme-toggle" aria-label="Switch color theme">
+        <span class="study-theme-toggle-label">Dark</span>
+      </button>
     </span>
   </div>
   <div class="study-toolbar-row study-toolbar-row--sections">
@@ -561,6 +712,96 @@
 <p>This study examines value, evaluation, and the ordering of values in <strong><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span></strong> (Co-existentialism), as presented by <strong>Shri A. Nagraj</strong>, and compares its answers with <strong>Advaita Vedanta</strong>, <strong>modern Western axiology and metaethics</strong>, and <strong>the natural and social sciences</strong>.</p>
 <p><a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> supplies the setting: Omnipresence, saturated units, form, properties, essential nature and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, the four orders, and the active structure of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>. <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html">The Epistemology of Coexistence</a> supplies the sequence of knowing, believing, recognising, fulfilling, and evaluating. The present study asks the specifically axiological questions those two leave open. If a unit&rsquo;s essential nature already <em>is</em> its value, what work is left for evaluation? If value is objective, why does the darshan insist that only awakening evaluates correctly? And if happiness, peace, contentment, and bliss cannot be traded against one another, what kind of ordering do values have at all?</p>
 <p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s value vocabulary is also used by several specialised studies in this collection. Ethics takes up justice, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, and right-use as conduct; Aesthetics takes up beauty and the aesthetic addition to useful things; Prosperity takes up production, exchange, and accumulation; Family Relationships takes up the individual relationship values in family life. This paper stays at the level those studies presuppose: what a value is, what kinds there are, how the kinds are ordered, and what makes an evaluation true.</p>
+<details class="study-toc" id="study-contents">
+  <summary class="study-toc-summary">
+    <span class="study-toc-label">Contents</span>
+    <span class="study-toc-meta">12 sections &middot; 80 headings</span>
+  </summary>
+  <nav class="study-toc-nav" aria-label="Contents">
+    <ol class="study-toc-list">
+      <li class="study-toc-item study-toc-l1"><a href="#standpoint-and-scope">Standpoint and scope</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#1-the-madhyasth-darshan-answer">1. The Madhyasth Darshan Answer</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#11-what-value-is-essentiality-and-participation">1.1 What value is: essentiality and participation</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#12-the-principal-classes-of-value">1.2 The principal classes of value</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#13-relational-and-social-value">1.3 Relational and social value</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#14-recognition-fulfilment-and-evaluation">1.4 Recognition, fulfilment, and evaluation</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#15-conduct-continuity-and-evidence">1.5 Conduct, continuity, and evidence</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#2-the-advaita-vedanta-answer">2. The Advaita Vedanta Answer</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#21-the-purusharthas-and-their-ordering">2.1 The purusharthas and their ordering</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#22-ananda-as-nature-not-attainment">2.2 Ananda as nature, not attainment</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#23-the-maitreyi-passage">2.3 The Maitreyi passage</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#24-values-as-qualification">2.4 Values as qualification</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#25-action-result-and-loka-sangraha">2.5 Action, result, and loka-sangraha</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#26-method-evidence-and-what-advaita-establishes">2.6 Method, evidence, and what Advaita establishes</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#3-modern-western-axiology-and-metaethics">3. Modern Western Axiology and Metaethics</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#31-intrinsic-final-and-instrumental-value">3.1 Intrinsic, final, and instrumental value</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#32-the-isought-gap-and-the-open-question">3.2 The is–ought gap and the open question</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#33-realism-constructivism-and-expressivism">3.3 Realism, constructivism, and expressivism</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#34-fitting-attitude-accounts-reasons-and-response-dependence">3.4 Fitting-attitude accounts, reasons, and response-dependence</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#35-theories-of-well-being">3.5 Theories of well-being</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#36-pluralism-incommensurability-dignity-and-price">3.6 Pluralism, incommensurability, dignity, and price</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#37-material-value-ethics-scheler-and-hartmann">3.7 Material value-ethics: Scheler and Hartmann</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#38-economic-value">3.8 Economic value</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#39-recognition-care-and-trust">3.9 Recognition, care, and trust</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#310-method-evidence-and-what-philosophy-establishes">3.10 Method, evidence, and what philosophy establishes</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#4-modern-scientific-approaches">4. Modern Scientific Approaches</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#41-valuation-in-the-brain">4.1 Valuation in the brain</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#42-evolutionary-accounts-of-valuing">4.2 Evolutionary accounts of valuing</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#43-well-being-science">4.3 Well-being science</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#44-trust-and-prosociality-as-measured-goods">4.4 Trust and prosociality as measured goods</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#45-measurement-proxies-and-their-failure">4.5 Measurement, proxies, and their failure</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#46-specification-and-alignment">4.6 Specification and alignment</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#47-method-evidence-and-what-science-establishes">4.7 Method, evidence, and what science establishes</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#5-comparison">5. Comparison</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#51-criteria-for-comparison">5.1 Criteria for comparison</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#52-cross-tradition-summary">5.2 Cross-tradition summary</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#53-locus-of-value">5.3 Locus of value</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#54-objectivity-and-the-isought-gap">5.4 Objectivity and the is–ought gap</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#55-commensurability-and-aggregation">5.5 Commensurability and aggregation</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#56-value-ranks-madhyasth-darshan-and-scheler">5.6 Value ranks: Madhyasth Darshan and Scheler</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#57-kinds-of-value-in-the-economy">5.7 Kinds of value in the economy</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#58-partially-incommensurable-criteria-of-evaluation">5.8 Partially incommensurable criteria of evaluation</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#6-critical-review">6. Critical Review</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#61-madhyasth-darshan-a-coherent-value-realism-with-an-undischarged-criterion">6.1 Madhyasth Darshan — a coherent value realism with an undischarged criterion</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#62-advaita-vedanta-a-secure-ultimate-value-a-thin-relational-one">6.2 Advaita Vedanta — a secure ultimate value, a thin relational one</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#63-modern-western-axiology-sharp-distinctions-without-a-settled-ground">6.3 Modern Western axiology — sharp distinctions without a settled ground</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#64-natural-and-social-sciences-real-measurement-of-valuation-no-verdict-on-value">6.4 Natural and social sciences — real measurement of valuation, no verdict on value</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#7-open-problems-for-madhyasth-darshan-axiology">7. Open problems for Madhyasth Darshan axiology</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#71-the-structure-of-the-higherlower-ordering">7.1 The structure of the higher–lower ordering</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#72-value-realism-and-the-awareness-dependence-of-evaluation">7.2 Value realism and the awareness-dependence of evaluation</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#73-mutual-satisfaction-as-public-evidence">7.3 Mutual satisfaction as public evidence</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#74-does-participation-derive-value-or-presuppose-it">7.4 Does participation derive value or presuppose it?</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#75-the-constancy-of-usefulness-value">7.5 The constancy of usefulness value</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#76-the-status-of-the-nine-named-relationship-values">7.6 The status of the nine named relationship values</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#77-conflict-between-two-just-claims">7.7 Conflict between two just claims</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#78-the-transmission-circle">7.8 The transmission circle</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#79-value-in-the-other-orders-and-the-boundary-of-right-use">7.9 Value in the other orders and the boundary of right-use</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#710-translation-load-on-mulya-and-bhav">7.10 Translation load on mulya and bhav</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#8-conclusion">8. Conclusion</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#appendix-quick-glossary">Appendix: Quick Glossary</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#terms-in-1">Terms in §1</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#terms-in-2">Terms in §2</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#terms-in-3">Terms in §3</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#terms-in-4">Terms in §4</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#editorial-notes">Editorial Notes</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#translating-mulya">Translating mulya</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#relationship-sambandh-and-contact-sampark">Relationship (sambandh) and contact (sampark)</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#bhav-as-sentiment-value-and-meaning">Bhav as sentiment, value, and meaning</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#the-seven-relationships">The seven relationships</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#the-nine-named-relationship-values-and-their-pairings">The nine named relationship values and their pairings</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#the-enumerated-activities-of-jeevan">The enumerated activities of jeevan</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#constant-object-value">“Constant” object value</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#value-in-western-axiology-and-in-madhyasth-darshan">Value in Western axiology and in Madhyasth Darshan</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#citation-of-kd">Citation of KD</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#references">References</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#madhyasth-darshan-primary-sources">Madhyasth Darshan (primary sources)</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#advaita-vedanta-primary-texts">Advaita Vedanta (primary texts)</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#related-studies-in-this-collection">Related studies in this collection</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#modern-western-philosophy">Modern Western philosophy</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#physics-natural-and-social-sciences">Physics, natural and social sciences</a></li>
+    </ol>
+  </nav>
+</details>
 <h2 id="standpoint-and-scope">Standpoint and scope</h2>
 <p>These studies are written from the standpoint of a <strong>scientist and technologist</strong> — someone trained to graduate-level <strong>physics and mathematics</strong>, at home with contemporary cosmology, quantum theory, conservation laws, and the logic of formal models.</p>
 <p>From that background, a familiar picture of value is hard to avoid: <strong>value appears to be something minds add to a valueless world</strong> — a preference, a reward signal, a fitness proxy, or a social convention projected onto facts that contain none. Modern science is powerful on mechanism, measurement, and prediction; yet the is–ought gap, the status of well-being, and the question of whether anything is good independently of being wanted remain unresolved. The standpoint taken here does not treat those gaps as settled in favour of the view that value is merely projected.</p>
@@ -568,7 +809,7 @@
 <p>These topical studies state the philosophy in clear, checkable prose first. A separate formal mathematical treatment may follow once the definitions and relations are stable across the studies; this paper does not assume or require that treatment.</p>
 <h2 id="1-the-madhyasth-darshan-answer">1. The Madhyasth Darshan Answer</h2>
 <p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> holds that value is not conferred by preference, command, or convention. A unit&rsquo;s value is its essentiality as it participates in coexistence, and value is present in every unit whether insentient or sentient. Evaluation occurs through <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>: SB describes recognition of essential nature in the animal order as evaluation, while the knowledge order can make evaluation explicit, test it against human essentiality, and carry it in an awakened tradition. Value is therefore universally distributed, whereas fully correct and communicable evaluation depends on human awakening.</p>
-<h3>1.1 What value is: essentiality and participation</h3>
+<h3 id="11-what-value-is-essentiality-and-participation" data-depth="2">1.1 What value is: essentiality and participation</h3>
 <h4>1.1.1 Value as essentiality</h4>
 <p><em>Samadhanatmak Bhautikvad</em> derives value from the ontology directly rather than introducing it as a separate moral topic. Existence is coexistence; every unit exists with beingness; and beingness in mutuality shows itself as complementarity, mutual recognition, and impression. Value enters at exactly that point:</p>
 <blockquote>
@@ -602,7 +843,7 @@
 <h4>1.1.4 Value across the four orders and ecological right-use</h4>
 <p>Since value is the essentiality of any unit, the material, pranic, animal, and knowledge orders all have value. The first two orders recognise and fulfil through structural or seed conformance, without reflective choice. The animal order includes <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, and SB describes its recognition of essential nature — especially friendliness and opposition — as evaluation. The knowledge order adds knowing and believing before action, explicit evaluation of fulfilment, and the possibility of correcting evaluation through awakening (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html">The Epistemology of Coexistence</a> §1.5).</p>
 <p>The human being is therefore uniquely responsible for conscious right-use without being the source of value. SB states that under delusion humans exploit nature other than humans, while upon realisation of seer-status they appear as nurturers (SB, p. 200). Evaluation of natural treasure is to proceed by usefulness, with use and right-use proportionate to natural regeneration (SB, p. 141). This grounds ecological responsibility in the essentiality of the other orders rather than solely in calculated human interest.</p>
-<h3>1.2 The principal classes of value</h3>
+<h3 id="12-the-principal-classes-of-value" data-depth="2">1.2 The principal classes of value</h3>
 <h4>1.2.1 A working taxonomy</h4>
 <p><em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">Jeevan</button></span> Vidya</em> names the value classes a human being has to comprehend:</p>
 <blockquote>
@@ -783,7 +1024,7 @@
 </tbody>
 </table></div>
 <p>The constancy claim is best read as constancy of the object&rsquo;s relevant capacity rather than equal usefulness in every context. The primary passage does not state that distinction, and §7.5 examines the difficulty.</p>
-<h3>1.3 Relational and social value</h3>
+<h3 id="13-relational-and-social-value" data-depth="2">1.3 Relational and social value</h3>
 <h4>1.3.1 Relationship, contact, and definite expectation</h4>
 <p>Before the values inherent in relationships can be stated, the darshan has to say what a relationship is. It does so by a single criterion — whether the expectations in a mutuality are fixed or chosen:</p>
 <blockquote>
@@ -928,7 +1169,7 @@
 <p>The chain closes on itself: gratitude begins this sequence and also arises from coexistence, its terminus. It describes a cycle sustained by realisation, not an exhaustive rank-order of relationship values.</p>
 <h4>1.3.3 From relationship values to social participation</h4>
 <p>The translations&rsquo; “civic values” are best read as <em>shishta mulya</em>: the civilised expression of values in contact, relationship, work, and public participation, rather than a second independent list. Their social field includes the five dimensions of education–<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em>, justice–preservation, health–restraint, production–work, and exchange–storage. Through these, relationship values extend from family living to Undivided Society (<em>Akhand Samaj</em>) and Universal Orderliness (<em>Sarvabhaum Vyavastha</em>).</p>
-<h3>1.4 Recognition, fulfilment, and evaluation</h3>
+<h3 id="14-recognition-fulfilment-and-evaluation" data-depth="2">1.4 Recognition, fulfilment, and evaluation</h3>
 <h4>1.4.1 Recognition, fulfilment, evaluation, mutual satisfaction</h4>
 <p>Values are recognised, not created. JV states the condition plainly:</p>
 <blockquote>
@@ -1038,7 +1279,7 @@
 — SB, p. 201</p>
 </blockquote>
 <p>Since essentiality <em>is</em> value (§1.1.1), correct evaluation is recognition of what the unit already is, and the three failure modes of §1.4.2 are three ways of misdescribing it. SB holds that values and existence are recognised only through <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, and that humans express, communicate, and evaluate values only upon awakening (SB, p. 64). Value is not derived from preference, command, or non-natural property; it is what a unit essentially is, and evaluation is a cognitive achievement about a real subject matter.</p>
-<h3>1.5 Conduct, continuity, and evidence</h3>
+<h3 id="15-conduct-continuity-and-evidence" data-depth="2">1.5 Conduct, continuity, and evidence</h3>
 <h4>1.5.1 Value, character, and ethics</h4>
 <p>Humane conduct is presented as a compound of three things, with value first:</p>
 <blockquote>
@@ -1059,82 +1300,82 @@
 - <strong>Social/economic claims</strong>: constancy of usefulness value; money as symbolic value; profitability redefined as higher-for-lower exchange. These face empirical testing (§7.5).</p>
 <h2 id="2-the-advaita-vedanta-answer">2. The Advaita Vedanta Answer</h2>
 <p>Advaita Vedanta holds that value in the ordinary sense belongs to the empirical order and is finally superseded. What is unconditionally valuable is not an object, a relationship, or a state of affairs but the Self, which is already of the nature of bliss. The tradition therefore has a rich account of values as qualification and as expression, and a principled reason for denying that anything in the world is valuable in its own right.</p>
-<h3>2.1 The <em>purusharthas</em> and their ordering</h3>
+<h3 id="21-the-purusharthas-and-their-ordering" data-depth="2">2.1 The <em>purusharthas</em> and their ordering</h3>
 <p>Classical Vedanta inherits the fourfold scheme of human ends — <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, <em>artha</em>, <em>kama</em>, and <em>moksha</em> — and ranks <em>moksha</em> as the <em>parama-purushartha</em>, the end beyond which nothing is sought. The first three are legitimate within the empirical order and are ordered among themselves, with <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> regulating the pursuit of wealth and pleasure. The decisive Advaitic move is not the ranking but the difference in kind: <em>artha</em> and <em>kama</em> are attained and lost, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> produces results within time, while <em>moksha</em> is not produced at all. Shankara&rsquo;s <em>Brahma Sutra Bhashya</em> treats liberation as eternally accomplished and merely obscured by ignorance, so the highest value is not a state to be brought about but a fact to be recognised.</p>
-<h3>2.2 <em>Ananda</em> as nature, not attainment</h3>
+<h3 id="22-ananda-as-nature-not-attainment" data-depth="2">2.2 <em>Ananda</em> as nature, not attainment</h3>
 <p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span> is characterised as Existence, Consciousness, and Bliss. In the Taittiriya Upanishad&rsquo;s ascent through the sheaths, <em>ananda</em> appears as the innermost, and Shankara reads bliss not as an intense pleasure but as the absence of the limitation that makes pleasure episodic. The <em>Vivekachudamani</em>, a later pedagogical witness, states the same identification (v. 152).</p>
 <p>The axiological consequence is far-reaching. If the highest value is one&rsquo;s own nature, then no action can produce it and no loss can remove it. Value-seeking, on this account, is structurally mistaken about its own object: what is sought as an outcome is already the seeker. The tradition&rsquo;s positive teaching about happiness is therefore diagnostic rather than prescriptive.</p>
-<h3>2.3 The Maitreyi passage</h3>
+<h3 id="23-the-maitreyi-passage" data-depth="2">2.3 The Maitreyi passage</h3>
 <p>The sharpest axiological statement in the corpus is Yajnavalkya&rsquo;s teaching to Maitreyi in the Brihadaranyaka Upanishad (2.4.5). The husband is not dear for the sake of the husband, nor wealth for the sake of wealth; everything is dear for the sake of the Self. Dearness (<em>priyata</em>) has a single source, and its apparent distribution across persons and things is a misattribution.</p>
 <p>This is a genuine theory of value, not a devotional flourish. It explains why particular attachments feel unconditional and why they nonetheless disappoint, and it grounds an argument for renunciation that does not depend on calling the world evil. It also marks the deepest divergence from <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>, which holds that value is distributed among units and that each relationship has its own inherent expectation to fulfil. For Advaita, the plurality of values is a refracted appearance of one value; for <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>, plurality is real and the four <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> harmonies are irreducibly four.</p>
-<h3>2.4 Values as qualification</h3>
+<h3 id="24-values-as-qualification" data-depth="2">2.4 Values as qualification</h3>
 <p>Advaita is exacting about the values a seeker must already have. The <em>sadhana-chatushtaya</em> comprises discrimination between the eternal and the non-eternal (<em>viveka</em>), dispassion (<em>vairagya</em>), the six treasures beginning with tranquillity and self-restraint, and the intense desire for liberation (<em>mumukshutva</em>). The <em>Vivekachudamani</em> sets out these qualifications and the virtues that support them (vv. 17–20, 69, 82); the Bhagavad Gita&rsquo;s list of divine qualities — non-injury, truthfulness, absence of anger, renunciation, kindness, purity — serves the same function (16.2–16.3).</p>
 <p>These are values in a specific role: they qualify a person for knowledge without themselves constituting the goal. Dispassion in particular is instructive to compare. In Advaita, <em>vairagya</em> is turning away from what is non-eternal; in <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>, dispassion is freedom from the three flaws of evaluation (§1.4.3). Both refuse to identify it with indifference, but one defines it by withdrawal and the other by accuracy.</p>
-<h3>2.5 Action, result, and <em>loka-sangraha</em></h3>
+<h3 id="25-action-result-and-loka-sangraha" data-depth="2">2.5 Action, result, and <em>loka-sangraha</em></h3>
 <p>The Gita supplies Advaita&rsquo;s practical axiology. Prescribed action is to be performed without attachment to its fruit (3.8), and the enlightened continue to act for the holding-together of the world (3.20, 3.25–26). Shankara reads such action as neither productive of liberation nor obstructive of it.</p>
 <p>This yields a stable but thin account of relational value. Conduct matters, and the <em>jivanmukta</em>&rsquo;s conduct is exemplary; but its value is not that a relationship&rsquo;s inherent expectation has been met, since at the level of final truth there are no relata. The tradition&rsquo;s own vocabulary for the world&rsquo;s holding-together is enough to sustain a practical ethics and not enough to ground the value of the world as such.</p>
-<h3>2.6 Method, evidence, and what Advaita establishes</h3>
+<h3 id="26-method-evidence-and-what-advaita-establishes" data-depth="2">2.6 Method, evidence, and what Advaita establishes</h3>
 <p>Advaita&rsquo;s method is <em>sruti</em> as the means of knowledge for what is beyond perception and inference, supported by reasoning and by the discipline of hearing, reflection, and sustained contemplation (BU 2.4.5). Its axiological achievements are two. It establishes, with unusual rigour, that a value which can be gained and lost cannot be the final good, and it offers a unified explanation of why finite goods disappoint. What it does not establish, by its own lights, is that the plurality of values in the empirical order is anything other than provisional — and this is a consequence its tradition accepts rather than a gap it seeks to close.</p>
 <h2 id="3-modern-western-axiology-and-metaethics">3. Modern Western Axiology and Metaethics</h2>
 <p>Modern Western philosophy has no single answer about value; it has a well-mapped space of positions and a set of arguments that constrain them. The relevant contrast with the other two traditions is not a doctrine but a method: Western value theory has largely proceeded by isolating questions — Is value objective? Is it reducible to natural facts? Is it one thing or many? — and pursuing each independently.</p>
-<h3>3.1 Intrinsic, final, and instrumental value</h3>
+<h3 id="31-intrinsic-final-and-instrumental-value" data-depth="2">3.1 Intrinsic, final, and instrumental value</h3>
 <p>The organising distinction is between what is valuable as a means and what is valuable in itself. Moore&rsquo;s <em>Principia Ethica</em> proposed the isolation test: to determine whether something has intrinsic value, imagine it existing alone and ask whether its existence would be good. Later work separated two things Moore ran together — being valuable <em>for its own sake</em> (final value) and being valuable <em>in virtue of intrinsic properties</em> — since something may be finally valuable partly because of its history or relations. Moore&rsquo;s own doctrine of organic unities already conceded that the value of a whole need not be the sum of the values of its parts.</p>
 <p>Two points of contact with §1.1.1 are worth marking. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s identification of value with essentiality resembles a claim about intrinsic value in the second sense, since essentiality is what the unit is. But the darshan also holds that value is what is reciprocated in mutuality (SB, p. 50), which makes it relational in a way the isolation test would not register. And the darshan has no use for the summing of values that organic unities are introduced to correct, because its values are not quantities.</p>
-<h3>3.2 The is–ought gap and the open question</h3>
+<h3 id="32-the-isought-gap-and-the-open-question" data-depth="2">3.2 The is–ought gap and the open question</h3>
 <p>Hume&rsquo;s observation in the <em>Treatise</em> that writers pass from <em>is</em> to <em>ought</em> without explaining the transition set the modern problem. Moore&rsquo;s open question argument sharpened it: for any proposed natural analysis of goodness — the pleasant, the desired, the more evolved — it remains an open question whether what satisfies the analysis is good, which suggests that the analysis has not captured the concept.</p>
 <p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> does not answer these arguments in their own terms; it declines the framing that generates them. If essentiality is value, there is no inference from <em>is</em> to <em>ought</em> to justify, because the evaluative fact is not a further fact. Whether that is a solution or a redescription is the question raised in §7.4. What can be said here is that the move is not unfamiliar: neo-Aristotelian naturalism makes a structurally similar claim by grounding goodness in the characteristic form of a kind of living thing.</p>
-<h3>3.3 Realism, constructivism, and expressivism</h3>
+<h3 id="33-realism-constructivism-and-expressivism" data-depth="2">3.3 Realism, constructivism, and expressivism</h3>
 <p>The main metaethical families can be arranged by what they say about the truth of value judgments. Naturalist realism identifies value properties with natural ones, while non-naturalist realism accepts irreducible normative facts. Constructivism grounds normative truth in agents&rsquo; standpoints or procedures of practical reason. Expressivism and quasi-realism treat value judgments as expressions of attitude that nonetheless support truth-talk. Error theory holds that value judgments purport to describe objective values and fail. Each family carries a characteristic cost: reduction risks the open question, non-naturalism epistemic mystery, constructivism loss of mind-independence, expressivism loss of disagreement, and error theory loss of the practice.</p>
 <p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> is closest in outcome to a naturalist realism, but it is not a reduction of value to properties describable by the natural sciences. Its natural order includes <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, essentiality, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, none of which is a physical quantity, and its epistemology of value is the knowledge-order activity of a sentient unit rather than perception or inference from measurement. In the Western taxonomy it is best described as a realism whose ontology is not physicalist — a position the taxonomy accommodates but rarely occupies.</p>
-<h3>3.4 Fitting-attitude accounts, reasons, and response-dependence</h3>
+<h3 id="34-fitting-attitude-accounts-reasons-and-response-dependence" data-depth="2">3.4 Fitting-attitude accounts, reasons, and response-dependence</h3>
 <p>An influential family analyses value in terms of the attitudes it would be fitting to take: to be valuable is to be a fitting object of pro-attitudes. Scanlon&rsquo;s buck-passing variant holds that being valuable is not itself a reason-giving property but a way of indicating that other properties provide reasons. Response-dependent accounts make value constitutively connected to idealised human responses.</p>
 <p>This is the nearest Western analogue to <em>bhav-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kriya" data-definition="Unit-activity; the basis of change and, in sentient nature, of duration (*kaal*).">kriya</button></span></em> (§1.4.2), and the comparison is instructive because the direction of dependence differs. On fitting-attitude accounts, the fittingness of the attitude is what value consists in. In <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>, value consists in essentiality, and the attitude — sentiment, evaluation, taste — either tracks it or fails to. The darshan can therefore say that an entire tradition evaluates wrongly, which fitting-attitude accounts can say only by idealising the responses far enough to raise the question of what makes the idealisation correct.</p>
-<h3>3.5 Theories of well-being</h3>
+<h3 id="35-theories-of-well-being" data-depth="2">3.5 Theories of well-being</h3>
 <p>The theories of what makes a life go well divide into hedonism, desire-satisfaction views, and objective-list or perfectionist views. Nozick&rsquo;s experience machine is the standard objection to hedonism: most people judge that a life of pleasant experience disconnected from reality goes worse, which suggests that something other than experiential quality matters. Desire-satisfaction views face the problem of ill-informed, adaptive, and self-destructive desires; objective lists face the charge of being unmotivated unless the items are tied to something about the person. Parfit&rsquo;s taxonomy and his discussion of &ldquo;global&rdquo; preferences remain the reference points.</p>
 <p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s four harmonies (§1.2.2) function as an objective list with an unusual structural warrant: the items are not selected as plausibly good but read off the relations among <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>&rsquo;s faculties. Whether that warrant can be checked independently is a separate matter; what it does secure is an answer to the standard objection to objective lists, since the items are tied to the constitution of the subject whose life is at issue.</p>
-<h3>3.6 Pluralism, incommensurability, dignity, and price</h3>
+<h3 id="36-pluralism-incommensurability-dignity-and-price" data-depth="2">3.6 Pluralism, incommensurability, dignity, and price</h3>
 <p>Berlin argued that fundamental values genuinely conflict and that some losses cannot be compensated. Raz developed incommensurability as the failure of the comparative relations that a single scale would require, and Chang&rsquo;s work distinguishes several ways comparison can break down. Anderson&rsquo;s expressive theory holds that different goods call for different modes of valuation, so treating a good in the wrong mode is itself a failure. Kant&rsquo;s distinction between dignity and price is the classical version: what has dignity admits of no equivalent, and to price it is a category error rather than an undervaluation.</p>
 <p>The convergences here are the strongest in this comparison. The study&rsquo;s non-substitutability reading of the <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> values resembles incommensurability, and the treatment of money as symbolic value is close to Kant&rsquo;s point about price. Western pluralism often treats incommensurability as a source of tragic and rationally unresolvable conflict. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s commitment to orderly coexistence instead suggests that apparent conflict should be re-examined for error of recognition or evaluation. The texts do not state a general theorem that every conflict among genuine values is resolvable (§7.7).</p>
-<h3>3.7 Material value-ethics: Scheler and Hartmann</h3>
+<h3 id="37-material-value-ethics-scheler-and-hartmann" data-depth="2">3.7 Material value-ethics: Scheler and Hartmann</h3>
 <p>Max Scheler&rsquo;s <em>Formalism in Ethics and Non-Formal Ethics of Values</em> is the closest structural counterpart to <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s axiology in modern Western thought, and the resemblance goes beyond terminology. Scheler holds that values are objective qualities rather than projections. They are grasped through <em>Wertfühlen</em>, an intentional feeling with its own cognitive adequacy, rather than through reason or sense. Values form a discovered hierarchy of sensory, vital, spiritual, and religious ranks. A value&rsquo;s endurance and independence of the body indicate its height. Scheler also gives a systematic account of evaluative error, including <em>Wertverblendung</em>, value-blindness, and <em>ressentiment</em>, in which the ranking is inverted rather than merely misapplied.</p>
 <p>Nicolai Hartmann&rsquo;s <em>Ethics</em> develops the same programme with more attention to the criteria of height and to the tension between a value&rsquo;s height and its urgency — a distinction Scheler underplays and which the darshan&rsquo;s pairing of higher value with durability partly parallels.</p>
 <p>The points of contact with §§1.4.2, 1.4.3, and 1.4.5 are exact enough to list. Both treat value as objective and non-natural in the physicalist sense. Both locate value-cognition in a non-inferential activity distinct from physical measurement, order values by rank rather than quantity, and treat durability as one mark of height. Both also develop characteristic evaluative failures and allow that an entire culture can invert value.</p>
 <p>The differences are equally exact. Scheler&rsquo;s ranks are <em>a priori</em> essences given in feeling; the darshan&rsquo;s ranks derive from the participation of units in an orderly coexistence, so its account of why the ranking holds is ontological rather than phenomenological. Scheler&rsquo;s hierarchy culminates in the value of the holy; the darshan&rsquo;s culminates in coexistence and its realisation, and it has no category of the sacred to place at the top. And Scheler has no counterpart to the claim that correct evaluation requires an achieved transformation of the evaluator, which is where the darshan&rsquo;s axiology becomes inseparable from its account of awakening.</p>
-<h3>3.8 Economic value</h3>
+<h3 id="38-economic-value" data-depth="2">3.8 Economic value</h3>
 <p>Classical political economy separated use-value from exchange-value and sought the source of exchange-value in labour. Smith and Ricardo developed the labour theory that Marx used to argue that capitalist exchange-value systematically diverges from and dominates use-value. Money then functions as the universal equivalent that makes qualitatively different goods commensurable. The marginalist revolution replaced this account with subjective utility at the margin, and twentieth-century economics reduced utility further to a representation of consistent preference through revealed preference theory.</p>
 <p>Sen&rsquo;s critique is the pivotal modern intervention: utility conflates well-being with preference satisfaction, ignores adaptation, and cannot register what a person is actually able to do. The capability approach, developed with Nussbaum&rsquo;s account of central capabilities, replaces utility with the substantive freedoms a person has.</p>
 <p>The darshan&rsquo;s treatment of usefulness, aesthetic addition, and symbolic value in §1.2.4 maps onto this history in a way that is neither classical nor marginalist. Usefulness value is close to use-value and is asserted to be constant, which no economic tradition accepts. Symbolic value is close to Marx&rsquo;s universal equivalent: a token of exchange comes to be treated as the thing of value. The darshan&rsquo;s remedy is not the abolition of a mode of production. It is exchange organised through recognition of labour value, with production oriented to assessed need.</p>
-<h3>3.9 Recognition, care, and trust</h3>
+<h3 id="39-recognition-care-and-trust" data-depth="2">3.9 Recognition, care, and trust</h3>
 <p>A final family locates value in relationship. Hegel&rsquo;s account of mutual recognition, developed by Honneth into a theory of recognition as the condition of self-realisation, holds that persons acquire practical standing only through being recognised by others. Care ethics takes the caring relation, rather than the autonomous agent, as the primary moral phenomenon. Philosophical work on trust treats it as a three-place attitude of dependence under vulnerability, with characteristic conditions of reasonableness and betrayal.</p>
 <p>The overlap with §§1.3.1, 1.3.2, and 1.4.1 is substantial, and one difference is decisive. In these Western accounts, recognition or care partly <em>constitutes</em> the value at stake — being recognised is what confers standing. In <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>, recognition is the discovery of a value already inherent in the relationship, and the relationship&rsquo;s inherent expectation exists whether or not either party recognises it. This is why the darshan can hold that unrecognised relationships fail while denying that value is conferred by recognition, and why its account of trust is a claim about fulfilment rather than about the reasonableness of an attitude.</p>
-<h3>3.10 Method, evidence, and what philosophy establishes</h3>
+<h3 id="310-method-evidence-and-what-philosophy-establishes" data-depth="2">3.10 Method, evidence, and what philosophy establishes</h3>
 <p>Western value theory establishes distinctions and constraints rather than results. Value cannot be straightforwardly identified with pleasure, desire-satisfaction, or market price. The passage from natural fact to evaluative conclusion needs an account, some goods resist comparison on one scale, and treating a good in the wrong mode is a distinct failure. The field has not converged on objectivity, and each family&rsquo;s epistemology of value inherits the problems of its metaphysics.</p>
 <h2 id="4-modern-scientific-approaches">4. Modern Scientific Approaches</h2>
 <p>The sciences do not investigate value; they investigate valuation. That restriction is not a failing but a boundary, and keeping it visible is necessary if the convergences reported below are not to be over-read.</p>
-<h3>4.1 Valuation in the brain</h3>
+<h3 id="41-valuation-in-the-brain" data-depth="2">4.1 Valuation in the brain</h3>
 <p>Decision neuroscience has established that the brain computes something like a common currency. Dopaminergic activity in the midbrain encodes reward prediction error — the difference between received and expected reward — in a form well described by temporal-difference learning, and value signals correlating with subjective choice appear in ventramedial prefrontal and orbitofrontal cortex across widely different goods. Neuroeconomics reads these findings as evidence that heterogeneous options are converted into a comparable quantity before choice.</p>
 <p>The result cuts two ways for axiology. It shows that the brain does something a single-scale theory of value predicts, which is a real difficulty for strong incommensurability claims. It equally shows that the quantity computed is a decision variable, not a measure of what is worth choosing: reward prediction error is defined against expectation, so the same objective outcome yields different signals depending on prior belief. Nothing in the neuroscience distinguishes valuing well from valuing badly.</p>
-<h3>4.2 Evolutionary accounts of valuing</h3>
+<h3 id="42-evolutionary-accounts-of-valuing" data-depth="2">4.2 Evolutionary accounts of valuing</h3>
 <p>Evolutionary biology explains why organisms value at all. Kin selection, reciprocal altruism, and the dynamics of repeated interaction account for cooperative dispositions without appeal to a moral faculty, and cross-cultural work has found that a small set of cooperative behaviours is positively valued across large samples of societies. Curry, Mullins, and Whitehouse&rsquo;s survey of sixty societies found no society in which cooperative behaviours were negatively valued.</p>
 <p>Two interpretations of these findings compete. On the debunking reading, an evolutionary genealogy of our value judgments undercuts their claim to track anything beyond fitness. On the vindicating reading, cooperation is a real feature of social life and our capacity to recognise it is reliable for the same reason perception is. The evidence does not settle the choice, because the genealogy is compatible with both. What it does establish is that valuing is not culturally arbitrary — a conclusion that sits comfortably with the darshan&rsquo;s claim that human essentiality is universal, and equally comfortably with a purely naturalistic account of why it seems so.</p>
-<h3>4.3 Well-being science</h3>
+<h3 id="43-well-being-science" data-depth="2">4.3 Well-being science</h3>
 <p>Empirical well-being research has produced findings that bear directly on §1.2.2. Hedonic adaptation shows that many large changes in circumstance have transient effects on reported well-being. The Easterlin paradox — that within-country happiness has not risen with average income over long periods, even though richer individuals report higher happiness at a given time — remains contested but has not been dissolved. Kahneman and Deaton&rsquo;s separation of experienced from evaluative well-being found that emotional well-being ceases to rise with income above a threshold while life evaluation continues to rise, which is direct evidence that at least two distinct things are being measured under one name.</p>
 <p>Self-determination theory is the closest empirical analogue to the darshan&rsquo;s structural claim. It posits three basic psychological needs — autonomy, competence, and relatedness — whose satisfaction predicts well-being, and holds that they are not interchangeable: high competence does not compensate for thwarted relatedness. A body of evidence also shows that extrinsic goals such as wealth and status are associated with lower well-being even when attained.</p>
 <p>The convergence is real but partial and should be stated carefully. Empirical work supports the claim that well-being is not a single quantity and that its components are not mutually substitutable. It does not support the specific fourfold division of happiness, peace, contentment, and bliss, and it does not identify any component with a harmony between named faculties. The darshan&rsquo;s account is consistent with the findings without being confirmed by them.</p>
-<h3>4.4 Trust and prosociality as measured goods</h3>
+<h3 id="44-trust-and-prosociality-as-measured-goods" data-depth="2">4.4 Trust and prosociality as measured goods</h3>
 <p>Social science treats trust as a measurable variable with substantial economic consequences: generalised trust correlates with growth, institutional quality, and lower transaction costs, and behavioural game theory has established robust patterns of conditional cooperation and costly punishment that simple self-interest models do not predict. This supports the darshan&rsquo;s placing of trust at the centre of social value while measuring something different from what the darshan defines (§1.3.2). Survey trust is an expectation about others; MVD&rsquo;s trust is the fulfilment of values inherent in mutuality (MVD, p. 336). The measured variable is closer to what the darshan would call the anticipation of fulfilment than to fulfilment itself.</p>
-<h3>4.5 Measurement, proxies, and their failure</h3>
+<h3 id="45-measurement-proxies-and-their-failure" data-depth="2">4.5 Measurement, proxies, and their failure</h3>
 <p>Applied economics has documented the costs of measuring the wrong thing. GDP omits unpaid work, depletion of natural capital, and distribution; discount rates chosen for tractability determine conclusions about long-horizon harms; and preference-based welfare measures inherit whatever adaptation and misinformation shaped the preferences. The response has been a proliferation of alternative indices, none of which has displaced the original.</p>
 <p>The persistence of this problem is independent evidence for a claim the darshan makes on other grounds: that a single scale imposed on plural values will misdirect the activity it is meant to guide.</p>
-<h3>4.6 Specification and alignment</h3>
+<h3 id="46-specification-and-alignment" data-depth="2">4.6 Specification and alignment</h3>
 <p>The most recent independent evidence comes from machine learning. Goodhart&rsquo;s law — that a measure adopted as a target ceases to be a good measure — has been reproduced systematically in the study of reward hacking and specification gaming, where optimising systems reliably find policies that maximise a stated objective while defeating its purpose. Surveys of specification gaming catalogue dozens of instances, and the concrete-problems literature treats the difficulty of specifying objectives as a central obstacle rather than an engineering detail.</p>
 <p>The structural lesson is exactly the one in §1.4.5: a proxy drawn from a lower evaluative domain, optimised without the standard that gives it its point, destroys the value it stood for. This is a convergence of some significance, since it arises from engineering practice with no philosophical commitments at all.</p>
-<h3>4.7 Method, evidence, and what science establishes</h3>
+<h3 id="47-method-evidence-and-what-science-establishes" data-depth="2">4.7 Method, evidence, and what science establishes</h3>
 <p>The sciences establish that valuation is a real, mechanistically describable process whose outputs have measurable biases. They show that well-being is not one quantity, plural goods resist aggregation in practice, and optimising proxies is dangerous. They do not establish what is valuable, and their methods are not constructed to. Where a finding appears to settle an axiological question, the appearance normally comes from a value premise already built into the chosen measure.</p>
 <h2 id="5-comparison">5. Comparison</h2>
-<h3>5.1 Criteria for comparison</h3>
+<h3 id="51-criteria-for-comparison" data-depth="2">5.1 Criteria for comparison</h3>
 <p>The four positions are compared on eight questions: what value is; where value resides; how value is known; whether values are commensurable; the standing of pleasure; the treatment of economic value; the final aim; and how a mistaken evaluation is corrected. These are chosen because each tradition takes a definite position on all eight, which is not true of finer-grained questions.</p>
-<h3>5.2 Cross-tradition summary</h3>
+<h3 id="52-cross-tradition-summary" data-depth="2">5.2 Cross-tradition summary</h3>
 <div class="table-scroll"><table>
 <thead>
 <tr>
@@ -1204,24 +1445,24 @@
 </tr>
 </tbody>
 </table></div>
-<h3>5.3 Locus of value</h3>
+<h3 id="53-locus-of-value" data-depth="2">5.3 Locus of value</h3>
 <p>The four positions divide most sharply on where value is. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> distributes value across all units and makes <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> the evaluator, not the source. Advaita concentrates all value in the Self and treats its apparent distribution as error. Western philosophy is genuinely divided, and the division is what its metaethical debate is about. The sciences do not take a position, but their explanatory practice locates valuation in valuers, which functions as a default in favour of the view that value is conferred.</p>
 <p>The consequence for relationships is the clearest test. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> holds that a relationship has an inherent expectation whether or not it is recognised; Advaita holds that the relata are finally unreal; recognition theories hold that standing is conferred by recognition; and the sciences describe relationships as arrangements that valuers value. Only the first supports the claim that a relationship can be failed by both parties without either noticing.</p>
-<h3>5.4 Objectivity and the is–ought gap</h3>
+<h3 id="54-objectivity-and-the-isought-gap" data-depth="2">5.4 Objectivity and the is–ought gap</h3>
 <p>Advaita and <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> are both value realists and reach that position by opposite routes: Advaita by denying that the plural world is real, <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> by holding that value is what plural units essentially are. Neither accepts the framing in which an inference from fact to value must be licensed, because for neither is the evaluative fact a separate fact. Western philosophy takes the gap seriously and divides over whether it can be closed. The sciences accept it and stay on the factual side, which is why their results constrain axiology without settling it.</p>
-<h3>5.5 Commensurability and aggregation</h3>
+<h3 id="55-commensurability-and-aggregation" data-depth="2">5.5 Commensurability and aggregation</h3>
 <p>All four positions reject a simple single scale, for different reasons. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> rejects it structurally, because its values are harmonies between distinct pairs of faculties. Advaita rejects it asymmetrically, because the highest value differs in kind from all others. Western pluralism rejects it on the strength of conflict cases and the failure of comparative relations. Applied science rejects it empirically, because proxies chosen for aggregation demonstrably misdirect the activity they measure.</p>
 <p>Yet the darshan and Western pluralism orient themselves differently to conflict. Berlin&rsquo;s incommensurability allows that some conflicts are tragic and rationally unresolvable. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s account of orderly coexistence directs the evaluator to search for failures of recognition, fulfilment, or evaluation before accepting a final conflict. Whether this commits the darshan to the stronger claim that every conflict among genuine values is resolvable is an interpretive question, and §7.7 asks whether the texts provide an adequate procedure.</p>
-<h3>5.6 Value ranks: Madhyasth Darshan and Scheler</h3>
+<h3 id="56-value-ranks-madhyasth-darshan-and-scheler" data-depth="2">5.6 Value ranks: Madhyasth Darshan and Scheler</h3>
 <p>The two closest positions in this comparison deserve their own contrast. Both hold that values are objective and ranked, that value-cognition is non-inferential, that height is bound up with durability, and that whole traditions can invert the ranking. They differ in three respects. Scheler grounds the ranks in <em>a priori</em> value essences apprehended in feeling; <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> grounds them in the participation of units in an orderly coexistence, giving it an ontological rather than phenomenological warrant. Scheler&rsquo;s hierarchy ends in the holy; the darshan&rsquo;s ends in coexistence and has no sacred category. And Scheler&rsquo;s value-cognition is available to ordinary intentional feeling, while the darshan requires an achieved transformation of the evaluator, which makes its axiology dependent on its account of awakening in a way Scheler&rsquo;s is not.</p>
 <p>The comparison also shows what the darshan gains from its ontology. Scheler must explain why the ranks are as described when their evidence is the feeling that discloses them. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> can point to resolved outlook, durability, awakening, and participation in orderliness. How these marks combine remains unsettled (§§1.4.5, 7.1), and their accessibility raises the circularity examined in §7.2.</p>
-<h3>5.7 Kinds of value in the economy</h3>
+<h3 id="57-kinds-of-value-in-the-economy" data-depth="2">5.7 Kinds of value in the economy</h3>
 <p>The darshan&rsquo;s usefulness value, aesthetic addition, and symbolic value (§1.2.4) line up against use-value, exchange-value, utility, and capability without matching any of them. Its critique of money as symbolic value shares Marx&rsquo;s structure — a token of exchange usurping the place of the thing valued — without the theory of exploitation or the historical account of modes of production. Its constancy claim for usefulness value is stronger than anything in classical economics and is in tension with the marginalist point that usefulness at the margin varies with quantity and context. Its orientation of production to assessed need is closer to the capability approach than to either classical or neoclassical economics, since both the darshan and Sen refuse to let realised preference stand as the measure of what people should be able to do.</p>
-<h3>5.8 Partially incommensurable criteria of evaluation</h3>
+<h3 id="58-partially-incommensurable-criteria-of-evaluation" data-depth="2">5.8 Partially incommensurable criteria of evaluation</h3>
 <p>The traditions do not merely disagree about values; they disagree about what would settle a disagreement. For <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> the evidence is fulfilment in relationship, evaluated result, and mutual satisfaction sustained across a tradition. For Advaita it is realisation of the Self, before which relational evidence is provisional. For Western philosophy it is argument tested against considered judgments. For the sciences it is replicable measurement.</p>
 <p>None of these can be substituted for another without loss. Mutual satisfaction is not a replicable measurement, and a replicable measurement of reported satisfaction is not the fulfilment of a relationship&rsquo;s inherent expectation. This is why the comparison in §5.2 can be stated but not adjudicated by a neutral procedure — a limitation this study shares with <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html">The Epistemology of Coexistence</a> §5.3, and one worth stating rather than papering over.</p>
 <h2 id="6-critical-review">6. Critical Review</h2>
-<h3>6.1 Madhyasth Darshan — a coherent value realism with an undischarged criterion</h3>
+<h3 id="61-madhyasth-darshan-a-coherent-value-realism-with-an-undischarged-criterion" data-depth="2">6.1 Madhyasth Darshan — a coherent value realism with an undischarged criterion</h3>
 <p><strong>Strengths.</strong></p>
 <ul>
 <li>Value is derived from the ontology directly (§§1.1.1–1.1.2) rather than added to it, so the darshan reframes the is–ought problem instead of inferring value from a value-neutral description.</li>
@@ -1241,7 +1482,7 @@
 <li>The stronger interpretation that no conflict among genuine values is finally irresolvable is not supported by a decision procedure.</li>
 </ul>
 <p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> offers the most fully integrated value theory of the four positions examined here, and its integration is purchased by making the criterion of correct evaluation internal to the transformation it recommends.</p>
-<h3>6.2 Advaita Vedanta — a secure ultimate value, a thin relational one</h3>
+<h3 id="62-advaita-vedanta-a-secure-ultimate-value-a-thin-relational-one" data-depth="2">6.2 Advaita Vedanta — a secure ultimate value, a thin relational one</h3>
 <p><strong>Strengths.</strong></p>
 <ul>
 <li>The argument that a value which can be gained and lost cannot be the final good is rigorous and has never been satisfactorily answered by eudaimonist or hedonist accounts.</li>
@@ -1256,7 +1497,7 @@
 <li>The bliss identification is textually secure but resists any independent check, since the evidence for it is realisation and the criterion of realisation is given within the tradition.</li>
 </ul>
 <p>Advaita secures the ultimate value more tightly than any other position considered here and pays for it with the provisionality of everything else.</p>
-<h3>6.3 Modern Western axiology — sharp distinctions without a settled ground</h3>
+<h3 id="63-modern-western-axiology-sharp-distinctions-without-a-settled-ground" data-depth="2">6.3 Modern Western axiology — sharp distinctions without a settled ground</h3>
 <p><strong>Strengths.</strong></p>
 <ul>
 <li>The distinctions are genuine advances: intrinsic against final value, value against reasons, height against urgency, dignity against price, modes of valuation against amounts of value.</li>
@@ -1271,7 +1512,7 @@
 <li>The separation of questions that gives the field its rigour also leaves it without an integrated account: theories of well-being, of moral obligation, and of economic value are pursued largely independently.</li>
 </ul>
 <p>Western axiology has mapped the space of positions more carefully than any other tradition and has not established which of them to hold.</p>
-<h3>6.4 Natural and social sciences — real measurement of valuation, no verdict on value</h3>
+<h3 id="64-natural-and-social-sciences-real-measurement-of-valuation-no-verdict-on-value" data-depth="2">6.4 Natural and social sciences — real measurement of valuation, no verdict on value</h3>
 <p><strong>Strengths.</strong></p>
 <ul>
 <li>The mechanisms of valuation are genuinely known in outline, and the finding that valuation is computed against expectation explains a large class of evaluative errors.</li>
@@ -1288,25 +1529,25 @@
 </ul>
 <p>The sciences constrain axiology substantially and settle none of its questions, which is what their methods were built to do.</p>
 <h2 id="7-open-problems-for-madhyasth-darshan-axiology">7. Open problems for Madhyasth Darshan axiology</h2>
-<h3>7.1 The structure of the higher–lower ordering</h3>
+<h3 id="71-the-structure-of-the-higherlower-ordering" data-depth="2">7.1 The structure of the higher–lower ordering</h3>
 <p>The darshan uses two apparatuses: six perspectives classified as inhumane or humane, and a comparative ranking of higher and lower value (§1.4.5). The texts do not settle whether these form one ordering or two. A single ordering would resemble a scale and would require an account of why it is not a maximand. A domain-relative ordering would need to explain cross-domain comparisons, such as prosperity gained at the cost of trust. Defining higher value as resolved outlook and lower value as problem-orientation suggests one ordering by tendency towards resolution. That reading is also in greatest tension with the non-substitutability of the four harmonies.</p>
-<h3>7.2 Value realism and the awareness-dependence of evaluation</h3>
+<h3 id="72-value-realism-and-the-awareness-dependence-of-evaluation" data-depth="2">7.2 Value realism and the awareness-dependence of evaluation</h3>
 <p>The darshan asserts both that value is established in every unit (SB, p. 87) and that in the absence of awareness there is no determination of value (KD, p. 23). Taken as a distinction between value and its determination, the pair is coherent and is the position defended in §1.4.6. What remains open is whether the darshan can identify a correct determination without already assuming the awakening that is supposed to guarantee it. The rooting chain of §1.4.4 closes the circle explicitly. A response is available in principle — that convergent evidence from result, relationship, and tradition constrains evaluation from several directions at once — but the texts do not develop it, and its development is the most valuable work an interpreter could do here.</p>
-<h3>7.3 Mutual satisfaction as public evidence</h3>
+<h3 id="73-mutual-satisfaction-as-public-evidence" data-depth="2">7.3 Mutual satisfaction as public evidence</h3>
 <p>Mutual satisfaction is the terminus of justice (MVD, p. 336) and therefore the darshan&rsquo;s principal public evidence that value has been fulfilled. The definiteness of a relationship&rsquo;s expectations (§1.3.1) is what makes the question well posed, since without it there would be nothing for satisfaction to be satisfaction <em>of</em>. Three cases are unaddressed. Where both parties are satisfied and an outside observer judges the relationship exploitative, the darshan must either accept the parties&rsquo; verdict or appeal to a standard beyond satisfaction, and it does not say which. Where satisfaction is asymmetric because one party&rsquo;s expectations have been shaped downward by long habituation, satisfaction registers the adaptation rather than the fulfilment. And where a relationship&rsquo;s obligations extend to parties not present — future generations, distant others — mutual satisfaction has no purchase. The first two are the problems that adaptive preference raises for preference-based welfare theory (§3.8), arriving by a different route.</p>
-<h3>7.4 Does participation derive value or presuppose it?</h3>
+<h3 id="74-does-participation-derive-value-or-presuppose-it" data-depth="2">7.4 Does participation derive value or presuppose it?</h3>
 <p>Identifying value with essentiality and locating human value in participation in orderliness dissolves the is–ought problem only if &ldquo;orderliness&rdquo; is not itself an evaluative term. If orderliness means whatever pattern obtains, then participation in it carries no normative weight. If it means the pattern in which units reach completeness and coexistence is sustained, then the value is already in the description, and the darshan has offered a definition rather than a derivation. The texts point to the second, and the definition may be a good one; but the darshan should not also claim to have crossed the is–ought gap, since on this reading it has declined to enter it. The comparison with neo-Aristotelian naturalism in §3.2 faces the same question in the same form.</p>
-<h3>7.5 The constancy of usefulness value</h3>
+<h3 id="75-the-constancy-of-usefulness-value" data-depth="2">7.5 The constancy of usefulness value</h3>
 <p>The claim that a kilogram of sesame seeds has always had the same value (JV, p. 137) is the darshan&rsquo;s most exposed empirical assertion. Read as saying that the object&rsquo;s own capacities do not change with market conditions, it is defensible and is a real corrective to price-based thinking. Read as saying that usefulness itself is constant, it faces obvious counter-cases: usefulness depends on available technique, on what else is available, on quantity already held, and on the purpose in view. Antibiotics lose usefulness as resistance spreads; a fuel loses usefulness when the engines that burn it are gone. The darshan needs the first reading, and the texts do not clearly distinguish it from the second.</p>
-<h3>7.6 The status of the nine named relationship values</h3>
+<h3 id="76-the-status-of-the-nine-named-relationship-values" data-depth="2">7.6 The status of the nine named relationship values</h3>
 <p>JV, p. 108 names nine values using the phrase “such as,” and MVD&rsquo;s appendix defines and pairs each of them. The passage does not call the set exhaustive or derive it from the taxonomy of value classes (§1.2.1). Since the darshan is elsewhere precise about enumerations — the six perspectives and the two, four, sixteen, thirty-six, and sixty-four activities of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>&rsquo;s faculties — the status of these nine examples deserves clarification. What would establish completeness, and what would settle a proposal to add another relationship value?</p>
-<h3>7.7 Conflict between two just claims</h3>
+<h3 id="77-conflict-between-two-just-claims" data-depth="2">7.7 Conflict between two just claims</h3>
 <p>The orderliness of coexistence encourages the expectation that apparent value conflicts can be resolved by correcting recognition, fulfilment, or evaluation (§5.5). The texts nevertheless need a procedure for cases where two recognised relationships make incompatible claims and both fulfilments appear just. They supply the widening chain from justice to <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> to truth, which locates where the question should be reconsidered, but not a method for deciding. Without such a method, the stronger interpretation that every residual conflict indicates an undiscovered error risks becoming unfalsifiable.</p>
-<h3>7.8 The transmission circle</h3>
+<h3 id="78-the-transmission-circle" data-depth="2">7.8 The transmission circle</h3>
 <p>Value education is the darshan&rsquo;s mechanism for making correct evaluation available, and correct evaluation is what qualifies a person to conduct it. This is the axiological form of the problem identified in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html">The Epistemology of Coexistence</a> §7.5. The darshan&rsquo;s own resources for addressing it are the natural attraction of lower value towards higher value (MVD, p. 222) and glory as emulation without resistance (MVD, p. 335) — mechanisms that require no prior qualification in the learner. Whether they suffice to bootstrap a tradition, and how they are to be distinguished from ordinary prestige-following, is not worked out.</p>
-<h3>7.9 Value in the other orders and the boundary of right-use</h3>
+<h3 id="79-value-in-the-other-orders-and-the-boundary-of-right-use" data-depth="2">7.9 Value in the other orders and the boundary of right-use</h3>
 <p>Holding that value is established in every unit gives the darshan a strong basis for right-use and a corresponding difficulty in drawing its boundary. If a plant, a mineral, and an animal each have essentiality that is their value, the darshan needs to say why using them is not a violation of that value, and why some uses are right and others exploitative. The available answer is that right-use is participation in the orderliness in which each order finds completeness, with regeneration as the measure (SB, p. 141). That is a real criterion, and it is not obviously sufficient to settle the harder cases — animal use, habitat conversion, and the treatment of the animal order in particular, given the darshan&rsquo;s own position on vegetarian food (SB, p. 201).</p>
-<h3>7.10 Translation load on <em>mulya</em> and <em>bhav</em></h3>
+<h3 id="710-translation-load-on-mulya-and-bhav" data-depth="2">7.10 Translation load on <em>mulya</em> and <em>bhav</em></h3>
 <p><em>Mulya</em> carries value, worth, and price in the source language, and the translations render it by all three. <em>Bhav</em> is rendered as sentiment, value, and meaning in different passages, and MVD&rsquo;s glossary defines it as &ldquo;Value, evaluation&rdquo; (MVD, p. 326) while the rooting chain (§1.4.4) treats sentiment and evaluation as distinct members of one series. Readers of the English texts can easily take a claim about <em>bhav</em> as psychological when it is axiological, or take the constancy of <em>mulya</em> as a claim about price. The Editorial Notes below record the conventions adopted here.</p>
 <h2 id="8-conclusion">8. Conclusion</h2>
 <p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> holds that value is the essentiality of a unit in coexistence and is therefore established in every unit. Evaluation occurs through <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>: the animal order recognises essential nature, while the human knowledge order can evaluate fulfilment explicitly and correct evaluation through awakening. Values in relationship are recognised rather than created, and justice proceeds through recognition, fulfilment, evaluation, and mutual satisfaction. The four <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> values name distinct harmonies, supporting a plural rather than simply scalar account of fulfilment. The separate higher–lower ordering nevertheless leaves the precise structure of that plurality open.</p>
@@ -1314,7 +1555,7 @@
 <p>Set against the other positions, the darshan makes three distinctive contributions. It grounds objective value in an ontology rather than in phenomenology or intuition, separating it from Scheler&rsquo;s closely parallel system. It combines plural forms of value with an orientation towards orderly coexistence, treating conflict as a reason to re-examine recognition and evaluation without supplying a universal decision procedure. It also treats value as real throughout the non-human orders while assigning reflective, correct, and publicly communicable evaluation to awakened human living. This gives right-use a basis that is neither merely instrumental nor an extension of human rights language.</p>
 <p>The central open question is whether the criterion can be exercised in disputed cases. Advaita secures its highest value by making everything else provisional. Western axiology maps alternatives without convergence, and the sciences measure valuation without deciding what is valuable. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> answers directly and stakes correct evaluation on transformation of the evaluator. That is a substantive claim about human beings, not merely a definition; its survival under disagreement remains to be shown.</p>
 <h2 id="appendix-quick-glossary">Appendix: Quick Glossary</h2>
-<h3>Terms in §1</h3>
+<h3 id="terms-in-1">Terms in §1</h3>
 <ul>
 <li><strong><em>Mulya</em></strong> — value. In this darshan the essentiality of a unit as it participates in coexistence, not a preference, a price, or a conferred property.</li>
 <li><strong><em>Maulikta</em></strong> — essentiality, fundamental distinctiveness. What a unit distinctively is in the whole; identified with value at SB, p. 50.</li>
@@ -1348,7 +1589,7 @@
 <li><strong><em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">Sanskar</button></span></em></strong> — acceptances towards completeness, and the knowledge and tendencies carried forward for evidencing; named the cause of awakening of the sentient aspect (MVD, p. 90).</li>
 <li><strong><em>Susanskar</em> / *kusanskar</strong><em> — </em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span>* under awakening and under delusion (MVD, pp. 94, 315); the mechanism by which conduct deepens or entrenches understanding.</li>
 </ul>
-<h3>Terms in §2</h3>
+<h3 id="terms-in-2">Terms in §2</h3>
 <ul>
 <li><strong><em>Purushartha</em></strong> — human end. <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">Dharma</button></span></em>, <em>artha</em>, <em>kama</em>, and <em>moksha</em>, with <em>moksha</em> as the highest.</li>
 <li><strong><em>Ananda</em></strong> — bliss. In Advaita, the nature of <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span> rather than a state produced by action.</li>
@@ -1358,7 +1599,7 @@
 <li><strong><em>Loka-sangraha</em></strong> — the holding-together of the world; the ground of the liberated person&rsquo;s continued action.</li>
 <li><strong><em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mithya" data-definition="Advaita: dependent appearance — neither absolutely real nor sheer nothing; valid at *vyavahara*, sublated at *paramartha*.">Mithya</button></span></em></strong> — neither real nor unreal; the status of the world at the level of final truth.</li>
 </ul>
-<h3>Terms in §3</h3>
+<h3 id="terms-in-3">Terms in §3</h3>
 <ul>
 <li><strong>Intrinsic and final value</strong> — valuable in virtue of intrinsic properties; valuable for its own sake. Distinguished in later work on Moore.</li>
 <li><strong>Organic unity</strong> — a whole whose value is not the sum of its parts&rsquo; values.</li>
@@ -1372,7 +1613,7 @@
 <li><strong>Use-value and exchange-value</strong> — what a good does; what it trades for.</li>
 <li><strong>Capability</strong> — Sen&rsquo;s measure of what a person is actually able to do and be.</li>
 </ul>
-<h3>Terms in §4</h3>
+<h3 id="terms-in-4">Terms in §4</h3>
 <ul>
 <li><strong>Reward prediction error</strong> — the difference between received and expected reward, encoded by dopaminergic activity.</li>
 <li><strong>Common currency</strong> — a comparable quantity into which heterogeneous options are converted before choice.</li>
@@ -1384,33 +1625,33 @@
 <li><strong>Specification gaming</strong> — optimising a stated objective in a way that defeats its purpose.</li>
 </ul>
 <h2 id="editorial-notes">Editorial Notes</h2>
-<h3>Translating <em>mulya</em></h3>
+<h3 id="translating-mulya">Translating <em>mulya</em></h3>
 <p><em>Mulya</em> is rendered as &ldquo;value&rdquo; throughout the analytical prose of this study, reserving &ldquo;price&rdquo; for monetary exchange and &ldquo;worth&rdquo; for no technical use. The Rakesh Gupta translations use &ldquo;value&rdquo; for the axiological sense and occasionally &ldquo;usefulness&rdquo; as a gloss in the object-value passages; block quotes keep the translation&rsquo;s wording. Where a passage could be read as making a claim about price, this is flagged in the surrounding prose (§§1.2.4, 7.5).</p>
-<h3>Relationship (<em>sambandh</em>) and contact (<em>sampark</em>)</h3>
+<h3 id="relationship-sambandh-and-contact-sampark">Relationship (<em>sambandh</em>) and contact (<em>sampark</em>)</h3>
 <p>The Rakesh Gupta English translation of MVD occasionally uses &ldquo;association&rdquo; for <em>sampark</em>. To maintain clarity across this series of studies and distinguish voluntary-expectation mutuality from general social organizations or voluntary groupings, <em>sampark</em> is systematically translated as &ldquo;contact&rdquo; (MVD, p. 61), while <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sambandh" data-definition="Relationship — definite mutuality with expectations predetermined toward completeness.">sambandh</button></span></em> is translated as &ldquo;relationship&rdquo; (MVD, p. 62). Contact is a distinct, valid form of mutuality whose expectations are voluntary, contrasted with relationship (whose expectations are predetermined in the sense of completeness), and is not a lesser or defective status (KD, p. 20).</p>
-<h3><em>Bhav</em> as sentiment, value, and meaning</h3>
+<h3 id="bhav-as-sentiment-value-and-meaning"><em>Bhav</em> as sentiment, value, and meaning</h3>
 <p>MVD&rsquo;s appendix defines <em>bhav</em> as “Value, evaluation” (MVD, p. 326), while the rooting chain at MVD, p. 83 treats sentiment and evaluation as distinct members of one series. MVD, p. 125 also states “Sentiment = Essentiality.” This study takes the appendix definition as systematic: <em>bhav</em> names axiological content and its determination together. It reads the rooting chain as analysing dependent moments of that activity rather than separate faculties. “Sentiment” remains the running English term because the translations use it, but it carries no merely psychological or affective implication here.</p>
-<h3>The seven relationships</h3>
+<h3 id="the-seven-relationships">The seven relationships</h3>
 <p>JV, p. 108 refers to “the seven relationships” without listing them; MVD, p. 190 enumerates seven forms — parent and child, sibling, spousal, master and associate, teacher and student, friendship, and orderliness. This study treats the enumeration as the referent of JV&rsquo;s phrase, which is the natural reading and matches the count, though neither passage states the correspondence. The parenthetical groupings and purposes in the §1.3.1 table are drawn from the surrounding definitions of relationship and purpose, not from a single list in the sources.</p>
-<h3>The nine named relationship values and their pairings</h3>
+<h3 id="the-nine-named-relationship-values-and-their-pairings">The nine named relationship values and their pairings</h3>
 <p>JV, p. 108 names care, guidance, trust, affection, gratitude, glory, love, reverence, and respect using the phrase “such as.” MVD&rsquo;s appendix defines each beside a paired term, and MVD elsewhere names established and <em>shishta</em> values together. This study preserves those primary-text pairings while not treating the nine examples as an explicitly exhaustive list; §7.6 records the unresolved status of the set.</p>
-<h3>The enumerated activities of <em>jeevan</em></h3>
+<h3 id="the-enumerated-activities-of-jeevan">The enumerated activities of <em>jeevan</em></h3>
 <p>MVD&rsquo;s appendix enumerates two activities of <em>atma</em>, four of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="buddhi" data-definition="Discriminative faculty in *jeevan* — part of the sentient unit's orbital structure with *mun*, *vritti*, and *chitta*.">buddhi</button></span></em>, sixteen of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery.">chitta</button></span></em>, thirty-six of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Modification or tendency in *jeevan* — one of the faculties whose alignment supports or obstructs understanding.">vritti</button></span></em>, and sixty-four of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mun" data-definition="A faculty of *jeevan* — imagination and selection; part of the orbital structure with *buddhi*, *vritti*, and *chitta*.">mun</button></span></em> (MVD, pp. 328–343), alongside eight activities of visualisation within <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery.">chitta</button></span></em> (MVD, p. 327). It defines activities, states, relations, and paired expressions; not every item is a separate value. These expand the ten named activities of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> used in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.7 rather than forming a rival enumeration.</p>
-<h3>&ldquo;Constant&rdquo; object value</h3>
+<h3 id="constant-object-value">&ldquo;Constant&rdquo; object value</h3>
 <p>The constancy asserted at JV, p. 137 is read here as constancy of the object&rsquo;s own capacity to serve a purpose, not as constancy of usefulness in every context. The passage does not itself draw the distinction; §7.5 sets out why the study adopts the narrower reading and what the wider one would cost.</p>
-<h3>Value in Western axiology and in Madhyasth Darshan</h3>
+<h3 id="value-in-western-axiology-and-in-madhyasth-darshan">Value in Western axiology and in Madhyasth Darshan</h3>
 <p>&ldquo;Value&rdquo; in Western axiology is a normative property or relation whose bearer and grounding are contested. In <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> it is the essentiality of a unit, which makes it a fact about the unit&rsquo;s being rather than a further property. The mapping used in §§3 and 5 aligns the two only for the purpose of comparison; no claim is made that a single concept is at work.</p>
-<h3>Citation of KD</h3>
+<h3 id="citation-of-kd">Citation of KD</h3>
 <p><em>Manav Karm Darshan</em> is cited from the working English translation held in this repository, using its page markers. That translation is not a published edition; its formulations, particularly in the front matter and <em>Foreword</em> from which several axiological statements in §1 are drawn, should be checked against the Hindi before being relied on for close argument.</p>
 <h2 id="references">References</h2>
-<h3>Madhyasth Darshan (primary sources)</h3>
+<h3 id="madhyasth-darshan-primary-sources">Madhyasth Darshan (primary sources)</h3>
 <ul>
 <li><strong>MVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan – Co-existentialism</em>, Part 1: <em>Holistic View of Human Behaviour</em></a>. English translation by Rakesh Gupta. Cited: gratitude, glory, and simplicity defined (p. 37); gratitude-to-coexistence chain and conceit as imposed evaluation (p. 38); mutual ascent (p. 44); sociality (p. 56); right-use sequence (p. 55); inhumane perspective (p. 58); humane perspectives (p. 60); contact as voluntary-expectation mutuality, kindness, grace, compassion, and the higher-humane perspective (p. 61); relationship as predetermined-expectation mutuality (p. 62); six perspectives, profit as higher-for-lower exchange, and the three ways higher value is surrendered (p. 67); trust and affection (p. 73); rooting chain of language, sentiment, essentiality, and evaluation (p. 83); embracing and discarding (p. 84); self-evaluation as first step (p. 87); the four senses of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> as cause of awakening (p. 90); <em>susanskar</em> as tendencies aligned with awakening (p. 94); mutual ascent, mutual descent, inspiration, and retrogression (p. 110); essential nature as value of self, and attachment (p. 124); <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> and essential nature of humans, sentiment as essentiality (p. 125); higher value as resolved outlook (p. 126); dispassion as freedom from the three flaws (p. 152); refinement in <em>susanskar</em> through enlightenment about the human goal and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> values (p. 187); the seven forms of relationship and the three kinds of conferred rights (p. 190); money as symbolic value (p. 183); conceit (p. 185); sentiment activity and the three failure modes of evaluation (p. 203); ascension and descension cause (p. 219); study and <em>susanskar</em> as conditions of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>-oriented desire (p. 292); <em>susanskar</em> and <em>kusanskar</em> (p. 315); followership and higher value (p. 220); lower value attracted to higher value (p. 222); appendix enumerations of the activities of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> and their values (pp. 326–343), including visualisation (p. 327), <em>atma</em> and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="buddhi" data-definition="Discriminative faculty in *jeevan* — part of the sentient unit's orbital structure with *mun*, *vritti*, and *chitta*.">buddhi</button></span></em> (p. 328), <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery.">chitta</button></span></em> (p. 329), love, contentment, and abundance (p. 331), guidance, reverence, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Modification or tendency in *jeevan* — one of the faculties whose alignment supports or obstructs understanding.">vritti</button></span></em> (p. 332), care and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mun" data-definition="A faculty of *jeevan* — imagination and selection; part of the orbital structure with *buddhi*, *vritti*, and *chitta*.">mun</button></span></em> (p. 339), respect, affection, and generosity (p. 340); trust and justice as the four-step sequence (p. 336); justice (p. 311).</li>
 <li><strong>SB</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf"><em>Samadhanatmak Bhautikvad</em> (<em>Resolution Centred Materialism</em>)</a>. English translation by Rakesh Gupta. Cited: essentiality as value and its reciprocation in mutuality (p. 50); values recognised through <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, and human expression, communication, and evaluation upon awakening (p. 64); art of living in recognising relationships and values (p. 65); essential nature manifest as values in every unit (p. 87); values and evaluation as <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>&rsquo;s purpose (p. 92); relationship-fulfilment observed wherever relationships are recognised (p. 108); justice as recognition, fulfilment, and evaluation (p. 114); recognising relationships and performing evaluation among universal human attributes (pp. 122, 134); delusion as over-, under-, and mis-evaluation (p. 146); evaluation of natural treasure by usefulness and regeneration (p. 141); Ch. 11, <em>Fear and Temptation or Values and Evaluation</em> (pp. 199 ff.); human essentiality as the basis of evaluation (pp. 200–201).</li>
 <li><strong>JV</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf"><em>Jeevan Vidya: An Introduction</em></a>. English translation by Rakesh Gupta. Cited: the four classes of value to be comprehended, and the critique of the profit-and-loss cycle (p. 43); values realised through recognition of relationships, and humane conduct as values, character, and ethics (p. 55); nine named relationship values and the seven relationships (p. 108); usefulness value and aesthetic addition (pp. 137–138); <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> values as harmonies, taste activity, and values inherent in <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> (p. 138); object value spread everywhere while the other classes are inherent in <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, and evaluation without external instrument (p. 139).</li>
 <li><strong>KD</strong> — Nagraj, A. <em>Manav Karm Darshan</em> (<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>, Part 2). <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf">Working English translation</a>; <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-Hindi-English.pdf">Hindi–English review edition</a>. Cited: value in the derivation from desire to realisation (p. 4); determination of practical values through deliberation, and practical values meaningful in humaneness (p. 16); practical value as stable value, and no contact or relationship devoid of value (p. 20); presence as distinctiveness, value, and meaning, and value undetermined in the absence of awareness (p. 23); self-value as the satisfaction of activity and cessation (p. 46); relationship, value, evaluation, balance (p. 51); values with relationships and the dedication of objects (p. 63); humane conduct as value, character, and ethics, and evaluation on the basis of fundamental distinctiveness (p. 67). The English text is a working translation; quoted formulations should be checked against the Hindi.</li>
 </ul>
-<h3>Advaita Vedanta (primary texts)</h3>
+<h3 id="advaita-vedanta-primary-texts">Advaita Vedanta (primary texts)</h3>
 <ul>
 <li><strong>BU</strong> — <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf"><em>Brihadaranyaka Upanishad</em></a>. English translation by Swami Madhavananda. Cited: the Maitreyi teaching that all dearness is for the sake of the Self (2.4.5); hearing, reflection, and contemplation (2.4.5).</li>
 <li><strong>TU</strong> — <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf"><em>Taittiriya Upanishad</em></a>. English translation by Swami Gambhirananda. Cited: the sheaths and the innermost <em>ananda</em> (2.1–2.5).</li>
@@ -1418,7 +1659,7 @@
 <li><strong>BSB</strong> — Shankara, Adi. <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf"><em>Brahma Sutra Bhashya</em></a>. English translation by Swami Gambhirananda. Cited: liberation as eternally accomplished and obscured by ignorance; the <em>Adhyasa Bhashya</em> on superimposition.</li>
 <li><strong>VC</strong> — <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf"><em>Vivekachudamani</em></a> (traditionally attributed to Shankara; authorship disputed). English translation by Swami Madhavananda. Cited as a later pedagogical witness: qualification and the fourfold discipline (vv. 17–20, 69, 82); Existence-Knowledge-Bliss (v. 152).</li>
 </ul>
-<h3>Related studies in this collection</h3>
+<h3 id="related-studies-in-this-collection">Related studies in this collection</h3>
 <ul>
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> — form, properties, essential nature and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> (§1.3), the four orders (§1.5), <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> faculties (§1.7), evaluative perspectives and the dual role of justice (§§1.12–1.12.1), and the four goals with the five social dimensions (§1.15).</li>
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html">The Epistemology of Coexistence</a> — knowing, believing, recognising, fulfilling, and evaluating (§1.5), karma and evaluated result (§1.7), and the transmission problem (§7.5).</li>
@@ -1430,7 +1671,7 @@
 <li><em>Family Relationships and Values</em> (Ongoing) — the seven relationships and the individual established values as they are lived in family living, developing §§1.3.1–1.3.2.</li>
 <li><em>Education and <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">Sanskar</button></span></em> (Ongoing) — consciousness-development value education, developing §7.8.</li>
 </ul>
-<h3>Modern Western philosophy</h3>
+<h3 id="modern-western-philosophy">Modern Western philosophy</h3>
 <ul>
 <li><strong>Anderson 1993</strong> — Anderson, E. <a href="https://www.hup.harvard.edu/books/9780674931909"><em>Value in Ethics and Economics</em></a>. Harvard University Press. Cited: plural modes of valuation (§3.6).</li>
 <li><strong>Berlin 1969</strong> — Berlin, I. <a href="https://global.oup.com/academic/product/liberty-9780199249893">&ldquo;Two Concepts of Liberty.&rdquo;</a> In <em>Four Essays on Liberty</em>. Oxford University Press. Cited: conflict among fundamental values (§3.6).</li>
@@ -1464,7 +1705,7 @@
 <li><strong>SEP Trust</strong> — McLeod, C. <a href="https://plato.stanford.edu/entries/trust/">&ldquo;Trust.&rdquo;</a> <em>Stanford Encyclopedia of Philosophy</em>. Cited: trust as dependence under vulnerability (§3.9).</li>
 <li><strong>SEP Natural Law Ethics</strong> — Murphy, M. <a href="https://analyticmadhyasthdarshan.org/References/Comparative-Philosophy/SEP-Natural-Law-Ethics.html">&ldquo;The Natural Law Tradition in Ethics.&rdquo;</a> <em>Stanford Encyclopedia of Philosophy</em>, Winter 2024 archived edition. Cited: grounding goodness in the form of a kind of living thing (§3.2).</li>
 </ul>
-<h3>Physics, natural and social sciences</h3>
+<h3 id="physics-natural-and-social-sciences">Physics, natural and social sciences</h3>
 <ul>
 <li><strong>Amodei et al. 2016</strong> — Amodei, D., Olah, C., Steinhardt, J., Christiano, P., Schulman, J., and Mané, D. <a href="https://arxiv.org/abs/1606.06565">&ldquo;Concrete Problems in AI Safety.&rdquo;</a> arXiv:1606.06565. Cited: objective specification as a central obstacle (§4.6).</li>
 <li><strong>Crockett 2013</strong> — Crockett, M. J. <a href="https://analyticmadhyasthdarshan.org/References/Science/Crockett-2013-Models-of-Morality.pdf">&ldquo;Models of morality.&rdquo;</a> <em>Trends in Cognitive Sciences</em>, 17(8), 363–366. CC BY open-access article. Cited: valuation systems in moral decision-making (§4.1).</li>
@@ -1630,6 +1871,39 @@
   document.addEventListener("keydown", event => {
     if (event.key === "Escape") hide();
   });
+})();
+</script>
+<script>
+(() => {
+  const toggle = document.getElementById("study-theme-toggle");
+  if (!toggle) return;
+  const label = toggle.querySelector(".study-theme-toggle-label");
+  const root = document.documentElement;
+  const system = window.matchMedia("(prefers-color-scheme: dark)");
+  const active = () => root.getAttribute("data-theme") || (system.matches ? "dark" : "light");
+  const paint = () => {
+    const next = active() === "dark" ? "Light" : "Dark";
+    if (label) label.textContent = next;
+    toggle.setAttribute("aria-label", `Switch to ${next.toLowerCase()} theme`);
+  };
+  toggle.addEventListener("click", () => {
+    const next = active() === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("amd-theme", next); } catch (e) {}
+    paint();
+  });
+  system.addEventListener("change", paint);
+  paint();
+})();
+</script>
+<script>
+(() => {
+  const toc = document.getElementById("study-contents");
+  if (!toc) return;
+  // Open where there is room to show it without pushing the study off screen.
+  if (window.matchMedia("(min-width: 760px)").matches && window.innerHeight >= 640) {
+    toc.open = true;
+  }
 })();
 </script>
 
