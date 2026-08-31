@@ -617,8 +617,8 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     grid-template-columns: 1fr;
     grid-template-areas:
       "rail"
-      "alongside"
-      "panel";
+      "panel"
+      "alongside";
     gap: 12px;
     margin: 0;
     padding: 0;
@@ -740,7 +740,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     pointer-events: none;
     z-index: 0;
     grid-area: panel;
-    padding: 18px 20px 16px;
+    padding: 18px 20px 10px;
     background: var(--bg);
     border: 1px solid var(--border);
     border-top: 3px solid var(--accent);
@@ -764,8 +764,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   .path-panel h3 {
     font-size: 22px;
     line-height: 1.25;
-    min-height: 2.5em;
-    margin: 0 0 12px;
+    margin: 0 0 8px;
   }
   .path-core-layout {
     display: grid;
@@ -796,7 +795,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     font-size: 18px;
     font-weight: 700;
     line-height: 1.3;
-    margin: 0 0 8px;
+    margin: 0 0 4px;
   }
   .path-study-title a {
     color: var(--accent);
@@ -818,10 +817,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     flex-wrap: wrap;
     align-items: center;
     gap: 12px;
-  }
-  .path-core-actions .btn-primary {
-    padding: 8px 16px;
-    font-size: 13px;
   }
   .path-continue {
     display: flex;
@@ -894,8 +889,8 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     font-weight: 700;
   }
   .path-related {
-    margin-top: auto;
-    padding-top: 14px;
+    margin-top: 6px;
+    padding-top: 0;
     font-family: var(--sans);
     font-size: 13px;
     color: var(--text-muted);
@@ -921,31 +916,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     margin: 4px 0 0;
     padding: 1px 7px;
     font-size: 10px;
-  }
-  .path-invitation {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 18px;
-    margin-top: 16px;
-    padding-top: 16px;
-    border-top: 1px solid var(--border);
-  }
-  .path-invitation p {
-    margin: 0;
-    font-size: 13px;
-    color: var(--text-muted);
-  }
-  .path-invitation strong { color: var(--text); }
-  .path-invitation-actions {
-    display: flex;
-    flex: 0 0 auto;
-    gap: 8px;
-  }
-  .path-invitation .btn-primary,
-  .path-invitation .btn-secondary {
-    padding: 8px 13px;
-    font-size: 12px;
   }
   .card-actions {
     display: inline-flex;
@@ -1223,7 +1193,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     .card { scroll-margin-top: calc(var(--page-nav-offset, 56px) + 12px); }
     h1 { font-size: 30px; }
     .triad { grid-template-columns: 1fr; }
-    .path-invitation { align-items: flex-start; flex-direction: column; }
   }
 
   @media (max-width: 600px) {
@@ -1253,26 +1222,12 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       overflow: visible;
       text-overflow: unset;
     }
-    .study-path {
-      grid-template-areas:
-        "rail"
-        "panel"
-        "alongside";
-    }
-    .path-panel { padding: 16px 14px 14px; }
-    .path-panel h3 { font-size: 20px; min-height: 0; }
+    .path-panel { padding: 16px 14px 10px; }
+    .path-panel h3 { font-size: 20px; }
     .path-core-layout { grid-template-columns: 1fr; }
-    .path-invitation-actions { width: 100%; flex-direction: column; }
-    .path-invitation .btn-primary, .path-invitation .btn-secondary { text-align: center; }
   }
 
   @container start-path (max-width: 640px) {
-    .study-path {
-      grid-template-areas:
-        "rail"
-        "panel"
-        "alongside";
-    }
     .path-rail { flex-wrap: wrap; gap: 6px; }
     .path-rail-step { flex: 1 1 calc(33.333% - 6px); min-width: 96px; }
     .path-rail-item {
@@ -1289,7 +1244,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       text-overflow: unset;
     }
     .path-core-layout { grid-template-columns: 1fr; }
-    .path-panel h3 { min-height: 0; }
   }
 </style>
 </head>
@@ -1368,14 +1322,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
         </div>
       </div>
 
-      <div class="path-alongside">
-        <span class="path-alongside-label">Also across the path</span>
-        <div class="path-alongside-studies">
-          <div class="parallel-study" data-study-slug="A-State-Dynamic-Model-Of-Coexistence" data-presentation-pdf="A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence-Madhyasth-Darshan.pdf"><a data-study-link href="A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html" title="Read the study">From Unit Activity to Human Orderliness</a><span class="path-status draft" data-study-status>Draft</span><a class="path-slides" data-study-slides href="A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence-Madhyasth-Darshan.pdf" title="Open presentation slides">Slides</a></div>
-          <div class="parallel-study" data-study-slug="Science-Technology-And-Human-Purpose"><a data-study-link href="Science-Technology-And-Human-Purpose/discussion.html">Science, Technology, and Human Purpose</a><span class="path-status planned" data-study-status>In progress</span></div>
-        </div>
-      </div>
-
       <article class="path-panel" data-stage="1">
         <div class="path-panel-head"><span class="path-number">1</span><span class="path-domain">Human</span></div>
         <h3>Is a human only a body?</h3>
@@ -1385,10 +1331,18 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
             <p class="path-study-title"><a data-study-link href="Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html" title="Read the study">Why Humans Are Not Just Material</a></p>
             <p class="path-study-blurb">This study tests whether a human is exhausted by a physicochemical body and brain, comparing a physicalist reading of the sciences with Advaita Vedanta and Madhyasth Darshan&rsquo;s body-and-jeevan account.</p>
             <div class="path-core-actions">
-              <a class="btn-primary" data-study-link href="Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html">Read the study</a>
+              <a class="path-action" data-study-link href="Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html">Read the study</a>
               <a class="path-action" data-study-action href="Why-Humans-Are-Not-Just-Material/discussion.html">Discuss this stage</a>
               <a class="path-slides" data-study-slides href="Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material-presentation.pdf" title="Open presentation slides">Slides</a>
             </div>
+            <details class="path-related">
+              <summary>3 related studies</summary>
+              <ul>
+                <li data-study-slug="Philosophy-Of-Mind-And-Jeevan"><a data-study-link href="Philosophy-Of-Mind-And-Jeevan/discussion.html">Philosophy of Mind and Jeevan</a><br><span class="path-status planned" data-study-status>In progress</span></li>
+                <li data-study-slug="Chitta-Brain-And-Memory"><a data-study-link href="Chitta-Brain-And-Memory/discussion.html">Chitta, Brain, and Memory</a><br><span class="path-status planned" data-study-status>In progress</span></li>
+                <li data-study-slug="Death-Continuity-And-Rebirth"><a data-study-link href="Death-Continuity-And-Rebirth/discussion.html">Death, Continuity, and Rebirth</a><br><span class="path-status planned" data-study-status>In progress</span></li>
+              </ul>
+            </details>
           </div>
           <button type="button" class="path-continue" data-go-stage="2" aria-label="Continue to Existence">
             <span class="path-continue-kicker">Next</span>
@@ -1397,14 +1351,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
             <span class="path-continue-link">Continue to Existence</span>
           </button>
         </div>
-        <details class="path-related">
-          <summary>3 related studies</summary>
-          <ul>
-            <li data-study-slug="Philosophy-Of-Mind-And-Jeevan"><a data-study-link href="Philosophy-Of-Mind-And-Jeevan/discussion.html">Philosophy of Mind and Jeevan</a><br><span class="path-status planned" data-study-status>In progress</span></li>
-            <li data-study-slug="Chitta-Brain-And-Memory"><a data-study-link href="Chitta-Brain-And-Memory/discussion.html">Chitta, Brain, and Memory</a><br><span class="path-status planned" data-study-status>In progress</span></li>
-            <li data-study-slug="Death-Continuity-And-Rebirth"><a data-study-link href="Death-Continuity-And-Rebirth/discussion.html">Death, Continuity, and Rebirth</a><br><span class="path-status planned" data-study-status>In progress</span></li>
-          </ul>
-        </details>
       </article>
 
       <article class="path-panel" data-stage="2">
@@ -1416,10 +1362,18 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
             <p class="path-study-title"><a data-study-link href="The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html" title="Read the study">The Ontology of Coexistence</a></p>
             <p class="path-study-blurb">This study asks what exists: coexistence of omnipresence and units, the four orders of nature, and the claim that the human belongs to the knowledge order rather than being only a material organism.</p>
             <div class="path-core-actions">
-              <a class="btn-primary" data-study-link href="The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">Read the study</a>
+              <a class="path-action" data-study-link href="The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">Read the study</a>
               <a class="path-action" data-study-action href="The-Ontology-of-Coexistence/discussion.html">Discuss this stage</a>
               <a class="path-slides" data-study-slides href="The-Ontology-of-Coexistence/The-Ontology-of-Existence-Madhyasth-Darshan.pdf" title="Open presentation slides">Slides</a>
             </div>
+            <details class="path-related">
+              <summary>3 related studies</summary>
+              <ul>
+                <li data-study-slug="Nature-Of-Time"><a data-study-link href="Nature-Of-Time/Nature-Of-Time.html">Nature of Time</a><br><span class="path-status released" data-study-status>Released</span></li>
+                <li data-study-slug="Nature-Ecology-And-Right-Use"><a data-study-link href="Nature-Ecology-And-Right-Use/discussion.html">Nature, Ecology, and Right Use</a><br><span class="path-status planned" data-study-status>In progress</span></li>
+                <li data-study-slug="God-Divinity-And-The-Sacred"><a data-study-link href="God-Divinity-And-The-Sacred/discussion.html">God, Divinity, and the Sacred</a><br><span class="path-status planned" data-study-status>In progress</span></li>
+              </ul>
+            </details>
           </div>
           <button type="button" class="path-continue" data-go-stage="3" aria-label="Continue to Knowledge">
             <span class="path-continue-kicker">Next</span>
@@ -1428,14 +1382,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
             <span class="path-continue-link">Continue to Knowledge</span>
           </button>
         </div>
-        <details class="path-related">
-          <summary>3 related studies</summary>
-          <ul>
-            <li data-study-slug="Nature-Of-Time"><a data-study-link href="Nature-Of-Time/Nature-Of-Time.html">Nature of Time</a><br><span class="path-status released" data-study-status>Released</span></li>
-            <li data-study-slug="Nature-Ecology-And-Right-Use"><a data-study-link href="Nature-Ecology-And-Right-Use/discussion.html">Nature, Ecology, and Right Use</a><br><span class="path-status planned" data-study-status>In progress</span></li>
-            <li data-study-slug="God-Divinity-And-The-Sacred"><a data-study-link href="God-Divinity-And-The-Sacred/discussion.html">God, Divinity, and the Sacred</a><br><span class="path-status planned" data-study-status>In progress</span></li>
-          </ul>
-        </details>
       </article>
 
       <article class="path-panel" data-stage="3">
@@ -1447,10 +1393,19 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
             <p class="path-study-title"><a data-study-link href="The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html" title="Read the study">The Epistemology of Coexistence</a></p>
             <p class="path-study-blurb">This study asks what knowledge is, who the knower is, and how understanding of coexistence must become evident in evaluation, conduct, and tradition rather than remaining unused information.</p>
             <div class="path-core-actions">
-              <a class="btn-primary" data-study-link href="The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html">Read the study</a>
+              <a class="path-action" data-study-link href="The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html">Read the study</a>
               <a class="path-action" data-study-action href="The-Epistemology-of-Coexistence/discussion.html">Discuss this stage</a>
               <a class="path-slides" data-study-slides href="The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence-Madhyasth-Darshan.pdf" title="Open presentation slides">Slides</a>
             </div>
+            <details class="path-related">
+              <summary>4 related studies</summary>
+              <ul>
+                <li data-study-slug="Methodology-And-Hermeneutics"><a data-study-link href="Methodology-And-Hermeneutics/discussion.html">Methodology and Hermeneutics</a><br><span class="path-status planned" data-study-status>In progress</span></li>
+                <li data-study-slug="Work-Action-And-Karma"><a data-study-link href="Work-Action-And-Karma/discussion.html">Work, Action, and Karma</a><br><span class="path-status planned" data-study-status>In progress</span></li>
+                <li data-study-slug="Free-Will-Choice-And-Agency"><a data-study-link href="Free-Will-Choice-And-Agency/discussion.html">Free Will, Choice, and Agency</a><br><span class="path-status planned" data-study-status>In progress</span></li>
+                <li data-study-slug="Language-Meaning-And-Definition"><a data-study-link href="Language-Meaning-And-Definition/discussion.html">Language, Meaning, and Definition</a><br><span class="path-status planned" data-study-status>In progress</span></li>
+              </ul>
+            </details>
           </div>
           <button type="button" class="path-continue" data-go-stage="4" aria-label="Continue to Value">
             <span class="path-continue-kicker">Next</span>
@@ -1459,15 +1414,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
             <span class="path-continue-link">Continue to Value</span>
           </button>
         </div>
-        <details class="path-related">
-          <summary>4 related studies</summary>
-          <ul>
-            <li data-study-slug="Methodology-And-Hermeneutics"><a data-study-link href="Methodology-And-Hermeneutics/discussion.html">Methodology and Hermeneutics</a><br><span class="path-status planned" data-study-status>In progress</span></li>
-            <li data-study-slug="Work-Action-And-Karma"><a data-study-link href="Work-Action-And-Karma/discussion.html">Work, Action, and Karma</a><br><span class="path-status planned" data-study-status>In progress</span></li>
-            <li data-study-slug="Free-Will-Choice-And-Agency"><a data-study-link href="Free-Will-Choice-And-Agency/discussion.html">Free Will, Choice, and Agency</a><br><span class="path-status planned" data-study-status>In progress</span></li>
-            <li data-study-slug="Language-Meaning-And-Definition"><a data-study-link href="Language-Meaning-And-Definition/discussion.html">Language, Meaning, and Definition</a><br><span class="path-status planned" data-study-status>In progress</span></li>
-          </ul>
-        </details>
       </article>
 
       <article class="path-panel" data-stage="4">
@@ -1479,9 +1425,17 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
             <p class="path-study-title"><a data-study-link href="Axiology-Value-Theory/Axiology-Value-Theory.html" title="Read the study">Axiology: Value Theory</a></p>
             <p class="path-study-blurb">This study asks what a value is, whether it is conferred by preference or already present in participation, and how evaluation can be correct or mistaken in relationship and conduct.</p>
             <div class="path-core-actions">
-              <a class="btn-primary" data-study-link href="Axiology-Value-Theory/Axiology-Value-Theory.html">Read the study</a>
+              <a class="path-action" data-study-link href="Axiology-Value-Theory/Axiology-Value-Theory.html">Read the study</a>
               <a class="path-action" data-study-action href="Axiology-Value-Theory/discussion.html">Discuss this stage</a>
             </div>
+            <details class="path-related">
+              <summary>3 related studies</summary>
+              <ul>
+                <li data-study-slug="Ethics-And-Morals-In-Human-Beings"><a data-study-link href="Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.html">Ethics and Morals in Human Beings</a><br><span class="path-status draft" data-study-status>Draft</span></li>
+                <li data-study-slug="Family-Relationships-And-Values"><a data-study-link href="Family-Relationships-And-Values/discussion.html">Family Relationships and Values</a><br><span class="path-status planned" data-study-status>In progress</span></li>
+                <li data-study-slug="Aesthetics"><a data-study-link href="Aesthetics/Aesthetics.html">Aesthetics</a><br><span class="path-status draft" data-study-status>Draft</span></li>
+              </ul>
+            </details>
           </div>
           <button type="button" class="path-continue" data-go-stage="5" aria-label="Continue to Living">
             <span class="path-continue-kicker">Next</span>
@@ -1490,14 +1444,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
             <span class="path-continue-link">Continue to Living</span>
           </button>
         </div>
-        <details class="path-related">
-          <summary>3 related studies</summary>
-          <ul>
-            <li data-study-slug="Ethics-And-Morals-In-Human-Beings"><a data-study-link href="Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.html">Ethics and Morals in Human Beings</a><br><span class="path-status draft" data-study-status>Draft</span></li>
-            <li data-study-slug="Family-Relationships-And-Values"><a data-study-link href="Family-Relationships-And-Values/discussion.html">Family Relationships and Values</a><br><span class="path-status planned" data-study-status>In progress</span></li>
-            <li data-study-slug="Aesthetics"><a data-study-link href="Aesthetics/Aesthetics.html">Aesthetics</a><br><span class="path-status draft" data-study-status>Draft</span></li>
-          </ul>
-        </details>
       </article>
 
       <article class="path-panel" data-stage="5">
@@ -1509,10 +1455,18 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
             <p class="path-study-title"><a data-study-link href="How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html" title="Read the study">How Undivided Society Is Established</a></p>
             <p class="path-study-blurb">This study asks what would make humankind an undivided society, and how that is established through family, education, organisations, and institutions as the test of the earlier understanding.</p>
             <div class="path-core-actions">
-              <a class="btn-primary" data-study-link href="How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html">Read the study</a>
+              <a class="path-action" data-study-link href="How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html">Read the study</a>
               <a class="path-action" data-study-action href="How-Undivided-Society-Is-Established/discussion.html">Discuss this stage</a>
               <a class="path-slides" data-study-slides href="How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established-presentation.pdf" title="Open presentation slides">Slides</a>
             </div>
+            <details class="path-related">
+              <summary>3 related studies</summary>
+              <ul>
+                <li data-study-slug="Human-Behavior-And-Society"><a data-study-link href="Human-Behavior-And-Society/Human-Behavior-And-Society.html">Human Behavior and Society</a><br><span class="path-status draft" data-study-status>Draft</span></li>
+                <li data-study-slug="How-To-Form-Self-Sustaining-Organizations"><a data-study-link href="How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.html">How to Form Self-Sustaining Organizations</a><br><span class="path-status released" data-study-status>Released</span></li>
+                <li data-study-slug="Education-And-Sanskar"><a data-study-link href="Education-And-Sanskar/discussion.html">Education and Sanskar</a><br><span class="path-status planned" data-study-status>In progress</span></li>
+              </ul>
+            </details>
           </div>
           <button type="button" class="path-continue" data-go-stage="1" aria-label="Return to Human">
             <span class="path-continue-kicker">The path</span>
@@ -1521,22 +1475,14 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
             <span class="path-continue-link">Return to Human</span>
           </button>
         </div>
-        <details class="path-related">
-          <summary>3 related studies</summary>
-          <ul>
-            <li data-study-slug="Human-Behavior-And-Society"><a data-study-link href="Human-Behavior-And-Society/Human-Behavior-And-Society.html">Human Behavior and Society</a><br><span class="path-status draft" data-study-status>Draft</span></li>
-            <li data-study-slug="How-To-Form-Self-Sustaining-Organizations"><a data-study-link href="How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.html">How to Form Self-Sustaining Organizations</a><br><span class="path-status released" data-study-status>Released</span></li>
-            <li data-study-slug="Education-And-Sanskar"><a data-study-link href="Education-And-Sanskar/discussion.html">Education and Sanskar</a><br><span class="path-status planned" data-study-status>In progress</span></li>
-          </ul>
-        </details>
       </article>
-    </div>
 
-    <div class="path-invitation">
-      <p><strong>Follow the path, or help shape it.</strong> Status badges show where the work stands now. Use a study&rsquo;s discussion to question an argument, review a draft, suggest sources, or help develop an in-progress study.</p>
-      <div class="path-invitation-actions" data-study-slug="Why-Humans-Are-Not-Just-Material">
-        <a class="btn-primary" data-study-link href="Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html">Begin with stage 1</a>
-        <a class="btn-secondary" href="#contribute">How to contribute</a>
+      <div class="path-alongside">
+        <span class="path-alongside-label">Also across the path</span>
+        <div class="path-alongside-studies">
+          <div class="parallel-study" data-study-slug="A-State-Dynamic-Model-Of-Coexistence" data-presentation-pdf="A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence-Madhyasth-Darshan.pdf"><a data-study-link href="A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html" title="Read the study">From Unit Activity to Human Orderliness</a><span class="path-status draft" data-study-status>Draft</span><a class="path-slides" data-study-slides href="A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence-Madhyasth-Darshan.pdf" title="Open presentation slides">Slides</a></div>
+          <div class="parallel-study" data-study-slug="Science-Technology-And-Human-Purpose"><a data-study-link href="Science-Technology-And-Human-Purpose/discussion.html">Science, Technology, and Human Purpose</a><span class="path-status planned" data-study-status>In progress</span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -2215,10 +2161,10 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       own("[data-study-link]").forEach(studyLink => {
         if (hasReadLinks(study)) {
           studyLink.href = studyHtmlHref(study);
-          if (!studyLink.closest(".path-invitation")) studyLink.title = "Read the study";
+          studyLink.title = "Read the study";
         } else {
           studyLink.href = studyDiscussionHref(study);
-          if (!studyLink.closest(".path-invitation")) studyLink.title = "Open discussion";
+          studyLink.title = "Open discussion";
         }
       });
 
