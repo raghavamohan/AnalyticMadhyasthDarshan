@@ -324,13 +324,17 @@
   .term-tip {
     background: none;
     border: none;
-    border-bottom: 1px dotted #1a5276;
+    border-bottom: 1px dotted #8a6d3b;
     padding: 0;
     margin: 0;
     font: inherit;
-    color: #1a5276;
+    color: inherit;
     cursor: help;
     text-align: inherit;
+  }
+  .term-tip:hover {
+    background: #f6f0e7;
+    border-radius: 2px;
   }
   .term-tip:focus-visible {
     outline: 2px solid #1a5276;
@@ -363,14 +367,14 @@
   .study-toolbar {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
     font-family: 'Segoe UI', system-ui, sans-serif;
     font-size: 13px;
     position: sticky;
     top: 0;
     z-index: 20;
-    margin: 0 0 22px;
-    padding: 10px 14px;
+    margin: 0 0 18px;
+    padding: 6px 10px;
     border: 1px solid #d8d2c8;
     border-radius: 8px;
     background: rgba(247, 244, 239, 0.92);
@@ -380,20 +384,21 @@
   .study-toolbar-row {
     display: grid;
     align-items: center;
-    gap: 8px 14px;
+    gap: 10px;
   }
   .study-toolbar-row--primary {
-    grid-template-columns: minmax(0, 1fr) minmax(0, auto) minmax(0, 1fr);
+    grid-template-columns: auto minmax(0, 1fr);
   }
   .study-toolbar-actions {
-    grid-column: 3;
+    grid-column: 2;
     justify-self: end;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     justify-content: flex-end;
-    gap: 8px 12px;
+    gap: 6px;
     min-width: 0;
+    white-space: nowrap;
     text-align: right;
   }
   .study-toolbar-feedback {
@@ -412,21 +417,6 @@
   .study-toolbar-download {
     min-width: 0;
     text-align: right;
-  }
-  .study-toolbar-title {
-    grid-column: 2;
-    justify-self: center;
-    text-align: center;
-    margin: 0;
-    min-width: 0;
-    font-size: 14px;
-    font-weight: 700;
-    color: #2c241c;
-    line-height: 1.35;
-  }
-  .study-toolbar-draft {
-    font-weight: 600;
-    color: #5c5348;
   }
   .study-toolbar-link {
     color: #1a5276;
@@ -468,7 +458,7 @@
     background: #fdfcfa;
     border: 1px solid #d9d2c7;
     border-radius: 999px;
-    padding: 3px 11px;
+    padding: 2px 8px;
     cursor: pointer;
     white-space: nowrap;
   }
@@ -540,6 +530,23 @@
   .study-toc-l1 > a { font-weight: 700; color: #2c241c; }
   .study-toc-l2 > a { padding-left: 15px; }
   .study-toc-l3 > a { padding-left: 30px; font-size: 12.5px; color: #4d6f86; }
+  .study-toc--with-key { margin-bottom: 0.55em; }
+  .study-reading-key {
+    margin: 0 0 2.2em;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    line-height: 1.45;
+    color: #6b6357;
+  }
+  .study-reading-key > span[aria-hidden="true"] { padding: 0 5px; }
+  .study-reading-key-term {
+    color: #2c241c;
+    border-bottom: 1px dotted #8a6d3b;
+  }
+  .study-reading-key-link {
+    color: #1a5276;
+    text-decoration: underline;
+  }
   @media (prefers-reduced-motion: reduce) {
     .study-toc-summary::before { transition: none; }
   }
@@ -556,11 +563,15 @@
       margin: 32px auto 88px;
       padding: 0 22px;
     }
-    /* Roughly 68 characters. The container stays wide enough for tables and
-       figures while running text keeps a measure the eye can track back. */
-    p, ul, ol, blockquote, .quote-source, dl {
-      max-width: 37rem;
+    /* Add a subtle one point of breathing room above and below quotations on
+       screen without changing the print/PDF layout. */
+    blockquote {
+      margin-top: 11pt;
+      margin-bottom: 11pt;
     }
+    /* Running text uses the full reading column. Tables and figures share the
+       same 46rem container, so paragraphs no longer collapse into a visibly
+       narrower strip inside the page. */
     p {
       margin: 0.72em 0;
       text-align: left;
@@ -583,34 +594,18 @@
   }
 
   @media (max-width: 640px) {
-    .study-toolbar-row--primary {
-      grid-template-columns: minmax(0, auto) minmax(0, 1fr);
-      row-gap: 6px;
-    }
-    /* Back and title share the first line and the actions take the second, so
-       the reader reaches the heading in two rows rather than four. */
-    .study-toolbar-back { grid-column: 1; justify-self: start; }
-    .study-toolbar-title {
-      grid-column: 2;
-      justify-self: end;
-      text-align: right;
-      font-size: 13px;
-      white-space: normal;
-    }
     .study-toolbar-actions {
-      grid-column: 1 / -1;
-      justify-self: stretch;
-      justify-content: space-between;
-      gap: 8px;
+      gap: 5px;
     }
     .study-toolbar-feedback { font-size: 11px; }
-    .study-toolbar-section { white-space: normal; }
+    .study-toolbar-section { font-size: 11px; }
     .study-toc-nav { max-height: 52vh; }
   }
   @media print {
     .study-toolbar { display: none !important; }
     .study-theme-toggle { display: none !important; }
     .study-toc { display: none !important; }
+    .study-reading-key { display: none !important; }
     .skip-link { display: none !important; }
     .term-tip {
       border-bottom: none;
@@ -637,10 +632,9 @@
     html[data-theme="dark"] .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
     html[data-theme="dark"] .study-toolbar-link { color: #7ebbed; }
     html[data-theme="dark"] .study-toolbar-link:hover { color: #b8daf3; }
-    html[data-theme="dark"] .study-toolbar-title { color: #f5f1ec; }
-    html[data-theme="dark"] .study-toolbar-draft { color: #aca194; }
     html[data-theme="dark"] .study-toolbar-section.is-disabled { color: #6f655a; }
-    html[data-theme="dark"] .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    html[data-theme="dark"] .term-tip { color: inherit; border-bottom-color: #c9a66b; }
+    html[data-theme="dark"] .term-tip:hover { background: #2f2a24; }
     html[data-theme="dark"] .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
     html[data-theme="dark"] .study-toc { border-color: #423b33; }
     html[data-theme="dark"] .study-toc-summary:hover { background: #1e1b18; }
@@ -648,6 +642,9 @@
     html[data-theme="dark"] .study-toc-meta { color: #aca194; }
     html[data-theme="dark"] .study-toc-list a { color: #7ebbed; }
     html[data-theme="dark"] .study-toc-l1 > a { color: #f5f1ec; }
+    html[data-theme="dark"] .study-reading-key { color: #aca194; }
+    html[data-theme="dark"] .study-reading-key-term { color: #e6dfd6; border-bottom-color: #c9a66b; }
+    html[data-theme="dark"] .study-reading-key-link { color: #7ebbed; }
     html[data-theme="dark"] .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
     html[data-theme="dark"] .study-theme-toggle:hover { border-color: #7ebbed; }
   }
@@ -668,10 +665,9 @@
     html:not([data-theme="light"]) .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
     html:not([data-theme="light"]) .study-toolbar-link { color: #7ebbed; }
     html:not([data-theme="light"]) .study-toolbar-link:hover { color: #b8daf3; }
-    html:not([data-theme="light"]) .study-toolbar-title { color: #f5f1ec; }
-    html:not([data-theme="light"]) .study-toolbar-draft { color: #aca194; }
     html:not([data-theme="light"]) .study-toolbar-section.is-disabled { color: #6f655a; }
-    html:not([data-theme="light"]) .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    html:not([data-theme="light"]) .term-tip { color: inherit; border-bottom-color: #c9a66b; }
+    html:not([data-theme="light"]) .term-tip:hover { background: #2f2a24; }
     html:not([data-theme="light"]) .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
     html:not([data-theme="light"]) .study-toc { border-color: #423b33; }
     html:not([data-theme="light"]) .study-toc-summary:hover { background: #1e1b18; }
@@ -679,6 +675,9 @@
     html:not([data-theme="light"]) .study-toc-meta { color: #aca194; }
     html:not([data-theme="light"]) .study-toc-list a { color: #7ebbed; }
     html:not([data-theme="light"]) .study-toc-l1 > a { color: #f5f1ec; }
+    html:not([data-theme="light"]) .study-reading-key { color: #aca194; }
+    html:not([data-theme="light"]) .study-reading-key-term { color: #e6dfd6; border-bottom-color: #c9a66b; }
+    html:not([data-theme="light"]) .study-reading-key-link { color: #7ebbed; }
     html:not([data-theme="light"]) .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
     html:not([data-theme="light"]) .study-theme-toggle:hover { border-color: #7ebbed; }
   }
@@ -689,12 +688,11 @@
 <a class="skip-link" href="#main">Skip to content</a>
 <nav class="study-toolbar" aria-label="Study navigation">
   <div class="study-toolbar-row study-toolbar-row--primary">
-    <a class="study-toolbar-link study-toolbar-back" href="../index.html#study-Family-Relationships-And-Values">&larr; All studies</a>
-    <p class="study-toolbar-title">Family Relationships and Values <span class="study-toolbar-draft">(Draft)</span></p>
+    <a class="study-toolbar-link study-toolbar-back" href="../index.html#study-Family-Relationships-And-Values" aria-label="Back to all studies">&larr; Studies</a>
     <span class="study-toolbar-actions">
       <a class="study-toolbar-link study-toolbar-discuss" href="discussion.html?dv=3">Discuss</a>
-      <a class="study-toolbar-link study-toolbar-download" href="Family-Relationships-And-Values.pdf" download>Download PDF</a>
-      <a class="study-toolbar-link study-toolbar-feedback" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&title=Study%20feedback%3A%20Family%20Relationships%20and%20Values">Suggest a correction</a>
+      <a class="study-toolbar-link study-toolbar-download" href="Family-Relationships-And-Values.pdf" download aria-label="Download PDF">PDF</a>
+      <a class="study-toolbar-link study-toolbar-feedback" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&title=Study%20feedback%3A%20Family%20Relationships%20and%20Values" aria-label="Suggest a correction">Suggest edit</a>
       <button type="button" class="study-theme-toggle" id="study-theme-toggle" aria-label="Switch color theme">
         <span class="study-theme-toggle-label">Dark</span>
       </button>
@@ -706,12 +704,12 @@
   </div>
 </nav>
 <main id="main"><h1>Family Relationships and Values</h1>
-<p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> — a group of people studying <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
+<p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> — a group of people studying <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
 <p><strong>Edited on:</strong> July 29, 2026, 6:35 AM IST</p>
-<p><strong>The question:</strong> What is a family in <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>, why is it the first place where values become livable, and how are its relationships recognised and their values fulfilled?</p>
-<p>This study sets out the <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> account of the family: what makes a family a family, which relationships constitute it, how those relationships are recognised, which values are inherent in them, and why the darshan treats the family rather than the individual or the state as the unit at which need is assessed and prosperity becomes definable.</p>
-<p><a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> supplies the setting: Omnipresence, saturated units, form, properties, essential nature and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, the four orders, and the active structure of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>. <a href="https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html">Axiology Value Theory</a> establishes what a value is, the distinction between relationship and contact, and the classes of value including the nine established values (§§1.1.1, 1.3.1–1.3.3). <a href="https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html">How Undivided Society Is Established</a> §5.2 argues from the family outward to undivided society. The present study works in the other direction: inward, at the scale where relationships are actually lived, and compares the darshan&rsquo;s domestic axiology with Advaita Vedanta, classical Confucianism, the Western ethics of care, and modern household economics.</p>
-<details class="study-toc" id="study-contents">
+<p><strong>The question:</strong> What is a family in Madhyasth Darshan, why is it the first place where values become livable, and how are its relationships recognised and their values fulfilled?</p>
+<p>This study sets out the Madhyasth Darshan account of the family: what makes a family a family, which relationships constitute it, how those relationships are recognised, which values are inherent in them, and why the darshan treats the family rather than the individual or the state as the unit at which need is assessed and prosperity becomes definable.</p>
+<p><a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> supplies the setting: Omnipresence, saturated units, form, properties, essential nature and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span></em>, the four orders, and the active structure of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>. <a href="https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html">Axiology Value Theory</a> establishes what a value is, the distinction between relationship and contact, and the classes of value including the nine established values (§§1.1.1, 1.3.1–1.3.3). <a href="https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html">How Undivided Society Is Established</a> §5.2 argues from the family outward to undivided society. The present study works in the other direction: inward, at the scale where relationships are actually lived, and compares the darshan&rsquo;s domestic axiology with Advaita Vedanta, classical Confucianism, the Western ethics of care, and modern household economics.</p>
+<details class="study-toc study-toc--with-key" id="study-contents">
   <summary class="study-toc-summary">
     <span class="study-toc-label">Contents</span>
     <span class="study-toc-meta">9 sections &middot; 29 headings</span>
@@ -750,18 +748,23 @@
     </ol>
   </nav>
 </details>
+<p class="study-reading-key" aria-label="Reading key">
+  <span class="study-reading-key-term">Dotted underline</span>: definition
+  <span aria-hidden="true">&middot;</span>
+  <span class="study-reading-key-link">Blue underline</span>: link
+</p>
 <h2 id="standpoint-and-scope">Standpoint and scope</h2>
 <p>These studies are written from the standpoint of a <strong>scientist and technologist</strong> — someone trained to graduate-level <strong>physics and mathematics</strong>, at home with contemporary cosmology, quantum theory, conservation laws, and the logic of formal models.</p>
 <p>From that background, a familiar picture is hard to avoid: <strong>the family looks like a contingent social arrangement</strong> — an evolved reproductive strategy, an economic household, a bundle of negotiated preferences that varies with culture and law and carries no structure of its own. Modern social science is powerful on variation, measurement, and causal inference; yet what makes a relationship a relationship rather than an arrangement, and whether anything is owed within one independently of what the parties have agreed, remain unresolved. The standpoint taken here does not treat those questions as settled in favour of the view that family structure is merely conventional.</p>
-<p>The work begins where that picture leaves open questions — and asks whether <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> offers a coherent alternative worth examining seriously. Across this collection the method is to read the primary texts carefully, state what follows from the darshan itself, and compare it in parallel with <strong>physics and the natural and social sciences</strong>, <strong>Advaita Vedanta</strong>, and <strong>modern Western philosophy</strong> (here, the ethics of care, family sociology, and household economics). Physics and mathematics are <strong>one leg</strong> of that comparison, not the only one. The aim is rigorous comparative understanding — testing definitions, internal consistency, and fit with public knowledge — not persuasion or devotional endorsement.</p>
+<p>The work begins where that picture leaves open questions — and asks whether <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> offers a coherent alternative worth examining seriously. Across this collection the method is to read the primary texts carefully, state what follows from the darshan itself, and compare it in parallel with <strong>physics and the natural and social sciences</strong>, <strong>Advaita Vedanta</strong>, and <strong>modern Western philosophy</strong> (here, the ethics of care, family sociology, and household economics). Physics and mathematics are <strong>one leg</strong> of that comparison, not the only one. The aim is rigorous comparative understanding — testing definitions, internal consistency, and fit with public knowledge — not persuasion or devotional endorsement.</p>
 <p>These topical studies state the philosophy in clear, checkable prose first. A separate formal mathematical treatment may follow once the definitions and relations are stable across the studies; this paper does not assume or require that treatment.</p>
 <h2 id="1-the-madhyasth-darshan-answer">1. The Madhyasth Darshan Answer</h2>
-<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> holds that a family is not primarily a household, a lineage, or an affectionate arrangement. It is the first grouping in which relationships with predetermined expectations are lived continuously, and therefore the first place where values can be recognised, fulfilled, evaluated, and found mutually satisfying. Everything the darshan says about society is built from that, which is why it treats the family as the first tier of orderliness rather than as a private matter preceding public life.</p>
-<p>Section 1 sets out the <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> account of the family in four parts:
-1. <strong>Ontological and Social Definition of the Family</strong> (§1.1) — What a family is, relationship (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sambandh" data-definition="Relationship — definite mutuality with expectations predetermined toward completeness.">sambandh</button></span></em>) versus contact (<em>sampark</em>), and the seven constituent relationships.
+<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> holds that a family is not primarily a household, a lineage, or an affectionate arrangement. It is the first grouping in which relationships with predetermined expectations are lived continuously, and therefore the first place where values can be recognised, fulfilled, evaluated, and found mutually satisfying. Everything the darshan says about society is built from that, which is why it treats the family as the first tier of orderliness rather than as a private matter preceding public life.</p>
+<p>Section 1 sets out the Madhyasth Darshan account of the family in four parts:
+1. <strong>Ontological and Social Definition of the Family</strong> (§1.1) — What a family is, relationship (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sambandh" data-definition="Relationship — a value-bearing mutuality in which expectations arise from relationality and necessity; fulfilment involves recognition, values, evaluation, and mutual satisfaction.">sambandh</button></span></em>) versus contact (<em>sampark</em>), and the seven constituent relationships.
 2. <strong>Relational Values, Purpose, and Expressed Conduct</strong> (§1.2) — Recognition by purpose, what recognition replaces, the nine established and nine expressed values, the gratitude succession chain, and the justice sequence.
 3. <strong>Domestic Character, Economics, and Need Determination</strong> (§1.3) — Character in domestic life (righteous wealth, marital faithfulness, kindness versus crime), determination of need by a wise family, family-scale prosperity, and physical effort in domestic work.
-4. <strong><em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">Sanskar</button></span></em>, Behaviour, and Generational Transmission</strong> (§1.4) — Education and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> in the home, the interplay of internal refinement (<em>upasana</em>) and external behaviour (<em>vyavahar</em>), the family as the first tier of universal self-governance, what the darshan does not claim, and epistemic status.</p>
+4. <strong><em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Sanskar — accepted qualitative establishments; in education–sanskar, the establishment and transmission of understanding through human tradition.">Sanskar</button></span></em>, Behaviour, and Generational Transmission</strong> (§1.4) — Education and <em>sanskar</em> in the home, the interplay of internal refinement (<em>upasana</em>) and external behaviour (<em>vyavahar</em>), the family as the first tier of universal self-governance, what the darshan does not claim, and epistemic status.</p>
 <h3 id="11-ontological-and-social-definition-of-the-family" data-depth="2">1.1 Ontological and social definition of the family</h3>
 <h4>1.1.1 What a family is</h4>
 <p>The definition is minimal and deliberately continuous with larger groupings:</p>
@@ -772,7 +775,7 @@
 <p>Nothing here appeals to kinship, cohabitation, or reproduction. What distinguishes a family from a community or an undivided society is scale and immediacy, not kind — the same account of mutuality runs through all three. MVD&rsquo;s related definition of behaviour makes the point from the other side: behaviour is the utilisation of effort where more than one human comes together (MVD, p. 33). Family is the smallest scale at which behaviour, in this technical sense, exists at all.</p>
 <p>Two consequences follow immediately. First, the darshan cannot treat the family as a natural given that precedes evaluation; a family is as humane as its relationships are recognised and its values fulfilled. Second, it cannot treat the family as a private zone exempt from the standards applied to society, since the standards are the same standards. MVD accordingly lists five statuses of the human being — individual, family, society, nation, and world — as one graded series (MVD, p. 18).</p>
 <h4>1.1.2 Relationship (<em>sambandh</em>) versus contact (<em>sampark</em>)</h4>
-<p>The darshan&rsquo;s decisive move is to distinguish two kinds of mutuality by the character of their expectations. A relationship (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sambandh" data-definition="Relationship — definite mutuality with expectations predetermined toward completeness.">sambandh</button></span></em>) is a mutuality whose expectations are predetermined in the sense of completeness; a contact (<em>sampark</em>) is a mutuality whose expectations are voluntary (MVD, pp. 61–62). <a href="https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html">Axiology Value Theory</a> §1.3.1 develops the distinction and its consequences for value theory.</p>
+<p>The darshan&rsquo;s decisive move is to distinguish two kinds of mutuality by the character of their expectations. A relationship (<em>sambandh</em>) is a mutuality whose expectations are predetermined in the sense of completeness; a contact (<em>sampark</em>) is a mutuality whose expectations are voluntary (MVD, pp. 61–62). <a href="https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html">Axiology Value Theory</a> §1.3.1 develops the distinction and its consequences for value theory.</p>
 <p>Applied to the family, the claim is strong and easy to understate. What a parent owes a child, on this account, is not settled by what the parent has undertaken, what the local law requires, or what the two have negotiated. It is given with the relationship. This is what allows the darshan to say that a family can fail without either party recognising the failure, and it is what makes evaluation of a family relationship a question with an answer rather than a clash of preferences.</p>
 <p>It also means that contact is not a defective family relationship but a different thing. Friendships, working arrangements, and neighbourly dealings in which the parties settle what they expect of each other are contacts in this vocabulary, and they carry value too — no contact or relationship is devoid of value (KD, p. 20). The distinction concerns where the expectation comes from, not how much the mutuality matters.</p>
 <h4>1.1.3 The seven relationships that constitute a family</h4>
@@ -961,7 +964,7 @@
 </tbody>
 </table></div>
 <p>Three features matter for family life specifically. None of the definitions is affective: each names an activity or an acceptance whose success conditions lie in the relationship rather than in how warmly a member feels. Trust is defined as <em>fulfilment</em>, so a family in which everyone feels confident while expectations go unmet does not have trust in this sense. And love sits at the far end of the list rather than the beginning — it is the realisation of the complete, which makes it the outcome of the other values rather than the emotion that founds a family.</p>
-<p>The values are not to be acquired from outside. JV holds that they are inherent in <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> and are deployed when relationships are recognised, and gives the family&rsquo;s own example: when a mother has recognised her child, motherly care begins to surge by itself, needing no plan (JV, p. 138). The corresponding claim about failure is equally direct — where relationships are not recognised, there is no flow of values (JV, p. 55).</p>
+<p>The values are not to be acquired from outside. JV holds that they are inherent in <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> and are deployed when relationships are recognised, and gives the family&rsquo;s own example: when a mother has recognised her child, motherly care begins to surge by itself, needing no plan (JV, p. 138). The corresponding claim about failure is equally direct — where relationships are not recognised, there is no flow of values (JV, p. 55).</p>
 <h4>1.2.4 Gratitude first and the succession chain</h4>
 <p>The nine are ordered by dependence, and the family is where the ordering is visible. JV states that gratitude comes first and that with gratitude the other values begin to manifest, with affection, love, and trust developing after it (JV, p. 108). MVD gives the sequence as a chain:</p>
 <blockquote>
@@ -1006,19 +1009,19 @@
 <p>KD emphasizes that when physical work is carried out in alignment with nature&rsquo;s cyclic orderliness (<em>nisarga-swabhav</em>), human labor produces a genuine surplus without depleting the environment (KD, p. 25). Domestic work (cooking, cleaning, agriculture, craftsmanship, child-care) is thus not inferior labor to be minimized or outsourced; it is the concrete physical evidence of care (<em>mamta</em>) and guidance (<em>vatsalya</em>). Unfulfilled expectations or uncoordinated domestic effort yield emotional friction (<em>kshobh</em> / <em>avesh</em>), whereas physical effort aligned with relationship values deposits family restfulness (<em>tripti</em>).</p>
 <h3 id="14-sanskar-behaviour-and-generational-transmission" data-depth="2">1.4 <em>Sanskar</em>, behaviour, and generational transmission</h3>
 <h4>1.4.1 Education and <em>sanskar</em> begin in the family</h4>
-<p>The family is where understanding is transmitted before any institution reaches the child. JV states the direction of effect in both senses: humane education and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> practised with children changes their homes and families in turn (JV, p. 60). MVD makes parents structurally necessary rather than merely helpful:</p>
+<p>The family is where understanding is transmitted before any institution reaches the child. JV states the direction of effect in both senses: humane education and <em>sanskar</em> practised with children changes their homes and families in turn (JV, p. 60). MVD makes parents structurally necessary rather than merely helpful:</p>
 <blockquote>
-<p><strong>“The development of a successful education-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span> method is possible only when the educational procedure, teachers, parents, and study are aligned. This paves the way for gratitude and coexistence.”</strong>
+<p><strong>“The development of a successful education-sanskar method is possible only when the educational procedure, teachers, parents, and study are aligned. This paves the way for gratitude and coexistence.”</strong>
 — MVD, p. 270</p>
 </blockquote>
-<p><em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">Sanskar</button></span></em> is the mechanism. It names acceptances towards completeness and the knowledge and tendencies carried forward for evidencing, and MVD calls it the cause of awakening of the sentient aspect (MVD, p. 90), divided into <em>susanskar</em> under awakening and <em>kusanskar</em> under delusion (MVD, p. 315). <a href="https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html">Axiology Value Theory</a> §1.5.3 sets out the circuit by which conduct deepens or entrenches understanding.</p>
+<p><em>Sanskar</em> is the mechanism. It names acceptances towards completeness and the knowledge and tendencies carried forward for evidencing, and MVD calls it the cause of awakening of the sentient aspect (MVD, p. 90), divided into <em>susanskar</em> under awakening and <em>kusanskar</em> under delusion (MVD, p. 315). <a href="https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html">Axiology Value Theory</a> §1.5.3 sets out the circuit by which conduct deepens or entrenches understanding.</p>
 <p>In the family this cuts both ways, and the darshan&rsquo;s own logic requires saying so. A household whose conduct is ordered by fear and temptation transmits <em>kusanskar</em> by exactly the mechanism that would otherwise transmit <em>susanskar</em>, and it does so more effectively than any curriculum, because the family&rsquo;s conduct is what the child has to emulate. That is why value education cannot be delivered by schools alone, and also why families reproduce their own errors across generations.</p>
 <h4>1.4.2 The interplay of internal refinement (<em>upasana</em>) and external behaviour (<em>vyavahar</em>)</h4>
-<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> maintains a precise structural distinction between the internal process of cognitive refinement and its external relational expression, while demonstrating their necessary interdependence:
-- <strong><em>Upasana</em></strong> (internal refinement) is defined in <em>Manav Karm Darshan</em> Chapter 2 as <strong>the internal process of refining root tendencies (<em>mool-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Modification or tendency in *jeevan* — one of the faculties whose alignment supports or obstructs understanding.">vritti</button></span> parimarjan<em>) and transforming acceptances (</em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span>-parivartan<em>) towards complete awakening</em>* (KD, pp. 30, 37).
-- </em></strong>Vyavahar<strong><em> (humane behaviour) is defined as </em>*the utilization of effort in mutuality where more than one human comes together</strong> (MVD, p. 33), with domestic living categorized under relational fulfilment (<em>mulya nirvah</em>) and justice (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="nyaya" data-definition="Justice — complete relational activity: recognise, fulfil, evaluate, mutual satisfaction.">nyaya</button></span></em>) (MVD, p. 55; JV, p. 55).</p>
+<p>Madhyasth Darshan maintains a precise structural distinction between the internal process of cognitive refinement and its external relational expression, while demonstrating their necessary interdependence:
+- <strong><em>Upasana</em></strong> (internal refinement) is defined in <em>Manav Karm Darshan</em> Chapter 2 as <strong>the internal process of refining root tendencies (<em>mool-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Vritti — the decisive mind or disposition; jeevan’s faculty of comparison and thought, inspired by chitta.">vritti</button></span> parimarjan<em>) and transforming acceptances (</em>sanskar-parivartan<em>) towards complete awakening</em>* (KD, pp. 30, 37).
+- </em></strong>Vyavahar<strong><em> (humane behaviour) is defined as </em>*the utilization of effort in mutuality where more than one human comes together</strong> (MVD, p. 33), with domestic living categorized under relational fulfilment (<em>mulya nirvah</em>) and justice (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="nyaya" data-definition="Justice — recognising relationships, fulfilling and evaluating their values, and attaining mutual satisfaction.">nyaya</button></span></em>) (MVD, p. 55; JV, p. 55).</p>
 <p>Though structurally distinct, the two operate in an unbreakable feedback circuit. Fulfilling external mutuality (<em>vyavahar</em>) in family relationships directly <strong>requires internal refinement (<em>upasana</em>)</strong>. If a person&rsquo;s internal tendencies remain dominated by delusion (<em>bram</em>), fear, or expectation of personal advantage, external behaviour in the family becomes reactive, manipulative, or unstable, preventing mutual satisfaction (<em>ubhaya tripti</em>).</p>
-<p>It is in this precise sense that the natal family is where <em>upasana</em> (internal refinement) is initiated. The family is the first setting where human mutuality is experienced and where relational friction or unmet expectations force the individual <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> to look inward, examine its acceptances (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em>), and refine its root tendencies (<em>mool-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Modification or tendency in *jeevan* — one of the faculties whose alignment supports or obstructs understanding.">vritti</button></span> parimarjan</em>). As KD Chapter 2 emphasizes, wisdom, resolution, and prosperity are the direct result of <em>upasana</em>, &ldquo;in which sociality remains naturally contained&rdquo; (KD, p. 37). Because sociality is naturally contained in <em>upasana</em>, the natal family is the initial ground where internal tendential refinement is called forth by relational living and where its evidence — resolution, trust, and mutual satisfaction — is verified in conduct.</p>
+<p>It is in this precise sense that the natal family is where <em>upasana</em> (internal refinement) is initiated. The family is the first setting where human mutuality is experienced and where relational friction or unmet expectations force the individual <em>jeevan</em> to look inward, examine its acceptances (<em>sanskar</em>), and refine its root tendencies (<em>mool-vritti parimarjan</em>). As KD Chapter 2 emphasizes, wisdom, resolution, and prosperity are the direct result of <em>upasana</em>, &ldquo;in which sociality remains naturally contained&rdquo; (KD, p. 37). Because sociality is naturally contained in <em>upasana</em>, the natal family is the initial ground where internal tendential refinement is called forth by relational living and where its evidence — resolution, trust, and mutual satisfaction — is verified in conduct.</p>
 <h4>1.4.3 The family as the first tier of 10-tier universal self-governance</h4>
 <p>The family is not a stage the darshan leaves behind on the way to society. It is the first tier of orderliness and remains a tier:</p>
 <blockquote>
@@ -1029,32 +1032,32 @@
 <p>Two things follow. Responsibility is not delegated upward — every individual takes responsibility based on understanding, at every tier. And the family is not a private sphere that public institutions may either protect or intrude upon, because it is already the first public institution in the series. <a href="https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html">How Undivided Society Is Established</a> §5.2 and <a href="https://analyticmadhyasthdarshan.org/Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.html">Human Behavior and Society</a> §1.4.3 develop the outward argument; what belongs here is that the outward argument has no separate premises.</p>
 <h4>1.4.4 What the darshan does not claim</h4>
 <p>Three misreadings are worth closing off, since each is easy to fall into from the language of &ldquo;family order&rdquo;.</p>
-<p>The family is not a larger <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>. It does not acquire a sentience, a will, or an interest of its own over its members; the account of composition in <a href="https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html">How Undivided Society Is Established</a> rules this out explicitly. Family values are lived by members, and evaluation is performed by <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, not by the household.</p>
+<p>The family is not a larger <em>jeevan</em>. It does not acquire a sentience, a will, or an interest of its own over its members; the account of composition in <a href="https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html">How Undivided Society Is Established</a> rules this out explicitly. Family values are lived by members, and evaluation is performed by <em>jeevan</em>, not by the household.</p>
 <p>The family is not the seat of a separate domestic morality. The same seven relationships, the same nine values, and the same four-step justice sequence apply inside it and outside it (§1.1.3). The darshan has no category of conduct that is acceptable at home and unacceptable elsewhere.</p>
 <p>And the family is not an affectionate arrangement whose worth lies in the feelings of its members. The definitions in §1.2.3 are activities and acceptances, mutual satisfaction is a result rather than a mood, and a family in which everyone feels warmly toward each other while expectations go unfulfilled has not, on this account, achieved value-fulfilment at all.</p>
 <h4>1.4.5 Epistemic status of the claims</h4>
 <p>The claims in §1 do not all warrant the same kind of assent, and separating them matters before §2 and §4.</p>
 <p>Some are <strong>definitional within the system</strong>: family as more than one human coming together (MVD, p. 55); relationship as predetermined expectation (MVD, p. 62); need as determined by a wise family for fulfilling values (MVD, p. 56); prosperity as production more than needs (MVD, p. 342); character as righteous wealth, marital faithfulness, and kindness (JV, p. 55). These can be assessed for coherence and fruitfulness, not for truth against external evidence.</p>
-<p>Some are <strong>structural claims about families</strong> that make contact with ordinary experience and could in principle be checked: that values flow on recognition rather than being cultivated from outside; that gratitude precedes the other values; that families ordered by power, fear, or temptation do not achieve mutual satisfaction; that a household&rsquo;s conduct transmits <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> more effectively than instruction.</p>
+<p>Some are <strong>structural claims about families</strong> that make contact with ordinary experience and could in principle be checked: that values flow on recognition rather than being cultivated from outside; that gratitude precedes the other values; that families ordered by power, fear, or temptation do not achieve mutual satisfaction; that a household&rsquo;s conduct transmits <em>sanskar</em> more effectively than instruction.</p>
 <p>Some are <strong>claims about assessment authority</strong> — that a wise family&rsquo;s determination of need is authoritative, and that this scale alone makes prosperity definable. These matter most for economics and policy, and they depend entirely on the wisdom qualifier being independently identifiable.</p>
 <p>Some are <strong>normative claims about conduct</strong>: marital faithfulness, righteous wealth, and non-injury as the content of character. The darshan derives these from value-fulfilment in definite relationships rather than from command or convention, which is a real derivation within the system and not a neutral one outside it.</p>
 <h2 id="2-comparative-analysis">2. Comparative Analysis</h2>
-<p>To evaluate <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s domestic axiology, it must be placed alongside alternative accounts of the family in classical philosophy, ethics, and social science.</p>
+<p>To evaluate <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span>&rsquo;s domestic axiology, it must be placed alongside alternative accounts of the family in classical philosophy, ethics, and social science.</p>
 <h3 id="21-advaita-vedanta-householder-discipline-versus-renunciation" data-depth="2">2.1 Advaita Vedanta: Householder Discipline versus Renunciation</h3>
-<p>Advaita Vedanta views human life through the lens of non-duality (<em>Advaita</em>) and the ultimate identity of <em>jiva</em> and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span></em>. Within classical Vedantic <em>ashrama</em> theory, householder life (<em>grihastha</em>) is recognized as an indispensable empirical field for purifying the mind (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery.">chitta</button></span>-shuddhi</em>), performing duty (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>), and exhausting desire through righteous action.</p>
-<p>However, in Shankara&rsquo;s strict formulation, householder existence remains within the domain of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vyavahara" data-definition="Advaita: shared empirical order — bodies, law, ethics, scripture; robust but sublated at highest realization.">vyavahara</button></span></em> (empirical appearance under <em>maya</em>). Because ultimate reality is non-dual <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span></em> and the world is <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mithya" data-definition="Advaita: dependent appearance — neither absolutely real nor sheer nothing; valid at *vyavahara*, sublated at *paramartha*.">mithya</button></span></em>, family bonds are superimpositions (<em>adhyasa</em>) based on body-identification. Ultimate liberation (<em>moksha</em>) requires transcending domestic attachments through <em>vairagya</em> (detachment) and <em>sannyasa</em> (renunciation).</p>
-<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> rejects the householder versus renunciant hierarchy. The world is not <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mithya" data-definition="Advaita: dependent appearance — neither absolutely real nor sheer nothing; valid at *vyavahara*, sublated at *paramartha*.">mithya</button></span></em> but perpetual and real, and existence is coexistence. The family is not a lower <em>vyavaharic</em> stage to be abandoned for realization; it is the <strong>first real tier of universal orderliness</strong>, where realization is verified in lived conduct. <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">Jeevan</button></span></em> does not realize truth by severing domestic ties, but by fulfilling values within them.</p>
+<p>Advaita Vedanta views human life through the lens of non-duality (<em>Advaita</em>) and the ultimate identity of <em>jiva</em> and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Brahman — in Advaita, the non-dual ultimate reality, identical with Atman and described as existence, consciousness, and bliss.">Brahman</button></span></em>. Within classical Vedantic <em>ashrama</em> theory, householder life (<em>grihastha</em>) is recognized as an indispensable empirical field for purifying the mind (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Chitta — the reflective mind; jeevan’s faculty of contemplation and desire, inspired by buddhi.">chitta</button></span>-shuddhi</em>), performing duty (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span></em>), and exhausting desire through righteous action.</p>
+<p>However, in Shankara&rsquo;s strict formulation, householder existence remains within the domain of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vyavahara" data-definition="Empirical level in Advaita — the shared waking order in which embodied knowers, objects, ethics, law, and valid cognition operate.">vyavahara</button></span></em> (empirical appearance under <em>maya</em>). Because ultimate reality is non-dual <em>Brahman</em> and the world is <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mithya" data-definition="Illusion (dependent appearance in Advaita) — neither independently absolute nor sheer non-being; empirically operative, but sublated by knowledge of Brahman.">mithya</button></span></em>, family bonds are superimpositions (<em>adhyasa</em>) based on body-identification. Ultimate liberation (<em>moksha</em>) requires transcending domestic attachments through <em>vairagya</em> (detachment) and <em>sannyasa</em> (renunciation).</p>
+<p>Madhyasth Darshan rejects the householder versus renunciant hierarchy. The world is not <em>mithya</em> but perpetual and real, and existence is coexistence. The family is not a lower <em>vyavaharic</em> stage to be abandoned for realization; it is the <strong>first real tier of universal orderliness</strong>, where realization is verified in lived conduct. <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">Jeevan</button></span></em> does not realize truth by severing domestic ties, but by fulfilling values within them.</p>
 <h3 id="22-confucianism-filial-piety-xiao-versus-recognition-by-purpose" data-depth="2">2.2 Confucianism: Filial Piety (<em>Xiao</em>) versus Recognition by Purpose</h3>
-<p>Classical Confucianism (Analects, Mencius, Great Learning) shares <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s commitment to the family as the foundational school of social and political order. In Confucian thought, filial piety (<em>xiao</em>) and brotherly deference (<em>ti</em>) are the roots of humaneness (<em>ren</em>). The Five Relationships (<em>wu lun</em> — ruler-subject, father-son, husband-wife, elder-younger brother, friend-friend) structure all human duty, and social harmony (<em>he</em>) flows outward from a well-ordered family.</p>
+<p>Classical Confucianism (Analects, Mencius, Great Learning) shares Madhyasth Darshan&rsquo;s commitment to the family as the foundational school of social and political order. In Confucian thought, filial piety (<em>xiao</em>) and brotherly deference (<em>ti</em>) are the roots of humaneness (<em>ren</em>). The Five Relationships (<em>wu lun</em> — ruler-subject, father-son, husband-wife, elder-younger brother, friend-friend) structure all human duty, and social harmony (<em>he</em>) flows outward from a well-ordered family.</p>
 <p>Despite this structural similarity, the grounding differs fundamentally:
-1. <strong>Basis of Authority</strong>: Confucianism grounds family hierarchy in age, seniority, and patriarchal authority reinforced by ritual propriety (<em>li</em>). <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> explicitly rejects age, seniority, power, and wealth as bases for relationship recognition (§1.2.2), replacing them with <strong>recognition by functional purpose</strong> (nurturing for mother, protection for father, guidance for teacher).
-2. <strong>Mechanism of Transmission</strong>: Confucianism relies on ritual repetition (<em>li</em>) and obedience to elder authority. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> relies on <strong>glory (<em>gaurav</em>)</strong> — emulation of elder conduct embraced without resistance (§1.2.4). Where elders fail to exhibit emulable conduct, obedience cannot substitute for understanding.</p>
+1. <strong>Basis of Authority</strong>: Confucianism grounds family hierarchy in age, seniority, and patriarchal authority reinforced by ritual propriety (<em>li</em>). Madhyasth Darshan explicitly rejects age, seniority, power, and wealth as bases for relationship recognition (§1.2.2), replacing them with <strong>recognition by functional purpose</strong> (nurturing for mother, protection for father, guidance for teacher).
+2. <strong>Mechanism of Transmission</strong>: Confucianism relies on ritual repetition (<em>li</em>) and obedience to elder authority. Madhyasth Darshan relies on <strong>glory (<em>gaurav</em>)</strong> — emulation of elder conduct embraced without resistance (§1.2.4). Where elders fail to exhibit emulable conduct, obedience cannot substitute for understanding.</p>
 <h3 id="23-ethics-of-care-relational-empathy-versus-objective-axiology-of-coexistence" data-depth="2">2.3 Ethics of Care: Relational Empathy versus Objective Axiology of Coexistence</h3>
 <p>Modern Western Ethics of Care (Carol Gilligan, Nel Noddings, Joan Tronto) emerged as a critique of abstract, rule-based moral theories (Kantian deontology, Utilitarianism). Care ethics argues that moral life is rooted in relational interdependence, responsiveness, attentiveness, and concrete domestic relationships rather than universal principles or calculative outcome optimization.</p>
-<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> aligns with Care Ethics in rejecting atomistic individualism and moral calculation. Both frameworks treat particular relationships (such as parent-child) as intrinsically value-bearing. However, Care Ethics grounds care primarily in psychological empathy, affective sentiment, and contextual responsiveness. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> grounds care (<em>mamta</em>) and guidance (<em>vatsalya</em>) in the <strong>objective ontology of coexistence</strong> and predefined relationship purposes. In MVD, care is not a subjective feeling but an objective activity whose success criteria lie in the fulfilment of predetermined expectations and mutual satisfaction (<em>ubhaya tripti</em>).</p>
+<p>Madhyasth Darshan aligns with Care Ethics in rejecting atomistic individualism and moral calculation. Both frameworks treat particular relationships (such as parent-child) as intrinsically value-bearing. However, Care Ethics grounds care primarily in psychological empathy, affective sentiment, and contextual responsiveness. Madhyasth Darshan grounds care (<em>mamta</em>) and guidance (<em>vatsalya</em>) in the <strong>objective ontology of coexistence</strong> and predefined relationship purposes. In MVD, care is not a subjective feeling but an objective activity whose success criteria lie in the fulfilment of predetermined expectations and mutual satisfaction (<em>ubhaya tripti</em>).</p>
 <h3 id="24-modern-household-economics-and-capability-approach-utility-maximization-versus-wise-family-need-determination" data-depth="2">2.4 Modern Household Economics and Capability Approach: Utility Maximization versus Wise Family Need Determination</h3>
 <p>Modern neoclassical economics (Gary Becker) treats the family as a microeconomic firm or a utility-maximizing coalition where individuals pool income and negotiate consumption preferences under budget constraints. The Capability Approach (Amartya Sen, Martha Nussbaum) improves on this by evaluating well-being through real capabilities and functionings rather than monetary utility, but still treats individual choice as primary.</p>
-<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> presents a fundamentally different economic anthropology:
+<p>Madhyasth Darshan presents a fundamentally different economic anthropology:
 1. <strong>Locus of Need Assessment</strong>: Neoclassical economics treats need as unbounded individual preference. MVD defines need (<em>avashyakta</em>) as <strong>determined by a wise family</strong> for value-fulfilment (nourishment, protection, societal participation) (§1.3.2).
 2. <strong>Definability of Prosperity</strong>: In market economics, prosperity is an unattainable moving target driven by indefinite accumulation. In MVD, prosperity (<em>samriddhi</em>) is bounded and definable because need is fixed by relationship fulfilment; once domestic production exceeds assessed need, the sentiment of lacking ceases (§1.3.3).</p>
 <h2 id="3-comparison">3. Comparison</h2>
@@ -1147,7 +1150,7 @@
 </table></div>
 <h2 id="4-critical-review-and-open-problems">4. Critical Review and Open Problems</h2>
 <h3 id="41-strengths-of-the-madhyasth-darshan-account" data-depth="2">4.1 Strengths of the Madhyasth Darshan Account</h3>
-<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> provides a rigorous domestic axiology with distinct strengths:
+<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> provides a rigorous domestic axiology with distinct strengths:
 - <strong>Integration of Personal and Social</strong>: It bridges the gap between private domestic life and public social order by treating the family as the first tier of a single 10-tier self-governance structure.
 - <strong>Objective Criteria for Relational Health</strong>: By defining relationships by purpose rather than mood, it supplies checkable criteria for whether a family is fulfilling its values.
 - <strong>Economic Grounding</strong>: It solves the economic problem of indefinite consumption by making the wise family the locus where need is bounded and prosperity becomes definable.
@@ -1162,7 +1165,7 @@
 <h4>4.2.4 Exit from a definite relationship</h4>
 <p>If a relationship&rsquo;s expectations are predetermined rather than chosen, the question of what to do when a relationship is harmful becomes pressing. The sources reviewed for this study define adultery as crime (MVD, p. 60) and make faithfulness constitutive of character, but say nothing about separation, divorce, or the abandonment of a relationship whose expectations one party persistently violates. This is silence, not prohibition, and it should not be read as either endorsement or refusal. It is nonetheless the most serious gap in the account for practical purposes: a framework that grounds obligations in relationships one did not choose owes an account of the limits of those obligations, and of what a person subject to violence or exploitation within a definite relationship is to do.</p>
 <h4>4.2.5 Conflict between relationships</h4>
-<p>The four-step sequence terminates in mutual satisfaction within a relationship, and families contain several relationships at once. Where fulfilling a parent-child expectation and a spousal expectation cannot both be done — a resource, a decision, or a span of time that only one can have — the darshan offers the widening chain from justice to <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> to truth as the place to reconsider, but no method for deciding. The general form of this problem is recorded in <a href="https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html">Axiology Value Theory</a> §7.7; the family is where it is met daily rather than occasionally.</p>
+<p>The four-step sequence terminates in mutual satisfaction within a relationship, and families contain several relationships at once. Where fulfilling a parent-child expectation and a spousal expectation cannot both be done — a resource, a decision, or a span of time that only one can have — the darshan offers the widening chain from justice to <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span></em> to truth as the place to reconsider, but no method for deciding. The general form of this problem is recorded in <a href="https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html">Axiology Value Theory</a> §7.7; the family is where it is met daily rather than occasionally.</p>
 <h4>4.2.6 Authority, seniority, and the rejection of age</h4>
 <p>JV rejects age, power, wealth, and intelligence as bases for identifying relationships (§1.2.2), while the value chain runs through glory — emulation of elders embraced without resistance (§1.2.4) — and guidance flows from parent to child. The two are consistent if what is rejected is age as a <em>claim to deference</em> and what is retained is the elder&rsquo;s conduct as <em>worth emulating</em>. The texts do not draw that distinction explicitly, and without it the account can be read as re-authorising the seniority it had just refused.</p>
 <h4>4.2.7 Gendered role language</h4>
@@ -1170,14 +1173,14 @@
 <h4>4.2.8 The transmission circuit and the family already going wrong</h4>
 <p>§1.4.1 gives the darshan a strong explanation of how families entrench error: conduct transmits <em>kusanskar</em> by the same mechanism that transmits <em>susanskar</em>, and more effectively than instruction. The corollary is that a family already ordered by fear and temptation is the hardest case for the darshan&rsquo;s own remedy, since the child&rsquo;s material for emulation is exactly what needs correcting. The available resources are the natural attraction of lower value toward higher value and glory as emulation without resistance, both of which require a higher value to be visible somewhere. How that visibility is secured for a child inside such a household — and whether it must come from outside the family, which would qualify §1.4.3&rsquo;s claim that responsibility is not delegated upward — is not worked out. §1.4.2 makes the problem harder rather than easier: if the natal family is where the capacity for recognising any relationship is first exercised, a household transmitting <em>kusanskar</em> withholds the entry point itself, and the darshan owes an account of how anyone enters from there.</p>
 <h2 id="5-conclusion">5. Conclusion</h2>
-<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> treats the family as the first grouping in which relationships with predetermined expectations are lived continuously, and derives everything else about it from that. Because the expectations are given with the relationship rather than negotiated, a family&rsquo;s conduct can be evaluated against something other than what its members happen to want; because the relationships are recognised through their purposes, the criteria that ordinarily organise families — power, wealth, intelligence, age, fear, and advantage — are displaced rather than merely criticised; and because values are inherent in <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> and flow on recognition, the darshan can hold that no family needs to acquire values from outside while explaining why so many families do not exhibit them.</p>
+<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> treats the family as the first grouping in which relationships with predetermined expectations are lived continuously, and derives everything else about it from that. Because the expectations are given with the relationship rather than negotiated, a family&rsquo;s conduct can be evaluated against something other than what its members happen to want; because the relationships are recognised through their purposes, the criteria that ordinarily organise families — power, wealth, intelligence, age, fear, and advantage — are displaced rather than merely criticised; and because values are inherent in <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> and flow on recognition, the darshan can hold that no family needs to acquire values from outside while explaining why so many families do not exhibit them.</p>
 <p>Two claims give the account reach beyond family life. Need is determined by a wise family, for the fulfilment of values, covering bodily nourishment and protection together with societal participation — which makes the family the assessing unit of the darshan&rsquo;s economics rather than a consumer of decisions made elsewhere. And prosperity, defined as the ceasing of the sentiment of lacking and conditioned on production beyond assessed need, becomes definable at precisely that scale and at no other. A great deal of what the darshan says about production, exchange, and right-use depends on those two claims holding at the family level.</p>
 <p>Compared with Advaita Vedanta, the darshan refuses to view domestic life as an empirical stage to be transcended for liberation, treating the family as the first real tier of universal orderliness. Compared with Confucianism, it rejects age and patriarchal authority as bases for relationship, replacing them with functional purpose and emulable conduct (<em>gaurav</em>). Compared with Care Ethics, it grounds care in the objective ontology of coexistence rather than subjective empathy alone. And compared with modern economics, it replaces unbounded preference satisfaction with wise family need determination.</p>
 <p>The weakest joint is the qualifier. Almost everything consequential is asserted of the <em>wise</em> family, and wisdom is evidenced by the same activities whose adequacy it is invoked to guarantee. Alongside that, the account is silent where practical questions press hardest — on exit from a harmful relationship, on households whose composition does not match the kinship nomenclature, on conflict between two legitimate expectations, and on how a child inside a family already transmitting <em>kusanskar</em> encounters anything better. None of these is a contradiction in the darshan; each is work not yet done, and §4 states them as such rather than resolving them.</p>
 <h2 id="appendix-quick-glossary">Appendix: Quick Glossary</h2>
 <ul>
 <li><strong><em>Parivar</em></strong> — family. More than one human coming together or becoming organised, at the smallest scale of the same series that includes community and undivided society (MVD, p. 55).</li>
-<li><strong><em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sambandh" data-definition="Relationship — definite mutuality with expectations predetermined toward completeness.">Sambandh</button></span></em></strong> — relationship. A mutuality whose expectations are predetermined in the sense of completeness (MVD, p. 62); seven forms are enumerated at MVD, p. 190.</li>
+<li><strong><em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sambandh" data-definition="Relationship — a value-bearing mutuality in which expectations arise from relationality and necessity; fulfilment involves recognition, values, evaluation, and mutual satisfaction.">Sambandh</button></span></em></strong> — relationship. A mutuality whose expectations are predetermined in the sense of completeness (MVD, p. 62); seven forms are enumerated at MVD, p. 190.</li>
 <li><strong><em>Sampark</em></strong> — contact. A mutuality whose expectations are voluntary (MVD, p. 61); a different kind of mutuality, not a lesser one.</li>
 <li><strong><em>Sthapit mulya</em></strong> — established values. The nine values inherent in recognised relationships (care, guidance, trust, affection, gratitude, glory, love, reverence, respect).</li>
 <li><strong><em>Shishta mulya</em></strong> — expressed values. The nine outward behavioral expressions of established values (softness, simplicity, generosity, commitment, purity, gravity, unbrokenness, receptivity, balance).</li>
@@ -1189,11 +1192,11 @@
 <li><strong><em>Avashyakta</em></strong> — need. The desire for adequate resources, determined by a wise family, for fulfilling values, covering bodily nourishment-protection and societal participation (MVD, p. 56).</li>
 <li><strong><em>Samriddhi</em></strong> — prosperity. The lack of the sentiment of lacking (MVD, p. 72); conditioned on production more than needs (MVD, p. 342).</li>
 <li><strong><em>Svayattata</em></strong> — self-reliance. The realisation of prosperity (MVD, p. 342).</li>
-<li><strong><em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">Sanskar</button></span></em></strong> — acceptances towards completeness, and the tendencies carried forward for evidencing; the cause of awakening of the sentient aspect (MVD, p. 90).</li>
-<li><strong><em>Susanskar</em> / *kusanskar</strong><em> — </em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span>* under awakening and under delusion (MVD, pp. 94, 315).</li>
+<li><strong><em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Sanskar — accepted qualitative establishments; in education–sanskar, the establishment and transmission of understanding through human tradition.">Sanskar</button></span></em></strong> — acceptances towards completeness, and the tendencies carried forward for evidencing; the cause of awakening of the sentient aspect (MVD, p. 90).</li>
+<li><strong><em>Susanskar</em> / *kusanskar</strong><em> — </em>sanskar* under awakening and under delusion (MVD, pp. 94, 315).</li>
 <li><strong><em>Apradh</em></strong> — crime. Ill-gotten wealth, adultery, and hurtful work and behaviour to others (MVD, p. 60).</li>
 <li><strong><em>Vyavahar</em></strong> — behaviour. Effort in mutuality where more than one human comes together (MVD, p. 33); domestic living is categorized under humane behaviour (<em>manaviy vyavahar</em>) and relational fulfilment.</li>
-<li><strong><em>Upasana</em></strong> — in KD&rsquo;s redefinition, the internal process of refining root tendencies (<em>mool-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Modification or tendency in *jeevan* — one of the faculties whose alignment supports or obstructs understanding.">vritti</button></span> parimarjan</em>) and transforming <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> towards awakening (KD, pp. 30, 37); distinct from external relational behaviour (<em>vyavahar</em>), and not traditional devotional ritual (MVD, p. 4; JV, p. 9).</li>
+<li><strong><em>Upasana</em></strong> — in KD&rsquo;s redefinition, the internal process of refining root tendencies (<em>mool-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Vritti — the decisive mind or disposition; jeevan’s faculty of comparison and thought, inspired by chitta.">vritti</button></span> parimarjan</em>) and transforming <em>sanskar</em> towards awakening (KD, pp. 30, 37); distinct from external relational behaviour (<em>vyavahar</em>), and not traditional devotional ritual (MVD, p. 4; JV, p. 9).</li>
 <li><strong><em>Sadhana</em></strong> — used biographically in these sources for the practice pursued at Amarkantak and moved beyond (MVD, pp. 4, 7; JV, pp. 12, 15); not a term the darshan applies to its own account of conduct.</li>
 <li><strong><em>Ubhaya tripti</em></strong> — mutual satisfaction. The terminus of the four-step justice sequence; one-sided satisfaction does not complete it.</li>
 <li><strong><em>Xiao</em></strong> — filial piety in classical Confucianism; respect and devotion to parents and ancestors as the root of humaneness (<em>ren</em>).</li>
@@ -1203,7 +1206,7 @@
 <h3 id="four-part-structure-and-comparative-integration">Four-Part Structure and Comparative Integration</h3>
 <p>Earlier drafts of this study presented the expository material in a single un-pillarized list of sixteen subsections, and explicitly deferred comparative analysis. This revised version organizes the exposition into four thematic parts (§1.1–§1.4) matching the design of <a href="https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html">Axiology Value Theory</a>, incorporates the 9 expressed values (<em>shishta mulya</em>), expands on domestic physical effort (KD Ch. 2), and integrates a 4-way comparative analysis (§2) and matrix tables (§3) alongside Advaita Vedanta, Confucianism, Ethics of Care, and Household Economics.</p>
 <h3 id="distinction-between-vyavahar-and-upasana">Distinction Between <em>Vyavahar</em> and <em>Upasana</em></h3>
-<p>Section 1.4.2 explicitly clarifies that <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> categorizes family living under <strong>humane behaviour (<em>manaviy vyavahar</em>)</strong>, <strong>justice (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="nyaya" data-definition="Justice — complete relational activity: recognise, fulfil, evaluate, mutual satisfaction.">nyaya</button></span></em>)</strong>, and <strong>relational fulfilment (<em>mulya nirvah</em>)</strong> (MVD, pp. 33, 55; JV, p. 55). It explicitly rejects conflating family living with <em>upasana</em>. In <em>Manav Karm Darshan</em> (Chapter 2), <em>upasana</em> is defined strictly as the <strong>internal refinement of root tendencies (<em>mool-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Modification or tendency in *jeevan* — one of the faculties whose alignment supports or obstructs understanding.">vritti</button></span> parimarjan</em>)</strong>, whereas family living is the external social field of behaviour (<em>vyavahar</em>).</p>
+<p>Section 1.4.2 explicitly clarifies that <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> categorizes family living under <strong>humane behaviour (<em>manaviy vyavahar</em>)</strong>, <strong>justice (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="nyaya" data-definition="Justice — recognising relationships, fulfilling and evaluating their values, and attaining mutual satisfaction.">nyaya</button></span></em>)</strong>, and <strong>relational fulfilment (<em>mulya nirvah</em>)</strong> (MVD, pp. 33, 55; JV, p. 55). It explicitly rejects conflating family living with <em>upasana</em>. In <em>Manav Karm Darshan</em> (Chapter 2), <em>upasana</em> is defined strictly as the <strong>internal refinement of root tendencies (<em>mool-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Vritti — the decisive mind or disposition; jeevan’s faculty of comparison and thought, inspired by chitta.">vritti</button></span> parimarjan</em>)</strong>, whereas family living is the external social field of behaviour (<em>vyavahar</em>).</p>
 <h3 id="which-relationships-are-family-relationships">Which relationships are &ldquo;family&rdquo; relationships</h3>
 <p>MVD, p. 190 enumerates seven forms of relationship without dividing them into domestic and non-domestic. The assignment in the §1.1.3 table is this study&rsquo;s reading of where each is ordinarily lived, drawn from the purposes given at JV, pp. 56, 84, and 108. It is offered as an aid to exposition, not as a division the sources make.</p>
 <h3 id="functional-and-kinship-vocabulary">Functional and kinship vocabulary</h3>
@@ -1213,10 +1216,10 @@
 <h2 id="references">References</h2>
 <h3 id="madhyasth-darshan-primary-sources">Madhyasth Darshan (primary sources)</h3>
 <ul>
-<li><strong>MVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan – Co-existentialism</em>, Part 1: <em>Holistic View of Human Behaviour</em></a>. English translation by Rakesh Gupta. Cited: <em>sadhana</em>, <em>samadhi</em>, and <em>samyama</em> undertaken and moved beyond, and <em>upasana</em> glossed as devotional practices towards deities (pp. 4, 7); five statuses and the ten-tier family-based self-governance orderliness (p. 18); behaviour as effort in mutuality (p. 33); gratitude defined (p. 37); the gratitude-to-coexistence chain and ingratitude (p. 38); family, community, and undivided society (p. 55); needs determined by a wise family (p. 56); crime as ill-gotten wealth, adultery, and hurtful behaviour (p. 60); contact as voluntary-expectation mutuality (p. 61); relationship as predetermined-expectation mutuality (p. 62); prosperity as the lack of the sentiment of lacking (p. 72); trust and affection (p. 73); the four senses of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> as cause of awakening (p. 90); <em>susanskar</em> (p. 94); just behaviour as righteous wealth, marital faithfulness, and kindness (p. 102); family as the first tier of the ten-tier orderliness (p. 161); refinement in <em>susanskar</em> following enlightenment about the human goal and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> values (p. 187); societal balance and the three behaviours (p. 189); the seven forms of relationship (p. 190); social responsibility evidenced in the wise family, and family order to world family order (p. 253); education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> requiring procedure, teachers, parents, and study aligned (p. 270); <em>susanskar</em> and <em>kusanskar</em> (p. 315); love (p. 317); reverence, guidance, love, and glory in the appendix (pp. 326, 331–332, 335); trust and justice as the four-step sequence (p. 336); satiation and its ordering of understanding, resolution and prosperity in the family, and participation in undivided society, and care (p. 339); respect and affection (p. 340); prosperity as production more than needs, and self-reliance (p. 342).</li>
-<li><strong>JV</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf"><em>Jeevan Vidya: An Introduction</em></a>. English translation by Rakesh Gupta. Cited: <em>upasana</em> as rituals in the traditional sense (p. 9); <em>sadhana</em> at Amarkantak and its limits (pp. 12, 15); refuge in God as the real father and mother yielding no human, and purpose inherent in all relationships (p. 57); idealism of renunciation, non-accumulation, detachment, and devotion producing no undivided society (p. 105); values realised through recognition of relationships, humane conduct as values, character, and ethics, and character as righteous wealth, marital faithfulness, and kindness (p. 55); relationships studied through their purposes, and nurturing and protection as the mother-child and father-child purposes (p. 56); <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> in children transforming homes and families (p. 60); recognition of mother, father, <em>guru</em>, and disciple by purpose (p. 84); the nine established values, the seven relationships, the six purposes of relationship, and the rejection of power, wealth, intelligence, and age (p. 108); authenticity as highest priority, and fear and temptation as non-values (p. 109); values inherent in <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> and the mother&rsquo;s recognition of her child (p. 138).</li>
+<li><strong>MVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan – Co-existentialism</em>, Part 1: <em>Holistic View of Human Behaviour</em></a>. English translation by Rakesh Gupta. Cited: <em>sadhana</em>, <em>samadhi</em>, and <em>samyama</em> undertaken and moved beyond, and <em>upasana</em> glossed as devotional practices towards deities (pp. 4, 7); five statuses and the ten-tier family-based self-governance orderliness (p. 18); behaviour as effort in mutuality (p. 33); gratitude defined (p. 37); the gratitude-to-coexistence chain and ingratitude (p. 38); family, community, and undivided society (p. 55); needs determined by a wise family (p. 56); crime as ill-gotten wealth, adultery, and hurtful behaviour (p. 60); contact as voluntary-expectation mutuality (p. 61); relationship as predetermined-expectation mutuality (p. 62); prosperity as the lack of the sentiment of lacking (p. 72); trust and affection (p. 73); the four senses of <em>sanskar</em> and <em>sanskar</em> as cause of awakening (p. 90); <em>susanskar</em> (p. 94); just behaviour as righteous wealth, marital faithfulness, and kindness (p. 102); family as the first tier of the ten-tier orderliness (p. 161); refinement in <em>susanskar</em> following enlightenment about the human goal and <em>jeevan</em> values (p. 187); societal balance and the three behaviours (p. 189); the seven forms of relationship (p. 190); social responsibility evidenced in the wise family, and family order to world family order (p. 253); education-<em>sanskar</em> requiring procedure, teachers, parents, and study aligned (p. 270); <em>susanskar</em> and <em>kusanskar</em> (p. 315); love (p. 317); reverence, guidance, love, and glory in the appendix (pp. 326, 331–332, 335); trust and justice as the four-step sequence (p. 336); satiation and its ordering of understanding, resolution and prosperity in the family, and participation in undivided society, and care (p. 339); respect and affection (p. 340); prosperity as production more than needs, and self-reliance (p. 342).</li>
+<li><strong>JV</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf"><em>Jeevan Vidya: An Introduction</em></a>. English translation by Rakesh Gupta. Cited: <em>upasana</em> as rituals in the traditional sense (p. 9); <em>sadhana</em> at Amarkantak and its limits (pp. 12, 15); refuge in God as the real father and mother yielding no human, and purpose inherent in all relationships (p. 57); idealism of renunciation, non-accumulation, detachment, and devotion producing no undivided society (p. 105); values realised through recognition of relationships, humane conduct as values, character, and ethics, and character as righteous wealth, marital faithfulness, and kindness (p. 55); relationships studied through their purposes, and nurturing and protection as the mother-child and father-child purposes (p. 56); <em>sanskar</em> in children transforming homes and families (p. 60); recognition of mother, father, <em>guru</em>, and disciple by purpose (p. 84); the nine established values, the seven relationships, the six purposes of relationship, and the rejection of power, wealth, intelligence, and age (p. 108); authenticity as highest priority, and fear and temptation as non-values (p. 109); values inherent in <em>jeevan</em> and the mother&rsquo;s recognition of her child (p. 138).</li>
 <li><strong>SB</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf"><em>Samadhanatmak Bhautikvad</em> (<em>Resolution Centred Materialism</em>)</a>. English translation by Rakesh Gupta. Cited: prosperity through production in excess of needs within a wise family, among the four human goals (p. 223).</li>
-<li><strong>KD</strong> — Nagraj, A. <em>Manav Karm Darshan</em> (<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>, Part 2). <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf">Working English translation</a>; <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-Hindi-English.pdf">Hindi–English review edition</a>. Cited: no contact or relationship devoid of value (p. 20); Ch. 2 on <em>upasana</em> — refinement and transformation of the root tendencies and of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> (p. 30), aim of all <em>upasanas</em> as undivided society and universal orderliness, and immersion in universal values (p. 35), <em>upasanas</em> only for capacity-for-awakening (p. 36), wisdom and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>-value as the direct result of <em>upasana</em> with sociality naturally contained (p. 37), <em>upasana</em> as education and orderliness in its own nature and symbol-directed <em>upasana</em> as secondary and unsociable (p. 42).</li>
+<li><strong>KD</strong> — Nagraj, A. <em>Manav Karm Darshan</em> (Madhyasth Darshan, Part 2). <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf">Working English translation</a>; <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-Hindi-English.pdf">Hindi–English review edition</a>. Cited: no contact or relationship devoid of value (p. 20); Ch. 2 on <em>upasana</em> — refinement and transformation of the root tendencies and of <em>sanskar</em> (p. 30), aim of all <em>upasanas</em> as undivided society and universal orderliness, and immersion in universal values (p. 35), <em>upasanas</em> only for capacity-for-awakening (p. 36), wisdom and <em>jeevan</em>-value as the direct result of <em>upasana</em> with sociality naturally contained (p. 37), <em>upasana</em> as education and orderliness in its own nature and symbol-directed <em>upasana</em> as secondary and unsociable (p. 42).</li>
 </ul>
 <h3 id="comparative-philosophy-and-social-science">Comparative Philosophy and Social Science</h3>
 <ul>
@@ -1227,7 +1230,7 @@
 </ul>
 <h3 id="related-studies-in-this-collection">Related studies in this collection</h3>
 <ul>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html">Axiology Value Theory</a> — what a value is (§1.1), relationship and association (§1.3), established and expressed values (§1.2.3), the four-step justice sequence (§1.2.5), <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> and the deepening of understanding through conduct (§1.4.1), and open problems (§4.2).</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html">Axiology Value Theory</a> — what a value is (§1.1), relationship and association (§1.3), established and expressed values (§1.2.3), the four-step justice sequence (§1.2.5), <em>sanskar</em> and the deepening of understanding through conduct (§1.4.1), and open problems (§4.2).</li>
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html">How Undivided Society Is Established</a> — the family as the first field of evidence and the argument outward to undivided society (§5.2).</li>
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.html">Human Behavior and Society</a> — family-based self-organising orderliness and the progression from person to undivided society (§§1.4.2–1.4.3).</li>
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> — the four human goals and the five dimensions of social orderliness (§1.15).</li>
@@ -1341,14 +1344,23 @@
     floatPanel.hidden = true;
     document.body.appendChild(floatPanel);
   }
+  let activeButton = null;
+  let pinnedButton = null;
 
   const hide = () => {
+    if (activeButton) activeButton.setAttribute("aria-expanded", "false");
+    activeButton = null;
     floatPanel.classList.remove("is-visible");
     floatPanel.hidden = true;
     floatPanel.textContent = "";
   };
 
   const show = (button, text) => {
+    if (activeButton && activeButton !== button) {
+      activeButton.setAttribute("aria-expanded", "false");
+    }
+    activeButton = button;
+    button.setAttribute("aria-expanded", "true");
     floatPanel.textContent = text;
     floatPanel.hidden = false;
     floatPanel.classList.add("is-visible");
@@ -1367,21 +1379,41 @@
     const definition = button.getAttribute("data-definition");
     if (!definition) return;
     button.setAttribute("aria-describedby", "term-tip-float");
+    button.setAttribute("aria-expanded", "false");
     const reveal = () => show(button, definition);
-    button.addEventListener("mouseenter", reveal);
-    button.addEventListener("focus", reveal);
-    button.addEventListener("mouseleave", hide);
-    button.addEventListener("blur", hide);
+    button.addEventListener("mouseenter", () => {
+      if (!pinnedButton) reveal();
+    });
+    button.addEventListener("focus", () => {
+      if (!pinnedButton || pinnedButton === button) reveal();
+    });
+    button.addEventListener("mouseleave", () => {
+      if (!pinnedButton) hide();
+    });
+    button.addEventListener("blur", () => {
+      if (!pinnedButton) hide();
+    });
     button.addEventListener("click", event => {
       event.stopPropagation();
-      if (floatPanel.hidden) reveal();
-      else hide();
+      if (pinnedButton === button) {
+        pinnedButton = null;
+        hide();
+      } else {
+        pinnedButton = button;
+        reveal();
+      }
     });
   });
 
-  document.addEventListener("click", hide);
+  document.addEventListener("click", () => {
+    pinnedButton = null;
+    hide();
+  });
   document.addEventListener("keydown", event => {
-    if (event.key === "Escape") hide();
+    if (event.key === "Escape") {
+      pinnedButton = null;
+      hide();
+    }
   });
 })();
 </script>

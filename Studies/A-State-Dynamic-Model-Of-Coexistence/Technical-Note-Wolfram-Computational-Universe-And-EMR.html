@@ -325,13 +325,17 @@
   .term-tip {
     background: none;
     border: none;
-    border-bottom: 1px dotted #1a5276;
+    border-bottom: 1px dotted #8a6d3b;
     padding: 0;
     margin: 0;
     font: inherit;
-    color: #1a5276;
+    color: inherit;
     cursor: help;
     text-align: inherit;
+  }
+  .term-tip:hover {
+    background: #f6f0e7;
+    border-radius: 2px;
   }
   .term-tip:focus-visible {
     outline: 2px solid #1a5276;
@@ -364,14 +368,14 @@
   .study-toolbar {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
     font-family: 'Segoe UI', system-ui, sans-serif;
     font-size: 13px;
     position: sticky;
     top: 0;
     z-index: 20;
-    margin: 0 0 22px;
-    padding: 10px 14px;
+    margin: 0 0 18px;
+    padding: 6px 10px;
     border: 1px solid #d8d2c8;
     border-radius: 8px;
     background: rgba(247, 244, 239, 0.92);
@@ -381,20 +385,21 @@
   .study-toolbar-row {
     display: grid;
     align-items: center;
-    gap: 8px 14px;
+    gap: 10px;
   }
   .study-toolbar-row--primary {
-    grid-template-columns: minmax(0, 1fr) minmax(0, auto) minmax(0, 1fr);
+    grid-template-columns: auto minmax(0, 1fr);
   }
   .study-toolbar-actions {
-    grid-column: 3;
+    grid-column: 2;
     justify-self: end;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     justify-content: flex-end;
-    gap: 8px 12px;
+    gap: 6px;
     min-width: 0;
+    white-space: nowrap;
     text-align: right;
   }
   .study-toolbar-feedback {
@@ -413,21 +418,6 @@
   .study-toolbar-download {
     min-width: 0;
     text-align: right;
-  }
-  .study-toolbar-title {
-    grid-column: 2;
-    justify-self: center;
-    text-align: center;
-    margin: 0;
-    min-width: 0;
-    font-size: 14px;
-    font-weight: 700;
-    color: #2c241c;
-    line-height: 1.35;
-  }
-  .study-toolbar-draft {
-    font-weight: 600;
-    color: #5c5348;
   }
   .study-toolbar-link {
     color: #1a5276;
@@ -469,7 +459,7 @@
     background: #fdfcfa;
     border: 1px solid #d9d2c7;
     border-radius: 999px;
-    padding: 3px 11px;
+    padding: 2px 8px;
     cursor: pointer;
     white-space: nowrap;
   }
@@ -541,6 +531,23 @@
   .study-toc-l1 > a { font-weight: 700; color: #2c241c; }
   .study-toc-l2 > a { padding-left: 15px; }
   .study-toc-l3 > a { padding-left: 30px; font-size: 12.5px; color: #4d6f86; }
+  .study-toc--with-key { margin-bottom: 0.55em; }
+  .study-reading-key {
+    margin: 0 0 2.2em;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    line-height: 1.45;
+    color: #6b6357;
+  }
+  .study-reading-key > span[aria-hidden="true"] { padding: 0 5px; }
+  .study-reading-key-term {
+    color: #2c241c;
+    border-bottom: 1px dotted #8a6d3b;
+  }
+  .study-reading-key-link {
+    color: #1a5276;
+    text-decoration: underline;
+  }
   @media (prefers-reduced-motion: reduce) {
     .study-toc-summary::before { transition: none; }
   }
@@ -557,11 +564,15 @@
       margin: 32px auto 88px;
       padding: 0 22px;
     }
-    /* Roughly 68 characters. The container stays wide enough for tables and
-       figures while running text keeps a measure the eye can track back. */
-    p, ul, ol, blockquote, .quote-source, dl {
-      max-width: 37rem;
+    /* Add a subtle one point of breathing room above and below quotations on
+       screen without changing the print/PDF layout. */
+    blockquote {
+      margin-top: 11pt;
+      margin-bottom: 11pt;
     }
+    /* Running text uses the full reading column. Tables and figures share the
+       same 46rem container, so paragraphs no longer collapse into a visibly
+       narrower strip inside the page. */
     p {
       margin: 0.72em 0;
       text-align: left;
@@ -584,34 +595,18 @@
   }
 
   @media (max-width: 640px) {
-    .study-toolbar-row--primary {
-      grid-template-columns: minmax(0, auto) minmax(0, 1fr);
-      row-gap: 6px;
-    }
-    /* Back and title share the first line and the actions take the second, so
-       the reader reaches the heading in two rows rather than four. */
-    .study-toolbar-back { grid-column: 1; justify-self: start; }
-    .study-toolbar-title {
-      grid-column: 2;
-      justify-self: end;
-      text-align: right;
-      font-size: 13px;
-      white-space: normal;
-    }
     .study-toolbar-actions {
-      grid-column: 1 / -1;
-      justify-self: stretch;
-      justify-content: space-between;
-      gap: 8px;
+      gap: 5px;
     }
     .study-toolbar-feedback { font-size: 11px; }
-    .study-toolbar-section { white-space: normal; }
+    .study-toolbar-section { font-size: 11px; }
     .study-toc-nav { max-height: 52vh; }
   }
   @media print {
     .study-toolbar { display: none !important; }
     .study-theme-toggle { display: none !important; }
     .study-toc { display: none !important; }
+    .study-reading-key { display: none !important; }
     .skip-link { display: none !important; }
     .term-tip {
       border-bottom: none;
@@ -638,10 +633,9 @@
     html[data-theme="dark"] .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
     html[data-theme="dark"] .study-toolbar-link { color: #7ebbed; }
     html[data-theme="dark"] .study-toolbar-link:hover { color: #b8daf3; }
-    html[data-theme="dark"] .study-toolbar-title { color: #f5f1ec; }
-    html[data-theme="dark"] .study-toolbar-draft { color: #aca194; }
     html[data-theme="dark"] .study-toolbar-section.is-disabled { color: #6f655a; }
-    html[data-theme="dark"] .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    html[data-theme="dark"] .term-tip { color: inherit; border-bottom-color: #c9a66b; }
+    html[data-theme="dark"] .term-tip:hover { background: #2f2a24; }
     html[data-theme="dark"] .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
     html[data-theme="dark"] .study-toc { border-color: #423b33; }
     html[data-theme="dark"] .study-toc-summary:hover { background: #1e1b18; }
@@ -649,6 +643,9 @@
     html[data-theme="dark"] .study-toc-meta { color: #aca194; }
     html[data-theme="dark"] .study-toc-list a { color: #7ebbed; }
     html[data-theme="dark"] .study-toc-l1 > a { color: #f5f1ec; }
+    html[data-theme="dark"] .study-reading-key { color: #aca194; }
+    html[data-theme="dark"] .study-reading-key-term { color: #e6dfd6; border-bottom-color: #c9a66b; }
+    html[data-theme="dark"] .study-reading-key-link { color: #7ebbed; }
     html[data-theme="dark"] .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
     html[data-theme="dark"] .study-theme-toggle:hover { border-color: #7ebbed; }
   }
@@ -669,10 +666,9 @@
     html:not([data-theme="light"]) .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
     html:not([data-theme="light"]) .study-toolbar-link { color: #7ebbed; }
     html:not([data-theme="light"]) .study-toolbar-link:hover { color: #b8daf3; }
-    html:not([data-theme="light"]) .study-toolbar-title { color: #f5f1ec; }
-    html:not([data-theme="light"]) .study-toolbar-draft { color: #aca194; }
     html:not([data-theme="light"]) .study-toolbar-section.is-disabled { color: #6f655a; }
-    html:not([data-theme="light"]) .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    html:not([data-theme="light"]) .term-tip { color: inherit; border-bottom-color: #c9a66b; }
+    html:not([data-theme="light"]) .term-tip:hover { background: #2f2a24; }
     html:not([data-theme="light"]) .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
     html:not([data-theme="light"]) .study-toc { border-color: #423b33; }
     html:not([data-theme="light"]) .study-toc-summary:hover { background: #1e1b18; }
@@ -680,6 +676,9 @@
     html:not([data-theme="light"]) .study-toc-meta { color: #aca194; }
     html:not([data-theme="light"]) .study-toc-list a { color: #7ebbed; }
     html:not([data-theme="light"]) .study-toc-l1 > a { color: #f5f1ec; }
+    html:not([data-theme="light"]) .study-reading-key { color: #aca194; }
+    html:not([data-theme="light"]) .study-reading-key-term { color: #e6dfd6; border-bottom-color: #c9a66b; }
+    html:not([data-theme="light"]) .study-reading-key-link { color: #7ebbed; }
     html:not([data-theme="light"]) .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
     html:not([data-theme="light"]) .study-theme-toggle:hover { border-color: #7ebbed; }
   }
@@ -690,12 +689,11 @@
 <a class="skip-link" href="#main">Skip to content</a>
 <nav class="study-toolbar" aria-label="Study navigation">
   <div class="study-toolbar-row study-toolbar-row--primary">
-    <a class="study-toolbar-link study-toolbar-back" href="../index.html#study-Technical-Note-Wolfram-Computational-Universe-And-EMR">&larr; All studies</a>
-    <p class="study-toolbar-title">Technical Note: EMR and Wolfram&#x27;s Computational Universe</p>
+    <a class="study-toolbar-link study-toolbar-back" href="../index.html#study-Technical-Note-Wolfram-Computational-Universe-And-EMR" aria-label="Back to all studies">&larr; Studies</a>
     <span class="study-toolbar-actions">
       <a class="study-toolbar-link study-toolbar-discuss" href="discussion.html?dv=3">Discuss</a>
-      <a class="study-toolbar-link study-toolbar-download" href="Technical-Note-Wolfram-Computational-Universe-And-EMR.pdf" download>Download PDF</a>
-      <a class="study-toolbar-link study-toolbar-feedback" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&title=Study%20feedback%3A%20Technical%20Note%3A%20EMR%20and%20Wolfram%27s%20Computational%20Universe">Suggest a correction</a>
+      <a class="study-toolbar-link study-toolbar-download" href="Technical-Note-Wolfram-Computational-Universe-And-EMR.pdf" download aria-label="Download PDF">PDF</a>
+      <a class="study-toolbar-link study-toolbar-feedback" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&title=Study%20feedback%3A%20Technical%20Note%3A%20EMR%20and%20Wolfram%27s%20Computational%20Universe" aria-label="Suggest a correction">Suggest edit</a>
       <button type="button" class="study-theme-toggle" id="study-theme-toggle" aria-label="Switch color theme">
         <span class="study-theme-toggle-label">Dark</span>
       </button>
@@ -710,8 +708,8 @@
 <p><strong>Author:</strong> Raghava Mohan Madhwapathi (<a href="https://analyticmadhyasthdarshan.org">AnalyticMadhyasthDarshan.org</a>)</p>
 <p><strong>Edited on:</strong> August 30, 2026, 3:38 AM IST</p>
 <p><strong>Status:</strong> Internal technical note; not a catalog entry. Prepared as a computational-semantics extension note for <em><a href="https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html">From Unit Activity to Human Orderliness</a></em>.</p>
-<p><strong>Scope.</strong> This note asks whether the effort-motion-result (<strong>EMR</strong>) occurrence at the centre of the State-Dynamic Model of Coexistence (<strong>SDM</strong>) can be represented within Stephen Wolfram&rsquo;s computational-universe approach. It reviews <em>A New Kind of Science</em>, the Wolfram Physics Project&rsquo;s hypergraph, multiway, and causal-graph formalisms, and Wolfram&rsquo;s observer-theory proposal. Wolfram&rsquo;s writings are treated as primary sources for that programme, while the <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> texts remain authoritative for EMR and the SDM remains an analytical reconstruction rather than a quantitative physical theory.</p>
-<p>The answer is a qualified <strong>yes</strong>. A complete EMR occurrence can supply the typed semantic content of one local rewrite event, and an ensemble of compatible occurrences can be represented by a causal multiway computation. The synchronization is valid only at the level of <strong>operational semantics</strong>. It does not identify coexistence with computation, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span></em> with a hypergraph, a unit with a featureless node, or realised Knowledge with the computational limitations of an observer.</p>
+<p><strong>Scope.</strong> This note asks whether the effort-motion-result (<strong>EMR</strong>) occurrence at the centre of the State-Dynamic Model of Coexistence (<strong>SDM</strong>) can be represented within Stephen Wolfram&rsquo;s computational-universe approach. It reviews <em>A New Kind of Science</em>, the Wolfram Physics Project&rsquo;s hypergraph, multiway, and causal-graph formalisms, and Wolfram&rsquo;s observer-theory proposal. Wolfram&rsquo;s writings are treated as primary sources for that programme, while the <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> texts remain authoritative for EMR and the SDM remains an analytical reconstruction rather than a quantitative physical theory.</p>
+<p>The answer is a qualified <strong>yes</strong>. A complete EMR occurrence can supply the typed semantic content of one local rewrite event, and an ensemble of compatible occurrences can be represented by a causal multiway computation. The synchronization is valid only at the level of <strong>operational semantics</strong>. It does not identify coexistence with computation, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipotence — the eternally present, omnipresent reality: formless, motionless absolute energy in which every unit is saturated and through which regulation is manifest.">satta</button></span></em> with a hypergraph, a unit with a featureless node, or realised Knowledge with the computational limitations of an observer.</p>
 <p>The proposed relation retains the SDM recurrence</p>
 <p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi mathvariant="script">Q</mi><mi>n</mi></msub><mover><mo stretchy="true" minsize="3.0em">→</mo><mpadded width="+0.6em" lspace="0.3em"><mrow><mi mathvariant="normal">Occur</mi><mo>⁡</mo><mo stretchy="false">(</mo><msub><mi>A</mi><mi>n</mi></msub><mo stretchy="false">)</mo></mrow></mpadded></mover><msub><mover accent="true"><mi mathvariant="script">Q</mi><mo stretchy="true">~</mo></mover><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mover><mo stretchy="true" minsize="3.0em">→</mo><mpadded width="+0.6em" lspace="0.3em"><mrow><mi mathvariant="normal">Apply</mi><mo>⁡</mo><mo stretchy="false">(</mo><msub><mi mathvariant="normal">Λ</mi><mi>n</mi></msub><mo stretchy="false">)</mo></mrow></mpadded></mover><msub><mi mathvariant="script">Q</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">\mathcal Q_n
 \xrightarrow{\operatorname{Occur}(A_n)}
@@ -736,7 +734,7 @@
  151.7 139 205zm0 0v40h399900v-40z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.011em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8917em;vertical-align:-0.2083em;"></span><span class="mord"><span class="mord mathcal">Q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2083em;"><span></span></span></span></span></span></span><span class="mpunct">,</span></span></span></span></span></p>
 <p>while encoding <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">A_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> as typed local rewrite events and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="normal">Λ</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">\Lambda_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord">Λ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> as guarded commit rewrites. Both event sorts contribute to an event-labelled causal and multiway graph.</p>
 <p>The Wolfram machinery can therefore execute and compare presentations of an SDM fragment. The SDM must determine the types, guards, identity conditions, and meaning of the events being executed.</p>
-<details class="study-toc" id="study-contents">
+<details class="study-toc study-toc--with-key" id="study-contents">
   <summary class="study-toc-summary">
     <span class="study-toc-label">Contents</span>
     <span class="study-toc-meta">12 sections &middot; 30 headings</span>
@@ -776,13 +774,18 @@
     </ol>
   </nav>
 </details>
+<p class="study-reading-key" aria-label="Reading key">
+  <span class="study-reading-key-term">Dotted underline</span>: definition
+  <span aria-hidden="true">&middot;</span>
+  <span class="study-reading-key-link">Blue underline</span>: link
+</p>
 <h2 id="1-the-computational-universe-proposal">1. The computational-universe proposal</h2>
 <h3 id="11-simple-programmes-and-computational-equivalence" data-depth="2">1.1 Simple programmes and computational equivalence</h3>
 <p><em>A New Kind of Science</em> treats natural and formal processes as computations generated by repeated application of rules. Its Principle of Computational Equivalence proposes that systems whose behaviour is not obviously simple commonly reach an equivalent level of computational sophistication (<a href="https://www.wolframscience.com/nks/p715--basic-framework/">Wolfram NKS, Basic Framework</a>; <a href="https://www.wolframscience.com/nks/p724--the-content-of-the-principle/">Content of the Principle</a>). Computational irreducibility is the associated claim that the behaviour of many such systems cannot generally be found substantially faster than by following their evolution.</p>
-<p>Neither proposition is required in order to encode the SDM. The useful methodological commitment is narrower: local rules may generate global structure, and simulation can expose consequences not evident from inspecting a rule in isolation. The stronger thesis that nearly all nontrivial natural processes possess equivalent computational power remains a Wolfram hypothesis, not a commitment of <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> or the SDM.</p>
+<p>Neither proposition is required in order to encode the SDM. The useful methodological commitment is narrower: local rules may generate global structure, and simulation can expose consequences not evident from inspecting a rule in isolation. The stronger thesis that nearly all nontrivial natural processes possess equivalent computational power remains a Wolfram hypothesis, not a commitment of <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> or the SDM.</p>
 <h3 id="12-hypergraph-rewriting" data-depth="2">1.2 Hypergraph rewriting</h3>
 <p>The Wolfram Physics Project represents a state as a relational hypergraph and evolution as local replacement of one relational pattern by another. In its basic presentation, the elements have no intrinsic geometry; spatial and other structure is intended to arise from the relations and their rewriting (<a href="https://www.wolframphysics.org/technical-introduction/basic-form-of-models/basic-structure/">Basic Structure</a>). An update event matches a local configuration and replaces it according to a rule. Repeated updates generate successive hypergraphs.</p>
-<p>This supplies a useful execution form for the SDM, but only after enrichment. An SDM state contains persistent typed units, kind and order roles, form and internal condition, actual mutualities, containment, body-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> association, human orientation, and trace records. An untyped hypergraph can encode these by graph gadgets, but a typed attributed hypergraph states the intended distinctions more directly and makes invalid matches easier to reject.</p>
+<p>This supplies a useful execution form for the SDM, but only after enrichment. An SDM state contains persistent typed units, kind and order roles, form and internal condition, actual mutualities, containment, body-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> association, human orientation, and trace records. An untyped hypergraph can encode these by graph gadgets, but a typed attributed hypergraph states the intended distinctions more directly and makes invalid matches easier to reject.</p>
 <h3 id="13-multiway-systems-causal-graphs-and-time" data-depth="2">1.3 Multiway systems, causal graphs, and time</h3>
 <p>When several update events are possible, a multiway system records the alternative event sequences. A causal graph instead records dependencies among events: an event is causally prior to another when the latter depends on structure produced or affected by the former. Wolfram&rsquo;s technical account treats time as the progressive updating of the relational structure and a foliation as a division of the causal graph into successive spacelike slices (<a href="https://www.wolframphysics.org/technical-introduction/potential-relation-to-physics/time-and-spacetime/">Time and Spacetime</a>; <a href="https://www.wolframphysics.org/technical-introduction/notes-and-further-references/appendix-graph-types/">Graph Types</a>).</p>
 <p>This is close to the SDM&rsquo;s use of an occurrence index. The SDM states that <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> is a descriptive cut in continuous activity and not a fundamental clock tick. A causal foliation can implement such cuts, provided no metaphysical conclusion is drawn that nature is fundamentally a succession of discrete pauses.</p>
@@ -791,7 +794,7 @@
 <p>That distinction is decisive for synchronization. The SDM cannot assume that compatible local EMR events are schedule-independent. It must make compatibility precise and prove the relevant causal invariance for each implemented fragment.</p>
 <h2 id="2-what-emr-means-in-the-sdm">2. What EMR means in the SDM</h2>
 <h3 id="21-one-complete-activity-not-three-clock-stages" data-depth="2">2.1 One complete activity, not three clock stages</h3>
-<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> describes every physical-chemical activity as the inseparable presence of effort, motion, and result (SB, p. 58). Effort is strength borne in state, motion is operative power, and result is the realised configuration across duration; state and motion are indivisible (SB, pp. 60-62, 248, 256-257; KD 3.8, p. 84; KD 3.11, pp. 102-109). The SDM consequently represents one occurrence as</p>
+<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> describes every physical-chemical activity as the inseparable presence of effort, motion, and result (SB, p. 58). Effort is strength borne in state, motion is operative power, and result is the realised configuration across duration; state and motion are indivisible (SB, pp. 60-62, 248, 256-257; KD 3.8, p. 84; KD 3.11, pp. 102-109). The SDM consequently represents one occurrence as</p>
 <p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>α</mi><mrow><mi>s</mi><mo separator="true">,</mo><mi>n</mi></mrow></msub><mo>=</mo><mo stretchy="false">⟨</mo><msub><mrow><mi mathvariant="normal">Eff</mi><mo>⁡</mo></mrow><mrow><mi>s</mi><mo separator="true">,</mo><mi>n</mi></mrow></msub><mo separator="true">,</mo><msub><mrow><mi mathvariant="normal">Mot</mi><mo>⁡</mo></mrow><mrow><mi>s</mi><mo separator="true">,</mo><mi>n</mi></mrow></msub><mo separator="true">,</mo><msub><mrow><mi mathvariant="normal">Res</mi><mo>⁡</mo></mrow><mrow><mi>s</mi><mo separator="true">,</mo><mi>n</mi></mrow></msub><mo stretchy="false">⟩</mo><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\alpha_{s,n}
 =
 \langle
@@ -827,20 +830,20 @@
 -2.175-9-5.437L2 97c-1-2-2-4-2-6 0-4 2-7 5-9l20-12C116 12 171 0 207 0c86 0
  114 68 191 68 78 0 168-68 177-68 4 0 7 2 9 5l12 19c1 2.175 2 4.35 2 6.525 0
  4.35-2 7.613-5 9.788l-19 13.05c-92 63.077-116.937 75.308-183 76.128
--68.267.847-113-73.952-191-73.952z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.0972em;"><span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2083em;"><span></span></span></span></span></span></span></span></span></span>. The second phase examines that candidate for a structural or orientation boundary: closure, disintegration, reproduction, T1 constitutional completeness, body-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> association or separation, or later human orientation revision. Ordinary displacement, exchange, growth, repair, and immediate consequence are results within <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Occur</mi><mo>⁡</mo></mrow><annotation encoding="application/x-tex">\operatorname{Occur}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mop"><span class="mord mathrm">Occur</span></span></span></span></span>; they are not additional structural events.</p>
+-68.267.847-113-73.952-191-73.952z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.0972em;"><span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2083em;"><span></span></span></span></span></span></span></span></span></span>. The second phase examines that candidate for a structural or orientation boundary: closure, disintegration, reproduction, T1 constitutional completeness, body-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> association or separation, or later human orientation revision. Ordinary displacement, exchange, growth, repair, and immediate consequence are results within <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Occur</mi><mo>⁡</mo></mrow><annotation encoding="application/x-tex">\operatorname{Occur}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mop"><span class="mord mathrm">Occur</span></span></span></span></span>; they are not additional structural events.</p>
 <p>This distinction should survive implementation. A single undifferentiated rewrite alphabet would make every state change look like the same kind of event. The synchronized system instead needs two typed event sorts, or one compound transaction whose internal phases remain distinguishable:</p>
 <p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi mathvariant="normal">EMREvent</mi><mo>⁡</mo><mspace width="1em"/><mtext>and</mtext><mspace width="1em"/><mi mathvariant="normal">BoundaryEvent</mi><mo>⁡</mo><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\operatorname{EMREvent}
 \quad\text{and}\quad
 \operatorname{BoundaryEvent}.</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mop"><span class="mord mathrm">EMREvent</span></span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">and</span></span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mord mathrm">BoundaryEvent</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">.</span></span></span></span></span></p>
 <p>The second consumes the candidate results of the first. It does not complete an EMR occurrence that was previously unfinished.</p>
 <h3 id="23-persistent-bearers-and-derived-scopes" data-depth="2">2.3 Persistent bearers and derived scopes</h3>
-<p>An SDM unit persists through many occurrences. A body-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> association is a typed relation <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi><mo>⋈</mo><mo stretchy="false">(</mo><mi>b</mi><mo separator="true">,</mo><mi>r</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">j\bowtie(b,r)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.854em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.0572em;">j</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⋈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">b</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">r</span><span class="mclose">)</span></span></span></span>, not a merged node, and its public occurrence is derived from the co-present occurrences of body and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>. A maintained family, work process, or organisation is a relational scope, not a larger sentient or ontic unit. These distinctions constrain the computational representation:</p>
+<p>An SDM unit persists through many occurrences. A body-<em>jeevan</em> association is a typed relation <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi><mo>⋈</mo><mo stretchy="false">(</mo><mi>b</mi><mo separator="true">,</mo><mi>r</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">j\bowtie(b,r)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.854em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.0572em;">j</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⋈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">b</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">r</span><span class="mclose">)</span></span></span></span>, not a merged node, and its public occurrence is derived from the co-present occurrences of body and <em>jeevan</em>. A maintained family, work process, or organisation is a relational scope, not a larger sentient or ontic unit. These distinctions constrain the computational representation:</p>
 <ul>
 <li>ontic-unit identity must remain traceable across events;</li>
 <li>a containing activity may be activated at closure without deleting its constituents;</li>
-<li>a body-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> association must be encoded as an association, not containment or fusion;</li>
+<li>a body-<em>jeevan</em> association must be encoded as an association, not containment or fusion;</li>
 <li>a derived association occurrence must not be counted as a third independent causal event; and</li>
-<li>an organisation may aggregate traces and constraints but must not inherit faculties, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, or EMR as if it were a closed unit.</li>
+<li>an organisation may aggregate traces and constraints but must not inherit faculties, <em>jeevan</em>, or EMR as if it were a closed unit.</li>
 </ul>
 <h2 id="3-the-exact-correspondence">3. The exact correspondence</h2>
 <p>The correspondence is useful when stated as an interface rather than an identity.</p>
@@ -929,7 +932,7 @@
 </tr>
 </tbody>
 </table></div>
-<p>Effort is not best represented as an external input or a quantity injected by the rewrite engine. The typed event annotation describes the qualitative strength borne in the unit&rsquo;s state, read with its order-oriented <em>svabhav-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> aspect; it is not an additional guard. Motion is the operative relational and configurational change realised by the event. Result is the committed result-side projection that becomes present in the candidate state. These three fields must be jointly validated against one occurrence; none should be scheduled independently.</p>
+<p>Effort is not best represented as an external input or a quantity injected by the rewrite engine. The typed event annotation describes the qualitative strength borne in the unit&rsquo;s state, read with its order-oriented <em>svabhav-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span></em> aspect; it is not an additional guard. Motion is the operative relational and configurational change realised by the event. Result is the committed result-side projection that becomes present in the candidate state. These three fields must be jointly validated against one occurrence; none should be scheduled independently.</p>
 <h2 id="4-a-synchronized-event-semantics">4. A synchronized event semantics</h2>
 <h3 id="41-encoding-a-bounded-situation" data-depth="2">4.1 Encoding a bounded situation</h3>
 <p>Let <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo stretchy="false">(</mo><mi mathvariant="script">Q</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">H(\mathcal Q)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0813em;">H</span><span class="mopen">(</span><span class="mord mathcal">Q</span><span class="mclose">)</span></span></span></span> encode the bounded situation while preserving its registers. A rewrite rule has a typed left pattern <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mi>e</mi></msub></mrow><annotation encoding="application/x-tex">L_e</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">e</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, a typed right pattern <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mi>e</mi></msub></mrow><annotation encoding="application/x-tex">R_e</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0077em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">e</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, and a match</p>
@@ -943,7 +946,7 @@ i,m_e,\operatorname{Eff}_{i,n},
 \operatorname{read}(e_i),
 \operatorname{write}(e_i)
 \rangle .</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mopen">⟨</span><span class="mord mathnormal">i</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">e</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mop"><span class="mord mathrm" style="margin-right:0.0778em;">Eff</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mop"><span class="mord mathrm">Mot</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mop"><span class="mord mathrm">Res</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mord mathrm">read</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mord mathrm">write</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)⟩</span><span class="mord">.</span></span></span></span></span></p>
-<p>The read and write sets support dependency analysis. They are implementation metadata, not additions to the <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> ontology. The event is well formed only when its EMR projection is one admissible <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>α</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>n</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\alpha_{i,n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span> of the source unit.</p>
+<p>The read and write sets support dependency analysis. They are implementation metadata, not additions to the <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> ontology. The event is well formed only when its EMR projection is one admissible <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>α</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>n</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\alpha_{i,n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span> of the source unit.</p>
 <p>Where no represented coordinate changes, the engine still needs a labelled state-preserving occurrence in the causal trace. Omitting it would identify absence of encoded change with absence of unit-activity. Such identity events can be hidden from a selected display, but not from a claim to represent every active unit&rsquo;s complete occurrence.</p>
 <p>For an association scope <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>η</mi><mo>=</mo><mo stretchy="false">(</mo><mi>j</mi><mo separator="true">,</mo><mi>b</mi><mo separator="true">,</mo><mi>r</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\eta=(j,b,r)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">η</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.0572em;">j</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">b</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">r</span><span class="mclose">)</span></span></span></span>, the implementation derives <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>e</mi><mi>η</mi></msub></mrow><annotation encoding="application/x-tex">e_\eta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.0359em;">η</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span> from <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>e</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">e_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.0572em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>e</mi><mi>b</mi></msub></mrow><annotation encoding="application/x-tex">e_b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, the two interface channels, and the active association. It must not schedule <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>e</mi><mi>η</mi></msub></mrow><annotation encoding="application/x-tex">e_\eta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.0359em;">η</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span> as an event independent of both bearers. This avoids double-counting a public joint occurrence in the causal graph.</p>
 <h3 id="42-constructing-the-causal-graph" data-depth="2">4.2 Constructing the causal graph</h3>
@@ -957,7 +960,7 @@ i,m_e,\operatorname{Eff}_{i,n},
 <p>subject to an explicit commutation rule for mergeable writes. The transitive reduction of this dependency relation gives a causal graph for the implemented trace. A compatible occurrence ensemble corresponds to an antichain, or to a set whose internal overlaps have a defined commutative merge.</p>
 <p>Structural events are causally downstream of the EMR events whose candidate results satisfy their guards. A closure event, for example, depends on the constituent occurrences that make <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">CandidateClosed</mi><mo>⁡</mo></mrow><annotation encoding="application/x-tex">\operatorname{CandidateClosed}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mop"><span class="mord mathrm">CandidateClosed</span></span></span></span></span> true. Its effect activates a containing activity and its immediate-containment incidences while preserving constituent identity. It does not replace those occurrences with a single untyped node.</p>
 <h3 id="43-defining-synchronization" data-depth="2">4.3 Defining synchronization</h3>
-<p>Let <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>≈</mo><mrow><mi mathvariant="normal">S</mi><mi mathvariant="normal">D</mi><mi mathvariant="normal">M</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\approx_{\mathrm{SDM}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6331em;vertical-align:-0.15em;"></span><span class="mrel"><span class="mrel">≈</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathrm mtight">SDM</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> mean observational equivalence with respect to the declared SDM fragment. At minimum it preserves active unit identities, kinds and roles, form and internal condition, actual mutualities, immediate containment, body-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> associations, human orientation where in scope, and retained trace records.</p>
+<p>Let <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>≈</mo><mrow><mi mathvariant="normal">S</mi><mi mathvariant="normal">D</mi><mi mathvariant="normal">M</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\approx_{\mathrm{SDM}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6331em;vertical-align:-0.15em;"></span><span class="mrel"><span class="mrel">≈</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathrm mtight">SDM</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> mean observational equivalence with respect to the declared SDM fragment. At minimum it preserves active unit identities, kinds and roles, form and internal condition, actual mutualities, immediate containment, body-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> associations, human orientation where in scope, and retained trace records.</p>
 <p>For two valid schedules <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi></mrow><annotation encoding="application/x-tex">\sigma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">σ</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi></mrow><annotation encoding="application/x-tex">\tau</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.1132em;">τ</span></span></span></span> of the same compatible event family, synchronization requires</p>
 <p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mrow><mi mathvariant="normal">Exec</mi><mo>⁡</mo></mrow><mi>σ</mi></msub><mo stretchy="false">(</mo><mi>H</mi><mo stretchy="false">(</mo><msub><mi mathvariant="script">Q</mi><mi>n</mi></msub><mo stretchy="false">)</mo><mo stretchy="false">)</mo><msub><mo>≈</mo><mrow><mi mathvariant="normal">S</mi><mi mathvariant="normal">D</mi><mi mathvariant="normal">M</mi></mrow></msub><msub><mrow><mi mathvariant="normal">Exec</mi><mo>⁡</mo></mrow><mi>τ</mi></msub><mo stretchy="false">(</mo><mi>H</mi><mo stretchy="false">(</mo><msub><mi mathvariant="script">Q</mi><mi>n</mi></msub><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">\operatorname{Exec}_{\sigma}(H(\mathcal Q_n))
 \approx_{\mathrm{SDM}}
@@ -971,7 +974,7 @@ i,m_e,\operatorname{Eff}_{i,n},
 <ul>
 <li><em>niyam</em> names definite lawfulness in conduct; causal invariance is a property of a rule system under rescheduling.</li>
 <li><em>niyati-kram</em> restricts admissible structural reachability; it is not the multiway graph itself.</li>
-<li><em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> states order-relative invariant orientation and fulfilment; it is not a rewrite guard, conserved bit, or objective function.</li>
+<li><em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span></em> states order-relative invariant orientation and fulfilment; it is not a rewrite guard, conserved bit, or objective function.</li>
 <li>complementarity is a typed semantic judgement evidenced in offering, acceptance, and fulfilment; it is not mere pattern overlap.</li>
 </ul>
 <p>Causal invariance may demonstrate that an implementation does not depend on arbitrary update order. It does not prove the darshan&rsquo;s claim that nature is lawful, regulated, and balanced.</p>
@@ -1002,7 +1005,7 @@ i,m_e,\operatorname{Eff}_{i,n},
 <li>specifying coarse-grained observation ledgers over causal traces; and</li>
 <li>comparing whether two computational presentations are indistinguishable to a declared observer interface.</li>
 </ul>
-<p>It does not model realised Knowledge by itself. A bounded computational observer is characterised by what it cannot distinguish. The SDM&rsquo;s human account distinguishes actual relationship from accepted model, operative recognition, knowing, believing, fulfilling, consequence, later evaluation, and realisation. Coarse-graining can represent limited access to evidence, but it cannot establish <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, enlightenment, truth-realisation, or mutual satisfaction. Observer equivalence belongs in the trace and verification layer, not in the ontological definition of the human being.</p>
+<p>It does not model realised Knowledge by itself. A bounded computational observer is characterised by what it cannot distinguish. The SDM&rsquo;s human account distinguishes actual relationship from accepted model, operative recognition, knowing, believing, fulfilling, consequence, later evaluation, and realisation. Coarse-graining can represent limited access to evidence, but it cannot establish <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>, enlightenment, truth-realisation, or mutual satisfaction. Observer equivalence belongs in the trace and verification layer, not in the ontological definition of the human being.</p>
 <p>Computational irreducibility has a similarly modest role. It gives a reason to simulate long event traces rather than expect a closed-form shortcut. It does not supply missing transition laws, numerical parameters, measurements, or empirical validation. The SDM remains qualitative until such specifications are independently justified.</p>
 <h2 id="8-what-must-not-be-synchronized">8. What must not be synchronized</h2>
 <p>Several non-identities are constitutive of the proposal.</p>
@@ -1079,7 +1082,7 @@ i,m_e,\operatorname{Eff}_{i,n},
 </table></div>
 <p>These refusals do not weaken the computational programme. They define the interface that keeps an implementation from silently replacing the theory it is meant to explore.</p>
 <h2 id="9-first-implementation-material-structural-closure">9. First implementation: material structural closure</h2>
-<p>The first pilot should use the material structural-closure fragment. It is small enough to audit, avoids premature claims about the body-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> interface, and aligns with the first pilot recommended in the companion MD-TOPOS note.</p>
+<p>The first pilot should use the material structural-closure fragment. It is small enough to audit, avoids premature claims about the body-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> interface, and aligns with the first pilot recommended in the companion MD-TOPOS note.</p>
 <p>The host state should include persistent unit identity, material kind, form and internal condition, actual typed mutuality, immediate containment, and active containing activities. The first event alphabet should contain:</p>
 <ul>
 <li>typed material EMR occurrences whose results update candidate conditions and relations;</li>
@@ -1153,22 +1156,22 @@ i,m_e,\operatorname{Eff}_{i,n},
 <p>The resulting system is best described as a <strong>typed causal multiway implementation of SDM occurrence semantics</strong>. Wolfram supplies an event calculus, causal ordering, branching representation, and powerful questions about schedule independence. EMR supplies the content of an event; the SDM supplies the bearer types, standing context, admissibility conditions, structural distinctions, human fallibility, and standards of trace equivalence. The synchronization is productive precisely because it remains asymmetric: computation presents and tests the SDM fragment, while the SDM determines what the computation means.</p>
 <h2 id="editorial-notes">Editorial Notes</h2>
 <h3 id="relation-to-the-retired-first-principles-note">Relation to the retired first-principles note</h3>
-<p>An earlier internal note compared Wolfram&rsquo;s programme with <em>Coexistence From First Principles</em>. The present note does not carry forward that retired kernel or its symbols. It reconstructs the comparison from the current SDM recurrence, complete occurrence <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>α</mi><mrow><mi>s</mi><mo separator="true">,</mo><mi>n</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\alpha_{s,n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">s</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span>, bounded situation <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="script">Q</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">\mathcal Q_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathcal">Q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, candidate result, structural event set <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="normal">Λ</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">\Lambda_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord">Λ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, containment <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>◃</mo></mrow><annotation encoding="application/x-tex">\triangleleft</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4653em;"></span><span class="mord">◃</span></span></span></span>, body-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> association <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⋈</mo></mrow><annotation encoding="application/x-tex">\bowtie</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.51em;vertical-align:-0.005em;"></span><span class="mrel">⋈</span></span></span></span>, and later trace log <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">L_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>. The continuing conclusion is limited to the use of Wolfram-style computation as an implementation and exploration layer.</p>
+<p>An earlier internal note compared Wolfram&rsquo;s programme with <em>Coexistence From First Principles</em>. The present note does not carry forward that retired kernel or its symbols. It reconstructs the comparison from the current SDM recurrence, complete occurrence <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>α</mi><mrow><mi>s</mi><mo separator="true">,</mo><mi>n</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\alpha_{s,n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">s</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span>, bounded situation <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="script">Q</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">\mathcal Q_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathcal">Q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, candidate result, structural event set <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="normal">Λ</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">\Lambda_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord">Λ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, containment <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>◃</mo></mrow><annotation encoding="application/x-tex">\triangleleft</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4653em;"></span><span class="mord">◃</span></span></span></span>, body-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> association <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⋈</mo></mrow><annotation encoding="application/x-tex">\bowtie</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.51em;vertical-align:-0.005em;"></span><span class="mrel">⋈</span></span></span></span>, and later trace log <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">L_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>. The continuing conclusion is limited to the use of Wolfram-style computation as an implementation and exploration layer.</p>
 <h3 id="status-of-the-formal-correspondence">Status of the formal correspondence</h3>
-<p>The event encoding, causal dependency relation, SDM observational equivalence, and proposed pilot are analytical constructions of this note. They are not formulations found in the <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> texts or the Wolfram sources. The primary texts support the inseparability and aspectual alignment of effort, motion, and result; the SDM supplies the typed recurrence; Wolfram&rsquo;s sources supply the rewrite, multiway, causal-graph, causal-invariance, irreducibility, and observer concepts. A working implementation and causal-invariance proof remain future work.</p>
+<p>The event encoding, causal dependency relation, SDM observational equivalence, and proposed pilot are analytical constructions of this note. They are not formulations found in the <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> texts or the Wolfram sources. The primary texts support the inseparability and aspectual alignment of effort, motion, and result; the SDM supplies the typed recurrence; Wolfram&rsquo;s sources supply the rewrite, multiway, causal-graph, causal-invariance, irreducibility, and observer concepts. A working implementation and causal-invariance proof remain future work.</p>
 <h3 id="causal-invariance-is-not-confluence">Causal invariance is not confluence</h3>
 <p>This note follows the narrower Wolfram Research definition: causal invariance requires isomorphic causal graphs across admissible event orderings. It does not infer that property from reconvergence of final states. The proposed pilot therefore checks both SDM-level state equivalence and event-labelled causal-graph equivalence.</p>
 <h2 id="references">References</h2>
 <h3 id="state-dynamic-reconstruction">State-dynamic reconstruction</h3>
 <ul>
-<li><strong>SDM</strong> - <a href="https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html"><em>From Unit Activity to Human Orderliness: A State-Dynamic Reconstruction of Coexistence</em></a>. Used: EMR and continuing transition (§§1-2); order-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, structural closure, body-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> association, maintained order, and human fallibility (§§3-8); model limits (§12); bounded situation, complete occurrence, recurrence, structural events, and later evaluation (Appendix A).</li>
+<li><strong>SDM</strong> - <a href="https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html"><em>From Unit Activity to Human Orderliness: A State-Dynamic Reconstruction of Coexistence</em></a>. Used: EMR and continuing transition (§§1-2); order-<em>dharma</em>, structural closure, body-<em>jeevan</em> association, maintained order, and human fallibility (§§3-8); model limits (§12); bounded situation, complete occurrence, recurrence, structural events, and later evaluation (Appendix A).</li>
 <li><strong>MD-TOPOS note</strong> - <a href="https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/Technical-Note-MD-TOPOS-And-The-State-Dynamic-Model.html"><em>Technical Note: MD-TOPOS and the State-Dynamic Model of Coexistence</em></a>. Used: typed implementation boundary, scoped observation ledgers, and recommendation of the material structural-closure pilot (§§5-10).</li>
 </ul>
 <h3 id="primary-madhyasth-darshan-texts">Primary Madhyasth Darshan texts</h3>
 <ul>
-<li><strong>MVD</strong> - Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan - Co-existentialism</em></a>. English translation by Rakesh Gupta. Cited: time as duration of activity and the indivisibility of state and motion (pp. 34, 40; §1.3, §2); unit, mutuality, form, property, essential nature, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> (pp. 42, 47-50; §§2-3, §8); actionless Omnipresence and saturated units (pp. 35-36, 48, 174; §8).</li>
-<li><strong>SB</strong> - Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf"><em>Samadhanatmak Bhautikvad</em> (<em>Resolution Centred Materialism</em>)</a>. English translation by Rakesh Gupta. Cited: inseparable effort-motion-result and its alignment with strength, power, form, property, essential nature, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> (pp. 58, 60-62, 248, 256-257; §2-§4); order-specific recognition, complementarity, and balance (pp. 143-144, 231, 235, 249-251, 255; §5).</li>
-<li><strong>JV</strong> - Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf"><em>Jeevan Vidya: An Introduction</em></a>. English translation by Rakesh Gupta. Cited: body-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> association, four orders, recognition, fulfilment, human relationship, evaluation, and mutual satisfaction (pp. 47-49, 59, 69-70, 97-98, 137-139; §§2-3, §6-§8).</li>
+<li><strong>MVD</strong> - Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan - Co-existentialism</em></a>. English translation by Rakesh Gupta. Cited: time as duration of activity and the indivisibility of state and motion (pp. 34, 40; §1.3, §2); unit, mutuality, form, property, essential nature, and <em>dharma</em> (pp. 42, 47-50; §§2-3, §8); actionless Omnipresence and saturated units (pp. 35-36, 48, 174; §8).</li>
+<li><strong>SB</strong> - Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf"><em>Samadhanatmak Bhautikvad</em> (<em>Resolution Centred Materialism</em>)</a>. English translation by Rakesh Gupta. Cited: inseparable effort-motion-result and its alignment with strength, power, form, property, essential nature, and <em>dharma</em> (pp. 58, 60-62, 248, 256-257; §2-§4); order-specific recognition, complementarity, and balance (pp. 143-144, 231, 235, 249-251, 255; §5).</li>
+<li><strong>JV</strong> - Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf"><em>Jeevan Vidya: An Introduction</em></a>. English translation by Rakesh Gupta. Cited: body-<em>jeevan</em> association, four orders, recognition, fulfilment, human relationship, evaluation, and mutual satisfaction (pp. 47-49, 59, 69-70, 97-98, 137-139; §§2-3, §6-§8).</li>
 <li><strong>KD</strong> - Nagraj, A. <em>Manav Karm Darshan</em>. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf">Working English translation</a>; Hindi source <code>KD-karm darshan v5.pdf</code>. Machine-assisted working translation, cited as corroboration only: state-motion indivisibility (3.8, p. 84) and strength, power, result, pressure, and flow (3.11, pp. 102-109; §2).</li>
 </ul>
 <h3 id="stephen-wolfram-and-computational-universe">Stephen Wolfram and computational universe</h3>
@@ -1289,14 +1292,23 @@ i,m_e,\operatorname{Eff}_{i,n},
     floatPanel.hidden = true;
     document.body.appendChild(floatPanel);
   }
+  let activeButton = null;
+  let pinnedButton = null;
 
   const hide = () => {
+    if (activeButton) activeButton.setAttribute("aria-expanded", "false");
+    activeButton = null;
     floatPanel.classList.remove("is-visible");
     floatPanel.hidden = true;
     floatPanel.textContent = "";
   };
 
   const show = (button, text) => {
+    if (activeButton && activeButton !== button) {
+      activeButton.setAttribute("aria-expanded", "false");
+    }
+    activeButton = button;
+    button.setAttribute("aria-expanded", "true");
     floatPanel.textContent = text;
     floatPanel.hidden = false;
     floatPanel.classList.add("is-visible");
@@ -1315,21 +1327,41 @@ i,m_e,\operatorname{Eff}_{i,n},
     const definition = button.getAttribute("data-definition");
     if (!definition) return;
     button.setAttribute("aria-describedby", "term-tip-float");
+    button.setAttribute("aria-expanded", "false");
     const reveal = () => show(button, definition);
-    button.addEventListener("mouseenter", reveal);
-    button.addEventListener("focus", reveal);
-    button.addEventListener("mouseleave", hide);
-    button.addEventListener("blur", hide);
+    button.addEventListener("mouseenter", () => {
+      if (!pinnedButton) reveal();
+    });
+    button.addEventListener("focus", () => {
+      if (!pinnedButton || pinnedButton === button) reveal();
+    });
+    button.addEventListener("mouseleave", () => {
+      if (!pinnedButton) hide();
+    });
+    button.addEventListener("blur", () => {
+      if (!pinnedButton) hide();
+    });
     button.addEventListener("click", event => {
       event.stopPropagation();
-      if (floatPanel.hidden) reveal();
-      else hide();
+      if (pinnedButton === button) {
+        pinnedButton = null;
+        hide();
+      } else {
+        pinnedButton = button;
+        reveal();
+      }
     });
   });
 
-  document.addEventListener("click", hide);
+  document.addEventListener("click", () => {
+    pinnedButton = null;
+    hide();
+  });
   document.addEventListener("keydown", event => {
-    if (event.key === "Escape") hide();
+    if (event.key === "Escape") {
+      pinnedButton = null;
+      hide();
+    }
   });
 })();
 </script>

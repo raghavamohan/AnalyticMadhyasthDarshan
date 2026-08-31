@@ -211,6 +211,18 @@ def test_pdf_skipped_for_unrelated_and_other_study_changes() -> None:
     assert _reason([("M", "Studies/Nature-Of-Time/1-some-figure.svg")]) is None
 
 
+def test_only_generated_html_change_is_allowed_for_ongoing_placeholder() -> None:
+    slug = "Chitta-Brain-And-Memory"
+    html_only = [("M", f"Studies/{slug}/{slug}.html")]
+    assert _with_diff(html_only, lambda: ci.only_generated_html_changed("origin/master", slug)) is True
+
+    source_change = [("M", f"Studies/{slug}/{slug}.md")]
+    assert _with_diff(source_change, lambda: ci.only_generated_html_changed("origin/master", slug)) is False
+
+    mixed_change = html_only + [("M", f"Studies/{slug}/figure.svg")]
+    assert _with_diff(mixed_change, lambda: ci.only_generated_html_changed("origin/master", slug)) is False
+
+
 # ------------------------------------------------------------- PDF date pinning
 def test_pdf_date_parsing() -> None:
     assert pdf_date_from_edited_on("June 30, 2026, 11:33 AM IST") == "D:20260630113300+00'00'"

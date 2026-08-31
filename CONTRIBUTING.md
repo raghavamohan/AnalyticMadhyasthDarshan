@@ -171,6 +171,8 @@ Enable branch protection on `main` with the **`study-pr`** check required before
 
 Hindi and darshan-specific terms that recur across studies are registered in [Studies/glossary.json](Studies/glossary.json). The HTML reader shows inline tooltips from this file. When you introduce a term that will appear in multiple studies, add or update an entry there (run `python Scripts/_verify_glossary.py` locally). Study-local **Quick Glossary** tables remain for terms specific to one paper.
 
+Before writing or changing a shared definition, check [MD-Mapping.xlsx](References/Madhyasth-Darshan/MD-Mapping.xlsx). When the term has a corresponding row, retain its established English mapping and derive the compact definition from that row's English definition, notes, and cited local source. When no row exists, use the primary or comparative works already stored under `References/`. Label tradition-specific meanings explicitly instead of silently applying one tradition's sense to another. Definitions must be plain text because the tooltip displays them literally rather than rendering Markdown.
+
 ---
 
 ## Local development (optional)

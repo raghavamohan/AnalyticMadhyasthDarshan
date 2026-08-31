@@ -324,13 +324,17 @@
   .term-tip {
     background: none;
     border: none;
-    border-bottom: 1px dotted #1a5276;
+    border-bottom: 1px dotted #8a6d3b;
     padding: 0;
     margin: 0;
     font: inherit;
-    color: #1a5276;
+    color: inherit;
     cursor: help;
     text-align: inherit;
+  }
+  .term-tip:hover {
+    background: #f6f0e7;
+    border-radius: 2px;
   }
   .term-tip:focus-visible {
     outline: 2px solid #1a5276;
@@ -363,14 +367,14 @@
   .study-toolbar {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
     font-family: 'Segoe UI', system-ui, sans-serif;
     font-size: 13px;
     position: sticky;
     top: 0;
     z-index: 20;
-    margin: 0 0 22px;
-    padding: 10px 14px;
+    margin: 0 0 18px;
+    padding: 6px 10px;
     border: 1px solid #d8d2c8;
     border-radius: 8px;
     background: rgba(247, 244, 239, 0.92);
@@ -380,20 +384,21 @@
   .study-toolbar-row {
     display: grid;
     align-items: center;
-    gap: 8px 14px;
+    gap: 10px;
   }
   .study-toolbar-row--primary {
-    grid-template-columns: minmax(0, 1fr) minmax(0, auto) minmax(0, 1fr);
+    grid-template-columns: auto minmax(0, 1fr);
   }
   .study-toolbar-actions {
-    grid-column: 3;
+    grid-column: 2;
     justify-self: end;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     justify-content: flex-end;
-    gap: 8px 12px;
+    gap: 6px;
     min-width: 0;
+    white-space: nowrap;
     text-align: right;
   }
   .study-toolbar-feedback {
@@ -412,21 +417,6 @@
   .study-toolbar-download {
     min-width: 0;
     text-align: right;
-  }
-  .study-toolbar-title {
-    grid-column: 2;
-    justify-self: center;
-    text-align: center;
-    margin: 0;
-    min-width: 0;
-    font-size: 14px;
-    font-weight: 700;
-    color: #2c241c;
-    line-height: 1.35;
-  }
-  .study-toolbar-draft {
-    font-weight: 600;
-    color: #5c5348;
   }
   .study-toolbar-link {
     color: #1a5276;
@@ -468,7 +458,7 @@
     background: #fdfcfa;
     border: 1px solid #d9d2c7;
     border-radius: 999px;
-    padding: 3px 11px;
+    padding: 2px 8px;
     cursor: pointer;
     white-space: nowrap;
   }
@@ -540,6 +530,23 @@
   .study-toc-l1 > a { font-weight: 700; color: #2c241c; }
   .study-toc-l2 > a { padding-left: 15px; }
   .study-toc-l3 > a { padding-left: 30px; font-size: 12.5px; color: #4d6f86; }
+  .study-toc--with-key { margin-bottom: 0.55em; }
+  .study-reading-key {
+    margin: 0 0 2.2em;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    line-height: 1.45;
+    color: #6b6357;
+  }
+  .study-reading-key > span[aria-hidden="true"] { padding: 0 5px; }
+  .study-reading-key-term {
+    color: #2c241c;
+    border-bottom: 1px dotted #8a6d3b;
+  }
+  .study-reading-key-link {
+    color: #1a5276;
+    text-decoration: underline;
+  }
   @media (prefers-reduced-motion: reduce) {
     .study-toc-summary::before { transition: none; }
   }
@@ -556,11 +563,15 @@
       margin: 32px auto 88px;
       padding: 0 22px;
     }
-    /* Roughly 68 characters. The container stays wide enough for tables and
-       figures while running text keeps a measure the eye can track back. */
-    p, ul, ol, blockquote, .quote-source, dl {
-      max-width: 37rem;
+    /* Add a subtle one point of breathing room above and below quotations on
+       screen without changing the print/PDF layout. */
+    blockquote {
+      margin-top: 11pt;
+      margin-bottom: 11pt;
     }
+    /* Running text uses the full reading column. Tables and figures share the
+       same 46rem container, so paragraphs no longer collapse into a visibly
+       narrower strip inside the page. */
     p {
       margin: 0.72em 0;
       text-align: left;
@@ -583,34 +594,18 @@
   }
 
   @media (max-width: 640px) {
-    .study-toolbar-row--primary {
-      grid-template-columns: minmax(0, auto) minmax(0, 1fr);
-      row-gap: 6px;
-    }
-    /* Back and title share the first line and the actions take the second, so
-       the reader reaches the heading in two rows rather than four. */
-    .study-toolbar-back { grid-column: 1; justify-self: start; }
-    .study-toolbar-title {
-      grid-column: 2;
-      justify-self: end;
-      text-align: right;
-      font-size: 13px;
-      white-space: normal;
-    }
     .study-toolbar-actions {
-      grid-column: 1 / -1;
-      justify-self: stretch;
-      justify-content: space-between;
-      gap: 8px;
+      gap: 5px;
     }
     .study-toolbar-feedback { font-size: 11px; }
-    .study-toolbar-section { white-space: normal; }
+    .study-toolbar-section { font-size: 11px; }
     .study-toc-nav { max-height: 52vh; }
   }
   @media print {
     .study-toolbar { display: none !important; }
     .study-theme-toggle { display: none !important; }
     .study-toc { display: none !important; }
+    .study-reading-key { display: none !important; }
     .skip-link { display: none !important; }
     .term-tip {
       border-bottom: none;
@@ -637,10 +632,9 @@
     html[data-theme="dark"] .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
     html[data-theme="dark"] .study-toolbar-link { color: #7ebbed; }
     html[data-theme="dark"] .study-toolbar-link:hover { color: #b8daf3; }
-    html[data-theme="dark"] .study-toolbar-title { color: #f5f1ec; }
-    html[data-theme="dark"] .study-toolbar-draft { color: #aca194; }
     html[data-theme="dark"] .study-toolbar-section.is-disabled { color: #6f655a; }
-    html[data-theme="dark"] .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    html[data-theme="dark"] .term-tip { color: inherit; border-bottom-color: #c9a66b; }
+    html[data-theme="dark"] .term-tip:hover { background: #2f2a24; }
     html[data-theme="dark"] .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
     html[data-theme="dark"] .study-toc { border-color: #423b33; }
     html[data-theme="dark"] .study-toc-summary:hover { background: #1e1b18; }
@@ -648,6 +642,9 @@
     html[data-theme="dark"] .study-toc-meta { color: #aca194; }
     html[data-theme="dark"] .study-toc-list a { color: #7ebbed; }
     html[data-theme="dark"] .study-toc-l1 > a { color: #f5f1ec; }
+    html[data-theme="dark"] .study-reading-key { color: #aca194; }
+    html[data-theme="dark"] .study-reading-key-term { color: #e6dfd6; border-bottom-color: #c9a66b; }
+    html[data-theme="dark"] .study-reading-key-link { color: #7ebbed; }
     html[data-theme="dark"] .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
     html[data-theme="dark"] .study-theme-toggle:hover { border-color: #7ebbed; }
   }
@@ -668,10 +665,9 @@
     html:not([data-theme="light"]) .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
     html:not([data-theme="light"]) .study-toolbar-link { color: #7ebbed; }
     html:not([data-theme="light"]) .study-toolbar-link:hover { color: #b8daf3; }
-    html:not([data-theme="light"]) .study-toolbar-title { color: #f5f1ec; }
-    html:not([data-theme="light"]) .study-toolbar-draft { color: #aca194; }
     html:not([data-theme="light"]) .study-toolbar-section.is-disabled { color: #6f655a; }
-    html:not([data-theme="light"]) .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    html:not([data-theme="light"]) .term-tip { color: inherit; border-bottom-color: #c9a66b; }
+    html:not([data-theme="light"]) .term-tip:hover { background: #2f2a24; }
     html:not([data-theme="light"]) .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
     html:not([data-theme="light"]) .study-toc { border-color: #423b33; }
     html:not([data-theme="light"]) .study-toc-summary:hover { background: #1e1b18; }
@@ -679,6 +675,9 @@
     html:not([data-theme="light"]) .study-toc-meta { color: #aca194; }
     html:not([data-theme="light"]) .study-toc-list a { color: #7ebbed; }
     html:not([data-theme="light"]) .study-toc-l1 > a { color: #f5f1ec; }
+    html:not([data-theme="light"]) .study-reading-key { color: #aca194; }
+    html:not([data-theme="light"]) .study-reading-key-term { color: #e6dfd6; border-bottom-color: #c9a66b; }
+    html:not([data-theme="light"]) .study-reading-key-link { color: #7ebbed; }
     html:not([data-theme="light"]) .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
     html:not([data-theme="light"]) .study-theme-toggle:hover { border-color: #7ebbed; }
   }
@@ -689,12 +688,11 @@
 <a class="skip-link" href="#main">Skip to content</a>
 <nav class="study-toolbar" aria-label="Study navigation">
   <div class="study-toolbar-row study-toolbar-row--primary">
-    <a class="study-toolbar-link study-toolbar-back" href="../index.html#study-Research-Note-Jeevan-Activity-Anatomy-Pass-One">&larr; All studies</a>
-    <p class="study-toolbar-title">Research Note: Pass-One Anatomy of the Remaining *Jeevan* Activities</p>
+    <a class="study-toolbar-link study-toolbar-back" href="../index.html#study-Research-Note-Jeevan-Activity-Anatomy-Pass-One" aria-label="Back to all studies">&larr; Studies</a>
     <span class="study-toolbar-actions">
       <a class="study-toolbar-link study-toolbar-discuss" href="discussion.html?dv=3">Discuss</a>
-      <a class="study-toolbar-link study-toolbar-download" href="Research-Note-Jeevan-Activity-Anatomy-Pass-One.pdf" download>Download PDF</a>
-      <a class="study-toolbar-link study-toolbar-feedback" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&title=Study%20feedback%3A%20Research%20Note%3A%20Pass-One%20Anatomy%20of%20the%20Remaining%20%2AJeevan%2A%20Activities">Suggest a correction</a>
+      <a class="study-toolbar-link study-toolbar-download" href="Research-Note-Jeevan-Activity-Anatomy-Pass-One.pdf" download aria-label="Download PDF">PDF</a>
+      <a class="study-toolbar-link study-toolbar-feedback" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&title=Study%20feedback%3A%20Research%20Note%3A%20Pass-One%20Anatomy%20of%20the%20Remaining%20%2AJeevan%2A%20Activities" aria-label="Suggest a correction">Suggest edit</a>
       <button type="button" class="study-theme-toggle" id="study-theme-toggle" aria-label="Switch color theme">
         <span class="study-theme-toggle-label">Dark</span>
       </button>
@@ -710,7 +708,7 @@
 <p><strong>Edited on:</strong> August 16, 2026, 6:31 PM IST</p>
 <p><strong>Status:</strong> Internal research note (not a catalog entry). Pass One of the activity-to-sphere analysis.</p>
 <p><strong>Scope:</strong> This register completes source and activity-anatomy coding for the 106 activity-members not already analysed in the eight <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers.html">pilot dossiers</a>. Together, the pilot&rsquo;s sixteen records and this register&rsquo;s 106 records cover all 122 tabulated positions. This pass records source assignment, entry form, bearer, object, counterpart, endpoint, governing criterion, pair semantics, and documentary uncertainty. It does not code lifecycle conditions, spheres, family forms, or institutions. Section 7 specifies the normalization gate required before those 122 anatomy records become a comparable Pass-Two dataset.</p>
-<details class="study-toc" id="study-contents">
+<details class="study-toc study-toc--with-key" id="study-contents">
   <summary class="study-toc-summary">
     <span class="study-toc-label">Contents</span>
     <span class="study-toc-meta">9 sections &middot; 75 headings</span>
@@ -795,9 +793,14 @@
     </ol>
   </nav>
 </details>
+<p class="study-reading-key" aria-label="Reading key">
+  <span class="study-reading-key-term">Dotted underline</span>: definition
+  <span aria-hidden="true">&middot;</span>
+  <span class="study-reading-key-link">Blue underline</span>: link
+</p>
 <h2 id="1-method-and-limits">1. Method and limits</h2>
 <p>The AVD table governs which member occupies the <em>bal</em> and <em>shakti</em> columns (AVD, pp. 91-94). The detailed MVD definitions govern the content assigned to those names (MVD, pp. 328-348). Every record below was checked against both presentations through <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Activity-Pair-Inventory.html"><em>The Sixty-One Activity Pairs of Jeevan</em></a>, which preserves the Hindi wording, English rendering, translation variants, and the cases in which a definition does not behave like the name of an operation.</p>
-<p>The fields have deliberately narrow meanings. <strong>Entry form</strong> asks what kind of item the source has placed in the activity slot. <strong>Bearer</strong> asks whether the item is borne by <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, a human role, a relationship, the body, a material unit, or a result. <strong>Object</strong> is what the member concerns. <strong>Counterpart</strong> is another participant or entity required by the definition; “none stated” does not deny later outward evidence. <strong>Endpoint</strong> is the nearest fulfilment named or implied by the definition. <strong>Criterion</strong> distinguishes fulfilment from a plausible imitation. Where the definition does not supply such a distinction, the field remains open rather than being filled from a preferred social model.</p>
+<p>The fields have deliberately narrow meanings. <strong>Entry form</strong> asks what kind of item the source has placed in the activity slot. <strong>Bearer</strong> asks whether the item is borne by <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>, a human role, a relationship, the body, a material unit, or a result. <strong>Object</strong> is what the member concerns. <strong>Counterpart</strong> is another participant or entity required by the definition; “none stated” does not deny later outward evidence. <strong>Endpoint</strong> is the nearest fulfilment named or implied by the definition. <strong>Criterion</strong> distinguishes fulfilment from a plausible imitation. Where the definition does not supply such a distinction, the field remains open rather than being filled from a preferred social model.</p>
 <p>The codes retain the pilot convention: <strong>D</strong> is directly stated, <strong>I</strong> is a structural inference from stated content, and <strong>O</strong> marks an unresolved documentary or interpretive question. Pair semantics are always narrower than the mere fact of pairing. No record assumes that the <em>shakti</em> member is an outward performance caused by its <em>bal</em> partner. Because these compact records sometimes place direct source content and interpretation in one row, the normalization gate must assign provenance to each field separately before comparison.</p>
 <p>Throughout the five-pass analysis, <strong>voice</strong> has a precise operational meaning: the effective, supported opportunity of a person, counterpart, or affected party to express understanding, needs, expectations, agreement, and disagreement; to participate in deliberation and decisions that affect them; to have what they express considered and answered with reasons; and to refuse, challenge, or appeal without retaliation. It means neither mere permission to speak nor equal authority in every decision. Pass One does not yet code voice as an environmental condition, but its counterpart, endpoint, and criterion fields supply the activity anatomy from which later passes derive this requirement.</p>
 <p>The completed corpus is:</p>
@@ -1687,7 +1690,7 @@
 </tr>
 </tbody>
 </table></div>
-<p><strong>Pair semantics and limit:</strong> Both slots contain objects or criteria for <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Modification or tendency in *jeevan* — one of the faculties whose alignment supports or obstructs understanding.">vritti</button></span></em>, not unambiguously named mental operations (<strong>O</strong>). Their pairing connects truth with the innate nature by which units are understood (<strong>I</strong>), but the precise activity grammar remains unstated.</p>
+<p><strong>Pair semantics and limit:</strong> Both slots contain objects or criteria for <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Vritti — the decisive mind or disposition; jeevan’s faculty of comparison and thought, inspired by chitta.">vritti</button></span></em>, not unambiguously named mental operations (<strong>O</strong>). Their pairing connects truth with the innate nature by which units are understood (<strong>I</strong>), but the precise activity grammar remains unstated.</p>
 <h3 id="v-13-tadatmayata-sahas">V-13 - <em>Tadatmayata / sahas</em></h3>
 <p><strong>Source check:</strong> AVD, p. 92; MVD, p. 336.</p>
 <div class="table-scroll"><table>
@@ -2304,7 +2307,7 @@
 </tr>
 </tbody>
 </table></div>
-<p><strong>Pair semantics and limit:</strong> The source pairs bodily-sensory conduciveness with the tendencies through which <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> projects, but supplies no narrower interface (<strong>O</strong>). The record therefore does not infer that pleasantness selects or causes the tendencies.</p>
+<p><strong>Pair semantics and limit:</strong> The source pairs bodily-sensory conduciveness with the tendencies through which <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> projects, but supplies no narrower interface (<strong>O</strong>). The record therefore does not infer that pleasantness selects or causes the tendencies.</p>
 <h3 id="m-11-ullas-haas">M-11 - <em>Ullas / haas</em></h3>
 <p><strong>Source check:</strong> AVD, pp. 92-94; MVD, p. 342. The Hindi line appears as <em>hras</em> while its definition and English rendering concern joyousness or merriness; the tabulated assignment governs the retained name <em>haas</em>.</p>
 <div class="table-scroll"><table>
@@ -3187,13 +3190,13 @@
 <p><strong>Pair semantics and limit:</strong> Visible form and an affinity/otherness response are directly paired (<strong>D</strong>), but the correctness of that response is underdetermined. Pass Two must not treat immediate attraction, exclusion, or cultural appearance standards as fulfilment.</p>
 <h2 id="6-pass-one-findings-across-the-106-records">6. Pass-One findings across the 106 records</h2>
 <h3 id="61-entry-forms-are-irreducibly-heterogeneous" data-depth="2">6.1 Entry forms are irreducibly heterogeneous</h3>
-<p>The remaining members confirm the methodological decision made in the pilots. They include inward successes (<em>anand</em>, <em>shanti</em>, <em>sukh</em>), readinesses (<em>dhee</em>, <em>tatparta</em>, <em>swagat</em>), cognitive or expressive operations (<em>shruti</em>, <em>vidya</em>, <em>vichar</em>), relational values and acts (<em>vishwas</em>, <em>daya</em>, <em>mamta</em>), named person-roles (<em>shishya</em>, <em>mata</em>, <em>pita</em>), relationships (<em>pati-patni</em>, <em>bhai-mitra</em>, <em>bahan</em>), material properties (<em>roop</em>, <em>jati</em>, the sensory qualities), bodily states or processes (<em>svasthya</em>, <em>shvasan-nihshvasan</em>), and criteria or results (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satya" data-definition="Realisation perspective — whether assessment is grounded in coexistence as it is.">satya</button></span></em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, <em>poshan</em>). A uniform question such as “which institution activates this activity?” would therefore misclassify the source before social analysis begins.</p>
+<p>The remaining members confirm the methodological decision made in the pilots. They include inward successes (<em>anand</em>, <em>shanti</em>, <em>sukh</em>), readinesses (<em>dhee</em>, <em>tatparta</em>, <em>swagat</em>), cognitive or expressive operations (<em>shruti</em>, <em>vidya</em>, <em>vichar</em>), relational values and acts (<em>vishwas</em>, <em>daya</em>, <em>mamta</em>), named person-roles (<em>shishya</em>, <em>mata</em>, <em>pita</em>), relationships (<em>pati-patni</em>, <em>bhai-mitra</em>, <em>bahan</em>), material properties (<em>roop</em>, <em>jati</em>, the sensory qualities), bodily states or processes (<em>svasthya</em>, <em>shvasan-nihshvasan</em>), and criteria or results (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satya" data-definition="Truth — that which is uniformly perceivable, existent, and realisable at all times; it includes absolute, relative, and objective truth in existence.">satya</button></span></em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span></em>, <em>poshan</em>). A uniform question such as “which institution activates this activity?” would therefore misclassify the source before social analysis begins.</p>
 <h3 id="62-counterparts-arise-from-definitions-not-from-a-social-taxonomy" data-depth="2">6.2 Counterparts arise from definitions, not from a social taxonomy</h3>
 <p>Direct interpersonal counterparts are unavoidable in the definitions of kindness, grace, compassion, trust, generosity, learnerhood, cooperation, kinship, parenthood, and protection. Bodies and material objects are unavoidable in health, sensory contact, form, kind, and nourishing conjunction. Other members remain inward in their immediate bearer while implying later expression or evidence. These topologies have been recorded without deciding that a recurrent counterpart must be housed in family, school, court, workplace, market, or any other institution.</p>
 <h3 id="63-endpoints-and-criteria-are-not-equally-explicit" data-depth="2">6.3 Endpoints and criteria are not equally explicit</h3>
 <p>Many definitions supply their own criterion: truth for <em>nishchaya</em>, justice for <em>dhairya</em> and <em>veerta</em>, receptivity for <em>daya</em> and <em>krupa</em>, bodily wellness for <em>priya</em>, humaneness for <em>samyama</em>, and conduciveness for <em>poshan</em>. Others name a content but not its correctness condition. The relation of <em>gaurav</em> to a worthy exemplar, the criterion governing affinity or otherness after visible form, the values specific to the spousal slot, and the functional reason for pairing kind with time remain open. Pass Two must preserve these gaps rather than filling them with conventional norms.</p>
 <h3 id="64-pair-semantics-remain-plural" data-depth="2">6.4 Pair semantics remain plural</h3>
-<p>The records disclose several recurring but non-exhaustive relations: held condition and readiness (<em>anand/dhee</em>), articulation and repeatability (<em>shruti/smriti</em>), capacity and artful activity (<em>medha/kala</em>), inner regulation and outward participation (<em>samyama/niyam</em>), relational role and value-bearing conduct (<em>sathi/dayitva</em>), sensory quality and bodily correlate (<em>sugandh-durgandh/shvasan-nihshvasan</em>), and property paired with another analytic property (<em>jati/<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em>). Some pairs remain connected only by the source position. This plurality rules out reversing or extending the first member&rsquo;s analysis to fill the second.</p>
+<p>The records disclose several recurring but non-exhaustive relations: held condition and readiness (<em>anand/dhee</em>), articulation and repeatability (<em>shruti/smriti</em>), capacity and artful activity (<em>medha/kala</em>), inner regulation and outward participation (<em>samyama/niyam</em>), relational role and value-bearing conduct (<em>sathi/dayitva</em>), sensory quality and bodily correlate (<em>sugandh-durgandh/shvasan-nihshvasan</em>), and property paired with another analytic property (<em>jati/<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="Time — duration of an activity.">kaal</button></span></em>). Some pairs remain connected only by the source position. This plurality rules out reversing or extending the first member&rsquo;s analysis to fill the second.</p>
 <h3 id="65-documentary-residuals-carried-forward" data-depth="2">6.5 Documentary residuals carried forward</h3>
 <p>Five residual classes must remain visible in Pass Two:</p>
 <ul>
@@ -3211,12 +3214,12 @@
 <h3 id="72-four-locations-that-must-not-be-collapsed" data-depth="2">7.2 Four locations that must not be collapsed</h3>
 <p>The normalized record separates four fields:</p>
 <ol>
-<li><strong>Ontological locus</strong> - where the entry is borne: <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, body, relationship, material unit or process, result field, or disputed location.</li>
+<li><strong>Ontological locus</strong> - where the entry is borne: <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>, body, relationship, material unit or process, result field, or disputed location.</li>
 <li><strong>Field of operation</strong> - the content, person, body, relation, object, or process with which it deals.</li>
 <li><strong>Field of consequence</strong> - the persons, relationships, bodies, collectives, material systems, or future participants affected by expression.</li>
 <li><strong>Field of evidence and evaluation</strong> - where correctness becomes observable and which standpoints can assess it.</li>
 </ol>
-<p>An inward locus can therefore have relational or ecological consequences and public evidence. Conversely, a material property or bodily process can occupy a source activity slot without becoming a second private operation of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>.</p>
+<p>An inward locus can therefore have relational or ecological consequences and public evidence. Conversely, a material property or bodily process can occupy a source activity slot without becoming a second private operation of <em>jeevan</em>.</p>
 <h3 id="73-entry-form-specific-lifecycle-paths" data-depth="2">7.3 Entry-form-specific lifecycle paths</h3>
 <p>Each normalized member enters one primary path: inner operation or orientation; role or relation; material or sensory property; bodily process or state; criterion or result; or a documented residual. Pass Two will still examine development, orientation, performance, consequence, evaluation, correction, sustaining, and transmission, but the question changes with the entry form. A role requires a counterpart, responsibilities, protection, and succession; a property requires access, discrimination, use, and consequence; a bodily process requires conditions of capability and restoration; a result requires the operations, evidence, and affected parties through which it is achieved. This branching prevents semantic objects and results from being redescribed as unobserved mental acts.</p>
 <h3 id="74-external-relation-necessity-scope-and-universality" data-depth="2">7.4 External relation, necessity scope, and universality</h3>
@@ -3249,7 +3252,7 @@
 </table></div>
 <p>Thus a protected opportunity for a counterpart to speak may be <code>PROT; N-EVD; U-H; I</code> without being declared necessary for the inward occurrence of the bearer&rsquo;s deliberation. A particular court procedure may be <code>CORR; C-COR; V-C; H</code> even if access to independent correction is a universal functional requirement.</p>
 <h3 id="75-textual-social-vocabulary-is-input-not-an-independent-discovery" data-depth="2">7.5 Textual social vocabulary is input, not an independent discovery</h3>
-<p>The source directly names roles, relationships, family, education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em>, production, exchange, and universal orderliness in some passages and member definitions. The normalized matrix will retain these as <strong>D</strong> textual commitments and tag them as source-embedded social vocabulary. Later clustering must hide those labels. If a role or social function reappears after institution-neutral feature comparison, that convergence strengthens the proposed structure; if it appears only because its name was visible to the coder, it cannot count as a bottom-up derivation.</p>
+<p>The source directly names roles, relationships, family, education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Sanskar — accepted qualitative establishments; in education–sanskar, the establishment and transmission of understanding through human tradition.">sanskar</button></span></em>, production, exchange, and universal orderliness in some passages and member definitions. The normalized matrix will retain these as <strong>D</strong> textual commitments and tag them as source-embedded social vocabulary. Later clustering must hide those labels. If a role or social function reappears after institution-neutral feature comparison, that convergence strengthens the proposed structure; if it appears only because its name was visible to the coder, it cannot count as a bottom-up derivation.</p>
 <h3 id="76-normalization-completion-criteria" data-depth="2">7.6 Normalization completion criteria</h3>
 <p>The gate is complete only when all 122 records have:</p>
 <ul>
@@ -3263,12 +3266,12 @@
 <p>The normalized feature matrix then becomes the fixed input to Pass Two. Normalization may clarify wording or split a mixed field, but it must not silently change the documentary assignment established here.</p>
 <h2 id="8-completion-statement-and-handoff-to-pass-two">8. Completion statement and handoff to Pass Two</h2>
 <p>Pass One is complete at the declared grain. The eight pilots supply sixteen checked anatomy records; this register supplies 106. All sixty-one AVD positions and all 122 column assignments now have an identified entry form, bearer, object, counterpart, endpoint, criterion, and pair-semantics statement or an explicit open field.</p>
-<p>The normalization gate and Pass Two are now completed in the <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.html">Pass-Two Lifecycle and Evidence Register</a>. That register asks, member by member, what is required for development and receptivity, right orientation, embodied performance, consequence visibility, evaluation, correction, sustaining, and transmission. It records dependencies among activities of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> before external conditions and retains the institutional neutrality established here.</p>
+<p>The normalization gate and Pass Two are now completed in the <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.html">Pass-Two Lifecycle and Evidence Register</a>. That register asks, member by member, what is required for development and receptivity, right orientation, embodied performance, consequence visibility, evaluation, correction, sustaining, and transmission. It records dependencies among activities of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> before external conditions and retains the institutional neutrality established here.</p>
 <h2 id="references">References</h2>
 <h3 id="madhyasth-darshan">Madhyasth Darshan</h3>
 <ul>
 <li><strong>AVD</strong> - A. Nagraj, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf"><em>Adhyatmvad</em></a>, tr. Sanjeev Chopra (work in progress). Cited: the five-column table, faculty allocation, and all sixty-one numbered <em>bal/shakti</em> assignments, including the repeated <em>poshan</em> positions and closing-name variants (pp. 91-94; §§1-5).</li>
-<li><strong>MVD</strong> - A. Nagraj, <a href="../../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.md"><em>Madhyasth Darshan - Co-existentialism</em></a>, tr. Rakesh Gupta. Cited: the state and motion of awakening as <em>anand/dhee</em> and the detailed definitions of the <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="buddhi" data-definition="Discriminative faculty in *jeevan* — part of the sentient unit's orbital structure with *mun*, *vritti*, and *chitta*.">buddhi</button></span></em> and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery.">chitta</button></span></em> members (pp. 327-331; §§2-3); the thirty-six <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Modification or tendency in *jeevan* — one of the faculties whose alignment supports or obstructs understanding.">vritti</button></span></em> definitions (pp. 331-338; §4); the sixty-four <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mun" data-definition="A faculty of *jeevan* — imagination and selection; part of the orbital structure with *buddhi*, *vritti*, and *chitta*.">mun</button></span></em> definitions, named relationships, bodily states, sensory qualities, bodily correlates, and nourishing/depleting contrast (pp. 338-348; §§5-6).</li>
+<li><strong>MVD</strong> - A. Nagraj, <a href="../../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.md"><em>Madhyasth Darshan - Co-existentialism</em></a>, tr. Rakesh Gupta. Cited: the state and motion of awakening as <em>anand/dhee</em> and the detailed definitions of the <em>buddhi</em> and <em>chitta</em> members (pp. 327-331; §§2-3); the thirty-six <em>vritti</em> definitions (pp. 331-338; §4); the sixty-four <em>mun</em> definitions, named relationships, bodily states, sensory qualities, bodily correlates, and nourishing/depleting contrast (pp. 338-348; §§5-6).</li>
 </ul>
 <h3 id="related-research-notes">Related research notes</h3>
 <ul>
@@ -3386,14 +3389,23 @@
     floatPanel.hidden = true;
     document.body.appendChild(floatPanel);
   }
+  let activeButton = null;
+  let pinnedButton = null;
 
   const hide = () => {
+    if (activeButton) activeButton.setAttribute("aria-expanded", "false");
+    activeButton = null;
     floatPanel.classList.remove("is-visible");
     floatPanel.hidden = true;
     floatPanel.textContent = "";
   };
 
   const show = (button, text) => {
+    if (activeButton && activeButton !== button) {
+      activeButton.setAttribute("aria-expanded", "false");
+    }
+    activeButton = button;
+    button.setAttribute("aria-expanded", "true");
     floatPanel.textContent = text;
     floatPanel.hidden = false;
     floatPanel.classList.add("is-visible");
@@ -3412,21 +3424,41 @@
     const definition = button.getAttribute("data-definition");
     if (!definition) return;
     button.setAttribute("aria-describedby", "term-tip-float");
+    button.setAttribute("aria-expanded", "false");
     const reveal = () => show(button, definition);
-    button.addEventListener("mouseenter", reveal);
-    button.addEventListener("focus", reveal);
-    button.addEventListener("mouseleave", hide);
-    button.addEventListener("blur", hide);
+    button.addEventListener("mouseenter", () => {
+      if (!pinnedButton) reveal();
+    });
+    button.addEventListener("focus", () => {
+      if (!pinnedButton || pinnedButton === button) reveal();
+    });
+    button.addEventListener("mouseleave", () => {
+      if (!pinnedButton) hide();
+    });
+    button.addEventListener("blur", () => {
+      if (!pinnedButton) hide();
+    });
     button.addEventListener("click", event => {
       event.stopPropagation();
-      if (floatPanel.hidden) reveal();
-      else hide();
+      if (pinnedButton === button) {
+        pinnedButton = null;
+        hide();
+      } else {
+        pinnedButton = button;
+        reveal();
+      }
     });
   });
 
-  document.addEventListener("click", hide);
+  document.addEventListener("click", () => {
+    pinnedButton = null;
+    hide();
+  });
   document.addEventListener("keydown", event => {
-    if (event.key === "Escape") hide();
+    if (event.key === "Escape") {
+      pinnedButton = null;
+      hide();
+    }
   });
 })();
 </script>

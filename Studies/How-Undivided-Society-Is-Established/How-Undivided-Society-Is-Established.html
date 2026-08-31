@@ -324,13 +324,17 @@
   .term-tip {
     background: none;
     border: none;
-    border-bottom: 1px dotted #1a5276;
+    border-bottom: 1px dotted #8a6d3b;
     padding: 0;
     margin: 0;
     font: inherit;
-    color: #1a5276;
+    color: inherit;
     cursor: help;
     text-align: inherit;
+  }
+  .term-tip:hover {
+    background: #f6f0e7;
+    border-radius: 2px;
   }
   .term-tip:focus-visible {
     outline: 2px solid #1a5276;
@@ -363,14 +367,14 @@
   .study-toolbar {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
     font-family: 'Segoe UI', system-ui, sans-serif;
     font-size: 13px;
     position: sticky;
     top: 0;
     z-index: 20;
-    margin: 0 0 22px;
-    padding: 10px 14px;
+    margin: 0 0 18px;
+    padding: 6px 10px;
     border: 1px solid #d8d2c8;
     border-radius: 8px;
     background: rgba(247, 244, 239, 0.92);
@@ -380,20 +384,21 @@
   .study-toolbar-row {
     display: grid;
     align-items: center;
-    gap: 8px 14px;
+    gap: 10px;
   }
   .study-toolbar-row--primary {
-    grid-template-columns: minmax(0, 1fr) minmax(0, auto) minmax(0, 1fr);
+    grid-template-columns: auto minmax(0, 1fr);
   }
   .study-toolbar-actions {
-    grid-column: 3;
+    grid-column: 2;
     justify-self: end;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     justify-content: flex-end;
-    gap: 8px 12px;
+    gap: 6px;
     min-width: 0;
+    white-space: nowrap;
     text-align: right;
   }
   .study-toolbar-feedback {
@@ -412,21 +417,6 @@
   .study-toolbar-download {
     min-width: 0;
     text-align: right;
-  }
-  .study-toolbar-title {
-    grid-column: 2;
-    justify-self: center;
-    text-align: center;
-    margin: 0;
-    min-width: 0;
-    font-size: 14px;
-    font-weight: 700;
-    color: #2c241c;
-    line-height: 1.35;
-  }
-  .study-toolbar-draft {
-    font-weight: 600;
-    color: #5c5348;
   }
   .study-toolbar-link {
     color: #1a5276;
@@ -468,7 +458,7 @@
     background: #fdfcfa;
     border: 1px solid #d9d2c7;
     border-radius: 999px;
-    padding: 3px 11px;
+    padding: 2px 8px;
     cursor: pointer;
     white-space: nowrap;
   }
@@ -540,6 +530,23 @@
   .study-toc-l1 > a { font-weight: 700; color: #2c241c; }
   .study-toc-l2 > a { padding-left: 15px; }
   .study-toc-l3 > a { padding-left: 30px; font-size: 12.5px; color: #4d6f86; }
+  .study-toc--with-key { margin-bottom: 0.55em; }
+  .study-reading-key {
+    margin: 0 0 2.2em;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    line-height: 1.45;
+    color: #6b6357;
+  }
+  .study-reading-key > span[aria-hidden="true"] { padding: 0 5px; }
+  .study-reading-key-term {
+    color: #2c241c;
+    border-bottom: 1px dotted #8a6d3b;
+  }
+  .study-reading-key-link {
+    color: #1a5276;
+    text-decoration: underline;
+  }
   @media (prefers-reduced-motion: reduce) {
     .study-toc-summary::before { transition: none; }
   }
@@ -556,11 +563,15 @@
       margin: 32px auto 88px;
       padding: 0 22px;
     }
-    /* Roughly 68 characters. The container stays wide enough for tables and
-       figures while running text keeps a measure the eye can track back. */
-    p, ul, ol, blockquote, .quote-source, dl {
-      max-width: 37rem;
+    /* Add a subtle one point of breathing room above and below quotations on
+       screen without changing the print/PDF layout. */
+    blockquote {
+      margin-top: 11pt;
+      margin-bottom: 11pt;
     }
+    /* Running text uses the full reading column. Tables and figures share the
+       same 46rem container, so paragraphs no longer collapse into a visibly
+       narrower strip inside the page. */
     p {
       margin: 0.72em 0;
       text-align: left;
@@ -583,34 +594,18 @@
   }
 
   @media (max-width: 640px) {
-    .study-toolbar-row--primary {
-      grid-template-columns: minmax(0, auto) minmax(0, 1fr);
-      row-gap: 6px;
-    }
-    /* Back and title share the first line and the actions take the second, so
-       the reader reaches the heading in two rows rather than four. */
-    .study-toolbar-back { grid-column: 1; justify-self: start; }
-    .study-toolbar-title {
-      grid-column: 2;
-      justify-self: end;
-      text-align: right;
-      font-size: 13px;
-      white-space: normal;
-    }
     .study-toolbar-actions {
-      grid-column: 1 / -1;
-      justify-self: stretch;
-      justify-content: space-between;
-      gap: 8px;
+      gap: 5px;
     }
     .study-toolbar-feedback { font-size: 11px; }
-    .study-toolbar-section { white-space: normal; }
+    .study-toolbar-section { font-size: 11px; }
     .study-toc-nav { max-height: 52vh; }
   }
   @media print {
     .study-toolbar { display: none !important; }
     .study-theme-toggle { display: none !important; }
     .study-toc { display: none !important; }
+    .study-reading-key { display: none !important; }
     .skip-link { display: none !important; }
     .term-tip {
       border-bottom: none;
@@ -637,10 +632,9 @@
     html[data-theme="dark"] .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
     html[data-theme="dark"] .study-toolbar-link { color: #7ebbed; }
     html[data-theme="dark"] .study-toolbar-link:hover { color: #b8daf3; }
-    html[data-theme="dark"] .study-toolbar-title { color: #f5f1ec; }
-    html[data-theme="dark"] .study-toolbar-draft { color: #aca194; }
     html[data-theme="dark"] .study-toolbar-section.is-disabled { color: #6f655a; }
-    html[data-theme="dark"] .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    html[data-theme="dark"] .term-tip { color: inherit; border-bottom-color: #c9a66b; }
+    html[data-theme="dark"] .term-tip:hover { background: #2f2a24; }
     html[data-theme="dark"] .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
     html[data-theme="dark"] .study-toc { border-color: #423b33; }
     html[data-theme="dark"] .study-toc-summary:hover { background: #1e1b18; }
@@ -648,6 +642,9 @@
     html[data-theme="dark"] .study-toc-meta { color: #aca194; }
     html[data-theme="dark"] .study-toc-list a { color: #7ebbed; }
     html[data-theme="dark"] .study-toc-l1 > a { color: #f5f1ec; }
+    html[data-theme="dark"] .study-reading-key { color: #aca194; }
+    html[data-theme="dark"] .study-reading-key-term { color: #e6dfd6; border-bottom-color: #c9a66b; }
+    html[data-theme="dark"] .study-reading-key-link { color: #7ebbed; }
     html[data-theme="dark"] .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
     html[data-theme="dark"] .study-theme-toggle:hover { border-color: #7ebbed; }
   }
@@ -668,10 +665,9 @@
     html:not([data-theme="light"]) .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
     html:not([data-theme="light"]) .study-toolbar-link { color: #7ebbed; }
     html:not([data-theme="light"]) .study-toolbar-link:hover { color: #b8daf3; }
-    html:not([data-theme="light"]) .study-toolbar-title { color: #f5f1ec; }
-    html:not([data-theme="light"]) .study-toolbar-draft { color: #aca194; }
     html:not([data-theme="light"]) .study-toolbar-section.is-disabled { color: #6f655a; }
-    html:not([data-theme="light"]) .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    html:not([data-theme="light"]) .term-tip { color: inherit; border-bottom-color: #c9a66b; }
+    html:not([data-theme="light"]) .term-tip:hover { background: #2f2a24; }
     html:not([data-theme="light"]) .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
     html:not([data-theme="light"]) .study-toc { border-color: #423b33; }
     html:not([data-theme="light"]) .study-toc-summary:hover { background: #1e1b18; }
@@ -679,6 +675,9 @@
     html:not([data-theme="light"]) .study-toc-meta { color: #aca194; }
     html:not([data-theme="light"]) .study-toc-list a { color: #7ebbed; }
     html:not([data-theme="light"]) .study-toc-l1 > a { color: #f5f1ec; }
+    html:not([data-theme="light"]) .study-reading-key { color: #aca194; }
+    html:not([data-theme="light"]) .study-reading-key-term { color: #e6dfd6; border-bottom-color: #c9a66b; }
+    html:not([data-theme="light"]) .study-reading-key-link { color: #7ebbed; }
     html:not([data-theme="light"]) .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
     html:not([data-theme="light"]) .study-theme-toggle:hover { border-color: #7ebbed; }
   }
@@ -689,12 +688,11 @@
 <a class="skip-link" href="#main">Skip to content</a>
 <nav class="study-toolbar" aria-label="Study navigation">
   <div class="study-toolbar-row study-toolbar-row--primary">
-    <a class="study-toolbar-link study-toolbar-back" href="../index.html#study-How-Undivided-Society-Is-Established">&larr; All studies</a>
-    <p class="study-toolbar-title">How Undivided Society Is Established</p>
+    <a class="study-toolbar-link study-toolbar-back" href="../index.html#study-How-Undivided-Society-Is-Established" aria-label="Back to all studies">&larr; Studies</a>
     <span class="study-toolbar-actions">
       <a class="study-toolbar-link study-toolbar-discuss" href="discussion.html?dv=3">Discuss</a>
-      <a class="study-toolbar-link study-toolbar-download" href="How-Undivided-Society-Is-Established.pdf" download>Download PDF</a>
-      <a class="study-toolbar-link study-toolbar-feedback" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&title=Study%20feedback%3A%20How%20Undivided%20Society%20Is%20Established">Suggest a correction</a>
+      <a class="study-toolbar-link study-toolbar-download" href="How-Undivided-Society-Is-Established.pdf" download aria-label="Download PDF">PDF</a>
+      <a class="study-toolbar-link study-toolbar-feedback" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&title=Study%20feedback%3A%20How%20Undivided%20Society%20Is%20Established" aria-label="Suggest a correction">Suggest edit</a>
       <button type="button" class="study-theme-toggle" id="study-theme-toggle" aria-label="Switch color theme">
         <span class="study-theme-toggle-label">Dark</span>
       </button>
@@ -706,12 +704,12 @@
   </div>
 </nav>
 <main id="main"><h1>How Undivided Society Is Established</h1>
-<p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> — a group of people studying <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
+<p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> — a group of people studying <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
 <p><strong>Edited on:</strong> August 30, 2026, 2:52 AM IST</p>
-<p><strong>The question:</strong> What basis could make humankind an undivided society, why are influential contemporary alternatives insufficient by themselves, and how does <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> propose that such a society be established and evidenced?</p>
-<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> does not use <em>akhand samaj</em>, undivided society, as a name for political uniformity, a world state, or the numerical enlargement of an existing community. It names humankind recognised as one field of relationships, living through mutually fulfilling conduct and participating in universal orderliness (<em>sarvabhaum vyavastha</em>). The claim is demanding: unity must be compatible with distinct persons and families, prosperity with non-accumulation, freedom with responsibility, and social continuity with understanding rather than coercion.</p>
-<p>This study asks what would make that claim more than an aspiration. It develops the <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> account from coexistence, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, relationship, justice, and awakening; compares that basis with science-only materialism, Advaita Vedanta, and religious authority within the diverse field called Hinduism; and follows establishment from the individual through family, institutions, and intergenerational tradition. The process reconstruction in <a href="https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html"><em>From Unit Activity to Human Orderliness</em></a> informs the distinction between structural closure, body–<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> association, and maintained relational order, but the present argument remains in ordinary philosophical prose.</p>
-<details class="study-toc" id="study-contents">
+<p><strong>The question:</strong> What basis could make humankind an undivided society, why are influential contemporary alternatives insufficient by themselves, and how does Madhyasth Darshan propose that such a society be established and evidenced?</p>
+<p>Madhyasth Darshan does not use <em>akhand samaj</em>, undivided society, as a name for political uniformity, a world state, or the numerical enlargement of an existing community. It names humankind recognised as one field of relationships, living through mutually fulfilling conduct and participating in universal orderliness (<em>sarvabhaum vyavastha</em>). The claim is demanding: unity must be compatible with distinct persons and families, prosperity with non-accumulation, freedom with responsibility, and social continuity with understanding rather than coercion.</p>
+<p>This study asks what would make that claim more than an aspiration. It develops the Madhyasth Darshan account from coexistence, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>, relationship, justice, and awakening; compares that basis with science-only materialism, Advaita Vedanta, and religious authority within the diverse field called Hinduism; and follows establishment from the individual through family, institutions, and intergenerational tradition. The process reconstruction in <a href="https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html"><em>From Unit Activity to Human Orderliness</em></a> informs the distinction between structural closure, body–<em>jeevan</em> association, and maintained relational order, but the present argument remains in ordinary philosophical prose.</p>
+<details class="study-toc study-toc--with-key" id="study-contents">
   <summary class="study-toc-summary">
     <span class="study-toc-label">Contents</span>
     <span class="study-toc-meta">12 sections &middot; 43 headings</span>
@@ -764,14 +762,19 @@
     </ol>
   </nav>
 </details>
+<p class="study-reading-key" aria-label="Reading key">
+  <span class="study-reading-key-term">Dotted underline</span>: definition
+  <span aria-hidden="true">&middot;</span>
+  <span class="study-reading-key-link">Blue underline</span>: link
+</p>
 <h2 id="standpoint-and-scope">Standpoint and scope</h2>
 <p>These studies are written from the standpoint of a scientist and technologist trained to graduate-level physics and mathematics. From that background, matter-first explanation is familiar and indispensable: physical and natural sciences provide powerful accounts of bodies, ecosystems, production, communication, and institutional effects. The hard problem of consciousness, the status of the self, and the reality of value nevertheless remain contested. This study does not treat materialism as proven merely because material explanation is methodologically successful.</p>
-<p>The method is to read the primary <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> texts and first state the darshan&rsquo;s social argument in its own terms. That argument is then compared in parallel with physics and the natural sciences, Advaita Vedanta, modern Western philosophy where it bears on facts and values, and religious social authority. Physics and mathematics are one leg of the comparison, not the sole tribunal for questions of self, justice, value, or human purpose.</p>
+<p>The method is to read the primary <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> texts and first state the darshan&rsquo;s social argument in its own terms. That argument is then compared in parallel with physics and the natural sciences, Advaita Vedanta, modern Western philosophy where it bears on facts and values, and religious social authority. Physics and mathematics are one leg of the comparison, not the sole tribunal for questions of self, justice, value, or human purpose.</p>
 <p>The comparison is neither missionary nor dismissive. Science, Advaita, and Hindu traditions each preserve genuine achievements: public inquiry and causal knowledge; disciplined examination of self and attachment; moral formation, service, and durable communities. The narrower question is whether any one of them, taken by itself, supplies a universal and publicly examinable basis for humane conduct, material sufficiency, fulfilled relationships, non-sectarian social identity, and institutional continuity.</p>
-<p>The aim is rigorous comparative understanding rather than devotional endorsement. The prose therefore distinguishes what <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> asserts, what can be reconstructed from its concepts, and what remains an open empirical or philosophical problem. Clear and checkable exposition comes first; formal mathematics may follow elsewhere, but this study does not require it.</p>
+<p>The aim is rigorous comparative understanding rather than devotional endorsement. The prose therefore distinguishes what Madhyasth Darshan asserts, what can be reconstructed from its concepts, and what remains an open empirical or philosophical problem. Clear and checkable exposition comes first; formal mathematics may follow elsewhere, but this study does not require it.</p>
 <h2 id="1-what-a-universal-social-basis-must-explain">1. What a universal social basis must explain</h2>
 <h3 id="11-undivided-society-and-universal-orderliness" data-depth="2">1.1 Undivided society and universal orderliness</h3>
-<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> describes society as humane only when it is undivided. This does not erase families, languages, cultures, functions, or local institutions. Division in the relevant sense occurs when such differences become ultimate identities whose security or advantage is pursued against other human beings. Undividedness instead makes human identity primary and treats every smaller association as participation in the wellbeing of the whole.</p>
+<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> describes society as humane only when it is undivided. This does not erase families, languages, cultures, functions, or local institutions. Division in the relevant sense occurs when such differences become ultimate identities whose security or advantage is pursued against other human beings. Undividedness instead makes human identity primary and treats every smaller association as participation in the wellbeing of the whole.</p>
 <blockquote>
 <p><strong>&ldquo;Society is humane only when it is undivided. Societal functioning means participation for undivided society, in other words participation in universal orderliness.&rdquo;</strong>
 - JVD, p. 157</p>
@@ -779,18 +782,18 @@
 <p>Undivided society and universal orderliness name two aspects of one achievement. The first concerns recognition: humankind is one society, and every person enters an already present field of human relationships. The second concerns functioning: education, justice, health, production, and exchange must be organised so that this recognition can be lived. Recognition without institutions remains sentiment; institutions without recognition readily become systems of control, competition, or group advantage.</p>
 <p>The human goal gives the achievement its evaluative content: resolution, prosperity, fearlessness, and coexistence. Resolution concerns clarity in the individual; prosperity is the family&rsquo;s assurance of more production than its needs; fearlessness is trust in society; coexistence is participation with the whole of nature. These are mutually supporting outcomes rather than four independent programmes. Material sufficiency without resolution can become accumulation, inward peace without just relationships can remain private, and social security purchased through fear cannot become fearlessness.</p>
 <h3 id="12-criteria-of-adequacy" data-depth="2">1.2 Criteria of adequacy</h3>
-<p>A basis capable of supporting this telos must answer several connected questions. It must say what a human being is, because a body-only organism, an immortal soul awaiting another world, and a <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>-body joint form imply different accounts of need and fulfilment. It must explain whether values are objective, conventional, commanded, or selected. It must connect knowledge to conduct, since a social philosophy that can be affirmed without being lived cannot explain its own evidence. It must include production and ecology, because no society persists through inward realisation alone. It must also explain how understanding and institutions pass to new generations without depending permanently on force or charismatic authority.</p>
+<p>A basis capable of supporting this telos must answer several connected questions. It must say what a human being is, because a body-only organism, an immortal soul awaiting another world, and a <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>-body joint form imply different accounts of need and fulfilment. It must explain whether values are objective, conventional, commanded, or selected. It must connect knowledge to conduct, since a social philosophy that can be affirmed without being lived cannot explain its own evidence. It must include production and ecology, because no society persists through inward realisation alone. It must also explain how understanding and institutions pass to new generations without depending permanently on force or charismatic authority.</p>
 <p>Universality adds a further constraint. A foundation for all humankind cannot require prior membership in one ancestry, scripture, deity, nation, or sect. Its claims must be available for study, examination, and practical evaluation by any human being. This does not require cultural sameness. It requires a common basis on which differences can meet without one community&rsquo;s inherited authority ruling everyone else.</p>
-<p>These criteria make the question harder than choosing a desirable moral slogan. A viable basis must join ontology, philosophical anthropology, value, conduct, economy, ecology, education, and institutions in one intelligible account. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s distinctive proposal is that this connection is already implicit in coexistence and becomes explicit in awakened human conduct.</p>
+<p>These criteria make the question harder than choosing a desirable moral slogan. A viable basis must join ontology, philosophical anthropology, value, conduct, economy, ecology, education, and institutions in one intelligible account. Madhyasth Darshan&rsquo;s distinctive proposal is that this connection is already implicit in coexistence and becomes explicit in awakened human conduct.</p>
 <h2 id="2-the-madhyasth-darshan-foundation">2. The Madhyasth Darshan foundation</h2>
 <h3 id="21-coexistence-without-a-collective-super-being" data-depth="2">2.1 Coexistence without a collective super-being</h3>
-<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> holds that existence is coexistence: formless Omnipresence (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span></em>) and countless bounded units of nature are ever present together. Each unit is saturated in <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span></em> and thereby active, energised, and regulated in mutuality. Units remain real and distinct; coexistence is not their dissolution into one substance or consciousness. The social importance of this ontology is that unity need not mean sameness, absorption, or subordination to a whole.</p>
-<p>The four orders of material, pranic, animal, and knowledge-order nature display progressively different forms of organisation. Physical and biological units exhibit definite conduct according to their constitutions, seeds, and species. Human conduct is not definite in that way. A human being can understand, mis-evaluate, choose, and revise; humane definiteness must therefore be achieved through <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em>, understood disposition, rather than inherited as a biological programme.</p>
-<p>The darshan explains sentience through <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, the constitutionally complete unit that works through an animal or human body. Its detailed atomic account is a doctrinal claim, not an established result of contemporary physics or neuroscience. For the social argument, the load-bearing distinction is more modest: the body provides sensation and material action, while <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> is said to desire happiness, evaluate, understand, and evidence conduct. The updated ontology and state-dynamic study examine the stronger atomic and continuity claims in depth; this paper does not make social order depend on presenting them as settled natural science.</p>
-<p>Human organisation must also not be mistaken for a literal physicochemical compound. A family or assembly does not become a larger <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, acquire a collective <em>atma</em>, or erase the agency of its members. The analogy with composition is limited but useful: an assembly becomes a coherent whole when its members recognise a shared purpose, fulfil relationships, evaluate outcomes, and carry the method across changes of membership. At the human order, that closure is voluntary, understanding-mediated, fallible, and corrigible.</p>
+<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> holds that existence is coexistence: formless Omnipresence (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipotence — the eternally present, omnipresent reality: formless, motionless absolute energy in which every unit is saturated and through which regulation is manifest.">satta</button></span></em>) and countless bounded units of nature are ever present together. Each unit is saturated in <em>satta</em> and thereby active, energised, and regulated in mutuality. Units remain real and distinct; coexistence is not their dissolution into one substance or consciousness. The social importance of this ontology is that unity need not mean sameness, absorption, or subordination to a whole.</p>
+<p>The four orders of material, pranic, animal, and knowledge-order nature display progressively different forms of organisation. Physical and biological units exhibit definite conduct according to their constitutions, seeds, and species. Human conduct is not definite in that way. A human being can understand, mis-evaluate, choose, and revise; humane definiteness must therefore be achieved through <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Sanskar — accepted qualitative establishments; in education–sanskar, the establishment and transmission of understanding through human tradition.">sanskar</button></span></em>, understood disposition, rather than inherited as a biological programme.</p>
+<p>The darshan explains sentience through <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>, the constitutionally complete unit that works through an animal or human body. Its detailed atomic account is a doctrinal claim, not an established result of contemporary physics or neuroscience. For the social argument, the load-bearing distinction is more modest: the body provides sensation and material action, while <em>jeevan</em> is said to desire happiness, evaluate, understand, and evidence conduct. The updated ontology and state-dynamic study examine the stronger atomic and continuity claims in depth; this paper does not make social order depend on presenting them as settled natural science.</p>
+<p>Human organisation must also not be mistaken for a literal physicochemical compound. A family or assembly does not become a larger <em>jeevan</em>, acquire a collective <em>atma</em>, or erase the agency of its members. The analogy with composition is limited but useful: an assembly becomes a coherent whole when its members recognise a shared purpose, fulfil relationships, evaluate outcomes, and carry the method across changes of membership. At the human order, that closure is voluntary, understanding-mediated, fallible, and corrigible.</p>
 <h3 id="22-relationship-value-and-justice" data-depth="2">2.2 Relationship, value, and justice</h3>
 <p>Lower orders exhibit mutuality, recognition, and fulfilment in definite conduct. Human relationship adds consciously recognisable expectations, responsibilities, values, and evaluation. A relationship is not merely contact or exchange. It is a mutuality in which expectations are oriented toward completeness: parent and child, partners, siblings, friends, teachers, and learners can ask what is to be fulfilled and whether mutual satisfaction has been achieved.</p>
-<p>Values are the essentiality fulfilled in such mutuality. Utility and art concern objects and production; <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> values concern happiness, peace, contentment, and bliss; human, established, and expression values concern humane identity, trust, affection, care, gratitude, respect, and the right-use of body, mind, and wealth. Justice is not one value added to this list. It is the complete relational activity of recognising a relationship, fulfilling its values, evaluating the fulfilment, and reaching mutual satisfaction.</p>
+<p>Values are the essentiality fulfilled in such mutuality. Utility and art concern objects and production; <em>jeevan</em> values concern happiness, peace, contentment, and bliss; human, established, and expression values concern humane identity, trust, affection, care, gratitude, respect, and the right-use of body, mind, and wealth. Justice is not one value added to this list. It is the complete relational activity of recognising a relationship, fulfilling its values, evaluating the fulfilment, and reaching mutual satisfaction.</p>
 <blockquote>
 <p><strong>&ldquo;Recognising relationships, fulfilling values, evaluating, and achieving mutual satisfaction is justice.&rdquo;</strong>
 - MVD, p. 311</p>
@@ -798,19 +801,19 @@
 <p>This makes justice prior to statutory legality in the order of explanation. Law can protect conditions for justice, settle disputes, and restrain harm, but compliance alone does not establish mutual satisfaction. Conversely, personal goodwill without public arrangements cannot secure education, production, health, exchange, or protection at scale. Humane policy must therefore preserve the relational purpose of justice while giving it dependable institutional form.</p>
 <h3 id="23-rule-justice-resolution-and-truth" data-depth="2">2.3 Rule, justice, resolution, and truth</h3>
 <p>Karm Darshan states the grounding sequence with unusual clarity. Omnipresence is the basis of balance in nature; rule is the basis of balanced activity; justice is the basis of balanced behaviour; resolution is the basis of balanced thought; and coexistence as supreme truth is the basis of realisation (KD, pp. 7-8). These are not interchangeable levels. A physical regularity does not by itself become a norm of human conduct, and a norm does not become socially effective merely by being written into law.</p>
-<p>The sequence corrects two opposite reductions. Society cannot be derived by scaling physical regulation upward, because human beings evaluate and can depart from humane conduct. Nor can social order be produced from moral exhortation alone, because conduct occurs through bodies, resources, production, ecosystems, and institutions. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> proposes continuity without collapse: nature provisions order and mutuality; human understanding recognises their meaning; justice closes relationships; resolution stabilises thought; and conduct makes the understanding publicly evident.</p>
+<p>The sequence corrects two opposite reductions. Society cannot be derived by scaling physical regulation upward, because human beings evaluate and can depart from humane conduct. Nor can social order be produced from moral exhortation alone, because conduct occurs through bodies, resources, production, ecosystems, and institutions. Madhyasth Darshan proposes continuity without collapse: nature provisions order and mutuality; human understanding recognises their meaning; justice closes relationships; resolution stabilises thought; and conduct makes the understanding publicly evident.</p>
 <p>Karm Darshan describes awakened tradition as doing after understanding, while deluded tradition learns only after acting and undergoing consequences (KD, p. 7). This distinction turns education into more than information transfer. Humane education must develop the capacity to anticipate relational and ecological consequences, examine desire, and act from understood purpose. Social continuity depends on making such understanding ordinarily available, not on waiting for exceptional saints or rulers.</p>
 <h3 id="24-provision-and-achievement" data-depth="2">2.4 Provision and achievement</h3>
 <p>Coexistence provisions activity, mutuality, values, the possibility of recognition, and the human capacity to understand. It does not guarantee resolution, prosperity, trust, or undivided society independently of human conduct. At the knowledge order, the same freedom that makes awakening possible also permits mis-evaluation, accumulation, exploitation, and sectarian identity.</p>
 <p>Undivided society therefore belongs to achievement, not automatic natural development. The first three orders exhibit definite conduct without moral deliberation; the human order must bring knowing, believing, recognising, fulfilling, and evaluating into agreement. Activity completeness and conduct completeness name the settlement of this process in awakened living. Their evidence is not a private state alone but humane work and behaviour that others can recognise and learn from.</p>
 <h2 id="3-why-human-society-remains-divided">3. Why human society remains divided</h2>
 <h3 id="31-delusion-and-incomplete-evaluation" data-depth="2">3.1 Delusion and incomplete evaluation</h3>
-<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> locates the root disorder in taking the body to be the whole self. Sensation, bodily security, and material facility then organise desire as if they exhausted human fulfilment. Evaluation remains dominated by pleasant and unpleasant, healthy and unhealthy, and profit and loss. These perspectives are necessary within their domains, but they cannot by themselves settle justice and injustice, <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span> and adharma, or truth and untruth.</p>
+<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> locates the root disorder in taking the body to be the whole self. Sensation, bodily security, and material facility then organise desire as if they exhausted human fulfilment. Evaluation remains dominated by pleasant and unpleasant, healthy and unhealthy, and profit and loss. These perspectives are necessary within their domains, but they cannot by themselves settle justice and injustice, <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span> and adharma, or truth and untruth.</p>
 <p>The diagnosis should not be reduced to one psychological slogan. Body-identification becomes socially consequential through several mechanisms: desires expand without a criterion of sufficiency; wealth becomes accumulation rather than assurance; inherited affiliation becomes defensive identity; authority substitutes for understanding; and institutions reward short-term advantage while distributing consequences to others. Internal contradiction and external conflict reinforce one another.</p>
 <p>Karm Darshan contrasts necessary tendencies of non-accumulation through prosperity, affection, learning, simplicity, and fearlessness with convenience, accumulation, hatred, ignorance, conceit, and fear (KD, p. 8). The contrast is not an attack on comfort, property, or knowledge. It asks whether they remain means within humane purpose or become organising ends that fragment relationships.</p>
 <h3 id="32-from-difference-to-division" data-depth="2">3.2 From difference to division</h3>
 <p>Human diversity does not itself produce division. Division arises when colour, caste, creed, ideology, nationality, or economic position becomes a final boundary of responsibility. Communities then organise trust internally and fear externally. Cooperation may remain strong within the group while the human whole is treated as a field of rivals, converts, markets, subjects, or threats.</p>
-<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> distinguishes such sectarian organisation from community as a bearer of humane tradition. A community contributes to undivided society when its cause, goal, and programme are open to universal human participation and when its internal solidarity does not require another group&rsquo;s inferiority. Cultural plurality can then persist as expression rather than harden into competing accounts of who is fully human.</p>
+<p>Madhyasth Darshan distinguishes such sectarian organisation from community as a bearer of humane tradition. A community contributes to undivided society when its cause, goal, and programme are open to universal human participation and when its internal solidarity does not require another group&rsquo;s inferiority. Cultural plurality can then persist as expression rather than harden into competing accounts of who is fully human.</p>
 <h3 id="33-accumulation-coercion-and-delayed-understanding" data-depth="2">3.3 Accumulation, coercion, and delayed understanding</h3>
 <p>Material need is finite enough to assess at the family level, while desire under comparison and insecurity can become indefinite. When prosperity is confused with accumulation, production serves competitive advantage rather than assured sufficiency and right-use. Fear then appears to justify hoarding, military protection, exclusion, and central control; these arrangements reproduce the insecurity they promise to solve.</p>
 <p>Coercion can preserve an institution for a time, but endurance alone is not humane orderliness. An assembly sustained by fear, dependency, or information control has not internalised its own purpose. The relevant test is whether members can understand the cause and goal, participate in evaluation, fulfil responsibilities without permanent compulsion, and transmit the method to new members.</p>
@@ -819,13 +822,13 @@
 <p>Modern science is indispensable for an undivided society. It provides disciplined observation, causal explanation, technological capability, ecological measurement, medicine, and ways to test institutional consequences. Scientific findings about climate, cooperation, development, trauma, public health, and resource use can correct ideology and expose ineffective practice.</p>
 <p>Science as an empirical method does not, however, determine its own ultimate ends. Measurements can compare outcomes after an aim has been selected; they cannot by measurement alone establish why universal wellbeing should outrank national advantage, why mutual satisfaction should outrank aggregate preference, or why a person must never be treated merely as a resource. Facts constrain action, but a description of what occurs does not by itself yield a complete account of what ought to be fulfilled.</p>
 <p>Science-only materialism adds a philosophical claim to scientific method: the human being is exhaustively a bodily system and values are products of biology, preference, or social construction. That claim remains contested by the hard problem of consciousness, first-person awareness, personal identity, and the apparent normativity of truth and justice. Even a sophisticated optimisation system must receive objectives, weights, and constraints from an account of the human good. Once justice, relationship, ecological responsibility, and universal human dignity enter the objective, value-neutral science is no longer the whole basis.</p>
-<p>Science is therefore a necessary means and a continuing corrective, but not a sufficient social foundation by itself. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s contrast is with scientism, not with careful empirical inquiry. Its own claims about <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, atomic development, education, and social effects must remain open to conceptual criticism and empirical examination wherever evidence is possible.</p>
+<p>Science is therefore a necessary means and a continuing corrective, but not a sufficient social foundation by itself. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span>&rsquo;s contrast is with scientism, not with careful empirical inquiry. Its own claims about <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>, atomic development, education, and social effects must remain open to conceptual criticism and empirical examination wherever evidence is possible.</p>
 <h3 id="42-advaita-vedanta" data-depth="2">4.2 Advaita Vedanta</h3>
-<p>Advaita Vedanta offers a profound challenge to egoic and bodily identification. It holds that the deepest Self is not separate from <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span>, treats liberation through knowledge as the highest aim, and can support equanimity, non-attachment, compassion, and a universal regard that crosses ordinary social boundaries. Any comparison that reduces Advaita to ritual obedience or sectarian belief misses its philosophical force.</p>
-<p>The difficulty concerns derivation of a social order. At the ultimate level, Advaita sublates plurality and treats the empirical world as <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mithya" data-definition="Advaita: dependent appearance — neither absolutely real nor sheer nothing; valid at *vyavahara*, sublated at *paramartha*.">mithya</button></span></em>: dependently experienced and neither absolutely real nor simply nonexistent. Ethics, duty, family, production, and governance remain meaningful within <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vyavahara" data-definition="Advaita: shared empirical order — bodies, law, ethics, scripture; robust but sublated at highest realization.">vyavahara</button></span></em>, but they do not have the same ultimate status as knowledge of <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span>. Non-dual realisation can transform conduct, yet the metaphysics does not by itself specify a necessary cycle of relationship-recognition, value-fulfilment, evaluation, mutual satisfaction, family prosperity, five social dimensions, or universal institutional participation.</p>
-<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> takes a different route. Persons, units, relationships, and the world remain real in coexistence; liberation from delusion is evidenced through conduct within those relationships rather than through the ultimate sublation of difference. The disagreement is not whether inward knowledge matters. It is whether social fulfilment follows as an explicit and indispensable completion of knowledge. For establishing the particular telos of undivided society, Advaita can contribute self-inquiry and freedom from possessive identity but is insufficient as the sole architectural basis.</p>
+<p>Advaita Vedanta offers a profound challenge to egoic and bodily identification. It holds that the deepest Self is not separate from <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Brahman — in Advaita, the non-dual ultimate reality, identical with Atman and described as existence, consciousness, and bliss.">Brahman</button></span>, treats liberation through knowledge as the highest aim, and can support equanimity, non-attachment, compassion, and a universal regard that crosses ordinary social boundaries. Any comparison that reduces Advaita to ritual obedience or sectarian belief misses its philosophical force.</p>
+<p>The difficulty concerns derivation of a social order. At the ultimate level, Advaita sublates plurality and treats the empirical world as <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mithya" data-definition="Illusion (dependent appearance in Advaita) — neither independently absolute nor sheer non-being; empirically operative, but sublated by knowledge of Brahman.">mithya</button></span></em>: dependently experienced and neither absolutely real nor simply nonexistent. Ethics, duty, family, production, and governance remain meaningful within <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vyavahara" data-definition="Empirical level in Advaita — the shared waking order in which embodied knowers, objects, ethics, law, and valid cognition operate.">vyavahara</button></span></em>, but they do not have the same ultimate status as knowledge of Brahman. Non-dual realisation can transform conduct, yet the metaphysics does not by itself specify a necessary cycle of relationship-recognition, value-fulfilment, evaluation, mutual satisfaction, family prosperity, five social dimensions, or universal institutional participation.</p>
+<p>Madhyasth Darshan takes a different route. Persons, units, relationships, and the world remain real in coexistence; liberation from delusion is evidenced through conduct within those relationships rather than through the ultimate sublation of difference. The disagreement is not whether inward knowledge matters. It is whether social fulfilment follows as an explicit and indispensable completion of knowledge. For establishing the particular telos of undivided society, Advaita can contribute self-inquiry and freedom from possessive identity but is insufficient as the sole architectural basis.</p>
 <h3 id="43-hindu-religious-authority-and-social-tradition" data-depth="2">4.3 Hindu religious authority and social tradition</h3>
-<p>&ldquo;Hinduism&rdquo; does not name one philosophy, scripture, deity, ritual system, or social programme. It includes Advaita and other Vedanta schools, devotional traditions, Yoga, Samkhya, <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="nyaya" data-definition="Justice — complete relational activity: recognise, fulfil, evaluate, mutual satisfaction.">Nyaya</button></span>, temple communities, household practices, renunciant paths, and many competing accounts of <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span>. Its plurality has supported remarkable philosophical inquiry, moral discipline, service, art, family continuity, and forms of ecological reverence.</p>
+<p>&ldquo;Hinduism&rdquo; does not name one philosophy, scripture, deity, ritual system, or social programme. It includes Advaita and other Vedanta schools, devotional traditions, Yoga, Samkhya, <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="nyaya" data-definition="Justice — recognising relationships, fulfilling and evaluating their values, and attaining mutual satisfaction.">Nyaya</button></span>, temple communities, household practices, renunciant paths, and many competing accounts of <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span>. Its plurality has supported remarkable philosophical inquiry, moral discipline, service, art, family continuity, and forms of ecological reverence.</p>
 <p>That plurality is precisely why Hinduism as a general label cannot function as one determinate universal foundation. Appeals to revelation, deity, guru, caste duty, inherited custom, or sacred law do not command equal acceptance across Hindu traditions, much less across all humankind. Where moral authority rests finally on a community&rsquo;s scripture or lineage, disagreement between communities has no shared method of resolution except interpretation, conversion, accommodation, or power.</p>
 <p>Karm Darshan&rsquo;s critique targets this authority structure rather than every religious insight. It argues that spiritualism, god-centred thought, and other idealisms have often retained mystery at both their basis and destination, while materialism removes the need for sacred authority without supplying a complete humane end (KD, pp. 146-151). The proposed alternative is not hostility to devotion. It is to make claims about self, relationship, justice, and social purpose available for study and verification in conduct, so that humane identity does not depend on accepting one community&rsquo;s revelation.</p>
 <p>Religious traditions can therefore contribute practices of restraint, care, service, gratitude, and intergenerational meaning. They become inadequate as the sole basis when obedience replaces understanding, promised otherworldly outcomes displace present relationship-fulfilment, or inherited community identity limits universal responsibility.</p>
@@ -878,24 +881,24 @@
 </tr>
 </tbody>
 </table></div>
-<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> is broader in architectural ambition, but breadth is not proof. Its advantage is the explicit linkage it proposes; its burden is to show that the links are coherent, teachable, non-coercive, and evidenced in actual living.</p>
+<p>Madhyasth Darshan is broader in architectural ambition, but breadth is not proof. Its advantage is the explicit linkage it proposes; its burden is to show that the links are coherent, teachable, non-coercive, and evidenced in actual living.</p>
 <h2 id="5-the-path-of-establishment">5. The path of establishment</h2>
 <h3 id="51-individual-understanding-and-awakening" data-depth="2">5.1 Individual understanding and awakening</h3>
-<p>Establishment begins with a human being because institutions act only through persons, but it does not end in private transformation. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> describes the learning sequence as study, experiment or practice, and realisation evidenced in conduct. Knowing must become believing or accepting within oneself, then recognition and fulfilment in relationships. Doubt and verification are part of this process; mere repetition of doctrine is not awakening.</p>
-<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">Jeevan</button></span> Vidya is presented as a programme for making this study available in dialogue. Its proper role is catalytic rather than ecclesiastical: participants examine whether the distinctions among body, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, sensation, desire, relationship, and coexistence make sense in their own experience and conduct. A teacher can present a proposal and help inquiry, but cannot confer understanding by authority.</p>
+<p>Establishment begins with a human being because institutions act only through persons, but it does not end in private transformation. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> describes the learning sequence as study, experiment or practice, and realisation evidenced in conduct. Knowing must become believing or accepting within oneself, then recognition and fulfilment in relationships. Doubt and verification are part of this process; mere repetition of doctrine is not awakening.</p>
+<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">Jeevan</button></span> Vidya is presented as a programme for making this study available in dialogue. Its proper role is catalytic rather than ecclesiastical: participants examine whether the distinctions among body, <em>jeevan</em>, sensation, desire, relationship, and coexistence make sense in their own experience and conduct. A teacher can present a proposal and help inquiry, but cannot confer understanding by authority.</p>
 <p>Activity completeness names settled functioning under understanding; conduct completeness names its dependable evidence in work and behaviour. These concepts should not be read as claims of moral flawlessness. They identify the darshan&rsquo;s requirement that insight become stable enough to guide action, accept evaluation, and serve as a learnable example.</p>
 <h3 id="52-family-as-the-first-field-of-evidence" data-depth="2">5.2 Family as the first field of evidence</h3>
 <p>The family is the first sustained field in which relationship, need, production, use, education, and evaluation meet. Trust cannot remain an abstraction there: care, guidance, affection, gratitude, respect, and responsibility must be fulfilled among recognisable persons. Justice becomes concrete when expectations are understood, values are fulfilled, and all parties can evaluate whether mutual satisfaction has been reached.</p>
-<p>Prosperity also becomes assessable at this scale. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> defines it as the feeling of having or producing more than the family&rsquo;s needs, not as indefinite possession. This requires competence in production, an agreed assessment of need, restraint in consumption, and confidence that relationships will not collapse when surplus is shared or put to purposeful use. Non-accumulation is therefore expected to arise from prosperity, not from glorifying deprivation.</p>
+<p>Prosperity also becomes assessable at this scale. Madhyasth Darshan defines it as the feeling of having or producing more than the family&rsquo;s needs, not as indefinite possession. This requires competence in production, an agreed assessment of need, restraint in consumption, and confidence that relationships will not collapse when surplus is shared or put to purposeful use. Non-accumulation is therefore expected to arise from prosperity, not from glorifying deprivation.</p>
 <p>The family council joins deliberation and implementation. In deliberation the family functions as an assembly; in daily work it functions as a cooperative unit. Children and new members learn not only rules but how needs are assessed, disagreements heard, responsibilities accepted, resources used, and consequences evaluated. This is <em>kutumb shiksha</em>, family education, as the smallest reproducible form of humane orderliness.</p>
 <h3 id="53-assemblies-through-shared-purpose" data-depth="2">5.3 Assemblies through shared purpose</h3>
 <p>Families do not scale into society merely by aggregation. A humane assembly requires commonness of cause, goal, and programme. Its cause is the unresolved human condition; its goal is the fourfold human aspiration; its programme comprises education, justice, health, production, exchange, and the practices through which members evaluate them. Commonness does not require identical opinions. It requires enough shared understanding to coordinate action and correct departures without making force the permanent source of unity.</p>
-<p>Human composition remains an analogy, not a new super-organism. The assembly is coherent when relationships and responsibilities are fulfilled, decisions remain answerable to justice, members experience mutual satisfaction, and the method survives turnover through education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em>. An institution can persist empirically through coercion while failing this humane criterion; persistence and orderliness must not be confused.</p>
+<p>Human composition remains an analogy, not a new super-organism. The assembly is coherent when relationships and responsibilities are fulfilled, decisions remain answerable to justice, members experience mutual satisfaction, and the method survives turnover through education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Sanskar — accepted qualitative establishments; in education–sanskar, the establishment and transmission of understanding through human tradition.">sanskar</button></span></em>. An institution can persist empirically through coercion while failing this humane criterion; persistence and orderliness must not be confused.</p>
 <p>The texts describe a family-based sequence extending through larger councils toward a world-family council. The philosophical point is subsidiarity with shared purpose: responsibility should be exercised at the most immediate competent level, while wider tiers address matters that cross local boundaries. Universal orderliness is not a command centre above humankind but coordinated participation among self-responsible tiers.</p>
 <h3 id="54-five-dimensions-of-universal-orderliness" data-depth="2">5.4 Five dimensions of universal orderliness</h3>
-<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">Jeevan</button></span> Vidya names five dimensions through which social purpose becomes institutional practice:</p>
+<p>Jeevan Vidya names five dimensions through which social purpose becomes institutional practice:</p>
 <ol>
-<li><strong>Education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em></strong> makes understanding and humane competence available.</li>
+<li><strong>Education-<em>sanskar</em></strong> makes understanding and humane competence available.</li>
 <li><strong>Justice-security</strong> fulfils relationships, resolves disputes, and protects persons and resources.</li>
 <li><strong>Health-restraint</strong> supports bodily health while keeping sensation and consumption within understood purpose.</li>
 <li><strong>Production-work</strong> ensures material sufficiency through skilled and ecologically responsible labour.</li>
@@ -904,19 +907,19 @@
 <p>These dimensions constrain one another. Production without ecological and bodily restraint destroys its own conditions. Security without justice becomes domination. Education without productive competence becomes abstraction. Exchange without prosperity encourages debt and accumulation. Health without resolution can become another market in anxiety. Universal orderliness means their coordinated functioning toward the same human goal.</p>
 <p>Karm Darshan adds natural responsibility to the social account. Mineral, forest, water, and climatic balances must be understood, and use must remain proportionate to regenerative processes (KD, p. 7). Coexistence with nature is therefore not a ceremonial fifth goal after human prosperity; it is a condition of production and the wider test of right-use.</p>
 <h3 id="55-policy-protection-and-public-dialogue" data-depth="2">5.5 Policy, protection, and public dialogue</h3>
-<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> distinguishes humane moral policy (<em>manav <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span>-niti</em>) from humane state policy (<em>manav rajya-niti</em>). The first concerns right-use of body, mind, and wealth; the second secures the conditions in which that right-use can continue. Neither is sufficient alone. Moral teaching without protection leaves humane conduct vulnerable to exploitation, while security detached from humane purpose protects existing power rather than justice.</p>
+<p>Madhyasth Darshan distinguishes humane moral policy (<em>manav <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span>-niti</em>) from humane state policy (<em>manav rajya-niti</em>). The first concerns right-use of body, mind, and wealth; the second secures the conditions in which that right-use can continue. Neither is sufficient alone. Moral teaching without protection leaves humane conduct vulnerable to exploitation, while security detached from humane purpose protects existing power rather than justice.</p>
 <p>Public dialogue (<em>janvad</em>) is the bridge between private study and collective decision. It places resolution, prosperity, fearlessness, coexistence, and participation before citizens as matters to be examined rather than slogans to be imposed. Dialogue is meaningful when it can revise programmes in light of experience, include affected persons in evaluation, and distinguish disagreement from enmity.</p>
 <h3 id="56-transition-in-a-mixed-society" data-depth="2">5.6 Transition in a mixed society</h3>
-<p>No existing society begins with universal awakening, and the primary texts do not yet provide a detailed transition theory for contemporary plural states. A plausible <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> transition must therefore work among people with unequal understanding, competing commitments, and inherited institutions. Requiring every person to complete awakening before any social improvement begins would make establishment circular.</p>
+<p>No existing society begins with universal awakening, and the primary texts do not yet provide a detailed transition theory for contemporary plural states. A plausible Madhyasth Darshan transition must therefore work among people with unequal understanding, competing commitments, and inherited institutions. Requiring every person to complete awakening before any social improvement begins would make establishment circular.</p>
 <p>The process can begin with exemplars and small institutions that make limited claims and accept public evaluation. Families, schools, workplaces, and local councils can test whether explicit relationship expectations, transparent need assessment, shared production, restorative evaluation, and non-coercive dialogue increase resolution, sufficiency, and trust. Practices that work can be taught and federated; practices that fail must be revised rather than insulated by doctrinal authority.</p>
 <p>Law remains necessary during transition because understanding is incomplete and harms are real. Its legitimate role is protective and enabling: restraining violence and exploitation, preserving space for inquiry and participation, and making institutions answerable. The long-term movement is from external control toward self-regulation, but invoking self-regulation must never excuse the absence of safeguards for vulnerable persons.</p>
-<p>Pluralism also requires freedom of conscience. A person may contribute humane conduct from scientific, Advaitic, devotional, secular, or other convictions without first adopting <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s entire ontology. What the social programme can reasonably require is participation in just relationships and publicly assessable institutions. The darshan&rsquo;s stronger metaphysical claims must persuade through study and evidence, not become tests of citizenship.</p>
+<p>Pluralism also requires freedom of conscience. A person may contribute humane conduct from scientific, Advaitic, devotional, secular, or other convictions without first adopting Madhyasth Darshan&rsquo;s entire ontology. What the social programme can reasonably require is participation in just relationships and publicly assessable institutions. The darshan&rsquo;s stronger metaphysical claims must persuade through study and evidence, not become tests of citizenship.</p>
 <h3 id="57-evidence-at-each-scale" data-depth="2">5.7 Evidence at each scale</h3>
 <p>The four human goals provide a disciplined but still incomplete evidential frame. At the individual scale, resolution should appear as reduced contradiction and greater consistency between understanding and action. At the family scale, prosperity should appear as assured need-fulfilment, productive competence, and non-accumulative use of surplus. At the social scale, fearlessness should appear as trustworthy relationships, accessible justice, and declining dependence on threat. At the ecological and universal scale, coexistence should appear as responsible participation with other humans and the regenerative processes of nature.</p>
 <p>Evidence cannot be only self-certification. Claims of resolution or awakening must remain answerable to those affected by the claimant&rsquo;s conduct. Family members, co-workers, neighbours, and institutions must be able to evaluate whether values are actually fulfilled. Quantitative indicators can assist this evaluation, but no single metric substitutes for relational judgement; both first-person and public evidence are required.</p>
 <p>Education carries whatever has genuinely been evidenced. Karm Darshan calls education and orderliness the means of maintaining collective balance (KD, p. 8). A tradition becomes humane when each generation receives not merely conclusions but the capacity to investigate, understand, practise, evaluate, and improve them.</p>
 <h2 id="6-the-establishment-architecture">6. The establishment architecture</h2>
-<p>The full movement can now be stated without treating society as an enlarged atom. Coexistence provisions real plurality, mutuality, activity, and the possibility of value. The human being adds reflective evaluation and therefore the possibility of both delusion and justice. Understanding reorders desire; justice fulfils relationships; family life joins relationship with prosperity and education; assemblies coordinate shared purpose through five institutional dimensions; public dialogue and policy protect participation; education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> carries evidenced understanding across generations. Undivided society is approached as these practices become universal in availability and orientation, while universal orderliness is their functioning form.</p>
+<p>The full movement can now be stated without treating society as an enlarged atom. Coexistence provisions real plurality, mutuality, activity, and the possibility of value. The human being adds reflective evaluation and therefore the possibility of both delusion and justice. Understanding reorders desire; justice fulfils relationships; family life joins relationship with prosperity and education; assemblies coordinate shared purpose through five institutional dimensions; public dialogue and policy protect participation; education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Sanskar — accepted qualitative establishments; in education–sanskar, the establishment and transmission of understanding through human tradition.">sanskar</button></span></em> carries evidenced understanding across generations. Undivided society is approached as these practices become universal in availability and orientation, while universal orderliness is their functioning form.</p>
 <p><img alt="The establishment of undivided society: coexistence provisions mutuality; human understanding and justice establish fulfilled relationships; family, institutions, dialogue, and education carry humane orderliness toward humankind" src="1-undivided-society-architecture.svg"/></p>
 <p>The existing figure should be read as dependency, not deterministic ascent. Ontology does not cause awakened society without human understanding, and individual awakening does not automatically create just institutions. Each passage has its own work: inquiry at the person, fulfilment in relationships, production and evaluation in family, coordination and safeguards in institutions, and transmission in tradition.</p>
 <p>The decisive reversal is from acting first and understanding only through consequences to understanding, acting, and evaluating in a continuing cycle. This is how the darshan proposes to replace fear-bound organisation without replacing it with doctrinal command. Its strongest claim is not that harmony will happen automatically, but that a non-coercive order has an intelligible basis and a reproducible path.</p>
@@ -931,12 +934,12 @@
 </ul>
 <p><strong>Weaknesses.</strong></p>
 <ul>
-<li>The ontology of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> and the detailed atomic development account are not established by contemporary public evidence.</li>
+<li>The ontology of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> and the detailed atomic development account are not established by contemporary public evidence.</li>
 <li>The transition from exemplary families to large, plural, technologically complex societies remains under-specified.</li>
 <li>Terms such as awakening, resolution, and mutual satisfaction need operational criteria that resist self-certification and institutional capture.</li>
 <li>A movement teaching universal human identity can itself become sectarian if textual loyalty replaces open inquiry or if metaphysical assent becomes a condition of participation.</li>
 </ul>
-<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> is strongest as an integrated research programme for humane living; it becomes weakest when its completeness is asserted in advance of social evidence.</p>
+<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> is strongest as an integrated research programme for humane living; it becomes weakest when its completeness is asserted in advance of social evidence.</p>
 <h3 id="72-advaita-vedanta-inward-universality-without-a-necessary-social-architecture" data-depth="2">7.2 Advaita Vedanta — inward universality without a necessary social architecture</h3>
 <p><strong>Strengths.</strong></p>
 <ul>
@@ -980,19 +983,19 @@
 </ul>
 <p>Hindu traditions can nourish humane life, but Hindu identity or scriptural authority cannot by itself be the universally examinable basis of undivided humankind.</p>
 <h3 id="75-open-problems" data-depth="2">7.5 Open problems</h3>
-<p>Several questions remain open for the study and practice of <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>:</p>
+<p>Several questions remain open for the study and practice of Madhyasth Darshan:</p>
 <ul>
 <li><strong>Threshold of social evidence.</strong> The sources name the four goals and awakened tradition but do not specify when a village, institution, region, or world society qualifies as sufficiently evidenced.</li>
 <li><strong>Transition and pluralism.</strong> The relation between family councils, existing constitutional states, markets, rights, and global institutions needs a detailed non-coercive transition account.</li>
 <li><strong>Power and failure correction.</strong> Consensus and self-regulation require safeguards against concealed domination, exclusion, abuse, and confident but mistaken claims of understanding.</li>
 <li><strong>Measurement and interpretation.</strong> Resolution, prosperity, fearlessness, and coexistence require mixed first-person, relational, ecological, and institutional evidence; their indicators remain to be developed.</li>
 <li><strong>Textual scope.</strong> JVD and AVD remain work-in-progress translations, while Karm Darshan&rsquo;s English translation is newly available. Fuller work on <em>Manav Vyavahar Darshan</em> and <em>Avartansheel Arthshastra</em> may alter the institutional account.</li>
-<li><strong>Metaphysical burden.</strong> It remains unsettled how much of the practical programme depends on accepting the full ontology of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span></em> and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, and how much can be tested as a social proposal across different metaphysical commitments.</li>
+<li><strong>Metaphysical burden.</strong> It remains unsettled how much of the practical programme depends on accepting the full ontology of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipotence — the eternally present, omnipresent reality: formless, motionless absolute energy in which every unit is saturated and through which regulation is manifest.">satta</button></span></em> and <em>jeevan</em>, and how much can be tested as a social proposal across different metaphysical commitments.</li>
 </ul>
 <h2 id="8-conclusion">8. Conclusion</h2>
 <p>Undivided society cannot be established by enlargement, decree, shared belief, or technical administration alone. Science can discipline means and consequences but does not choose a complete human end. Advaita can loosen egoic identity but does not necessarily derive a social architecture. Hindu traditions can sustain virtue and community but do not provide one authority available to all humankind. Each can contribute, yet none by itself satisfies the combined requirements of universal identity, value, material sufficiency, just relationship, institutional continuity, and publicly recognisable conduct.</p>
-<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> proposes coexistence as the common basis and awakened human conduct as its social evidence. Its path runs through understanding rather than conformity, justice rather than legality alone, prosperity rather than accumulation, family education rather than isolated moral instruction, coordinated institutions rather than central domination, and tradition as the transmission of examinable understanding. The proposal becomes credible only where those claims survive dialogue and appear in the lives of persons, families, institutions, and their relations with nature.</p>
-<p>Its central insight is therefore both philosophical and practical: humankind becomes undivided when universal human relationship is not merely affirmed but fulfilled, evaluated, protected, produced for, and taught. Whether <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> can establish that at scale remains open. It has at least stated the test by which its vision should be judged.</p>
+<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> proposes coexistence as the common basis and awakened human conduct as its social evidence. Its path runs through understanding rather than conformity, justice rather than legality alone, prosperity rather than accumulation, family education rather than isolated moral instruction, coordinated institutions rather than central domination, and tradition as the transmission of examinable understanding. The proposal becomes credible only where those claims survive dialogue and appear in the lives of persons, families, institutions, and their relations with nature.</p>
+<p>Its central insight is therefore both philosophical and practical: humankind becomes undivided when universal human relationship is not merely affirmed but fulfilled, evaluated, protected, produced for, and taught. Whether Madhyasth Darshan can establish that at scale remains open. It has at least stated the test by which its vision should be judged.</p>
 <h2 id="appendix-quick-glossary">Appendix: Quick Glossary</h2>
 <div class="table-scroll"><table>
 <thead>
@@ -1070,11 +1073,11 @@
 <h3 id="hinduism-as-a-comparison-category">Hinduism as a comparison category</h3>
 <p>Hinduism is internally plural and includes Advaita Vedanta. This paper therefore does not treat it as one doctrine. &ldquo;Hindu religious authority&rdquo; names attempts to ground universal social order finally in a particular scripture, deity, lineage, caste duty, ritual, or inherited community identity.</p>
 <h3 id="composition-at-the-human-order">Composition at the human order</h3>
-<p>Terms such as composition and closure are analogical when applied to families and assemblies. They do not imply a collective <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, a collective <em>atma</em>, or a literal <em>yaugik</em> compound. The analogy concerns coherent conduct, shared purpose, justice, persistence, and transmission.</p>
+<p>Terms such as composition and closure are analogical when applied to families and assemblies. They do not imply a collective <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>, a collective <em>atma</em>, or a literal <em>yaugik</em> compound. The analogy concerns coherent conduct, shared purpose, justice, persistence, and transmission.</p>
 <h2 id="references">References</h2>
 <h3 id="madhyasth-darshan-primary-sources">Madhyasth Darshan primary sources</h3>
 <ul>
-<li><strong>MVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan — Co-existentialism</em></a>. English translation by Rakesh Gupta. Cited: coexistence and the four orders; <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> and the human joint form; six perspectives; relationship, value, justice, awakening, family order, undivided society, and universal orderliness.</li>
+<li><strong>MVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan — Co-existentialism</em></a>. English translation by Rakesh Gupta. Cited: coexistence and the four orders; <em>jeevan</em> and the human joint form; six perspectives; relationship, value, justice, awakening, family order, undivided society, and universal orderliness.</li>
 <li><strong>SB</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf"><em>Samadhanatmak Bhautikvad</em></a>. English translation by Rakesh Gupta. Cited: saturation, complementarity, natural and excited states, composition and development, completeness, and societal evidence.</li>
 <li><strong>JV</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf"><em>Jeevan Vidya: An Introduction</em></a>. English translation by Rakesh Gupta. Cited: the study process, relationship values, justice, the human goals, prosperity, and five dimensions of orderliness.</li>
 <li><strong>JVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JVD-Janvad.pdf"><em>Janvad</em> (<em>Behaviour Centred Public Discourse</em>)</a>. English translation by Sanjeev Chopra (WIP). Cited: sectarian organisation, public dialogue, family council, participation, undivided society, and universal orderliness.</li>
@@ -1084,8 +1087,8 @@
 <h3 id="comparative-sources">Comparative sources</h3>
 <ul>
 <li><strong>ChU</strong> — <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf"><em>Chandogya Upanishad</em></a>. Cited for the Advaita tradition&rsquo;s non-dual identity claim as developed through later commentary.</li>
-<li><strong>BSB</strong> — Sankara. <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf"><em>Brahma Sutra Bhashya</em></a>. Cited for Advaita&rsquo;s account of <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span>, liberation through knowledge, and the status of empirical plurality.</li>
-<li><strong>SEP-AV</strong> — <a href="https://plato.stanford.edu/entries/advaita-vedanta/"><em>Advaita Vedanta</em></a>, Stanford Encyclopedia of Philosophy. Cited for contemporary scholarly framing of non-duality, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mithya" data-definition="Advaita: dependent appearance — neither absolutely real nor sheer nothing; valid at *vyavahara*, sublated at *paramartha*.">mithya</button></span></em>, ethics, and liberation.</li>
+<li><strong>BSB</strong> — Sankara. <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf"><em>Brahma Sutra Bhashya</em></a>. Cited for Advaita&rsquo;s account of Brahman, liberation through knowledge, and the status of empirical plurality.</li>
+<li><strong>SEP-AV</strong> — <a href="https://plato.stanford.edu/entries/advaita-vedanta/"><em>Advaita Vedanta</em></a>, Stanford Encyclopedia of Philosophy. Cited for contemporary scholarly framing of non-duality, <em>mithya</em>, ethics, and liberation.</li>
 <li><strong>SEP-SR</strong> — <a href="https://plato.stanford.edu/entries/scientific-realism/"><em>Scientific Realism</em></a>, Stanford Encyclopedia of Philosophy. Cited for the scope and philosophical interpretation of scientific knowledge.</li>
 <li><strong>SEP-ME</strong> — <a href="https://plato.stanford.edu/entries/metaethics/"><em>Metaethics</em></a>, Stanford Encyclopedia of Philosophy. Cited for the distinction between empirical facts and accounts of normativity.</li>
 </ul>
@@ -1095,7 +1098,7 @@
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html"><em>From Unit Activity to Human Orderliness</em></a> — three maintained forms (§3.6), their typed representation (Appendix A), and the source/model-status audit (Editorial Notes).</li>
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.html"><em>Human Behavior and Society</em></a> — extended comparison of behaviour, science, religion, and Advaita.</li>
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.html"><em>How to Form Self-Sustaining Organizations</em></a> — application of shared purpose, relationship-fulfilment, and transmission to organisations.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html"><em>The Epistemology of Coexistence</em></a> — study, knowing, evidence, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="pramanikta" data-definition="Authentic conduct as living proof that understanding has taken hold — the outward test of complete knowing.">pramanikta</button></span></em>.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html"><em>The Epistemology of Coexistence</em></a> — study, knowing, evidence, and <em>pramanikta</em>.</li>
 </ul></main>
 <script>
 (() => {
@@ -1206,14 +1209,23 @@
     floatPanel.hidden = true;
     document.body.appendChild(floatPanel);
   }
+  let activeButton = null;
+  let pinnedButton = null;
 
   const hide = () => {
+    if (activeButton) activeButton.setAttribute("aria-expanded", "false");
+    activeButton = null;
     floatPanel.classList.remove("is-visible");
     floatPanel.hidden = true;
     floatPanel.textContent = "";
   };
 
   const show = (button, text) => {
+    if (activeButton && activeButton !== button) {
+      activeButton.setAttribute("aria-expanded", "false");
+    }
+    activeButton = button;
+    button.setAttribute("aria-expanded", "true");
     floatPanel.textContent = text;
     floatPanel.hidden = false;
     floatPanel.classList.add("is-visible");
@@ -1232,21 +1244,41 @@
     const definition = button.getAttribute("data-definition");
     if (!definition) return;
     button.setAttribute("aria-describedby", "term-tip-float");
+    button.setAttribute("aria-expanded", "false");
     const reveal = () => show(button, definition);
-    button.addEventListener("mouseenter", reveal);
-    button.addEventListener("focus", reveal);
-    button.addEventListener("mouseleave", hide);
-    button.addEventListener("blur", hide);
+    button.addEventListener("mouseenter", () => {
+      if (!pinnedButton) reveal();
+    });
+    button.addEventListener("focus", () => {
+      if (!pinnedButton || pinnedButton === button) reveal();
+    });
+    button.addEventListener("mouseleave", () => {
+      if (!pinnedButton) hide();
+    });
+    button.addEventListener("blur", () => {
+      if (!pinnedButton) hide();
+    });
     button.addEventListener("click", event => {
       event.stopPropagation();
-      if (floatPanel.hidden) reveal();
-      else hide();
+      if (pinnedButton === button) {
+        pinnedButton = null;
+        hide();
+      } else {
+        pinnedButton = button;
+        reveal();
+      }
     });
   });
 
-  document.addEventListener("click", hide);
+  document.addEventListener("click", () => {
+    pinnedButton = null;
+    hide();
+  });
   document.addEventListener("keydown", event => {
-    if (event.key === "Escape") hide();
+    if (event.key === "Escape") {
+      pinnedButton = null;
+      hide();
+    }
   });
 })();
 </script>
