@@ -619,45 +619,111 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       "rail"
       "panel"
       "alongside";
-    gap: 12px;
+    gap: 0;
     margin: 0;
     padding: 0;
   }
   .path-rail {
+    position: relative;
     display: flex;
     flex-wrap: nowrap;
-    gap: 8px;
+    align-items: flex-start;
+    gap: 0;
     grid-area: rail;
-    margin: 0;
+    margin: 0 0 7px;
   }
   .path-rail-step {
     position: relative;
-    flex: 1 1 0;
+    display: flex;
+    flex: 0 1 auto;
     min-width: 0;
-  }
-  .path-radio.sr-only:focus-visible + .path-rail-item {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
   }
   .path-rail-item {
     display: flex;
+    flex-direction: column;
     align-items: center;
     gap: 8px;
-    width: 100%;
     margin: 0;
-    padding: 8px 10px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    background: var(--bg);
+    padding: 3px 9px 0;
     cursor: pointer;
     font-family: var(--sans);
   }
-  .path-rail-item:hover {
-    border-color: #cdb89e;
+  .path-dot {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 32px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    color: var(--text-muted);
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
   }
-  .path-rail-step:has(.path-radio:checked) .path-rail-item {
-    background: var(--accent-soft);
-    border-color: #a5c4d9;
+  .path-stage-name {
+    font-family: var(--sans);
+    font-size: 13.5px;
+    font-weight: 500;
+    line-height: 1.25;
+    color: var(--text-muted);
+    text-align: center;
+    text-wrap: balance;
+  }
+  .path-rail-item:hover .path-dot {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .path-rail-item:hover .path-stage-name {
+    color: var(--text);
+  }
+  .path-rail-step:has(.path-radio:checked) .path-dot {
+    color: #fff;
+    background: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-soft);
+  }
+  .path-rail-step:has(.path-radio:checked) .path-stage-name {
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .path-radio.sr-only:focus-visible + .path-rail-item .path-dot {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+  .path-because {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: 38px;
+    font-family: var(--sans);
+    font-size: 10.5px;
+    line-height: 1.25;
+    color: var(--text-muted);
+    text-align: center;
+  }
+  .path-because::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 18px;
+    height: 2px;
+    background: var(--border);
+  }
+  .path-because span {
+    position: relative;
+    max-width: 100%;
+    padding: 0 8px;
+    background: var(--surface);
   }
   .path-number {
     display: inline-flex;
@@ -668,14 +734,10 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     height: 26px;
     border-radius: 50%;
     color: #fff;
-    background: #8aa4b8;
+    background: var(--accent);
     font-family: var(--sans);
     font-size: 12px;
     font-weight: 700;
-  }
-  .path-rail-step:has(.path-radio:checked) .path-number,
-  .path-panel-head .path-number {
-    background: var(--accent);
   }
   .path-domain {
     font-family: var(--sans);
@@ -684,12 +746,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--text-muted);
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  .path-rail-step:has(.path-radio:checked) .path-domain {
-    color: var(--accent);
   }
   .path-alongside {
     display: flex;
@@ -697,11 +753,12 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     align-items: center;
     gap: 10px 14px;
     grid-area: alongside;
-    margin: 0;
-    padding: 10px 14px;
-    background: var(--warm-soft);
-    border: 1px solid #e0d0be;
-    border-radius: 10px;
+    margin: 16px 0 0;
+    padding: 13px 0 0;
+    background: transparent;
+    border: 0;
+    border-top: 1px solid var(--border);
+    border-radius: 0;
   }
   .path-alongside-label {
     flex: 0 0 auto;
@@ -724,7 +781,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     align-items: center;
     gap: 6px 8px;
     padding: 6px 10px;
-    background: var(--surface);
+    background: var(--bg);
     border: 1px solid var(--border);
     border-radius: 8px;
     font-family: var(--sans);
@@ -1102,19 +1159,16 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   }
   [data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3 { color: #f5f1ec; }
   [data-theme="dark"] .start-here h2 { color: var(--accent); }
-  [data-theme="dark"] .path-rail-item { background: #1e1b18; }
-  [data-theme="dark"] .path-rail-step:has(.path-radio:checked) .path-rail-item {
-    background: var(--accent-soft);
-    border-color: #3d6278;
+  [data-theme="dark"] .path-dot { background: #1e1b18; }
+  [data-theme="dark"] .path-rail-step:has(.path-radio:checked) .path-dot {
+    background: var(--accent);
   }
-  [data-theme="dark"] .path-number { background: #4a5f70; }
-  [data-theme="dark"] .path-rail-step:has(.path-radio:checked) .path-number,
-  [data-theme="dark"] .path-panel-head .path-number { background: var(--accent); }
+  [data-theme="dark"] .path-rail-step:has(.path-radio:checked) .path-dot,
+  [data-theme="dark"] .path-panel-head .path-number { color: #10202b; }
   [data-theme="dark"] .path-panel { background: #1e1b18; }
   [data-theme="dark"] .path-status.released { color: #8fd4a8; background: #1a2e22; }
   [data-theme="dark"] .path-status.draft { color: #f0c78a; background: #3a2818; }
-  [data-theme="dark"] .path-alongside { border-color: #5a4632; }
-  [data-theme="dark"] .parallel-study { background: #26231e; }
+  [data-theme="dark"] .parallel-study { background: #1e1b18; }
   [data-theme="dark"] .path-continue { border-color: #3d6278; }
   [data-theme="dark"] .page-nav { background: rgba(26, 24, 21, 0.92); }
   [data-theme="dark"] .search input, [data-theme="dark"] .seg, [data-theme="dark"] .triad-item { background: #1e1b18; }
@@ -1207,43 +1261,39 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     .seg button { flex: 1; }
     .start-here { padding: 19px 16px; }
     .start-here h2 { font-size: 21px; }
-    .path-rail { flex-wrap: wrap; gap: 6px; }
-    .path-rail-step { flex: 1 1 calc(33.333% - 6px); min-width: 96px; }
-    .path-rail-item {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 8px 10px;
-      gap: 4px;
-    }
-    .path-domain {
-      font-size: 10px;
-      letter-spacing: 0.03em;
-      white-space: normal;
-      overflow: visible;
-      text-overflow: unset;
-    }
+    .path-domain { font-size: 10px; letter-spacing: 0.03em; }
     .path-panel { padding: 16px 14px 10px; }
     .path-panel h3 { font-size: 20px; }
     .path-core-layout { grid-template-columns: 1fr; }
   }
 
+  /* Below this width the between-stage reasons cannot hold one line, so the
+     spine is drawn once behind evenly spaced dots and the reasons are carried
+     by the "Next" card inside each stage panel instead. */
+  @container start-path (max-width: 830px) {
+    .path-because { display: none; }
+    .path-rail::before {
+      content: "";
+      position: absolute;
+      left: 10%;
+      right: 10%;
+      top: 18px;
+      height: 2px;
+      background: var(--border);
+    }
+    .path-rail-step { flex: 1 1 0; }
+    .path-rail-item { width: 100%; padding: 3px 3px 0; }
+  }
+
   @container start-path (max-width: 640px) {
-    .path-rail { flex-wrap: wrap; gap: 6px; }
-    .path-rail-step { flex: 1 1 calc(33.333% - 6px); min-width: 96px; }
-    .path-rail-item {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 8px 10px;
-      gap: 4px;
-    }
-    .path-domain {
-      font-size: 10px;
-      letter-spacing: 0.03em;
-      white-space: normal;
-      overflow: visible;
-      text-overflow: unset;
-    }
     .path-core-layout { grid-template-columns: 1fr; }
+  }
+
+  @container start-path (max-width: 470px) {
+    .path-rail::before { top: 16px; }
+    .path-rail-item { gap: 7px; padding: 3px 1px 0; }
+    .path-dot { flex: 0 0 28px; width: 28px; height: 28px; font-size: 12px; }
+    .path-stage-name { font-size: 11px; }
   }
 </style>
 </head>
@@ -1296,29 +1346,33 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   <div class="start-here" id="start-here">
     <p class="start-here-kicker">A guided path through the collection</p>
     <h2>Start here: the study path I am following</h2>
-    <p class="start-here-intro">I start by asking whether a human is just matter, rather than assuming that the body already answers it. The questions that remain require an understanding of existence, then of how knowledge enters the picture, then of how values come about. Only with that understanding does the path ask how we should live, and how social structures should be designed. Follow the same sequence, question it, or contribute where the work is incomplete.</p>
+    <p class="start-here-intro">I start by asking whether a human is just matter, rather than assuming that the body already answers it. The questions that remain are what require an understanding of existence, then of how knowledge enters the picture, then of how values come about, and only then how we should live and how social structures should be designed. Each stage below is the question the one before it could not close &mdash; which is why the order is what it is. Follow the same sequence, question it, or contribute where the work is incomplete.</p>
 
     <div class="study-path">
       <div class="path-rail" role="radiogroup" aria-label="Five stages in the study path">
         <div class="path-rail-step">
           <input class="path-radio sr-only" type="radio" name="start-path" id="path-stage-1" checked>
-          <label class="path-rail-item" for="path-stage-1"><span class="path-number">1</span><span class="path-domain">Human</span></label>
+          <label class="path-rail-item" for="path-stage-1"><span class="path-dot">1</span><span class="path-stage-name">Human</span></label>
         </div>
+        <span class="path-because" aria-hidden="true"><span>so what is there?</span></span>
         <div class="path-rail-step">
           <input class="path-radio sr-only" type="radio" name="start-path" id="path-stage-2">
-          <label class="path-rail-item" for="path-stage-2"><span class="path-number">2</span><span class="path-domain">Existence</span></label>
+          <label class="path-rail-item" for="path-stage-2"><span class="path-dot">2</span><span class="path-stage-name">Existence</span></label>
         </div>
+        <span class="path-because" aria-hidden="true"><span>how is it known?</span></span>
         <div class="path-rail-step">
           <input class="path-radio sr-only" type="radio" name="start-path" id="path-stage-3">
-          <label class="path-rail-item" for="path-stage-3"><span class="path-number">3</span><span class="path-domain">Knowledge</span></label>
+          <label class="path-rail-item" for="path-stage-3"><span class="path-dot">3</span><span class="path-stage-name">Knowledge</span></label>
         </div>
+        <span class="path-because" aria-hidden="true"><span>what has value?</span></span>
         <div class="path-rail-step">
           <input class="path-radio sr-only" type="radio" name="start-path" id="path-stage-4">
-          <label class="path-rail-item" for="path-stage-4"><span class="path-number">4</span><span class="path-domain">Value</span></label>
+          <label class="path-rail-item" for="path-stage-4"><span class="path-dot">4</span><span class="path-stage-name">Value</span></label>
         </div>
+        <span class="path-because" aria-hidden="true"><span>how is it lived?</span></span>
         <div class="path-rail-step">
           <input class="path-radio sr-only" type="radio" name="start-path" id="path-stage-5">
-          <label class="path-rail-item" for="path-stage-5"><span class="path-number">5</span><span class="path-domain">Living</span></label>
+          <label class="path-rail-item" for="path-stage-5"><span class="path-dot">5</span><span class="path-stage-name">Living</span></label>
         </div>
       </div>
 
