@@ -214,6 +214,23 @@ def pdf_regeneration_reason(base_ref: str, slug: str) -> str | None:
     return None
 
 
+def only_generated_html_changed(base_ref: str, slug: str) -> bool:
+    """Allow shared HTML regeneration to pass through ongoing placeholders.
+
+    Ongoing studies are intentionally blocked for source or companion edits, but
+    a shared reader/generator change may regenerate their tracked HTML alongside
+    cataloged studies. Those HTML-only artifacts are not published by the
+    catalog and do not represent a new study submission.
+    """
+    prefixes = (f"Studies/{slug}/", f"Applications/{slug}/")
+    paths = [
+        path
+        for _status, path in changed_paths(base_ref)
+        if path.startswith(prefixes)
+    ]
+    return bool(paths) and all(path.lower().endswith(".html") for path in paths)
+
+
 def study_references_changed(base_ref: str, slug: str) -> bool:
     md_path = study_md(slug).relative_to(BASE).as_posix()
     diff = _git("diff", base_ref, "HEAD", "--", md_path)
@@ -585,6 +602,12 @@ def handle_study_update(body: str, base_ref: str) -> None:
 
         row, _table = located
         if row.status == StudyStatus.ONGOING:
+            if base_ref and only_generated_html_changed(base_ref, slug):
+                print(
+                    f"Skipping {slug}: only shared/generated HTML artifacts changed; "
+                    "ongoing source remains protected."
+                )
+                continue
             raise SystemExit(
                 f"{slug} is a pre-catalog proposal placeholder. Submit a new-study PR to register the draft."
             )
