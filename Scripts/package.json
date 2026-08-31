@@ -7,6 +7,10 @@
     "katex": "^0.16.22",
     "mermaid": "^11.15.0",
     "pdf-lib": "^1.17.1",
-    "puppeteer": "^24.43.1"
+    "puppeteer": "24.43.1"
+  },
+  "pdfRender": {
+    "chrome": "148.0.7778.97",
+    "comment": "Chrome build every PDF regeneration must use, asserted at launch by _chrome.js. PDF pagination depends on Chrome hyphenation, so this is pinned rather than assumed. PDFs committed before this pin was introduced were rendered by an older Chrome and will repaginate on their next regeneration, with no change to their text. Change this value only together with regenerated PDFs."
   }
 }
