@@ -40,9 +40,11 @@ Read the page in this order:
 
 Use these editorial checks:
 
-- Use **I** for the originator's personal path, **we/the project** for
-  collaborative editorial work, and **Madhyasth Darshan holds** for claims of
-  the philosophy.
+- Use **we/the project** throughout, including for the Start here path, and
+  **Madhyasth Darshan holds** for claims of the philosophy. The site speaks
+  with one voice; do not reintroduce first-person singular for the study path.
+  Where a sentence needs the universal "we" meaning people, rephrase it
+  (*how a human should live*) so the referent cannot be read as the project.
 - Present comparisons as inquiry rather than predetermined conclusions.
 - Make the reader journey explicit: human, existence, knowledge, value, lived
   participation, with formal/scientific synthesis as a parallel track.

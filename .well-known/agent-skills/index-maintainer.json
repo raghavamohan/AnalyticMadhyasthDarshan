@@ -34,7 +34,7 @@
       "type": "skill-md",
       "description": "Review and refine the Studies landing page, including the guided Start here path, hero and methodology copy, navigation, status language, catalog descriptions, contribution flow, and About section. Use when auditing or updating Studies/index.html through Scripts/_build_studies_index.py while keeping Studies/README.md, catalog JSON, proposal metadata, and generated artifacts synchronized.",
       "url": "/.well-known/agent-skills/refine-studies-index/SKILL.md",
-      "digest": "sha256:f63cb66d2c7c3650602229363a7a14ed52b0ced3be7c0023447df43934dfba55"
+      "digest": "sha256:f1f9355cdb448c42d1d0dc1858864923f002392507d9a8233883ceb4129f85aa"
     },
     {
       "name": "regenerate-study-pdf",

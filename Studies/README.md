@@ -1,6 +1,6 @@
 # Studies of Madhyasth Darshan
 
-An open and growing collection of comparative studies of **Madhyasth Darshan** (Co-existentialism), the philosophy founded by **Shri A. Nagraj**. The collection follows a personal path of inquiry while inviting others to examine its arguments, question its interpretations, and contribute to its development.
+An open and growing collection of comparative studies of **Madhyasth Darshan** (Co-existentialism), the philosophy founded by **Shri A. Nagraj**. The collection follows a single line of inquiry while inviting others to examine its arguments, question its interpretations, and contribute to its development.
 
 Browse the published collection at **[analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org)** (or open [index.html](index.html) locally for search, filters, and card layout).
 
