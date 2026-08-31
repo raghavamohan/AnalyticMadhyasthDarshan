@@ -802,17 +802,33 @@ def _study_description(md_text: str, slug: str) -> str:
     return _truncate_description(slug.replace("-", " "))
 
 
+def _social_card_url(slug: str) -> str:
+    """Absolute URL of a study's share card, falling back to the site card.
+
+    Cards are committed by Scripts/_build_social_cards.py. A study with no card
+    yet -- one added since that last ran -- points at the site card rather than
+    at a 404, so a shared link still renders.
+    """
+    base = site_base_url().rstrip("/")
+    if (BASE / "Assets" / "Social" / f"{slug}.png").is_file():
+        return f"{base}/Assets/Social/{quote(slug)}.png"
+    return f"{base}/Assets/Social/og-default.png"
+
+
 def _study_seo_head_html(
     *,
     title: str,
     description: str,
     canonical_url: str,
     date_modified_iso: str | None,
+    slug: str,
 ) -> str:
     site_url = site_base_url().rstrip("/") + "/"
     esc_title = html_module.escape(title)
     esc_desc = html_module.escape(description)
     esc_canonical = html_module.escape(canonical_url)
+    image_url = _social_card_url(slug)
+    esc_image = html_module.escape(image_url)
     og_bits = f"""
 <link rel="canonical" href="{esc_canonical}"/>
 <meta name="description" content="{esc_desc}"/>
@@ -821,9 +837,14 @@ def _study_seo_head_html(
 <meta property="og:title" content="{esc_title}"/>
 <meta property="og:description" content="{esc_desc}"/>
 <meta property="og:url" content="{esc_canonical}"/>
-<meta name="twitter:card" content="summary"/>
+<meta property="og:image" content="{esc_image}"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="{esc_title}"/>
+<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="{esc_title}"/>
-<meta name="twitter:description" content="{esc_desc}"/>"""
+<meta name="twitter:description" content="{esc_desc}"/>
+<meta name="twitter:image" content="{esc_image}"/>"""
     schema: dict = {
         "@context": "https://schema.org",
         "@type": "ScholarlyArticle",
@@ -835,6 +856,7 @@ def _study_seo_head_html(
         "publisher": {"@type": "Organization", "name": _ORG_NAME, "url": site_url},
         "license": _CC_LICENSE,
         "isPartOf": {"@type": "WebSite", "name": _ORG_NAME, "url": site_url},
+        "image": image_url,
     }
     if date_modified_iso:
         schema["dateModified"] = date_modified_iso
@@ -966,6 +988,7 @@ def convert_to_html(
             description=description,
             canonical_url=canonical_url,
             date_modified_iso=date_modified_iso,
+            slug=input_path.stem,
         )
 
     web_chrome_css = ""
