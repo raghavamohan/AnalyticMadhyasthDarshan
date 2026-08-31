@@ -324,13 +324,17 @@
   .term-tip {
     background: none;
     border: none;
-    border-bottom: 1px dotted #1a5276;
+    border-bottom: 1px dotted #8a6d3b;
     padding: 0;
     margin: 0;
     font: inherit;
-    color: #1a5276;
+    color: inherit;
     cursor: help;
     text-align: inherit;
+  }
+  .term-tip:hover {
+    background: #f6f0e7;
+    border-radius: 2px;
   }
   .term-tip:focus-visible {
     outline: 2px solid #1a5276;
@@ -363,14 +367,14 @@
   .study-toolbar {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
     font-family: 'Segoe UI', system-ui, sans-serif;
     font-size: 13px;
     position: sticky;
     top: 0;
     z-index: 20;
-    margin: 0 0 22px;
-    padding: 10px 14px;
+    margin: 0 0 18px;
+    padding: 6px 10px;
     border: 1px solid #d8d2c8;
     border-radius: 8px;
     background: rgba(247, 244, 239, 0.92);
@@ -380,20 +384,21 @@
   .study-toolbar-row {
     display: grid;
     align-items: center;
-    gap: 8px 14px;
+    gap: 10px;
   }
   .study-toolbar-row--primary {
-    grid-template-columns: minmax(0, 1fr) minmax(0, auto) minmax(0, 1fr);
+    grid-template-columns: auto minmax(0, 1fr);
   }
   .study-toolbar-actions {
-    grid-column: 3;
+    grid-column: 2;
     justify-self: end;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     justify-content: flex-end;
-    gap: 8px 12px;
+    gap: 6px;
     min-width: 0;
+    white-space: nowrap;
     text-align: right;
   }
   .study-toolbar-feedback {
@@ -412,21 +417,6 @@
   .study-toolbar-download {
     min-width: 0;
     text-align: right;
-  }
-  .study-toolbar-title {
-    grid-column: 2;
-    justify-self: center;
-    text-align: center;
-    margin: 0;
-    min-width: 0;
-    font-size: 14px;
-    font-weight: 700;
-    color: #2c241c;
-    line-height: 1.35;
-  }
-  .study-toolbar-draft {
-    font-weight: 600;
-    color: #5c5348;
   }
   .study-toolbar-link {
     color: #1a5276;
@@ -468,7 +458,7 @@
     background: #fdfcfa;
     border: 1px solid #d9d2c7;
     border-radius: 999px;
-    padding: 3px 11px;
+    padding: 2px 8px;
     cursor: pointer;
     white-space: nowrap;
   }
@@ -540,6 +530,23 @@
   .study-toc-l1 > a { font-weight: 700; color: #2c241c; }
   .study-toc-l2 > a { padding-left: 15px; }
   .study-toc-l3 > a { padding-left: 30px; font-size: 12.5px; color: #4d6f86; }
+  .study-toc--with-key { margin-bottom: 0.55em; }
+  .study-reading-key {
+    margin: 0 0 2.2em;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    line-height: 1.45;
+    color: #6b6357;
+  }
+  .study-reading-key > span[aria-hidden="true"] { padding: 0 5px; }
+  .study-reading-key-term {
+    color: #2c241c;
+    border-bottom: 1px dotted #8a6d3b;
+  }
+  .study-reading-key-link {
+    color: #1a5276;
+    text-decoration: underline;
+  }
   @media (prefers-reduced-motion: reduce) {
     .study-toc-summary::before { transition: none; }
   }
@@ -556,11 +563,15 @@
       margin: 32px auto 88px;
       padding: 0 22px;
     }
-    /* Roughly 68 characters. The container stays wide enough for tables and
-       figures while running text keeps a measure the eye can track back. */
-    p, ul, ol, blockquote, .quote-source, dl {
-      max-width: 37rem;
+    /* Add a subtle one point of breathing room above and below quotations on
+       screen without changing the print/PDF layout. */
+    blockquote {
+      margin-top: 11pt;
+      margin-bottom: 11pt;
     }
+    /* Running text uses the full reading column. Tables and figures share the
+       same 46rem container, so paragraphs no longer collapse into a visibly
+       narrower strip inside the page. */
     p {
       margin: 0.72em 0;
       text-align: left;
@@ -583,34 +594,18 @@
   }
 
   @media (max-width: 640px) {
-    .study-toolbar-row--primary {
-      grid-template-columns: minmax(0, auto) minmax(0, 1fr);
-      row-gap: 6px;
-    }
-    /* Back and title share the first line and the actions take the second, so
-       the reader reaches the heading in two rows rather than four. */
-    .study-toolbar-back { grid-column: 1; justify-self: start; }
-    .study-toolbar-title {
-      grid-column: 2;
-      justify-self: end;
-      text-align: right;
-      font-size: 13px;
-      white-space: normal;
-    }
     .study-toolbar-actions {
-      grid-column: 1 / -1;
-      justify-self: stretch;
-      justify-content: space-between;
-      gap: 8px;
+      gap: 5px;
     }
     .study-toolbar-feedback { font-size: 11px; }
-    .study-toolbar-section { white-space: normal; }
+    .study-toolbar-section { font-size: 11px; }
     .study-toc-nav { max-height: 52vh; }
   }
   @media print {
     .study-toolbar { display: none !important; }
     .study-theme-toggle { display: none !important; }
     .study-toc { display: none !important; }
+    .study-reading-key { display: none !important; }
     .skip-link { display: none !important; }
     .term-tip {
       border-bottom: none;
@@ -637,10 +632,9 @@
     html[data-theme="dark"] .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
     html[data-theme="dark"] .study-toolbar-link { color: #7ebbed; }
     html[data-theme="dark"] .study-toolbar-link:hover { color: #b8daf3; }
-    html[data-theme="dark"] .study-toolbar-title { color: #f5f1ec; }
-    html[data-theme="dark"] .study-toolbar-draft { color: #aca194; }
     html[data-theme="dark"] .study-toolbar-section.is-disabled { color: #6f655a; }
-    html[data-theme="dark"] .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    html[data-theme="dark"] .term-tip { color: inherit; border-bottom-color: #c9a66b; }
+    html[data-theme="dark"] .term-tip:hover { background: #2f2a24; }
     html[data-theme="dark"] .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
     html[data-theme="dark"] .study-toc { border-color: #423b33; }
     html[data-theme="dark"] .study-toc-summary:hover { background: #1e1b18; }
@@ -648,6 +642,9 @@
     html[data-theme="dark"] .study-toc-meta { color: #aca194; }
     html[data-theme="dark"] .study-toc-list a { color: #7ebbed; }
     html[data-theme="dark"] .study-toc-l1 > a { color: #f5f1ec; }
+    html[data-theme="dark"] .study-reading-key { color: #aca194; }
+    html[data-theme="dark"] .study-reading-key-term { color: #e6dfd6; border-bottom-color: #c9a66b; }
+    html[data-theme="dark"] .study-reading-key-link { color: #7ebbed; }
     html[data-theme="dark"] .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
     html[data-theme="dark"] .study-theme-toggle:hover { border-color: #7ebbed; }
   }
@@ -668,10 +665,9 @@
     html:not([data-theme="light"]) .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
     html:not([data-theme="light"]) .study-toolbar-link { color: #7ebbed; }
     html:not([data-theme="light"]) .study-toolbar-link:hover { color: #b8daf3; }
-    html:not([data-theme="light"]) .study-toolbar-title { color: #f5f1ec; }
-    html:not([data-theme="light"]) .study-toolbar-draft { color: #aca194; }
     html:not([data-theme="light"]) .study-toolbar-section.is-disabled { color: #6f655a; }
-    html:not([data-theme="light"]) .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    html:not([data-theme="light"]) .term-tip { color: inherit; border-bottom-color: #c9a66b; }
+    html:not([data-theme="light"]) .term-tip:hover { background: #2f2a24; }
     html:not([data-theme="light"]) .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
     html:not([data-theme="light"]) .study-toc { border-color: #423b33; }
     html:not([data-theme="light"]) .study-toc-summary:hover { background: #1e1b18; }
@@ -679,6 +675,9 @@
     html:not([data-theme="light"]) .study-toc-meta { color: #aca194; }
     html:not([data-theme="light"]) .study-toc-list a { color: #7ebbed; }
     html:not([data-theme="light"]) .study-toc-l1 > a { color: #f5f1ec; }
+    html:not([data-theme="light"]) .study-reading-key { color: #aca194; }
+    html:not([data-theme="light"]) .study-reading-key-term { color: #e6dfd6; border-bottom-color: #c9a66b; }
+    html:not([data-theme="light"]) .study-reading-key-link { color: #7ebbed; }
     html:not([data-theme="light"]) .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
     html:not([data-theme="light"]) .study-theme-toggle:hover { border-color: #7ebbed; }
   }
@@ -689,12 +688,11 @@
 <a class="skip-link" href="#main">Skip to content</a>
 <nav class="study-toolbar" aria-label="Study navigation">
   <div class="study-toolbar-row study-toolbar-row--primary">
-    <a class="study-toolbar-link study-toolbar-back" href="../index.html#study-Technical-Note-Roop-Guna-Svabhava-Dharma">&larr; All studies</a>
-    <p class="study-toolbar-title">Technical Note: Four Aspects of the Active Unit - Rūpa, Guṇa, Svabhāva, and Dharma</p>
+    <a class="study-toolbar-link study-toolbar-back" href="../index.html#study-Technical-Note-Roop-Guna-Svabhava-Dharma" aria-label="Back to all studies">&larr; Studies</a>
     <span class="study-toolbar-actions">
       <a class="study-toolbar-link study-toolbar-discuss" href="discussion.html?dv=3">Discuss</a>
-      <a class="study-toolbar-link study-toolbar-download" href="Technical-Note-Roop-Guna-Svabhava-Dharma.pdf" download>Download PDF</a>
-      <a class="study-toolbar-link study-toolbar-feedback" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&title=Study%20feedback%3A%20Technical%20Note%3A%20Four%20Aspects%20of%20the%20Active%20Unit%20-%20R%C5%ABpa%2C%20Gu%E1%B9%87a%2C%20Svabh%C4%81va%2C%20and%20Dharma">Suggest a correction</a>
+      <a class="study-toolbar-link study-toolbar-download" href="Technical-Note-Roop-Guna-Svabhava-Dharma.pdf" download aria-label="Download PDF">PDF</a>
+      <a class="study-toolbar-link study-toolbar-feedback" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&title=Study%20feedback%3A%20Technical%20Note%3A%20Four%20Aspects%20of%20the%20Active%20Unit%20-%20R%C5%ABpa%2C%20Gu%E1%B9%87a%2C%20Svabh%C4%81va%2C%20and%20Dharma" aria-label="Suggest a correction">Suggest edit</a>
       <button type="button" class="study-theme-toggle" id="study-theme-toggle" aria-label="Switch color theme">
         <span class="study-theme-toggle-label">Dark</span>
       </button>
@@ -706,11 +704,11 @@
   </div>
 </nav>
 <main id="main"><h1>Technical Note: Four Aspects of the Active Unit - Rūpa, Guṇa, Svabhāva, and Dharma</h1>
-<p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> - a group of people studying <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> philosophy.</p>
+<p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> - a group of people studying <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> philosophy.</p>
 <p><strong>Edited on:</strong> August 29, 2026, 5:38 PM IST</p>
 <p><strong>Status:</strong> Internal technical note; not a catalog entry and not part of the released text of <em>The Ontology of Coexistence</em>.</p>
-<p><strong>Scope:</strong> This note clarifies four inseparable aspects attributed to every unit (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="ikai" data-definition="A countable, bounded entity in nature — insentient (*jada*) or sentient (*chaitanya*).">ikai</button></span></em>) in <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>: form (<em>rūpa</em>), property or relative power (<em>guṇa</em>), essential nature (<em>svabhāva</em>), and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>. Its immediate question is whether <em>guṇa</em> should be understood as a static quality or as operative power, and how it differs from the other three aspects. Process-language is used as an analytical aid, not as a claim that the primary texts adopt a modern school of process philosophy.</p>
-<details class="study-toc" id="study-contents">
+<p><strong>Scope:</strong> This note clarifies four inseparable aspects attributed to every unit (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="ikai" data-definition="Unit — a bounded, countable entity in nature; units may be insentient or sentient.">ikai</button></span></em>) in Madhyasth Darshan: form (<em>rūpa</em>), property or relative power (<em>guṇa</em>), essential nature (<em>svabhāva</em>), and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span></em>. Its immediate question is whether <em>guṇa</em> should be understood as a static quality or as operative power, and how it differs from the other three aspects. Process-language is used as an analytical aid, not as a claim that the primary texts adopt a modern school of process philosophy.</p>
+<details class="study-toc study-toc--with-key" id="study-contents">
   <summary class="study-toc-summary">
     <span class="study-toc-label">Contents</span>
     <span class="study-toc-meta">11 sections &middot; 32 headings</span>
@@ -752,18 +750,23 @@
     </ol>
   </nav>
 </details>
+<p class="study-reading-key" aria-label="Reading key">
+  <span class="study-reading-key-term">Dotted underline</span>: definition
+  <span aria-hidden="true">&middot;</span>
+  <span class="study-reading-key-link">Blue underline</span>: link
+</p>
 <h2 id="1-the-question-and-central-thesis">1. The question and central thesis</h2>
 <p>The ordinary English word “property” can suggest a static predicate: an item on a list that describes what a thing is while leaving the thing itself inactive. That suggestion is misleading here. The same primary texts that define <em>guṇa</em> describe units as continuously active, identify power with motion, and present effort, motion, and result as inseparable in every activity. Yet replacing the unit with an unbounded stream of events would be equally misleading. The unit remains a definite bearer with configuration, constitution, and continuity.</p>
-<p>The four terms also appear to overlap. If <em>guṇa</em> is the unit&rsquo;s power, why is <em>svabhāva</em> separately fundamental? If <em>svabhāva</em> is essential nature, what further work remains for <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>? If all four are dynamic, what distinguishes <em>rūpa</em> from the effects of activity?</p>
+<p>The four terms also appear to overlap. If <em>guṇa</em> is the unit&rsquo;s power, why is <em>svabhāva</em> separately fundamental? If <em>svabhāva</em> is essential nature, what further work remains for <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span></em>? If all four are dynamic, what distinguishes <em>rūpa</em> from the effects of activity?</p>
 <p>The central thesis of this note is:</p>
 <blockquote>
-<p>Every <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="ikai" data-definition="A countable, bounded entity in nature — insentient (*jada*) or sentient (*chaitanya*).">ikai</button></span></em> is a bounded, active bearer. <em>Rūpa</em> names its determinate configuration; <em>guṇa</em> its relative power in operation; <em>svabhāva</em> the order-specific characteristic conduct through which that power acquires functional significance; and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> the order-specific innateness the unit bears. These are four co-present aspects of one unit, not four components or successive stages.</p>
+<p>Every <em>ikai</em> is a bounded, active bearer. <em>Rūpa</em> names its determinate configuration; <em>guṇa</em> its relative power in operation; <em>svabhāva</em> the order-specific characteristic conduct through which that power acquires functional significance; and <em>dharma</em> the order-specific innateness the unit bears. These are four co-present aspects of one unit, not four components or successive stages.</p>
 </blockquote>
-<p>All four are grounded in the unit, but they become evident differently. <em>Rūpa</em> is relationally encountered, <em>guṇa</em> relationally actualised, <em>svabhāva</em> relationally disclosed as characteristic conduct, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> evidenced through the unit&rsquo;s order-specific continuity and fulfilment. Relation reveals or actualises these aspects; it does not arbitrarily create them.</p>
+<p>All four are grounded in the unit, but they become evident differently. <em>Rūpa</em> is relationally encountered, <em>guṇa</em> relationally actualised, <em>svabhāva</em> relationally disclosed as characteristic conduct, and <em>dharma</em> evidenced through the unit&rsquo;s order-specific continuity and fulfilment. Relation reveals or actualises these aspects; it does not arbitrarily create them.</p>
 <h2 id="2-textual-basis-and-interpretive-status">2. Textual basis and interpretive status</h2>
 <h3 id="21-the-unit-as-an-active-bearer" data-depth="2">2.1 The unit as an active bearer</h3>
-<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> treats a unit as both state and motion. Force (<em>bal</em>) is identified on the side of state and power (<em>śakti</em>) on the side of motion, while state and motion remain inseparable. Every activity is correspondingly presented as the inseparable presence of effort, motion, and result (<em>śram-gati-pariṇām</em>). These are not three chronological moments. They distinguish the active tendency present, its motion, and the determinate condition attained or maintained within one activity (SB, pp. 58-62, 248-252).</p>
-<p>One passage relates that triad directly to the four aspects: effort or force is present as <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> and <em>svabhāva</em>; motion as <em>svabhāva</em> and <em>guṇa</em>; and result as <em>rūpa</em> and immortality (<em>amaratva</em>). The crossing of <em>svabhāva</em> between effort and motion prevents a one-to-one derivation. Nor does the reference to immortality mean that every current shape is indestructible; it belongs to the account of constitutional completeness. The passage nevertheless rules out a static bundle-of-attributes reading. Form belongs with determinate result, property with power in motion, essential nature with characteristic conduct across effort and motion, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> with what the unit innately bears (SB, pp. 60-62).</p>
+<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> treats a unit as both state and motion. Force (<em>bal</em>) is identified on the side of state and power (<em>śakti</em>) on the side of motion, while state and motion remain inseparable. Every activity is correspondingly presented as the inseparable presence of effort, motion, and result (<em>śram-gati-pariṇām</em>). These are not three chronological moments. They distinguish the active tendency present, its motion, and the determinate condition attained or maintained within one activity (SB, pp. 58-62, 248-252).</p>
+<p>One passage relates that triad directly to the four aspects: effort or force is present as <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span></em> and <em>svabhāva</em>; motion as <em>svabhāva</em> and <em>guṇa</em>; and result as <em>rūpa</em> and immortality (<em>amaratva</em>). The crossing of <em>svabhāva</em> between effort and motion prevents a one-to-one derivation. Nor does the reference to immortality mean that every current shape is indestructible; it belongs to the account of constitutional completeness. The passage nevertheless rules out a static bundle-of-attributes reading. Form belongs with determinate result, property with power in motion, essential nature with characteristic conduct across effort and motion, and <em>dharma</em> with what the unit innately bears (SB, pp. 60-62).</p>
 <p>The phrase <strong>bounded, active bearer</strong> is an analytical synthesis of these claims. “Bounded” preserves the unit as one identifiable entity; “active” preserves the inseparability of state and motion; “bearer” preserves the distinction between the unit as <em>guṇī</em> and its relative power as <em>guṇa</em>.</p>
 <h3 id="22-claim-to-source-audit" data-depth="2">2.2 Claim-to-source audit</h3>
 <p>The following audit distinguishes direct textual definitions from the reconstruction developed in this note.</p>
@@ -867,7 +870,7 @@
 <p>At the material level the distinction can appear thin because generative and degenerative power closely track integration and disintegration. It becomes clearer in higher orders. A generative effect alone does not tell whether a biological composition nourishes or debilitates, whether animal conduct causes or avoids suffering, or whether human conduct manifests humane or inhumane essential nature. Those are order-specific determinations of what the operation means as conduct.</p>
 <p>The texts identify conduct as the activity through which essentiality is expressed and also identify conduct with <em>svabhāva</em> (MVD, p. 77). Essential nature is thus unit-grounded as fundamental character but disclosed in definite conduct. Recognition does not invent it; relation is where it becomes evident.</p>
 <h3 id="34-dharma-order-specific-innateness" data-depth="2">3.4 <em>Dharma</em>: order-specific innateness</h3>
-<p>The definition <em>dhāraṇā hi <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> presents <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> as what is innately borne or maintained. In this technical use it does not initially mean a religious affiliation, statutory command, or externally imposed moral duty. Nor is it merely the long-term effect of <em>guṇa</em>. It names the innateness of the unit according to its order (MVD, p. 47; SB, pp. 60-61).</p>
+<p>The definition <em>dhāraṇā hi <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span></em> presents <em>dharma</em> as what is innately borne or maintained. In this technical use it does not initially mean a religious affiliation, statutory command, or externally imposed moral duty. Nor is it merely the long-term effect of <em>guṇa</em>. It names the innateness of the unit according to its order (MVD, p. 47; SB, pp. 60-61).</p>
 <p>The order-wise <em>dharmas</em> are cumulative:</p>
 <div class="table-scroll"><table>
 <thead>
@@ -895,8 +898,8 @@
 </tr>
 </tbody>
 </table></div>
-<p>A higher order does not lose what is borne in the lower. A pranic unit remains existent while evidencing growth; an animal joint form evidences both and additionally the hope to live; the knowledge order bears the further requirement and possibility of happiness. The table must be read with the body and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> distinction: existence and growth are evident in the body, whereas hope to live belongs to <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>; in the human, happiness must be realised in <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> for knowledge-order <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> to be fulfilled (MVD, pp. 50-51, 115; SB, pp. 179-180).</p>
-<p>Conduct can accord with this innateness or fail to evidence it fully. In the knowledge order, happiness is the further <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> and resolution is its evidence in understanding and conduct. That human evaluative use should not be projected backwards as a second generic definition of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> for all units.</p>
+<p>A higher order does not lose what is borne in the lower. A pranic unit remains existent while evidencing growth; an animal joint form evidences both and additionally the hope to live; the knowledge order bears the further requirement and possibility of happiness. The table must be read with the body and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> distinction: existence and growth are evident in the body, whereas hope to live belongs to <em>jeevan</em>; in the human, happiness must be realised in <em>jeevan</em> for knowledge-order <em>dharma</em> to be fulfilled (MVD, pp. 50-51, 115; SB, pp. 179-180).</p>
+<p>Conduct can accord with this innateness or fail to evidence it fully. In the knowledge order, happiness is the further <em>dharma</em> and resolution is its evidence in understanding and conduct. That human evaluative use should not be projected backwards as a second generic definition of <em>dharma</em> for all units.</p>
 <h2 id="4-how-the-four-aspects-relate">4. How the four aspects relate</h2>
 <p>The four aspects answer irreducible questions about one active bearer. The distinctions can be stated once in a common frame:</p>
 <div class="table-scroll"><table>
@@ -940,48 +943,48 @@
 </tr>
 </tbody>
 </table></div>
-<p>This is not a causal ladder. <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">Dharma</button></span></em> does not first produce <em>svabhāva</em>, which then produces <em>guṇa</em>, which finally produces <em>rūpa</em>. The effort-motion-result mapping shows overlap and simultaneity: <em>svabhāva</em> crosses effort and motion, and the other aspects qualify the same ongoing unit from different standpoints.</p>
+<p>This is not a causal ladder. <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">Dharma</button></span></em> does not first produce <em>svabhāva</em>, which then produces <em>guṇa</em>, which finally produces <em>rūpa</em>. The effort-motion-result mapping shows overlap and simultaneity: <em>svabhāva</em> crosses effort and motion, and the other aspects qualify the same ongoing unit from different standpoints.</p>
 <p>Nor is the distinction one between intrinsic and relational aspects in a simple binary sense. All four belong to the unit. Their manifestations differ. Form can be present without being reflected to this observer; power can be borne without every possible effect being actual; characteristic conduct requires a definite situation in which it is displayed; innateness is evidenced through continuity and fulfilment. Relational manifestation does not entail relational construction.</p>
 <h2 id="5-worked-examples-across-the-four-orders">5. Worked examples across the four orders</h2>
 <p>The order-wise cases test whether the distinction remains intelligible outside a purely abstract definition. They are illustrations of the framework, not claims that the cited texts provide these exact four-paragraph analyses.</p>
 <h3 id="51-a-material-compound" data-depth="2">5.1 A material compound</h3>
-<p>A material compound treated as one bounded unit has a determinate shape, volume, density, constitution, and boundary: this is its <em>rūpa</em>. Its powers operate in definite mutualities, producing generative, degenerative, or mediative effects: this is its <em>guṇa</em>. The integration, disintegration, or continuity displayed through those operations is its material-order <em>svabhāva</em>. Its <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> is existence.</p>
+<p>A material compound treated as one bounded unit has a determinate shape, volume, density, constitution, and boundary: this is its <em>rūpa</em>. Its powers operate in definite mutualities, producing generative, degenerative, or mediative effects: this is its <em>guṇa</em>. The integration, disintegration, or continuity displayed through those operations is its material-order <em>svabhāva</em>. Its <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span></em> is existence.</p>
 <p>The example shows why the four cannot be collapsed. The same compound may participate in different effects without acquiring a new essential nature on each occasion. Its present shape is not identical with any one effect, while the fact that it exists is not a summary of its present integration or disintegration.</p>
 <h3 id="52-a-pranic-unit" data-depth="2">5.2 A pranic unit</h3>
-<p>A plant or living cell has a bounded pranic configuration as <em>rūpa</em>. Its active powers participate in formation, decline, and regulation as <em>guṇa</em>. The order-specific significance of those powers appears as vitalising or devitalising conduct, its <em>svabhāva</em>. It bears existence and growth as <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>.</p>
+<p>A plant or living cell has a bounded pranic configuration as <em>rūpa</em>. Its active powers participate in formation, decline, and regulation as <em>guṇa</em>. The order-specific significance of those powers appears as vitalising or devitalising conduct, its <em>svabhāva</em>. It bears existence and growth as <em>dharma</em>.</p>
 <p>“Useful” in this case does not mean useful to a gardener or observer. It asks what the operation amounts to within pranic order: whether it nourishes and sustains vital organisation or contributes to its debilitation. The same generic power-mode therefore does not exhaust the order-specific description.</p>
 <h3 id="53-an-animal-joint-form" data-depth="2">5.3 An animal joint form</h3>
-<p>An animal is a joint form of body and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, not merely a more complicated material compound. Its bodily configuration supplies the visible <em>rūpa</em> of the joint form. Its operative capacities in sensing, selection, movement, and interaction are expressions of <em>guṇa</em>. Their animal-order character appears as cruel or uncruel conduct, <em>svabhāva</em>. The animal bears existence and growth through the body and hope to live through <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> as <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>.</p>
+<p>An animal is a joint form of body and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>, not merely a more complicated material compound. Its bodily configuration supplies the visible <em>rūpa</em> of the joint form. Its operative capacities in sensing, selection, movement, and interaction are expressions of <em>guṇa</em>. Their animal-order character appears as cruel or uncruel conduct, <em>svabhāva</em>. The animal bears existence and growth through the body and hope to live through <em>jeevan</em> as <em>dharma</em>.</p>
 <p>This example also shows why evaluation cannot be reduced to causal effect. An action can be causally effective while its characteristic significance differs as opposition, protection, cruelty, or non-cruelty. <em>Guṇa</em> concerns efficacy; <em>svabhāva</em> concerns what kind of animal conduct that efficacy expresses.</p>
 <h3 id="54-a-human-in-relationship" data-depth="2">5.4 A human in relationship</h3>
-<p>A human being is likewise a body-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> joint form with determinate bodily <em>rūpa</em>. Power is evident through speech, bodily action, imagination, selection, and influence in relationship as <em>guṇa</em>. The character of that conduct discloses humane or inhumane <em>svabhāva</em>. The human bears existence, growth, hope to live, and happiness as <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>.</p>
-<p>Relationship makes the distinctions especially clear. Effective influence alone does not establish right conduct: manipulation can have powerful effects. Humane <em>svabhāva</em> concerns the character expressed through the operation, while happiness and resolution evidence the fulfilment of knowledge-order <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>. Usefulness is therefore not whatever sustains an existing relationship. It is order-specific functional significance under the requirements of humane conduct and mutual fulfilment.</p>
+<p>A human being is likewise a body-<em>jeevan</em> joint form with determinate bodily <em>rūpa</em>. Power is evident through speech, bodily action, imagination, selection, and influence in relationship as <em>guṇa</em>. The character of that conduct discloses humane or inhumane <em>svabhāva</em>. The human bears existence, growth, hope to live, and happiness as <em>dharma</em>.</p>
+<p>Relationship makes the distinctions especially clear. Effective influence alone does not establish right conduct: manipulation can have powerful effects. Humane <em>svabhāva</em> concerns the character expressed through the operation, while happiness and resolution evidence the fulfilment of knowledge-order <em>dharma</em>. Usefulness is therefore not whatever sustains an existing relationship. It is order-specific functional significance under the requirements of humane conduct and mutual fulfilment.</p>
 <h2 id="6-constituents-and-containing-units">6. Constituents and containing units</h2>
 <p>Composition raises a boundary question: when several units meet, do they remain interacting units, or does a further bounded bearer appear? <em>Guṇa</em>-effect alone does not answer this question. Collision, proximity, and mixture can produce definite mutual effects without forming a new unit.</p>
 <p>Mixture (<em>mishran</em>) and compound (<em>yaugik</em>) are distinguished by conduct. In a mixture the participating units retain their respective public conducts. In a compound they combine in definite proportion and exhibit a new kind of conduct as a whole (MVD, p. 42). The constituents nevertheless remain of their order; a further composition does not convert them into a different basic entity (SB, p. 260). Composition must also be distinguished from atomic development toward constitutional completeness (SB, pp. 75-76).</p>
 <p>The four questions can therefore be asked at two levels when a further bounded unit is established. Each constituent retains its own configuration, powers, essential nature, and order-specific innateness. The containing compound has a further bounded configuration, a public efficacy as one whole, a characteristic new conduct, and the innateness of that organisation. Calling these “two tetrads” is an analytical convenience, not terminology used by the primary texts.</p>
-<p>This reconstruction should not be extended mechanically. A biological body is a further pranic organisation, but animal and human sentience belongs to <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> joined with the body, not to a sum of cells. A family or social assembly is not a physicochemical compound merely because it has continuity and organisation. The unresolved criterion is what degree of boundary, definite proportion, and new public conduct is sufficient to establish a further unit rather than an organised relationship among units.</p>
+<p>This reconstruction should not be extended mechanically. A biological body is a further pranic organisation, but animal and human sentience belongs to <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> joined with the body, not to a sum of cells. A family or social assembly is not a physicochemical compound merely because it has continuity and organisation. The unresolved criterion is what degree of boundary, definite proportion, and new public conduct is sufficient to establish a further unit rather than an organised relationship among units.</p>
 <h2 id="7-in-what-sense-the-interpretation-is-process-compatible">7. In what sense the interpretation is process-compatible</h2>
 <p>The four-aspect account is process-compatible if “process” means persistent organised activity. It is not process-compatible if process means a momentary event without a bearer or if every aspect is reduced to current external relations.</p>
-<p>First, the unit remains identifiable while active. Configuration, constitution, and boundary prevent activity from becoming an unowned flow. Second, the aspects are co-present rather than chronological stages. Effort, motion, and result are joint aspects of activity, and the four ontological terms cross that triad rather than forming a sequence. Third, relational manifestation must not be confused with observer-construction. Relation is where form is encountered, power actualised, essential nature disclosed, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> evidenced; it does not invent the unit. Fourth, process-language must preserve the distinction between bearer and power. <em>Guṇī</em> is not dissolved into <em>guṇa</em>.</p>
-<p>A mathematical state-dynamic reconstruction can explore these commitments, but it is not required to define the terms. Treating <em>rūpa</em> as a state variable, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> as a potential, and <em>guṇa-svabhāva</em> as a family of motion maps adds assumptions about state spaces, potentials, and laws of change that the primary definitions do not supply. Those proposals belong in a formal study where their explanatory value and limits can be assessed independently (<em>A State-Dynamic Model of Coexistence</em>, §§2-5).</p>
+<p>First, the unit remains identifiable while active. Configuration, constitution, and boundary prevent activity from becoming an unowned flow. Second, the aspects are co-present rather than chronological stages. Effort, motion, and result are joint aspects of activity, and the four ontological terms cross that triad rather than forming a sequence. Third, relational manifestation must not be confused with observer-construction. Relation is where form is encountered, power actualised, essential nature disclosed, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span></em> evidenced; it does not invent the unit. Fourth, process-language must preserve the distinction between bearer and power. <em>Guṇī</em> is not dissolved into <em>guṇa</em>.</p>
+<p>A mathematical state-dynamic reconstruction can explore these commitments, but it is not required to define the terms. Treating <em>rūpa</em> as a state variable, <em>dharma</em> as a potential, and <em>guṇa-svabhāva</em> as a family of motion maps adds assumptions about state spaces, potentials, and laws of change that the primary definitions do not supply. Those proposals belong in a formal study where their explanatory value and limits can be assessed independently (<em>A State-Dynamic Model of Coexistence</em>, §§2-5).</p>
 <p>The more modest conclusion is sufficient here: <em>guṇa</em> should be read dynamically as relative power in operation, while the unit should be understood as an activity-whole rather than as nothing but a process.</p>
 <h2 id="8-limits-and-open-questions">8. Limits and open questions</h2>
 <h3 id="81-one-conduct-or-a-range-of-conducts" data-depth="2">8.1 One conduct or a range of conducts</h3>
 <p>The order-wise lists do not by themselves decide whether <em>svabhāva</em> names one conduct presently expressed, a stable disposition, or a structured range of possible characteristic conducts. The distinction matters most in the animal and knowledge orders, where opposite or developmental expressions are described. The safe claim is that <em>svabhāva</em> identifies order-specific characteristic conduct; a complete modal theory of which conducts are possible in which states remains to be developed.</p>
 <h3 id="82-the-boundary-of-a-containing-unit" data-depth="2">8.2 The boundary of a containing unit</h3>
-<p>The mixture-compound distinction establishes that new public conduct matters, but it does not yet provide a general criterion covering molecule, cell, organism, body-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> joint form, family, and society. “Two tetrads” should remain a proposed diagnostic: ask whether a new bounded bearer exists before assigning the four aspects at the containing level.</p>
+<p>The mixture-compound distinction establishes that new public conduct matters, but it does not yet provide a general criterion covering molecule, cell, organism, body-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> joint form, family, and society. “Two tetrads” should remain a proposed diagnostic: ask whether a new bounded bearer exists before assigning the four aspects at the containing level.</p>
 <h3 id="83-two-uses-of-dharma" data-depth="2">8.3 Two uses of <em>dharma</em></h3>
-<p>Unit-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> names <em>dhāraṇā</em>, the innateness borne in every order. In human analysis, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span>-adharma</em> also names an evaluative perspective in thought, and resolved thought evidences human <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> as happiness. These uses are related but not interchangeable. The first is ontological and order-wide; the second appears where the knowledge-order unit has option and must understand orderliness. A fuller account belongs with the theory of <em>nyāya</em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satya" data-definition="Realisation perspective — whether assessment is grounded in coexistence as it is.">satya</button></span></em>, rather than inside the definition of the four aspects (MVD, pp. 67, 137, 174; JV, p. 120).</p>
+<p>Unit-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span></em> names <em>dhāraṇā</em>, the innateness borne in every order. In human analysis, <em>dharma-adharma</em> also names an evaluative perspective in thought, and resolved thought evidences human <em>dharma</em> as happiness. These uses are related but not interchangeable. The first is ontological and order-wide; the second appears where the knowledge-order unit has option and must understand orderliness. A fuller account belongs with the theory of <em>nyāya</em>, <em>dharma</em>, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satya" data-definition="Truth — that which is uniformly perceivable, existent, and realisable at all times; it includes absolute, relative, and objective truth in existence.">satya</button></span></em>, rather than inside the definition of the four aspects (MVD, pp. 67, 137, 174; JV, p. 120).</p>
 <h3 id="84-the-limits-of-formalisation" data-depth="2">8.4 The limits of formalisation</h3>
-<p>No equation follows directly from the four definitions. A formal model must specify what counts as state, neighbourhood, power, characteristic conduct, and order-specific continuity, and must show that the model does not treat <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> as a global physical potential or <em>svabhāva</em> as a superposition of every possible conduct. Formalisation is valuable only if these added commitments remain visible as reconstruction.</p>
+<p>No equation follows directly from the four definitions. A formal model must specify what counts as state, neighbourhood, power, characteristic conduct, and order-specific continuity, and must show that the model does not treat <em>dharma</em> as a global physical potential or <em>svabhāva</em> as a superposition of every possible conduct. Formalisation is valuable only if these added commitments remain visible as reconstruction.</p>
 <h3 id="85-textual-questions" data-depth="2">8.5 Textual questions</h3>
 <p>The primary-text passages used here support the principal distinctions, but several interpretive questions remain. The sense of “usefulness” needs comparison across Hindi editions and translations; the relation between essentiality and conduct requires closer comparison of MVD p. 47 and p. 77; and the effort-motion-result mapping should be checked against the full context of constitutional completeness. These are priorities for a subsequent source-language audit.</p>
 <h2 id="9-conclusion">9. Conclusion</h2>
-<p>The four aspects do not describe four layers added to a passive thing. They distinguish four questions about one bounded active bearer. <em>Rūpa</em> is the unit as configured; <em>guṇa</em> is its relative power in operation; <em>svabhāva</em> is the order-specific character and functional significance of that operation; and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> is the innateness the unit bears. Form is not an absolute effect, property is not a static quality, essential nature is not merely a classification of property, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> is not a temporary result or externally assigned purpose.</p>
+<p>The four aspects do not describe four layers added to a passive thing. They distinguish four questions about one bounded active bearer. <em>Rūpa</em> is the unit as configured; <em>guṇa</em> is its relative power in operation; <em>svabhāva</em> is the order-specific character and functional significance of that operation; and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span></em> is the innateness the unit bears. Form is not an absolute effect, property is not a static quality, essential nature is not merely a classification of property, and <em>dharma</em> is not a temporary result or externally assigned purpose.</p>
 <p>This formulation permits a process-oriented understanding without dissolving the unit:</p>
 <blockquote>
-<p>A unit is a bounded activity-whole whose configuration is <em>rūpa</em>, whose relative causal efficacy is <em>guṇa</em>, whose characteristic order-specific conduct is <em>svabhāva</em>, and whose order-specific innateness is <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>.</p>
+<p>A unit is a bounded activity-whole whose configuration is <em>rūpa</em>, whose relative causal efficacy is <em>guṇa</em>, whose characteristic order-specific conduct is <em>svabhāva</em>, and whose order-specific innateness is <em>dharma</em>.</p>
 </blockquote>
 <h2 id="editorial-notes">Editorial Notes</h2>
 <h3 id="translation-of-guṇa">Translation of <em>guṇa</em></h3>
@@ -991,19 +994,19 @@
 <h3 id="analytical-vocabulary">Analytical vocabulary</h3>
 <p>“Bounded, active bearer,” “unit-grounded,” “relationally actualised,” and “two tetrads” are reconstructions used to organise textual claims. They are not presented as translations of primary-text terms.</p>
 <h3 id="material-removed-from-the-core-argument">Material removed from the core argument</h3>
-<p>The earlier version developed a mathematical process-picture using a state variable, an order-typed potential, and a family of motion maps. It also extended the model into a theory of <em>nyāya</em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satya" data-definition="Realisation perspective — whether assessment is grounded in coexistence as it is.">satya</button></span></em> as universal truths followed by default in <em>jada</em> and through understanding in the human. Both extensions introduce independent claims and have been removed from the core exposition. The formal questions are routed to <em>A State-Dynamic Model of Coexistence</em>; the universal-truth thesis remains an open subject for a separate technical note.</p>
+<p>The earlier version developed a mathematical process-picture using a state variable, an order-typed potential, and a family of motion maps. It also extended the model into a theory of <em>nyāya</em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span></em>, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satya" data-definition="Truth — that which is uniformly perceivable, existent, and realisable at all times; it includes absolute, relative, and objective truth in existence.">satya</button></span></em> as universal truths followed by default in <em>jada</em> and through understanding in the human. Both extensions introduce independent claims and have been removed from the core exposition. The formal questions are routed to <em>A State-Dynamic Model of Coexistence</em>; the universal-truth thesis remains an open subject for a separate technical note.</p>
 <h2 id="references">References</h2>
 <h3 id="madhyasth-darshan-primary-texts">Madhyasth Darshan primary texts</h3>
 <ul>
-<li><strong>MVD</strong> - Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan - Co-existentialism</em></a>. English translation by Rakesh Gupta. Cited: mediative regulation (p. 26; §3.2); atomic constitution, mixture, and compound (p. 42; §§2.2, 3.1, 6); definitions of the four aspects (p. 47; §§2.2, 3); form and the <em>sam-viṣam-madhyastha</em> distinction (pp. 50-51; §§2.2, 3.1-3.4); inhumane essential nature (p. 58; §3.3); humane and inhumane perspectives (p. 67; §8.3); conduct as expression of essentiality (p. 77; §§2.2, 3.3, 8.5); order-specific <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> (p. 115; §§2.2, 3.4); behaviour, thought, and realisation (p. 137; §8.3); the sequence from knowledge through law to justice, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, and truth (p. 174; §8.3).</li>
-<li><strong>SB</strong> - Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf"><em>Samadhanatmak Bhautikvad</em> (<em>Resolution Centred Materialism</em>)</a>. English translation by Rakesh Gupta. Cited: effort-motion-result and state-motion (pp. 58-62; §§2.1, 3.4, 4, 7, 8.5); composition is not development (pp. 75-76; §§2.2, 6); order-specific <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> and the body-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> distinction (pp. 179-180; §§2.2, 3.3-3.4); force, power, form, reflection, influence, recognition, and evaluation (pp. 248-252; §§2.1-2.2, 3.1-3.2); bearer and property (pp. 256-257; §§2.2, 3.2); order of constituents in a composition (p. 260; §§2.2, 6).</li>
-<li><strong>JV</strong> - Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf"><em>Jeevan Vidya: An Introduction</em></a>. English translation by Rakesh Gupta. Cited: peepal-tree illustration of the four aspects and definite conduct in the first three orders (p. 113; §5); justice on the basis of relationships, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> on the basis of orderliness, and truth on the basis of existence (p. 120; §8.3).</li>
+<li><strong>MVD</strong> - Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan - Co-existentialism</em></a>. English translation by Rakesh Gupta. Cited: mediative regulation (p. 26; §3.2); atomic constitution, mixture, and compound (p. 42; §§2.2, 3.1, 6); definitions of the four aspects (p. 47; §§2.2, 3); form and the <em>sam-viṣam-madhyastha</em> distinction (pp. 50-51; §§2.2, 3.1-3.4); inhumane essential nature (p. 58; §3.3); humane and inhumane perspectives (p. 67; §8.3); conduct as expression of essentiality (p. 77; §§2.2, 3.3, 8.5); order-specific <em>dharma</em> (p. 115; §§2.2, 3.4); behaviour, thought, and realisation (p. 137; §8.3); the sequence from knowledge through law to justice, <em>dharma</em>, and truth (p. 174; §8.3).</li>
+<li><strong>SB</strong> - Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf"><em>Samadhanatmak Bhautikvad</em> (<em>Resolution Centred Materialism</em>)</a>. English translation by Rakesh Gupta. Cited: effort-motion-result and state-motion (pp. 58-62; §§2.1, 3.4, 4, 7, 8.5); composition is not development (pp. 75-76; §§2.2, 6); order-specific <em>dharma</em> and the body-<em>jeevan</em> distinction (pp. 179-180; §§2.2, 3.3-3.4); force, power, form, reflection, influence, recognition, and evaluation (pp. 248-252; §§2.1-2.2, 3.1-3.2); bearer and property (pp. 256-257; §§2.2, 3.2); order of constituents in a composition (p. 260; §§2.2, 6).</li>
+<li><strong>JV</strong> - Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf"><em>Jeevan Vidya: An Introduction</em></a>. English translation by Rakesh Gupta. Cited: peepal-tree illustration of the four aspects and definite conduct in the first three orders (p. 113; §5); justice on the basis of relationships, <em>dharma</em> on the basis of orderliness, and truth on the basis of existence (p. 120; §8.3).</li>
 </ul>
 <h3 id="related-studies">Related studies</h3>
 <ul>
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html"><em>The Ontology of Coexistence</em></a>, especially §1.3 on definite insentient mutuality and §1.10 on composition and assemblies.</li>
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html"><em>From Unit Activity to Human Orderliness</em></a>, especially §§2–5 on effort–motion–result, the four aspects, and compositional closure, and §8.3 and §11.1 on evaluation and justice as mutual satisfaction.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html"><em>The Epistemology of Coexistence</em></a>, especially §1.4 on the six perspectives and on <em>niyam-niyantran-santulan</em> with <em>nyāya-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span>-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satya" data-definition="Realisation perspective — whether assessment is grounded in coexistence as it is.">satya</button></span></em>.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html"><em>The Epistemology of Coexistence</em></a>, especially §1.4 on the six perspectives and on <em>niyam-niyantran-santulan</em> with <em>nyāya-dharma-satya</em>.</li>
 </ul></main>
 <script>
 (() => {
@@ -1114,14 +1117,23 @@
     floatPanel.hidden = true;
     document.body.appendChild(floatPanel);
   }
+  let activeButton = null;
+  let pinnedButton = null;
 
   const hide = () => {
+    if (activeButton) activeButton.setAttribute("aria-expanded", "false");
+    activeButton = null;
     floatPanel.classList.remove("is-visible");
     floatPanel.hidden = true;
     floatPanel.textContent = "";
   };
 
   const show = (button, text) => {
+    if (activeButton && activeButton !== button) {
+      activeButton.setAttribute("aria-expanded", "false");
+    }
+    activeButton = button;
+    button.setAttribute("aria-expanded", "true");
     floatPanel.textContent = text;
     floatPanel.hidden = false;
     floatPanel.classList.add("is-visible");
@@ -1140,21 +1152,41 @@
     const definition = button.getAttribute("data-definition");
     if (!definition) return;
     button.setAttribute("aria-describedby", "term-tip-float");
+    button.setAttribute("aria-expanded", "false");
     const reveal = () => show(button, definition);
-    button.addEventListener("mouseenter", reveal);
-    button.addEventListener("focus", reveal);
-    button.addEventListener("mouseleave", hide);
-    button.addEventListener("blur", hide);
+    button.addEventListener("mouseenter", () => {
+      if (!pinnedButton) reveal();
+    });
+    button.addEventListener("focus", () => {
+      if (!pinnedButton || pinnedButton === button) reveal();
+    });
+    button.addEventListener("mouseleave", () => {
+      if (!pinnedButton) hide();
+    });
+    button.addEventListener("blur", () => {
+      if (!pinnedButton) hide();
+    });
     button.addEventListener("click", event => {
       event.stopPropagation();
-      if (floatPanel.hidden) reveal();
-      else hide();
+      if (pinnedButton === button) {
+        pinnedButton = null;
+        hide();
+      } else {
+        pinnedButton = button;
+        reveal();
+      }
     });
   });
 
-  document.addEventListener("click", hide);
+  document.addEventListener("click", () => {
+    pinnedButton = null;
+    hide();
+  });
   document.addEventListener("keydown", event => {
-    if (event.key === "Escape") hide();
+    if (event.key === "Escape") {
+      pinnedButton = null;
+      hide();
+    }
   });
 })();
 </script>

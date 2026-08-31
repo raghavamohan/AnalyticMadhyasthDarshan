@@ -3,218 +3,218 @@
     {
       "id": "jeevan",
       "match": ["jeevan", "Jeevan"],
-      "display": "jeevan",
-      "definition": "The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone."
+      "display": "jeevan (sentient unit)",
+      "definition": "Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences."
     },
     {
       "id": "satta",
       "match": ["satta", "Satta"],
-      "display": "satta",
-      "definition": "Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated."
+      "display": "satta (Omnipotence)",
+      "definition": "Omnipotence — the eternally present, omnipresent reality: formless, motionless absolute energy in which every unit is saturated and through which regulation is manifest."
     },
     {
       "id": "kaal",
       "match": ["kaal", "Kaal"],
-      "display": "kaal",
-      "definition": "In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container."
+      "display": "kaal (time)",
+      "definition": "Time — duration of an activity."
     },
     {
       "id": "sanskar",
       "match": ["sanskar", "Sanskar"],
       "display": "sanskar",
-      "definition": "Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order."
+      "definition": "Sanskar — accepted qualitative establishments; in education–sanskar, the establishment and transmission of understanding through human tradition."
     },
     {
       "id": "saha-astitva",
-      "match": ["saha-astitva"],
-      "display": "saha-astitva (coexistence)",
-      "definition": "Reality as the pervasive ground (*satta*) and all units (*ikai*) inseparably present together — beginningless, without creation from nothing."
+      "match": ["saha-astitva", "sah-astitva"],
+      "display": "sah-astitva (coexistence)",
+      "definition": "Coexistence — sentient and insentient nature saturated in Omnipotence, with mutuality expressed as conflict-free harmony, complementarity, development, and evolution."
     },
     {
       "id": "ikai",
       "match": ["ikai", "Ikai"],
-      "display": "ikai",
-      "definition": "A countable, bounded entity in nature — insentient (*jada*) or sentient (*chaitanya*)."
+      "display": "ikai (unit)",
+      "definition": "Unit — a bounded, countable entity in nature; units may be insentient or sentient."
     },
     {
       "id": "astitva",
       "match": ["astitva", "Astitva"],
-      "display": "astitva",
-      "definition": "Existence as coexistence of formless *satta* and active units — beginningless and endless."
+      "display": "astitva (existence)",
+      "definition": "Existence — infinite sentient and insentient units saturated in Omnipotence: what is, present through development, awakening, and orderliness."
     },
     {
       "id": "kriya",
       "match": ["kriya", "Kriya"],
-      "display": "kriya",
-      "definition": "Unit-activity; the basis of change and, in sentient nature, of duration (*kaal*)."
+      "display": "kriya (activity)",
+      "definition": "Activity — the inseparable presence of effort, motion, and result; the combined presence of state and motion."
     },
     {
       "id": "samprikt",
       "match": ["samprikt"],
-      "display": "samprikt (saturation)",
-      "definition": "The ever-present bond in which each unit is soaked in Omnipresence; inherent energy and regulation belong in the unit."
+      "display": "samprikt (saturated)",
+      "definition": "Saturated — immersed, encompassed, and imbued in Omnipotence."
     },
     {
       "id": "gathanpurnata",
-      "match": ["gathanpurnata", "gathanpurnata"],
-      "display": "gathanpurnata",
-      "definition": "Constitutional completeness — when a developed atom integrates required particles and crosses irreversibly into sentient *jeevan*."
+      "match": ["gathanpurnata", "gathan-purnata", "gathan poornata"],
+      "display": "gathan-purnata (constitutional completeness)",
+      "definition": "Constitutional completeness — the stage at which an atom completes its constitution and becomes a jeevan-atom."
     },
     {
       "id": "gyan",
       "match": ["gyan", "Gyan"],
-      "display": "gyan",
-      "definition": "Knowledge in several distinct senses in the texts — ontological given, intelligibility-ground, telos of fulfilled relationships, and unfolding through awakened *jeevan*."
+      "display": "gyan (knowledge)",
+      "definition": "Knowledge — realised understanding of coexistence, jeevan, humane conduct, and participation in overall orderliness."
     },
     {
       "id": "gyan-udghatan",
       "match": ["gyan udghatan", "gyan-udghatan"],
-      "display": "gyan udghatan",
-      "definition": "Unfolding of knowledge in thought and conduct — an activity exclusive to awakened *jeevan*, not Omnipresence or insentient matter."
+      "display": "gyan udghatan (unfolding of knowledge)",
+      "definition": "Unfolding of knowledge — realisation in coexistence becoming expressible as wisdom and science through awakened jeevan."
     },
     {
       "id": "anubhav-jnan",
       "match": ["anubhav jnan", "Realisation Knowledge"],
-      "display": "anubhav jnan",
-      "definition": "Realisation Knowledge — the ontological given in saturated units: form, properties, essential nature, *dharma*, and orderliness."
+      "display": "anubhav jnan (Realisation Knowledge)",
+      "definition": "Realisation Knowledge — sentient and insentient nature, and its infinite units, saturated in Omnipotence; each unit bears form, properties, essential nature, dharma, and orderliness."
     },
     {
       "id": "pramanikta",
       "match": ["pramanikta", "Pramanikta"],
-      "display": "pramanikta",
-      "definition": "Authentic conduct as living proof that understanding has taken hold — the outward test of complete knowing."
+      "display": "pramanikta (authenticity)",
+      "definition": "Authenticity — the expression of realisation as evidence; in motion it becomes evidence and resolution."
     },
     {
       "id": "darshan",
       "match": ["Madhyasth Darshan"],
-      "display": "Madhyasth Darshan",
-      "definition": "Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units."
+      "display": "Madhyasth Darshan (Coexistentialism)",
+      "definition": "Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation."
     },
     {
       "id": "chaar-avastha",
       "match": ["chaar avastha"],
-      "display": "chaar avastha",
-      "definition": "The four orders of nature — material, bio/pranic, animal, and knowledge/human — real developmental plateaus."
+      "display": "chaar avastha (four orders)",
+      "definition": "Four orders of nature — material order, biological order, animal order, and knowledge order."
     },
     {
       "id": "sambandh",
       "match": ["sambandh", "Sambandh"],
-      "display": "sambandh",
-      "definition": "Relationship — definite mutuality with expectations predetermined toward completeness."
+      "display": "sambandh (relationship)",
+      "definition": "Relationship — a value-bearing mutuality in which expectations arise from relationality and necessity; fulfilment involves recognition, values, evaluation, and mutual satisfaction."
     },
     {
       "id": "shram-gati-parinam",
       "match": ["shram–gati–parinam", "shram-gati-parinam"],
-      "display": "shram–gati–parinam",
-      "definition": "Effort, motion, and result are inseparable aspects of every unit-activity."
+      "display": "shram–gati–parinam (effort–motion–result)",
+      "definition": "Effort–Motion–Result — the inseparable triad in activity: effort is the grandeur of an existent state, motion spreads its effect, and result is the grandeur of a different existent state."
     },
     {
       "id": "drishti",
       "match": ["drishti", "Drishti"],
-      "display": "drishti",
-      "definition": "Perspective or evaluative lens — in *jeevan*, six built-in perspectives from lower *priya*/*hita*/*labh* to humane *nyaya*/*dharma*/*satya*."
+      "display": "drishti (perspective)",
+      "definition": "Perspective — the process of perceiving, understanding, recognising, and evaluating realities."
     },
     {
       "id": "dharma",
       "match": ["dharma", "Dharma"],
       "display": "dharma",
-      "definition": "In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains."
+      "definition": "Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives."
     },
     {
       "id": "nyaya",
       "match": ["nyaya", "Nyaya"],
-      "display": "nyaya",
-      "definition": "Justice — complete relational activity: recognise, fulfil, evaluate, mutual satisfaction."
+      "display": "nyaya (justice)",
+      "definition": "Justice — recognising relationships, fulfilling and evaluating their values, and attaining mutual satisfaction."
     },
     {
       "id": "satya",
       "match": ["satya", "Satya"],
-      "display": "satya",
-      "definition": "Realisation perspective — whether assessment is grounded in coexistence as it is."
+      "display": "satya (truth)",
+      "definition": "Truth — that which is uniformly perceivable, existent, and realisable at all times; it includes absolute, relative, and objective truth in existence."
     },
     {
       "id": "samadhan",
       "match": ["samadhan", "Samadhan"],
-      "display": "samadhan",
-      "definition": "Resolution — understanding and relational closure without residue; joint evidence of complete happiness."
+      "display": "samadhan (resolution)",
+      "definition": "Resolution — the within-self condition of understanding and mental well-being; comprehensive resolution supports prosperity, fearlessness, and coexistence."
     },
     {
       "id": "bhram",
       "match": ["bhram", "Bhram"],
-      "display": "bhram",
-      "definition": "Delusion — living by inherited belief rather than understanding, rooted in identifying *jeevan* with the body."
+      "display": "bhram (delusion)",
+      "definition": "Delusion — identifying the body as jeevan and living without understanding; awakening is freedom from delusion."
     },
     {
       "id": "rahasyata",
       "match": ["rahasyata", "Rahasyata"],
-      "display": "rahasyata",
-      "definition": "Mysteriousness — removable deficit in the knower's reflection, not a permanent opacity of nature."
+      "display": "rahasyata (mystery)",
+      "definition": "Mystery — a removable lack of clarity whose elimination depends on awakening of the sentient or intellectual aspect."
     },
     {
       "id": "mithya",
       "match": ["mithya", "Mithya"],
-      "display": "mithya",
-      "definition": "Advaita: dependent appearance — neither absolutely real nor sheer nothing; valid at *vyavahara*, sublated at *paramartha*."
+      "display": "mithya (illusion / dependent appearance)",
+      "definition": "Illusion (dependent appearance in Advaita) — neither independently absolute nor sheer non-being; empirically operative, but sublated by knowledge of Brahman."
     },
     {
       "id": "vyavahara",
       "match": ["vyavahara", "Vyavahara"],
-      "display": "vyavahara",
-      "definition": "Advaita: shared empirical order — bodies, law, ethics, scripture; robust but sublated at highest realization."
+      "display": "vyavahara (empirical level)",
+      "definition": "Empirical level in Advaita — the shared waking order in which embodied knowers, objects, ethics, law, and valid cognition operate."
     },
     {
       "id": "paramartha",
       "match": ["paramartha", "Paramartha"],
-      "display": "paramartha",
-      "definition": "Advaita: absolute level of truth; Brahman alone is absolutely real."
+      "display": "paramartha (tradition-specific)",
+      "definition": "In Advaita, the absolute level of truth, where Brahman alone is real. In Madhyasth Darshan, paramartha maps to benevolent deployment undertaken for resolution and realisation."
     },
     {
       "id": "atman",
-      "match": ["atman", "Atman", "Atman"],
-      "display": "atman",
-      "definition": "Advaita: the innermost Self; in Madhyasth Darshan the sentient nucleus within constitutionally complete *jeevan*."
+      "match": ["atman", "Atman"],
+      "display": "Atman / atma (tradition-specific)",
+      "definition": "In Advaita, Atman is the innermost Self and ultimate perceiver, identical with Brahman. In Madhyasth Darshan, atma is jeevan’s faculty of realisation and authenticity."
     },
     {
       "id": "brahman",
       "match": ["Brahman"],
-      "display": "Brahman",
-      "definition": "Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second."
+      "display": "Brahman (non-dual ultimate reality)",
+      "definition": "Brahman — in Advaita, the non-dual ultimate reality, identical with Atman and described as existence, consciousness, and bliss."
     },
     {
       "id": "mun",
       "match": ["mun", "Mun"],
-      "display": "mun",
-      "definition": "A faculty of *jeevan* — imagination and selection; part of the orbital structure with *buddhi*, *vritti*, and *chitta*."
+      "display": "mun (anticipating mind)",
+      "definition": "Mun — the anticipating mind in jeevan; its activities include tasting and selection according to hope, and it guides the body."
     },
     {
       "id": "buddhi",
       "match": ["buddhi", "Buddhi"],
-      "display": "buddhi",
-      "definition": "Discriminative faculty in *jeevan* — part of the sentient unit's orbital structure with *mun*, *vritti*, and *chitta*."
+      "display": "buddhi (intellect)",
+      "definition": "Buddhi — intellect; jeevan’s faculty of enlightenment and resolve, inspired by atma."
     },
     {
       "id": "chitta",
       "match": ["chitta", "Chitta"],
-      "display": "chitta",
-      "definition": "Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery."
+      "display": "chitta (reflective mind)",
+      "definition": "Chitta — the reflective mind; jeevan’s faculty of contemplation and desire, inspired by buddhi."
     },
     {
       "id": "vritti",
       "match": ["vritti", "Vritti"],
-      "display": "vritti",
-      "definition": "Modification or tendency in *jeevan* — one of the faculties whose alignment supports or obstructs understanding."
+      "display": "vritti (decisive mind / disposition)",
+      "definition": "Vritti — the decisive mind or disposition; jeevan’s faculty of comparison and thought, inspired by chitta."
     },
     {
       "id": "prakriti",
-      "match": ["prakriti", "Prakriti"],
-      "display": "prakriti",
-      "definition": "Nature — the realm of real units in coexistence; law-governed and beginningless in Madhyasth Darshan."
+      "match": ["prakriti", "Prakriti", "prakruti", "Prakruti"],
+      "display": "prakruti / prakriti (nature)",
+      "definition": "Nature — infinite sentient and insentient units across four orders and four realms; formful existence bearing form, properties, essential nature, and dharma."
     },
     {
       "id": "gyan-avastha",
-      "match": ["gyan avastha"],
-      "display": "gyan avastha",
-      "definition": "The knowledge/human order — the level of nature able to know and evaluate every other level."
+      "match": ["gyan avastha", "gyanavastha"],
+      "display": "gyanavastha (knowledge order)",
+      "definition": "Knowledge order — the human order, whose distinctive capacity is study, understanding, evaluation, and evidence of awakening."
     }
   ]
 }
