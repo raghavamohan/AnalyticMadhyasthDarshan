@@ -131,7 +131,7 @@ def render_latex_math(html_body: str) -> str:
 
 
 _OL_SPLIT_BY_PAGE_MARKER = re.compile(
-    r"(<ol(?:\s[^>]*)?>)(.*?)(</ol>\s*)"
+    r"(<ol(?:\s[^>]*)?>)((?:(?!</ol>).)*)(</ol>\s*)"
     r'(<span class="page-marker"[^>]*>\[[^\]]+\]</span>\s*)'
     r"(<ol>)",
     re.DOTALL,
