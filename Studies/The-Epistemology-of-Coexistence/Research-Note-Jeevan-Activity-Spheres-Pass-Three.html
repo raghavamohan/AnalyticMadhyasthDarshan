@@ -324,13 +324,17 @@
   .term-tip {
     background: none;
     border: none;
-    border-bottom: 1px dotted #1a5276;
+    border-bottom: 1px dotted #8a6d3b;
     padding: 0;
     margin: 0;
     font: inherit;
-    color: #1a5276;
+    color: inherit;
     cursor: help;
     text-align: inherit;
+  }
+  .term-tip:hover {
+    background: #f6f0e7;
+    border-radius: 2px;
   }
   .term-tip:focus-visible {
     outline: 2px solid #1a5276;
@@ -363,14 +367,14 @@
   .study-toolbar {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
     font-family: 'Segoe UI', system-ui, sans-serif;
     font-size: 13px;
     position: sticky;
     top: 0;
     z-index: 20;
-    margin: 0 0 22px;
-    padding: 10px 14px;
+    margin: 0 0 18px;
+    padding: 6px 10px;
     border: 1px solid #d8d2c8;
     border-radius: 8px;
     background: rgba(247, 244, 239, 0.92);
@@ -380,20 +384,21 @@
   .study-toolbar-row {
     display: grid;
     align-items: center;
-    gap: 8px 14px;
+    gap: 10px;
   }
   .study-toolbar-row--primary {
-    grid-template-columns: minmax(0, 1fr) minmax(0, auto) minmax(0, 1fr);
+    grid-template-columns: auto minmax(0, 1fr);
   }
   .study-toolbar-actions {
-    grid-column: 3;
+    grid-column: 2;
     justify-self: end;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     justify-content: flex-end;
-    gap: 8px 12px;
+    gap: 6px;
     min-width: 0;
+    white-space: nowrap;
     text-align: right;
   }
   .study-toolbar-feedback {
@@ -412,21 +417,6 @@
   .study-toolbar-download {
     min-width: 0;
     text-align: right;
-  }
-  .study-toolbar-title {
-    grid-column: 2;
-    justify-self: center;
-    text-align: center;
-    margin: 0;
-    min-width: 0;
-    font-size: 14px;
-    font-weight: 700;
-    color: #2c241c;
-    line-height: 1.35;
-  }
-  .study-toolbar-draft {
-    font-weight: 600;
-    color: #5c5348;
   }
   .study-toolbar-link {
     color: #1a5276;
@@ -468,7 +458,7 @@
     background: #fdfcfa;
     border: 1px solid #d9d2c7;
     border-radius: 999px;
-    padding: 3px 11px;
+    padding: 2px 8px;
     cursor: pointer;
     white-space: nowrap;
   }
@@ -540,6 +530,23 @@
   .study-toc-l1 > a { font-weight: 700; color: #2c241c; }
   .study-toc-l2 > a { padding-left: 15px; }
   .study-toc-l3 > a { padding-left: 30px; font-size: 12.5px; color: #4d6f86; }
+  .study-toc--with-key { margin-bottom: 0.55em; }
+  .study-reading-key {
+    margin: 0 0 2.2em;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    line-height: 1.45;
+    color: #6b6357;
+  }
+  .study-reading-key > span[aria-hidden="true"] { padding: 0 5px; }
+  .study-reading-key-term {
+    color: #2c241c;
+    border-bottom: 1px dotted #8a6d3b;
+  }
+  .study-reading-key-link {
+    color: #1a5276;
+    text-decoration: underline;
+  }
   @media (prefers-reduced-motion: reduce) {
     .study-toc-summary::before { transition: none; }
   }
@@ -556,11 +563,15 @@
       margin: 32px auto 88px;
       padding: 0 22px;
     }
-    /* Roughly 68 characters. The container stays wide enough for tables and
-       figures while running text keeps a measure the eye can track back. */
-    p, ul, ol, blockquote, .quote-source, dl {
-      max-width: 37rem;
+    /* Add a subtle one point of breathing room above and below quotations on
+       screen without changing the print/PDF layout. */
+    blockquote {
+      margin-top: 11pt;
+      margin-bottom: 11pt;
     }
+    /* Running text uses the full reading column. Tables and figures share the
+       same 46rem container, so paragraphs no longer collapse into a visibly
+       narrower strip inside the page. */
     p {
       margin: 0.72em 0;
       text-align: left;
@@ -583,34 +594,18 @@
   }
 
   @media (max-width: 640px) {
-    .study-toolbar-row--primary {
-      grid-template-columns: minmax(0, auto) minmax(0, 1fr);
-      row-gap: 6px;
-    }
-    /* Back and title share the first line and the actions take the second, so
-       the reader reaches the heading in two rows rather than four. */
-    .study-toolbar-back { grid-column: 1; justify-self: start; }
-    .study-toolbar-title {
-      grid-column: 2;
-      justify-self: end;
-      text-align: right;
-      font-size: 13px;
-      white-space: normal;
-    }
     .study-toolbar-actions {
-      grid-column: 1 / -1;
-      justify-self: stretch;
-      justify-content: space-between;
-      gap: 8px;
+      gap: 5px;
     }
     .study-toolbar-feedback { font-size: 11px; }
-    .study-toolbar-section { white-space: normal; }
+    .study-toolbar-section { font-size: 11px; }
     .study-toc-nav { max-height: 52vh; }
   }
   @media print {
     .study-toolbar { display: none !important; }
     .study-theme-toggle { display: none !important; }
     .study-toc { display: none !important; }
+    .study-reading-key { display: none !important; }
     .skip-link { display: none !important; }
     .term-tip {
       border-bottom: none;
@@ -637,10 +632,9 @@
     html[data-theme="dark"] .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
     html[data-theme="dark"] .study-toolbar-link { color: #7ebbed; }
     html[data-theme="dark"] .study-toolbar-link:hover { color: #b8daf3; }
-    html[data-theme="dark"] .study-toolbar-title { color: #f5f1ec; }
-    html[data-theme="dark"] .study-toolbar-draft { color: #aca194; }
     html[data-theme="dark"] .study-toolbar-section.is-disabled { color: #6f655a; }
-    html[data-theme="dark"] .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    html[data-theme="dark"] .term-tip { color: inherit; border-bottom-color: #c9a66b; }
+    html[data-theme="dark"] .term-tip:hover { background: #2f2a24; }
     html[data-theme="dark"] .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
     html[data-theme="dark"] .study-toc { border-color: #423b33; }
     html[data-theme="dark"] .study-toc-summary:hover { background: #1e1b18; }
@@ -648,6 +642,9 @@
     html[data-theme="dark"] .study-toc-meta { color: #aca194; }
     html[data-theme="dark"] .study-toc-list a { color: #7ebbed; }
     html[data-theme="dark"] .study-toc-l1 > a { color: #f5f1ec; }
+    html[data-theme="dark"] .study-reading-key { color: #aca194; }
+    html[data-theme="dark"] .study-reading-key-term { color: #e6dfd6; border-bottom-color: #c9a66b; }
+    html[data-theme="dark"] .study-reading-key-link { color: #7ebbed; }
     html[data-theme="dark"] .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
     html[data-theme="dark"] .study-theme-toggle:hover { border-color: #7ebbed; }
   }
@@ -668,10 +665,9 @@
     html:not([data-theme="light"]) .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
     html:not([data-theme="light"]) .study-toolbar-link { color: #7ebbed; }
     html:not([data-theme="light"]) .study-toolbar-link:hover { color: #b8daf3; }
-    html:not([data-theme="light"]) .study-toolbar-title { color: #f5f1ec; }
-    html:not([data-theme="light"]) .study-toolbar-draft { color: #aca194; }
     html:not([data-theme="light"]) .study-toolbar-section.is-disabled { color: #6f655a; }
-    html:not([data-theme="light"]) .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    html:not([data-theme="light"]) .term-tip { color: inherit; border-bottom-color: #c9a66b; }
+    html:not([data-theme="light"]) .term-tip:hover { background: #2f2a24; }
     html:not([data-theme="light"]) .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
     html:not([data-theme="light"]) .study-toc { border-color: #423b33; }
     html:not([data-theme="light"]) .study-toc-summary:hover { background: #1e1b18; }
@@ -679,6 +675,9 @@
     html:not([data-theme="light"]) .study-toc-meta { color: #aca194; }
     html:not([data-theme="light"]) .study-toc-list a { color: #7ebbed; }
     html:not([data-theme="light"]) .study-toc-l1 > a { color: #f5f1ec; }
+    html:not([data-theme="light"]) .study-reading-key { color: #aca194; }
+    html:not([data-theme="light"]) .study-reading-key-term { color: #e6dfd6; border-bottom-color: #c9a66b; }
+    html:not([data-theme="light"]) .study-reading-key-link { color: #7ebbed; }
     html:not([data-theme="light"]) .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
     html:not([data-theme="light"]) .study-theme-toggle:hover { border-color: #7ebbed; }
   }
@@ -689,12 +688,11 @@
 <a class="skip-link" href="#main">Skip to content</a>
 <nav class="study-toolbar" aria-label="Study navigation">
   <div class="study-toolbar-row study-toolbar-row--primary">
-    <a class="study-toolbar-link study-toolbar-back" href="../index.html#study-Research-Note-Jeevan-Activity-Spheres-Pass-Three">&larr; All studies</a>
-    <p class="study-toolbar-title">Research Note: Pass-Three Derivation of *Jeevan* Activity Spheres</p>
+    <a class="study-toolbar-link study-toolbar-back" href="../index.html#study-Research-Note-Jeevan-Activity-Spheres-Pass-Three" aria-label="Back to all studies">&larr; Studies</a>
     <span class="study-toolbar-actions">
       <a class="study-toolbar-link study-toolbar-discuss" href="discussion.html?dv=3">Discuss</a>
-      <a class="study-toolbar-link study-toolbar-download" href="Research-Note-Jeevan-Activity-Spheres-Pass-Three.pdf" download>Download PDF</a>
-      <a class="study-toolbar-link study-toolbar-feedback" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&title=Study%20feedback%3A%20Research%20Note%3A%20Pass-Three%20Derivation%20of%20%2AJeevan%2A%20Activity%20Spheres">Suggest a correction</a>
+      <a class="study-toolbar-link study-toolbar-download" href="Research-Note-Jeevan-Activity-Spheres-Pass-Three.pdf" download aria-label="Download PDF">PDF</a>
+      <a class="study-toolbar-link study-toolbar-feedback" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&title=Study%20feedback%3A%20Research%20Note%3A%20Pass-Three%20Derivation%20of%20%2AJeevan%2A%20Activity%20Spheres" aria-label="Suggest a correction">Suggest edit</a>
       <button type="button" class="study-theme-toggle" id="study-theme-toggle" aria-label="Switch color theme">
         <span class="study-theme-toggle-label">Dark</span>
       </button>
@@ -709,10 +707,10 @@
 <p><strong>Author:</strong> Raghava Mohan Madhwapathi (<a href="https://analyticmadhyasthdarshan.org">analyticmadhyasthdarshan.org</a>)</p>
 <p><strong>Edited on:</strong> August 16, 2026, 6:31 PM IST</p>
 <p><strong>Status:</strong> Internal research note (not a catalog entry). Pass Three of the activity-to-sphere analysis.</p>
-<p><strong>Scope:</strong> This note implements the institution-neutral clustering prescribed by the <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.html">Pass-Two lifecycle register</a>. It exports one frozen sixteen-position vector for each of the 122 <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> members, replaces names, faculties, pair positions, role terms, family vocabulary, and institution vocabulary with anonymous structural tokens, and compares coarse, middle, and fine partitions under three treatments of unresolved fields. Only after the blind partitions are fixed does it restore the source labels and interpret recurring fields as candidate spheres, bridges, or residuals. It does not itself decide which spheres require durable organisation or test the family and five-function proposal; those questions are completed in the <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Durable-Functions-Pass-Four.html">Pass-Four durable-function analysis</a>.</p>
+<p><strong>Scope:</strong> This note implements the institution-neutral clustering prescribed by the <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.html">Pass-Two lifecycle register</a>. It exports one frozen sixteen-position vector for each of the 122 <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> members, replaces names, faculties, pair positions, role terms, family vocabulary, and institution vocabulary with anonymous structural tokens, and compares coarse, middle, and fine partitions under three treatments of unresolved fields. Only after the blind partitions are fixed does it restore the source labels and interpret recurring fields as candidate spheres, bridges, or residuals. It does not itself decide which spheres require durable organisation or test the family and five-function proposal; those questions are completed in the <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Durable-Functions-Pass-Four.html">Pass-Four durable-function analysis</a>.</p>
 <p>The result is a constrained sphere architecture rather than an institutional blueprint. Three broad domains are stable at coarse resolution. At the selected middle resolution, four clusters remain stable under both sensitivity tests, two operate primarily as cross-domain bridges, and two are produced by unresolved or weakly specified records and cannot yet be treated as spheres. The four stable cores concern realised orientation and congruent agency, developmental care under unequal capability, reciprocal recognition and justice, and bodily-material conduciveness. Their number does not imply four institutions: a sphere is a recurring field of fulfilment and evidence, while an institution is one possible durable arrangement for maintaining one or several spheres.</p>
 <p>Throughout this analysis, <strong>voice</strong> has a precise operational meaning: the effective, supported opportunity of a person, counterpart, or affected party to express understanding, needs, expectations, agreement, and disagreement; to participate in deliberation and decisions that affect them; to have what they express considered and answered with reasons; and to refuse, challenge, or appeal without retaliation. It means neither mere permission to speak nor equal authority in every decision. In the sphere model, voice is therefore evidence-bearing participation in a relationship or shared decision, not a synonym for speech.</p>
-<details class="study-toc" id="study-contents">
+<details class="study-toc study-toc--with-key" id="study-contents">
   <summary class="study-toc-summary">
     <span class="study-toc-label">Contents</span>
     <span class="study-toc-meta">10 sections &middot; 30 headings</span>
@@ -752,6 +750,11 @@
     </ol>
   </nav>
 </details>
+<p class="study-reading-key" aria-label="Reading key">
+  <span class="study-reading-key-term">Dotted underline</span>: definition
+  <span aria-hidden="true">&middot;</span>
+  <span class="study-reading-key-link">Blue underline</span>: link
+</p>
 <h2 id="1-the-pass-three-question">1. The Pass-Three question</h2>
 <p>The unit of analysis remains the independently coded member, not the source pair and not the faculty. Pass Two established for every member its entry form, locus, operation, consequence, evidence, counterpart, internal dependencies, lifecycle requirements, correction path, continuity requirements, external relation types, universality level, false positives, and unresolved fields. Pass Three asks whether recurrent configurations of those features form stable fields before any social label is supplied.</p>
 <p>A cluster is not automatically a sphere. This note uses three distinctions.</p>
@@ -970,7 +973,7 @@
 <h2 id="5-restored-interpretation-of-the-stable-cores">5. Restored interpretation of the stable cores</h2>
 <p>Names and source positions were restored only after the blind IDs, memberships, overlaps, and sensitivity results were written. The source labels help interpret what each configuration is about; they do not alter membership.</p>
 <h3 id="51-realised-orientation-and-congruent-agency-m01" data-depth="2">5.1 Realised orientation and congruent agency - M01</h3>
-<p>M01 contains forty-six members across all five faculties, including <em>anubhav</em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="pramanikta" data-definition="Authentic conduct as living proof that understanding has taken hold — the outward test of complete knowing.">pramanikta</button></span></em>, <em>anand</em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="astitva" data-definition="Existence as coexistence of formless *satta* and active units — beginningless and endless.">astitva</button></span></em>, <em>shruti</em>, <em>smriti</em>, <em>vidya</em>, <em>pragya</em>, <em>nishchaya</em>, <em>tadatmayata</em>, <em>sahas</em>, <em>samyama</em>, <em>niyam</em>, <em>bhakti</em>, <em>nishtha</em>, <em>dayitva</em>, <em>sheel</em>, <em>pramanik</em>, <em>jigyasu</em>, <em>sukh</em>, and <em>sfoorti</em>. The common field is not a faculty or one inward state. It is the lifecycle by which accepted or realised content becomes definite, expressible, examinable, correctable, and congruent in embodied conduct.</p>
+<p>M01 contains forty-six members across all five faculties, including <em>anubhav</em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="pramanikta" data-definition="Authenticity — the expression of realisation as evidence; in motion it becomes evidence and resolution.">pramanikta</button></span></em>, <em>anand</em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="astitva" data-definition="Existence — infinite sentient and insentient units saturated in Omnipotence: what is, present through development, awakening, and orderliness.">astitva</button></span></em>, <em>shruti</em>, <em>smriti</em>, <em>vidya</em>, <em>pragya</em>, <em>nishchaya</em>, <em>tadatmayata</em>, <em>sahas</em>, <em>samyama</em>, <em>niyam</em>, <em>bhakti</em>, <em>nishtha</em>, <em>dayitva</em>, <em>sheel</em>, <em>pramanik</em>, <em>jigyasu</em>, <em>sukh</em>, and <em>sfoorti</em>. The common field is not a faculty or one inward state. It is the lifecycle by which accepted or realised content becomes definite, expressible, examinable, correctable, and congruent in embodied conduct.</p>
 <p>Its recurrent invariants are free inquiry, freedom from status substitution, intelligible expression, access to relevant consequences, distinction between error in criterion and error in performance, and correction through renewed inquiry joined to changed conduct or repair. Continuity requires recollection, records, demonstration, repeated congruence, and learner verification without treating transmission as transfer of realisation.</p>
 <p>M01 is a stable activity sphere, but it is not yet “education,” “science,” or “governance.” Those arrangements may maintain parts of the sphere, while no one of them exhausts realised orientation, personal agency, public evidence, and correction.</p>
 <h3 id="52-developmental-care-and-asymmetric-responsibility-m04" data-depth="2">5.2 Developmental care and asymmetric responsibility - M04</h3>
@@ -978,7 +981,7 @@
 <p>The invariant is not permanent hierarchy. A correct asymmetric relation must remain oriented toward the other&rsquo;s capability and agency, preserve voice, distinguish help from control, and provide protection or appeal where proximity conceals harm. Competence, succession, respite, material support, and intergenerational transmission recur because the endpoint exceeds unaided episodic action.</p>
 <p>This sphere is compatible with family-like and teaching relations after labels are restored, but it does not derive one household composition, fixed gender role, authority structure, or schooling system.</p>
 <h3 id="53-reciprocal-recognition-and-justice-m06" data-depth="2">5.3 Reciprocal recognition and justice - M06</h3>
-<p>M06 contains <em>dhairya</em>, <em>kritagyata</em>, <em>vishwas</em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="nyaya" data-definition="Justice — complete relational activity: recognise, fulfil, evaluate, mutual satisfaction.">nyaya</button></span></em>, <em>bhav</em>, <em>sneha</em>, <em>anurag</em>, <em>kartavya</em>, <em>bhai-mitra</em>, and <em>bahan</em>. Its members require a counterpart who can evaluate whether recognition, expectation, responsibility, value-fulfilment, consent, and repair are actually present. The relation cannot be evidenced solely from the bearer&rsquo;s intention.</p>
+<p>M06 contains <em>dhairya</em>, <em>kritagyata</em>, <em>vishwas</em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="nyaya" data-definition="Justice — recognising relationships, fulfilling and evaluating their values, and attaining mutual satisfaction.">nyaya</button></span></em>, <em>bhav</em>, <em>sneha</em>, <em>anurag</em>, <em>kartavya</em>, <em>bhai-mitra</em>, and <em>bahan</em>. Its members require a counterpart who can evaluate whether recognition, expectation, responsibility, value-fulfilment, consent, and repair are actually present. The relation cannot be evidenced solely from the bearer&rsquo;s intention.</p>
 <p>The recurrent invariants are reciprocal recognition, truthful expectation, mutual evidence, protected participation in deliberation and decisions, repair after contradiction, and continuity of value-fulfilment through changing circumstances. This protected participation is the operational meaning of voice. Where power defeats direct reciprocity, appeal and independent protection become necessary. Gratitude, trust, affection, duty, and justice cluster together not as a list of sentiments but because their correctness becomes available through shared conduct and counterpart evaluation.</p>
 <p>This sphere is distinct from developmental care because the endpoint is reciprocal fulfilment rather than the capable party&rsquo;s responsibility for another&rsquo;s development. The two overlap in seven members because real relationships can contain both reciprocity and temporary asymmetry.</p>
 <h3 id="54-bodily-health-and-material-sensory-conduciveness-m08" data-depth="2">5.4 Bodily health and material-sensory conduciveness - M08</h3>
@@ -992,7 +995,7 @@
 <p>M07 contains <em>dheerta</em>, <em>pushti</em>, and <em>sanrakshan</em>. Its members sit at the interface of sustained agency, protected continuation, bodily or material capability, and wider fulfilment. Two members have moderate neighbourhood stability, but the cluster does not pass the declared threshold.</p>
 <p>Protection and continuity are nevertheless recurrent throughout the matrix. Their failure to form a stable exclusive cluster suggests that they are cross-cutting lifecycle requirements rather than one self-contained sphere. Inquiry needs protection from coercion, reciprocal relations need appeal, care needs safeguarding, bodily capability needs safety, and material provision needs maintenance and reserve.</p>
 <h3 id="57-unresolved-discrimination-and-affective-reception-m02-and-m05-residuals" data-depth="2">5.7 Unresolved discrimination and affective reception - M02 and M05 residuals</h3>
-<p>M02 collects <em>medha</em>, <em>guna</em>, <em>gaurav</em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satya" data-definition="Realisation perspective — whether assessment is grounded in coexistence as it is.">satya</button></span></em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, <em>jati</em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em>, <em>swagat</em>, and <em>swagat-aswagat</em>. M05 contains <em>pujyata</em> and <em>haas</em>. These groupings are driven principally by open criterion or disputed entry grammar. They disappear under residual holdout and must remain in the residual register.</p>
+<p>M02 collects <em>medha</em>, <em>guna</em>, <em>gaurav</em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satya" data-definition="Truth — that which is uniformly perceivable, existent, and realisable at all times; it includes absolute, relative, and objective truth in existence.">satya</button></span></em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span></em>, <em>jati</em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="Time — duration of an activity.">kaal</button></span></em>, <em>swagat</em>, and <em>swagat-aswagat</em>. M05 contains <em>pujyata</em> and <em>haas</em>. These groupings are driven principally by open criterion or disputed entry grammar. They disappear under residual holdout and must remain in the residual register.</p>
 <p>Their content still matters. Discrimination of form, property, truth, order, kind, and duration may later distribute across inquiry, material evidence, and value evaluation. Esteem, joy, welcome, and affinity may distribute across orientation and relationship. Pass Three does not choose among those alternatives without clearer source or criterion evidence.</p>
 <h2 id="6-sphere-interfaces-and-overlap">6. Sphere interfaces and overlap</h2>
 <p>Fifty-three members receive more than one middle-cluster membership. The strongest interfaces are shown below; edge labels count members assigned to both fields under the declared overlap rule.</p>
@@ -1019,8 +1022,8 @@ flowchart TB
 <p>These interfaces are candidates for cross-cutting design requirements in Pass Four. Their recurrence does not require each to become a separate institution.</p>
 <h2 id="7-tests-after-restoring-source-structure">7. Tests after restoring source structure</h2>
 <h3 id="71-the-spheres-do-not-reproduce-the-five-faculties" data-depth="2">7.1 The spheres do not reproduce the five faculties</h3>
-<p>The adjusted Rand index between the eight-cluster primary partition and the five restored faculty labels is <code>0.0267</code>, close to zero. M01 alone contains members from all five faculties. M04 spans <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery.">chitta</button></span></em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Modification or tendency in *jeevan* — one of the faculties whose alignment supports or obstructs understanding.">vritti</button></span></em>, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mun" data-definition="A faculty of *jeevan* — imagination and selection; part of the orbital structure with *buddhi*, *vritti*, and *chitta*.">mun</button></span></em>; M06 spans <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Modification or tendency in *jeevan* — one of the faculties whose alignment supports or obstructs understanding.">vritti</button></span></em> and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mun" data-definition="A faculty of *jeevan* — imagination and selection; part of the orbital structure with *buddhi*, *vritti*, and *chitta*.">mun</button></span></em>. M08 is concentrated in <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mun" data-definition="A faculty of *jeevan* — imagination and selection; part of the orbital structure with *buddhi*, *vritti*, and *chitta*.">mun</button></span></em>, but its field is defined by embodied and material lifecycle requirements rather than by the faculty label.</p>
-<p>The result rejects a simple analogy from five faculties to five social institutions. Faculty architecture remains an internal functional structure of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>; a sphere groups recurrent conditions of expression, evidence, correction, and continuity across that structure.</p>
+<p>The adjusted Rand index between the eight-cluster primary partition and the five restored faculty labels is <code>0.0267</code>, close to zero. M01 alone contains members from all five faculties. M04 spans <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Chitta — the reflective mind; jeevan’s faculty of contemplation and desire, inspired by buddhi.">chitta</button></span></em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Vritti — the decisive mind or disposition; jeevan’s faculty of comparison and thought, inspired by chitta.">vritti</button></span></em>, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mun" data-definition="Mun — the anticipating mind in jeevan; its activities include tasting and selection according to hope, and it guides the body.">mun</button></span></em>; M06 spans <em>vritti</em> and <em>mun</em>. M08 is concentrated in <em>mun</em>, but its field is defined by embodied and material lifecycle requirements rather than by the faculty label.</p>
+<p>The result rejects a simple analogy from five faculties to five social institutions. Faculty architecture remains an internal functional structure of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>; a sphere groups recurrent conditions of expression, evidence, correction, and continuity across that structure.</p>
 <h3 id="72-source-pairs-are-documentary-units-not-automatic-sphere-units" data-depth="2">7.2 Source pairs are documentary units, not automatic sphere units</h3>
 <p>Only twenty-five of the sixty-one <em>bal/shakti</em> pairs place both members in the same primary middle cluster. Forty pairs share at least one overlapping cluster. The remaining twenty-one pairs have no common middle membership under the declared threshold.</p>
 <p>This confirms the Pass-One decision to keep 122 independent analytic units. Pairing can express dependency, complement, shared criterion, bearer-expression relation, or unresolved tabular grammar. It does not guarantee one external field.</p>
@@ -1070,13 +1073,13 @@ flowchart TB
 </table></div>
 <p>The pilot was therefore useful as a contrast set but not a final atlas. Pass Three merges two pilot fields into M01, splits two pair-based fields, retains two as overlap interfaces, and strongly recovers the bodily-material field.</p>
 <h2 id="8-limits-and-open-problems">8. Limits and open problems</h2>
-<p>The clustering is an explicit formalisation of an interpretive register, not independent empirical confirmation of <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>. Several limits remain.</p>
+<p>The clustering is an explicit formalisation of an interpretive register, not independent empirical confirmation of <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span>. Several limits remain.</p>
 <p>First, the controlled vocabulary is coded from prose written by the same research programme. Equal field weighting prevents verbosity from dominating but does not eliminate author judgement in choosing structural tags. Independent recoding and inter-coder comparison would strengthen the result.</p>
 <p>Second, silhouette values remain low at every resolution. The stability result supports cores under the tested perturbations, not naturally discrete or unique boundaries. Another defensible feature vocabulary or similarity measure may change the bridges and fine partition.</p>
 <p>Third, thirty-four members carry explicit open fields. Residual holdout is deliberately severe, but a later source clarification could integrate some of them into stable cores or disclose a new sphere. M02 and M05 must not be institutionalised from present evidence.</p>
 <p>Fourth, repeated sensory and <em>poshan</em> records create a dense bodily-material region. Its survival under residual holdout shows that the core is not solely an enumeration artifact, but its internal fine structure remains sensitive to whether repeated <em>poshan</em> is an activity, criterion, or shorthand.</p>
 <p>Fifth, overlap thresholds are methodological choices. The complete similarity and membership data are preserved so that Pass Four or an independent review can rerun stricter and looser thresholds without recoding the 122 members.</p>
-<p>Finally, universality remains conditional on the underlying account of common <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> architecture and on the adequacy of the Pass-One and Pass-Two readings. Pass Three derives common functional and relational constraints within that standpoint. It does not establish their truth independently of the primary ontology and epistemology.</p>
+<p>Finally, universality remains conditional on the underlying account of common <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> architecture and on the adequacy of the Pass-One and Pass-Two readings. Pass Three derives common functional and relational constraints within that standpoint. It does not establish their truth independently of the primary ontology and epistemology.</p>
 <h2 id="9-completion-statement-and-completed-handoff-to-pass-four">9. Completion statement and completed handoff to Pass Four</h2>
 <p>Pass Three is complete at the declared analytical grain. It has produced a leakage-checked anonymous matrix, deterministic coarse, middle, and fine partitions, three residual treatments, overlapping memberships, member and cluster stability measures, restored interpretations, and post-restoration comparisons with faculties, source pairs, and the pilot atlas.</p>
 <p>The strongest result is a layered architecture:</p>
@@ -1087,7 +1090,7 @@ flowchart TB
 <li>two residual groupings that cannot yet support a sphere claim; and</li>
 <li>cross-cutting interfaces of inquiry, protected participation, embodiment and means, continuity, and ecological consequence.</li>
 </ul>
-<p>The <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Durable-Functions-Pass-Four.html">Pass-Four durable-function analysis</a> has now completed this handoff. It translates every anonymous lifecycle vector into durability tests, unnamed continuity channels, cross-cutting safeguards, and arrangement scales before restoring social labels. The result contains 185 channel memberships across all 122 members. Five non-substitutable continuity objects align after restoration with education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em>, justice-security, health-restraint, production-work, and exchange-reserve. Among five tested bundles, the five-function basis alone obtains full coverage without forced combination or unsupported splitting while preserving independent correction. This establishes sufficiency and practical minimality at the selected grain, not five organisations or numerical uniqueness.</p>
+<p>The <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Durable-Functions-Pass-Four.html">Pass-Four durable-function analysis</a> has now completed this handoff. It translates every anonymous lifecycle vector into durability tests, unnamed continuity channels, cross-cutting safeguards, and arrangement scales before restoring social labels. The result contains 185 channel memberships across all 122 members. Five non-substitutable continuity objects align after restoration with education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Sanskar — accepted qualitative establishments; in education–sanskar, the establishment and transmission of understanding through human tradition.">sanskar</button></span></em>, justice-security, health-restraint, production-work, and exchange-reserve. Among five tested bundles, the five-function basis alone obtains full coverage without forced combination or unsupported splitting while preserving independent correction. This establishes sufficiency and practical minimality at the selected grain, not five organisations or numerical uniqueness.</p>
 <h2 id="references">References</h2>
 <h3 id="madhyasth-darshan">Madhyasth Darshan</h3>
 <ul>
@@ -1226,14 +1229,23 @@ mermaid.initialize({
     floatPanel.hidden = true;
     document.body.appendChild(floatPanel);
   }
+  let activeButton = null;
+  let pinnedButton = null;
 
   const hide = () => {
+    if (activeButton) activeButton.setAttribute("aria-expanded", "false");
+    activeButton = null;
     floatPanel.classList.remove("is-visible");
     floatPanel.hidden = true;
     floatPanel.textContent = "";
   };
 
   const show = (button, text) => {
+    if (activeButton && activeButton !== button) {
+      activeButton.setAttribute("aria-expanded", "false");
+    }
+    activeButton = button;
+    button.setAttribute("aria-expanded", "true");
     floatPanel.textContent = text;
     floatPanel.hidden = false;
     floatPanel.classList.add("is-visible");
@@ -1252,21 +1264,41 @@ mermaid.initialize({
     const definition = button.getAttribute("data-definition");
     if (!definition) return;
     button.setAttribute("aria-describedby", "term-tip-float");
+    button.setAttribute("aria-expanded", "false");
     const reveal = () => show(button, definition);
-    button.addEventListener("mouseenter", reveal);
-    button.addEventListener("focus", reveal);
-    button.addEventListener("mouseleave", hide);
-    button.addEventListener("blur", hide);
+    button.addEventListener("mouseenter", () => {
+      if (!pinnedButton) reveal();
+    });
+    button.addEventListener("focus", () => {
+      if (!pinnedButton || pinnedButton === button) reveal();
+    });
+    button.addEventListener("mouseleave", () => {
+      if (!pinnedButton) hide();
+    });
+    button.addEventListener("blur", () => {
+      if (!pinnedButton) hide();
+    });
     button.addEventListener("click", event => {
       event.stopPropagation();
-      if (floatPanel.hidden) reveal();
-      else hide();
+      if (pinnedButton === button) {
+        pinnedButton = null;
+        hide();
+      } else {
+        pinnedButton = button;
+        reveal();
+      }
     });
   });
 
-  document.addEventListener("click", hide);
+  document.addEventListener("click", () => {
+    pinnedButton = null;
+    hide();
+  });
   document.addEventListener("keydown", event => {
-    if (event.key === "Escape") hide();
+    if (event.key === "Escape") {
+      pinnedButton = null;
+      hide();
+    }
   });
 })();
 </script>

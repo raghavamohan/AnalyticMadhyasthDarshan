@@ -413,11 +413,37 @@ def insert_study_contents(html_body: str) -> str:
     return f"{html_body[:cut]}{contents}{html_body[cut:]}"
 
 
-def _format_toolbar_title(title: str, *, is_draft: bool) -> str:
-    escaped = html_module.escape(title)
-    if is_draft:
-        return f'{escaped} <span class="study-toolbar-draft">(Draft)</span>'
-    return escaped
+def insert_study_reading_key(html_body: str) -> str:
+    """Explain the two inline affordances once, beside the study contents."""
+    if 'class="term-tip"' not in html_body:
+        return html_body
+
+    key = """<p class="study-reading-key" aria-label="Reading key">
+  <span class="study-reading-key-term">Dotted underline</span>: definition
+  <span aria-hidden="true">&middot;</span>
+  <span class="study-reading-key-link">Blue underline</span>: link
+</p>
+"""
+    toc = re.search(
+        r'(<details class="study-toc" id="study-contents">.*?</details>\n)',
+        html_body,
+        flags=re.DOTALL,
+    )
+    if toc:
+        details = toc.group(1).replace(
+            'class="study-toc"', 'class="study-toc study-toc--with-key"', 1
+        )
+        return f"{html_body[:toc.start()]}{details}{key}{html_body[toc.end():]}"
+
+    first_section = re.search(r'<h2 id="', html_body)
+    if first_section:
+        cut = first_section.start()
+        return f"{html_body[:cut]}{key}{html_body[cut:]}"
+    title_end = re.search(r"</h1>\n?", html_body)
+    if title_end:
+        cut = title_end.end()
+        return f"{html_body[:cut]}{key}{html_body[cut:]}"
+    return f"{key}{html_body}"
 
 
 def _feedback_href(title: str) -> str:
@@ -425,7 +451,7 @@ def _feedback_href(title: str) -> str:
     return f"{FEEDBACK_ISSUES_URL}?template=study-feedback.yml&title={issue_title}"
 
 
-def _study_toolbar_html(md_path: Path, *, is_draft: bool, title: str) -> str:
+def _study_toolbar_html(md_path: Path, *, title: str) -> str:
     md_path = md_path.resolve()
     stem = md_path.stem
     try:
@@ -439,15 +465,13 @@ def _study_toolbar_html(md_path: Path, *, is_draft: bool, title: str) -> str:
     pdf_href = f"{stem}.pdf"
     discuss_href = f"discussion.html?dv={DISCUSS_ASSET_VERSION}" if DISCUSS_ASSET_VERSION else "discussion.html"
     feedback_href = _feedback_href(title)
-    title_html = _format_toolbar_title(title, is_draft=is_draft)
     return f"""<nav class="study-toolbar" aria-label="Study navigation">
   <div class="study-toolbar-row study-toolbar-row--primary">
-    <a class="study-toolbar-link study-toolbar-back" href="{catalog_href}">&larr; All studies</a>
-    <p class="study-toolbar-title">{title_html}</p>
+    <a class="study-toolbar-link study-toolbar-back" href="{catalog_href}" aria-label="Back to all studies">&larr; Studies</a>
     <span class="study-toolbar-actions">
       <a class="study-toolbar-link study-toolbar-discuss" href="{discuss_href}">Discuss</a>
-      <a class="study-toolbar-link study-toolbar-download" href="{pdf_href}" download>Download PDF</a>
-      <a class="study-toolbar-link study-toolbar-feedback" href="{feedback_href}">Suggest a correction</a>
+      <a class="study-toolbar-link study-toolbar-download" href="{pdf_href}" download aria-label="Download PDF">PDF</a>
+      <a class="study-toolbar-link study-toolbar-feedback" href="{feedback_href}" aria-label="Suggest a correction">Suggest edit</a>
       <button type="button" class="study-theme-toggle" id="study-theme-toggle" aria-label="Switch color theme">
         <span class="study-theme-toggle-label">Dark</span>
       </button>
@@ -575,14 +599,23 @@ def _term_tip_js() -> str:
     floatPanel.hidden = true;
     document.body.appendChild(floatPanel);
   }
+  let activeButton = null;
+  let pinnedButton = null;
 
   const hide = () => {
+    if (activeButton) activeButton.setAttribute("aria-expanded", "false");
+    activeButton = null;
     floatPanel.classList.remove("is-visible");
     floatPanel.hidden = true;
     floatPanel.textContent = "";
   };
 
   const show = (button, text) => {
+    if (activeButton && activeButton !== button) {
+      activeButton.setAttribute("aria-expanded", "false");
+    }
+    activeButton = button;
+    button.setAttribute("aria-expanded", "true");
     floatPanel.textContent = text;
     floatPanel.hidden = false;
     floatPanel.classList.add("is-visible");
@@ -601,21 +634,41 @@ def _term_tip_js() -> str:
     const definition = button.getAttribute("data-definition");
     if (!definition) return;
     button.setAttribute("aria-describedby", "term-tip-float");
+    button.setAttribute("aria-expanded", "false");
     const reveal = () => show(button, definition);
-    button.addEventListener("mouseenter", reveal);
-    button.addEventListener("focus", reveal);
-    button.addEventListener("mouseleave", hide);
-    button.addEventListener("blur", hide);
+    button.addEventListener("mouseenter", () => {
+      if (!pinnedButton) reveal();
+    });
+    button.addEventListener("focus", () => {
+      if (!pinnedButton || pinnedButton === button) reveal();
+    });
+    button.addEventListener("mouseleave", () => {
+      if (!pinnedButton) hide();
+    });
+    button.addEventListener("blur", () => {
+      if (!pinnedButton) hide();
+    });
     button.addEventListener("click", event => {
       event.stopPropagation();
-      if (floatPanel.hidden) reveal();
-      else hide();
+      if (pinnedButton === button) {
+        pinnedButton = null;
+        hide();
+      } else {
+        pinnedButton = button;
+        reveal();
+      }
     });
   });
 
-  document.addEventListener("click", hide);
+  document.addEventListener("click", () => {
+    pinnedButton = null;
+    hide();
+  });
   document.addEventListener("keydown", event => {
-    if (event.key === "Escape") hide();
+    if (event.key === "Escape") {
+      pinnedButton = null;
+      hide();
+    }
   });
 })();
 </script>
@@ -680,10 +733,9 @@ _STUDY_DARK_DECLARATIONS = """
     }
     .study-toolbar-link { color: #7ebbed; }
     .study-toolbar-link:hover { color: #b8daf3; }
-    .study-toolbar-title { color: #f5f1ec; }
-    .study-toolbar-draft { color: #aca194; }
     .study-toolbar-section.is-disabled { color: #6f655a; }
-    .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    .term-tip { color: inherit; border-bottom-color: #c9a66b; }
+    .term-tip:hover { background: #2f2a24; }
     .term-tip-panel {
       color: #e6dfd6;
       background: #26231e;
@@ -695,6 +747,9 @@ _STUDY_DARK_DECLARATIONS = """
     .study-toc-meta { color: #aca194; }
     .study-toc-list a { color: #7ebbed; }
     .study-toc-l1 > a { color: #f5f1ec; }
+    .study-reading-key { color: #aca194; }
+    .study-reading-key-term { color: #e6dfd6; border-bottom-color: #c9a66b; }
+    .study-reading-key-link { color: #7ebbed; }
     .study-theme-toggle {
       color: #7ebbed;
       border-color: #423b33;
@@ -947,9 +1002,11 @@ def convert_to_html(
     if has_latex_math:
         html_body = restore_latex_math(html_body, math_segments)
         html_body = render_latex_math(html_body)
+    if include_web_chrome:
+        html_body = insert_study_reading_key(html_body)
 
     toolbar = (
-        _study_toolbar_html(input_path, is_draft=is_draft, title=title)
+        _study_toolbar_html(input_path, title=title)
         if include_web_chrome
         else ""
     )
@@ -1062,13 +1119,17 @@ def convert_to_html(
   .term-tip {
     background: none;
     border: none;
-    border-bottom: 1px dotted #1a5276;
+    border-bottom: 1px dotted #8a6d3b;
     padding: 0;
     margin: 0;
     font: inherit;
-    color: #1a5276;
+    color: inherit;
     cursor: help;
     text-align: inherit;
+  }
+  .term-tip:hover {
+    background: #f6f0e7;
+    border-radius: 2px;
   }
   .term-tip:focus-visible {
     outline: 2px solid #1a5276;
@@ -1101,14 +1162,14 @@ def convert_to_html(
   .study-toolbar {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
     font-family: 'Segoe UI', system-ui, sans-serif;
     font-size: 13px;
     position: sticky;
     top: 0;
     z-index: 20;
-    margin: 0 0 22px;
-    padding: 10px 14px;
+    margin: 0 0 18px;
+    padding: 6px 10px;
     border: 1px solid #d8d2c8;
     border-radius: 8px;
     background: rgba(247, 244, 239, 0.92);
@@ -1118,20 +1179,21 @@ def convert_to_html(
   .study-toolbar-row {
     display: grid;
     align-items: center;
-    gap: 8px 14px;
+    gap: 10px;
   }
   .study-toolbar-row--primary {
-    grid-template-columns: minmax(0, 1fr) minmax(0, auto) minmax(0, 1fr);
+    grid-template-columns: auto minmax(0, 1fr);
   }
   .study-toolbar-actions {
-    grid-column: 3;
+    grid-column: 2;
     justify-self: end;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     justify-content: flex-end;
-    gap: 8px 12px;
+    gap: 6px;
     min-width: 0;
+    white-space: nowrap;
     text-align: right;
   }
   .study-toolbar-feedback {
@@ -1150,21 +1212,6 @@ def convert_to_html(
   .study-toolbar-download {
     min-width: 0;
     text-align: right;
-  }
-  .study-toolbar-title {
-    grid-column: 2;
-    justify-self: center;
-    text-align: center;
-    margin: 0;
-    min-width: 0;
-    font-size: 14px;
-    font-weight: 700;
-    color: #2c241c;
-    line-height: 1.35;
-  }
-  .study-toolbar-draft {
-    font-weight: 600;
-    color: #5c5348;
   }
   .study-toolbar-link {
     color: #1a5276;
@@ -1206,7 +1253,7 @@ def convert_to_html(
     background: #fdfcfa;
     border: 1px solid #d9d2c7;
     border-radius: 999px;
-    padding: 3px 11px;
+    padding: 2px 8px;
     cursor: pointer;
     white-space: nowrap;
   }
@@ -1278,6 +1325,23 @@ def convert_to_html(
   .study-toc-l1 > a { font-weight: 700; color: #2c241c; }
   .study-toc-l2 > a { padding-left: 15px; }
   .study-toc-l3 > a { padding-left: 30px; font-size: 12.5px; color: #4d6f86; }
+  .study-toc--with-key { margin-bottom: 0.55em; }
+  .study-reading-key {
+    margin: 0 0 2.2em;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    line-height: 1.45;
+    color: #6b6357;
+  }
+  .study-reading-key > span[aria-hidden="true"] { padding: 0 5px; }
+  .study-reading-key-term {
+    color: #2c241c;
+    border-bottom: 1px dotted #8a6d3b;
+  }
+  .study-reading-key-link {
+    color: #1a5276;
+    text-decoration: underline;
+  }
   @media (prefers-reduced-motion: reduce) {
     .study-toc-summary::before { transition: none; }
   }
@@ -1294,11 +1358,15 @@ def convert_to_html(
       margin: 32px auto 88px;
       padding: 0 22px;
     }
-    /* Roughly 68 characters. The container stays wide enough for tables and
-       figures while running text keeps a measure the eye can track back. */
-    p, ul, ol, blockquote, .quote-source, dl {
-      max-width: 37rem;
+    /* Add a subtle one point of breathing room above and below quotations on
+       screen without changing the print/PDF layout. */
+    blockquote {
+      margin-top: 11pt;
+      margin-bottom: 11pt;
     }
+    /* Running text uses the full reading column. Tables and figures share the
+       same 46rem container, so paragraphs no longer collapse into a visibly
+       narrower strip inside the page. */
     p {
       margin: 0.72em 0;
       text-align: left;
@@ -1321,34 +1389,18 @@ def convert_to_html(
   }
 
   @media (max-width: 640px) {
-    .study-toolbar-row--primary {
-      grid-template-columns: minmax(0, auto) minmax(0, 1fr);
-      row-gap: 6px;
-    }
-    /* Back and title share the first line and the actions take the second, so
-       the reader reaches the heading in two rows rather than four. */
-    .study-toolbar-back { grid-column: 1; justify-self: start; }
-    .study-toolbar-title {
-      grid-column: 2;
-      justify-self: end;
-      text-align: right;
-      font-size: 13px;
-      white-space: normal;
-    }
     .study-toolbar-actions {
-      grid-column: 1 / -1;
-      justify-self: stretch;
-      justify-content: space-between;
-      gap: 8px;
+      gap: 5px;
     }
     .study-toolbar-feedback { font-size: 11px; }
-    .study-toolbar-section { white-space: normal; }
+    .study-toolbar-section { font-size: 11px; }
     .study-toc-nav { max-height: 52vh; }
   }
   @media print {
     .study-toolbar { display: none !important; }
     .study-theme-toggle { display: none !important; }
     .study-toc { display: none !important; }
+    .study-reading-key { display: none !important; }
     .skip-link { display: none !important; }
     .term-tip {
       border-bottom: none;

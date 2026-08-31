@@ -325,13 +325,17 @@
   .term-tip {
     background: none;
     border: none;
-    border-bottom: 1px dotted #1a5276;
+    border-bottom: 1px dotted #8a6d3b;
     padding: 0;
     margin: 0;
     font: inherit;
-    color: #1a5276;
+    color: inherit;
     cursor: help;
     text-align: inherit;
+  }
+  .term-tip:hover {
+    background: #f6f0e7;
+    border-radius: 2px;
   }
   .term-tip:focus-visible {
     outline: 2px solid #1a5276;
@@ -364,14 +368,14 @@
   .study-toolbar {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
     font-family: 'Segoe UI', system-ui, sans-serif;
     font-size: 13px;
     position: sticky;
     top: 0;
     z-index: 20;
-    margin: 0 0 22px;
-    padding: 10px 14px;
+    margin: 0 0 18px;
+    padding: 6px 10px;
     border: 1px solid #d8d2c8;
     border-radius: 8px;
     background: rgba(247, 244, 239, 0.92);
@@ -381,20 +385,21 @@
   .study-toolbar-row {
     display: grid;
     align-items: center;
-    gap: 8px 14px;
+    gap: 10px;
   }
   .study-toolbar-row--primary {
-    grid-template-columns: minmax(0, 1fr) minmax(0, auto) minmax(0, 1fr);
+    grid-template-columns: auto minmax(0, 1fr);
   }
   .study-toolbar-actions {
-    grid-column: 3;
+    grid-column: 2;
     justify-self: end;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     justify-content: flex-end;
-    gap: 8px 12px;
+    gap: 6px;
     min-width: 0;
+    white-space: nowrap;
     text-align: right;
   }
   .study-toolbar-feedback {
@@ -413,21 +418,6 @@
   .study-toolbar-download {
     min-width: 0;
     text-align: right;
-  }
-  .study-toolbar-title {
-    grid-column: 2;
-    justify-self: center;
-    text-align: center;
-    margin: 0;
-    min-width: 0;
-    font-size: 14px;
-    font-weight: 700;
-    color: #2c241c;
-    line-height: 1.35;
-  }
-  .study-toolbar-draft {
-    font-weight: 600;
-    color: #5c5348;
   }
   .study-toolbar-link {
     color: #1a5276;
@@ -469,7 +459,7 @@
     background: #fdfcfa;
     border: 1px solid #d9d2c7;
     border-radius: 999px;
-    padding: 3px 11px;
+    padding: 2px 8px;
     cursor: pointer;
     white-space: nowrap;
   }
@@ -541,6 +531,23 @@
   .study-toc-l1 > a { font-weight: 700; color: #2c241c; }
   .study-toc-l2 > a { padding-left: 15px; }
   .study-toc-l3 > a { padding-left: 30px; font-size: 12.5px; color: #4d6f86; }
+  .study-toc--with-key { margin-bottom: 0.55em; }
+  .study-reading-key {
+    margin: 0 0 2.2em;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    line-height: 1.45;
+    color: #6b6357;
+  }
+  .study-reading-key > span[aria-hidden="true"] { padding: 0 5px; }
+  .study-reading-key-term {
+    color: #2c241c;
+    border-bottom: 1px dotted #8a6d3b;
+  }
+  .study-reading-key-link {
+    color: #1a5276;
+    text-decoration: underline;
+  }
   @media (prefers-reduced-motion: reduce) {
     .study-toc-summary::before { transition: none; }
   }
@@ -557,11 +564,15 @@
       margin: 32px auto 88px;
       padding: 0 22px;
     }
-    /* Roughly 68 characters. The container stays wide enough for tables and
-       figures while running text keeps a measure the eye can track back. */
-    p, ul, ol, blockquote, .quote-source, dl {
-      max-width: 37rem;
+    /* Add a subtle one point of breathing room above and below quotations on
+       screen without changing the print/PDF layout. */
+    blockquote {
+      margin-top: 11pt;
+      margin-bottom: 11pt;
     }
+    /* Running text uses the full reading column. Tables and figures share the
+       same 46rem container, so paragraphs no longer collapse into a visibly
+       narrower strip inside the page. */
     p {
       margin: 0.72em 0;
       text-align: left;
@@ -584,34 +595,18 @@
   }
 
   @media (max-width: 640px) {
-    .study-toolbar-row--primary {
-      grid-template-columns: minmax(0, auto) minmax(0, 1fr);
-      row-gap: 6px;
-    }
-    /* Back and title share the first line and the actions take the second, so
-       the reader reaches the heading in two rows rather than four. */
-    .study-toolbar-back { grid-column: 1; justify-self: start; }
-    .study-toolbar-title {
-      grid-column: 2;
-      justify-self: end;
-      text-align: right;
-      font-size: 13px;
-      white-space: normal;
-    }
     .study-toolbar-actions {
-      grid-column: 1 / -1;
-      justify-self: stretch;
-      justify-content: space-between;
-      gap: 8px;
+      gap: 5px;
     }
     .study-toolbar-feedback { font-size: 11px; }
-    .study-toolbar-section { white-space: normal; }
+    .study-toolbar-section { font-size: 11px; }
     .study-toc-nav { max-height: 52vh; }
   }
   @media print {
     .study-toolbar { display: none !important; }
     .study-theme-toggle { display: none !important; }
     .study-toc { display: none !important; }
+    .study-reading-key { display: none !important; }
     .skip-link { display: none !important; }
     .term-tip {
       border-bottom: none;
@@ -638,10 +633,9 @@
     html[data-theme="dark"] .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
     html[data-theme="dark"] .study-toolbar-link { color: #7ebbed; }
     html[data-theme="dark"] .study-toolbar-link:hover { color: #b8daf3; }
-    html[data-theme="dark"] .study-toolbar-title { color: #f5f1ec; }
-    html[data-theme="dark"] .study-toolbar-draft { color: #aca194; }
     html[data-theme="dark"] .study-toolbar-section.is-disabled { color: #6f655a; }
-    html[data-theme="dark"] .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    html[data-theme="dark"] .term-tip { color: inherit; border-bottom-color: #c9a66b; }
+    html[data-theme="dark"] .term-tip:hover { background: #2f2a24; }
     html[data-theme="dark"] .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
     html[data-theme="dark"] .study-toc { border-color: #423b33; }
     html[data-theme="dark"] .study-toc-summary:hover { background: #1e1b18; }
@@ -649,6 +643,9 @@
     html[data-theme="dark"] .study-toc-meta { color: #aca194; }
     html[data-theme="dark"] .study-toc-list a { color: #7ebbed; }
     html[data-theme="dark"] .study-toc-l1 > a { color: #f5f1ec; }
+    html[data-theme="dark"] .study-reading-key { color: #aca194; }
+    html[data-theme="dark"] .study-reading-key-term { color: #e6dfd6; border-bottom-color: #c9a66b; }
+    html[data-theme="dark"] .study-reading-key-link { color: #7ebbed; }
     html[data-theme="dark"] .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
     html[data-theme="dark"] .study-theme-toggle:hover { border-color: #7ebbed; }
   }
@@ -669,10 +666,9 @@
     html:not([data-theme="light"]) .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
     html:not([data-theme="light"]) .study-toolbar-link { color: #7ebbed; }
     html:not([data-theme="light"]) .study-toolbar-link:hover { color: #b8daf3; }
-    html:not([data-theme="light"]) .study-toolbar-title { color: #f5f1ec; }
-    html:not([data-theme="light"]) .study-toolbar-draft { color: #aca194; }
     html:not([data-theme="light"]) .study-toolbar-section.is-disabled { color: #6f655a; }
-    html:not([data-theme="light"]) .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    html:not([data-theme="light"]) .term-tip { color: inherit; border-bottom-color: #c9a66b; }
+    html:not([data-theme="light"]) .term-tip:hover { background: #2f2a24; }
     html:not([data-theme="light"]) .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
     html:not([data-theme="light"]) .study-toc { border-color: #423b33; }
     html:not([data-theme="light"]) .study-toc-summary:hover { background: #1e1b18; }
@@ -680,6 +676,9 @@
     html:not([data-theme="light"]) .study-toc-meta { color: #aca194; }
     html:not([data-theme="light"]) .study-toc-list a { color: #7ebbed; }
     html:not([data-theme="light"]) .study-toc-l1 > a { color: #f5f1ec; }
+    html:not([data-theme="light"]) .study-reading-key { color: #aca194; }
+    html:not([data-theme="light"]) .study-reading-key-term { color: #e6dfd6; border-bottom-color: #c9a66b; }
+    html:not([data-theme="light"]) .study-reading-key-link { color: #7ebbed; }
     html:not([data-theme="light"]) .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
     html:not([data-theme="light"]) .study-theme-toggle:hover { border-color: #7ebbed; }
   }
@@ -690,12 +689,11 @@
 <a class="skip-link" href="#main">Skip to content</a>
 <nav class="study-toolbar" aria-label="Study navigation">
   <div class="study-toolbar-row study-toolbar-row--primary">
-    <a class="study-toolbar-link study-toolbar-back" href="../index.html#study-Research-Note-Activity-Pair-Inventory">&larr; All studies</a>
-    <p class="study-toolbar-title">Research Note: The Sixty-One Activity Pairs of *Jeevan*</p>
+    <a class="study-toolbar-link study-toolbar-back" href="../index.html#study-Research-Note-Activity-Pair-Inventory" aria-label="Back to all studies">&larr; Studies</a>
     <span class="study-toolbar-actions">
       <a class="study-toolbar-link study-toolbar-discuss" href="discussion.html?dv=3">Discuss</a>
-      <a class="study-toolbar-link study-toolbar-download" href="Research-Note-Activity-Pair-Inventory.pdf" download>Download PDF</a>
-      <a class="study-toolbar-link study-toolbar-feedback" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&title=Study%20feedback%3A%20Research%20Note%3A%20The%20Sixty-One%20Activity%20Pairs%20of%20%2AJeevan%2A">Suggest a correction</a>
+      <a class="study-toolbar-link study-toolbar-download" href="Research-Note-Activity-Pair-Inventory.pdf" download aria-label="Download PDF">PDF</a>
+      <a class="study-toolbar-link study-toolbar-feedback" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&title=Study%20feedback%3A%20Research%20Note%3A%20The%20Sixty-One%20Activity%20Pairs%20of%20%2AJeevan%2A" aria-label="Suggest a correction">Suggest edit</a>
       <button type="button" class="study-theme-toggle" id="study-theme-toggle" aria-label="Switch color theme">
         <span class="study-theme-toggle-label">Dark</span>
       </button>
@@ -710,9 +708,9 @@
 <p><strong>Author:</strong> Raghava Mohan Madhwapathi (<a href="https://analyticmadhyasthdarshan.org">analyticmadhyasthdarshan.org</a>)</p>
 <p><strong>Edited on:</strong> August 16, 2026, 7:08 AM IST</p>
 <p><strong>Status:</strong> Internal research note (not a catalog entry). Compiled as the source inventory behind §6 of <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Architecture.html"><em>Jeevan Architecture</em></a>.</p>
-<p><strong>Scope:</strong> This note sets out all sixty-one activity pairs of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> as the primary texts give them, pair by pair, with the <em>bal</em> and <em>shakti</em> member of each named from the tabulated enumeration and defined from the detailed definitions. It records what the two sources agree on, where the definitional language cuts against the tabulated assignment, and which variants or pair-relations the texts leave unsettled.</p>
+<p><strong>Scope:</strong> This note sets out all sixty-one activity pairs of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> as the primary texts give them, pair by pair, with the <em>bal</em> and <em>shakti</em> member of each named from the tabulated enumeration and defined from the detailed definitions. It records what the two sources agree on, where the definitional language cuts against the tabulated assignment, and which variants or pair-relations the texts leave unsettled.</p>
 <p>The inventory is documentary. It does not propose a functional interpretation of the pairs; that interpretation is in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Functional-Model.html">the technical companion</a>, and the questions this inventory leaves open are collected in §8.</p>
-<details class="study-toc" id="study-contents">
+<details class="study-toc study-toc--with-key" id="study-contents">
   <summary class="study-toc-summary">
     <span class="study-toc-label">Contents</span>
     <span class="study-toc-meta">9 sections &middot; 16 headings</span>
@@ -738,11 +736,16 @@
     </ol>
   </nav>
 </details>
+<p class="study-reading-key" aria-label="Reading key">
+  <span class="study-reading-key-term">Dotted underline</span>: definition
+  <span aria-hidden="true">&middot;</span>
+  <span class="study-reading-key-link">Blue underline</span>: link
+</p>
 <h2 id="1-why-the-inventory-exists">1. Why the inventory exists</h2>
-<p>The 122 activities are the finest-grained account the sources give of what <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> does. They are stated twice: once as a table that assigns every activity to a column, and once as definitions that describe each activity in a sentence or two. Both are needed, and neither is sufficient alone.</p>
+<p>The 122 activities are the finest-grained account the sources give of what <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> does. They are stated twice: once as a table that assigns every activity to a column, and once as definitions that describe each activity in a sentence or two. Both are needed, and neither is sufficient alone.</p>
 <p>The table fixes which member of a pair is the <em>bal</em> and which the <em>shakti</em>. The definitions fix what each activity is about. The two are consistent in their ordering throughout, but the definitions cannot be used to recover the assignment, because in several places the language of a definition points the opposite way from the column it sits in (§6). A reading that classified the activities by what their definitions sound like would therefore disagree with the sources at identifiable points. Setting both out together is the only way to keep the assignment source-governed.</p>
 <h2 id="2-the-two-source-presentations">2. The two source presentations</h2>
-<p><strong>The tabulated enumeration</strong> appears as Table 1, &ldquo;122 conducts of awakened <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>&rdquo;, with the decomposition <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><mn>2</mn><mo>+</mo><mn>8</mn><mo>+</mo><mn>18</mn><mo>+</mo><mn>32</mn><mo stretchy="false">)</mo><mo>=</mo><mn>2</mn><mo>×</mo><mn>61</mn><mo>=</mo><mn>122</mn></mrow><annotation encoding="application/x-tex">2 \times (1 + 2 + 8 + 18 + 32) = 2 \times 61 = 122</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">8</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">18</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">32</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">61</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">122</span></span></span></span> printed as its subtitle (AVD, pp. 91–94). It has five columns:</p>
+<p><strong>The tabulated enumeration</strong> appears as Table 1, &ldquo;122 conducts of awakened <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>&rdquo;, with the decomposition <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><mn>2</mn><mo>+</mo><mn>8</mn><mo>+</mo><mn>18</mn><mo>+</mo><mn>32</mn><mo stretchy="false">)</mo><mo>=</mo><mn>2</mn><mo>×</mo><mn>61</mn><mo>=</mo><mn>122</mn></mrow><annotation encoding="application/x-tex">2 \times (1 + 2 + 8 + 18 + 32) = 2 \times 61 = 122</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">8</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">18</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">32</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">61</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">122</span></span></span></span> printed as its subtitle (AVD, pp. 91–94). It has five columns:</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
@@ -780,7 +783,7 @@
 </tbody>
 </table></div>
 <p>The middle three columns carry the faculty-level naming and the outer two the activity-level partition, which is why one table states both grains at which strength and power are used. The English rendering in the source translates <em>bal</em> and <em>shakti</em> inconsistently, using &ldquo;power&rdquo; for both in the column heads and &ldquo;force&rdquo; for <em>shakti</em> in its name column; the Hindi <em>बल</em> and <em>शक्ति</em> is unambiguous and is what this inventory follows.</p>
-<p><strong>The detailed definitions</strong> run under the heading &ldquo;The Definitions of 122 activities of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">Jeevan</button></span></em>&rdquo; (MVD, pp. 328–348). Each faculty&rsquo;s block opens with its two modes, and the activities beneath are set out as two-name headings followed by a definition of each member. The block headings are realisation and authenticity for <em>atma</em>, enlightenment and resolve for <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="buddhi" data-definition="Discriminative faculty in *jeevan* — part of the sentient unit's orbital structure with *mun*, *vritti*, and *chitta*.">buddhi</button></span></em>, contemplation and visualisation for <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery.">chitta</button></span></em>, deliberation and analysis for <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Modification or tendency in *jeevan* — one of the faculties whose alignment supports or obstructs understanding.">vritti</button></span></em>, and selection and taste for <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mun" data-definition="A faculty of *jeevan* — imagination and selection; part of the orbital structure with *buddhi*, *vritti*, and *chitta*.">mun</button></span></em> (MVD, pp. 328, 329, 332, 339).</p>
+<p><strong>The detailed definitions</strong> run under the heading &ldquo;The Definitions of 122 activities of <em>Jeevan</em>&rdquo; (MVD, pp. 328–348). Each faculty&rsquo;s block opens with its two modes, and the activities beneath are set out as two-name headings followed by a definition of each member. The block headings are realisation and authenticity for <em>atma</em>, enlightenment and resolve for <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="buddhi" data-definition="Buddhi — intellect; jeevan’s faculty of enlightenment and resolve, inspired by atma.">buddhi</button></span></em>, contemplation and visualisation for <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Chitta — the reflective mind; jeevan’s faculty of contemplation and desire, inspired by buddhi.">chitta</button></span></em>, deliberation and analysis for <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Vritti — the decisive mind or disposition; jeevan’s faculty of comparison and thought, inspired by chitta.">vritti</button></span></em>, and selection and taste for <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mun" data-definition="Mun — the anticipating mind in jeevan; its activities include tasting and selection according to hope, and it guides the body.">mun</button></span></em> (MVD, pp. 328, 329, 332, 339).</p>
 <h2 id="3-the-five-loci">3. The five loci</h2>
 <div class="table-scroll"><table>
 <thead>
@@ -851,7 +854,7 @@
 </tr>
 </tbody>
 </table></div>
-<p>Every pair below occupies one position at one of these loci. The numbering within each faculty is the source&rsquo;s own (AVD, pp. 91–94). The numbered rows are contents of the generic pair named in this table, not a second set of faculties and not dimensions of it. The sources use “eight dimensions” for visualisation in <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery.">chitta</button></span></em>, and they do not map those dimensions onto the eight <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery.">chitta</button></span></em> pairs (§4.3). For <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mun" data-definition="A faculty of *jeevan* — imagination and selection; part of the orbital structure with *buddhi*, *vritti*, and *chitta*.">mun</button></span></em>, <em>asha</em> names the orientation—hope toward tasting—while <em>asvadan</em> and <em>chayan</em> are the two activities; the thirty-two pairs are what that tasting and selecting are over.</p>
+<p>Every pair below occupies one position at one of these loci. The numbering within each faculty is the source&rsquo;s own (AVD, pp. 91–94). The numbered rows are contents of the generic pair named in this table, not a second set of faculties and not dimensions of it. The sources use “eight dimensions” for visualisation in <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Chitta — the reflective mind; jeevan’s faculty of contemplation and desire, inspired by buddhi.">chitta</button></span></em>, and they do not map those dimensions onto the eight <em>chitta</em> pairs (§4.3). For <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mun" data-definition="Mun — the anticipating mind in jeevan; its activities include tasting and selection according to hope, and it guides the body.">mun</button></span></em>, <em>asha</em> names the orientation—hope toward tasting—while <em>asvadan</em> and <em>chayan</em> are the two activities; the thirty-two pairs are what that tasting and selecting are over.</p>
 <h2 id="4-the-sixty-one-pairs">4. The sixty-one pairs</h2>
 <p>The Hindi activity names and their <em>bal–shakti</em> column assignments follow the AVD table. English glosses follow AVD where its rendering is stable and MVD where the detailed definition supplies the clearer term; §8 records material differences. The two definition columns condense MVD, retaining only the governing clauses where a definition runs longer. Each cell gives that clause first in Hindi as printed, then in the published English, so the translation can be checked against the source wording rather than inferred from the English alone. Temperature and the six tastes require two parallel documentary views because the AVD assignments and MVD definition headings do not divide the content in the same way (§4.5).</p>
 <h3 id="41-atma-one-pair" data-depth="2">4.1 <em>Atma</em> — one pair</h3>
@@ -1618,14 +1621,23 @@
     floatPanel.hidden = true;
     document.body.appendChild(floatPanel);
   }
+  let activeButton = null;
+  let pinnedButton = null;
 
   const hide = () => {
+    if (activeButton) activeButton.setAttribute("aria-expanded", "false");
+    activeButton = null;
     floatPanel.classList.remove("is-visible");
     floatPanel.hidden = true;
     floatPanel.textContent = "";
   };
 
   const show = (button, text) => {
+    if (activeButton && activeButton !== button) {
+      activeButton.setAttribute("aria-expanded", "false");
+    }
+    activeButton = button;
+    button.setAttribute("aria-expanded", "true");
     floatPanel.textContent = text;
     floatPanel.hidden = false;
     floatPanel.classList.add("is-visible");
@@ -1644,21 +1656,41 @@
     const definition = button.getAttribute("data-definition");
     if (!definition) return;
     button.setAttribute("aria-describedby", "term-tip-float");
+    button.setAttribute("aria-expanded", "false");
     const reveal = () => show(button, definition);
-    button.addEventListener("mouseenter", reveal);
-    button.addEventListener("focus", reveal);
-    button.addEventListener("mouseleave", hide);
-    button.addEventListener("blur", hide);
+    button.addEventListener("mouseenter", () => {
+      if (!pinnedButton) reveal();
+    });
+    button.addEventListener("focus", () => {
+      if (!pinnedButton || pinnedButton === button) reveal();
+    });
+    button.addEventListener("mouseleave", () => {
+      if (!pinnedButton) hide();
+    });
+    button.addEventListener("blur", () => {
+      if (!pinnedButton) hide();
+    });
     button.addEventListener("click", event => {
       event.stopPropagation();
-      if (floatPanel.hidden) reveal();
-      else hide();
+      if (pinnedButton === button) {
+        pinnedButton = null;
+        hide();
+      } else {
+        pinnedButton = button;
+        reveal();
+      }
     });
   });
 
-  document.addEventListener("click", hide);
+  document.addEventListener("click", () => {
+    pinnedButton = null;
+    hide();
+  });
   document.addEventListener("keydown", event => {
-    if (event.key === "Escape") hide();
+    if (event.key === "Escape") {
+      pinnedButton = null;
+      hide();
+    }
   });
 })();
 </script>

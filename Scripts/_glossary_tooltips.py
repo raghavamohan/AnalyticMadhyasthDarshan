@@ -1,6 +1,7 @@
 """Shared glossary registry and inline tooltip markup for study HTML."""
 from __future__ import annotations
 
+import html as html_module
 import json
 import re
 from html.parser import HTMLParser
@@ -29,9 +30,21 @@ SKIP_TAGS = frozenset(
         "h2",
         "h3",
         "h4",
+        "blockquote",
     }
 )
-SKIP_CLASSES = frozenset({"term-tip", "term-tip-float", "term-tip-panel", "study-toolbar", "skip-link", "mermaid"})
+SKIP_CLASSES = frozenset(
+    {
+        "term-tip",
+        "term-tip-float",
+        "term-tip-panel",
+        "study-toolbar",
+        "skip-link",
+        "mermaid",
+        "study-reading-key",
+    }
+)
+REFERENCES_HEADING_RE = re.compile(r"^(?:\d+\.\s*)?references$", re.IGNORECASE)
 
 
 def load_glossary(path: Path | None = None) -> list[dict[str, object]]:
@@ -86,10 +99,15 @@ def _wrap_term(match: re.Match[str], term_id: str, definition: str) -> str:
     )
 
 
-def _apply_terms_to_text(text: str, patterns: list[tuple[re.Pattern[str], str, str]]) -> str:
+def _apply_terms_to_text(
+    text: str,
+    patterns: list[tuple[re.Pattern[str], str, str]],
+    seen_term_ids: set[str] | None = None,
+) -> str:
     if not text.strip():
         return text
 
+    seen = seen_term_ids if seen_term_ids is not None else set()
     placeholders: list[str] = []
 
     def repl(match: re.Match[str], term_id: str, definition: str) -> str:
@@ -100,10 +118,25 @@ def _apply_terms_to_text(text: str, patterns: list[tuple[re.Pattern[str], str, s
 
     result = text
     for pattern, term_id, definition in patterns:
+        if term_id in seen:
+            continue
+
+        matched = False
+
+        def wrap_first(
+            match: re.Match[str], i: str = term_id, d: str = definition
+        ) -> str:
+            nonlocal matched
+            matched = True
+            return repl(match, i, d)
+
         result = pattern.sub(
-            lambda m, i=term_id, d=definition: repl(m, i, d),
+            wrap_first,
             result,
+            count=1,
         )
+        if matched:
+            seen.add(term_id)
     for index, html in enumerate(placeholders):
         result = result.replace(f"\x00GLOSS{index}\x00", html)
     return result
@@ -114,12 +147,19 @@ class _GlossaryHTMLParser(HTMLParser):
         super().__init__(convert_charrefs=False)
         self.patterns = patterns
         self._skip_stack: list[bool] = []
+        self._seen_term_ids: set[str] = set()
+        self._h2_text: list[str] | None = None
+        self._tooltips_disabled = False
         self.parts: list[str] = []
 
     def _skip_active(self) -> bool:
         return any(self._skip_stack)
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag == "h2":
+            self._seen_term_ids.clear()
+            self._h2_text = []
+
         attr_map = {k: (v or "") for k, v in attrs}
         class_names = set(attr_map.get("class", "").split())
         skip = tag in SKIP_TAGS or bool(class_names.intersection(SKIP_CLASSES))
@@ -132,6 +172,12 @@ class _GlossaryHTMLParser(HTMLParser):
 
     def handle_endtag(self, tag: str) -> None:
         self.parts.append(f"</{tag}>")
+        if tag == "h2" and self._h2_text is not None:
+            heading = " ".join(
+                html_module.unescape("".join(self._h2_text)).split()
+            )
+            self._tooltips_disabled = bool(REFERENCES_HEADING_RE.fullmatch(heading))
+            self._h2_text = None
         if self._skip_stack:
             self._skip_stack.pop()
 
@@ -148,15 +194,23 @@ class _GlossaryHTMLParser(HTMLParser):
             self._skip_stack.pop()
 
     def handle_data(self, data: str) -> None:
-        if self._skip_active():
+        if self._h2_text is not None:
+            self._h2_text.append(data)
+        if self._skip_active() or self._tooltips_disabled:
             self.parts.append(data)
         else:
-            self.parts.append(_apply_terms_to_text(data, self.patterns))
+            self.parts.append(
+                _apply_terms_to_text(data, self.patterns, self._seen_term_ids)
+            )
 
     def handle_entityref(self, name: str) -> None:
+        if self._h2_text is not None:
+            self._h2_text.append(f"&{name};")
         self.parts.append(f"&{name};")
 
     def handle_charref(self, name: str) -> None:
+        if self._h2_text is not None:
+            self._h2_text.append(f"&#{name};")
         self.parts.append(f"&#{name};")
 
 
