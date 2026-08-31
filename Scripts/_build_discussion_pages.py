@@ -14,6 +14,7 @@ if str(SCRIPTS) not in sys.path:
 
 from _common import (  # noqa: E402
     APPLICATIONS,
+    BASE,
     STUDIES,
     favicon_link_tags,
     site_base_url,
@@ -71,6 +72,14 @@ def _relative_links(row: StudyRow) -> dict[str, str | None]:
         "pdf": f"{row.slug}.pdf" if has_read else None,
         "assets": "../assets",
     }
+
+
+def _social_card_url(slug: str) -> str:
+    """Absolute URL of the study's share card, or the site card if none exists."""
+    base = site_base_url().rstrip("/")
+    if (BASE / "Assets" / "Social" / f"{slug}.png").is_file():
+        return f"{base}/Assets/Social/{quote(slug)}.png"
+    return f"{base}/Assets/Social/og-default.png"
 
 
 def _canonical_url(row: StudyRow) -> str:
@@ -1060,6 +1069,7 @@ def render_discussion_page(row: StudyRow) -> str:
     css_href = html.escape(f"{assets}/{DISCUSS_CSS_NAME}?v={ASSET_VERSION}")
     js_href = html.escape(f"{assets}/{DISCUSS_JS_NAME}?v={ASSET_VERSION}")
     canonical = _canonical_url(row)
+    card_url = _social_card_url(row.slug)
     description = f"Reader discussion for the study \u201c{title}\u201d on AnalyticMadhyasthDarshan.org."
 
     config_json = json.dumps(
@@ -1104,7 +1114,14 @@ def render_discussion_page(row: StudyRow) -> str:
 <meta property="og:title" content="Discussion &mdash; {html.escape(title)}">
 <meta property="og:description" content="{html.escape(description)}">
 <meta property="og:url" content="{html.escape(canonical)}">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="{html.escape(card_url)}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{html.escape(title)}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Discussion &mdash; {html.escape(title)}">
+<meta name="twitter:description" content="{html.escape(description)}">
+<meta name="twitter:image" content="{html.escape(card_url)}">
 <script type="application/ld+json">
 {ld_json}
 </script>
