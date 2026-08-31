@@ -17,11 +17,19 @@
 <meta property="og:title" content="Research Note: Manav Karm Darshan — Ontological Summary"/>
 <meta property="og:description" content="Madhyasth Darshan&#x27;s account of existence as the coexistence of satta and units — saturation, the four orders, sentience, causation, conservation, and the reality of the world — compared in depth with Advaita Vedanta and modern physics and philosophy"/>
 <meta property="og:url" content="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/Research-Note-Karm-Darshan-Ontological-Summary.html"/>
-<meta name="twitter:card" content="summary"/>
+<meta property="og:image" content="https://analyticmadhyasthdarshan.org/Assets/Social/og-default.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Research Note: Manav Karm Darshan — Ontological Summary"/>
+<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Research Note: Manav Karm Darshan — Ontological Summary"/>
 <meta name="twitter:description" content="Madhyasth Darshan&#x27;s account of existence as the coexistence of satta and units — saturation, the four orders, sentience, causation, conservation, and the reality of the world — compared in depth with Advaita Vedanta and modern physics and philosophy"/>
+<meta name="twitter:image" content="https://analyticmadhyasthdarshan.org/Assets/Social/og-default.png"/>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Research Note: Manav Karm Darshan — Ontological Summary","description":"Madhyasth Darshan's account of existence as the coexistence of satta and units — saturation, the four orders, sentience, causation, conservation, and the reality of the world — compared in depth with Advaita Vedanta and modern physics and philosophy","url":"https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/Research-Note-Karm-Darshan-Ontological-Summary.html","inLanguage":"en","author":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"publisher":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"dateModified":"2026-07-28T09:16:00+05:30"}
+{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Research Note: Manav Karm Darshan — Ontological Summary","description":"Madhyasth Darshan's account of existence as the coexistence of satta and units — saturation, the four orders, sentience, causation, conservation, and the reality of the world — compared in depth with Advaita Vedanta and modern physics and philosophy","url":"https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/Research-Note-Karm-Darshan-Ontological-Summary.html","inLanguage":"en","author":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"publisher":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"image":"https://analyticmadhyasthdarshan.org/Assets/Social/og-default.png","dateModified":"2026-07-28T09:16:00+05:30"}
+</script>
+<script>
+(function(){try{var t=localStorage.getItem("amd-theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();
 </script>
 <style>
   @page {
@@ -147,6 +155,7 @@
     color: #333;
     font-weight: bold;
   }
+
   p {
     margin: 6pt 0;
     text-align: justify;
@@ -451,28 +460,157 @@
     content: " \2193";
     font-weight: 700;
   }
+  .study-theme-toggle {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #1a5276;
+    background: #fdfcfa;
+    border: 1px solid #d9d2c7;
+    border-radius: 999px;
+    padding: 3px 11px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .study-theme-toggle:hover { border-color: #1a5276; }
+  .study-theme-toggle:focus-visible {
+    outline: 2px solid #1a5276;
+    outline-offset: 2px;
+  }
+
+  /* Contents ---------------------------------------------------------------
+     Studies run past 30,000 words, so the sequential previous/next pair is not
+     enough to move around one. Closed by default so it costs no height; the
+     script below opens it where there is room. */
+  .study-toc {
+    max-width: 37rem;
+    margin: 1.6em 0 2.2em;
+    border: 1px solid #ddd6cc;
+    border-radius: 10px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+  }
+  .study-toc-summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 10px 15px;
+    cursor: pointer;
+    list-style: none;
+  }
+  .study-toc-summary::-webkit-details-marker { display: none; }
+  .study-toc-summary::before {
+    content: "";
+    flex: 0 0 auto;
+    width: 6px;
+    height: 6px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(-45deg);
+    transition: transform 0.15s ease;
+  }
+  .study-toc[open] > .study-toc-summary::before { transform: rotate(45deg); }
+  .study-toc-summary:hover { background: #faf7f2; }
+  .study-toc-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #2c241c;
+  }
+  .study-toc-meta { font-size: 12px; color: #6b6357; }
+  .study-toc-nav {
+    max-height: 58vh;
+    overflow-y: auto;
+    padding: 2px 15px 13px;
+  }
+  .study-toc-list { list-style: none; margin: 0; padding: 0; }
+  .study-toc-item { margin: 0; }
+  .study-toc-item > a {
+    display: block;
+    padding: 3px 0;
+    font-size: 13.5px;
+    line-height: 1.35;
+    color: #1a5276;
+    text-decoration: none;
+  }
+  .study-toc-item > a:hover { text-decoration: underline; }
+  .study-toc-l1 { margin-top: 9px; }
+  .study-toc-l1:first-child { margin-top: 0; }
+  .study-toc-l1 > a { font-weight: 700; color: #2c241c; }
+  .study-toc-l2 > a { padding-left: 15px; }
+  .study-toc-l3 > a { padding-left: 30px; font-size: 12.5px; color: #4d6f86; }
+  @media (prefers-reduced-motion: reduce) {
+    .study-toc-summary::before { transition: none; }
+  }
+
+  /* Reading measure --------------------------------------------------------
+     The PDF is rendered from this same HTML, so anything that governs reading
+     on screen is confined to @media screen. The bare rules and the @media
+     print block above remain the print baseline and are left alone. */
+  @media screen {
+    body {
+      font-size: 17px;
+      line-height: 1.62;
+      max-width: 46rem;
+      margin: 32px auto 88px;
+      padding: 0 22px;
+    }
+    /* Roughly 68 characters. The container stays wide enough for tables and
+       figures while running text keeps a measure the eye can track back. */
+    p, ul, ol, blockquote, .quote-source, dl {
+      max-width: 37rem;
+    }
+    p {
+      margin: 0.72em 0;
+      text-align: left;
+      hyphens: auto;
+    }
+    h1 { font-size: 2.05rem; line-height: 1.16; }
+    h2 { font-size: 1.5rem; margin-top: 2.3em; }
+    h3 { font-size: 1.18rem; margin-top: 1.85em; }
+    /* "1.2.1" is a sub-subsection but has to stay an h3 for the PDF outline,
+       so the distinction from "1.2" is carried here. */
+    h3[data-depth="3"] {
+      font-size: 1.0rem;
+      font-weight: 600;
+      margin-top: 1.45em;
+    }
+    h4 { font-size: 1.0rem; }
+  }
+  @media screen and (min-width: 760px) {
+    .study-toc { max-width: 46rem; }
+  }
+
   @media (max-width: 640px) {
     .study-toolbar-row--primary {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+      row-gap: 6px;
     }
-    .study-toolbar-back {
-      grid-column: 1;
+    /* Back and title share the first line and the actions take the second, so
+       the reader reaches the heading in two rows rather than four. */
+    .study-toolbar-back { grid-column: 1; justify-self: start; }
+    .study-toolbar-title {
+      grid-column: 2;
+      justify-self: end;
+      text-align: right;
+      font-size: 13px;
+      white-space: normal;
     }
     .study-toolbar-actions {
       grid-column: 1 / -1;
       justify-self: stretch;
-      justify-content: flex-end;
+      justify-content: space-between;
+      gap: 8px;
     }
-    .study-toolbar-title {
-      grid-column: 1 / -1;
-      white-space: normal;
-    }
-    .study-toolbar-section {
-      white-space: normal;
-    }
+    .study-toolbar-feedback { font-size: 11px; }
+    .study-toolbar-section { white-space: normal; }
+    .study-toc-nav { max-height: 52vh; }
   }
   @media print {
     .study-toolbar { display: none !important; }
+    .study-theme-toggle { display: none !important; }
+    .study-toc { display: none !important; }
     .skip-link { display: none !important; }
     .term-tip {
       border-bottom: none;
@@ -482,57 +620,67 @@
     .term-tip-panel { display: none !important; }
   }
 
+  @media screen {
+    html[data-theme="dark"] body { color: #e6dfd6; background: #1a1815; }
+    html[data-theme="dark"] h1, html[data-theme="dark"] h2, html[data-theme="dark"] h3, html[data-theme="dark"] h4 { color: #f5f1ec; }
+    html[data-theme="dark"] h1 { border-bottom-color: #6f655a; }
+    html[data-theme="dark"] h2 { border-bottom-color: #423b33; }
+    html[data-theme="dark"] a { color: #7ebbed; }
+    html[data-theme="dark"] a:visited { color: #9ec8e8; }
+    html[data-theme="dark"] blockquote { background: #26231e; border-left-color: #6f655a; color: #e6dfd6; }
+    html[data-theme="dark"] .quote-source { color: #aca194; }
+    html[data-theme="dark"] th { background: #2f2a24; border-color: #423b33; color: #f5f1ec; }
+    html[data-theme="dark"] td { border-color: #423b33; color: #e6dfd6; }
+    html[data-theme="dark"] tr:nth-child(even) { background: #1e1b18; }
+    html[data-theme="dark"] code { background: #2f2a24; color: #f0e8dc; }
+    html[data-theme="dark"] pre { background: #1e1b18; color: #e6dfd6; }
+    html[data-theme="dark"] .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
+    html[data-theme="dark"] .study-toolbar-link { color: #7ebbed; }
+    html[data-theme="dark"] .study-toolbar-link:hover { color: #b8daf3; }
+    html[data-theme="dark"] .study-toolbar-title { color: #f5f1ec; }
+    html[data-theme="dark"] .study-toolbar-draft { color: #aca194; }
+    html[data-theme="dark"] .study-toolbar-section.is-disabled { color: #6f655a; }
+    html[data-theme="dark"] .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    html[data-theme="dark"] .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
+    html[data-theme="dark"] .study-toc { border-color: #423b33; }
+    html[data-theme="dark"] .study-toc-summary:hover { background: #1e1b18; }
+    html[data-theme="dark"] .study-toc-label { color: #f5f1ec; }
+    html[data-theme="dark"] .study-toc-meta { color: #aca194; }
+    html[data-theme="dark"] .study-toc-list a { color: #7ebbed; }
+    html[data-theme="dark"] .study-toc-l1 > a { color: #f5f1ec; }
+    html[data-theme="dark"] .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
+    html[data-theme="dark"] .study-theme-toggle:hover { border-color: #7ebbed; }
+  }
   @media screen and (prefers-color-scheme: dark) {
-    body {
-      color: #e6dfd6;
-      background: #1a1815;
-    }
-    h1, h2, h3, h4 {
-      color: #f5f1ec;
-    }
-    h1 { border-bottom-color: #6f655a; }
-    h2 { border-bottom-color: #423b33; }
-    a { color: #7ebbed; }
-    a:visited { color: #9ec8e8; }
-    blockquote {
-      background: #26231e;
-      border-left-color: #6f655a;
-      color: #e6dfd6;
-    }
-    .quote-source { color: #aca194; }
-    th {
-      background: #2f2a24;
-      border-color: #423b33;
-      color: #f5f1ec;
-    }
-    td {
-      border-color: #423b33;
-      color: #e6dfd6;
-    }
-    tr:nth-child(even) { background: #1e1b18; }
-    code {
-      background: #2f2a24;
-      color: #f0e8dc;
-    }
-    pre {
-      background: #1e1b18;
-      color: #e6dfd6;
-    }
-    .study-toolbar {
-      background: rgba(26, 24, 21, 0.92);
-      border-color: #423b33;
-    }
-    .study-toolbar-link { color: #7ebbed; }
-    .study-toolbar-link:hover { color: #b8daf3; }
-    .study-toolbar-title { color: #f5f1ec; }
-    .study-toolbar-draft { color: #aca194; }
-    .study-toolbar-section.is-disabled { color: #6f655a; }
-    .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
-    .term-tip-panel {
-      color: #e6dfd6;
-      background: #26231e;
-      border-color: #423b33;
-    }
+    html:not([data-theme="light"]) body { color: #e6dfd6; background: #1a1815; }
+    html:not([data-theme="light"]) h1, html:not([data-theme="light"]) h2, html:not([data-theme="light"]) h3, html:not([data-theme="light"]) h4 { color: #f5f1ec; }
+    html:not([data-theme="light"]) h1 { border-bottom-color: #6f655a; }
+    html:not([data-theme="light"]) h2 { border-bottom-color: #423b33; }
+    html:not([data-theme="light"]) a { color: #7ebbed; }
+    html:not([data-theme="light"]) a:visited { color: #9ec8e8; }
+    html:not([data-theme="light"]) blockquote { background: #26231e; border-left-color: #6f655a; color: #e6dfd6; }
+    html:not([data-theme="light"]) .quote-source { color: #aca194; }
+    html:not([data-theme="light"]) th { background: #2f2a24; border-color: #423b33; color: #f5f1ec; }
+    html:not([data-theme="light"]) td { border-color: #423b33; color: #e6dfd6; }
+    html:not([data-theme="light"]) tr:nth-child(even) { background: #1e1b18; }
+    html:not([data-theme="light"]) code { background: #2f2a24; color: #f0e8dc; }
+    html:not([data-theme="light"]) pre { background: #1e1b18; color: #e6dfd6; }
+    html:not([data-theme="light"]) .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
+    html:not([data-theme="light"]) .study-toolbar-link { color: #7ebbed; }
+    html:not([data-theme="light"]) .study-toolbar-link:hover { color: #b8daf3; }
+    html:not([data-theme="light"]) .study-toolbar-title { color: #f5f1ec; }
+    html:not([data-theme="light"]) .study-toolbar-draft { color: #aca194; }
+    html:not([data-theme="light"]) .study-toolbar-section.is-disabled { color: #6f655a; }
+    html:not([data-theme="light"]) .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    html:not([data-theme="light"]) .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
+    html:not([data-theme="light"]) .study-toc { border-color: #423b33; }
+    html:not([data-theme="light"]) .study-toc-summary:hover { background: #1e1b18; }
+    html:not([data-theme="light"]) .study-toc-label { color: #f5f1ec; }
+    html:not([data-theme="light"]) .study-toc-meta { color: #aca194; }
+    html:not([data-theme="light"]) .study-toc-list a { color: #7ebbed; }
+    html:not([data-theme="light"]) .study-toc-l1 > a { color: #f5f1ec; }
+    html:not([data-theme="light"]) .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
+    html:not([data-theme="light"]) .study-theme-toggle:hover { border-color: #7ebbed; }
   }
 
 </style>
@@ -544,9 +692,12 @@
     <a class="study-toolbar-link study-toolbar-back" href="../index.html#study-Research-Note-Karm-Darshan-Ontological-Summary">&larr; All studies</a>
     <p class="study-toolbar-title">Research Note: Manav Karm Darshan — Ontological Summary</p>
     <span class="study-toolbar-actions">
-      <a class="study-toolbar-link study-toolbar-discuss" href="discussion.html?dv=2">Discuss</a>
+      <a class="study-toolbar-link study-toolbar-discuss" href="discussion.html?dv=3">Discuss</a>
       <a class="study-toolbar-link study-toolbar-download" href="Research-Note-Karm-Darshan-Ontological-Summary.pdf" download>Download PDF</a>
       <a class="study-toolbar-link study-toolbar-feedback" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&title=Study%20feedback%3A%20Research%20Note%3A%20Manav%20Karm%20Darshan%20%E2%80%94%20Ontological%20Summary">Suggest a correction</a>
+      <button type="button" class="study-theme-toggle" id="study-theme-toggle" aria-label="Switch color theme">
+        <span class="study-theme-toggle-label">Dark</span>
+      </button>
     </span>
   </div>
   <div class="study-toolbar-row study-toolbar-row--sections">
@@ -559,8 +710,36 @@
 <p><strong>Edited on:</strong> July 28, 2026, 9:16 AM IST</p>
 <p><strong>Status:</strong> Internal research note (not a catalog entry). Compiled to support reading and drafting on <em>The Ontology of Coexistence</em>, especially §§1.1–1.11, from the working English translation of <em>Manav Karm Darshan</em>.</p>
 <p><strong>Source:</strong> A. Nagraj, <em>Manav Karm Darshan</em> (<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> — Part 2), working English in <a href="../../References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.md"><code>References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.md</code></a>. Page markers below are printed pages (<code>[p. NN]</code> in that file). These are machine-assisted working translations, not published translations — verify against the Hindi original before quoting in a released study.</p>
-<p><strong>Scope:</strong> This note reorders KD&rsquo;s main concepts into the sequence that makes Nagraj&rsquo;s ontological view intelligible: ground and units first, then endowments and activity, then atomic development and the four orders, then force–space–time, then the human as knower. Chapters 1–2 (karma and upasana) are summarised only where they rest on that ontology. Companion physics compilation: <a href="Research-Note-Physics-Of-Satta-Unit-Interaction.md"><em>Research Note: The Physics of Coexistence</em></a>.</p>
+<p><strong>Scope:</strong> This note reorders KD&rsquo;s main concepts into the sequence that makes Nagraj&rsquo;s ontological view intelligible: ground and units first, then endowments and activity, then atomic development and the four orders, then force–space–time, then the human as knower. Chapters 1–2 (karma and upasana) are summarised only where they rest on that ontology. Companion physics compilation: <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/Research-Note-Physics-Of-Satta-Unit-Interaction.html"><em>Research Note: The Physics of Coexistence</em></a>.</p>
 <hr/>
+<details class="study-toc" id="study-contents">
+  <summary class="study-toc-summary">
+    <span class="study-toc-label">Contents</span>
+    <span class="study-toc-meta">18 sections &middot; 18 headings</span>
+  </summary>
+  <nav class="study-toc-nav" aria-label="Contents">
+    <ol class="study-toc-list">
+      <li class="study-toc-item study-toc-l1"><a href="#how-kd-is-organised">How KD is organised</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#1-the-base-claim-existence-as-coexistence">1. The base claim: existence as coexistence</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#2-saturation-and-the-three-endowments">2. Saturation and the three endowments</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#3-the-principle-effort-motion-result">3. The principle: effort – motion – result</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#4-atomic-structure-nucleus-orbits-species">4. Atomic structure: nucleus, orbits, species</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#5-development-progression-in-compositions">5. Development progression in compositions</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#6-constitutional-completeness-hungry-undigested-satisfied">6. Constitutional completeness: hungry, undigested, satisfied</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#7-stability-of-coexistence-certainty-of-development-and-awakening">7. Stability of coexistence; certainty of development and awakening</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#8-form-property-essential-nature-dharma-and-quantity">8. Form, property, essential nature, dharma — and quantity</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#9-statemotion-and-forcepower">9. State–motion and force–power</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#10-projectionreflection">10. Projection–reflection</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#11-pressure-flow-wave-electromagnetic-force">11. Pressure, flow, wave, electromagnetic force</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#12-place-distance-direction-measuring-pervasiveness">12. Place, distance, direction — measuring pervasiveness</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#13-time-as-duration-of-activity">13. Time as duration of activity</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#14-the-human-body-jeevan-and-the-knower">14. The human: body, jeevan, and the knower</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#15-concept-map-in-logical-order">15. Concept map in logical order</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#16-crosswalk-to-the-ontology-of-coexistence">16. Crosswalk to The Ontology of Coexistence</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#method-note">Method note</a></li>
+    </ol>
+  </nav>
+</details>
 <h2 id="how-kd-is-organised">How KD is organised</h2>
 <p>KD&rsquo;s title-page postulate is the all-pervasiveness of knowledge and the beginninglessness of nature. Its principle is <strong>effort – motion – result</strong> (<em>śram–gati–pariṇām</em>). The book has three chapters:</p>
 <div class="table-scroll"><table>
@@ -1072,6 +1251,39 @@ mermaid.initialize({
   document.addEventListener("keydown", event => {
     if (event.key === "Escape") hide();
   });
+})();
+</script>
+<script>
+(() => {
+  const toggle = document.getElementById("study-theme-toggle");
+  if (!toggle) return;
+  const label = toggle.querySelector(".study-theme-toggle-label");
+  const root = document.documentElement;
+  const system = window.matchMedia("(prefers-color-scheme: dark)");
+  const active = () => root.getAttribute("data-theme") || (system.matches ? "dark" : "light");
+  const paint = () => {
+    const next = active() === "dark" ? "Light" : "Dark";
+    if (label) label.textContent = next;
+    toggle.setAttribute("aria-label", `Switch to ${next.toLowerCase()} theme`);
+  };
+  toggle.addEventListener("click", () => {
+    const next = active() === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("amd-theme", next); } catch (e) {}
+    paint();
+  });
+  system.addEventListener("change", paint);
+  paint();
+})();
+</script>
+<script>
+(() => {
+  const toc = document.getElementById("study-contents");
+  if (!toc) return;
+  // Open where there is room to show it without pushing the study off screen.
+  if (window.matchMedia("(min-width: 760px)").matches && window.innerHeight >= 640) {
+    toc.open = true;
+  }
 })();
 </script>
 

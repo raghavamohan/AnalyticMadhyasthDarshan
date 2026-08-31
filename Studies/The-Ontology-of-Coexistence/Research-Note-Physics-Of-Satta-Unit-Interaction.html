@@ -17,11 +17,19 @@
 <meta property="og:title" content="Research Note: The Physics of Coexistence — Force, Charge, Mass, and Time in Satta–Unit Interaction"/>
 <meta property="og:description" content="Madhyasth Darshan&#x27;s account of existence as the coexistence of satta and units — saturation, the four orders, sentience, causation, conservation, and the reality of the world — compared in depth with Advaita Vedanta and modern physics and philosophy"/>
 <meta property="og:url" content="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/Research-Note-Physics-Of-Satta-Unit-Interaction.html"/>
-<meta name="twitter:card" content="summary"/>
+<meta property="og:image" content="https://analyticmadhyasthdarshan.org/Assets/Social/og-default.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Research Note: The Physics of Coexistence — Force, Charge, Mass, and Time in Satta–Unit Interaction"/>
+<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Research Note: The Physics of Coexistence — Force, Charge, Mass, and Time in Satta–Unit Interaction"/>
 <meta name="twitter:description" content="Madhyasth Darshan&#x27;s account of existence as the coexistence of satta and units — saturation, the four orders, sentience, causation, conservation, and the reality of the world — compared in depth with Advaita Vedanta and modern physics and philosophy"/>
+<meta name="twitter:image" content="https://analyticmadhyasthdarshan.org/Assets/Social/og-default.png"/>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Research Note: The Physics of Coexistence — Force, Charge, Mass, and Time in Satta–Unit Interaction","description":"Madhyasth Darshan's account of existence as the coexistence of satta and units — saturation, the four orders, sentience, causation, conservation, and the reality of the world — compared in depth with Advaita Vedanta and modern physics and philosophy","url":"https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/Research-Note-Physics-Of-Satta-Unit-Interaction.html","inLanguage":"en","author":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"publisher":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"dateModified":"2026-08-05T00:20:00+05:30"}
+{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Research Note: The Physics of Coexistence — Force, Charge, Mass, and Time in Satta–Unit Interaction","description":"Madhyasth Darshan's account of existence as the coexistence of satta and units — saturation, the four orders, sentience, causation, conservation, and the reality of the world — compared in depth with Advaita Vedanta and modern physics and philosophy","url":"https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/Research-Note-Physics-Of-Satta-Unit-Interaction.html","inLanguage":"en","author":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"publisher":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"image":"https://analyticmadhyasthdarshan.org/Assets/Social/og-default.png","dateModified":"2026-08-05T00:20:00+05:30"}
+</script>
+<script>
+(function(){try{var t=localStorage.getItem("amd-theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();
 </script>
 <style>
   @page {
@@ -147,6 +155,7 @@
     color: #333;
     font-weight: bold;
   }
+
   p {
     margin: 6pt 0;
     text-align: justify;
@@ -451,28 +460,157 @@
     content: " \2193";
     font-weight: 700;
   }
+  .study-theme-toggle {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #1a5276;
+    background: #fdfcfa;
+    border: 1px solid #d9d2c7;
+    border-radius: 999px;
+    padding: 3px 11px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .study-theme-toggle:hover { border-color: #1a5276; }
+  .study-theme-toggle:focus-visible {
+    outline: 2px solid #1a5276;
+    outline-offset: 2px;
+  }
+
+  /* Contents ---------------------------------------------------------------
+     Studies run past 30,000 words, so the sequential previous/next pair is not
+     enough to move around one. Closed by default so it costs no height; the
+     script below opens it where there is room. */
+  .study-toc {
+    max-width: 37rem;
+    margin: 1.6em 0 2.2em;
+    border: 1px solid #ddd6cc;
+    border-radius: 10px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+  }
+  .study-toc-summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 10px 15px;
+    cursor: pointer;
+    list-style: none;
+  }
+  .study-toc-summary::-webkit-details-marker { display: none; }
+  .study-toc-summary::before {
+    content: "";
+    flex: 0 0 auto;
+    width: 6px;
+    height: 6px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(-45deg);
+    transition: transform 0.15s ease;
+  }
+  .study-toc[open] > .study-toc-summary::before { transform: rotate(45deg); }
+  .study-toc-summary:hover { background: #faf7f2; }
+  .study-toc-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #2c241c;
+  }
+  .study-toc-meta { font-size: 12px; color: #6b6357; }
+  .study-toc-nav {
+    max-height: 58vh;
+    overflow-y: auto;
+    padding: 2px 15px 13px;
+  }
+  .study-toc-list { list-style: none; margin: 0; padding: 0; }
+  .study-toc-item { margin: 0; }
+  .study-toc-item > a {
+    display: block;
+    padding: 3px 0;
+    font-size: 13.5px;
+    line-height: 1.35;
+    color: #1a5276;
+    text-decoration: none;
+  }
+  .study-toc-item > a:hover { text-decoration: underline; }
+  .study-toc-l1 { margin-top: 9px; }
+  .study-toc-l1:first-child { margin-top: 0; }
+  .study-toc-l1 > a { font-weight: 700; color: #2c241c; }
+  .study-toc-l2 > a { padding-left: 15px; }
+  .study-toc-l3 > a { padding-left: 30px; font-size: 12.5px; color: #4d6f86; }
+  @media (prefers-reduced-motion: reduce) {
+    .study-toc-summary::before { transition: none; }
+  }
+
+  /* Reading measure --------------------------------------------------------
+     The PDF is rendered from this same HTML, so anything that governs reading
+     on screen is confined to @media screen. The bare rules and the @media
+     print block above remain the print baseline and are left alone. */
+  @media screen {
+    body {
+      font-size: 17px;
+      line-height: 1.62;
+      max-width: 46rem;
+      margin: 32px auto 88px;
+      padding: 0 22px;
+    }
+    /* Roughly 68 characters. The container stays wide enough for tables and
+       figures while running text keeps a measure the eye can track back. */
+    p, ul, ol, blockquote, .quote-source, dl {
+      max-width: 37rem;
+    }
+    p {
+      margin: 0.72em 0;
+      text-align: left;
+      hyphens: auto;
+    }
+    h1 { font-size: 2.05rem; line-height: 1.16; }
+    h2 { font-size: 1.5rem; margin-top: 2.3em; }
+    h3 { font-size: 1.18rem; margin-top: 1.85em; }
+    /* "1.2.1" is a sub-subsection but has to stay an h3 for the PDF outline,
+       so the distinction from "1.2" is carried here. */
+    h3[data-depth="3"] {
+      font-size: 1.0rem;
+      font-weight: 600;
+      margin-top: 1.45em;
+    }
+    h4 { font-size: 1.0rem; }
+  }
+  @media screen and (min-width: 760px) {
+    .study-toc { max-width: 46rem; }
+  }
+
   @media (max-width: 640px) {
     .study-toolbar-row--primary {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+      row-gap: 6px;
     }
-    .study-toolbar-back {
-      grid-column: 1;
+    /* Back and title share the first line and the actions take the second, so
+       the reader reaches the heading in two rows rather than four. */
+    .study-toolbar-back { grid-column: 1; justify-self: start; }
+    .study-toolbar-title {
+      grid-column: 2;
+      justify-self: end;
+      text-align: right;
+      font-size: 13px;
+      white-space: normal;
     }
     .study-toolbar-actions {
       grid-column: 1 / -1;
       justify-self: stretch;
-      justify-content: flex-end;
+      justify-content: space-between;
+      gap: 8px;
     }
-    .study-toolbar-title {
-      grid-column: 1 / -1;
-      white-space: normal;
-    }
-    .study-toolbar-section {
-      white-space: normal;
-    }
+    .study-toolbar-feedback { font-size: 11px; }
+    .study-toolbar-section { white-space: normal; }
+    .study-toc-nav { max-height: 52vh; }
   }
   @media print {
     .study-toolbar { display: none !important; }
+    .study-theme-toggle { display: none !important; }
+    .study-toc { display: none !important; }
     .skip-link { display: none !important; }
     .term-tip {
       border-bottom: none;
@@ -482,57 +620,67 @@
     .term-tip-panel { display: none !important; }
   }
 
+  @media screen {
+    html[data-theme="dark"] body { color: #e6dfd6; background: #1a1815; }
+    html[data-theme="dark"] h1, html[data-theme="dark"] h2, html[data-theme="dark"] h3, html[data-theme="dark"] h4 { color: #f5f1ec; }
+    html[data-theme="dark"] h1 { border-bottom-color: #6f655a; }
+    html[data-theme="dark"] h2 { border-bottom-color: #423b33; }
+    html[data-theme="dark"] a { color: #7ebbed; }
+    html[data-theme="dark"] a:visited { color: #9ec8e8; }
+    html[data-theme="dark"] blockquote { background: #26231e; border-left-color: #6f655a; color: #e6dfd6; }
+    html[data-theme="dark"] .quote-source { color: #aca194; }
+    html[data-theme="dark"] th { background: #2f2a24; border-color: #423b33; color: #f5f1ec; }
+    html[data-theme="dark"] td { border-color: #423b33; color: #e6dfd6; }
+    html[data-theme="dark"] tr:nth-child(even) { background: #1e1b18; }
+    html[data-theme="dark"] code { background: #2f2a24; color: #f0e8dc; }
+    html[data-theme="dark"] pre { background: #1e1b18; color: #e6dfd6; }
+    html[data-theme="dark"] .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
+    html[data-theme="dark"] .study-toolbar-link { color: #7ebbed; }
+    html[data-theme="dark"] .study-toolbar-link:hover { color: #b8daf3; }
+    html[data-theme="dark"] .study-toolbar-title { color: #f5f1ec; }
+    html[data-theme="dark"] .study-toolbar-draft { color: #aca194; }
+    html[data-theme="dark"] .study-toolbar-section.is-disabled { color: #6f655a; }
+    html[data-theme="dark"] .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    html[data-theme="dark"] .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
+    html[data-theme="dark"] .study-toc { border-color: #423b33; }
+    html[data-theme="dark"] .study-toc-summary:hover { background: #1e1b18; }
+    html[data-theme="dark"] .study-toc-label { color: #f5f1ec; }
+    html[data-theme="dark"] .study-toc-meta { color: #aca194; }
+    html[data-theme="dark"] .study-toc-list a { color: #7ebbed; }
+    html[data-theme="dark"] .study-toc-l1 > a { color: #f5f1ec; }
+    html[data-theme="dark"] .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
+    html[data-theme="dark"] .study-theme-toggle:hover { border-color: #7ebbed; }
+  }
   @media screen and (prefers-color-scheme: dark) {
-    body {
-      color: #e6dfd6;
-      background: #1a1815;
-    }
-    h1, h2, h3, h4 {
-      color: #f5f1ec;
-    }
-    h1 { border-bottom-color: #6f655a; }
-    h2 { border-bottom-color: #423b33; }
-    a { color: #7ebbed; }
-    a:visited { color: #9ec8e8; }
-    blockquote {
-      background: #26231e;
-      border-left-color: #6f655a;
-      color: #e6dfd6;
-    }
-    .quote-source { color: #aca194; }
-    th {
-      background: #2f2a24;
-      border-color: #423b33;
-      color: #f5f1ec;
-    }
-    td {
-      border-color: #423b33;
-      color: #e6dfd6;
-    }
-    tr:nth-child(even) { background: #1e1b18; }
-    code {
-      background: #2f2a24;
-      color: #f0e8dc;
-    }
-    pre {
-      background: #1e1b18;
-      color: #e6dfd6;
-    }
-    .study-toolbar {
-      background: rgba(26, 24, 21, 0.92);
-      border-color: #423b33;
-    }
-    .study-toolbar-link { color: #7ebbed; }
-    .study-toolbar-link:hover { color: #b8daf3; }
-    .study-toolbar-title { color: #f5f1ec; }
-    .study-toolbar-draft { color: #aca194; }
-    .study-toolbar-section.is-disabled { color: #6f655a; }
-    .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
-    .term-tip-panel {
-      color: #e6dfd6;
-      background: #26231e;
-      border-color: #423b33;
-    }
+    html:not([data-theme="light"]) body { color: #e6dfd6; background: #1a1815; }
+    html:not([data-theme="light"]) h1, html:not([data-theme="light"]) h2, html:not([data-theme="light"]) h3, html:not([data-theme="light"]) h4 { color: #f5f1ec; }
+    html:not([data-theme="light"]) h1 { border-bottom-color: #6f655a; }
+    html:not([data-theme="light"]) h2 { border-bottom-color: #423b33; }
+    html:not([data-theme="light"]) a { color: #7ebbed; }
+    html:not([data-theme="light"]) a:visited { color: #9ec8e8; }
+    html:not([data-theme="light"]) blockquote { background: #26231e; border-left-color: #6f655a; color: #e6dfd6; }
+    html:not([data-theme="light"]) .quote-source { color: #aca194; }
+    html:not([data-theme="light"]) th { background: #2f2a24; border-color: #423b33; color: #f5f1ec; }
+    html:not([data-theme="light"]) td { border-color: #423b33; color: #e6dfd6; }
+    html:not([data-theme="light"]) tr:nth-child(even) { background: #1e1b18; }
+    html:not([data-theme="light"]) code { background: #2f2a24; color: #f0e8dc; }
+    html:not([data-theme="light"]) pre { background: #1e1b18; color: #e6dfd6; }
+    html:not([data-theme="light"]) .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
+    html:not([data-theme="light"]) .study-toolbar-link { color: #7ebbed; }
+    html:not([data-theme="light"]) .study-toolbar-link:hover { color: #b8daf3; }
+    html:not([data-theme="light"]) .study-toolbar-title { color: #f5f1ec; }
+    html:not([data-theme="light"]) .study-toolbar-draft { color: #aca194; }
+    html:not([data-theme="light"]) .study-toolbar-section.is-disabled { color: #6f655a; }
+    html:not([data-theme="light"]) .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    html:not([data-theme="light"]) .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
+    html:not([data-theme="light"]) .study-toc { border-color: #423b33; }
+    html:not([data-theme="light"]) .study-toc-summary:hover { background: #1e1b18; }
+    html:not([data-theme="light"]) .study-toc-label { color: #f5f1ec; }
+    html:not([data-theme="light"]) .study-toc-meta { color: #aca194; }
+    html:not([data-theme="light"]) .study-toc-list a { color: #7ebbed; }
+    html:not([data-theme="light"]) .study-toc-l1 > a { color: #f5f1ec; }
+    html:not([data-theme="light"]) .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
+    html:not([data-theme="light"]) .study-theme-toggle:hover { border-color: #7ebbed; }
   }
 
 </style>
@@ -544,9 +692,12 @@
     <a class="study-toolbar-link study-toolbar-back" href="../index.html#study-Research-Note-Physics-Of-Satta-Unit-Interaction">&larr; All studies</a>
     <p class="study-toolbar-title">Research Note: The Physics of Coexistence — Force, Charge, Mass, and Time in Satta–Unit Interaction</p>
     <span class="study-toolbar-actions">
-      <a class="study-toolbar-link study-toolbar-discuss" href="discussion.html?dv=2">Discuss</a>
+      <a class="study-toolbar-link study-toolbar-discuss" href="discussion.html?dv=3">Discuss</a>
       <a class="study-toolbar-link study-toolbar-download" href="Research-Note-Physics-Of-Satta-Unit-Interaction.pdf" download>Download PDF</a>
       <a class="study-toolbar-link study-toolbar-feedback" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&title=Study%20feedback%3A%20Research%20Note%3A%20The%20Physics%20of%20Coexistence%20%E2%80%94%20Force%2C%20Charge%2C%20Mass%2C%20and%20Time%20in%20Satta%E2%80%93Unit%20Interaction">Suggest a correction</a>
+      <button type="button" class="study-theme-toggle" id="study-theme-toggle" aria-label="Switch color theme">
+        <span class="study-theme-toggle-label">Dark</span>
+      </button>
     </span>
   </div>
   <div class="study-toolbar-row study-toolbar-row--sections">
@@ -562,6 +713,32 @@
 <p><strong>Structure.</strong> Every numbered section and subsection below is split into two clearly separated parts: <strong>What MD says</strong> — a numbered list of paraphrased claims taken from the primary texts, each with a page citation — and <strong>Our reading</strong> — this note&rsquo;s own interpretation, cross-references, and flagged tensions. Treat the numbered claims as the raw material to re-verify against the source PDFs before quoting in a catalog Study (via <code>Scripts/_quote_tool.py verify</code>); treat &ldquo;Our reading&rdquo; as commentary, not text. §14 (Synthesis) and §15 (Open Tensions) are, by their nature, entirely &ldquo;Our reading&rdquo; — there is no separate claims list for them.</p>
 <p>KD&rsquo;s stated core principle (<em>siddhant</em>, title page) is <strong>śram–gati–pariṇām</strong> — effort–motion–result — the same triple SB p. 62 unfolds from saturation (§4). Its section 3 (chapters 3.1–3.15) is the most physics-dense stretch anywhere in the corpus: atomic structure (ch. 3.1, p. 53), development in the atom (3.2, p. 59), heat and the Earth&rsquo;s balance (3.7, p. 72), state–motion (3.8, p. 83), quantity (3.9, p. 87), force–power (3.11, p. 101), reflection–projection (3.12, p. 109), pressure/flow/wave/electromagnetic force (3.13, p. 117), place–direction–distance–area–angle (3.14, p. 124), and time (3.15, p. 133).</p>
 <hr/>
+<details class="study-toc" id="study-contents">
+  <summary class="study-toc-summary">
+    <span class="study-toc-label">Contents</span>
+    <span class="study-toc-meta">16 sections &middot; 16 headings</span>
+  </summary>
+  <nav class="study-toc-nav" aria-label="Contents">
+    <ol class="study-toc-list">
+      <li class="study-toc-item study-toc-l1"><a href="#1-the-base-claim-two-poles-one-coexistence">1. The base claim: two poles, one coexistence</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#2-satta-is-explicitly-denied-motion-pressure-and-change">2. Satta is explicitly denied motion, pressure, and change</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#3-two-kinds-of-energy-absolute-vs-relative">3. Two kinds of energy: Absolute vs. Relative</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#4-the-saturation-bond-itself-is-described-in-force-language">4. The saturation bond itself is described in force language</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#5-the-five-forces-table-physics-mapped-onto-jeevans-faculties">5. The Five Forces table — physics mapped onto jeevan’s faculties</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#6-atomic-structure-nucleus-orbits-and-the-absence-of-a-numbered-periodic-table">6. Atomic structure: nucleus, orbits, and the absence of a numbered periodic table</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#7-motion-rotational-orbital-vibrational-and-excited-sb-charged-vs-natural-state-motion">7. Motion: rotational, orbital, vibrational — and “excited” (SB: “charged”) vs. “natural-state” motion</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#8-charge-and-excitation-āvesh-generativedegenerative-powers-the-nucleus-and-hidden-energy">8. Charge and excitation (āvesh): generative/degenerative powers, the nucleus, and “hidden energy”</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#9-heat-magnetism-electricity-radiation">9. Heat, magnetism, electricity, radiation</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#10-mass-and-weight-the-most-concrete-explanatory-chain-in-the-corpus">10. Mass and weight: the most concrete explanatory chain in the corpus</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#11-indestructibility-nothing-is-created-nothing-is-annihilated">11. Indestructibility: nothing is created, nothing is annihilated</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#12-form-shape-volume-density-and-the-limits-of-measurement">12. Form — shape, volume, density — and the limits of measurement</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#13-time-kaal-brief-cross-reference">13. Time (kaal) — brief cross-reference</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#14-synthesis-the-structure-of-the-darshans-physics">14. Synthesis: the structure of the darshan’s physics</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#15-open-interpretive-tensions-flag-for-the-paper-not-yet-resolved">15. Open interpretive tensions (flag for the paper, not yet resolved)</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#method-note-for-reproducibility">Method note (for reproducibility)</a></li>
+    </ol>
+  </nav>
+</details>
 <h2 id="1-the-base-claim-two-poles-one-coexistence">1. The base claim: two poles, one coexistence</h2>
 <p>Everything below sits on top of one recurring assertion: existence has exactly two aspects — formless, actionless <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span></em> and formful, active <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="prakriti" data-definition="Nature — the realm of real units in coexistence; law-governed and beginningless in Madhyasth Darshan.">prakriti</button></span></em> (nature, as countless units) — and neither produces the other.</p>
 <p><strong>What MD says:</strong></p>
@@ -1073,7 +1250,7 @@
 <hr/>
 <h2 id="method-note-for-reproducibility">Method note (for reproducibility)</h2>
 <p>Primary texts were converted to plain text with <code>pdftotext -layout</code>, and page numbers were cross-checked two ways: (1) internal footer markers (&ldquo;page-NN&rdquo;) embedded in the MVD and JVD PDFs, present roughly every page; (2) for SB and JV, where footers were not machine-readable, page indices were calibrated against page citations already established and used consistently in <em>The Ontology of Coexistence</em> (e.g. &ldquo;SB, p. 48,&rdquo; &ldquo;SB, p. 62,&rdquo; &ldquo;MVD, p. 40&rdquo;) by locating the matching English sentence and checking the offset was constant (confirmed: PDF page-splitting index + 1 = printed page number, holding across more than five independent check-points in SB). The claims above are paraphrased from the English portion of the bilingual PDFs; Hindi originals were consulted for the technical terms glossed in brackets. Before quoting any claim verbatim in a catalog Study, re-verify the exact wording against the source PDF via <code>Scripts/_quote_tool.py verify --study &lt;Slug&gt;</code> — the paraphrase here is for readability and is not itself citable wording.</p>
-<p><strong>KD (Manav Karm Darshan, v5) requires a separate protocol.</strong> The PDF is Hindi-only (no English translation exists in the References), and its embedded font&rsquo;s character map is corrupted, so machine-extracted text is systematically garbled (e.g. त/स्/ि cycle, श↔र्) — the text layer was used only to <em>locate</em> candidate pages by cipher-adjusted term search, never to transcribe. All KD passages cited here were read visually from rendered page images and translated by us. <strong>The full working English translation (front matter + chapters 1–3) is in <code>References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.md</code></strong>, with <code>[p. NN]</code> printed-page markers, <code>_page-images/</code> Hindi page renders, and term decisions in <code>KD-Glossary-Additions.md</code> + <code>KD-Translation-Glossary.xlsx</code>; inline KD claims in this note should be read against that file, which supersedes them where wording differs, and all remain <strong>working translations pending a published English edition</strong>. Page numbers cited are the printed page numbers in the running headers (calibration: printed page = PDF page − 25, constant across all pages checked). Two fixed terminology conventions: <em>āvesh/āveshit</em> is translated <strong>contextually</strong> — &ldquo;charge&rdquo; where the text concerns the positive/negative (generative/degenerative) imbalance of atoms, &ldquo;excited/excitation&rdquo; where it concerns a unit&rsquo;s disturbed state as against its neutral/natural state (rule stated in full in §8&rsquo;s terminology note; SB&rsquo;s published English uses &ldquo;charge&rdquo; for both and glosses the state sense &ldquo;excited (charged)&rdquo; at p. 257; MD-Mapping carries both readings); and <em>śram</em> = <strong>effort</strong> (MD-Mapping&rsquo;s notes: &ldquo;We are using &lsquo;effort&rsquo; for shram in the sense of <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="shram-gati-parinam" data-definition="Effort–motion–result — the single inseparable triad in which all change appears.">shram-gati-parinam</button></span>&rdquo;), with &ldquo;labour&rdquo; reserved for economic compounds (श्रम मूल्य = labour value). Chapter 3 (printed pp. 53–153) is fully translated in the combined file; ch. 3.12 (reflection–projection) proved on full translation to be chiefly epistemological — teaching/study as reflection–projection — with heat transfer as one species of the general category (noted in §9.4).</p></main>
+<p><strong>KD (Manav Karm Darshan, v5) requires a separate protocol.</strong> The PDF is Hindi-only (no English translation exists in the References), and its embedded font&rsquo;s character map is corrupted, so machine-extracted text is systematically garbled (e.g. त/स्/ि cycle, श↔र्) — the text layer was used only to <em>locate</em> candidate pages by cipher-adjusted term search, never to transcribe. All KD passages cited here were read visually from rendered page images and translated by us. <strong>The full working English translation (front matter + chapters 1–3) is in <code>References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.md</code></strong>, with <code>[p. NN]</code> printed-page markers, <code>_page-images/</code> Hindi page renders, and term decisions in <code>KD-Glossary-Additions.md</code> + <code>KD-Translation-Glossary.xlsx</code>; inline KD claims in this note should be read against that file, which supersedes them where wording differs, and all remain <strong>working translations pending a published English edition</strong>. Page numbers cited are the printed page numbers in the running headers (calibration: printed page = PDF page − 25, constant across all pages checked). Two fixed terminology conventions: <em>āvesh/āveshit</em> is translated <strong>contextually</strong> — &ldquo;charge&rdquo; where the text concerns the positive/negative (generative/degenerative) imbalance of atoms, &ldquo;excited/excitation&rdquo; where it concerns a unit&rsquo;s disturbed state as against its neutral/natural state (rule stated in full in §8&rsquo;s terminology note; SB&rsquo;s published English uses &ldquo;charge&rdquo; for both and glosses the state sense &ldquo;excited (charged)&rdquo; at p. 257; MD-Mapping carries both readings); and <em>śram</em> = <strong>effort</strong> (MD-Mapping&rsquo;s notes: &ldquo;We are using &lsquo;effort&rsquo; for shram in the sense of <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="shram-gati-parinam" data-definition="Effort, motion, and result are inseparable aspects of every unit-activity.">shram-gati-parinam</button></span>&rdquo;), with &ldquo;labour&rdquo; reserved for economic compounds (श्रम मूल्य = labour value). Chapter 3 (printed pp. 53–153) is fully translated in the combined file; ch. 3.12 (reflection–projection) proved on full translation to be chiefly epistemological — teaching/study as reflection–projection — with heat transfer as one species of the general category (noted in §9.4).</p></main>
 <script>
 (() => {
   const toolbar = document.querySelector(".study-toolbar");
@@ -1225,6 +1402,39 @@
   document.addEventListener("keydown", event => {
     if (event.key === "Escape") hide();
   });
+})();
+</script>
+<script>
+(() => {
+  const toggle = document.getElementById("study-theme-toggle");
+  if (!toggle) return;
+  const label = toggle.querySelector(".study-theme-toggle-label");
+  const root = document.documentElement;
+  const system = window.matchMedia("(prefers-color-scheme: dark)");
+  const active = () => root.getAttribute("data-theme") || (system.matches ? "dark" : "light");
+  const paint = () => {
+    const next = active() === "dark" ? "Light" : "Dark";
+    if (label) label.textContent = next;
+    toggle.setAttribute("aria-label", `Switch to ${next.toLowerCase()} theme`);
+  };
+  toggle.addEventListener("click", () => {
+    const next = active() === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("amd-theme", next); } catch (e) {}
+    paint();
+  });
+  system.addEventListener("change", paint);
+  paint();
+})();
+</script>
+<script>
+(() => {
+  const toc = document.getElementById("study-contents");
+  if (!toc) return;
+  // Open where there is room to show it without pushing the study off screen.
+  if (window.matchMedia("(min-width: 760px)").matches && window.innerHeight >= 640) {
+    toc.open = true;
+  }
 })();
 </script>
 

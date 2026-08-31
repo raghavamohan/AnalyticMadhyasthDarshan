@@ -63,6 +63,14 @@ a { color: var(--accent); }
   color: #2c241c;
   line-height: 1.35;
 }
+.comments-error { color: #5c5348; font-size: 15px; }
+.comments-retry {
+  font: inherit; font-weight: 600; color: #1a5276; background: none;
+  border: none; padding: 0; cursor: pointer;
+  text-decoration: underline; text-underline-offset: 2px;
+}
+.comments-retry:hover { color: #13405c; }
+.comments-retry:focus-visible { outline: 2px solid #1a5276; outline-offset: 2px; border-radius: 3px; }
 .discuss-toolbar-link { color: #1a5276; text-decoration: none; font-weight: 600; }
 .discuss-toolbar-link:hover { color: #13405c; }
 .discuss-toolbar-link:focus-visible { outline: 2px solid #1a5276; outline-offset: 2px; }
@@ -279,6 +287,9 @@ a { color: var(--accent); }
     outline: none;
   }
   .discuss-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
+  .comments-error { color: #aca194; }
+  .comments-retry { color: #7ebbed; }
+  .comments-retry:hover { color: #b8daf3; }
   .discuss-toolbar-link { color: #7ebbed; }
   .discuss-toolbar-link:hover { color: #b8daf3; }
   .discuss-toolbar-title { color: #f5f1ec; }

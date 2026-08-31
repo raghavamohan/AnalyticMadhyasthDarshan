@@ -17,11 +17,19 @@
 <meta property="og:title" content="Research Note: Pass-Five Counterfactual Validation of the *Jeevan* Social Model"/>
 <meta property="og:description" content="What knowledge is, who the knower is, and what can be known: coexistence, jeevan, humane conduct, evidence, and epistemic error — compared with Advaita Vedanta, modern Western philosophy, and natural science"/>
 <meta property="og:url" content="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Counterfactual-Validation-Pass-Five.html"/>
-<meta name="twitter:card" content="summary"/>
+<meta property="og:image" content="https://analyticmadhyasthdarshan.org/Assets/Social/og-default.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Research Note: Pass-Five Counterfactual Validation of the *Jeevan* Social Model"/>
+<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Research Note: Pass-Five Counterfactual Validation of the *Jeevan* Social Model"/>
 <meta name="twitter:description" content="What knowledge is, who the knower is, and what can be known: coexistence, jeevan, humane conduct, evidence, and epistemic error — compared with Advaita Vedanta, modern Western philosophy, and natural science"/>
+<meta name="twitter:image" content="https://analyticmadhyasthdarshan.org/Assets/Social/og-default.png"/>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Research Note: Pass-Five Counterfactual Validation of the *Jeevan* Social Model","description":"What knowledge is, who the knower is, and what can be known: coexistence, jeevan, humane conduct, evidence, and epistemic error — compared with Advaita Vedanta, modern Western philosophy, and natural science","url":"https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Counterfactual-Validation-Pass-Five.html","inLanguage":"en","author":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"publisher":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"dateModified":"2026-08-16T18:31:00+05:30"}
+{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Research Note: Pass-Five Counterfactual Validation of the *Jeevan* Social Model","description":"What knowledge is, who the knower is, and what can be known: coexistence, jeevan, humane conduct, evidence, and epistemic error — compared with Advaita Vedanta, modern Western philosophy, and natural science","url":"https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Counterfactual-Validation-Pass-Five.html","inLanguage":"en","author":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"publisher":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"image":"https://analyticmadhyasthdarshan.org/Assets/Social/og-default.png","dateModified":"2026-08-16T18:31:00+05:30"}
+</script>
+<script>
+(function(){try{var t=localStorage.getItem("amd-theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();
 </script>
 <style>
   @page {
@@ -147,6 +155,7 @@
     color: #333;
     font-weight: bold;
   }
+
   p {
     margin: 6pt 0;
     text-align: justify;
@@ -451,28 +460,157 @@
     content: " \2193";
     font-weight: 700;
   }
+  .study-theme-toggle {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #1a5276;
+    background: #fdfcfa;
+    border: 1px solid #d9d2c7;
+    border-radius: 999px;
+    padding: 3px 11px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .study-theme-toggle:hover { border-color: #1a5276; }
+  .study-theme-toggle:focus-visible {
+    outline: 2px solid #1a5276;
+    outline-offset: 2px;
+  }
+
+  /* Contents ---------------------------------------------------------------
+     Studies run past 30,000 words, so the sequential previous/next pair is not
+     enough to move around one. Closed by default so it costs no height; the
+     script below opens it where there is room. */
+  .study-toc {
+    max-width: 37rem;
+    margin: 1.6em 0 2.2em;
+    border: 1px solid #ddd6cc;
+    border-radius: 10px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+  }
+  .study-toc-summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 10px 15px;
+    cursor: pointer;
+    list-style: none;
+  }
+  .study-toc-summary::-webkit-details-marker { display: none; }
+  .study-toc-summary::before {
+    content: "";
+    flex: 0 0 auto;
+    width: 6px;
+    height: 6px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(-45deg);
+    transition: transform 0.15s ease;
+  }
+  .study-toc[open] > .study-toc-summary::before { transform: rotate(45deg); }
+  .study-toc-summary:hover { background: #faf7f2; }
+  .study-toc-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #2c241c;
+  }
+  .study-toc-meta { font-size: 12px; color: #6b6357; }
+  .study-toc-nav {
+    max-height: 58vh;
+    overflow-y: auto;
+    padding: 2px 15px 13px;
+  }
+  .study-toc-list { list-style: none; margin: 0; padding: 0; }
+  .study-toc-item { margin: 0; }
+  .study-toc-item > a {
+    display: block;
+    padding: 3px 0;
+    font-size: 13.5px;
+    line-height: 1.35;
+    color: #1a5276;
+    text-decoration: none;
+  }
+  .study-toc-item > a:hover { text-decoration: underline; }
+  .study-toc-l1 { margin-top: 9px; }
+  .study-toc-l1:first-child { margin-top: 0; }
+  .study-toc-l1 > a { font-weight: 700; color: #2c241c; }
+  .study-toc-l2 > a { padding-left: 15px; }
+  .study-toc-l3 > a { padding-left: 30px; font-size: 12.5px; color: #4d6f86; }
+  @media (prefers-reduced-motion: reduce) {
+    .study-toc-summary::before { transition: none; }
+  }
+
+  /* Reading measure --------------------------------------------------------
+     The PDF is rendered from this same HTML, so anything that governs reading
+     on screen is confined to @media screen. The bare rules and the @media
+     print block above remain the print baseline and are left alone. */
+  @media screen {
+    body {
+      font-size: 17px;
+      line-height: 1.62;
+      max-width: 46rem;
+      margin: 32px auto 88px;
+      padding: 0 22px;
+    }
+    /* Roughly 68 characters. The container stays wide enough for tables and
+       figures while running text keeps a measure the eye can track back. */
+    p, ul, ol, blockquote, .quote-source, dl {
+      max-width: 37rem;
+    }
+    p {
+      margin: 0.72em 0;
+      text-align: left;
+      hyphens: auto;
+    }
+    h1 { font-size: 2.05rem; line-height: 1.16; }
+    h2 { font-size: 1.5rem; margin-top: 2.3em; }
+    h3 { font-size: 1.18rem; margin-top: 1.85em; }
+    /* "1.2.1" is a sub-subsection but has to stay an h3 for the PDF outline,
+       so the distinction from "1.2" is carried here. */
+    h3[data-depth="3"] {
+      font-size: 1.0rem;
+      font-weight: 600;
+      margin-top: 1.45em;
+    }
+    h4 { font-size: 1.0rem; }
+  }
+  @media screen and (min-width: 760px) {
+    .study-toc { max-width: 46rem; }
+  }
+
   @media (max-width: 640px) {
     .study-toolbar-row--primary {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+      row-gap: 6px;
     }
-    .study-toolbar-back {
-      grid-column: 1;
+    /* Back and title share the first line and the actions take the second, so
+       the reader reaches the heading in two rows rather than four. */
+    .study-toolbar-back { grid-column: 1; justify-self: start; }
+    .study-toolbar-title {
+      grid-column: 2;
+      justify-self: end;
+      text-align: right;
+      font-size: 13px;
+      white-space: normal;
     }
     .study-toolbar-actions {
       grid-column: 1 / -1;
       justify-self: stretch;
-      justify-content: flex-end;
+      justify-content: space-between;
+      gap: 8px;
     }
-    .study-toolbar-title {
-      grid-column: 1 / -1;
-      white-space: normal;
-    }
-    .study-toolbar-section {
-      white-space: normal;
-    }
+    .study-toolbar-feedback { font-size: 11px; }
+    .study-toolbar-section { white-space: normal; }
+    .study-toc-nav { max-height: 52vh; }
   }
   @media print {
     .study-toolbar { display: none !important; }
+    .study-theme-toggle { display: none !important; }
+    .study-toc { display: none !important; }
     .skip-link { display: none !important; }
     .term-tip {
       border-bottom: none;
@@ -482,57 +620,67 @@
     .term-tip-panel { display: none !important; }
   }
 
+  @media screen {
+    html[data-theme="dark"] body { color: #e6dfd6; background: #1a1815; }
+    html[data-theme="dark"] h1, html[data-theme="dark"] h2, html[data-theme="dark"] h3, html[data-theme="dark"] h4 { color: #f5f1ec; }
+    html[data-theme="dark"] h1 { border-bottom-color: #6f655a; }
+    html[data-theme="dark"] h2 { border-bottom-color: #423b33; }
+    html[data-theme="dark"] a { color: #7ebbed; }
+    html[data-theme="dark"] a:visited { color: #9ec8e8; }
+    html[data-theme="dark"] blockquote { background: #26231e; border-left-color: #6f655a; color: #e6dfd6; }
+    html[data-theme="dark"] .quote-source { color: #aca194; }
+    html[data-theme="dark"] th { background: #2f2a24; border-color: #423b33; color: #f5f1ec; }
+    html[data-theme="dark"] td { border-color: #423b33; color: #e6dfd6; }
+    html[data-theme="dark"] tr:nth-child(even) { background: #1e1b18; }
+    html[data-theme="dark"] code { background: #2f2a24; color: #f0e8dc; }
+    html[data-theme="dark"] pre { background: #1e1b18; color: #e6dfd6; }
+    html[data-theme="dark"] .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
+    html[data-theme="dark"] .study-toolbar-link { color: #7ebbed; }
+    html[data-theme="dark"] .study-toolbar-link:hover { color: #b8daf3; }
+    html[data-theme="dark"] .study-toolbar-title { color: #f5f1ec; }
+    html[data-theme="dark"] .study-toolbar-draft { color: #aca194; }
+    html[data-theme="dark"] .study-toolbar-section.is-disabled { color: #6f655a; }
+    html[data-theme="dark"] .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    html[data-theme="dark"] .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
+    html[data-theme="dark"] .study-toc { border-color: #423b33; }
+    html[data-theme="dark"] .study-toc-summary:hover { background: #1e1b18; }
+    html[data-theme="dark"] .study-toc-label { color: #f5f1ec; }
+    html[data-theme="dark"] .study-toc-meta { color: #aca194; }
+    html[data-theme="dark"] .study-toc-list a { color: #7ebbed; }
+    html[data-theme="dark"] .study-toc-l1 > a { color: #f5f1ec; }
+    html[data-theme="dark"] .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
+    html[data-theme="dark"] .study-theme-toggle:hover { border-color: #7ebbed; }
+  }
   @media screen and (prefers-color-scheme: dark) {
-    body {
-      color: #e6dfd6;
-      background: #1a1815;
-    }
-    h1, h2, h3, h4 {
-      color: #f5f1ec;
-    }
-    h1 { border-bottom-color: #6f655a; }
-    h2 { border-bottom-color: #423b33; }
-    a { color: #7ebbed; }
-    a:visited { color: #9ec8e8; }
-    blockquote {
-      background: #26231e;
-      border-left-color: #6f655a;
-      color: #e6dfd6;
-    }
-    .quote-source { color: #aca194; }
-    th {
-      background: #2f2a24;
-      border-color: #423b33;
-      color: #f5f1ec;
-    }
-    td {
-      border-color: #423b33;
-      color: #e6dfd6;
-    }
-    tr:nth-child(even) { background: #1e1b18; }
-    code {
-      background: #2f2a24;
-      color: #f0e8dc;
-    }
-    pre {
-      background: #1e1b18;
-      color: #e6dfd6;
-    }
-    .study-toolbar {
-      background: rgba(26, 24, 21, 0.92);
-      border-color: #423b33;
-    }
-    .study-toolbar-link { color: #7ebbed; }
-    .study-toolbar-link:hover { color: #b8daf3; }
-    .study-toolbar-title { color: #f5f1ec; }
-    .study-toolbar-draft { color: #aca194; }
-    .study-toolbar-section.is-disabled { color: #6f655a; }
-    .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
-    .term-tip-panel {
-      color: #e6dfd6;
-      background: #26231e;
-      border-color: #423b33;
-    }
+    html:not([data-theme="light"]) body { color: #e6dfd6; background: #1a1815; }
+    html:not([data-theme="light"]) h1, html:not([data-theme="light"]) h2, html:not([data-theme="light"]) h3, html:not([data-theme="light"]) h4 { color: #f5f1ec; }
+    html:not([data-theme="light"]) h1 { border-bottom-color: #6f655a; }
+    html:not([data-theme="light"]) h2 { border-bottom-color: #423b33; }
+    html:not([data-theme="light"]) a { color: #7ebbed; }
+    html:not([data-theme="light"]) a:visited { color: #9ec8e8; }
+    html:not([data-theme="light"]) blockquote { background: #26231e; border-left-color: #6f655a; color: #e6dfd6; }
+    html:not([data-theme="light"]) .quote-source { color: #aca194; }
+    html:not([data-theme="light"]) th { background: #2f2a24; border-color: #423b33; color: #f5f1ec; }
+    html:not([data-theme="light"]) td { border-color: #423b33; color: #e6dfd6; }
+    html:not([data-theme="light"]) tr:nth-child(even) { background: #1e1b18; }
+    html:not([data-theme="light"]) code { background: #2f2a24; color: #f0e8dc; }
+    html:not([data-theme="light"]) pre { background: #1e1b18; color: #e6dfd6; }
+    html:not([data-theme="light"]) .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
+    html:not([data-theme="light"]) .study-toolbar-link { color: #7ebbed; }
+    html:not([data-theme="light"]) .study-toolbar-link:hover { color: #b8daf3; }
+    html:not([data-theme="light"]) .study-toolbar-title { color: #f5f1ec; }
+    html:not([data-theme="light"]) .study-toolbar-draft { color: #aca194; }
+    html:not([data-theme="light"]) .study-toolbar-section.is-disabled { color: #6f655a; }
+    html:not([data-theme="light"]) .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    html:not([data-theme="light"]) .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
+    html:not([data-theme="light"]) .study-toc { border-color: #423b33; }
+    html:not([data-theme="light"]) .study-toc-summary:hover { background: #1e1b18; }
+    html:not([data-theme="light"]) .study-toc-label { color: #f5f1ec; }
+    html:not([data-theme="light"]) .study-toc-meta { color: #aca194; }
+    html:not([data-theme="light"]) .study-toc-list a { color: #7ebbed; }
+    html:not([data-theme="light"]) .study-toc-l1 > a { color: #f5f1ec; }
+    html:not([data-theme="light"]) .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
+    html:not([data-theme="light"]) .study-theme-toggle:hover { border-color: #7ebbed; }
   }
 
 </style>
@@ -544,9 +692,12 @@
     <a class="study-toolbar-link study-toolbar-back" href="../index.html#study-Research-Note-Jeevan-Counterfactual-Validation-Pass-Five">&larr; All studies</a>
     <p class="study-toolbar-title">Research Note: Pass-Five Counterfactual Validation of the *Jeevan* Social Model</p>
     <span class="study-toolbar-actions">
-      <a class="study-toolbar-link study-toolbar-discuss" href="discussion.html?dv=2">Discuss</a>
+      <a class="study-toolbar-link study-toolbar-discuss" href="discussion.html?dv=3">Discuss</a>
       <a class="study-toolbar-link study-toolbar-download" href="Research-Note-Jeevan-Counterfactual-Validation-Pass-Five.pdf" download>Download PDF</a>
       <a class="study-toolbar-link study-toolbar-feedback" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&title=Study%20feedback%3A%20Research%20Note%3A%20Pass-Five%20Counterfactual%20Validation%20of%20the%20%2AJeevan%2A%20Social%20Model">Suggest a correction</a>
+      <button type="button" class="study-theme-toggle" id="study-theme-toggle" aria-label="Switch color theme">
+        <span class="study-theme-toggle-label">Dark</span>
+      </button>
     </span>
   </div>
   <div class="study-toolbar-row study-toolbar-row--sections">
@@ -558,15 +709,49 @@
 <p><strong>Author:</strong> Raghava Mohan Madhwapathi (<a href="https://analyticmadhyasthdarshan.org">analyticmadhyasthdarshan.org</a>)</p>
 <p><strong>Edited on:</strong> August 16, 2026, 6:31 PM IST</p>
 <p><strong>Status:</strong> Internal research note (not a catalog entry). Pass Five of the activity-to-sphere analysis.</p>
-<p><strong>Scope:</strong> This note stress-tests the family-like field and the five durable functions derived in <a href="Research-Note-Jeevan-Durable-Functions-Pass-Four.md">Pass Four</a>. It asks whether materially different arrangements can satisfy the same invariants, whether familiar arrangements can display false signs of fulfilment while failing them, and whether scarcity, disability, coercion, disagreement, migration, technological concentration, or ecological delay disclose a requirement outside the five-function basis. The cases are structured counterfactuals, not observations of actual communities. They test the coherence and discriminating power of the model; empirical validation remains a separate task.</p>
+<p><strong>Scope:</strong> This note stress-tests the family-like field and the five durable functions derived in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Durable-Functions-Pass-Four.html">Pass Four</a>. It asks whether materially different arrangements can satisfy the same invariants, whether familiar arrangements can display false signs of fulfilment while failing them, and whether scarcity, disability, coercion, disagreement, migration, technological concentration, or ecological delay disclose a requirement outside the five-function basis. The cases are structured counterfactuals, not observations of actual communities. They test the coherence and discriminating power of the model; empirical validation remains a separate task.</p>
 <p>The validation narrows the social thesis without dissolving it. A durable shared-life field remains necessary, but biological kinship, co-residence, and one household form are neither sufficient nor uniquely necessary. The five functions remain a complete basis for classifying the continuity responsibilities exposed by the test cases, but exactly five organisations is not derived. Production and exchange may share an administration only when their purposes, records, affected-party rights, and correction paths remain distinguishable. Separate scientific, governing, ecological, or care organisations may be required as safeguards or specialised bearers without introducing a sixth human continuity object.</p>
 <p>Pass Five therefore supports a universal architecture of responsibilities and evidence, not a uniform institutional diagram. It also adds a stricter universality test: each person must have supported access to understanding, voice, bodily and material means, contribution, and correction. High aggregate performance by a competent minority does not satisfy the common capacity of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>.</p>
 <p>Throughout this analysis, <strong>voice</strong> has a precise operational meaning: the effective, supported opportunity of a person, counterpart, or affected party to express understanding, needs, expectations, agreement, and disagreement; to participate in deliberation and decisions that affect them; to have what they express considered and answered with reasons; and to refuse, challenge, or appeal without retaliation. It means neither mere permission to speak nor equal authority in every decision. A validation case therefore counts voice only when participation can affect deliberation, receive a reasoned response, and reach protection or correction where direct reciprocity fails.</p>
+<details class="study-toc" id="study-contents">
+  <summary class="study-toc-summary">
+    <span class="study-toc-label">Contents</span>
+    <span class="study-toc-meta">10 sections &middot; 24 headings</span>
+  </summary>
+  <nav class="study-toc-nav" aria-label="Contents">
+    <ol class="study-toc-list">
+      <li class="study-toc-item study-toc-l1"><a href="#1-what-pass-five-can-validate">1. What Pass Five can validate</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#11-the-validation-rule">1.1 The validation rule</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#12-frozen-inputs-and-reproducible-artifacts">1.2 Frozen inputs and reproducible artifacts</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#2-the-nineteen-validation-cases">2. The nineteen validation cases</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#3-what-is-derived-about-family">3. What is derived about family</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#31-the-invariant-that-survives">3.1 The invariant that survives</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#32-why-outside-appeal-belongs-to-the-invariant">3.2 Why outside appeal belongs to the invariant</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#4-what-is-derived-about-five-functions-and-organisations">4. What is derived about five functions and organisations</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#41-functions-remain-distinct-even-when-organisations-overlap">4.1 Functions remain distinct even when organisations overlap</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#42-why-science-governance-ecology-and-care-do-not-create-a-sixth-function">4.2 Why science, governance, ecology, and care do not create a sixth function</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#5-adverse-conditions-refine-the-architecture">5. Adverse conditions refine the architecture</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#51-scarcity-requires-reasoned-priority-and-restoration">5.1 Scarcity requires reasoned priority and restoration</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#52-disability-changes-the-form-of-participation-not-its-universality">5.2 Disability changes the form of participation, not its universality</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#53-coercion-and-disagreement-require-evidence-outside-power">5.3 Coercion and disagreement require evidence outside power</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#54-movement-concentrated-technology-and-ecological-delay-require-wider-scales">5.4 Movement, concentrated technology, and ecological delay require wider scales</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#6-minimum-evidence-for-the-five-functions">6. Minimum evidence for the five functions</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#7-what-survives-what-is-revised-and-what-is-rejected">7. What survives, what is revised, and what is rejected</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#71-conclusions-that-survive-the-analytical-tests">7.1 Conclusions that survive the analytical tests</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#72-conclusions-that-require-refinement">7.2 Conclusions that require refinement</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#73-claims-rejected-by-the-tests">7.3 Claims rejected by the tests</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#8-the-external-architecture-after-pass-five">8. The external architecture after Pass Five</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#9-limits-and-empirical-handoff">9. Limits and empirical handoff</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#references">References</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#related-research-notes-and-artifacts">Related research notes and artifacts</a></li>
+    </ol>
+  </nav>
+</details>
 <h2 id="1-what-pass-five-can-validate">1. What Pass Five can validate</h2>
 <p>Pass Four started from the anonymous activity matrix and recovered five objects that must remain continuous in embodied social life: understood orientation, claims between persons, bodily capability, transformed material means, and access to provision across persons and time. Those objects were restored as education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em>, justice-security, health-restraint, production-work, and exchange-reserve. The selected bundle covered all 185 channel memberships of the 122 activity records at the chosen grain.</p>
 <p>That result left three distinct claims open. The first concerned <strong>equivalence</strong>: a materially different family or organisational form might preserve the same activity lifecycle. The second concerned <strong>robustness</strong>: scarcity, concentrated power, delay, or dependency might reveal a condition not captured by the five functions and their cross-cutting safeguards. The third concerned <strong>evidence</strong>: a system might look orderly, prosperous, consensual, or productive while obstructing the activity criterion it purports to maintain.</p>
 <p>Pass Five tests those claims analytically. It does not show that any actual arrangement fulfils the invariants, determine causal effects, or independently confirm the ontology of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>. A counterfactual case can show that a stronger institutional claim is unnecessary, that a proposed arrangement is internally unsafe, or that the model needs another condition. Observation is still required to determine whether people can exercise the relevant capacities in practice.</p>
-<h3>1.1 The validation rule</h3>
+<h3 id="11-the-validation-rule" data-depth="2">1.1 The validation rule</h3>
 <p>Each case records the arrangement or adverse condition, functions placed under stress, safeguards required, invariant under test, available and missing conditions, false-positive risk, observable evidence, analytical result, and revision route. The rule is:</p>
 <pre><code class="language-text">materially different form + all relevant invariants + effective correction
     -&gt; functionally equivalent arrangement
@@ -581,7 +766,7 @@ adverse case + non-substitutable continuity object outside U01-U05
     -&gt; revise the Pass-Four function basis
 </code></pre>
 <p>The last result was a live possibility, not a result ruled out in advance. None of the nineteen specified cases disclosed such an object. This establishes closure only over the tested analytical cases. A surviving real-world counterexample would reopen the activity coding, sphere boundary, continuity channel, or bundle.</p>
-<h3>1.2 Frozen inputs and reproducible artifacts</h3>
+<h3 id="12-frozen-inputs-and-reproducible-artifacts" data-depth="2">1.2 Frozen inputs and reproducible artifacts</h3>
 <p>The <a href="../../Scripts/_validate_jeevan_pass_five.py">Pass-Five validation script</a> reads the Pass-Four restored coverage register and diagnostics, verifies the 122 members and the frozen B04 bundle, and computes how many activity members are exposed by each case&rsquo;s function set. It writes three deterministic artifacts:</p>
 <ul>
 <li>the <a href="Research-Data-Jeevan-Pass-Five-Validation-Cases.csv">validation-case register</a>, with SHA-256 digest <code>C1A9445197E9B3A65E541D0DBB5D57C192E1972FD3B8342507EA542DA1354FC5</code>;</li>
@@ -719,7 +904,7 @@ adverse case + non-substitutable continuity object outside U01-U05
 </table></div>
 <p>Every function and all five Pass-Four safeguards are exercised somewhere in the case set. Cases affecting all five functions expose all 122 activity members; narrower cases expose the union of members assigned to the functions under stress. This linkage prevents a case from being discussed as a free-standing institutional example detached from the activity register.</p>
 <h2 id="3-what-is-derived-about-family">3. What is derived about family</h2>
-<h3>3.1 The invariant that survives</h3>
+<h3 id="31-the-invariant-that-survives" data-depth="2">3.1 The invariant that survives</h3>
 <p>The family-like field consists of eight jointly durable conditions:</p>
 <ol>
 <li>membership stable enough for responsibility to continue;</li>
@@ -734,15 +919,15 @@ adverse case + non-substitutable continuity object outside U01-U05
 <p>FAM-01 shows that these conditions can be specified without kinship. FAM-03 shows that they can persist without continuous co-residence when commitments, records, care, provision, voice, and appeal remain portable. These are counterexamples to the stronger proposition that one genealogical or residential form is necessary. They are not counterexamples to the durable shared-life invariant.</p>
 <p>FAM-02 applies the reverse test. A biologically related household may provide food, shelter, work, and visible unity while obstructing learning, voice, care, and appeal. The family label is therefore not evidence of fulfilment. The model recognises as family-like whatever arrangement reliably carries the shared-life invariant and rejects as inadequate any named family that does not.</p>
 <p>This is a genuine refinement of the original thesis. Knowledge of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> and its embodied lifecycle can support the need for a durable, intimate, intergenerational, productive, caring, and evaluative field. It does not by itself derive descent rules, marriage rules, household size, gendered roles, property form, continuous co-residence, or a single authority structure.</p>
-<h3>3.2 Why outside appeal belongs to the invariant</h3>
+<h3 id="32-why-outside-appeal-belongs-to-the-invariant" data-depth="2">3.2 Why outside appeal belongs to the invariant</h3>
 <p>A close relationship provides evidence unavailable to a distant administration, but closeness also concentrates dependency and may hide coercion. The same group cannot be assumed both to exercise power and to judge every complaint against that power. A family-like field is therefore not complete by self-sufficiency alone. Confidential voice, protection, and feasible appeal must cross its boundary, while repair returns to the relationship where safe and possible.</p>
 <p>This condition does not turn the family into a branch of one central institution. It establishes nested responsibility: fulfilment remains as close to the relationship as competence and safety permit, while evidence and correction extend beyond the unit when its own processes fail.</p>
 <h2 id="4-what-is-derived-about-five-functions-and-organisations">4. What is derived about five functions and organisations</h2>
-<h3>4.1 Functions remain distinct even when organisations overlap</h3>
+<h3 id="41-functions-remain-distinct-even-when-organisations-overlap" data-depth="2">4.1 Functions remain distinct even when organisations overlap</h3>
 <p>BND-01 and BND-02 test the most plausible four-function alternative from Pass Four: administrative combination of production and exchange. Combination is not inherently invalid. One cooperative, enterprise, or public body may make goods, maintain stock, allocate provision, and hold reserve. It remains adequate only if two questions can still be answered independently: whether material transformation is useful, safe, maintainable, and regenerative; and whether provision is transparently and dependably available across persons and time.</p>
 <p>Separate purpose accounts, stock records, worker and user voice, health and ecological review, stop rights, and appeal preserve that distinction. When the same output authority controls price, stock information, health evidence, and review, saleability and profit can mask unsafe work, exclusion, or depleted reserve. The organisation then fails even though all operations appear administratively integrated.</p>
 <p>The five-function conclusion is therefore about non-substitutable responsibilities, not exclusive organisational boundaries. One organisation may carry several functions with effective firewalls. One function may require many organisations at close, local, specialised, and wider scales.</p>
-<h3>4.2 Why science, governance, ecology, and care do not create a sixth function</h3>
+<h3 id="42-why-science-governance-ecology-and-care-do-not-create-a-sixth-function" data-depth="2">4.2 Why science, governance, ecology, and care do not create a sixth function</h3>
 <p>The boundary test asks whether a proposed sixth function maintains a new continuity object or protects the operation and interfaces of the five already identified.</p>
 <p>Science maintains disciplined inquiry, causal knowledge, measurement, criticism, and correction. Its work changes what is understood, how bodily conditions are assessed, how production is designed, how distribution is measured, and how remote ecological effects become visible. An autonomous research organisation may be indispensable because evidence must remain reportable against educational, commercial, or governing pressure. The object under consideration nevertheless remains one of the five: understanding, relational claim, bodily capability, material transformation, or continuity of access.</p>
 <p>Governance coordinates authority, reasons, resources, affected-party voice, review, and correction across the same functions. A distinct governing organisation may be necessary, but governing activity without educational, just, healthy, productive, or distributive content has no additional human endpoint. Its validity is tested by whether it protects those functions without replacing understanding with command.</p>
@@ -750,16 +935,16 @@ adverse case + non-substitutable continuity object outside U01-U05
 <p>Care changes its concrete object with the person and condition: learning, relationship, bodily support, work capability, or continuity of provision. Specialised care can be independently organised while remaining a mode of responsibility joining several functions.</p>
 <p>No tested case therefore adds a sixth continuity object. This conclusion does not show that five is numerically unique under every possible ontology or grain. It shows why more than five organisations can be necessary without requiring more than five functions at this grain.</p>
 <h2 id="5-adverse-conditions-refine-the-architecture">5. Adverse conditions refine the architecture</h2>
-<h3>5.1 Scarcity requires reasoned priority and restoration</h3>
+<h3 id="51-scarcity-requires-reasoned-priority-and-restoration" data-depth="2">5.1 Scarcity requires reasoned priority and restoration</h3>
 <p>Scarcity can make simultaneous satisfaction of all stated needs impossible. It does not suspend justice, health, production, or reserve. It increases the importance of transparent information about stock and need, minimum protection, participatory priority rules, burden visibility, appeal, and a plan to restore capability. Aggregate output or formally equal rations can remain unjust when needs and dependency differ.</p>
 <p>The refinement is procedural and evidentiary. A scarcity decision is evaluated by avoidable harm, distribution of burdens, reserve use, stated reasons, revision, and recovery over time. “Emergency” cannot become an indefinite exemption from voice or correction.</p>
-<h3>5.2 Disability changes the form of participation, not its universality</h3>
+<h3 id="52-disability-changes-the-form-of-participation-not-its-universality" data-depth="2">5.2 Disability changes the form of participation, not its universality</h3>
 <p>The common architecture of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> does not imply identical bodies, communication modes, skills, or independent role performance. Disability and dependency require accessible communication, accommodation, supported choice, role adaptation, care, and review of representation. Equal availability means that each person can develop and exercise capability, express a standpoint, receive provision, contribute in an appropriate form, and invoke correction. It does not mean that every person performs every task without support.</p>
 <p>This refinement prevents a formal equality test from excluding the very persons whose dependency makes durable social responsibility most visible.</p>
-<h3>5.3 Coercion and disagreement require evidence outside power</h3>
+<h3 id="53-coercion-and-disagreement-require-evidence-outside-power" data-depth="2">5.3 Coercion and disagreement require evidence outside power</h3>
 <p>Coercive households, workplaces, and technical systems often generate the appearance of agreement. Low complaint rates, compliance, retention, or reported loyalty can be consequences of dependence and retaliation rather than evidence of fulfilment. Effective validation therefore requires confidential testimony, safe dissent, access to reasons and counterevidence, feasible exit or protection, independent review, and observable remedy.</p>
 <p>Disagreement is not itself failure. A functioning order must permit contested interpretations of relationship, evidence, risk, and consequence to be stated and revised. Neither institutional reputation nor majority support establishes correctness. First-person, counterpart, competent, bodily-material, and long-horizon evidence must be brought together according to the object under evaluation.</p>
-<h3>5.4 Movement, concentrated technology, and ecological delay require wider scales</h3>
+<h3 id="54-movement-concentrated-technology-and-ecological-delay-require-wider-scales" data-depth="2">5.4 Movement, concentrated technology, and ecological delay require wider scales</h3>
 <p>Migration shows that responsibility cannot be exhausted by fixed residence. Learning records, care commitments, recognised voice, access to provision, and appeal must remain portable across local boundaries. Technological concentration shows that competence alone cannot legitimate control over infrastructure, information, allocation, and audit. Critical systems must remain inspectable, contestable, interruptible, independently reviewed, and recoverable after failure.</p>
 <p>Ecological delay extends evidence beyond present participants. Baselines, causal monitoring, uncertainty, remote effects, future representation, precaution, responsibility, and restoration are necessary where harm arrives elsewhere or later. The appropriate scale follows the consequence: responsibility stays local where local competence and evidence are adequate and expands wherever effects, dependency, mobility, or correction cross the local boundary.</p>
 <h2 id="6-minimum-evidence-for-the-five-functions">6. Minimum evidence for the five functions</h2>
@@ -808,7 +993,7 @@ adverse case + non-substitutable continuity object outside U01-U05
 </table></div>
 <p>The evaluator set changes by function but cannot be reduced to the institution&rsquo;s own report. Relevant combinations include the first person, counterpart, affected third party, embodied or material evidence, skilled peer, independent reviewer, and a proxy for remote or future consequence. Convergence among these standpoints is stronger than any isolated measure. Disagreement triggers inquiry and correction rather than automatic averaging.</p>
 <h2 id="7-what-survives-what-is-revised-and-what-is-rejected">7. What survives, what is revised, and what is rejected</h2>
-<h3>7.1 Conclusions that survive the analytical tests</h3>
+<h3 id="71-conclusions-that-survive-the-analytical-tests" data-depth="2">7.1 Conclusions that survive the analytical tests</h3>
 <ul>
 <li>All five continuity responsibilities remain necessary somewhere in the tested cases, and none of the cases discloses a sixth non-substitutable object.</li>
 <li>A durable shared-life field remains necessary for integrated care, learning, relationship, bodily life, useful work, need assessment, and continuity.</li>
@@ -816,7 +1001,7 @@ adverse case + non-substitutable continuity object outside U01-U05
 <li>Science, ecological inquiry, communication, governance, and care operate across the five functions and may need specialised, independent organisations.</li>
 <li>Responsibility is polycentric: it belongs near the activity where competent fulfilment is possible and extends outward as consequence, dependency, mobility, or correction requires.</li>
 </ul>
-<h3>7.2 Conclusions that require refinement</h3>
+<h3 id="72-conclusions-that-require-refinement" data-depth="2">7.2 Conclusions that require refinement</h3>
 <ul>
 <li>“Family” denotes a durable shared-life invariant. Kinship and co-residence are possible realisations, not necessary and sufficient criteria.</li>
 <li>“Five institutions” must be stated as five functions. Organisational count and boundaries remain variable.</li>
@@ -825,7 +1010,7 @@ adverse case + non-substitutable continuity object outside U01-U05
 <li>Local self-reliance means dependable local capability joined to portable and wider support, not isolation.</li>
 <li>Practical minimality remains relative to the selected analytical grain and tested alternatives.</li>
 </ul>
-<h3>7.3 Claims rejected by the tests</h3>
+<h3 id="73-claims-rejected-by-the-tests" data-depth="2">7.3 Claims rejected by the tests</h3>
 <ul>
 <li>Biological relation, household designation, or co-residence alone establishes a fulfilled family.</li>
 <li>The five faculties or five social functions entail exactly five organisations.</li>
@@ -848,18 +1033,18 @@ adverse case + non-substitutable continuity object outside U01-U05
 <p>A case revises the model if a real arrangement satisfies the stated evidence and correction conditions yet cannot sustain an activity lifecycle, or if a necessary continuity object cannot be represented by U01-U05 without forced combination. A case revises an arrangement, rather than the model, when the invariant identifies a missing condition and an alternative supplies it. This distinction must be preserved in later field work.</p>
 <p>The justified conclusion after five passes is therefore conditional but substantial: the activity architecture of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, considered in embodied relationship and material consequence, supports a universal requirement for a durable shared-life field and five non-substitutable social functions. It does not uniquely derive kinship form, administrative scale, property system, technology, or organisational count. Those remain design variables within an evidence-bound and correctable equivalence class.</p>
 <h2 id="references">References</h2>
-<h3>Related research notes and artifacts</h3>
+<h3 id="related-research-notes-and-artifacts">Related research notes and artifacts</h3>
 <ul>
-<li><a href="Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers.md"><em>Bottom-Up Pilot Derivation of Jeevan Activity Spheres</em></a> - the refined five-pass sequence and initial counterexample rules.</li>
-<li><a href="Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.md"><em>Pass-Two Lifecycle and Evidence Coding of All 122 Jeevan Members</em></a> - the activity-member requirements from which later spheres and functions were derived.</li>
-<li><a href="Research-Note-Jeevan-Activity-Spheres-Pass-Three.md"><em>Pass-Three Derivation of Jeevan Activity Spheres</em></a> - the anonymous stable cores, bridges, residuals, and interfaces.</li>
-<li><a href="Research-Note-Jeevan-Durable-Functions-Pass-Four.md"><em>Pass-Four Derivation of Durable Social Functions from Jeevan</em></a> - the five continuity channels, family-like field, and comparative bundle result placed under test here.</li>
-<li><a href="Research-Note-Jeevan-To-Universal-Human-Order.md"><em>From the Activity Architecture of Jeevan to Universal Human Order</em></a> - the central social thesis refined by the Pass-Five result.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers.html"><em>Bottom-Up Pilot Derivation of Jeevan Activity Spheres</em></a> - the refined five-pass sequence and initial counterexample rules.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.html"><em>Pass-Two Lifecycle and Evidence Coding of All 122 Jeevan Members</em></a> - the activity-member requirements from which later spheres and functions were derived.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Spheres-Pass-Three.html"><em>Pass-Three Derivation of Jeevan Activity Spheres</em></a> - the anonymous stable cores, bridges, residuals, and interfaces.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Durable-Functions-Pass-Four.html"><em>Pass-Four Derivation of Durable Social Functions from Jeevan</em></a> - the five continuity channels, family-like field, and comparative bundle result placed under test here.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-To-Universal-Human-Order.html"><em>From the Activity Architecture of Jeevan to Universal Human Order</em></a> - the central social thesis refined by the Pass-Five result.</li>
 <li><a href="Research-Template-Jeevan-Activity-Environment-Dossier.md"><em>Jeevan Activity-to-Sphere Dossier Template</em></a> - the reusable activity analysis and validation schema.</li>
 <li><a href="Research-Data-Jeevan-Pass-Five-Validation-Cases.csv"><em>Pass-Five Validation Cases</em></a> - the complete case specifications, observables, results, and revision routes.</li>
 <li><a href="Research-Data-Jeevan-Pass-Five-Evidence-Protocol.csv"><em>Pass-Five Evidence Protocol</em></a> - minimum observables, evaluator standpoints, false proxies, correction tests, and person-level tests for the five functions.</li>
 <li><a href="Research-Data-Jeevan-Pass-Five-Validation-Summary.json"><em>Pass-Five Validation Summary</em></a> - reproducible counts, scope limits, and conclusions.</li>
-<li><a href="Research-Note-Proposed-External-Organisation-From-Jeevan-Architecture.md"><em>A Proposed External Organisation from the Activity Architecture of Jeevan</em></a> - the organisational synthesis of all five passes, including the proposed structure, method issues, and next steps.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Proposed-External-Organisation-From-Jeevan-Architecture.html"><em>A Proposed External Organisation from the Activity Architecture of Jeevan</em></a> - the organisational synthesis of all five passes, including the proposed structure, method issues, and next steps.</li>
 </ul></main>
 <script>
 (() => {
@@ -1012,6 +1197,39 @@ adverse case + non-substitutable continuity object outside U01-U05
   document.addEventListener("keydown", event => {
     if (event.key === "Escape") hide();
   });
+})();
+</script>
+<script>
+(() => {
+  const toggle = document.getElementById("study-theme-toggle");
+  if (!toggle) return;
+  const label = toggle.querySelector(".study-theme-toggle-label");
+  const root = document.documentElement;
+  const system = window.matchMedia("(prefers-color-scheme: dark)");
+  const active = () => root.getAttribute("data-theme") || (system.matches ? "dark" : "light");
+  const paint = () => {
+    const next = active() === "dark" ? "Light" : "Dark";
+    if (label) label.textContent = next;
+    toggle.setAttribute("aria-label", `Switch to ${next.toLowerCase()} theme`);
+  };
+  toggle.addEventListener("click", () => {
+    const next = active() === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("amd-theme", next); } catch (e) {}
+    paint();
+  });
+  system.addEventListener("change", paint);
+  paint();
+})();
+</script>
+<script>
+(() => {
+  const toc = document.getElementById("study-contents");
+  if (!toc) return;
+  // Open where there is room to show it without pushing the study off screen.
+  if (window.matchMedia("(min-width: 760px)").matches && window.innerHeight >= 640) {
+    toc.open = true;
+  }
 })();
 </script>
 

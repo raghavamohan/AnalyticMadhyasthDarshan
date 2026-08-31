@@ -17,11 +17,19 @@
 <meta property="og:title" content="Research Note: A Proposed External Organisation from the Activity Architecture of *Jeevan*"/>
 <meta property="og:description" content="What knowledge is, who the knower is, and what can be known: coexistence, jeevan, humane conduct, evidence, and epistemic error — compared with Advaita Vedanta, modern Western philosophy, and natural science"/>
 <meta property="og:url" content="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Proposed-External-Organisation-From-Jeevan-Architecture.html"/>
-<meta name="twitter:card" content="summary"/>
+<meta property="og:image" content="https://analyticmadhyasthdarshan.org/Assets/Social/og-default.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Research Note: A Proposed External Organisation from the Activity Architecture of *Jeevan*"/>
+<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Research Note: A Proposed External Organisation from the Activity Architecture of *Jeevan*"/>
 <meta name="twitter:description" content="What knowledge is, who the knower is, and what can be known: coexistence, jeevan, humane conduct, evidence, and epistemic error — compared with Advaita Vedanta, modern Western philosophy, and natural science"/>
+<meta name="twitter:image" content="https://analyticmadhyasthdarshan.org/Assets/Social/og-default.png"/>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Research Note: A Proposed External Organisation from the Activity Architecture of *Jeevan*","description":"What knowledge is, who the knower is, and what can be known: coexistence, jeevan, humane conduct, evidence, and epistemic error — compared with Advaita Vedanta, modern Western philosophy, and natural science","url":"https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Proposed-External-Organisation-From-Jeevan-Architecture.html","inLanguage":"en","author":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"publisher":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"dateModified":"2026-08-17T06:14:00+05:30"}
+{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Research Note: A Proposed External Organisation from the Activity Architecture of *Jeevan*","description":"What knowledge is, who the knower is, and what can be known: coexistence, jeevan, humane conduct, evidence, and epistemic error — compared with Advaita Vedanta, modern Western philosophy, and natural science","url":"https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Proposed-External-Organisation-From-Jeevan-Architecture.html","inLanguage":"en","author":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"publisher":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"image":"https://analyticmadhyasthdarshan.org/Assets/Social/og-default.png","dateModified":"2026-08-17T06:14:00+05:30"}
+</script>
+<script>
+(function(){try{var t=localStorage.getItem("amd-theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();
 </script>
 <style>
   @page {
@@ -147,6 +155,7 @@
     color: #333;
     font-weight: bold;
   }
+
   p {
     margin: 6pt 0;
     text-align: justify;
@@ -451,28 +460,157 @@
     content: " \2193";
     font-weight: 700;
   }
+  .study-theme-toggle {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #1a5276;
+    background: #fdfcfa;
+    border: 1px solid #d9d2c7;
+    border-radius: 999px;
+    padding: 3px 11px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .study-theme-toggle:hover { border-color: #1a5276; }
+  .study-theme-toggle:focus-visible {
+    outline: 2px solid #1a5276;
+    outline-offset: 2px;
+  }
+
+  /* Contents ---------------------------------------------------------------
+     Studies run past 30,000 words, so the sequential previous/next pair is not
+     enough to move around one. Closed by default so it costs no height; the
+     script below opens it where there is room. */
+  .study-toc {
+    max-width: 37rem;
+    margin: 1.6em 0 2.2em;
+    border: 1px solid #ddd6cc;
+    border-radius: 10px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+  }
+  .study-toc-summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 10px 15px;
+    cursor: pointer;
+    list-style: none;
+  }
+  .study-toc-summary::-webkit-details-marker { display: none; }
+  .study-toc-summary::before {
+    content: "";
+    flex: 0 0 auto;
+    width: 6px;
+    height: 6px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(-45deg);
+    transition: transform 0.15s ease;
+  }
+  .study-toc[open] > .study-toc-summary::before { transform: rotate(45deg); }
+  .study-toc-summary:hover { background: #faf7f2; }
+  .study-toc-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #2c241c;
+  }
+  .study-toc-meta { font-size: 12px; color: #6b6357; }
+  .study-toc-nav {
+    max-height: 58vh;
+    overflow-y: auto;
+    padding: 2px 15px 13px;
+  }
+  .study-toc-list { list-style: none; margin: 0; padding: 0; }
+  .study-toc-item { margin: 0; }
+  .study-toc-item > a {
+    display: block;
+    padding: 3px 0;
+    font-size: 13.5px;
+    line-height: 1.35;
+    color: #1a5276;
+    text-decoration: none;
+  }
+  .study-toc-item > a:hover { text-decoration: underline; }
+  .study-toc-l1 { margin-top: 9px; }
+  .study-toc-l1:first-child { margin-top: 0; }
+  .study-toc-l1 > a { font-weight: 700; color: #2c241c; }
+  .study-toc-l2 > a { padding-left: 15px; }
+  .study-toc-l3 > a { padding-left: 30px; font-size: 12.5px; color: #4d6f86; }
+  @media (prefers-reduced-motion: reduce) {
+    .study-toc-summary::before { transition: none; }
+  }
+
+  /* Reading measure --------------------------------------------------------
+     The PDF is rendered from this same HTML, so anything that governs reading
+     on screen is confined to @media screen. The bare rules and the @media
+     print block above remain the print baseline and are left alone. */
+  @media screen {
+    body {
+      font-size: 17px;
+      line-height: 1.62;
+      max-width: 46rem;
+      margin: 32px auto 88px;
+      padding: 0 22px;
+    }
+    /* Roughly 68 characters. The container stays wide enough for tables and
+       figures while running text keeps a measure the eye can track back. */
+    p, ul, ol, blockquote, .quote-source, dl {
+      max-width: 37rem;
+    }
+    p {
+      margin: 0.72em 0;
+      text-align: left;
+      hyphens: auto;
+    }
+    h1 { font-size: 2.05rem; line-height: 1.16; }
+    h2 { font-size: 1.5rem; margin-top: 2.3em; }
+    h3 { font-size: 1.18rem; margin-top: 1.85em; }
+    /* "1.2.1" is a sub-subsection but has to stay an h3 for the PDF outline,
+       so the distinction from "1.2" is carried here. */
+    h3[data-depth="3"] {
+      font-size: 1.0rem;
+      font-weight: 600;
+      margin-top: 1.45em;
+    }
+    h4 { font-size: 1.0rem; }
+  }
+  @media screen and (min-width: 760px) {
+    .study-toc { max-width: 46rem; }
+  }
+
   @media (max-width: 640px) {
     .study-toolbar-row--primary {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+      row-gap: 6px;
     }
-    .study-toolbar-back {
-      grid-column: 1;
+    /* Back and title share the first line and the actions take the second, so
+       the reader reaches the heading in two rows rather than four. */
+    .study-toolbar-back { grid-column: 1; justify-self: start; }
+    .study-toolbar-title {
+      grid-column: 2;
+      justify-self: end;
+      text-align: right;
+      font-size: 13px;
+      white-space: normal;
     }
     .study-toolbar-actions {
       grid-column: 1 / -1;
       justify-self: stretch;
-      justify-content: flex-end;
+      justify-content: space-between;
+      gap: 8px;
     }
-    .study-toolbar-title {
-      grid-column: 1 / -1;
-      white-space: normal;
-    }
-    .study-toolbar-section {
-      white-space: normal;
-    }
+    .study-toolbar-feedback { font-size: 11px; }
+    .study-toolbar-section { white-space: normal; }
+    .study-toc-nav { max-height: 52vh; }
   }
   @media print {
     .study-toolbar { display: none !important; }
+    .study-theme-toggle { display: none !important; }
+    .study-toc { display: none !important; }
     .skip-link { display: none !important; }
     .term-tip {
       border-bottom: none;
@@ -482,57 +620,67 @@
     .term-tip-panel { display: none !important; }
   }
 
+  @media screen {
+    html[data-theme="dark"] body { color: #e6dfd6; background: #1a1815; }
+    html[data-theme="dark"] h1, html[data-theme="dark"] h2, html[data-theme="dark"] h3, html[data-theme="dark"] h4 { color: #f5f1ec; }
+    html[data-theme="dark"] h1 { border-bottom-color: #6f655a; }
+    html[data-theme="dark"] h2 { border-bottom-color: #423b33; }
+    html[data-theme="dark"] a { color: #7ebbed; }
+    html[data-theme="dark"] a:visited { color: #9ec8e8; }
+    html[data-theme="dark"] blockquote { background: #26231e; border-left-color: #6f655a; color: #e6dfd6; }
+    html[data-theme="dark"] .quote-source { color: #aca194; }
+    html[data-theme="dark"] th { background: #2f2a24; border-color: #423b33; color: #f5f1ec; }
+    html[data-theme="dark"] td { border-color: #423b33; color: #e6dfd6; }
+    html[data-theme="dark"] tr:nth-child(even) { background: #1e1b18; }
+    html[data-theme="dark"] code { background: #2f2a24; color: #f0e8dc; }
+    html[data-theme="dark"] pre { background: #1e1b18; color: #e6dfd6; }
+    html[data-theme="dark"] .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
+    html[data-theme="dark"] .study-toolbar-link { color: #7ebbed; }
+    html[data-theme="dark"] .study-toolbar-link:hover { color: #b8daf3; }
+    html[data-theme="dark"] .study-toolbar-title { color: #f5f1ec; }
+    html[data-theme="dark"] .study-toolbar-draft { color: #aca194; }
+    html[data-theme="dark"] .study-toolbar-section.is-disabled { color: #6f655a; }
+    html[data-theme="dark"] .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    html[data-theme="dark"] .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
+    html[data-theme="dark"] .study-toc { border-color: #423b33; }
+    html[data-theme="dark"] .study-toc-summary:hover { background: #1e1b18; }
+    html[data-theme="dark"] .study-toc-label { color: #f5f1ec; }
+    html[data-theme="dark"] .study-toc-meta { color: #aca194; }
+    html[data-theme="dark"] .study-toc-list a { color: #7ebbed; }
+    html[data-theme="dark"] .study-toc-l1 > a { color: #f5f1ec; }
+    html[data-theme="dark"] .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
+    html[data-theme="dark"] .study-theme-toggle:hover { border-color: #7ebbed; }
+  }
   @media screen and (prefers-color-scheme: dark) {
-    body {
-      color: #e6dfd6;
-      background: #1a1815;
-    }
-    h1, h2, h3, h4 {
-      color: #f5f1ec;
-    }
-    h1 { border-bottom-color: #6f655a; }
-    h2 { border-bottom-color: #423b33; }
-    a { color: #7ebbed; }
-    a:visited { color: #9ec8e8; }
-    blockquote {
-      background: #26231e;
-      border-left-color: #6f655a;
-      color: #e6dfd6;
-    }
-    .quote-source { color: #aca194; }
-    th {
-      background: #2f2a24;
-      border-color: #423b33;
-      color: #f5f1ec;
-    }
-    td {
-      border-color: #423b33;
-      color: #e6dfd6;
-    }
-    tr:nth-child(even) { background: #1e1b18; }
-    code {
-      background: #2f2a24;
-      color: #f0e8dc;
-    }
-    pre {
-      background: #1e1b18;
-      color: #e6dfd6;
-    }
-    .study-toolbar {
-      background: rgba(26, 24, 21, 0.92);
-      border-color: #423b33;
-    }
-    .study-toolbar-link { color: #7ebbed; }
-    .study-toolbar-link:hover { color: #b8daf3; }
-    .study-toolbar-title { color: #f5f1ec; }
-    .study-toolbar-draft { color: #aca194; }
-    .study-toolbar-section.is-disabled { color: #6f655a; }
-    .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
-    .term-tip-panel {
-      color: #e6dfd6;
-      background: #26231e;
-      border-color: #423b33;
-    }
+    html:not([data-theme="light"]) body { color: #e6dfd6; background: #1a1815; }
+    html:not([data-theme="light"]) h1, html:not([data-theme="light"]) h2, html:not([data-theme="light"]) h3, html:not([data-theme="light"]) h4 { color: #f5f1ec; }
+    html:not([data-theme="light"]) h1 { border-bottom-color: #6f655a; }
+    html:not([data-theme="light"]) h2 { border-bottom-color: #423b33; }
+    html:not([data-theme="light"]) a { color: #7ebbed; }
+    html:not([data-theme="light"]) a:visited { color: #9ec8e8; }
+    html:not([data-theme="light"]) blockquote { background: #26231e; border-left-color: #6f655a; color: #e6dfd6; }
+    html:not([data-theme="light"]) .quote-source { color: #aca194; }
+    html:not([data-theme="light"]) th { background: #2f2a24; border-color: #423b33; color: #f5f1ec; }
+    html:not([data-theme="light"]) td { border-color: #423b33; color: #e6dfd6; }
+    html:not([data-theme="light"]) tr:nth-child(even) { background: #1e1b18; }
+    html:not([data-theme="light"]) code { background: #2f2a24; color: #f0e8dc; }
+    html:not([data-theme="light"]) pre { background: #1e1b18; color: #e6dfd6; }
+    html:not([data-theme="light"]) .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
+    html:not([data-theme="light"]) .study-toolbar-link { color: #7ebbed; }
+    html:not([data-theme="light"]) .study-toolbar-link:hover { color: #b8daf3; }
+    html:not([data-theme="light"]) .study-toolbar-title { color: #f5f1ec; }
+    html:not([data-theme="light"]) .study-toolbar-draft { color: #aca194; }
+    html:not([data-theme="light"]) .study-toolbar-section.is-disabled { color: #6f655a; }
+    html:not([data-theme="light"]) .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    html:not([data-theme="light"]) .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
+    html:not([data-theme="light"]) .study-toc { border-color: #423b33; }
+    html:not([data-theme="light"]) .study-toc-summary:hover { background: #1e1b18; }
+    html:not([data-theme="light"]) .study-toc-label { color: #f5f1ec; }
+    html:not([data-theme="light"]) .study-toc-meta { color: #aca194; }
+    html:not([data-theme="light"]) .study-toc-list a { color: #7ebbed; }
+    html:not([data-theme="light"]) .study-toc-l1 > a { color: #f5f1ec; }
+    html:not([data-theme="light"]) .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
+    html:not([data-theme="light"]) .study-theme-toggle:hover { border-color: #7ebbed; }
   }
 
 </style>
@@ -544,9 +692,12 @@
     <a class="study-toolbar-link study-toolbar-back" href="../index.html#study-Research-Note-Proposed-External-Organisation-From-Jeevan-Architecture">&larr; All studies</a>
     <p class="study-toolbar-title">Research Note: A Proposed External Organisation from the Activity Architecture of *Jeevan*</p>
     <span class="study-toolbar-actions">
-      <a class="study-toolbar-link study-toolbar-discuss" href="discussion.html?dv=2">Discuss</a>
+      <a class="study-toolbar-link study-toolbar-discuss" href="discussion.html?dv=3">Discuss</a>
       <a class="study-toolbar-link study-toolbar-download" href="Research-Note-Proposed-External-Organisation-From-Jeevan-Architecture.pdf" download>Download PDF</a>
       <a class="study-toolbar-link study-toolbar-feedback" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&title=Study%20feedback%3A%20Research%20Note%3A%20A%20Proposed%20External%20Organisation%20from%20the%20Activity%20Architecture%20of%20%2AJeevan%2A">Suggest a correction</a>
+      <button type="button" class="study-theme-toggle" id="study-theme-toggle" aria-label="Switch color theme">
+        <span class="study-theme-toggle-label">Dark</span>
+      </button>
     </span>
   </div>
   <div class="study-toolbar-row study-toolbar-row--sections">
@@ -562,9 +713,91 @@
 <p>The proposed order begins with <strong>family as the first organisation of human order</strong>. Family is the durable shared-life organisation in which care, learning, relationship, health, work, need assessment, and provision are first integrated. Five function systems maintain education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em>, justice-security, health-restraint, production-work, and exchange-reserve. Local cooperative organisations extend these functions where affected people can participate directly. Specialised and wider organisations supply advanced competence, coordination, protection, reserve, and long-horizon responsibility. Independent scientific, ecological, governing, care, communication, and review bodies preserve evidence and correction across the five systems.</p>
 <p>The governing purpose is complete human happiness grounded in knowledge. The human being belongs to the knowledge order, whose <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> is stated generally as <em>sukh</em>, or happiness. The architecture of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> differentiates this fulfilment as <em>sukh</em> (happiness), <em>shanti</em> (peace), <em>santosh</em> (contentment), and <em>anand</em> (bliss), grounded in <em>anubhav</em> or <em>anubhuti</em> (realisation) in <em>atma</em>. Family and society are therefore organised to support satisfaction at every level: bodily need and capability, thought, visualisation and planning, definite understanding, and finally realisation of coexistence. They do not produce <em>anubhav</em> inside <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>; they make inquiry, relationship, bodily and material means, visible consequence, correction, and transmission continuously available. The structure is centred on the development and participation of every person rather than administration by a permanent competent minority.</p>
 <p>Knowledge supplies the central organising principle. Knowledge is Omnipresence itself, realised as coexistence, and its operative order is evident as <em>niyam</em> (law), <em>niyantran</em> (regulation), <em>santulan</em> (balance), <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="nyaya" data-definition="Justice — complete relational activity: recognise, fulfil, evaluate, mutual satisfaction.">nyaya</button></span></em> (justice), <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satya" data-definition="Realisation perspective — whether assessment is grounded in coexistence as it is.">satya</button></span></em> (truth). Every organisation must discover the law of the activity it carries, regulate its operation accordingly, preserve balance among all affected parts, and evaluate conduct through justice, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, and truth. Procedures alone cannot establish this order. Realised humans are its necessary bearers, while family, education, work, and society must preserve the conditions in which every person and the next generation can advance toward realisation.</p>
+<details class="study-toc" id="study-contents">
+  <summary class="study-toc-summary">
+    <span class="study-toc-label">Contents</span>
+    <span class="study-toc-meta">12 sections &middot; 72 headings</span>
+  </summary>
+  <nav class="study-toc-nav" aria-label="Contents">
+    <ol class="study-toc-list">
+      <li class="study-toc-item study-toc-l1"><a href="#part-i-the-proposed-external-organisation">Part I. The proposed external organisation</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#1-human-end-and-organising-principle">1. Human end and organising principle</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#11-the-human-end-of-organisation">1.1 The human end of organisation</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#12-knowledge-as-the-organising-principle">1.2 Knowledge as the organising principle</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#13-what-this-principle-requires-of-organisation">1.3 What this principle requires of organisation</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#14-from-human-purpose-to-five-continuity-functions">1.4 From human purpose to five continuity functions</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#2-organisations-and-their-functions">2. Organisations and their functions</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#21-family-the-first-organisation">2.1 Family: the first organisation</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#22-education-sanskar-organisations">2.2 Education-sanskar organisations</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#23-justice-security-organisations">2.3 Justice-security organisations</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#24-health-restraint-organisations">2.4 Health-restraint organisations</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#25-production-work-organisations">2.5 Production-work organisations</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#26-exchange-reserve-organisations">2.6 Exchange-reserve organisations</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#27-scientific-inquiry-and-evidence-organisations">2.7 Scientific inquiry and evidence organisations</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#28-governance-and-coordination-organisations">2.8 Governance and coordination organisations</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#29-ecological-monitoring-and-protection-organisations">2.9 Ecological monitoring and protection organisations</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#210-specialised-care-organisations">2.10 Specialised care organisations</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#211-communication-records-and-review-infrastructure">2.11 Communication, records, and review infrastructure</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#3-constitutional-rules-of-the-organisational-system">3. Constitutional rules of the organisational system</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#31-every-person-is-a-participant">3.1 Every person is a participant</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#32-every-organisation-is-constituted-and-evaluated-by-knowledge">3.2 Every organisation is constituted and evaluated by knowledge</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#33-responsibility-is-nested-and-polycentric">3.3 Responsibility is nested and polycentric</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#34-performance-and-correction-remain-distinguishable">3.4 Performance and correction remain distinguishable</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#35-functions-may-share-organisations-without-losing-their-identity">3.5 Functions may share organisations without losing their identity</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#36-evidence-is-plural-and-convergent">3.6 Evidence is plural and convergent</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#37-continuity-is-designed-into-ordinary-operation">3.7 Continuity is designed into ordinary operation</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#38-success-is-tested-by-the-comprehensive-human-goal">3.8 Success is tested by the comprehensive human goal</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#4-what-this-structure-means-for-education-science-work-and-trade">4. What this structure means for education, science, work, and trade</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#part-ii-basis-method-findings-and-research-status">Part II. Basis, method, findings, and research status</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#5-methodology-of-the-five-pass-analysis">5. Methodology of the five-pass analysis</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#51-starting-question-and-unit-of-analysis">5.1 Starting question and unit of analysis</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#52-pass-one-source-and-activity-anatomy">5.2 Pass One: source and activity anatomy</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#53-pass-two-lifecycle-evidence-and-continuity">5.3 Pass Two: lifecycle, evidence, and continuity</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#54-pass-three-anonymous-sphere-derivation">5.4 Pass Three: anonymous sphere derivation</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#55-pass-four-durability-and-institutional-functions">5.5 Pass Four: durability and institutional functions</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#56-pass-five-counterfactual-and-adverse-case-validation">5.6 Pass Five: counterfactual and adverse-case validation</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#6-consolidated-findings-and-insights">6. Consolidated findings and insights</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#61-human-purpose-and-realised-knowledge-govern-institutional-form">6.1 Human purpose and realised knowledge govern institutional form</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#62-external-organisation-follows-from-lifecycle-not-faculty-count">6.2 External organisation follows from lifecycle, not faculty count</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#63-five-functions-arise-from-five-continuity-objects">6.3 Five functions arise from five continuity objects</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#64-family-is-the-first-organisation-and-integrative-function-field">6.4 Family is the first organisation and integrative function field</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#65-more-organisations-than-functions-are-expected">6.5 More organisations than functions are expected</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#66-universal-structure-means-equal-functional-availability">6.6 Universal structure means equal functional availability</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#67-independent-correction-is-part-of-organisation-itself">6.7 Independent correction is part of organisation itself</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#68-work-trade-science-and-education-are-mutually-constrained">6.8 Work, trade, science, and education are mutually constrained</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#69-false-positives-are-a-central-institutional-problem">6.9 False positives are a central institutional problem</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#7-strengths-and-issues-in-the-method">7. Strengths and issues in the method</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#71-methodological-strengths">7.1 Methodological strengths</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#72-dependence-on-the-source-ontology">7.2 Dependence on the source ontology</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#73-interpretive-coding-and-recoder-dependence">7.3 Interpretive coding and recoder dependence</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#74-open-source-semantics">7.4 Open source semantics</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#75-weak-separation-and-choice-of-analytical-grain">7.5 Weak separation and choice of analytical grain</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#76-risk-of-conceptual-leakage">7.6 Risk of conceptual leakage</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#77-analytical-rather-than-empirical-validation">7.7 Analytical rather than empirical validation</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#78-observability-of-complete-functioning">7.8 Observability of complete functioning</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#79-power-transition-and-material-design-remain-incomplete">7.9 Power, transition, and material design remain incomplete</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#8-proposed-next-steps">8. Proposed next steps</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#81-independent-replication">8.1 Independent replication</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#82-resolve-documentary-and-semantic-residuals">8.2 Resolve documentary and semantic residuals</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#83-expand-the-institutional-bundle-search">8.3 Expand the institutional-bundle search</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#84-convert-the-evidence-protocol-into-operational-indicators">8.4 Convert the evidence protocol into operational indicators</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#85-conduct-comparative-field-studies">8.5 Conduct comparative field studies</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#86-run-adverse-condition-pilots">8.6 Run adverse-condition pilots</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#87-design-the-interfaces-explicitly">8.7 Design the interfaces explicitly</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#88-develop-transition-pathways">8.8 Develop transition pathways</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#89-compare-the-derived-scales-with-the-ten-tier-proposal">8.9 Compare the derived scales with the ten-tier proposal</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#810-establish-a-revision-cycle">8.10 Establish a revision cycle</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#811-test-the-sixfold-knowledge-principle">8.11 Test the sixfold knowledge principle</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#9-conclusion">9. Conclusion</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#references">References</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#madhyasth-darshan">Madhyasth Darshan</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#five-pass-analysis-and-supporting-research-notes">Five-pass analysis and supporting research notes</a></li>
+    </ol>
+  </nav>
+</details>
 <h2 id="part-i-the-proposed-external-organisation">Part I. The proposed external organisation</h2>
 <h2 id="1-human-end-and-organising-principle">1. Human end and organising principle</h2>
-<h3>1.1 The human end of organisation</h3>
+<h3 id="11-the-human-end-of-organisation" data-depth="2">1.1 The human end of organisation</h3>
 <p>The human being is the joint form of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> and body and belongs to the knowledge order. Happiness is the <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> of this order: it is the inseparable human aspiration for which understanding supplies the adequate basis and direction (MVD, p. 115). Human effort can therefore be read as a search for happiness and restfulness, but the presence of that aspiration does not establish that its object or means has been correctly understood.</p>
 <p>In delusion, the body is taken to be the self and pleasant sensation, bodily condition, profit, or material gain is allowed to set the final terms of conduct. This reduces <em>sukh</em> to sensory pleasure or possession. Adequate fulfilment of correctly assessed bodily needs is the indispensable embodied basis of <em>sukh</em>, but comfort or consumption alone is not complete happiness. Bodily provision belongs to <em>sukh</em> when it supports health and participation and when <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mun" data-definition="A faculty of *jeevan* — imagination and selection; part of the orbital structure with *buddhi*, *vritti*, and *chitta*.">mun</button></span></em>&rsquo;s taste and selection accord with <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Modification or tendency in *jeevan* — one of the faculties whose alignment supports or obstructs understanding.">vritti</button></span></em>&rsquo;s evaluation rather than being governed by sensation. Restfulness therefore requires bodily need to be fulfilled while sensation and material result remain evaluated through health, justice, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, and truth (MVD, pp. 68, 78-79, 91, 207-208, 276, 327; JV, pp. 73-74, 138).</p>
 <p>The human <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> first named generally as happiness is differentiated through the architecture of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>:</p>
@@ -613,7 +846,7 @@
 <p>This paper therefore uses <strong>happiness</strong>, <strong>peace</strong>, <strong>contentment</strong>, <strong>bliss</strong>, and <strong>realisation</strong> consistently for these five terms. “Resolution” remains the English term for <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="samadhan" data-definition="Resolution — understanding and relational closure without residue; joint evidence of complete happiness.">samadhan</button></span></em> and is not used as a substitute for <em>shanti</em>. <em>Paramanand</em> means ultimate bliss: the fruition and evidence of realisation in coexistence, not a sixth level alongside the five above. <em>Anubhav</em> is not one more pleasure added after four lesser pleasures. In the complete human state, realisation and satisfaction throughout the embodied and inward sequence belong together: bodily provision without inward accord is incomplete, while an inward claim contradicted by bodily neglect, confused thought, defective planning, or conduct cannot count as complete human fulfilment (MVD, pp. 207-208, 276, 307, 327; JV, p. 138).</p>
 <p>These inward harmonies become publicly meaningful in the comprehensive human goal: resolution in the person, prosperity in family, fearlessness in society, and coexistence in universal order. Resolution is understanding expressed in conduct. Prosperity is assured physical provision beyond correctly assessed need, not accumulation without limit. Fearlessness rests on trust, justice, and freedom from exploitation. Coexistence is participation without contradiction in society and nature (KD, pp. 112, 150; JV, pp. 61, 165).</p>
 <p>The purpose of organisation is therefore not to administer happiness, manufacture realisation, or certify an inner claim. It is to maintain the external conditions in which every level of human fulfilment can become active together: adequate bodily means, uncoerced inquiry, coherent thought, plans answerable to understanding, development of receptivity, competent participation, visible consequences, correction, and evidence in relationship, work, and coexistence. The person realises; organisation supports, protects, and carries the conditions of that possibility.</p>
-<h3>1.2 Knowledge as the organising principle</h3>
+<h3 id="12-knowledge-as-the-organising-principle" data-depth="2">1.2 Knowledge as the organising principle</h3>
 <p>Knowledge is not information possessed by an institution. Omnipresence is identified with knowledge, and coexistence - nature saturated in Omnipresence - is the reality realised in <em>atma</em>. Law, regulation, balance, justice, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, and truth are evident within coexistence. Realisation in coexistence is the unfolding of this universally present knowledge in the human being; its expression in understanding, work, behaviour, and participation is its evidence (MVD, pp. 32-35, 115-116, 174).</p>
 <p>The six terms give organisation an operative grammar:</p>
 <div class="table-scroll"><table>
@@ -660,7 +893,7 @@
 <p>The six occupy successive roles within one progression. Knowledge is evident as law; law becomes effective as regulation; regulation sustains balance; balanced human living becomes justice; just participation in universal orderliness becomes <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> or resolution; and realisation in coexistence is <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> and truth. <em>Niyam-niyantran-santulan</em> describe the order, regulation, and balance of activity. <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="nyaya" data-definition="Justice — complete relational activity: recognise, fulfil, evaluate, mutual satisfaction.">Nyaya</button></span>-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span>-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satya" data-definition="Realisation perspective — whether assessment is grounded in coexistence as it is.">satya</button></span></em> supply the governing perspectives through which free human thought and conduct recognise, evaluate, and fulfil that order (MVD, pp. 66-70, 136-137, 174).</p>
 <p>This ordering is present constitutionally in material nature: atomic structures and larger material systems exhibit definite activity, regulation, and balance without having to understand them. A human organisation is different because it has no <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> apart from the persons who constitute and conduct it. Its charter, procedure, database, or authority cannot realise knowledge. Only human beings can realise, understand, evaluate, and evidence the six in conduct. Without realised human bearers, <em>niyam</em> can be reduced to an imposed rule, <em>niyantran</em> to command, <em>santulan</em> to a favourable aggregate, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="nyaya" data-definition="Justice — complete relational activity: recognise, fulfil, evaluate, mutual satisfaction.">nyaya</button></span></em> to procedure, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> to doctrine, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satya" data-definition="Realisation perspective — whether assessment is grounded in coexistence as it is.">satya</button></span></em> to an authorised claim.</p>
 <p>Realised humans are therefore necessary for the full establishment and continuity of the fourfold human goal. Resolution requires knowledge in the person; prosperity requires need and production regulated by that resolution; fearlessness requires justice in relationship and society; coexistence requires truthful participation in the whole order. Organisation has a double responsibility: its own operation must be constituted by this knowledge, and it must maintain the family, educative, relational, material, and social conditions through which every participant and the next generation can study, realise, and evidence the same knowledge. Institutional status cannot substitute for realisation; a person&rsquo;s authority must remain answerable to understanding, conduct, consequence, and correction (MVD, pp. 70-71, 115-116, 173-175, 317-318).</p>
-<h3>1.3 What this principle requires of organisation</h3>
+<h3 id="13-what-this-principle-requires-of-organisation" data-depth="2">1.3 What this principle requires of organisation</h3>
 <p>Human organisation is not a neutral container for whatever desires happen to prevail. Every family, school, workplace, market, scientific body, and government shapes <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> through what it teaches, rewards, permits, measures, and makes possible. An arrangement that treats obedience, consumption, output, profit, status, or reported satisfaction as sufficient success gives durable social form to the very confusion it should help resolve.</p>
 <p>Compulsory doctrine is not the remedy. Authority cannot substitute for understanding, and institutional agreement cannot establish <em>anubhav</em>. An organisation ordered toward knowledge must protect inquiry, make reasons and consequences available, permit disagreement and revision, and remain answerable to the people, relationships, bodies, material processes, and ecological fields affected by its decisions.</p>
 <p>The governing standard is therefore exact. A human organisation is fit for human beings when it supports satisfaction at every level from bodily need through thought, planning, understanding, and realisation, while sustaining resolution, prosperity, fearlessness, and coexistence. It fails when material comfort is purchased through confusion or coercion, when thought and planning are detached from understanding, when authority substitutes for <em>anubhav</em>, or when its outputs depend upon exclusion, bodily depletion, relationship failure, concealed consequence, or ecological contradiction.</p>
@@ -674,7 +907,7 @@
 <li>power remain limited by affected-party participation, independent evidence, appeal, remedy, and succession; and</li>
 <li>success be evaluated through both the five levels of human fulfilment and the personal, family, social, and natural scales of the human goal, since gain at one level or scale cannot justify contradiction at another.</li>
 </ol>
-<h3>1.4 From human purpose to five continuity functions</h3>
+<h3 id="14-from-human-purpose-to-five-continuity-functions" data-depth="2">1.4 From human purpose to five continuity functions</h3>
 <p>The human end supplies the purpose of organisation; the 122-activity analysis supplies its durable structure. The activity evidence does not derive happiness as human <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>. It asks what must remain available in embodied and social life if the common capacity of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> is to become rightly oriented, competently expressed, evaluated, corrected, sustained, and transmitted. The answer is that human organisation must maintain five objects through time:</p>
 <ol>
 <li><strong>understood orientation</strong> across persons and generations;</li>
@@ -713,7 +946,7 @@ flowchart TB
 </div>
 <p>The direction from person to wider society shows expanding coordination, not a hierarchy of human worth. Responsibility remains close to the activity where competence, participation, and correction are adequate. It expands when consequences, dependency, mobility, scarcity, specialised knowledge, or ecological time exceed the immediate field. Evidence and appeal travel beyond the organisation whose conduct is under review.</p>
 <h2 id="2-organisations-and-their-functions">2. Organisations and their functions</h2>
-<h3>2.1 Family: the first organisation</h3>
+<h3 id="21-family-the-first-organisation" data-depth="2">2.1 Family: the first organisation</h3>
 <p>Family is the first organisation of human order. It is the durable shared-life field in which persons sustain continuing responsibility for one another and in which the five social functions are first experienced as one way of living. It carries eight responsibilities:</p>
 <ol>
 <li>stable membership and accountability;</li>
@@ -728,7 +961,7 @@ flowchart TB
 <p>This organisation integrates all five functions in daily life. Education begins through language, example, inquiry, participation, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em>. Justice begins through recognition and fulfilment of relationship-values. Health is maintained through food, rest, care, restraint, sanitation, and attention to bodily condition. Production becomes familiar through participation in useful work and maintenance. Exchange and reserve begin through the assessment of need, sharing, stewardship, and continuity of provision.</p>
 <p>Family is therefore the first awakening-oriented organisation, not merely the first provider of care and goods. It is the first sustained environment in which a person encounters language, proposal, trust, expectation, difference, bodily need, work, shared consequence, and correction as one field of life. Its success is not obedience, family reputation, affection, or provision alone. It is evidenced by the growing capacity of every member to inquire, understand, recognise relationships, participate in useful work, assess need, evaluate conduct, and seek correction without fear. Family authority is legitimate only insofar as it protects development toward capable participation and remains open to evidence and appeal beyond itself.</p>
 <p>The five-pass analysis recovered this field without using family as an input category. Ninety-nine activity rows require a durable care or intergenerational scale. Twenty-nine meet a stricter integrative signature joining durable relationship with at least one meaning, bodily, material, or distributive channel. Family is therefore the first organisation and the first place where the five functions are lived together rather than separately administered. A materially different shared-life arrangement belongs to the family function when it maintains the same durable responsibilities.</p>
-<h3>2.2 Education-<em>sanskar</em> organisations</h3>
+<h3 id="22-education-sanskar-organisations" data-depth="2">2.2 Education-<em>sanskar</em> organisations</h3>
 <p>Education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> organisations maintain understood orientation. They include learning communities, teachers and mentors, centres of study and practice, public repositories, apprenticeship networks, and institutions of open inquiry.</p>
 <p>Education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> is the orienting responsibility of the whole order without becoming an administratively supreme institution. Family, work, health, justice, science, exchange, and governance must all remain fields in which persons can understand purpose, examine method, observe consequence, and improve competence. Specialised educational organisations preserve depth, method, and transmission, but no educational authority may replace the learner&rsquo;s inquiry with status or compulsory assent.</p>
 <p>The central intergenerational task is the continuity of realised knowledge rather than the transmission of six terms as doctrine. Texts, records, examples, and methods can preserve access, but knowledge unfolds and becomes communicable through awakened human beings. A living tradition therefore requires realised human guidance whose authority is evidenced through explanation, conduct, work, relationship, and participation, together with learners who can inquire and verify rather than merely conform. Education must enable each generation to understand <em>niyam</em>, participate through <em>niyantran</em>, evaluate <em>santulan</em> through <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="nyaya" data-definition="Justice — complete relational activity: recognise, fulfil, evaluate, mutual satisfaction.">nyaya</button></span>-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span>-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satya" data-definition="Realisation perspective — whether assessment is grounded in coexistence as it is.">satya</button></span></em>, and advance toward <em>anubhav</em> in its own members (MVD, pp. 70-71, 115-116, 317-318).</p>
@@ -743,7 +976,7 @@ flowchart TB
 <li>carry learning and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> across generations and organisational turnover.</li>
 </ul>
 <p>This function exists because understood meaning cannot be replaced by correct orders, bodily treatment, successful output, or access to goods. The analysis assigns fifty-nine activity members to the understood-orientation channel. Inquiry and evidence recur across 105 rows, and continuity or succession across 115. Education must therefore be present in family, work, health, justice, science, and public coordination, while specialised educational organisations maintain the depth and continuity that no one household or workplace can provide alone.</p>
-<h3>2.3 Justice-security organisations</h3>
+<h3 id="23-justice-security-organisations" data-depth="2">2.3 Justice-security organisations</h3>
 <p>Justice-security organisations maintain valid claims between persons. They include relational forums, mediation and restorative bodies, protection services, independent adjudication, complaint and appeal systems, and organisations able to secure remedy.</p>
 <p>Their functions are to:</p>
 <ul>
@@ -755,7 +988,7 @@ flowchart TB
 <li>redesign arrangements that repeatedly reproduce domination or injury.</li>
 </ul>
 <p>Sixty-one activity members enter the relational-claim channel. Protected participation recurs in 100 rows, and direct relation in ninety-seven. Justice-security remains functionally distinct because knowledge of a value does not guarantee its fulfilment, treatment does not correct relational wrong, and a productive or distributive authority cannot be the sole judge of the harms it creates.</p>
-<h3>2.4 Health-restraint organisations</h3>
+<h3 id="24-health-restraint-organisations" data-depth="2">2.4 Health-restraint organisations</h3>
 <p>Health-restraint organisations maintain bodily capability as the material means of human participation. They include daily care networks, clinics and hospitals, preventive-health organisations, public-health and occupational-safety bodies, rehabilitation and assistive services, and environmental-health monitoring.</p>
 <p>Their functions are to:</p>
 <ul>
@@ -767,7 +1000,7 @@ flowchart TB
 <li>correct productive, commercial, domestic, or administrative conditions that damage bodily capability.</li>
 </ul>
 <p>Twenty-three activity members enter the bodily-capability channel, while embodiment and usable means recur in ninety-one rows. Health evidence must remain independent of output, profit, stigma, and administrative convenience. Restraint belongs with health because consumption, exposure, effort, habit, and use must remain consonant with bodily purpose and sufficiency.</p>
-<h3>2.5 Production-work organisations</h3>
+<h3 id="25-production-work-organisations" data-depth="2">2.5 Production-work organisations</h3>
 <p>Production-work organisations maintain the creation and preservation of useful material means. They include farms, workshops, manufacturing and construction units, repair and maintenance organisations, infrastructure providers, design and engineering groups, and cooperative work associations.</p>
 <p>Their functions are to:</p>
 <ul>
@@ -779,7 +1012,7 @@ flowchart TB
 <li>redesign, repair, restore, or cease work when its consequences contradict its purpose.</li>
 </ul>
 <p>Thirty activity members enter the material-transformation channel. Production-work remains distinct from health because output does not establish safety, and distinct from exchange because making a useful surplus does not determine access, priority, reserve, or future need. Work is both material participation and a field in which understanding becomes publicly evident.</p>
-<h3>2.6 Exchange-reserve organisations</h3>
+<h3 id="26-exchange-reserve-organisations" data-depth="2">2.6 Exchange-reserve organisations</h3>
 <p>Exchange-reserve organisations maintain dependable access to provision across differences of family, place, need, season, interruption, and time. They include circulation networks, cooperatives, marketplaces governed by transparent terms, storage and logistics bodies, common reserves, mutual-aid funds, and public systems for essential provision.</p>
 <p>Their functions are to:</p>
 <ul>
@@ -791,10 +1024,10 @@ flowchart TB
 <li>correct allocation through re-release, reallocation, restitution, changed terms, and reserve restoration.</li>
 </ul>
 <p>Twelve activity members enter the distributed-availability channel. Its smaller membership does not reduce its necessity: every member in the channel requires durable responsibility, and omission leaves provision without a bearer across persons and time. Exchange-reserve remains distinct from production because the authority that creates output has an interest in allocation, price, scarcity information, and reserve. One organisation may perform both functions only with transparent separate accounts, affected-party rights, independent health and ecological evidence, and appeal.</p>
-<h3>2.7 Scientific inquiry and evidence organisations</h3>
+<h3 id="27-scientific-inquiry-and-evidence-organisations" data-depth="2">2.7 Scientific inquiry and evidence organisations</h3>
 <p>Scientific organisations maintain disciplined observation, measurement, causal explanation, modelling, reproducibility, criticism, and correction. They serve every core function: learning depends on warranted inquiry; justice may require reliable evidence; health requires causal and clinical knowledge; production requires competent design; exchange requires truthful measurement of stock and consequence; ecology requires long-horizon observation.</p>
 <p>Their independence protects adverse findings from doctrinal, commercial, and administrative suppression. Their purpose is not technical novelty alone but reliable knowledge of means and consequence in relation to humane ends. Science is organised separately where specialised competence and independence are needed, while its evidentiary function remains distributed throughout education, work, health, justice, exchange, and governance.</p>
-<h3>2.8 Governance and coordination organisations</h3>
+<h3 id="28-governance-and-coordination-organisations" data-depth="2">2.8 Governance and coordination organisations</h3>
 <p>Governance organisations coordinate authority, resources, reasons, standards, participation, records, review, and correction across functions and scales. They include assemblies, councils, administrative bodies, public review institutions, and federated structures linking local and wider responsibilities.</p>
 <p>Their functions are to:</p>
 <ul>
@@ -806,7 +1039,7 @@ flowchart TB
 <li>revise rules and structures when evidence discloses recurring failure.</li>
 </ul>
 <p>Governance has no content apart from the functions and relationships it coordinates. Its adequacy is shown by protected participation, transparent reasons, limited authority, independent review, correction, and succession rather than command or administrative order alone.</p>
-<h3>2.9 Ecological monitoring and protection organisations</h3>
+<h3 id="29-ecological-monitoring-and-protection-organisations" data-depth="2">2.9 Ecological monitoring and protection organisations</h3>
 <p>Ecological organisations represent material consequences that are delayed, distributed, cumulative, or borne by future participants. They include monitoring bodies, watershed and landscape organisations, resource custodians, biodiversity and pollution observatories, restoration organisations, and independent ecological review.</p>
 <p>Their functions are to:</p>
 <ul>
@@ -818,7 +1051,7 @@ flowchart TB
 <li>assign responsibility for prevention, restoration, and recurrence.</li>
 </ul>
 <p>Ecological or long-horizon evidence recurs in thirty-two activity rows, and wider temporal or ecological coordination in forty-one. Ecology directly constrains health, production, and exchange-reserve and informs justice, education, science, and governance.</p>
-<h3>2.10 Specialised care organisations</h3>
+<h3 id="210-specialised-care-organisations" data-depth="2">2.10 Specialised care organisations</h3>
 <p>Care organisations sustain persons through childhood, illness, disability, ageing, crisis, and other conditions of dependency. They include childcare, elder care, disability support, respite, rehabilitation, supported living, and community care networks.</p>
 <p>Their functions are to:</p>
 <ul>
@@ -830,13 +1063,13 @@ flowchart TB
 <li>sustain caregivers through competence, respite, material support, and succession.</li>
 </ul>
 <p>Care joins education, justice, health, work, and provision according to the person&rsquo;s condition. It is a cross-functional responsibility and a specialised organisational field.</p>
-<h3>2.11 Communication, records, and review infrastructure</h3>
+<h3 id="211-communication-records-and-review-infrastructure" data-depth="2">2.11 Communication, records, and review infrastructure</h3>
 <p>Communication and records make meaning, claims, stock, risk, consequence, decision, and correction inspectable. Every organisation requires accessible language, trustworthy records, privacy where necessary, public reasons where authority is exercised, preservation of disagreement, and audit trails that connect failure to remedy.</p>
 <p>Independent review bodies use this infrastructure to test whether an organisation has confused its own output with fulfilment. They examine first-person report, counterpart evidence, bodily and material consequence, competent inquiry, affected-party participation, and long-horizon effects. A record system that serves only managerial control does not meet this function; the people affected must be able to inspect, contest, and correct the relevant record.</p>
 <h2 id="3-constitutional-rules-of-the-organisational-system">3. Constitutional rules of the organisational system</h2>
-<h3>3.1 Every person is a participant</h3>
+<h3 id="31-every-person-is-a-participant" data-depth="2">3.1 Every person is a participant</h3>
 <p>The organisation exists to make available the conditions through which the common capacity of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> can become rightly oriented and expressed in every human. Each person must have access to understanding, language, inquiry, relationship, bodily means, useful skill, provision, contribution, and correction. Disability or dependency changes the form of participation through accommodation and support; it does not remove the person&rsquo;s standing. Aggregate performance by experts cannot substitute for each person&rsquo;s capability to express understanding and needs, participate in decisions that affect them, receive reasoned answers, and challenge or appeal without retaliation.</p>
-<h3>3.2 Every organisation is constituted and evaluated by knowledge</h3>
+<h3 id="32-every-organisation-is-constituted-and-evaluated-by-knowledge" data-depth="2">3.2 Every organisation is constituted and evaluated by knowledge</h3>
 <p>Every family, school, workplace, exchange network, health organisation, scientific body, and governing institution must make the sixfold knowledge principle operational:</p>
 <ol>
 <li><strong>Identify <em>niyam</em>.</strong> State the object or relationship being maintained, its rightful activity, its purpose, and the boundary beyond which it is damaged or contradicted.</li>
@@ -847,17 +1080,17 @@ flowchart TB
 <li><strong>Evaluate through <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satya" data-definition="Realisation perspective — whether assessment is grounded in coexistence as it is.">satya</button></span></em>.</strong> Determine whether its claims and conclusions accord with coexistence and with the disclosed consequences of its activity.</li>
 </ol>
 <p>These are not six departments. They form the constitutional cycle of every organisation. The five continuity functions have different objects and therefore different specific laws: education maintains understood orientation; justice maintains rightful claims; health maintains bodily capability; production maintains useful material transformation; exchange maintains dependable availability. Each function must nevertheless identify its law, regulate itself toward that law, demonstrate balance, and remain answerable to justice, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, and truth. An organisation that cannot state and evidence this cycle is not yet organised on the basis of knowledge.</p>
-<h3>3.3 Responsibility is nested and polycentric</h3>
+<h3 id="33-responsibility-is-nested-and-polycentric" data-depth="2">3.3 Responsibility is nested and polycentric</h3>
 <p>Daily fulfilment begins with the person and durable shared life. Local organisations carry work, care, learning, health, exchange, and relational correction close to those affected. Specialised and wider bodies enter when competence, resource distribution, migration, major harm, or ecological time exceeds local capability. The scale of responsibility follows the scale of consequence.</p>
-<h3>3.4 Performance and correction remain distinguishable</h3>
+<h3 id="34-performance-and-correction-remain-distinguishable" data-depth="2">3.4 Performance and correction remain distinguishable</h3>
 <p>No organisation is the final judge of its own harms. The authority that teaches cannot use status as proof of understanding. The authority that produces cannot control health and ecological evidence. The authority that allocates provision cannot conceal stock or deny appeal. The family or care organisation cannot silence a dependent member. Governance itself remains subject to reasons, review, and correction.</p>
-<h3>3.5 Functions may share organisations without losing their identity</h3>
+<h3 id="35-functions-may-share-organisations-without-losing-their-identity" data-depth="2">3.5 Functions may share organisations without losing their identity</h3>
 <p>The five functions do not require exactly five organisations. A shared-life group carries all five. A cooperative may combine production and exchange. A local centre may combine education, health support, mediation, and records. Combination is sound when purposes, evidence, accounts, decision rights, conflicts of interest, and correction paths remain visible and independently reviewable.</p>
-<h3>3.6 Evidence is plural and convergent</h3>
+<h3 id="36-evidence-is-plural-and-convergent" data-depth="2">3.6 Evidence is plural and convergent</h3>
 <p>Evidence is matched to the object being maintained. Understanding requires the learner&rsquo;s articulation, application, and capacity for revision. Justice requires counterpart and affected-party evidence. Health requires bodily report and competent material evidence. Production requires worker, user, maintenance, safety, and ecological evidence. Exchange requires transparent need, stock, access, reserve, and exclusion evidence. Agreement among relevant standpoints strengthens a conclusion; divergence initiates inquiry and correction.</p>
-<h3>3.7 Continuity is designed into ordinary operation</h3>
+<h3 id="37-continuity-is-designed-into-ordinary-operation" data-depth="2">3.7 Continuity is designed into ordinary operation</h3>
 <p>Every function preserves competence, memory, records, succession, maintenance, reserve, and the capacity to learn from failure. Continuity is not mere organisational survival. An organisation continues legitimately only while it maintains the human and material object for which it exists.</p>
-<h3>3.8 Success is tested by the comprehensive human goal</h3>
+<h3 id="38-success-is-tested-by-the-comprehensive-human-goal" data-depth="2">3.8 Success is tested by the comprehensive human goal</h3>
 <p>The five levels of fulfilment provide the person-centred test of organisation. They cannot be replaced by one measure of satisfaction, income, output, compliance, or self-report:</p>
 <div class="table-scroll"><table>
 <thead>
@@ -937,19 +1170,19 @@ flowchart TB
 <p>The result is a society in which family, education, science, work, health, justice, exchange, ecology, and governance are not separate worlds. They are mutually supporting bearers of a common human lifecycle, with enough functional distinction to preserve evidence and correction.</p>
 <h2 id="part-ii-basis-method-findings-and-research-status">Part II. Basis, method, findings, and research status</h2>
 <h2 id="5-methodology-of-the-five-pass-analysis">5. Methodology of the five-pass analysis</h2>
-<h3>5.1 Starting question and unit of analysis</h3>
+<h3 id="51-starting-question-and-unit-of-analysis" data-depth="2">5.1 Starting question and unit of analysis</h3>
 <p>The study began with a question: what external structures and environments are required for the 122 activity positions of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> to become effectively available, rightly oriented, competently embodied, publicly evident, correctable, and continuous? The source supplies sixty-one <em>bal/shakti</em> positions distributed across five faculties. The analysis treated the 122 column assignments as independent units because a pair can join an act with a result, a role with a criterion, a relationship with an expression, or two terms whose exact relation remains open.</p>
 <p>“Fully active” was defined as complete functioning in embodied human life, not activation by the environment. External arrangements do not create realisation, understanding, resolve, or sentient activity. They can make inquiry, relationship, bodily and material means, consequence, evaluation, correction, and transmission available or obstruct them.</p>
 <p>The human purpose and knowledge principle stated in §1 are source premises, not results produced by clustering. The five-pass analysis begins from the account of the human being as knowledge order; happiness as human <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>; its differentiation as <em>sukh</em>, <em>shanti</em>, <em>santosh</em>, and <em>anand</em> grounded in <em>anubhav</em>; knowledge as Omnipresence; its operative expression as <em>niyam-niyantran-santulan-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="nyaya" data-definition="Justice — complete relational activity: recognise, fulfil, evaluate, mutual satisfaction.">nyaya</button></span>-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span>-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satya" data-definition="Realisation perspective — whether assessment is grounded in coexistence as it is.">satya</button></span></em>; and the comprehensive goal of resolution, prosperity, fearlessness, and coexistence. It then tests what external responsibilities follow from the detailed activity architecture without presupposing family or the five institutional functions. The sixfold principle and the five derived functions answer different questions: the six govern how every activity and organisation is constituted and evaluated, while the five name the distinct objects whose continuity the activity analysis requires. This distinction prevents the method from presenting its normative premises as statistical discoveries while still requiring every proposed organisation to answer to them.</p>
 <p>“Operative expression of knowledge” is used deliberately. A broader source enumeration describes complete knowledge through the holistic view of coexistence, knowledge of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, knowledge of humane conduct, and knowledge of participation in overall orderliness (KD §3.5, p. 69). This paper does not reduce those known domains to six words. It uses the sixfold progression as the cross-cutting organisational grammar because the sources locate all six within coexistence and connect them from knowledge and law through human justice, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, and truth.</p>
-<h3>5.2 Pass One: source and activity anatomy</h3>
+<h3 id="52-pass-one-source-and-activity-anatomy" data-depth="2">5.2 Pass One: source and activity anatomy</h3>
 <p>Pass One checked the documentary assignment and analysed each member&rsquo;s entry form, bearer, object, counterpart, endpoint, governing criterion, pair semantics, and uncertainty. Sixteen members had already been analysed in eight pilot dossiers; the pass completed the remaining 106, bringing the total to 122.</p>
 <p>The principal finding was semantic heterogeneity. The table contains inward successes, readinesses, cognitive acts, relational values, human roles, relationships, bodily states, material properties, sensory qualities, criteria, and results. Treating every term as an internal operation or asking which institution “activates” it would misclassify the source. The pass therefore established entry-form-specific lifecycle paths and field-level <strong>D/I/H/O</strong> provenance: direct statement, structural inference, hypothesis, and open question.</p>
-<h3>5.3 Pass Two: lifecycle, evidence, and continuity</h3>
+<h3 id="53-pass-two-lifecycle-evidence-and-continuity" data-depth="2">5.3 Pass Two: lifecycle, evidence, and continuity</h3>
 <p>Pass Two asked the same lifecycle questions of all 122 members: internal dependencies; development and right orientation; embodied or relational performance; consequence visibility; evaluator standpoints; correction; sustaining; transmission; universality; false positives; and unresolved fields.</p>
 <p>It established that evidence is standpoint-dependent. First-person access is necessary for resolution, intention, pain, and bodily experience; counterparts are necessary for relationship and justice; skilled peers are necessary for competence and causal claims; workers, users, dependants, and affected publics disclose hidden burdens; material and ecological evidence can contradict present satisfaction. Correction likewise divides into renewed inquiry, relational dialogue, protection and appeal, retraining, repair or restitution, redesign, treatment and accommodation, and ecological restoration.</p>
 <p>The output was a normalized sixteen-position feature vector for every member, with institution and family terms withheld from the subsequent clustering input.</p>
-<h3>5.4 Pass Three: anonymous sphere derivation</h3>
+<h3 id="54-pass-three-anonymous-sphere-derivation" data-depth="2">5.4 Pass Three: anonymous sphere derivation</h3>
 <p>Pass Three replaced member names, faculties, pair positions, role terms, and institutional vocabulary with anonymous structural tokens. Deterministic average-link clustering compared coarse, middle, and fine resolutions under three treatments of unresolved fields: include the open features, drop them, and hold thirty-four open members outside partition formation.</p>
 <p>The selected partitions contained three coarse domains, eight middle clusters, and fourteen fine clusters. At middle resolution, four stable cores appeared:</p>
 <ul>
@@ -960,7 +1193,7 @@ flowchart TB
 </ul>
 <p>Making and provision, and protection with sustained fulfilment, remained boundary-sensitive bridges. Two groupings remained residual and were not promoted into spheres. Fifty-three members received overlapping middle-cluster membership. The adjusted Rand index between the eight-cluster partition and the five faculties was <code>0.0267</code>, rejecting a faculty-to-institution mapping.</p>
 <p>The low silhouette values and extensive overlap showed that activity spheres are connected fields rather than sharply separated compartments. Recurrent interfaces of inquiry, protected participation, embodiment and means, continuity, and ecological consequence became cross-cutting design requirements for the next pass.</p>
-<h3>5.5 Pass Four: durability and institutional functions</h3>
+<h3 id="55-pass-four-durability-and-institutional-functions" data-depth="2">5.5 Pass Four: durability and institutional functions</h3>
 <p>Pass Four applied five tests to every anonymous member: recurrence, interdependence, persistent capability, exposed harm, and accountable correction. It then derived unnamed continuity channels before restoring the source-proposed social labels.</p>
 <p>One hundred and eighteen members required durable responsibility for their complete lifecycle (<code>D3</code>); two were distributed or conditional (<code>D2</code>); two required episodic or supportive external conditions (<code>D1</code>); none received <code>D0</code>. The channel rules produced 185 memberships across 122 members:</p>
 <div class="table-scroll"><table>
@@ -1001,97 +1234,97 @@ flowchart TB
 </table></div>
 <p>The existence of all five channels survived lower and higher overlap thresholds. The pass compared five institutional bundles. Four stable cores left thirty-six members with an uncovered durable channel. Three compressed functions covered all members but created three high-conflict combinations and lost independent correction. Combining production and exchange into four functions also covered all members but joined output authority with allocation and reserve. Seven specialised functions preserved coverage but added two subdivisions without a separately derived continuity object. The five-continuity bundle alone achieved complete coverage with no forced merger, unsupported split, or loss of structurally independent correction.</p>
 <p>Family terminology remained hidden during the anonymous derivation. The durable shared-life scale nevertheless appeared in ninety-nine rows, and twenty-nine met the strict integrative family-like signature. The pass also located personal, direct-relational, local-cooperative, and wider ecological scales and showed that science, governance, ecology, communication, and care operate across the five functions.</p>
-<h3>5.6 Pass Five: counterfactual and adverse-case validation</h3>
+<h3 id="56-pass-five-counterfactual-and-adverse-case-validation" data-depth="2">5.6 Pass Five: counterfactual and adverse-case validation</h3>
 <p>Pass Five specified nineteen cases: three family tests, six function-boundary tests, seven adverse conditions, one universal-access test, and two concentrated false-positive tests. The cases examined non-kin and multi-local shared life, coercive biological family, combined production and exchange, separate scientific, governing, ecological and care organisations, scarcity, disability, coercion, disagreement, migration, concentrated technical power, ecological delay, elite-only competence, high output with displaced harm, and reported satisfaction under fear or dependence.</p>
 <p>The family invariant survived while kinship and co-residence failed as necessary and sufficient criteria. Five continuity responsibilities remained adequate for every specified case; no sixth object was disclosed. Exactly five organisations was rejected. Combined delivery remained acceptable only with distinct purposes, evidence, accounts, rights, and correction. The pass added a person-level test of universal availability and a minimum-evidence protocol for all five functions.</p>
 <h2 id="6-consolidated-findings-and-insights">6. Consolidated findings and insights</h2>
-<h3>6.1 Human purpose and realised knowledge govern institutional form</h3>
+<h3 id="61-human-purpose-and-realised-knowledge-govern-institutional-form" data-depth="2">6.1 Human purpose and realised knowledge govern institutional form</h3>
 <p>The proposal has two joined foundations. The account of the human being as knowledge order supplies the governing end: complete human fulfilment in which rightly met bodily need and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mun" data-definition="A faculty of *jeevan* — imagination and selection; part of the orbital structure with *buddhi*, *vritti*, and *chitta*.">mun</button></span>-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Modification or tendency in *jeevan* — one of the faculties whose alignment supports or obstructs understanding.">vritti</button></span></em> harmony bear <em>sukh</em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Modification or tendency in *jeevan* — one of the faculties whose alignment supports or obstructs understanding.">vritti</button></span>-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery.">chitta</button></span></em> harmony bears <em>shanti</em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery.">chitta</button></span>-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="buddhi" data-definition="Discriminative faculty in *jeevan* — part of the sentient unit's orbital structure with *mun*, *vritti*, and *chitta*.">buddhi</button></span></em> harmony bears <em>santosh</em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="buddhi" data-definition="Discriminative faculty in *jeevan* — part of the sentient unit's orbital structure with *mun*, *vritti*, and *chitta*.">buddhi</button></span>-atma</em> harmony bears <em>anand</em>, and <em>atma</em> realises coexistence in <em>anubhav</em>. Realised knowledge supplies the organising principle: activity is understood through <em>niyam</em>, maintained through <em>niyantran</em>, fulfilled in <em>santulan</em>, and evaluated through <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="nyaya" data-definition="Justice — complete relational activity: recognise, fulfil, evaluate, mutual satisfaction.">nyaya</button></span></em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satya" data-definition="Realisation perspective — whether assessment is grounded in coexistence as it is.">satya</button></span></em>. This fulfilment is evidenced publicly as resolution, prosperity, fearlessness, and coexistence. The activity analysis supplies the durable responsibilities and organisational tests required to support that end.</p>
 <p>Institutional form is therefore neither a self-sufficient mechanism nor an arrangement justified by output alone. The fourfold human goal requires realised humans who can understand and evidence the knowledge on which organisation rests. The organisation&rsquo;s own responsibility is to embody the sixfold principle in its purpose and operation and to reproduce the conditions for realised human bearers across generations. The five functions distribute this responsibility without replacing it: education carries understood orientation, justice carries rightful relationship, health carries bodily capability, production carries useful transformation, and exchange carries dependable availability. An arrangement remains justified only while its functions, authority, means, and consequences support realisation and remain governed by law, regulation, balance, justice, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, and truth.</p>
-<h3>6.2 External organisation follows from lifecycle, not faculty count</h3>
+<h3 id="62-external-organisation-follows-from-lifecycle-not-faculty-count" data-depth="2">6.2 External organisation follows from lifecycle, not faculty count</h3>
 <p>The five faculties describe the internal architecture of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>. External organisation arises from what must remain available when activity is expressed through a body, relationship, work, material consequence, evidence, correction, and succession. The near-zero correspondence between faculty labels and Pass-Three clusters confirms that the proposed social structure is not five faculties enlarged into five institutions.</p>
-<h3>6.3 Five functions arise from five continuity objects</h3>
+<h3 id="63-five-functions-arise-from-five-continuity-objects" data-depth="2">6.3 Five functions arise from five continuity objects</h3>
 <p>The most important institutional result is the distinction among understood orientation, relational claims, bodily capability, material transformation, and distributed availability. Each has different evidence, failure mechanisms, conflicts of interest, and correction paths. Their restoration to education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em>, justice-security, health-restraint, production-work, and exchange-reserve explains why those five functions form a coherent basis.</p>
-<h3>6.4 Family is the first organisation and integrative function field</h3>
+<h3 id="64-family-is-the-first-organisation-and-integrative-function-field" data-depth="2">6.4 Family is the first organisation and integrative function field</h3>
 <p>Family is recovered as the first organisation: the durable shared-life field in which learning, relationship, dependency, bodily care, work, need, provision, and mutual evidence meet. It is prior in lived integration, not merely one specialised institution alongside the other five functions. The analysis establishes its functions more strongly than any specific genealogy or residence pattern. A non-kin or multi-local arrangement can fulfil the invariant; a biological household can fail it.</p>
-<h3>6.5 More organisations than functions are expected</h3>
+<h3 id="65-more-organisations-than-functions-are-expected" data-depth="2">6.5 More organisations than functions are expected</h3>
 <p>Five functions do not imply five departments. Scientific, ecological, governing, care, communication, and review organisations are needed because specialised competence and independent evidence must cross functional boundaries. Conversely, one family, cooperative, or local centre may carry several core functions. The test is preservation of purpose, evidence, rights, accounts, and correction.</p>
-<h3>6.6 Universal structure means equal functional availability</h3>
+<h3 id="66-universal-structure-means-equal-functional-availability" data-depth="2">6.6 Universal structure means equal functional availability</h3>
 <p>The common architecture of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> supports a universal requirement that every person can develop, participate, contribute, evaluate, and correct. It does not require identical administration, technology, household form, or individual performance. Accommodation and supported participation are part of universality.</p>
-<h3>6.7 Independent correction is part of organisation itself</h3>
+<h3 id="67-independent-correction-is-part-of-organisation-itself" data-depth="2">6.7 Independent correction is part of organisation itself</h3>
 <p>Correction is not an external audit added after a system is designed. The activity lifecycles require inquiry, dialogue, protection, appeal, treatment, redesign, restitution, and restoration wherever their corresponding failures can occur. Organisations that control both performance and final evaluation defeat this requirement.</p>
-<h3>6.8 Work, trade, science, and education are mutually constrained</h3>
+<h3 id="68-work-trade-science-and-education-are-mutually-constrained" data-depth="2">6.8 Work, trade, science, and education are mutually constrained</h3>
 <p>Education supplies understanding and competence but must answer to conduct and consequence. Science supplies reliable knowledge of means but remains answerable to human purpose and affected fields. Work creates useful means but remains answerable to health, users, and ecology. Trade circulates provision but remains answerable to need, access, reserve, and justice. None can serve as the sole measure of the others.</p>
-<h3>6.9 False positives are a central institutional problem</h3>
+<h3 id="69-false-positives-are-a-central-institutional-problem" data-depth="2">6.9 False positives are a central institutional problem</h3>
 <p>Compliance can conceal coercion; consensus can conceal fear; output can conceal unsafe work; prosperity can conceal unequal access and ecological depletion; reputation can conceal failure of understanding; current satisfaction can conceal delayed harm. The organisation must therefore use object-specific and convergent evidence rather than one aggregate indicator.</p>
 <h2 id="7-strengths-and-issues-in-the-method">7. Strengths and issues in the method</h2>
-<h3>7.1 Methodological strengths</h3>
+<h3 id="71-methodological-strengths" data-depth="2">7.1 Methodological strengths</h3>
 <p>The analysis covers all 122 source positions rather than selecting only socially suggestive examples. It keeps the activity member separate from its source pair and distinguishes operation, bearer, object, result, criterion, and role. Field-level provenance keeps direct textual content separate from inference, hypothesis, and open questions.</p>
 <p>Institutional vocabulary was hidden during sphere clustering and continuity-channel derivation. The method used multiple resolutions, residual treatments, overlapping memberships, threshold sensitivity, alternative bundles, and declared failure tests. Deterministic scripts preserve the matrices, diagnostics, and comparison results. Pass Five then subjected the selected model to materially different arrangements, adverse conditions, and false-positive cases.</p>
-<h3>7.2 Dependence on the source ontology</h3>
+<h3 id="72-dependence-on-the-source-ontology" data-depth="2">7.2 Dependence on the source ontology</h3>
 <p>The analysis is conditional on the <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> account of a common <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> architecture and on the accuracy of the source inventory and translations. It does not independently establish the existence, number, or internal organisation of the faculties and activities. A change in the primary ontology would require the external derivation to be rerun.</p>
 <p>The extension of <em>niyam-niyantran-santulan</em> from atomic and natural organisation to human institutions preserves a common ordering vocabulary but not an identical mechanism. Material units participate constitutionally; human beings possess imagination and freedom of action and must understand the order in which they participate. The sources state the sixfold progression and its human evaluations, while the specific organisational questions in §§1.2 and 3.2 are this proposal&rsquo;s application of that progression. Field research must test whether the application distinguishes knowledge-based organisation from mere regulatory compliance.</p>
-<h3>7.3 Interpretive coding and recoder dependence</h3>
+<h3 id="73-interpretive-coding-and-recoder-dependence" data-depth="2">7.3 Interpretive coding and recoder dependence</h3>
 <p>Entry form, endpoint, criterion, structural tokens, durability scores, conflict pairs, and channel rules involve judgement. The same research programme produced most of the prose coding and the controlled vocabulary. An independent team has not yet recoded a representative sample or measured inter-coder agreement. Marginal memberships and residual cases may change under another defensible interpretation.</p>
-<h3>7.4 Open source semantics</h3>
+<h3 id="74-open-source-semantics" data-depth="2">7.4 Open source semantics</h3>
 <p>Thirty-four members carry an explicit open feature in Pass Three. Disputed slots include mixed operation-result grammar, repeated <em>poshan</em>, relation-role syntax, sensory criteria, and pair rationales. Residual holdout prevents these uncertainties from manufacturing a stable sphere, but later textual clarification may redistribute members or disclose a requirement not presently visible.</p>
-<h3>7.5 Weak separation and choice of analytical grain</h3>
+<h3 id="75-weak-separation-and-choice-of-analytical-grain" data-depth="2">7.5 Weak separation and choice of analytical grain</h3>
 <p>The cluster silhouette scores are low. Stability under the tested perturbations is stronger than geometrical separation, and fifty-three members overlap. The boundaries are therefore useful functional cores and bridges, not natural kinds. Different feature vocabularies, similarity measures, weights, thresholds, or levels of granularity could yield another defensible partition.</p>
 <p>The five-function result is practically minimal among the five tested bundles at the selected grain. The analysis did not enumerate every possible partition or prove numerical uniqueness. A different grain may split education from formation, care from justice, or ecological work from material provision while preserving the same deeper continuity objects.</p>
-<h3>7.6 Risk of conceptual leakage</h3>
+<h3 id="76-risk-of-conceptual-leakage" data-depth="2">7.6 Risk of conceptual leakage</h3>
 <p>Family and institutional labels were removed from the clustering inputs, but the analysts knew the source&rsquo;s social proposal while constructing the earlier anatomy and lifecycle language. Leakage control reduces circularity; it cannot eliminate background influence. Independent blind coding from primary definitions would provide a stronger convergence test.</p>
-<h3>7.7 Analytical rather than empirical validation</h3>
+<h3 id="77-analytical-rather-than-empirical-validation" data-depth="2">7.7 Analytical rather than empirical validation</h3>
 <p>The nineteen Pass-Five cases are structured arguments based on known vulnerabilities. They show how the model classifies alternatives and failures but do not establish how actual families, cooperatives, schools, workplaces, health systems, markets, or governing bodies perform. The evidence protocol has not yet been calibrated against observed outcomes or tested longitudinally.</p>
-<h3>7.8 Observability of complete functioning</h3>
+<h3 id="78-observability-of-complete-functioning" data-depth="2">7.8 Observability of complete functioning</h3>
 <p>Inward resolution and understanding cannot be directly declared by an institution. Public evidence arises through communication, relationship, work, bodily consequence, correction, and continuity, but these remain fallible indicators. The method requires convergent standpoints without yet specifying statistical thresholds, time horizons, or a complete procedure for resolving persistent disagreement among them.</p>
-<h3>7.9 Power, transition, and material design remain incomplete</h3>
+<h3 id="79-power-transition-and-material-design-remain-incomplete" data-depth="2">7.9 Power, transition, and material design remain incomplete</h3>
 <p>The analysis derives decision rights, safeguards, and appeal more strongly than a transition path from present concentrated institutions. It does not settle property systems, financing, compensation, inheritance, reserve ownership, legal enforcement, technology governance, or the distribution of unpleasant and specialised work. It also does not derive the source&rsquo;s ten-tier organisation from the number 122. These are design and comparative questions for the next stage.</p>
 <h2 id="8-proposed-next-steps">8. Proposed next steps</h2>
-<h3>8.1 Independent replication</h3>
+<h3 id="81-independent-replication" data-depth="2">8.1 Independent replication</h3>
 <p>Recruit independent readers of the primary texts to recode a stratified sample covering all faculties, entry forms, stable cores, bridges, and residuals. Compare entry forms, endpoints, criteria, lifecycle requirements, structural tokens, continuity channels, and institutional conclusions. Publish disagreements and rerun the later passes on the independent coding.</p>
-<h3>8.2 Resolve documentary and semantic residuals</h3>
+<h3 id="82-resolve-documentary-and-semantic-residuals" data-depth="2">8.2 Resolve documentary and semantic residuals</h3>
 <p>Return to the primary Hindi sources and available translations for the thirty-four open members, especially repeated or mixed slots. Record variant readings without forced harmonisation. Test whether source clarification integrates the residual groupings, shifts bridge membership, or creates another continuity object.</p>
-<h3>8.3 Expand the institutional-bundle search</h3>
+<h3 id="83-expand-the-institutional-bundle-search" data-depth="2">8.3 Expand the institutional-bundle search</h3>
 <p>Specify and compare more partitions than the original five bundles. Include combined local cooperatives, federated service systems, independent care and ecological functions, networked rather than territorial arrangements, and different separations of funding, delivery, evidence, and appeal. Evaluate coverage, conflict of interest, correction independence, accessibility, continuity, and power concentration.</p>
-<h3>8.4 Convert the evidence protocol into operational indicators</h3>
+<h3 id="84-convert-the-evidence-protocol-into-operational-indicators" data-depth="2">8.4 Convert the evidence protocol into operational indicators</h3>
 <p>For each function, develop observable measures at the person, relationship, shared-life, local, and wider scales. Combine first-person report, counterpart evaluation, competence evidence, bodily-material measures, records, affected-party testimony, and long-horizon consequence. Define how disagreement triggers investigation and how correction is tracked to outcome.</p>
-<h3>8.5 Conduct comparative field studies</h3>
+<h3 id="85-conduct-comparative-field-studies" data-depth="2">8.5 Conduct comparative field studies</h3>
 <p>Study contrasting arrangements that perform the same function: kin and non-kin shared life; co-residential and multi-local care; schools and learning communities; private, cooperative, and public production; market, reciprocal, and administered exchange; centralised and federated governance. Use the same evidence and correction protocol across cases.</p>
-<h3>8.6 Run adverse-condition pilots</h3>
+<h3 id="86-run-adverse-condition-pilots" data-depth="2">8.6 Run adverse-condition pilots</h3>
 <p>Test scarcity, disability, migration, coercion, technological concentration, and ecological delay in actual organisational settings or carefully designed simulations. Examine whether affected people retain minimum capability and access to records; can express needs and disagreement, participate in affected decisions, receive reasons, and appeal without retaliation; and obtain effective correction when the system is under pressure.</p>
-<h3>8.7 Design the interfaces explicitly</h3>
+<h3 id="87-design-the-interfaces-explicitly" data-depth="2">8.7 Design the interfaces explicitly</h3>
 <p>Develop concrete models for the boundaries among family, education, justice, health, production, exchange, science, ecology, and governance. Specify who holds records, who can stop harm, how conflicts of interest are disclosed, where appeals go, how reserves are released, and how correction returns to the responsible field.</p>
-<h3>8.8 Develop transition pathways</h3>
+<h3 id="88-develop-transition-pathways" data-depth="2">8.8 Develop transition pathways</h3>
 <p>Compare incremental and structural transitions from current organisations to the proposed architecture. Identify changes that can begin within households, schools, cooperatives, workplaces, clinics, local governments, and research institutions. Examine how material security and protection can be maintained while authority, evidence, and participation are redistributed.</p>
-<h3>8.9 Compare the derived scales with the ten-tier proposal</h3>
+<h3 id="89-compare-the-derived-scales-with-the-ten-tier-proposal" data-depth="2">8.9 Compare the derived scales with the ten-tier proposal</h3>
 <p>Treat the source&rsquo;s ten-tier social order as a proposed implementation. Map its units to the derived personal, shared-life, local, specialised, and wider requirements. Test whether every tier has a necessary object, whether some can be combined, and whether mobility, ecology, digital networks, and distributed production require different boundaries.</p>
-<h3>8.10 Establish a revision cycle</h3>
+<h3 id="810-establish-a-revision-cycle" data-depth="2">8.10 Establish a revision cycle</h3>
 <p>Maintain the activity register, sphere matrix, function model, case set, and evidence protocol as revisable research artifacts. A real case should revise the organisational design when it exposes a missing safeguard. It should revise the function model when it satisfies the stated conditions yet requires a non-substitutable continuity object outside the five. The next version of the proposal should report both kinds of revision.</p>
-<h3>8.11 Test the sixfold knowledge principle</h3>
+<h3 id="811-test-the-sixfold-knowledge-principle" data-depth="2">8.11 Test the sixfold knowledge principle</h3>
 <p>Apply the constitutional cycle in §3.2 to contrasting families, schools, workplaces, health bodies, exchange networks, scientific organisations, and governing institutions. For each case, identify the proposed <em>niyam</em>, the actual mechanism of <em>niyantran</em>, the evidence of <em>santulan</em>, and the judgments made through <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="nyaya" data-definition="Justice — complete relational activity: recognise, fulfil, evaluate, mutual satisfaction.">nyaya</button></span>-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span>-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satya" data-definition="Realisation perspective — whether assessment is grounded in coexistence as it is.">satya</button></span></em>. Test the characteristic substitutions directly: imposed rule for law, command for regulation, aggregate stability for balance, procedure for justice, doctrine for <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, and authorised assertion for truth. Examine whether realised human guidance remains available, whether participants become more capable of understanding the six, and whether the organisation can transmit that capacity to a next generation.</p>
 <h2 id="9-conclusion">9. Conclusion</h2>
 <p>The five-pass analysis yields a coherent proposed external organisation from the activity architecture of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>. Its governing purpose is complete human fulfilment. Happiness is the general human <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> and is differentiated as <em>sukh</em> (happiness), <em>shanti</em> (peace), <em>santosh</em> (contentment), and <em>anand</em> (bliss), grounded in <em>anubhav/anubhuti</em> (realisation) of coexistence. <em>Paramanand</em> names the ultimate bliss of this realisation. Its governing knowledge is Omnipresence itself, realised as coexistence and expressed organisationally through <em>niyam</em>, <em>niyantran</em>, <em>santulan</em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="nyaya" data-definition="Justice — complete relational activity: recognise, fulfil, evaluate, mutual satisfaction.">nyaya</button></span></em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em>, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satya" data-definition="Realisation perspective — whether assessment is grounded in coexistence as it is.">satya</button></span></em>. Complete fulfilment becomes publicly meaningful as resolution, prosperity, fearlessness, and coexistence. The proposal&rsquo;s foundation is the realised and realisation-capable person as an embodied, relational, learning, working, and evaluative participant. Its first organisation is family, the durable shared-life field in which all five functions are integrated. Its horizontal structure consists of education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em>, justice-security, health-restraint, production-work, and exchange-reserve. Its vertical structure connects personal, family, local, specialised, and wider scales. Its cross-cutting constitution is the sixfold knowledge principle; its safeguards are inquiry, protected participation, usable means, continuity, ecological evidence, and correction.</p>
 <p>The proposal&rsquo;s strongest claim is not that one administrative diagram is ideal. It is that every organisation fit for human beings must be based on realised knowledge and ordered toward the same human end. A charter, incentive, procedure, expert body, or computational system cannot substitute for realised human bearers. Family, education, science, work, trade, health, justice, ecology, and governance must operate according to <em>niyam</em>, regulate themselves through <em>niyantran</em>, demonstrate <em>santulan</em>, and remain answerable to <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="nyaya" data-definition="Justice — complete relational activity: recognise, fulfil, evaluate, mutual satisfaction.">nyaya</button></span>-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span>-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satya" data-definition="Realisation perspective — whether assessment is grounded in coexistence as it is.">satya</button></span></em>. They must enable every person to meet bodily need without reduction to consumption, think without coercion, plan in accordance with understanding, deepen the coherence of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="buddhi" data-definition="Discriminative faculty in *jeevan* — part of the sentient unit's orbital structure with *mun*, *vritti*, and *chitta*.">buddhi</button></span></em> and <em>atma</em>, and pursue <em>anubhav</em> through inquiry and evidence-bearing life. Their continuity includes enabling the next generation to realise, live, and transmit the same knowledge. Organisations remain legitimate only while their operation is consonant with the sixfold knowledge principle, all levels of human fulfilment, the four scales of the human goal, and the people and fields they affect.</p>
 <p>The method supplies a reason for this structure and a disciplined account of its present limits. The next stage is independent recoding, broader organisational comparison, operational evidence, field observation, adverse-condition testing, and transition design. That work will determine which concrete arrangements most reliably realise the derived functions and where the model itself must change.</p>
 <h2 id="references">References</h2>
-<h3>Madhyasth Darshan</h3>
+<h3 id="madhyasth-darshan">Madhyasth Darshan</h3>
 <ul>
 <li><strong>AVD</strong> - A. Nagraj, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf"><em>Adhyatmvad</em></a>, tr. Sanjeev Chopra (work in progress). Cited: the five-column table and sixty-one <em>bal/shakti</em> positions supplying the 122-member documentary inventory (pp. 91-94; §5.1).</li>
 <li><strong>JV</strong> - A. Nagraj, <a href="../../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.md"><em>Jeevan Vidya: An Introduction</em></a>, tr. Rakesh Gupta. Cited: the comprehensive human goal (pp. 61, 165; §§1, 3, 4, 9); delusion, awakened activity, and the four <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> values (pp. 73-74, 138; §1); family relations and education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> (pp. 55-60, 84, 108; §§1-4); the five dimensions of orderliness (pp. 109-110, 140; §§1-4); science in consonance with wisdom (pp. 151, 157-158; §§2.7, 4); and production and right-use of surplus (pp. 152-153; §§2.5-2.6, 4).</li>
 <li><strong>KD</strong> - A. Nagraj, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf"><em>Manav Karm Darshan</em>, working English rendering</a>. Cited: the broader enumeration of complete knowledge (p. 69; §5.1); the relation of resolution, prosperity, fearlessness, and coexistence to happiness, peace, contentment, and bliss (pp. 112, 150; §§1, 3, 4, 9); bodily effort, motion, and result in work (p. 12; §§2.5, 4); and production in accord with nature&rsquo;s cyclic order (p. 25; §§2.5, 4).</li>
 <li><strong>MVD</strong> - A. Nagraj, <a href="../../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.md"><em>Madhyasth Darshan - Co-existentialism</em></a>, tr. Rakesh Gupta. Cited: knowledge as Omnipresence, the sixfold progression from law through truth, and realised humans as bearers of knowledge and awakening (pp. 32-35, 66-71, 115-116, 136-137, 173-175, 317-318; §§1.2-1.3, 2.2, 3.2, 4, 5.1, 6.1, 7.2, 8.11, 9); restfulness, delusion, and happiness as the <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> of the knowledge order (pp. 68, 78-79, 91, 115, 276; §§1, 9); bodily satisfaction, the four <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> values and their faculty relations, realisation, and ultimate bliss (pp. 207-208, 307, 327; §§1, 3, 9); family, need, relationship, and organisation (pp. 55-62; §§1-4); the human joint form and bodily mediation (pp. 199-205; §§1-4); education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em>, teaching, and inquiry (pp. 248, 270, 313-315, 344; §§2.2, 4); inner-to-outer activity and reception conditions (pp. 275-291; §§1-4); justice and mutual satisfaction (pp. 310-311, 336; §§2.3, 4); and the 122 activities (p. 323; §5.1).</li>
 </ul>
-<h3>Five-pass analysis and supporting research notes</h3>
+<h3 id="five-pass-analysis-and-supporting-research-notes">Five-pass analysis and supporting research notes</h3>
 <ul>
-<li><a href="Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers.md"><em>Bottom-Up Pilot Derivation of Jeevan Activity Spheres</em></a> - the pilot dossiers, institution-neutral question, and refined five-pass protocol.</li>
-<li><a href="Research-Note-Jeevan-Activity-Anatomy-Pass-One.md"><em>Pass-One Anatomy of the Remaining Jeevan Activities</em></a> - source, bearer, object, counterpart, endpoint, criterion, and pair-semantics analysis completing all 122 positions.</li>
-<li><a href="Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.md"><em>Pass-Two Lifecycle and Evidence Coding of All 122 Jeevan Members</em></a> - the normalized lifecycle, evaluator, correction, continuity, universality, and false-positive register.</li>
-<li><a href="Research-Note-Jeevan-Activity-Spheres-Pass-Three.md"><em>Pass-Three Derivation of Jeevan Activity Spheres</em></a> - anonymous multi-resolution clustering, stable cores, bridges, residuals, overlap, and restored tests.</li>
-<li><a href="Research-Note-Jeevan-Durable-Functions-Pass-Four.md"><em>Pass-Four Derivation of Durable Social Functions from Jeevan</em></a> - durability tests, five continuity channels, family-like field, nested scales, and comparative institutional bundles.</li>
-<li><a href="Research-Note-Jeevan-Counterfactual-Validation-Pass-Five.md"><em>Pass-Five Counterfactual Validation of the Jeevan Social Model</em></a> - family equivalence, organisational boundaries, adverse cases, false positives, evidence protocol, and person-level universality.</li>
-<li><a href="Research-Note-Jeevan-To-Universal-Human-Order.md"><em>From the Activity Architecture of Jeevan to Universal Human Order</em></a> - the earlier social thesis now consolidated in this proposal.</li>
-<li><a href="Research-Note-Jeevan-Architecture.md"><em>Jeevan Architecture</em></a> - the account of faculties, activities, embodiment, receptivity, complete functioning, and restfulness.</li>
-<li><a href="Research-Note-Jeevan-Functional-Model.md"><em>A Functional Model of Jeevan</em></a> - the model of orientation, expression, consequence, evaluation, correction, and lasting change.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers.html"><em>Bottom-Up Pilot Derivation of Jeevan Activity Spheres</em></a> - the pilot dossiers, institution-neutral question, and refined five-pass protocol.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Anatomy-Pass-One.html"><em>Pass-One Anatomy of the Remaining Jeevan Activities</em></a> - source, bearer, object, counterpart, endpoint, criterion, and pair-semantics analysis completing all 122 positions.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.html"><em>Pass-Two Lifecycle and Evidence Coding of All 122 Jeevan Members</em></a> - the normalized lifecycle, evaluator, correction, continuity, universality, and false-positive register.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Spheres-Pass-Three.html"><em>Pass-Three Derivation of Jeevan Activity Spheres</em></a> - anonymous multi-resolution clustering, stable cores, bridges, residuals, overlap, and restored tests.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Durable-Functions-Pass-Four.html"><em>Pass-Four Derivation of Durable Social Functions from Jeevan</em></a> - durability tests, five continuity channels, family-like field, nested scales, and comparative institutional bundles.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Counterfactual-Validation-Pass-Five.html"><em>Pass-Five Counterfactual Validation of the Jeevan Social Model</em></a> - family equivalence, organisational boundaries, adverse cases, false positives, evidence protocol, and person-level universality.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-To-Universal-Human-Order.html"><em>From the Activity Architecture of Jeevan to Universal Human Order</em></a> - the earlier social thesis now consolidated in this proposal.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Architecture.html"><em>Jeevan Architecture</em></a> - the account of faculties, activities, embodiment, receptivity, complete functioning, and restfulness.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Functional-Model.html"><em>A Functional Model of Jeevan</em></a> - the model of orientation, expression, consequence, evaluation, correction, and lasting change.</li>
 <li><a href="Research-Template-Jeevan-Activity-Environment-Dossier.md"><em>Jeevan Activity-to-Sphere Dossier Template</em></a> - the reusable provenance, lifecycle, clustering, institution-comparison, and validation schema.</li>
 </ul></main>
 <script type="module">
@@ -1255,6 +1488,39 @@ mermaid.initialize({
   document.addEventListener("keydown", event => {
     if (event.key === "Escape") hide();
   });
+})();
+</script>
+<script>
+(() => {
+  const toggle = document.getElementById("study-theme-toggle");
+  if (!toggle) return;
+  const label = toggle.querySelector(".study-theme-toggle-label");
+  const root = document.documentElement;
+  const system = window.matchMedia("(prefers-color-scheme: dark)");
+  const active = () => root.getAttribute("data-theme") || (system.matches ? "dark" : "light");
+  const paint = () => {
+    const next = active() === "dark" ? "Light" : "Dark";
+    if (label) label.textContent = next;
+    toggle.setAttribute("aria-label", `Switch to ${next.toLowerCase()} theme`);
+  };
+  toggle.addEventListener("click", () => {
+    const next = active() === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("amd-theme", next); } catch (e) {}
+    paint();
+  });
+  system.addEventListener("change", paint);
+  paint();
+})();
+</script>
+<script>
+(() => {
+  const toc = document.getElementById("study-contents");
+  if (!toc) return;
+  // Open where there is room to show it without pushing the study off screen.
+  if (window.matchMedia("(min-width: 760px)").matches && window.innerHeight >= 640) {
+    toc.open = true;
+  }
 })();
 </script>
 

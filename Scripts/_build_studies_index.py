@@ -54,12 +54,17 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 <meta property="og:title" content="Studies of Madhyasth Darshan"/>
 <meta property="og:description" content="An open comparative study of Madhyasth Darshan, following a path through existence, knowledge, value, lived participation, and formal synthesis."/>
 <meta property="og:url" content="https://analyticmadhyasthdarshan.org/Studies/index.html"/>
-<meta name="twitter:card" content="summary"/>
+<meta property="og:image" content="https://analyticmadhyasthdarshan.org/Assets/Social/og-default.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Studies of Madhyasth Darshan"/>
+<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Studies of Madhyasth Darshan"/>
 <meta name="twitter:description" content="An open comparative study of Madhyasth Darshan, following a path through existence, knowledge, value, lived participation, and formal synthesis."/>
+<meta name="twitter:image" content="https://analyticmadhyasthdarshan.org/Assets/Social/og-default.png"/>
 <script src="/webmcp.js" defer></script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"CollectionPage","name":"Studies of Madhyasth Darshan","description":"An open comparative study of Madhyasth Darshan, following a path from the human question through existence, knowledge, value, lived participation, and formal synthesis.","url":"https://analyticmadhyasthdarshan.org/Studies/index.html","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/"}
+{"@context":"https://schema.org","@type":"CollectionPage","name":"Studies of Madhyasth Darshan","description":"An open comparative study of Madhyasth Darshan, following a path from the human question through existence, knowledge, value, lived participation, and formal synthesis.","url":"https://analyticmadhyasthdarshan.org/Studies/index.html","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"image":"https://analyticmadhyasthdarshan.org/Assets/Social/og-default.png","license":"https://creativecommons.org/licenses/by/4.0/"}
 </script>
 <script>
 (function(){try{var t=localStorage.getItem("amd-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","light");}})();
@@ -139,8 +144,24 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     margin: 0 0 6px;
   }
 
-  .dialogue {
+  .dialogue-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 3px 12px;
     margin: 0 0 6px;
+  }
+  .dialogue-label {
+    margin: 0;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .dialogue {
+    margin: 0;
     padding: 0;
     list-style: none;
     display: flex;
@@ -160,7 +181,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     margin: 0 12px;
   }
   .dialogue span { color: var(--text); font-weight: 600; }
-  .dialogue li:first-child span { color: var(--accent); }
 
   .scope {
     font-family: var(--sans);
@@ -398,7 +418,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     font-size: 15px;
   }
   .toolbar {
-    display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+    display: flex; flex-wrap: wrap; align-items: flex-end; gap: 10px 12px;
     background: var(--surface); border: 1px solid var(--border);
     border-radius: var(--radius); box-shadow: var(--shadow);
     padding: 12px 14px; margin: 0 0 4px;
@@ -436,6 +456,26 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   .seg {
     display: inline-flex; border: 1px solid var(--border); border-radius: 8px;
     overflow: hidden; background: #fdfcfa;
+  }
+  .seg-group {
+    display: flex; flex-direction: column; gap: 4px; min-width: 0;
+  }
+  .filter-notice {
+    font-family: var(--sans); font-size: 13px; color: var(--text-muted);
+    margin: 0 0 8px; padding: 0 2px;
+  }
+  .filter-notice-action {
+    font-family: var(--sans); font-size: 13px; font-weight: 600;
+    color: var(--accent); background: none; border: none; padding: 0;
+    cursor: pointer; text-decoration: underline; text-underline-offset: 2px;
+  }
+  .filter-notice-action:hover { color: var(--accent-hover); }
+  .filter-notice-action:focus-visible {
+    outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px;
+  }
+  .seg-label {
+    font-family: var(--sans); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-muted);
   }
   .seg button {
     font-family: var(--sans); font-size: 13px; color: var(--text-muted);
@@ -1303,14 +1343,17 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
 <header class="hero">
   <h1>Studies of Madhyasth Darshan</h1>
-  <p class="lead">An open and growing collection of comparative studies of <strong>Madhyasth Darshan</strong> (Co-existentialism), the philosophy founded by <strong>Shri A. Nagraj</strong>. The collection follows a personal path of inquiry while inviting others to examine its arguments, question its interpretations, and contribute to its development.</p>
+  <p class="lead">An open and growing collection of comparative studies of <strong>Madhyasth Darshan</strong> (Co-existentialism), the philosophy founded by <strong>Shri A. Nagraj</strong>. The collection follows a single line of inquiry while inviting others to examine its arguments, question its interpretations, and contribute to its development.</p>
 
-  <ul class="dialogue" aria-label="Each study is read in dialogue with">
-    <li><span>Madhyasth Darshan</span></li>
-    <li><span>Sciences &amp; technology</span></li>
-    <li><span>Advaita Vedanta</span></li>
-    <li><span>Modern philosophy</span></li>
-  </ul>
+  <div class="dialogue-row">
+    <p class="dialogue-label" id="dialogue-label">Each study is read in dialogue with</p>
+    <ul class="dialogue" aria-labelledby="dialogue-label">
+      <li><span>Madhyasth Darshan</span></li>
+      <li><span>Sciences &amp; technology</span></li>
+      <li><span>Advaita Vedanta</span></li>
+      <li><span>Modern philosophy</span></li>
+    </ul>
+  </div>
 
   <p class="scope" id="hero-scope"><!-- @hero-scope@ --></p>
 </header>
@@ -1340,13 +1383,13 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 <section class="section" id="studies">
 
   <noscript>
-    <p class="section-intro">JavaScript is required for search and filters on this page. Browse the full catalog in <a href="README.md">Studies/README.md</a>.</p>
+    <p class="section-intro">JavaScript is required for search and filters on this page. Browse the <a href="README.md">full catalog</a> instead.</p>
   </noscript>
 
   <div class="start-here" id="start-here">
     <p class="start-here-kicker">A guided path through the collection</p>
-    <h2>Start here: the study path I am following</h2>
-    <p class="start-here-intro">I start by asking whether a human is just matter, rather than assuming that the body already answers it. The questions that remain are what require an understanding of existence, then of how knowledge enters the picture, then of how values come about, and only then how we should live and how social structures should be designed. Each stage below is the question the one before it could not close &mdash; which is why the order is what it is. Follow the same sequence, question it, or contribute where the work is incomplete.</p>
+    <h2>Start here: the study path we are following</h2>
+    <p class="start-here-intro">We start by asking whether a human is just matter, rather than assuming that the body already answers it. The questions that remain require an understanding of existence, then of how knowledge enters the picture, then of how values come about, and only then of how a human should live and how social structures should be designed. Each stage below is the question the one before it could not close, which is why they run in this order. Follow the same sequence, question it, or contribute where the work is incomplete.</p>
 
     <div class="study-path">
       <div class="path-rail" role="radiogroup" aria-label="Five stages in the study path">
@@ -1553,22 +1596,30 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       <input type="text" id="q" placeholder="Search title, topic, or category&hellip;" autocomplete="off"/>
       <button type="button" class="search-clear" id="search-clear" aria-label="Clear search">&times;</button>
     </label>
-    <div class="seg" id="coll-seg" role="group" aria-label="Filter by collection">
-      <button type="button" data-coll="all" aria-pressed="true">All</button>
-      <button type="button" data-coll="topical" aria-pressed="false">Topical</button>
-      <button type="button" data-coll="formal" aria-pressed="false">Formal</button>
-      <button type="button" data-coll="applied" aria-pressed="false">Applied</button>
+    <div class="seg-group">
+      <span class="seg-label" id="coll-seg-label">Collection</span>
+      <div class="seg" id="coll-seg" role="group" aria-labelledby="coll-seg-label">
+        <button type="button" data-coll="all" aria-pressed="true">All</button>
+        <button type="button" data-coll="topical" aria-pressed="false">Topical</button>
+        <button type="button" data-coll="formal" aria-pressed="false">Formal</button>
+        <button type="button" data-coll="applied" aria-pressed="false">Applied</button>
+      </div>
     </div>
-    <div class="seg" id="status-seg" role="group" aria-label="Filter by status">
-      <button type="button" data-status="all" aria-pressed="false">All</button>
-      <button type="button" data-status="available" aria-pressed="true">Available</button>
-      <button type="button" data-status="planned" aria-pressed="false">In progress</button>
+    <div class="seg-group">
+      <span class="seg-label" id="status-seg-label">Status</span>
+      <div class="seg" id="status-seg" role="group" aria-labelledby="status-seg-label">
+        <button type="button" data-status="all" aria-pressed="false">All</button>
+        <button type="button" data-status="available" aria-pressed="true">Available</button>
+        <button type="button" data-status="planned" aria-pressed="false">In progress</button>
+      </div>
     </div>
-    <label class="sr-only" for="sort">Sort</label>
-    <select class="field" id="sort" aria-label="Sort studies">
-      <option value="recent">Recently updated</option>
-      <option value="az">Title A&ndash;Z</option>
-    </select>
+    <div class="seg-group">
+      <label class="seg-label" for="sort">Sort</label>
+      <select class="field" id="sort">
+        <option value="recent">Recently updated</option>
+        <option value="az">Title A&ndash;Z</option>
+      </select>
+    </div>
     <button type="button" class="btn-reset-filters" id="reset-filters" disabled>Reset filters</button>
   </div>
 
@@ -1576,6 +1627,8 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     <span class="cat-list-label" id="cat-list-label">Categories</span>
     <div class="cat-list" id="cat-list" role="group" aria-labelledby="cat-list-label"></div>
   </div>
+
+  <p class="filter-notice is-hidden" id="filter-notice" aria-live="polite"></p>
 
   <p class="sr-only" id="count" aria-live="polite"></p>
 
@@ -1602,7 +1655,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   <h2>How we work</h2>
   <div class="section-card">
     <h3>Our approach</h3>
-    <p>These studies are written from the standpoint of a <strong>scientist and technologist</strong> trained in physics and mathematics. That starting point takes matter-first scientific explanations seriously, while recognising that consciousness, selfhood, and value remain contested and are not settled simply by assuming materialism.</p>
     <p>The project reads primary <strong>Madhyasth Darshan</strong> texts closely, reconstructs their claims as clearly as possible, and compares them with the natural sciences, Advaita Vedanta, and modern philosophy. The aim is rigorous comparative understanding: to test definitions, internal consistency, explanatory scope, and compatibility with evidence &mdash; not to persuade or offer devotional endorsement.</p>
 
     <h3>What we keep separate</h3>
@@ -1653,7 +1705,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       </div>
       <div class="contribute-path contribute-path--study" id="propose-a-new-study">
         <h3>Write or substantially revise a study</h3>
-        <p class="path-lead">Use the Web Submission Portal if you want to take responsibility for a new analytic paper or a substantial revision. Read the study format in <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/Studies/README.md">Studies/README.md</a> and <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a> before you start.</p>
+        <p class="path-lead">Use the Web Submission Portal if you want to take responsibility for a new analytic paper or a substantial revision. Read the <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/Studies/README.md">study format guide</a> and the <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/CONTRIBUTING.md">contributor guide</a> before you start.</p>
         <p class="path-note">A free <a href="https://github.com/signup" target="_blank" rel="noopener">GitHub account</a> is required to propose or submit &mdash; it is how we track your proposal, pull request, and review history, and how you receive updates. Creating one takes a minute; reading studies never requires an account.</p>
         <ol>
           <li>Sign in to <a href="submit.html"><strong>My Submissions</strong></a> and submit a proposal.</li>
@@ -1669,7 +1721,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 <section class="section" id="about">
   <h2>About us</h2>
   <div class="section-card">
-    <p>This collection began as one researcher&rsquo;s attempt to understand <strong>Madhyasth Darshan</strong> in dialogue with science, Advaita Vedanta, and modern philosophy. It is published openly so that others can follow the path, challenge its arguments, improve its sources, and contribute studies of their own.</p>
     <p><a href="https://analyticmadhyasthdarshan.org/"><strong>AnalyticMadhyasthDarshan.org</strong></a> is an independent collaborative project. It is not an official publication of Divya Path Sansthan. For official Madhyasth Darshan texts and lectures, visit <a href="https://www.madhyasth.org/">madhyasth.org</a>.</p>
     <p>Anyone is welcome to read the studies, inspect their sources, join a discussion, or contribute through the project&rsquo;s <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">GitHub repository</a>. Every study ends with a list of its sources, linking to the original texts wherever they are freely available.</p>
     <p class="license-line"><strong>License:</strong> <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a> &mdash; attribution required. Cite <strong>AnalyticMadhyasthDarshan.org</strong> and link to the repository.</p>
@@ -1950,6 +2001,12 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     renderCatalog();
   };
 
+  const updatedDate = updated => {
+    if (!updated) return "";
+    const match = String(updated).match(/^([A-Za-z]+\\s+\\d{1,2},\\s*\\d{4})/);
+    return match ? match[1] : String(updated);
+  };
+
   const pdfVersionQuery = updated => {
     if (!updated) return "";
     const t = Date.parse(String(updated).replace(/\\s+IST\\s*$/i, " GMT+0530"));
@@ -2001,7 +2058,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       ? `<span class="badge ${badgeClass}"${draftTitle}><span class="badge-dot"></span>${badgeLabel}</span><span class="card-actions">${discussLinkHtml(s)}${readActions}</span>`
       : `<span class="badge planned"><span class="badge-dot"></span>In progress</span><span class="card-actions">${discussLinkHtml(s)}${readActions}</span>`;
     const dateLine = avail && s.updated
-      ? `<div class="card-foot" style="border:none;padding:6px 0 0;color:#9a8f80;">Updated ${s.updated}</div>`
+      ? `<div class="card-foot" style="border:none;padding:6px 0 0;color:#9a8f80;">Updated ${updatedDate(s.updated)}</div>`
       : "";
     return `<li class="card ${cardClass}" id="study-${escAttr(s.slug)}">
       <h3 class="card-title">${titleInner}</h3>
@@ -2050,6 +2107,26 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     });
     const count = document.getElementById("count");
     if (count) count.textContent = `${shown} studies shown`;
+    const notice = document.getElementById("filter-notice");
+    if (notice) {
+      const hidden = STUDIES.filter(s => !isAvail(s)).length;
+      const hiding = state.status === "available" && hidden > 0;
+      notice.classList.toggle("is-hidden", !hiding);
+      if (hiding) {
+        notice.innerHTML =
+          `Showing studies available to read. ` +
+          `<button type="button" class="filter-notice-action" id="filter-notice-show-all">` +
+          `Include the ${hidden} in progress</button>`;
+        const showAll = document.getElementById("filter-notice-show-all");
+        if (showAll) {
+          showAll.addEventListener("click", () => {
+            state.status = "all";
+            syncControlsToState();
+            renderCatalog();
+          });
+        }
+      }
+    }
     writeStateToUrl();
     applyHashStudyTarget();
   };
@@ -2516,6 +2593,23 @@ def _card_discussion_href(entry: dict, version_query: str) -> str:
     return f"{base}{version_query}{sep}dv={DISCUSS_ASSET_VERSION}"
 
 
+_UPDATED_DATE_RE = re.compile(r"^([A-Za-z]+\s+\d{1,2},\s*\d{4})")
+
+
+def _updated_date_only(updated: str | None) -> str:
+    """Drop the time from a catalog card's "Updated" line.
+
+    Several studies share an edit date, so minute precision became the only
+    thing telling their cards apart without being anything a reader wants. The
+    full stamp is kept in the catalog data for sorting and the PDF
+    cache-buster, and on the study page itself.
+    """
+    if not updated:
+        return ""
+    match = _UPDATED_DATE_RE.match(str(updated))
+    return match.group(1) if match else str(updated)
+
+
 def _card_discuss_link_html(entry: dict, version_query: str) -> str:
     """Initial (pre-stats) discussion link: no comment count badge, matching the
     JS `discussLinkHtml` before `/api/discussions/stats` resolves."""
@@ -2556,7 +2650,7 @@ def _render_catalog_card(row: StudyRow, entry: dict) -> str:
         f'<span class="card-actions">'
         f"{_card_discuss_link_html(entry, version_query)}{read_actions}</span>"
     )
-    updated = entry.get("updated")
+    updated = _updated_date_only(entry.get("updated"))
     date_line = (
         f'<div class="card-foot" style="border:none;padding:6px 0 0;color:#9a8f80;">'
         f"Updated {updated}</div>"

@@ -17,11 +17,19 @@
 <meta property="og:title" content="Nature of Time"/>
 <meta property="og:description" content="What time (kaal) is: the duration of unit-activity against timeless satta, numerical reckoning, and the past–present–future structure — compared with Advaita Vedanta, the philosophy of time, and physics (spacetime, cosmology, entropy)"/>
 <meta property="og:url" content="https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.html"/>
-<meta name="twitter:card" content="summary"/>
+<meta property="og:image" content="https://analyticmadhyasthdarshan.org/Assets/Social/Nature-Of-Time.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Nature of Time"/>
+<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Nature of Time"/>
 <meta name="twitter:description" content="What time (kaal) is: the duration of unit-activity against timeless satta, numerical reckoning, and the past–present–future structure — compared with Advaita Vedanta, the philosophy of time, and physics (spacetime, cosmology, entropy)"/>
+<meta name="twitter:image" content="https://analyticmadhyasthdarshan.org/Assets/Social/Nature-Of-Time.png"/>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Nature of Time","description":"What time (kaal) is: the duration of unit-activity against timeless satta, numerical reckoning, and the past–present–future structure — compared with Advaita Vedanta, the philosophy of time, and physics (spacetime, cosmology, entropy)","url":"https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.html","inLanguage":"en","author":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"publisher":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"dateModified":"2026-06-28T19:49:00+05:30"}
+{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Nature of Time","description":"What time (kaal) is: the duration of unit-activity against timeless satta, numerical reckoning, and the past–present–future structure — compared with Advaita Vedanta, the philosophy of time, and physics (spacetime, cosmology, entropy)","url":"https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.html","inLanguage":"en","author":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"publisher":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"image":"https://analyticmadhyasthdarshan.org/Assets/Social/Nature-Of-Time.png","dateModified":"2026-06-28T19:49:00+05:30"}
+</script>
+<script>
+(function(){try{var t=localStorage.getItem("amd-theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();
 </script>
 <style>
   @page {
@@ -147,6 +155,7 @@
     color: #333;
     font-weight: bold;
   }
+
   p {
     margin: 6pt 0;
     text-align: justify;
@@ -451,28 +460,157 @@
     content: " \2193";
     font-weight: 700;
   }
+  .study-theme-toggle {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #1a5276;
+    background: #fdfcfa;
+    border: 1px solid #d9d2c7;
+    border-radius: 999px;
+    padding: 3px 11px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .study-theme-toggle:hover { border-color: #1a5276; }
+  .study-theme-toggle:focus-visible {
+    outline: 2px solid #1a5276;
+    outline-offset: 2px;
+  }
+
+  /* Contents ---------------------------------------------------------------
+     Studies run past 30,000 words, so the sequential previous/next pair is not
+     enough to move around one. Closed by default so it costs no height; the
+     script below opens it where there is room. */
+  .study-toc {
+    max-width: 37rem;
+    margin: 1.6em 0 2.2em;
+    border: 1px solid #ddd6cc;
+    border-radius: 10px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+  }
+  .study-toc-summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 10px 15px;
+    cursor: pointer;
+    list-style: none;
+  }
+  .study-toc-summary::-webkit-details-marker { display: none; }
+  .study-toc-summary::before {
+    content: "";
+    flex: 0 0 auto;
+    width: 6px;
+    height: 6px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(-45deg);
+    transition: transform 0.15s ease;
+  }
+  .study-toc[open] > .study-toc-summary::before { transform: rotate(45deg); }
+  .study-toc-summary:hover { background: #faf7f2; }
+  .study-toc-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #2c241c;
+  }
+  .study-toc-meta { font-size: 12px; color: #6b6357; }
+  .study-toc-nav {
+    max-height: 58vh;
+    overflow-y: auto;
+    padding: 2px 15px 13px;
+  }
+  .study-toc-list { list-style: none; margin: 0; padding: 0; }
+  .study-toc-item { margin: 0; }
+  .study-toc-item > a {
+    display: block;
+    padding: 3px 0;
+    font-size: 13.5px;
+    line-height: 1.35;
+    color: #1a5276;
+    text-decoration: none;
+  }
+  .study-toc-item > a:hover { text-decoration: underline; }
+  .study-toc-l1 { margin-top: 9px; }
+  .study-toc-l1:first-child { margin-top: 0; }
+  .study-toc-l1 > a { font-weight: 700; color: #2c241c; }
+  .study-toc-l2 > a { padding-left: 15px; }
+  .study-toc-l3 > a { padding-left: 30px; font-size: 12.5px; color: #4d6f86; }
+  @media (prefers-reduced-motion: reduce) {
+    .study-toc-summary::before { transition: none; }
+  }
+
+  /* Reading measure --------------------------------------------------------
+     The PDF is rendered from this same HTML, so anything that governs reading
+     on screen is confined to @media screen. The bare rules and the @media
+     print block above remain the print baseline and are left alone. */
+  @media screen {
+    body {
+      font-size: 17px;
+      line-height: 1.62;
+      max-width: 46rem;
+      margin: 32px auto 88px;
+      padding: 0 22px;
+    }
+    /* Roughly 68 characters. The container stays wide enough for tables and
+       figures while running text keeps a measure the eye can track back. */
+    p, ul, ol, blockquote, .quote-source, dl {
+      max-width: 37rem;
+    }
+    p {
+      margin: 0.72em 0;
+      text-align: left;
+      hyphens: auto;
+    }
+    h1 { font-size: 2.05rem; line-height: 1.16; }
+    h2 { font-size: 1.5rem; margin-top: 2.3em; }
+    h3 { font-size: 1.18rem; margin-top: 1.85em; }
+    /* "1.2.1" is a sub-subsection but has to stay an h3 for the PDF outline,
+       so the distinction from "1.2" is carried here. */
+    h3[data-depth="3"] {
+      font-size: 1.0rem;
+      font-weight: 600;
+      margin-top: 1.45em;
+    }
+    h4 { font-size: 1.0rem; }
+  }
+  @media screen and (min-width: 760px) {
+    .study-toc { max-width: 46rem; }
+  }
+
   @media (max-width: 640px) {
     .study-toolbar-row--primary {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+      row-gap: 6px;
     }
-    .study-toolbar-back {
-      grid-column: 1;
+    /* Back and title share the first line and the actions take the second, so
+       the reader reaches the heading in two rows rather than four. */
+    .study-toolbar-back { grid-column: 1; justify-self: start; }
+    .study-toolbar-title {
+      grid-column: 2;
+      justify-self: end;
+      text-align: right;
+      font-size: 13px;
+      white-space: normal;
     }
     .study-toolbar-actions {
       grid-column: 1 / -1;
       justify-self: stretch;
-      justify-content: flex-end;
+      justify-content: space-between;
+      gap: 8px;
     }
-    .study-toolbar-title {
-      grid-column: 1 / -1;
-      white-space: normal;
-    }
-    .study-toolbar-section {
-      white-space: normal;
-    }
+    .study-toolbar-feedback { font-size: 11px; }
+    .study-toolbar-section { white-space: normal; }
+    .study-toc-nav { max-height: 52vh; }
   }
   @media print {
     .study-toolbar { display: none !important; }
+    .study-theme-toggle { display: none !important; }
+    .study-toc { display: none !important; }
     .skip-link { display: none !important; }
     .term-tip {
       border-bottom: none;
@@ -482,57 +620,67 @@
     .term-tip-panel { display: none !important; }
   }
 
+  @media screen {
+    html[data-theme="dark"] body { color: #e6dfd6; background: #1a1815; }
+    html[data-theme="dark"] h1, html[data-theme="dark"] h2, html[data-theme="dark"] h3, html[data-theme="dark"] h4 { color: #f5f1ec; }
+    html[data-theme="dark"] h1 { border-bottom-color: #6f655a; }
+    html[data-theme="dark"] h2 { border-bottom-color: #423b33; }
+    html[data-theme="dark"] a { color: #7ebbed; }
+    html[data-theme="dark"] a:visited { color: #9ec8e8; }
+    html[data-theme="dark"] blockquote { background: #26231e; border-left-color: #6f655a; color: #e6dfd6; }
+    html[data-theme="dark"] .quote-source { color: #aca194; }
+    html[data-theme="dark"] th { background: #2f2a24; border-color: #423b33; color: #f5f1ec; }
+    html[data-theme="dark"] td { border-color: #423b33; color: #e6dfd6; }
+    html[data-theme="dark"] tr:nth-child(even) { background: #1e1b18; }
+    html[data-theme="dark"] code { background: #2f2a24; color: #f0e8dc; }
+    html[data-theme="dark"] pre { background: #1e1b18; color: #e6dfd6; }
+    html[data-theme="dark"] .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
+    html[data-theme="dark"] .study-toolbar-link { color: #7ebbed; }
+    html[data-theme="dark"] .study-toolbar-link:hover { color: #b8daf3; }
+    html[data-theme="dark"] .study-toolbar-title { color: #f5f1ec; }
+    html[data-theme="dark"] .study-toolbar-draft { color: #aca194; }
+    html[data-theme="dark"] .study-toolbar-section.is-disabled { color: #6f655a; }
+    html[data-theme="dark"] .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    html[data-theme="dark"] .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
+    html[data-theme="dark"] .study-toc { border-color: #423b33; }
+    html[data-theme="dark"] .study-toc-summary:hover { background: #1e1b18; }
+    html[data-theme="dark"] .study-toc-label { color: #f5f1ec; }
+    html[data-theme="dark"] .study-toc-meta { color: #aca194; }
+    html[data-theme="dark"] .study-toc-list a { color: #7ebbed; }
+    html[data-theme="dark"] .study-toc-l1 > a { color: #f5f1ec; }
+    html[data-theme="dark"] .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
+    html[data-theme="dark"] .study-theme-toggle:hover { border-color: #7ebbed; }
+  }
   @media screen and (prefers-color-scheme: dark) {
-    body {
-      color: #e6dfd6;
-      background: #1a1815;
-    }
-    h1, h2, h3, h4 {
-      color: #f5f1ec;
-    }
-    h1 { border-bottom-color: #6f655a; }
-    h2 { border-bottom-color: #423b33; }
-    a { color: #7ebbed; }
-    a:visited { color: #9ec8e8; }
-    blockquote {
-      background: #26231e;
-      border-left-color: #6f655a;
-      color: #e6dfd6;
-    }
-    .quote-source { color: #aca194; }
-    th {
-      background: #2f2a24;
-      border-color: #423b33;
-      color: #f5f1ec;
-    }
-    td {
-      border-color: #423b33;
-      color: #e6dfd6;
-    }
-    tr:nth-child(even) { background: #1e1b18; }
-    code {
-      background: #2f2a24;
-      color: #f0e8dc;
-    }
-    pre {
-      background: #1e1b18;
-      color: #e6dfd6;
-    }
-    .study-toolbar {
-      background: rgba(26, 24, 21, 0.92);
-      border-color: #423b33;
-    }
-    .study-toolbar-link { color: #7ebbed; }
-    .study-toolbar-link:hover { color: #b8daf3; }
-    .study-toolbar-title { color: #f5f1ec; }
-    .study-toolbar-draft { color: #aca194; }
-    .study-toolbar-section.is-disabled { color: #6f655a; }
-    .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
-    .term-tip-panel {
-      color: #e6dfd6;
-      background: #26231e;
-      border-color: #423b33;
-    }
+    html:not([data-theme="light"]) body { color: #e6dfd6; background: #1a1815; }
+    html:not([data-theme="light"]) h1, html:not([data-theme="light"]) h2, html:not([data-theme="light"]) h3, html:not([data-theme="light"]) h4 { color: #f5f1ec; }
+    html:not([data-theme="light"]) h1 { border-bottom-color: #6f655a; }
+    html:not([data-theme="light"]) h2 { border-bottom-color: #423b33; }
+    html:not([data-theme="light"]) a { color: #7ebbed; }
+    html:not([data-theme="light"]) a:visited { color: #9ec8e8; }
+    html:not([data-theme="light"]) blockquote { background: #26231e; border-left-color: #6f655a; color: #e6dfd6; }
+    html:not([data-theme="light"]) .quote-source { color: #aca194; }
+    html:not([data-theme="light"]) th { background: #2f2a24; border-color: #423b33; color: #f5f1ec; }
+    html:not([data-theme="light"]) td { border-color: #423b33; color: #e6dfd6; }
+    html:not([data-theme="light"]) tr:nth-child(even) { background: #1e1b18; }
+    html:not([data-theme="light"]) code { background: #2f2a24; color: #f0e8dc; }
+    html:not([data-theme="light"]) pre { background: #1e1b18; color: #e6dfd6; }
+    html:not([data-theme="light"]) .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
+    html:not([data-theme="light"]) .study-toolbar-link { color: #7ebbed; }
+    html:not([data-theme="light"]) .study-toolbar-link:hover { color: #b8daf3; }
+    html:not([data-theme="light"]) .study-toolbar-title { color: #f5f1ec; }
+    html:not([data-theme="light"]) .study-toolbar-draft { color: #aca194; }
+    html:not([data-theme="light"]) .study-toolbar-section.is-disabled { color: #6f655a; }
+    html:not([data-theme="light"]) .term-tip { color: #9ec8e8; border-bottom-color: #7ebbed; }
+    html:not([data-theme="light"]) .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
+    html:not([data-theme="light"]) .study-toc { border-color: #423b33; }
+    html:not([data-theme="light"]) .study-toc-summary:hover { background: #1e1b18; }
+    html:not([data-theme="light"]) .study-toc-label { color: #f5f1ec; }
+    html:not([data-theme="light"]) .study-toc-meta { color: #aca194; }
+    html:not([data-theme="light"]) .study-toc-list a { color: #7ebbed; }
+    html:not([data-theme="light"]) .study-toc-l1 > a { color: #f5f1ec; }
+    html:not([data-theme="light"]) .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
+    html:not([data-theme="light"]) .study-theme-toggle:hover { border-color: #7ebbed; }
   }
 
 </style>
@@ -544,9 +692,12 @@
     <a class="study-toolbar-link study-toolbar-back" href="../index.html#study-Nature-Of-Time">&larr; All studies</a>
     <p class="study-toolbar-title">Nature of Time</p>
     <span class="study-toolbar-actions">
-      <a class="study-toolbar-link study-toolbar-discuss" href="discussion.html?dv=2">Discuss</a>
+      <a class="study-toolbar-link study-toolbar-discuss" href="discussion.html?dv=3">Discuss</a>
       <a class="study-toolbar-link study-toolbar-download" href="Nature-Of-Time.pdf" download>Download PDF</a>
       <a class="study-toolbar-link study-toolbar-feedback" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&title=Study%20feedback%3A%20Nature%20of%20Time">Suggest a correction</a>
+      <button type="button" class="study-theme-toggle" id="study-theme-toggle" aria-label="Switch color theme">
+        <span class="study-theme-toggle-label">Dark</span>
+      </button>
     </span>
   </div>
   <div class="study-toolbar-row study-toolbar-row--sections">
@@ -559,6 +710,50 @@
 <p><strong>Edited on:</strong> June 28, 2026, 7:49 PM IST</p>
 <p><strong>The question:</strong> What is the nature of time (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em>)? How does <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> relate timeless Omnipresence (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span></em>) to the duration of unit-activity, numerical reckoning, and the past–present–future structure — and how does that compare with Advaita Vedanta, philosophy of time, and modern physics (spacetime, cosmology, entropy)?</p>
 <p>This study develops the comparative treatment begun in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> (§1.4, §2.7, §4.3). That paper states <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s core claim — <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em> as duration of activity, timeless <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span></em>, numerical reckoning within existence — and defers past/present/future structure, JVD on &ldquo;activity eternally present,&rdquo; Advaita <em>trikaal</em> language, and systematic comparison with McTaggart, eternalism/presentism, and spacetime physics to this study (Ontology §6.2.9).</p>
+<details class="study-toc" id="study-contents">
+  <summary class="study-toc-summary">
+    <span class="study-toc-label">Contents</span>
+    <span class="study-toc-meta">9 sections &middot; 34 headings</span>
+  </summary>
+  <nav class="study-toc-nav" aria-label="Contents">
+    <ol class="study-toc-list">
+      <li class="study-toc-item study-toc-l1"><a href="#standpoint-and-scope">Standpoint and scope</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#1-the-madhyasth-darshan-answer">1. The Madhyasth Darshan Answer</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#11-time-as-the-duration-of-activity">1.1 Time as the duration of activity</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#12-kaal-rachna-and-vistar-a-duration-taxonomy">1.2 Kaal, rachna, and vistar — a duration taxonomy</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#13-the-timelessness-of-omnipresence-satta">1.3 The timelessness of Omnipresence (satta)</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#14-trikaalabadh-atma-and-timeless-coexistence">1.4 Trikaalabadh, atma, and timeless coexistence</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#15-relative-truth-measurement-and-numerical-reckoning">1.5 Relative truth, measurement, and numerical reckoning</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#16-activity-eternally-present-and-the-three-times">1.6 Activity eternally present and the three times</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#17-place-time-and-eternal-presence">1.7 Place, time, and eternal presence</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#18-the-primacy-of-the-present">1.8 The primacy of the present</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#2-the-advaita-vedanta-answer">2. The Advaita Vedanta Answer</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#21-time-at-vyavahara-and-paramartha">2.1 Time at vyavahara and paramartha</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#22-trikaal-language-and-the-contrast-with-trikaalabadh">2.2 Trikaal language and the contrast with trikaalabadh</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#3-modern-physics-and-philosophy-of-time">3. Modern Physics and Philosophy of Time</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#31-spacetime-and-the-block-universe">3.1 Spacetime and the block universe</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#32-mctaggart-a-theory-b-theory-eternalism-and-presentism">3.2 McTaggart, A-theory, B-theory, eternalism, and presentism</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#33-relational-time">3.3 Relational time</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#34-cosmological-time-and-beginningless-existence">3.4 Cosmological time and beginningless existence</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#35-entropy-and-the-arrow-of-time">3.5 Entropy and the arrow of time</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#4-comparative-summary">4. Comparative Summary</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#5-critical-review">5. Critical Review</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#51-madhyasth-darshan-activity-based-time-present-centred-realism">5.1 Madhyasth Darshan — activity-based time, present-centred realism</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#52-advaita-vedanta-timeless-absolute-robust-empirics">5.2 Advaita Vedanta — timeless absolute, robust empirics</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#53-modern-physics-and-philosophy-of-time-precision-without-agreement">5.3 Modern physics and philosophy of time — precision without agreement</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#6-open-problems">6. Open Problems</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#appendix-quick-glossary">Appendix: Quick Glossary</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#terms-in-1">Terms in §1</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#terms-in-2">Terms in §2</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#terms-in-3">Terms in §3</a></li>
+      <li class="study-toc-item study-toc-l1"><a href="#references">References</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#madhyasth-darshan-primary-sources">Madhyasth Darshan (primary sources)</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#advaita-vedanta-primary-texts">Advaita Vedanta (primary texts)</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#related-studies-in-this-collection">Related studies in this collection</a></li>
+      <li class="study-toc-item study-toc-l2"><a href="#modern-philosophy-and-physics">Modern philosophy and physics</a></li>
+    </ol>
+  </nav>
+</details>
 <h2 id="standpoint-and-scope">Standpoint and scope</h2>
 <p>These studies are written from the standpoint of a <strong>scientist and technologist</strong> — someone trained to graduate-level <strong>physics and mathematics</strong>, at home with contemporary cosmology, quantum theory, conservation laws, and the logic of formal models.</p>
 <p>From that background, a familiar picture of nature is hard to avoid: <strong>consciousness appears as something the brain does</strong> — an epiphenomenon, functional outcome, or emergent property of particular configurations of very large numbers of physical particles. Modern physics and cognitive science are powerful on mechanism, prediction, and public evidence; yet the hard problem of consciousness, the status of the self, and the reality of value remain fiercely contested. The standpoint taken here does not treat those gaps as settled in favour of matter-only reductionism.</p>
@@ -567,19 +762,19 @@
 <p>Terms are defined in the essay where they first arise; a consolidated glossary keyed to §§1–3 appears in the Appendix.</p>
 <h2 id="1-the-madhyasth-darshan-answer">1. The Madhyasth Darshan Answer</h2>
 <p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> holds that time (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em>) belongs to the activity of units, not to Omnipresence as ground. To understand that claim, we must look past two common assumptions: the Newtonian view that time is an absolute cosmic container flowing independently of events, and the Advaitic view that time is an ultimate illusion (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mithya" data-definition="Advaita: dependent appearance — neither absolutely real nor sheer nothing; valid at *vyavahara*, sublated at *paramartha*.">mithya</button></span></em>). The darshan grounds time in the objective reality of nature (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="prakriti" data-definition="Nature — the realm of real units in coexistence; law-governed and beginningless in Madhyasth Darshan.">prakriti</button></span></em>), defining it through the ongoing activity (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kriya" data-definition="Unit-activity; the basis of change and, in sentient nature, of duration (*kaal*).">kriya</button></span></em>) of units (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="ikai" data-definition="A countable, bounded entity in nature — insentient (*jada*) or sentient (*chaitanya*).">ikai</button></span></em>).</p>
-<h3>1.1 Time as the duration of activity</h3>
+<h3 id="11-time-as-the-duration-of-activity" data-depth="2">1.1 Time as the duration of activity</h3>
 <p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> does not posit time as an independent dimension, substance, or background framework. It derives time directly from the motion and transformation of units:</p>
 <blockquote>
 <p><strong>&ldquo;Time (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em>): Duration of an activity is referred to as time.&rdquo;</strong>
 - MVD, p. 34</p>
 </blockquote>
-<p>Because every physical (<em>jada</em>) and sentient (<em>chaitanya</em>) unit in existence is eternally active through the single triad <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="shram-gati-parinam" data-definition="Effort–motion–result — the single inseparable triad in which all change appears.">shram–gati–parinam</button></span></em> (effort–motion–result) — in sentient <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> read toward completeness through projection, reflection, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="samadhan" data-definition="Resolution — understanding and relational closure without residue; joint evidence of complete happiness.">samadhan</button></span></em> (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.4) — activity is perpetual. Time is the inseparable duration of this activity. It is not something units &ldquo;move through&rdquo;; it is a property of their motion and state.</p>
+<p>Because every physical (<em>jada</em>) and sentient (<em>chaitanya</em>) unit in existence is eternally active through the single triad <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="shram-gati-parinam" data-definition="Effort, motion, and result are inseparable aspects of every unit-activity.">shram–gati–parinam</button></span></em> (effort–motion–result) — in sentient <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> read toward completeness through projection, reflection, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="samadhan" data-definition="Resolution — understanding and relational closure without residue; joint evidence of complete happiness.">samadhan</button></span></em> (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.4) — activity is perpetual. Time is the inseparable duration of this activity. It is not something units &ldquo;move through&rdquo;; it is a property of their motion and state.</p>
 <blockquote>
 <p><strong>&ldquo;Time is measured by the duration of an activity.&rdquo;</strong>
 - SB, p. 65</p>
 </blockquote>
 <p>Where there is no transforming activity, there is no time in this sense. That restriction applies directly to Omnipresence (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span></em>).</p>
-<h3>1.2 <em>Kaal</em>, <em>rachna</em>, and <em>vistar</em> — a duration taxonomy</h3>
+<h3 id="12-kaal-rachna-and-vistar-a-duration-taxonomy" data-depth="2">1.2 <em>Kaal</em>, <em>rachna</em>, and <em>vistar</em> — a duration taxonomy</h3>
 <p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> does not treat &ldquo;duration&rdquo; as one undifferentiated category. MVD groups three related terms:</p>
 <blockquote>
 <p><strong>&ldquo;Time (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em>): Duration of an activity is referred to as time.&rdquo;</strong>
@@ -587,14 +782,14 @@
 <strong>&ldquo;Expanse (<em>vistar</em>): The span of a composition is referred to as expanse.&rdquo;</strong>
 - MVD, p. 196</p>
 </blockquote>
-<p><em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">Kaal</button></span></em> belongs to <strong>activity</strong> — the ongoing <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="shram-gati-parinam" data-definition="Effort–motion–result — the single inseparable triad in which all change appears.">shram–gati–parinam</button></span></em> of units. <em>Rachna</em> and <em>vistar</em> belong to <strong>bounded matter</strong>: how long a composition lasts as a counted object and how far that composition extends. MVD adds that the duration of matter&rsquo;s existential measure and form depends on its <strong>organisation and state</strong> (MVD, p. 41) — not on a freestanding temporal container.</p>
+<p><em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">Kaal</button></span></em> belongs to <strong>activity</strong> — the ongoing <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="shram-gati-parinam" data-definition="Effort, motion, and result are inseparable aspects of every unit-activity.">shram–gati–parinam</button></span></em> of units. <em>Rachna</em> and <em>vistar</em> belong to <strong>bounded matter</strong>: how long a composition lasts as a counted object and how far that composition extends. MVD adds that the duration of matter&rsquo;s existential measure and form depends on its <strong>organisation and state</strong> (MVD, p. 41) — not on a freestanding temporal container.</p>
 <p>Absolute energy (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span></em> as uniform energy) is present in every time, place, and object; no place or object lacks it. Places devoid of matter are acknowledged, but no time devoid of that energy is proven (MVD, p. 41). <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">Kaal</button></span></em> in the strict sense still applies only where <strong>activity</strong> occurs; matter-duration (<em>rachna</em>, <em>vistar</em>) tracks bounded configurations, not the ground.</p>
-<h3>1.3 The timelessness of Omnipresence (<em>satta</em>)</h3>
+<h3 id="13-the-timelessness-of-omnipresence-satta" data-depth="2">1.3 The timelessness of Omnipresence (<em>satta</em>)</h3>
 <p>Existence (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="astitva" data-definition="Existence as coexistence of formless *satta* and active units — beginningless and endless.">astitva</button></span></em>) is the inseparable coexistence of units and Omnipresence. While units are formful and ceaselessly active, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span></em> is formless, all-pervasive, and entirely non-transforming (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kriya" data-definition="Unit-activity; the basis of change and, in sentient nature, of duration (*kaal*).">kriya</button></span>-shunya</em>).</p>
 <p>Because <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span></em> performs no actions and undergoes no change, duration in the sense of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em> does not apply to it. MVD describes Omnipresence as existing &ldquo;at all places and times, and … eternally present&rdquo; (MVD, p. 34). That &ldquo;all times&rdquo; language names <strong>omnipresence</strong>, not temporal becoming in <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span></em>: there is no place or time where formless existence is absent (SB, p. 69). Omnipotence is present everywhere and at all times, and all unit-activities are encompassed within it — indivisible from it as regulation and supreme cause (<em>mahakaran</em>), not as efficient trigger of particular change (MVD, p. 296; <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.4).</p>
-<p>At the level of units (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="ikai" data-definition="A countable, bounded entity in nature — insentient (*jada*) or sentient (*chaitanya*).">ikai</button></span></em>), time is real as the duration of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="shram-gati-parinam" data-definition="Effort–motion–result — the single inseparable triad in which all change appears.">shram–gati–parinam</button></span></em>. At the level of the ground (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span></em>), there is absolute timelessness as <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kriya" data-definition="Unit-activity; the basis of change and, in sentient nature, of duration (*kaal*).">kriya</button></span>-shunya</em> stasis. The two levels are not contradictory because <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em> is defined only through <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kriya" data-definition="Unit-activity; the basis of change and, in sentient nature, of duration (*kaal*).">kriya</button></span></em>, not as a freestanding dimension in which <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span></em> sits.</p>
+<p>At the level of units (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="ikai" data-definition="A countable, bounded entity in nature — insentient (*jada*) or sentient (*chaitanya*).">ikai</button></span></em>), time is real as the duration of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="shram-gati-parinam" data-definition="Effort, motion, and result are inseparable aspects of every unit-activity.">shram–gati–parinam</button></span></em>. At the level of the ground (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span></em>), there is absolute timelessness as <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kriya" data-definition="Unit-activity; the basis of change and, in sentient nature, of duration (*kaal*).">kriya</button></span>-shunya</em> stasis. The two levels are not contradictory because <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em> is defined only through <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kriya" data-definition="Unit-activity; the basis of change and, in sentient nature, of duration (*kaal*).">kriya</button></span></em>, not as a freestanding dimension in which <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span></em> sits.</p>
 <p>MVD uses <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em> in a second, <strong>contextual</strong> sense for awakened humans: omnipresent <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span></em> appears as law at the <strong>time of vocation</strong>, resolution at the <strong>time of thinking</strong>, bliss at the <strong>time of realisation</strong>, and justice at the <strong>time of behaviour</strong> (MVD, p. 34). These are modalities of human activity, not independent cosmic time — the same ground expressed in distinct phases of work, thought, experience, and conduct.</p>
-<h3>1.4 <em>Trikaalabadh</em>, <em>atma</em>, and timeless coexistence</h3>
+<h3 id="14-trikaalabadh-atma-and-timeless-coexistence" data-depth="2">1.4 <em>Trikaalabadh</em>, <em>atma</em>, and timeless coexistence</h3>
 <p>SB states that the harmony of consciousness and matter is:</p>
 <blockquote>
 <p><strong>&ldquo;…a timeless truth valid across all three times.&rdquo;</strong>
@@ -608,7 +803,7 @@
 </blockquote>
 <p><em>Atma</em> is mediative activity — free from generative and degenerative pressure (MVD, p. 296). Its presence across the three times names the <strong>unchanging existential element</strong> in sentient nature, realised in <em>atma</em> and enlightened in <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="buddhi" data-definition="Discriminative faculty in *jeevan* — part of the sentient unit's orbital structure with *mun*, *vritti*, and *chitta*.">buddhi</button></span></em>, while unit-activity and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em> as duration continue in transforming nature. SB&rsquo;s <em>trikaalabadh</em> binds <strong>coexistence</strong>; MVD&rsquo;s formula binds <strong>atma</strong> as the mediative pole through which existence is experienced as unchanging. Both affirm three-time validity without sublating the world.</p>
 <p>This is <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s answer to a question Advaita also faces with <em>trikaal</em> language: how can the absolute be related to past, present, and future without being swallowed by temporal becoming? <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s reply is bifurcated ontology — timeless ground, temporally active units, coexistence and <em>atma</em> binding truth across the three times without sublating the world.</p>
-<h3>1.5 Relative truth, measurement, and numerical reckoning</h3>
+<h3 id="15-relative-truth-measurement-and-numerical-reckoning" data-depth="2">1.5 Relative truth, measurement, and numerical reckoning</h3>
 <p>SB and MVD sort truth into three kinds. Through awakening, one recognises <strong>absolute truth</strong> as nature saturated in Omnipotence, <strong>relative truth</strong> as direction, time, and place, and <strong>objective truth</strong> as form, properties, essential nature, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="In Madhyasth Darshan: deliberation and intention toward resolution in thought — one of three humane evaluative domains.">dharma</button></span></em> (SB, p. 65). <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">Kaal</button></span></em> enters as <strong>relative truth</strong> — alongside direction and place, not as absolute or objective truth in its own right:</p>
 <blockquote>
 <p><strong>&ldquo;Relative truth is evident in the form of direction, time, and place. … The duration of activity, as time, is a humanly devised numerical reckoning within existence.&rdquo;</strong>
@@ -620,23 +815,23 @@
 - MVD, p. 195</p>
 </blockquote>
 <p>JVD adds that every duration appears in numerical form and that purposes can be recognised on the basis of time or activity (JVD, p. 85). Science, in JVD&rsquo;s public-discourse vocabulary, offers a mechanism to associate time with activity once comprehensive object-knowledge is established through analysis (JVD, pp. 191–192). Time-reckoning compares one activity against a standard reference activity (such as the Earth&rsquo;s rotation). The underlying duration is real; quantification and coordinate systems belong to human epistemology within the human order (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="gyan-avastha" data-definition="The knowledge/human order — the level of nature able to know and evaluate every other level.">gyan avastha</button></span></em>), not to the fundamental ontology of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span></em>.</p>
-<h3>1.6 Activity eternally present and the three times</h3>
+<h3 id="16-activity-eternally-present-and-the-three-times" data-depth="2">1.6 Activity eternally present and the three times</h3>
 <p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> emphasises the present as the locus of causal reality. JVD states the central passage deferred from <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §6.2.9:</p>
 <blockquote>
 <p><strong>&ldquo;Every numerical moment of time, which is taken to be past or future, is found to be present in the form of activity. Thus, it becomes studiable that activity is eternally present.&rdquo;</strong>
 - JVD, p. 85</p>
 </blockquote>
-<p>Read carefully, this is not a denial that humans <strong>experience</strong> past and future. We remember, anticipate, and plan; numerical reckoning distinguishes earlier and later durations. The claim is ontological and pedagogical: whatever moment we label past or future, <strong>studiable</strong> reality appears as <strong>present activity</strong>. In insentient nature, anticipated change appears as the projected <strong>result (<em>parinam</em>)</strong> of current <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="shram-gati-parinam" data-definition="Effort–motion–result — the single inseparable triad in which all change appears.">shram–gati–parinam</button></span></em> activity; in sentient <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, the same triad continues but toward <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="samadhan" data-definition="Resolution — understanding and relational closure without residue; joint evidence of complete happiness.">samadhan</button></span></em> (resolution) through projection and reflection rather than physicochemical <em>parinam</em> (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.4). Only present activity possesses causal efficacy in the darshan&rsquo;s order of nature.</p>
+<p>Read carefully, this is not a denial that humans <strong>experience</strong> past and future. We remember, anticipate, and plan; numerical reckoning distinguishes earlier and later durations. The claim is ontological and pedagogical: whatever moment we label past or future, <strong>studiable</strong> reality appears as <strong>present activity</strong>. In insentient nature, anticipated change appears as the projected <strong>result (<em>parinam</em>)</strong> of current <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="shram-gati-parinam" data-definition="Effort, motion, and result are inseparable aspects of every unit-activity.">shram–gati–parinam</button></span></em> activity; in sentient <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, the same triad continues but toward <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="samadhan" data-definition="Resolution — understanding and relational closure without residue; joint evidence of complete happiness.">samadhan</button></span></em> (resolution) through projection and reflection rather than physicochemical <em>parinam</em> (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.4). Only present activity possesses causal efficacy in the darshan&rsquo;s order of nature.</p>
 <p>Where does the &ldquo;past&rdquo; survive if it is not an independent temporal place? In <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> it persists in present forms at two levels. <strong>Physically</strong>, as inherited structural traces and configurations within material units (<em>jada <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="ikai" data-definition="A countable, bounded entity in nature — insentient (*jada*) or sentient (*chaitanya*).">ikai</button></span></em>) — consistent with conservation through transformation, not annihilation (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.12). <strong>In the human order</strong>, through the faculties of <strong><em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em></strong>: <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery.">chitta</button></span></em> (<em>sahaj chitran</em> — natural visualisation) includes <strong>time (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em>)</strong> among its eight reckoning activities — form, property, count, time, expanse, effort, motion, and result (MVD, p. 327); <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="buddhi" data-definition="Discriminative faculty in *jeevan* — part of the sentient unit's orbital structure with *mun*, *vritti*, and *chitta*.">buddhi</button></span></em>&rsquo;s innateness is enlightenment of <strong>time, activity, and truth</strong> (MVD, p. 204); <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> carries acceptances and knowledge forward across cycles (MVD, p. 90; <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.9). Through <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery.">chitta</button></span></em> and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="buddhi" data-definition="Discriminative faculty in *jeevan* — part of the sentient unit's orbital structure with *mun*, *vritti*, and *chitta*.">buddhi</button></span></em>, past and future become <strong>numerically distinguishable</strong> categories for humans — not because duration ceases for insentient units, which have <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em> as activity-duration without <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery.">chitta</button></span></em>, but because human study compares visualised durations against present activity (JVD, p. 85). The full map of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mun" data-definition="A faculty of *jeevan* — imagination and selection; part of the orbital structure with *buddhi*, *vritti*, and *chitta*.">mun</button></span></em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Modification or tendency in *jeevan* — one of the faculties whose alignment supports or obstructs understanding.">vritti</button></span></em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery.">chitta</button></span></em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="buddhi" data-definition="Discriminative faculty in *jeevan* — part of the sentient unit's orbital structure with *mun*, *vritti*, and *chitta*.">buddhi</button></span></em>, and <em>atma</em> belongs in the ongoing study <em>Philosophy-Of-Mind-And-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">Jeevan</button></span></em>; this paper notes only what time requires from that structure.</p>
 <p>&ldquo;Activity eternally present&rdquo; therefore names two related truths: (1) units never cease their <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kriya" data-definition="Unit-activity; the basis of change and, in sentient nature, of duration (*kaal*).">kriya</button></span></em>; (2) the human study of time, activity, and present becomes coherent when we stop treating past and future as independent places and instead trace them to ongoing activity now. This is closer to <strong>present-centred process ontology</strong> than to eternalism, but it is not identical to Western presentism, because the past is real as completed activity (trace, configuration, and human reckoning through <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery.">chitta</button></span></em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="buddhi" data-definition="Discriminative faculty in *jeevan* — part of the sentient unit's orbital structure with *mun*, *vritti*, and *chitta*.">buddhi</button></span></em>, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em>) rather than as sheer non-being.</p>
-<h3>1.7 Place, time, and eternal presence</h3>
+<h3 id="17-place-time-and-eternal-presence" data-depth="2">1.7 Place, time, and eternal presence</h3>
 <p>Questions that treat place and time as <strong>containers</strong> into which existence must be fitted — for example, where the four orders &ldquo;were&rdquo; before Earth — rely on constructs that SB rejects at the level of existential grandeur. In the intrinsic magnificence of existence, characterised by eternal presence, place and time <strong>do not interfere</strong> (SB, p. 103). Existence is not limited to place or time; its magnificence is beyond those constraints, even though humans express reality through words and imagine places and times speculatively (SB, p. 138).</p>
 <p>That claim complements, rather than contradicts, the reality of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em> as activity-duration and of relative truth as direction, time, and place. At the <strong>unit</strong> level, direction, place, and measured duration are operationally valid — mutual reference points among <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="ikai" data-definition="A countable, bounded entity in nature — insentient (*jada*) or sentient (*chaitanya*).">ikai</button></span></em>, numerical reckoning of activity (SB, p. 65). At the <strong>existential</strong> level, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="astitva" data-definition="Existence as coexistence of formless *satta* and active units — beginningless and endless.">astitva</button></span></em> is eternally present (<em>nitya vartaman</em>): what was, continues to be; what was not, does not happen (SB, p. 103). Place and time as <strong>human reckoning frameworks</strong> coordinate activity within coexistence; they do not bound or originate existence itself.</p>
-<h3>1.8 The primacy of the present</h3>
-<p>Because units are always in <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="shram-gati-parinam" data-definition="Effort–motion–result — the single inseparable triad in which all change appears.">shram–gati–parinam</button></span></em> <strong>now</strong>, the present is the actualised state of existence. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> refuses both the Advaitic sublation of temporal becoming at the highest truth and the block-universe picture on which all moments are equally real and static. Change is ontologically real; the present is where transformation occurs. Numerical time is how humans coordinate that reality across scales — from atomic cycles to cosmic epochs — without reifying time as a container independent of activity.</p>
+<h3 id="18-the-primacy-of-the-present" data-depth="2">1.8 The primacy of the present</h3>
+<p>Because units are always in <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="shram-gati-parinam" data-definition="Effort, motion, and result are inseparable aspects of every unit-activity.">shram–gati–parinam</button></span></em> <strong>now</strong>, the present is the actualised state of existence. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> refuses both the Advaitic sublation of temporal becoming at the highest truth and the block-universe picture on which all moments are equally real and static. Change is ontologically real; the present is where transformation occurs. Numerical time is how humans coordinate that reality across scales — from atomic cycles to cosmic epochs — without reifying time as a container independent of activity.</p>
 <h2 id="2-the-advaita-vedanta-answer">2. The Advaita Vedanta Answer</h2>
 <p>Advaita Vedanta holds that existence in the absolute sense (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="paramartha" data-definition="Advaita: absolute level of truth; Brahman alone is absolutely real.">paramartha</button></span></em>) is <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span> alone — beginningless, changeless, partless, and entirely outside temporal becoming (VC, v. 393).</p>
-<h3>2.1 Time at <em>vyavahara</em> and <em>paramartha</em></h3>
+<h3 id="21-time-at-vyavahara-and-paramartha" data-depth="2">2.1 Time at <em>vyavahara</em> and <em>paramartha</em></h3>
 <p>The Upanishads place the absolute both within and beyond temporal structure. The Mandukya Upanishad opens by defining the ultimate reality (represented by <em>Om</em>) as encompassing all temporal phases and transcending them:</p>
 <blockquote>
 <p><strong>&ldquo;All this is the letter Om. A clear explanation of it is this: All that is past, present, and future is verily Om. And whatever else is beyond the three periods of time is also verily Om.&rdquo;</strong>
@@ -652,28 +847,28 @@
 <p><strong>&ldquo;There is neither death nor birth, neither a bound nor a struggling soul, neither a seeker after Liberation nor a liberated one – this is the ultimate truth.&rdquo;</strong>
 - VC, v. 574</p>
 </blockquote>
-<h3>2.2 <em>Trikaal</em> language and the contrast with <em>trikaalabadh</em></h3>
+<h3 id="22-trikaal-language-and-the-contrast-with-trikaalabadh" data-depth="2">2.2 <em>Trikaal</em> language and the contrast with <em>trikaalabadh</em></h3>
 <p>Advaita&rsquo;s <em>trikaal</em> formulas (as in MU, v. 1) serve a non-dual purpose: <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span> is not confined to one temporal phase because <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Advaita: the sole absolute reality — being, consciousness, bliss (*sat-chit-ananda*), one without a second.">Brahman</button></span> is the truth of all phases and also beyond them. Temporal succession belongs to <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vyavahara" data-definition="Advaita: shared empirical order — bodies, law, ethics, scripture; robust but sublated at highest realization.">vyavahara</button></span></em>; at liberation, the Self is discovered as never truly bound by birth, death, or succession (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §2.7).</p>
 <p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> uses parallel <em>trikaal</em> vocabulary with a different ontological commitment. SB&rsquo;s <em>trikaalabadh</em> binds <strong>coexistence</strong> across the three times while <strong>affirming</strong> perpetual unit-activity and world-realness (<em>jagat satat</em>). Advaita validates time operationally but finally sublates it; <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> validates time as real duration of real activity and denies that realization cancels the world. The dispute is not over whether humans live in past–present–future structure, but over whether temporal becoming has <strong>final</strong> ontological weight.</p>
 <h2 id="3-modern-physics-and-philosophy-of-time">3. Modern Physics and Philosophy of Time</h2>
 <p>Mainstream science answers questions about time through relativity, thermodynamics, and cosmology — not through activity-based ontology. Those models nonetheless form the main comparative partners for <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em>.</p>
-<h3>3.1 Spacetime and the block universe</h3>
+<h3 id="31-spacetime-and-the-block-universe" data-depth="2">3.1 Spacetime and the block universe</h3>
 <p>In Newtonian mechanics, time was an absolute, uniform background. Einstein&rsquo;s Special and General Relativity showed that time is relative to the observer&rsquo;s frame and inextricably woven with space into a four-dimensional manifold: <strong>spacetime</strong>. In General Relativity, spacetime is dynamical — it can expand, curve, and in some models exhibit local beginnings (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §4.3).</p>
 <p>A common philosophical interpretation is the <strong>block universe</strong>: past, present, and future coexist statically as coordinates in a four-dimensional block. The flow of time is treated as a feature of consciousness or description, not as an objective passage; there is no privileged &ldquo;now&rdquo; in the block itself.</p>
-<h3>3.2 McTaggart, A-theory, B-theory, eternalism, and presentism</h3>
+<h3 id="32-mctaggart-a-theory-b-theory-eternalism-and-presentism" data-depth="2">3.2 McTaggart, A-theory, B-theory, eternalism, and presentism</h3>
 <p>J.M.E. McTaggart&rsquo;s 1908 analysis distinguishes an <strong>A-series</strong> (events as past, present, or future) from a <strong>B-series</strong> (events as earlier or later than one another). <strong>A-theories</strong> — including presentism and some growing-block models — treat the present (or the present&rsquo;s passage) as ontologically special. <strong>B-theories</strong> — including eternalism and many block-universe readings — treat temporal order as relations among equally real events without a moving &ldquo;now.&rdquo;</p>
-<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s present-centred activity ontology is <strong>A-theoretic in spirit</strong>: the present is where <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kriya" data-definition="Unit-activity; the basis of change and, in sentient nature, of duration (*kaal*).">kriya</button></span></em> actualises. It is not, however, a standard presentism, because past activity leaves real traces (configuration, record, and — in humans — <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery.">chitta</button></span></em>/<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> reckoning) and future states are real anticipations rooted in present <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="shram-gati-parinam" data-definition="Effort–motion–result — the single inseparable triad in which all change appears.">shram–gati–parinam</button></span></em> activity rather than empty non-entities. Eternalism and the block universe are the clearest rivals: they treat temporal passage as derivative or illusory, whereas <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> treats ongoing activity as the bedrock of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em>.</p>
-<h3>3.3 Relational time</h3>
+<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s present-centred activity ontology is <strong>A-theoretic in spirit</strong>: the present is where <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kriya" data-definition="Unit-activity; the basis of change and, in sentient nature, of duration (*kaal*).">kriya</button></span></em> actualises. It is not, however, a standard presentism, because past activity leaves real traces (configuration, record, and — in humans — <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery.">chitta</button></span></em>/<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> reckoning) and future states are real anticipations rooted in present <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="shram-gati-parinam" data-definition="Effort, motion, and result are inseparable aspects of every unit-activity.">shram–gati–parinam</button></span></em> activity rather than empty non-entities. Eternalism and the block universe are the clearest rivals: they treat temporal passage as derivative or illusory, whereas <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> treats ongoing activity as the bedrock of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em>.</p>
+<h3 id="33-relational-time" data-depth="2">3.3 Relational time</h3>
 <p>Relational theories (Leibniz, Mach, and contemporary physicists such as Carlo Rovelli) deny that time exists as an independent container. Time is the network of changes and relations among physical systems; we measure it by comparing one variable&rsquo;s change to another (clock hands relative to the sun, atomic transitions relative to laboratory standards).</p>
-<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s definition of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em> as duration of activity is <strong>structurally close</strong> to relational time: no freestanding temporal substance, only durations of transforming units. The difference is ontological scope — <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> includes sentient unit-activity and ties duration to <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="shram-gati-parinam" data-definition="Effort–motion–result — the single inseparable triad in which all change appears.">shram–gati–parinam</button></span></em> across orders of nature, not only to physical observables in spacetime.</p>
+<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s definition of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em> as duration of activity is <strong>structurally close</strong> to relational time: no freestanding temporal substance, only durations of transforming units. The difference is ontological scope — <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> includes sentient unit-activity and ties duration to <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="shram-gati-parinam" data-definition="Effort, motion, and result are inseparable aspects of every unit-activity.">shram–gati–parinam</button></span></em> across orders of nature, not only to physical observables in spacetime.</p>
 <p>Whitehead&rsquo;s <strong>process philosophy</strong> shares that relational realism and treats time as internal to becoming. His basic units are &ldquo;actual entities&rdquo; — &ldquo;drops of experience, complex and interdependent&rdquo; (Whitehead 1929, p. 28). Process metaphysics is a partial affinity with activity-based <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em>: change and duration belong to unit-becoming, not to an absolute container. The contrast remains <strong>persistence</strong>: Whitehead&rsquo;s occasions are momentary and &ldquo;perpetually perish&rdquo; subjectively, gaining &ldquo;objective immortality&rdquo; only as data for successors (Whitehead 1929, p. 44), whereas <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> is a persisting immortal individual and insentient units retain configuration through transformation rather than subjective perishing (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §3.6.4).</p>
-<h3>3.4 Cosmological time and beginningless existence</h3>
+<h3 id="34-cosmological-time-and-beginningless-existence" data-depth="2">3.4 Cosmological time and beginningless existence</h3>
 <p>Cosmology asks whether the physical universe has a beginning. The standard ΛCDM model implies a hot big bang roughly 13.8 billion years ago; research programs in loop quantum cosmology, conformal cyclic cosmology, and eternal inflation explore whether a beginningless substrate may underlie local cosmic epochs (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §4.2).</p>
 <p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> holds that <strong>existence</strong> (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="astitva" data-definition="Existence as coexistence of formless *satta* and active units — beginningless and endless.">astitva</button></span></em>) is beginningless and endless, while <strong>configurations</strong> of units undergo ceaseless transformation. That claim is <strong>conceptually resonant</strong> with beginningless cosmological models and with conservation-based physics, but it is not established by them. The darshan&rsquo;s further claims — immortal <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>, order-specific cycles, activity eternally present — remain metaphysical assertions distinct from current cosmological evidence.</p>
-<h3>3.5 Entropy and the arrow of time</h3>
+<h3 id="35-entropy-and-the-arrow-of-time" data-depth="2">3.5 Entropy and the arrow of time</h3>
 <p>Thermodynamics explains the macroscopic <strong>arrow of time</strong> — why eggs break but un-break, and why we remember the past rather than the future — through increasing entropy in closed systems (Second Law). Memory and causation align with the entropy gradient in the human branch of physical history.</p>
-<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> does not derive the arrow of time from entropy; its present-centrism is <strong>compatible</strong> with thermodynamic asymmetry rather than competing with it. Within the darshan, temporal direction comes from the ontology of activity itself — but in modes that must not be conflated. <strong>Insentient</strong> units change through <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="shram-gati-parinam" data-definition="Effort–motion–result — the single inseparable triad in which all change appears.">shram–gati–parinam</button></span></em> (effort–motion–<strong>result</strong>): the three are inseparable joint forms of the same activity, and insentient exchange also exhibits <strong>cyclical restoration</strong> and give–take complementarity (SB, pp. 52–53, 58; <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.4). <strong>Sentient</strong> <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> uses the <strong>same</strong> triad, read toward constitutional, activity, and conduct completeness through projection, reflection, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="samadhan" data-definition="Resolution — understanding and relational closure without residue; joint evidence of complete happiness.">samadhan</button></span></em> — qualitative change without physicochemical <em>parinam</em> (SB, p. 55). <strong>Development (<em>vikas</em>)</strong> across the four orders — material, bio, animal, and knowledge — adds a further directional structure: a seed developing into a tree illustrates real order-specific transformation, not mere statistical fluctuation.</p>
-<p>The darshan therefore offers a <strong>partial</strong> ontological orientation toward temporal asymmetry — present-centred <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kriya" data-definition="Unit-activity; the basis of change and, in sentient nature, of duration (*kaal*).">kriya</button></span></em>, directional <em>vikas</em>, and (in humans) <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em>-mediated carry-forward — without replacing thermodynamics. Whether <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="shram-gati-parinam" data-definition="Effort–motion–result — the single inseparable triad in which all change appears.">shram–gati–parinam</button></span></em>, order-specific <em>vikas</em>, or sentient <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="samadhan" data-definition="Resolution — understanding and relational closure without residue; joint evidence of complete happiness.">samadhan</button></span></em> could formally ground or constrain entropy asymmetry remains an open question (§6.4). What <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> adds in any case is an account of <strong>what time is</strong> (duration of activity) and <strong>where becoming is real</strong> (unit <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kriya" data-definition="Unit-activity; the basis of change and, in sentient nature, of duration (*kaal*).">kriya</button></span></em> now).</p>
+<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> does not derive the arrow of time from entropy; its present-centrism is <strong>compatible</strong> with thermodynamic asymmetry rather than competing with it. Within the darshan, temporal direction comes from the ontology of activity itself — but in modes that must not be conflated. <strong>Insentient</strong> units change through <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="shram-gati-parinam" data-definition="Effort, motion, and result are inseparable aspects of every unit-activity.">shram–gati–parinam</button></span></em> (effort–motion–<strong>result</strong>): the three are inseparable joint forms of the same activity, and insentient exchange also exhibits <strong>cyclical restoration</strong> and give–take complementarity (SB, pp. 52–53, 58; <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.4). <strong>Sentient</strong> <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> uses the <strong>same</strong> triad, read toward constitutional, activity, and conduct completeness through projection, reflection, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="samadhan" data-definition="Resolution — understanding and relational closure without residue; joint evidence of complete happiness.">samadhan</button></span></em> — qualitative change without physicochemical <em>parinam</em> (SB, p. 55). <strong>Development (<em>vikas</em>)</strong> across the four orders — material, bio, animal, and knowledge — adds a further directional structure: a seed developing into a tree illustrates real order-specific transformation, not mere statistical fluctuation.</p>
+<p>The darshan therefore offers a <strong>partial</strong> ontological orientation toward temporal asymmetry — present-centred <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kriya" data-definition="Unit-activity; the basis of change and, in sentient nature, of duration (*kaal*).">kriya</button></span></em>, directional <em>vikas</em>, and (in humans) <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em>-mediated carry-forward — without replacing thermodynamics. Whether <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="shram-gati-parinam" data-definition="Effort, motion, and result are inseparable aspects of every unit-activity.">shram–gati–parinam</button></span></em>, order-specific <em>vikas</em>, or sentient <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="samadhan" data-definition="Resolution — understanding and relational closure without residue; joint evidence of complete happiness.">samadhan</button></span></em> could formally ground or constrain entropy asymmetry remains an open question (§6.4). What <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> adds in any case is an account of <strong>what time is</strong> (duration of activity) and <strong>where becoming is real</strong> (unit <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kriya" data-definition="Unit-activity; the basis of change and, in sentient nature, of duration (*kaal*).">kriya</button></span></em> now).</p>
 <h2 id="4-comparative-summary">4. Comparative Summary</h2>
 <p>The three frameworks agree that humans live with past–present–future structure and measurable duration. They disagree over what time <strong>is</strong>, whether the ground of reality is timeless, and whether temporal becoming is finally real.</p>
 <div class="table-scroll"><table>
@@ -725,15 +920,15 @@
 </tbody>
 </table></div>
 <h2 id="5-critical-review">5. Critical Review</h2>
-<h3>5.1 Madhyasth Darshan — activity-based time, present-centred realism</h3>
+<h3 id="51-madhyasth-darshan-activity-based-time-present-centred-realism" data-depth="2">5.1 Madhyasth Darshan — activity-based time, present-centred realism</h3>
 <p><strong>Strengths.</strong> The definition of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em> through <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kriya" data-definition="Unit-activity; the basis of change and, in sentient nature, of duration (*kaal*).">kriya</button></span></em> is internally consistent with the darshan&rsquo;s coexistential ontology: timeless <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span></em>, active <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="ikai" data-definition="A countable, bounded entity in nature — insentient (*jada*) or sentient (*chaitanya*).">ikai</button></span></em>, no freestanding temporal container. The three-truth framework situates <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em> as relative truth alongside direction and place while preserving real activity-duration. <em>Trikaalabadh</em> on coexistence and <em>atma</em>&rsquo;s mediative presence across the three times answer part of the Advaita challenge without sublating the world. JVD&rsquo;s &ldquo;activity eternally present&rdquo; gives a distinctive present-centred account that resists both block eternalism and world-denying non-dualism. Numerical reckoning as convention aligns measurement with human epistemology while preserving real duration.</p>
 <p><strong>Weaknesses.</strong> The relation between &ldquo;every numerical moment is present as activity&rdquo; and ordinary memory, anticipation, and historical record needs tighter formalisation — especially versus eternalism and versus Advaita&rsquo;s <em>turiya</em> witness of temporal states (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §2.2). The darshan suggests directional structure through <em>vikas</em> and the activity triads but does not derive thermodynamic asymmetry from them or fully reconcile activity-based <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em> with relativistic spacetime and cosmological horizons. Public evidence standards remain those of metaphysics, not laboratory physics.</p>
 <p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> offers a coherent activity-based temporal ontology grounded in its texts, but its strongest claims about present-centred causation and beginningless coexistence remain to be tested against rival philosophies of time and against physical theory in detail.</p>
-<h3>5.2 Advaita Vedanta — timeless absolute, robust empirics</h3>
+<h3 id="52-advaita-vedanta-timeless-absolute-robust-empirics" data-depth="2">5.2 Advaita Vedanta — timeless absolute, robust empirics</h3>
 <p><strong>Strengths.</strong> Advaita integrates <em>trikaal</em> language with a rigorous distinction between empirical order and absolute truth. Time is not ignored: it governs <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vyavahara" data-definition="Advaita: shared empirical order — bodies, law, ethics, scripture; robust but sublated at highest realization.">vyavahara</button></span></em>, ethics, and cosmic dissolution (BG 11.32). The Mandukya analysis of waking, dream, and deep sleep offers a first-person route into how temporal <strong>states</strong> appear and are witnessed.</p>
 <p><strong>Weaknesses.</strong> From the Madhyasth perspective, sublating time at <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="paramartha" data-definition="Advaita: absolute level of truth; Brahman alone is absolutely real.">paramartha</button></span></em> makes it harder to give <strong>final</strong> ontological weight to relationships, nature, and conduct — even though <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vyavahara" data-definition="Advaita: shared empirical order — bodies, law, ethics, scripture; robust but sublated at highest realization.">vyavahara</button></span></em> is law-governed and ethically binding (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §6.3). Advaita&rsquo;s reply that ethics deepens at realization is substantial; the dispute is over whether world-realness at every order matches <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s standard.</p>
 <p>Advaita is strongest where it treats temporal experience as a ladder toward timeless witness-consciousness; it is weaker as a <strong>realist</strong> ontology of perpetual unit-activity and coexistence across the three times.</p>
-<h3>5.3 Modern physics and philosophy of time — precision without agreement</h3>
+<h3 id="53-modern-physics-and-philosophy-of-time-precision-without-agreement" data-depth="2">5.3 Modern physics and philosophy of time — precision without agreement</h3>
 <p><strong>Strengths.</strong> Relativity and thermodynamics supply precise, testable accounts of intervals, horizons, and entropy gradients. Relational and process philosophies share structural affinities with activity-based duration. McTaggart&rsquo;s A/B distinction clarifies where <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span> sits among presentism, eternalism, and block models.</p>
 <p><strong>Weaknesses.</strong> Physics does not settle whether the block universe, presentism, or a relational variant is true — interpretations of quantum gravity and cosmology remain contested. Relativity&rsquo;s spacetime is not the same object as <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em>; mapping one to the other risks category error. Entropy explains asymmetry but not the metaphysical status of &ldquo;now&rdquo; or of unit-activity.</p>
 <p>Modern science is indispensable for measurement and dynamical law; it does not by itself answer what time <strong>is</strong> in the Madhyasth or Advaita sense, nor does it validate immortal <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> or timeless Omnipresence.</p>
@@ -749,7 +944,7 @@
 <p><strong>Relativity and activity-based <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em>.</strong> If <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em> is duration of unit-activity and numerical reckoning is conventional, how should one read coordinate time in General Relativity, horizon effects, and the block-universe interpretation? Is spacetime a useful human reckoning on large-scale activity, or a rival ontology?</p>
 </li>
 <li>
-<p><strong>Entropy and the activity triad.</strong> While directional <em>vikas</em> across orders and the single <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="shram-gati-parinam" data-definition="Effort–motion–result — the single inseparable triad in which all change appears.">shram–gati–parinam</button></span></em> triad with its sentient unfolding offer partial orientation toward temporal asymmetry compatible with thermodynamics, it remains unsettled whether this structure could formally <strong>ground</strong> or mathematically <strong>constrain</strong> entropy asymmetry in physical systems, or whether mapping it directly is a category mistake.</p>
+<p><strong>Entropy and the activity triad.</strong> While directional <em>vikas</em> across orders and the single <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="shram-gati-parinam" data-definition="Effort, motion, and result are inseparable aspects of every unit-activity.">shram–gati–parinam</button></span></em> triad with its sentient unfolding offer partial orientation toward temporal asymmetry compatible with thermodynamics, it remains unsettled whether this structure could formally <strong>ground</strong> or mathematically <strong>constrain</strong> entropy asymmetry in physical systems, or whether mapping it directly is a category mistake.</p>
 </li>
 <li>
 <p><strong>Cosmological beginning and beginningless existence.</strong> Resonance between beginningless coexistence and some cosmological models is conceptual, not evidential. What would distinguish <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Co-existentialism — the philosophy founded by Shri A. Nagraj, holding reality as coexistence of Omnipresence and real units.">Madhyasth Darshan</button></span>&rsquo;s claim from eternal inflation or cyclic cosmology on public grounds?</p>
@@ -758,12 +953,12 @@
 <p><strong>Evidence and operational criteria.</strong> Duration of activity is objective within the darshan, but constitutional completeness and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em>-mediated activity are not presently measurable in physics. Until operational criteria exist, the temporal ontology stands as metaphysics compatible with conservation principles, not as established science.</p>
 </li>
 <li>
-<p><strong>Immortal <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> and the experience of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em>.</strong> Because <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> undergoes qualitative change through <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="samadhan" data-definition="Resolution — understanding and relational closure without residue; joint evidence of complete happiness.">samadhan</button></span></em> (resolution) rather than physicochemical <em>parinam</em>, it is constitutionally complete (<em>gathanpurna</em>) and immortal (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §§1.9–1.10). <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">Kaal</button></span></em> still applies to <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> as duration of activity — the question is not whether an immortal unit has time, but how the <strong>qualitative</strong> experience of duration for <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> differs from insentient units undergoing <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="shram-gati-parinam" data-definition="Effort–motion–result — the single inseparable triad in which all change appears.">shram–gati–parinam</button></span></em> and from the decaying body (<em>shareer</em>) whose configurations transform through <em>roopantaran</em> rather than annihilation. Exploring that difference remains a future area of inquiry alongside <em>Philosophy-Of-Mind-And-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">Jeevan</button></span></em>.</p>
+<p><strong>Immortal <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> and the experience of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em>.</strong> Because <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> undergoes qualitative change through <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="samadhan" data-definition="Resolution — understanding and relational closure without residue; joint evidence of complete happiness.">samadhan</button></span></em> (resolution) rather than physicochemical <em>parinam</em>, it is constitutionally complete (<em>gathanpurna</em>) and immortal (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §§1.9–1.10). <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">Kaal</button></span></em> still applies to <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> as duration of activity — the question is not whether an immortal unit has time, but how the <strong>qualitative</strong> experience of duration for <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">jeevan</button></span></em> differs from insentient units undergoing <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="shram-gati-parinam" data-definition="Effort, motion, and result are inseparable aspects of every unit-activity.">shram–gati–parinam</button></span></em> and from the decaying body (<em>shareer</em>) whose configurations transform through <em>roopantaran</em> rather than annihilation. Exploring that difference remains a future area of inquiry alongside <em>Philosophy-Of-Mind-And-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">Jeevan</button></span></em>.</p>
 </li>
 </ol>
 <h2 id="appendix-quick-glossary">Appendix: Quick Glossary</h2>
 <p>Key terms from §§1–3 are collected here for quick reference. Each term is also defined where it first appears in the exposition.</p>
-<h3>Terms in §1</h3>
+<h3 id="terms-in-1">Terms in §1</h3>
 <div class="table-scroll"><table>
 <thead>
 <tr>
@@ -810,7 +1005,7 @@
 </tr>
 </tbody>
 </table></div>
-<h3>Terms in §2</h3>
+<h3 id="terms-in-2">Terms in §2</h3>
 <div class="table-scroll"><table>
 <thead>
 <tr>
@@ -825,7 +1020,7 @@
 </tr>
 </tbody>
 </table></div>
-<h3>Terms in §3</h3>
+<h3 id="terms-in-3">Terms in §3</h3>
 <div class="table-scroll"><table>
 <thead>
 <tr>
@@ -849,25 +1044,25 @@
 </tbody>
 </table></div>
 <h2 id="references">References</h2>
-<h3>Madhyasth Darshan (primary sources)</h3>
+<h3 id="madhyasth-darshan-primary-sources">Madhyasth Darshan (primary sources)</h3>
 <ul>
 <li><strong>MVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan — Co-existentialism</em></a>. English translation by Rakesh Gupta. Cited: time (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em>) as duration of activity (pp. 34, 196); <em>rachna</em> and <em>vistar</em> (p. 196); absolute energy in every time and place (p. 41); four contextual times of awakened human (p. 34); <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipresence — the formless, all-pervasive, non-transforming ground in which all units are saturated.">satta</button></span></em> at all times indivisible from activities (p. 296); <em>atma</em> mediative across three times (p. 299); <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satya" data-definition="Realisation perspective — whether assessment is grounded in coexistence as it is.">satya</button></span></em> at all three times (p. 336); <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="buddhi" data-definition="Discriminative faculty in *jeevan* — part of the sentient unit's orbital structure with *mun*, *vritti*, and *chitta*.">buddhi</button></span></em> enlightenment of time (p. 204); measurement of time through mathematics (p. 195); <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Formation or transmission of understanding across generations — education-*sanskar* carries evidenced understanding at the knowledge order.">sanskar</button></span></em> definition (p. 90); eight activities of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery.">chitta</button></span></em> including time (p. 327).</li>
 <li><strong>SB</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf"><em>Samadhanatmak Bhautikvad</em> (<em>Resolution Centred Materialism</em>)</a>. English translation by Rakesh Gupta. Cited: timeless truth across three times (p. 48); no place or time without formless existence (p. 69); three truths and time as relative truth (pp. 65, 251); place/time constructs vs eternal presence (pp. 103, 138); effort–motion–result triad (p. 58); give–take complementarity (pp. 52–53); time measured by duration of activity (p. 65).</li>
 <li><strong>JVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JVD-Janvad.pdf"><em>Janvad</em> (<em>Behaviour Centred Public Discourse</em>)</a>. English translation by Sanjeev Chopra (WIP). Cited: time as duration of activity; numerical duration; activity eternally present (p. 85); science associating time with activity (pp. 191–192).</li>
 </ul>
-<h3>Advaita Vedanta (primary texts)</h3>
+<h3 id="advaita-vedanta-primary-texts">Advaita Vedanta (primary texts)</h3>
 <p>Verse and section numbers follow standard numbering and apply to any faithful edition (e.g. Swami Gambhirananda&rsquo;s or Swami Madhavananda&rsquo;s translations, Advaita Ashrama).</p>
 <ul>
 <li><strong>MU</strong> — <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf"><em>Mandukya Upanishad</em></a>. Cited: <em>Om</em> encompassing and transcending the three times (v. 1) (§2.1–2.2).</li>
 <li><strong>BG</strong> — <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf"><em>Bhagavad Gita</em></a>, Shankara&rsquo;s commentary (Swami Gambhirananda). Cited: Krishna as world-destroying Time (11.32) (§2.1).</li>
 <li><strong>VC</strong> — <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf"><em>Vivekachudamani</em></a> (attributed to Shankara). English translation by Swami Madhavananda. Cited: changeless Self outside temporal becoming (v. 393); liberation without birth or death (v. 574) (§2.1).</li>
 </ul>
-<h3>Related studies in this collection</h3>
+<h3 id="related-studies-in-this-collection">Related studies in this collection</h3>
 <ul>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> — preview of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em> as duration of activity (§1.4); <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="shram-gati-parinam" data-definition="Effort–motion–result — the single inseparable triad in which all change appears.">shram–gati–parinam</button></span></em> and sentient <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="samadhan" data-definition="Resolution — understanding and relational closure without residue; joint evidence of complete happiness.">samadhan</button></span></em> (§1.4); Advaita temporality (§2.7); spacetime and conservation (§4.3); deferred comparative work on time (§6.2.9).</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> — preview of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="In Madhyasth Darshan: duration of unit-activity (*kriya*); not an independent cosmic container.">kaal</button></span></em> as duration of activity (§1.4); <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="shram-gati-parinam" data-definition="Effort, motion, and result are inseparable aspects of every unit-activity.">shram–gati–parinam</button></span></em> and sentient <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="samadhan" data-definition="Resolution — understanding and relational closure without residue; joint evidence of complete happiness.">samadhan</button></span></em> (§1.4); Advaita temporality (§2.7); spacetime and conservation (§4.3); deferred comparative work on time (§6.2.9).</li>
 <li><em>Philosophy-Of-Mind-And-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="The sentient self: a constitutionally complete, immortal unit that works through the body — not brain activity alone.">Jeevan</button></span></em> (Ongoing) — full faculty map of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mun" data-definition="A faculty of *jeevan* — imagination and selection; part of the orbital structure with *buddhi*, *vritti*, and *chitta*.">mun</button></span></em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Modification or tendency in *jeevan* — one of the faculties whose alignment supports or obstructs understanding.">vritti</button></span></em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Store or residue faculty in *jeevan* — part of the orbital structure; misalignment among faculties yields intellectual mystery.">chitta</button></span></em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="buddhi" data-definition="Discriminative faculty in *jeevan* — part of the sentient unit's orbital structure with *mun*, *vritti*, and *chitta*.">buddhi</button></span></em>, and <em>atma</em> (MVD, pp. 323–327).</li>
 </ul>
-<h3>Modern philosophy and physics</h3>
+<h3 id="modern-philosophy-and-physics">Modern philosophy and physics</h3>
 <ul>
 <li><strong>McTaggart 1908</strong> — McTaggart, J. M. E. <a href="https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.html">&ldquo;The Unreality of Time.&rdquo;</a> <em>Mind</em>, 17(68), 457–474. Wikisource snapshot (public domain). Also at https://en.wikisource.org/wiki/The_Unreality_of_Time. Cited: A-series and B-series (§3.2).</li>
 <li><strong>Rovelli 2018</strong> — Rovelli, C. <a href="https://www.penguinrandomhouse.com/books/563895/the-order-of-time-by-carlo-rovelli/"><em>The Order of Time</em></a>. Riverhead Books. Cited: relational time (§3.3).</li>
@@ -1026,6 +1221,39 @@
   document.addEventListener("keydown", event => {
     if (event.key === "Escape") hide();
   });
+})();
+</script>
+<script>
+(() => {
+  const toggle = document.getElementById("study-theme-toggle");
+  if (!toggle) return;
+  const label = toggle.querySelector(".study-theme-toggle-label");
+  const root = document.documentElement;
+  const system = window.matchMedia("(prefers-color-scheme: dark)");
+  const active = () => root.getAttribute("data-theme") || (system.matches ? "dark" : "light");
+  const paint = () => {
+    const next = active() === "dark" ? "Light" : "Dark";
+    if (label) label.textContent = next;
+    toggle.setAttribute("aria-label", `Switch to ${next.toLowerCase()} theme`);
+  };
+  toggle.addEventListener("click", () => {
+    const next = active() === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("amd-theme", next); } catch (e) {}
+    paint();
+  });
+  system.addEventListener("change", paint);
+  paint();
+})();
+</script>
+<script>
+(() => {
+  const toc = document.getElementById("study-contents");
+  if (!toc) return;
+  // Open where there is room to show it without pushing the study off screen.
+  if (window.matchMedia("(min-width: 760px)").matches && window.innerHeight >= 640) {
+    toc.open = true;
+  }
 })();
 </script>
 
