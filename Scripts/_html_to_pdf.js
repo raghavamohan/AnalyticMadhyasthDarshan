@@ -1,76 +1,19 @@
 const fs = require('fs');
-const os = require('os');
 const path = require('path');
 
 const { PDFDocument, StandardFonts, degrees, rgb } = require('pdf-lib');
 
-// Cursor's agent sandbox sets PUPPETEER_CACHE_DIR to a temp folder that is wiped
-// between sessions, which makes Chrome look "missing" on every agent run. Use the
-// normal per-user cache unless the caller set an explicit executable path.
-const persistentPuppeteerCache = path.join(os.homedir(), '.cache', 'puppeteer');
-const cacheDir = process.env.PUPPETEER_CACHE_DIR ?? '';
-if (
-  !process.env.PUPPETEER_EXECUTABLE_PATH &&
-  (!cacheDir || cacheDir.includes('cursor-sandbox-cache'))
-) {
-  process.env.PUPPETEER_CACHE_DIR = persistentPuppeteerCache;
-}
+// Chrome resolution and version pinning are shared with _html_to_png.js.
+const {
+  assertPinnedChrome,
+  missingChromeMessage,
+  puppeteerLaunchOptions,
+  resolveChromeExecutable,
+} = require('./_chrome');
 
 const puppeteer = require('puppeteer');
 
 const workspaceRoot = path.resolve(__dirname, '..');
-
-const SYSTEM_CHROME_CANDIDATES = [
-  'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
-  'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
-  '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
-  '/usr/bin/google-chrome',
-  '/usr/bin/chromium-browser',
-  '/usr/bin/chromium',
-];
-
-function resolveChromeExecutable() {
-  if (process.env.PUPPETEER_EXECUTABLE_PATH) {
-    return process.env.PUPPETEER_EXECUTABLE_PATH;
-  }
-
-  let managed = '';
-  try {
-    managed = puppeteer.executablePath();
-  } catch (_) {
-    managed = '';
-  }
-  if (managed && fs.existsSync(managed)) {
-    return managed;
-  }
-
-  for (const candidate of SYSTEM_CHROME_CANDIDATES) {
-    if (candidate && fs.existsSync(candidate)) {
-      return candidate;
-    }
-  }
-
-  return '';
-}
-
-// GitHub Actions and other Linux CI images often block Chrome's setuid sandbox
-// (AppArmor / user namespaces). These flags are standard for headless CI.
-const LINUX_CI_CHROME_ARGS = [
-  '--no-sandbox',
-  '--disable-setuid-sandbox',
-  '--disable-dev-shm-usage',
-];
-
-function puppeteerLaunchOptions(executablePath) {
-  const options = {
-    headless: 'new',
-    executablePath,
-  };
-  if (process.platform === 'linux') {
-    options.args = LINUX_CI_CHROME_ARGS;
-  }
-  return options;
-}
 
 // Used when no stamp is supplied on the command line. Must match FALLBACK_STAMP
 // in Scripts/_pdf_metadata.py.
@@ -211,16 +154,15 @@ function buildFooterTemplate(editedOnDate) {
 (async () => {
   const executablePath = resolveChromeExecutable();
   if (!executablePath) {
-    console.error(
-      'Chrome not found for PDF generation.\n' +
-        'Run once from the repo root:\n' +
-        '  cd Scripts; npx puppeteer browsers install chrome\n' +
-        'Or set PUPPETEER_EXECUTABLE_PATH to your local Chrome/Chromium binary.'
-    );
+    console.error(missingChromeMessage());
     process.exit(1);
   }
 
   const browser = await puppeteer.launch(puppeteerLaunchOptions(executablePath));
+  // Pagination depends on Chrome's hyphenation dictionary, so a drifting
+  // renderer would repaginate every study without changing a word. Fail before
+  // anything is written.
+  await assertPinnedChrome(browser);
   const page = await browser.newPage();
 
   await page.goto('file:///' + inputPath.replace(/\\/g, '/'), { waitUntil: 'load' });

@@ -233,6 +233,16 @@ cd ..
 ` ```mermaid ` diagrams in studies), and **katex** (for `$...$` / `$$...$$` math). CI runs
 `npm ci` in `Scripts/` automatically.
 
+Prefer `npm ci` locally too: it installs exactly what `package-lock.json` pins,
+including the Chrome build the committed PDFs were rendered with. Then fetch that
+Chrome once:
+
+```powershell
+cd Scripts
+npx puppeteer browsers install chrome
+cd ..
+```
+
 ### Regenerate one study
 
 ```powershell
@@ -271,6 +281,30 @@ wall-clock timestamp into a generated artifact.
 Reproducibility is scoped to a fixed Chrome and Node toolchain: a Chrome upgrade
 legitimately changes glyph rendering, so the first regeneration after one will
 show a real diff.
+
+That toolchain is now pinned rather than assumed. `Scripts/package.json` holds
+puppeteer at an **exact** version (no caret — a caret lets `npm install` change
+the bundled Chrome) and records the build every regeneration must use as
+`pdfRender.chrome`. `Scripts/_chrome.js` asserts it at launch, so a drifting
+renderer fails before writing instead of quietly repaginating every study.
+
+This matters more than glyph rendering: PDF pagination depends on Chrome's
+hyphenation dictionary. PDFs committed before this pin was introduced were
+rendered by an older Chrome that set `philoso-phy` where the pinned one sets
+`philosophy`, which changed line breaking and grew one study from 21 pages to 23
+— with **identical** text. Those PDFs will therefore repaginate on their next
+regeneration. That is expected, and it is not a content change.
+
+- A system Chrome is no longer a silent fallback. Its version is whatever the
+  machine has, so it is opt-in through `AMD_ALLOW_SYSTEM_CHROME=1`.
+- To move to a new Chrome, update `pdfRender.chrome` **in the same change as the
+  regenerated PDFs**, never on its own.
+- `AMD_ALLOW_CHROME_MISMATCH=1` downgrades the assertion to a warning for a
+  one-off local render. Do not use it to commit PDFs.
+
+Do not do a blanket PDF regeneration to "refresh" pagination. Regenerate a
+study's PDF when its markdown changes, which §1 already requires. Output depends
+on the renderer, so a blanket pass re-rolls every file without changing a word.
 
 On a `study-update` PR, CI rebuilds the study PDF only when something that affects
 it changed — the study markdown, a figure inside that study's own directory, the
