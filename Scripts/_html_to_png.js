@@ -6,62 +6,22 @@
  * Pillow-based generator happens to find on the build machine.
  *
  *   node _html_to_png.js <input.html> <output.png> [width] [height]
+ *
+ * Chrome resolution is shared with _html_to_pdf.js. The pinned-version check
+ * runs in non-strict mode here: a card is a fixed-size screenshot, so a
+ * different Chrome changes nothing that matters, unlike PDF pagination.
  */
 const fs = require('fs');
-const os = require('os');
 const path = require('path');
 
-// Cursor's agent sandbox sets PUPPETEER_CACHE_DIR to a temp folder that is wiped
-// between sessions, which makes Chrome look "missing" on every agent run. Use the
-// normal per-user cache unless the caller set an explicit executable path.
-const persistentPuppeteerCache = path.join(os.homedir(), '.cache', 'puppeteer');
-const cacheDir = process.env.PUPPETEER_CACHE_DIR ?? '';
-if (
-  !process.env.PUPPETEER_EXECUTABLE_PATH &&
-  (!cacheDir || cacheDir.includes('cursor-sandbox-cache'))
-) {
-  process.env.PUPPETEER_CACHE_DIR = persistentPuppeteerCache;
-}
+const {
+  assertPinnedChrome,
+  missingChromeMessage,
+  puppeteerLaunchOptions,
+  resolveChromeExecutable,
+} = require('./_chrome');
 
 const puppeteer = require('puppeteer');
-
-const SYSTEM_CHROME_CANDIDATES = [
-  'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
-  'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
-  '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
-  '/usr/bin/google-chrome',
-  '/usr/bin/chromium-browser',
-  '/usr/bin/chromium',
-];
-
-function resolveChromeExecutable() {
-  if (process.env.PUPPETEER_EXECUTABLE_PATH) {
-    return process.env.PUPPETEER_EXECUTABLE_PATH;
-  }
-  let managed = '';
-  try {
-    managed = puppeteer.executablePath();
-  } catch (_) {
-    managed = '';
-  }
-  if (managed && fs.existsSync(managed)) {
-    return managed;
-  }
-  for (const candidate of SYSTEM_CHROME_CANDIDATES) {
-    if (candidate && fs.existsSync(candidate)) {
-      return candidate;
-    }
-  }
-  return '';
-}
-
-// GitHub Actions and other Linux CI images often block Chrome's setuid sandbox
-// (AppArmor / user namespaces). These flags are standard for headless CI.
-const LINUX_CI_CHROME_ARGS = [
-  '--no-sandbox',
-  '--disable-setuid-sandbox',
-  '--disable-dev-shm-usage',
-];
 
 async function main() {
   const [inputArg, outputArg, widthArg, heightArg] = process.argv.slice(2);
@@ -80,19 +40,13 @@ async function main() {
 
   const executablePath = resolveChromeExecutable();
   if (!executablePath) {
-    console.error(
-      'Chrome not found. Run once from Scripts/: npx puppeteer browsers install chrome',
-    );
+    console.error(missingChromeMessage());
     process.exit(1);
   }
 
-  const launchOptions = { headless: 'new', executablePath };
-  if (process.platform === 'linux') {
-    launchOptions.args = LINUX_CI_CHROME_ARGS;
-  }
-
-  const browser = await puppeteer.launch(launchOptions);
+  const browser = await puppeteer.launch(puppeteerLaunchOptions(executablePath));
   try {
+    await assertPinnedChrome(browser, { strict: false });
     const page = await browser.newPage();
     // deviceScaleFactor 1 keeps the file small; 1200x630 is already the size
     // every crawler wants, so there is nothing to gain from rendering larger.
