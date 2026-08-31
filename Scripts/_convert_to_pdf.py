@@ -27,6 +27,11 @@ FEEDBACK_ISSUES_URL = "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/
 
 SCRIPTS_DIR = Path(__file__).resolve().parent
 KATEX_CSS_PATH = SCRIPTS_DIR / "node_modules" / "katex" / "dist" / "katex.min.css"
+# Vendored so published pages do not reference node_modules. Studies and
+# applications both sit two levels below the repo root, so one relative href
+# resolves for the site and for the file:// render that produces the PDF.
+KATEX_WEB_FONTS = SCRIPTS_DIR.parent / "Assets" / "KaTeX" / "fonts"
+KATEX_WEB_FONT_HREF = "../../Assets/KaTeX/fonts"
 KATEX_RENDER_SCRIPT = SCRIPTS_DIR / "_render_katex_math.js"
 _INLINE_MATH = re.compile(r"(?<!\\)\$(?!\$).+?(?<!\\)\$(?!\$)", re.DOTALL)
 _DISPLAY_MATH = re.compile(r"\$\$.+?\$\$", re.DOTALL)
@@ -98,14 +103,34 @@ def restore_latex_math(html_body: str, segments: list[str]) -> str:
 
 
 def _load_katex_css() -> str:
+    """Inline KaTeX's stylesheet with font URLs that resolve in both places.
+
+    The PDF is rendered from the published HTML through a file:// URL, so these
+    references have to work on the site and on disk alike, which a page-relative
+    path does. The absolute local path this used to write worked only for the
+    PDF: on the site it could not resolve, so every formula fell back to a plain
+    serif, and it shipped the maintainer's home directory into public HTML.
+    """
     if not KATEX_CSS_PATH.is_file():
         raise FileNotFoundError(
             "KaTeX CSS not found. Run once from the repo root:\n"
             "  cd Scripts; npm install"
         )
+    if not KATEX_WEB_FONTS.is_dir():
+        raise FileNotFoundError(
+            f"Vendored KaTeX fonts missing at {KATEX_WEB_FONTS}. Restore with:\n"
+            "  cp Scripts/node_modules/katex/dist/fonts/*.woff2 Assets/KaTeX/fonts/"
+        )
     css = KATEX_CSS_PATH.read_text(encoding="utf-8")
-    fonts_dir = (KATEX_CSS_PATH.parent / "fonts").resolve().as_posix()
-    return css.replace("url(fonts/", f"url({fonts_dir}/")
+    # Only woff2 is vendored -- supported everywhere, including by the Chrome
+    # that renders the PDF -- so the woff and truetype alternatives are dropped
+    # rather than left pointing at files the site does not serve.
+    css = re.sub(
+        r',\s*url\(fonts/[^)]+\)\s*format\("(?:woff|truetype)"\)',
+        "",
+        css,
+    )
+    return css.replace("url(fonts/", f"url({KATEX_WEB_FONT_HREF}/")
 
 
 def render_latex_math(html_body: str) -> str:
