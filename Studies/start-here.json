@@ -1,12 +1,13 @@
 {
   "title": "Start here: the study path I am following",
-  "intro": "This collection records the path I am taking: beginning with the question of what a human is, then moving through existence, knowledge, value, and lived participation. You are welcome to follow the same sequence, question it, and contribute wherever the work is incomplete.",
+  "intro": "I start by asking whether a human is just matter, rather than assuming that the body already answers it. The questions that remain require an understanding of existence, then of how knowledge enters the picture, then of how values come about. Only with that understanding does the path ask how we should live, and how social structures should be designed. Follow the same sequence, question it, or contribute where the work is incomplete.",
   "stages": [
     {
       "number": 1,
       "domain": "Human",
       "question": "Is a human only a body?",
       "reason": "Test whether a human is exhausted by the body by comparing scientific accounts and their physicalist interpretation with Advaita Vedanta and Madhyasth Darshan.",
+      "blurb": "This study tests whether a human is exhausted by a physicochemical body and brain, comparing a physicalist reading of the sciences with Advaita Vedanta and Madhyasth Darshan's body-and-jeevan account.",
       "core": {
         "slug": "Why-Humans-Are-Not-Just-Material",
         "role": "Core study"
@@ -15,13 +16,20 @@
         { "slug": "Philosophy-Of-Mind-And-Jeevan" },
         { "slug": "Chitta-Brain-And-Memory" },
         { "slug": "Death-Continuity-And-Rebirth" }
-      ]
+      ],
+      "next": {
+        "number": 2,
+        "domain": "Existence",
+        "action": "Continue to Existence",
+        "prompt": "If the body does not already answer what a human is, the leftover questions are about existence: what is there, and where we stand in it."
+      }
     },
     {
       "number": 2,
       "domain": "Existence",
       "question": "What exists—and what are we?",
       "reason": "Examine coexistence, units, and nature's orders, including Madhyasth Darshan's claim that the human belongs to the knowledge order.",
+      "blurb": "This study asks what exists: coexistence of omnipresence and units, the four orders of nature, and the claim that the human belongs to the knowledge order rather than being only a material organism.",
       "core": {
         "slug": "The-Ontology-of-Coexistence",
         "role": "Core study"
@@ -30,13 +38,20 @@
         { "slug": "Nature-Of-Time" },
         { "slug": "Nature-Ecology-And-Right-Use" },
         { "slug": "God-Divinity-And-The-Sacred" }
-      ]
+      ],
+      "next": {
+        "number": 3,
+        "domain": "Knowledge",
+        "action": "Continue to Knowledge",
+        "prompt": "Once that picture of existence is stated, the next study asks how it can be known, and what the knower must know."
+      }
     },
     {
       "number": 3,
       "domain": "Knowledge",
       "question": "What must the knower know?",
       "reason": "Ask what knowledge is, what must be known, and how understanding of coexistence and humane conduct guides action toward lasting fulfilment.",
+      "blurb": "This study asks what knowledge is, who the knower is, and how understanding of coexistence must become evident in evaluation, conduct, and tradition rather than remaining unused information.",
       "core": {
         "slug": "The-Epistemology-of-Coexistence",
         "role": "Core study"
@@ -46,13 +61,20 @@
         { "slug": "Work-Action-And-Karma" },
         { "slug": "Free-Will-Choice-And-Agency" },
         { "slug": "Language-Meaning-And-Definition" }
-      ]
+      ],
+      "next": {
+        "number": 4,
+        "domain": "Value",
+        "action": "Continue to Value",
+        "prompt": "If understanding must show itself in evaluation, the next study asks what a value is, and what makes relationship definite."
+      }
     },
     {
       "number": 4,
       "domain": "Value",
       "question": "What makes value and relationship definite?",
       "reason": "Study whether values and relationships have a definite structure, and how understanding is tested and deepened through conduct.",
+      "blurb": "This study asks what a value is, whether it is conferred by preference or already present in participation, and how evaluation can be correct or mistaken in relationship and conduct.",
       "core": {
         "slug": "Axiology-Value-Theory",
         "role": "Core study"
@@ -61,33 +83,41 @@
         { "slug": "Ethics-And-Morals-In-Human-Beings" },
         { "slug": "Family-Relationships-And-Values" },
         { "slug": "Aesthetics" }
-      ]
+      ],
+      "next": {
+        "number": 5,
+        "domain": "Living",
+        "action": "Continue to Living",
+        "prompt": "Values that are definite still have to be lived. The next study asks how coexistence is established in family, education, and society."
+      }
     },
     {
       "number": 5,
       "domain": "Living",
       "question": "How is coexistence lived?",
       "reason": "Begin with family and extend participation through education, society, governance, economy, ecology, and spiritual practice. This widening participation is where understanding is tested in living.",
+      "blurb": "This study asks what would make humankind an undivided society, and how that is established through family, education, organisations, and institutions as the test of the earlier understanding.",
       "core": {
         "slug": "How-Undivided-Society-Is-Established",
-        "role": "Current anchor"
+        "role": "Core study"
       },
       "related": [
-        { "slug": "Family-Relationships-And-Values" },
-        { "slug": "Education-And-Sanskar" },
         { "slug": "Human-Behavior-And-Society" },
-        { "slug": "Governance-Justice-And-Undivided-Society" },
-        { "slug": "Prosperity-Economics-And-Right-Use" },
-        { "slug": "Nature-Ecology-And-Right-Use" },
-        { "slug": "Spiritual-Practice-And-Realization" },
-        { "slug": "How-To-Form-Self-Sustaining-Organizations" }
-      ]
+        { "slug": "How-To-Form-Self-Sustaining-Organizations" },
+        { "slug": "Education-And-Sanskar" }
+      ],
+      "next": {
+        "number": 1,
+        "domain": "Human",
+        "action": "Return to Human",
+        "prompt": "The path does not continue to another stage. Understanding is tested in living, and can be walked again from the human question."
+      }
     }
   ],
   "parallelTrack": {
-    "label": "Parallel track · formal and contemporary synthesis",
+    "label": "Also across the path",
     "question": "Can the pieces form a coherent framework?",
-    "reason": "Alongside every stage, I relate the framework to science, technology, and current developments, formalise its claims, and test whether it can grow into a coherent explanatory system.",
+    "reason": "A formal reconstruction and a science-and-technology study run alongside every stage, rather than after the fifth.",
     "studies": [
       { "slug": "A-State-Dynamic-Model-Of-Coexistence" },
       { "slug": "Science-Technology-And-Human-Purpose" }
