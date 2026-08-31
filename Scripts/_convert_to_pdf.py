@@ -691,6 +691,7 @@ _STUDY_DARK_DECLARATIONS = """
     }
     .study-toc { border-color: #423b33; }
     .study-toc-summary:hover { background: #1e1b18; }
+    .study-toc-label { color: #f5f1ec; }
     .study-toc-meta { color: #aca194; }
     .study-toc-list a { color: #7ebbed; }
     .study-toc-l1 > a { color: #f5f1ec; }
