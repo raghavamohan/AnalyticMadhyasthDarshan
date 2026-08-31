@@ -80,8 +80,6 @@ These papers apply the process reconstruction to concrete domains — organisati
 
 ### Our approach
 
-These studies are written from the standpoint of a **scientist and technologist** trained in physics and mathematics. That starting point takes matter-first scientific explanations seriously, while recognising that consciousness, selfhood, and value remain contested and are not settled simply by assuming materialism.
-
 The project reads primary **Madhyasth Darshan** texts closely, reconstructs their claims as clearly as possible, and compares them with the natural sciences, Advaita Vedanta, and modern philosophy. The aim is rigorous comparative understanding: to test definitions, internal consistency, explanatory scope, and compatibility with evidence — not to persuade or offer devotional endorsement.
 
 ### What we keep separate
@@ -134,8 +132,6 @@ A free [GitHub account](https://github.com/signup) is required to propose or sub
 Full workflow details: [CONTRIBUTING.md](../CONTRIBUTING.md).
 
 ## About us
-
-This collection began as one researcher's attempt to understand **Madhyasth Darshan** in dialogue with science, Advaita Vedanta, and modern philosophy. It is published openly so that others can follow the path, challenge its arguments, improve its sources, and contribute studies of their own.
 
 **[AnalyticMadhyasthDarshan.org](https://analyticmadhyasthdarshan.org/)** is an independent collaborative project. It is not an official publication of Divya Path Sansthan. For official Madhyasth Darshan texts and lectures, visit [madhyasth.org](https://www.madhyasth.org/).
 

@@ -34,7 +34,7 @@ TURNSTILE_ACTION = "turnstile-spin-v1"
 DISCUSSIONS_API_FALLBACK = "https://amd-discussions.raghavamohan.workers.dev"
 
 # Bump when discuss.css / discuss.js change so the cached shared assets refresh.
-ASSET_VERSION = "2"
+ASSET_VERSION = "3"
 
 ASSETS_DIRNAME = "assets"
 DISCUSS_CSS_NAME = "discuss.css"
@@ -84,8 +84,8 @@ def _toolbar_paper_links(links: dict[str, str | None]) -> str:
     if not links.get("read") or not links.get("pdf"):
         return ""
     return (
-        f'          <a class="discuss-toolbar-link" href="{html.escape(links["read"])}">Read paper</a>\n'
-        f'          <a class="discuss-toolbar-link discuss-toolbar-download" href="{html.escape(links["pdf"])}" download>PDF</a>\n'
+        f'          <a class="discuss-toolbar-link" href="{html.escape(links["read"])}">Read the study</a>\n'
+        f'          <a class="discuss-toolbar-link discuss-toolbar-download" href="{html.escape(links["pdf"])}" download>Download PDF</a>\n'
     )
 
 
@@ -138,7 +138,7 @@ def _planned_study_callout(row: StudyRow) -> str:
     <h2 id="planned-callout-heading">Help shape this study</h2>
     <p>This paper is <strong>planned but not yet written</strong>. We are soliciting proposals from contributors who would like to author <strong>{html.escape(title)}</strong>.</p>
     <p>Use the comments below to discuss the <strong>scope</strong> of the study: which questions it should answer, what to include or leave out, which primary texts matter most, and how it should compare with other traditions. Your input here helps define the paper before anyone writes it.</p>
-    <p>If you want to take on the study, follow our submission process on <a href="{submit_href}">My Submissions</a> &mdash; sign in with GitHub, propose the study, and wait for maintainer approval before submitting a draft. Read the study format in <a href="{contributing_href}">CONTRIBUTING.md</a> before you start.</p>
+    <p>If you want to take on the study, follow our submission process on <a href="{submit_href}">My Submissions</a> &mdash; sign in with GitHub, propose the study, and wait for maintainer approval before submitting a draft. Read the <a href="{contributing_href}">contributor guide</a> before you start.</p>
   </section>
 """
 
@@ -208,6 +208,14 @@ a { color: var(--accent); }
   color: #2c241c;
   line-height: 1.35;
 }
+.comments-error { color: #5c5348; font-size: 15px; }
+.comments-retry {
+  font: inherit; font-weight: 600; color: #1a5276; background: none;
+  border: none; padding: 0; cursor: pointer;
+  text-decoration: underline; text-underline-offset: 2px;
+}
+.comments-retry:hover { color: #13405c; }
+.comments-retry:focus-visible { outline: 2px solid #1a5276; outline-offset: 2px; border-radius: 3px; }
 .discuss-toolbar-link { color: #1a5276; text-decoration: none; font-weight: 600; }
 .discuss-toolbar-link:hover { color: #13405c; }
 .discuss-toolbar-link:focus-visible { outline: 2px solid #1a5276; outline-offset: 2px; }
@@ -424,6 +432,9 @@ a { color: var(--accent); }
     outline: none;
   }
   .discuss-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
+  .comments-error { color: #aca194; }
+  .comments-retry { color: #7ebbed; }
+  .comments-retry:hover { color: #b8daf3; }
   .discuss-toolbar-link { color: #7ebbed; }
   .discuss-toolbar-link:hover { color: #b8daf3; }
   .discuss-toolbar-title { color: #f5f1ec; }
@@ -450,6 +461,8 @@ DISCUSS_JS = r"""(() => {
   const alertEl = document.getElementById("discuss-alert");
   const commentList = document.getElementById("comment-list");
   const commentsEmpty = document.getElementById("comments-empty");
+  const commentsError = document.getElementById("comments-error");
+  const commentsRetry = document.getElementById("comments-retry");
   const loadMoreWrap = document.getElementById("load-more-wrap");
   const loadMoreBtn = document.getElementById("load-more");
   const signInPanel = document.getElementById("sign-in-panel");
@@ -491,6 +504,17 @@ DISCUSS_JS = r"""(() => {
     } catch {
       // ignore storage errors
     }
+  };
+
+  // fetch() rejects with "Failed to fetch" / "Load failed" / "NetworkError"
+  // depending on the browser. None of those mean anything to a reader, and the
+  // only useful advice is the same in every case.
+  const readableError = (err) => {
+    const raw = (err && err.message) || "";
+    if (!raw || err instanceof TypeError || /failed to fetch|networkerror|load failed|network request failed/i.test(raw)) {
+      return "Could not reach the discussion service. Check your connection and try again.";
+    }
+    return raw;
   };
 
   const showAlert = (kind, message) => {
@@ -594,7 +618,7 @@ DISCUSS_JS = r"""(() => {
       setAuthUi({ loggedIn: false });
       renderComments();
     } catch (err) {
-      showAlert("error", err.message);
+      showAlert("error", readableError(err));
     }
   };
 
@@ -856,7 +880,7 @@ DISCUSS_JS = r"""(() => {
     try {
       await removeComment(commentId, action);
     } catch (err) {
-      showAlert("error", err.message);
+      showAlert("error", readableError(err));
       button.disabled = false;
     }
   });
@@ -885,7 +909,7 @@ DISCUSS_JS = r"""(() => {
       showAlert("success", "Reply posted.");
       await loadComments();
     } catch (err) {
-      showAlert("error", err.message);
+      showAlert("error", readableError(err));
       if (submitBtn) submitBtn.disabled = false;
     }
   });
@@ -909,26 +933,38 @@ DISCUSS_JS = r"""(() => {
       hasMore = batch.length === PAGE_SIZE;
       renderComments();
       markDiscussionSeen(allComments);
+      if (commentsError) commentsError.classList.add("hidden");
+    } catch (err) {
+      if (commentList && !append) commentList.innerHTML = "";
+      if (commentsEmpty) commentsEmpty.classList.add("hidden");
+      if (commentsError) commentsError.classList.remove("hidden");
+      throw err;
     } finally {
       if (loadMoreBtn) loadMoreBtn.disabled = false;
     }
   };
 
+  if (commentsRetry) {
+    commentsRetry.addEventListener("click", () => {
+      loadComments().catch((err) => showAlert("error", readableError(err)));
+    });
+  }
+
   if (loadMoreBtn) {
     loadMoreBtn.addEventListener("click", () => {
-      loadComments({ append: true }).catch((err) => showAlert("error", err.message));
+      loadComments({ append: true }).catch((err) => showAlert("error", readableError(err)));
     });
   }
 
   const loadSession = async () => {
     try {
-      const session = await fetchJson("/api/discuss-auth/me");
-      setAuthUi(session);
-      await loadComments();
+      setAuthUi(await fetchJson("/api/discuss-auth/me"));
     } catch (err) {
+      // Reading the discussion needs no session, so a failed check only means
+      // the reader is treated as signed out.
       setAuthUi({ loggedIn: false });
-      showAlert("error", err.message);
     }
+    await loadComments();
   };
 
   const savedName = (() => {
@@ -972,7 +1008,7 @@ DISCUSS_JS = r"""(() => {
       showAlert("success", data.message || "Check your email for a sign-in link.");
       resetSignInTurnstile();
     } catch (err) {
-      showAlert("error", err.message);
+      showAlert("error", readableError(err));
       resetSignInTurnstile();
     }
   });
@@ -993,11 +1029,11 @@ DISCUSS_JS = r"""(() => {
       const textarea = form.querySelector('textarea[name="body"]');
       if (textarea) textarea.focus();
     } catch (err) {
-      showAlert("error", err.message);
+      showAlert("error", readableError(err));
     }
   });
 
-  loadSession().catch((err) => showAlert("error", err.message));
+  loadSession().catch((err) => showAlert("error", readableError(err)));
 })();
 """
 
@@ -1079,10 +1115,10 @@ def render_discussion_page(row: StudyRow) -> str:
   <header class="discuss-header">
     <nav class="discuss-toolbar" aria-label="Discussion navigation">
       <div class="discuss-toolbar-row">
-        <a class="discuss-toolbar-link discuss-toolbar-back" href="{html.escape(links['catalog'])}">&larr; Studies</a>
+        <a class="discuss-toolbar-link discuss-toolbar-back" href="{html.escape(links['catalog'])}">&larr; All studies</a>
         <h1 class="discuss-toolbar-title">{html.escape(title)}{status_note}</h1>
         <span class="discuss-toolbar-actions">
-{paper_links}          <a class="discuss-toolbar-link discuss-toolbar-feedback" href="{html.escape(feedback)}" rel="noopener">Suggest correction</a>
+{paper_links}          <a class="discuss-toolbar-link discuss-toolbar-feedback" href="{html.escape(feedback)}" rel="noopener">Suggest a correction</a>
           <button type="button" id="toolbar-auth-btn" class="btn btn-sm btn-auth btn-primary">Log in</button>
         </span>
       </div>
@@ -1123,6 +1159,10 @@ def render_discussion_page(row: StudyRow) -> str:
     <h2 id="comments-heading">Comments</h2>
     <ul id="comment-list" class="comments" aria-live="polite"></ul>
     <p id="comments-empty" class="hidden">No comments yet. Be the first to start the discussion.</p>
+    <p id="comments-error" class="comments-error hidden">
+      Comments could not be loaded.
+      <button type="button" id="comments-retry" class="comments-retry">Try again</button>
+    </p>
     <div id="load-more-wrap" class="comments-list-actions hidden">
       <button type="button" id="load-more" class="btn">Load more comments</button>
     </div>

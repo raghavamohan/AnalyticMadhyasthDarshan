@@ -13,6 +13,8 @@
   const alertEl = document.getElementById("discuss-alert");
   const commentList = document.getElementById("comment-list");
   const commentsEmpty = document.getElementById("comments-empty");
+  const commentsError = document.getElementById("comments-error");
+  const commentsRetry = document.getElementById("comments-retry");
   const loadMoreWrap = document.getElementById("load-more-wrap");
   const loadMoreBtn = document.getElementById("load-more");
   const signInPanel = document.getElementById("sign-in-panel");
@@ -54,6 +56,17 @@
     } catch {
       // ignore storage errors
     }
+  };
+
+  // fetch() rejects with "Failed to fetch" / "Load failed" / "NetworkError"
+  // depending on the browser. None of those mean anything to a reader, and the
+  // only useful advice is the same in every case.
+  const readableError = (err) => {
+    const raw = (err && err.message) || "";
+    if (!raw || err instanceof TypeError || /failed to fetch|networkerror|load failed|network request failed/i.test(raw)) {
+      return "Could not reach the discussion service. Check your connection and try again.";
+    }
+    return raw;
   };
 
   const showAlert = (kind, message) => {
@@ -157,7 +170,7 @@
       setAuthUi({ loggedIn: false });
       renderComments();
     } catch (err) {
-      showAlert("error", err.message);
+      showAlert("error", readableError(err));
     }
   };
 
@@ -419,7 +432,7 @@
     try {
       await removeComment(commentId, action);
     } catch (err) {
-      showAlert("error", err.message);
+      showAlert("error", readableError(err));
       button.disabled = false;
     }
   });
@@ -448,7 +461,7 @@
       showAlert("success", "Reply posted.");
       await loadComments();
     } catch (err) {
-      showAlert("error", err.message);
+      showAlert("error", readableError(err));
       if (submitBtn) submitBtn.disabled = false;
     }
   });
@@ -472,26 +485,38 @@
       hasMore = batch.length === PAGE_SIZE;
       renderComments();
       markDiscussionSeen(allComments);
+      if (commentsError) commentsError.classList.add("hidden");
+    } catch (err) {
+      if (commentList && !append) commentList.innerHTML = "";
+      if (commentsEmpty) commentsEmpty.classList.add("hidden");
+      if (commentsError) commentsError.classList.remove("hidden");
+      throw err;
     } finally {
       if (loadMoreBtn) loadMoreBtn.disabled = false;
     }
   };
 
+  if (commentsRetry) {
+    commentsRetry.addEventListener("click", () => {
+      loadComments().catch((err) => showAlert("error", readableError(err)));
+    });
+  }
+
   if (loadMoreBtn) {
     loadMoreBtn.addEventListener("click", () => {
-      loadComments({ append: true }).catch((err) => showAlert("error", err.message));
+      loadComments({ append: true }).catch((err) => showAlert("error", readableError(err)));
     });
   }
 
   const loadSession = async () => {
     try {
-      const session = await fetchJson("/api/discuss-auth/me");
-      setAuthUi(session);
-      await loadComments();
+      setAuthUi(await fetchJson("/api/discuss-auth/me"));
     } catch (err) {
+      // Reading the discussion needs no session, so a failed check only means
+      // the reader is treated as signed out.
       setAuthUi({ loggedIn: false });
-      showAlert("error", err.message);
     }
+    await loadComments();
   };
 
   const savedName = (() => {
@@ -535,7 +560,7 @@
       showAlert("success", data.message || "Check your email for a sign-in link.");
       resetSignInTurnstile();
     } catch (err) {
-      showAlert("error", err.message);
+      showAlert("error", readableError(err));
       resetSignInTurnstile();
     }
   });
@@ -556,9 +581,9 @@
       const textarea = form.querySelector('textarea[name="body"]');
       if (textarea) textarea.focus();
     } catch (err) {
-      showAlert("error", err.message);
+      showAlert("error", readableError(err));
     }
   });
 
-  loadSession().catch((err) => showAlert("error", err.message));
+  loadSession().catch((err) => showAlert("error", readableError(err)));
 })();
