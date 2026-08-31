@@ -376,6 +376,8 @@ async function startHerePayload(rows) {
     domain: stage.domain,
     question: stage.question,
     reason: stage.reason,
+    blurb: stage.blurb || null,
+    next: stage.next || null,
     core: studyRef(rows, stage.core && stage.core.slug, {
       role: stage.core && stage.core.role,
     }),
