@@ -14,7 +14,7 @@ Natural / Madhyasth Darshan — Coexistentialism
 
 **Working English translation** (unpublished draft for study use)
 
-**Edited on:** August 24, 2026, 6:13 AM IST
+**Edited on:** August 31, 2026, 9:20 AM IST
 
 Shri Bhajanashram, Amarkantak
 
@@ -331,7 +331,7 @@ Every unit in the knowledge order has the capacity for a holistic view of insent
 
 Realisation knowledge and the holistic view are complete only in the state free from delusion. Therefore —
 
-Freedom from delusion itself is awakening; awakening itself is enlightenment; enlightenment itself is sovereignty; sovereignty itself is supreme order; supreme order itself is undivided society and universal orderliness.
+Freedom from delusion itself is awakening; awakening itself is full awareness; full awareness itself is sovereignty; sovereignty itself is supreme order; supreme order itself is undivided society and universal orderliness.
 
 "The human being alone is primarily helpful in the decline and development of the human being."
 
@@ -397,113 +397,113 @@ Chapter One
 
 Karma
 
-Through the physical, vocal, and mental modes, and through the distinctions of action done, caused, and intended, every human being performs karma in nine ways. Every karma has a result.
+Every human being performs karma in nine ways: physically, vocally, and mentally, with each action being done, caused, or intended. Every karma bears a result.
 
-Physical, vocal, and mental karma are well known in the human being across all three times. Together with the distinctions of done, caused, and intended, they constitute nine evident kinds. The human field of action encompasses only the natural, the social, and the intellectual, and its desired end (*abhīṣṭa*) is happiness—neither more nor less. Without this, the restfulness of effort does not manifest. Activity together with aspiration is therefore karma; motion together with awareness is complete activity.
+Physical, vocal, and mental karma are evident in human beings across the past, present, and future. Combined with the distinctions of done, caused, and intended action, they form nine kinds. The human field of action encompasses only the natural, the social, and the intellectual, and its desired end (*abhīṣṭa*) is happiness—neither more nor less. Without happiness as its desired end, human endeavour finds no rest. Karma is therefore activity animated by aspiration; complete activity is motion informed by awareness.
 
-The pressure involved in accepting the unacceptable is pain (*vedanā*). It is evident that the environment, as relativity with respect to the unit, is itself the factor that exerts this pressure. Relativity influences both decline and development.
+Pain (*vedanā*) is the pressure that arises from accepting what is unacceptable. The environment—the relational context of the unit—is what exerts this pressure. Relationality can contribute either to decline or to development.
 
-Every karma contains five limbs: doer, cause, objective, result, and effect. Contact and relationship arise only for the fulfilment of necessity. Necessity is desire, rooted in society and sociality, their observance and upholding, and in conduct, following, and cultivation.
+Every karma has five components: the doer, cause, objective, result, and effect. Contact and relationship arise only for the fulfilment of necessity. Necessity takes the form of desire. It is rooted in society and sociality and expressed through their observance, preservation, practice, and cultivation.
 
-All activities undertaken, in accordance with the holistic view, to determine necessities and accept their observance occur as desire. Desire manifests the awareness present in conscious activity.
+Every activity undertaken from a holistic view to determine needs and commit to fulfilling them takes the form of desire. Desire expresses the awareness present in conscious activity.
 
 Human beings expect the fulfilment of every desire and necessity to bring happiness.
 
 [p. 2]
 
-The hope present in every karma is for happiness. Through the realisation-based method, this is naturally known as happiness, peace, contentment, and joy. The balance of desire, karma, and result makes the accomplishment of desire possible. Human desire seeks intellectual, collective (social), and natural ascent through rules and processes that provide a determinate direction.
+Every act is undertaken in the hope of happiness. Through the realisation-based method, the forms of happiness—happiness, peace, contentment, and joy—become naturally knowable. Desire can be fulfilled only when desire, action, and result are in balance. Human aspiration seeks intellectual, collective, and natural advancement through rules and processes that provide a definite direction.
 
-For the human being, karma has proved both to nourish and to exploit the happiness long hoped for. It is understood in three parts: righteous action, unrighteous action, and mixed action. Righteous action is directed toward union and awakening; unrighteous action takes the form of offence and retribution; and mixed action takes the form of enjoyment and retaliation. Every karma, without exception, is relative to its result.
+Human action has proved capable of either sustaining or undermining the happiness people have long sought. It is understood in three parts: righteous action, unrighteous action, and mixed action. Righteous action is directed toward union and awakening; unrighteous action takes the form of offence and retribution; and mixed action takes the form of enjoyment and retaliation. Every act, without exception, is inseparable from its result.
 
-The results of karma are understood in four forms: moksha, dharma, *kama* (desire), and wealth (*artha*). There is no karma without desire. Human desires are distinguished as intense, causal, and subtle. Intense desires readily become activity; causal desires have little possibility of doing so; and subtle desires have very little possibility.
+The results of karma are understood in four forms: moksha, dharma, *kama* (desire), and wealth (*artha*). There is no karma without desire. Human desires are distinguished as intense, causal, and subtle. Intense desires readily lead to action; causal desires are less likely to do so, and subtle desires less likely still.
 
 Intense desires are those without which one cannot live.
 
 Causal desires are impulses arising from union, coincidence, or happenstance.
 
-Subtle desires concern such matters as truth, dharma, and justice when no clear thought remains for evidencing them.
+Subtle desires concern truth, dharma, justice, or some object for which no clear thought yet exists that could provide evidence.
 
-Means are distinguished as internal and external. Internal means comprise hope, thought, desire, resoluteness (*ṛtambharā*), and the evidences of realisation; external means comprise body and wealth. This is the clear form of insentient and sentient activity. The accomplishment of desire lies in attaining oneness, balance, and harmony between the insentient and the sentient. Every human being is evidently engaged in endeavour toward this accomplishment.
+Means are distinguished as internal and external. Internal means comprise hope, thought, desire, resoluteness (*ṛtambharā*), and the evidence of realisation; external means comprise body and wealth. Together they reveal the respective roles of insentient and sentient activity. The accomplishment of desire lies in attaining oneness, balance, and harmony between the insentient and the sentient. Every human being plainly strives toward this fulfilment.
 
-For the aim—the desire—the seeker's dedication and the deployment of means are necessary. Resources (*artha*) are the means, manifest as body, mind, and wealth. Although constituted through work, these resources also serve as the means for constituting karma.
+Attaining the aim (*sadhya*)—the desired end (*abhīṣṭa*)—requires the seeker's dedication and the deployment of means. The means are resources (*artha*), evident as body, mind, and wealth. These resources are produced through work and, in turn, serve as the means through which karma is formed.
 
 [p. 3]
 
-Every karma carries a sequence of experiencing and inference. This sequence continues until realisation. True experiencing alone is completeness. The existent state, the objective, and the condition become known through the natural realisation of truth; the complete meaning of all meaning is therefore realisation.
+Every karma carries a sequence of experiencing and inference. This sequence continues until realisation. Experiencing Truth (*satyanubhūti*) alone is completeness. The existent state, the objective, and the context are in the form of experience; hence the complete meaning of full understanding is realisation itself.
 
-The whole of karma exists for the acquisition of wealth, whose purpose is realisation. The acquisition, use, right-use, and distribution of wealth likewise serve the fulfilment of desire. Realisation lies at the root of that fulfilment and becomes evident, with awakening, in both the individual and humankind as a whole. Whatever exists can be viewed and known as it is; this holistic view and knowledge constitute realisation.
+All karma serves the acquisition of wealth, and the purpose of that acquisition is realisation. The acquisition, use, right-use, and distribution of wealth likewise serve the fulfilment of desire. Realisation is the basis of this fulfilment. With awakening, it becomes evident in both the individual and humanity as a whole. Whatever exists can be viewed and known as it is; this holistic view and knowledge constitute realisation.
 
-For the human being, happiness is the desired equilibrium (*abhīṣṭa*). Deploying internal and external means toward realisation is enlightenment; any other deployment is non-enlightenment. The possibility of these two conditions is the basis of diversity.
+For human beings, happiness is the desired state of equilibrium (*abhīṣṭa*). Directing internal and external means toward realisation is full awareness; directing them otherwise is the absence of full awareness. The possibility of either condition accounts for human diversity.
 
-External means are controlled according to the capacity of the internal means—hope, thought, desire, resoluteness, and the evidences of realisation. Their internal totality is the conscious. Insentient and sentient nature is contained within knowledge (Omnipotence) and is therefore regulated within it; through such equilibrium and control, development and awakening continue up to realisation.
+External means are controlled according to the capacity of the internal means—hope, thought, desire, resoluteness, and the evidence of realisation. The totality of the internal means constitutes the conscious. Insentient and sentient nature is contained within knowledge (Omnipotence) and is therefore governed by it. Through such balance and regulation, development and awakening proceed toward realisation.
 
-A life filled with knowledge gives rise to freedom from delusion; its opposite gives rise to delusion. Knowledge comprises realisation, resolve, desire, thought, and hope. Its complete manifestation rests on the conscious unit's capacity and its essential nature toward awakening.
+A life filled with knowledge gives rise to freedom from delusion; its opposite gives rise to delusion. Knowledge comprises realisation, resolve, desire, thought, and hope. Their full expression depends on the conscious unit's capacity and its essential nature, which is oriented toward awakening.
 
-As a complete capacity, freedom from delusion accomplishes desire by enabling proper and refined karma. The knowledge manifested through the human being is of three kinds: (1) physical, (2) intellectual, and (3) spiritual (coexistence). These become evident as skill, proficiency, and scholarliness.
+Freedom from delusion is the complete capacity to perform proper and refined karma and thereby fulfil the desired end. Knowledge expressed through the human being takes three forms: (1) physical, (2) intellectual, and (3) spiritual (coexistence). It is manifested as skill, proficiency, and scholarliness.
 
-Material science principally employs the external means, whereas intellectual and spiritual science employ the internal means. Material science and psychology are relative knowledge and study; the Spirit (Omnipotence) is absolute (determinate) knowledge. Relativity encompasses gain, expenditure, decline, development, and awakening. The right-use of word-powers produces knowledge, while their wastage produces ignorance. Whatever a person wastes, that person becomes deprived of.
+Material science principally employs the external means, whereas intellectual and spiritual science employ the internal means. Material science and psychology deal in relative knowledge and study, whereas the Spirit (Omnipotence) is absolute and determinate knowledge. Relativity encompasses gain, expenditure, decline, development, and awakening. The right-use of the powers of words produces knowledge, while wasting them produces ignorance. Whoever wastes a capacity becomes deprived of it.
 
 [p. 4]
 
-The results of karma include wealth, calamity, good desire, unrighteous action, dharma, un-dharma, and the pair of moksha and bondage. Within the jeevan programme, wealth, good desire, dharma, and awakening directed toward moksha constitute happiness. Their opposites—calamity, unrighteous action, un-dharma, and bondage—constitute sorrow and pain as process and problem in jeevan.
+Karma yields wealth or calamity, good desire or unrighteous action, dharma or un-dharma, and moksha or bondage. Within the programme of jeevan, wealth, good desire, dharma, and awakening directed toward moksha constitute happiness. Their opposites give rise to the processes and problems of sorrow and pain.
 
-Dharma is all-round resolution. Resources (*artha*) comprise body, mind, and wealth; the supreme meaning is realisation. In the awakened human being, good desire means that sensations remain controlled and evidenced through cognisance. Moksha is freedom from delusion.
+Dharma is all-round resolution. Resources (*artha*) comprise body, mind, and wealth; the supreme meaning is realisation. In an awakened human being, good desire means that cognisance governs and validates sensation. Moksha is freedom from delusion.
 
 "Wealth alone is happiness, righteous action alone is peace, dharma alone is contentment, and moksha alone is supreme joy."
 
-The whole of desire has seven distinctions:
+Desire takes seven graded forms:
 
-Wealth for the sake of moksha and moksha for the sake of wealth are, respectively, the best-of-the-best and the worst-of-the-worst. Wealth for the sake of dharma and dharma for the sake of wealth are, respectively, the middling-best and the worst. Wealth for the sake of *kama* and *kama* for the sake of wealth are, respectively, best and worst; wealth for the sake of wealth is middling.
+Wealth in the service of moksha is the highest of the high, while moksha in the service of wealth is the lowest of the low. Wealth in the service of dharma is intermediate-to-high, while dharma in the service of wealth is low. Wealth in the service of *kama* is high, *kama* in the service of wealth is low, and wealth sought for its own sake is intermediate.
 
-The distinctions of desire give rise to exploration; those of exploration, to destination; those of destination, to realisation; those of realisation, to value; and those of value, to sociality and universal orderliness.
+Differences in desire lead to different forms of exploration; these lead in turn to destination, realisation, value, sociality, and universal orderliness.
 
 The human being has three kinds of exploratory tendency:
 
 (1) truth-oriented exploration, (2) motive-oriented exploration, (3) instincts-oriented exploration.
 
-Instincts-oriented exploratory tendencies also occur in animals; the other two belong to the human being alone. For this reason, instincts-oriented exploratory tendencies are not free from offence.
+Instincts-oriented exploratory tendencies also occur in animals; the other two belong to the human being alone. Because of this, instincts-oriented exploration remains liable to wrongdoing.
 
 Non-attachment to objects is dispassion, or freedom from vitiations. Non-attachment to desires is supreme-detachment, or the acceptance and observance of right-use.
 
 [p. 5]
 
-The instincts-oriented exploratory tendency is functional in self-interest; the motive-oriented exploratory tendency in others'-interest; and the truth-oriented exploratory tendency in ultimate-interest.
+Instincts-oriented exploration serves self-interest; motive-oriented exploration serves the interests of others; and truth-oriented exploration serves the ultimate good.
 
-Behaviour full of self-interest is base and asocial; behaviour full of others'-interest is middling-best and social; behaviour full of ultimate-interest is best, social, and free. Behaviour full of ultimate-interest is itself the mentality of universal wellbeing.
+Behaviour governed by self-interest is base and antisocial; behaviour directed toward others' interests is socially constructive but intermediate; and behaviour directed toward the ultimate good is the highest, social, and free. The last expresses the mentality of universal wellbeing.
 
 Tendencies may be goal-based, value-based, or interest-based.
 
-Activities born of righteous and unrighteous action, through intellect-based and interest-based unions, are well known in the human being.
+Human activity arising from righteous or unrighteous action is shaped by unions rooted in intellect and inclination.
 
-*Kāsā*, *ākūti*, and *medhā* are forms of intellect born of union; *mati*, *sumati*, and *anumati* are forms of intellect born of righteous action; and *amati*, *kumati*, and *durmati* manifest the tendency born of unrighteous action.
+*Kāsā*, *ākūti*, and *medhā* are forms of intellect arising from union; *mati*, *sumati*, and *anumati* arise from righteous action; and *amati*, *kumati*, and *durmati* are tendencies arising from unrighteous action.
 
-Union-born *kāsā* becomes evident in the poet, sage, and artist. *Ākūti* manifests as the divine worker who clearly brings about comprehensive resolution; divine purposefulness is deployed through the divine knower, who is undeluded; and *medhā*, together with complete knowledge, manifests as moksha, or freedom from delusion. These become evident as kindness, grace, and compassion.
+*Kāsā*, born of union, is expressed in poets, sages, and artists. *Ākūti* appears in the divine worker who brings about comprehensive resolution; purposeful divine application appears in the undeluded divine knower; and *medhā*, joined with complete knowledge, appears as moksha, or freedom from delusion. These become evident as kindness, grace, and compassion.
 
-Righteous-action-born *mati* takes the form of accepted (social) karma, conduct, and work-behaviour. *Sumati* is righteous action—karma necessary for society—expressed in conduct and work-behaviour. *Anumati* is incomparable karma, worthy of being followed, likewise expressed in conduct and work-behaviour.
+*Mati*, born of righteous action, is expressed in socially accepted action, conduct, work, and behaviour. *Sumati* is expressed in action necessary for society; *anumati* in exemplary action worthy of emulation.
 
 Righteous action comprises right intellect, right tendency, right understanding, right science, sociality, and true resolve.
 
-Unrighteous-action-born *amati* is reckoned as unaccepted (asocial) karma, conduct, and work-behaviour. *Kumati* is reckoned as vile karma—karma specifically forbidden—and its conduct and work-behaviour. *Durmati* is reckoned as wicked karma, conduct, and work-behaviour, such as coveting another's wealth or spouse and inflicting pain on others.
+*Amati*, born of unrighteous action, is expressed in socially unacceptable action and conduct. *Kumati* appears as vile or specifically prohibited action. *Durmati* appears as wicked action, such as coveting another's wealth or spouse or inflicting pain on others.
 
 [p. 6]
 
-The instincts-oriented exploratory tendency is engrossed in unrighteous action; the motive-oriented exploratory intellect in righteous action; the truth-oriented exploratory intellect is engrossed, striving, and practising in union — that is, in awakening.
+Instincts-oriented tendencies are absorbed in unrighteous action; motive-oriented intellect in righteous action; and truth-oriented intellect in union—that is, awakening—through sustained endeavour and practice.
 
-Every human being's natural propensity is evident in the sum of environment, study, and *sanskar*.
+A person's essential nature reflects the combined influence of environment, study, and *sanskar*.
 
 The environment is distinguished as natural or human-made.
 
-Education and orderliness manifest the human-made environment.
+Education and orderliness constitute the human-made environment.
 
-The *sanskar* of humankind becomes clear in the "exploration-trio": instincts-oriented, motive-oriented, and truth-oriented exploration.
+Human *sanskar* is expressed through the "exploration-trio": instincts-oriented, motive-oriented, and truth-oriented exploration.
 
-The natural environment is assessed through the balance of cold, heat, and rainfall on each land, together with the three orders other than the human.
+The natural environment of a region is determined by its balance of cold, heat, and rainfall and by the presence of the three non-human orders.
 
 The natural environment of any land depends on the measure of its minerals and vegetation, which in turn depends on that land's development.
 
 Before human beings of the knowledge order can inhabit any land, animals and plants must be abundant; before they can be abundant, water must be present.
 
-Only within definite minimum and maximum measures of cold, heat, and rainfall can animals and human beings on any land fulfil their life-sequence and the programme of jeevan.
+Animals and human beings can sustain their life cycles and jeevan programmes only within definite lower and upper limits of cold, heat, and rainfall.
 
 The balance of the natural environment also supports the human being's natural awakening. Therefore:
 
@@ -513,39 +513,39 @@ Complete Omnipotence (*sattā*) is the basis of balance for the whole of nature,
 
 [p. 7]
 
-The basis of the balance of every activity is rule, which is complete.
+Complete rules sustain balance in activity.
 
-The basis of the balance of every behaviour is justice, which is complete.
+Complete justice sustains balance in behaviour.
 
-The basis of the balance of every thought is resolution, which is complete.
+Complete resolution sustains balance in thought.
 
-The basis of realisation in every individual is the supreme truth that is coexistence, which is total.
+The supreme truth of coexistence sustains realisation in every person.
 
-The human being is the principal cause of natural and human balance and imbalance. In the deluded condition, a person is free while performing karma but subject to it while undergoing its result. The awakened human being is free both while performing karma and while undergoing its result. Awakened tradition acts after understanding; deluded tradition seeks to understand after acting. It is especially the human being who makes use of natural splendour.
+The human being is the principal cause of natural and human balance and imbalance. A deluded person is free to act but bound by the consequences. An awakened person remains free both in action and while experiencing its results. Awakened tradition acts after understanding; deluded tradition seeks to understand after acting. Human beings are the primary users of natural splendour.
 
-Natural law means using the necessary measure of a land's mineral and plant (forest) wealth while keeping it secure, and supporting rather than obstructing its production process so that seasonal balance is maintained. This is entirely the human being's responsibility.
+Natural law requires using only as much of a region's mineral and forest wealth as necessary, conserving it, and supporting rather than obstructing its production cycle so that seasonal balance is maintained. This is entirely the human being's responsibility.
 
-Plants (forests) and minerals, whose possibility and sequence of production are clear, should be used only in proportion to that sequence; otherwise natural calamities follow.
+Forest and mineral resources should be used only in proportion to their known availability and production cycles; otherwise natural calamities follow.
 
 Education and orderliness are the sole means of maintaining collective (social) balance.
 
-Social balance is the tradition of work-behaviour grounded in contentment with one's own wealth and spouse, and in kindness. By contrast, imbalance arises from coveting another's spouse or wealth and from desiring another's pain.
+Social balance rests on a tradition of work and conduct marked by contentment with one's own wealth and spouse and by kindness. Imbalance arises from coveting another's spouse or wealth and desiring another's pain.
 
 [p. 8]
 
-At the root of a person's balance of thought (intellectual balance) lies the activity of necessary and unnecessary fundamental tendencies. Understanding *sanskar* lies at the root of the necessary tendencies in a human being; delusion (compulsion) lies at the root of the unnecessary tendencies.
+Intellectual balance depends on how a person's necessary and unnecessary basic tendencies operate. Understanding and *sanskar* underlie the necessary tendencies; delusion and compulsion underlie the unnecessary ones.
 
 The necessary fundamental tendencies manifest, in sequence, as non-accumulation (prosperity), affection, learning, simplicity, and fearlessness (trust in the present); the unnecessary tendencies manifest as convenience, accumulation, malice, ignorance, conceit, and fear.
 
 The rules suited to natural, social, and intellectual balance are the necessary rules. Together, they form the "rule-trio."
 
-The decision to know and follow the necessary rules becomes clear through their right-use; the decision about right-use, through development and awakening; and the decision about development and awakening, through understanding and observing intellectual, social, and natural rules. For a human being, following the necessary rules is indispensable to keeping the progression of development and awakening unbroken. This is also the manifest programme of human jeevan, awakening progression, and awakened jeevan.
+Knowing and following the necessary rules depends on their right-use; right-use depends on development and awakening; and development and awakening depend on understanding and observing intellectual, social, and natural rules. Human beings must follow the necessary rules to keep the progression of development and awakening unbroken. This is the practical programme of human jeevan, the awakening progression, and awakened jeevan.
 
 Immersion in, observance of, and evaluation of cultural values constitute the human-made environment.
 
-The *sanskar* present in a human being expresses that person's essential nature. Human culture arises only with purity born of wholesome *sanskar*. Culture continues to be purified by *sanskar* until it becomes complete.
+A person's *sanskar* expresses their essential nature. Wholesome *sanskar* gives rise to human culture and progressively refines it toward completeness.
 
-The completeness of *sanskar* manifests as humane and higher-humane essential nature.
+Complete *sanskar* is expressed as a humane or higher-humane essential nature.
 
 A refined culture manifests as humane essential nature.
 
@@ -553,11 +553,11 @@ A distorted culture manifests as inhumaneness.
 
 [p. 9]
 
-A culture full of sociality becomes clear through humaneness. Culture, civilisation, method, and orderliness exist to nourish such humaneness.
+Humaneness is the visible expression of a social culture. Culture, civilisation, method, and orderliness exist to sustain humaneness.
 
-These are mutually complementary, because civilisation provides nourishment to culture, method provides nourishment to civilisation, orderliness provides nourishment to method, and culture provides nourishment to orderliness.
+They form a mutually sustaining cycle: civilisation sustains culture, method sustains civilisation, orderliness sustains method, and culture sustains orderliness.
 
-In awakened tradition, the humane cultural programme manifests *sanskars*, for no human being in such a tradition is devoid of *sanskar*. Deluded human traditions, by contrast, are organised as communities and factions. This is the cause of the whole problem. Problems do not evidence *sanskar*, because every problem can be resolved.
+In awakened tradition, the humane cultural programme gives expression to *sanskar*, for no human being in such a tradition is devoid of it. Deluded human traditions, by contrast, organise themselves into communities and factions. This fragmentation is the source of the entire problem. Problems are not evidence of *sanskar*, since every problem is capable of resolution.
 
 Visualisation and thought reveal, respectively, art and usefulness.
 
@@ -567,41 +567,41 @@ Humane *sanskar* indicates universal culture. Inhumane tendencies cannot become 
 
 Healthy, universal culture and civilisation arise only through the observance of social rules, thereby establishing the wholeness and continuity of society.
 
-The human being alone is not satisfied merely by personal happiness and convenience, but by behaviour and orderliness grounded in understanding. Every individual therefore seeks the security and right-use of the convenience obtained. The human being has thus proved to be a social and judicial unit, or is bound to become one.
+Human beings are not satisfied by personal happiness and convenience alone; they also require conduct and orderliness grounded in understanding. Each person therefore seeks to safeguard and make right-use of the conveniences they acquire. The human being is thus either already a social and justice-oriented unit or is compelled to become one.
 
 Sociality combines intellectuality and physicality.
 
-Physicality is under the control of intellectual capacity, because production and behaviour are not accomplished in the absence of thought.
+Physical activity is governed by intellectual capacity, since neither production nor behaviour is possible without thought.
 
 [p. 10]
 
-Human beings living through animal consciousness apply the perspectives of pleasant and unpleasant, beneficial and harmful, and profit and loss to physical enterprise and its use. In awakened human tradition, the perspectives of just and unjust, dharma and un-dharma, and true and untrue prove decisive in behaviour and conduct.
+People living in animal consciousness assess physical enterprise and its use in terms of the pleasant and unpleasant, beneficial and harmful, and profitable and unprofitable. In awakened human tradition, the perspectives of just and unjust, dharma and un-dharma, and true and untrue prove decisive in behaviour and conduct.
 
-Through animal consciousness, the human being gives rise to many problems; through human consciousness, the human being evidences resolution.
+Animal consciousness generates problems; human consciousness demonstrates resolution.
 
 Without studying good scripture, there is no true aspiration; without true aspiration, no true love; without true love, no true fidelity; without true fidelity, no true stability; without true stability, no true conviction; without true conviction, no true realisation; without true realisation, no unveiling of good scripture. And without this unveiling, the study of good scripture is neither complete nor meaningful.
 
-True conviction and experiencing establish fidelity in humane conduct and just behaviour.
+True conviction and experiencing ground fidelity to humane conduct and just behaviour.
 
-Without humane conduct and just behaviour, just exchange and just benefit in mutuality are not possible.
+Without humane conduct and just behaviour, mutually just exchange and benefit are impossible.
 
 Just exchange and benefit constitute prosperity.
 
-Unjust profit and benefit manifest as sorrow and problems.
+Unjust gain and advantage produce sorrow and problems.
 
-Realisation-based enlightenment, as natural jeevan, becomes evident as humaneness and supra-humaneness.
+A life grounded in realisation-based enlightenment is expressed as humaneness and higher humaneness.
 
-Without right-use there is no true love, right tendency, righteous action, happiness, peace, contentment, and joy.
+Without right-use, there can be no true love, right tendency, righteous action, happiness, peace, contentment, or joy.
 
-The human being is inclined toward true knowledge, toward study suited to the vision of truth, and toward performing karma and conduct because both the possibility and necessity of a lawful life are present.
+Human beings aspire to true knowledge, to study aligned with the vision of truth, and to righteous action and conduct because a lawful life is both possible and necessary.
 
 [p. 11]
 
-Within humaneness, every programme takes the form of method and orderliness. Its conduct is civilisation, and the observance of that tradition is culture.
+In a humane life, every programme is organised through method and orderliness. Putting it into practice is civilisation; sustaining the resulting tradition is culture.
 
-In the human being, sorrow, disquiet, and discontent constitute duality and are also its result.
+Sorrow, disquiet, and discontent both constitute conflict within the human being and arise from it.
 
-The circumstances of a human being are constituted by the capacity attained through karma, worship, and knowledge. These circumstances become a proper or improper environment.
+A person's circumstances arise from capacities acquired through karma, upasana, and knowledge; together they form a favourable or unfavourable environment.
 
 The conduct and behaviour of the awakened human being constitute orderliness, which is the cause of peace.
 
@@ -609,29 +609,29 @@ Responsibility extends as far as a human being's contacts.
 
 Relationship entails the observance of responsibility.
 
-Relationship carries duty-predominant responsibility, while contact carries responsibility-predominant duty. This is sociality.
+In relationships, duty is governed chiefly by responsibility; in contacts, responsibility is governed chiefly by duty. This is sociality.
 
-An auspicious environment is established through lawful orderliness and through understanding the basis of universally agreeable peace, resolution, and prosperity. Under these conditions, the study and practice of good scripture become universally accessible.
+An auspicious environment arises through lawful orderliness and an understanding of peace, resolution, and prosperity as values acceptable to all. In such conditions, the study and practice of good scripture become accessible to everyone.
 
-Undivided society becomes evident through scripture and thought capable of establishing undivided sociality; a social programme capable of propagation; refined method and law-governed orderliness; individuals endowed with conduct; and families capable of encouraging them. This is the human being's abiding aspiration and evidence, as well as its longing and possibility.
+Undivided society becomes evident when scripture and thought establish undivided sociality, social programmes can be shared, methods are refined, orderliness is governed by law, individuals embody conduct, and families support them. This is humanity's abiding aspiration and evidence—its longing and its possibility.
 
 Human beings need peace and stability in every condition of jeevan. Individuals and families attain them through the study, contemplation, and conduct of good scripture.
 
-Capable of granting freedom from delusion regarding the whole, clarifying the direction and progression of awakening, determining human values universally, and providing education for advancing from humaneness to supra-humaneness—
+Only scripture and education can free people from delusion about the whole, clarify the direction and progression of awakening, determine human values universally, and guide the transition from humaneness to higher humaneness.
 
 [p. 12]
 
-scripture and the education system alone can establish a life of peace and stability at every level. Without them, stability and peace in human life are not possible.
+They can thereby establish a life of peace and stability at every level. Without them, stability and peace in human life are not possible.
 
-Human beings undertake all karma in movement toward happiness, peace, contentment, and their stability—the goal together with its means.
+All human action seeks happiness, peace, contentment, and their continuity—goals pursued together with the means to attain them.
 
-Because the human being is free while performing karma, its results bring happiness or unhappiness. Karma performed with humaneness in the intellectual, social, and natural spheres gives happiness; the same karma performed within inhumaneness gives sorrow.
+Because human beings are free to act, their actions may yield happiness or unhappiness. Action undertaken humanely in the intellectual, social, and natural spheres produces happiness; the same action undertaken inhumanely produces sorrow.
 
-At present, the human being is reckoned in four kinds.
+In the present understanding, human beings fall into four categories.
 
 (1) the meritorious soul, (2) the sinful soul, (3) the happy, (4) the unhappy.
 
-The human being's five states—individual, family, society, nation, and international order—each have a distinct policy and manner for relating to the meritorious soul, the sinful soul, the happy, and the unhappy. In sequence, the individual responds through reverence, neutrality, contentment, and kindness; the family through pride, disregard, cooperation, and service; society through reward, correction, collaboration, and cooperative feeling; the nation through honour, punishment (reform), guidance toward resolution, and cooperative feeling; and the international order through protection, deliverance, promotion, and refinement. A life endowed with such policy and manner, and with law, regulation, behaviour, and conduct, succeeds; otherwise it does not. The correspondences are as follows:
+The five levels of human organisation—individual, family, society, nation, and international order—relate differently to these four categories. A life grounded in the appropriate policy and manner, together with law, regulation, behaviour, and conduct, succeeds; otherwise it does not. The corresponding relationships are shown below:
 
 | | Meritorious soul | Sinful soul | Happy | Unhappy |
 | :---- | :---- | :---- | :---- | :---- |
@@ -646,51 +646,51 @@ The human being's five states—individual, family, society, nation, and interna
 | Nation | Honour | Punishment (reform) | Assurance | Cooperative feeling |
 | International | Protection | Deliverance | Promotion | Refinement feeling |
 
-Without society and sociality, no value or programme is accomplished in human jeevan.
+No human value or programme can be realised without society and sociality.
 
-There is no human being devoid of a programme.
+Every human being acts within some programme.
 
-The programme is karma.
+That programme is karma.
 
-Karma alone contributes either to decline or to development and awakening.
+Karma alone leads either to decline or to development and awakening.
 
-There is no unit in insentient and sentient nature that is not in motion toward decline or development.
+Every unit in insentient and sentient nature moves toward either decline or development.
 
-Knowledge, wisdom, and science together form the sole basis for complete awakening. The propensity toward refined karma exists to develop this capacity, which must be expressed across the human being's five states and four dimensions.
+Knowledge, wisdom, and science together provide the sole basis for complete awakening. The inclination toward refined karma develops this capacity, which must find expression across the five levels and four dimensions of human life.
 
-An international order without the actual holistic view, a programme without resolution, an orderliness without a treasury, a society fallen from dharma and devoid of certainty, a family without righteous character, and an individual without good conduct remain perpetually anxious.
+An international order without a true holistic view, a programme without resolution, an orderliness without resources, a society devoid of dharma and certainty, a family without righteous character, and an individual without good conduct all remain perpetually anxious.
 
 Sociality is the evident form of dharma; it is culture and civilisation.
 
-*Sanskar*, culture, and civilisation are essential for non-disparity in the natural mutuality of human beings; this is their usefulness.
+*Sanskar*, culture, and civilisation are necessary to sustain non-disparity in the natural mutuality among human beings; herein lies their usefulness.
 
 [p. 14]
 
-An international order incapable of holding a mystery-free holistic view of the whole, a national order incapable of protecting and promoting truthfulness, a society incapable of propagating truthfulness, a family incapable of following it, and an individual incapable of truthful conduct are afflicted by intense distress.
+Intense distress afflicts an international order that cannot uphold a transparent holistic view of the whole, a national order that cannot protect and promote truthfulness, a society that cannot propagate it, a family that cannot follow it, and an individual who cannot conduct themselves truthfully.
 
-Every kind of harmful tendency becomes active when necessities exceed opportunity (possibility). Such tendencies principally take the form of exploitation, harming both self and other.
+Harmful tendencies arise whenever needs exceed what is possible. They principally take the form of exploitation, harming both oneself and others.
 
-The means—body, mind, and wealth—constitute opportunity.
+Body, mind, and wealth—the means—define the opportunities available.
 
-Means become insufficient when necessity is unrestrained and abundant when necessity is restrained. Unrestrained necessity contains wastage.
+Means prove insufficient when needs are unrestrained and abundant when needs are restrained. Unrestrained needs entail waste.
 
-For the human being, humaneness alone provides the thread of restraint.
+Humaneness alone provides the guiding principle of restraint.
 
 Form, strength, intellect, status, wealth, karma, worship, necessity, occasion, and opportunity all have their proper place in the human being.
 
 Assurances never put into practice, rights exceeding merit, scripture without principle, method without basis, and conduct without direction are all causes of distress.
 
-The bases of method are reckoned to be of three kinds: (1) truth-basis, (2) karma-basis, and (3) object-basis.
+Methods rest on three bases: (1) truth, (2) karma, and (3) objects.
 
-Laws and regulations grounded in scripture that clarifies the truth-basis enable the human being to attain happiness, peace, contentment, and joy—the thread of glory natural to humaneness and supra-humaneness.
+When laws and regulations are grounded in scripture that clarifies truth, they enable human beings to attain happiness, peace, contentment, and joy—the thread of glory natural to humaneness and higher humaneness.
 
-Law, regulation, and policy grounded in truthfulness establish the oneness of internationality. They bind states and nations together through coexistence and manifest a human life free from individualism, communalism, and factionalism.
+Law, regulation, and policy grounded in truthfulness unite the international order. They bind states and nations through coexistence and make possible a human life free from individualism, communalism, and factionalism.
 
 [p. 15]
 
-In an orderliness-process governed by laws and regulations determined on the basis of karma, exchange is free from calculations of gain and loss for self or other. It is not, however, free from group sentiment.
+In a system governed by laws and regulations grounded in karma, exchange is free from calculations of gain and loss for oneself or others. It is not, however, free from group sentiment.
 
-In a governance process whose laws and regulations are based on objects, gain and loss for self and other prevail. It offers no account of society; the community alone is its boundary.
+In a system whose laws and regulations are object-based, considerations of gain and loss dominate. Society itself is not accounted for; the community sets the limit.
 
 Every action guided by wise reflection and the aspiration for upasana is beneficial at every level.
 
@@ -698,165 +698,161 @@ The capacity for the holistic view rests on awakening, which rests on aspiration
 
 It is well known that knowledge becomes clear only when endeavour is aligned with knowledge, work with endeavour, result with work, realisation with result, and knowledge with realisation.
 
-Human beings act from beginning to end in order to attain the three kinds of results of action.
+Human action, from beginning to end, seeks one of three kinds of result.
 
-All action is undertaken for the goals of self-interest, the interest of others, or ultimate interest.
+Every action serves self-interest, the interests of others, or the ultimate good.
 
-When generative intellect is joined with mediating intellect, it engages in righteous action. Within humaneness, the entire diversity of action is freed from mutually opposed conditions. Conduct according to the "rule-trio" is the direct evidence of this.
+When generative intellect is joined with mediating intellect, it engages in righteous action. Within humaneness, this frees the whole range of action from contradiction. Conduct according to the "rule-trio" is the direct evidence of this.
 
 In every union and separation, values are recognised and deployed.
 
 Union gives rise to sentiment, sentiment to activity, and activity to union. This is the cycle of relativity and behaviour.
 
-The capacity to determine and practise social values makes clear the distinction between a socially fulfilled personality and one marked by asociality. This indicates human decline or development.
+The ability to identify and practise social values distinguishes a socially fulfilled person from an asocial one, thereby indicating either human development or decline.
 
 [p. 16]
 
-Sentiment operates in mutuality through higher and lower forms, and their development becomes known through these activities.
+Mutual relations give rise to higher and lower forms of affective activity, through which the level of development becomes known.
 
-A family filled with higher sentiment, a society grounded in generative-mediating union, and an orderliness and behaviour grounded in mediating-generative union together constitute the programme of universal wellbeing.
+Universal wellbeing requires families guided by higher sentiments, a society structured by the generative–mediating union, and orderliness and conduct structured by the mediating–generative union.
 
 Righteous action cannot be determined without a clear capacity for the holistic view. This capacity alone determines generative, degenerative, and mediating activity, process, and purpose. It also establishes completeness in conduct, behaviour, orderliness, and the education system.
 
-Knowledge, wisdom, and science are essential for behaviour. Production requires wisdom aligned with knowledge and science-filled knowledge aligned with wisdom. Such knowledge is manifested and practised according to the capacity and necessity of each awakened individual.
+Behaviour requires knowledge, wisdom, and science. Production requires science guided by wisdom, with wisdom itself grounded in knowledge. Each awakened individual manifests and applies them according to their capacity and needs.
 
-The determination of practical values occurs only through deliberation.
+Practical values can be determined only through deliberation grounded in the immortality of jeevan, the mortality of the body, and the rules of behaviour.
 
-Deliberations are in accordance with the immortality of jeevan, the mortality of the body, and the rule of behaviour.
-
-Practical values become meaningful in the sense of humaneness. It is on this basis that the rule-trio (intellectual, social, and natural) has been established.
+Practical values acquire meaning only within humaneness. It is on this basis that the rule-trio (intellectual, social, and natural) has been established.
 
 Conduct and observance within the natural mutuality of human beings are meaningful through coexistence; through non-coexistence, they become meaningless and problematic.
 
-Humane conduct is the evident form of actual knowledge-capacity.
+Humane conduct is the direct expression of genuine capacity for knowledge.
 
-The capacity to understand is the natural unveiling of knowledge in mutuality.
+Understanding is the natural disclosure of knowledge within mutuality.
 
-The capacity to understand is expressibility (*vyanjaniyata*). A unit's fundamental expressibility is its conjointness within Omnipotence, and experiencing that conjointness is complete expressibility. *Sanskar* is the qualitative refinement of the conscious unit's expressible capacity; this is the capacity for the holistic view and realisation
+Understanding is expressibility (*vyanjaniyata*). A unit's fundamental expressibility lies in its inseparable relation to Omnipotence; experiencing that relation is complete expressibility. *Sanskar* is the qualitative refinement of the conscious unit's capacity for expression. This also encompasses the capacities for holistic vision and realisation.
 
 [p. 17]
 
-—capacity. The holistic view of measure and boundary, and realisation in truth, are well known. The progression of expressible capacity reveals both the awakening progression and awakening itself.
+The holistic view of measure and boundary, and realisation in truth, are well known. The development of expressive capacity makes both the progression toward awakening and awakening itself evident.
 
 The human being is manifest within coexistence as both beholder and beheld; this is the ground of the holistic view.
 
-For manifestation to be evidenced, the beholder must remain. Expressible capacity establishes the beholder.
+For anything to be manifested as evidence, a beholder must be present. Expressive capacity establishes the beholder.
 
-Nature is a collection of infinite units, the aggregate of the beheld.
+Nature is the collection of infinite units—the totality of what is beheld.
 
 Every beholder is also beheld by another beholder, and every unit is a beholder according to its own awakening.
 
 The programme and conduct of human jeevan, from beginning to end, are of three kinds: (1) truth-conduct, (2) popular-conduct, and (3) object-conduct. These are reckoned, respectively, as best, middling, and worst.
 
-Humane conduct is the natural evidence of ascertainment. Ascertainment is evidenced in disencumberance (*nivṛtti*), and the sequence proceeds as follows: disencumberance gives impetus and wisdom; impetus and wisdom give accordance and adherence; accordance and adherence give unveiling; unveiling gives manifestation; manifestation becomes evident; the evident becomes evidence; evidence becomes experiencing; experiencing gives capacity, ability, and receptivity; these give state-fullness; state-fullness gives potency; potency gives glory; and glory gives conduct.
+Humane conduct directly evidences ascertainment. Ascertainment appears as disencumberance (*nivṛtti*), which initiates the following progression: disencumberance leads to impetus and wisdom; these to accordance and adherence; these to unveiling; unveiling to manifestation; manifestation to the evident; the evident to evidence; evidence to experiencing; experiencing to capacity, ability, and receptivity; these to state-fullness; state-fullness to potency; potency to glory; and glory to conduct.
 
 Seer-status corresponds to the capacity for the holistic view, and behaviour accords with it. Without thought, no work or behaviour is accomplished or evidenced through the body. Thought therefore lies at the root of all activity carried out through the body. The body is not thought; it is the medium through which thought is propagated. Thought is thus additional to the body and is a conscious activity.
 
-Ideational capacity is situated in the human being's five states.
-
-For this very reason all humankind is equal in capacity.
+Ideational capacity is present at all five levels of human organisation; for this reason, all human beings are equal in capacity.
 
 [p. 18]
 
-For the refinement of ideational capacity, the true path and the auspicious study of yoga are well known. Qualitative change in *sanskar* through consciousness-development-value education is universally auspicious and constitutes ideational capacity. This progression forms a complete orderliness until it is fulfilled through humane and supra-humane conduct. It succeeds through the observance, adherence, and cultivation of the "rule-trio"; otherwise it fails.
+The true path and the auspicious study of yoga are established means of refining ideational capacity. Consciousness-development-value education brings a qualitative transformation in *sanskar*; this is universally auspicious and, in turn, refines ideational capacity. This progression forms a complete orderliness until it is fulfilled through humane and higher-humane conduct. It succeeds through the observance, adherence, and cultivation of the "rule-trio"; otherwise it fails.
 
-The study of yoga is the study of meeting. After such meeting, acceptance is evident as jeevan-awakening, and deviation as inhumaneness.
+The study of yoga is the practice of meeting. Once such meeting occurs, acceptance appears as jeevan-awakening, while distortion appears as inhumaneness.
 
-Every human being is engaged in endeavour toward enlightenment. Enlightenment becomes evident as humane conduct. Humaneness and supra-humaneness are the glory attained through complete orderliness.
+Every person strives for full awareness, which is expressed in humane conduct. Humaneness and higher humaneness are the fulfilment of complete orderliness.
 
-The programme of jeevan is karma, and karma is conduct.
+The programme of jeevan is karma, and karma finds expression in conduct.
 
-The humane human being manifests conduct directed toward prosperity, art, and comprehension.
+In a humane person, conduct is directed toward prosperity, art, and understanding.
 
-Conduct directed toward true comprehension and naturalness is evident in the humane and divine-humane human being; it is their essential nature.
+Humane and divine-humane human beings display conduct grounded in true comprehension and naturalness; this is their essential nature.
 
-For the human being, humane and supra-humane conduct alone is utterly useful and necessary.
+Only humane and higher-humane conduct is truly useful and necessary for human beings.
 
-The human being's five states are mutually complementary. Their unified threading is undivided sociality, arising from universal observance of the "rule-trio."
+The five levels of human organisation complement one another. Their unifying thread is undivided sociality, arising from universal observance of the "rule-trio."
 
 Every discovery and investigation begins as an individual unveiling and becomes universally accessible through education and propagation. This is the process of universal generalisation.
 
 [p. 19]
 
-Discovery belongs to one who has potency and glory, because clear knowledge of it did not previously exist within the human category. In this sense—relative to the understanding present among human communities before the year 2000—Madhyasth Darshan is a discovery and an investigation.
+A discovery reveals the potency and glory of something not previously understood clearly by humankind. In this sense, and relative to what human communities understood before 2000, Madhyasth Darshan is both a discovery and an investigation.
 
-Manifestation in, from, and for coexistence is discovery. The process of generalising discovery is education—specifically, consciousness-development-value education.
+Discovery is the manifestation of what exists within, arises from, and serves coexistence. Education—specifically, consciousness-development-value education—is the process by which a discovery becomes universally accessible.
 
 The human being has as much scope for decline as for ascent. Decline-oriented activity is offence or error, manifested as sorrow, disquiet, discontent, and the delusion of non-coexistence.
 
-Decline-oriented jeevan has three causes of offence: (1) deficiency, (2) excessive hope, and (3) ignorance. Attachment, malice, untruth, conceit, fear, indolence, disease, and failure accompany them. Human beings have the opportunity to remove, resolve, or avoid these in sequence: deficiency through production and practice; excessive hope through wisdom; ignorance through knowledge; attachment through dispassion; malice through affection; untruth through truth; conceit through simplicity; fear through fearlessness; indolence through endeavour; failure through valour and renewed application; and disease through medicine, diet, and regimen. This opportunity is a necessity.
+In a life oriented toward decline, wrongdoing has three causes: (1) deficiency, (2) excessive hope, and (3) ignorance. Attachment, malice, untruth, conceit, fear, indolence, disease, and failure accompany them. Human beings have the opportunity to remove, resolve, or avoid these in sequence: deficiency through production and practice; excessive hope through wisdom; ignorance through knowledge; attachment through dispassion; malice through affection; untruth through truth; conceit through simplicity; fear through fearlessness; indolence through endeavour; failure through valour and renewed application; and disease through medicine, diet, and regimen. Having this opportunity is itself a human necessity.
 
-The non-wastage of scientific capacity keeps wealth from becoming calamity.
+Using scientific capacity without waste prevents wealth from becoming a source of calamity.
 
-The deployment of wisdom establishes the wholeness of society, which is heavenliness.
+Applying wisdom establishes social wholeness—the condition described as heavenliness.
 
-Science—proficiency and skill—is the fitness to regulate through quantification that which is less developed than the human being. It has proved fully useful in production and partially useful in behaviour. Wisdom, by contrast, clarifies social values through analysis of the human self.
+Science—proficiency and skill—is the capacity to measure and regulate forms of nature less developed than the human being. It is fully useful in production and partly useful in behaviour. Wisdom, by contrast, clarifies social values through analysis of the human self.
 
 [p. 20]
 
-Within coexistence, knowledge is the beheld, the human being is the beholder, and sight accords with human-ness. Knowledge, behaviour, and resolution are thereby evidenced in coexistence, and orderliness follows.
+Within coexistence, knowledge is what is beheld, the human being is the beholder, and human-ness provides the way of seeing. Thus knowledge, behaviour, and resolution are evidenced within coexistence, and orderliness follows.
 
-Practical value is stable value.
+Practical values are enduring values.
 
-Relationship and contact provide the human being with occasions for behaviour.
+Relationships and contacts create occasions for human behaviour.
 
 There is no contact or relationship devoid of value.
 
-Every mutuality contains expectations. At root, this is relativity and necessity.
+Every mutual relationship carries expectations; these arise from relationality and necessity.
 
-Direct perception, inference, and testimony-activity are classified and determined on the basis of what is perceptible to knowledge and to sight.
+Direct perception, inference, and testimony-activity are distinguished according to what can be apprehended through knowledge and sight.
 
-Realising the continuity of proximity is direct perception; recognising the possibility of that continuity is inference; and establishing existence beyond the possibility of proximity is testimony-activity.
+Direct perception is the realisation of continuous proximity; inference is recognising the possibility of such continuity; testimony-activity concerns existence beyond what proximity alone can establish.
 
-The infinitude of nature and completeness in Omnipotence evidence existence beyond inference.
+The infinitude of nature and the completeness of Omnipotence provide evidence of an existence that exceeds inference.
 
-By the distinctions of gross, subtle, and causal, there are direct-perception activities.
+Direct perception operates at three levels: gross, subtle, and causal.
 
 The gross is directly perceptible to ordinary intellect, the subtle to special intellect, and the causal to particular intellect. On this basis, inference and testimony-activity are likewise established in gross, subtle, and causal forms. Form and property are gross; property and essential nature are subtle; essential nature and dharma are causal. Therefore:
 
-Behavioural and productive karma displays tendencies at three levels: (1) independent, (2) imitative, and (3) adherent.
+In behaviour and production, action follows three modes: (1) independent, (2) imitative, and (3) adherent.
 
-Independent tendencies function clearly in the domains in which they possess expertise.
+Independent activity operates in areas where the person possesses expertise.
 
 Those who wish to become expert engage in imitative activity.
 
 [p. 21]
 
-Those in whom the desire for expertise has not awakened remain engaged in karma and behaviour through cultivation in adherent activity. They indicate the combined effect of development and opportunity. Opportunity consists principally of orderliness and education.
+Those who have not yet developed the desire for expertise continue to act and behave through disciplined adherent activity. Their condition reflects the combined influence of development and opportunity. Opportunity consists principally of orderliness and education.
 
-Independent activeness is accomplished through the capacity for experiencing the proximity of gross, subtle, and causal activity; imitative activeness through the capacity for experiencing gross and subtle activity; and adherent activeness through the capacity for experiencing gross activity alone. These distinctions reveal differences in expressible capacity.
+Independent action requires the capacity to experience the presence of gross, subtle, and causal activity; imitative action requires this capacity for gross and subtle activity; adherent action requires it for gross activity alone. These levels reflect differences in expressive capacity.
 
-Independent activeness contains autonomous control-capacity; imitative activeness, the capacity to be controlled through one's own volition; and adherent activeness, the capacity to be disciplined.
+Independent action entails self-regulation; imitative action entails voluntarily accepting guidance; and adherent action entails receptivity to discipline.
 
-Faults are removed in every condition only through engagement in a programme aligned with universal aspiration. Such a programme grants auspiciousness.
+In every condition, faults can be removed only through participation in a programme aligned with universal aspiration; such a programme brings auspiciousness.
 
 Coveting another's wealth or spouse, and desiring another's pain, obstruct behavioural, social, and material advancement as well as awakening.
 
 Attachment, malice, ignorance, and conceit have proven to be obstructive to intellectual awakening.
 
-Fear is obstructive to the development of the capacity worthy of spiritual experiencing (the experiencing of coexistence).
+Fear obstructs the development of the capacity required for spiritual experiencing—the experiencing of coexistence.
 
 The wastage of natural splendour causes seasonal imbalance, from which distress arises.
 
-Contentment with one's own wealth and spouse, together with kindness in work, behaviour, and conduct, brings social happiness and balance. Non-accumulation (prosperity), affection, learning, and simplicity bring intellectual happiness; fearlessness brings the experiencing of spiritual joy. These constitute the purpose, thought, and experiencing of the physical, intellectual, and spiritual dimensions of the individual, and the unified threading, balance, resolution, and prosperity of individual, family, society, nation, and international order. This is the universal aspiration for equilibrium.
+Contentment with one's own wealth and spouse, together with kindness in work, behaviour, and conduct, brings social happiness and balance. Non-accumulation (prosperity), affection, learning, and simplicity bring intellectual happiness; fearlessness brings the experiencing of spiritual joy. Together, these are the purpose, thought, and experiencing of the person's physical, intellectual, and spiritual dimensions. They also provide the unifying thread, balance, resolution, and prosperity of the individual, family, society, nation, and international order. This is the universal aspiration for equilibrium.
 
 [p. 22]
 
-Through karma, the human being has wished and endeavoured toward experiencing establishment in truth, ascendancy in dharma, continuity in justice, and the usefulness of things. This has given rise to truth-oriented, dharma-oriented, justice-oriented, and object-oriented endeavours.
+Through all its actions, humanity has sought to experience establishment in truth, steadfastness in dharma, continuity in justice, and the usefulness of things. This aspiration has produced truth-oriented, dharma-oriented, justice-oriented, and object-oriented endeavours.
 
-Establishment comprises the control, acquisition, use, and right-use of physical substances; the bearing and upholding of social values, conduct, and continuity; and the comprehension and realisation of truthfulness and truth. Without these, the human being is neither satisfied nor free from delusion.
+Establishment consists in controlling, acquiring, using, and rightly using physical substances; sustaining social values and conduct; and comprehending and realising truthfulness and truth. Without these, the human being is neither satisfied nor free from delusion.
 
 The following are well known: wealth acquired through production and service; prosperity through the right-use of wealth; balance through restrained use and right-use; resolution through universal dharma; and realisation and joy through truth and truthfulness.
 
-The joy of experiencing is eternal establishment. Conduct, behaviour, orderliness, method, and education aligned with dharma and justice constitute resolution and immortal establishment, whereas object-oriented tendency attains only limited establishment.
+Experiencing joy is an eternal establishment. Conduct, behaviour, orderliness, method, and education grounded in dharma and justice bring resolution and enduring establishment; an object-oriented tendency can attain only limited establishment.
 
 Activity, karma, substance, process, result, and powers are mutually complementary. Activity is substance; substance is process; process is result; result is powers; and powers are activity and karma. All are evident in substance.
 
-Effort, motion, and result-fullness belong to activity; projection belongs to karma; meaningfulness to status; development to process; and usefulness to result. Wave, pressure, and effect clarify the state-fullness of power-fullness. All are projections or changeable manifestations within the bounds of substance.
+Effort, motion, and result-fullness belong to activity; projection belongs to karma; meaningfulness to status; development to process; and usefulness to result. Wave, pressure, and effect reveal the state in which power is present. They are projections or transformations occurring within the bounds of substance.
 
-Material powers are state-bound in relative form, as are conscious powers in relation to expectation; in absolute form, the Spirit-Omnipotence is complete in state.
+In relative form, material powers are state-bound; conscious powers are state-bound in the form of expectation. In absolute form, the Spirit–Omnipotence is complete in itself.
 
-Material powers are known as heat, light, electricity, attraction, and sound; conscious powers as hope, thought, desire, resolve, and experiencing. The foundational Omnipotence of insentient and sentient nature is the Spirit, or absolute Omnipotence.
+Material powers are known as heat, light, electricity, attraction, and sound; conscious powers as hope, thought, desire, resolve, and experiencing. The Spirit—absolute Omnipotence—is the foundation sustaining insentient and sentient nature.
 
 [p. 23]
 
@@ -866,129 +862,129 @@ In mediating activity, comprehension and experiencing occur within natural Omnip
 
 Material powers are principally kinetic; conscious powers are awareness-endowed.
 
-Sensation is the capacity to accept deficiency, presence, and dissolution. It manifests, in sequence, as pain in deficiency, humane sensation in presence, and address together with the dissolution of deficiency. This is right comprehension and the prior sign of realisation.
+Sensation is the capacity to apprehend absence, presence, and the dissolution of absence. In sequence, absence is felt as pain; presence as humane sensation; and the dissolution of absence as responsive address. This is right comprehension and a precursor to realisation.
 
-Application and production transform deficiency into presence. Conduct, behaviour, and orderliness bring presence to its natural completeness. The dissolution of deficiency is presence.
+Application and production transform absence into presence. Conduct, behaviour, and orderliness bring presence to its natural completeness; presence itself is the dissolution of absence.
 
 Presence is fundamental distinctiveness, value, and meaning.
 
-The complete meaning of every meaning is realisation. Without awareness, value, presence, and fundamental distinctiveness cannot be determined. The capacity of awareness enables decision and deliberation about the direction, time, measure, motion, use, destination, union, separation, decline, awakening, propriety, impropriety, and prohibited methods of state-fullness. Until this becomes universally teachable and fit for immersion, doubt, dispute, and delusion remain, making factionalism and confrontation imminent.
+The complete meaning of every meaning is realisation. Without awareness, value, presence, and fundamental distinctiveness cannot be determined. Awareness makes it possible to decide and deliberate about direction, time, measure, motion, use, destination, union, separation, decline, awakening, propriety, impropriety, and permitted or prohibited modes of existence. Until such understanding can be taught universally and fully assimilated, doubt, dispute, and delusion persist, leaving the way open to factionalism and conflict.
 
-Decisive capacity becomes evident through cause, property, and calculation; deliberative capacity through the enlightenment that clarifies the immortality of *atma*, the mortality of the body, and the rules of behaviour.
+Decisive capacity works through causes, properties, and calculation; deliberative capacity is expressed as full awareness of the immortality of *atma*, the mortality of the body, and the rules of behaviour.
 
 Conscious powers are far more capable than material powers. The direct evidence is that no activity can be accomplished through the human body in their absence.
 
-The human being expends powers greater than the fuel supplied to the body.
+The human being expends more power than can be accounted for by the fuel supplied to the body.
 
 [p. 24]
 
-The five conscious powers are evaluated and experienced only in their mutuality. The mind (*mun*), endowed with hope, experiences *vritti* endowed with thought; *vritti* beholds the hope-endowed mind and experiences desire-endowed *chitta*; and *chitta* beholds thought-endowed *vritti*.
+The five conscious powers can be understood and experienced only through their mutual relations. The hope-endowed mind (*mun*) experiences thought-endowed *vritti*; *vritti* beholds the mind and experiences desire-endowed *chitta*; and *chitta* beholds *vritti*.
 
-Within coexistence, *chitta* endowed with auspicious desire and *buddhi* endowed with true resolve evidence the awakening of the experiencing-full *atma*. The experiencing-full *atma* beholds resolve-endowed *buddhi*. Together these constitute the aggregate of realisation and complete awakening.
+Within coexistence, auspicious desire in *chitta* and true resolve in *buddhi* testify to the awakening of the realisation-fulfilled *atma*. The *atma* beholds resolve-endowed *buddhi*. Together they constitute realisation and complete awakening.
 
 The more-awakened beholds the less-awakened; the less-awakened recognises the more-awakened. Therefore the awakened human being recognises the seeker of awakening, and the seeker recognises the awakened.
 
-The awakened human being places trust in the seeker, and the seeker remains disciplined together with the awakened human being.
+The awakened person trusts the seeker, and the seeker accepts the awakened person's discipline.
 
-It is in human jeevan alone that the particularities connected with the gross, the subtle, and the causal are to be seen. In these three conditions, it is happiness, peace, contentment, and joy alone that are expected.
+Only human jeevan displays the distinctions of gross, subtle, and causal life. Across these three states, human beings seek happiness, peace, contentment, and joy.
 
-The human being's gross life expects happiness and peace; subtle life expects peace and contentment; and causal life anticipates joy and supreme joy, for which awakening is the natural evidence. The all-round programme aligned with these expectations is awakening and comprises physical, intellectual, and spiritual attainment. It succeeds only through a humane and supra-humane programme.
+At the gross level, human beings seek happiness and peace; at the subtle level, peace and contentment; and at the causal level, joy and supreme joy. Awakening is the natural evidence of these attainments. The comprehensive programme that fulfils these expectations is awakening, comprising physical, intellectual, and spiritual attainment. It succeeds only through a humane and higher-humane programme.
 
-The powers of insentient and sentient nature are deployed and disposed only through origination, potency, and dissolution. Beyond these, property has no other deployment or disposal.
+The powers of insentient and sentient nature operate only through origination, potency, and dissolution; property has no other mode of operation.
 
-The aim of all disposal, from beginning to end, is complete awakening.
+Every such deployment is ultimately directed toward complete awakening.
 
-The capacity for address manifests in the unit's natural completeness of awakening.
+A unit's capacity for responsive address emerges with the natural completeness of its awakening.
 
 [p. 25]
 
-Of origination, potency, and dissolution, potency alone is universally accepted. Potency-fullness is established only in complete awakening. Before this, union, separation, and conjunction operate within relative behaviour, karma, and pastime. These conditions indicate the natural progression toward awakening.
+Among origination, potency, and dissolution, potency alone is universally acknowledged; its fullness is attained only in complete awakening. Prior to that, union, separation, and conjunction govern relative behaviour, karma, and activity. These states mark the natural progression toward awakening.
 
-Karma bears results, and the deluded human being is subject to it while undergoing them. This universal rule compels the human being to become free from delusion concerning karma and its result-bearing nature.
+Karma inevitably bears results, and a deluded person becomes subject to its consequences. This universal law makes freedom from delusion about action and its result-bearing nature imperative.
 
-Doubt, apprehension, and ignorance arise concerning karma performed in the deluded condition and its results, even though none is desired in, from, or for the human being.
+Actions performed in delusion and their results generate doubt, apprehension, and ignorance, though human beings desire none of these within themselves, from others, or toward others.
 
-Property deployed in potency is mediating; in dissolution, degenerative; and in origination, generative. These correspond, in sequence, to karma directed toward ultimate interest, self-interest, and others' interest. In behaviour, they become evident in the undeluded, deluded, and deluded-undeluded conditions.
+When property operates through potency, it is mediating; through dissolution, degenerative; and through origination, generative. These correspond respectively to karma directed toward the ultimate good, self-interest, and the interests of others. In behaviour, they become evident in the undeluded, deluded, and deluded-undeluded conditions.
 
 The generative, degenerative, and mediating powers are, in sequence, *rajoguna*, *tamoguna*, and *sattvaguna*.
 
-The conduct and behaviour of a person endowed with *sattvaguna* express the capacity for wisdom and science together with values such as kindness, respect, and love.
+Through conduct and behaviour, a person endowed with *sattvaguna* expresses wisdom, science, and values such as kindness, respect, and love.
 
-A person endowed with *rajoguna* makes right-use of science together with values such as patience, courage, and good-naturedness.
+A person endowed with *rajoguna* makes right-use of science together with patience, courage, and good nature.
 
-A person endowed with *tamoguna* wastes the capacity for science and manifests undesirable vitiations such as envy, malice, conceit, and egotism.
+A person endowed with *tamoguna* wastes scientific capacity and exhibits envy, malice, conceit, and egotism.
 
-The human being observes individual and collective dharma by conducting oneself according to method, orderliness, thought, conduct, behaviour, education, direction, karma, and a system aligned with truth.
+Human beings uphold individual and collective dharma by aligning method, orderliness, thought, conduct, behaviour, education, direction, karma, and social systems with truth.
 
 [p. 26]
 
-The human being's observance of one's own dharma is wholeness, universality, and boundlessness. It encompasses coexistence, sociality, prosperity, balance, control, restraint, fearlessness, non-disparity, simplicity, and generosity. Within it, stable social values such as kindness, affection, generosity, pride, respect, tenderness, reverence, love, and gratitude are borne. This is the human being's abiding wish and the complete attainment of healthy sociality.
+When human beings uphold their own dharma, it manifests as wholeness, universality, and boundlessness. It encompasses coexistence, sociality, prosperity, balance, control, restraint, fearlessness, non-disparity, simplicity, and generosity. It sustains enduring social values such as kindness, affection, generosity, pride, respect, tenderness, reverence, love, and gratitude. This is humanity's abiding aspiration and the full realisation of healthy sociality.
 
-World peace becomes evident through an abundance of individuals of righteous character, the cooperation and encouragement of awakened human beings, proper education and protection, and favourable circumstances. Their opposite is unrest.
+World peace becomes possible when righteous individuals are numerous, awakened people cooperate and offer encouragement, education and protection are sound, and circumstances are favourable. The opposite conditions produce unrest.
 
-Righteous character is the observance of the "behaviour-trio." It manifests dignity across the human being's five states and constitutes natural fidelity, within which science and wisdom attain complete fulfilment. A healthy method of orderliness and education system thereby become effective.
+Righteous character consists in observing the "behaviour-trio." It confers dignity across the five levels of human organisation and establishes natural fidelity, allowing science and wisdom to reach fulfilment. A sound system of orderliness and education can then become effective.
 
-What is meant by the "behaviour-trio" is physical, vocal, and mental behaviour carried out by the awakened human being.
+The "behaviour-trio" comprises the physical, vocal, and mental conduct of an awakened human being.
 
-Result, refinement, and change are of five kinds:
+Result, refinement, and change occur in five contexts:
 
-(1) in existence that is coexistence, (2) development progression, (3) development, (4) awakening progression, (5) completeness of awakening.
+(1) existence as coexistence, (2) development progression, (3) development, (4) awakening progression, and (5) completeness of awakening.
 
-The material order fulfils its purpose through results that complement the existent state. The biological order does so through pulsation and, with growth, through compositional existent state and complementarity. The animal order, with change, result, and the hope of living, likewise complements the existent state. The human being belongs to the knowledge order, whose tradition advances through refinement toward awakening and complete awakening. This becomes evident in complementing the existent state.
+The material order fulfils its purpose through results that sustain the existent state. The biological order does so through pulsation, growth, and the complementarity of living compositions. The animal order sustains the existent state through change, result, and the will to live. The human being belongs to the knowledge order, whose tradition advances through refinement toward awakening and complete awakening.
 
-In a life governed by enjoyment and excessive-enjoyment-ism, the human being cannot become capable of attaining health or educating the coming generation for conduct-based awakening. This urgent fact creates the principal need for changing and refining thought. Enjoyment is not the basis of culture.
+A life governed by enjoyment and a culture of excessive enjoyment leave people unable to attain health or educate the next generation toward conduct-based awakening. This pressing fact makes the transformation and refinement of thought essential. Enjoyment is not the basis of culture.
 
 [p. 27]
 
-Without culture, civilisation, method, and orderliness cannot become free from doubt. The consequences appear as vexation, anguish, agitation, anger, indignation, conflict, rivalry, terror, fear, and distress—none of which the human being desires. Human beings are therefore bound to progress toward what they do desire. This creates the possibility of changing and refining thought, together with the opportunity for qualitative development in *sanskars*.
+Without culture, civilisation, methods, and systems of order remain uncertain. The consequences appear as vexation, anguish, agitation, anger, indignation, conflict, rivalry, terror, fear, and distress—none of which human beings desire. Human beings are therefore compelled to move toward what they truly desire. This opens the way to transforming and refining thought and to developing *sanskar* qualitatively.
 
-Qualitative development in *sanskars* becomes evident through observance of the "rule-trio." Through this method, the capacity to uphold social values together with restrained tendency becomes established as natural essential nature. Restrained tendency is the natural evidence of universal orderliness, verified by living according to this method.
+Qualitative development in *sanskar* becomes evident through observance of the "rule-trio." Through this method, a restrained tendency capable of sustaining social values becomes part of one's natural essential nature. Such restraint directly evidences universal orderliness and is verified in life.
 
 This is also the universal aspiration.
 
-Refined thought is science filled with wisdom, established as proficiency, skill, and scholarliness.
+Refined thought is science guided by wisdom and expressed as proficiency, skill, and scholarliness.
 
 Every accomplishment arises through application, behaviour, and realisation.
 
-Enjoyment results in the animalistic and demonic human.
+A life governed by enjoyment produces animalistic and demonic human conditions.
 
-Thought results in the awakened and divine human.
+A life governed by refined thought produces awakened and divine human conditions.
 
-The divine human admits no further result, refinement, or change, having reached the destination; only continuity remains.
+For the divine human, no further result, refinement, or transformation remains; the destination has been reached, and only continuity remains.
 
-Only capacity filled with science and wisdom enables inference of the following sequence: the form of substance; property contained in form; effect contained in property; essential nature contained in effect; capacity contained in essential nature; motion contained in capacity; method contained in motion; orderliness contained in method; sovereignty contained in orderliness; Omnipresence contained in sovereignty; potency contained in Omnipresence; the world contained in potency; and the world contained in Omnipotence. This is the attainment of refinability. Inference precedes evidence.
+A capacity informed by science and wisdom alone can infer the following nested sequence: substance has form; form contains property; property contains effect; effect contains essential nature; essential nature contains capacity; capacity contains motion; motion contains method; method contains orderliness; orderliness contains sovereignty; sovereignty contains Omnipresence; Omnipresence contains potency; potency contains the world; and Omnipotence contains the universe. This is the attainment of the capacity for refinement. Inference precedes evidence.
 
 [p. 28]
 
-Science has been applied both upward and downward, whereas wisdom is established only in upward application. Telecommunication exemplifies science's upward application; the martial or mechanical war-system exemplifies its downward application. Mineral coal, mineral oil, and radioactive substances used as fuel lie at the root of pollution on earth. When scientific power is correctly applied in alignment with wisdom, it produces no fear, terror, or other harmful event. No ill effect arises when purpose accords with wisdom.
+Science can be applied toward ascent or decline, whereas wisdom operates only toward ascent. Telecommunication illustrates the upward application of science; mechanised systems of warfare illustrate its downward application. Mineral coal, mineral oil, and radioactive substances used as fuel lie at the root of pollution on earth. When scientific power is applied under the guidance of wisdom, it causes neither fear nor terror nor any other harmful outcome. No harmful effect arises when its purpose accords with wisdom.
 
-Capacity filled with wisdom may arise or fail to arise, but it is not wasted. Capacity filled with science, by contrast, may be either wasted or rightly used. Science is therefore governed by wisdom, not by science itself.
+A wisdom-filled capacity may or may not arise, but once present it is not wasted. Scientific capacity, by contrast, may either be wasted or rightly used. Science is therefore governed by wisdom, not by science alone.
 
 Progress toward development is upward-facing; compulsion toward decline is downward-facing.
 
-Every state of development is linked to further development and is therefore directed beyond itself.
+Every stage of development leads toward a further stage and therefore points beyond itself.
 
 Progress toward development brings enthusiasm, delight, and joy; movement toward decline brings dejection, discouragement, helplessness, and distress.
 
-Upward-facing science works toward potency through pure *rajoguna* together with *sattvaguna*; this is science's actual fulfilment. Its opposite is science directed toward destruction and excessive enjoyment through tainted *rajoguna* together with *tamoguna*, indicating the complete misuse of science.
+Science directed upward expresses pure *rajoguna* together with *sattvaguna* and works toward the fulfilment of potency; this is science's true purpose. Science directed toward destruction and excessive enjoyment expresses tainted *rajoguna* together with *tamoguna* and constitutes its complete misuse.
 
-Upward-facing life is expressed by the humane human being and, beyond this, by complete awakening. It conducts fundamental values such as kindness, simplicity, sacrifice, austerity, benevolence, truth, non-violence, non-stealing, non-possession, and dignity, and is auspicious for self and other.
+An upward-oriented life is expressed in the humane human being and culminates in complete awakening. It embodies kindness, simplicity, sacrifice, austerity, benevolence, truth, non-violence, non-stealing, non-possession, and dignity, bringing wellbeing to oneself and others.
 
 [p. 29]
 
-A life steeped in wicked character becomes helpless under terror and fear, the principal cause of pain to self and other. This is fear of the inhumaneness within the human being and the root form of asociality and non-coexistence.
+A life shaped by wicked character is overcome by terror and fear, producing pain for oneself and others. This fear arises from the inhumanity within the human being and lies at the root of asociality and non-coexistence.
 
-The capacity to hold affection for the human family sustains trust and contentment and provides enthusiasm and impetus for further development.
+Affection for the human family sustains trust and contentment and encourages further development.
 
-A relationship devoid of trust is not successful. In a condition devoid of relationship there is no accomplishment of karma.
+No relationship can succeed without trust, and no karma can be fulfilled outside relationship.
 
-Every social value is successfully observed only through trust.
+Trust alone enables social values to be lived successfully.
 
-Just behaviour, resolution-filled thought, and a life of true realisation are entirely free from affliction; this is universal wellbeing.
+Just behaviour, thought grounded in resolution, and a life grounded in true realisation are free from affliction; together they constitute universal wellbeing.
 
-Only the deployment of science guided by wisdom makes every state of human life beautiful in every part. This karma-tendency and attainment benefits all humankind and constitutes universal wellbeing.
+Only science applied under the guidance of wisdom can make every stage of human life wholly beautiful. Such an orientation to karma and such attainment benefit all humankind and constitute universal wellbeing.
 
-A karma-tradition endowed with wisdom and science sanctioned by knowledge benefits the world. It is the human being's abiding hope, aspiration, necessity, and opportunity.
+A tradition of karma informed by wisdom and by science grounded in knowledge benefits the whole world. This is humanity's abiding hope and aspiration, as well as its necessity and opportunity.
 
 "May there be universal wellbeing; may there be everlasting wellbeing."
 
@@ -1014,7 +1010,7 @@ The gross, subtle, and causal (the Seer) together mean being endowed with the ca
 
 [p. 31]
 
-Upasana is of three kinds: *kutastha* (abiding in the immutable), *rupastha* (abiding in form), and *atmastha* (abiding in the self). The process undertaken for complete realisation is *kutastha upasana*. The process undertaken to approach a form endowed with magnificence is *rupastha upasana*. Reflection itself is the process of *atmastha upasana*, to which the human being is bound. The refinement of tendencies is therefore the programme of human jeevan. The aspiration for completeness and the capacity for refinement are present in every state of the human being. The capacity for refinement comprises skill, proficiency, and scholarliness; its completeness is scholarliness. Nothing in knowledge and skill surpasses scholarliness, just as nothing in behaviour and production surpasses proficiency. The capacity for refinement is expressed in production and behaviour. Scholarliness is enlightenment, and enlightenment is education and orderliness. Until one is fully endowed with enlightenment, upasana remains an extremely helpful aid.
+Upasana is of three kinds: *kutastha* (abiding in the immutable), *rupastha* (abiding in form), and *atmastha* (abiding in the self). The process undertaken for complete realisation is *kutastha upasana*. The process undertaken to approach a form endowed with magnificence is *rupastha upasana*. Reflection itself is the process of *atmastha upasana*, to which the human being is bound. The refinement of tendencies is therefore the programme of human jeevan. The aspiration for completeness and the capacity for refinement are present in every state of the human being. The capacity for refinement comprises skill, proficiency, and scholarliness; its completeness is scholarliness. Nothing in knowledge and skill surpasses scholarliness, just as nothing in behaviour and production surpasses proficiency. The capacity for refinement is expressed in production and behaviour. Scholarliness is full awareness, and full awareness is education and orderliness. Until one is fully established in it, upasana remains an extremely helpful aid.
 
 Deities (*devi-devata*) are classified into three kinds: terrestrial, cosmic, and celestial. This classification is based on their capacity for movement. The conscious unit is the combined form of subtle and causal activity. This is the jeevan-cloud (*jeevan-punj*); the deities are none other than this. The gross body is controlled by *pranavayu*, subtle activity by chitta, and causal activity by atma. The subtle and causal are never separated; this bears witness to immortality. Their signals become evident only in their operation of the gross body, and this operation is indispensable. In a state without the gross body, subtle activities are carried out solely according to signals from buddhi.
 
@@ -1105,7 +1101,7 @@ Only human consciousness and higher-human consciousness prevent the wastage of t
 
 Right-enlightenment together with complete experiencing provides the capacity to manifest knowledge. This is the awakening, or complete awakening, of knowledge-power. The resulting "awakening-trio" becomes directly evident in humaneness and higher-humaneness. It is the supreme attainment of human jeevan, the utility of empowered upasana, the aspiration of humankind, and universal welfare.
 
-Jeevan-awakening directly manifests as the application of science filled with wisdom. It comprises watchfulness, undivided sociality, enlightenment, freedom from disparity, coexistence, education, method, orderliness, civilisation, culture, intellectual resolution, material prosperity, and the continuity of jeevan-awakening.
+Jeevan-awakening directly manifests as the application of science filled with wisdom. It comprises watchfulness, undivided sociality, full awareness, freedom from disparity, coexistence, education, method, orderliness, civilisation, culture, intellectual resolution, material prosperity, and the continuity of jeevan-awakening.
 
 [p. 37]
 
@@ -1199,21 +1195,21 @@ The practice of recognising others' virtues destroys one's own vices.
 
 A biased intellect is incapable of grasping the virtues of the opposing side, because it is not free from envy, malice, hatred, neglect, and delusion.
 
-The progression of awakening contains no self-versus-other faction; orderly sequence, rule, and justice are therefore accomplished within it. Non-enlightenment is the cause of problems, and enlightenment—awakening—is their sole remedy. This is the direct dignity of upasana.
+The progression of awakening contains no self-versus-other faction; orderly sequence, rule, and justice are therefore accomplished within it. The absence of full awareness is the cause of problems, and full awareness—awakening—is their sole remedy. This is the direct dignity of upasana.
 
 Environment is indispensable to upasana, especially the human-made environment of education and orderliness.
 
-Education completed by enlightenment gives personality its direction and magnificence. The orderliness capable of protecting and promoting it is sovereignty.
+Education imbued with full awareness gives personality its direction and magnificence. The orderliness capable of protecting and promoting it is sovereignty.
 
-The generalisation of enlightenment is the direct form of qualitative change. What one person attains through upasana becomes common through education and orderliness.
+The generalisation of full awareness is the direct form of qualitative change. What one person attains through upasana becomes common through education and orderliness.
 
 [p. 42]
 
 Without the perspective of qualitative change, the deluded human being evaluates solely by measure. This gives rise to class struggle and conflict.
 
-Personality is the conduct of the "rule-trio" natural to humane behaviour. Actively contributing to such personality is duty, human endeavour, and enlightenment.
+Personality is the conduct of the "rule-trio" natural to humane behaviour. Actively contributing to such personality is duty, human endeavour, and full awareness.
 
-Upasana directly gives the individual personality and duty because it is, by nature, education and orderliness. It is therefore enlightenment; in the human being, enlightenment is education and orderliness.
+Upasana directly gives the individual personality and duty because it is, by nature, education and orderliness. It is therefore full awareness; in the human being, full awareness is education and orderliness.
 
 There is no diversity in truth and truthfulness.
 
@@ -2016,7 +2012,7 @@ but for the rest of nature it is only sound. Some animals imitate human signals.
 
 Humans encounter electromagnetic waves naturally as lightning or light. Thunder is the sound produced when two sufficiently dense clouds draw near one another from their definite good distance. As they approach and their relationship with the earth is joined, electric current flows of its own accord; its effects upon animals, humans, trees, and plants have been observed. This is lightning's naturally visible light and effect. Travellers used the light to see their way, but the current was not put to any other constructive use. Observing both the light and the current, humans asked, "What is this? What is it like?" and reflected extensively. Eventually, light was produced by rotating a dynamo — which fragments magnetic current — with a bicycle wheel. Thereafter, electric current was progressively made to flow and perform work across the earth; all of this is now evident.
 
-- The declared analysis regarding electric current is on two points:
+The declared analysis regarding electric current is on two points:
 
 1. The source of electric current, and
 
