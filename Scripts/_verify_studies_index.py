@@ -15,7 +15,11 @@ from _build_studies_index import (  # noqa: E402
     verify_index_shell_sync,
 )
 from _build_discussion_pages import verify_discussion_pages  # noqa: E402
-from _study_catalog import verify_all_catalog_sync  # noqa: E402
+from _build_sitemap import verify_sitemap_sync  # noqa: E402
+from _study_catalog import (  # noqa: E402
+    verify_all_catalog_sync,
+    verify_derived_catalogs_sync,
+)
 
 
 def collect_index_errors(*, shell: bool = True, catalog: bool = True) -> list[str]:
@@ -35,6 +39,8 @@ def collect_index_errors(*, shell: bool = True, catalog: bool = True) -> list[st
         errors.extend(verify_index_shell_sync())
         errors.extend(verify_catalog_bootstrap_sync())
         errors.extend(verify_discussion_pages())
+        errors.extend(verify_sitemap_sync())
+        errors.extend(verify_derived_catalogs_sync())
     return errors
 
 

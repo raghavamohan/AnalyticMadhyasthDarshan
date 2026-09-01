@@ -705,6 +705,36 @@ def write_derived_catalogs() -> None:
     )
 
 
+def verify_derived_catalogs_sync() -> list[str]:
+    """Report which derived discovery files are stale against the catalog.
+
+    catalog-all.json, studies.txt, llms.txt and llms-full.txt are all rendered
+    from the same catalog entries, and nothing checked them. A study released
+    before the catalog-write path started rebuilding them kept its old row, so
+    llms.txt advertised it as a draft and llms-full.txt carried the previous
+    Edited on. Every serializer here is deterministic, so rendering and
+    comparing against the file on disk is a sound freshness check.
+    """
+    entries = _load_combined_catalog_entries()
+    expected = {
+        CATALOG_ALL_PATH: serialize_catalog_all_text(entries),
+        STUDIES_FEED_PATH: serialize_studies_feed_text(entries),
+        LLMS_TXT_PATH: serialize_llms_txt(entries),
+        LLMS_FULL_TXT_PATH: serialize_llms_full_txt(entries),
+    }
+    errors: list[str] = []
+    for path, rendered in expected.items():
+        rel = path.relative_to(BASE).as_posix()
+        if not path.is_file():
+            errors.append(f"Derived catalog missing: {rel}")
+        elif path.read_text(encoding="utf-8") != rendered:
+            errors.append(
+                f"{rel} is stale against the catalog. "
+                "Rebuild it with: python Scripts/_build_studies_index.py"
+            )
+    return errors
+
+
 def _parse_legacy_html_tr_rows(block: str, table: StudyTable) -> list[StudyRow]:
     rows: list[StudyRow] = []
     for tr_match in re.finditer(r"<tr>\s*(.*?)\s*</tr>", block, re.DOTALL):

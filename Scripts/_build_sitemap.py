@@ -204,6 +204,28 @@ def write_sitemap() -> Path:
     return SITEMAP_PATH
 
 
+def verify_sitemap_sync() -> list[str]:
+    """Report whether sitemap.xml matches what the current catalog would produce.
+
+    Nothing checked this, and it went stale: a study released before the
+    catalog-write path started rebuilding the sitemap (#345) kept its old
+    lastmod, so search engines were told the study had not changed since
+    2026-08-30 when its Edited on said 2026-09-01. The generator is
+    deterministic -- lastmod comes from Edited on, not from the clock -- so
+    comparing rendered output against the file on disk is a sound check.
+    """
+    if not SITEMAP_PATH.is_file():
+        return [f"Sitemap missing: {SITEMAP_PATH.relative_to(BASE).as_posix()}"]
+    expected = render_sitemap_xml(collect_sitemap_entries())
+    actual = SITEMAP_PATH.read_text(encoding="utf-8")
+    if expected == actual:
+        return []
+    return [
+        f"{SITEMAP_PATH.relative_to(BASE).as_posix()} is stale against the catalog. "
+        "Rebuild it with: python Scripts/_build_sitemap.py"
+    ]
+
+
 def main() -> int:
     entries = collect_sitemap_entries()
     path = write_sitemap()
