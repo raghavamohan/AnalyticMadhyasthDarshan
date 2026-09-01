@@ -6,8 +6,9 @@ Usage:
   python Scripts\\_set_study_status.py Study-Slug
 
 Updates **Status:** and **Edited on:** in the markdown, the Topical or Formal Studies
-catalog row in Studies/index.html and Studies/README.md, and regenerates the PDF
-(with or without the Draft watermark).
+catalog row in catalog-*.json and Studies/README.md, and regenerates the PDF
+(with or without the Draft watermark). write_studies_catalog() rebuilds
+Studies/index.html from the catalog as part of that write.
 """
 from __future__ import annotations
 

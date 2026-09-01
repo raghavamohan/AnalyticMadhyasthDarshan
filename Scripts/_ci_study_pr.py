@@ -20,7 +20,7 @@ from pathlib import Path
 
 from _common import BASE, STUDIES, slug_from_repo_relative_path, study_md
 
-from _build_studies_index import verify_index_shell_sync  # noqa: E402
+from _verify_studies_index import collect_index_errors  # noqa: E402
 from _check_references import run_checks, print_report  # noqa: E402
 from _study_catalog import (  # noqa: E402
     StudyStatus,
@@ -30,7 +30,6 @@ from _study_catalog import (  # noqa: E402
     parse_status_md,
     regenerate_pdf,
     upsert_study_row,
-    verify_all_catalog_sync,
     verify_timestamp_sync,
     write_studies_catalog,
 )
@@ -663,7 +662,11 @@ def handle_status_change(body: str, base_ref: str) -> None:  # noqa: ARG001 - un
 
 
 def verify_studies_index() -> None:
-    errors = verify_all_catalog_sync() + verify_index_shell_sync()
+    # collect_index_errors() is shared with _verify_studies_index.py, which the
+    # master-push check runs. Calling a hand-picked subset of the verifiers here
+    # is exactly what let a stale Studies/index.html pass a study PR and turn
+    # master red only after the merge (#343).
+    errors = collect_index_errors()
     if errors:
         raise SystemExit(
             "Studies index verification failed:\n  - " + "\n  - ".join(errors)
