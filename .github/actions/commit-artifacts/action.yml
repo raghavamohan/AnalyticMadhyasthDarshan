@@ -13,13 +13,32 @@ inputs:
   message:
     description: Commit message. '[skip ci]' is appended automatically.
     required: true
+  branch:
+    description: >-
+      Commit onto this new branch and push it, instead of pushing the checked-out
+      branch. Use when the target branch is protected and the change has to land
+      through a pull request -- the default-branch ruleset requires one, and
+      github-actions[bot] has no bypass (bypass actors for GitHub Apps are an
+      organization feature; this is a user-owned repository).
+    required: false
+    default: ''
+
+outputs:
+  pushed:
+    description: >-
+      'true' when a commit was actually pushed, 'false' when there was nothing to
+      commit. Gate any follow-up step (opening a pull request, say) on this rather
+      than probing the remote.
+    value: ${{ steps.commit.outputs.pushed }}
 
 runs:
   using: composite
   steps:
     - name: Commit and push
+      id: commit
       shell: bash
       env:
+        BRANCH: ${{ inputs.branch }}
         # Empty for non-pull_request events (proposal-approved.yml runs on
         # issues), which is why the fork check below tests for non-empty first.
         HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
@@ -28,6 +47,17 @@ runs:
         set -euo pipefail
         git config user.name "github-actions[bot]"
         git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+        # GITHUB_OUTPUT is absent when _test_commit_artifacts.py drives this
+        # script directly, so every write is redirected through this.
+        out_file="${GITHUB_OUTPUT:-/dev/null}"
+        echo "pushed=false" >> "$out_file"
+
+        # Before staging, so the working tree carries over onto the new branch.
+        if [ -n "${BRANCH:-}" ]; then
+          echo "Committing onto new branch: $BRANCH"
+          git checkout -b "$BRANCH"
+        fi
 
         staged=0
         for path in ${{ inputs.paths }}; do
@@ -75,4 +105,9 @@ runs:
         fi
 
         git commit -m "${{ inputs.message }} [skip ci]"
-        git push
+        if [ -n "${BRANCH:-}" ]; then
+          git push -u origin HEAD
+        else
+          git push
+        fi
+        echo "pushed=true" >> "$out_file"
