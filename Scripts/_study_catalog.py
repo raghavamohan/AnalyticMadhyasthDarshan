@@ -1415,6 +1415,7 @@ def regenerate_pdf(md_path: Path, status: StudyStatus) -> None:
     from _convert_to_pdf import convert_to_html
     from _verify_pdf_diagrams import verify_study_pdf_diagrams
     from _verify_pdf_fenced_code import verify_study_pdf_fenced_code
+    from _verify_pdf_math import verify_study_pdf_math
     from _verify_pdf_outline import verify_study_pdf_outline
     from _verify_study_svgs import verify_study_svgs
 
@@ -1458,6 +1459,7 @@ def regenerate_pdf(md_path: Path, status: StudyStatus) -> None:
     normalize_study_pdf(md_path, pdf_path)
     verify_study_pdf_diagrams(md_path, pdf_path)
     verify_study_pdf_fenced_code(md_path, pdf_path)
+    verify_study_pdf_math(md_path, pdf_path)
     verify_study_pdf_outline(md_path, pdf_path)
 
     from _build_discussion_pages import write_discussion_page
