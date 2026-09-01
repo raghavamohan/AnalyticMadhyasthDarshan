@@ -268,7 +268,8 @@ run. Run them with `--all`.
 
 `master` is protected by the repository ruleset **"Protect default branch"**:
 
-- `pull_request` required (0 approving reviews), merge/squash/rebase all allowed
+- `pull_request` required (0 approving reviews); `allowed_merge_methods` is
+  **merge and rebase — squash is disallowed** (see §6)
 - no force-push, no deletion
 - **`required_status_checks`: `verify`**, pinned to the GitHub Actions app
   (integration `15368`), non-strict
@@ -309,13 +310,31 @@ in AGENTS.md §7 step 3 is the real check on study work.
 
 Ordered by how likely they are to bite. None of these are fixed by this document.
 
-**1 — `[skip ci]` plus squash-merge can skip the master-push check.**
+**1 — `[skip ci]` can still reach `master` through a rebase merge.**
 `commit-artifacts` appends `[skip ci]` to the regen commit. That is correct on the
-branch. But the ruleset allows **squash** merges, and a squash concatenates branch
-commit messages into the commit that lands on `master` — carrying `[skip ci]` with
-it and skipping the `Studies index` push check that exists to catch post-merge
-drift. Prefer merge commits for study PRs, or drop squash from the ruleset's
-allowed merge methods.
+branch, and harmless under a **merge** commit, whose own message is what lands on
+`master`.
+
+Squash was the obvious way for that token to escape — it concatenates the branch's
+commit messages into the single commit that lands — so squash is now **disallowed**
+in the ruleset (`allowed_merge_methods: ["merge", "rebase"]`) and switched off at
+the repository level so the button is not offered.
+
+**Rebase has the same mechanism and is still allowed.** A rebase merge replays the
+branch's commits onto `master` individually, and the regen commit is normally the
+last one CI pushes — so it becomes `master`'s tip, carrying `[skip ci]` in the head
+commit message that GitHub inspects. Note this is reasoned from the mechanism, not
+observed here: every merge to `master` in this repository's history has been a
+merge commit, and `Studies index` ran on all of them, so there is no rebase case to
+point at. Closing it properly means restricting `allowed_merge_methods` to
+`["merge"]`.
+
+**Until then: use a merge commit for any PR that CI regenerated artifacts on.**
+The alternative is to stop appending `[skip ci]` at all — it is arguably already
+redundant, since a push made with `GITHUB_TOKEN` does not trigger workflows and
+that, rather than the token, is what actually prevents the regen push from
+re-running `study-pr.yml`. It becomes load-bearing again the moment anyone swaps
+to a PAT or App token, which is why it has been left in place.
 
 **2 — Fork PRs diff against the fork's base branch.**
 `study-pr.yml` checks out the fork, so `origin` is the fork; `git fetch origin
