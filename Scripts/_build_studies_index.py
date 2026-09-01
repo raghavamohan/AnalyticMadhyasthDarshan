@@ -2,6 +2,7 @@
 """Write Studies/index.html landing page shell and external catalog JSON files."""
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import subprocess
@@ -17,6 +18,7 @@ if str(SCRIPTS) not in sys.path:
 from _build_discussion_pages import ASSET_VERSION as DISCUSS_ASSET_VERSION  # noqa: E402
 from _common import BASE, STUDIES, favicon_link_tags  # noqa: E402
 from _study_catalog import (  # noqa: E402
+    CATALOG_TABLES,
     STUDY_FEEDBACK_TEMPLATE_PATH,
     StudyRow,
     StudyStatus,
@@ -2822,21 +2824,41 @@ def verify_index_shell_sync() -> list[str]:
 
 
 def catalog_build_id() -> str:
-    try:
-        result = subprocess.run(
-            ["git", "rev-parse", "--short", "HEAD"],
-            capture_output=True,
-            text=True,
-            check=True,
-            cwd=BASE,
-        )
-        build_id = result.stdout.strip()
-        if build_id:
-            return build_id
-    except (OSError, subprocess.CalledProcessError):
-        pass
-    ist = ZoneInfo("Asia/Kolkata")
-    return datetime.now(ist).strftime("%Y%m%d%H%M")
+    """Cache-buster for the catalog JSON and the presentation PDFs.
+
+    Derived from the content it busts, not from git HEAD. Keying it on
+    `git rev-parse HEAD` meant the value changed on every commit, so rebuilding
+    the index on a clean tree always rewrote Studies/index.html -- breaking the
+    invariant in AGENTS.md §2 that a no-change rebuild produces no diff, and
+    making it easy to commit incidental churn without noticing. It was also a
+    poor cache key in both directions: a commit that touched nothing cacheable
+    still busted every reader's cache, while a deck rebuilt without a commit
+    busted nothing.
+
+    Hashing the bytes fixes both. The value changes exactly when a cached
+    resource changes, and two builds of the same content agree.
+    """
+    digest = hashlib.sha256()
+    for table in CATALOG_TABLES:
+        path = catalog_json_path(table)
+        digest.update(path.name.encode("utf-8"))
+        digest.update(path.read_bytes() if path.is_file() else b"")
+    # Slides are served with this same query, so their content has to feed it or
+    # a deck update would never reach a reader holding a cached copy.
+    for pdf in sorted(_presentation_pdf_paths()):
+        digest.update(pdf.relative_to(BASE).as_posix().encode("utf-8"))
+        digest.update(pdf.read_bytes())
+    return digest.hexdigest()[:12]
+
+
+def _presentation_pdf_paths() -> list[Path]:
+    """Presentation PDFs the index links, taken from the template itself."""
+    paths = []
+    for rel in re.findall(r'data-presentation-pdf="([^"]+)"', INDEX_TEMPLATE):
+        candidate = STUDIES / rel
+        if candidate.is_file():
+            paths.append(candidate)
+    return paths
 
 
 INDEX_TEMPLATE = INDEX_TEMPLATE.replace(FAVICON_LINKS_PLACEHOLDER, favicon_link_tags())

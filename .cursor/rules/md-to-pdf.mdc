@@ -35,13 +35,26 @@ npx puppeteer browsers install chrome
 cd ..
 ```
 
-## Regenerate one study
+## Regenerate one study, or one companion note
 
 ```powershell
 python Scripts/_regenerate_pdf.py <Name>
 ```
 
 Reads **Status:** from the markdown and applies the Draft watermark when appropriate.
+
+Companion notes — research and technical notes beside a study, which are not
+catalog entries — carry no **Status:** line. Pass a path instead of a slug:
+
+```powershell
+python Scripts/_regenerate_pdf.py Studies/<Slug>/Research-Note-Example.md
+```
+
+They render unwatermarked, which is how they are committed, and go through the
+same verifiers as a study. Before this, they had no supported entry point at
+all, and rebuilding one meant reimplementing the pipeline in a throwaway
+script — which is how four of them came to sit with their maths in fallback
+fonts, unnoticed.
 
 ## Internal pipeline (batch or debugging)
 
