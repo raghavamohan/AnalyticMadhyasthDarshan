@@ -111,6 +111,13 @@ verifies timestamp/catalog sync — all keyed to the PR's label and body field. 
 to the default branch skips every one of those checks and is how catalogs, timestamps, and PDFs
 drift out of sync with the source `.md`.
 
+CI **commits the regenerated artifacts back to the branch**, but only for a branch in this
+repository. GitHub gives a pull request from a fork a read-only token regardless of the
+workflow's `permissions:` block, so on a fork the push is impossible: `commit-artifacts`
+detects that case and fails with the commands to run locally instead. Contributors working
+from a fork must therefore regenerate and commit artifacts themselves — step 3 above is not
+optional for them.
+
 ## Completion check
 
 - [ ] Change is on a feature branch, not the default branch
