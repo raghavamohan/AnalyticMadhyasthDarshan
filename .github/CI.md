@@ -212,6 +212,10 @@ Pass `node: 'false'` for verification-only jobs.
 Stages the given paths as `github-actions[bot]`, commits with `[skip ci]`
 appended, and pushes. Exits cleanly when nothing changed.
 
+That `[skip ci]` is why the default branch accepts **merge commits only** — see
+§5. Squash and rebase both carry the token onto `master` and suppress the
+post-merge check.
+
 Set the optional **`branch`** input to commit onto a new branch and push that
 instead of the checked-out branch — for a protected target that must be reached
 through a pull request. The **`pushed`** output is `'true'` only when a commit
@@ -275,7 +279,8 @@ PDFs **in the same pull request** — never in separate commits.
 `master` is protected by the repository ruleset **"Protect default branch"**:
 
 - `pull_request` required (0 approving reviews); `allowed_merge_methods` is
-  **merge and rebase — squash is disallowed** (see §6)
+  **`["merge"]` — merge commits only**, with squash and rebase also switched off
+  at the repository level so neither button is offered
 - no force-push, no deletion
 - **`required_status_checks`: `verify`**, pinned to the GitHub Actions app
   (integration `15368`), non-strict
@@ -293,7 +298,40 @@ gh api repos/OWNER/REPO/commits/SHA/check-runs -q '.check_runs[].name'
 
 `strict_required_status_checks_policy` is **false** on purpose: true would force
 every PR to re-sync with `master` whenever it moves, which on a repository this
-active is constant rebasing for no safety gain.
+active is constant churn for no safety gain.
+
+**Merge commits only, and this one is load-bearing — do not relax it.**
+`commit-artifacts` appends `[skip ci]` to the artifacts CI regenerates on a
+branch. Under a merge commit that is harmless: the merge commit's own message is
+what lands on `master`, so the post-merge `Studies index` run still fires. Both
+other methods carry the token onto `master` instead —
+
+- **squash** concatenates the branch's commit messages into the single commit that
+  lands;
+- **rebase** replays the branch's commits individually, and the regen commit is
+  normally the last one CI pushes, so it becomes `master`'s tip.
+
+Either way GitHub sees `[skip ci]` in the head commit message and skips the very
+check that exists to catch post-merge drift. Both are disallowed in the ruleset
+*and* switched off at the repository level, so the buttons are not offered rather
+than failing late.
+
+> **The token is matched anywhere in a commit message, including the body, and
+> including when you are only talking about it.** The commit that introduced this
+> section quoted `[skip ci]` in its own message to explain the hazard — and GitHub
+> skipped every workflow on the push, so the required `verify` check never
+> reported and the pull request sat `BLOCKED` with zero checks. Write *"the
+> CI-skip token"* in commit messages; keep the literal string in files, where it
+> is inert. This is also the direct evidence that the mechanism works on the head
+> commit's full message, which is what makes the squash and rebase cases above
+> real rather than theoretical.
+
+The other way to close this would be to stop appending `[skip ci]` at all. It is
+arguably already redundant — a push made with `GITHUB_TOKEN` does not trigger
+workflows, and that, rather than the token, is what actually stops the regen push
+from re-running `study-pr.yml`. It becomes load-bearing again the moment anyone
+swaps to a PAT or App token, which is why it is still there and why the merge
+method is constrained instead.
 
 One consequence still stands: **`github-actions[bot]` has no bypass**, so the
 direct push to `master` in `proposal-approved.yml`'s `bootstrap` job is subject to
@@ -316,33 +354,7 @@ in AGENTS.md §7 step 3 is the real check on study work.
 
 Ordered by how likely they are to bite. None of these are fixed by this document.
 
-**1 — `[skip ci]` can still reach `master` through a rebase merge.**
-`commit-artifacts` appends `[skip ci]` to the regen commit. That is correct on the
-branch, and harmless under a **merge** commit, whose own message is what lands on
-`master`.
-
-Squash was the obvious way for that token to escape — it concatenates the branch's
-commit messages into the single commit that lands — so squash is now **disallowed**
-in the ruleset (`allowed_merge_methods: ["merge", "rebase"]`) and switched off at
-the repository level so the button is not offered.
-
-**Rebase has the same mechanism and is still allowed.** A rebase merge replays the
-branch's commits onto `master` individually, and the regen commit is normally the
-last one CI pushes — so it becomes `master`'s tip, carrying `[skip ci]` in the head
-commit message that GitHub inspects. Note this is reasoned from the mechanism, not
-observed here: every merge to `master` in this repository's history has been a
-merge commit, and `Studies index` ran on all of them, so there is no rebase case to
-point at. Closing it properly means restricting `allowed_merge_methods` to
-`["merge"]`.
-
-**Until then: use a merge commit for any PR that CI regenerated artifacts on.**
-The alternative is to stop appending `[skip ci]` at all — it is arguably already
-redundant, since a push made with `GITHUB_TOKEN` does not trigger workflows and
-that, rather than the token, is what actually prevents the regen push from
-re-running `study-pr.yml`. It becomes load-bearing again the moment anyone swaps
-to a PAT or App token, which is why it has been left in place.
-
-**2 — Fork PRs diff against the fork's base branch.**
+**1 — Fork PRs diff against the fork's base branch.**
 `study-pr.yml` checks out the fork, so `origin` is the fork; `git fetch origin
 <base>` then fetches the *fork's* copy. When a contributor's fork is out of sync,
 `origin/master...HEAD` can resolve a different merge base than upstream would, and
@@ -350,7 +362,7 @@ the router sees a wider changed-path set than the PR really contains. Harmless
 when the fork is current. Fix by fetching the base from the upstream URL
 explicitly.
 
-**3 — `github-script` upgrades are not validated by CI.**
+**2 — `github-script` upgrades are not validated by CI.**
 Actions used by `studies-index-check.yml` are exercised on every PR, and
 `setup-study-env`'s Node/Chrome path by `pdf-pipeline-smoke.yml`. But
 `github-script` appears only in `portal-notify.yml` and `proposal-approved.yml`,
@@ -359,7 +371,7 @@ reaches `master` untested and first executes against a real proposal or a real
 merge. Read the release notes and re-read the scripts by hand; `workflow_dispatch`
 on `proposal-approved.yml` can exercise its two.
 
-**4 — Nothing pins the Python interpreter's patch level.**
+**3 — Nothing pins the Python interpreter's patch level.**
 `setup-study-env` asks for `python-version: '3.12'`, which resolves to whatever
 patch GitHub currently ships (3.12.14 at the time of writing). Every *package* is
 now pinned exactly (§4), so this is the last floating input to a pipeline built
