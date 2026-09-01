@@ -28,7 +28,7 @@ from _bootstrap_proposal_study import (
     issue_body_with_slug,
     issue_body_with_title,
 )
-from _common import APPLICATIONS, BASE, REFERENCES, STUDIES
+from _common import APPLICATIONS, BASE, REFERENCES, STUDIES, write_text_lf
 from _study_catalog import (
     display_title,
     get_study_row,
@@ -191,10 +191,7 @@ def update_registry(old_slug: str, new_slug: str, new_title: str | None, issue_n
         }
     )
     filtered.sort(key=lambda row: row.get("slug", ""))
-    REGISTRY_PATH.write_text(
-        json.dumps({"version": 1, "proposals": filtered}, indent=2) + "\n",
-        encoding="utf-8",
-    )
+    write_text_lf(REGISTRY_PATH, json.dumps({"version": 1, "proposals": filtered}, indent=2) + "\n")
     print(f"Updated proposal-registry.json: {old_slug} -> {new_slug}")
 
 
@@ -231,7 +228,7 @@ def update_proposal_meta_file(old_slug: str, new_slug: str, new_title: str | Non
         print(f"Would write {dst}")
         return
     dst.parent.mkdir(parents=True, exist_ok=True)
-    dst.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+    write_text_lf(dst, json.dumps(data, indent=2) + "\n")
     if src.is_file() and src != dst:
         src.unlink()
     print(f"Updated {dst}")
@@ -304,7 +301,7 @@ def update_reference_paths(old_slug: str, new_slug: str, *, dry_run: bool) -> No
             if dry_run:
                 print(f"Would update references in {path}")
             else:
-                path.write_text(updated, encoding="utf-8")
+                write_text_lf(path, updated)
                 print(f"Updated references in {path}")
 
 

@@ -31,6 +31,7 @@ from _common import (
     study_md_href,
     study_pdf_href,
     study_pdf_ref_path,
+    write_text_lf,
 )
 
 IST = ZoneInfo("Asia/Kolkata")
@@ -482,11 +483,7 @@ def parse_catalog_json_file(table: StudyTable) -> list[StudyRow]:
 
 
 def write_catalog_json_file(rows: list[StudyRow], table: StudyTable) -> None:
-    catalog_json_path(table).write_text(
-        serialize_catalog_json_text(rows),
-        encoding="utf-8",
-        newline="\n",
-    )
+    write_text_lf(catalog_json_path(table), serialize_catalog_json_text(rows))
 
 
 CATALOG_ALL_PATH = STUDIES / "catalog-all.json"
@@ -693,16 +690,10 @@ def serialize_llms_full_txt(entries: list[dict] | None = None) -> str:
 
 def write_derived_catalogs() -> None:
     entries = _load_combined_catalog_entries()
-    CATALOG_ALL_PATH.write_text(
-        serialize_catalog_all_text(entries), encoding="utf-8", newline="\n"
-    )
-    STUDIES_FEED_PATH.write_text(
-        serialize_studies_feed_text(entries), encoding="utf-8", newline="\n"
-    )
-    LLMS_TXT_PATH.write_text(serialize_llms_txt(entries), encoding="utf-8", newline="\n")
-    LLMS_FULL_TXT_PATH.write_text(
-        serialize_llms_full_txt(entries), encoding="utf-8", newline="\n"
-    )
+    write_text_lf(CATALOG_ALL_PATH, serialize_catalog_all_text(entries))
+    write_text_lf(STUDIES_FEED_PATH, serialize_studies_feed_text(entries))
+    write_text_lf(LLMS_TXT_PATH, serialize_llms_txt(entries))
+    write_text_lf(LLMS_FULL_TXT_PATH, serialize_llms_full_txt(entries))
 
 
 def verify_derived_catalogs_sync() -> list[str]:
@@ -1093,9 +1084,9 @@ def write_studies_catalog(
     readme_path = STUDIES / "README.md"
     readme_text = readme_path.read_text(encoding="utf-8")
     start, end = catalog_markers(table)
-    readme_path.write_text(
+    write_text_lf(
+        readme_path,
         replace_catalog_block(readme_text, start, end, serialize_md_rows(rows, table)),
-        encoding="utf-8",
     )
     if rebuild_feedback_template:
         write_study_feedback_template()
@@ -1221,7 +1212,7 @@ def write_study_feedback_template() -> Path:
     )
     content = STUDY_FEEDBACK_TEMPLATE_HEADER + options + STUDY_FEEDBACK_TEMPLATE_FOOTER
     STUDY_FEEDBACK_TEMPLATE_PATH.parent.mkdir(parents=True, exist_ok=True)
-    STUDY_FEEDBACK_TEMPLATE_PATH.write_text(content, encoding="utf-8")
+    write_text_lf(STUDY_FEEDBACK_TEMPLATE_PATH, content)
     return STUDY_FEEDBACK_TEMPLATE_PATH
 
 
@@ -1258,14 +1249,14 @@ def write_references_readme_row(slug: str, tags: str, *, remove: bool = False) -
     ref_block = REFERENCES_README_TABLE_HEADER + "\n" + "\n".join(
         references_readme_row(s, t) for s, t in rows
     )
-    ref_readme_path.write_text(
+    write_text_lf(
+        ref_readme_path,
         replace_catalog_block(
-            ref_text,
-            REFERENCES_CATALOG_START,
-            REFERENCES_CATALOG_END,
-            ref_block,
-        ),
-        encoding="utf-8",
+                ref_text,
+                REFERENCES_CATALOG_START,
+                REFERENCES_CATALOG_END,
+                ref_block,
+            ),
     )
 
 

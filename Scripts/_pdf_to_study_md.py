@@ -12,7 +12,7 @@ import sys
 from pathlib import Path
 
 from _add_study import ensure_author_block, parse_status_arg
-from _common import study_md
+from _common import study_md, write_text_lf
 from _pdf_to_md import DEFAULT_MIN_CHARS, convert_pdf_to_markdown
 from _study_catalog import StudyStatus, format_edited_on_md, now_ist, set_status_md
 
@@ -136,7 +136,7 @@ def main() -> None:
         raise SystemExit("Specify --output or --slug when not using --stdout.")
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(md, encoding="utf-8")
+    write_text_lf(out_path, md)
     print(f"Wrote {out_path}", file=sys.stderr)
 
 

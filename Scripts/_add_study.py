@@ -19,7 +19,7 @@ import shutil
 import sys
 from pathlib import Path
 
-from _common import REFERENCES, STUDIES, study_dir, study_md, study_pdf, study_pdf_ref_path
+from _common import REFERENCES, STUDIES, study_dir, study_md, study_pdf, study_pdf_ref_path, write_text_lf
 from _pdf_cache_sync import pdfs_for_tags, sync_pdf_cache
 from _pdf_to_md import convert_pdf_to_markdown
 from _study_catalog import (
@@ -129,10 +129,7 @@ def update_manifest(slug: str, tags: str, *, force: bool) -> None:
             "",
             manifest_text,
         )
-    manifest_path.write_text(
-        append_manifest_row(manifest_text, slug, tags),
-        encoding="utf-8",
-    )
+    write_text_lf(manifest_path, append_manifest_row(manifest_text, slug, tags))
     print(f"Updated {manifest_path}")
 
 
@@ -262,10 +259,10 @@ def add_study(
                 shutil.copy2(input_path, dest_pdf)
                 print(f"Copied PDF to {dest_pdf}")
             if not dest_md.exists() or force:
-                dest_md.write_text(md_text, encoding="utf-8")
+                write_text_lf(dest_md, md_text)
                 print(f"Wrote converted markdown to {dest_md}")
             else:
-                dest_md.write_text(md_text, encoding="utf-8")
+                write_text_lf(dest_md, md_text)
                 print(f"Updated converted markdown at {dest_md}")
             print(
                 "\nNote: Review the converted markdown before regenerating the PDF. "
@@ -276,9 +273,9 @@ def add_study(
             shutil.copy2(input_path, dest_pdf)
             print(f"Copied PDF to {dest_pdf}")
             if not dest_md.exists() or force:
-                dest_md.write_text(
+                write_text_lf(
+                    dest_md,
                     build_stub_markdown(study_title, study_description, edited_at, status),
-                    encoding="utf-8",
                 )
                 print(f"Wrote stub markdown to {dest_md}")
             else:
@@ -286,7 +283,7 @@ def add_study(
                 md_text = set_edited_on(md_text, edited_at)
                 if status != StudyStatus.ONGOING:
                     md_text = set_status_md(md_text, status)
-                dest_md.write_text(md_text, encoding="utf-8")
+                write_text_lf(dest_md, md_text)
                 print(f"Updated **Edited on:** in {dest_md}")
             print(
                 "\nNote: imported PDFs keep their original content. "
@@ -303,7 +300,7 @@ def add_study(
         md_text = set_edited_on(md_text, edited_at)
         if status != StudyStatus.ONGOING:
             md_text = set_status_md(md_text, status)
-        dest_md.write_text(md_text, encoding="utf-8")
+        write_text_lf(dest_md, md_text)
         print(f"Updated {dest_md}")
 
         if not skip_pdf and status != StudyStatus.ONGOING:
