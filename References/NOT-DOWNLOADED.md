@@ -132,29 +132,3 @@ Works cited in [*Technical Note: EMR and Wolfram's Computational Universe*](../S
 | **Wolfram Physics Causal Graphs** | Wolfram Physics Project. *A Class of Models with the Potential to Represent Fundamental Physics*, Causal Graphs for Causal-Invariant Rules. | https://www.wolframphysics.org/technical-introduction/the-updating-process-in-our-models/causal-graphs-for-causal-invariant-rules/index.html |
 | **Piskunov 2020** | Piskunov, M. "Confluence and Causal Invariance." *Wolfram Physics Project Bulletin*, 16 Nov 2020. | https://bulletins.wolframphysics.org/2020/11/confluence-and-causal-invariance/ |
 | **Wolfram Observer Theory** | Wolfram, S. "Observer Theory." *Stephen Wolfram Writings*, 29 Dec 2023. | https://writings.stephenwolfram.com/2023/12/observer-theory/ |
-
-## Physics, variational mechanics, and category theory — external only
-
-Works cited in [*Restfulness and Least Action*](../Studies/Restfulness-And-Least-Action/Restfulness-And-Least-Action.pdf) that are linked externally rather than mirrored locally.
-
-| Tag | Full reference | Original location |
-|-----|----------------|-------------------|
-| **Scholarpedia PLA** | Gray, G., and Taylor, J. N. "Principle of least action." *Scholarpedia*, 2(8), 1601. | http://www.scholarpedia.org/article/Principle_of_least_action |
-| **Landau SE** | "Confusion regarding the principle of least action in Landau & Lifshitz *The Classical Theory of Fields*." *Physics Stack Exchange*. | https://physics.stackexchange.com/questions/122486/confusion-regarding-the-principle-of-least-action-in-landau-lifshitz-the-clas |
-| **particle future SE** | "In the Principle of Least Action, how does a particle know where it will be in the future?" *Physics Stack Exchange*. | https://physics.stackexchange.com/questions/245704/in-the-principle-of-least-action-how-does-a-particle-know-where-it-will-be-in-t |
-| **Reddit PLA** | "Why does a particle's path need to follow the principle of least action?" *r/AskPhysics*. | https://www.reddit.com/r/AskPhysics/comments/1ub3jab/why_does_a_particles_path_need_to_follow_the/ |
-| **Gray and Taylor astonishment** | "Should we be astonished by the Principle of 'Least' Action?" *egtheory* (WordPress). | https://egtheory.wordpress.com/2014/09/28/principle-of-least-action/ |
-| **Apeiron biological action** | "Biological Version of the Action Principle: The Next Frontier of Physics." Apeiron Centre. | https://apeironcentre.org/biological-version-of-the-action-principle-the-next-frontier-of-physics/ |
-| **Emergent Mind PLA** | "Variational Principles of Least Action." *Emergent Mind*. | https://www.emergentmind.com/topics/variational-principles-of-least-action |
-| **ResearchGate teleology** | "The principle of least action and teleological explanation in physics." ResearchGate. | https://www.researchgate.net/publication/372312619_The_principle_of_least_action_and_teleological_explanation_in_physics |
-| **Gromov 1989** | Gromov, M. "Symplectic fixed points and holomorphic spheres." *Communications in Mathematical Physics*, 120(4), 575–613. | https://projecteuclid.org/journals/communications-in-mathematical-physics/volume-120/issue-4/Symplectic-fixed-points-and-holomorphic-spheres/cmp/1104177909.pdf |
-| **path integrals blog** | "Path integrals: particle paths for principle of least action." *Quantum field theory* (WordPress). | https://nige.wordpress.com/path-integrals/ |
-| **Milewski 2015** | Milewski, B. "Category Theory and Declarative Programming." Bartosz Milewski's Programming Cafe. | https://bartoszmilewski.com/2015/04/15/category-theory-and-declarative-programming/ |
-| **Baez week292** | Baez, J. "This Week's Finds in Mathematical Physics (Week 292)." UCR Math. | https://math.ucr.edu/home/baez/week292.html |
-| **Baez week296** | Baez, J. "This Week's Finds in Mathematical Physics (Week 296)." UCR Math. | https://math.ucr.edu/home/baez/week296.html |
-| **Baez maximum principles** | Baez, J. "Maximum principles." *nLab*. | https://ncatlab.org/johnbaez/show/Maximum+principles |
-| **Baez and Fong 2015** | Baez, J., and Fong, B. "A Compositional Framework for Passive Linear Networks." *The n-Category Café*. | https://golem.ph.utexas.edu/category/2015/12/a_compositional_framework_for_1.html |
-| **Baez and Weingarten 2020** | Baez, J., and Weingarten, S. "Open Systems in Classical Mechanics." *The n-Category Café*. | https://golem.ph.utexas.edu/category/2020/08/open_systems_in_classical_mech.html |
-| **nLab prequantized Lagrangian** | "prequantized Lagrangian correspondence." *nLab*. | https://ncatlab.org/nlab/show/prequantized+Lagrangian+correspondence |
-| **Weinstein Lagrangian** | Weinstein, A. "Lagrangian mechanics and groupoids." UC Berkeley (TeX source). | https://math.berkeley.edu/~alanw/Lagrangian.tex |
-| **Math SE modules** | "Help with notation/concepts in module theory and category theory…" *Mathematics Stack Exchange*. | https://math.stackexchange.com/questions/2895986/help-with-notation-concepts-in-module-theory-and-category-theory-specifically |
