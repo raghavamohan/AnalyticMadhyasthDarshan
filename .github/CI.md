@@ -230,31 +230,42 @@ run. Run them with `--all`.
 
 ## 5. Required checks and branch protection
 
-**Current state — read this before assuming a red check blocks a merge.**
-
 `master` is protected by the repository ruleset **"Protect default branch"**:
 
 - `pull_request` required (0 approving reviews), merge/squash/rebase all allowed
 - no force-push, no deletion
-- **no `required_status_checks` rule**
+- **`required_status_checks`: `verify`**, pinned to the GitHub Actions app
+  (integration `15368`), non-strict
 - **no bypass actors**
 
-Two consequences follow, and both are load-bearing:
+**The required context is `verify` — the bare job name.** `Studies index / verify`
+is the string GitHub renders in the UI; the check-run name that branch rules match
+is whatever the job reports, which for a job with no explicit `name:` is its id.
+Confirm with the API rather than reading it off the page, because a context that
+never matches leaves every pull request pending forever:
 
-1. **No CI check is required to merge.** A study PR can be merged with `study-pr`
-   red, cancelled or skipped. `CONTRIBUTING.md` previously described this as
-   configured; it is a recommendation, not the current state.
-2. **`github-actions[bot]` has no bypass**, so the direct push to `master` in
-   `proposal-approved.yml`'s `bootstrap` job is subject to the pull-request rule.
+```bash
+gh api repos/OWNER/REPO/commits/SHA/check-runs -q '.check_runs[].name'
+```
 
-If required checks are enabled, the check names are `Study PR / study-pr` and
-`Studies index / verify` — not the bare workflow names.
+`strict_required_status_checks_policy` is **false** on purpose: true would force
+every PR to re-sync with `master` whenever it moves, which on a repository this
+active is constant rebasing for no safety gain.
 
-**Require `Studies index / verify`, not `Study PR / study-pr`.** Studies index is
-unfiltered and reports on every pull request, so it is safe to require.
-`study-pr.yml` omits the `opened` trigger by design (§2.1), so a PR opened without
-a study label produces *no run at all* and a required check would sit pending
-forever — this document's own PR demonstrated exactly that.
+One consequence still stands: **`github-actions[bot]` has no bypass**, so the
+direct push to `master` in `proposal-approved.yml`'s `bootstrap` job is subject to
+the pull-request rule — see [§6](#6-known-gaps-and-hazards).
+
+**Why `verify` and not the study pipeline.** `studies-index-check.yml` is
+unfiltered and reports on every pull request, so requiring it is safe.
+`study-pr.yml` **must not** be required: it omits the `opened` trigger by design
+(§2.1), so a PR opened without a study label produces *no run at all*, and a
+required check would sit pending forever. This document's own pull request
+demonstrated exactly that, sitting with zero checks reported.
+
+`study-pr` therefore remains advisory. Merging a study PR with it red is possible
+and is a maintainer's judgement, not a gate — which is why the local verification
+in AGENTS.md §7 step 3 is the real check on study work.
 
 ---
 
