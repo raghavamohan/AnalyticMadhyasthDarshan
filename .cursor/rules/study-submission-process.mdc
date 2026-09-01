@@ -122,10 +122,11 @@ detects that case and fails with the commands to run locally instead. Contributo
 from a fork must therefore regenerate and commit artifacts themselves — step 3 above is not
 optional for them.
 
-CI is **advisory**: the default-branch ruleset requires a pull request but defines no
-required status checks, so a red or skipped `study-pr` does not block a merge. Verify
-locally (step 3) rather than relying on the check to stop a bad push. See
-[.github/CI.md](.github/CI.md) §5.
+The default-branch ruleset requires the `verify` check from **Studies index**, which
+runs on every pull request. It does **not** require `study-pr`, which cannot be
+required because it does not run at all on a PR opened without a study label. So a red
+or skipped `study-pr` does not block a merge: verify locally (step 3) rather than
+relying on CI to stop a bad push. See [.github/CI.md](.github/CI.md) §5.
 
 ## Completion check
 
