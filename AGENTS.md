@@ -278,6 +278,17 @@ this was pinned every run emitted a different file and CI pushed a fresh
 multi-megabyte blob on every commit to every study PR. Never reintroduce a
 wall-clock timestamp into a generated artifact.
 
+Two things had to be canonicalised, not one. Chrome also numbers tagged-PDF
+structure elements from a counter it does not reset per document, so the same
+markdown could come out as `node00000166` in one run and `node00000167` in the
+next — every byte of every ID different, the document identical. For a Draft that
+difference then lands inside a pdf-lib compressed stream, out of reach of the
+equal-length patching in `_pdf_metadata.py`, which is what made
+`_verify_pdf_reproducible.py` diverge intermittently. `_html_to_pdf.js`
+renumbers those IDs to a dense `1..N` sequence straight after `page.pdf()`,
+before the watermark. Do not "fix" this by disabling PDF tagging: the structure
+tree is what makes the tables in these studies navigable.
+
 Reproducibility is scoped to a fixed Chrome and Node toolchain: a Chrome upgrade
 legitimately changes glyph rendering, so the first regeneration after one will
 show a real diff.
