@@ -829,6 +829,10 @@ workflow: **never commit a `Studies/` change directly to the default branch.** E
 addition, edit, removal, or status change lands through a pull request that CI
 (`.github/workflows/study-pr.yml` → `Scripts/_ci_study_pr.py`) can process.
 
+The pipeline itself — every workflow, its trigger, what it may write, what it does **not**
+check, and how to reproduce each check locally — is documented in
+[.github/CI.md](.github/CI.md). Read it before changing anything under `.github/`.
+
 ### Mandatory workflow
 
 1. **Create a feature branch** before touching any file under `Studies/`. Do not commit study
@@ -931,6 +935,11 @@ workflow's `permissions:` block, so on a fork the push is impossible: `commit-ar
 detects that case and fails with the commands to run locally instead. Contributors working
 from a fork must therefore regenerate and commit artifacts themselves — step 3 above is not
 optional for them.
+
+CI is **advisory**: the default-branch ruleset requires a pull request but defines no
+required status checks, so a red or skipped `study-pr` does not block a merge. Verify
+locally (step 3) rather than relying on the check to stop a bad push. See
+[.github/CI.md](.github/CI.md) §5.
 
 ### Completion check
 
