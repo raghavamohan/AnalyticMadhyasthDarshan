@@ -218,7 +218,20 @@ updates both catalog files together. If you add or remove a study, also update
 
 Regenerating with no content change must produce no diff. If
 `python Scripts/_build_studies_index.py` rewrites files on a clean tree, that is
-a generator bug, not something to commit.
+a generator bug, not something to commit. Two such bugs are fixed and worth not
+reintroducing:
+
+- The catalog cache-buster in `Studies/index.html` was keyed on
+  `git rev-parse --short HEAD`, so it changed on every commit and every rebuild
+  dirtied the index. It is now a hash of the bytes it busts — the catalog JSON
+  and the presentation PDFs — so it changes exactly when a cached resource does.
+  Never key a generated artifact on HEAD or on the clock.
+- `sitemap.xml`, `llms.txt`, `llms-full.txt`, `catalog-all.json` and
+  `studies.txt` are all rendered from the catalog and nothing checked them. A
+  study released before the catalog-write path started rebuilding them kept its
+  old row: the sitemap reported a stale `lastmod` and `llms.txt` still called a
+  released study a draft. `_verify_studies_index.py` now fails when any of them
+  is stale, so a missed rebuild is caught rather than shipped.
 
 ---
 
@@ -251,13 +264,26 @@ npx puppeteer browsers install chrome
 cd ..
 ```
 
-### Regenerate one study
+### Regenerate one study, or one companion note
 
 ```powershell
 python Scripts/_regenerate_pdf.py <Name>
 ```
 
 Reads **Status:** from the markdown and applies the Draft watermark when appropriate.
+
+Companion notes — research and technical notes beside a study, which are not
+catalog entries — carry no **Status:** line. Pass a path instead of a slug:
+
+```powershell
+python Scripts/_regenerate_pdf.py Studies/<Slug>/Research-Note-Example.md
+```
+
+They render unwatermarked, which is how they are committed, and go through the
+same verifiers as a study. Before this, they had no supported entry point at
+all, and rebuilding one meant reimplementing the pipeline in a throwaway
+script — which is how four of them came to sit with their maths in fallback
+fonts, unnoticed.
 
 ### Internal pipeline (batch or debugging)
 

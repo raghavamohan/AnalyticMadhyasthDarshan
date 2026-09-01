@@ -110,6 +110,19 @@ updates both catalog files together. If you add or remove a study, also update
 
 Regenerating with no content change must produce no diff. If
 `python Scripts/_build_studies_index.py` rewrites files on a clean tree, that is
-a generator bug, not something to commit.
+a generator bug, not something to commit. Two such bugs are fixed and worth not
+reintroducing:
+
+- The catalog cache-buster in `Studies/index.html` was keyed on
+  `git rev-parse --short HEAD`, so it changed on every commit and every rebuild
+  dirtied the index. It is now a hash of the bytes it busts — the catalog JSON
+  and the presentation PDFs — so it changes exactly when a cached resource does.
+  Never key a generated artifact on HEAD or on the clock.
+- `sitemap.xml`, `llms.txt`, `llms-full.txt`, `catalog-all.json` and
+  `studies.txt` are all rendered from the catalog and nothing checked them. A
+  study released before the catalog-write path started rebuilding them kept its
+  old row: the sitemap reported a stale `lastmod` and `llms.txt` still called a
+  released study a draft. `_verify_studies_index.py` now fails when any of them
+  is stale, so a missed rebuild is caught rather than shipped.
 
 ---
