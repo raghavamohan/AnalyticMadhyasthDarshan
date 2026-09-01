@@ -40,6 +40,26 @@ CATALOG_BUILD_ID_PLACEHOLDER = "@catalog-build-id@"
 DISCUSS_ASSET_VERSION_PLACEHOLDER = "@discuss-asset-version@"
 HERO_SCOPE_PLACEHOLDER = "<!-- @hero-scope@ -->"
 FAVICON_LINKS_PLACEHOLDER = "<!-- @favicon-links@ -->"
+START_HERE_STATUS_PLACEHOLDER = "@start-here-status@"
+PILL_STATUS_SUB_RE = r'(<span class="path-status )[a-z-]+("[^>]*data-study-status[^>]*>)[^<]*(</span>)'
+PILL_STATUS_SUB_REPL = (
+    "\1" + START_HERE_STATUS_PLACEHOLDER + "\2" + START_HERE_STATUS_PLACEHOLDER + "\3"
+)
+
+# Mirrors START_HERE_STATUS_WORDS in the shipped syncStartHere() script. The two
+# must agree: the builder writes these words into the static markup and the page
+# recomputes them from the catalog on load, so a mismatch would make the pill
+# visibly change on first paint.
+START_HERE_STATUS_WORDS = {"released": "Released", "draft": "Draft", "planned": "In progress"}
+
+# Pairs a Start-here entry with its own status pill. The inner guard refuses to
+# cross into the next data-study-slug element, so a study whose pill is missing
+# cannot silently capture the following study's pill.
+START_HERE_PILL_RE = re.compile(
+    r'(data-study-slug="([^"]+)"(?:(?!data-study-slug=).)*?<span class="path-status )'
+    r'([a-z-]+)("[^>]*data-study-status[^>]*>)([^<]*)(</span>)',
+    re.DOTALL,
+)
 
 INDEX_TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
@@ -2745,6 +2765,14 @@ def strip_build_time_data(content: str) -> str:
         result,
         count=1,
     )
+    # Start-here pills are written from the catalog by render_start_here_status(),
+    # so they are build-time data like the cards and the bootstrap. Blank them on
+    # both sides; verify_start_here_sync() checks them against the catalog.
+    result = re.sub(
+        PILL_STATUS_SUB_RE,
+        PILL_STATUS_SUB_REPL,
+        result,
+    )
     return re.sub(
         r'(<p class="scope" id="hero-scope">).*?(</p>)',
         rf"\1{HERO_SCOPE_PLACEHOLDER}\2",
@@ -2762,6 +2790,71 @@ def strip_catalog_blocks(content: str) -> str:
         if pattern.search(result):
             result = pattern.sub(f"{start}\n{CATALOG_SHELL_PLACEHOLDER}\n{end}", result, count=1)
     return result
+
+
+def start_here_status_key(status) -> str:
+    """Catalog status -> Start-here pill key, exactly as syncStartHere() does it.
+
+    The script falls back to "planned" for anything it has no word for, which is
+    how `ongoing` renders as "In progress". Keep this fallback identical.
+    """
+    key = getattr(status, "value", status)
+    return key if key in START_HERE_STATUS_WORDS else "planned"
+
+
+def render_start_here_status(html: str, rows: list[StudyRow]) -> str:
+    """Write each Start-here pill from the catalog.
+
+    These pills used to be hand-maintained literals in INDEX_TEMPLATE, and two of
+    the 23 had drifted: a released study still advertised Draft, and a draft study
+    still advertised In progress. syncStartHere() repaired them on load, so the
+    drift was invisible in a browser and wrong everywhere else -- first paint, and
+    any reader of the HTML that does not run scripts.
+    """
+    status_by_slug = {row.slug: start_here_status_key(row.status) for row in rows}
+
+    def rewrite(match: re.Match) -> str:
+        head, slug, _cls, mid, _label, tail = match.groups()
+        key = status_by_slug.get(slug)
+        if key is None:
+            # Unknown slug: leave the markup alone, matching syncStartHere(),
+            # which returns early when the catalog has no such study.
+            return match.group(0)
+        return f"{head}{key}{mid}{START_HERE_STATUS_WORDS[key]}{tail}"
+
+    return START_HERE_PILL_RE.sub(rewrite, html)
+
+
+def verify_start_here_sync() -> list[str]:
+    """Ensure the Start-here pills still match catalog-*.json.
+
+    strip_build_time_data() blanks these pills before the shell comparison, so
+    verify_index_shell_sync() can no longer see them. This is the check that
+    takes over -- without it, blanking them would remove the only guard.
+    """
+    index_path = STUDIES / "index.html"
+    if not index_path.exists():
+        return ["Studies/index.html is missing."]
+
+    status_by_slug = {}
+    for table in StudyTable:
+        for row in parse_catalog_json_file(table):
+            status_by_slug[row.slug] = start_here_status_key(row.status)
+
+    errors = []
+    for match in START_HERE_PILL_RE.finditer(index_path.read_text(encoding="utf-8")):
+        _head, slug, cls, _mid, label, _tail = match.groups()
+        expected = status_by_slug.get(slug)
+        if expected is None:
+            continue
+        if cls != expected or label != START_HERE_STATUS_WORDS[expected]:
+            errors.append(
+                f"Studies/index.html: Start-here pill for {slug} says "
+                f"{cls}/{label!r}, catalog says {expected}/"
+                f"{START_HERE_STATUS_WORDS[expected]!r}. "
+                "Run python Scripts/_build_studies_index.py."
+            )
+    return errors
 
 
 def verify_catalog_bootstrap_sync() -> list[str]:
@@ -2899,6 +2992,7 @@ def write_index_html() -> dict[str, list[StudyRow]] | None:
         html,
         {"topical": topical_rows, "formal": formal_rows, "applied": applied_rows},
     )
+    html = render_start_here_status(html, all_rows)
     index_path.write_text(minify_inline_css(html), encoding="utf-8")
     return {"topical": topical_rows, "formal": formal_rows, "applied": applied_rows}
 
