@@ -234,7 +234,7 @@ cd ..
 `npm ci` in `Scripts/` automatically.
 
 Prefer `npm ci` locally too: it installs exactly what `package-lock.json` pins,
-including the Chrome build the committed PDFs were rendered with. Then fetch that
+including the Chrome build every regeneration must use. Then fetch that
 Chrome once:
 
 ```powershell
@@ -277,6 +277,17 @@ Chrome and pdf-lib both stamp wall-clock `/CreationDate` and `/ModDate`, so befo
 this was pinned every run emitted a different file and CI pushed a fresh
 multi-megabyte blob on every commit to every study PR. Never reintroduce a
 wall-clock timestamp into a generated artifact.
+
+Two things had to be canonicalised, not one. Chrome also numbers tagged-PDF
+structure elements from a counter it does not reset per document, so the same
+markdown could come out as `node00000166` in one run and `node00000167` in the
+next — every byte of every ID different, the document identical. For a Draft that
+difference then lands inside a pdf-lib compressed stream, out of reach of the
+equal-length patching in `_pdf_metadata.py`, which is what made
+`_verify_pdf_reproducible.py` diverge intermittently. `_html_to_pdf.js`
+renumbers those IDs to a dense `1..N` sequence straight after `page.pdf()`,
+before the watermark. Do not "fix" this by disabling PDF tagging: the structure
+tree is what makes the tables in these studies navigable.
 
 Reproducibility is scoped to a fixed Chrome and Node toolchain: a Chrome upgrade
 legitimately changes glyph rendering, so the first regeneration after one will
@@ -384,7 +395,11 @@ The second form validates SVG figures for all studies.
   `_verify_pdf_diagrams.py` after each regeneration
 - **Inline and display LaTeX math** — `$...$` and `$$...$$` in study markdown are rendered
   with KaTeX in `_convert_to_pdf.py` (`_render_katex_math.js`) before glossary tooltips run;
-  KaTeX CSS (with absolute font paths) is embedded in the HTML for PDF output
+  KaTeX CSS is embedded in the HTML for PDF output, with its font URLs pointing at
+  the vendored `Assets/KaTeX/fonts` through a page-relative `../../` href so they
+  resolve both on the site and through the `file://` render that produces the PDF.
+  Never rewrite them to an absolute local path: that resolves only for the PDF,
+  breaks every formula on the published site, and leaks the build machine's paths
 - **Fenced code and spec blocks** — ` ```text ` and other fenced code use `white-space:
   pre-wrap` so long lines wrap inside the page; verified by `_verify_pdf_fenced_code.py`.
   Prefer a **table** for multi-column formal specs (Petri transitions, type signatures)

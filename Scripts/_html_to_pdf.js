@@ -71,6 +71,55 @@ async function addPageWatermark(pdfPath, label, dateStamp) {
   fs.writeFileSync(pdfPath, await pdfDoc.save());
 }
 
+// Chrome numbers tagged-PDF structure elements from a counter that is not reset
+// per document, so the same markdown rendered twice can produce IDs offset by a
+// few — node00000166 in one run, node00000167 in the next. Nothing about the
+// document changes, but every byte of every ID does, and for a Draft that
+// difference then lands inside a pdf-lib compressed stream where the equal-length
+// patching in Scripts/_pdf_metadata.py cannot reach it. That was the intermittent
+// divergence _verify_pdf_reproducible.py kept reporting.
+//
+// Renumbering to a dense 1..N sequence makes the output depend only on the
+// document. Three details keep it safe:
+//   * every ID is rewritten, not just the /ID entries — /Headers on table cells
+//     reference other cells' IDs, and /IDTree indexes them;
+//   * the map preserves numeric order, so the /IDTree name tree stays sorted,
+//     which PDF requires of a name tree;
+//   * the replacement is the same 8-digit width, so no byte offset moves and the
+//     xref table stays valid. Same constraint the date pinning works under.
+//
+// Disabling tagging would also make the output deterministic, and would throw
+// away the structure tree that makes these tables navigable. Not a trade worth
+// making for a byte comparison.
+const STRUCT_ELEMENT_ID = /node(\d{8})/g;
+
+function canonicaliseStructElementIds(pdfPath) {
+  // latin1 round-trips arbitrary bytes, so the PDF survives the string pass.
+  const text = fs.readFileSync(pdfPath).toString('latin1');
+  const seen = new Set();
+  for (const match of text.matchAll(STRUCT_ELEMENT_ID)) {
+    seen.add(Number(match[1]));
+  }
+  if (seen.size === 0) {
+    return;
+  }
+  const canonical = new Map();
+  [...seen].sort((a, b) => a - b).forEach((original, index) => {
+    canonical.set(original, index + 1);
+  });
+  const rewritten = text.replace(STRUCT_ELEMENT_ID, (whole, digits) => {
+    const mapped = canonical.get(Number(digits));
+    return mapped === undefined ? whole : 'node' + String(mapped).padStart(8, '0');
+  });
+  if (rewritten.length !== text.length) {
+    throw new Error(
+      'Structure element renumbering changed the file length, which would ' +
+        'invalidate the xref table. Aborting rather than writing a corrupt PDF.'
+    );
+  }
+  fs.writeFileSync(pdfPath, Buffer.from(rewritten, 'latin1'));
+}
+
 async function renderMermaidDiagrams(page) {
   const hasMermaid = await page.evaluate(
     () => document.querySelectorAll('.mermaid').length > 0
@@ -193,6 +242,8 @@ function buildFooterTemplate(editedOnDate) {
   });
 
   await browser.close();
+
+  canonicaliseStructElementIds(outputPath);
 
   if (watermarkLabel) {
     await addPageWatermark(outputPath, watermarkLabel, pdfDateStamp);
