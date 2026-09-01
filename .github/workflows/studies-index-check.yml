@@ -1,55 +1,27 @@
 name: Studies index
 
+# Deliberately unfiltered. This job is the repository's cheap, always-run guard:
+# Python only, no Node, no Chrome, ~1 minute with a warm pip cache.
+#
+# It used to carry two verbatim copies of a fifteen-entry `paths:` list, one per
+# trigger, which was easy to half-edit and easy to outgrow. It had already been
+# outgrown: the suites this job now runs read `infra/`, `.agents/skills/`,
+# `.well-known/`, `AGENTS.md` and `Studies/glossary.json`, none of which any
+# filter listed -- so the PRs most likely to break them were the ones that would
+# not have triggered the check.
+#
+# Running unconditionally also makes this the one workflow that reports on every
+# pull request, which is what a required status check needs. `study-pr.yml`
+# cannot be required: it omits the `opened` trigger by design, so a PR opened
+# without a study label produces no run at all and the check would sit pending
+# forever.
+
 on:
   pull_request:
-    paths:
-      - "Studies/index.html"
-      - "Studies/README.md"
-      - "Scripts/_build_studies_index.py"
-      - "Scripts/_study_catalog.py"
-      - "Scripts/_verify_studies_index.py"
-      - "Scripts/_ci_study_pr.py"
-      - "Scripts/_test_ci_study_pr.py"
-      - "Scripts/_pdf_metadata.py"
-      - "Scripts/_test_pdf_metadata.py"
-      - "Scripts/_build_discussion_pages.py"
-      - "Scripts/_build_sitemap.py"
-      - "Scripts/_test_commit_artifacts.py"
-      # The LF-write guard scans every script, so any of them can break it.
-      - "Scripts/**.py"
-      - ".github/actions/commit-artifacts/action.yml"
-      - "Studies/catalog-*.json"
-      # verify_removal_metadata reads this, and a stale row here is what
-      # let a removed study keep its proposal entry (see 8c5b4dc).
-      - "Studies/proposal-registry.json"
-      - ".github/actions/setup-study-env/action.yml"
-      - ".github/workflows/studies-index-check.yml"
   push:
     branches:
       - master
       - main
-    paths:
-      - "Studies/index.html"
-      - "Studies/README.md"
-      - "Scripts/_build_studies_index.py"
-      - "Scripts/_study_catalog.py"
-      - "Scripts/_verify_studies_index.py"
-      - "Scripts/_ci_study_pr.py"
-      - "Scripts/_test_ci_study_pr.py"
-      - "Scripts/_pdf_metadata.py"
-      - "Scripts/_test_pdf_metadata.py"
-      - "Scripts/_build_discussion_pages.py"
-      - "Scripts/_build_sitemap.py"
-      - "Scripts/_test_commit_artifacts.py"
-      # The LF-write guard scans every script, so any of them can break it.
-      - "Scripts/**.py"
-      - ".github/actions/commit-artifacts/action.yml"
-      - "Studies/catalog-*.json"
-      # verify_removal_metadata reads this, and a stale row here is what
-      # let a removed study keep its proposal entry (see 8c5b4dc).
-      - "Studies/proposal-registry.json"
-      - ".github/actions/setup-study-env/action.yml"
-      - ".github/workflows/studies-index-check.yml"
 
 jobs:
   verify:
@@ -67,22 +39,21 @@ jobs:
       - name: Verify catalog JSON and index shell
         run: python Scripts/_verify_studies_index.py
 
-      - name: Check study PR router
-        run: python Scripts/_test_ci_study_pr.py
+      # Runs every Scripts/_test_*.py except the few held back in that script's
+      # HELD map, each with a written reason. Discovery is a denylist on purpose:
+      # only four of twenty-one suites used to be wired in here by name, and the
+      # other seventeen were enforced by nothing because adding a test file did
+      # not add it to CI. A new suite is now enforced the moment it lands.
+      #
+      # Covers, among others: the study-PR router (_test_ci_study_pr), the PDF
+      # date-pinning patches (_test_pdf_metadata), the commit-artifacts shell --
+      # the only part of CI that writes to a branch, and unreachable from the two
+      # labelled workflows that use it -- and the LF-write guard, which reads the
+      # source because this Linux runner cannot reproduce the Windows CRLF bug.
+      - name: Run the enforced test suites
+        run: python Scripts/_run_test_suites.py
 
-      - name: Check PDF reproducibility patches
-        run: python Scripts/_test_pdf_metadata.py
-
-      # commit-artifacts is the only part of CI that writes to a branch, and the
-      # two workflows that use it both need a label to fire -- so without this it
-      # reaches master having never been run. study-pr.yml also resolves it as
-      # @master, so even a real study PR would test the merged copy, not the
-      # branch's.
-      - name: Check the commit-artifacts shell
-        run: python Scripts/_test_commit_artifacts.py
-
-      # Windows-only bug: Path.write_text() emits CRLF there, so a rebuild
-      # dirtied 29 tracked files with no content change. This runner is Linux
-      # and would never reproduce it, so the check reads the source instead.
-      - name: Check generated-file writes emit LF
-        run: python Scripts/_test_generated_file_writes.py
+      # CLAUDE.md makes this sync mandatory after editing AGENTS.md or any
+      # SKILL.md, and nothing verified it, so the mirrors could drift silently.
+      - name: Check agent rules and skills mirrors are in sync
+        run: python Scripts/_sync_agent_rules.py --check

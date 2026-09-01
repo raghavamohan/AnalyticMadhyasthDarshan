@@ -14,7 +14,7 @@ for the pipeline itself.**
 | Workflow | Fires on | Job | Writes to the repo? |
 |----------|----------|-----|---------------------|
 | [Study PR](workflows/study-pr.yml) | `pull_request`: `synchronize`, `reopened`, `labeled` — **and only** with one of `new-study` / `study-update` / `status-change` | `study-pr` | **Yes** — pushes regenerated artifacts to the PR branch |
-| [Studies index](workflows/studies-index-check.yml) | `pull_request` and `push` to `master`/`main`, path-filtered | `verify` | No |
+| [Studies index](workflows/studies-index-check.yml) | **every** `pull_request`; `push` to `master`/`main` | `verify` | No |
 | [PDF pipeline smoke](workflows/pdf-pipeline-smoke.yml) | `pull_request` path-filtered on the PDF pipeline; `workflow_dispatch` | `reproducible` | No |
 | [Proposal approved](workflows/proposal-approved.yml) | `issues: labeled` with `proposal-approved` | `comment`, `bootstrap` | **Yes** — `bootstrap` pushes directly to `master` |
 | [Portal notifications](workflows/portal-notify.yml) | `issues: labeled`; `pull_request_target: closed` | `notify` | No |
@@ -25,10 +25,13 @@ Two jobs are gated by more than their trigger, which is the most common source o
 
 - **Study PR** is skipped unless the PR carries a study label. A `skipped`
   conclusion on this workflow is normal for non-study PRs.
-- **Studies index** and **PDF pipeline smoke** are path-filtered. A PR that
-  touches none of their paths produces *no run at all* — see
+- **PDF pipeline smoke** is path-filtered. A PR touching none of its paths
+  produces *no run at all* — see
   [§5 Required checks](#5-required-checks-and-branch-protection) for why that
-  matters.
+  matters for required checks.
+
+**Studies index is the only workflow that reports on every pull request**, and is
+therefore the only one that can serve as a required status check.
 
 ---
 
@@ -86,25 +89,36 @@ from altering the toolchain its own required check runs on.
 
 ### 2.2 Studies index — `studies-index-check.yml`
 
-The cheap, always-green guard. Runs with `node: 'false'` — no Node, no Chrome, no
-PDF rendering — and executes five checks:
+The cheap, always-run guard. Runs with `node: 'false'` — no Node, no Chrome, no
+PDF rendering — in about a minute with a warm pip cache:
 
 | Step | Script | Guards |
 |------|--------|--------|
 | Verify catalog JSON and index shell | `_verify_studies_index.py` | `index.html` ↔ `README.md` ↔ `catalog-*.json` sync |
-| Check study PR router | `_test_ci_study_pr.py` | 34 unit tests over `_ci_study_pr.py` |
-| Check PDF reproducibility patches | `_test_pdf_metadata.py` | 8 tests over the date-pinning logic |
-| Check the commit-artifacts shell | `_test_commit_artifacts.py` | 4 tests over the push/skip/fork logic |
-| Check generated-file writes emit LF | `_test_generated_file_writes.py` | Windows-only CRLF regression |
+| Run the enforced test suites | `_run_test_suites.py` | 18 of the 22 `_test_*.py` suites (see §4) |
+| Check agent rules and skills mirrors | `_sync_agent_rules.py --check` | `AGENTS.md` ↔ `.cursor/rules/*.mdc` ↔ skill mirrors |
 
-Two of these exist because of a coverage hole rather than a bug: `commit-artifacts`
-is the only part of CI that writes to a branch, both workflows using it need a
-label to fire, and `study-pr.yml` resolves it `@master` — so without this job the
-action could reach `master` having never run.
+`_run_test_suites.py` **discovers by denylist**: it runs every `Scripts/_test_*.py`
+except the few named in its `HELD` map, each with a written reason, and prints
+what it held on every run. That inversion is the point — only four of twenty-one
+suites used to be listed here by name, and the other seventeen were enforced by
+nothing, because adding a test file to `Scripts/` did not add it to CI. A new
+suite is now enforced the moment it lands.
 
-It runs on **both** `pull_request` and `push` to the default branch. The two path
-filter lists are duplicated verbatim; **edit both or the check silently stops
-firing on one side.**
+Among what it covers: `_test_commit_artifacts` exercises the only part of CI that
+writes to a branch — both workflows using that action need a label to fire, and
+`study-pr.yml` resolves it `@master`, so without this job it could reach `master`
+having never run. `_test_generated_file_writes` reads the source rather than
+writing files, because this Linux runner cannot reproduce the Windows CRLF bug it
+guards.
+
+It runs on **both** `pull_request` and `push` to the default branch, **unfiltered
+on purpose**. It previously carried two verbatim copies of a fifteen-entry
+`paths:` list — easy to half-edit, and already outgrown: the suites it now runs
+read `infra/`, `.agents/skills/`, `.well-known/`, `AGENTS.md` and
+`Studies/glossary.json`, none of which any filter listed. Running unconditionally
+also makes this the one workflow that reports on every PR, which is what a
+required status check needs.
 
 ### 2.3 PDF pipeline smoke — `pdf-pipeline-smoke.yml`
 
@@ -186,19 +200,31 @@ verifiers (SVG, diagrams, fenced code, outline, math — all invoked through
 `_study_catalog.regenerate_pdf`), reference link checks when the bibliography
 changed, rename and removal metadata, and the router's own unit tests.
 
-**Not enforced anywhere in CI:**
+**Enforced by `studies-index-check.yml` on every PR:** 18 of the 22 `_test_*.py`
+suites, plus `_verify_studies_index.py` and the `_sync_agent_rules.py --check`
+mirror sync that CLAUDE.md makes mandatory.
+
+**Held back from CI on purpose** — these pass, but failing them would not mean
+the same thing as failing the others, so the call belongs to a maintainer. Each is
+named in `_run_test_suites.py`'s `HELD` map with its reason, and printed on every
+run. Run them with `--all`.
+
+| Held suite | Why |
+|------------|-----|
+| `_test_study_html_layout.py` | Pins the reader's exact CSS and toolbar structure (`max-width: 46rem;`, two toolbar rows, specific aria-labels). A deliberate restyle fails it, so enforcing means every design change updates an assertion in the same commit. |
+| `_test_analyze_jeevan_pass_three.py` | Asserts frozen results — exactly 122 members, 16 tokens each, residual 34 — parsed from a tracked research note in `The-Epistemology-of-Coexistence`. Editing that study's note would fail CI repo-wide. Also ~18s, more than the whole enforced set. |
+| `_test_analyze_jeevan_pass_four.py` | Chained onto pass three's committed CSVs and its 122-record invariant. |
+| `_test_validate_jeevan_pass_five.py` | Chained onto pass four's coverage register. |
+
+**Genuinely not covered anywhere:**
 
 | Gap | Consequence |
 |-----|-------------|
-| `_sync_agent_rules.py --check` | `AGENTS.md` can drift from `.cursor/rules/*.mdc` and the skill mirrors with nothing to catch it, even though CLAUDE.md makes the sync mandatory |
-| 17 of the 21 `Scripts/_test_*.py` suites | Site/infra tests (`_test_studies_api`, `_test_webmcp`, `_test_agent_card`, `_test_auth_md`, `_test_api_catalog`, `_test_dns_aid`, `_test_mcp_server_card`, `_test_web_bot_auth`), pipeline tests (`_test_convert_to_pdf_lists`, `_test_convert_to_pdf_math`, `_test_pdf_to_md`, `_test_glossary_tooltips`, `_test_agent_skills`) and the Jeevan analysis tests never run |
+| `--live` endpoint checks | Every site/infra suite has a `check_live()` behind an explicit `--live` flag that hits production. CI runs the offline form only, so a deployed regression with a correct repo state is not caught. Worth a scheduled run. |
 | `infra/` Cloudflare Workers | No build, lint, type-check or deploy check |
 | Companion deck pipeline | `_check_deck_layout.py`, `_pptx_to_pdf.py`, `_build_deck_notes_pdf.py` are manual-only (see the `update-study-presentation` skill) |
 | Python dependency versions | `requirements.txt` uses `>=` with no upper bound, so a new `markdown` or `pypdf` release changes CI behaviour with no repo change — unlike `Scripts/package.json`, which pins Puppeteer *and* the exact Chrome build |
 | Any lint / formatter | No ruff, flake8, mypy, eslint or markdownlint |
-
-All 17 unrun suites pass today, except `_test_sync_transcription_review_xlsx.py`,
-which only works as a module (`python -m Scripts._test_sync_transcription_review_xlsx`).
 
 ---
 
@@ -222,10 +248,13 @@ Two consequences follow, and both are load-bearing:
    `proposal-approved.yml`'s `bootstrap` job is subject to the pull-request rule.
 
 If required checks are enabled, the check names are `Study PR / study-pr` and
-`Studies index / verify` — not the bare workflow names. Because both workflows are
-gated (by label and by path filter respectively), marking either *required*
-without also enabling **"Do not require status checks on creation"** or accounting
-for skipped runs will block unrelated PRs that legitimately produce no run.
+`Studies index / verify` — not the bare workflow names.
+
+**Require `Studies index / verify`, not `Study PR / study-pr`.** Studies index is
+unfiltered and reports on every pull request, so it is safe to require.
+`study-pr.yml` omits the `opened` trigger by design (§2.1), so a PR opened without
+a study label produces *no run at all* and a required check would sit pending
+forever — this document's own PR demonstrated exactly that.
 
 ---
 
@@ -262,11 +291,7 @@ explicitly.
 all emit the Node 20 deprecation warning and are being forced onto Node 24. Bump
 majors before the forced-run grace period ends.
 
-**5 — The duplicated path filters in `studies-index-check.yml`** are the easiest
-thing in this repository to half-edit. `Scripts/**.py` is in both lists because the
-LF-write guard scans every script.
-
-**6 — Unpinned Python dependencies** (see §4) make CI non-hermetic in a repository
+**5 — Unpinned Python dependencies** (see §4) make CI non-hermetic in a repository
 whose entire PDF pipeline is built around byte-reproducible output.
 
 ---
@@ -275,14 +300,24 @@ whose entire PDF pipeline is built around byte-reproducible output.
 
 One-time setup: `pip install -r requirements.txt`, then `cd Scripts; npm install`.
 
-Everything `Studies index` runs — fast, no Node, no Chrome:
+Everything `Studies index` runs — fast, no Node, no Chrome, under ten seconds:
 
 ```bash
 python Scripts/_verify_studies_index.py
-python Scripts/_test_ci_study_pr.py
-python Scripts/_test_pdf_metadata.py
-python Scripts/_test_commit_artifacts.py
-python Scripts/_test_generated_file_writes.py
+```
+
+```bash
+python Scripts/_run_test_suites.py
+```
+
+```bash
+python Scripts/_sync_agent_rules.py --check
+```
+
+To see what is enforced and what is held, without running anything:
+
+```bash
+python Scripts/_run_test_suites.py --list
 ```
 
 Everything `PDF pipeline smoke` runs (rewrites the two studies' `.pdf`/`.html` in
@@ -300,16 +335,10 @@ python Scripts/_check_references.py --study <Slug>
 python Scripts/_quote_tool.py verify --study <Slug>
 ```
 
-The mandatory sync CI does not check:
+Every suite including the held ones (adds ~18s, mostly Jeevan pass three):
 
 ```bash
-python Scripts/_sync_agent_rules.py --check
-```
-
-Every test suite, including the ones CI never runs:
-
-```bash
-for f in Scripts/_test_*.py; do echo "== $f"; python "$f" || echo "FAILED"; done
+python Scripts/_run_test_suites.py --all
 ```
 
 `_ci_study_pr.py` itself is not directly runnable outside Actions — it requires
@@ -320,9 +349,13 @@ for f in Scripts/_test_*.py; do echo "== $f"; python "$f" || echo "FAILED"; done
 
 ## 8. Changing CI
 
-- **A new check** belongs in `studies-index-check.yml` if it is fast and needs no
-  Node; otherwise weigh it against the Puppeteer cost in `study-pr.yml`. Add its
-  script to **both** path filter lists.
+- **A new test suite** needs nothing wired up: name it `Scripts/_test_*.py` and
+  `_run_test_suites.py` picks it up on the next run. To hold one back, add it to
+  that script's `HELD` map **with a reason** — the reason is printed on every run,
+  so a held suite stays visible rather than quietly absent.
+- **A new non-test check** belongs in `studies-index-check.yml` if it is fast and
+  needs no Node; otherwise weigh it against the Puppeteer cost in `study-pr.yml`.
+  Neither trigger is path-filtered any more, so there is no filter list to update.
 - **A new study PR type** needs one entry in `HANDLERS` in `_ci_study_pr.py`, one
   entry in `PR_LABELS`, a body template under `.github/PULL_REQUEST_TEMPLATE/`,
   and rows in the tables in AGENTS.md §7 and CONTRIBUTING.md. The `assert
