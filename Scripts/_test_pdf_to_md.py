@@ -1,7 +1,6 @@
 """Tests for PDF-to-markdown conversion (maintainer import pipeline)."""
 from __future__ import annotations
 
-import re
 import sys
 import tempfile
 from pathlib import Path
@@ -9,38 +8,15 @@ from pathlib import Path
 SCRIPTS = Path(__file__).resolve().parent
 sys.path.insert(0, str(SCRIPTS))
 
-from _common import STUDIES
 from _pdf_to_md import convert_pdf_to_markdown
 
-FIXTURE_SLUG = "Restfulness-And-Least-Action"
-FIXTURE_PDF = STUDIES / FIXTURE_SLUG / f"{FIXTURE_SLUG}.pdf"
-
-
-def _assert_no_word_per_line_artifacts(md: str) -> None:
-    lines = [line for line in md.splitlines() if line.strip()]
-    short_lines = [line for line in lines if len(line.split()) <= 2 and len(line) < 30]
-    ratio = len(short_lines) / max(len(lines), 1)
-    assert ratio < 0.35, (
-        f"Too many short lines ({len(short_lines)}/{len(lines)}); "
-        "possible word-per-line extraction artifacts"
-    )
-
-
-def test_round_trip_restfulness_pdf() -> None:
-    assert FIXTURE_PDF.is_file(), f"Missing fixture PDF: {FIXTURE_PDF}"
-    md, report = convert_pdf_to_markdown(FIXTURE_PDF, min_chars=1000)
-
-    assert report.pages_processed >= 5
-    assert report.headings_found >= 5
-    assert report.total_chars >= 5000
-    assert report.empty_pages == 0
-
-    assert re.search(r"^#\s+", md, re.MULTILINE), "Expected an H1 heading"
-    assert re.search(r"^##\s+References\b", md, re.MULTILINE | re.IGNORECASE)
-    assert re.search(r"^##\s+", md, re.MULTILINE), "Expected section headings"
-    assert "Least Action" in md or "Restfulness" in md
-
-    _assert_no_word_per_line_artifacts(md)
+# A round-trip test used to live here, converting the Restfulness-And-Least-Action
+# PDF and asserting on its headings, page count, and extraction quality. That study
+# was removed in 8c5b4dc and the test was left behind asserting on a fixture that no
+# longer exists, so it had been failing ever since. This file is not wired into any
+# workflow, which is why nobody noticed. Restoring that coverage needs a fixture PDF
+# the repo actually owns -- not another study's, which would break the same way the
+# next time a study is retired.
 
 
 def test_empty_pdf_fails() -> None:
@@ -66,7 +42,6 @@ def test_empty_pdf_fails() -> None:
 
 def main() -> int:
     tests = [
-        test_round_trip_restfulness_pdf,
         test_empty_pdf_fails,
     ]
     failed = 0
