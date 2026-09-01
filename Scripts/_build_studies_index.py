@@ -680,7 +680,8 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     grid-template-areas:
       "rail"
       "panel"
-      "alongside";
+      "alongside"
+      "invite";
     gap: 0;
     margin: 0;
     padding: 0;
@@ -852,6 +853,15 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   .parallel-study a { font-weight: 700; }
   .parallel-study .path-status { margin: 0; }
   .parallel-study .path-slides { margin: 0; }
+  .path-invite {
+    grid-area: invite;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--text-muted);
+    margin: 13px 0 0;
+    padding: 13px 0 0;
+    border-top: 1px solid var(--border);
+  }
   .path-panel {
     display: flex;
     flex-direction: column;
@@ -1290,6 +1300,9 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       border-bottom: 1px solid var(--border);
       box-shadow: var(--shadow);
     }
+    /* The fixed bar has no backdrop-filter here, so it must be fully opaque.
+       Needs the [data-theme] prefix to outrank the translucent desktop rule. */
+    [data-theme="dark"] .page-nav { background: var(--bg); }
     .page-nav-inner {
       max-width: 1060px;
       margin: 0 auto;
@@ -1411,7 +1424,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   <div class="start-here" id="start-here">
     <p class="start-here-kicker">A guided path through the collection</p>
     <h2>Start here: the study path we are following</h2>
-    <p class="start-here-intro">We start by asking whether a human is just matter, rather than assuming that the body already answers it. The questions that remain require an understanding of existence, then of how knowledge enters the picture, then of how values come about, and only then of how a human should live and how social structures should be designed. Each stage below is the question the one before it could not close, which is why they run in this order. Follow the same sequence, question it, or contribute where the work is incomplete.</p>
+    <p class="start-here-intro">Is a human only matter? The body by itself does not settle it, and what that leaves open becomes the next question, and the next: existence, then knowledge, then value, then living. Each stage below is the question the one before it could not close.</p>
 
     <div class="study-path">
       <div class="path-rail" role="radiogroup" aria-label="Five stages in the study path">
@@ -1603,6 +1616,8 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
           <div class="parallel-study" data-study-slug="Science-Technology-And-Human-Purpose"><a data-study-link href="Science-Technology-And-Human-Purpose/discussion.html">Science, Technology, and Human Purpose</a><span class="path-status planned" data-study-status>In progress</span></div>
         </div>
       </div>
+
+      <p class="path-invite">Follow the stages in order, question the order, or <a href="#contribute">take up a stage that is still unwritten</a>. To read outside the path, <a href="#browse-studies">browse the full collection</a>.</p>
     </div>
   </div>
 
