@@ -275,7 +275,11 @@ Reads **Status:** from the markdown and applies the Draft watermark when appropr
    contains Mermaid but raw diagram syntax (e.g. `flowchart TD`) still appears in the PDF.
 5. **`Scripts/_verify_pdf_fenced_code.py`** — fails if fenced ` ```text ` / code-block
    content is clipped in the PDF (e.g. `[compound]` truncated to `[c`).
-6. **`Scripts/_verify_pdf_outline.py`** — fails if the PDF has no document outline
+6. **`Scripts/_verify_pdf_math.py`** — fails if the generated HTML holds KaTeX output
+   but the PDF embeds no KaTeX font face, which means every formula fell back to a
+   text font. Keyed on the HTML, not the markdown: a bare `$` in prose matches a
+   naive markdown scan, whereas KaTeX output in the HTML means maths really rendered.
+7. **`Scripts/_verify_pdf_outline.py`** — fails if the PDF has no document outline
    (sidebar bookmarks) when the markdown has two or more `##` headings.
 
 ### Reproducible output, and when CI rebuilds
@@ -349,6 +353,7 @@ python Scripts/_convert_to_pdf.py Studies/<Slug>/<Slug>.md
 node Scripts/_html_to_pdf.js Studies/<Slug>/<Slug>.html Draft
 python Scripts/_verify_pdf_diagrams.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf
 python Scripts/_verify_pdf_fenced_code.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf
+python Scripts/_verify_pdf_math.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf
 python Scripts/_verify_pdf_outline.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf
 ```
 
