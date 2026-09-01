@@ -52,11 +52,15 @@ jobs:
       - name: Set up study toolchain
         uses: ./.github/actions/setup-study-env
 
+      # Inputs reach the shell as environment variables, never spliced into the
+      # run line: a workflow_dispatch value interpolated directly into `run:` is
+      # executed as shell. SLUGS stays unquoted on purpose so a space-separated
+      # list still splits into separate arguments.
       - name: Regenerate each study and compare bytes
-        run: >-
-          python Scripts/_verify_pdf_reproducible.py
-          --runs ${{ github.event.inputs.runs || '2' }}
-          ${{ github.event.inputs.slugs }}
+        env:
+          RUNS: ${{ github.event.inputs.runs || '2' }}
+          SLUGS: ${{ github.event.inputs.slugs }}
+        run: python Scripts/_verify_pdf_reproducible.py --runs "$RUNS" $SLUGS
 
       # The pipeline writes in place, so the run leaves regenerated artifacts in
       # the workspace. Nothing is ever committed or pushed — this is informational
