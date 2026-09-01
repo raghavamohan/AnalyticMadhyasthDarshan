@@ -174,13 +174,19 @@ Create these labels in **GitHub → Issues → Labels** (one-time setup):
 5. **Merge** when the `study-pr` CI check passes.
 6. **Release policy** — only merge `status-change` → `released` when the study is ready for public release without a Draft watermark.
 
-**CI is advisory, not blocking.** The default branch (`master`) is protected by the
-*Protect default branch* ruleset — pull request required, no force-push, no deletion —
-but it defines **no required status checks**. A study PR can be merged with `study-pr`
-red, cancelled, or skipped, so step 5 is a duty, not a gate. Prefer **merge commits**
-over squash for study PRs: CI appends `[skip ci]` to the artifacts it regenerates on the
-branch, and a squash carries that token onto `master`, skipping the post-merge index
-check.
+**One check is required; the study pipeline is not.** The default branch (`master`)
+is protected by the *Protect default branch* ruleset — pull request required, no
+force-push, no deletion — and the `verify` check from **Studies index** must pass
+before any merge. That job runs on every pull request and covers the catalog, the
+index shell, the enforced test suites, and the agent-rules mirrors.
+
+`study-pr` is **not** required and cannot be: it does not run at all on a pull
+request opened without a study label, so requiring it would strand those PRs. A
+study PR can still be merged with `study-pr` red, so step 5 is a duty, not a gate.
+
+Prefer **merge commits** over squash for study PRs: CI appends `[skip ci]` to the
+artifacts it regenerates on the branch, and a squash carries that token onto
+`master`, skipping the post-merge index check.
 
 The full pipeline reference — every workflow, what it may write, what it does not check,
 and how to reproduce each check locally — is **[.github/CI.md](.github/CI.md)**.
