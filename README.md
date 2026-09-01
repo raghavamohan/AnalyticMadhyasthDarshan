@@ -40,8 +40,8 @@ infra/            Cloudflare Workers (submissions portal, per-study discussions,
                   RFC 9727 API catalog, A2A Agent Card, Agent Skills, MCP Server Card,
                   Web Bot Auth, Google Search Console verification),
                   performance baselines (cloudflare-rum-baseline.json), audit notes
-AGENTS.md         Standing rules for agents and local maintainers (§1–§8)
-.github/          CI workflows and study pull request templates
+AGENTS.md         Standing rules for agents and local maintainers (§1–§9)
+.github/          CI workflows, study pull request templates, CI.md reference
 ```
 
 The **markdown** file for each paper is the source of truth. Companion HTML, PDFs, the studies landing page, and catalog JSON are generated from it and should not be edited by hand. The catalog page loads study metadata from `Studies/catalog-*.json` (including `catalog-all.json`); `Studies/README.md` tables stay in sync via the study lifecycle scripts. `llms.txt` and `Studies/feed.json` are generated from the same catalog.
@@ -206,6 +206,9 @@ Pass `Draft` to `_html_to_pdf.js` for draft studies; omit it for released studie
 9. Run `python Scripts\_verify_studies_index.py` if catalog data or the index shell changed.
 10. Apply exactly one PR label (`new-study`, `study-update`, or `status-change`) and fill the matching template field in the PR body.
 11. Describe the question, primary texts, and any new references in the PR.
+
+What CI then runs on that PR — and what it does **not** check — is documented in
+**[.github/CI.md](.github/CI.md)**.
 
 ---
 
