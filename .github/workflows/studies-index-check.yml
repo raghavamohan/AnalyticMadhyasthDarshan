@@ -11,6 +11,11 @@ on:
       - "Scripts/_ci_study_pr.py"
       - "Scripts/_test_ci_study_pr.py"
       - "Scripts/_pdf_metadata.py"
+      - "Scripts/_test_pdf_metadata.py"
+      - "Scripts/_build_discussion_pages.py"
+      - "Scripts/_build_sitemap.py"
+      - "Studies/catalog-*.json"
+      - ".github/actions/setup-study-env/action.yml"
       - ".github/workflows/studies-index-check.yml"
   push:
     branches:
@@ -25,6 +30,11 @@ on:
       - "Scripts/_ci_study_pr.py"
       - "Scripts/_test_ci_study_pr.py"
       - "Scripts/_pdf_metadata.py"
+      - "Scripts/_test_pdf_metadata.py"
+      - "Scripts/_build_discussion_pages.py"
+      - "Scripts/_build_sitemap.py"
+      - "Studies/catalog-*.json"
+      - ".github/actions/setup-study-env/action.yml"
       - ".github/workflows/studies-index-check.yml"
 
 jobs:

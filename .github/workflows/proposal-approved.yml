@@ -132,9 +132,9 @@ jobs:
               echo "No recent Pages runs on master; continuing after cool-down."
               break
             fi
-            status="$(gh run list --workflow=pages-build-deployment --branch=master --limit=1 --json status --jq -r '.[0].status')"
+            status="$(gh run list --workflow=pages-build-deployment --branch=master --limit=1 --json status --jq '.[0].status')"
             if [ "$status" = "completed" ]; then
-              conclusion="$(gh run list --workflow=pages-build-deployment --branch=master --limit=1 --json conclusion --jq -r '.[0].conclusion // "unknown"')"
+              conclusion="$(gh run list --workflow=pages-build-deployment --branch=master --limit=1 --json conclusion --jq '.[0].conclusion // "unknown"')"
               echo "Latest Pages run finished ($conclusion)."
               break
             fi
