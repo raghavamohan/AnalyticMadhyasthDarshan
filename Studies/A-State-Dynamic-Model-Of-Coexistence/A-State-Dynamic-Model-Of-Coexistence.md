@@ -2,8 +2,8 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** August 30, 2026, 7:35 AM IST
-**Status:** Draft
+**Edited on:** September 1, 2026, 10:43 AM IST
+**Status:** Released
 
 Madhyasth Darshan tells one story about existence. An actionless, all-pervading reality — *satta* — saturates countlessly many always-active units; structures stand where many activities close into one; a single atomic line matures into the sentient unit *jeevan*; and the human being, *jeevan* working through a body, is the place in nature where recognition can fail and where law, regulation, and balance must therefore be consciously understood, established, and evidenced in relationship, work, and society.
 
