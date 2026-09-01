@@ -167,6 +167,14 @@ Catalog **data** (JSON + README tables) is updated by `Scripts/_study_catalog.py
 via `write_studies_catalog` and study lifecycle scripts (`_add_study.py`,
 `_remove_study.py`, `_set_study_status.py`).
 
+`write_studies_catalog` also regenerates `Studies/index.html`, through its
+`rebuild_index` argument (default `True`): the page inlines the same catalog as a
+JSON island and renders a card per row, so a catalog write that skipped it would
+leave the landing page asserting the previous status. Only
+`_build_studies_index.main()` passes `rebuild_index=False`, because it rebuilds
+the index itself — that flag is a recursion guard, not a performance switch. Do
+not add a catalog-writing path that opts out.
+
 The **HTML/CSS/JS shell** — hero, card catalog UI, filters, sections, scroll-spy —
 lives in `Scripts/_build_studies_index.py` as `INDEX_TEMPLATE`. Do not edit
 `Studies/index.html` layout or styles in isolation.
