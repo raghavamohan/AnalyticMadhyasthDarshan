@@ -1014,7 +1014,7 @@ def order_topical_rows(rows: list[StudyRow]) -> list[StudyRow]:
     return ordered
 
 
-def sync_pre_catalog_proposals_to_catalog() -> list[StudyRow]:
+def sync_pre_catalog_proposals_to_catalog(*, rebuild_index: bool = True) -> list[StudyRow]:
     """Register approved pre-catalog proposals as Planned (ongoing) on the public index."""
     pre_catalog = load_pre_catalog_proposals()
     rows = load_catalog_rows(StudyTable.TOPICAL)
@@ -1045,7 +1045,7 @@ def sync_pre_catalog_proposals_to_catalog() -> list[StudyRow]:
         )
 
     ordered = order_topical_rows(list(by_slug.values()))
-    write_studies_catalog(ordered, StudyTable.TOPICAL)
+    write_studies_catalog(ordered, StudyTable.TOPICAL, rebuild_index=rebuild_index)
     return ordered
 
 
@@ -1055,6 +1055,7 @@ def write_studies_catalog(
     *,
     rebuild_discussion: bool | Sequence[str] = True,
     rebuild_feedback_template: bool = True,
+    rebuild_index: bool = True,
 ) -> None:
     write_catalog_json_file(rows, table)
     write_derived_catalogs()
@@ -1080,6 +1081,19 @@ def write_studies_catalog(
                 row = rows_by_slug.get(slug)
                 if row is not None:
                     write_discussion_page(row)
+
+    if rebuild_index:
+        # Studies/index.html inlines the catalog as a JSON island and renders a
+        # card per row, so a catalog write that skips it leaves the landing page
+        # asserting the previous status. Only _verify_studies_index.py notices,
+        # and that runs on push to master, i.e. after the merge (#343).
+        #
+        # Deferred import: _build_studies_index imports this module at module
+        # level, so a top-level import here would be circular. write_index_html()
+        # writes no catalog JSON, so this does not recurse.
+        from _build_studies_index import write_index_html
+
+        write_index_html()
 
     from _build_sitemap import write_sitemap
 

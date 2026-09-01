@@ -2842,11 +2842,20 @@ def catalog_build_id() -> str:
 INDEX_TEMPLATE = INDEX_TEMPLATE.replace(FAVICON_LINKS_PLACEHOLDER, favicon_link_tags())
 
 
-def main() -> int:
-    from _study_catalog import sync_pre_catalog_proposals_to_catalog
+def write_index_html() -> dict[str, list[StudyRow]] | None:
+    """Render Studies/index.html from the catalog rows currently on disk.
 
-    sync_pre_catalog_proposals_to_catalog()
+    Split out of main() so write_studies_catalog() can call it. Studies/index.html
+    inlines the catalog as a JSON island and renders a card per row, so any path
+    that edits a catalog row must refresh it too; when _set_study_status.py did
+    not, the landing page kept advertising a released study as Draft and only the
+    master-push check noticed (#343).
 
+    Writes nothing but index.html, in particular no catalog JSON, so the call
+    from write_studies_catalog() cannot recurse back into this function.
+
+    Returns the rows per collection, or None when no catalog rows exist at all.
+    """
     index_path = STUDIES / "index.html"
     legacy_text = index_path.read_text(encoding="utf-8") if index_path.exists() else ""
     topical_rows = load_rows_for_build(legacy_text, StudyTable.TOPICAL)
@@ -2854,8 +2863,7 @@ def main() -> int:
     applied_rows = load_rows_for_build(legacy_text, StudyTable.APPLIED)
 
     if not topical_rows and not formal_rows and not applied_rows:
-        print("No catalog rows found in index.html or catalog JSON files", file=sys.stderr)
-        return 1
+        return None
 
     all_rows = topical_rows + formal_rows + applied_rows
     html = INDEX_TEMPLATE.replace(HERO_SCOPE_PLACEHOLDER, build_hero_scope_html(all_rows))
@@ -2870,7 +2878,25 @@ def main() -> int:
         {"topical": topical_rows, "formal": formal_rows, "applied": applied_rows},
     )
     index_path.write_text(minify_inline_css(html), encoding="utf-8")
+    return {"topical": topical_rows, "formal": formal_rows, "applied": applied_rows}
+
+
+def main() -> int:
+    from _study_catalog import sync_pre_catalog_proposals_to_catalog
+
+    # rebuild_index=False here and on the writes below: this function rebuilds
+    # index.html itself, once, from the fully synced rows.
+    sync_pre_catalog_proposals_to_catalog(rebuild_index=False)
+
+    rows_by_collection = write_index_html()
+    if rows_by_collection is None:
+        print("No catalog rows found in index.html or catalog JSON files", file=sys.stderr)
+        return 1
     print("Wrote Studies/index.html shell with inlined catalog bootstrap (and catalog-*.json for runtime refresh).")
+
+    topical_rows = rows_by_collection["topical"]
+    formal_rows = rows_by_collection["formal"]
+    applied_rows = rows_by_collection["applied"]
 
     if topical_rows:
         write_studies_catalog(
@@ -2878,6 +2904,7 @@ def main() -> int:
             StudyTable.TOPICAL,
             rebuild_discussion=False,
             rebuild_feedback_template=False,
+            rebuild_index=False,
         )
         print(f"Wrote {len(topical_rows)} topical catalog entries to catalog-topical.json.")
     if formal_rows:
@@ -2886,6 +2913,7 @@ def main() -> int:
             StudyTable.FORMAL,
             rebuild_discussion=False,
             rebuild_feedback_template=False,
+            rebuild_index=False,
         )
         print(f"Wrote {len(formal_rows)} formal catalog entries to catalog-formal.json.")
     if applied_rows:
@@ -2894,6 +2922,7 @@ def main() -> int:
             StudyTable.APPLIED,
             rebuild_discussion=False,
             rebuild_feedback_template=False,
+            rebuild_index=False,
         )
         print(f"Wrote {len(applied_rows)} applied catalog entries to catalog-applied.json.")
 
