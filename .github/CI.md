@@ -259,8 +259,14 @@ run. Run them with `--all`.
 | `--live` endpoint checks | Every site/infra suite has a `check_live()` behind an explicit `--live` flag that hits production. CI runs the offline form only, so a deployed regression with a correct repo state is not caught. Worth a scheduled run. |
 | `infra/` Cloudflare Workers | No build, lint, type-check or deploy check |
 | Companion deck pipeline | `_check_deck_layout.py`, `_pptx_to_pdf.py`, `_build_deck_notes_pdf.py` are manual-only (see the `update-study-presentation` skill) |
-| Python dependency versions | `requirements.txt` uses `>=` with no upper bound, so a new `markdown` or `pypdf` release changes CI behaviour with no repo change — unlike `Scripts/package.json`, which pins Puppeteer *and* the exact Chrome build |
 | Any lint / formatter | No ruff, flake8, mypy, eslint or markdownlint |
+
+**Pinned toolchain.** `requirements.txt` pins every package exactly, direct and
+transitive, to the set CI resolved in a run where `_verify_pdf_reproducible.py`
+passed; `Scripts/package.json` pins Puppeteer and the exact Chrome build.
+`requirements.txt` is in `pdf-pipeline-smoke.yml`'s path filter, so a version
+change runs the reproducibility check. Bump a version and regenerate the affected
+PDFs **in the same pull request** — never in separate commits.
 
 ---
 
@@ -353,8 +359,13 @@ reaches `master` untested and first executes against a real proposal or a real
 merge. Read the release notes and re-read the scripts by hand; `workflow_dispatch`
 on `proposal-approved.yml` can exercise its two.
 
-**4 — Unpinned Python dependencies** (see §4) make CI non-hermetic in a repository
-whose entire PDF pipeline is built around byte-reproducible output.
+**4 — Nothing pins the Python interpreter's patch level.**
+`setup-study-env` asks for `python-version: '3.12'`, which resolves to whatever
+patch GitHub currently ships (3.12.14 at the time of writing). Every *package* is
+now pinned exactly (§4), so this is the last floating input to a pipeline built
+around byte-reproducible output. Low risk — a CPython patch release changing
+rendered PDF bytes would be surprising — but it is the remaining one, and pinning
+it costs a two-character edit against slower access to security patches.
 
 ---
 

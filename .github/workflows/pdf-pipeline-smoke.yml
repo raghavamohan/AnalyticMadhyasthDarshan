@@ -32,6 +32,10 @@ on:
       - "Scripts/_verify_pdf_reproducible.py"
       - "Scripts/package.json"
       - "Scripts/package-lock.json"
+      # markdown renders the HTML every PDF is printed from and pypdf rewrites
+      # the metadata that makes it reproducible, so a version change here can
+      # move PDF bytes. This is the only check that would notice.
+      - "requirements.txt"
       - ".github/actions/setup-study-env/action.yml"
       - ".github/workflows/pdf-pipeline-smoke.yml"
 
