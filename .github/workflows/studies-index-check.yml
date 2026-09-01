@@ -15,6 +15,8 @@ on:
       - "Scripts/_build_discussion_pages.py"
       - "Scripts/_build_sitemap.py"
       - "Scripts/_test_commit_artifacts.py"
+      # The LF-write guard scans every script, so any of them can break it.
+      - "Scripts/**.py"
       - ".github/actions/commit-artifacts/action.yml"
       - "Studies/catalog-*.json"
       - ".github/actions/setup-study-env/action.yml"
@@ -36,6 +38,8 @@ on:
       - "Scripts/_build_discussion_pages.py"
       - "Scripts/_build_sitemap.py"
       - "Scripts/_test_commit_artifacts.py"
+      # The LF-write guard scans every script, so any of them can break it.
+      - "Scripts/**.py"
       - ".github/actions/commit-artifacts/action.yml"
       - "Studies/catalog-*.json"
       - ".github/actions/setup-study-env/action.yml"
@@ -70,3 +74,9 @@ jobs:
       # branch's.
       - name: Check the commit-artifacts shell
         run: python Scripts/_test_commit_artifacts.py
+
+      # Windows-only bug: Path.write_text() emits CRLF there, so a rebuild
+      # dirtied 29 tracked files with no content change. This runner is Linux
+      # and would never reproduce it, so the check reads the source instead.
+      - name: Check generated-file writes emit LF
+        run: python Scripts/_test_generated_file_writes.py

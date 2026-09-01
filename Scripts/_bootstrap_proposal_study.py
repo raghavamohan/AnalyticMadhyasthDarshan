@@ -24,7 +24,7 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from _common import STUDIES, study_dir, study_md
+from _common import STUDIES, study_dir, study_md, write_text_lf
 from _study_catalog import (
     format_edited_on_md,
     now_ist,
@@ -195,7 +195,7 @@ def write_proposal_meta(fields: ProposalFields, edited_at: datetime) -> None:
     }
     path = proposal_meta_path(fields.slug)
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(meta, indent=2) + "\n", encoding="utf-8")
+    write_text_lf(path, json.dumps(meta, indent=2) + "\n")
 
 
 def regenerate_proposal_artifacts(md_path: Path) -> None:
@@ -241,10 +241,7 @@ def upsert_registry_entry(fields: ProposalFields) -> None:
         }
     )
     filtered.sort(key=lambda row: row.get("slug", ""))
-    REGISTRY_PATH.write_text(
-        json.dumps({"version": 1, "proposals": filtered}, indent=2) + "\n",
-        encoding="utf-8",
-    )
+    write_text_lf(REGISTRY_PATH, json.dumps({"version": 1, "proposals": filtered}, indent=2) + "\n")
 
 
 def replace_issue_form_section(body: str, heading: str, value: str) -> str:
@@ -294,7 +291,7 @@ def bootstrap_proposal(
         return
 
     dest_dir.mkdir(parents=True, exist_ok=True)
-    dest_md.write_text(stub, encoding="utf-8")
+    write_text_lf(dest_md, stub)
     write_proposal_meta(fields, edited_at)
     regenerate_proposal_artifacts(dest_md)
     upsert_registry_entry(fields)

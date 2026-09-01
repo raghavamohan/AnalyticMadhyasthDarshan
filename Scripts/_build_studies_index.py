@@ -16,7 +16,7 @@ if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
 from _build_discussion_pages import ASSET_VERSION as DISCUSS_ASSET_VERSION  # noqa: E402
-from _common import BASE, STUDIES, favicon_link_tags  # noqa: E402
+from _common import BASE, STUDIES, favicon_link_tags, write_text_lf  # noqa: E402
 from _study_catalog import (  # noqa: E402
     CATALOG_TABLES,
     STUDY_FEEDBACK_TEMPLATE_PATH,
@@ -2993,7 +2993,7 @@ def write_index_html() -> dict[str, list[StudyRow]] | None:
         {"topical": topical_rows, "formal": formal_rows, "applied": applied_rows},
     )
     html = render_start_here_status(html, all_rows)
-    index_path.write_text(minify_inline_css(html), encoding="utf-8")
+    write_text_lf(index_path, minify_inline_css(html))
     return {"topical": topical_rows, "formal": formal_rows, "applied": applied_rows}
 
 

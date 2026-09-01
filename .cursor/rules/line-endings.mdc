@@ -26,11 +26,26 @@ tool or OS last wrote them, producing large line-ending-only diffs.
   overrides that reintroduce CRLF, and do not delete the `eol=lf` normalization.
 - Scripts that write files (PDF/HTML pipeline, `_build_studies_index.py`, catalog
   writers) must emit LF; `.gitattributes` also normalizes on commit as a backstop.
+  **Write tracked files with `write_text_lf(path, text)` from `_common`**, never
+  bare `Path.write_text()`. Text mode translates `\n` to `\r\n` on Windows, so a
+  plain `write_text` rewrote all 29 generated pages (`discussion.html` for every
+  study, `Studies/README.md`, the issue template) with CRLF on every
+  `_build_studies_index.py` run — no content change, but `git status` listed 29
+  modified files and buried the real diff. `write_text_lf` writes bytes, so no
+  translation happens, and skips the write entirely when the content is
+  unchanged, which keeps mtimes stable too. A standalone script with no
+  `_common` import may pass `newline="\n"` explicitly instead.
+  `Scripts/_test_generated_file_writes.py` enforces this; mark a genuine
+  exception with `# lf-exempt: <reason>` on the call line or just above it.
 - Do not hand-convert generated artifacts to CRLF to "fix" a diff — regenerate them
   with the repo scripts instead.
 
 ## Check
 
+- `python Scripts/_test_generated_file_writes.py` passes (run it after adding any
+  script that writes a tracked file — CI runs on Linux and cannot reproduce the
+  Windows CRLF translation, so this reads the source instead).
+- Running a generator twice on a clean tree leaves `git status` clean.
 - `git add --renormalize .` produces no changes on an otherwise clean tree.
 - `git diff --ignore-cr-at-eol` shows no files that differ only by line ending.
 - New text files report `i/lf` under `git ls-files --eol`.
