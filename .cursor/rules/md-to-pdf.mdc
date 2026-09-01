@@ -26,7 +26,7 @@ cd ..
 `npm ci` in `Scripts/` automatically.
 
 Prefer `npm ci` locally too: it installs exactly what `package-lock.json` pins,
-including the Chrome build the committed PDFs were rendered with. Then fetch that
+including the Chrome build every regeneration must use. Then fetch that
 Chrome once:
 
 ```powershell
@@ -106,7 +106,11 @@ The second form validates SVG figures for all studies.
   `_verify_pdf_diagrams.py` after each regeneration
 - **Inline and display LaTeX math** — `$...$` and `$$...$$` in study markdown are rendered
   with KaTeX in `_convert_to_pdf.py` (`_render_katex_math.js`) before glossary tooltips run;
-  KaTeX CSS (with absolute font paths) is embedded in the HTML for PDF output
+  KaTeX CSS is embedded in the HTML for PDF output, with its font URLs pointing at
+  the vendored `Assets/KaTeX/fonts` through a page-relative `../../` href so they
+  resolve both on the site and through the `file://` render that produces the PDF.
+  Never rewrite them to an absolute local path: that resolves only for the PDF,
+  breaks every formula on the published site, and leaks the build machine's paths
 - **Fenced code and spec blocks** — ` ```text ` and other fenced code use `white-space:
   pre-wrap` so long lines wrap inside the page; verified by `_verify_pdf_fenced_code.py`.
   Prefer a **table** for multi-column formal specs (Petri transitions, type signatures)
