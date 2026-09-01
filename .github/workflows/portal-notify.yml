@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Send notification to portal worker
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         env:
           NOTIFY_SECRET: ${{ secrets.PORTAL_NOTIFY_SECRET }}
           API_BASE: ${{ vars.PORTAL_API_BASE }}

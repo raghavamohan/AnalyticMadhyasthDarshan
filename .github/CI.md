@@ -344,13 +344,14 @@ the router sees a wider changed-path set than the PR really contains. Harmless
 when the fork is current. Fix by fetching the base from the upstream URL
 explicitly.
 
-**3 — Every action is on a Node 20 major.**
-`checkout@v4`, `setup-python@v5`, `setup-node@v4`, `cache@v4`, `github-script@v7`
-all emit the Node 20 deprecation warning and are being forced onto Node 24. Every
-one is several majors behind (checkout v7, setup-python v7, setup-node v7, cache
-v6, github-script v9 at the time of writing), so bump them one at a time and let
-`pdf-pipeline-smoke.yml` validate each — it resolves the composite actions by
-local path, so it tests the change against itself.
+**3 — `github-script` upgrades are not validated by CI.**
+Actions used by `studies-index-check.yml` are exercised on every PR, and
+`setup-study-env`'s Node/Chrome path by `pdf-pipeline-smoke.yml`. But
+`github-script` appears only in `portal-notify.yml` and `proposal-approved.yml`,
+neither of which runs on a pull request — so a version bump or script edit there
+reaches `master` untested and first executes against a real proposal or a real
+merge. Read the release notes and re-read the scripts by hand; `workflow_dispatch`
+on `proposal-approved.yml` can exercise its two.
 
 **4 — Unpinned Python dependencies** (see §4) make CI non-hermetic in a repository
 whose entire PDF pipeline is built around byte-reproducible output.
