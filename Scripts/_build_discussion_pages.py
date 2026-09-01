@@ -18,6 +18,7 @@ from _common import (  # noqa: E402
     STUDIES,
     favicon_link_tags,
     site_base_url,
+    write_text_lf,
 )
 from _study_catalog import (  # noqa: E402
     CATALOG_TABLES,
@@ -1199,8 +1200,8 @@ def write_shared_assets() -> list[Path]:
     target.mkdir(parents=True, exist_ok=True)
     css_path = target / DISCUSS_CSS_NAME
     js_path = target / DISCUSS_JS_NAME
-    css_path.write_text(DISCUSS_CSS, encoding="utf-8")
-    js_path.write_text(DISCUSS_JS, encoding="utf-8")
+    write_text_lf(css_path, DISCUSS_CSS)
+    write_text_lf(js_path, DISCUSS_JS)
     return [css_path, js_path]
 
 
@@ -1209,7 +1210,7 @@ def write_discussion_page(row: StudyRow) -> Path | None:
     if path is None:
         return None
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(render_discussion_page(row), encoding="utf-8")
+    write_text_lf(path, render_discussion_page(row))
     return path
 
 

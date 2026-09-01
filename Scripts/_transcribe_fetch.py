@@ -82,7 +82,9 @@ def main() -> None:
             print(f"[{n}/{len(rows)}] FAIL {vid}  {type(e).__name__}: {str(e)[:110]}", flush=True)
         time.sleep(args.sleep)
 
-    io.open(os.path.join(args.out, "fetch-log.json"), "w", encoding="utf-8").write(
+    io.open(
+        os.path.join(args.out, "fetch-log.json"), "w", encoding="utf-8", newline="\n"
+    ).write(
         json.dumps(log, ensure_ascii=False, indent=1))
 
     ok = sum(1 for x in log if x["status"] == "ok")

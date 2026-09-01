@@ -188,6 +188,7 @@ def render_card(
     )
     with tempfile.TemporaryDirectory() as tmp:
         source = Path(tmp) / "card.html"
+        # lf-exempt: temp file handed straight to node, never tracked
         source.write_text(page, encoding="utf-8")
         result = subprocess.run(
             [

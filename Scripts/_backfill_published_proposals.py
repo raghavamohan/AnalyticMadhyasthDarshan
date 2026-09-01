@@ -28,9 +28,15 @@ import argparse
 import json
 import re
 import subprocess
+import sys
 from pathlib import Path
 
 SCRIPTS = Path(__file__).resolve().parent
+if str(SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS))
+
+from _common import write_text_lf  # noqa: E402
+
 BASE = SCRIPTS.parent
 STUDIES = BASE / "Studies"
 REGISTRY_PATH = STUDIES / "proposal-registry.json"
@@ -165,10 +171,10 @@ def write_registry(registry: dict, new_entries: list[dict]) -> None:
     proposals = list(registry.get("proposals", []))
     proposals.extend(new_entries)
     proposals.sort(key=lambda row: row.get("slug", ""))
-    REGISTRY_PATH.write_text(
+    write_text_lf(
+        REGISTRY_PATH,
         json.dumps({"version": registry.get("version", 1), "proposals": proposals}, indent=2)
-        + "\n",
-        encoding="utf-8",
+            + "\n",
     )
 
 
