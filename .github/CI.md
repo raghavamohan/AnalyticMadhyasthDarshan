@@ -16,7 +16,7 @@ for the pipeline itself.**
 | [Study PR](workflows/study-pr.yml) | `pull_request`: `synchronize`, `reopened`, `labeled` — **and only** with one of `new-study` / `study-update` / `status-change` | `study-pr` | **Yes** — pushes regenerated artifacts to the PR branch |
 | [Studies index](workflows/studies-index-check.yml) | **every** `pull_request`; `push` to `master`/`main` | `verify` | No |
 | [PDF pipeline smoke](workflows/pdf-pipeline-smoke.yml) | `pull_request` path-filtered on the PDF pipeline; `workflow_dispatch` | `reproducible` | No |
-| [Proposal approved](workflows/proposal-approved.yml) | `issues: labeled` with `proposal-approved` | `comment`, `bootstrap` | **Yes** — `bootstrap` pushes directly to `master` |
+| [Proposal approved](workflows/proposal-approved.yml) | `issues: labeled` with `proposal-approved`; `workflow_dispatch` | `comment`, `bootstrap` | **Yes** — `bootstrap` opens and merges its own PR to `master` |
 | [Portal notifications](workflows/portal-notify.yml) | `issues: labeled`; `pull_request_target: closed` | `notify` | No |
 | [Pages deploy retry](workflows/pages-deploy-retry.yml) | `workflow_run` on *pages build and deployment* completing | `retry` | No (re-runs a run) |
 
@@ -140,13 +140,43 @@ as shell.
 
 Two independent jobs on the `proposal-approved` label:
 
-- `comment` — re-applies labels and posts the portal instructions.
-- `bootstrap` — runs `_bootstrap_proposal_study.py`, waits out any in-flight Pages
-  deploy, then **pushes the pre-catalog study directory directly to `master`.**
+- `comment` — re-applies labels and posts the portal instructions. Talks only to
+  the issues API, so it is unaffected by anything below.
+- `bootstrap` — runs `_bootstrap_proposal_study.py`, commits the pre-catalog study
+  directory to a `ci/bootstrap-proposal-<N>` branch, waits out any in-flight Pages
+  deploy, then **opens a pull request and merges it.**
 
-The Pages wait exists because this site is ~300 MB and stacked deploys fail during
-`syncing_files`. See [§6](#6-known-gaps-and-hazards) — this job's push path is
-currently the least-exercised part of CI.
+**It lands through a pull request, not a direct push, and that is forced.** The
+default-branch ruleset requires a pull request and has no bypass actors; a bypass
+for the GitHub Actions app is an *organization* feature, and this is a user-owned
+repository, so the option does not exist. A direct push here is refused, not merely
+discouraged. (It last pushed successfully on 2026-07-03, six days before that
+ruleset was created.)
+
+Two details are load-bearing:
+
+- The merge uses `--merge`, **never `--squash`** — a squash would carry the regen
+  commit's `[skip ci]` onto `master` and suppress the post-merge index check.
+- A pull request opened with `GITHUB_TOKEN` does not trigger workflows, so no
+  checks run on it. That is the same coverage the direct push had, and it is why
+  the required `verify` check does not block this merge.
+
+The Pages wait sits before the *merge*, not the branch push, because the merge is
+what lands on `master` and starts a deploy. It exists because this site is ~300 MB
+and stacked deploys fail during `syncing_files`.
+
+`workflow_dispatch` takes an issue number, so the whole path can be exercised
+without burning a real proposal. The `comment` job stays keyed on the label, so a
+dispatch runs the bootstrap only.
+
+**What a failure here does and does not cost.** The `comment` job is independent
+and still posts the approval instructions, and `_bootstrap_proposal_study.py`
+writes the resolved slug into the issue body via the API *before* it touches any
+file — so the slug lock survives even a failed run. The portal falls back to
+`parseSlugFromIssueBody()` when the registry has no row, and `handle_new_study`
+verifies approval from the issue's **labels**, not the registry. Contributors can
+still submit. What is lost is the pre-catalog stub, the registry row, and the row
+reading *Ready for draft* rather than *Approved* on My Submissions.
 
 ### 2.5 Portal notifications — `portal-notify.yml`
 
@@ -181,6 +211,12 @@ Pass `node: 'false'` for verification-only jobs.
 
 Stages the given paths as `github-actions[bot]`, commits with `[skip ci]`
 appended, and pushes. Exits cleanly when nothing changed.
+
+Set the optional **`branch`** input to commit onto a new branch and push that
+instead of the checked-out branch — for a protected target that must be reached
+through a pull request. The **`pushed`** output is `'true'` only when a commit
+actually went out; gate any follow-up step on it rather than probing the remote
+for the branch. `proposal-approved.yml` uses both.
 
 **Fork behaviour is intentional and must not be softened.** GitHub gives a fork PR
 a read-only `GITHUB_TOKEN` regardless of the workflow's `permissions:` block, so
@@ -232,7 +268,8 @@ run. Run them with `--all`.
 
 `master` is protected by the repository ruleset **"Protect default branch"**:
 
-- `pull_request` required (0 approving reviews), merge/squash/rebase all allowed
+- `pull_request` required (0 approving reviews); `allowed_merge_methods` is
+  **merge and rebase — squash is disallowed** (see §6)
 - no force-push, no deletion
 - **`required_status_checks`: `verify`**, pinned to the GitHub Actions app
   (integration `15368`), non-strict
@@ -273,23 +310,33 @@ in AGENTS.md §7 step 3 is the real check on study work.
 
 Ordered by how likely they are to bite. None of these are fixed by this document.
 
-**1 — `proposal-approved.yml` bootstrap push is expected to fail.**
-The ruleset requiring a pull request on `master` was created 2026-07-09. The last
-successful `bootstrap` run was 2026-07-03; the only run since (2026-08-19) failed
-earlier, at the Pages-wait step (a `gh run list --jq -r` misuse, since fixed), so
-the push has not been attempted under the ruleset. Expect a rules violation on the
-next approval. Fix by adding the GitHub Actions app as a bypass actor, or by
-routing the bootstrap through a PR instead of a direct push.
-
-**2 — `[skip ci]` plus squash-merge can skip the master-push check.**
+**1 — `[skip ci]` can still reach `master` through a rebase merge.**
 `commit-artifacts` appends `[skip ci]` to the regen commit. That is correct on the
-branch. But the ruleset allows **squash** merges, and a squash concatenates branch
-commit messages into the commit that lands on `master` — carrying `[skip ci]` with
-it and skipping the `Studies index` push check that exists to catch post-merge
-drift. Prefer merge commits for study PRs, or drop squash from the ruleset's
-allowed merge methods.
+branch, and harmless under a **merge** commit, whose own message is what lands on
+`master`.
 
-**3 — Fork PRs diff against the fork's base branch.**
+Squash was the obvious way for that token to escape — it concatenates the branch's
+commit messages into the single commit that lands — so squash is now **disallowed**
+in the ruleset (`allowed_merge_methods: ["merge", "rebase"]`) and switched off at
+the repository level so the button is not offered.
+
+**Rebase has the same mechanism and is still allowed.** A rebase merge replays the
+branch's commits onto `master` individually, and the regen commit is normally the
+last one CI pushes — so it becomes `master`'s tip, carrying `[skip ci]` in the head
+commit message that GitHub inspects. Note this is reasoned from the mechanism, not
+observed here: every merge to `master` in this repository's history has been a
+merge commit, and `Studies index` ran on all of them, so there is no rebase case to
+point at. Closing it properly means restricting `allowed_merge_methods` to
+`["merge"]`.
+
+**Until then: use a merge commit for any PR that CI regenerated artifacts on.**
+The alternative is to stop appending `[skip ci]` at all — it is arguably already
+redundant, since a push made with `GITHUB_TOKEN` does not trigger workflows and
+that, rather than the token, is what actually prevents the regen push from
+re-running `study-pr.yml`. It becomes load-bearing again the moment anyone swaps
+to a PAT or App token, which is why it has been left in place.
+
+**2 — Fork PRs diff against the fork's base branch.**
 `study-pr.yml` checks out the fork, so `origin` is the fork; `git fetch origin
 <base>` then fetches the *fork's* copy. When a contributor's fork is out of sync,
 `origin/master...HEAD` can resolve a different merge base than upstream would, and
@@ -297,12 +344,15 @@ the router sees a wider changed-path set than the PR really contains. Harmless
 when the fork is current. Fix by fetching the base from the upstream URL
 explicitly.
 
-**4 — Every action is on a Node 20 major.**
+**3 — Every action is on a Node 20 major.**
 `checkout@v4`, `setup-python@v5`, `setup-node@v4`, `cache@v4`, `github-script@v7`
-all emit the Node 20 deprecation warning and are being forced onto Node 24. Bump
-majors before the forced-run grace period ends.
+all emit the Node 20 deprecation warning and are being forced onto Node 24. Every
+one is several majors behind (checkout v7, setup-python v7, setup-node v7, cache
+v6, github-script v9 at the time of writing), so bump them one at a time and let
+`pdf-pipeline-smoke.yml` validate each — it resolves the composite actions by
+local path, so it tests the change against itself.
 
-**5 — Unpinned Python dependencies** (see §4) make CI non-hermetic in a repository
+**4 — Unpinned Python dependencies** (see §4) make CI non-hermetic in a repository
 whose entire PDF pipeline is built around byte-reproducible output.
 
 ---
