@@ -21,6 +21,40 @@ SOURCE = REFERENCES / "Madhyasth-Darshan"
 DEFAULT_SITE_BASE_URL = "https://analyticmadhyasthdarshan.org"
 
 
+def write_text_lf(path: Path, text: str) -> bool:
+    """Write a generated text file with LF endings, and only when it changes.
+
+    Use this for every tracked file the Scripts write. Two reasons, both of
+    which have bitten this repo before (AGENTS.md sections 2 and 8):
+
+    Python's text mode translates "\\n" to "\\r\\n" on Windows, so a plain
+    ``Path.write_text`` rewrites every generated file with CRLF. ``.gitattributes``
+    normalizes them back to LF on commit, so the repository itself never carries
+    CRLF -- but until then ``git status`` lists dozens of files as modified with
+    no content change, which buries the real diff. CI runs on Linux and never
+    sees it, so only Windows maintainers pay the cost. Writing bytes sidesteps
+    newline translation entirely.
+
+    Skipping the write when the bytes are unchanged then keeps mtimes stable, so
+    "regenerating with no content change produces no diff" holds for timestamps
+    too, not just content.
+
+    Do not use this for the PDF text cache: ``_read_pdf_cache`` invalidates on
+    mtime, so that file must be touched on every write.
+
+    Returns True when the file was actually written.
+    """
+    data = text.replace("\r\n", "\n").encode("utf-8")
+    try:
+        if path.read_bytes() == data:
+            return False
+    except OSError:
+        pass
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_bytes(data)
+    return True
+
+
 def site_base_url() -> str:
     """Published site origin (GitHub Pages custom domain from CNAME)."""
     cname = BASE / "CNAME"
@@ -380,6 +414,7 @@ def pages_have_content(pages: list[tuple[int, str]], min_chars: int = MIN_CACHE_
 
 def _write_pdf_cache(cache_file: Path, pages: list[tuple[int, str]]) -> None:
     parts = [f"{_page_header(page_num)}{text}" for page_num, text in pages]
+    # lf-exempt: gitignored cache, and _read_pdf_cache invalidates it on mtime
     cache_file.write_text("\f".join(parts), encoding="utf-8")
 
 

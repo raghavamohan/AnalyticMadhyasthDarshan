@@ -17,6 +17,7 @@ from _common import (
     study_md,
     study_pdf_href,
     study_pdf_ref_path,
+    write_text_lf,
 )
 
 CATALOG_MARKERS = (
@@ -74,7 +75,7 @@ def fix_cross_study_links() -> None:
         text = md_path.read_text(encoding="utf-8")
         updated = link_re.sub(lambda m: f"](../{m.group(1)}/{m.group(1)}.pdf)", text)
         if updated != text:
-            md_path.write_text(updated, encoding="utf-8")
+            write_text_lf(md_path, updated)
             print(f"Updated cross-links in {md_path}")
 
 
@@ -85,7 +86,7 @@ def fix_catalog_file(path: Path) -> None:
         updated = updated.replace(f'href="{slug}.pdf"', f'href="{study_pdf_href(slug)}"')
         updated = updated.replace(f"]({slug}.pdf)", f"]({study_pdf_href(slug)})")
     if updated != text:
-        path.write_text(updated, encoding="utf-8")
+        write_text_lf(path, updated)
         print(f"Updated catalog links in {path}")
 
 
@@ -100,7 +101,7 @@ def fix_references_files() -> None:
             new = study_pdf_ref_path(slug)
             updated = updated.replace(old, new)
         if updated != text:
-            path.write_text(updated, encoding="utf-8")
+            write_text_lf(path, updated)
             print(f"Updated reference paths in {path}")
 
 

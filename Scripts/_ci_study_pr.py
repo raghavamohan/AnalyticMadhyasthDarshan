@@ -18,7 +18,7 @@ from dataclasses import replace
 from functools import lru_cache
 from pathlib import Path
 
-from _common import BASE, STUDIES, slug_from_repo_relative_path, study_md
+from _common import BASE, STUDIES, slug_from_repo_relative_path, study_md, write_text_lf
 
 from _verify_studies_index import collect_index_errors  # noqa: E402
 from _check_references import run_checks, print_report  # noqa: E402
@@ -482,10 +482,7 @@ def mark_registry_in_catalog(slug: str) -> None:
             row["phase"] = "catalog-draft"
             changed = True
     if changed:
-        registry_path.write_text(
-            json.dumps(data, indent=2) + "\n",
-            encoding="utf-8",
-        )
+        write_text_lf(registry_path, json.dumps(data, indent=2) + "\n")
         print(f"Updated proposal-registry.json: {slug} is now catalog-draft.")
 
 

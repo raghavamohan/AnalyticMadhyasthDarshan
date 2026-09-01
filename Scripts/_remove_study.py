@@ -14,7 +14,17 @@ import argparse
 import shutil
 from pathlib import Path
 
-from _common import REFERENCES, STUDIES, known_study_slugs, study_dir, study_html, study_md, study_pdf, study_pdf_ref_path
+from _common import (
+    REFERENCES,
+    STUDIES,
+    known_study_slugs,
+    study_dir,
+    study_html,
+    study_md,
+    study_pdf,
+    study_pdf_ref_path,
+    write_text_lf,
+)
 from _study_catalog import (
     StudyTable,
     find_study_table,
@@ -204,7 +214,7 @@ def remove_study(
             removed_label,
             remaining_labels,
         )
-        manifest_path.write_text(manifest_text, encoding="utf-8")
+        write_text_lf(manifest_path, manifest_text)
         print(f"Updated {manifest_path}")
 
     print("\nDone. Next steps:")

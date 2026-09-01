@@ -14,7 +14,7 @@ from __future__ import annotations
 
 import argparse
 
-from _common import STUDIES, known_study_slugs, study_dir, study_md, study_pdf, study_html
+from _common import STUDIES, known_study_slugs, study_dir, study_html, study_md, study_pdf, write_text_lf
 from _study_catalog import (
     StudyStatus,
     format_edited_on_md,
@@ -109,7 +109,7 @@ def set_study_status(
     md_text = md_path.read_text(encoding="utf-8")
     md_text = set_edited_on(md_text, edited_at)
     md_text = set_status_md(md_text, target_status)
-    md_path.write_text(md_text, encoding="utf-8")
+    write_text_lf(md_path, md_text)
     print(f"Updated {md_path}")
 
     updated_row = row
