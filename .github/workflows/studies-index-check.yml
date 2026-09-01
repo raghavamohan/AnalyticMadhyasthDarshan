@@ -19,6 +19,9 @@ on:
       - "Scripts/**.py"
       - ".github/actions/commit-artifacts/action.yml"
       - "Studies/catalog-*.json"
+      # verify_removal_metadata reads this, and a stale row here is what
+      # let a removed study keep its proposal entry (see 8c5b4dc).
+      - "Studies/proposal-registry.json"
       - ".github/actions/setup-study-env/action.yml"
       - ".github/workflows/studies-index-check.yml"
   push:
@@ -42,6 +45,9 @@ on:
       - "Scripts/**.py"
       - ".github/actions/commit-artifacts/action.yml"
       - "Studies/catalog-*.json"
+      # verify_removal_metadata reads this, and a stale row here is what
+      # let a removed study keep its proposal entry (see 8c5b4dc).
+      - "Studies/proposal-registry.json"
       - ".github/actions/setup-study-env/action.yml"
       - ".github/workflows/studies-index-check.yml"
 
