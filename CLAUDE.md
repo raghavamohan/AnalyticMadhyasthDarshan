@@ -17,6 +17,7 @@ Rigorous analytic studies of **Madhyasth Darshan** (Co-existentialism), the phil
 | `Scripts/` | Study lifecycle, PDF pipeline, reference checks, catalog builders |
 | `.agents/skills/` | Canonical agent skills (`.cursor/skills/` and `.opencode/skills/` mirror this) |
 | `infra/` | Cloudflare Workers (submission portal, discussions) |
+| `.github/` | CI workflows, composite actions, PR/issue templates; [`.github/CI.md`](.github/CI.md) is the pipeline reference |
 
 Companion files (research notes, figures) may live under `Studies/<Slug>/` without being catalog entries. Only `Studies/<Slug>/<Slug>.md` drives the catalog row and main PDF.
 
