@@ -301,6 +301,97 @@ def test_handle_study_update_multi_study() -> None:
     assert set(slugs) == {REAL_SLUG, "Nature-Of-Time"}
 
 
+# ------------------------------------------------- studies-index gate parity
+def test_ci_gate_uses_the_shared_collector() -> None:
+    """The PR gate must run the very checks the master-push gate runs.
+
+    _ci_study_pr.py used to assemble its own subset (verify_all_catalog_sync +
+    verify_index_shell_sync). The latter calls strip_catalog_blocks(), so it
+    structurally cannot see the inlined bootstrap: a stale Studies/index.html
+    passed its PR and turned master red only after the merge (#343).
+    """
+    import _verify_studies_index as vsi
+
+    assert ci.collect_index_errors is vsi.collect_index_errors
+
+
+def test_ci_gate_fails_on_every_collected_error() -> None:
+    original = ci.collect_index_errors
+    ci.collect_index_errors = lambda: ["sentinel drift"]
+    try:
+        message = None
+        try:
+            ci.verify_studies_index()
+        except SystemExit as exc:
+            message = str(exc)
+        assert message is not None, "verify_studies_index must raise on errors"
+        assert "sentinel drift" in message
+    finally:
+        ci.collect_index_errors = original
+
+
+def test_collect_index_errors_runs_all_four_checks() -> None:
+    """verify_catalog_bootstrap_sync is the check that caught #343; keep it in."""
+    import _verify_studies_index as vsi
+
+    names = [
+        "verify_all_catalog_sync",
+        "verify_index_shell_sync",
+        "verify_catalog_bootstrap_sync",
+        "verify_discussion_pages",
+    ]
+    called: list[str] = []
+    originals = {name: getattr(vsi, name) for name in names}
+
+    def recorder(name):
+        def _fn():
+            called.append(name)
+            return []
+        return _fn
+
+    try:
+        for name in names:
+            setattr(vsi, name, recorder(name))
+        assert vsi.collect_index_errors() == []
+    finally:
+        for name, fn in originals.items():
+            setattr(vsi, name, fn)
+    assert called == names, called
+
+
+# ------------------------------------------- index rebuild on catalog writes
+def test_catalog_write_rebuilds_the_index_by_default() -> None:
+    """Every catalog write must refresh Studies/index.html.
+
+    write_studies_catalog() wrote catalog JSON, README, discussion pages and the
+    sitemap but not the index, so _set_study_status.py left the landing page
+    advertising a released study as Draft (#343).
+    """
+    import inspect
+
+    import _build_studies_index as bsi
+    import _study_catalog as sc
+
+    default = inspect.signature(sc.write_studies_catalog).parameters["rebuild_index"].default
+    assert default is True, "a catalog write must refresh the index unless told otherwise"
+    assert callable(bsi.write_index_html)
+
+
+def test_index_builder_opts_out_to_avoid_recursion() -> None:
+    """main() rebuilds the index itself, so its own catalog writes must not."""
+    import inspect
+
+    import _build_studies_index as bsi
+
+    code_lines = [
+        line for line in inspect.getsource(bsi.main).splitlines()
+        if not line.strip().startswith("#")
+    ]
+    hits = sum(line.count("rebuild_index=False") for line in code_lines)
+    # one proposal sync + three per-table catalog writes
+    assert hits == 4, hits
+
+
 def main() -> int:
     tests = [obj for name, obj in sorted(globals().items())
              if name.startswith("test_") and callable(obj)]
