@@ -330,14 +330,20 @@ def test_ci_gate_fails_on_every_collected_error() -> None:
         ci.collect_index_errors = original
 
 
-def test_collect_index_errors_runs_all_four_checks() -> None:
-    """verify_catalog_bootstrap_sync is the check that caught #343; keep it in."""
+def test_collect_index_errors_runs_every_check() -> None:
+    """verify_catalog_bootstrap_sync is the check that caught #343; keep it in.
+
+    Listing the names explicitly is the point: a new check that is added to
+    collect_index_errors() but not here would run unnoticed, and one that is
+    dropped would go unnoticed too.
+    """
     import _verify_studies_index as vsi
 
     names = [
         "verify_all_catalog_sync",
         "verify_index_shell_sync",
         "verify_catalog_bootstrap_sync",
+        "verify_start_here_sync",
         "verify_discussion_pages",
     ]
     called: list[str] = []
@@ -390,6 +396,65 @@ def test_index_builder_opts_out_to_avoid_recursion() -> None:
     hits = sum(line.count("rebuild_index=False") for line in code_lines)
     # one proposal sync + three per-table catalog writes
     assert hits == 4, hits
+
+
+# ------------------------------------------------ Start-here pill generation
+def test_render_start_here_status_writes_pills_from_the_catalog() -> None:
+    """The pills were hand-maintained literals and two of 23 had drifted.
+
+    syncStartHere() repaired them in the browser, so the drift was invisible
+    there and wrong everywhere else: first paint, and any reader not running
+    scripts.
+    """
+    import _build_studies_index as bsi
+    from _study_catalog import StudyRow, StudyStatus
+
+    markup = (
+        '<div class="path-core" data-study-slug="Alpha">'
+        '<span class="path-status draft" data-study-status>Draft</span></div>'
+        '<li data-study-slug="Beta">'
+        '<span class="path-status released" data-study-status>Released</span></li>'
+    )
+    rows = [
+        StudyRow(slug="Alpha", category="", description="", status=StudyStatus.RELEASED),
+        StudyRow(slug="Beta", category="", description="", status=StudyStatus.ONGOING),
+    ]
+    out = bsi.render_start_here_status(markup, rows)
+    assert 'path-status released" data-study-status>Released' in out
+    # ongoing has no Start-here word of its own, so it renders as planned,
+    # matching the fallback in syncStartHere().
+    assert 'path-status planned" data-study-status>In progress' in out
+
+
+def test_render_start_here_status_leaves_unknown_slugs_alone() -> None:
+    """syncStartHere() returns early for a slug the catalog does not carry."""
+    import _build_studies_index as bsi
+
+    markup = (
+        '<li data-study-slug="Ghost">'
+        '<span class="path-status planned" data-study-status>In progress</span></li>'
+    )
+    assert bsi.render_start_here_status(markup, []) == markup
+
+
+def test_start_here_pill_regex_does_not_cross_entries() -> None:
+    """An entry with no pill must not capture the next entry's pill."""
+    import _build_studies_index as bsi
+
+    markup = (
+        '<li data-study-slug="NoPill"></li>'
+        '<li data-study-slug="HasPill">'
+        '<span class="path-status draft" data-study-status>Draft</span></li>'
+    )
+    found = [(m.group(2), m.group(3)) for m in bsi.START_HERE_PILL_RE.finditer(markup)]
+    assert found == [("HasPill", "draft")], found
+
+
+def test_shipped_index_start_here_matches_the_catalog() -> None:
+    """The end-to-end guard: Studies/index.html against catalog-*.json."""
+    import _build_studies_index as bsi
+
+    assert bsi.verify_start_here_sync() == []
 
 
 def main() -> int:
