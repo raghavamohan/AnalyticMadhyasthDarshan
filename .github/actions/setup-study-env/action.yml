@@ -22,7 +22,7 @@ runs:
   using: composite
   steps:
     - name: Set up Python
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v7
       with:
         python-version: ${{ inputs.python-version }}
         cache: pip
@@ -32,9 +32,16 @@ runs:
       shell: bash
       run: pip install -r requirements.txt
 
+    # setup-node v5 added automatic npm caching whenever package.json carries a
+    # `packageManager` field, disabled with `package-manager-cache: false`. That
+    # does not fire here -- there is no package.json at the repository root, and
+    # Scripts/package.json has no `packageManager` field -- and the explicit
+    # cache/cache-dependency-path below is what does the work either way. Adding
+    # `packageManager` to Scripts/package.json later would introduce a second,
+    # differently-keyed cache; set package-manager-cache: false if that happens.
     - name: Set up Node
       if: inputs.node == 'true'
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v7
       with:
         node-version: ${{ inputs.node-version }}
         cache: npm
@@ -51,7 +58,7 @@ runs:
     - name: Restore Puppeteer Chrome
       if: inputs.node == 'true'
       id: chrome-cache
-      uses: actions/cache@v4
+      uses: actions/cache@v6
       with:
         path: ~/.cache/puppeteer
         key: puppeteer-chrome-${{ runner.os }}-${{ hashFiles('Scripts/package-lock.json') }}

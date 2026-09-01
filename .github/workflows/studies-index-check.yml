@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       # Verification only — no PDF rendering, so Node and Chrome are not installed.
       - name: Set up study toolchain
