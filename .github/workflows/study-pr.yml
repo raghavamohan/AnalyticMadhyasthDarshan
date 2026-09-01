@@ -38,8 +38,13 @@ jobs:
       contains(github.event.pull_request.labels.*.name, 'status-change')
     runs-on: ubuntu-latest
     steps:
+      # checkout v7 refuses to check out a fork's head under pull_request_target
+      # or workflow_run. This job checks out exactly that head, and is only safe
+      # because it triggers on plain `pull_request`, where the token is read-only
+      # for a fork. Switching this workflow to pull_request_target would not just
+      # be a privilege escalation -- the checkout itself would stop working.
       - name: Checkout PR branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           repository: ${{ github.event.pull_request.head.repo.full_name }}
