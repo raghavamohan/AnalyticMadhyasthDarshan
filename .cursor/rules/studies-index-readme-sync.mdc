@@ -71,6 +71,15 @@ The **HTML/CSS/JS shell** — hero, card catalog UI, filters, sections, scroll-s
 lives in `Scripts/_build_studies_index.py` as `INDEX_TEMPLATE`. Do not edit
 `Studies/index.html` layout or styles in isolation.
 
+Inside that template the **Start here** status pills are build-time data, not
+markup: `render_start_here_status()` overwrites every
+`<span class="path-status …" data-study-status>` from the catalog on each build,
+and `verify_start_here_sync()` fails the build if a shipped pill disagrees.
+Editing a pill in `INDEX_TEMPLATE` therefore has no effect — change the study's
+status instead. The words must stay identical to `START_HERE_STATUS_WORDS` in the
+page's own `syncStartHere()` script, which recomputes the same pills on load;
+if they diverge, the pill visibly changes on first paint.
+
 Agent skill: [refine-studies-index](.agents/skills/refine-studies-index/SKILL.md).
 
 When changing the landing page UI:
