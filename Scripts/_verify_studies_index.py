@@ -18,6 +18,26 @@ from _build_discussion_pages import verify_discussion_pages  # noqa: E402
 from _study_catalog import verify_all_catalog_sync  # noqa: E402
 
 
+def collect_index_errors(*, shell: bool = True, catalog: bool = True) -> list[str]:
+    """Every Studies-index check, in one place.
+
+    Single source of truth so the PR-time gate and the master-push gate cannot
+    drift apart. They did: _ci_study_pr.py ran only verify_all_catalog_sync()
+    and verify_index_shell_sync(), and the latter calls strip_catalog_blocks(),
+    so it structurally cannot see the inlined bootstrap. A status change that
+    left Studies/index.html stale therefore passed its PR and failed only on the
+    push to master, after the merge (#343). Add new checks here, not in a caller.
+    """
+    errors: list[str] = []
+    if catalog:
+        errors.extend(verify_all_catalog_sync())
+    if shell:
+        errors.extend(verify_index_shell_sync())
+        errors.extend(verify_catalog_bootstrap_sync())
+        errors.extend(verify_discussion_pages())
+    return errors
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(
         description="Verify Studies catalog JSON files and index.html landing-page shell.",
@@ -34,13 +54,10 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    errors: list[str] = []
-    if not args.shell_only:
-        errors.extend(verify_all_catalog_sync())
-    if not args.catalog_only:
-        errors.extend(verify_index_shell_sync())
-        errors.extend(verify_catalog_bootstrap_sync())
-        errors.extend(verify_discussion_pages())
+    errors = collect_index_errors(
+        shell=not args.catalog_only,
+        catalog=not args.shell_only,
+    )
 
     if errors:
         for err in errors:
