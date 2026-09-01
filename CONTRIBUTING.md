@@ -184,12 +184,12 @@ index shell, the enforced test suites, and the agent-rules mirrors.
 request opened without a study label, so requiring it would strand those PRs. A
 study PR can still be merged with `study-pr` red, so step 5 is a duty, not a gate.
 
-**Use a merge commit for any PR that CI regenerated artifacts on.** CI appends
-`[skip ci]` to the regen commit, which is correct on the branch and harmless under
-a merge commit. Squash is disallowed because it concatenates that token into the
-commit that lands on `master`, skipping the post-merge index check. **Rebase is
-still allowed and has the same effect** — it replays the regen commit as `master`'s
-tip — so avoid it on study PRs. See [.github/CI.md](.github/CI.md) §6.
+**`master` accepts merge commits only** — squash and rebase are both disallowed,
+and there is nothing to remember or avoid: the buttons are not offered. CI appends
+`[skip ci]` to the artifacts it regenerates on a branch, which is harmless under a
+merge commit because the merge commit's own message is what lands on `master`.
+Squash and rebase each carry that token onto `master` instead and would skip the
+post-merge index check. See [.github/CI.md](.github/CI.md) §5.
 
 The full pipeline reference — every workflow, what it may write, what it does not check,
 and how to reproduce each check locally — is **[.github/CI.md](.github/CI.md)**.
