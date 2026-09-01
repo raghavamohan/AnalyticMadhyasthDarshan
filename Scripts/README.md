@@ -98,19 +98,20 @@ Which scripts CI actually executes:
 | Workflow | Runs |
 |----------|------|
 | [`study-pr.yml`](../.github/workflows/study-pr.yml) — labeled study PRs only | [`_test_ci_study_pr.py`](_test_ci_study_pr.py), then [`_ci_study_pr.py`](_ci_study_pr.py) (which reaches `_add_study.py`, `_rename_study.py`, `_set_study_status.py`, `_study_catalog.regenerate_pdf` and its verifiers, `_check_references.py`, `_verify_studies_index.py`) |
-| [`studies-index-check.yml`](../.github/workflows/studies-index-check.yml) — path-filtered PR **and** push to `master` | [`_verify_studies_index.py`](_verify_studies_index.py), [`_test_ci_study_pr.py`](_test_ci_study_pr.py), [`_test_pdf_metadata.py`](_test_pdf_metadata.py), [`_test_commit_artifacts.py`](_test_commit_artifacts.py), [`_test_generated_file_writes.py`](_test_generated_file_writes.py) |
+| [`studies-index-check.yml`](../.github/workflows/studies-index-check.yml) — **every** PR, and push to `master` | [`_verify_studies_index.py`](_verify_studies_index.py), [`_run_test_suites.py`](_run_test_suites.py) (18 of the 22 `_test_*.py` suites), [`_sync_agent_rules.py --check`](_sync_agent_rules.py) |
 | [`pdf-pipeline-smoke.yml`](../.github/workflows/pdf-pipeline-smoke.yml) — PDF pipeline paths, or on demand | [`_verify_pdf_reproducible.py`](_verify_pdf_reproducible.py) |
 | [`proposal-approved.yml`](../.github/workflows/proposal-approved.yml) — `proposal-approved` label | [`_bootstrap_proposal_study.py`](_bootstrap_proposal_study.py) |
 
-**Everything else here is local-only.** In particular `_sync_agent_rules.py --check` is
-mandatory per CLAUDE.md but is not enforced by any workflow, and 17 of the 21
-`_test_*.py` suites — including all the `infra/` and site tests — never run in CI. Run
-them before pushing:
+Test suites are discovered by **denylist**: [`_run_test_suites.py`](_run_test_suites.py)
+runs every `_test_*.py` except those named in its `HELD` map, so a new suite is
+enforced as soon as it lands. Four are held — one pins the reader's CSS, three are
+chained to one study's frozen research data — and the reason for each is printed on
+every run. See [.github/CI.md](../.github/CI.md) §4.
 
 ```powershell
-python Scripts/_sync_agent_rules.py --check
-Get-ChildItem Scripts/_test_*.py | ForEach-Object { python $_.FullName }
+python Scripts/_run_test_suites.py --list   # what is enforced, what is held and why
+python Scripts/_run_test_suites.py --all    # including the held suites
 ```
 
-`_test_sync_transcription_review_xlsx.py` only runs as a module:
-`python -m Scripts._test_sync_transcription_review_xlsx`.
+The site and infra suites each carry a `check_live()` behind an explicit `--live`
+flag that hits production. CI runs the offline form only.

@@ -1,6 +1,15 @@
-import unittest
+"""Tests for reading the transcription review workbook."""
 
-from Scripts._sync_transcription_review_xlsx import (
+from __future__ import annotations
+
+import sys
+import unittest
+from pathlib import Path
+
+SCRIPTS = Path(__file__).resolve().parent
+sys.path.insert(0, str(SCRIPTS))
+
+from _sync_transcription_review_xlsx import (
     ALLOWED_REVIEW,
     SEGMENT_HEADERS,
     column_index,
