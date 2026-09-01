@@ -19,6 +19,11 @@ runs:
   steps:
     - name: Commit and push
       shell: bash
+      env:
+        # Empty for non-pull_request events (proposal-approved.yml runs on
+        # issues), which is why the fork check below tests for non-empty first.
+        HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
+        THIS_REPO: ${{ github.repository }}
       run: |
         set -euo pipefail
         git config user.name "github-actions[bot]"
@@ -42,6 +47,31 @@ runs:
         if git diff --staged --quiet; then
           echo "No generated file changes to commit."
           exit 0
+        fi
+
+        # A pull request from a fork gets a read-only GITHUB_TOKEN no matter what
+        # the calling workflow puts in its permissions: block, so the push below
+        # would fail with a bare 403 that reads like a broken pipeline. Explain it
+        # instead, and say exactly what to run.
+        #
+        # This is reached only when CI actually regenerated something: a fork pull
+        # request whose artifacts are already correct produces no staged diff and
+        # has returned above. So arriving here means the branch really does carry
+        # stale artifacts, and the run must fail -- passing it would let them merge
+        # and turn the default branch red instead.
+        if [ -n "${HEAD_REPO:-}" ] && [ "$HEAD_REPO" != "$THIS_REPO" ]; then
+          echo "Pull request head is $HEAD_REPO, not $THIS_REPO."
+          echo "CI cannot push regenerated artifacts to a fork, so these files are"
+          echo "still stale on the branch:"
+          git diff --staged --name-only | sed 's/^/  /'
+          echo
+          echo "Regenerate them locally, commit, and push to your branch:"
+          echo "  python Scripts/_regenerate_pdf.py <Slug>      # per changed study"
+          echo "  python Scripts/_verify_studies_index.py       # must print: passed"
+          echo
+          echo "See AGENTS.md section 7 for the full pre-push checklist."
+          echo "::error title=Fork pull request::Regenerated artifacts cannot be pushed to a fork. Run the commands in the log, commit the result, and push."
+          exit 1
         fi
 
         git commit -m "${{ inputs.message }} [skip ci]"

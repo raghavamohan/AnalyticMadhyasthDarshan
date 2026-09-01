@@ -14,6 +14,8 @@ on:
       - "Scripts/_test_pdf_metadata.py"
       - "Scripts/_build_discussion_pages.py"
       - "Scripts/_build_sitemap.py"
+      - "Scripts/_test_commit_artifacts.py"
+      - ".github/actions/commit-artifacts/action.yml"
       - "Studies/catalog-*.json"
       - ".github/actions/setup-study-env/action.yml"
       - ".github/workflows/studies-index-check.yml"
@@ -33,6 +35,8 @@ on:
       - "Scripts/_test_pdf_metadata.py"
       - "Scripts/_build_discussion_pages.py"
       - "Scripts/_build_sitemap.py"
+      - "Scripts/_test_commit_artifacts.py"
+      - ".github/actions/commit-artifacts/action.yml"
       - "Studies/catalog-*.json"
       - ".github/actions/setup-study-env/action.yml"
       - ".github/workflows/studies-index-check.yml"
@@ -58,3 +62,11 @@ jobs:
 
       - name: Check PDF reproducibility patches
         run: python Scripts/_test_pdf_metadata.py
+
+      # commit-artifacts is the only part of CI that writes to a branch, and the
+      # two workflows that use it both need a label to fire -- so without this it
+      # reaches master having never been run. study-pr.yml also resolves it as
+      # @master, so even a real study PR would test the merged copy, not the
+      # branch's.
+      - name: Check the commit-artifacts shell
+        run: python Scripts/_test_commit_artifacts.py

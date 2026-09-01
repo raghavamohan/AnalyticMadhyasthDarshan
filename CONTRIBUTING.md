@@ -29,6 +29,15 @@ The public catalog at [analyticmadhyasthdarshan.org](https://analyticmadhyasthda
 3. **GitHub issue template** — [Study proposal](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-proposal.yml) if you prefer filing directly on GitHub. Still wait for `proposal-approved`, then sign in on the portal to submit your draft.
 4. **Fork and pull request (advanced)** — for contributors comfortable with Git. See the collapsible **Advanced** section in the maintainer approval comment, or [README.md](README.md#for-maintainers).
 
+   From a fork you must **regenerate artifacts yourself and commit them**. On a branch in this repository CI regenerates the PDF, catalog, and index for you and pushes the result back; it cannot do that on a fork, because GitHub gives a pull request from a fork a read-only token. Run the [local development setup](#local-development-optional) once, then before pushing:
+
+   ```bash
+   python Scripts/_regenerate_pdf.py <Slug>
+   python Scripts/_verify_studies_index.py
+   ```
+
+   If you skip this, the **Study PR** check fails and tells you the same thing. The Web Submission Portal avoids the whole step, which is why it is ranked first.
+
 
 ---
 
@@ -177,7 +186,9 @@ Before writing or changing a shared definition, check [MD-Mapping.xlsx](Referenc
 
 ## Local development (optional)
 
-Contributors who clone the repository can preview PDFs locally without waiting for CI:
+Contributors who clone the repository can preview PDFs locally without waiting for CI.
+This is **required** if you contribute from a fork, where CI cannot regenerate
+artifacts for you (see [Ways to contribute](#ways-to-contribute-ranked)):
 
 ```powershell
 pip install -r requirements.txt
