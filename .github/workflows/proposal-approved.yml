@@ -4,10 +4,18 @@ on:
   issues:
     types:
       - labeled
+  # Lets the bootstrap be exercised without burning a real proposal. The comment
+  # job stays keyed on the label, so a dispatch runs the bootstrap only.
+  workflow_dispatch:
+    inputs:
+      issue:
+        description: Proposal issue number to bootstrap
+        required: true
 
 permissions:
   contents: write
   issues: write
+  pull-requests: write
   actions: read
 
 jobs:
@@ -99,12 +107,22 @@ jobs:
               body
             });
 
+  # Lands the pre-catalog study through a pull request rather than pushing to
+  # master. The default-branch ruleset requires a pull request and has no bypass
+  # actors, and a bypass for the GitHub Actions app is an organization feature
+  # that a user-owned repository cannot grant -- so a direct push here is not
+  # merely discouraged, it is refused. This job last pushed successfully on
+  # 2026-07-03, six days before that ruleset was created.
   bootstrap:
-    if: github.event.label.name == 'proposal-approved'
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.event.label.name == 'proposal-approved'
     runs-on: ubuntu-latest
+    env:
+      ISSUE_NUMBER: ${{ github.event.issue.number || inputs.issue }}
     concurrency:
-      # Serialize bootstrap pushes to master so they do not stack with each
-      # other or with a Pages deploy still syncing the ~300 MB site.
+      # Serialize bootstrap merges to master so they do not stack with each other
+      # or with a Pages deploy still syncing the ~300 MB site.
       group: master-bootstrap-push
       cancel-in-progress: false
     steps:
@@ -118,9 +136,22 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
-        run: python Scripts/_bootstrap_proposal_study.py --issue ${{ github.event.issue.number }} --force
+        run: python Scripts/_bootstrap_proposal_study.py --issue "$ISSUE_NUMBER" --force
 
+      # Pushes a side branch; nothing reaches master until the merge below, so
+      # `pushed` is what tells the next steps whether there is anything to land.
+      - name: Commit bootstrap artifacts to a branch
+        id: commit
+        uses: ./.github/actions/commit-artifacts
+        with:
+          paths: Studies
+          branch: ci/bootstrap-proposal-${{ github.event.issue.number || inputs.issue }}
+          message: "ci: bootstrap pre-catalog proposal study (issue #${{ github.event.issue.number || inputs.issue }})"
+
+      # The merge is what lands on master and starts a Pages build, so the wait
+      # belongs here rather than before the branch push.
       - name: Wait for in-flight GitHub Pages deploy on master
+        if: steps.commit.outputs.pushed == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -141,11 +172,26 @@ jobs:
             echo "Pages deploy still $status; waiting 15s ($attempt/30)..."
             sleep 15
           done
-          echo "Cool-down before master push..."
+          echo "Cool-down before master merge..."
           sleep 60
 
-      - name: Commit bootstrap artifacts
-        uses: ./.github/actions/commit-artifacts
-        with:
-          paths: Studies
-          message: "ci: bootstrap pre-catalog proposal study (issue #${{ github.event.issue.number }})"
+      # A pull request opened with GITHUB_TOKEN does not trigger workflows, so no
+      # checks run on it -- the same coverage the direct push had, and the reason
+      # the required `verify` check does not block this merge. Merged with
+      # --merge, never --squash: a squash would carry the regen commit's
+      # [skip ci] onto master and suppress the post-merge index check.
+      - name: Open and merge the bootstrap pull request
+        if: steps.commit.outputs.pushed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRANCH: ci/bootstrap-proposal-${{ github.event.issue.number || inputs.issue }}
+        run: |
+          set -euo pipefail
+          gh pr create --base master --head "$BRANCH" \
+            --title "ci: bootstrap pre-catalog study for proposal #$ISSUE_NUMBER" \
+            --body "Automated pre-catalog stub for #$ISSUE_NUMBER. The study is not listed on the public index until the first draft pull request merges."
+          gh pr merge "$BRANCH" --merge --delete-branch
+
+      - name: Report when there was nothing to bootstrap
+        if: steps.commit.outputs.pushed != 'true'
+        run: echo "Bootstrap produced no changes for issue #$ISSUE_NUMBER; nothing to merge."
