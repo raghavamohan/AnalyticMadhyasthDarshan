@@ -15,6 +15,7 @@ from __future__ import annotations
 import sys
 import tempfile
 from pathlib import Path
+from types import SimpleNamespace
 
 SCRIPTS = Path(__file__).resolve().parent
 sys.path.insert(0, str(SCRIPTS))
@@ -135,6 +136,24 @@ def test_changed_paths_flattens_renames() -> None:
     assert ("M", "README.md") in got
 
 
+def test_git_diff_failure_is_not_treated_as_an_empty_change_set() -> None:
+    original = ci.subprocess.run
+    ci.subprocess.run = lambda *_args, **_kwargs: SimpleNamespace(
+        returncode=128,
+        stdout="",
+        stderr="bad revision",
+    )
+    try:
+        try:
+            ci._git("diff", "missing...HEAD")
+        except SystemExit as exc:
+            assert "bad revision" in str(exc)
+        else:
+            raise AssertionError("Git failures must stop study PR routing")
+    finally:
+        ci.subprocess.run = original
+
+
 def test_detect_study_rename_from_git_record() -> None:
     entries = [("R100", "Studies/Old-Slug/Old-Slug.md", "Studies/New-Slug/New-Slug.md")]
     got = _with_diff(entries, lambda: ci.detect_study_rename("origin/master"))
@@ -148,6 +167,27 @@ def test_detect_study_rename_inferred_from_add_delete() -> None:
     ]
     got = _with_diff(entries, lambda: ci.detect_study_rename("origin/master"))
     assert got == ("Old-Slug", "New-Slug")
+
+
+def test_detect_study_rename_ignores_moved_companion_files() -> None:
+    entries = [
+        (
+            "R100",
+            "Studies/Old-Slug/diagram.svg",
+            "Studies/New-Slug/diagram.svg",
+        )
+    ]
+    got = _with_diff(entries, lambda: ci.detect_study_renames("origin/master"))
+    assert got == []
+
+
+def test_detect_multiple_canonical_study_renames() -> None:
+    entries = [
+        ("R100", "Studies/Old-One/Old-One.md", "Studies/New-One/New-One.md"),
+        ("R100", "Studies/Old-Two/Old-Two.md", "Studies/New-Two/New-Two.md"),
+    ]
+    got = _with_diff(entries, lambda: ci.detect_study_renames("origin/master"))
+    assert got == [("Old-One", "New-One"), ("Old-Two", "New-Two")]
 
 
 def test_study_was_removed_requires_a_complete_deletion() -> None:
@@ -173,6 +213,34 @@ def test_references_changed() -> None:
                       lambda: ci.references_changed("origin/master")) is False
 
 
+def test_changed_study_slugs_includes_multiple_removals() -> None:
+    entries = [
+        ("D", "Studies/Removed-One/Removed-One.md"),
+        ("D", "Studies/Removed-One/Removed-One.pdf"),
+        ("D", "Studies/Removed-Two/Removed-Two.md"),
+    ]
+    got = _with_diff(entries, lambda: ci.changed_study_slugs("origin/master"))
+    assert got == ["Removed-One", "Removed-Two"]
+
+
+def test_single_purpose_labels_reject_other_study_changes() -> None:
+    entries = [
+        ("M", f"Studies/{REAL_SLUG}/{REAL_SLUG}.md"),
+        ("M", "Studies/Nature-Of-Time/Nature-Of-Time.md"),
+    ]
+
+    def run():
+        try:
+            ci.reject_other_study_changes("origin/master", {REAL_SLUG}, "status-change")
+        except SystemExit as exc:
+            assert "Nature-Of-Time" in str(exc)
+            assert "study-update" in str(exc)
+        else:
+            raise AssertionError("extra study changes must be rejected")
+
+    _with_diff(entries, run)
+
+
 # ------------------------------------------------------- PDF regeneration guard
 def _reason(entries) -> str | None:
     return _with_diff(entries, lambda: ci.pdf_regeneration_reason("origin/master", REAL_SLUG))
@@ -189,8 +257,18 @@ def test_pdf_rebuild_when_study_figure_changes() -> None:
 
 
 def test_pdf_rebuild_when_pipeline_changes() -> None:
-    for path in ("Scripts/_html_to_pdf.js", "Scripts/_convert_to_pdf.py",
-                 "Scripts/_pdf_metadata.py", "Scripts/package-lock.json"):
+    for path in (
+        "Scripts/_html_to_pdf.js",
+        "Scripts/_convert_to_pdf.py",
+        "Scripts/_pdf_metadata.py",
+        "Scripts/_render_katex_math.js",
+        "Scripts/_glossary_tooltips.py",
+        "Scripts/package-lock.json",
+        "Studies/glossary.json",
+        "Assets/KaTeX/fonts/KaTeX_Main-Regular.woff2",
+        "requirements.txt",
+        "CNAME",
+    ):
         reason = _reason([("M", path)])
         assert reason and "pipeline changed" in reason, path
 
@@ -435,6 +513,17 @@ def test_render_start_here_status_leaves_unknown_slugs_alone() -> None:
         '<span class="path-status planned" data-study-status>In progress</span></li>'
     )
     assert bsi.render_start_here_status(markup, []) == markup
+
+
+def test_start_here_verifier_rejects_unknown_slug_after_rename_or_removal() -> None:
+    import _build_studies_index as bsi
+
+    markup = (
+        '<li data-study-slug="Retired-Slug">'
+        '<span class="path-status planned" data-study-status>In progress</span></li>'
+    )
+    errors = bsi.start_here_sync_errors(markup, {})
+    assert len(errors) == 1 and "Retired-Slug" in errors[0]
 
 
 def test_start_here_pill_regex_does_not_cross_entries() -> None:

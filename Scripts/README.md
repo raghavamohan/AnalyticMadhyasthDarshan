@@ -36,6 +36,7 @@ what to run **on that branch** before opening the PR.
 | Regenerate a companion note PDF/HTML | `python Scripts/_regenerate_pdf.py Studies/<Slug>/Research-Note.md` (unwatermarked; same verifiers) |
 | Pin PDF dates and node IDs (reproducible bytes) | `python Scripts/_pdf_metadata.py Studies/<Slug>/<Slug>.md` (called automatically by `_regenerate_pdf.py`) |
 | Test the study-PR CI router | `python Scripts/_test_ci_study_pr.py` |
+| Test add/remove/rename lifecycle edge cases | `python Scripts/_test_study_lifecycle.py` |
 | Test the PDF reproducibility patches | `python Scripts/_test_pdf_metadata.py` |
 | Companion PPTX → slides PDF | `python Scripts/_pptx_to_pdf.py path/to/deck.pptx` (PowerPoint COM, else LibreOffice) |
 | Deck → read-aloud notes PDF | `python Scripts/_build_deck_notes_pdf.py path/to/deck.pptx` → `<Deck>-notes.pdf` (slide + speaker script per page; run after the slides PDF) |
@@ -79,6 +80,7 @@ by those entry points or run directly only for diagnostics and specialized work.
 |--------|------|
 | `_common.py` | Paths, PDF text extraction, phrase matching, reference registry |
 | `_study_catalog.py` | Catalog CRUD, IST timestamps, `regenerate_pdf`, catalog sync checks |
+| `_study_links.py` | Cross-study link discovery and changed-section `§` validation for rename/removal CI |
 | `_build_studies_index.py` | `INDEX_TEMPLATE` for `Studies/index.html`; writes `Studies/catalog-*.json`; rebuild shell |
 | `_verify_studies_index.py` | Verify catalog JSON ↔ README and index shell ↔ template |
 | `_quote_verify.py` | Blockquote extraction and verification logic |
@@ -113,8 +115,8 @@ Which scripts CI actually executes:
 
 | Workflow | Runs |
 |----------|------|
-| [`study-pr.yml`](../.github/workflows/study-pr.yml) — labeled study PRs only | [`_test_ci_study_pr.py`](_test_ci_study_pr.py), then [`_ci_study_pr.py`](_ci_study_pr.py) (which reaches `_add_study.py`, `_rename_study.py`, `_set_study_status.py`, `_study_catalog.regenerate_pdf` and its verifiers, `_check_references.py`, `_verify_studies_index.py`) |
-| [`studies-index-check.yml`](../.github/workflows/studies-index-check.yml) — **every** PR, and push to `master` | [`_verify_studies_index.py`](_verify_studies_index.py), [`_run_test_suites.py`](_run_test_suites.py) (18 of the 22 `_test_*.py` suites), [`_sync_agent_rules.py --check`](_sync_agent_rules.py) |
+| [`study-pr.yml`](../.github/workflows/study-pr.yml) — labeled study PRs only | [`_test_ci_study_pr.py`](_test_ci_study_pr.py), then [`_ci_study_pr.py`](_ci_study_pr.py) (which reaches `_add_study.py`, `_rename_study.py`, `_set_study_status.py`, `_study_catalog.regenerate_pdf` and its verifiers, `_study_links.py`, `_check_references.py`, `_verify_studies_index.py`) |
+| [`studies-index-check.yml`](../.github/workflows/studies-index-check.yml) — **every** PR, and push to `master` | [`_verify_studies_index.py`](_verify_studies_index.py), every non-held suite discovered by [`_run_test_suites.py`](_run_test_suites.py), and [`_sync_agent_rules.py --check`](_sync_agent_rules.py) |
 | [`pdf-pipeline-smoke.yml`](../.github/workflows/pdf-pipeline-smoke.yml) — PDF pipeline paths, or on demand | [`_verify_pdf_reproducible.py`](_verify_pdf_reproducible.py) |
 | [`proposal-approved.yml`](../.github/workflows/proposal-approved.yml) — `proposal-approved` label | [`_bootstrap_proposal_study.py`](_bootstrap_proposal_study.py) |
 

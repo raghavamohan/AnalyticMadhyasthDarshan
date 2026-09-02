@@ -14,7 +14,6 @@ from __future__ import annotations
 import argparse
 import json
 import os
-import re
 import subprocess
 import sys
 import urllib.error
@@ -28,34 +27,22 @@ from _bootstrap_proposal_study import (
     issue_body_with_slug,
     issue_body_with_title,
 )
-from _common import APPLICATIONS, BASE, REFERENCES, STUDIES, write_text_lf
+from _common import APPLICATIONS, BASE, REFERENCES, STUDIES, validate_study_slug, write_text_lf
 from _study_catalog import (
     display_title,
     get_study_row,
     load_catalog_rows,
-    proposal_meta_path as catalog_proposal_meta_path,
-    remove_study_row,
-    upsert_study_row,
     write_studies_catalog,
 )
 
 SCRIPTS = Path(__file__).resolve().parent
-MAX_SLUG_LEN = 60
-MAX_STUDY_MD_PATH_LEN = 200
 
 
 def validate_slug(slug: str) -> None:
-    if not re.fullmatch(r"[A-Za-z0-9-]+", slug):
-        raise SystemExit(f"Invalid slug: {slug!r}")
-    if len(slug) > MAX_SLUG_LEN:
-        raise SystemExit(
-            f"Slug {slug!r} is {len(slug)} characters; keep slugs at or under {MAX_SLUG_LEN}."
-        )
-    md_path = f"Studies/{slug}/{slug}.md"
-    if len(md_path) > MAX_STUDY_MD_PATH_LEN:
-        raise SystemExit(
-            f"Path {md_path!r} would be {len(md_path)} characters; choose a shorter slug."
-        )
+    try:
+        validate_study_slug(slug)
+    except ValueError as exc:
+        raise SystemExit(str(exc)) from exc
 
 
 def study_root_for_slug(slug: str) -> Path:
@@ -77,19 +64,33 @@ def registry_row_for_slug(slug: str) -> dict | None:
     return None
 
 
-def resolve_issue_number(old_slug: str, issue_number: int | None) -> int | None:
+def proposal_meta_paths(slug: str) -> tuple[Path, Path]:
+    return STUDIES / slug / ".proposal-meta.json", APPLICATIONS / slug / ".proposal-meta.json"
+
+
+def existing_proposal_meta_path(slug: str) -> Path | None:
+    return next((path for path in proposal_meta_paths(slug) if path.is_file()), None)
+
+
+def resolve_issue_number(
+    old_slug: str,
+    issue_number: int | None,
+    new_slug: str | None = None,
+) -> int | None:
     if issue_number is not None:
         return issue_number
-    for slug in (old_slug,):
-        meta_path = catalog_proposal_meta_path(slug)
-        if meta_path.is_file():
+    for slug in dict.fromkeys((old_slug, new_slug)):
+        if slug is None:
+            continue
+        meta_path = existing_proposal_meta_path(slug)
+        if meta_path is not None:
             data = json.loads(meta_path.read_text(encoding="utf-8"))
             issue = data.get("proposalIssue")
             if issue:
                 return int(issue)
-    row = registry_row_for_slug(old_slug)
-    if row and row.get("issueNumber"):
-        return int(row["issueNumber"])
+        row = registry_row_for_slug(slug)
+        if row and row.get("issueNumber"):
+            return int(row["issueNumber"])
     return None
 
 
@@ -109,13 +110,23 @@ def rename_study_files(old_slug: str, new_slug: str, *, dry_run: bool) -> None:
         print(f"Would rename directory {old_dir} -> {new_dir}")
         return
 
-    new_dir.mkdir(parents=True, exist_ok=True)
-    for path in old_dir.iterdir():
-        target = new_dir / path.name
-        if path.name.startswith(old_slug):
-            target = new_dir / f"{new_slug}{path.suffix}"
-        path.rename(target)
-    old_dir.rmdir()
+    canonical_renames = [
+        (old_dir / f"{old_slug}{suffix}", old_dir / f"{new_slug}{suffix}")
+        for suffix in (".md", ".html", ".pdf")
+        if (old_dir / f"{old_slug}{suffix}").is_file()
+    ]
+    collisions = [target for _source, target in canonical_renames if target.exists()]
+    if collisions:
+        raise SystemExit(
+            "Cannot rename canonical files; target name(s) already exist: "
+            + ", ".join(str(path) for path in collisions)
+        )
+
+    # Move the tree as one filesystem operation, then rename only the canonical
+    # source/generated trio. Companion deck and note basenames remain stable.
+    old_dir.rename(new_dir)
+    for source, target in canonical_renames:
+        (new_dir / source.name).rename(new_dir / target.name)
     print(f"Renamed {old_dir} -> {new_dir}")
 
 
@@ -126,14 +137,26 @@ def update_catalog_row(old_slug: str, new_slug: str, new_title: str | None, *, d
         if located is None:
             print(f"No catalog row for {old_slug} or {new_slug}; skipping catalog update.")
             return
-        print(f"Catalog already uses slug {new_slug}.")
+        row, table = located
+        if new_title and row.title != new_title:
+            rows = load_catalog_rows(table)
+            index = next(index for index, item in enumerate(rows) if item.slug == new_slug)
+            rows[index] = replace(row, title=new_title)
+            if dry_run:
+                print(f"Would update {table.value} catalog title for {new_slug}")
+            else:
+                write_studies_catalog(rows, table, rebuild_discussion=[new_slug])
+                print(f"Updated {table.value} catalog title for {new_slug}")
+        else:
+            print(f"Catalog already uses slug {new_slug}.")
         return
 
     row, table = located
     title = new_title or row.title or display_title(row)
     new_row = replace(row, slug=new_slug, title=title, pdf_href=None, html_href=None)
-    rows = remove_study_row(load_catalog_rows(table), old_slug)
-    rows = upsert_study_row(rows, new_row)
+    rows = load_catalog_rows(table)
+    index = next(index for index, item in enumerate(rows) if item.slug == old_slug)
+    rows[index] = new_row
     if dry_run:
         print(f"Would update {table.value} catalog: {old_slug} -> {new_slug}")
         return
@@ -146,13 +169,10 @@ def update_registry(old_slug: str, new_slug: str, new_title: str | None, issue_n
     proposals = list(data.get("proposals", []))
     old_row = next((row for row in proposals if row.get("slug") == old_slug), None)
     new_row = next((row for row in proposals if row.get("slug") == new_slug), None)
-    if new_row and not old_row:
-        print(f"Registry already lists {new_slug}.")
-        return
 
-    meta_path = catalog_proposal_meta_path(new_slug if new_row else old_slug)
+    meta_path = existing_proposal_meta_path(new_slug if new_row else old_slug)
     meta = {}
-    if meta_path.is_file():
+    if meta_path is not None:
         meta = json.loads(meta_path.read_text(encoding="utf-8"))
 
     fields = ProposalFields(
@@ -196,11 +216,20 @@ def update_registry(old_slug: str, new_slug: str, new_title: str | None, issue_n
 
 
 def update_proposal_meta_file(old_slug: str, new_slug: str, new_title: str | None, issue_number: int | None, *, dry_run: bool) -> None:
-    src = catalog_proposal_meta_path(old_slug)
-    dst = catalog_proposal_meta_path(new_slug)
+    src = existing_proposal_meta_path(old_slug)
+    dst = existing_proposal_meta_path(new_slug)
+    if dst is None:
+        if (APPLICATIONS / new_slug).is_dir():
+            dst = APPLICATIONS / new_slug / ".proposal-meta.json"
+        elif (STUDIES / new_slug).is_dir():
+            dst = STUDIES / new_slug / ".proposal-meta.json"
+        elif src is not None and src.parent.parent == APPLICATIONS:
+            dst = APPLICATIONS / new_slug / ".proposal-meta.json"
+        else:
+            dst = STUDIES / new_slug / ".proposal-meta.json"
     if dst.is_file():
         data = json.loads(dst.read_text(encoding="utf-8"))
-    elif src.is_file():
+    elif src is not None and src.is_file():
         data = json.loads(src.read_text(encoding="utf-8"))
     else:
         row = registry_row_for_slug(new_slug) or registry_row_for_slug(old_slug)
@@ -229,7 +258,7 @@ def update_proposal_meta_file(old_slug: str, new_slug: str, new_title: str | Non
         return
     dst.parent.mkdir(parents=True, exist_ok=True)
     write_text_lf(dst, json.dumps(data, indent=2) + "\n")
-    if src.is_file() and src != dst:
+    if src is not None and src.is_file() and src != dst:
         src.unlink()
     print(f"Updated {dst}")
 
@@ -283,6 +312,8 @@ def update_github_issue(issue_number: int, slug: str, title: str | None) -> None
 
 def update_reference_paths(old_slug: str, new_slug: str, *, dry_run: bool) -> None:
     replacements = [
+        (f"[{old_slug}.pdf]", f"[{new_slug}.pdf]"),
+        (f"[{old_slug}.html]", f"[{new_slug}.html]"),
         (f"Studies/{old_slug}/{old_slug}.pdf", f"Studies/{new_slug}/{new_slug}.pdf"),
         (f"Studies/{old_slug}/{old_slug}.html", f"Studies/{new_slug}/{new_slug}.html"),
         (f"../Studies/{old_slug}/{old_slug}.pdf", f"../Studies/{new_slug}/{new_slug}.pdf"),
@@ -332,8 +363,9 @@ def rename_study(
     if old_slug == new_slug:
         raise SystemExit("Old and new slug are the same.")
 
+    validate_slug(old_slug)
     validate_slug(new_slug)
-    resolved_issue = resolve_issue_number(old_slug, issue_number)
+    resolved_issue = resolve_issue_number(old_slug, issue_number, new_slug)
 
     if not metadata_only:
         rename_study_files(old_slug, new_slug, dry_run=dry_run)

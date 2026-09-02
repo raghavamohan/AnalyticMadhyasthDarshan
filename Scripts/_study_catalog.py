@@ -132,36 +132,6 @@ CATALOG_TABLES = (
 
 PROPOSAL_REGISTRY_PATH = STUDIES / "proposal-registry.json"
 
-# Public index display order for topical studies (ongoing + draft + released).
-TOPICAL_DISPLAY_ORDER = (
-    "The-Ontology-of-Coexistence",
-    "Nature-Of-Time",
-    "Why-Humans-Are-Not-Just-Material",
-    "Philosophy-Of-Mind-And-Jeevan",
-    "Chitta-Brain-And-Memory",
-    "The-Epistemology-of-Coexistence",
-    "Methodology-And-Hermeneutics",
-    "Axiology-Value-Theory",
-    "Ethics-And-Morals-In-Human-Beings",
-    "Family-Relationships-And-Values",
-    "Education-And-Sanskar",
-    "Aesthetics",
-    "Human-Behavior-And-Society",
-    "How-To-Form-Self-Sustaining-Organizations",
-    "Governance-Justice-And-Undivided-Society",
-    "Prosperity-Economics-And-Right-Use",
-    "Nature-Ecology-And-Right-Use",
-    "Spiritual-Practice-And-Realization",
-    "Science-Technology-And-Human-Purpose",
-    "How-Undivided-Society-Is-Established",
-    "Death-Continuity-And-Rebirth",
-    "Language-Meaning-And-Definition",
-    "Work-Action-And-Karma",
-    "Free-Will-Choice-And-Agency",
-    "Health-Body-And-Restraint",
-    "God-Divinity-And-The-Sacred",
-)
-
 
 @dataclass
 class StudyRow:
@@ -1020,21 +990,6 @@ def load_pre_catalog_proposals() -> list[dict]:
     ]
 
 
-def order_topical_rows(rows: list[StudyRow]) -> list[StudyRow]:
-    by_slug = {row.slug: row for row in rows}
-    ordered: list[StudyRow] = []
-    seen: set[str] = set()
-    for slug in TOPICAL_DISPLAY_ORDER:
-        row = by_slug.get(slug)
-        if row is not None:
-            ordered.append(row)
-            seen.add(slug)
-    for slug in sorted(by_slug):
-        if slug not in seen:
-            ordered.append(by_slug[slug])
-    return ordered
-
-
 def sync_pre_catalog_proposals_to_catalog(*, rebuild_index: bool = True) -> list[StudyRow]:
     """Register approved pre-catalog proposals as Planned (ongoing) on the public index."""
     pre_catalog = load_pre_catalog_proposals()
@@ -1065,7 +1020,11 @@ def sync_pre_catalog_proposals_to_catalog(*, rebuild_index: bool = True) -> list
             pdf_href=pdf_href,
         )
 
-    ordered = order_topical_rows(list(by_slug.values()))
+    # The catalog file is the order source of truth. Dict insertion order keeps
+    # existing rows in place; newly approved proposals append in registry order.
+    # This avoids a second hard-coded slug list that every rename/removal had to
+    # edit in lockstep with the catalog.
+    ordered = list(by_slug.values())
     write_studies_catalog(ordered, StudyTable.TOPICAL, rebuild_index=rebuild_index)
     return ordered
 

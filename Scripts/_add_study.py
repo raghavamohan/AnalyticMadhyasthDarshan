@@ -19,7 +19,16 @@ import shutil
 import sys
 from pathlib import Path
 
-from _common import REFERENCES, STUDIES, study_dir, study_md, study_pdf, study_pdf_ref_path, write_text_lf
+from _common import (
+    REFERENCES,
+    STUDIES,
+    study_dir,
+    study_md,
+    study_pdf,
+    study_pdf_ref_path,
+    validate_study_slug,
+    write_text_lf,
+)
 from _pdf_cache_sync import pdfs_for_tags, sync_pdf_cache
 from _pdf_to_md import convert_pdf_to_markdown
 from _study_catalog import (
@@ -160,6 +169,16 @@ def add_study(
     table = StudyTable.FORMAL if formal else StudyTable.TOPICAL
     is_pdf_import = suffix == ".pdf"
     derived_slug = slug or title_to_slug(title or input_path.stem.replace("_", " "))
+    try:
+        validate_study_slug(derived_slug)
+    except ValueError as exc:
+        raise SystemExit(str(exc)) from exc
+    if convert and not is_pdf_import:
+        raise SystemExit("--convert is only valid for PDF input.")
+    if no_keep_pdf and not convert:
+        raise SystemExit("--no-keep-pdf requires --convert.")
+    if is_pdf_import and status == StudyStatus.ONGOING:
+        raise SystemExit("Ongoing placeholders accept markdown only and must not store a PDF.")
     study_title = title or slug_to_title(derived_slug)
     dest_dir = study_dir(derived_slug)
     dest_md = study_md(derived_slug)

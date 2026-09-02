@@ -89,10 +89,9 @@ To change **Draft** ↔ **Released**, use **Change release status** on the same 
 
 The slug is **locked** when a proposal is approved. If the derived slug is too long for Windows paths or you need a shorter catalog name, rename **before or right after** the first draft merge using a maintainer-reviewed **`study-update`** pull request:
 
-1. Rename `Studies/<Old-Slug>/` to `Studies/<New-Slug>/` (and inner `.md`/`.html`/`.pdf` files) on a feature branch.
-2. Update the catalog row slug/title via the same PR (or let CI sync timestamps after the rename).
-3. Run `python Scripts/_rename_study.py --from <Old-Slug> --to <New-Slug> --title "New display title"` locally to sync `proposal-registry.json`, `.proposal-meta.json`, the GitHub proposal issue `### Slug` / `### Proposed title`, and `References/` paths — or rely on CI (`_ci_study_pr.py` detects directory renames and runs metadata sync automatically).
-4. Set `Study slug: <New-Slug>` in the PR body and apply the **`study-update`** label.
+1. Run `python Scripts/_rename_study.py --from <Old-Slug> --to <New-Slug> --title "New display title"` on a feature branch. The script moves the directory and the canonical `<Slug>.md` / `.html` / `.pdf` files while preserving companion filenames, then syncs the catalog in place, proposal registry and metadata, the GitHub proposal issue, and `References/` links.
+2. Update any Start here entry in `Scripts/_build_studies_index.py` and every Markdown link or `§` section reference that targets the old slug. Include all affected studies in the same pull request; CI validates both inbound and outbound cross-study references.
+3. Set `Study slug: <New-Slug>` in the PR body and apply the **`study-update`** label. CI can also finish metadata synchronization when it detects one or more canonical study renames in the diff.
 
 Do **not** rename only the directory without updating the proposal issue and registry; **My Submissions** keys studies by slug and will show duplicate rows if metadata drifts.
 
@@ -112,11 +111,14 @@ Open the matching template from [.github/pull_request_template.md](.github/pull_
 | Change | Template | Label | Required body field(s) |
 |--------|----------|-------|-------------------------|
 | First draft after `proposal-approved` | [new-study](.github/PULL_REQUEST_TEMPLATE/new-study.md) | `new-study` | `Proposal issue: #N` and `Slug: <Slug>` |
-| Edit study markdown **or** companion files under that folder (`.pptx`, research notes, figures) | [study-update](.github/PULL_REQUEST_TEMPLATE/study-update.md) | `study-update` | `Study slug: <Slug>` |
+| Edit, rename, or remove one or more studies; or edit companion files (`.pptx`, research notes, figures) | [study-update](.github/PULL_REQUEST_TEMPLATE/study-update.md) | `study-update` | `Study slug: <primary Slug>` |
 | Draft ↔ Released | [status-change](.github/PULL_REQUEST_TEMPLATE/status-change.md) | `status-change` | `Study slug: <Slug>` and `Target status: draft` or `released` |
 
 Apply **exactly one** of those three labels. Changes that only touch `Scripts/`, `AGENTS.md`,
 `infra/`, etc. are ordinary PRs — **no** study label and **no** `Study slug:` field.
+`new-study` and `status-change` PRs are single-purpose. Use `study-update` when one
+change intentionally touches multiple existing studies, such as repairing inbound
+links after a slug or section-heading rename.
 
 ### Fill required fields correctly
 

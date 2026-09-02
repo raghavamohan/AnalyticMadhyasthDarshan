@@ -19,6 +19,8 @@ param(
     [switch]$DryRun,
     [switch]$Force,
     [switch]$SkipPdf,
+    [switch]$Convert,
+    [switch]$NoKeepPdf,
     [switch]$NoCheckTimestamps
 )
 
@@ -37,6 +39,8 @@ if ($Formal) { $args += '--formal' }
 if ($DryRun) { $args += '--dry-run' }
 if ($Force) { $args += '--force' }
 if ($SkipPdf) { $args += '--skip-pdf' }
+if ($Convert) { $args += '--convert' }
+if ($NoKeepPdf) { $args += '--no-keep-pdf' }
 if ($NoCheckTimestamps) { $args += '--no-check-timestamps' }
 
 python @args
