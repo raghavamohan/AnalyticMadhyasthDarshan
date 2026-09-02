@@ -1,6 +1,6 @@
 # Studies citation verification
 
-Audit of every reference tag cited in `Studies/`. Last verified: 2026-06-19.
+Audit of every reference tag cited in `Studies/`. Last verified: 2026-09-03.
 
 **Legend:** present = file in `References/`; external = linked from original publisher or author URL (see [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md)); internal = another paper in `Studies/`, not a bibliographic source.
 
@@ -70,7 +70,9 @@ For **MVD**, **SB**, and **JV**, the PDF is the file Studies must cite and that 
 | **JVD** | [Madhyasth-Darshan/JVD-Janvad.pdf](Madhyasth-Darshan/JVD-Janvad.pdf) | Nature-Of-Time |
 | **MD** | [Madhyasth-Darshan/MD-Mapping.xlsx](Madhyasth-Darshan/MD-Mapping.xlsx) | terminology glossary; Phase 4 MVD/SB refresh (see MD-Mapping-Sources/) |
 | **KD** | [Madhyasth-Darshan/KD-karm darshan v5.pdf](Madhyasth-Darshan/KD-karm%20darshan%20v5.pdf) | The-Ontology-of-Coexistence; Research-Note-Physics-Of-Satta-Unit-Interaction (internal) |
+| **MSM** | [Madhyasth-Darshan/MSM-manav-sanchetnavaadi-manovigyan.pdf](Madhyasth-Darshan/MSM-manav-sanchetnavaadi-manovigyan.pdf) | (none — not yet cited by any study) |
 | **KD-Karm-Darshan-English** | [Madhyasth-Darshan/KD-Karm-Darshan-English/](Madhyasth-Darshan/KD-Karm-Darshan-English/README.md) | The-Ontology-of-Coexistence; Research-Note-Physics-Of-Satta-Unit-Interaction (internal); full-book working translation (front matter + ch. 1–3) |
+| **MSM-Manav-Sanchetnavadi-Manovigyan-English** | [Madhyasth-Darshan/MSM-Manav-Sanchetnavadi-Manovigyan-English/](Madhyasth-Darshan/MSM-Manav-Sanchetnavadi-Manovigyan-English/README.md) | (setup only — no English translation yet) |
 | **Nagraj 2010 Sakshatkar** | [Madhyasth-Darshan/Nagraj-Recorded-Sessions/](Madhyasth-Darshan/Nagraj-Recorded-Sessions/README.md) — [transcript + translation](Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.md) · [raw ASR](Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-raw-asr.txt) present; recording **external** ([NOT-DOWNLOADED.md](NOT-DOWNLOADED.md)) | Research-Note-Sakshatkar-Bodh-Anubhav-Praman-Session (internal). **Not yet cited by any released study** — oral, machine-transcribed; see folder README before citing |
 | **BU** | [Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf](Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf) | Why-Humans, Aesthetics |
 | **TU** | [Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf](Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf) | Why-Humans, The-Ontology-of-Coexistence, Aesthetics (Gambhirananda 2-vol. set; TU at p. 237) |
@@ -132,7 +134,7 @@ For **MVD**, **SB**, and **JV**, the PDF is the file Studies must cite and that 
 
 | Category | Stored locally | External only |
 |----------|----------------|---------------|
-| Madhyasth Darshan (MVD, SB, JV, AVD, JVD, KD) | 6 PDFs + 1 spreadsheet + KD-Karm-Darshan-English working translations | 0 |
+| Madhyasth Darshan (MVD, SB, JV, AVD, JVD, KD, MSM) | 7 PDFs + 1 spreadsheet + KD working translation + MSM translation workspace | 0 |
 | Advaita Vedanta (9 tags) | 9 PDFs | 0 |
 | Comparative philosophy, Indian aesthetics, and religious ethics | 5 | 5 |
 | Science and moral science | 14 (open-access papers) | 24 |

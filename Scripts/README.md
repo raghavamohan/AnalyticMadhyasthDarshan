@@ -53,6 +53,7 @@ what to run **on that branch** before opening the PR.
 | Read one PDF page (cleaned) | `python Scripts/_quote_tool.py page <tag-or-path> <n> [--keyword kw]` |
 | Locate phrase in tagged source | `python Scripts/_quote_tool.py snippet <tag> "<phrase>"` |
 | Download / audit references | `python Scripts/_check_references.py` (full); `python Scripts/_audit_references.py` (bibliography only); `python Scripts/_download_references.py` (mirrors) |
+| Render / verify MSM translation source images | `python Scripts/_msm_render_page_images.py`; add `--check` to validate the source hash and all 268 PNGs |
 | Review Rakesh Gupta translation alignment | `python Scripts/_review_rakesh_translations.py` |
 | Verify studies index | `python Scripts/_verify_studies_index.py` |
 | Rebuild index.html shell | `python Scripts/_build_studies_index.py` |
@@ -98,6 +99,7 @@ by those entry points or run directly only for diagnostics and specialized work.
 | `_pdf_metadata.py` | Pin PDF dates and tagged-structure node IDs for reproducible bytes (called by `_regenerate_pdf.py`) |
 | `_download_references.py` | Download manifest entries into `References/` (called by `.ps1`) |
 | `_reference_downloads.py` | Manifest of mirrorable reference files |
+| `_msm_render_page_images.py` | Render the pinned MSM Hindi source to page-aligned PNGs and verify the complete image set |
 | `_audit_references.py` | Bibliography-only audit of Studies/ `## References` links |
 | `_check_references.py` | Full reference check suite (bibliography, markdown links, mirror files, PDF links) |
 | `_pdf_to_md.py` | Layout-aware PDF → markdown body extraction (PyMuPDF + pdfplumber) |

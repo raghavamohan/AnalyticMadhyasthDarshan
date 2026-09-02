@@ -4,7 +4,7 @@ Local copies of source texts cited across `Studies/`. See [MANIFEST.md](MANIFEST
 
 **What we store locally**
 
-- **Madhyasth Darshan** primary texts (MVD, SB, JV, AVD, JVD, KD Hindi source) and the MD mapping spreadsheet; full-book working English translation (front matter + ch. 1–3) under `Madhyasth-Darshan/KD-Karm-Darshan-English/`; the promoted **2010 Sakshatkar** recorded-session transcript under `Madhyasth-Darshan/Nagraj-Recorded-Sessions/` (machine-transcribed oral material — weaker evidence than the printed texts; recordings stay external; see that folder's README before citing).
+- **Madhyasth Darshan** primary texts (MVD, SB, JV, AVD, JVD, KD and MSM Hindi sources) and the MD mapping spreadsheet; the KD full-book working English translation (front matter + ch. 1–3); the page-aligned MSM English-translation workspace (no translation yet); and the promoted **2010 Sakshatkar** recorded-session transcript (machine-transcribed oral material — weaker evidence than the printed texts; recordings stay external; see that folder's README before citing).
 - **Advaita Vedanta** translations under `Advaita-Vedanta/`.
 - **Comparative philosophy, Indian aesthetics, and religious ethics** (AV, SV, SEP snapshots, rasa material) under `Comparative-Philosophy/`.
 - **Open-access science papers** (Chalmers 1995, Nagel 1974, Strawson 2006, Crockett 2013, Ashtekar and Singh 2011, Carroll 2010, Friston 2010, Guth 2007) under `Science/`.
@@ -24,7 +24,7 @@ References/
 ├── README.md
 ├── MANIFEST.md                 Citation audit: Studies tags → files or external
 ├── NOT-DOWNLOADED.md           External works with original URLs
-├── Madhyasth-Darshan/          MVD, SB, JV, AVD, JVD, KD + MD-Mapping.xlsx; KD-Karm-Darshan-English/; Nagraj-Recorded-Sessions/
+├── Madhyasth-Darshan/          Primary texts + MD-Mapping.xlsx; KD and MSM English workspaces; Nagraj-Recorded-Sessions/
 ├── Advaita-Vedanta/            Upanishads, Gita, BSB, prakarana texts
 ├── Comparative-Philosophy/     AV (SEP), SV (Vivekananda)
 ├── Science/                    Chalmers, Nagel, Strawson, cosmology & physics papers
@@ -75,7 +75,9 @@ For **MVD**, **SB**, and **JV**, Studies bibliographies and quote verification m
 | **JVD** | [JVD-Janvad.pdf](Madhyasth-Darshan/JVD-Janvad.pdf) | *Behaviour Centred Public Discourse* (Janvad); English WIP translation by Sanjeev Chopra |
 | **MD** | [MD-Mapping.xlsx](Madhyasth-Darshan/MD-Mapping.xlsx) | Hindi–English terminology glossary (chapter/page mapping heritage); exhaustively refreshed from MVD/SB pairs in Phase 4 (freq ≥ 2 candidates; see [`MD-Mapping-Sources/`](Madhyasth-Darshan/MD-Mapping-Sources/README.md)) |
 | **KD** | [KD-karm darshan v5.pdf](Madhyasth-Darshan/KD-karm%20darshan%20v5.pdf) | *Manav Karm Darshan* (Hindi, v5); cited via working translations in [KD-Karm-Darshan-English/](Madhyasth-Darshan/KD-Karm-Darshan-English/README.md) |
+| **MSM** | [MSM-manav-sanchetnavaadi-manovigyan.pdf](Madhyasth-Darshan/MSM-manav-sanchetnavaadi-manovigyan.pdf) | *Manav Sanchetnavadi Manovigyan* (*मानव संचेतनावादी मनोविज्ञान*; Hindi, 2008 OCR edition) by A. Nagraj; official published-book download |
 | **KD-Karm-Darshan-English** | [KD-Karm-Darshan-English/](Madhyasth-Darshan/KD-Karm-Darshan-English/README.md) | Full-book working English translation (front matter + ch. 1–3); not a published translation |
+| **MSM-Manav-Sanchetnavadi-Manovigyan-English** | [MSM-Manav-Sanchetnavadi-Manovigyan-English/](Madhyasth-Darshan/MSM-Manav-Sanchetnavadi-Manovigyan-English/README.md) | Page-aligned translation workspace and source images; setup only, with no English translation yet |
 
 ## Advaita-Vedanta/
 
