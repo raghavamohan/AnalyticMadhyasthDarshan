@@ -1,15 +1,21 @@
 # Scripts
 
-Tools for managing studies, generating PDFs, and verifying quotes. Run all commands from the **repository root**.
+Maintainer entry points and pipeline components for studies, references, generated
+documents, CI, and site infrastructure. Run commands from the **repository root**.
 
 ## One-time setup
 
 ```powershell
 pip install -r requirements.txt
 cd Scripts
-npm install
+npm ci
+npx puppeteer browsers install chrome
 cd ..
 ```
+
+`npm ci` installs the versions pinned by `package-lock.json`. The PDF renderer also
+checks the Chrome build recorded in `package.json`; do not use an unpinned system
+Chrome for committed PDFs.
 
 ## Maintainer / local development
 
@@ -24,9 +30,11 @@ what to run **on that branch** before opening the PR.
 |------|---------|
 | Add / register a study | `python Scripts/_add_study.py Studies/<Slug>/<Slug>.md --category "..." --description "..." --tags "MVD, SB" --status draft` |
 | Remove a study | `python Scripts/_remove_study.py <Slug> --yes` |
+| Rename a study slug/title | `python Scripts/_rename_study.py --from <Old-Slug> --to <New-Slug> --title "New title"` |
 | Draft ↔ Released | `python Scripts/_set_study_status.py <Slug> --status released` |
-| Regenerate PDF | `python Scripts/_regenerate_pdf.py <Slug>` |
-| Pin PDF dates and node IDs (reproducible bytes) | `python Scripts/_pdf_metadata.py Studies/<Slug>/<Slug>.md` (called automatically by `regenerate_pdf`) |
+| Regenerate a study PDF/HTML | `python Scripts/_regenerate_pdf.py <Slug>` |
+| Regenerate a companion note PDF/HTML | `python Scripts/_regenerate_pdf.py Studies/<Slug>/Research-Note.md` (unwatermarked; same verifiers) |
+| Pin PDF dates and node IDs (reproducible bytes) | `python Scripts/_pdf_metadata.py Studies/<Slug>/<Slug>.md` (called automatically by `_regenerate_pdf.py`) |
 | Test the study-PR CI router | `python Scripts/_test_ci_study_pr.py` |
 | Test the PDF reproducibility patches | `python Scripts/_test_pdf_metadata.py` |
 | Companion PPTX → slides PDF | `python Scripts/_pptx_to_pdf.py path/to/deck.pptx` (PowerPoint COM, else LibreOffice) |
@@ -36,14 +44,14 @@ what to run **on that branch** before opening the PR.
 | Test PDF conversion | `python Scripts/_test_pdf_to_md.py` |
 | Verify Mermaid in PDF | `python Scripts/_verify_pdf_diagrams.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf` |
 | Verify fenced code in PDF | `python Scripts/_verify_pdf_fenced_code.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf` |
+| Verify KaTeX fonts in PDF | `python Scripts/_verify_pdf_math.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf` |
 | Verify PDF sidebar bookmarks | `python Scripts/_verify_pdf_outline.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf` |
 | Verify blockquotes | `python Scripts/_quote_tool.py verify [--study <Slug>]` |
 | Sync PDF text cache | `python Scripts/_quote_tool.py cache sync [--study <Slug>] [--tags MVD,SB] [--force]` |
 | Search a reference PDF | `python Scripts/_quote_tool.py search <tag-or-path> "<regex>"` |
 | Read one PDF page (cleaned) | `python Scripts/_quote_tool.py page <tag-or-path> <n> [--keyword kw]` |
 | Locate phrase in tagged source | `python Scripts/_quote_tool.py snippet <tag> "<phrase>"` |
-| Download / audit references | `python Scripts/_check_references.py` (full); `_audit_references.py` (bibliography only); `_download_references.py` (mirrors) |
-| Extract & audit KD Hindi root terms | `python Scripts/_extract_kd_hindi_terms.py` |
+| Download / audit references | `python Scripts/_check_references.py` (full); `python Scripts/_audit_references.py` (bibliography only); `python Scripts/_download_references.py` (mirrors) |
 | Review Rakesh Gupta translation alignment | `python Scripts/_review_rakesh_translations.py` |
 | Verify studies index | `python Scripts/_verify_studies_index.py` |
 | Rebuild index.html shell | `python Scripts/_build_studies_index.py` |
@@ -58,9 +66,14 @@ what to run **on that branch** before opening the PR.
 | DNS-AID | `python Scripts/_test_dns_aid.py` (`--live`); `python Scripts/_publish_dns_aid.py` (`--check`) |
 | Sync agent rules and skills | `python Scripts/_sync_agent_rules.py` then `python Scripts/_sync_agent_rules.py --check` |
 
-Windows wrappers: `.\Scripts\_add_study.ps1`, `.\Scripts\_remove_study.ps1`, `.\Scripts\_set_study_status.ps1`, `.\Scripts\_download_references.ps1`.
+Windows wrappers: `.\Scripts\_add_study.ps1`, `.\Scripts\_remove_study.ps1`,
+`.\Scripts\_rename_study.ps1`, `.\Scripts\_set_study_status.ps1`,
+`.\Scripts\_download_references.ps1`, and `.\Scripts\_check_references.ps1`.
 
-## Internal modules (do not invoke directly)
+## Pipeline components and specialized CLIs
+
+Use the entry points above for normal workflows. The components below are invoked
+by those entry points or run directly only for diagnostics and specialized work.
 
 | Module | Role |
 |--------|------|
@@ -69,11 +82,14 @@ Windows wrappers: `.\Scripts\_add_study.ps1`, `.\Scripts\_remove_study.ps1`, `.\
 | `_build_studies_index.py` | `INDEX_TEMPLATE` for `Studies/index.html`; writes `Studies/catalog-*.json`; rebuild shell |
 | `_verify_studies_index.py` | Verify catalog JSON ↔ README and index shell ↔ template |
 | `_quote_verify.py` | Blockquote extraction and verification logic |
-| `_convert_to_pdf.py` | MD → HTML; Mermaid fences → `<div class="mermaid">`; `pre-wrap` on fenced code (called by `regenerate_pdf`) |
-| `_html_to_pdf.js` | Render Mermaid, then HTML → PDF via Puppeteer (called by `regenerate_pdf`) |
-| `_verify_pdf_diagrams.py` | Fail if Mermaid source leaked into PDF text (called by `regenerate_pdf`) |
-| `_verify_pdf_fenced_code.py` | Fail if fenced code/spec content clipped in PDF (called by `regenerate_pdf`) |
-| `_verify_pdf_outline.py` | Fail if PDF document outline missing when study has multiple sections (called by `regenerate_pdf`) |
+| `_verify_study_svgs.py` | Validate referenced study SVG files before conversion (called by `_regenerate_pdf.py`) |
+| `_convert_to_pdf.py` | MD → HTML; Mermaid fences → `<div class="mermaid">`; `pre-wrap` on fenced code (called by `_regenerate_pdf.py`) |
+| `_html_to_pdf.js` | Render Mermaid, then HTML → PDF via Puppeteer (called by `_regenerate_pdf.py`) |
+| `_verify_pdf_diagrams.py` | Fail if Mermaid source leaked into PDF text (called by `_regenerate_pdf.py`) |
+| `_verify_pdf_fenced_code.py` | Fail if fenced code/spec content clipped in PDF (called by `_regenerate_pdf.py`) |
+| `_verify_pdf_math.py` | Fail if rendered KaTeX output has no embedded KaTeX font (called by `_regenerate_pdf.py`) |
+| `_verify_pdf_outline.py` | Fail if PDF document outline missing when study has multiple sections (called by `_regenerate_pdf.py`) |
+| `_pdf_metadata.py` | Pin PDF dates and tagged-structure node IDs for reproducible bytes (called by `_regenerate_pdf.py`) |
 | `_download_references.py` | Download manifest entries into `References/` (called by `.ps1`) |
 | `_reference_downloads.py` | Manifest of mirrorable reference files |
 | `_audit_references.py` | Bibliography-only audit of Studies/ `## References` links |

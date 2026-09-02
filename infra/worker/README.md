@@ -9,7 +9,7 @@ Reading studies on the public site does **not** require GitHub.
 From this directory:
 
 ```powershell
-npm install
+npm ci
 ```
 
 ### GitHub token (maintainer PAT)

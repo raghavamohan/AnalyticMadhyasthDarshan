@@ -211,7 +211,8 @@ artifacts for you (see [Ways to contribute](#ways-to-contribute-ranked)):
 ```powershell
 pip install -r requirements.txt
 cd Scripts
-npm install
+npm ci
+npx puppeteer browsers install chrome
 cd ..
 
 python Scripts\_regenerate_pdf.py <Slug>
