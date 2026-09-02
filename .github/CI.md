@@ -333,10 +333,6 @@ from re-running `study-pr.yml`. It becomes load-bearing again the moment anyone
 swaps to a PAT or App token, which is why it is still there and why the merge
 method is constrained instead.
 
-One consequence still stands: **`github-actions[bot]` has no bypass**, so the
-direct push to `master` in `proposal-approved.yml`'s `bootstrap` job is subject to
-the pull-request rule — see [§6](#6-known-gaps-and-hazards).
-
 **Why `verify` and not the study pipeline.** `studies-index-check.yml` is
 unfiltered and reports on every pull request, so requiring it is safe.
 `study-pr.yml` **must not** be required: it omits the `opened` trigger by design
@@ -373,7 +369,7 @@ on `proposal-approved.yml` can exercise its two.
 
 **3 — Nothing pins the Python interpreter's patch level.**
 `setup-study-env` asks for `python-version: '3.12'`, which resolves to whatever
-patch GitHub currently ships (3.12.14 at the time of writing). Every *package* is
+3.12 patch GitHub currently ships. Every *package* is
 now pinned exactly (§4), so this is the last floating input to a pipeline built
 around byte-reproducible output. Low risk — a CPython patch release changing
 rendered PDF bytes would be surprising — but it is the remaining one, and pinning
@@ -383,7 +379,15 @@ it costs a two-character edit against slower access to security patches.
 
 ## 7. Reproducing CI locally
 
-One-time setup: `pip install -r requirements.txt`, then `cd Scripts; npm install`.
+One-time setup:
+
+```bash
+pip install -r requirements.txt
+cd Scripts
+npm ci
+npx puppeteer browsers install chrome
+cd ..
+```
 
 Everything `Studies index` runs — fast, no Node, no Chrome, under ten seconds:
 
@@ -405,8 +409,9 @@ To see what is enforced and what is held, without running anything:
 python Scripts/_run_test_suites.py --list
 ```
 
-Everything `PDF pipeline smoke` runs (rewrites the two studies' `.pdf`/`.html` in
-place — `git checkout -- Studies/<Slug>` afterwards):
+Everything `PDF pipeline smoke` runs (rewrites the selected studies' `.pdf`/`.html`
+in place; use a clean worktree and inspect the resulting diff before restoring
+those exact generated paths if the run was diagnostic only):
 
 ```bash
 python Scripts/_verify_pdf_reproducible.py --runs 2

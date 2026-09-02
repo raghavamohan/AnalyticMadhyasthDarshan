@@ -46,7 +46,8 @@ AGENTS.md         Standing rules for agents and local maintainers (§1–§9)
 
 The **markdown** file for each paper is the source of truth. Companion HTML, PDFs, the studies landing page, and catalog JSON are generated from it and should not be edited by hand. The catalog page loads study metadata from `Studies/catalog-*.json` (including `catalog-all.json`); `Studies/README.md` tables stay in sync via the study lifecycle scripts. `llms.txt` and `Studies/feed.json` are generated from the same catalog.
 
-For the full script list, see **[Scripts/README.md](Scripts/README.md)**.
+For maintainer entry points and pipeline components, see
+**[Scripts/README.md](Scripts/README.md)**.
 
 ---
 
@@ -77,7 +78,8 @@ git clone https://github.com/raghavamohan/AnalyticMadhyasthDarshan.git
 cd AnalyticMadhyasthDarshan
 pip install -r requirements.txt
 cd Scripts
-npm install
+npm ci
+npx puppeteer browsers install chrome
 cd ..
 ```
 
@@ -105,7 +107,7 @@ Site operators: copy [`.env.example`](.env.example) to `.env` at the repo root (
 
 | State | On the studies index | In `Studies/README.md` | PDF / HTML |
 |-------|----------------------|-------------------------|------------|
-| **Planned** | “Planned” badge; read links when a proposal stub exists | `Ongoing` — topic registered or approved proposal awaiting first draft | Proposal stub after approval; none for catalog-only placeholders |
+| **Planned** | “Planned” badge; Discuss available, but no public read/download link | `Ongoing` — topic registered or approved proposal awaiting first draft | Proposal stub after approval; none for catalog-only placeholders |
 | **Draft** | “Draft” badge, linked title | `Draft` + **Last updated on** | **Draft** watermark on every PDF page; companion `.html` for reading |
 | **Released** | “Released” badge, linked title | `Released` + **Last updated on** | No watermark |
 
@@ -115,83 +117,29 @@ Recurring Hindi and darshan terms across studies belong in [Studies/glossary.jso
 
 Every change under `Studies/` — by a human contributor or an agent — goes through a feature branch and a pull request labeled `new-study`, `study-update`, or `status-change`, never a direct commit to `master`. That includes companion-only edits (`.pptx`, research notes, figures) under a study folder. Use the matching template in [`.github/PULL_REQUEST_TEMPLATE/`](.github/PULL_REQUEST_TEMPLATE/) (see the chooser [`.github/pull_request_template.md`](.github/pull_request_template.md)) and put the required body field on its own line with a **bare** catalog slug — e.g. `Study slug: The-Ontology-of-Coexistence` with no parenthetical notes on that line. See [CONTRIBUTING.md](CONTRIBUTING.md) for the contributor-facing flow and [AGENTS.md](AGENTS.md) §7 for the full local checklist before pushing.
 
-### Scripts
+### Maintainer commands
 
-Run from the repository root. Append `--dry-run` to any command to preview without writing files.
+Run commands from the repository root. The authoritative command reference is
+[Scripts/README.md](Scripts/README.md); study rules and PDF-pipeline details live in
+[AGENTS.md](AGENTS.md), and CI behavior lives in [.github/CI.md](.github/CI.md).
+
+Common entry points:
 
 | Task | Command |
 |------|---------|
 | Add or register a study | `python Scripts\_add_study.py Studies\<Slug>\<Slug>.md --category "..." --description "..." --tags "MVD, SB, JV" --status draft` |
 | Remove a study | `python Scripts\_remove_study.py <Slug> --yes` |
 | Draft ↔ Released | `python Scripts\_set_study_status.py <Slug> --status released` |
-| Regenerate PDF/HTML after editing `.md` | `python Scripts\_regenerate_pdf.py <Slug>` |
-| Verify references / links | `python Scripts\_check_references.py` (or `--study <Slug>`) |
-| Verify studies catalog sync | `python Scripts\_verify_studies_index.py` |
-| Rebuild studies landing page shell | `python Scripts\_build_studies_index.py` |
-| Rebuild per-study discussion pages | `python Scripts\_build_discussion_pages.py` |
-| Sync agent rules and skills | `python Scripts\_sync_agent_rules.py` then `python Scripts\_sync_agent_rules.py --check` |
-| Cloudflare redirect / performance / edge security | `python Scripts\_cloudflare_performance.py` (`--apply-edge-security`, `--check-edge-security`, `--apply-redirect`, `--verify-only`) |
-| Verify blockquotes (optional) | `python Scripts\_quote_tool.py verify --study <Slug>` |
+| Regenerate a study PDF/HTML | `python Scripts\_regenerate_pdf.py <Slug>` |
+| Regenerate a companion note | `python Scripts\_regenerate_pdf.py Studies\<Slug>\Research-Note.md` |
+| Verify references, catalog, and rules | `python Scripts\_check_references.py`; `python Scripts\_verify_studies_index.py`; `python Scripts\_sync_agent_rules.py --check` |
 
-Windows wrappers: `.\Scripts\_add_study.ps1`, `.\Scripts\_remove_study.ps1`, `.\Scripts\_set_study_status.ps1`.
+Only commands whose `--help` lists `--dry-run` support a no-write preview. Among
+the commands shown above, `_add_study.py`, `_remove_study.py`, and
+`_set_study_status.py` do; do not append the flag to unrelated scripts.
 
-### Managing studies
-
-**Add** — write `Studies/<Slug>/<Slug>.md`, then register:
-
-```powershell
-python Scripts\_add_study.py "Studies\<Slug>\<Slug>.md" `
-  --category "Ontology" `
-  --description "One-line catalog summary" `
-  --tags "MVD, SB, JV" `
-  --status draft
-```
-
-The script sets metadata, updates `Studies/catalog-*.json`, `Studies/README.md`, `References/README.md`, and `References/MANIFEST.md`, and regenerates the PDF.
-
-Other modes: `--status ongoing` (catalog placeholder, no PDF), `--formal` (Formal Studies table), applied papers under `Applications/` (Applied Studies catalog), or pass an external `.pdf` to create a stub `.md` (re-run on the `.md` after expanding content to apply the watermark).
-
-Flags: `--force` (refresh existing), `--skip-pdf` (catalog only), `--no-check-timestamps`.
-
-**Edit** — change `Studies/<Slug>/<Slug>.md`, refresh `**Edited on:**` (and the catalog date to match), then run `python Scripts\_regenerate_pdf.py <Slug>` (updates companion HTML and PDF).
-
-**Release or revert to draft:**
-
-```powershell
-python Scripts\_set_study_status.py <Slug> --status released
-python Scripts\_set_study_status.py <Slug> --status draft
-```
-
-Omit `--status` to toggle. The script syncs metadata, catalogs, and the PDF watermark.
-
-**Remove:**
-
-```powershell
-python Scripts\_remove_study.py <Slug>
-```
-
-Confirm when prompted, or pass `--yes`. Then check other papers for cross-links and commit.
-
-### PDF regeneration
-
-Prefer the internal pipeline (reads **Status:** from the markdown and runs diagram/code checks):
-
-```powershell
-python Scripts\_regenerate_pdf.py <Slug>
-```
-
-Manual steps only if debugging:
-
-```powershell
-python Scripts\_verify_study_svgs.py "Studies\<Slug>\<Slug>.md"
-python Scripts\_convert_to_pdf.py "Studies\<Slug>\<Slug>.md"
-node Scripts\_html_to_pdf.js "Studies\<Slug>\<Slug>.html" Draft
-python Scripts\_verify_pdf_diagrams.py "Studies\<Slug>\<Slug>.md" "Studies\<Slug>\<Slug>.pdf"
-python Scripts\_verify_pdf_fenced_code.py "Studies\<Slug>\<Slug>.md" "Studies\<Slug>\<Slug>.pdf"
-python Scripts\_verify_pdf_outline.py "Studies\<Slug>\<Slug>.md" "Studies\<Slug>\<Slug>.pdf"
-```
-
-Pass `Draft` to `_html_to_pdf.js` for draft studies; omit it for released studies. Keep the companion `.html` beside each `.pdf` — the catalog **Read** links open HTML; do not delete it after regeneration.
+Windows wrappers are available for add, remove, rename, status,
+reference-download, and reference-check workflows under `Scripts\`.
 
 ### Before opening a pull request
 

@@ -96,13 +96,14 @@ For watermarks, place the unframed navy mark behind content at roughly 8–12% o
 
 ## Regenerating
 
-The entire family is produced from a single build script, `build-icons.js` (Node + Puppeteer for raster, ImageMagick for `favicon.ico` and the 10% watermark). Editing the geometry or palette in one place and re-running rebuilds every SVG, PNG, the ICO and the preview sheet in step:
+The entire family is produced from a single build script, `build-icons.js` (Node + Puppeteer for raster, ImageMagick for `favicon.ico` and the 10% watermark). Install the repository's Node dependencies under `Scripts/` and install ImageMagick separately before rebuilding. Editing the geometry or palette in one place and re-running rebuilds every SVG, PNG, the ICO and the preview sheet in step:
 
 ```powershell
 $env:NODE_PATH = "$PWD\Scripts\node_modules"; node Assets\Icons\build-icons.js Assets\Icons
 ```
 
-Puppeteer and ImageMagick are the same tools the PDF pipeline already relies on.
+Puppeteer comes from the PDF pipeline's pinned `Scripts/node_modules`; ImageMagick
+is an additional icon-build prerequisite and is not installed by this repository.
 
 Build the Akhand Samaj family separately:
 

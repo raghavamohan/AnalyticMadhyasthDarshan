@@ -6,7 +6,7 @@
       "type": "skill-md",
       "description": "Register a new study in Studies/ using Scripts/_add_study.py or _add_study.ps1 — sets metadata, updates catalogs, and generates PDF. Use when adding a study, registering a paper, creating an Ongoing placeholder, importing a PDF, or adding a Formal study.",
       "url": "/.well-known/agent-skills/add-study/SKILL.md",
-      "digest": "sha256:3ed736e4df18324cc8101469221f6ed5b301fbebcd6ce7d5a983042e1bd581d5"
+      "digest": "sha256:9f008cbf2b679eecfc7a0d60f7747ec541ef46ea4572651e30209afd1f6e362e"
     },
     {
       "name": "check-references",
@@ -27,7 +27,7 @@
       "type": "skill-md",
       "description": "Add, remove, or change Draft/Released status of studies in this repo using Scripts/_add_study.py, _remove_study.py, and _set_study_status.py. Use when registering a new study, retiring a study, releasing or reverting draft status, updating study catalogs, or when the user asks to manage studies in Studies/.",
       "url": "/.well-known/agent-skills/manage-studies/SKILL.md",
-      "digest": "sha256:4c7c6f3bebc42472817a2cc3b9756b4df5736cf99d6bea2252b7104d1d549faf"
+      "digest": "sha256:3fcbf49853cc27e10d720c902a3eb1ea2a7f50631dd143824279768c174ea91e"
     },
     {
       "name": "refine-studies-index",
@@ -39,9 +39,9 @@
     {
       "name": "regenerate-study-pdf",
       "type": "skill-md",
-      "description": "Regenerate a study PDF from markdown using Scripts/_regenerate_pdf.py — internal pipeline only. Use when updating a study PDF, fixing diagram rendering, applying Draft/Released watermark, or after editing Studies/*/*.md content. Verifies Mermaid diagrams rendered; requires npm install in Scripts/.",
+      "description": "Regenerate a study or companion-note PDF/HTML from markdown using Scripts/_regenerate_pdf.py. Use after editing a study markdown source, when fixing PDF rendering, applying a Draft/Released watermark, or rebuilding an unwatermarked research/technical note beside a study. Runs the repository's SVG, Mermaid, fenced-code, KaTeX-font, and outline verifiers.",
       "url": "/.well-known/agent-skills/regenerate-study-pdf/SKILL.md",
-      "digest": "sha256:91a7f592f03edc672beecafcafa39ef57ea8fa469c96be271fd553868ab907e0"
+      "digest": "sha256:e1219c1a2b39ba7488922a1e07a72f75a294d8acb2b3810554a728de192536ac"
     },
     {
       "name": "remove-study",
@@ -62,7 +62,14 @@
       "type": "skill-md",
       "description": "Change a study between Draft and Released using Scripts/_set_study_status.py or _set_study_status.ps1 — syncs markdown Status, Edited on, catalogs, and PDF watermark. Use when releasing a study, reverting to draft, finalizing a paper, or updating draft/released status.",
       "url": "/.well-known/agent-skills/set-study-status/SKILL.md",
-      "digest": "sha256:8a3dbe025776e3e7f93eab66f48ba63cf125ffe814b3cc383e138b150c4ec118"
+      "digest": "sha256:d4532919a7c46b4b62cf8d90a8179a59f955ee8cf7aa9ebf49d345e122c84354"
+    },
+    {
+      "name": "sync-master-clean-branches",
+      "type": "skill-md",
+      "description": "Safely switch a Git repository to master, fast-forward it to origin/master, and remove obsolete local PR branches whose work is already merged. Use when asked to sync or refresh master, return to the remote head, prune merged local PR branches, or perform both tasks. Does not discard dirty work, rewrite master, or delete remote or unmerged branches.",
+      "url": "/.well-known/agent-skills/sync-master-clean-branches/SKILL.md",
+      "digest": "sha256:bd32901af9f25e01bd6542082aa4a7c3cfcabd04c80e59d08c576e9c63970d35"
     },
     {
       "name": "transcribe-recording",
