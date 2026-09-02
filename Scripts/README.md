@@ -21,7 +21,7 @@ Chrome for committed PDFs.
 
 To submit a study without cloning this repository, use **[My Submissions](../Studies/submit.html)** on the Web Submission Portal.
 
-Any `Studies/` change made from a local clone (by a human or an agent) still goes through a
+Any `Studies/` or `Applications/` change made from a local clone (by a human or an agent) still goes through a
 feature branch and a `new-study` / `study-update` / `status-change` labeled pull request — see
 [AGENTS.md](../AGENTS.md) §7 and [CONTRIBUTING.md](../CONTRIBUTING.md). The commands below are
 what to run **on that branch** before opening the PR.
@@ -67,6 +67,10 @@ what to run **on that branch** before opening the PR.
 | DNS-AID | `python Scripts/_test_dns_aid.py` (`--live`); `python Scripts/_publish_dns_aid.py` (`--check`) |
 | Sync agent rules and skills | `python Scripts/_sync_agent_rules.py` then `python Scripts/_sync_agent_rules.py --check` |
 
+Before a non-dry-run rename that resolves a proposal issue, set
+`GITHUB_TOKEN` and `GITHUB_REPOSITORY`; otherwise pass `--skip-issue` and let
+labeled CI complete proposal-issue synchronization on the PR branch.
+
 Windows wrappers: `.\Scripts\_add_study.ps1`, `.\Scripts\_remove_study.ps1`,
 `.\Scripts\_rename_study.ps1`, `.\Scripts\_set_study_status.ps1`,
 `.\Scripts\_download_references.ps1`, and `.\Scripts\_check_references.ps1`.
@@ -80,7 +84,7 @@ by those entry points or run directly only for diagnostics and specialized work.
 |--------|------|
 | `_common.py` | Paths, PDF text extraction, phrase matching, reference registry |
 | `_study_catalog.py` | Catalog CRUD, IST timestamps, `regenerate_pdf`, catalog sync checks |
-| `_study_links.py` | Cross-study link discovery and changed-section `§` validation for rename/removal CI |
+| `_study_links.py` | Cross-study link discovery plus inbound/outbound `§` validation for every changed canonical study; retired-slug checks for rename/removal CI |
 | `_build_studies_index.py` | `INDEX_TEMPLATE` for `Studies/index.html`; writes `Studies/catalog-*.json`; rebuild shell |
 | `_verify_studies_index.py` | Verify catalog JSON ↔ README and index shell ↔ template |
 | `_quote_verify.py` | Blockquote extraction and verification logic |

@@ -89,7 +89,9 @@ def main() -> None:
         status = StudyStatus.RELEASED
         print(f"{md_path.name}: companion note, no **Status:** — rendering unwatermarked.")
     elif status == StudyStatus.ONGOING:
-        raise SystemExit(f"{md_path.stem} is Ongoing — no PDF to regenerate.")
+        raise SystemExit(
+            f"{md_path.stem} is Ongoing/Planned — there is no public study PDF to regenerate."
+        )
 
     regenerate_pdf(md_path, status)
     print(f"Regenerated HTML at {md_path.with_suffix('.html')}")

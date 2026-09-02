@@ -6,6 +6,7 @@ import sys
 import tempfile
 from contextlib import contextmanager
 from pathlib import Path
+from unittest.mock import patch
 
 SCRIPTS = Path(__file__).resolve().parent
 sys.path.insert(0, str(SCRIPTS))
@@ -14,6 +15,7 @@ import _add_study as add
 import _remove_study as remove
 import _rename_study as rename
 import _set_study_status as set_status
+import _study_catalog as catalog
 from _common import validate_study_slug
 from _study_catalog import StudyRow, StudyStatus, StudyTable
 from _study_links import cross_study_section_errors, links_to_slug, study_links_in_file
@@ -171,6 +173,40 @@ def test_rename_finishes_a_partially_preupdated_registry() -> None:
         assert row["issueNumber"] == 19
 
 
+def test_rename_requires_github_auth_before_local_mutation() -> None:
+    local_mutation_started = False
+
+    def fail_if_called(*_args, **_kwargs):
+        nonlocal local_mutation_started
+        local_mutation_started = True
+        raise AssertionError("local mutation started before GitHub auth preflight")
+
+    with (
+        patch.dict(
+            rename.os.environ,
+            {"GITHUB_TOKEN": "", "GITHUB_REPOSITORY": ""},
+        ),
+        swapped(
+            rename,
+            resolve_issue_number=lambda *_args: 19,
+            rename_study_files=fail_if_called,
+        ),
+    ):
+        try:
+            rename.rename_study(
+                "Old-Slug",
+                "New-Slug",
+                skip_pdf=True,
+                dry_run=False,
+            )
+        except SystemExit as exc:
+            assert "must be set before renaming" in str(exc)
+        else:
+            raise AssertionError("rename proceeded without GitHub issue auth")
+
+    assert local_mutation_started is False
+
+
 def test_remove_registry_row_prevents_proposal_recreation() -> None:
     with tempfile.TemporaryDirectory() as tmp:
         registry = Path(tmp) / "proposal-registry.json"
@@ -200,6 +236,63 @@ def test_manifest_removal_preserves_other_citations() -> None:
     assert remove.strip_cited_in("Aesthetics, Why-Humans (Katha at p. 97)", aliases) == "Aesthetics"
     assert remove.strip_cited_in("Why-Humans", aliases).startswith("(none")
     assert remove.strip_cited_in("all Studies papers above", aliases) == "all Studies papers above"
+
+
+def test_reference_readme_removal_handles_applied_rows() -> None:
+    with tempfile.TemporaryDirectory() as tmp:
+        references = Path(tmp) / "References"
+        references.mkdir()
+        readme = references / "README.md"
+        readme.write_text(
+            "# References\n\n<!-- studies-catalog -->\n"
+            "| Paper | Primary tags |\n|-------|----------------|\n"
+            "| [Keep.pdf](../Studies/Keep/Keep.pdf) | MVD |\n"
+            "| [Applied.pdf](../Applications/Applied/Applied.pdf) | SB |\n"
+            "<!-- /studies-catalog -->\n",
+            encoding="utf-8",
+        )
+
+        with swapped(catalog, REFERENCES=references):
+            catalog.write_references_readme_row("Applied", "", remove=True)
+
+        updated = readme.read_text(encoding="utf-8")
+        assert "../Studies/Keep/Keep.pdf" in updated
+        assert "Applied.pdf" not in updated
+
+
+def test_reference_readme_add_preserves_applied_rows() -> None:
+    with tempfile.TemporaryDirectory() as tmp:
+        references = Path(tmp) / "References"
+        references.mkdir()
+        readme = references / "README.md"
+        readme.write_text(
+            "# References\n\n<!-- studies-catalog -->\n"
+            "| Paper | Primary tags |\n|-------|----------------|\n"
+            "| [Applied.pdf](../Applications/Applied/Applied.pdf) | SB |\n"
+            "<!-- /studies-catalog -->\n",
+            encoding="utf-8",
+        )
+
+        with swapped(catalog, REFERENCES=references):
+            catalog.write_references_readme_row("New-Study", "MVD")
+
+        updated = readme.read_text(encoding="utf-8")
+        assert "../Applications/Applied/Applied.pdf" in updated
+        assert "../Studies/New-Study/New-Study.pdf" in updated
+
+
+def test_manifest_removal_handles_applied_paper_blocks() -> None:
+    content = (
+        "| [Keep.pdf](../Studies/Keep/Keep.pdf) | MVD | present |\n"
+        "| [Applied.pdf](../Applications/Applied/Applied.pdf) | SB | present |\n"
+        "| | JV | external |\n"
+        "| [After.pdf](../Studies/After/After.pdf) | KD | present |\n"
+    )
+    updated = catalog.remove_manifest_paper_block(content, "Applied")
+    assert "Applied.pdf" not in updated
+    assert "| | JV |" not in updated
+    assert "Keep.pdf" in updated
+    assert "After.pdf" in updated
 
 
 def test_cross_study_section_changes_validate_inbound_and_outbound_links() -> None:

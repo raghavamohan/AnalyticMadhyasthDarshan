@@ -12,14 +12,16 @@ Rigorous analytic studies of **Madhyasth Darshan** (Co-existentialism), the phil
 |------|------|
 | `Studies/<Slug>/<Slug>.md` | **Source of truth** for each topical or formal study; companion `.html` and `.pdf` are generated |
 | `Studies/README.md`, `Studies/index.html`, `Studies/catalog-*.json` | Public catalog (must stay in sync) |
-| `Applications/<Slug>/` | Applied studies — concrete instantiations of formal templates |
+| `Applications/<Slug>/<Slug>.md` | **Source of truth** for each applied study — a concrete instantiation of a formal template; companion `.html` and `.pdf` are generated |
 | `References/` | Local mirrors of cited sources; audit in `MANIFEST.md`; external-only works in `NOT-DOWNLOADED.md` |
 | `Scripts/` | Study lifecycle, PDF pipeline, reference checks, catalog builders |
 | `.agents/skills/` | Canonical agent skills (`.cursor/skills/` and `.opencode/skills/` mirror this) |
 | `infra/` | Cloudflare Workers (submission portal, discussions) |
 | `.github/` | CI workflows, composite actions, PR/issue templates; [`.github/CI.md`](.github/CI.md) is the pipeline reference |
 
-Companion files (research notes, figures) may live under `Studies/<Slug>/` without being catalog entries. Only `Studies/<Slug>/<Slug>.md` drives the catalog row and main PDF.
+Companion files (research notes, figures) may live beside a canonical study under
+`Studies/<Slug>/` or `Applications/<Slug>/` without being catalog entries. Only
+the root-matching `<Slug>.md` drives the catalog row and main PDF.
 
 ---
 
@@ -27,13 +29,13 @@ Companion files (research notes, figures) may live under `Studies/<Slug>/` witho
 
 | § | Topic | When it applies |
 |---|--------|-----------------|
-| §1 | `**Edited on:**`, catalog timestamps, PDF regeneration | Every topical study content edit |
+| §1 | `**Edited on:**`, catalog timestamps, PDF regeneration | Every catalog study content edit |
 | §2 | `Studies/index.html` ↔ `Studies/README.md` ↔ `catalog-*.json` sync | Catalog or index shell changes |
 | §3 | Markdown → PDF pipeline (`Scripts/_regenerate_pdf.py` only), plus the separate companion-deck PDF pipeline | Generating or refreshing study PDFs, or any deck PDF |
 | §4 | Study prose style — scholarly essay, not AI scaffold | All topical studies |
 | §5 | `## Standpoint and scope` section | All topical studies |
 | §6 | Reference checks (`Scripts/_check_references.py`) | Bibliography or `References/` changes |
-| §7 | Feature branch + labeled PR for any `Studies/` change | Always for study work |
+| §7 | Feature branch + labeled PR for any `Studies/` or `Applications/` change | Always for study work |
 | §8 | LF line endings everywhere | Always |
 | §9 | PowerShell shell conventions (no `&&`/`||`, quote paths with spaces) | Always |
 

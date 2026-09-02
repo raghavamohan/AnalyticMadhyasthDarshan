@@ -5,7 +5,7 @@ Usage:
   python Scripts\\_set_study_status.py Study-Slug --status draft
   python Scripts\\_set_study_status.py Study-Slug
 
-Updates **Status:** and **Edited on:** in the markdown, the Topical or Formal Studies
+Updates **Status:** and **Edited on:** in the markdown, the Topical, Formal, or Applied
 catalog row in catalog-*.json and Studies/README.md, and regenerates the PDF
 (with or without the Draft watermark). write_studies_catalog() rebuilds
 Studies/index.html from the catalog as part of that write.
@@ -80,7 +80,7 @@ def set_study_status(
     row, table = located
     if row.status == StudyStatus.ONGOING:
         raise SystemExit(
-            f"{slug} is an Ongoing placeholder (no PDF). "
+            f"{slug} is an Ongoing/Planned entry with no public study PDF. "
             "Register it with _add_study.py before changing Draft/Released status."
         )
 

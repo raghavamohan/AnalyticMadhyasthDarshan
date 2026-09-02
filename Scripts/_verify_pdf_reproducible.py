@@ -106,7 +106,7 @@ def check_slug(slug: str, runs: int = 2) -> tuple[bool, str]:
     pdf_path = study_pdf(slug)
     status = resolve_status(slug)
     if status == StudyStatus.ONGOING:
-        return True, f"{slug}: skipped (Ongoing studies have no PDF)"
+        return True, f"{slug}: skipped (Ongoing/Planned entries have no public study PDF)"
 
     outputs: list[bytes] = []
     for _ in range(max(2, runs)):

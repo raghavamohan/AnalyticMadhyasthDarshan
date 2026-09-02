@@ -45,17 +45,19 @@ Available skills: `manage-studies`, `add-study`, `remove-study`, `rename-study`,
 | §9 | Windows shell: PowerShell conventions | `powershell-terminal.mdc` |
 
 There are nine rule sections below. The first, fourth, fifth, and sixth apply when
-their stated conditions are met; §1 also applies to every topical study edit; §7 always
-applies to any change under `Studies/`; §8 and §9 always apply (line endings and the
+their stated conditions are met; §1 also applies to every catalog study edit; §7 always
+applies to any change under `Studies/` or `Applications/`; §8 and §9 always apply (line endings and the
 Windows/PowerShell shell).
 
 ---
 
 ## 1. Keep "Edited on" current in Studies *(always applies)*
 
-Every study under `Studies/` lives in its own directory: `Studies/<Slug>/<Slug>.md`,
-companion PDF, and any figures. Catalog files `Studies/README.md` and
-`Studies/index.html` stay at the `Studies/` root.
+Every catalog study lives in its own directory: topical and formal sources use
+`Studies/<Slug>/<Slug>.md`; applied sources use
+`Applications/<Slug>/<Slug>.md`. Companion PDF/HTML and figures stay beside the
+canonical markdown. Catalog files `Studies/README.md` and `Studies/index.html`
+stay at the `Studies/` root.
 
 Every study carries an `**Edited on:**` field directly below
 the `**Author:**` line. **Any change to study content** — including edits made
@@ -65,7 +67,8 @@ finish the task.
 
 ### Mandatory workflow (do not skip steps)
 
-When you edit a study markdown file (`Studies/<Slug>/<Slug>.md`):
+When you edit a canonical study markdown file under `Studies/<Slug>/` or
+`Applications/<Slug>/`:
 
 1. **Get the real current time** — run in PowerShell from the repo root:
    `Get-Date -Format "MMMM d, yyyy, h:mm tt"`
@@ -88,7 +91,9 @@ If the field is missing, add it on its own line immediately after the
 
 ### Status values in catalogs
 
-- `Ongoing` — no document uploaded yet (italic title, no PDF).
+- `Ongoing` / `Planned` — italic title with no public read/download link.
+  Catalog-only placeholders have no document; approved proposals may have
+  internal markdown, HTML, and PDF stub artifacts until the first draft.
 - `Draft<br>Last updated on: <date>, <time> IST` — a document/PDF exists but is
   not finalized (date/time **must match** the study's `**Edited on:**` field).
 - `Released<br>Last updated on: <date>, <time> IST` — only once a study is
@@ -108,10 +113,10 @@ The **only** exception: editing this rule file's own example timestamps.
 
 Before marking a study edit done, confirm all three are in sync:
 
-- [ ] `Studies/<Slug>/<Slug>.md` → `**Edited on:**`
+- [ ] `Studies/<Slug>/<Slug>.md` or `Applications/<Slug>/<Slug>.md` → `**Edited on:**`
 - [ ] `Studies/README.md` → that study's `Last updated on`
 - [ ] `Studies/index.html` → that study's `Last updated on`
-- [ ] `Studies/<Slug>/<Slug>.pdf` regenerated after the timestamp change
+- [ ] The canonical markdown's sibling `<Slug>.pdf` regenerated after the timestamp change
 
 ---
 
@@ -132,7 +137,8 @@ drift apart.
     — minified JSON arrays written by `Scripts/_study_catalog.py`; do not hand-edit.
     The studies landing page fetches these files at runtime.
   - **`Studies/README.md`** — markdown table rows (same marker names).
-  Status is `ongoing` / `Ongoing` when no document is uploaded yet (no PDF),
+  Status is `ongoing` / `Ongoing` for a planned entry with no public read/download
+  link (approved proposals may retain internal stub artifacts),
   `draft` / `Draft<br>Last updated on: <date>, <time> IST` once a PDF exists but is
   not finalized, and `released` / `Released<br>Last updated on: <date>, <time> IST`
   only when a study is explicitly released.
@@ -142,7 +148,8 @@ drift apart.
   [§1 Keep "Edited on" current](#1-keep-edited-on-current-in-studies-always-applies)
   for the mandatory workflow.
 - **In-progress studies** — `status: "ongoing"` in catalog JSON; italic `*title*`
-  with `<!-- slug: ... -->` in README; no PDF link.
+  with `<!-- slug: ... -->` in README; no public PDF or HTML link. An approved
+  proposal may still have internal stub artifacts in its study directory.
 - **Formal Studies catalog** — same documents, focus, and descriptions; JSON in
   `Studies/catalog-formal.json`, markdown table in README.
 - **Applied Studies catalog** — papers under `Applications/` that instantiate the
@@ -248,9 +255,10 @@ reintroducing:
 
 ## 3. Markdown to PDF — use internal scripts only *(applies when generating a study PDF)*
 
-When a study markdown file under `Studies/` needs a PDF, **always** use the
-repository pipeline. Do not substitute pandoc, `markdown-pdf`, VS Code export,
-hand-written Puppeteer scripts, or other one-off converters.
+When a canonical study markdown file under `Studies/` or `Applications/` needs
+a PDF, **always** use the repository pipeline. Do not substitute pandoc,
+`markdown-pdf`, VS Code export, hand-written Puppeteer scripts, or other one-off
+converters.
 
 ### One-time setup (required for PDF generation)
 
@@ -806,10 +814,11 @@ under `References/`.
 
 ## 7. Study submission process — branches, PR labels, and templates *(always applies)*
 
-Applies to any change under `Studies/` (adding, editing, removing, or changing the status of a study).
+Applies to any change under `Studies/` or `Applications/` (adding, editing,
+removing, renaming, or changing the status of a study).
 Human contributors follow the Web Submission Portal flow in [CONTRIBUTING.md](CONTRIBUTING.md).
 Agents and other direct-repo contributors must follow the same underlying shape as a plain git
-workflow: **never commit a `Studies/` change directly to the default branch.** Every study
+workflow: **never commit a `Studies/` or `Applications/` change directly to the default branch.** Every study
 addition, edit, removal, or status change lands through a pull request that CI
 (`.github/workflows/study-pr.yml` → `Scripts/_ci_study_pr.py`) can process.
 
@@ -819,7 +828,8 @@ check, and how to reproduce each check locally — is documented in
 
 ### Mandatory workflow
 
-1. **Create a feature branch** before touching any file under `Studies/`. Do not commit study
+1. **Create a feature branch** before touching any file under `Studies/` or
+   `Applications/`. Do not commit study
    changes on `master`/`main`.
 2. **Single or multi-study pull requests supported** — `Scripts/_ci_study_pr.py` automatically resolves and processes all changed study slugs in the PR diff (or reads the primary `Study slug:` field from the PR body). When a PR touches multiple studies (e.g. cross-study terminology updates, section-reference repairs, shared reference updates, or multi-study reviews), CI validates timestamp sync, rebuilds PDFs, and runs reference checks for every changed study. When a changed study adds, removes, or renumbers a heading, CI also validates cross-study `§` references both entering and leaving every changed markdown source; update referring studies in the **same** multi-study `study-update` PR.
 3. **Run local verification before pushing** — the same checks CI runs, so the PR is expected to
@@ -840,7 +850,7 @@ check, and how to reproduce each check locally — is documented in
    | Add a new study (after `proposal-approved`) | `new-study.md` | `new-study` | `Proposal issue: #N` and `Slug: <Slug>` |
    | Edit an existing study's content **or companion files** under that study folder (`.pptx`, research notes, SVGs, etc.) | `study-update.md` | `study-update` | `Study slug: <Slug>` |
    | Remove an existing study | `study-update.md` | `study-update` | `Study slug: <Removed-Slug>` |
-   | Rename slug (directory + metadata) | `study-update.md` | `study-update` | `Study slug: <New-Slug>` (CI runs `_rename_study.py` when one slug is removed and another added) |
+   | Rename slug (directory + metadata) | `study-update.md` | `study-update` | `Study slug: <New-Slug>` (CI detects one or more canonical markdown renames and runs `_rename_study.py` for each) |
    | Change Draft ↔ Released | `status-change.md` | `status-change` | `Study slug: <Slug>` and `Target status: draft`/`released` |
 
    **Study state is not pull-request state.** `Draft`, `Target status: draft`,
@@ -882,8 +892,9 @@ check, and how to reproduce each check locally — is documented in
 
 ### Contributor PDFs (maintainers only)
 
-The Web Submission Portal and CI expect `Studies/<Slug>/<Slug>.md` as source. When a
-contributor hands off a PDF instead, maintainers convert on a feature branch with
+The Web Submission Portal's `new-study` flow expects
+`Studies/<Slug>/<Slug>.md` as source. When a contributor hands off a PDF
+instead, maintainers convert on a feature branch with
 `python Scripts/_pdf_to_study_md.py …` or `python Scripts/_add_study.py … --convert`,
 manually review the output against AGENTS.md §4–§5, regenerate the PDF, then open the
 normal labeled PR. PDF is never accepted as the canonical study source in the repository.

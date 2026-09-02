@@ -1,10 +1,10 @@
 ---
 name: remove-study
 description: >-
-  Remove a study from Studies/ using Scripts/_remove_study.py or
-  _remove_study.ps1 — deletes files and updates catalogs and References. Use when
-  retiring a study, deleting a paper, removing an Ongoing placeholder, or
-  cleaning up a study slug.
+  Remove a study from Studies/ or Applications/ using Scripts/_remove_study.py
+  or _remove_study.ps1 — deletes the complete directory and updates catalogs,
+  proposal metadata, and References. Use when retiring a study, deleting a
+  paper, removing an Ongoing placeholder, or cleaning up a study slug.
 ---
 
 # Remove a study
@@ -35,22 +35,34 @@ Use the slug without extension (e.g. `The-Ontology-of-Coexistence`).
 
 ## What the script does
 
-1. Deletes `Studies/<Slug>/<Slug>.md`, `.pdf`, and `.html` (if present)
-2. Removes catalog entry from **Topical** or **Formal** catalog in `Studies/index.html` (JSON) and `Studies/README.md` (markdown table)
-3. For published studies (not Ongoing): removes row from `References/README.md` and paper block from `References/MANIFEST.md`
+1. Deletes the complete `Studies/<Slug>/` (or `Applications/<Slug>/`) directory,
+   including companion files
+2. Removes the Topical, Formal, or Applied catalog entry from catalog JSON,
+   `Studies/README.md`, and the rebuilt `Studies/index.html`
+3. Removes the slug from `Studies/proposal-registry.json`, so proposal sync cannot recreate it
+4. For published studies (not Ongoing): removes the row from `References/README.md`,
+   the paper block from `References/MANIFEST.md`, and its By-tag citations while
+   preserving citations to other studies
 
-Ongoing placeholders (italic, no PDF) are supported — only the catalog row is removed.
+Ongoing placeholders (italic, no public PDF) are supported — their directory,
+catalog row, and proposal-registry row are removed.
 
 ## After removal
 
-1. **Search cross-links** — grep other `Studies/*/*.md` for links to the removed slug
-2. **Review** `References/MANIFEST.md` summary counts if needed
+1. **Remove or retarget cross-links in the same PR** — CI rejects any remaining
+   Markdown link to the retired slug. When linked study markdown changes, refresh
+   its timestamp/catalog row and regenerate its PDF.
+2. **Update Start here** if `INDEX_TEMPLATE` names the slug; rebuild the index.
+   CI rejects unknown Start here slugs.
 3. **Verify** catalogs and references with `python Scripts/_verify_studies_index.py`
    and `python Scripts/_check_references.py`
 4. **Commit** deletions and catalog updates on a feature branch
 5. **Open a ready-for-review pull request** with the `study-update` template and
    label. Keep the retired directory name as the bare `Study slug: <Slug>` value;
    mark Edited-on and quote-verification checklist items N/A.
+
+A single `study-update` PR may remove multiple studies. Name one retired slug in
+the PR body; CI derives and validates every deleted study directory from the diff.
 
 ## Do not
 

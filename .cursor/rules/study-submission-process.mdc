@@ -8,10 +8,11 @@ alwaysApply: true
 
 > **Source of truth:** [AGENTS.md](../AGENTS.md) §7. Keep this file in sync when editing.
 
-Applies to any change under `Studies/` (adding, editing, removing, or changing the status of a study).
+Applies to any change under `Studies/` or `Applications/` (adding, editing,
+removing, renaming, or changing the status of a study).
 Human contributors follow the Web Submission Portal flow in [CONTRIBUTING.md](CONTRIBUTING.md).
 Agents and other direct-repo contributors must follow the same underlying shape as a plain git
-workflow: **never commit a `Studies/` change directly to the default branch.** Every study
+workflow: **never commit a `Studies/` or `Applications/` change directly to the default branch.** Every study
 addition, edit, removal, or status change lands through a pull request that CI
 (`.github/workflows/study-pr.yml` → `Scripts/_ci_study_pr.py`) can process.
 
@@ -21,7 +22,8 @@ check, and how to reproduce each check locally — is documented in
 
 ## Mandatory workflow
 
-1. **Create a feature branch** before touching any file under `Studies/`. Do not commit study
+1. **Create a feature branch** before touching any file under `Studies/` or
+   `Applications/`. Do not commit study
    changes on `master`/`main`.
 2. **Single or multi-study pull requests supported** — `Scripts/_ci_study_pr.py` automatically resolves and processes all changed study slugs in the PR diff (or reads the primary `Study slug:` field from the PR body). When a PR touches multiple studies (e.g. cross-study terminology updates, section-reference repairs, shared reference updates, or multi-study reviews), CI validates timestamp sync, rebuilds PDFs, and runs reference checks for every changed study. When a changed study adds, removes, or renumbers a heading, CI also validates cross-study `§` references both entering and leaving every changed markdown source; update referring studies in the **same** multi-study `study-update` PR.
 3. **Run local verification before pushing** — the same checks CI runs, so the PR is expected to
@@ -42,7 +44,7 @@ check, and how to reproduce each check locally — is documented in
    | Add a new study (after `proposal-approved`) | `new-study.md` | `new-study` | `Proposal issue: #N` and `Slug: <Slug>` |
    | Edit an existing study's content **or companion files** under that study folder (`.pptx`, research notes, SVGs, etc.) | `study-update.md` | `study-update` | `Study slug: <Slug>` |
    | Remove an existing study | `study-update.md` | `study-update` | `Study slug: <Removed-Slug>` |
-   | Rename slug (directory + metadata) | `study-update.md` | `study-update` | `Study slug: <New-Slug>` (CI runs `_rename_study.py` when one slug is removed and another added) |
+   | Rename slug (directory + metadata) | `study-update.md` | `study-update` | `Study slug: <New-Slug>` (CI detects one or more canonical markdown renames and runs `_rename_study.py` for each) |
    | Change Draft ↔ Released | `status-change.md` | `status-change` | `Study slug: <Slug>` and `Target status: draft`/`released` |
 
    **Study state is not pull-request state.** `Draft`, `Target status: draft`,
@@ -84,8 +86,9 @@ check, and how to reproduce each check locally — is documented in
 
 ## Contributor PDFs (maintainers only)
 
-The Web Submission Portal and CI expect `Studies/<Slug>/<Slug>.md` as source. When a
-contributor hands off a PDF instead, maintainers convert on a feature branch with
+The Web Submission Portal's `new-study` flow expects
+`Studies/<Slug>/<Slug>.md` as source. When a contributor hands off a PDF
+instead, maintainers convert on a feature branch with
 `python Scripts/_pdf_to_study_md.py …` or `python Scripts/_add_study.py … --convert`,
 manually review the output against AGENTS.md §4–§5, regenerate the PDF, then open the
 normal labeled PR. PDF is never accepted as the canonical study source in the repository.

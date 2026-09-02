@@ -23,7 +23,8 @@ drift apart.
     — minified JSON arrays written by `Scripts/_study_catalog.py`; do not hand-edit.
     The studies landing page fetches these files at runtime.
   - **`Studies/README.md`** — markdown table rows (same marker names).
-  Status is `ongoing` / `Ongoing` when no document is uploaded yet (no PDF),
+  Status is `ongoing` / `Ongoing` for a planned entry with no public read/download
+  link (approved proposals may retain internal stub artifacts),
   `draft` / `Draft<br>Last updated on: <date>, <time> IST` once a PDF exists but is
   not finalized, and `released` / `Released<br>Last updated on: <date>, <time> IST`
   only when a study is explicitly released.
@@ -33,7 +34,8 @@ drift apart.
   [AGENTS.md](../AGENTS.md) §1
   for the mandatory workflow.
 - **In-progress studies** — `status: "ongoing"` in catalog JSON; italic `*title*`
-  with `<!-- slug: ... -->` in README; no PDF link.
+  with `<!-- slug: ... -->` in README; no public PDF or HTML link. An approved
+  proposal may still have internal stub artifacts in its study directory.
 - **Formal Studies catalog** — same documents, focus, and descriptions; JSON in
   `Studies/catalog-formal.json`, markdown table in README.
 - **Applied Studies catalog** — papers under `Applications/` that instantiate the
