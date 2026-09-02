@@ -6,7 +6,7 @@
       "type": "skill-md",
       "description": "Cite Analytic Madhyasth Darshan studies from the canonical markdown, using catalog slugs, Edited-on timestamps, and glossary terms. Use when quoting, referencing, or attributing a paper from this collection.",
       "url": "/.well-known/agent-skills/cite-study/SKILL.md",
-      "digest": "sha256:7c3ff1620368d2ce06c307e6953087ce796968fcdd1b7c2af57dc88eb8792419"
+      "digest": "sha256:8a228da8598363447de8ea3b8b34831147675b87112bac98181bd4031187025a"
     },
     {
       "name": "compare-traditions",

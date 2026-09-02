@@ -17,7 +17,7 @@ beside a study, using the pipeline governed by [AGENTS.md](../../../AGENTS.md) �
 
 | Want | Use |
 |------|-----|
-| Study PDF/HTML from `Studies/<Slug>/<Slug>.md` | `python Scripts/_regenerate_pdf.py <Slug>` |
+| Catalog study PDF/HTML from `Studies/<Slug>/<Slug>.md` or `Applications/<Slug>/<Slug>.md` | `python Scripts/_regenerate_pdf.py <Slug>` |
 | Unwatermarked companion-note PDF/HTML | `python Scripts/_regenerate_pdf.py Studies/<Slug>/Research-Note.md` |
 | Deck slides PDF (`<Deck>.pdf`) | [update-study-presentation](../update-study-presentation/SKILL.md) — `_pptx_to_pdf.py` |
 | Deck read-aloud notes PDF (`<Deck>-notes.pdf`) | [update-study-presentation](../update-study-presentation/SKILL.md) — `_build_deck_notes_pdf.py` |
@@ -87,7 +87,8 @@ python Scripts/_verify_pdf_math.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug
 python Scripts/_verify_pdf_outline.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf
 ```
 
-Do not delete `Studies/<Slug>/<Slug>.html` — it is the published read view.
+Do not delete the canonical markdown's sibling `<Slug>.html` — it is the
+published read view.
 
 ## Study SVG figures
 
@@ -116,7 +117,7 @@ flowchart TD
 
 - [ ] Referenced SVG figures pass `python Scripts/_verify_study_svgs.py Studies/<Slug>/<Slug>.md`
 - [ ] Target markdown's sibling `.pdf` and `.html` updated
-- [ ] For a catalog study, `Studies/<Slug>/<Slug>.html` remains the published read view
+- [ ] For a catalog study, the sibling `<Slug>.html` remains the published read view
 - [ ] No raw `flowchart TD` / `graph LR` visible in PDF when Mermaid blocks exist
 - [ ] KaTeX output embeds its font when the HTML contains rendered math
 - [ ] `**Edited on:**` and catalog **Last updated on** match (if content changed)

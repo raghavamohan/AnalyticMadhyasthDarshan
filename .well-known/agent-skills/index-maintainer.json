@@ -6,7 +6,7 @@
       "type": "skill-md",
       "description": "Register a new study in Studies/ using Scripts/_add_study.py or _add_study.ps1 — sets metadata, updates catalogs, and generates PDF. Use when adding a study, registering a paper, creating an Ongoing placeholder, importing a PDF, or adding a Formal study.",
       "url": "/.well-known/agent-skills/add-study/SKILL.md",
-      "digest": "sha256:9f008cbf2b679eecfc7a0d60f7747ec541ef46ea4572651e30209afd1f6e362e"
+      "digest": "sha256:56ecea6aef6a93e270bf47ef18cc15f9d3ebf1c011fe7232a6accf79708709c8"
     },
     {
       "name": "check-references",
@@ -25,9 +25,9 @@
     {
       "name": "manage-studies",
       "type": "skill-md",
-      "description": "Add, remove, or change Draft/Released status of studies in this repo using Scripts/_add_study.py, _remove_study.py, and _set_study_status.py. Use when registering a new study, retiring a study, releasing or reverting draft status, updating study catalogs, or when the user asks to manage studies in Studies/.",
+      "description": "Add, remove, or change Draft/Released status of studies in this repo using Scripts/_add_study.py, _remove_study.py, and _set_study_status.py. Use when registering a new study, retiring a study, releasing or reverting draft status, updating study catalogs, or when the user asks to manage studies in Studies/ or Applications/.",
       "url": "/.well-known/agent-skills/manage-studies/SKILL.md",
-      "digest": "sha256:3fcbf49853cc27e10d720c902a3eb1ea2a7f50631dd143824279768c174ea91e"
+      "digest": "sha256:920f6f54a787a3bcaf3bf90df3b91f8e9001b15eb1c88925e32df477112c3686"
     },
     {
       "name": "refine-studies-index",
@@ -41,28 +41,28 @@
       "type": "skill-md",
       "description": "Regenerate a study or companion-note PDF/HTML from markdown using Scripts/_regenerate_pdf.py. Use after editing a study markdown source, when fixing PDF rendering, applying a Draft/Released watermark, or rebuilding an unwatermarked research/technical note beside a study. Runs the repository's SVG, Mermaid, fenced-code, KaTeX-font, and outline verifiers.",
       "url": "/.well-known/agent-skills/regenerate-study-pdf/SKILL.md",
-      "digest": "sha256:e1219c1a2b39ba7488922a1e07a72f75a294d8acb2b3810554a728de192536ac"
+      "digest": "sha256:0ab636aed46c4ea6a5e7a995a19525cb2a93e87d858024653f8ba3b4fddf858e"
     },
     {
       "name": "remove-study",
       "type": "skill-md",
-      "description": "Remove a study from Studies/ using Scripts/_remove_study.py or _remove_study.ps1 — deletes files and updates catalogs and References. Use when retiring a study, deleting a paper, removing an Ongoing placeholder, or cleaning up a study slug.",
+      "description": "Remove a study from Studies/ or Applications/ using Scripts/_remove_study.py or _remove_study.ps1 — deletes the complete directory and updates catalogs, proposal metadata, and References. Use when retiring a study, deleting a paper, removing an Ongoing placeholder, or cleaning up a study slug.",
       "url": "/.well-known/agent-skills/remove-study/SKILL.md",
-      "digest": "sha256:ad08bad724087f8079bc8e766f5c4ef79b53332d780c85161f18f8bfde70e458"
+      "digest": "sha256:7b9e1a6647da03e9ecf5185ffe4b9c63db81b0a59917cca263cec3ba5dd97bfb"
     },
     {
       "name": "rename-study",
       "type": "skill-md",
-      "description": "Rename a study slug and/or display title using Scripts/_rename_study.py — moves the study directory, syncs catalogs, proposal-registry, GitHub proposal issue, References paths, Start here links, and regenerated PDF/HTML. Use when renaming a study, changing a catalog slug, fixing a too-long slug, or updating My Submissions after a rename.",
+      "description": "Rename a study slug and/or display title using Scripts/_rename_study.py — moves the study directory, syncs catalogs, proposal-registry, GitHub proposal issue, References paths, and regenerated PDF/HTML; Start here and cross-study links are verified for same-PR updates. Use when renaming a study, changing a catalog slug, fixing a too-long slug, or updating My Submissions after a rename.",
       "url": "/.well-known/agent-skills/rename-study/SKILL.md",
-      "digest": "sha256:8c4e311a0ff0b9aa01a27bdceccbaed48ca11300a0f08e32b586b3fbeddcae5d"
+      "digest": "sha256:c7e6afaa5dd0fb063c2d7101cf37986fb794dc651da007827459dc3e06c5cf83"
     },
     {
       "name": "set-study-status",
       "type": "skill-md",
       "description": "Change a study between Draft and Released using Scripts/_set_study_status.py or _set_study_status.ps1 — syncs markdown Status, Edited on, catalogs, and PDF watermark. Use when releasing a study, reverting to draft, finalizing a paper, or updating draft/released status.",
       "url": "/.well-known/agent-skills/set-study-status/SKILL.md",
-      "digest": "sha256:d4532919a7c46b4b62cf8d90a8179a59f955ee8cf7aa9ebf49d345e122c84354"
+      "digest": "sha256:cb50dfed18b361f228e298cca5fddd7b167fce4a26be062ac60108af42ed5415"
     },
     {
       "name": "sync-master-clean-branches",

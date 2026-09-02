@@ -66,14 +66,30 @@ Two or more study labels is a hard error (`active_pr_label`). The slug must be
 **bare** — trailing parentheticals break catalog lookup; `normalize_pr_slug`
 strips common ones as a backstop only.
 
-`handle_study_update` also covers **renames** (one slug deleted + one added →
-`_rename_study.py --metadata-only`) and **removals** (every changed path under
-the slug is a deletion, the directory is gone, and `proposal-registry.json` no
-longer lists it).
+`handle_study_update` also covers **renames** (one or more canonical
+`<Slug>/<Slug>.md` renames → `_rename_study.py --metadata-only`) and
+**removals** (every changed path under each deleted slug is a deletion, the
+directory is gone, `proposal-registry.json` no longer lists it, and no Markdown
+link still targets it). Moving a figure/companion file between directories is
+not a rename. Rename CI passes the catalog display title to the metadata script
+and has `issues: write`, so both the proposal issue body and title stay aligned.
+
+`new-study` and `status-change` are single-purpose handlers: if their diff also
+touches another study directory, the router rejects the PR and directs the
+author to use `study-update`. A `study-update` may change, rename, or remove
+multiple studies; all changed/deleted slugs are derived from the diff even when
+only one primary slug is named in the PR body.
+
+For every changed canonical markdown source, `_study_links.py` validates
+cross-study section references in both directions. A heading renumber therefore
+requires all inbound `§` references to be repaired in the same multi-study PR.
+Rename/removal verification also rejects links to the retired slug, and the
+index verifier rejects Start here entries whose slug no longer exists.
 
 **PDF regeneration is conditional.** `pdf_regeneration_reason()` rebuilds only
 when the study markdown changed, a figure inside that study's directory changed,
-the PDF pipeline itself changed, or the PDF is missing. Companion-only edits
+the PDF pipeline or its shared inputs (requirements, glossary, KaTeX assets,
+Chrome launcher, CNAME) changed, or the PDF is missing. Companion-only edits
 (decks, research notes) skip the render.
 
 Every run ends in `verify_studies_index()`, which calls the *same*
@@ -95,7 +111,7 @@ PDF rendering — in about a minute with a warm pip cache:
 | Step | Script | Guards |
 |------|--------|--------|
 | Verify catalog JSON and index shell | `_verify_studies_index.py` | `index.html` ↔ `README.md` ↔ `catalog-*.json` sync |
-| Run the enforced test suites | `_run_test_suites.py` | 18 of the 22 `_test_*.py` suites (see §4) |
+| Run the enforced test suites | `_run_test_suites.py` | Every discovered non-held `_test_*.py` suite (see §4) |
 | Check agent rules and skills mirrors | `_sync_agent_rules.py --check` | `AGENTS.md` ↔ `.cursor/rules/*.mdc` ↔ skill mirrors |
 
 `_run_test_suites.py` **discovers by denylist**: it runs every `Scripts/_test_*.py`
@@ -240,9 +256,9 @@ verifiers (SVG, diagrams, fenced code, outline, math — all invoked through
 `_study_catalog.regenerate_pdf`), reference link checks when the bibliography
 changed, rename and removal metadata, and the router's own unit tests.
 
-**Enforced by `studies-index-check.yml` on every PR:** 18 of the 22 `_test_*.py`
-suites, plus `_verify_studies_index.py` and the `_sync_agent_rules.py --check`
-mirror sync that CLAUDE.md makes mandatory.
+**Enforced by `studies-index-check.yml` on every PR:** every non-held `_test_*.py`
+suite discovered by `_run_test_suites.py`, plus `_verify_studies_index.py` and the
+`_sync_agent_rules.py --check` mirror sync that CLAUDE.md makes mandatory.
 
 **Held back from CI on purpose** — these pass, but failing them would not mean
 the same thing as failing the others, so the call belongs to a maintainer. Each is

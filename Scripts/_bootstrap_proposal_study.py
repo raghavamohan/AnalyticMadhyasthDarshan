@@ -24,7 +24,7 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from _common import STUDIES, study_dir, study_md, write_text_lf
+from _common import STUDIES, study_dir, study_md, validate_study_slug, write_text_lf
 from _study_catalog import (
     format_edited_on_md,
     now_ist,
@@ -275,6 +275,10 @@ def bootstrap_proposal(
     dry_run: bool = False,
     force: bool = False,
 ) -> None:
+    try:
+        validate_study_slug(fields.slug)
+    except ValueError as exc:
+        raise SystemExit(str(exc)) from exc
     dest_dir = study_dir(fields.slug)
     dest_md = study_md(fields.slug)
     if dest_md.exists() and not force:
@@ -359,6 +363,11 @@ def main() -> None:
             submitter=args.submitter.strip(),
             issue_number=None,
         )
+
+    try:
+        validate_study_slug(fields.slug)
+    except ValueError as exc:
+        raise SystemExit(str(exc)) from exc
 
     if args.issue and not args.skip_issue_update:
         update_issue_slug(args.issue, fields.slug)

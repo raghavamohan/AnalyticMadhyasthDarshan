@@ -9,7 +9,9 @@ description: >-
 
 # Set study status (Draft ↔ Released)
 
-Only for **published** studies (linked in catalog with a PDF). Ongoing placeholders cannot use this script — register them with [add-study](../add-study/SKILL.md) first.
+Only for **published** studies (linked in the catalog with a PDF). Ongoing/Planned
+entries cannot use this script — register the first draft with
+[add-study](../add-study/SKILL.md) first.
 
 ## Commands
 
@@ -38,9 +40,11 @@ Skip sync check: `--no-check-timestamps`
 
 ## What the script does
 
-1. Updates `**Status:**` and `**Edited on:**` in `Studies/<Slug>/<Slug>.md` — always set to the current IST time, even when status is unchanged
+1. Updates `**Status:**` and `**Edited on:**` in the canonical
+   `Studies/<Slug>/<Slug>.md` or `Applications/<Slug>/<Slug>.md` — always set to
+   the current IST time, even when status is unchanged
 2. Updates the matching catalog JSON and `Studies/README.md` row, then rebuilds `Studies/index.html`
-3. Regenerates `Studies/<Slug>/<Slug>.html` and `.pdf`:
+3. Regenerates the canonical markdown's sibling `<Slug>.html` and `.pdf`:
    - **Draft** → `--watermark Draft` via conversion pipeline
    - **Released** → no watermark
 

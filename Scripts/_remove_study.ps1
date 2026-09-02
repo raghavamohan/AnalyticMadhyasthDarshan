@@ -1,4 +1,4 @@
-# Remove a study from Studies/ and update catalog files.
+# Remove a study from Studies/ or Applications/ and update catalog files.
 # Usage:
 #   .\Scripts\_remove_study.ps1 Study-Slug
 #   .\Scripts\_remove_study.ps1 Why-Humans-Are-Not-Just-Material -DryRun

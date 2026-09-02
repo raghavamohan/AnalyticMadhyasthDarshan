@@ -8,10 +8,11 @@ alwaysApply: true
 
 > **Source of truth:** [AGENTS.md](../AGENTS.md) §7. Keep this file in sync when editing.
 
-Applies to any change under `Studies/` (adding, editing, removing, or changing the status of a study).
+Applies to any change under `Studies/` or `Applications/` (adding, editing,
+removing, renaming, or changing the status of a study).
 Human contributors follow the Web Submission Portal flow in [CONTRIBUTING.md](CONTRIBUTING.md).
 Agents and other direct-repo contributors must follow the same underlying shape as a plain git
-workflow: **never commit a `Studies/` change directly to the default branch.** Every study
+workflow: **never commit a `Studies/` or `Applications/` change directly to the default branch.** Every study
 addition, edit, removal, or status change lands through a pull request that CI
 (`.github/workflows/study-pr.yml` → `Scripts/_ci_study_pr.py`) can process.
 
@@ -21,9 +22,10 @@ check, and how to reproduce each check locally — is documented in
 
 ## Mandatory workflow
 
-1. **Create a feature branch** before touching any file under `Studies/`. Do not commit study
+1. **Create a feature branch** before touching any file under `Studies/` or
+   `Applications/`. Do not commit study
    changes on `master`/`main`.
-2. **Single or multi-study pull requests supported** — `Scripts/_ci_study_pr.py` automatically resolves and processes all changed study slugs in the PR diff (or reads the primary `Study slug:` field from the PR body). When a PR touches multiple studies (e.g. cross-study terminology updates, shared reference updates, or multi-study reviews), CI validates timestamp sync, rebuilds PDFs, and runs reference checks for every changed study.
+2. **Single or multi-study pull requests supported** — `Scripts/_ci_study_pr.py` automatically resolves and processes all changed study slugs in the PR diff (or reads the primary `Study slug:` field from the PR body). When a PR touches multiple studies (e.g. cross-study terminology updates, section-reference repairs, shared reference updates, or multi-study reviews), CI validates timestamp sync, rebuilds PDFs, and runs reference checks for every changed study. When a changed study adds, removes, or renumbers a heading, CI also validates cross-study `§` references both entering and leaving every changed markdown source; update referring studies in the **same** multi-study `study-update` PR.
 3. **Run local verification before pushing** — the same checks CI runs, so the PR is expected to
    pass on first push:
    - `python Scripts/_quote_tool.py verify --study <Slug>` if you quoted a local source
@@ -42,7 +44,7 @@ check, and how to reproduce each check locally — is documented in
    | Add a new study (after `proposal-approved`) | `new-study.md` | `new-study` | `Proposal issue: #N` and `Slug: <Slug>` |
    | Edit an existing study's content **or companion files** under that study folder (`.pptx`, research notes, SVGs, etc.) | `study-update.md` | `study-update` | `Study slug: <Slug>` |
    | Remove an existing study | `study-update.md` | `study-update` | `Study slug: <Removed-Slug>` |
-   | Rename slug (directory + metadata) | `study-update.md` | `study-update` | `Study slug: <New-Slug>` (CI runs `_rename_study.py` when one slug is removed and another added) |
+   | Rename slug (directory + metadata) | `study-update.md` | `study-update` | `Study slug: <New-Slug>` (CI detects one or more canonical markdown renames and runs `_rename_study.py` for each) |
    | Change Draft ↔ Released | `status-change.md` | `status-change` | `Study slug: <Slug>` and `Target status: draft`/`released` |
 
    **Study state is not pull-request state.** `Draft`, `Target status: draft`,
@@ -69,8 +71,10 @@ check, and how to reproduce each check locally — is documented in
    A removal PR keeps the retired directory name in `Study slug:` even though the
    catalog entry and directory are gone. CI accepts it only when every changed path
    under that slug is deleted, the study directory is absent, and the proposal
-   registry no longer contains the slug. Mark Edited-on and quote-verification
-   checklist items N/A.
+   registry no longer contains the slug. `_remove_study.py` removes that registry
+   row; CI also rejects stale Markdown links and stale Start here entries. A PR may
+   remove multiple studies, and CI validates each deleted slug. Mark Edited-on and
+   quote-verification checklist items N/A.
 
    A change that only touches non-study files (`Scripts/`, `AGENTS.md`, `.agents/skills/`,
    infra, etc.) is **not** a study PR — do not apply a study label to it, and it does not
@@ -82,19 +86,29 @@ check, and how to reproduce each check locally — is documented in
 
 ## Contributor PDFs (maintainers only)
 
-The Web Submission Portal and CI expect `Studies/<Slug>/<Slug>.md` as source. When a
-contributor hands off a PDF instead, maintainers convert on a feature branch with
+The Web Submission Portal's `new-study` flow expects
+`Studies/<Slug>/<Slug>.md` as source. When a contributor hands off a PDF
+instead, maintainers convert on a feature branch with
 `python Scripts/_pdf_to_study_md.py …` or `python Scripts/_add_study.py … --convert`,
 manually review the output against AGENTS.md §4–§5, regenerate the PDF, then open the
 normal labeled PR. PDF is never accepted as the canonical study source in the repository.
 
 ## Renaming a study slug
 
-Renaming is a **`study-update`** PR, not a silent directory move. When the diff removes one
-`Studies/<Old>/` (or `Applications/<Old>/`) tree and adds one new slug, `_ci_study_pr.py`
-invokes `Scripts/_rename_study.py --metadata-only` to sync `proposal-registry.json`,
-`.proposal-meta.json`, and the linked GitHub proposal issue. The PR must set `Study slug: <New-Slug>`
-and include registry/meta updates (or let CI write them on the branch).
+Renaming is a **`study-update`** PR, not a silent directory move. When the diff renames
+one or more canonical `Studies/<Old>/<Old>.md` (or `Applications/`) sources,
+`_ci_study_pr.py` invokes `Scripts/_rename_study.py --metadata-only` for each rename to
+sync `proposal-registry.json`, `.proposal-meta.json`, and the linked GitHub proposal
+issue slug **and title**. Moving a figure or companion file between study directories is
+not misclassified as a study rename. The PR must set `Study slug: <New-Slug>` to one of
+the new slugs and include registry/meta updates (or let CI write them on the branch).
+
+The catalog JSON order is the display-order source of truth; renaming preserves the row's
+position. Canonical `<Old>.md` / `.html` / `.pdf` files take the new stem, while companion
+deck basenames remain unchanged. Update every cross-study link to the old slug and every
+affected study timestamp/PDF in the same multi-study PR. If `INDEX_TEMPLATE` names the old
+slug in Start here, update the generator and rebuild the index; CI rejects unknown Start
+here slugs rather than silently leaving stale navigation.
 
 Agent skill (full checklist, Start here, My Submissions):
 [rename-study](.agents/skills/rename-study/SKILL.md).
@@ -136,6 +150,8 @@ relying on CI to stop a bad push. See [.github/CI.md](.github/CI.md) §5.
   `Target status:`) — bare slug / status value only, no notes on that line
 - [ ] Every changed study slug is covered by the local checks; multi-study `study-update` PRs
   are supported, while `status-change` still names one target slug and status in the PR body
+- [ ] Cross-study links and `§` references entering/leaving changed markdown still resolve;
+  rename/removal repairs are included in the same multi-study PR
 - [ ] Study status and GitHub PR readiness were handled independently; the PR is ready for
   review unless a GitHub draft PR was explicitly requested for incomplete PR work
 - [ ] Local verification (`_quote_tool.py verify`, `_check_references.py`, `_regenerate_pdf.py`,

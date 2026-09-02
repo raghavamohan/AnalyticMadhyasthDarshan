@@ -39,6 +39,9 @@ Windows wrapper:
 ```
 
 Omit `--category`, `--description`, `--tags` in an interactive terminal to be prompted.
+Slugs use letters, digits, and hyphens only, are at most 60 characters, and must
+keep `Studies/<Slug>/<Slug>.md` at or below 200 characters; the add and proposal-
+bootstrap scripts enforce the same contract as rename and the web portal.
 
 ## What the script does
 
@@ -53,7 +56,7 @@ Omit `--category`, `--description`, `--tags` in an interactive terminal to be pr
 |------|---------|
 | Draft study (default) | `--status draft` |
 | Released study | `--status released` |
-| Ongoing placeholder (no PDF) | `--status ongoing --category "..."` |
+| Ongoing placeholder (markdown only; no PDF) | `--status ongoing --category "..."` |
 | Formal Studies table | `--formal --category "Category theory"` |
 | Import external PDF (stub only) | `python Scripts/_add_study.py "path/to/paper.pdf" --title "Title"` |
 | Import external PDF (convert to markdown) | `python Scripts/_add_study.py "path/to/paper.pdf" --convert --slug <Slug> --title "Title" --category "..." --description "..."` |
@@ -70,6 +73,11 @@ Omit `--category`, `--description`, `--tags` in an interactive terminal to be pr
 | `--slug` | Override filename-derived slug |
 | `--convert` | For PDF input: extract markdown body instead of a stub |
 | `--no-keep-pdf` | With `--convert`: skip copying source PDF into `Studies/<Slug>/` |
+
+The PowerShell wrapper exposes the matching `-Convert` and `-NoKeepPdf` switches.
+`--convert` is rejected for markdown input, `--no-keep-pdf` requires `--convert`,
+and PDF input is rejected for `ongoing` placeholders so a planned row cannot
+silently retain a document.
 
 ## PDF import
 
