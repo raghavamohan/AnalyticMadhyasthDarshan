@@ -83,6 +83,9 @@ Confirm before finishing:
 - [ ] `**Status:**` in `.md` matches catalog Draft/Released (if published)
 - [ ] PDF regenerated when content or status changed (pinned Node dependencies and Chrome installed under `Scripts/`)
 - [ ] `Studies/catalog-*.json` and `Studies/README.md` table rows stay in sync (use `write_studies_catalog` via scripts — never hand-edit JSON)
+- [ ] When headings, slugs, or removals affect another study, update all inbound/
+  outbound cross-study links and `§` references in the same multi-study
+  `study-update` PR; refresh and regenerate every markdown source changed
 - [ ] After landing-page UI changes: `INDEX_TEMPLATE` updated in `_build_studies_index.py`, shell rebuilt, `python Scripts/_verify_studies_index.py` passes
 - [ ] Change is on a feature branch (not the default branch); the PR to open carries exactly one
   of `new-study` / `study-update` / `status-change` and the body field that label requires —

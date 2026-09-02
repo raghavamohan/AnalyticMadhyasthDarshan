@@ -14,7 +14,16 @@ from __future__ import annotations
 
 import argparse
 
-from _common import STUDIES, known_study_slugs, study_dir, study_html, study_md, study_pdf, write_text_lf
+from _common import (
+    STUDIES,
+    known_study_slugs,
+    study_dir,
+    study_html,
+    study_md,
+    study_pdf,
+    validate_study_slug,
+    write_text_lf,
+)
 from _study_catalog import (
     StudyStatus,
     format_edited_on_md,
@@ -33,7 +42,11 @@ from _study_catalog import (
 def normalize_slug(value: str) -> str:
     slug = value.strip().removesuffix(".md").removesuffix(".pdf").removesuffix(".html")
     if not slug:
-        raise ValueError("Study slug must not be empty.")
+        raise SystemExit("Study slug must not be empty.")
+    try:
+        validate_study_slug(slug)
+    except ValueError as exc:
+        raise SystemExit(str(exc)) from exc
     return slug
 
 
