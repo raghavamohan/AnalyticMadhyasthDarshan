@@ -1,29 +1,30 @@
 ---
 name: regenerate-study-pdf
 description: >-
-  Regenerate a study PDF from markdown using Scripts/_regenerate_pdf.py — internal
-  pipeline only. Use when updating a study PDF, fixing diagram rendering, applying
-  Draft/Released watermark, or after editing Studies/*/*.md content. Verifies Mermaid
-  diagrams rendered; requires npm install in Scripts/.
+  Regenerate a study or companion-note PDF/HTML from markdown using
+  Scripts/_regenerate_pdf.py. Use after editing a study markdown source, when
+  fixing PDF rendering, applying a Draft/Released watermark, or rebuilding an
+  unwatermarked research/technical note beside a study. Runs the repository's
+  SVG, Mermaid, fenced-code, KaTeX-font, and outline verifiers.
 ---
 
-# Regenerate a study PDF
+# Regenerate a study or companion-note PDF
 
-## Scope — this skill is study markdown only
+## Scope
 
-This covers `Studies/<Slug>/<Slug>.md` → `<Slug>.pdf` via `_regenerate_pdf.py`, the
-pipeline governed by [AGENTS.md](../../../AGENTS.md) §3. Companion deck PDFs are a
-**separate pipeline** and are not produced by `_regenerate_pdf.py`:
+This covers both catalog study markdown and research/technical notes that live
+beside a study, using the pipeline governed by [AGENTS.md](../../../AGENTS.md) §3:
 
 | Want | Use |
 |------|-----|
-| Study PDF from the study markdown | this skill |
+| Study PDF/HTML from `Studies/<Slug>/<Slug>.md` | `python Scripts/_regenerate_pdf.py <Slug>` |
+| Unwatermarked companion-note PDF/HTML | `python Scripts/_regenerate_pdf.py Studies/<Slug>/Research-Note.md` |
 | Deck slides PDF (`<Deck>.pdf`) | [update-study-presentation](../update-study-presentation/SKILL.md) — `_pptx_to_pdf.py` |
 | Deck read-aloud notes PDF (`<Deck>-notes.pdf`) | [update-study-presentation](../update-study-presentation/SKILL.md) — `_build_deck_notes_pdf.py` |
 | Presenter's Companion DOCX/PDF | [update-presenters-companion](../update-presenters-companion/SKILL.md) |
 
-Deck and companion artifacts do **not** refresh the study's `**Edited on:**` or
-catalog timestamps; a study PDF regeneration after content edits does.
+Companion notes and deck/companion artifacts do **not** refresh the catalog study's
+`**Edited on:**` or catalog timestamps. Editing the catalog study markdown does.
 
 ## Before you start
 
@@ -36,12 +37,14 @@ catalog timestamps; a study PDF regeneration after content edits does.
 ```powershell
 pip install -r requirements.txt
 cd Scripts
-npm install
+npm ci
+npx puppeteer browsers install chrome
 cd ..
 ```
 
-`npm install` in `Scripts/` is **required** when the study contains ` ```mermaid `
-diagrams. Without it, PDFs show raw `flowchart TD` source instead of diagrams.
+The pinned Node dependencies and Chrome build are required for committed PDFs.
+They provide Puppeteer, Mermaid, KaTeX, and the reproducible renderer asserted by
+`Scripts/_chrome.js`.
 
 ## Regenerate (preferred)
 
@@ -50,17 +53,19 @@ python Scripts/_regenerate_pdf.py <Slug>
 ```
 
 Reads **Status:** from the markdown, runs the internal pipeline, applies Draft
-watermark when appropriate, and **verifies Mermaid diagrams** in the output PDF.
+watermark when appropriate, and runs all output verifiers. For a companion note,
+pass its markdown path instead; it renders without a watermark.
 
 ## Internal pipeline (do not substitute pandoc or VS Code export)
 
 0. `_verify_study_svgs.py` — fail if referenced SVG figures are missing, not UTF-8, or malformed XML
 1. `_convert_to_pdf.py` — markdown → HTML; ` ```mermaid ` → `<div class="mermaid">`
 2. `_html_to_pdf.js` — render Mermaid to SVG, then Puppeteer → PDF
-3. `_pdf_metadata.py` — pin `/CreationDate` and `/ModDate` from the study's `**Edited on:**` so identical markdown yields byte-identical output
+3. `_pdf_metadata.py` — pin PDF dates and tagged-structure node IDs so identical markdown yields byte-identical output
 4. `_verify_pdf_diagrams.py` — fail if raw Mermaid syntax remains in the PDF
 5. `_verify_pdf_fenced_code.py` — fail if fenced ` ```text ` / code lines are clipped in the PDF
-6. `_verify_pdf_outline.py` — fail if the PDF has no sidebar bookmarks when the markdown has two or more `##` headings
+6. `_verify_pdf_math.py` — fail if rendered KaTeX output has no embedded KaTeX font
+7. `_verify_pdf_outline.py` — fail if the PDF has no sidebar bookmarks when the markdown has two or more `##` headings
 
 Output is **reproducible**: re-running on unchanged markdown produces a byte-identical
 PDF, so a no-op regeneration leaves nothing to commit. In CI, a `study-update` PR that
@@ -78,6 +83,7 @@ python Scripts/_convert_to_pdf.py Studies/<Slug>/<Slug>.md
 node Scripts/_html_to_pdf.js Studies/<Slug>/<Slug>.html Draft
 python Scripts/_verify_pdf_diagrams.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf
 python Scripts/_verify_pdf_fenced_code.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf
+python Scripts/_verify_pdf_math.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf
 python Scripts/_verify_pdf_outline.py Studies/<Slug>/<Slug>.md Studies/<Slug>/<Slug>.pdf
 ```
 
@@ -109,9 +115,10 @@ flowchart TD
 ## Completion check
 
 - [ ] Referenced SVG figures pass `python Scripts/_verify_study_svgs.py Studies/<Slug>/<Slug>.md`
-- [ ] `Studies/<Slug>/<Slug>.pdf` updated
-- [ ] `Studies/<Slug>/<Slug>.html` updated (published read view; kept by the pipeline)
+- [ ] Target markdown's sibling `.pdf` and `.html` updated
+- [ ] For a catalog study, `Studies/<Slug>/<Slug>.html` remains the published read view
 - [ ] No raw `flowchart TD` / `graph LR` visible in PDF when Mermaid blocks exist
+- [ ] KaTeX output embeds its font when the HTML contains rendered math
 - [ ] `**Edited on:**` and catalog **Last updated on** match (if content changed)
 - [ ] Intermediate `.html` is the published study page (not a throwaway artifact)
 - [ ] Change is on a feature branch with the correct PR label (`new-study` / `study-update` /

@@ -20,15 +20,16 @@ This updates `.cursor/rules/*.mdc` and `.cursor/skills/` from the canonical sour
 Commit sync output in the **same commit** as the canonical edit. Full workflow:
 `.cursor/rules/agent-rules-sync.mdc` (always applies).
 
-**Skills** (study lifecycle scripts) live in `.agents/skills/` (canonical). **OpenCode /
-ZCode** loads them through `.opencode/skills/`, a junction to `.agents/skills/`.
-**Cursor** also reads `.agents/skills/`; an identical copy is kept in `.cursor/skills/`.
-Skills orchestrate `Scripts/_*.py`; they defer content and style rules to the sections below.
+**Skills** (study lifecycle and repository maintenance workflows) live in
+`.agents/skills/` (canonical). **OpenCode / ZCode** loads them through
+`.opencode/skills/`, a junction to `.agents/skills/`. **Cursor** also reads
+`.agents/skills/`; an identical copy is kept in `.cursor/skills/`. Study lifecycle
+skills orchestrate `Scripts/_*.py`; they defer content and style rules to the sections below.
 
 Available skills: `manage-studies`, `add-study`, `remove-study`, `rename-study`,
 `set-study-status`, `download-references`, `check-references`, `regenerate-study-pdf`,
 `update-study-presentation`, `update-presenters-companion`, `refine-studies-index`,
-`transcribe-recording`.
+`transcribe-recording`, `sync-master-clean-branches`.
 
 | Section | Topic | Cursor mirror |
 |---------|--------|---------------|
@@ -255,17 +256,16 @@ hand-written Puppeteer scripts, or other one-off converters.
 ```powershell
 pip install -r requirements.txt
 cd Scripts
-npm install
+npm ci
 cd ..
 ```
 
-`npm install` in `Scripts/` installs **Puppeteer**, **pdf-lib**, **mermaid** (for
+`npm ci` in `Scripts/` installs the exact versions pinned by `package-lock.json`,
+including **Puppeteer**, **pdf-lib**, **mermaid** (for
 ` ```mermaid ` diagrams in studies), and **katex** (for `$...$` / `$$...$$` math). CI runs
 `npm ci` in `Scripts/` automatically.
 
-Prefer `npm ci` locally too: it installs exactly what `package-lock.json` pins,
-including the Chrome build every regeneration must use. Then fetch that
-Chrome once:
+Fetch the Chrome build every regeneration must use once after installing:
 
 ```powershell
 cd Scripts
@@ -464,23 +464,6 @@ The second form validates SVG figures for all studies.
 - **PDF sidebar bookmarks** — document outline from `h1`–`h3` via `outline: true` in
   `_html_to_pdf.js`; verified by `_verify_pdf_outline.py`
 - Optional page watermark — `--watermark` on `_convert_to_pdf.py`
-
-### Regenerate one or all studies
-
-Single study — replace `<Name>` with the file stem (e.g. `Aesthetics`):
-
-```powershell
-python Scripts/_regenerate_pdf.py <Name>
-```
-
-All studies:
-
-```powershell
-$studies = Get-ChildItem Studies -Directory
-foreach ($s in $studies) {
-  python Scripts/_regenerate_pdf.py $s.Name
-}
-```
 
 ### After conversion
 
@@ -844,7 +827,7 @@ check, and how to reproduce each check locally — is documented in
    - `python Scripts/_check_references.py --study <Slug>` (drop `--study` if `References/` itself
      changed)
    - `python Scripts/_regenerate_pdf.py <Slug>` (regenerates PDF/HTML and runs the SVG/diagram/
-     fenced-code/outline verifiers)
+     fenced-code/math/outline verifiers)
    - `python Scripts/_verify_studies_index.py` if a catalog or the index shell changed
 4. **Push the branch and open a pull request** using the matching template in
    [.github/PULL_REQUEST_TEMPLATE/](.github/PULL_REQUEST_TEMPLATE/) (or the chooser
@@ -948,8 +931,8 @@ relying on CI to stop a bad push. See [.github/CI.md](.github/CI.md) §5.
 - [ ] Exactly one of `new-study` / `study-update` / `status-change` will be applied to the PR
 - [ ] PR body includes the field that label requires (`Study slug:`, `Proposal issue: #N`, or
   `Target status:`) — bare slug / status value only, no notes on that line
-- [ ] One study slug per PR for `study-update` / `status-change` (open a second PR for a second
-  slug)
+- [ ] Every changed study slug is covered by the local checks; multi-study `study-update` PRs
+  are supported, while `status-change` still names one target slug and status in the PR body
 - [ ] Study status and GitHub PR readiness were handled independently; the PR is ready for
   review unless a GitHub draft PR was explicitly requested for incomplete PR work
 - [ ] Local verification (`_quote_tool.py verify`, `_check_references.py`, `_regenerate_pdf.py`,

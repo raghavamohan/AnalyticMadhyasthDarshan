@@ -7,7 +7,7 @@ Cloudflare Worker that backs **per-study discussion boards** on the public site.
 From this directory:
 
 ```powershell
-npm install
+npm ci
 ```
 
 ### D1 database

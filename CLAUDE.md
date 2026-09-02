@@ -60,7 +60,9 @@ Contributor-facing flow: [CONTRIBUTING.md](CONTRIBUTING.md). Study format and to
 
 ### PDF pipeline
 
-Never use pandoc, VS Code export, or ad-hoc converters. One-time setup: `pip install -r requirements.txt`; `cd Scripts; npm install`.
+Never use pandoc, VS Code export, or ad-hoc converters. One-time setup:
+`pip install -r requirements.txt`; then in `Scripts/`, run `npm ci` and
+`npx puppeteer browsers install chrome`.
 
 Companion decks are a **separate** pipeline — `_regenerate_pdf.py` does not touch them. Each `<Deck>.pptx` is hand-built and authoritative, and yields three non-interchangeable PDFs: `<Deck>.pdf` (slides only — what `Studies/index.html` links), `<Deck>-notes.pdf` (slide plus read-aloud script per page), and `Presenters-Companion-<Name>.pdf` (script plus background and Q&A). After any deck change run `_pptx_to_pdf.py` then `_build_deck_notes_pdf.py`, in that order. Full rules: [AGENTS.md](AGENTS.md) §3 — Companion deck PDFs.
 
@@ -70,7 +72,7 @@ Companion decks are a **separate** pipeline — `_regenerate_pdf.py` does not to
 
 Skills in `.agents/skills/` orchestrate `Scripts/_*.py` and defer content/style rules to AGENTS.md:
 
-`manage-studies` · `add-study` · `remove-study` · `rename-study` · `set-study-status` · `download-references` · `check-references` · `regenerate-study-pdf` · `refine-studies-index` · `update-study-presentation` · `update-presenters-companion` · `transcribe-recording`
+`manage-studies` · `add-study` · `remove-study` · `rename-study` · `set-study-status` · `download-references` · `check-references` · `regenerate-study-pdf` · `refine-studies-index` · `update-study-presentation` · `update-presenters-companion` · `transcribe-recording` · `sync-master-clean-branches`
 
 ---
 
