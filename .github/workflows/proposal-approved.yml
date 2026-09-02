@@ -70,7 +70,7 @@ jobs:
             const body = [
               '### Proposal approved',
               '',
-              'Thank you — this study proposal is approved. A pre-catalog study directory will be created on the default branch (proposal stub markdown, HTML, and PDF). The study is **not** listed on the public index until your first draft pull request is merged.',
+              'Thank you — this study proposal is approved. A pre-catalog study directory will be created on the default branch (proposal stub markdown, HTML, and PDF). The study appears on the public index as **Planned**, without a public read/download link, until your first draft pull request is merged.',
               '',
               '#### Recommended: Web Submission Portal',
               '',
@@ -189,7 +189,7 @@ jobs:
           set -euo pipefail
           gh pr create --base master --head "$BRANCH" \
             --title "ci: bootstrap pre-catalog study for proposal #$ISSUE_NUMBER" \
-            --body "Automated pre-catalog stub for #$ISSUE_NUMBER. The study is not listed on the public index until the first draft pull request merges."
+            --body "Automated pre-catalog stub for #$ISSUE_NUMBER. The study appears on the public index as Planned, without a public read/download link, until the first draft pull request merges."
           gh pr merge "$BRANCH" --merge --delete-branch
 
       - name: Report when there was nothing to bootstrap

@@ -33,7 +33,7 @@ python Scripts/_add_study.py "Studies/<Slug>/<Slug>.md" `
 Windows wrapper:
 
 ```powershell
-.\Scripts\_add_study.ps1 "Studies\<Slug>.md" `
+.\Scripts\_add_study.ps1 "Studies\<Slug>\<Slug>.md" `
   -Category "Ontology" `
   -Description "One-line catalog summary"
 ```
@@ -43,8 +43,8 @@ Omit `--category`, `--description`, `--tags` in an interactive terminal to be pr
 ## What the script does
 
 1. Sets `**Author:**`, `**Edited on:**`, `**Status:**` in the `.md`
-2. Regenerates `Studies/<Slug>.pdf` (Draft watermark when `--status draft`)
-3. Upserts catalog entry in `Studies/index.html` (JSON) and `Studies/README.md` (markdown table)
+2. Regenerates `Studies/<Slug>/<Slug>.html` and `.pdf` (Draft watermark when `--status draft`)
+3. Upserts the catalog JSON and `Studies/README.md`, then rebuilds `Studies/index.html`
 4. Updates `References/README.md` and `References/MANIFEST.md` (skipped for Ongoing)
 
 ## Registration modes

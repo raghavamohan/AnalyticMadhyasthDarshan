@@ -17,17 +17,16 @@ hand-written Puppeteer scripts, or other one-off converters.
 ```powershell
 pip install -r requirements.txt
 cd Scripts
-npm install
+npm ci
 cd ..
 ```
 
-`npm install` in `Scripts/` installs **Puppeteer**, **pdf-lib**, **mermaid** (for
+`npm ci` in `Scripts/` installs the exact versions pinned by `package-lock.json`,
+including **Puppeteer**, **pdf-lib**, **mermaid** (for
 ` ```mermaid ` diagrams in studies), and **katex** (for `$...$` / `$$...$$` math). CI runs
 `npm ci` in `Scripts/` automatically.
 
-Prefer `npm ci` locally too: it installs exactly what `package-lock.json` pins,
-including the Chrome build every regeneration must use. Then fetch that
-Chrome once:
+Fetch the Chrome build every regeneration must use once after installing:
 
 ```powershell
 cd Scripts
@@ -140,23 +139,6 @@ The second form validates SVG figures for all studies.
 - **PDF sidebar bookmarks** — document outline from `h1`–`h3` via `outline: true` in
   `_html_to_pdf.js`; verified by `_verify_pdf_outline.py`
 - Optional page watermark — `--watermark` on `_convert_to_pdf.py`
-
-## Regenerate one or all studies
-
-Single study — replace `<Name>` with the file stem (e.g. `Aesthetics`):
-
-```powershell
-python Scripts/_regenerate_pdf.py <Name>
-```
-
-All studies:
-
-```powershell
-$studies = Get-ChildItem Studies -Directory
-foreach ($s in $studies) {
-  python Scripts/_regenerate_pdf.py $s.Name
-}
-```
 
 ## After conversion
 

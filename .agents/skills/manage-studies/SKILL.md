@@ -26,7 +26,7 @@ Orchestration skill for the study lifecycle. Read the focused skill for your tas
 ## Repository model
 
 - **Source of truth:** `Studies/<Slug>/<Slug>.md`
-- **Published output:** `Studies/<Slug>.pdf` (generated; never edit by hand)
+- **Published output:** `Studies/<Slug>/<Slug>.html` and `.pdf` (generated; never edit by hand)
 - **Companion deck artifacts** (generated; a study folder may hold more than one deck): `<Deck>.pptx` is the source of truth, and it produces `<Deck>.pdf` (slides only — what the index links), `<Deck>-notes.pdf` (slide plus read-aloud script per page, for the presenter), and alongside them `Presenters-Companion-<Name>.md` → `.notes.json` / `.docx` / `.pdf` (script plus background and Q&A). Deck-only changes never touch `**Edited on:**` or catalog timestamps.
 - **Catalogs:** `Studies/index.html` (JSON + card UI shell), `Studies/README.md` (markdown tables; updated by scripts)
 - **Index shell source:** `Scripts/_build_studies_index.py` (`INDEX_TEMPLATE`) — edit template, run `python Scripts/_build_studies_index.py`, verify with `python Scripts/_verify_studies_index.py`
@@ -51,8 +51,11 @@ branch/PR-label/template workflow; this skill covers file-level correctness only
 From repo root (PowerShell):
 
 ```powershell
-pip install pypdf markdown
-Set-Location Scripts; npm install; Set-Location ..
+pip install -r requirements.txt
+Set-Location Scripts
+npm ci
+npx puppeteer browsers install chrome
+Set-Location ..
 ```
 
 ## Which script?
@@ -68,7 +71,9 @@ Edit read-aloud scripts only?   → [update-presenters-companion](../update-pres
 Quote check before PR?          → `python Scripts/_quote_tool.py verify --study <Slug>`
 ```
 
-Always run scripts from the **repository root**. Append `--dry-run` to preview.
+Always run scripts from the **repository root**. The lifecycle entry points
+`_add_study.py`, `_remove_study.py`, and `_set_study_status.py` support
+`--dry-run`; check `--help` rather than assuming unrelated commands do.
 
 ## After any study change
 
@@ -76,7 +81,7 @@ Confirm before finishing:
 
 - [ ] `**Edited on:**` in `.md` matches catalog **Last updated on** (abbreviated month in catalog)
 - [ ] `**Status:**` in `.md` matches catalog Draft/Released (if published)
-- [ ] PDF regenerated when content or status changed (Mermaid studies: `npm install` in `Scripts/`)
+- [ ] PDF regenerated when content or status changed (pinned Node dependencies and Chrome installed under `Scripts/`)
 - [ ] `Studies/catalog-*.json` and `Studies/README.md` table rows stay in sync (use `write_studies_catalog` via scripts — never hand-edit JSON)
 - [ ] After landing-page UI changes: `INDEX_TEMPLATE` updated in `_build_studies_index.py`, shell rebuilt, `python Scripts/_verify_studies_index.py` passes
 - [ ] Change is on a feature branch (not the default branch); the PR to open carries exactly one
