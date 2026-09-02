@@ -1,16 +1,17 @@
-"""Remove a study from Studies/ and update catalog files.
+"""Remove a study from Studies/ or Applications/ and update catalog files.
 
 Usage:
   python Scripts\\_remove_study.py Study-Slug
   python Scripts\\_remove_study.py Why-Humans-Are-Not-Just-Material --dry-run
   python Scripts\\_remove_study.py Study-Slug --yes
 
-Deletes the study .md, .pdf, and local .html (if present), and updates index.html,
-Studies/README.md, References/README.md, and References/MANIFEST.md.
+Deletes the complete study directory and updates the catalog, proposal registry,
+References/README.md, and References/MANIFEST.md.
 """
 from __future__ import annotations
 
 import argparse
+import json
 import shutil
 from pathlib import Path
 
@@ -23,13 +24,13 @@ from _common import (
     study_md,
     study_pdf,
     study_pdf_ref_path,
+    validate_study_slug,
     write_text_lf,
 )
 from _study_catalog import (
     StudyTable,
     find_study_table,
     load_catalog_rows,
-    parse_references_readme_rows,
     remove_manifest_paper_block,
     remove_study_row,
     write_references_readme_row,
@@ -42,13 +43,20 @@ MANIFEST_LABELS: dict[str, str] = {
     "Human-Behavior-And-Society": "Human-Behavior",
     "The-Coexistence-Template": "Coexistence-Template",
     "Category-Theory-Explained": "Category-Theory",
+    "The-Epistemology-of-Coexistence": "Knowledge-Knower",
+    "Ethics-And-Morals-In-Human-Beings": "Ethics-And-Morals",
 }
+PROPOSAL_REGISTRY_PATH = STUDIES / "proposal-registry.json"
 
 
 def normalize_slug(value: str) -> str:
     slug = value.strip().removesuffix(".md").removesuffix(".pdf").removesuffix(".html")
     if not slug:
-        raise ValueError("Study slug must not be empty.")
+        raise SystemExit("Study slug must not be empty.")
+    try:
+        validate_study_slug(slug)
+    except ValueError as exc:
+        raise SystemExit(str(exc)) from exc
     return slug
 
 
@@ -76,19 +84,48 @@ def study_files(slug: str) -> list[Path]:
     return [study_md(slug), study_pdf(slug), study_html(slug)]
 
 
-def strip_cited_in(value: str, removed_label: str, remaining_labels: list[str]) -> str:
+def manifest_aliases(slug: str) -> set[str]:
+    """Names used for one study in MANIFEST.md's historical By-tag column."""
+    return {slug, manifest_label(slug)}
+
+
+def _split_cited_in(value: str) -> list[str]:
+    """Split comma/semicolon lists without cutting explanatory parentheses."""
+    parts: list[str] = []
+    start = 0
+    depth = 0
+    for index, char in enumerate(value):
+        if char == "(":
+            depth += 1
+        elif char == ")" and depth:
+            depth -= 1
+        elif char in {",", ";"} and depth == 0:
+            part = value[start:index].strip()
+            if part:
+                parts.append(part)
+            start = index + 1
+    tail = value[start:].strip()
+    if tail:
+        parts.append(tail)
+    return parts
+
+
+def strip_cited_in(value: str, removed_aliases: set[str]) -> str:
     text = value.strip()
     if text == "all Studies papers above":
         return text
-    if text.startswith(removed_label):
-        return "(none — review MANIFEST.md)"
-    parts = [part.strip() for part in text.split(",")]
+    parts = _split_cited_in(text)
+
+    def is_removed(part: str) -> bool:
+        return any(
+            part == alias or part.startswith(f"{alias} ") or part.startswith(f"{alias}(")
+            for alias in removed_aliases
+        )
+
     kept = [
         part
         for part in parts
-        if part
-        and not part.startswith(removed_label)
-        and removed_label not in part.split()[0:1]
+        if part and not is_removed(part)
     ]
     if not kept:
         return "(none — review MANIFEST.md)"
@@ -97,8 +134,7 @@ def strip_cited_in(value: str, removed_label: str, remaining_labels: list[str]) 
 
 def update_manifest_tag_section(
     content: str,
-    removed_label: str,
-    remaining_labels: list[str],
+    removed_aliases: set[str],
 ) -> str:
     start = content.find("## By tag")
     end = content.find("## Summary")
@@ -118,10 +154,26 @@ def update_manifest_tag_section(
         if len(cells) < 3:
             updated_lines.append(line)
             continue
-        cells[2] = strip_cited_in(cells[2], removed_label, remaining_labels)
+        cells[2] = strip_cited_in(cells[2], removed_aliases)
         updated_lines.append("| " + " | ".join(cells) + " |")
 
     return before + "\n".join(updated_lines) + "\n" + after
+
+
+def remove_registry_row(slug: str, *, dry_run: bool) -> bool:
+    """Remove proposal metadata that would otherwise recreate a retired study."""
+    if not PROPOSAL_REGISTRY_PATH.is_file():
+        return False
+    data = json.loads(PROPOSAL_REGISTRY_PATH.read_text(encoding="utf-8"))
+    proposals = list(data.get("proposals", []))
+    filtered = [row for row in proposals if row.get("slug") != slug]
+    if len(filtered) == len(proposals):
+        return False
+    if dry_run:
+        return True
+    data["proposals"] = filtered
+    write_text_lf(PROPOSAL_REGISTRY_PATH, json.dumps(data, indent=2) + "\n")
+    return True
 
 
 def confirm_removal(slug: str, paths: list[Path]) -> bool:
@@ -168,6 +220,8 @@ def remove_study(
         print("Would delete:")
         for path in existing_paths or paths:
             print(f"  - {path}")
+        if remove_registry_row(slug, dry_run=True):
+            print(f"Would remove {slug} from {PROPOSAL_REGISTRY_PATH}")
         print("\nDry run — no files changed.")
         return
 
@@ -182,6 +236,9 @@ def remove_study(
         else:
             path.unlink()
             print(f"Deleted {path}")
+
+    if remove_registry_row(slug, dry_run=False):
+        print(f"Updated {PROPOSAL_REGISTRY_PATH}")
 
     if table is not None:
         rows = load_catalog_rows(table)
@@ -202,30 +259,25 @@ def remove_study(
         write_references_readme_row(slug, "", remove=True)
         print(f"Updated {REFERENCES / 'README.md'}")
 
-        ref_text = (REFERENCES / "README.md").read_text(encoding="utf-8")
-        ref_rows = parse_references_readme_rows(ref_text)
-        remaining_labels = sorted(manifest_label(s) for s, _ in ref_rows)
-
         manifest_path = REFERENCES / "MANIFEST.md"
         manifest_text = manifest_path.read_text(encoding="utf-8")
         manifest_text = remove_manifest_paper_block(manifest_text, slug)
         manifest_text = update_manifest_tag_section(
             manifest_text,
-            removed_label,
-            remaining_labels,
+            manifest_aliases(slug),
         )
         write_text_lf(manifest_path, manifest_text)
         print(f"Updated {manifest_path}")
 
     print("\nDone. Next steps:")
-    print("  1. Search other Studies for cross-links to this paper and remove them.")
+    print("  1. Remove or retarget cross-study links to this paper; study PR CI rejects stale links.")
     print(f"  2. Review {REFERENCES / 'MANIFEST.md'} summary counts if needed.")
     print("  3. Commit the deletions and catalog updates.")
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Remove a study from Studies/ and update catalog files.",
+        description="Remove a study from Studies/ or Applications/ and update catalog files.",
     )
     parser.add_argument(
         "slug",

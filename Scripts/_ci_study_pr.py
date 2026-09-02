@@ -24,6 +24,7 @@ from _verify_studies_index import collect_index_errors  # noqa: E402
 from _check_references import run_checks, print_report  # noqa: E402
 from _study_catalog import (  # noqa: E402
     StudyStatus,
+    display_title,
     get_study_row,
     load_catalog_rows,
     parse_edited_on,
@@ -33,6 +34,7 @@ from _study_catalog import (  # noqa: E402
     verify_timestamp_sync,
     write_studies_catalog,
 )
+from _study_links import cross_study_section_errors, links_to_slug  # noqa: E402
 
 PR_LABELS = ("new-study", "study-update", "status-change")
 ISSUE_FORM_HEADINGS = {
@@ -144,6 +146,10 @@ def _git(*args: str) -> str:
         cwd=BASE,
         check=False,
     )
+    if result.returncode != 0:
+        command = "git " + " ".join(args)
+        detail = result.stderr.strip() or result.stdout.strip() or "unknown Git error"
+        raise SystemExit(f"{command} failed: {detail}")
     return result.stdout
 
 
@@ -176,14 +182,23 @@ def references_changed(base_ref: str) -> bool:
 # Touching any of these changes how every PDF is rendered, so the study PDF has to
 # be rebuilt even when the markdown itself is untouched.
 PDF_PIPELINE_PATHS = (
+    "CNAME",
+    "requirements.txt",
+    "Studies/glossary.json",
+    "Scripts/_build_discussion_pages.py",
+    "Scripts/_chrome.js",
+    "Scripts/_common.py",
     "Scripts/_convert_to_pdf.py",
+    "Scripts/_glossary_tooltips.py",
     "Scripts/_html_to_pdf.js",
     "Scripts/_pdf_metadata.py",
     "Scripts/_regenerate_pdf.py",
+    "Scripts/_render_katex_math.js",
     "Scripts/_study_catalog.py",
     "Scripts/package.json",
     "Scripts/package-lock.json",
 )
+PDF_PIPELINE_PREFIXES = ("Assets/KaTeX/",)
 
 
 def pdf_regeneration_reason(base_ref: str, slug: str) -> str | None:
@@ -208,7 +223,7 @@ def pdf_regeneration_reason(base_ref: str, slug: str) -> str | None:
         # Only figures inside the study's own directory can appear in its PDF.
         if path.startswith(f"{study_dir}/") and path.lower().endswith((".svg", ".png", ".jpg", ".jpeg")):
             return f"a figure changed ({path})"
-        if path in PDF_PIPELINE_PATHS:
+        if path in PDF_PIPELINE_PATHS or path.startswith(PDF_PIPELINE_PREFIXES):
             return f"the PDF pipeline changed ({path})"
     return None
 
@@ -273,8 +288,16 @@ def proposal_metadata_from_issue(issue_number: int) -> tuple[str, str, bool]:
 def changed_study_slugs(base_ref: str) -> list[str]:
     slugs: list[str] = []
     seen: set[str] = set()
-    for _status, path in changed_paths(base_ref):
-        slug = slug_from_repo_relative_path(Path(path))
+    for status, path in changed_paths(base_ref):
+        candidate = Path(path)
+        # Deleted paths cannot be resolved on disk. Read them lexically so a PR
+        # that removes several studies validates every removal, not only the one
+        # named in the body. Existing paths still use the stricter resolver.
+        slug = (
+            slug_from_path_lexical(candidate)
+            if status == "D"
+            else slug_from_repo_relative_path(candidate)
+        )
         if slug and slug not in seen:
             seen.add(slug)
             slugs.append(slug)
@@ -293,26 +316,44 @@ def slug_from_path_lexical(path: Path) -> str | None:
     always resolved to None and no rename was ever detected.
     """
     parts = path.parts
-    if len(parts) < 2 or parts[0] not in STUDY_ROOTS:
+    if len(parts) < 3 or parts[0] not in STUDY_ROOTS:
         return None
     return parts[1] or None
 
 
-def detect_study_rename(base_ref: str) -> tuple[str, str] | None:
-    # A git-detected rename is authoritative, so check the raw R records first.
+def canonical_study_md_slug(path: Path) -> str | None:
+    """Return the slug only for ``<root>/<slug>/<slug>.md``."""
+    slug = slug_from_path_lexical(path)
+    if slug is None or path.name != f"{slug}.md":
+        return None
+    return slug
+
+
+def detect_study_renames(base_ref: str) -> list[tuple[str, str]]:
+    """Detect canonical study-directory renames, including multiple renames."""
+    detected: list[tuple[str, str]] = []
+    # Git-detected canonical markdown renames are authoritative. A moved figure
+    # or companion file between studies is not a study rename.
     for line in _git("diff", "--name-status", f"{base_ref}...HEAD").splitlines():
         parts = line.split("\t")
         if len(parts) >= 3 and parts[0].startswith("R"):
-            old_slug = slug_from_path_lexical(Path(parts[1]))
-            new_slug = slug_from_path_lexical(Path(parts[2]))
+            old_slug = canonical_study_md_slug(Path(parts[1]))
+            new_slug = canonical_study_md_slug(Path(parts[2]))
             if old_slug and new_slug and old_slug != new_slug:
-                return old_slug, new_slug
+                pair = (old_slug, new_slug)
+                if pair not in detected:
+                    detected.append(pair)
 
-    # Otherwise infer it from exactly one slug disappearing and one appearing.
+    if detected:
+        return detected
+
+    # Otherwise infer one rename from exactly one canonical source disappearing
+    # and one appearing. More than one add/delete pair is ambiguous without Git
+    # rename records and is handled as independent additions/removals.
     removed_slugs: set[str] = set()
     added_slugs: set[str] = set()
     for status, path in changed_paths(base_ref):
-        slug = slug_from_path_lexical(Path(path))
+        slug = canonical_study_md_slug(Path(path))
         if not slug:
             continue
         if status == "D":
@@ -324,8 +365,22 @@ def detect_study_rename(base_ref: str) -> tuple[str, str] | None:
     removed_only = removed_slugs - added_slugs
     added_only = added_slugs - removed_slugs
     if len(removed_only) == 1 and len(added_only) == 1:
-        return removed_only.pop(), added_only.pop()
-    return None
+        return [(removed_only.pop(), added_only.pop())]
+    return []
+
+
+def detect_study_rename(base_ref: str) -> tuple[str, str] | None:
+    """Backward-compatible single-rename view used by callers/tests."""
+    renames = detect_study_renames(base_ref)
+    return renames[0] if len(renames) == 1 else None
+
+
+def changed_markdown_slugs(base_ref: str) -> set[str]:
+    return {
+        slug
+        for status, path in changed_paths(base_ref)
+        if status != "D" and (slug := canonical_study_md_slug(Path(path))) is not None
+    }
 
 
 def registry_row_for_slug(slug: str) -> dict | None:
@@ -365,24 +420,50 @@ def verify_removal_metadata(slug: str) -> None:
         errors.append(
             f"proposal-registry.json still lists removed slug {slug}; remove its proposal entry."
         )
+    for link in links_to_slug(slug):
+        errors.append(
+            f"{link.source.relative_to(BASE)}:{link.line} still links to removed slug "
+            f"{slug} ({link.target})."
+        )
     if errors:
         raise SystemExit("Study removal verification failed:\n  - " + "\n  - ".join(errors))
 
 
-def verify_rename_metadata(old_slug: str, new_slug: str) -> None:
+def verify_rename_metadata(
+    old_slug: str,
+    new_slug: str,
+    expected_title: str | None = None,
+) -> None:
     errors: list[str] = []
     if registry_row_for_slug(old_slug):
         errors.append(
             f"proposal-registry.json still lists old slug {old_slug}; run _rename_study.py metadata sync."
         )
-    if not registry_row_for_slug(new_slug):
+    registry_row = registry_row_for_slug(new_slug)
+    if not registry_row:
         errors.append(
             f"proposal-registry.json is missing new slug {new_slug}; run _rename_study.py metadata sync."
+        )
+    elif expected_title and registry_row.get("title") != expected_title:
+        errors.append(
+            f"proposal-registry.json title for {new_slug} is not {expected_title!r}."
         )
     meta_path = STUDIES / new_slug / ".proposal-meta.json"
     applied_meta = BASE / "Applications" / new_slug / ".proposal-meta.json"
     if not meta_path.is_file() and not applied_meta.is_file():
         errors.append(f"Missing .proposal-meta.json under {new_slug}.")
+    else:
+        chosen_meta = meta_path if meta_path.is_file() else applied_meta
+        meta = json.loads(chosen_meta.read_text(encoding="utf-8"))
+        if meta.get("slug") != new_slug:
+            errors.append(f"{chosen_meta}: metadata slug is not {new_slug}.")
+        if expected_title and meta.get("title") != expected_title:
+            errors.append(f"{chosen_meta}: metadata title is not {expected_title!r}.")
+    for link in links_to_slug(old_slug):
+        errors.append(
+            f"{link.source.relative_to(BASE)}:{link.line} still links to old slug "
+            f"{old_slug} ({link.target})."
+        )
     if errors:
         raise SystemExit("Rename metadata verification failed:\n  - " + "\n  - ".join(errors))
 
@@ -432,6 +513,17 @@ def active_pr_label(labels: list[dict]) -> str | None:
             f"Apply only one study PR label; found: {', '.join(names)}."
         )
     return names[0]
+
+
+def reject_other_study_changes(base_ref: str, allowed: set[str], label: str) -> None:
+    """Keep single-purpose PR types from silently carrying other study edits."""
+    extras = sorted(set(changed_study_slugs(base_ref)) - allowed)
+    if extras:
+        raise SystemExit(
+            f"A `{label}` PR may only change {', '.join(sorted(allowed))}; "
+            f"also changed: {', '.join(extras)}. Use a `study-update` PR for "
+            "multi-study content changes."
+        )
 
 
 def sync_catalog_timestamp_from_md(slug: str) -> None:
@@ -499,6 +591,7 @@ def handle_new_study(body: str, base_ref: str) -> None:
     issue_is_approved(issue_number)
 
     slug = resolve_slug(body, base_ref, allow_changed=True)
+    reject_other_study_changes(base_ref, {slug}, "new-study")
     md_path = study_md(slug)
     if not md_path.exists():
         raise SystemExit(f"Expected study markdown at {md_path}")
@@ -543,29 +636,42 @@ def handle_new_study(body: str, base_ref: str) -> None:
 
 
 def handle_study_update(body: str, base_ref: str) -> None:
-    rename = detect_study_rename(base_ref)
-    if rename:
-        old_slug, new_slug = rename
-        primary_slug = resolve_slug(body, base_ref, rename=rename, allow_changed=True)
-        if primary_slug != new_slug:
+    renames = detect_study_renames(base_ref)
+    rename_targets = {new_slug for _old_slug, new_slug in renames}
+    rename_sources = {old_slug for old_slug, _new_slug in renames}
+    if renames:
+        primary_slug = resolve_slug(
+            body,
+            base_ref,
+            rename=renames[0] if len(renames) == 1 else None,
+            allow_changed=True,
+        )
+        if primary_slug not in rename_targets:
             raise SystemExit(
-                f"Directory rename {old_slug} -> {new_slug} requires "
-                f"`Study slug: {new_slug}` in the PR body."
+                "A rename PR must name one new slug in its body; expected one of: "
+                + ", ".join(sorted(rename_targets))
             )
-        print(f"Detected study rename: {old_slug} -> {new_slug}")
-        command = [
-            sys.executable,
-            str(SCRIPTS / "_rename_study.py"),
-            "--from",
-            old_slug,
-            "--to",
-            new_slug,
-            "--metadata-only",
-            "--skip-pdf",
-        ]
-        print("Running:", " ".join(command))
-        subprocess.run(command, check=True, cwd=BASE)
-        verify_rename_metadata(old_slug, new_slug)
+        for old_slug, new_slug in renames:
+            print(f"Detected study rename: {old_slug} -> {new_slug}")
+            located = get_study_row(new_slug)
+            if located is None:
+                raise SystemExit(f"Renamed study is missing from the catalog: {new_slug}")
+            title = display_title(located[0])
+            command = [
+                sys.executable,
+                str(SCRIPTS / "_rename_study.py"),
+                "--from",
+                old_slug,
+                "--to",
+                new_slug,
+                "--title",
+                title,
+                "--metadata-only",
+                "--skip-pdf",
+            ]
+            print("Running:", " ".join(command))
+            subprocess.run(command, check=True, cwd=BASE)
+            verify_rename_metadata(old_slug, new_slug, title)
 
     changed_slugs = changed_study_slugs(base_ref) if base_ref else []
     body_slug = None
@@ -573,17 +679,21 @@ def handle_study_update(body: str, base_ref: str) -> None:
     if raw:
         body_slug = normalize_pr_slug(raw)
 
+    if changed_slugs and body_slug and body_slug not in changed_slugs:
+        raise SystemExit(
+            f"PR body names {body_slug}, but that study is not changed. "
+            "Set `Study slug:` to one of: " + ", ".join(changed_slugs)
+        )
+
     target_slugs: list[str] = []
     if changed_slugs:
-        target_slugs = list(changed_slugs)
-        if body_slug and body_slug not in target_slugs:
-            target_slugs.append(body_slug)
+        target_slugs = [slug for slug in changed_slugs if slug not in rename_sources]
     elif body_slug:
         target_slugs = [body_slug]
-    elif rename:
-        target_slugs = [rename[1]]
+    elif renames:
+        target_slugs = sorted(rename_targets)
     else:
-        target_slugs = [resolve_slug(body, base_ref, rename=rename, allow_changed=True)]
+        target_slugs = [resolve_slug(body, base_ref, allow_changed=True)]
 
     print(f"Processing study update for {len(target_slugs)} study slug(s): {', '.join(target_slugs)}")
 
@@ -636,9 +746,17 @@ def handle_study_update(body: str, base_ref: str) -> None:
             if study_references_changed(base_ref, slug):
                 run_reference_checks(study=slug)
 
+    section_errors = cross_study_section_errors(changed_markdown_slugs(base_ref))
+    if section_errors:
+        raise SystemExit(
+            "Cross-study section reference verification failed:\n  - "
+            + "\n  - ".join(section_errors)
+        )
 
-def handle_status_change(body: str, base_ref: str) -> None:  # noqa: ARG001 - uniform signature
+
+def handle_status_change(body: str, base_ref: str) -> None:
     slug = resolve_slug(body)
+    reject_other_study_changes(base_ref, {slug}, "status-change")
     target = parse_body_field(body, r"^Target status:\s*(\w+)")
     if not target:
         raise SystemExit("PR body must include `Target status: draft` or `released`.")

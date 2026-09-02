@@ -11,12 +11,16 @@ explicitly requested because the pull-request work itself is incomplete.
 | Change | Template | Label | Required body field(s) |
 |--------|----------|-------|-------------------------|
 | Add a new study (after `proposal-approved`) | [new-study](?expand=1&template=new-study.md) | `new-study` | `Proposal issue: #N` and `Slug: <Slug>` |
-| Edit an existing study (including companion files under that study folder) | [study-update](?expand=1&template=study-update.md) | `study-update` | `Study slug: <Slug>` |
+| Edit, rename, or remove one or more studies (including companion files) | [study-update](?expand=1&template=study-update.md) | `study-update` | `Study slug: <primary Slug>` |
 | Change draft ↔ released | [status-change](?expand=1&template=status-change.md) | `status-change` | `Study slug: <Slug>` and `Target status: draft` / `released` |
 
 ### Required field format (CI)
 
 `Scripts/_ci_study_pr.py` reads these fields with a line-start regex. Put each on its **own line**, with a **bare catalog slug** (directory name under `Studies/` or `Applications/`).
+
+`new-study` and `status-change` PRs are single-purpose. Use `study-update` for
+intentional multi-study edits, including inbound link and section-reference repairs
+required by a rename or heading change.
 
 ```text
 Study slug: The-Ontology-of-Coexistence

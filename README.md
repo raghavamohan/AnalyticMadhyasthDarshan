@@ -101,7 +101,7 @@ python Scripts/_check_references.py
 python Scripts/_verify_studies_index.py
 ```
 
-Site operators: copy [`.env.example`](.env.example) to `.env` at the repo root (gitignored). Set `CLOUDFLARE_API_TOKEN` for `python Scripts/_cloudflare_performance.py` (edge security: see [infra/worker/README.md](infra/worker/README.md#cloudflare-edge-configuration-not-in-this-repo)); set `R2_*` (or `AWS_*` aliases) for S3-compatible R2 access; set `GITHUB_TOKEN` for local proposal-bootstrap helpers. Worker runtime secrets (OAuth, Turnstile) live in Wrangler — see [infra/worker/README.md](infra/worker/README.md) and [infra/discussions-worker/README.md](infra/discussions-worker/README.md). Baseline metrics live in `infra/cloudflare-rum-baseline.json`.
+Site operators: copy [`.env.example`](.env.example) to `.env` at the repo root (gitignored). Set `CLOUDFLARE_API_TOKEN` for `python Scripts/_cloudflare_performance.py` (edge security: see [infra/worker/README.md](infra/worker/README.md#cloudflare-edge-configuration-not-in-this-repo)); set `R2_*` (or `AWS_*` aliases) for S3-compatible R2 access; set `GITHUB_TOKEN` and `GITHUB_REPOSITORY` for local proposal-bootstrap or study-rename issue synchronization. Worker runtime secrets (OAuth, Turnstile) live in Wrangler — see [infra/worker/README.md](infra/worker/README.md) and [infra/discussions-worker/README.md](infra/discussions-worker/README.md). Baseline metrics live in `infra/cloudflare-rum-baseline.json`.
 
 ### Study lifecycle
 
@@ -115,7 +115,7 @@ Published studies carry `**Edited on:**` and `**Status:**` in the `.md` file. Re
 
 Recurring Hindi and darshan terms across studies belong in [Studies/glossary.json](Studies/glossary.json) (`python Scripts/_verify_glossary.py` after edits).
 
-Every change under `Studies/` — by a human contributor or an agent — goes through a feature branch and a pull request labeled `new-study`, `study-update`, or `status-change`, never a direct commit to `master`. That includes companion-only edits (`.pptx`, research notes, figures) under a study folder. Use the matching template in [`.github/PULL_REQUEST_TEMPLATE/`](.github/PULL_REQUEST_TEMPLATE/) (see the chooser [`.github/pull_request_template.md`](.github/pull_request_template.md)) and put the required body field on its own line with a **bare** catalog slug — e.g. `Study slug: The-Ontology-of-Coexistence` with no parenthetical notes on that line. See [CONTRIBUTING.md](CONTRIBUTING.md) for the contributor-facing flow and [AGENTS.md](AGENTS.md) §7 for the full local checklist before pushing.
+Every change under `Studies/` or `Applications/` — by a human contributor or an agent — goes through a feature branch and a pull request labeled `new-study`, `study-update`, or `status-change`, never a direct commit to `master`. That includes companion-only edits (`.pptx`, research notes, figures) under a study folder. Use the matching template in [`.github/PULL_REQUEST_TEMPLATE/`](.github/PULL_REQUEST_TEMPLATE/) (see the chooser [`.github/pull_request_template.md`](.github/pull_request_template.md)) and put the required body field on its own line with a **bare** catalog slug — e.g. `Study slug: The-Ontology-of-Coexistence` with no parenthetical notes on that line. See [CONTRIBUTING.md](CONTRIBUTING.md) for the contributor-facing flow and [AGENTS.md](AGENTS.md) §7 for the full local checklist before pushing.
 
 ### Maintainer commands
 
@@ -129,14 +129,15 @@ Common entry points:
 |------|---------|
 | Add or register a study | `python Scripts\_add_study.py Studies\<Slug>\<Slug>.md --category "..." --description "..." --tags "MVD, SB, JV" --status draft` |
 | Remove a study | `python Scripts\_remove_study.py <Slug> --yes` |
+| Rename a study slug/title | `python Scripts\_rename_study.py --from <Old-Slug> --to <New-Slug> --title "New title"` |
 | Draft ↔ Released | `python Scripts\_set_study_status.py <Slug> --status released` |
 | Regenerate a study PDF/HTML | `python Scripts\_regenerate_pdf.py <Slug>` |
 | Regenerate a companion note | `python Scripts\_regenerate_pdf.py Studies\<Slug>\Research-Note.md` |
 | Verify references, catalog, and rules | `python Scripts\_check_references.py`; `python Scripts\_verify_studies_index.py`; `python Scripts\_sync_agent_rules.py --check` |
 
 Only commands whose `--help` lists `--dry-run` support a no-write preview. Among
-the commands shown above, `_add_study.py`, `_remove_study.py`, and
-`_set_study_status.py` do; do not append the flag to unrelated scripts.
+the commands shown above, `_add_study.py`, `_remove_study.py`, `_rename_study.py`,
+and `_set_study_status.py` do; do not append the flag to unrelated scripts.
 
 Windows wrappers are available for add, remove, rename, status,
 reference-download, and reference-check workflows under `Scripts\`.

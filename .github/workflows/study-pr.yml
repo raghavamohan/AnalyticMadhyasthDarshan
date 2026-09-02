@@ -24,7 +24,8 @@ on:
 permissions:
   contents: write
   pull-requests: write
-  issues: read
+  # Rename handling patches the linked proposal issue's slug and title.
+  issues: write
 
 concurrency:
   group: study-pr-${{ github.event.pull_request.number }}

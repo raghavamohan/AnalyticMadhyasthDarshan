@@ -5,7 +5,7 @@ Usage:
   python Scripts\\_set_study_status.py Study-Slug --status draft
   python Scripts\\_set_study_status.py Study-Slug
 
-Updates **Status:** and **Edited on:** in the markdown, the Topical or Formal Studies
+Updates **Status:** and **Edited on:** in the markdown, the Topical, Formal, or Applied
 catalog row in catalog-*.json and Studies/README.md, and regenerates the PDF
 (with or without the Draft watermark). write_studies_catalog() rebuilds
 Studies/index.html from the catalog as part of that write.
@@ -14,7 +14,16 @@ from __future__ import annotations
 
 import argparse
 
-from _common import STUDIES, known_study_slugs, study_dir, study_html, study_md, study_pdf, write_text_lf
+from _common import (
+    STUDIES,
+    known_study_slugs,
+    study_dir,
+    study_html,
+    study_md,
+    study_pdf,
+    validate_study_slug,
+    write_text_lf,
+)
 from _study_catalog import (
     StudyStatus,
     format_edited_on_md,
@@ -33,7 +42,11 @@ from _study_catalog import (
 def normalize_slug(value: str) -> str:
     slug = value.strip().removesuffix(".md").removesuffix(".pdf").removesuffix(".html")
     if not slug:
-        raise ValueError("Study slug must not be empty.")
+        raise SystemExit("Study slug must not be empty.")
+    try:
+        validate_study_slug(slug)
+    except ValueError as exc:
+        raise SystemExit(str(exc)) from exc
     return slug
 
 
@@ -67,7 +80,7 @@ def set_study_status(
     row, table = located
     if row.status == StudyStatus.ONGOING:
         raise SystemExit(
-            f"{slug} is an Ongoing placeholder (no PDF). "
+            f"{slug} is an Ongoing/Planned entry with no public study PDF. "
             "Register it with _add_study.py before changing Draft/Released status."
         )
 

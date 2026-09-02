@@ -19,6 +19,9 @@ REFERENCES = BASE / "References"
 CACHE = SCRIPTS / "_pdf_cache"
 SOURCE = REFERENCES / "Madhyasth-Darshan"
 DEFAULT_SITE_BASE_URL = "https://analyticmadhyasthdarshan.org"
+MAX_STUDY_SLUG_LEN = 60
+MAX_STUDY_MD_PATH_LEN = 200
+STUDY_SLUG_RE = re.compile(r"[A-Za-z0-9-]+")
 
 
 def write_text_lf(path: Path, text: str) -> bool:
@@ -182,6 +185,24 @@ def normalize_study_slug(value: str) -> str:
     if not slug:
         raise ValueError("Study slug must not be empty.")
     return slug
+
+
+def validate_study_slug(slug: str, *, root_name: str = "Studies") -> None:
+    """Enforce the portal and Windows-safe study slug contract."""
+    if not STUDY_SLUG_RE.fullmatch(slug):
+        raise ValueError(
+            f"Invalid study slug {slug!r}; use only letters, digits, and hyphens."
+        )
+    if len(slug) > MAX_STUDY_SLUG_LEN:
+        raise ValueError(
+            f"Study slug {slug!r} is {len(slug)} characters; keep it at or under "
+            f"{MAX_STUDY_SLUG_LEN}."
+        )
+    md_path = f"{root_name}/{slug}/{slug}.md"
+    if len(md_path) > MAX_STUDY_MD_PATH_LEN:
+        raise ValueError(
+            f"Path {md_path!r} would be {len(md_path)} characters; choose a shorter slug."
+        )
 
 
 def iter_study_md_paths() -> list[Path]:

@@ -3,7 +3,8 @@ name: rename-study
 description: >-
   Rename a study slug and/or display title using Scripts/_rename_study.py —
   moves the study directory, syncs catalogs, proposal-registry, GitHub proposal
-  issue, References paths, Start here links, and regenerated PDF/HTML. Use when
+  issue, References paths, and regenerated PDF/HTML; Start here and cross-study
+  links are verified for same-PR updates. Use when
   renaming a study, changing a catalog slug, fixing a too-long slug, or updating
   My Submissions after a rename.
 ---
@@ -20,10 +21,23 @@ keeps portal, catalog, and My Submissions metadata in sync. This is a
 2. Confirm the new slug:
    - Characters: letters, digits, hyphens only (`[A-Za-z0-9-]+`)
    - Length: **≤ 60** characters (portal rejects longer slugs)
-   - Path: `Studies/<Slug>/<Slug>.md` must stay ≤ 200 characters
+   - Path: the canonical `Studies/<Slug>/<Slug>.md` or
+     `Applications/<Slug>/<Slug>.md` must stay ≤ 200 characters
 3. Decide the new **display title** (H1 / catalog / proposal issue title).
 4. Note the proposal issue number if known (also in
    `Studies/<Old-Slug>/.proposal-meta.json` or `Studies/proposal-registry.json`).
+5. Before the non-dry-run command, configure proposal-issue authentication when
+   an issue number is present or auto-resolved:
+
+```powershell
+$env:GITHUB_TOKEN = (gh auth token)
+$env:GITHUB_REPOSITORY = "raghavamohan/AnalyticMadhyasthDarshan"
+```
+
+   If authentication is unavailable, pass `--skip-issue`; labeled CI can finish
+   the issue synchronization on the PR branch. The script checks these variables
+   before making local changes, so missing authentication cannot leave a partial
+   local rename.
 
 ## Core command
 
@@ -55,11 +69,11 @@ Windows wrapper: `.\Scripts\_rename_study.ps1` (same flags).
 
 ### What the script updates
 
-- Directory and stem-matched files: `<Old>.md` / `.html` / `.pdf` → `<New>.*`
-  (companion decks with other basenames move with the folder unchanged)
-- Topical/formal/applied catalog row (slug + title)
-- `Studies/proposal-registry.json` and `Studies/<New-Slug>/.proposal-meta.json`
-- `References/README.md` and `References/MANIFEST.md` study PDF/HTML paths
+- Canonical files: `<Old>.md` / `.html` / `.pdf` → `<New>.*`; prefix-named
+  companion decks and notes move with the folder **without** changing basename
+- Topical/formal/applied catalog row (slug + title), preserving its display position
+- `Studies/proposal-registry.json` and the new study/application `.proposal-meta.json`
+- `References/README.md` and `References/MANIFEST.md` study PDF/HTML paths and labels
 - GitHub proposal issue: `### Slug`, `### Proposed title`, and
   `Study proposal: <title>` issue title (unless `--skip-issue`)
 - Regenerated study PDF, HTML, and discussion page (unless `--skip-pdf`)
@@ -73,22 +87,19 @@ Complete these on the same feature branch before opening the PR:
 2. **`**Edited on:**`** — refresh with real IST time
    (`Get-Date -Format "MMMM d, yyyy, h:mm tt"` + ` IST`), then sync catalog
    **Last updated on** (abbreviated month). See [AGENTS.md](../../../AGENTS.md) §1.
-3. **Display order** — if the slug appears in
-   `TOPICAL_DISPLAY_ORDER` in `Scripts/_study_catalog.py`, replace the old slug.
-4. **Start here path** — if the study is a core stage in
+3. **Start here path** — if the study is a core stage in
    `Scripts/_build_studies_index.py` (`INDEX_TEMPLATE`), update
    `data-study-slug`, presentation PDF hrefs, discuss link, and visible title;
-   then `python Scripts/_build_studies_index.py` and
-   `python Scripts/_verify_studies_index.py`.
-5. **Agent docs** — update path mentions in `AGENTS.md` (and any skill text)
+   then rebuild and verify. CI rejects a Start here slug that is no longer in the catalog.
+4. **Agent docs** — update path mentions in `AGENTS.md` (and any skill text)
    that cite `Studies/<Old-Slug>/…`; run
    `python Scripts/_sync_agent_rules.py` and `--check` when `AGENTS.md` or
    `.agents/skills/**` change.
-6. **References link text** — script rewrites paths; if the markdown link label
-   still shows `<Old-Slug>.pdf`, rename the label to match.
-7. **Cross-study links** — other studies’ `.md` files that point at the old
-   slug are **out of scope for this PR**. [AGENTS.md](../../../AGENTS.md) §7:
-   one study slug per `study-update` PR. Open follow-up PRs per linked study.
+5. **Cross-study links** — update every other study `.md` that points at the old
+   slug in this **same multi-study `study-update` PR**. Refresh each affected
+   study's Edited on/catalog timestamp and regenerate its PDF. CI rejects stale
+   links to the old slug and validates linked `§` numbers entering/leaving every
+   changed markdown source.
 
 ## My Submissions (portal)
 
@@ -104,9 +115,7 @@ My Submissions (`Studies/submit.html` → `GET /api/me/submissions`) joins:
 If you used `--skip-issue`, finish with either:
 
 ```powershell
-# Preferred: metadata-only rename sync (needs GITHUB_TOKEN + GITHUB_REPOSITORY)
-$env:GITHUB_TOKEN = (gh auth token)
-$env:GITHUB_REPOSITORY = "raghavamohan/AnalyticMadhyasthDarshan"
+# Authentication variables must already be set as described in Before you start.
 python Scripts/_rename_study.py --from Old-Slug --to New-Slug --title "New display title" --metadata-only --skip-pdf
 ```
 
@@ -136,8 +145,9 @@ Study slug: New-Slug
 ```
 
 Bare slug only — no notes on that line. Apply label **`study-update`** (exactly
-one study label). CI (`Scripts/_ci_study_pr.py`) detects one slug removed + one
-added and can run `_rename_study.py --metadata-only` on the branch.
+one study label). CI (`Scripts/_ci_study_pr.py`) detects canonical markdown
+renames (including multiple renames) and runs `_rename_study.py --metadata-only`
+on the branch.
 
 ## Completion checklist
 
@@ -148,10 +158,10 @@ added and can run `_rename_study.py --metadata-only` on the branch.
 - [ ] `**Edited on:**` and catalog **Last updated on** match
 - [ ] `proposal-registry.json` and `.proposal-meta.json` use **New-Slug**
 - [ ] GitHub proposal issue slug + title updated (verify with `gh issue view`)
-- [ ] Start here / `TOPICAL_DISPLAY_ORDER` updated if they referenced the old slug
+- [ ] Start here generator updated if it referenced the old slug
 - [ ] PDF/HTML/discussion regenerated for **New-Slug**
 - [ ] PR labeled `study-update` with `Study slug: New-Slug`
-- [ ] Cross-study link updates left for separate one-slug PRs
+- [ ] Cross-study link/section-reference updates included in the same multi-study PR
 - [ ] Agent rules/skills synced if `AGENTS.md` or `.agents/skills/**` changed
 
 ## Related

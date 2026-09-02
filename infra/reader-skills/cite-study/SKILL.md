@@ -13,7 +13,9 @@ Prefer the study **markdown** over HTML or PDF. Catalog rows expose `md` (relati
 ## What to record
 
 1. **Title** and **slug** (directory name, for example `The-Ontology-of-Coexistence`).
-2. **Status** (`draft` or `released`). Ongoing rows have no document yet.
+2. **Status** (`draft` or `released`). Ongoing/Planned rows have no public
+   document link and should not be cited as a study; an approved proposal may
+   still have internal stub artifacts.
 3. **Edited on** from the study header, also as `updated` on the catalog row and as `date_modified` in https://analyticmadhyasthdarshan.org/Studies/feed.json
 4. **Section** with a `§` cross-reference when the study uses numbered headings.
 5. **URL** to the markdown or HTML on https://analyticmadhyasthdarshan.org

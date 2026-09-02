@@ -132,36 +132,6 @@ CATALOG_TABLES = (
 
 PROPOSAL_REGISTRY_PATH = STUDIES / "proposal-registry.json"
 
-# Public index display order for topical studies (ongoing + draft + released).
-TOPICAL_DISPLAY_ORDER = (
-    "The-Ontology-of-Coexistence",
-    "Nature-Of-Time",
-    "Why-Humans-Are-Not-Just-Material",
-    "Philosophy-Of-Mind-And-Jeevan",
-    "Chitta-Brain-And-Memory",
-    "The-Epistemology-of-Coexistence",
-    "Methodology-And-Hermeneutics",
-    "Axiology-Value-Theory",
-    "Ethics-And-Morals-In-Human-Beings",
-    "Family-Relationships-And-Values",
-    "Education-And-Sanskar",
-    "Aesthetics",
-    "Human-Behavior-And-Society",
-    "How-To-Form-Self-Sustaining-Organizations",
-    "Governance-Justice-And-Undivided-Society",
-    "Prosperity-Economics-And-Right-Use",
-    "Nature-Ecology-And-Right-Use",
-    "Spiritual-Practice-And-Realization",
-    "Science-Technology-And-Human-Purpose",
-    "How-Undivided-Society-Is-Established",
-    "Death-Continuity-And-Rebirth",
-    "Language-Meaning-And-Definition",
-    "Work-Action-And-Karma",
-    "Free-Will-Choice-And-Agency",
-    "Health-Body-And-Restraint",
-    "God-Divinity-And-The-Sacred",
-)
-
 
 @dataclass
 class StudyRow:
@@ -301,7 +271,8 @@ def strip_status_for_pdf(md_text: str) -> str:
     Every Draft/Released study must carry a **Status:** line (AGENTS.md §1); callers only
     reach this function once that has been confirmed (``regenerate_pdf`` and
     ``_convert_to_pdf.main`` both gate on status first and return/exit before calling it for
-    Ongoing studies, which have no PDF and no **Status:** line to strip). A study reaching
+    Ongoing studies, whose internal proposal stubs are not publishable study PDFs and carry
+    no **Status:** line to strip). A study reaching
     here without one is therefore a markdown-formatting bug, not a state this function should
     paper over silently -- raise so it surfaces immediately instead of shipping a PDF with a
     stray or missing header line.
@@ -1020,21 +991,6 @@ def load_pre_catalog_proposals() -> list[dict]:
     ]
 
 
-def order_topical_rows(rows: list[StudyRow]) -> list[StudyRow]:
-    by_slug = {row.slug: row for row in rows}
-    ordered: list[StudyRow] = []
-    seen: set[str] = set()
-    for slug in TOPICAL_DISPLAY_ORDER:
-        row = by_slug.get(slug)
-        if row is not None:
-            ordered.append(row)
-            seen.add(slug)
-    for slug in sorted(by_slug):
-        if slug not in seen:
-            ordered.append(by_slug[slug])
-    return ordered
-
-
 def sync_pre_catalog_proposals_to_catalog(*, rebuild_index: bool = True) -> list[StudyRow]:
     """Register approved pre-catalog proposals as Planned (ongoing) on the public index."""
     pre_catalog = load_pre_catalog_proposals()
@@ -1065,7 +1021,11 @@ def sync_pre_catalog_proposals_to_catalog(*, rebuild_index: bool = True) -> list
             pdf_href=pdf_href,
         )
 
-    ordered = order_topical_rows(list(by_slug.values()))
+    # The catalog file is the order source of truth. Dict insertion order keeps
+    # existing rows in place; newly approved proposals append in registry order.
+    # This avoids a second hard-coded slug list that every rename/removal had to
+    # edit in lockstep with the catalog.
+    ordered = list(by_slug.values())
     write_studies_catalog(ordered, StudyTable.TOPICAL, rebuild_index=rebuild_index)
     return ordered
 
@@ -1216,6 +1176,17 @@ def write_study_feedback_template() -> Path:
     return STUDY_FEEDBACK_TEMPLATE_PATH
 
 
+def _references_readme_row_parts(line: str) -> tuple[str, str] | None:
+    match = re.match(
+        r"\|\s*\[[^\]]+\.pdf\]\(\.\./(?:Studies|Applications)/([^/]+)/[^)]+\)"
+        r"\s*\|\s*(.+?)\s*\|\s*$",
+        line.strip(),
+    )
+    if not match:
+        return None
+    return match.group(1), match.group(2).strip()
+
+
 def parse_references_readme_rows(content: str) -> list[tuple[str, str]]:
     block = extract_catalog_block(
         content,
@@ -1224,12 +1195,9 @@ def parse_references_readme_rows(content: str) -> list[tuple[str, str]]:
     )
     rows: list[tuple[str, str]] = []
     for line in block.splitlines():
-        match = re.match(
-            r"\|\s*\[([^\]]+\.pdf)\]\(../Studies/([^)]+)\)\s*\|\s*(.+?)\s*\|",
-            line.strip(),
-        )
-        if match:
-            rows.append((Path(match.group(1)).stem, match.group(3).strip()))
+        parts = _references_readme_row_parts(line)
+        if parts:
+            rows.append(parts)
     return rows
 
 
@@ -1240,15 +1208,25 @@ def references_readme_row(slug: str, tags: str) -> str:
 def write_references_readme_row(slug: str, tags: str, *, remove: bool = False) -> None:
     ref_readme_path = REFERENCES / "README.md"
     ref_text = ref_readme_path.read_text(encoding="utf-8")
-    rows = parse_references_readme_rows(ref_text)
-    if remove:
-        rows = [(s, t) for s, t in rows if s != slug]
-    else:
-        rows = [(s, t) for s, t in rows if s != slug]
-        rows.append((slug, tags))
-    ref_block = REFERENCES_README_TABLE_HEADER + "\n" + "\n".join(
-        references_readme_row(s, t) for s, t in rows
+    block = extract_catalog_block(
+        ref_text,
+        REFERENCES_CATALOG_START,
+        REFERENCES_CATALOG_END,
     )
+    data_lines: list[str] = []
+    for line in block.splitlines():
+        stripped = line.strip()
+        if not stripped or stripped in REFERENCES_README_TABLE_HEADER.splitlines():
+            continue
+        parts = _references_readme_row_parts(line)
+        if parts and parts[0] == slug:
+            continue
+        data_lines.append(line)
+    if not remove:
+        data_lines.append(references_readme_row(slug, tags))
+    ref_block = REFERENCES_README_TABLE_HEADER
+    if data_lines:
+        ref_block += "\n" + "\n".join(data_lines)
     write_text_lf(
         ref_readme_path,
         replace_catalog_block(
@@ -1276,13 +1254,16 @@ def append_manifest_row(content: str, slug: str, tags: str) -> str:
 
 
 def remove_manifest_paper_block(content: str, slug: str) -> str:
-    pdf_link = f"[{slug}.pdf]({study_pdf_ref_path(slug)})"
+    pdf_links = {
+        f"[{slug}.pdf]({study_pdf_ref_path(slug)})",
+        f"[{slug}.pdf]({application_pdf_href(slug)})",
+    }
     lines = content.splitlines()
     kept: list[str] = []
     index = 0
     while index < len(lines):
         line = lines[index]
-        if pdf_link in line and line.lstrip().startswith("|"):
+        if any(pdf_link in line for pdf_link in pdf_links) and line.lstrip().startswith("|"):
             index += 1
             while index < len(lines) and re.match(r"\|\s*\|", lines[index]):
                 index += 1

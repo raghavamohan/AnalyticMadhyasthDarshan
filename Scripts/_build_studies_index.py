@@ -2856,11 +2856,20 @@ def verify_start_here_sync() -> list[str]:
         for row in parse_catalog_json_file(table):
             status_by_slug[row.slug] = start_here_status_key(row.status)
 
+    return start_here_sync_errors(index_path.read_text(encoding="utf-8"), status_by_slug)
+
+
+def start_here_sync_errors(html: str, status_by_slug: dict[str, str]) -> list[str]:
+    """Validate Start-here slugs and pills against catalog-derived statuses."""
     errors = []
-    for match in START_HERE_PILL_RE.finditer(index_path.read_text(encoding="utf-8")):
+    for match in START_HERE_PILL_RE.finditer(html):
         _head, slug, cls, _mid, label, _tail = match.groups()
         expected = status_by_slug.get(slug)
         if expected is None:
+            errors.append(
+                f"Studies/index.html: Start-here references unknown catalog slug {slug}. "
+                "Update INDEX_TEMPLATE after a study rename/removal, then rebuild the index."
+            )
             continue
         if cls != expected or label != START_HERE_STATUS_WORDS[expected]:
             errors.append(

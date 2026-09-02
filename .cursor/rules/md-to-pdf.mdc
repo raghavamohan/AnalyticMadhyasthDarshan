@@ -8,9 +8,10 @@ alwaysApply: false
 
 > **Source of truth:** [AGENTS.md](../AGENTS.md) §3. Keep this file in sync when editing.
 
-When a study markdown file under `Studies/<Slug>/` needs a PDF, **always** use the
-repository pipeline. Do not substitute pandoc, `markdown-pdf`, VS Code export,
-hand-written Puppeteer scripts, or other one-off converters.
+When a canonical study markdown file under `Studies/` or `Applications/` needs
+a PDF, **always** use the repository pipeline. Do not substitute pandoc,
+`markdown-pdf`, VS Code export, hand-written Puppeteer scripts, or other one-off
+converters.
 
 ## One-time setup (required for PDF generation)
 
