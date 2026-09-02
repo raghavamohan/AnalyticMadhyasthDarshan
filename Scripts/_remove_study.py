@@ -1,4 +1,4 @@
-"""Remove a study from Studies/ and update catalog files.
+"""Remove a study from Studies/ or Applications/ and update catalog files.
 
 Usage:
   python Scripts\\_remove_study.py Study-Slug
@@ -277,7 +277,7 @@ def remove_study(
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Remove a study from Studies/ and update catalog files.",
+        description="Remove a study from Studies/ or Applications/ and update catalog files.",
     )
     parser.add_argument(
         "slug",

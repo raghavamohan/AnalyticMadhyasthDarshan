@@ -21,10 +21,23 @@ keeps portal, catalog, and My Submissions metadata in sync. This is a
 2. Confirm the new slug:
    - Characters: letters, digits, hyphens only (`[A-Za-z0-9-]+`)
    - Length: **≤ 60** characters (portal rejects longer slugs)
-   - Path: `Studies/<Slug>/<Slug>.md` must stay ≤ 200 characters
+   - Path: the canonical `Studies/<Slug>/<Slug>.md` or
+     `Applications/<Slug>/<Slug>.md` must stay ≤ 200 characters
 3. Decide the new **display title** (H1 / catalog / proposal issue title).
 4. Note the proposal issue number if known (also in
    `Studies/<Old-Slug>/.proposal-meta.json` or `Studies/proposal-registry.json`).
+5. Before the non-dry-run command, configure proposal-issue authentication when
+   an issue number is present or auto-resolved:
+
+```powershell
+$env:GITHUB_TOKEN = (gh auth token)
+$env:GITHUB_REPOSITORY = "raghavamohan/AnalyticMadhyasthDarshan"
+```
+
+   If authentication is unavailable, pass `--skip-issue`; labeled CI can finish
+   the issue synchronization on the PR branch. The script checks these variables
+   before making local changes, so missing authentication cannot leave a partial
+   local rename.
 
 ## Core command
 
@@ -102,9 +115,7 @@ My Submissions (`Studies/submit.html` → `GET /api/me/submissions`) joins:
 If you used `--skip-issue`, finish with either:
 
 ```powershell
-# Preferred: metadata-only rename sync (needs GITHUB_TOKEN + GITHUB_REPOSITORY)
-$env:GITHUB_TOKEN = (gh auth token)
-$env:GITHUB_REPOSITORY = "raghavamohan/AnalyticMadhyasthDarshan"
+# Authentication variables must already be set as described in Before you start.
 python Scripts/_rename_study.py --from Old-Slug --to New-Slug --title "New display title" --metadata-only --skip-pdf
 ```
 

@@ -89,6 +89,11 @@ To change **Draft** ↔ **Released**, use **Change release status** on the same 
 
 The slug is **locked** when a proposal is approved. If the derived slug is too long for Windows paths or you need a shorter catalog name, rename **before or right after** the first draft merge using a maintainer-reviewed **`study-update`** pull request:
 
+For local proposal-issue synchronization, set `GITHUB_TOKEN` and
+`GITHUB_REPOSITORY` before the non-dry-run command. If GitHub authentication is
+unavailable, pass `--skip-issue` and let labeled CI complete the metadata and
+issue synchronization on the pull-request branch.
+
 1. Run `python Scripts/_rename_study.py --from <Old-Slug> --to <New-Slug> --title "New display title"` on a feature branch. The script moves the directory and the canonical `<Slug>.md` / `.html` / `.pdf` files while preserving companion filenames, then syncs the catalog in place, proposal registry and metadata, the GitHub proposal issue, and `References/` links.
 2. Update any Start here entry in `Scripts/_build_studies_index.py` and every Markdown link or `§` section reference that targets the old slug. Include all affected studies in the same pull request; CI validates both inbound and outbound cross-study references.
 3. Set `Study slug: <New-Slug>` in the PR body and apply the **`study-update`** label. CI can also finish metadata synchronization when it detects one or more canonical study renames in the diff.
@@ -123,7 +128,7 @@ links after a slug or section-heading rename.
 ### Fill required fields correctly
 
 Put each required field on its **own line**. The slug must be the **bare catalog directory name**
-(the folder under `Studies/`), with nothing else on that line:
+(the folder under `Studies/` or `Applications/`), with nothing else on that line:
 
 ```text
 Study slug: The-Ontology-of-Coexistence

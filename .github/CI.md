@@ -111,7 +111,7 @@ PDF rendering — in about a minute with a warm pip cache:
 | Step | Script | Guards |
 |------|--------|--------|
 | Verify catalog JSON and index shell | `_verify_studies_index.py` | `index.html` ↔ `README.md` ↔ `catalog-*.json` sync |
-| Run the enforced test suites | `_run_test_suites.py` | 18 of the 22 `_test_*.py` suites (see §4) |
+| Run the enforced test suites | `_run_test_suites.py` | Every discovered non-held `_test_*.py` suite (see §4) |
 | Check agent rules and skills mirrors | `_sync_agent_rules.py --check` | `AGENTS.md` ↔ `.cursor/rules/*.mdc` ↔ skill mirrors |
 
 `_run_test_suites.py` **discovers by denylist**: it runs every `Scripts/_test_*.py`

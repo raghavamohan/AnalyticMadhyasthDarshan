@@ -295,6 +295,20 @@ def gh_request(path: str, *, method: str = "GET", payload: dict | None = None) -
         raise SystemExit(f"GitHub API {path} failed ({exc.code}): {body}") from exc
 
 
+def require_github_issue_auth() -> None:
+    missing = [
+        name
+        for name in ("GITHUB_TOKEN", "GITHUB_REPOSITORY")
+        if not os.environ.get(name)
+    ]
+    if missing:
+        names = " and ".join(missing)
+        raise SystemExit(
+            f"{names} must be set before renaming a study with proposal-issue sync. "
+            "Set both variables or pass --skip-issue and complete the issue sync later."
+        )
+
+
 def update_github_issue(issue_number: int, slug: str, title: str | None) -> None:
     issue = gh_request(f"/issues/{issue_number}")
     body = issue.get("body") or ""
@@ -366,6 +380,8 @@ def rename_study(
     validate_slug(old_slug)
     validate_slug(new_slug)
     resolved_issue = resolve_issue_number(old_slug, issue_number, new_slug)
+    if resolved_issue and not skip_issue and not dry_run:
+        require_github_issue_auth()
 
     if not metadata_only:
         rename_study_files(old_slug, new_slug, dry_run=dry_run)
