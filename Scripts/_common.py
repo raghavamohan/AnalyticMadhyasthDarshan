@@ -262,7 +262,7 @@ def known_study_slugs() -> list[str]:
     return sorted(path.parent.name for path in iter_study_md_paths())
 
 TAG_ABBREVS = frozenset(
-    {"MVD", "SB", "JV", "AVD", "JVD", "BU", "TU", "KU", "MU", "CU", "BG", "BSB", "VC", "DDV", "Bhattacharya", "AV", "SV", "ATR"}
+    {"MVD", "SB", "JV", "AVD", "JVD", "MSM", "BU", "TU", "KU", "MU", "CU", "BG", "BSB", "VC", "DDV", "Bhattacharya", "AV", "SV", "ATR"}
 )
 PDF_CACHE_VERSION = "v2"
 PAGE_HEADER_RE = re.compile(rf"---PAGE (\d+) {PDF_CACHE_VERSION}---\n")
