@@ -889,9 +889,9 @@
       "delivery": {
         "artifact_repo_path": "References/Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.pdf",
         "build_path": "tmp/reference-build/Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.pdf",
-        "bytes": 160711,
+        "bytes": 154193,
         "markdown_path": "References/Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.md",
-        "sha256": "9a61a6f91b1acdd56f57456d0c9779bd86e5682c219cb6340c8a1334d0afca25",
+        "sha256": "d1bd1c85476618a49b2d5578049a9bbba20c1a7d92d487c4477b4b1b17b6c282",
         "source_format": "cleaned-markdown",
         "status": "generated-local"
       },
@@ -934,11 +934,11 @@
         "status": "public-domain-recorded"
       },
       "source": {
-        "bytes": 160711,
+        "bytes": 154193,
         "media_type": "application/pdf",
         "minimum_bytes": 500,
         "notes": "Generated deterministically from cleaned Markdown; original HTML retained privately.",
-        "sha256": "9a61a6f91b1acdd56f57456d0c9779bd86e5682c219cb6340c8a1334d0afca25",
+        "sha256": "d1bd1c85476618a49b2d5578049a9bbba20c1a7d92d487c4477b4b1b17b6c282",
         "urls": [
           "https://en.wikisource.org/wiki/The_Unreality_of_Time"
         ]
