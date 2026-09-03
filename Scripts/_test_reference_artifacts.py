@@ -55,6 +55,9 @@ def test_normalized_pdf_registration_contract() -> None:
             assert row["target"]["public_url"].startswith(("http://", "https://"))
         assert row["generation"]["source_markdown"].endswith(".md")
         assert row["generation"]["original_html"].endswith(".html")
+        if row["target"]["storage"] == "r2-public":
+            assert row["generation"]["pages"] > 0
+            assert len(row["generation"]["text_sha256"]) == 64
         original = next(
             item for item in artifacts if item["repo_path"] == row["generation"]["original_html"]
         )

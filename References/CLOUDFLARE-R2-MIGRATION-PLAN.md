@@ -111,6 +111,12 @@ renderable PDFs. Original HTML was uploaded only to the private archive prefix. 
 the public-domain McTaggart derivative is in the public R2 allowlist; the other eleven
 link to their canonical publishers.
 
+For normalized derivatives, the cleaned Markdown and embedded fonts determine the
+content, while Chromium's PDF container encoding still varies by host operating system.
+Verification therefore pins page count and extracted-text digest across platforms;
+Linux CI produces the canonical bytes published to R2. Existing source PDFs remain
+subject to exact byte and SHA-256 checks.
+
 ### Phase 4 — Storage and delivery
 
 Complete for routing and delivery. The existing Worker now has separate generated-PDF

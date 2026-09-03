@@ -10,7 +10,7 @@ from pathlib import Path
 
 from _build_reference_pdf import build
 from _common import BASE, configure_utf8_stdio
-from _reference_artifacts import load_manifest, manifest_errors
+from _reference_artifacts import generated_pdf_signature, load_manifest, manifest_errors
 from _reference_store import ReferenceStore
 
 
@@ -53,17 +53,35 @@ def build_all(output_root: Path) -> None:
             pdf_path = expected
         source = row["source"]
         actual_size = pdf_path.stat().st_size
-        if actual_size != source["bytes"]:
-            raise ValueError(
-                "generated PDF size differs from manifest: "
-                f"{row['repo_path']} (expected {source['bytes']}, actual {actual_size})"
-            )
         actual_hash = _sha256(pdf_path)
-        if actual_hash != source["sha256"]:
-            raise ValueError(
-                "generated PDF checksum differs from manifest: "
-                f"{row['repo_path']} (expected {source['sha256']}, actual {actual_hash})"
-            )
+        if row.get("kind") == "normalized-reference-pdf":
+            actual_signature = generated_pdf_signature(pdf_path)
+            expected_signature = {
+                "pages": row["generation"]["pages"],
+                "text_sha256": row["generation"]["text_sha256"],
+            }
+            if actual_signature != expected_signature:
+                raise ValueError(
+                    "generated PDF content differs from manifest: "
+                    f"{row['repo_path']} (expected {expected_signature}, actual {actual_signature})"
+                )
+            if actual_size != source["bytes"] or actual_hash != source["sha256"]:
+                print(
+                    "Note: generated PDF bytes differ across renderer host platforms; "
+                    f"content signature matches for {row['repo_path']} "
+                    f"(bytes {actual_size}, sha256 {actual_hash})."
+                )
+        else:
+            if actual_size != source["bytes"]:
+                raise ValueError(
+                    "generated PDF size differs from manifest: "
+                    f"{row['repo_path']} (expected {source['bytes']}, actual {actual_size})"
+                )
+            if actual_hash != source["sha256"]:
+                raise ValueError(
+                    "generated PDF checksum differs from manifest: "
+                    f"{row['repo_path']} (expected {source['sha256']}, actual {actual_hash})"
+                )
         if pdf_path != expected:
             raise ValueError(f"generated PDF path differs from manifest: {pdf_path} != {expected}")
     print(f"Staged and verified {len(rows)} public reference PDFs under {artifact_root}.")
