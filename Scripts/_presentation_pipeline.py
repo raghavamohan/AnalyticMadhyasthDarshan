@@ -141,7 +141,11 @@ def manifest_errors(manifest: PresentationManifest) -> list[str]:
     if len(outputs) != len(set(outputs)):
         errors.append("presentation output paths are not unique")
 
-    discovered = set(STUDIES.glob("*/*.pptx")) | set(APPLICATIONS.glob("*/*.pptx"))
+    discovered = {
+        path
+        for path in set(STUDIES.glob("*/*.pptx")) | set(APPLICATIONS.glob("*/*.pptx"))
+        if not path.name.startswith("~$")
+    }
     declared = set(sources)
     for path in sorted(discovered - declared):
         errors.append(f"unmanifested PPTX: {path.relative_to(BASE).as_posix()}")
