@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 4, 2026, 4:01 AM IST
+**Edited on:** September 4, 2026, 4:39 AM IST
 **Status:** Draft
 **The question:** What is realisation, what practice leads to it, and how would anyone know it had occurred? How does Madhyasth Darshan's answer compare with Advaita Vedanta's path of knowledge, and with what modern philosophy and contemplative science have established about practice and religious experience?
 
@@ -10,7 +10,7 @@ This study examines *anubhav* — realisation — and the practice Madhyasth Dar
 
 The relevance of modern philosophy is worth stating in advance, because the natural assumption is that spiritual practice lies outside its range. It does not. Ancient philosophy was itself organised around spiritual exercises, as Hadot's work established; the epistemology of religious experience is a developed field; the perennialist–constructivist dispute is exactly the question of whether contemplative states have content independent of the tradition that trains them; L. A. Paul's account of transformative experience formalises the problem of appraising a state one has not undergone; and contemplative science has produced both suggestive findings and a serious methodological reckoning. Each bears directly on claims the darshan makes.
 
-[The Epistemology of Coexistence](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) §1.8 states the transmission and evidence conditions in outline and §§7.1–7.5 records the resulting evidential problems; [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.13 sets out realisation in coexistence as an activity of *jeevan*. This study takes the practice itself as its subject: what is done, what is claimed to result, and what would count as knowing that it had.
+[The Epistemology of Coexistence](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) §1.6 states the transmission and evidence conditions in outline and §§7.1–7.5 records the resulting evidential problems; [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.13 sets out realisation in coexistence as an activity of *jeevan*. This study takes the practice itself as its subject: what is done, what is claimed to result, and what would count as knowing that it had.
 
 ## Standpoint and scope
 
@@ -126,7 +126,7 @@ For a person who is not the discoverer there are two alternatives:
 > **“Such a process is of two kinds: One - Exploration. Two - Following, Emulation, Study.”**
 > — MVD, p. 280
 
-Exploration is described as an inventive realisation which the seeker studies comprehensively — from the initial state of activity or the extreme of decline through to the highest development and awakening (MVD, p. 280). The second path is the ordinary one: following an awakened person, emulating conduct, and studying. [The Epistemology of Coexistence](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) §1.8 records the further requirements: delusion-less knowledge, just behaviour, resolved thought, and a disciplined relation to a realised teacher (MVD, pp. 273–285, 317).
+Exploration is described as an inventive realisation which the seeker studies comprehensively — from the initial state of activity or the extreme of decline through to the highest development and awakening (MVD, p. 280). The second path is the ordinary one: following an awakened person, emulating conduct, and studying. [The Epistemology of Coexistence](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) §1.6 records the further requirements: delusion-less knowledge, just behaviour, resolved thought, and a disciplined relation to a realised teacher (MVD, pp. 273–285, 317).
 
 The second path is what almost every practitioner is on, and it is where the darshan's epistemology is most exposed. Emulation transmits conduct efficiently; it does not by itself establish that what is emulated is true. The darshan's own resource here is that understanding must be conveyable and testable in one's own living, not that the teacher is authoritative — but the requirement of a disciplined relation to a realised teacher sits uneasily beside that, and §6.4 takes it up.
 
@@ -474,7 +474,7 @@ What the ladder does supply is a clear account of where the weight falls. Practi
 
 ### The founder's report as evidence
 
-§§1.2–1.3 rest on autobiographical passages in MVD and JV. This study treats them as first-person historical testimony about how the darshan arose — strong evidence of what one practitioner found, no evidence that others would find the same — and says so in §1.14 and §5.1 rather than letting them function as demonstration. The Epistemology study takes the same line at its §1.8.
+§§1.2–1.3 rest on autobiographical passages in MVD and JV. This study treats them as first-person historical testimony about how the darshan arose — strong evidence of what one practitioner found, no evidence that others would find the same — and says so in §1.14 and §5.1 rather than letting them function as demonstration. The Epistemology study takes the same line at its §1.6.
 
 ### Recorded oral teaching as a source
 
@@ -519,7 +519,7 @@ KD Chapter 2 is available in this repository only as a machine-assisted working 
 
 ### Related studies in this collection
 
-- [The Epistemology of Coexistence](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) — study, realisation, and transmission (§1.8), the active knower (§1.4), and the evidential open problems (§§7.1–7.5).
+- [The Epistemology of Coexistence](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) — study, realisation, and transmission (§1.6), the active knower (§1.4), and the evidential open problems (§§7.1–7.5).
 - [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — realisation in coexistence as an activity of *jeevan* (§1.13) and *jeevan*'s faculties (§1.7).
 - [Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) — bliss as the harmony of *buddhi* and *atma* (§1.2.2), correct evaluation and awakening (§1.4.6), and *sanskar* as the circuit by which conduct deepens understanding (§1.5.2).
 - [Family Relationships and Values](../Family-Relationships-And-Values/Family-Relationships-And-Values.pdf) — the natal family as where *upasana* is initiated, and its feedback circuit with external behaviour (*vyavahar*) (§1.4.2).
