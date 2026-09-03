@@ -210,9 +210,6 @@ def pdf_regeneration_reason(base_ref: str, slug: str) -> str | None:
     pushed a fresh multi-megabyte blob for no change in content.
     """
     md_path = study_md(slug)
-    if not md_path.with_suffix(".pdf").is_file():
-        return "the PDF is missing"
-
     changed = changed_paths(base_ref)
     md_rel = md_path.relative_to(BASE).as_posix()
     study_dir = md_path.parent.relative_to(BASE).as_posix()
@@ -290,6 +287,11 @@ def changed_study_slugs(base_ref: str) -> list[str]:
     seen: set[str] = set()
     for status, path in changed_paths(base_ref):
         candidate = Path(path)
+        # Generated study/application PDFs are no longer tracked. Ignore their
+        # one-time deletions (and any accidental PDF-only diff) when deciding
+        # which canonical studies a labelled PR must process.
+        if candidate.suffix.lower() == ".pdf":
+            continue
         # Deleted paths cannot be resolved on disk. Read them lexically so a PR
         # that removes several studies validates every removal, not only the one
         # named in the body. Existing paths still use the stricter resolver.

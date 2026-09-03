@@ -27,31 +27,37 @@ description: >-
 3. Map requested changes to inherited slides and objects; edit with artifact-tool rather than `python-pptx` or direct OOXML mutation.
 4. Render every final slide and run the Presentations skill's overflow check. Inspect changed slides at full size and review the complete deck for flow and consistency.
 5. Replace the canonical `.pptx` only after the edited copy passes QA.
-6. Regenerate the slides PDF:
+6. Find the deck's ID in `Scripts/presentation-pipeline.json`, then run the staged
+   production build:
 
    ```powershell
-   python Scripts/_pptx_to_pdf.py Studies/<Slug>/<Deck>.pptx
+   python Scripts/_build_presentations.py --deck <Presentation-ID> --in-place
    ```
 
-   Force an engine only when necessary:
+   This checks fatal source layout first, asserts the exact production renderer,
+   generates both PDFs in a temporary tree, verifies them, and replaces the configured
+   outputs only after all gates pass. For a non-publishing diagnostic build, retain the
+   repository-relative output tree elsewhere:
 
    ```powershell
-   python Scripts/_pptx_to_pdf.py Studies/<Slug>/<Deck>.pptx --engine powerpoint
-   python Scripts/_pptx_to_pdf.py Studies/<Slug>/<Deck>.pptx --engine libreoffice
+   python Scripts/_build_presentations.py --deck <Presentation-ID> --profile libreoffice-production --output-root tmp/presentation-check
    ```
 
-7. Regenerate the read-aloud notes PDF — **after** step 6, since it takes its slide
-   images from the slides PDF:
+7. Use the low-level commands only to isolate a converter or notes-composer failure:
 
    ```powershell
+   python Scripts/_pptx_to_pdf.py Studies/<Slug>/<Deck>.pptx --profile powerpoint-baseline
    python Scripts/_build_deck_notes_pdf.py Studies/<Slug>/<Deck>.pptx
    ```
 
-   Do this whenever the deck changes at all, including notes-only and
-   reorder-only edits: slide images, slide numbering and the scripts all live in
-   this artifact.
+   The notes command must follow the slides command because it takes its slide images
+   from the slides PDF. Repository decks absent from the manifest fail closed.
 
-8. Verify that the slides-PDF page count matches the PPTX slide count and visually
+   Slides and notes PDFs are generated artifacts ignored by Git. Publish verified
+   outputs with `Scripts/_publish_generated_pdfs.py`, or leave publication to the
+   protected-branch generated-PDF workflow.
+
+8. The builder verifies all machine-checkable invariants. Visually
    inspect changed pages in both PDFs.
 
 ## Layout rules
@@ -161,18 +167,19 @@ generator and the generated index together.
   resolves when exactly one `.pptx` is present; otherwise pass `--deck <file>` or a
   full path. `The-Ontology-of-Coexistence` holds two decks, so the bare `--study`
   form fails there by design.
+- `presentation-pipeline.json` is the canonical mapping from each PPTX to its slides
+  and notes PDFs. This is essential where a deck stem matches the study slug: the
+  slides output uses `-presentation.pdf` rather than overwriting the study PDF.
 - `_build_deck_notes_pdf.py` reads speaker notes from the `.pptx`, so it always
-  reflects the deck rather than a side file, and regenerates `<Deck>.pdf` itself if
-  that file is missing or older than the deck.
+  reflects the deck rather than a side file, and uses the manifest's slides PDF when
+  no explicit path is supplied.
 - It composes pages rather than using PowerPoint's notes-pages export, for two
-  reasons worth knowing before anyone tries to "simplify" it. PowerPoint's
-  `ExportAsFixedFormat` — the only API that accepts an `OutputType` of
-  `ppPrintOutputNotesPages` — raises "The Python instance can not be converted to a
-  COM object" at every arity in this environment, including the two-argument call
-  `_pptx_to_pdf.py` makes; that script has always been falling back silently to
-  `SaveAs`, which has no `OutputType` parameter. And native notes pages *clip* text
-  overflowing the notes placeholder, which for multi-paragraph scripts would
-  silently drop the tail. Long scripts continue onto a `CONTINUED` page instead.
+  reasons: native notes pages can clip text overflowing the notes placeholder, and
+  the repository needs a deterministic layout independent of authoring-time notes
+  page geometry. Long scripts continue onto a `CONTINUED` page instead.
+- Renderer selection never falls back based on the host. The exact LibreOffice
+  production renderer and PowerPoint fidelity baseline are declared in the manifest;
+  a version mismatch fails before any final output is replaced.
 - After regenerating, confirm no script was truncated — compare the notes PDF text
   against the deck's notes rather than eyeballing the first page or two.
 
@@ -199,11 +206,12 @@ Before finishing, confirm:
       add, removal, or reorder
 - [ ] No unintended clipping, overlap, or unresolved placeholders
 - [ ] Speaker notes and source footers preserved where intended
-- [ ] Slides PDF regenerated and changed pages visually verified
+- [ ] Staged manifest build completed and changed pages visually verified
 - [ ] PPTX slide count equals slides-PDF page count
 - [ ] `<Deck>-notes.pdf` regenerated after the slides PDF, with every slide's script
       present in full (no clipped tail) and slide numbering matching the deck
 - [ ] `<Deck>.pdf` is still slides-only — the notes PDF was not written over it
+- [ ] Generated slides/notes PDFs were not added to Git
 - [ ] `study-update` PR uses `Study slug: <Slug>` with the bare slug; Edited-on items are marked N/A for companion-only changes
 
 When the Presenter's Companion markdown or notes JSON also needs to track the

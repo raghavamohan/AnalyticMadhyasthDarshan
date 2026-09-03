@@ -27,8 +27,8 @@ Orchestration skill for the study lifecycle. Read the focused skill for your tas
 
 - **Source of truth:** `Studies/<Slug>/<Slug>.md` for topical/formal studies;
   `Applications/<Slug>/<Slug>.md` for applied studies
-- **Published output:** sibling `<Slug>.html` and `<Slug>.pdf` beside the
-  canonical markdown (generated; never edit by hand)
+- **Published output:** tracked sibling `<Slug>.html`; the matching `<Slug>.pdf`
+  is generated for verification, ignored by Git, and served from Cloudflare R2
 - **Companion deck artifacts** (generated; a study folder may hold more than one deck): `<Deck>.pptx` is the source of truth, and it produces `<Deck>.pdf` (slides only — what the index links), `<Deck>-notes.pdf` (slide plus read-aloud script per page, for the presenter), and alongside them `Presenters-Companion-<Name>.md` → `.notes.json` / `.docx` / `.pdf` (script plus background and Q&A). Deck-only changes never touch `**Edited on:**` or catalog timestamps.
 - **Catalogs:** `Studies/index.html` (JSON + card UI shell), `Studies/README.md` (markdown tables; updated by scripts)
 - **Index shell source:** `Scripts/_build_studies_index.py` (`INDEX_TEMPLATE`) — edit template, run `python Scripts/_build_studies_index.py`, verify with `python Scripts/_verify_studies_index.py`
@@ -84,6 +84,7 @@ Confirm before finishing:
 - [ ] `**Edited on:**` in `.md` matches catalog **Last updated on** (abbreviated month in catalog)
 - [ ] `**Status:**` in `.md` matches catalog Draft/Released (if published)
 - [ ] PDF regenerated when content or status changed (pinned Node dependencies and Chrome installed under `Scripts/`)
+- [ ] Generated PDF was not added to Git; R2 publication is handled by the protected-branch workflow
 - [ ] `Studies/catalog-*.json` and `Studies/README.md` table rows stay in sync (use `write_studies_catalog` via scripts — never hand-edit JSON)
 - [ ] When headings, slugs, or removals affect another study, update all inbound/
   outbound cross-study links and `§` references in the same multi-study

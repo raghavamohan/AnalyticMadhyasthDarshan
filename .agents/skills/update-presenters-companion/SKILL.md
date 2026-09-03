@@ -118,6 +118,9 @@ onto a `CONTINUED` page instead of being truncated.
    Confirm PPTX slide count equals deck-PDF page count. Run the notes PDF **after**
    the deck PDF, since it takes its slide images from it.
 
+   All three PDFs are generated artifacts ignored by Git and published through
+   the R2 workflow. The companion markdown, DOCX, notes JSON, and PPTX remain tracked.
+
 6. Companion-only edits do **not** refresh the study's `**Edited on:**` or catalog
    timestamps. Mark Edited-on checklist items N/A in the PR when the study `.md`
    was not changed.
@@ -141,5 +144,6 @@ onto a `CONTINUED` page instead of being truncated.
 - [ ] Deck PDF regenerated if the PPTX changed; page count matches
 - [ ] `<Deck>-notes.pdf` regenerated after the deck PDF; every slide's script
       present in full (no clipped tail)
+- [ ] Generated PDFs were not added to Git
 - [ ] `study-update` PR uses `Study slug: <Slug>` (bare slug); Edited-on N/A when
       the study markdown was not changed

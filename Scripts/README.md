@@ -38,8 +38,22 @@ what to run **on that branch** before opening the PR.
 | Test the study-PR CI router | `python Scripts/_test_ci_study_pr.py` |
 | Test add/remove/rename lifecycle edge cases | `python Scripts/_test_study_lifecycle.py` |
 | Test the PDF reproducibility patches | `python Scripts/_test_pdf_metadata.py` |
-| Companion PPTX → slides PDF | `python Scripts/_pptx_to_pdf.py path/to/deck.pptx` (PowerPoint COM, else LibreOffice) |
-| Deck → read-aloud notes PDF | `python Scripts/_build_deck_notes_pdf.py path/to/deck.pptx` → `<Deck>-notes.pdf` (slide + speaker script per page; run after the slides PDF) |
+| Build + verify one companion deck's slides/notes PDFs | `python Scripts/_build_presentations.py --deck <Presentation-ID> --in-place` (ID/output paths and exact renderer are pinned in `presentation-pipeline.json`) |
+| Build all companion presentations into a separate tree | `python Scripts/_build_presentations.py --all --profile libreoffice-production --output-root tmp/presentation-build` |
+| Compare two presentation builds | `python Scripts/_verify_presentation_reproducible.py --all --left-root <first> --right-root <second>` |
+| Review a candidate renderer against a baseline | `python Scripts/_compare_presentation_renderers.py --reference-root <baseline> --candidate-root <candidate> --output-dir <review>` |
+| Verify generated-PDF inventory without R2 access | `python Scripts/_publish_generated_pdfs.py --artifact <repository-relative.pdf> --dry-run --offline` |
+| Preview changed R2 uploads | `python Scripts/_publish_generated_pdfs.py --artifact-root <verified-build> --changed --dry-run` |
+| Publish one/all verified PDF artifacts to R2 | `python Scripts/_publish_generated_pdfs.py --artifact-root <verified-build> --artifact <repository-relative.pdf>` / `--kind markdown` / `--all` |
+| Audit or explicitly remove stale R2 PDFs | `python Scripts/_publish_generated_pdfs.py --list-stale`; then `--delete-stale --confirm-stale-count <N>` |
+| Sync/check the generated-PDF Worker allowlist | `python Scripts/_publish_generated_pdf_worker.py --sync-keys`; then `--check` |
+| Deploy and verify the isolated R2 Worker canary | `python Scripts/_publish_generated_pdf_worker.py --deploy-canary`; then `python Scripts/_verify_generated_pdf_delivery.py --workers-dev --all --artifact-root <complete-build>` |
+| Promote the verified Worker | `python Scripts/_publish_generated_pdf_worker.py --deploy-production`; then `--apply-routes` and a full public audit |
+| Attach exact public canary routes | `python Scripts/_publish_generated_pdf_worker.py --apply-canary-routes`; verify with `_verify_generated_pdf_delivery.py --public-canary ...`; then `--rollback-routes` |
+| Attach production PDF routes | `python Scripts/_publish_generated_pdf_worker.py --apply-routes` (refuses unless every inventory object is published, then purges stale URL caches) |
+| Audit all public generated PDFs | `python Scripts/_verify_generated_pdf_delivery.py --public --all --artifact-root <presentation-build> --artifact-root .` |
+| Diagnose PPTX → slides PDF only | `python Scripts/_pptx_to_pdf.py path/to/deck.pptx --profile powerpoint-baseline` |
+| Diagnose deck → read-aloud notes PDF only | `python Scripts/_build_deck_notes_pdf.py path/to/deck.pptx` (run after the slides PDF) |
 | PDF → study markdown (maintainer) | `python Scripts/_pdf_to_study_md.py path/to/paper.pdf --slug <Slug> --title "..."` |
 | PDF import with catalog register | `python Scripts/_add_study.py path/to/paper.pdf --convert --slug <Slug> --title "..." --category "..." --description "..." --tags "MVD, SB" --status draft` |
 | Test PDF conversion | `python Scripts/_test_pdf_to_md.py` |

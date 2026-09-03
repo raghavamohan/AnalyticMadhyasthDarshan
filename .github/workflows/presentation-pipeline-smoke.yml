@@ -1,0 +1,88 @@
+name: Presentation pipeline smoke
+
+# PowerPoint is the accepted fidelity baseline. CI exercises the separately
+# pinned LibreOffice production renderer on Windows; publication remains a
+# distinct later step and is not authorized by this smoke workflow.
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "Studies/**/*.pptx"
+      - "Applications/**/*.pptx"
+      - "Scripts/_build_deck_notes_pdf.py"
+      - "Scripts/_build_presentations.py"
+      - "Scripts/_check_deck_layout.py"
+      - "Scripts/_common.py"
+      - "Scripts/_install_presentation_renderer.ps1"
+      - "Scripts/_pptx_to_pdf.py"
+      - "Scripts/_presentation_pipeline.py"
+      - "Scripts/_test_presentation_pipeline.py"
+      - "Scripts/_verify_presentation_reproducible.py"
+      - "Scripts/_verify_presentations.py"
+      - "Scripts/presentation-pipeline.json"
+      - "requirements.txt"
+      - ".github/actions/setup-study-env/action.yml"
+      - ".github/workflows/presentation-pipeline-smoke.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: presentation-smoke-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  libreoffice-production:
+    runs-on: windows-2025
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Python toolchain
+        uses: ./.github/actions/setup-study-env
+        with:
+          node: 'false'
+
+      - name: Restore pinned LibreOffice installer
+        uses: actions/cache@v6
+        with:
+          path: ${{ runner.temp }}\presentation-renderers
+          key: presentation-renderer-${{ runner.os }}-${{ hashFiles('Scripts/presentation-pipeline.json') }}
+
+      - name: Install exact LibreOffice production renderer
+        shell: pwsh
+        run: >-
+          ./Scripts/_install_presentation_renderer.ps1
+          -Profile libreoffice-production
+          -CacheDirectory "$env:RUNNER_TEMP\presentation-renderers"
+
+      - name: Require deck fonts
+        shell: pwsh
+        run: |
+          $missing = @(
+            'C:\Windows\Fonts\calibri.ttf',
+            'C:\Windows\Fonts\calibrib.ttf',
+            'C:\Windows\Fonts\calibrii.ttf',
+            'C:\Windows\Fonts\cambriab.ttf'
+          ) | Where-Object { -not (Test-Path -LiteralPath $_) }
+          if ($missing) {
+            throw "Required presentation fonts are absent: $($missing -join ', ')"
+          }
+
+      - name: Build and verify all presentations twice
+        shell: pwsh
+        run: |
+          $first = Join-Path $env:RUNNER_TEMP 'presentation-build-first'
+          $second = Join-Path $env:RUNNER_TEMP 'presentation-build-second'
+          python Scripts/_build_presentations.py --all --profile libreoffice-production --output-root $first
+          python Scripts/_build_presentations.py --all --profile libreoffice-production --output-root $second
+          python Scripts/_verify_presentation_reproducible.py --all --left-root $first --right-root $second
+
+      - name: Upload first verified production build
+        uses: actions/upload-artifact@v6
+        with:
+          name: presentation-libreoffice-production
+          path: ${{ runner.temp }}\presentation-build-first
+          if-no-files-found: error
+          retention-days: 14

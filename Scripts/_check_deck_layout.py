@@ -45,7 +45,7 @@ from PIL import ImageFont
 from pptx import Presentation
 from pptx.util import Emu
 
-from _common import STUDIES
+from _common import STUDIES, configure_utf8_stdio
 from _pptx_to_pdf import resolve_pptx
 
 # Windows ships these under C:\Windows\Fonts; the decks use Cambria and Calibri
@@ -392,6 +392,7 @@ def report(pptx: Path, findings: list[Finding]) -> bool:
 
 
 def main(argv: list[str] | None = None) -> int:
+    configure_utf8_stdio()
     parser = argparse.ArgumentParser(
         description="Check companion deck slides for overflow, stale numbering, "
                     "and stale cross-references.",

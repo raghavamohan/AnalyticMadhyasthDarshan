@@ -69,7 +69,8 @@ Windows wrapper: `.\Scripts\_rename_study.ps1` (same flags).
 
 ### What the script updates
 
-- Canonical files: `<Old>.md` / `.html` / `.pdf` → `<New>.*`; prefix-named
+- Canonical tracked files: `<Old>.md` / `.html` → `<New>.*`; the ignored local
+  PDF and its R2 key use `<New>.pdf`; prefix-named
   companion decks and notes move with the folder **without** changing basename
 - Topical/formal/applied catalog row (slug + title), preserving its display position
 - `Studies/proposal-registry.json` and the new study/application `.proposal-meta.json`

@@ -22,6 +22,11 @@ Scripts/_pdf_cache/
 !/api-docs.html
 !google*.html
 
+# Generated reader artifacts are verified locally/CI and published to Cloudflare
+# R2. Reference PDFs are source material and remain tracked.
+/Studies/*/*.pdf
+/Applications/*/*.pdf
+
 infra/worker/.wrangler/
 infra/worker/.turnstile-secret.tmp
 infra/discussions-worker/.wrangler/
