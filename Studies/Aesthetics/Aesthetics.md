@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) - a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 26, 2026, 10:28 AM IST
+**Edited on:** September 4, 2026, 4:01 AM IST
 **Status:** Draft
 
 **The question:** What is aesthetics? Is beauty a property of objects, a state of the subject, a social convention, a kind of taste, an experience of art, an environmental relation, or a sign of deeper harmony? How do **modern philosophies** approach aesthetics, how does **Madhyasth Darshan** understand it, and does **Advaita Vedanta** have anything direct to say on the subject?
@@ -567,9 +567,9 @@ Madhyasth Darshan does not yet give a complete aesthetics of art, but it gives a
 
 ### Madhyasth Darshan primary texts
 
-- **MVD** - Nagraj, A. [*Madhyasth Darshan - Coexistentialism, Part 1: Holistic View of Human Behaviour*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta.
-- **JV** - Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta.
-- **SB** - Nagraj, A. [*Samadhanatmak Bhautikvad*](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta.
+- **MVD** - Nagraj, A. [*Madhyasth Darshan - Coexistentialism, Part 1: Holistic View of Human Behaviour*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta.
+- **JV** - Nagraj, A. [*Jeevan Vidya: An Introduction*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta.
+- **SB** - Nagraj, A. [*Samadhanatmak Bhautikvad*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta.
 
 ### Advaita Vedanta and Indian aesthetics
 
@@ -577,14 +577,14 @@ Madhyasth Darshan does not yet give a complete aesthetics of art, but it gives a
 - **BU** - [*Brihadaranyaka Upanishad with Shankara Bhashya*](../References/Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf). Swami Madhavananda translation. Cited: the unattached Self (3.9.28); Maitreyi passage on dearness and Self-realization (2.4 / 4.5).
 - **BG** - [*Bhagavad Gita with Shankara Bhashya*](../References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf). Swami Gambhirananda translation. Cited: Self-bliss apart from external objects (5.21).
 - **VC** - [*Vivekachudamani*](../References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf), attributed to Shankara; English translation by Swami Madhavananda. Cited: discrimination between real and unreal (v. 20); *jiva* as Brahman (v. 216).
-- **Poorvam Rasa** - ["Sadharanikarana: An Underlying Process for Experiencing Rasa"](../References/Comparative-Philosophy/Poorvam-Sadharanikarana-Rasa.html), *Poorvam International Journal*. Local HTML snapshot.
+- **Poorvam Rasa** - ["Sadharanikarana: An Underlying Process for Experiencing Rasa"](https://poorvam.com/article.php?slug=s-dh-ra-kara-a-underlying-process-for-experiencing-rasa), *Poorvam International Journal*.
 - **Keating 2008** - Ross Keating, ["Connecting Art with Spirituality within the Indian Aesthetics of Advaita Vedanta."](https://poj.peeters-leuven.be/content.php?id=2033281&url=article) *Studies in Spirituality* 18 (2008): 25-37.
 - **Mind and Creativity Rasa** - ["Mind and creativity: Insights from rasa theory with special focus on sahrdaya."](https://indigenouspsych.org/Discussion/forum/Rasa%20theory.pdf)
 
 ### Modern aesthetics
 
-- **SEP Concept of the Aesthetic** - [*The Concept of the Aesthetic*](../References/Modern-Philosophy/SEP-Concept-of-the-Aesthetic.html), Stanford Encyclopedia of Philosophy. Local HTML snapshot.
-- **SEP Kant Aesthetics** - [*Kant's Aesthetics and Teleology*](../References/Modern-Philosophy/SEP-Kant-Aesthetics-Teleology.html), Stanford Encyclopedia of Philosophy. Local HTML snapshot.
-- **SEP Definition of Art** - [*The Definition of Art*](../References/Modern-Philosophy/SEP-Definition-of-Art.html), Stanford Encyclopedia of Philosophy. Local HTML snapshot.
-- **SEP Environmental Aesthetics** - [*Environmental Aesthetics*](../References/Modern-Philosophy/SEP-Environmental-Aesthetics.html), Stanford Encyclopedia of Philosophy. Local HTML snapshot.
-- **SEP Aesthetics of the Everyday** - [*Aesthetics of the Everyday*](../References/Modern-Philosophy/SEP-Aesthetics-of-Everyday.html), Stanford Encyclopedia of Philosophy. Local HTML snapshot.
+- **SEP Concept of the Aesthetic** - [*The Concept of the Aesthetic*](https://plato.stanford.edu/entries/aesthetic-concept/), Stanford Encyclopedia of Philosophy.
+- **SEP Kant Aesthetics** - [*Kant's Aesthetics and Teleology*](https://plato.stanford.edu/entries/kant-aesthetics/), Stanford Encyclopedia of Philosophy.
+- **SEP Definition of Art** - [*The Definition of Art*](https://plato.stanford.edu/entries/art-definition/), Stanford Encyclopedia of Philosophy.
+- **SEP Environmental Aesthetics** - [*Environmental Aesthetics*](https://plato.stanford.edu/entries/environmental-aesthetics/), Stanford Encyclopedia of Philosophy.
+- **SEP Aesthetics of the Everyday** - [*Aesthetics of the Everyday*](https://plato.stanford.edu/entries/aesthetics-of-everyday/), Stanford Encyclopedia of Philosophy.

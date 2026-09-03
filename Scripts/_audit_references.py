@@ -13,6 +13,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 from _common import REFERENCES, STUDIES, iter_study_md_paths, is_linkable_reference_file, parse_reference_registry
+from _reference_store import ReferenceStore
 
 REF_SECTION_RE = re.compile(r"^## References\s*$", re.MULTILINE)
 REF_ENTRY_RE = re.compile(r"^- \*\*([^*]+)\*\*\s*[—\-]")
@@ -72,17 +73,41 @@ def _references_block(text: str) -> str:
     return tail[: next_section.start()] if next_section else tail
 
 
-def _classify_link(raw_link: str, registry: dict[str, Path]) -> tuple[str, bool, str]:
+def _classify_link(
+    raw_link: str,
+    registry: dict[str, Path],
+    store: ReferenceStore | None = None,
+) -> tuple[str, bool, str]:
     link = raw_link.strip()
+
+    def available(artifact) -> bool:
+        if artifact is None or not artifact.public_url:
+            return False
+        if artifact.state == "r2-published":
+            return True
+        if artifact.state != "generated-local" or store is None:
+            return False
+        try:
+            store.resolve(artifact)
+            return True
+        except (FileNotFoundError, KeyError, OSError, ValueError):
+            return False
+
     if link.startswith("../References/"):
         rel = link.removeprefix("../References/").split("#", 1)[0]
         path = (REFERENCES / rel).resolve()
         if not path.exists():
+            artifact = store.find(f"References/{rel}") if store else None
+            if available(artifact):
+                return "r2", True, artifact.public_url
             return "local", False, f"missing file References/{rel}"
         if not is_linkable_reference_file(path):
             return "local", False, f"unusable file References/{rel} (empty or not a valid PDF/HTML)"
         return "local", True, str(path.relative_to(REFERENCES.parent))
     if link.startswith("http://") or link.startswith("https://"):
+        artifact = store.find(link) if store else None
+        if available(artifact):
+            return "r2", True, artifact.public_url
         host = urlparse(link).netloc.casefold()
         if host.endswith("github.com"):
             return "meta", True, "repository link"
@@ -96,6 +121,10 @@ def _classify_link(raw_link: str, registry: dict[str, Path]) -> tuple[str, bool,
 
 def audit_references(*, study: str | None = None) -> AuditReport:
     registry = parse_reference_registry()
+    try:
+        store: ReferenceStore | None = ReferenceStore()
+    except (OSError, ValueError):
+        store = None
     report = AuditReport()
 
     for md_path in _study_paths(study):
@@ -120,7 +149,7 @@ def audit_references(*, study: str | None = None) -> AuditReport:
                     )
                 )
                 continue
-            kind, ok, detail = _classify_link(link_match.group(1), registry)
+            kind, ok, detail = _classify_link(link_match.group(1), registry, store)
             report.rows.append(
                 ReferenceRow(
                     study=md_path.stem,
@@ -136,11 +165,13 @@ def audit_references(*, study: str | None = None) -> AuditReport:
 
 def _print_report(report: AuditReport) -> int:
     local = [r for r in report.rows if r.kind == "local"]
+    r2 = [r for r in report.rows if r.kind == "r2"]
     external = report.external
     missing = report.local_missing
 
     print(f"Studies reference entries: {len(report.rows)}")
     print(f"  local links: {len(local)} ({len(missing)} broken)")
+    print(f"  R2 links: {len(r2)}")
     print(f"  external links: {len(external)}")
     print(f"  download manifest entries: see Scripts/_reference_downloads.py")
 

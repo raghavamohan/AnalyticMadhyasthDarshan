@@ -470,8 +470,9 @@
 
   /* Contents ---------------------------------------------------------------
      Studies run past 30,000 words, so the sequential previous/next pair is not
-     enough to move around one. Closed by default so it costs no height; the
-     script below opens it where there is room. */
+     enough to move around one. Closed by default so small screens never pay
+     for its height; a parser-blocking script inside the element opens it
+     where there is room, before the reading key is parsed. */
   .study-toc {
     max-width: 37rem;
     margin: 1.6em 0 2.2em;
@@ -707,7 +708,7 @@
 <p><strong>Author:</strong> Raghava Mohan Madhwapathi (<a href="https://analyticmadhyasthdarshan.org">analyticmadhyasthdarshan.org</a>)</p>
 <p><strong>Edited on:</strong> July 28, 2026, 9:16 AM IST</p>
 <p><strong>Status:</strong> Internal research note (not a catalog entry). Compiled to support reading and drafting on <em>The Ontology of Coexistence</em>, especially §§1.1–1.11, from the working English translation of <em>Manav Karm Darshan</em>.</p>
-<p><strong>Source:</strong> A. Nagraj, <em>Manav Karm Darshan</em> (<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> — Part 2), working English in <a href="../../References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.md"><code>References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.md</code></a>. Page markers below are printed pages (<code>[p. NN]</code> in that file). These are machine-assisted working translations, not published translations — verify against the Hindi original before quoting in a released study.</p>
+<p><strong>Source:</strong> A. Nagraj, <em>Manav Karm Darshan</em> (<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> — Part 2), working English in <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf"><code>References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.md</code></a>. Page markers below are printed pages (<code>[p. NN]</code> in that file). These are machine-assisted working translations, not published translations — verify against the Hindi original before quoting in a released study.</p>
 <p><strong>Scope:</strong> This note reorders KD&rsquo;s main concepts into the sequence that makes Nagraj&rsquo;s ontological view intelligible: ground and units first, then endowments and activity, then atomic development and the four orders, then force–space–time, then the human as knower. Chapters 1–2 (karma and upasana) are summarised only where they rest on that ontology. Companion physics compilation: <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/Research-Note-Physics-Of-Satta-Unit-Interaction.html"><em>Research Note: The Physics of Coexistence</em></a>.</p>
 <hr/>
 <details class="study-toc study-toc--with-key" id="study-contents">
@@ -737,6 +738,15 @@
       <li class="study-toc-item study-toc-l1"><a href="#method-note">Method note</a></li>
     </ol>
   </nav>
+<script>
+(function(){
+  var toc = document.getElementById("study-contents");
+  if (toc && window.matchMedia("(min-width: 760px)").matches && window.innerHeight >= 640) {
+    toc.open = true;
+  }
+})();
+</script>
+
 </details>
 <p class="study-reading-key" aria-label="Reading key">
   <span class="study-reading-key-term">Dotted underline</span>: definition
@@ -1306,16 +1316,6 @@ mermaid.initialize({
   });
   system.addEventListener("change", paint);
   paint();
-})();
-</script>
-<script>
-(() => {
-  const toc = document.getElementById("study-contents");
-  if (!toc) return;
-  // Open where there is room to show it without pushing the study off screen.
-  if (window.matchMedia("(min-width: 760px)").matches && window.innerHeight >= 640) {
-    toc.open = true;
-  }
 })();
 </script>
 

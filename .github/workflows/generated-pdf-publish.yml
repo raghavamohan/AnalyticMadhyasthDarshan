@@ -2,7 +2,7 @@ name: Generated PDF publish
 
 # Pull requests build affected Markdown-derived artifacts without credentials or
 # publication. Protected-branch runs build the complete Markdown + presentation
-# inventory, publish only after both jobs pass, refresh the Worker binding/routes,
+# inventory, publish only after all build jobs pass, refresh the Worker binding/routes,
 # and audit every public URL.
 
 on:
@@ -22,10 +22,15 @@ on:
       - "Applications/**/*.jpg"
       - "Applications/**/*.jpeg"
       - "Applications/**/*.webp"
+      - "References/**/*.html"
+      - "References/**/*.md"
+      - "References/r2-artifacts.json"
       - "Assets/KaTeX/**"
       - "CNAME"
       - "requirements.txt"
       - "Scripts/_build_markdown_pdfs.py"
+      - "Scripts/_build_reference_pdf.py"
+      - "Scripts/_build_reference_pdfs.py"
       - "Scripts/_build_discussion_pages.py"
       - "Scripts/_chrome.js"
       - "Scripts/_common.py"
@@ -34,6 +39,12 @@ on:
       - "Scripts/_glossary_tooltips.py"
       - "Scripts/_html_to_pdf.js"
       - "Scripts/_pdf_metadata.py"
+      - "Scripts/_normalize_reference_html.py"
+      - "Scripts/_reference_artifacts.py"
+      - "Scripts/_hydrate_references.py"
+      - "Scripts/_reference_store.py"
+      - "Scripts/_rewrite_manifest_reference_links.py"
+      - "Scripts/_publish_reference_artifacts.py"
       - "Scripts/_regenerate_pdf.py"
       - "Scripts/_render_katex_math.js"
       - "Scripts/_study_catalog.py"
@@ -42,6 +53,8 @@ on:
       - "Scripts/_verify_pdf_math.py"
       - "Scripts/_verify_pdf_outline.py"
       - "Scripts/_verify_study_svgs.py"
+      - "Scripts/_verify_published_document_links.py"
+      - "Scripts/_verify_reference_delivery.py"
       - "Scripts/package.json"
       - "Scripts/package-lock.json"
       - ".github/actions/setup-study-env/action.yml"
@@ -51,11 +64,14 @@ on:
     paths:
       - "Studies/**"
       - "Applications/**"
+      - "References/**"
       - "Assets/KaTeX/**"
       - "CNAME"
       - "requirements.txt"
       - "Scripts/_build_deck_notes_pdf.py"
       - "Scripts/_build_markdown_pdfs.py"
+      - "Scripts/_build_reference_pdf.py"
+      - "Scripts/_build_reference_pdfs.py"
       - "Scripts/_build_presentations.py"
       - "Scripts/_build_discussion_pages.py"
       - "Scripts/_chrome.js"
@@ -66,11 +82,17 @@ on:
       - "Scripts/_html_to_pdf.js"
       - "Scripts/_install_presentation_renderer.ps1"
       - "Scripts/_pdf_metadata.py"
+      - "Scripts/_normalize_reference_html.py"
       - "Scripts/_pptx_to_pdf.py"
       - "Scripts/_presentation_pipeline.py"
       - "Scripts/_publish_generated_pdf_worker.py"
       - "Scripts/_publish_generated_pdfs.py"
       - "Scripts/_r2_s3.py"
+      - "Scripts/_reference_artifacts.py"
+      - "Scripts/_hydrate_references.py"
+      - "Scripts/_reference_store.py"
+      - "Scripts/_rewrite_manifest_reference_links.py"
+      - "Scripts/_publish_reference_artifacts.py"
       - "Scripts/_regenerate_pdf.py"
       - "Scripts/_render_katex_math.js"
       - "Scripts/_study_catalog.py"
@@ -81,6 +103,8 @@ on:
       - "Scripts/_verify_pdf_outline.py"
       - "Scripts/_verify_presentations.py"
       - "Scripts/_verify_study_svgs.py"
+      - "Scripts/_verify_published_document_links.py"
+      - "Scripts/_verify_reference_delivery.py"
       - "Scripts/package.json"
       - "Scripts/package-lock.json"
       - "Scripts/presentation-pipeline.json"
@@ -181,11 +205,41 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
+  reference-pdfs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up reference PDF toolchain
+        uses: ./.github/actions/setup-study-env
+
+      - name: Build and verify normalized reference PDFs
+        run: >-
+          python Scripts/_build_reference_pdfs.py --all
+          --output-root "$RUNNER_TEMP/generated-reference-pdfs"
+
+      - name: Verify reference manifest and Markdown delivery links
+        run: |
+          python Scripts/_reference_artifacts.py --check
+          python Scripts/_rewrite_manifest_reference_links.py --check
+
+      - name: Verify published document link policy
+        run: python Scripts/_verify_published_document_links.py
+
+      - name: Upload verified reference PDFs
+        uses: actions/upload-artifact@v6
+        with:
+          name: generated-reference-pdfs
+          path: ${{ runner.temp }}/generated-reference-pdfs
+          if-no-files-found: error
+          retention-days: 7
+
   publish-and-deploy:
     if: >-
       github.ref == 'refs/heads/master' &&
       (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
-    needs: [markdown, presentations]
+    needs: [markdown, presentations, reference-pdfs]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -214,6 +268,19 @@ jobs:
           CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}
         run: python Scripts/_publish_generated_pdfs.py --artifact-root "$RUNNER_TEMP/generated-pdfs" --all
 
+      - name: Publish private originals and rights-approved references to R2
+        env:
+          R2_ENDPOINT: ${{ vars.R2_ENDPOINT }}
+          R2_REGION: ${{ vars.R2_REGION }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          AMD_REFERENCE_R2_BUCKET: ${{ vars.REFERENCE_R2_BUCKET_NAME }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}
+        run: |
+          python Scripts/_publish_reference_artifacts.py --upload-approved --artifact-root "$RUNNER_TEMP/generated-pdfs"
+          python Scripts/_publish_reference_artifacts.py --verify-approved
+
       - name: Deploy Worker and attach guarded production routes
         env:
           R2_ENDPOINT: ${{ vars.R2_ENDPOINT }}
@@ -226,15 +293,18 @@ jobs:
         run: |
           python Scripts/_publish_generated_pdf_worker.py --check
           python Scripts/_publish_generated_pdf_worker.py --check-r2-coverage
+          python Scripts/_publish_generated_pdf_worker.py --check-reference-r2-coverage
           python Scripts/_publish_generated_pdf_worker.py --deploy-canary
           python Scripts/_verify_generated_pdf_delivery.py --workers-dev --all --artifact-root "$RUNNER_TEMP/generated-pdfs"
+          python Scripts/_verify_reference_delivery.py --workers-dev --artifact-root "$RUNNER_TEMP/generated-pdfs"
           python Scripts/_publish_generated_pdf_worker.py --deploy-production
           python Scripts/_publish_generated_pdf_worker.py --apply-routes
+          python Scripts/_publish_generated_pdf_worker.py --apply-reference-routes
 
       - name: Audit every public generated PDF
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}
-        run: >-
-          python Scripts/_verify_generated_pdf_delivery.py --public --all
-          --artifact-root "$RUNNER_TEMP/generated-pdfs"
+        run: |
+          python Scripts/_verify_generated_pdf_delivery.py --public --all --artifact-root "$RUNNER_TEMP/generated-pdfs"
+          python Scripts/_verify_reference_delivery.py --public --artifact-root "$RUNNER_TEMP/generated-pdfs"

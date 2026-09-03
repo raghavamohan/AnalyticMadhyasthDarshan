@@ -5,6 +5,8 @@ import worker, {
 } from "../infra/generated-pdf-worker/src/index.js";
 
 const KEY = "Studies/Nature-Of-Time/Nature-Of-Time.pdf";
+const REFERENCE_KEY = "References/Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.pdf";
+const RETAINED_KEY = "References/Madhyasth-Darshan/KD-karm%20darshan%20v5.pdf";
 const BYTES = new TextEncoder().encode("%PDF-generated-pdf-worker-test");
 
 function r2Object({ body = BYTES, range = undefined } = {}) {
@@ -26,7 +28,7 @@ function r2Object({ body = BYTES, range = undefined } = {}) {
 
 function environment({ missing = false } = {}) {
   const calls = [];
-  return {
+  const result = {
     calls,
     env: {
       GENERATED_PDFS: {
@@ -50,6 +52,8 @@ function environment({ missing = false } = {}) {
       },
     },
   };
+  result.env.REFERENCE_PDFS = result.env.GENERATED_PDFS;
+  return result;
 }
 
 async function bodyBytes(response) {
@@ -57,7 +61,7 @@ async function bodyBytes(response) {
 }
 
 assert.equal(objectKey("/Studies/Nature-Of-Time/Nature-Of-Time.pdf"), KEY);
-assert.equal(objectKey("/References/source.pdf"), null);
+assert.equal(objectKey("/References/source.pdf"), "References/source.pdf");
 assert.equal(objectKey("/%GG.pdf"), null);
 
 const syntheticHeaders = new Headers();
@@ -80,12 +84,20 @@ globalThis.fetch = async () => {
 }
 
 {
+  const { env, calls } = environment();
+  const response = await worker.fetch(new Request(`https://example.test/${RETAINED_KEY}`), env);
+  assert.equal(response.status, 200);
+  assert.equal(response.headers.get("X-Origin"), "github-pages");
+  assert.deepEqual(calls, []);
+}
+
+{
   const { env } = environment();
   const response = await worker.fetch(
     new Request("https://amd-generated-pdfs.example.workers.dev/Studies/index.html"), env,
   );
   assert.equal(response.status, 404);
-  assert.equal(originCalls, 1);
+  assert.equal(originCalls, 2);
 }
 
 {
@@ -94,7 +106,7 @@ globalThis.fetch = async () => {
     new Request("https://example.test/Studies/Unknown/Unknown.pdf"), env,
   );
   assert.equal(response.status, 404);
-  assert.equal(await response.text(), "Generated PDF not published");
+  assert.equal(await response.text(), "PDF not published");
   assert.deepEqual(calls, []);
 }
 
@@ -109,6 +121,14 @@ globalThis.fetch = async () => {
   assert.equal(response.headers.get("X-AMD-PDF-SHA256"), "test-sha256");
   assert.deepEqual(await bodyBytes(response), BYTES);
   assert.equal(calls[0][0], "get");
+}
+
+{
+  const { env, calls } = environment();
+  const response = await worker.fetch(new Request(`https://example.test/${REFERENCE_KEY}`), env);
+  assert.equal(response.status, 200);
+  assert.equal(response.headers.get("X-AMD-PDF-Origin"), "r2");
+  assert.equal(calls[0][1], REFERENCE_KEY);
 }
 
 {

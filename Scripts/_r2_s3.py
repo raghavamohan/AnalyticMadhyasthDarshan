@@ -198,9 +198,10 @@ class R2S3Client:
         metadata: Mapping[str, str],
         cache_control: str,
         content_disposition: str,
+        content_type: str = "application/pdf",
     ) -> dict[str, str]:
         headers = {
-            "content-type": "application/pdf",
+            "content-type": content_type,
             "content-length": str(len(body)),
             "cache-control": cache_control,
             "content-disposition": content_disposition,

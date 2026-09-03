@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** August 30, 2026, 2:52 AM IST
+**Edited on:** September 4, 2026, 4:01 AM IST
 **Status:** Released
 **The question:** What basis could make humankind an undivided society, why are influential contemporary alternatives insufficient by themselves, and how does Madhyasth Darshan propose that such a society be established and evidenced?
 
@@ -341,11 +341,11 @@ Terms such as composition and closure are analogical when applied to families an
 
 ### Madhyasth Darshan primary sources
 
-- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: coexistence and the four orders; *jeevan* and the human joint form; six perspectives; relationship, value, justice, awakening, family order, undivided society, and universal orderliness.
-- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad*](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: saturation, complementarity, natural and excited states, composition and development, completeness, and societal evidence.
-- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: the study process, relationship values, justice, the human goals, prosperity, and five dimensions of orderliness.
-- **JVD** — Nagraj, A. [*Janvad* (*Behaviour Centred Public Discourse*)](../References/Madhyasth-Darshan/JVD-Janvad.pdf). English translation by Sanjeev Chopra (WIP). Cited: sectarian organisation, public dialogue, family council, participation, undivided society, and universal orderliness.
-- **AVD** — Nagraj, A. [*Adhyatmvad* (*Realisation Centred Spiritualism*)](../References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf). English translation by Sanjeev Chopra (WIP). Cited: awakening, activity and conduct completeness, humane tradition, community, and sources of undivided society.
+- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: coexistence and the four orders; *jeevan* and the human joint form; six perspectives; relationship, value, justice, awakening, family order, undivided society, and universal orderliness.
+- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: saturation, complementarity, natural and excited states, composition and development, completeness, and societal evidence.
+- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: the study process, relationship values, justice, the human goals, prosperity, and five dimensions of orderliness.
+- **JVD** — Nagraj, A. [*Janvad* (*Behaviour Centred Public Discourse*)](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JVD-Janvad.pdf). English translation by Sanjeev Chopra (WIP). Cited: sectarian organisation, public dialogue, family council, participation, undivided society, and universal orderliness.
+- **AVD** — Nagraj, A. [*Adhyatmvad* (*Realisation Centred Spiritualism*)](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf). English translation by Sanjeev Chopra (WIP). Cited: awakening, activity and conduct completeness, humane tradition, community, and sources of undivided society.
 - **KD** — Nagraj, A. [*Karm Darshan*](../References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf). Working English translation. Cited: humane orderliness and universal wellbeing (introductory principles); rule, justice, resolution, truth, social and natural balance (pp. 7-8); knowledge, knower, known and the critique of idealist and materialist foundations (pp. 146-153).
 
 ### Comparative sources

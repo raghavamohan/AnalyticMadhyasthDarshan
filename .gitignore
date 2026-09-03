@@ -10,6 +10,11 @@
 node_modules/
 __pycache__/
 Scripts/_pdf_cache/
+Scripts/_reference_cache/
+/tmp/reference-*/
+/tmp/fresh-reference-cache/
+/tmp/rights-text/
+/tmp/pdfs/
 .tmp.driveupload/
 .tmp.drivedownload/
 *.html
@@ -23,7 +28,9 @@ Scripts/_pdf_cache/
 !google*.html
 
 # Generated reader artifacts are verified locally/CI and published to Cloudflare
-# R2. Reference PDFs are source material and remain tracked.
+# R2. Reference PDFs follow References/r2-artifacts.json: approved payloads are
+# hydrated into the ignored cache; rights-review and active-translation sources
+# remain tracked.
 /Studies/*/*.pdf
 /Applications/*/*.pdf
 

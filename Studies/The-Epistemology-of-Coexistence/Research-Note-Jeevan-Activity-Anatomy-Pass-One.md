@@ -924,8 +924,8 @@ The normalization gate and Pass Two are now completed in the [Pass-Two Lifecycle
 
 ### Madhyasth Darshan
 
-- **AVD** - A. Nagraj, [*Adhyatmvad*](../../References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf), tr. Sanjeev Chopra (work in progress). Cited: the five-column table, faculty allocation, and all sixty-one numbered *bal/shakti* assignments, including the repeated *poshan* positions and closing-name variants (pp. 91-94; §§1-5).
-- **MVD** - A. Nagraj, [*Madhyasth Darshan - Co-existentialism*](../../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.md), tr. Rakesh Gupta. Cited: the state and motion of awakening as *anand/dhee* and the detailed definitions of the *buddhi* and *chitta* members (pp. 327-331; §§2-3); the thirty-six *vritti* definitions (pp. 331-338; §4); the sixty-four *mun* definitions, named relationships, bodily states, sensory qualities, bodily correlates, and nourishing/depleting contrast (pp. 338-348; §§5-6).
+- **AVD** - A. Nagraj, [*Adhyatmvad*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf), tr. Sanjeev Chopra (work in progress). Cited: the five-column table, faculty allocation, and all sixty-one numbered *bal/shakti* assignments, including the repeated *poshan* positions and closing-name variants (pp. 91-94; §§1-5).
+- **MVD** - A. Nagraj, [*Madhyasth Darshan - Co-existentialism*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf), tr. Rakesh Gupta. Cited: the state and motion of awakening as *anand/dhee* and the detailed definitions of the *buddhi* and *chitta* members (pp. 327-331; §§2-3); the thirty-six *vritti* definitions (pp. 331-338; §4); the sixty-four *mun* definitions, named relationships, bodily states, sensory qualities, bodily correlates, and nourishing/depleting contrast (pp. 338-348; §§5-6).
 
 ### Related research notes
 
