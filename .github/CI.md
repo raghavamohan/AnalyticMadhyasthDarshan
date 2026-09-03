@@ -16,7 +16,7 @@ for the pipeline itself.**
 | [Study PR](workflows/study-pr.yml) | `pull_request`: `synchronize`, `reopened`, `labeled` — **and only** with one of `new-study` / `study-update` / `status-change` | `study-pr` | **Yes** — pushes regenerated artifacts to the PR branch |
 | [Studies index](workflows/studies-index-check.yml) | **every** `pull_request`; `push` to `master`/`main` | `verify` | No |
 | [PDF pipeline smoke](workflows/pdf-pipeline-smoke.yml) | `pull_request` path-filtered on the PDF pipeline; `workflow_dispatch` | `reproducible` | No |
-| [Presentation pipeline smoke](workflows/presentation-pipeline-smoke.yml) | `pull_request` path-filtered on presentation sources/tooling; `workflow_dispatch` | `libreoffice-candidate` | No |
+| [Presentation pipeline smoke](workflows/presentation-pipeline-smoke.yml) | `pull_request` path-filtered on presentation sources/tooling; `workflow_dispatch` | `libreoffice-production` | No |
 | [Proposal approved](workflows/proposal-approved.yml) | `issues: labeled` with `proposal-approved`; `workflow_dispatch` | `comment`, `bootstrap` | **Yes** — `bootstrap` opens and merges its own PR to `master` |
 | [Portal notifications](workflows/portal-notify.yml) | `issues: labeled`; `pull_request_target: closed` | `notify` | No |
 | [Pages deploy retry](workflows/pages-deploy-retry.yml) | `workflow_run` on *pages build and deployment* completing | `retry` | No (re-runs a run) |
@@ -158,7 +158,7 @@ as shell.
 
 ### 2.4 Presentation pipeline smoke — `presentation-pipeline-smoke.yml`
 
-Runs on `windows-2025` because the candidate renderer and the decks' required
+Runs on `windows-2025` because the production renderer and the decks' required
 Calibri/Cambria fonts are Windows-specific. The workflow reads the exact
 LibreOffice version, installer URL, and SHA-256 from
 `Scripts/presentation-pipeline.json`; the installer script verifies the digest
@@ -170,10 +170,10 @@ PPTX text recall, speaker-note coverage, notes headers, and required-font checks
 `_verify_presentation_reproducible.py` then compares page geometry, extracted
 text, and rendered-page hashes between the two builds while reporting raw PDF
 byte equality separately. The first verified tree is retained as a 14-day
-artifact for deck-by-deck comparison with the accepted PowerPoint baseline.
-
-The LibreOffice profile remains `candidate` until that visual comparison is
-accepted. This workflow never publishes to R2 and never modifies the checkout.
+artifact. LibreOffice `26.2.3.2` was accepted after a 167-page comparison with a
+fresh PowerPoint baseline preserved every page's text and showed no clipping or
+reflow defect in the worst-ranked pages. This workflow never publishes to R2
+and never modifies the checkout.
 
 ### 2.5 Proposal approved — `proposal-approved.yml`
 
@@ -284,7 +284,7 @@ suite discovered by `_run_test_suites.py`, plus `_verify_studies_index.py` and t
 `_sync_agent_rules.py --check` mirror sync that CLAUDE.md makes mandatory.
 
 **Enforced when presentation sources/tooling change:** manifest coverage for all
-PPTX sources, source-deck fatal layout checks, exact candidate renderer and font
+PPTX sources, source-deck fatal layout checks, exact production renderer and font
 availability, complete slides/notes artifact verification, and two-build
 rendered/text reproducibility. Candidate PDFs are uploaded for review but are
 not published.
@@ -461,14 +461,22 @@ those exact generated paths if the run was diagnostic only):
 python Scripts/_verify_pdf_reproducible.py --runs 2
 ```
 
-The presentation smoke workflow uses its manifest-pinned LibreOffice candidate.
+The presentation smoke workflow uses its manifest-pinned LibreOffice production renderer.
 On Windows, install/verify that renderer and build two complete output trees:
 
 ```powershell
-Scripts/_install_presentation_renderer.ps1 -Profile libreoffice-ci-candidate
-python Scripts/_build_presentations.py --all --profile libreoffice-ci-candidate --output-root tmp/presentation-first
-python Scripts/_build_presentations.py --all --profile libreoffice-ci-candidate --output-root tmp/presentation-second
+Scripts/_install_presentation_renderer.ps1 -Profile libreoffice-production
+python Scripts/_build_presentations.py --all --profile libreoffice-production --output-root tmp/presentation-first
+python Scripts/_build_presentations.py --all --profile libreoffice-production --output-root tmp/presentation-second
 python Scripts/_verify_presentation_reproducible.py --all --left-root tmp/presentation-first --right-root tmp/presentation-second
+```
+
+For candidate acceptance, compare the verified candidate tree against a fresh
+PowerPoint baseline and inspect the ranked page panels (reference, candidate,
+enhanced difference):
+
+```powershell
+python Scripts/_compare_presentation_renderers.py --reference-root <powerpoint-build> --candidate-root <libreoffice-build> --output-dir tmp/renderer-review
 ```
 
 The study-PR pipeline's own steps, per changed study — see [AGENTS.md](../AGENTS.md) §7:

@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "productionProfile": "powerpoint-baseline",
+  "productionProfile": "libreoffice-production",
   "rendererProfiles": {
     "powerpoint-baseline": {
       "engine": "powerpoint",
       "version": "16.0.20228.20188",
-      "status": "accepted-local"
+      "status": "accepted-baseline"
     },
-    "libreoffice-ci-candidate": {
+    "libreoffice-production": {
       "engine": "libreoffice",
       "version": "26.2.3.2",
-      "status": "candidate",
+      "status": "accepted-production",
       "installer": {
         "url": "https://downloadarchive.documentfoundation.org/libreoffice/old/26.2.3.2/win/x86_64/LibreOffice_26.2.3.2_Win_x86-64.msi",
         "sha256": "468d1fb3880af3bcddac002e9054155912c70b45d105bfa1c82036f33456133d"

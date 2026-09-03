@@ -1,8 +1,8 @@
 name: Presentation pipeline smoke
 
-# PowerPoint is the accepted local baseline. CI exercises a separately pinned
-# LibreOffice candidate on Windows and keeps publication disabled until its
-# deck-by-deck output has been reviewed and the manifest status is promoted.
+# PowerPoint is the accepted fidelity baseline. CI exercises the separately
+# pinned LibreOffice production renderer on Windows; publication remains a
+# distinct later step and is not authorized by this smoke workflow.
 
 on:
   workflow_dispatch:
@@ -33,7 +33,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  libreoffice-candidate:
+  libreoffice-production:
     runs-on: windows-2025
     steps:
       - name: Checkout
@@ -50,11 +50,11 @@ jobs:
           path: ${{ runner.temp }}\presentation-renderers
           key: presentation-renderer-${{ runner.os }}-${{ hashFiles('Scripts/presentation-pipeline.json') }}
 
-      - name: Install exact LibreOffice candidate
+      - name: Install exact LibreOffice production renderer
         shell: pwsh
         run: >-
           ./Scripts/_install_presentation_renderer.ps1
-          -Profile libreoffice-ci-candidate
+          -Profile libreoffice-production
           -CacheDirectory "$env:RUNNER_TEMP\presentation-renderers"
 
       - name: Require deck fonts
@@ -75,14 +75,14 @@ jobs:
         run: |
           $first = Join-Path $env:RUNNER_TEMP 'presentation-build-first'
           $second = Join-Path $env:RUNNER_TEMP 'presentation-build-second'
-          python Scripts/_build_presentations.py --all --profile libreoffice-ci-candidate --output-root $first
-          python Scripts/_build_presentations.py --all --profile libreoffice-ci-candidate --output-root $second
+          python Scripts/_build_presentations.py --all --profile libreoffice-production --output-root $first
+          python Scripts/_build_presentations.py --all --profile libreoffice-production --output-root $second
           python Scripts/_verify_presentation_reproducible.py --all --left-root $first --right-root $second
 
-      - name: Upload first verified candidate build
+      - name: Upload first verified production build
         uses: actions/upload-artifact@v6
         with:
-          name: presentation-libreoffice-candidate
+          name: presentation-libreoffice-production
           path: ${{ runner.temp }}\presentation-build-first
           if-no-files-found: error
           retention-days: 14

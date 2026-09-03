@@ -39,8 +39,9 @@ what to run **on that branch** before opening the PR.
 | Test add/remove/rename lifecycle edge cases | `python Scripts/_test_study_lifecycle.py` |
 | Test the PDF reproducibility patches | `python Scripts/_test_pdf_metadata.py` |
 | Build + verify one companion deck's slides/notes PDFs | `python Scripts/_build_presentations.py --deck <Presentation-ID> --in-place` (ID/output paths and exact renderer are pinned in `presentation-pipeline.json`) |
-| Build all companion presentations into a separate tree | `python Scripts/_build_presentations.py --all --profile libreoffice-ci-candidate --output-root tmp/presentation-build` |
+| Build all companion presentations into a separate tree | `python Scripts/_build_presentations.py --all --profile libreoffice-production --output-root tmp/presentation-build` |
 | Compare two presentation builds | `python Scripts/_verify_presentation_reproducible.py --all --left-root <first> --right-root <second>` |
+| Review a candidate renderer against a baseline | `python Scripts/_compare_presentation_renderers.py --reference-root <baseline> --candidate-root <candidate> --output-dir <review>` |
 | Diagnose PPTX → slides PDF only | `python Scripts/_pptx_to_pdf.py path/to/deck.pptx --profile powerpoint-baseline` |
 | Diagnose deck → read-aloud notes PDF only | `python Scripts/_build_deck_notes_pdf.py path/to/deck.pptx` (run after the slides PDF) |
 | PDF → study markdown (maintainer) | `python Scripts/_pdf_to_study_md.py path/to/paper.pdf --slug <Slug> --title "..."` |
