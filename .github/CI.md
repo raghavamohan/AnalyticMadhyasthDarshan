@@ -187,6 +187,10 @@ and `Applications/` and manifest-approved reference PDFs. Pull requests run the
 `markdown` and `reference-pdfs` jobs: they regenerate through pinned pipelines,
 check manifest/link policy, and upload short-lived Actions artifacts for inspection.
 Pull-request jobs do not receive R2 or Cloudflare credentials and cannot publish.
+Normalized PDFs generated from archived HTML are checked by page count and a
+canonical extracted-text digest because Chromium's PDF container and font subsets
+are host-platform-specific even with identical embedded fonts. Linux CI is the
+canonical byte producer; immutable source PDFs remain byte-for-byte checked.
 
 On a relevant `master` push (or a manual dispatch on `master`), CI builds the full
 publishable Markdown inventory on Linux, all manifest-approved reference PDFs on

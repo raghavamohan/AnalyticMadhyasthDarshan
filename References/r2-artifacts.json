@@ -923,7 +923,9 @@
       "generation": {
         "build_path": "tmp/reference-build/Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.pdf",
         "original_html": "References/Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.html",
-        "source_markdown": "References/Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.md"
+        "pages": 12,
+        "source_markdown": "References/Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.md",
+        "text_sha256": "8dc4507fc299b049262fa86a222d4dc02240957703bd55c26f03ffc9fd6b5b54"
       },
       "kind": "normalized-reference-pdf",
       "repo_path": "References/Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.pdf",

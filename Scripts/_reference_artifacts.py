@@ -13,8 +13,11 @@ import hashlib
 import json
 import mimetypes
 import re
+import unicodedata
 from pathlib import Path, PurePosixPath
 from urllib.parse import unquote
+
+from pypdf import PdfReader
 
 from _common import BASE, REFERENCES, configure_utf8_stdio, site_base_url, write_text_lf
 from _reference_downloads import DOWNLOADS
@@ -61,6 +64,21 @@ def _sha256(path: Path) -> str:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def generated_pdf_signature(path: Path) -> dict[str, int | str]:
+    """Return a content signature stable across Chromium host platforms."""
+    reader = PdfReader(str(path))
+    pages: list[str] = []
+    for page in reader.pages:
+        text = unicodedata.normalize("NFC", page.extract_text() or "")
+        lines = [" ".join(line.split()) for line in text.replace("\r", "\n").split("\n")]
+        pages.append("\n".join(line for line in lines if line))
+    canonical_text = "\n\f\n".join(pages).encode("utf-8")
+    return {
+        "pages": len(reader.pages),
+        "text_sha256": hashlib.sha256(canonical_text).hexdigest(),
+    }
 
 
 def _safe_relative_path(raw: str) -> str:
@@ -367,6 +385,7 @@ def register_normalized_pdf(source_html: Path, pdf_path: Path) -> None:
             "source_markdown": markdown_path.relative_to(BASE).as_posix(),
             "original_html": html_repo_path,
             "build_path": build_rel,
+            **generated_pdf_signature(pdf_path),
         },
     }
     html_row["tags"] = []
@@ -535,6 +554,16 @@ def manifest_errors(data: dict, *, require_local_sources: bool = False) -> list[
             errors.append(f"{normalized}: source.bytes must be positive")
         if not re.fullmatch(r"[0-9a-f]{64}", str(source.get("sha256", ""))):
             errors.append(f"{normalized}: source.sha256 must be lowercase SHA-256")
+
+        if (
+            entry.get("kind") == "normalized-reference-pdf"
+            and (entry.get("target") or {}).get("storage") == "r2-public"
+        ):
+            generation = entry.get("generation") or {}
+            if not isinstance(generation.get("pages"), int) or generation.get("pages", 0) <= 0:
+                errors.append(f"{normalized}: generation.pages must be positive")
+            if not re.fullmatch(r"[0-9a-f]{64}", str(generation.get("text_sha256", ""))):
+                errors.append(f"{normalized}: generation.text_sha256 must be lowercase SHA-256")
 
         target = entry.get("target") or {}
         for key_name in (target.get("r2_key"), (entry.get("delivery") or {}).get("r2_key")):
