@@ -2,11 +2,11 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 28, 2026, 7:49 PM IST
+**Edited on:** September 3, 2026, 2:33 PM IST
 **Status:** Released
 **The question:** What is the nature of time (*kaal*)? How does Madhyasth Darshan relate timeless Omnipresence (*satta*) to the duration of unit-activity, numerical reckoning, and the past–present–future structure — and how does that compare with Advaita Vedanta, philosophy of time, and modern physics (spacetime, cosmology, entropy)?
 
-This study develops the comparative treatment begun in [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) (§1.4, §2.7, §4.3). That paper states Madhyasth Darshan's core claim — *kaal* as duration of activity, timeless *satta*, numerical reckoning within existence — and defers past/present/future structure, JVD on "activity eternally present," Advaita *trikaal* language, and systematic comparison with McTaggart, eternalism/presentism, and spacetime physics to this study (Ontology §6.2.9).
+This study develops the comparative treatment begun in [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) (§1.4, §2.7, §4.3). That paper states Madhyasth Darshan's core claim — *kaal* as duration of activity, timeless *satta*, numerical reckoning within existence — and defers past/present/future structure, JVD on "activity eternally present," Advaita *trikaal* language, and systematic comparison with McTaggart, eternalism/presentism, and spacetime physics to this study (Ontology §1.14).
 
 ## Standpoint and scope
 
@@ -95,7 +95,7 @@ JVD adds that every duration appears in numerical form and that purposes can be 
 
 ### 1.6 Activity eternally present and the three times
 
-Madhyasth Darshan emphasises the present as the locus of causal reality. JVD states the central passage deferred from [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §6.2.9:
+Madhyasth Darshan emphasises the present as the locus of causal reality. JVD states the central passage deferred from [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.14:
 
 > **"Every numerical moment of time, which is taken to be past or future, is found to be present in the form of activity. Thus, it becomes studiable that activity is eternally present."**
 > - JVD, p. 85
@@ -286,7 +286,7 @@ Verse and section numbers follow standard numbering and apply to any faithful ed
 
 ### Related studies in this collection
 
-- [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — preview of *kaal* as duration of activity (§1.4); *shram–gati–parinam* and sentient *samadhan* (§1.4); Advaita temporality (§2.7); spacetime and conservation (§4.3); deferred comparative work on time (§6.2.9).
+- [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — preview of *kaal* as duration of activity (§1.4); *shram–gati–parinam* and sentient *samadhan* (§1.4); Advaita temporality (§2.7); spacetime and conservation (§4.3); deferred comparative work on time (§1.14).
 - *Philosophy-Of-Mind-And-Jeevan* (Ongoing) — full faculty map of *mun*, *vritti*, *chitta*, *buddhi*, and *atma* (MVD, pp. 323–327).
 
 ### Modern philosophy and physics

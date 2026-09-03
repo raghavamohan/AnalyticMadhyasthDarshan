@@ -124,7 +124,7 @@ Integration–disintegration occurs among material constituents; vitalising–de
 
 **Concept.** Atma is the nucleus; buddhi, chitta, vritti, and mun are associated with successive orbits. Each faculty has an outward projection and an inward reflection activity. All ten activities belong to and continuously operate in *jeevan*; “four and a half” names their restricted effective organisation and bodily evidence in deluded human living, not absent faculties.
 
-**Primary pointers.** MVD, pp. 13, 77–78, 99–101, 126, 277–279; JV, pp. 73–74, 92, 138; KD §§3.6, 3.11–3.12, printed pp. 70–118.
+**Primary pointers.** MVD, pp. 13, 77–78, 99–101, 126, 277–279, 328–348; JV, pp. 73–74, 92, 138; AVD, pp. 91–94; KD §§3.6, 3.11–3.12, printed pp. 70–118.
 
 | Faculty | Projection | Reflection |
 |---|---|---|
@@ -134,7 +134,9 @@ Integration–disintegration occurs among material constituents; vitalising–de
 | Buddhi | resolve | enlightenment |
 | Atma | authenticity | realisation |
 
-**Read for.** The orbital account, force and power, projection and reflection, the distinction between inherent activity and effective bodily evidence, four-and-a-half activities in deluded human living, and the regulation of the faculties from atma in awakening.
+The ten are enumerated in finer grain as named positions at each faculty, whose two members are again what the faculty bears in state and what carries it outward. The named values of the concept-19 families belong to that enumeration rather than standing beside it.
+
+**Read for.** The orbital account, force and power, projection and reflection, the distinction between inherent activity and effective bodily evidence, four-and-a-half activities in deluded human living, the finer-grained positions at which named values are borne, and the regulation of the faculties from atma in awakening.
 
 ### 13. Activity completeness (T2)
 
@@ -186,9 +188,9 @@ Integration–disintegration occurs among material constituents; vitalising–de
 
 ### 19. Happiness, bliss, and human fulfilment
 
-**Concept.** Happiness, peace, contentment, and bliss name harmony among the faculties of *jeevan*. In living, they correspond to resolution, prosperity, fearlessness, and coexistence.
+**Concept.** Happiness, peace, contentment, and bliss name harmony among the faculties of *jeevan*, each borne as a named activity by the outer faculty of its pair — happiness at *mun*, peace at *vritti*, contentment at *chitta*, bliss at *buddhi*. In living, they correspond to resolution, prosperity, fearlessness, and coexistence.
 
-**Primary pointers.** MVD, pp. 77, 101, 160–163; JV, pp. 61, 138.
+**Primary pointers.** MVD, pp. 77, 100–101, 160–163, 328–346; JV, pp. 61, 138.
 
 **Read for.** Mun–vritti, vritti–chitta, chitta–buddhi, and buddhi–atma harmony; the four stages of happiness; and their public evidence in person, family, society, and universal orderliness.
 
@@ -216,12 +218,12 @@ MVD presents five value families. Its object-value family contains two distingui
 | Value family | Content |
 |---|---|
 | Object values | Utility: definite usefulness of an object; art: meaningful aesthetic enhancement of usefulness |
-| *Jeevan* values | Happiness, peace, contentment, and bliss—the four harmonies among the faculties of *jeevan* |
+| *Jeevan* values | Happiness, peace, contentment, and bliss—the four harmonies among the faculties of *jeevan*, each borne as a named activity by the outer faculty of its pair |
 | Human values | The value-domain through which humaneness becomes evident; closely related humane and higher-humane essential natures include fortitude, courage, generosity, kindness, grace, and compassion |
-| Established values | Relationship values such as trust, respect, affection, care, guidance, reverence, gratitude, and love |
+| Established values | The nine relationship values—trust, respect, affection, care, guidance, reverence, gratitude, glory, and love—borne at *chitta*, *vritti*, and *mun*, each paired with the civic value expressing it |
 | Civic values (*shishta-mulya*) | Right-use and purposeful-use of body, mind, and wealth in social participation; “expression values” is an explanatory alternative, not another family |
 
-Relationship supplies the recognised mutuality, value identifies what fulfils it, evaluation checks the fulfilment, and mutual satisfaction completes justice (§§1.4, 1.12).
+Object value is spread in units. The named values of the other four families are activities borne by *jeevan*'s faculties, defined in the same appendix of the primary texts that defines its activities (MVD, pp. 328–348; AVD, pp. 91–94; §§1.4, 1.7). Relationship supplies the recognised mutuality, value identifies what fulfils it, evaluation checks the fulfilment, and mutual satisfaction completes justice (§§1.4, 1.12).
 
 ### Four progressions, four planes, and five human types
 
@@ -314,3 +316,4 @@ For a detailed critical and comparative treatment, see [*The Ontology of Coexist
 - **SB** — A. Nagraj, [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf), English translation by Rakesh Gupta.
 - **JV** — A. Nagraj, [*Jeevan Vidya: An Introduction*](../../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf), English translation by Rakesh Gupta.
 - **KD** — A. Nagraj, [*Manav Karm Darshan — Working English Rendering*](../../References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf). Use the Part 3 subsection and printed-page pointers above; this is a working rendering rather than a published English translation.
+- **AVD** — A. Nagraj, [*Adhyatmvad* (*Realisation Centred Spiritualism*)](../../References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf), English translation by Sanjeev Chopra — work in progress. Pointed to only for the tabulated enumeration of the conducts of awakened *jeevan*; definitional content is taken from MVD.

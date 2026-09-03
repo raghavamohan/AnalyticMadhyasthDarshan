@@ -3,7 +3,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 29, 2026, 5:40 AM IST
+**Edited on:** September 3, 2026, 2:33 PM IST
 **Status:** Released
 **The question:** must organisations be built on fear or accumulation, or is there a basis on which they sustain *and* their members are not used as instruments?
 
@@ -201,7 +201,7 @@ Rule without understanding repeats the exploitation logic already seen in §3 �
 
 Both design objectives of §1 are answered by the same move:
 
-1. *Objective 1 — members not instrumentalised:* the organisation must add to the member, not subtract (`Unit + Conducive unit`); fulfil the values owed in each relationship; and hold to justice above mere legality. Justice here is not one value among values but the **closure of the whole relational cycle** — "recognising relationships, fulfilling values, evaluating, and achieving mutual satisfaction" ([*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.10.5; MVD, p. 311) — so that "Humane behaviour in mutuality itself is justice" (MVD, Ch. 1). Instrumentalisation is precisely this cycle left open: values unfulfilled or mis-evaluated, mutual satisfaction never reached. A member can therefore be treated entirely legally and still be exploited, because legality is not the closure of that cycle.
+1. *Objective 1 — members not instrumentalised:* the organisation must add to the member, not subtract (`Unit + Conducive unit`); fulfil the values owed in each relationship; and hold to justice above mere legality. Justice here is not one value among values but the **closure of the whole relational cycle** — "recognising relationships, fulfilling values, evaluating, and achieving mutual satisfaction" ([*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.12.1; MVD, p. 311) — so that "Humane behaviour in mutuality itself is justice" (MVD, Ch. 1). Instrumentalisation is precisely this cycle left open: values unfulfilled or mis-evaluated, mutual satisfaction never reached. A member can therefore be treated entirely legally and still be exploited, because legality is not the closure of that cycle.
 2. *Objective 2 — sustainment:* shared cause-goal-programme; resolution as foundation; prosperity through right-use rather than accumulation — "Material prosperity is accomplished only by adhering to the policy of 'more production than the needs'" (MVD, Ch. 5), with "earning for expenditure" as non-accumulation (MVD, Ch. 10) and a **cyclical economics** (JV); and transmission across generations through **education-sanskar** — "This is how understanding flows in tradition. Ignorance cannot flow in tradition" (JV).
 
 The two objectives are not in tension. Extraction-based systems must trade member welfare against growth; a coexistence-based system avoids the trade-off because the member's flourishing *is* the organisation's strength.
@@ -221,7 +221,7 @@ Everything above rests on the load-bearing phrase introduced in §5.1: organisat
 
 ### 6.1 What is to be understood
 
-Coexistence here is not tolerance, compromise, or "getting along." It is a claim about the structure of reality: existence is units **submerged in** all-pervading space — distinct, energised, and related — and the four natural orders (material, bio, animal, and knowledge order) are mutually complementary ([*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §§1.1, 1.5). To understand coexistence is to know the darshan's three inseparable areas of complete knowledge ([*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.11.3):
+Coexistence here is not tolerance, compromise, or "getting along." It is a claim about the structure of reality: existence is units **submerged in** all-pervading space — distinct, energised, and related — and the four natural orders (material, bio, animal, and knowledge order) are mutually complementary ([*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §§1.1, 1.5). To understand coexistence is to know the darshan's three inseparable areas of complete knowledge ([*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.13):
 
 1. **Existence** — reality as coexistence; the complementarity of all orders
 2. **Jeevan** — the conscious self, distinct from the body, that desires happiness and is satisfied only by understanding
@@ -239,7 +239,7 @@ The darshan insists this understanding is *teachable* — open to examination, n
 > **"The alternative path is - perform study, attain mastery, then evidence it in living."**
 > - JV, Ch. 1
 
-The method is a sequence: **study** (adhyayan — sustained engagement with the proposal, guided by someone who already lives it), **contemplation** (turning the proposal over against one's own observation and natural acceptance), **understanding** (the point where every *why* and *how* is answered — which is what the darshan means by *resolution*), and finally **evidence in living** (pramaan — the understanding showing up as justice, trust, and right-use in actual relationships). In the ontology's terms this is the knowledge-order cycle **knowing → believing → recognising → fulfilling**: what a member unfolds (*gyan udghatan*) is not a private conviction but the relationships already built into coexistence, brought into lived conduct ([*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §§1.11.1–1.11.2). The teaching is offered as a *proposal* to be verified, never as a command to be obeyed: each person checks it against what is naturally acceptable to them and validates it in their own living.
+The method is a sequence: **study** (adhyayan — sustained engagement with the proposal, guided by someone who already lives it), **contemplation** (turning the proposal over against one's own observation and natural acceptance), **understanding** (the point where every *why* and *how* is answered — which is what the darshan means by *resolution*), and finally **evidence in living** (pramaan — the understanding showing up as justice, trust, and right-use in actual relationships). In the ontology's terms this is the knowledge-order cycle **knowing → believing → recognising → fulfilling**: what a member unfolds (*gyan udghatan*) is not a private conviction but the relationships already built into coexistence, brought into lived conduct ([*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §§1.11, 1.13). The teaching is offered as a *proposal* to be verified, never as a command to be obeyed: each person checks it against what is naturally acceptable to them and validates it in their own living.
 
 ### 6.3 How one knows it has been understood
 
@@ -360,7 +360,7 @@ The contribution of this view is to collapse two problems usually treated separa
 
 ### Related studies in this collection
 
-- [*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — the ontological base: units, saturation, the four orders, regulation and law, the justice cycle, and societal fulfilment outcomes. Cited: §§1.1, 1.5–1.8, 1.10.5, 1.11, 1.13; and §2, §5.7 for the Advaita comparison.
+- [*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — the ontological base: units, saturation, the four orders, regulation and law, the justice cycle, and societal fulfilment outcomes. Cited: §§1.1, 1.5–1.8, 1.11–1.13; and §2, §5.7 for the Advaita comparison.
 - [*How Undivided Society Is Established*](../How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf) — the consolidated social-establishment account: ten-tier family orderliness and the five orderliness dimensions.
 - [*Education and Sanskar*](../Education-And-Sanskar/Education-And-Sanskar.pdf) — the transmission mechanism (education-sanskar) treated in full.
 - [*Prosperity, Economics, and Right Use*](../Prosperity-Economics-And-Right-Use/Prosperity-Economics-And-Right-Use.pdf) — the cyclical economy of right-use rather than accumulation.
