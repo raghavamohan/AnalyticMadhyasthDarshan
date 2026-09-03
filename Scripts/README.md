@@ -42,6 +42,10 @@ what to run **on that branch** before opening the PR.
 | Build all companion presentations into a separate tree | `python Scripts/_build_presentations.py --all --profile libreoffice-production --output-root tmp/presentation-build` |
 | Compare two presentation builds | `python Scripts/_verify_presentation_reproducible.py --all --left-root <first> --right-root <second>` |
 | Review a candidate renderer against a baseline | `python Scripts/_compare_presentation_renderers.py --reference-root <baseline> --candidate-root <candidate> --output-dir <review>` |
+| Verify generated-PDF inventory without R2 access | `python Scripts/_publish_generated_pdfs.py --artifact <repository-relative.pdf> --dry-run --offline` |
+| Preview changed R2 uploads | `python Scripts/_publish_generated_pdfs.py --artifact-root <verified-build> --changed --dry-run` |
+| Publish one/all verified PDF artifacts to R2 | `python Scripts/_publish_generated_pdfs.py --artifact-root <verified-build> --artifact <repository-relative.pdf>` / `--all` |
+| Audit or explicitly remove stale R2 PDFs | `python Scripts/_publish_generated_pdfs.py --list-stale`; then `--delete-stale --confirm-stale-count <N>` |
 | Diagnose PPTX → slides PDF only | `python Scripts/_pptx_to_pdf.py path/to/deck.pptx --profile powerpoint-baseline` |
 | Diagnose deck → read-aloud notes PDF only | `python Scripts/_build_deck_notes_pdf.py path/to/deck.pptx` (run after the slides PDF) |
 | PDF → study markdown (maintainer) | `python Scripts/_pdf_to_study_md.py path/to/paper.pdf --slug <Slug> --title "..."` |
