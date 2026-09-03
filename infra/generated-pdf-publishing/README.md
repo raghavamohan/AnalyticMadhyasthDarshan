@@ -210,3 +210,7 @@ checked out. Never expose `.env` values in logs.
   because a PowerShell `-notmatch` expression did not leave a reusable
   `$Matches` array. The installer now stores the regex match object explicitly;
   no version check or digest check was relaxed.
+- The retry reached the same post-install assertion and showed that
+  `soffice.exe`, LibreOffice's Windows GUI launcher, emits no capturable version
+  text. Version detection and headless conversion now prefer the sibling
+  `soffice.com` console launcher; the exact-version assertion is unchanged.

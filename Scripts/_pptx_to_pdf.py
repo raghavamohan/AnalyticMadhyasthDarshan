@@ -41,6 +41,14 @@ LIBREOFFICE_CANDIDATES = (
     Path(os.environ.get("ProgramFiles", r"C:\Program Files"))
     / "LibreOffice"
     / "program"
+    / "soffice.com",
+    Path(os.environ.get("ProgramFiles(x86)", r"C:\Program Files (x86)"))
+    / "LibreOffice"
+    / "program"
+    / "soffice.com",
+    Path(os.environ.get("ProgramFiles", r"C:\Program Files"))
+    / "LibreOffice"
+    / "program"
     / "soffice.exe",
     Path(os.environ.get("ProgramFiles(x86)", r"C:\Program Files (x86)"))
     / "LibreOffice"
@@ -65,7 +73,10 @@ def find_powerpoint() -> Path | None:
 
 
 def find_libreoffice() -> Path | None:
-    return _find_first(LIBREOFFICE_CANDIDATES, path_names=("soffice", "soffice.exe"))
+    return _find_first(
+        LIBREOFFICE_CANDIDATES,
+        path_names=("soffice.com", "soffice", "soffice.exe"),
+    )
 
 
 def resolve_pptx(path: Path | None, study: str | None, deck: str | None) -> Path:
@@ -196,6 +207,9 @@ def renderer_version(engine: str) -> str:
         executable = find_libreoffice()
         if executable is None:
             raise RuntimeError("LibreOffice is not installed or not on PATH.")
+        console = executable.with_suffix(".com")
+        if console.is_file():
+            executable = console
         completed = subprocess.run(
             [str(executable), "--version"], check=False, capture_output=True,
             text=True, encoding="utf-8", errors="replace",

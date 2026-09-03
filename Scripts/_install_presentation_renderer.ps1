@@ -42,7 +42,8 @@ if ($actual -ne $expected) {
     throw "LibreOffice installer SHA-256 mismatch: expected $expected, got $actual"
 }
 
-$soffice = Join-Path $env:ProgramFiles "LibreOffice\program\soffice.exe"
+$sofficeExe = Join-Path $env:ProgramFiles "LibreOffice\program\soffice.exe"
+$soffice = Join-Path $env:ProgramFiles "LibreOffice\program\soffice.com"
 $installedVersion = ""
 if (Test-Path -LiteralPath $soffice) {
     $versionOutput = & $soffice --version
@@ -65,8 +66,8 @@ if ($installedVersion -ne $renderer.version) {
     }
 }
 
-if (-not (Test-Path -LiteralPath $soffice)) {
-    throw "LibreOffice executable not found after installation: $soffice"
+if (-not (Test-Path -LiteralPath $sofficeExe) -or -not (Test-Path -LiteralPath $soffice)) {
+    throw "LibreOffice executable/console launcher not found after installation"
 }
 $versionOutput = & $soffice --version
 $versionMatch = [regex]::Match([string]$versionOutput, "(\d+\.\d+\.\d+\.\d+)")
