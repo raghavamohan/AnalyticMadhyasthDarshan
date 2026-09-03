@@ -26,7 +26,7 @@
 <meta name="twitter:description" content="The family as the first site of values: recognising relationships and living trust, affection, gratitude, and mutual satisfaction"/>
 <meta name="twitter:image" content="https://analyticmadhyasthdarshan.org/Assets/Social/Family-Relationships-And-Values.png"/>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Family Relationships and Values","description":"The family as the first site of values: recognising relationships and living trust, affection, gratitude, and mutual satisfaction","url":"https://analyticmadhyasthdarshan.org/Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.html","inLanguage":"en","author":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"publisher":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"image":"https://analyticmadhyasthdarshan.org/Assets/Social/Family-Relationships-And-Values.png","dateModified":"2026-07-29T06:35:00+05:30"}
+{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Family Relationships and Values","description":"The family as the first site of values: recognising relationships and living trust, affection, gratitude, and mutual satisfaction","url":"https://analyticmadhyasthdarshan.org/Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.html","inLanguage":"en","author":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"publisher":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"image":"https://analyticmadhyasthdarshan.org/Assets/Social/Family-Relationships-And-Values.png","dateModified":"2026-09-03T14:14:00+05:30"}
 </script>
 <script>
 (function(){try{var t=localStorage.getItem("amd-theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();
@@ -470,8 +470,9 @@
 
   /* Contents ---------------------------------------------------------------
      Studies run past 30,000 words, so the sequential previous/next pair is not
-     enough to move around one. Closed by default so it costs no height; the
-     script below opens it where there is room. */
+     enough to move around one. Closed by default so small screens never pay
+     for its height; a parser-blocking script inside the element opens it
+     where there is room, before the reading key is parsed. */
   .study-toc {
     max-width: 37rem;
     margin: 1.6em 0 2.2em;
@@ -705,7 +706,7 @@
 </nav>
 <main id="main"><h1>Family Relationships and Values</h1>
 <p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> — a group of people studying <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
-<p><strong>Edited on:</strong> July 29, 2026, 6:35 AM IST</p>
+<p><strong>Edited on:</strong> September 3, 2026, 2:14 PM IST</p>
 <p><strong>The question:</strong> What is a family in Madhyasth Darshan, why is it the first place where values become livable, and how are its relationships recognised and their values fulfilled?</p>
 <p>This study sets out the Madhyasth Darshan account of the family: what makes a family a family, which relationships constitute it, how those relationships are recognised, which values are inherent in them, and why the darshan treats the family rather than the individual or the state as the unit at which need is assessed and prosperity becomes definable.</p>
 <p><a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> supplies the setting: Omnipresence, saturated units, form, properties, essential nature and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span></em>, the four orders, and the active structure of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>. <a href="https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html">Axiology Value Theory</a> establishes what a value is, the distinction between relationship and contact, and the classes of value including the nine established values (§§1.1.1, 1.3.1–1.3.3). <a href="https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html">How Undivided Society Is Established</a> §5.2 argues from the family outward to undivided society. The present study works in the other direction: inward, at the scale where relationships are actually lived, and compares the darshan&rsquo;s domestic axiology with Advaita Vedanta, classical Confucianism, the Western ethics of care, and modern household economics.</p>
@@ -747,6 +748,15 @@
       <li class="study-toc-item study-toc-l2"><a href="#related-studies-in-this-collection">Related studies in this collection</a></li>
     </ol>
   </nav>
+<script>
+(function(){
+  var toc = document.getElementById("study-contents");
+  if (toc && window.matchMedia("(min-width: 760px)").matches && window.innerHeight >= 640) {
+    toc.open = true;
+  }
+})();
+</script>
+
 </details>
 <p class="study-reading-key" aria-label="Reading key">
   <span class="study-reading-key-term">Dotted underline</span>: definition
@@ -896,11 +906,12 @@
 <p>This is the darshan&rsquo;s diagnosis of family dysfunction, and it is not primarily about conflict or scarcity. A family ordered by power, seniority, or earning capacity may be perfectly stable and still, on this account, not have recognised its relationships at all — because what holds it together is leverage rather than purpose. The same holds for families held together by fear of consequences or by expectation of advantage. Since fear and temptation are not values, no quantity of them can be evaluated as value-fulfilment, and the arrangement they sustain cannot yield mutual satisfaction.</p>
 <p>The claim that follows is checkable in a family&rsquo;s own experience: where relationships are not recognised, mistakes are inevitable, and once they are recognised humans no longer make mistakes in those contexts (JV, p. 56). Taken as stated this is very strong, and §4.2.1 asks what it can reasonably mean.</p>
 <h4>1.2.3 The nine established values and nine expressed values</h4>
-<p>The values inherent in relationships are named and defined. <a href="https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html">Axiology Value Theory</a> §1.2.3 gives the list and its sources; what matters here is how each established value (<em>sthapit mulya</em>) manifests through its corresponding expressed value (<em>shishta mulya</em>) in daily family living.</p>
+<p>The values inherent in relationships are named and defined. <a href="https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html">Axiology Value Theory</a> §1.3.2 gives the list and its sources; what matters here is how each established value (<em>sthapit mulya</em>) manifests through its corresponding expressed value (<em>shishta mulya</em>) in daily family living. The pairing is not this study&rsquo;s to choose. The appendix of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>&rsquo;s activities defines each established value at a position, beside the term through which it is carried outward, and the tabulated enumeration fixes which member the faculty bears in state (MVD, pp. 328–348; AVD, pp. 91–94). Three of the nine stand at <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Chitta — the reflective mind; jeevan’s faculty of contemplation and desire, inspired by buddhi.">chitta</button></span></em>, three at <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Vritti — the decisive mind or disposition; jeevan’s faculty of comparison and thought, inspired by chitta.">vritti</button></span></em>, and three at <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mun" data-definition="Mun — the anticipating mind in jeevan; its activities include tasting and selection according to hope, and it guides the body.">mun</button></span></em>.</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Established Value (<em>Sthapit</em>)</th>
+<th>Borne at</th>
 <th>Definition in the sources</th>
 <th>Expressed Value (<em>Shishta</em>)</th>
 <th>Manifestation in Domestic Conduct</th>
@@ -909,69 +920,78 @@
 <tbody>
 <tr>
 <td>Care (<em>mamta</em>)</td>
-<td>Nurturing and protecting with affinity (MVD, p. 339)</td>
-<td>Softness (<em>soumya</em>)</td>
-<td>Gentle speech and ungrudging care toward children and elders</td>
+<td><em>mun</em></td>
+<td>Nurturing and protecting with the pinnacle of affinity (MVD, p. 339)</td>
+<td>Generosity (<em>udarta</em>)</td>
+<td>Offering time, effort, and household means as a child&rsquo;s or an elder&rsquo;s need requires</td>
 </tr>
 <tr>
 <td>Guidance (<em>vatsalya</em>)</td>
-<td>Continuity of nurturing for resolution (MVD, p. 332)</td>
-<td>Simplicity (<em>saralta</em>)</td>
-<td>Direct, unmanipulative teaching and open living</td>
+<td><em>chitta</em></td>
+<td>Continuity of nurturing and protection for comprehensive resolution (MVD, p. 331)</td>
+<td>Effortlessness (<em>sahajta</em>)</td>
+<td>Teaching that needs no pretence, with behaviour, thought, and speech agreeing</td>
 </tr>
 <tr>
 <td>Trust (<em>vishwas</em>)</td>
-<td>Fulfilling expectation of values in mutuality (MVD, p. 73)</td>
-<td>Generosity (<em>soujanayata</em>)</td>
-<td>Open sharing of household resources and complete assurance</td>
+<td><em>vritti</em></td>
+<td>Fulfilment of values inherent in mutuality (MVD, p. 335)</td>
+<td>Concordance (<em>saujanyata</em>)</td>
+<td>Collaboration in household work and shared decisions rather than parallel lives</td>
 </tr>
 <tr>
 <td>Affection (<em>sneha</em>)</td>
-<td>Absence of resistance in just behaviour (MVD, p. 73)</td>
-<td>Commitment (<em>nishtha</em>)</td>
-<td>Steadfast loyalty and continuous presence in difficulty</td>
+<td><em>mun</em></td>
+<td>Absence of resistance in just behaviour (MVD, p. 340)</td>
+<td>Dedication (<em>nishtha</em>)</td>
+<td>Continuing effort towards the family&rsquo;s shared purpose, including in difficulty</td>
 </tr>
 <tr>
 <td>Gratitude (<em>kritagyata</em>)</td>
-<td>Acceptance of support for awakening (MVD, p. 37)</td>
-<td>Purity (<em>pavitrata</em>)</td>
-<td>Unblemished conduct and honouring support received</td>
+<td><em>vritti</em></td>
+<td>Acceptance of help received for advancement and awakening (MVD, p. 335)</td>
+<td>Humility (<em>saumyata</em>)</td>
+<td>Willing self-restraint, and acknowledging support received without being asked</td>
 </tr>
 <tr>
 <td>Glory (<em>gaurav</em>)</td>
+<td><em>vritti</em></td>
 <td>Emulation embraced without resistance (MVD, p. 335)</td>
-<td>Gravity (<em>gambhirtadhirta</em>)</td>
-<td>Calm dignity and steadfastness worth emulating</td>
+<td>Simplicity (<em>saralta</em>)</td>
+<td>Conduct free of complexity and tension, which is what makes it emulable</td>
 </tr>
 <tr>
 <td>Love (<em>prem</em>)</td>
-<td>Realisation of the complete; combined grace/mercy (MVD, p. 317)</td>
-<td>Ananya (<em>unbrokenness</em>)</td>
-<td>Undivided, universal goodwill extending outward from home</td>
+<td><em>chitta</em></td>
+<td>Realisation of the complete, and devotion in completeness (MVD, p. 331)</td>
+<td>Non-otherness (<em>ananyata</em>)</td>
+<td>Complementary living in which no member is treated as outside the family&rsquo;s concern</td>
 </tr>
 <tr>
 <td>Reverence (<em>shraddha</em>)</td>
-<td>Movement towards righteousness/completeness (MVD, p. 326)</td>
-<td>Receptivity (<em>namrata</em>)</td>
-<td>Humble readiness to learn from parents, elders, and <em>guru</em></td>
+<td><em>chitta</em></td>
+<td>Movement towards righteousness and conduct completeness (MVD, p. 332)</td>
+<td>Devoutness (<em>pujyata</em>)</td>
+<td>Active readiness to learn from parents, elders, and <em>guru</em></td>
 </tr>
 <tr>
 <td>Respect (<em>samman</em>)</td>
+<td><em>mun</em></td>
 <td>Acceptance of personality and talent (MVD, p. 340)</td>
-<td>Balance (<em>samtulana</em>)</td>
-<td>Equal evaluation without over- or under-rating members</td>
+<td>Cordiality (<em>sauhardta</em>)</td>
+<td>Presenting understanding as it stands, without over- or under-rating members</td>
 </tr>
 </tbody>
 </table></div>
-<p>Three features matter for family life specifically. None of the definitions is affective: each names an activity or an acceptance whose success conditions lie in the relationship rather than in how warmly a member feels. Trust is defined as <em>fulfilment</em>, so a family in which everyone feels confident while expectations go unmet does not have trust in this sense. And love sits at the far end of the list rather than the beginning — it is the realisation of the complete, which makes it the outcome of the other values rather than the emotion that founds a family.</p>
-<p>The values are not to be acquired from outside. JV holds that they are inherent in <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> and are deployed when relationships are recognised, and gives the family&rsquo;s own example: when a mother has recognised her child, motherly care begins to surge by itself, needing no plan (JV, p. 138). The corresponding claim about failure is equally direct — where relationships are not recognised, there is no flow of values (JV, p. 55).</p>
+<p>Three features matter for family life specifically. None of the definitions is affective: each names an activity or an acceptance whose success conditions lie in the relationship rather than in how warmly a member feels. The placement above is what makes that concrete: a value is one of <em>jeevan</em>&rsquo;s named activities, not a feeling a household member happens to have. Trust is defined as <em>fulfilment</em>, so a family in which everyone feels confident while expectations go unmet does not have trust in this sense. And love sits at the far end of the list rather than the beginning — it is the realisation of the complete, which makes it the outcome of the other values rather than the emotion that founds a family.</p>
+<p>The values are not to be acquired from outside. JV holds that they are inherent in <em>jeevan</em> and are deployed when relationships are recognised, and gives the family&rsquo;s own example: when a mother has recognised her child, motherly care begins to surge by itself, needing no plan (JV, p. 138). The corresponding claim about failure is equally direct — where relationships are not recognised, there is no flow of values (JV, p. 55).</p>
 <h4>1.2.4 Gratitude first and the succession chain</h4>
 <p>The nine are ordered by dependence, and the family is where the ordering is visible. JV states that gratitude comes first and that with gratitude the other values begin to manifest, with affection, love, and trust developing after it (JV, p. 108). MVD gives the sequence as a chain:</p>
 <blockquote>
 <p><strong>“Gratitude leads to glory, glory leads to simplicity, simplicity leads to effortlessness, effortlessness leads to humaneness, humaneness leads to coexistence, and gratitude arises in, by, and for coexistence.”</strong>
 — MVD, p. 38</p>
 </blockquote>
-<p>Gratitude is defined as acceptance of inspiration and support for advancement and awakening (MVD, p. 37), and its opposite, ingratitude, as disregarding support received (MVD, p. 38). In a family this has an obvious application and an unobvious one. Obviously, a child&rsquo;s recognition of what has been provided is where value-fulfilment starts. Less obviously, the chain runs through glory — emulation embraced without resistance — which makes the elder generation&rsquo;s conduct, not its authority, the mechanism by which values pass down. A parent who cannot be emulated without resistance has broken the chain at its second link, whatever the child&rsquo;s obligations.</p>
+<p>The chain runs through the expressed side of the table above: simplicity is what glory is carried outward as, and effortlessness is what guidance is carried outward as (§1.2.3). Gratitude is defined as acceptance of inspiration and support for advancement and awakening (MVD, p. 37), and its opposite, ingratitude, as disregarding support received (MVD, p. 38). In a family this has an obvious application and an unobvious one. Obviously, a child&rsquo;s recognition of what has been provided is where value-fulfilment starts. Less obviously, the chain runs through glory — emulation embraced without resistance — which makes the elder generation&rsquo;s conduct, not its authority, the mechanism by which values pass down. A parent who cannot be emulated without resistance has broken the chain at its second link, whatever the child&rsquo;s obligations.</p>
 <h4>1.2.5 Fulfilment, evaluation, and mutual satisfaction (<em>ubhaya tripti</em>)</h4>
 <p>Recognition is only the first of four steps. The complete activity is recognition of relationships, fulfilling of values, evaluation, and mutual satisfaction, which the darshan identifies with justice (MVD, p. 336). Family living is where the sequence runs most often and most consequentially.</p>
 <p>Each step can fail on its own. A member may not recognise that a relationship is present; may recognise it and lack the capacity, ability, or receptivity to fulfil it; may fulfil it and evaluate the result wrongly; or may reach satisfaction on one side only. The mediating conditions matter more in families than anywhere else, because capacity is unequally distributed by age, health, and circumstance — an eight-year-old and a grandparent are held to the same values but not to the same capacity for fulfilling them.</p>
@@ -1018,7 +1038,7 @@
 <p>In the family this cuts both ways, and the darshan&rsquo;s own logic requires saying so. A household whose conduct is ordered by fear and temptation transmits <em>kusanskar</em> by exactly the mechanism that would otherwise transmit <em>susanskar</em>, and it does so more effectively than any curriculum, because the family&rsquo;s conduct is what the child has to emulate. That is why value education cannot be delivered by schools alone, and also why families reproduce their own errors across generations.</p>
 <h4>1.4.2 The interplay of internal refinement (<em>upasana</em>) and external behaviour (<em>vyavahar</em>)</h4>
 <p>Madhyasth Darshan maintains a precise structural distinction between the internal process of cognitive refinement and its external relational expression, while demonstrating their necessary interdependence:
-- <strong><em>Upasana</em></strong> (internal refinement) is defined in <em>Manav Karm Darshan</em> Chapter 2 as <strong>the internal process of refining root tendencies (<em>mool-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Vritti — the decisive mind or disposition; jeevan’s faculty of comparison and thought, inspired by chitta.">vritti</button></span> parimarjan<em>) and transforming acceptances (</em>sanskar-parivartan<em>) towards complete awakening</em>* (KD, pp. 30, 37).
+- <strong><em>Upasana</em></strong> (internal refinement) is defined in <em>Manav Karm Darshan</em> Chapter 2 as <strong>the internal process of refining root tendencies (<em>mool-vritti parimarjan<em>) and transforming acceptances (</em>sanskar-parivartan<em>) towards complete awakening</em>* (KD, pp. 30, 37).
 - </em></strong>Vyavahar<strong><em> (humane behaviour) is defined as </em>*the utilization of effort in mutuality where more than one human comes together</strong> (MVD, p. 33), with domestic living categorized under relational fulfilment (<em>mulya nirvah</em>) and justice (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="nyaya" data-definition="Justice — recognising relationships, fulfilling and evaluating their values, and attaining mutual satisfaction.">nyaya</button></span></em>) (MVD, p. 55; JV, p. 55).</p>
 <p>Though structurally distinct, the two operate in an unbreakable feedback circuit. Fulfilling external mutuality (<em>vyavahar</em>) in family relationships directly <strong>requires internal refinement (<em>upasana</em>)</strong>. If a person&rsquo;s internal tendencies remain dominated by delusion (<em>bram</em>), fear, or expectation of personal advantage, external behaviour in the family becomes reactive, manipulative, or unstable, preventing mutual satisfaction (<em>ubhaya tripti</em>).</p>
 <p>It is in this precise sense that the natal family is where <em>upasana</em> (internal refinement) is initiated. The family is the first setting where human mutuality is experienced and where relational friction or unmet expectations force the individual <em>jeevan</em> to look inward, examine its acceptances (<em>sanskar</em>), and refine its root tendencies (<em>mool-vritti parimarjan</em>). As KD Chapter 2 emphasizes, wisdom, resolution, and prosperity are the direct result of <em>upasana</em>, &ldquo;in which sociality remains naturally contained&rdquo; (KD, p. 37). Because sociality is naturally contained in <em>upasana</em>, the natal family is the initial ground where internal tendential refinement is called forth by relational living and where its evidence — resolution, trust, and mutual satisfaction — is verified in conduct.</p>
@@ -1183,7 +1203,7 @@
 <li><strong><em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sambandh" data-definition="Relationship — a value-bearing mutuality in which expectations arise from relationality and necessity; fulfilment involves recognition, values, evaluation, and mutual satisfaction.">Sambandh</button></span></em></strong> — relationship. A mutuality whose expectations are predetermined in the sense of completeness (MVD, p. 62); seven forms are enumerated at MVD, p. 190.</li>
 <li><strong><em>Sampark</em></strong> — contact. A mutuality whose expectations are voluntary (MVD, p. 61); a different kind of mutuality, not a lesser one.</li>
 <li><strong><em>Sthapit mulya</em></strong> — established values. The nine values inherent in recognised relationships (care, guidance, trust, affection, gratitude, glory, love, reverence, respect).</li>
-<li><strong><em>Shishta mulya</em></strong> — expressed values. The nine outward behavioral expressions of established values (softness, simplicity, generosity, commitment, purity, gravity, unbrokenness, receptivity, balance).</li>
+<li><strong><em>Shishta mulya</em></strong> — expressed values. The nine outward expressions paired with the established values in the appendix of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>&rsquo;s activities (generosity, effortlessness, concordance, dedication, humility, simplicity, non-otherness, devoutness, cordiality).</li>
 <li><strong><em>Mamta</em></strong> — care. Nurturing and protecting with the pinnacle of affinity; accepting the other as an image of oneself (MVD, p. 339).</li>
 <li><strong><em>Vatsalya</em></strong> — guidance. Continuity of nurturing and protection for comprehensive resolution (MVD, p. 332).</li>
 <li><strong><em>Vishwas</em></strong> — trust. Fulfilling the inherent expectation of values in mutuality (MVD, pp. 73, 336) — fulfilment, not confidence.</li>
@@ -1216,9 +1236,10 @@
 <h2 id="references">References</h2>
 <h3 id="madhyasth-darshan-primary-sources">Madhyasth Darshan (primary sources)</h3>
 <ul>
-<li><strong>MVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan – Co-existentialism</em>, Part 1: <em>Holistic View of Human Behaviour</em></a>. English translation by Rakesh Gupta. Cited: <em>sadhana</em>, <em>samadhi</em>, and <em>samyama</em> undertaken and moved beyond, and <em>upasana</em> glossed as devotional practices towards deities (pp. 4, 7); five statuses and the ten-tier family-based self-governance orderliness (p. 18); behaviour as effort in mutuality (p. 33); gratitude defined (p. 37); the gratitude-to-coexistence chain and ingratitude (p. 38); family, community, and undivided society (p. 55); needs determined by a wise family (p. 56); crime as ill-gotten wealth, adultery, and hurtful behaviour (p. 60); contact as voluntary-expectation mutuality (p. 61); relationship as predetermined-expectation mutuality (p. 62); prosperity as the lack of the sentiment of lacking (p. 72); trust and affection (p. 73); the four senses of <em>sanskar</em> and <em>sanskar</em> as cause of awakening (p. 90); <em>susanskar</em> (p. 94); just behaviour as righteous wealth, marital faithfulness, and kindness (p. 102); family as the first tier of the ten-tier orderliness (p. 161); refinement in <em>susanskar</em> following enlightenment about the human goal and <em>jeevan</em> values (p. 187); societal balance and the three behaviours (p. 189); the seven forms of relationship (p. 190); social responsibility evidenced in the wise family, and family order to world family order (p. 253); education-<em>sanskar</em> requiring procedure, teachers, parents, and study aligned (p. 270); <em>susanskar</em> and <em>kusanskar</em> (p. 315); love (p. 317); reverence, guidance, love, and glory in the appendix (pp. 326, 331–332, 335); trust and justice as the four-step sequence (p. 336); satiation and its ordering of understanding, resolution and prosperity in the family, and participation in undivided society, and care (p. 339); respect and affection (p. 340); prosperity as production more than needs, and self-reliance (p. 342).</li>
+<li><strong>MVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan – Co-existentialism</em>, Part 1: <em>Holistic View of Human Behaviour</em></a>. English translation by Rakesh Gupta. Cited: <em>sadhana</em>, <em>samadhi</em>, and <em>samyama</em> undertaken and moved beyond, and <em>upasana</em> glossed as devotional practices towards deities (pp. 4, 7); five statuses and the ten-tier family-based self-governance orderliness (p. 18); behaviour as effort in mutuality (p. 33); gratitude defined (p. 37); the gratitude-to-coexistence chain and ingratitude (p. 38); family, community, and undivided society (p. 55); needs determined by a wise family (p. 56); crime as ill-gotten wealth, adultery, and hurtful behaviour (p. 60); contact as voluntary-expectation mutuality (p. 61); relationship as predetermined-expectation mutuality (p. 62); prosperity as the lack of the sentiment of lacking (p. 72); trust and affection (p. 73); the four senses of <em>sanskar</em> and <em>sanskar</em> as cause of awakening (p. 90); <em>susanskar</em> (p. 94); just behaviour as righteous wealth, marital faithfulness, and kindness (p. 102); family as the first tier of the ten-tier orderliness (p. 161); refinement in <em>susanskar</em> following enlightenment about the human goal and <em>jeevan</em> values (p. 187); societal balance and the three behaviours (p. 189); the seven forms of relationship (p. 190); social responsibility evidenced in the wise family, and family order to world family order (p. 253); education-<em>sanskar</em> requiring procedure, teachers, parents, and study aligned (p. 270); <em>susanskar</em> and <em>kusanskar</em> (p. 315); love (p. 317); the appendix definitions of the nine established values and the expressions paired with them — guidance and love (p. 331), reverence (p. 332), trust, gratitude, and glory (p. 335), care (p. 339), respect and affection (p. 340), and the block as a whole (pp. 328–348); trust and justice as the four-step sequence (p. 336); satiation and its ordering of understanding, resolution and prosperity in the family, and participation in undivided society, and care (p. 339); respect and affection (p. 340); prosperity as production more than needs, and self-reliance (p. 342).</li>
 <li><strong>JV</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf"><em>Jeevan Vidya: An Introduction</em></a>. English translation by Rakesh Gupta. Cited: <em>upasana</em> as rituals in the traditional sense (p. 9); <em>sadhana</em> at Amarkantak and its limits (pp. 12, 15); refuge in God as the real father and mother yielding no human, and purpose inherent in all relationships (p. 57); idealism of renunciation, non-accumulation, detachment, and devotion producing no undivided society (p. 105); values realised through recognition of relationships, humane conduct as values, character, and ethics, and character as righteous wealth, marital faithfulness, and kindness (p. 55); relationships studied through their purposes, and nurturing and protection as the mother-child and father-child purposes (p. 56); <em>sanskar</em> in children transforming homes and families (p. 60); recognition of mother, father, <em>guru</em>, and disciple by purpose (p. 84); the nine established values, the seven relationships, the six purposes of relationship, and the rejection of power, wealth, intelligence, and age (p. 108); authenticity as highest priority, and fear and temptation as non-values (p. 109); values inherent in <em>jeevan</em> and the mother&rsquo;s recognition of her child (p. 138).</li>
 <li><strong>SB</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf"><em>Samadhanatmak Bhautikvad</em> (<em>Resolution Centred Materialism</em>)</a>. English translation by Rakesh Gupta. Cited: prosperity through production in excess of needs within a wise family, among the four human goals (p. 223).</li>
+<li><strong>AVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf"><em>Adhyatmvad</em> (<em>Realisation Centred Spiritualism</em>)</a>. English translation by Sanjeev Chopra — work in progress; cited for the tabulation only, with definitional content taken from MVD. Cited: the table of the conducts of awakened <em>jeevan</em> and the assignment of each established value and its expression to a position at <em>chitta</em>, <em>vritti</em>, or <em>mun</em> (pp. 91–94).</li>
 <li><strong>KD</strong> — Nagraj, A. <em>Manav Karm Darshan</em> (Madhyasth Darshan, Part 2). <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf">Working English translation</a>; <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-Hindi-English.pdf">Hindi–English review edition</a>. Cited: no contact or relationship devoid of value (p. 20); Ch. 2 on <em>upasana</em> — refinement and transformation of the root tendencies and of <em>sanskar</em> (p. 30), aim of all <em>upasanas</em> as undivided society and universal orderliness, and immersion in universal values (p. 35), <em>upasanas</em> only for capacity-for-awakening (p. 36), wisdom and <em>jeevan</em>-value as the direct result of <em>upasana</em> with sociality naturally contained (p. 37), <em>upasana</em> as education and orderliness in its own nature and symbol-directed <em>upasana</em> as secondary and unsociable (p. 42).</li>
 </ul>
 <h3 id="comparative-philosophy-and-social-science">Comparative Philosophy and Social Science</h3>
@@ -1230,7 +1251,7 @@
 </ul>
 <h3 id="related-studies-in-this-collection">Related studies in this collection</h3>
 <ul>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html">Axiology Value Theory</a> — what a value is (§1.1), relationship and association (§1.3), established and expressed values (§1.2.3), the four-step justice sequence (§1.2.5), <em>sanskar</em> and the deepening of understanding through conduct (§1.4.1), and open problems (§4.2).</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html">Axiology Value Theory</a> — what a value is (§1.1), relationship and contact (§1.3.1), established and expressed values (§1.3.2), the four-step justice sequence (§1.4.1), <em>sanskar</em> and the deepening of understanding through conduct (§1.5.2), and open problems (§7).</li>
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html">How Undivided Society Is Established</a> — the family as the first field of evidence and the argument outward to undivided society (§5.2).</li>
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.html">Human Behavior and Society</a> — family-based self-organising orderliness and the progression from person to undivided society (§§1.4.2–1.4.3).</li>
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> — the four human goals and the five dimensions of social orderliness (§1.15).</li>
@@ -1438,16 +1459,6 @@
   });
   system.addEventListener("change", paint);
   paint();
-})();
-</script>
-<script>
-(() => {
-  const toc = document.getElementById("study-contents");
-  if (!toc) return;
-  // Open where there is room to show it without pushing the study off screen.
-  if (window.matchMedia("(min-width: 760px)").matches && window.innerHeight >= 640) {
-    toc.open = true;
-  }
 })();
 </script>
 

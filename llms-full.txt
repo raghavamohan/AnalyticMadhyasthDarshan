@@ -7,7 +7,7 @@
 Madhyasth Darshan's account of existence as the coexistence of satta and units — saturation, the four orders, sentience, causation, conservation, and the reality of the world — compared in depth with Advaita Vedanta and modern physics and philosophy
 
 - Collection: topical · Status: released
-- Edited on: Jul 29, 2026, 5:43 AM IST
+- Edited on: Sep 3, 2026, 2:14 PM IST
 - HTML: https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.md
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf
@@ -17,7 +17,7 @@ Madhyasth Darshan's account of existence as the coexistence of satta and units �
 What time (kaal) is: the duration of unit-activity against timeless satta, numerical reckoning, and the past–present–future structure — compared with Advaita Vedanta, the philosophy of time, and physics (spacetime, cosmology, entropy)
 
 - Collection: topical · Status: released
-- Edited on: Jun 28, 2026, 7:49 PM IST
+- Edited on: Sep 3, 2026, 2:33 PM IST
 - HTML: https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.md
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.pdf
@@ -27,7 +27,7 @@ What time (kaal) is: the duration of unit-activity against timeless satta, numer
 Whether a human being is reducible to an insentient physicochemical body: Madhyasth Darshan's body-and-jeevan account compared with scientific evidence, its physicalist interpretation, and Advaita Vedanta, followed by a critical review of all three frameworks
 
 - Collection: topical · Status: released
-- Edited on: Jul 17, 2026, 2:41 PM IST
+- Edited on: Sep 3, 2026, 2:33 PM IST
 - HTML: https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.md
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.pdf
@@ -47,7 +47,7 @@ What knowledge is, who the knower is, and what can be known: coexistence, jeevan
 Madhyasth Darshan's theory of value: what values are, how they are recognised and fulfilled, and how mutual satisfaction grounds a humane axiology
 
 - Collection: topical · Status: released
-- Edited on: Jul 29, 2026, 10:09 AM IST
+- Edited on: Sep 3, 2026, 2:14 PM IST
 - HTML: https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.md
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.pdf
@@ -67,7 +67,7 @@ Whether ethics is divine command, convention, evolution, reason, or evidence of 
 The family as the first site of values: recognising relationships and living trust, affection, gratitude, and mutual satisfaction
 
 - Collection: topical · Status: draft
-- Edited on: Jul 29, 2026, 6:35 AM IST
+- Edited on: Sep 3, 2026, 2:14 PM IST
 - HTML: https://analyticmadhyasthdarshan.org/Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.md
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.pdf
@@ -97,7 +97,7 @@ Humane conduct and social organisation in Madhyasth Darshan, compared with the n
 Examines Madhyasth Darshan's claim that organisations grounded in fear or accumulation become extractive, and its account of organisations that sustain themselves without instrumentalising their members
 
 - Collection: topical · Status: released
-- Edited on: Jul 29, 2026, 5:40 AM IST
+- Edited on: Sep 3, 2026, 2:33 PM IST
 - HTML: https://analyticmadhyasthdarshan.org/Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.md
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.pdf
@@ -127,7 +127,7 @@ Madhyasth Darshan's account of how undivided society is established through coex
 A source-bounded qualitative reconstruction linking intrinsic unit activity, compositional closure, constitutionally complete jeevan, animal and human joint forms, reflexive evaluation, and public orderliness. It distinguishes dharma and niyati-kram from causal forces, preserves composition and atomic development as separate lines, and keeps unresolved empirical mechanisms explicit.
 
 - Collection: formal · Status: released
-- Edited on: Sep 1, 2026, 10:44 AM IST
+- Edited on: Sep 3, 2026, 2:14 PM IST
 - HTML: https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.md
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf

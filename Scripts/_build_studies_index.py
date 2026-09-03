@@ -472,10 +472,12 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     color: var(--text-muted); background: #fdfcfa; border: 1px solid var(--border);
     border-radius: 999px; padding: 5px 12px; cursor: pointer; white-space: nowrap;
     display: inline-flex; align-items: center; gap: 6px;
+    min-width: 6.75rem; justify-content: center;
     transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
   }
   .theme-toggle:hover { color: var(--accent); border-color: #a5c4d9; }
   .theme-toggle .theme-toggle-icon { font-size: 14px; line-height: 1; }
+  #theme-toggle-label { display: inline-block; min-width: 2.75em; text-align: left; }
   .seg {
     display: inline-flex; border: 1px solid var(--border); border-radius: 8px;
     overflow: hidden; background: #fdfcfa;
@@ -732,7 +734,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   .path-stage-name {
     font-family: var(--sans);
     font-size: 13.5px;
-    font-weight: 500;
+    font-weight: 700;
     line-height: 1.25;
     color: var(--text-muted);
     text-align: center;
@@ -753,7 +755,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   }
   .path-rail-step:has(.path-radio:checked) .path-stage-name {
     color: var(--accent);
-    font-weight: 700;
   }
   .path-radio.sr-only:focus-visible + .path-rail-item .path-dot {
     outline: 2px solid var(--accent);
@@ -1412,6 +1413,9 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     </div>
   </div>
 </nav>
+<script>
+(function(){var dark=document.documentElement.getAttribute("data-theme")==="dark";var icon=document.getElementById("theme-toggle-icon");var label=document.getElementById("theme-toggle-label");var btn=document.getElementById("theme-toggle");if(icon)icon.innerHTML=dark?"&#9728;":"&#9789;";if(label)label.textContent=dark?"Light":"Dark";if(btn)btn.setAttribute("aria-label",dark?"Switch to light theme":"Switch to dark theme");})();
+</script>
 <div class="page-nav-anchor" aria-hidden="true"></div>
 
 <main id="main">

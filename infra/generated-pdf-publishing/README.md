@@ -311,3 +311,21 @@ checked out. Never expose `.env` values in logs.
 - Production delivery is live and should not be rolled back unless verification
   fails. Active work: run rule/skill sync, full local suites, commit/push this M4
   slice, and wait for the pull-request checks before declaring it merge-ready.
+
+### 2026-09-03 — concurrent master refresh
+
+- `master` advanced to `159fd9b` while the cutover branch was awaiting checks,
+  changing eight generated study PDFs. Because the R2 objects were then stale
+  relative to the newly published HTML/source, the two broad Worker routes were
+  removed using the documented rollback while GitHub Pages still held the fresh
+  repository copies.
+- Merged `origin/master`, retained the intended Git deletions for all eight PDF
+  conflicts, rebuilt the generated index from source, verified the eight
+  incoming PDFs against the merged sources, and uploaded all eight new checksums
+  to R2.
+- Complete 60-key R2 coverage passed again. The guarded routes were restored and
+  all eight refreshed public URLs passed checksum, length, and byte-range checks;
+  unknown-PDF and HTML pass-through checks also passed.
+- The merged tree passes index verification, rule/skill mirror verification, all
+  focused R2/router tests, and all 24 enforced repository suites. Active work:
+  push the merge resolution and wait for GitHub's pull-request workflows.
