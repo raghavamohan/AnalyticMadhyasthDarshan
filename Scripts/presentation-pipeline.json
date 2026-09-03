@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "productionProfile": "libreoffice-production",
+  "rendererProfiles": {
+    "powerpoint-baseline": {
+      "engine": "powerpoint",
+      "version": "16.0.20228.20188",
+      "status": "accepted-baseline"
+    },
+    "libreoffice-production": {
+      "engine": "libreoffice",
+      "version": "26.2.3.2",
+      "status": "accepted-production",
+      "installer": {
+        "url": "https://downloadarchive.documentfoundation.org/libreoffice/old/26.2.3.2/win/x86_64/LibreOffice_26.2.3.2_Win_x86-64.msi",
+        "sha256": "468d1fb3880af3bcddac002e9054155912c70b45d105bfa1c82036f33456133d"
+      }
+    }
+  },
+  "decks": [
+    {
+      "id": "state-dynamic-model",
+      "source": "Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence-Madhyasth-Darshan.pptx",
+      "slidesPdf": "Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence-Madhyasth-Darshan.pdf",
+      "notesPdf": "Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence-Madhyasth-Darshan-notes.pdf",
+      "requiredFonts": ["Calibri", "Cambria"]
+    },
+    {
+      "id": "undivided-society",
+      "source": "Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pptx",
+      "slidesPdf": "Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established-presentation.pdf",
+      "notesPdf": "Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established-presentation-notes.pdf",
+      "requiredFonts": ["Calibri", "Cambria"]
+    },
+    {
+      "id": "epistemology-comparison",
+      "source": "Studies/The-Epistemology-of-Coexistence/Epistemology-in-Comparison-MD-Advaita-Philosophy-Science.pptx",
+      "slidesPdf": "Studies/The-Epistemology-of-Coexistence/Epistemology-in-Comparison-MD-Advaita-Philosophy-Science.pdf",
+      "notesPdf": "Studies/The-Epistemology-of-Coexistence/Epistemology-in-Comparison-MD-Advaita-Philosophy-Science-notes.pdf",
+      "requiredFonts": ["Calibri", "Cambria"]
+    },
+    {
+      "id": "epistemology",
+      "source": "Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence-Madhyasth-Darshan.pptx",
+      "slidesPdf": "Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence-Madhyasth-Darshan.pdf",
+      "notesPdf": "Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence-Madhyasth-Darshan-notes.pdf",
+      "requiredFonts": ["Calibri", "Cambria"]
+    },
+    {
+      "id": "ontology-comparison",
+      "source": "Studies/The-Ontology-of-Coexistence/Coexistence-in-Comparison-MD-vs-Advaita-Philosophy-Science.pptx",
+      "slidesPdf": "Studies/The-Ontology-of-Coexistence/Coexistence-in-Comparison-MD-vs-Advaita-Philosophy-Science.pdf",
+      "notesPdf": "Studies/The-Ontology-of-Coexistence/Coexistence-in-Comparison-MD-vs-Advaita-Philosophy-Science-notes.pdf",
+      "requiredFonts": ["Calibri", "Cambria"]
+    },
+    {
+      "id": "ontology",
+      "source": "Studies/The-Ontology-of-Coexistence/The-Ontology-of-Existence-Madhyasth-Darshan.pptx",
+      "slidesPdf": "Studies/The-Ontology-of-Coexistence/The-Ontology-of-Existence-Madhyasth-Darshan.pdf",
+      "notesPdf": "Studies/The-Ontology-of-Coexistence/The-Ontology-of-Existence-Madhyasth-Darshan-notes.pdf",
+      "requiredFonts": ["Calibri", "Cambria"]
+    },
+    {
+      "id": "not-just-material",
+      "source": "Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.pptx",
+      "slidesPdf": "Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material-presentation.pdf",
+      "notesPdf": "Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material-presentation-notes.pdf",
+      "requiredFonts": ["Calibri", "Cambria"]
+    }
+  ]
+}

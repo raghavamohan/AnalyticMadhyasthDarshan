@@ -1,0 +1,240 @@
+name: Generated PDF publish
+
+# Pull requests build affected Markdown-derived artifacts without credentials or
+# publication. Protected-branch runs build the complete Markdown + presentation
+# inventory, publish only after both jobs pass, refresh the Worker binding/routes,
+# and audit every public URL.
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "Studies/**/*.md"
+      - "Studies/**/*.svg"
+      - "Studies/**/*.png"
+      - "Studies/**/*.jpg"
+      - "Studies/**/*.jpeg"
+      - "Studies/**/*.webp"
+      - "Studies/glossary.json"
+      - "Applications/**/*.md"
+      - "Applications/**/*.svg"
+      - "Applications/**/*.png"
+      - "Applications/**/*.jpg"
+      - "Applications/**/*.jpeg"
+      - "Applications/**/*.webp"
+      - "Assets/KaTeX/**"
+      - "CNAME"
+      - "requirements.txt"
+      - "Scripts/_build_markdown_pdfs.py"
+      - "Scripts/_build_discussion_pages.py"
+      - "Scripts/_chrome.js"
+      - "Scripts/_common.py"
+      - "Scripts/_convert_to_pdf.py"
+      - "Scripts/_generated_pdf_inventory.py"
+      - "Scripts/_glossary_tooltips.py"
+      - "Scripts/_html_to_pdf.js"
+      - "Scripts/_pdf_metadata.py"
+      - "Scripts/_regenerate_pdf.py"
+      - "Scripts/_render_katex_math.js"
+      - "Scripts/_study_catalog.py"
+      - "Scripts/_verify_pdf_diagrams.py"
+      - "Scripts/_verify_pdf_fenced_code.py"
+      - "Scripts/_verify_pdf_math.py"
+      - "Scripts/_verify_pdf_outline.py"
+      - "Scripts/_verify_study_svgs.py"
+      - "Scripts/package.json"
+      - "Scripts/package-lock.json"
+      - ".github/actions/setup-study-env/action.yml"
+      - ".github/workflows/generated-pdf-publish.yml"
+  push:
+    branches: [master]
+    paths:
+      - "Studies/**"
+      - "Applications/**"
+      - "Assets/KaTeX/**"
+      - "CNAME"
+      - "requirements.txt"
+      - "Scripts/_build_deck_notes_pdf.py"
+      - "Scripts/_build_markdown_pdfs.py"
+      - "Scripts/_build_presentations.py"
+      - "Scripts/_build_discussion_pages.py"
+      - "Scripts/_chrome.js"
+      - "Scripts/_common.py"
+      - "Scripts/_convert_to_pdf.py"
+      - "Scripts/_generated_pdf_inventory.py"
+      - "Scripts/_glossary_tooltips.py"
+      - "Scripts/_html_to_pdf.js"
+      - "Scripts/_install_presentation_renderer.ps1"
+      - "Scripts/_pdf_metadata.py"
+      - "Scripts/_pptx_to_pdf.py"
+      - "Scripts/_presentation_pipeline.py"
+      - "Scripts/_publish_generated_pdf_worker.py"
+      - "Scripts/_publish_generated_pdfs.py"
+      - "Scripts/_r2_s3.py"
+      - "Scripts/_regenerate_pdf.py"
+      - "Scripts/_render_katex_math.js"
+      - "Scripts/_study_catalog.py"
+      - "Scripts/_verify_generated_pdf_delivery.py"
+      - "Scripts/_verify_pdf_diagrams.py"
+      - "Scripts/_verify_pdf_fenced_code.py"
+      - "Scripts/_verify_pdf_math.py"
+      - "Scripts/_verify_pdf_outline.py"
+      - "Scripts/_verify_presentations.py"
+      - "Scripts/_verify_study_svgs.py"
+      - "Scripts/package.json"
+      - "Scripts/package-lock.json"
+      - "Scripts/presentation-pipeline.json"
+      - "infra/generated-pdf-worker/**"
+      - ".github/actions/setup-study-env/action.yml"
+      - ".github/workflows/generated-pdf-publish.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: generated-pdf-publish-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  markdown:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout complete history
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Set up Markdown PDF toolchain
+        uses: ./.github/actions/setup-study-env
+
+      - name: Build and verify Markdown-derived PDFs
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BASE_REF: ${{ github.base_ref }}
+          OUTPUT_ROOT: ${{ runner.temp }}/generated-markdown-pdfs
+        run: |
+          if [[ "$EVENT_NAME" == "pull_request" ]]; then
+            python Scripts/_build_markdown_pdfs.py --changed-since "origin/$BASE_REF" --output-root "$OUTPUT_ROOT"
+          else
+            python Scripts/_build_markdown_pdfs.py --all --output-root "$OUTPUT_ROOT"
+          fi
+
+      - name: Upload verified Markdown PDFs
+        uses: actions/upload-artifact@v6
+        with:
+          name: generated-markdown-pdfs
+          path: ${{ runner.temp }}/generated-markdown-pdfs
+          if-no-files-found: error
+          retention-days: 7
+
+  presentations:
+    if: github.event_name != 'pull_request'
+    runs-on: windows-2025
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Python toolchain
+        uses: ./.github/actions/setup-study-env
+        with:
+          node: 'false'
+
+      - name: Restore pinned LibreOffice installer
+        uses: actions/cache@v6
+        with:
+          path: ${{ runner.temp }}\presentation-renderers
+          key: presentation-renderer-${{ runner.os }}-${{ hashFiles('Scripts/presentation-pipeline.json') }}
+
+      - name: Install exact LibreOffice production renderer
+        shell: pwsh
+        run: >-
+          ./Scripts/_install_presentation_renderer.ps1
+          -Profile libreoffice-production
+          -CacheDirectory "$env:RUNNER_TEMP\presentation-renderers"
+
+      - name: Require deck fonts
+        shell: pwsh
+        run: |
+          $missing = @(
+            'C:\Windows\Fonts\calibri.ttf',
+            'C:\Windows\Fonts\calibrib.ttf',
+            'C:\Windows\Fonts\calibrii.ttf',
+            'C:\Windows\Fonts\cambriab.ttf'
+          ) | Where-Object { -not (Test-Path -LiteralPath $_) }
+          if ($missing) {
+            throw "Required presentation fonts are absent: $($missing -join ', ')"
+          }
+
+      - name: Build and verify all presentation PDFs
+        shell: pwsh
+        run: >-
+          python Scripts/_build_presentations.py --all
+          --profile libreoffice-production
+          --output-root "$env:RUNNER_TEMP\generated-presentation-pdfs"
+
+      - name: Upload verified presentation PDFs
+        uses: actions/upload-artifact@v6
+        with:
+          name: generated-presentation-pdfs
+          path: ${{ runner.temp }}\generated-presentation-pdfs
+          if-no-files-found: error
+          retention-days: 7
+
+  publish-and-deploy:
+    if: >-
+      github.ref == 'refs/heads/master' &&
+      (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    needs: [markdown, presentations]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up publisher dependencies
+        uses: ./.github/actions/setup-study-env
+        with:
+          node: 'false'
+
+      - name: Download all verified PDF artifacts
+        uses: actions/download-artifact@v7
+        with:
+          pattern: generated-*-pdfs
+          path: ${{ runner.temp }}/generated-pdfs
+          merge-multiple: true
+
+      - name: Publish complete verified inventory to R2
+        env:
+          R2_ENDPOINT: ${{ vars.R2_ENDPOINT }}
+          R2_BUCKET_NAME: ${{ vars.R2_BUCKET_NAME }}
+          R2_REGION: ${{ vars.R2_REGION }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}
+        run: python Scripts/_publish_generated_pdfs.py --artifact-root "$RUNNER_TEMP/generated-pdfs" --all
+
+      - name: Deploy Worker and attach guarded production routes
+        env:
+          R2_ENDPOINT: ${{ vars.R2_ENDPOINT }}
+          R2_BUCKET_NAME: ${{ vars.R2_BUCKET_NAME }}
+          R2_REGION: ${{ vars.R2_REGION }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}
+        run: |
+          python Scripts/_publish_generated_pdf_worker.py --check
+          python Scripts/_publish_generated_pdf_worker.py --check-r2-coverage
+          python Scripts/_publish_generated_pdf_worker.py --deploy-canary
+          python Scripts/_verify_generated_pdf_delivery.py --workers-dev --all --artifact-root "$RUNNER_TEMP/generated-pdfs"
+          python Scripts/_publish_generated_pdf_worker.py --deploy-production
+          python Scripts/_publish_generated_pdf_worker.py --apply-routes
+
+      - name: Audit every public generated PDF
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}
+        run: >-
+          python Scripts/_verify_generated_pdf_delivery.py --public --all
+          --artifact-root "$RUNNER_TEMP/generated-pdfs"

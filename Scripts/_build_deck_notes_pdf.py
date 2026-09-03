@@ -35,15 +35,18 @@ Ontology deck and the comparison deck — so name the deck as well:
 from __future__ import annotations
 
 import argparse
+import os
 import re
 import sys
+import tempfile
 from pathlib import Path
 
 import fitz  # PyMuPDF
 from pptx import Presentation
 
-from _common import STUDIES
+from _common import STUDIES, configure_utf8_stdio
 from _pptx_to_pdf import convert_pptx_to_pdf, resolve_pptx
+from _presentation_pipeline import load_manifest
 
 # --- page geometry (A4 portrait, points) ------------------------------------
 PAGE_W, PAGE_H = 595.28, 841.89
@@ -75,16 +78,19 @@ FONT_FILES = {
     "italic": r"C:\Windows\Fonts\calibrii.ttf",
     "head": r"C:\Windows\Fonts\cambriab.ttf",
 }
-FALLBACK_FONTS = {"body": "helv", "bold": "hebo", "italic": "heit", "head": "hebo"}
-
-
 def load_fonts() -> dict[str, fitz.Font]:
     fonts: dict[str, fitz.Font] = {}
+    missing: list[str] = []
     for key, path in FONT_FILES.items():
         if Path(path).is_file():
             fonts[key] = fitz.Font(fontfile=path)
         else:
-            fonts[key] = fitz.Font(FALLBACK_FONTS[key])
+            missing.append(path)
+    if missing:
+        raise RuntimeError(
+            "Required presentation fonts are missing; refusing silent substitution: "
+            + ", ".join(missing)
+        )
     return fonts
 
 
@@ -190,8 +196,29 @@ def read_deck(pptx: Path) -> list[tuple[str, str]]:
     return out
 
 
+def _manifest_spec(pptx: Path):
+    source = pptx.resolve()
+    for spec in load_manifest().decks:
+        if spec.source == source:
+            return spec
+    return None
+
+
 def ensure_deck_pdf(pptx: Path, deck_pdf: Path | None) -> Path:
-    pdf = deck_pdf or pptx.with_suffix(".pdf")
+    spec = _manifest_spec(pptx)
+    if deck_pdf is not None:
+        pdf = deck_pdf.expanduser().resolve()
+    elif spec is not None:
+        pdf = spec.slides_pdf
+    else:
+        try:
+            pptx.resolve().relative_to(STUDIES.resolve())
+        except ValueError:
+            pdf = pptx.with_suffix(".pdf")
+        else:
+            raise SystemExit(
+                f"Deck is under Studies but absent from presentation-pipeline.json: {pptx}"
+            )
     if pdf.is_file() and pdf.stat().st_mtime >= pptx.stat().st_mtime:
         return pdf
     convert_pptx_to_pdf(pptx, pdf)
@@ -321,14 +348,31 @@ def build(pptx: Path, deck_pdf: Path, out_pdf: Path) -> tuple[int, int]:
         doc.subset_fonts()
     except Exception:  # pragma: no cover - older PyMuPDF without subset_fonts
         pass
-    doc.save(str(out_pdf), deflate=True, deflate_fonts=True, deflate_images=True,
-             garbage=4, clean=True)
-    doc.close()
-    src.close()
+    handle, temp_name = tempfile.mkstemp(
+        prefix=f".{out_pdf.stem}-", suffix=".pdf", dir=out_pdf.parent
+    )
+    os.close(handle)
+    temp_pdf = Path(temp_name)
+    try:
+        temp_pdf.unlink(missing_ok=True)
+        doc.save(str(temp_pdf), deflate=True, deflate_fonts=True, deflate_images=True,
+                 garbage=4, clean=True, no_new_id=True)
+        doc.close()
+        src.close()
+        if not temp_pdf.is_file() or temp_pdf.stat().st_size < 100:
+            raise RuntimeError(f"Notes builder produced a missing or empty PDF: {temp_pdf}")
+        os.replace(temp_pdf, out_pdf)
+    finally:
+        temp_pdf.unlink(missing_ok=True)
+        if not doc.is_closed:
+            doc.close()
+        if not src.is_closed:
+            src.close()
     return total, page_no
 
 
 def main(argv: list[str] | None = None) -> int:
+    configure_utf8_stdio()
     parser = argparse.ArgumentParser(
         description="Build a read-aloud notes PDF (slide + speaker script per page) "
         "from a companion deck.",
@@ -348,9 +392,13 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     pptx = resolve_pptx(args.pptx, args.study, args.deck)
-    out = args.output.expanduser().resolve() if args.output else (
-        pptx.with_name(pptx.stem + "-notes.pdf")
-    )
+    spec = _manifest_spec(pptx)
+    if args.output:
+        out = args.output.expanduser().resolve()
+    elif spec is not None:
+        out = spec.notes_pdf
+    else:
+        out = pptx.with_name(pptx.stem + "-notes.pdf")
     if out.suffix.lower() != ".pdf":
         raise SystemExit("Output must end with .pdf: %s" % out)
 
