@@ -15,7 +15,7 @@ Git until their rights are resolved. Git history has not been rewritten.
 | R2 bucket | Private `amd-reference-archive` |
 | Delivery Worker | Existing `amd-generated-pdfs`, with a second R2 binding |
 | Public route | `analyticmadhyasthdarshan.org/References/*` |
-| Public R2 PDFs | 16 objects, 118.14 MiB |
+| Public R2 PDFs | 16 objects, 118.13 MiB |
 | Private original HTML | 12 objects, 1.76 MiB |
 | Removed from current Git tree | 27 uploaded payloads plus 1 generated HTML |
 | Retained for rights review | 23 PDFs, 183.55 MiB |

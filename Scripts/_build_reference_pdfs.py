@@ -52,10 +52,18 @@ def build_all(output_root: Path) -> None:
             shutil.copyfile(source_path, expected)
             pdf_path = expected
         source = row["source"]
-        if pdf_path.stat().st_size != source["bytes"]:
-            raise ValueError(f"generated PDF size differs from manifest: {row['repo_path']}")
-        if _sha256(pdf_path) != source["sha256"]:
-            raise ValueError(f"generated PDF checksum differs from manifest: {row['repo_path']}")
+        actual_size = pdf_path.stat().st_size
+        if actual_size != source["bytes"]:
+            raise ValueError(
+                "generated PDF size differs from manifest: "
+                f"{row['repo_path']} (expected {source['bytes']}, actual {actual_size})"
+            )
+        actual_hash = _sha256(pdf_path)
+        if actual_hash != source["sha256"]:
+            raise ValueError(
+                "generated PDF checksum differs from manifest: "
+                f"{row['repo_path']} (expected {source['sha256']}, actual {actual_hash})"
+            )
         if pdf_path != expected:
             raise ValueError(f"generated PDF path differs from manifest: {pdf_path} != {expected}")
     print(f"Staged and verified {len(rows)} public reference PDFs under {artifact_root}.")
