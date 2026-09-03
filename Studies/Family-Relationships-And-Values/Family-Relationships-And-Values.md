@@ -435,7 +435,7 @@ MVD defines prosperity both as the lack of the sentiment of lacking (p. 72) and 
 
 ### Related studies in this collection
 
-- [Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) — what a value is (§1.1), relationship and association (§1.3), established and expressed values (§1.2.3), the four-step justice sequence (§1.2.5), *sanskar* and the deepening of understanding through conduct (§1.4.1), and open problems (§4.2).
+- [Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) — what a value is (§1.1), relationship and contact (§1.3.1), established and expressed values (§1.3.2), the four-step justice sequence (§1.4.1), *sanskar* and the deepening of understanding through conduct (§1.5.2), and open problems (§7).
 - [How Undivided Society Is Established](../How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf) — the family as the first field of evidence and the argument outward to undivided society (§5.2).
 - [Human Behavior and Society](../Human-Behavior-And-Society/Human-Behavior-And-Society.pdf) — family-based self-organising orderliness and the progression from person to undivided society (§§1.4.2–1.4.3).
 - [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — the four human goals and the five dimensions of social orderliness (§1.15).
