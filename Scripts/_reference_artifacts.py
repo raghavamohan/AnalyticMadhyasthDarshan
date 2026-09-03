@@ -597,14 +597,32 @@ def manifest_errors(data: dict, *, require_local_sources: bool = False) -> list[
             errors.append(f"missing required local source: {normalized}")
             continue
         if local.is_file():
-            actual_size = local.stat().st_size
-            if actual_size != source.get("bytes"):
-                errors.append(
-                    f"{normalized}: size mismatch (manifest {source.get('bytes')}, local {actual_size})"
-                )
-            actual_hash = _sha256(local)
-            if actual_hash != source.get("sha256"):
-                errors.append(f"{normalized}: SHA-256 mismatch")
+            is_public_derivative = (
+                entry.get("kind") == "normalized-reference-pdf"
+                and target.get("storage") == "r2-public"
+            )
+            if is_public_derivative:
+                signature = generated_pdf_signature(local)
+                generation = entry.get("generation") or {}
+                expected = {
+                    "pages": generation.get("pages"),
+                    "text_sha256": generation.get("text_sha256"),
+                }
+                if signature != expected:
+                    errors.append(
+                        f"{normalized}: generated content signature mismatch "
+                        f"(manifest {expected}, local {signature})"
+                    )
+            else:
+                actual_size = local.stat().st_size
+                if actual_size != source.get("bytes"):
+                    errors.append(
+                        f"{normalized}: size mismatch "
+                        f"(manifest {source.get('bytes')}, local {actual_size})"
+                    )
+                actual_hash = _sha256(local)
+                if actual_hash != source.get("sha256"):
+                    errors.append(f"{normalized}: SHA-256 mismatch")
 
     if artifacts != sorted(artifacts, key=lambda item: item.get("repo_path", "")):
         errors.append("artifacts must be sorted by repo_path")
