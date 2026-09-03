@@ -26,7 +26,7 @@
 <meta name="twitter:description" content="Madhyasth Darshan&#x27;s theory of value: what values are, how they are recognised and fulfilled, and how mutual satisfaction grounds a humane axiology"/>
 <meta name="twitter:image" content="https://analyticmadhyasthdarshan.org/Assets/Social/Axiology-Value-Theory.png"/>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Axiology: Value Theory","description":"Madhyasth Darshan's theory of value: what values are, how they are recognised and fulfilled, and how mutual satisfaction grounds a humane axiology","url":"https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html","inLanguage":"en","author":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"publisher":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"image":"https://analyticmadhyasthdarshan.org/Assets/Social/Axiology-Value-Theory.png","dateModified":"2026-07-29T10:09:00+05:30"}
+{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Axiology: Value Theory","description":"Madhyasth Darshan's theory of value: what values are, how they are recognised and fulfilled, and how mutual satisfaction grounds a humane axiology","url":"https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html","inLanguage":"en","author":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"publisher":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"image":"https://analyticmadhyasthdarshan.org/Assets/Social/Axiology-Value-Theory.png","dateModified":"2026-09-03T14:14:00+05:30"}
 </script>
 <script>
 (function(){try{var t=localStorage.getItem("amd-theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();
@@ -470,8 +470,9 @@
 
   /* Contents ---------------------------------------------------------------
      Studies run past 30,000 words, so the sequential previous/next pair is not
-     enough to move around one. Closed by default so it costs no height; the
-     script below opens it where there is room. */
+     enough to move around one. Closed by default so small screens never pay
+     for its height; a parser-blocking script inside the element opens it
+     where there is room, before the reading key is parsed. */
   .study-toc {
     max-width: 37rem;
     margin: 1.6em 0 2.2em;
@@ -705,7 +706,7 @@
 </nav>
 <main id="main"><h1>Axiology: Value Theory</h1>
 <p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> — a group of people studying <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
-<p><strong>Edited on:</strong> July 29, 2026, 10:09 AM IST</p>
+<p><strong>Edited on:</strong> September 3, 2026, 2:14 PM IST</p>
 <p><strong>The question:</strong> What is a value, where does value reside, how is value recognised and fulfilled, and what makes one evaluation correct and another mistaken? How does the Co-existentialism of Shri A. Nagraj compare with Advaita Vedanta, modern Western value theory, and the natural and social sciences?</p>
 <p>This study examines value, evaluation, and the ordering of values in <strong>Madhyasth Darshan</strong> (Co-existentialism), as presented by <strong>Shri A. Nagraj</strong>, and compares its answers with <strong>Advaita Vedanta</strong>, <strong>modern Western axiology and metaethics</strong>, and <strong>the natural and social sciences</strong>.</p>
 <p><a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> supplies the setting: Omnipresence, saturated units, form, properties, essential nature and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span></em>, the four orders, and the active structure of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>. <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html">The Epistemology of Coexistence</a> supplies the sequence of knowing, believing, recognising, fulfilling, and evaluating. The present study asks the specifically axiological questions those two leave open. If a unit&rsquo;s essential nature already <em>is</em> its value, what work is left for evaluation? If value is objective, why does the darshan insist that only awakening evaluates correctly? And if happiness, peace, contentment, and bliss cannot be traded against one another, what kind of ordering do values have at all?</p>
@@ -799,6 +800,15 @@
       <li class="study-toc-item study-toc-l2"><a href="#physics-natural-and-social-sciences">Physics, natural and social sciences</a></li>
     </ol>
   </nav>
+<script>
+(function(){
+  var toc = document.getElementById("study-contents");
+  if (toc && window.matchMedia("(min-width: 760px)").matches && window.innerHeight >= 640) {
+    toc.open = true;
+  }
+})();
+</script>
+
 </details>
 <p class="study-reading-key" aria-label="Reading key">
   <span class="study-reading-key-term">Dotted underline</span>: definition
@@ -874,30 +884,31 @@
 </tr>
 <tr>
 <td><em>Jeevan</em> values</td>
-<td><em>Jeevan</em></td>
+<td><em>Jeevan</em>, borne at <em>mun</em>, <em>vritti</em>, <em>chitta</em>, and <em>buddhi</em></td>
 <td>Happiness, peace, contentment, and bliss as harmonies among adjacent faculties</td>
 <td>Continuity of harmony</td>
 </tr>
 <tr>
 <td>Human values (<em>manav mulya</em>)</td>
-<td>The human being in the knowledge order</td>
+<td><em>Jeevan</em> in the human joint form, at positions in <em>vritti</em> and <em>mun</em></td>
 <td>Happiness as <em>dharma</em> and the six dispositions of human essential nature</td>
 <td>Humaneness in thought, behaviour, work, and participation</td>
 </tr>
 <tr>
 <td>Established values (<em>sthapit mulya</em>)</td>
-<td>Recognised relationships</td>
-<td>Trust, affection, care, guidance, gratitude, and the other values named in the texts</td>
+<td><em>Jeevan</em>, at positions in <em>chitta</em>, <em>vritti</em>, and <em>mun</em>; evidenced in recognised relationships</td>
+<td>Care, guidance, trust, affection, gratitude, glory, love, reverence, and respect</td>
 <td>Fulfilment of the relationship&rsquo;s inherent expectation and mutual satisfaction</td>
 </tr>
 <tr>
 <td><em>Shishta</em> or civic values</td>
-<td>Civilised behaviour and social participation</td>
+<td><em>Jeevan</em>, at the same positions as the established values they express</td>
 <td>The paired expression of established values in conduct</td>
 <td>Participation in family, society, and orderliness</td>
 </tr>
 </tbody>
 </table></div>
+<p>The locus column follows the passage quoted above: object value is spread everywhere, while the other four classes are inherent to <em>jeevan</em>, which also evaluates them (JV, p. 139). The primary texts make that inherence precise. Each named value of those four classes is defined in the appendix that defines <em>jeevan</em>&rsquo;s activities, where it occupies a position at one of the five faculties beside the term through which it is expressed (MVD, pp. 328–348; AVD, pp. 91–94). A named value is accordingly an activity of a faculty rather than a disposition standing beside <em>jeevan</em>&rsquo;s activity. The placement does not make the class taxonomy redundant: a value belongs to a class by the evaluative question it answers and to a position by the faculty that bears it, and neither assignment is derived from the other (Editorial Notes). Nor does it make value private, since what <em>jeevan</em> bears becomes evident only where the relationship is recognised (§1.4.1). The enumeration is set out position by position in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Activity-Pair-Inventory.html"><em>The Sixty-One Activity Pairs of Jeevan</em></a>.</p>
 <p>Human living also spans realisation, thought, behaviour, and work/production. The value classes appear across these dimensions, but the primary passages do not supply a one-to-one mapping. Object value is addressed chiefly in work and right-use, relational values in behaviour, and <em>jeevan</em> values in the inner activities, while human and civic value integrate all four. JV emphasises that evaluating the values inherent to <em>jeevan</em> needs no external apparatus: it is examining the self, by the self, and for the self (JV, p. 139).</p>
 <h4>1.2.2 The four <em>jeevan</em> values as harmonies</h4>
 <p>The four <em>jeevan</em> values are defined structurally, as harmonies between adjacent faculties, not as pleasant sensations of varying intensity:</p>
@@ -909,6 +920,7 @@
 <thead>
 <tr>
 <th><em>Jeevan</em> value</th>
+<th>Borne at</th>
 <th>Harmony between</th>
 <th>Evidenced socially as</th>
 </tr>
@@ -916,26 +928,31 @@
 <tbody>
 <tr>
 <td>Happiness (<em>sukh</em>)</td>
+<td><em>mun</em></td>
 <td><em>mun</em> and <em>vritti</em></td>
 <td>Resolution in the individual</td>
 </tr>
 <tr>
 <td>Peace (<em>shanti</em>)</td>
+<td><em>vritti</em></td>
 <td><em>vritti</em> and <em>chitta</em></td>
 <td>Resolution with prosperity in the family</td>
 </tr>
 <tr>
 <td>Contentment (<em>santosh</em>)</td>
+<td><em>chitta</em></td>
 <td><em>chitta</em> and <em>buddhi</em></td>
 <td>Fearlessness through participation in society</td>
 </tr>
 <tr>
 <td>Bliss (<em>anand</em>)</td>
+<td><em>buddhi</em></td>
 <td><em>buddhi</em> and <em>atma</em></td>
 <td>Coexistence, and the communication of understanding</td>
 </tr>
 </tbody>
 </table></div>
+<p>Each of the four is at the same time a named activity borne by the outer faculty of its pair (MVD, pp. 328–346). The two descriptions are one account given twice. Peace is defined at <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Vritti — the decisive mind or disposition; jeevan’s faculty of comparison and thought, inspired by chitta.">vritti</button></span></em> as the absence of resistance between desire and thought, which are the orientations of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Chitta — the reflective mind; jeevan’s faculty of contemplation and desire, inspired by buddhi.">chitta</button></span></em> and <em>vritti</em>, so what the pair formulation states from outside the position states from within the faculty that bears it. Happiness at <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mun" data-definition="Mun — the anticipating mind in jeevan; its activities include tasting and selection according to hope, and it guides the body.">mun</button></span></em> is defined simply as resolution, which is why sustained dissatisfaction bears on the whole ladder rather than counting as a passing mood. Realisation in coexistence at <em>atma</em> is ultimate bliss (<em>paramanand</em>), whose effect reaches the remaining faculties (MVD, pp. 100–101); it grounds the four rather than adding a fifth to the enumeration. A harmony is therefore established in a faculty rather than delivered to it, and its failure is a failure of concurrence with the faculty below.</p>
 <p>Two consequences matter for value theory. First, because each value names harmony between a distinct pair of faculties, no amount of one directly constitutes another. A person may have abundant sensory satisfaction and no peace; the darshan states that sensory satisfaction does not necessarily lead to the heart&rsquo;s satisfaction, though the reverse does hold (MVD, p. 67). This supports a non-substitutability reading, although the separate higher–lower ordering leaves open whether the system permits an overall standard (§7.1). Second, these values are not produced by acquisition. MVD defines contentment as “the lack of the sentiment of lacking” (MVD, p. 331) — an absence of deficiency-sentiment, not an accumulated quantity.</p>
 <p>The harmonies also stand in a definite relation to the four human goals. Resolution is evidenced as happiness; peace becomes evident with resolution and prosperity in family living; contentment through orderly participation in society; and bliss in the course of living and communicating understanding (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.15). Inner value and outward condition are two readings of one achievement, which is why the darshan refuses both a purely private account of well-being and a purely institutional one.</p>
 <h4>1.2.3 Human values: the <em>dharma</em> and essential nature of the human being</h4>
@@ -988,6 +1005,7 @@
 </tbody>
 </table></div>
 <p>This is characteristic of the darshan&rsquo;s method: what other traditions treat as gradations of warmth are here separated by the objective condition of the person one is acting toward. The distinction matters axiologically because it makes these dispositions answerable to a fact about the situation rather than to the intensity of the agent&rsquo;s feeling. MVD elsewhere compresses all three into love, defined as the combined expression of kindness, grace, and compassion (MVD, p. 331).</p>
+<p>The six are named in the activity enumeration as well, though not all in the same way. Courage with fortitude, and grace with compassion, occupy positions of their own at <em>vritti</em>; kindness is the expression paired with peace at <em>vritti</em>, and generosity the expression paired with care at <em>mun</em> (MVD, pp. 331–340; AVD, pp. 91–94). Class and position accordingly cut across each other rather than lining up, which is the point §1.2.1 records: a value that answers a human-value question can occupy a position whose other member answers a <em>jeevan</em>-value or established-value one.</p>
 <h4>1.2.4 Object value: usefulness, aesthetic addition, and symbol</h4>
 <p>Object value is treated as a distinct class. JV states its constancy:</p>
 <blockquote>
@@ -1095,11 +1113,12 @@
 <p><strong>“Values such as care, guidance, trust, affection, gratitude, glory, love, reverence, and respect form the basis of our interactions.”</strong>
 — JV, p. 108</p>
 </blockquote>
-<p>MVD&rsquo;s appendix places each of these terms beside a paired term. Read together with its later reference to <em>sthapit</em> and <em>shishta</em> values, the pairs show established value and its civilised expression. The appendix does not separately argue for that interpretation, so the table preserves its pairings rather than supplying new ones.</p>
+<p>MVD&rsquo;s appendix places each of these terms beside a paired term. Read together with its later reference to <em>sthapit</em> and <em>shishta</em> values, the pairs show established value and its civilised expression. The appendix does not separately argue for that interpretation, so the table preserves its pairings rather than supplying new ones. The same appendix fixes where each pair stands. Three of the nine are borne at <em>chitta</em>, three at <em>vritti</em>, and three at <em>mun</em>, with the established value borne by the faculty in state and the civic value carrying it outward (AVD, pp. 91–94). The pairings below are therefore not a choice of matching terms; substituting a different expression for any of the nine would depart from the enumeration.</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Established value</th>
+<th>Borne at</th>
 <th>Primary-text definition</th>
 <th>Paired <em>shishta</em> or civic value</th>
 <th>Expression named in MVD</th>
@@ -1108,54 +1127,63 @@
 <tbody>
 <tr>
 <td>Care (<em>mamta</em>)</td>
+<td><em>mun</em></td>
 <td>Nurturing and protecting with the pinnacle of affinity (MVD, p. 339)</td>
 <td>Generosity (<em>udarta</em>)</td>
 <td>Offering body, mind, and wealth for another&rsquo;s awakening, health, and prosperity</td>
 </tr>
 <tr>
 <td>Guidance (<em>vatsalya</em>)</td>
+<td><em>chitta</em></td>
 <td>Continued nurturing and protection for comprehensive resolution (MVD, p. 331)</td>
 <td>Naturalness / effortlessness (<em>sahajta</em>)</td>
 <td>Clarity, authenticity, and integrality of behaviour, norm, thought, and realisation</td>
 </tr>
 <tr>
 <td>Trust (<em>vishwas</em>)</td>
+<td><em>vritti</em></td>
 <td>Fulfilment of values inherent in mutuality (MVD, p. 335)</td>
 <td>Concordance (<em>saujanyata</em>)</td>
 <td>Collaboration, co-participation, cooperation, and complementariness</td>
 </tr>
 <tr>
 <td>Affection (<em>sneha</em>)</td>
+<td><em>mun</em></td>
 <td>Absence of resistance in just behaviour; willing meeting in satisfaction (MVD, p. 340)</td>
 <td>Dedication (<em>nishtha</em>)</td>
 <td>Continuing effort to attain and evidence the goal of awakening</td>
 </tr>
 <tr>
 <td>Gratitude (<em>kritagyata</em>)</td>
-<td>Acceptance of help received for development and awakening (MVD, p. 334)</td>
+<td><em>vritti</em></td>
+<td>Acceptance of help received for development and awakening (MVD, p. 335)</td>
 <td>Humility (<em>saumyata</em>)</td>
 <td>Willing self-restraint and establishment in civility</td>
 </tr>
 <tr>
 <td>Glory (<em>gaurav</em>)</td>
-<td>Embracing emulation without resistance (MVD, p. 334)</td>
+<td><em>vritti</em></td>
+<td>Embracing emulation without resistance (MVD, p. 335)</td>
 <td>Simplicity (<em>saralta</em>)</td>
 <td>Demeanour free of complexity and tension</td>
 </tr>
 <tr>
 <td>Love (<em>prem</em>)</td>
+<td><em>chitta</em></td>
 <td>Realisation of the complete; combined expression of kindness, grace, and compassion (MVD, p. 331)</td>
 <td>Non-otherness (<em>ananyata</em>)</td>
 <td>Complementarity in human mutuality and with the rest of nature</td>
 </tr>
 <tr>
 <td>Reverence (<em>shraddha</em>)</td>
+<td><em>chitta</em></td>
 <td>Movement towards qualitative transformation, awakening, and authenticity (MVD, pp. 331–332)</td>
 <td>Devoutness (<em>pujyata</em>)</td>
 <td>Activeness for qualitative development and awakening</td>
 </tr>
 <tr>
 <td>Respect (<em>samman</em>)</td>
+<td><em>mun</em></td>
 <td>Acceptance of personality and talent, and their balanced exposition (MVD, p. 340)</td>
 <td>Cordiality (<em>sauhardta</em>)</td>
 <td>Presenting conception, realisation, memory, and direct recognition as accepted</td>
@@ -1218,7 +1246,7 @@
 <p><strong>“Language has sentiment (bhav) at its root; sentiment has essentiality at its root; essentiality has evaluation at its root; evaluation has worldview at its root; worldview has perceiver at its root; perceiver has capacity, ability and receptivity at its root; capacity, ability and receptivity have the perception, comprehension and awareness of truth at its root; perception, comprehension and awareness of truth have the language at its root.”</strong>
 — MVD, p. 83</p>
 </blockquote>
-<p>The passage closes by naming all of these as activities of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Chitta — the reflective mind; jeevan’s faculty of contemplation and desire, inspired by buddhi.">chitta</button></span></em>, which succeed or fail according to the perceiver&rsquo;s level of awakening. Read as a linear justification the chain is circular: language is grounded in sentiment, and awareness of truth — on which sentiment ultimately rests — is grounded in language. Read as the darshan appears to intend it, the chain is a description of one integrated activity in which no member operates alone, and the variable that determines whether the whole functions is awakening rather than the ordering of the members.</p>
+<p>The passage closes by naming all of these as activities of <em>chitta</em>, which succeed or fail according to the perceiver&rsquo;s level of awakening. Read as a linear justification the chain is circular: language is grounded in sentiment, and awareness of truth — on which sentiment ultimately rests — is grounded in language. Read as the darshan appears to intend it, the chain is a description of one integrated activity in which no member operates alone, and the variable that determines whether the whole functions is awakening rather than the ordering of the members.</p>
 <h4>1.4.5 The six perspectives as evaluative ordering and higher/lower value dynamics</h4>
 <p>Human behaviour is expressed through six evaluative perspectives:</p>
 <blockquote>
@@ -1293,8 +1321,8 @@
 <p>In this darshan axiology is not a branch of ethics but its presupposition: character and ethics are what value-fulfilment looks like in disposition and in the handling of resources. <em>Ethics and Morals in Human Beings</em> develops character and right-use. The structural point here is that “what is valuable” cannot be settled by a separate ethical theory, because humane conduct is already specified through values recognised in relationships.</p>
 <h4>1.5.2 Practical value, self-value, balance, and <em>sanskar</em></h4>
 <p>Value determination is assigned to specific activities of <em>jeevan</em>. KD states that practical values are determined through deliberation (<em>vichar</em>), become meaningful in humaneness, and are “stable value” (KD, pp. 16, 20). It defines self-value as the satisfaction of activity and cessation (KD, p. 46), and elsewhere places relationship, value, evaluation, and balance in one sequence (KD, p. 51). These formulations connect the stability of value with fulfilment and with the balance evidenced in conduct; they do not introduce another independent value class.</p>
-<p>Taste (<em>asvadan</em>), the activity of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mun" data-definition="Mun — the anticipating mind in jeevan; its activities include tasting and selection according to hope, and it guides the body.">mun</button></span></em>, savours value once it is fulfilled. JV states that when taste has value-fulfilment, those values receive names such as love, trust, affection, gratitude, and guidance (JV, p. 138). MVD&rsquo;s appendix organises the wider vocabulary into two activities of <em>atma</em>, four of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="buddhi" data-definition="Buddhi — intellect; jeevan’s faculty of enlightenment and resolve, inspired by atma.">buddhi</button></span></em>, sixteen of <em>chitta</em>, thirty-six of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Vritti — the decisive mind or disposition; jeevan’s faculty of comparison and thought, inspired by chitta.">vritti</button></span></em>, and sixty-four of <em>mun</em> (MVD, pp. 328–343). The appendix defines activities, states, relations, and their paired expressions; not every member is itself a separate value.</p>
-<p>Values feed back into <em>sanskar</em> through evaluated result. Karma has result; result returns to the knower through evaluation; and repeated action and evaluation shape <em>sanskar</em>, which conditions later projection (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html">The Epistemology of Coexistence</a> §1.7). MVD divides <em>sanskar</em> into <em>susanskar</em> under awakening and <em>kusanskar</em> under delusion (MVD, p. 315). <em>Susanskar</em> represents tendencies aligned with awakening that promote resolution and prosperity (MVD, p. 94). This creates a closed circuit: understanding projects as conduct; conduct produces result; result is evaluated; evaluation settles as acceptance (<em>sanskar</em>); and that acceptance drives further awakening.</p>
+<p>Taste (<em>asvadan</em>), the activity of <em>mun</em>, savours value once it is fulfilled. JV states that when taste has value-fulfilment, those values receive names such as love, trust, affection, gratitude, and guidance (JV, p. 138). MVD&rsquo;s appendix organises the wider vocabulary into two activities of <em>atma</em>, four of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="buddhi" data-definition="Buddhi — intellect; jeevan’s faculty of enlightenment and resolve, inspired by atma.">buddhi</button></span></em>, sixteen of <em>chitta</em>, thirty-six of <em>vritti</em>, and sixty-four of <em>mun</em> (MVD, pp. 328–343). Those counts run two to a position, so the same enumeration reads as one position at <em>atma</em>, two at <em>buddhi</em>, eight at <em>chitta</em>, eighteen at <em>vritti</em>, and thirty-two at <em>mun</em> — sixty-one positions and a hundred and twenty-two named activities (AVD, pp. 91–94). Every value named in §§1.2–1.3 is a member of it. The appendix also defines states, relations, kinds, sensory qualities, and bodily correlates, so the containment runs one way only: not every member is itself a value.</p>
+<p>Values feed back into <em>sanskar</em> through evaluated result. Karma has result; result returns to the knower through evaluation; and repeated action and evaluation shape <em>sanskar</em>, which conditions later projection (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html">The Epistemology of Coexistence</a> §1.5). MVD divides <em>sanskar</em> into <em>susanskar</em> under awakening and <em>kusanskar</em> under delusion (MVD, p. 315). <em>Susanskar</em> represents tendencies aligned with awakening that promote resolution and prosperity (MVD, p. 94). This creates a closed circuit: understanding projects as conduct; conduct produces result; result is evaluated; evaluation settles as acceptance (<em>sanskar</em>); and that acceptance drives further awakening.</p>
 <h4>1.5.3 Method, evidence, and what Madhyasth Darshan establishes</h4>
 <p>The axiological claims do not all warrant the same kind of assent:
 - <strong>Definitional claims</strong>: essentiality is value (SB, p. 50); sentiment is value and evaluation (MVD, p. 326); justice is the four-step sequence (MVD, p. 336); humane conduct is value, character, and ethics (JV, p. 55). These are assessed for coherence and internal consistency.
@@ -1543,7 +1571,7 @@
 <h3 id="75-the-constancy-of-usefulness-value" data-depth="2">7.5 The constancy of usefulness value</h3>
 <p>The claim that a kilogram of sesame seeds has always had the same value (JV, p. 137) is the darshan&rsquo;s most exposed empirical assertion. Read as saying that the object&rsquo;s own capacities do not change with market conditions, it is defensible and is a real corrective to price-based thinking. Read as saying that usefulness itself is constant, it faces obvious counter-cases: usefulness depends on available technique, on what else is available, on quantity already held, and on the purpose in view. Antibiotics lose usefulness as resistance spreads; a fuel loses usefulness when the engines that burn it are gone. The darshan needs the first reading, and the texts do not clearly distinguish it from the second.</p>
 <h3 id="76-the-status-of-the-nine-named-relationship-values" data-depth="2">7.6 The status of the nine named relationship values</h3>
-<p>JV, p. 108 names nine values using the phrase “such as,” and MVD&rsquo;s appendix defines and pairs each of them. The passage does not call the set exhaustive or derive it from the taxonomy of value classes (§1.2.1). Since the darshan is elsewhere precise about enumerations — the six perspectives and the two, four, sixteen, thirty-six, and sixty-four activities of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>&rsquo;s faculties — the status of these nine examples deserves clarification. What would establish completeness, and what would settle a proposal to add another relationship value?</p>
+<p>JV, p. 108 names nine values using the phrase “such as,” and MVD&rsquo;s appendix defines and pairs each of them. The passage does not call the set exhaustive or derive it from the taxonomy of value classes (§1.2.1). The appendix narrows the question without closing it. Each of the nine occupies a position in the enumeration of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>&rsquo;s activities (§1.3.2), so a proposal to add a tenth relationship value has to name the position that would bear it — a checkable demand rather than an appeal to intuition. What stays open is the completeness of the enumeration itself: the per-faculty counts are printed with the tabulation and nowhere argued, and the same block of positions carries relational names that are not among the nine. Whether the nine are the enumeration&rsquo;s full set of relationship values or a selection from a wider relational group is therefore undetermined.</p>
 <h3 id="77-conflict-between-two-just-claims" data-depth="2">7.7 Conflict between two just claims</h3>
 <p>The orderliness of coexistence encourages the expectation that apparent value conflicts can be resolved by correcting recognition, fulfilment, or evaluation (§5.5). The texts nevertheless need a procedure for cases where two recognised relationships make incompatible claims and both fulfilments appear just. They supply the widening chain from justice to <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span></em> to truth, which locates where the question should be reconsidered, but not a method for deciding. Without such a method, the stronger interpretation that every residual conflict indicates an undiscovered error risks becoming unfalsifiable.</p>
 <h3 id="78-the-transmission-circle" data-depth="2">7.8 The transmission circle</h3>
@@ -1637,9 +1665,10 @@
 <h3 id="the-seven-relationships">The seven relationships</h3>
 <p>JV, p. 108 refers to “the seven relationships” without listing them; MVD, p. 190 enumerates seven forms — parent and child, sibling, spousal, master and associate, teacher and student, friendship, and orderliness. This study treats the enumeration as the referent of JV&rsquo;s phrase, which is the natural reading and matches the count, though neither passage states the correspondence. The parenthetical groupings and purposes in the §1.3.1 table are drawn from the surrounding definitions of relationship and purpose, not from a single list in the sources.</p>
 <h3 id="the-nine-named-relationship-values-and-their-pairings">The nine named relationship values and their pairings</h3>
-<p>JV, p. 108 names care, guidance, trust, affection, gratitude, glory, love, reverence, and respect using the phrase “such as.” MVD&rsquo;s appendix defines each beside a paired term, and MVD elsewhere names established and <em>shishta</em> values together. This study preserves those primary-text pairings while not treating the nine examples as an explicitly exhaustive list; §7.6 records the unresolved status of the set.</p>
+<p>JV, p. 108 names care, guidance, trust, affection, gratitude, glory, love, reverence, and respect using the phrase “such as.” MVD&rsquo;s appendix defines each beside a paired term, and MVD elsewhere names established and <em>shishta</em> values together. This study preserves those primary-text pairings while not treating the nine examples as an explicitly exhaustive list; §7.6 records the unresolved status of the set. Because the pairing is fixed by the appendix rather than assembled by the study, a table that gave one of the nine a different expression would not be a translation variant but a departure from the source; the §1.3.2 pairings are therefore the ones to follow across the series.</p>
 <h3 id="the-enumerated-activities-of-jeevan">The enumerated activities of <em>jeevan</em></h3>
-<p>MVD&rsquo;s appendix enumerates two activities of <em>atma</em>, four of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="buddhi" data-definition="Buddhi — intellect; jeevan’s faculty of enlightenment and resolve, inspired by atma.">buddhi</button></span></em>, sixteen of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Chitta — the reflective mind; jeevan’s faculty of contemplation and desire, inspired by buddhi.">chitta</button></span></em>, thirty-six of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Vritti — the decisive mind or disposition; jeevan’s faculty of comparison and thought, inspired by chitta.">vritti</button></span></em>, and sixty-four of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mun" data-definition="Mun — the anticipating mind in jeevan; its activities include tasting and selection according to hope, and it guides the body.">mun</button></span></em> (MVD, pp. 328–343), alongside eight activities of visualisation within <em>chitta</em> (MVD, p. 327). It defines activities, states, relations, and paired expressions; not every item is a separate value. These expand the ten named activities of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> used in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.7 rather than forming a rival enumeration.</p>
+<p>MVD&rsquo;s appendix enumerates two activities of <em>atma</em>, four of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="buddhi" data-definition="Buddhi — intellect; jeevan’s faculty of enlightenment and resolve, inspired by atma.">buddhi</button></span></em>, sixteen of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Chitta — the reflective mind; jeevan’s faculty of contemplation and desire, inspired by buddhi.">chitta</button></span></em>, thirty-six of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Vritti — the decisive mind or disposition; jeevan’s faculty of comparison and thought, inspired by chitta.">vritti</button></span></em>, and sixty-four of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mun" data-definition="Mun — the anticipating mind in jeevan; its activities include tasting and selection according to hope, and it guides the body.">mun</button></span></em> (MVD, pp. 328–343), alongside eight activities of visualisation within <em>chitta</em> (MVD, p. 327). Read as pairs, the same enumeration is sixty-one positions carrying a hundred and twenty-two activities, and the AVD tabulation fixes which member of each position is borne in state and which carries it outward (AVD, pp. 91–94). It defines activities, states, relations, and paired expressions; not every item is a separate value. These expand the ten named activities of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> used in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> §1.7 rather than forming a rival enumeration.</p>
+<p>This study uses the enumeration to locate a named value and its expression, not to explain how the value works. The definitions do not divide uniformly across the two columns of a position, no general rule is stated for how the outward member stands to the one borne in state, and the per-faculty counts are printed rather than argued. Those unresolved points are recorded position by position in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Activity-Pair-Inventory.html"><em>The Sixty-One Activity Pairs of Jeevan</em></a>, and nothing in this study&rsquo;s axiology depends on their resolution.</p>
 <h3 id="constant-object-value">&ldquo;Constant&rdquo; object value</h3>
 <p>The constancy asserted at JV, p. 137 is read here as constancy of the object&rsquo;s own capacity to serve a purpose, not as constancy of usefulness in every context. The passage does not itself draw the distinction; §7.5 sets out why the study adopts the narrower reading and what the wider one would cost.</p>
 <h3 id="value-in-western-axiology-and-in-madhyasth-darshan">Value in Western axiology and in Madhyasth Darshan</h3>
@@ -1649,9 +1678,10 @@
 <h2 id="references">References</h2>
 <h3 id="madhyasth-darshan-primary-sources">Madhyasth Darshan (primary sources)</h3>
 <ul>
-<li><strong>MVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan – Co-existentialism</em>, Part 1: <em>Holistic View of Human Behaviour</em></a>. English translation by Rakesh Gupta. Cited: gratitude, glory, and simplicity defined (p. 37); gratitude-to-coexistence chain and conceit as imposed evaluation (p. 38); mutual ascent (p. 44); sociality (p. 56); right-use sequence (p. 55); inhumane perspective (p. 58); humane perspectives (p. 60); contact as voluntary-expectation mutuality, kindness, grace, compassion, and the higher-humane perspective (p. 61); relationship as predetermined-expectation mutuality (p. 62); six perspectives, profit as higher-for-lower exchange, and the three ways higher value is surrendered (p. 67); trust and affection (p. 73); rooting chain of language, sentiment, essentiality, and evaluation (p. 83); embracing and discarding (p. 84); self-evaluation as first step (p. 87); the four senses of <em>sanskar</em> and <em>sanskar</em> as cause of awakening (p. 90); <em>susanskar</em> as tendencies aligned with awakening (p. 94); mutual ascent, mutual descent, inspiration, and retrogression (p. 110); essential nature as value of self, and attachment (p. 124); <em>dharma</em> and essential nature of humans, sentiment as essentiality (p. 125); higher value as resolved outlook (p. 126); dispassion as freedom from the three flaws (p. 152); refinement in <em>susanskar</em> through enlightenment about the human goal and <em>jeevan</em> values (p. 187); the seven forms of relationship and the three kinds of conferred rights (p. 190); money as symbolic value (p. 183); conceit (p. 185); sentiment activity and the three failure modes of evaluation (p. 203); ascension and descension cause (p. 219); study and <em>susanskar</em> as conditions of <em>dharma</em>-oriented desire (p. 292); <em>susanskar</em> and <em>kusanskar</em> (p. 315); followership and higher value (p. 220); lower value attracted to higher value (p. 222); appendix enumerations of the activities of <em>jeevan</em> and their values (pp. 326–343), including visualisation (p. 327), <em>atma</em> and <em>buddhi</em> (p. 328), <em>chitta</em> (p. 329), love, contentment, and abundance (p. 331), guidance, reverence, and <em>vritti</em> (p. 332), care and <em>mun</em> (p. 339), respect, affection, and generosity (p. 340); trust and justice as the four-step sequence (p. 336); justice (p. 311).</li>
+<li><strong>MVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan – Co-existentialism</em>, Part 1: <em>Holistic View of Human Behaviour</em></a>. English translation by Rakesh Gupta. Cited: gratitude, glory, and simplicity defined (p. 37); gratitude-to-coexistence chain and conceit as imposed evaluation (p. 38); mutual ascent (p. 44); sociality (p. 56); right-use sequence (p. 55); inhumane perspective (p. 58); humane perspectives (p. 60); contact as voluntary-expectation mutuality, kindness, grace, compassion, and the higher-humane perspective (p. 61); relationship as predetermined-expectation mutuality (p. 62); six perspectives, profit as higher-for-lower exchange, and the three ways higher value is surrendered (p. 67); trust and affection (p. 73); rooting chain of language, sentiment, essentiality, and evaluation (p. 83); embracing and discarding (p. 84); self-evaluation as first step (p. 87); the four senses of <em>sanskar</em> and <em>sanskar</em> as cause of awakening (p. 90); <em>susanskar</em> as tendencies aligned with awakening (p. 94); mutual ascent, mutual descent, inspiration, and retrogression (p. 110); essential nature as value of self, and attachment (p. 124); <em>dharma</em> and essential nature of humans, sentiment as essentiality (p. 125); higher value as resolved outlook (p. 126); dispassion as freedom from the three flaws (p. 152); refinement in <em>susanskar</em> through enlightenment about the human goal and <em>jeevan</em> values (p. 187); the seven forms of relationship and the three kinds of conferred rights (p. 190); money as symbolic value (p. 183); conceit (p. 185); sentiment activity and the three failure modes of evaluation (p. 203); ascension and descension cause (p. 219); study and <em>susanskar</em> as conditions of <em>dharma</em>-oriented desire (p. 292); <em>susanskar</em> and <em>kusanskar</em> (p. 315); followership and higher value (p. 220); lower value attracted to higher value (p. 222); appendix enumerations of the activities of <em>jeevan</em> and their values (pp. 326–343), including visualisation (p. 327), <em>atma</em> and <em>buddhi</em> (p. 328), <em>chitta</em> (p. 329), love, contentment, and abundance (p. 331), guidance, reverence, and <em>vritti</em> (p. 332), peace with kindness (p. 333), trust, gratitude, and glory with their expressions (p. 335), care and <em>mun</em> (p. 339), respect, affection, and generosity (p. 340), happiness with motivation (p. 346); trust and justice as the four-step sequence (p. 336); justice (p. 311); ultimate bliss at realised <em>atma</em> and its effect through the remaining faculties (pp. 100–101); the definitions of the activities of <em>jeevan</em> to the close of the appendix, including the harmony positions and the established, civic, and human value positions (pp. 328–348).</li>
 <li><strong>SB</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf"><em>Samadhanatmak Bhautikvad</em> (<em>Resolution Centred Materialism</em>)</a>. English translation by Rakesh Gupta. Cited: essentiality as value and its reciprocation in mutuality (p. 50); values recognised through <em>jeevan</em>, and human expression, communication, and evaluation upon awakening (p. 64); art of living in recognising relationships and values (p. 65); essential nature manifest as values in every unit (p. 87); values and evaluation as <em>jeevan</em>&rsquo;s purpose (p. 92); relationship-fulfilment observed wherever relationships are recognised (p. 108); justice as recognition, fulfilment, and evaluation (p. 114); recognising relationships and performing evaluation among universal human attributes (pp. 122, 134); delusion as over-, under-, and mis-evaluation (p. 146); evaluation of natural treasure by usefulness and regeneration (p. 141); Ch. 11, <em>Fear and Temptation or Values and Evaluation</em> (pp. 199 ff.); human essentiality as the basis of evaluation (pp. 200–201).</li>
 <li><strong>JV</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf"><em>Jeevan Vidya: An Introduction</em></a>. English translation by Rakesh Gupta. Cited: the four classes of value to be comprehended, and the critique of the profit-and-loss cycle (p. 43); values realised through recognition of relationships, and humane conduct as values, character, and ethics (p. 55); nine named relationship values and the seven relationships (p. 108); usefulness value and aesthetic addition (pp. 137–138); <em>jeevan</em> values as harmonies, taste activity, and values inherent in <em>jeevan</em> (p. 138); object value spread everywhere while the other classes are inherent in <em>jeevan</em>, and evaluation without external instrument (p. 139).</li>
+<li><strong>AVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf"><em>Adhyatmvad</em> (<em>Realisation Centred Spiritualism</em>)</a>. English translation by Sanjeev Chopra — work in progress; cited for the tabulation only, with definitional content taken from MVD. Cited: the table of the conducts of awakened <em>jeevan</em>, its per-faculty position counts, and the assignment of each named activity to the member borne in state or the member carrying it outward (pp. 91–94).</li>
 <li><strong>KD</strong> — Nagraj, A. <em>Manav Karm Darshan</em> (Madhyasth Darshan, Part 2). <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf">Working English translation</a>; <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-Hindi-English.pdf">Hindi–English review edition</a>. Cited: value in the derivation from desire to realisation (p. 4); determination of practical values through deliberation, and practical values meaningful in humaneness (p. 16); practical value as stable value, and no contact or relationship devoid of value (p. 20); presence as distinctiveness, value, and meaning, and value undetermined in the absence of awareness (p. 23); self-value as the satisfaction of activity and cessation (p. 46); relationship, value, evaluation, balance (p. 51); values with relationships and the dedication of objects (p. 63); humane conduct as value, character, and ethics, and evaluation on the basis of fundamental distinctiveness (p. 67). The English text is a working translation; quoted formulations should be checked against the Hindi.</li>
 </ul>
 <h3 id="advaita-vedanta-primary-texts">Advaita Vedanta (primary texts)</h3>
@@ -1665,7 +1695,7 @@
 <h3 id="related-studies-in-this-collection">Related studies in this collection</h3>
 <ul>
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> — form, properties, essential nature and <em>dharma</em> (§1.3), the four orders (§1.5), <em>jeevan</em> faculties (§1.7), evaluative perspectives and the dual role of justice (§§1.12–1.12.1), and the four goals with the five social dimensions (§1.15).</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html">The Epistemology of Coexistence</a> — knowing, believing, recognising, fulfilling, and evaluating (§1.5), karma and evaluated result (§1.7), and the transmission problem (§7.5).</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html">The Epistemology of Coexistence</a> — knowing, believing, recognising, fulfilling, evaluating, karma, and evaluated result (§1.5), and the transmission problem (§7.5).</li>
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.html">Ethics and Morals in Human Beings</a> — the six perspectives as an ethical hierarchy (§3.2), and character and right-use (§§3.5–3.6).</li>
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/Aesthetics/Aesthetics.html">Aesthetics</a> — usefulness and the aesthetic addition (§4.1), and taste as the savouring of values (§4.5).</li>
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.html">Human Behavior and Society</a> — why human fulfilment is not a scalar variable, and the limits of optimisation (§§2.1.1–2.1.6).</li>
@@ -1926,16 +1956,6 @@
   });
   system.addEventListener("change", paint);
   paint();
-})();
-</script>
-<script>
-(() => {
-  const toc = document.getElementById("study-contents");
-  if (!toc) return;
-  // Open where there is room to show it without pushing the study off screen.
-  if (window.matchMedia("(min-width: 760px)").matches && window.innerHeight >= 640) {
-    toc.open = true;
-  }
 })();
 </script>
 
