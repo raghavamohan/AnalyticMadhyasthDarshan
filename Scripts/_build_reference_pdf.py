@@ -124,9 +124,16 @@ def build(markdown_path: Path, output_root: Path) -> tuple[Path, Path]:
         raise ValueError("generated reference PDF has no pages")
     if pdf_path.stat().st_size < 10_000:
         raise ValueError("generated reference PDF is unexpectedly small")
-    print(f"Built {html_path.relative_to(BASE)}")
-    print(f"Built {pdf_path.relative_to(BASE)} ({len(reader.pages)} pages)")
+    print(f"Built {_display_path(html_path)}")
+    print(f"Built {_display_path(pdf_path)} ({len(reader.pages)} pages)")
     return html_path, pdf_path
+
+
+def _display_path(path: Path) -> str:
+    try:
+        return path.relative_to(BASE).as_posix()
+    except ValueError:
+        return str(path)
 
 
 def main() -> int:
