@@ -127,8 +127,10 @@ reintroducing:
 
 - The catalog cache-buster in `Studies/index.html` was keyed on
   `git rev-parse --short HEAD`, so it changed on every commit and every rebuild
-  dirtied the index. It is now a hash of the bytes it busts — the catalog JSON
-  and the presentation PDFs — so it changes exactly when a cached resource does.
+  dirtied the index. It is now a hash of the bytes it busts — catalog JSON plus
+  presentation PPTX sources and their pinned renderer manifest — so it changes
+  exactly when a cached resource's source or rendering contract changes without
+  requiring generated PDFs in Git.
   Never key a generated artifact on HEAD or on the clock.
 - `sitemap.xml`, `llms.txt`, `llms-full.txt`, `catalog-all.json` and
   `studies.txt` are all rendered from the catalog and nothing checked them. A

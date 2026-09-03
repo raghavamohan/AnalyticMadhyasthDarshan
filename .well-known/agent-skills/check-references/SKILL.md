@@ -57,7 +57,7 @@ python Scripts/_check_references.py --study The-Ontology-of-Coexistence --skip-p
 | **Bibliography** | `## References` entries pointing at missing or unusable `../References/` files |
 | **Markdown links** | Any `../References/...` link in the study body (not only the bibliography) |
 | **Mirror files** | Every `.pdf` / `.html` under `References/` is non-empty and valid (full repo run only) |
-| **PDF links** | Study PDFs must not contain `file://` links; site links must target usable local files |
+| **PDF links** | Locally generated study PDFs must not contain `file://` links; stable site links must target usable sources |
 
 A file is **unusable** when it is empty, too small, or a PDF whose content starts
 with `<!DOCTYPE` (publisher bot-wall HTML saved as `.pdf`).
@@ -83,6 +83,7 @@ with `<!DOCTYPE` (publisher bot-wall HTML saved as `.pdf`).
 - [ ] Broken locals fixed or switched to external-only links + `NOT-DOWNLOADED.md`
 - [ ] `References/README.md` and `MANIFEST.md` updated when local vs external status changes
 - [ ] Affected study PDFs regenerated when bibliography links changed
+- [ ] Generated study PDFs were not added to Git; public R2 delivery is audited by the publishing workflow
 - [ ] `**Edited on:**` and catalogs updated if study `.md` references changed ([AGENTS.md](../../../AGENTS.md) §1)
 
 ## Related

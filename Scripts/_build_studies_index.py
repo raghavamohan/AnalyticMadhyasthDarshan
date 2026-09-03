@@ -17,6 +17,7 @@ if str(SCRIPTS) not in sys.path:
 
 from _build_discussion_pages import ASSET_VERSION as DISCUSS_ASSET_VERSION  # noqa: E402
 from _common import BASE, STUDIES, favicon_link_tags, write_text_lf  # noqa: E402
+from _presentation_pipeline import load_manifest  # noqa: E402
 from _study_catalog import (  # noqa: E402
     CATALOG_TABLES,
     STUDY_FEEDBACK_TEMPLATE_PATH,
@@ -2941,7 +2942,7 @@ def verify_index_shell_sync() -> list[str]:
 
 
 def catalog_build_id() -> str:
-    """Cache-buster for the catalog JSON and the presentation PDFs.
+    """Cache-buster for catalog JSON and presentation-PDF source inputs.
 
     Derived from the content it busts, not from git HEAD. Keying it on
     `git rev-parse HEAD` meant the value changed on every commit, so rebuilding
@@ -2952,30 +2953,34 @@ def catalog_build_id() -> str:
     still busted every reader's cache, while a deck rebuilt without a commit
     busted nothing.
 
-    Hashing the bytes fixes both. The value changes exactly when a cached
-    resource changes, and two builds of the same content agree.
+    Generated PDFs are published to R2 and intentionally absent from Git. Hash
+    the deck sources plus their renderer manifest instead of requiring the
+    generated PDF bytes in the checkout. The value changes when a linked PPTX or
+    its pinned renderer/output contract changes, and two builds from the same
+    source tree agree.
     """
     digest = hashlib.sha256()
     for table in CATALOG_TABLES:
         path = catalog_json_path(table)
         digest.update(path.name.encode("utf-8"))
         digest.update(path.read_bytes() if path.is_file() else b"")
-    # Slides are served with this same query, so their content has to feed it or
-    # a deck update would never reach a reader holding a cached copy.
-    for pdf in sorted(_presentation_pdf_paths()):
-        digest.update(pdf.relative_to(BASE).as_posix().encode("utf-8"))
-        digest.update(pdf.read_bytes())
+    manifest_path = SCRIPTS / "presentation-pipeline.json"
+    digest.update(manifest_path.name.encode("utf-8"))
+    digest.update(manifest_path.read_bytes())
+    for source in _presentation_source_paths():
+        digest.update(source.relative_to(BASE).as_posix().encode("utf-8"))
+        digest.update(source.read_bytes())
     return digest.hexdigest()[:12]
 
 
-def _presentation_pdf_paths() -> list[Path]:
-    """Presentation PDFs the index links, taken from the template itself."""
-    paths = []
-    for rel in re.findall(r'data-presentation-pdf="([^"]+)"', INDEX_TEMPLATE):
-        candidate = STUDIES / rel
-        if candidate.is_file():
-            paths.append(candidate)
-    return paths
+def _presentation_source_paths() -> list[Path]:
+    """PPTX sources whose R2 outputs are linked from the landing page."""
+    linked = {
+        (STUDIES / rel).resolve()
+        for rel in re.findall(r'data-presentation-pdf="([^"]+)"', INDEX_TEMPLATE)
+    }
+    paths = [deck.source for deck in load_manifest().decks if deck.slides_pdf.resolve() in linked]
+    return sorted(paths)
 
 
 INDEX_TEMPLATE = INDEX_TEMPLATE.replace(FAVICON_LINKS_PLACEHOLDER, favicon_link_tags())

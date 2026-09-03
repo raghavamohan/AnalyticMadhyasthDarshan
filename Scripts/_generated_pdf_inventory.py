@@ -1,6 +1,7 @@
 """Canonical inventory of generated PDFs under Studies/ and Applications/."""
 from __future__ import annotations
 
+import subprocess
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -68,6 +69,18 @@ def inventory_errors(specs: tuple[GeneratedPdfSpec, ...] | None = None) -> list[
     }
     for path in sorted(existing - declared):
         errors.append(f"unclassified generated PDF: {repo_relative(path)}")
+    tracked = subprocess.run(
+        ["git", "ls-files", "--", "Studies/**/*.pdf", "Applications/**/*.pdf"],
+        cwd=BASE,
+        check=False,
+        text=True,
+        capture_output=True,
+    )
+    if tracked.returncode != 0:
+        errors.append("could not inspect Git tracking for generated PDFs")
+    else:
+        for key in tracked.stdout.splitlines():
+            errors.append(f"generated PDF must not be tracked by Git: {key}")
     return errors
 
 

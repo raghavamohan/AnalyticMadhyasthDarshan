@@ -17,11 +17,12 @@ for the pipeline itself.**
 | [Studies index](workflows/studies-index-check.yml) | **every** `pull_request`; `push` to `master`/`main` | `verify` | No |
 | [PDF pipeline smoke](workflows/pdf-pipeline-smoke.yml) | `pull_request` path-filtered on the PDF pipeline; `workflow_dispatch` | `reproducible` | No |
 | [Presentation pipeline smoke](workflows/presentation-pipeline-smoke.yml) | `pull_request` path-filtered on presentation sources/tooling; `workflow_dispatch` | `libreoffice-production` | No |
+| [Generated PDF publish](workflows/generated-pdf-publish.yml) | path-filtered `pull_request`; relevant `push` to `master`; `workflow_dispatch` | `markdown`, `presentations`, `publish-and-deploy` | No Git writes; protected-branch runs publish to R2 and deploy/audit the delivery Worker |
 | [Proposal approved](workflows/proposal-approved.yml) | `issues: labeled` with `proposal-approved`; `workflow_dispatch` | `comment`, `bootstrap` | **Yes** — `bootstrap` opens and merges its own PR to `master` |
 | [Portal notifications](workflows/portal-notify.yml) | `issues: labeled`; `pull_request_target: closed` | `notify` | No |
 | [Pages deploy retry](workflows/pages-deploy-retry.yml) | `workflow_run` on *pages build and deployment* completing | `retry` | No (re-runs a run) |
 
-Three jobs are gated by more than their trigger, which is the most common source of
+Four jobs are gated by more than their trigger, which is the most common source of
 "why didn't CI run?":
 
 - **Study PR** is skipped unless the PR carries a study label. A `skipped`
@@ -33,6 +34,9 @@ Three jobs are gated by more than their trigger, which is the most common source
 - **Presentation pipeline smoke** is also path-filtered. It runs only when a
   PPTX source, presentation renderer/checker, dependency pin, or the workflow
   itself changes.
+- **Generated PDF publish** builds affected Markdown PDFs on pull requests but
+  receives no Cloudflare credentials there. Only a `master` push or manual run
+  on `master` can start its presentation and R2 publication jobs.
 
 **Studies index is the only workflow that reports on every pull request**, and is
 therefore the only one that can serve as a required status check.
@@ -93,8 +97,9 @@ index verifier rejects Start here entries whose slug no longer exists.
 **PDF regeneration is conditional.** `pdf_regeneration_reason()` rebuilds only
 when the study markdown changed, a figure inside that study's directory changed,
 the PDF pipeline or its shared inputs (requirements, glossary, KaTeX assets,
-Chrome launcher, CNAME) changed, or the PDF is missing. Companion-only edits
-(decks, research notes) skip the render.
+Chrome launcher, CNAME) changed. Generated PDFs are absent from Git by design,
+so a missing sibling PDF is not itself a rebuild reason. Companion-only edits
+(decks, unrelated research notes) skip the catalog study render.
 
 Every run ends in `verify_studies_index()`, which calls the *same*
 `collect_index_errors()` the master-push check uses. Calling a hand-picked subset
@@ -175,7 +180,31 @@ fresh PowerPoint baseline preserved every page's text and showed no clipping or
 reflow defect in the worst-ranked pages. This workflow never publishes to R2
 and never modifies the checkout.
 
-### 2.5 Proposal approved — `proposal-approved.yml`
+### 2.5 Generated PDF publish — `generated-pdf-publish.yml`
+
+This is the protected-branch publication path for all generated PDFs under
+`Studies/` and `Applications/`. Pull requests run only the `markdown` job: it
+selects affected Markdown sources, regenerates them through the pinned pipeline,
+and uploads a short-lived Actions artifact for inspection. Pull-request jobs do
+not receive R2 or Cloudflare credentials and cannot publish.
+
+On a relevant `master` push (or a manual dispatch on `master`), CI builds all 46
+Markdown-derived PDFs on Linux and all 14 slides/notes PDFs with the pinned
+LibreOffice production renderer on Windows. `publish-and-deploy` does not start
+until both complete successfully. It merges the two verified artifact trees,
+publishes all 60 repository-relative object keys to R2, checks complete R2
+coverage, deploys the generated allowlist Worker, attaches the two guarded
+prefix routes, purges the generated URLs, and audits every public PDF including
+a range request and checksum comparison. Worker code first deploys to the
+isolated `amd-generated-pdfs-canary` workers.dev host and must pass the complete
+60-object audit before the production script is updated.
+
+Publication is checksum-driven and idempotent: matching R2 objects are skipped.
+The workflow never commits PDFs. The `.gitignore` rules cover only generated
+PDFs immediately below `Studies/<Slug>/` and `Applications/<Slug>/`; PDFs under
+`References/` remain Git-tracked source material.
+
+### 2.6 Proposal approved — `proposal-approved.yml`
 
 Two independent jobs on the `proposal-approved` label:
 
@@ -217,7 +246,7 @@ verifies approval from the issue's **labels**, not the registry. Contributors ca
 still submit. What is lost is the pre-catalog stub, the registry row, and the row
 reading *Ready for draft* rather than *Approved* on My Submissions.
 
-### 2.6 Portal notifications — `portal-notify.yml`
+### 2.7 Portal notifications — `portal-notify.yml`
 
 Best-effort email to submission-portal contributors via the submissions worker.
 No-ops cleanly when `PORTAL_NOTIFY_SECRET` is unset, when the PR is not a portal
@@ -228,7 +257,7 @@ It uses `pull_request_target`, which runs in a privileged context with access to
 secrets. It is safe here **only because it never checks out PR code** and only
 reads the payload as data. Do not add a checkout step to this workflow.
 
-### 2.7 Pages deploy retry — `pages-deploy-retry.yml`
+### 2.8 Pages deploy retry — `pages-deploy-retry.yml`
 
 Re-runs failed `pages-build-deployment` jobs once, on `master`, on attempt 1 only.
 Guards against the site's intermittent `syncing_files` failure, which has no
@@ -274,7 +303,7 @@ the default branch red.
 ## 4. What CI does and does not enforce
 
 **Enforced on every labelled study PR:** catalog timestamp sync from
-`**Edited on:**`, catalog/index/README sync, PDF regeneration and its embedded
+`**Edited on:**`, catalog/index/README sync, conditional PDF generation and its embedded
 verifiers (SVG, diagrams, fenced code, outline, math — all invoked through
 `_study_catalog.regenerate_pdf`), reference link checks when the bibliography
 changed, rename and removal metadata, and the router's own unit tests.
@@ -288,6 +317,13 @@ PPTX sources, source-deck fatal layout checks, exact production renderer and fon
 availability, complete slides/notes artifact verification, and two-build
 rendered/text reproducibility. Candidate PDFs are uploaded for review but are
 not published.
+
+**Enforced before protected-branch PDF publication:** a complete 60-key inventory,
+successful Markdown and presentation builds, per-artifact structural/provenance
+verification, R2 checksum and metadata verification, Worker allowlist/route
+deployment, cache purge, and a full same-origin public download audit. A failure
+before publication leaves the previous R2 objects and Worker routes serving the
+last successful build.
 
 **Held back from CI on purpose** — these pass, but failing them would not mean
 the same thing as failing the others, so the call belongs to a maintainer. Each is
@@ -305,8 +341,8 @@ run. Run them with `--all`.
 
 | Gap | Consequence |
 |-----|-------------|
-| `--live` endpoint checks | Every site/infra suite has a `check_live()` behind an explicit `--live` flag that hits production. CI runs the offline form only, so a deployed regression with a correct repo state is not caught. Worth a scheduled run. |
-| `infra/` Cloudflare Workers | No build, lint, type-check or deploy check |
+| Non-PDF `--live` endpoint checks | Other site/infra suites keep production checks behind explicit `--live` flags. Generated PDF delivery is the exception: every protected-branch publication audits all 60 public URLs. |
+| Other `infra/` Cloudflare Workers | Generated-PDF Worker contract tests and production deployment are covered; other Workers still lack a shared build/lint/type-check/deploy gate. |
 | Any lint / formatter | No ruff, flake8, mypy, eslint or markdownlint |
 
 **Pinned toolchain.** `requirements.txt` pins every package exactly, direct and
@@ -453,12 +489,18 @@ To see what is enforced and what is held, without running anything:
 python Scripts/_run_test_suites.py --list
 ```
 
-Everything `PDF pipeline smoke` runs (rewrites the selected studies' `.pdf`/`.html`
-in place; use a clean worktree and inspect the resulting diff before restoring
-those exact generated paths if the run was diagnostic only):
+Everything `PDF pipeline smoke` runs (rewrites the selected studies' ignored
+`.pdf` files and tracked `.html` readers in place; use a clean worktree and
+inspect any HTML diff after a diagnostic run):
 
 ```bash
 python Scripts/_verify_pdf_reproducible.py --runs 2
+```
+
+Build the complete Markdown PDF inventory into a temporary artifact tree:
+
+```bash
+python Scripts/_build_markdown_pdfs.py --all --output-root tmp/generated-markdown-pdfs
 ```
 
 The presentation smoke workflow uses its manifest-pinned LibreOffice production renderer.
@@ -469,6 +511,16 @@ Scripts/_install_presentation_renderer.ps1 -Profile libreoffice-production
 python Scripts/_build_presentations.py --all --profile libreoffice-production --output-root tmp/presentation-first
 python Scripts/_build_presentations.py --all --profile libreoffice-production --output-root tmp/presentation-second
 python Scripts/_verify_presentation_reproducible.py --all --left-root tmp/presentation-first --right-root tmp/presentation-second
+```
+
+With R2/Cloudflare environment variables configured, reproduce the final
+publication gates without changing Git:
+
+```powershell
+python Scripts/_publish_generated_pdfs.py --artifact-root tmp/generated-pdfs --all --dry-run
+python Scripts/_publish_generated_pdf_worker.py --check
+python Scripts/_publish_generated_pdf_worker.py --check-r2-coverage
+python Scripts/_verify_generated_pdf_delivery.py --public --all --artifact-root tmp/generated-pdfs
 ```
 
 For candidate acceptance, compare the verified candidate tree against a fresh

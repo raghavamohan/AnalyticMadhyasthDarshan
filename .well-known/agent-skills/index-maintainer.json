@@ -6,14 +6,14 @@
       "type": "skill-md",
       "description": "Register a new study in Studies/ using Scripts/_add_study.py or _add_study.ps1 — sets metadata, updates catalogs, and generates PDF. Use when adding a study, registering a paper, creating an Ongoing placeholder, importing a PDF, or adding a Formal study.",
       "url": "/.well-known/agent-skills/add-study/SKILL.md",
-      "digest": "sha256:56ecea6aef6a93e270bf47ef18cc15f9d3ebf1c011fe7232a6accf79708709c8"
+      "digest": "sha256:e630249cca3fcf0ff3f8e3f50405352bc7ab0dc691ef68e406ffd7d53af6813b"
     },
     {
       "name": "check-references",
       "type": "skill-md",
       "description": "Run full reference integrity checks on Studies/ bibliographies, local ../References/ links, References/ mirror files, and study PDF links using Scripts/_check_references.py. Use when adding or editing study references, after downloading references, before committing bibliography changes, or when a user asks to verify reference links work.",
       "url": "/.well-known/agent-skills/check-references/SKILL.md",
-      "digest": "sha256:2ebc1c194f4211077487782bf50bd6123d6f05129035d445f6052510eadd8aa0"
+      "digest": "sha256:833f6111ad035abca880340fa8a4abbe66c032020ac175c223d991cf0ebd19da"
     },
     {
       "name": "download-references",
@@ -27,7 +27,7 @@
       "type": "skill-md",
       "description": "Add, remove, or change Draft/Released status of studies in this repo using Scripts/_add_study.py, _remove_study.py, and _set_study_status.py. Use when registering a new study, retiring a study, releasing or reverting draft status, updating study catalogs, or when the user asks to manage studies in Studies/ or Applications/.",
       "url": "/.well-known/agent-skills/manage-studies/SKILL.md",
-      "digest": "sha256:920f6f54a787a3bcaf3bf90df3b91f8e9001b15eb1c88925e32df477112c3686"
+      "digest": "sha256:ac57147c5000d03696ac9a47fb101589846d79f77f11ce19f3bc61737e8831a8"
     },
     {
       "name": "refine-studies-index",
@@ -41,7 +41,7 @@
       "type": "skill-md",
       "description": "Regenerate a study or companion-note PDF/HTML from markdown using Scripts/_regenerate_pdf.py. Use after editing a study markdown source, when fixing PDF rendering, applying a Draft/Released watermark, or rebuilding an unwatermarked research/technical note beside a study. Runs the repository's SVG, Mermaid, fenced-code, KaTeX-font, and outline verifiers.",
       "url": "/.well-known/agent-skills/regenerate-study-pdf/SKILL.md",
-      "digest": "sha256:0ab636aed46c4ea6a5e7a995a19525cb2a93e87d858024653f8ba3b4fddf858e"
+      "digest": "sha256:3cecb3f6c087f4b4fa0a9a17abeab6acdaef450d767e34997f6620704e0ae954"
     },
     {
       "name": "remove-study",
@@ -55,14 +55,14 @@
       "type": "skill-md",
       "description": "Rename a study slug and/or display title using Scripts/_rename_study.py — moves the study directory, syncs catalogs, proposal-registry, GitHub proposal issue, References paths, and regenerated PDF/HTML; Start here and cross-study links are verified for same-PR updates. Use when renaming a study, changing a catalog slug, fixing a too-long slug, or updating My Submissions after a rename.",
       "url": "/.well-known/agent-skills/rename-study/SKILL.md",
-      "digest": "sha256:c7e6afaa5dd0fb063c2d7101cf37986fb794dc651da007827459dc3e06c5cf83"
+      "digest": "sha256:64b60fb07814eb69cb7755d538fa5caac2174d0aa10f0f021d39a27323e268b1"
     },
     {
       "name": "set-study-status",
       "type": "skill-md",
       "description": "Change a study between Draft and Released using Scripts/_set_study_status.py or _set_study_status.ps1 — syncs markdown Status, Edited on, catalogs, and PDF watermark. Use when releasing a study, reverting to draft, finalizing a paper, or updating draft/released status.",
       "url": "/.well-known/agent-skills/set-study-status/SKILL.md",
-      "digest": "sha256:cb50dfed18b361f228e298cca5fddd7b167fce4a26be062ac60108af42ed5415"
+      "digest": "sha256:9034c7654adffd0673d8e4b2a3dcfe0fd6186500d3180bc5627caed593b9a58e"
     },
     {
       "name": "sync-master-clean-branches",
@@ -83,14 +83,14 @@
       "type": "skill-md",
       "description": "Update a study Presenter's Companion (slide-by-slide delivery notes) under Studies/ or Applications/: keep the companion markdown as source of truth, rebuild DOCX/PDF, and sync PowerPoint speaker notes from a JSON map. Use when the teaching deck gains/loses slides, companion notes drift from the deck, or regenerating Presenters-Companion-*.docx/.pdf/.notes.json.",
       "url": "/.well-known/agent-skills/update-presenters-companion/SKILL.md",
-      "digest": "sha256:8ac9820faf01c448ab47f5a16d55a5b81faf77493078ba1449a683d9e8e3bdc8"
+      "digest": "sha256:3e0a7c701d69561e54988a1e744cba75fd294e3947174274a27f9e836b74b143"
     },
     {
       "name": "update-study-presentation",
       "type": "skill-md",
       "description": "Update an existing study companion PowerPoint deck under Studies/ or Applications/, preserve its established design, regenerate its slides PDF and read-aloud notes PDF, and verify every format. Use for PPTX content edits, figure replacements, slide additions or removals, slide reordering, presentation reviews that require fixes, and PPTX-to-PDF refreshes. The PPTX is the source of truth; this repository does not use a slides-YAML generation workflow.",
       "url": "/.well-known/agent-skills/update-study-presentation/SKILL.md",
-      "digest": "sha256:57ce6cc0eebb165c20ddf43e2fa7719ef68c8eed346d4cde430d52ec854a0b23"
+      "digest": "sha256:9329e04621f592fd06a9f64f634bf74cee21ad946d85603963b9571f4329e6b8"
     }
   ]
 }

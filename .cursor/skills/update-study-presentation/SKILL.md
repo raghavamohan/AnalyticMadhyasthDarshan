@@ -53,6 +53,10 @@ description: >-
    The notes command must follow the slides command because it takes its slide images
    from the slides PDF. Repository decks absent from the manifest fail closed.
 
+   Slides and notes PDFs are generated artifacts ignored by Git. Publish verified
+   outputs with `Scripts/_publish_generated_pdfs.py`, or leave publication to the
+   protected-branch generated-PDF workflow.
+
 8. The builder verifies all machine-checkable invariants. Visually
    inspect changed pages in both PDFs.
 
@@ -207,6 +211,7 @@ Before finishing, confirm:
 - [ ] `<Deck>-notes.pdf` regenerated after the slides PDF, with every slide's script
       present in full (no clipped tail) and slide numbering matching the deck
 - [ ] `<Deck>.pdf` is still slides-only — the notes PDF was not written over it
+- [ ] Generated slides/notes PDFs were not added to Git
 - [ ] `study-update` PR uses `Study slug: <Slug>` with the bare slug; Edited-on items are marked N/A for companion-only changes
 
 When the Presenter's Companion markdown or notes JSON also needs to track the

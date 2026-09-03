@@ -16,6 +16,7 @@ from _generated_pdf_inventory import generated_pdf_specs, inventory_errors
 from _r2_s3 import R2S3Client, load_r2_config
 
 WORKER_NAME = "amd-generated-pdfs"
+CANARY_WORKER_NAME = "amd-generated-pdfs-canary"
 COMPATIBILITY_DATE = "2026-09-03"
 WORKER_ROOT = BASE / "infra" / "generated-pdf-worker"
 WORKER_SOURCE = WORKER_ROOT / "src" / "index.js"
@@ -124,7 +125,7 @@ def _workers_subdomain(token: str, account_id: str) -> str:
     return str(subdomain)
 
 
-def deploy_worker(token: str, account_id: str, bucket: str) -> str:
+def deploy_worker(token: str, account_id: str, bucket: str, worker_name: str) -> str:
     metadata = {
         "main_module": "index.js",
         "compatibility_date": COMPATIBILITY_DATE,
@@ -132,9 +133,9 @@ def deploy_worker(token: str, account_id: str, bucket: str) -> str:
             {"type": "r2_bucket", "name": "GENERATED_PDFS", "bucket_name": bucket}
         ],
     }
-    print(f"Uploading Worker {WORKER_NAME!r} with one R2 binding...")
+    print(f"Uploading Worker {worker_name!r} with one R2 binding...")
     result = _multipart_put(
-        f"{cf.API_BASE}/accounts/{account_id}/workers/scripts/{WORKER_NAME}",
+        f"{cf.API_BASE}/accounts/{account_id}/workers/scripts/{worker_name}",
         token,
         {
             "index.js": WORKER_SOURCE.read_text(encoding="utf-8"),
@@ -146,12 +147,12 @@ def deploy_worker(token: str, account_id: str, bucket: str) -> str:
         raise RuntimeError(f"Worker upload was not successful: {result.get('errors')}")
     cf._api_request(
         "POST",
-        f"/accounts/{account_id}/workers/scripts/{WORKER_NAME}/subdomain",
+        f"/accounts/{account_id}/workers/scripts/{worker_name}/subdomain",
         token,
         {"enabled": True, "previews_enabled": True},
     )
-    hostname = f"{WORKER_NAME}.{_workers_subdomain(token, account_id)}.workers.dev"
-    print(f"Canary host: https://{hostname}")
+    hostname = f"{worker_name}.{_workers_subdomain(token, account_id)}.workers.dev"
+    print(f"Worker host: https://{hostname}")
     return hostname
 
 
@@ -223,6 +224,8 @@ def main(argv: list[str] | None = None) -> int:
     actions.add_argument("--sync-keys", action="store_true")
     actions.add_argument("--check", action="store_true")
     actions.add_argument("--deploy-canary", action="store_true")
+    actions.add_argument("--deploy-production", action="store_true")
+    actions.add_argument("--check-r2-coverage", action="store_true")
     actions.add_argument("--apply-canary-routes", action="store_true")
     actions.add_argument("--apply-routes", action="store_true")
     actions.add_argument("--rollback-routes", action="store_true")
@@ -251,7 +254,18 @@ def main(argv: list[str] | None = None) -> int:
         if args.deploy_canary:
             client = R2S3Client(load_r2_config())
             bucket = client.bucket()
-            deploy_worker(token, account_id, bucket)
+            deploy_worker(token, account_id, bucket, CANARY_WORKER_NAME)
+        elif args.deploy_production:
+            client = R2S3Client(load_r2_config())
+            bucket = client.bucket()
+            deploy_worker(token, account_id, bucket, WORKER_NAME)
+        elif args.check_r2_coverage:
+            client = R2S3Client(load_r2_config())
+            keys = tuple(spec.key for spec in generated_pdf_specs())
+            coverage = remote_coverage_errors(client, keys)
+            if coverage:
+                raise RuntimeError("R2 inventory coverage failed:\n  - " + "\n  - ".join(coverage))
+            print(f"R2 inventory coverage verified ({len(keys)} generated PDFs).")
         elif args.apply_canary_routes:
             client = R2S3Client(load_r2_config())
             coverage = remote_coverage_errors(client, CANARY_KEYS)

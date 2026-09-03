@@ -10,9 +10,10 @@ alwaysApply: true
 
 Every catalog study lives in its own directory: topical and formal sources use
 `Studies/<Slug>/<Slug>.md`; applied sources use
-`Applications/<Slug>/<Slug>.md`. Companion PDF/HTML and figures stay beside the
-canonical markdown. Catalog files `Studies/README.md` and `Studies/index.html`
-stay at the `Studies/` root.
+`Applications/<Slug>/<Slug>.md`. Published HTML and figures stay beside the
+canonical markdown. Generated PDFs use the same repository-relative path while
+building, but are ignored by Git and published to Cloudflare R2. Catalog files
+`Studies/README.md` and `Studies/index.html` stay at the `Studies/` root.
 
 Every study carries an `**Edited on:**` field directly below
 the `**Author:**` line. **Any change to study content** — including edits made
@@ -48,8 +49,8 @@ If the field is missing, add it on its own line immediately after the
 
 - `Ongoing` / `Planned` — italic title with no public read/download link.
   Catalog-only placeholders have no document; approved proposals may have
-  internal markdown, HTML, and PDF stub artifacts until the first draft.
-- `Draft<br>Last updated on: <date>, <time> IST` — a document/PDF exists but is
+  internal markdown and HTML stub artifacts until the first draft.
+- `Draft<br>Last updated on: <date>, <time> IST` — a publishable document exists but is
   not finalized (date/time **must match** the study's `**Edited on:**` field).
 - `Released<br>Last updated on: <date>, <time> IST` — only once a study is
   explicitly finalized/released.
@@ -71,6 +72,6 @@ Before marking a study edit done, confirm all three are in sync:
 - [ ] `Studies/<Slug>/<Slug>.md` or `Applications/<Slug>/<Slug>.md` → `**Edited on:**`
 - [ ] `Studies/README.md` → that study's `Last updated on`
 - [ ] `Studies/index.html` → that study's `Last updated on`
-- [ ] The canonical markdown's sibling `<Slug>.pdf` regenerated after the timestamp change
+- [ ] The canonical markdown's `<Slug>.pdf` generated and verified after the timestamp change
 
 ---

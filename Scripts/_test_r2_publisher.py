@@ -6,12 +6,13 @@ import os
 import tempfile
 import unittest
 import uuid
+from unittest.mock import patch
 from pathlib import Path
 
 import fitz
 
 from _generated_pdf_inventory import GeneratedPdfSpec, generated_pdf_specs, inventory_errors
-from _publish_generated_pdfs import publish_artifacts, stale_object_keys, verify_artifacts
+from _publish_generated_pdfs import main, publish_artifacts, stale_object_keys, verify_artifacts
 from _r2_s3 import R2S3Client, load_r2_config
 
 
@@ -49,6 +50,13 @@ class InventoryTests(unittest.TestCase):
         self.assertEqual(sum(spec.kind == "markdown" for spec in specs), 46)
         self.assertEqual(sum(spec.kind == "presentation-slides" for spec in specs), 7)
         self.assertEqual(sum(spec.kind == "presentation-notes" for spec in specs), 7)
+        self.assertEqual(
+            __import__("subprocess").run(
+                ["git", "ls-files", "--", "Studies/**/*.pdf", "Applications/**/*.pdf"],
+                cwd=Path(__file__).resolve().parents[1], text=True, capture_output=True, check=True,
+            ).stdout.strip(),
+            "",
+        )
 
     def test_current_environment_aliases_resolve_without_exposing_values(self) -> None:
         config = load_r2_config({
@@ -107,6 +115,16 @@ class PublisherTests(unittest.TestCase):
             stale_object_keys(FakeListingClient()),
             ["Applications/Retired/Retired.pdf", "Studies/Retired/Retired.pdf"],
         )
+
+    def test_kind_selection_is_available_for_split_ci_builds(self) -> None:
+        with patch("_publish_generated_pdfs.verify_artifacts", return_value=[]) as verify, patch(
+            "_publish_generated_pdfs.load_r2_config",
+            side_effect=AssertionError("offline dry-run must not load credentials"),
+        ):
+            self.assertEqual(main(["--kind", "presentation-slides", "--dry-run", "--offline"]), 0)
+        selected = verify.call_args.args[0]
+        self.assertTrue(selected)
+        self.assertTrue(all(spec.kind == "presentation-slides" for spec in selected))
 
 
 @unittest.skipUnless(os.environ.get("AMD_RUN_LIVE_R2_TEST") == "1", "live R2 test not enabled")

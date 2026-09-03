@@ -7,7 +7,7 @@ not catalog entries -- carry no **Status:** line, so this script used to reject
 them and they had no supported entry point at all. Four of them were found with
 their maths typeset in fallback fonts, and rebuilding them took a throwaway
 script that reimplemented this pipeline. They are now accepted by path and
-rendered without a watermark, matching how they are already committed.
+rendered without a watermark, matching how they are published from R2.
 """
 from __future__ import annotations
 
@@ -83,7 +83,7 @@ def main() -> None:
     if status is None:
         if not companion:
             raise SystemExit(f"**Status:** missing in {md_path}")
-        # No Status means no watermark, which is how these notes are committed.
+        # No Status means no watermark, which is how these notes are published.
         # RELEASED is the pipeline's way of saying "render unwatermarked"; it
         # writes no catalog row, so nothing here touches the catalogs.
         status = StudyStatus.RELEASED

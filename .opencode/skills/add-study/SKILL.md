@@ -46,7 +46,8 @@ bootstrap scripts enforce the same contract as rename and the web portal.
 ## What the script does
 
 1. Sets `**Author:**`, `**Edited on:**`, `**Status:**` in the `.md`
-2. Regenerates `Studies/<Slug>/<Slug>.html` and `.pdf` (Draft watermark when `--status draft`)
+2. Regenerates tracked `Studies/<Slug>/<Slug>.html` and an ignored `.pdf`
+   verification artifact (Draft watermark when `--status draft`)
 3. Upserts the catalog JSON and `Studies/README.md`, then rebuilds `Studies/index.html`
 4. Updates `References/README.md` and `References/MANIFEST.md` (skipped for Ongoing)
 
