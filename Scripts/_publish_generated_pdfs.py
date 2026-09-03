@@ -166,6 +166,10 @@ def main(argv: list[str] | None = None) -> int:
     selection.add_argument("--all", action="store_true", help="Require and sync every inventory item")
     selection.add_argument("--changed", action="store_true", help="Sync inventory items present under the root")
     selection.add_argument("--artifact", action="append", default=[], metavar="KEY")
+    selection.add_argument(
+        "--kind", action="append", choices=("markdown", "presentation-slides", "presentation-notes"),
+        help="Sync every inventory artifact of this kind; may be repeated",
+    )
     selection.add_argument("--list-stale", action="store_true", help="List remote PDF keys absent from inventory")
     selection.add_argument("--delete-stale", action="store_true", help="Delete remote PDF keys absent from inventory")
     parser.add_argument(
@@ -218,6 +222,9 @@ def main(argv: list[str] | None = None) -> int:
         specs = tuple(spec for spec in generated_pdf_specs() if mapped_path(root, spec.output).is_file())
         if not specs:
             raise SystemExit("No generated inventory PDFs are present under --artifact-root")
+    elif args.kind:
+        requested = set(args.kind)
+        specs = tuple(spec for spec in generated_pdf_specs() if spec.kind in requested)
     else:
         try:
             specs = tuple(spec_by_key(key) for key in args.artifact)

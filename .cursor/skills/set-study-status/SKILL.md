@@ -44,7 +44,8 @@ Skip sync check: `--no-check-timestamps`
    `Studies/<Slug>/<Slug>.md` or `Applications/<Slug>/<Slug>.md` — always set to
    the current IST time, even when status is unchanged
 2. Updates the matching catalog JSON and `Studies/README.md` row, then rebuilds `Studies/index.html`
-3. Regenerates the canonical markdown's sibling `<Slug>.html` and `.pdf`:
+3. Regenerates the canonical markdown's tracked sibling `<Slug>.html` and ignored
+   `<Slug>.pdf` verification artifact:
    - **Draft** → `--watermark Draft` via conversion pipeline
    - **Released** → no watermark
 
@@ -67,6 +68,7 @@ See [regenerate-study-pdf](../regenerate-study-pdf/SKILL.md) (`python Scripts/_r
 - [ ] `**Status:**` in `.md` matches catalog (Draft or Released)
 - [ ] `**Edited on:**` matches catalog **Last updated on**
 - [ ] PDF watermark matches status
+- [ ] Generated PDF was not added to Git; protected-branch CI publishes it to R2
 - [ ] `verify_timestamp_sync` passed (default)
 
 ## Related

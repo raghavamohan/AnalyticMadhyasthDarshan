@@ -27,30 +27,40 @@ not committed.
 
 ```powershell
 python Scripts/_publish_generated_pdf_worker.py --deploy-canary
-python Scripts/_verify_generated_pdf_delivery.py --workers-dev --artifact-root <presentation-build-root> --artifact-root .
-python Scripts/_publish_generated_pdf_worker.py --apply-canary-routes
-python Scripts/_verify_generated_pdf_delivery.py --public-canary --artifact-root <presentation-build-root> --artifact-root .
-python Scripts/_publish_generated_pdf_worker.py --rollback-routes
+python Scripts/_verify_generated_pdf_delivery.py --workers-dev --all --artifact-root <complete-build-root>
+python Scripts/_publish_generated_pdf_worker.py --deploy-production
+python Scripts/_publish_generated_pdf_worker.py --apply-routes
+python Scripts/_verify_generated_pdf_delivery.py --public --all --artifact-root <complete-build-root>
 ```
 
-Do not attach the zone routes until representative study, technical-note,
-slides, and presenter-notes objects have been uploaded and verified through the
-workers.dev canary.
+`--deploy-canary` updates the isolated `amd-generated-pdfs-canary` script, never
+the production script currently attached to the zone. Do not promote it until
+the complete study, technical-note, slides, and presenter-notes inventory has
+passed through that workers.dev host.
 
-The canary action attaches four exact-file routes and purges only those URLs.
 The production `--apply-routes` action is fail-closed: it refuses to attach the
 two prefix routes unless every inventory object exists in R2 with PDF content
 type and publisher checksum metadata, then purges every generated PDF URL so an
 old GitHub Pages cache entry cannot mask the cutover.
 
+Before production cutover, verify remote completeness independently with
+`python Scripts/_publish_generated_pdf_worker.py --check-r2-coverage`. After
+attaching the production routes, audit every object with
+`python Scripts/_verify_generated_pdf_delivery.py --public --all ...`.
+
+The exact-file `--apply-canary-routes` / `--public-canary` actions remain
+available for an initial domain cutover, before broad production routes exist.
+
 ## Rollback
 
-Until repository PDFs are removed, rollback is immediate and does not delete
-R2 data:
+Before generated PDFs are removed from Git, route rollback is immediate and does
+not delete R2 data:
 
 ```powershell
 python Scripts/_publish_generated_pdf_worker.py --rollback-routes
 ```
 
-This removes only the two managed routes when they still point to
-`amd-generated-pdfs`. GitHub Pages then resumes serving the repository copies.
+This removes only routes that still point to `amd-generated-pdfs`. After the
+repository cutover, do **not** remove the broad routes: GitHub Pages no longer
+has fallback PDF copies. Recover by republishing the last verified objects and,
+if needed, redeploying the last known-good production Worker.

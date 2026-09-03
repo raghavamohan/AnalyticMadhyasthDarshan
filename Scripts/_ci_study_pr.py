@@ -210,9 +210,6 @@ def pdf_regeneration_reason(base_ref: str, slug: str) -> str | None:
     pushed a fresh multi-megabyte blob for no change in content.
     """
     md_path = study_md(slug)
-    if not md_path.with_suffix(".pdf").is_file():
-        return "the PDF is missing"
-
     changed = changed_paths(base_ref)
     md_rel = md_path.relative_to(BASE).as_posix()
     study_dir = md_path.parent.relative_to(BASE).as_posix()

@@ -55,9 +55,10 @@ Windows/PowerShell shell).
 
 Every catalog study lives in its own directory: topical and formal sources use
 `Studies/<Slug>/<Slug>.md`; applied sources use
-`Applications/<Slug>/<Slug>.md`. Companion PDF/HTML and figures stay beside the
-canonical markdown. Catalog files `Studies/README.md` and `Studies/index.html`
-stay at the `Studies/` root.
+`Applications/<Slug>/<Slug>.md`. Published HTML and figures stay beside the
+canonical markdown. Generated PDFs use the same repository-relative path while
+building, but are ignored by Git and published to Cloudflare R2. Catalog files
+`Studies/README.md` and `Studies/index.html` stay at the `Studies/` root.
 
 Every study carries an `**Edited on:**` field directly below
 the `**Author:**` line. **Any change to study content** — including edits made
@@ -93,8 +94,8 @@ If the field is missing, add it on its own line immediately after the
 
 - `Ongoing` / `Planned` — italic title with no public read/download link.
   Catalog-only placeholders have no document; approved proposals may have
-  internal markdown, HTML, and PDF stub artifacts until the first draft.
-- `Draft<br>Last updated on: <date>, <time> IST` — a document/PDF exists but is
+  internal markdown and HTML stub artifacts until the first draft.
+- `Draft<br>Last updated on: <date>, <time> IST` — a publishable document exists but is
   not finalized (date/time **must match** the study's `**Edited on:**` field).
 - `Released<br>Last updated on: <date>, <time> IST` — only once a study is
   explicitly finalized/released.
@@ -116,7 +117,7 @@ Before marking a study edit done, confirm all three are in sync:
 - [ ] `Studies/<Slug>/<Slug>.md` or `Applications/<Slug>/<Slug>.md` → `**Edited on:**`
 - [ ] `Studies/README.md` → that study's `Last updated on`
 - [ ] `Studies/index.html` → that study's `Last updated on`
-- [ ] The canonical markdown's sibling `<Slug>.pdf` regenerated after the timestamp change
+- [ ] The canonical markdown's `<Slug>.pdf` generated and verified after the timestamp change
 
 ---
 
@@ -241,8 +242,10 @@ reintroducing:
 
 - The catalog cache-buster in `Studies/index.html` was keyed on
   `git rev-parse --short HEAD`, so it changed on every commit and every rebuild
-  dirtied the index. It is now a hash of the bytes it busts — the catalog JSON
-  and the presentation PDFs — so it changes exactly when a cached resource does.
+  dirtied the index. It is now a hash of the bytes it busts — catalog JSON plus
+  presentation PPTX sources and their pinned renderer manifest — so it changes
+  exactly when a cached resource's source or rendering contract changes without
+  requiring generated PDFs in Git.
   Never key a generated artifact on HEAD or on the clock.
 - `sitemap.xml`, `llms.txt`, `llms-full.txt`, `catalog-all.json` and
   `studies.txt` are all rendered from the catalog and nothing checked them. A
@@ -259,6 +262,19 @@ When a canonical study markdown file under `Studies/` or `Applications/` needs
 a PDF, **always** use the repository pipeline. Do not substitute pandoc,
 `markdown-pdf`, VS Code export, hand-written Puppeteer scripts, or other one-off
 converters.
+
+### Generated-artifact storage and delivery
+
+- Markdown, PPTX, figures, notes JSON, and other authoring inputs are the source
+  of truth in Git. Published `.html` readers also remain in Git.
+- Generated PDFs under `Studies/*/` and `Applications/*/` are intentionally
+  ignored. Generate them locally or in CI for verification, then publish them to
+  Cloudflare R2 with `Scripts/_publish_generated_pdfs.py`.
+- Public URLs do not change: `amd-generated-pdfs` serves R2 objects at the
+  existing `/Studies/...pdf` and `/Applications/...pdf` paths. Never generate a
+  PDF during an HTTP request.
+- `References/**/*.pdf` are source/reference material, not generated artifacts;
+  they remain tracked in Git and are not part of this R2 inventory.
 
 ### One-time setup (required for PDF generation)
 
@@ -297,7 +313,7 @@ catalog entries — carry no **Status:** line. Pass a path instead of a slug:
 python Scripts/_regenerate_pdf.py Studies/<Slug>/Research-Note-Example.md
 ```
 
-They render unwatermarked, which is how they are committed, and go through the
+They render unwatermarked, which is how they are published, and go through the
 same verifiers as a study. Before this, they had no supported entry point at
 all, and rebuilding one meant reimplementing the pipeline in a throwaway
 script — which is how four of them came to sit with their maths in fallback
@@ -364,18 +380,19 @@ regeneration. That is expected, and it is not a content change.
 
 - A system Chrome is no longer a silent fallback. Its version is whatever the
   machine has, so it is opt-in through `AMD_ALLOW_SYSTEM_CHROME=1`.
-- To move to a new Chrome, update `pdfRender.chrome` **in the same change as the
-  regenerated PDFs**, never on its own.
+- To move to a new Chrome, update `pdfRender.chrome` together with pipeline
+  verification and regenerated test artifacts; never change the renderer pin
+  without proving the resulting PDFs.
 - `AMD_ALLOW_CHROME_MISMATCH=1` downgrades the assertion to a warning for a
-  one-off local render. Do not use it to commit PDFs.
+  one-off local render. Do not use it for published PDFs.
 
 Do not do a blanket PDF regeneration to "refresh" pagination. Regenerate a
 study's PDF when its markdown changes, which §1 already requires. Output depends
 on the renderer, so a blanket pass re-rolls every file without changing a word.
 
 On a `study-update` PR, CI rebuilds the study PDF only when something that affects
-it changed — the study markdown, a figure inside that study's own directory, the
-PDF pipeline itself, or a missing PDF. A PR that touches only companion files (a
+it changed — the study markdown, a figure inside that study's own directory, or the
+PDF pipeline itself. Absence from Git is expected and is not a rebuild reason. A PR that touches only companion files (a
 deck, research notes, figures the study does not embed) **skips** regeneration and
 logs why. `Scripts/_ci_study_pr.py` holds that rule as `pdf_regeneration_reason()`;
 `Scripts/_test_ci_study_pr.py` covers every branch of it.
@@ -434,8 +451,8 @@ python Scripts/_verify_study_svgs.py
 The second form validates SVG figures for all studies.
 
 - **`Draft`** argument to `_html_to_pdf.js` — required for **Draft** studies. Omit for **Released**.
-- **Keep the published `.html`** beside each study `.pdf` — the Studies index **Read**
-  links open HTML; the download control fetches the PDF. Toolbar chrome is hidden in
+- **Keep the published `.html`** beside each study markdown — the Studies index **Read**
+  links open HTML; the download control fetches the R2-hosted PDF at the matching path. Toolbar chrome is hidden in
   print/PDF output via `@media print` CSS.
 
 ### What the scripts provide (do not reimplement)
@@ -466,8 +483,9 @@ The second form validates SVG figures for all studies.
 - **Clickable local bibliography and cross-study links** — relative `../References/…`
   and cross-study `.pdf` hrefs in the HTML intermediate are rewritten to
   `https://<CNAME>/References/…` and `https://<CNAME>/Studies/…` (from `CNAME`
-  at repo root) so PDF links opened from the published site download repository
-  files; external `http(s)` links are unchanged — `_convert_to_pdf.py`
+  at repo root) so PDF links opened from the published site use the stable public
+  URL (R2 for generated PDFs, GitHub Pages for references); external `http(s)`
+  links are unchanged — `_convert_to_pdf.py`
 - Footer on every page: `AnalyticMadhyasthDarshan.org` and `Page X of Y` —
   `_html_to_pdf.js`
 - **PDF sidebar bookmarks** — document outline from `h1`–`h3` via `outline: true` in
@@ -477,6 +495,8 @@ The second form validates SVG figures for all studies.
 ### After conversion
 
 - Confirm the output PDF path is `Studies/<Slug>/<Slug>.pdf` (same stem as the `.md`).
+- Do not add that generated PDF to Git; publish it through the R2 publisher or
+  leave publication to the protected-branch workflow.
 - Confirm the companion HTML path is `Studies/<Slug>/<Slug>.html` (or
   `Applications/<Slug>/<Slug>.html` for applied studies).
 - If the study uses ` ```mermaid ` blocks, confirm the PDF shows diagrams (not raw
@@ -499,7 +519,8 @@ The second form validates SVG figures for all studies.
 
 ### Do not
 
-- Edit PDFs directly or commit hand-built HTML as the source of truth.
+- Edit PDFs directly, add generated study/application PDFs to Git, or commit
+  hand-built HTML as the source of truth.
 - Change conversion behavior inline in chat without updating these scripts when
   the change should apply to all future PDFs (footer, watermark, styling).
 - Insert `---` (horizontal rule) lines between sections or headings in study markdown — `---` translates to HTML `<hr>` elements which render as unwanted full-width separator lines across the page in generated PDFs.
@@ -836,7 +857,7 @@ check, and how to reproduce each check locally — is documented in
 1. **Create a feature branch** before touching any file under `Studies/` or
    `Applications/`. Do not commit study
    changes on `master`/`main`.
-2. **Single or multi-study pull requests supported** — `Scripts/_ci_study_pr.py` automatically resolves and processes all changed study slugs in the PR diff (or reads the primary `Study slug:` field from the PR body). When a PR touches multiple studies (e.g. cross-study terminology updates, section-reference repairs, shared reference updates, or multi-study reviews), CI validates timestamp sync, rebuilds PDFs, and runs reference checks for every changed study. When a changed study adds, removes, or renumbers a heading, CI also validates cross-study `§` references both entering and leaving every changed markdown source; update referring studies in the **same** multi-study `study-update` PR.
+2. **Single or multi-study pull requests supported** — `Scripts/_ci_study_pr.py` automatically resolves and processes all changed study slugs in the PR diff (or reads the primary `Study slug:` field from the PR body). When a PR touches multiple studies (e.g. cross-study terminology updates, section-reference repairs, shared reference updates, or multi-study reviews), CI validates timestamp sync, generates and verifies affected PDFs, and runs reference checks for every changed study. Generated PDFs are CI artifacts, not Git changes. When a changed study adds, removes, or renumbers a heading, CI also validates cross-study `§` references both entering and leaving every changed markdown source; update referring studies in the **same** multi-study `study-update` PR.
 3. **Run local verification before pushing** — the same checks CI runs, so the PR is expected to
    pass on first push:
    - `python Scripts/_quote_tool.py verify --study <Slug>` if you quoted a local source
@@ -901,7 +922,7 @@ The Web Submission Portal's `new-study` flow expects
 `Studies/<Slug>/<Slug>.md` as source. When a contributor hands off a PDF
 instead, maintainers convert on a feature branch with
 `python Scripts/_pdf_to_study_md.py …` or `python Scripts/_add_study.py … --convert`,
-manually review the output against AGENTS.md §4–§5, regenerate the PDF, then open the
+manually review the output against AGENTS.md §4–§5, regenerate and verify the PDF, then open the
 normal labeled PR. PDF is never accepted as the canonical study source in the repository.
 
 ### Renaming a study slug
@@ -915,7 +936,8 @@ not misclassified as a study rename. The PR must set `Study slug: <New-Slug>` to
 the new slugs and include registry/meta updates (or let CI write them on the branch).
 
 The catalog JSON order is the display-order source of truth; renaming preserves the row's
-position. Canonical `<Old>.md` / `.html` / `.pdf` files take the new stem, while companion
+position. Canonical `<Old>.md` / `.html` files take the new stem; the R2 PDF key
+uses the new canonical path after publication, while companion
 deck basenames remain unchanged. Update every cross-study link to the old slug and every
 affected study timestamp/PDF in the same multi-study PR. If `INDEX_TEMPLATE` names the old
 slug in Start here, update the generator and rebuild the index; CI rejects unknown Start
@@ -935,17 +957,19 @@ Keep slugs at or under **60 characters**. The portal rejects longer slugs at pro
 ### Why this matters
 
 `Scripts/_ci_study_pr.py` re-derives the slug, re-syncs the catalog timestamp from the study's
-`**Edited on:**`, regenerates the PDF, runs reference checks when the bibliography changed, and
+`**Edited on:**`, generates and verifies the PDF, runs reference checks when the bibliography changed, and
 verifies timestamp/catalog sync — all keyed to the PR's label and body field. Committing directly
 to the default branch skips every one of those checks and is how catalogs, timestamps, and PDFs
 drift out of sync with the source `.md`.
 
-CI **commits the regenerated artifacts back to the branch**, but only for a branch in this
+CI **commits regenerated tracked artifacts such as HTML back to the branch**, but never
+generated PDFs. It can push only for a branch in this
 repository. GitHub gives a pull request from a fork a read-only token regardless of the
 workflow's `permissions:` block, so on a fork the push is impossible: `commit-artifacts`
 detects that case and fails with the commands to run locally instead. Contributors working
-from a fork must therefore regenerate and commit artifacts themselves — step 3 above is not
-optional for them.
+from a fork must therefore regenerate tracked artifacts themselves — step 3 above is not
+optional for them. The protected-branch generated-PDF workflow publishes verified PDFs to R2
+and audits the public paths after merge.
 
 The default-branch ruleset requires the `verify` check from **Studies index**, which
 runs on every pull request. It does **not** require `study-pr`, which cannot be

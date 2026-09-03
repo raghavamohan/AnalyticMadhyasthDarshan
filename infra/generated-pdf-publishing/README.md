@@ -103,14 +103,14 @@ document-conversion code.
 
 ### M4 — CI publication and repository cutover
 
-- [ ] Configure GitHub Actions secrets for the existing S3 token and repository
+- [x] Configure GitHub Actions secrets for the existing S3 token and repository
   variables for account, bucket, endpoint, and zone identifiers.
-- [ ] Build, verify, and publish affected artifacts on protected-branch updates;
+- [x] Build, verify, and publish affected artifacts on protected-branch updates;
   pull requests build and verify without publishing.
-- [ ] Upload the complete current generated-PDF set to R2 and verify public paths.
-- [ ] Remove generated study, presentation, notes, and technical-note PDFs from
+- [x] Upload the complete current generated-PDF set to R2 and verify public paths.
+- [x] Remove generated study, presentation, notes, and technical-note PDFs from
   Git; add precise ignore rules that do not hide `References/**/*.pdf`.
-- [ ] Update catalog/cache-buster and reference checks so absence from Git is
+- [x] Update catalog/cache-buster and reference checks so absence from Git is
   expected while public availability remains verified.
 - [ ] Run the full local and CI suites, then perform a post-cutover live audit.
 
@@ -283,3 +283,31 @@ checked out. Never expose `.env` values in logs.
   not delete R2 objects.
 - Active work: M4, beginning with CI credential configuration and generation of
   the complete verified artifact set before the guarded production cutover.
+
+### 2026-09-03 — M4 cutover in progress
+
+- Configured repository secrets `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, and
+  `CLOUDFLARE_API_TOKEN`, plus non-secret R2 endpoint/bucket/region and
+  Cloudflare zone/account variables. Existing unrelated secrets were preserved.
+- Generated and uploaded the complete 60-object inventory: 46 Markdown-derived
+  documents plus 14 verified presentation slides/notes PDFs. Independent R2
+  coverage verification passed for every key.
+- Attached the two guarded production routes and purged all generated PDF URLs.
+  A full same-origin audit passed HEAD checksum/length checks and a 206 byte-range
+  request for every object; an unknown PDF returns the controlled no-store 404,
+  while the Studies HTML index continues through to GitHub Pages.
+- Staged removal of 55 previously tracked generated PDFs, reducing the current
+  Git tree by 24,236,473 bytes. Precise ignore rules leave all
+  `References/**/*.pdf` source material tracked.
+- Added the protected-branch publication workflow, changed-source Markdown
+  builder, source-based catalog cache-buster, inventory tracking guard, and full
+  public audit mode. Worker changes are first deployed and fully audited on an
+  isolated canary script before production promotion. One previously missing research-note HTML reader was
+  regenerated through the canonical pipeline and its PDF published to R2.
+- Deployed `amd-generated-pdfs-canary` with the current token and verified an R2
+  PDF through its workers.dev hostname. The live zone routes still point only to
+  `amd-generated-pdfs`; the verifier now tolerates bounded first-deploy DNS/edge
+  propagation before beginning the full canary audit.
+- Production delivery is live and should not be rolled back unless verification
+  fails. Active work: run rule/skill sync, full local suites, commit/push this M4
+  slice, and wait for the pull-request checks before declaring it merge-ready.

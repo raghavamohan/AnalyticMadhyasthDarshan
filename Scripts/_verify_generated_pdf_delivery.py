@@ -13,7 +13,12 @@ from pathlib import Path
 
 import _cloudflare_performance as cf
 from _common import BASE, configure_utf8_stdio
-from _publish_generated_pdf_worker import WORKER_NAME, _workers_subdomain, _zone_account_id
+from _generated_pdf_inventory import generated_pdf_specs
+from _publish_generated_pdf_worker import (
+    CANARY_WORKER_NAME,
+    _workers_subdomain,
+    _zone_account_id,
+)
 
 REPRESENTATIVE_KEYS = (
     "Studies/Nature-Of-Time/Nature-Of-Time.pdf",
@@ -59,7 +64,7 @@ def _local_path(key: str, roots: list[Path]) -> Path:
     raise FileNotFoundError(f"local artifact not found in configured roots: {key}")
 
 
-def _base_url(workers_dev: bool) -> str:
+def _base_url(workers_dev: bool, worker_name: str) -> str:
     if not workers_dev:
         return f"https://{cf.SITE_HOST}"
     cf.load_repo_env()
@@ -68,10 +73,16 @@ def _base_url(workers_dev: bool) -> str:
         raise ValueError("CLOUDFLARE_API_TOKEN is required to resolve the workers.dev host")
     zone_id = cf.resolve_zone_id(token, cf.cloudflare_zone_id())
     account_id = _zone_account_id(token, zone_id)
-    return f"https://{WORKER_NAME}.{_workers_subdomain(token, account_id)}.workers.dev"
+    return f"https://{worker_name}.{_workers_subdomain(token, account_id)}.workers.dev"
 
 
-def verify_artifact(base_url: str, key: str, path: Path) -> list[str]:
+def verify_artifact(
+    base_url: str,
+    key: str,
+    path: Path,
+    *,
+    wait_for_ready: bool = False,
+) -> list[str]:
     errors: list[str] = []
     url = base_url.rstrip("/") + "/" + urllib.parse.quote(key, safe="/")
     expected_size = path.stat().st_size
@@ -80,6 +91,12 @@ def verify_artifact(base_url: str, key: str, path: Path) -> list[str]:
         expected_prefix = handle.read(16)
 
     status, headers, body = _request(url, method="HEAD")
+    if wait_for_ready:
+        for _attempt in range(9):
+            if status != 404 or headers.get("x-amd-pdf-origin") == "r2":
+                break
+            time.sleep(2)
+            status, headers, body = _request(url, method="HEAD")
     if status != 200:
         errors.append(f"HEAD {key}: expected 200, got {status}")
         return errors
@@ -118,17 +135,34 @@ def main(argv: list[str] | None = None) -> int:
     target.add_argument("--public-canary", action="store_true")
     target.add_argument("--public", action="store_true")
     parser.add_argument("--artifact", action="append", default=[])
+    parser.add_argument("--all", action="store_true", help="Verify every generated PDF inventory key")
     parser.add_argument("--artifact-root", action="append", type=Path, default=[])
+    parser.add_argument(
+        "--worker-name",
+        default=CANARY_WORKER_NAME,
+        help=f"workers.dev script name (default: {CANARY_WORKER_NAME})",
+    )
     args = parser.parse_args(argv)
 
     roots = [path.expanduser().resolve() for path in args.artifact_root] or [BASE]
-    keys = tuple(args.artifact) or REPRESENTATIVE_KEYS
+    if args.all and args.artifact:
+        parser.error("--all cannot be combined with --artifact")
+    keys = (
+        tuple(spec.key for spec in generated_pdf_specs())
+        if args.all
+        else tuple(args.artifact) or REPRESENTATIVE_KEYS
+    )
     try:
-        base_url = _base_url(args.workers_dev)
+        base_url = _base_url(args.workers_dev, args.worker_name)
         errors: list[str] = []
-        for key in keys:
+        for index, key in enumerate(keys):
             path = _local_path(key, roots)
-            item_errors = verify_artifact(base_url, key, path)
+            item_errors = verify_artifact(
+                base_url,
+                key,
+                path,
+                wait_for_ready=args.workers_dev and index == 0,
+            )
             if item_errors:
                 errors.extend(item_errors)
             else:

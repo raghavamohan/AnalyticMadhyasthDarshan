@@ -42,7 +42,7 @@ npx puppeteer browsers install chrome
 cd ..
 ```
 
-The pinned Node dependencies and Chrome build are required for committed PDFs.
+The pinned Node dependencies and Chrome build are required for published PDFs.
 They provide Puppeteer, Mermaid, KaTeX, and the reproducible renderer asserted by
 `Scripts/_chrome.js`.
 
@@ -68,7 +68,8 @@ pass its markdown path instead; it renders without a watermark.
 7. `_verify_pdf_outline.py` — fail if the PDF has no sidebar bookmarks when the markdown has two or more `##` headings
 
 Output is **reproducible**: re-running on unchanged markdown produces a byte-identical
-PDF, so a no-op regeneration leaves nothing to commit. In CI, a `study-update` PR that
+PDF. Generated PDFs under `Studies/` and `Applications/` are ignored by Git and
+published to Cloudflare R2; the sibling HTML remains tracked. In CI, a `study-update` PR that
 touches only companion files (a deck, research notes, figures the study does not embed)
 skips PDF regeneration entirely.
 
@@ -117,6 +118,7 @@ flowchart TD
 
 - [ ] Referenced SVG figures pass `python Scripts/_verify_study_svgs.py Studies/<Slug>/<Slug>.md`
 - [ ] Target markdown's sibling `.pdf` and `.html` updated
+- [ ] Generated PDF was not added to Git; publish through the R2 workflow when needed
 - [ ] For a catalog study, the sibling `<Slug>.html` remains the published read view
 - [ ] No raw `flowchart TD` / `graph LR` visible in PDF when Mermaid blocks exist
 - [ ] KaTeX output embeds its font when the HTML contains rendered math
