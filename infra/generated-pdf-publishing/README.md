@@ -202,3 +202,11 @@ checked out. Never expose `.env` values in logs.
 - Active work: run the LibreOffice candidate workflow, compare its artifact
   against the PowerPoint baseline, and decide whether to promote the candidate
   renderer before enabling R2 publication.
+
+### 2026-09-03 — first LibreOffice CI run
+
+- PR #368 started all three expected checks. The first presentation smoke run
+  verified the MSI download and installation, then failed before rendering
+  because a PowerShell `-notmatch` expression did not leave a reusable
+  `$Matches` array. The installer now stores the regex match object explicitly;
+  no version check or digest check was relaxed.

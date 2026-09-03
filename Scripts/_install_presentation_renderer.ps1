@@ -69,10 +69,12 @@ if (-not (Test-Path -LiteralPath $soffice)) {
     throw "LibreOffice executable not found after installation: $soffice"
 }
 $versionOutput = & $soffice --version
-if ($versionOutput -notmatch "(\d+\.\d+\.\d+\.\d+)") {
+$versionMatch = [regex]::Match([string]$versionOutput, "(\d+\.\d+\.\d+\.\d+)")
+if (-not $versionMatch.Success) {
     throw "Could not parse LibreOffice version: $versionOutput"
 }
-if ($Matches[1] -ne $renderer.version) {
-    throw "Installed LibreOffice $($Matches[1]); profile requires $($renderer.version)"
+$actualVersion = $versionMatch.Groups[1].Value
+if ($actualVersion -ne $renderer.version) {
+    throw "Installed LibreOffice $actualVersion; profile requires $($renderer.version)"
 }
 Write-Host "Installed verified $Profile (LibreOffice $($renderer.version))"
