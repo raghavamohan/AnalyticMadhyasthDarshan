@@ -6,6 +6,69 @@
   "description": "Draft and released studies, newest Edited-on timestamp first. In-progress (ongoing) rows are omitted.",
   "items": [
     {
+      "id": "https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/",
+      "url": "https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html",
+      "title": "Why Humans Are Not Just Material",
+      "content_text": "Whether a human being is reducible to an insentient physicochemical body: Madhyasth Darshan's body-and-jeevan account compared with scientific evidence, its physicalist interpretation, and Advaita Vedanta, followed by a critical review of all three frameworks",
+      "tags": [
+        "topical",
+        "released"
+      ],
+      "date_modified": "2026-09-03T14:33:00+05:30",
+      "attachments": [
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.md",
+          "mime_type": "text/markdown"
+        },
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.pdf",
+          "mime_type": "application/pdf"
+        }
+      ]
+    },
+    {
+      "id": "https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/",
+      "url": "https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.html",
+      "title": "Nature of Time",
+      "content_text": "What time (kaal) is: the duration of unit-activity against timeless satta, numerical reckoning, and the past–present–future structure — compared with Advaita Vedanta, the philosophy of time, and physics (spacetime, cosmology, entropy)",
+      "tags": [
+        "topical",
+        "released"
+      ],
+      "date_modified": "2026-09-03T14:33:00+05:30",
+      "attachments": [
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.md",
+          "mime_type": "text/markdown"
+        },
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.pdf",
+          "mime_type": "application/pdf"
+        }
+      ]
+    },
+    {
+      "id": "https://analyticmadhyasthdarshan.org/Studies/How-To-Form-Self-Sustaining-Organizations/",
+      "url": "https://analyticmadhyasthdarshan.org/Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.html",
+      "title": "How to Form Self-Sustaining Organizations",
+      "content_text": "Examines Madhyasth Darshan's claim that organisations grounded in fear or accumulation become extractive, and its account of organisations that sustain themselves without instrumentalising their members",
+      "tags": [
+        "topical",
+        "released"
+      ],
+      "date_modified": "2026-09-03T14:33:00+05:30",
+      "attachments": [
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.md",
+          "mime_type": "text/markdown"
+        },
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.pdf",
+          "mime_type": "application/pdf"
+        }
+      ]
+    },
+    {
       "id": "https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/",
       "url": "https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html",
       "title": "The Ontology of Coexistence",
@@ -174,27 +237,6 @@
       ]
     },
     {
-      "id": "https://analyticmadhyasthdarshan.org/Studies/How-To-Form-Self-Sustaining-Organizations/",
-      "url": "https://analyticmadhyasthdarshan.org/Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.html",
-      "title": "How to Form Self-Sustaining Organizations",
-      "content_text": "Examines Madhyasth Darshan's claim that organisations grounded in fear or accumulation become extractive, and its account of organisations that sustain themselves without instrumentalising their members",
-      "tags": [
-        "topical",
-        "released"
-      ],
-      "date_modified": "2026-07-29T05:40:00+05:30",
-      "attachments": [
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.md",
-          "mime_type": "text/markdown"
-        },
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.pdf",
-          "mime_type": "application/pdf"
-        }
-      ]
-    },
-    {
       "id": "https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/",
       "url": "https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.html",
       "title": "Ethics and Morals in Human Beings",
@@ -211,48 +253,6 @@
         },
         {
           "url": "https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf",
-          "mime_type": "application/pdf"
-        }
-      ]
-    },
-    {
-      "id": "https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/",
-      "url": "https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html",
-      "title": "Why Humans Are Not Just Material",
-      "content_text": "Whether a human being is reducible to an insentient physicochemical body: Madhyasth Darshan's body-and-jeevan account compared with scientific evidence, its physicalist interpretation, and Advaita Vedanta, followed by a critical review of all three frameworks",
-      "tags": [
-        "topical",
-        "released"
-      ],
-      "date_modified": "2026-07-17T14:41:00+05:30",
-      "attachments": [
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.md",
-          "mime_type": "text/markdown"
-        },
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.pdf",
-          "mime_type": "application/pdf"
-        }
-      ]
-    },
-    {
-      "id": "https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/",
-      "url": "https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.html",
-      "title": "Nature of Time",
-      "content_text": "What time (kaal) is: the duration of unit-activity against timeless satta, numerical reckoning, and the past–present–future structure — compared with Advaita Vedanta, the philosophy of time, and physics (spacetime, cosmology, entropy)",
-      "tags": [
-        "topical",
-        "released"
-      ],
-      "date_modified": "2026-06-28T19:49:00+05:30",
-      "attachments": [
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.md",
-          "mime_type": "text/markdown"
-        },
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.pdf",
           "mime_type": "application/pdf"
         }
       ]
