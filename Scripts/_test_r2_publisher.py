@@ -13,7 +13,12 @@ import fitz
 
 from _generated_pdf_inventory import GeneratedPdfSpec, generated_pdf_specs, inventory_errors
 from _publish_generated_pdfs import main, publish_artifacts, stale_object_keys, verify_artifacts
+from _publish_reference_artifacts import (
+    _object_matches_manifest,
+    _source_path as reference_source_path,
+)
 from _r2_s3 import R2S3Client, load_r2_config
+from _reference_artifacts import artifact_local_path
 
 
 class FakeClient:
@@ -129,6 +134,39 @@ class PublisherTests(unittest.TestCase):
         selected = verify.call_args.args[0]
         self.assertTrue(selected)
         self.assertTrue(all(spec.kind == "presentation-slides" for spec in selected))
+
+    def test_reference_artifact_root_does_not_shadow_private_original_html(self) -> None:
+        row = {
+            "repo_path": "References/Archive/original.html",
+            "state": "r2-published",
+        }
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            generated_html = root / row["repo_path"]
+            generated_html.parent.mkdir(parents=True)
+            generated_html.write_text("generated reading copy", encoding="utf-8")
+            self.assertEqual(reference_source_path(row, root), artifact_local_path(row))
+
+    def test_reference_artifact_root_supplies_ci_built_pdf(self) -> None:
+        row = {
+            "repo_path": "References/Archive/reference.pdf",
+            "state": "r2-published",
+        }
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            generated_pdf = root / row["repo_path"]
+            generated_pdf.parent.mkdir(parents=True)
+            generated_pdf.write_bytes(b"%PDF-1.4\n")
+            self.assertEqual(reference_source_path(row, root), generated_pdf)
+
+    def test_matching_reference_object_is_idempotent(self) -> None:
+        source = {"bytes": 123, "sha256": "abc"}
+        headers = {"content-length": "123", "x-amz-meta-sha256": "abc"}
+        self.assertTrue(_object_matches_manifest(headers, source))
+        self.assertFalse(_object_matches_manifest(None, source))
+        self.assertFalse(
+            _object_matches_manifest({**headers, "content-length": "124"}, source)
+        )
 
 
 @unittest.skipUnless(os.environ.get("AMD_RUN_LIVE_R2_TEST") == "1", "live R2 test not enabled")

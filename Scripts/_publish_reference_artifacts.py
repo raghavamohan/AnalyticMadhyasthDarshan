@@ -111,7 +111,10 @@ def _uploadable_rows(*, include_review_required: bool) -> list[dict]:
 
 
 def _source_path(row: dict, artifact_root: Path | None) -> Path:
-    if artifact_root is not None:
+    # CI's combined artifact tree also contains generated reading HTML beside
+    # normalized PDFs.  That HTML is not the archived third-party original and
+    # must never shadow a private-original manifest row with the same repo path.
+    if artifact_root is not None and Path(row["repo_path"]).suffix.lower() == ".pdf":
         candidate = artifact_root.resolve() / row["repo_path"]
         if candidate.is_file():
             return candidate
@@ -129,22 +132,25 @@ def _verify_local_source(row: dict, path: Path) -> None:
         raise RuntimeError(f"local artifact checksum differs from manifest: {row['repo_path']}")
 
 
+def _object_matches_manifest(headers: dict[str, str] | None, source: dict) -> bool:
+    return bool(
+        headers is not None
+        and headers.get("x-amz-meta-sha256") == source["sha256"]
+        and headers.get("content-length") == str(source["bytes"])
+    )
+
+
 def upload_rows(client: R2S3Client, rows: list[dict], artifact_root: Path | None = None) -> None:
     uploaded = 0
     total_bytes = 0
     for row in rows:
         source = row["source"]
         target = row["target"]
+        headers = client.head_object(target["r2_key"])
+        if _object_matches_manifest(headers, source):
+            print(f"SKIP {target['r2_key']} (already verified)")
+            continue
         path = _source_path(row, artifact_root)
-        if not path.is_file() and row.get("state") == "r2-published":
-            headers = client.head_object(target["r2_key"])
-            if (
-                headers is not None
-                and headers.get("x-amz-meta-sha256") == source["sha256"]
-                and headers.get("content-length") == str(source["bytes"])
-            ):
-                print(f"SKIP {target['r2_key']} (already verified; local archive source removed)")
-                continue
         _verify_local_source(row, path)
         key = target["r2_key"]
         private = target["storage"] == "r2-private-original"
@@ -240,7 +246,7 @@ def main() -> int:
     parser.add_argument(
         "--artifact-root",
         type=Path,
-        help="Root containing CI-built generated artifacts at their repository paths.",
+        help="Root containing CI-built PDF artifacts at their repository paths.",
     )
     args = parser.parse_args()
 
