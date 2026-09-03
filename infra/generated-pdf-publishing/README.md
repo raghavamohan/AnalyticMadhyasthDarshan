@@ -70,9 +70,9 @@ document-conversion code.
 - [x] Add a CI presentation job with source-aware path triggers.
 - [x] Run the checker across all decks and fix every fatal source-deck layout
   finding on the feature branch.
-- [ ] Render all seven decks with the selected CI renderer and compare against
+- [x] Render all seven decks with the selected CI renderer and compare against
   the PowerPoint baseline before accepting the renderer.
-- [ ] Prove two consecutive builds from identical inputs have the required
+- [x] Prove two consecutive builds from identical inputs have the required
   stable hashes (byte hashes where supported; normalized/raster/text hashes
   where renderer metadata is nondeterministic).
 
@@ -214,3 +214,19 @@ checked out. Never expose `.env` values in logs.
   `soffice.exe`, LibreOffice's Windows GUI launcher, emits no capturable version
   text. Version detection and headless conversion now prefer the sibling
   `soffice.com` console launcher; the exact-version assertion is unchanged.
+
+### 2026-09-03 — M1 accepted
+
+- The third CI run passed the exact installer/version check, confirmed all
+  required fonts, built and verified all seven decks twice, proved stable
+  rendered/text hashes for all 14 PDFs, and uploaded the verified first build.
+  Slides PDFs contain volatile renderer internals and were not byte-identical;
+  every notes PDF was byte-identical.
+- Generated a fresh seven-deck PowerPoint baseline locally and compared all 167
+  slides to the CI artifact. Candidate text recall was 100% on every page. The
+  worst page per deck ranged from 2.18% to 6.27% mean pixel difference; visual
+  review found only expected glyph/edge placement differences, with no clipping,
+  overlap, or reflow defects.
+- Promoted LibreOffice `26.2.3.2` to `libreoffice-production`. PowerPoint
+  `16.0.20228.20188` remains the accepted fidelity baseline. M1 is complete;
+  the next implementation milestone is the verified R2 publisher.

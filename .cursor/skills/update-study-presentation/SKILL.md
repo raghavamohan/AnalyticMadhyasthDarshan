@@ -40,7 +40,7 @@ description: >-
    repository-relative output tree elsewhere:
 
    ```powershell
-   python Scripts/_build_presentations.py --deck <Presentation-ID> --profile libreoffice-ci-candidate --output-root tmp/presentation-check
+   python Scripts/_build_presentations.py --deck <Presentation-ID> --profile libreoffice-production --output-root tmp/presentation-check
    ```
 
 7. Use the low-level commands only to isolate a converter or notes-composer failure:
@@ -173,8 +173,8 @@ generator and the generated index together.
   reasons: native notes pages can clip text overflowing the notes placeholder, and
   the repository needs a deterministic layout independent of authoring-time notes
   page geometry. Long scripts continue onto a `CONTINUED` page instead.
-- Renderer selection never falls back based on the host. The exact PowerPoint
-  production baseline and LibreOffice CI candidate are declared in the manifest;
+- Renderer selection never falls back based on the host. The exact LibreOffice
+  production renderer and PowerPoint fidelity baseline are declared in the manifest;
   a version mismatch fails before any final output is replaced.
 - After regenerating, confirm no script was truncated — compare the notes PDF text
   against the deck's notes rather than eyeballing the first page or two.

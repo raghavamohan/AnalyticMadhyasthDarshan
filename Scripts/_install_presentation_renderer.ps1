@@ -1,5 +1,5 @@
 param(
-    [string]$Profile = "libreoffice-ci-candidate",
+    [string]$Profile = "libreoffice-production",
     [string]$CacheDirectory = ""
 )
 

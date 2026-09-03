@@ -90,7 +90,7 @@
       "type": "skill-md",
       "description": "Update an existing study companion PowerPoint deck under Studies/ or Applications/, preserve its established design, regenerate its slides PDF and read-aloud notes PDF, and verify every format. Use for PPTX content edits, figure replacements, slide additions or removals, slide reordering, presentation reviews that require fixes, and PPTX-to-PDF refreshes. The PPTX is the source of truth; this repository does not use a slides-YAML generation workflow.",
       "url": "/.well-known/agent-skills/update-study-presentation/SKILL.md",
-      "digest": "sha256:41db8edbfad80b6604a640c028dcea9c2ac8f6c2e816adf40d60d74325cfd6a2"
+      "digest": "sha256:57ce6cc0eebb165c20ddf43e2fa7719ef68c8eed346d4cde430d52ec854a0b23"
     }
   ]
 }
