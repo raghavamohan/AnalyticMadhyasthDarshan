@@ -90,6 +90,17 @@ def test_study_reading_key_follows_contents() -> None:
     )
 
 
+def test_study_contents_opens_before_the_reading_key() -> None:
+    sections = "\n".join(f"## Section {i}\n\nParagraph {i}.\n" for i in range(1, 7))
+    html = _study_html(f"# Title\n\nJeevan is sentient.\n\n{sections}")
+    marker = "toc.open = true"
+    details_end = html.index("</details>")
+    assert marker in html
+    assert html.index(marker) < details_end
+    assert details_end < html.index('class="study-reading-key"')
+    assert html.count(marker) == 1
+
+
 def test_study_toolbar_is_two_rows_without_the_study_title() -> None:
     html = _study_html("# A Very Long Study Title\n\nParagraph.\n")
     toolbar = html.split('<nav class="study-toolbar"', 1)[1].split("</nav>", 1)[0]
@@ -108,6 +119,7 @@ def main() -> int:
         test_study_screen_blockquotes_gain_one_point_spacing,
         test_study_html_explains_tooltip_and_link_affordances,
         test_study_reading_key_follows_contents,
+        test_study_contents_opens_before_the_reading_key,
         test_study_toolbar_is_two_rows_without_the_study_title,
     ]
     failed = 0
