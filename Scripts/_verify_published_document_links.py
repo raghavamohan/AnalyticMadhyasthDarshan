@@ -26,9 +26,18 @@ def _document_html_paths() -> list[Path]:
         if not root.is_dir():
             continue
         for html_path in root.glob("*/*.html"):
-            if html_path.with_suffix(".md").is_file():
+            markdown_path = html_path.with_suffix(".md")
+            if markdown_path.is_file() and not _is_pre_catalog_placeholder(markdown_path):
                 paths.append(html_path)
     return sorted(paths)
+
+
+def _is_pre_catalog_placeholder(path: Path) -> bool:
+    if path.parent.parent not in {STUDIES, APPLICATIONS}:
+        return False
+    if path.stem != path.parent.name:
+        return False
+    return "**Status:**" not in path.read_text(encoding="utf-8")
 
 
 def _site_target(href: str, source: Path):

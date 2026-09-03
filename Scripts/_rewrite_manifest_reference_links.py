@@ -96,7 +96,19 @@ def rewrite_text(text: str, mapping: dict[str, str], source: Path) -> tuple[str,
 def markdown_paths() -> list[Path]:
     paths = list(STUDIES.glob("*/*.md")) + list(APPLICATIONS.glob("*/*.md"))
     paths.extend([REFERENCES / "README.md", REFERENCES / "MANIFEST.md"])
-    return sorted(path for path in paths if path.is_file())
+    return sorted(
+        path
+        for path in paths
+        if path.is_file() and not _is_pre_catalog_placeholder(path)
+    )
+
+
+def _is_pre_catalog_placeholder(path: Path) -> bool:
+    if path.parent.parent not in {STUDIES, APPLICATIONS}:
+        return False
+    if path.stem != path.parent.name:
+        return False
+    return "**Status:**" not in path.read_text(encoding="utf-8")
 
 
 def run(*, write: bool) -> tuple[int, list[Path]]:
