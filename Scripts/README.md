@@ -46,6 +46,10 @@ what to run **on that branch** before opening the PR.
 | Preview changed R2 uploads | `python Scripts/_publish_generated_pdfs.py --artifact-root <verified-build> --changed --dry-run` |
 | Publish one/all verified PDF artifacts to R2 | `python Scripts/_publish_generated_pdfs.py --artifact-root <verified-build> --artifact <repository-relative.pdf>` / `--all` |
 | Audit or explicitly remove stale R2 PDFs | `python Scripts/_publish_generated_pdfs.py --list-stale`; then `--delete-stale --confirm-stale-count <N>` |
+| Sync/check the generated-PDF Worker allowlist | `python Scripts/_publish_generated_pdf_worker.py --sync-keys`; then `--check` |
+| Deploy and verify the R2 Worker canary | `python Scripts/_publish_generated_pdf_worker.py --deploy-canary`; then `python Scripts/_verify_generated_pdf_delivery.py --workers-dev --artifact-root <presentation-build> --artifact-root .` |
+| Attach exact public canary routes | `python Scripts/_publish_generated_pdf_worker.py --apply-canary-routes`; verify with `_verify_generated_pdf_delivery.py --public-canary ...`; then `--rollback-routes` |
+| Attach production PDF routes | `python Scripts/_publish_generated_pdf_worker.py --apply-routes` (refuses unless every inventory object is published, then purges stale URL caches) |
 | Diagnose PPTX → slides PDF only | `python Scripts/_pptx_to_pdf.py path/to/deck.pptx --profile powerpoint-baseline` |
 | Diagnose deck → read-aloud notes PDF only | `python Scripts/_build_deck_notes_pdf.py path/to/deck.pptx` (run after the slides PDF) |
 | PDF → study markdown (maintainer) | `python Scripts/_pdf_to_study_md.py path/to/paper.pdf --slug <Slug> --title "..."` |

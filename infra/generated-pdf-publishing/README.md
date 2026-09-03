@@ -92,14 +92,14 @@ document-conversion code.
 
 ### M3 — same-origin R2 delivery
 
-- [ ] Add a narrowly scoped Cloudflare Worker/R2 binding for generated PDF paths.
-- [ ] Preserve `Content-Type`, download filenames, range requests, HEAD, ETag,
+- [x] Add a narrowly scoped Cloudflare Worker/R2 binding for generated PDF paths.
+- [x] Preserve `Content-Type`, download filenames, range requests, HEAD, ETag,
   and cache behavior.
-- [ ] Return a controlled 404 for an unpublished artifact; do not fall back to
+- [x] Return a controlled 404 for an unpublished artifact; do not fall back to
   request-time generation.
-- [ ] Deploy a canary path, then verify representative study, slide, notes, and
+- [x] Deploy a canary path, then verify representative study, slide, notes, and
   technical-note downloads through the public domain.
-- [ ] Document rollback to repository-hosted PDFs until cutover is accepted.
+- [x] Document rollback to repository-hosted PDFs until cutover is accepted.
 
 ### M4 — CI publication and repository cutover
 
@@ -255,3 +255,31 @@ checked out. Never expose `.env` values in logs.
   presentation artifact dry run successfully verified provenance and performed
   the signed remote HEAD without uploading the production key. M2 is complete;
   the next milestone is the narrow same-origin Worker/R2 delivery path.
+
+### 2026-09-03 — M3 accepted
+
+- Added `amd-generated-pdfs`, a module Worker with an R2 binding and a generated
+  allowlist for all 60 inventory keys. It serves only allowlisted PDFs; non-PDF
+  requests under the necessary `Studies/*` and `Applications/*` prefix routes
+  pass unchanged to GitHub Pages.
+- GET, HEAD, OPTIONS, conditional requests, single-range responses, ETag,
+  `Last-Modified`, content disposition, cache metadata, checksum diagnostics,
+  controlled unpublished-object 404s, and method rejection are covered by the
+  local Worker contract tests.
+- Production route attachment fails closed unless every inventory object exists
+  in R2 with PDF content type and publisher checksum metadata. It then purges
+  every generated-PDF URL so a month-long GitHub cache entry cannot mask the
+  cutover.
+- Uploaded and verified four representative objects: a catalog study, technical
+  note, slides PDF, and presenter-notes PDF. The Worker passed workers.dev HEAD,
+  checksum, content-disposition, and 206 range checks.
+- Attached four exact-file canary routes on the public domain, purged only those
+  URLs, and passed the same live checks while confirming `/Studies/index.html`
+  still came from GitHub Pages. The exact routes were then removed; the public
+  site is back on repository-hosted PDFs until the complete M4 upload is ready.
+- The two broad production routes were also removed after a short diagnostic
+  exposed why partial route attachment is unsafe. Rollback is implemented as a
+  script that removes only routes still owned by `amd-generated-pdfs` and does
+  not delete R2 objects.
+- Active work: M4, beginning with CI credential configuration and generation of
+  the complete verified artifact set before the guarded production cutover.
