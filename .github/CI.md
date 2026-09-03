@@ -17,7 +17,7 @@ for the pipeline itself.**
 | [Studies index](workflows/studies-index-check.yml) | **every** `pull_request`; `push` to `master`/`main` | `verify` | No |
 | [PDF pipeline smoke](workflows/pdf-pipeline-smoke.yml) | `pull_request` path-filtered on the PDF pipeline; `workflow_dispatch` | `reproducible` | No |
 | [Presentation pipeline smoke](workflows/presentation-pipeline-smoke.yml) | `pull_request` path-filtered on presentation sources/tooling; `workflow_dispatch` | `libreoffice-production` | No |
-| [Generated PDF publish](workflows/generated-pdf-publish.yml) | path-filtered `pull_request`; relevant `push` to `master`; `workflow_dispatch` | `markdown`, `presentations`, `publish-and-deploy` | No Git writes; protected-branch runs publish to R2 and deploy/audit the delivery Worker |
+| [Generated PDF publish](workflows/generated-pdf-publish.yml) | path-filtered `pull_request`; relevant `push` to `master`; `workflow_dispatch` | `markdown`, `reference-pdfs`, `presentations`, `publish-and-deploy` | No Git writes; protected-branch runs publish to R2 and deploy/audit the delivery Worker |
 | [Proposal approved](workflows/proposal-approved.yml) | `issues: labeled` with `proposal-approved`; `workflow_dispatch` | `comment`, `bootstrap` | **Yes** — `bootstrap` opens and merges its own PR to `master` |
 | [Portal notifications](workflows/portal-notify.yml) | `issues: labeled`; `pull_request_target: closed` | `notify` | No |
 | [Pages deploy retry](workflows/pages-deploy-retry.yml) | `workflow_run` on *pages build and deployment* completing | `retry` | No (re-runs a run) |
@@ -182,27 +182,28 @@ and never modifies the checkout.
 
 ### 2.5 Generated PDF publish — `generated-pdf-publish.yml`
 
-This is the protected-branch publication path for all generated PDFs under
-`Studies/` and `Applications/`. Pull requests run only the `markdown` job: it
-selects affected Markdown sources, regenerates them through the pinned pipeline,
-and uploads a short-lived Actions artifact for inspection. Pull-request jobs do
-not receive R2 or Cloudflare credentials and cannot publish.
+This is the protected-branch publication path for generated PDFs under `Studies/`
+and `Applications/` and manifest-approved reference PDFs. Pull requests run the
+`markdown` and `reference-pdfs` jobs: they regenerate through pinned pipelines,
+check manifest/link policy, and upload short-lived Actions artifacts for inspection.
+Pull-request jobs do not receive R2 or Cloudflare credentials and cannot publish.
 
-On a relevant `master` push (or a manual dispatch on `master`), CI builds all 32
-publishable Markdown-derived PDFs on Linux and all 14 slides/notes PDFs with the pinned
-LibreOffice production renderer on Windows. `publish-and-deploy` does not start
-until both complete successfully. It merges the two verified artifact trees,
-publishes all 46 repository-relative object keys to R2, checks complete R2
-coverage, deploys the generated allowlist Worker, attaches the two guarded
-prefix routes, purges the generated URLs, and audits every public PDF including
-a range request and checksum comparison. Worker code first deploys to the
-isolated `amd-generated-pdfs-canary` workers.dev host and must pass the complete
-46-object audit before the production script is updated.
+On a relevant `master` push (or a manual dispatch on `master`), CI builds the full
+publishable Markdown inventory on Linux, all manifest-approved reference PDFs on
+Linux, and all slides/notes PDFs with the pinned LibreOffice production renderer on
+Windows. `publish-and-deploy` does not start until all three complete successfully.
+It merges the verified artifact trees; publishes generated PDFs and approved
+references to their separate R2 buckets; checks R2 coverage; deploys the shared,
+allowlisted Worker; preserves the guarded `/Studies/*`, `/Applications/*`, and
+`/References/*` routes; and audits every public object including a range request and
+checksum comparison. Worker code first deploys to the isolated
+`amd-generated-pdfs-canary` workers.dev host and must pass both delivery audits
+before the production script is updated.
 
 Publication is checksum-driven and idempotent: matching R2 objects are skipped.
-The workflow never commits PDFs. The `.gitignore` rules cover only generated
-PDFs immediately below `Studies/<Slug>/` and `Applications/<Slug>/`; PDFs under
-`References/` remain Git-tracked source material.
+The workflow never commits generated PDFs. Approved immutable reference PDFs are
+ignored and served from R2; rights-review PDFs and the two active translation source
+PDFs remain Git-tracked until their manifest policy changes.
 
 ### 2.6 Proposal approved — `proposal-approved.yml`
 
@@ -318,12 +319,12 @@ availability, complete slides/notes artifact verification, and two-build
 rendered/text reproducibility. Candidate PDFs are uploaded for review but are
 not published.
 
-**Enforced before protected-branch PDF publication:** a complete 46-key inventory,
-successful Markdown and presentation builds, per-artifact structural/provenance
-verification, R2 checksum and metadata verification, Worker allowlist/route
-deployment, cache purge, and a full same-origin public download audit. A failure
-before publication leaves the previous R2 objects and Worker routes serving the
-last successful build.
+**Enforced before protected-branch PDF publication:** complete generated and
+reference inventories; successful Markdown, reference, and presentation builds;
+per-artifact structural/provenance verification; R2 checksum and metadata
+verification; Worker allowlist/route deployment; cache purge; and full same-origin
+public download audits. A failure before publication leaves the previous R2 objects
+and Worker routes serving the last successful build.
 
 **Held back from CI on purpose** — these pass, but failing them would not mean
 the same thing as failing the others, so the call belongs to a maintainer. Each is

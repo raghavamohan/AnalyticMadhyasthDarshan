@@ -25,6 +25,7 @@ from pypdf import PdfReader
 
 from _audit_references import audit_references
 from _common import BASE, REFERENCES, STUDIES, is_linkable_reference_file, iter_study_md_paths, site_base_url, study_pdf
+from _reference_store import ReferenceStore
 
 LOCAL_REF_LINK = re.compile(r"\]\((\.\./References/[^)#]+)\)")
 SKIP_REFERENCE_NAMES = frozenset({"README.md", "MANIFEST.md", "NOT-DOWNLOADED.md"})
@@ -62,6 +63,20 @@ def _resolve_local_reference(rel: str) -> Path:
     return (REFERENCES / rel.removeprefix("../References/").split("#", 1)[0]).resolve()
 
 
+def _published_artifact(value: str | Path):
+    try:
+        store = ReferenceStore()
+        artifact = store.find(value)
+        if artifact and artifact.state == "generated-local" and artifact.public_url:
+            store.resolve(artifact)
+            return artifact
+    except (FileNotFoundError, KeyError, OSError, ValueError):
+        return None
+    if artifact and artifact.state == "r2-published" and artifact.public_url:
+        return artifact
+    return None
+
+
 def check_bibliography(report: CheckReport, *, study: str | None) -> None:
     audit = audit_references(study=study)
     for row in audit.local_missing:
@@ -83,11 +98,12 @@ def check_markdown_local_links(report: CheckReport, *, study: str | None) -> Non
             seen.add(rel)
             target = _resolve_local_reference(rel)
             if not target.is_file():
-                report.add(
-                    "markdown-link",
-                    str(md_path.relative_to(BASE)),
-                    f"missing local file for {rel}",
-                )
+                if _published_artifact(f"References/{rel.removeprefix('../References/')}") is None:
+                    report.add(
+                        "markdown-link",
+                        str(md_path.relative_to(BASE)),
+                        f"missing local file or published R2 artifact for {rel}",
+                    )
             elif not is_linkable_reference_file(target):
                 report.add(
                     "markdown-link",
@@ -140,7 +156,7 @@ def _pdf_local_uri_issues(pdf_path: Path) -> list[str]:
             if uri.startswith(site_prefix):
                 rel = uri.removeprefix(site_prefix).split("#", 1)[0]
                 target = (BASE / rel).resolve()
-                if not is_linkable_reference_file(target):
+                if not is_linkable_reference_file(target) and _published_artifact(rel) is None:
                     problems.append(f"PDF link target missing or unusable: {uri}")
     return problems
 

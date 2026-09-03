@@ -1,0 +1,1869 @@
+{
+  "artifacts": [
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf",
+      "rights": {
+        "notes": "",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 2116638,
+        "media_type": "application/pdf",
+        "minimum_bytes": 1024,
+        "notes": "",
+        "sha256": "2aa571a0d65fb12d24253ee4fc43f62a71c00efb16187f3fb988065247d1bb9f",
+        "urls": [
+          "http://michaelsudduth.com/wp-content/uploads/2013/01/Srimad-Bhagavad-Gita-Shankara-Bhashya-English.pdf"
+        ]
+      },
+      "state": "git-retained",
+      "tags": [
+        "BG"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf",
+        "r2_key": null,
+        "storage": "git-retained-rights-review"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf",
+      "rights": {
+        "notes": "",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 55435091,
+        "media_type": "application/pdf",
+        "minimum_bytes": 1024,
+        "notes": "",
+        "sha256": "28e8a2c266c93664d04d30f43534950240c19f1a6a30d2d6466ecba6ed03fb83",
+        "urls": [
+          "https://estudantedavedanta.net/Brahma_Sutra_Swami_Gambhirananda.pdf"
+        ]
+      },
+      "state": "git-retained",
+      "tags": [
+        "BSB"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf",
+        "r2_key": null,
+        "storage": "git-retained-rights-review"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf",
+      "rights": {
+        "notes": "",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 44932614,
+        "media_type": "application/pdf",
+        "minimum_bytes": 1024,
+        "notes": "",
+        "sha256": "73df5564683c4a750cdcc7d8caac6f60e5a5664b0ecbb0e483d80a3dbbd9ec52",
+        "urls": [
+          "https://archive.org/download/Brihadaranyaka.Upanishad.Shankara.Bhashya.by.Swami.Madhavananda/Brihadaranyaka.Upanishad.Shankara.Bhashya.by.Swami.Madhavananda.pdf",
+          "https://archive.org/download/in.ernet.dli.2015.20823/in.ernet.dli.2015.20823.pdf"
+        ]
+      },
+      "state": "git-retained",
+      "tags": [
+        "BU"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf",
+        "r2_key": null,
+        "storage": "git-retained-rights-review"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf",
+      "rights": {
+        "notes": "",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 35483604,
+        "media_type": "application/pdf",
+        "minimum_bytes": 1024,
+        "notes": "",
+        "sha256": "1c4c7199759320b403387af9475d2993402391f74301fa168182cbd7cd183637",
+        "urls": [
+          "https://archive.theaum.org/books/advaita/chandogya-upanishad-swami-gambhirananda-rk.pdf"
+        ]
+      },
+      "state": "git-retained",
+      "tags": [
+        "CU"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf",
+        "r2_key": null,
+        "storage": "git-retained-rights-review"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf",
+      "rights": {
+        "notes": "",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 2961790,
+        "media_type": "application/pdf",
+        "minimum_bytes": 1024,
+        "notes": "",
+        "sha256": "d5d6c250c25822e463b4d89eccbdd3485afb0621a0683ddd5368d8724deb3954",
+        "urls": [
+          "https://vivekananda.net/PDFBooks/Others/DrgDrsyaViveka1931.pdf"
+        ]
+      },
+      "state": "git-retained",
+      "tags": [
+        "DDV"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf",
+        "r2_key": null,
+        "storage": "git-retained-rights-review"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf",
+      "rights": {
+        "notes": "Also covers KU in the same volume.",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 12562405,
+        "media_type": "application/pdf",
+        "minimum_bytes": 1024,
+        "notes": "Also covers KU in the same volume.",
+        "sha256": "c23e8e66a42a34f67341d15155262e3dcf07120b9a12b86d64093fe9c750d0b7",
+        "urls": [
+          "https://dn790002.ca.archive.org/0/items/eight-upanishads-with-the-commentary-of-s-swami-gambhirananda/Eight%20Upanishads%2C%20With%20the%20Commentary%20of%20S%20-%20Swami%20Gambhirananda.pdf",
+          "https://archive.org/download/eight-upanishads-with-the-commentary-of-s-swami-gambhirananda/Eight%20Upanishads%2C%20With%20the%20Commentary%20of%20S%20-%20Swami%20Gambhirananda.pdf"
+        ]
+      },
+      "state": "git-retained",
+      "tags": [
+        "KU",
+        "TU"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf",
+        "r2_key": null,
+        "storage": "git-retained-rights-review"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf",
+      "rights": {
+        "notes": "",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 8453698,
+        "media_type": "application/pdf",
+        "minimum_bytes": 1024,
+        "notes": "",
+        "sha256": "5840abd3de64ccbdd7c06a87ffeb5250f0adad8d26a7f197c6c356a687e14190",
+        "urls": [
+          "https://tomdas.com/wp-content/uploads/2023/09/mandukya-upanishad-with-shankaracharya-commentary-and-karika-of-gaudapada-english-trans.-by-swami-gambhirananda-advaita-ashrama-calcutta_text.pdf"
+        ]
+      },
+      "state": "git-retained",
+      "tags": [
+        "MU"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf",
+        "r2_key": null,
+        "storage": "git-retained-rights-review"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf",
+      "rights": {
+        "notes": "",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 178823,
+        "media_type": "application/pdf",
+        "minimum_bytes": 1024,
+        "notes": "",
+        "sha256": "76729093491af2119c2ff415a21bba470448a080c16aabf6fe4fa7e7582e58b4",
+        "urls": [
+          "https://www.vivekananda.net/PDFBooks/Vivekashudamani.pdf"
+        ]
+      },
+      "state": "git-retained",
+      "tags": [
+        "VC"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf",
+        "r2_key": null,
+        "storage": "git-retained-rights-review"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Applied-Studies/MD_TOPOS.pdf",
+      "rights": {
+        "notes": "Meena 2025, minimal decidable site for the MD classifying topos; CC BY-NC-SA 4.0.",
+        "status": "cc-by-nc-sa-4.0-recorded"
+      },
+      "source": {
+        "bytes": 722558,
+        "media_type": "application/pdf",
+        "minimum_bytes": 1024,
+        "notes": "Meena 2025, minimal decidable site for the MD classifying topos; CC BY-NC-SA 4.0.",
+        "sha256": "f5bcabb4764f462de15d79f56a327c004e0b527cee0466b5e1d3ff6a9714e814",
+        "urls": [
+          "https://zenodo.org/records/16786431/files/MD_TOPOS.pdf?download=1"
+        ]
+      },
+      "state": "r2-published",
+      "tags": [
+        "MD-TOPOS"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Applied-Studies/MD_TOPOS.pdf",
+        "r2_key": "References/Applied-Studies/MD_TOPOS.pdf",
+        "storage": "r2-public"
+      }
+    },
+    {
+      "delivery": {
+        "artifact_repo_path": "References/Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.pdf",
+        "build_path": "tmp/reference-build/Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.pdf",
+        "bytes": 482816,
+        "markdown_path": "References/Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.md",
+        "sha256": "c494adb4beffd0f0f26ef91449af0b933d7d38cb367d727f3c9227b0e24e81c3",
+        "source_format": "cleaned-markdown",
+        "status": "generated-local"
+      },
+      "kind": "third-party-html-snapshot",
+      "repo_path": "References/Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.html",
+      "rights": {
+        "notes": "SEP snapshot; existing repo practice for quote verification.",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 111120,
+        "media_type": "text/html; charset=utf-8",
+        "minimum_bytes": 1024,
+        "notes": "SEP snapshot; existing repo practice for quote verification.",
+        "sha256": "692dd77ef5f2f8c974a3e6979cb1202bc15e3cb52986b88f74b1f5bea616c5d2",
+        "urls": [
+          "https://plato.stanford.edu/entries/shankara/"
+        ]
+      },
+      "state": "r2-published",
+      "tags": [],
+      "target": {
+        "public_url": null,
+        "r2_key": "archive/original-html/Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.html",
+        "storage": "r2-private-original"
+      }
+    },
+    {
+      "generation": {
+        "build_path": "tmp/reference-build/Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.pdf",
+        "original_html": "References/Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.html",
+        "source_markdown": "References/Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.md"
+      },
+      "kind": "normalized-reference-pdf",
+      "repo_path": "References/Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.pdf",
+      "rights": {
+        "notes": "SEP snapshot; existing repo practice for quote verification.",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 482816,
+        "media_type": "application/pdf",
+        "minimum_bytes": 500,
+        "notes": "Generated deterministically from cleaned Markdown; original HTML retained privately.",
+        "sha256": "c494adb4beffd0f0f26ef91449af0b933d7d38cb367d727f3c9227b0e24e81c3",
+        "urls": [
+          "https://plato.stanford.edu/entries/shankara/"
+        ]
+      },
+      "state": "generated-local",
+      "tags": [],
+      "target": {
+        "public_url": "https://plato.stanford.edu/entries/shankara/",
+        "r2_key": null,
+        "storage": "external-only-rights-review"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf",
+      "rights": {
+        "notes": "",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 171659,
+        "media_type": "application/pdf",
+        "minimum_bytes": 500,
+        "notes": "",
+        "sha256": "070feaf1431f69c8f0db624575b8451f51fb055848de020357b3ecf16f951032",
+        "urls": []
+      },
+      "state": "git-retained",
+      "tags": [
+        "Bhattacharya"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf",
+        "r2_key": null,
+        "storage": "git-retained-rights-review"
+      }
+    },
+    {
+      "delivery": {
+        "artifact_repo_path": "References/Comparative-Philosophy/Poorvam-Sadharanikarana-Rasa.pdf",
+        "build_path": "tmp/reference-build/Comparative-Philosophy/Poorvam-Sadharanikarana-Rasa.pdf",
+        "bytes": 409989,
+        "markdown_path": "References/Comparative-Philosophy/Poorvam-Sadharanikarana-Rasa.md",
+        "sha256": "25434e4ee2e677cb96add3aec5ecfa4363c1fe0359ae6ff1a4ac51af45110af3",
+        "source_format": "cleaned-markdown",
+        "status": "generated-local"
+      },
+      "kind": "third-party-html-snapshot",
+      "repo_path": "References/Comparative-Philosophy/Poorvam-Sadharanikarana-Rasa.html",
+      "rights": {
+        "notes": "",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 245997,
+        "media_type": "text/html; charset=utf-8",
+        "minimum_bytes": 1024,
+        "notes": "",
+        "sha256": "515e1ccc1e9110bddc5fd57560fbaca7a63d56711896358c814ff00836df6bac",
+        "urls": [
+          "https://poorvam.com/article.php?slug=s-dh-ra-kara-a-underlying-process-for-experiencing-rasa"
+        ]
+      },
+      "state": "r2-published",
+      "tags": [],
+      "target": {
+        "public_url": null,
+        "r2_key": "archive/original-html/Comparative-Philosophy/Poorvam-Sadharanikarana-Rasa.html",
+        "storage": "r2-private-original"
+      }
+    },
+    {
+      "generation": {
+        "build_path": "tmp/reference-build/Comparative-Philosophy/Poorvam-Sadharanikarana-Rasa.pdf",
+        "original_html": "References/Comparative-Philosophy/Poorvam-Sadharanikarana-Rasa.html",
+        "source_markdown": "References/Comparative-Philosophy/Poorvam-Sadharanikarana-Rasa.md"
+      },
+      "kind": "normalized-reference-pdf",
+      "repo_path": "References/Comparative-Philosophy/Poorvam-Sadharanikarana-Rasa.pdf",
+      "rights": {
+        "notes": "",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 409989,
+        "media_type": "application/pdf",
+        "minimum_bytes": 500,
+        "notes": "Generated deterministically from cleaned Markdown; original HTML retained privately.",
+        "sha256": "25434e4ee2e677cb96add3aec5ecfa4363c1fe0359ae6ff1a4ac51af45110af3",
+        "urls": [
+          "https://poorvam.com/article.php?slug=s-dh-ra-kara-a-underlying-process-for-experiencing-rasa"
+        ]
+      },
+      "state": "generated-local",
+      "tags": [],
+      "target": {
+        "public_url": "https://poorvam.com/article.php?slug=s-dh-ra-kara-a-underlying-process-for-experiencing-rasa",
+        "r2_key": null,
+        "storage": "external-only-rights-review"
+      }
+    },
+    {
+      "delivery": {
+        "artifact_repo_path": "References/Comparative-Philosophy/SEP-Natural-Law-Ethics.pdf",
+        "build_path": "tmp/reference-build/Comparative-Philosophy/SEP-Natural-Law-Ethics.pdf",
+        "bytes": 270321,
+        "markdown_path": "References/Comparative-Philosophy/SEP-Natural-Law-Ethics.md",
+        "sha256": "5d4c427902a132f8871d9810002794f1c9967d6d61fcb524d99dc8fe9fb45028",
+        "source_format": "cleaned-markdown",
+        "status": "generated-local"
+      },
+      "kind": "third-party-html-snapshot",
+      "repo_path": "References/Comparative-Philosophy/SEP-Natural-Law-Ethics.html",
+      "rights": {
+        "notes": "SEP snapshot.",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 75614,
+        "media_type": "text/html; charset=utf-8",
+        "minimum_bytes": 1024,
+        "notes": "SEP snapshot.",
+        "sha256": "d796b7425d82fe153ccbd6c1601d514caf86fe5a4dfb887e9b31352aeacad908",
+        "urls": [
+          "https://plato.stanford.edu/entries/natural-law-ethics/"
+        ]
+      },
+      "state": "r2-published",
+      "tags": [],
+      "target": {
+        "public_url": null,
+        "r2_key": "archive/original-html/Comparative-Philosophy/SEP-Natural-Law-Ethics.html",
+        "storage": "r2-private-original"
+      }
+    },
+    {
+      "generation": {
+        "build_path": "tmp/reference-build/Comparative-Philosophy/SEP-Natural-Law-Ethics.pdf",
+        "original_html": "References/Comparative-Philosophy/SEP-Natural-Law-Ethics.html",
+        "source_markdown": "References/Comparative-Philosophy/SEP-Natural-Law-Ethics.md"
+      },
+      "kind": "normalized-reference-pdf",
+      "repo_path": "References/Comparative-Philosophy/SEP-Natural-Law-Ethics.pdf",
+      "rights": {
+        "notes": "SEP snapshot.",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 270321,
+        "media_type": "application/pdf",
+        "minimum_bytes": 500,
+        "notes": "Generated deterministically from cleaned Markdown; original HTML retained privately.",
+        "sha256": "5d4c427902a132f8871d9810002794f1c9967d6d61fcb524d99dc8fe9fb45028",
+        "urls": [
+          "https://plato.stanford.edu/entries/natural-law-ethics/"
+        ]
+      },
+      "state": "generated-local",
+      "tags": [],
+      "target": {
+        "public_url": "https://plato.stanford.edu/entries/natural-law-ethics/",
+        "r2_key": null,
+        "storage": "external-only-rights-review"
+      }
+    },
+    {
+      "delivery": {
+        "artifact_repo_path": "References/Comparative-Philosophy/SEP-Theological-Voluntarism.pdf",
+        "build_path": "tmp/reference-build/Comparative-Philosophy/SEP-Theological-Voluntarism.pdf",
+        "bytes": 451281,
+        "markdown_path": "References/Comparative-Philosophy/SEP-Theological-Voluntarism.md",
+        "sha256": "91dba9adfdf6c3e1c728c8ab58198cbdac7fad9df1361e76de05a90b6357f05d",
+        "source_format": "cleaned-markdown",
+        "status": "generated-local"
+      },
+      "kind": "third-party-html-snapshot",
+      "repo_path": "References/Comparative-Philosophy/SEP-Theological-Voluntarism.html",
+      "rights": {
+        "notes": "SEP snapshot.",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 126576,
+        "media_type": "text/html; charset=utf-8",
+        "minimum_bytes": 1024,
+        "notes": "SEP snapshot.",
+        "sha256": "1e36a0062d4521cfbe6f9313a62230b9040dfb78a1c6c69f14f7ddde2836f288",
+        "urls": [
+          "https://plato.stanford.edu/entries/voluntarism-theological/"
+        ]
+      },
+      "state": "r2-published",
+      "tags": [],
+      "target": {
+        "public_url": null,
+        "r2_key": "archive/original-html/Comparative-Philosophy/SEP-Theological-Voluntarism.html",
+        "storage": "r2-private-original"
+      }
+    },
+    {
+      "generation": {
+        "build_path": "tmp/reference-build/Comparative-Philosophy/SEP-Theological-Voluntarism.pdf",
+        "original_html": "References/Comparative-Philosophy/SEP-Theological-Voluntarism.html",
+        "source_markdown": "References/Comparative-Philosophy/SEP-Theological-Voluntarism.md"
+      },
+      "kind": "normalized-reference-pdf",
+      "repo_path": "References/Comparative-Philosophy/SEP-Theological-Voluntarism.pdf",
+      "rights": {
+        "notes": "SEP snapshot.",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 451281,
+        "media_type": "application/pdf",
+        "minimum_bytes": 500,
+        "notes": "Generated deterministically from cleaned Markdown; original HTML retained privately.",
+        "sha256": "91dba9adfdf6c3e1c728c8ab58198cbdac7fad9df1361e76de05a90b6357f05d",
+        "urls": [
+          "https://plato.stanford.edu/entries/voluntarism-theological/"
+        ]
+      },
+      "state": "generated-local",
+      "tags": [],
+      "target": {
+        "public_url": "https://plato.stanford.edu/entries/voluntarism-theological/",
+        "r2_key": null,
+        "storage": "external-only-rights-review"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf",
+      "rights": {
+        "notes": "",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 302743,
+        "media_type": "application/pdf",
+        "minimum_bytes": 1024,
+        "notes": "",
+        "sha256": "94231c3c7f39d809c14a65d76a1515dc3d1191ff25b00a869d76d41592fea1b9",
+        "urls": [
+          "https://www.vivekananda.net/PDFBooks/PracticalVedanta.pdf"
+        ]
+      },
+      "state": "git-retained",
+      "tags": [
+        "SV"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf",
+        "r2_key": null,
+        "storage": "git-retained-rights-review"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf",
+      "rights": {
+        "notes": "Existing site publication; R2 storage migration approved by the site owner.",
+        "status": "existing-site-publication-approved"
+      },
+      "source": {
+        "bytes": 3692827,
+        "media_type": "application/pdf",
+        "minimum_bytes": 500,
+        "notes": "",
+        "sha256": "dde0ab0e1e2ca9a98547d8f255d7379a7769d4fb80561201de1760f99691fc2b",
+        "urls": []
+      },
+      "state": "r2-published",
+      "tags": [
+        "AVD"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf",
+        "r2_key": "References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf",
+        "storage": "r2-public"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf",
+      "rights": {
+        "notes": "Existing site publication; R2 storage migration approved by the site owner.",
+        "status": "existing-site-publication-approved"
+      },
+      "source": {
+        "bytes": 1431850,
+        "media_type": "application/pdf",
+        "minimum_bytes": 500,
+        "notes": "",
+        "sha256": "59630bda5892fdf51b8d294b25fc4b83fe41ab3a6e2130bbfe923730c4400d8b",
+        "urls": []
+      },
+      "state": "r2-published",
+      "tags": [
+        "JV"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf",
+        "r2_key": "References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf",
+        "storage": "r2-public"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Madhyasth-Darshan/JVD-Janvad.pdf",
+      "rights": {
+        "notes": "Existing site publication; R2 storage migration approved by the site owner.",
+        "status": "existing-site-publication-approved"
+      },
+      "source": {
+        "bytes": 3859408,
+        "media_type": "application/pdf",
+        "minimum_bytes": 500,
+        "notes": "",
+        "sha256": "b03fce9fa8689284c89bf7a6740a16acb1d6e5629549595a7b0ec3c6c98aca31",
+        "urls": []
+      },
+      "state": "r2-published",
+      "tags": [
+        "JVD"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JVD-Janvad.pdf",
+        "r2_key": "References/Madhyasth-Darshan/JVD-Janvad.pdf",
+        "storage": "r2-public"
+      }
+    },
+    {
+      "kind": "active-translation-source-pdf",
+      "repo_path": "References/Madhyasth-Darshan/KD-karm darshan v5.pdf",
+      "rights": {
+        "notes": "",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 1807631,
+        "media_type": "application/pdf",
+        "minimum_bytes": 500,
+        "notes": "",
+        "sha256": "f889f4fd92c491d4138f35c55b5af60544d4295ad1d1aab818839c506cc31cb5",
+        "urls": []
+      },
+      "state": "git-retained",
+      "tags": [
+        "KD"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/KD-karm darshan v5.pdf",
+        "r2_key": null,
+        "storage": "git-retained-active-translation"
+      }
+    },
+    {
+      "kind": "active-translation-source-pdf",
+      "repo_path": "References/Madhyasth-Darshan/MSM-manav-sanchetnavaadi-manovigyan.pdf",
+      "rights": {
+        "notes": "Official published-book download (2008 OCR edition).",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 79422037,
+        "media_type": "application/pdf",
+        "minimum_bytes": 70000000,
+        "notes": "Official published-book download (2008 OCR edition).",
+        "sha256": "d71ff870a3fdaffd99cc0e3e4a3c52444c817b7f02c41f8b09ecd904a45cff87",
+        "urls": [
+          "https://madhyadarshan-books.s3.ap-south-1.amazonaws.com/%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%95%E0%A4%BE%E0%A4%B6%E0%A4%BF%E0%A4%A4+%E0%A4%97%E0%A5%8D%E0%A4%B0%E0%A4%82%E0%A4%A5+%E2%80%93+%E0%A4%B5%E0%A4%B0%E0%A5%8D%E0%A4%A4%E0%A4%AE%E0%A4%BE%E0%A4%A8+%E0%A4%B8%E0%A4%82%E0%A4%B8%E0%A5%8D%E0%A4%95%E0%A4%B0%E0%A4%A3+(Published+books%2C+current+edition)/11_manav_sanchetnavaadi_manovigyan_2008_ocr.pdf"
+        ]
+      },
+      "state": "git-retained",
+      "tags": [
+        "MSM"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MSM-manav-sanchetnavaadi-manovigyan.pdf",
+        "r2_key": null,
+        "storage": "git-retained-active-translation"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf",
+      "rights": {
+        "notes": "Existing site publication; R2 storage migration approved by the site owner.",
+        "status": "existing-site-publication-approved"
+      },
+      "source": {
+        "bytes": 4593071,
+        "media_type": "application/pdf",
+        "minimum_bytes": 500,
+        "notes": "",
+        "sha256": "9cd228da1f6cfc1e34ba8c75e872485abe92e3128ae97269971527f813f407ab",
+        "urls": []
+      },
+      "state": "r2-published",
+      "tags": [
+        "MVD"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf",
+        "r2_key": "References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf",
+        "storage": "r2-public"
+      }
+    },
+    {
+      "kind": "generated-reference-html",
+      "repo_path": "References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.html",
+      "rights": {
+        "notes": "",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 155384,
+        "media_type": "text/html; charset=utf-8",
+        "minimum_bytes": 500,
+        "notes": "",
+        "sha256": "541e49584f149d625161abc663c253b0d5208c01a6a6147fd67a0bebe447513f",
+        "urls": []
+      },
+      "state": "generated-in-git",
+      "tags": [],
+      "target": {
+        "public_url": null,
+        "r2_key": null,
+        "storage": "generated-on-demand"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.pdf",
+      "rights": {
+        "notes": "Existing site publication; R2 storage migration approved by the site owner.",
+        "status": "existing-site-publication-approved"
+      },
+      "source": {
+        "bytes": 865080,
+        "media_type": "application/pdf",
+        "minimum_bytes": 500,
+        "notes": "",
+        "sha256": "ebe846e8b38a860b4b1301fe3f29fc095ac5baa2244c02f1d06680b8f32afd17",
+        "urls": []
+      },
+      "state": "r2-published",
+      "tags": [],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.pdf",
+        "r2_key": "References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.pdf",
+        "storage": "r2-public"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf",
+      "rights": {
+        "notes": "Existing site publication; R2 storage migration approved by the site owner.",
+        "status": "existing-site-publication-approved"
+      },
+      "source": {
+        "bytes": 4506520,
+        "media_type": "application/pdf",
+        "minimum_bytes": 500,
+        "notes": "",
+        "sha256": "386f5e60ccb28f253953acec3ae848457884dddf68e8fdb95ced7d189f4af660",
+        "urls": []
+      },
+      "state": "r2-published",
+      "tags": [
+        "SB"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf",
+        "r2_key": "References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf",
+        "storage": "r2-public"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Modern-Philosophy/Frankish-2016-Illusionism-Theory-Consciousness.pdf",
+      "rights": {
+        "notes": "",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 201348,
+        "media_type": "application/pdf",
+        "minimum_bytes": 1024,
+        "notes": "",
+        "sha256": "49d8f491d76f9a83f84d0eec2f6e439d8c3c49b453f8431a01011e0739347d67",
+        "urls": [
+          "https://raw.githubusercontent.com/k0711/kf_articles/master/Frankish_Illusionism%20as%20a%20theory%20of%20consciousness_eprint.pdf"
+        ]
+      },
+      "state": "git-retained",
+      "tags": [
+        "Frankish 2016"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Frankish-2016-Illusionism-Theory-Consciousness.pdf",
+        "r2_key": null,
+        "storage": "git-retained-rights-review"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Modern-Philosophy/Hashemi-2025-How-to-Understand-Russellian-Panpsychism.pdf",
+      "rights": {
+        "notes": "Author preprint; published in Erkenntnis.",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 315760,
+        "media_type": "application/pdf",
+        "minimum_bytes": 1024,
+        "notes": "Author preprint; published in Erkenntnis.",
+        "sha256": "607e8d42946f7c6ed57e55147ec4ae77d4122028c72ee051abede13cee965831",
+        "urls": [
+          "https://philsci-archive.pitt.edu/23990/1/How%20to%20Understand%20Russellian%20Panpsychism.%209.30.24.pdf"
+        ]
+      },
+      "state": "git-retained",
+      "tags": [
+        "Hashemi 2025"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Hashemi-2025-How-to-Understand-Russellian-Panpsychism.pdf",
+        "r2_key": null,
+        "storage": "git-retained-rights-review"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Modern-Philosophy/Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf",
+      "rights": {
+        "notes": "CC BY; license statement embedded in the PDF.",
+        "status": "cc-by-recorded"
+      },
+      "source": {
+        "bytes": 1028874,
+        "media_type": "application/pdf",
+        "minimum_bytes": 1024,
+        "notes": "CC BY; license statement embedded in the PDF.",
+        "sha256": "3024d80900b47dcf9b75ed93bffd6848a4530cd24b645fdcd59b8bf660c20610",
+        "urls": [
+          "https://www.frontiersin.org/articles/10.3389/fnhum.2013.00547/pdf"
+        ]
+      },
+      "state": "r2-published",
+      "tags": [
+        "Limanowski and Blankenburg 2013"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf",
+        "r2_key": "References/Modern-Philosophy/Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf",
+        "storage": "r2-public"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Modern-Philosophy/Mach-1914-The-Analysis-of-Sensations.pdf",
+      "rights": {
+        "notes": "Public domain.",
+        "status": "public-domain-recorded"
+      },
+      "source": {
+        "bytes": 23695419,
+        "media_type": "application/pdf",
+        "minimum_bytes": 1024,
+        "notes": "Public domain.",
+        "sha256": "08ad6efb46040248fbf4e97fadc90e8cab40d2ae218b35d2a036da68a524ebcf",
+        "urls": [
+          "https://archive.org/download/analysisofsensat00machuoft/analysisofsensat00machuoft.pdf"
+        ]
+      },
+      "state": "r2-published",
+      "tags": [
+        "Mach 1914"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Mach-1914-The-Analysis-of-Sensations.pdf",
+        "r2_key": "References/Modern-Philosophy/Mach-1914-The-Analysis-of-Sensations.pdf",
+        "storage": "r2-public"
+      }
+    },
+    {
+      "delivery": {
+        "artifact_repo_path": "References/Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.pdf",
+        "build_path": "tmp/reference-build/Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.pdf",
+        "bytes": 168875,
+        "markdown_path": "References/Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.md",
+        "sha256": "556cd0dc8d43637a762b2759edd49cf488b27ca7232f736d870c22acf3434557",
+        "source_format": "cleaned-markdown",
+        "status": "generated-local"
+      },
+      "kind": "third-party-html-snapshot",
+      "repo_path": "References/Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.html",
+      "rights": {
+        "notes": "Public domain; Wikisource snapshot.",
+        "status": "public-domain-recorded"
+      },
+      "source": {
+        "bytes": 104879,
+        "media_type": "text/html; charset=utf-8",
+        "minimum_bytes": 1024,
+        "notes": "Public domain; Wikisource snapshot.",
+        "sha256": "c28c5df3278d18a3065666833a6fe4ee1675a8b5ca28c2e4f7a9668355b183e8",
+        "urls": [
+          "https://en.wikisource.org/wiki/The_Unreality_of_Time"
+        ]
+      },
+      "state": "r2-published",
+      "tags": [],
+      "target": {
+        "public_url": null,
+        "r2_key": "archive/original-html/Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.html",
+        "storage": "r2-private-original"
+      }
+    },
+    {
+      "generation": {
+        "build_path": "tmp/reference-build/Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.pdf",
+        "original_html": "References/Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.html",
+        "source_markdown": "References/Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.md"
+      },
+      "kind": "normalized-reference-pdf",
+      "repo_path": "References/Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.pdf",
+      "rights": {
+        "notes": "Public domain; Wikisource snapshot.",
+        "status": "public-domain-recorded"
+      },
+      "source": {
+        "bytes": 168875,
+        "media_type": "application/pdf",
+        "minimum_bytes": 500,
+        "notes": "Generated deterministically from cleaned Markdown; original HTML retained privately.",
+        "sha256": "556cd0dc8d43637a762b2759edd49cf488b27ca7232f736d870c22acf3434557",
+        "urls": [
+          "https://en.wikisource.org/wiki/The_Unreality_of_Time"
+        ]
+      },
+      "state": "r2-published",
+      "tags": [],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.pdf",
+        "r2_key": "References/Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.pdf",
+        "storage": "r2-public"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf",
+      "rights": {
+        "notes": "CC BY 4.0; Europe PMC mirror when Nature blocks bots.",
+        "status": "cc-by-4.0-recorded"
+      },
+      "source": {
+        "bytes": 34863010,
+        "media_type": "application/pdf",
+        "minimum_bytes": 100000,
+        "notes": "CC BY 4.0; Europe PMC mirror when Nature blocks bots.",
+        "sha256": "0a6cf543d35766ee234dda82f8c1abc223b4d9183a8dc663af7e2e27eb661ed6",
+        "urls": [
+          "https://europepmc.org/articles/pmc12137136?pdf=render",
+          "https://www.nature.com/articles/s41586-025-08888-1.pdf"
+        ]
+      },
+      "state": "r2-published",
+      "tags": [
+        "Melloni et al. 2025"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf",
+        "r2_key": "References/Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf",
+        "storage": "r2-public"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Modern-Philosophy/Russell-1921-The-Analysis-of-Mind.pdf",
+      "rights": {
+        "notes": "Public domain.",
+        "status": "public-domain-recorded"
+      },
+      "source": {
+        "bytes": 18254779,
+        "media_type": "application/pdf",
+        "minimum_bytes": 1024,
+        "notes": "Public domain.",
+        "sha256": "ef4af8eac568cc616c49dda2c39eced9b7febe40059aea8938c9beca043e95f2",
+        "urls": [
+          "https://archive.org/download/analysisofmind00russ/analysisofmind00russ.pdf"
+        ]
+      },
+      "state": "r2-published",
+      "tags": [
+        "Russell 1921"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Russell-1921-The-Analysis-of-Mind.pdf",
+        "r2_key": "References/Modern-Philosophy/Russell-1921-The-Analysis-of-Mind.pdf",
+        "storage": "r2-public"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Modern-Philosophy/Russell-Basic-Writings.pdf",
+      "rights": {
+        "notes": "NDL Ethiopia mirror; public-domain anthology.",
+        "status": "public-domain-recorded"
+      },
+      "source": {
+        "bytes": 2913441,
+        "media_type": "application/pdf",
+        "minimum_bytes": 1024,
+        "notes": "NDL Ethiopia mirror; public-domain anthology.",
+        "sha256": "0d237042599e16586df44a42de7427bc13bc10540b6b9a7e2d52e8977217868e",
+        "urls": [
+          "http://ndl.ethernet.edu.et/bitstream/123456789/36936/1/6.pdf.pdf"
+        ]
+      },
+      "state": "r2-published",
+      "tags": [
+        "Russell Basic Writings"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Russell-Basic-Writings.pdf",
+        "r2_key": "References/Modern-Philosophy/Russell-Basic-Writings.pdf",
+        "storage": "r2-public"
+      }
+    },
+    {
+      "delivery": {
+        "artifact_repo_path": "References/Modern-Philosophy/SEP-2025-Moral-Psychology-Empirical-Approaches.pdf",
+        "build_path": "tmp/reference-build/Modern-Philosophy/SEP-2025-Moral-Psychology-Empirical-Approaches.pdf",
+        "bytes": 640345,
+        "markdown_path": "References/Modern-Philosophy/SEP-2025-Moral-Psychology-Empirical-Approaches.md",
+        "sha256": "befb9f49b0cdd5a966085a8d8a0f1b70bf71227f4de7da94fbb4ebcf8a2eb4ff",
+        "source_format": "cleaned-markdown",
+        "status": "generated-local"
+      },
+      "kind": "third-party-html-snapshot",
+      "repo_path": "References/Modern-Philosophy/SEP-2025-Moral-Psychology-Empirical-Approaches.html",
+      "rights": {
+        "notes": "SEP snapshot.",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 160418,
+        "media_type": "text/html; charset=utf-8",
+        "minimum_bytes": 1024,
+        "notes": "SEP snapshot.",
+        "sha256": "36d542f8dd34de5e17ee00538f50131d429dce1e59dfa6bafa3609c7ca0518eb",
+        "urls": [
+          "https://plato.stanford.edu/entries/moral-psych-emp/"
+        ]
+      },
+      "state": "r2-published",
+      "tags": [],
+      "target": {
+        "public_url": null,
+        "r2_key": "archive/original-html/Modern-Philosophy/SEP-2025-Moral-Psychology-Empirical-Approaches.html",
+        "storage": "r2-private-original"
+      }
+    },
+    {
+      "generation": {
+        "build_path": "tmp/reference-build/Modern-Philosophy/SEP-2025-Moral-Psychology-Empirical-Approaches.pdf",
+        "original_html": "References/Modern-Philosophy/SEP-2025-Moral-Psychology-Empirical-Approaches.html",
+        "source_markdown": "References/Modern-Philosophy/SEP-2025-Moral-Psychology-Empirical-Approaches.md"
+      },
+      "kind": "normalized-reference-pdf",
+      "repo_path": "References/Modern-Philosophy/SEP-2025-Moral-Psychology-Empirical-Approaches.pdf",
+      "rights": {
+        "notes": "SEP snapshot.",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 640345,
+        "media_type": "application/pdf",
+        "minimum_bytes": 500,
+        "notes": "Generated deterministically from cleaned Markdown; original HTML retained privately.",
+        "sha256": "befb9f49b0cdd5a966085a8d8a0f1b70bf71227f4de7da94fbb4ebcf8a2eb4ff",
+        "urls": [
+          "https://plato.stanford.edu/entries/moral-psych-emp/"
+        ]
+      },
+      "state": "generated-local",
+      "tags": [],
+      "target": {
+        "public_url": "https://plato.stanford.edu/entries/moral-psych-emp/",
+        "r2_key": null,
+        "storage": "external-only-rights-review"
+      }
+    },
+    {
+      "delivery": {
+        "artifact_repo_path": "References/Modern-Philosophy/SEP-Aesthetics-of-Everyday.pdf",
+        "build_path": "tmp/reference-build/Modern-Philosophy/SEP-Aesthetics-of-Everyday.pdf",
+        "bytes": 660022,
+        "markdown_path": "References/Modern-Philosophy/SEP-Aesthetics-of-Everyday.md",
+        "sha256": "f128dd79a04df3f1659c2bc595b20694849b70384ceae0ddeffb8e6e0107bb7c",
+        "source_format": "cleaned-markdown",
+        "status": "generated-local"
+      },
+      "kind": "third-party-html-snapshot",
+      "repo_path": "References/Modern-Philosophy/SEP-Aesthetics-of-Everyday.html",
+      "rights": {
+        "notes": "",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 158386,
+        "media_type": "text/html; charset=utf-8",
+        "minimum_bytes": 1024,
+        "notes": "",
+        "sha256": "9313cb326352eddc640ca6bab81c2596091b51c5faf1f5080d991c3fc2a9ae8b",
+        "urls": [
+          "https://plato.stanford.edu/entries/aesthetics-of-everyday/"
+        ]
+      },
+      "state": "r2-published",
+      "tags": [],
+      "target": {
+        "public_url": null,
+        "r2_key": "archive/original-html/Modern-Philosophy/SEP-Aesthetics-of-Everyday.html",
+        "storage": "r2-private-original"
+      }
+    },
+    {
+      "generation": {
+        "build_path": "tmp/reference-build/Modern-Philosophy/SEP-Aesthetics-of-Everyday.pdf",
+        "original_html": "References/Modern-Philosophy/SEP-Aesthetics-of-Everyday.html",
+        "source_markdown": "References/Modern-Philosophy/SEP-Aesthetics-of-Everyday.md"
+      },
+      "kind": "normalized-reference-pdf",
+      "repo_path": "References/Modern-Philosophy/SEP-Aesthetics-of-Everyday.pdf",
+      "rights": {
+        "notes": "",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 660022,
+        "media_type": "application/pdf",
+        "minimum_bytes": 500,
+        "notes": "Generated deterministically from cleaned Markdown; original HTML retained privately.",
+        "sha256": "f128dd79a04df3f1659c2bc595b20694849b70384ceae0ddeffb8e6e0107bb7c",
+        "urls": [
+          "https://plato.stanford.edu/entries/aesthetics-of-everyday/"
+        ]
+      },
+      "state": "generated-local",
+      "tags": [],
+      "target": {
+        "public_url": "https://plato.stanford.edu/entries/aesthetics-of-everyday/",
+        "r2_key": null,
+        "storage": "external-only-rights-review"
+      }
+    },
+    {
+      "delivery": {
+        "artifact_repo_path": "References/Modern-Philosophy/SEP-Concept-of-the-Aesthetic.pdf",
+        "build_path": "tmp/reference-build/Modern-Philosophy/SEP-Concept-of-the-Aesthetic.pdf",
+        "bytes": 448193,
+        "markdown_path": "References/Modern-Philosophy/SEP-Concept-of-the-Aesthetic.md",
+        "sha256": "5352eb8fb24e6a92584bdbe64ded91f96124210c642e80f13c90c02f90296937",
+        "source_format": "cleaned-markdown",
+        "status": "generated-local"
+      },
+      "kind": "third-party-html-snapshot",
+      "repo_path": "References/Modern-Philosophy/SEP-Concept-of-the-Aesthetic.html",
+      "rights": {
+        "notes": "",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 125643,
+        "media_type": "text/html; charset=utf-8",
+        "minimum_bytes": 1024,
+        "notes": "",
+        "sha256": "280ebfdb27e9519305dc453f3b3884372cc9257fcb23ec00dd8bc5a692f0ea75",
+        "urls": [
+          "https://plato.stanford.edu/entries/aesthetic-concept/"
+        ]
+      },
+      "state": "r2-published",
+      "tags": [],
+      "target": {
+        "public_url": null,
+        "r2_key": "archive/original-html/Modern-Philosophy/SEP-Concept-of-the-Aesthetic.html",
+        "storage": "r2-private-original"
+      }
+    },
+    {
+      "generation": {
+        "build_path": "tmp/reference-build/Modern-Philosophy/SEP-Concept-of-the-Aesthetic.pdf",
+        "original_html": "References/Modern-Philosophy/SEP-Concept-of-the-Aesthetic.html",
+        "source_markdown": "References/Modern-Philosophy/SEP-Concept-of-the-Aesthetic.md"
+      },
+      "kind": "normalized-reference-pdf",
+      "repo_path": "References/Modern-Philosophy/SEP-Concept-of-the-Aesthetic.pdf",
+      "rights": {
+        "notes": "",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 448193,
+        "media_type": "application/pdf",
+        "minimum_bytes": 500,
+        "notes": "Generated deterministically from cleaned Markdown; original HTML retained privately.",
+        "sha256": "5352eb8fb24e6a92584bdbe64ded91f96124210c642e80f13c90c02f90296937",
+        "urls": [
+          "https://plato.stanford.edu/entries/aesthetic-concept/"
+        ]
+      },
+      "state": "generated-local",
+      "tags": [],
+      "target": {
+        "public_url": "https://plato.stanford.edu/entries/aesthetic-concept/",
+        "r2_key": null,
+        "storage": "external-only-rights-review"
+      }
+    },
+    {
+      "delivery": {
+        "artifact_repo_path": "References/Modern-Philosophy/SEP-Definition-of-Art.pdf",
+        "build_path": "tmp/reference-build/Modern-Philosophy/SEP-Definition-of-Art.pdf",
+        "bytes": 398189,
+        "markdown_path": "References/Modern-Philosophy/SEP-Definition-of-Art.md",
+        "sha256": "d701db0c8a1ea6413dee705e3439bbf70d9ea0bcb0b4a022226cc540828279ce",
+        "source_format": "cleaned-markdown",
+        "status": "generated-local"
+      },
+      "kind": "third-party-html-snapshot",
+      "repo_path": "References/Modern-Philosophy/SEP-Definition-of-Art.html",
+      "rights": {
+        "notes": "",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 101397,
+        "media_type": "text/html; charset=utf-8",
+        "minimum_bytes": 1024,
+        "notes": "",
+        "sha256": "3341d05002011745a8f42db0cb16e6af4ae303e4fd19329aadd57a7880bfe328",
+        "urls": [
+          "https://plato.stanford.edu/entries/art-definition/"
+        ]
+      },
+      "state": "r2-published",
+      "tags": [],
+      "target": {
+        "public_url": null,
+        "r2_key": "archive/original-html/Modern-Philosophy/SEP-Definition-of-Art.html",
+        "storage": "r2-private-original"
+      }
+    },
+    {
+      "generation": {
+        "build_path": "tmp/reference-build/Modern-Philosophy/SEP-Definition-of-Art.pdf",
+        "original_html": "References/Modern-Philosophy/SEP-Definition-of-Art.html",
+        "source_markdown": "References/Modern-Philosophy/SEP-Definition-of-Art.md"
+      },
+      "kind": "normalized-reference-pdf",
+      "repo_path": "References/Modern-Philosophy/SEP-Definition-of-Art.pdf",
+      "rights": {
+        "notes": "",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 398189,
+        "media_type": "application/pdf",
+        "minimum_bytes": 500,
+        "notes": "Generated deterministically from cleaned Markdown; original HTML retained privately.",
+        "sha256": "d701db0c8a1ea6413dee705e3439bbf70d9ea0bcb0b4a022226cc540828279ce",
+        "urls": [
+          "https://plato.stanford.edu/entries/art-definition/"
+        ]
+      },
+      "state": "generated-local",
+      "tags": [],
+      "target": {
+        "public_url": "https://plato.stanford.edu/entries/art-definition/",
+        "r2_key": null,
+        "storage": "external-only-rights-review"
+      }
+    },
+    {
+      "delivery": {
+        "artifact_repo_path": "References/Modern-Philosophy/SEP-Environmental-Aesthetics.pdf",
+        "build_path": "tmp/reference-build/Modern-Philosophy/SEP-Environmental-Aesthetics.pdf",
+        "bytes": 717884,
+        "markdown_path": "References/Modern-Philosophy/SEP-Environmental-Aesthetics.md",
+        "sha256": "25bad6ea83120a1a00d0d8995a8f56c79d0e981d7e41b55d26cd99c20f7ce42d",
+        "source_format": "cleaned-markdown",
+        "status": "generated-local"
+      },
+      "kind": "third-party-html-snapshot",
+      "repo_path": "References/Modern-Philosophy/SEP-Environmental-Aesthetics.html",
+      "rights": {
+        "notes": "",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 173857,
+        "media_type": "text/html; charset=utf-8",
+        "minimum_bytes": 1024,
+        "notes": "",
+        "sha256": "a3edc5b87c0c7da130316bcd606132030896f24075129321be36afa9ca1cbabe",
+        "urls": [
+          "https://plato.stanford.edu/entries/environmental-aesthetics/"
+        ]
+      },
+      "state": "r2-published",
+      "tags": [],
+      "target": {
+        "public_url": null,
+        "r2_key": "archive/original-html/Modern-Philosophy/SEP-Environmental-Aesthetics.html",
+        "storage": "r2-private-original"
+      }
+    },
+    {
+      "generation": {
+        "build_path": "tmp/reference-build/Modern-Philosophy/SEP-Environmental-Aesthetics.pdf",
+        "original_html": "References/Modern-Philosophy/SEP-Environmental-Aesthetics.html",
+        "source_markdown": "References/Modern-Philosophy/SEP-Environmental-Aesthetics.md"
+      },
+      "kind": "normalized-reference-pdf",
+      "repo_path": "References/Modern-Philosophy/SEP-Environmental-Aesthetics.pdf",
+      "rights": {
+        "notes": "",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 717884,
+        "media_type": "application/pdf",
+        "minimum_bytes": 500,
+        "notes": "Generated deterministically from cleaned Markdown; original HTML retained privately.",
+        "sha256": "25bad6ea83120a1a00d0d8995a8f56c79d0e981d7e41b55d26cd99c20f7ce42d",
+        "urls": [
+          "https://plato.stanford.edu/entries/environmental-aesthetics/"
+        ]
+      },
+      "state": "generated-local",
+      "tags": [],
+      "target": {
+        "public_url": "https://plato.stanford.edu/entries/environmental-aesthetics/",
+        "r2_key": null,
+        "storage": "external-only-rights-review"
+      }
+    },
+    {
+      "delivery": {
+        "artifact_repo_path": "References/Modern-Philosophy/SEP-Kant-Aesthetics-Teleology.pdf",
+        "build_path": "tmp/reference-build/Modern-Philosophy/SEP-Kant-Aesthetics-Teleology.pdf",
+        "bytes": 836436,
+        "markdown_path": "References/Modern-Philosophy/SEP-Kant-Aesthetics-Teleology.md",
+        "sha256": "a13cbcd6bcab7b5bb0d6873fd180a5d104c659077d7a947e7789a7d0b63eb334",
+        "source_format": "cleaned-markdown",
+        "status": "generated-local"
+      },
+      "kind": "third-party-html-snapshot",
+      "repo_path": "References/Modern-Philosophy/SEP-Kant-Aesthetics-Teleology.html",
+      "rights": {
+        "notes": "",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 237236,
+        "media_type": "text/html; charset=utf-8",
+        "minimum_bytes": 1024,
+        "notes": "",
+        "sha256": "a52c549d2bb8954df744dfe60a09e2b17e12a3e84dd26ad8ecd683b8b316424c",
+        "urls": [
+          "https://plato.stanford.edu/entries/kant-aesthetics/"
+        ]
+      },
+      "state": "r2-published",
+      "tags": [],
+      "target": {
+        "public_url": null,
+        "r2_key": "archive/original-html/Modern-Philosophy/SEP-Kant-Aesthetics-Teleology.html",
+        "storage": "r2-private-original"
+      }
+    },
+    {
+      "generation": {
+        "build_path": "tmp/reference-build/Modern-Philosophy/SEP-Kant-Aesthetics-Teleology.pdf",
+        "original_html": "References/Modern-Philosophy/SEP-Kant-Aesthetics-Teleology.html",
+        "source_markdown": "References/Modern-Philosophy/SEP-Kant-Aesthetics-Teleology.md"
+      },
+      "kind": "normalized-reference-pdf",
+      "repo_path": "References/Modern-Philosophy/SEP-Kant-Aesthetics-Teleology.pdf",
+      "rights": {
+        "notes": "",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 836436,
+        "media_type": "application/pdf",
+        "minimum_bytes": 500,
+        "notes": "Generated deterministically from cleaned Markdown; original HTML retained privately.",
+        "sha256": "a13cbcd6bcab7b5bb0d6873fd180a5d104c659077d7a947e7789a7d0b63eb334",
+        "urls": [
+          "https://plato.stanford.edu/entries/kant-aesthetics/"
+        ]
+      },
+      "state": "generated-local",
+      "tags": [],
+      "target": {
+        "public_url": "https://plato.stanford.edu/entries/kant-aesthetics/",
+        "r2_key": null,
+        "storage": "external-only-rights-review"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Modern-Philosophy/Tufft-et-al-2024-Flow-Active-Inference.pdf",
+      "rights": {
+        "notes": "CC BY; license statement embedded in the PDF.",
+        "status": "cc-by-recorded"
+      },
+      "source": {
+        "bytes": 1331705,
+        "media_type": "application/pdf",
+        "minimum_bytes": 1024,
+        "notes": "CC BY; license statement embedded in the PDF.",
+        "sha256": "ab587dd609345f0ed4b3d78513a3ffd61400a4a99eb6962900c5d806cb26fb73",
+        "urls": [
+          "https://www.frontiersin.org/articles/10.3389/fpsyg.2024.1354719/pdf"
+        ]
+      },
+      "state": "r2-published",
+      "tags": [
+        "Tufft et al. 2024"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Tufft-et-al-2024-Flow-Active-Inference.pdf",
+        "r2_key": "References/Modern-Philosophy/Tufft-et-al-2024-Flow-Active-Inference.pdf",
+        "storage": "r2-public"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Modern-Philosophy/Whitehead-1929-Process-and-Reality.pdf",
+      "rights": {
+        "notes": "Public domain edition.",
+        "status": "public-domain-recorded"
+      },
+      "source": {
+        "bytes": 21132402,
+        "media_type": "application/pdf",
+        "minimum_bytes": 1024,
+        "notes": "Public domain edition.",
+        "sha256": "a74f45e4a10195ebf3cbbf05fff9c8ba2ac79dce77bdc164567ae5f522a4d533",
+        "urls": [
+          "https://archive.org/download/processrealityes0000unse/processrealityes0000unse.pdf"
+        ]
+      },
+      "state": "r2-published",
+      "tags": [
+        "Whitehead 1929"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Whitehead-1929-Process-and-Reality.pdf",
+        "r2_key": "References/Modern-Philosophy/Whitehead-1929-Process-and-Reality.pdf",
+        "storage": "r2-public"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Science/Arnold-Symplectic-Geometry-Applications.pdf",
+      "rights": {
+        "notes": "Author-hosted scan; symplectic geometry survey.",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 16381955,
+        "media_type": "application/pdf",
+        "minimum_bytes": 1024,
+        "notes": "Author-hosted scan; symplectic geometry survey.",
+        "sha256": "3d0aac140050c3ac7c13d81bccddbc7e32efa73ffccccf2fa5852ac54de01460",
+        "urls": [
+          "https://webhomes.maths.ed.ac.uk/~v1ranick/papers/arnold6.pdf"
+        ]
+      },
+      "state": "git-retained",
+      "tags": [
+        "Arnold symplectic"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Science/Arnold-Symplectic-Geometry-Applications.pdf",
+        "r2_key": null,
+        "storage": "git-retained-rights-review"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Science/Ashtekar-Singh-2011-Loop-Quantum-Cosmology-Status-Report.pdf",
+      "rights": {
+        "notes": "",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 3813267,
+        "media_type": "application/pdf",
+        "minimum_bytes": 1024,
+        "notes": "",
+        "sha256": "f9a9f9baebef8d34d107f69914f249bacf8ddb51ac59f934105c107c25565614",
+        "urls": [
+          "https://arxiv.org/pdf/1108.0893.pdf"
+        ]
+      },
+      "state": "git-retained",
+      "tags": [
+        "Ashtekar and Singh 2011"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Science/Ashtekar-Singh-2011-Loop-Quantum-Cosmology-Status-Report.pdf",
+        "r2_key": null,
+        "storage": "git-retained-rights-review"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Science/Baehni-2019-Mathematical-Aspects-Classical-Mechanics.pdf",
+      "rights": {
+        "notes": "ETH Zurich semester paper (open access).",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 1134915,
+        "media_type": "application/pdf",
+        "minimum_bytes": 1024,
+        "notes": "ETH Zurich semester paper (open access).",
+        "sha256": "926d2ae291b20571991a6a6684760fe572214ccf26deef80e5d6644be867b512",
+        "urls": [
+          "https://people.math.ethz.ch/~acannas/Student_Papers/Semester_Papers/2019_yannis_baehni_sp_mathematical_aspects_of_classical_mechanics.pdf"
+        ]
+      },
+      "state": "git-retained",
+      "tags": [
+        "Baehni 2019"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Science/Baehni-2019-Mathematical-Aspects-Classical-Mechanics.pdf",
+        "r2_key": null,
+        "storage": "git-retained-rights-review"
+      }
+    },
+    {
+      "delivery": {
+        "artifact_repo_path": "References/Science/Carroll-2010-Energy-Is-Not-Conserved.pdf",
+        "build_path": "tmp/reference-build/Science/Carroll-2010-Energy-Is-Not-Conserved.pdf",
+        "bytes": 113393,
+        "markdown_path": "References/Science/Carroll-2010-Energy-Is-Not-Conserved.md",
+        "sha256": "d4025ee2be850b7efd233e9b9f53cb0752d50a6ebfeeff6dbfe1fe05a3aba93e",
+        "source_format": "cleaned-markdown",
+        "status": "generated-local"
+      },
+      "kind": "third-party-html-snapshot",
+      "repo_path": "References/Science/Carroll-2010-Energy-Is-Not-Conserved.html",
+      "rights": {
+        "notes": "Internet Archive snapshot; live blog returns empty to automated fetch.",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 229561,
+        "media_type": "text/html; charset=utf-8",
+        "minimum_bytes": 10000,
+        "notes": "Internet Archive snapshot; live blog returns empty to automated fetch.",
+        "sha256": "358743ec7752c0a5b934a953845d4045025b949ff2a500722456474d08138b21",
+        "urls": [
+          "https://web.archive.org/web/2020/https://www.preposterousuniverse.com/blog/2010/02/22/energy-is-not-conserved/",
+          "https://www.preposterousuniverse.com/blog/2010/02/22/energy-is-not-conserved/"
+        ]
+      },
+      "state": "r2-published",
+      "tags": [],
+      "target": {
+        "public_url": null,
+        "r2_key": "archive/original-html/Science/Carroll-2010-Energy-Is-Not-Conserved.html",
+        "storage": "r2-private-original"
+      }
+    },
+    {
+      "generation": {
+        "build_path": "tmp/reference-build/Science/Carroll-2010-Energy-Is-Not-Conserved.pdf",
+        "original_html": "References/Science/Carroll-2010-Energy-Is-Not-Conserved.html",
+        "source_markdown": "References/Science/Carroll-2010-Energy-Is-Not-Conserved.md"
+      },
+      "kind": "normalized-reference-pdf",
+      "repo_path": "References/Science/Carroll-2010-Energy-Is-Not-Conserved.pdf",
+      "rights": {
+        "notes": "Internet Archive snapshot; live blog returns empty to automated fetch.",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 113393,
+        "media_type": "application/pdf",
+        "minimum_bytes": 500,
+        "notes": "Generated deterministically from cleaned Markdown; original HTML retained privately.",
+        "sha256": "d4025ee2be850b7efd233e9b9f53cb0752d50a6ebfeeff6dbfe1fe05a3aba93e",
+        "urls": [
+          "https://web.archive.org/web/2020/https://www.preposterousuniverse.com/blog/2010/02/22/energy-is-not-conserved/",
+          "https://www.preposterousuniverse.com/blog/2010/02/22/energy-is-not-conserved/"
+        ]
+      },
+      "state": "generated-local",
+      "tags": [],
+      "target": {
+        "public_url": "https://www.preposterousuniverse.com/blog/2010/02/22/energy-is-not-conserved/",
+        "r2_key": null,
+        "storage": "external-only-rights-review"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Science/Chalmers-1995-Facing-Up-to-the-Problem-of-Consciousness.pdf",
+      "rights": {
+        "notes": "",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 395399,
+        "media_type": "application/pdf",
+        "minimum_bytes": 1024,
+        "notes": "",
+        "sha256": "bd6c2cce246011948ed2fc0baaec69c5b565dfc378de39b77c94c4ec2a644177",
+        "urls": [
+          "https://consc.net/papers/facing.pdf"
+        ]
+      },
+      "state": "git-retained",
+      "tags": [
+        "Chalmers 1995"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Science/Chalmers-1995-Facing-Up-to-the-Problem-of-Consciousness.pdf",
+        "r2_key": null,
+        "storage": "git-retained-rights-review"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Science/Crockett-2013-Models-of-Morality.pdf",
+      "rights": {
+        "notes": "CC BY; license statement embedded in the PDF.",
+        "status": "cc-by-recorded"
+      },
+      "source": {
+        "bytes": 821844,
+        "media_type": "application/pdf",
+        "minimum_bytes": 1024,
+        "notes": "CC BY; license statement embedded in the PDF.",
+        "sha256": "1e6c9d681e316b212233530d3813fc91c62a1a0ee085081536643990c0ea0fd5",
+        "urls": [
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC3768123/pdf/fnbeh-07-00106.pdf"
+        ]
+      },
+      "state": "r2-published",
+      "tags": [
+        "Crockett 2013"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Science/Crockett-2013-Models-of-Morality.pdf",
+        "r2_key": "References/Science/Crockett-2013-Models-of-Morality.pdf",
+        "storage": "r2-public"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Science/Feynman-1964-Principle-Least-Action-Ch19.pdf",
+      "rights": {
+        "notes": "Feynman Lectures on Physics, Vol. II, Ch. 19 (Illinois course mirror).",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 3847295,
+        "media_type": "application/pdf",
+        "minimum_bytes": 1024,
+        "notes": "Feynman Lectures on Physics, Vol. II, Ch. 19 (Illinois course mirror).",
+        "sha256": "fe442d48530ade1bd4b1bebd6f8b5eef6fece9487abde908dd4374349351c326",
+        "urls": [
+          "https://liberzon.csl.illinois.edu/teaching/FeynmanLecturesOnPhysicsChapter2-19.pdf"
+        ]
+      },
+      "state": "git-retained",
+      "tags": [
+        "Feynman 1964"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Science/Feynman-1964-Principle-Least-Action-Ch19.pdf",
+        "r2_key": null,
+        "storage": "git-retained-rights-review"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Science/Friston-2010-Free-Energy-Principle.pdf",
+      "rights": {
+        "notes": "",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 709242,
+        "media_type": "application/pdf",
+        "minimum_bytes": 500,
+        "notes": "",
+        "sha256": "aeb47a0a36ada532bb5632108b1931c8ae4ab11c4e62b012bf0c3548ffd86e1f",
+        "urls": []
+      },
+      "state": "git-retained",
+      "tags": [
+        "Friston 2010"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Science/Friston-2010-Free-Energy-Principle.pdf",
+        "r2_key": null,
+        "storage": "git-retained-rights-review"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Science/Guth-2007-Eternal-Inflation.pdf",
+      "rights": {
+        "notes": "",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 291160,
+        "media_type": "application/pdf",
+        "minimum_bytes": 500,
+        "notes": "",
+        "sha256": "dd6eac5cad5d3d30bbca72b406ce338248cb1fb8a90ed1ba4992a51ade3473da",
+        "urls": []
+      },
+      "state": "git-retained",
+      "tags": [
+        "Guth 2007"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Science/Guth-2007-Eternal-Inflation.pdf",
+        "r2_key": null,
+        "storage": "git-retained-rights-review"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Science/Kotiuga-Lahtinen-2018-Electrical-Engineering-Naturality.pdf",
+      "rights": {
+        "notes": "arXiv open access (math-ph).",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 788944,
+        "media_type": "application/pdf",
+        "minimum_bytes": 1024,
+        "notes": "arXiv open access (math-ph).",
+        "sha256": "c6fe4556e9cfe27af187ced44b6e8daaaa0ff7440d45ff2a03f6cb7b620a9392",
+        "urls": [
+          "https://arxiv.org/pdf/1809.01002.pdf"
+        ]
+      },
+      "state": "git-retained",
+      "tags": [
+        "Kotiuga and Lahtinen 2018"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Science/Kotiuga-Lahtinen-2018-Electrical-Engineering-Naturality.pdf",
+        "r2_key": null,
+        "storage": "git-retained-rights-review"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Science/Nagel-1974-What-Is-It-Like-to-Be-a-Bat.pdf",
+      "rights": {
+        "notes": "",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 196172,
+        "media_type": "application/pdf",
+        "minimum_bytes": 1024,
+        "notes": "",
+        "sha256": "822d69d241fe8c31b5342e4ab60280897051778198e40b44fbda7a8785547a07",
+        "urls": [
+          "https://www.cs.ox.ac.uk/activities/ieg/e-library/sources/nagel_bat.pdf"
+        ]
+      },
+      "state": "git-retained",
+      "tags": [
+        "Nagel 1974"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Science/Nagel-1974-What-Is-It-Like-to-Be-a-Bat.pdf",
+        "r2_key": null,
+        "storage": "git-retained-rights-review"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Science/Strawson-2006-Realistic-Monism-Panpsychism.pdf",
+      "rights": {
+        "notes": "",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 852531,
+        "media_type": "application/pdf",
+        "minimum_bytes": 1024,
+        "notes": "",
+        "sha256": "1daef813663bd6a271967d4253043741b6223d1cb701b4c0645080f47809b7b0",
+        "urls": [
+          "https://consc.net/event/reef/strawsonmonism.pdf"
+        ]
+      },
+      "state": "git-retained",
+      "tags": [
+        "Strawson 2006"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Science/Strawson-2006-Realistic-Monism-Panpsychism.pdf",
+        "r2_key": null,
+        "storage": "git-retained-rights-review"
+      }
+    },
+    {
+      "kind": "reference-pdf",
+      "repo_path": "References/Science/Terekhovich-2015-Metaphysics-Principle-Least-Action.pdf",
+      "rights": {
+        "notes": "arXiv open access (physics.hist-ph).",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 942470,
+        "media_type": "application/pdf",
+        "minimum_bytes": 1024,
+        "notes": "arXiv open access (physics.hist-ph).",
+        "sha256": "8fd1441e2e4d57b017596eb71ef4b0f591e3e2b7694df3d2eac15e91d7acc931",
+        "urls": [
+          "https://arxiv.org/pdf/1511.03429.pdf"
+        ]
+      },
+      "state": "git-retained",
+      "tags": [
+        "Terekhovich 2015"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Science/Terekhovich-2015-Metaphysics-Principle-Least-Action.pdf",
+        "r2_key": null,
+        "storage": "git-retained-rights-review"
+      }
+    }
+  ],
+  "policy": {
+    "active_translation_projects": [
+      "KD",
+      "MSM"
+    ],
+    "original_third_party_html_is_public": false,
+    "public_reference_origin": "https://analyticmadhyasthdarshan.org",
+    "study_reference_delivery_format": "pdf"
+  },
+  "schema_version": 1
+}

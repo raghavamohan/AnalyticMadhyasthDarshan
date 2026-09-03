@@ -26,7 +26,7 @@
 <meta name="twitter:description" content="What knowledge is, who the knower is, and what can be known: coexistence, jeevan, humane conduct, evidence, and epistemic error — compared with Advaita Vedanta, modern Western philosophy, and natural science"/>
 <meta name="twitter:image" content="https://analyticmadhyasthdarshan.org/Assets/Social/The-Epistemology-of-Coexistence.png"/>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"The Epistemology of Coexistence","description":"What knowledge is, who the knower is, and what can be known: coexistence, jeevan, humane conduct, evidence, and epistemic error — compared with Advaita Vedanta, modern Western philosophy, and natural science","url":"https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html","inLanguage":"en","author":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"publisher":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"image":"https://analyticmadhyasthdarshan.org/Assets/Social/The-Epistemology-of-Coexistence.png","dateModified":"2026-08-30T02:52:00+05:30"}
+{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"The Epistemology of Coexistence","description":"What knowledge is, who the knower is, and what can be known: coexistence, jeevan, humane conduct, evidence, and epistemic error — compared with Advaita Vedanta, modern Western philosophy, and natural science","url":"https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html","inLanguage":"en","author":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"publisher":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"image":"https://analyticmadhyasthdarshan.org/Assets/Social/The-Epistemology-of-Coexistence.png","dateModified":"2026-09-04T04:01:00+05:30"}
 </script>
 <script>
 (function(){try{var t=localStorage.getItem("amd-theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();
@@ -470,8 +470,9 @@
 
   /* Contents ---------------------------------------------------------------
      Studies run past 30,000 words, so the sequential previous/next pair is not
-     enough to move around one. Closed by default so it costs no height; the
-     script below opens it where there is room. */
+     enough to move around one. Closed by default so small screens never pay
+     for its height; a parser-blocking script inside the element opens it
+     where there is room, before the reading key is parsed. */
   .study-toc {
     max-width: 37rem;
     margin: 1.6em 0 2.2em;
@@ -705,7 +706,7 @@
 </nav>
 <main id="main"><h1>The Epistemology of Coexistence</h1>
 <p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> — a group of people studying <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
-<p><strong>Edited on:</strong> August 30, 2026, 2:52 AM IST</p>
+<p><strong>Edited on:</strong> September 4, 2026, 4:01 AM IST</p>
 <p><strong>The question:</strong> What is knowledge, who is the knower, and what is it that one can know? How are these concepts grounded in experience, and how does the Co-existentialism of Shri A. Nagraj compare with Advaita Vedanta, modern Western philosophy, and the natural sciences?</p>
 <p>This study examines knowledge, the knower, and the knowable in <strong>Madhyasth Darshan</strong> (Co-existentialism), as presented by <strong>Shri A. Nagraj</strong>, and compares its answers with <strong>Advaita Vedanta</strong> and <strong>modern science and philosophy</strong>.</p>
 <p><a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">The Ontology of Coexistence</a> supplies the ontological setting: Omnipresence, saturated units, the four orders, constitutional completeness, and the active structure of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>. The present study asks the specifically epistemological questions the primary texts develop: what knowledge is, what makes <em>jeevan</em> the knower, how coexistence becomes the known, and why understanding must become evident in action, relationship, evaluation, and humane tradition. <a href="https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html">From Unit Activity to Human Orderliness</a> is used as an interpretive audit of these connections, not as a primary source and not as a source of notation for this paper.</p>
@@ -787,6 +788,15 @@
       <li class="study-toc-item study-toc-l2"><a href="#modern-western-philosophy-and-science">Modern Western philosophy and science</a></li>
     </ol>
   </nav>
+<script>
+(function(){
+  var toc = document.getElementById("study-contents");
+  if (toc && window.matchMedia("(min-width: 760px)").matches && window.innerHeight >= 640) {
+    toc.open = true;
+  }
+})();
+</script>
+
 </details>
 <p class="study-reading-key" aria-label="Reading key">
   <span class="study-reading-key-term">Dotted underline</span>: definition
@@ -1920,16 +1930,6 @@
   });
   system.addEventListener("change", paint);
   paint();
-})();
-</script>
-<script>
-(() => {
-  const toc = document.getElementById("study-contents");
-  if (!toc) return;
-  // Open where there is room to show it without pushing the study off screen.
-  if (window.matchMedia("(min-width: 760px)").matches && window.innerHeight >= 640) {
-    toc.open = true;
-  }
 })();
 </script>
 

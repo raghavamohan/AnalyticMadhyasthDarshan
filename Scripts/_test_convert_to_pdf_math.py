@@ -86,6 +86,48 @@ def test_study_folder_md_companion_rewrites_to_site_html() -> None:
     assert expected in rewritten, rewritten
 
 
+def test_external_only_archived_reference_rewrites_to_canonical_url() -> None:
+    html_path = BASE / "Studies/Aesthetics/Aesthetics.html"
+    body = (
+        '<a href="../References/Comparative-Philosophy/'
+        'Poorvam-Sadharanikarana-Rasa.html#footnote-1">source</a>'
+    )
+    rewritten = rewrite_local_links_for_site(body, html_path, study_links_as_html=True)
+    expected = (
+        "https://poorvam.com/article.php?"
+        "slug=s-dh-ra-kara-a-underlying-process-for-experiencing-rasa#footnote-1"
+    )
+    assert expected in rewritten, rewritten
+
+
+def test_cross_study_pdf_rewrites_to_html_even_when_pdf_is_not_local() -> None:
+    html_path = BASE / "Studies/Aesthetics/Aesthetics.html"
+    body = (
+        '<a href="../Ethics-And-Morals-In-Human-Beings/'
+        'Ethics-And-Morals-In-Human-Beings.pdf#references">ethics</a>'
+    )
+    rewritten = rewrite_local_links_for_site(body, html_path)
+    expected = (
+        f"{site_base_url().rstrip('/')}/Studies/Ethics-And-Morals-In-Human-Beings/"
+        "Ethics-And-Morals-In-Human-Beings.html#references"
+    )
+    assert expected in rewritten, rewritten
+
+
+def test_reference_analysis_markdown_rewrites_to_manifest_pdf() -> None:
+    html_path = BASE / "Studies/The-Epistemology-of-Coexistence/Research-Note.html"
+    body = (
+        '<a href="../../References/Madhyasth-Darshan/'
+        'MVD-Madhyasth-Darshan-Coexistentialism.md">MVD extract</a>'
+    )
+    rewritten = rewrite_local_links_for_site(body, html_path)
+    expected = (
+        f"{site_base_url().rstrip('/')}/References/Madhyasth-Darshan/"
+        "MVD-Madhyasth-Darshan-Coexistentialism.pdf"
+    )
+    assert expected in rewritten, rewritten
+
+
 def main() -> int:
     tests = [
         test_set_braces_survive,
@@ -94,6 +136,9 @@ def main() -> int:
         test_dollars_in_code_are_not_math,
         test_generated_html_uses_lf_line_endings,
         test_study_folder_md_companion_rewrites_to_site_html,
+        test_external_only_archived_reference_rewrites_to_canonical_url,
+        test_cross_study_pdf_rewrites_to_html_even_when_pdf_is_not_local,
+        test_reference_analysis_markdown_rewrites_to_manifest_pdf,
     ]
     failed = 0
     for test in tests:

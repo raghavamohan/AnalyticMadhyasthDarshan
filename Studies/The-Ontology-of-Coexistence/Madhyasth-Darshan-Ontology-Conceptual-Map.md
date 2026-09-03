@@ -312,8 +312,8 @@ For a detailed critical and comparative treatment, see [*The Ontology of Coexist
 
 ## Primary texts
 
-- **MVD** — A. Nagraj, [*Madhyasth Darshan — Co-existentialism*](../../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf), English translation by Rakesh Gupta.
-- **SB** — A. Nagraj, [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf), English translation by Rakesh Gupta.
-- **JV** — A. Nagraj, [*Jeevan Vidya: An Introduction*](../../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf), English translation by Rakesh Gupta.
+- **MVD** — A. Nagraj, [*Madhyasth Darshan — Co-existentialism*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf), English translation by Rakesh Gupta.
+- **SB** — A. Nagraj, [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf), English translation by Rakesh Gupta.
+- **JV** — A. Nagraj, [*Jeevan Vidya: An Introduction*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf), English translation by Rakesh Gupta.
 - **KD** — A. Nagraj, [*Manav Karm Darshan — Working English Rendering*](../../References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf). Use the Part 3 subsection and printed-page pointers above; this is a working rendering rather than a published English translation.
-- **AVD** — A. Nagraj, [*Adhyatmvad* (*Realisation Centred Spiritualism*)](../../References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf), English translation by Sanjeev Chopra — work in progress. Pointed to only for the tabulated enumeration of the conducts of awakened *jeevan*; definitional content is taken from MVD.
+- **AVD** — A. Nagraj, [*Adhyatmvad* (*Realisation Centred Spiritualism*)](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf), English translation by Sanjeev Chopra — work in progress. Pointed to only for the tabulated enumeration of the conducts of awakened *jeevan*; definitional content is taken from MVD.

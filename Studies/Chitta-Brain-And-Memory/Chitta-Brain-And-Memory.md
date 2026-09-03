@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** June 30, 2026, 11:37 AM IST
+**Edited on:** September 4, 2026, 4:02 AM IST
 
 Where memory lives in Madhyasth Darshan — chitta and jeevan versus the brain's biological memory — compared with neuroscience and philosophy of mind.
 
@@ -282,8 +282,7 @@ Post the manuscript to **PhilArchive** / **PhilSci-Archive** (philosophy) and **
 
 ### Madhyasth Darshan (primary sources)
 
-- **AVD** — Nagraj, A. [*Adhyatmvad* (Spiritualism)](../References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf). *For:* *jeevan*, *atma*, and the inner faculties — the primary source to confirm *chitra-grahan* and *chitra-nirman*.
-- **MVD** — Nagraj, A. [*Madhyasth Darshan – Co-existentialism*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. *For:* the faculties, the brain as *medhas*/medium, and the knowledge order.
-- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. *For:* values and evaluation as *jeevan*'s work; the body as vehicle.
-- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad*](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. *For:* the body–*jeevan* distinction; sleep as a bodily activity.
-
+- **AVD** — Nagraj, A. [*Adhyatmvad* (Spiritualism)](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf). *For:* *jeevan*, *atma*, and the inner faculties — the primary source to confirm *chitra-grahan* and *chitra-nirman*.
+- **MVD** — Nagraj, A. [*Madhyasth Darshan – Co-existentialism*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. *For:* the faculties, the brain as *medhas*/medium, and the knowledge order.
+- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. *For:* values and evaluation as *jeevan*'s work; the body as vehicle.
+- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. *For:* the body–*jeevan* distinction; sleep as a bodily activity.

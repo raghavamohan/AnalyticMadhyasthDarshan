@@ -277,8 +277,8 @@ The [Pass-Four durable-function analysis](Research-Note-Jeevan-Durable-Functions
 
 ### Madhyasth Darshan
 
-- **AVD** - A. Nagraj, [*Adhyatmvad*](../../References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf), tr. Sanjeev Chopra (work in progress). Cited: the five-column table, faculty allocation, and sixty-one *bal/shakti* assignments whose documentary positions are restored only after blind clustering (pp. 91-94; §§1, 7).
-- **MVD** - A. Nagraj, [*Madhyasth Darshan - Co-existentialism*](../../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.md), tr. Rakesh Gupta. Cited: the constitutional activity count and definitions underlying the Pass-One anatomy and Pass-Two lifecycle records (pp. 323, 327-348; §§1-9). The feature engineering, clustering, stability criteria, and sphere interpretation in this note are analytical constructions, not direct textual claims.
+- **AVD** - A. Nagraj, [*Adhyatmvad*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf), tr. Sanjeev Chopra (work in progress). Cited: the five-column table, faculty allocation, and sixty-one *bal/shakti* assignments whose documentary positions are restored only after blind clustering (pp. 91-94; §§1, 7).
+- **MVD** - A. Nagraj, [*Madhyasth Darshan - Co-existentialism*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf), tr. Rakesh Gupta. Cited: the constitutional activity count and definitions underlying the Pass-One anatomy and Pass-Two lifecycle records (pp. 323, 327-348; §§1-9). The feature engineering, clustering, stability criteria, and sphere interpretation in this note are analytical constructions, not direct textual claims.
 
 ### Related research notes and artifacts
 

@@ -94,6 +94,18 @@ DOWNLOADS: tuple[DownloadEntry, ...] = (
         notes="SEP snapshot; existing repo practice for quote verification.",
     ),
     DownloadEntry(
+        dest="Comparative-Philosophy/SEP-Natural-Law-Ethics.html",
+        urls=("https://plato.stanford.edu/entries/natural-law-ethics/",),
+        tag="SEP Natural Law Ethics",
+        notes="SEP snapshot.",
+    ),
+    DownloadEntry(
+        dest="Comparative-Philosophy/SEP-Theological-Voluntarism.html",
+        urls=("https://plato.stanford.edu/entries/voluntarism-theological/",),
+        tag="SEP Theological Voluntarism",
+        notes="SEP snapshot.",
+    ),
+    DownloadEntry(
         dest="Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf",
         urls=("https://www.vivekananda.net/PDFBooks/PracticalVedanta.pdf",),
         tag="SV",
@@ -109,6 +121,12 @@ DOWNLOADS: tuple[DownloadEntry, ...] = (
         dest="Science/Chalmers-1995-Facing-Up-to-the-Problem-of-Consciousness.pdf",
         urls=("https://consc.net/papers/facing.pdf",),
         tag="Chalmers 1995",
+    ),
+    DownloadEntry(
+        dest="Science/Crockett-2013-Models-of-Morality.pdf",
+        urls=("https://pmc.ncbi.nlm.nih.gov/articles/PMC3768123/pdf/fnbeh-07-00106.pdf",),
+        tag="Crockett 2013",
+        notes="CC BY; license statement embedded in the PDF.",
     ),
     DownloadEntry(
         dest="Science/Nagel-1974-What-Is-It-Like-to-Be-a-Bat.pdf",
@@ -146,6 +164,7 @@ DOWNLOADS: tuple[DownloadEntry, ...] = (
         dest="Modern-Philosophy/Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf",
         urls=("https://www.frontiersin.org/articles/10.3389/fnhum.2013.00547/pdf",),
         tag="Limanowski and Blankenburg 2013",
+        notes="CC BY; license statement embedded in the PDF.",
     ),
     DownloadEntry(
         dest="Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf",
@@ -161,6 +180,7 @@ DOWNLOADS: tuple[DownloadEntry, ...] = (
         dest="Modern-Philosophy/Tufft-et-al-2024-Flow-Active-Inference.pdf",
         urls=("https://www.frontiersin.org/articles/10.3389/fpsyg.2024.1354719/pdf",),
         tag="Tufft et al. 2024",
+        notes="CC BY; license statement embedded in the PDF.",
     ),
     DownloadEntry(
         dest="Modern-Philosophy/SEP-Concept-of-the-Aesthetic.html",
@@ -186,6 +206,12 @@ DOWNLOADS: tuple[DownloadEntry, ...] = (
         dest="Modern-Philosophy/SEP-Aesthetics-of-Everyday.html",
         urls=("https://plato.stanford.edu/entries/aesthetics-of-everyday/",),
         tag="SEP Aesthetics of the Everyday",
+    ),
+    DownloadEntry(
+        dest="Modern-Philosophy/SEP-2025-Moral-Psychology-Empirical-Approaches.html",
+        urls=("https://plato.stanford.edu/entries/moral-psych-emp/",),
+        tag="SEP Moral Psychology",
+        notes="SEP snapshot.",
     ),
     DownloadEntry(
         dest="Modern-Philosophy/Whitehead-1929-Process-and-Reality.pdf",

@@ -470,8 +470,9 @@
 
   /* Contents ---------------------------------------------------------------
      Studies run past 30,000 words, so the sequential previous/next pair is not
-     enough to move around one. Closed by default so it costs no height; the
-     script below opens it where there is room. */
+     enough to move around one. Closed by default so small screens never pay
+     for its height; a parser-blocking script inside the element opens it
+     where there is room, before the reading key is parsed. */
   .study-toc {
     max-width: 37rem;
     margin: 1.6em 0 2.2em;
@@ -751,6 +752,15 @@
       <li class="study-toc-item study-toc-l2"><a href="#related-research-notes-and-artifacts">Related research notes and artifacts</a></li>
     </ol>
   </nav>
+<script>
+(function(){
+  var toc = document.getElementById("study-contents");
+  if (toc && window.matchMedia("(min-width: 760px)").matches && window.innerHeight >= 640) {
+    toc.open = true;
+  }
+})();
+</script>
+
 </details>
 <p class="study-reading-key" aria-label="Reading key">
   <span class="study-reading-key-term">Dotted underline</span>: definition
@@ -1157,9 +1167,9 @@ flowchart TB
 <h3 id="madhyasth-darshan">Madhyasth Darshan</h3>
 <ul>
 <li><strong>AVD</strong> - A. Nagraj, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf"><em>Adhyatmvad</em></a>, tr. Sanjeev Chopra (work in progress). Cited: the sixty-one-pair table and 122 activity positions that remain the documentary basis of the member register (pp. 91-94; §§1-9).</li>
-<li><strong>JV</strong> - A. Nagraj, <a href="../../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.md"><em>Jeevan Vidya: An Introduction</em></a>, tr. Rakesh Gupta. Cited: value, character, family relations, and education-<em>sanskar</em> (pp. 55-60, 84, 108; §§3-8); the five dimensions of orderliness (pp. 109-110, 140; §§3-8); science in consonance with wisdom (pp. 151, 157-158; §7); and participation in production and right-use of surplus (pp. 152-153; §§3-8).</li>
+<li><strong>JV</strong> - A. Nagraj, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf"><em>Jeevan Vidya: An Introduction</em></a>, tr. Rakesh Gupta. Cited: value, character, family relations, and education-<em>sanskar</em> (pp. 55-60, 84, 108; §§3-8); the five dimensions of orderliness (pp. 109-110, 140; §§3-8); science in consonance with wisdom (pp. 151, 157-158; §7); and participation in production and right-use of surplus (pp. 152-153; §§3-8).</li>
 <li><strong>KD</strong> - A. Nagraj, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf"><em>Manav Karm Darshan</em>, working English rendering</a>. Cited: bodily effort, motion, and result in work (p. 12; §§3-8) and production in accord with nature&rsquo;s cyclic order (p. 25; §§3-8).</li>
-<li><strong>MVD</strong> - A. Nagraj, <a href="../../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.md"><em>Madhyasth Darshan - Co-existentialism</em></a>, tr. Rakesh Gupta. Cited: family, need, relationship, and organisation (pp. 55-62; §§5, 8); <em>sanskar</em> and its formation (pp. 90, 121, 134, 218, 315; §§3-8); the human joint form and bodily mediation (pp. 199-205; §§1-8); education-<em>sanskar</em>, teaching, and inquiry (pp. 248, 270, 313-315, 344; §§3-8); inner-to-outer activity and reception conditions (pp. 275-291; §§1-8); justice and mutual satisfaction (pp. 310-311, 336; §§3-8); and the 122 activities (p. 323; §§1-9).</li>
+<li><strong>MVD</strong> - A. Nagraj, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan - Co-existentialism</em></a>, tr. Rakesh Gupta. Cited: family, need, relationship, and organisation (pp. 55-62; §§5, 8); <em>sanskar</em> and its formation (pp. 90, 121, 134, 218, 315; §§3-8); the human joint form and bodily mediation (pp. 199-205; §§1-8); education-<em>sanskar</em>, teaching, and inquiry (pp. 248, 270, 313-315, 344; §§3-8); inner-to-outer activity and reception conditions (pp. 275-291; §§1-8); justice and mutual satisfaction (pp. 310-311, 336; §§3-8); and the 122 activities (p. 323; §§1-9).</li>
 </ul>
 <h3 id="related-research-notes-and-artifacts">Related research notes and artifacts</h3>
 <ul>
@@ -1167,7 +1177,7 @@ flowchart TB
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Spheres-Pass-Three.html"><em>Pass-Three Derivation of Jeevan Activity Spheres</em></a> - the anonymous matrix, stable cores, bridges, residuals, and interfaces that constrain this pass.</li>
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers.html"><em>Bottom-Up Pilot Derivation of Jeevan Activity Spheres</em></a> - the original institutionalisation test and comparative-bundle plan.</li>
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-To-Universal-Human-Order.html"><em>From the Activity Architecture of Jeevan to Universal Human Order</em></a> - the earlier five-function hypothesis now tested against the bottom-up result.</li>
-<li><a href="Research-Template-Jeevan-Activity-Environment-Dossier.md"><em>Jeevan Activity-to-Sphere Dossier Template</em></a> - the reusable schema and pass sequence.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Template-Jeevan-Activity-Environment-Dossier.html"><em>Jeevan Activity-to-Sphere Dossier Template</em></a> - the reusable schema and pass sequence.</li>
 <li><a href="Research-Data-Jeevan-Pass-Four-Anonymous-Requirements.csv"><em>Pass-Four Anonymous Requirement Register</em></a> - durability, unnamed-channel, interface, and scale codes for every member.</li>
 <li><a href="Research-Data-Jeevan-Pass-Four-Restored-Coverage.csv"><em>Pass-Four Restored Coverage Register</em></a> - source names and named-function memberships restored after anonymous derivation.</li>
 <li><a href="Research-Data-Jeevan-Pass-Four-Bundle-Comparison.json"><em>Pass-Four Bundle Diagnostics</em></a> - counts, comparison metrics, selected bundle, and interpretive limit.</li>
@@ -1386,16 +1396,6 @@ mermaid.initialize({
   });
   system.addEventListener("change", paint);
   paint();
-})();
-</script>
-<script>
-(() => {
-  const toc = document.getElementById("study-contents");
-  if (!toc) return;
-  // Open where there is room to show it without pushing the study off screen.
-  if (window.matchMedia("(min-width: 760px)").matches && window.innerHeight >= 640) {
-    toc.open = true;
-  }
 })();
 </script>
 

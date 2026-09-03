@@ -936,8 +936,8 @@ This handoff is completed in the [Pass-Three Activity-Sphere Derivation](Researc
 
 ### Madhyasth Darshan
 
-- **AVD** - A. Nagraj, [*Adhyatmvad*](../../References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf), tr. Sanjeev Chopra (work in progress). Cited: the five-column table, faculty allocation, and sixty-one *bal/shakti* assignments used to preserve documentary position for all 122 member records (pp. 91-94; §§1-5).
-- **MVD** - A. Nagraj, [*Madhyasth Darshan - Co-existentialism*](../../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.md), tr. Rakesh Gupta. Cited: the constitutional activity count and the detailed definitions governing entry form, bearer, object, counterpart, endpoint, criterion, and residual status (pp. 323, 327-348; §§1-5); the lifecycle requirements in this register are structural inferences from that anatomy rather than direct quotations.
+- **AVD** - A. Nagraj, [*Adhyatmvad*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf), tr. Sanjeev Chopra (work in progress). Cited: the five-column table, faculty allocation, and sixty-one *bal/shakti* assignments used to preserve documentary position for all 122 member records (pp. 91-94; §§1-5).
+- **MVD** - A. Nagraj, [*Madhyasth Darshan - Co-existentialism*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf), tr. Rakesh Gupta. Cited: the constitutional activity count and the detailed definitions governing entry form, bearer, object, counterpart, endpoint, criterion, and residual status (pp. 323, 327-348; §§1-5); the lifecycle requirements in this register are structural inferences from that anatomy rather than direct quotations.
 
 ### Related research notes
 

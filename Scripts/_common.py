@@ -9,6 +9,7 @@ import html
 import re
 import sys
 from pathlib import Path
+from urllib.parse import unquote
 
 from pypdf import PdfReader
 
@@ -538,20 +539,33 @@ def resolve_reference_path(pdf_arg: str) -> Path:
         path = registry[pdf_arg]
         if path.exists():
             return path.resolve()
-        raise FileNotFoundError(f"Reference file missing for tag {pdf_arg!r}: {path}")
 
     from_base = (BASE / pdf_arg).resolve()
     if from_base.exists():
         return from_base
 
+    # Manifest-backed references may have been removed from Git after their R2
+    # object was verified. Hydrate only the requested path/tag, never the full
+    # corpus implicitly.
+    try:
+        from _reference_store import ReferenceStore
+
+        store = ReferenceStore()
+        artifact = store.find(pdf_arg)
+        if artifact is not None:
+            return store.resolve(artifact, allow_download=True)
+    except (KeyError, OSError, ValueError):
+        pass
+
     raise FileNotFoundError(
         f"Could not resolve {pdf_arg!r} as a path or citation tag. "
-        f"Use a file path or a tag from References/README.md (e.g. MVD, SB)."
+        "The file is neither tracked, cached, nor publicly hydratable from the "
+        "reference artifact manifest."
     )
 
 
 def parse_reference_registry(readme_path: Path | None = None) -> dict[str, Path]:
-    """Map citation tags (MVD, Chalmers 1995, …) to local files under References/."""
+    """Map citation tags to their local or manifest-backed logical paths."""
     readme_path = readme_path or (REFERENCES / "README.md")
     text = readme_path.read_text(encoding="utf-8", errors="replace")
     registry: dict[str, Path] = {}
@@ -561,14 +575,28 @@ def parse_reference_registry(readme_path: Path | None = None) -> dict[str, Path]
         text,
     ):
         tag = match.group(1).strip()
-        link = match.group(3).strip()
+        link = unquote(match.group(3).strip())
         if link.startswith("http") or tag == "MD":
             continue
         if "same as" in match.group(2).lower() or "same as" in link.lower():
             continue
         path = (readme_path.parent / link).resolve()
-        if path.exists():
-            registry[tag] = path
+        registry[tag] = path
+
+    # Once links become absolute R2 URLs the README is no longer sufficient to
+    # reconstruct local logical paths. The artifact manifest keeps those tag
+    # mappings stable; resolution/hydration happens only when a caller needs the
+    # bytes.
+    try:
+        from _reference_store import ReferenceStore
+
+        store = ReferenceStore()
+        for artifact in store.artifacts:
+            logical_path = store.local_path(artifact)
+            for tag in artifact.tags:
+                registry.setdefault(tag, logical_path)
+    except (OSError, ValueError):
+        pass
 
     if "TU" in registry and "KU" not in registry:
         registry["KU"] = registry["TU"]

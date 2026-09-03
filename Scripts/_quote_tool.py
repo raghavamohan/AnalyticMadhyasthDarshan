@@ -103,9 +103,9 @@ def find_snippet(
 
 def cmd_snippet(tag: str, phrase: str) -> None:
     registry = parse_reference_registry()
-    path = registry.get(tag)
-    if path is None:
-        raise SystemExit(f"Unknown tag or no local file: {tag}")
+    if tag not in registry:
+        raise SystemExit(f"Unknown reference tag: {tag}")
+    path = resolve_reference_path(tag)
     pages = load_reference_pages(path, cache_key_for(path))
     result = find_snippet(pages, phrase)
     if tag == "MVD" and result.startswith("p"):

@@ -1,8 +1,8 @@
 # Studies citation verification
 
-Audit of every reference tag cited in `Studies/`. Last verified: 2026-09-03.
+Audit of every reference tag cited in `Studies/`. Last verified: 2026-09-04.
 
-**Legend:** present = file in `References/`; external = linked from original publisher or author URL (see [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md)); internal = another paper in `Studies/`, not a bibliographic source.
+**Legend:** present = available through its listed reference link (R2 or a Git-retained file); external = linked from the original publisher or author URL (see [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md)); internal = another paper in `Studies/`, not a bibliographic source. Storage state, checksums, and rights decisions are authoritative in [r2-artifacts.json](r2-artifacts.json).
 
 ## By Studies paper
 
@@ -63,17 +63,17 @@ For **MVD**, **SB**, and **JV**, the PDF is the file Studies must cite and that 
 
 | Tag | Location | Cited in |
 |-----|----------|----------|
-| **MVD** | [Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf](Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf) · [`.md` analysis extract](Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.md) | all Studies papers above |
-| **SB** | [Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf](Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf) · [`.md` analysis extract](Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.md) | all Studies papers above |
-| **JV** | [Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf](Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf) · [`.md` analysis extract](Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.md) | all Studies papers above |
-| **AVD** | [Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf](Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf) | The-Ontology-of-Coexistence; Axiology-Value-Theory; Family-Relationships-And-Values; A-State-Dynamic-Model-Of-Coexistence; Research-Note-Jeevan-Architecture (internal) |
-| **JVD** | [Madhyasth-Darshan/JVD-Janvad.pdf](Madhyasth-Darshan/JVD-Janvad.pdf) | Nature-Of-Time |
+| **MVD** | [Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf) · [`.md` analysis extract](Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.md) | all Studies papers above |
+| **SB** | [Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf) · [`.md` analysis extract](Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.md) | all Studies papers above |
+| **JV** | [Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf) · [`.md` analysis extract](Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.md) | all Studies papers above |
+| **AVD** | [Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf) | The-Ontology-of-Coexistence; Axiology-Value-Theory; Family-Relationships-And-Values; A-State-Dynamic-Model-Of-Coexistence; Research-Note-Jeevan-Architecture (internal) |
+| **JVD** | [Madhyasth-Darshan/JVD-Janvad.pdf](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JVD-Janvad.pdf) | Nature-Of-Time |
 | **MD** | [Madhyasth-Darshan/MD-Mapping.xlsx](Madhyasth-Darshan/MD-Mapping.xlsx) | terminology glossary; Phase 4 MVD/SB refresh (see MD-Mapping-Sources/) |
 | **KD** | [Madhyasth-Darshan/KD-karm darshan v5.pdf](Madhyasth-Darshan/KD-karm%20darshan%20v5.pdf) | The-Ontology-of-Coexistence; Research-Note-Physics-Of-Satta-Unit-Interaction (internal) |
 | **MSM** | [Madhyasth-Darshan/MSM-manav-sanchetnavaadi-manovigyan.pdf](Madhyasth-Darshan/MSM-manav-sanchetnavaadi-manovigyan.pdf) | (none — not yet cited by any study) |
 | **KD-Karm-Darshan-English** | [Madhyasth-Darshan/KD-Karm-Darshan-English/](Madhyasth-Darshan/KD-Karm-Darshan-English/README.md) | The-Ontology-of-Coexistence; Research-Note-Physics-Of-Satta-Unit-Interaction (internal); full-book working translation (front matter + ch. 1–3) |
 | **MSM-Manav-Sanchetnavadi-Manovigyan-English** | [Madhyasth-Darshan/MSM-Manav-Sanchetnavadi-Manovigyan-English/](Madhyasth-Darshan/MSM-Manav-Sanchetnavadi-Manovigyan-English/README.md) | (setup only — no English translation yet) |
-| **Nagraj 2010 Sakshatkar** | [Madhyasth-Darshan/Nagraj-Recorded-Sessions/](Madhyasth-Darshan/Nagraj-Recorded-Sessions/README.md) — [transcript + translation](Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.md) · [raw ASR](Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-raw-asr.txt) present; recording **external** ([NOT-DOWNLOADED.md](NOT-DOWNLOADED.md)) | Research-Note-Sakshatkar-Bodh-Anubhav-Praman-Session (internal). **Not yet cited by any released study** — oral, machine-transcribed; see folder README before citing |
+| **Nagraj 2010 Sakshatkar** | [Madhyasth-Darshan/Nagraj-Recorded-Sessions/](Madhyasth-Darshan/Nagraj-Recorded-Sessions/README.md) — [transcript + translation](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.pdf) · [raw ASR](Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-raw-asr.txt) present; recording **external** ([NOT-DOWNLOADED.md](NOT-DOWNLOADED.md)) | Research-Note-Sakshatkar-Bodh-Anubhav-Praman-Session (internal). **Not yet cited by any released study** — oral, machine-transcribed; see folder README before citing |
 | **BU** | [Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf](Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf) | Why-Humans, Aesthetics |
 | **TU** | [Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf](Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf) | Why-Humans, The-Ontology-of-Coexistence, Aesthetics (Gambhirananda 2-vol. set; TU at p. 237) |
 | **KU** | same as TU | Why-Humans (Katha at p. 97) |
@@ -83,37 +83,37 @@ For **MVD**, **SB**, and **JV**, the PDF is the file Studies must cite and that 
 | **BSB** | [Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf](Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf) | Why-Humans, Knowledge-Knower |
 | **VC** | [Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf](Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) | Why-Humans, Ethics-And-Morals, The-Ontology-of-Coexistence, Aesthetics, Knowledge-Knower, Nature-Of-Time |
 | **DDV** | [Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf](Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf) | Why-Humans, Knowledge-Knower |
-| **AV** | [Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.html](Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.html) | How-To-Form |
+| **AV** | [SEP entry](https://plato.stanford.edu/entries/shankara/) | How-To-Form |
 | **SV** | [Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf](Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf) | How-To-Form |
 | **Bhattacharya** | [Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf](Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf) | The-Ontology-of-Coexistence, Why-Humans |
 | **ATR** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | How-To-Form |
-| **MD-TOPOS** | [Applied-Studies/MD_TOPOS.pdf](Applied-Studies/MD_TOPOS.pdf) | (none — review MANIFEST.md) |
-| **Poorvam Rasa** | [Comparative-Philosophy/Poorvam-Sadharanikarana-Rasa.html](Comparative-Philosophy/Poorvam-Sadharanikarana-Rasa.html) | Aesthetics |
-| **SEP Natural Law Ethics** | [Comparative-Philosophy/SEP-Natural-Law-Ethics.html](Comparative-Philosophy/SEP-Natural-Law-Ethics.html) | Ethics-And-Morals |
-| **SEP Theological Voluntarism** | [Comparative-Philosophy/SEP-Theological-Voluntarism.html](Comparative-Philosophy/SEP-Theological-Voluntarism.html) | Ethics-And-Morals |
+| **MD-TOPOS** | [Applied-Studies/MD_TOPOS.pdf](https://analyticmadhyasthdarshan.org/References/Applied-Studies/MD_TOPOS.pdf) | (none — review MANIFEST.md) |
+| **Poorvam Rasa** | [Publisher article](https://poorvam.com/article.php?slug=s-dh-ra-kara-a-underlying-process-for-experiencing-rasa) | Aesthetics |
+| **SEP Natural Law Ethics** | [SEP entry](https://plato.stanford.edu/entries/natural-law-ethics/) | Ethics-And-Morals |
+| **SEP Theological Voluntarism** | [SEP entry](https://plato.stanford.edu/entries/voluntarism-theological/) | Ethics-And-Morals |
 | **Matthew 22:37-40**, **Quran 16:90** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Ethics-And-Morals |
 | **Chalmers 1995** | [Science/Chalmers-1995-Facing-Up-to-the-Problem-of-Consciousness.pdf](Science/Chalmers-1995-Facing-Up-to-the-Problem-of-Consciousness.pdf) | Why-Humans, Knowledge-Knower, The-Ontology-of-Coexistence |
-| **Crockett 2013** | [Science/Crockett-2013-Models-of-Morality.pdf](Science/Crockett-2013-Models-of-Morality.pdf) | Ethics-And-Morals |
+| **Crockett 2013** | [Science/Crockett-2013-Models-of-Morality.pdf](https://analyticmadhyasthdarshan.org/References/Science/Crockett-2013-Models-of-Morality.pdf) | Ethics-And-Morals |
 | **Nagel 1974** | [Science/Nagel-1974-What-Is-It-Like-to-Be-a-Bat.pdf](Science/Nagel-1974-What-Is-It-Like-to-Be-a-Bat.pdf) | Why-Humans, Knowledge-Knower, The-Ontology-of-Coexistence |
 | **Strawson 2006** | [Science/Strawson-2006-Realistic-Monism-Panpsychism.pdf](Science/Strawson-2006-Realistic-Monism-Panpsychism.pdf) | Why-Humans, Knowledge-Knower, The-Ontology-of-Coexistence |
 | **Bloom 2013**, **Tomasello 2014** (except Chalmers/Nagel/Strawson) | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Why-Humans |
 | **Churchland 1986**, **Dennett 1991**, **Goff 2019**, **Kandel et al. 2021**, **Kim 2005**, **Popper 1959** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Why-Humans, Knowledge-Knower |
 | **Frankish 2016** | [Modern-Philosophy/Frankish-2016-Illusionism-Theory-Consciousness.pdf](Modern-Philosophy/Frankish-2016-Illusionism-Theory-Consciousness.pdf) | Knowledge-Knower, The-Ontology-of-Coexistence |
-| **Limanowski and Blankenburg 2013** | [Modern-Philosophy/Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf](Modern-Philosophy/Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf) | Knowledge-Knower, The-Ontology-of-Coexistence |
-| **Melloni et al. 2025** | [Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf](Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf) | Knowledge-Knower |
-| **SEP Aesthetics of the Everyday** | [Modern-Philosophy/SEP-Aesthetics-of-Everyday.html](Modern-Philosophy/SEP-Aesthetics-of-Everyday.html) | Aesthetics |
-| **SEP Concept of the Aesthetic** | [Modern-Philosophy/SEP-Concept-of-the-Aesthetic.html](Modern-Philosophy/SEP-Concept-of-the-Aesthetic.html) | Aesthetics |
-| **SEP Definition of Art** | [Modern-Philosophy/SEP-Definition-of-Art.html](Modern-Philosophy/SEP-Definition-of-Art.html) | Aesthetics |
-| **SEP Environmental Aesthetics** | [Modern-Philosophy/SEP-Environmental-Aesthetics.html](Modern-Philosophy/SEP-Environmental-Aesthetics.html) | Aesthetics |
-| **SEP Kant Aesthetics** | [Modern-Philosophy/SEP-Kant-Aesthetics-Teleology.html](Modern-Philosophy/SEP-Kant-Aesthetics-Teleology.html) | Aesthetics |
-| **SEP Moral Psychology** | [Modern-Philosophy/SEP-2025-Moral-Psychology-Empirical-Approaches.html](Modern-Philosophy/SEP-2025-Moral-Psychology-Empirical-Approaches.html) | Ethics-And-Morals |
-| **Tufft et al. 2024** | [Modern-Philosophy/Tufft-et-al-2024-Flow-Active-Inference.pdf](Modern-Philosophy/Tufft-et-al-2024-Flow-Active-Inference.pdf) | Knowledge-Knower |
-| **Whitehead 1929** | [Modern-Philosophy/Whitehead-1929-Process-and-Reality.pdf](Modern-Philosophy/Whitehead-1929-Process-and-Reality.pdf) | The-Ontology-of-Coexistence |
-| **Russell 1921** | [Modern-Philosophy/Russell-1921-The-Analysis-of-Mind.pdf](Modern-Philosophy/Russell-1921-The-Analysis-of-Mind.pdf) | The-Ontology-of-Coexistence |
-| **Russell Basic Writings** | [Modern-Philosophy/Russell-Basic-Writings.pdf](Modern-Philosophy/Russell-Basic-Writings.pdf) | (none — review MANIFEST.md) |
-| **Mach 1914** | [Modern-Philosophy/Mach-1914-The-Analysis-of-Sensations.pdf](Modern-Philosophy/Mach-1914-The-Analysis-of-Sensations.pdf) | The-Ontology-of-Coexistence |
+| **Limanowski and Blankenburg 2013** | [Modern-Philosophy/Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf](https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf) | Knowledge-Knower, The-Ontology-of-Coexistence |
+| **Melloni et al. 2025** | [Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf](https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf) | Knowledge-Knower |
+| **SEP Aesthetics of the Everyday** | [SEP entry](https://plato.stanford.edu/entries/aesthetics-of-everyday/) | Aesthetics |
+| **SEP Concept of the Aesthetic** | [SEP entry](https://plato.stanford.edu/entries/aesthetic-concept/) | Aesthetics |
+| **SEP Definition of Art** | [SEP entry](https://plato.stanford.edu/entries/art-definition/) | Aesthetics |
+| **SEP Environmental Aesthetics** | [SEP entry](https://plato.stanford.edu/entries/environmental-aesthetics/) | Aesthetics |
+| **SEP Kant Aesthetics** | [SEP entry](https://plato.stanford.edu/entries/kant-aesthetics/) | Aesthetics |
+| **SEP Moral Psychology** | [SEP entry](https://plato.stanford.edu/entries/moral-psych-emp/) | Ethics-And-Morals |
+| **Tufft et al. 2024** | [Modern-Philosophy/Tufft-et-al-2024-Flow-Active-Inference.pdf](https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Tufft-et-al-2024-Flow-Active-Inference.pdf) | Knowledge-Knower |
+| **Whitehead 1929** | [Modern-Philosophy/Whitehead-1929-Process-and-Reality.pdf](https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Whitehead-1929-Process-and-Reality.pdf) | The-Ontology-of-Coexistence |
+| **Russell 1921** | [Modern-Philosophy/Russell-1921-The-Analysis-of-Mind.pdf](https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Russell-1921-The-Analysis-of-Mind.pdf) | The-Ontology-of-Coexistence |
+| **Russell Basic Writings** | [Modern-Philosophy/Russell-Basic-Writings.pdf](https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Russell-Basic-Writings.pdf) | (none — review MANIFEST.md) |
+| **Mach 1914** | [Modern-Philosophy/Mach-1914-The-Analysis-of-Sensations.pdf](https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Mach-1914-The-Analysis-of-Sensations.pdf) | The-Ontology-of-Coexistence |
 | **Ashtekar and Singh 2011** | [Science/Ashtekar-Singh-2011-Loop-Quantum-Cosmology-Status-Report.pdf](Science/Ashtekar-Singh-2011-Loop-Quantum-Cosmology-Status-Report.pdf) | The-Ontology-of-Coexistence, Nature-Of-Time |
-| **Carroll 2010** | [Science/Carroll-2010-Energy-Is-Not-Conserved.html](Science/Carroll-2010-Energy-Is-Not-Conserved.html) | The-Ontology-of-Coexistence, Nature-Of-Time |
+| **Carroll 2010** | [Author's article](https://www.preposterousuniverse.com/blog/2010/02/22/energy-is-not-conserved/) | The-Ontology-of-Coexistence, Nature-Of-Time |
 | **Friston 2010** | [Science/Friston-2010-Free-Energy-Principle.pdf](Science/Friston-2010-Free-Energy-Principle.pdf) | The-Ontology-of-Coexistence |
 | **Guth 2007** | [Science/Guth-2007-Eternal-Inflation.pdf](Science/Guth-2007-Eternal-Inflation.pdf) | The-Ontology-of-Coexistence |
 | **Terekhovich 2015** | [Science/Terekhovich-2015-Metaphysics-Principle-Least-Action.pdf](Science/Terekhovich-2015-Metaphysics-Principle-Least-Action.pdf) | (none — review MANIFEST.md) |
@@ -124,7 +124,7 @@ For **MVD**, **SB**, and **JV**, the PDF is the file Studies must cite and that 
 | **Scholarpedia PLA**, **Landau SE**, **particle future SE**, **Reddit PLA**, **Gray and Taylor astonishment**, **Apeiron biological action**, **Emergent Mind PLA**, **ResearchGate teleology**, **Gromov 1989**, **path integrals blog**, **Milewski 2015**, **Baez week292**, **Baez week296**, **Baez maximum principles**, **Baez and Fong 2015**, **Baez and Weingarten 2020**, **nLab prequantized Lagrangian**, **Weinstein Lagrangian**, **Math SE modules** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | (none — review MANIFEST.md) |
 | **Metzinger 2003**, **Penrose 2010**, **Ishvarakrishna**, **Nagarjuna**, **Weinberg 1995** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence |
 | **Hashemi 2025** | [Modern-Philosophy/Hashemi-2025-How-to-Understand-Russellian-Panpsychism.pdf](Modern-Philosophy/Hashemi-2025-How-to-Understand-Russellian-Panpsychism.pdf) | Knowledge-Knower |
-| **McTaggart 1908** | [Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.html](Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.html) | Nature-Of-Time |
+| **McTaggart 1908** | [Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.pdf](https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.pdf) | Nature-Of-Time |
 | **Gettier 1963**, **IEP Enactivism**, **Jarczewski and Riggs 2025**, **Kuhn 2024**, **Massimi 2022**, **Piredda 2024**, **Wiese 2024** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Knowledge-Knower |
 | **Rovelli 2018** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Nature-Of-Time |
 | **Keating 2008**, **Mind and Creativity Rasa** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Aesthetics |
