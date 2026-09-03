@@ -1,0 +1,8 @@
+name = "amd-generated-pdfs"
+main = "src/index.js"
+compatibility_date = "2026-09-03"
+workers_dev = true
+
+# Production deployment is performed by Scripts/_publish_generated_pdf_worker.py.
+# It resolves the existing bucket through the S3 credentials and supplies the
+# GENERATED_PDFS R2 binding without committing an account-specific bucket name.
