@@ -233,8 +233,8 @@ checked out. Never expose `.env` values in logs.
 
 ### 2026-09-03 — M2 accepted
 
-- Added a canonical generated-PDF inventory covering 60 targets: 46
-  Markdown-derived documents plus slides and notes outputs for all seven decks.
+- Added an initial canonical generated-PDF inventory covering 60 targets: 46
+  Markdown files plus slides and notes outputs for all seven decks.
   The reusable research-template markdown is explicitly excluded, and every
   existing PDF under `Studies/`/`Applications/` must be classified.
 - Added a dependency-free AWS Signature V4 R2 client using the official R2 S3
@@ -259,7 +259,7 @@ checked out. Never expose `.env` values in logs.
 ### 2026-09-03 — M3 accepted
 
 - Added `amd-generated-pdfs`, a module Worker with an R2 binding and a generated
-  allowlist for all 60 inventory keys. It serves only allowlisted PDFs; non-PDF
+  allowlist for the generated inventory keys. It serves only allowlisted PDFs; non-PDF
   requests under the necessary `Studies/*` and `Applications/*` prefix routes
   pass unchanged to GitHub Pages.
 - GET, HEAD, OPTIONS, conditional requests, single-range responses, ETag,
@@ -289,8 +289,9 @@ checked out. Never expose `.env` values in logs.
 - Configured repository secrets `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, and
   `CLOUDFLARE_API_TOKEN`, plus non-secret R2 endpoint/bucket/region and
   Cloudflare zone/account variables. Existing unrelated secrets were preserved.
-- Generated and uploaded the complete 60-object inventory: 46 Markdown-derived
-  documents plus 14 verified presentation slides/notes PDFs. Independent R2
+- Generated and uploaded the initial 60-object inventory: 46 Markdown files
+  (including 14 non-public Ongoing stubs) plus 14 verified presentation
+  slides/notes PDFs. Independent R2
   coverage verification passed for every key.
 - Attached the two guarded production routes and purged all generated PDF URLs.
   A full same-origin audit passed HEAD checksum/length checks and a 206 byte-range
@@ -329,3 +330,23 @@ checked out. Never expose `.env` values in logs.
 - The merged tree passes index verification, rule/skill mirror verification, all
   focused R2/router tests, and all 24 enforced repository suites. Active work:
   push the merge resolution and wait for GitHub's pull-request workflows.
+
+### 2026-09-03 — publishable inventory correction
+
+- The first credential-free PR build correctly exposed that 14 canonical
+  Ongoing/Planned markdown stubs have no `**Status:**` and are intentionally
+  rejected by the PDF generator. They have no catalog download links and must
+  not be treated as public artifacts.
+- The inventory now includes 32 publishable Markdown documents (catalog Draft or
+  Released studies plus companion notes) and 14 presentation outputs: 46 public
+  generated PDFs in total. Ongoing stubs are excluded from the Worker allowlist
+  and their old R2 objects are stale-storage candidates, not build failures.
+- PDF-only diffs are ignored by the labelled study router, so this migration's
+  one-time removal of generated files does not falsely convert every Ongoing
+  placeholder into an edited study.
+- Deployed and verified the 46-key allowlist through the isolated canary, then
+  promoted it to production and purged all 46 public URLs. Explicitly deleted
+  the 14 excluded Ongoing-stub objects from R2 with an exact stale-count guard;
+  the publisher verified every deletion. Their historical bytes remain in the
+  pre-cutover Git history, while a future Draft/Released status produces a new
+  supported PDF through the normal pipeline.

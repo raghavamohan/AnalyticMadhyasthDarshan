@@ -223,6 +223,15 @@ def test_changed_study_slugs_includes_multiple_removals() -> None:
     assert got == ["Removed-One", "Removed-Two"]
 
 
+def test_changed_study_slugs_ignores_generated_pdf_only_changes() -> None:
+    entries = [
+        ("D", "Studies/One/One.pdf"),
+        ("M", "Applications/Two/Two.pdf"),
+    ]
+    got = _with_diff(entries, lambda: ci.changed_study_slugs("origin/master"))
+    assert got == []
+
+
 def test_single_purpose_labels_reject_other_study_changes() -> None:
     entries = [
         ("M", f"Studies/{REAL_SLUG}/{REAL_SLUG}.md"),
