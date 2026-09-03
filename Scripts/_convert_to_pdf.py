@@ -397,6 +397,7 @@ def _study_contents_html(html_body: str) -> str:
 {items}
     </ol>
   </nav>
+{_study_contents_open_script()}
 </details>
 """
 
@@ -798,13 +799,18 @@ def _study_theme_toggle_js() -> str:
 """
 
 
-def _study_contents_js() -> str:
+def _study_contents_open_script() -> str:
+    """Open the contents list before later body content is parsed.
+
+    The block stays closed in the HTML so small screens never pay for its
+    height. A parser-blocking script inside the element opens it on large
+    screens before the reading key exists, so first paint already has the
+    final height.
+    """
     return """<script>
-(() => {
-  const toc = document.getElementById("study-contents");
-  if (!toc) return;
-  // Open where there is room to show it without pushing the study off screen.
-  if (window.matchMedia("(min-width: 760px)").matches && window.innerHeight >= 640) {
+(function(){
+  var toc = document.getElementById("study-contents");
+  if (toc && window.matchMedia("(min-width: 760px)").matches && window.innerHeight >= 640) {
     toc.open = true;
   }
 })();
@@ -1016,7 +1022,6 @@ def convert_to_html(
     screen_dark_css = _study_screen_dark_css() if include_web_chrome else ""
     theme_bootstrap = _study_theme_bootstrap_html() if include_web_chrome else ""
     theme_toggle_js = _study_theme_toggle_js() if include_web_chrome else ""
-    contents_js = _study_contents_js() if include_web_chrome else ""
     katex_css = _load_katex_css() if has_latex_math else ""
 
     kd_document_css = ""
@@ -1265,8 +1270,9 @@ def convert_to_html(
 
   /* Contents ---------------------------------------------------------------
      Studies run past 30,000 words, so the sequential previous/next pair is not
-     enough to move around one. Closed by default so it costs no height; the
-     script below opens it where there is room. */
+     enough to move around one. Closed by default so small screens never pay
+     for its height; a parser-blocking script inside the element opens it
+     where there is room, before the reading key is parsed. */
   .study-toc {
     max-width: 37rem;
     margin: 1.6em 0 2.2em;
@@ -1675,7 +1681,7 @@ def convert_to_html(
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 {toolbar}<main id="main">{html_body}</main>
-{mermaid_loader}{section_nav_js}{term_tip_js}{theme_toggle_js}{contents_js}
+{mermaid_loader}{section_nav_js}{term_tip_js}{theme_toggle_js}
 </body>
 </html>"""
 
