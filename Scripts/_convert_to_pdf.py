@@ -21,6 +21,7 @@ from _common import (
     study_md,
 )
 from _glossary_tooltips import apply_glossary_tooltips, load_glossary, wrap_tables_for_scroll
+from _reference_artifacts import public_delivery_url
 from _study_catalog import STATUS_MD_RE, get_study_row, parse_edited_on, strip_status_for_pdf
 
 FEEDBACK_ISSUES_URL = "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new"
@@ -289,6 +290,48 @@ def rewrite_local_links_for_site(
         fragment = parsed.fragment
         if parsed.scheme in {"http", "https", "mailto"} or href.startswith("#"):
             return match.group(0)
+
+        path_part = unquote(parsed.path or href.split("#", 1)[0].split("?", 1)[0])
+        candidates = [(html_path.parent / path_part).resolve()]
+        normalized_path = path_part.replace("\\", "/")
+        if normalized_path.startswith("../References/"):
+            fixed = normalized_path.replace("../References/", "../../References/", 1)
+            candidates.append((html_path.parent / fixed).resolve())
+        for candidate in candidates:
+            try:
+                if candidate.is_relative_to(REFERENCES):
+                    repo_path = candidate.relative_to(BASE).as_posix()
+                    reference_url = public_delivery_url(repo_path)
+                    if not reference_url and candidate.suffix.lower() == ".md":
+                        active_prefixes = (
+                            REFERENCES / "Madhyasth-Darshan/KD-Karm-Darshan-English",
+                            REFERENCES / "Madhyasth-Darshan/MSM-Manav-Sanchetnavadi-Manovigyan-English",
+                        )
+                        if any(candidate.is_relative_to(prefix) for prefix in active_prefixes):
+                            sibling_pdf = candidate.with_suffix(".pdf")
+                            if sibling_pdf.is_file():
+                                reference_url = (
+                                    f"{site_root}/{sibling_pdf.relative_to(BASE).as_posix()}"
+                                )
+                    if reference_url:
+                        if fragment:
+                            reference_url = f"{reference_url}#{fragment}"
+                        return f'href="{reference_url}"'
+                if candidate.is_relative_to(studies) or candidate.is_relative_to(applications):
+                    source_markdown = candidate.with_suffix(".md")
+                    published_html = candidate.with_suffix(".html")
+                    if source_markdown.is_file():
+                        if not published_html.is_file():
+                            raise ValueError(
+                                "cross-study link has no generated HTML target: "
+                                f"{published_html.relative_to(BASE).as_posix()}"
+                            )
+                        url = f"{site_root}/{published_html.relative_to(BASE).as_posix()}"
+                        if fragment:
+                            url = f"{url}#{fragment}"
+                        return f'href="{url}"'
+            except (OSError, ValueError):
+                raise
 
         target = _resolve_repo_link(href, html_path.parent)
         if target is None:

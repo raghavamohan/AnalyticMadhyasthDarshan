@@ -26,7 +26,7 @@
 <meta name="twitter:description" content="How Madhyasth Darshan and neuroscience account for memory: chitta and jeevan, the brain&#x27;s biological memory, and the philosophical question of where remembering occurs"/>
 <meta name="twitter:image" content="https://analyticmadhyasthdarshan.org/Assets/Social/Chitta-Brain-And-Memory.png"/>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Chitta, the Brain, and the Architecture of Memory","description":"How Madhyasth Darshan and neuroscience account for memory: chitta and jeevan, the brain's biological memory, and the philosophical question of where remembering occurs","url":"https://analyticmadhyasthdarshan.org/Studies/Chitta-Brain-And-Memory/Chitta-Brain-And-Memory.html","inLanguage":"en","author":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"publisher":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"image":"https://analyticmadhyasthdarshan.org/Assets/Social/Chitta-Brain-And-Memory.png","dateModified":"2026-06-30T11:37:00+05:30"}
+{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Chitta, the Brain, and the Architecture of Memory","description":"How Madhyasth Darshan and neuroscience account for memory: chitta and jeevan, the brain's biological memory, and the philosophical question of where remembering occurs","url":"https://analyticmadhyasthdarshan.org/Studies/Chitta-Brain-And-Memory/Chitta-Brain-And-Memory.html","inLanguage":"en","author":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"publisher":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"image":"https://analyticmadhyasthdarshan.org/Assets/Social/Chitta-Brain-And-Memory.png","dateModified":"2026-09-04T04:02:00+05:30"}
 </script>
 <script>
 (function(){try{var t=localStorage.getItem("amd-theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();
@@ -470,8 +470,9 @@
 
   /* Contents ---------------------------------------------------------------
      Studies run past 30,000 words, so the sequential previous/next pair is not
-     enough to move around one. Closed by default so it costs no height; the
-     script below opens it where there is room. */
+     enough to move around one. Closed by default so small screens never pay
+     for its height; a parser-blocking script inside the element opens it
+     where there is room, before the reading key is parsed. */
   .study-toc {
     max-width: 37rem;
     margin: 1.6em 0 2.2em;
@@ -705,7 +706,7 @@
 </nav>
 <main id="main"><h1>Chitta, the Brain, and the Architecture of Memory</h1>
 <p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> — a group of people studying <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
-<p><strong>Edited on:</strong> June 30, 2026, 11:37 AM IST</p>
+<p><strong>Edited on:</strong> September 4, 2026, 4:02 AM IST</p>
 <p>Where memory lives in Madhyasth Darshan — <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Chitta — the reflective mind; jeevan’s faculty of contemplation and desire, inspired by buddhi.">chitta</button></span> and <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span> versus the brain&rsquo;s biological memory — compared with neuroscience and philosophy of mind.</p>
 <blockquote>
 <p>This directory holds an <strong>approved study proposal</strong> (pre-catalog). It is not listed on
@@ -761,6 +762,15 @@ Submit the full study via <a href="https://analyticmadhyasthdarshan.org/Studies/
       <li class="study-toc-item study-toc-l2"><a href="#madhyasth-darshan-primary-sources">Madhyasth Darshan (primary sources)</a></li>
     </ol>
   </nav>
+<script>
+(function(){
+  var toc = document.getElementById("study-contents");
+  if (toc && window.matchMedia("(min-width: 760px)").matches && window.innerHeight >= 640) {
+    toc.open = true;
+  }
+})();
+</script>
+
 </details>
 <p class="study-reading-key" aria-label="Reading key">
   <span class="study-reading-key-term">Dotted underline</span>: definition
@@ -1195,16 +1205,6 @@ mermaid.initialize({
   });
   system.addEventListener("change", paint);
   paint();
-})();
-</script>
-<script>
-(() => {
-  const toc = document.getElementById("study-contents");
-  if (!toc) return;
-  // Open where there is room to show it without pushing the study off screen.
-  if (window.matchMedia("(min-width: 760px)").matches && window.innerHeight >= 640) {
-    toc.open = true;
-  }
 })();
 </script>
 

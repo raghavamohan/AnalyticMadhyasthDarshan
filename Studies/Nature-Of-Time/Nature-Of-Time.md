@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 3, 2026, 2:33 PM IST
+**Edited on:** September 4, 2026, 4:01 AM IST
 **Status:** Released
 **The question:** What is the nature of time (*kaal*)? How does Madhyasth Darshan relate timeless Omnipresence (*satta*) to the duration of unit-activity, numerical reckoning, and the past–present–future structure — and how does that compare with Advaita Vedanta, philosophy of time, and modern physics (spacetime, cosmology, entropy)?
 
@@ -272,9 +272,9 @@ Key terms from §§1–3 are collected here for quick reference. Each term is al
 
 ### Madhyasth Darshan (primary sources)
 
-- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: time (*kaal*) as duration of activity (pp. 34, 196); *rachna* and *vistar* (p. 196); absolute energy in every time and place (p. 41); four contextual times of awakened human (p. 34); *satta* at all times indivisible from activities (p. 296); *atma* mediative across three times (p. 299); *satya* at all three times (p. 336); *buddhi* enlightenment of time (p. 204); measurement of time through mathematics (p. 195); *sanskar* definition (p. 90); eight activities of *chitta* including time (p. 327).
-- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: timeless truth across three times (p. 48); no place or time without formless existence (p. 69); three truths and time as relative truth (pp. 65, 251); place/time constructs vs eternal presence (pp. 103, 138); effort–motion–result triad (p. 58); give–take complementarity (pp. 52–53); time measured by duration of activity (p. 65).
-- **JVD** — Nagraj, A. [*Janvad* (*Behaviour Centred Public Discourse*)](../References/Madhyasth-Darshan/JVD-Janvad.pdf). English translation by Sanjeev Chopra (WIP). Cited: time as duration of activity; numerical duration; activity eternally present (p. 85); science associating time with activity (pp. 191–192).
+- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: time (*kaal*) as duration of activity (pp. 34, 196); *rachna* and *vistar* (p. 196); absolute energy in every time and place (p. 41); four contextual times of awakened human (p. 34); *satta* at all times indivisible from activities (p. 296); *atma* mediative across three times (p. 299); *satya* at all three times (p. 336); *buddhi* enlightenment of time (p. 204); measurement of time through mathematics (p. 195); *sanskar* definition (p. 90); eight activities of *chitta* including time (p. 327).
+- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: timeless truth across three times (p. 48); no place or time without formless existence (p. 69); three truths and time as relative truth (pp. 65, 251); place/time constructs vs eternal presence (pp. 103, 138); effort–motion–result triad (p. 58); give–take complementarity (pp. 52–53); time measured by duration of activity (p. 65).
+- **JVD** — Nagraj, A. [*Janvad* (*Behaviour Centred Public Discourse*)](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JVD-Janvad.pdf). English translation by Sanjeev Chopra (WIP). Cited: time as duration of activity; numerical duration; activity eternally present (p. 85); science associating time with activity (pp. 191–192).
 
 ### Advaita Vedanta (primary texts)
 
@@ -291,8 +291,8 @@ Verse and section numbers follow standard numbering and apply to any faithful ed
 
 ### Modern philosophy and physics
 
-- **McTaggart 1908** — McTaggart, J. M. E. ["The Unreality of Time."](../References/Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.html) *Mind*, 17(68), 457–474. Wikisource snapshot (public domain). Also at https://en.wikisource.org/wiki/The_Unreality_of_Time. Cited: A-series and B-series (§3.2).
+- **McTaggart 1908** — McTaggart, J. M. E. ["The Unreality of Time."](https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.pdf) *Mind*, 17(68), 457–474. PDF generated from the public-domain Wikisource transcription. Also at https://en.wikisource.org/wiki/The_Unreality_of_Time. Cited: A-series and B-series (§3.2).
 - **Rovelli 2018** — Rovelli, C. [*The Order of Time*](https://www.penguinrandomhouse.com/books/563895/the-order-of-time-by-carlo-rovelli/). Riverhead Books. Cited: relational time (§3.3).
-- **Whitehead 1929** — Whitehead, A. N. [*Process and Reality*](../References/Modern-Philosophy/Whitehead-1929-Process-and-Reality.pdf). Macmillan, 1929. Cited: actual entities and objective immortality (§3.3).
-- **Carroll 2010** — Carroll, S. ["Energy Is Not Conserved."](../References/Science/Carroll-2010-Energy-Is-Not-Conserved.html) *Preposterous Universe* (blog), 2010. Cited: energy conservation and time-symmetry in General Relativity (§3.4).
+- **Whitehead 1929** — Whitehead, A. N. [*Process and Reality*](https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Whitehead-1929-Process-and-Reality.pdf). Macmillan, 1929. Cited: actual entities and objective immortality (§3.3).
+- **Carroll 2010** — Carroll, S. ["Energy Is Not Conserved."](https://www.preposterousuniverse.com/blog/2010/02/22/energy-is-not-conserved/) *Preposterous Universe* (blog), 2010. Cited: energy conservation and time-symmetry in General Relativity (§3.4).
 - **Ashtekar and Singh 2011** — Ashtekar, A., and Singh, P. ["Loop Quantum Cosmology: A Status Report."](../References/Science/Ashtekar-Singh-2011-Loop-Quantum-Cosmology-Status-Report.pdf) arXiv:1108.0893. Cited: beginningless-substrate research programs (§3.4).

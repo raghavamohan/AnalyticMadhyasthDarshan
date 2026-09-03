@@ -470,8 +470,9 @@
 
   /* Contents ---------------------------------------------------------------
      Studies run past 30,000 words, so the sequential previous/next pair is not
-     enough to move around one. Closed by default so it costs no height; the
-     script below opens it where there is room. */
+     enough to move around one. Closed by default so small screens never pay
+     for its height; a parser-blocking script inside the element opens it
+     where there is room, before the reading key is parsed. */
   .study-toc {
     max-width: 37rem;
     margin: 1.6em 0 2.2em;
@@ -706,7 +707,7 @@
 <main id="main"><h1>Research Note: Bottom-Up Pilot Derivation of <em>Jeevan</em> Activity Spheres</h1>
 <p><strong>Author:</strong> Raghava Mohan Madhwapathi (<a href="https://analyticmadhyasthdarshan.org">analyticmadhyasthdarshan.org</a>)</p>
 <p><strong>Edited on:</strong> August 16, 2026, 10:42 AM IST</p>
-<p><strong>Status:</strong> Internal research note (not a catalog entry). First completed use of the institution-neutral <a href="Research-Template-Jeevan-Activity-Environment-Dossier.md">activity-to-sphere dossier template</a>.</p>
+<p><strong>Status:</strong> Internal research note (not a catalog entry). First completed use of the institution-neutral <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Template-Jeevan-Activity-Environment-Dossier.html">activity-to-sphere dossier template</a>.</p>
 <p><strong>Scope:</strong> This note re-analyses eight contrasting <em>bal/shakti</em> pairs as sixteen activity-members. It does not begin with family, the five institutional functions, or any other social taxonomy. For each member it identifies the bearer, object, participant topology, endpoint of fulfilment, governing criterion, and the conditions required for development, orientation, performance, consequence visibility, evaluation, correction, sustaining, and transmission. These records yield provisional micro-spheres. Only after that derivation does the note ask whether any sphere requires durable organisation.</p>
 <p>The environment does not create a constitutional activity of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>. “Fully active” cannot therefore mean switched on from outside. It means effectively available, rightly oriented by realisation and understanding, competently embodied, evident in the relevant field, open to correction, and capable of continuity in <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Sanskar — accepted qualitative establishments; in education–sanskar, the establishment and transmission of understanding through human tradition.">sanskar</button></span></em>. External arrangements can support or obstruct these conditions without becoming the cause of realisation.</p>
 <details class="study-toc study-toc--with-key" id="study-contents">
@@ -779,6 +780,15 @@
       <li class="study-toc-item study-toc-l2"><a href="#related-research-notes">Related research notes</a></li>
     </ol>
   </nav>
+<script>
+(function(){
+  var toc = document.getElementById("study-contents");
+  if (toc && window.matchMedia("(min-width: 760px)").matches && window.innerHeight >= 640) {
+    toc.open = true;
+  }
+})();
+</script>
+
 </details>
 <p class="study-reading-key" aria-label="Reading key">
   <span class="study-reading-key-term">Dotted underline</span>: definition
@@ -789,7 +799,7 @@
 <h3 id="11-the-activity-member-is-the-analytic-unit" data-depth="2">1.1 The activity-member is the analytic unit</h3>
 <p>The sixty-one source-given pairs remain the documentary units, but their 122 members are the primary units of environmental analysis. This distinction is necessary because the entries are not semantically uniform. A member may name an inner success, a readiness, an act, an object, a relation, a person-role, a sensory quality, a bodily correlate, a material condition, or an evidential result. The environment appropriate to an act cannot be copied mechanically to its object, and the conditions for a relationship-role cannot be inferred from the conditions for a private state.</p>
 <p>The coding uses <strong>D</strong> for direct textual support, <strong>I</strong> for structural inference, <strong>H</strong> for a provisional sphere or organisational hypothesis, and <strong>O</strong> for an open question. External requirements are <strong>N</strong>, necessary; <strong>S</strong>, strongly supportive; <strong>C</strong>, context-dependent; or <strong>U</strong>, unclear. Participation topologies are <strong>J</strong>, intra-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>; <strong>B</strong>, embodied personal; <strong>D</strong>, dyadic or small-group; <strong>R</strong>, durable close or intergenerational relation; <strong>C</strong>, collective or public; <strong>E</strong>, material or ecological; and <strong>T</strong>, historical or intergenerational transmission.</p>
-<p>The full extension refines these codes in three ways. Every anatomy and lifecycle field receives its own evidential status. External conditions are classified as constitutive, enabling, evidential, protective, corrective, sustaining, or transmissive, with necessity scoped separately to occurrence, expression, evidence, correction, or continuity. Universality is also separated into what follows from common <em>jeevan</em> architecture, what follows from universal embodied-human dependence, and what remains a contextual design variable. The <a href="Research-Template-Jeevan-Activity-Environment-Dossier.md">dossier template</a> defines the compact codes.</p>
+<p>The full extension refines these codes in three ways. Every anatomy and lifecycle field receives its own evidential status. External conditions are classified as constitutive, enabling, evidential, protective, corrective, sustaining, or transmissive, with necessity scoped separately to occurrence, expression, evidence, correction, or continuity. Universality is also separated into what follows from common <em>jeevan</em> architecture, what follows from universal embodied-human dependence, and what remains a contextual design variable. The <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Template-Jeevan-Activity-Environment-Dossier.html">dossier template</a> defines the compact codes.</p>
 <h3 id="12-derivation-protocol" data-depth="2">1.2 Derivation protocol</h3>
 <p>Each activity-member passes through the same sequence:</p>
 <ol>
@@ -2131,7 +2141,7 @@
 <h3 id="madhyasth-darshan">Madhyasth Darshan</h3>
 <ul>
 <li><strong>AVD</strong> - A. Nagraj, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf"><em>Adhyatmvad</em></a>, tr. Sanjeev Chopra (work in progress). Cited: the tabulated <em>bal/shakti</em> assignments and counts (pp. 91-94; §§1-9).</li>
-<li><strong>MVD</strong> - A. Nagraj, <a href="../../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.md"><em>Madhyasth Darshan - Co-existentialism</em></a>, tr. Rakesh Gupta. Cited: the evidence chain (p. 12; §§2-9); environment, study, production, and receptivity (pp. 129-134; §§2-9); the human joint form and bodily mediation (pp. 199-205; §§2-9); inner-to-outer activity, reception conditions, values, and awakening (pp. 275-291, 307; §§2-9); the 122-activity enumeration (p. 323; §1); and the detailed pilot definitions (pp. 328-348; §§2-9).</li>
+<li><strong>MVD</strong> - A. Nagraj, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan - Co-existentialism</em></a>, tr. Rakesh Gupta. Cited: the evidence chain (p. 12; §§2-9); environment, study, production, and receptivity (pp. 129-134; §§2-9); the human joint form and bodily mediation (pp. 199-205; §§2-9); inner-to-outer activity, reception conditions, values, and awakening (pp. 275-291, 307; §§2-9); the 122-activity enumeration (p. 323; §1); and the detailed pilot definitions (pp. 328-348; §§2-9).</li>
 </ul>
 <h3 id="related-research-notes">Related research notes</h3>
 <ul>
@@ -2348,16 +2358,6 @@
   });
   system.addEventListener("change", paint);
   paint();
-})();
-</script>
-<script>
-(() => {
-  const toc = document.getElementById("study-contents");
-  if (!toc) return;
-  // Open where there is room to show it without pushing the study off screen.
-  if (window.matchMedia("(min-width: 760px)").matches && window.innerHeight >= 640) {
-    toc.open = true;
-  }
 })();
 </script>
 

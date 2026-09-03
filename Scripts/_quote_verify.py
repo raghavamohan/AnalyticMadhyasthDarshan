@@ -15,6 +15,7 @@ from _common import (
     iter_study_md_paths,
     load_reference_pages,
     parse_reference_registry,
+    resolve_reference_path,
 )
 
 QUOTE_LINE = re.compile(r'^>\s*\*\*[“"](.+?)[”"]\*\*\s*$')
@@ -86,11 +87,16 @@ def load_corpora(
     by_path: dict[Path, list[tuple[int, str]]] = {}
     corpora: dict[str, list[tuple[int, str]]] = {}
     for tag in sorted(tags_needed):
-        path = registry.get(tag)
-        if path is None:
+        logical_path = registry.get(tag)
+        if logical_path is None:
             continue
+        path = resolve_reference_path(tag)
         if path not in by_path:
-            print(f"Loading {path.relative_to(REFERENCES.parent)}...", flush=True)
+            try:
+                label = path.relative_to(REFERENCES.parent)
+            except ValueError:
+                label = path
+            print(f"Loading {label}...", flush=True)
             by_path[path] = load_reference_pages(path, cache_key_for(path))
             print(f"  {len(by_path[path])} page(s)", flush=True)
         corpora[tag] = by_path[path]

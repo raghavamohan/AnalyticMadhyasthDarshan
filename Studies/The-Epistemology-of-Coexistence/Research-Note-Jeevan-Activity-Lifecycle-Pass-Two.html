@@ -470,8 +470,9 @@
 
   /* Contents ---------------------------------------------------------------
      Studies run past 30,000 words, so the sequential previous/next pair is not
-     enough to move around one. Closed by default so it costs no height; the
-     script below opens it where there is room. */
+     enough to move around one. Closed by default so small screens never pay
+     for its height; a parser-blocking script inside the element opens it
+     where there is room, before the reading key is parsed. */
   .study-toc {
     max-width: 37rem;
     margin: 1.6em 0 2.2em;
@@ -796,6 +797,15 @@
       <li class="study-toc-item study-toc-l2"><a href="#related-research-notes">Related research notes</a></li>
     </ol>
   </nav>
+<script>
+(function(){
+  var toc = document.getElementById("study-contents");
+  if (toc && window.matchMedia("(min-width: 760px)").matches && window.innerHeight >= 640) {
+    toc.open = true;
+  }
+})();
+</script>
+
 </details>
 <p class="study-reading-key" aria-label="Reading key">
   <span class="study-reading-key-term">Dotted underline</span>: definition
@@ -4128,14 +4138,14 @@
 <h3 id="madhyasth-darshan">Madhyasth Darshan</h3>
 <ul>
 <li><strong>AVD</strong> - A. Nagraj, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf"><em>Adhyatmvad</em></a>, tr. Sanjeev Chopra (work in progress). Cited: the five-column table, faculty allocation, and sixty-one <em>bal/shakti</em> assignments used to preserve documentary position for all 122 member records (pp. 91-94; §§1-5).</li>
-<li><strong>MVD</strong> - A. Nagraj, <a href="../../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.md"><em>Madhyasth Darshan - Co-existentialism</em></a>, tr. Rakesh Gupta. Cited: the constitutional activity count and the detailed definitions governing entry form, bearer, object, counterpart, endpoint, criterion, and residual status (pp. 323, 327-348; §§1-5); the lifecycle requirements in this register are structural inferences from that anatomy rather than direct quotations.</li>
+<li><strong>MVD</strong> - A. Nagraj, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan - Co-existentialism</em></a>, tr. Rakesh Gupta. Cited: the constitutional activity count and the detailed definitions governing entry form, bearer, object, counterpart, endpoint, criterion, and residual status (pp. 323, 327-348; §§1-5); the lifecycle requirements in this register are structural inferences from that anatomy rather than direct quotations.</li>
 </ul>
 <h3 id="related-research-notes">Related research notes</h3>
 <ul>
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Activity-Pair-Inventory.html"><em>The Sixty-One Activity Pairs of Jeevan</em></a> - the bilingual source inventory and documentary variants.</li>
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Anatomy-Pass-One.html"><em>Pass-One Anatomy of the Remaining Jeevan Activities</em></a> - source and anatomy records for the 106 non-pilot members and the normalization gate.</li>
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers.html"><em>Bottom-Up Pilot Derivation of Jeevan Activity Spheres</em></a> - the sixteen pilot records and refined pass sequence.</li>
-<li><a href="Research-Template-Jeevan-Activity-Environment-Dossier.md"><em>Jeevan Activity-to-Sphere Dossier Template</em></a> - the field provenance, lifecycle, universality, clustering, and validation schema.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Template-Jeevan-Activity-Environment-Dossier.html"><em>Jeevan Activity-to-Sphere Dossier Template</em></a> - the field provenance, lifecycle, universality, clustering, and validation schema.</li>
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Architecture.html"><em>Jeevan Architecture</em></a> - the five faculties, ten generic activities, 122 detailed positions, embodiment, and restfulness.</li>
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Functional-Model.html"><em>A Functional Model of Jeevan</em></a> - orientation, expression, consequence, evaluation, correction, and lasting change.</li>
 <li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Spheres-Pass-Three.html"><em>Pass-Three Derivation of Jeevan Activity Spheres</em></a> - the completed anonymous clustering and sphere architecture derived from this register.</li>
@@ -4346,16 +4356,6 @@
   });
   system.addEventListener("change", paint);
   paint();
-})();
-</script>
-<script>
-(() => {
-  const toc = document.getElementById("study-contents");
-  if (!toc) return;
-  // Open where there is room to show it without pushing the study off screen.
-  if (window.matchMedia("(min-width: 760px)").matches && window.innerHeight >= 640) {
-    toc.open = true;
-  }
 })();
 </script>
 

@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) - a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** July 29, 2026, 5:40 AM IST
+**Edited on:** September 4, 2026, 4:01 AM IST
 **Status:** Draft
 
 **The question:** What are ethics and morals in human beings? Are they divine commands, social conventions, evolutionary adaptations, rational principles, neural/emotional mechanisms, or evidence of correct understanding? How does **Madhyasth Darshan** answer these questions, and how does its answer compare with **Advaita Vedanta** and **modern scientific approaches**?
@@ -472,9 +472,9 @@ Madhyasth Darshan offers a rigorous ethical anthropology in which morality is ne
 
 ### Madhyasth Darshan (primary sources)
 
-- **MVD** - Nagraj, A. [*Madhyasth Darshan - Co-existentialism*, Part 1: *Holistic View of Human Behaviour*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: Sociality and right-use sequence (p. 56); six perspectives and necessary behaviour/thought (p. 67); justice, dharma, truth and just behaviour (p. 102); regulation of behaviour/thought/realization (p. 137); moral development and decline (p. 160).
-- **SB** - Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: threefold knowledge of `jeevan`, existence, and humane conduct (p. 116); human being as seer in coexistence (p. 188).
-- **JV** - Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: humane conduct as values, character, and ethics; ethics as right-use and protection of body, mind, and wealth; human goal (p. 165).
+- **MVD** - Nagraj, A. [*Madhyasth Darshan - Co-existentialism*, Part 1: *Holistic View of Human Behaviour*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: Sociality and right-use sequence (p. 56); six perspectives and necessary behaviour/thought (p. 67); justice, dharma, truth and just behaviour (p. 102); regulation of behaviour/thought/realization (p. 137); moral development and decline (p. 160).
+- **SB** - Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: threefold knowledge of `jeevan`, existence, and humane conduct (p. 116); human being as seer in coexistence (p. 188).
+- **JV** - Nagraj, A. [*Jeevan Vidya: An Introduction*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: humane conduct as values, character, and ethics; ethics as right-use and protection of body, mind, and wealth; human goal (p. 165).
 
 ### Advaita Vedanta
 
@@ -483,17 +483,17 @@ Madhyasth Darshan offers a rigorous ethical anthropology in which morality is ne
 
 ### Traditional Religious Ethics
 
-- **SEP Theological Voluntarism** - Murphy, Mark. ["Theological Voluntarism."](../References/Comparative-Philosophy/SEP-Theological-Voluntarism.html) *Stanford Encyclopedia of Philosophy*. Used for divine-command / theological-voluntarist framing.
-- **SEP Natural Law Ethics** - Murphy, Mark. ["The Natural Law Tradition in Ethics."](../References/Comparative-Philosophy/SEP-Natural-Law-Ethics.html) *Stanford Encyclopedia of Philosophy*, Winter 2024 archived edition. Used for natural-law framing in religious ethics.
+- **SEP Theological Voluntarism** - Murphy, Mark. ["Theological Voluntarism."](https://plato.stanford.edu/entries/voluntarism-theological/) *Stanford Encyclopedia of Philosophy*. Used for divine-command / theological-voluntarist framing.
+- **SEP Natural Law Ethics** - Murphy, Mark. ["The Natural Law Tradition in Ethics."](https://plato.stanford.edu/entries/natural-law-ethics/) *Stanford Encyclopedia of Philosophy*, Winter 2024 archived edition. Used for natural-law framing in religious ethics.
 - **Matthew 22:37-40** - ["Matthew 22:37-40, King James Version."](https://www.christianity.com/bible/kjv/matthew/22-37-40) Public-domain biblical passage cited as an example of Christian ethical compression into love of God and neighbour.
 - **Quran 16:90** - ["Surat An-Nahl 16:90."](https://legacy.quran.com/16/90) Cited as an example of Quranic ethical compression into justice, good conduct, kinship-giving, and rejection of oppression.
 
 ### Modern Science and Philosophy
 
-- **Crockett 2013** - Crockett, Molly J. ["Models of morality."](../References/Science/Crockett-2013-Models-of-Morality.pdf) *Trends in Cognitive Sciences*, 17(8), 363-366. CC BY open-access article.
+- **Crockett 2013** - Crockett, Molly J. ["Models of morality."](https://analyticmadhyasthdarshan.org/References/Science/Crockett-2013-Models-of-Morality.pdf) *Trends in Cognitive Sciences*, 17(8), 363-366. CC BY open-access article.
 - **Curry, Mullins, and Whitehouse 2019** - Curry, Oliver Scott, Daniel Austin Mullins, and Harvey Whitehouse. ["Is It Good to Cooperate? Testing the Theory of Morality-as-Cooperation in 60 Societies."](https://ora.ox.ac.uk/objects/uuid:8dd8d82d-3829-4857-bcf4-eebf196d11be) *Current Anthropology*, 60(1), 47-69. Linked externally; not stored locally because the PDF carries publisher rights/terms language.
 - **Graham et al. 2013** - Graham, Jesse, Jonathan Haidt, Sena Koleva, Matt Motyl, Ravi Iyer, Sean P. Wojcik, and Peter H. Ditto. ["Moral Foundations Theory: The Pragmatic Validity of Moral Pluralism."](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2184440) *Advances in Experimental Social Psychology*, 47, 55-130. Linked externally; publisher PDF not stored locally.
 - **Greene et al. 2001** - Greene, Joshua D., R. Brian Sommerville, Leigh E. Nystrom, John M. Darley, and Jonathan D. Cohen. ["An fMRI Investigation of Emotional Engagement in Moral Judgment."](https://www.science.org/doi/10.1126/science.1062872) *Science*, 293(5537), 2105-2108. Linked externally.
 - **Haidt 2001** - Haidt, Jonathan. ["The Emotional Dog and Its Rational Tail: A Social Intuitionist Approach to Moral Judgment."](https://pages.stern.nyu.edu/~jhaidt/moraljudgment.html) *Psychological Review*, 108(4), 814-834. Linked to author page; PDF not stored locally because redistribution status is not clean enough for this repository.
-- **SEP Moral Psychology** - Doris, John M., and Stephen Stich. ["Moral Psychology: Empirical Approaches."](../References/Modern-Philosophy/SEP-2025-Moral-Psychology-Empirical-Approaches.html) *Stanford Encyclopedia of Philosophy*, Winter 2025 archived edition.
+- **SEP Moral Psychology** - Doris, John M., and Stephen Stich. ["Moral Psychology: Empirical Approaches."](https://plato.stanford.edu/entries/moral-psych-emp/) *Stanford Encyclopedia of Philosophy*, Winter 2025 archived edition.
 - **Tomasello and Vaish 2013** - Tomasello, Michael, and Amrisha Vaish. ["Origins of Human Cooperation and Morality."](https://www.annualreviews.org/content/journals/10.1146/annurev-psych-113011-143812) *Annual Review of Psychology*, 64, 231-255. Linked externally; publisher PDF not stored locally.

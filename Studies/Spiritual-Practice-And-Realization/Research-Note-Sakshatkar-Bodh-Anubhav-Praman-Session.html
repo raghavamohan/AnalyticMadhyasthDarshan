@@ -470,8 +470,9 @@
 
   /* Contents ---------------------------------------------------------------
      Studies run past 30,000 words, so the sequential previous/next pair is not
-     enough to move around one. Closed by default so it costs no height; the
-     script below opens it where there is room. */
+     enough to move around one. Closed by default so small screens never pay
+     for its height; a parser-blocking script inside the element opens it
+     where there is room, before the reading key is parsed. */
   .study-toc {
     max-width: 37rem;
     margin: 1.6em 0 2.2em;
@@ -730,6 +731,15 @@
       <li class="study-toc-item study-toc-l1"><a href="#11-proposed-integration">11. Proposed integration</a></li>
     </ol>
   </nav>
+<script>
+(function(){
+  var toc = document.getElementById("study-contents");
+  if (toc && window.matchMedia("(min-width: 760px)").matches && window.innerHeight >= 640) {
+    toc.open = true;
+  }
+})();
+</script>
+
 </details>
 <p class="study-reading-key" aria-label="Reading key">
   <span class="study-reading-key-term">Dotted underline</span>: definition
@@ -761,7 +771,7 @@
 </tbody>
 </table></div>
 <p>Where the two passes overlap (03:00–06:00) the wording is identical, which is the basis for trusting the batched span.</p>
-<p><strong>The full transcript and translation live in References</strong>, not here: <a href="../../References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.md"><code>References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.md</code></a> — all 130 segments, normalised Hindi with English, per-segment reliability marks, and cross-references to the printed corpus. Raw ASR before normalisation: <a href="../../References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-raw-asr.txt"><code>…-raw-asr.txt</code></a>. Folder conventions and the constraints on citing oral material: <a href="../../References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/README.md"><code>Nagraj-Recorded-Sessions/README.md</code></a>. This note quotes only the load-bearing passages; the transcript is the source of record.</p>
+<p><strong>The full transcript and translation live in References</strong>, not here: <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.pdf"><code>References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.md</code></a> — all 130 segments, normalised Hindi with English, per-segment reliability marks, and cross-references to the printed corpus. Raw ASR before normalisation: <a href="../../References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-raw-asr.txt"><code>…-raw-asr.txt</code></a>. Folder conventions and the constraints on citing oral material: <a href="../../References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/README.md"><code>Nagraj-Recorded-Sessions/README.md</code></a>. This note quotes only the load-bearing passages; the transcript is the source of record.</p>
 <p><strong>Three classes of reliability, marked throughout.</strong></p>
 <ul>
 <li><strong>Reliable</strong> — phrase recurs across segments, or is corroborated by a printed text. Safe to paraphrase.</li>
@@ -1208,16 +1218,6 @@
   });
   system.addEventListener("change", paint);
   paint();
-})();
-</script>
-<script>
-(() => {
-  const toc = document.getElementById("study-contents");
-  if (!toc) return;
-  // Open where there is room to show it without pushing the study off screen.
-  if (window.matchMedia("(min-width: 760px)").matches && window.innerHeight >= 640) {
-    toc.open = true;
-  }
 })();
 </script>
 

@@ -15,6 +15,7 @@ from _common import (
     iter_reference_pdfs,
     load_reference_pages,
     parse_reference_registry,
+    resolve_reference_path,
     study_md,
 )
 from _quote_verify import extract_quotes_from_markdown
@@ -60,7 +61,10 @@ def pdfs_for_study(slug: str) -> list[Path]:
         path = registry.get(tag)
         if path is None or path.suffix.lower() != ".pdf":
             continue
-        resolved = path.resolve()
+        try:
+            resolved = resolve_reference_path(tag)
+        except (FileNotFoundError, KeyError, OSError, ValueError):
+            continue
         if resolved not in seen:
             seen.add(resolved)
             paths.append(resolved)
@@ -75,7 +79,10 @@ def pdfs_for_tags(tags: set[str]) -> list[Path]:
         path = registry.get(tag)
         if path is None or path.suffix.lower() != ".pdf":
             continue
-        resolved = path.resolve()
+        try:
+            resolved = resolve_reference_path(tag)
+        except (FileNotFoundError, KeyError, OSError, ValueError):
+            continue
         if resolved not in seen:
             seen.add(resolved)
             paths.append(resolved)

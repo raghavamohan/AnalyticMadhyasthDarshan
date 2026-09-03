@@ -541,8 +541,8 @@ The strongest conclusion this method can establish is not that one concrete soci
 
 ### Madhyasth Darshan
 
-- **AVD** - A. Nagraj, [*Adhyatmvad*](../../References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf), tr. Sanjeev Chopra (work in progress). Cited: the tabulated *bal/shakti* assignments and counts (pp. 91-94; §§1-9).
-- **MVD** - A. Nagraj, [*Madhyasth Darshan - Co-existentialism*](../../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.md), tr. Rakesh Gupta. Cited: the evidence chain (p. 12; §§2-9); environment, study, production, and receptivity (pp. 129-134; §§2-9); the human joint form and bodily mediation (pp. 199-205; §§2-9); inner-to-outer activity, reception conditions, values, and awakening (pp. 275-291, 307; §§2-9); the 122-activity enumeration (p. 323; §1); and the detailed pilot definitions (pp. 328-348; §§2-9).
+- **AVD** - A. Nagraj, [*Adhyatmvad*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf), tr. Sanjeev Chopra (work in progress). Cited: the tabulated *bal/shakti* assignments and counts (pp. 91-94; §§1-9).
+- **MVD** - A. Nagraj, [*Madhyasth Darshan - Co-existentialism*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf), tr. Rakesh Gupta. Cited: the evidence chain (p. 12; §§2-9); environment, study, production, and receptivity (pp. 129-134; §§2-9); the human joint form and bodily mediation (pp. 199-205; §§2-9); inner-to-outer activity, reception conditions, values, and awakening (pp. 275-291, 307; §§2-9); the 122-activity enumeration (p. 323; §1); and the detailed pilot definitions (pp. 328-348; §§2-9).
 
 ### Related research notes
 
