@@ -6,7 +6,7 @@ import tempfile
 from pathlib import Path
 
 from _common import BASE
-from _build_reference_pdf import render_html
+from _build_reference_pdf import _display_path, render_html
 
 CANARY = BASE / "References/Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.md"
 
@@ -31,8 +31,18 @@ def test_renderer_removes_executable_raw_html() -> None:
         assert "alert(1)" not in rendered
 
 
+def test_output_logging_accepts_runner_temp_outside_repository() -> None:
+    with tempfile.TemporaryDirectory() as temp_dir:
+        path = Path(temp_dir).resolve() / "reference.pdf"
+        assert _display_path(path) == str(path)
+
+
 def main() -> int:
-    tests = [test_rendered_canary_is_safe_and_structured, test_renderer_removes_executable_raw_html]
+    tests = [
+        test_rendered_canary_is_safe_and_structured,
+        test_renderer_removes_executable_raw_html,
+        test_output_logging_accepts_runner_temp_outside_repository,
+    ]
     failed = 0
     for test in tests:
         try:
