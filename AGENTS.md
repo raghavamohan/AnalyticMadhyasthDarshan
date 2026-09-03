@@ -527,17 +527,22 @@ yields three PDFs, which are **not interchangeable**:
 | `<Deck>-notes.pdf` | Slide plus that slide's read-aloud script, one page per slide | The presenter, while delivering |
 | `Presenters-Companion-<Name>.pdf` | Script **plus** primary-text background and Q&A | Pre-session study |
 
-Regenerate in this order whenever the deck changes at all — including notes-only and
-reorder-only edits, since slide images, numbering and scripts all live in the notes PDF:
+Every repository deck and its two output paths are declared in
+`Scripts/presentation-pipeline.json`. Regenerate through the staged builder whenever
+the deck changes at all — including notes-only and reorder-only edits, since slide
+images, numbering and scripts all live in the notes PDF:
 
 ```powershell
-python Scripts/_pptx_to_pdf.py Studies/<Slug>/<Deck>.pptx
-python Scripts/_build_deck_notes_pdf.py Studies/<Slug>/<Deck>.pptx
+python Scripts/_build_presentations.py --deck <Presentation-ID> --in-place
 ```
 
-The second command takes its slide images from `<Deck>.pdf`, so it must run after the
-first. Both accept `--study <Slug>`, but that form resolves only when the folder holds
-exactly one `.pptx`; otherwise pass `--deck <file>` or a full path.
+The builder runs the fatal source-layout gate, asserts the exact production renderer,
+creates slides and notes PDFs in a temporary tree, verifies page geometry, text,
+speaker-note coverage, fonts, and blank pages, then replaces both configured outputs
+only after every selected deck passes. Find the presentation ID in the manifest. Use
+`_pptx_to_pdf.py` and `_build_deck_notes_pdf.py` directly only for isolated diagnostics;
+the notes command must follow the slides command because it takes its slide images from
+the slides PDF.
 
 Read-aloud scripts flow one way: `Presenters-Companion-<Name>.md` (source of truth) →
 `.notes.json` → `Scripts/_sync_pptx_speaker_notes.py` → the `.pptx` notes pane →

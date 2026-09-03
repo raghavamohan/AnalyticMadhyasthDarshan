@@ -16,11 +16,12 @@ for the pipeline itself.**
 | [Study PR](workflows/study-pr.yml) | `pull_request`: `synchronize`, `reopened`, `labeled` — **and only** with one of `new-study` / `study-update` / `status-change` | `study-pr` | **Yes** — pushes regenerated artifacts to the PR branch |
 | [Studies index](workflows/studies-index-check.yml) | **every** `pull_request`; `push` to `master`/`main` | `verify` | No |
 | [PDF pipeline smoke](workflows/pdf-pipeline-smoke.yml) | `pull_request` path-filtered on the PDF pipeline; `workflow_dispatch` | `reproducible` | No |
+| [Presentation pipeline smoke](workflows/presentation-pipeline-smoke.yml) | `pull_request` path-filtered on presentation sources/tooling; `workflow_dispatch` | `libreoffice-candidate` | No |
 | [Proposal approved](workflows/proposal-approved.yml) | `issues: labeled` with `proposal-approved`; `workflow_dispatch` | `comment`, `bootstrap` | **Yes** — `bootstrap` opens and merges its own PR to `master` |
 | [Portal notifications](workflows/portal-notify.yml) | `issues: labeled`; `pull_request_target: closed` | `notify` | No |
 | [Pages deploy retry](workflows/pages-deploy-retry.yml) | `workflow_run` on *pages build and deployment* completing | `retry` | No (re-runs a run) |
 
-Two jobs are gated by more than their trigger, which is the most common source of
+Three jobs are gated by more than their trigger, which is the most common source of
 "why didn't CI run?":
 
 - **Study PR** is skipped unless the PR carries a study label. A `skipped`
@@ -29,6 +30,9 @@ Two jobs are gated by more than their trigger, which is the most common source o
   produces *no run at all* — see
   [§5 Required checks](#5-required-checks-and-branch-protection) for why that
   matters for required checks.
+- **Presentation pipeline smoke** is also path-filtered. It runs only when a
+  PPTX source, presentation renderer/checker, dependency pin, or the workflow
+  itself changes.
 
 **Studies index is the only workflow that reports on every pull request**, and is
 therefore the only one that can serve as a required status check.
@@ -152,7 +156,26 @@ against its own version.
 into `run:` — a dispatch value interpolated directly into a run line is executed
 as shell.
 
-### 2.4 Proposal approved — `proposal-approved.yml`
+### 2.4 Presentation pipeline smoke — `presentation-pipeline-smoke.yml`
+
+Runs on `windows-2025` because the candidate renderer and the decks' required
+Calibri/Cambria fonts are Windows-specific. The workflow reads the exact
+LibreOffice version, installer URL, and SHA-256 from
+`Scripts/presentation-pipeline.json`; the installer script verifies the digest
+before a silent MSI install and the build refuses a renderer-version mismatch.
+
+Every manifested deck is built twice into separate temporary trees. Each build
+must pass source layout checks, page count and geometry, blank-page detection,
+PPTX text recall, speaker-note coverage, notes headers, and required-font checks.
+`_verify_presentation_reproducible.py` then compares page geometry, extracted
+text, and rendered-page hashes between the two builds while reporting raw PDF
+byte equality separately. The first verified tree is retained as a 14-day
+artifact for deck-by-deck comparison with the accepted PowerPoint baseline.
+
+The LibreOffice profile remains `candidate` until that visual comparison is
+accepted. This workflow never publishes to R2 and never modifies the checkout.
+
+### 2.5 Proposal approved — `proposal-approved.yml`
 
 Two independent jobs on the `proposal-approved` label:
 
@@ -194,7 +217,7 @@ verifies approval from the issue's **labels**, not the registry. Contributors ca
 still submit. What is lost is the pre-catalog stub, the registry row, and the row
 reading *Ready for draft* rather than *Approved* on My Submissions.
 
-### 2.5 Portal notifications — `portal-notify.yml`
+### 2.6 Portal notifications — `portal-notify.yml`
 
 Best-effort email to submission-portal contributors via the submissions worker.
 No-ops cleanly when `PORTAL_NOTIFY_SECRET` is unset, when the PR is not a portal
@@ -205,7 +228,7 @@ It uses `pull_request_target`, which runs in a privileged context with access to
 secrets. It is safe here **only because it never checks out PR code** and only
 reads the payload as data. Do not add a checkout step to this workflow.
 
-### 2.6 Pages deploy retry — `pages-deploy-retry.yml`
+### 2.7 Pages deploy retry — `pages-deploy-retry.yml`
 
 Re-runs failed `pages-build-deployment` jobs once, on `master`, on attempt 1 only.
 Guards against the site's intermittent `syncing_files` failure, which has no
@@ -260,6 +283,12 @@ changed, rename and removal metadata, and the router's own unit tests.
 suite discovered by `_run_test_suites.py`, plus `_verify_studies_index.py` and the
 `_sync_agent_rules.py --check` mirror sync that CLAUDE.md makes mandatory.
 
+**Enforced when presentation sources/tooling change:** manifest coverage for all
+PPTX sources, source-deck fatal layout checks, exact candidate renderer and font
+availability, complete slides/notes artifact verification, and two-build
+rendered/text reproducibility. Candidate PDFs are uploaded for review but are
+not published.
+
 **Held back from CI on purpose** — these pass, but failing them would not mean
 the same thing as failing the others, so the call belongs to a maintainer. Each is
 named in `_run_test_suites.py`'s `HELD` map with its reason, and printed on every
@@ -278,7 +307,6 @@ run. Run them with `--all`.
 |-----|-------------|
 | `--live` endpoint checks | Every site/infra suite has a `check_live()` behind an explicit `--live` flag that hits production. CI runs the offline form only, so a deployed regression with a correct repo state is not caught. Worth a scheduled run. |
 | `infra/` Cloudflare Workers | No build, lint, type-check or deploy check |
-| Companion deck pipeline | `_check_deck_layout.py`, `_pptx_to_pdf.py`, `_build_deck_notes_pdf.py` are manual-only (see the `update-study-presentation` skill) |
 | Any lint / formatter | No ruff, flake8, mypy, eslint or markdownlint |
 
 **Pinned toolchain.** `requirements.txt` pins every package exactly, direct and
@@ -431,6 +459,16 @@ those exact generated paths if the run was diagnostic only):
 
 ```bash
 python Scripts/_verify_pdf_reproducible.py --runs 2
+```
+
+The presentation smoke workflow uses its manifest-pinned LibreOffice candidate.
+On Windows, install/verify that renderer and build two complete output trees:
+
+```powershell
+Scripts/_install_presentation_renderer.ps1 -Profile libreoffice-ci-candidate
+python Scripts/_build_presentations.py --all --profile libreoffice-ci-candidate --output-root tmp/presentation-first
+python Scripts/_build_presentations.py --all --profile libreoffice-ci-candidate --output-root tmp/presentation-second
+python Scripts/_verify_presentation_reproducible.py --all --left-root tmp/presentation-first --right-root tmp/presentation-second
 ```
 
 The study-PR pipeline's own steps, per changed study — see [AGENTS.md](../AGENTS.md) §7:
