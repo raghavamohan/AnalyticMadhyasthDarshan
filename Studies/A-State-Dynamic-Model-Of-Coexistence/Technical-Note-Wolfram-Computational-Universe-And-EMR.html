@@ -471,8 +471,9 @@
 
   /* Contents ---------------------------------------------------------------
      Studies run past 30,000 words, so the sequential previous/next pair is not
-     enough to move around one. Closed by default so it costs no height; the
-     script below opens it where there is room. */
+     enough to move around one. Closed by default so small screens never pay
+     for its height; a parser-blocking script inside the element opens it
+     where there is room, before the reading key is parsed. */
   .study-toc {
     max-width: 37rem;
     margin: 1.6em 0 2.2em;
@@ -773,6 +774,15 @@
       <li class="study-toc-item study-toc-l2"><a href="#stephen-wolfram-and-computational-universe">Stephen Wolfram and computational universe</a></li>
     </ol>
   </nav>
+<script>
+(function(){
+  var toc = document.getElementById("study-contents");
+  if (toc && window.matchMedia("(min-width: 760px)").matches && window.innerHeight >= 640) {
+    toc.open = true;
+  }
+})();
+</script>
+
 </details>
 <p class="study-reading-key" aria-label="Reading key">
   <span class="study-reading-key-term">Dotted underline</span>: definition
@@ -1386,16 +1396,6 @@ i,m_e,\operatorname{Eff}_{i,n},
   });
   system.addEventListener("change", paint);
   paint();
-})();
-</script>
-<script>
-(() => {
-  const toc = document.getElementById("study-contents");
-  if (!toc) return;
-  // Open where there is room to show it without pushing the study off screen.
-  if (window.matchMedia("(min-width: 760px)").matches && window.innerHeight >= 640) {
-    toc.open = true;
-  }
 })();
 </script>
 

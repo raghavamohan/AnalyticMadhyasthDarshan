@@ -215,7 +215,7 @@ This is a design and audit note, not a construction of a classifying topos. It i
 
 ### Paper under review
 
-- **MD-TOPOS** — Meena, Balmukund. [*Minimal Decidable Site for the Madhyasth-Darshan Classifying Topos via Single-Flag Morleyisation*](../../References/Applied-Studies/MD_TOPOS.pdf). Version of record, DOI 10.5281/zenodo.16786431. Reviewed: signature and 26+1 ledger (§2); base axioms, Morleyisation, and conservativity claim (§§3–5); site and comparison claim (§§6–7); modal transparency (§8); World-Family layer (§9 and appendices).
+- **MD-TOPOS** — Meena, Balmukund. [*Minimal Decidable Site for the Madhyasth-Darshan Classifying Topos via Single-Flag Morleyisation*](https://analyticmadhyasthdarshan.org/References/Applied-Studies/MD_TOPOS.pdf). Version of record, DOI 10.5281/zenodo.16786431. Reviewed: signature and 26+1 ledger (§2); base axioms, Morleyisation, and conservativity claim (§§3–5); site and comparison claim (§§6–7); modal transparency (§8); World-Family layer (§9 and appendices).
 
 ### State-dynamic reconstruction
 
@@ -223,6 +223,6 @@ This is a design and audit note, not a construction of a classifying topos. It i
 
 ### Primary Madhyasth Darshan texts
 
-- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](../../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: state and motion, *guna*, *svabhav*, and *dharma* as aspects of a unit and as evident in mutuality (p. 47; §3.1).
-- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: units as state and motion and the inseparability of form, property, essential nature, and *dharma* from the bearer (pp. 248–257; §3.1).
-- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: the human body as an evolved formation for evidencing understanding and the necessity of body–*jeevan* association for human activity (p. 59; §3.1).
+- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: state and motion, *guna*, *svabhav*, and *dharma* as aspects of a unit and as evident in mutuality (p. 47; §3.1).
+- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: units as state and motion and the inseparability of form, property, essential nature, and *dharma* from the bearer (pp. 248–257; §3.1).
+- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: the human body as an evolved formation for evidencing understanding and the necessity of body–*jeevan* association for human activity (p. 59; §3.1).

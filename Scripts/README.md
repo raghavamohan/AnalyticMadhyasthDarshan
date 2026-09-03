@@ -67,6 +67,14 @@ what to run **on that branch** before opening the PR.
 | Read one PDF page (cleaned) | `python Scripts/_quote_tool.py page <tag-or-path> <n> [--keyword kw]` |
 | Locate phrase in tagged source | `python Scripts/_quote_tool.py snippet <tag> "<phrase>"` |
 | Download / audit references | `python Scripts/_check_references.py` (full); `python Scripts/_audit_references.py` (bibliography only); `python Scripts/_download_references.py` (mirrors) |
+| Bootstrap/check R2 reference manifest | `python Scripts/_reference_artifacts.py --bootstrap` (one-time, before deletion); `python Scripts/_reference_artifacts.py --check` |
+| Hydrate manifest-backed references | `python Scripts/_hydrate_references.py --tag "MVD"`; use `--path References/...` or `--all-public` as needed |
+| Provision/probe reference R2 bucket | `python Scripts/_publish_reference_artifacts.py --status`; then `--create-bucket` or `--probe-s3-access` (the probe is temporary and removed) |
+| Build all normalized reference PDFs | `python Scripts/_build_reference_pdfs.py --all --output-root <artifact-root>` |
+| Publish safe reference subset | `python Scripts/_publish_reference_artifacts.py --upload-approved --artifact-root <artifact-root>`; then `--verify-approved` |
+| Attach the guarded reference route | `python Scripts/_publish_generated_pdf_worker.py --check-reference-r2-coverage`; then `--apply-reference-routes` |
+| Verify reference delivery | `python Scripts/_verify_reference_delivery.py --workers-dev --artifact-root <artifact-root>` before routing; then `--public` after routing |
+| Rewrite migrated Markdown links | `python Scripts/_rewrite_manifest_reference_links.py --write`; CI uses `--check` |
 | Render / verify MSM translation source images | `python Scripts/_msm_render_page_images.py`; add `--check` to validate the source hash and all 268 PNGs |
 | Review Rakesh Gupta translation alignment | `python Scripts/_review_rakesh_translations.py` |
 | Verify studies index | `python Scripts/_verify_studies_index.py` |
@@ -113,8 +121,16 @@ by those entry points or run directly only for diagnostics and specialized work.
 | `_pdf_metadata.py` | Pin PDF dates and tagged-structure node IDs for reproducible bytes (called by `_regenerate_pdf.py`) |
 | `_download_references.py` | Download manifest entries into `References/` (called by `.ps1`) |
 | `_reference_downloads.py` | Manifest of mirrorable reference files |
+| `_reference_artifacts.py` | Deterministic R2 artifact inventory, checksums, public/private targets, and active-translation exceptions |
+| `_reference_store.py` | Git/cache/public resolver with atomic download and mandatory size/SHA-256 verification |
+| `_hydrate_references.py` | Selective reference hydration by path/tag into the ignored local cache |
+| `_publish_reference_artifacts.py` | Provision/probe the private reference bucket and upload only manifest-gated artifacts |
+| `_build_reference_pdfs.py` | Batch-build all normalized reference PDFs and enforce manifest size/SHA-256 reproducibility |
+| `_verify_reference_delivery.py` | Exercise reference GET/HEAD/range/checksum behavior plus origin pass-through |
+| `_rewrite_manifest_reference_links.py` | Replace Markdown links to migrated payloads with stable R2/external delivery URLs |
 | `_msm_render_page_images.py` | Render the pinned MSM Hindi source to page-aligned PNGs and verify the complete image set |
 | `_audit_references.py` | Bibliography-only audit of Studies/ `## References` links |
+| `_verify_published_document_links.py` | Enforce study-to-study HTML navigation and manifest-backed reference PDF links |
 | `_check_references.py` | Full reference check suite (bibliography, markdown links, mirror files, PDF links) |
 | `_pdf_to_md.py` | Layout-aware PDF → markdown body extraction (PyMuPDF + pdfplumber) |
 | `_pdf_to_study_md.py` | Maintainer CLI: PDF → `Studies/<Slug>/<Slug>.md` with metadata |

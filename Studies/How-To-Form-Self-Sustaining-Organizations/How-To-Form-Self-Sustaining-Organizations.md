@@ -3,7 +3,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 3, 2026, 2:33 PM IST
+**Edited on:** September 4, 2026, 4:01 AM IST
 **Status:** Released
 **The question:** must organisations be built on fear or accumulation, or is there a basis on which they sustain *and* their members are not used as instruments?
 
@@ -348,13 +348,13 @@ The contribution of this view is to collapse two problems usually treated separa
 
 ### Madhyasth Darshan (primary sources)
 
-- **MVD** — Nagraj, A. [*Madhyasth Darshan – Co-existentialism, Part 1: Holistic View of Human Behaviour*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited by chapter.
-- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad / Resolution Centred Materialism*](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited by chapter.
-- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited by chapter.
+- **MVD** — Nagraj, A. [*Madhyasth Darshan – Co-existentialism, Part 1: Holistic View of Human Behaviour*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited by chapter.
+- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad / Resolution Centred Materialism*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited by chapter.
+- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited by chapter.
 
 ### Advaita Vedanta comparison
 
-- **AV** — [*Śaṅkara*, Stanford Encyclopedia of Philosophy](../References/Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.html). Shankara's classical position as summarised in the SEP entry. Also at https://plato.stanford.edu/entries/shankara/
+- **AV** — [*Śaṅkara*, Stanford Encyclopedia of Philosophy](https://plato.stanford.edu/entries/shankara/). Shankara's classical position as summarised in the SEP entry.
 - **SV** — Swami Vivekananda. [*Practical Vedanta*](../References/Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf) (Complete Works). Cited for the social reading of non-duality and the Ramakrishna tradition.
 - **ATR** — Rambachan, A. [*A Hindu Theology of Liberation: Not-Two Is Not One*](https://sunypress.edu/Books/A/A-Hindu-theology-of-liberation2). SUNY Press, 2015.
 

@@ -1,21 +1,37 @@
 # References
 
-Local copies of source texts cited across `Studies/`. See [MANIFEST.md](MANIFEST.md) for a citation audit and [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) for works linked externally only.
+Reference catalog for sources cited across `Studies/`. Approved large payloads are
+served at their stable `/References/...` URLs from Cloudflare R2; unresolved-rights
+PDFs and the two active translation sources remain in Git. See
+[MANIFEST.md](MANIFEST.md) for the citation audit,
+[r2-artifacts.json](r2-artifacts.json) for the storage/checksum source of truth, and
+[NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) for works linked externally only.
 
-**What we store locally**
+**What remains in Git**
 
-- **Madhyasth Darshan** primary texts (MVD, SB, JV, AVD, JVD, KD and MSM Hindi sources) and the MD mapping spreadsheet; the KD full-book working English translation (front matter + ch. 1–3); the page-aligned MSM English-translation workspace (no translation yet); and the promoted **2010 Sakshatkar** recorded-session transcript (machine-transcribed oral material — weaker evidence than the printed texts; recordings stay external; see that folder's README before citing).
-- **Advaita Vedanta** translations under `Advaita-Vedanta/`.
-- **Comparative philosophy, Indian aesthetics, and religious ethics** (AV, SV, SEP snapshots, rasa material) under `Comparative-Philosophy/`.
-- **Open-access science papers** (Chalmers 1995, Nagel 1974, Strawson 2006, Crockett 2013, Ashtekar and Singh 2011, Carroll 2010, Friston 2010, Guth 2007) under `Science/`.
-- **Open-access modern philosophy / cognitive science papers** under `Modern-Philosophy/`.
-- **Applied formal studies of Madhyasth Darshan by other authors** (openly licensed preprints) under `Applied-Studies/`.
+- Small, reviewable Markdown, metadata, manifests, mappings, and translation workspaces.
+- The KD and MSM Hindi source PDFs while those translations are active.
+- PDFs whose redistribution status is still under review; the R2 Worker passes their
+  existing public paths through to GitHub Pages.
+- Cleaned Markdown for the 12 former webpage snapshots. Their original HTML bytes are
+  private in R2; generated PDFs are build-only unless the manifest records a public right.
 
-**What we do not store**
+**What is stored outside Git**
+
+- Sixteen approved PDFs are served from the private `amd-reference-archive` R2 bucket
+  through the allowlisted `amd-generated-pdfs` Worker.
+- Twelve original webpage snapshots are retained under the non-public
+  `archive/original-html/` prefix.
+- SEP entries and unresolved Poorvam/Carroll derivatives link to their canonical
+  publisher pages rather than being electronically redistributed.
+
+**What we do not mirror**
 
 Commercial science books, **ATR**, and other restricted material are **not** copied here. Link to the original publisher or author URL instead — see [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md). **Contributors: do not upload restricted material** to this folder; only add files you may redistribute.
 
-Run `Scripts/_quote_tool.py verify` to check blockquotes in Studies against local files. Run `Scripts/_quote_tool.py cache sync` after adding or updating PDFs under `References/`. Quotes tagged to external-only works are skipped.
+Run `python Scripts/_hydrate_references.py --all-public` to populate the ignored,
+hash-verified cache without Cloudflare credentials. Run `Scripts/_quote_tool.py verify`
+to check blockquotes; external-only works are skipped.
 
 ## Directory layout
 
@@ -24,19 +40,19 @@ References/
 ├── README.md
 ├── MANIFEST.md                 Citation audit: Studies tags → files or external
 ├── NOT-DOWNLOADED.md           External works with original URLs
-├── Madhyasth-Darshan/          Primary texts + MD-Mapping.xlsx; KD and MSM English workspaces; Nagraj-Recorded-Sessions/
-├── Advaita-Vedanta/            Upanishads, Gita, BSB, prakarana texts
-├── Comparative-Philosophy/     AV (SEP), SV (Vivekananda)
-├── Science/                    Chalmers, Nagel, Strawson, cosmology & physics papers
-├── Modern-Philosophy/          Open-access papers and SEP snapshots on consciousness, self, epistemology, and aesthetics
-└── Applied-Studies/            Openly licensed formal studies of Madhyasth Darshan by other authors
+├── r2-artifacts.json           Storage, provenance, rights, size, and SHA-256 manifest
+├── Madhyasth-Darshan/          Markdown/mappings, active translation sources, workspaces
+├── Advaita-Vedanta/            Rights-review PDFs retained in Git
+├── Comparative-Philosophy/     Cleaned Markdown plus rights-review PDFs
+├── Science/                    R2 links and rights-review PDFs
+├── Modern-Philosophy/          Cleaned Markdown, R2 links, and rights-review PDFs
+└── Applied-Studies/            R2 links for openly licensed formal studies
 ```
 
-To refresh externally downloaded files (Advaita Vedanta, comparative philosophy, open-access science papers):
+To hydrate R2-published references into the ignored local cache:
 
 ```powershell
-python Scripts/_download_references.py
-# or: .\Scripts\_download_references.ps1
+python Scripts/_hydrate_references.py --all-public
 ```
 
 Audit Studies bibliographies first: `python Scripts/_audit_references.py`. Agent skill:
@@ -47,8 +63,8 @@ Audit Studies bibliographies first: `python Scripts/_audit_references.py`. Agent
 <!-- studies-catalog -->
 | Paper | Primary tags |
 |-------|----------------|
-| [Aesthetics.pdf](../Studies/Aesthetics/Aesthetics.pdf) | MVD, JV, SB; Advaita (TU, BU, BG, VC); modern aesthetics (SEP Concept of the Aesthetic, SEP Kant Aesthetics, SEP Definition of Art, SEP Environmental Aesthetics, SEP Aesthetics of the Everyday local); Indian aesthetics (Poorvam Rasa local; Keating 2008, Mind and Creativity Rasa external) |
-| [Ethics-And-Morals-In-Human-Beings.pdf](../Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf) | MVD, SB, JV; traditional religious ethics (SEP Theological Voluntarism, SEP Natural Law Ethics local; Matthew 22, Quran 16 external); Advaita (BG, VC); modern moral science/philosophy (Crockett 2013, SEP Moral Psychology local; Curry et al. 2019, Graham et al. 2013, Greene et al. 2001, Haidt 2001, Tomasello and Vaish 2013 external) |
+| [Aesthetics.pdf](../Studies/Aesthetics/Aesthetics.pdf) | MVD, JV, SB; Advaita (TU, BU, BG, VC); modern aesthetics (SEP Concept of the Aesthetic, SEP Kant Aesthetics, SEP Definition of Art, SEP Environmental Aesthetics, SEP Aesthetics of the Everyday external); Indian aesthetics (Poorvam Rasa external; Keating 2008, Mind and Creativity Rasa external) |
+| [Ethics-And-Morals-In-Human-Beings.pdf](../Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf) | MVD, SB, JV; traditional religious ethics (SEP Theological Voluntarism, SEP Natural Law Ethics external; Matthew 22, Quran 16 external); Advaita (BG, VC); modern moral science/philosophy (Crockett 2013 R2, SEP Moral Psychology external; Curry et al. 2019, Graham et al. 2013, Greene et al. 2001, Haidt 2001, Tomasello and Vaish 2013 external) |
 | [How-To-Form-Self-Sustaining-Organizations.pdf](../Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.pdf) | MVD, SB, JV; AV, SV; ATR (external) |
 | [Human-Behavior-And-Society.pdf](../Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.pdf) | MVD, SB, JV |
 | [The-Epistemology-of-Coexistence.pdf](../Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) | MVD, SB, JV; Advaita (BG, BU, BSB, CU, DDV, MU, TU, VC local; VP external); modern science/philosophy (27 works, 8 local / 19 external) |
@@ -68,11 +84,11 @@ For **MVD**, **SB**, and **JV**, Studies bibliographies and quote verification m
 
 | Tag | File | Notes |
 |-----|------|-------|
-| **MVD** | [MVD-Madhyasth-Darshan-Coexistentialism.pdf](Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf) · [`.md`](Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.md) | *Madhyasth Darshan — Co-existentialism*; English translation by Rakesh Gupta. Cite the PDF in Studies; `.md` is analysis-only (do not edit by hand). |
-| **SB** | [SB-Samadhanatmak-Bhautikvad.pdf](Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf) · [`.md`](Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.md) | *Samadhanatmak Bhautikvad*; English translation by Rakesh Gupta; [bilingual Hindi and English playlist on YouTube](https://www.youtube.com/playlist?list=PL69PCoz1OQW0dhshZ0Xv3KtZ7ajJOIpgv). Cite the PDF in Studies; `.md` is analysis-only (do not edit by hand). |
-| **JV** | [JV-Jeevan-Vidya-An-Introduction.pdf](Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf) · [`.md`](Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.md) | *Jeevan Vidya: An Introduction*; English translation by Rakesh Gupta. Cite the PDF in Studies; `.md` is analysis-only (do not edit by hand). |
-| **AVD** | [AVD-Adhyatmvad.docx.pdf](Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf) | *Realisation Centred Spiritualism* (Adhyatmvad); English WIP translation by Sanjeev Chopra |
-| **JVD** | [JVD-Janvad.pdf](Madhyasth-Darshan/JVD-Janvad.pdf) | *Behaviour Centred Public Discourse* (Janvad); English WIP translation by Sanjeev Chopra |
+| **MVD** | [MVD-Madhyasth-Darshan-Coexistentialism.pdf](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf) · [`.md`](Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.md) | *Madhyasth Darshan — Co-existentialism*; English translation by Rakesh Gupta. Cite the PDF in Studies; `.md` is analysis-only (do not edit by hand). |
+| **SB** | [SB-Samadhanatmak-Bhautikvad.pdf](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf) · [`.md`](Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.md) | *Samadhanatmak Bhautikvad*; English translation by Rakesh Gupta; [bilingual Hindi and English playlist on YouTube](https://www.youtube.com/playlist?list=PL69PCoz1OQW0dhshZ0Xv3KtZ7ajJOIpgv). Cite the PDF in Studies; `.md` is analysis-only (do not edit by hand). |
+| **JV** | [JV-Jeevan-Vidya-An-Introduction.pdf](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf) · [`.md`](Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.md) | *Jeevan Vidya: An Introduction*; English translation by Rakesh Gupta. Cite the PDF in Studies; `.md` is analysis-only (do not edit by hand). |
+| **AVD** | [AVD-Adhyatmvad.docx.pdf](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf) | *Realisation Centred Spiritualism* (Adhyatmvad); English WIP translation by Sanjeev Chopra |
+| **JVD** | [JVD-Janvad.pdf](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JVD-Janvad.pdf) | *Behaviour Centred Public Discourse* (Janvad); English WIP translation by Sanjeev Chopra |
 | **MD** | [MD-Mapping.xlsx](Madhyasth-Darshan/MD-Mapping.xlsx) | Hindi–English terminology glossary (chapter/page mapping heritage); exhaustively refreshed from MVD/SB pairs in Phase 4 (freq ≥ 2 candidates; see [`MD-Mapping-Sources/`](Madhyasth-Darshan/MD-Mapping-Sources/README.md)) |
 | **KD** | [KD-karm darshan v5.pdf](Madhyasth-Darshan/KD-karm%20darshan%20v5.pdf) | *Manav Karm Darshan* (Hindi, v5); cited via working translations in [KD-Karm-Darshan-English/](Madhyasth-Darshan/KD-Karm-Darshan-English/README.md) |
 | **MSM** | [MSM-manav-sanchetnavaadi-manovigyan.pdf](Madhyasth-Darshan/MSM-manav-sanchetnavaadi-manovigyan.pdf) | *Manav Sanchetnavadi Manovigyan* (*मानव संचेतनावादी मनोविज्ञान*; Hindi, 2008 OCR edition) by A. Nagraj; official published-book download |
@@ -98,11 +114,11 @@ For **MVD**, **SB**, and **JV**, Studies bibliographies and quote verification m
 | Tag | File | Notes |
 |-----|------|-------|
 | **Chalmers 1995** | [Chalmers-1995-Facing-Up-to-the-Problem-of-Consciousness.pdf](Science/Chalmers-1995-Facing-Up-to-the-Problem-of-Consciousness.pdf) | Author-hosted PDF |
-| **Crockett 2013** | [Crockett-2013-Models-of-Morality.pdf](Science/Crockett-2013-Models-of-Morality.pdf) | Open access, CC BY |
+| **Crockett 2013** | [Crockett-2013-Models-of-Morality.pdf](https://analyticmadhyasthdarshan.org/References/Science/Crockett-2013-Models-of-Morality.pdf) | Open access, CC BY |
 | **Nagel 1974** | [Nagel-1974-What-Is-It-Like-to-Be-a-Bat.pdf](Science/Nagel-1974-What-Is-It-Like-to-Be-a-Bat.pdf) | University-hosted PDF |
 | **Strawson 2006** | [Strawson-2006-Realistic-Monism-Panpsychism.pdf](Science/Strawson-2006-Realistic-Monism-Panpsychism.pdf) | Author-hosted PDF |
 | **Ashtekar and Singh 2011** | [Ashtekar-Singh-2011-Loop-Quantum-Cosmology-Status-Report.pdf](Science/Ashtekar-Singh-2011-Loop-Quantum-Cosmology-Status-Report.pdf) | arXiv open access (gr-qc/1108.0893) |
-| **Carroll 2010** | [Carroll-2010-Energy-Is-Not-Conserved.html](Science/Carroll-2010-Energy-Is-Not-Conserved.html) | Internet Archive snapshot of author blog |
+| **Carroll 2010** | [Author's article](https://www.preposterousuniverse.com/blog/2010/02/22/energy-is-not-conserved/) | External canonical page; cleaned Markdown retained for verification |
 | **Friston 2010** | [Friston-2010-Free-Energy-Principle.pdf](Science/Friston-2010-Free-Energy-Principle.pdf) | Author-hosted / open-access PDF |
 | **Guth 2007** | [Guth-2007-Eternal-Inflation.pdf](Science/Guth-2007-Eternal-Inflation.pdf) | IOP open access |
 | **Terekhovich 2015** | [Terekhovich-2015-Metaphysics-Principle-Least-Action.pdf](Science/Terekhovich-2015-Metaphysics-Principle-Least-Action.pdf) | arXiv open access (physics.hist-ph) |
@@ -116,35 +132,35 @@ For **MVD**, **SB**, and **JV**, Studies bibliographies and quote verification m
 | Tag | File | Notes |
 |-----|------|-------|
 | **Frankish 2016** | [Frankish-2016-Illusionism-Theory-Consciousness.pdf](Modern-Philosophy/Frankish-2016-Illusionism-Theory-Consciousness.pdf) | Author eprint |
-| **Limanowski and Blankenburg 2013** | [Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf](Modern-Philosophy/Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf) | Open access |
-| **Melloni et al. 2025** | [Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf](Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf) | CC BY 4.0; Europe PMC mirror |
-| **SEP Aesthetics of the Everyday** | [SEP-Aesthetics-of-Everyday.html](Modern-Philosophy/SEP-Aesthetics-of-Everyday.html) | Stanford Encyclopedia of Philosophy snapshot |
-| **SEP Concept of the Aesthetic** | [SEP-Concept-of-the-Aesthetic.html](Modern-Philosophy/SEP-Concept-of-the-Aesthetic.html) | Stanford Encyclopedia of Philosophy snapshot |
-| **SEP Definition of Art** | [SEP-Definition-of-Art.html](Modern-Philosophy/SEP-Definition-of-Art.html) | Stanford Encyclopedia of Philosophy snapshot |
-| **SEP Environmental Aesthetics** | [SEP-Environmental-Aesthetics.html](Modern-Philosophy/SEP-Environmental-Aesthetics.html) | Stanford Encyclopedia of Philosophy snapshot |
-| **SEP Kant Aesthetics** | [SEP-Kant-Aesthetics-Teleology.html](Modern-Philosophy/SEP-Kant-Aesthetics-Teleology.html) | Stanford Encyclopedia of Philosophy snapshot |
-| **SEP Moral Psychology** | [SEP-2025-Moral-Psychology-Empirical-Approaches.html](Modern-Philosophy/SEP-2025-Moral-Psychology-Empirical-Approaches.html) | Stanford Encyclopedia of Philosophy archived snapshot |
-| **Tufft et al. 2024** | [Tufft-et-al-2024-Flow-Active-Inference.pdf](Modern-Philosophy/Tufft-et-al-2024-Flow-Active-Inference.pdf) | Open access |
-| **McTaggart 1908** | [McTaggart-1908-The-Unreality-of-Time.html](Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.html) | Wikisource snapshot (public domain) |
+| **Limanowski and Blankenburg 2013** | [Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf](https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf) | Open access |
+| **Melloni et al. 2025** | [Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf](https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf) | CC BY 4.0; Europe PMC mirror |
+| **SEP Aesthetics of the Everyday** | [SEP entry](https://plato.stanford.edu/entries/aesthetics-of-everyday/) | External canonical page; electronic redistribution is not permitted |
+| **SEP Concept of the Aesthetic** | [SEP entry](https://plato.stanford.edu/entries/aesthetic-concept/) | External canonical page; electronic redistribution is not permitted |
+| **SEP Definition of Art** | [SEP entry](https://plato.stanford.edu/entries/art-definition/) | External canonical page; electronic redistribution is not permitted |
+| **SEP Environmental Aesthetics** | [SEP entry](https://plato.stanford.edu/entries/environmental-aesthetics/) | External canonical page; electronic redistribution is not permitted |
+| **SEP Kant Aesthetics** | [SEP entry](https://plato.stanford.edu/entries/kant-aesthetics/) | External canonical page; electronic redistribution is not permitted |
+| **SEP Moral Psychology** | [SEP entry](https://plato.stanford.edu/entries/moral-psych-emp/) | External canonical page; electronic redistribution is not permitted |
+| **Tufft et al. 2024** | [Tufft-et-al-2024-Flow-Active-Inference.pdf](https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Tufft-et-al-2024-Flow-Active-Inference.pdf) | Open access |
+| **McTaggart 1908** | [McTaggart-1908-The-Unreality-of-Time.pdf](https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.pdf) | R2 PDF generated from the public-domain Wikisource transcription; original HTML retained privately |
 | **Hashemi 2025** | [Hashemi-2025-How-to-Understand-Russellian-Panpsychism.pdf](Modern-Philosophy/Hashemi-2025-How-to-Understand-Russellian-Panpsychism.pdf) | Author preprint (PhilSci-Archive) |
-| **Whitehead 1929** | [Whitehead-1929-Process-and-Reality.pdf](Modern-Philosophy/Whitehead-1929-Process-and-Reality.pdf) | 1929 Macmillan edition (public domain) |
-| **Russell 1921** | [Russell-1921-The-Analysis-of-Mind.pdf](Modern-Philosophy/Russell-1921-The-Analysis-of-Mind.pdf) | Public domain |
-| **Russell Basic Writings** | [Russell-Basic-Writings.pdf](Modern-Philosophy/Russell-Basic-Writings.pdf) | NDL Ethiopia mirror; public-domain anthology |
-| **Mach 1914** | [Mach-1914-The-Analysis-of-Sensations.pdf](Modern-Philosophy/Mach-1914-The-Analysis-of-Sensations.pdf) | Open Court translation (public domain) |
+| **Whitehead 1929** | [Whitehead-1929-Process-and-Reality.pdf](https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Whitehead-1929-Process-and-Reality.pdf) | 1929 Macmillan edition (public domain) |
+| **Russell 1921** | [Russell-1921-The-Analysis-of-Mind.pdf](https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Russell-1921-The-Analysis-of-Mind.pdf) | Public domain |
+| **Russell Basic Writings** | [Russell-Basic-Writings.pdf](https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Russell-Basic-Writings.pdf) | NDL Ethiopia mirror; public-domain anthology |
+| **Mach 1914** | [Mach-1914-The-Analysis-of-Sensations.pdf](https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Mach-1914-The-Analysis-of-Sensations.pdf) | Open Court translation (public domain) |
 
 ## Applied-Studies/
 
 | Tag | File | Notes |
 |-----|------|-------|
-| **MD-TOPOS** | [MD_TOPOS.pdf](Applied-Studies/MD_TOPOS.pdf) | Meena, B. (2025). *Minimal Decidable Site for the Madhyasth–Darshan Classifying Topos via Single-Flag Morleyisation*. Zenodo preprint, [DOI 10.5281/zenodo.16786431](https://doi.org/10.5281/zenodo.16786431); CC BY-NC-SA 4.0 |
+| **MD-TOPOS** | [MD_TOPOS.pdf](https://analyticmadhyasthdarshan.org/References/Applied-Studies/MD_TOPOS.pdf) | Meena, B. (2025). *Minimal Decidable Site for the Madhyasth–Darshan Classifying Topos via Single-Flag Morleyisation*. Zenodo preprint, [DOI 10.5281/zenodo.16786431](https://doi.org/10.5281/zenodo.16786431); CC BY-NC-SA 4.0 |
 
 ## Comparative-Philosophy/
 
 | Tag | File | Notes |
 |-----|------|-------|
-| **AV** | [AV-Shankara-Stanford-Encyclopedia.html](Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.html) | *Śaṅkara*, Stanford Encyclopedia of Philosophy (snapshot) |
-| **Poorvam Rasa** | [Poorvam-Sadharanikarana-Rasa.html](Comparative-Philosophy/Poorvam-Sadharanikarana-Rasa.html) | Open article on sadharanikarana and rasa |
-| **SEP Natural Law Ethics** | [SEP-Natural-Law-Ethics.html](Comparative-Philosophy/SEP-Natural-Law-Ethics.html) | *The Natural Law Tradition in Ethics*, Stanford Encyclopedia of Philosophy (snapshot) |
-| **SEP Theological Voluntarism** | [SEP-Theological-Voluntarism.html](Comparative-Philosophy/SEP-Theological-Voluntarism.html) | *Theological Voluntarism*, Stanford Encyclopedia of Philosophy (snapshot) |
+| **AV** | [SEP entry](https://plato.stanford.edu/entries/shankara/) | External canonical page; electronic redistribution is not permitted |
+| **Poorvam Rasa** | [Publisher article](https://poorvam.com/article.php?slug=s-dh-ra-kara-a-underlying-process-for-experiencing-rasa) | External canonical page pending redistribution permission |
+| **SEP Natural Law Ethics** | [SEP entry](https://plato.stanford.edu/entries/natural-law-ethics/) | External canonical page; electronic redistribution is not permitted |
+| **SEP Theological Voluntarism** | [SEP entry](https://plato.stanford.edu/entries/voluntarism-theological/) | External canonical page; electronic redistribution is not permitted |
 | **SV** | [SV-Vivekananda-Practical-Vedanta.pdf](Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf) | *Practical Vedanta* lectures (Complete Works material) |
 | **Bhattacharya** | [Bhattacharya-Jeevan-And-Brain-Relationship.pdf](Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf) | *The Relationship of Jeevan and Brain*; secondary exposition of Nagraj's works |

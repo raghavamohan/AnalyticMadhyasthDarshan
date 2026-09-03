@@ -1,12 +1,18 @@
-import { GENERATED_PDF_KEYS } from "./generated-pdf-keys.js";
+import {
+  GENERATED_PDF_KEYS,
+  REFERENCE_PDF_KEYS,
+  RETAINED_REFERENCE_PDF_KEYS,
+} from "./generated-pdf-keys.js";
 
 const ALLOWED_KEYS = new Set(GENERATED_PDF_KEYS);
+const ALLOWED_REFERENCE_KEYS = new Set(REFERENCE_PDF_KEYS);
+const RETAINED_REFERENCE_KEYS = new Set(RETAINED_REFERENCE_PDF_KEYS);
 const PDF_CONTENT_TYPE = "application/pdf";
 
 function objectKey(pathname) {
   try {
     const key = decodeURIComponent(pathname.replace(/^\/+/, ""));
-    if (key.includes("\\") || (!key.startsWith("Studies/") && !key.startsWith("Applications/"))) {
+    if (key.includes("\\") || (!key.startsWith("Studies/") && !key.startsWith("Applications/") && !key.startsWith("References/"))) {
       return null;
     }
     return key;
@@ -97,7 +103,7 @@ function rangeHeaders(headers, object) {
   return 206;
 }
 
-async function servePdf(request, env, key) {
+async function servePdf(request, bucket, key) {
   if (request.method === "OPTIONS") {
     return new Response(null, {
       status: 204,
@@ -114,7 +120,7 @@ async function servePdf(request, env, key) {
   }
 
   if (request.method === "HEAD") {
-    const object = await env.GENERATED_PDFS.head(key);
+    const object = await bucket.head(key);
     if (object === null) return errorResponse(404, "Generated PDF not published");
     const headers = baseHeaders(object);
     headers.set("Content-Length", String(object.size));
@@ -123,13 +129,13 @@ async function servePdf(request, env, key) {
 
   let object;
   try {
-    object = await env.GENERATED_PDFS.get(key, {
+    object = await bucket.get(key, {
       onlyIf: request.headers,
       range: request.headers,
     });
   } catch (error) {
     if (request.headers.has("Range")) {
-      const existing = await env.GENERATED_PDFS.head(key);
+      const existing = await bucket.head(key);
       if (existing === null) return errorResponse(404, "Generated PDF not published");
       return errorResponse(416, "Requested range not satisfiable", {
         "Content-Range": `bytes */${existing.size}`,
@@ -166,8 +172,13 @@ export default {
       if (url.hostname.endsWith(".workers.dev")) return errorResponse(404, "Not Found");
       return fetch(request);
     }
-    if (!ALLOWED_KEYS.has(key)) return errorResponse(404, "Generated PDF not published");
-    return servePdf(request, env, key);
+    const isReference = key.startsWith("References/");
+    if (isReference && RETAINED_REFERENCE_KEYS.has(key)) return fetch(request);
+    const allowed = isReference ? ALLOWED_REFERENCE_KEYS : ALLOWED_KEYS;
+    if (!allowed.has(key)) return errorResponse(404, "PDF not published");
+    const bucket = isReference ? env.REFERENCE_PDFS : env.GENERATED_PDFS;
+    if (!bucket) return errorResponse(503, "PDF storage is not configured");
+    return servePdf(request, bucket, key);
   },
 };
 

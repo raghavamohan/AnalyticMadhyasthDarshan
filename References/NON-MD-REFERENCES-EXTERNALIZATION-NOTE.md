@@ -1,4 +1,9 @@
-# Planning Note: Make Non-Madhyasth-Darshan References External-Only
+# Superseded Planning Note: Make Non-Madhyasth-Darshan References External-Only
+
+> **Superseded on September 3, 2026.** The current plan is
+> [CLOUDFLARE-R2-MIGRATION-PLAN.md](CLOUDFLARE-R2-MIGRATION-PLAN.md). This file
+> remains as the baseline analysis that preceded the decision to use R2 and to
+> include most Madhyasth Darshan reference artifacts.
 
 **Recorded on:** August 30, 2026
 
