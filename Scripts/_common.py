@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import html
 import re
+import sys
 from pathlib import Path
 
 from pypdf import PdfReader
@@ -22,6 +23,25 @@ DEFAULT_SITE_BASE_URL = "https://analyticmadhyasthdarshan.org"
 MAX_STUDY_SLUG_LEN = 60
 MAX_STUDY_MD_PATH_LEN = 200
 STUDY_SLUG_RE = re.compile(r"[A-Za-z0-9-]+")
+
+
+def configure_utf8_stdio() -> None:
+    """Make CLI diagnostics Unicode-safe on Windows and redirected runners.
+
+    PowerShell can still expose a legacy code page to Python even when repository
+    files are UTF-8.  Reconfigure text streams when Python supports it; callers
+    retain their existing stream when a host supplies a non-standard wrapper.
+    ``backslashreplace`` keeps a diagnostic printable even on the rare stream
+    that refuses the requested encoding.
+    """
+    for stream in (sys.stdout, sys.stderr):
+        reconfigure = getattr(stream, "reconfigure", None)
+        if reconfigure is None:
+            continue
+        try:
+            reconfigure(encoding="utf-8", errors="backslashreplace")
+        except (AttributeError, OSError, ValueError):
+            pass
 
 
 def write_text_lf(path: Path, text: str) -> bool:
