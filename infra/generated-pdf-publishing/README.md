@@ -78,17 +78,17 @@ document-conversion code.
 
 ### M2 — R2 artifact publisher
 
-- [ ] Add a publisher that reads credentials from `.env` locally and GitHub
+- [x] Add a publisher that reads credentials from `.env` locally and GitHub
   Actions secrets in CI without logging them.
-- [ ] Support the current `CLOUDFLARE_R2_*`, documented `R2_*`, and conventional
+- [x] Support the current `CLOUDFLARE_R2_*`, documented `R2_*`, and conventional
   `AWS_*` variable names.
-- [ ] Refuse upload when verification or manifest coverage fails.
-- [ ] Upload only changed checksums and attach content type, cache policy,
+- [x] Refuse upload when verification or manifest coverage fails.
+- [x] Upload only changed checksums and attach content type, cache policy,
   checksum, source hash, and renderer provenance.
-- [ ] Provide dry-run, single-artifact, changed-artifacts, and full-sync modes.
-- [ ] Verify each uploaded object by HEAD/checksum and make stale-object deletion
+- [x] Provide dry-run, single-artifact, changed-artifacts, and full-sync modes.
+- [x] Verify each uploaded object by HEAD/checksum and make stale-object deletion
   an explicit, separate operation.
-- [ ] Add mocked unit tests; keep live R2 tests opt-in.
+- [x] Add mocked unit tests; keep live R2 tests opt-in.
 
 ### M3 — same-origin R2 delivery
 
@@ -230,3 +230,28 @@ checked out. Never expose `.env` values in logs.
 - Promoted LibreOffice `26.2.3.2` to `libreoffice-production`. PowerPoint
   `16.0.20228.20188` remains the accepted fidelity baseline. M1 is complete;
   the next implementation milestone is the verified R2 publisher.
+
+### 2026-09-03 — M2 accepted
+
+- Added a canonical generated-PDF inventory covering 60 targets: 46
+  Markdown-derived documents plus slides and notes outputs for all seven decks.
+  The reusable research-template markdown is explicitly excluded, and every
+  existing PDF under `Studies/`/`Applications/` must be classified.
+- Added a dependency-free AWS Signature V4 R2 client using the official R2 S3
+  endpoint/`auto` region contract. It reads the current Cloudflare-prefixed,
+  R2-prefixed (including `R2_BUCKET_NAME`), or AWS-compatible environment names
+  without logging credential values; when no bucket variable exists it proceeds
+  only if the token can see exactly one bucket.
+- The publisher verifies every selected PDF before any upload, requires matching
+  presentation provenance, skips matching remote SHA-256 metadata, attaches
+  content/cache/source/renderer metadata, and confirms checksum plus size via
+  HEAD after PUT.
+- Dry-run, offline dry-run, single-key, present/changed-key, and complete-sync
+  selection modes are implemented. Remote stale PDFs can be listed separately;
+  deletion requires an explicit command and exact confirmed count, then verifies
+  each key is gone.
+- Six mocked/offline tests pass. The opt-in live test passed PUT, HEAD, DELETE,
+  and final 404 with the current S3 token and left no canary object. A real
+  presentation artifact dry run successfully verified provenance and performed
+  the signed remote HEAD without uploading the production key. M2 is complete;
+  the next milestone is the narrow same-origin Worker/R2 delivery path.
