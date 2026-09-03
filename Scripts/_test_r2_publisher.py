@@ -46,8 +46,12 @@ class InventoryTests(unittest.TestCase):
     def test_inventory_covers_current_and_future_generated_pdfs(self) -> None:
         specs = generated_pdf_specs()
         self.assertEqual(inventory_errors(specs), [])
-        self.assertEqual(len(specs), 60)
-        self.assertEqual(sum(spec.kind == "markdown" for spec in specs), 46)
+        self.assertEqual(len(specs), 46)
+        self.assertFalse(any(
+            spec.key == "Studies/Chitta-Brain-And-Memory/Chitta-Brain-And-Memory.pdf"
+            for spec in specs
+        ))
+        self.assertEqual(sum(spec.kind == "markdown" for spec in specs), 32)
         self.assertEqual(sum(spec.kind == "presentation-slides" for spec in specs), 7)
         self.assertEqual(sum(spec.kind == "presentation-notes" for spec in specs), 7)
         self.assertEqual(

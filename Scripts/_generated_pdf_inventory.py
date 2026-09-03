@@ -7,6 +7,7 @@ from pathlib import Path
 
 from _common import APPLICATIONS, BASE, STUDIES
 from _presentation_pipeline import load_manifest, manifest_errors, repo_relative
+from _study_catalog import StudyStatus, parse_status_md
 
 
 @dataclass(frozen=True)
@@ -20,7 +21,15 @@ class GeneratedPdfSpec:
 
 def _publishable_markdown(path: Path) -> bool:
     # Reusable research schemas are source templates, not reader documents.
-    return not path.stem.startswith("Research-Template-")
+    if path.stem.startswith("Research-Template-"):
+        return False
+    # Companion notes are publishable without catalog status. Canonical study
+    # stubs are not: Ongoing/Planned rows have no public read/download link and
+    # _regenerate_pdf.py intentionally refuses to render them.
+    if path.stem != path.parent.name:
+        return True
+    status = parse_status_md(path.read_text(encoding="utf-8"))
+    return status in (StudyStatus.DRAFT, StudyStatus.RELEASED)
 
 
 def generated_pdf_specs() -> tuple[GeneratedPdfSpec, ...]:

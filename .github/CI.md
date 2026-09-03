@@ -188,16 +188,16 @@ selects affected Markdown sources, regenerates them through the pinned pipeline,
 and uploads a short-lived Actions artifact for inspection. Pull-request jobs do
 not receive R2 or Cloudflare credentials and cannot publish.
 
-On a relevant `master` push (or a manual dispatch on `master`), CI builds all 46
-Markdown-derived PDFs on Linux and all 14 slides/notes PDFs with the pinned
+On a relevant `master` push (or a manual dispatch on `master`), CI builds all 32
+publishable Markdown-derived PDFs on Linux and all 14 slides/notes PDFs with the pinned
 LibreOffice production renderer on Windows. `publish-and-deploy` does not start
 until both complete successfully. It merges the two verified artifact trees,
-publishes all 60 repository-relative object keys to R2, checks complete R2
+publishes all 46 repository-relative object keys to R2, checks complete R2
 coverage, deploys the generated allowlist Worker, attaches the two guarded
 prefix routes, purges the generated URLs, and audits every public PDF including
 a range request and checksum comparison. Worker code first deploys to the
 isolated `amd-generated-pdfs-canary` workers.dev host and must pass the complete
-60-object audit before the production script is updated.
+46-object audit before the production script is updated.
 
 Publication is checksum-driven and idempotent: matching R2 objects are skipped.
 The workflow never commits PDFs. The `.gitignore` rules cover only generated
@@ -318,7 +318,7 @@ availability, complete slides/notes artifact verification, and two-build
 rendered/text reproducibility. Candidate PDFs are uploaded for review but are
 not published.
 
-**Enforced before protected-branch PDF publication:** a complete 60-key inventory,
+**Enforced before protected-branch PDF publication:** a complete 46-key inventory,
 successful Markdown and presentation builds, per-artifact structural/provenance
 verification, R2 checksum and metadata verification, Worker allowlist/route
 deployment, cache purge, and a full same-origin public download audit. A failure
@@ -341,7 +341,7 @@ run. Run them with `--all`.
 
 | Gap | Consequence |
 |-----|-------------|
-| Non-PDF `--live` endpoint checks | Other site/infra suites keep production checks behind explicit `--live` flags. Generated PDF delivery is the exception: every protected-branch publication audits all 60 public URLs. |
+| Non-PDF `--live` endpoint checks | Other site/infra suites keep production checks behind explicit `--live` flags. Generated PDF delivery is the exception: every protected-branch publication audits all 46 public URLs. |
 | Other `infra/` Cloudflare Workers | Generated-PDF Worker contract tests and production deployment are covered; other Workers still lack a shared build/lint/type-check/deploy gate. |
 | Any lint / formatter | No ruff, flake8, mypy, eslint or markdownlint |
 
