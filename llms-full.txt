@@ -7,7 +7,7 @@
 Madhyasth Darshan's account of existence as the coexistence of satta and units — saturation, the four orders, sentience, causation, conservation, and the reality of the world — compared in depth with Advaita Vedanta and modern physics and philosophy
 
 - Collection: topical · Status: released
-- Edited on: Jul 29, 2026, 5:43 AM IST
+- Edited on: Sep 3, 2026, 2:14 PM IST
 - HTML: https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.md
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf
@@ -47,7 +47,7 @@ What knowledge is, who the knower is, and what can be known: coexistence, jeevan
 Madhyasth Darshan's theory of value: what values are, how they are recognised and fulfilled, and how mutual satisfaction grounds a humane axiology
 
 - Collection: topical · Status: released
-- Edited on: Jul 29, 2026, 10:09 AM IST
+- Edited on: Sep 3, 2026, 2:14 PM IST
 - HTML: https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.md
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.pdf
@@ -67,7 +67,7 @@ Whether ethics is divine command, convention, evolution, reason, or evidence of 
 The family as the first site of values: recognising relationships and living trust, affection, gratitude, and mutual satisfaction
 
 - Collection: topical · Status: draft
-- Edited on: Jul 29, 2026, 6:35 AM IST
+- Edited on: Sep 3, 2026, 2:14 PM IST
 - HTML: https://analyticmadhyasthdarshan.org/Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.md
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.pdf
@@ -127,7 +127,7 @@ Madhyasth Darshan's account of how undivided society is established through coex
 A source-bounded qualitative reconstruction linking intrinsic unit activity, compositional closure, constitutionally complete jeevan, animal and human joint forms, reflexive evaluation, and public orderliness. It distinguishes dharma and niyati-kram from causal forces, preserves composition and atomic development as separate lines, and keeps unresolved empirical mechanisms explicit.
 
 - Collection: formal · Status: released
-- Edited on: Sep 1, 2026, 10:44 AM IST
+- Edited on: Sep 3, 2026, 2:14 PM IST
 - HTML: https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.md
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf
