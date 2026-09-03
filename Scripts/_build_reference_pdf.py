@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import base64
 import html
 import re
 import subprocess
@@ -17,6 +18,14 @@ from _common import BASE, REFERENCES, configure_utf8_stdio, favicon_link_tags, w
 from _pdf_metadata import normalize_study_pdf
 
 DEFAULT_OUTPUT_ROOT = BASE / "tmp" / "reference-build"
+FONT_ROOT = BASE / "Assets" / "KaTeX" / "fonts"
+FONT_FACES = (
+    ("AMD Reference Serif", "KaTeX_Main-Regular.woff2", "400", "normal"),
+    ("AMD Reference Serif", "KaTeX_Main-Bold.woff2", "700", "normal"),
+    ("AMD Reference Serif", "KaTeX_Main-Italic.woff2", "400", "italic"),
+    ("AMD Reference Serif", "KaTeX_Main-BoldItalic.woff2", "700", "italic"),
+    ("AMD Reference Mono", "KaTeX_Typewriter-Regular.woff2", "400", "normal"),
+)
 
 STYLE = """
 :root { color-scheme: light; }
@@ -27,7 +36,7 @@ body {
   padding: 2rem 2.25rem 4rem;
   color: #1f2933;
   background: #fff;
-  font-family: Georgia, "Noto Serif", "Times New Roman", serif;
+  font-family: "AMD Reference Serif", serif;
   font-size: 16px;
   line-height: 1.62;
 }
@@ -42,7 +51,7 @@ li { margin: .28rem 0; }
 table { border-collapse: collapse; width: 100%; }
 th, td { border: 1px solid #cbd5e1; padding: .4rem .5rem; text-align: left; vertical-align: top; }
 pre { background: #f8fafc; border: 1px solid #e2e8f0; padding: .8rem; white-space: pre-wrap; }
-code { font-family: "Cascadia Mono", Consolas, monospace; font-size: .9em; }
+code { font-family: "AMD Reference Mono", monospace; font-size: .9em; }
 @media print {
   body { max-width: none; padding: 0; font-size: 10.5pt; line-height: 1.48; }
   a { color: inherit; text-decoration: none; }
@@ -52,6 +61,20 @@ code { font-family: "Cascadia Mono", Consolas, monospace; font-size: .9em; }
   p, li, blockquote, table, pre { break-inside: avoid-page; }
 }
 """.strip()
+
+
+def _style_css() -> str:
+    faces: list[str] = []
+    for family, filename, weight, style in FONT_FACES:
+        encoded = base64.b64encode((FONT_ROOT / filename).read_bytes()).decode("ascii")
+        faces.append(
+            "@font-face {"
+            f'font-family: "{family}"; '
+            f'src: url("data:font/woff2;base64,{encoded}") format("woff2"); '
+            f"font-weight: {weight}; font-style: {style}; font-display: block;"
+            "}"
+        )
+    return "\n".join([*faces, STYLE])
 
 
 def _title(markdown_text: str, fallback: str) -> str:
@@ -87,7 +110,7 @@ def render_html(markdown_path: Path) -> str:
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>{html.escape(title)}</title>
 {favicon_link_tags()}
-<style>{STYLE}</style>
+<style>{_style_css()}</style>
 </head>
 <body>
 <main>
