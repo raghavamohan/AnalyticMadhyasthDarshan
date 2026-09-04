@@ -23,8 +23,12 @@ converters.
 - Public URLs do not change: `amd-generated-pdfs` serves R2 objects at the
   existing `/Studies/...pdf` and `/Applications/...pdf` paths. Never generate a
   PDF during an HTTP request.
-- `References/**/*.pdf` are source/reference material, not generated artifacts;
-  they remain tracked in Git and are not part of this R2 inventory.
+- Reference artifacts follow `References/r2-artifacts.json`: approved immutable
+  PDFs are served from Cloudflare R2, rights-blocked and active-translation PDFs
+  remain in Git, and external-only sources link to their canonical publishers.
+  Do not infer storage from a `References/` path or expect every reference PDF in
+  a checkout. Resolve or hydrate manifest-backed references through
+  `Scripts/_reference_store.py` and `Scripts/_hydrate_references.py`.
 
 ## One-time setup (required for PDF generation)
 
