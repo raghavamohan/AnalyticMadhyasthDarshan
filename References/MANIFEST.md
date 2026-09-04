@@ -14,13 +14,13 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-09-04.
 | | Poorvam Rasa | present |
 | | Keating 2008, Mind and Creativity Rasa | external |
 | [Ethics-And-Morals-In-Human-Beings.pdf](../Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf) | MVD, SB, JV | present |
-| | SEP Theological Voluntarism, SEP Natural Law Ethics | present |
+| | SEP Theological Voluntarism, SEP Natural Law Ethics | external |
 | | Matthew 22:37-40, Quran 16:90 | external |
 | | BG, VC | present |
-| | Crockett 2013, SEP Moral Psychology | present |
+| | Crockett 2013 | present |
+| | SEP Moral Psychology | external |
 | | Curry, Mullins, and Whitehouse 2019, Graham et al. 2013, Greene et al. 2001, Haidt 2001, Tomasello and Vaish 2013 | external |
 | [Why-Humans-Are-Not-Just-Material.pdf](../Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.pdf) | MVD, SB, JV | present |
-| | Bhattacharya | present |
 | | BU, TU, MU, CU, KU, BG, BSB, VC, DDV | present |
 | | Chalmers 1995, Nagel 1974, Strawson 2006 | present |
 | | Bloom 2013, Churchland 1986, Dennett 1991, Popper 1959, Shapiro 2007, Kandel et al. 2021 | external |
@@ -42,7 +42,6 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-09-04.
 | | Carroll 2010, Ashtekar and Singh 2011, McTaggart 1908 | present |
 | | Rovelli 2018 | external |
 | [The-Ontology-of-Coexistence.pdf](../Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) | MVD, SB, JV, AVD, KD | present |
-| | Bhattacharya | present |
 | | CU, TU, VC | present |
 | | Chalmers 1995, Nagel 1974, Strawson 2006 | present |
 | | Frankish 2016, Limanowski and Blankenburg 2013 | present |
@@ -51,6 +50,8 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-09-04.
 | | Metzinger 2003, Penrose 2010, Ishvarakrishna, Nagarjuna, Weinberg 1995 | external |
 | [How-Undivided-Society-Is-Established.pdf](../Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf) | MVD, SB, JV, JVD, AVD | TBD |
 | [Axiology-Value-Theory.pdf](../Studies/Axiology-Value-Theory/Axiology-Value-Theory.pdf) | MVD, SB, JV, AVD, KD | present |
+| | Crockett 2013 | present |
+| | SEP Natural Law Ethics | external |
 | [Family-Relationships-And-Values.pdf](../Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.pdf) | MVD, JV, SB, AVD, KD | present |
 | [Spiritual-Practice-And-Realization.pdf](../Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.pdf) | MVD, JV, KD | present |
 | | Nagraj 2010 Sakshatkar | transcript present; recording external |
@@ -85,15 +86,15 @@ For **MVD**, **SB**, and **JV**, the PDF is the file Studies must cite and that 
 | **DDV** | [Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf) | Why-Humans, Knowledge-Knower |
 | **AV** | [SEP entry](https://plato.stanford.edu/entries/shankara/) | How-To-Form |
 | **SV** | [Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf](Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf) | How-To-Form |
-| **Bhattacharya** | [Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf](Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf) | The-Ontology-of-Coexistence, Why-Humans |
+| **Bhattacharya** | [Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf](https://analyticmadhyasthdarshan.org/References/Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf) | (none — not currently cited by any study) |
 | **ATR** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | How-To-Form |
 | **MD-TOPOS** | [Applied-Studies/MD_TOPOS.pdf](https://analyticmadhyasthdarshan.org/References/Applied-Studies/MD_TOPOS.pdf) | (none — review MANIFEST.md) |
 | **Poorvam Rasa** | [Publisher article](https://poorvam.com/article.php?slug=s-dh-ra-kara-a-underlying-process-for-experiencing-rasa) | Aesthetics |
-| **SEP Natural Law Ethics** | [SEP entry](https://plato.stanford.edu/entries/natural-law-ethics/) | Ethics-And-Morals |
+| **SEP Natural Law Ethics** | [SEP entry](https://plato.stanford.edu/entries/natural-law-ethics/) | Axiology-Value-Theory, Ethics-And-Morals |
 | **SEP Theological Voluntarism** | [SEP entry](https://plato.stanford.edu/entries/voluntarism-theological/) | Ethics-And-Morals |
 | **Matthew 22:37-40**, **Quran 16:90** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Ethics-And-Morals |
 | **Chalmers 1995** | [Science/Chalmers-1995-Facing-Up-to-the-Problem-of-Consciousness.pdf](Science/Chalmers-1995-Facing-Up-to-the-Problem-of-Consciousness.pdf) | Why-Humans, Knowledge-Knower, The-Ontology-of-Coexistence |
-| **Crockett 2013** | [Science/Crockett-2013-Models-of-Morality.pdf](https://analyticmadhyasthdarshan.org/References/Science/Crockett-2013-Models-of-Morality.pdf) | Ethics-And-Morals |
+| **Crockett 2013** | [Science/Crockett-2013-Models-of-Morality.pdf](https://analyticmadhyasthdarshan.org/References/Science/Crockett-2013-Models-of-Morality.pdf) | Axiology-Value-Theory, Ethics-And-Morals |
 | **Nagel 1974** | [Science/Nagel-1974-What-Is-It-Like-to-Be-a-Bat.pdf](Science/Nagel-1974-What-Is-It-Like-to-Be-a-Bat.pdf) | Why-Humans, Knowledge-Knower, The-Ontology-of-Coexistence |
 | **Strawson 2006** | [Science/Strawson-2006-Realistic-Monism-Panpsychism.pdf](Science/Strawson-2006-Realistic-Monism-Panpsychism.pdf) | Why-Humans, Knowledge-Knower, The-Ontology-of-Coexistence |
 | **Bloom 2013**, **Tomasello 2014** (except Chalmers/Nagel/Strawson) | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Why-Humans |

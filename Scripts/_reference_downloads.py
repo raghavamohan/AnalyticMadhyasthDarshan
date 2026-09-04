@@ -94,18 +94,6 @@ DOWNLOADS: tuple[DownloadEntry, ...] = (
         notes="SEP snapshot; existing repo practice for quote verification.",
     ),
     DownloadEntry(
-        dest="Comparative-Philosophy/SEP-Natural-Law-Ethics.html",
-        urls=("https://plato.stanford.edu/entries/natural-law-ethics/",),
-        tag="SEP Natural Law Ethics",
-        notes="SEP snapshot.",
-    ),
-    DownloadEntry(
-        dest="Comparative-Philosophy/SEP-Theological-Voluntarism.html",
-        urls=("https://plato.stanford.edu/entries/voluntarism-theological/",),
-        tag="SEP Theological Voluntarism",
-        notes="SEP snapshot.",
-    ),
-    DownloadEntry(
         dest="Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf",
         urls=("https://www.vivekananda.net/PDFBooks/PracticalVedanta.pdf",),
         tag="SV",
@@ -206,12 +194,6 @@ DOWNLOADS: tuple[DownloadEntry, ...] = (
         dest="Modern-Philosophy/SEP-Aesthetics-of-Everyday.html",
         urls=("https://plato.stanford.edu/entries/aesthetics-of-everyday/",),
         tag="SEP Aesthetics of the Everyday",
-    ),
-    DownloadEntry(
-        dest="Modern-Philosophy/SEP-2025-Moral-Psychology-Empirical-Approaches.html",
-        urls=("https://plato.stanford.edu/entries/moral-psych-emp/",),
-        tag="SEP Moral Psychology",
-        notes="SEP snapshot.",
     ),
     DownloadEntry(
         dest="Modern-Philosophy/Whitehead-1929-Process-and-Reality.pdf",
