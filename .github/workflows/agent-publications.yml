@@ -1,0 +1,100 @@
+name: Agent-facing Workers
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - ".agents/skills/**"
+      - ".well-known/agent-skills/**"
+      - ".well-known/mcp/**"
+      - "infra/reader-skills/**"
+      - "infra/agent-skills-worker/**"
+      - "infra/mcp-worker/**"
+      - "Studies/start-here.json"
+      - "Scripts/_build_agent_skills_index.py"
+      - "Scripts/_publish_agent_skills_snippet.py"
+      - "Scripts/_publish_mcp_server_card.py"
+      - "Scripts/_test_agent_skills.py"
+      - "Scripts/_test_mcp_server_card.py"
+      - "Scripts/_test_studies_api.py"
+      - ".github/workflows/agent-publications.yml"
+  push:
+    branches: [master]
+    paths:
+      - ".agents/skills/**"
+      - ".well-known/agent-skills/**"
+      - ".well-known/mcp/**"
+      - "infra/reader-skills/**"
+      - "infra/agent-skills-worker/**"
+      - "infra/mcp-worker/**"
+      - "Studies/start-here.json"
+      - "Scripts/_build_agent_skills_index.py"
+      - "Scripts/_publish_agent_skills_snippet.py"
+      - "Scripts/_publish_mcp_server_card.py"
+      - "Scripts/_test_agent_skills.py"
+      - "Scripts/_test_mcp_server_card.py"
+      - "Scripts/_test_studies_api.py"
+      - ".github/workflows/agent-publications.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: agent-publications-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  workers:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up study toolchain
+        uses: ./.github/actions/setup-study-env
+        with:
+          node: 'false'
+          python-version: "3.13"
+
+      - name: Set up Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+
+      - name: Validate canonical publications
+        run: |
+          python Scripts/_build_agent_skills_index.py --check
+          python Scripts/_test_agent_skills.py
+          python Scripts/_test_mcp_server_card.py
+          python Scripts/_test_studies_api.py
+
+      - name: Generate Worker bundles
+        run: |
+          python Scripts/_publish_agent_skills_snippet.py --generate-only
+          python Scripts/_publish_mcp_server_card.py --generate-only
+
+      - name: Check generated JavaScript
+        run: |
+          node --check infra/agent-skills-worker/src/index.js
+          node --check infra/mcp-worker/src/index.js
+
+      - name: Deploy Agent Skills Worker
+        if: github.event_name != 'pull_request'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+        run: python Scripts/_publish_agent_skills_snippet.py
+
+      - name: Deploy MCP Worker
+        if: github.event_name != 'pull_request'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+        run: python Scripts/_publish_mcp_server_card.py
+
+      - name: Verify live publications
+        if: github.event_name != 'pull_request'
+        run: |
+          python Scripts/_test_agent_skills.py --live
+          python Scripts/_test_mcp_server_card.py --live
+          python Scripts/_test_studies_api.py --live

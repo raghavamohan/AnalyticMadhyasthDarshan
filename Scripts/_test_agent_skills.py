@@ -176,7 +176,36 @@ def fetch(url: str, accept: str) -> tuple[int, str, bytes]:
         fail(f"{url} request failed: {exc}")
 
 
+def check_live_artifacts(*indexes: dict) -> None:
+    for index in indexes:
+        for skill in index["skills"]:
+            skill_url = skill["url"]
+            if skill_url.startswith("/"):
+                skill_url = f"{SITE}{skill_url}"
+            skill_status, skill_type, skill_body = fetch(
+                skill_url, "text/markdown, text/plain, */*"
+            )
+            if skill_status != 200:
+                fail(
+                    f"skill {skill['name']!r} returned HTTP {skill_status} "
+                    f"at {skill_url}"
+                )
+            if skill["type"] == "skill-md":
+                if (
+                    "markdown" not in skill_type.lower()
+                    and "text/plain" not in skill_type.lower()
+                ):
+                    fail(
+                        f"skill {skill['name']!r} Content-Type is {skill_type!r}"
+                    )
+            digest = "sha256:" + hashlib.sha256(skill_body).hexdigest()
+            if digest != skill["digest"]:
+                fail(f"live digest mismatch for skill {skill['name']!r}")
+
+
 def check_live() -> None:
+    expected_public = load_index_file(INDEX_PATH)
+    expected_maintainer = load_index_file(MAINTAINER_INDEX_PATH)
     url = f"{SITE}{INDEX_SITE_PATH}"
     status, content_type, body = fetch(url, "application/json")
     if status != 200:
@@ -184,26 +213,10 @@ def check_live() -> None:
     if "json" not in content_type.lower():
         fail(f"live Agent Skills index Content-Type is {content_type!r}")
     payload = json.loads(body.decode("utf-8"))
+    if payload != expected_public:
+        fail("live public skills index does not match the canonical index")
     check_index(payload)
     print("OK: live /.well-known/agent-skills/index.json is discovery JSON.")
-    for skill in payload["skills"]:
-        skill_url = skill["url"]
-        if skill_url.startswith("/"):
-            skill_url = f"{SITE}{skill_url}"
-        skill_status, skill_type, skill_body = fetch(
-            skill_url, "text/markdown, text/plain, */*"
-        )
-        if skill_status != 200:
-            fail(f"skill {skill['name']!r} returned HTTP {skill_status} at {skill_url}")
-        if skill["type"] == "skill-md":
-            if "markdown" not in skill_type.lower() and "text/plain" not in skill_type.lower():
-                fail(
-                    f"skill {skill['name']!r} Content-Type is {skill_type!r}"
-                )
-        digest = "sha256:" + hashlib.sha256(skill_body).hexdigest()
-        if digest != skill["digest"]:
-            fail(f"live digest mismatch for skill {skill['name']!r}")
-    print("OK: live skill artifacts match advertised digests.")
     maintainer_url = f"{SITE}{MAINTAINER_INDEX_SITE_PATH}"
     status, content_type, body = fetch(maintainer_url, "application/json")
     if status != 200:
@@ -211,6 +224,8 @@ def check_live() -> None:
     if "json" not in content_type.lower():
         fail(f"live maintainer skills index Content-Type is {content_type!r}")
     maintainer = json.loads(body.decode("utf-8"))
+    if maintainer != expected_maintainer:
+        fail("live maintainer skills index does not match the canonical index")
     check_index(maintainer)
     maintainer_names = {skill["name"] for skill in maintainer["skills"]}
     public_names = {skill["name"] for skill in payload["skills"]}
@@ -219,6 +234,8 @@ def check_live() -> None:
     if "add-study" not in maintainer_names:
         fail("live maintainer index is missing add-study")
     print("OK: live public index is reader-only; maintainer index is separate.")
+    check_live_artifacts(payload, maintainer)
+    print("OK: all live reader and maintainer skill artifacts match advertised digests.")
 
 
 def main() -> None:

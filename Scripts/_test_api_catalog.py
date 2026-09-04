@@ -8,6 +8,7 @@ Run from the repository root:
 from __future__ import annotations
 
 import json
+import re
 import sys
 import urllib.error
 import urllib.request
@@ -84,6 +85,10 @@ RESOURCE_METADATA_URL = (
     "https://analyticmadhyasthdarshan.org/.well-known/oauth-protected-resource"
 )
 LIVE_UA = "AnalyticMadhyasthDarshan-api-catalog-test/1.0"
+HTTP_METHODS = {"get", "post", "put", "patch", "delete"}
+ROUTE_RE = re.compile(
+    r"router\.(get|post|put|patch|delete)\(\s*['\"]([^'\"]+)['\"]"
+)
 
 
 def fail(message: str) -> None:
@@ -95,6 +100,48 @@ def load_json(path: Path) -> object:
     if not path.is_file():
         fail(f"missing {path.relative_to(BASE)}")
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def normalize_runtime_route(path: str) -> str:
+    return re.sub(r":([A-Za-z][A-Za-z0-9_]*)", r"{\1}", path)
+
+
+def check_openapi_runtime_parity(spec_path: Path, runtime_path: Path) -> None:
+    spec = load_json(spec_path)
+    if not isinstance(spec, dict) or spec.get("openapi") != "3.1.0":
+        fail(f"{spec_path.name} must declare OpenAPI 3.1.0")
+    paths = spec.get("paths")
+    if not isinstance(paths, dict) or not paths:
+        fail(f"{spec_path.name} has no paths")
+    documented = {
+        (method.lower(), path)
+        for path, path_item in paths.items()
+        if isinstance(path_item, dict)
+        for method in path_item
+        if method.lower() in HTTP_METHODS
+    }
+    runtime_text = runtime_path.read_text(encoding="utf-8")
+    implemented = {
+        (method.lower(), normalize_runtime_route(path))
+        for method, path in ROUTE_RE.findall(runtime_text)
+        if path.startswith("/api/")
+    }
+    missing = sorted(implemented - documented)
+    extra = sorted(documented - implemented)
+    if missing or extra:
+        fail(
+            f"{spec_path.name} route drift versus {runtime_path.relative_to(BASE)}; "
+            f"missing={missing}, extra={extra}"
+        )
+    schemas = ((spec.get("components") or {}).get("schemas") or {})
+    serialized = json.dumps(spec)
+    refs = set(re.findall(r'#/components/schemas/([A-Za-z0-9_-]+)', serialized))
+    unresolved = sorted(refs - set(schemas))
+    if unresolved:
+        fail(f"{spec_path.name} has unresolved schema references: {unresolved}")
+    print(
+        f"OK: {spec_path.name} documents all {len(implemented)} runtime operations."
+    )
 
 
 def site_path(url: str) -> Path | None:
@@ -209,6 +256,9 @@ def check_live_catalog() -> dict:
     if "application/linkset+json" not in content_type:
         fail(f"live catalog Content-Type is {content_type!r}")
     payload = json.loads(body)
+    expected = load_json(CATALOG_PATH)
+    if payload != expected:
+        fail("live api-catalog does not match .well-known/api-catalog")
     if len(payload.get("linkset") or []) < 3:
         fail("live catalog should list studies catalogs plus the two write APIs")
     hrefs = {
@@ -226,6 +276,19 @@ def check_live_catalog() -> dict:
         fail(f"live catalog is missing describedby hrefs: {missing_dynamic}")
     print("OK: live /.well-known/api-catalog is RFC 9727 linkset JSON.")
     return payload
+
+
+def check_live_openapi() -> None:
+    for name in ("submissions.json", "discussions.json", "studies.json"):
+        url = f"https://analyticmadhyasthdarshan.org/openapi/{name}"
+        status, headers, body = fetch_live(url)
+        if status != 200:
+            fail(f"live openapi/{name} returned HTTP {status}")
+        if "json" not in header_value(headers, "Content-Type").lower():
+            fail(f"live openapi/{name} has a non-JSON Content-Type")
+        if json.loads(body) != load_json(BASE / "openapi" / name):
+            fail(f"live openapi/{name} does not match the repository contract")
+    print("OK: live OpenAPI documents match the repository contracts.")
 
 
 def check_live_status_links(catalog: dict) -> None:
@@ -350,12 +413,14 @@ def main() -> None:
     if missing_dynamic:
         fail(f"api-catalog is missing describedby hrefs: {missing_dynamic}")
 
-    for spec in (BASE / "openapi" / "submissions.json", BASE / "openapi" / "discussions.json"):
-        data = load_json(spec)
-        if data.get("openapi") != "3.1.0":
-            fail(f"{spec.name} must declare OpenAPI 3.1.0")
-        if not data.get("paths"):
-            fail(f"{spec.name} has no paths")
+    check_openapi_runtime_parity(
+        BASE / "openapi" / "submissions.json",
+        BASE / "infra" / "worker" / "src" / "index.js",
+    )
+    check_openapi_runtime_parity(
+        BASE / "openapi" / "discussions.json",
+        BASE / "infra" / "discussions-worker" / "src" / "index.js",
+    )
 
     print("OK: RFC 9727 api-catalog and OpenAPI files.")
     missing_rels = [rel for rel in HOMEPAGE_LINK_RELS if f'rel="{rel}"' not in HOMEPAGE_LINK]
@@ -370,6 +435,7 @@ def main() -> None:
     check_sitemap_discovery()
     if "--live" in sys.argv:
         catalog = check_live_catalog()
+        check_live_openapi()
         check_live_homepage_link_headers()
         check_live_status_links(catalog)
         check_live_www_authenticate()
