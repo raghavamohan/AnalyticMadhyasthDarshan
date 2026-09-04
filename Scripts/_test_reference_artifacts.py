@@ -48,7 +48,7 @@ def test_scope_and_translation_exceptions() -> None:
     )
     assert sum(
         entry["kind"] == "third-party-html-snapshot" for entry in artifacts
-    ) == 12
+    ) == 9
 
 
 def test_normalized_pdf_registration_contract() -> None:

@@ -314,8 +314,8 @@
       "kind": "reference-pdf",
       "repo_path": "References/Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf",
       "rights": {
-        "notes": "",
-        "status": "review-required"
+        "notes": "Copy supplied by the author with permission to publish through the site.",
+        "status": "author-permission-recorded"
       },
       "source": {
         "bytes": 171659,
@@ -325,14 +325,14 @@
         "sha256": "070feaf1431f69c8f0db624575b8451f51fb055848de020357b3ecf16f951032",
         "urls": []
       },
-      "state": "git-retained",
+      "state": "r2-published",
       "tags": [
         "Bhattacharya"
       ],
       "target": {
         "public_url": "https://analyticmadhyasthdarshan.org/References/Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf",
-        "r2_key": null,
-        "storage": "git-retained-rights-review"
+        "r2_key": "References/Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf",
+        "storage": "r2-public"
       }
     },
     {
@@ -395,134 +395,6 @@
       "tags": [],
       "target": {
         "public_url": "https://poorvam.com/article.php?slug=s-dh-ra-kara-a-underlying-process-for-experiencing-rasa",
-        "r2_key": null,
-        "storage": "external-only-rights-review"
-      }
-    },
-    {
-      "delivery": {
-        "artifact_repo_path": "References/Comparative-Philosophy/SEP-Natural-Law-Ethics.pdf",
-        "build_path": "tmp/reference-build/Comparative-Philosophy/SEP-Natural-Law-Ethics.pdf",
-        "bytes": 270321,
-        "markdown_path": "References/Comparative-Philosophy/SEP-Natural-Law-Ethics.md",
-        "sha256": "5d4c427902a132f8871d9810002794f1c9967d6d61fcb524d99dc8fe9fb45028",
-        "source_format": "cleaned-markdown",
-        "status": "generated-local"
-      },
-      "kind": "third-party-html-snapshot",
-      "repo_path": "References/Comparative-Philosophy/SEP-Natural-Law-Ethics.html",
-      "rights": {
-        "notes": "SEP snapshot.",
-        "status": "review-required"
-      },
-      "source": {
-        "bytes": 75614,
-        "media_type": "text/html; charset=utf-8",
-        "minimum_bytes": 1024,
-        "notes": "SEP snapshot.",
-        "sha256": "d796b7425d82fe153ccbd6c1601d514caf86fe5a4dfb887e9b31352aeacad908",
-        "urls": [
-          "https://plato.stanford.edu/entries/natural-law-ethics/"
-        ]
-      },
-      "state": "r2-published",
-      "tags": [],
-      "target": {
-        "public_url": null,
-        "r2_key": "archive/original-html/Comparative-Philosophy/SEP-Natural-Law-Ethics.html",
-        "storage": "r2-private-original"
-      }
-    },
-    {
-      "generation": {
-        "build_path": "tmp/reference-build/Comparative-Philosophy/SEP-Natural-Law-Ethics.pdf",
-        "original_html": "References/Comparative-Philosophy/SEP-Natural-Law-Ethics.html",
-        "source_markdown": "References/Comparative-Philosophy/SEP-Natural-Law-Ethics.md"
-      },
-      "kind": "normalized-reference-pdf",
-      "repo_path": "References/Comparative-Philosophy/SEP-Natural-Law-Ethics.pdf",
-      "rights": {
-        "notes": "SEP snapshot.",
-        "status": "review-required"
-      },
-      "source": {
-        "bytes": 270321,
-        "media_type": "application/pdf",
-        "minimum_bytes": 500,
-        "notes": "Generated deterministically from cleaned Markdown; original HTML retained privately.",
-        "sha256": "5d4c427902a132f8871d9810002794f1c9967d6d61fcb524d99dc8fe9fb45028",
-        "urls": [
-          "https://plato.stanford.edu/entries/natural-law-ethics/"
-        ]
-      },
-      "state": "generated-local",
-      "tags": [],
-      "target": {
-        "public_url": "https://plato.stanford.edu/entries/natural-law-ethics/",
-        "r2_key": null,
-        "storage": "external-only-rights-review"
-      }
-    },
-    {
-      "delivery": {
-        "artifact_repo_path": "References/Comparative-Philosophy/SEP-Theological-Voluntarism.pdf",
-        "build_path": "tmp/reference-build/Comparative-Philosophy/SEP-Theological-Voluntarism.pdf",
-        "bytes": 451281,
-        "markdown_path": "References/Comparative-Philosophy/SEP-Theological-Voluntarism.md",
-        "sha256": "91dba9adfdf6c3e1c728c8ab58198cbdac7fad9df1361e76de05a90b6357f05d",
-        "source_format": "cleaned-markdown",
-        "status": "generated-local"
-      },
-      "kind": "third-party-html-snapshot",
-      "repo_path": "References/Comparative-Philosophy/SEP-Theological-Voluntarism.html",
-      "rights": {
-        "notes": "SEP snapshot.",
-        "status": "review-required"
-      },
-      "source": {
-        "bytes": 126576,
-        "media_type": "text/html; charset=utf-8",
-        "minimum_bytes": 1024,
-        "notes": "SEP snapshot.",
-        "sha256": "1e36a0062d4521cfbe6f9313a62230b9040dfb78a1c6c69f14f7ddde2836f288",
-        "urls": [
-          "https://plato.stanford.edu/entries/voluntarism-theological/"
-        ]
-      },
-      "state": "r2-published",
-      "tags": [],
-      "target": {
-        "public_url": null,
-        "r2_key": "archive/original-html/Comparative-Philosophy/SEP-Theological-Voluntarism.html",
-        "storage": "r2-private-original"
-      }
-    },
-    {
-      "generation": {
-        "build_path": "tmp/reference-build/Comparative-Philosophy/SEP-Theological-Voluntarism.pdf",
-        "original_html": "References/Comparative-Philosophy/SEP-Theological-Voluntarism.html",
-        "source_markdown": "References/Comparative-Philosophy/SEP-Theological-Voluntarism.md"
-      },
-      "kind": "normalized-reference-pdf",
-      "repo_path": "References/Comparative-Philosophy/SEP-Theological-Voluntarism.pdf",
-      "rights": {
-        "notes": "SEP snapshot.",
-        "status": "review-required"
-      },
-      "source": {
-        "bytes": 451281,
-        "media_type": "application/pdf",
-        "minimum_bytes": 500,
-        "notes": "Generated deterministically from cleaned Markdown; original HTML retained privately.",
-        "sha256": "91dba9adfdf6c3e1c728c8ab58198cbdac7fad9df1361e76de05a90b6357f05d",
-        "urls": [
-          "https://plato.stanford.edu/entries/voluntarism-theological/"
-        ]
-      },
-      "state": "generated-local",
-      "tags": [],
-      "target": {
-        "public_url": "https://plato.stanford.edu/entries/voluntarism-theological/",
         "r2_key": null,
         "storage": "external-only-rights-review"
       }
@@ -1081,70 +953,6 @@
         "public_url": "https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Russell-Basic-Writings.pdf",
         "r2_key": "References/Modern-Philosophy/Russell-Basic-Writings.pdf",
         "storage": "r2-public"
-      }
-    },
-    {
-      "delivery": {
-        "artifact_repo_path": "References/Modern-Philosophy/SEP-2025-Moral-Psychology-Empirical-Approaches.pdf",
-        "build_path": "tmp/reference-build/Modern-Philosophy/SEP-2025-Moral-Psychology-Empirical-Approaches.pdf",
-        "bytes": 640345,
-        "markdown_path": "References/Modern-Philosophy/SEP-2025-Moral-Psychology-Empirical-Approaches.md",
-        "sha256": "befb9f49b0cdd5a966085a8d8a0f1b70bf71227f4de7da94fbb4ebcf8a2eb4ff",
-        "source_format": "cleaned-markdown",
-        "status": "generated-local"
-      },
-      "kind": "third-party-html-snapshot",
-      "repo_path": "References/Modern-Philosophy/SEP-2025-Moral-Psychology-Empirical-Approaches.html",
-      "rights": {
-        "notes": "SEP snapshot.",
-        "status": "review-required"
-      },
-      "source": {
-        "bytes": 160418,
-        "media_type": "text/html; charset=utf-8",
-        "minimum_bytes": 1024,
-        "notes": "SEP snapshot.",
-        "sha256": "36d542f8dd34de5e17ee00538f50131d429dce1e59dfa6bafa3609c7ca0518eb",
-        "urls": [
-          "https://plato.stanford.edu/entries/moral-psych-emp/"
-        ]
-      },
-      "state": "r2-published",
-      "tags": [],
-      "target": {
-        "public_url": null,
-        "r2_key": "archive/original-html/Modern-Philosophy/SEP-2025-Moral-Psychology-Empirical-Approaches.html",
-        "storage": "r2-private-original"
-      }
-    },
-    {
-      "generation": {
-        "build_path": "tmp/reference-build/Modern-Philosophy/SEP-2025-Moral-Psychology-Empirical-Approaches.pdf",
-        "original_html": "References/Modern-Philosophy/SEP-2025-Moral-Psychology-Empirical-Approaches.html",
-        "source_markdown": "References/Modern-Philosophy/SEP-2025-Moral-Psychology-Empirical-Approaches.md"
-      },
-      "kind": "normalized-reference-pdf",
-      "repo_path": "References/Modern-Philosophy/SEP-2025-Moral-Psychology-Empirical-Approaches.pdf",
-      "rights": {
-        "notes": "SEP snapshot.",
-        "status": "review-required"
-      },
-      "source": {
-        "bytes": 640345,
-        "media_type": "application/pdf",
-        "minimum_bytes": 500,
-        "notes": "Generated deterministically from cleaned Markdown; original HTML retained privately.",
-        "sha256": "befb9f49b0cdd5a966085a8d8a0f1b70bf71227f4de7da94fbb4ebcf8a2eb4ff",
-        "urls": [
-          "https://plato.stanford.edu/entries/moral-psych-emp/"
-        ]
-      },
-      "state": "generated-local",
-      "tags": [],
-      "target": {
-        "public_url": "https://plato.stanford.edu/entries/moral-psych-emp/",
-        "r2_key": null,
-        "storage": "external-only-rights-review"
       }
     },
     {

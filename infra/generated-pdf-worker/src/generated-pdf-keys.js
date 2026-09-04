@@ -57,6 +57,7 @@ export const REFERENCE_PDF_KEYS = [
   "References/Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf",
   "References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf",
   "References/Applied-Studies/MD_TOPOS.pdf",
+  "References/Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf",
   "References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf",
   "References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf",
   "References/Madhyasth-Darshan/JVD-Janvad.pdf",
@@ -74,7 +75,6 @@ export const REFERENCE_PDF_KEYS = [
   "References/Science/Crockett-2013-Models-of-Morality.pdf"
 ];
 export const RETAINED_REFERENCE_PDF_KEYS = [
-  "References/Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf",
   "References/Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf",
   "References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf",
   "References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-Hindi-English.pdf",
