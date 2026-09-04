@@ -18,7 +18,7 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-import fitz
+import pymupdf as fitz
 import openpyxl
 
 from _common import BASE, write_text_lf
