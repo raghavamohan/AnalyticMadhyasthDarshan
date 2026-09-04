@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import unittest
+from fnmatch import fnmatchcase
 
 from _build_markdown_pdfs import markdown_specs, select_specs
 from _build_studies_index import _presentation_source_paths, catalog_build_id
@@ -59,6 +60,37 @@ class GeneratedPdfBuildSelectionTests(unittest.TestCase):
 
         deploy_job = workflow.split("\n  publish-and-deploy:\n", 1)[1]
         self.assertIn("needs: [pdfs, presentations]", deploy_job)
+
+    def test_protected_branch_publish_paths_are_source_specific(self) -> None:
+        workflow_path = BASE / ".github" / "workflows" / "generated-pdf-publish.yml"
+        workflow = workflow_path.read_text(encoding="utf-8")
+        push_paths = workflow.split("\n  push:\n", 1)[1].split("\npermissions:\n", 1)[0]
+        configured_paths = {
+            line.strip()[2:].strip('"')
+            for line in push_paths.splitlines()
+            if line.strip().startswith('- "')
+        }
+
+        for broad_root in ("Studies/**", "Applications/**", "References/**"):
+            self.assertNotIn(broad_root, configured_paths)
+
+        for source_pattern in (
+            "Studies/**/*.md",
+            "Studies/**/*.pptx",
+            "Applications/**/*.md",
+            "Applications/**/*.pptx",
+            "References/**/*.md",
+            "References/**/*.html",
+            "References/**/*.pdf",
+            "References/r2-artifacts.json",
+        ):
+            self.assertIn(source_pattern, configured_paths)
+
+        for portal_path in ("Studies/submit.html", "Studies/companion-artifacts.json"):
+            self.assertFalse(
+                any(fnmatchcase(portal_path, pattern) for pattern in configured_paths),
+                f"portal-only path unexpectedly triggers PDF publication: {portal_path}",
+            )
 
 
 if __name__ == "__main__":
