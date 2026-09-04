@@ -9,6 +9,7 @@ from pathlib import Path
 
 from _reference_artifacts import (
     ACTIVE_TRANSLATION_SOURCE_PDFS,
+    SITE_OWNER_APPROVED_PATHS,
     build_initial_manifest,
     load_manifest,
     manifest_errors,
@@ -78,6 +79,23 @@ def test_unresolved_publication_rights_remain_git_served() -> None:
     assert all(row["target"]["storage"] == "git-retained-rights-review" for row in unresolved)
 
 
+def test_approved_advaita_pdfs_are_r2_public() -> None:
+    artifacts = load_manifest()["artifacts"]
+    advaita = [
+        row
+        for row in artifacts
+        if row["repo_path"].startswith("References/Advaita-Vedanta/")
+        and row["repo_path"].endswith(".pdf")
+    ]
+    assert len(advaita) == 8
+    assert {
+        row["repo_path"].removeprefix("References/") for row in advaita
+    } <= SITE_OWNER_APPROVED_PATHS
+    assert all(row["rights"]["status"] == "existing-site-publication-approved" for row in advaita)
+    assert all(row["target"]["storage"] == "r2-public" for row in advaita)
+    assert all(row["target"]["r2_key"] == row["repo_path"] for row in advaita)
+
+
 def test_manifest_rejects_duplicate_and_unsafe_keys() -> None:
     data = load_manifest()
     keyed_indexes = [
@@ -116,6 +134,7 @@ def main() -> int:
         test_scope_and_translation_exceptions,
         test_normalized_pdf_registration_contract,
         test_unresolved_publication_rights_remain_git_served,
+        test_approved_advaita_pdfs_are_r2_public,
         test_manifest_rejects_duplicate_and_unsafe_keys,
         test_manifest_loader_requires_object_root,
     ]

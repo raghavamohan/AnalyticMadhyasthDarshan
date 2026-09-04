@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 4, 2026, 4:01 AM IST
+**Edited on:** September 4, 2026, 5:31 AM IST
 **Status:** Released
 
 **The question:** What is Existence? What exists? Does what exists begin at some time? Does the individual self (*jeevan*) begin or end with the body? Is the world finally real?
@@ -1272,13 +1272,13 @@ The principal doctrinal basis is the Upanishads read with Shankara's authenticat
 
 ### Advaita Vedanta (§2)
 
-- **CU** — [*Chandogya Upanishad*](../References/Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf). Cited: §§2.1–2.5, 2.9 (CU 6.2.1–6.2.2, Shankara commentary, 6.1.4, 6.8.7 with Śaṅkara's bhāṣya).
-- **TU** — [*Taittiriya Upanishad*](../References/Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf). Cited: §2.2 (TU 2.1.1, 2.5, 2.7).
-- **MU** — [*Mandukya Upanishad*](../References/Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf). Cited: §§2.3, 2.7 (MU, vv. 3–7).
-- **BG** — [*Bhagavad Gita*](../References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf), Shankara's commentary (Swami Gambhirananda). Cited: §§2.7, 2.10 (BG 13.1–13.2, 3.8, 3.20–3.25).
-- **VC** — [*Vivekachudamani*](../References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) (attributed to Shankara). English translation by Swami Madhavananda. Cited: §§2.3–2.10 (vv. 217, 20, 216, 251, 244, 574, 393, 17–19).
-- **DDV** — [*Drig-Drishya-Viveka*](../References/Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf) (attributed to Shankara or Bharati Tirtha). Cited: §§2.7, 2.9 (vv. 1–5).
-- **BS** — [*Brahma Sutra Bhashya*](../References/Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf) (Shankara; Swami Gambhirananda). Cited: §§2.5, 2.9 (BS 2.1.14, 1.1.2).
+- **CU** — [*Chandogya Upanishad*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf). Cited: §§2.1–2.5, 2.9 (CU 6.2.1–6.2.2, Shankara commentary, 6.1.4, 6.8.7 with Śaṅkara's bhāṣya).
+- **TU** — [*Taittiriya Upanishad*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf). Cited: §2.2 (TU 2.1.1, 2.5, 2.7).
+- **MU** — [*Mandukya Upanishad*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf). Cited: §§2.3, 2.7 (MU, vv. 3–7).
+- **BG** — [*Bhagavad Gita*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf), Shankara's commentary (Swami Gambhirananda). Cited: §§2.7, 2.10 (BG 13.1–13.2, 3.8, 3.20–3.25).
+- **VC** — [*Vivekachudamani*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) (attributed to Shankara). English translation by Swami Madhavananda. Cited: §§2.3–2.10 (vv. 217, 20, 216, 251, 244, 574, 393, 17–19).
+- **DDV** — [*Drig-Drishya-Viveka*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf) (attributed to Shankara or Bharati Tirtha). Cited: §§2.7, 2.9 (vv. 1–5).
+- **BS** — [*Brahma Sutra Bhashya*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf) (Shankara; Swami Gambhirananda). Cited: §§2.5, 2.9 (BS 2.1.14, 1.1.2).
 
 - **§2.1.** Foundational claim: "In the beginning this was Existence alone, One only, without a second." (CU 6.2.1). Shankara's gloss on *sat*: "mere Existence, a thing that is subtle, without distinction, all pervasive, one, taintless, partless, consciousness" (CU 6.2.1, Shankara commentary). Rejection of origination from non-existence: "By what logic can existence verily come out of non-existence? But surely, o good looking one, in the beginning all this was Existence, One only, without a second." (CU 6.2.2). *Nirguna* / *saguna* named as the absolute vs Ishvara pair; *Paramatman* sublated together with Ishvara and jiva: VC, v. 244 (quoted under §2.6 below).
 - **§2.2.** Sat-Chit-Ananda: "Brahman is Truth, Knowledge, and Infinity." (TU 2.1.1). Shankara on *satyam*: a thing is true when it does not change the nature ascertained as its own; *satyam brahma* distinguishes Brahman from mutable things (TU 2.1.1, Shankara's commentary). On *jnanam*: knowledge as consciousness, not Brahman as agent of knowing (TU 2.1.1, Shankara's commentary). On *anantam*: infinity as what is not delimited by time, space, or object (TU 2.1.1, Shankara's commentary). *Anandamaya* sheath transcended in the Self beyond coverings (TU 2.5); Brahman as *rasa*, through whose attainment one becomes blissful (TU 2.7).
@@ -1344,9 +1344,9 @@ The principal doctrinal basis is the Upanishads read with Shankara's authenticat
 
 ### Comparison (§5)
 
-- **VC** — [*Vivekachudamani*](../References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) (attributed to Shankara). English translation by Swami Madhavananda. Cited: §§5.3, 5.6–5.7 (vv. 574, 244, 251, 20, 210, 639).
-- **CU** — [*Chandogya Upanishad*](../References/Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf). Cited: §§5.4, 5.7 (6.1.4, 6.8.7, 6.2.1–6.2.2 with Śaṅkara's *bhāṣya*).
-- **BS** — [*Brahma Sutra Bhashya*](../References/Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf) (Shankara; Swami Gambhirananda). Cited: §§5.4, 5.7.3, 5.7.5 (BS 1.1.2, 2.1.14 with Śaṅkara's *bhāṣya*).
+- **VC** — [*Vivekachudamani*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) (attributed to Shankara). English translation by Swami Madhavananda. Cited: §§5.3, 5.6–5.7 (vv. 574, 244, 251, 20, 210, 639).
+- **CU** — [*Chandogya Upanishad*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf). Cited: §§5.4, 5.7 (6.1.4, 6.8.7, 6.2.1–6.2.2 with Śaṅkara's *bhāṣya*).
+- **BS** — [*Brahma Sutra Bhashya*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf) (Shankara; Swami Gambhirananda). Cited: §§5.4, 5.7.3, 5.7.5 (BS 1.1.2, 2.1.14 with Śaṅkara's *bhāṣya*).
 - **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: §§5.3.2, 5.3.5, 5.7 (pp. 13, 88, 115, 12, 49–50).
 - **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Also at https://www.youtube.com/playlist?list=PL69PCoz1OQW0dhshZ0Xv3KtZ7ajJOIpgv (bilingual Hindi and English). Cited: §§5.3.5, 5.7.5 (pp. 44, 57, 62, 69, 62–63).
 
@@ -1356,10 +1356,10 @@ The principal doctrinal basis is the Upanishads read with Shankara's authenticat
 - **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: §§6.2.1–6.2.3, 6.3 (*The Alternative*; pp. 88, 91, 115, 288–289).
 - **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: §6.2.2 (pp. 20, 54).
 - **Strawson 2006** — Strawson, G. ["Realistic Monism: Why Physicalism Entails Panpsychism."](../References/Science/Strawson-2006-Realistic-Monism-Panpsychism.pdf) *Journal of Consciousness Studies*, 13(10–11), 3–31. Also at https://consc.net/event/reef/strawsonmonism.pdf. Cited: §6.4 (panpsychist physicalism as a non-reductive modern alternative).
-- **CU** — [*Chandogya Upanishad*](../References/Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf). Cited: §6.3 (CU 6.2.2).
-- **DDV** — [*Drig-Drishya-Viveka*](../References/Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf) (attributed to Shankara or Bharati Tirtha). Cited: §6.3 (seer-seen discrimination).
-- **MU** — [*Mandukya Upanishad*](../References/Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf). Cited: §6.3 (three-state analysis).
-- **VC** — [*Vivekachudamani*](../References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) (attributed to Shankara). English translation by Swami Madhavananda. Cited: §6.3 (v. 251).
+- **CU** — [*Chandogya Upanishad*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf). Cited: §6.3 (CU 6.2.2).
+- **DDV** — [*Drig-Drishya-Viveka*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf) (attributed to Shankara or Bharati Tirtha). Cited: §6.3 (seer-seen discrimination).
+- **MU** — [*Mandukya Upanishad*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf). Cited: §6.3 (three-state analysis).
+- **VC** — [*Vivekachudamani*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) (attributed to Shankara). English translation by Swami Madhavananda. Cited: §6.3 (v. 251).
 - **Chalmers 1995** — Chalmers, D. ["Facing Up to the Problem of Consciousness."](../References/Science/Chalmers-1995-Facing-Up-to-the-Problem-of-Consciousness.pdf) *Journal of Consciousness Studies*, 2(3), 200–219. Also at https://consc.net/papers/facing.pdf. Cited: §6.4.
 - **Nagel 1974** — Nagel, T. ["What Is It Like to Be a Bat?"](../References/Science/Nagel-1974-What-Is-It-Like-to-Be-a-Bat.pdf) *The Philosophical Review*, 83(4), 435–450. Also at https://www.cs.ox.ac.uk/activities/ieg/e-library/sources/nagel_bat.pdf. Cited: §6.4.
 

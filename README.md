@@ -34,7 +34,7 @@ Studies/          Papers (.md source; companion .html and .pdf output; discussio
                   catalog-all.json), change feed (feed.json),
                   shared glossary (glossary.json), reader assets (assets/)
 Applications/     Applied studies — concrete instantiations of formal templates
-References/       Local copies of cited sources; citation audit (MANIFEST.md)
+References/       Citation metadata plus active/review sources; approved PDFs in R2
 Scripts/          Tools to add, remove, convert, verify, and publish studies
 infra/            Cloudflare Workers (submissions portal, per-study discussions,
                   RFC 9727 API catalog, A2A Agent Card, Agent Skills, MCP Server Card,
@@ -170,4 +170,4 @@ This repository is dual-licensed:
 
 Copyright © 2026 AnalyticMadhyasthDarshan.org.
 
-Source files in `References/` are described in [References/README.md](References/README.md). Works we do not store locally are listed in [References/NOT-DOWNLOADED.md](References/NOT-DOWNLOADED.md).
+Reference sources and their Git/R2 storage policy are described in [References/README.md](References/README.md). Works we do not mirror are listed in [References/NOT-DOWNLOADED.md](References/NOT-DOWNLOADED.md).

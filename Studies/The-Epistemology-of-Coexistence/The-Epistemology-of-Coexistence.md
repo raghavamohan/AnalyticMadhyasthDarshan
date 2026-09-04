@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 4, 2026, 4:01 AM IST
+**Edited on:** September 4, 2026, 5:31 AM IST
 **Status:** Released
 **The question:** What is knowledge, who is the knower, and what is it that one can know? How are these concepts grounded in experience, and how does the Co-existentialism of Shri A. Nagraj compare with Advaita Vedanta, modern Western philosophy, and the natural sciences?
 
@@ -696,14 +696,14 @@ Section 1 states the darshan's own positions in continuous prose, with page-leve
 
 ### Advaita Vedanta (primary texts)
 
-- **BG** — [*Bhagavad Gita*](../References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf). Cited: field and knower of the field (13.1–13.3); prescribed action (3.8); *loka-sangraha* and action by the enlightened (3.20, 3.25–26).
-- **BU** — [*Brihadaranyaka Upanishad*](../References/Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf). Cited: *neti neti* (2.3.6); *shravana–manana–nididhyasana* (2.4.5).
-- **DDV** — [*Drig-Drishya-Viveka*](../References/Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf) (traditionally attributed to Shankara or Bharati Tirtha; authorship disputed). Cited: seer and seen discrimination (p. 15).
-- **BSB** — Shankara, Adi. [*Brahma Sutra Bhashya*](../References/Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf). Cited: the *Adhyasa Bhashya* (preamble) on superimposition of self and not-self; Brahman as source of the universe (1.1.2); Upanishadic knowledge and removal of ignorance.
-- **CU** — [*Chandogya Upanishad*](../References/Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf). Cited: clay analogy (6.1.4); "one only, without a second" (6.2.1); *tat tvam asi* (6.8.7).
-- **MU** — [*Mandukya Upanishad*](../References/Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf). Cited: three states and *turiya* (vv. 3–7).
-- **TU** — [*Taittiriya Upanishad*](../References/Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf). Cited: Brahman as Truth, Knowledge, and Infinity (2.1.1); five sheaths (2.1–2.5).
-- **VC** — [*Vivekachudamani*](../References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) (traditionally attributed to Shankara; authorship disputed). Cited as a later pedagogical witness: qualification (vv. 17–20); five sheaths (vv. 154–212); Existence-Knowledge-Bliss (v. 152); Maya, Ishvara, and *jiva* (vv. 243–244); *jiva* as Brahman (v. 216); Brahman as one's own Self (v. 393); liberation without seeker or bound soul (v. 574).
+- **BG** — [*Bhagavad Gita*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf). Cited: field and knower of the field (13.1–13.3); prescribed action (3.8); *loka-sangraha* and action by the enlightened (3.20, 3.25–26).
+- **BU** — [*Brihadaranyaka Upanishad*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf). Cited: *neti neti* (2.3.6); *shravana–manana–nididhyasana* (2.4.5).
+- **DDV** — [*Drig-Drishya-Viveka*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf) (traditionally attributed to Shankara or Bharati Tirtha; authorship disputed). Cited: seer and seen discrimination (p. 15).
+- **BSB** — Shankara, Adi. [*Brahma Sutra Bhashya*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf). Cited: the *Adhyasa Bhashya* (preamble) on superimposition of self and not-self; Brahman as source of the universe (1.1.2); Upanishadic knowledge and removal of ignorance.
+- **CU** — [*Chandogya Upanishad*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf). Cited: clay analogy (6.1.4); "one only, without a second" (6.2.1); *tat tvam asi* (6.8.7).
+- **MU** — [*Mandukya Upanishad*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf). Cited: three states and *turiya* (vv. 3–7).
+- **TU** — [*Taittiriya Upanishad*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf). Cited: Brahman as Truth, Knowledge, and Infinity (2.1.1); five sheaths (2.1–2.5).
+- **VC** — [*Vivekachudamani*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) (traditionally attributed to Shankara; authorship disputed). Cited as a later pedagogical witness: qualification (vv. 17–20); five sheaths (vv. 154–212); Existence-Knowledge-Bliss (v. 152); Maya, Ishvara, and *jiva* (vv. 243–244); *jiva* as Brahman (v. 216); Brahman as one's own Self (v. 393); liberation without seeker or bound soul (v. 574).
 - **VP** — Dharmaraja Adhvarindra. [*Vedanta Paribhasa*](https://www.advaita-vedanta.org/texts/vedAntaparibhAshA_dharmarajavarIndrA.pdf). Later systematic manual cited for the sixfold *pramana* account and empirical cognition (§2.6).
 
 ### Related studies in this collection

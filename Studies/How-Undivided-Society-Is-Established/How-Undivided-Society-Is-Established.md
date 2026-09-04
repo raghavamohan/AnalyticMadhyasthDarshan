@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 4, 2026, 4:01 AM IST
+**Edited on:** September 4, 2026, 5:31 AM IST
 **Status:** Released
 **The question:** What basis could make humankind an undivided society, why are influential contemporary alternatives insufficient by themselves, and how does Madhyasth Darshan propose that such a society be established and evidenced?
 
@@ -350,8 +350,8 @@ Terms such as composition and closure are analogical when applied to families an
 
 ### Comparative sources
 
-- **ChU** — [*Chandogya Upanishad*](../References/Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf). Cited for the Advaita tradition's non-dual identity claim as developed through later commentary.
-- **BSB** — Sankara. [*Brahma Sutra Bhashya*](../References/Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf). Cited for Advaita's account of Brahman, liberation through knowledge, and the status of empirical plurality.
+- **ChU** — [*Chandogya Upanishad*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf). Cited for the Advaita tradition's non-dual identity claim as developed through later commentary.
+- **BSB** — Sankara. [*Brahma Sutra Bhashya*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf). Cited for Advaita's account of Brahman, liberation through knowledge, and the status of empirical plurality.
 - **SEP-AV** — [*Advaita Vedanta*](https://plato.stanford.edu/entries/advaita-vedanta/), Stanford Encyclopedia of Philosophy. Cited for contemporary scholarly framing of non-duality, *mithya*, ethics, and liberation.
 - **SEP-SR** — [*Scientific Realism*](https://plato.stanford.edu/entries/scientific-realism/), Stanford Encyclopedia of Philosophy. Cited for the scope and philosophical interpretation of scientific knowledge.
 - **SEP-ME** — [*Metaethics*](https://plato.stanford.edu/entries/metaethics/), Stanford Encyclopedia of Philosophy. Cited for the distinction between empirical facts and accounts of normativity.

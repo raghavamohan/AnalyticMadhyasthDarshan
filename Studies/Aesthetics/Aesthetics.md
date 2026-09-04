@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) - a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 4, 2026, 4:01 AM IST
+**Edited on:** September 4, 2026, 5:31 AM IST
 **Status:** Draft
 
 **The question:** What is aesthetics? Is beauty a property of objects, a state of the subject, a social convention, a kind of taste, an experience of art, an environmental relation, or a sign of deeper harmony? How do **modern philosophies** approach aesthetics, how does **Madhyasth Darshan** understand it, and does **Advaita Vedanta** have anything direct to say on the subject?
@@ -573,10 +573,10 @@ Madhyasth Darshan does not yet give a complete aesthetics of art, but it gives a
 
 ### Advaita Vedanta and Indian aesthetics
 
-- **TU** - [*Taittiriya Upanishad*](../References/Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf). Swami Gambhirananda translation. Cited: Brahman as truth, knowledge, infinite (2.1).
-- **BU** - [*Brihadaranyaka Upanishad with Shankara Bhashya*](../References/Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf). Swami Madhavananda translation. Cited: the unattached Self (3.9.28); Maitreyi passage on dearness and Self-realization (2.4 / 4.5).
-- **BG** - [*Bhagavad Gita with Shankara Bhashya*](../References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf). Swami Gambhirananda translation. Cited: Self-bliss apart from external objects (5.21).
-- **VC** - [*Vivekachudamani*](../References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf), attributed to Shankara; English translation by Swami Madhavananda. Cited: discrimination between real and unreal (v. 20); *jiva* as Brahman (v. 216).
+- **TU** - [*Taittiriya Upanishad*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf). Swami Gambhirananda translation. Cited: Brahman as truth, knowledge, infinite (2.1).
+- **BU** - [*Brihadaranyaka Upanishad with Shankara Bhashya*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf). Swami Madhavananda translation. Cited: the unattached Self (3.9.28); Maitreyi passage on dearness and Self-realization (2.4 / 4.5).
+- **BG** - [*Bhagavad Gita with Shankara Bhashya*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf). Swami Gambhirananda translation. Cited: Self-bliss apart from external objects (5.21).
+- **VC** - [*Vivekachudamani*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf), attributed to Shankara; English translation by Swami Madhavananda. Cited: discrimination between real and unreal (v. 20); *jiva* as Brahman (v. 216).
 - **Poorvam Rasa** - ["Sadharanikarana: An Underlying Process for Experiencing Rasa"](https://poorvam.com/article.php?slug=s-dh-ra-kara-a-underlying-process-for-experiencing-rasa), *Poorvam International Journal*.
 - **Keating 2008** - Ross Keating, ["Connecting Art with Spirituality within the Indian Aesthetics of Advaita Vedanta."](https://poj.peeters-leuven.be/content.php?id=2033281&url=article) *Studies in Spirituality* 18 (2008): 25-37.
 - **Mind and Creativity Rasa** - ["Mind and creativity: Insights from rasa theory with special focus on sahrdaya."](https://indigenouspsych.org/Discussion/forum/Rasa%20theory.pdf)

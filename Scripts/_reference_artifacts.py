@@ -37,6 +37,14 @@ ACTIVE_TRANSLATION_SOURCE_PDFS = frozenset(
 )
 SITE_OWNER_APPROVED_PATHS = frozenset(
     {
+        "Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf",
+        "Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf",
+        "Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf",
+        "Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf",
+        "Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf",
+        "Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf",
+        "Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf",
+        "Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf",
         "Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf",
         "Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf",
         "Madhyasth-Darshan/JVD-Janvad.pdf",
@@ -514,7 +522,10 @@ def apply_storage_policy() -> None:
         new = (row.get("state"), dict(row.get("target") or {}), dict(row.get("rights") or {}))
         changed += old != new
 
-    errors = manifest_errors(data, require_local_sources=True)
+    # Already-published R2 sources are intentionally absent from a post-migration
+    # checkout. Newly approved rows become ``git-source`` above, so the normal
+    # manifest gate still requires their local bytes before policy can advance.
+    errors = manifest_errors(data)
     if errors:
         raise ValueError("storage policy produced an invalid manifest:\n  - " + "\n  - ".join(errors))
     write_text_lf(MANIFEST_PATH, _canonical_json(data))
