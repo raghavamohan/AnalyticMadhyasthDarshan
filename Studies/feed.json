@@ -6,6 +6,69 @@
   "description": "Draft and released studies, newest Edited-on timestamp first. In-progress (ongoing) rows are omitted.",
   "items": [
     {
+      "id": "https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/",
+      "url": "https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html",
+      "title": "Axiology: Value Theory",
+      "content_text": "Madhyasth Darshan's theory of value: what values are, how they are recognised and fulfilled, and how mutual satisfaction grounds a humane axiology",
+      "tags": [
+        "topical",
+        "released"
+      ],
+      "date_modified": "2026-09-05T04:58:00+05:30",
+      "attachments": [
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.md",
+          "mime_type": "text/markdown"
+        },
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.pdf",
+          "mime_type": "application/pdf"
+        }
+      ]
+    },
+    {
+      "id": "https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/",
+      "url": "https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.html",
+      "title": "Spiritual Practice and Realization",
+      "content_text": "Realization and awakening in Madhyasth Darshan: anubhav, samyama, upasana, and liberation from mystery, compared with Advaita Vedanta and with modern philosophy of religious experience and contemplative science",
+      "tags": [
+        "topical",
+        "draft"
+      ],
+      "date_modified": "2026-09-05T04:53:00+05:30",
+      "attachments": [
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.md",
+          "mime_type": "text/markdown"
+        },
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.pdf",
+          "mime_type": "application/pdf"
+        }
+      ]
+    },
+    {
+      "id": "https://analyticmadhyasthdarshan.org/Studies/Family-Relationships-And-Values/",
+      "url": "https://analyticmadhyasthdarshan.org/Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.html",
+      "title": "Family Relationships and Values",
+      "content_text": "The family as the first site of values: recognising relationships and living trust, affection, gratitude, and mutual satisfaction",
+      "tags": [
+        "topical",
+        "draft"
+      ],
+      "date_modified": "2026-09-05T04:53:00+05:30",
+      "attachments": [
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.md",
+          "mime_type": "text/markdown"
+        },
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.pdf",
+          "mime_type": "application/pdf"
+        }
+      ]
+    },
+    {
       "id": "https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/",
       "url": "https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html",
       "title": "Why Humans Are Not Just Material",
@@ -69,27 +132,6 @@
       ]
     },
     {
-      "id": "https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/",
-      "url": "https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.html",
-      "title": "Spiritual Practice and Realization",
-      "content_text": "Realization and awakening in Madhyasth Darshan: anubhav, samyama, upasana, and liberation from mystery, compared with Advaita Vedanta and with modern philosophy of religious experience and contemplative science",
-      "tags": [
-        "topical",
-        "draft"
-      ],
-      "date_modified": "2026-09-04T05:31:00+05:30",
-      "attachments": [
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.md",
-          "mime_type": "text/markdown"
-        },
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.pdf",
-          "mime_type": "application/pdf"
-        }
-      ]
-    },
-    {
       "id": "https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/",
       "url": "https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.html",
       "title": "Nature of Time",
@@ -132,27 +174,6 @@
       ]
     },
     {
-      "id": "https://analyticmadhyasthdarshan.org/Studies/Family-Relationships-And-Values/",
-      "url": "https://analyticmadhyasthdarshan.org/Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.html",
-      "title": "Family Relationships and Values",
-      "content_text": "The family as the first site of values: recognising relationships and living trust, affection, gratitude, and mutual satisfaction",
-      "tags": [
-        "topical",
-        "draft"
-      ],
-      "date_modified": "2026-09-04T05:31:00+05:30",
-      "attachments": [
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.md",
-          "mime_type": "text/markdown"
-        },
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.pdf",
-          "mime_type": "application/pdf"
-        }
-      ]
-    },
-    {
       "id": "https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/",
       "url": "https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.html",
       "title": "Ethics and Morals in Human Beings",
@@ -169,27 +190,6 @@
         },
         {
           "url": "https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf",
-          "mime_type": "application/pdf"
-        }
-      ]
-    },
-    {
-      "id": "https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/",
-      "url": "https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html",
-      "title": "Axiology: Value Theory",
-      "content_text": "Madhyasth Darshan's theory of value: what values are, how they are recognised and fulfilled, and how mutual satisfaction grounds a humane axiology",
-      "tags": [
-        "topical",
-        "released"
-      ],
-      "date_modified": "2026-09-04T05:31:00+05:30",
-      "attachments": [
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.md",
-          "mime_type": "text/markdown"
-        },
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.pdf",
           "mime_type": "application/pdf"
         }
       ]

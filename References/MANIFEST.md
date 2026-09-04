@@ -1,6 +1,6 @@
 # Studies citation verification
 
-Audit of every reference tag cited in `Studies/`. Last verified: 2026-09-04.
+Audit of every reference tag cited in `Studies/`. Last verified: 2026-09-05.
 
 **Legend:** present = available through its listed reference link (R2 or a Git-retained file); external = linked from the original publisher or author URL (see [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md)); internal = another paper in `Studies/`, not a bibliographic source. Storage state, checksums, and rights decisions are authoritative in [r2-artifacts.json](r2-artifacts.json).
 
@@ -50,8 +50,9 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-09-04.
 | | Metzinger 2003, Penrose 2010, Ishvarakrishna, Nagarjuna, Weinberg 1995 | external |
 | [How-Undivided-Society-Is-Established.pdf](../Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf) | MVD, SB, JV, JVD, AVD | TBD |
 | [Axiology-Value-Theory.pdf](../Studies/Axiology-Value-Theory/Axiology-Value-Theory.pdf) | MVD, SB, JV, AVD, KD | present |
-| | Crockett 2013 | present |
+| | BU, TU, BG, BSB, VC; Crockett 2013 | present |
 | | SEP Natural Law Ethics | external |
+| | Killingsworth 2021; Killingsworth, Kahneman, and Mellers 2023 | external |
 | [Family-Relationships-And-Values.pdf](../Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.pdf) | MVD, JV, SB, AVD, KD | present |
 | [Spiritual-Practice-And-Realization.pdf](../Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.pdf) | MVD, JV, KD | present |
 | | Nagraj 2010 Sakshatkar | transcript present; recording external |
@@ -131,6 +132,9 @@ For **MVD**, **SB**, and **JV**, the PDF is the file Studies must cite and that 
 | **Keating 2008**, **Mind and Creativity Rasa** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Aesthetics |
 | **Curry, Mullins, and Whitehouse 2019**, **Graham et al. 2013**, **Greene et al. 2001**, **Haidt 2001**, **Tomasello and Vaish 2013** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Ethics-And-Morals |
 
+| **Killingsworth 2021** | [Publisher article](https://doi.org/10.1073/pnas.2016976118); [external-reference record](NOT-DOWNLOADED.md) | Axiology-Value-Theory |
+| **Killingsworth, Kahneman, and Mellers 2023** | [Publisher article](https://doi.org/10.1073/pnas.2208661120); [external-reference record](NOT-DOWNLOADED.md) | Axiology-Value-Theory |
+
 ## Summary
 
 | Category | Stored locally | External only |
@@ -138,9 +142,9 @@ For **MVD**, **SB**, and **JV**, the PDF is the file Studies must cite and that 
 | Madhyasth Darshan (MVD, SB, JV, AVD, JVD, KD, MSM) | 7 PDFs + 1 spreadsheet + KD working translation + MSM translation workspace | 0 |
 | Advaita Vedanta (9 tags) | 8 R2 PDFs | 0 |
 | Comparative philosophy, Indian aesthetics, and religious ethics | 5 | 5 |
-| Science and moral science | 14 (open-access papers) | 24 |
+| Science and moral science | 14 (open-access papers) | 26 |
 | Modern philosophy and cognitive science | 19 | 4 |
 | Applied formal studies of Madhyasth Darshan | 1 | 0 |
-| **Total distinct tags** | **47 local files + MD** | **29 external** |
+| **Total distinct tags** | **47 local files + MD** | **31 external** |
 
 Works not stored locally are linked from each paper's References section. See [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) for original URLs.
