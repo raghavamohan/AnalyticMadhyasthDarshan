@@ -7,6 +7,7 @@ Rules, so this path deploys Worker `amd-agent-skills` and a route covering
 """
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import sys
@@ -137,6 +138,9 @@ def multipart_put(url: str, token: str, filename: str, content: str, metadata: d
 
 
 def resolve_account_id(token: str) -> str:
+    configured = cf.cloudflare_account_id()
+    if configured:
+        return configured
     payload = cf._api_request("GET", "/accounts?per_page=20", token)
     accounts = (payload or {}).get("result") or []
     if not accounts:
@@ -169,27 +173,44 @@ def ensure_route(token: str, zone: str, script: str, pattern: str) -> None:
     print(f"Created worker route {pattern} -> {script}")
 
 
-def main() -> int:
+def generate_worker_source() -> str:
+    if not INDEX_PATH.is_file() or not MAINTAINER_INDEX_PATH.is_file():
+        raise RuntimeError("Run python Scripts/_build_agent_skills_index.py first.")
+    index = json.loads(INDEX_PATH.read_text(encoding="utf-8"))
+    maintainer_index = json.loads(MAINTAINER_INDEX_PATH.read_text(encoding="utf-8"))
+    skills = load_published_skills()
+    if not skills:
+        raise RuntimeError("No published SKILL.md files under .well-known/agent-skills/.")
+    js = worker_js(index, maintainer_index, skills)
+    WORKER_SRC.parent.mkdir(parents=True, exist_ok=True)
+    WORKER_SRC.write_text(js, encoding="utf-8", newline="\n")
+    print(f"Wrote {WORKER_SRC.relative_to(cf.BASE)}")
+    return js
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--generate-only",
+        action="store_true",
+        help="Write the gitignored Worker bundle without uploading it.",
+    )
+    args = parser.parse_args(argv)
+    try:
+        js = generate_worker_source()
+    except RuntimeError as exc:
+        print(str(exc), file=sys.stderr)
+        return 1
+    if args.generate_only:
+        return 0
+
     cf.load_repo_env()
     token = cf.cloudflare_api_token()
     if not token:
         print("CLOUDFLARE_API_TOKEN is required.", file=sys.stderr)
         return 1
-    if not INDEX_PATH.is_file() or not MAINTAINER_INDEX_PATH.is_file():
-        print("Run python Scripts/_build_agent_skills_index.py first.", file=sys.stderr)
-        return 1
     zone = cf.resolve_zone_id(token, cf.cloudflare_zone_id())
     account = resolve_account_id(token)
-    index = json.loads(INDEX_PATH.read_text(encoding="utf-8"))
-    maintainer_index = json.loads(MAINTAINER_INDEX_PATH.read_text(encoding="utf-8"))
-    skills = load_published_skills()
-    if not skills:
-        print("No published SKILL.md files under .well-known/agent-skills/.", file=sys.stderr)
-        return 1
-    js = worker_js(index, maintainer_index, skills)
-    WORKER_SRC.parent.mkdir(parents=True, exist_ok=True)
-    WORKER_SRC.write_text(js, encoding="utf-8", newline="\n")
-    print(f"Wrote {WORKER_SRC.relative_to(cf.BASE)}")
     print(f"Uploading worker {WORKER_NAME!r} to account {account}...")
     result = multipart_put(
         f"{cf.API_BASE}/accounts/{account}/workers/scripts/{WORKER_NAME}",

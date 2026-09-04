@@ -403,8 +403,8 @@ run. Run them with `--all`.
 
 | Gap | Consequence |
 |-----|-------------|
-| Non-PDF `--live` endpoint checks | Other site/infra suites keep production checks behind explicit `--live` flags. Generated PDF delivery is the exception: every protected-branch publication audits every public URL in the current inventory. |
-| Other `infra/` Cloudflare Workers | Generated-PDF Worker contract tests and production deployment are covered; other Workers still lack a shared build/lint/type-check/deploy gate. |
+| Most non-PDF `--live` endpoint checks | Agent Skills and MCP now run exact live canonical-payload checks after their protected-branch deployment; other site/infra suites still keep production checks behind explicit `--live` flags. Generated PDF delivery audits every public URL in the current inventory. |
+| Remaining `infra/` Cloudflare Workers | Generated-PDF, Agent Skills, MCP, and submission Workers have contract/build and protected-branch deployment coverage; the remaining Workers still lack a shared build/lint/type-check/deploy gate. |
 | Any lint / formatter | No ruff, flake8, mypy, eslint or markdownlint |
 
 **Pinned toolchain.** `requirements.txt` pins every package exactly, direct and

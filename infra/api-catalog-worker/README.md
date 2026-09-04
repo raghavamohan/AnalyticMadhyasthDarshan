@@ -49,3 +49,8 @@ python Scripts/_test_auth_md.py --live
 ```
 
 Human documentation: [api-docs.html](../../api-docs.html).
+
+Agent Skills and MCP changes are also covered by `agent-publications.yml`: pull
+requests generate and validate both Worker bundles, and merges deploy them and
+run their exact live canonical-payload checks. The commands above remain the
+manual full-discovery publication procedure.

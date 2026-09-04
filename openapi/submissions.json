@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Analytic Madhyasth Darshan submission portal API",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "GitHub-authenticated API that backs the Web Submission Portal at https://analyticmadhyasthdarshan.org/Studies/submit.html. Contributors propose studies, submit drafts, update published markdown, and request Draft/Released status changes. Most write routes require a first-party session cookie plus a Cloudflare Turnstile token."
   },
   "servers": [
@@ -103,7 +103,14 @@
         "operationId": "listMySubmissions",
         "security": [{ "sessionCookie": [] }],
         "responses": {
-          "200": { "description": "Dashboard payload." },
+          "200": {
+            "description": "Unified proposal and pull-request dashboard.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/SubmissionDashboard" }
+              }
+            }
+          },
           "401": { "description": "Not signed in." }
         }
       }
@@ -115,7 +122,14 @@
         "operationId": "getNotificationPrefs",
         "security": [{ "sessionCookie": [] }],
         "responses": {
-          "200": { "description": "Current preferences." },
+          "200": {
+            "description": "Current preferences.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/NotificationPreferences" }
+              }
+            }
+          },
           "401": { "description": "Not signed in." }
         }
       },
@@ -124,8 +138,23 @@
         "summary": "Update email notification preferences",
         "operationId": "setNotificationPrefs",
         "security": [{ "sessionCookie": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/NotificationPreferencesUpdate" }
+            }
+          }
+        },
         "responses": {
-          "200": { "description": "Updated preferences." },
+          "200": {
+            "description": "Updated preferences.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/NotificationPreferences" }
+              }
+            }
+          },
           "401": { "description": "Not signed in." }
         }
       }
@@ -218,6 +247,57 @@
         }
       }
     },
+    "/api/revision-source": {
+      "get": {
+        "tags": ["submissions"],
+        "summary": "Load Markdown from an owned first-draft pull request",
+        "operationId": "getRevisionSource",
+        "security": [{ "sessionCookie": [] }],
+        "parameters": [
+          {
+            "name": "pr",
+            "in": "query",
+            "required": true,
+            "schema": { "type": "integer", "minimum": 1 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current Markdown and pull-request identity.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/RevisionSource" }
+              }
+            }
+          },
+          "400": { "description": "Missing or invalid pull-request number." },
+          "401": { "description": "Not signed in." },
+          "403": { "description": "The pull request is not owned by the signed-in contributor." }
+        }
+      }
+    },
+    "/api/revise": {
+      "post": {
+        "tags": ["submissions"],
+        "summary": "Commit revised Markdown to an owned first-draft pull request",
+        "operationId": "reviseDraft",
+        "security": [{ "sessionCookie": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/ReviseRequest" }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Revision committed to the existing pull request." },
+          "400": { "description": "Invalid revision payload." },
+          "401": { "description": "Not signed in." },
+          "403": { "description": "The pull request is not owned by the signed-in contributor." }
+        }
+      }
+    },
     "/api/submit": {
       "post": {
         "tags": ["submissions"],
@@ -258,12 +338,42 @@
         }
       }
     },
+    "/api/delete-artifact": {
+      "post": {
+        "tags": ["submissions"],
+        "summary": "Open a reviewable pull request to delete an owned study artifact",
+        "operationId": "deleteStudyArtifact",
+        "security": [{ "sessionCookie": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/DeleteArtifactRequest" }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Deletion pull request opened." },
+          "400": { "description": "Invalid or unregistered artifact." },
+          "401": { "description": "Not signed in." },
+          "403": { "description": "The study is not owned by the signed-in contributor." }
+        }
+      }
+    },
     "/api/notify": {
       "post": {
         "tags": ["notify"],
         "summary": "Send an approval, decline, or merge email (CI hook)",
         "operationId": "notifyContributor",
         "security": [{ "notifySecret": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/NotifyRequest" }
+            }
+          }
+        },
         "responses": {
           "200": { "description": "Sent or skipped (no opt-in)." },
           "401": { "description": "Missing or wrong X-Notify-Secret." },
@@ -308,9 +418,131 @@
           "userId": { "type": "integer" }
         }
       },
+      "SubmissionDashboard": {
+        "type": "object",
+        "required": ["success", "login", "submissions", "meta"],
+        "properties": {
+          "success": { "type": "boolean", "const": true },
+          "login": { "type": "string" },
+          "submissions": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/SubmissionDashboardRow" }
+          },
+          "meta": { "$ref": "#/components/schemas/SubmissionDashboardMeta" }
+        }
+      },
+      "SubmissionDashboardMeta": {
+        "type": "object",
+        "required": ["timingMs", "githubRequests", "truncated"],
+        "properties": {
+          "timingMs": { "type": "integer", "minimum": 0 },
+          "githubRequests": { "type": "integer", "minimum": 0 },
+          "truncated": { "type": "boolean" }
+        }
+      },
+      "SubmissionDashboardRow": {
+        "type": "object",
+        "required": ["kind", "kindLabel", "title", "categories", "stage"],
+        "properties": {
+          "kind": { "type": "string", "enum": ["proposal", "pull-request"] },
+          "kindLabel": { "type": "string" },
+          "prType": { "type": ["string", "null"] },
+          "issueNumber": { "type": ["integer", "null"] },
+          "title": { "type": "string" },
+          "slug": { "type": ["string", "null"] },
+          "categories": { "type": "array", "items": { "type": "string" } },
+          "stage": {
+            "type": "string",
+            "description": "Current proposal or pull-request workflow stage."
+          },
+          "catalogStatus": {
+            "type": ["string", "null"],
+            "enum": ["ongoing", "pre-catalog", "draft", "released", null]
+          },
+          "primaryAction": { "type": ["object", "null"] },
+          "secondaryActions": { "type": "array", "items": { "type": "object" } },
+          "pullRequest": { "type": ["object", "null"] },
+          "checks": { "type": ["object", "null"] }
+        },
+        "additionalProperties": true
+      },
+      "NotificationPreferences": {
+        "type": "object",
+        "required": ["success", "email", "enabled"],
+        "properties": {
+          "success": { "type": "boolean", "const": true },
+          "configured": {
+            "type": "boolean",
+            "description": "Whether outbound notification delivery is configured. Present on GET responses."
+          },
+          "email": { "type": ["string", "null"], "format": "email" },
+          "enabled": { "type": "boolean" }
+        }
+      },
+      "NotificationPreferencesUpdate": {
+        "type": "object",
+        "properties": {
+          "email": { "type": "string", "format": "email" },
+          "enabled": { "type": "boolean" }
+        },
+        "minProperties": 1
+      },
+      "RevisionSource": {
+        "type": "object",
+        "required": ["success", "prNumber", "pullRequestUrl", "slug", "content"],
+        "properties": {
+          "success": { "type": "boolean", "const": true },
+          "prNumber": { "type": "integer", "minimum": 1 },
+          "pullRequestUrl": { "type": "string", "format": "uri" },
+          "slug": { "type": "string" },
+          "content": { "type": "string", "description": "UTF-8 Markdown from the pull-request branch." }
+        }
+      },
+      "ReviseRequest": {
+        "type": "object",
+        "required": ["prNumber", "author", "content", "turnstileToken"],
+        "properties": {
+          "prNumber": { "type": "integer", "minimum": 1 },
+          "author": { "type": "string", "minLength": 1 },
+          "content": { "type": "string", "description": "Replacement study Markdown." },
+          "turnstileToken": { "type": "string" }
+        }
+      },
+      "DeleteArtifactRequest": {
+        "type": "object",
+        "required": ["slug", "artifactType", "turnstileToken"],
+        "properties": {
+          "slug": { "type": "string", "maxLength": 60, "pattern": "^[A-Za-z0-9-]+$" },
+          "artifactType": { "type": "string", "enum": ["study", "note", "presentation"] },
+          "fileName": {
+            "type": "string",
+            "description": "Required for a registered note or presentation; ignored for a complete study deletion."
+          },
+          "turnstileToken": { "type": "string" }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": { "artifactType": { "enum": ["note", "presentation"] } },
+              "required": ["artifactType"]
+            },
+            "then": { "required": ["fileName"] }
+          }
+        ]
+      },
+      "NotifyRequest": {
+        "type": "object",
+        "required": ["login", "event"],
+        "properties": {
+          "login": { "type": "string", "description": "GitHub login, with or without a leading @." },
+          "event": { "type": "string", "enum": ["approved", "declined", "merged"] },
+          "title": { "type": "string" },
+          "url": { "type": "string", "format": "uri" }
+        }
+      },
       "ProposeRequest": {
         "type": "object",
-        "required": ["title", "category", "description", "summary", "turnstileToken"],
+        "required": ["title", "category", "description", "summary", "familiarity", "turnstileToken"],
         "properties": {
           "title": { "type": "string" },
           "category": { "type": "string" },
