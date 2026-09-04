@@ -41,7 +41,7 @@ import sys
 import tempfile
 from pathlib import Path
 
-import fitz  # PyMuPDF
+import pymupdf as fitz
 from pptx import Presentation
 
 from _common import STUDIES, configure_utf8_stdio

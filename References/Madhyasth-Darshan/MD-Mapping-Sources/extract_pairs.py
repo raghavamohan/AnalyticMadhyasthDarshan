@@ -1,5 +1,5 @@
 import sys, json, re
-import fitz
+import pymupdf as fitz
 
 DEVA_RE = re.compile(r'[ऀ-ॿ]')
 LATIN_RE = re.compile(r'[A-Za-z]')

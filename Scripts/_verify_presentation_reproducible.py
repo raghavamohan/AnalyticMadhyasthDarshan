@@ -7,7 +7,7 @@ import hashlib
 import json
 from pathlib import Path
 
-import fitz
+import pymupdf as fitz
 
 from _common import BASE, configure_utf8_stdio
 from _presentation_pipeline import DeckSpec, load_manifest, manifest_errors, sha256_file
