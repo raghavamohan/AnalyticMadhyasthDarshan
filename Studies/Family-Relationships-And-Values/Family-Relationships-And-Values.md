@@ -2,13 +2,13 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 4, 2026, 5:31 AM IST
+**Edited on:** September 5, 2026, 4:53 AM IST
 **Status:** Draft
 **The question:** What is a family in Madhyasth Darshan, why is it the first place where values become livable, and how are its relationships recognised and their values fulfilled?
 
 This study sets out the Madhyasth Darshan account of the family: what makes a family a family, which relationships constitute it, how those relationships are recognised, which values are inherent in them, and why the darshan treats the family rather than the individual or the state as the unit at which need is assessed and prosperity becomes definable.
 
-[The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) supplies the setting: Omnipresence, saturated units, form, properties, essential nature and *dharma*, the four orders, and the active structure of *jeevan*. [Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) establishes what a value is, the distinction between relationship and contact, and the classes of value including the nine established values (§§1.1.1, 1.3.1–1.3.3). [How Undivided Society Is Established](../How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf) §5.2 argues from the family outward to undivided society. The present study works in the other direction: inward, at the scale where relationships are actually lived, and compares the darshan's domestic axiology with Advaita Vedanta, classical Confucianism, the Western ethics of care, and modern household economics.
+[The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) supplies the setting: Omnipresence, saturated units, form, properties, essential nature and *dharma*, the four orders, and the active structure of *jeevan*. [Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) establishes what a value is, the distinction between relationship and contact, and the classes of value including the named established–expressed pairs (§§1.1, 1.3–1.4). [How Undivided Society Is Established](../How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf) §5.2 argues from the family outward to undivided society. The present study works in the other direction: inward, at the scale where relationships are actually lived, and compares the darshan's domestic axiology with Advaita Vedanta, classical Confucianism, the Western ethics of care, and modern household economics.
 
 ## Standpoint and scope
 
@@ -45,7 +45,7 @@ Two consequences follow immediately. First, the darshan cannot treat the family 
 
 #### 1.1.2 Relationship (*sambandh*) versus contact (*sampark*)
 
-The darshan's decisive move is to distinguish two kinds of mutuality by the character of their expectations. A relationship (*sambandh*) is a mutuality whose expectations are predetermined in the sense of completeness; a contact (*sampark*) is a mutuality whose expectations are voluntary (MVD, pp. 61–62). [Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) §1.3.1 develops the distinction and its consequences for value theory.
+The darshan's decisive move is to distinguish two kinds of mutuality by the character of their expectations. A relationship (*sambandh*) is a mutuality whose expectations are predetermined in the sense of completeness; a contact (*sampark*) is a mutuality whose expectations are voluntary (MVD, pp. 61–62). [Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) §1.4 develops the distinction and its consequences for value theory.
 
 Applied to the family, the claim is strong and easy to understate. What a parent owes a child, on this account, is not settled by what the parent has undertaken, what the local law requires, or what the two have negotiated. It is given with the relationship. This is what allows the darshan to say that a family can fail without either party recognising the failure, and it is what makes evaluation of a family relationship a question with an answer rather than a clash of preferences.
 
@@ -120,7 +120,7 @@ The claim that follows is checkable in a family's own experience: where relation
 
 #### 1.2.3 The nine established values and nine expressed values
 
-The values inherent in relationships are named and defined. [Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) §1.3.2 gives the list and its sources; what matters here is how each established value (*sthapit mulya*) manifests through its corresponding expressed value (*shishta mulya*) in daily family living. The pairing is not this study's to choose. The appendix of *jeevan*'s activities defines each established value at a position, beside the term through which it is carried outward, and the tabulated enumeration fixes which member the faculty bears in state (MVD, pp. 328–348; AVD, pp. 91–94). Three of the nine stand at *chitta*, three at *vritti*, and three at *mun*.
+The values inherent in relationships are named and defined. [Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) §1.3 gives the list and its sources; what matters here is how each established value (*sthapit mulya*) manifests through its corresponding expressed value (*shishta mulya*) in daily family living. The pairing is not this study's to choose. The appendix of *jeevan*'s activities defines each established value at a position, beside the term through which it is carried outward, and the tabulated enumeration fixes which member the faculty bears in state (MVD, pp. 328–348; AVD, pp. 91–94). Three of the nine stand at *chitta*, three at *vritti*, and three at *mun*.
 
 | Established Value (*Sthapit*) | Borne at | Definition in the sources | Expressed Value (*Shishta*) | Manifestation in Domestic Conduct |
 |---|---|---|---|---|
@@ -193,7 +193,7 @@ Prosperity is defined twice, and the two definitions are not in competition:
 
 The first names the state, the second its condition. Because need has already been fixed by the wise family's assessment (§1.3.2), "more than needs" is a determinate quantity rather than a receding target, and the sentiment of lacking can therefore actually cease. SB states the same at family scale — prosperity through production in excess of needs within a wise family (SB, p. 223) — and MVD adds that the realisation of prosperity is self-reliance (*svayattata*) (MVD, p. 342).
 
-This is where the darshan's account of family does argumentative work that no other scale can do for it. Prosperity is not definable for an individual, because an individual's needs are not assessed against the fulfilment of relationships; and it is not definable for a state, because aggregate production says nothing about whether any household has enough. It becomes definable exactly where need is assessed. Prosperity in the family is correspondingly one of the four human goals, alongside resolution in the individual, fearlessness in society, and coexistence in universal orderliness ([Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) §1.4).
+This is where the darshan's account of family does argumentative work that no other scale can do for it. Prosperity is not definable for an individual, because an individual's needs are not assessed against the fulfilment of relationships; and it is not definable for a state, because aggregate production says nothing about whether any household has enough. It becomes definable exactly where need is assessed. Prosperity in the family is correspondingly one of the four human goals, alongside resolution in the individual, fearlessness in society, and coexistence in universal orderliness ([Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) §§1.3, 1.6).
 
 #### 1.3.4 Physical effort, domestic work, and nature's order
 
@@ -210,9 +210,9 @@ The family is where understanding is transmitted before any institution reaches 
 > **“The development of a successful education-sanskar method is possible only when the educational procedure, teachers, parents, and study are aligned. This paves the way for gratitude and coexistence.”**
 > — MVD, p. 270
 
-*Sanskar* is the mechanism. It names acceptances towards completeness and the knowledge and tendencies carried forward for evidencing, and MVD calls it the cause of awakening of the sentient aspect (MVD, p. 90), divided into *susanskar* under awakening and *kusanskar* under delusion (MVD, p. 315). [Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) §1.5.3 sets out the circuit by which conduct deepens or entrenches understanding.
+*Sanskar* includes acceptances towards completeness and the knowledge and tendencies carried forward for evidencing; it is connected with awakening of the sentient aspect (MVD, p. 90), with *susanskar* under awakening and *kusanskar* under delusion (MVD, p. 315). [Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) §1.7 distinguishes outward learning, establishment in state, and continuity through understood and evidenced conduct.
 
-In the family this cuts both ways, and the darshan's own logic requires saying so. A household whose conduct is ordered by fear and temptation transmits *kusanskar* by exactly the mechanism that would otherwise transmit *susanskar*, and it does so more effectively than any curriculum, because the family's conduct is what the child has to emulate. That is why value education cannot be delivered by schools alone, and also why families reproduce their own errors across generations.
+Family conduct gives children opportunities to learn the outward expressions of values before their counterparts are established in state. Conduct shaped by fear or temptation can also reinforce mistaken expectations. Education must therefore include examination of what is learnt and fulfilled in the home, together with the child's developing understanding.
 
 #### 1.4.2 The interplay of internal refinement (*upasana*) and external behaviour (*vyavahar*)
 
@@ -220,7 +220,7 @@ Madhyasth Darshan maintains a precise structural distinction between the interna
 - ***Upasana*** (internal refinement) is defined in *Manav Karm Darshan* Chapter 2 as **the internal process of refining root tendencies (*mool-vritti parimarjan*) and transforming acceptances (*sanskar-parivartan*) towards complete awakening** (KD, pp. 30, 37).
 - ***Vyavahar*** (humane behaviour) is defined as **the utilization of effort in mutuality where more than one human comes together** (MVD, p. 33), with domestic living categorized under relational fulfilment (*mulya nirvah*) and justice (*nyaya*) (MVD, p. 55; JV, p. 55).
 
-Though structurally distinct, the two operate in an unbreakable feedback circuit. Fulfilling external mutuality (*vyavahar*) in family relationships directly **requires internal refinement (*upasana*)**. If a person's internal tendencies remain dominated by delusion (*bram*), fear, or expectation of personal advantage, external behaviour in the family becomes reactive, manipulative, or unstable, preventing mutual satisfaction (*ubhaya tripti*).
+Internal refinement and relational conduct are connected through learning and evaluation. An individual can learn and practise expressed values in *gati* before their corresponding values are established in *bal/sthiti*. Continuous awakened fulfilment involves the established understanding being evidenced in conduct; initial outward proficiency alone does not establish that continuity ([Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) §§1.3, 1.7).
 
 It is in this precise sense that the natal family is where *upasana* (internal refinement) is initiated. The family is the first setting where human mutuality is experienced and where relational friction or unmet expectations force the individual *jeevan* to look inward, examine its acceptances (*sanskar*), and refine its root tendencies (*mool-vritti parimarjan*). As KD Chapter 2 emphasizes, wisdom, resolution, and prosperity are the direct result of *upasana*, "in which sociality remains naturally contained" (KD, p. 37). Because sociality is naturally contained in *upasana*, the natal family is the initial ground where internal tendential refinement is called forth by relational living and where its evidence — resolution, trust, and mutual satisfaction — is verified in conduct.
 
@@ -398,7 +398,7 @@ The weakest joint is the qualifier. Almost everything consequential is asserted 
 
 ### Four-Part Structure and Comparative Integration
 
-Earlier drafts of this study presented the expository material in a single un-pillarized list of sixteen subsections, and explicitly deferred comparative analysis. This revised version organizes the exposition into four thematic parts (§1.1–§1.4) matching the design of [Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf), incorporates the 9 expressed values (*shishta mulya*), expands on domestic physical effort (KD Ch. 2), and integrates a 4-way comparative analysis (§2) and matrix tables (§3) alongside Advaita Vedanta, Confucianism, Ethics of Care, and Household Economics.
+Earlier drafts of this study presented the expository material in a single un-pillarized list of sixteen subsections, and explicitly deferred comparative analysis. This revised version organizes the exposition into four thematic parts (§1.1–§1.4), drawing on the account of value in [Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf), incorporates the 9 expressed values (*shishta mulya*), expands on domestic physical effort (KD Ch. 2), and integrates a 4-way comparative analysis (§2) and matrix tables (§3) alongside Advaita Vedanta, Confucianism, Ethics of Care, and Household Economics.
 
 ### Distinction Between *Vyavahar* and *Upasana*
 
@@ -435,7 +435,7 @@ MVD defines prosperity both as the lack of the sentiment of lacking (p. 72) and 
 
 ### Related studies in this collection
 
-- [Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) — what a value is (§1.1), relationship and contact (§1.3.1), established and expressed values (§1.3.2), the four-step justice sequence (§1.4.1), *sanskar* and the deepening of understanding through conduct (§1.5.2), and open problems (§7).
+- [Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) — what a value is (§1.1), relationship and contact (§1.4), established and expressed values (§1.3), the four-step justice sequence (§1.4), and education, establishment, and continuity through conduct (§1.7), and open problems (§7).
 - [How Undivided Society Is Established](../How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf) — the family as the first field of evidence and the argument outward to undivided society (§5.2).
 - [Human Behavior and Society](../Human-Behavior-And-Society/Human-Behavior-And-Society.pdf) — family-based self-organising orderliness and the progression from person to undivided society (§§1.4.2–1.4.3).
 - [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — the four human goals and the five dimensions of social orderliness (§1.15).
