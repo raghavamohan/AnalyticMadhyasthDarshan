@@ -2,7 +2,8 @@
 
 Source of truth:
   - Rules: AGENTS.md sections 1–7 → .cursor/rules/*.mdc (OpenCode via opencode.json)
-  - Skills: .agents/skills/ → .cursor/skills/ (.opencode/skills/ is a junction to .agents/skills/)
+  - Skills: .agents/skills/ → .cursor/skills/ (.opencode/skills/ is a junction to .agents/skills/;
+    its separately tracked fallback copies are verified in Git's index)
   - Discovery: .agents/skills/ → .well-known/agent-skills/ (RFC v0.2.0 index + SKILL.md)
 
 Run from repo root after editing AGENTS.md or .agents/skills/:
@@ -13,6 +14,7 @@ Run from repo root after editing AGENTS.md or .agents/skills/:
 from __future__ import annotations
 
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -133,6 +135,78 @@ MDC_CONFIG: dict[int, dict[str, str]] = {
 
 def normalize_text(text: str) -> str:
     return text.replace("\r\n", "\n").replace("\r", "\n")
+
+
+def indexed_skill_blobs(repo: Path, prefix: str) -> tuple[dict[str, str], list[str]]:
+    """Return relative SKILL.md paths and blob IDs staged below *prefix*."""
+    result = subprocess.run(
+        ["git", "ls-files", "--stage", "-z", "--", f"{prefix}/*/SKILL.md"],
+        cwd=repo,
+        check=False,
+        capture_output=True,
+    )
+    if result.returncode != 0:
+        detail = result.stderr.decode("utf-8", errors="replace").strip()
+        return {}, [f"could not inspect Git index for {prefix}: {detail}"]
+
+    blobs: dict[str, str] = {}
+    errors: list[str] = []
+    prefix_with_slash = f"{prefix}/"
+    for raw_record in result.stdout.split(b"\0"):
+        if not raw_record:
+            continue
+        record = raw_record.decode("utf-8", errors="surrogateescape")
+        try:
+            metadata, path = record.split("\t", 1)
+            _mode, blob, stage = metadata.split()
+        except ValueError:
+            errors.append(f"could not parse Git index entry for {prefix}: {record!r}")
+            continue
+        if stage != "0":
+            errors.append(f"unmerged Git index entry: {path}")
+            continue
+        if not path.startswith(prefix_with_slash):
+            errors.append(f"unexpected Git index path for {prefix}: {path}")
+            continue
+        blobs[path[len(prefix_with_slash) :]] = blob
+    return blobs, errors
+
+
+def check_opencode_index(repo: Path | None = None) -> list[str]:
+    """Check the separately tracked OpenCode fallback copies in Git's index.
+
+    A filesystem comparison cannot detect these mismatches when
+    ``.opencode/skills`` is a junction to ``.agents/skills``: both paths resolve
+    to the same files even if Git is about to commit different blobs.
+    """
+    root = REPO if repo is None else repo
+    canonical_prefix = ".agents/skills"
+    mirror_prefix = ".opencode/skills"
+    canonical, canonical_errors = indexed_skill_blobs(root, canonical_prefix)
+    mirror, mirror_errors = indexed_skill_blobs(root, mirror_prefix)
+    errors = canonical_errors + mirror_errors
+
+    for relative, canonical_blob in sorted(canonical.items()):
+        canonical_path = f"{canonical_prefix}/{relative}"
+        mirror_path = f"{mirror_prefix}/{relative}"
+        mirror_blob = mirror.get(relative)
+        if mirror_blob is None:
+            errors.append(
+                f"missing indexed {mirror_path} "
+                f"(stage {canonical_path} and {mirror_path} together)"
+            )
+        elif mirror_blob != canonical_blob:
+            errors.append(
+                f"stale indexed {mirror_path} "
+                f"(stage {canonical_path} and {mirror_path} together)"
+            )
+
+    for relative in sorted(set(mirror) - set(canonical)):
+        errors.append(
+            f"orphan indexed {mirror_prefix}/{relative} "
+            f"(remove it with the matching canonical skill)"
+        )
+    return errors
 
 
 def extract_sections(text: str) -> dict[int, str]:
@@ -300,12 +374,18 @@ def check_skills() -> list[str]:
 
 
 def check_sync() -> None:
-    errors = check_rules() + check_skills() + check_publish_files()
+    errors = (
+        check_rules()
+        + check_skills()
+        + check_opencode_index()
+        + check_publish_files()
+    )
     if errors:
         raise SystemExit(
             "Agent rules/skills mirrors are out of sync:\n"
             + "\n".join(f"  - {e}" for e in errors)
-            + "\nRun: python Scripts/_sync_agent_rules.py"
+            + "\nRun the sync command first. For indexed .opencode errors, stage "
+            ".agents and .opencode skill paths together, then rerun --check."
         )
 
 
@@ -324,7 +404,10 @@ def main() -> None:
     print("Synced skills to:")
     for path in skills:
         print(f"  {path}/")
-    print("  (.opencode/skills/ junction -> .agents/skills/ - no copy needed)")
+    print(
+        "  (.opencode/skills/ junction mirrors files at runtime; "
+        "--check verifies its tracked fallback copies in Git's index)"
+    )
     print("Published Agent Skills Discovery:")
     for path in discovery:
         print(f"  {path}")

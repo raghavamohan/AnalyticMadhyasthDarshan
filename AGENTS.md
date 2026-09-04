@@ -17,8 +17,10 @@ python Scripts/_sync_agent_rules.py --check
 ```
 
 This updates `.cursor/rules/*.mdc` and `.cursor/skills/` from the canonical sources.
-Commit sync output in the **same commit** as the canonical edit. Full workflow:
-`.cursor/rules/agent-rules-sync.mdc` (always applies).
+Git also tracks `.opencode/skills/` as a clone fallback even when the local path is a
+junction, so stage the matching `.agents/skills/` and `.opencode/skills/` paths together
+before the final `--check`. Commit all sync output in the **same commit** as the canonical
+edit. Full workflow: `.cursor/rules/agent-rules-sync.mdc` (always applies).
 
 **Skills** (study lifecycle and repository maintenance workflows) live in
 `.agents/skills/` (canonical). **OpenCode / ZCode** loads them through
