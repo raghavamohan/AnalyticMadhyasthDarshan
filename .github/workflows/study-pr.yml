@@ -77,7 +77,7 @@ jobs:
         id: commit_artifacts
         uses: raghavamohan/AnalyticMadhyasthDarshan/.github/actions/commit-artifacts@master
         with:
-          paths: Studies References Applications
+          paths: Studies References Applications infra/generated-pdf-worker/src/generated-pdf-keys.js
           message: "ci: regenerate study artifacts"
 
       # Pushes authenticated with GITHUB_TOKEN do not emit a new pull_request
