@@ -95,6 +95,15 @@ jobs:
       - name: Verify live publications
         if: github.event_name != 'pull_request'
         run: |
-          python Scripts/_test_agent_skills.py --live
-          python Scripts/_test_mcp_server_card.py --live
-          python Scripts/_test_studies_api.py --live
+          for attempt in 1 2 3 4 5; do
+            if python Scripts/_test_agent_skills.py --live && \
+               python Scripts/_test_mcp_server_card.py --live && \
+               python Scripts/_test_studies_api.py --live; then
+              exit 0
+            fi
+            if [ "$attempt" -eq 5 ]; then
+              exit 1
+            fi
+            echo "Live publication verification attempt $attempt failed; waiting for edge propagation."
+            sleep 10
+          done
