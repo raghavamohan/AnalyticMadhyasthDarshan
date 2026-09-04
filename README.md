@@ -93,6 +93,11 @@ Remove-Item -Recurse -Force .opencode\skills
 cmd /c mklink /J ".opencode\skills" ".agents\skills"
 ```
 
+Git retains the files below `.opencode/skills/` as a fallback for fresh clones. When a
+canonical skill changes, stage its matching `.agents/skills/` and `.opencode/skills/`
+paths together before running the final sync check; the checker verifies their indexed
+blobs even when the junction makes both filesystem paths resolve to the same file.
+
 Optional verify:
 
 ```powershell
