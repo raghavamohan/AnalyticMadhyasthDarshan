@@ -62,9 +62,28 @@ on:
   push:
     branches: [master]
     paths:
-      - "Studies/**"
-      - "Applications/**"
-      - "References/**"
+      # Keep this list source-specific. Root portal/catalog files such as
+      # Studies/submit.html and Studies/companion-artifacts.json do not affect
+      # generated PDFs and must not launch the full protected-branch publish.
+      - "Studies/**/*.md"
+      - "Studies/**/*.svg"
+      - "Studies/**/*.png"
+      - "Studies/**/*.jpg"
+      - "Studies/**/*.jpeg"
+      - "Studies/**/*.webp"
+      - "Studies/**/*.pptx"
+      - "Studies/glossary.json"
+      - "Applications/**/*.md"
+      - "Applications/**/*.svg"
+      - "Applications/**/*.png"
+      - "Applications/**/*.jpg"
+      - "Applications/**/*.jpeg"
+      - "Applications/**/*.webp"
+      - "Applications/**/*.pptx"
+      - "References/**/*.html"
+      - "References/**/*.md"
+      - "References/**/*.pdf"
+      - "References/r2-artifacts.json"
       - "Assets/KaTeX/**"
       - "CNAME"
       - "requirements.txt"
