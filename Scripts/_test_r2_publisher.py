@@ -9,7 +9,7 @@ import uuid
 from unittest.mock import patch
 from pathlib import Path
 
-import fitz
+import pymupdf as fitz
 
 from _generated_pdf_inventory import GeneratedPdfSpec, generated_pdf_specs, inventory_errors
 from _publish_generated_pdfs import (

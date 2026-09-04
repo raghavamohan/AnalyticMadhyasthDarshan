@@ -9,7 +9,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Protocol
 
-import fitz
+import pymupdf as fitz
 
 from _common import BASE, configure_utf8_stdio
 from _generated_pdf_inventory import (

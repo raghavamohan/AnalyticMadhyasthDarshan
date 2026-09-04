@@ -11,7 +11,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Literal
 
-import fitz
+import pymupdf as fitz
 import pdfplumber
 
 from _common import ligature_norm

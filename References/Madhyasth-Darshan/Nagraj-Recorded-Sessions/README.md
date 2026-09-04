@@ -76,7 +76,7 @@ Recovering a garbled passage means citing the printed text, and the companion `.
 **So: take page numbers from the PDF, not the extract.** For MVD and JV the PDF page equals the printed page, so this is a direct lookup:
 
 ```powershell
-python -c "import fitz,re; d=fitz.open(r'References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf'); n=lambda s: re.sub(r'\s+','',s); k=n('<devanagari phrase>'); print([i+1 for i in range(d.page_count) if k in n(d[i].get_text())])"
+python -c "import pymupdf,re; d=pymupdf.open(r'References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf'); n=lambda s: re.sub(r'\s+','',s); k=n('<devanagari phrase>'); print([i+1 for i in range(d.page_count) if k in n(d[i].get_text())])"
 ```
 
 Use the extract to *find* wording (it is searchable and the PDF's Devanagari sometimes is not), then confirm the page in the PDF before citing it.
