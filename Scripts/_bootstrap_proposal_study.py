@@ -159,8 +159,6 @@ def build_proposal_stub_markdown(fields: ProposalFields, edited_at: datetime) ->
 
 {format_edited_on_md(edited_at)}
 
-**Status:** Draft
-
 {fields.description}
 
 ## Study proposal

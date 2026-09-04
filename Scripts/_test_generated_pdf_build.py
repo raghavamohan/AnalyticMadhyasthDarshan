@@ -2,13 +2,20 @@
 """Tests for changed-source selection in the Markdown PDF builder."""
 from __future__ import annotations
 
+import tempfile
 import unittest
+from datetime import datetime
 from fnmatch import fnmatchcase
+from pathlib import Path
+from unittest.mock import patch
 
+import _generated_pdf_inventory as generated_inventory
+from _bootstrap_proposal_study import ProposalFields, build_proposal_stub_markdown
 from _build_markdown_pdfs import markdown_specs, select_specs
 from _build_studies_index import _presentation_source_paths, catalog_build_id
 from _common import BASE
 from _presentation_pipeline import repo_relative
+from _study_catalog import StudyRow, StudyStatus, StudyTable
 
 
 class GeneratedPdfBuildSelectionTests(unittest.TestCase):
@@ -42,6 +49,49 @@ class GeneratedPdfBuildSelectionTests(unittest.TestCase):
         self.assertTrue(sources)
         self.assertTrue(all(path.is_file() and path.suffix.lower() == ".pptx" for path in sources))
         self.assertEqual(catalog_build_id(), catalog_build_id())
+
+    def test_pre_catalog_proposal_stub_has_no_document_status(self) -> None:
+        fields = ProposalFields(
+            slug="Example-Proposal",
+            title="Example Proposal",
+            category="Ontology",
+            description="A proposed study.",
+            summary="Study scope.",
+            formal=False,
+            submitter="example",
+            issue_number=123,
+        )
+        markdown = build_proposal_stub_markdown(fields, datetime(2026, 9, 4, 12, 30))
+        self.assertNotIn("**Status:**", markdown)
+        self.assertIn("approved study proposal", markdown)
+
+    def test_canonical_pdf_inventory_follows_catalog_status(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            directory = Path(temp) / "Example-Proposal"
+            directory.mkdir()
+            source = directory / "Example-Proposal.md"
+            source.write_text("**Status:** Draft\n", encoding="utf-8")
+
+            with patch.object(generated_inventory, "get_study_row", return_value=None):
+                self.assertFalse(generated_inventory._publishable_markdown(source))
+
+            for status, expected in (
+                (StudyStatus.ONGOING, False),
+                (StudyStatus.DRAFT, True),
+                (StudyStatus.RELEASED, True),
+            ):
+                row = StudyRow(
+                    slug=source.stem,
+                    category="Ontology",
+                    description="Example",
+                    status=status,
+                )
+                with self.subTest(status=status), patch.object(
+                    generated_inventory,
+                    "get_study_row",
+                    return_value=(row, StudyTable.TOPICAL),
+                ):
+                    self.assertEqual(generated_inventory._publishable_markdown(source), expected)
 
     def test_publish_workflow_reuses_one_linux_pdf_setup(self) -> None:
         workflow_path = BASE / ".github" / "workflows" / "generated-pdf-publish.yml"
@@ -91,6 +141,28 @@ class GeneratedPdfBuildSelectionTests(unittest.TestCase):
                 any(fnmatchcase(portal_path, pattern) for pattern in configured_paths),
                 f"portal-only path unexpectedly triggers PDF publication: {portal_path}",
             )
+
+    def test_proposal_bootstrap_syncs_allowlist_and_verifies_before_merge(self) -> None:
+        workflow_path = BASE / ".github" / "workflows" / "proposal-approved.yml"
+        workflow = workflow_path.read_text(encoding="utf-8")
+        self.assertIn("actions: write", workflow)
+        self.assertIn(
+            "python Scripts/_publish_generated_pdf_worker.py --sync-keys",
+            workflow,
+        )
+        self.assertIn(
+            "paths: Studies infra/generated-pdf-worker/src/generated-pdf-keys.js",
+            workflow,
+        )
+        dispatch = 'gh workflow run studies-index-check.yml --ref "$BRANCH"'
+        watch = 'gh run watch "$run_id" --exit-status'
+        merge = 'gh pr merge "$BRANCH" --merge --delete-branch'
+        self.assertIn(dispatch, workflow)
+        self.assertIn('--commit="$head_sha"', workflow)
+        self.assertIn(watch, workflow)
+        self.assertIn(merge, workflow)
+        self.assertLess(workflow.index(dispatch), workflow.index(watch))
+        self.assertLess(workflow.index(watch), workflow.index(merge))
 
 
 if __name__ == "__main__":

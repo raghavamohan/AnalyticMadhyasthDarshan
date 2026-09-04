@@ -265,8 +265,10 @@ Two independent jobs on the `proposal-approved` label:
 - `comment` — re-applies labels and posts the portal instructions. Talks only to
   the issues API, so it is unaffected by anything below.
 - `bootstrap` — runs `_bootstrap_proposal_study.py`, commits the pre-catalog study
-  directory to a `ci/bootstrap-proposal-<N>` branch, waits out any in-flight Pages
-  deploy, then **opens a pull request and merges it.**
+  directory and synchronized generated-PDF allowlist to a
+  `ci/bootstrap-proposal-<N>` branch, waits out any in-flight Pages deploy, then
+  **opens a pull request, dispatches `verify` on its exact head, waits for success,
+  and merges it.**
 
 **It lands through a pull request, not a direct push, and that is forced.** The
 default-branch ruleset requires a pull request and has no bypass actors; a bypass
@@ -279,9 +281,10 @@ Two details are load-bearing:
 
 - The merge uses `--merge`, **never `--squash`** — a squash would carry the regen
   commit's `[skip ci]` onto `master` and suppress the post-merge index check.
-- A pull request opened with `GITHUB_TOKEN` does not trigger workflows, so no
-  checks run on it. That is the same coverage the direct push had, and it is why
-  the required `verify` check does not block this merge.
+- A pull request opened with `GITHUB_TOKEN` does not trigger `pull_request`
+  workflows. The bootstrap therefore dispatches `studies-index-check.yml` on the
+  generated branch explicitly and waits for its required `verify` job before the
+  merge command can run.
 
 The Pages wait sits before the *merge*, not the branch push, because the merge is
 what lands on `master` and starts a deploy. It exists because this site is ~300 MB
