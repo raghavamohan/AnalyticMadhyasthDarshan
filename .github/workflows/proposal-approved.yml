@@ -70,7 +70,7 @@ jobs:
             const body = [
               '### Proposal approved',
               '',
-              'Thank you — this study proposal is approved. A pre-catalog study directory will be created on the default branch (proposal stub markdown, HTML, and PDF). The study appears on the public index as **Planned**, without a public read/download link, until your first draft pull request is merged.',
+              'Thank you — this study proposal is approved. The card on **My Submissions** will show **Preparing workspace** while a verified pre-catalog study directory is created. Submit the draft only after it changes to **Ready for draft**. The study then appears on the public index as **Planned**, without a public read/download link, until your first draft pull request is merged.',
               '',
               '#### Recommended: Web Submission Portal',
               '',
@@ -229,6 +229,32 @@ jobs:
         run: |
           set -euo pipefail
           gh pr merge "$BRANCH" --merge --delete-branch
+
+      - name: Report workspace preparation failure
+        if: failure()
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const issueNumber = Number(process.env.ISSUE_NUMBER);
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              body: '### Draft workspace needs maintainer attention\n\nWorkspace preparation did not complete, so **My Submissions** will keep the draft action locked. A maintainer should inspect this workflow run and retry it after resolving the error.',
+            });
+
+      - name: Confirm that the proposal workspace is ready
+        if: success() && steps.commit.outputs.pushed == 'true'
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const issueNumber = Number(process.env.ISSUE_NUMBER);
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              body: '### Draft workspace ready\n\nThe verified Planned workspace has landed. Refresh **My Submissions**; the proposal now shows **Ready for draft** and the locked draft form is available.',
+            });
 
       - name: Report when there was nothing to bootstrap
         if: steps.commit.outputs.pushed != 'true'

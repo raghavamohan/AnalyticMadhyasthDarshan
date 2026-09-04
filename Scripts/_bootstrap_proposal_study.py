@@ -26,7 +26,9 @@ from zoneinfo import ZoneInfo
 
 from _common import STUDIES, study_dir, study_md, validate_study_slug, write_text_lf
 from _study_catalog import (
+    StudyStatus,
     format_edited_on_md,
+    get_study_row,
     now_ist,
     slug_to_title,
     sync_pre_catalog_proposals_to_catalog,
@@ -242,6 +244,61 @@ def upsert_registry_entry(fields: ProposalFields) -> None:
     write_text_lf(REGISTRY_PATH, json.dumps({"version": 1, "proposals": filtered}, indent=2) + "\n")
 
 
+def _registry_entries() -> list[dict]:
+    if not REGISTRY_PATH.is_file():
+        return []
+    data = json.loads(REGISTRY_PATH.read_text(encoding="utf-8"))
+    return list(data.get("proposals") or [])
+
+
+def bootstrap_target_state(fields: ProposalFields) -> str:
+    """Validate that approval cannot claim another proposal or study slug."""
+    entries = _registry_entries()
+    by_slug = next((row for row in entries if row.get("slug") == fields.slug), None)
+    by_issue = next(
+        (
+            row
+            for row in entries
+            if fields.issue_number is not None
+            and _number_like(row.get("issueNumber")) == fields.issue_number
+        ),
+        None,
+    )
+    if by_issue and by_issue.get("slug") != fields.slug:
+        raise SystemExit(
+            f"Proposal issue #{fields.issue_number} is already registered as "
+            f"{by_issue.get('slug')}; use the rename workflow instead of bootstrap."
+        )
+    if by_slug and _number_like(by_slug.get("issueNumber")) != fields.issue_number:
+        owner = by_slug.get("issueNumber")
+        owner_text = f"proposal issue #{owner}" if owner else "another proposal"
+        raise SystemExit(f"Slug {fields.slug} already belongs to {owner_text}.")
+
+    located = get_study_row(fields.slug)
+    if located is not None:
+        row, _table = located
+        if row.status in (StudyStatus.DRAFT, StudyStatus.RELEASED):
+            if by_slug and _number_like(by_slug.get("issueNumber")) == fields.issue_number:
+                return "published"
+            raise SystemExit(f"Slug {fields.slug} already belongs to a published study.")
+        if not by_slug:
+            raise SystemExit(f"Slug {fields.slug} already belongs to another Planned study.")
+
+    dest_md = study_md(fields.slug)
+    if dest_md.is_file() and not by_slug:
+        raise SystemExit(f"Study path already exists and is not owned by this proposal: {dest_md}")
+    if dest_md.is_file() and "**Status:**" in dest_md.read_text(encoding="utf-8"):
+        raise SystemExit(f"Refusing to replace a full study document during proposal bootstrap: {dest_md}")
+    return "pre-catalog" if by_slug else "new"
+
+
+def _number_like(value: object) -> int | None:
+    try:
+        return int(value) if value is not None else None
+    except (TypeError, ValueError):
+        return None
+
+
 def replace_issue_form_section(body: str, heading: str, value: str) -> str:
     pattern = rf"(###\s*{re.escape(heading)}\s*\r?\n+)(.+?)(?=\r?\n###|\Z)"
     if re.search(pattern, body, re.DOTALL | re.IGNORECASE):
@@ -277,6 +334,11 @@ def bootstrap_proposal(
         validate_study_slug(fields.slug)
     except ValueError as exc:
         raise SystemExit(str(exc)) from exc
+    state = bootstrap_target_state(fields)
+    if state == "published":
+        print(f"{fields.slug} is already published for this proposal; skipping bootstrap.")
+        return
+
     dest_dir = study_dir(fields.slug)
     dest_md = study_md(fields.slug)
     if dest_md.exists() and not force:
@@ -367,10 +429,9 @@ def main() -> None:
     except ValueError as exc:
         raise SystemExit(str(exc)) from exc
 
-    if args.issue and not args.skip_issue_update:
-        update_issue_slug(args.issue, fields.slug)
-
     bootstrap_proposal(fields, dry_run=args.dry_run, force=args.force)
+    if args.issue and not args.skip_issue_update and not args.dry_run:
+        update_issue_slug(args.issue, fields.slug)
 
 
 if __name__ == "__main__":
