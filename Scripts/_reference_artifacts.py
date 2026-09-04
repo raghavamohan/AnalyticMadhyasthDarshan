@@ -35,6 +35,15 @@ ACTIVE_TRANSLATION_SOURCE_PDFS = frozenset(
         "Madhyasth-Darshan/MSM-manav-sanchetnavaadi-manovigyan.pdf",
     }
 )
+ACTIVE_TRANSLATION_OUTPUT_PDFS = frozenset(
+    {
+        "Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf",
+        "Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-Hindi-English.pdf",
+    }
+)
+ACTIVE_TRANSLATION_RETAINED_PDFS = (
+    ACTIVE_TRANSLATION_SOURCE_PDFS | ACTIVE_TRANSLATION_OUTPUT_PDFS
+)
 SITE_OWNER_APPROVED_PATHS = frozenset(
     {
         "Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf",
@@ -103,7 +112,10 @@ def _reference_payloads() -> list[Path]:
         if not path.is_file() or path.suffix.lower() not in {".pdf", ".html"}:
             continue
         rel = path.relative_to(REFERENCES).as_posix()
-        if any(rel.startswith(prefix) for prefix in ACTIVE_TRANSLATION_DIRS):
+        if (
+            any(rel.startswith(prefix) for prefix in ACTIVE_TRANSLATION_DIRS)
+            and rel not in ACTIVE_TRANSLATION_OUTPUT_PDFS
+        ):
             continue
         paths.append(path)
     return sorted(paths, key=lambda item: item.relative_to(REFERENCES).as_posix())
@@ -195,7 +207,7 @@ def _entry(path: Path, tags: dict[str, list[str]], downloads: dict[str, dict]) -
     rel = path.relative_to(REFERENCES).as_posix()
     repo_path = f"References/{rel}"
     source = downloads.get(rel, {"urls": [], "minimum_bytes": 500, "notes": ""})
-    retained = rel in ACTIVE_TRANSLATION_SOURCE_PDFS
+    retained = rel in ACTIVE_TRANSLATION_RETAINED_PDFS
     third_party_html = _is_third_party_html(rel)
     site_root = site_base_url().rstrip("/")
 
@@ -206,7 +218,11 @@ def _entry(path: Path, tags: dict[str, list[str]], downloads: dict[str, dict]) -
             "public_url": f"{site_root}/{repo_path}",
         }
         state = "git-retained"
-        kind = "active-translation-source-pdf"
+        kind = (
+            "active-translation-source-pdf"
+            if rel in ACTIVE_TRANSLATION_SOURCE_PDFS
+            else "active-translation-output-pdf"
+        )
     elif third_party_html:
         target = {
             "storage": "r2-private-original",

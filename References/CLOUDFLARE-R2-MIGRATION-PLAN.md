@@ -2,13 +2,13 @@
 
 **Updated:** September 4, 2026
 
-**Branch:** `codex/move-advaita-pdfs-to-r2`, based on `master` at `fa2b7d6`
+**Checkpoint commit:** `8e915e8` on `master` (PR #372 merged)
 
-**Current status:** The public cutover is implemented and live for the original
-approved set. The eight Advaita Vedanta PDFs were subsequently approved by the site
-owner, uploaded, and verified in R2; their allowlist and Git removal are prepared on
-this branch. The remaining large files stay in Git until their rights are resolved.
-Git history has not been rewritten.
+**Current status:** The public cutover is implemented and live for every artifact
+whose redistribution status has been approved, including all eight approved Advaita
+Vedanta PDFs. The remaining large files stay in Git until their rights are resolved.
+The two active translation source PDFs and two generated KD review PDFs also remain
+in Git by design. Git history has not been rewritten.
 
 ## Restart checkpoint
 
@@ -19,15 +19,15 @@ Git history has not been rewritten.
 | Public route | `analyticmadhyasthdarshan.org/References/*` |
 | Public R2 PDFs | 24 objects, 272.74 MiB |
 | Private original HTML | 12 objects, 1.76 MiB |
-| Removed from current Git tree | 35 uploaded payloads plus 1 generated HTML after this branch merges |
+| Removed from current Git tree | 35 uploaded payloads plus 1 generated HTML |
 | Retained for rights review | 15 PDFs, 28.94 MiB |
-| Retained active source PDFs | KD and MSM, 77.47 MiB |
+| Retained active translation PDFs | KD and MSM sources plus 2 generated KD review PDFs, 81.60 MiB |
 | External-only generated derivatives | 11 PDFs, 5.18 MiB |
 | Generated on demand | 1 transcript HTML, 0.15 MiB |
-| Manifest | `References/r2-artifacts.json`, 65 artifact records |
+| Manifest | `References/r2-artifacts.json`, 67 artifact records |
 | Public verification | All 24 objects passed S3 checks and the full canary delivery audit |
 | Fresh-clone proof | All 24 hydrated and checksum-verified without credentials |
-| Next action | Merge the Advaita tranche, then complete rights review for the 15 retained PDFs |
+| Next action | Complete rights review for the 15 retained PDFs; defer Git history cleanup until separately approved |
 
 No secret values are recorded in this repository. The current S3 credential was
 sufficient for create/probe/upload/verify work. The current Cloudflare API token
@@ -52,7 +52,23 @@ was sufficient to bind the bucket, deploy the Worker, and attach the route.
 - PDFs are never generated during an HTTP request. CI generates and verifies them,
   then publishes immutable outputs.
 - KD and MSM are the two active translation exceptions. Their Hindi source PDFs and
-  editable workspaces remain in Git.
+  editable workspaces remain in Git. The generated KD English and interleaved
+  Hindi-English review PDFs also remain in Git while that translation is active;
+  all four PDFs are explicitly recorded in the artifact manifest.
+
+## Follow-up register
+
+| Follow-up | Status | Completion condition |
+|---|---|---|
+| Rights review for 15 retained third-party PDFs | Open | Each artifact has an authoritative source and explicit redistribution basis, then moves to R2; otherwise its citation moves to a canonical external URL |
+| KD and MSM translation exceptions | Ongoing | Keep their two source PDFs and the two generated KD review PDFs in Git until the active translation workflow no longer requires them |
+| R2 deletion protection and independent backup | Open hardening | Choose a retention policy, verify backup recovery, and apply a bucket lock only after confirming it will not block legitimate corrections |
+| Git history cleanup | Deferred by owner on September 4, 2026 | Schedule a separate maintenance window with backup tags, branch freeze, force-push coordination, and collaborator re-clones |
+
+The history item is deliberately not part of routine migration work. Removing payloads
+from the current tree prevents future binary growth, but old blobs remain in existing
+Git history and continue to affect clone/repository storage until a coordinated history
+rewrite is performed.
 
 ## Rights boundary
 
@@ -95,9 +111,10 @@ remain in Git.
 
 ### Phase 1 — Inventory, provenance, rights, and checksums
 
-Complete for the current boundary. `r2-artifacts.json` records all 65 artifacts and
+Complete for the current boundary. `r2-artifacts.json` records all 67 artifacts and
 distinguishes public R2, private original, Git-retained, external-only, and generated
-states. Rights review remains intentionally open only for the 15 listed PDFs.
+states. This includes both generated KD working-review PDFs. Rights review remains
+intentionally open only for the 15 listed third-party PDFs.
 
 ### Phase 2 — Resolver and credential-free hydration
 
@@ -146,10 +163,10 @@ HTML rather than Markdown or PDF. External-only sources resolve to canonical pag
 
 ### Phase 7 — Remove uploaded payloads from the current Git tree
 
-Complete for the original approved artifacts; the Advaita tranche adds eight more
-uploaded payload files for removal. The parent commits and Git history remain rollback
-sources. A clean cache hydration followed by `_check_references.py` passed for all 24
-public R2 PDFs.
+Complete for all currently approved artifacts, including the eight-file Advaita
+tranche merged in PR #372. Parent commits and Git history remain rollback sources.
+A clean cache hydration followed by `_check_references.py` passed for all 24 public
+R2 PDFs.
 
 ## Remaining phases
 
@@ -157,7 +174,8 @@ public R2 PDFs.
 
 In progress. The site owner confirmed redistribution rights for all eight Advaita
 Vedanta PDFs. They are recorded as approved, uploaded with their original checksums,
-and included in the Worker allowlist on this branch. Fifteen PDFs remain under review.
+included in the production Worker allowlist, and removed from the current Git tree.
+Fifteen PDFs remain under review.
 
 For each artifact:
 
@@ -171,17 +189,21 @@ This is the next functional phase. It does not require a new bucket.
 
 ### Phase 9 — Lean translation workspaces
 
-After the hydrator has been used in real KD/MSM translation work, consider moving
-immutable page images and generated workspace renderings to R2. Retain editable
-Markdown, mappings, glossaries, ledgers, and the two source PDFs unless the user
-explicitly changes the exception.
+The two immutable source PDFs and two generated KD review PDFs remain explicit active
+translation exceptions. After the hydrator has been used in real KD/MSM translation
+work, consider moving immutable page images and generated workspace renderings to R2.
+Retain editable Markdown, mappings, glossaries, and ledgers. Do not remove any of the
+four retained PDFs until the user explicitly changes the exception or the active
+translation workflow no longer needs them.
 
 ### Phase 10 — Optional Git history cleanup
 
-Removing files from the branch prevents future binary growth but does not shrink old
-clones until history is rewritten. Measure the remaining pack first. Any
-`git filter-repo` operation requires a separately approved maintenance event, backup
-tags, a branch freeze, force-push coordination, and collaborator re-clones.
+Deferred by the owner on September 4, 2026. Removing files from the current tree
+prevents future binary growth but does not shrink old clones or remove blobs already
+stored in GitHub history. Before revisiting this phase, measure the remote impact and
+remaining pack. Any `git filter-repo` operation requires a separately approved
+maintenance event, backup tags, a branch freeze, force-push coordination, and
+collaborator re-clones.
 
 ## Verification and resume commands
 
