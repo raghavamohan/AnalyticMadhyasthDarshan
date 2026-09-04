@@ -50,9 +50,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Set up Python
-        uses: actions/setup-python@v6
+      - name: Set up study toolchain
+        uses: ./.github/actions/setup-study-env
         with:
+          node: 'false'
           python-version: "3.13"
 
       - name: Set up Node
