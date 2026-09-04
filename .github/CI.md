@@ -214,8 +214,11 @@ must not depend on a separate workflow.
 On a relevant `master` push (or a manual dispatch on `master`), CI builds the full
 publishable Markdown inventory and all manifest-approved reference PDFs in the shared
 Linux job, and all slides/notes PDFs with the pinned LibreOffice production renderer
-on Windows. `publish-and-deploy` does not start until both build jobs complete
-successfully.
+on Windows. Relevant pushes are limited to document Markdown, embedded study figures,
+PPTX sources, reference HTML/Markdown/PDF sources and manifests, or the rendering and
+publication toolchain. Root portal and catalog artifacts such as `Studies/submit.html`
+and `Studies/companion-artifacts.json` do not start publication. `publish-and-deploy`
+does not start until both build jobs complete successfully.
 It merges the verified artifact trees; publishes generated PDFs and approved
 references to their separate R2 buckets; checks R2 coverage; deploys the shared,
 allowlisted Worker; preserves the guarded `/Studies/*`, `/Applications/*`, and
