@@ -48,7 +48,7 @@
       "type": "skill-md",
       "description": "Remove a study from Studies/ or Applications/ using Scripts/_remove_study.py or _remove_study.ps1 — deletes the complete directory and updates catalogs, proposal metadata, and References. Use when retiring a study, deleting a paper, removing an Ongoing placeholder, or cleaning up a study slug.",
       "url": "/.well-known/agent-skills/remove-study/SKILL.md",
-      "digest": "sha256:7b9e1a6647da03e9ecf5185ffe4b9c63db81b0a59917cca263cec3ba5dd97bfb"
+      "digest": "sha256:d15311420d342042f8547d45366e8f80add449da6e52fe4427bfd22fa4fbddd1"
     },
     {
       "name": "rename-study",

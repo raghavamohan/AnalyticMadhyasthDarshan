@@ -16,6 +16,7 @@ import shutil
 from pathlib import Path
 
 from _common import (
+    BASE,
     REFERENCES,
     STUDIES,
     known_study_slugs,
@@ -47,6 +48,7 @@ MANIFEST_LABELS: dict[str, str] = {
     "Ethics-And-Morals-In-Human-Beings": "Ethics-And-Morals",
 }
 PROPOSAL_REGISTRY_PATH = STUDIES / "proposal-registry.json"
+PRESENTATION_MANIFEST_PATH = BASE / "Scripts" / "presentation-pipeline.json"
 
 
 def normalize_slug(value: str) -> str:
@@ -176,6 +178,34 @@ def remove_registry_row(slug: str, *, dry_run: bool) -> bool:
     return True
 
 
+def remove_presentation_manifest_entries(
+    slug: str,
+    *,
+    dry_run: bool,
+    directory: Path | None = None,
+) -> int:
+    """Remove every deck whose source lives in the retired study directory."""
+    if not PRESENTATION_MANIFEST_PATH.is_file():
+        return 0
+    study_directory = directory or study_dir(slug)
+    try:
+        prefix = study_directory.resolve().relative_to(BASE.resolve()).as_posix() + "/"
+    except ValueError as exc:
+        raise SystemExit(f"Study directory is outside the repository: {study_directory}") from exc
+    data = json.loads(PRESENTATION_MANIFEST_PATH.read_text(encoding="utf-8"))
+    decks = list(data.get("decks", []))
+    prefix_folded = prefix.casefold()
+    kept = [
+        deck for deck in decks
+        if not str(deck.get("source") or "").replace("\\", "/").casefold().startswith(prefix_folded)
+    ]
+    removed = len(decks) - len(kept)
+    if removed and not dry_run:
+        data["decks"] = kept
+        write_text_lf(PRESENTATION_MANIFEST_PATH, json.dumps(data, indent=2) + "\n")
+    return removed
+
+
 def confirm_removal(slug: str, paths: list[Path]) -> bool:
     print(f"Study slug: {slug}")
     print("Files to delete:")
@@ -222,12 +252,33 @@ def remove_study(
             print(f"  - {path}")
         if remove_registry_row(slug, dry_run=True):
             print(f"Would remove {slug} from {PROPOSAL_REGISTRY_PATH}")
+        deck_count = remove_presentation_manifest_entries(
+            slug,
+            dry_run=True,
+            directory=study_dir(slug),
+        )
+        if deck_count:
+            print(
+                f"Would remove {deck_count} deck entr{'y' if deck_count == 1 else 'ies'} "
+                f"from {PRESENTATION_MANIFEST_PATH}"
+            )
         print("\nDry run — no files changed.")
         return
 
     if not assume_yes and not confirm_removal(slug, paths):
         print("Cancelled.")
         return
+
+    deck_count = remove_presentation_manifest_entries(
+        slug,
+        dry_run=False,
+        directory=study_dir(slug),
+    )
+    if deck_count:
+        print(
+            f"Updated {PRESENTATION_MANIFEST_PATH}: removed "
+            f"{deck_count} deck entr{'y' if deck_count == 1 else 'ies'}"
+        )
 
     for path in existing_paths:
         if path.is_dir():

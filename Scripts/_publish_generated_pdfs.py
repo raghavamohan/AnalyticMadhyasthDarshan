@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import subprocess
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Protocol
@@ -156,6 +157,91 @@ def stale_object_keys(client: R2S3Client) -> list[str]:
     return sorted(remote - declared)
 
 
+def removed_object_keys(
+    base_ref: str,
+    *,
+    diff_text: str | None = None,
+    base_manifest_text: str | None = None,
+    current_specs: tuple[GeneratedPdfSpec, ...] | None = None,
+) -> list[str]:
+    """Return generated PDF keys retired by a Git diff, excluding live outputs."""
+    if diff_text is None:
+        result = subprocess.run(
+            ["git", "diff", "--diff-filter=D", "--name-only", f"{base_ref}..HEAD"],
+            cwd=BASE,
+            check=False,
+            text=True,
+            capture_output=True,
+        )
+        if result.returncode != 0:
+            raise RuntimeError(result.stderr.strip() or f"Could not diff {base_ref}..HEAD")
+        diff_text = result.stdout
+    deleted = {line.strip().replace("\\", "/") for line in diff_text.splitlines() if line.strip()}
+    retired: set[str] = set()
+    for path_text in deleted:
+        path = Path(path_text)
+        if (
+            len(path.parts) >= 3
+            and path.parts[0] in {"Studies", "Applications"}
+            and path.suffix.lower() == ".md"
+            and not path.stem.startswith("Research-Template-")
+        ):
+            retired.add(path.with_suffix(".pdf").as_posix())
+
+    if base_manifest_text is None:
+        result = subprocess.run(
+            ["git", "show", f"{base_ref}:Scripts/presentation-pipeline.json"],
+            cwd=BASE,
+            check=False,
+            text=True,
+            capture_output=True,
+        )
+        if result.returncode != 0:
+            raise RuntimeError(
+                result.stderr.strip()
+                or f"Could not read presentation manifest at {base_ref}"
+            )
+        base_manifest_text = result.stdout
+    if base_manifest_text:
+        try:
+            base_manifest = json.loads(base_manifest_text)
+        except json.JSONDecodeError as exc:
+            raise RuntimeError(f"Could not parse presentation manifest at {base_ref}: {exc}") from exc
+        for deck in base_manifest.get("decks", []):
+            source = str(deck.get("source") or "").replace("\\", "/")
+            if source in deleted:
+                for field in ("slidesPdf", "notesPdf"):
+                    key = str(deck.get(field) or "").replace("\\", "/")
+                    if key:
+                        retired.add(key)
+
+    selected_specs = current_specs if current_specs is not None else generated_pdf_specs()
+    live = {spec.key for spec in selected_specs}
+    return sorted(retired - live)
+
+
+def delete_removed_objects(
+    keys: list[str],
+    client: R2S3Client,
+    *,
+    dry_run: bool,
+) -> list[tuple[str, str]]:
+    """Delete only explicit retired keys and verify each deletion."""
+    results: list[tuple[str, str]] = []
+    for key in keys:
+        if client.head_object(key) is None:
+            results.append((key, "absent"))
+            continue
+        if dry_run:
+            results.append((key, "would-delete"))
+            continue
+        client.delete_object(key)
+        if client.head_object(key) is not None:
+            raise RuntimeError(f"R2 object still exists after delete: {key}")
+        results.append((key, "deleted"))
+    return results
+
+
 def main(argv: list[str] | None = None) -> int:
     configure_utf8_stdio()
     parser = argparse.ArgumentParser(
@@ -172,6 +258,11 @@ def main(argv: list[str] | None = None) -> int:
     )
     selection.add_argument("--list-stale", action="store_true", help="List remote PDF keys absent from inventory")
     selection.add_argument("--delete-stale", action="store_true", help="Delete remote PDF keys absent from inventory")
+    selection.add_argument(
+        "--delete-removed-since",
+        metavar="GIT_REF",
+        help="Delete only generated PDF keys whose source was removed since GIT_REF",
+    )
     parser.add_argument(
         "--confirm-stale-count", type=int,
         help="Required exact stale-key count for a non-dry-run --delete-stale",
@@ -184,13 +275,25 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     if args.offline and not args.dry_run:
         raise SystemExit("--offline requires --dry-run")
-    if args.offline and (args.list_stale or args.delete_stale):
+    if args.offline and (args.list_stale or args.delete_stale or args.delete_removed_since):
         raise SystemExit("stale-object modes require R2 access")
 
     errors = inventory_errors()
     if errors:
         raise SystemExit("Generated PDF inventory errors:\n  - " + "\n  - ".join(errors))
     root = args.artifact_root.expanduser().resolve()
+    if args.delete_removed_since:
+        try:
+            client = R2S3Client(load_r2_config())
+            keys = removed_object_keys(args.delete_removed_since)
+            results = delete_removed_objects(keys, client, dry_run=args.dry_run)
+            for key, action in results:
+                print(f"{action:12} {key}")
+            print(f"Retired generated PDF objects: {len(keys)}")
+        except (OSError, RuntimeError, ValueError) as exc:
+            print(str(exc))
+            return 1
+        return 0
     if args.list_stale or args.delete_stale:
         try:
             client = R2S3Client(load_r2_config())

@@ -12,7 +12,14 @@ from pathlib import Path
 import fitz
 
 from _generated_pdf_inventory import GeneratedPdfSpec, generated_pdf_specs, inventory_errors
-from _publish_generated_pdfs import main, publish_artifacts, stale_object_keys, verify_artifacts
+from _publish_generated_pdfs import (
+    delete_removed_objects,
+    main,
+    publish_artifacts,
+    removed_object_keys,
+    stale_object_keys,
+    verify_artifacts,
+)
 from _publish_reference_artifacts import (
     _object_matches_manifest,
     _source_path as reference_source_path,
@@ -46,6 +53,19 @@ class FakeListingClient:
                 "Studies/Retired/Retired.pdf",
             ]
         return ["Applications/Retired/Retired.pdf", "Applications/readme.txt"]
+
+
+class FakeDeleteClient:
+    def __init__(self, present: set[str]):
+        self.present = set(present)
+        self.deleted: list[str] = []
+
+    def head_object(self, key: str):
+        return {"content-length": "1"} if key in self.present else None
+
+    def delete_object(self, key: str):
+        self.deleted.append(key)
+        self.present.discard(key)
 
 class InventoryTests(unittest.TestCase):
     def test_inventory_covers_current_and_future_generated_pdfs(self) -> None:
@@ -124,6 +144,46 @@ class PublisherTests(unittest.TestCase):
             stale_object_keys(FakeListingClient()),
             ["Applications/Retired/Retired.pdf", "Studies/Retired/Retired.pdf"],
         )
+
+    def test_removed_keys_are_derived_from_deleted_sources_and_base_manifest(self) -> None:
+        diff = "\n".join([
+            "Studies/Retired/Retired.md",
+            "Studies/Retired/Research-Note-Detail.md",
+            "Studies/Retired/Research-Template-Worksheet.md",
+            "Studies/Retired/Deck.pptx",
+        ])
+        manifest = '{"decks":[{"source":"Studies/Retired/Deck.pptx","slidesPdf":"Studies/Retired/Deck.pdf","notesPdf":"Studies/Retired/Deck-notes.pdf"}]}'
+        active = (
+            GeneratedPdfSpec(
+                "Studies/Retired/Deck.pdf", Path("Deck.pptx"), Path("Deck.pdf"), "presentation-slides"
+            ),
+        )
+        self.assertEqual(
+            removed_object_keys(
+                "base",
+                diff_text=diff,
+                base_manifest_text=manifest,
+                current_specs=active,
+            ),
+            [
+                "Studies/Retired/Deck-notes.pdf",
+                "Studies/Retired/Research-Note-Detail.pdf",
+                "Studies/Retired/Retired.pdf",
+            ],
+        )
+
+    def test_removed_object_deletion_is_exact_and_verified(self) -> None:
+        client = FakeDeleteClient({"Studies/Retired/Retired.pdf"})
+        results = delete_removed_objects(
+            ["Studies/Retired/Missing.pdf", "Studies/Retired/Retired.pdf"],
+            client,
+            dry_run=False,
+        )
+        self.assertEqual(results, [
+            ("Studies/Retired/Missing.pdf", "absent"),
+            ("Studies/Retired/Retired.pdf", "deleted"),
+        ])
+        self.assertEqual(client.deleted, ["Studies/Retired/Retired.pdf"])
 
     def test_kind_selection_is_available_for_split_ci_builds(self) -> None:
         with patch("_publish_generated_pdfs.verify_artifacts", return_value=[]) as verify, patch(

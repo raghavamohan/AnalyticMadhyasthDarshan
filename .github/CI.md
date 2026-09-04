@@ -18,11 +18,12 @@ for the pipeline itself.**
 | [PDF pipeline smoke](workflows/pdf-pipeline-smoke.yml) | `pull_request` path-filtered on the PDF pipeline; `workflow_dispatch` | `reproducible` | No |
 | [Presentation pipeline smoke](workflows/presentation-pipeline-smoke.yml) | `pull_request` path-filtered on presentation sources/tooling; `workflow_dispatch` | `libreoffice-production` | No |
 | [Generated PDF publish](workflows/generated-pdf-publish.yml) | path-filtered `pull_request`; relevant `push` to `master`; `workflow_dispatch` | `pdfs`, `presentations`, `publish-and-deploy` | No Git writes; protected-branch runs publish to R2 and deploy/audit the delivery Worker |
+| [Submission portal Worker](workflows/submission-worker-deploy.yml) | path-filtered `pull_request`; relevant `push` to `master`; `workflow_dispatch` | `worker` | No Git writes; PRs bundle only, protected-branch runs deploy `amd-submissions` |
 | [Proposal approved](workflows/proposal-approved.yml) | `issues: labeled` with `proposal-approved`; `workflow_dispatch` | `comment`, `bootstrap` | **Yes** — `bootstrap` opens and merges its own PR to `master` |
 | [Portal notifications](workflows/portal-notify.yml) | `issues: labeled`; `pull_request_target: closed` | `notify` | No |
 | [Pages deploy retry](workflows/pages-deploy-retry.yml) | `workflow_run` on *pages build and deployment* completing | `retry` | No (re-runs a run) |
 
-Four jobs are gated by more than their trigger, which is the most common source of
+Five jobs are gated by more than their trigger, which is the most common source of
 "why didn't CI run?":
 
 - **Study PR** is skipped unless the PR carries a study label. A `skipped`
@@ -37,6 +38,8 @@ Four jobs are gated by more than their trigger, which is the most common source 
 - **Generated PDF publish** builds affected Markdown PDFs on pull requests but
   receives no Cloudflare credentials there. Only a `master` push or manual run
   on `master` can start its presentation and R2 publication jobs.
+- **Submission portal Worker** bundles on matching pull requests without credentials;
+  deployment runs only from `master` or a manual dispatch on `master`.
 
 **Studies index is the only workflow that reports on every pull request**, and is
 therefore the only one that can serve as a required status check.
@@ -81,6 +84,10 @@ directory is gone, `proposal-registry.json` no longer lists it, and no Markdown
 link still targets it). Moving a figure/companion file between directories is
 not a rename. Rename CI passes the catalog display title to the metadata script
 and has `issues: write`, so both the proposal issue body and title stay aligned.
+Whole-study deletion requests from My Submissions carry `Operation: delete-study`
+and a marker inside the target directory. The handler runs `_remove_study.py --yes`
+before normal removal verification; the marker disappears with the directory and
+CI commits the resulting catalog, proposal-registry, and References cleanup.
 
 `new-study` and `status-change` are single-purpose handlers: if their diff also
 touches another study directory, the router rejects the PR and directs the
@@ -228,11 +235,25 @@ checksum comparison. Worker code first deploys to the isolated
 before the production script is updated.
 
 Publication is checksum-driven and idempotent: matching R2 objects are skipped.
+After a protected-branch push publishes the current inventory, the workflow derives
+retired PDF keys from deleted Markdown/PPTX sources in that exact Git diff, excludes
+any output key still present in the live inventory, and deletes only those objects.
+This makes an approved portal deletion remove the old public PDF without broad stale-
+bucket cleanup; manual dispatches never perform source-diff deletion.
 The workflow never commits generated PDFs. Approved immutable reference PDFs are
 ignored and served from R2; rights-review PDFs and the two active translation source
 PDFs remain Git-tracked until their manifest policy changes.
 
-### 2.6 Proposal approved — `proposal-approved.yml`
+### 2.6 Submission portal Worker — `submission-worker-deploy.yml`
+
+Changes to `infra/worker/` are bundled with Wrangler on pull requests without
+Cloudflare credentials. The matching protected-branch push installs the pinned
+worker dependencies and deploys `amd-submissions`, preserving its configured KV
+binding, custom domain, and separately managed Worker secrets. This keeps portal
+HTML and API changes reviewable in one PR without requiring a manual post-merge
+deployment.
+
+### 2.7 Proposal approved — `proposal-approved.yml`
 
 Two independent jobs on the `proposal-approved` label:
 
@@ -274,7 +295,7 @@ verifies approval from the issue's **labels**, not the registry. Contributors ca
 still submit. What is lost is the pre-catalog stub, the registry row, and the row
 reading *Ready for draft* rather than *Approved* on My Submissions.
 
-### 2.7 Portal notifications — `portal-notify.yml`
+### 2.8 Portal notifications — `portal-notify.yml`
 
 Best-effort email to submission-portal contributors via the submissions worker.
 No-ops cleanly when `PORTAL_NOTIFY_SECRET` is unset, when the PR is not a portal
@@ -285,7 +306,7 @@ It uses `pull_request_target`, which runs in a privileged context with access to
 secrets. It is safe here **only because it never checks out PR code** and only
 reads the payload as data. Do not add a checkout step to this workflow.
 
-### 2.8 Pages deploy retry — `pages-deploy-retry.yml`
+### 2.9 Pages deploy retry — `pages-deploy-retry.yml`
 
 Re-runs failed `pages-build-deployment` jobs once, on `master`, on attempt 1 only.
 Guards against the site's intermittent `syncing_files` failure, which has no
