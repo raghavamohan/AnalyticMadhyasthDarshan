@@ -120,7 +120,7 @@ async function githubRequest(path, method, body, env, userToken = null, stats = 
 
 async function githubSearch(query, env, userToken = null, stats = null) {
   const token = userToken || env.GITHUB_TOKEN;
-  const url = `https://api.github.com/search/issues?q=${encodeURIComponent(query)}&per_page=20`;
+  const url = `https://api.github.com/search/issues?q=${encodeURIComponent(query)}&per_page=100&sort=created&order=desc`;
   if (stats) stats.githubRequests += 1;
   const response = await fetch(url, {
     headers: {
@@ -454,6 +454,14 @@ async function removePresentationManifestEntries(matchesSource, branchName, env,
 }
 
 async function assertStudyOwnedBySession(session, slug, env) {
+  const registry = await fetchProposalRegistry(env, { githubRequests: 0 });
+  const registered = registryBySlug(registry, slug);
+  if (registered?.submitter?.toLowerCase() === session.login.toLowerCase()) return;
+  if (registered?.issueNumber) {
+    const issue = await githubRequest(`/issues/${registered.issueNumber}`, 'GET', null, env, session.accessToken);
+    assertProposalOwner(issue, session.login);
+    return;
+  }
   const dashboard = await buildDashboard(session, env);
   if (dashboard.submissions.some((item) => item.slug === slug)) return;
   const error = new Error(`"${slug}" is not one of your submissions.`);
@@ -496,6 +504,11 @@ function titleToSlug(title) {
 
 const MAX_SLUG_LEN = 60;
 const MAX_STUDY_MD_PATH_LEN = 200;
+const MAX_PROPOSAL_TITLE_LEN = 160;
+const MAX_PROPOSAL_CATEGORY_LEN = 120;
+const MAX_PROPOSAL_DESCRIPTION_LEN = 600;
+const MAX_PROPOSAL_SUMMARY_LEN = 6000;
+const MAX_PROPOSAL_FAMILIARITY_LEN = 200;
 
 function validateProposalSlug(slug) {
   if (!slug || !/^[A-Za-z0-9-]+$/.test(slug)) {
@@ -513,6 +526,44 @@ function validateProposalSlug(slug) {
     throw new Error(
       `The study path would be ${mdPath.length} characters. Use a shorter proposed title.`
     );
+  }
+}
+
+function requiredProposalText(value, label, maxLength) {
+  const text = String(value || '').trim();
+  if (!text) throw validationError(`${label} is required.`);
+  if (text.length > maxLength) {
+    throw validationError(`${label} must be ${maxLength} characters or fewer.`);
+  }
+  return text;
+}
+
+async function assertProposalSlugAvailable(slug, env, userToken, stats) {
+  const [catalogMap, registry, openIssues] = await Promise.all([
+    fetchCatalogSlugMap(env, stats),
+    fetchProposalRegistry(env, stats),
+    githubRequest(
+      '/issues?labels=study-proposal&state=open&per_page=100&sort=created&direction=desc',
+      'GET',
+      null,
+      env,
+      userToken,
+      stats
+    ),
+  ]);
+  if (catalogMap.has(slug)) {
+    throw validationError(`A study or Planned proposal already uses the slug "${slug}". Choose a distinct title.`);
+  }
+  const registered = registryBySlug(registry, slug);
+  if (registered) {
+    const issue = registered.issueNumber ? ` (#${registered.issueNumber})` : '';
+    throw validationError(`An approved proposal${issue} already uses the slug "${slug}". Choose a distinct title.`);
+  }
+  const duplicate = (Array.isArray(openIssues) ? openIssues : []).find(
+    (issue) => isStudyProposalIssue(issue) && slugForProposal(issue, registry) === slug
+  );
+  if (duplicate) {
+    throw validationError(`Open proposal #${duplicate.number} already uses the slug "${slug}". Choose a distinct title.`);
   }
 }
 
@@ -607,6 +658,24 @@ function assertProposalSlugMatch(proposal, slug, registry) {
   }
 }
 
+function proposalWorkspaceReady(proposal, slug, registry, catalogMap) {
+  const row = registryByIssue(registry, proposal?.number);
+  return Boolean(
+    row &&
+    row.slug === slug &&
+    row.phase === 'pre-catalog' &&
+    catalogMap.get(slug) === 'ongoing'
+  );
+}
+
+function assertProposalWorkspaceReady(proposal, slug, registry, catalogMap) {
+  if (proposalWorkspaceReady(proposal, slug, registry, catalogMap)) return;
+  throw validationError(
+    'This proposal is approved, but its Planned workspace is still being prepared. ' +
+    'Return to My Submissions and wait for Ready for draft before submitting.'
+  );
+}
+
 function buildOpenStudyPrIndex(prItems) {
   const bySlug = new Map();
   for (const item of prItems) {
@@ -655,7 +724,16 @@ async function fetchPrReviewState(prNumber, env, userToken, stats) {
     stats
   );
   const list = Array.isArray(reviews) ? reviews : [];
-  if (list.some((review) => review.state === 'CHANGES_REQUESTED')) {
+  const latestByReviewer = new Map();
+  for (const review of list) {
+    const reviewer = review.user?.login || `review-${review.id}`;
+    if (review.state === 'COMMENTED' || review.state === 'PENDING') continue;
+    const previous = latestByReviewer.get(reviewer);
+    if (!previous || Number(review.id) > Number(previous.id)) {
+      latestByReviewer.set(reviewer, review);
+    }
+  }
+  if ([...latestByReviewer.values()].some((review) => review.state === 'CHANGES_REQUESTED')) {
     return 'changes_requested';
   }
   return null;
@@ -790,10 +868,7 @@ function submissionStage(issue, pullRequest, options = {}) {
     return 'pr-closed';
   }
   if (labels.includes('proposal-approved')) {
-    if (options.preCatalog) {
-      return 'accepted';
-    }
-    return 'approved';
+    return options.workspaceReady ? 'accepted' : 'preparing';
   }
   if (issue && issue.state === 'closed' && !labels.includes('proposal-approved')) {
     return 'closed';
@@ -964,7 +1039,16 @@ function buildOpenStatusChangeIndex(prItems) {
   return bySlug;
 }
 
-function buildActions(stage, slug, catalogStatus, statusChangeBlocked, issueNumber, studyPrBlocked) {
+function buildActions(
+  stage,
+  slug,
+  catalogStatus,
+  statusChangeBlocked,
+  issueNumber,
+  studyPrBlocked,
+  pullRequest = null,
+  prType = null
+) {
   const updateUrl = slug ? portalUrl({ tab: 'submit', mode: 'update', slug }) : null;
   const primaryAction = null;
   const secondaryActions = [];
@@ -985,7 +1069,15 @@ function buildActions(stage, slug, catalogStatus, statusChangeBlocked, issueNumb
       statusUrl: null,
     };
   }
-  if ((stage === 'approved' || stage === 'accepted') && issueNumber) {
+  if (stage === 'preparing' && issueNumber) {
+    return {
+      primaryAction: { label: 'Preparing workspace', href: null, variant: 'secondary', disabled: true },
+      secondaryActions: [],
+      updateUrl,
+      statusUrl: null,
+    };
+  }
+  if (stage === 'accepted' && issueNumber) {
     return {
       primaryAction: {
         label: studyPrBlocked ? 'Draft PR in review' : 'Submit draft',
@@ -999,9 +1091,23 @@ function buildActions(stage, slug, catalogStatus, statusChangeBlocked, issueNumb
     };
   }
   if (stage === 'pr-open' || stage === 'changes_requested') {
+    if (stage === 'changes_requested' && prType === 'new-study' && pullRequest?.number) {
+      return {
+        primaryAction: {
+          label: 'Revise draft',
+          href: portalUrl({ tab: 'submit', mode: 'revise', slug, pr: pullRequest.number }),
+          variant: 'primary',
+        },
+        secondaryActions: [
+          { label: 'View pull request', href: pullRequest.url, variant: 'secondary' },
+        ],
+        updateUrl,
+        statusUrl: null,
+      };
+    }
     return {
       primaryAction: {
-        label: stage === 'changes_requested' ? 'Address review' : 'View pull request',
+        label: 'View pull request',
         href: null,
         variant: 'secondary',
         prOnly: true,
@@ -1062,7 +1168,7 @@ function kindLabel(kind, prType) {
 async function listProposalIssues(login, env, userToken, stats) {
   // The REST issues list is immediately consistent (unlike the Search API,
   // which lags by seconds), so a just-submitted proposal shows up right away.
-  const perPage = 50;
+  const perPage = 100;
   const path = `/issues?creator=${encodeURIComponent(login)}&labels=study-proposal&state=all&per_page=${perPage}&sort=created&direction=desc`;
   const items = await githubRequest(path, 'GET', null, env, userToken, stats);
   const list = Array.isArray(items) ? items : [];
@@ -1164,12 +1270,19 @@ async function buildDashboard(session, env) {
     let prDetails = linkedItem ? summarizePullRequestFromSearch(linkedItem) : null;
     if (linkedItem) usedPrNumbers.add(linkedItem.number);
 
-    const preCatalog = Boolean(slug && preCatalogSlugs.has(slug) && !catalogMap.get(slug));
+    const preCatalog = Boolean(slug && preCatalogSlugs.has(slug));
+    const registryRow = registryByIssue(proposalRegistry, issue.number);
+    const catalogStatus = slug ? (catalogMap.get(slug) || (preCatalog ? 'pre-catalog' : null)) : null;
+    const workspaceReady = Boolean(
+      registryRow &&
+      registryRow.slug === slug &&
+      registryRow.phase === 'pre-catalog' &&
+      catalogStatus === 'ongoing'
+    );
     let stage = submissionStage(issue, linkedItem ? {
       state: linkedItem.state,
       merged_at: linkedItem.pull_request?.merged_at,
-    } : null, { preCatalog });
-    const catalogStatus = slug ? (catalogMap.get(slug) || (preCatalog ? 'pre-catalog' : null)) : null;
+    } : null, { workspaceReady });
     // A proposal whose study is already published (draft/released in the
     // catalog) is treated as merged so the dashboard offers "Submit new
     // version" and the status toggle, even when no portal PR is linked.
@@ -1182,18 +1295,21 @@ async function buildDashboard(session, env) {
     }
     const statusBlocked = slug ? openStatusChanges.has(slug) : false;
     const studyPrBlocked = slug ? openStudyPrs.has(slug) : false;
+    const prType = linkedItem ? prTypeFromLabels(issueLabels(linkedItem)) : null;
     const actions = buildActions(
       stage,
       slug,
       catalogStatus,
       statusBlocked,
       issue.number,
-      studyPrBlocked
+      studyPrBlocked,
+      prDetails,
+      prType
     );
 
     submissions.push({
       kind: 'proposal',
-      prType: linkedItem ? prTypeFromLabels(issueLabels(linkedItem)) : null,
+      prType,
       kindLabel: 'Proposal',
       issueNumber: issue.number,
       title: title || issue.title,
@@ -1205,6 +1321,7 @@ async function buildDashboard(session, env) {
       stage,
       catalogStatus,
       preCatalog,
+      workspaceReady,
       studyPrBlocked,
       statusChangeBlocked: statusBlocked,
       statusChangePr: statusBlocked && slug ? openStatusChanges.get(slug) : null,
@@ -1236,7 +1353,17 @@ async function buildDashboard(session, env) {
     }
     const statusBlocked = slug ? openStatusChanges.has(slug) : false;
     const studyPrBlocked = slug ? openStudyPrs.has(slug) : false;
-    const actions = buildActions(stage, slug, catalogStatus, statusBlocked, null, studyPrBlocked);
+    const pullRequest = summarizePullRequestFromSearch(item);
+    const actions = buildActions(
+      stage,
+      slug,
+      catalogStatus,
+      statusBlocked,
+      null,
+      studyPrBlocked,
+      pullRequest,
+      prType
+    );
 
     submissions.push({
       kind: 'pull-request',
@@ -1250,12 +1377,13 @@ async function buildDashboard(session, env) {
       approved: false,
       stage,
       catalogStatus,
-      preCatalog: Boolean(slug && preCatalogSlugs.has(slug) && !catalogMap.get(slug)),
+      preCatalog: Boolean(slug && preCatalogSlugs.has(slug)),
+      workspaceReady: Boolean(slug && preCatalogSlugs.has(slug) && catalogStatus === 'ongoing'),
       studyPrBlocked,
       statusChangeBlocked: statusBlocked,
       statusChangePr: statusBlocked && slug ? openStatusChanges.get(slug) : null,
       studyPr: studyPrBlocked && slug ? openStudyPrs.get(slug) : null,
-      pullRequest: summarizePullRequestFromSearch(item),
+      pullRequest,
       checks: null,
       ...actions,
       submitUrl: null,
@@ -1284,6 +1412,19 @@ async function buildDashboard(session, env) {
       }
     }
     row.pullRequest = summary;
+    Object.assign(
+      row,
+      buildActions(
+        row.stage,
+        row.slug,
+        row.catalogStatus,
+        row.statusChangeBlocked,
+        row.issueNumber,
+        row.studyPrBlocked,
+        summary,
+        row.prType
+      )
+    );
   });
 
   await runPool(openRows, CHECK_POOL_SIZE, async (row) => {
@@ -1300,7 +1441,7 @@ async function buildDashboard(session, env) {
     };
   });
 
-  const truncated = proposalList.truncated || prSearch.totalCount > 20;
+  const truncated = proposalList.truncated || prSearch.totalCount > 100;
 
   return {
     login,
@@ -1498,10 +1639,29 @@ router.post('/api/propose', async (request, env) => {
     const data = await request.json();
     await verifyTurnstile(data.turnstileToken, env, request);
 
-    const { title, category, description, summary, formal, familiarity } = data;
+    const title = requiredProposalText(data.title, 'Proposed title', MAX_PROPOSAL_TITLE_LEN);
+    const category = requiredProposalText(data.category, 'Category', MAX_PROPOSAL_CATEGORY_LEN);
+    const description = requiredProposalText(
+      data.description,
+      'One-line description',
+      MAX_PROPOSAL_DESCRIPTION_LEN
+    );
+    const summary = requiredProposalText(data.summary, 'Study summary', MAX_PROPOSAL_SUMMARY_LEN);
+    const familiarity = requiredProposalText(
+      data.familiarity,
+      'Prior familiarity',
+      MAX_PROPOSAL_FAMILIARITY_LEN
+    );
+    const formal = data.formal === true;
 
     const derivedSlug = titleToSlug(title);
     validateProposalSlug(derivedSlug);
+    await assertProposalSlugAvailable(
+      derivedSlug,
+      env,
+      session.accessToken,
+      { githubRequests: 0 }
+    );
 
     const body = `Propose a new analytic study before writing the full paper.
 Maintainers will review and label approved proposals \`proposal-approved\`.
@@ -1580,6 +1740,8 @@ router.get('/api/proposal-status', async (request, env) => {
     const preCatalog = Boolean(
       slug && preCatalogSlugSet(registry).has(slug)
     );
+    const catalogMap = await fetchCatalogSlugMap(env, { githubRequests: 0 });
+    const workspaceReady = proposalWorkspaceReady(issue, slug, registry, catalogMap);
 
     return jsonResponse(request, env, {
       success: true,
@@ -1589,6 +1751,8 @@ router.get('/api/proposal-status', async (request, env) => {
       title,
       slug,
       preCatalog,
+      workspaceReady,
+      catalogStatus: slug ? (catalogMap.get(slug) || null) : null,
       url: issue.html_url,
       ownedByYou,
     });
@@ -1654,6 +1818,108 @@ router.get('/api/study-source', async (request, env) => {
   }
 });
 
+function revisionTarget(pr, session) {
+  if (!pr || pr.state !== 'open') {
+    throw validationError('That pull request is no longer open. Refresh My Submissions.');
+  }
+  const labels = issueLabels(pr);
+  if (!labels.includes('new-study')) {
+    throw validationError('Portal draft revision is available only for an open first-draft pull request.');
+  }
+  const portalSubmitter = (pr.body || '').match(/^Portal-GitHub:\s*@([^\s]+)\s*$/mi)?.[1];
+  if (!portalSubmitter || portalSubmitter.toLowerCase() !== session.login.toLowerCase()) {
+    const error = new Error('That draft pull request does not belong to the signed-in user.');
+    error.status = 403;
+    throw error;
+  }
+  if (pr.head?.repo?.full_name !== REPO || !pr.head?.ref) {
+    throw validationError('This pull request branch cannot be revised through the portal; update it on GitHub.');
+  }
+  const slug = parseSlugFromBody(pr.body) || slugFromPrTitle(pr.title);
+  try {
+    validateProposalSlug(slug);
+  } catch (_err) {
+    throw validationError('Could not determine the study slug from the pull request.');
+  }
+  return {
+    slug,
+    branch: pr.head.ref,
+    filePath: `Studies/${slug}/${slug}.md`,
+  };
+}
+
+router.get('/api/revision-source', async (request, env) => {
+  try {
+    const session = requireSession(await getSession(request, env));
+    const url = new URL(request.url);
+    const prNumber = Number(url.searchParams.get('pr'));
+    if (!Number.isInteger(prNumber) || prNumber < 1) {
+      throw validationError('A valid pull request number is required.');
+    }
+    const pr = await githubRequest(`/pulls/${prNumber}`, 'GET', null, env, session.accessToken);
+    const target = revisionTarget(pr, session);
+    const fileData = await githubRequest(
+      `/contents/${target.filePath}?ref=${encodeURIComponent(target.branch)}`,
+      'GET',
+      null,
+      env,
+      session.accessToken
+    );
+    return jsonResponse(request, env, {
+      success: true,
+      prNumber,
+      pullRequestUrl: pr.html_url,
+      slug: target.slug,
+      content: decodeBase64Content(fileData.content),
+    });
+  } catch (err) {
+    return jsonResponse(request, env, { success: false, error: err.message }, err.status || 500);
+  }
+});
+
+router.post('/api/revise', async (request, env) => {
+  try {
+    const session = requireSession(await getSession(request, env));
+    const data = await request.json();
+    await verifyTurnstile(data.turnstileToken, env, request);
+    const prNumber = Number(data.prNumber);
+    const author = String(data.author || '').trim();
+    if (!Number.isInteger(prNumber) || prNumber < 1) {
+      throw validationError('A valid pull request number is required.');
+    }
+    if (!author) throw validationError('Author name is required.');
+
+    const pr = await githubRequest(`/pulls/${prNumber}`, 'GET', null, env, session.accessToken);
+    const target = revisionTarget(pr, session);
+    const artifact = buildSubmissionArtifact(
+      { isNew: true, artifactType: 'study', content: data.content, author },
+      target.slug,
+      new Set(),
+      getISTDateString()
+    );
+    const fileData = await githubRequest(
+      `/contents/${target.filePath}?ref=${encodeURIComponent(target.branch)}`,
+      'GET',
+      null,
+      env
+    );
+    await githubRequest(`/contents/${target.filePath}`, 'PUT', {
+      message: `Revise ${target.slug} via My Submissions`,
+      content: artifact.encodedContent,
+      branch: target.branch,
+      sha: fileData.sha,
+    }, env);
+    return jsonResponse(request, env, {
+      success: true,
+      url: pr.html_url,
+      number: prNumber,
+      slug: target.slug,
+    });
+  } catch (err) {
+    return jsonResponse(request, env, { success: false, error: err.message }, err.status || 500);
+  }
+});
+
 router.post('/api/submit', async (request, env) => {
   try {
     const session = requireSession(await getSession(request, env));
@@ -1689,6 +1955,8 @@ router.post('/api/submit', async (request, env) => {
       ]);
       await assertProposalOwner(proposal, session.login);
       assertProposalSlugMatch(proposal, slug, proposalRegistry);
+      const catalogMap = await fetchCatalogSlugMap(env, stats);
+      assertProposalWorkspaceReady(proposal, slug, proposalRegistry, catalogMap);
     }
 
     // Updates resolve through the durable companion registry rather than a
@@ -1700,6 +1968,7 @@ router.post('/api/submit', async (request, env) => {
       if (!mappedStudy) {
         throw validationError(`No editable study found for "${slug}".`);
       }
+      await assertStudyOwnedBySession(session, slug, env);
       appliedSlugs = new Set(
         registry.studies.filter((study) => study.root === 'Applications').map((study) => study.slug)
       );
@@ -1939,7 +2208,7 @@ router.post('/api/status-change', async (request, env) => {
       fetchCatalogSlugMap(env, stats),
       fetchAppliedSlugSet(env, stats),
       githubSearch(
-        `repo:${REPO} is:pr author:${session.login} label:status-change`,
+        `repo:${REPO} is:pr is:open label:status-change`,
         env,
         session.accessToken,
         stats
@@ -1952,6 +2221,7 @@ router.post('/api/status-change', async (request, env) => {
       ),
     ]);
 
+    await assertStudyOwnedBySession(session, slug, env);
     assertStatusChangeAllowed(slug, targetStatus, catalogMap, statusPrSearch.items);
     assertNoOpenStudyPr(slug, buildOpenStudyPrIndex(studyPrSearch.items));
 

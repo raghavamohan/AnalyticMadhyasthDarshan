@@ -13,7 +13,7 @@ Read [Studies/README.md](Studies/README.md) for study format, tone, and structur
 | Stage | What you do | What maintainers do |
 |-------|-------------|---------------------|
 | 1. Proposal | Propose via **[My Submissions](Studies/submit.html)** | Review scope and fit |
-| 2. Approval | Wait for `proposal-approved` on your issue | Label approved proposals; CI bootstraps a **pre-catalog** stub and lists it on the index as **Planned** |
+| 2. Approval | Wait for **Preparing workspace** to become **Ready for draft** | Label approved proposals; CI bootstraps and verifies a **pre-catalog** stub, then lists it on the index as **Planned** |
 | 3. Submit draft | Paste full markdown; slug is **locked** from the proposal | Review the pull request; request changes or merge |
 | 4. Catalog (Draft) | Track CI on **My Submissions** | Merge when `study-pr` passes — study appears on the index as **Draft** |
 | 5. Release (optional) | Request **Released** when ready | Merge `status-change` PR when content is final |
@@ -58,20 +58,20 @@ A good proposal states a clear analytic question, names the Madhyasth Darshan te
 
 Maintainers review proposals for overlap, scope, and alignment with [Studies/README.md](Studies/README.md). You will be notified once it is approved — GitHub notifies you on the issue, and you can opt in to email updates from the notification bar on **My Submissions**. If a proposal is not accepted, maintainers add `proposal-declined` and comment on the issue. The proposal issue stays **open** so later draft PRs can link to `Proposal issue: #N`.
 
-When approved, automation creates `Studies/<Slug>/<Slug>.md` (proposal stub), `.proposal-meta.json`, HTML, and PDF on the default branch. The study slug is written to the issue as `### Slug` and locked for draft submission.
+When approved, My Submissions first shows **Preparing workspace**. Automation creates `Studies/<Slug>/<Slug>.md` (proposal stub), `.proposal-meta.json`, HTML, and PDF on a branch, verifies that branch, merges it, and then unlocks **Ready for draft**. The study slug is written to the issue as `### Slug` and locked for draft submission. Topical and Formal proposals both appear as **Planned**; neither exposes a public reader or download until the first draft is merged.
 
 ---
 
 ## Step 3 — Submit a draft
 
-Once approved, return to [**My Submissions**](Studies/submit.html) and click **Submit draft** on your proposal row (or use the pre-filled link from the approval comment).
+Once the card says **Ready for draft**, return to [**My Submissions**](Studies/submit.html) and click **Submit draft** on your proposal row. Approval alone does not unlock submission while the verified workspace is still being prepared.
 
 1. Enter your author name — the name published on the study, which can differ from your GitHub handle (slug is pre-filled and locked from the approved proposal).
 2. Enter the approved **proposal issue number** (pre-filled when opened from your row).
 3. Click **Insert house-style template** for a section skeleton, then paste or write your full markdown content. A quick check warns if the draft is missing **Standpoint and scope** or **References**.
 4. Submit the form.
 
-The portal opens one **new-study** pull request at a time per slug. If a draft PR is already open, wait for review before submitting again.
+The portal opens one **new-study** pull request at a time per slug. If review requests changes, use **Revise draft** on the same card: the portal updates that pull request's existing branch and reruns CI instead of opening a competing PR.
 
 ### Minor corrections vs full revisions
 
@@ -81,7 +81,7 @@ The portal opens one **new-study** pull request at a time per slug. If a draft P
 
 ### Update an existing study or change status
 
-From **My Submissions**, each of your studies has one card for its proposal, review status, release status, and editable files. Expand **Manage files** on that card to edit the study document, replace a mapped technical/research note or presentation, add a new companion file, or request deletion of a file. Deleting the complete study requires typing its slug; every deletion opens a `study-update` pull request and takes effect only after maintainer approval and merge. The mapped file list is independent of historical proposal issues or pull requests.
+From **My Submissions**, each of your studies has one card for its proposal, review status, release status, and editable files. Expand **Manage files** on that card to edit the study document, replace a mapped technical/research note or presentation, add a new companion file, or request deletion of a file. The server checks that the signed-in account owns the study before accepting an update, deletion, or release-status request. Deleting the complete study requires typing its slug; every deletion opens a `study-update` pull request and takes effect only after maintainer approval and merge. The mapped file list is independent of historical proposal issues or pull requests.
 
 - **Study Markdown (`.md`)** — choose a UTF-8 file, click **Load current content**, or work directly in the editor.
 - **Technical or research note (`.md`)** — select an existing mapped note to load and edit it, or add a file named `Technical-Note-Topic.md` or `Research-Note-Topic.md`.

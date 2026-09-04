@@ -270,6 +270,12 @@ Two independent jobs on the `proposal-approved` label:
   **opens a pull request, dispatches `verify` on its exact head, waits for success,
   and merges it.**
 
+The user-facing state is deliberately split: adding `proposal-approved` changes
+My Submissions to **Preparing workspace**; only a merged registry entry plus its
+`ongoing` catalog row changes it to **Ready for draft**. Topical and Formal
+proposals both receive that Planned row. Bootstrap refuses a slug already owned
+by another proposal or published study even when invoked with `--force`.
+
 **It lands through a pull request, not a direct push, and that is forced.** The
 default-branch ruleset requires a pull request and has no bypass actors; a bypass
 for the GitHub Actions app is an *organization* feature, and this is a user-owned
@@ -295,13 +301,12 @@ without burning a real proposal. The `comment` job stays keyed on the label, so 
 dispatch runs the bootstrap only.
 
 **What a failure here does and does not cost.** The `comment` job is independent
-and still posts the approval instructions, and `_bootstrap_proposal_study.py`
-writes the resolved slug into the issue body via the API *before* it touches any
-file — so the slug lock survives even a failed run. The portal falls back to
-`parseSlugFromIssueBody()` when the registry has no row, and `handle_new_study`
-verifies approval from the issue's **labels**, not the registry. Contributors can
-still submit. What is lost is the pre-catalog stub, the registry row, and the row
-reading *Ready for draft* rather than *Approved* on My Submissions.
+and still posts the approval instructions, but My Submissions deliberately keeps
+the draft action locked at **Preparing workspace** until both registry and Planned
+catalog state have landed. The workflow comments on the proposal issue when
+preparation succeeds or fails. A failed run therefore cannot race a first-draft
+PR or leave the contributor guessing; a maintainer resolves the error and retries
+the dispatch.
 
 ### 2.8 Portal notifications — `portal-notify.yml`
 
