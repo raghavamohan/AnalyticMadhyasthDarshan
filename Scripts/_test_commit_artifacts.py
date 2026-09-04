@@ -27,6 +27,8 @@ from pathlib import Path
 SCRIPTS = Path(__file__).resolve().parent
 BASE = SCRIPTS.parent
 ACTION = BASE / ".github" / "actions" / "commit-artifacts" / "action.yml"
+STUDY_WORKFLOW = BASE / ".github" / "workflows" / "study-pr.yml"
+VERIFY_WORKFLOW = BASE / ".github" / "workflows" / "studies-index-check.yml"
 
 THIS_REPO = "owner/repo"
 FORK_REPO = "contributor/fork"
@@ -200,6 +202,16 @@ def test_branch_input_with_nothing_to_commit_pushes_no_branch() -> None:
     assert not base_moved
     assert outputs.get("_remote_has_branch") == "False", out
     assert outputs.get("pushed") == "false", outputs
+
+
+def test_regenerated_pull_request_head_gets_required_verification() -> None:
+    study_workflow = STUDY_WORKFLOW.read_text(encoding="utf-8")
+    verify_workflow = VERIFY_WORKFLOW.read_text(encoding="utf-8")
+    assert "actions: write" in study_workflow
+    assert "id: commit_artifacts" in study_workflow
+    assert "steps.commit_artifacts.outputs.pushed == 'true'" in study_workflow
+    assert "gh workflow run studies-index-check.yml" in study_workflow
+    assert "workflow_dispatch:" in verify_workflow
 
 
 def main() -> int:
