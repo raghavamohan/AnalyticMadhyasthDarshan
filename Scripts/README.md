@@ -46,6 +46,7 @@ what to run **on that branch** before opening the PR.
 | Preview changed R2 uploads | `python Scripts/_publish_generated_pdfs.py --artifact-root <verified-build> --changed --dry-run` |
 | Publish one/all verified PDF artifacts to R2 | `python Scripts/_publish_generated_pdfs.py --artifact-root <verified-build> --artifact <repository-relative.pdf>` / `--kind markdown` / `--all` |
 | Audit or explicitly remove stale R2 PDFs | `python Scripts/_publish_generated_pdfs.py --list-stale`; then `--delete-stale --confirm-stale-count <N>` |
+| Remove only PDFs whose source was deleted in a Git change | `python Scripts/_publish_generated_pdfs.py --delete-removed-since <git-ref>` |
 | Sync/check the generated-PDF Worker allowlist | `python Scripts/_publish_generated_pdf_worker.py --sync-keys`; then `--check` |
 | Deploy and verify the isolated R2 Worker canary | `python Scripts/_publish_generated_pdf_worker.py --deploy-canary`; then `python Scripts/_verify_generated_pdf_delivery.py --workers-dev --all --artifact-root <complete-build>` |
 | Promote the verified Worker | `python Scripts/_publish_generated_pdf_worker.py --deploy-production`; then `--apply-routes` and a full public audit |

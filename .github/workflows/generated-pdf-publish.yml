@@ -268,6 +268,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
 
       - name: Set up publisher dependencies
         uses: ./.github/actions/setup-study-env
@@ -291,6 +293,16 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}
         run: python Scripts/_publish_generated_pdfs.py --artifact-root "$RUNNER_TEMP/generated-pdfs" --all
+
+      - name: Delete generated PDFs retired by this push
+        if: github.event_name == 'push'
+        env:
+          R2_ENDPOINT: ${{ vars.R2_ENDPOINT }}
+          R2_BUCKET_NAME: ${{ vars.R2_BUCKET_NAME }}
+          R2_REGION: ${{ vars.R2_REGION }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+        run: python Scripts/_publish_generated_pdfs.py --delete-removed-since "${{ github.event.before }}"
 
       - name: Publish private originals and rights-approved references to R2
         env:

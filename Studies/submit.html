@@ -97,17 +97,19 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
 .dashboard-intro h2{font-size:20px;margin:0 0 3px;}
 .dashboard-intro p{font-family:var(--sans);font-size:13px;line-height:1.5;color:var(--text-muted);margin:0;}
 .submission-files{border-top:1px solid #efe9e1;margin-top:2px;padding:10px 0 0;}
-.submission-files summary{display:flex;align-items:center;gap:8px;cursor:pointer;color:var(--text);font-size:13px;font-weight:600;list-style:none;}
+.submission-files summary{display:flex;align-items:center;gap:8px;cursor:pointer;color:var(--text);font-size:13px;font-weight:600;list-style:none;background:var(--accent-soft);border:1px solid var(--border);border-radius:7px;padding:9px 10px;}
 .submission-files summary::-webkit-details-marker{display:none;}
 .submission-files summary::before{content:'\25B8';color:var(--accent);font-size:12px;transition:transform .15s ease;}
 .submission-files[open] summary::before{transform:rotate(90deg);}
 .artifact-count{color:var(--text-muted);font-size:12px;font-weight:400;}
+.artifact-summary-hint{color:var(--text-muted);font-size:12px;font-weight:400;margin-left:auto;}
 .artifact-groups{display:flex;flex-direction:column;gap:12px;margin:12px 0 2px;}
 .artifact-group-title{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--text-muted);margin:0 0 5px;}
 .artifact-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:5px;}
 .artifact-row{display:grid;grid-template-columns:42px minmax(0,1fr) auto;align-items:center;gap:9px;background:var(--bg);border:1px solid var(--border);border-radius:7px;padding:7px 8px;}
 .artifact-kind{font-size:10px;font-weight:700;letter-spacing:.03em;text-align:center;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:3px 4px;}
 .artifact-name{font-size:12px;line-height:1.35;overflow-wrap:anywhere;}
+.artifact-actions{display:flex;align-items:center;gap:5px;}
 .artifact-row .action-btn{margin:0;white-space:nowrap;}
 .artifact-add-actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px;}
 .artifact-blocked{font-size:12px;color:var(--text-muted);margin:0;}
@@ -127,12 +129,14 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
 .ci-failure{background:#fce8e6;color:#d93025;}
 .action-btn{font-family:var(--sans);font-size:12px;font-weight:600;padding:5px 10px;border-radius:6px;border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;text-decoration:none;display:inline-block;margin:2px 4px 2px 0;}
 .action-btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;}
+.action-btn.danger{color:#b3261e;border-color:#e6b8b3;background:#fff8f7;}
+.action-btn.danger:hover{background:#fce8e6;}
 .action-btn:disabled{opacity:0.5;cursor:not-allowed;}
 .action-btn[aria-disabled="true"]{opacity:0.5;cursor:not-allowed;}
 .dashboard-empty{color:var(--text-muted);font-family:var(--sans);font-size:14px;margin:8px 0 0;}
 .dashboard-truncated{font-family:var(--sans);font-size:13px;color:var(--text-muted);margin:12px 0 0;}
 .hidden{display:none !important;}
-@media (max-width:600px){.page{padding:18px 14px 44px;}h1{font-size:28px;}.hero-row .auth-btn{font-size:13px;padding:7px 12px;}.submission-card-meta{grid-template-columns:1fr 1fr;}.artifact-row{grid-template-columns:38px minmax(0,1fr);}.artifact-row .action-btn{grid-column:2;justify-self:start;}}
+@media (max-width:600px){.page{padding:18px 14px 44px;}h1{font-size:28px;}.hero-row .auth-btn{font-size:13px;padding:7px 12px;}.submission-card-meta{grid-template-columns:1fr 1fr;}.artifact-summary-hint{display:none;}.artifact-row{grid-template-columns:38px minmax(0,1fr);}.artifact-actions{grid-column:2;justify-self:start;}}
 .review-box{font-family:var(--sans);font-size:14px;line-height:1.55;border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-bottom:20px;background:var(--accent-soft);}
 .review-box h3{font-size:15px;margin:0 0 10px;color:var(--text);}
 .review-box dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;}
@@ -169,7 +173,9 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
    already stamped by the head script; anyone who chose nothing follows
    their OS, and an explicit Light choice wins over a dark OS. */
 html[data-theme="dark"]{--bg:#1a1815;--surface:#26231e;--text:#e6dfd6;--text-muted:#aca194;--accent:#5ba3d3;--accent-soft:#233e52;--accent-hover:#7ebbed;--warm:#d5a477;--warm-soft:#423020;--border:#423b33;}html[data-theme="dark"] h1,html[data-theme="dark"] h2,html[data-theme="dark"] label{color:#f5f1ec;}html[data-theme="dark"] .submission-card-title{color:#f5f1ec;}html[data-theme="dark"] .submission-card-actions,html[data-theme="dark"] .submission-files{border-top-color:var(--border);}html[data-theme="dark"] input[type="text"],html[data-theme="dark"] input[type="file"],html[data-theme="dark"] select,html[data-theme="dark"] textarea,html[data-theme="dark"] input[type="number"]{background:#1e1b18;color:var(--text);}html[data-theme="dark"] button.submit-btn,html[data-theme="dark"] .action-btn.primary{color:#1a1815;}html[data-theme="dark"] .alert.success,html[data-theme="dark"] .proposal-status.approved,html[data-theme="dark"] .stage-merged,html[data-theme="dark"] .catalog-released,html[data-theme="dark"] .ci-success{background:#133a20;color:#81c995;border-color:#1b5e33;}html[data-theme="dark"] .alert.error,html[data-theme="dark"] .proposal-status.error,html[data-theme="dark"] .ci-failure{background:#471815;color:#f28b82;border-color:#712b26;}html[data-theme="dark"] .step-strip .step.done{background:#133a20;color:#81c995;}html[data-theme="dark"] .md-preview{background:#1e1b18;}html[data-theme="dark"] .md-preview h1,html[data-theme="dark"] .md-preview h2,html[data-theme="dark"] .md-preview h3{color:#f5f1ec;}html[data-theme="dark"] .fmt-checklist{background:#1e1b18;}
+html[data-theme="dark"] .action-btn.danger{color:#f28b82;border-color:#712b26;background:#351b18;}html[data-theme="dark"] .action-btn.danger:hover{background:#471815;}
 @media (prefers-color-scheme:dark){html:not([data-theme="light"]){--bg:#1a1815;--surface:#26231e;--text:#e6dfd6;--text-muted:#aca194;--accent:#5ba3d3;--accent-soft:#233e52;--accent-hover:#7ebbed;--warm:#d5a477;--warm-soft:#423020;--border:#423b33;}html:not([data-theme="light"]) h1,html:not([data-theme="light"]) h2,html:not([data-theme="light"]) label{color:#f5f1ec;}html:not([data-theme="light"]) .submission-card-title{color:#f5f1ec;}html:not([data-theme="light"]) .submission-card-actions,html:not([data-theme="light"]) .submission-files{border-top-color:var(--border);}html:not([data-theme="light"]) input[type="text"],html:not([data-theme="light"]) input[type="file"],html:not([data-theme="light"]) select,html:not([data-theme="light"]) textarea,html:not([data-theme="light"]) input[type="number"]{background:#1e1b18;color:var(--text);}html:not([data-theme="light"]) button.submit-btn,html:not([data-theme="light"]) .action-btn.primary{color:#1a1815;}html:not([data-theme="light"]) .alert.success,html:not([data-theme="light"]) .proposal-status.approved,html:not([data-theme="light"]) .stage-merged,html:not([data-theme="light"]) .catalog-released,html:not([data-theme="light"]) .ci-success{background:#133a20;color:#81c995;border-color:#1b5e33;}html:not([data-theme="light"]) .alert.error,html:not([data-theme="light"]) .proposal-status.error,html:not([data-theme="light"]) .ci-failure{background:#471815;color:#f28b82;border-color:#712b26;}html:not([data-theme="light"]) .step-strip .step.done{background:#133a20;color:#81c995;}html:not([data-theme="light"]) .md-preview{background:#1e1b18;}html:not([data-theme="light"]) .md-preview h1,html:not([data-theme="light"]) .md-preview h2,html:not([data-theme="light"]) .md-preview h3{color:#f5f1ec;}html:not([data-theme="light"]) .fmt-checklist{background:#1e1b18;}}
+@media (prefers-color-scheme:dark){html:not([data-theme="light"]) .action-btn.danger{color:#f28b82;border-color:#712b26;background:#351b18;}html:not([data-theme="light"]) .action-btn.danger:hover{background:#471815;}}
 </style>
 </head>
 <body>
@@ -787,6 +793,15 @@ function artifactAction(slug, artifactType, target, blocked, label) {
     escapeHtml(label) + '</a>';
 }
 
+function artifactDeleteAction(slug, artifactType, target, blocked) {
+  if (blocked) {
+    return '<span class="action-btn danger" aria-disabled="true" title="Finish the open study change before requesting deletion">Delete</span>';
+  }
+  return '<button type="button" class="action-btn danger" data-delete-slug="' + escapeHtml(slug) +
+    '" data-delete-type="' + escapeHtml(artifactType) + '" data-delete-file="' + escapeHtml(target || '') +
+    '">Delete</button>';
+}
+
 function renderArtifactGroup(label, kind, files, slug, artifactType, blocked) {
   if (!files.length) return '';
   const rows = files.map((file) => {
@@ -794,7 +809,10 @@ function renderArtifactGroup(label, kind, files, slug, artifactType, blocked) {
     return '<li class="artifact-row">' +
       '<span class="artifact-kind" aria-hidden="true">' + escapeHtml(kind) + '</span>' +
       '<span class="artifact-name">' + escapeHtml(file) + '</span>' +
+      '<span class="artifact-actions">' +
       artifactAction(slug, artifactType, artifactType === 'study' ? '' : file, blocked, actionLabel) +
+      artifactDeleteAction(slug, artifactType, artifactType === 'study' ? '' : file, blocked) +
+      '</span>' +
       '</li>';
   }).join('');
   return '<section class="artifact-group"><h3 class="artifact-group-title">' + escapeHtml(label) + '</h3>' +
@@ -820,7 +838,8 @@ function renderSubmissionFiles(item) {
       '<a class="action-btn" href="' + escapeHtml(artifactUpdateUrl(item.slug, 'presentation', '__new__')) + '">Add presentation</a>' +
       '</div>';
   return '<details class="submission-files">' +
-    '<summary>Files and updates <span class="artifact-count">' + fileCount + ' file' + (fileCount === 1 ? '' : 's') + '</span></summary>' +
+    '<summary>Manage files <span class="artifact-count">' + fileCount + ' file' + (fileCount === 1 ? '' : 's') +
+    '</span><span class="artifact-summary-hint">Edit, add or delete</span></summary>' +
     '<div class="artifact-groups">' + groups + addActions + '</div></details>';
 }
 
@@ -974,7 +993,56 @@ async function inlineStatusChange(slug, target, buttonEl) {
   }
 }
 
+async function inlineDeleteArtifact(slug, artifactType, fileName, buttonEl) {
+  if (!currentUser) { showAlert('dashboard', 'error', 'Sign in with GitHub first.'); return; }
+  if (!slug || !['study', 'note', 'presentation'].includes(artifactType)) return;
+  const displayName = artifactType === 'study' ? slug : fileName;
+  const impact = artifactType === 'study'
+    ? 'This requests deletion of the entire study, including every note, presentation, figure, and published reader associated with it.'
+    : 'This requests deletion of "' + displayName + '" from the study.';
+  if (!window.confirm(impact + '\n\nA pull request will open for maintainer approval. Nothing is deleted until that pull request is merged.')) {
+    return;
+  }
+  if (artifactType === 'study') {
+    const typed = window.prompt('Type the study slug to confirm deletion:\n' + slug);
+    if (typed !== slug) {
+      if (typed !== null) showAlert('dashboard', 'error', 'The study slug did not match. Deletion was cancelled.');
+      return;
+    }
+  }
+  const original = buttonEl ? buttonEl.textContent : '';
+  if (buttonEl) { buttonEl.disabled = true; buttonEl.textContent = 'Opening PR…'; }
+  try {
+    const turnstileToken = await getInlineTurnstileToken();
+    const res = await apiFetch('/api/delete-artifact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ slug, artifactType, fileName, turnstileToken }),
+    });
+    const data = await res.json();
+    if (!res.ok || !data.success) throw new Error(data.error || 'Could not open the deletion pull request.');
+    dashboardCache = null;
+    await loadDashboard({ force: true });
+    showAlert('dashboard', 'success', 'Deletion pull request opened. The files remain available until a maintainer approves and merges it.' +
+      (data.url ? ' <a href="' + escapeHtml(data.url) + '" target="_blank" rel="noopener">View on GitHub</a>' : ''));
+  } catch (err) {
+    if (buttonEl) { buttonEl.disabled = false; buttonEl.textContent = original; }
+    showAlert('dashboard', 'error', escapeHtml(err.message));
+  }
+}
+
 document.getElementById('dashboard-cards').addEventListener('click', (e) => {
+  const deleteBtn = e.target.closest('button[data-delete-slug]');
+  if (deleteBtn) {
+    e.preventDefault();
+    inlineDeleteArtifact(
+      deleteBtn.dataset.deleteSlug,
+      deleteBtn.dataset.deleteType,
+      deleteBtn.dataset.deleteFile || '',
+      deleteBtn
+    );
+    return;
+  }
   const btn = e.target.closest('button[data-status-slug]');
   if (!btn) return;
   e.preventDefault();
