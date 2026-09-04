@@ -172,7 +172,7 @@
     "/api/study-source": {
       "get": {
         "tags": ["submissions"],
-        "summary": "Published study markdown",
+        "summary": "Published study or registered companion-note Markdown",
         "operationId": "getStudySource",
         "parameters": [
           {
@@ -180,11 +180,41 @@
             "in": "query",
             "required": true,
             "schema": { "type": "string" }
+          },
+          {
+            "name": "artifactType",
+            "in": "query",
+            "schema": { "type": "string", "enum": ["study", "note"], "default": "study" }
+          },
+          {
+            "name": "fileName",
+            "in": "query",
+            "description": "Registered note filename when artifactType is note.",
+            "schema": { "type": "string" }
           }
         ],
         "responses": {
           "200": { "description": "Markdown source." },
           "404": { "description": "No published markdown for that slug." }
+        }
+      }
+    },
+    "/api/study-artifacts": {
+      "get": {
+        "tags": ["submissions"],
+        "summary": "Editable studies and their registered notes and presentations",
+        "operationId": "listStudyArtifacts",
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "The complete registry, or one study mapping when slug is supplied." },
+          "404": { "description": "No editable study has that slug." }
         }
       }
     },
@@ -293,15 +323,37 @@
       },
       "SubmitRequest": {
         "type": "object",
-        "required": ["slug", "author", "content", "turnstileToken"],
+        "required": ["slug", "author", "turnstileToken"],
         "properties": {
-          "slug": { "type": "string" },
+          "slug": { "type": "string", "maxLength": 60, "pattern": "^[A-Za-z0-9-]+$" },
           "author": { "type": "string" },
-          "content": { "type": "string" },
+          "artifactType": {
+            "type": "string",
+            "enum": ["study", "note", "presentation"],
+            "default": "study",
+            "description": "Study Markdown, a companion technical/research note, or a PowerPoint presentation."
+          },
+          "fileName": {
+            "type": "string",
+            "description": "Required for note and presentation uploads; the registered destination basename to replace, or a safe new basename ending in .md or .pptx."
+          },
+          "content": {
+            "type": "string",
+            "description": "UTF-8 Markdown content for study and note submissions (2 MB maximum)."
+          },
+          "contentBase64": {
+            "type": "string",
+            "contentEncoding": "base64",
+            "description": "Base64-encoded .pptx content for presentation submissions (10 MB maximum before encoding)."
+          },
           "isNew": { "type": "boolean" },
           "proposalIssue": { "type": "integer" },
           "turnstileToken": { "type": "string" }
-        }
+        },
+        "oneOf": [
+          { "required": ["content"] },
+          { "required": ["fileName", "contentBase64"] }
+        ]
       },
       "StatusChangeRequest": {
         "type": "object",

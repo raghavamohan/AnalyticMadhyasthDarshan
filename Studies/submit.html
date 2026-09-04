@@ -43,8 +43,10 @@ label{display:block;font-family:var(--sans);font-size:14px;font-weight:600;margi
 .help-text{font-family:var(--sans);font-size:13px;color:var(--text-muted);margin-bottom:8px;}
 .slug-preview{font-family:var(--sans);font-size:13px;color:var(--accent);margin-top:6px;}
 .slug-preview code{font-family:Consolas,'Courier New',monospace;font-size:12px;background:var(--accent-soft);padding:2px 6px;border-radius:4px;}
-input[type="text"],select,textarea,input[type="number"]{width:100%;font-family:var(--sans);font-size:14px;color:var(--text);padding:10px 12px;border:1px solid var(--border);border-radius:8px;background:#fdfcfa;resize:vertical;}
-input[type="text"]:focus,select:focus,textarea:focus,input[type="number"]:focus{outline:2px solid var(--accent);outline-offset:2px;border-color:var(--accent);}
+input[type="text"],input[type="file"],select,textarea,input[type="number"]{width:100%;font-family:var(--sans);font-size:14px;color:var(--text);padding:10px 12px;border:1px solid var(--border);border-radius:8px;background:#fdfcfa;resize:vertical;}
+input[type="file"]{padding:8px;cursor:pointer;}
+input[type="file"]::file-selector-button{font:600 13px var(--sans);color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:7px 11px;margin-right:10px;cursor:pointer;}
+input[type="text"]:focus,input[type="file"]:focus,select:focus,textarea:focus,input[type="number"]:focus{outline:2px solid var(--accent);outline-offset:2px;border-color:var(--accent);}
 .radio-group{display:flex;flex-wrap:wrap;gap:16px;font-family:var(--sans);font-size:14px;}
 .radio-group label{display:flex;align-items:center;gap:8px;font-weight:normal;margin:0;}
 .checkbox-group{display:flex;align-items:center;gap:8px;}
@@ -118,7 +120,11 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
 .review-box dd{margin:0;color:var(--text);overflow-wrap:anywhere;white-space:pre-wrap;}
 .review-box .review-edit{margin-top:12px;}
 .editor-guide{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-bottom:10px;font-family:var(--sans);font-size:13px;}
+.editor-guide[hidden]{display:none;}
 .editor-guide a{font-weight:600;}
+.file-status{display:block;font-family:var(--sans);font-size:13px;color:var(--text-muted);margin-top:7px;overflow-wrap:anywhere;}
+.file-status.ready{color:#1e6b37;}
+.file-status.error{color:#b3261e;}
 .fmt-checklist{font-family:var(--sans);font-size:13px;color:var(--text-muted);margin-bottom:12px;border:1px solid var(--border);border-radius:8px;padding:8px 12px;background:#fdfcfa;}
 .fmt-checklist summary{cursor:pointer;font-weight:600;color:var(--text);}
 .fmt-checklist ul{margin:8px 0 2px 18px;}
@@ -142,8 +148,8 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
 /* A reader who chose Dark elsewhere on the site arrives with data-theme
    already stamped by the head script; anyone who chose nothing follows
    their OS, and an explicit Light choice wins over a dark OS. */
-html[data-theme="dark"]{--bg:#1a1815;--surface:#26231e;--text:#e6dfd6;--text-muted:#aca194;--accent:#5ba3d3;--accent-soft:#233e52;--accent-hover:#7ebbed;--warm:#d5a477;--warm-soft:#423020;--border:#423b33;}html[data-theme="dark"] h1,html[data-theme="dark"] h2,html[data-theme="dark"] label{color:#f5f1ec;}html[data-theme="dark"] .submission-card-title{color:#f5f1ec;}html[data-theme="dark"] .submission-card-actions{border-top-color:var(--border);}html[data-theme="dark"] input[type="text"],html[data-theme="dark"] select,html[data-theme="dark"] textarea,html[data-theme="dark"] input[type="number"]{background:#1e1b18;color:var(--text);}html[data-theme="dark"] button.submit-btn,html[data-theme="dark"] .action-btn.primary{color:#1a1815;}html[data-theme="dark"] .alert.success,html[data-theme="dark"] .proposal-status.approved,html[data-theme="dark"] .stage-merged,html[data-theme="dark"] .catalog-released,html[data-theme="dark"] .ci-success{background:#133a20;color:#81c995;border-color:#1b5e33;}html[data-theme="dark"] .alert.error,html[data-theme="dark"] .proposal-status.error,html[data-theme="dark"] .ci-failure{background:#471815;color:#f28b82;border-color:#712b26;}html[data-theme="dark"] .step-strip .step.done{background:#133a20;color:#81c995;}html[data-theme="dark"] .md-preview{background:#1e1b18;}html[data-theme="dark"] .md-preview h1,html[data-theme="dark"] .md-preview h2,html[data-theme="dark"] .md-preview h3{color:#f5f1ec;}html[data-theme="dark"] .fmt-checklist{background:#1e1b18;}
-@media (prefers-color-scheme:dark){html:not([data-theme="light"]){--bg:#1a1815;--surface:#26231e;--text:#e6dfd6;--text-muted:#aca194;--accent:#5ba3d3;--accent-soft:#233e52;--accent-hover:#7ebbed;--warm:#d5a477;--warm-soft:#423020;--border:#423b33;}html:not([data-theme="light"]) h1,html:not([data-theme="light"]) h2,html:not([data-theme="light"]) label{color:#f5f1ec;}html:not([data-theme="light"]) .submission-card-title{color:#f5f1ec;}html:not([data-theme="light"]) .submission-card-actions{border-top-color:var(--border);}html:not([data-theme="light"]) input[type="text"],html:not([data-theme="light"]) select,html:not([data-theme="light"]) textarea,html:not([data-theme="light"]) input[type="number"]{background:#1e1b18;color:var(--text);}html:not([data-theme="light"]) button.submit-btn,html:not([data-theme="light"]) .action-btn.primary{color:#1a1815;}html:not([data-theme="light"]) .alert.success,html:not([data-theme="light"]) .proposal-status.approved,html:not([data-theme="light"]) .stage-merged,html:not([data-theme="light"]) .catalog-released,html:not([data-theme="light"]) .ci-success{background:#133a20;color:#81c995;border-color:#1b5e33;}html:not([data-theme="light"]) .alert.error,html:not([data-theme="light"]) .proposal-status.error,html:not([data-theme="light"]) .ci-failure{background:#471815;color:#f28b82;border-color:#712b26;}html:not([data-theme="light"]) .step-strip .step.done{background:#133a20;color:#81c995;}html:not([data-theme="light"]) .md-preview{background:#1e1b18;}html:not([data-theme="light"]) .md-preview h1,html:not([data-theme="light"]) .md-preview h2,html:not([data-theme="light"]) .md-preview h3{color:#f5f1ec;}html:not([data-theme="light"]) .fmt-checklist{background:#1e1b18;}}
+html[data-theme="dark"]{--bg:#1a1815;--surface:#26231e;--text:#e6dfd6;--text-muted:#aca194;--accent:#5ba3d3;--accent-soft:#233e52;--accent-hover:#7ebbed;--warm:#d5a477;--warm-soft:#423020;--border:#423b33;}html[data-theme="dark"] h1,html[data-theme="dark"] h2,html[data-theme="dark"] label{color:#f5f1ec;}html[data-theme="dark"] .submission-card-title{color:#f5f1ec;}html[data-theme="dark"] .submission-card-actions{border-top-color:var(--border);}html[data-theme="dark"] input[type="text"],html[data-theme="dark"] input[type="file"],html[data-theme="dark"] select,html[data-theme="dark"] textarea,html[data-theme="dark"] input[type="number"]{background:#1e1b18;color:var(--text);}html[data-theme="dark"] button.submit-btn,html[data-theme="dark"] .action-btn.primary{color:#1a1815;}html[data-theme="dark"] .alert.success,html[data-theme="dark"] .proposal-status.approved,html[data-theme="dark"] .stage-merged,html[data-theme="dark"] .catalog-released,html[data-theme="dark"] .ci-success{background:#133a20;color:#81c995;border-color:#1b5e33;}html[data-theme="dark"] .alert.error,html[data-theme="dark"] .proposal-status.error,html[data-theme="dark"] .ci-failure{background:#471815;color:#f28b82;border-color:#712b26;}html[data-theme="dark"] .step-strip .step.done{background:#133a20;color:#81c995;}html[data-theme="dark"] .md-preview{background:#1e1b18;}html[data-theme="dark"] .md-preview h1,html[data-theme="dark"] .md-preview h2,html[data-theme="dark"] .md-preview h3{color:#f5f1ec;}html[data-theme="dark"] .fmt-checklist{background:#1e1b18;}
+@media (prefers-color-scheme:dark){html:not([data-theme="light"]){--bg:#1a1815;--surface:#26231e;--text:#e6dfd6;--text-muted:#aca194;--accent:#5ba3d3;--accent-soft:#233e52;--accent-hover:#7ebbed;--warm:#d5a477;--warm-soft:#423020;--border:#423b33;}html:not([data-theme="light"]) h1,html:not([data-theme="light"]) h2,html:not([data-theme="light"]) label{color:#f5f1ec;}html:not([data-theme="light"]) .submission-card-title{color:#f5f1ec;}html:not([data-theme="light"]) .submission-card-actions{border-top-color:var(--border);}html:not([data-theme="light"]) input[type="text"],html:not([data-theme="light"]) input[type="file"],html:not([data-theme="light"]) select,html:not([data-theme="light"]) textarea,html:not([data-theme="light"]) input[type="number"]{background:#1e1b18;color:var(--text);}html:not([data-theme="light"]) button.submit-btn,html:not([data-theme="light"]) .action-btn.primary{color:#1a1815;}html:not([data-theme="light"]) .alert.success,html:not([data-theme="light"]) .proposal-status.approved,html:not([data-theme="light"]) .stage-merged,html:not([data-theme="light"]) .catalog-released,html:not([data-theme="light"]) .ci-success{background:#133a20;color:#81c995;border-color:#1b5e33;}html:not([data-theme="light"]) .alert.error,html:not([data-theme="light"]) .proposal-status.error,html:not([data-theme="light"]) .ci-failure{background:#471815;color:#f28b82;border-color:#712b26;}html:not([data-theme="light"]) .step-strip .step.done{background:#133a20;color:#81c995;}html:not([data-theme="light"]) .md-preview{background:#1e1b18;}html:not([data-theme="light"]) .md-preview h1,html:not([data-theme="light"]) .md-preview h2,html:not([data-theme="light"]) .md-preview h3{color:#f5f1ec;}html:not([data-theme="light"]) .fmt-checklist{background:#1e1b18;}}
 </style>
 </head>
 <body>
@@ -176,6 +182,7 @@ html[data-theme="dark"]{--bg:#1a1815;--surface:#26231e;--text:#e6dfd6;--text-mut
     <div class="section-card">
       <div class="hub-toolbar" id="hub-toolbar">
         <a class="auth-btn primary" href="?tab=propose">Propose a new study</a>
+        <a class="auth-btn" href="?tab=submit&amp;mode=update">Update existing study files</a>
         <span class="hub-toolbar-spacer"></span>
         <button type="button" class="auth-btn" id="dashboard-refresh-btn" hidden>Refresh</button>
       </div>
@@ -193,7 +200,7 @@ html[data-theme="dark"]{--bg:#1a1815;--surface:#26231e;--text:#e6dfd6;--text-mut
 
       <div id="dashboard-content" hidden>
         <ul class="submission-grid" id="dashboard-cards" aria-label="Your submissions"></ul>
-        <p class="dashboard-empty" id="dashboard-empty" hidden>No submissions yet. <a href="?tab=propose">Propose a new study</a> to get started.</p>
+        <p class="dashboard-empty" id="dashboard-empty" hidden>No submissions yet. <a href="?tab=propose">Propose a new study</a> or <a href="?tab=submit&amp;mode=update">update files for an existing study</a>.</p>
         <p class="dashboard-truncated" id="dashboard-truncated" hidden>Showing your 20 most recent items. View all activity on <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pulls" target="_blank" rel="noopener">GitHub</a>.</p>
       </div>
     </div>
@@ -298,16 +305,36 @@ html[data-theme="dark"]{--bg:#1a1815;--surface:#26231e;--text:#e6dfd6;--text-mut
       <div id="proposal-status" class="proposal-status" role="status" aria-live="polite"></div>
 
       <form id="submit-form">
+        <div class="form-group" id="s-artifact-group" hidden>
+          <label for="s-artifact">What are you uploading? *</label>
+          <select id="s-artifact">
+            <option value="study">Study Markdown (.md)</option>
+            <option value="note">Technical or research note (.md)</option>
+            <option value="presentation">Study presentation (.pptx)</option>
+          </select>
+          <div class="help-text" id="s-artifact-help" style="margin-top:6px;"></div>
+        </div>
+
         <div class="form-group">
           <label for="s-slug">Study slug *</label>
-          <input type="text" id="s-slug" required pattern="[A-Za-z0-9-]+" title="Only alphanumeric characters and hyphens allowed">
+          <input type="text" id="s-slug" required pattern="[A-Za-z0-9-]+" title="Only alphanumeric characters and hyphens allowed" list="s-study-slugs" autocomplete="off">
+          <datalist id="s-study-slugs"></datalist>
+          <span class="file-status" id="s-study-map-status" role="status" aria-live="polite"></span>
           <button type="button" class="auth-btn" id="s-load-source" hidden style="margin-top:8px;">Load current content</button>
           <span class="help-text" id="s-load-source-status" style="display:none;margin-top:6px;"></span>
         </div>
 
+        <div class="form-group" id="s-target-group" hidden>
+          <label for="s-target" id="s-target-label">Existing companion file or new file *</label>
+          <select id="s-target">
+            <option value="">Choose a study first&hellip;</option>
+          </select>
+          <div class="help-text" id="s-target-help" style="margin-top:6px;"></div>
+        </div>
+
         <div class="form-group">
           <label for="s-author">Author name *</label>
-          <div class="help-text">The name published on the study. This can differ from your GitHub handle &mdash; use the name you want readers to see.</div>
+          <div class="help-text" id="s-author-help">The name published on the study. This can differ from your GitHub handle &mdash; use the name you want readers to see.</div>
           <input type="text" id="s-author" required>
         </div>
 
@@ -324,14 +351,21 @@ html[data-theme="dark"]{--bg:#1a1815;--surface:#26231e;--text:#e6dfd6;--text-mut
           <input type="number" id="s-proposal" min="1" step="1" placeholder="Approved proposal issue #" style="margin-top:8px;" hidden>
         </div>
 
-        <div class="form-group">
-          <label for="s-content">Study content (Markdown) *</label>
-          <div class="editor-guide">
+        <div class="form-group" id="s-file-group">
+          <label for="s-file" id="s-file-label">Upload Markdown file (optional)</label>
+          <div class="help-text" id="s-file-help">Choose a UTF-8 <code>.md</code> file to load it into the editor, where you can review or revise it before submitting.</div>
+          <input type="file" id="s-file" accept=".md,text/markdown,text/plain">
+          <span class="file-status" id="s-file-status" role="status" aria-live="polite"></span>
+        </div>
+
+        <div class="form-group" id="s-editor-group">
+          <label for="s-content" id="s-content-label">Study content (Markdown) *</label>
+          <div class="editor-guide" id="s-editor-guide">
             <button type="button" class="auth-btn" id="s-insert-template">Insert house-style template</button>
             <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/Studies/README.md" target="_blank" rel="noopener">Study format</a>
             <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/CONTRIBUTING.md" target="_blank" rel="noopener">Contributing guide</a>
           </div>
-          <details class="fmt-checklist">
+          <details class="fmt-checklist" id="s-format-checklist">
             <summary>House-style checklist (topical studies)</summary>
             <ul>
               <li>Opening intro, then a <code>## Standpoint and scope</code> section (four short paragraphs).</li>
@@ -372,6 +406,145 @@ const DASHBOARD_CACHE_MS = 30000;
 let currentUser = null;
 let dashboardCache = null;
 let dashboardCacheAt = 0;
+let uploadedPresentation = null;
+let companionRegistry = null;
+let companionRegistryPromise = null;
+
+const MAX_MARKDOWN_BYTES = 2 * 1024 * 1024;
+const MAX_PRESENTATION_BYTES = 10 * 1024 * 1024;
+const ARTIFACT_CONFIG = {
+  study: {
+    accept: '.md,text/markdown,text/plain',
+    fileLabel: 'Upload study Markdown (optional)',
+    fileHelp: 'Choose a UTF-8 .md file to load it into the editor. You can review or revise it before submitting.',
+    contentLabel: 'Study content (Markdown) *',
+    authorHelp: 'The name published on the study. This can differ from your GitHub handle — use the name you want readers to see.',
+    leadNew: 'Upload your study .md file for a new approved proposal, or write in the editor. A pull request will open for review.',
+    leadUpdate: 'Upload revised study Markdown, load the published source, or edit in the browser. A study-update pull request will open.',
+  },
+  note: {
+    accept: '.md,text/markdown,text/plain',
+    fileLabel: 'Upload technical or research note (.md) *',
+    fileHelp: 'The filename must begin with Technical-Note- or Research-Note- and use letters, numbers, and hyphens.',
+    contentLabel: 'Note content (Markdown) *',
+    authorHelp: 'Your contributor name for this submission. The portal does not rewrite metadata inside a companion note.',
+    leadUpdate: 'Upload a UTF-8 Markdown technical or research note for this study. You can review or revise it before submitting.',
+  },
+  presentation: {
+    accept: '.pptx,application/vnd.openxmlformats-officedocument.presentationml.presentation',
+    fileLabel: 'Upload study presentation (.pptx) *',
+    fileHelp: 'Upload a PowerPoint .pptx file up to 10 MB. The original filename will be used, and every slide should include speaker notes.',
+    authorHelp: 'Your contributor name for this submission. The portal does not alter the presentation file.',
+    leadUpdate: 'Upload a PowerPoint presentation for this study. A study-update pull request will open for maintainer review.',
+  },
+};
+
+function mappedStudy(slug) {
+  if (!companionRegistry) return null;
+  return companionRegistry.find((study) => study.slug === slug) || null;
+}
+
+function populateStudySlugOptions() {
+  const datalist = document.getElementById('s-study-slugs');
+  datalist.innerHTML = '';
+  (companionRegistry || []).forEach((study) => {
+    const option = document.createElement('option');
+    option.value = study.slug;
+    option.label = study.title || study.slug;
+    datalist.appendChild(option);
+  });
+}
+
+async function loadCompanionRegistry() {
+  if (companionRegistry) return companionRegistry;
+  if (companionRegistryPromise) return companionRegistryPromise;
+  companionRegistryPromise = (async () => {
+    const res = await fetch('companion-artifacts.json', { cache: 'no-cache' });
+    const data = await res.json();
+    if (!res.ok || !Array.isArray(data.studies)) {
+      throw new Error(data.error || 'Could not load the study file registry.');
+    }
+    companionRegistry = data.studies;
+    populateStudySlugOptions();
+    refreshMappedArtifactControls();
+    return companionRegistry;
+  })().catch((err) => {
+    companionRegistryPromise = null;
+    const status = document.getElementById('s-study-map-status');
+    status.textContent = err.message;
+    status.className = 'file-status error';
+    throw err;
+  });
+  return companionRegistryPromise;
+}
+
+function refreshMappedArtifactControls() {
+  const slug = document.getElementById('s-slug').value.trim();
+  const study = mappedStudy(slug);
+  const status = document.getElementById('s-study-map-status');
+  const isNew = document.getElementById('s-new').checked;
+  const artifactType = isNew ? 'study' : selectedArtifactType();
+  const targetGroup = document.getElementById('s-target-group');
+  const target = document.getElementById('s-target');
+  const previous = target.value;
+  if (!previous && ARTIFACT_CONFIG[artifactType]) {
+    document.getElementById('s-file-label').textContent = ARTIFACT_CONFIG[artifactType].fileLabel;
+    document.getElementById('s-file-help').textContent = ARTIFACT_CONFIG[artifactType].fileHelp;
+  }
+
+  if (isNew) {
+    status.textContent = '';
+  } else if (!slug) {
+    status.textContent = companionRegistry
+      ? 'Choose a registered study by title or slug.'
+      : 'Loading registered studies…';
+    status.className = 'file-status';
+  } else if (!study) {
+    status.textContent = companionRegistry ? 'This slug is not in the editable-study registry.' : 'Loading registered studies…';
+    status.className = companionRegistry ? 'file-status error' : 'file-status';
+  } else {
+    const noteCount = (study.notes || []).length;
+    const deckCount = (study.presentations || []).length;
+    status.textContent = `${study.title}: ${noteCount} note${noteCount === 1 ? '' : 's'}, ${deckCount} presentation${deckCount === 1 ? '' : 's'}.`;
+    status.className = 'file-status ready';
+  }
+
+  targetGroup.hidden = isNew || artifactType === 'study';
+  if (targetGroup.hidden) {
+    target.innerHTML = '<option value="">Not applicable</option>';
+    return;
+  }
+
+  const files = study
+    ? artifactType === 'note' ? (study.notes || []) : (study.presentations || [])
+    : [];
+  target.innerHTML = '';
+  const placeholder = document.createElement('option');
+  placeholder.value = '';
+  placeholder.textContent = study ? 'Select an existing file or add a new one…' : 'Choose a registered study first…';
+  target.appendChild(placeholder);
+  files.forEach((fileName) => {
+    const option = document.createElement('option');
+    option.value = fileName;
+    option.textContent = `Update ${fileName}`;
+    target.appendChild(option);
+  });
+  if (study) {
+    const addOption = document.createElement('option');
+    addOption.value = '__new__';
+    addOption.textContent = artifactType === 'note' ? 'Add a new note…' : 'Add a new presentation…';
+    target.appendChild(addOption);
+  }
+  if (Array.from(target.options).some((option) => option.value === previous)) {
+    target.value = previous;
+  }
+  document.getElementById('s-target-label').textContent = artifactType === 'note'
+    ? 'Technical/research note to update *'
+    : 'Presentation to update *';
+  document.getElementById('s-target-help').textContent = files.length
+    ? `${files.length} existing ${artifactType === 'note' ? 'note' : 'presentation'}${files.length === 1 ? '' : 's'} registered for this study.`
+    : `No ${artifactType === 'note' ? 'notes' : 'presentations'} are registered yet; choose “Add new”.`;
+}
 
 const STAGE_LABELS = {
   pending: 'Awaiting review',
@@ -789,44 +962,167 @@ function configureSubmitView(mode) {
   const isUpdate = mode === 'update';
   document.getElementById('s-new').checked = !isUpdate;
   document.getElementById('s-new-group').hidden = isUpdate;
+  document.getElementById('s-artifact-group').hidden = !isUpdate;
+  if (!isUpdate) document.getElementById('s-artifact').value = 'study';
   document.getElementById('submit-heading').textContent = isUpdate ? 'Update a study' : 'Submit a draft';
-  document.getElementById('submit-lead').textContent = isUpdate
-    ? 'Paste revised markdown for an existing study. A study-update pull request will open.'
-    : 'Paste your study markdown for a new approved proposal. A pull request will open for review.';
-  document.getElementById('s-submit-btn').textContent = isUpdate ? 'Submit update' : 'Submit draft';
-  document.getElementById('s-load-source').hidden = !isUpdate;
   if (!isUpdate) {
     const statusEl = document.getElementById('s-load-source-status');
     statusEl.style.display = 'none';
     statusEl.textContent = '';
   }
+  updateArtifactUi({ clearFile: true });
   toggleProposalField();
 }
 
+function selectedArtifactType() {
+  return document.getElementById('s-artifact').value || 'study';
+}
+
+function setFileStatus(message, className) {
+  const status = document.getElementById('s-file-status');
+  status.textContent = message || '';
+  status.className = 'file-status' + (className ? ' ' + className : '');
+}
+
+function updateArtifactUi(opts = {}) {
+  const isNew = document.getElementById('s-new').checked;
+  const artifactType = isNew ? 'study' : selectedArtifactType();
+  const config = ARTIFACT_CONFIG[artifactType];
+  const fileInput = document.getElementById('s-file');
+  const content = document.getElementById('s-content');
+  const isPresentation = artifactType === 'presentation';
+
+  if (opts.clearFile) {
+    fileInput.value = '';
+    uploadedPresentation = null;
+    setFileStatus('');
+    document.getElementById('s-target').value = '';
+  }
+
+  fileInput.accept = config.accept;
+  document.getElementById('s-file-label').textContent = config.fileLabel;
+  document.getElementById('s-file-help').textContent = config.fileHelp;
+  document.getElementById('s-author-help').textContent = config.authorHelp;
+  document.getElementById('s-content-label').textContent = config.contentLabel || '';
+  document.getElementById('s-editor-group').hidden = isPresentation;
+  document.getElementById('s-editor-guide').hidden = artifactType !== 'study';
+  document.getElementById('s-format-checklist').hidden = artifactType !== 'study';
+  content.required = !isPresentation;
+  document.getElementById('s-load-source').hidden = isNew || artifactType !== 'study';
+  document.getElementById('s-artifact-help').textContent = artifactType === 'study'
+    ? 'Updates the canonical study and refreshes its Edited on timestamp.'
+    : 'Adds or replaces a companion file without changing the canonical study timestamp.';
+  document.getElementById('submit-lead').textContent = isNew ? config.leadNew : config.leadUpdate;
+  document.getElementById('s-submit-btn').textContent = isNew
+    ? 'Submit draft'
+    : artifactType === 'note' ? 'Submit note' : artifactType === 'presentation' ? 'Submit presentation' : 'Submit update';
+  refreshMappedArtifactControls();
+}
+
+function arrayBufferToBase64(buffer) {
+  const bytes = new Uint8Array(buffer);
+  const chunkSize = 0x8000;
+  let binary = '';
+  for (let i = 0; i < bytes.length; i += chunkSize) {
+    binary += String.fromCharCode.apply(null, bytes.subarray(i, i + chunkSize));
+  }
+  return btoa(binary);
+}
+
+function validArtifactFilename(artifactType, fileName) {
+  if (artifactType === 'study') return /\.md$/i.test(fileName);
+  const target = document.getElementById('s-target').value;
+  if (target && target !== '__new__') {
+    return artifactType === 'note' ? /\.md$/i.test(fileName) : /\.pptx$/i.test(fileName);
+  }
+  if (artifactType === 'note') {
+    return /^(?:Technical|Research)-Note-[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.md$/.test(fileName);
+  }
+  return /^[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.pptx$/i.test(fileName);
+}
+
+async function handleArtifactFile(file) {
+  const artifactType = selectedArtifactType();
+  const targetFileName = document.getElementById('s-target').value;
+  uploadedPresentation = null;
+  if (!file) {
+    setFileStatus('');
+    return;
+  }
+  if (!validArtifactFilename(artifactType, file.name)) {
+    document.getElementById('s-file').value = '';
+    const expected = artifactType === 'note'
+      ? 'Use a name such as Technical-Note-Topic.md or Research-Note-Topic.md.'
+      : artifactType === 'presentation' ? 'Use a .pptx filename containing only letters, numbers, and hyphens.' : 'Choose a .md file.';
+    throw new Error(expected);
+  }
+
+  const maxBytes = artifactType === 'presentation' ? MAX_PRESENTATION_BYTES : MAX_MARKDOWN_BYTES;
+  if (file.size > maxBytes) {
+    document.getElementById('s-file').value = '';
+    throw new Error(`The selected file is larger than ${maxBytes / (1024 * 1024)} MB.`);
+  }
+
+  const buffer = await file.arrayBuffer();
+  if (artifactType === 'presentation') {
+    const bytes = new Uint8Array(buffer);
+    if (bytes.length < 4 || bytes[0] !== 0x50 || bytes[1] !== 0x4b) {
+      document.getElementById('s-file').value = '';
+      throw new Error('This file does not appear to be a valid .pptx presentation.');
+    }
+    const destination = targetFileName && targetFileName !== '__new__' ? targetFileName : file.name;
+    uploadedPresentation = { fileName: destination, contentBase64: arrayBufferToBase64(buffer), size: file.size };
+    const replacement = destination !== file.name ? `; will replace ${destination}` : '';
+    setFileStatus(`Ready: ${file.name} (${Math.ceil(file.size / 1024).toLocaleString()} KB${replacement}).`, 'ready');
+    return;
+  }
+
+  let text;
+  try {
+    text = new TextDecoder('utf-8', { fatal: true }).decode(buffer);
+  } catch (err) {
+    document.getElementById('s-file').value = '';
+    throw new Error('The Markdown file must be saved as UTF-8.');
+  }
+  document.getElementById('s-content').value = text.replace(/\r\n?/g, '\n');
+  setEditorMode('write');
+  scheduleDraftSave();
+  setFileStatus(`Loaded ${file.name} into the editor.`, 'ready');
+}
+
 async function loadStudySource(opts = {}) {
+  const artifactType = opts.artifactType || selectedArtifactType();
+  if (artifactType !== 'study' && artifactType !== 'note') return false;
+  const fileName = opts.fileName || '';
   const slug = document.getElementById('s-slug').value.trim();
   const statusEl = document.getElementById('s-load-source-status');
   const showStatus = (msg) => { statusEl.style.display = 'block'; statusEl.textContent = msg; };
   if (!/^[A-Za-z0-9-]+$/.test(slug)) {
     if (!opts.silent) showStatus('Enter a valid study slug first.');
-    return;
+    return false;
   }
   const ta = document.getElementById('s-content');
+  const sourceLabel = artifactType === 'note' ? fileName : slug;
   if (ta.value.trim() && !opts.silent &&
-      !window.confirm('Replace the editor content with the current published markdown for "' + slug + '"?')) {
-    return;
+      !window.confirm('Replace the editor content with the published Markdown for "' + sourceLabel + '"?')) {
+    return false;
   }
   showStatus('Loading current content…');
   try {
-    const res = await apiFetch('/api/study-source?slug=' + encodeURIComponent(slug));
+    const params = new URLSearchParams({ slug, artifactType });
+    if (fileName) params.set('fileName', fileName);
+    const res = await apiFetch('/api/study-source?' + params.toString());
     const data = await res.json();
-    if (!res.ok || !data.success) throw new Error(data.error || 'Could not load the current study content.');
+    if (!res.ok || !data.success) throw new Error(data.error || 'Could not load the current Markdown.');
     ta.value = data.content;
     setEditorMode('write');
     scheduleDraftSave();
-    showStatus('Loaded current content for "' + slug + '". Edit and submit your revision.');
+    showStatus('Loaded "' + sourceLabel + '". Edit it or upload a replacement file, then submit.');
+    return true;
   } catch (err) {
     if (!opts.silent) showStatus(err.message);
+    else statusEl.style.display = 'none';
+    return false;
   }
 }
 
@@ -1114,11 +1410,25 @@ function applyQueryParams() {
     switchTab('submit', false);
     const isUpdate = params.get('mode') === 'update';
     configureSubmitView(isUpdate ? 'update' : 'new');
+    if (isUpdate && ARTIFACT_CONFIG[params.get('artifact')]) {
+      document.getElementById('s-artifact').value = params.get('artifact');
+      updateArtifactUi({ clearFile: true });
+    }
     if (params.get('slug')) document.getElementById('s-slug').value = params.get('slug');
     if (params.get('proposal')) {
       setProposalValue(params.get('proposal'));
     }
-    if (isUpdate && params.get('slug') && !document.getElementById('s-content').value.trim()) {
+    if (isUpdate && params.get('target')) {
+      loadCompanionRegistry().then(() => {
+        refreshMappedArtifactControls();
+        const target = document.getElementById('s-target');
+        if (Array.from(target.options).some((option) => option.value === params.get('target'))) {
+          target.value = params.get('target');
+          target.dispatchEvent(new Event('change'));
+        }
+      }).catch(() => { /* status is shown beside the study slug */ });
+    }
+    if (isUpdate && selectedArtifactType() === 'study' && params.get('slug') && !document.getElementById('s-content').value.trim()) {
       loadStudySource({ silent: true });
     }
   } else {
@@ -1140,6 +1450,44 @@ document.getElementById('p-title').addEventListener('input', updateSlugPreview);
 document.getElementById('s-proposal').addEventListener('input', scheduleProposalStatusCheck);
 document.getElementById('s-proposal').addEventListener('change', scheduleProposalStatusCheck);
 document.getElementById('s-load-source').addEventListener('click', () => loadStudySource());
+document.getElementById('s-artifact').addEventListener('change', () => updateArtifactUi({ clearFile: true }));
+document.getElementById('s-slug').addEventListener('input', () => {
+  document.getElementById('s-target').value = '';
+  document.getElementById('s-file').value = '';
+  uploadedPresentation = null;
+  setFileStatus('');
+  refreshMappedArtifactControls();
+});
+document.getElementById('s-target').addEventListener('change', async (event) => {
+  const target = event.target.value;
+  const artifactType = selectedArtifactType();
+  document.getElementById('s-file').value = '';
+  uploadedPresentation = null;
+  setFileStatus('');
+  if (!target) return;
+  if (target === '__new__') {
+    document.getElementById('s-file-label').textContent = ARTIFACT_CONFIG[artifactType].fileLabel;
+    document.getElementById('s-file-help').textContent = ARTIFACT_CONFIG[artifactType].fileHelp;
+    return;
+  }
+  if (artifactType === 'note') {
+    document.getElementById('s-file-label').textContent = 'Upload replacement Markdown (optional)';
+    document.getElementById('s-file-help').textContent =
+      `“${target}” is loaded below. Edit it directly or choose any UTF-8 .md file as its replacement.`;
+    const loaded = await loadStudySource({ artifactType: 'note', fileName: target });
+    if (!loaded) event.target.value = '';
+  } else if (artifactType === 'presentation') {
+    document.getElementById('s-file-help').textContent =
+      `Choose a .pptx file to replace “${target}”. Its local filename does not need to match.`;
+  }
+});
+document.getElementById('s-file').addEventListener('change', async (event) => {
+  try {
+    await handleArtifactFile(event.target.files && event.target.files[0]);
+  } catch (err) {
+    setFileStatus(err.message, 'error');
+  }
+});
 
 const proposalSelect = document.getElementById('s-proposal-select');
 if (proposalSelect) proposalSelect.addEventListener('change', () => {
@@ -1412,6 +1760,7 @@ function scheduleCiPoll(submissions) {
 
 toggleProposalField();
 applyQueryParams();
+loadCompanionRegistry().catch(() => { /* status is shown beside the study slug */ });
 restoreDraft();
 restoreProposeDraft();
 applyAuthorDefault();
@@ -1479,7 +1828,25 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
     showAlert('submit', 'error', 'Select an approved proposal or enter its issue number.');
     return;
   }
-  const warnings = draftContentWarnings(document.getElementById('s-content').value);
+  const artifactType = submitIsNew ? 'study' : selectedArtifactType();
+  const fileInput = document.getElementById('s-file');
+  const selectedFile = fileInput.files && fileInput.files[0];
+  const targetFileName = document.getElementById('s-target').value;
+  if ((artifactType === 'note' || artifactType === 'presentation') && !targetFileName) {
+    showAlert('submit', 'error', 'Select an existing companion file or choose “Add new”.');
+    return;
+  }
+  if (artifactType === 'note' && targetFileName === '__new__' && !selectedFile) {
+    showAlert('submit', 'error', 'Choose the technical or research note .md file to upload.');
+    return;
+  }
+  if (artifactType === 'presentation' && !uploadedPresentation) {
+    showAlert('submit', 'error', 'Choose a valid .pptx presentation to upload.');
+    return;
+  }
+  const warnings = artifactType === 'study'
+    ? draftContentWarnings(document.getElementById('s-content').value)
+    : [];
   if (warnings.length && !window.confirm(
     'Before you submit, a quick check flagged:\n\n- ' + warnings.join('\n- ') +
     '\n\nThese are recommendations, not hard requirements. Submit anyway?'
@@ -1493,9 +1860,18 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
     slug: document.getElementById('s-slug').value.trim(),
     author: document.getElementById('s-author').value.trim(),
     isNew,
-    content: document.getElementById('s-content').value,
+    artifactType,
     turnstileToken,
   };
+  if (artifactType === 'presentation') {
+    payload.fileName = uploadedPresentation.fileName;
+    payload.contentBase64 = uploadedPresentation.contentBase64;
+  } else {
+    payload.content = document.getElementById('s-content').value;
+    if (artifactType === 'note') {
+      payload.fileName = targetFileName === '__new__' ? selectedFile.name : targetFileName;
+    }
+  }
   if (isNew) payload.proposalIssue = Number(document.getElementById('s-proposal').value);
   try {
     const res = await apiFetch('/api/submit', {
@@ -1511,6 +1887,8 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
     await goToDashboard(true);
     showAlert('dashboard', 'success', 'Pull request opened.' + (data.url ? ' <a href="' + data.url + '" target="_blank">View on GitHub</a>' : ''));
     form.reset();
+    uploadedPresentation = null;
+    updateArtifactUi({ clearFile: true });
     toggleProposalField();
     hideProposalStatus();
     resetTurnstile(form);
@@ -1519,7 +1897,7 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
     resetTurnstile(form);
   } finally {
     btn.disabled = false;
-    btn.textContent = isNew ? 'Submit draft' : 'Submit update';
+    updateArtifactUi();
   }
 });
 

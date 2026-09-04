@@ -188,6 +188,11 @@ Linux `pdfs` job: it installs the shared Python/Node/Chrome environment once, ru
 the Markdown and normalized-reference pipelines in sequence, checks manifest/link
 policy, and uploads separate short-lived Actions artifacts for inspection.
 Pull-request jobs do not receive R2 or Cloudflare credentials and cannot publish.
+Before the labelled study pipeline completes, it regenerates
+`Studies/companion-artifacts.json` from the catalog and repository files. This keeps
+My Submissions' study-to-note/deck selector synchronized for additions, removals,
+renames, and status changes without deriving inventory from historical issues or PRs.
+
 PRs created through My Submissions carry `Portal-GitHub: @login` in their body and
 skip this job: the labelled `study-pr` workflow already regenerates and verifies
 their changed study using the canonical toolchain. The body marker is available on
