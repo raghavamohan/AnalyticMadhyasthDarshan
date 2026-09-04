@@ -43,9 +43,17 @@ Use the slug without extension (e.g. `The-Ontology-of-Coexistence`).
 4. For published studies (not Ongoing): removes the row from `References/README.md`,
    the paper block from `References/MANIFEST.md`, and its By-tag citations while
    preserving citations to other studies
+5. Removes every deck sourced from the retired study from
+   `Scripts/presentation-pipeline.json`
 
 Ongoing placeholders (italic, no public PDF) are supported — their directory,
 catalog row, and proposal-registry row are removed.
+
+The command also supports **metadata-only cleanup** when an earlier removal
+already deleted the directory and catalog row but left the slug in
+`Studies/proposal-registry.json` or `Scripts/presentation-pipeline.json`. In
+that case, use the same slug with `--dry-run` first and then `--yes`; the tool
+removes only the surviving metadata and does not rewrite reference catalogs.
 
 ## After removal
 

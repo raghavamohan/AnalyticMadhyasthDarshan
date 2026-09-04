@@ -1,6 +1,6 @@
 ---
 description: Run agent-rules sync after editing AGENTS.md, skills, or rule mirrors
-globs: AGENTS.md,.agents/skills/**/SKILL.md,Scripts/_sync_agent_rules.py,.cursor/rules/*.mdc,.cursor/skills/**/SKILL.md
+globs: AGENTS.md,.agents/skills/**/SKILL.md,.opencode/skills/**/SKILL.md,Scripts/_sync_agent_rules.py,.cursor/rules/*.mdc,.cursor/skills/**/SKILL.md
 alwaysApply: true
 ---
 
@@ -35,17 +35,22 @@ python Scripts/_sync_agent_rules.py --check
 1. **`_sync_agent_rules.py`** — writes `.cursor/rules/*.mdc` from `AGENTS.md` §1–§7 and
    copies `.agents/skills/` → `.cursor/skills/`. (`.opencode/skills/` is a junction to
    `.agents/skills/` — no separate copy.)
-2. **`--check`** — exits with an error if mirrors are stale. Run after sync and before commit.
+2. **Stage matching skill paths** — Git tracks `.opencode/skills/` as a clone fallback even
+   when the local path is a junction. Stage the matching `.agents/skills/` and
+   `.opencode/skills/` paths together so their index blobs cannot diverge.
+3. **`--check`** — exits with an error if filesystem mirrors or indexed OpenCode fallback
+   copies are stale. Run after sync and staging, before commit.
 
 ## Same commit
 
 Include sync output in the **same commit** as the canonical edit:
 
 - `AGENTS.md` + updated `.cursor/rules/*.mdc`
-- `.agents/skills/**` + updated `.cursor/skills/**`
+- `.agents/skills/**` + updated `.cursor/skills/**` + matching `.opencode/skills/**`
 
 ## Completion check
 
 - [ ] `python Scripts/_sync_agent_rules.py` ran after the last canonical edit
+- [ ] Matching `.agents/skills/` and `.opencode/skills/` changes are staged together
 - [ ] `python Scripts/_sync_agent_rules.py --check` passes
 - [ ] No hand-edited drift in generated `.mdc` or `.cursor/skills/` files
