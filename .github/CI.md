@@ -188,6 +188,11 @@ Linux `pdfs` job: it installs the shared Python/Node/Chrome environment once, ru
 the Markdown and normalized-reference pipelines in sequence, checks manifest/link
 policy, and uploads separate short-lived Actions artifacts for inspection.
 Pull-request jobs do not receive R2 or Cloudflare credentials and cannot publish.
+PRs created through My Submissions carry `Portal-GitHub: @login` in their body and
+skip this job: the labelled `study-pr` workflow already regenerates and verifies
+their changed study using the canonical toolchain. The body marker is available on
+the initial `opened` event, whereas the portal applies the study label immediately
+after creating the PR; testing only the label would race and could start both jobs.
 Normalized PDFs generated from archived HTML are checked by page count and a
 canonical extracted-text digest because Chromium's PDF container and font subsets
 are host-platform-specific even with identical embedded fonts. Linux CI is the
