@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "studies": [
+    {
+      "slug": "A-State-Dynamic-Model-Of-Coexistence",
+      "title": "From Unit Activity to Human Orderliness: A State-Dynamic Reconstruction of Coexistence",
+      "root": "Studies",
+      "notes": [
+        "Technical-Note-MD-TOPOS-And-The-State-Dynamic-Model.md",
+        "Technical-Note-Wolfram-Computational-Universe-And-EMR.md"
+      ],
+      "presentations": [
+        "A-State-Dynamic-Model-Of-Coexistence-Madhyasth-Darshan.pptx"
+      ]
+    },
+    {
+      "slug": "Aesthetics",
+      "title": "Aesthetics",
+      "root": "Studies",
+      "notes": [],
+      "presentations": []
+    },
+    {
+      "slug": "Axiology-Value-Theory",
+      "title": "Axiology: Value Theory",
+      "root": "Studies",
+      "notes": [],
+      "presentations": []
+    },
+    {
+      "slug": "Ethics-And-Morals-In-Human-Beings",
+      "title": "Ethics and Morals in Human Beings",
+      "root": "Studies",
+      "notes": [],
+      "presentations": []
+    },
+    {
+      "slug": "Family-Relationships-And-Values",
+      "title": "Family Relationships and Values",
+      "root": "Studies",
+      "notes": [],
+      "presentations": []
+    },
+    {
+      "slug": "How-To-Form-Self-Sustaining-Organizations",
+      "title": "How to Form Self-Sustaining Organizations",
+      "root": "Studies",
+      "notes": [],
+      "presentations": []
+    },
+    {
+      "slug": "How-Undivided-Society-Is-Established",
+      "title": "How Undivided Society Is Established",
+      "root": "Studies",
+      "notes": [],
+      "presentations": [
+        "How-Undivided-Society-Is-Established.pptx"
+      ]
+    },
+    {
+      "slug": "Human-Behavior-And-Society",
+      "title": "Human Behavior and Society",
+      "root": "Studies",
+      "notes": [],
+      "presentations": []
+    },
+    {
+      "slug": "Nature-Of-Time",
+      "title": "Nature of Time",
+      "root": "Studies",
+      "notes": [],
+      "presentations": []
+    },
+    {
+      "slug": "Spiritual-Practice-And-Realization",
+      "title": "Spiritual Practice and Realization",
+      "root": "Studies",
+      "notes": [
+        "Research-Note-Sakshatkar-Bodh-Anubhav-Praman-Session.md"
+      ],
+      "presentations": []
+    },
+    {
+      "slug": "The-Epistemology-of-Coexistence",
+      "title": "The Epistemology of Coexistence",
+      "root": "Studies",
+      "notes": [
+        "Research-Note-Activity-Pair-Inventory.md",
+        "Research-Note-Jeevan-Activity-Anatomy-Pass-One.md",
+        "Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers.md",
+        "Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.md",
+        "Research-Note-Jeevan-Activity-Spheres-Pass-Three.md",
+        "Research-Note-Jeevan-Architecture.md",
+        "Research-Note-Jeevan-Counterfactual-Validation-Pass-Five.md",
+        "Research-Note-Jeevan-Durable-Functions-Pass-Four.md",
+        "Research-Note-Jeevan-Functional-Model.md",
+        "Research-Note-Jeevan-To-Universal-Human-Order.md",
+        "Research-Note-Proposed-External-Organisation-From-Jeevan-Architecture.md"
+      ],
+      "presentations": [
+        "Epistemology-in-Comparison-MD-Advaita-Philosophy-Science.pptx",
+        "The-Epistemology-of-Coexistence-Madhyasth-Darshan.pptx"
+      ]
+    },
+    {
+      "slug": "The-Ontology-of-Coexistence",
+      "title": "The Ontology of Coexistence",
+      "root": "Studies",
+      "notes": [
+        "Research-Note-Karm-Darshan-Ontological-Summary.md",
+        "Research-Note-Physics-Of-Satta-Unit-Interaction.md",
+        "Technical-Note-Roop-Guna-Svabhava-Dharma.md"
+      ],
+      "presentations": [
+        "Coexistence-in-Comparison-MD-vs-Advaita-Philosophy-Science.pptx",
+        "The-Ontology-of-Existence-Madhyasth-Darshan.pptx"
+      ]
+    },
+    {
+      "slug": "Why-Humans-Are-Not-Just-Material",
+      "title": "Why Humans Are Not Just Material",
+      "root": "Studies",
+      "notes": [],
+      "presentations": [
+        "Why-Humans-Are-Not-Just-Material.pptx"
+      ]
+    }
+  ]
+}
