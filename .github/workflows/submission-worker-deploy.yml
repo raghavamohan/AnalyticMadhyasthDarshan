@@ -37,7 +37,7 @@ jobs:
           cache-dependency-path: infra/worker/package-lock.json
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --no-audit --no-fund
 
       - name: Validate Worker bundle
         if: github.event_name == 'pull_request'
