@@ -76,12 +76,12 @@ The portal opens one **new-study** pull request at a time per slug. If a draft P
 ### Minor corrections vs full revisions
 
 - **Typos or citations on a published study** — [study feedback issue](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml) (no approval gate).
-- **Author revision** — **Update a study** on My Submissions (`study-update` PR).
+- **Author revision** — expand **Files and updates** on the study's My Submissions card (`study-update` PR).
 - **Maintainer edit** — direct PR on the default branch (portal optional).
 
 ### Update an existing study or change status
 
-From **My Submissions**, use **Update existing study files** to open a study-update pull request. Choose a registered study; the portal shows its complete mapped list of technical/research notes and presentations, independent of your historical proposal issues or pull requests. Then choose what you are uploading:
+From **My Submissions**, each of your studies has one card for its proposal, review status, release status, and editable files. Expand **Files and updates** on that card to edit the study document, replace a mapped technical/research note or presentation, or add a new companion file. The mapped file list is independent of historical proposal issues or pull requests.
 
 - **Study Markdown (`.md`)** — choose a UTF-8 file, click **Load current content**, or work directly in the editor.
 - **Technical or research note (`.md`)** — select an existing mapped note to load and edit it, or add a file named `Technical-Note-Topic.md` or `Research-Note-Topic.md`.
