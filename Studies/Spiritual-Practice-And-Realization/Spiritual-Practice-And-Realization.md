@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 4, 2026, 4:39 AM IST
+**Edited on:** September 4, 2026, 5:31 AM IST
 **Status:** Draft
 **The question:** What is realisation, what practice leads to it, and how would anyone know it had occurred? How does Madhyasth Darshan's answer compare with Advaita Vedanta's path of knowledge, and with what modern philosophy and contemplative science have established about practice and religious experience?
 
@@ -510,12 +510,12 @@ KD Chapter 2 is available in this repository only as a machine-assisted working 
 
 ### Advaita Vedanta (primary texts)
 
-- **BSB** — Shankara, Adi. [*Brahma Sutra Bhashya*](../References/Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf). English translation by Swami Gambhirananda. Cited: the *Adhyasa Bhashya* on superimposition; liberation as eternally accomplished and obscured by ignorance; the subordination of *yoga* to knowledge.
-- **BU** — [*Brihadaranyaka Upanishad*](../References/Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf). English translation by Swami Madhavananda. Cited: *neti neti* (2.3.6); hearing, reflection, and sustained contemplation (2.4.5).
-- **CU** — [*Chandogya Upanishad*](../References/Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf). English translation by Swami Gambhirananda. Cited: *tat tvam asi* (6.8.7).
-- **MU** — [*Mandukya Upanishad*](../References/Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf). English translation by Swami Gambhirananda. Cited: the three states and *turiya* (vv. 3–7).
-- **BG** — [*Bhagavad Gita with the Commentary of Shankaracharya*](../References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf). English translation by Swami Gambhirananda. Cited: prescribed action without attachment (3.8); *loka-sangraha* (3.20, 3.25–26); divine qualities (16.2–16.3).
-- **VC** — [*Vivekachudamani*](../References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) (traditionally attributed to Shankara; authorship disputed). English translation by Swami Madhavananda. Cited as a later pedagogical witness: the fourfold qualification and supporting virtues (vv. 17–20, 69, 82); the warmer estimate of absorption.
+- **BSB** — Shankara, Adi. [*Brahma Sutra Bhashya*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf). English translation by Swami Gambhirananda. Cited: the *Adhyasa Bhashya* on superimposition; liberation as eternally accomplished and obscured by ignorance; the subordination of *yoga* to knowledge.
+- **BU** — [*Brihadaranyaka Upanishad*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf). English translation by Swami Madhavananda. Cited: *neti neti* (2.3.6); hearing, reflection, and sustained contemplation (2.4.5).
+- **CU** — [*Chandogya Upanishad*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf). English translation by Swami Gambhirananda. Cited: *tat tvam asi* (6.8.7).
+- **MU** — [*Mandukya Upanishad*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf). English translation by Swami Gambhirananda. Cited: the three states and *turiya* (vv. 3–7).
+- **BG** — [*Bhagavad Gita with the Commentary of Shankaracharya*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf). English translation by Swami Gambhirananda. Cited: prescribed action without attachment (3.8); *loka-sangraha* (3.20, 3.25–26); divine qualities (16.2–16.3).
+- **VC** — [*Vivekachudamani*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) (traditionally attributed to Shankara; authorship disputed). English translation by Swami Madhavananda. Cited as a later pedagogical witness: the fourfold qualification and supporting virtues (vv. 17–20, 69, 82); the warmer estimate of absorption.
 
 ### Related studies in this collection
 

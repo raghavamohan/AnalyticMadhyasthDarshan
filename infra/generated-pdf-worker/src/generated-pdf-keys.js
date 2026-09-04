@@ -48,6 +48,14 @@ export const GENERATED_PDF_KEYS = [
   "Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.pdf"
 ];
 export const REFERENCE_PDF_KEYS = [
+  "References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf",
+  "References/Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf",
+  "References/Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf",
+  "References/Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf",
+  "References/Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf",
+  "References/Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf",
+  "References/Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf",
+  "References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf",
   "References/Applied-Studies/MD_TOPOS.pdf",
   "References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf",
   "References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf",
@@ -66,14 +74,6 @@ export const REFERENCE_PDF_KEYS = [
   "References/Science/Crockett-2013-Models-of-Morality.pdf"
 ];
 export const RETAINED_REFERENCE_PDF_KEYS = [
-  "References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf",
-  "References/Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf",
-  "References/Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf",
-  "References/Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf",
-  "References/Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf",
-  "References/Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf",
-  "References/Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf",
-  "References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf",
   "References/Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf",
   "References/Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf",
   "References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf",

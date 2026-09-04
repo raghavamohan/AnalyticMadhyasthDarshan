@@ -6,27 +6,6 @@
   "description": "Draft and released studies, newest Edited-on timestamp first. In-progress (ongoing) rows are omitted.",
   "items": [
     {
-      "id": "https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/",
-      "url": "https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.html",
-      "title": "Spiritual Practice and Realization",
-      "content_text": "Realization and awakening in Madhyasth Darshan: anubhav, samyama, upasana, and liberation from mystery, compared with Advaita Vedanta and with modern philosophy of religious experience and contemplative science",
-      "tags": [
-        "topical",
-        "draft"
-      ],
-      "date_modified": "2026-09-04T04:39:00+05:30",
-      "attachments": [
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.md",
-          "mime_type": "text/markdown"
-        },
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.pdf",
-          "mime_type": "application/pdf"
-        }
-      ]
-    },
-    {
       "id": "https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/",
       "url": "https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html",
       "title": "Why Humans Are Not Just Material",
@@ -35,7 +14,7 @@
         "topical",
         "released"
       ],
-      "date_modified": "2026-09-04T04:01:00+05:30",
+      "date_modified": "2026-09-04T05:31:00+05:30",
       "attachments": [
         {
           "url": "https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.md",
@@ -56,7 +35,7 @@
         "topical",
         "released"
       ],
-      "date_modified": "2026-09-04T04:01:00+05:30",
+      "date_modified": "2026-09-04T05:31:00+05:30",
       "attachments": [
         {
           "url": "https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.md",
@@ -77,7 +56,7 @@
         "topical",
         "released"
       ],
-      "date_modified": "2026-09-04T04:01:00+05:30",
+      "date_modified": "2026-09-04T05:31:00+05:30",
       "attachments": [
         {
           "url": "https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.md",
@@ -85,6 +64,27 @@
         },
         {
           "url": "https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf",
+          "mime_type": "application/pdf"
+        }
+      ]
+    },
+    {
+      "id": "https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/",
+      "url": "https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.html",
+      "title": "Spiritual Practice and Realization",
+      "content_text": "Realization and awakening in Madhyasth Darshan: anubhav, samyama, upasana, and liberation from mystery, compared with Advaita Vedanta and with modern philosophy of religious experience and contemplative science",
+      "tags": [
+        "topical",
+        "draft"
+      ],
+      "date_modified": "2026-09-04T05:31:00+05:30",
+      "attachments": [
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.md",
+          "mime_type": "text/markdown"
+        },
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.pdf",
           "mime_type": "application/pdf"
         }
       ]
@@ -98,7 +98,7 @@
         "topical",
         "released"
       ],
-      "date_modified": "2026-09-04T04:01:00+05:30",
+      "date_modified": "2026-09-04T05:31:00+05:30",
       "attachments": [
         {
           "url": "https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.md",
@@ -106,6 +106,111 @@
         },
         {
           "url": "https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.pdf",
+          "mime_type": "application/pdf"
+        }
+      ]
+    },
+    {
+      "id": "https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/",
+      "url": "https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html",
+      "title": "How Undivided Society Is Established",
+      "content_text": "Madhyasth Darshan's account of how undivided society is established through coexistence, justice, family, institutions, and education — compared with science-only materialism, Advaita Vedanta, and Hindu religious authority",
+      "tags": [
+        "topical",
+        "released"
+      ],
+      "date_modified": "2026-09-04T05:31:00+05:30",
+      "attachments": [
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.md",
+          "mime_type": "text/markdown"
+        },
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf",
+          "mime_type": "application/pdf"
+        }
+      ]
+    },
+    {
+      "id": "https://analyticmadhyasthdarshan.org/Studies/Family-Relationships-And-Values/",
+      "url": "https://analyticmadhyasthdarshan.org/Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.html",
+      "title": "Family Relationships and Values",
+      "content_text": "The family as the first site of values: recognising relationships and living trust, affection, gratitude, and mutual satisfaction",
+      "tags": [
+        "topical",
+        "draft"
+      ],
+      "date_modified": "2026-09-04T05:31:00+05:30",
+      "attachments": [
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.md",
+          "mime_type": "text/markdown"
+        },
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.pdf",
+          "mime_type": "application/pdf"
+        }
+      ]
+    },
+    {
+      "id": "https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/",
+      "url": "https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.html",
+      "title": "Ethics and Morals in Human Beings",
+      "content_text": "Whether ethics is divine command, convention, evolution, reason, or evidence of understanding: Madhyasth Darshan's account of humane conduct through justice, dharma, truth, and right-use, compared with Advaita Vedanta and modern moral science",
+      "tags": [
+        "topical",
+        "draft"
+      ],
+      "date_modified": "2026-09-04T05:31:00+05:30",
+      "attachments": [
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.md",
+          "mime_type": "text/markdown"
+        },
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf",
+          "mime_type": "application/pdf"
+        }
+      ]
+    },
+    {
+      "id": "https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/",
+      "url": "https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html",
+      "title": "Axiology: Value Theory",
+      "content_text": "Madhyasth Darshan's theory of value: what values are, how they are recognised and fulfilled, and how mutual satisfaction grounds a humane axiology",
+      "tags": [
+        "topical",
+        "released"
+      ],
+      "date_modified": "2026-09-04T05:31:00+05:30",
+      "attachments": [
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.md",
+          "mime_type": "text/markdown"
+        },
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.pdf",
+          "mime_type": "application/pdf"
+        }
+      ]
+    },
+    {
+      "id": "https://analyticmadhyasthdarshan.org/Studies/Aesthetics/",
+      "url": "https://analyticmadhyasthdarshan.org/Studies/Aesthetics/Aesthetics.html",
+      "title": "Aesthetics",
+      "content_text": "What beauty and art are: Madhyasth Darshan's functional aesthetics of usefulness, harmony, and human purpose, compared with modern philosophical aesthetics and Advaita Vedanta",
+      "tags": [
+        "topical",
+        "draft"
+      ],
+      "date_modified": "2026-09-04T05:31:00+05:30",
+      "attachments": [
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/Aesthetics/Aesthetics.md",
+          "mime_type": "text/markdown"
+        },
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/Aesthetics/Aesthetics.pdf",
           "mime_type": "application/pdf"
         }
       ]
@@ -153,27 +258,6 @@
       ]
     },
     {
-      "id": "https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/",
-      "url": "https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html",
-      "title": "How Undivided Society Is Established",
-      "content_text": "Madhyasth Darshan's account of how undivided society is established through coexistence, justice, family, institutions, and education — compared with science-only materialism, Advaita Vedanta, and Hindu religious authority",
-      "tags": [
-        "topical",
-        "released"
-      ],
-      "date_modified": "2026-09-04T04:01:00+05:30",
-      "attachments": [
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.md",
-          "mime_type": "text/markdown"
-        },
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf",
-          "mime_type": "application/pdf"
-        }
-      ]
-    },
-    {
       "id": "https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/",
       "url": "https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html",
       "title": "From Unit Activity to Human Orderliness: A State-Dynamic Reconstruction of Coexistence",
@@ -190,90 +274,6 @@
         },
         {
           "url": "https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf",
-          "mime_type": "application/pdf"
-        }
-      ]
-    },
-    {
-      "id": "https://analyticmadhyasthdarshan.org/Studies/Family-Relationships-And-Values/",
-      "url": "https://analyticmadhyasthdarshan.org/Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.html",
-      "title": "Family Relationships and Values",
-      "content_text": "The family as the first site of values: recognising relationships and living trust, affection, gratitude, and mutual satisfaction",
-      "tags": [
-        "topical",
-        "draft"
-      ],
-      "date_modified": "2026-09-04T04:01:00+05:30",
-      "attachments": [
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.md",
-          "mime_type": "text/markdown"
-        },
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.pdf",
-          "mime_type": "application/pdf"
-        }
-      ]
-    },
-    {
-      "id": "https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/",
-      "url": "https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.html",
-      "title": "Ethics and Morals in Human Beings",
-      "content_text": "Whether ethics is divine command, convention, evolution, reason, or evidence of understanding: Madhyasth Darshan's account of humane conduct through justice, dharma, truth, and right-use, compared with Advaita Vedanta and modern moral science",
-      "tags": [
-        "topical",
-        "draft"
-      ],
-      "date_modified": "2026-09-04T04:01:00+05:30",
-      "attachments": [
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.md",
-          "mime_type": "text/markdown"
-        },
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf",
-          "mime_type": "application/pdf"
-        }
-      ]
-    },
-    {
-      "id": "https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/",
-      "url": "https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html",
-      "title": "Axiology: Value Theory",
-      "content_text": "Madhyasth Darshan's theory of value: what values are, how they are recognised and fulfilled, and how mutual satisfaction grounds a humane axiology",
-      "tags": [
-        "topical",
-        "released"
-      ],
-      "date_modified": "2026-09-04T04:01:00+05:30",
-      "attachments": [
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.md",
-          "mime_type": "text/markdown"
-        },
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.pdf",
-          "mime_type": "application/pdf"
-        }
-      ]
-    },
-    {
-      "id": "https://analyticmadhyasthdarshan.org/Studies/Aesthetics/",
-      "url": "https://analyticmadhyasthdarshan.org/Studies/Aesthetics/Aesthetics.html",
-      "title": "Aesthetics",
-      "content_text": "What beauty and art are: Madhyasth Darshan's functional aesthetics of usefulness, harmony, and human purpose, compared with modern philosophical aesthetics and Advaita Vedanta",
-      "tags": [
-        "topical",
-        "draft"
-      ],
-      "date_modified": "2026-09-04T04:01:00+05:30",
-      "attachments": [
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/Aesthetics/Aesthetics.md",
-          "mime_type": "text/markdown"
-        },
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/Aesthetics/Aesthetics.pdf",
           "mime_type": "application/pdf"
         }
       ]
