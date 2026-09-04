@@ -120,7 +120,7 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
-  markdown:
+  pdfs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout complete history
@@ -128,7 +128,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up Markdown PDF toolchain
+      # Markdown and normalized-reference rendering use the same pinned
+      # Python/Node/Chrome toolchain. Keep them in one job so npm ci and the
+      # Puppeteer cache restore happen once per workflow run.
+      - name: Set up PDF toolchain
         uses: ./.github/actions/setup-study-env
 
       - name: Build and verify Markdown-derived PDFs
@@ -149,6 +152,32 @@ jobs:
         with:
           name: generated-markdown-pdfs
           path: ${{ runner.temp }}/generated-markdown-pdfs
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Build and verify normalized reference PDFs
+        run: >-
+          python Scripts/_build_reference_pdfs.py --all
+          --output-root "$RUNNER_TEMP/generated-reference-pdfs"
+
+      - name: Verify reference manifest and Markdown delivery links
+        run: |
+          python Scripts/_reference_artifacts.py --check
+          python Scripts/_rewrite_manifest_reference_links.py --check
+
+      # Every pull request already runs this exact repository scan through
+      # Scripts/_test_published_document_links.py in the required verify job.
+      # Keep the direct gate for protected-branch and manual publication runs,
+      # which can deploy independently of that workflow.
+      - name: Verify published document link policy
+        if: github.event_name != 'pull_request'
+        run: python Scripts/_verify_published_document_links.py
+
+      - name: Upload verified reference PDFs
+        uses: actions/upload-artifact@v6
+        with:
+          name: generated-reference-pdfs
+          path: ${{ runner.temp }}/generated-reference-pdfs
           if-no-files-found: error
           retention-days: 7
 
@@ -205,41 +234,11 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
-  reference-pdfs:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v7
-
-      - name: Set up reference PDF toolchain
-        uses: ./.github/actions/setup-study-env
-
-      - name: Build and verify normalized reference PDFs
-        run: >-
-          python Scripts/_build_reference_pdfs.py --all
-          --output-root "$RUNNER_TEMP/generated-reference-pdfs"
-
-      - name: Verify reference manifest and Markdown delivery links
-        run: |
-          python Scripts/_reference_artifacts.py --check
-          python Scripts/_rewrite_manifest_reference_links.py --check
-
-      - name: Verify published document link policy
-        run: python Scripts/_verify_published_document_links.py
-
-      - name: Upload verified reference PDFs
-        uses: actions/upload-artifact@v6
-        with:
-          name: generated-reference-pdfs
-          path: ${{ runner.temp }}/generated-reference-pdfs
-          if-no-files-found: error
-          retention-days: 7
-
   publish-and-deploy:
     if: >-
       github.ref == 'refs/heads/master' &&
       (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
-    needs: [markdown, presentations, reference-pdfs]
+    needs: [pdfs, presentations]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
