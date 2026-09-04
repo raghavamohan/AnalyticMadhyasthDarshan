@@ -37,7 +37,7 @@ const CATALOG_FILES = [
 // Studies/<slug>/. The write-side endpoints resolve the base folder per slug
 // from this catalog file.
 const CATALOG_APPLIED_FILE = 'Studies/catalog-applied.json';
-const CATALOG_CACHE_KEY = 'https://amd-submissions.internal/catalog-slug-map';
+const CATALOG_CACHE_KEY = 'https://amd-submissions.internal/catalog-maps-v2';
 const APPLIED_SLUGS_CACHE_KEY = 'https://amd-submissions.internal/applied-slugs';
 const PROPOSAL_REGISTRY_PATH = 'Studies/proposal-registry.json';
 const PROPOSAL_REGISTRY_CACHE_KEY = 'https://amd-submissions.internal/proposal-registry';
@@ -154,34 +154,51 @@ async function githubRawFile(path, env, stats = null) {
   return response.text();
 }
 
-async function fetchCatalogSlugMap(env, stats) {
+function normalizeCategoryValues(raw) {
+  const values = Array.isArray(raw) ? raw : String(raw || '').split(',');
+  return Array.from(new Set(values.map((value) => String(value).trim()).filter(Boolean)));
+}
+
+async function fetchCatalogMaps(env, stats) {
   const cache = caches.default;
   const cacheRequest = new Request(CATALOG_CACHE_KEY);
   const cached = await cache.match(cacheRequest);
   if (cached) {
     const parsed = await cached.json();
-    return new Map(Object.entries(parsed));
+    return {
+      statusMap: new Map(Object.entries(parsed.statuses || {})),
+      categoryMap: new Map(Object.entries(parsed.categories || {})),
+    };
   }
 
   const texts = await Promise.all(
     CATALOG_FILES.map((file) => githubRawFile(file, env, stats))
   );
-  const map = new Map();
+  const statuses = Object.create(null);
+  const categories = Object.create(null);
   for (const text of texts) {
     const rows = JSON.parse(text);
     for (const row of rows) {
       if (row.slug && row.status) {
-        map.set(row.slug, row.status);
+        statuses[row.slug] = row.status;
+        categories[row.slug] = normalizeCategoryValues(row.categories || row.category);
       }
     }
   }
 
-  const body = JSON.stringify(Object.fromEntries(map));
+  const body = JSON.stringify({ statuses, categories });
   await cache.put(
     cacheRequest,
     new Response(body, { headers: { 'Cache-Control': 'max-age=60' } })
   );
-  return map;
+  return {
+    statusMap: new Map(Object.entries(statuses)),
+    categoryMap: new Map(Object.entries(categories)),
+  };
+}
+
+async function fetchCatalogSlugMap(env, stats) {
+  return (await fetchCatalogMaps(env, stats)).statusMap;
 }
 
 async function fetchCompanionArtifacts(env, stats = null) {
@@ -585,6 +602,16 @@ function parseIssueFormSection(body, heading) {
   );
   const match = (body || '').match(pattern);
   return match ? match[1].trim() : null;
+}
+
+function proposalCategories(issue, registryRow, catalogCategories = []) {
+  const raw = catalogCategories.length
+    ? catalogCategories
+    : registryRow?.categories ||
+      registryRow?.category ||
+      parseIssueFormSection(issue?.body, 'Category') ||
+      '';
+  return normalizeCategoryValues(raw);
 }
 
 function parseSlugFromIssueBody(issue) {
@@ -1255,7 +1282,7 @@ async function buildDashboard(session, env) {
   const login = session.login;
   const userToken = session.accessToken;
 
-  const [proposalList, prSearch, catalogMap, proposalRegistry] = await Promise.all([
+  const [proposalList, prSearch, catalogMaps, proposalRegistry] = await Promise.all([
     listProposalIssues(login, env, userToken, stats),
     githubSearch(
       `repo:${REPO} is:pr label:new-study,study-update,status-change`,
@@ -1263,10 +1290,12 @@ async function buildDashboard(session, env) {
       userToken,
       stats
     ),
-    fetchCatalogSlugMap(env, stats),
+    fetchCatalogMaps(env, stats),
     fetchProposalRegistry(env, stats),
   ]);
 
+  const catalogMap = catalogMaps.statusMap;
+  const catalogCategoryMap = catalogMaps.categoryMap;
   const preCatalogSlugs = preCatalogSlugSet(proposalRegistry);
   const proposals = proposalList.items.filter(isStudyProposalIssue);
   const prItems = prSearch.items.filter((item) => isPortalPullRequest(item, login));
@@ -1342,6 +1371,11 @@ async function buildDashboard(session, env) {
       issueNumber: issue.number,
       title: title || issue.title,
       slug,
+      categories: proposalCategories(
+        issue,
+        registryRow,
+        slug ? (catalogCategoryMap.get(slug) || []) : []
+      ),
       issueUrl: issue.html_url,
       issueState: issue.state,
       approved: issueLabels(issue).includes('proposal-approved'),
@@ -1401,6 +1435,11 @@ async function buildDashboard(session, env) {
       issueNumber: null,
       title: item.title,
       slug,
+      categories: proposalCategories(
+        null,
+        registryRow,
+        slug ? (catalogCategoryMap.get(slug) || []) : []
+      ),
       issueUrl: item.html_url,
       issueState: item.state,
       approved: false,
