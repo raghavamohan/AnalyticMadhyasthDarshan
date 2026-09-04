@@ -107,11 +107,14 @@ After deploy, confirm the OAuth app callback URL matches `https://api.analyticma
 | `GET /api/proposal-status?issue=N` | optional | Approval/declined status, locked slug, `preCatalog`, `ownedByYou` when signed in |
 | `GET /api/study-artifacts?slug=Slug` | — | Durable editable-study mapping, including every registered note and presentation; omit `slug` for the complete mapping |
 | `GET /api/study-source?slug=Slug` | — | Current published study Markdown, or a registered note when `artifactType=note&fileName=...` |
+| `POST /api/delete-artifact` | yes | Opens a reviewable `study-update` PR to delete one mapped note/presentation or the complete owned study |
 | `POST /api/submit` | cookie + Turnstile | Branch, commit study Markdown, a technical/research-note `.md`, or a presentation `.pptx` to the study directory, then open a PR; enforces file/type limits, locked slugs for new studies, and one open PR per slug |
 | `POST /api/status-change` | cookie + Turnstile | Open a `status-change` PR (body: `Study slug:` / `Target status:` for CI) |
 | `POST /api/notify` | `X-Notify-Secret` | Called by the `portal-notify.yml` workflow to email a contributor on approval/decline/merge |
 
 For new studies, `/api/submit` requires `proposalIssue`, accepts only the canonical study Markdown, verifies `proposal-approved`, and checks the signed-in user owns the proposal issue. Existing studies resolve through `Studies/companion-artifacts.json`, not the contributor's issue history, and may submit `artifactType: "study"`, `"note"`, or `"presentation"`. Selecting an existing note or presentation preserves its mapped destination filename even if the local replacement has a different name. A previously unknown presentation source is also added to `Scripts/presentation-pipeline.json`, with collision-safe output names, so presentation CI validates it. Markdown is limited to 2 MB and normalized to LF; base64-decoded presentations are limited to 10 MB. PR bodies include `Portal-GitHub: @login` so submissions can be correlated in search. GitHub PR search remains only as a concurrency guard that prevents two open updates from changing the same study at once.
+
+`/api/delete-artifact` accepts only studies shown in the signed-in contributor's dashboard and only note/presentation filenames present in the durable artifact registry. It deletes a single mapped companion source on the PR branch, unregisters a deleted deck from the presentation pipeline, and removes a note's generated HTML reader when present. Whole-study requests add a short-lived marker that study PR CI recognizes and fulfills through `Scripts/_remove_study.py`, keeping catalogs, proposal metadata, References, and presentation registrations synchronized. No deletion reaches the published branch until a maintainer merges the PR.
 
 ## Email notifications (optional)
 

@@ -412,6 +412,55 @@ async function ensurePresentationManifested(artifact, branchName, env) {
   return true;
 }
 
+async function deleteRepositoryFile(filePath, branchName, env, stats, { required = true } = {}) {
+  let fileData;
+  try {
+    fileData = await githubRequest(`/contents/${filePath}?ref=${branchName}`, 'GET', null, env, null, stats);
+  } catch (error) {
+    if (!required) return false;
+    throw new Error(`Could not find ${filePath} on the deletion branch.`);
+  }
+  await githubRequest(`/contents/${filePath}`, 'DELETE', {
+    message: `Delete ${filePath.split('/').pop()} via Web Portal`,
+    branch: branchName,
+    sha: fileData.sha,
+  }, env, null, stats);
+  return true;
+}
+
+async function removePresentationManifestEntries(matchesSource, branchName, env, stats) {
+  const manifestPath = 'Scripts/presentation-pipeline.json';
+  const fileData = await githubRequest(`/contents/${manifestPath}?ref=${branchName}`, 'GET', null, env, null, stats);
+  let manifest;
+  try {
+    manifest = JSON.parse(decodeBase64Content(fileData.content));
+  } catch (error) {
+    throw new Error('Could not read the presentation pipeline manifest.');
+  }
+  if (!Array.isArray(manifest.decks)) {
+    throw new Error('The presentation pipeline manifest has no decks list.');
+  }
+  const before = manifest.decks.length;
+  manifest.decks = manifest.decks.filter((deck) => !matchesSource(String(deck.source || '')));
+  if (manifest.decks.length === before) return 0;
+  const removed = before - manifest.decks.length;
+  await githubRequest(`/contents/${manifestPath}`, 'PUT', {
+    message: `Remove ${removed} deleted presentation${removed === 1 ? '' : 's'} from pipeline`,
+    content: btoa(unescape(encodeURIComponent(JSON.stringify(manifest, null, 2) + '\n'))),
+    branch: branchName,
+    sha: fileData.sha,
+  }, env, null, stats);
+  return removed;
+}
+
+async function assertStudyOwnedBySession(session, slug, env) {
+  const dashboard = await buildDashboard(session, env);
+  if (dashboard.submissions.some((item) => item.slug === slug)) return;
+  const error = new Error(`"${slug}" is not one of your submissions.`);
+  error.status = 403;
+  throw error;
+}
+
 async function runPool(items, limit, worker) {
   const results = new Array(items.length);
   let index = 0;
@@ -1732,6 +1781,135 @@ router.post('/api/submit', async (request, env) => {
       });
     } catch (innerErr) {
       await deleteBranchQuietly(branchName, env);
+      throw innerErr;
+    }
+  } catch (err) {
+    return jsonResponse(request, env, { success: false, error: err.message }, err.status || 500);
+  }
+});
+
+router.post('/api/delete-artifact', async (request, env) => {
+  try {
+    const session = requireSession(await getSession(request, env));
+    const data = await request.json();
+    await verifyTurnstile(data.turnstileToken, env, request);
+
+    const slug = String(data.slug || '').trim();
+    const artifactType = String(data.artifactType || '').trim().toLowerCase();
+    const fileName = String(data.fileName || '').trim();
+    if (!/^[A-Za-z0-9-]+$/.test(slug) || slug.length > MAX_SLUG_LEN) {
+      throw validationError('Invalid study slug.');
+    }
+    if (!SUBMISSION_ARTIFACT_TYPES.has(artifactType)) {
+      throw validationError('Choose a study, note, or presentation to delete.');
+    }
+
+    const stats = { githubRequests: 0 };
+    const registry = await fetchCompanionArtifacts(env, stats);
+    const mappedStudy = companionStudy(registry, slug);
+    if (!mappedStudy) {
+      throw validationError(`No editable study found for "${slug}".`);
+    }
+    await assertStudyOwnedBySession(session, slug, env);
+
+    let targetName = `${slug}.md`;
+    if (artifactType === 'note' || artifactType === 'presentation') {
+      targetName = validateCompanionFilename(artifactType, fileName);
+      const registered = artifactType === 'note' ? mappedStudy.notes : mappedStudy.presentations;
+      if (!Array.isArray(registered) || !registered.includes(targetName)) {
+        throw validationError(`"${targetName}" is not registered for "${slug}".`);
+      }
+    }
+
+    const prSearch = await githubSearch(
+      `repo:${REPO} is:pr is:open label:new-study,study-update,status-change`,
+      env,
+      session.accessToken,
+      stats
+    );
+    assertNoOpenStudyPr(slug, buildOpenStudyPrIndex(prSearch.items));
+    assertNoOpenStatusChangePr(slug, buildOpenStatusChangeIndex(prSearch.items));
+
+    const root = mappedStudy.root === 'Applications' ? 'Applications' : 'Studies';
+    const directory = `${root}/${slug}`;
+    const branchName = `deletion-${slug}-${Date.now()}`;
+    const base = defaultBranch(env);
+    const baseRef = await githubRequest(`/git/refs/heads/${base}`, 'GET', null, env, null, stats);
+    await githubRequest('/git/refs', 'POST', {
+      ref: `refs/heads/${branchName}`,
+      sha: baseRef.object.sha,
+    }, env, null, stats);
+
+    try {
+      if (artifactType === 'study') {
+        const markerPath = `${directory}/.portal-delete-study.json`;
+        const marker = JSON.stringify({ schemaVersion: 1, slug, requestedBy: session.login }, null, 2) + '\n';
+        await githubRequest(`/contents/${markerPath}`, 'PUT', {
+          message: `Request deletion of ${slug} via Web Portal`,
+          content: btoa(unescape(encodeURIComponent(marker))),
+          branch: branchName,
+        }, env, null, stats);
+        const prefix = `${directory}/`.toLowerCase();
+        await removePresentationManifestEntries(
+          (source) => source.toLowerCase().startsWith(prefix),
+          branchName,
+          env,
+          stats
+        );
+      } else {
+        const filePath = `${directory}/${targetName}`;
+        await deleteRepositoryFile(filePath, branchName, env, stats);
+        if (artifactType === 'note') {
+          await deleteRepositoryFile(filePath.replace(/\.md$/i, '.html'), branchName, env, stats, { required: false });
+        } else {
+          const expectedSource = filePath.toLowerCase();
+          await removePresentationManifestEntries(
+            (source) => source.toLowerCase() === expectedSource,
+            branchName,
+            env,
+            stats
+          );
+        }
+      }
+
+      const operation = `delete-${artifactType}`;
+      const summary = artifactType === 'study'
+        ? `Remove the complete study \`${slug}\` and all files in its study directory.`
+        : `Remove ${artifactType} \`${targetName}\` from \`${slug}\`.`;
+      const prBody = [
+        `Study slug: ${slug}`,
+        `Operation: ${operation}`,
+        artifactType === 'study' ? '' : `Artifact: ${targetName}`,
+        `Portal-GitHub: @${session.login}`,
+        '',
+        '### Summary of changes',
+        '',
+        summary,
+        '',
+        'Requested through My Submissions. Deletion requires maintainer approval.',
+      ].filter((line, index, lines) => line || lines[index - 1] !== '').join('\n');
+      const title = artifactType === 'study'
+        ? `Remove study: ${slug}`
+        : `Remove ${artifactType}: ${targetName}`;
+      const pr = await githubRequest('/pulls', 'POST', {
+        title,
+        head: branchName,
+        base,
+        body: prBody,
+      }, env, null, stats);
+      await githubRequest(`/issues/${pr.number}/labels`, 'POST', {
+        labels: ['study-update'],
+      }, env, null, stats);
+
+      return jsonResponse(request, env, {
+        success: true,
+        url: pr.html_url,
+        number: pr.number,
+        artifactType,
+        fileName: targetName,
+      });
+    } catch (innerErr) {
+      await deleteBranchQuietly(branchName, env, stats);
       throw innerErr;
     }
   } catch (err) {

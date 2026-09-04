@@ -81,6 +81,10 @@ directory is gone, `proposal-registry.json` no longer lists it, and no Markdown
 link still targets it). Moving a figure/companion file between directories is
 not a rename. Rename CI passes the catalog display title to the metadata script
 and has `issues: write`, so both the proposal issue body and title stay aligned.
+Whole-study deletion requests from My Submissions carry `Operation: delete-study`
+and a marker inside the target directory. The handler runs `_remove_study.py --yes`
+before normal removal verification; the marker disappears with the directory and
+CI commits the resulting catalog, proposal-registry, and References cleanup.
 
 `new-study` and `status-change` are single-purpose handlers: if their diff also
 touches another study directory, the router rejects the PR and directs the
@@ -228,6 +232,11 @@ checksum comparison. Worker code first deploys to the isolated
 before the production script is updated.
 
 Publication is checksum-driven and idempotent: matching R2 objects are skipped.
+After a protected-branch push publishes the current inventory, the workflow derives
+retired PDF keys from deleted Markdown/PPTX sources in that exact Git diff, excludes
+any output key still present in the live inventory, and deletes only those objects.
+This makes an approved portal deletion remove the old public PDF without broad stale-
+bucket cleanup; manual dispatches never perform source-diff deletion.
 The workflow never commits generated PDFs. Approved immutable reference PDFs are
 ignored and served from R2; rights-review PDFs and the two active translation source
 PDFs remain Git-tracked until their manifest policy changes.

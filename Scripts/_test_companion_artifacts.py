@@ -13,6 +13,7 @@ from _common import BASE
 from _companion_artifacts import OUTPUT, build_registry, render_registry
 
 SUBMISSIONS_PAGE = BASE / "Studies" / "submit.html"
+SUBMISSIONS_WORKER = BASE / "infra" / "worker" / "src" / "index.js"
 
 
 def test_checked_in_registry_matches_repository() -> None:
@@ -50,10 +51,24 @@ def test_my_submissions_groups_updates_inside_each_study_card() -> None:
     assert "Update existing study files" not in page
     assert 'class="submission-files"' in page
     assert "function renderSubmissionFiles(item)" in page
+    assert "Manage files" in page
+    assert "Edit, add or delete" in page
     assert "artifactUpdateUrl(item.slug, 'note', '__new__')" in page
     assert "artifactUpdateUrl(item.slug, 'presentation', '__new__')" in page
+    assert "function inlineDeleteArtifact(" in page
+    assert "'/api/delete-artifact'" in page
+    assert "Type the study slug to confirm deletion" in page
     assert "isDashboard || isUpdate" in page
     assert "'Replace a presentation'" in page
+
+
+def test_deletion_endpoint_is_registry_and_owner_guarded() -> None:
+    worker = SUBMISSIONS_WORKER.read_text(encoding="utf-8")
+    assert "router.post('/api/delete-artifact'" in worker
+    assert "await assertStudyOwnedBySession(session, slug, env)" in worker
+    assert "!registered.includes(targetName)" in worker
+    assert "assertNoOpenStudyPr(slug" in worker
+    assert "Operation: ${operation}" in worker
 
 
 def main() -> int:
