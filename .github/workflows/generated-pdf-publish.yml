@@ -121,6 +121,12 @@ concurrency:
 
 jobs:
   pdfs:
+    # Portal PRs are already regenerated and verified by study-pr.yml. The
+    # portal marker is present when the PR is opened, before its study label is
+    # applied, so it avoids racing the separate `labeled` workflow event.
+    if: >-
+      github.event_name != 'pull_request' ||
+      !contains(github.event.pull_request.body, 'Portal-GitHub: @')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout complete history
